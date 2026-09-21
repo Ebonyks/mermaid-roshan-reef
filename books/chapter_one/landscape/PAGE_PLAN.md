@@ -40,3 +40,7 @@ Status: `SUPPORTING_CURRENT`; v20 art-direction rough. 32 story pages plus cover
 Front cover: unified rendered Pearl Castle composition, title kept in quiet upper-right blue space. Back cover unchanged.
 
 Quality selection: `background_quality_audit.json` grades every page; page21 and five other strong stationery sources retained exactly. `art_personality_evidence.json` records generation attempts, rejected scale trials, prompts/hashes, source references and visible bounds. These are review candidates, not final publication acceptance.
+
+## V21 identity and source-quality corrections
+
+Pages 20, 26 and 31 use large transparent restorations of their original Roshan gestures. Page 3 exposes only a repaired upper-wall strip over the original dirty-castle entry. Pages 17 and 18 are owner-commissioned rescue replacements: exactly two canonical cloud bunnies pin Baby Eagle, then release the wings; grey legs and black-tipped pink wings remain visible. All other pages, including the finale, retain V20 artwork. Native source density caused the former soft poses, not PDF compression. These are review candidates; owner acceptance remains open.

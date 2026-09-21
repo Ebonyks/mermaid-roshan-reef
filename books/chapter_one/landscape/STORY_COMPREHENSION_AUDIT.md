@@ -102,3 +102,7 @@ V16 execution: the reviewed border score is now implemented on the twelve remain
 V18 action-clarity follow-up supersedes the earlier p6/p23 diagnoses where noted: p6 now includes the complete existing sink silhouette and star sponge at its rim, so the target is visible. Hand contact remains unillustrated. P23 now says “A splash of colour. Her very own choice!”, matching visible paint selection without claiming a finished picture. No new scene or raster art was generated. See `action_clarity_evidence.json` for inspected sources and verification.
 
 V19 rescue-legibility audit: p17/18 captions no longer cross ceiling fixtures. One short line per page sits in the clear floor band, with the original canonical rescue art unchanged. Two bunnies and Roshan’s reassurance remain explicit. `goal_requirements_audit.json` separates proven rough-delivery facts from open source, print and owner/child acceptance requirements; it does not claim completion or resume stopped handoff searches.
+
+## V21 rescue identity correction
+
+The owner rejected the former rescue identities, superseding the earlier assessment. New pages17/18 show two cloud puffs pinning Eagle wings followed by release and standing. The castle wall repair preserves entry/cleanup setup. Roshan gesture restorations on20/26/31 preserve the existing manuscript and pacing. Final owner/child acceptance remains open.

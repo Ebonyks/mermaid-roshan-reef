@@ -110,6 +110,53 @@
       "alpha": false
     },
     {
+      "page": 3,
+      "source_key": "castle_wall_repair",
+      "file": "art/identity_v21/castle_wall_repair.png",
+      "sha256": "88c713f27bce067642a9ba9ca216339094e6707021d010bb12e2a03194b32fc8",
+      "native_size": [
+        1672,
+        941
+      ],
+      "source_box_pixels": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "target_box_points": [
+        -0.0,
+        0.0,
+        639.6599362380447,
+        360.0
+      ],
+      "operation": "bounded_inpaint_polygon",
+      "role": "story_art",
+      "alpha": false,
+      "clip_reference_size": [
+        1672,
+        941
+      ],
+      "clip_polygon_source_pixels": [
+        [
+          0,
+          105
+        ],
+        [
+          1672,
+          105
+        ],
+        [
+          1672,
+          240
+        ],
+        [
+          0,
+          240
+        ]
+      ]
+    },
+    {
       "page": 4,
       "source_key": "rollout_border_4",
       "file": "art/border_rollout/page_04.png",
@@ -685,23 +732,23 @@
     },
     {
       "page": 17,
-      "source_key": "pinned",
-      "file": "../archive/rough_v5/art/pinned.png",
-      "sha256": "417e3a44f098f49ca7ca94786b4d1f243ef0147f94df56712f8f312f94c2772a",
+      "source_key": "rescue_trapped",
+      "file": "art/identity_v21/rescue_trapped.png",
+      "sha256": "1a2444c7dbb07f632d1b173a5422b971531fd23621f840e6685bdecf949b1f98",
       "native_size": [
-        1280,
-        720
+        1484,
+        1060
       ],
       "source_box_pixels": [
         0,
         0,
-        1280,
-        720
+        1484,
+        1060
       ],
       "target_box_points": [
-        -68.0,
+        2.842170943040401e-14,
         0.0,
-        640.0,
+        503.99999999999994,
         360.0
       ],
       "operation": "page_trim",
@@ -710,23 +757,23 @@
     },
     {
       "page": 18,
-      "source_key": "loose",
-      "file": "../archive/rough_v5/art/loose.png",
-      "sha256": "8aa92304a86d8b5795058e29349c91fc4b7e919c72cab691341dfed2b8e96aa3",
+      "source_key": "rescue_release",
+      "file": "art/identity_v21/rescue_release.png",
+      "sha256": "f08ce2cec47ecd1deae46af7438e9ac124a9f4b39dc245df8c328e02dc2bfdb4",
       "native_size": [
-        1280,
-        720
+        1484,
+        1060
       ],
       "source_box_pixels": [
         0,
         0,
-        1280,
-        720
+        1484,
+        1060
       ],
       "target_box_points": [
-        -68.0,
+        2.842170943040401e-14,
         0.0,
-        640.0,
+        503.99999999999994,
         360.0
       ],
       "operation": "page_trim",
@@ -810,23 +857,23 @@
     },
     {
       "page": 20,
-      "source_key": "roshan_inviting",
-      "file": "art/repo_details_v17/roshan_gestures.png",
-      "sha256": "d7d7d78d68311e5d4285aada7a306c555dba985a06145dea2bcb611ea4e2409e",
+      "source_key": "roshan_wave_large",
+      "file": "art/identity_v21/roshan_wave_large.png",
+      "sha256": "ba50ca0bee70762120f7986ee8557654cc6e45be4ab2c006ee5791e2329486fc",
       "native_size": [
         1024,
-        1024
+        1536
       ],
       "source_box_pixels": [
-        97,
-        17,
-        237,
-        251
+        0,
+        32,
+        987,
+        1464
       ],
       "target_box_points": [
-        104.38461538461539,
+        94.56145251396647,
         55.0,
-        129.23076923076923,
+        148.87709497206706,
         216.0
       ],
       "operation": "source_region",
@@ -1110,23 +1157,23 @@
     },
     {
       "page": 26,
-      "source_key": "roshan_dodging",
-      "file": "art/repo_details_v17/roshan_gestures.png",
-      "sha256": "d7d7d78d68311e5d4285aada7a306c555dba985a06145dea2bcb611ea4e2409e",
+      "source_key": "roshan_dodge_large",
+      "file": "art/identity_v21/roshan_dodge_large.png",
+      "sha256": "56ce7b4a48e5e956145b193503052f08e6128e16d2be69c5aac61add817cf4c0",
       "native_size": [
         1024,
-        1024
+        1536
       ],
       "source_box_pixels": [
-        787,
-        26,
-        963,
-        250
+        49,
+        36,
+        1012,
+        1472
       ],
       "target_box_points": [
-        72.17857142857143,
+        82.48015320334261,
         75.0,
-        140.64285714285714,
+        120.03969359331477,
         179.0
       ],
       "operation": "source_region",
@@ -1385,23 +1432,23 @@
     },
     {
       "page": 31,
-      "source_key": "roshan_reflecting",
-      "file": "art/repo_details_v17/roshan_gestures.png",
-      "sha256": "d7d7d78d68311e5d4285aada7a306c555dba985a06145dea2bcb611ea4e2409e",
+      "source_key": "roshan_reflect_large",
+      "file": "art/identity_v21/roshan_reflect_large.png",
+      "sha256": "f8b13e20e329c1f07fc284a980c53af512e8596c28a945c2e4976d5eb52c64fb",
       "native_size": [
         1024,
-        1024
+        1536
       ],
       "source_box_pixels": [
-        559,
-        521,
-        697,
-        728
+        65,
+        0,
+        1004,
+        1493
       ],
       "target_box_points": [
-        274.3333333333333,
+        278.21969189551237,
         55.0,
-        137.33333333333334,
+        129.5606162089752,
         206.0
       ],
       "operation": "source_region",
@@ -1548,7 +1595,7 @@
     },
     {
       "page": 1,
-      "text": "\u201cLook, Daddy!",
+      "text": "“Look, Daddy!",
       "box": [
         278,
         70.798,
@@ -1560,7 +1607,7 @@
     },
     {
       "page": 1,
-      "text": "Pearl Castle!\u201d",
+      "text": "Pearl Castle!”",
       "box": [
         278,
         47.397999999999996,
@@ -1620,7 +1667,7 @@
     },
     {
       "page": 3,
-      "text": "\u201cLet\u2019s clean it together!\u201d",
+      "text": "“Let’s clean it together!”",
       "box": [
         205,
         265.99800000000005,
@@ -1632,7 +1679,7 @@
     },
     {
       "page": 4,
-      "text": "\u201cOne little job at a time,\u201d said Daddy.",
+      "text": "“One little job at a time,” said Daddy.",
       "box": [
         108.78299999999999,
         310.798,
@@ -1920,7 +1967,7 @@
     },
     {
       "page": 15,
-      "text": "\u201cThank you for helping!\u201d said Rumi.",
+      "text": "“Thank you for helping!” said Rumi.",
       "box": [
         116.49599999999998,
         31.798000000000002,
@@ -1932,7 +1979,7 @@
     },
     {
       "page": 16,
-      "text": "A tiny chirp! \u201cSomeone needs help!\u201d",
+      "text": "A tiny chirp! “Someone needs help!”",
       "box": [
         112.374,
         28.798000000000002,
@@ -1944,7 +1991,7 @@
     },
     {
       "page": 17,
-      "text": "Two dust bunnies trapped Baby Eagle. \u201cI\u2019ll help!\u201d",
+      "text": "Two dust bunnies trapped Baby Eagle. “I’ll help!”",
       "box": [
         64.05299999999997,
         26.298000000000002,
@@ -2028,7 +2075,7 @@
     },
     {
       "page": 20,
-      "text": "\u201cCome with me, Baby Eagle!\u201d",
+      "text": "“Come with me, Baby Eagle!”",
       "box": [
         138.212,
         287.398,
@@ -2340,7 +2387,7 @@
     },
     {
       "page": 31,
-      "text": "\u201cWe helped each other,\u201d said Roshan.",
+      "text": "“We helped each other,” said Roshan.",
       "box": [
         107.26199999999997,
         310.798,
@@ -2352,7 +2399,7 @@
     },
     {
       "page": 31,
-      "text": "\u201cAnd found a friend hiding under all that dust!\u201d",
+      "text": "“And found a friend hiding under all that dust!”",
       "box": [
         70.72199999999998,
         287.398,
@@ -2424,7 +2471,7 @@
     },
     {
       "page": "back_cover",
-      "text": "Landscape review edition \u2022 Chapter One",
+      "text": "Landscape review edition • Chapter One",
       "box": [
         164.805,
         22.11,

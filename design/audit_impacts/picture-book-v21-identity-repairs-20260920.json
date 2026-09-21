@@ -1,0 +1,70 @@
+{
+  "id": "picture-book-v21-identity-repairs-20260920",
+  "baseline": "d5fd3e31f288e583665804d0cd6f82e05a2f1b5a",
+  "scope": "Six-page static-book repair: restore tiny Roshan poses20/26/31, bounded dirty-castle wall3, owner-commissioned rescue17/18 regeneration. Finale27-30 preserved. No game changes.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static picture-book owner-reported defects, not game master-audit closure.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "books/chapter_one/DESIGN_LANGUAGE.md",
+    "books/chapter_one/landscape/PAGE_PLAN.md",
+    "books/chapter_one/landscape/REVIEW.md",
+    "books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md",
+    "books/chapter_one/landscape/art/identity_v21/castle_wall_repair.png",
+    "books/chapter_one/landscape/art/identity_v21/rescue_release.png",
+    "books/chapter_one/landscape/art/identity_v21/rescue_trapped.png",
+    "books/chapter_one/landscape/art/identity_v21/roshan_dodge_large.png",
+    "books/chapter_one/landscape/art/identity_v21/roshan_reflect_large.png",
+    "books/chapter_one/landscape/art/identity_v21/roshan_wave_large.png",
+    "books/chapter_one/landscape/audit_book.py",
+    "books/chapter_one/landscape/book.json",
+    "books/chapter_one/landscape/delivery_verification.json",
+    "books/chapter_one/landscape/goal_requirements_audit.json",
+    "books/chapter_one/landscape/identity_repair_evidence.json",
+    "books/chapter_one/landscape/identity_repair_jobs.json",
+    "books/chapter_one/landscape/layout_evidence.json",
+    "books/chapter_one/landscape/package_book.py",
+    "books/chapter_one/landscape/render_book.py",
+    "books/chapter_one/landscape/stress_review.json",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "audit_book.py --proof v21_identity_repairs/complete --baseline v7_landscape/complete",
+      "result": "PASS",
+      "evidence": "34 pages,77 text lines,58 image operations; stress_results.json."
+    },
+    {
+      "command": "Native identity review and six-page PDF visual review; tmp/verify_v21.py",
+      "result": "PASS",
+      "evidence": "identity_repair_evidence.json: Roshan477.3/577.6/521.8ppi; all28 untouched pages match V20; castle original pixels outside wall repair match exactly."
+    },
+    {
+      "command": "Independent portable source rebuild",
+      "result": "PASS",
+      "evidence": "delivery_verification.json:96 verified payloads;34 identical rebuilt page renders; final metadata-only seal preserves all rendering inputs."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH RESULT ALL OK;579 ledger documents."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV RESULT ALL OK; automatic base5920c673305989ee29d91876480ff445dba9fc8b; task baseline remains d5fd3e31f288e583665804d0cd6f82e05a2f1b5a."
+    }
+  ],
+  "acceptance_gaps": "Owner/child/print acceptance pending; original protected assets preserved."
+}

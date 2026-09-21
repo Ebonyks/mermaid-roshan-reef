@@ -78,7 +78,7 @@ def main():
  forbidden={'hug','eagle','playroom','rescue_isolated','release_cut','window_wide'}
  if forbidden & {layer['source_key'] for layer in p['layers']}:issues.append('Rejected identity/isolation source still used.')
  if pages[3]['art']!=['dirty_hall_entry'] or 'clean it together' not in pages[3]['text']:issues.append('Dirty-castle/setup regression.')
- for n,key in [(17,'pinned'),(18,'loose'),(27,'R09_open'),(28,'R09_suds'),(29,'R10_jump'),(30,'R11_land')]:
+ for n,key in [(17,'rescue_trapped'),(18,'rescue_release'),(27,'R09_open'),(28,'R09_suds'),(29,'R10_jump'),(30,'R11_land')]:
   if pages[n]['art']!=[key]:issues.append(f'Canonical rescue/finale order mismatch: page {n}.')
  if pages[23].get('art_crop')!=[420,90,1280,704]:issues.append('Noncanonical paint crown has not been excluded.')
  results={'mechanical_status':'FAIL' if issues else 'PASS','issues':issues,'story_pages_checked':32,'pdf_pages_checked':34,'text_lines_checked':len(p['text_lines']),'image_operations_checked':len(p['layers']),'contextual_cutout_pages':sum(q['mode']=='C' for q in b['pages']),'unique_border_assignments':len({tuple(q.get('integrated_motifs',q['border_assets'])) for q in b['pages'] if q['mode']=='C'}),'unique_decorative_props':len(counts),'maximum_prop_repetition':max(counts.values(),default=0),'scope':'Geometry, source hashes, selected-source exclusions, contextual assignments, manually annotated visible border bounds, and manual focal-zone intersections. Integrated shadow/occlusion and exact prop pixel preservation are not measured. Not automatic character-identity, contrast or publication acceptance.','visual_verdict':review['revision_verdict'],'open_findings':review['open_findings']}

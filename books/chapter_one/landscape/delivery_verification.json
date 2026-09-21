@@ -1,9 +1,9 @@
 {
   "status": "PASS",
-  "verified_payload_files": 91,
+  "verified_payload_files": 96,
   "matching_page_renders": 34,
-  "archive_sha256": "92d9c070bc6fbe59e9713d7c54ace9e13637c65714f0ae182bcc55e9a468f22c",
-  "pdf_sha256": "ec26b3463cae00e6783a97ceadd239a1c09ec619c4fc6260d90b41fb1fa55b57",
+  "archive_sha256": "56893ddfafc54833cbae35eed9cf17740809bb14d321ee81751cbd049064a5ad",
+  "pdf_sha256": "e160c077a480ca27a1f5c991d968ca9f79f790716ecc2af83d4b671b49a3bb35",
   "pdf_pages": 34,
   "page_size_points": [
     504,
@@ -27,7 +27,7 @@
         18
       ],
       "severity": "P2",
-      "issue": "Visible Eagle identity cues reviewed in both original rescue frames: no confirmed contradiction in crest, beak colours, cheek patch, wing colours or grey feet. Small detail and occluded leg proportions do not establish exact fidelity; owner acceptance remains open."
+      "issue": "Previous rescue identity assessment superseded by owner rejection. V21 replaces both shots using approved Eagle/cloud-bunny references; final owner identity acceptance remains open."
     },
     {
       "id": "BK-ST-OPEN-03",
@@ -95,14 +95,9 @@
       "issue": "Owner-commissioned rendered cover and bubble-nap epilogue implemented and visually inspected; final character/style/print acceptance remains open."
     }
   ],
-  "metadata_only_package_reverification": {
-    "status": "PASS",
-    "prior_independently_rebuilt_archive_sha256": "fd0118633db01f236bc4a782282aa6b3810b324a39b9e2ba2e9758e2f7486e00",
-    "changed_payloads": [
-      "goal_requirements_audit.json"
-    ],
-    "payload_hashes_checked": 91,
-    "render_inputs_identical": true,
-    "evidence": "All91 payload hashes verified; only goal_requirements_audit.json differs from the extracted independently rebuilt v20 package. Renderer, book,54 source keys,font and delivered provenance unchanged. Prior34 byte-identical page rebuild remains applicable."
-  }
+  "metadata_seal_changes": [
+    "Mermaid_Roshan_Editable/asset_manifest.json",
+    "Mermaid_Roshan_Editable/goal_requirements_audit.json"
+  ],
+  "rendering_inputs_identical_to_independent_rebuild": true
 }

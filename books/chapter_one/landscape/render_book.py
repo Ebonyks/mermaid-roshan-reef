@@ -30,7 +30,7 @@ def full(k,anchor=.5):
  iw,ih=Image.open(path(k)).size;s=max(W/iw,H/ih);record(k,(0,0,iw,ih),((W-iw*s)*anchor,(H-ih*s)/2,iw*s,ih*s),'page_trim');c.saveState();cliprect(0,0,W,H);c.drawImage(str(path(k)),(W-iw*s)*anchor,(H-ih*s)/2,width=iw*s,height=ih*s);c.restoreState()
 def local_patch(p):
  # The original full-art frame remains the base. Only this irregular lane is exposed.
- q=p['local_patch'];k=q['source'];rw,rh=q['reference_size'];s=max(W/rw,H/rh);ox=(W-rw*s)/2;oy=(H-rh*s)/2
+ q=p['local_patch'];k=q['source'];rw,rh=q['reference_size'];s=max(W/rw,H/rh);ox=(W-rw*s)*q.get('anchor',.5);oy=(H-rh*s)/2
  im=Image.open(path(k));iw,ih=im.size
  c.saveState();cliprect(0,0,W,H);shape=c.beginPath()
  for i,(x,y) in enumerate(q['polygon']):
