@@ -1,0 +1,45 @@
+{
+  "id": "iko-iko-v89-publication-20260920",
+  "scope": "Owner-authorized GitHub release of selected standalone song v89: exact WAV/MP3 and collected REAPER source as release assets; tracked archive index, hash/dependency manifest and provenance. No game runtime audio replacement, unrelated workspace changes or credentials published.",
+  "baseline": "8925060fbbb321854d9fb4c04e27c875b0cad10b",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-09",
+    "DL-ASSET-04"
+  ],
+  "findings": [],
+  "no_findings_reason": "Separate song preservation/publication, not a repair to runtime audio findings.",
+  "files": [
+    "assets_src/audio/music/iko_iko_v89/README.md",
+    "assets_src/audio/music/iko_iko_v89/manifest.json",
+    "ASSET_LICENSES.md",
+    "design/05_DOC_LEDGER.md",
+    ".gitattributes"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH:574 inventory/574 ledger,56 active/58 records, ALL OK (2026-09-20)."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV auto base5920c673305989ee29d91876480ff445dba9fc8b ALL OK (2026-09-20)."
+    },
+    {
+      "command": "Archive content hashes and portable media-reference check",
+      "result": "PASS",
+      "evidence": "ZIP CRC, every internal payload SHA-256, every relative FILE reference and all6 custom FX dependencies verified; all3 delivery asset hashes match selected v89."
+    },
+    {
+      "command": "Remote release-asset download and SHA-256 comparison",
+      "result": "PENDING",
+      "evidence": "Required before reporting uploaded."
+    }
+  ],
+  "acceptance_gaps": "v89 selected final for tonight. Song archive is not licensed/approved runtime game music. Proprietary instrument dependencies remain external; cross-machine plugin reactivation and relinking not tested."
+}

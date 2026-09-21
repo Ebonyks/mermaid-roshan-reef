@@ -24,3 +24,6 @@ assets/audio/voices/filler_v1/GRAND_PUFF_COHORT_20260912.json -text whitespace=c
 
 # Literal external-reference packet hashes must survive Windows/Linux checkouts.
 assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/** -text whitespace=cr-at-eol
+
+# Preserve literal hashes and packet text for the separate v89 song archive.
+assets_src/audio/music/iko_iko_v89/** -text
