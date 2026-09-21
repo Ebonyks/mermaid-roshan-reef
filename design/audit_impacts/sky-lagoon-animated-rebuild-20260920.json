@@ -1476,7 +1476,19 @@
     "scripts/probe_sky_lagoon_water_highlights.gd",
     "scripts/probe_sky_lagoon_whole_scene.gd",
     "scripts/probe_throne.gd",
-    "shaders/sky_lagoon_water_clip.gdshader"
+    "shaders/sky_lagoon_water_clip.gdshader",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v3/build_review.py",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v3/AUDIT.json",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v3/index.html",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v3/day-night-board.jpg",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v3/material-comparison.jpg",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v3/temporal-extremes.jpg",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v3/arrival_day.png",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v3/arrival_night.png",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v3/meadow_day.png",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v3/meadow_night.png",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v3/castle_day.png",
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v3/castle_night.png"
   ],
   "validation": [
     {
@@ -1813,6 +1825,11 @@
       "command": "Reproduce berry eight-cel source in isolated scratch directory",
       "result": "PASS",
       "evidence": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/berry_restyle/REPRODUCTION_RESULT.json: all8cel PNGs and the runtime atlas reproduced byte-for-byte from packaged author.lua and rest source."
+    },
+    {
+      "command": "Current 07dde8dd six-view material and animation-cell color audit",
+      "result": "PASS",
+      "evidence": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v3/AUDIT.json and index.html: 48 material locations across six current Mobile baseline views, 46 source atlases and 240 played cell slots. Agent reviewed six-view board and twelve largest temporal-range pairs; diagnostics are not acceptance. Reproducible review-only output, no runtime changes. Documentation-authority and development-coverage gates pass."
     }
   ],
   "acceptance_gaps": "Owner explicitly rejects d90936b candidate at 3.5/5: partial tree motion, static painted grass/background and cloud field. Whole-scene coverage revision is in progress. Device and child evidence remain missing; no 4.9 quality claim."
