@@ -1900,7 +1900,8 @@
     "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/color_review_v6/.gitattributes",
     "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/lawn_material_v6/.gitattributes",
     "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/ambient_motion_v3/motion_quarantine_v7/.gitattributes",
-    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/runtime_evidence/.gitattributes"
+    "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/runtime_evidence/.gitattributes",
+    "assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20_PUBLICATION.json"
   ],
   "validation": [
     {
@@ -2307,6 +2308,11 @@
       "command": "Retired approach-bank path interior ownership diagnostic",
       "result": "FAIL",
       "evidence": "motion_quarantine_v7/path-RESULT.json: retired candidate changes793 pixels in marked10px path corridor, max56codes. It is now disabled; source-space diagnostic is not actual Godot GPU proof."
+    },
+    {
+      "command": "Immutable GitHub handoff publication verification",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/sky_lagoon_whole_plant_grok_v4_2026-09-20_PUBLICATION.json: commit194945e976c96955d22e00137b7311ab55392c91, all53remote files HTTP200 and SHA256exact. ARCHIVE_COMPLETE=true; GENERATION_READY=false; DELIVERY_ACCEPTED=false. No runtime changes in this verification-only follow-up."
     }
   ],
   "acceptance_gaps": "Owner explicitly rejects d90936b candidate at 3.5/5: partial tree motion, static painted grass/background and cloud field. Whole-scene coverage revision is in progress. Device and child evidence remain missing; no 4.9 quality claim."
