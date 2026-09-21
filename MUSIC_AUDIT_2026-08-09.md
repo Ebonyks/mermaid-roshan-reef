@@ -12,6 +12,8 @@
 > Historical 42/42 verification statements below remain dated evidence for the
 > original rollout rather than claims about this later cue.
 
+> **2026-09-20 authoring direction:** The owner prefers REAPER, VST instruments/effects and recorded performances for future commissioned music. Follow the [production workflow](design/audio/REAPER_MUSIC_PRODUCTION_WORKFLOW.md) and [cue worksheet](design/templates/MUSIC_CUE_WORKSHEET.md). Existing synthesized cues and their rebuild evidence are retained; this documentation does not replace runtime music. A supported external-render ingestion lane is still required before DAW-authored cues can enter the current builder/manifest contract. Delivery, licensing, loop, dialogue, device and human acceptance gates remain unchanged. Grindcore is a scoped Ember King/Prince musical direction, not the general score default.
+
 ## 1. Purpose and audience
 
 This is the human-readable source of truth for how music should work in *Mermaid Roshan: Reef of Light*. It is for the owner, composers, audio implementers, reviewers, and future maintainers who need to understand both the feeling of the score and the reasons behind the file-and-code decisions.
