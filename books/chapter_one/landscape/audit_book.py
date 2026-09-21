@@ -29,6 +29,12 @@ def main():
     if layer['page']==page['page'] and layer['role']=='story_art' and overlap(line['box'],layer['target_box_points']):issues.append(f"Page {page['page']}: text intersects foreground bounding box.")
  for page in b['pages']:
   n=page['page']
+  if page.get('narrative_border_dialogue') and n!=19:issues.append(f'Page {n}: speaking-character margin exception is only commissioned for19.')
+  for balloon in page.get('speech_bubbles',[]):
+   x,y,w,h=balloon['box'];tx,ty=balloon['tail']
+   if x<24 or y<24 or x+w>480 or y+h>336 or not (24<=tx<=480 and 24<=ty<=336):issues.append(f'Page {n}: speech balloon outside safety inset.')
+   for layer in p['layers']:
+    if layer['page']==n and layer['role']=='story_art' and overlap(balloon['box'],layer['target_box_points']):issues.append(f'Page {n}: speech balloon covers foreground artwork.')
   if page['mode']=='C':
    if not page.get('integrated_background') and not page['border_assets']:issues.append(f'Page {n}: no contextual background assignment.')
    if page.get('integrated_background'):
@@ -42,7 +48,7 @@ def main():
     if len(actual)!=1 or actual[0]['source_key']!=page['integrated_background']:issues.append(f'Page {n}: integrated background source mismatch.')
     for box in page.get('integrated_prop_bounds',[]):
      x,y,w,h=box
-     if w>.12 or h>.12 or y<(.85-2/1060 if n==20 else .85) or y+h>1 or (x<.62 and x+w>.38):issues.append(f'Page {n}: annotated decoration bounds fail limits.')
+     if w>.12 or h>(.18 if page.get('narrative_border_dialogue') else .12) or y<(.80 if page.get('narrative_border_dialogue') else .85-2/1060 if n==20 else .85) or y+h>1 or (x<.62 and x+w>.38):issues.append(f'Page {n}: annotated decoration bounds fail limits.')
    if set(page['art'])&set(page['border_assets']):issues.append(f'Page {n}: foreground/background source duplication.')
    for key in page['art']+page['border_assets']:
     im=Image.open(ROOT/b['sources'][key]['file'])
@@ -77,7 +83,11 @@ def main():
     if im.getchannel('A').crop((x0,y0,x1,y1)).getextrema()[0]!=0:issues.append(f'Atlas prop lacks transparent silhouette: {key}.')
  forbidden={'hug','eagle','playroom','rescue_isolated','release_cut','window_wide'}
  if forbidden & {layer['source_key'] for layer in p['layers']}:issues.append('Rejected identity/isolation source still used.')
- if pages[3]['art']!=['v22_scene_03'] or 'clean it together' not in pages[3]['text']:issues.append('Dirty-castle/setup regression.')
+ if pages[3]['art']!=['v23_castle_repair'] or 'clean it together' not in pages[3]['text']:issues.append('Dirty-castle/setup regression.')
+ if pages[9]['art']!=['v23_pool_strainer']:issues.append('First dirty-pool page must establish the strainer.')
+ if [' '.join(q['text'].split()) for q in pages[19].get('speech_bubbles',[])]!=['sorry','we were just playing']:issues.append('Missing commissioned bunny apology exchange.')
+ back=[q for q in p['layers'] if q['page']=='back_cover']
+ if len(back)!=1 or back[0]['source_key']!=b['back_cover']['art']:issues.append('Rear cover must be a single complete full-art composition.')
  for n,key in [(17,'rescue_trapped'),(18,'rescue_release'),(27,'R09_open'),(28,'R09_suds'),(29,'R10_jump'),(30,'R11_land')]:
   if pages[n]['art']!=[key]:issues.append(f'Canonical rescue/finale order mismatch: page {n}.')
  if pages[23]['art']!=['v22_scene_23'] or 'art_crop' in pages[23]:issues.append('Paint page must use reviewed gold-crown restoration without crop.')

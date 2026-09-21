@@ -86,9 +86,9 @@
     },
     {
       "page": 3,
-      "source_key": "v22_scene_03",
-      "file": "art/quality_v22/scene_03.png",
-      "sha256": "cd22b1f40455a0671bea6cb2761779b18b5f9d703e1f407a5130274478f0f003",
+      "source_key": "v23_castle_repair",
+      "file": "art/story_detail_v23/castle_repair.png",
+      "sha256": "b1d25511be353a94ed989f1e25289b1d5e1ce3ae69983d544c1eca1a83e6ab17",
       "native_size": [
         1484,
         1060
@@ -361,9 +361,9 @@
     },
     {
       "page": 9,
-      "source_key": "v22_scene_09",
-      "file": "art/quality_v22/scene_09.png",
-      "sha256": "83a8072b06a86e96277997cfa6cb40a08a7011c8003753893729d29ad8ee2b5e",
+      "source_key": "v23_pool_strainer",
+      "file": "art/story_detail_v23/pool_strainer.png",
+      "sha256": "d53fb85a840040fc566fa1faf3a816729247a601eed76772243dd46739f9a9e1",
       "native_size": [
         1484,
         1060
@@ -636,9 +636,9 @@
     },
     {
       "page": 19,
-      "source_key": "v22_bg_19_final",
-      "file": "art/quality_v22/bg_19_final.png",
-      "sha256": "d2a80d60a08756e3e1c2d994679df72c1f45d52cc3835b9a4657c9f26b06213e",
+      "source_key": "v23_bunny_apology_canvas",
+      "file": "art/story_detail_v23/bunny_apology_canvas.png",
+      "sha256": "d71a38db2a2b0f1457fdaff29c6d25c81df0c594619bf77d357dc964fce7c6d7",
       "native_size": [
         1484,
         1060
@@ -675,10 +675,10 @@
         1564
       ],
       "target_box_points": [
-        288.89002557544757,
-        57.0,
-        138.21994884910487,
-        229.0
+        311.69565217391306,
+        150.0,
+        102.6086956521739,
+        170.0
       ],
       "operation": "source_region",
       "role": "story_art",
@@ -1336,9 +1336,9 @@
     },
     {
       "page": "back_cover",
-      "source_key": "landscape_base",
-      "file": "art/quality_v22/bg_base.png",
-      "sha256": "590d1f4165b846fe7c91135937432d86415a2e519a57a8cc1e74e2c585f8eca5",
+      "source_key": "v23_cover_h",
+      "file": "art/story_detail_v23/cover_h.png",
+      "sha256": "6bb61625f4d052e9d7abd6f3669e692652fc703ef0b64113fea4443f4cdab923",
       "native_size": [
         1484,
         1060
@@ -1356,58 +1356,8 @@
         360.0
       ],
       "operation": "page_trim",
-      "role": "stationery_base",
+      "role": "story_art",
       "alpha": false
-    },
-    {
-      "page": "back_cover",
-      "source_key": "brush",
-      "file": "../archive/rough_v5/art/brush.png",
-      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
-      "native_size": [
-        936,
-        1024
-      ],
-      "source_box_pixels": [
-        45,
-        38,
-        899,
-        978
-      ],
-      "target_box_points": [
-        107.71489361702129,
-        64.0,
-        103.57021276595744,
-        114.0
-      ],
-      "operation": "source_region",
-      "role": "story_art",
-      "alpha": true
-    },
-    {
-      "page": "back_cover",
-      "source_key": "sponge",
-      "file": "../archive/rough_v5/art/sponge.png",
-      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
-      "native_size": [
-        512,
-        512
-      ],
-      "source_box_pixels": [
-        32,
-        32,
-        479,
-        480
-      ],
-      "target_box_points": [
-        303.1015625,
-        70.0,
-        90.796875,
-        91.0
-      ],
-      "operation": "source_region",
-      "role": "story_art",
-      "alpha": true
     }
   ],
   "text_lines": [
@@ -1737,23 +1687,11 @@
     },
     {
       "page": 13,
-      "text": "The seahorse fountain was blocked, too.",
+      "text": "Roshan pulled the rubbish free!",
       "box": [
-        94.06799999999998,
-        49.798,
-        315.86400000000003,
-        22.41
-      ],
-      "font_size": 18,
-      "color": "white"
-    },
-    {
-      "page": 13,
-      "text": "Roshan gently pulled the rubbish free.",
-      "box": [
-        103.19399999999999,
-        26.397999999999996,
-        297.612,
+        213,
+        311.798,
+        244.72800000000004,
         22.41
       ],
       "font_size": 18,
@@ -1874,6 +1812,42 @@
         42,
         171.59799999999998,
         125.01000000000002,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 19,
+      "text": "sorry",
+      "box": [
+        89.336,
+        100.798,
+        41.328,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 19,
+      "text": "we were just",
+      "box": [
+        337.621,
+        114.798,
+        97.75800000000001,
+        22.41
+      ],
+      "font_size": 18,
+      "color": "navy"
+    },
+    {
+      "page": 19,
+      "text": "playing",
+      "box": [
+        357.295,
+        91.398,
+        58.410000000000004,
         22.41
       ],
       "font_size": 18,
@@ -2250,54 +2224,6 @@
       ],
       "font_size": 18,
       "color": "white"
-    },
-    {
-      "page": "back_cover",
-      "text": "One little thing.",
-      "box": [
-        175.45600000000002,
-        261.353,
-        153.088,
-        28.635
-      ],
-      "font_size": 23,
-      "color": "navy"
-    },
-    {
-      "page": "back_cover",
-      "text": "One helping hand.",
-      "box": [
-        161.6905,
-        231.453,
-        180.619,
-        28.635
-      ],
-      "font_size": 23,
-      "color": "navy"
-    },
-    {
-      "page": "back_cover",
-      "text": "One very big adventure.",
-      "box": [
-        132.1355,
-        201.553,
-        239.72899999999998,
-        28.635
-      ],
-      "font_size": 23,
-      "color": "navy"
-    },
-    {
-      "page": "back_cover",
-      "text": "Landscape review edition \u2022 Chapter One",
-      "box": [
-        164.805,
-        22.11,
-        174.39000000000001,
-        12.45
-      ],
-      "font_size": 10,
-      "color": "navy"
     }
   ],
   "note": "Actual draw operations, including covers and background occlusion redraws. This proves source use, not visual acceptance."

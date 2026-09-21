@@ -2753,6 +2753,61 @@
       "file": "art/quality_v22/bg_21_objects.png",
       "sha256": "f0b59e414e5802021af20dcdd06a6c7170be9825c61965a60f395681e96e4787",
       "provenance_record": "quality_evidence_v22.json"
+    },
+    "v23_castle_repair": {
+      "file": "art/story_detail_v23/castle_repair.png",
+      "sha256": "b1d25511be353a94ed989f1e25289b1d5e1ce3ae69983d544c1eca1a83e6ab17",
+      "provenance_record": "story_detail_evidence_v23.json"
+    },
+    "v23_pool_strainer": {
+      "file": "art/story_detail_v23/pool_strainer.png",
+      "sha256": "d53fb85a840040fc566fa1faf3a816729247a601eed76772243dd46739f9a9e1",
+      "provenance_record": "story_detail_evidence_v23.json"
+    },
+    "v23_cover_a": {
+      "file": "art/story_detail_v23/cover_a.png",
+      "sha256": "508ee5e196a5b860d6f0d3123424990f0d92988da23bb62b3e165f6f7ee7dc8c",
+      "provenance_record": "story_detail_evidence_v23.json"
+    },
+    "v23_cover_b": {
+      "file": "art/story_detail_v23/cover_b.png",
+      "sha256": "a2deb9cd5ca1d4ae50e7b26ddb62282d7e452e2e2aa798b8e8a48c2b6b597f38",
+      "provenance_record": "story_detail_evidence_v23.json"
+    },
+    "v23_cover_c": {
+      "file": "art/story_detail_v23/cover_c.png",
+      "sha256": "c1a97d52c8965a060f362cfdb4900ef500334c17f280ed40761bd873b640ed92",
+      "provenance_record": "story_detail_evidence_v23.json"
+    },
+    "v23_cover_d": {
+      "file": "art/story_detail_v23/cover_d.png",
+      "sha256": "dd1593cdb2a5ece3b919ab01c8f263fffab05c030b214011d12c7187d73a6308",
+      "provenance_record": "story_detail_evidence_v23.json"
+    },
+    "v23_bunny_apology_canvas": {
+      "file": "art/story_detail_v23/bunny_apology_canvas.png",
+      "sha256": "d71a38db2a2b0f1457fdaff29c6d25c81df0c594619bf77d357dc964fce7c6d7",
+      "provenance_record": "story_detail_evidence_v23.json"
+    },
+    "v23_cover_e": {
+      "file": "art/story_detail_v23/cover_e.png",
+      "sha256": "b51ab88293e950d853c5b649f37c8bbd687871afc708e0f1cd23836978cda988",
+      "provenance_record": "story_detail_evidence_v23.json"
+    },
+    "v23_cover_f": {
+      "file": "art/story_detail_v23/cover_f.png",
+      "sha256": "dc327825fb1af1d505f44ef11cbbc01f5ed0e9a02b26c4df440b1221db4d72a5",
+      "provenance_record": "story_detail_evidence_v23.json"
+    },
+    "v23_cover_g": {
+      "file": "art/story_detail_v23/cover_g.png",
+      "sha256": "ac37ddc49fd9e000b199bfdcd1ff6a66a551dc576dc781e9d28f6a2311143fca",
+      "provenance_record": "story_detail_evidence_v23.json"
+    },
+    "v23_cover_h": {
+      "file": "art/story_detail_v23/cover_h.png",
+      "sha256": "6bb61625f4d052e9d7abd6f3669e692652fc703ef0b64113fea4443f4cdab923",
+      "provenance_record": "story_detail_evidence_v23.json"
     }
   },
   "pages": [
@@ -2804,7 +2859,7 @@
       "page": 3,
       "mode": "F",
       "art": [
-        "v22_scene_03"
+        "v23_castle_repair"
       ],
       "text": "Inside Pearl Castle,\ndust covered the floor!\n“Let’s clean it together!”",
       "layout": "full",
@@ -3043,7 +3098,7 @@
       "page": 9,
       "mode": "F",
       "art": [
-        "v22_scene_09"
+        "v23_pool_strainer"
       ],
       "text": "The great pool was still murky.\nIts rainbow waterfall had stopped.",
       "layout": "full",
@@ -3187,26 +3242,33 @@
       "art": [
         "v22_scene_13"
       ],
-      "text": "The seahorse fountain was blocked, too.\nRoshan gently pulled the rubbish free.",
+      "text": "Roshan pulled the rubbish free!",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
       "caption": {
-        "x": 30,
-        "y": 55,
-        "width": 444,
+        "x": 213,
+        "y": 317,
+        "width": 267,
         "size": 18,
-        "align": "center",
+        "align": "left",
         "color": "white",
-        "shadow": true
+        "shadow": false,
+        "halo": true
       },
       "foreground_zone": null,
       "focal_exclusions": [
         [
           0,
           80,
-          504,
+          205,
           280
+        ],
+        [
+          230,
+          60,
+          245,
+          241
         ]
       ]
     },
@@ -3388,7 +3450,7 @@
       "text": "Baby Eagle\nwas free!\nA little help made\na big difference.",
       "layout": "wide_cut",
       "border_assets": [],
-      "background_theme": "Two dust puffs move outward, clearing space after Eagle's rescue. Small rolling and sheepish retreat reactions; no toys or second rescue.",
+      "background_theme": "Two canonical puffs look up and speak to Baby Eagle. Left apologizes; right explains they were playing. These are speaking story characters, not silent decorative objects.",
       "caption": {
         "x": 42,
         "y": 247,
@@ -3399,33 +3461,64 @@
         "shadow": false
       },
       "foreground_zone": [
-        255,
-        57,
-        206,
-        229
+        265,
+        150,
+        196,
+        170
       ],
       "border_placements": [],
-      "integrated_background": "v22_bg_19_final",
+      "integrated_background": "v23_bunny_apology_canvas",
       "integrated_motifs": [
-        "rolling_aside",
-        "scooting_away"
+        "apologetic_clasped_hands",
+        "sheepish_explanation"
       ],
       "integrated_prop_bounds": [
         [
-          0.17991913746630728,
-          0.8613207547169811,
-          0.07142857142857142,
-          0.08679245283018867
+          0.17,
+          0.8,
+          0.115,
+          0.17
         ],
         [
-          0.7486522911051213,
-          0.8603773584905661,
-          0.07075471698113207,
-          0.08867924528301886
+          0.71,
+          0.8,
+          0.12,
+          0.17
         ]
       ],
-      "bounds_note": "Manual native-pixel visible-subject annotation, excludes native coral/shells and contact shadow; page20 ear antialias reaches y899 (2px above ideal line), retained explicitly as a minor placement exception.",
-      "marginal_bunny_count": 2
+      "bounds_note": "Speaking bunnies on19 intentionally occupy a larger lower-margin story zone (up to18% height), superseding silent-decoration15% restriction for this owner-requested dialogue beat only. Native contours checked in proof.",
+      "marginal_bunny_count": 2,
+      "narrative_border_dialogue": true,
+      "speech_bubbles": [
+        {
+          "speaker": "left_bunny",
+          "text": "sorry",
+          "box": [
+            40,
+            84,
+            140,
+            47
+          ],
+          "tail": [
+            118,
+            58
+          ]
+        },
+        {
+          "speaker": "right_bunny",
+          "text": "we were just\nplaying",
+          "box": [
+            300,
+            77,
+            173,
+            68
+          ],
+          "tail": [
+            390,
+            58
+          ]
+        }
+      ]
     },
     {
       "page": 20,
@@ -4022,5 +4115,10 @@
       "cover_rendered"
     ],
     "spoiler_policy": "Rainbow friend retained for interior reveal"
+  },
+  "back_cover": {
+    "art": "v23_cover_h",
+    "mode": "full_art",
+    "selection": "H: full ensemble, front-cover aqua/lavender/pink palette, simplified painted dust. Supersedes owner-rejected photorealistic two-character studies A–D."
   }
 }

@@ -1,6 +1,16 @@
 # Whole-story comprehension cycle after border direction
 
-## Current revision: v20 art direction
+## Current revision: V23 story details and rear cover
+
+Page3 removes the doubled turquoise window behind Daddy and repairs the central corridor/threshold as one continuous doorway. Repository inspection traced those defects to earlier hall handoff artwork. Page9 now shows Roshan holding the established purple mesh strainer before scooping. Page13 uses the shorter, direct caption “Roshan pulled the rubbish free!” on the upper wall, clear of the faces, with white lettering and a restrained dark outline.
+
+On19, two canonical spiral-ear puffs address Baby Eagle: “sorry” and “we were just playing.” Their expressive faces, gaze and editable Sniglet speech balloons form a narrative exchange. This page alone uses a larger lower-margin speaking-character zone; other decorative bounds remain unchanged. Baby Eagle moves upward to make room for the exchange.
+
+Eight rear-cover studies are preserved. The owner rejected A–D as too photorealistic and missing the other characters. E–G restore the pastel ensemble; H refines E with simple painted lavender dust. H is selected: Roshan and Daddy show concern while Rumi, Baby Eagle and two canonical puffs share the same illustrated space. Aqua, lavender and pink match the front cover. All eight samples remain under `art/story_detail_v23/`; prompts and references are in `story_detail_jobs_v23.json` and `story_detail_evidence_v23.json`. The book rear cover is full art with no pasted tool inventory. This owner commission is specific to the rear cover.
+
+This is a revised rough, not final owner/child/print acceptance. Earlier four ceiling-strip resolution exceptions remain. All earlier revision descriptions below are historical where this section supersedes them.
+
+## Earlier revision: v20 art direction
 
 The original cover was inspected directly: story elements share one rendered environment, perspective, lighting and ground plane. The new commissioned cover follows that composition in Pearl Castle, with the waterfall, paints, cleanup tools, family, Baby Eagle and Grand Puff. It supersedes the cutout-collage cover described in older entries below.
 
@@ -108,7 +118,7 @@ V19 rescue-legibility audit: p17/18 captions no longer cross ceiling fixtures. O
 The owner rejected the former rescue identities, superseding the earlier assessment. New pages17/18 show two cloud puffs pinning Eagle wings followed by release and standing. The castle wall repair preserves entry/cleanup setup. Roshan gesture restorations on20/26/31 preserve the existing manuscript and pacing. Final owner/child acceptance remains open.
 
 
-## Current revision: V22 quality restoration
+## Earlier revision: V22 quality restoration
 
 The latest owner commission supersedes the earlier source-only limits for specifically defective low-resolution scenes and character repairs. Fourteen full-scene restorations replace tiny crops or defective framing, including dirty-castle3 and tiny-chirp16. Large sink and Grand Puff gesture assets replace small atlas cells. Page21 now shows Roshan sorting a messy craft table. All eleven blue stationery backgrounds have regenerated crisp bubble outlines and contextual lower-bank objects;26 uses the game cloud couch with two spectators, one cheering and one eating popcorn. Canonical lavender puff bodies, paired spiral ears and pearl hand knobs were compared with project references.
 

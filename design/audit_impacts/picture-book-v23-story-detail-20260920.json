@@ -1,0 +1,83 @@
+{
+  "id": "picture-book-v23-story-detail-20260920",
+  "baseline": "90e11ffc072c81eff9ffb309dbc38b39bb34ef9c",
+  "scope": "Owner-requested castle window/door repair, seahorse caption contrast, bunny apology dialogue/interplay, strainer continuity on first dirty pool page, and up to ten full-art rear-cover samples showing Roshan and Daddy discovering dirty castle. Static book only. Latest owner refinement rejects photorealistic covers and requires pastel book colors plus Rumi, Baby Eagle and dust bunnies. Eight studies total; H selected. Owner explicitly accepted H.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static-book editorial and art repair commission, no game finding closure.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "books/chapter_one/DESIGN_LANGUAGE.md",
+    "books/chapter_one/landscape/BORDER_ART_DIRECTION.md",
+    "books/chapter_one/landscape/PAGE_PLAN.md",
+    "books/chapter_one/landscape/REVIEW.md",
+    "books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md",
+    "books/chapter_one/landscape/art/story_detail_v23/bunny_apology_canvas.png",
+    "books/chapter_one/landscape/art/story_detail_v23/castle_repair.png",
+    "books/chapter_one/landscape/art/story_detail_v23/cover_a.png",
+    "books/chapter_one/landscape/art/story_detail_v23/cover_b.png",
+    "books/chapter_one/landscape/art/story_detail_v23/cover_c.png",
+    "books/chapter_one/landscape/art/story_detail_v23/cover_d.png",
+    "books/chapter_one/landscape/art/story_detail_v23/cover_e.png",
+    "books/chapter_one/landscape/art/story_detail_v23/cover_f.png",
+    "books/chapter_one/landscape/art/story_detail_v23/cover_g.png",
+    "books/chapter_one/landscape/art/story_detail_v23/cover_h.png",
+    "books/chapter_one/landscape/art/story_detail_v23/pool_strainer.png",
+    "books/chapter_one/landscape/audit_book.py",
+    "books/chapter_one/landscape/book.json",
+    "books/chapter_one/landscape/delivery_verification.json",
+    "books/chapter_one/landscape/goal_requirements_audit.json",
+    "books/chapter_one/landscape/layout_evidence.json",
+    "books/chapter_one/landscape/package_book.py",
+    "books/chapter_one/landscape/render_book.py",
+    "books/chapter_one/landscape/story_detail_audit_v23.json",
+    "books/chapter_one/landscape/story_detail_evidence_v23.json",
+    "books/chapter_one/landscape/story_detail_jobs_v23.json",
+    "books/chapter_one/landscape/stress_review.json",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/picture-book-v23-story-detail-20260920.json"
+  ],
+  "validation": [
+    {
+      "command": "audit_book.py --proof v23_story_details/complete --baseline v7_landscape/complete",
+      "result": "PASS",
+      "evidence": "34 PDF pages,72 text lines,54 image operations; explicit balloon/art exclusion, exact apology strings, single full-art rear cover."
+    },
+    {
+      "command": "verify_v23_revision.py plus native/final PDF visual inspection",
+      "result": "PASS",
+      "evidence": "books/chapter_one/landscape/story_detail_audit_v23.json; exactly3/9/13/19/rear changed; other29 pages byte-identical at PDFium2x. Eight cover studies preserved, H selected."
+    },
+    {
+      "command": "verify_v23_package.py and final metadata seal",
+      "result": "PASS",
+      "evidence": "delivery_verification.json:34 identical page PNGs;108 verified payload hashes; all rendering inputs unchanged."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH|RESULT|ALL OK"
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV|RESULT|ALL OK; base5920c673305989ee29d91876480ff445dba9fc8b."
+    },
+    {
+      "command": "Game probes/import",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Non-runtime static-book assets and documentation only."
+    }
+  ],
+  "acceptance_gaps": "Owner/child/print acceptance remains open. Four previously documented ceiling-only resolution exceptions remain outside this scoped repair."
+}

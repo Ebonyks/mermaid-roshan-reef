@@ -60,11 +60,27 @@ def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False):
   if shadow:
    c.setFillColorRGB(.04,.09,.18);c.drawString(xx+.6,y-.6,line)
   c.setFillColorRGB(*((1,1,.98) if color=='white' else (.06,.16,.29)))
-  c.drawString(xx,y,line);c.restoreState()
+  if halo:
+   c.setStrokeColorRGB(*((.06,.12,.25) if color=='white' else (1,1,.98)));c.setLineWidth(1.6)
+   obj=c.beginText(xx,y);obj.setFont('Sniglet',size);obj.setTextRenderMode(1);obj.textOut(line);obj.setTextRenderMode(0);c.drawText(obj)
+   obj=c.beginText(xx,y);obj.setFont('Sniglet',size);obj.setTextRenderMode(0);obj.textOut(line);c.drawText(obj)
+  else:c.drawString(xx,y,line)
+  c.restoreState()
   line_width=pdfmetrics.stringWidth(line,'Sniglet',size)
   TEXT_LINES.append({'page':PAGE,'text':line,'box':[xx,y+pdfmetrics.getDescent('Sniglet')*size/1000,line_width,(pdfmetrics.getAscent('Sniglet')-pdfmetrics.getDescent('Sniglet'))*size/1000],'font_size':size,'color':color})
   y-=size*1.3
  return y
+def speech(q):
+ x,y,w,h=q['box'];tx,ty=q['tail'];c.saveState()
+ c.setFillColorRGB(1,1,.98);c.setStrokeColorRGB(.16,.26,.45);c.setLineWidth(1.2)
+ # One continuous balloon outline, with a downward tail pointing to its speaker.
+ tail_x=max(x+18,min(tx,x+w-18));p=c.beginPath();p.moveTo(x+14,y)
+ p.lineTo(tail_x-7,y);p.lineTo(tx,ty);p.lineTo(tail_x+7,y);p.lineTo(x+w-14,y)
+ p.curveTo(x+w,y,x+w,y,x+w,y+14);p.lineTo(x+w,y+h-14)
+ p.curveTo(x+w,y+h,x+w,y+h,x+w-14,y+h);p.lineTo(x+14,y+h)
+ p.curveTo(x,y+h,x,y+h,x,y+h-14);p.lineTo(x,y+14);p.curveTo(x,y,x,y,x+14,y)
+ p.close();c.drawPath(p,fill=1,stroke=1);c.restoreState()
+ text(q['text'],x+10,y+h-25,w-20,18,True)
 base='landscape_base'
 def background(p):
  global ROLE
@@ -106,10 +122,11 @@ for p in B['pages']:
    cut(a[0],40,76,190,148);cut(a[1],232,146,207,116);cut(a[2],339,57,91,117)
   else:cut(a[0],*p.get('foreground_zone',[30,53,444,211]))
  if 'local_patch' in p:local_patch(p)
- q=p['caption'];text(p['text'],q['x'],q['y'],q['width'],q['size'],q['align']=='center',color=q['color'],shadow=q['shadow'])
+ q=p['caption'];text(p['text'],q['x'],q['y'],q['width'],q['size'],q['align']=='center',color=q['color'],shadow=q['shadow'],halo=q.get('halo',False))
+ for balloon in p.get('speech_bubbles',[]):speech(balloon)
  c.showPage()
 PAGE='back_cover'
-background({});text('One little thing.\nOne helping hand.\nOne very big adventure.',45,268,414,23,True);cut('brush',92,64,135,114);cut('sponge',299,70,99,91);text('Landscape review edition • Chapter One',25,25,454,10,True);c.showPage();c.save()
+full(B['back_cover']['art']);c.showPage();c.save()
 font_path=ROOT/B['font']
 (O/'page_provenance.json').write_text(json.dumps({'page_size_points':[W,H],'coordinate_system':'source pixels: top-left x,y; PDF target points: bottom-left x,y,width,height; page-trim layers clipped to page','font':{'file':B['font'],'sha256':hashlib.sha256(font_path.read_bytes()).hexdigest()},'layers':LAYERS,'text_lines':TEXT_LINES,'note':'Actual draw operations, including covers and background occlusion redraws. This proves source use, not visual acceptance.'},indent=2),encoding='utf8')
 doc=pdfium.PdfDocument(str(PDF));thumbs=[]

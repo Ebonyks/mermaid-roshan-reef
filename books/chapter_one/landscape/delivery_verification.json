@@ -1,16 +1,16 @@
 {
   "status": "PASS",
-  "verified_payload_files": 97,
+  "verified_payload_files": 108,
   "matching_page_renders": 34,
-  "archive_sha256": "3f20222821688ba2d461f1e10d5bc5cada11047c5e64b7efc56de437634315d1",
-  "pdf_sha256": "aacbf7f2497699de21ad37743caea68b55250527b94a5426aa4d191842e6581e",
+  "archive_sha256": "367337f86fad122f0a9456014a2dbed8e5d2ef8c06cf424b97356ccf428f48db",
+  "pdf_sha256": "7f42c8416b68d9d81a2073c7187c4f33970f1ad2818ead8bee4630de8905c75b",
   "pdf_pages": 34,
   "page_size_points": [
     504,
     360
   ],
   "mechanical_status": "PASS",
-  "visual_status": "ART_DIRECTION_REVIEW; OWNER ACCEPTANCE NOT GRANTED",
+  "visual_status": "REAR_COVER_H_OWNER_ACCEPTED; WHOLE_BOOK_REVIEW_OPEN",
   "open_findings": [
     {
       "id": "BK-ST-OPEN-01",
@@ -73,7 +73,7 @@
         31
       ],
       "severity": "P2",
-      "issue": "All eleven stationery backgrounds regenerated and reviewed. Page26 uses two couch spectators, one eating popcorn;20 retains toy play with corrected bunny design. Tiny-pose expression and grounding remain owner-review items. Page20 ear antialias exceeds the ideal margin by2px, explicitly recorded."
+      "issue": "Page19 now has a speaking-character lower-margin exception and two apology balloons. Canonical ear curls/pearl hands reviewed. Other V22 borders retained; tiny cameo and owner acceptance remain open."
     },
     {
       "id": "BK-ST-OPEN-07",
@@ -89,15 +89,23 @@
       "id": "BK-ST-OPEN-08",
       "pages": [
         "front_cover",
+        "back_cover",
         32
       ],
       "severity": "P2",
-      "issue": "Owner-commissioned rendered cover and bubble-nap epilogue implemented and visually inspected; final character/style/print acceptance remains open."
+      "issue": "Front cover and nap retained. Eight rear-cover studies reviewed; A–D rejected by owner. H selected with pastel full ensemble and simplified painted dust. Owner cover selection and print acceptance remain open."
     }
   ],
+  "owner_selection": {
+    "date": "2026-09-20",
+    "selection": "H",
+    "status": "OWNER_ACCEPTED_REAR_COVER",
+    "instruction": "H looks good, let's do it, keep going",
+    "scope": "Rear cover H only; whole-book child and print acceptance remain open."
+  },
   "final_metadata_seal": {
     "all_rendering_inputs_byte_identical_to_verified_rebuild": true,
-    "rendering_input_files": 57,
-    "final_payload_hashes_verified": 97
+    "rendering_input_files": 65,
+    "final_payload_hashes_verified": 108
   }
 }
