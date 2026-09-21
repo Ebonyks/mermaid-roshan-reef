@@ -6,11 +6,11 @@ to reuse the composition in the game.
 
 - [Listen / download MP3](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/music-iko-iko-v89-20260920/iko-iko-v89.mp3)
 - [Lossless 24-bit WAV](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/music-iko-iko-v89-20260920/iko-iko-v89.wav)
-- [Collected REAPER project](https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/music-iko-iko-v89-20260920/iko-iko-v89-reaper-project.zip)
 - [Release page](https://github.com/Ebonyks/mermaid-roshan-reef/releases/tag/music-iko-iko-v89-20260920)
 - [Exact file hashes and dependency inventory](manifest.json)
 
-The source archive contains the v89 RPP, 46 referenced audio files, 6 custom JSFX,
+The source archive is prepared locally but **not published** pending explicit
+owner approval to include original takes and muted backups. It contains the v89 RPP, 46 referenced audio files, 6 custom JSFX,
 an internal per-file hash manifest and setup notes. The musical project is
 unchanged; only media references and render output path were made relative.
 Original takes and muted backup tracks referenced by v89 are included.
@@ -28,5 +28,5 @@ No blanket composition, sample-library or redistribution license is asserted;
 publication is owner-authorized, and game-use rights remain separate.
 
 The [REAPER workflow](../../../../design/audio/REAPER_MUSIC_PRODUCTION_WORKFLOW.md)
-records the reusable process. Large audio/source binaries are release assets to
+records the reusable process. Finished audio binaries are release assets to
 avoid adding them to ordinary Git history. Verify downloads using manifest.json.
