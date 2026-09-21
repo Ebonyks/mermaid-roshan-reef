@@ -1,0 +1,64 @@
+{
+  "status": "SOURCE_TRIAL_NOT_RUNTIME_ACCEPTED",
+  "frames": 4,
+  "native_layers": 6,
+  "cycle_seconds": 1.4,
+  "frame_duration_seconds": 0.35,
+  "ora_pose_layers": 24,
+  "native_reopen_exact": true,
+  "individual_tufts": [
+    {
+      "tuft": 0,
+      "crop_box": [
+        -21,
+        -3,
+        235,
+        253
+      ],
+      "runtime_root": [
+        128,
+        220
+      ],
+      "fixed_rows_from": 209,
+      "unique_frames": 3
+    },
+    {
+      "tuft": 1,
+      "crop_box": [
+        104,
+        -4,
+        360,
+        252
+      ],
+      "runtime_root": [
+        128,
+        220
+      ],
+      "fixed_rows_from": 208,
+      "unique_frames": 4
+    },
+    {
+      "tuft": 2,
+      "crop_box": [
+        290,
+        -2,
+        546,
+        254
+      ],
+      "runtime_root": [
+        128,
+        220
+      ],
+      "fixed_rows_from": 210,
+      "unique_frames": 4
+    }
+  ],
+  "source_split": "Naturally disconnected plants; exact rest reconstruction before motion. No blade cut or invented hidden pixels.",
+  "motion": "Each complete grass crown bends independently with slightly delayed phase; roots fixed. Direct Aseprite deformation, not independent redraws.",
+  "three_atlases_raw_rgba_mib": 3,
+  "limits": [
+    "Need actual Mobile placement/color/motion review",
+    "Not native Krita animation timelines",
+    "No claim of broad lawn coverage or owner acceptance"
+  ]
+}

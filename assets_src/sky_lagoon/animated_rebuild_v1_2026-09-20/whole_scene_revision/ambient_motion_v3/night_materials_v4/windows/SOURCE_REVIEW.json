@@ -1,0 +1,124 @@
+{
+  "status": "SOURCE_MATERIAL_TRIAL_NOT_RUNTIME_ACCEPTED",
+  "source": "assets/sprites/sky_lagoon/sky_lagoon_castle_four_tower_v4.png",
+  "source_sha256": "08e3b8503520f3657e7f788bc74c967b76692f5dd292e0971495677f0e695a42",
+  "method": "Ten manually bounded cyan-glass regions, largest connected component per window, one-pixel inward guard. Original glass RGB retained. No new generation or source repaint.",
+  "windows": [
+    {
+      "window": "upper_left",
+      "roi": [
+        255,
+        225,
+        293,
+        292
+      ],
+      "selected_pixels": 710
+    },
+    {
+      "window": "upper_right",
+      "roi": [
+        708,
+        220,
+        746,
+        294
+      ],
+      "selected_pixels": 734
+    },
+    {
+      "window": "left_small_outer",
+      "roi": [
+        47,
+        405,
+        83,
+        477
+      ],
+      "selected_pixels": 670
+    },
+    {
+      "window": "left_small_inner",
+      "roi": [
+        136,
+        400,
+        174,
+        479
+      ],
+      "selected_pixels": 774
+    },
+    {
+      "window": "middle_left",
+      "roi": [
+        287,
+        359,
+        326,
+        444
+      ],
+      "selected_pixels": 931
+    },
+    {
+      "window": "middle_right",
+      "roi": [
+        681,
+        358,
+        720,
+        443
+      ],
+      "selected_pixels": 1010
+    },
+    {
+      "window": "right_small_inner",
+      "roi": [
+        832,
+        373,
+        871,
+        459
+      ],
+      "selected_pixels": 992
+    },
+    {
+      "window": "right_small_outer",
+      "roi": [
+        928,
+        370,
+        967,
+        459
+      ],
+      "selected_pixels": 1078
+    },
+    {
+      "window": "lower_left",
+      "roi": [
+        78,
+        560,
+        126,
+        675
+      ],
+      "selected_pixels": 2303
+    },
+    {
+      "window": "lower_right",
+      "roi": [
+        872,
+        590,
+        925,
+        717
+      ],
+      "selected_pixels": 2863
+    }
+  ],
+  "mask_pixels": 12065,
+  "cropped_bounds": [
+    58,
+    234,
+    956,
+    705
+  ],
+  "portrait_mask_pixels": 0,
+  "original_source_unchanged": true,
+  "intent": "Separate readable window interiors from opaque wall night tint; no blinking, flash or invented warm hue. Lighting correction, not a new animation clip.",
+  "limits": [
+    "Source comparison uses simple sRGB multipliers and is not a Godot composite",
+    "Actual night intensity, edge alignment, silhouette and cue hierarchy require runtime review",
+    "Mask excludes gold borders and protected portrait; no artwork modified",
+    "Texture packing/overdraw and target-device costs not accepted"
+  ]
+}

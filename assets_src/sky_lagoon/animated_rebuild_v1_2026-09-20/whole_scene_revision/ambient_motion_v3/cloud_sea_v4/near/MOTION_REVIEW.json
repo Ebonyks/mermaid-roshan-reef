@@ -1,0 +1,66 @@
+{
+  "status": "SOURCE_TRIAL_NOT_RUNTIME_ACCEPTED",
+  "source": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+  "source_sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+  "source_box": [
+    300,
+    950,
+    3300,
+    1370
+  ],
+  "frames": 4,
+  "layers": 2,
+  "cycle_seconds": 4.8,
+  "method": "Direct Aseprite material displacement confined to near cloud bank, with fixed contour and scenery. Max horizontal5px and vertical.8px before boundary fade. Not regenerated or independently redrawn cloud contours.",
+  "selected_pixels": 258366,
+  "pose_checks": [
+    {
+      "frame": 0,
+      "changed_pixels": 0,
+      "max_rgb_change": 0,
+      "median_linear_luminance": 0.6984245426503656,
+      "outside_mask_exact": true,
+      "zero_weight_boundaries_exact": true,
+      "native_reopen_exact": true
+    },
+    {
+      "frame": 1,
+      "changed_pixels": 217782,
+      "max_rgb_change": 127,
+      "median_linear_luminance": 0.6975462900523756,
+      "outside_mask_exact": true,
+      "zero_weight_boundaries_exact": true,
+      "native_reopen_exact": true
+    },
+    {
+      "frame": 2,
+      "changed_pixels": 182798,
+      "max_rgb_change": 59,
+      "median_linear_luminance": 0.6981162595626581,
+      "outside_mask_exact": true,
+      "zero_weight_boundaries_exact": true,
+      "native_reopen_exact": true
+    },
+    {
+      "frame": 3,
+      "changed_pixels": 214094,
+      "max_rgb_change": 119,
+      "median_linear_luminance": 0.698530270556089,
+      "outside_mask_exact": true,
+      "zero_weight_boundaries_exact": true,
+      "native_reopen_exact": true
+    }
+  ],
+  "limitations": [
+    "Distant bank remains static",
+    "Full-screen runtime layering and seam review pending",
+    "This source contains fixed scenery for exact comparison; export ownership must avoid duplicate visible scenery",
+    "ORA pose groups, not native Krita animation timeline",
+    "Runtime untouched while full regression runs"
+  ],
+  "visual_review": {
+    "mask": "Inspected near-bank-mask-review.png; selected field follows near clouds behind hedge, preserves path and foreground silhouettes in this source crop.",
+    "largest_changes": "Inspected largest-change-review.jpg; maximum differences at cloud crest edges, not sampled foreground scenery.",
+    "acceptance": "Source study only; no runtime, device or owner acceptance."
+  }
+}

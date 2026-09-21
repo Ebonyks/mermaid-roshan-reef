@@ -2,8 +2,14 @@ extends RefCounted
 # Optional whole-scene source trial. All mutable state belongs to main.g.
 const BASE := "res://assets/sprites/sky_lagoon/whole_scene_v2/"
 const PATH := BASE + "manifest.json"
+const NIGHT_MATERIALS := preload("res://scripts/arena/sky_lagoon_night_materials.gd")
+const CLOUD_BANKS := preload("res://scripts/arena/sky_lagoon_cloud_banks.gd")
+const GRASS_GROUPS := preload("res://scripts/arena/sky_lagoon_grass_groups.gd")
 
 static func clear(state: Dictionary) -> void:
+	NIGHT_MATERIALS.clear(state)
+	CLOUD_BANKS.clear(state)
+	GRASS_GROUPS.clear(state)
 	for value: Variant in state.get("lagoon_whole_cards", []):
 		if is_instance_valid(value):
 			(value as Sprite2D).free()
@@ -115,9 +121,13 @@ static func build(state: Dictionary, parent: Node2D, requested: bool, manifest_p
 		parent.add_child(card)
 		(state["lagoon_whole_cards"] as Array).append(card)
 		index += 1
+	CLOUD_BANKS.build(state, parent, (tile_nodes["SkyLagoonBackdrop_r0_c0"] as Sprite2D).modulate)
+	GRASS_GROUPS.build(state, parent, (tile_nodes["SkyLagoonBackdrop_r0_c0"] as Sprite2D).modulate)
 	return true
 
 static func tick(state: Dictionary, delta: float, paused: bool) -> void:
+	CLOUD_BANKS.tick(state, delta, paused)
+	GRASS_GROUPS.tick(state, delta, paused)
 	if paused or not state.has("lagoon_whole_cards"):
 		return
 	var enabled: bool = bool(state.get("lagoon_environment_motion_enabled", true))

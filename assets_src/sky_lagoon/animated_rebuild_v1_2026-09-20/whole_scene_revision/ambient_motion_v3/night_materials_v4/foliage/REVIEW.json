@@ -1,0 +1,263 @@
+{
+  "status": "AGENT_INSPECTED_SELECTED_COMBINED_ROLLBACK_PASS_OWNER_ACCEPTANCE_OPEN",
+  "scope": "Base tiles, whole cards and grass groups plus separate berry, bellflower and foreground-tree owners. Green source-paint hue gate and restricted shadow-band lift; no character or castle material changes.",
+  "checks": [
+    {
+      "stage": "arrival",
+      "restored_exact": true,
+      "max_channel_change": 8,
+      "changed_pixels": 130720,
+      "materials": [
+        {
+          "material": "rear_hedge",
+          "bounds": [
+            510,
+            395,
+            560,
+            435
+          ],
+          "before_rgb_median": [
+            15.5,
+            73.0,
+            74.0
+          ],
+          "after_rgb_median": [
+            16.0,
+            74.0,
+            75.0
+          ]
+        },
+        {
+          "material": "large_foreground_leaf",
+          "bounds": [
+            575,
+            615,
+            620,
+            655
+          ],
+          "before_rgb_median": [
+            1.0,
+            43.0,
+            36.0
+          ],
+          "after_rgb_median": [
+            4.0,
+            49.0,
+            41.0
+          ]
+        },
+        {
+          "material": "pale_foreground_clump",
+          "bounds": [
+            50,
+            668,
+            90,
+            705
+          ],
+          "before_rgb_median": [
+            22.0,
+            63.0,
+            57.0
+          ],
+          "after_rgb_median": [
+            23.0,
+            66.0,
+            58.0
+          ]
+        },
+        {
+          "material": "lawn",
+          "bounds": [
+            240,
+            585,
+            315,
+            620
+          ],
+          "before_rgb_median": [
+            72.0,
+            94.0,
+            40.0
+          ],
+          "after_rgb_median": [
+            72.0,
+            94.0,
+            40.0
+          ]
+        },
+        {
+          "material": "bellflower_leaf",
+          "bounds": [
+            358,
+            650,
+            389,
+            675
+          ],
+          "before_rgb_median": [
+            22.0,
+            64.0,
+            48.0
+          ],
+          "after_rgb_median": [
+            23.0,
+            67.0,
+            50.0
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "meadow",
+      "restored_exact": true,
+      "max_channel_change": 8,
+      "changed_pixels": 169070,
+      "materials": [
+        {
+          "material": "rear_hedge",
+          "bounds": [
+            830,
+            352,
+            880,
+            390
+          ],
+          "before_rgb_median": [
+            15.0,
+            63.0,
+            63.0
+          ],
+          "after_rgb_median": [
+            16.0,
+            66.0,
+            65.0
+          ]
+        },
+        {
+          "material": "large_foreground_leaf",
+          "bounds": [
+            1100,
+            610,
+            1140,
+            650
+          ],
+          "before_rgb_median": [
+            9.0,
+            49.0,
+            37.0
+          ],
+          "after_rgb_median": [
+            11.0,
+            54.0,
+            42.0
+          ]
+        },
+        {
+          "material": "pale_foreground_clump",
+          "bounds": [
+            655,
+            672,
+            700,
+            704
+          ],
+          "before_rgb_median": [
+            20.0,
+            61.0,
+            56.0
+          ],
+          "after_rgb_median": [
+            21.0,
+            64.0,
+            58.0
+          ]
+        },
+        {
+          "material": "lawn",
+          "bounds": [
+            465,
+            507,
+            520,
+            540
+          ],
+          "before_rgb_median": [
+            65.0,
+            94.0,
+            39.0
+          ],
+          "after_rgb_median": [
+            65.0,
+            94.0,
+            39.0
+          ]
+        }
+      ]
+    },
+    {
+      "stage": "castle",
+      "restored_exact": true,
+      "max_channel_change": 8,
+      "changed_pixels": 136873,
+      "materials": [
+        {
+          "material": "rear_hedge",
+          "bounds": [
+            590,
+            300,
+            650,
+            350
+          ],
+          "before_rgb_median": [
+            16.0,
+            63.0,
+            70.0
+          ],
+          "after_rgb_median": [
+            17.0,
+            65.0,
+            71.0
+          ]
+        },
+        {
+          "material": "large_foreground_leaf",
+          "bounds": [
+            640,
+            625,
+            680,
+            660
+          ],
+          "before_rgb_median": [
+            5.0,
+            52.0,
+            53.0
+          ],
+          "after_rgb_median": [
+            7.0,
+            54.0,
+            56.0
+          ]
+        },
+        {
+          "material": "pale_foreground_clump",
+          "bounds": [
+            245,
+            677,
+            285,
+            705
+          ],
+          "before_rgb_median": [
+            21.0,
+            61.0,
+            57.0
+          ],
+          "after_rgb_median": [
+            22.0,
+            64.0,
+            58.0
+          ]
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "No runtime shader integrated",
+    "Not a broad grade or replacement for incompatible plant design",
+    "Device and owner appearance acceptance remain open"
+  ]
+}

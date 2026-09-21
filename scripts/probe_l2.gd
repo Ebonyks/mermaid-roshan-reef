@@ -524,6 +524,10 @@ func _validate_candidate_pixels_and_inventory() -> void:
 		expected["water_castle_highlights.png"] = 0
 		_check("whole_scene_two_surface_water_owners", bool(main.g.get("lagoon_water_surface_active", false)) and _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/water_surface_arrival.png") == 1 and _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/water_surface_castle.png") == 1)
 		_check("whole_scene_28_owned_motion_cards", (main.g.get("lagoon_whole_cards", []) as Array).size() == 28)
+		_check("whole_scene_18_rooted_grass_tufts", (main.g.get("lagoon_grass_groups", []) as Array).size() == 18)
+		_check("whole_scene_eight_cloud_difference_cards", (main.g.get("lagoon_cloud_bank_cards", []) as Array).size() == 8)
+		for tuft: int in range(3):
+			_check("whole_scene_grass_shared_atlas_%d" % tuft, _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/grass_tuft_%d.png" % tuft) == 6)
 		_check("whole_scene_rosette_once", _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/castle_foreground_rosette.png") == 1)
 		_check("whole_scene_meadow_boundary_plant_once", _sprite_resource_count(promenade.root(), "res://assets/sprites/sky_lagoon/whole_scene_v2/meadow_boundary_berry_fan.png") == 1)
 	var inventory_ok: bool = true

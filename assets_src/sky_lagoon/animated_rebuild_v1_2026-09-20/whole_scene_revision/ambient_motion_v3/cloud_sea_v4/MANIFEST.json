@@ -1,0 +1,185 @@
+{
+  "status": "OPT_IN_INTEGRATED_FOCUSED_AND_FULL_REGRESSION_PASS_VISUAL_ACCEPTANCE_OPEN",
+  "source_master": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+  "source_sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+  "method": "Direct Aseprite material-motion cels; native crops/masks/weights preserved. Runtime stores signed authored frame differences as separate add/subtract textures. Original background unchanged at rest; no underpaint.",
+  "frames_per_bank": 4,
+  "cycles_seconds": {
+    "near": 4.8,
+    "far": 8
+  },
+  "runtime_cards": 8,
+  "raw_rgba_mib": 18,
+  "source_files": [
+    {
+      "path": "build_source.py",
+      "sha256": "fce5828927dde27e265e6f672a56f273f938f6be01d70e772dc565e9d8cbabfa"
+    },
+    {
+      "path": "EXPORT.json",
+      "sha256": "af359c389dd9e9731cf9451bebdb3fe728021a73a4ffcca10d2b861866286770"
+    },
+    {
+      "path": "far/author.lua",
+      "sha256": "796d651380b63c507b53de49c99a91c804a27564df3f7414575f758bbef3852a"
+    },
+    {
+      "path": "far/bank-00.png",
+      "sha256": "ea55462651cebf74de85b3945823e41c235f6a0d52cdeb2b61676e119e48f4b9"
+    },
+    {
+      "path": "far/bank-01.png",
+      "sha256": "e01d690535ad540970fc7a7fa81796d5fd345f1791f2082da3fb6a4b173c5188"
+    },
+    {
+      "path": "far/bank-02.png",
+      "sha256": "9d5b54ca0fe3ba5a5f88fbf270b2a8556c4ddd7c560c24edc37be8da5584ca76"
+    },
+    {
+      "path": "far/bank-03.png",
+      "sha256": "76153a8b6afa856687fc5933d81cdd0e1555a6be4e60e62d091b37007f16d57c"
+    },
+    {
+      "path": "far/far-cloud-bank-four-cels.aseprite",
+      "sha256": "f0969982d46a1ad20d81e3aca0e423498777bbebf1b0e5a04d6dc8b8a43ab3ee"
+    },
+    {
+      "path": "far/far-cloud-bank-four-poses.ora",
+      "sha256": "063dd3e25273f503215c0234a19348d5abf5e375969b402d160517470f8781e1"
+    },
+    {
+      "path": "far/MASK_REVIEW.json",
+      "sha256": "845fed9267820edc142c16f75626df855beaea43b1f64000769b7b44802f3041"
+    },
+    {
+      "path": "far/motion-weight.png",
+      "sha256": "4c94b3c4390d1be86b0af14992271bb060444aa1f7a4745ac17d280fa22f7025"
+    },
+    {
+      "path": "far/MOTION_REVIEW.json",
+      "sha256": "3a2b32783c6ef6ffde8b791b385e6156e90984b5cecf59fd09ee2bcfabdba966"
+    },
+    {
+      "path": "far/near-bank-mask.png",
+      "sha256": "2ac61e39b8868f69fb8b1a893a9ae9cfd025b144493b309693fbf973bd2c4263"
+    },
+    {
+      "path": "far/near-bank-original.png",
+      "sha256": "7558cc77dbae73b0563f8dc0bc4baeff52353ea672d210f5250f0bd229406037"
+    },
+    {
+      "path": "near/author.lua",
+      "sha256": "4f8c5f847ef603dac0b7f67d4785c47dd15dd3396c5c282bd3afe6d624552483"
+    },
+    {
+      "path": "near/bank-00.png",
+      "sha256": "ad39c0a9e42e8583b6883d0032e562a908ad8a842a83f91555ffb7d60d158b0b"
+    },
+    {
+      "path": "near/bank-01.png",
+      "sha256": "90d0ad8274ae3313192aced1d77ca3e478401efb5bb542a1875d7e8cd7f16329"
+    },
+    {
+      "path": "near/bank-02.png",
+      "sha256": "e4c51cc000f2b11a9fe6759519a27f2afbf1d283f97035279c2b14d937997e8b"
+    },
+    {
+      "path": "near/bank-03.png",
+      "sha256": "b9840795e0e046e6d4b991b86d22dd0f8cef6a75f9d875d9007ab20d74a2e41d"
+    },
+    {
+      "path": "near/MASK_REVIEW.json",
+      "sha256": "52761c85544bcfe9e8642a9f3c1a5b53f14a39699258dd97cdedae3718beb566"
+    },
+    {
+      "path": "near/motion-weight.png",
+      "sha256": "410a39d64c3d729679ba72cf5c502b42f2511d12f282efd729f89550cf1ff0b1"
+    },
+    {
+      "path": "near/MOTION_REVIEW.json",
+      "sha256": "2c1731b52a497c1e601d4ff9ce2a205f0f8f6a0378225e77dab033e5c72243bf"
+    },
+    {
+      "path": "near/near-bank-mask.png",
+      "sha256": "5075ff8e8bce99676a1751572f800d99aeda46c085cc493e6189d593a6423e15"
+    },
+    {
+      "path": "near/near-bank-original.png",
+      "sha256": "29c5dcb9a2f46cf9bdfd96a56af098b26bb125831a3fdb7e4d03ef273dda0e2e"
+    },
+    {
+      "path": "near/near-cloud-bank-four-cels.aseprite",
+      "sha256": "0e75e58e9b762588ffaa6002b1a021089c8572da716ca6417609d3a691b60687"
+    },
+    {
+      "path": "near/near-cloud-bank-four-poses.ora",
+      "sha256": "04106df0fcaa9fd82781fcabc47678495461824d4e4c36f78ac37fc81ef0e5a5"
+    },
+    {
+      "path": "REPRODUCTION.json",
+      "sha256": "c0fdbd4b46b7e861c1d97cc8d5fb2f4e3931e824ea4fa198f90b2f4817e16091"
+    },
+    {
+      "path": "review/arrival-day-motion.webp",
+      "sha256": "d279f4e6f4015e843b0d7dc900519ceb825b92f6d4e088df843f431bcc3a1471"
+    },
+    {
+      "path": "review/arrival-night-motion.webp",
+      "sha256": "3a259e14c2a1f8915fda43a4ca05c3d194ce2ee9a319de3a45cd8e7363fb5883"
+    },
+    {
+      "path": "review/capture.log",
+      "sha256": "a0beca27554067304d5a0c4561f810c763c7c8ced5392eca946c7c81ae01dce8"
+    },
+    {
+      "path": "review/castle-day-motion.webp",
+      "sha256": "f1d903d9bb245966df39e603cf26ed61d9cd3bf1d9721c8a6f063b6db9c34e04"
+    },
+    {
+      "path": "review/castle-night-motion.webp",
+      "sha256": "2e07aff3afab5aa4dd88ffd25bff5349633913b602525080e45f6d5dc42ec6b1"
+    },
+    {
+      "path": "review/cloud-boundary-review.jpg",
+      "sha256": "40be33a72a082759417af631ee16c4f3ef156837d4a64c6cf609faae0ea5bcfd"
+    },
+    {
+      "path": "review/day-scene-comparison.jpg",
+      "sha256": "fc44c8212c2b9cfec56b9eeb4d08cf89d31f720883286714b1eb60e196d245ab"
+    },
+    {
+      "path": "review/GPU_REVIEW.json",
+      "sha256": "826a0666d78ce8f94e6de519278e4c2eee7afa3c323691f73d9a2932fa0c1747"
+    },
+    {
+      "path": "review/meadow-day-motion.webp",
+      "sha256": "e1a17e4df8aa65247cde32d789f979be17a539e9dbec9c1330c343e0d36b9fa4"
+    },
+    {
+      "path": "review/meadow-night-motion.webp",
+      "sha256": "141c25784c4a509cb16ae4ba104f6659c28a1d88326f4ee3f17f35376abb4b96"
+    },
+    {
+      "path": "review/PACKING_REVIEW.json",
+      "sha256": "66f7d25e36bf03ab1377fd0493fe02d129d36bc2fdd373b1ca16e4419cfded40"
+    },
+    {
+      "path": "review/REJECTED_MEMORY_VARIANT.json",
+      "sha256": "0f1f24a456f6b55fe5121433dfe803dd8e400b29ed2c67f89d6b6b1967315633"
+    },
+    {
+      "path": "runtime-probe.log",
+      "sha256": "3f73af9e5c536e55775d21377b38a53e4034f13b5b28238417c496355ced74bf"
+    },
+    {
+      "path": "runtime_probe.gd",
+      "sha256": "bc8e5b641f246a0167c61a34549a7c0fcab8fca3eafd439aedf8bcf411703d0d"
+    }
+  ],
+  "limits": [
+    "Fixed cloud contours; internal paint movement, not independently redrawn rolling silhouettes",
+    "ORA contains pose groups, not native Krita timeline",
+    "Owner/device and combined runtime acceptance open"
+  ],
+  "full_regression_evidence": "assets_src/sky_lagoon/animated_rebuild_v1_2026-09-20/whole_scene_revision/runtime_evidence/FULL_REGRESSION_CLOUD_NIGHT_COMBINED.json"
+}

@@ -8,6 +8,7 @@ extends RefCounted
 const Affordance := preload("res://scripts/interaction_affordance.gd")
 const FRAMES := preload("res://scripts/roshan_sprite_frames.gd")
 const CandidateManifest := preload("res://scripts/arena/sky_lagoon_candidate_manifest.gd")
+const NightMaterials := preload("res://scripts/arena/sky_lagoon_night_materials.gd")
 const WholeSceneCels := preload("res://scripts/arena/sky_lagoon_whole_scene_cels.gd")
 const BoughCels := preload("res://scripts/arena/sky_lagoon_bough_cels.gd")
 const EnvironmentCels := preload("res://scripts/arena/sky_lagoon_environment_cels.gd")
@@ -296,6 +297,7 @@ func build(from_castle: bool, from_north: bool, at_ocean_gate_hub: bool, art_man
 	_build_castle_screen()
 	_build_roshan_card()
 	_build_animals()
+	NightMaterials.build(m.g, m.is_night)
 	var day_one_entry: bool = m.day_one_is_active()
 	var spawn_x: float = 4520.0 if day_one_entry or from_castle or from_north else 610.0
 	set_master_route_x(spawn_x)
