@@ -136,12 +136,12 @@
       "id": "arrival_lawn",
       "file": "arrival_lawn.png",
       "size": [
-        1024,
-        512
+        1008,
+        416
       ],
       "position": [
-        568.7834645669292,
-        1644.783464566929
+        576.8248031496064,
+        1649.6082677165355
       ],
       "scale": 1.6082677165354329,
       "columns": 2,
@@ -150,18 +150,28 @@
       "cycle": 2.8,
       "family": "grass",
       "drift": 0,
-      "sha256": "0369e55adf01838ed3d1cdc05603e628b6ed9a5f2ee6663f243bd8d37aede5dc"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        5,
+        3,
+        509,
+        211
+      ],
+      "sha256": "312a4b8f2d7bfad2fdf1bb62d6688ab0d305aea7157de3aba14aad7911b82cb3"
     },
     {
       "id": "arrival_front_edge",
       "file": "arrival_front_edge.png",
       "size": [
-        1024,
-        512
+        618,
+        286
       ],
       "position": [
-        635.3641304347826,
-        1859.1114130434783
+        643.3641304347826,
+        1910.1114130434783
       ],
       "scale": 1.0,
       "columns": 2,
@@ -170,18 +180,28 @@
       "cycle": 2.6,
       "family": "foreground",
       "drift": 0,
-      "sha256": "9615795e59286cff00d93e4eafa4ea1276164dd9130f6cbfbb6dd5f4493e969f"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        8,
+        51,
+        317,
+        194
+      ],
+      "sha256": "f33a6efb0021b3467db60111db9f508f2abff80ffe5e610332ad373939a56ef5"
     },
     {
       "id": "meadow_upper_left",
       "file": "meadow_upper_left.png",
       "size": [
-        1024,
-        512
+        1004,
+        456
       ],
       "position": [
-        2065.5393700787404,
-        1209.5393700787401
+        2074.1515748031497,
+        1215.6909448818897
       ],
       "scale": 1.2303149606299213,
       "columns": 2,
@@ -190,18 +210,28 @@
       "cycle": 2.8,
       "family": "grass",
       "drift": 0,
-      "sha256": "eef9604a7b0ad7975ec5e2e9846ed863567a1ab48310c94d132ac4c0c4b69d99"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        7,
+        5,
+        509,
+        233
+      ],
+      "sha256": "893857646b6f1db1bc0f71266f7e4aa1227a6b3a31127d71c54e966d5220cb2a"
     },
     {
       "id": "meadow_upper_right",
       "file": "meadow_upper_right.png",
       "size": [
-        1024,
-        512
+        1018,
+        278
       ],
       "position": [
-        2583.4763779527557,
-        1207.476377952756
+        2588.0,
+        1209.738188976378
       ],
       "scale": 2.2618110236220472,
       "columns": 2,
@@ -210,18 +240,28 @@
       "cycle": 2.8,
       "family": "grass",
       "drift": 0,
-      "sha256": "799daf1cbba2ff551b119018fed275be4af070f93b3f81b46a7b81011d00aeee"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        2,
+        1,
+        511,
+        140
+      ],
+      "sha256": "dd1e43fce31f1471363ebe64c39e61784f08894b802ccccd6ab98dc6dc6a878e"
     },
     {
       "id": "meadow_lower_lawn",
       "file": "meadow_lower_lawn.png",
       "size": [
-        1024,
-        512
+        998,
+        302
       ],
       "position": [
-        2539.5393700787404,
-        1671.5393700787401
+        2546.23031496063,
+        1698.3031496062993
       ],
       "scale": 2.2303149606299213,
       "columns": 2,
@@ -230,18 +270,28 @@
       "cycle": 2.8,
       "family": "grass",
       "drift": 0,
-      "sha256": "7b3ded42e84297732edf824952739f6848ef72d6ceb3ee2892e59cabe09fade1"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        3,
+        12,
+        502,
+        163
+      ],
+      "sha256": "570d9315a5d703e0383cb84489ae71bf01f75535b1d8736eb881917a77f47dea"
     },
     {
       "id": "castle_left_verge",
       "file": "castle_left_verge.png",
       "size": [
-        1024,
-        512
+        768,
+        500
       ],
       "position": [
-        4533.777777777777,
-        1765.7777777777778
+        4540.444444444444,
+        1772.4444444444446
       ],
       "scale": 1.1111111111111112,
       "columns": 2,
@@ -250,18 +300,28 @@
       "cycle": 2.8,
       "family": "grass",
       "drift": 0,
-      "sha256": "6b75da216fbc29b7923724803e556f0e45813d8dc1c49335b9aaf20738dc6da2"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        6,
+        6,
+        390,
+        256
+      ],
+      "sha256": "7c98e64ba5bdb861f7da57423a9d2876cc29c2b982c0b131cad714e50407496f"
     },
     {
       "id": "castle_right_verge",
       "file": "castle_right_verge.png",
       "size": [
-        1024,
-        512
+        710,
+        294
       ],
       "position": [
-        5642.0,
-        1838.0
+        5786.0,
+        1900.0
       ],
       "scale": 1.0,
       "columns": 2,
@@ -270,18 +330,28 @@
       "cycle": 2.8,
       "family": "grass",
       "drift": 0,
-      "sha256": "06a62f124f0ae367178cef42979f49b6b80d37bc946b734a57f8c6b7d94a949a"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        144,
+        62,
+        499,
+        209
+      ],
+      "sha256": "e20555d8e0a7792f8173140fa951c8f0ece7b468dfac41fc5e07cd3934cee48b"
     },
     {
       "id": "arrival_bank_left",
       "file": "arrival_bank_left.png",
       "size": [
-        1024,
-        512
+        370,
+        476
       ],
       "position": [
-        277.2936507936508,
-        861.2936507936508
+        289.47222222222223,
+        873.4722222222223
       ],
       "scale": 1.3531746031746033,
       "columns": 2,
@@ -290,18 +360,28 @@
       "cycle": 3.6,
       "family": "shrubs",
       "drift": 0,
-      "sha256": "daae575d06466b38ec0f8a1bf93a285685b347c83895251969a4262363034ec4"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        9,
+        9,
+        194,
+        247
+      ],
+      "sha256": "66f34621954e4ee2576586a828627eb10c075c8780b2bcc43cd6812f3488e980"
     },
     {
       "id": "arrival_bank_right",
       "file": "arrival_bank_right.png",
       "size": [
-        1024,
-        512
+        984,
+        414
       ],
       "position": [
-        1325.3818897637796,
-        1093.3818897637796
+        1338.472440944882,
+        1119.5629921259842
       ],
       "scale": 1.3090551181102363,
       "columns": 2,
@@ -310,18 +390,28 @@
       "cycle": 3.6,
       "family": "shrubs",
       "drift": 0,
-      "sha256": "2e30ebf77b02c7feb84b255537ed3c3fcee63cdf59517b5c1aa3b416ca29476f"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        10,
+        20,
+        502,
+        227
+      ],
+      "sha256": "96beb6f09b61f2472b818e65cf5fb5740ffe17917fd51f5f7d80f2f92d874b75"
     },
     {
       "id": "meadow_hedge_left",
       "file": "meadow_hedge_left.png",
       "size": [
-        1024,
-        512
+        746,
+        266
       ],
       "position": [
-        2050.0,
-        1046.0
+        2066.0,
+        1086.0
       ],
       "scale": 1.0,
       "columns": 2,
@@ -330,18 +420,28 @@
       "cycle": 3.6,
       "family": "shrubs",
       "drift": 0,
-      "sha256": "69234f869a37302550bc9070b8ce2739fc3c0b0ebebb699ce7abc7b3d1d7dada"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        16,
+        40,
+        389,
+        173
+      ],
+      "sha256": "7f00a496d485495480835bfd9965a3e422cae063663ef4cf67fbb3b77f92be22"
     },
     {
       "id": "meadow_hedge_right",
       "file": "meadow_hedge_right.png",
       "size": [
-        1024,
-        512
+        996,
+        198
       ],
       "position": [
-        2824.547244094488,
-        1052.5472440944882
+        2836.6318897637793,
+        1064.6318897637796
       ],
       "scale": 1.7263779527559056,
       "columns": 2,
@@ -350,18 +450,28 @@
       "cycle": 3.6,
       "family": "shrubs",
       "drift": 0,
-      "sha256": "6c65473cc300d449d9a17158f235def46ab77b2e732d063c8a639eb083d15b91"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        7,
+        7,
+        505,
+        106
+      ],
+      "sha256": "7eb99ad92ea829dcfd48ac1b156fe1143f346fc6b569521c6daedaf37c67495f"
     },
     {
       "id": "castle_approach_bank",
       "file": "castle_approach_bank.png",
       "size": [
-        1024,
-        512
+        690,
+        464
       ],
       "position": [
-        4089.7380952380954,
-        1077.7380952380952
+        4103.309523809524,
+        1091.3095238095239
       ],
       "scale": 1.130952380952381,
       "columns": 2,
@@ -370,18 +480,28 @@
       "cycle": 3.6,
       "family": "shrubs",
       "drift": 0,
-      "sha256": "138de81b7e443e0f85e097d7c27c6fa05788028113efaf8eb441b978f40a11b2"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        12,
+        12,
+        357,
+        244
+      ],
+      "sha256": "51db61fe889c592101da78c25fe11a7a5eae60f432776c44351dcf739f5ef895"
     },
     {
       "id": "castle_far_bank",
       "file": "castle_far_bank.png",
       "size": [
-        1024,
-        512
+        992,
+        352
       ],
       "position": [
-        5557.700787401574,
-        933.7007874015748
+        5570.346456692913,
+        947.496062992126
       ],
       "scale": 1.1496062992125984,
       "columns": 2,
@@ -390,18 +510,28 @@
       "cycle": 3.6,
       "family": "shrubs",
       "drift": 0,
-      "sha256": "60898a4fc38684bd36b7776036a2eb5d15c71e6823b622b145d2c3ff544ed00c"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        11,
+        12,
+        507,
+        188
+      ],
+      "sha256": "1d142afe16486fbc9cf308839db4b39fafafca5e335854d6548b461293dff522"
     },
     {
       "id": "arrival_high_left",
       "file": "arrival_high_left.png",
       "size": [
-        1024,
-        512
+        742,
+        320
       ],
       "position": [
         274.0,
-        218.0
+        233.0
       ],
       "scale": 1.0,
       "columns": 2,
@@ -411,18 +541,28 @@
       "family": "cloud",
       "drift": 24,
       "pose_cycle": 3.3,
-      "sha256": "ad4b394da919961fff426f43bc799d277da92384ece0025ac0066d59fdaf6d56"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        0,
+        15,
+        371,
+        175
+      ],
+      "sha256": "d9ca61ffc78c6072fdf39deb4fd0cefaca35790e6ff8928d2f94eb8735b5039e"
     },
     {
       "id": "arrival_high_right",
       "file": "arrival_high_right.png",
       "size": [
-        1024,
-        512
+        926,
+        360
       ],
       "position": [
-        1302.0,
-        454.0
+        1309.0,
+        463.0
       ],
       "scale": 1.0,
       "columns": 2,
@@ -432,18 +572,28 @@
       "family": "cloud",
       "drift": 24,
       "pose_cycle": 3.3,
-      "sha256": "6cf5d1f3d1b76cc8bf00b74473612bd940176772de0312093f1f324c5b69412c"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        7,
+        9,
+        470,
+        189
+      ],
+      "sha256": "c7a3e1f0d60257017db79c2420e4fbca295726943f4867e777fd86db97501e89"
     },
     {
       "id": "arrival_small_center",
       "file": "arrival_small_center.png",
       "size": [
-        1024,
-        256
+        374,
+        116
       ],
       "position": [
-        694.0,
-        706.0
+        743.0,
+        739.0
       ],
       "scale": 1.0,
       "columns": 2,
@@ -453,18 +603,28 @@
       "family": "cloud",
       "drift": 24,
       "pose_cycle": 3.6,
-      "sha256": "f7f10a594602ee6fcc6a573bf6e76f25eb5b4b1b25eafb034aa3b52a2988853e"
+      "source_cell_size": [
+        512,
+        128
+      ],
+      "cell_crop": [
+        49,
+        33,
+        236,
+        91
+      ],
+      "sha256": "c2332526c7c0c92b1363b6a42ed5cff62a8fbd20be206563eb59bf0c5f6e4d07"
     },
     {
       "id": "arrival_small_right",
       "file": "arrival_small_right.png",
       "size": [
-        512,
-        256
+        404,
+        120
       ],
       "position": [
-        1094.0,
-        774.0
+        1115.0,
+        794.0
       ],
       "scale": 1.0,
       "columns": 2,
@@ -474,18 +634,28 @@
       "family": "cloud",
       "drift": 24,
       "pose_cycle": 3.6,
-      "sha256": "a9524cb9aa75f347dfe570e45a68dc82a809234ccf21a76a3e37338a6f85a983"
+      "source_cell_size": [
+        256,
+        128
+      ],
+      "cell_crop": [
+        21,
+        20,
+        223,
+        80
+      ],
+      "sha256": "8f6264f16b2e0cbb715a2edcff303a595486aca4cbe95fb6e201a28e6116c2b5"
     },
     {
       "id": "arrival_mid_right",
       "file": "arrival_mid_right.png",
       "size": [
-        1024,
-        256
+        492,
+        158
       ],
       "position": [
-        1142.0,
-        670.0
+        1170.0,
+        697.0
       ],
       "scale": 1.0,
       "columns": 2,
@@ -495,18 +665,28 @@
       "family": "cloud",
       "drift": 24,
       "pose_cycle": 3.6,
-      "sha256": "d83ac02e8eaa4bfa5ddfc85247e45eb5cda2301a4528147a68829c366f467f4b"
+      "source_cell_size": [
+        512,
+        128
+      ],
+      "cell_crop": [
+        28,
+        27,
+        274,
+        106
+      ],
+      "sha256": "177734e4f023e3fb0604dae55affb589abdfa09356c63ea9b9e35727e73e34af"
     },
     {
       "id": "meadow_high_left",
       "file": "meadow_high_left.png",
       "size": [
-        1024,
-        512
+        938,
+        350
       ],
       "position": [
-        1989.8897637795276,
-        305.8897637795276
+        2010.992125984252,
+        325.93700787401576
       ],
       "scale": 1.0551181102362206,
       "columns": 2,
@@ -516,18 +696,28 @@
       "family": "cloud",
       "drift": 24,
       "pose_cycle": 3.6,
-      "sha256": "5aacf5ebbbf652854dea5093eb0b54d54e6c59683f5f965246bc018f4c2be039"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        20,
+        19,
+        489,
+        194
+      ],
+      "sha256": "58e5a44bc03bfa5c7e06d7c563a332856ef29736079317bc9a013c15be89ebc4"
     },
     {
       "id": "meadow_high_right",
       "file": "meadow_high_right.png",
       "size": [
-        1024,
-        512
+        984,
+        390
       ],
       "position": [
-        3721.8110236220473,
-        277.81102362204723
+        3729.472440944882,
+        288.755905511811
       ],
       "scale": 1.094488188976378,
       "columns": 2,
@@ -537,18 +727,28 @@
       "family": "cloud",
       "drift": 24,
       "pose_cycle": 3.3,
-      "sha256": "d1e7da84452291bf87088958c0346614dd465aeb3c3d58fcb37376ab7c1f67bc"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        7,
+        10,
+        499,
+        205
+      ],
+      "sha256": "89272e584238c2b16a4554932c0257ccac975c3b955a9e0cef6ffad5ae803bcd"
     },
     {
       "id": "meadow_small_left",
       "file": "meadow_small_left.png",
       "size": [
-        1024,
-        256
+        444,
+        124
       ],
       "position": [
-        1794.0,
-        654.0
+        1920.0,
+        668.0
       ],
       "scale": 1.0,
       "columns": 2,
@@ -558,18 +758,28 @@
       "family": "cloud",
       "drift": 24,
       "pose_cycle": 3.6,
-      "sha256": "9add0d0eff156f42e4fa405a59bd2a4eddf02f9b75a9302db90efa79fccb0e2d"
+      "source_cell_size": [
+        512,
+        128
+      ],
+      "cell_crop": [
+        126,
+        14,
+        348,
+        76
+      ],
+      "sha256": "638c89f76620fe2e67bc6e1c770cd62e4b88e8dc047bbae809ec8408d907d316"
     },
     {
       "id": "meadow_mid_right",
       "file": "meadow_mid_right.png",
       "size": [
-        1024,
-        512
+        698,
+        232
       ],
       "position": [
-        3218.0,
-        578.0
+        3250.0,
+        606.0
       ],
       "scale": 1.0,
       "columns": 2,
@@ -579,18 +789,28 @@
       "family": "cloud",
       "drift": 24,
       "pose_cycle": 3.6,
-      "sha256": "855d7cb7ee2c1b8f6c4d418995d2705b4808cab7567dd6c6eca9034ec7761cc5"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        32,
+        28,
+        381,
+        144
+      ],
+      "sha256": "792c1a0283a20941bf2d6d29ff98ba09d5b25393914bf8aa731a6a732c9471dd"
     },
     {
       "id": "meadow_small_center",
       "file": "meadow_small_center.png",
       "size": [
-        512,
-        256
+        346,
+        118
       ],
       "position": [
-        2982.0,
-        718.0
+        3002.0,
+        749.0
       ],
       "scale": 1.0,
       "columns": 2,
@@ -600,18 +820,28 @@
       "family": "cloud",
       "drift": 24,
       "pose_cycle": 3.6,
-      "sha256": "db3911670d057cc998429e77243eb938619bd33dcf84183e326fe13d21da657b"
+      "source_cell_size": [
+        256,
+        128
+      ],
+      "cell_crop": [
+        20,
+        31,
+        193,
+        90
+      ],
+      "sha256": "bef8df5e1f8e229fa28ac8e96ded6073ca0b187c80868c35a76505e903bfa25c"
     },
     {
       "id": "meadow_small_far",
       "file": "meadow_small_far.png",
       "size": [
-        512,
-        256
+        314,
+        100
       ],
       "position": [
-        3202.0,
-        750.0
+        3204.0,
+        760.0
       ],
       "scale": 1.0,
       "columns": 2,
@@ -621,18 +851,28 @@
       "family": "cloud",
       "drift": 24,
       "pose_cycle": 3.6,
-      "sha256": "82c417a9991019725ce9b28dd703a89813211c0848364d974a6bd7ad4033d771"
+      "source_cell_size": [
+        256,
+        128
+      ],
+      "cell_crop": [
+        2,
+        10,
+        159,
+        60
+      ],
+      "sha256": "25e574a0247477a189c5850aa6f604d8c4813614a9dc77a5309e3741898d393f"
     },
     {
       "id": "castle_high",
       "file": "castle_high.png",
       "size": [
-        1024,
-        512
+        972,
+        330
       ],
       "position": [
-        5213.307086614173,
-        105.30708661417323
+        5226.771653543307,
+        136.2755905511811
       ],
       "scale": 1.3464566929133859,
       "columns": 2,
@@ -642,18 +882,28 @@
       "family": "cloud",
       "drift": 24,
       "pose_cycle": 3.6,
-      "sha256": "85b530748fe0ddf149cbfa09fdfde00df8632294ebecf68a25e9efc87cb395ed"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        10,
+        23,
+        496,
+        188
+      ],
+      "sha256": "5b13c61cbfa10556996b24a5ef451f1e1cab27ac69c3fb10eb7e926b497ac693"
     },
     {
       "id": "castle_foreground_rosette",
       "file": "castle_foreground_rosette.png",
       "size": [
-        1024,
-        1024
+        608,
+        968
       ],
       "position": [
-        4524.523809523809,
-        1686.5238095238096
+        4541.857142857142,
+        1698.904761904762
       ],
       "scale": 1.2380952380952381,
       "columns": 2,
@@ -662,18 +912,28 @@
       "cycle": 2.28,
       "family": "foreground",
       "drift": 0,
-      "sha256": "fb5d509552e6ef372ec9307eb83a28d7e4434f650fcd46abd6a36e18616c7483"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        14,
+        10,
+        318,
+        252
+      ],
+      "sha256": "769793a1324f72e329e711862a4ce3d879feab95a183cebab860f101f15dcab8"
     },
     {
       "id": "meadow_boundary_berry_fan",
       "file": "meadow_boundary_berry_fan.png",
       "size": [
-        1024,
-        1024
+        628,
+        1008
       ],
       "position": [
-        1781.8650793650793,
-        1586.8650793650793
+        1800.6746031746031,
+        1593.1349206349205
       ],
       "scale": 1.5674603174603177,
       "columns": 2,
@@ -682,9 +942,19 @@
       "cycle": 2.4,
       "family": "foreground",
       "drift": 0,
-      "sha256": "2f6591da0250aea88274f146ca3f82865029442a1d95895d1b3069d416fc0635"
+      "source_cell_size": [
+        512,
+        256
+      ],
+      "cell_crop": [
+        12,
+        4,
+        326,
+        256
+      ],
+      "sha256": "62c296984d8daf9b4d3913438eb84740be27b23762b84c534f52195d75f9b8f6"
     }
   ],
-  "raw_rgba_mib": 114.5,
+  "raw_rgba_mib": 91.32670593261719,
   "limits": "Twelve separated clouds have three or four cels with independent pose/drift clocks; eight use direct Aseprite deformation of original paint. Low cloud sea is incomplete. One new foreground grass accent does not solve broad lawn coverage. Owner/device acceptance pending."
 }

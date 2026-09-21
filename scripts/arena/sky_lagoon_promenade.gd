@@ -1372,6 +1372,21 @@ func _bind_animal_id(animal_id: String) -> bool:
 	var definition: Dictionary = _animal_definition(animal_id)
 	return false if definition.is_empty() else _bind_animal(definition)
 
+func _animal_texture(definition: Dictionary, action: String) -> Texture2D:
+	if not (m.g.get("lagoon_whole_cards", []) as Array).is_empty():
+		var candidate: String = "res://assets/sprites/sky_lagoon/whole_scene_v2/%s_%s_padded.png" % [str(definition["id"]), action]
+		if ResourceLoader.exists(candidate):
+			var texture: Texture2D = load(candidate) as Texture2D
+			if texture != null and texture.get_size() == Vector2(640, 512):
+				return texture
+	return load(String(definition[action])) as Texture2D
+
+
+func _animal_frame_region(node: Sprite2D, frame: int) -> Rect2:
+	var cell: Vector2 = node.texture.get_size() / Vector2(ANIMAL_ATLAS_COLUMNS, ANIMAL_ATLAS_ROWS)
+	return Rect2(Vector2(float(frame % ANIMAL_ATLAS_COLUMNS), float(frame / ANIMAL_ATLAS_COLUMNS)) * cell, cell)
+
+
 func _bind_animal(definition: Dictionary) -> bool:
 	if not _animal_path_is_safe(definition):
 		return false
@@ -1383,9 +1398,9 @@ func _bind_animal(definition: Dictionary) -> bool:
 	if node == null or not is_instance_valid(node):
 		return false
 	var path: Array = definition["path"] as Array
-	node.texture = load(String(definition["idle"])) as Texture2D
+	node.texture = _animal_texture(definition, "idle")
 	node.region_enabled = true
-	node.region_rect = Rect2(Vector2.ZERO, Vector2(256, 256))
+	node.region_rect = _animal_frame_region(node, 0)
 	node.position = path[0] as Vector2
 	node.scale = Vector2.ONE * (float(definition["height"]) / 256.0)
 	node.modulate = definition["night_tint"] as Color if m.is_night else definition["day_tint"] as Color
@@ -1451,7 +1466,7 @@ func _tick_animal_idle(actor: Dictionary, delta: float) -> void:
 	var timer: float = float(actor.get("state_t", 0.0)) + delta
 	actor["state_t"] = timer
 	var frame: int = int(floor(timer / float(definition["frame_s"]))) % 4
-	node.region_rect = Rect2(Vector2(float(frame % 2), float(frame / 2)) * 256.0, Vector2(256, 256))
+	node.region_rect = _animal_frame_region(node, frame)
 	actor["route_position"] = node.position
 	_sync_contact_shadow(node)
 
@@ -1462,7 +1477,8 @@ func _startle_animal(actor: Dictionary) -> void:
 		return
 	actor["state"] = "startle"
 	actor["state_t"] = 0.0
-	node.texture = load(String(definition["startle"])) as Texture2D
+	node.texture = _animal_texture(definition, "startle")
+	node.region_rect = _animal_frame_region(node, 0)
 
 func _tick_animal_startle(actor: Dictionary, delta: float) -> void:
 	var node: Sprite2D = actor.get("node") as Sprite2D
@@ -1475,7 +1491,7 @@ func _tick_animal_startle(actor: Dictionary, delta: float) -> void:
 	var squash_end: float = alert_end + ANIMAL_STARTLE_SQUASH_S
 	var hop_end: float = squash_end + ANIMAL_STARTLE_HOP_S
 	var frame: int = 0 if timer < alert_end else 1 if timer < squash_end else 2 if timer < hop_end else 3
-	node.region_rect = Rect2(Vector2(float(frame % 2), float(frame / 2)) * 256.0, Vector2(256, 256))
+	node.region_rect = _animal_frame_region(node, frame)
 	if timer >= squash_end:
 		node.position.x += float(definition["exit_speed"]) * delta * (-1.0 if node.position.x < float(m.g.get("lagoon_camera_x", 0.0)) else 1.0)
 		node.position.y -= sin(clampf((timer - squash_end) / ANIMAL_STARTLE_HOP_S, 0.0, 1.0) * PI) * 3.0

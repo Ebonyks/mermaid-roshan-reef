@@ -1,8 +1,9 @@
 """Pack source trials into versioned, opt-in runtime resources; original art stays intact."""
 from pathlib import Path
-from PIL import Image
-import json,math,hashlib
-B=Path(__file__).resolve().parent;R=B.parents[2];S=B/'whole_scene_revision';O=R/'assets/sprites/sky_lagoon/whole_scene_v2';O.mkdir(parents=True,exist_ok=True)
+from PIL import Image,ImageChops
+import json,math,hashlib,argparse
+args=argparse.ArgumentParser(description=__doc__);args.add_argument('--output',type=Path);args=args.parse_args()
+B=Path(__file__).resolve().parent;R=B.parents[2];S=B/'whole_scene_revision';O=args.output or R/'assets/sprites/sky_lagoon/whole_scene_v2';O.mkdir(parents=True,exist_ok=True)
 base=Image.open(S/'clouds/sky-clouds-removed-candidate.png').convert('RGBA');cards=[]
 ambient=S/'ambient_motion_v3';motion=json.loads((ambient/'SOURCE.json').read_text(encoding='utf-8'));cloud_motion={r['id']:r for r in motion['clouds']}
 def pack(name,frames,rect,cycle,family):
@@ -49,6 +50,20 @@ mask=Image.open(meadow/'removal-mask.png').convert('L')
 backing=Image.open(meadow/'generated-backing-native.png').convert('RGBA').resize(mask.size,Image.Resampling.LANCZOS)
 base.paste(backing,(1750,1560),mask)
 pack('meadow_boundary_berry_fan',[Image.open(meadow/f'cel-{k:02d}.png').convert('RGBA') for k in range(8)],[1785,1590,516,395],2.4,'foreground')
+for card in cards:
+ image=Image.open(O/card['file']).convert('RGBA');cols,rows=card['columns'],card['rows'];cw,ch=image.width//cols,image.height//rows
+ cells=[image.crop((k%cols*cw,k//cols*ch,(k%cols+1)*cw,(k//cols+1)*ch)) for k in range(card['frames'])]
+ union=Image.new('L',(cw,ch))
+ for cell in cells:union=ImageChops.lighter(union,cell.getchannel('A'))
+ box=union.getbbox()
+ if box is None:continue
+ box=(max(0,box[0]-2),max(0,box[1]-2),min(cw,box[2]+2),min(ch,box[3]+2));nw,nh=(box[2]-box[0])*cols,(box[3]-box[1])*rows
+ if max(nw,nh)>1024 and not (nw&(nw-1)==0 and nh&(nh-1)==0):continue
+ if (nw,nh)==image.size:continue
+ cropped=Image.new('RGBA',(nw,nh))
+ for k,cell in enumerate(cells):cropped.paste(cell.crop(box),(k%cols*(nw//cols),k//cols*(nh//rows)))
+ cropped.save(O/card['file']);card['source_cell_size']=[cw,ch];card['cell_crop']=list(box);card['size']=[nw,nh]
+ card['position']=[card['position'][0]+box[0]*card['scale'],card['position'][1]+box[1]*card['scale']]
 tiles=[]
 for r in range(2):
  for c in range(6):

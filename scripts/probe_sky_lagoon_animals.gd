@@ -244,6 +244,8 @@ func _validate_day_actor() -> void:
 	var pooled_id: int = node.get_instance_id() if node != null else -1
 	for definition: Dictionary in SkyLagoonPromenade.ANIMAL_DEFS:
 		var animal_id := String(definition["id"])
+		var whole_preview: bool = not (main.g.get("lagoon_whole_cards", []) as Array).is_empty()
+		var idle_cell := Vector2(320, 256) if whole_preview and animal_id == "raccoon" else Vector2(256, 256)
 		promenade.set_master_route_x(float(REVIEW_ROUTE_X[animal_id]))
 		await _frames(4)
 		_check("bind_%s" % animal_id, promenade._bind_animal_id(animal_id))
@@ -267,7 +269,7 @@ func _validate_day_actor() -> void:
 			and max_overlap <= 0.20,
 			"bounds=%s overlap=%.3f" % [visual_bounds, max_overlap])
 		_check("%s_canvas_metadata_and_lighting" % animal_id,
-			node.region_enabled and node.region_rect.size == Vector2(256.0, 256.0) \
+			node.region_enabled and node.region_rect.size == idle_cell \
 			and node.modulate.is_equal_approx(definition["day_tint"] as Color) \
 			and shadow != null and shadow.modulate.a > 0.0 \
 			and String(node.get_meta("animal_id", "")) == animal_id \
@@ -279,6 +281,13 @@ func _validate_day_actor() -> void:
 			and SkyLagoonPromenade.ANIMAL_TOUCH_RADIUS_PX >= 110.0)
 		await _capture_pair("day_%s" % animal_id, actor, definition)
 		promenade._startle_animal(actor)
+		var padded_startle: bool = whole_preview and animal_id in ["frog", "hare", "otter", "squirrel"]
+		var startle_cell := Vector2(320, 256) if padded_startle else Vector2(256, 256)
+		_check("%s_startle_binds_first_complete_cell_immediately" % animal_id,
+			node.region_rect == Rect2(Vector2.ZERO, startle_cell))
+		if padded_startle:
+			_check("%s_uses_padded_startle_source" % animal_id,
+				node.texture.resource_path == "res://assets/sprites/sky_lagoon/whole_scene_v2/%s_startle_padded.png" % animal_id)
 		promenade._tick_animals(0.10)
 		var alert_frame: int = _atlas_frame(node)
 		promenade._tick_animals(0.20)
@@ -288,6 +297,9 @@ func _validate_day_actor() -> void:
 		_check("%s_cute_startle_sequence" % animal_id,
 			alert_frame == 0 and squash_frame == 1 and hop_frame == 2 \
 			and String(actor.get("state", "")) == "startle")
+		promenade._tick_animals(0.20)
+		_check("%s_last_pose_samples_complete_cell" % animal_id,
+			_atlas_frame(node) == 3 and node.region_rect == Rect2(startle_cell, startle_cell))
 
 
 func _validate_continuity() -> void:
