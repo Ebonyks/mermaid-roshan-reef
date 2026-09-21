@@ -1,0 +1,27 @@
+{
+  "id": "picture-book-v24-rounded-bubbles-20260920",
+  "baseline": "1053161de86d6c655778acaeedfa7ecd3aecf0ac",
+  "scope": "Owner asks for cuter, more rounded apology speech balloons on Baby Eagle page19. Vector outline geometry only; no raster art or text changes.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-02"
+  ],
+  "findings": [],
+  "no_findings_reason": "Non-runtime book typography/layout refinement, no game finding closure.",
+  "files": [
+    "books/chapter_one/landscape/render_book.py",
+    "books/chapter_one/landscape/REVIEW.md",
+    "design/audit_impacts/picture-book-v24-rounded-bubbles-20260920.json"
+  ],
+  "validation": [
+    {
+      "command": "PDFium comparison of all34 pages against V23 at1x; full-size page19 inspection",
+      "result": "PASS",
+      "evidence": "Only page19 changes. Both apology strings readable with rounded contours and clear tails; all33 other pages identical."
+    }
+  ],
+  "acceptance_gaps": "Owner review of rounded balloons; previous whole-book child/print limitations remain."
+}

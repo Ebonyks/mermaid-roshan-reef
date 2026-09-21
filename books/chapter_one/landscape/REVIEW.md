@@ -67,3 +67,5 @@ V19 rescue-legibility audit: p17/18 captions no longer cross ceiling fixtures. O
 Pages 20, 26 and 31 use large transparent restorations of their original Roshan gestures. Page 3 exposes only a repaired upper-wall strip over the original dirty-castle entry. Pages 17 and 18 are owner-commissioned rescue replacements: exactly two canonical cloud bunnies pin Baby Eagle, then release the wings; grey legs and black-tipped pink wings remain visible. All other pages, including the finale, retain V20 artwork. Native source density caused the former soft poses, not PDF compression. These are review candidates; owner acceptance remains open.
 
 Owner selection (2026-09-20): rear cover H accepted and retained in the full PDF. Whole-book child and print acceptance remain open.
+
+V24 rounded speech balloons: page19 uses pillowy oval bodies with curved tails, preserving both apology strings, editable Sniglet lettering, and existing positions. No new raster art.

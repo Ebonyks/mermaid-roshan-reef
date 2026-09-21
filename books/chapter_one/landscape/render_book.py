@@ -73,12 +73,14 @@ def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False):
 def speech(q):
  x,y,w,h=q['box'];tx,ty=q['tail'];c.saveState()
  c.setFillColorRGB(1,1,.98);c.setStrokeColorRGB(.16,.26,.45);c.setLineWidth(1.2)
- # One continuous balloon outline, with a downward tail pointing to its speaker.
- tail_x=max(x+18,min(tx,x+w-18));p=c.beginPath();p.moveTo(x+14,y)
- p.lineTo(tail_x-7,y);p.lineTo(tx,ty);p.lineTo(tail_x+7,y);p.lineTo(x+w-14,y)
- p.curveTo(x+w,y,x+w,y,x+w,y+14);p.lineTo(x+w,y+h-14)
- p.curveTo(x+w,y+h,x+w,y+h,x+w-14,y+h);p.lineTo(x+14,y+h)
- p.curveTo(x,y+h,x,y+h,x,y+h-14);p.lineTo(x,y+14);p.curveTo(x,y,x,y,x+14,y)
+ # Pillowy oval body and a curved, softly tapered tail; no rectangular sides.
+ tail_x=max(x+w*.35,min(tx,x+w*.65));p=c.beginPath();p.moveTo(tail_x-8,y+1)
+ p.curveTo(tail_x-6,y-7,tx-5,ty+4,tx,ty)
+ p.curveTo(tx+1,ty+7,tail_x+5,y-5,tail_x+8,y+1)
+ p.curveTo(x+w*.85,y-1,x+w,y+h*.12,x+w,y+h*.5)
+ p.curveTo(x+w,y+h*.88,x+w*.80,y+h,x+w*.5,y+h)
+ p.curveTo(x+w*.20,y+h,x,y+h*.88,x,y+h*.5)
+ p.curveTo(x,y+h*.12,x+w*.15,y-1,tail_x-8,y+1)
  p.close();c.drawPath(p,fill=1,stroke=1);c.restoreState()
  text(q['text'],x+10,y+h-25,w-20,18,True)
 base='landscape_base'
