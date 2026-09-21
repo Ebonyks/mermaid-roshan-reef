@@ -24,6 +24,12 @@ Copy it for a commissioned cue; empty fields are not evidence or approval.
 - Audible plugin test render/hash, result; active source vs muted safety print:
 - Freeze-stem/master artifact locations and hashes; rebuild limitations:
 
+- Software procedures: [runbook](../audio/REAPER_SOFTWARE_RUNBOOK.md).
+- Per-role plugin profiles: [template](VST_INSTRUMENT_PROFILE.json); verified state and limitations:
+- Candidate render resource profile, exact bounds/format and unique output path:
+- Local analysis environment lock and MCP upstream/adapter versions:
+- Melodyne actual edits/print evidence, or pending UI-only work:
+
 ## Arrangement and mix
 
 - Phrase/lyric anchors and offbeat/swing intent; known accepted timing:

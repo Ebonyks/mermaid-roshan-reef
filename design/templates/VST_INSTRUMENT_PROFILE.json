@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "template_only": true,
+  "cue_id": null,
+  "role": null,
+  "verification_state": "unverified",
+  "host": {
+    "name": null,
+    "version": null,
+    "resource_profile": null
+  },
+  "plugin": {
+    "vendor": null,
+    "name": null,
+    "version": null,
+    "format": null,
+    "fx_identifier": null,
+    "binary_path_local": null,
+    "official_source_url": null
+  },
+  "library": {
+    "name": null,
+    "version": null,
+    "content_path_local": null,
+    "patch": null,
+    "license_requirements": null,
+    "activation_verified": false,
+    "installed_bytes": null,
+    "redistribution_notes": null
+  },
+  "performance": {
+    "midi_channel": null,
+    "playable_midi_note_range": null,
+    "keyswitches": [],
+    "articulations": [],
+    "velocity_behavior": null,
+    "release_behavior": null,
+    "internal_pattern_generator": null
+  },
+  "signal_chain": {
+    "audio_outputs": [],
+    "clean_fx": [],
+    "heavy_fx": [],
+    "automation_parameters": [],
+    "parallel_routing_and_latency": null,
+    "gain_and_pan": null
+  },
+  "tests": {
+    "midi_fixture_path": null,
+    "dry_render_sha256": null,
+    "processed_render_sha256": null,
+    "save_reopen_passed": false,
+    "background_render_passed": false,
+    "cue_context_accepted": false,
+    "observed_cpu_ram": null,
+    "notes": []
+  },
+  "recall": {
+    "track_template_path": null,
+    "custom_fx_hashes": {},
+    "printed_stem_path": null,
+    "printed_stem_sha256": null,
+    "active_source": "unverified",
+    "rollback_source": null
+  },
+  "evidence": {
+    "checked_at": null,
+    "project_sha256": null,
+    "reviewer": null,
+    "limitations": []
+  },
+  "instructions": "Copy per cue role. Null/false fields are unverified, not approval. No serials, credentials, opaque licensed plugin state or sample payloads. States: unverified, loaded, audible_test_passed, reopen_render_passed, accepted_in_cue."
+}

@@ -1,0 +1,66 @@
+{
+  "id": "reaper-software-runbook-20260920",
+  "scope": "Expand the commissioned music authoring workflow into software-specific operational procedures and an extensible instrument/effect onboarding profile. Documentation only; v89 remains selected, song editing remains paused.",
+  "baseline": "a8793902b0d442944049b212fd4575fcadbc8a16",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-04",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-04",
+    "DL-SND-05",
+    "DL-SND-07",
+    "DL-SND-08",
+    "DL-SND-09",
+    "DL-SND-10",
+    "DL-SND-11",
+    "DL-SND-12",
+    "DL-QA-13",
+    "DL-PERF-05",
+    "DL-ASSET-04"
+  ],
+  "findings": [
+    "MA-AUDIO-001"
+  ],
+  "files": [
+    "design/audio/REAPER_SOFTWARE_RUNBOOK.md",
+    "design/templates/VST_INSTRUMENT_PROFILE.json",
+    "design/audio/REAPER_MUSIC_PRODUCTION_WORKFLOW.md",
+    "design/templates/MUSIC_CUE_WORKSHEET.md",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "2026-09-20: DOCAUTH inventory575/ledger575, active56/records58, ALL OK."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "2026-09-20: auto base5920c673305989ee29d91876480ff445dba9fc8b, ALL OK; scoped files covered."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "2026-09-20: 52 tests passed in12.840s; mutation stress6/6."
+    },
+    {
+      "command": "git diff --check",
+      "result": "PASS",
+      "evidence": "2026-09-20: no whitespace errors in scoped documentation diff."
+    },
+    {
+      "command": "Godot import/runtime/device/audio delivery gates",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Documentation-only source workflow; no runtime code, assets, audio or engine configuration changed. No game or device acceptance claim."
+    },
+    {
+      "command": "Manual software/runbook and JSON profile review",
+      "result": "PASS",
+      "evidence": "Observed versions and local paths separated from reusable procedure; no credential content; null profile fields remain unverified; Melodyne automation and drum-print limitations explicit. No song edits."
+    }
+  ],
+  "acceptance_gaps": "Documentation only. MA-AUDIO-001 lifecycle unchanged; no runtime, protected-recording, listening, child, device or release acceptance granted. External DAW-source ingestion into the existing synthesis-only rebuild checker remains future implementation. v89 is owner-selected for tonight in the separate song project, not a game asset approval."
+}

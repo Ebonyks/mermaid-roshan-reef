@@ -13,6 +13,12 @@ Start with the [master planning entry](../../audit/MASTER_AUDIT_2026-08-09.md#0-
 The [impact record](../audit_impacts/reaper-music-workflow-20260920.json) bounds
 this documentation change; `MA-AUDIO-001` is not closed by it.
 
+For exact software versions, paths, plugin onboarding, Melodyne boundaries,
+ReaScript/background rendering and MCP calls, use the
+[software runbook](REAPER_SOFTWARE_RUNBOOK.md). Each new VST/library role gets a
+[verification profile](../templates/VST_INSTRUMENT_PROFILE.json); the palette is
+extensible rather than a fixed shopping list.
+
 ## Musical direction before software
 
 Write the cue's purpose, scene owner, emotional arc, motif, meter, tonal center,
