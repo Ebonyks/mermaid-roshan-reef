@@ -359,7 +359,8 @@ func _follower_case() -> void:
 	_ck("follower spawned in the reef", main.companion_node != null and is_instance_valid(main.companion_node))
 	var pd: float = main.companion_node.position.distance_to(main.player.position) if main.companion_node != null else INF
 	_ck("follower stays near Roshan", pd < 40.0)
-	_ck("den built near the shipwreck", main.companion_den != null and is_instance_valid(main.companion_den))
+	# The reef sparring den retired with the 3D reef on 2026-09-23.
+	_ck("retired reef den is never built", main.companion_den == null)
 	# The stuffie remains in-world; no persistent launcher competes with the
 	# single global Back/Menu control.
 	var launcher: Button = main.companion_menu_button
@@ -713,43 +714,13 @@ func _patient_care_case() -> void:
 			"friend_lamma", false))
 	_ck("retired resting flag saves healed without changing progress",
 		saved_patient_state and main.companion_resting)
-	main._set_touch_mode("hybrid", false)
+	# The reef den tap route retired with the 3D reef; the retired resting flag
+	# must still never block the battle itself.
 	main.stuffie_cool = 0.0
-	if main.companion_den == null or not is_instance_valid(main.companion_den):
-		comp._tick_den(0.0)
-	var den = main.companion_den
-	if den == null:
-		_ck("patient friend keeps a raw-touch den route", false)
-		main.companion_resting = false
-		return
-	var near_den = den.position
-	near_den.x += 1.0
-	near_den.y += 1.0
-	main.player.position = near_den
-	main.player.vel *= 0.0
-	main.player.snap_cam()
-	await _settle(3)
-	main._populate_touch_interactables()
-	var den_registered: bool = false
-	for item_value: Variant in main.touch_interactables:
-		var item: Dictionary = item_value as Dictionary
-		if String(item.get("id", "")) == "reef:den":
-			den_registered = true
-			break
-	var camera = main.player.cam
-	var first_tap_focused := false
-	if den_registered and camera != null and not camera.is_position_behind(
-			den.global_position):
-		var den_screen: Vector2 = camera.unproject_position(den.global_position)
-		_touch_tap(40, den_screen)
-		await process_frame
-		first_tap_focused = main.game == "" \
-			and main.touch_focus_id == "reef:den" and main.touch_focus_ready
-		_touch_tap(41, den_screen)
-		await _settle(4)
-	_ck("patient friend keeps a raw-touch den route",
-		den_registered and first_tap_focused \
-		and main.game == "stuffie" and main.stuffie_game != null)
+	main._start_stuffie_battle()
+	await _settle(2)
+	_ck("retired resting flag never blocks the stuffie battle",
+		main.game == "stuffie" and main.stuffie_game != null)
 	if main.stuffie_game != null:
 		main.stuffie_game.cancel()
 		await _settle(2)
@@ -764,19 +735,6 @@ func _patient_care_case() -> void:
 	_ck("patient care loses no progress", main.care_points >= care_before
 		and main.companion_id == friend_before
 		and bool(main.stuffie_wins.get("friend_lamma", false)))
-
-func _touch_tap(index: int, pos: Vector2) -> void:
-	var down := InputEventScreenTouch.new()
-	down.index = index
-	down.position = pos
-	down.pressed = true
-	main.touch_ui._unhandled_input(down)
-	var up := InputEventScreenTouch.new()
-	up.index = index
-	up.position = pos
-	up.pressed = false
-	main.touch_ui._unhandled_input(up)
-
 
 func _all_canvas_children(node: Node) -> bool:
 	if not node is CanvasItem:

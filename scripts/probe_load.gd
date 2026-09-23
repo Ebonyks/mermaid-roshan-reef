@@ -63,34 +63,18 @@ func _init() -> void:
 	for i in range(12):
 		await process_frame
 	print("loaded trophies: ", main.trophies, "/5  finale_done: ", main.finale_done)
-	var stars := 0
-	for f in main.friends:
-		if f.has("star"):
-			stars += 1
-	print("won stars shown: ", stars, "/5")
-	var crafted := 0
-	for mv in main.aquatic_movers:
-		if bool(mv.get("crafted", false)):
-			crafted += 1
+	# The retired 3D reef (2026-09-23) no longer spawns crafted fish, released
+	# tank friends or won-stars. Their SAVE DATA must still survive a relaunch
+	# untouched (DL-SAVE-01), so a future home can show them again.
+	var crafted: int = main.custom_fish.size()
 	if crafted < 1:
-		print("FAIL: crafted fish missing after reload (custom_fish in save, none swimming)")
+		print("FAIL: crafted fish lost after reload (custom_fish in save, none restored)")
 	else:
-		print("crafted fish restored: ", crafted)
-	# a released tank friend must survive a relaunch (same build-before-load trap)
-	var pets := 0
-	var visible := 0
-	for mv in main.aquatic_movers:
-		if String(mv.get("shop_pet", "")) == "turtle":
-			pets += 1
-			var pet_node = mv.get("node", null)
-			if pet_node != null and is_instance_valid(pet_node):
-				visible += 1
-	if pets < 1:
-		print("FAIL: shop animal missing after reload (animals.turtle in save, none swimming)")
-	elif visible < pets:
-		print("FAIL: reloaded shop turtle missing its display card (%d/%d visible)" % [visible, pets])
+		print("crafted fish data restored: ", crafted)
+	if not bool(main.animals_owned.get("turtle", false)):
+		print("FAIL: released tank friend lost after reload (animals.turtle in save)")
 	else:
-		print("shop animals restored: ", pets, " (all display cards)")
+		print("released tank friend data restored: turtle")
 	if not bool(main.critter_collection.get("coral_clownfish", false)):
 		print("FAIL: Critter Book discovery missing after reload")
 	else:

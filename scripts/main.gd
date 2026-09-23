@@ -116,7 +116,6 @@ var _toon_mats := {}   # source material -> shared pastel override (see _toonify
 var _nature_mats: Dictionary = {}   # pastel rgba32 -> shared flat material (see _dress_nature)
 var cluster_centers: Array[Vector3] = []
 var pulse_lights: Array = []        # dicts {light, base, phase}
-var fish_schools: Array = []
 var _reef_districts: ReefDistricts = null
 # ---- LIVING WORLD: mutable runtime state stays on ReefMain; the extracted
 # ---- director only resolves stages and drives one reusable 2D CanvasItem.
@@ -137,10 +136,7 @@ var living_cooldown := 0.0
 var living_event_time := -1.0
 var living_event_count := 0
 var living_generation := 0
-var manta: Node3D   # stays null: the ghost-ship pearl shop went with the wreck; all uses are null-guarded
-var manta_t := -20.0
 var bloom_t := 25.0
-var bloom_parts: GPUParticles3D
 
 # ---------- minigame state ----------
 var game := ""              # "", "fetch", "dolls", "seek", "race", "melody"
@@ -177,15 +173,10 @@ const NORTHERN_POS := Vector3(0, -2200, 0)
 var arena_center := Vector3(0, -600, 0)
 var arena_dome := 48.0
 var arena_ceil := 42.0
-var portal_node: Node3D
-var portal_t := 0.0
-var portal_ready := false
 var portal_cool := 0.0
 var portal_armed := false
-var ocean_kingdom := ReefDistricts.KINGDOM_CARIBBEAN
 var ocean_routes_enabled := false
 var ocean_return_gate_armed := false
-var ocean_return_gate_cool := 0.0
 var draining := false
 var drain_t := 0.0
 var level2_done_once := false
@@ -194,7 +185,6 @@ var l2_door: MeshInstance3D = null
 var rainbow_slide_mode := false
 var level2_finishing := false
 var custom_fish: Array = []
-var crafted_fish_spawned := 0      # how many custom_fish entries are already swimming
 var craft_layer: CanvasLayer = null
 var craft_body := Color(0.4, 0.7, 1.0)
 var craft_fins := Color(1.0, 0.6, 0.2)
@@ -243,7 +233,6 @@ var mg2d_root: Control
 var mg2d_stage: Control
 var mg_kind := ""
 # Rainbow Road kart racer (scripts/kart.gd)
-var kart_portal_pos := Vector3.ZERO
 var kart_cool := 0.0
 var kart_game: Node = null
 var kart_ground := "terrain"    # which variant the current race is ("float" = rainbow gateway)
@@ -460,7 +449,6 @@ var companion_pick_slot := 0               # one large active paint row at a tim
 var companion_pick_mode := "adopt"         # adopt / swap at chest / studio repaint
 var companion_cool := 0.0                 # cheer cooldown
 var companion_cheer_t := -1.0
-var companion_guide_cool := 20.0          # "this way!" helper dash cooldown
 var companion_greeted := false            # one-time hello per session
 var companion_den_said := false           # one-time den intro per session
 var companion_action_prev := false
@@ -699,17 +687,6 @@ var caustics_mat: ShaderMaterial = null      # terrain-conforming dapple overlay
 var caustics_enabled := true                # developer mode can switch the caustic layer off
 var dev_mode: Node = null                   # in-game developer "look lab" (scripts/dev_mode.gd)
 var plankton_node: GPUParticles3D
-# ---- WW motion language: one global wind drives streaks, water lines, seagrass
-# sway and flags (via the wind_dir/wind_gust shader globals) so gusts roll
-# coherently across the whole world instead of every prop looping on its own ----
-var wind_t := 0.0
-var wind_dir_v := Vector3(0.85, 0.0, 0.53)
-var wind_gust_v := 0.6
-var wind_streaks: Array = []   # pooled curl ribbons: {node, mat, age, life}
-var streak_ctx := "none"       # "sea" | "sky" | "off" — restyled when it changes
-var surf_rings: Array = []     # pooled expanding rings on the water underside
-var ring_cool := 0.0
-var flag_sh: Shader = null
 var navigation_layer: CanvasLayer = null
 var global_navigation_button: Button = null
 var navigation_root_id := ""
@@ -732,11 +709,8 @@ var hug_layer: CanvasLayer = null
 var night_nodes: Array = []   # moon/beams/jellies — toggled when time flips at runtime
 var quality_btn: Button
 var music_btn: Button
-var guide_fish: Sprite3D
 var finale_done := false
 var finale_t := -1.0
-var hint_idx := 0
-var hint_t := 0.0
 var anim_cull: Array = []
 var cull_timer := 0.0
 var wreck_pos := Vector3.ZERO   # stays ZERO: the 3D wreck was deleted 2026-07-28 (redesigned); guards below and companion.gd no-op on ZERO
@@ -757,21 +731,13 @@ var treasure_fr := {"fname": "Secret Cave", "game": "treasure", "won": true, "co
 var shop_fr := {"fname": "Pearl Shop", "game": "shop", "won": true, "cool": 0.0}
 var slide_fr := {"fname": "Penguin Slide", "game": "slide", "theme": "ice", "mode": "chase", "won": true, "cool": 0.0}
 var slide_cool := 0.0
-var slide_portal_pos := Vector3.ZERO
-var slide_portal_penguin: Node3D = null
-var peng_wave_cool := 0.0   # portal penguin's interactive cheer cooldown
 var peng_pal: Node3D = null          # the caught baby penguin — follows Roshan in the reef
-var peng_pal_cool := 0.0             # pal's cheer/giggle cooldown
-var peng_pal_cheer_t := -1.0         # while >0 the cheer clip owns the pal
-var peng_pal_greeted := false        # one-time "I'm coming too!" message per session
 var peng_giggle: AudioStreamPlayer = null   # the baby's squeaky giggle
 var brawl_fr := {"fname": "Toy Castle", "game": "brawl", "won": true, "cool": 0.0}
-var brawl_portal_pos := Vector3.ZERO
 var brawl_cool := 0.0
 # the great dust bunny's attic (scripts/games/dust_boss.gd) — a boss with one
 # rule: he is only open while airborne with his star flashing
 var dust_boss_fr := {"fname": "Dusty Attic", "game": "dustboss", "won": true, "cool": 0.0}
-var dust_boss_portal_pos := Vector3.ZERO
 var dust_boss_cool := 0.0
 var fairy_fr := {"fname": "Fairy Pond", "game": "fairyshoot", "won": true, "cool": 0.0}
 var fairy_pond_pos := Vector3.ZERO
@@ -779,9 +745,6 @@ var fairy_cool := 0.0
 var fairy_pending := false      # a galaxy fountain touch queues the fairy flight
 var fairy_from_galaxy := false  # so the fairy game returns to the Butterfly World
 var shop_msg_cool := 0.0
-var pearl_slots: Array = []
-var pearl_mat: ShaderMaterial
-var pearl_note := 0
 const PENT := [0, 2, 4, 5, 7, 9, 11]   # C major diatonic scale
 var speed_mult := 1.0
 var beans_t := -1.0
@@ -816,7 +779,6 @@ const ANIMAL_SHOP := [
 	{"id": "dolphin", "model": "Dolphin", "label": "Dolphin", "price": 40, "babies": 0,
 		"patrols": [[140.0, 0.08, 34.0, 2.6]]}]
 var animals_owned := {}    # tank friends released into the reef (persisted)
-var animals_spawned := {}  # runtime: released species already swimming this session
 var flora_nodes: Array = []
 var first_session := true
 var _authored_world_session := false
@@ -826,12 +788,9 @@ var chime: AudioStreamPlayer
 var buy_sound: AudioStreamPlayer
 var beans_sfx: AudioStreamPlayer   # banjo toot-loop: a SOUND EFFECT, not music (plays with music off)
 var hop_sfx: AudioStreamPlayer     # soft cartoon boing per on-land hop touchdown
-var whale_node: Node3D
 var voice_pool: Array = []
 var voice_i := 0
 var said_cool := {}
-var roshan_spot_cool := 0.0
-var idle_voice_t := 9.0
 var intro_active := false
 var intro_layer: CanvasLayer
 var intro_idx := 0
@@ -1067,18 +1026,10 @@ func _ready() -> void:
 		_refresh_joy_mapped())
 	_refresh_joy_mapped()
 	_build_environment()
-	_build_terrain()
-	_build_water()
-	_build_wind_streaks()
-	_build_surf_rings()
-	_build_garden()
-	_build_meadows()
-	_build_aquatic_flora()
-	_build_aquatic_creatures()
-	_build_events()
-	_build_pearls()
+	# The legacy 3D reef world (terrain, water, flora, creatures, pearls, friend
+	# pillars and portals) was retired on 2026-09-23: nothing the child can reach
+	# uses it, so it is no longer built at boot or ticked per frame.
 	_build_friends()
-	_build_kart_portal()
 	_build_player()
 	_build_hud()
 	_build_fade_cover()
@@ -1128,10 +1079,6 @@ func _ready() -> void:
 	if OS.has_feature("editor") or "--dev-mode" in OS.get_cmdline_user_args():
 		dev_mode = preload("res://scripts/dev_mode.gd").new()
 		add_child(dev_mode)
-	_build_guide()
-	_build_slide_portal()
-	_build_brawl_portal()
-	dust_boss_portal_pos = _game_obj("dustboss", DustBossGame).build_portal()
 	_build_pause()
 	_load_save()
 	_init_touch_experiment()
@@ -1144,8 +1091,6 @@ func _ready() -> void:
 			_build_intro()
 	else:
 		_build_start_menu()
-	_spawn_crafted_fish()   # save loads after the reef builds; spawn her fish now
-	_spawn_shop_animals()   # same ordering trap: released tank friends spawn now
 	_warm_shaders()         # precompile the hot runtime shaders behind the intro
 
 func _warm_shaders() -> void:
@@ -1246,36 +1191,6 @@ func _unhandled_input(ev: InputEvent) -> void:
 		advance = kc == KEY_SPACE or kc == KEY_ENTER
 	if advance:
 		_intro_next()
-
-func _tick_roshan_reactions(delta: float, ppos: Vector3) -> void:
-	if game != "" or finale_t >= 0.0 or intro_active:
-		return
-	# idle chatter when she's been drifting calmly for a while
-	if player != null and player.vel.length() < 5.0 and msg_timer <= 0.0:
-		idle_voice_t -= delta
-		if idle_voice_t <= 0.0:
-			idle_voice_t = 16.0 + randf() * 10.0
-			_say("roshan", ["idle1", "idle2", "idle3"][randi() % 3])
-	else:
-		idle_voice_t = maxf(idle_voice_t, 6.0)
-	roshan_spot_cool = maxf(0.0, roshan_spot_cool - delta)
-	if roshan_spot_cool > 0.0:
-		return
-	# the great whale
-	if whale_node != null and is_instance_valid(whale_node) and whale_node.position.distance_to(ppos) < 34.0:
-		roshan_spot_cool = 14.0
-		show_msg("Roshan", "Wow! A GIANT whale! Hello, big friend!", "whale")
-		return
-	# the floating ghost ship on the water
-	if manta != null and is_instance_valid(manta) and manta.position.distance_to(ppos) < 26.0:
-		roshan_spot_cool = 14.0
-		show_msg("Roshan", "A magic ship on the water! I wonder what is inside...", "ship")
-		return
-	# the sunken pirate ship
-	if wreck_pos != Vector3.ZERO and wreck_pos.distance_to(ppos) < 24.0:
-		roshan_spot_cool = 14.0
-		show_msg("Roshan", "Ooh, a sunken ship! Maybe there is treasure down there!", "wreck")
-		return
 
 func _apply_time_of_day() -> void:
 	# subtle day/night variation for the overworld reef (level2 handles its own in _enter_level2)
@@ -1592,7 +1507,6 @@ func _build_environment() -> void:
 	music.bus = "Music"
 	add_child(music)
 	_play_music("world")
-	_build_bubble_columns()
 	var sun := DirectionalLight3D.new()
 	sun.rotation_degrees = Vector3(-55.0, 30.0, 0.0)
 	sun.light_color = Color(0.55, 0.80, 0.98)
@@ -1603,256 +1517,6 @@ func _build_environment() -> void:
 	add_child(sun)
 	sun_light = sun
 	music.process_mode = Node.PROCESS_MODE_ALWAYS
-	_build_god_rays()
-	_build_caustics()
-
-func _build_caustics() -> void:
-	# animated underwater light dapples that follow Roshan along the reef floor (cheap, additive)
-	var sh := Shader.new()
-	sh.code = "shader_type spatial;\n" + \
-		"render_mode unshaded, blend_add, cull_disabled, depth_draw_never, shadows_disabled;\n" + \
-		"void fragment(){\n" + \
-		"  vec2 uv = UV * 7.0;\n" + \
-		"  float t = TIME * 0.4;\n" + \
-		"  vec2 a = uv + vec2(sin(t + uv.y*2.0), cos(t*0.9 + uv.x*2.0)) * 0.22;\n" + \
-		"  float c1 = sin(a.x*3.0 + t) * sin(a.y*3.0 - t*0.7);\n" + \
-		"  float c2 = sin(a.x*4.7 - t*1.1) * sin(a.y*5.3 + t*0.5);\n" + \
-		"  float c = pow(max(c1,0.0), 6.0) + pow(max(c2,0.0), 8.0);\n" + \
-		"  ALBEDO = vec3(0.45, 0.8, 1.0) * c * 1.3;\n" + \
-		"}"
-	var pm := PlaneMesh.new()
-	pm.size = Vector2(130.0, 130.0)
-	var mi := MeshInstance3D.new()
-	mi.mesh = pm
-	var mat := ShaderMaterial.new()
-	mat.shader = sh
-	mi.material_override = mat
-	mi.visible = false
-	add_child(mi)
-	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	caustics_plane = mi
-
-func _build_bubble_columns() -> void:
-	for i in range(7):
-		var a: float = randf() * TAU
-		var r: float = 30.0 + randf() * (WORLD_R * 0.75)
-		var bx: float = cos(a) * r
-		var bz: float = sin(a) * r
-		var by: float = seabed_y(bx, bz)
-		var bub := GPUParticles3D.new()
-		bub.amount = 22
-		bub.lifetime = 5.0
-		bub.preprocess = 3.0
-		var pm := ParticleProcessMaterial.new()
-		pm.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_SPHERE
-		pm.emission_sphere_radius = 1.2
-		pm.gravity = Vector3(0, 6.0, 0)
-		pm.initial_velocity_min = 2.0
-		pm.initial_velocity_max = 4.0
-		pm.scale_min = 0.15
-		pm.scale_max = 0.5
-		pm.damping_min = 0.5
-		pm.damping_max = 1.0
-		bub.process_material = pm
-		var sm := SphereMesh.new()
-		sm.radius = 0.5
-		sm.height = 1.0
-		sm.radial_segments = 6
-		sm.rings = 4
-		var bm := StandardMaterial3D.new()
-		bm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		bm.albedo_color = Color(0.8, 0.95, 1.0, 0.35)
-		bm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-		bm.rim_enabled = true
-		sm.material = bm
-		bub.draw_pass_1 = sm
-		bub.position = Vector3(bx, by + 1.0, bz)
-		bub.visibility_aabb = AABB(Vector3(-3, 0, -3), Vector3(6, WATER_TOP, 6))
-		add_child(bub)
-
-func _build_terrain() -> void:
-	var st := SurfaceTool.new()
-	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var seg := 110
-	var size := WORLD_R * 2.3
-	var c_sand := Color(0.30, 0.46, 0.46)
-	var c_deep := Color(0.10, 0.28, 0.32)
-	for j in range(seg):
-		for i in range(seg):
-			var p0 := _terra_pt(i, j, seg, size)
-			var p1 := _terra_pt(i + 1, j, seg, size)
-			var p2 := _terra_pt(i + 1, j + 1, seg, size)
-			var p3 := _terra_pt(i, j + 1, seg, size)
-			var mid_y: float = (p0.y + p2.y) * 0.5
-			var t := clampf((mid_y + 6.0) / 30.0, 0.0, 1.0)
-			t = roundf(t * 3.0) / 3.0
-			var col := c_deep.lerp(c_sand, t)
-			_emit_tri(st, p0, p1, p2, col)
-			_emit_tri(st, p0, p2, p3, col)
-	var mesh := st.commit()
-	var mi := MeshInstance3D.new()
-	mi.mesh = mesh
-	# GEN3 terrain shader: triplanar compact up_sand map on the flats (the prior
-	# painted sheet read as cracked dirt), blending to the new painted
-	# CLIFF-WALL sheet on steep slopes, so the hills and the scalloped rim
-	# bays have real wall detail (owner 2026-07-13: "walls have no details").
-	# Vertex colours keep the storybook depth banding exactly as before.
-	var mat := ShaderMaterial.new()
-	var tsh := Shader.new()
-	tsh.code = """shader_type spatial;
-uniform sampler2D sand_tex : source_color, repeat_enable, filter_linear_mipmap;
-uniform sampler2D cliff_tex : source_color, repeat_enable, filter_linear_mipmap;
-uniform vec3 sand_tint = vec3(0.55, 0.72, 0.74);
-uniform vec3 cliff_tint = vec3(0.95, 0.98, 1.12);
-varying vec3 wpos;
-varying vec3 vcol;
-void vertex(){
-	wpos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
-	vcol = COLOR.rgb;
-}
-vec3 tri(sampler2D t, vec3 p, vec3 n, float s){
-	vec3 w = abs(n);
-	w /= (w.x + w.y + w.z);
-	return texture(t, p.yz * s).rgb * w.x + texture(t, p.xz * s).rgb * w.y + texture(t, p.xy * s).rgb * w.z;
-}
-float district(vec2 p, vec2 c, float r){
-	return 1.0 - smoothstep(r * 0.45, r, distance(p, c));
-}
-void fragment(){
-	vec3 n = normalize(mat3(INV_VIEW_MATRIX) * NORMAL);
-	vec3 sand = tri(sand_tex, wpos, n, 0.06) * sand_tint * vcol;
-	vec3 cliff = tri(cliff_tex, wpos, n, 0.028) * cliff_tint * mix(vcol, vec3(1.0), 0.45);
-	float steep = smoothstep(0.35, 0.62, 1.0 - n.y);
-	vec3 zone = vec3(0.94, 0.96, 0.96);
-	zone = mix(zone, vec3(0.92, 1.00, 0.88), district(wpos.xz, vec2(-35.0, 165.0), 70.0));
-	zone = mix(zone, vec3(0.78, 0.76, 0.92), district(wpos.xz, vec2(-160.0, 135.0), 68.0));
-	zone = mix(zone, vec3(0.96, 0.80, 1.06), district(wpos.xz, vec2(-165.0, 5.0), 62.0));
-	zone = mix(zone, vec3(1.08, 0.89, 0.72), district(wpos.xz, vec2(-40.0, -165.0), 70.0));
-	zone = mix(zone, vec3(0.80, 0.94, 1.08), district(wpos.xz, vec2(140.0, -115.0), 70.0));
-	zone = mix(zone, vec3(1.02, 0.94, 0.86), district(wpos.xz, vec2(35.0, 30.0), 50.0));
-	ALBEDO = mix(sand, cliff, steep) * zone;
-	ROUGHNESS = 0.95;
-	SPECULAR = 0.05;
-}"""
-	mat.shader = tsh
-	mat.set_shader_parameter("sand_tex", load("res://assets/terrain/up_sand_col.jpg"))
-	var cliff_path := "res://assets/terrain/up_cliffwall_col.jpg"
-	if not ResourceLoader.exists(cliff_path):
-		cliff_path = "res://assets/terrain/up_cliff_col.jpg"   # strangler-fig fallback
-	mat.set_shader_parameter("cliff_tex", load(cliff_path))
-	mi.material_override = mat
-	add_child(mi)
-	_add_caustics(mesh)
-	_add_plankton()
-	_build_backdrop()
-	_build_landmark_hills()
-
-func _build_backdrop() -> void:
-	# GEN3: painted seamount silhouettes ring the world beyond the rim — the
-	# empty gradient horizon finally has geography (nano-banana panorama;
-	# mirror-wrapped in the shader so the loop can never seam)
-	if not ResourceLoader.exists("res://assets/terrain/backdrop_seamounts.jpg"):
-		return
-	var ring := MeshInstance3D.new()
-	var cyl := CylinderMesh.new()
-	cyl.top_radius = WORLD_R + 70.0
-	cyl.bottom_radius = WORLD_R + 70.0
-	cyl.height = 150.0
-	cyl.radial_segments = 48
-	cyl.rings = 1
-	cyl.cap_top = false
-	cyl.cap_bottom = false
-	ring.mesh = cyl
-	var bsh := Shader.new()
-	bsh.code = """shader_type spatial;
-render_mode unshaded, cull_front, shadows_disabled;
-uniform sampler2D pano : source_color, repeat_enable, filter_linear_mipmap;
-uniform vec3 fog_col = vec3(0.13, 0.38, 0.48);
-void fragment(){
-	float u = 1.0 - abs(fract(UV.x * 1.5) * 2.0 - 1.0);
-	vec3 col = texture(pano, vec2(u, UV.y)).rgb;
-	float fade = smoothstep(0.45, 0.02, UV.y);
-	ALBEDO = mix(col, fog_col, fade * 0.92);
-}"""
-	var bm := ShaderMaterial.new()
-	bm.shader = bsh
-	bm.set_shader_parameter("pano", load("res://assets/terrain/backdrop_seamounts.jpg"))
-	ring.material_override = bm
-	ring.position = Vector3(0, 38.0, 0)
-	ring.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	add_child(ring)
-
-func _build_landmark_hills() -> void:
-	_district_ref().build_macro_structures()
-
-func _add_caustics(terrain_mesh: Mesh) -> void:
-	# light dapples glued to the actual seabed: the terrain mesh drawn a second
-	# time with an additive caustic pass. Peak brightness stays well under the
-	# bloom threshold so the dapples never blow out to white sheets.
-	var sh := Shader.new()
-	sh.code = """shader_type spatial;
-render_mode blend_add, unshaded, depth_draw_never, shadows_disabled;
-uniform sampler2D caustic;
-uniform float strength = 0.18;
-uniform vec3 tint = vec3(0.42, 0.66, 0.72);
-void fragment(){
-	vec3 wp = (INV_VIEW_MATRIX * vec4(VERTEX, 1.0)).xyz;
-	// two counter-scrolling layers + a slow swirl so the dapples wander like real light
-	vec2 warp = vec2(sin(TIME * 0.35 + wp.z * 0.05), cos(TIME * 0.28 + wp.x * 0.045)) * 1.6;
-	vec2 uv = (wp.xz + warp) * 0.022 + vec2(TIME * 0.010, -TIME * 0.007);
-	vec2 uv2 = (wp.xz - warp) * 0.015 - vec2(TIME * 0.006, TIME * 0.009);
-	float c = texture(caustic, uv).r * 0.55 + texture(caustic, uv2).r * 0.45;
-	c = smoothstep(0.30, 0.95, c);
-	ALBEDO = c * tint * strength;
-}"""
-	var m := ShaderMaterial.new()
-	m.shader = sh
-	m.set_shader_parameter("caustic", load("res://assets/terrain/caustics.png"))
-	caustics_mat = m
-	var mi := MeshInstance3D.new()
-	mi.mesh = terrain_mesh
-	mi.material_override = m
-	mi.position.y = 0.15
-	add_child(mi)
-func _add_plankton() -> void:
-	var parts := GPUParticles3D.new()
-	parts.amount = 320
-	parts.lifetime = 12.0
-	parts.preprocess = 12.0
-	var pm := ParticleProcessMaterial.new()
-	pm.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_BOX
-	pm.emission_box_extents = Vector3(WORLD_R, WATER_TOP * 0.5, WORLD_R)
-	pm.gravity = Vector3(0, 0.15, 0)
-	pm.initial_velocity_min = 0.1
-	pm.initial_velocity_max = 0.5
-	parts.process_material = pm
-	var quad := QuadMesh.new()
-	quad.size = Vector2(0.22, 0.22)
-	var qm := StandardMaterial3D.new()
-	qm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	qm.albedo_color = Color(0.85, 0.97, 1.0, 0.5)
-	qm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	qm.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
-	quad.material = qm
-	parts.draw_pass_1 = quad
-	parts.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	parts.position = Vector3(0, WATER_TOP * 0.5, 0)
-	add_child(parts)
-	plankton_node = parts
-
-static func _terra_pt(i: int, j: int, seg: int, size: float) -> Vector3:
-	var x: float = (float(i) / float(seg) - 0.5) * size
-	var z: float = (float(j) / float(seg) - 0.5) * size
-	return Vector3(x, seabed_y(x, z), z)
-
-static func _emit_tri(st: SurfaceTool, a: Vector3, b: Vector3, c: Vector3, col: Color) -> void:
-	var n: Vector3 = (b - a).cross(c - a).normalized()
-	if n.y < 0.0:
-		n = -n
-	for p in [a, b, c]:
-		st.set_color(col)
-		st.set_normal(n)
-		st.add_vertex(p)
 
 func _toon_water_mat(deep: Color, shallow: Color, alpha: float, wobble_h: float, rip_scale: float) -> ShaderMaterial:
 	# Phase 5: the one storybook water material (CC0 "Toon Water" base — see
@@ -1870,28 +1534,7 @@ func _toon_water_mat(deep: Color, shallow: Color, alpha: float, wobble_h: float,
 	m.set_shader_parameter("use_depth", quality != "speedy" and DisplayServer.get_name() != "headless")
 	return m
 
-func _build_water() -> void:
-	var pm := PlaneMesh.new()
-	pm.size = Vector2(WORLD_R * 2.6, WORLD_R * 2.6)
-	pm.subdivide_width = 56
-	pm.subdivide_depth = 56
-	var mi := MeshInstance3D.new()
-	mi.mesh = pm
-	mi.position.y = WATER_TOP
-	# Phase 5: the shared toon water (big soft ocean swell, extra sparkle —
-	# this sheet is mostly seen from below, so it keeps a higher glow)
-	var mat := _toon_water_mat(Color(0.14, 0.46, 0.66), Color(0.42, 0.78, 0.86), 0.52, 0.9, 0.012)
-	mat.set_shader_parameter("sparkle", 0.6)
-	mat.set_shader_parameter("wobble_speed", 0.9)
-	mi.material_override = mat
-	mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	add_child(mi)
-	water_node = mi
-	# experimental: real FFT ocean surface on top (GPU compute) — only on a real
-	# device, never headless; the plane above stays as a guaranteed fallback
-
 var water_node: MeshInstance3D
-var water_y0 := 0.0
 var rock_pbr: StandardMaterial3D
 var wood_overlay: StandardMaterial3D
 
@@ -2061,9 +1704,6 @@ func _iwall(center: Vector3, size: Vector3, col: Color, tex: String = "") -> Mes
 		base_a = (node.material_override as StandardMaterial3D).albedo_color.a
 	fade_walls.append({"node": node, "c": center, "h": size * 0.5, "base_a": base_a, "a": base_a})
 	return node
-
-func _build_garden() -> void:
-	_district_ref().build_groves()
 
 func _rainbow_mat() -> ShaderMaterial:
 	var sh := Shader.new()
@@ -2278,120 +1918,6 @@ func _play_clip(node: Node3D, clip: String, speed: float = 1.0) -> void:
 		ap.play(clip, 0.25)
 	ap.speed_scale = speed
 
-func _build_aquatic_flora() -> void:
-	_district_ref().build_flora()
-
-func _build_aquatic_creatures() -> void:
-	# hero animated creatures patrolling on circular paths. The turtles,
-	# rays, dolphin and squid moved into the Pearl Shop's wall tanks
-	# (ANIMAL_SHOP): they only join the reef once she buys them free, so
-	# their patrol rows live there now and spawn via _spawn_shop_animals().
-	var roster: Array[Dictionary] = [
-		{"model": "Shark", "center": Vector2(35.0, 30.0), "rad": 62.0,
-			"spd": 0.05, "y": 22.0, "size": 4.0, "kingdom": ReefDistricts.KINGDOM_CARIBBEAN},
-		{"model": "Hammerhead", "center": Vector2(-40.0, -165.0), "rad": 48.0,
-			"spd": 0.045, "y": 30.0, "size": 4.0, "kingdom": ReefDistricts.KINGDOM_CARIBBEAN},
-		{"model": "Whale", "center": Vector2(140.0, -115.0), "rad": 42.0,
-			"spd": 0.02, "y": 38.0, "size": 9.0, "kingdom": ReefDistricts.KINGDOM_NORWEGIAN},
-	]
-	for entry: Dictionary in roster:
-		var model_name: String = String(entry["model"])
-		var inst := _place_aq(model_name, Vector3.ZERO, float(entry["size"]), true)
-		if inst == null:
-			continue
-		if model_name == "Whale":
-			whale_node = inst
-		var center: Vector2 = entry["center"]
-		aquatic_movers.append({"node": inst, "rad": entry["rad"], "spd": entry["spd"], "y": entry["y"],
-			"cx": center.x, "cz": center.y, "kingdom": entry["kingdom"],
-			"ph": randf() * TAU, "clearance": float(entry["size"]) + 1.5})
-	# bottom dwellers posed in the groves
-	if cluster_centers.size() >= 4:
-		var oc: Vector3 = cluster_centers[2]
-		_place_aq("Octopus", Vector3(oc.x + 4.0, seabed_y(oc.x + 4.0, oc.z) + 0.4, oc.z), 2.2, true)
-		var cc: Vector3 = cluster_centers[5]
-		_place_aq("Crab", Vector3(cc.x, seabed_y(cc.x, cc.z) + 0.3, cc.z + 3.0), 2.0, true)
-		var lc: Vector3 = cluster_centers[9]
-		_place_aq("Lobster", Vector3(lc.x, seabed_y(lc.x, lc.z) + 0.3, lc.z - 3.0), 2.0, true)
-	# small darting schools — babies of HER creatures (the old Dory/Carp/Tuna/Eel
-	# pack fish were the last un-upgraded swimmers; playtest 2026-07-11).
-	# Only the clownfish schools are free from the start: the turtle/ray/
-	# squid babies arrive with their species when a tank friend is bought
-	# (the "babies" count on ANIMAL_SHOP keeps the old totals intact).
-	for s in range(3):
-		var inst := _place_aq("ClownFish", Vector3.ZERO, 1.2 + randf() * 1.0, true)
-		if inst == null:
-			continue
-		aquatic_movers.append({"node": inst, "rad": 40.0 + randf() * 150.0,
-			"spd": 0.12 + randf() * 0.15, "y": 10.0 + randf() * 28.0,
-			"ph": randf() * TAU, "clearance": 2.0})
-	# player-crafted fish from the Crafting Studio (persist via save)
-	_spawn_crafted_fish()
-	# reef friends already bought free from the shop tanks (persist via save)
-	_spawn_shop_animals()
-
-func _spawn_crafted_fish() -> void:
-	# spawn any custom_fish entries not yet in the water. Idempotent via the
-	# counter: runs at world build, after _load_save() (the save loads AFTER
-	# the reef builds, so spawning only at build time made every crafted fish
-	# vanish on the next launch), and on each new craft.
-	# Live spawns cap at the NEWEST 30 entries (skip ahead to the tail) so a
-	# big collection cannot flood the reef with movers. The saved custom_fish
-	# array itself is uncapped by design — her crafted fish data is sacred and
-	# is never truncated or reordered here.
-	crafted_fish_spawned = maxi(crafted_fish_spawned, custom_fish.size() - 30)
-	while crafted_fish_spawned < custom_fish.size():
-		var cf: Variant = custom_fish[crafted_fish_spawned]
-		crafted_fish_spawned += 1
-		if not (cf is Array) or (cf as Array).size() < 6:
-			continue
-		var cfn := _make_creature_node("fish", Color(cf[0], cf[1], cf[2]), Color(cf[3], cf[4], cf[5]), (cf as Array).size() > 6 and int(cf[6]) == 1, (cf as Array).size() > 7 and int(cf[7]) == 1)
-		add_child(cfn)
-		flora_nodes.append(cfn)
-		aquatic_movers.append({"node": cfn, "rad": 30.0 + randf() * 130.0,
-			"spd": 0.10 + randf() * 0.12, "y": 8.0 + randf() * 26.0,
-			"ph": randf() * TAU, "crafted": true, "clearance": 2.0})
-
-func _spawn_shop_animals() -> void:
-	# put every OWNED tank species in the water: its old patrol rows plus its
-	# school babies. Idempotent via animals_spawned, same shape as
-	# _spawn_crafted_fish: runs at world build, after _load_save() (the save
-	# loads AFTER the reef builds), and right when a tank friend is bought so
-	# it is already swimming when she leaves the shop.
-	for it in ANIMAL_SHOP:
-		var sp := String(it["id"])
-		if not bool(animals_owned.get(sp, false)) or bool(animals_spawned.get(sp, false)):
-			continue
-		animals_spawned[sp] = true
-		for pat in (it["patrols"] as Array):
-			var inst := _place_aq(String(it["model"]), Vector3.ZERO, float(pat[3]), true)
-			if inst == null:
-				continue
-			var mover := {"node": inst, "rad": float(pat[0]), "spd": float(pat[1]),
-				"y": float(pat[2]), "ph": randf() * TAU, "shop_pet": sp,
-				"clearance": maxf(2.0, float(pat[3]) * 0.55)}
-			if sp == "turtle":
-				# the freed turtle keeps its tank skeleton: flippers stroke
-				# out in the open reef too, so the purchase payoff is visible
-				var rig := _rig_turtle(inst, 3.0)
-				if not rig.is_empty():
-					mover["rig"] = rig
-					_set_sway(inst, 0.03)
-			aquatic_movers.append(mover)
-		for b in range(int(it["babies"])):
-			var binst := _place_aq(String(it["model"]), Vector3.ZERO, 1.2 + randf() * 1.0, true)
-			if binst == null:
-				continue
-			var bmover := {"node": binst, "rad": 40.0 + randf() * 150.0,
-				"spd": 0.12 + randf() * 0.15, "y": 10.0 + randf() * 28.0,
-				"ph": randf() * TAU, "shop_pet": sp, "clearance": 2.0}
-			if sp == "turtle":
-				var brig := _rig_turtle(binst, 3.6)
-				if not brig.is_empty():
-					bmover["rig"] = brig
-					_set_sway(binst, 0.03)
-			aquatic_movers.append(bmover)
-
 var _turtle_rig_mesh: ArrayMesh = null   # cage-skinned turtle mesh, built once, shared
 var _turtle_rig_skin: Skin = null
 
@@ -2534,160 +2060,6 @@ func _aquatic_patrol_height(x: float, z: float, desired_y: float, clearance: flo
 	return clampf(desired_y, floor, ceiling)
 
 
-func _tick_aquatic(delta: float) -> void:
-	# NOTE: this keeps running inside the cutaway arenas/lagoon/castle — the
-	# reef creatures are never hidden there (the cutaways just sit hundreds of
-	# units below at ARENA_POS/LEVEL2_POS), so their patrols stay live. Only
-	# kart suspends the whole reef tick block upstream in _process.
-	var t: float = Time.get_ticks_msec() / 1000.0
-	var ceiling: float = WATER_TOP - 3.0
-	var frame: int = Engine.get_process_frames()
-	var idx: int = -1
-	for mv in aquatic_movers:
-		idx += 1
-		var node: Node3D = mv["node"]
-		var ang: float = t * float(mv["spd"]) + float(mv["ph"])
-		var rad: float = float(mv["rad"])
-		var px: float = float(mv.get("cx", 0.0)) + cos(ang) * rad
-		var pz: float = float(mv.get("cz", 0.0)) + sin(ang) * rad
-		var desired_y: float = float(mv["y"]) + sin(t * 0.3 + float(mv["ph"])) * 3.0
-		# perf (Helio G88): seabed_y costs ~12 sin/sqrt per call — too hot for
-		# every mover every frame. Cache each mover's clamp floor ("_cy") and
-		# refresh it every 8th frame, staggered by loop index so the movers
-		# don't all recompute on the same frame. Movement itself stays
-		# per-frame smooth — only the terrain floor under the bob is cadenced.
-		if not mv.has("_cy") or (frame + idx) % 8 == 0:
-			mv["_cy"] = minf(seabed_y(px, pz) + float(mv.get("clearance", 3.0)), ceiling)
-		var pos := Vector3(px, clampf(desired_y, float(mv["_cy"]), ceiling), pz)
-		node.position = pos
-		node.rotation.y = -ang + PI * 0.5
-		if mv.has("rig"):
-			_turtle_idle(mv["rig"], t)
-		# a fish SHE made recognises her: heart puff + chirp when she swims by
-		if bool(mv.get("crafted", false)) and game == "":
-			mv["greet_cool"] = maxf(0.0, float(mv.get("greet_cool", 0.0)) - delta)
-			if float(mv["greet_cool"]) <= 0.0 and node.position.distance_to(player.position) < 6.0:
-				mv["greet_cool"] = 9.0
-				_greet_heart(node.position + Vector3(0, 2.2, 0))
-		elif game == "":
-			# EVERY sea friend says hello now: excited wiggle + squash-bounce
-			# + sparkle when Roshan swims close (free swim only, cooled down)
-			mv["greet_cool"] = maxf(0.0, float(mv.get("greet_cool", 0.0)) - delta)
-			if float(mv["greet_cool"]) <= 0.0 and node.position.distance_to(player.position) < 7.5:
-				mv["greet_cool"] = 14.0
-				_creature_greet(node)
-
-func _tick_peng_pal(delta: float) -> void:
-	# THE BABY PENGUIN PAL: once Roshan catches him on the big slide (the
-	# "penguin" sticker), he becomes a little secondary character who tags
-	# along behind her in the open reef — paddling hard when he falls behind,
-	# waddle-bobbing at her side, and cheering with a giggle when she stops.
-	if not bool(stickers.get("penguin", false)):
-		return
-	if peng_pal == null or not is_instance_valid(peng_pal):
-		if game != "":
-			return   # spawn him in the open water, never inside an arena
-		var fwd0 := Vector3(sin(player.yaw), 0, cos(player.yaw))
-		peng_pal = _gen2_creature("penguin", player.position - fwd0 * 5.0 + Vector3(1.5, 1.0, 0), 2.4)
-		if peng_pal == null:
-			return
-		_sparkle_burst(peng_pal.position + Vector3(0, 1.5, 0), Color(0.7, 0.9, 1.0))
-		if peng_giggle != null:
-			peng_giggle.pitch_scale = 1.05
-			peng_giggle.play()
-		if not peng_pal_greeted:
-			peng_pal_greeted = true
-			show_msg("Baby Penguin", "Wait for meee! I'm coming too! Toot toot!")
-	# hide him during minigames/castle so he never photobombs an arena
-	peng_pal.visible = game == ""
-	if game != "":
-		return
-	var t: float = Time.get_ticks_msec() / 1000.0
-	var fwd := Vector3(sin(player.yaw), 0, cos(player.yaw))
-	var want: Vector3 = player.position - fwd * 4.5 + Vector3(0, 0.8, 0)
-	want += Vector3(sin(t * 0.7) * 0.8, sin(t * 1.1) * 0.5, cos(t * 0.9) * 0.8)   # lively drift
-	var to_want: Vector3 = want - peng_pal.position
-	var d: float = to_want.length()
-	if d > 70.0:
-		peng_pal.position = want   # she warped across the reef — pop him back to her side
-	elif d > 0.05:
-		# swims harder the further he lags, so he rubber-bands but never magnets
-		var spd: float = clampf(d * 1.8, 2.5, 20.0)
-		peng_pal.position += to_want.limit_length(spd * delta)
-	# keep the little guy out of the sand
-	peng_pal.position.y = maxf(peng_pal.position.y, seabed_y(peng_pal.position.x, peng_pal.position.z) + 1.4)
-	# face where he's headed (gen2 face = local -X), or Roshan when idling
-	var face: Vector3 = to_want if d > 1.6 else (player.position - peng_pal.position)
-	if Vector2(face.x, face.z).length() > 0.3:
-		peng_pal.rotation.y = lerp_angle(peng_pal.rotation.y, atan2(face.z, -face.x), 1.0 - pow(0.03, delta))
-	peng_pal_cool -= delta
-	peng_pal_cheer_t -= delta
-	if peng_pal_cool <= 0.0 and d < 6.5 and player.vel.length() < 3.0:
-		peng_pal_cool = 16.0
-		peng_pal_cheer_t = 1.4
-		_greet_heart(peng_pal.position + Vector3(0, 2.4, 0))
-		if peng_giggle != null:
-			peng_giggle.pitch_scale = 0.95 + randf() * 0.2
-			peng_giggle.play()
-	if peng_pal_cheer_t > 0.0:
-		_play_clip(peng_pal, "cheer", 1.0)
-	else:
-		_play_clip(peng_pal, "sprint" if d > 9.0 else "waddle", 1.4 if d > 9.0 else 0.9)
-
-func _build_pearls() -> void:
-	pearl_mat = _rainbow_mat()
-	for i in range(PEARL_TOTAL):
-		# along the route between consecutive friends, light jitter
-		var fi: int = i % FRIEND_DEFS.size()
-		var fj: int = (fi + 1) % FRIEND_DEFS.size()
-		var fpa: Vector2 = ReefDistricts.friend_position(fi)
-		var fpb: Vector2 = ReefDistricts.friend_position(fj)
-		var pa := Vector3(fpa.x, 0, fpa.y)
-		var pb := Vector3(fpb.x, 0, fpb.y)
-		var tmix: float = 0.35 if i < FRIEND_DEFS.size() else 0.65
-		var pp: Vector3 = pa.lerp(pb, tmix)
-		var x: float = pp.x + hash2(i, 5) * 10.0 - 5.0
-		var z: float = pp.z + hash2(i, 11) * 10.0 - 5.0
-		pearl_slots.append(Vector3(x, seabed_y(x, z) + 4.5 + hash2(i, 9) * 6.0, z))
-		_spawn_pearl(i)
-
-func _spawn_pearl(slot: int) -> void:
-	var mi := MeshInstance3D.new()
-	var sph := SphereMesh.new()
-	sph.radius = 1.3
-	sph.height = 2.6
-	mi.mesh = sph
-	mi.material_override = pearl_mat
-	mi.position = pearl_slots[slot]
-	mi.set_meta("slot", slot)
-	add_child(mi)
-	var l := OmniLight3D.new()
-	l.light_color = Color(1.0, 0.8, 1.0)
-	l.light_energy = 0.9
-	l.omni_range = 7.0
-	l.visible = (quality != "speedy") or (slot % 2 == 0)
-	l.position = mi.position
-	add_child(l)
-	pearl_lights.append(l)
-	mi.set_meta("light", l)
-	mi.set_meta("halo", _halo(mi.position, Color(1.0, 0.75, 0.95), 6.5))
-	pearls.append(mi)
-
-func _respawn_pearls() -> void:
-	var used := {}
-	for p in pearls:
-		used[int(p.get_meta("slot"))] = true
-	var grew := false
-	for i in range(PEARL_TOTAL):
-		if not used.has(i):
-			_spawn_pearl(i)
-			grew = true
-	if grew and msg_timer <= 4.0:
-		# show_msg sets msg_timer = 5.0, so > 4.0 means another banner went up
-		# less than a second ago (the _end_game win message) — never fight it;
-		# the respawned pearls announce themselves by shimmering anyway
-		show_msg("", "New rainbow pearls are shimmering in the ocean!")
-
 func _cutout_tex(name: String) -> Texture2D:
 	# STORYBOOK: in-world character cutouts use the die-cut STICKER bake
 	# (white vinyl rim + soft navy drop shadow, assets/characters/stickers/,
@@ -2699,94 +2071,17 @@ func _cutout_tex(name: String) -> Texture2D:
 	return load("res://assets/characters/friends/" + name + ".png")
 
 func _build_friends() -> void:
+	# Data-only friend roster. The 3D reef pillars, beacons and sparks retired
+	# with the reef on 2026-09-23; each entry keeps the launch data and the
+	# saved found/won flags so the friend games and save restore still work.
 	for i in range(FRIEND_DEFS.size()):
 		var fd: Dictionary = FRIEND_DEFS[i]
-		var fp: Vector2 = ReefDistricts.friend_position(i)
-		var x: float = fp.x
-		var z: float = fp.y
-		# 3D migration (owner 2026-07-19): prefer a gen2 model when one has
-		# landed for this character; the sprite cutout remains the fallback.
-		var tex_name := String(fd["tex"])
-		var cut := Sprite3D.new()
-		cut.texture = _cutout_tex(tex_name)
-		cut.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		cut.pixel_size = 0.016
-		cut.position = Vector3(x, seabed_y(x, z) + 6.5, z)
-		add_child(cut)
-		var spr: Node3D = cut
-		var bcols := [Color(1.0, 0.75, 0.35), Color(0.45, 0.9, 1.0), Color(1.0, 0.5, 0.75), Color(0.6, 1.0, 0.6), Color(0.8, 0.6, 1.0)]
-		var bcol: Color = bcols[i % bcols.size()]
-		var beacon := OmniLight3D.new()
-		beacon.light_color = bcol
-		beacon.light_energy = 0.7
-		beacon.omni_range = 15.0
-		beacon.position = spr.position + Vector3(0, 8, 0)
-		add_child(beacon)
-		var pil := MeshInstance3D.new()
-		var pm2 := CylinderMesh.new()
-		pm2.top_radius = 0.3 + float(i % 3) * 0.25
-		pm2.bottom_radius = 1.1 + float(i % 2) * 0.6
-		pm2.height = WATER_TOP - spr.position.y
-		pm2.radial_segments = 10
-		var pmat := StandardMaterial3D.new()
-		pmat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-		pmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		pmat.blend_mode = BaseMaterial3D.BLEND_MODE_ADD
-		pmat.albedo_color = Color(bcol.r, bcol.g, bcol.b, 0.09)
-		pmat.cull_mode = BaseMaterial3D.CULL_DISABLED
-		pil.mesh = pm2
-		pil.material_override = pmat
-		pil.position = Vector3(spr.position.x, spr.position.y + pm2.height * 0.5, spr.position.z)
-		add_child(pil)
-		var sparks: Array = []
-		for sk in range(2):
-			var orb := MeshInstance3D.new()
-			var om := SphereMesh.new()
-			om.radius = 0.28
-			om.height = 0.56
-			orb.mesh = om
-			var omat := StandardMaterial3D.new()
-			omat.emission_enabled = true
-			omat.emission = bcol
-			omat.emission_energy_multiplier = 1.2
-			orb.material_override = omat
-			add_child(orb)
-			sparks.append(orb)
-		friends.append({"node": spr, "fname": fd["fname"], "tex": tex_name, "msg": fd["msg"], "game": fd["game"], "found": false, "won": false,
+		friends.append({"fname": fd["fname"], "tex": String(fd["tex"]), "msg": fd["msg"],
+			"game": fd["game"], "found": false, "won": false,
 			"theme": fd.get("theme", "ice"), "mode": fd.get("mode", "fish"),
-			"discover_radius": fd.get("discover_radius", 9.0), "linger_radius": fd.get("linger_radius", 10.0),
-			"start_radius": fd.get("start_radius", 8.0),
-			"beacon": beacon, "pillar": pil, "sparks": sparks, "bcol": bcol, "cool": 0.0, "ph": randf() * TAU})
-
-func _build_kart_portal() -> void:
-	# the Ocean Race gate: a rainbow ring standing just above the REAL seabed near
-	# spawn — the race track is built over this world's actual ocean floor
-	# open sand flat south of the reef — it used to sit 5 units from Evie's
-	# meadow, which crowded her hide-and-seek spot with a race gate
-	var pos := Vector3(-5.0, seabed_y(-5.0, -95.0) + 9.0, -95.0)
-	kart_portal_pos = pos
-	var ring := MeshInstance3D.new()
-	var tm := TorusMesh.new()
-	tm.inner_radius = 7.0; tm.outer_radius = 9.0; tm.rings = 32; tm.ring_segments = 16
-	ring.mesh = tm
-	var sh := Shader.new()
-	sh.code = "shader_type spatial;\nrender_mode cull_disabled, unshaded;\nvoid fragment(){ float b=fract(UV.x*6.0); vec3 c; if(b<0.16)c=vec3(0.95,0.2,0.35);else if(b<0.33)c=vec3(1.0,0.6,0.2);else if(b<0.5)c=vec3(1.0,0.92,0.3);else if(b<0.66)c=vec3(0.3,0.85,0.45);else if(b<0.83)c=vec3(0.3,0.6,1.0);else c=vec3(0.65,0.4,0.95); ALBEDO=c; EMISSION=c*(0.6+0.4*sin(TIME*3.0)); }"
-	var m := ShaderMaterial.new(); m.shader = sh
-	ring.material_override = m
-	ring.position = pos
-	add_child(ring)
-	var lab := Label3D.new()
-	lab.text = "Ocean Race!\nSwim in to RACE!"
-	lab.font_size = 80; lab.outline_size = 16
-	lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	lab.position = pos + Vector3(0, 11.0, 0)
-	add_child(lab)
-	var gl := OmniLight3D.new()
-	gl.light_color = Color(1.0, 0.7, 1.0); gl.light_energy = 3.0; gl.omni_range = 30.0
-	gl.position = pos
-	add_child(gl)
-	var tw := ring.create_tween().set_loops()
-	tw.tween_property(ring, "rotation:y", TAU, 6.0).from(0.0)
+			"discover_radius": fd.get("discover_radius", 9.0),
+			"linger_radius": fd.get("linger_radius", 10.0),
+			"start_radius": fd.get("start_radius", 8.0), "cool": 0.0})
 
 func _kart_gateway(pos: Vector3, label: String, col: Color, show_ring: bool = true) -> void:
 	# a clear, glowing race portal at a rainbow leg
@@ -4027,7 +3322,6 @@ func _apply_quality(q: String) -> void:
 	_sync_castle_lights()
 	if player != null and "trail_enabled" in player:
 		player.trail_enabled = not speedy   # the wake ribbon is the only per-frame CPU mesh rebuild
-	streak_ctx = "none"   # force the streak pool to re-apply visibility for the new quality
 	for i in range(pearl_lights.size()):
 		var l: OmniLight3D = pearl_lights[i]
 		if is_instance_valid(l):
@@ -4062,27 +3356,6 @@ func _set_vis_range(n: Node, dist: float) -> void:
 
 # Phase 7.1: save/load logic lives in scripts/save_state.gd (state stays
 # here on main; SaveState receives main by reference and only owns logic)
-var carry_sys: CarrySystem = null
-
-func _carry_ref() -> CarrySystem:
-	if carry_sys == null:
-		carry_sys = CarrySystem.new(self)
-	return carry_sys
-
-var flow_sys: ReefFlow = null
-
-func _flow_ref() -> ReefFlow:
-	if flow_sys == null:
-		flow_sys = ReefFlow.new(self)
-	return flow_sys
-
-var grotto_sys: GrottoPuzzle = null
-
-func _grotto_ref() -> GrottoPuzzle:
-	if grotto_sys == null:
-		grotto_sys = GrottoPuzzle.new(self)
-	return grotto_sys
-
 var _save_state: SaveState = null
 var _collection_system: CollectionSystem = null
 
@@ -4177,12 +3450,6 @@ func day_one_castle_room_for_current() -> String:
 		if String(DAY_ONE_CASTLE_ROOM_IDS[castle_room]) == logical_room:
 			return castle_room
 	return "main_hall"
-
-func _day_one_refuse_reef_exit() -> void:
-	if not day_one_is_active():
-		return
-	_ui_tap()
-	show_msg("Roshan", "Let's go to the castle!", "roshan_day1_castle")
 
 func _queue_save() -> void:
 	# debounce for the per-frame hot sites (pearl pickup, friend discovery):
@@ -4572,19 +3839,6 @@ func _notification(what: int) -> void:
 		# write — going to the background must never drop queued progress
 		if save_dirty or save_pending:
 			_write_save()
-
-func _add_won_star(fr: Dictionary) -> void:
-	if fr.has("star"):
-		return
-	var st := Label3D.new()
-	st.text = "\u2605"
-	st.font_size = 240
-	st.modulate = Color(1.0, 0.85, 0.2)
-	st.outline_size = 24
-	st.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	st.position = (fr["node"] as Node3D).position + Vector3(0, 7.5, 0)
-	add_child(st)
-	fr["star"] = st
 
 # the pause menu overlay lives in scripts/pause_menu.gd
 # (state stays here; PauseMenu receives main by reference)
@@ -5581,57 +4835,6 @@ func _populate_touch_interactables() -> void:
 	touch_interactables.clear()
 	if not touch_uses_explicit_interactions() or player == null:
 		return
-	if game == "":
-		for friend_index in range(friends.size()):
-			var friend: Dictionary = friends[friend_index]
-			var friend_node: Node3D = friend.get("node") as Node3D
-			if not is_instance_valid(friend_node):
-				continue
-			var friend_affordance: String = InteractionAffordanceLogic.PLOT \
-				if not bool(friend.get("won", false)) \
-				else InteractionAffordanceLogic.INTERACTION
-			_touch_add_item(
-				"friend:%d" % friend_index,
-				String(friend.get("fname", "Friend")),
-				friend_node.position,
-				friend_node,
-				maxf(6.0, float(friend.get("start_radius", 8.0))),
-				maxf(30.0, float(friend.get("linger_radius", 10.0)) * 3.0),
-				"PLAY",
-				friend_index,
-				true, friend_affordance)
-		if manta != null and is_instance_valid(manta):
-			_touch_add_item("reef:shop", "Pearl Shop", manta.position, manta, 17.0, 38.0, "SHOP")
-		if wreck_pos != Vector3.ZERO:
-			_touch_add_item("reef:treasure", "Secret Cave", wreck_pos, null, 13.0, 34.0, "OPEN")
-		if slide_portal_pos != Vector3.ZERO:
-			_touch_add_item("reef:slide", "Penguin Slide", slide_portal_pos, slide_portal_penguin, 14.0, 38.0, "SLIDE")
-		if brawl_portal_pos != Vector3.ZERO:
-			_touch_add_item("reef:brawl", "Toy Castle", brawl_portal_pos, null, 13.0, 36.0, "PLAY")
-		if dust_boss_portal_pos != Vector3.ZERO:
-			_touch_add_item("reef:dustboss", "Dusty Attic", dust_boss_portal_pos, null, 13.0, 36.0, "PLAY")
-		if kart_portal_pos != Vector3.ZERO:
-			_touch_add_item("reef:kart", "Ocean Race", kart_portal_pos, null, 12.0, 42.0, "RACE")
-		if companion_den != null and is_instance_valid(companion_den) \
-				and companion_id != "" \
-				and stuffie_game == null and stuffie_cool <= 0.0:
-			# 9.0 matches companion.gd DEN_RADIUS (the Classic walk-in ring)
-			_touch_add_item("reef:den", "Sparring Den", companion_den.position,
-				companion_den, 9.0, 30.0, "PLAY")
-		if portal_node != null and is_instance_valid(portal_node):
-			var lagoon_affordance: String = InteractionAffordanceLogic.PLOT \
-				if not level2_done_once else InteractionAffordanceLogic.INTERACTION
-			_touch_add_item("reef:lagoon", "Rainbow Portal", portal_node.position,
-				portal_node, 9.0, 42.0, "ENTER", null, true, lagoon_affordance)
-		if ocean_routes_enabled:
-			var kingdom: String = ReefDistricts.kingdom_at(Vector2(player.position.x, player.position.z))
-			var gate_xz: Vector2 = ReefDistricts.kingdom_return_gate(kingdom)
-			var gate_pos := Vector3(gate_xz.x, seabed_y(gate_xz.x, gate_xz.y) + 6.0, gate_xz.y)
-			var return_affordance: String = InteractionAffordanceLogic.PLOT \
-				if _all_friends_won() else InteractionAffordanceLogic.INTERACTION
-			_touch_add_item("reef:return", "Castle Gate", gate_pos, null,
-				10.0, 42.0, "ENTER", kingdom, true, return_affordance)
-		return
 	if game == "north":
 		var north_return: Vector3 = g.get("north_return_pos", Vector3.ZERO)
 		if north_return != Vector3.ZERO:
@@ -5706,39 +4909,7 @@ func _activate_touch_interactable(id: String, payload: Variant = null) -> void:
 		# Consume the activating button without stealing a simultaneously held
 		# left-stick finger. Fade-backed activities clear every owner below.
 		touch_ui.consume_action()
-	if id.begins_with("friend:"):
-		var friend_index: int = int(payload)
-		if friend_index >= 0 and friend_index < friends.size():
-			var friend: Dictionary = friends[friend_index]
-			friend["cool"] = 0.0
-			_start_game(friend)
-		return
 	match id:
-		"reef:shop":
-			shop_cool = 16.0
-			_start_game(shop_fr)
-		"reef:treasure":
-			treasure_cool = 12.0
-			_start_game(treasure_fr)
-		"reef:slide":
-			slide_cool = 14.0
-			_start_game(slide_fr)
-		"reef:brawl":
-			brawl_cool = 14.0
-			_start_game(brawl_fr)
-		"reef:dustboss":
-			dust_boss_cool = 14.0
-			_start_game(dust_boss_fr)
-		"reef:kart":
-			_start_kart_game(false, "terrain")
-		"reef:den":
-			stuffie_cool = 14.0
-			_start_stuffie_battle()
-		"reef:lagoon":
-			_enter_level2(level2_done_once)
-		"reef:return":
-			ocean_kingdom = String(payload)
-			_enter_level2(false, false, true)
 		"court:north":
 			_enter_northern_kingdom()
 		"north:return":
@@ -5857,128 +5028,6 @@ func _apply_skin() -> void:
 	player.set_skin(skin_id, String(s["sprite"]))
 	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
 		_castle_rooms_25d.refresh_player_skin()
-
-func _all_pearls_done() -> bool:
-	return pearls.is_empty()
-
-func _check_level2_unlock(ppos: Vector3, delta: float) -> void:
-	var stars := 0
-	for f in friends:
-		if f["found"]:
-			stars += 1
-	# The original gate required a ten-pearl wallet. Remember the highest balance
-	# so buying a toy later can never close a story doorway that already opened.
-	pearls_ever = maxi(pearls_ever, pearl_count)
-	# Story progress is a permanent milestone, never a test of the current wallet.
-	if not portal_unlocked and trophies >= 5 and stars >= 5 and pearls_ever >= PEARL_TOTAL:
-		portal_unlocked = true
-		_write_save()
-	var ready: bool = portal_unlocked or level2_done_once
-	if ready and portal_node == null:
-		_raise_portal()
-	if portal_node != null and is_instance_valid(portal_node):
-		portal_t += delta
-		portal_node.rotation.y += delta * 0.4
-		var swirl: Node3D = portal_node.get_node_or_null("Swirl")
-		if swirl != null:
-			swirl.rotation.z += delta * 2.2
-			swirl.scale = Vector3.ONE * (1.0 + sin(portal_t * 3.0) * 0.06)
-		portal_node.position.y = seabed_y(portal_node.position.x, portal_node.position.z) + 4.0 + sin(portal_t * 1.2) * 0.6
-		portal_ready = true
-		portal_cool = maxf(0.0, portal_cool - delta)
-		var pdist: float = portal_node.position.distance_to(ppos)
-		if pdist > 13.0:
-			portal_armed = true
-		if not touch_uses_explicit_interactions() and portal_ready and portal_armed and portal_cool <= 0.0 and game == "" and finale_t < 0.0 and pdist < 8.0:
-			portal_armed = false
-			if level2_done_once:
-				l2_star_progress = [true, true, true]
-				_enter_level2(true)
-			else:
-				for i in range(l2_star_progress.size()):
-					l2_star_progress[i] = bool(stickers.get("_l2_star_%d" % i, l2_star_progress[i]))
-				_enter_level2()
-
-func _raise_portal() -> void:
-	var hub := Node3D.new()
-	hub.name = "Portal"
-	# giant rainbow conch shell base (spiral of tinted torus rings)
-	for i in range(6):
-		var ring := MeshInstance3D.new()
-		var tm := TorusMesh.new()
-		tm.inner_radius = 3.4 - float(i) * 0.45
-		tm.outer_radius = 4.0 - float(i) * 0.45
-		ring.mesh = tm
-		var rm := StandardMaterial3D.new()
-		rm.albedo_color = Color.from_hsv(float(i) / 6.0, 0.55, 1.0)
-		rm.roughness = 0.4
-		rm.emission_enabled = true
-		rm.emission = Color.from_hsv(float(i) / 6.0, 0.55, 1.0)
-		rm.emission_energy_multiplier = 0.5
-		ring.material_override = rm
-		ring.position.y = float(i) * 1.5
-		ring.rotation_degrees = Vector3(90, 0, float(i) * 18.0)
-		hub.add_child(ring)
-	# swirling rainbow vortex disc inside
-	var swirl := MeshInstance3D.new()
-	swirl.name = "Swirl"
-	var sd := CylinderMesh.new()
-	sd.top_radius = 3.0
-	sd.bottom_radius = 3.0
-	sd.height = 0.3
-	swirl.mesh = sd
-	swirl.rotation_degrees = Vector3(90, 0, 0)
-	swirl.position.y = 4.5
-	swirl.material_override = _rainbow_mat()
-	hub.add_child(swirl)
-	# beckoning light
-	var pl := OmniLight3D.new()
-	pl.light_color = Color(1.0, 0.9, 1.0)
-	pl.light_energy = 3.0
-	pl.omni_range = 28.0
-	pl.position.y = 5.0
-	hub.add_child(pl)
-	var lbl := Label3D.new()
-	lbl.text = "A RAINBOW PORTAL!\nSwim in!"
-	lbl.font_size = 80
-	lbl.outline_size = 18
-	lbl.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	lbl.position.y = 9.0
-	hub.add_child(lbl)
-	# the Butterfly Gate stands over the portal — swim through the wings
-	var bgate := _butterfly_gate(3.6)
-	bgate.position = Vector3(0, 7.0, 0)
-	hub.add_child(bgate)
-	# a rainbow light beam rises from the portal to the surface — the landmark that
-	# calls the player DOWN to the ocean floor from anywhere in the reef
-	var beam := MeshInstance3D.new()
-	beam.name = "Beam"
-	var bc := CylinderMesh.new()
-	bc.top_radius = 2.2
-	bc.bottom_radius = 4.5
-	bc.height = WATER_TOP + 20.0
-	bc.radial_segments = 12
-	beam.mesh = bc
-	var bsh := Shader.new()
-	bsh.code = """shader_type spatial;
-render_mode blend_add, unshaded, cull_disabled, depth_draw_never;
-void fragment(){
-	float hue = fract(UV.x + TIME * 0.08);
-	vec3 c = clamp(abs(fract(hue + vec3(0.0, 0.666, 0.333)) * 6.0 - 3.0) - 1.0, 0.0, 1.0);
-	float fade = smoothstep(0.0, 0.25, UV.y) * smoothstep(1.0, 0.6, UV.y);
-	ALBEDO = c * fade * 0.35;
-	ALPHA = fade * 0.30;
-}"""
-	var bmat2 := ShaderMaterial.new()
-	bmat2.shader = bsh
-	beam.material_override = bmat2
-	beam.position.y = (WATER_TOP + 20.0) * 0.5
-	hub.add_child(beam)
-	# the portal opens ON THE OCEAN FLOOR — the doorway to the Sky Lagoon
-	hub.position = Vector3(0, seabed_y(0.0, 0.0) + 4.0, 0)
-	add_child(hub)
-	portal_node = hub
-	show_msg("Roshan", "Wow! A RAINBOW PORTAL is opening deep on the ocean floor! Dive down and swim in!")
 
 func _enter_level2(from_castle: bool = false, from_north: bool = false,
 	at_ocean_gate_hub: bool = false) -> void:
@@ -6129,9 +5178,6 @@ func _enter_northern_kingdom_now() -> void:
 	player.vel = Vector3.ZERO
 	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
 	show_msg("Roshan", "A magical forest! The glowing lights lead to the fjord castle!", "pearl")
-
-func _butterfly_gate(scl: float) -> Node3D:
-	return LandmarkArtFactory.create_butterfly_gate(scl)
 
 func _up_mat(key: String, uvs: float = 0.1, tint: Color = Color(1, 1, 1)) -> StandardMaterial3D:
 	# upgraded CC0 PBR material (color + OpenGL normal + roughness), triplanar-tiled
@@ -6447,9 +5493,6 @@ var _gen2_mesh_cache := {}
 const GEN2_CEL := true   # banded cel light + navy ink outline on GEN2 props. Flip false to revert.
 var _gen2_outline: ShaderMaterial = null
 
-# crossed-quad sea flora sprites: [name, height/width aspect, width factor]
-const SEAGRASS_SPRITES := [["seagrass", 0.82, 1.0], ["grasstuft", 0.82, 0.75], ["kelp", 2.63, 0.55]]
-var _seagrass_mats := {}   # sprite name -> 4 phase-varied sway materials
 
 # A RIGGED family creature: same Meshy mesh as _gen2_creature but skinned to a
 # 20-bone quadruped (tools/build_chuck_rig.py + animate_kitty.py) with real
@@ -6626,27 +5669,6 @@ func _gen2_outline_mat() -> ShaderMaterial:
 		_gen2_outline.set_shader_parameter("line_color", Color(0.16, 0.12, 0.3))
 	return _gen2_outline
 
-func _gen2_static_mesh(name: String) -> Mesh:
-	# MultiMesh scenery has no remaining model source in the 2D build.
-	var cached: Mesh = _gen2_mesh_cache.get(name, null)
-	if cached != null:
-		return cached
-	var path := ""
-	if not ResourceLoader.exists(path):
-		return null
-	var ps: PackedScene = load(path)
-	if ps == null:
-		return null
-	var inst: Node3D = ps.instantiate()
-	var meshes := _all_meshes(inst)
-	if meshes.is_empty():
-		inst.free()
-		return null
-	var result: Mesh = (meshes[0] as MeshInstance3D).mesh
-	_gen2_mesh_cache[name] = result
-	inst.free()
-	return result
-
 func _art35_static_mesh(path: String) -> Mesh:
 	var cached: Mesh = _gen2_mesh_cache.get(path, null)
 	if cached != null:
@@ -6691,8 +5713,8 @@ func _gen2_prop(name: String, pos: Vector3, target: float, yrot: float = 0.0, si
 	# the phone (tools/shrink_glb.py). Same contract as _kit: fits footprint
 	# to `target`, seats base at pos; collisions and node-list registration
 	# (game_nodes/flora_nodes) stay the caller's job.
-	# Carryable reef props retain approved 2D art after the retired model pack
-	# was removed. CarrySystem owns these nodes, so do not register them in
+	# Starfish and spiral shells retain approved 2D art after the retired model
+	# pack was removed. Callers own these nodes, so do not register them in
 	# game_nodes: Canvas minigames clear that list as part of their lifecycle.
 	if name == "starfish":
 		var star := LandmarkArtFactory.create_star(2.4, Color(1.0, 0.76, 0.24))
@@ -9319,74 +8341,6 @@ func _tick_beans(delta: float) -> void:
 		if beans_sfx != null:
 			beans_sfx.stop()
 
-func _build_guide() -> void:
-	# no guide character; wayfinding = beacon pillars + a silent helping current
-	guide_fish = null
-
-func _tick_guide(delta: float) -> void:
-	if player == null:
-		return
-	if game != "" or finale_t >= 0.0:
-		return
-	var target := Vector3.ZERO
-	var best := 1.0e9
-	var have := false
-	for f in friends:
-		if not bool(f["won"]):
-			var d: float = (f["node"] as Node3D).position.distance_to(player.position)
-			if d < best:
-				best = d
-				target = (f["node"] as Node3D).position
-				have = true
-	if not have:
-		for p in pearls:
-			var d2: float = p.position.distance_to(player.position)
-			if d2 < best:
-				best = d2
-				target = p.position
-				have = true
-	# NON-READER WAYFINDING (audit: every "where do I go?" cue was text-only).
-	# The friend pillars now narrate progress: finished friends dim right down,
-	# waiting friends stay soft, and the NEAREST quest friend pulses bright.
-	var tt2: float = Time.get_ticks_msec() / 1000.0
-	for f in friends:
-		var pil: MeshInstance3D = f.get("pillar")
-		if pil == null or not is_instance_valid(pil):
-			continue
-		var pmat2 := pil.material_override as StandardMaterial3D
-		if pmat2 == null:
-			continue
-		var beacon: OmniLight3D = f.get("beacon") as OmniLight3D
-		if bool(f["won"]):
-			pmat2.albedo_color.a = 0.012
-			if beacon != null:
-				beacon.light_energy = 0.25
-		elif have and (f["node"] as Node3D).position == target:
-			pmat2.albedo_color.a = 0.12 + 0.07 * (0.5 + 0.5 * sin(tt2 * 2.4))
-			if beacon != null:
-				beacon.light_energy = 1.5 + 0.35 * sin(tt2 * 2.4)
-		else:
-			# idle floor 0.09: actually visible on a phone in daylight, yet the
-			# nearest-friend pulse (0.12-0.19) still reads clearly brighter
-			pmat2.albedo_color.a = 0.09
-			if beacon != null:
-				beacon.light_energy = 0.55
-	if not have or best <= 16.0:
-		return
-	var dir2: Vector3 = (target - player.position).normalized()
-	# gentle helping current: if the child is swimming roughly toward the goal, carry them
-	var pv: Vector3 = player.vel
-	if best > 25.0 and pv.length() > 4.0 and pv.normalized().dot(dir2) > 0.45:
-		player.position += dir2 * 5.5 * delta
-	# breadcrumb sparkles: when the goal is far, a short trail of gold twinkles
-	# points the way every couple of seconds — follow the sparkles!
-	var gt: float = float(get_meta("guide_t", 0.0)) - delta
-	if best > 35.0 and gt <= 0.0:
-		gt = 2.2
-		for k: float in [8.0, 16.0]:
-			_sparkle_burst(player.position + dir2 * k + Vector3(0, 1.5, 0), Color(1.0, 0.95, 0.6))
-	set_meta("guide_t", gt)
-
 func _sparkle_burst(pos: Vector3, col: Color) -> void:
 	var cp := CPUParticles3D.new()
 	cp.one_shot = true
@@ -9413,41 +8367,6 @@ func _sparkle_burst(pos: Vector3, col: Color) -> void:
 	var tw := create_tween()
 	tw.tween_interval(1.6)
 	tw.tween_callback(cp.queue_free)
-
-func _begin_finale() -> void:
-	# (the old friends-circling-Roshan swarm is gone — the celebration now points
-	# the player at the rainbow portal opening on the ocean floor)
-	finale_done = true
-	finale_t = 0.0
-	_write_save()
-	_play_music("finale", false)   # one-shot fanfare (42s); _tick_finale brings "world" back at 10s
-	show_msg("Everyone", "Roshan did it! Hooray! Deep below, a RAINBOW PORTAL is beginning to open on the ocean floor!")
-
-func _tick_finale(delta: float) -> void:
-	if finale_t < 0.0:
-		return
-	finale_t += delta
-	# fireworks of sparkles around Roshan, and at the portal once it exists
-	if fmod(finale_t, 0.9) < delta:
-		_sparkle_burst(player.position + Vector3(randf() * 8.0 - 4.0, 4.0, randf() * 8.0 - 4.0), Color.from_hsv(randf(), 0.6, 1.0))
-		if portal_node != null and is_instance_valid(portal_node):
-			_sparkle_burst(portal_node.position + Vector3(randf() * 6.0 - 3.0, 5.0, randf() * 6.0 - 3.0), Color.from_hsv(randf(), 0.5, 1.0))
-	if finale_t > 10.0:
-		finale_t = -1.0
-		_play_music("world")
-
-const HINTS := [
-	"Move with the stick - or the arrow keys!",
-	"Tap the open water to swim up!",
-	"Swim to the glowing light pillars to find friends!"]
-
-func _tick_hints(delta: float) -> void:
-	if not first_session or game != "" or hint_idx >= HINTS.size():
-		return
-	hint_t += delta
-	if hint_t > 2.0 + float(hint_idx) * 8.0:
-		show_msg("Roshan", HINTS[hint_idx])
-		hint_idx += 1
 
 # ===================== MINIGAMES =====================
 func _clear_game() -> void:
@@ -9645,31 +8564,6 @@ func _celebrate_pose() -> void:
 		_sparkle_burst(player.position + Vector3(cos(sa) * 2.5, 1.0 + float(si % 3), sin(sa) * 2.5), Color.from_hsv(float(si) / 8.0, 0.5, 1.0))
 	get_tree().create_timer(2.4).timeout.connect(cl3.queue_free)
 
-func _creature_greet(node: Node3D) -> void:
-	# the interaction beat: the creature gets EXCITED for ~1.5s - its sway
-	# shader speeds up (excite uniform), it does a squash-and-stretch bounce
-	# (movers own position, so the bounce lives in scale), plus sparkles and
-	# a happy chirp. Works on any mover; pack survivors just skip the shader.
-	for mi in _all_meshes(node):
-		if mi.mesh == null:
-			continue
-		for si in range(mi.mesh.get_surface_count()):
-			var m0: Material = mi.get_surface_override_material(si)
-			if m0 is ShaderMaterial and (m0 as ShaderMaterial).shader != null:
-				var sm := m0 as ShaderMaterial
-				var tw0 := create_tween()
-				tw0.tween_method(func(v: float): sm.set_shader_parameter("excite", v), 0.0, 1.0, 0.25)
-				tw0.tween_interval(0.9)
-				tw0.tween_method(func(v: float): sm.set_shader_parameter("excite", v), 1.0, 0.0, 0.4)
-	var base_scale: Vector3 = node.scale
-	var tw := create_tween()
-	tw.tween_property(node, "scale", base_scale * Vector3(1.08, 1.2, 1.08), 0.2).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tw.tween_property(node, "scale", base_scale, 0.55).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
-	_sparkle_burst(node.position + Vector3(0, 1.6, 0), Color(0.8, 0.95, 1.0))
-	if voice != null:
-		voice.pitch_scale = 1.35 + randf() * 0.3
-		_play_success_yay(voice.pitch_scale)
-
 func _greet_heart(pos: Vector3) -> void:
 	# a crafted friend says hello: floating heart + sparkle + happy chirp
 	var h := Label3D.new()
@@ -9725,27 +8619,11 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 	if win and not fr["won"]:
 		fr["won"] = true
 		trophies += 1
-		_add_won_star(fr)
 		_reward()
 		if player != null:
 			player.play_verb("cheer")   # R2-C: arms up for the trophy curtain call
 	fr["cool"] = 5.0
-	# Short re-entry cooldowns: "again!" should take seconds, not sixteen.
-	# They only need to outlast the return teleport so the portal doesn't
-	# swallow her on the same frame — lingering by choice restarting the game
-	# is the feature (starting is a greeting, not a win; probe_passive keeps
-	# zero-input play unwinnable regardless of how often a game re-opens).
-	if String(fr["fname"]) == "Secret Cave":
-		treasure_cool = 4.0
-	elif String(fr["fname"]) == "Pearl Shop":
-		shop_cool = 4.0
-	elif String(fr["fname"]) == "Penguin Slide":
-		slide_cool = 3.0
-	elif String(fr["fname"]) == "Toy Castle":
-		brawl_cool = 3.0
-	elif String(fr["fname"]) == "Dusty Attic":
-		dust_boss_cool = 3.0
-	elif String(fr["fname"]) == "Fairy Pond":
+	if String(fr["fname"]) == "Fairy Pond":
 		fairy_cool = 3.0
 		_apply_skin()   # restore Roshan's normal look after the fairy flight
 	if completed_day_one_boss:
@@ -9758,7 +8636,6 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 	# in the same frame; the Day Two bridge supplies the next exact cue.
 	if not completed_day_one_boss:
 		show_msg(fr["fname"], txt, "win" if win else vo)
-	_respawn_pearls()   # after the banner: its freshness guard yields to the win message
 	_update_hud()
 	_clear_game()
 	_write_save()
@@ -9777,8 +8654,6 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 		# door open (skipping the whole Dream-Star quest)
 		call_deferred("_enter_level2", l2_open)
 		return
-	if trophies >= 5 and not finale_done:
-		call_deferred("_begin_finale")
 
 func _game_ball(col: Color, radius: float) -> MeshInstance3D:
 	var mi := MeshInstance3D.new()
@@ -9881,29 +8756,6 @@ func _build_chain_curtain(bar_from: Vector3, bar_to: Vector3, n_chains: int) -> 
 func _add_check(pos: Vector3, kind: String) -> void:
 	var node := _check_star(pos)
 	(g["checks"] as Array).append({"node": node, "hit": false, "kind": kind})
-
-func _plank_box(pos: Vector3, size: Vector3, alpha: float = 1.0) -> void:
-	var b := MeshInstance3D.new()
-	var bm := BoxMesh.new()
-	bm.size = size
-	b.mesh = bm
-	var m := StandardMaterial3D.new()
-	m.albedo_texture = load("res://assets/terrain/up_wood_col.jpg")
-	m.albedo_color = Color(0.85, 0.72, 0.55, alpha)
-	m.normal_enabled = true
-	m.normal_texture = load("res://assets/terrain/up_wood_nrm.jpg")
-	m.roughness_texture = load("res://assets/terrain/up_wood_rgh.jpg")
-	m.uv1_triplanar = true
-	m.uv1_world_triplanar = true
-	m.uv1_scale = Vector3(0.15, 0.15, 0.15)
-	m.roughness = 0.9
-	if alpha < 1.0:
-		m.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-		m.cull_mode = BaseMaterial3D.CULL_DISABLED
-	b.material_override = m
-	b.position = pos
-	add_child(b)
-	game_nodes.append(b)
 
 func _tick_chains(delta: float, ppos: Vector3) -> void:
 	for ch in g.get("chains", []):
@@ -10029,76 +8881,6 @@ func _ice_mat(col: Color, glow: float = 0.18, tex: String = "") -> StandardMater
 		m.metallic = 0.05
 		m.roughness = 0.7
 	return m
-
-func _build_slide_portal() -> void:
-	# a penguin on a floating ice floe in the reef — swim up to it to start the slide
-	slide_portal_pos = Vector3(48.0, WATER_TOP + 0.5, -42.0)
-	var floe := MeshInstance3D.new()
-	var fm := CylinderMesh.new(); fm.top_radius = 11.0; fm.bottom_radius = 8.5; fm.height = 3.0
-	floe.mesh = fm
-	floe.material_override = _ice_mat(Color(0.95, 1.0, 1.05), 0.08, "snow")
-	floe.position = slide_portal_pos + Vector3(0, -2.0, 0)
-	add_child(floe)
-	var peng := _place_aq("Penguin", slide_portal_pos + Vector3(0, 1.4, 0), 4.2, false)
-	if peng != null:
-		# face the reef center (gen2 -X face) so Roshan meets his face, not his back
-		peng.rotation.y = atan2(-slide_portal_pos.z, slide_portal_pos.x)
-		_play_clip(peng, "idle")
-	if peng != null:
-		slide_portal_penguin = peng
-
-func _build_brawl_portal() -> void:
-	# Princess Huluu waits by her toy castle on the seabed — swim up to start
-	# the two-hero TOY CASTLE brawler (scripts/games/brawl.gd)
-	var bx := -98.0
-	var bz := 72.0
-	brawl_portal_pos = Vector3(bx, seabed_y(bx, bz) + 4.0, bz)
-	var castle := Node3D.new()
-	castle.position = brawl_portal_pos + Vector3(0, -3.2, -5.0)
-	add_child(castle)
-	var keep := MeshInstance3D.new()
-	var km := BoxMesh.new()
-	km.size = Vector3(7.0, 6.0, 5.0)
-	keep.mesh = km
-	keep.position = Vector3(0, 3.0, 0)
-	keep.material_override = _soft_mat(Color(0.86, 0.80, 0.88), 0.10)
-	castle.add_child(keep)
-	for tx in [-4.2, 4.2]:
-		var tower := MeshInstance3D.new()
-		var tm := CylinderMesh.new()
-		tm.top_radius = 1.5
-		tm.bottom_radius = 1.7
-		tm.height = 8.0
-		tower.mesh = tm
-		tower.position = Vector3(float(tx), 4.0, 0)
-		tower.material_override = _soft_mat(Color(0.86, 0.80, 0.88), 0.10)
-		castle.add_child(tower)
-		var roof := MeshInstance3D.new()
-		var rm := CylinderMesh.new()
-		rm.top_radius = 0.05
-		rm.bottom_radius = 1.9
-		rm.height = 2.6
-		roof.mesh = rm
-		roof.position = Vector3(float(tx), 9.2, 0)
-		roof.material_override = _soft_mat(Color(0.78, 0.55, 0.75), 0.16)
-		castle.add_child(roof)
-	var hu := Sprite3D.new()
-	hu.texture = load("res://assets/characters/friends/huluu.png")
-	hu.pixel_size = 5.5 / maxf(1.0, float(hu.texture.get_height()))
-	hu.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	hu.shaded = false
-	hu.position = brawl_portal_pos + Vector3(3.2, 0.4, 3.0)
-	add_child(hu)
-	_halo(brawl_portal_pos + Vector3(0, 0.6, 0), Color(1.0, 0.8, 0.95), 10.0)
-	_halo(slide_portal_pos + Vector3(0, 3, 0), Color(0.6, 0.9, 1.0), 15.0)
-	var l := OmniLight3D.new()
-	l.light_color = Color(0.7, 0.9, 1.0); l.light_energy = 2.2; l.omni_range = 24.0
-	l.position = slide_portal_pos + Vector3(0, 6, 0); add_child(l)
-	var lab := Label3D.new()
-	lab.text = "🐧 Penguin Slide!"
-	lab.font_size = 64; lab.pixel_size = 0.04; lab.outline_size = 14
-	lab.modulate = Color(0.75, 0.95, 1.0); lab.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	lab.position = slide_portal_pos + Vector3(0, 9, 0); add_child(lab)
 
 func _tick_game(delta: float) -> void:
 	var fr: Dictionary = g["fr"]
@@ -10301,122 +9083,6 @@ func _tick_overlay_pads(delta: float) -> void:
 	_pad_prev_a = a
 	_pad_prev_b = b
 
-var _wayfind_t := 0.0
-
-func _tick_wayfinder(delta: float, ppos: Vector3) -> void:
-	# MOBILE NAV AUDIT: a sparkle comet-trail from Roshan toward the current
-	# best objective — the "pathfinding" a non-reader can follow. In the reef
-	# this is the nearest friend/shop/slide goal; in the Sky Lagoon it is the
-	# next Dream Star, then the open castle door. Throttled to 3 cheap bursts
-	# every 2.2s and silent during overlays, minigames and castle interiors.
-	var level2_court: bool = (game == "level2"
-		and String(g.get("phase", "court")) == "court")
-	if (game != "" and not level2_court) or mg_kind != "" or intro_active:
-		_set_objective("", null, "")
-		return
-	if _overlay_root_for_cursor() != null:
-		_set_objective("", null, "")
-		return
-	_wayfind_t -= delta
-	if _wayfind_t > 0.0:
-		return
-	_wayfind_t = 2.2
-	var target := Vector3.ZERO
-	# the objective card mirrors the sparkle current as a picture: portrait for
-	# a friend, emoji pictogram for portals/stars (Codex UI handoff)
-	var okey := ""
-	var otex: Texture2D = null
-	var oemj := ""
-	if level2_court:
-		if bool(g.get("ocean_gate_hub", false)):
-			var gates: Array = g.get("ocean_kingdom_gates", [])
-			var nearest_gate_distance: float = INF
-			for gate_value: Variant in gates:
-				var gate: Dictionary = gate_value as Dictionary
-				var gate_pos: Vector3 = gate.get("pos", Vector3.ZERO)
-				var gate_distance: float = gate_pos.distance_to(ppos)
-				if gate_distance < nearest_gate_distance:
-					nearest_gate_distance = gate_distance
-					target = gate_pos
-		for sd in l2_stars:
-			if target != Vector3.ZERO:
-				break
-			if not bool(sd["got"]):
-				var star: Node3D = sd["node"]
-				if is_instance_valid(star):
-					target = star.position
-					okey = "l2star"
-					oemj = "⭐"
-				break
-		if target == Vector3.ZERO and l2_open and l2_door != null and is_instance_valid(l2_door):
-			target = g.get("entry", l2_door.position)
-			okey = "l2door"
-			oemj = "🏰"
-	else:
-		var best := 1e9
-		for f in friends:
-			if not bool(f["won"]):
-				var p: Vector3 = (f["node"] as Node3D).position
-				var d: float = p.distance_to(ppos)
-				if d < best:
-					best = d
-					target = p
-					okey = "friend:" + String(f["fname"])
-					var tn: String = String(f.get("tex", ""))
-					otex = _cutout_tex(tn) if tn != "" else null
-					oemj = "⭐"
-		if target == Vector3.ZERO:
-			if pearl_count >= 60 and manta != null and is_instance_valid(manta):
-				target = manta.position
-				okey = "manta"
-				oemj = "🌟"
-			elif _all_friends_won():
-				var return_xz: Vector2 = ReefDistricts.kingdom_return_gate(
-					ReefDistricts.kingdom_at(Vector2(ppos.x, ppos.z)))
-				target = Vector3(return_xz.x,
-					seabed_y(return_xz.x, return_xz.y) + 6.0, return_xz.y)
-			elif slide_portal_pos != Vector3.ZERO:
-				target = slide_portal_pos
-				okey = "slide"
-				oemj = "🐧"
-	if target == Vector3.ZERO or target.distance_to(ppos) < 22.0:
-		_set_objective("", null, "")
-		return
-	_set_objective(okey, otex, oemj)
-	for k in range(3):
-		var tt: float = 0.06 + 0.07 * float(k)
-		_sparkle_burst(ppos.lerp(target, tt) + Vector3(0, 1.5, 0), Color(1.0, 0.95, 0.6))
-
-func _all_friends_won() -> bool:
-	for friend_value: Variant in friends:
-		var friend: Dictionary = friend_value as Dictionary
-		if not bool(friend.get("won", false)):
-			return false
-	return not friends.is_empty()
-
-func _tick_ocean_return_gate(delta: float, ppos: Vector3) -> bool:
-	# Both ecosystems reuse an authored landmark as their doorway back to the
-	# castle gatehouse. Leave/re-enter hysteresis prevents arrival bounce.
-	# Legacy headless probes stay on their historical routes until they
-	# explicitly choose a kingdom through the new hub.
-	if not ocean_routes_enabled:
-		return false
-	ocean_return_gate_cool = maxf(0.0, ocean_return_gate_cool - delta)
-	var local_kingdom: String = ReefDistricts.kingdom_at(Vector2(ppos.x, ppos.z))
-	var gate_xz: Vector2 = ReefDistricts.kingdom_return_gate(local_kingdom)
-	var gate_pos := Vector3(gate_xz.x, seabed_y(gate_xz.x, gate_xz.y) + 6.0, gate_xz.y)
-	var distance: float = gate_pos.distance_to(ppos)
-	if not ocean_return_gate_armed:
-		if distance > 17.0:
-			ocean_return_gate_armed = true
-		return false
-	if not touch_uses_explicit_interactions() and ocean_return_gate_cool <= 0.0 and distance < 10.0:
-		ocean_return_gate_armed = false
-		ocean_kingdom = local_kingdom
-		_enter_level2(false, false, true)
-		return true
-	return false
-
 func _process(delta: float) -> void:
 	# Legacy activity callbacks can restore an empty world ID. Once the authored
 	# session starts, that ID must recover to Canvas before processing reef input.
@@ -10485,9 +9151,6 @@ func _process(delta: float) -> void:
 	_tick_ambience_duck(delta)
 	if mic_sys != null:
 		mic_sys.tick(delta)   # no-op unless a battle armed the microphone
-	if player != null and not opaque_canvas_active \
-			and not slide_canvas_return_was_active:
-		_tick_wayfinder(delta, player.position)
 	if slide_canvas_return_was_active:
 		_neutralize_slide_canvas_overlay_poll()
 	elif slide_canvas_active and (_slide_canvas_input_context_blocks_input() \
@@ -10510,16 +9173,12 @@ func _process(delta: float) -> void:
 		# Even the second neutral sample is a quarantine frame. The controls block
 		# may retire above, but the returned world cannot consume a level until a
 		# genuinely fresh event arrives on a later frame.
-		if caustics_plane != null and caustics_plane.visible:
-			caustics_plane.visible = false
 		return
 	var ppos: Vector3 = player.position
 	if melody_canvas_active:
 		# Melody owns the complete visible and interactive world. Preserve the
 		# shared save/audio/pause work above, tick its controller exactly once,
 		# and suspend every hidden spatial system until synchronous teardown.
-		if caustics_plane != null and caustics_plane.visible:
-			caustics_plane.visible = false
 		if touch_ui != null:
 			touch_ui.set_action_label("PLAY")
 		# Some platforms continue producing frames between focus-out/paused and
@@ -10535,8 +9194,6 @@ func _process(delta: float) -> void:
 		# tick its controller exactly once through _tick_game (after g.t advances).
 		var slide_canvas := _game_obj("race", SlideRaceGame) as SlideRaceGame
 		slide_canvas.refresh_canvas_layout()
-		if caustics_plane != null and caustics_plane.visible:
-			caustics_plane.visible = false
 		if _slide_canvas_input_context_lost():
 			return
 		if _slide_canvas_overlay_axis_wait_neutral:
@@ -10560,8 +9217,6 @@ func _process(delta: float) -> void:
 		# The opaque Canvas promenade is a complete world slice. Its controller
 		# is the sole movement, camera, interaction, collection and proximity
 		# owner; the hidden player is only a legacy return coordinate.
-		if caustics_plane != null and caustics_plane.visible:
-			caustics_plane.visible = false
 		g["t"] = float(g.get("t", 0.0)) + delta
 		_companion_ref().tick_canvas_care(delta)
 		_lagoon_promenade_ref().tick(delta)
@@ -10572,12 +9227,6 @@ func _process(delta: float) -> void:
 		_tap_move_ref().tick(delta)
 		_interaction_ref().tick(delta, ppos)
 	_collection_ref().tick(delta, ppos)
-	if caustics_plane != null:
-		if game == "" and not intro_active and caustics_enabled:
-			caustics_plane.visible = true
-			caustics_plane.position = Vector3(ppos.x, seabed_y(ppos.x, ppos.z) + 1.2, ppos.z)
-		elif caustics_plane.visible:
-			caustics_plane.visible = false
 	# KartGame owns the visible scene and input while racing. Keep the small
 	# global timer/audio work above, but suspend hidden reef collectibles,
 	# characters, foliage, movers and culling instead of paying for two worlds.
@@ -10585,81 +9234,6 @@ func _process(delta: float) -> void:
 		if touch_ui != null and kart_game != null and kart_game.has_method("action_label"):
 			touch_ui.set_action_label(String(kart_game.action_label()))
 		return
-	if game == "":
-		if _tick_ocean_return_gate(delta, ppos):
-			return
-		_carry_ref().tick(delta, ppos)   # starfish scoop/toss + singing shells
-		_flow_ref().tick(delta, ppos)    # stream/geyser currents (accel read by player)
-		_grotto_ref().tick(delta, ppos)  # push-block grotto
-	for i in range(pearls.size() - 1, -1, -1):
-		var p := pearls[i]
-		p.rotate_y(delta * 0.7)
-		p.position.y += sin(Time.get_ticks_msec() / 700.0 + float(i)) * 0.006
-		if p.position.distance_to(ppos) < 6.0:
-			var l: OmniLight3D = p.get_meta("light")
-			if is_instance_valid(l):
-				l.queue_free()
-			pearl_lights.erase(l)   # keep the quality-toggle list free of dead refs
-			var h: MeshInstance3D = p.get_meta("halo")
-			if is_instance_valid(h):
-				h.queue_free()
-			p.queue_free()
-			pearls.remove_at(i)
-			pearl_count += 1
-			if pearl_count % 25 == 0 and player != null:
-				player.play_verb("giggle")   # R2-C: every 25th pearl is a little party
-			elif player != null and String(player.verb) == "":
-				player.play_verb("collect")   # quick two-hand scoop on every pearl
-			_sparkle_burst(p.position, Color(1.0, 0.8, 1.0))
-			if chime != null:
-				var step: int = pearl_note % 21
-				var deg: int = step % 7
-				var octv: int = step / 7
-				chime.pitch_scale = 0.75 * pow(2.0, float(PENT[deg] + 12 * octv) / 12.0)
-				chime.play()
-				pearl_note += 1
-			# ~6s min-gap shared across all three pearl lines. _say's own gap is
-			# keyed per speaker_event, so the rotating pick would sidestep it and
-			# chatter on every pearl of a string.
-			var vnow := Time.get_ticks_msec() / 1000.0
-			if vnow - float(said_cool.get("roshan_pearl_any", -99.0)) >= 6.0:
-				said_cool["roshan_pearl_any"] = vnow
-				_say("roshan", ["pearl", "pearl2", "pearl3"][pearl_note % 3])
-			_update_hud()
-			_queue_save()   # hot path: debounced, flushed by _process/pause/close
-	var tt: float = Time.get_ticks_msec() / 1000.0
-	for f in friends:
-		var node: Node3D = f["node"]
-		var sparks: Array = f["sparks"]
-		for si in range(sparks.size()):
-			var orb: MeshInstance3D = sparks[si]
-			var oa: float = tt * (0.9 + 0.3 * float(si)) + float(f["ph"]) + PI * float(si)
-			orb.position = node.position + Vector3(cos(oa) * 3.2, 4.5 + sin(tt * 1.7 + float(si)) * 1.4, sin(oa) * 3.2)
-		var pl: MeshInstance3D = f["pillar"]
-		pl.scale.x = 1.0 + 0.18 * sin(tt * 1.3 + float(f["ph"]))
-		pl.scale.z = pl.scale.x
-		f["cool"] = maxf(0.0, float(f["cool"]) - delta)
-		var dd: float = node.position.distance_to(ppos)
-		var discover_radius: float = float(f.get("discover_radius", 9.0))
-		var linger_radius: float = float(f.get("linger_radius", 10.0))
-		var start_radius: float = float(f.get("start_radius", 8.0))
-		if not f["found"] and dd < discover_radius:
-			f["found"] = true
-			(f["beacon"] as OmniLight3D).light_energy = 1.0
-			var pmat2: StandardMaterial3D = (f["pillar"] as MeshInstance3D).material_override
-			pmat2.albedo_color.a = 0.09
-			f["cool"] = 2.5
-			show_msg(f["fname"], f["msg"])
-			_update_hud()
-			_queue_save()   # hot path: debounced, flushed by _process/pause/close
-		elif f["found"] and game == "" and dd < linger_radius:
-			if touch_uses_explicit_interactions():
-				hud_game.text = "Tap the glowing friend to play!"
-			elif float(f["cool"]) > 0.0:
-				hud_game.text = "%s: game starting in %d..." % [f["fname"], int(ceilf(float(f["cool"])))]
-			elif dd < start_radius:
-				hud_game.text = ""
-				_start_game(f)
 	if game == "level2":
 		g["t"] = float(g["t"]) + delta
 		_tick_level2(delta, ppos)
@@ -10692,82 +9266,8 @@ func _process(delta: float) -> void:
 	elif game != "":
 		_tick_game(delta)
 	_tick_wall_fade(delta)
-	_tick_foliage_push(ppos)
-	_tick_life(delta)
-	_tick_movers(delta)
-	_tick_aquatic(delta)
-	_tick_peng_pal(delta)
 	_companion_ref().tick(delta)
-	_tick_god_rays(delta)
-	_tick_guide(delta)
-	_tick_finale(delta)
-	_tick_hints(delta)
 	_tick_beans(delta)
-	_tick_roshan_reactions(delta, ppos)
-	shop_cool = maxf(0.0, shop_cool - delta)
-	treasure_cool = maxf(0.0, treasure_cool - delta)
-	slide_cool = maxf(0.0, slide_cool - delta)
-	brawl_cool = maxf(0.0, brawl_cool - delta)
-	dust_boss_cool = maxf(0.0, dust_boss_cool - delta)
-	kart_cool = maxf(0.0, kart_cool - delta)
-	if game == "" and finale_t < 0.0 and not touch_uses_explicit_interactions():
-		if manta != null and shop_cool <= 0.0:
-			if manta.position.distance_to(ppos) < 17.0:
-				shop_cool = 16.0
-				_start_game(shop_fr)
-		if treasure_cool <= 0.0 and wreck_pos != Vector3.ZERO \
-				and wreck_pos.distance_to(ppos) < 13.0:
-			# ZERO guard required: with the wreck deleted (2026-07-28) an
-			# unguarded distance check put this trigger at the world origin
-			treasure_cool = 12.0
-			_start_game(treasure_fr)
-		# the portal penguin is INTERACTIVE: he cheers when Roshan swims near,
-		# before the game-start radius fires (rigged clip + chirp, cooled down)
-		if slide_portal_penguin != null and is_instance_valid(slide_portal_penguin):
-			peng_wave_cool -= delta
-			var pd: float = slide_portal_pos.distance_to(ppos)
-			if peng_wave_cool <= 0.0 and pd < 24.0 and pd > 13.0:
-				peng_wave_cool = 12.0
-				_play_clip(slide_portal_penguin, "cheer", 1.1)
-				_sparkle_burst(slide_portal_penguin.position + Vector3(0, 3.0, 0), Color(0.7, 0.9, 1.0))
-				if peng_giggle != null:
-					peng_giggle.pitch_scale = 0.9 + randf() * 0.15
-					peng_giggle.play()
-			elif pd > 30.0:
-				_play_clip(slide_portal_penguin, "idle")
-		if slide_cool <= 0.0 and slide_portal_pos != Vector3.ZERO and slide_portal_pos.distance_to(ppos) < 14.0:
-			slide_cool = 14.0
-			_start_game(slide_fr)
-		if brawl_cool <= 0.0 and brawl_portal_pos != Vector3.ZERO and brawl_portal_pos.distance_to(ppos) < 13.0:
-			brawl_cool = 14.0
-			_start_game(brawl_fr)
-		if dust_boss_cool <= 0.0 and dust_boss_portal_pos != Vector3.ZERO \
-				and dust_boss_portal_pos.distance_to(ppos) < 13.0:
-			# During Day One the attic is the one intentional reef exit after all
-			# four rooms are complete.  Other reef exits remain castle-directed,
-			# but the terminal boss portal must be reachable or the child can never
-			# cross the documented Day One boundary.
-			var day_one_boss_authorized: bool = day_one_boss_door_ready() \
-				or _day_one_ref().giant_dust_bunny_boss_triggered
-			if day_one_is_active() and not day_one_boss_authorized:
-				_day_one_refuse_reef_exit()
-				dust_boss_cool = 1.2
-			else:
-				dust_boss_cool = 14.0
-				_start_game(dust_boss_fr)
-		if kart_portal_pos != Vector3.ZERO:
-			var kd: float = Vector2(kart_portal_pos.x - ppos.x, kart_portal_pos.z - ppos.z).length()
-			var ky: float = absf(kart_portal_pos.y - ppos.y)
-			if not kart_ocean_portal_armed:
-				# Hysteresis keeps boundary bobbing from re-arming the gate under Roshan.
-				if kd > 16.0 or ky > 18.0:
-					kart_ocean_portal_armed = true
-			elif kart_cool <= 0.0 and kd < 12.0 and ky < 14.0:
-				_start_kart_game(false, "terrain")
-	if game == "" and finale_t < 0.0:
-		# Hybrid replaces only the proximity transition. Story progression and
-		# the portal's visual raise/animation must keep ticking in both modes.
-		_check_level2_unlock(ppos, delta)
 	cull_timer -= delta
 	if cull_timer <= 0.0:
 		cull_timer = 0.7
@@ -10829,16 +9329,6 @@ func _process(delta: float) -> void:
 var foliage_push_enabled := true
 var _sway_mat_cache := {}     # one sway material per color pair (also a perf win)
 var jolt_props: Array = []
-
-func _tick_foliage_push(ppos: Vector3) -> void:
-	if _sway_mat_cache.is_empty():
-		return
-	var amt: float = 0.0
-	if foliage_push_enabled and player != null:
-		amt = clampf(0.25 + (player.vel as Vector3).length() * 0.04, 0.25, 1.1)
-	for m in _sway_mat_cache.values():
-		(m as ShaderMaterial).set_shader_parameter("push_pos", ppos)
-		(m as ShaderMaterial).set_shader_parameter("push_amt", amt)
 
 func _physlab_spawn() -> void:
 	# 6 barrels + 6 balls in a ring around Roshan, resting on an invisible
@@ -11035,213 +9525,6 @@ void fragment(){
 	m.set_shader_parameter("leaf", load("res://assets/terrain/leaf.png"))
 	_sway_mat_cache[key] = m
 	return m
-func _glow_dot_mat() -> ShaderMaterial:
-	var sh := Shader.new()
-	sh.code = """shader_type spatial;
-void fragment(){
-	ALBEDO = COLOR.rgb * 0.6;
-	ROUGHNESS = 0.6;
-	EMISSION = COLOR.rgb * 0.85;
-}"""
-	var m := ShaderMaterial.new()
-	m.shader = sh
-	return m
-func _scatter_field(count: int, mesh: Mesh, mat: Material, y_off: float, use_color: bool, cols: Array, upright: bool = false, habitat: String = "mixed") -> void:
-	var mm := MultiMesh.new()
-	mm.transform_format = MultiMesh.TRANSFORM_3D
-	mm.use_colors = use_color
-	mm.mesh = mesh
-	mm.instance_count = count
-	for i in range(count):
-		var pos: Vector3 = _district_ref().scatter_point(habitat)
-		pos.y += y_off
-		var sc: float = 0.55 + randf() * 1.9
-		var bas := Basis(Vector3.UP, randf() * TAU).scaled(Vector3(sc, sc * (0.8 + randf() * 0.8), sc))
-		if upright:
-			bas = Basis(Vector3.UP, randf() * TAU) * Basis(Vector3.RIGHT, PI * 0.5).scaled(Vector3(sc, sc, sc))
-		var tr := Transform3D(bas, pos)
-		mm.set_instance_transform(i, tr)
-		if use_color:
-			mm.set_instance_color(i, cols[randi() % cols.size()])
-	var mmi := MultiMeshInstance3D.new()
-	mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	mmi.multimesh = mm
-	mmi.material_override = mat
-	add_child(mmi)
-	flora_nodes.append(mmi)   # Speedy tier applies its 150u range to mass fields too
-
-func _build_meadows() -> void:
-	# The 2D build uses the procedural flora fallback below. Converted model
-	# scenery is intentionally absent so this path stays mobile-safe.
-	# anemones + urchins stay procedural for now (no painted source art yet —
-	# see TEXTURE_SOURCE_AUDIT.md), soft jewel tones
-	var anemone_mesh := _gen2_static_mesh("anemone_story")
-	if anemone_mesh != null:
-		_scatter_field(100, anemone_mesh, null, 0.1, false, [], false, "anemone")
-	else:
-		_scatter_field(100, _anemone_mesh(), _glow_tip_mat(), 0.1, true,
-			[Color(0.95, 0.55, 0.72), Color(0.55, 0.82, 0.92), Color(0.78, 0.62, 0.95), Color(0.55, 0.92, 0.80)], false, "anemone")
-	# HER starfish: flat painted decals resting on the sand (rendered from the
-	# gen2 starfish model — the procedural white stars read as paper cutouts)
-	var sf := PlaneMesh.new()
-	sf.size = Vector2(2.1, 2.1)
-	var sfm := StandardMaterial3D.new()
-	sfm.albedo_texture = load("res://assets/props/gen2/starfish_decal.png")
-	sfm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
-	sfm.alpha_scissor_threshold = 0.5
-	sfm.roughness = 1.0
-	sfm.emission_enabled = true
-	sfm.emission = Color(0.45, 0.32, 0.3)
-	sfm.emission_energy_multiplier = 0.25
-	_scatter_field(140, sf, sfm, 0.12, false, [], false, "starfish")
-	var urchin_mesh := _gen2_static_mesh("urchin_story")
-	if urchin_mesh != null:
-		_scatter_field(60, urchin_mesh, null, 0.15, false, [], false, "urchin")
-	else:
-		_scatter_field(60, _urchin_mesh(), _glow_tip_mat(), 0.3, true,
-			[Color(0.6, 0.5, 0.78), Color(0.5, 0.62, 0.85), Color(0.82, 0.55, 0.68)], false, "urchin")
-
-func _sway_sprite_mat(sprite_path: String) -> ShaderMaterial:
-	# gen2 painted blade: same wind-driven sway as the old procedural grass,
-	# but the sprite's own art is the colour (alpha-cut, soft tip glow)
-	var sh := Shader.new()
-	sh.code = """shader_type spatial;
-render_mode cull_disabled, depth_prepass_alpha;
-uniform sampler2D leaf : source_color, filter_linear_mipmap;
-global uniform vec3 wind_dir;
-global uniform float wind_gust;
-void vertex(){
-	float w = UV.y;
-	vec3 wp = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
-	float gg = 0.4 + wind_gust * 1.2;
-	float ph = TIME * (0.9 + wind_gust * 0.7) - dot(wp.xz, wind_dir.xz) * 0.14;
-	VERTEX.x += (sin(ph + wp.x * 0.28 + wp.z * 0.22) * 0.5 * gg + wind_dir.x * wind_gust * 0.5) * w;
-	VERTEX.z += (cos(ph * 0.78 + wp.x * 0.16) * 0.36 * gg + wind_dir.z * wind_gust * 0.5) * w;
-}
-void fragment(){
-	vec4 lf = texture(leaf, vec2(UV.x, 1.0 - UV.y));
-	if (lf.a < 0.5) { discard; }
-	ALBEDO = lf.rgb;
-	ROUGHNESS = 0.85;
-	SPECULAR = 0.1;
-	BACKLIGHT = lf.rgb * (0.2 + UV.y * 0.3);
-	EMISSION = lf.rgb * (0.02 + UV.y * UV.y * 0.06);
-}"""
-	var m := ShaderMaterial.new()
-	m.shader = sh
-	m.set_shader_parameter("leaf", load(sprite_path))
-	return m
-
-func _fish_mat() -> ShaderMaterial:
-	var sh := Shader.new()
-	sh.code = "shader_type spatial;\nuniform sampler2D scales;\nvoid fragment(){\n\tfloat sc = texture(scales, UV * vec2(3.0, 1.5)).r;\n\tfloat belly = smoothstep(-0.3, 0.4, NORMAL.y);\n\tvec3 body = mix(COLOR.rgb * 0.10, COLOR.rgb * 0.45 + vec3(0.25), belly) * (0.7 + sc * 0.6);\n\tfloat rim = pow(1.0 - clamp(dot(NORMAL, VIEW), 0.0, 1.0), 2.5);\n\tfloat band = step(0.8, fract(UV.x * 3.0)) ;\n\tALBEDO = body;\n\tEMISSION = COLOR.rgb * (band * 1.2 + rim * 1.6 + sc * 0.15);\n\tROUGHNESS = 0.35;\n}"
-	var m := ShaderMaterial.new()
-	m.shader = sh
-	m.set_shader_parameter("scales", load("res://assets/terrain/scales.png"))
-	return m
-
-func _build_fish() -> void:
-	var cols := [Color(0.3, 0.95, 1.0), Color(1.0, 0.6, 0.85), Color(0.6, 1.0, 0.5), Color(1.0, 0.85, 0.4), Color(0.7, 0.55, 1.0), Color(0.4, 0.8, 1.0)]
-	# ambient schools are HER clownfish now: painted side-view sprites on
-	# quads (rendered from the gen2 model), softly tinted per school. The
-	# quad's local X is the travel axis, so the painted head leads.
-	var body := QuadMesh.new()
-	body.size = Vector2(2.0, 1.5)
-	var fmat := StandardMaterial3D.new()
-	fmat.albedo_texture = load("res://assets/props/gen2/clownfish_side.png")
-	fmat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA_SCISSOR
-	fmat.alpha_scissor_threshold = 0.5
-	fmat.cull_mode = BaseMaterial3D.CULL_DISABLED
-	fmat.vertex_color_use_as_albedo = true
-	fmat.roughness = 0.9
-	fmat.emission_enabled = true
-	fmat.emission = Color(0.25, 0.22, 0.2)
-	fmat.emission_energy_multiplier = 0.5
-	for s2 in range(6):
-		var col: Color = cols[s2]
-		var school_center: Vector3 = _district_ref().scatter_point(ReefDistricts.KINGDOM_CARIBBEAN)
-		var school := {"cx": school_center.x, "cz": school_center.z, "cy": 12.0 + randf() * 22.0,
-			"rad": 12.0 + randf() * 14.0, "spd": 0.2 + randf() * 0.3, "ph": randf() * TAU, "fish": []}
-		var mm := MultiMesh.new()
-		mm.transform_format = MultiMesh.TRANSFORM_3D
-		mm.use_colors = true
-		mm.mesh = body
-		mm.instance_count = 14
-		for i in range(14):
-			# soft tint only: the sprite is already painted art, a full-
-			# saturation multiply would muddy it (school identity stays on the halo)
-			mm.set_instance_color(i, Color(1, 1, 1).lerp(col, 0.35))
-		var mmi := MultiMeshInstance3D.new()
-		mmi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		mmi.multimesh = mm
-		mmi.material_override = fmat
-		add_child(mmi)
-		flora_nodes.append(mmi)
-		school["mm"] = mm
-		var halo := _halo(Vector3.ZERO, col, 12.0)
-		school["light"] = halo
-		fish_schools.append(school)
-
-func _build_events() -> void:
-	bloom_parts = GPUParticles3D.new()
-	bloom_parts.amount = 220
-	bloom_parts.lifetime = 2.6
-	bloom_parts.one_shot = true
-	bloom_parts.explosiveness = 0.9
-	bloom_parts.emitting = false
-	var pm := ParticleProcessMaterial.new()
-	pm.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_SPHERE
-	pm.emission_sphere_radius = 4.0
-	pm.gravity = Vector3(0, 2.5, 0)
-	pm.initial_velocity_min = 2.0
-	pm.initial_velocity_max = 6.0
-	bloom_parts.process_material = pm
-	var quad := QuadMesh.new()
-	quad.size = Vector2(0.4, 0.4)
-	var qm := StandardMaterial3D.new()
-	qm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	qm.albedo_color = Color(0.7, 1.0, 0.9)
-	qm.emission_enabled = true
-	qm.emission = Color(0.5, 1.0, 0.8)
-	qm.emission_energy_multiplier = 2.0
-	qm.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
-	quad.material = qm
-	bloom_parts.draw_pass_1 = quad
-	add_child(bloom_parts)
-
-func _tick_life(delta: float) -> void:
-	var t: float = Time.get_ticks_msec() / 1000.0
-	for pl in pulse_lights:
-		var k: float = 0.65 + 0.45 * sin(t * 1.6 + float(pl["phase"]))
-		if pl.has("light"):
-			(pl["light"] as OmniLight3D).light_energy = float(pl["base"]) * k
-		elif pl.has("halo"):
-			(pl["halo"] as MeshInstance3D).scale = Vector3.ONE * (0.8 + 0.3 * k)
-	for sc in fish_schools:
-		var ang: float = t * float(sc["spd"]) + float(sc["ph"])
-		var cx: float = float(sc["cx"]) + cos(ang) * float(sc["rad"])
-		var cz: float = float(sc["cz"]) + sin(ang) * float(sc["rad"])
-		var cy: float = float(sc["cy"]) + sin(t * 0.7 + float(sc["ph"])) * 2.5
-		var mm: MultiMesh = sc["mm"]
-		var heading := Basis(Vector3.UP, -ang + PI * 0.5)
-		for i in range(14):
-			var off := Vector3(sin(t * 2.0 + float(i) * 1.7) * 2.6, sin(t * 2.6 + float(i)) * 1.2 + float(i % 3 - 1) * 1.1, cos(t * 1.8 + float(i) * 2.1) * 2.6)
-			mm.set_instance_transform(i, Transform3D(heading, Vector3(cx, cy, cz) + off))
-		(sc["light"] as MeshInstance3D).position = Vector3(cx, cy, cz)
-	# ghost ship slow drift + bob
-	if manta != null:
-		manta.position.x += sin(t * 0.05) * 0.02
-		manta.position.y = WATER_TOP - 10.0 + sin(t * 0.4) * 1.5
-		manta.rotation.y += delta * 0.03
-	# sparkle bloom event
-	bloom_t -= delta
-	if bloom_t <= 0.0 and cluster_centers.size() > 0:
-		bloom_t = 35.0 + randf() * 30.0
-		var c: Vector3 = cluster_centers[randi() % cluster_centers.size()]
-		bloom_parts.position = c + Vector3(0, 4, 0)
-		bloom_parts.restart()
-		bloom_parts.emitting = true
-
 # ===================== ADVANCED CHEAP LIGHT + REAL CREATURES =====================
 func _cross_blade(w: float, h: float) -> ArrayMesh:
 	var st := SurfaceTool.new()
@@ -11280,344 +9563,11 @@ void fragment(){
 	m.shader = sh
 	m.set_shader_parameter("det", load(detail))
 	return m
-func _fish_mesh(s2: float) -> ArrayMesh:
-	# stylized fish: flattened body + tail fin, nose at +X
-	var st := SurfaceTool.new()
-	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var nose := Vector3(0.7, 0, 0) * s2
-	var top := Vector3(0.0, 0.28, 0) * s2
-	var bot := Vector3(0.0, -0.24, 0) * s2
-	var l := Vector3(0.0, 0, 0.10) * s2
-	var r := Vector3(0.0, 0, -0.10) * s2
-	var rear := Vector3(-0.55, 0, 0) * s2
-	var t_up := Vector3(-0.95, 0.3, 0) * s2
-	var t_dn := Vector3(-0.95, -0.3, 0) * s2
-	var quads := [
-		[nose, top, l], [nose, l, bot], [nose, bot, r], [nose, r, top],
-		[rear, l, top], [rear, bot, l], [rear, r, bot], [rear, top, r],
-		[rear, t_up, t_dn], [rear, t_dn, t_up],
-	]
-	for tri in quads:
-		var uvv: float = 0.5
-		for p in tri:
-			st.set_uv(Vector2(clampf((p.x / s2 + 0.95) / 1.65, 0.0, 1.0), uvv))
-			st.add_vertex(p)
-	st.generate_normals()
-	return st.commit()
-
-func _creature_mat() -> ShaderMaterial:
-	var sh := Shader.new()
-	sh.code = "shader_type spatial;\nrender_mode cull_disabled;\nuniform sampler2D scales;\nvoid fragment(){\n\tfloat sc = texture(scales, UV * vec2(6.0, 3.0)).r;\n\tfloat belly = smoothstep(-0.4, 0.5, NORMAL.y);\n\tALBEDO = (vec3(0.03, 0.07, 0.11) + COLOR.rgb * 0.12 * belly) * (0.7 + sc * 0.5);\n\tfloat rim = pow(1.0 - clamp(dot(NORMAL, VIEW), 0.0, 1.0), 2.2);\n\tvec2 cell = fract(UV * vec2(10.0, 5.0)) - 0.5;\n\tfloat rnd = fract(sin(dot(floor(UV * vec2(10.0, 5.0)), vec2(12.98, 78.23))) * 43758.54);\n\tfloat spots = smoothstep(0.28, 0.16, length(cell)) * step(0.5, rnd);\n\tEMISSION = COLOR.rgb * (spots * 1.8 + rim * 1.2 + 0.06) + vec3(0.1, 0.3, 0.4) * rim;\n}"
-	var m := ShaderMaterial.new()
-	m.shader = sh
-	m.set_shader_parameter("scales", load("res://assets/terrain/scales.png"))
-	return m
-
-func _flap_mat(col: Color) -> ShaderMaterial:
-	var sh := Shader.new()
-	sh.code = "shader_type spatial;\nrender_mode cull_disabled;\nuniform vec3 tint;\nvoid vertex(){\n\tfloat wing = abs(VERTEX.z);\n\tVERTEX.y += sin(TIME * 2.2 + wing * 0.8) * wing * 0.35;\n}\nvoid fragment(){\n\tfloat belly = smoothstep(-0.5, 0.5, NORMAL.y);\n\tALBEDO = mix(vec3(0.02, 0.04, 0.08), tint * 0.30 + vec3(0.18), belly);\n\tvec2 cell = fract(UV * vec2(9.0, 16.0)) - 0.5;\n\tfloat rnd = fract(sin(dot(floor(UV * vec2(9.0, 16.0)), vec2(12.98, 78.23))) * 43758.54);\n\tfloat dot_m = smoothstep(0.30, 0.18, length(cell)) * step(0.55, rnd);\n\tfloat rim = pow(1.0 - clamp(dot(NORMAL, VIEW), 0.0, 1.0), 2.2);\n\tEMISSION = tint * (dot_m * 1.8 + rim * 1.1 + 0.05);\n}"
-	var m := ShaderMaterial.new()
-	m.shader = sh
-	m.set_shader_parameter("tint", Vector3(col.r, col.g, col.b))
-	return m
-
-func _manta_mesh() -> ArrayMesh:
-	# smooth winged diamond: 6 chord strips per wing + tail dart
-	var st := SurfaceTool.new()
-	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var rows := 6
-	var prev_front := Vector3(2.0, 0, 0)
-	var prev_back := Vector3(-2.2, 0, 0)
-	for k in range(1, rows + 1):
-		var f: float = float(k) / float(rows)
-		var span: float = 4.4 * sin(f * PI * 0.5)
-		var chord_f: float = 2.0 * (1.0 - f * 0.85)
-		var chord_b: float = -2.2 * (1.0 - f * 0.9)
-		var lift: float = -0.25 * f * f
-		for side in [1.0, -1.0]:
-			var z0: float = span * (float(k - 1) / float(rows)) / max(f, 0.001) * f * side
-			var cf0 := prev_front
-			var cb0 := prev_back
-			var cf1 := Vector3(chord_f, lift, span * side)
-			var cb1 := Vector3(chord_b, lift, span * side)
-			for tri in [[cf0, cf1, cb1], [cf0, cb1, cb0]]:
-				var order: Array = tri if side > 0.0 else [tri[0], tri[2], tri[1]]
-				for p in order:
-					st.set_uv(Vector2((p.x + 2.2) / 4.2, (p.z + 4.4) / 8.8))
-					st.add_vertex(p)
-		prev_front = Vector3(chord_f, lift, 0)
-		prev_back = Vector3(chord_b, lift, 0)
-	# tail dart
-	for tri in [[Vector3(-2.0, 0, 0), Vector3(-4.4, 0.1, 0.18), Vector3(-4.4, 0.1, -0.18)]]:
-		for p in tri:
-			st.set_uv(Vector2(0.0, 0.5))
-			st.add_vertex(p)
-	st.generate_normals()
-	return st.commit()
-
 var movers: Array = []
-func _build_megafauna() -> void:
-	# Three storybook stingrays; the procedural ribbon remains missing-file fallback.
-	var mmesh := _manta_mesh()
-	for i in range(3):
-		var m: Node3D = _gen2_creature("stingray", Vector3.ZERO, 5.0 + float(i) * 1.2)
-		if m == null:
-			var old_m := MeshInstance3D.new()
-			old_m.mesh = mmesh
-			old_m.material_override = _flap_mat([Color(0.4, 0.9, 1.0), Color(0.9, 0.6, 1.0), Color(0.5, 1.0, 0.7)][i])
-			old_m.scale = Vector3.ONE * (2.2 + float(i) * 0.6)
-			add_child(old_m)
-			m = old_m
-		movers.append({"node": m, "kind": "manta", "rad": 90.0 + float(i) * 45.0, "spd": 0.06 + randf() * 0.04,
-			"ph": randf() * TAU, "y": 24.0 + float(i) * 8.0})
-	# One great storybook fish with paired fins and horizontal flukes.
-	var w: Node3D = _gen2_prop("giant_fish_story", Vector3.ZERO, 28.0, 0.0, 0.0)
-	if w != null:
-		var wap := _find_anim(w)
-		if wap != null:
-			var clips := wap.get_animation_list()
-			if not clips.is_empty():
-				var clip: StringName = clips[0]
-				wap.get_animation(clip).loop_mode = Animation.LOOP_LINEAR
-				wap.play(clip)
-				wap.speed_scale = 0.65
-	else:
-		var old_w := MeshInstance3D.new()
-		old_w.mesh = _fish_mesh(14.0)
-		old_w.material_override = _creature_mat()
-		add_child(old_w)
-		w = old_w
-	movers.append({"node": w, "kind": "whale", "rad": 200.0, "spd": 0.018, "ph": 0.0, "y": 38.0})
-	# 2 sea turtles cruising low
-	for i in range(2):
-		var tm: Node3D = _gen2_creature("turtle", Vector3.ZERO, 5.2 + float(i) * 0.8)
-		if tm == null:
-			var old_tm := MeshInstance3D.new()
-			old_tm.mesh = _manta_mesh()
-			old_tm.material_override = _flap_mat(Color(0.55, 1.0, 0.45))
-			old_tm.scale = Vector3.ONE * 1.1
-			add_child(old_tm)
-			tm = old_tm
-		movers.append({"node": tm, "kind": "turtle", "rad": 60.0 + float(i) * 70.0, "spd": 0.05,
-			"ph": PI * float(i), "y": 10.0 + float(i) * 5.0})
-
 var god_rays: Array = []
-func _build_god_rays() -> void:
-	var rsh := Shader.new()
-	rsh.code = "shader_type spatial;\nrender_mode cull_disabled, unshaded, blend_mix, depth_draw_never, shadows_disabled;\nuniform vec4 tint : source_color;\nvoid fragment(){\n\tfloat across = 1.0 - abs(UV.x - 0.5) * 2.0;\n\tfloat down = smoothstep(0.0, 0.28, UV.y) * smoothstep(1.0, 0.52, UV.y);\n\tALBEDO = tint.rgb;\n\tALPHA = tint.a * pow(max(across, 0.0), 2.4) * down;\n}"
-	# Seven faint distant shafts are enough to imply filtered surface light.
-	# The former 18 full-height quads overlapped into opaque blue walls on Mobile.
-	var ray_count := 7
-	for i in range(ray_count):
-		var a: float = float(i) / float(ray_count) * TAU + randf() * 0.35
-		var r: float = 72.0 + randf() * (WORLD_R * 0.58)
-		var quad := QuadMesh.new()
-		quad.size = Vector2(4.0 + randf() * 4.0, WATER_TOP + 16.0)
-		var m := ShaderMaterial.new()
-		m.shader = rsh
-		m.set_shader_parameter("tint", Color(0.62, 0.90, 1.0, 0.018 + randf() * 0.012))
-		var mi := MeshInstance3D.new()
-		mi.mesh = quad
-		mi.material_override = m
-		mi.position = Vector3(cos(a) * r, (WATER_TOP + 16.0) * 0.45, sin(a) * r)
-		mi.rotation_degrees = Vector3(0, randf() * 180.0, 6.0 + randf() * 8.0)
-		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		add_child(mi)
-		god_rays.append({"node": mi, "base": mi.rotation.z, "ph": randf() * TAU})
-
-func _tick_god_rays(delta: float) -> void:
-	if Engine.get_process_frames() % 2 == 1:
-		return   # cosmetic sway — half rate is invisible, half the cost
-	var tt: float = Time.get_ticks_msec() / 1000.0
-	for gr in god_rays:
-		var n: MeshInstance3D = gr["node"]
-		if is_instance_valid(n):
-			n.rotation.z = float(gr["base"]) + sin(tt * 0.25 + float(gr["ph"])) * (0.03 + 0.06 * wind_gust_v)
-
-# ===================== WW MOTION LANGUAGE: WIND / STREAKS / RINGS =====================
-func _tick_wind(delta: float) -> void:
-	wind_t += delta
-	# slowly wandering direction + two beating sines so gusts swell and die
-	var wyaw: float = 0.55 + sin(wind_t * 0.023) * 1.1 + sin(wind_t * 0.011 + 2.0) * 0.5
-	wind_dir_v = Vector3(sin(wyaw), 0.0, cos(wyaw))
-	wind_gust_v = clampf(0.55 + 0.30 * sin(wind_t * 0.34) + 0.18 * sin(wind_t * 0.9 + 1.7), 0.08, 1.0)
-	RenderingServer.global_shader_parameter_set("wind_dir", wind_dir_v)
-	RenderingServer.global_shader_parameter_set("wind_gust", wind_gust_v)
-
-func _flag_shader() -> Shader:
-	# turret flags ripple with the global gust — pinned at the pole (UV.x = 0)
-	if flag_sh == null:
-		flag_sh = Shader.new()
-		flag_sh.code = """shader_type spatial;
-render_mode cull_disabled;
-uniform vec4 col : source_color;
-uniform float amp = 0.3;
-global uniform float wind_gust;
-void vertex(){
-	float t = UV.x;
-	float gg = 0.35 + wind_gust * 0.9;
-	VERTEX.z += sin(TIME * (5.0 + wind_gust * 5.0) - t * 7.0) * amp * t * gg;
-	VERTEX.y += sin(TIME * (3.4 + wind_gust * 3.2) - t * 5.0 + 1.3) * amp * 0.35 * t * gg;
-}
-void fragment(){
-	ALBEDO = col.rgb;
-	EMISSION = col.rgb * 0.4;
-	ROUGHNESS = 0.9;
-}"""
-	return flag_sh
-
-func _streak_mesh(leng: float, curl: float, wdt: float) -> ArrayMesh:
-	# corkscrew ribbon with UV.x running along its length — the dash shader travels down it
-	var st := SurfaceTool.new()
-	st.begin(Mesh.PRIMITIVE_TRIANGLE_STRIP)
-	var segs := 36
-	for i in range(segs + 1):
-		var t: float = float(i) / float(segs)
-		var th: float = t * TAU * 1.6
-		var r: float = curl * sin(PI * t)
-		var p := Vector3(t * leng, sin(th) * r, cos(th) * r * 0.6)
-		var side := Vector3(0.0, cos(th), -sin(th)).normalized() * wdt * (0.5 + 0.5 * sin(PI * t))
-		st.set_uv(Vector2(t, 0.0))
-		st.add_vertex(p + side)
-		st.set_uv(Vector2(t, 1.0))
-		st.add_vertex(p - side)
-	return st.commit()
-
-func _build_wind_streaks() -> void:
-	# pooled WW gust curls: slow cyan current lines underwater, white wind gusts
-	# in the Sky Lagoon. The pool lives forever; _tick_wind_streaks restyles it
-	# whenever the context (sea / sky / off) changes.
-	var sh := Shader.new()
-	sh.code = """shader_type spatial;
-render_mode unshaded, blend_add, cull_disabled, depth_draw_never, shadows_disabled;
-uniform vec4 tint : source_color;
-uniform float ph = 0.0;
-uniform float spd = 0.3;
-global uniform float wind_gust;
-void fragment(){
-	float cyc = fract(TIME * spd + ph) * 1.9 - 0.45;   // dash sweeps past both ends, then rests
-	float dash = smoothstep(cyc - 0.42, cyc - 0.03, UV.x) * (1.0 - smoothstep(cyc - 0.03, cyc + 0.02, UV.x));
-	float across = 1.0 - abs(UV.y - 0.5) * 2.0;
-	float ends = smoothstep(0.0, 0.10, UV.x) * (1.0 - smoothstep(0.90, 1.0, UV.x));
-	ALBEDO = tint.rgb;
-	ALPHA = tint.a * dash * pow(across, 1.4) * ends * (0.35 + 0.65 * wind_gust);
-}"""
-	for i in range(10):
-		var mi := MeshInstance3D.new()
-		mi.mesh = _streak_mesh(24.0 + randf() * 14.0, 2.2 + randf() * 1.6, 0.32 + randf() * 0.2)
-		var m := ShaderMaterial.new()
-		m.shader = sh
-		m.set_shader_parameter("ph", randf())
-		m.set_shader_parameter("spd", 0.22 + randf() * 0.16)
-		mi.material_override = m
-		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		mi.visible = false
-		add_child(mi)
-		wind_streaks.append({"node": mi, "mat": m, "age": randf() * 8.0, "life": 7.0 + randf() * 5.0})
-
-func _tick_wind_streaks(delta: float) -> void:
-	var ctx := "off"
-	if game == "":
-		ctx = "sea"
-	elif game == "level2" and String(g.get("phase", "")) != "hall":
-		ctx = "sky"   # outdoors in the Sky Lagoon (not inside the castle hall)
-	if ctx != streak_ctx:
-		streak_ctx = ctx
-		for i in range(wind_streaks.size()):
-			var s: Dictionary = wind_streaks[i]
-			var mi: MeshInstance3D = s["node"]
-			mi.visible = ctx != "off" and (quality != "speedy" or i % 2 == 0)
-			var m: ShaderMaterial = s["mat"]
-			if ctx == "sea":
-				m.set_shader_parameter("tint", Color(0.55, 0.85, 1.0, 0.30))
-			else:
-				m.set_shader_parameter("tint", Color(1.0, 1.0, 1.0, 0.42))
-			_respawn_streak(s, true)
-	if ctx == "off":
-		return
-	var spd: float = (2.5 + wind_gust_v * 5.0) if ctx == "sea" else (7.0 + wind_gust_v * 11.0)
-	for s in wind_streaks:
-		var mi: MeshInstance3D = s["node"]
-		if not mi.visible:
-			continue
-		s["age"] = float(s["age"]) + delta
-		mi.position += wind_dir_v * spd * delta
-		if float(s["age"]) > float(s["life"]) or mi.position.distance_to(player.position) > 95.0:
-			_respawn_streak(s, false)
-
-func _respawn_streak(s: Dictionary, scatter: bool) -> void:
-	var mi: MeshInstance3D = s["node"]
-	s["age"] = 0.0
-	s["life"] = 7.0 + randf() * 5.0
-	var back: float = -55.0 + (randf() * 90.0 if scatter else randf() * 20.0)
-	var perp := Vector3(-wind_dir_v.z, 0.0, wind_dir_v.x)
-	var base: Vector3 = player.position + wind_dir_v * back + perp * (randf() * 70.0 - 35.0)
-	if streak_ctx == "sky":
-		base.y = lagoon_h(base.x, base.z) + 5.0 + randf() * 22.0
-	else:
-		base.y = clampf(8.0 + randf() * (WATER_TOP - 20.0), 6.0, WATER_TOP - 6.0)
-	mi.position = base
-	# the mesh extends along +X; yaw it so +X points down the wind
-	mi.rotation = Vector3(0.0, atan2(-wind_dir_v.z, wind_dir_v.x), randf() * 0.6 - 0.3)
-
-func _build_surf_rings() -> void:
-	# pooled expanding rings on the underside of the water ceiling (WW telegraphs
-	# every surface interaction with one of these)
-	var sh := Shader.new()
-	sh.code = """shader_type spatial;
-render_mode unshaded, blend_add, cull_disabled, depth_draw_never, shadows_disabled;
-uniform float prog = 1.0;
-uniform vec4 tint : source_color;
-void fragment(){
-	float r = length(UV - 0.5) * 2.0;
-	float ring = smoothstep(prog - 0.22, prog - 0.02, r) * (1.0 - smoothstep(prog - 0.02, prog + 0.03, r));
-	ALBEDO = tint.rgb;
-	ALPHA = tint.a * ring * (1.0 - prog);
-}"""
-	for i in range(6):
-		var q := QuadMesh.new()
-		q.size = Vector2(1.0, 1.0)
-		var mi := MeshInstance3D.new()
-		mi.mesh = q
-		var m := ShaderMaterial.new()
-		m.shader = sh
-		m.set_shader_parameter("tint", Color(0.85, 0.97, 1.0, 0.85))
-		m.set_shader_parameter("prog", 1.0)
-		mi.material_override = m
-		mi.rotation_degrees = Vector3(-90, 0, 0)   # lie flat on the surface
-		mi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-		mi.visible = false
-		add_child(mi)
-		surf_rings.append({"node": mi, "mat": m, "t": 1.0})
-
-func _spawn_surf_ring(pos: Vector3, size: float) -> void:
-	for s in surf_rings:
-		if float(s["t"]) >= 1.0:
-			s["t"] = 0.0
-			var mi: MeshInstance3D = s["node"]
-			mi.scale = Vector3.ONE * size
-			mi.position = pos
-			mi.visible = true
-			return
-
-func _tick_surf_rings(delta: float, ppos: Vector3) -> void:
-	ring_cool -= delta
-	if game == "" and ppos.y > WATER_TOP - 7.0 and ring_cool <= 0.0:
-		var pv: Vector3 = player.vel
-		if Vector3(pv.x, 0, pv.z).length() > 4.0 or pv.y > 6.0:
-			ring_cool = 0.38
-			_spawn_surf_ring(Vector3(ppos.x, WATER_TOP - 0.25, ppos.z), 9.0 + randf() * 4.0)
-	for s in surf_rings:
-		if float(s["t"]) < 1.0:
-			s["t"] = minf(float(s["t"]) + delta / 1.25, 1.0)
-			(s["mat"] as ShaderMaterial).set_shader_parameter("prog", float(s["t"]))
-			if float(s["t"]) >= 1.0:
-				(s["node"] as MeshInstance3D).visible = false
-
 func on_player_jump(pos: Vector3, crossed: bool = false) -> void:
 	# WW-style splash telegraph: ring + sparkles when she leaps near the surface
 	if game == "" and pos.y > WATER_TOP - 12.0:
-		_spawn_surf_ring(Vector3(pos.x, WATER_TOP - 0.25, pos.z), 16.0)
 		_sparkle_burst(Vector3(pos.x, minf(pos.y + 2.0, WATER_TOP - 1.0), pos.z), Color(0.75, 0.95, 1.0))
 		if crossed and player != null:
 			# a REAL surface crossing (breach out or plunge back in) gets the
@@ -11643,18 +9593,6 @@ func on_player_hop_land() -> void:
 	if hop_sfx != null:
 		hop_sfx.pitch_scale = 0.9 + randf() * 0.25
 		hop_sfx.play()
-
-func _tick_movers(delta: float) -> void:
-	var t: float = Time.get_ticks_msec() / 1000.0
-	for mv in movers:
-		var node: Node3D = mv["node"]
-		var ang: float = t * float(mv["spd"]) + float(mv["ph"])
-		var rad: float = float(mv["rad"])
-		var pos := Vector3(cos(ang) * rad, float(mv["y"]) + sin(t * 0.3 + float(mv["ph"])) * 3.0, sin(ang) * rad)
-		node.position = pos
-		node.rotation.y = -ang
-		if String(mv["kind"]) == "whale":
-			node.rotation.z = sin(t * 0.5) * 0.06
 
 # ===================== CUTAWAY ARENAS =====================
 var ambience: AudioStreamPlayer = null
@@ -11861,55 +9799,5 @@ func _anemone_mesh() -> ArrayMesh:
 			prev_a = na
 			prev_b = nb
 			prev_v = f
-	st.generate_normals()
-	return st.commit()
-
-func _starfish_mesh() -> ArrayMesh:
-	# flat 5-armed star resting on the sand
-	var st := SurfaceTool.new()
-	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var c := Vector3(0, 0.12, 0)
-	for k in range(5):
-		var a: float = float(k) / 5.0 * TAU
-		var a2: float = a + TAU / 10.0
-		var tip := Vector3(cos(a), 0.02, sin(a)) * 1.5
-		var v1 := Vector3(cos(a - 0.45), 0.06, sin(a - 0.45)) * 0.5
-		var v2 := Vector3(cos(a + 0.45), 0.06, sin(a + 0.45)) * 0.5
-		for tri in [[c, v1, tip], [c, tip, v2]]:
-			for q in tri:
-				var d2: float = Vector2(q.x, q.z).length() / 1.5
-				st.set_uv(Vector2(0.5, 1.0 - d2))
-				st.add_vertex(q)
-	st.generate_normals()
-	return st.commit()
-
-func _urchin_mesh() -> ArrayMesh:
-	# spiky ball: low dome + 14 needle spikes
-	var st := SurfaceTool.new()
-	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var dome := 8
-	for k in range(dome):
-		var a: float = float(k) / float(dome) * TAU
-		var b: float = float(k + 1) / float(dome) * TAU
-		var p1 := Vector3(cos(a), 0, sin(a)) * 0.45
-		var p2 := Vector3(cos(b), 0, sin(b)) * 0.45
-		var top := Vector3(0, 0.5, 0)
-		for q in [p1, p2, top]:
-			st.set_uv(Vector2(0.5, 1.0))
-			st.add_vertex(q)
-	for k in range(14):
-		var ya: float = randf() * TAU
-		var pitch: float = 0.25 + randf() * 1.0
-		var dirv := Vector3(cos(ya) * cos(pitch), sin(pitch), sin(ya) * cos(pitch))
-		var base := dirv * 0.35
-		var tip := dirv * (1.0 + randf() * 0.4)
-		var sidev := dirv.cross(Vector3.UP).normalized() * 0.05
-		if sidev.length() < 0.01:
-			sidev = Vector3(0.05, 0, 0)
-		for tri in [[base - sidev, base + sidev, tip]]:
-			for i2 in range(3):
-				var q: Vector3 = tri[i2]
-				st.set_uv(Vector2(0.5, 1.0 if i2 < 2 else 0.0))
-				st.add_vertex(q)
 	st.generate_normals()
 	return st.commit()

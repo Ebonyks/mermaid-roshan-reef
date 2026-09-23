@@ -155,35 +155,8 @@ func _run() -> void:
 		await _finish()
 		return
 
-	# Discovery is the child's real Reef route. Proximity may reveal Daddy and
-	# the PLAY affordance, but Hybrid must still wait for an explicit activation.
-	var daddy_node: Variant = daddy_friend.get("node")
-	main.player.position = daddy_node.position
-	main.player.position.x += 3.0
-	main.player.vel *= 0.0
-	await _frames(10)
-	_check("approaching Daddy discovers him without auto-starting Melody",
-		bool(daddy_friend.get("found", false)) and main.game == "")
-	main._populate_touch_interactables()
-	var daddy_target := _touch_target("friend:%d" % daddy_index)
-	_check("Daddy exposes the child-facing PLAY plot target",
-		not daddy_target.is_empty()
-		and String(daddy_target.get("label", "")) == "Daddy Mermaid"
-		and String(daddy_target.get("verb", "")) == "PLAY"
-		and String(daddy_target.get("affordance_kind", "")) == \
-			InteractionAffordanceLogic.PLOT
-		and int(daddy_target.get("payload", -1)) == daddy_index)
-	var reef_camera: Variant = main.player.cam
-	var daddy_screen_point := Vector2(-1.0, -1.0)
-	if reef_camera != null:
-		daddy_screen_point = reef_camera.unproject_position(daddy_node.global_position)
-	_push_touch(daddy_screen_point, true, TOUCH_INDEX - 2)
-	_push_touch(daddy_screen_point, false, TOUCH_INDEX - 2)
-	await process_frame
-	_check("first real one-finger Daddy tap focuses PLAY without launching",
-		daddy_screen_point.x >= 0.0 and daddy_screen_point.y >= 0.0
-		and main.touch_focus_id == "friend:%d" % daddy_index
-		and main.touch_focus_ready and main.game == "")
+	# The reef discovery/PLAY route to Daddy retired with the 3D reef on
+	# 2026-09-23; Melody is entered directly below (see _launch_daddy).
 
 	# Materialize the speaker card before lifecycle baselines, then install an
 	# observing AudioDirector so the production show_msg -> _say path is exact.
@@ -208,11 +181,9 @@ func _run() -> void:
 	_check("shared success chime exposes a restorable volume and pitch baseline",
 		not chime_tuning_before.is_empty())
 
-	# The second real one-finger tap follows the child-facing focus -> PLAY
-	# vocabulary and reaches _fade_cut through the production touch router.
-	_push_touch(daddy_screen_point, true, TOUCH_INDEX - 1)
-	_push_touch(daddy_screen_point, false, TOUCH_INDEX - 1)
-	_check("Daddy PLAY route synchronously enters Melody",
+	# Enter through the production start path the retired touch route used.
+	_launch_daddy()
+	_check("direct Daddy launch synchronously enters Melody",
 		main.game == "melody" and main.g.get("fr", {}) == daddy_friend)
 	melody = main._game_obj("melody", MelodyGame) as MelodyGame
 	var first_layer: CanvasLayer = melody.active_layer()
@@ -313,7 +284,7 @@ func _run() -> void:
 	var bronze_route_track: String = main.cur_track
 	var bronze_route_music: Dictionary = _music_context()
 	var bronze_direct_baseline: Dictionary = _direct_child_ids()
-	main._activate_touch_interactable("friend:%d" % daddy_index, daddy_index)
+	_launch_daddy()
 	melody = main._game_obj("melody", MelodyGame) as MelodyGame
 	var bronze_layer: CanvasLayer = melody.active_layer()
 	var bronze_layer_ref: WeakRef = weakref(bronze_layer)
@@ -401,7 +372,7 @@ func _run() -> void:
 	var replay_route_environment: Variant = main.we_node.environment
 	var replay_route_track: String = main.cur_track
 	var replay_route_music: Dictionary = _music_context()
-	main._activate_touch_interactable("friend:%d" % daddy_index, daddy_index)
+	_launch_daddy()
 	melody = main._game_obj("melody", MelodyGame) as MelodyGame
 	var replay_layer: CanvasLayer = melody.active_layer()
 	var replay_layer_ref: WeakRef = weakref(replay_layer)
@@ -1953,7 +1924,7 @@ func _exercise_system_loss_and_paused_census(
 	_check("ordinary pause resumes without creating a Melody activity",
 		not paused and not main.pause_panel.visible and main.game == "")
 
-	main._activate_touch_interactable("friend:%d" % daddy_index, daddy_index)
+	_launch_daddy()
 	melody = main._game_obj("melody", MelodyGame) as MelodyGame
 	var recovery_layer: CanvasLayer = melody.active_layer()
 	var recovery_layer_ref: WeakRef = weakref(recovery_layer)
@@ -2076,28 +2047,8 @@ func _exercise_system_loss_and_paused_census(
 	await _wait_for_fade_clear()
 	_check("pre-tick-source recovery teardown frees its first Canvas subtree",
 		recovery_layer_ref.get_ref() == null)
-	main._populate_touch_interactables()
-	var recovery_daddy_node: Variant = daddy_friend.get("node")
-	var recovery_camera: Variant = main.player.get("cam")
-	var recovery_daddy_point := Vector2(-1.0, -1.0)
-	if recovery_camera != null and recovery_daddy_node != null:
-		recovery_daddy_point = recovery_camera.unproject_position(
-			recovery_daddy_node.global_position)
-	var recovery_viewport: Rect2 = main.get_viewport().get_visible_rect()
-	_check("missing-release recovery exposes Daddy through the real Reef camera",
-		recovery_camera != null and recovery_daddy_node != null
-		and recovery_viewport.has_point(recovery_daddy_point)
-		and not _touch_target("friend:%d" % daddy_index).is_empty())
-	var recovery_touch_index := TOUCH_INDEX + 251
-	_push_touch(recovery_daddy_point, true, recovery_touch_index)
-	_push_touch(recovery_daddy_point, false, recovery_touch_index)
-	await process_frame
-	_check("first recovery one-finger Daddy tap focuses PLAY without launching",
-		main.game == "" and main.touch_focus_id == "friend:%d" % daddy_index
-		and main.touch_focus_ready)
-	_push_touch(recovery_daddy_point, true, recovery_touch_index)
-	_push_touch(recovery_daddy_point, false, recovery_touch_index)
-	_check("second recovery one-finger Daddy PLAY tap enters through production routing",
+	_launch_daddy()
+	_check("recovery relaunch enters Melody through the production start path",
 		main.game == "melody" and main.g.get("fr", {}) == daddy_friend)
 	melody = main._game_obj("melody", MelodyGame) as MelodyGame
 	recovery_layer = melody.active_layer()
@@ -2694,6 +2645,14 @@ func _check(label: String, condition: bool) -> void:
 	else:
 		bad += 1
 		print("MELODY|FAIL|", label)
+
+
+func _launch_daddy() -> void:
+	# Reproduce what the retired reef friend-pillar activation did: consume
+	# the activating action, then start the friend game through production.
+	if main.touch_ui != null:
+		main.touch_ui.consume_action()
+	main._start_game(daddy_friend)
 
 
 func _finish() -> void:

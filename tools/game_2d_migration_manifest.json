@@ -2,8 +2,8 @@
   "schema_version": 4,
   "policy": "Known entries are migration debt, not waivers. Lists may only shrink.",
   "metadata": {
-    "inventory_head": "9ad30ed6",
-    "inventory_date": "2026-09-09",
+    "inventory_head": "5920c673",
+    "inventory_date": "2026-09-23",
     "owner_contract": "The game is 2D; every tracked or active 3D resource belongs on an out-of-tree deprecated-resources branch.",
     "active_export_scope": "Active/export models and generated sidecars are prioritisation subsets; strict satisfaction requires zero repository or working-tree 3D debt.",
     "fingerprint_contract": "Every retained model binary, tracked model import sidecar, and model-bearing archive is locked by exact size and SHA-256.",
@@ -7579,8 +7579,8 @@
     "model_import_sidecars": 0,
     "active_untracked_model_import_sidecars": 0,
     "model_archive_files": 0,
-    "production_3d_files": 56,
-    "probe_3d_files": 64,
+    "production_3d_files": 52,
+    "probe_3d_files": 61,
     "scene_3d_files": 1,
     "configuration_3d_files": 1,
     "archive_now_model_files": 0
@@ -7690,11 +7690,6 @@
       "SpringArm3D": 1,
       "Vector3": 18
     },
-    "scripts/carry_system.gd": {
-      "MeshInstance3D": 1,
-      "Node3D": 9,
-      "Vector3": 32
-    },
     "scripts/collection_system.gd": {
       "BaseMaterial3D": 2,
       "Label3D": 4,
@@ -7728,15 +7723,14 @@
       "Vector3": 17
     },
     "scripts/companion.gd": {
-      "BaseMaterial3D": 16,
+      "BaseMaterial3D": 14,
       "BoxMesh": 2,
-      "CylinderMesh": 2,
-      "Label3D": 24,
-      "MeshInstance3D": 4,
-      "Node3D": 23,
-      "Sprite3D": 8,
-      "StandardMaterial3D": 4,
-      "Vector3": 75
+      "Label3D": 21,
+      "MeshInstance3D": 2,
+      "Node3D": 22,
+      "Sprite3D": 7,
+      "StandardMaterial3D": 2,
+      "Vector3": 65
     },
     "scripts/dev_mode.gd": {
       "<lowercase-3d-marker>": 8,
@@ -7867,11 +7861,9 @@
       "Vector3": 38
     },
     "scripts/games/dust_boss.gd": {
-      "BoxMesh": 2,
       "Camera3D": 1,
-      "MeshInstance3D": 2,
-      "Node3D": 10,
-      "Vector3": 24
+      "Node3D": 9,
+      "Vector3": 14
     },
     "scripts/games/fairy.gd": {
       "BaseMaterial3D": 2,
@@ -7963,12 +7955,6 @@
       "StandardMaterial3D": 1,
       "Vector3": 28
     },
-    "scripts/grotto.gd": {
-      "BoxMesh": 1,
-      "MeshInstance3D": 4,
-      "Node3D": 4,
-      "Vector3": 22
-    },
     "scripts/hit_engine.gd": {
       "<lowercase-3d-marker>": 3,
       "BaseMaterial3D": 2,
@@ -8054,52 +8040,48 @@
       "Vector3": 9
     },
     "scripts/main.gd": {
-      "<3d-multimesh>": 2,
       "<lowercase-3d-marker>": 2,
-      "<spatial-shader>": 23,
-      "AABB": 10,
-      "ArrayMesh": 10,
-      "BaseMaterial3D": 56,
-      "Basis": 7,
+      "<spatial-shader>": 8,
+      "AABB": 9,
+      "ArrayMesh": 5,
+      "BaseMaterial3D": 34,
+      "Basis": 3,
       "BoneAttachment3D": 1,
-      "BoxMesh": 8,
+      "BoxMesh": 6,
       "BoxShape3D": 1,
       "CPUParticles3D": 4,
       "Camera3D": 1,
       "CapsuleMesh": 1,
       "CollisionShape3D": 3,
-      "CylinderMesh": 10,
+      "CylinderMesh": 3,
       "CylinderShape3D": 1,
       "DirectionalLight3D": 3,
       "Environment": 16,
-      "GPUParticles3D": 5,
-      "GeometryInstance3D": 18,
-      "Label3D": 8,
+      "GPUParticles3D": 1,
+      "GeometryInstance3D": 9,
+      "Label3D": 4,
       "Light3D": 3,
-      "Mesh": 26,
-      "MeshInstance3D": 88,
-      "MultiMeshInstance3D": 2,
-      "Node3D": 91,
-      "OmniLight3D": 17,
+      "Mesh": 15,
+      "MeshInstance3D": 51,
+      "Node3D": 66,
+      "OmniLight3D": 7,
       "PackedVector3Array": 1,
-      "PlaneMesh": 3,
       "ProceduralSkyMaterial": 2,
-      "QuadMesh": 13,
+      "QuadMesh": 8,
       "Quaternion": 12,
       "RigidBody3D": 6,
       "Skeleton3D": 7,
       "Skin": 2,
       "Sky": 1,
-      "SphereMesh": 9,
+      "SphereMesh": 6,
       "SphereShape3D": 1,
-      "Sprite3D": 10,
-      "StandardMaterial3D": 65,
+      "Sprite3D": 7,
+      "StandardMaterial3D": 54,
       "StaticBody3D": 2,
-      "SurfaceTool": 10,
-      "TRANSFORM_3D": 2,
-      "TorusMesh": 4,
-      "Transform3D": 6,
-      "Vector3": 461,
+      "SurfaceTool": 3,
+      "TorusMesh": 2,
+      "Transform3D": 4,
+      "Vector3": 279,
       "VisualInstance3D": 5,
       "WorldEnvironment": 2
     },
@@ -8130,13 +8112,6 @@
       "Node3D": 5,
       "Vector3": 11
     },
-    "scripts/reef_flow.gd": {
-      "BaseMaterial3D": 2,
-      "CPUParticles3D": 4,
-      "SphereMesh": 1,
-      "StandardMaterial3D": 1,
-      "Vector3": 19
-    },
     "scripts/roshan_sprite_anchors.gd": {
       "Sprite3D": 1
     },
@@ -8148,11 +8123,6 @@
       "Node3D": 2,
       "Sprite3D": 2,
       "Vector3": 2
-    },
-    "scripts/save_state.gd": {
-      "MeshInstance3D": 1,
-      "OmniLight3D": 1,
-      "StandardMaterial3D": 1
     },
     "scripts/story_art.gd": {
       "BaseMaterial3D": 4,
@@ -8202,8 +8172,8 @@
     },
     "scripts/probe_audit.gd": {
       "Camera3D": 1,
-      "Node3D": 10,
-      "Vector3": 20
+      "Node3D": 8,
+      "Vector3": 9
     },
     "scripts/probe_basement.gd": {
       "Camera3D": 2,
@@ -8220,10 +8190,6 @@
       "<lowercase-3d-marker>": 1,
       "Camera3D": 3,
       "Vector3": 15
-    },
-    "scripts/probe_carry.gd": {
-      "Node3D": 2,
-      "Vector3": 5
     },
     "scripts/probe_castle_cam.gd": {
       "Camera3D": 1,
@@ -8268,7 +8234,7 @@
     },
     "scripts/probe_dust_boss.gd": {
       "Node3D": 2,
-      "Vector3": 3
+      "Vector3": 1
     },
     "scripts/probe_dust_bunny.gd": {
       "AnimatedSprite3D": 1,
@@ -8312,20 +8278,12 @@
       "Node3D": 2,
       "Vector3": 3
     },
-    "scripts/probe_flow.gd": {
-      "Node3D": 1,
-      "Vector3": 4
-    },
     "scripts/probe_galaxy_peek.gd": {
       "Camera3D": 1,
       "Vector3": 1
     },
     "scripts/probe_galaxy_state.gd": {
       "Vector3": 13
-    },
-    "scripts/probe_grotto.gd": {
-      "Node3D": 2,
-      "Vector3": 5
     },
     "scripts/probe_heading.gd": {
       "Node3D": 2,
@@ -8343,14 +8301,13 @@
       "Vector3": 50
     },
     "scripts/probe_interaction.gd": {
-      "<lowercase-3d-marker>": 1,
-      "Camera3D": 2,
-      "Node3D": 2,
-      "Vector3": 9
+      "Camera3D": 1,
+      "Node3D": 1,
+      "Vector3": 3
     },
     "scripts/probe_kart_feel.gd": {
       "Node3D": 3,
-      "Vector3": 3
+      "Vector3": 2
     },
     "scripts/probe_kitchen_props.gd": {
       "Sprite3D": 1
@@ -8377,8 +8334,8 @@
       "Node3D": 1
     },
     "scripts/probe_passive.gd": {
-      "Node3D": 3,
-      "Vector3": 12
+      "Node3D": 2,
+      "Vector3": 8
     },
     "scripts/probe_peng_pal.gd": {
       "Camera3D": 2,
@@ -8423,8 +8380,8 @@
       "Vector3": 11
     },
     "scripts/probe_rank.gd": {
-      "Node3D": 3,
-      "Vector3": 9
+      "Node3D": 2,
+      "Vector3": 5
     },
     "scripts/probe_reef_shots.gd": {
       "Camera3D": 2,
@@ -8455,10 +8412,9 @@
       "Vector3": 8
     },
     "scripts/probe_touch_adversary.gd": {
-      "<lowercase-3d-marker>": 1,
-      "Camera3D": 2,
-      "Node3D": 7,
-      "Vector3": 13
+      "Camera3D": 1,
+      "Node3D": 5,
+      "Vector3": 11
     },
     "scripts/probe_touch_router.gd": {
       "Node3D": 1,
@@ -8481,9 +8437,8 @@
       "Vector3": 2
     },
     "scripts/probe_voice.gd": {
-      "Node3D": 4,
-      "Node3Ds": 1,
-      "Vector3": 9
+      "Node3D": 2,
+      "Vector3": 2
     }
   },
   "scene_3d_files": {

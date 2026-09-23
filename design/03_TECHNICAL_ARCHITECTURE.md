@@ -64,7 +64,7 @@ commit `09e5e356`; the extraction-only standing target is <2,500
 
 Current satellites: `save_state`, `audio_director`, `companion`,
 `medal_system`, `hit_engine`, `interaction_director`, `tap_move_director`,
-`camera_kit`, `collection_system`, `carry_system`, `living_world*`,
+`camera_kit`, `collection_system`, `living_world*`,
 `storybook_ui`, `story_art`, `intro_overlay`, `craft_studio`, `wardrobe_ui`,
 `pause_menu`, `boot_splash_overlay`, `arena/{castle_rooms_25d, sky_lagoon,
 sky_lagoon_promenade, courtyard_train, northern_kingdom}`,

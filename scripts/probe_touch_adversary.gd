@@ -50,41 +50,6 @@ func _playthrough(run_index: int) -> void:
 		if touch.find_child("ActionShellMedallion", true, false) != null:
 			issues.append("set_action_label resurrected the action bubble")
 
-	# Adversarial child behavior: parking on a friend for several frames must
-	# advertise without kidnapping the run into a minigame.
-	var friend_index: int = run_index % mini(5, main.friends.size())
-	var friend: Dictionary = main.friends[friend_index]
-	var friend_node: Node3D = friend["node"]
-	main.player.position = friend_node.position + Vector3(randf_range(2.0, 4.0), 0.0, randf_range(-1.0, 1.0))
-	main.player.vel = Vector3.ZERO
-	await _frames(12)
-	if main.game != "":
-		issues.append("proximity auto-started friend activity")
-
-	# Screen-space target selection must tolerate a wandering fingertip.
-	var camera: Camera3D = main.get_viewport().get_camera_3d()
-	if camera == null:
-		issues.append("camera missing")
-	else:
-		main._populate_touch_interactables()
-		var projected: Vector2 = camera.unproject_position(friend_node.global_position)
-		var finger_offset := Vector2(randf_range(-42.0, 42.0), randf_range(-42.0, 42.0))
-		var touch_point: Vector2 = projected + finger_offset
-		var picked: Dictionary = main._interaction_ref()._pick(touch_point)
-		if String(picked.get("id", "")) != "friend:%d" % friend_index:
-			issues.append("child-scale target miss")
-		elif touch != null:
-			if touch.movement_zone().has_point(touch_point) or touch.action_zone().has_point(touch_point):
-				issues.append("friend target is hidden under a thumb control")
-			else:
-				_touch_tap(touch, run_index + 20, touch_point)
-				await process_frame
-				if main.touch_focus_id != "friend:%d" % friend_index:
-					issues.append("routed first tap did not focus friend")
-				if main.game != "":
-					issues.append("routed first tap launched without confirmation")
-				main._interaction_ref().clear_focus()
-
 	# Assisted travel must physically move the existing player controller
 	# toward the request. Different quadrants cover every heading.
 	var angle: float = TAU * float(run_index) / float(RUN_COUNT)
@@ -136,15 +101,13 @@ func _playthrough(run_index: int) -> void:
 	# non-reading-dependent verb and a discover range beyond its activation.
 	match run_index % 4:
 		0:
-			_check_registry(main, _reef_required(main), issues)
-			var reef_actions: Array[String] = ["reef:slide", "reef:brawl"]
-			main._activate_touch_interactable(reef_actions[run_index % reef_actions.size()])
-			await _frames(4)
-			if main.game == "":
-				issues.append("explicit reef action did not start")
-			else:
-				main._clear_game()
-				await _frames(3)
+			# The 3D reef (friend pillars, reef portals) retired on 2026-09-23;
+			# no reef or friend route may ever be registered again.
+			main._populate_touch_interactables()
+			for item_value: Variant in main.touch_interactables:
+				var item_id: String = String((item_value as Dictionary).get("id", ""))
+				if item_id.begins_with("reef:") or item_id.begins_with("friend:"):
+					issues.append("retired reef route still registered: " + item_id)
 		1:
 			main.level2_done_once = true
 			main._enter_level2_now(true, false, false)
@@ -255,16 +218,6 @@ func _touch_tap(touch: CanvasLayer, index: int, pos: Vector2) -> void:
 	up.position = pos
 	up.pressed = false
 	touch._unhandled_input(up)
-
-func _reef_required(main: Node3D) -> Array[String]:
-	var required: Array[String] = ["reef:slide", "reef:brawl", "reef:kart"]
-	for friend_index in range(main.friends.size()):
-		required.append("friend:%d" % friend_index)
-	if main.portal_node != null and is_instance_valid(main.portal_node):
-		required.append("reef:lagoon")
-	if main.ocean_routes_enabled:
-		required.append("reef:return")
-	return required
 
 func _court_required(main: Node3D) -> Array[String]:
 	var required: Array[String] = ["court:north", "court:ember", "court:kart_a", "court:kart_b", "court:back_entry", "court:castle"]

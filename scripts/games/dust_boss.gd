@@ -1034,39 +1034,3 @@ func _on_tap_progress(accepted: int, _required: int) -> void:
 	m.g["db_taps_this_round"] = accepted
 	if accepted > 0:
 		_show_attack_feedback()
-
-# ---- the reef doorway ------------------------------------------------------
-func build_portal() -> Vector3:
-	# A showing before the showing: the great dust bunny peeks out of an attic
-	# door on the seabed, so he is a character she has MET before he is ever a
-	# fight. Called once from main._build_world; the position it returns is the
-	# portal state main owns.
-	var bx := -74.0
-	var bz := 96.0
-	var pos := Vector3(bx, m.seabed_y(bx, bz) + 4.0, bz)
-	var frame := Node3D.new()
-	frame.position = pos + Vector3(0, -3.0, -4.5)
-	m.add_child(frame)
-	var arch := MeshInstance3D.new()
-	var am := BoxMesh.new()
-	am.size = Vector3(9.0, 9.5, 1.4)
-	arch.mesh = am
-	arch.position = Vector3(0, 4.8, 0)
-	arch.material_override = m._soft_mat(Color(0.80, 0.74, 0.86), 0.08)
-	frame.add_child(arch)
-	var door := MeshInstance3D.new()
-	var dm := BoxMesh.new()
-	dm.size = Vector3(6.2, 7.4, 0.5)
-	door.mesh = dm
-	door.position = Vector3(0, 4.0, 0.9)
-	door.material_override = m._soft_mat(Color(0.60, 0.50, 0.72), 0.16)
-	frame.add_child(door)
-	# he peeks out of the attic door in the reef, in his own art: the same
-	# animation kit, parked on its idle frame, so she MEETS him before the fight
-	var peek := DustBunnyBossSprite.new()
-	peek.name = "GrandPuffPeek"
-	peek.scale = Vector3.ONE * (6.5 / maxf(0.01, DustBunnyBossSprite.DISPLAY_HEIGHT))
-	peek.position = pos + Vector3(2.6, -1.2, 2.4)
-	m.add_child(peek)
-	m._halo(pos + Vector3(0, 0.6, 0), Color(0.82, 0.76, 1.0), 10.0)
-	return pos

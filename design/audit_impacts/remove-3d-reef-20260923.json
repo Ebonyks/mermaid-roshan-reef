@@ -1,0 +1,122 @@
+{
+  "id": "remove-3d-reef-20260923",
+  "scope": "Owner instruction 2026-09-23 (\"Remove the 3d reef outright to increase loading speed\"): the legacy spatial reef world, unreachable from authored play since retired-reef-20260909, still built at every boot and ticked per frame. Remove its builders, ticks, touch registrations and state from ReefMain (terrain, water, flora, fish and megafauna, pearls and pearl respawn, friend pillars and beacons, the rainbow, slide, toy-castle and attic portals, guide fish, wind streaks and surf rings, Roshan's free-swim reactions, the five-trophy reef finale and the Level 2 pearl gate), delete the carry, flow and grotto reef satellites with their three probes, retire the reef sparring den in companion.gd, drop the reef-only crafted-fish and tank-animal spawns, and convert probes that reached friend games through the reef into direct launches plus non-reachability checks. Kept: the world environment, music, sun, player, arena camera and ARENA_POS stage used by Grand Puff and other modes; seabed/district math used by kept modes; the dormant friend-game, stuffie-battle and Critter Book scripts; every save key (the written key set is identical) and all reef art assets, whose export removal needs a separate DL-PERF-06 proof. Behaviour the child can reach is unchanged except that boot does less work.",
+  "baseline": "5920c673305989ee29d91876480ff445dba9fc8b",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-04",
+    "DL-MED-08",
+    "DL-MED-09",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-PERF-06",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-CODE-01",
+    "DL-QA-02",
+    "DL-AGE-04"
+  ],
+  "findings": [
+    "MA-2D-002",
+    "MA-CODE-001"
+  ],
+  "files": [
+    ".github/workflows/probes.yml",
+    "audit/audio_quality_ledger_2026-08-24.csv",
+    "audit/audio_quality_summary_2026-08-24.json",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/typography_manifest.json",
+    "design/03_TECHNICAL_ARCHITECTURE.md",
+    "design/05_DOC_LEDGER.md",
+    "scripts/carry_system.gd",
+    "scripts/ci.sh",
+    "scripts/companion.gd",
+    "scripts/craft_studio.gd",
+    "scripts/games/dust_boss.gd",
+    "scripts/games/shop.gd",
+    "scripts/grotto.gd",
+    "scripts/main.gd",
+    "scripts/probe_audit.gd",
+    "scripts/probe_carry.gd",
+    "scripts/probe_dust_boss.gd",
+    "scripts/probe_flow.gd",
+    "scripts/probe_grotto.gd",
+    "scripts/probe_interaction.gd",
+    "scripts/probe_kart_feel.gd",
+    "scripts/probe_load.gd",
+    "scripts/probe_melody.gd",
+    "scripts/probe_passive.gd",
+    "scripts/probe_rank.gd",
+    "scripts/probe_start_menu_routing.gd",
+    "scripts/probe_stuffie.gd",
+    "scripts/probe_touch_adversary.gd",
+    "scripts/probe_voice.gd",
+    "scripts/reef_flow.gd",
+    "scripts/save_state.gd",
+    "STUFFIE_COMPANIONS.md",
+    "tests/test_audit_typography.py",
+    "tools/game_2d_migration_manifest.json"
+  ],
+  "validation": [
+    {
+      "command": "Baseline boot measurement: exact Godot 4.7.2 headless, tmp/claude-reef-removal/boot_measure.gd (load scenes/main.tscn, instantiate, add to the tree, await five frames) at the baseline sources, three runs with isolated user data",
+      "result": "FAIL",
+      "evidence": "The unreachable reef is still constructed at boot: 594 nodes, 3,905 objects, 337.8 MB static memory, 1,617-1,634 ms for the first five frames (the _ready pass) and 7,266-7,336 ms total. tmp/claude-reef-removal/boot_measure.txt SHA-256 e27c7aa3f5af433bad6fccd094005f472840e9e76e182e803656e4ba3b519877 (local, git-ignored). Headless desktop timing is a proxy, not device evidence."
+    },
+    {
+      "command": "Candidate boot measurement: same script, same engine and isolation, three runs",
+      "result": "PASS",
+      "evidence": "367 nodes (-38%), 3,142 objects, 262.3 MB static memory (-75.5 MB), 226-248 ms for the first five frames (-85%) and 5,761-5,776 ms total (-1.5 s, -21%). The remaining ~5.5 s is resource loading of scenes/main.tscn and its preloads, a separate follow-up. Same evidence file and hash as the baseline row."
+    },
+    {
+      "command": "scratchpad run_probes.sh mirror of the scripts/ci.sh trusted loop (same roster, isolated APPDATA/LOCALAPPDATA/XDG per probe, same touch modes, failure and runtime-error patterns), exact Godot 4.7.2, parallelism 3",
+      "result": "PASS",
+      "evidence": "First full pass tmp/claude-reef-removal/roster2/summary.txt (SHA-256 d633792a8c2519a7bcc559e3170a8d6d7015bbb211c5a261bb219c69d49111b0): 71 of 75 PASS. The four failures were reef-bound expectations, each corrected without weakening a runtime gate: probe_audit entered the slide through the no-cover direct entry (restored to the covered _start_game entry the old tap used) and still expected the reef finale (now asserted dormant); probe_voice lost the neutral dialogue reset that preceded the beans cue; probe_stuffie expected the reef den (now asserted never built, and the retired resting flag is proven not to block the battle); probe_start_menu_routing expected the reef attic refusal (now asserts the attic portal is gone while exits still reorient through the Day One gate). Reruns PASS: audit_fix/probe_audit.log SHA-256 7796c391e6cc68e97883bd2618b224da7d1c71d2f0c202065c5d0de98582b2ad, voice_fix/probe_voice.log SHA-256 5ae809217d0d8a63713bdacfa2fb73dadc6d8abaf7df407cafd9ff1733cfc7f9, fix3/summary.txt SHA-256 82d1a619c97e037e71a5194778a31122ca555e5b6b9f2890c151b5a06f787459 (probe_stuffie, probe_start_menu_routing, probe_passive, probe_interaction, probe_touch_adversary, probe_load)."
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --refresh-manifest; python -B tools/audit_game_2d.py --regression-gate; python -B tools/audit_probe_parity.py",
+      "result": "PASS",
+      "evidence": "GAME2D REFRESH OK (exact debt inventory shrank; initial ceiling preserved) and RESULT NO_REGRESSION with STATUS UNSATISFIED: production spatial files 56 to 52 and probe spatial files 64 to 61; model, sidecar, scene and configuration categories unchanged. PROBE_PARITY result ALL OK after removing probe_carry, probe_flow and probe_grotto from both scripts/ci.sh and .github/workflows/probes.yml."
+    },
+    {
+      "command": "python -m gdtoolkit.parser and python tools/lint_inference.py on the 18 modified GDScript files; exact Godot 4.7.2 --headless --check-only --script on each",
+      "result": "PASS",
+      "evidence": "Parser exit 0, lint exit 0 and every check-only exit 0. The dead-code pass removed only functions and state with no remaining references anywhere in scripts, scenes or tools (string-called helpers were checked by name); scripts/main.gd measures 11,915 lines/570 functions at the baseline and 9,803 lines/498 functions at the candidate."
+    },
+    {
+      "command": "Save-key comparison: every next_data[...] write and save_data.get(...) read in scripts/save_state.gd at the baseline and candidate",
+      "result": "PASS",
+      "evidence": "Identical key sets (54 written keys). Retired reef state such as custom_fish, animals_owned, pearls_ever, finale and friend progress stays saved and readable; probe_load now asserts the saved data instead of reef spawns (DL-SAVE-01)."
+    },
+    {
+      "command": "python -m unittest tests.test_audit_typography tests.test_type_c_layout; python tools/audit_typography.py --check",
+      "result": "PASS",
+      "evidence": "The first local scripts/ci.sh attempt (tmp/claude-reef-removal/ci-full.log) stopped at this gate because the retired reef code shrank the typography ratchet: live 3D label instances fell from 43 to 37 (baseline 45, eleven production files) and the reef wayfinder's U+1F31F star glyph left the code. The immutable per-file baseline is untouched; the stale U+1F31F critical-glyph allowlist entry is removed from audit/typography_manifest.json and the repository test's pinned current total becomes 37. The contract tests then pass (35 run, 1 skipped) and --check reports no regression, with font authority/device evidence still OPEN."
+    },
+    {
+      "command": "python tools/audit_audio_quality.py (regenerate); python tools/audit_audio_quality.py --check",
+      "result": "PASS",
+      "evidence": "The static gate reported the 813-row ledger STALE because it records how often runtime and probe sources name each clip. Regeneration changes exactly three runtime_reference_count cells (filler_v1/harper.ogg, filler_v1/harper_hint.ogg and voices/harper.ogg, 2 to 1, after probe_voice dropped its retired slide-fixture constants) and the derived inventory_sha256 (47289f9e... to 6998224a...). No clip, grade, provenance or protected-recording field changes; --check then reports 813/813 PASS."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PENDING",
+      "evidence": "Run after this record is written and before commit."
+    },
+    {
+      "command": "GODOT=<exact Godot 4.7.2 console> scripts/ci.sh (static gates, fresh import, all trusted probes)",
+      "result": "PENDING",
+      "evidence": "Full local gate required before commit."
+    },
+    {
+      "command": "Exact-commit remote Probe Suite on claude/remove-3d-reef-20260923",
+      "result": "PENDING",
+      "evidence": "Required after pushing this candidate and before integration into dev."
+    }
+  ],
+  "acceptance_gaps": "No device, frame-time, APK-size, child or owner acceptance is claimed; boot timings are headless desktop proxies. Reef art assets, the dormant friend-game, stuffie-battle and Critter Book scripts, and the shared spatial arena remain migration debt for separate measured work (MA-2D-002 strict remains UNSATISFIED). Friend games and the stuffie battle have no authored-play entrance until they are re-homed on the Canvas, as was already true since 2026-09-09."
+}

@@ -897,7 +897,7 @@ class TypographyAuditTests(unittest.TestCase):
     def test_current_repository_is_open_only_for_external_evidence(self) -> None:
         root = Path(__file__).resolve().parents[1]
         report = audit(root, root / "audit/typography_manifest.json")
-        self.assertEqual(report["label3d"]["current_total"], 43)
+        self.assertEqual(report["label3d"]["current_total"], 37)
         self.assertEqual(report["label3d"]["production_file_count"], 11)
         self.assertEqual(report["glyphs"]["unclassified"], [])
         self.assertEqual(report["font"]["coverage_status"], "UNRESOLVED")

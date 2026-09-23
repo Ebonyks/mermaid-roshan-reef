@@ -214,12 +214,9 @@ func load_save() -> void:
 		if bool(found_d.get(nm, false)) or (legacy != "" and bool(found_d.get(legacy, false))):
 			m.first_session = false
 			f2["found"] = true
-			(f2["beacon"] as OmniLight3D).light_energy = 1.0
-			((f2["pillar"] as MeshInstance3D).material_override as StandardMaterial3D).albedo_color.a = 0.035
 		if bool(won_d.get(nm, false)) or (legacy != "" and bool(won_d.get(legacy, false))):
 			f2["won"] = true
 			m.trophies += 1
-			m._add_won_star(f2)
 	m._medal_ref().refresh_friend_glyphs()
 	m._update_hud()
 

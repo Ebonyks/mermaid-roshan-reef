@@ -39,65 +39,18 @@ func _init() -> void:
 	await _frames(8)
 	main._set_touch_mode("hybrid", false)
 	main._populate_touch_interactables()
-	if main.touch_interactables.size() < main.friends.size():
-		_bad("reef registry omitted core friends")
+	# The 3D reef (friend pillars and reef portals) retired on 2026-09-23:
+	# the free-roam registry must never offer a reef or friend route again.
 	for touch_target_value: Variant in main.touch_interactables:
-		var touch_target: Dictionary = touch_target_value as Dictionary
-		var target_id: String = String(touch_target.get("id", ""))
-		var expected_affordance: String = Affordance.INTERACTION
-		if target_id.begins_with("friend:"):
-			var friend_index: int = int(touch_target.get("payload", -1))
-			if friend_index >= 0 and friend_index < main.friends.size():
-				var target_friend: Dictionary = main.friends[friend_index] as Dictionary
-				if not bool(target_friend.get("won", false)):
-					expected_affordance = Affordance.PLOT
-		elif target_id == "reef:lagoon" and not main.level2_done_once:
-			expected_affordance = Affordance.PLOT
-		elif target_id == "reef:return" and main._all_friends_won():
-			expected_affordance = Affordance.PLOT
-		var actual_affordance: String = String(touch_target.get(
-			"affordance_kind", ""))
-		if actual_affordance != expected_affordance:
-			_bad("world affordance category wrong for %s" % target_id)
-			break
+		var retired_id: String = String((touch_target_value as Dictionary).get("id", ""))
+		if retired_id.begins_with("reef:") or retired_id.begins_with("friend:"):
+			_bad("retired reef route still registered: %s" % retired_id)
 	if Affordance.RED_IDLE.a <= Affordance.BLUE_IDLE.a \
 			or Affordance.emission_energy(Affordance.PLOT, false) \
 				<= Affordance.emission_energy(Affordance.INTERACTION, false) \
 			or Affordance.pulse_amount(Affordance.PLOT, false) \
 				<= Affordance.pulse_amount(Affordance.INTERACTION, false):
 		_bad("red plot beacon is not the most obvious affordance")
-
-	var friend: Dictionary = main.friends[0]
-	var friend_node: Node3D = friend["node"]
-	main.player.position = friend_node.position + Vector3(3.0, 0.0, 0.0)
-	main.player.vel = Vector3.ZERO
-	await _frames(20)
-	if main.game != "":
-		_bad("proximity launched a friend activity")
-
-	var camera: Camera3D = main.get_viewport().get_camera_3d()
-	if camera == null:
-		_bad("camera unavailable for screen-space selection")
-	else:
-		var tap: Vector2 = camera.unproject_position(friend_node.global_position)
-		# An action press made before anything is selected must expire. It may
-		# not be remembered and applied to the next focus, even in the same
-		# rendered frame.
-		main.touch_ui._on_action_button_down()
-		main.touch_ui._on_action_button_up()
-		main._interaction_ref().on_world_touch(tap)
-		await process_frame
-		if main.touch_focus_id != "friend:0" or not main.touch_focus_ready:
-			_bad("first friend tap did not focus/ready")
-		if main.game != "":
-			_bad("first friend tap launched instead of acknowledging")
-		main._interaction_ref().on_world_touch(tap)
-		await _frames(12)
-		if main.game == "":
-			_bad("second friend tap did not activate")
-	if main.game != "":
-		main._clear_game()
-		await _frames(6)
 
 	# Open-space assisted movement feeds steering and yields to manual input.
 	var travel_target: Vector3 = main.player.position + Vector3(25.0, 0.0, 18.0)
@@ -108,34 +61,6 @@ func _init() -> void:
 	main._on_touch_manual_move()
 	if bool(main.touch_auto_active):
 		_bad("manual override failed")
-
-	# Fix regression: an ELEVATED target (the penguin floe rides just under the
-	# surface) must become ready through assisted travel. Horizontal-only
-	# steering once stopped short of the vertically-weighted readiness check
-	# and looped "Tap again!" forever.
-	if main.slide_portal_pos == Vector3.ZERO:
-		_bad("penguin floe position unavailable for the elevated approach")
-	else:
-		var floe: Vector3 = main.slide_portal_pos
-		main.player.position = Vector3(floe.x + 9.0, floe.y - 26.0, floe.z)
-		main.player.vel = Vector3.ZERO
-		main._populate_touch_interactables()
-		main.touch_focus_id = "reef:slide"
-		main.touch_focus_ready = false
-		main._tap_move_ref().start(floe, "reef:slide", 14.0)
-		var previous_scale: float = Engine.time_scale
-		Engine.time_scale = 1.0
-		var climb_start_y: float = main.player.position.y
-		var deadline: int = Time.get_ticks_msec() + 12000
-		while Time.get_ticks_msec() < deadline and not main.touch_focus_ready:
-			await process_frame
-		Engine.time_scale = previous_scale
-		if not main.touch_focus_ready:
-			_bad("elevated floe never became ready (vertical approach wedge)")
-		if main.player.position.y - climb_start_y < 4.0:
-			_bad("assisted travel did not climb toward the elevated floe")
-		main._tap_move_ref().cancel("probe")
-		main._interaction_ref().clear_focus()
 
 	# Build the two navigation-heavy zones and assert that each important verb
 	# has a touch target. This catches hidden-floor regressions without relying

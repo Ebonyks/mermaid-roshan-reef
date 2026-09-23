@@ -411,7 +411,6 @@ func _tank_buy(id: String) -> void:
 			return
 		m.pearl_count -= int(it["price"])
 		m.animals_owned[id] = true
-		m._spawn_shop_animals()
 		m._update_hud()
 		m._write_save()
 		if m.buy_sound != null:

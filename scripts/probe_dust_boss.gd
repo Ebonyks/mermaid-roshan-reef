@@ -143,17 +143,14 @@ func _open_boss() -> void:
 	main.player.visible = true
 	main.we_node.environment = main.world_env
 	main.dust_boss_cool = 0.0
-	var explicit_activation_sent := false
+	# The reef attic door retired with the 3D reef on 2026-09-23; the live
+	# route is the castle Royal Hall. Open the fight through production.
+	main._start_game(main.dust_boss_fr)
 	for _i in range(900):
-		main.player.position = main.dust_boss_portal_pos + Vector3(0, 2, 3)
-		main.player.vel = Vector3.ZERO
-		if main.touch_uses_explicit_interactions() and not explicit_activation_sent:
-			main._activate_touch_interactable("reef:dustboss")
-			explicit_activation_sent = true
 		await process_frame
 		if main.game == "dustboss":
 			break
-	_ck("attic door opens the live boss fight", main.game == "dustboss")
+	_ck("direct launch opens the live boss fight", main.game == "dustboss")
 
 func _splash_and_geometry_case() -> void:
 	_ck("fight opens on an input-blocking 2D splash", _state() == "splash" and main.g.get("db_splash") is BossSplash2D)

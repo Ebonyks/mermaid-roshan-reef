@@ -154,8 +154,6 @@ func _init() -> void:
 			and ResourceLoader.exists(seek_art_path)
 	print("AUDIT|Seek Canvas authored atlas and v5 meadow art: ",
 		"OK" if seek_art_ready else "FAIL")
-	print("AUDIT|Penguin floe at water surface: ",
-		"OK" if absf(main.slide_portal_pos.y - (main.WATER_TOP + 0.5)) < 0.01 else "FAIL")
 	var t_start := Time.get_ticks_msec()
 	# --- Critter Book: approach + one real touch-action edge catches exactly one ---
 	main.critter_collection = {}
@@ -175,23 +173,12 @@ func _init() -> void:
 	for fi in range(5):
 		var f: Dictionary = main.friends[fi]
 		var fname: String = f["fname"]
-		var node: Node3D = f["node"]
-		player.position = node.position + Vector3(3, 0, 0)
-		player.vel = Vector3.ZERO
-		await _frames(10)
-		var guard := 0
-		while float(f["cool"]) > 0.0 and guard < 3000:
-			guard += 1
-			await process_frame
-		for k in range(10):
-			player.position = node.position + Vector3(3, 0, 0)
-			player.vel = Vector3.ZERO
-			await process_frame
+		# The reef friend pillars retired with the 3D reef on 2026-09-23; launch
+		# each friend game directly and keep auditing the activity itself.
 		var friend_route_position: Variant = player.position
 		var friend_route_environment: Variant = main.we_node.environment
-		if main.game == "" and main.touch_uses_explicit_interactions():
-			main._activate_touch_interactable("friend:%d" % fi, fi)
-			await _frames(10)
+		main._start_game(f)
+		await _frames(10)
 		if main.game == "":
 			print("AUDIT|", fname, ": GAME DID NOT START")
 			continue
@@ -232,16 +219,11 @@ func _init() -> void:
 		main._clear_game()
 		await _frames(5)
 	# --- toy castle brawler (two heroes: Roshan + AI Huluu) ---
-	main.brawl_cool = 0.0
-	player.position = main.brawl_portal_pos + Vector3(0, 2, 3)
-	player.vel = Vector3.ZERO
-	if main.touch_uses_explicit_interactions():
-		main._activate_touch_interactable("reef:brawl")
+	# The reef toy-castle portal retired with the 3D reef; launch directly.
+	main._start_game(main.brawl_fr)
 	var bwait := 0
 	while main.game == "" and bwait < 900:
 		bwait += 1
-		player.position = main.brawl_portal_pos + Vector3(0, 2, 3)
-		player.vel = Vector3.ZERO
 		await process_frame
 	if main.game == "brawl":
 		var okb := await _drive_game("brawl", main.brawl_fr)
@@ -249,9 +231,7 @@ func _init() -> void:
 		print("AUDIT|Toy Castle [brawl]: ", ("WON co-op" if okb else "FAILED/TIMEOUT"))
 	else:
 		print("AUDIT|Toy Castle [brawl]: DID NOT START")
-	# _end_game put her back beside the toy castle; with the short "again!"
-	# re-entry cooldown (3s) the brawl would auto-restart mid-beans-test if
-	# she stayed parked in the portal radius — park in open water instead
+	# park in open water before the beans test
 	player.position = main.ARENA_POS + Vector3(0, 8, 18)
 	player.vel = Vector3.ZERO
 	# --- beans consumable (current shop API) ---
@@ -283,103 +263,29 @@ func _init() -> void:
 	print("AUDIT|Tank idle rig: ", idle_line)
 	main._clear_game()
 	await _frames(5)
-	# --- animal tanks (the pearl sink: buy the turtle free, it joins the reef) ---
+	# --- animal tanks (the pearl sink: buy the turtle free; saved, no reef spawn) ---
 	main.pearl_count = 30
-	var movers0: int = main.aquatic_movers.size()
 	main._tank_buy("turtle")
-	var pets := 0
-	var pets_visible := 0
-	for mv0 in main.aquatic_movers:
-		if String(mv0.get("shop_pet", "")) == "turtle":
-			pets += 1
-			var pet_node = mv0.get("node", null)
-			if pet_node != null and is_instance_valid(pet_node):
-				pets_visible += 1
-	var tank_ok: bool = main.pearl_count == 5 and bool(main.animals_owned.get("turtle", false)) \
-		and main.aquatic_movers.size() > movers0 and pets >= 1 and pets_visible == pets
-	main._tank_buy("turtle")   # already free: must not charge or double-spawn
-	var tank_once: bool = main.pearl_count == 5 and main.aquatic_movers.size() == movers0 + pets
+	var tank_ok: bool = main.pearl_count == 5 and bool(main.animals_owned.get("turtle", false))
+	main._tank_buy("turtle")   # already free: must not charge again
+	var tank_once: bool = main.pearl_count == 5
 	main.pearl_count = 3
 	main._tank_buy("dolphin")  # too few pearls: must not sell
 	var tank_poor: bool = main.pearl_count == 3 and not bool(main.animals_owned.get("dolphin", false))
-	var tank_line: String = "OK swimming=%d sprites=%d" % [pets, pets_visible]
+	var tank_line: String = "OK turtle freed and saved"
 	if not (tank_ok and tank_once and tank_poor):
-		tank_line = "FAIL buy=%s once=%s poor=%s pets=%d sprites=%d" % [tank_ok, tank_once, tank_poor, pets, pets_visible]
+		tank_line = "FAIL buy=%s once=%s poor=%s" % [tank_ok, tank_once, tank_poor]
 	print("AUDIT|Animal tanks: ", tank_line)
-	# --- pearl respawn ---
-	var p1: Node3D = main.pearls[0]
-	player.position = p1.position
-	player.vel = Vector3.ZERO
-	for i6 in range(10):
-		await process_frame
-	var collected: bool = main.pearls.size() == 9
-	main._respawn_pearls()
-	print("AUDIT|Pearl respawn: ", ("OK" if collected and main.pearls.size() == 10 else "FAIL"))
 	# --- level 2 ---
-	main.portal_unlocked = false
-	main.pearl_count = main.PEARL_TOTAL - 1
-	main.pearls_ever = main.PEARL_TOTAL - 1
-	for f in main.friends:
-		f["found"] = true
-		f["won"] = true
-	main.trophies = 5
-	main._check_level2_unlock(player.position, 0.1)
-	print("AUDIT|Level 2 nine-pearl lock: ", ("OK" if not main.portal_unlocked and main.portal_node == null else "FAIL"))
-	main.pearl_count = main.PEARL_TOTAL
-	var pf := 0
-	while main.portal_node == null and pf < 300:
-		pf += 1
-		main._check_level2_unlock(player.position, 0.1)
+	# Reef pearls and the reef rainbow portal retired with the 3D reef on
+	# 2026-09-23. Enter Sky Lagoon directly, as the start menu does.
+	main._enter_level2(false)
+	var lf := 0
+	while main.game != "level2" and lf < 300:
+		lf += 1
 		await process_frame
-	print("AUDIT|Level 2 portal: ", ("OK" if main.portal_node != null else "FAIL"))
-	main.pearl_count = 0
-	main._check_level2_unlock(player.position, 0.1)
-	print("AUDIT|Level 2 portal stays unlocked after spending: ", ("OK" if main.portal_unlocked and main.portal_node != null else "FAIL"))
-	if main.portal_node != null:
-		var portal_route_ok := true
-		if main.touch_uses_explicit_interactions():
-			# Hybrid uses the visible ENTER affordance; walking into its ring must
-			# remain safe and must never bypass the child's deliberate tap.
-			player.position = main.portal_node.position
-			player.position.x += 20.0
-			player.position.y += 6.0
-			player.position.z += 20.0
-			player.vel *= 0.0
-			main._check_level2_unlock(player.position, 0.1)
-			await process_frame
-			player.position = main.portal_node.position
-			player.vel *= 0.0
-			main._check_level2_unlock(player.position, 0.1)
-			await process_frame
-			var hybrid_proximity_safe: bool = main.game == ""
-			main._populate_touch_interactables()
-			var lagoon_route_registered := false
-			for item_value: Variant in main.touch_interactables:
-				var item: Dictionary = item_value as Dictionary
-				if String(item.get("id", "")) == "reef:lagoon" \
-						and bool(item.get("enabled", false)):
-					lagoon_route_registered = true
-					break
-			portal_route_ok = hybrid_proximity_safe \
-				and lagoon_route_registered
-			if portal_route_ok:
-				main._activate_touch_interactable("reef:lagoon")
-		else:
-			# Classic/no-touch keep the original leave-to-arm, return-to-enter
-			# proximity route.
-			var rf := 0
-			while main.game == "" and rf < 600:
-				rf += 1
-				if not main.portal_armed:
-					player.position = main.portal_node.position + Vector3(20, 6, 20)
-				else:
-					player.position = main.portal_node.position
-				player.vel = Vector3.ZERO
-				main._check_level2_unlock(player.position, 0.1)
-				await process_frame
-			portal_route_ok = main.game == "level2"
-		print("AUDIT|Level 2 courtyard: ",
-			("OK" if portal_route_ok and main.game == "level2" else "FAIL"))
+	if main.game == "level2":
+		print("AUDIT|Level 2 entry: OK")
 		var targets: Array = main.g.get("lagoon_promenade_targets", [])
 		var target_ids: Dictionary = {}
 		for target_value in targets:
@@ -459,7 +365,9 @@ func _init() -> void:
 	for i2 in range(60):
 		await process_frame
 	print("AUDIT|save file: ", ("OK" if FileAccess.file_exists("user://reef_save.json") else "MISSING"))
-	print("AUDIT|finale: ", ("OK" if main.finale_done else "DID NOT TRIGGER"))
+	# The five-trophy reef finale (its rainbow portal on the ocean floor) retired
+	# with the 3D reef on 2026-09-23; the saved "finale" key stays readable.
+	print("AUDIT|retired reef finale stays dormant: ", ("OK" if not main.finale_done else "FAIL"))
 	var f3 := FileAccess.open("user://reef_save.json", FileAccess.READ)
 	if f3 != null:
 		var d3: Variant = JSON.parse_string(f3.get_as_text())
@@ -492,33 +400,10 @@ func _audit_slide_canvas() -> void:
 		main._set_touch_mode(main.TOUCH_MODE_CLASSIC, false)
 		return
 
-	# Enter through the child's actual two-tap Hybrid friend route. Discovery
-	# may persist its one found flag; flush that before the neutral-leave
-	# fingerprint so the lifecycle check isolates the activity itself.
+	# The reef friend pillar and its two-tap Hybrid route retired with the 3D
+	# reef on 2026-09-23. Keep a real nondefault camera peek so the Canvas
+	# return must still restore the exact world state, then enter directly.
 	main._set_touch_mode(main.TOUCH_MODE_HYBRID, false)
-	var friend_node: Variant = friend.get("node")
-	player.position = friend_node.position
-	player.position.x += 3.0
-	player.vel *= 0.0
-	await _frames(10)
-	_slide_check("Hybrid proximity discovers Harper and Fiona without launching",
-		bool(friend.get("found", false)) and main.game == "")
-	main._populate_touch_interactables()
-	var target: Dictionary = _slide_touch_target("friend:%d" % friend_index)
-	_slide_check("Hybrid exposes the visible child-facing PLAY target",
-		not target.is_empty() and String(target.get("label", "")) \
-			== "Harper and Fiona" and String(target.get("verb", "")) == "PLAY")
-	var camera: Variant = player.cam
-	var friend_point := Vector2(-1.0, -1.0)
-	if camera != null:
-		friend_point = camera.unproject_position(friend_node.global_position)
-	_slide_push_touch(friend_point, true, SLIDE_TOUCH_INDEX)
-	_slide_push_touch(friend_point, false, SLIDE_TOUCH_INDEX)
-	await process_frame
-	_slide_check("first real Hybrid tap focuses PLAY without launching",
-		friend_point.x >= 0.0 and friend_point.y >= 0.0
-		and main.touch_focus_id == "friend:%d" % friend_index
-		and main.touch_focus_ready and main.game == "")
 	_slide_parse_mouse_button(Vector2(640.0, 360.0), MOUSE_BUTTON_RIGHT,
 		true, 58)
 	_slide_push_mouse_look(Vector2(-78.0, 44.0), 58)
@@ -526,8 +411,6 @@ func _audit_slide_canvas() -> void:
 	await process_frame
 	_slide_parse_mouse_button(Vector2(640.0, 360.0), MOUSE_BUTTON_RIGHT,
 		false, 58)
-	if camera != null:
-		friend_point = camera.unproject_position(friend_node.global_position)
 	var route_camera: Dictionary = _slide_camera_snapshot()
 	_slide_check("real nondefault camera peek is live before fish entry",
 		absf(float(route_camera.get("orbit", 0.0))) > 0.10
@@ -568,12 +451,11 @@ func _audit_slide_canvas() -> void:
 	# the Canvas entry is about to hide, after that input has been observed.
 	var route_living_before: Dictionary = _slide_living_world_snapshot()
 
-	_slide_push_touch(friend_point, true, SLIDE_TOUCH_INDEX + 1)
-	_slide_push_touch(friend_point, false, SLIDE_TOUCH_INDEX + 1)
+	main._start_game(friend)
 	var slide := main._game_obj("race", SlideRaceGame) as SlideRaceGame
 	var layer: CanvasLayer = slide.active_layer()
 	var layer_ref: WeakRef = weakref(layer)
-	_slide_check("second real Hybrid tap synchronously enters only fish Canvas",
+	_slide_check("direct launch synchronously enters only fish Canvas",
 		main.game == "slide" and String(main.g.get("mode", "")) == "fish"
 		and layer != null and slide.stage_root() != null
 		and player.position.is_equal_approx(route_position)
@@ -711,13 +593,11 @@ func _audit_slide_canvas() -> void:
 		_slide_consumed_entry_release_contract())
 	_slide_restore_chime_context(reef_chime_before)
 
-	# Classic's real linger route starts the same exact fish activity without a
-	# second-tap affordance. The first deliberate run collects all five.
+	# Re-enter the same exact fish activity directly (the reef linger route
+	# retired with the 3D reef). The first deliberate run collects all five.
 	await _slide_wait_return_guard_clear("Classic first-win reentry")
 	main._set_touch_mode(main.TOUCH_MODE_CLASSIC, false)
 	friend["cool"] = 0.0
-	player.position = friend_node.position
-	player.position.x += 3.0
 	player.vel *= 0.0
 	route_position = player.position
 	route_rotation = player.rotation
@@ -731,11 +611,12 @@ func _audit_slide_canvas() -> void:
 	var first_joy_unmapped_before: bool = main.joy_has_unmapped
 	_slide_check("gold-run unmapped pad fallback is live before exact fish entry",
 		_slide_seed_unmapped_pad(61, -0.84, JOY_BUTTON_DPAD_RIGHT))
+	main._start_game(friend)   # reef pillar route retired 2026-09-23
 	var classic_guard := 0
 	while main.game == "" and classic_guard < 180:
 		classic_guard += 1
 		await process_frame
-	_slide_check("Classic proximity enters the same exact fish Canvas route",
+	_slide_check("direct re-entry enters the same exact fish Canvas route",
 		main.game == "slide" and String(main.g.get("mode", "")) == "fish"
 		and slide.active_layer() != null
 		and not first_collection_visible and _slide_collection_suppressed())
@@ -809,8 +690,6 @@ func _audit_slide_canvas() -> void:
 	_slide_check("already-won replay enters from deliberately nondefault chime tuning",
 		_slide_chime_snapshot_matches(replay_entry_chime, -12.25, 0.61))
 	friend["cool"] = 0.0
-	player.position = friend_node.position
-	player.position.x += 3.0
 	player.vel *= 0.0
 	route_position = player.position
 	route_rotation = player.rotation
@@ -820,6 +699,7 @@ func _audit_slide_canvas() -> void:
 	route_camera = _slide_camera_snapshot()
 	var replay_generation: int = main.save_generation
 	var replay_trophies: int = main.trophies
+	main._start_game(friend)
 	classic_guard = 0
 	while main.game == "" and classic_guard < 180:
 		classic_guard += 1
@@ -866,8 +746,6 @@ func _audit_slide_canvas() -> void:
 	_slide_check("zero-fish replay also enters from nondefault chime tuning",
 		_slide_chime_snapshot_matches(zero_entry_chime, -10.75, 0.67))
 	friend["cool"] = 0.0
-	player.position = friend_node.position
-	player.position.x += 3.0
 	player.vel *= 0.0
 	route_position = player.position
 	route_rotation = player.rotation
@@ -878,6 +756,7 @@ func _audit_slide_canvas() -> void:
 	var zero_generation: int = main.save_generation
 	var zero_trophies: int = main.trophies
 	var zero_star: Variant = friend.get("star")
+	main._start_game(friend)
 	classic_guard = 0
 	while main.game == "" and classic_guard < 180:
 		classic_guard += 1

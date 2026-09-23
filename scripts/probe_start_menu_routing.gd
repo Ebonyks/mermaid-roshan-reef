@@ -80,8 +80,10 @@ func _probe_wiring() -> void:
 		and lagoon_source.contains('String(target.get("id", "")) == "castle_gate"')
 		and not director_source_for_castle_pointer().contains(
 			'pointer_target", "elevator"'))
-	_check("attic and level exits route through Day One gate",
-		main_source.contains("func _day_one_refuse_reef_exit()")
+	# The reef attic portal and its Day One refusal retired with the 3D reef on
+	# 2026-09-23; level exits still reorient through the Day One gate.
+	_check("level exits route through Day One gate; reef attic portal is gone",
+		not main_source.contains("dust_boss_portal_pos")
 		and main_source.contains("_day_one_reorient_after_exit_now")
 		and main_source.contains("if day_one_is_active():"))
 	_check("pause never advertises a Reef tile",

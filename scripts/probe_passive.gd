@@ -60,30 +60,11 @@ func _init() -> void:
 	for fi in range(5):
 		var f: Dictionary = main.friends[fi]
 		var fname := String(f["fname"])
-		var node: Node3D = f["node"]
-		# Proximity advertises in Hybrid but must never launch an activity.
-		player.position = node.position + Vector3(3, 0, 0)
-		player.vel = Vector3.ZERO
+		# The reef friend pillars retired on 2026-09-23, so there is no proximity
+		# or pillar-touch route left to test. Launch each friend game directly so
+		# its zero-input leg keeps guarding the dormant activity.
+		main._start_game(f)
 		await _frames(10)
-		if main.touch_uses_explicit_interactions():
-			if main.game != "":
-				print("PASSIVE|", fname, ": FAIL proximity auto-started in Hybrid")
-				bad += 1
-				main._clear_game()
-				await _frames(5)
-			else:
-				print("PASSIVE|", fname, ": OK proximity only advertises")
-		var guard := 0
-		while float(f["cool"]) > 0.0 and guard < 3000:
-			guard += 1
-			await process_frame
-		for k in range(10):
-			player.position = node.position + Vector3(3, 0, 0)
-			player.vel = Vector3.ZERO
-			await process_frame
-		if main.game == "" and main.touch_uses_explicit_interactions():
-			main._activate_touch_interactable("friend:%d" % fi, fi)
-			await _frames(10)
 		if main.game == "":
 			print("PASSIVE|", fname, ": FAIL (game did not start)")
 			bad += 1
@@ -373,13 +354,14 @@ func _probe_penguin_agency() -> int:
 	# the refreshed full cooldown is 3s now ("again!" polish) via _end_game;
 	# the pause-menu leave path still sets 14 — assert "refreshed", not "long"
 	var leave_ok: bool = main.game == "" and float(main.slide_cool) > 2.0
-	# A normal, deliberately-steered finish must also refresh the portal cooldown.
+	# A normal, deliberately-steered finish must exit cleanly. (The reef slide
+	# portal and its re-entry cooldown retired with the 3D reef on 2026-09-23.)
 	main.slide_cool = 0.0
 	main._start_game(main.slide_fr)
 	main.g["steered"] = true
 	main.g["s"] = float(main.g["total"])
 	await _frames(2)
-	var finish_ok: bool = main.game == "" and float(main.slide_cool) > 2.0   # 3.0 fresh minus two frames of decay
+	var finish_ok: bool = main.game == ""
 	var ok: bool = passive_ok and leave_ok and finish_ok
 	print("PASSIVE|Penguin Slide agency: ", ("OK passive restarts; exits are neutral" if ok else "FAIL passive=%s leave=%s finish=%s" % [passive_ok, leave_ok, finish_ok]))
 	return 0 if ok else 1

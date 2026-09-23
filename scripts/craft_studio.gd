@@ -276,8 +276,9 @@ func _craft_done() -> void:
 	var message: String
 	if fishy:
 		m.custom_fish.append([m.craft_body.r, m.craft_body.g, m.craft_body.b, m.craft_fins.r, m.craft_fins.g, m.craft_fins.b, 1 if m.craft_body_rb else 0, 1 if m.craft_fins_rb else 0])
-		m._spawn_crafted_fish()
-		message = "Swim away, little fish! Find me in the ocean!"
+		# Crafted fish stay saved in custom_fish; the retired 3D reef no longer
+		# spawns them, so the banner promises no ocean visit.
+		message = "Swim away, little fish!"
 	else:
 		var third_color: Color = m.craft_c3
 		if third_color.a <= 0.0 and m.CRAFT_RIGGED.has(m.craft_kind):

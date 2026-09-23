@@ -364,22 +364,9 @@ func _init() -> void:
 		print("RANK|fetch friend: MISSING")
 		bad += 1
 	else:
-		var node: Node3D = fetch_f["node"]
-		player.position = node.position + Vector3(3, 0, 0)
-		player.vel = Vector3.ZERO
+		# The reef friend pillar retired with the 3D reef on 2026-09-23.
+		main._start_game(fetch_f)
 		await _frames(10)
-		var guard := 0
-		while float(fetch_f["cool"]) > 0.0 and guard < 3000:
-			guard += 1
-			await process_frame
-		for k in range(10):
-			player.position = node.position + Vector3(3, 0, 0)
-			player.vel = Vector3.ZERO
-			await process_frame
-		if main.game == "" and main.touch_uses_explicit_interactions():
-			var fetch_index: int = main.friends.find(fetch_f)
-			main._activate_touch_interactable("friend:%d" % fetch_index, fetch_index)
-			await _frames(10)
 		if main.game != "fetch":
 			print("RANK|fetch: GAME DID NOT START")
 			bad += 1

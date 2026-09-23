@@ -97,9 +97,8 @@ func _init() -> void:
 	else:
 		print("FEEL|zero_input_reward=none")
 	await process_frame
-	# Launch from the actual gate position. Quitting must leave Roshan there but
-	# disarm the gate until she has deliberately moved away and returned.
-	main.player.position = main.kart_portal_pos
+	# Launch the race directly (the reef Ocean Race gate retired with the 3D
+	# reef on 2026-09-23). Quitting must restore the world and bank pearls.
 	main._start_kart_game(false, "terrain")
 	await process_frame
 	var pearls_before_quit: int = int(main.pearl_count)
@@ -120,36 +119,6 @@ func _init() -> void:
 	if quit_delta != 3 or saved_quit_delta != 3 or saved_after_quit != int(main.pearl_count):
 		print("FAIL|X quit did not durably bank exactly 3 collected pearls"); ok = false
 
-	# Expire the timer while Roshan remains inside. The gate must stay shut;
-	# moving beyond its hysteresis radius rearms it, but point-to-interact still
-	# requires a deliberate tap when she returns.
-	main.kart_cool = 0.0
-	main.player.position = main.kart_portal_pos
-	main._process(0.1)
-	var stayed_out: bool = main.game != "kart"
-	var reentered: bool = false
-	var rearmed := false
-	var waits_for_tap := false
-	var explicit_interactions: bool = main.touch_uses_explicit_interactions()
-	if stayed_out:
-		main.player.position = main.kart_portal_pos + Vector3(30.0, 0.0, 0.0)
-		main._process(0.1)
-		rearmed = main.kart_ocean_portal_armed
-		main.player.position = main.kart_portal_pos
-		main._process(0.1)
-		waits_for_tap = main.game != "kart"
-		if waits_for_tap and (explicit_interactions or rearmed):
-			if explicit_interactions:
-				main._activate_touch_interactable("reef:kart")
-			else:
-				main._start_kart_game(false, "terrain")
-		reentered = main.game == "kart"
-	print("FEEL|portal_latch=blocked_inside:%s rearmed:%s waits_for_tap:%s explicit:%s deliberate_reenter:%s" % [
-		stayed_out, rearmed, waits_for_tap, explicit_interactions, reentered])
-	if not stayed_out:
-		print("FAIL|kart portal relaunched without Roshan leaving the gate"); ok = false
-	if stayed_out and not reentered:
-		print("FAIL|kart portal did not allow deliberate re-entry"); ok = false
 	if main.game == "kart" and main.kart_game != null:
 		main.kart_game._quit_race()
 		await process_frame

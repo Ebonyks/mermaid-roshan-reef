@@ -51,7 +51,6 @@ const COLOR_SLOTS := ["body", "accent", "third"]
 const SLOT_ICON := ["🎨", "✨", "🤍"]
 
 const GIFT_RADIUS := 6.5
-const DEN_RADIUS := 9.0
 const CARE_RADIUS := 6.5          # how close Roshan must be to tend a want
 
 # TAMAGOTCHI CARE (owner 2026-07-20: replaces the sparkle-fish collectible
@@ -218,7 +217,8 @@ func tick(delta: float) -> void:
 			m._sparkle_burst(m.companion_node.position + Vector3(0, 1.5, 0), Color(1.0, 0.8, 0.6))
 	_tick_follower(delta)
 	_tick_care(delta)
-	_tick_den(delta)
+	# The sparring den (a 3D ring on the reef seabed) retired with the 3D reef on
+	# 2026-09-23; the stuffie battle itself is unchanged.
 
 # ---------- the inset HUD launcher + Tamagotchi care sheet ----------
 
@@ -1271,18 +1271,6 @@ func _tick_follower(delta: float) -> void:
 		m.companion_cool = 14.0
 		m.companion_cheer_t = 1.4
 		m._greet_heart(m.companion_node.position + Vector3(0, 2.4, 0))
-	m.companion_guide_cool -= delta
-	if m.companion_guide_cool <= 0.0 and not m.companion_p2:
-		m.companion_guide_cool = 22.0
-		var target := _nearest_unfound_friend()
-		if target != Vector3.ZERO and target.distance_to(m.player.position) < 120.0:
-			var dir: Vector3 = (target - m.companion_node.position).normalized()
-			var dash_to: Vector3 = m.companion_node.position + dir * 9.0
-			var tw: Tween = m.companion_node.create_tween()
-			tw.tween_property(m.companion_node, "position", dash_to, 0.9).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-			m._sparkle_burst(dash_to, Color(1.0, 0.94, 0.4))
-			var d := active_def()
-			m.show_msg(String(d["name"]), "This way! I can feel a friend sparkling over here!", "talk")
 
 func _drive_gait(node: Node3D, dist: float) -> void:
 	# rigged craft creatures carry their AnimationPlayer in meta "ap"
@@ -1300,21 +1288,6 @@ func _drive_gait(node: Node3D, dist: float) -> void:
 		clip = "walk"
 	if ap.has_animation(clip) and ap.current_animation != clip:
 		ap.play(clip, 0.25)
-
-func _nearest_unfound_friend() -> Vector3:
-	var best := Vector3.ZERO
-	var best_d := INF
-	for f in m.friends:
-		if bool(f["found"]):
-			continue
-		var node: Sprite3D = f["node"]
-		if not is_instance_valid(node):
-			continue
-		var dd: float = node.position.distance_to(m.player.position)
-		if dd < best_d:
-			best_d = dd
-			best = node.position
-	return best
 
 # ---------- Tamagotchi care (the leveling system) ----------
 
@@ -1534,92 +1507,3 @@ func _star_pips() -> String:
 	for i in range(mini(stage(), 8)):
 		stars += "⭐"
 	return stars
-
-# ---------- the sparring den (battle entrance) ----------
-
-func _tick_den(delta: float) -> void:
-	if m.game != "":
-		return
-	if m.companion_den == null or not is_instance_valid(m.companion_den):
-		_build_den()
-	if m.companion_den == null:
-		return
-	var t: float = Time.get_ticks_msec() / 1000.0
-	var pointer_node: Label3D = m.companion_den.get_meta("pointer")
-	if is_instance_valid(pointer_node):
-		pointer_node.position.y = 11.0 + sin(t * 4.0) * 0.6
-	m.stuffie_cool = maxf(0.0, m.stuffie_cool - delta)
-	# Hybrid contract: proximity may advertise, it never starts a game. The
-	# den is a registered tap target there ("reef:den"); walking into the ring
-	# only auto-starts the battle on the Classic path.
-	if m.touch_uses_explicit_interactions():
-		return
-	if m.stuffie_cool <= 0.0 and m.companion_den.position.distance_to(m.player.position) < DEN_RADIUS:
-		m.stuffie_cool = 14.0
-		m._start_stuffie_battle()
-
-func _build_den() -> void:
-	# The den keeps its historical spot (the old wreck at heading 2.4 / r150
-	# plus the 34,20 offset). The 3D wreck itself was deleted 2026-07-28, so
-	# this no longer derives from m.wreck_pos (which now stays ZERO).
-	var x: float = cos(2.4) * 150.0 + 34.0
-	var z: float = sin(2.4) * 150.0 + 20.0
-	var root := Node3D.new()
-	root.position = Vector3(x, ReefMain.seabed_y(x, z) + 1.0, z)
-	m.add_child(root)
-	m.companion_den = root
-	# pastel star-post ring — the "toy tournament" mat
-	for i in range(6):
-		var a: float = float(i) * TAU / 6.0
-		var post := MeshInstance3D.new()
-		var cm := CylinderMesh.new()
-		cm.top_radius = 0.45
-		cm.bottom_radius = 0.6
-		cm.height = 4.0
-		cm.radial_segments = 10
-		post.mesh = cm
-		post.position = Vector3(cos(a) * 7.5, 2.0, sin(a) * 7.5)
-		var pm := StandardMaterial3D.new()
-		pm.albedo_color = Color.from_hsv(float(i) / 6.0, 0.35, 1.0)
-		pm.emission_enabled = true
-		pm.emission = pm.albedo_color
-		pm.emission_energy_multiplier = 0.3
-		post.material_override = pm
-		root.add_child(post)
-		var star := Label3D.new()
-		star.text = "⭐"
-		star.font_size = 110
-		star.pixel_size = 0.02
-		star.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		star.position = post.position + Vector3(0, 3.0, 0)
-		root.add_child(star)
-	var mat_disc := MeshInstance3D.new()
-	var dm := CylinderMesh.new()
-	dm.top_radius = 8.0
-	dm.bottom_radius = 8.0
-	dm.height = 0.4
-	dm.radial_segments = 24
-	mat_disc.mesh = dm
-	mat_disc.position = Vector3(0, 0.2, 0)
-	var dmat := StandardMaterial3D.new()
-	dmat.albedo_color = Color(0.75, 0.62, 0.92)
-	mat_disc.material_override = dmat
-	root.add_child(mat_disc)
-	var pointer := Label3D.new()
-	pointer.text = "▼"
-	pointer.font_size = 150
-	pointer.pixel_size = 0.022
-	pointer.outline_size = 24
-	pointer.modulate = Color(1.0, 0.94, 0.25)
-	pointer.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	pointer.no_depth_test = true
-	pointer.position = Vector3(0, 11.0, 0)
-	root.add_child(pointer)
-	root.set_meta("pointer", pointer)
-	if not m.companion_den_said:
-		m.companion_den_said = true
-		var d: Dictionary = active_def()
-		if not d.is_empty():
-			m.show_msg(String(d.get("name", "Stuffie Friend")),
-				"Look, a sparkle ring! Let's play-battle with the mischief imps!",
-				"talk")

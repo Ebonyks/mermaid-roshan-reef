@@ -150,6 +150,11 @@ dict — no schema change) — is automatic.
 
 ## Battles — the sparring den
 
+Current status (2026-09-23): the reef star-post ring retired with the 3D reef
+world, so no den is built and authored play has no battle entrance until the
+battle is re-homed on the Canvas; `_start_stuffie_battle()` still starts the
+unchanged battle below. Historical entrance:
+
 A pastel star-post ring near the shipwreck (built once the companion exists;
 pointer + voice line). Swimming in starts `StuffieBattle`:
 
@@ -235,7 +240,7 @@ hearts and a giggle, never wrong, no point ("what I REALLY want is 🍎!").
 ## Probe coverage (`probe_stuffie.gd`, in ci.sh + probes.yml)
 
 Fresh save exposes nothing → picker applies choice/colours → follower +
-tokens + den appear → battle cannot be won passively → missed dodge bumps
+tokens appear (the retired reef den is never built) → battle cannot be won passively → missed dodge bumps
 without failing → pressed dodge counts → bops befriend and win the round →
 ladder progress + pearls persist → all four save keys roundtrip through the
 recovery reader.
