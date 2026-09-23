@@ -1,0 +1,42 @@
+{
+  "id": "day-one-rebuild-handoff-20260923",
+  "scope": "Owner request 2026-09-23 (\"analyze day one as a whole ... identify art assets that need regeneration, and other weaknesses ... the gameplay of the grand puff battle ... We are designing a handoff for codex to rebuild\"): publish a DRAFT Codex handoff, CODEX_DAY_ONE_REBUILD_HANDOFF_2026-09-23.md, covering every Day One part with focal goals and playtest feedback questions, a handoff-local findings register (D1R-01 to D1R-23), measured Grand Puff persona runs, a pacing/timing/fun analysis and redesign with a help ladder, an art regeneration/repair/restage queue, a voice/pointer/touch contract, a target Day One mode architecture and work packages WP-R0 to WP-R8 gated on owner decisions OD-1 to OD-9. Documentation only: no runtime, asset, save or workflow change. It re-baselines but does not supersede the 2026-09-02 handoff, and grants no generation, recording, lifecycle or implementation authority until the owner answers its decisions.",
+  "baseline": "75b6358d41a5df3866472b185410bea1b7f32060",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-05",
+    "DL-SAVE-04",
+    "DL-CODE-01",
+    "DL-QA-02"
+  ],
+  "findings": [],
+  "no_findings_reason": "Documentation-only proposal. It cites MA-PLAY-001, MA-CHILD-001, MA-AUDIO-001, MA-TYPE-004, MA-CI-005, MA-SAVE-001 and MA-CODE-001 as context but changes no finding's facts, lifecycle, evidence or relationships; its D1R items are handoff-local and are not indexed as canonical findings. The one reproduced defect it names (the Day One Continue soft-lock) is repaired and recorded separately in day-one-continue-softlock-20260923.json.",
+  "files": [
+    "CODEX_DAY_ONE_REBUILD_HANDOFF_2026-09-23.md",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "Claim verification for the handoff: exact Godot 4.7.2 runs of scripts/probe_dust_boss_balance.gd (standard and --controls) and two slower-persona variants at dev 7cb2c399; PIL measurements of the named assets; direct re-reading of the cited code paths",
+      "result": "PASS",
+      "evidence": "Persona table in Appendix A comes from those runs (for example attentive 31.41 s, slow_dodger_3_5 and slow_dodger_4_0 capped at 300 s with 58 bumps, very_slow_tapper capped with 21 misses). Measured: assets/mg/bird_line.png is 8x8 with alpha max 0; room_bubble_bath_dirty_day_one.png and the drained variant are 1024x576; playroom_shelf_sailboat_rest.png is 49x45; dusty_attic_arena_2048.png is a Lanczos upscale of a 1254 px source per ASSET_LICENSES.md; fx_soap_bubbles.png shows baked blotchy rims when composited (it is byte-identical to dust_bunny_clean_bubbles.png). Logs are local and git-ignored under .worktrees/claude-reef-20260923/tmp/claude-reef-20260923/balance_*.log."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "DOCAUTH|INVENTORY=572|LEDGER=572|ACTIVE=56|RECORDS=58 and DOCAUTH|RESULT|ALL OK (the new handoff has exactly one 🟣 ledger row); AUDITDEV|BASE|7cb2c3999dbbca5ad6306eda40763ba9ffc17df1 and AUDITDEV|RESULT|ALL OK; both unittest modules OK with DOCAUTH|STRESS|6/6; tools/audit_imagine_handoff.py --all IMAGINE|RESULT|ALL OK. Rerun after any rebase."
+    },
+    {
+      "command": "GitHub publication: push the branch, then fetch the handoff from raw.githubusercontent.com at the exact commit without authentication and compare SHA-256 with the committed file",
+      "result": "PENDING",
+      "evidence": "Required by the CLAUDE.md external-handoff rule before the handoff is reported as delivered; the receipt is reported to the owner with the commit link."
+    }
+  ],
+  "acceptance_gaps": "This is a draft for owner review: none of OD-1 to OD-9 is answered, and no child, device or owner acceptance of any recommendation is claimed. Estimated timings and redesign outcomes are hypotheses to be measured by the work packages."
+}
