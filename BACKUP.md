@@ -70,12 +70,15 @@ adb shell rm /data/local/tmp/reef_save.json
 Do this with the game closed; the next launch loads it (and the in-game
 recovery logic in `save_state.gd` re-validates it before trusting it).
 
-If a child started a New Game by mistake, keep the game closed and use the
-grown-up restore gesture (hold OPTIONS for three seconds). The game validates
-`reef_save.json.before_new_game` and installs it transactionally; the fresh
-save remains in `.bak` if the restore is interrupted. `backup.sh` also copies
-the archive when a phone is connected, so it can be retained with the regular
-save snapshot.
+If a child started a New Game by mistake, the previous adventure is kept on
+the phone as `reef_save.json.before_new_game`. There is deliberately no
+in-game restore gesture (a held OPTIONS press used to restore it silently and
+was removed on 2026-09-23), so restore it from a computer: keep the game closed,
+pull the archive with `adb exec-out run-as com.ebonyks.roshanreef cat
+files/reef_save.json.before_new_game > before_new_game.json`, then install it
+with the three commands above, using `before_new_game.json` as the file you
+push. The next launch re-validates it before trusting it. `backup.sh` also copies the archive when a phone is
+connected, so it can be retained with the regular save snapshot.
 
 ## Limits worth knowing
 
