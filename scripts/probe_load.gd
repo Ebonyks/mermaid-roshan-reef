@@ -123,9 +123,13 @@ func _init() -> void:
 	var second_opera_ok: bool = _opera_mask_ok(relaunched, "second launch")
 	var second_fairy_route_ok: bool = _fairy_route_ok(
 		relaunched, "second launch")
+	relaunched.queue_free()
+	for _frame: int in range(3):
+		await process_frame
+	var day_one_continue_ok: bool = await _day_one_continue_ok()
 	quit(0 if debounce_contract_ok and first_companion_ok and first_opera_ok and saved_healed \
 		and first_fairy_route_ok and second_companion_ok \
-		and second_opera_ok and second_fairy_route_ok else 1)
+		and second_opera_ok and second_fairy_route_ok and day_one_continue_ok else 1)
 
 
 func _fairy_route_ok(main: ReefMain, label: String) -> bool:
@@ -187,3 +191,99 @@ func _legacy_companion_ok(main: ReefMain, label: String) -> bool:
 			" pending=", pending_care,
 			" follower=", main.companion_node)
 	return ok
+
+
+# Continue on a Day One save made after the castle was discovered must land in
+# a live room: the Canvas world owns it (game "level2"), the room is built once
+# instead of every frame, and the room's activity mounts. A Day One castle that
+# loses its world ID must also recover once instead of looping. Uses its own
+# save file so the fixtures above stay untouched.
+const DAY_ONE_CONTINUE_SAVE := "user://probe_load_day_one_continue.json"
+const DAY_ONE_CONTINUE_SUFFIXES := ["", ".tmp0", ".tmp1", ".tmp", ".old", ".bak",
+	".bak.tmp", ".bak.old", ".before_new_game"]
+
+
+func _day_one_continue_ok() -> bool:
+	_remove_day_one_continue_save()
+	var ps: PackedScene = load("res://scenes/main.tscn")
+	var setup := ps.instantiate() as ReefMain
+	setup._save_state = SaveState.new(setup, DAY_ONE_CONTINUE_SAVE)
+	root.add_child(setup)
+	for _frame: int in range(3):
+		await process_frame
+	if setup.intro_active:
+		setup._skip_intro()
+	await process_frame
+	var setup_director: DayOneDirector = setup._day_one_ref()
+	setup_director.day_one_active = true
+	setup_director.discover_dirty_castle()
+	var saved: bool = setup._write_save()
+	setup.queue_free()
+	for _frame: int in range(3):
+		await process_frame
+	var main := ps.instantiate() as ReefMain
+	main._save_state = SaveState.new(main, DAY_ONE_CONTINUE_SAVE)
+	root.add_child(main)
+	for _frame: int in range(3):
+		await process_frame
+	if main.intro_active:
+		main._skip_intro()
+	await process_frame
+	var restored: bool = main.has_saved_game and main.day_one_is_active() \
+		and main._day_one_ref().dirty_castle_discovered
+	# The real Continue button path, with per-frame processing live.
+	main._start_menu_ref()._continue_game()
+	var castle: CastleRooms25D = main._castle_rooms_ref()
+	await process_frame
+	var visits_before: int = castle._day_one_voice_visit_counter
+	var world_frames: int = 0
+	var activity_frames: int = 0
+	for _frame: int in range(60):
+		await process_frame
+		if main.game == "level2":
+			world_frames += 1
+		if main._day_one_bathroom_cleanup != null:
+			activity_frames += 1
+	var rebuilds: int = castle._day_one_voice_visit_counter - visits_before
+	var continue_ok: bool = saved and restored and world_frames == 60 \
+		and main.castle_room_id == "bubble_bath" and rebuilds == 0 \
+		and activity_frames == 60
+	if continue_ok:
+		print("Day One Continue lands in a live bathroom (60/60 world frames, no rebuilds)")
+	else:
+		print("FAIL: Day One Continue soft-lock saved=", saved, " restored=", restored,
+			" world_frames=", world_frames, " room=", main.castle_room_id,
+			" rebuilds=", rebuilds, " activity_frames=", activity_frames)
+	# A lost world ID during Day One must converge within a few frames.
+	main.game = ""
+	for _frame: int in range(3):
+		await process_frame
+	var recovered: bool = main.game == "level2" \
+		and main.castle_room_id == "bubble_bath"
+	visits_before = castle._day_one_voice_visit_counter
+	activity_frames = 0
+	for _frame: int in range(30):
+		await process_frame
+		if main._day_one_bathroom_cleanup != null:
+			activity_frames += 1
+	rebuilds = castle._day_one_voice_visit_counter - visits_before
+	var converge_ok: bool = recovered and rebuilds == 0 and activity_frames == 30
+	if converge_ok:
+		print("Day One empty-world watchdog converges once (no per-frame rebuild)")
+	else:
+		print("FAIL: Day One watchdog did not converge recovered=", recovered,
+			" game=", main.game, " rebuilds=", rebuilds,
+			" activity_frames=", activity_frames)
+	main.queue_free()
+	for _frame: int in range(3):
+		await process_frame
+	_remove_day_one_continue_save()
+	return continue_ok and converge_ok
+
+
+func _remove_day_one_continue_save() -> void:
+	for suffix: String in DAY_ONE_CONTINUE_SUFFIXES:
+		var path: String = ProjectSettings.globalize_path(
+			DAY_ONE_CONTINUE_SAVE + suffix)
+		if FileAccess.file_exists(path):
+			DirAccess.remove_absolute(path)

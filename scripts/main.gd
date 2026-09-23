@@ -3413,6 +3413,10 @@ func _launch_from_start_menu(start_day_one: bool) -> void:
 	if START_AT_CASTLE_GATE:
 		var director: DayOneDirector = _day_one_ref()
 		if start_day_one and director.dirty_castle_discovered:
+			# Establish the Canvas world first (game = "level2"), exactly as the
+			# boss return does. Without it the empty-world watchdog re-resumed the
+			# room every frame and the room's activity never mounted.
+			_enter_level2_now(true)
 			_enter_castle_interior_now()
 			var resume_room: String = day_one_castle_room_for_current()
 			if _castle_rooms_ref().is_open():
@@ -8260,6 +8264,14 @@ func _day_one_reorient_after_exit_now() -> void:
 	if not day_one_is_active():
 		return
 	var resume_room: String = day_one_castle_room_for_current()
+	if game == "":
+		# No world owns the castle, so resuming the room alone would leave the
+		# watchdog firing every frame. Rebuild the Canvas world once instead.
+		_enter_level2_now(true)
+		_enter_castle_interior_now()
+		if _castle_rooms_ref().is_open():
+			_castle_rooms_ref().show_room(resume_room, false)
+		return
 	if _castle_rooms_ref().is_open():
 		_castle_rooms_ref().resume(resume_room)
 	else:

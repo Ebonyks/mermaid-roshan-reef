@@ -1,0 +1,66 @@
+{
+  "id": "day-one-continue-softlock-20260923",
+  "scope": "Repair found and reproduced during the owner-requested 2026-09-23 Day One review: Continue on a Day One save made after the first castle entry opened the castle without establishing the Canvas world, so the world ID stayed empty. The empty-world watchdog then resumed the Day One room every frame (rebuilding its hotspots, layers and cover each time) and the castle tick that mounts the room activity never ran, leaving the child in a dark, rebuilding room with no basket. The repair makes Continue establish the Canvas world first, exactly as the boss return already does, and makes the watchdog's Day One reorientation rebuild the world once when the world ID is empty instead of looping. The dev-only defect reached dev with 940e4f0e and 7f49f14e; master ff68f955 predates both. No save key, protected asset, voice line or other routing changes; the hall entry line that still plays when Continue lands in a later room is left for the Day One rebuild.",
+  "baseline": "590ea3bd05ed6bcc004979fbc0ab9a165ee1f76d",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-06",
+    "DL-SAVE-04",
+    "DL-CODE-07",
+    "DL-QA-02"
+  ],
+  "findings": [
+    "MA-PLAY-001"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "scripts/main.gd",
+    "scripts/probe_load.gd"
+  ],
+  "validation": [
+    {
+      "command": "Runtime reproduction at dev 7cb2c399: exact Godot 4.7.2 headless -s tmp/claude-reef-20260923/repro_day_one_continue.gd -- --mode=continue (isolated save; write a Day One save after discover_dirty_castle, relaunch, real StartMenu _continue_game, 60 live frames)",
+      "result": "FAIL",
+      "evidence": "REPRO|mode=continue: world ID empty for 60 of 60 frames, 60 room rebuilds in 60 frames, bathroom activity mounted in 0 frames. Log .worktrees/claude-reef-20260923/tmp/claude-reef-20260923/repro_continue.log SHA-256 f9723b5f81fc6e5e6c8695e3bcf72d0ae85b7039bfee81c67e30f3e26435603f; script SHA-256 f61aeeadf9e41ec7b0ed6ee257cc21c8bbc96e00c55fc7c0d0ca7450aa5b9688 (local, git-ignored)."
+    },
+    {
+      "command": "Same reproduction with the candidate sequence (--mode=fix: prepare launch, _enter_level2_now(true), _enter_castle_interior_now, show_room)",
+      "result": "PASS",
+      "evidence": "REPRO|mode=fix: world ID level2 for 60 of 60 frames, 0 rebuilds, bathroom activity mounted in 60 of 60 frames. Log repro_fix.log SHA-256 f15f0652806da19941dda2e6c944fea7ce0459189bd5196142bea358767971ad."
+    },
+    {
+      "command": "Negative control: updated scripts/probe_load.gd run through the ci.sh-equivalent isolated runner with exact Godot 4.7.2 against the unrepaired scripts/main.gd",
+      "result": "PASS",
+      "evidence": "The new checks fail as intended: 'FAIL: Day One Continue soft-lock saved=true restored=true world_frames=0 room=bubble_bath rebuilds=60 activity_frames=0' and 'FAIL: Day One watchdog did not converge recovered=false game= rebuilds=30 activity_frames=0'. Log .worktrees/claude-reef-removal-20260923/tmp/claude-reef-removal/hotfix_negative/probe_load.log SHA-256 edbcf6b0c05f161a69ee2d8a7ce491cedfbf52990b81b7734c590d71018a1c16."
+    },
+    {
+      "command": "scripts/probe_load.gd with the repair (same runner, isolated user data, --touch --classic-touch-test)",
+      "result": "PASS",
+      "evidence": "'Day One Continue lands in a live bathroom (60/60 world frames, no rebuilds)' and 'Day One empty-world watchdog converges once (no per-frame rebuild)'; every earlier probe_load leg unchanged; exit 0. Log hotfix_fix/probe_load.log SHA-256 d1b64a9cf36f331c655da3d789f62d551d78bca1fff25754445d3daa5c3ed1c8."
+    },
+    {
+      "command": "python -m gdtoolkit.parser and python tools/lint_inference.py on scripts/main.gd and scripts/probe_load.gd; exact Godot 4.7.2 --check-only on both",
+      "result": "PASS",
+      "evidence": "PARSE_OK, LINT_OK and check-only exit 0."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "DOCAUTH|RESULT|ALL OK and AUDITDEV|RESULT|ALL OK (base 7cb2c3999dbbca5ad6306eda40763ba9ffc17df1) inside the full scripts/ci.sh run below, and again after rebasing onto the reef-removal head 590ea3bd."
+    },
+    {
+      "command": "GODOT=<exact Godot 4.7.2 console> scripts/ci.sh (static gates, fresh import, all trusted probes)",
+      "result": "PASS",
+      "evidence": "Exact Godot 4.7.2.stable.official.ed1daf0bf: scripts/ci.sh exits 0 after 2,160 s at c5bef274 (this repair on top of the merged reef-removal candidate dddb20ac), with every static gate, the fresh import, GAME2D NO_REGRESSION, PROBE_PARITY ALL OK and all 75 trusted probes exiting 0, including the two new probe_load Day One lines. Rebasing onto 590ea3bd changes only design/audit_impacts/remove-3d-reef-20260923.json, so every probe input is byte-identical. Log .worktrees/claude-day-one-continue-20260923/tmp/claude-day-one-continue/ci-hotfix.log SHA-256 c5f4373ba016bb2148b994bc44ddb24efa1a63416c77b5e30accca68f273e662 (local, git-ignored)."
+    },
+    {
+      "command": "Exact-commit remote Probe Suite on claude/day-one-continue-fix-20260923",
+      "result": "PENDING",
+      "evidence": "Required after pushing this candidate and before integration into dev."
+    }
+  ],
+  "acceptance_gaps": "No device, child or owner confirmation of Continue on a real Day One save is claimed. Only the bathroom resume and one forced empty-world recovery are machine-covered; the pool, playroom, art room, boss-door and adoption resume states, lifecycle focus/Back behaviour and the hall line that plays when Continue lands in a later room remain open for the Day One rebuild (MA-PLAY-001 stays CONFIRMED_OPEN)."
+}

@@ -66,6 +66,8 @@ Scoped 2026-09-09 retired-Reef route repair: [impact and evidence](../design/aud
 
 Scoped 2026-09-23 3D reef removal: [impact and evidence](../design/audit_impacts/remove-3d-reef-20260923.json). The unreachable reef world no longer builds at boot or ticks per frame; `MA-2D-002` and `MA-CODE-001` remain open, and this is not whole-game archival, performance or device acceptance.
 
+Scoped 2026-09-23 Day One Continue soft-lock repair: [impact and evidence](../design/audit_impacts/day-one-continue-softlock-20260923.json). Continue now establishes the Canvas world before reopening a discovered castle; `MA-PLAY-001` remains open and no device acceptance is claimed.
+
 Scoped Day One toilet cleaning addition: [implementation and evidence](../design/audit_impacts/2026-09-09-day-one-toilet-clean.json). Adds a third intentional bathroom scrub with saved completion and local brush contact; device/child/owner acceptance and game-wide `MA-PLAY-004` remain open.
 
 Scoped Day One usability repairs (2026-09-12): [impact and evidence](../design/audit_impacts/day-one-usability-fixes-20260912.json) covers single-touch Back ownership, persistent truthful door highlights, art pointer/target separation, and automatic toilet approach before intentional scrubbing. These bounded repairs do not close game-wide route, embodied-job, touch-device, or child acceptance findings.
