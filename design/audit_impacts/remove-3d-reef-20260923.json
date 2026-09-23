@@ -104,13 +104,13 @@
     },
     {
       "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
-      "result": "PENDING",
-      "evidence": "Run after this record is written and before commit."
+      "result": "PASS",
+      "evidence": "At the merged candidate dddb20ac5819c7557b574c60e2eb610adaca8bdc (this change merged with dev 7cb2c399): DOCAUTH|INVENTORY=571|LEDGER=571 and DOCAUTH|RESULT|ALL OK; AUDITDEV|BASE|7cb2c3999dbbca5ad6306eda40763ba9ffc17df1 and AUDITDEV|RESULT|ALL OK; both unittest modules OK (52 tests) with DOCAUTH|STRESS|6/6."
     },
     {
       "command": "GODOT=<exact Godot 4.7.2 console> scripts/ci.sh (static gates, fresh import, all trusted probes)",
-      "result": "PENDING",
-      "evidence": "Full local gate required before commit."
+      "result": "PASS",
+      "evidence": "Exact Godot 4.7.2.stable.official.ed1daf0bf (C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe): scripts/ci.sh exits 0 after 2,298 s at the merged candidate dddb20ac5819c7557b574c60e2eb610adaca8bdc, with every static gate, the fresh import, GAME2D NO_REGRESSION (still UNSATISFIED), PROBE_PARITY ALL OK and all 75 trusted probes exiting 0 with no failure or runtime-error markers. Two earlier attempts at 441e6937 stopped in static gates (the typography ratchet and the audio ledger rows recorded above) before any probe ran. Log .worktrees/claude-reef-removal-20260923/tmp/claude-reef-removal/ci-merged.log SHA-256 5197ba1c75970542455fb02bc0399d68426080827ae8531b04a39329bc585c93 (local, git-ignored)."
     },
     {
       "command": "Exact-commit remote Probe Suite on claude/remove-3d-reef-20260923",
