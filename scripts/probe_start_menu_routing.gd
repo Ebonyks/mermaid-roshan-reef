@@ -31,9 +31,13 @@ func _init() -> void:
 		menu_source_for_hold().contains('"gold" if m.has_saved_game else "primary"')
 		and menu_source_for_hold().contains(
 			'"secondary" if m.has_saved_game else "gold"'))
-	_check("grown-up restore uses the three-second Options hold",
-		menu_source_for_hold().contains("ARCHIVE_RESTORE_HOLD_SECONDS := 3.0")
-		and menu_source_for_hold().contains("_restore_new_game_archive()"))
+	# A held Options press once replaced the live save with the New Game
+	# archive after three seconds, with no confirmation. The menu must never
+	# reach a save restore; adults restore the archive off-device (BACKUP.md).
+	_check("Options has no hidden hold that restores an archived save",
+		not menu_source_for_hold().contains("restore_new_game_archive")
+		and not menu_source_for_hold().contains("ARCHIVE_RESTORE")
+		and not menu_source_for_hold().contains("_options_button.button_down"))
 	_probe_day_one_resume_contract(main)
 	_probe_wiring()
 	main.free()

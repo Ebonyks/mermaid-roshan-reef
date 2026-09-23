@@ -8,7 +8,6 @@ const LETTERBOX_COLOR := Color("188ed6")
 const DAY_ONE_AFTER_RESET_META: StringName = &"mermaid_start_day_one_after_reset"
 const NEW_GAME_HOLD_SECONDS := 0.8
 const NEW_GAME_ARM_DELAY_SECONDS := 1.5
-const ARCHIVE_RESTORE_HOLD_SECONDS := 3.0
 
 var m: ReefMain
 var _continue_button: Button = null
@@ -20,8 +19,6 @@ var _music_button: Button = null
 var _quality_button: Button = null
 var _mic_button: Button = null
 var _new_game_hold_serial: int = 0
-var _archive_restore_hold_serial: int = 0
-var _archive_restore_triggered: bool = false
 
 
 static func continue_day_one_mode(save_data: Dictionary) -> bool:
@@ -95,10 +92,10 @@ func build() -> void:
 
 	_options_button = _menu_button(
 		stage, "StartMenuOptionsTab", "⚙  OPTIONS", Rect2(1044, 594, 210, 104), "secondary", 25)
-	_options_button.tooltip_text = "Options (hold for grown-up restore)"
+	_options_button.tooltip_text = "Options"
+	# Options only opens the settings sheet. A held press never restores the
+	# New Game archive; that stays an off-device grown-up step (BACKUP.md).
 	_options_button.pressed.connect(_toggle_options)
-	_options_button.button_down.connect(_begin_archive_restore_hold)
-	_options_button.button_up.connect(_cancel_archive_restore_hold)
 	_build_options(stage)
 	_build_new_game_confirmation(stage)
 	# Focus is deferred one frame so a launch key/button cannot activate the
@@ -342,25 +339,8 @@ func _run_new_game_hold(button: Button, serial: int) -> void:
 func _cancel_new_game_hold() -> void:
 	_new_game_hold_serial += 1
 
-func _begin_archive_restore_hold() -> void:
-	_archive_restore_hold_serial += 1
-	var serial: int = _archive_restore_hold_serial
-	_wait_archive_restore_hold(serial)
-
-func _wait_archive_restore_hold(serial: int) -> void:
-	await m.get_tree().create_timer(ARCHIVE_RESTORE_HOLD_SECONDS).timeout
-	if serial != _archive_restore_hold_serial or not m.has_saved_game:
-		return
-	if m._restore_new_game_archive():
-		_archive_restore_triggered = true
-		_dismiss_menu()
-		m.get_tree().call_deferred("reload_current_scene")
-
-func _cancel_archive_restore_hold() -> void:
-	_archive_restore_hold_serial += 1
-
 func _toggle_options() -> void:
-	if _archive_restore_triggered or _options_root == null:
+	if _options_root == null:
 		return
 	if _options_root.visible:
 		_close_options()

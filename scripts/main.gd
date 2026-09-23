@@ -4132,11 +4132,6 @@ func _start_new_game() -> bool:
 		_save_state = SaveState.new(self)
 	return _save_state.start_new_game()
 
-func _restore_new_game_archive() -> bool:
-	if _save_state == null:
-		_save_state = SaveState.new(self)
-	return _save_state.restore_new_game_archive()
-
 func _launch_from_start_menu(start_day_one: bool) -> void:
 	# The launch choice owns the Day 1 boundary. Continue is deliberately a
 	# direct game entry, even when an older save predates the Day 1 fields;

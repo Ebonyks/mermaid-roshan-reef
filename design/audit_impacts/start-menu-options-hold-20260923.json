@@ -1,0 +1,58 @@
+{
+  "id": "start-menu-options-hold-20260923",
+  "scope": "Owner request 2026-09-23 (\"Remove options bug\"): remove the hidden three-second OPTIONS hold on the start menu, which silently replaced the live save with the pre-New-Game archive and reloaded the scene with no confirmation, voice or progress cue. A child who kept holding OPTIONS because nothing appeared to happen could lose all progress made since a New Game. OPTIONS now only opens the settings sheet. The archive file and the tested SaveState.restore_new_game_archive() primitive are kept; the now-unused main.gd wrapper is removed and BACKUP.md documents the off-device adb restore instead of the removed gesture. No save keys, protected assets, New Game safeguards or other menu behaviour change.",
+  "baseline": "5920c673305989ee29d91876480ff445dba9fc8b",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-03",
+    "DL-UI-01",
+    "DL-UI-05",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-CODE-01",
+    "DL-QA-02"
+  ],
+  "findings": [],
+  "no_findings_reason": "The hold-to-restore gesture is not in the finding register. It was identified by the 2026-09-22 repository health review and removed on direct owner instruction. MA-SAVE-001 concerns unpersisted castle scratch state and is unrelated; no existing MA-* record is repaired or changed.",
+  "files": [
+    "BACKUP.md",
+    "scripts/main.gd",
+    "scripts/start_menu.gd",
+    "scripts/probe_start_menu_routing.gd"
+  ],
+  "validation": [
+    {
+      "command": "Negative control: updated scripts/probe_start_menu_routing.gd run with exact Godot 4.7.2 (4.7.2.stable.official.ed1daf0bf) against the baseline scripts/start_menu.gd and scripts/main.gd",
+      "result": "PASS",
+      "evidence": "The new assertion fails on the baseline sources as intended: exit 1, 'START_MENU_ROUTING|Options has no hidden hold that restores an archived save: FAIL', 'RESULT: FAIL failures=1' (worktree tmp/claude-reef-20260923/start-menu-routing-baseline.log). This proves the check detects the removed gesture."
+    },
+    {
+      "command": "Exact Godot 4.7.2 --headless -s scripts/probe_start_menu_routing.gd -- --touch --classic-touch-test; same for scripts/probe_save_recovery.gd, at the candidate sources",
+      "result": "PASS",
+      "evidence": "START_MENU_ROUTING|RESULT: PASS failures=0 and SAVE_RECOVERY|RESULT: ALL OK, both exit 0 with zero SCRIPT ERROR/Parse/Compile lines (tmp/claude-reef-20260923/probe_start_menu_routing.log, probe_save_recovery.log). The archive restore primitive remains covered by probe_save_recovery."
+    },
+    {
+      "command": "python3 -m gdtoolkit.parser and python3 tools/lint_inference.py on scripts/start_menu.gd, scripts/main.gd, scripts/probe_start_menu_routing.gd",
+      "result": "PASS",
+      "evidence": "PARSE_OK and LINT_OK."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "DOCAUTH|INVENTORY=571|LEDGER=571|ACTIVE=56|RECORDS=58 and DOCAUTH|RESULT|ALL OK; AUDITDEV|BASE|5920c673305989ee29d91876480ff445dba9fc8b and AUDITDEV|RESULT|ALL OK; both unittest modules OK with DOCAUTH|STRESS|6/6. Rerun after this record update before commit."
+    },
+    {
+      "command": "GODOT=<Godot 4.7.2 console> scripts/ci.sh (full local gate: static gates, fresh import, all trusted probes)",
+      "result": "PASS",
+      "evidence": "Exact Godot 4.7.2.stable.official.ed1daf0bf (C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe): scripts/ci.sh exits 0 after 2680 s (CPU shared with a parallel job), every static gate, fresh import, GAME2D NO_REGRESSION (still UNSATISFIED) and all 78 trusted probes with process exit 0 and no failure/runtime-error markers. Log tmp/claude-reef-20260923/ci-options.log in the isolated worktree .worktrees/claude-reef-20260923, SHA-256 a9a3a4d91b05e8485d18be824f7d6e51ac7dc2d87b323e8893bfec1551514ed9 (local, git-ignored)."
+    },
+    {
+      "command": "Exact-commit remote Probe Suite on claude/start-menu-options-hold-20260923",
+      "result": "PENDING",
+      "evidence": "Required after pushing this candidate and before integration into dev."
+    }
+  ],
+  "acceptance_gaps": "Real-phone confirmation that a long press on OPTIONS only opens the settings sheet, and owner acceptance of the adb-only archive restore, remain open. No device, child or visual acceptance is claimed; game-wide findings are unchanged."
+}
