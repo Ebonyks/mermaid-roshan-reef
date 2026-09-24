@@ -69,9 +69,63 @@ func _probe_roshan_canvas_smoothing() -> void:
 		print("Roshan Canvas loop: authored anchors preserved through 3x smoothing")
 	sprite.queue_free()
 
+
+func _probe_roshan_canvas_swim_anchor() -> void:
+	# The anchor and window tables are authored for the 3D billboard (offset.y up). On
+	# the Canvas path her torso must hold still through the swim cycle; with
+	# the 3D billboard's sign it bounced ~57 px per loop with ~48 px frame jumps.
+	var sprite := Sprite2D.new()
+	root.add_child(sprite)
+	var loop: RoshanSpriteLoop = ROSHAN_SPRITE_LOOP.new()
+	sprite.add_child(loop)
+	loop.setup_sprite_2d(sprite)
+	loop.set_moving(true)
+	var image: Image = (load(
+		"res://assets/characters/roshan_25d/roshan_swim_front.png") as Texture2D).get_image()
+	if image.is_compressed():
+		image.decompress()
+	var torso_y: Array[float] = []
+	for frame in range(16):
+		loop._apply_frame(frame)
+		var region: Rect2 = sprite.region_rect
+		torso_y.append(_torso_centroid_y(image.get_region(Rect2i(region)))
+			- region.size.y * 0.5 + sprite.offset.y)
+	var widest_jump := 0.0
+	for frame in range(16):
+		widest_jump = maxf(widest_jump,
+			absf(torso_y[(frame + 1) % 16] - torso_y[frame]))
+	var drift: float = torso_y.max() - torso_y.min()
+	if drift > 16.0 or widest_jump > 10.0:
+		print("FAIL: Roshan Canvas swim torso drifts %.1f px per loop (frame jump %.1f px)"
+			% [drift, widest_jump])
+	else:
+		print("Roshan Canvas swim torso holds within %.1f px per loop" % drift)
+	sprite.queue_free()
+
+
+func _torso_centroid_y(cell: Image) -> float:
+	# Alpha-weighted centroid of the upper 45% of the figure's opaque rows.
+	var top := cell.get_height()
+	var bottom := -1
+	for y in range(cell.get_height()):
+		for x in range(0, cell.get_width(), 2):
+			if cell.get_pixel(x, y).a > 0.5:
+				top = mini(top, y)
+				bottom = maxi(bottom, y)
+	var cut: int = top + int(float(bottom - top) * 0.45)
+	var sum_y := 0.0
+	var count := 0.0
+	for y in range(top, cut):
+		for x in range(0, cell.get_width(), 2):
+			if cell.get_pixel(x, y).a > 0.5:
+				sum_y += y
+				count += 1.0
+	return sum_y / maxf(count, 1.0)
+
 func _init() -> void:
 	_probe_canvas_transition_engine()
 	_probe_roshan_canvas_smoothing()
+	_probe_roshan_canvas_swim_anchor()
 	var ps: PackedScene = load("res://scenes/main.tscn")
 	root.add_child(ps.instantiate())
 	await process_frame
