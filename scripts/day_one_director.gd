@@ -399,7 +399,11 @@ func complete_room(room_id: String) -> bool:
 		pool_seahorse_tugs = 8
 	completed_rooms[id] = true
 	cleaned_rooms[id] = true
-	_emit_once(EVENT_DUST_BUNNY_CLEANUP, {"room_id": id})
+	# Each room's cleanup is its own story beat (and story clip), so dedupe
+	# per room: keyed by event name alone, only the first room cleaned in an
+	# app session ever reached the hook.
+	_emit_once(EVENT_DUST_BUNNY_CLEANUP, {"room_id": id},
+		EVENT_DUST_BUNNY_CLEANUP + ":" + id)
 	_advance_current_room()
 	if _all_rooms_completed():
 		boss_door_glow = true
@@ -818,10 +822,12 @@ static func _normalise_room_id_static(value: String) -> String:
 	return id if ROOM_DEFINITIONS.has(id) else ""
 
 
-func _emit_once(event_name: String, payload: Dictionary) -> void:
-	if bool(day_one_event_seen.get(event_name, false)):
+func _emit_once(event_name: String, payload: Dictionary,
+		dedupe_key: String = "") -> void:
+	var seen_key: String = event_name if dedupe_key.is_empty() else dedupe_key
+	if bool(day_one_event_seen.get(seen_key, false)):
 		return
-	day_one_event_seen[event_name] = true
+	day_one_event_seen[seen_key] = true
 	var record: Dictionary = {
 		"event": event_name,
 		"payload": payload.duplicate(true),

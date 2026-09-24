@@ -50,6 +50,16 @@ func _init() -> void:
 		and director.pool_rumi_met)
 	_check("stuffie activity completes", director.complete_activity("stuffie", "stuffie_activity"))
 	_check("art activity completes", director.complete_activity("art", "art_activity"))
+	# Every room's cleanup is its own story beat (and story clip). A name-only
+	# dedupe once let only the first room cleaned in a session reach the hook.
+	var later_events: Array[Dictionary] = director.drain_events()
+	_check("every later room emits its own cleanup hook in the same session",
+		_has_cleanup_for(later_events, "pool")
+		and _has_cleanup_for(later_events, "stuffie")
+		and _has_cleanup_for(later_events, "art"))
+	_check("a repeated room completion never re-emits its cleanup hook",
+		not director.complete_activity("art", "art_activity")
+		and not _has_cleanup_for(director.drain_events(), "art"))
 	_check("all completed and boss glow", director.boss_door_glow
 		and director.current_room_id == ""
 		and director.can_enter_room("bathroom")
@@ -151,6 +161,14 @@ func _events(director: DayOneDirector) -> Array[Dictionary]:
 func _has_event(events: Array[Dictionary], event_name: String) -> bool:
 	for record: Dictionary in events:
 		if String(record.get("event", "")) == event_name:
+			return true
+	return false
+
+
+func _has_cleanup_for(events: Array[Dictionary], room_id: String) -> bool:
+	for record: Dictionary in events:
+		if String(record.get("event", "")) == DayOneDirector.EVENT_DUST_BUNNY_CLEANUP \
+				and String((record.get("payload", {}) as Dictionary).get("room_id", "")) == room_id:
 			return true
 	return false
 
