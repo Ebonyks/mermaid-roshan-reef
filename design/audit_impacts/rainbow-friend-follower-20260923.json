@@ -1,0 +1,61 @@
+{
+  "id": "rainbow-friend-follower-20260923",
+  "scope": "Owner answer 2026-09-23 (\"2 yes\"): after the Day One transformation the rainbow dust bunny follows Roshan like Baby Eagle. Adds a RainbowFriendFollower satellite that places one true-2D TextureRect card beside Roshan's feet in the castle's Canvas item layer, on the side opposite Baby Eagle's companion card, once giant_dust_bunny_boss_defeated is true. The card art is a derived isolation of the approved rainbow dust bunny concept (no redraw). castle_rooms_25d.gd is deliberately untouched: the follower reuses its positioning helpers from main's castle tick.",
+  "baseline": "a877740da79d6c2486f5b3dec8ba1922a2b65740",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-CIN-16",
+    "DL-MED-01",
+    "DL-ASSET-01",
+    "DL-ASSET-06",
+    "DL-PERF-04",
+    "DL-CODE-07",
+    "DL-QA-02"
+  ],
+  "findings": [],
+  "no_findings_reason": "Owner-directed story addition; no MA-* finding is repaired or changed.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets/sprites/dust_bunnies/rainbow_friend.png",
+    "assets_src/characters/rainbow_dust_bunny_2026-09-23/PROVENANCE.json",
+    "scripts/main.gd",
+    "scripts/probe_day_one_story_clips.gd",
+    "scripts/rainbow_friend_follower.gd",
+    "tools/build_rainbow_friend_cutout.py"
+  ],
+  "validation": [
+    {
+      "command": "python tools/build_rainbow_friend_cutout.py; python tools/build_rainbow_friend_cutout.py --check",
+      "result": "PASS",
+      "evidence": "Source concept SHA-256 e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17 (the rainbow dust bunny identity used for the D1-C13 transformation handoff); output 512x512 RGBA (power of two, alpha 0-255) SHA-256 1cff185278d662b2fc049ffd1460848ca76aa7a57933dbc06279ae0a07747580; --check RAINBOWFRIEND|RESULT|ALL OK. Reviewed on dark and castle-lavender grounds: no checkerboard remnants, outline and highlights intact."
+    },
+    {
+      "command": "Exact Godot 4.7.2 -s scripts/probe_day_one_story_clips.gd plus probe_stuffie, probe_ui_system, probe_day_one_integration, probe_load, probe_audit",
+      "result": "PASS",
+      "evidence": "New checks OK: the rainbow friend stays hidden until Grand Puff is befriended, then follows Roshan on the side opposite Baby Eagle with the cutout texture; all six probes exit 0. Logs tmp/rainbow/probes/ (local, git-ignored); probe log SHA-256 c4f2f31eb88481f617d0524ecdb00b2b347c9a0517eef02f58984b4af0c55a2b."
+    },
+    {
+      "command": "Real-display capture (exact Godot 4.7.2, Mobile renderer, 1280x720 window): post-Day-One save with Baby Eagle adopted and Grand Puff befriended, Main Hall and Bubble Bath",
+      "result": "PASS",
+      "evidence": "Main Hall: the rainbow bunny stands on the floor at Roshan's left, level with Baby Eagle on her right. Bubble Bath: same arrangement; while a caption is showing it covers the lower bodies of all three, as it already did for Roshan and Baby Eagle. The offset was raised from -58 to -78 stage units after the first capture. Captures tmp/rainbow/hall.png SHA-256 9df8bb50d21f13f3b5a478e2eb9ca63d140c86196c37737553f44e0a920a7feb and bath.png SHA-256 5a358d7e84113b19035ad0b688ef04112e41ffc84958e9136430641a13fad4bb (local). Desktop evidence only."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; parser/lint/check-only on changed GDScript",
+      "result": "PASS",
+      "evidence": "DOCAUTH|RESULT|ALL OK; AUDITDEV|RESULT|ALL OK (base e14c134e, with the story-clip records below this commit); PARSE_OK and LINT_OK on the three changed scripts; GAME2D NO_REGRESSION; typography --check no regression."
+    },
+    {
+      "command": "GODOT=<exact Godot 4.7.2 console> scripts/ci.sh",
+      "result": "PENDING",
+      "evidence": "Full local gate before push."
+    },
+    {
+      "command": "Exact-commit remote Probe Suite on claude/rainbow-friend-follower-20260923",
+      "result": "PENDING",
+      "evidence": "Required before integration into dev."
+    }
+  ],
+  "acceptance_gaps": "The follower is a static card like Baby Eagle's (no idle motion); it appears in castle rooms only, not the Sky Lagoon, matching the eagle. Device, child and owner review of its size and placement remain open."
+}

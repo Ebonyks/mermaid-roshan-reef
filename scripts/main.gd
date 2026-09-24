@@ -298,6 +298,7 @@ var castle_room_mid_layer: Node2D = null
 var castle_room_front_layer: Node2D = null
 var castle_room_item_visual_layer: Node2D = null
 var castle_companion_card: Control = null # one reusable true-2D castle reward card
+var _rainbow_friend: RainbowFriendFollower = null  # the rainbow dust bunny card (DL-CIN-16 canon)
 var castle_room_item_effect_layer: Node2D = null
 var castle_room_item_hotspot_layer: Control = null
 var castle_room_door_hotspot_layer: Control = null
@@ -7585,6 +7586,11 @@ func _chapter_two_announce_start() -> void:
 		"home")
 	_chapter_two_guide_next_party_piece()
 
+func _rainbow_friend_ref() -> RainbowFriendFollower:
+	if _rainbow_friend == null:
+		_rainbow_friend = RainbowFriendFollower.new(self)
+	return _rainbow_friend
+
 func _castle_rooms_ref() -> CastleRooms25D:
 	if _castle_rooms_25d == null:
 		_castle_rooms_25d = CastleRooms25D.new(self)
@@ -7625,6 +7631,7 @@ func _tick_castle_rooms(delta: float) -> void:
 		_castle_rooms_ref().open("main_hall")
 	_sync_castle_room_music()
 	_castle_rooms_ref().tick(delta)
+	_rainbow_friend_ref().tick()
 	_comfy_games_ref().tick_castle_room()
 	_fairy_conservatory_door_ref().call("tick")
 	_sync_day_one_bathroom_cleanup()

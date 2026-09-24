@@ -172,7 +172,44 @@ func _run_behavioral_checks() -> void:
 	boss.queue_free()
 	await _frames(1)
 	CLIPS.headless_override = false
+	# --- the rainbow dust bunny follows Roshan once Grand Puff is befriended ---
+	_clean_save()
+	var friend_main := (load("res://scenes/main.tscn") as PackedScene).instantiate() as ReefMain
+	friend_main._save_state = SaveState.new(friend_main, PROBE_SAVE)
+	get_root().add_child(friend_main)
+	await _frames(3)
+	if friend_main.intro_active:
+		friend_main._skip_intro()
+	await _frames(3)
+	var director: DayOneDirector = friend_main._day_one_ref()
+	director.arrival_plane_media_seen = true
+	director.day_one_active = false
+	friend_main._enter_level2_now(true)
+	friend_main._enter_castle_interior_now()
+	await _frames(4)
+	var before: TextureRect = _rainbow_card(friend_main)
+	_check("the rainbow friend stays hidden until Grand Puff is befriended",
+		before == null or not before.visible)
+	director.giant_dust_bunny_boss_defeated = true
+	await _frames(4)
+	var friend_card: TextureRect = _rainbow_card(friend_main)
+	var roshan: Sprite2D = friend_main.castle_room_player_sprite
+	var card_center: Vector2 = friend_card.get_global_transform() * (friend_card.size * 0.5) \
+		if friend_card != null else Vector2.ZERO
+	_check("the rainbow dust bunny follows Roshan on the side opposite Baby Eagle",
+		friend_card != null and friend_card.visible and roshan != null
+		and card_center.x < roshan.global_position.x
+		and String(friend_card.get_meta("source_asset_path", "")) \
+			== "res://assets/sprites/dust_bunnies/rainbow_friend.png")
+	friend_main.queue_free()
+	await _frames(3)
 	_clean_save()
 	print("DAY_ONE_STORY_CLIPS|RESULT: ",
 		"PASS" if failures == 0 else "FAIL", " failures=", failures)
 	quit(1 if failures > 0 else 0)
+
+func _rainbow_card(main: ReefMain) -> TextureRect:
+	if main._rainbow_friend == null:
+		return null
+	var card: TextureRect = main._rainbow_friend.card
+	return card if card != null and is_instance_valid(card) else null

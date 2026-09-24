@@ -1,0 +1,25 @@
+{
+  "schema": "derived_cutout/1",
+  "asset": "assets/sprites/dust_bunnies/rainbow_friend.png",
+  "role": "rainbow dust bunny follower card (owner canon 2026-09-23, DL-CIN-16)",
+  "source": "assets_src/characters/grand_puff_2026-09-13/references/rainbow_dust_bunny_concept.png",
+  "source_sha256": "e488d7c300eff116eee58a1b0ae4a4685595fc20f0ac67b7382b197b47f62f17",
+  "source_dimensions": [
+    1024,
+    1024
+  ],
+  "transform": [
+    "flood-fill the near-neutral light baked checkerboard (min channel >= 185, channel spread <= 14) from the image edges, stopping at the drawn outline",
+    "mask edge: 3x3 minimum filter, then 0.8 px Gaussian blur",
+    "crop to the character bounding box plus 12 px: [91, 48, 946, 977]",
+    "Lanczos resize to 471x512 (longest side 512)",
+    "centred horizontally and bottom-aligned on a transparent 512x512 canvas"
+  ],
+  "appearance_changed": false,
+  "source_overwritten": false,
+  "output_sha256": "1cff185278d662b2fc049ffd1460848ca76aa7a57933dbc06279ae0a07747580",
+  "output_dimensions": [
+    512,
+    512
+  ]
+}
