@@ -250,7 +250,7 @@ func _sheet_key() -> String:
 func _apply_anchor_offset() -> void:
 	var sheet: String = _sheet_key()
 	if _sprite_2d != null and is_instance_valid(_sprite_2d):
-		# Both correction tables are authored for Sprite3D, whose offset.y
+		# Both correction tables are authored for the 3D billboard, whose offset.y
 		# points up. Canvas y points down, so the vertical term flips here;
 		# unflipped, the swim cycle doubled its drift instead of cancelling it
 		# (a ~57 px torso bounce per loop, ghosted by the smoother).

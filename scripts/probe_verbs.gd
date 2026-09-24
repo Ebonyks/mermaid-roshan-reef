@@ -71,9 +71,9 @@ func _probe_roshan_canvas_smoothing() -> void:
 
 
 func _probe_roshan_canvas_swim_anchor() -> void:
-	# The anchor and window tables are authored for Sprite3D (offset.y up). On
+	# The anchor and window tables are authored for the 3D billboard (offset.y up). On
 	# the Canvas path her torso must hold still through the swim cycle; with
-	# the Sprite3D sign it bounced ~57 px per loop with ~48 px frame jumps.
+	# the 3D billboard's sign it bounced ~57 px per loop with ~48 px frame jumps.
 	var sprite := Sprite2D.new()
 	root.add_child(sprite)
 	var loop: RoshanSpriteLoop = ROSHAN_SPRITE_LOOP.new()
