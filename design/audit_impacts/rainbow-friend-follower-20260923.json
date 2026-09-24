@@ -48,8 +48,8 @@
     },
     {
       "command": "GODOT=<exact Godot 4.7.2 console> scripts/ci.sh",
-      "result": "PENDING",
-      "evidence": "Full local gate before push."
+      "result": "PASS",
+      "evidence": "Exact Godot 4.7.2.stable.official.ed1daf0bf (C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe): scripts/ci.sh exits 0 after 2,816 s at 991bd016 (this change on top of the story clips) with every static gate, the fresh import, GAME2D NO_REGRESSION and all 76 trusted probes exiting 0; probe_day_one_story_clips reports both rainbow-friend checks OK. Log .worktrees/claude-rainbow-friend-20260923/tmp/rainbow/ci-full.log SHA-256 0bc533e89a1af33cabdc95e4ac8569556f6b29fc6715028802b801236897f67b (local, git-ignored)."
     },
     {
       "command": "Exact-commit remote Probe Suite on claude/rainbow-friend-follower-20260923",

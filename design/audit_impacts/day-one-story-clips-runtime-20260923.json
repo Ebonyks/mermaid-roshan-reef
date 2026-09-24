@@ -100,8 +100,8 @@
     },
     {
       "command": "GODOT=<exact Godot 4.7.2 console> scripts/ci.sh",
-      "result": "PENDING",
-      "evidence": "Full local gate after commit, before push."
+      "result": "PASS",
+      "evidence": "Exact Godot 4.7.2.stable.official.ed1daf0bf (C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe): scripts/ci.sh exits 0 after 2,982 s at a877740d with every static gate (including STORYCLIPS ALL OK for 13 clips), the fresh import, GAME2D NO_REGRESSION, PROBE_PARITY ALL OK and all 76 trusted probes exiting 0, including probe_day_one_story_clips RESULT PASS. Log .worktrees/claude-story-clips-20260923/tmp/story-clips/ci-full.log SHA-256 31b52a56279dd5bb91e58d137ed4b049e9c13f5e418853f4fb7ce12b6ffaf1de (local, git-ignored)."
     },
     {
       "command": "Exact-commit remote Probe Suite on claude/day-one-story-clips-20260923",
