@@ -1,0 +1,39 @@
+{
+  "id": "lagoon-roshan-facing-20260923",
+  "scope": "Owner report 2026-09-23 that Mermaid Roshan looks wrong on the current stage. On the Sky Lagoon promenade the route card shows one frame, directional frame 2, which is a left-facing profile (face left, rainbow ponytail right). The flip rule card.flip_h = delta_x < 0 was written for right-facing art, so she faced backward whichever way she walked, and she spawned facing west, away from the castle. The rule now mirrors the left-facing frame when she walks right, and the card starts mirrored so she faces the castle until her first step. The manifest frame, scale, contact anchor, shadow contract and land medium are unchanged, so the layout audit and its hash pin are untouched. probe_l2's route check now expects the facing that matches the art; it fails on the old rule.",
+  "baseline": "884ef953599a45b7931d492b9aa271b2f1052ce6",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-02",
+    "DL-CODE-01",
+    "DL-QA-02"
+  ],
+  "findings": [],
+  "no_findings_reason": "The backward facing is not in the finding register; it was found by a code and pixel audit of the owner's report on 2026-09-23 (frame 2's face sits at x~112 with the ponytail at x~160). No MA-* finding covers the Sky Lagoon route card's facing.",
+  "files": [
+    "design/audit_impacts/lagoon-roshan-facing-20260923.json",
+    "scripts/arena/sky_lagoon_promenade.gd",
+    "scripts/probe_l2.gd"
+  ],
+  "validation": [
+    {
+      "command": "Negative control: updated scripts/probe_l2.gd with exact Godot 4.7.2 (4.7.2.stable.official.ed1daf0bf) and ci.sh-style isolated APPDATA against the baseline scripts/arena/sky_lagoon_promenade.gd",
+      "result": "PASS",
+      "evidence": "The route facing check fails on the baseline as intended: 'LAGOONCANVAS|route_motion_uses_land_frames_in_both_directions|FAIL', exit 1."
+    },
+    {
+      "command": "Exact Godot 4.7.2, isolated app data: scripts/probe_l2.gd, probe_l2_reenter.gd, probe_l2_living_cards.gd, probe_sky_lagoon_animals.gd, probe_interaction.gd (hybrid) and probe_touch_router.gd (hybrid); python -B tools/audit_sky_lagoon_layout.py; python -B tools/audit_scene_congruency.py",
+      "result": "PASS",
+      "evidence": "LAGOONCANVAS|ALL OK, REENTER|ALL OK, living cards exit 0 with no FAIL lines, SKY_LAGOON_ANIMALS|ALL OK, INTERACTION|ALL OK, TOUCH_ROUTER|ALL OK; SKY_LAGOON_LAYOUT_AUDIT|ALL OK; SCENE_CONGRUENCY 9/9."
+    },
+    {
+      "command": "Exact-commit remote Probe Suite on claude/lagoon-roshan-facing-20260923",
+      "result": "PENDING",
+      "evidence": "Required after pushing this candidate and before integration into dev."
+    }
+  ],
+  "acceptance_gaps": "Phone confirmation that she faces her walking direction and the castle at spawn, and owner acceptance, remain open. Still open and out of scope: the route card is a single static frame with no walk or swim cycle, her body jumps sideways on each turn because the contact anchor sits on the fin tip, and the playground uses off-model frames. No device, child or visual acceptance is claimed."
+}

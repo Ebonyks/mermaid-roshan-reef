@@ -971,7 +971,8 @@ func _validate_route_contact() -> void:
 				and int(main.g.get("lagoon_roshan_frame", -1)) \
 					== int(contract.get("frame", -2)) \
 				and shadow.visible
-		medium_ok = medium_ok and actor.flip_h == (direction < 0)
+		# The route frame is a left-facing profile, mirrored to walk right.
+		medium_ok = medium_ok and actor.flip_h == (direction > 0)
 	main.g["lagoon_walk_goal_master"] = null
 	_check("route_motion_uses_land_frames_in_both_directions", medium_ok)
 	_check("route_contact_anchor_stays_on_painted_ground",

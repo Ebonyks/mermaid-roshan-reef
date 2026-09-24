@@ -606,6 +606,8 @@ func _build_roshan_card() -> void:
 	var card := Sprite2D.new()
 	card.name = "SkyLagoonRoshan"
 	card.centered = true
+	# Face east, toward the castle, until her first step picks a direction.
+	card.flip_h = true
 	_configure_route_roshan_card(card)
 	card.set_meta("walking", false)
 	card.set_meta("canvas_layer_role", "actor")
@@ -967,7 +969,9 @@ func _sync_roshan_card(delta_x: float = 0.0, moving: bool = false) -> void:
 		return
 	card.set_meta("walking", moving)
 	if moving:
-		card.flip_h = delta_x < 0.0
+		# The route frame (directional 2) is a left-facing profile: mirror it
+		# when she walks right so she always faces the way she is going.
+		card.flip_h = delta_x > 0.0
 	_configure_route_roshan_card(card)
 	var contact := Vector2(float(m.g.get("lagoon_master_x", ROUTE_MASTER[0].x)),
 		float(m.g.get("lagoon_master_y", ROUTE_MASTER[0].y)))
