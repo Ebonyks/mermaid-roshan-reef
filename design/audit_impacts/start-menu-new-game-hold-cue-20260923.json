@@ -1,0 +1,57 @@
+{
+  "id": "start-menu-new-game-hold-cue-20260923",
+  "scope": "Owner report 2026-09-23 (\"New game still does not work ... Still cannot start new game\"). On dev, NEW GAME with an existing save opens a confirm sheet whose START NEW button is disabled for 1.5 s and then completes only after an unbroken 0.8 s press. Nothing on screen named the gesture: the ghost hand points at KEEP GAME, a tap produced no response, and the existing probe only grepped the constants, so a grown-up's taps silently did nothing. The hold stays (it keeps a child's quick taps from replacing the adventure); START NEW now carries a 22 px adult caption, PRESS AND HOLD, below the button and a gold bar that fills inside the button for the length of the hold. A press lifted early empties the bar and pulses the caption. The confirm shell grows 36 px to hold the caption. A new trusted probe drives the real menu with pointer presses on an isolated save, from a disarmed tap through an early lift to a full hold, then boots a fresh main on the installed save to prove it lands in a fresh Day One. No save keys, New Game archive/transaction logic, voice, arm delay, hold length or other menu behaviour change.",
+  "baseline": "884ef953599a45b7931d492b9aa271b2f1052ce6",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-03",
+    "DL-UI-01",
+    "DL-UI-05",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-TYPE-03",
+    "DL-TYPE-05",
+    "DL-TYPE-06",
+    "DL-CODE-01",
+    "DL-QA-02"
+  ],
+  "findings": [],
+  "no_findings_reason": "The undiscoverable START NEW hold is not in the finding register; it was reproduced from the owner's report on 2026-09-23. MA-CI-004 (Day One and start-menu probes outside the trusted roster) is related coverage context only: this change adds one new trusted probe but does not re-verify or change that finding's recorded state.",
+  "files": [
+    ".github/workflows/probes.yml",
+    "design/audit_impacts/start-menu-new-game-hold-cue-20260923.json",
+    "scripts/ci.sh",
+    "scripts/probe_start_menu_new_game.gd",
+    "scripts/start_menu.gd"
+  ],
+  "validation": [
+    {
+      "command": "Exact Godot 4.7.2 (4.7.2.stable.official.ed1daf0bf) --headless -s scripts/probe_start_menu_new_game.gd at the candidate sources",
+      "result": "PASS",
+      "evidence": "START_MENU_NEW_GAME|RESULT: PASS failures=0 with 23 checks, exit 0: pointer presses reach the real menu, a tap on the disarmed START NEW and an early lift both leave the save untouched, the bar fills while held and empties on lift, the caption pulses once, a full hold installs a fresh save (generation 7 kept in the .before_new_game archive) and sets the reset marker, and a freshly booted main on that save skips the menu into Day One with no finished rooms. The real user save was unchanged before and after (4829 bytes, 2026-09-23 08:02)."
+    },
+    {
+      "command": "python -B -m gdtoolkit.parser and python -B tools/lint_inference.py on scripts/start_menu.gd and scripts/probe_start_menu_new_game.gd; python -B tools/audit_probe_parity.py",
+      "result": "PASS",
+      "evidence": "Both files parse; lint exit 0; PROBE_PARITY|result: ALL OK after adding the probe to scripts/ci.sh and .github/workflows/probes.yml."
+    },
+    {
+      "command": "Exact Godot 4.7.2 --headless -s scripts/probe_start_menu_routing.gd, scripts/probe_save_recovery.gd and scripts/probe_ui_system.gd -- --touch --classic-touch-test at the candidate sources; python tests.test_audit_typography, tests.test_type_c_layout and tools/audit_typography.py --check",
+      "result": "PASS",
+      "evidence": "START_MENU_ROUTING|RESULT: PASS failures=0, SAVE_RECOVERY|RESULT: ALL OK and UI_SYSTEM|RESULT|ALL OK, each exit 0 with zero FAIL or SCRIPT ERROR lines. The typography contract tests ran 40 OK (1 skipped) and the typography check passed with the new caption on the shared ROLE_ADULT_CAPTION role."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "DOCAUTH|INVENTORY=572|LEDGER=572|ACTIVE=56|RECORDS=58 and DOCAUTH|RESULT|ALL OK; AUDITDEV|BASE|884ef953599a45b7931d492b9aa271b2f1052ce6 and AUDITDEV|RESULT|ALL OK."
+    },
+    {
+      "command": "Exact-commit remote Probe Suite on claude/new-game-hold-20260923",
+      "result": "PENDING",
+      "evidence": "Required after pushing this candidate and before integration into dev."
+    }
+  ],
+  "acceptance_gaps": "Phone confirmation that a grown-up finds and completes the hold, that the 22 px caption and fill bar read clearly on the real screen (DL-TYPE-05 device verification for the adult caption), and owner acceptance remain open. The stable phone bookmark is still master ff68f955, which predates this and every other dev change; no device, child or visual acceptance is claimed."
+}
