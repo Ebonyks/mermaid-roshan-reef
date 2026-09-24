@@ -1,0 +1,40 @@
+{
+  "id": "day-one-cleanup-clips-per-room-20260923",
+  "scope": "Repair a defect in the DL-CIN-16 story-clip integration (a877740d). DayOneDirector._emit_once() deduplicated hook events by event name alone, and the runtime seen-record is cleared only on save load. The dust_bunny_cleanup event carries the room id, so only the first room cleaned in an app session ever reached _on_day_one_hook_event: a child who cleaned the bathroom and then the pool, playroom or art room in the same sitting never saw the pool (Rumi rising), Baby Eagle or art-room completion clips. _emit_once() now takes an optional dedupe key, and the room-cleanup event is keyed per room. Every other event keeps its name-only dedupe; the seen-record is still runtime-only, so no save key or save shape changes. The director probe gains a same-session check for the later rooms' cleanup events and a check that a repeated room completion never re-emits one.",
+  "baseline": "884ef953599a45b7931d492b9aa271b2f1052ce6",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-CIN-16",
+    "DL-AGE-03",
+    "DL-SAVE-01",
+    "DL-CODE-10",
+    "DL-QA-02"
+  ],
+  "findings": [],
+  "no_findings_reason": "The defect was introduced by the owner-directed DL-CIN-16 story-clip integration earlier on 2026-09-23 and found by a replay-path code review the same day; it is not in the finding register. No MA-* finding covers the Day One hook events or story clips, and MA-PLAY-001 and MA-CHILD-001 keep their facts.",
+  "files": [
+    "design/audit_impacts/day-one-cleanup-clips-per-room-20260923.json",
+    "scripts/day_one_director.gd",
+    "scripts/probe_day_one_director.gd"
+  ],
+  "validation": [
+    {
+      "command": "Negative control: updated scripts/probe_day_one_director.gd run with exact Godot 4.7.2 (4.7.2.stable.official.ed1daf0bf) against the baseline scripts/day_one_director.gd",
+      "result": "PASS",
+      "evidence": "The new same-session assertion fails on the baseline as intended: exit 1, 'DAY_ONE|every later room emits its own cleanup hook in the same session: FAIL', 'DAY_ONE|RESULT: FAIL checks_failed=1'. With the candidate director it passes: exit 0, 'DAY_ONE|RESULT: PASS checks_failed=0'."
+    },
+    {
+      "command": "Exact Godot 4.7.2 --headless -s for scripts/probe_day_one_story_clips.gd, probe_day_one_integration.gd, probe_day_one_d8_revisits.gd, probe_day_one_handoffs.gd and probe_passive.gd -- --touch --classic-touch-test at the candidate sources",
+      "result": "PASS",
+      "evidence": "DAY_ONE_STORY_CLIPS|RESULT: PASS failures=0, DAY_ONE_INTEGRATION|RESULT: PASS failures=0, DAY_ONE_D8_REVISITS|RESULT: ALL OK, DAY_ONE_HANDOFFS|RESULT: PASS failures=0 and PASSIVE|result: ALL OK, each exit 0 with zero FAIL or SCRIPT ERROR lines."
+    },
+    {
+      "command": "Exact-commit remote Probe Suite on claude/day-one-cleanup-clips-20260923",
+      "result": "PENDING",
+      "evidence": "Required after pushing this candidate and before integration into dev."
+    }
+  ],
+  "acceptance_gaps": "A display-build play-through that cleans several rooms in one sitting and sees each completion clip, and owner acceptance, remain open. With this repair the pool-completion clip now plays right after the in-engine Rumi rise, so Rumi rises twice in a row; the single-reveal fix proposed in the 2026-09-23 content review needs owner direction. No device, child or visual acceptance is claimed."
+}
