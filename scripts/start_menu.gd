@@ -8,6 +8,7 @@ const LETTERBOX_COLOR := Color("188ed6")
 const DAY_ONE_AFTER_RESET_META: StringName = &"mermaid_start_day_one_after_reset"
 const NEW_GAME_HOLD_SECONDS := 0.8
 const NEW_GAME_ARM_DELAY_SECONDS := 1.5
+const NEW_GAME_HOLD_FILL_INSET := 30.0
 
 var m: ReefMain
 var _continue_button: Button = null
@@ -19,6 +20,10 @@ var _music_button: Button = null
 var _quality_button: Button = null
 var _mic_button: Button = null
 var _new_game_hold_serial: int = 0
+var _new_game_hold_active: bool = false
+var _new_game_hold_fill: Panel = null
+var _new_game_hold_caption: Label = null
+var _new_game_hold_tween: Tween = null
 
 
 static func continue_day_one_mode(save_data: Dictionary) -> bool:
@@ -215,7 +220,7 @@ func _build_new_game_confirmation(stage: Control) -> void:
 	stage.add_child(_confirm_root)
 	var dim := StorybookUI.add_dim(_confirm_root, Color(0.025, 0.06, 0.16, 0.76))
 	dim.mouse_filter = Control.MOUSE_FILTER_STOP
-	var shell_rect := Rect2(270, 164, 740, 390)
+	var shell_rect := Rect2(270, 164, 740, 426)
 	var shell := StorybookUI.add_panel(
 		_confirm_root, shell_rect, StorybookUI.PURPLE, Color(0.94, 0.97, 1.0, 0.99), 62)
 	shell.name = "StartMenuNewGameShell"
@@ -249,6 +254,7 @@ func _build_new_game_confirmation(stage: Control) -> void:
 	start.set_meta("hold_to_confirm_seconds", NEW_GAME_HOLD_SECONDS)
 	start.button_down.connect(_begin_new_game_hold.bind(start))
 	start.button_up.connect(_cancel_new_game_hold)
+	_add_new_game_hold_cue(start)
 	var hand := Sprite2D.new()
 	hand.name = "StartMenuKeepGameGhostHand"
 	hand.texture = load("res://assets/castle/training/ghost_hand.png") as Texture2D
@@ -264,6 +270,35 @@ func _build_new_game_confirmation(stage: Control) -> void:
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	hand_tween.tween_property(hand, "position:y", 400.0, 0.42) \
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+func _add_new_game_hold_cue(button: Button) -> void:
+	# START NEW stays hold-gated so a child's quick taps cannot wipe the
+	# adventure, but a grown-up has to be able to see the gesture: a caption
+	# names it and a gold bar fills inside the button while the press is held.
+	var caption := Label.new()
+	caption.name = "StartMenuNewGameHoldCaption"
+	caption.text = "PRESS AND HOLD"
+	caption.position = Vector2(button.position.x, button.position.y + button.size.y + 4.0)
+	caption.size = Vector2(button.size.x, 30.0)
+	caption.pivot_offset = caption.size * 0.5
+	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	caption.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	StorybookUI.style_label(caption, -1, Color(-1.0, -1.0, -1.0, -1.0), -1,
+		StorybookUI.ROLE_ADULT_CAPTION)
+	_confirm_root.add_child(caption)
+	_new_game_hold_caption = caption
+	var fill := Panel.new()
+	fill.name = "StartMenuNewGameHoldFill"
+	fill.position = Vector2(NEW_GAME_HOLD_FILL_INSET, button.size.y - 20.0)
+	fill.size = Vector2(0.0, 8.0)
+	fill.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var fill_style := StyleBoxFlat.new()
+	fill_style.bg_color = StorybookUI.GOLD
+	fill_style.set_corner_radius_all(4)
+	fill.add_theme_stylebox_override("panel", fill_style)
+	button.add_child(fill)
+	_new_game_hold_fill = fill
 
 func _continue_game() -> void:
 	if not m.has_saved_game:
@@ -291,6 +326,8 @@ func _request_new_game() -> void:
 	_close_options()
 	_confirm_root.visible = true
 	_new_game_hold_serial += 1
+	_new_game_hold_active = false
+	_reset_new_game_hold_fill()
 	var keep := _confirm_root.get_node_or_null("StartMenuKeepGameButton") as Button
 	var start := _confirm_root.get_node_or_null("StartMenuConfirmNewGameButton") as Button
 	if start != null:
@@ -324,6 +361,8 @@ func _begin_new_game_hold(button: Button) -> void:
 		return
 	_new_game_hold_serial += 1
 	var serial: int = _new_game_hold_serial
+	_new_game_hold_active = true
+	_start_new_game_hold_fill(button)
 	_run_new_game_hold(button, serial)
 
 
@@ -333,11 +372,48 @@ func _run_new_game_hold(button: Button, serial: int) -> void:
 	await m.get_tree().create_timer(NEW_GAME_HOLD_SECONDS).timeout
 	if serial == _new_game_hold_serial and _confirm_root.visible \
 			and is_instance_valid(button) and not button.disabled:
+		_new_game_hold_active = false
 		_perform_new_game()
 
 
 func _cancel_new_game_hold() -> void:
 	_new_game_hold_serial += 1
+	# A press lifted before the bar fills is a grown-up who tapped instead of
+	# holding: empty the bar and pulse the caption so the gesture is learnable.
+	var released_early: bool = _new_game_hold_active
+	_new_game_hold_active = false
+	_reset_new_game_hold_fill()
+	if released_early:
+		_pulse_new_game_hold_caption()
+
+
+func _start_new_game_hold_fill(button: Button) -> void:
+	if _new_game_hold_fill == null or not is_instance_valid(_new_game_hold_fill):
+		return
+	_reset_new_game_hold_fill()
+	var full_width: float = maxf(0.0, button.size.x - NEW_GAME_HOLD_FILL_INSET * 2.0)
+	_new_game_hold_tween = _new_game_hold_fill.create_tween()
+	_new_game_hold_tween.tween_property(_new_game_hold_fill, "size:x", full_width,
+		NEW_GAME_HOLD_SECONDS)
+
+
+func _reset_new_game_hold_fill() -> void:
+	if _new_game_hold_tween != null and _new_game_hold_tween.is_valid():
+		_new_game_hold_tween.kill()
+	_new_game_hold_tween = null
+	if _new_game_hold_fill != null and is_instance_valid(_new_game_hold_fill):
+		_new_game_hold_fill.size.x = 0.0
+
+
+func _pulse_new_game_hold_caption() -> void:
+	if _new_game_hold_caption == null or not is_instance_valid(_new_game_hold_caption):
+		return
+	_new_game_hold_caption.set_meta("hold_hint_pulses",
+		int(_new_game_hold_caption.get_meta("hold_hint_pulses", 0)) + 1)
+	_new_game_hold_caption.scale = Vector2.ONE * 1.18
+	var pulse: Tween = _new_game_hold_caption.create_tween()
+	pulse.tween_property(_new_game_hold_caption, "scale", Vector2.ONE, 0.36) \
+		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func _toggle_options() -> void:
 	if _options_root == null:
