@@ -1,0 +1,39 @@
+extends SceneTree
+
+func _init() -> void:
+	call_deferred("run")
+
+func run() -> void:
+	root.size = Vector2i(1280, 720)
+	var main := ReefMain.new()
+	main.chapter2_active = false
+	var venue := OperaHouseVenue2D.new()
+	venue.setup(main, 0, Callable())
+	root.add_child(venue)
+	venue.open(0)
+	venue.set_process(false)
+	venue.guide_pointer.visible = false
+	var cases := {
+		"lemonade": Rect2i(1080, 405, 200, 300),
+		"snacks": Rect2i(0, 505, 230, 215),
+		"flowers": Rect2i(0, 385, 240, 245),
+	}
+	for id: String in cases:
+		venue.foreground.reset_scene()
+		venue.foot = (OperaVenueForeground.OBJECTS[id] as Dictionary)["approach"]
+		venue.floor_index = 0
+		venue._update_actor()
+		var directory := "res://tmp/opera-physical-motion/" + id
+		DirAccess.make_dir_recursive_absolute(directory)
+		for frame in range(132):
+			if frame == 10:
+				venue.foreground.begin(id)
+			venue._process(1.0 / 20.0)
+			await process_frame
+			await RenderingServer.frame_post_draw
+			root.get_texture().get_image().get_region(cases[id]).save_png(directory + "/%03d.png" % frame)
+	venue.close()
+	venue.queue_free()
+	main.free()
+	print("PHYSICAL INTERACTION CAPTURE ALL OK")
+	quit()

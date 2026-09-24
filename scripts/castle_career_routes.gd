@@ -289,6 +289,9 @@ func _rebuild_room() -> void:
 	_highlight(_preferred_act_for_current_room())
 
 func _refresh_completion() -> void:
+	if opera_venue != null and is_instance_valid(opera_venue):
+		opera_venue.refresh(m.opera_stars)
+		return
 	var chapter2_active := m != null and m.chapter2_is_active()
 	var completion_mask := _chapter2_completion_mask() if chapter2_active else m.opera_stars
 	for button: Button in buttons:
@@ -353,7 +356,7 @@ func _highlight(act_index: int) -> void:
 	if button == null:
 		return
 	if String(button.get_meta("presentation", "")) \
-			== "historical_three_floor_portal":
+			== "four_floor_painted_portal":
 		highlighted_act = act_index
 		return
 	var actor := button.get_node_or_null("RoshanActor") as TextureRect
@@ -397,7 +400,12 @@ func close_opera_venue() -> void:
 
 
 func _launch_opera_venue(act_index: int) -> void:
-	if m == null or not m.chapter2_is_active():
+	if opera_venue == null or not opera_venue.is_open() or not opera_venue.can_enter_act(act_index):
+		return
+	if not m.chapter2_is_active():
+		_launch("opera_hall", act_index)
+		return
+	if opera_venue.is_chapter2_tutorial_mode():
 		_launch("opera_hall", act_index)
 		return
 	# Chapter 2's foyer is a story guide, not a second launch owner. The

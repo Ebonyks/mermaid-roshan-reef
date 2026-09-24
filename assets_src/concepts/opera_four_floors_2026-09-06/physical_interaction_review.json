@@ -1,0 +1,54 @@
+{
+  "authority": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md"
+  ],
+  "owner_correction": "The problem is conceptual: interaction objects must be actual parts of their stage props, not symbolic overlays.",
+  "rejected": "Independent rose, cup and cupcake icon sheets and generic oversized petal bursts. Archived outside runtime.",
+  "implementation": [
+    "Resting composition is byte-identical to venue_native_v7 with one owner per native pixel.",
+    "At pickup the source body switches to a matching piece-removed state and exactly that original piece moves at original scale.",
+    "Cup and actual pitcher have separate source-removal states. Pour stream starts at the rotated pitcher spout and ends inside the held cup.",
+    "Cupcake changes by subtracting bites from its own alpha, and remains absent from the tray after eating until room reset.",
+    "Flower splits into six disjoint source-pixel petal pieces and a centre, then rejoins and returns to its original bouquet position.",
+    "Central palm planter uses its circular seat; no unrelated flower effect.",
+    "Original character atlas contact frames stay fixed to prevent held objects sliding across unrelated poses."
+  ],
+  "tests": {
+    "native_pixel_ownership_identity_removal_and_petals": "5 tests PASS: source ownership, exact piece RGB/scale, petal partition, source removal, both export presets",
+    "Godot_4_7_2_runtime_navigation_touch_pickup_pour_return_eaten_cancellation": "ALL OK: tmp/opera-physical-mobile-final.log",
+    "actual_Mobile_motion_capture": "ALL OK: tmp/opera-physical-capture.log",
+    "trusted_Opera_progression": "ALL OK: tmp/opera-physical-probe-retry.log",
+    "trusted_Opera_2d": "ALL OK: tmp/opera-physical-2d-final.log",
+    "exported_part_metadata": "Explicit include in Android and Windows export presets",
+    "facing_all_six_sites_and_upstairs_route": "ALL OK: tmp/opera-facing-runtime.log, Godot 4.7.2",
+    "foyer_music_ambience_and_career_restore": "ALL OK: tmp/opera-jazz-audio-probe.log, Godot 4.7.2",
+    "actual_Mobile_facing_capture": "ALL OK: tmp/opera-facing-capture.log, 132/132 frames",
+    "all_six_sites_Mobile": "ALL OK: tmp/opera-facing-mobile.log",
+    "music_catalog_provenance": "ALL OK: 44-cue build and check",
+    "audio_quality_inventory": "798 entries refreshed by the standard audit; changed delivery hashes independently matched"
+  },
+  "review_media": [
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/physical-lemonade-facing.webp",
+      "sha256": "fea59b78f19ac439fae91682d7290557fd8f5e24b70490c666a0aa3273c2c9aa"
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/physical-facing-review.png",
+      "sha256": "a2726b4e9ee616aa93e8525a3e2e40a963c70d1e3931168d98feac880c21fd6f"
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/opera-foyer-jazz-preview.ogg",
+      "sha256": "0e223f0599e31c18af417f15adf3e73870f8d0306ecfe9a250a6521fc731555a"
+    }
+  ],
+  "review_scope": "Runtime diagnostic captures, not authored cinematic frames. WebP encoding is lossless with no interpolation. Source object pixels are not redesigned or enlarged in the runtime.",
+  "open": [
+    "Dedicated Roshan contact clips and frame-specific sockets remain pending the animation bible.",
+    "Physical-object concept accepted by owner; revised facing and music await owner review.",
+    "Earlier native background-resolution and full CI typography gates remain open; no audit thresholds or master scores changed."
+  ],
+  "capture_note": "Current facing-corrected lemonade capture completed 132 frames. Older clips and boards preserve prior review history.",
+  "owner_concept_review": "Owner accepted the physical-object concept and requested reversed character facing, rollout across the level, and jazzy popular-venue music.",
+  "facing_correction": "Approved carry frame faces left. Mirror for right-hand targets; bind hand (.26,.36) and mouth (.46,.30) to the same mirror. Hold carry pose through source contact."
+}

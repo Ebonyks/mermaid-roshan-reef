@@ -1,0 +1,36 @@
+{
+  "role": "local_review_candidate_not_release_accepted",
+  "native_source": "assets_src/concepts/opera_four_floors_2026-09-06/venue_native_v7.png",
+  "native_size": [
+    1672,
+    941
+  ],
+  "source_sha256": "bb0f9c7149adb84bbe78c87e690fa2461f4775d76289bdcca2e1fdefc90d07b1",
+  "release_accepted": false,
+  "blocking_gate": "Owner native-resolution exception pending: 1672x941 versus 2048 minimum native height.",
+  "tiles": [
+    {
+      "file": "venue_0.png",
+      "native_rect": [
+        0,
+        0,
+        836,
+        941
+      ],
+      "sha256": "37ceb911ee73003f351ec872b607c92a14a449a40fc12f3fae6bddab9c19f335"
+    },
+    {
+      "file": "venue_1.png",
+      "native_rect": [
+        836,
+        0,
+        836,
+        941
+      ],
+      "sha256": "b6372168eb8b0fbb111a7b8e72fa7558d7ea755cfe101c46d1e5700f04d84ff1"
+    }
+  ],
+  "foreground_manifest": "assets_src/concepts/opera_four_floors_2026-09-06/physical_parts_manifest.json",
+  "portable_manifest": "assets/flats/castle/opera_house_four_floors/physical/parts.json",
+  "foreground_role": "Source-owned disjoint resting pieces; no separate symbolic prop art"
+}

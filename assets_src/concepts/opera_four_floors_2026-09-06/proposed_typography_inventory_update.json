@@ -1,0 +1,28 @@
+{
+  "status": "PROPOSED_ONLY_NOT_APPLIED",
+  "file": "audit/typography_manifest.json",
+  "reason": "Keep glyph inventory equal to current live source after removing icon-based Opera cards. Classifying a glyph does not verify its packaged rendering.",
+  "remove_no_longer_live": [
+    "U+1F499",
+    "U+2161",
+    "U+2195",
+    "U+2198",
+    "U+266C",
+    "U+2691",
+    "U+2702",
+    "U+270B",
+    "U+2727",
+    "U+27B6"
+  ],
+  "classify_existing_live": {
+    "codepoint": "U+2630",
+    "classification": "critical",
+    "source": "scripts/navigation_controller.gd:98",
+    "role": "Global Menu button"
+  },
+  "preserve": [
+    "Missing packaged font authority and exact-device evidence remain unresolved.",
+    "No audit threshold, sealed baseline, test assertion, font claim, or device acceptance status changes."
+  ],
+  "approval": "Automatic approval review rejected this edit as an unrelated validation bypass; explicit user approval required before application."
+}

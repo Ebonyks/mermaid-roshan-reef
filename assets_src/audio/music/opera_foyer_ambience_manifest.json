@@ -1,0 +1,40 @@
+{
+  "description": "Popular opera foyer: diffuse nonverbal crowd and occasional crockery, existing hall tone reused",
+  "source": "assets/audio/ambience_hall.ogg",
+  "source_sha256": "58127652243e2fe79d759e42eb2ff7c3dc5121f57e2f870e13950c8dc1e79274",
+  "output": "assets/audio/ambience_opera_foyer.ogg",
+  "sha256": "be8d43b4fb157a6ea5e6f9a1648fe1d2528cf3cb28f56a5e6ca09cb6faca1e6d",
+  "generator": "tools/build_opera_foyer_ambience.py",
+  "generator_sha256": "22fd856dba3993d242c7a995b41ec159d52f1012bcf7a67860233a51bd71ddc5",
+  "seed": 20260906,
+  "license": "Project-owned deterministic synthesis and existing project hall ambience; no external media",
+  "duration_seconds": 32.0,
+  "sample_rate": 48000,
+  "channels": 2,
+  "loudness": {
+    "integrated_lufs": -27.93,
+    "true_peak_dbtp": -14.8,
+    "loudness_range_lu": 4.4,
+    "threshold_lufs": -37.93
+  },
+  "loop": {
+    "boundary_jump": 0.00347911,
+    "adjacent_p999": 0.010712,
+    "jump_ratio": 0.32479
+  },
+  "delivery": {
+    "codec": "vorbis",
+    "sample_rate_hz": 48000,
+    "channels": 2,
+    "duration_seconds": 32.0,
+    "file_bytes": 391475,
+    "average_bitrate_bps": 97868,
+    "tags": {
+      "ENCODER": "Lavc62.28.102 libvorbis",
+      "LOOPSTART": "0",
+      "LOOPEND": "1536000",
+      "LOOPLENGTH": "1536000"
+    }
+  },
+  "listening_review": "Pending owner audition; technical measurements are not a listening approval"
+}

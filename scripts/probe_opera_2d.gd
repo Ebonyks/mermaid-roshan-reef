@@ -199,7 +199,8 @@ func _init() -> void:
 		if route_room == "opera_hall":
 			route_ui.open_opera_venue()
 			await process_frame
-		var expected_indices := CastleCareerRoutes.act_indices_for_room(route_room)
+		var expected_indices := OperaHouse.LIVE_ACT_INDICES.duplicate() if route_room == "opera_hall" \
+			else CastleCareerRoutes.act_indices_for_room(route_room)
 		var actual_indices: Array[int] = []
 		var room_art_ok := route_ui.root != null and route_ui.root.visible \
 			and route_ui.root.size.is_equal_approx(StorybookUI.CANVAS_SIZE) \
@@ -207,7 +208,8 @@ func _init() -> void:
 		for card: Button in route_ui.buttons:
 			var act_index := int(card.get_meta("act_index", -1))
 			actual_indices.append(act_index)
-			all_card_indices.append(act_index)
+			if not all_card_indices.has(act_index):
+				all_card_indices.append(act_index)
 			if route_room == "opera_hall":
 				var portal_focus := card.get_theme_stylebox("focus") \
 					as StyleBoxFlat
@@ -217,13 +219,13 @@ func _init() -> void:
 					and card.size.y >= StorybookUI.MIN_TOUCH.y \
 					and String(card.get_meta("castle_room_id", "")) == route_room \
 					and String(card.get_meta("presentation", "")) \
-						== "historical_three_floor_portal" \
+						== "four_floor_painted_portal" \
 					and not bool(card.get_meta("opaque_card", true)) \
 					and bool(card.get_meta("painted_door_hit_region", false)) \
 					and not bool(card.get_meta("floating_decoration", true)) \
-					and card.get_child_count() == 0 \
+					and card.get_node_or_null("CareerPortrait") is TextureRect \
 					and portal_focus != null \
-					and portal_focus.border_width_left == 0 \
+					and portal_focus.border_width_left == 3 \
 					and is_zero_approx(portal_focus.bg_color.a)
 				continue
 			var actor := card.get_node_or_null("RoshanActor") as TextureRect

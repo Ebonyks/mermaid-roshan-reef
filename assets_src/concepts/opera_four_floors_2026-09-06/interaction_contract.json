@@ -1,0 +1,76 @@
+{
+  "owner": "scripts/opera_venue_foreground.gd",
+  "dispatch": "OperaHouseVenue2D.request_foreground -> navigation arrival -> begin",
+  "signals": [
+    "animation_requested(action, phase, context)",
+    "interaction_finished(object_id)"
+  ],
+  "context": [
+    "object_id",
+    "serial",
+    "approach",
+    "prop_origin",
+    "seat",
+    "hand",
+    "mouth",
+    "space=opera_canvas_1280x720",
+    "bible_binding=pending_authored_interaction_clips",
+    "facing=left|right"
+  ],
+  "actions": {
+    "flower": [
+      "reach",
+      "pick",
+      "hold",
+      "return",
+      "release",
+      "cancel"
+    ],
+    "lemonade": [
+      "reach",
+      "pick_cup",
+      "fill",
+      "lift_cup",
+      "drink",
+      "return_cup",
+      "release",
+      "cancel"
+    ],
+    "cupcake": [
+      "reach",
+      "pick_cupcake",
+      "lift_cupcake",
+      "bite",
+      "release",
+      "cancel"
+    ],
+    "sit": [
+      "sit",
+      "seated",
+      "cancel"
+    ]
+  },
+  "current_character_art": "Reuses approved gesture_b reach, gesture_c collect, gesture_d carry and play_b seated rows; no new character pixels. Dedicated contact-perfect clips remain pending.",
+  "lifecycle": "Only begin after arriving on floor 0. Retarget/close cancels pending actions and held props. Sitting persists until a new touch. No progress bits or save keys added.",
+  "budget": {
+    "max_petals": 6,
+    "crumbs": 0,
+    "particle_lifetime_seconds": 2.4,
+    "new_3d_nodes": 0
+  },
+  "layer_ownership": "One original scene-pixel owner at rest. Replace body texture with piece-removed variant before showing that same source part in motion. No independent symbolic icons. Eaten cupcake persists until scene reset.",
+  "source_parts": "physical_parts_manifest.json",
+  "facing": {
+    "authored_carry_direction": "left",
+    "mirror_for_right_target": true,
+    "hand": [
+      0.26,
+      0.36
+    ],
+    "mouth": [
+      0.46,
+      0.3
+    ],
+    "socket_mirrors_with_actor": true
+  }
+}

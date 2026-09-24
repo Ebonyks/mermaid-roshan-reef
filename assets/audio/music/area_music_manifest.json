@@ -5,10 +5,10 @@
   "license": "Project-owned original composition and synthesis",
   "generator": "tools/build_area_music.py",
   "generator_version": 2,
-  "generator_sha256": "7fc24fda89d9e730e99aea3d23ff83fbae2d21300a63040e4e569c22754ad70e",
+  "generator_sha256": "e4c348733531bea35041bebb447425936bf1111d17d0c3a7e2b357d458f82671",
   "score_catalog": "assets_src/audio/music/area_music_scores.json",
   "score_schema": "reef.area-music-scores.v1",
-  "score_catalog_sha256": "af462ebcbb980f3b35bfd7342bbe1455a042bb19229681ef3ab97a4eca8e67cb",
+  "score_catalog_sha256": "4295799a04ddf73c5c9351603b2113df5b56a51a5bd48d6b5de77c2a8a5606ef",
   "dependencies": {
     "python": "3.13.14",
     "numpy": "2.5.1",
@@ -61,74 +61,78 @@
   "files": [
     {
       "id": "castle_opera_hall",
-      "title": "Pearl Curtain Promenade",
+      "title": "A Full House at Pearl Curtain",
       "family": "castle_room",
       "area": "Opera Hall",
-      "brief": "A poised 6/8 theatre promenade: harp footsteps, clarinet curtain calls, and pearl-bell glints create anticipation without rushing the child toward a door.",
-      "cue_score_sha256": "9d401bf11ea78729739c35aace2d77c7607cba1fa9630038c0dafc2972fde21b",
+      "brief": "Opera Hall: A popular four-floor opera house bustles with a small jazz band: swung piano ninths, walking bass, brushed drums, clarinet calls and warm brass answers; a separate foyer crowd bed supplies the room activity.",
+      "cue_score_sha256": "79655a96732a8aa9d82338f68f6346b455e53b0b5d521913d7a703b2c9448371",
       "path": "assets/audio/music/castle_opera_hall.ogg",
       "import_path": "assets/audio/music/castle_opera_hall.ogg.import",
-      "tempo_bpm": 92,
+      "tempo_bpm": 116,
       "meter": [
-        6,
-        8
+        4,
+        4
       ],
-      "bars": 8,
+      "bars": 16,
       "tonic_midi": 62,
-      "mode": "lydian",
-      "texture": "theatre",
-      "percussion": "brush",
+      "mode": "major",
+      "texture": "foyer_jazz",
+      "percussion": "jazz_brush",
       "instruments": {
         "lead": "clarinet",
-        "harmony": "harp",
-        "bass": "warm_bass",
-        "accent": "bell"
+        "harmony": "piano",
+        "bass": "pizzicato",
+        "accent": "warm_brass"
       },
       "motif_treatment": "curtain_call",
       "progression": [
-        0,
-        3,
         1,
         4,
         0,
         5,
-        3,
+        1,
+        4,
+        0,
         0
       ],
       "melody": [
         0,
         2,
-        3,
+        4,
+        null,
+        6,
         5,
         4,
         2,
         1,
-        null,
-        2,
+        3,
+        5,
         4,
-        6,
-        5
+        2,
+        null,
+        1,
+        0
       ],
-      "energy": 0.42,
+      "energy": 0.67,
       "seed_namespace": "castle_opera_hall",
       "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
       "ogg_stream_serial": 566160894,
       "loop_import": {
         "enabled": true,
         "offset_seconds": 0.0,
-        "beat_count": 48,
-        "bar_beats": 6
+        "beat_count": 64,
+        "bar_beats": 4
       },
-      "sample_count": 1502609,
-      "duration_seconds": 31.304354,
-      "samples_per_beat": 31304.35416667,
+      "sample_count": 1588966,
+      "duration_seconds": 33.103458,
+      "samples_per_beat": 24827.59375,
       "raw_seam": {
-        "boundary_jump": 0.00076013,
-        "adjacent_p999": 0.07283117,
-        "jump_ratio": 0.01044
+        "boundary_jump": 0.00141376,
+        "adjacent_p999": 0.1546428,
+        "jump_ratio": 0.00914
       },
       "development": {
-        "midpoint_bar": 4,
+        "midpoint_bar": 8,
         "changes": [
           "progression_order",
           "alternating_inversion",
@@ -137,51 +141,51 @@
           "motif_instrument_and_register"
         ]
       },
-      "normalization_gain_db": -2.55,
+      "normalization_gain_db": 0.34,
       "peak_limited": false,
-      "pcm_peak": 12244,
-      "pcm_peak_dbfs": -8.5503,
-      "pcm_rms_dbfs": -20.4997,
+      "pcm_peak": 17078,
+      "pcm_peak_dbfs": -5.66,
+      "pcm_rms_dbfs": -20.7179,
       "pcm_loudness": {
-        "integrated_lufs": -18.01,
-        "true_peak_dbtp": -8.51,
+        "integrated_lufs": -18.0,
+        "true_peak_dbtp": -5.66,
         "loudness_range_lu": 4.2,
-        "threshold_lufs": -28.13
+        "threshold_lufs": -28.0
       },
       "codec": "vorbis",
       "sample_rate_hz": 48000,
       "channels": 2,
-      "file_bytes": 383596,
-      "average_bitrate_bps": 98030,
+      "file_bytes": 406022,
+      "average_bitrate_bps": 98121,
       "tags": {
         "ENCODER": "Lavc libvorbis",
-        "TITLE": "Pearl Curtain Promenade",
+        "TITLE": "A Full House at Pearl Curtain",
         "ARTIST": "Mermaid Roshan",
         "ALBUM": "Reef of Light Area Music",
         "CUE_ID": "castle_opera_hall",
-        "BPM": "92",
+        "BPM": "116",
         "BPM_UNIT": "notated_denominator",
-        "METER": "6/8",
+        "METER": "4/4",
         "LOOPSTART": "0",
-        "LOOPEND": "1502609",
-        "LOOPLENGTH": "1502609",
+        "LOOPEND": "1588966",
+        "LOOPLENGTH": "1588966",
         "LICENSE": "Project-owned original composition and synthesis",
         "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
       },
-      "decoded_sample_count": 1502609,
+      "decoded_sample_count": 1588966,
       "decoded_seam": {
-        "boundary_jump": 0.00137333,
-        "adjacent_p999": 0.05255287,
-        "jump_ratio": 0.02613
+        "boundary_jump": 0.00543229,
+        "adjacent_p999": 0.09848433,
+        "jump_ratio": 0.05516
       },
       "loudness": {
-        "integrated_lufs": -17.99,
-        "true_peak_dbtp": -8.66,
-        "loudness_range_lu": 4.2,
-        "threshold_lufs": -28.11
+        "integrated_lufs": -18.06,
+        "true_peak_dbtp": -5.44,
+        "loudness_range_lu": 4.3,
+        "threshold_lufs": -28.06
       },
-      "pcm_sha256": "e9f18a3fdfea03462817f152d7dc4f4d975b31c6a2bfc2086e65ccdc0391e404",
-      "sha256": "c6f509938dcb590e8d2d28672e627352d934ad11385ac15de221db234d2b8518"
+      "pcm_sha256": "2b14c589d986b4aa40a9f445520e5afbf636efa50801e08f717c3993a11ac3a9",
+      "sha256": "38cd721e5fbbbfebd5452ebaa4c73ae293bade317bccd963abc0ffd4a9eb01af"
     },
     {
       "id": "castle_kitchen",
@@ -1561,74 +1565,78 @@
     },
     {
       "id": "opera_lobby",
-      "title": "Marquee of Many Dreams",
+      "title": "Four Floors of Swing",
       "family": "opera",
       "area": "Opera Lobby",
-      "brief": "A welcoming theatrical 6/8 whose harp ostinato links all three floors; clarinet and warm brass preview many careers without favoring one door.",
-      "cue_score_sha256": "0a86c12c8acb53d875faaf7e5e392f058cda4d1468bdf61f63a7688109471cb6",
+      "brief": "Opera Lobby: A popular four-floor opera house bustles with a small jazz band: swung piano ninths, walking bass, brushed drums, clarinet calls and warm brass answers; a separate foyer crowd bed supplies the room activity.",
+      "cue_score_sha256": "66d85b550a5bef359179e39743be37e692c8faf99927a0853c6cd17b16b4413d",
       "path": "assets/audio/music/opera_lobby.ogg",
       "import_path": "assets/audio/music/opera_lobby.ogg.import",
-      "tempo_bpm": 96,
+      "tempo_bpm": 116,
       "meter": [
-        6,
-        8
+        4,
+        4
       ],
-      "bars": 8,
+      "bars": 16,
       "tonic_midi": 63,
-      "mode": "lydian",
-      "texture": "theatre",
-      "percussion": "brush",
+      "mode": "major",
+      "texture": "foyer_jazz",
+      "percussion": "jazz_brush",
       "instruments": {
         "lead": "clarinet",
-        "harmony": "harp",
-        "bass": "warm_brass",
-        "accent": "bell"
+        "harmony": "piano",
+        "bass": "pizzicato",
+        "accent": "warm_brass"
       },
       "motif_treatment": "marquee",
       "progression": [
-        0,
-        3,
         1,
         4,
         0,
         5,
-        3,
+        1,
+        4,
+        0,
         0
       ],
       "melody": [
         0,
         2,
         4,
+        null,
         6,
+        5,
+        4,
+        2,
+        1,
+        3,
         5,
         4,
         2,
         null,
         1,
-        3,
-        5,
-        4
+        0
       ],
-      "energy": 0.46,
+      "energy": 0.67,
       "seed_namespace": "opera_lobby",
       "seed_derivation": "SHA-256(cue_id:event_role:event_index[:midi_note])",
       "ogg_stream_serial": 942410878,
       "loop_import": {
         "enabled": true,
         "offset_seconds": 0.0,
-        "beat_count": 48,
-        "bar_beats": 6
+        "beat_count": 64,
+        "bar_beats": 4
       },
-      "sample_count": 1440000,
-      "duration_seconds": 30.0,
-      "samples_per_beat": 30000.0,
+      "sample_count": 1588966,
+      "duration_seconds": 33.103458,
+      "samples_per_beat": 24827.59375,
       "raw_seam": {
-        "boundary_jump": 0.0007452,
-        "adjacent_p999": 0.07742843,
-        "jump_ratio": 0.00962
+        "boundary_jump": 0.00202489,
+        "adjacent_p999": 0.14797385,
+        "jump_ratio": 0.01368
       },
       "development": {
-        "midpoint_bar": 4,
+        "midpoint_bar": 8,
         "changes": [
           "progression_order",
           "alternating_inversion",
@@ -1637,51 +1645,51 @@
           "motif_instrument_and_register"
         ]
       },
-      "normalization_gain_db": -2.26,
+      "normalization_gain_db": 0.75,
       "peak_limited": false,
-      "pcm_peak": 12660,
-      "pcm_peak_dbfs": -8.2601,
-      "pcm_rms_dbfs": -20.5892,
+      "pcm_peak": 17903,
+      "pcm_peak_dbfs": -5.2502,
+      "pcm_rms_dbfs": -20.7867,
       "pcm_loudness": {
         "integrated_lufs": -18.0,
-        "true_peak_dbtp": -8.26,
-        "loudness_range_lu": 5.6,
-        "threshold_lufs": -28.12
+        "true_peak_dbtp": -5.12,
+        "loudness_range_lu": 4.2,
+        "threshold_lufs": -28.0
       },
       "codec": "vorbis",
       "sample_rate_hz": 48000,
       "channels": 2,
-      "file_bytes": 368053,
-      "average_bitrate_bps": 98147,
+      "file_bytes": 406011,
+      "average_bitrate_bps": 98119,
       "tags": {
         "ENCODER": "Lavc libvorbis",
-        "TITLE": "Marquee of Many Dreams",
+        "TITLE": "Four Floors of Swing",
         "ARTIST": "Mermaid Roshan",
         "ALBUM": "Reef of Light Area Music",
         "CUE_ID": "opera_lobby",
-        "BPM": "96",
+        "BPM": "116",
         "BPM_UNIT": "notated_denominator",
-        "METER": "6/8",
+        "METER": "4/4",
         "LOOPSTART": "0",
-        "LOOPEND": "1440000",
-        "LOOPLENGTH": "1440000",
+        "LOOPEND": "1588966",
+        "LOOPLENGTH": "1588966",
         "LICENSE": "Project-owned original composition and synthesis",
         "COMMENT": "Deterministic offline synthesis; no samples or soundfonts"
       },
-      "decoded_sample_count": 1440000,
+      "decoded_sample_count": 1588966,
       "decoded_seam": {
-        "boundary_jump": 0.0021363,
-        "adjacent_p999": 0.05829035,
-        "jump_ratio": 0.03665
+        "boundary_jump": 0.00204474,
+        "adjacent_p999": 0.09811811,
+        "jump_ratio": 0.02084
       },
       "loudness": {
-        "integrated_lufs": -18.0,
-        "true_peak_dbtp": -8.67,
-        "loudness_range_lu": 5.6,
-        "threshold_lufs": -28.11
+        "integrated_lufs": -18.07,
+        "true_peak_dbtp": -5.12,
+        "loudness_range_lu": 4.3,
+        "threshold_lufs": -28.07
       },
-      "pcm_sha256": "018eb405fea5c2a007de5e03c163fc3b5ea3409cde6dfe5199cc63a542ba6a22",
-      "sha256": "6d7d4bb3457e90cbacb8c302d679bbd11fcb37f41d0fdd551129d6df443874ec"
+      "pcm_sha256": "761fc9d30fe8913a46e6da1d85f44ee90ba3f97a34ef0c3c66380ba5a3331a7d",
+      "sha256": "cd9f11a4c3b56b6602652d833ce7b0e307f40a70b63100222550355431955006"
     },
     {
       "id": "opera_chef",

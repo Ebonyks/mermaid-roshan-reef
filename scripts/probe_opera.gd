@@ -13,9 +13,8 @@ const ROUTE_ROSHAN_KEEP_CLEAR := Rect2(360.0, 190.0, 560.0, 490.0)
 const ROUTE_WIDE_VIEWPORT := Vector2(1600.0, 720.0)
 ## MA-OPERA-012 product-route regression.
 ##
-## The Opera is no longer an all-career destination. Each live career owns
-## exactly one picture-first Castle-room
-## route. This probe touches every shipping card through the real viewport,
+## The Opera now adds a gated four-floor career venue alongside the existing
+## picture-first Castle-room routes. This probe touches every shipping card through the real viewport,
 ## proves cancel/completion return to the same room, and protects passive,
 ## reward, replay, pause-curtain and sixteen-bit save behavior.
 
@@ -172,7 +171,8 @@ func _audit_all_room_cards() -> void:
 		if room_id == "opera_hall":
 			routes.open_opera_venue()
 			await _frames(3)
-		var expected: Array[int] = CastleCareerRoutes.act_indices_for_room(room_id)
+		var expected: Array[int] = OperaHouse.LIVE_ACT_INDICES.duplicate() if room_id == "opera_hall" \
+			else CastleCareerRoutes.act_indices_for_room(room_id)
 		var actual: Array[int] = []
 		var room_card_rects: Array[Rect2] = []
 		var room_card_geometry_ok := true
@@ -181,7 +181,8 @@ func _audit_all_room_cards() -> void:
 		for button: Button in routes.buttons:
 			var act_index := int(button.get_meta("act_index", -1))
 			actual.append(act_index)
-			seen.append(act_index)
+			if not seen.has(act_index):
+				seen.append(act_index)
 			var presentation := String(button.get_meta("presentation", ""))
 			var base_ok := button.visible \
 				and button.text.is_empty() and not button.clip_contents \
@@ -191,18 +192,18 @@ func _audit_all_room_cards() -> void:
 					>= 110.0 \
 				and (button.get_meta("screen_hit_size", Vector2.ZERO) as Vector2).y \
 					>= 110.0
-			if presentation == "historical_three_floor_portal":
+			if presentation == "four_floor_painted_portal":
 				var portal_focus := button.get_theme_stylebox("focus") \
 					as StyleBoxFlat
 				pictures_ok = pictures_ok and base_ok \
 					and not bool(button.get_meta("opaque_card", true)) \
 					and bool(button.get_meta("painted_door_hit_region", false)) \
 					and not bool(button.get_meta("floating_decoration", true)) \
-					and button.get_child_count() == 0 \
+					and button.get_node_or_null("CareerPortrait") is TextureRect \
 					and portal_focus != null \
-					and portal_focus.border_width_left == 0 \
+					and portal_focus.border_width_left == 3 \
 					and is_zero_approx(portal_focus.bg_color.a) \
-					and int(button.get_meta("floor_index", -1)) in [0, 1, 2]
+					and int(button.get_meta("floor_index", -1)) in [0, 1, 2, 3]
 			else:
 				var crest := button.get_node_or_null("CareerCrest") as TextureRect
 				var actor := button.get_node_or_null("RoshanActor") as TextureRect
@@ -257,24 +258,18 @@ func _audit_all_room_cards() -> void:
 			var venue := routes.opera_venue
 			var venue_ok := venue != null and venue.is_open() \
 				and bool(venue.get_meta("true_2d_venue", false)) \
-				and String(venue.get_meta("historical_layout_commit", "")) \
-					== "90d19190" \
-				and int(venue.get_meta("historical_floor_count", 0)) == 3 \
-				and int(venue.get_meta("historical_portal_count", 0)) == 12 \
-				and int(venue.get_meta("active_room_owned_portal_count", 0)) == 3 \
-				and int(venue.get_meta("decorative_closed_portal_count", 0)) == 9 \
-				and int(venue.get_meta("bubble_lift_count", -1)) == 0 \
-				and int(venue.get_meta("floating_portal_decoration_count", -1)) == 0 \
-				and venue.find_children("CareerCrest", "TextureRect", true, false).is_empty() \
-				and venue.find_children("CareerPearl", "Panel", true, false).is_empty() \
-				and venue.find_children("VenueTile_*", "TextureRect", true, false).size() == 8 \
-				and venue.find_children("BubbleLift*", "Button", true, false).is_empty() \
-				and venue.get_node_or_null("OperaVenueBack") == null \
+				and int(venue.get_meta("floor_count", 0)) == 4 \
+				and int(venue.get_meta("portal_count", 0)) == 16 \
+				and int(venue.get_meta("mystery_door_count", 0)) == 1 \
+				and venue.access_controls.size() == 6 \
+				and venue.current_stage == 0 \
+				and venue.buttons.filter(func(button: Button) -> bool: return not button.disabled).size() == 4 \
+				and venue.find_children("VenueTile_*", "TextureRect", true, false).size() == 2 \
 				and venue.get_node_or_null("LobbyRoshanCutout") is TextureRect
-			_check("Opera Hall opens the recovered three-floor explorable venue",
+			_check("Opera Hall opens the four-floor explorable venue",
 				venue_ok)
 	seen.sort()
-	_check("the nine visible room sets contain every career exactly once",
+	_check("the Castle and Opera surfaces cover every live career",
 		seen == OperaHouse.LIVE_ACT_INDICES)
 
 
@@ -287,17 +282,17 @@ func _audit_no_hidden_hub() -> void:
 	main._start_opera()
 	await _frames(3)
 	var venue := routes.opera_venue
-	_check("the Opera stage star opens the recovered three-floor venue",
+	_check("the Opera stage star opens the four-floor venue",
 		main.opera_game == null and main.opera_pending_act_index == -1
 		and routes.root != null and routes.root.visible
 		and venue != null and venue.is_open()
-		and int(venue.get_meta("historical_floor_count", 0)) == 3
-		and int(venue.get_meta("historical_portal_count", 0)) == 12
+		and int(venue.get_meta("floor_count", 0)) == 4
+		and int(venue.get_meta("portal_count", 0)) == 16
 		and main.opera_stars == stars_before and main.pearl_count == pearls_before)
-	_check("the recovered venue is not an all-career picker",
+	_check("the physical venue has no floating floor tabs",
 		main.find_children("*OperaLobby*", "Node", true, false).is_empty()
 		and main.find_children("*FloorTab*", "Node", true, false).is_empty()
-		and venue.career_buttons().size() == 3)
+		and venue.career_buttons().size() == 15)
 
 
 func _audit_wrong_and_passive_routes() -> void:
@@ -496,8 +491,7 @@ func _start_via_room_touch(room_id: String, act_index: int) -> OperaHouse:
 			routes.open_opera_venue())
 		await _frames(2)
 	var button := routes.button_for_act(act_index)
-	# All three painted doors are directly touchable; no transport controls are
-	# needed to reveal a floor or route.
+	# A pointed unlocked door routes through physical stairs and elevators.
 	_check("slot %d exposes its real %s picture" % [act_index, room_id],
 		button != null and button.is_visible_in_tree() and not button.disabled
 		and int(button.get_meta("act_index", -1)) == act_index)

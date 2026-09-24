@@ -7273,6 +7273,9 @@ func chapter2_can_start_opera_act(act_index: int) -> bool:
 
 func chapter2_opera_route_matches(room_id: String, act_index: int) -> bool:
 	if not chapter2_is_active():
+		if room_id == "opera_hall" and OperaHouse.is_live_act_index(act_index):
+			return OperaVenueNavigation.floor_for_act(act_index) \
+				<= OperaVenueNavigation.stage_for_mask(opera_stars)
 		return CastleCareerRoutes.route_matches(room_id, act_index)
 	var director := _chapter_two_ref()
 	if director.tutorial_phase_is_active():

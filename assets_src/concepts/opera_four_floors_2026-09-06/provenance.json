@@ -1,0 +1,176 @@
+{
+  "method": "Codex built-in imagegen",
+  "source": "assets/flats/castle/opera_house_venue_2d/room_opera_house_venue.png",
+  "native_size": [
+    1672,
+    941
+  ],
+  "native_sha256": "bb0f9c7149adb84bbe78c87e690fa2461f4775d76289bdcca2e1fdefc90d07b1",
+  "gap": "Four floors of four doors; existing gate pixels cannot open; left and right elevators need accessible entrances. Fourth final door remains a mystery.",
+  "review": "Source-owned physical interaction revision. Prior symbolic sheet rejected by owner and archived. Current assets and repair prompts are bound by physical_parts_manifest.json; review is physical_interaction_review.json.",
+  "release_accepted": false,
+  "prompts": [
+    {
+      "path": "prompt_1.txt",
+      "sha256": "0ef7c5ca954f7b7a6f65bf07af17c7bf9c80562e50786a0a12bc4fefa663a5ec"
+    },
+    {
+      "path": "prompt_2.txt",
+      "sha256": "9e21e1a82c6261cfde9feb1b20ab4f23c3287a08df6a4f54074cb4702b3469a3"
+    },
+    {
+      "path": "prompt_3.txt",
+      "sha256": "78560f48bd58f98e2bfd5683718a57e652e8f382e2fcfd6af6623faa92a92937"
+    },
+    {
+      "path": "prompt_4.txt",
+      "sha256": "56f8bb874b0a6def88dca1777985c56ea34edb9a6d25dd7778535249f7afc1c1"
+    },
+    {
+      "path": "prompt_5.txt",
+      "sha256": "1a39a68df44a91dad14a61a60d7ad2463bfcd329e62956d7429db5b01b64ee93"
+    },
+    {
+      "path": "prompt_6.txt",
+      "sha256": "aaefc054ea2e8461e07aeca4dc150f2744ea1c7a69692a31158c177a28feaaf2"
+    },
+    {
+      "path": "prompt_7.txt",
+      "sha256": "92d8da819c079b3168805af4471805d0463d36b67371b97027e59452e0e414f2"
+    },
+    {
+      "path": "prompt_clean.txt",
+      "sha256": "38987836a2fd045e935c0c1faf25d97cb556ebbaa9f03a8364458537fe5daa6a"
+    },
+    {
+      "path": "prompt_portable_v2.txt",
+      "sha256": "7d0b3129ad237bdfaadb70f5de0e3efa5a0a7d081790204f744b2a4f7b3113d8"
+    }
+  ],
+  "selected_source": "venue_native_v7.png",
+  "foreground_source": "venue_native_v7.png",
+  "assets": [
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/venue_native_v7.png",
+      "sha256": "bb0f9c7149adb84bbe78c87e690fa2461f4775d76289bdcca2e1fdefc90d07b1",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/venue_clean_v7.png",
+      "sha256": "8c4e1313ace7b045347de623fd4576f84ac75fec33bec23a78ca0a5492311f51",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/portable_storybook_v2.png",
+      "sha256": "5f5d1bd1c725c9753c730e3c291dc07e7e1d6f076008027f84e11d19997f189e",
+      "dimensions": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/rejected_symbolic_alpha/cup_empty.png",
+      "sha256": "b0b130b7f1cc211f463f2516b4638f74ec0610935a063d398640c5e7444d59a4",
+      "dimensions": [
+        308,
+        330
+      ]
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/rejected_symbolic_alpha/cup_full.png",
+      "sha256": "338896b1eb01e804fb6614f72ef028c7bb5d7677dc6fcde46d2cfc99f62b940c",
+      "dimensions": [
+        309,
+        338
+      ]
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/rejected_symbolic_alpha/cupcake.png",
+      "sha256": "fe4212893a940b4d8f01e51c5e76d0739cf3fc852e7334e817ab11fdb7e0d8ed",
+      "dimensions": [
+        308,
+        389
+      ]
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/rejected_symbolic_alpha/cupcake_bitten.png",
+      "sha256": "3e6f1823c666fc0985c470c14cacea503b74a285166a0b3d08e7cfb1332ad339",
+      "dimensions": [
+        263,
+        375
+      ]
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/rejected_symbolic_alpha/drinks_cart.png",
+      "sha256": "ade9c768c4e910dd640614c3cee3dff44cade08639c42397fbeab39ab9cc76d4",
+      "dimensions": [
+        192,
+        261
+      ]
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/rejected_symbolic_alpha/flower.png",
+      "sha256": "f0423fb50718caa33b8ea9be60ef2a2851db57e18213f635a8ca93cf9d21bb05",
+      "dimensions": [
+        322,
+        422
+      ]
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/rejected_symbolic_alpha/flower_stand.png",
+      "sha256": "a2a19df9dd2108a0c2f8099c21c844343bbe03dec785ecd7a0712711648a1c5e",
+      "dimensions": [
+        166,
+        234
+      ]
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/rejected_symbolic_alpha/left_couch.png",
+      "sha256": "635167d87e8925b654e987127d7eff3cfdd648dac9d2e34c0713a92b2ebf2ff5",
+      "dimensions": [
+        299,
+        168
+      ]
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/rejected_symbolic_alpha/petal.png",
+      "sha256": "ccc0503582cd037fcf549f4265ef7a740f02ba1b584060b4973210ceb60c7622",
+      "dimensions": [
+        207,
+        230
+      ]
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/rejected_symbolic_alpha/planter.png",
+      "sha256": "c424a1b022b12b5690aea3aa820e97f21ebceb5cd15009c6235ff7f18ccb6d76",
+      "dimensions": [
+        190,
+        186
+      ]
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/rejected_symbolic_alpha/right_couch.png",
+      "sha256": "3a2b82b5c87a6af0d0732361ee66330095d729150755cf9e34025363498c4c5a",
+      "dimensions": [
+        293,
+        165
+      ]
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/rejected_symbolic_alpha/snack_stand.png",
+      "sha256": "68b915fd95cb7a6f22325e708c2738ac9174f58c3ab6837a5b7f93d247f70a5c",
+      "dimensions": [
+        213,
+        244
+      ]
+    }
+  ],
+  "physical_manifest": "physical_parts_manifest.json",
+  "archive_note": "Assets from the symbolic iteration below are retained provenance, not current runtime assets."
+}

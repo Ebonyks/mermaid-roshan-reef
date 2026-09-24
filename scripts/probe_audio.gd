@@ -99,6 +99,15 @@ func _init() -> void:
 		main.ambience != null and main.ambience.playing
 		and main.ambience.stream.resource_path.ends_with("ambience_hall.ogg"))
 	main._play_music("stuffie_battle")
+	# Busy audience tone belongs to the foyer, never to a career activity.
+	for foyer_cue: String in ["castle_opera_hall", "opera_lobby"]:
+		main._play_music(foyer_cue)
+		_check("Opera foyer selects its popular-room bed",
+			main.ambience.stream.resource_path.ends_with("ambience_opera_foyer.ogg"))
+	main._play_music("opera_chef")
+	_check("career room restores quiet room tone",
+		main.ambience.stream.resource_path.ends_with("ambience_hall.ogg"))
+	main._play_music("stuffie_battle")
 	await process_frame
 	_check("portable Stuffie cue preserves its source ambience",
 		main.ambience.stream != null

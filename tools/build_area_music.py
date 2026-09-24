@@ -205,11 +205,11 @@ INSTRUMENTS: dict[str, dict[str, Any]] = {
 VALID_TEXTURES = {
     "aquatic", "bluegrass", "boss", "bounce", "cinematic", "combat",
     "drive", "flowing", "folk", "gentle", "lullaby", "march", "polka",
-    "pop", "space", "swing", "theatre", "tiptoe", "waltz",
+    "pop", "space", "swing", "foyer_jazz", "theatre", "tiptoe", "waltz",
 }
 VALID_PERCUSSION = {
     "none", "bluegrass", "brush", "bubble", "pop", "pulse", "shaker",
-    "sleigh", "soft_combat", "soft_march", "tiptoe", "tutorial_brush",
+    "sleigh", "soft_combat", "soft_march", "tiptoe", "tutorial_brush", "jazz_brush",
 }
 
 
@@ -629,14 +629,15 @@ def _arrange_harmony(
                         harmony_gain * 0.82, -0.24 + voice * 0.32,
                         f"tiptoe:{bar}:{pulse}:{voice}", 0, samples_per_beat,
                     )
-        elif texture == "swing":
+        elif texture in {"swing", "foyer_jazz"}:
             # Late off-beat comping gives the padded boxing practice its
             # bounce without turning the score into a hard jazz pastiche.
             positions = [beat + 2.0 / 3.0 for beat in range(beats_per_bar)]
             for pulse, position in enumerate(positions):
                 if position >= beats_per_bar:
                     continue
-                for voice, degree in enumerate(chord[1:]):
+                voices = [root + 2, root + 6, root + 8] if texture == "foyer_jazz" else chord[1:]
+                for voice, degree in enumerate(voices):
                     _add_note(
                         track, cue, harmony, degree, bar_beat + position, 0.30,
                         harmony_gain * (0.96 if pulse % 2 else 1.04),
@@ -688,15 +689,18 @@ def _arrange_harmony(
         else:
             raise ValueError(f"Unhandled harmonic texture: {texture}")
         bass_positions = [0.0]
-        if texture == "polka":
+        if texture in {"polka", "foyer_jazz"}:
             bass_positions = [float(beat) for beat in range(beats_per_bar)]
         elif beats_per_bar >= 3:
             bass_positions.append(float(beats_per_bar // 2))
         for pulse, position in enumerate(bass_positions):
             bass_degree = root if pulse == 0 else root + 4
+            if texture == "foyer_jazz":
+                next_root, _ = _developed_root(cue, (bar + 1) % bars, bars)
+                bass_degree = [root, root + 2, root + 4, next_root - 1][pulse % 4]
             _add_note(
                 track, cue, bass, bass_degree, bar_beat + position,
-                min(float(beats_per_bar) * 0.48, 1.8), bass_gain, -0.08,
+                0.78 if texture == "foyer_jazz" else min(float(beats_per_bar) * 0.48, 1.8), bass_gain, -0.08,
                 f"bass:{bar}:{pulse}", -1, samples_per_beat,
             )
 
@@ -772,6 +776,8 @@ def _arrange_melody(
             if phrase_index == 1 and index % 4 in (1, 2):
                 degree += 1
             start = start_bar * beats_per_bar + index * unit
+            if cue["texture"] == "foyer_jazz" and index % 2:
+                start += unit / 3.0
             _add_note(
                 track, cue, lead, degree, start, unit * (0.72 if str(cue["texture"]) in {"tiptoe", "polka", "combat"} else 0.88),
                 0.090 + energy * 0.042, 0.10 if phrase_index == 0 else -0.08,
@@ -793,6 +799,14 @@ def _percussion_events(style: str, beats_per_bar: int) -> list[tuple[float, str,
         return []
     if style == "brush":
         return [(half, "brush", 0.16, 0.18), (max(0.5, beats_per_bar - 1.0), "brush", 0.11, -0.15)]
+    if style == "jazz_brush":
+        # Quiet brushed backbeat and the long-short ride pattern of a live trio.
+        events = [(float(beat), "shaker", 0.10, 0.28) for beat in range(beats_per_bar)]
+        for beat in range(1, beats_per_bar, 2):
+            events.extend([(float(beat), "brush", 0.22, -0.18),
+                           (beat + 2.0 / 3.0, "shaker", 0.07, 0.28)])
+        events.append((0.0, "kick", 0.08, 0.0))
+        return events
     if style == "tiptoe":
         return [(0.5, "wood", 0.11, -0.22), (max(1.5, half + 0.5), "wood", 0.09, 0.22)]
     if style == "bubble":

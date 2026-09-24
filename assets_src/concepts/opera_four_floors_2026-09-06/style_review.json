@@ -1,0 +1,41 @@
+{
+  "authority": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#4-visual-promise"
+  ],
+  "scope": "Opera foreground and portable interaction prop style; no alteration of sealed whole-game scores",
+  "rejected_candidates": [
+    {
+      "imagegen_id": "exec-5679341a-dd29-4231-bbad-19e2a13115da",
+      "finding": "Foreground identity/placement drift and shiny redesign; RGB checkerboard is not alpha."
+    },
+    {
+      "imagegen_id": "exec-b296e9b2-5d42-4811-8862-36047a46ec14",
+      "finding": "DL-VIS-02 photographic edges and DL-VIS-05 glossy detailed material shading conflict with user-requested Roshan style."
+    }
+  ],
+  "selected": {
+    "source": "portable_storybook_v2.png",
+    "sha256": "5f5d1bd1c725c9753c730e3c291dc07e7e1d6f076008027f84e11d19997f189e",
+    "DL-VIS-01": "Broad rounded silhouettes; each item recognizable at held-prop scale.",
+    "DL-VIS-02": "Deep plum contours and grouped interior marks; alpha refined from original pixels.",
+    "DL-VIS-03": "Pale pink/aqua/yellow readable interiors, colored shadows.",
+    "DL-VIS-05": "Simplified painted shading; opaque illustrated cup interior replaces realistic refraction.",
+    "DL-VIS-06": "Only existing Roshan atlas rows used; no character regeneration.",
+    "DL-VIS-07": "AI review candidate only. Owner runtime acceptance and phone/device review remain open.",
+    "owner_status": "REJECTED: symbolic, unrelated to scene props and obvious overdraw; superseded by physical source-piece implementation."
+  },
+  "foreground": "Preserve established scene prop RGB exactly using original source-coordinate masks; do not promote re-rendered furniture candidate. Whole venue palette/material audit is not newly accepted by this extraction.",
+  "runtime": "Godot 4.7.2 Forward Mobile render inspected at 1280x720; interaction/navigation tests ALL OK. Authored detailed interaction clips remain pending the owner animation bible.",
+  "open_gates": [
+    "1672x941 native background remains below the project 2048 native coverage rule; no upscaling or false compliance claim.",
+    "Full CI typography gate remains failed; proposed inventory maintenance rejected by automatic approval review and NOT applied.",
+    "Exact device/child/owner visual acceptance is not established."
+  ],
+  "review_board": {
+    "path": "foreground_runtime_review.png",
+    "sha256": "cc921f90269272992a82b801de8ec072841ff9febb110d2966d017fc5b721107",
+    "role": "diagnostic review only; not authored cinematic delivery"
+  },
+  "current_review": "physical_interaction_review.json"
+}

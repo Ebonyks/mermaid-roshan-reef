@@ -1,0 +1,32 @@
+extends SceneTree
+
+func _init() -> void:
+	call_deferred("run")
+
+func run() -> void:
+	root.size = Vector2i(1280, 720)
+	var main := ReefMain.new()
+	main.chapter2_active = false
+	var venue := OperaHouseVenue2D.new()
+	venue.setup(main, 0, Callable())
+	root.add_child(venue)
+	venue.open(0)
+	venue.set_process(false)
+	venue.guide_pointer.visible = false
+	var directory := "res://tmp/opera-facing-motion/lemonade"
+	DirAccess.make_dir_recursive_absolute(directory)
+	venue.foot = (OperaVenueForeground.OBJECTS["lemonade"] as Dictionary)["approach"]
+	venue._update_actor()
+	for frame in range(132):
+		if frame == 10:
+			venue.foreground.begin("lemonade")
+		venue._process(1.0 / 20.0)
+		await process_frame
+		await RenderingServer.frame_post_draw
+		root.get_texture().get_image().get_region(Rect2i(1080, 405, 200, 300)).save_png(directory + "/%03d.png" % frame)
+	venue.close()
+	venue.queue_free()
+	main.free()
+	await process_frame
+	print("FACING CAPTURE ALL OK")
+	quit()

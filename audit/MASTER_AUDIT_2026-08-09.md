@@ -14,16 +14,41 @@ Game-wide audit satisfaction remains **UNSATISFIED**.
 | How much invention is delegated? | Owner decision 2026-09-05 permits minor characters/optional threads preserving canon and free reuse, modification, and combination of mechanics within child/save/medium rules. Major character/plot changes remain reserved. |
 | How should unused assets inform the plan? | Strategically shortlist existing families for story/play benefit, thematic fit, readiness, and integration cost. Suitable discoveries may shape activities within scope. Unused status alone is neither approval nor a reason for inclusion. |
 | Which chapter sources control? | [Chapter 2 spine](../design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md), [cake progression](../design/CHAPTER2_CAKE_VISUAL_PROGRESSION_2026-08-31.md), and scoped [early Chapter 3 route](../design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md). |
-| Where does Northern/Ice World development belong? | [Northern planning branch](../design/chapters/NORTHERN_ICE_WORLD.md): preserve the existing art investment; explore an unused building as a restaurant and remix cooking with customer orders. Planning direction is authorized; runtime implementation and the full chapter ending are not commissioned by this entry. |
+| Where does Northern/Ice World development belong? | [Northern planning branch](../design/chapters/NORTHERN_ICE_WORLD.md), now with a [Nordic/Christmas draft and visual guide](../design/chapters/NORTHERN_CHRISTMAS_DRAFT.md): preserve the existing art investment, remix restaurant cooking with customer orders, and explore returning/new careers. Design exploration is authorized; runtime implementation and the proposed chapter ending are not commissioned by this entry. |
 | Where are canon and reusable examples? | [Chapter reference library](../design/10_CHAPTER_REFERENCE_LIBRARY.md), including acceptance limits and asset discovery sources. Seed entries are static references, not newly accepted exemplars. |
 | What facts must be refreshed? | Engine pins in [godot_baseline.json](../tools/godot_baseline.json); global `OPERA_ACTIVE_STAR_MASK` in [SaveState](../scripts/save_state.gd); actual code/probe availability; scoped owner decisions in the ledger. |
 | What blocks what? | A missing cue, device session, or owner decision blocks its dependent work or acceptance claim. Continue independent authorized work. Shared regression/integration gates and strict-zero whole-game 2D satisfaction retain their scopes. |
+| What makes menus, arrows and teaching cues visually consistent? | The [Pearl Stage UI language](../design/11_UI_PEARL_STAGE_LANGUAGE.md), governed by `DL-UI-VIS-01` through `DL-UI-VIS-10`: painted shell/pearl surfaces, rainbow flourishes, grouped ornament and clear picture-first actions. Reuse its component and review packet across the game. |
+
+### UI design branch — 2026-09-05
+
+Owner commissioned a richer, slightly maximalist Roshan UI family inspired by
+the opera-house worlds, beginning with menu concepts. Work branch:
+`codex/ui-opera-design-language-20260905`, source baseline
+`aad0d450d8b8f1381badeeb4bcb939181115ab00`. This is a design-development
+extension of the master audit, not a new whole-game acceptance claim.
+
+Sol/Luna generate the bounded menu/component studies; Astra independently
+records [artifact-bound pass/fail reviews](UI_PEARL_STAGE_CONCEPT_REVIEW_2026-09-05.md).
+Root applies the same canonical visual, non-reader, touch, provenance and
+evidence rules. Repeat the [UI review packet](../design/11_UI_PEARL_STAGE_LANGUAGE.md)
+for every adopted menu, arrow and tutorial component. The historical
+`MENU_UI_SYSTEM_AUDIT_2026-08-01.md` census is a discovery seed, not proof that
+the new treatment is implemented or accepted.
+
+| Claim | Evidence boundary |
+|---|---|
+| Design direction defined | Section 21 rules and the component/layout specification |
+| Concept visual PASS/FAIL | Astra's exact-image review; native and phone-size artifact inspection only |
+| Runtime rollout | Not implemented by this concept round; shared consumers and exact-build tests required |
+| Device / child / owner acceptance | Not established by generated images or AI review |
+| Master satisfaction | Remains **UNSATISFIED**; existing findings and sealed scores unchanged |
 
 ### Next bounded planning work
 
 | Deliverable | Prerequisite | Next evidence |
 |---|---|---|
-| Northern art shortlist and restaurant brief | Locate the remaining art family from the owner-confirmed July 29 forest concept; retain the restaurant direction | Source/usage/authority checks, visual inspection, thematic/player benefit, and mechanic adaptation plan |
+| Northern Christmas world draft, art shortlist and restaurant brief | Owner requested a gameplan and detailed visual guide before game production; keep tracing remaining art from the confirmed July 29 forest | Review the linked draft's mood/premise/career mix; bind final buildings and states with source/usage/authority evidence before implementation |
 | Representative playable activity, then expansion | Explicit chapter implementation commission and verified extension path | Intentional/passive/repeat/save/return tests, in-context captures, and applicable full gates |
 | Playable review and reference-library promotion | Implemented candidate | Exact build and required device/child/owner review; preserve missing evidence as open |
 

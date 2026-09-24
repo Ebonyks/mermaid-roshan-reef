@@ -1,0 +1,95 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "candidate": "Physical source-piece interactions, corrected authored-pose facing and popular jazz foyer",
+  "checks": {
+    "changed_script_parser": "PASS",
+    "changed_script_inference_lint": "PASS",
+    "navigation_progression_obstacles_and_retargeting": "PASS",
+    "venue_lifecycle_mystery_and_lift_taps": "PASS",
+    "trusted_probe_opera": "ALL OK: tmp/opera-physical-probe-retry.log",
+    "trusted_probe_opera_2d": "ALL OK: tmp/opera-physical-2d-final.log",
+    "mobile_renderer_visual_review": "Godot 4.7.2 Forward Mobile; all six site stills inspected and 132-frame facing-corrected lemonade capture completed. Physical-object concept accepted by owner; new facing/audio await owner review.",
+    "full_repository_ci": "BLOCKED: typography inventory has 10 retired entries and existing unclassified U+2630. Proposed maintenance rejected by automatic approval review; NOT applied.",
+    "foreground_raw_touch_arrival_phases_cancellation": "ALL OK: tmp/opera-facing-mobile.log; all six sites, seats and upper-floor return path",
+    "foreground_rgb_pixel_preservation": "PASS: original body/part RGB, disjoint masks and one-owner rest-composite checks",
+    "foreground_texture_limits": "PASS: all 26 runtime textures <=1024 longest side",
+    "physical_pixel_ownership_source_identity_and_removal": "5 independent output/packaging tests PASS",
+    "physical_metadata_export": "PASS: included in both export presets",
+    "popular_foyer_music_build_and_provenance": "ALL OK: 44-cue catalog build and check; only the two opera-house OGGs changed",
+    "foyer_ambience_and_career_audio_routing": "ALL OK: tmp/opera-jazz-audio-probe.log",
+    "runtime_audio_inventory": "Refreshed by tools/audit_audio_quality.py; three changed/new delivery hashes independently matched to ledger"
+  },
+  "release_accepted": false,
+  "pending": [
+    "Native background resolution remains 1672x941, below the 2048 native coverage requirement.",
+    "Full repository CI must be green before commit/integration; existing typography failure remains.",
+    "Detailed contact-specific Roshan clips await the animation bible; current implementation reuses approved generic atlas poses."
+  ],
+  "work_branch": "codex/opera-four-floors-20260906",
+  "evidence": [
+    {
+      "path": "tmp/opera-physical-probe-retry.log",
+      "sha256": "aa2a5fda537afc32aa2bfa20469be08b3a8944b2f910e990b17612e1e2c0dddb"
+    },
+    {
+      "path": "tmp/opera-physical-2d-final.log",
+      "sha256": "543e767646917648bea13f397595b02a8195f810d76981765649fef44471ce8b"
+    },
+    {
+      "path": "tmp/opera-physical-mobile-final.log",
+      "sha256": "a746759d1732c9c9e709bbb7cb619810151c215a7f9f1fffd3511e7ce360435e"
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/physical_interaction_review.png",
+      "sha256": "038a37abfdafa13063878b846fb7718d7a87cf133e7a0fce70b14dcbf6ac07b0"
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/physical-lemonade.webp",
+      "sha256": "09a611201c55914b8c3c7c6bdc1e5ae4dcc0151a8e9f8357b4d503cbcb6e8b4c"
+    },
+    {
+      "path": "tmp/opera-facing-runtime.log",
+      "sha256": "ef38201543630b3f7495875d6c9b61e907fb9456ed11dea73409b0eed37bdcb0"
+    },
+    {
+      "path": "tmp/opera-facing-mobile.log",
+      "sha256": "a746759d1732c9c9e709bbb7cb619810151c215a7f9f1fffd3511e7ce360435e"
+    },
+    {
+      "path": "tmp/opera-facing-capture.log",
+      "sha256": "fc08d3697269d103c456414e93bec81cf7030e186012fb6aef8daa2ec554b554"
+    },
+    {
+      "path": "tmp/opera-jazz-audio-probe.log",
+      "sha256": "abf3be2891901a0ab6a7553079fd3d6b682c1a2acb4923a9153746a01ce0f53b"
+    },
+    {
+      "path": "tmp/opera-jazz-build.log",
+      "sha256": "b6587dc6353f506a312401ca66a5fbfd353d3174e75520a9ca19d43ece7d9c9c"
+    },
+    {
+      "path": "tmp/opera-jazz-check.log",
+      "sha256": "656049b7b151a198a47bee4c3f38d4d7e6869142563d980a2b8b97052d055c53"
+    },
+    {
+      "path": "tmp/opera-jazz-audio-ledger.log",
+      "sha256": "88ef38aeff0451f08a50bd2f92ab032bd830c7e22a1662714c4771218d7539d0"
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/physical-lemonade-facing.webp",
+      "sha256": "fea59b78f19ac439fae91682d7290557fd8f5e24b70490c666a0aa3273c2c9aa"
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/physical-facing-review.png",
+      "sha256": "a2726b4e9ee616aa93e8525a3e2e40a963c70d1e3931168d98feac880c21fd6f"
+    },
+    {
+      "path": "assets_src/concepts/opera_four_floors_2026-09-06/opera-foyer-jazz-preview.ogg",
+      "sha256": "0e223f0599e31c18af417f15adf3e73870f8d0306ecfe9a250a6521fc731555a"
+    },
+    {
+      "path": "assets_src/audio/music/opera_foyer_ambience_manifest.json",
+      "sha256": "731c1d765347ae279e73e822de2da812d05e288e3a1f13dd84c62278fa7bd0b6"
+    }
+  ]
+}

@@ -25,52 +25,56 @@
   "cues": [
     {
       "id": "castle_opera_hall",
-      "title": "Pearl Curtain Promenade",
+      "title": "A Full House at Pearl Curtain",
       "family": "castle_room",
       "area": "Opera Hall",
-      "brief": "A poised 6/8 theatre promenade: harp footsteps, clarinet curtain calls, and pearl-bell glints create anticipation without rushing the child toward a door.",
-      "bpm": 92,
+      "brief": "Opera Hall: A popular four-floor opera house bustles with a small jazz band: swung piano ninths, walking bass, brushed drums, clarinet calls and warm brass answers; a separate foyer crowd bed supplies the room activity.",
+      "bpm": 116,
       "meter": [
-        6,
-        8
+        4,
+        4
       ],
-      "bars": 8,
+      "bars": 16,
       "tonic_midi": 62,
-      "mode": "lydian",
-      "texture": "theatre",
-      "percussion": "brush",
+      "mode": "major",
+      "texture": "foyer_jazz",
+      "percussion": "jazz_brush",
       "instruments": {
         "lead": "clarinet",
-        "harmony": "harp",
-        "bass": "warm_bass",
-        "accent": "bell"
+        "harmony": "piano",
+        "bass": "pizzicato",
+        "accent": "warm_brass"
       },
       "progression": [
-        0,
-        3,
         1,
         4,
         0,
         5,
-        3,
+        1,
+        4,
+        0,
         0
       ],
       "melody": [
         0,
         2,
-        3,
+        4,
+        null,
+        6,
         5,
         4,
         2,
         1,
-        null,
-        2,
+        3,
+        5,
         4,
-        6,
-        5
+        2,
+        null,
+        1,
+        0
       ],
       "motif_treatment": "curtain_call",
-      "energy": 0.42
+      "energy": 0.67
     },
     {
       "id": "castle_kitchen",
@@ -625,52 +629,56 @@
     },
     {
       "id": "opera_lobby",
-      "title": "Marquee of Many Dreams",
+      "title": "Four Floors of Swing",
       "family": "opera",
       "area": "Opera Lobby",
-      "brief": "A welcoming theatrical 6/8 whose harp ostinato links all three floors; clarinet and warm brass preview many careers without favoring one door.",
-      "bpm": 96,
+      "brief": "Opera Lobby: A popular four-floor opera house bustles with a small jazz band: swung piano ninths, walking bass, brushed drums, clarinet calls and warm brass answers; a separate foyer crowd bed supplies the room activity.",
+      "bpm": 116,
       "meter": [
-        6,
-        8
+        4,
+        4
       ],
-      "bars": 8,
+      "bars": 16,
       "tonic_midi": 63,
-      "mode": "lydian",
-      "texture": "theatre",
-      "percussion": "brush",
+      "mode": "major",
+      "texture": "foyer_jazz",
+      "percussion": "jazz_brush",
       "instruments": {
         "lead": "clarinet",
-        "harmony": "harp",
-        "bass": "warm_brass",
-        "accent": "bell"
+        "harmony": "piano",
+        "bass": "pizzicato",
+        "accent": "warm_brass"
       },
       "progression": [
-        0,
-        3,
         1,
         4,
         0,
         5,
-        3,
+        1,
+        4,
+        0,
         0
       ],
       "melody": [
         0,
         2,
         4,
+        null,
         6,
+        5,
+        4,
+        2,
+        1,
+        3,
         5,
         4,
         2,
         null,
         1,
-        3,
-        5,
-        4
+        0
       ],
       "motif_treatment": "marquee",
-      "energy": 0.46
+      "energy": 0.67
     },
     {
       "id": "opera_chef",

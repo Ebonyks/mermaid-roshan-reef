@@ -541,7 +541,11 @@ func _set_ambience(track: String) -> void:
 		m.ambience.bus = "Ambience"
 		m.add_child(m.ambience)
 	var amb := ""
-	if track in ["world", "finale"]:
+	if track in ["castle_opera_hall", "opera_lobby"]:
+		# A popular foyer has its own crowd/crockery bed. Career rooms retain
+		# their quieter hall tone; both beds use the existing voice ducking.
+		amb = "res://assets/audio/ambience_opera_foyer.ogg"
+	elif track in ["world", "finale"]:
 		amb = "res://assets/audio/ambience_reef.ogg"
 	elif track in ["level2", "castle_open", "northern", "galaxy", "ember",
 			"dungeon_ice", "dungeon_ember", "combat_ice"] \
