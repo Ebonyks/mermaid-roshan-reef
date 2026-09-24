@@ -10,6 +10,7 @@ const ATTIC_BACKDROP = preload("res://assets/flats/castle/boss/dusty_attic_arena
 
 const LANDED_ROUND_HOLD_T := 1.8 # one bounded, child-readable landed-round hold
 const WIN_T := 3.4             # befriending beat before the win banner
+const STORY_WIN_T := 1.6       # shorter beat when the transformation clip follows
 
 const LEAP_H := 7.6            # existing contact-shadow scale reference
 const HOP_H := 2.4
@@ -296,7 +297,11 @@ func _on_boss_splash_finished(fr: Dictionary) -> void:
 		_enter_state("friends")
 		var k: DustBunnyBossSprite = kit()
 		if k != null and is_instance_valid(k):
-			k.play_implode()
+			if _story_transformation_ready():
+				k.transform_ending = true
+				k.hold_for_transformation()
+			else:
+				k.play_implode()
 		return
 	_begin_showing(fr)
 
@@ -562,7 +567,8 @@ func _tick_friends(st: float, fr: Dictionary, tapped: bool) -> void:
 	# the kit plays the implosion off flinch_3 and reports when the last wisp
 	# is gone; only then is the fight over
 	var done: bool = bool(m.g.get("db_imploded", false))
-	if ((done and st >= WIN_T) or st >= WIN_T + 2.0) \
+	var win_t: float = STORY_WIN_T if bool(m.g.get("db_story_transformation", false)) else WIN_T
+	if ((done and st >= win_t) or st >= win_t + 2.0) \
 			and not bool(m.g.get("db_done", false)):
 		m.g["db_done"] = true
 		m.save_data["dustboss_pending_rounds"] = 0
@@ -1010,6 +1016,16 @@ func _on_round_done() -> void:
 	if rounds >= HP:
 		# the kit plays the implosion itself off flinch_3; wait for the signal
 		_enter_state("friends")
+		if _story_transformation_ready():
+			# He is a friend under the dirt: stay whole for the transformation clip
+			# instead of bursting apart (owner canon, DL-CIN-16).
+			m.g["db_story_transformation"] = true
+			var story_kit: DustBunnyBossSprite = kit()
+			if story_kit != null and is_instance_valid(story_kit):
+				story_kit.transform_ending = true
+			if m.player != null:
+				m.player.play_verb("cheer")
+			return
 		_say_day_one_context("day1_boss_defeated",
 			"Grand Puff burst into sparkly stars!")
 		if m.player != null:
@@ -1026,6 +1042,11 @@ func _on_round_done() -> void:
 func _on_final_round(_speed: float) -> void:
 	_say_day_one_context("day1_boss_enraged",
 		"Grand Puff is speedy now! Keep watching the star!")
+
+## The Day One transformation clip replaces the implosion when it can play.
+func _story_transformation_ready() -> bool:
+	return m.day_one_is_active() and DayOneStoryClips.enabled() \
+		and DayOneStoryClips.available("d1_puff_transformation")
 
 func _on_imploded() -> void:
 	m.g["db_imploded"] = true

@@ -85,6 +85,22 @@ Recommended defaults are in bold.
 | OD-8 | A natural break | **Offer a gentle "come back later" moment after the Pool** · no break | WP-R2 |
 | OD-9 | Where Day Two starts | Sky Lagoon (today) · Main Hall | WP-R7 |
 
+### Owner answers (2026-09-23)
+
+The owner answered part of the follow-up discussion and set the story direction:
+
+- **Story clips between scenes (`DL-CIN-16`).** Day One now plays 13 straight-cut clips from the owner-selected 2026-09-20 cut between gameplay scenes:
+  - the 30-second opening that introduces the game;
+  - first room arrivals and room completions;
+  - the all-rooms-clean rainbow route;
+  - Grand Puff's arrival, his transformation and the epilogue.
+
+  The runtime is `scripts/day_one_story_clips.gd`, built by `tools/build_day_one_story_clips.py` and guarded by `scripts/probe_day_one_story_clips.gd`. This fills the story gaps in the beat map below: the arrival, Rumi rising, Baby Eagle's rescue and the Grand Puff ending.
+- **Grand Puff canon.** He is a friend trapped under a big layer of dirt that made him grumpy and scary. Roshan faces him alone and still beats him in play. Daddy, Rumi and Baby Eagle join only in the transformation clip, where the rainbow dust bunny jumps out of the dusty shell. He stays whole instead of imploding, which addresses D1R-12.
+- **The rainbow dust bunny then follows Roshan like Baby Eagle.** This is new follower work; its art is the remaining Grand Puff art need from OD-3.
+- **OD-1 stays open for the fight's gameplay.** Whichever option is chosen, the fight ends with the transformation clip and the family appears only there.
+- OD-2 and OD-4 to OD-9 remain open.
+
 ## Day One as she plays it today
 
 Times are **[E]** for an attentive (A) and a slow (S) child; they come from code

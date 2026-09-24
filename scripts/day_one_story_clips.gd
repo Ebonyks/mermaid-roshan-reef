@@ -1,15 +1,18 @@
-class_name DayOneDraftMovies
+class_name DayOneStoryClips
 extends Control
-## Opt-in DaVinci/Grok review movies. Drafts never alter progression or claims.
+## Day One story clips between gameplay scenes (owner decision 2026-09-23,
+## DL-CIN-16). Each clip is a straight cut from the owner-selected 2026-09-20
+## cut; the manifest is written by tools/build_day_one_story_clips.py. Clips
+## never alter progression: a missing clip fails open to the existing scene.
 
 signal finished(movie_id: String, status: String)
 
-const ROOT: String = "res://assets_src/cinematics/day_one_davinci_draft_2026-09-04/exports/"
-const MANIFEST_PATH: String = "res://assets_src/cinematics/day_one_davinci_draft_2026-09-04/runtime_manifest.json"
-const MOVIE_IDS: Array[String] = [
-	"D1-C00", "D1-C01", "D1-C02", "D1-C03", "D1-C04", "D1-C05", "D1-C06",
-	"D1-C07", "D1-C08", "D1-C09", "D1-C10", "D1-C11", "D1-C12", "D1-C13",
-]
+const MANIFEST_PATH: String = "res://assets/cinematics/day_one_story/story_clips.json"
+const CLIP_ROOT: String = "res://assets/cinematics/day_one_story/"
+const TIMEOUT_MARGIN_S: float = 8.0
+
+## Headless probes stay deterministic unless a probe opts in to real playback.
+static var headless_override: bool = false
 
 var movie_id: String = ""
 var player: VideoStreamPlayer = null
@@ -22,49 +25,52 @@ func _scene_tree() -> SceneTree:
 	return Engine.get_main_loop() as SceneTree
 
 static func enabled() -> bool:
-	var args: PackedStringArray = OS.get_cmdline_args()
-	var user_args: PackedStringArray = OS.get_cmdline_user_args()
-	return "--day-one-draft-movies" in args or "--day-one-draft-movies" in user_args
+	return DisplayServer.get_name() != "headless" or headless_override
+
+static func clip_ids() -> Array[String]:
+	var ids: Array[String] = []
+	for key: Variant in _clips().keys():
+		ids.append(String(key))
+	return ids
 
 static func path_for(id: String) -> String:
-	if id not in MOVIE_IDS:
+	var row: Variant = _clips().get(id, {})
+	if not row is Dictionary:
 		return ""
-	var row: Dictionary = _manifest_row(id)
-	var declared: String = String(row.get("path", "exports/%s.ogv" % id))
-	if declared.is_empty() or declared.begins_with("/") \
-			or declared.contains("..") or not declared.begins_with("exports/"):
+	var declared: String = String((row as Dictionary).get("path", ""))
+	if not declared.begins_with(CLIP_ROOT) or declared.contains("..") \
+			or not declared.ends_with(".ogv"):
 		return ""
-	return "res://assets_src/cinematics/day_one_davinci_draft_2026-09-04/" + declared
+	return declared
 
-static func _manifest_row(id: String) -> Dictionary:
+static func seconds_for(id: String) -> float:
+	var row: Variant = _clips().get(id, {})
+	return float((row as Dictionary).get("seconds", 0.0)) if row is Dictionary else 0.0
+
+static func available(id: String) -> bool:
+	var path: String = path_for(id)
+	return not path.is_empty() and ResourceLoader.exists(path)
+
+static func _clips() -> Dictionary:
 	var file: FileAccess = FileAccess.open(MANIFEST_PATH, FileAccess.READ)
 	if file == null:
 		return {}
 	var parsed: Variant = JSON.parse_string(file.get_as_text())
 	if not parsed is Dictionary:
 		return {}
-	var movies: Variant = (parsed as Dictionary).get("movies", {})
-	if not movies is Dictionary:
-		return {}
-	var row: Variant = (movies as Dictionary).get(id, {})
-	return row as Dictionary if row is Dictionary else {}
-
-static func runtime_preview_eligible(id: String) -> bool:
-	var row: Dictionary = _manifest_row(id)
-	var path: String = path_for(id)
-	return bool(row.get("runtime_preview_eligible", false)) \
-		and not path.is_empty() and ResourceLoader.exists(path)
+	var clips: Variant = (parsed as Dictionary).get("clips", {})
+	return clips as Dictionary if clips is Dictionary else {}
 
 func setup(id: String) -> bool:
-	movie_id = id.strip_edges().to_upper()
-	if not enabled() or not runtime_preview_eligible(movie_id) \
-			or path_for(movie_id).is_empty() \
-			or not ResourceLoader.exists(path_for(movie_id)):
+	movie_id = id.strip_edges()
+	if not enabled() or not available(movie_id):
 		return false
 	var resource: Resource = load(path_for(movie_id)) as Resource
 	if not resource is VideoStream:
 		return false
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	# Taps are swallowed so a stray touch can never skip the story; the
+	# game-wide Back control is the one skip route (see ReefMain).
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	z_index = 70
@@ -88,7 +94,7 @@ func setup(id: String) -> bool:
 	aspect.add_child(player)
 	_timeout = Timer.new()
 	_timeout.one_shot = true
-	_timeout.wait_time = 120.0
+	_timeout.wait_time = maxf(seconds_for(movie_id), 1.0) + TIMEOUT_MARGIN_S
 	_timeout.process_mode = Node.PROCESS_MODE_ALWAYS
 	_timeout.timeout.connect(_finish.bind("timeout"), CONNECT_ONE_SHOT)
 	add_child(_timeout)
@@ -106,6 +112,21 @@ func _start_playback() -> void:
 		player.play()
 		if _timeout != null:
 			_timeout.start()
+
+func _notification(what: int) -> void:
+	# Hold the story while the app is away so none of it is missed.
+	if player == null or not is_instance_valid(player) or _finished:
+		return
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT \
+			or what == NOTIFICATION_APPLICATION_PAUSED:
+		player.paused = true
+		if _timeout != null:
+			_timeout.paused = true
+	elif what == NOTIFICATION_APPLICATION_FOCUS_IN \
+			or what == NOTIFICATION_APPLICATION_RESUMED:
+		player.paused = false
+		if _timeout != null:
+			_timeout.paused = false
 
 func skip() -> void:
 	_finish("skipped")

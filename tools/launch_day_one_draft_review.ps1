@@ -26,7 +26,9 @@ if ($engineVersion -notmatch '^4\.7\.2\.stable\.') {
 # The project has no --probe-user-root command-line contract. Isolate the
 # Windows Godot app-data root instead of touching the child's normal save.
 $reviewRoot = Join-Path ([IO.Path]::GetTempPath()) ('reef-day-one-draft-review-' + [guid]::NewGuid().ToString('N'))
-$draftArgs = @('--path', ('"' + $projectPath + '"'), '--rendering-method', 'mobile', '--', '--day-one-draft-movies')
+# Day One story clips (DL-CIN-16) play by default in display builds; the old
+# --day-one-draft-movies preview flag was retired with them.
+$draftArgs = @('--path', ('"' + $projectPath + '"'), '--rendering-method', 'mobile')
 $display = if ($Visible) { 'Normal' } else { 'Hidden' }
 Write-Output ('Godot=' + (Resolve-Path -LiteralPath $GodotPath).Path)
 Write-Output ('Project=' + (Resolve-Path -LiteralPath $projectPath).Path)

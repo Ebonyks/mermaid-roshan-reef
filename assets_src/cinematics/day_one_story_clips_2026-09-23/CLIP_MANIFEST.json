@@ -1,0 +1,280 @@
+{
+  "schema": "day_one_story_clips/1",
+  "authority": "Owner decision 2026-09-23, DL-CIN-16 (AGENTS.md): straight cuts from the owner-selected 2026-09-20 cut between gameplay scenes. OWNER_DIRECTED_RUNTIME_CLIP, never DELIVERY_ACCEPTED.",
+  "fps": 24,
+  "selected_cut": {
+    "path": "export/movie_selected_cut_20260920/renders/DAY_ONE_SELECTED_CUT.mp4",
+    "sha256": "0698b8119daff5dcab2f0eb998cb69849bf168f5fe3cd06989e9a7629e72a8e7",
+    "frames": 3394,
+    "note": "local owner export, not committed (size)"
+  },
+  "transforms": {
+    "video": {
+      "codec": "libtheora",
+      "quality": 6,
+      "width": 1280,
+      "height": 720,
+      "scale_flags": "lanczos",
+      "pixel_format": "yuv420p"
+    },
+    "audio": {
+      "codec": "libvorbis",
+      "quality": 4,
+      "fade_in_s": 0.08,
+      "fade_out_s": 0.12
+    },
+    "forbidden": "no generated, retimed, repeated, cropped, warped or repaired frames"
+  },
+  "omitted_spans": [
+    {
+      "range": [
+        1057,
+        1201
+      ],
+      "reason": "bathroom sink/tub scrubbing: the child performs it in play"
+    },
+    {
+      "range": [
+        1429,
+        1561
+      ],
+      "reason": "pool net skimming: the child performs it in play"
+    }
+  ],
+  "clips": [
+    {
+      "id": "d1_opening",
+      "file": "assets/cinematics/day_one_story/d1_opening.ogv",
+      "plays": "New Game: the 30-second introduction to the game",
+      "keeps": "flight with Daddy, landing, walk to the closed castle door",
+      "source": "export/movie_selected_cut_20260920/renders/DAY_ONE_SELECTED_CUT.mp4",
+      "source_sha256": "0698b8119daff5dcab2f0eb998cb69849bf168f5fe3cd06989e9a7629e72a8e7",
+      "source_frames": [
+        0,
+        733
+      ],
+      "frames": 733,
+      "seconds": 30.542,
+      "audio": "selected-cut music/ambience/foley mix",
+      "output_sha256": "207e3c37693bc204052f619cbbaec402fd05e2e41535ed1ae59f81bf118bfa49",
+      "output_bytes": 13727156,
+      "status": "OWNER_DIRECTED_RUNTIME_CLIP"
+    },
+    {
+      "id": "d1_castle",
+      "file": "assets/cinematics/day_one_story/d1_castle.ogv",
+      "plays": "first castle entry (dirty-castle discovery)",
+      "keeps": "castle door opens onto the dirty Main Hall",
+      "source": "export/movie_selected_cut_20260920/renders/DAY_ONE_SELECTED_CUT.mp4",
+      "source_sha256": "0698b8119daff5dcab2f0eb998cb69849bf168f5fe3cd06989e9a7629e72a8e7",
+      "source_frames": [
+        733,
+        925
+      ],
+      "frames": 192,
+      "seconds": 8.0,
+      "audio": "selected-cut music/ambience/foley mix",
+      "output_sha256": "328f3cd1e977aa12d65c38d53957ad03095dde69edf3db1086a2ba5f4ef8117e",
+      "output_bytes": 3220942,
+      "status": "OWNER_DIRECTED_RUNTIME_CLIP"
+    },
+    {
+      "id": "d1_bath_arrival",
+      "file": "assets/cinematics/day_one_story/d1_bath_arrival.ogv",
+      "plays": "first Bubble Bath arrival",
+      "keeps": "bath threshold and tool",
+      "source": "export/movie_selected_cut_20260920/renders/DAY_ONE_SELECTED_CUT.mp4",
+      "source_sha256": "0698b8119daff5dcab2f0eb998cb69849bf168f5fe3cd06989e9a7629e72a8e7",
+      "source_frames": [
+        925,
+        1057
+      ],
+      "frames": 132,
+      "seconds": 5.5,
+      "audio": "selected-cut music/ambience/foley mix",
+      "output_sha256": "ec74a9e61ac9dc401ffe3c2bfa1442856eddc2098c4824a69a063e37db95f3ba",
+      "output_bytes": 1894563,
+      "status": "OWNER_DIRECTED_RUNTIME_CLIP"
+    },
+    {
+      "id": "d1_bath_clean",
+      "file": "assets/cinematics/day_one_story/d1_bath_clean.ogv",
+      "plays": "Bubble Bath cleaned",
+      "keeps": "V03 C04-S04 clean endpoint with the happy bath bunny",
+      "source": "assets_src/cinematics/day_one_davinci_draft_2026-09-04/sources/C04_S04_v1_clean_endpoint.mp4",
+      "source_sha256": "7da166456020ac60be448bef302e5defafac02ecb82739bbc541816f2d379a00",
+      "source_frames": [
+        12,
+        84
+      ],
+      "frames": 72,
+      "seconds": 3.0,
+      "audio": "none (game audio plays)",
+      "output_sha256": "0c8fb0f4760c5bb2a76dfc02815fcb741dd840d8ce295ea8ef7671a56d15b9e6",
+      "output_bytes": 1409845,
+      "status": "OWNER_DIRECTED_RUNTIME_CLIP"
+    },
+    {
+      "id": "d1_pool_arrival",
+      "file": "assets/cinematics/day_one_story/d1_pool_arrival.ogv",
+      "plays": "first Mermaid Pool arrival",
+      "keeps": "dirty pool, blocked waterfall, stuck seahorse",
+      "source": "export/movie_selected_cut_20260920/renders/DAY_ONE_SELECTED_CUT.mp4",
+      "source_sha256": "0698b8119daff5dcab2f0eb998cb69849bf168f5fe3cd06989e9a7629e72a8e7",
+      "source_frames": [
+        1201,
+        1429
+      ],
+      "frames": 228,
+      "seconds": 9.5,
+      "audio": "selected-cut music/ambience/foley mix",
+      "output_sha256": "62d0fafb67b381c29e2f20a78a7b504baf28a30965e7468a4970a4d74d104866",
+      "output_bytes": 3905289,
+      "status": "OWNER_DIRECTED_RUNTIME_CLIP"
+    },
+    {
+      "id": "d1_pool_clean",
+      "file": "assets/cinematics/day_one_story/d1_pool_clean.ogv",
+      "plays": "Mermaid Pool cleaned",
+      "keeps": "waterfall restored, seahorse flows, Rumi rises and hugs Roshan",
+      "source": "export/movie_selected_cut_20260920/renders/DAY_ONE_SELECTED_CUT.mp4",
+      "source_sha256": "0698b8119daff5dcab2f0eb998cb69849bf168f5fe3cd06989e9a7629e72a8e7",
+      "source_frames": [
+        1561,
+        1969
+      ],
+      "frames": 408,
+      "seconds": 17.0,
+      "audio": "selected-cut music/ambience/foley mix",
+      "output_sha256": "69e6418ebc0ed079d21ec1fa412ad305efcc85960d3cc7decc06cc085075b0f0",
+      "output_bytes": 10343938,
+      "status": "OWNER_DIRECTED_RUNTIME_CLIP"
+    },
+    {
+      "id": "d1_eagle_free",
+      "file": "assets/cinematics/day_one_story/d1_eagle_free.ogv",
+      "plays": "Playroom rescue complete",
+      "keeps": "Roshan frees Baby Eagle, who flaps his wings",
+      "source": "export/movie_selected_cut_20260920/renders/DAY_ONE_SELECTED_CUT.mp4",
+      "source_sha256": "0698b8119daff5dcab2f0eb998cb69849bf168f5fe3cd06989e9a7629e72a8e7",
+      "source_frames": [
+        1969,
+        2157
+      ],
+      "frames": 188,
+      "seconds": 7.833,
+      "audio": "selected-cut music/ambience/foley mix",
+      "output_sha256": "5cd848e191241faa39d95f142e98ca40e376c5d5362df1173bdbc8a6610db292",
+      "output_bytes": 2442072,
+      "status": "OWNER_DIRECTED_RUNTIME_CLIP"
+    },
+    {
+      "id": "d1_art_arrival",
+      "file": "assets/cinematics/day_one_story/d1_art_arrival.ogv",
+      "plays": "first Craft Room arrival",
+      "keeps": "four loose supplies",
+      "source": "export/movie_selected_cut_20260920/renders/DAY_ONE_SELECTED_CUT.mp4",
+      "source_sha256": "0698b8119daff5dcab2f0eb998cb69849bf168f5fe3cd06989e9a7629e72a8e7",
+      "source_frames": [
+        2157,
+        2253
+      ],
+      "frames": 96,
+      "seconds": 4.0,
+      "audio": "selected-cut music/ambience/foley mix",
+      "output_sha256": "96d5a9ec5a5c6932d796f84a552b60bdef7083a27ae0e278af160c2225b73d65",
+      "output_bytes": 1440927,
+      "status": "OWNER_DIRECTED_RUNTIME_CLIP"
+    },
+    {
+      "id": "d1_art_clean",
+      "file": "assets/cinematics/day_one_story/d1_art_clean.ogv",
+      "plays": "Craft Room cleaned",
+      "keeps": "central-table work and the restored room",
+      "source": "export/movie_selected_cut_20260920/renders/DAY_ONE_SELECTED_CUT.mp4",
+      "source_sha256": "0698b8119daff5dcab2f0eb998cb69849bf168f5fe3cd06989e9a7629e72a8e7",
+      "source_frames": [
+        2253,
+        2445
+      ],
+      "frames": 192,
+      "seconds": 8.0,
+      "audio": "selected-cut music/ambience/foley mix",
+      "output_sha256": "ea5fe4cf18728dc367307481c67fec661b46e767700d3210cae524d90ed7ede4",
+      "output_bytes": 2188064,
+      "status": "OWNER_DIRECTED_RUNTIME_CLIP"
+    },
+    {
+      "id": "d1_rainbow_route",
+      "file": "assets/cinematics/day_one_story/d1_rainbow_route.ogv",
+      "plays": "all four rooms clean (boss door glows)",
+      "keeps": "rainbow trails from the four rooms lead to the royal door",
+      "source": "export/movie_selected_cut_20260920/renders/DAY_ONE_SELECTED_CUT.mp4",
+      "source_sha256": "0698b8119daff5dcab2f0eb998cb69849bf168f5fe3cd06989e9a7629e72a8e7",
+      "source_frames": [
+        2445,
+        2553
+      ],
+      "frames": 108,
+      "seconds": 4.5,
+      "audio": "selected-cut music/ambience/foley mix",
+      "output_sha256": "dc66bc69e2221a0ff1de9a1ee5ab2a4eb34cb0456dc5f5839fc4ebd3c420f643",
+      "output_bytes": 1497346,
+      "status": "OWNER_DIRECTED_RUNTIME_CLIP"
+    },
+    {
+      "id": "d1_puff_arrival",
+      "file": "assets/cinematics/day_one_story/d1_puff_arrival.ogv",
+      "plays": "Grand Puff trigger, before Roshan faces him",
+      "keeps": "the attic and the grumpy big dust bunny landing",
+      "source": "export/movie_selected_cut_20260920/renders/DAY_ONE_SELECTED_CUT.mp4",
+      "source_sha256": "0698b8119daff5dcab2f0eb998cb69849bf168f5fe3cd06989e9a7629e72a8e7",
+      "source_frames": [
+        2553,
+        2733
+      ],
+      "frames": 180,
+      "seconds": 7.5,
+      "audio": "selected-cut music/ambience/foley mix",
+      "output_sha256": "33998a6f8fc9bd7eb731677a113ccd191a52b16ab678b1ed56f0ba9d4184d4f5",
+      "output_bytes": 2168715,
+      "status": "OWNER_DIRECTED_RUNTIME_CLIP"
+    },
+    {
+      "id": "d1_puff_transformation",
+      "file": "assets/cinematics/day_one_story/d1_puff_transformation.ogv",
+      "plays": "Grand Puff beaten",
+      "keeps": "family scrub, foam, rainbow dust bunny jumps out as the dusty shell collapses",
+      "source": "export/movie_selected_cut_20260920/renders/DAY_ONE_SELECTED_CUT.mp4",
+      "source_sha256": "0698b8119daff5dcab2f0eb998cb69849bf168f5fe3cd06989e9a7629e72a8e7",
+      "source_frames": [
+        2733,
+        3033
+      ],
+      "frames": 300,
+      "seconds": 12.5,
+      "audio": "selected-cut music/ambience/foley mix",
+      "output_sha256": "c1267546f6feb8d618184eed1a295616511de31a444817a53cc5b71938ab1b6e",
+      "output_bytes": 7375301,
+      "status": "OWNER_DIRECTED_RUNTIME_CLIP"
+    },
+    {
+      "id": "d1_epilogue",
+      "file": "assets/cinematics/day_one_story/d1_epilogue.ogv",
+      "plays": "after the transformation, before the Day Two card",
+      "keeps": "the new friend helps tidy, room recollections, Daddy's hug",
+      "source": "export/movie_selected_cut_20260920/renders/DAY_ONE_SELECTED_CUT.mp4",
+      "source_sha256": "0698b8119daff5dcab2f0eb998cb69849bf168f5fe3cd06989e9a7629e72a8e7",
+      "source_frames": [
+        3033,
+        3394
+      ],
+      "frames": 361,
+      "seconds": 15.042,
+      "audio": "selected-cut music/ambience/foley mix",
+      "output_sha256": "42af905a617503697ed0a7132114648d9e4852956209f3c1f4940cc0489dca05",
+      "output_bytes": 5354959,
+      "status": "OWNER_DIRECTED_RUNTIME_CLIP"
+    }
+  ]
+}

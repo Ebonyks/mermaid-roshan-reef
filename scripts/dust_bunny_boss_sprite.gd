@@ -101,6 +101,9 @@ var vulnerability_time_left: float = 0.0
 var last_tap_sfx_path: String = ""
 var damage_rounds_completed: int = 0
 var boss_health_rounds_remaining: int = TOTAL_DAMAGE_ROUNDS
+## Story ending (DL-CIN-16): the transformation clip shows the rainbow friend
+## jumping out of his dusty shell, so he stays whole and dizzy, never imploding.
+var transform_ending: bool = false
 var final_round_active: bool = false
 var combat_speed_scale: float = 1.0
 var counter_window_seconds: float = 0.0
@@ -281,6 +284,19 @@ func play_angry() -> float:
 	return _play_action(angry_animation)
 
 
+## Holds him visible on the current (dizzy) frame and reports the ending as
+## finished, so the transformation clip takes over from a whole Grand Puff.
+func hold_for_transformation() -> void:
+	if sprite == null:
+		return
+	_reset_tap_progress()
+	defeated = true
+	_set_vulnerable(false)
+	sprite.visible = true
+	sprite.pause()
+	implosion_finished.emit()
+
+
 func play_implode() -> float:
 	if sprite == null or defeated:
 		return 0.0
@@ -391,7 +407,10 @@ func _on_animation_finished() -> void:
 			counter_reaction = false
 			action_finished.emit(finished_animation)
 			if boss_health_rounds_remaining <= 0:
-				play_implode()
+				if transform_ending:
+					hold_for_transformation()
+				else:
+					play_implode()
 			else:
 				play_angry()
 		&"implode":

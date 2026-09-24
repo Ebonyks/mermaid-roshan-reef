@@ -1,0 +1,113 @@
+{
+  "id": "day-one-story-clips-runtime-20260923",
+  "scope": "Implement owner exception DL-CIN-16 (2026-09-23): cut 13 straight-cut story clips from the owner-selected 2026-09-20 Day One cut (plus the 2026-09-04 V03 clean-bathroom endpoint) with tools/build_day_one_story_clips.py and play them between Day One scenes through the existing story hooks: the 30-second opening at New Game, the dirty castle, bathroom/pool/art arrivals, each room's completion (bathroom clean, Rumi rising, Baby Eagle freed, craft room), the all-rooms-clean rainbow route, Grand Puff's arrival, his transformation once beaten and the epilogue before the Day Two card. The draft-only DayOneDraftMovies preview becomes the production DayOneStoryClips player (display builds; headless probes opt in), taps are swallowed and the global Back control is the one skip route, watched clips persist in a new day_one_story_clips_seen save key (default {}), and the Day Two card waits for the story. Grand Puff now stays whole and dizzy for the transformation clip instead of imploding, and the contradicting 'burst into sparkly stars' line is skipped when the clip plays. A trusted probe joins both rosters; the unrostered draft integration probe is retired.",
+  "baseline": "6bff10a58b170a421779197986fefeb108fe3ab1",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-CIN-16",
+    "DL-AGE-01",
+    "DL-AGE-03",
+    "DL-UI-05",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-CODE-10",
+    "DL-QA-02",
+    "DL-PERF-07"
+  ],
+  "findings": [],
+  "no_findings_reason": "Owner-directed feature under the new DL-CIN-16 exception. No MA-* finding covers cinematics or the Grand Puff ending; the handoff-local D1R-12 (Grand Puff vanishing) is addressed but is not a canonical finding. MA-PLAY-001 and MA-CHILD-001 keep their facts.",
+  "files": [
+    ".github/workflows/probes.yml",
+    "ASSET_LICENSES.md",
+    "assets/cinematics/day_one_story/d1_art_arrival.ogv",
+    "assets/cinematics/day_one_story/d1_art_arrival.ogv.uid",
+    "assets/cinematics/day_one_story/d1_art_clean.ogv",
+    "assets/cinematics/day_one_story/d1_art_clean.ogv.uid",
+    "assets/cinematics/day_one_story/d1_bath_arrival.ogv",
+    "assets/cinematics/day_one_story/d1_bath_arrival.ogv.uid",
+    "assets/cinematics/day_one_story/d1_bath_clean.ogv",
+    "assets/cinematics/day_one_story/d1_bath_clean.ogv.uid",
+    "assets/cinematics/day_one_story/d1_castle.ogv",
+    "assets/cinematics/day_one_story/d1_castle.ogv.uid",
+    "assets/cinematics/day_one_story/d1_eagle_free.ogv",
+    "assets/cinematics/day_one_story/d1_eagle_free.ogv.uid",
+    "assets/cinematics/day_one_story/d1_epilogue.ogv",
+    "assets/cinematics/day_one_story/d1_epilogue.ogv.uid",
+    "assets/cinematics/day_one_story/d1_opening.ogv",
+    "assets/cinematics/day_one_story/d1_opening.ogv.uid",
+    "assets/cinematics/day_one_story/d1_pool_arrival.ogv",
+    "assets/cinematics/day_one_story/d1_pool_arrival.ogv.uid",
+    "assets/cinematics/day_one_story/d1_pool_clean.ogv",
+    "assets/cinematics/day_one_story/d1_pool_clean.ogv.uid",
+    "assets/cinematics/day_one_story/d1_puff_arrival.ogv",
+    "assets/cinematics/day_one_story/d1_puff_arrival.ogv.uid",
+    "assets/cinematics/day_one_story/d1_puff_transformation.ogv",
+    "assets/cinematics/day_one_story/d1_puff_transformation.ogv.uid",
+    "assets/cinematics/day_one_story/d1_rainbow_route.ogv",
+    "assets/cinematics/day_one_story/d1_rainbow_route.ogv.uid",
+    "assets/cinematics/day_one_story/story_clips.json",
+    "assets_src/cinematics/day_one_story_clips_2026-09-23/CLIP_MANIFEST.json",
+    "assets_src/cinematics/day_one_story_clips_2026-09-23/SELECTED_CUT_EDIT_MAP.json",
+    "assets_src/cinematics/day_one_story_clips_2026-09-23/SELECTED_CUT_OWNER_SELECTIONS.json",
+    "CODEX_DAY_ONE_REBUILD_HANDOFF_2026-09-23.md",
+    "design/05_DOC_LEDGER.md",
+    "scripts/ci.sh",
+    "scripts/day_one_draft_movies.gd",
+    "scripts/day_one_story_clips.gd",
+    "scripts/dust_bunny_boss_sprite.gd",
+    "scripts/games/dust_boss.gd",
+    "scripts/main.gd",
+    "scripts/probe_day_one_draft_integration.gd",
+    "scripts/probe_day_one_draft_movies.gd",
+    "scripts/probe_day_one_story_clips.gd",
+    "scripts/probe_ui_system.gd",
+    "scripts/save_state.gd",
+    "tools/build_day_one_story_clips.py",
+    "tools/launch_day_one_draft_review.ps1"
+  ],
+  "validation": [
+    {
+      "command": "python tools/build_day_one_story_clips.py --source-root <main checkout>; python tools/build_day_one_story_clips.py --check",
+      "result": "PASS",
+      "evidence": "Source DAY_ONE_SELECTED_CUT.mp4 SHA-256 0698b8119daff5dcab2f0eb998cb69849bf168f5fe3cd06989e9a7629e72a8e7 (3,394 frames, 1280x720, 24 fps) verified before cutting. 13 clips built with exact frame counts (for example d1_opening 733, d1_puff_transformation 300, d1_epilogue 361), 56,969,117 bytes in total; --check STORYCLIPS|RESULT|ALL OK. Frame-accuracy spot check: encoded transformation frame 157 matches source frame 2890 (the rainbow bunny's jump) at quality 6."
+    },
+    {
+      "command": "Exact Godot 4.7.2 -s scripts/probe_day_one_story_clips.gd (ci.sh-equivalent isolated runner, --touch --classic-touch-test)",
+      "result": "PASS",
+      "evidence": "20 checks OK, RESULT PASS: manifest order and file presence, fail-open lookup, headless determinism, owner-directed status, every hook, the Back-only skip route, real OGV playback, once-only skip with pause restore, boss-defeated -> transformation, Day Two -> queued epilogue, Day Two card waits then shows, no replay on the same save, save persistence, and Grand Puff holding visibly without imploding. Log tmp/story-clips/focused/probe_day_one_story_clips.log SHA-256 f51f598ddcb5fc29879d8d0fc3ff492c4602df9baaf55da123a926b1dd46f114 (local, git-ignored). Negative control: at baseline 6bff10a5 the runtime manifest, clips and hold_for_transformation() do not exist, so these checks cannot pass."
+    },
+    {
+      "command": "Focused trusted probes: probe_ui_system, probe_day_one_integration/handoffs/director/voice/d8_revisits/castle_dressing, probe_dust_boss, probe_dust_bunny_boss, probe_day_one_bathroom_movie_handoff/cleanup, probe_bathroom_integration, probe_load, probe_start_menu_routing, probe_stuffie, probe_audit, probe_save_recovery",
+      "result": "PASS",
+      "evidence": "All 18 exit 0 with no failure or runtime-error markers; summary tmp/story-clips/focused/summary.txt SHA-256 0c5b887bfbc0d6a9e85f7993ed107d02392472e402ce51653eb5aee84a3fef92."
+    },
+    {
+      "command": "python -m gdtoolkit.parser and python tools/lint_inference.py on the 7 changed GDScript files; exact Godot 4.7.2 --check-only; import refresh",
+      "result": "PASS",
+      "evidence": "PARSE_OK, LINT_OK, every check-only exit 0; the class cache lists DayOneStoryClips and no longer DayOneDraftMovies after import."
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --regression-gate; python -B tools/audit_typography.py --check; python -B tools/audit_audio_quality.py --check; python -B tools/audit_probe_parity.py",
+      "result": "PASS",
+      "evidence": "GAME2D NO_REGRESSION (production 52 / probe 61 unchanged); typography no regression; AUDIO_QUALITY 813/813 PASS; PROBE_PARITY ALL OK with probe_day_one_story_clips in both rosters."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "DOCAUTH|RESULT|ALL OK; AUDITDEV|BASE|e14c134eba564bb0798510d45118f827e4a1ead9 and AUDITDEV|RESULT|ALL OK (this record and day-one-story-clips-policy-20260923 cover every changed file); both unittest modules OK with DOCAUTH|STRESS|6/6."
+    },
+    {
+      "command": "GODOT=<exact Godot 4.7.2 console> scripts/ci.sh",
+      "result": "PENDING",
+      "evidence": "Full local gate after commit, before push."
+    },
+    {
+      "command": "Exact-commit remote Probe Suite on claude/day-one-story-clips-20260923",
+      "result": "PENDING",
+      "evidence": "Required before integration into dev."
+    }
+  ],
+  "acceptance_gaps": "Owner viewing of each clip in the dev APK, phone decode performance for 1280x720 Theora, the +57 MB APK growth, child reaction and voice over the transformation remain open. The rainbow-bunny follower after the transformation is a separate follow-up change."
+}

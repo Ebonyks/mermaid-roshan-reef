@@ -16,8 +16,8 @@ const DayOneBathroomCleanupLogic = preload(
 	"res://scripts/games/day_one_bathroom_cleanup.gd")
 const DayOneBathroomMovieHandoffLogic = preload(
 	"res://scripts/day_one_bathroom_movie_handoff.gd")
-const DayOneDraftMoviesLogic = preload(
-	"res://scripts/day_one_draft_movies.gd")
+const DayOneStoryClipsLogic = preload(
+	"res://scripts/day_one_story_clips.gd")
 const DayTwoTransition2DLogic = preload("res://scripts/day_two_transition_2d.gd")
 const FAIRY_CONSERVATORY_HANDOFF_PATH := \
 	"res://scripts/arena/fairy_conservatory_handoff_2d.gd"
@@ -396,12 +396,12 @@ var _day_one_bathroom_cleanup: DayOneBathroomCleanup = null
 var _day_one_bathroom_movie_handoff: DayOneBathroomMovieHandoff = null
 var _day_one_bathroom_movie_handoff_pending: bool = false
 var _day_one_bathroom_entry_movie_checked: bool = false
-var _day_one_draft_movie: DayOneDraftMovies = null
-var _day_one_draft_movie_queue: Array[String] = []
-var _day_one_draft_movie_seen: Dictionary = {}
-var _day_one_draft_movie_layer: CanvasLayer = null
-var _day_one_draft_boss_start_pending: bool = false
-var _day_one_draft_boss_transition_pending: bool = false
+var _day_one_story_clip: DayOneStoryClips = null
+var _day_one_story_clip_queue: Array[String] = []
+var day_one_story_clips_seen: Dictionary = {}   # persisted: a story clip plays once per save
+var _day_one_story_clip_layer: CanvasLayer = null
+var _day_one_story_boss_start_pending: bool = false
+var _day_one_story_boss_transition_pending: bool = false
 var _day_one_room_handoff_target := ""
 var _day_one_room_handoff_source := ""
 var _day_one_bathroom_controls_suspended: bool = false
@@ -6583,9 +6583,9 @@ func _show_day_two_transition() -> void:
 	# Direct event/audit entry must have the same destination as boss teardown.
 	if game == "":
 		_exit_level2_now()
-	if _day_one_draft_movie != null and is_instance_valid(_day_one_draft_movie):
-		# Story state is already saved; only presentation waits for the draft.
-		_day_one_draft_boss_transition_pending = true
+	if _day_one_story_clip != null and is_instance_valid(_day_one_story_clip):
+		# Story state is already saved; only presentation waits for the story clip.
+		_day_one_story_boss_transition_pending = true
 		return
 	if day_two_transition_layer != null \
 			and is_instance_valid(day_two_transition_layer):
@@ -6650,7 +6650,7 @@ func day_one_activate_castle_room(castle_room: String) -> bool:
 			"day_one_jobs_resting")
 		return true
 	var director: DayOneDirector = _day_one_ref()
-	_day_one_play_draft_movie_for_room(logical_room, director)
+	_day_one_play_story_clip_for_room(logical_room, director)
 	if director.is_room_completed(logical_room):
 		# Rescue completion advances the Day One checkpoint before the adoption
 		# picker is confirmed. Keep the completed room's action as a safe,
@@ -6879,7 +6879,7 @@ func _day_one_sync_castle_dressing() -> void:
 	if day_one_is_active() and castle_room_stage != null:
 		var logical_room: String = String(DAY_ONE_CASTLE_ROOM_IDS.get(castle_room_id, ""))
 		if logical_room != "":
-			_day_one_play_draft_movie_for_room(logical_room, _day_one_ref())
+			_day_one_play_story_clip_for_room(logical_room, _day_one_ref())
 	_sync_day_one_art_studio()
 	if day_one_castle_dressing == null \
 			or not is_instance_valid(day_one_castle_dressing):
@@ -7005,7 +7005,7 @@ func _sync_day_one_art_studio() -> void:
 
 
 func _day_one_clear_castle_dressing() -> void:
-	_day_one_cancel_draft_movies()
+	_day_one_cancel_story_clips()
 	_clear_day_one_bathroom_cleanup()
 	_clear_day_one_bathroom_movie_handoff()
 	_day_one_bathroom_movie_handoff_pending = false
@@ -7032,7 +7032,7 @@ func _start_day_one_bathroom_movie_handoff() -> void:
 	if not day_one_is_active() or _day_one_bathroom_movie_handoff != null \
 			or castle_room_stage == null:
 		return
-	if _day_one_draft_movie != null and is_instance_valid(_day_one_draft_movie):
+	if _day_one_story_clip != null and is_instance_valid(_day_one_story_clip):
 		return
 	_day_one_bathroom_movie_handoff_pending = false
 	_suspend_day_one_bathroom_controls()
@@ -7053,7 +7053,7 @@ func _start_day_one_bathroom_movie_handoff() -> void:
 
 
 func _day_one_bathroom_entry_movie_blocks_cleanup() -> bool:
-	if _day_one_draft_movie != null and is_instance_valid(_day_one_draft_movie):
+	if _day_one_story_clip != null and is_instance_valid(_day_one_story_clip):
 		return true
 	if _day_one_bathroom_movie_handoff != null \
 			and is_instance_valid(_day_one_bathroom_movie_handoff):
@@ -7077,7 +7077,7 @@ func _day_one_bathroom_entry_movie_blocks_cleanup() -> bool:
 		return false
 	# This is the automatic room-entry seam; the generic room action runs
 	# later, after the legacy bathroom preview may already own the overlay.
-	if _day_one_play_draft_movie("D1-C03"):
+	if _day_one_play_story_clip("d1_bath_arrival"):
 		_day_one_bathroom_entry_movie_checked = true
 		return true
 	_day_one_bathroom_entry_movie_checked = true
@@ -7288,15 +7288,13 @@ func _on_day_one_hook_event(event_name: String, payload: Dictionary) -> void:
 	g["day_one_last_event"] = event_name
 	match event_name:
 		DayOneDirector.EVENT_ARRIVAL_PLANE_MEDIA:
-			# The Grok render is a handoff contract, not an imported runtime asset.
-			# Keep the request explicit while the existing pearl-plane animation is
-			# the safe in-engine fallback.
-			g["day_one_media_request"] = "grok_opening_flight"
-			_day_one_play_draft_movie("D1-C00")
-			_day_one_play_draft_movie("D1-C01")
+			# DL-CIN-16: the 30-second opening introduces the game; the pearl-plane
+			# animation remains the in-engine fallback when the clip is absent.
+			g["day_one_media_request"] = "d1_opening"
+			_day_one_play_story_clip("d1_opening")
 		DayOneDirector.EVENT_DIRTY_CASTLE_DISCOVERY:
 			g["day_one_castle_dirty"] = true
-			_day_one_play_draft_movie("D1-C02")
+			_day_one_play_story_clip("d1_castle")
 		DayOneDirector.EVENT_GROK_VIDEO_2:
 			g["day_one_media_request"] = "grok_dirty_castle_video_2"
 			show_msg("Roshan",
@@ -7306,25 +7304,26 @@ func _on_day_one_hook_event(event_name: String, payload: Dictionary) -> void:
 			g["day_one_cleaned_room"] = String(payload.get("room_id", ""))
 			var cleaned_room: String = String(payload.get("room_id", ""))
 			var restoration_id: String = {
-				"bathroom": "D1-C04", "pool": "D1-C06", "stuffie": "D1-C08",
-				"art": "D1-C10",
+				"bathroom": "d1_bath_clean", "pool": "d1_pool_clean",
+				"stuffie": "d1_eagle_free", "art": "d1_art_clean",
 			}.get(cleaned_room, "")
 			if restoration_id != "":
-				_day_one_play_draft_movie(restoration_id)
+				_day_one_play_story_clip(restoration_id)
 		DayOneDirector.EVENT_ART_DESK_UNLOCKED:
 			g["day_one_art_desk_unlocked"] = true
 		DayOneDirector.EVENT_ART_CUSTOMIZATION_COMPLETED:
 			g["day_one_art_customization_completed"] = true
 		DayOneDirector.EVENT_BOSS_DOOR_GLOW:
 			_day_one_arm_boss_door()
+			_day_one_play_story_clip("d1_rainbow_route")
 		DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS:
 			# The director's trigger is a runtime latch. Do not persist it until
 			# complete_day_one_after_boss() has crossed the real win boundary.
 			if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
 				_castle_rooms_25d.close()
-			_day_one_play_draft_movie("D1-C11")
-			if _day_one_draft_movie != null and is_instance_valid(_day_one_draft_movie):
-				_day_one_draft_boss_start_pending = true
+			_day_one_play_story_clip("d1_puff_arrival")
+			if _day_one_story_clip != null and is_instance_valid(_day_one_story_clip):
+				_day_one_story_boss_start_pending = true
 			else:
 				_start_game(dust_boss_fr)
 		DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS_DEFEATED:
@@ -7332,117 +7331,118 @@ func _on_day_one_hook_event(event_name: String, payload: Dictionary) -> void:
 			# Never defer progression behind optional media: save compatibility and
 			# the atomic boss-to-Chapter-2 boundary remain authoritative.
 			_chapter_two_ref().start_after_boss()
-			_day_one_play_draft_movie("D1-C13")
+			_day_one_play_story_clip("d1_puff_transformation")
 		DayOneDirector.EVENT_DAY_TWO_BEGINS:
-			_day_one_play_draft_movie("D1-C12")
+			_day_one_play_story_clip("d1_epilogue")
 			_day_one_ref().clear_day_one_routing()
 			g["day_two_started"] = true
 	if event_name != DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS:
 		_queue_save()
 
 
-func _day_one_play_draft_movie(movie_id: String) -> bool:
-	if not DayOneDraftMoviesLogic.enabled() \
-			or not DayOneDraftMoviesLogic.runtime_preview_eligible(movie_id):
+func _day_one_play_story_clip(movie_id: String) -> bool:
+	if not DayOneStoryClipsLogic.enabled() \
+			or not DayOneStoryClipsLogic.available(movie_id):
 		return false
 	# The bathroom seam owns C03/C04 and must remain the only overlay there.
 	if _day_one_bathroom_movie_is_playing() or _day_one_bathroom_movie_handoff_pending:
 		return false
-	if _day_one_draft_movie != null and is_instance_valid(_day_one_draft_movie):
-		if _day_one_draft_movie.movie_id == movie_id:
+	if _day_one_story_clip != null and is_instance_valid(_day_one_story_clip):
+		if _day_one_story_clip.movie_id == movie_id:
 			return true
-		if _day_one_draft_movie_seen.has(movie_id):
+		if day_one_story_clips_seen.has(movie_id):
 			return false
-		if not _day_one_draft_movie_queue.has(movie_id):
-			_day_one_draft_movie_queue.append(movie_id)
+		if not _day_one_story_clip_queue.has(movie_id):
+			_day_one_story_clip_queue.append(movie_id)
 		return true
-	if _day_one_draft_movie_seen.has(movie_id):
+	if day_one_story_clips_seen.has(movie_id):
 		return false
-	var preview: DayOneDraftMovies = DayOneDraftMoviesLogic.new() \
-		as DayOneDraftMovies
-	if _day_one_draft_movie_layer == null or not is_instance_valid(_day_one_draft_movie_layer):
-		_day_one_draft_movie_layer = CanvasLayer.new()
-		# Draft video stays below the game-wide upper-left Back control (29).
-		_day_one_draft_movie_layer.layer = 28
-		add_child(_day_one_draft_movie_layer)
-	_day_one_draft_movie_layer.add_child(preview)
+	var preview: DayOneStoryClips = DayOneStoryClipsLogic.new() \
+		as DayOneStoryClips
+	if _day_one_story_clip_layer == null or not is_instance_valid(_day_one_story_clip_layer):
+		_day_one_story_clip_layer = CanvasLayer.new()
+		# Story clips stay below the game-wide upper-left Back control (29), which
+		# is the one skip route; taps on the clip itself are swallowed.
+		_day_one_story_clip_layer.layer = 28
+		add_child(_day_one_story_clip_layer)
+	_day_one_story_clip_layer.add_child(preview)
 	if not preview.setup(movie_id):
 		preview.queue_free()
 		return false
-	_navigation_push("day_one_draft_movie", preview, Callable(preview, "skip"))
-	_day_one_draft_movie = preview
-	_day_one_draft_movie_seen[movie_id] = true
-	if movie_id == "D1-C03":
+	_navigation_push("day_one_story_clip", preview, Callable(preview, "skip"))
+	_day_one_story_clip = preview
+	day_one_story_clips_seen[movie_id] = true
+	_queue_save()
+	if movie_id == "d1_bath_arrival":
 		_day_one_bathroom_entry_movie_checked = true
 	preview.finished.connect(func(_id: String, _status: String) -> void:
-		_navigation_remove("day_one_draft_movie")
-		if _day_one_draft_movie == preview:
-			_day_one_draft_movie = null
+		_navigation_remove("day_one_story_clip")
+		if _day_one_story_clip == preview:
+			_day_one_story_clip = null
 			# Defer to consume the skip tap before enabling the next game action.
-			call_deferred("_day_one_drain_draft_movies")
+			call_deferred("_day_one_drain_story_clips")
 		)
 	return true
 
 
-func _day_one_drain_draft_movies() -> void:
+func _day_one_drain_story_clips() -> void:
 	if not is_inside_tree() or is_queued_for_deletion() \
-			or (_day_one_draft_movie != null and is_instance_valid(_day_one_draft_movie)):
+			or (_day_one_story_clip != null and is_instance_valid(_day_one_story_clip)):
 		return
 	if touch_ui != null:
 		touch_ui.consume_action()
-	while not _day_one_draft_movie_queue.is_empty():
-		var next_id: String = _day_one_draft_movie_queue.pop_front()
-		if _day_one_play_draft_movie(next_id):
+	while not _day_one_story_clip_queue.is_empty():
+		var next_id: String = _day_one_story_clip_queue.pop_front()
+		if _day_one_play_story_clip(next_id):
 			return
-	if _day_one_draft_boss_start_pending:
-		_day_one_draft_boss_start_pending = false
+	if _day_one_story_boss_start_pending:
+		_day_one_story_boss_start_pending = false
 		if day_one_is_active() and _day_one_ref().giant_dust_bunny_boss_triggered:
 			_start_game(dust_boss_fr)
-	if _day_one_draft_boss_transition_pending:
-		_day_one_draft_boss_transition_pending = false
+	if _day_one_story_boss_transition_pending:
+		_day_one_story_boss_transition_pending = false
 		_show_day_two_transition()
 	if castle_room_id == "bubble_bath" and castle_room_stage != null:
 		_sync_day_one_bathroom_cleanup()
 
 
-func _day_one_cancel_draft_movies() -> void:
-	_day_one_draft_movie_queue.clear()
-	if _day_one_draft_boss_start_pending and day_one_is_active():
+func _day_one_cancel_story_clips() -> void:
+	_day_one_story_clip_queue.clear()
+	if _day_one_story_boss_start_pending and day_one_is_active():
 		# A room teardown during C11 must leave the boss door re-triggerable,
 		# never a triggered checkpoint with no active encounter behind it.
 		_day_one_ref().giant_dust_bunny_boss_triggered = false
 		day_one_event_seen.erase(DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS)
 		_queue_save()
-	_day_one_draft_boss_start_pending = false
-	_day_one_draft_boss_transition_pending = false
-	var previous: DayOneDraftMovies = _day_one_draft_movie
-	_day_one_draft_movie = null
+	_day_one_story_boss_start_pending = false
+	_day_one_story_boss_transition_pending = false
+	var previous: DayOneStoryClips = _day_one_story_clip
+	_day_one_story_clip = null
 	if previous != null and is_instance_valid(previous):
 		# Release its pause synchronously before another scene acquires it. The
 		# detached callback cannot advance an abandoned room or boss route.
 		previous.skip()
 
 
-func _day_one_play_draft_movie_for_room(room_id: String,
+func _day_one_play_story_clip_for_room(room_id: String,
 		director: DayOneDirector) -> void:
 	if director.is_room_completed(room_id):
 		return
 	var movie_id: String = ""
 	match room_id:
-		"bathroom": movie_id = "D1-C03"
-		"pool": movie_id = "D1-C05"
-		"stuffie": movie_id = "D1-C07"
-		"art": movie_id = "D1-C09"
+		"bathroom": movie_id = "d1_bath_arrival"
+		"pool": movie_id = "d1_pool_arrival"
+		"art": movie_id = "d1_art_arrival"
 	if movie_id != "":
-		_day_one_play_draft_movie(movie_id)
+		_day_one_play_story_clip(movie_id)
 
 
 func _day_one_abort_boss_for_lifecycle() -> void:
 	# Focus loss, application pause and close are all interruption boundaries for
 	# the active fight. End it through the same neutral teardown as Pause Leave;
 	# the post-clear seam re-arms the door and writes the safe state.
-	if _day_one_draft_boss_start_pending:
-		_day_one_cancel_draft_movies()
+	if _day_one_story_boss_start_pending:
+		_day_one_cancel_story_clips()
 		_day_one_ref().giant_dust_bunny_boss_triggered = false
 		_return_day_one_boss_to_castle()
 		return

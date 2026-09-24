@@ -33,7 +33,7 @@ const BOOL_KEYS: Array[String] = [
 ]
 const DICTIONARY_KEYS: Array[String] = [
 	"won", "found", "crafts", "stickers", "owned", "animals", "critters",
-	"stuffie_wins", "medals",
+	"stuffie_wins", "medals", "day_one_story_clips_seen",
 	"teacher_learning_progress", "teacher_lesson_checkpoint",
 	"opera_mastery", "opera_performance_checkpoints",
 ]
@@ -59,7 +59,7 @@ const KNOWN_KEYS: Array[String] = [
 	"companion_resting", "companion_bruises",
 	"lagoon_plane_departed",
 	"attack_color", "attack_effect",
-	"day_one_giant_dust_bunny_boss_defeated", "chapter2_active",
+	"day_one_giant_dust_bunny_boss_defeated", "day_one_story_clips_seen", "chapter2_active",
 	"chapter2_unlocked_opera_mask", "chapter2_skill_mask",
 	"chapter2_active_objective", "chapter2_rainbow_candle_found",
 	"chapter2_stuffie_ballet_done", "chapter2_party_piece_mask",
@@ -172,6 +172,9 @@ func load_save() -> void:
 	m.companion_bruises = int(m.save_data.get("companion_bruises", 0))
 	var saved_stuffie_wins: Variant = m.save_data.get("stuffie_wins", {})
 	m.stuffie_wins = saved_stuffie_wins if saved_stuffie_wins is Dictionary else {}
+	var saved_story_clips: Variant = m.save_data.get("day_one_story_clips_seen", {})
+	m.day_one_story_clips_seen = (saved_story_clips as Dictionary).duplicate() \
+		if saved_story_clips is Dictionary else {}
 	var saved_medals: Variant = m.save_data.get("medals", {})
 	m.medals = saved_medals if saved_medals is Dictionary else {}
 	m.galaxy_unlocked = bool(m.save_data.get("galaxy", false))
@@ -308,6 +311,7 @@ func write_save() -> bool:
 	next_data["lagoon_plane_departed"] = bool(
 		m.save_data.get("lagoon_plane_departed", false))
 	next_data["stuffie_wins"] = m.stuffie_wins
+	next_data["day_one_story_clips_seen"] = m.day_one_story_clips_seen
 	next_data["medals"] = m.medals
 	next_data["save_generation"] = next_generation
 	var normalised: Dictionary = _normalise_save(next_data)
@@ -702,6 +706,7 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["lagoon_plane_departed"] = _bool_or_default(
 		raw, "lagoon_plane_departed", false)
 	data["stuffie_wins"] = _dictionary_or_default(raw, "stuffie_wins")
+	data["day_one_story_clips_seen"] = _dictionary_or_default(raw, "day_one_story_clips_seen")
 	data["medals"] = _medals_or_default(raw)
 	data["save_generation"] = _nonnegative_int_or_default(raw, "save_generation", 0)
 	return data
