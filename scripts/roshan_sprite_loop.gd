@@ -250,9 +250,14 @@ func _sheet_key() -> String:
 func _apply_anchor_offset() -> void:
 	var sheet: String = _sheet_key()
 	if _sprite_2d != null and is_instance_valid(_sprite_2d):
-		_sprite_2d.offset = _base_offset + ANCHORS.correction(
+		# Both correction tables are authored for Sprite3D, whose offset.y
+		# points up. Canvas y points down, so the vertical term flips here;
+		# unflipped, the swim cycle doubled its drift instead of cancelling it
+		# (a ~57 px torso bounce per loop, ghosted by the smoother).
+		var correction: Vector2 = ANCHORS.correction(
 			sheet, _displayed_frame, _target_anchor, _sprite_2d.flip_h) \
 			+ FRAMES.offset_correction(sheet, _displayed_frame, _sprite_2d.flip_h)
+		_sprite_2d.offset = _base_offset + Vector2(correction.x, -correction.y)
 		_sprite_2d.set_meta("roshan_anchor_offset", _sprite_2d.offset - _base_offset)
 		return
 	if _sprite == null or not is_instance_valid(_sprite):

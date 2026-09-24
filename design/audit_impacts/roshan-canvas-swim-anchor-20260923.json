@@ -1,0 +1,44 @@
+{
+  "id": "roshan-canvas-swim-anchor-20260923",
+  "scope": "Owner report 2026-09-23 (\"recent rebuilds of mermaid roshan animation did not properly get rebuilt into program, it looks terrible in the current stage\"). No rebuilt Roshan atlas exists: every September Roshan branch carries only Grok motion-reference video, and assets/characters/roshan_25d/ is unchanged since 2026-07-29. The visible defect is an integration bug in RoshanSpriteLoop's Canvas path. RoshanSpriteAnchors.correction() and RoshanSpriteFrames.offset_correction() are authored for Sprite3D, whose offset.y points up; the Sprite2D branch of _apply_anchor_offset() applied them unchanged, so on the castle's Canvas cutout the vertical correction doubled each swim frame's drift instead of cancelling it. Measured through the real loop: the swim_front torso moved through 56.9 px per loop with 47.6 px frame jumps (swim_back 32.3 px / 29.4 px), ghosted by the 3x temporal smoother. The Canvas branch now negates the vertical term (8.8 px and 4.9 px; swim_back 6.5 px and 3.9 px). Directional shifts are zero and the idle anchor correction is zero at the idle frame, so the idle pose and castle staging are unchanged. The Sprite3D users (combat, dungeon, ember, galaxy, kart) keep their correct sign. No atlas, anchor table, frame table or asset changes; the Sky Lagoon's static frame and facing are out of scope.",
+  "baseline": "884ef953599a45b7931d492b9aa271b2f1052ce6",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-02",
+    "DL-CODE-01",
+    "DL-QA-02"
+  ],
+  "findings": [],
+  "no_findings_reason": "The Canvas sign error is not in the finding register; it was found by a code and pixel audit of the owner's report on 2026-09-23. No MA-* finding covers Roshan's castle swim motion; DL-MED-02 migration debt and the GAME2D snapshot are unchanged.",
+  "files": [
+    "design/audit_impacts/roshan-canvas-swim-anchor-20260923.json",
+    "scripts/probe_verbs.gd",
+    "scripts/roshan_sprite_loop.gd"
+  ],
+  "validation": [
+    {
+      "command": "Negative control: updated scripts/probe_verbs.gd run with exact Godot 4.7.2 (4.7.2.stable.official.ed1daf0bf) against the baseline scripts/roshan_sprite_loop.gd",
+      "result": "PASS",
+      "evidence": "The new Canvas swim check fails on the baseline as intended: 'FAIL: Roshan Canvas swim torso drifts 56.9 px per loop (frame jump 47.6 px)'. With the candidate loop: 'Roshan Canvas swim torso holds within 8.8 px per loop', zero FAIL or SCRIPT ERROR lines, exit 0."
+    },
+    {
+      "command": "Exact Godot 4.7.2 --headless -s for scripts/probe_day_one_integration.gd, probe_castle_door_language.gd, probe_castle_pearl_art.gd, probe_castle_pool_life_2d.gd, probe_bathroom_integration.gd and (with ci.sh-style isolated APPDATA/LOCALAPPDATA) probe_stuffie.gd -- --touch --classic-touch-test",
+      "result": "PASS",
+      "evidence": "DAY_ONE_INTEGRATION|RESULT: PASS failures=0, DOORLANGUAGE|ALL OK, castle pearl art exit 0 with no FAIL lines, CASTLE_POOL_OVERLAY_ABSENCE|RESULT: PASS checks_failed=0, BATHROOM_WORLD|RESULT: 0 OK, STUFFIE|result: ALL OK. A first probe_stuffie run without app-data isolation failed on a pre-existing desktop save ('fresh save has no companion'); the isolated rerun, which matches ci.sh, passed."
+    },
+    {
+      "command": "python -B -m gdtoolkit.parser and tools/lint_inference.py on the changed scripts; python -B tools/audit_roshan_2d.py; python -B tools/audit_roshan_sprite_clipping.py",
+      "result": "PASS",
+      "evidence": "PARSE_OK x2, lint exit 0, 'ROSHAN2D| RESULT: ALL OK - active project is 2D Roshan only', 'OK: every Roshan frame renders whole'."
+    },
+    {
+      "command": "Exact-commit remote Probe Suite on claude/roshan-castle-swim-anchor-20260923",
+      "result": "PENDING",
+      "evidence": "Required after pushing this candidate and before integration into dev."
+    }
+  ],
+  "acceptance_gaps": "Visual confirmation on the phone that Roshan's castle swim no longer bounces or ghosts, and owner acceptance, remain open. The Sky Lagoon still shows a single left-facing directional frame that glides backward on turns, the playground uses off-model frames, and no rebuilt swim animation exists; those need separate owner-directed work. No device, child or visual acceptance is claimed."
+}
