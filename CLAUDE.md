@@ -113,8 +113,9 @@ Current cross-domain rules and audit state:
 `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` and
 `audit/MASTER_AUDIT_2026-08-09.md`.
 
-The complete full-frame cinematic rule in `AGENTS.md` remains binding without
-relaxation; no summary here or elsewhere may narrow it.
+The complete full-frame cinematic rule in `AGENTS.md` remains binding; its only
+relaxation is the owner-scoped Day One story-clip exception below
+(`DL-CIN-16`). No summary here or elsewhere may narrow it further.
 
 External animation handoffs are incomplete unless they include the binding
 self-contained visual-reference packet required by `AGENTS.md`: actual
@@ -132,7 +133,30 @@ action-first timeline, end state, negatives, and `Sound:` line. Generated
 boards and HUD/runtime captures are never bound pixel inputs. Report
 `ARCHIVE_COMPLETE`, `GENERATION_READY`, and `DELIVERY_ACCEPTED` separately;
 Imagine video remains motion reference unless the full-frame rule independently
-accepts every changed delivery frame.
+accepts every changed delivery frame, except the `DL-CIN-16` Day One story
+clips below.
+
+## Day One story clips between scenes (owner decision 2026-09-23)
+
+Day One plays story clips spliced from the owner-selected 2026-09-20 cut
+(`DAY_ONE_SELECTED_CUT.mp4`) between gameplay scenes. This is the one scoped
+exception to the full-frame cinematic rule (`DL-CIN-16`); the complete terms
+are in `AGENTS.md`.
+
+- Straight cuts at exact recorded frame boundaries only; no new frames,
+  retiming, morphing, interpolation, dissolves, crops, warps or subject repair.
+  Whole-canvas scaling/encoding and short audio fades at cuts are allowed.
+- Clips play only between scenes (the 30-second game opening, first arrivals,
+  room completions, the all-rooms-clean route, Grand Puff's arrival, his
+  transformation once beaten, the epilogue) and never replace a child action.
+- Canon: Grand Puff is a friend trapped under a big layer of dirt that made him
+  grumpy and scary. Roshan faces him alone; the family joins only in the
+  transformation clip; the rainbow dust bunny then follows Roshan like Baby
+  Eagle.
+- Each clip is recorded in a runtime manifest (source path/SHA-256, frame
+  range, encoding, output SHA-256) and `ASSET_LICENSES.md`. Status is
+  `OWNER_DIRECTED_RUNTIME_CLIP`, not `DELIVERY_ACCEPTED`; other chapters, new
+  footage and replacement shots still follow the full-frame rule.
 
 ## Layout
 - scenes/main.tscn → scripts/main.gd (8,465 lines at the synchronized

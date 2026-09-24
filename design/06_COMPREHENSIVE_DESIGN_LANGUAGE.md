@@ -873,8 +873,9 @@ rate improvement alone does not grant acceptance.
 
 `DL-CIN-01` — Authored cinematic delivery frames are complete flattened images
 in the current approved polished 2D storybook generation style. This complete
-contract incorporates the binding `AGENTS.md` cinematic rules without
-relaxation; a short summary elsewhere cannot narrow it. For a defective
+contract incorporates the binding `AGENTS.md` cinematic rules; their only
+relaxation is the owner-scoped Day One story-clip exception `DL-CIN-16`, and a
+short summary elsewhere cannot narrow them. For a defective
 cinematic frame, full-frame regeneration supersedes the general art-reuse
 budget and cannot be avoided by substituting another production technique.
 
@@ -990,7 +991,24 @@ generator; `DELIVERY_ACCEPTED` means the resulting movie independently passed
 the complete full-frame cinematic, human, and device gates. No score or status
 implies a later status. Grok/Imagine image-to-video output remains motion or
 editorial reference unless every delivered changed frame independently satisfies
-`DL-CIN-01` through `DL-CIN-12`.
+`DL-CIN-01` through `DL-CIN-12`, or it is an owner-directed Day One story clip
+under `DL-CIN-16`.
+
+`DL-CIN-16` — Owner decision 2026-09-23: Day One plays story clips spliced from
+the owner-selected 2026-09-20 cut (`DAY_ONE_SELECTED_CUT.mp4`) between gameplay
+scenes, as the single scoped exception to `DL-CIN-01` through `DL-CIN-12` and
+`DL-CIN-15`. Clips are straight cuts at exact recorded source-frame boundaries
+with whole-canvas scaling, runtime encoding and short audio fades only; no new
+frames, retiming, morphing, interpolation, dissolves, crops, warps or subject
+repair. They play only between scenes and never replace a child action. Each
+clip records source path and SHA-256, frame range, encoding and output SHA-256
+in a runtime manifest and `ASSET_LICENSES.md`. Status is
+`OWNER_DIRECTED_RUNTIME_CLIP`, never `DELIVERY_ACCEPTED`; other chapters, new
+footage and replacement shots still follow the full-frame rule. Canon: Grand
+Puff is a friend trapped under dirt that made him grumpy and scary; Roshan
+faces him alone, the family joins only in the transformation clip after he is
+beaten, and the rainbow dust bunny then follows Roshan like Baby Eagle. The
+complete terms are in `AGENTS.md`.
 
 ---
 

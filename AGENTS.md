@@ -263,7 +263,42 @@ policy language in the archive sidecar, never in the pasted generation prompt.
 Grok/Imagine image-to-video output is motion/editorial reference only unless
 the binding full-frame cinematic evidence above independently proves every
 delivered changed frame. Generator readiness therefore never relaxes the
-full-frame delivery rule.
+full-frame delivery rule. The one scoped exception is the owner-directed Day
+One story clips below (`DL-CIN-16`).
+
+## DAY ONE STORY CLIPS BETWEEN SCENES (owner decision 2026-09-23)
+
+The owner directs Day One to play story clips spliced from the owner-selected
+2026-09-20 Day One cut between gameplay scenes. This is the one scoped
+exception to the full-frame cinematic rule above (`DL-CIN-16`): these clips
+ship without per-frame regeneration or `DELIVERY_ACCEPTED` evidence.
+
+- Source: `DAY_ONE_SELECTED_CUT.mp4` from `export/movie_selected_cut_20260920`
+  (2:21.417, 3,394 frames at 24 fps; its SHA-256 is recorded in the clip
+  manifest), the recorded source clips of its picture events, and the
+  2026-09-04 V03 draft's clean-bathroom endpoint for the missing bathroom
+  completion.
+- Straight cuts only, at exact recorded frame boundaries. No newly generated
+  frames, retiming, frame repeats, morphing, interpolation, dissolves, crops,
+  warps or subject repair. Whole-canvas scaling and encoding to the runtime
+  format, and short audio fades at cut points, are allowed.
+- Clips play only between scenes: the 30-second opening that introduces the
+  game, first room arrivals, room completions, the all-rooms-clean route,
+  Grand Puff's arrival, his transformation into the rainbow dust bunny once he
+  is beaten, and the epilogue. They never replace an action the child performs.
+- Story canon: Grand Puff is a friend trapped under a big layer of dirt that
+  made him grumpy and scary. Roshan faces him alone in gameplay; Daddy, Rumi
+  and Baby Eagle join only in the transformation clip after he is beaten. The
+  rainbow dust bunny then follows Roshan like Baby Eagle.
+- A runtime manifest records each clip's source path and SHA-256, frame range,
+  encoding settings and output SHA-256, and each clip has an
+  `ASSET_LICENSES.md` row.
+- The owner's 2026-09-20 selections, including the tradeoffs recorded in the
+  cut's notes, define these clips. Their status is
+  `OWNER_DIRECTED_RUNTIME_CLIP`, not `DELIVERY_ACCEPTED`. The exception does not
+  extend to other chapters, new footage or replacement shots, which follow the
+  full-frame rule unless the owner extends it in writing. Device, child and
+  release gates are unchanged.
 
 ## Layout
 - scenes/main.tscn → scripts/main.gd (8,465 lines at the synchronized

@@ -1,0 +1,30 @@
+{
+  "id": "day-one-story-clips-policy-20260923",
+  "scope": "Owner instruction 2026-09-23 (\"Revise the agents file to use these clips between scenes\"), after reviewing the proposed splice map of the owner-selected 2026-09-20 Day One cut: record the single scoped exception DL-CIN-16 to the full-frame cinematic rule so that straight-cut story clips from that cut play between Day One gameplay scenes as OWNER_DIRECTED_RUNTIME_CLIP (never DELIVERY_ACCEPTED). Also records the owner's story canon answers from the same discussion: Grand Puff is a friend trapped under a big layer of dirt that made him grumpy and scary; Roshan faces him alone in gameplay and the family joins only in the transformation clip once he is beaten; the rainbow dust bunny then follows Roshan like Baby Eagle; the 30-second opening introduces the game. AGENTS.md and CLAUDE.md gain mirrored sections; design 06 gains DL-CIN-16 and cross-references in DL-CIN-01 and DL-CIN-15; ledger rows and the master audit navigation row record the exception. Documentation only: the clips and their runtime integration land in separate commits of this branch with their own evidence.",
+  "baseline": "e14c134eba564bb0798510d45118f827e4a1ead9",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-CIN-01",
+    "DL-CIN-15",
+    "DL-CIN-16"
+  ],
+  "findings": [],
+  "no_findings_reason": "New owner policy exception; no finding is repaired, closed or changed. No MA-* record covers cinematics; the draft-movie and Day One findings keep their current facts until the runtime clips land and are verified.",
+  "files": [
+    "AGENTS.md",
+    "CLAUDE.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "DOCAUTH|INVENTORY=572|LEDGER=572|ACTIVE=56|RECORDS=58 and DOCAUTH|RESULT|ALL OK (the new AGENTS.md anchor from the master audit navigation row resolves); AUDITDEV|BASE|e14c134eba564bb0798510d45118f827e4a1ead9 and AUDITDEV|RESULT|ALL OK; both unittest modules OK (52 tests) with DOCAUTH|STRESS|6/6."
+    }
+  ],
+  "acceptance_gaps": "High-risk policy files changed on explicit owner instruction. The exception grants no DELIVERY_ACCEPTED status, device, child or release acceptance; clip-by-clip owner viewing on the dev build and device checks remain outstanding."
+}
