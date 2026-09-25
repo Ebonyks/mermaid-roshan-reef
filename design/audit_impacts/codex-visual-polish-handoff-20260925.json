@@ -131,9 +131,9 @@
       "evidence": "Checked 2026-09-25T14:47:36Z as the recipient would read the public repository (no token): MANIFEST.json SHA-256 11b71f07d536eb2b2b1ae6c2bbae5719cdbf7314b449d061d98f26dc64045fa5, 71 of 71 files byte-identical (7,779,774 bytes), no mismatches. The first publication 0f28bec7 failed this check on seven CRLF-hashed text files and was corrected. Probe Suite result for the final head is recorded in the integration merge."
     },
     {
-      "command": "Remote verification of revision 2: unauthenticated raw.githubusercontent.com fetch of MANIFEST.json and every listed file at the pushed packet revision, SHA-256 compared",
-      "result": "PENDING",
-      "evidence": "Recorded after push in a follow-up commit, as for revision 1."
+      "command": "Remote verification of revision 2: unauthenticated raw.githubusercontent.com fetch of MANIFEST.json and every listed file at packet revision 67789e1243f701840bdd11372676ae4ce0b118ff, SHA-256 compared; immutable tree page fetched",
+      "result": "PASS",
+      "evidence": "Checked 2026-09-25T15:07:09Z with no token, as the recipient reads the public repository: MANIFEST.json SHA-256 3c93f4b6431450f01559dfb7a1dc0a3ff8206c3d937fbe2e7f0965f040fc2a21 (matches the committed manifest), 78 of 78 files byte-identical (8,363,647 bytes), no mismatches; tree page HTTP 200."
     }
   ],
   "acceptance_gaps": "The plan and audit are recommendations and evidence only. Visual, device, child and owner acceptance of any intervention, repaint or re-pack remain open, as do owner answers on the Rumi reveal and Grand Puff fight direction and the promotion of dev to the stable build."
