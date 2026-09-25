@@ -111,9 +111,9 @@
       "evidence": "DOCAUTH|INVENTORY=575|LEDGER=575|ACTIVE=56|RECORDS=58 and DOCAUTH|RESULT|ALL OK; development coverage rerun after this record before commit."
     },
     {
-      "command": "Exact-commit remote Probe Suite on claude/visual-polish-handoff-20260925, then unauthenticated raw.githubusercontent.com fetch of MANIFEST.json and every listed file at the pushed commit with SHA-256 comparison",
-      "result": "PENDING",
-      "evidence": "Required after push; the recipient (Codex) reads the public repository."
+      "command": "Remote verification: unauthenticated raw.githubusercontent.com fetch of MANIFEST.json and every listed file at packet revision c48909cde92467686942a5c80f761f05a91d4fe1, SHA-256 compared; then the exact-commit remote Probe Suite on claude/visual-polish-handoff-20260925",
+      "result": "PASS",
+      "evidence": "Checked 2026-09-25T14:47:36Z as the recipient would read the public repository (no token): MANIFEST.json SHA-256 11b71f07d536eb2b2b1ae6c2bbae5719cdbf7314b449d061d98f26dc64045fa5, 71 of 71 files byte-identical (7,779,774 bytes), no mismatches. The first publication 0f28bec7 failed this check on seven CRLF-hashed text files and was corrected. Probe Suite result for the final head is recorded in the integration merge."
     }
   ],
   "acceptance_gaps": "The plan and audit are recommendations and evidence only. Visual, device, child and owner acceptance of any intervention, repaint or re-pack remain open, as do owner answers on the Rumi reveal and Grand Puff fight direction and the promotion of dev to the stable build."
