@@ -445,6 +445,14 @@ owner or release acceptance.
 | `audit/day_one_playthroughs_2026-09-02/run_15_art_room.md` | 🔵 | `SUPPORTING_CURRENT` little-artist run: art studio hit boxes, logo-studio launch chain, customizer modal, attack-profile consumers. Modelled, not executed. |
 | `audit/day_one_playthroughs_2026-09-02/run_16_session_budget.md` | 🔵 | `SUPPORTING_CURRENT` three-sessions run: attention-reservoir model, safe versus unsafe stops, Continue re-orientation, session fit. Modelled, not executed. |
 
+## Visual polish and sprite QA handoff (2026-09-25)
+
+| Doc | | Note |
+|---|---|---|
+| `docs/handoffs/codex_visual_polish_2026-09-25/README.md` | 🟣 | `PROPOSED / CANDIDATE` Codex handoff entry prepared by Claude (analysis only, no game change): packet contents and SHA-256 manifest, the owner-approved 2026-09-24 work queue (Baby Eagle backpack-free cutout everywhere; library magic-book day-replay menu; four-floor Opera House with the `DL-INT-12` retirement), and audit rerun steps. Grants no acceptance. |
+| `docs/handoffs/codex_visual_polish_2026-09-25/AESTHETICS_PLAN.md` | 🟣 | `PROPOSED / CANDIDATE` visual-polish recommendations at dev `f76a8ba5`: full-frame current-state captures, two scratch prototypes (living pool water, warm bathroom light), ten engine-side interventions on existing art, the art that needs Codex image generation, a style-matching protocol and a suggested order. Owner acceptance required per room. |
+| `docs/handoffs/codex_visual_polish_2026-09-25/TRANSPARENCY_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT` castle sprite transparency and cut-off audit at dev `f76a8ba5`: 345 runtime draws (217 unique images) and 53 sprite sheets checked; eye-confirmed findings T1–T14 (Rumi neighbouring-frame bleed, Baby Eagle cut-off book crop, see-through settee and bed, interaction-sheet slivers and sliced blocks) with evidence and fixes. Evidence only. |
+
 ## Asset policy, protected-audio notes, and source provenance
 
 Source-package records establish lineage at most. They do not prove that an

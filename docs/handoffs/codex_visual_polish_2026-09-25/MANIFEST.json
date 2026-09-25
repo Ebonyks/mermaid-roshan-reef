@@ -1,0 +1,439 @@
+{
+ "schema": "codex_handoff_manifest/1",
+ "handoff": "codex_visual_polish_2026-09-25",
+ "status": "PROPOSED / CANDIDATE",
+ "prepared_by": "Claude (analysis and recommendations only; no game changes)",
+ "recipient": "Codex",
+ "evidence_baseline": "dev f76a8ba500dc8169df85221ff18ee5efa0a4a207 (all captures, audit runs and prototypes)",
+ "entry": "README.md",
+ "file_count": 71,
+ "total_bytes": 7785845,
+ "files": [
+  {
+   "path": ".gdignore",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "role": "keeps Godot from importing this folder"
+  },
+  {
+   "path": "AESTHETICS_PLAN.md",
+   "bytes": 12217,
+   "sha256": "957d99788006161d40aeb30569c347e818904b803e554fa97fc87573ea9d2926",
+   "role": "handoff document"
+  },
+  {
+   "path": "data/findings.json",
+   "bytes": 78663,
+   "sha256": "2f77a549f5c5253d9995f3250fcea517f0a3a60140b945a14f90402f95123e02",
+   "role": "machine-readable capture or analysis output"
+  },
+  {
+   "path": "data/inventory_d1_bath.json",
+   "bytes": 8309,
+   "sha256": "2b30ff5d60808b744380e81b6b2a178a58778ea0b788242329643195ab817623",
+   "role": "machine-readable capture or analysis output"
+  },
+  {
+   "path": "data/inventory_d1_craft.json",
+   "bytes": 24439,
+   "sha256": "a9cb614f7ecc523593f143f42d78fec3379126e2720cb3e3792eee3291e0b1e4",
+   "role": "machine-readable capture or analysis output"
+  },
+  {
+   "path": "data/inventory_d1_playroom.json",
+   "bytes": 20591,
+   "sha256": "c99ba8a99db9864b46ca3b15999c486fa60b7ee895f347188a9fa560565cb410",
+   "role": "machine-readable capture or analysis output"
+  },
+  {
+   "path": "data/inventory_d1_pool.json",
+   "bytes": 24003,
+   "sha256": "073af5d47fc91ae2854914aa0b3e48b8db4808aace19668dd88efb16a5fad57f",
+   "role": "machine-readable capture or analysis output"
+  },
+  {
+   "path": "data/inventory_free.json",
+   "bytes": 185330,
+   "sha256": "9d56644c9a797f60ee270785531224cb775ecddc2a85ce380dd6e509d8aa1b94",
+   "role": "machine-readable capture or analysis output"
+  },
+  {
+   "path": "data/sheet_sweep.json",
+   "bytes": 25053,
+   "sha256": "b8065c9438c2b0d6ad2b0a05081ccce11a95fd89266bab963fe8f332a8953d00",
+   "role": "machine-readable capture or analysis output"
+  },
+  {
+   "path": "media/before/bubble_bath.jpg",
+   "bytes": 198097,
+   "sha256": "9f997d86cb4312781ac30fb053237e116d43ad8b6405a42df51e3c7a7d09e12b",
+   "role": "full-frame capture of the current build"
+  },
+  {
+   "path": "media/before/bubble_bath_day_one.jpg",
+   "bytes": 191490,
+   "sha256": "eac88bf07569b3601796bf47ad27232ea35d032deceacc6de4dd451dc1a8c8c6",
+   "role": "full-frame capture of the current build"
+  },
+  {
+   "path": "media/before/craft_room.jpg",
+   "bytes": 181920,
+   "sha256": "e5d1a8e360e36e3bde8d78e1046b69419454c20d9d36516c42a51d0ac188e4fb",
+   "role": "full-frame capture of the current build"
+  },
+  {
+   "path": "media/before/dining_room.jpg",
+   "bytes": 160342,
+   "sha256": "b1f23b6cc74b8ad4591e769ac5ffde0316970002d2bdb5815865b11c8b2a356d",
+   "role": "full-frame capture of the current build"
+  },
+  {
+   "path": "media/before/family_gallery.jpg",
+   "bytes": 136677,
+   "sha256": "330c69076c435994848fc980203ad825e0c94f30666c7aa7c7bcd6a8ad9a362b",
+   "role": "full-frame capture of the current build"
+  },
+  {
+   "path": "media/before/grand_puff_attic_backdrop.jpg",
+   "bytes": 158438,
+   "sha256": "29fff927210970b734273e4d30bd5e9d0a693ef2b956bcccd3e6afad60b2293e",
+   "role": "full-frame capture of the current build"
+  },
+  {
+   "path": "media/before/kitchen.jpg",
+   "bytes": 186045,
+   "sha256": "e402807e4cd47cade79758bf1227f3791d503265d5cc5fcb172da050d228c817",
+   "role": "full-frame capture of the current build"
+  },
+  {
+   "path": "media/before/library.jpg",
+   "bytes": 189813,
+   "sha256": "c01ec4f50a488b413a97ef3bc067e65a9aba6585924144bd449e012d9ffece72",
+   "role": "full-frame capture of the current build"
+  },
+  {
+   "path": "media/before/main_hall.jpg",
+   "bytes": 200553,
+   "sha256": "a7e91110dda821a7050e61f7b00a22ffe4cc279beb8c2cfc60ad2feb205f9106",
+   "role": "full-frame capture of the current build"
+  },
+  {
+   "path": "media/before/main_hall_day_one.jpg",
+   "bytes": 197369,
+   "sha256": "2c828c3f9e549bbea593a76afa9c93ca8677d28726ab5d1c408cb985977f6f98",
+   "role": "full-frame capture of the current build"
+  },
+  {
+   "path": "media/before/mermaid_pool.jpg",
+   "bytes": 213893,
+   "sha256": "533b0ee22a8a1bd014ceaa8985fe49d271f2dbdf881e979ed9370d9a6b2cda74",
+   "role": "full-frame capture of the current build"
+  },
+  {
+   "path": "media/before/movie_lounge.jpg",
+   "bytes": 127679,
+   "sha256": "d917e040f4f429dd735d237227874f41d53dd85ef8fd1ef94b3df15adb1232ed",
+   "role": "full-frame capture of the current build"
+  },
+  {
+   "path": "media/before/opera_hall.jpg",
+   "bytes": 161754,
+   "sha256": "17f5ab134660e9dce7d3db25e99565b872881fee969e231acb57415ed68c90ba",
+   "role": "full-frame capture of the current build"
+  },
+  {
+   "path": "media/before/playroom.jpg",
+   "bytes": 188680,
+   "sha256": "25b8ef8bcd8dd1d0a1e0f8230de9892009601013e1a9ebc0cf487a1c445a85bf",
+   "role": "full-frame capture of the current build"
+  },
+  {
+   "path": "media/before/royal_bedroom.jpg",
+   "bytes": 136049,
+   "sha256": "2e8f64e9f542ab51fae95c63df4dcc3b21a3e25d886abbf3dd444eb2fd4083d4",
+   "role": "full-frame capture of the current build"
+  },
+  {
+   "path": "media/before/sky_lagoon.jpg",
+   "bytes": 191032,
+   "sha256": "0b9b3c1a2b76dce0fa589a6deb0aa31c255d6f2541d1415f3deb6ad8b88e07bb",
+   "role": "full-frame capture of the current build"
+  },
+  {
+   "path": "media/evidence/baby_eagle_book_crop_asset.png",
+   "bytes": 215665,
+   "sha256": "cb90e71cc05926006b37e75f15bcdb9a20ff6d8aa71485f0992864f907ad9ee8",
+   "role": "evidence for a confirmed audit finding"
+  },
+  {
+   "path": "media/evidence/baby_eagle_book_crop_ingame.jpg",
+   "bytes": 122463,
+   "sha256": "17e87f828f5782a78ec4ad85ae32499e41ee7bb80242e18b175d1201c5305934",
+   "role": "evidence for a confirmed audit finding"
+  },
+  {
+   "path": "media/evidence/bedside_table_asset.png",
+   "bytes": 74791,
+   "sha256": "3559a6c4557eec8dc186b71b6ddff72596261741650efdd9c87f8a489a4e0222",
+   "role": "evidence for a confirmed audit finding"
+  },
+  {
+   "path": "media/evidence/bedside_table_ingame.jpg",
+   "bytes": 46831,
+   "sha256": "dba1ab1ddca94614630af5f4d9d5053c442ce57cd406f834e783073f3eb500e4",
+   "role": "evidence for a confirmed audit finding"
+  },
+  {
+   "path": "media/evidence/cloud_settee_asset.png",
+   "bytes": 110355,
+   "sha256": "8c3e30aa216c653b2e91e2e2af5af951e106ee8774d5e98c7a285438d4ec5f8c",
+   "role": "evidence for a confirmed audit finding"
+  },
+  {
+   "path": "media/evidence/cloud_settee_ingame.jpg",
+   "bytes": 82235,
+   "sha256": "f018d833a091dfc090cd36a23a2757a76e655bde422cee70600a78cb6acd2b54",
+   "role": "evidence for a confirmed audit finding"
+  },
+  {
+   "path": "media/evidence/dining_seat_asset.png",
+   "bytes": 70504,
+   "sha256": "05ec7a7d43e49c89432c7b0714f14f3bd876042d0fcb39040171661473ad4d65",
+   "role": "evidence for a confirmed audit finding"
+  },
+  {
+   "path": "media/evidence/dining_seat_ingame.jpg",
+   "bytes": 63938,
+   "sha256": "18abc82a0580f2010080bcd865ec3c23fa28c67f001b1faa4237f27d1172bf2a",
+   "role": "evidence for a confirmed audit finding"
+  },
+  {
+   "path": "media/evidence/dream_bed_asset.png",
+   "bytes": 95702,
+   "sha256": "fde1d8f37dedcc406ab7e9f4ea835d3c8c3b577a17f4a32603a424cbac91a2cb",
+   "role": "evidence for a confirmed audit finding"
+  },
+  {
+   "path": "media/evidence/dream_bed_ingame.jpg",
+   "bytes": 88887,
+   "sha256": "e0540dfcd8fed70797711e64a8af559b60d5b7c2656c41385167d0cf52efa8bd",
+   "role": "evidence for a confirmed audit finding"
+  },
+  {
+   "path": "media/evidence/dust_bunny_hop_asset.png",
+   "bytes": 159031,
+   "sha256": "a9b326171e5cc9fe253bdb7830e357ed16d640fceccba63decb9dd2d6ff1d056",
+   "role": "evidence for a confirmed audit finding"
+  },
+  {
+   "path": "media/evidence/dust_bunny_hop_ingame.jpg",
+   "bytes": 58589,
+   "sha256": "e72508a20d3143c8eb992a43e074696ed4291ce2fd46d74dc778f023f61db10c",
+   "role": "evidence for a confirmed audit finding"
+  },
+  {
+   "path": "media/evidence/provisions_hutch_asset.png",
+   "bytes": 148503,
+   "sha256": "452413ca5756acad03ddae54ac27485d62e91638ffd9ec26e8c39276606db776",
+   "role": "evidence for a confirmed audit finding"
+  },
+  {
+   "path": "media/evidence/provisions_hutch_ingame.jpg",
+   "bytes": 119943,
+   "sha256": "e1378209ae79b46f8c76d2efc9e902fff19199a2aa2b1c37564765f981fa9245",
+   "role": "evidence for a confirmed audit finding"
+  },
+  {
+   "path": "media/evidence/rumi_pool_ingame_zoom.jpg",
+   "bytes": 108388,
+   "sha256": "3200f185fb33ef956f6385bc60e2465ff9b7fb50a7133df3d355a4ca1a9aa9bc",
+   "role": "evidence for a confirmed audit finding"
+  },
+  {
+   "path": "media/evidence/rumi_pose_cell2_asset.png",
+   "bytes": 59316,
+   "sha256": "829ae38034ea8e7d38930bb74fcbc5c995336cff362daf4549b4b9ef71170b03",
+   "role": "evidence for a confirmed audit finding"
+  },
+  {
+   "path": "media/evidence/rumi_pose_cell2_ingame.jpg",
+   "bytes": 155632,
+   "sha256": "59d059c2b634cf7a1c539872ce4796016835254b55e599d0beee33e7a089bc9c",
+   "role": "evidence for a confirmed audit finding"
+  },
+  {
+   "path": "media/evidence/shell_wardrobe_asset.png",
+   "bytes": 100211,
+   "sha256": "6ed8cf3df8a028e84b0852236f4343a588947ab61f3e9a918cb9dd05939355b0",
+   "role": "evidence for a confirmed audit finding"
+  },
+  {
+   "path": "media/evidence/shell_wardrobe_ingame.jpg",
+   "bytes": 94308,
+   "sha256": "8d22a1a9f8ed742f160c9d3aca8057e1f6540f843e47ce7ce334a45710083d3e",
+   "role": "evidence for a confirmed audit finding"
+  },
+  {
+   "path": "media/prototypes/bath_after.mp4",
+   "bytes": 179696,
+   "sha256": "ab56e093d7cd6b4e4605c179cf6495b4f772a41b0c217d54148a4ef2e898c5ec",
+   "role": "prototype clip or poster (scratch, not in the build)"
+  },
+  {
+   "path": "media/prototypes/bath_after_poster.jpg",
+   "bytes": 96915,
+   "sha256": "50e1592850ad2343f1ca42701e8a8c153d22a73a7986003dc9257e7187150c61",
+   "role": "prototype clip or poster (scratch, not in the build)"
+  },
+  {
+   "path": "media/prototypes/bath_before.mp4",
+   "bytes": 161327,
+   "sha256": "e2ec97b4dd878ba4af148361c050efc627326a4d04a3d46ea5cb86570daab45b",
+   "role": "prototype clip or poster (scratch, not in the build)"
+  },
+  {
+   "path": "media/prototypes/bath_before_poster.jpg",
+   "bytes": 99126,
+   "sha256": "426c5dda4f8c3d2f0d47265b881ab9b5335d75a033bd40044e4ca486dc76a805",
+   "role": "prototype clip or poster (scratch, not in the build)"
+  },
+  {
+   "path": "media/prototypes/pool_after.mp4",
+   "bytes": 315278,
+   "sha256": "f51fcb07d9db34bc783798866d95486f4b3b0ba46f0e52225959814d780aa546",
+   "role": "prototype clip or poster (scratch, not in the build)"
+  },
+  {
+   "path": "media/prototypes/pool_after_poster.jpg",
+   "bytes": 109223,
+   "sha256": "af19b1dd116593b5060f633bcf1bd21f11b8741ad75f6e7e28462b9e6ee82cc0",
+   "role": "prototype clip or poster (scratch, not in the build)"
+  },
+  {
+   "path": "media/prototypes/pool_before.mp4",
+   "bytes": 185533,
+   "sha256": "6a56b53707914c8a3635bfa4b52e08f19e6341cca4f1423a41cd630124d09f35",
+   "role": "prototype clip or poster (scratch, not in the build)"
+  },
+  {
+   "path": "media/prototypes/pool_before_poster.jpg",
+   "bytes": 110238,
+   "sha256": "2f9ea453d67f333f994e9fd1577a6c6dcecc0160d179cd45b9a92eaced09f87f",
+   "role": "prototype clip or poster (scratch, not in the build)"
+  },
+  {
+   "path": "media/sheets/craft_room_idea_board_sheet_marked.jpg",
+   "bytes": 110096,
+   "sha256": "33264ea44097d045f15c6da735ee9c4aef9374d185ec4d6689e6666fc20146bc",
+   "role": "marked sprite sheet for a confirmed audit finding"
+  },
+  {
+   "path": "media/sheets/dust_bunny_boss_jump_marked.jpg",
+   "bytes": 186228,
+   "sha256": "3e9520452c446ff62faf7c8eb68af18b7ab8dd42f8e25a950387774e1035ab08",
+   "role": "marked sprite sheet for a confirmed audit finding"
+  },
+  {
+   "path": "media/sheets/floating_trash_atlas_marked.jpg",
+   "bytes": 153217,
+   "sha256": "e5af0da54feb5ca6cd87eafbaf9929a2d9367caa0f99427268d5c6268d0136fb",
+   "role": "marked sprite sheet for a confirmed audit finding"
+  },
+  {
+   "path": "media/sheets/library_book_stack_sheet_marked.jpg",
+   "bytes": 195833,
+   "sha256": "2b42ecf5451a3775bfabaf99550923f2d31e5132c39268e9370b75fdd0087bd9",
+   "role": "marked sprite sheet for a confirmed audit finding"
+  },
+  {
+   "path": "media/sheets/opera_hall_curtains_sheet_marked.jpg",
+   "bytes": 188194,
+   "sha256": "26956a64ffd6eb5b430e78b03403ecf00b64ac84a7274faa528469c83b5b30fe",
+   "role": "marked sprite sheet for a confirmed audit finding"
+  },
+  {
+   "path": "media/sheets/opera_hall_footlights_sheet_marked.jpg",
+   "bytes": 133772,
+   "sha256": "2d97c4b959aaa208012ba884860a54e3a55eb286a48b654944791034f80eac8a",
+   "role": "marked sprite sheet for a confirmed audit finding"
+  },
+  {
+   "path": "media/sheets/playroom_blocks_sheet_marked.jpg",
+   "bytes": 113150,
+   "sha256": "a46b76d9e0c3c9ded1fc24e2ab142654ca697f1ae92f471da247a90a6d436f36",
+   "role": "marked sprite sheet for a confirmed audit finding"
+  },
+  {
+   "path": "media/sheets/rumi_eight_pose_runtime_marked.jpg",
+   "bytes": 150218,
+   "sha256": "e2146369771a0cd8bc8dcd4fbfa9a41695852cd1255580704093d87f67c9f9ef",
+   "role": "marked sprite sheet for a confirmed audit finding"
+  },
+  {
+   "path": "README.md",
+   "bytes": 8585,
+   "sha256": "19ee0fd57aec226db2a736b2350d606bd6684c3ce262027436ac7a288ab7c0e3",
+   "role": "handoff document"
+  },
+  {
+   "path": "tools/analyze.py",
+   "bytes": 14183,
+   "sha256": "21735c30dc5e4ec1ee6c1d84624e0da6ffb7b68b09233906702eec1fa1e73263",
+   "role": "rerunnable capture/analysis/prototype script or mask"
+  },
+  {
+   "path": "tools/inventory.gd",
+   "bytes": 9678,
+   "sha256": "c64c9f4247696dfa83f6e6c8dc6829c2d63a087325827c092fe534393979bb7a",
+   "role": "rerunnable capture/analysis/prototype script or mask"
+  },
+  {
+   "path": "tools/mask_bath_windows.png",
+   "bytes": 18890,
+   "sha256": "1c9275c2030f56a40d52ecec82b866a37b955b4ebef47983c86737156b82f478",
+   "role": "rerunnable capture/analysis/prototype script or mask"
+  },
+  {
+   "path": "tools/mask_pool.png",
+   "bytes": 19438,
+   "sha256": "e6bbbbef2b12fdbcd2657b7efc5c8ed55e56b7ac32ea8f65d2b150b00670c7b6",
+   "role": "rerunnable capture/analysis/prototype script or mask"
+  },
+  {
+   "path": "tools/mask_window.png",
+   "bytes": 13257,
+   "sha256": "86b2a7674818b1a84118028259e52cd4abfcc72470db747b44d0cf6f57704404",
+   "role": "rerunnable capture/analysis/prototype script or mask"
+  },
+  {
+   "path": "tools/proto_bath.gd",
+   "bytes": 4495,
+   "sha256": "fd2847abb90ca220c40be1e1e88d14c48283303dfca6cc0fd527aba7976d0065",
+   "role": "rerunnable capture/analysis/prototype script or mask"
+  },
+  {
+   "path": "tools/proto_common.gd",
+   "bytes": 7727,
+   "sha256": "bea6b582bd5361cdb78f091e0498468894c78aaea4838f22af7ba4403715bc5c",
+   "role": "rerunnable capture/analysis/prototype script or mask"
+  },
+  {
+   "path": "tools/proto_pool.gd",
+   "bytes": 7437,
+   "sha256": "c02e379afd81cbfd934acbd9e30684fdf5da9b135a4c0c3c2ac8868a38abf899",
+   "role": "rerunnable capture/analysis/prototype script or mask"
+  },
+  {
+   "path": "tools/sweep_sheets.py",
+   "bytes": 7875,
+   "sha256": "5e6656af423ba3369f207502a766317cd4a38762291cc4f864749253c7331a1f",
+   "role": "rerunnable capture/analysis/prototype script or mask"
+  },
+  {
+   "path": "TRANSPARENCY_AUDIT.md",
+   "bytes": 12508,
+   "sha256": "8fbcfc3059910ff761608795e9fb083e3d0c3ac3643bd563b641f8e614e901d0",
+   "role": "handoff document"
+  }
+ ]
+}
