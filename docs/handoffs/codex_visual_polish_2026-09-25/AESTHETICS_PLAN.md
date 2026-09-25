@@ -96,8 +96,9 @@ Grand Puff's attic backdrop. The fight itself still runs on the old 3D arena rig
   1024×576 originals; the kitchen is the exception.
 - **The quality switch does nothing for 2D.** Sparkly/Speedy toggles retired 3D features
   only.
-- **Sprite errors.** Neighbouring-frame bleed, cut-off crops and see-through fabric; see
-  [TRANSPARENCY_AUDIT.md](TRANSPARENCY_AUDIT.md).
+- **Sprite errors.** Neighbouring-frame bleed, cut-off crops, see-through fabric, and two
+  objects hidden behind opaque art (the Movie Lounge home movie and the Day One rescue
+  star); see [TRANSPARENCY_AUDIT.md](TRANSPARENCY_AUDIT.md).
 
 ## Two prototypes on the real game
 

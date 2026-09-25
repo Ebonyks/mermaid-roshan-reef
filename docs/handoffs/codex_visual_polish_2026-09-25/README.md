@@ -18,12 +18,12 @@ captures on isolated test saves.
 | Path | What it is |
 |---|---|
 | [AESTHETICS_PLAN.md](AESTHETICS_PLAN.md) | Ten engine-side interventions on the existing art, the art that needs image generation, a style-matching protocol, and a suggested order |
-| [TRANSPARENCY_AUDIT.md](TRANSPARENCY_AUDIT.md) | Castle sprite errors (neighbouring-frame bleed, cut-off crops, see-through fabric) with evidence and fixes |
+| [TRANSPARENCY_AUDIT.md](TRANSPARENCY_AUDIT.md) | Castle sprite errors (neighbouring-frame bleed, cut-off crops, see-through fabric, objects hidden behind opaque art), a cut-off analysis of every image touching its edge, evidence and fixes |
 | `media/before/` | Full-frame captures of every castle room, the Sky Lagoon and the Grand Puff backdrop |
 | `media/prototypes/` | Before/after clips of two prototypes (living pool water, warm bathroom light) |
-| `media/evidence/`, `media/sheets/` | Evidence for each confirmed audit finding |
-| `data/` | Capture inventories (every drawn object and its sampled region), analyzer findings, and the sheet sweep |
-| `tools/` | The capture, analysis and sheet-sweep scripts, plus the prototype scripts and their masks, so every result can be rerun |
+| `media/evidence/`, `media/sheets/` | Evidence for each confirmed audit finding; every image is shown in the documents |
+| `data/` | Capture inventories (every drawn object and its sampled region), analyzer findings, the sheet sweep and the visibility pass |
+| `tools/` | The capture, analysis, sheet-sweep and visibility scripts, plus the prototype scripts and their masks, so every result can be rerun |
 | [MANIFEST.json](MANIFEST.json) | SHA-256 of every file in this folder |
 
 Nothing in this folder is loaded by the game; a `.gdignore` keeps Godot from importing
@@ -147,6 +147,21 @@ rule `DL-INT-12`.
   ledger pass reproducibly; otherwise land the venue first and report the blocker.
 - **Keep:** the Opera Hall "resting" during Day One, and the Chapter 2 opera flows.
 
+### Audit errors to fix
+
+[TRANSPARENCY_AUDIT.md](TRANSPARENCY_AUDIT.md) lists 15 sprite errors, one item to
+confirm (T14) and one interface overlap (O1). The four P1 errors show in normal play:
+
+| ID | Error | Fix |
+|---|---|---|
+| T1 | Pieces of neighbouring Rumi poses float beside her in the pool | Re-pack her sheet with gutters; never regenerate Rumi |
+| T2 | Baby Eagle's book crop is cut off at the left edge | Resolved by work item 1 |
+| T15 | The Movie Lounge screen is opaque and hides the family home movie | Clear the screen's alpha, or draw the picture above the frame |
+| T16 | The Day One rescue star over Baby Eagle draws behind the stuffie nook | Give it the effects z-index; create it only while the rescue is pending |
+
+These fixes move, clear or reorder existing pixels; none needs new art. Anything
+that changes how the game looks still goes to the owner in context.
+
 ### Not approved
 
 - Promoting `dev` to the phone's stable build. The owner said "not yet".
@@ -163,7 +178,8 @@ rule `DL-INT-12`.
    APPDATA=<temp> LOCALAPPDATA=<temp> godot --windowed --resolution 1280x720 -s inventory.gd -- free
    ```
 
-3. Run `python analyze.py`, then `python sweep_sheets.py` (set `REPO` to your checkout).
+3. Run `python analyze.py`, then `python sweep_sheets.py` (set `REPO` to your checkout),
+   then `python occlusion.py` and `python occlusion_evidence.py`.
 4. Review every flag by eye before reporting it. The heuristics find candidates; they do
    not decide.
 

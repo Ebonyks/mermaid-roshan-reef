@@ -1,6 +1,6 @@
 {
   "id": "codex-visual-polish-handoff-20260925",
-  "scope": "Owner request 2026-09-25 (\"Send to GitHub, include analysis of cut off images as well, and insure all images are represented fully. There are also a number of individual object transparency errors, audit these castle levels and report errors, like with rumi's sprite\"), following the owner's 2026-09-24 clarification that Claude recommends and Codex implements. Documentation-only Codex handoff packet under docs/handoffs/codex_visual_polish_2026-09-25/: the aesthetics plan (current-state full-frame captures, two scratch prototypes, ten engine-side interventions, art needing Codex image generation, a style-matching protocol, suggested order), the castle sprite transparency and cut-off audit (345 runtime draws, 217 unique images, 53 sprite sheets; eye-confirmed findings T1-T14 with evidence), the owner-approved 2026-09-24 work queue specifications, rerunnable capture/analysis/prototype scripts with masks, machine-readable results and a SHA-256 manifest. A .gdignore keeps Godot from importing the folder. No game script, scene, asset, save key or runtime behaviour changes.",
+  "scope": "Owner request 2026-09-25 (\"Send to GitHub, include analysis of cut off images as well, and insure all images are represented fully. There are also a number of individual object transparency errors, audit these castle levels and report errors, like with rumi's sprite\"), following the owner's 2026-09-24 clarification that Claude recommends and Codex implements. Documentation-only Codex handoff packet under docs/handoffs/codex_visual_polish_2026-09-25/: the aesthetics plan (current-state full-frame captures, two scratch prototypes, ten engine-side interventions, art needing Codex image generation, a style-matching protocol, suggested order), the castle sprite transparency and cut-off audit (345 runtime draws, 217 unique images, 53 sprite sheets; eye-confirmed findings T1-T16 and interface overlap O1 with evidence, a cut-off analysis of every image touching its edge, and a same-frame visibility pass over 301 drawn objects (revision 2)), the owner-approved 2026-09-24 work queue specifications, rerunnable capture/analysis/prototype scripts with masks, machine-readable results and a SHA-256 manifest. A .gdignore keeps Godot from importing the folder. No game script, scene, asset, save key or runtime behaviour changes.",
   "baseline": "f76a8ba500dc8169df85221ff18ee5efa0a4a207",
   "rules": [
     "DL-AUTH-05",
@@ -14,10 +14,13 @@
     "DL-READ-05",
     "DL-PERF-02",
     "DL-PERF-03",
-    "DL-INT-12"
+    "DL-INT-12",
+    "DL-READ-02",
+    "DL-READ-06",
+    "DL-LAY-01"
   ],
   "findings": [],
-  "no_findings_reason": "Documentation-only handoff. The audit's T1-T14 are handoff-local findings with evidence; they are not entered into the MA-* register here, and no existing MA-* record is repaired or changed. Promoting any of them to the register, and every implementation, is left to Codex and the owner under the master-audit contract.",
+  "no_findings_reason": "Documentation-only handoff. The audit's T1-T16 and O1 are handoff-local findings with evidence; they are not entered into the MA-* register here, and no existing MA-* record is repaired or changed. Promoting any of them to the register, and every implementation, is left to Codex and the owner under the master-audit contract.",
   "files": [
     "design/05_DOC_LEDGER.md",
     "design/audit_impacts/codex-visual-polish-handoff-20260925.json",
@@ -32,6 +35,7 @@
     "docs/handoffs/codex_visual_polish_2026-09-25/data/inventory_d1_playroom.json",
     "docs/handoffs/codex_visual_polish_2026-09-25/data/inventory_d1_pool.json",
     "docs/handoffs/codex_visual_polish_2026-09-25/data/inventory_free.json",
+    "docs/handoffs/codex_visual_polish_2026-09-25/data/occlusion.json",
     "docs/handoffs/codex_visual_polish_2026-09-25/data/sheet_sweep.json",
     "docs/handoffs/codex_visual_polish_2026-09-25/media/before/bubble_bath.jpg",
     "docs/handoffs/codex_visual_polish_2026-09-25/media/before/bubble_bath_day_one.jpg",
@@ -61,8 +65,12 @@
     "docs/handoffs/codex_visual_polish_2026-09-25/media/evidence/dream_bed_ingame.jpg",
     "docs/handoffs/codex_visual_polish_2026-09-25/media/evidence/dust_bunny_hop_asset.png",
     "docs/handoffs/codex_visual_polish_2026-09-25/media/evidence/dust_bunny_hop_ingame.jpg",
+    "docs/handoffs/codex_visual_polish_2026-09-25/media/evidence/movie_picture_hidden.jpg",
+    "docs/handoffs/codex_visual_polish_2026-09-25/media/evidence/panel_covers_hall_bunnies.jpg",
+    "docs/handoffs/codex_visual_polish_2026-09-25/media/evidence/panel_covers_pool_bunny.jpg",
     "docs/handoffs/codex_visual_polish_2026-09-25/media/evidence/provisions_hutch_asset.png",
     "docs/handoffs/codex_visual_polish_2026-09-25/media/evidence/provisions_hutch_ingame.jpg",
+    "docs/handoffs/codex_visual_polish_2026-09-25/media/evidence/rescue_pointer_hidden.jpg",
     "docs/handoffs/codex_visual_polish_2026-09-25/media/evidence/rumi_pool_ingame_zoom.jpg",
     "docs/handoffs/codex_visual_polish_2026-09-25/media/evidence/rumi_pose_cell2_asset.png",
     "docs/handoffs/codex_visual_polish_2026-09-25/media/evidence/rumi_pose_cell2_ingame.jpg",
@@ -89,6 +97,8 @@
     "docs/handoffs/codex_visual_polish_2026-09-25/tools/mask_bath_windows.png",
     "docs/handoffs/codex_visual_polish_2026-09-25/tools/mask_pool.png",
     "docs/handoffs/codex_visual_polish_2026-09-25/tools/mask_window.png",
+    "docs/handoffs/codex_visual_polish_2026-09-25/tools/occlusion.py",
+    "docs/handoffs/codex_visual_polish_2026-09-25/tools/occlusion_evidence.py",
     "docs/handoffs/codex_visual_polish_2026-09-25/tools/proto_bath.gd",
     "docs/handoffs/codex_visual_polish_2026-09-25/tools/proto_common.gd",
     "docs/handoffs/codex_visual_polish_2026-09-25/tools/proto_pool.gd",
@@ -101,9 +111,14 @@
       "evidence": "345 draw records and 217 unique sampled images captured; 40 analyzer candidates and 53 swept sheets, every flag reviewed by eye; confirmed findings T1-T14 documented in TRANSPARENCY_AUDIT.md with evidence images. data/findings.json and data/sheet_sweep.json are the raw outputs."
     },
     {
+      "command": "Visibility pass: python tools/occlusion.py over the same five captures (each object's opaque pixels, scaled to its window rect and tried as drawn and mirrored, compared with the same-frame screenshot); python tools/occlusion_evidence.py",
+      "result": "PASS",
+      "evidence": "301 objects compared (at least 90% opacity and 400 opaque px); the 40 under 60% visible were reviewed by eye: T15 (Movie Lounge picture z 48 under movie_screen_frame.png z 76, whose screen area is alpha 255), T16 (Day One rescue star at z 0 under the stuffie nook card at z 75; tap sparkles use EFFECT_Z 4.35 = z 435), O1 (instruction panel over three dust bunnies and part of a basket), 33 expected. data/occlusion.json is the raw output."
+    },
+    {
       "command": "MANIFEST.json regeneration and byte check of every packet file",
       "result": "PASS",
-      "evidence": "71 files, 7,779,774 bytes, each with the SHA-256 of its committed Git blob (LF line endings, identical to what raw.githubusercontent.com serves); the manifest excludes only itself. A first publication (0f28bec7) hashed CRLF working-tree bytes for seven text files; remote verification caught it and the manifest was rebuilt from the committed blobs."
+      "evidence": "Revision 2 manifest regenerated from the staged Git blobs (LF line endings, identical to what raw.githubusercontent.com serves); counts and bytes are in MANIFEST.json and the commit message, and every entry was re-hashed against the staged blob before commit. Revision 1 (c48909cd): 71 files, 7,779,774 bytes. A first publication (0f28bec7) hashed CRLF working-tree bytes for seven text files; remote verification caught it and the manifest was rebuilt from the committed blobs."
     },
     {
       "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
@@ -114,6 +129,11 @@
       "command": "Remote verification: unauthenticated raw.githubusercontent.com fetch of MANIFEST.json and every listed file at packet revision c48909cde92467686942a5c80f761f05a91d4fe1, SHA-256 compared; then the exact-commit remote Probe Suite on claude/visual-polish-handoff-20260925",
       "result": "PASS",
       "evidence": "Checked 2026-09-25T14:47:36Z as the recipient would read the public repository (no token): MANIFEST.json SHA-256 11b71f07d536eb2b2b1ae6c2bbae5719cdbf7314b449d061d98f26dc64045fa5, 71 of 71 files byte-identical (7,779,774 bytes), no mismatches. The first publication 0f28bec7 failed this check on seven CRLF-hashed text files and was corrected. Probe Suite result for the final head is recorded in the integration merge."
+    },
+    {
+      "command": "Remote verification of revision 2: unauthenticated raw.githubusercontent.com fetch of MANIFEST.json and every listed file at the pushed packet revision, SHA-256 compared",
+      "result": "PENDING",
+      "evidence": "Recorded after push in a follow-up commit, as for revision 1."
     }
   ],
   "acceptance_gaps": "The plan and audit are recommendations and evidence only. Visual, device, child and owner acceptance of any intervention, repaint or re-pack remain open, as do owner answers on the Rumi reveal and Grand Puff fight direction and the promotion of dev to the stable build."
