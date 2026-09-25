@@ -103,7 +103,7 @@
     {
       "command": "MANIFEST.json regeneration and byte check of every packet file",
       "result": "PASS",
-      "evidence": "71 files, 7,785,845 bytes, each with SHA-256; the manifest excludes only itself."
+      "evidence": "71 files, 7,779,774 bytes, each with the SHA-256 of its committed Git blob (LF line endings, identical to what raw.githubusercontent.com serves); the manifest excludes only itself. A first publication (0f28bec7) hashed CRLF working-tree bytes for seven text files; remote verification caught it and the manifest was rebuilt from the committed blobs."
     },
     {
       "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",

@@ -7,7 +7,7 @@
  "evidence_baseline": "dev f76a8ba500dc8169df85221ff18ee5efa0a4a207 (all captures, audit runs and prototypes)",
  "entry": "README.md",
  "file_count": 71,
- "total_bytes": 7785845,
+ "total_bytes": 7779774,
  "files": [
   {
    "path": ".gdignore",
@@ -23,8 +23,8 @@
   },
   {
    "path": "data/findings.json",
-   "bytes": 78663,
-   "sha256": "2f77a549f5c5253d9995f3250fcea517f0a3a60140b945a14f90402f95123e02",
+   "bytes": 75308,
+   "sha256": "aeda172c03f39286b9ebd354d04ea22bc2b58250159fbca0defcd5d3ed205c50",
    "role": "machine-readable capture or analysis output"
   },
   {
@@ -59,8 +59,8 @@
   },
   {
    "path": "data/sheet_sweep.json",
-   "bytes": 25053,
-   "sha256": "b8065c9438c2b0d6ad2b0a05081ccce11a95fd89266bab963fe8f332a8953d00",
+   "bytes": 23246,
+   "sha256": "be89e6c690f29ceda4c790251103cceb1000bbd04123d0eef132851eaf9049ab",
    "role": "machine-readable capture or analysis output"
   },
   {
@@ -377,8 +377,8 @@
   },
   {
    "path": "tools/analyze.py",
-   "bytes": 14183,
-   "sha256": "21735c30dc5e4ec1ee6c1d84624e0da6ffb7b68b09233906702eec1fa1e73263",
+   "bytes": 13870,
+   "sha256": "2dd568071ac4c126a036dee32f7c3af73fc0af426e463d44bfd82834b160b5d5",
    "role": "rerunnable capture/analysis/prototype script or mask"
   },
   {
@@ -419,21 +419,22 @@
   },
   {
    "path": "tools/proto_pool.gd",
-   "bytes": 7437,
-   "sha256": "c02e379afd81cbfd934acbd9e30684fdf5da9b135a4c0c3c2ac8868a38abf899",
+   "bytes": 7253,
+   "sha256": "af85b19fe9ba281011f5aa308ee8dcf642e384fbe6d66774f0fab240042dd7c1",
    "role": "rerunnable capture/analysis/prototype script or mask"
   },
   {
    "path": "tools/sweep_sheets.py",
-   "bytes": 7875,
-   "sha256": "5e6656af423ba3369f207502a766317cd4a38762291cc4f864749253c7331a1f",
+   "bytes": 7700,
+   "sha256": "f02af7f1d4b222e184e64c59fc362421e888d61ca119cd96c03bf2d00f0e7033",
    "role": "rerunnable capture/analysis/prototype script or mask"
   },
   {
    "path": "TRANSPARENCY_AUDIT.md",
-   "bytes": 12508,
-   "sha256": "8fbcfc3059910ff761608795e9fb083e3d0c3ac3643bd563b641f8e614e901d0",
+   "bytes": 12271,
+   "sha256": "4ca1a38c4d407683b7c848774c2fe168cb2c149a7d210991e7baf3aec65ef7f1",
    "role": "handoff document"
   }
- ]
+ ],
+ "hash_basis": "SHA-256 of the committed Git blob bytes (LF line endings), identical to what raw.githubusercontent.com serves"
 }
