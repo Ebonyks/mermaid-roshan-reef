@@ -2832,6 +2832,19 @@
     "v26_puff_unwell": {
       "file": "art/language_v26/puff_unwell.png",
       "provenance": "Owner-authorized targeted edit; language_art_evidence_v26.json"
+    },
+    "v27_door": {
+      "file": "art/door_expression_v27/door.png",
+      "provenance_record": "door_expression_evidence_v27.json"
+    },
+    "v27_scrub": {
+      "file": "art/door_expression_v27/scrub.png",
+      "provenance_record": "door_expression_evidence_v27.json"
+    },
+    "v27_scrub_wide": {
+      "file": "art/R09_open_wide.png",
+      "provenance_record": "image_edit_provenance.json",
+      "ceiling_end": 123
     }
   },
   "pages": [
@@ -3741,18 +3754,18 @@
       "page": 24,
       "mode": "F",
       "art": [
-        "v25_door_routes"
+        "v27_door"
       ],
       "text": "One last door began to glow.\nA rumble came from behind it...",
       "layout": "full",
       "border_assets": [],
-      "background_theme": "Full game hall with completed neighboring routes, colored lights converging on glowing closed door.",
+      "background_theme": "Actual castle boss approach: shell door above red steps, completed bear/art/water/bubble rooms, converging route lights.",
       "caption": {
-        "x": 207,
-        "y": 60,
-        "width": 270,
+        "x": 50,
+        "y": 318,
+        "width": 404,
         "size": 18,
-        "align": "left",
+        "align": "center",
         "color": "navy",
         "shadow": false,
         "halo": true
@@ -3761,10 +3774,16 @@
       "border_placements": [],
       "focal_exclusions": [
         [
+          205,
+          78,
           132,
-          63,
-          75,
-          116
+          110
+        ],
+        [
+          404,
+          145,
+          61,
+          93
         ]
       ]
     },
@@ -3901,7 +3920,7 @@
       "page": 27,
       "mode": "F",
       "art": [
-        "R09_open"
+        "v27_scrub"
       ],
       "text": "Daddy, Rumi, and Baby Eagle helped Roshan.\n“Let’s help Grand Puff!” Scrub, scrub!",
       "layout": "extension",

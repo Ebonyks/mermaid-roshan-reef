@@ -1,3 +1,7 @@
+# V27 — castle entrance and relieved Grand Puff
+
+Current review corrects story pages24 and27 only. Page24 replaces the erroneous opera-house scene with the C11_S02 castle boss approach, retaining completed rooms and shell door above red steps. Page27 changes only Grand Puff’s expression to relieved during the group scrub. Manuscript and other artwork retained. Native inputs, prompts and hashes: `door_expression_evidence_v27.json`. Owner/child/print acceptance remains open.
+
 # Landscape page assignments
 
 ## Current revision: V26 read together (2026-09-26)

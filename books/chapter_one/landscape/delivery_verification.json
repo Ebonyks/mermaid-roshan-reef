@@ -1,30 +1,17 @@
 {
-  "edition": "v26_read_together",
-  "pdf_sha256": "8a31f143603ca86a5f2420195b2de083cc1837b1e8b2845209aac9e102118171",
-  "pages": 34,
-  "story_pages": 32,
-  "image_operations": 52,
-  "text_lines": 78,
-  "mechanical_status": "PASS",
-  "editorial_review": "All32 story captions reviewed sequentially for referents, literal action, playful dust bunnies, Rumi home-versus-trap duration, waterfall/fountain order, and single-identity Puff restoration.",
-  "visual_review": "All34 contact pages inspected; revised scene, bubble, contrast and text placement pages examined enlarged.",
-  "art_integrity": "Original transformation/landing source keys unchanged; approved rear H retained.",
-  "language_metrics": {
-    "story_caption_words": 363,
-    "average_caption_words_per_page": 11.3,
-    "maximum_caption_words": 16,
-    "minimum_font_points": 18,
-    "scope": "Descriptive manuscript metrics only; excludes speech balloons, title and covers. Not a developmental assessment."
-  },
-  "acceptance": "Owner/child/print acceptance remains open; not a certified reading level.",
+  "edition": "v27_correct_door",
   "status": "PASS",
+  "pdf_sha256": "be69cff6e2be12b9d2cdb3665613e3b07ba6ab6323e1ae20b79cce22c701442d",
+  "pages": 34,
+  "changed_pages": [
+    24,
+    27
+  ],
+  "unchanged_pages": 32,
+  "mechanical_status": "PASS",
+  "visual_review": "Native edited scenes and revised PDF pages24/27 inspected. Correct castle shell-door approach replaces opera house; contented scrub expression; all other rendered pages byte-identical.",
+  "acceptance": "Owner/child/print review remains open.",
+  "archive_sha256": "2b1ee33233ee4492ba9d2d3e4d142aebb27ac7204275a1df51f00c4a39d6dc3d",
   "verified_payload_files": 110,
-  "matching_page_renders": 34,
-  "archive_sha256": "934d14a4fe2b3c7f174035386d9c4c52fd82f2f89fdad7215e5e014da564380f",
-  "visual_status": "V26_EDITORIAL_VISUAL_REVIEW; rear H owner accepted; current edition owner/child/print review pending.",
-  "final_metadata_seal": {
-    "all_rendering_inputs_unchanged": true,
-    "rendering_input_files": 63,
-    "verified_payload_hashes": 110
-  }
+  "portable_rebuild": "V27 not independently rerendered; payload hashes verified; V26 prior rebuild retained as historical evidence."
 }

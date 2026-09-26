@@ -817,7 +817,7 @@ Kept as-is; noted so a future edit updates every copy.
 | Doc | | Note |
 |---|---|---|
 | `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; 32-page landscape assignments supersede portrait pagination; no final art acceptance. |
-| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V26 read-together manuscript, Rumi rescue context, continuous Grand Puff restoration and ellipse balloons, retaining V25 corrections and owner-accepted rear H, low-resolution/identity audit and lossless proof; ceiling perspective, print and owner acceptance remain open. |
+| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V27 correct castle shell-door approach and relieved scrub expression; V26 read-together manuscript, Rumi rescue context, continuous Grand Puff restoration and ellipse balloons, retaining V25 corrections and owner-accepted rear H, low-resolution/identity audit and lossless proof; ceiling perspective, print and owner acceptance remain open. |
 
 | `books/chapter_one/landscape/STRESS_TEST.md` | 🔵 | `SUPPORTING_CURRENT`; owner-rejected v7 and page-by-page revised rough audit; mechanical checks explicitly do not grant visual/identity acceptance. |
 
