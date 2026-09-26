@@ -1,111 +1,30 @@
 {
-  "status": "PASS",
-  "verified_payload_files": 108,
-  "matching_page_renders": 34,
-  "archive_sha256": "367337f86fad122f0a9456014a2dbed8e5d2ef8c06cf424b97356ccf428f48db",
-  "pdf_sha256": "7f42c8416b68d9d81a2073c7187c4f33970f1ad2818ead8bee4630de8905c75b",
-  "pdf_pages": 34,
-  "page_size_points": [
-    504,
-    360
-  ],
+  "edition": "v26_read_together",
+  "pdf_sha256": "8a31f143603ca86a5f2420195b2de083cc1837b1e8b2845209aac9e102118171",
+  "pages": 34,
+  "story_pages": 32,
+  "image_operations": 52,
+  "text_lines": 78,
   "mechanical_status": "PASS",
-  "visual_status": "REAR_COVER_H_OWNER_ACCEPTED; WHOLE_BOOK_REVIEW_OPEN",
-  "open_findings": [
-    {
-      "id": "BK-ST-OPEN-01",
-      "pages": [
-        11
-      ],
-      "severity": "P2",
-      "issue": "Page11 now uses a full restored scene showing one warm rainbow lane and remaining blocked lanes. Hand/tool clearing action still absent."
-    },
-    {
-      "id": "BK-ST-OPEN-02",
-      "pages": [
-        17,
-        18
-      ],
-      "severity": "P2",
-      "issue": "Previous rescue identity assessment superseded by owner rejection. V21 replaces both shots using approved Eagle/cloud-bunny references; final owner identity acceptance remains open."
-    },
-    {
-      "id": "BK-ST-OPEN-03",
-      "pages": [
-        7,
-        19,
-        20,
-        24
-      ],
-      "severity": "P2",
-      "issue": "Alpha extraction, targeted Eagle pose and door-glow edges remain owner review candidates. Page32 is now a full-art commissioned nap, not an alpha extraction."
-    },
-    {
-      "id": "BK-ST-OPEN-04",
-      "pages": [
-        27,
-        28,
-        29,
-        30
-      ],
-      "severity": "P2",
-      "issue": "Earlier V21 ceiling treatment retained on27–30. Sharper new candidates rejected for worse perspective joins. Original complete action pages unchanged."
-    },
-    {
-      "id": "BK-ST-OPEN-05",
-      "pages": "multiple",
-      "severity": "P2",
-      "issue": "Four empty ceiling strips on27–30 retain116–138ppi. Every other story illustration/background placement is at least212ppi. Print-master/owner acceptance remains open."
-    },
-    {
-      "id": "BK-ST-OPEN-06",
-      "pages": [
-        4,
-        6,
-        7,
-        10,
-        19,
-        20,
-        21,
-        24,
-        25,
-        26,
-        31
-      ],
-      "severity": "P2",
-      "issue": "Page19 now has a speaking-character lower-margin exception and two apology balloons. Canonical ear curls/pearl hands reviewed. Other V22 borders retained; tiny cameo and owner acceptance remain open."
-    },
-    {
-      "id": "BK-ST-OPEN-07",
-      "pages": [
-        6,
-        23,
-        26
-      ],
-      "severity": "P2",
-      "issue": "P6 now identifies the sink and places the existing sponge at its rim, but no hand-wiping frame is shown. P23 caption now describes visible colour choice rather than a completed picture. P26 composition cues dodge, but exact gameplay timing and sparkle contact remain unproven."
-    },
-    {
-      "id": "BK-ST-OPEN-08",
-      "pages": [
-        "front_cover",
-        "back_cover",
-        32
-      ],
-      "severity": "P2",
-      "issue": "Front cover and nap retained. Eight rear-cover studies reviewed; A–D rejected by owner. H selected with pastel full ensemble and simplified painted dust. Owner cover selection and print acceptance remain open."
-    }
-  ],
-  "owner_selection": {
-    "date": "2026-09-20",
-    "selection": "H",
-    "status": "OWNER_ACCEPTED_REAR_COVER",
-    "instruction": "H looks good, let's do it, keep going",
-    "scope": "Rear cover H only; whole-book child and print acceptance remain open."
+  "editorial_review": "All32 story captions reviewed sequentially for referents, literal action, playful dust bunnies, Rumi home-versus-trap duration, waterfall/fountain order, and single-identity Puff restoration.",
+  "visual_review": "All34 contact pages inspected; revised scene, bubble, contrast and text placement pages examined enlarged.",
+  "art_integrity": "Original transformation/landing source keys unchanged; approved rear H retained.",
+  "language_metrics": {
+    "story_caption_words": 363,
+    "average_caption_words_per_page": 11.3,
+    "maximum_caption_words": 16,
+    "minimum_font_points": 18,
+    "scope": "Descriptive manuscript metrics only; excludes speech balloons, title and covers. Not a developmental assessment."
   },
+  "acceptance": "Owner/child/print acceptance remains open; not a certified reading level.",
+  "status": "PASS",
+  "verified_payload_files": 110,
+  "matching_page_renders": 34,
+  "archive_sha256": "934d14a4fe2b3c7f174035386d9c4c52fd82f2f89fdad7215e5e014da564380f",
+  "visual_status": "V26_EDITORIAL_VISUAL_REVIEW; rear H owner accepted; current edition owner/child/print review pending.",
   "final_metadata_seal": {
-    "all_rendering_inputs_byte_identical_to_verified_rebuild": true,
-    "rendering_input_files": 65,
-    "final_payload_hashes_verified": 108
+    "all_rendering_inputs_unchanged": true,
+    "rendering_input_files": 63,
+    "verified_payload_hashes": 110
   }
 }

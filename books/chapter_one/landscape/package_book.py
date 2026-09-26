@@ -19,7 +19,7 @@ def main():
  book['sources']=portable_sources
  font=ROOT/book['font'];payload['fonts/Sniglet-Regular.ttf']=font.read_bytes();payload['fonts/OFL.txt']=(font.parent/'OFL.txt').read_bytes();book['font']='fonts/Sniglet-Regular.ttf'
  payload['book.json']=(json.dumps(book,indent=2,ensure_ascii=False)+'\n').encode('utf8')
- for name in ['render_book.py','PAGE_PLAN.md','REVIEW.md','image_edit_provenance.json','eagle_isolation_provenance.json','waterfall_progress_evidence.json','waterfall_lane_prompt.txt','border_base_prompt.txt','border_revision_evidence.json','eagle_rescue_review.json','event_border_jobs.json','event_border_correction_prompts.json','event_border_evidence.json','ceiling_alignment_evidence.json','integrated_border_jobs.json','integrated_border_evidence.json','layout_evidence.json','stress_review.json','audit_book.py','STRESS_TEST.md','BORDER_ART_DIRECTION.md','STORY_COMPREHENSION_AUDIT.md','contrast_trial_evidence.json','border_rollout_evidence.json','repo_detail_jobs.json','repo_detail_evidence.json','action_clarity_evidence.json','goal_requirements_audit.json','background_quality_audit.json','art_personality_jobs.json','art_personality_evidence.json','identity_repair_jobs.json','identity_repair_evidence.json','quality_jobs_v22.json','quality_evidence_v22.json','quality_audit_v22.json','story_detail_jobs_v23.json','story_detail_evidence_v23.json']:
+ for name in ['render_book.py','PAGE_PLAN.md','REVIEW.md','image_edit_provenance.json','eagle_isolation_provenance.json','waterfall_progress_evidence.json','waterfall_lane_prompt.txt','border_base_prompt.txt','border_revision_evidence.json','eagle_rescue_review.json','event_border_jobs.json','event_border_correction_prompts.json','event_border_evidence.json','ceiling_alignment_evidence.json','integrated_border_jobs.json','integrated_border_evidence.json','layout_evidence.json','stress_review.json','audit_book.py','STRESS_TEST.md','BORDER_ART_DIRECTION.md','STORY_COMPREHENSION_AUDIT.md','contrast_trial_evidence.json','border_rollout_evidence.json','repo_detail_jobs.json','repo_detail_evidence.json','action_clarity_evidence.json','goal_requirements_audit.json','background_quality_audit.json','art_personality_jobs.json','art_personality_evidence.json','identity_repair_jobs.json','identity_repair_evidence.json','quality_jobs_v22.json','quality_evidence_v22.json','quality_audit_v22.json','story_detail_jobs_v23.json','story_detail_evidence_v23.json','action_style_evidence_v25.json','language_art_evidence_v26.json','language_revision_v26.json']:
   payload[name]=(ROOT/name).read_bytes()
  payload['story_detail_audit_v23.json']=(ROOT/'story_detail_audit_v23.json').read_bytes()
  # Preserve all owner-requested rear-cover studies alongside the selected book art.
@@ -29,6 +29,7 @@ def main():
   payload[name]=(ROOT.parent/name).read_bytes()
  for name in ['page_provenance.json','verification.json']:
   payload['delivered_proof/'+name]=(args.proof/name).read_bytes()
+ if (args.proof.parent/'LANGUAGE_REVIEW.html').exists():payload['LANGUAGE_REVIEW.html']=(args.proof.parent/'LANGUAGE_REVIEW.html').read_bytes()
  payload['README.txt']=('MERMAID ROSHAN - EDITABLE LANDSCAPE ROUGH\n\n'
  '32 story pages plus covers, 7 x 5 inches. This is a review rough, not a print master.\n'
  'Edit book.json for manuscript, artwork choice and named page layouts.\n'

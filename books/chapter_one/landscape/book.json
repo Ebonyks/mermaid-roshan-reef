@@ -2808,6 +2808,30 @@
       "file": "art/story_detail_v23/cover_h.png",
       "sha256": "6bb61625f4d052e9d7abd6f3669e692652fc703ef0b64113fea4443f4cdab923",
       "provenance_record": "story_detail_evidence_v23.json"
+    },
+    "v25_art_simple": {
+      "file": "art/action_style_v25/art_simple.png",
+      "provenance": "Owner-requested builtin image_gen edit; action_style_evidence_v25.json"
+    },
+    "v25_door_routes": {
+      "file": "art/action_style_v25/door_routes.png",
+      "provenance": "Owner-requested builtin image_gen edit; action_style_evidence_v25.json"
+    },
+    "v25_shell_duel": {
+      "file": "art/action_style_v25/shell_duel.png",
+      "provenance": "Owner-requested builtin image_gen edit; action_style_evidence_v25.json"
+    },
+    "v26_rumi_trapped": {
+      "file": "art/language_v26/rumi_trapped.png",
+      "provenance": "Owner-authorized targeted edit; language_art_evidence_v26.json"
+    },
+    "v26_rumi_free": {
+      "file": "art/language_v26/rumi_free.png",
+      "provenance": "Owner-authorized targeted edit; language_art_evidence_v26.json"
+    },
+    "v26_puff_unwell": {
+      "file": "art/language_v26/puff_unwell.png",
+      "provenance": "Owner-authorized targeted edit; language_art_evidence_v26.json"
     }
   },
   "pages": [
@@ -2827,8 +2851,9 @@
         "width": 194,
         "size": 18,
         "align": "left",
-        "color": "white",
-        "shadow": true
+        "color": "navy",
+        "shadow": false,
+        "halo": true
       },
       "foreground_zone": null,
       "focal_exclusions": []
@@ -2839,7 +2864,7 @@
       "art": [
         "v22_scene_02"
       ],
-      "text": "They landed at Sky Lagoon.\nTogether, they went to Pearl Castle.",
+      "text": "Roshan and Daddy landed at Sky Lagoon.\nPearl Castle was close by.",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
@@ -2850,7 +2875,8 @@
         "size": 18,
         "align": "left",
         "color": "navy",
-        "shadow": false
+        "shadow": false,
+        "halo": true
       },
       "foreground_zone": null,
       "focal_exclusions": []
@@ -2861,7 +2887,7 @@
       "art": [
         "v23_castle_repair"
       ],
-      "text": "Inside Pearl Castle,\ndust covered the floor!\n“Let’s clean it together!”",
+      "text": "Inside, dust covered the floor.\n“Let’s clean it together!”",
       "layout": "full",
       "border_assets": [],
       "background_theme": "dirty castle interior",
@@ -2871,8 +2897,9 @@
         "width": 270,
         "size": 18,
         "align": "left",
-        "color": "white",
-        "shadow": true
+        "color": "navy",
+        "shadow": false,
+        "halo": true
       },
       "foreground_zone": null,
       "focal_exclusions": []
@@ -2884,7 +2911,7 @@
         "brush",
         "sponge"
       ],
-      "text": "“One little job at a time,” said Daddy.\nHe gave Roshan a brush and a sponge.",
+      "text": "Daddy gave her a brush and a sponge.\n“One little job at a time.”",
       "layout": "tools",
       "border_assets": [],
       "background_theme": "One dust puff peeks around the pail on the left; folded cloth alone on the right. Curious anticipation, no duplicated foreground tools.",
@@ -2938,18 +2965,19 @@
       "art": [
         "v22_scene_05"
       ],
-      "text": "First, Roshan drained the murky bath.",
+      "text": "A dust bunny splashed in the dirty bath.\nIt loved to play. Splash, splash!",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
       "caption": {
         "x": 30,
-        "y": 34,
+        "y": 58,
         "width": 444,
         "size": 18,
         "align": "center",
-        "color": "white",
-        "shadow": true
+        "color": "navy",
+        "shadow": false,
+        "halo": true
       },
       "foreground_zone": null,
       "focal_exclusions": [
@@ -3023,7 +3051,7 @@
       "art": [
         "bath_drained_local"
       ],
-      "text": "Back and forth. Scrub, scrub!\nRoshan brushed the empty tub clean.",
+      "text": "Roshan let the dirty bath water out.\nThen she scrubbed the tub. Scrub, scrub!",
       "layout": "wide_cut",
       "border_assets": [],
       "background_theme": "Finishing the empty bath. LEFT bank: small yellow rubber duck with its visible dark eye from bottom-left reference cell, sitting level on a shallow bank shelf. RIGHT bank: rolled lavender towel from bottom-middle cell resting lengthwise along the slope, complete rounded end, contact shadow underneath. No folded cloths or soap dish.",
@@ -3071,7 +3099,7 @@
       "art": [
         "v22_scene_08"
       ],
-      "text": "Clean water sparkled in the bath.\nThe little bunny splashed happily.",
+      "text": "Clean water filled the bath.\nThe playful pest splashed again!",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
@@ -3081,8 +3109,9 @@
         "width": 444,
         "size": 18,
         "align": "center",
-        "color": "white",
-        "shadow": true
+        "color": "navy",
+        "shadow": false,
+        "halo": true
       },
       "foreground_zone": null,
       "focal_exclusions": [
@@ -3098,9 +3127,9 @@
       "page": 9,
       "mode": "F",
       "art": [
-        "v23_pool_strainer"
+        "v26_rumi_trapped"
       ],
-      "text": "The great pool was still murky.\nIts rainbow waterfall had stopped.",
+      "text": "A mermaid named Rumi was stuck\nunder the gunk in the pool.",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
@@ -3110,8 +3139,9 @@
         "width": 444,
         "size": 18,
         "align": "center",
-        "color": "white",
-        "shadow": true
+        "color": "navy",
+        "shadow": false,
+        "halo": true
       },
       "foreground_zone": null,
       "focal_exclusions": [
@@ -3129,7 +3159,7 @@
       "art": [
         "net_cut"
       ],
-      "text": "Scoop, lift, and out it came!\nRoshan gathered the floating rubbish.",
+      "text": "This castle had been Rumi’s home\nfor hundreds of years.\n“I’ll help!” said Roshan. Scoop, scoop!",
       "layout": "wide_cut",
       "border_assets": [],
       "background_theme": "Actual pool rubbish: torn star wrapper left; algae-covered dented can and discarded blue cap right. Replaces clean accessories and empty basket.",
@@ -3146,7 +3176,7 @@
         30,
         53,
         444,
-        211
+        202
       ],
       "border_placements": [],
       "integrated_background": "v22_bg_10_objects",
@@ -3184,18 +3214,19 @@
       "art": [
         "v22_scene_11"
       ],
-      "text": "One lane clear! Two more to go.",
+      "text": "One stream ran clear.\nRoshan cleared the next... and the next.",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
       "caption": {
         "x": 30,
-        "y": 34,
+        "y": 58,
         "width": 444,
         "size": 18,
         "align": "center",
-        "color": "white",
-        "shadow": true
+        "color": "navy",
+        "shadow": false,
+        "halo": true
       },
       "foreground_zone": null,
       "focal_exclusions": [
@@ -3213,18 +3244,19 @@
       "art": [
         "v22_scene_12_fit"
       ],
-      "text": "Whoooosh! The waterfall turned rainbow!",
+      "text": "All three streams were clear.\nWhoosh! The waterfall turned rainbow!",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
       "caption": {
         "x": 30,
-        "y": 34,
+        "y": 58,
         "width": 444,
         "size": 18,
         "align": "center",
-        "color": "white",
-        "shadow": true
+        "color": "navy",
+        "shadow": false,
+        "halo": true
       },
       "foreground_zone": null,
       "focal_exclusions": [
@@ -3242,7 +3274,7 @@
       "art": [
         "v22_scene_13"
       ],
-      "text": "Roshan pulled the rubbish free!",
+      "text": "Roshan cleared the fountain!",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
@@ -3252,7 +3284,7 @@
         "width": 267,
         "size": 18,
         "align": "left",
-        "color": "white",
+        "color": "navy",
         "shadow": false,
         "halo": true
       },
@@ -3276,9 +3308,9 @@
       "page": 14,
       "mode": "F",
       "art": [
-        "v22_scene_14_fit"
+        "v26_rumi_free"
       ],
-      "text": "The fountain flowed again.\nFresh water swirled. The pool was clear!",
+      "text": "Fresh water flowed. The gunk was gone.\nUp came Rumi. She was free!",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
@@ -3288,8 +3320,9 @@
         "width": 444,
         "size": 18,
         "align": "center",
-        "color": "white",
-        "shadow": true
+        "color": "navy",
+        "shadow": false,
+        "halo": true
       },
       "foreground_zone": null,
       "focal_exclusions": [
@@ -3307,18 +3340,19 @@
       "art": [
         "v22_scene_15"
       ],
-      "text": "“Thank you for helping!” said Rumi.",
+      "text": "“You helped me!” said Rumi.\nShe gave Roshan a great big hug.",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
       "caption": {
         "x": 30,
-        "y": 34,
+        "y": 58,
         "width": 444,
         "size": 18,
         "align": "center",
-        "color": "white",
-        "shadow": true
+        "color": "navy",
+        "shadow": false,
+        "halo": true
       },
       "foreground_zone": null,
       "focal_exclusions": [
@@ -3336,18 +3370,19 @@
       "art": [
         "v22_scene_16"
       ],
-      "text": "A tiny chirp! “Someone needs help!”",
+      "text": "Chirp, chirp!\n“Someone needs help!” said Roshan.",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
       "caption": {
         "x": 30,
-        "y": 34,
+        "y": 58,
         "width": 444,
         "size": 18,
         "align": "center",
-        "color": "white",
-        "shadow": true
+        "color": "navy",
+        "shadow": false,
+        "halo": true
       },
       "foreground_zone": null,
       "focal_exclusions": [
@@ -3365,18 +3400,19 @@
       "art": [
         "rescue_trapped"
       ],
-      "text": "Two dust bunnies trapped Baby Eagle. “I’ll help!”",
+      "text": "Two dust bunnies had tumbled onto Baby Eagle.\nThey wanted to play, but he was stuck.",
       "layout": "floor_caption",
       "border_assets": [],
       "background_theme": "stuffie rescue",
       "caption": {
         "x": 33,
-        "y": 31.5,
+        "y": 58,
         "width": 438,
         "size": 18,
         "align": "center",
         "color": "navy",
-        "shadow": false
+        "shadow": false,
+        "halo": true
       },
       "foreground_zone": null,
       "focal_exclusions": [
@@ -3388,17 +3424,18 @@
         ],
         [
           250,
-          65,
+          80,
           168,
-          146
+          131
         ],
         [
           0,
-          55,
+          80,
           504,
-          305
+          280
         ]
-      ]
+      ],
+      "focal_review_note": "V26 native page inspection: lowest character feet end aroundy85pt;80pt exclusion retains5pt clearance. Former55pt whole-scene band included blank floor."
     },
     {
       "page": 18,
@@ -3406,18 +3443,19 @@
       "art": [
         "rescue_release"
       ],
-      "text": "One bunny, then the other. Little by little...",
+      "text": "“I’ll help!” said Roshan.\nOne bunny, then the other. Little by little...",
       "layout": "floor_caption",
       "border_assets": [],
       "background_theme": "stuffie rescue",
       "caption": {
         "x": 33,
-        "y": 31.5,
+        "y": 58,
         "width": 438,
         "size": 18,
         "align": "center",
         "color": "navy",
-        "shadow": false
+        "shadow": false,
+        "halo": true
       },
       "foreground_zone": null,
       "focal_exclusions": [
@@ -3429,17 +3467,18 @@
         ],
         [
           250,
-          65,
+          80,
           168,
-          146
+          131
         ],
         [
           0,
-          55,
+          80,
           504,
-          305
+          280
         ]
-      ]
+      ],
+      "focal_review_note": "V26 native page inspection: lowest character feet end aroundy85pt;80pt exclusion retains5pt clearance. Former55pt whole-scene band included blank floor."
     },
     {
       "page": 19,
@@ -3447,7 +3486,7 @@
       "art": [
         "eagle_original_isolated"
       ],
-      "text": "Baby Eagle\nwas free!\nA little help made\na big difference.",
+      "text": "Baby Eagle\nwas free!\nNow they could\nplay gently.",
       "layout": "wide_cut",
       "border_assets": [],
       "background_theme": "Two canonical puffs look up and speak to Baby Eagle. Left apologizes; right explains they were playing. These are speaking story characters, not silent decorative objects.",
@@ -3462,9 +3501,9 @@
       },
       "foreground_zone": [
         265,
-        150,
+        166,
         196,
-        170
+        154
       ],
       "border_placements": [],
       "integrated_background": "v23_bunny_apology_canvas",
@@ -3491,13 +3530,12 @@
       "narrative_border_dialogue": true,
       "speech_bubbles": [
         {
-          "speaker": "left_bunny",
-          "text": "sorry",
+          "text": "Sorry!",
           "box": [
-            40,
-            84,
-            140,
-            47
+            48,
+            80,
+            108,
+            72
           ],
           "tail": [
             118,
@@ -3505,13 +3543,12 @@
           ]
         },
         {
-          "speaker": "right_bunny",
-          "text": "we were just\nplaying",
+          "text": "We were just\nplaying!",
           "box": [
-            300,
-            77,
-            173,
-            68
+            310,
+            80,
+            164,
+            78
           ],
           "tail": [
             390,
@@ -3527,7 +3564,7 @@
         "roshan_wave_large",
         "eagle_inviting"
       ],
-      "text": "Now there was room to play together.\n“Come with me, Baby Eagle!”",
+      "text": "“Let’s play gently,” said Roshan.\n“Come with me, Baby Eagle!”",
       "layout": "friends_pair",
       "border_assets": [],
       "background_theme": "Two puffs cooperate with the canonical sailboat stacking-ring toy; Eagle takes an eager step toward Roshan.",
@@ -3593,7 +3630,7 @@
       "art": [
         "v22_art_sorting"
       ],
-      "text": "The art room was messy, too.\nRoshan sorted the brushes and paints.",
+      "text": "Brushes here. Paints there.\nRoshan put each thing in its place.",
       "layout": "wide_cut",
       "border_assets": [],
       "background_theme": "Roshan sorts a messy round craft table; paint drips, loose brushes and paper establish active cleanup. Lower banks retain tipped bottle and crumpled paper.",
@@ -3653,7 +3690,7 @@
       "art": [
         "v22_scene_22_fit"
       ],
-      "text": "She put the supplies away.\nThen she brushed the table clean.",
+      "text": "Scrub, scrub! The table was clean.\nNow there was room to make art.",
       "layout": "full",
       "border_assets": [],
       "background_theme": "Full art: existing Roshan/table brush-contact frame.",
@@ -3663,8 +3700,9 @@
         "width": 444,
         "size": 18,
         "align": "center",
-        "color": "white",
-        "shadow": true
+        "color": "navy",
+        "shadow": false,
+        "halo": true
       },
       "border_placements": [],
       "focal_exclusions": [
@@ -3680,9 +3718,9 @@
       "page": 23,
       "mode": "F",
       "art": [
-        "v22_scene_23"
+        "v25_art_simple"
       ],
-      "text": "A splash of colour.\nHer very own choice!",
+      "text": "“I choose purple!”\nRoshan added\nsparkly color.",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
@@ -3692,80 +3730,51 @@
         "width": 173,
         "size": 18,
         "align": "left",
-        "color": "white",
-        "shadow": true
+        "color": "navy",
+        "shadow": false,
+        "halo": true
       },
       "foreground_zone": null,
       "focal_exclusions": []
     },
     {
       "page": 24,
-      "mode": "C",
+      "mode": "F",
       "art": [
-        "door_glowing"
+        "v25_door_routes"
       ],
-      "text": "One last door\nbegan to glow.\nBeyond it came\na rumble...",
-      "layout": "wide_cut",
+      "text": "One last door began to glow.\nA rumble came from behind it...",
+      "layout": "full",
       "border_assets": [],
-      "background_theme": "A cobwebbed gold-banded attic chest and jar sit opposite a nervous puff peeking over dusty books; the royal door glows deep violet.",
+      "background_theme": "Full game hall with completed neighboring routes, colored lights converging on glowing closed door.",
       "caption": {
-        "x": 290,
-        "y": 242,
-        "width": 172,
+        "x": 207,
+        "y": 60,
+        "width": 270,
         "size": 18,
         "align": "left",
         "color": "navy",
-        "shadow": false
+        "shadow": false,
+        "halo": true
       },
-      "foreground_zone": [
-        35,
-        51,
-        228,
-        239
-      ],
+      "foreground_zone": null,
       "border_placements": [],
-      "integrated_background": "v22_bg_24_final",
-      "integrated_motifs": [
-        "cobwebbed_attic_chest",
-        "attic_lidded_jar",
-        "books_nervous_peek"
-      ],
-      "integrated_prop_bounds": [
+      "focal_exclusions": [
         [
-          0.16778975741239893,
-          0.8877358490566037,
-          0.057951482479784364,
-          0.062264150943396226
-        ],
-        [
-          0.2358490566037736,
-          0.8990566037735849,
-          0.0330188679245283,
-          0.05471698113207547
-        ],
-        [
-          0.7008086253369272,
-          0.9141509433962264,
-          0.06671159029649595,
-          0.03962264150943396
-        ],
-        [
-          0.7547169811320755,
-          0.8575471698113207,
-          0.07075471698113207,
-          0.08679245283018867
+          132,
+          63,
+          75,
+          116
         ]
-      ],
-      "marginal_bunny_count": 1,
-      "bounds_note": "Manual native-pixel visible-subject annotation, excludes native coral/shells and contact shadow; page20 ear antialias reaches y899 (2px above ideal line), retained explicitly as a minor placement exception."
+      ]
     },
     {
       "page": 25,
       "mode": "C",
       "art": [
-        "boss_cut"
+        "v26_puff_unwell"
       ],
-      "text": "Grand Puff!\nA great, big\nbundle of dust!\nRoshan took\na brave breath.",
+      "text": "Grand Puff!\nHe was so dusty.\nHe did not feel well.\n“I’ll help,”\nsaid Roshan.",
       "layout": "wide_cut",
       "border_assets": [],
       "background_theme": "Two lower-right puffs cower: one flattened with tucked ears, one frightened under a pink pearl shell. Attic chest and books sit left.",
@@ -3824,11 +3833,10 @@
       "page": 26,
       "mode": "C",
       "art": [
-        "v22_boss_jump_large",
-        "roshan_dodge_large"
+        "v25_shell_duel"
       ],
-      "text": "Boing! Roshan dodged the bounce.\nThen she answered with a little sparkle.",
-      "layout": "dodge_pair",
+      "text": "Sparkles flew from Roshan’s shell.\nGrand Puff wobbled. So dizzy!",
+      "layout": "wide_cut",
       "border_assets": [],
       "background_theme": "Two canonical lavender puffs share the game cloud couch on the right bank: one cheers, one eats popcorn. Teal jar and attic books on left.",
       "caption": {
@@ -3841,10 +3849,10 @@
         "shadow": false
       },
       "foreground_zone": [
-        32,
-        54,
-        229,
-        228
+        28,
+        68,
+        448,
+        207
       ],
       "border_placements": [],
       "integrated_background": "v22_bg_26_ground",
@@ -3895,7 +3903,7 @@
       "art": [
         "R09_open"
       ],
-      "text": "Daddy, Rumi and Baby Eagle helped Roshan.\nFour friends. Four busy helpers. Scrub, scrub!",
+      "text": "Daddy, Rumi, and Baby Eagle helped Roshan.\n“Let’s help Grand Puff!” Scrub, scrub!",
       "layout": "extension",
       "border_assets": [],
       "background_theme": "full scene",
@@ -3905,8 +3913,9 @@
         "width": 440,
         "size": 18,
         "align": "center",
-        "color": "white",
-        "shadow": true
+        "color": "navy",
+        "shadow": false,
+        "halo": true
       },
       "foreground_zone": null,
       "focal_exclusions": [
@@ -3924,7 +3933,7 @@
       "art": [
         "R09_suds"
       ],
-      "text": "Bubbles grew until Grand Puff was hidden.\nThen something stirred inside...",
+      "text": "Soft bubbles covered Grand Puff.\nUnder the bubbles, his colors began to shine.",
       "layout": "extension",
       "border_assets": [],
       "background_theme": "full scene",
@@ -3934,8 +3943,9 @@
         "width": 440,
         "size": 18,
         "align": "center",
-        "color": "white",
-        "shadow": true
+        "color": "navy",
+        "shadow": false,
+        "halo": true
       },
       "foreground_zone": null,
       "focal_exclusions": [
@@ -3953,7 +3963,7 @@
       "art": [
         "R10_jump"
       ],
-      "text": "POP! A little rainbow bunny jumped out!\nThe dusty casing tumbled into fluff.",
+      "text": "POP! Grand Puff sprang out, rainbow bright!\nThe dust fell away.",
       "layout": "extension",
       "border_assets": [],
       "background_theme": "full scene",
@@ -3963,8 +3973,9 @@
         "width": 440,
         "size": 18,
         "align": "center",
-        "color": "white",
-        "shadow": true
+        "color": "navy",
+        "shadow": false,
+        "halo": true
       },
       "foreground_zone": null,
       "focal_exclusions": [
@@ -3982,7 +3993,7 @@
       "art": [
         "R11_land"
       ],
-      "text": "Down came the bunny. Down settled the dust.\nFour friends met one very small friend.",
+      "text": "Down came Grand Puff, soft and small.\nHe felt like himself again.",
       "layout": "extension",
       "border_assets": [],
       "background_theme": "full scene",
@@ -3992,8 +4003,9 @@
         "width": 440,
         "size": 18,
         "align": "center",
-        "color": "white",
-        "shadow": true
+        "color": "navy",
+        "shadow": false,
+        "halo": true
       },
       "foreground_zone": null,
       "focal_exclusions": [
@@ -4012,7 +4024,7 @@
         "daddy",
         "roshan_reflect_large"
       ],
-      "text": "“We helped each other,” said Roshan.\n“And found a friend hiding under all that dust!”",
+      "text": "“Your rainbow was there all along!”\nsaid Roshan. “We helped it shine.”",
       "layout": "pair",
       "border_assets": [],
       "background_theme": "Existing conversational Roshan gesture replaces neutral standing pose; Daddy and puzzle-sharing border retained.",
@@ -4071,7 +4083,7 @@
       "art": [
         "bubble_nap"
       ],
-      "text": "There was room for everyone.\nTogether, they drifted off in a big pile of bubbles.",
+      "text": "There was room for everyone.\nThey curled up in the bubbles and fell asleep.",
       "layout": "full",
       "border_assets": [],
       "background_theme": "Full-art resting epilogue: all five friends asleep in one bubble pile, after the unchanged canonical landing.",
@@ -4081,8 +4093,9 @@
         "width": 444,
         "size": 18,
         "align": "center",
-        "color": "white",
-        "shadow": true
+        "color": "navy",
+        "shadow": false,
+        "halo": true
       },
       "border_placements": [],
       "focal_exclusions": [

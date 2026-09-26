@@ -1,0 +1,42 @@
+{
+  "id": "picture-book-v25-action-style-20260920",
+  "baseline": "3fbb5205bf084ea8f39d40b9acbf70c2042bdd0e",
+  "scope": "Owner-scoped style simplification of art23, game route-frame extension on24, and shell/sparkle/dizzy facing correction on26. New contour action art only, existing game references preserved.",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "Static book only; no game or cinematic acceptance claim.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "books/chapter_one/DESIGN_LANGUAGE.md",
+    "books/chapter_one/landscape/PAGE_PLAN.md",
+    "books/chapter_one/landscape/REVIEW.md",
+    "books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md",
+    "books/chapter_one/landscape/action_style_evidence_v25.json",
+    "books/chapter_one/landscape/art/action_style_v25/art_simple.png",
+    "books/chapter_one/landscape/art/action_style_v25/door_routes.png",
+    "books/chapter_one/landscape/art/action_style_v25/route_lights_reference.png",
+    "books/chapter_one/landscape/art/action_style_v25/shell_duel.png",
+    "books/chapter_one/landscape/audit_book.py",
+    "books/chapter_one/landscape/book.json",
+    "books/chapter_one/landscape/package_book.py",
+    "design/audit_impacts/picture-book-v25-action-style-20260920.json"
+  ],
+  "validation": [
+    {
+      "command": "Continued under V26 owner-directed revision",
+      "result": "NOT_APPLICABLE",
+      "evidence": "V25 edits retained and covered by picture-book-v26-language-20260926.json; no independent V25 delivery claim."
+    }
+  ],
+  "acceptance_gaps": "Owner visual and child/print acceptance remain open."
+}

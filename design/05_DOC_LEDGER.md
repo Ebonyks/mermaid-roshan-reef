@@ -817,10 +817,10 @@ Kept as-is; noted so a future edit updates every copy.
 | Doc | | Note |
 |---|---|---|
 | `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; 32-page landscape assignments supersede portrait pagination; no final art acceptance. |
-| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V23 story-detail/rear-cover review following V22 quality restoration, low-resolution/identity audit and lossless proof; ceiling perspective, print and owner acceptance remain open. |
+| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V26 read-together manuscript, Rumi rescue context, continuous Grand Puff restoration and ellipse balloons, retaining V25 corrections and owner-accepted rear H, low-resolution/identity audit and lossless proof; ceiling perspective, print and owner acceptance remain open. |
 
 | `books/chapter_one/landscape/STRESS_TEST.md` | 🔵 | `SUPPORTING_CURRENT`; owner-rejected v7 and page-by-page revised rough audit; mechanical checks explicitly do not grant visual/identity acceptance. |
 
 | `books/chapter_one/landscape/BORDER_ART_DIRECTION.md` | 🔵 | `SUPPORTING_CURRENT`; owner-requested varied border performances and v17 repository-detail score; frightened lower-right stages supersede the quiet reveal; owner acceptance remains open. |
 
-| `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; whole-story editorial audit with v17–v22 repository-detail, action-clarity and owner-commissioned rescue identity overrides; action/source gaps and next priorities; not visual or child acceptance. |
+| `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; whole-story V26 editorial audit with playful dust-bunny intent, Rumi history/rescue and continuous Grand Puff transformation; action/source gaps and next priorities; not visual or child acceptance. |

@@ -1,6 +1,19 @@
 # Whole-story comprehension cycle after border direction
 
-## Current revision: V23 story details and rear cover
+## Current revision: V26 read together (2026-09-26)
+
+34 review pages means 32 numbered story pages plus front/rear covers. Rear H remains owner accepted. V25 craft-style, route-door and shell-action edits are retained and completed here after the prior tool interruption.
+
+Rumi is named on9, her hundreds of years living in this castle are stated on10, and she is visibly freed on14 before her hug on15. The castle residence, not the entrapment, lasted hundreds of years. Page9 preserves the net. Three waterfall streams resolve explicitly across11/12, followed by the separate fountain clog13. Dust bunnies are introduced in5/8 as playful pests. Two tumble onto Baby Eagle17; intent is playful but he really needs rescue. Gentle play and direct apologies follow, in genuinely elliptical editable balloons. No blanket or invented hug replaces the trap.
+
+Grand Puff feels unwell25. The same individual is named through29/30 and restored to his rainbow self. The original transformation/landing pixels remain; no separate hidden creature is implied. The new face conveys discomfort. Rumi's trapped/free insertions and Grand Puff's expression use scoped image-generation edits with native outputs and reference hashes preserved.
+
+The language uses short concrete clauses, explicit referents, repeated useful phrases, clear cause/effect, and a few supported richer words. These are shared-reading editorial choices, not a certified reading age or controlled phonics sequence. Picture cues aid comprehension, not a replacement for decoding instruction. Sniglet and18-point minimum remain. No prompts or teaching exercises interrupt the34-page story. Family reading notes and before/after manuscript are separate.
+
+Earlier notes below are historical where this section supersedes them. Whole-book owner/child/print acceptance remains open.
+
+
+## Earlier revision: V23 story details and rear cover
 
 Page3 removes the doubled turquoise window behind Daddy and repairs the central corridor/threshold as one continuous doorway. Repository inspection traced those defects to earlier hall handoff artwork. Page9 now shows Roshan holding the established purple mesh strainer before scooping. Page13 uses the shorter, direct caption “Roshan pulled the rubbish free!” on the upper wall, clear of the faces, with white lettering and a restrained dark outline.
 
@@ -125,3 +138,5 @@ The latest owner commission supersedes the earlier source-only limits for specif
 The complete34-page proof was inspected through contact sheets and enlarged critical pages. Reader previews are lossless1512x1080 PNG; JPEGs are compatibility copies. `quality_audit_v22.json` records before/after placed density and preservation checks; `quality_evidence_v22.json` records exact prompts, references, native sizes and hashes. These are review candidates, not300ppi print masters or owner acceptance. Finale27–30 retains the entire V21 treatment. New high-density ceilings were rejected for worse perspective joins; the earlier low-density empty ceiling strips remain an explicit print-resolution exception. Page20 has a documented two-pixel ear-margin exception. Tiny cameo readability, source/action gaps and child/owner acceptance remain open.
 
 Earlier revision entries below are historical and superseded where this section differs.
+
+V25 owner revision:23 simplifies photorealistic craft surfaces into broad painted colors;24 becomes full-art route-light hall from the animation with neighboring completed doors;26 places dizzy Puff left and shell-holding Roshan right facing him, with visible sparkle arc. Caption names the visible shell and dizzy reaction. Page19 rounded balloons and approved rear H retained.

@@ -1,6 +1,6 @@
 """Render the source-preserving 7 x 5 inch landscape review book."""
 from pathlib import Path
-import argparse,json,html,hashlib
+import argparse,json,html,hashlib,math
 from PIL import Image,ImageDraw
 from reportlab.pdfgen import canvas
 from reportlab.pdfbase import pdfmetrics
@@ -73,16 +73,20 @@ def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False):
 def speech(q):
  x,y,w,h=q['box'];tx,ty=q['tail'];c.saveState()
  c.setFillColorRGB(1,1,.98);c.setStrokeColorRGB(.16,.26,.45);c.setLineWidth(1.2)
- # Pillowy oval body and a curved, softly tapered tail; no rectangular sides.
- tail_x=max(x+w*.35,min(tx,x+w*.65));p=c.beginPath();p.moveTo(tail_x-8,y+1)
- p.curveTo(tail_x-6,y-7,tx-5,ty+4,tx,ty)
- p.curveTo(tx+1,ty+7,tail_x+5,y-5,tail_x+8,y+1)
- p.curveTo(x+w*.85,y-1,x+w,y+h*.12,x+w,y+h*.5)
- p.curveTo(x+w,y+h*.88,x+w*.80,y+h,x+w*.5,y+h)
- p.curveTo(x+w*.20,y+h,x,y+h*.88,x,y+h*.5)
- p.curveTo(x,y+h*.12,x+w*.15,y-1,tail_x-8,y+1)
+ # A true ellipse, with only a small lower arc replaced by a curved speech tail.
+ rx,ry=w/2,h/2;cx,cy=x+rx,y+ry;phi=math.degrees(math.asin(7/rx))
+ start=270+phi;end=270-phi
+ sx=cx+rx*math.cos(math.radians(start));sy=cy+ry*math.sin(math.radians(start))
+ ex=cx+rx*math.cos(math.radians(end));ey=cy+ry*math.sin(math.radians(end))
+ p=c.beginPath();p.moveTo(sx,sy);p.arcTo(x,y,x+w,y+h,startAng=start,extent=360-2*phi)
+ p.curveTo(ex+2,ey-6,tx-5,ty+5,tx,ty)
+ p.curveTo(tx+1,ty+8,sx-2,sy-6,sx,sy)
  p.close();c.drawPath(p,fill=1,stroke=1);c.restoreState()
- text(q['text'],x+10,y+h-25,w-20,18,True)
+ lines=q['text'].split('\n');size=18;leading=size*1.3
+ ascent=pdfmetrics.getAscent('Sniglet')*size/1000;descent=pdfmetrics.getDescent('Sniglet')*size/1000
+ baseline=cy+((len(lines)-1)*leading-ascent-descent)/2
+ text(q['text'],x+12,baseline,w-24,size,True)
+
 base='landscape_base'
 def background(p):
  global ROLE
