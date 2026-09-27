@@ -22,18 +22,29 @@
     {
       "path": "assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
       "sha256": "39cd43295adfce51249ac97647520aee9643e397fe417bf0374727297b34528e",
-      "dimensions": [1024, 512],
+      "dimensions": [
+        1024,
+        512
+      ],
       "role": "runtime_cell_safe_idle_and_swim_frames",
       "source": "existing local Mermaid Pool Rumi integration pack",
       "modifications_this_task": "none"
     },
     {
       "path": "assets/characters/rumi/rumi_eight_pose_runtime.png",
-      "sha256": "d5e0bff392a22c341c313ab94db5cea7a3cb6bb682b9ea8af2bc190a810c3f66",
-      "dimensions": [1024, 768],
+      "sha256": "9833ee5c9deaa1ee39bbbe1f81a790e5f609993dbf3b9b0179b0cca993ae0014",
+      "dimensions": [
+        1024,
+        768
+      ],
       "role": "runtime_approved_idle_and_wave_frames",
       "source": "approved private-canon handoff",
-      "modifications_this_task": "none"
+      "modifications_this_task": "none",
+      "original_runtime_sha256": "d5e0bff392a22c341c313ab94db5cea7a3cb6bb682b9ea8af2bc190a810c3f66",
+      "repair_2026_09_26": {
+        "method": "Aseprite reviewed pixel clearing; pose pixels retained",
+        "provenance": "assets_src/repairs/visual_polish_2026-09-26/PIXEL_EDITS.json"
+      }
     },
     {
       "path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
@@ -64,21 +75,32 @@
     "idle": {
       "atlas": "rumi_eight_pose_runtime.png",
       "row": 0,
-      "columns": [0, 1],
+      "columns": [
+        0,
+        1
+      ],
       "fps": 1.5,
       "loop": true
     },
     "wave": {
       "atlas": "rumi_eight_pose_runtime.png",
       "row": 0,
-      "columns": [2, 3],
+      "columns": [
+        2,
+        3
+      ],
       "fps": 2.0,
       "loop": false
     },
     "swim_rise": {
       "atlas": "rumi_pool_idle_swim_atlas.png",
       "row": 1,
-      "columns": [0, 1, 2, 3],
+      "columns": [
+        0,
+        1,
+        2,
+        3
+      ],
       "fps": 5.0,
       "loop": true
     }

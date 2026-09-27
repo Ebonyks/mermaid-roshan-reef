@@ -1,0 +1,823 @@
+{
+  "method": "Aseprite Image:drawPixel; native original layer hidden and preserved; exact reviewed rectangles",
+  "assets": [
+    {
+      "id": "rumi",
+      "source": "assets_src/repairs/visual_polish_2026-09-26/originals/rumi.png",
+      "source_sha256": "d5e0bff392a22c341c313ab94db5cea7a3cb6bb682b9ea8af2bc190a810c3f66",
+      "native": "assets_src/repairs/visual_polish_2026-09-26/native/rumi.aseprite",
+      "output": "assets/characters/rumi/rumi_eight_pose_runtime.png",
+      "erase_rects": [
+        [
+          741,
+          158,
+          763,
+          215
+        ],
+        [
+          237,
+          674,
+          251,
+          702
+        ],
+        [
+          468,
+          620,
+          507,
+          672
+        ],
+        [
+          739,
+          654,
+          763,
+          698
+        ]
+      ],
+      "opaque_rects": [],
+      "scope": "Reviewed foreign edge fragments only; intended detached animated props retained. No pose redesign.",
+      "output_sha256": "9833ee5c9deaa1ee39bbbe1f81a790e5f609993dbf3b9b0179b0cca993ae0014",
+      "native_sha256": "b2b14a157b40364cd7908669014601e869419f9c17947e5a7dcc450b09dc610d",
+      "verification": {
+        "changed_pixels": 2208,
+        "changed_pixels_outside_reviewed_regions": 0,
+        "unchanged_dimensions": [
+          1024,
+          768
+        ]
+      }
+    },
+    {
+      "id": "footlights",
+      "source": "assets_src/repairs/visual_polish_2026-09-26/originals/footlights.png",
+      "source_sha256": "532dfb72c881f273da3c670256fc5c27b2e4a39c3c2da4279d7508701fd51336",
+      "native": "assets_src/repairs/visual_polish_2026-09-26/native/footlights.aseprite",
+      "output": "assets_src/repairs/visual_polish_2026-09-26/recovered/footlights_unregistered.png",
+      "erase_rects": [
+        [
+          260,
+          440,
+          286,
+          510
+        ],
+        [
+          731,
+          440,
+          762,
+          510
+        ],
+        [
+          260,
+          982,
+          273,
+          1022
+        ],
+        [
+          520,
+          992,
+          530,
+          1019
+        ]
+      ],
+      "opaque_rects": [],
+      "scope": "Reviewed foreign edge fragments only; intended detached animated props retained. No pose redesign.",
+      "output_sha256": "1ae67a38af04e34b27581fb32ab24093787ffb6cea51b313766c3e1a77efed73",
+      "native_sha256": "3373de66bd845e1a98a510b96c64cedfcce941447e6109e7c824be4773aef642",
+      "verification": {
+        "changed_pixels": 2308,
+        "changed_pixels_outside_reviewed_regions": 0,
+        "unchanged_dimensions": [
+          1024,
+          1024
+        ]
+      }
+    },
+    {
+      "id": "books",
+      "source": "assets_src/repairs/visual_polish_2026-09-26/originals/books.png",
+      "source_sha256": "41c9334badd3c5851695dbe075b458d8601e8b15c7a9411ea7183f35de27000d",
+      "native": "assets_src/repairs/visual_polish_2026-09-26/native/books.aseprite",
+      "output": "assets/flats/castle/interactions_v2/library_book_stack_sheet.png",
+      "erase_rects": [
+        [
+          261,
+          345,
+          276,
+          467
+        ],
+        [
+          518,
+          345,
+          533,
+          465
+        ],
+        [
+          259,
+          860,
+          273,
+          976
+        ],
+        [
+          520,
+          860,
+          533,
+          974
+        ]
+      ],
+      "opaque_rects": [],
+      "scope": "Reviewed foreign edge fragments only; intended detached animated props retained. No pose redesign.",
+      "output_sha256": "ae9ca243c13e8552770c427ce644bb1832f2b904f4cf24d80bf535b2220813e5",
+      "native_sha256": "c31b88f397d130c652905d67636064d5b1fdc815e67d75f422a7bed1da4508ad",
+      "verification": {
+        "changed_pixels": 1956,
+        "changed_pixels_outside_reviewed_regions": 0,
+        "unchanged_dimensions": [
+          1024,
+          1024
+        ]
+      }
+    },
+    {
+      "id": "board",
+      "source": "assets_src/repairs/visual_polish_2026-09-26/originals/board.png",
+      "source_sha256": "5d7df4b87a9bdf53331567751afb192e09d101d152f4ca99715bcfeb6dcbabec",
+      "native": "assets_src/repairs/visual_polish_2026-09-26/native/board.aseprite",
+      "output": "assets_src/repairs/visual_polish_2026-09-26/recovered/board_unregistered.png",
+      "erase_rects": [
+        [
+          259,
+          30,
+          276,
+          176
+        ],
+        [
+          259,
+          218,
+          275,
+          363
+        ]
+      ],
+      "opaque_rects": [],
+      "scope": "Reviewed foreign edge fragments only; intended detached animated props retained. No pose redesign.",
+      "output_sha256": "48388c294030bdec2e81a890fe647726f479feba8b46e6433a4b2af046a8ad76",
+      "native_sha256": "aa5243865c91770c859009ffc3b63651691bc001a6c9286774a131212876199e",
+      "verification": {
+        "changed_pixels": 899,
+        "changed_pixels_outside_reviewed_regions": 0,
+        "unchanged_dimensions": [
+          1024,
+          376
+        ]
+      }
+    },
+    {
+      "id": "curtains",
+      "source": "assets_src/repairs/visual_polish_2026-09-26/originals/curtains.png",
+      "source_sha256": "51673baecdf196fd3e301630ae04c035f8d1ce1c6dde8c93ea72492c7cbe07d7",
+      "native": "assets_src/repairs/visual_polish_2026-09-26/native/curtains.aseprite",
+      "output": "assets/flats/castle/interactions_v2/opera_hall_curtains_sheet.png",
+      "erase_rects": [
+        [
+          755,
+          622,
+          766,
+          689
+        ]
+      ],
+      "opaque_rects": [],
+      "scope": "Reviewed foreign edge fragments only; intended detached animated props retained. No pose redesign.",
+      "output_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+      "native_sha256": "261b1567f232adc7b195b60f1bbadf57cf1d0a44a1a22c5b9eb04841c021b7c4",
+      "verification": {
+        "changed_pixels": 220,
+        "changed_pixels_outside_reviewed_regions": 0,
+        "unchanged_dimensions": [
+          1024,
+          1024
+        ]
+      }
+    },
+    {
+      "id": "cloud_settee",
+      "source": "assets_src/repairs/visual_polish_2026-09-26/recovered/cloud_settee.png",
+      "source_sha256": "badfb2b6eebc04921e7a49b6736957d31f5fe7656da37250859eb8fc47b7b111",
+      "native": "assets_src/repairs/visual_polish_2026-09-26/native/cloud_settee.aseprite",
+      "output": "assets/flats/castle/dream_house/cloud_settee.png",
+      "erase_rects": [],
+      "opaque_rects": [
+        [
+          16,
+          105,
+          240,
+          195
+        ]
+      ],
+      "scope": "Restore opacity only within reviewed cushion/quilt interior; preserve exterior antialiasing.",
+      "output_sha256": "e5c8f082bbb42c396f6fba3128596e8d3873e7768b649fc1e6e4ca40f24b3eed",
+      "native_sha256": "a4678c3c86f314bbdc2097984d829bcd7923274e9c3167feef824e5edda3466b",
+      "verification": {
+        "changed_pixels": 3344,
+        "changed_pixels_outside_reviewed_regions": 0,
+        "unchanged_dimensions": [
+          302,
+          238
+        ]
+      },
+      "source_recovery": "assets_src/repairs/visual_polish_2026-09-26/FURNITURE_RECOVERY.json",
+      "force_opaque_pixels": [
+        [
+          72,
+          145
+        ],
+        [
+          77,
+          145
+        ],
+        [
+          111,
+          148
+        ],
+        [
+          112,
+          148
+        ],
+        [
+          113,
+          148
+        ],
+        [
+          114,
+          148
+        ],
+        [
+          115,
+          148
+        ],
+        [
+          116,
+          148
+        ],
+        [
+          111,
+          149
+        ],
+        [
+          112,
+          149
+        ],
+        [
+          113,
+          149
+        ],
+        [
+          114,
+          149
+        ],
+        [
+          115,
+          149
+        ],
+        [
+          116,
+          149
+        ],
+        [
+          111,
+          150
+        ],
+        [
+          112,
+          150
+        ],
+        [
+          113,
+          150
+        ],
+        [
+          114,
+          150
+        ],
+        [
+          115,
+          150
+        ],
+        [
+          116,
+          150
+        ],
+        [
+          111,
+          151
+        ],
+        [
+          112,
+          151
+        ],
+        [
+          113,
+          151
+        ],
+        [
+          114,
+          151
+        ],
+        [
+          115,
+          151
+        ],
+        [
+          116,
+          151
+        ],
+        [
+          111,
+          152
+        ],
+        [
+          112,
+          152
+        ],
+        [
+          113,
+          152
+        ],
+        [
+          114,
+          152
+        ],
+        [
+          115,
+          152
+        ],
+        [
+          116,
+          152
+        ],
+        [
+          173,
+          155
+        ],
+        [
+          174,
+          155
+        ],
+        [
+          175,
+          155
+        ],
+        [
+          176,
+          155
+        ],
+        [
+          177,
+          155
+        ],
+        [
+          173,
+          156
+        ],
+        [
+          174,
+          156
+        ],
+        [
+          175,
+          156
+        ],
+        [
+          176,
+          156
+        ],
+        [
+          177,
+          156
+        ],
+        [
+          184,
+          156
+        ],
+        [
+          185,
+          156
+        ],
+        [
+          186,
+          156
+        ],
+        [
+          187,
+          156
+        ],
+        [
+          188,
+          156
+        ],
+        [
+          173,
+          157
+        ],
+        [
+          174,
+          157
+        ],
+        [
+          175,
+          157
+        ],
+        [
+          176,
+          157
+        ],
+        [
+          177,
+          157
+        ],
+        [
+          183,
+          157
+        ],
+        [
+          184,
+          157
+        ],
+        [
+          185,
+          157
+        ],
+        [
+          186,
+          157
+        ],
+        [
+          187,
+          157
+        ],
+        [
+          188,
+          157
+        ],
+        [
+          173,
+          158
+        ],
+        [
+          174,
+          158
+        ],
+        [
+          175,
+          158
+        ],
+        [
+          176,
+          158
+        ],
+        [
+          177,
+          158
+        ],
+        [
+          183,
+          158
+        ],
+        [
+          184,
+          158
+        ],
+        [
+          185,
+          158
+        ],
+        [
+          186,
+          158
+        ],
+        [
+          187,
+          158
+        ],
+        [
+          188,
+          158
+        ],
+        [
+          173,
+          159
+        ],
+        [
+          174,
+          159
+        ],
+        [
+          175,
+          159
+        ],
+        [
+          176,
+          159
+        ],
+        [
+          177,
+          159
+        ],
+        [
+          183,
+          159
+        ],
+        [
+          184,
+          159
+        ],
+        [
+          185,
+          159
+        ],
+        [
+          186,
+          159
+        ],
+        [
+          187,
+          159
+        ],
+        [
+          188,
+          159
+        ],
+        [
+          183,
+          160
+        ],
+        [
+          184,
+          160
+        ],
+        [
+          185,
+          160
+        ],
+        [
+          186,
+          160
+        ],
+        [
+          187,
+          160
+        ],
+        [
+          188,
+          160
+        ],
+        [
+          183,
+          161
+        ],
+        [
+          184,
+          161
+        ],
+        [
+          185,
+          161
+        ],
+        [
+          186,
+          161
+        ],
+        [
+          187,
+          161
+        ]
+      ],
+      "paint_pixels": []
+    },
+    {
+      "id": "dream_bed_1",
+      "source": "assets_src/repairs/visual_polish_2026-09-26/originals/dream_bed_1.png",
+      "source_sha256": "b8e2922fc81e378c01a08e50e8423760f85a3fbd58a0bfed7151d16875ff14b9",
+      "native": "assets_src/repairs/visual_polish_2026-09-26/native/dream_bed_1.aseprite",
+      "output": "assets/flats/castle/dream_house/dream_bed_1.png",
+      "erase_rects": [],
+      "opaque_rects": [
+        [
+          20,
+          90,
+          237,
+          214
+        ]
+      ],
+      "scope": "Restore opacity only within reviewed cushion/quilt interior; preserve exterior antialiasing.",
+      "output_sha256": "9963908d324a5763a70aef4018fbff5de8665d3caeb3abd005f83b4c3c33e29e",
+      "native_sha256": "fb77f695113ac00319fee6d33533fef5cbc54a75d1c12109e63252e67d6a1476",
+      "verification": {
+        "changed_pixels": 5661,
+        "changed_pixels_outside_reviewed_regions": 0,
+        "unchanged_dimensions": [
+          252,
+          237
+        ]
+      },
+      "force_opaque_pixels": [
+        [
+          65,
+          148
+        ],
+        [
+          69,
+          148
+        ],
+        [
+          70,
+          148
+        ],
+        [
+          71,
+          148
+        ],
+        [
+          72,
+          148
+        ],
+        [
+          58,
+          149
+        ],
+        [
+          60,
+          149
+        ],
+        [
+          61,
+          149
+        ],
+        [
+          62,
+          149
+        ],
+        [
+          63,
+          149
+        ],
+        [
+          54,
+          150
+        ],
+        [
+          55,
+          150
+        ],
+        [
+          56,
+          150
+        ],
+        [
+          73,
+          150
+        ],
+        [
+          50,
+          151
+        ],
+        [
+          51,
+          151
+        ],
+        [
+          60,
+          151
+        ],
+        [
+          104,
+          151
+        ],
+        [
+          49,
+          152
+        ],
+        [
+          106,
+          152
+        ],
+        [
+          107,
+          152
+        ],
+        [
+          127,
+          160
+        ],
+        [
+          128,
+          161
+        ],
+        [
+          85,
+          162
+        ],
+        [
+          126,
+          162
+        ],
+        [
+          127,
+          162
+        ],
+        [
+          130,
+          162
+        ],
+        [
+          126,
+          163
+        ],
+        [
+          127,
+          163
+        ],
+        [
+          128,
+          163
+        ],
+        [
+          130,
+          163
+        ],
+        [
+          131,
+          163
+        ],
+        [
+          129,
+          164
+        ],
+        [
+          130,
+          164
+        ],
+        [
+          131,
+          164
+        ],
+        [
+          133,
+          164
+        ],
+        [
+          129,
+          165
+        ],
+        [
+          130,
+          165
+        ],
+        [
+          131,
+          165
+        ],
+        [
+          133,
+          165
+        ],
+        [
+          134,
+          165
+        ],
+        [
+          135,
+          165
+        ],
+        [
+          132,
+          166
+        ],
+        [
+          136,
+          166
+        ],
+        [
+          132,
+          167
+        ]
+      ],
+      "paint_pixels": [
+        {
+          "xy": [
+            52,
+            151
+          ],
+          "rgba": [
+            77,
+            121,
+            118,
+            255
+          ],
+          "sample_xy": [
+            52,
+            150
+          ],
+          "reason": "Single missing quilt pixel inside reviewed solid cloth; copy nearest intact cloth colour"
+        }
+      ]
+    }
+  ]
+}

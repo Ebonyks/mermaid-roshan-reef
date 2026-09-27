@@ -610,8 +610,16 @@ func _init() -> void:
 				"normalized_use_animation", "")) \
 				!= "actual_picture_crossfade" \
 			or screen_sprite == null \
+			or picture_sprite.z_index <= screen_sprite.z_index \
+			or not picture_sprite.is_visible_in_tree() \
 			or not screen_sprite.transform.is_equal_approx(screen_transform):
 		_bad("movie screen did not crossfade the actual protected picture")
+	if picture_sprite != null and screen_sprite != null:
+		var relative: Transform2D = screen_sprite.global_transform.affine_inverse() \
+			* picture_sprite.global_transform
+		var displayed: Rect2 = relative * picture_sprite.get_rect()
+		if not Rect2(-109.1, -32.1, 218.2, 104.2).encloses(displayed):
+			_bad("protected movie extends outside the painted screen aperture")
 	var popcorn_record: Dictionary = main.castle_room_item_sprites.get(
 		"movie_popcorn", {}) as Dictionary
 	var popcorn_data: Dictionary = popcorn_record.get("data", {}) as Dictionary

@@ -229,7 +229,7 @@ const HALL_DUST_BUNNY_SPAWNS: Array[Dictionary] = [
 const PLAYROOM_RESCUE_ITEMS: Array[Dictionary] = [
 	{"id": "baby_eagle_rescue", "name": "Baby Eagle",
 		"pos": Vector2(382.0, 110.0), "z": 1.55,
-		"tex_path": "res://assets/book/baby_eagle.png",
+		"tex_path": "res://assets/characters/companions/baby_eagle.png",
 		"scale": 0.32, "rescue_role": "baby_eagle",
 		"proximity_only": true,
 		"color": Color(0.54, 0.91, 1.0)},
@@ -737,7 +737,7 @@ const ROOM_ITEMS := {
 	],
 	"movie_lounge": [
 		{"id": "movie_picture", "name": "Family home movie",
-			"pos": Vector2(255.0, -122.0), "z": 0.48, "scale": 0.30,
+			"pos": Vector2(255.0, -122.0), "z": 0.77, "scale": 0.30,
 			"tex_path": "res://assets/book/hall/p_slide.jpg",
 			"proximity_only": true},
 		{"id": "movie_screen", "name": "Home movie screen",
@@ -1088,7 +1088,7 @@ func _build_castle_voice_caption() -> void:
 	m.castle_voice_caption_layer.add_child(caption_root)
 	var caption := Label.new()
 	caption.name = "CastleVoiceCaption"
-	caption.position = Vector2(230.0, 590.0)
+	caption.position = Vector2(230.0, 112.0)
 	caption.size = Vector2(820.0, 112.0)
 	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	caption.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
@@ -3142,6 +3142,9 @@ func _rebuild_touch_items(room_id: String) -> void:
 	for item_data_value: Variant in items:
 		var item_data: Dictionary = item_data_value
 		_add_touch_item(room_id, item_data)
+	if room_id == "movie_lounge":
+		var movie_record: Dictionary = m.castle_room_item_sprites.get("movie_picture", {})
+		_fit_home_movie_picture(movie_record.get("sprite") as Sprite2D)
 	_update_touch_hotspots()
 
 func _add_touch_item(room_id: String, item_data: Dictionary) -> void:
@@ -3909,6 +3912,7 @@ func _sync_movie_picture() -> void:
 		picture.modulate.a = 1.0
 		picture.set_meta("movie_index", movie_index)
 		picture.set_meta("protected_original_displayed_directly", true)
+		_fit_home_movie_picture(picture)
 		picture.set_meta("normalized_use_animation", "actual_picture_crossfade")
 
 func _cycle_home_movie(sprite: Sprite2D,
@@ -3953,6 +3957,24 @@ func _apply_home_movie_picture(picture: Sprite2D, movie_index: int) -> void:
 	picture.texture = picture_texture
 	picture.set_meta("movie_index", normalized_index)
 	picture.set_meta("protected_original_displayed_directly", true)
+	_fit_home_movie_picture(picture)
+
+func _fit_home_movie_picture(picture: Sprite2D) -> void:
+	if picture == null or picture.texture == null:
+		return
+	var screen_record: Dictionary = m.castle_room_item_sprites.get("movie_screen", {})
+	var screen: Sprite2D = screen_record.get("sprite") as Sprite2D
+	if screen == null:
+		return
+	# Conservative rectangle inside the painted aperture of the 313x264 frame.
+	# Uniformly fit the protected original; never crop or alter its source file.
+	var aperture := Rect2(-109.0, -32.0, 218.0, 104.0)
+	var available: Vector2 = aperture.size * screen.scale
+	var native_size: Vector2 = picture.texture.get_size()
+	var fit_scale: float = minf(available.x / native_size.x, available.y / native_size.y)
+	picture.scale = Vector2.ONE * fit_scale
+	picture.position = screen.position + aperture.get_center() * screen.scale
+	picture.set_meta("screen_aperture", aperture)
 
 func _finish_home_movie_crossfade(picture: Sprite2D) -> void:
 	if picture == null or not is_instance_valid(picture):
@@ -4858,6 +4880,8 @@ func _restore_playroom_rescue_clears() -> void:
 		m._write_save()
 
 func _add_playroom_rescue_pointer() -> void:
+	if _playroom_rescue_done():
+		return
 	if m.castle_room_item_effect_layer == null \
 			or m.castle_room_item_effect_layer.get_node_or_null(
 				"BabyEagleRescuePointer") != null:
@@ -4867,6 +4891,7 @@ func _add_playroom_rescue_pointer() -> void:
 		return
 	var pointer: Sprite2D = _new_card(
 		"BabyEagleRescuePointer", star_texture, true)
+	pointer.z_index = int(round(EFFECT_Z * 100.0))
 	pointer.position = _art_to_world(Vector2(512.0, 210.0), 2.72)
 	pointer.scale = Vector2.ONE * 0.052
 	pointer.modulate = Color(1.0, 0.86, 0.32, 0.94)
@@ -4991,11 +5016,10 @@ func sync_castle_companion_card() -> void:
 			child.free()
 		var asset_paths: Array[String] = []
 		var tints: Array[Color] = []
-		# Baby Eagle's castle reward is the approved book cutout. The follower
-		# may still use the paintable layered bird, but this reusable castle card
-		# must preserve the authored identity asset and remain a Canvas item.
+		# Baby Eagle uses the approved non-paintable isolate everywhere.
+		# Preserve the authored identity and colours on this Canvas card.
 		if m.companion_id == "eagle":
-			asset_paths.append("res://assets/book/baby_eagle.png")
+			asset_paths.append("res://assets/characters/companions/baby_eagle.png")
 			tints.append(Color.WHITE)
 		elif definition.has("sprite"):
 			asset_paths.append(String(definition["sprite"]))

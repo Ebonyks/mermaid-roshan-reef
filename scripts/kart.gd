@@ -202,7 +202,7 @@ const PAINTS := [
 # nursery / story world instead, so they never appear twice at once.
 const RACERS := [
 	{"name": "Roshan", "col": Color(1.0, 0.4, 0.8), "sprite": "res://assets/characters/roshan_25d/roshan_base.png", "player": true},
-	{"name": "Sparkle", "col": Color(1.0, 0.85, 0.35), "sprite": "res://assets/book/baby_eagle.png"},
+	{"name": "Sparkle", "col": Color(1.0, 0.85, 0.35), "sprite": "res://assets/characters/companions/baby_eagle.png"},
 	{"name": "Princess Huluu", "col": Color(0.75, 0.55, 1.0), "sprite": "res://assets/characters/friends/huluu.png"},
 	{"name": "Bunny", "col": Color(0.95, 0.95, 1.0), "sprite": "res://assets/book/doll_bunny.png"},
 	{"name": "Kitty", "col": Color(1.0, 0.6, 0.4), "sprite": "res://assets/book/doll_cat.png"},

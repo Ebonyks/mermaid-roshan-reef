@@ -1,0 +1,2128 @@
+=== probe_living_world ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+LIVING|complete_stage_count: OK catalog=100 expected=100
+LIVING|exact_stage_inventory: OK
+LIVING|retired Opera boss stages are absent from the living-world catalog: OK
+LIVING|stage_group_coverage: OK {"castle_room":13,"combat":2,"dance":1,"ember":1,"ember_dungeon":6,"entry":1,"galaxy":2,"ice_dungeon":10,"kart":2,"minigame":12,"north":7,"opera_act":15,"overlay":6,"picture_game":4,"reef":6,"sky_legacy":8,"sky_promenade":3,"stuffie":1}
+LIVING|two_ambient_plus_one_idle_contract: OK ambient=200 idle=100
+LIVING|dynamic_builder_tables_covered: OK
+LIVING|living-world Castle identity follows every real career room: OK
+LIVING|living-world Opera fixture uses the room-owned production entry: OK
+LIVING|sparse Nursery save slot routes to opera act fifteen: OK
+LIVING|living-world Opera route exits through product teardown: OK
+LIVING|every_stage_enters_and_idles: OK events=100 expected=100 generations=313
+LIVING|passive_idle_never_awards_progress: OK
+LIVING|reentry_node_and_tween_bounds: OK tweens=2 baseline=2
+LIVING|real_input_resets_idle: OK touch=true key=true axis=true stick=true interaction=true button=true
+LIVING|long_idle_bounded_repeats: OK events=7 counts={"canvases":1,"layers":1,"particles":0,"timers":0,"tweens":0}
+LIVING|long_idle_stays_passive: OK
+LIVING|stage_exit_cleanup: OK
+LIVING|setup_idempotent: OK
+LIVING|result: ALL OK
+PROBE probe_living_world process exit: 0
+=== probe_galaxy_state ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+GALAXY_STATE|garden_paths_reject_plants: OK
+GALAXY_STATE|garden_fixtures_rehomed_beside_paths: OK
+GALAXY_STATE|first_reward_paid: OK
+GALAXY_STATE|completed_reward_not_repeated: OK pearls=46 state=play
+GALAXY_STATE|completed_world_has_no_quest_rewards: OK got=7 live=0 grand=<null> active=false
+GALAXY_STATE|partial_rescue_restored: OK got=1 live=6
+GALAXY_STATE|returns_to_ocean_origin: OK distance=0.00
+GALAXY_STATE|ocean_return_state_cleared: OK
+GALAXY_STATE|real_lagoon_departure_captures_and_tears_down: OK game=galaxy from=level2 master=4864.0 root=false galaxy=@Node3D@867:<Node3D#174969588753>
+GALAXY_STATE|real_completed_galaxy_has_no_quest_rewards: OK
+GALAXY_STATE|returns_to_closed_lagoon: OK game=level2 open=false
+GALAXY_STATE|lagoon_master_route_restored: OK master_x=4864.0
+GALAXY_STATE|partial_stars_preserved: OK [true, false, false]
+GALAXY_STATE|lagoon_canvas_restored: OK
+GALAXY_STATE|closed_return_state_cleared: OK
+GALAXY_STATE|returns_to_open_lagoon: OK open=true master_x=1792.0
+GALAXY_STATE|open_return_state_cleared: OK
+GALAXY_STATE|RESULT: ALL OK
+PROBE probe_galaxy_state process exit: 0
+=== probe_melody ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+MELODY|OK|probe save is distinct from the child's normal save
+MELODY|OK|normal primary, backup, and every recovery sidecar are fingerprinted before boot
+MELODY|OK|stale probe-only save artifacts are removed
+MELODY|OK|approved Sky Lagoon v5 master is exact native 6144x2048
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:460)
+       [1] _run (res://scripts/probe_melody.gd:134)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:460)
+       [1] _run (res://scripts/probe_melody.gd:134)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:460)
+       [1] _run (res://scripts/probe_melody.gd:134)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:460)
+       [1] _run (res://scripts/probe_melody.gd:134)
+MELODY|OK|four exact lossless center tiles reconstruct one native 2048x2048 screen
+MELODY|OK|POT background tiles use bounded VRAM import without mip overfetch
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/characters/stickers/daddy.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:481)
+       [1] _run (res://scripts/probe_melody.gd:134)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/opera/worlds/actors/roshan_popstar.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_asset_contract (res://scripts/probe_melody.gd:482)
+       [1] _run (res://scripts/probe_melody.gd:134)
+MELODY|OK|approved Daddy sticker remains exact protected 750x1024 art
+MELODY|OK|approved Opera popstar Roshan remains exact 512x512 art
+MELODY|OK|NPOT Daddy avoids forbidden VRAM mode and POT Roshan is mobile-compressed
+MELODY|OK|all reused background/actor/voice families retain repository provenance
+MELODY|OK|exact non-reader objective voice is present and immutable
+MELODY|OK|Daddy Mermaid owns the sole Melody friend route at the canonical slot
+MELODY|OK|fresh isolated save starts Daddy and Melody unawarded
+MELODY|OK|shared success chime exposes a restorable volume and pitch baseline
+MELODY|OK|direct Daddy launch synchronously enters Melody
+MELODY|ENTRY_FACTS|active_layers=1|direct_before=28|direct_now=29|only_layer_or_touch_fx_added=true|layer=7|pause_layer=12
+MELODY|OK|entry owns exactly one Canvas layer below the pause sheet
+MELODY|OK|Canvas theater exposes every stable stage, note, and progress node
+MELODY|OK|Canvas theater has the exact typed surface tree with no unknown occluder
+MELODY|OK|Melody adds no spatial descendants or hidden game-node authority
+MELODY|OK|runtime binds the exact four native center tiles once in 2x2 order
+MELODY|OK|runtime four-tile transforms are seam-free and cover the phone viewport
+MELODY|OK|attached note geometry exposes all seven ordered colors and the draw path binds the same source color
+MELODY|OK|stage has no failure state, countdown, or passive completion path
+MELODY|OK|opaque Canvas preserves Reef position/environment while owning controls
+MELODY|OK|Daddy entry sends the exact target+verb objective and voice exactly once
+MELODY|OK|requested voice resolves to the exact immutable OGG
+MELODY|OK|entry starts under the production reveal fade
+MELODY|OK|quick press and release wholly under fade make no progress
+MELODY|OK|shared objective text remains semantic state occluded below the opaque stage
+MELODY|OK|opening non-reader objective is carried by the sole live attached visual pointer
+MELODY|OK|fade tap release clears its neutral latch before fresh input
+MELODY|OK|first fresh green tap after a swallowed fade tap scores exactly once
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:883)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:570)
+       [2] _run (res://scripts/probe_melody.gd:220)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:883)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:570)
+       [2] _run (res://scripts/probe_melody.gd:220)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:883)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:570)
+       [2] _run (res://scripts/probe_melody.gd:220)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:883)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:570)
+       [2] _run (res://scripts/probe_melody.gd:220)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/characters/stickers/daddy.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:883)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:570)
+       [2] _run (res://scripts/probe_melody.gd:220)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/opera/worlds/actors/roshan_popstar.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_runtime_texture_census (res://scripts/probe_melody.gd:883)
+       [1] _check_rendered_stage_contract (res://scripts/probe_melody.gd:570)
+       [2] _run (res://scripts/probe_melody.gd:220)
+MELODY|OK|live Canvas binds only four tiles, Daddy, and Roshan exactly once each
+MELODY|OK|unique live texture census stays within conservative decoded and declared-upload bounds
+MELODY|LAYOUT_FACTS|standard={ "proscenium_dominant": true, "viewport_rect": [P: (0.0, 0.0), S: (1280.0, 720.0)], "proscenium_rect": [P: (24.0, 18.0), S: (1232.0, 684.0)], "proscenium_coverage": 0.44455555555556, "footlights_rect": [P: (134.88, 524.4), S: (1010.24, 48.0)], "stage_star_rect": [P: (332.0, 33.0), S: (104.0, 104.0)], "actors_readable": true, "note_readable": true, "pointer_geometry_unique": true, "critical_regions_clear": true, "z_order_valid": true, "backdrop_covers": true }
+MELODY|OK|actual proscenium polygons visibly dominate the 1280x720 stage
+MELODY|OK|actual Daddy and Roshan alpha bounds are readable at 1280x720
+MELODY|OK|actual note, hit envelope, green zone, and pointer are readable at 1280x720
+MELODY|OK|pointer is exactly one attached arrow, line, target, and two rings with no custom-draw duplicate
+MELODY|OK|actual four-tile Canvas transforms cover 1280x720 seam-free
+MELODY|LAYOUT_FACTS|tall={ "proscenium_dominant": true, "viewport_rect": [P: (0.0, 0.0), S: (1280.0, 800.0)], "proscenium_rect": [P: (24.0, 20.0), S: (1232.0, 760.0)], "proscenium_coverage": 0.42933333333333, "footlights_rect": [P: (134.88, 536.0), S: (1010.24, 53.33331)], "stage_star_rect": [P: (326.2222, 36.66666), S: (115.5555, 115.5556)], "actors_readable": true, "note_readable": true, "pointer_geometry_unique": true, "critical_regions_clear": true, "z_order_valid": true, "backdrop_covers": true }
+MELODY|OK|Canvas reflows to the target 1280x800 M11 phone aspect
+MELODY|OK|1280x800 reflow preserves the same live stage and note semantics
+MELODY|LAYOUT_FACTS|restored={ "proscenium_dominant": true, "viewport_rect": [P: (0.0, 0.0), S: (1280.0, 720.0)], "proscenium_rect": [P: (24.0, 18.0), S: (1232.0, 684.0)], "proscenium_coverage": 0.44455555555556, "footlights_rect": [P: (134.88, 524.4), S: (1010.24, 48.0)], "stage_star_rect": [P: (332.0, 33.0), S: (104.0, 104.0)], "actors_readable": true, "note_readable": true, "pointer_geometry_unique": true, "critical_regions_clear": true, "z_order_valid": true, "backdrop_covers": true }
+MELODY|OK|1280x720 restore needs no rebuild and retains readable geometry
+MELODY|TICK_FACTS|game_delta=0.027608|elapsed_delta=0.027608|reported_frame_delta=0.05608133333333|tick_delta=1
+MELODY|OK|one rendered frame produces exactly one Melody controller tick
+MELODY|OK|shared ranking clock advances by exactly the one delivered frame delta
+MELODY|OK|runtime motion consumes that same frame delta exactly once
+MELODY|OK|early note tap makes no progress and carries no penalty
+MELODY|OK|wrong-point fixture is outside the active hit and pause zones
+MELODY|OK|wrong-point tap in the green window makes no progress or fail state
+MELODY|OK|one complete passive miss recycles forever without progress or penalty
+MELODY|OK|early held touch is down but never armed
+MELODY|OK|holding from early into green cannot smuggle a hit
+MELODY|OK|touch press reaches the held controller before pause
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause gear cancels the held touch neutrally
+MELODY|OK|real resume button restores the live Melody stage
+MELODY|OK|wrong sources cannot clear or score the touch held across pause
+MELODY|OK|held touch release after pause cannot score
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|the original source may clear its own neutral latch while still paused
+MELODY|OK|real resume button restores the live Melody stage
+MELODY|OK|first fresh gesture after an in-pause lift scores exactly once
+MELODY|OK|keyboard press reaches the same held controller
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause gear cancels the held keyboard neutrally
+MELODY|OK|real resume button restores the live Melody stage
+MELODY|OK|wrong key, device, and pad releases cannot clear paused Space
+MELODY|OK|held keyboard release after pause cannot score
+MELODY|OK|only the exact keyboard owner may finish an armed note
+MELODY|OK|fresh keyboard press/release scores exactly one note
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause gear cancels the held pad action neutrally
+MELODY|OK|real resume button restores the live Melody stage
+MELODY|OK|wrong pad button, device, and key cannot clear paused pad A
+MELODY|OK|held pad release after pause cannot score
+MELODY|OK|only the exact pad owner may finish an armed note
+MELODY|OK|fresh pad press/release scores exactly one note
+MELODY|OK|controller disconnect neutralizes only its unreleasable held source
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|no-held real pause leaves the controller neutral
+MELODY|OK|real resume button restores the live Melody stage
+MELODY|OK|Android-cancelled touch is neutral and clears only its own source
+MELODY|OK|only the exact touch owner may finish an armed note
+MELODY|OK|first fresh tap after no-held pause scores exactly once
+MELODY|OK|touch source is genuinely held before opening the Sticker overlay
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause sheet exposes its visible Sticker Book doorway
+MELODY|OK|real Sticker button opens the higher-layer book without touching progress
+MELODY|OK|overlay traffic cannot clear or score another held touch source
+MELODY|OK|held source release clears neutrally through the higher overlay
+MELODY|OK|Sticker Book uses the sole global Back target
+MELODY|OK|TouchUI routes the sole global Back tap to the Sticker Book
+MELODY|OK|cancelled owner mouse is neutral and clears only its own source
+MELODY|OK|mouse ownership distinguishes device and touch source tokens
+MELODY|OK|first fresh green mouse gesture after Sticker Book scores exactly once
+MELODY|OK|standalone focus loss neutrally forgets the held touch owner
+MELODY|OK|lost focus cannot clear its neutral guard on background frames
+MELODY|OK|matching focus restoration retains the guard until an active tick
+MELODY|OK|first active focus-restored tick needs no missing old release
+MELODY|OK|partial deliberate input reaches exactly six notes before leave
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause sheet exposes its neutral BACK doorway
+MELODY|OK|neutral BACK doorway owns real focused Pause GUI input
+MELODY|LEAVE_FACTS|game=|g_empty=true|active_layers=0|direct_match=true|game_nodes_match=true|controls_match=true|world_controls=true|position_match=true|environment_match=true|track=world|expected_track=world|music_match=true|chime_match=true
+MELODY|OK|neutral pause-menu leave synchronously detaches only Melody
+MELODY|OK|neutral leave awards nothing
+MELODY|OK|closed Melody teardown is synchronously idempotent
+MELODY|OK|neutral teardown frees the complete Canvas subtree
+MELODY|OK|ordinary Reef input populates the complete Melody entry-source census
+MELODY|OK|ordinary non-Melody pause suspends Main while TouchUI stays live
+MELODY|OK|paused terminal touch, mouse, key, and pad releases retire the census
+MELODY|OK|ordinary pause resumes without creating a Melody activity
+MELODY|OK|clean census cannot poison the next Melody entry
+MELODY|OK|ordered context-loss fixture holds a concrete touch owner
+MELODY|OK|focus-out then application-paused tracks both reasons behind one guard
+MELODY|OK|lost context consumes the real touch and mouse Pause-corner target
+MELODY|OK|lost-context touch, mouse, key, and pad presses cannot claim census state
+MELODY|OK|lost-context touch, mouse, key, and pad releases are also inert
+MELODY|OK|resumed alone cannot override the still-lost focus reason
+MELODY|OK|partially restored context still rejects every fresh source press
+MELODY|OK|partially restored context still rejects every terminal release
+MELODY|OK|full ordered restoration keeps a source-free guard until its tick
+MELODY|OK|pre-tick restored presses cannot enter Main census, arm Melody, or score
+MELODY|OK|first restored tick clears only the guard, never preserves pre-tick presses
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause sheet exposes its neutral BACK doorway
+MELODY|OK|neutral BACK doorway owns real focused Pause GUI input
+MELODY|OK|unreleased pre-tick sources cannot poison a neutral Melody leave
+MELODY|OK|pre-tick-source recovery teardown frees its first Canvas subtree
+MELODY|OK|recovery relaunch enters Melody through the production start path
+MELODY|OK|reentry after missing releases has no inherited census or exact owner
+MELODY|OK|different fresh gesture scores exactly once after source-clean reentry
+MELODY|OK|reverse-order context-loss fixture holds a concrete pad owner
+MELODY|OK|application-paused then focus-out also retains both exact reasons
+MELODY|OK|reverse loss ordering also ignores all traffic and forgets its owner
+MELODY|OK|reverse-order terminal traffic cannot mutate the empty census
+MELODY|OK|focus-in alone cannot override the still-paused application reason
+MELODY|OK|reverse full restoration also retains its pre-tick guard
+MELODY|OK|reverse restoration clears the guard on its first active tick
+MELODY|OK|reverse-order different-source touch gesture scores exactly once
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|nested fixture starts with a normal exact-source Pause latch
+MELODY|OK|real Pause accessibility keeps Resume focused for lost-input testing
+MELODY|OK|lost-context presses cannot activate real Resume/Leave or focused actions
+MELODY|OK|lost-context releases also leave real Pause GUI and Melody untouched
+MELODY|OK|full OS restore cannot clear the guard while Pause remains open
+MELODY|OK|real focused ui_accept resumes without clearing the restored context guard
+MELODY|OK|first active unpaused nested-restoration tick clears the guard
+MELODY|OK|fresh pad gesture after nested restoration scores exactly once
+MELODY|OK|Melody exposes only the global Back control
+MELODY|OK|internal Menu command raises the production Menu sheet
+MELODY|OK|real pause sheet exposes its neutral BACK doorway
+MELODY|OK|neutral BACK doorway owns real focused Pause GUI input
+MELODY|OK|system-loss recovery stage leaves neutrally with no reward or save progress
+MELODY|OK|system-loss recovery teardown frees its complete Canvas subtree
+MELODY|OK|re-entry replaces the closed stage with one fresh 0-of-7 layer
+MELODY|OK|reset key/pad plus wrong finger/mouse cannot clear the held touch
+MELODY|OK|pre-entry held touch cannot become the first note
+MELODY|OK|ordered note 0 scores once on a fresh touch release
+MELODY|OK|ordered note 1 scores once on a fresh touch release
+MELODY|OK|ordered note 2 scores once on a fresh touch release
+MELODY|OK|ordered note 3 scores once on a fresh touch release
+MELODY|OK|ordered note 4 scores once on a fresh touch release
+MELODY|OK|ordered note 5 scores once on a fresh touch release
+MELODY|OK|seventh ordered note completes without a fail/timer branch
+MELODY|OK|seven fresh direct touch gestures complete red through violet
+MELODY|OK|deliberately slow first win awards one bronze medal and one trophy
+MELODY|OK|bronze upgrade and terminal persistence each write exactly once
+MELODY|WIN_RETURN_FACTS|terminal_position_match=true|environment_match=true|track=world|expected_track=world|music={ "track": "world", "stream_path": "res://assets/audio/music/world.ogg", "playing": true, "volume_db": -8.0, "pitch_scale": 1.0 }|expected_music={ "track": "world", "stream_path": "res://assets/audio/music/world.ogg", "playing": true, "volume_db": -14.0, "pitch_scale": 1.0 }
+MELODY|OK|first win restores its exact Reef return context while the shared reward owns fanfare audio
+MELODY|OK|first win synchronously clears Canvas and controls
+MELODY|OK|first-win layer is freed after synchronous detach
+MELODY|OK|replay captures the settled shared-fanfare chime tuning exactly
+MELODY|OK|unrelated key and pad releases preserve both pre-entry action owners
+MELODY|OK|releasing one of two pre-entry owners keeps the other owner blocked
+MELODY|OK|pre-entry held keyboard/pad actions release neutrally
+MELODY|OK|ordered note 0 scores once on a fresh key release
+MELODY|OK|ordered note 1 scores once on a fresh pad release
+MELODY|OK|ordered note 2 scores once on a fresh touch release
+MELODY|OK|ordered note 3 scores once on a fresh touch release
+MELODY|OK|ordered note 4 scores once on a fresh touch release
+MELODY|OK|ordered note 5 scores once on a fresh touch release
+MELODY|OK|seventh ordered note completes without a fail/timer branch
+MELODY|OK|fresh keyboard, pad, and touch presses all complete the replay
+MELODY|OK|fast replay upgrades only the medal and never duplicates first-win reward
+MELODY|OK|gold upgrade and terminal persistence each write exactly once
+MELODY|REPLAY_RETURN_FACTS|terminal_position_match=true|environment_match=true|track=world|expected_track=world|music={ "track": "world", "stream_path": "res://assets/audio/music/world.ogg", "playing": true, "volume_db": -8.0, "pitch_scale": 1.0 }|expected_music={ "track": "world", "stream_path": "res://assets/audio/music/world.ogg", "playing": true, "volume_db": -8.0, "pitch_scale": 1.0 }|chime_match=true|active_layers=0|controls_match=true
+MELODY|OK|replay restores context and synchronously tears down
+MELODY|OK|replay layer is freed after synchronous detach
+MELODY|OK|normal save and all recovery artifacts retain exact hash/mtime
+MELODY|OK|isolated probe save and recovery artifacts clean up exactly
+MELODY|result: ALL OK
+PROBE probe_melody process exit: 0
+=== probe_dance ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DANCE|open: OK 44-note beginner chart
+DANCE|forgiveness: OK exploratory tap is harmless
+DANCE|input: OK touch/keyboard lane path judges all arrows
+DANCE|songs: OK existing-song selector rebuilt the chart
+DANCE|close: OK world resumed with no passive reward
+DANCE|castle: OK castle is open with zero butterflies
+DANCE|rug: OK Butterfly Castle rug launches rhythm engine
+DANCE|result: ALL OK
+PROBE probe_dance process exit: 0
+=== probe_l2_reenter ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+REENTER|canvas_first: OK
+REENTER|canvas_rebuild_no_stack: OK
+REENTER|ALL OK
+PROBE probe_l2_reenter process exit: 0
+=== probe_human_art_audit ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ART_AUDIT|RESULT: HEADLESS SKIP (visual capture requires a display renderer)
+PROBE probe_human_art_audit process exit: 0
+=== probe_touch_router ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+TOUCH_ROUTER|single-touch navigation parser matrix completed
+TOUCH_ROUTER|ALL OK
+WARNING: 8 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 4 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+PROBE probe_touch_router process exit: 0
+=== probe_touch_look ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PASS stick steers
+PASS second-finger tap jumps
+drag: orbit=-2.8274 pitch=-4.5000 look_active=true
+PASS second-finger drag drives camera, no jump
+PASS drifts back after camera finger lifts
+PASS still hold becomes HELD jump
+PASS held jump releases
+PASS focus loss clears touch state
+galaxy drag: orbit=-2.8274
+PASS galaxy touch camera works
+PROBE probe_touch_look process exit: 0
+=== probe_day_one_d8_revisits ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DAY_ONE_D8_REVISITS|blocked door has bounded constants: OK
+DAY_ONE_D8_REVISITS|second blocked tap keeps local fog and points to the actual story cue: OK
+DAY_ONE_D8_REVISITS|blocked feedback SFX is cooldown guarded: OK
+DAY_ONE_D8_REVISITS|completed room is one semantic voice at six seconds: OK
+DAY_ONE_D8_REVISITS|completed fixture replay cannot reward or launch: OK
+DAY_ONE_D8_REVISITS|completed bathroom restores real navigation: OK
+DAY_ONE_D8_REVISITS|Rumi revisit is persistent and contextual: OK
+DAY_ONE_D8_REVISITS|Rumi contextual route preserves protected speaker exclusions: OK
+DAY_ONE_D8_REVISITS|documented loose-brush typo is gone: OK
+DAY_ONE_D8_REVISITS|RESULT: ALL OK
+PROBE probe_day_one_d8_revisits process exit: 0
+=== probe_dust_bunny ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+OK  animation atlases import 
+OK  animated card created 
+OK  idle has six frames 
+OK  hop has six frames 
+OK  defeat has six frames 
+OK  idle loops 
+OK  hop is one shot 
+OK  defeat is one shot 
+OK  paint stays unshaded 
+OK  card faces camera 
+OK  card casts no shadow 
+OK  enemy groups registered 
+OK  hop action starts 
+OK  defeat action starts 
+OK  clean sparkle hides card 
+OK  idle-to-hop state machine runs actions=5 landings=4
+OK  hop has readable arc height=1.35
+OK  enemy reports gentle shield bump bumps=2
+OK  enemy stays inside arena 
+OK  seeded motion is deterministic 
+OK  no physics body added 
+DUST BUNNY PROBE: ALL OK
+PROBE probe_dust_bunny process exit: 0
+=== probe_partner ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PARTNER|no companion means no assist state: OK
+PARTNER|stuffie assist has no overlay and attaches ready: OK
+PARTNER|idle frames never fire the super: OK
+PARTNER|stampede pops the nearest fodder: OK
+PARTNER|stampede dizzies the rest: OK
+PARTNER|stampede grants Big Taps: OK
+PARTNER|super starts the cooldown: OK
+PARTNER|resting assist refuses activation: OK
+PARTNER|her own pop shaves the rest: OK
+PARTNER|no pop yet means no Daddy assist state: OK
+PARTNER|her first pop invites Daddy without an overlay: OK
+PARTNER|DADDY SPLASH clears the hall dust: OK
+PARTNER|the splash starts Daddy's rest: OK
+PARTNER|playroom rescue pins spawn: OK
+PARTNER|splash never pops the rescue pins: OK
+PARTNER|closing the castle stows the assist state: OK
+PARTNER|result: ALL OK
+PROBE probe_partner process exit: 0
+=== probe_stuffie ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+STUFFIE|fresh save has no companion: OK
+STUFFIE|no den before a stuffie is chosen: OK
+STUFFIE|no want bubble before a stuffie is chosen: OK
+STUFFIE|castle caption leaves cleanup floor visible: OK
+STUFFIE|pending rescue has a visible foreground pointer: OK
+STUFFIE|Playroom starts with Baby Eagle and two pinning dust bunnies: OK
+STUFFIE|Playroom rescue uses proximity cards instead of flat hotspots: OK
+STUFFIE|Stuffie picker stays locked until Baby Eagle is rescued: OK
+STUFFIE|Standing at the room spawn does not clear either bunny: OK
+STUFFIE|One bunny cleared is not enough to finish the rescue: OK
+STUFFIE|Saved half-rescue restores without respawning the first bunny: OK
+STUFFIE|Roshan contact clears the second pinning bunny: OK
+STUFFIE|Second bunny frees Baby Eagle and opens the focused tutorial: OK
+STUFFIE|rescue picker uses the sole global Back path: OK
+STUFFIE|closing before confirmation leaves a safe castle state: OK
+STUFFIE|playroom re-entry reopens the unconfirmed adoption: OK
+STUFFIE|Eagle skips painting and cannot be recoloured by stale callbacks: OK
+STUFFIE|Rescued Baby Eagle becomes the first stuffie friend: OK
+STUFFIE|completed rescue cannot recreate its pointer: OK
+STUFFIE|confirmed friend has exactly one visible Canvas companion card: OK
+STUFFIE|castle companion card repositions without duplication: OK
+STUFFIE|confirmed friend identity persists safely: OK
+STUFFIE|Canvas wants wait without passive growth: OK
+STUFFIE|Canvas Menu care grows once without a world follower: OK
+STUFFIE|repeated Canvas care is affection only: OK
+STUFFIE|picker overlay builds: OK
+STUFFIE|mewsha chosen with painted body: OK
+STUFFIE|picker closed after choosing: OK
+STUFFIE|roster is data-driven: OK
+STUFFIE|Stuffie Studio builds six clear display cubbies: OK
+STUFFIE|Studio has separate upgrade table and active-friend chest: OK
+STUFFIE|Studio room is sprite-only with no legacy mesh furniture: OK
+STUFFIE|Lamb-a uses a 2D cutout instead of the retired GLB: OK
+STUFFIE|toy chest opens selection-only mode: OK
+STUFFIE|worktable opens one-friend color studio: OK
+STUFFIE|repainting preserves the active friend's care request: OK
+STUFFIE|follower spawned in the reef: OK
+STUFFIE|follower stays near Roshan: OK
+STUFFIE|retired reef den is never built: OK
+STUFFIE|care has no persistent HUD launcher: OK
+STUFFIE|Tamagotchi sheet uses global Back and five large care actions: OK
+STUFFIE|Tamagotchi sheet shows need, growth, and table repainting: OK
+STUFFIE|care menu action closes into a real care moment: OK
+STUFFIE|menu care grows the stuffie: OK
+STUFFIE|want bubble appears over the stuffie: OK
+STUFFIE|wants wait patiently and never self-fulfil: OK
+STUFFIE|care moment starts on tap: OK
+STUFFIE|tending a want grows the stuffie: OK
+STUFFIE|unit care context= phase=
+STUFFIE|care stages level the companion: OK
+STUFFIE|no Stuffie HUD launcher exists after adoption: OK
+STUFFIE|the Storybook care menu remains available: OK
+STUFFIE|unasked care is affection with no growth point: OK
+STUFFIE|the same menu tends an asked want remotely: OK
+STUFFIE|asked menu care grows the stuffie: OK
+STUFFIE|battle starts round 1 with two imps: OK
+STUFFIE|battle creature is the painted mewsha: OK
+STUFFIE|battle cannot win passively: OK
+STUFFIE|telegraph opens a button-free DODGE window: OK
+STUFFIE|missed dodge is a bump, never a fail: OK
+STUFFIE|the shared hold action dodges in the window: OK
+STUFFIE|bopped imps become friends: OK
+STUFFIE|all friends wins the round: OK
+STUFFIE|round win saves ladder progress and returns: OK
+STUFFIE|winning pays pearls: OK
+STUFFIE|save carries companion keys: OK
+STUFFIE|save roundtrips through recovery reader: OK
+STUFFIE|toy chest preselects the tapped stuffie: OK
+STUFFIE|companion swaps to Baby Eagle: OK
+STUFFIE|swapped follower respawns as the bird: OK
+STUFFIE|Lamb-a' starts locked: OK
+STUFFIE|ladder reaches the Lamb-a' capture round: OK
+STUFFIE|boss stuffie is befriended, never hurt: OK
+STUFFIE|Lamb-a' comes home to the Studio: OK
+STUFFIE|captured friend joins the picker: OK
+STUFFIE|Lamb-a' can be carried on missions: OK
+STUFFIE|zone change snaps the stuffie to her side: OK
+STUFFIE|follows into new levels and arena games by default: OK
+STUFFIE|hides only inside camera-owning engines: OK
+STUFFIE|care-loop battle starts: OK
+STUFFIE|bumps leave boo-boos, never end the battle: OK
+STUFFIE|boo-boos come home asking for hug + bath: OK
+STUFFIE|hug + bath heal every boo-boo: OK
+STUFFIE|leaving early keeps the boo-boo: OK
+STUFFIE|uncared boo-boos wait without removing the friend: OK
+STUFFIE|patient reminder stays voiced, kind, and picture-first: OK
+STUFFIE|retired resting flag saves healed without changing progress: OK
+STUFFIE|retired resting flag never blocks the stuffie battle: OK
+STUFFIE|waiting for care never blocks another battle: OK
+STUFFIE|patient care loses no progress: OK
+STUFFIE|result: ALL OK
+PROBE probe_stuffie process exit: 0
+=== probe_opera_2d ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+OPERA2D|OK|all cataloged diegetic object art passes resource, alpha, and aspect QA
+OPERA2D|OK|all 61 shipping phases resolve through aliases to hotspot art specs
+OPERA2D|OK|kitchen route uses its exact diegetic entrances and approved art
+OPERA2D|OK|kitchen highlights exactly its preferred career atlas
+OPERA2D|OK|opera_hall route uses its exact diegetic entrances and approved art
+OPERA2D|OK|Opera Hall guides the physical portal on Roshan's floor
+OPERA2D|OK|library route uses its exact diegetic entrances and approved art
+OPERA2D|OK|library highlights exactly its preferred career atlas
+OPERA2D|OK|craft_room route uses its exact diegetic entrances and approved art
+OPERA2D|OK|craft_room highlights exactly its preferred career atlas
+OPERA2D|OK|playroom route uses its exact diegetic entrances and approved art
+OPERA2D|OK|playroom highlights exactly its preferred career atlas
+OPERA2D|OK|bubble_bath route uses its exact diegetic entrances and approved art
+OPERA2D|OK|bubble_bath highlights exactly its preferred career atlas
+OPERA2D|OK|mermaid_pool route uses its exact diegetic entrances and approved art
+OPERA2D|OK|mermaid_pool highlights exactly its preferred career atlas
+OPERA2D|OK|dining_room route uses its exact diegetic entrances and approved art
+OPERA2D|OK|dining_room highlights exactly its preferred career atlas
+OPERA2D|OK|movie_lounge route uses its exact diegetic entrances and approved art
+OPERA2D|OK|movie_lounge highlights exactly its preferred career atlas
+OPERA2D|OK|nine room route sets cover all fifteen live sparse slots once
+OPERA2D|OK|Opera Hall has only Ballerina, Pop Star and Magician
+OPERA2D|OK|the removed all-career lobby cannot load or appear
+OPERA2D|OK|OperaHouse starts one requested Canvas career with no picker
+OPERA2D|OK|direct career cancel restores its caller's touch state
+OPERA2D|OK|boxer keeps stable Opera save bit 128
+OPERA2D|OK|only the three approved Opera Hall careers have a two-act performance
+OPERA2D|OK|chef enters Canvas career world
+OPERA2D|OK|chef uses no 3D children in career play
+OPERA2D|OK|chef builds a scalable code-native career world
+OPERA2D|OK|chef loads Mermaid Roshan's outfit actor
+OPERA2D|OK|chef loads its dressed rival or care partner
+OPERA2D|OK|chef keeps the rival hidden during earlier minigames
+OPERA2D|OK|chef pauses competition scoring before the finale
+OPERA2D|OK|chef has a multi-phase job game
+OPERA2D|OK|chef applies the performance plan only to the three freeplay acts
+OPERA2D|OK|chef starts without passive progress
+OPERA2D|OK|chef opens with its job verb, not the shared brawl
+OPERA2D|OK|chef waits at the room entrance in its costume idle
+OPERA2D|OK|chef costume atlas advances frames
+OPERA2D|OK|chef contains its signature mechanic
+OPERA2D|OK|chef STIR finishes in 1.5 to 2.2 rotations
+OPERA2D|OK|chef retains its thematic rotation verb
+OPERA2D|OK|chef avoids copied combat phases
+OPERA2D|OK|twenty rapid reactions return Roshan to her exact rest transform
+OPERA2D|OK|chef keeps the stage finale for the job contest
+OPERA2D|OK|chef starts in its job world, off the proscenium
+OPERA2D|OK|chef paints the supplied codex career world
+OPERA2D|OK|chef owns complete stage art
+OPERA2D|OK|chef TOP places pieces on authored surface anchors
+OPERA2D|OK|chef loads every diegetic phase widget
+OPERA2D|OK|chef widgets remain input-causal with owner-gated completion
+OPERA2D|OK|chef suppresses every retired framed widget backdrop
+OPERA2D|OK|chef keeps a persistent borderless play affordance
+OPERA2D|OK|chef replaces clipboard and beacon textures with the room itself
+OPERA2D|OK|chef exposes one full-room constrained touch layer
+OPERA2D|OK|chef starts with the room available and its task closed
+OPERA2D|OK|chef builds only named physical ActivityHotspot objects
+OPERA2D|OK|chef hotspot invitations are pictorial and never reading-dependent
+OPERA2D|OK|chef MIX arms exactly its themed room object
+OPERA2D|OK|chef MIX hotspot art, glow, and touch target do not clip
+OPERA2D|OK|chef MIX keeps its idle object clear of Roshan's body
+OPERA2D|OK|chef STIR arms exactly its themed room object
+OPERA2D|OK|chef STIR hotspot art, glow, and touch target do not clip
+OPERA2D|OK|chef STIR keeps its idle object clear of Roshan's body
+OPERA2D|OK|chef BAKE arms exactly its themed room object
+OPERA2D|OK|chef BAKE hotspot art, glow, and touch target do not clip
+OPERA2D|OK|chef BAKE keeps its idle object clear of Roshan's body
+OPERA2D|OK|chef FROST arms exactly its themed room object
+OPERA2D|OK|chef FROST hotspot art, glow, and touch target do not clip
+OPERA2D|OK|chef FROST keeps its idle object clear of Roshan's body
+OPERA2D|OK|chef TOP arms exactly its themed room object
+OPERA2D|OK|chef TOP hotspot art, glow, and touch target do not clip
+OPERA2D|OK|chef TOP keeps its idle object clear of Roshan's body
+OPERA2D|OK|chef re-arms only the next phase object and blocks all others
+OPERA2D|OK|chef safely returns the phase-one invitation after rearm audit
+OPERA2D|OK|chef blocks every inactive room object
+OPERA2D|OK|chef animates its invitation without passive game progress
+OPERA2D|OK|chef cannot open or score a closed task with real gestures
+OPERA2D|OK|chef emulated mouse cannot steal the active touch
+OPERA2D|OK|chef touch drag does not act before release/arrival
+OPERA2D|OK|chef foreign finger cannot commit travel intent
+OPERA2D|OK|chef touch release queues object approach without opening remotely
+OPERA2D|OK|chef cancelled touch clears pending action and movement
+OPERA2D|OK|chef canceled vertical step settles at its clean floor coordinate
+OPERA2D|OK|chef mouse drag release shares touch object approach
+OPERA2D|OK|chef floor retarget cancels previous object intent
+OPERA2D|OK|chef hotspot tap starts an authored route, never the task
+OPERA2D|OK|chef hotspot tap cannot award immediate progress
+OPERA2D|OK|chef stays on authored walkways from tap through arrival
+OPERA2D|OK|chef arrives, plays one object opening, then opens the task
+OPERA2D|OK|chef ignores an extra touch during the object opening flourish
+OPERA2D|OK|chef approach and opening remain passive-safe
+OPERA2D|OK|chef hands input safely from the room to the minigame
+OPERA2D|OK|chef uses a transparent borderless activity focus
+OPERA2D|OK|chef keeps the opened activity and full Mermaid Roshan onscreen
+OPERA2D|OK|chef keeps every visible partner clear of Roshan and the activity
+OPERA2D|OK|chef returns from activity staging to the approached floor socket
+OPERA2D|OK|chef loads the authored magnifier prop
+OPERA2D|OK|chef borderless activity focus never covers animated Roshan
+OPERA2D|OK|chef keeps the rival hidden before its stage contest
+OPERA2D|OK|chef brings in its dressed finale partner
+OPERA2D|OK|chef stages the room-finale partner clear of Roshan and the activity
+OPERA2D|OK|chef finishes on the proscenium stage
+OPERA2D|OK|chef can complete through one-finger phases
+OPERA2D|OK|chef awards a graded crowd reaction
+OPERA2D|OK|chef gives the curtain-call cast distinct stage-local rests
+OPERA2D|OK|chef restores the touch layer on exit
+OPERA2D|OK|detective enters Canvas career world
+OPERA2D|OK|detective uses no 3D children in career play
+OPERA2D|OK|detective builds a scalable code-native career world
+OPERA2D|OK|detective loads Mermaid Roshan's outfit actor
+OPERA2D|OK|detective loads its dressed rival or care partner
+OPERA2D|OK|detective keeps the rival hidden during earlier minigames
+OPERA2D|OK|detective pauses competition scoring before the finale
+OPERA2D|OK|detective has a multi-phase job game
+OPERA2D|OK|detective applies the performance plan only to the three freeplay acts
+OPERA2D|OK|detective starts without passive progress
+OPERA2D|OK|detective opens with its job verb, not the shared brawl
+OPERA2D|OK|detective waits at the room entrance in its costume idle
+OPERA2D|OK|detective costume atlas advances frames
+OPERA2D|OK|detective contains its signature mechanic
+OPERA2D|OK|detective CASE BOARD uses its direct specialist surface
+OPERA2D|OK|detective CROWN uses its direct specialist surface
+OPERA2D|OK|detective exposes every declared direct specialist phase
+OPERA2D|OK|detective CASE BOARD reuses the exact matching voice cue
+OPERA2D|OK|detective CROWN uses its exact spotlight voice cue
+OPERA2D|OK|detective opens with theft then search voice recordings
+OPERA2D|OK|detective avoids copied combat phases
+OPERA2D|OK|detective keeps the stage finale for the job contest
+OPERA2D|OK|detective starts in its job world, off the proscenium
+OPERA2D|OK|detective paints the supplied codex career world
+OPERA2D|OK|detective owns complete stage art
+OPERA2D|OK|detective loads every diegetic phase widget
+OPERA2D|OK|detective widgets remain input-causal with owner-gated completion
+OPERA2D|OK|detective suppresses every retired framed widget backdrop
+OPERA2D|OK|detective keeps a persistent borderless play affordance
+OPERA2D|OK|detective replaces clipboard and beacon textures with the room itself
+OPERA2D|OK|detective exposes one full-room constrained touch layer
+OPERA2D|OK|detective starts with the room available and its task closed
+OPERA2D|OK|detective builds only named physical ActivityHotspot objects
+OPERA2D|OK|detective hotspot invitations are pictorial and never reading-dependent
+OPERA2D|OK|detective SEARCH arms exactly its themed room object
+OPERA2D|OK|detective SEARCH hotspot art, glow, and touch target do not clip
+OPERA2D|OK|detective SEARCH keeps its idle object clear of Roshan's body
+OPERA2D|OK|detective CASE BOARD arms exactly its themed room object
+OPERA2D|OK|detective CASE BOARD hotspot art, glow, and touch target do not clip
+OPERA2D|OK|detective CASE BOARD keeps its idle object clear of Roshan's body
+OPERA2D|OK|detective CROWN arms exactly its themed room object
+OPERA2D|OK|detective CROWN hotspot art, glow, and touch target do not clip
+OPERA2D|OK|detective CROWN keeps its idle object clear of Roshan's body
+OPERA2D|OK|detective re-arms only the next phase object and blocks all others
+OPERA2D|OK|detective safely returns the phase-one invitation after rearm audit
+OPERA2D|OK|detective blocks every inactive room object
+OPERA2D|OK|detective animates its invitation without passive game progress
+OPERA2D|OK|detective cannot open or score a closed task with real gestures
+OPERA2D|OK|detective emulated mouse cannot steal the active touch
+OPERA2D|OK|detective touch drag does not act before release/arrival
+OPERA2D|OK|detective foreign finger cannot commit travel intent
+OPERA2D|OK|detective touch release queues object approach without opening remotely
+OPERA2D|OK|detective cancelled touch clears pending action and movement
+OPERA2D|OK|detective canceled vertical step settles at its clean floor coordinate
+OPERA2D|OK|detective mouse drag release shares touch object approach
+OPERA2D|OK|detective floor retarget cancels previous object intent
+OPERA2D|OK|detective hotspot tap starts an authored route, never the task
+OPERA2D|OK|detective hotspot tap cannot award immediate progress
+OPERA2D|OK|detective stays on authored walkways from tap through arrival
+OPERA2D|OK|detective arrives, plays one object opening, then opens the task
+OPERA2D|OK|detective ignores an extra touch during the object opening flourish
+OPERA2D|OK|detective approach and opening remain passive-safe
+OPERA2D|OK|detective hands input safely from the room to the minigame
+OPERA2D|OK|detective uses a transparent borderless activity focus
+OPERA2D|OK|detective keeps the opened activity and full Mermaid Roshan onscreen
+OPERA2D|OK|detective keeps every visible partner clear of Roshan and the activity
+OPERA2D|OK|detective returns from activity staging to the approached floor socket
+OPERA2D|OK|detective loads the authored magnifier prop
+OPERA2D|OK|detective lens is enlarged around its real glass centre
+OPERA2D|OK|detective lens samples the painted room at true magnification
+OPERA2D|OK|detective room exposes many safe inspection targets
+OPERA2D|OK|detective clamp keeps the complete functional glass onscreen
+OPERA2D|OK|detective glass clamp reaches every shipping clue
+OPERA2D|OK|detective wordless demo travels toward the next unresolved clue
+OPERA2D|OK|ordinary detective props react without solving the case
+OPERA2D|OK|detective glistens one unfound clue after twelve quiet seconds
+OPERA2D|OK|detective imp enters only for the final shared mystery
+OPERA2D|OK|2D detective rival can solve at the 40-second clock
+OPERA2D|OK|2D detective shows the answer then restarts the same guided case
+OPERA2D|OK|detective keeps the rival hidden before its stage contest
+OPERA2D|OK|detective brings in its dressed finale partner
+OPERA2D|OK|detective stages the room-finale partner clear of Roshan and the activity
+OPERA2D|OK|detective finishes on the proscenium stage
+OPERA2D|OK|detective can complete through one-finger phases
+OPERA2D|OK|detective awards a graded crowd reaction
+OPERA2D|OK|detective gives the curtain-call cast distinct stage-local rests
+OPERA2D|OK|detective restores the touch layer on exit
+OPERA2D|OK|ballerina enters Canvas career world
+OPERA2D|OK|ballerina uses no 3D children in career play
+OPERA2D|OK|ballerina builds a scalable code-native career world
+OPERA2D|OK|ballerina loads Mermaid Roshan's outfit actor
+OPERA2D|OK|ballerina loads its dressed rival or care partner
+OPERA2D|OK|ballerina keeps the rival hidden during earlier minigames
+OPERA2D|OK|ballerina pauses competition scoring before the finale
+OPERA2D|OK|ballerina has a multi-phase job game
+OPERA2D|OK|ballerina applies the performance plan only to the three freeplay acts
+OPERA2D|OK|ballerina prepends three practice lessons then repeats its full show
+OPERA2D|OK|ballerina starts without passive progress
+OPERA2D|OK|ballerina opens with its job verb, not the shared brawl
+OPERA2D|OK|ballerina repeats all three specialist lessons from practice on stage
+OPERA2D|OK|ballerina waits at the room entrance in its costume idle
+OPERA2D|OK|ballerina idle is a deliberate held atlas pose
+OPERA2D|OK|ballerina work is a deliberate held atlas pose
+OPERA2D|OK|ballerina show_pose holds the exact requested atlas cell
+OPERA2D|OK|ballerina cheer bows once, rises, and holds its arms-up frame
+OPERA2D|OK|ballerina contains its signature mechanic
+OPERA2D|OK|ballerina PEARL MIRROR uses its direct specialist surface
+OPERA2D|OK|ballerina RIBBON TRAIL uses its direct specialist surface
+OPERA2D|OK|ballerina GRAND TWIRL uses its direct specialist surface
+OPERA2D|OK|ballerina PEARL MIRROR uses its direct specialist surface
+OPERA2D|OK|ballerina RIBBON TRAIL uses its direct specialist surface
+OPERA2D|OK|ballerina GRAND TWIRL uses its direct specialist surface
+OPERA2D|OK|ballerina exposes every declared direct specialist phase
+OPERA2D|OK|ballerina watch cue belongs only to the specialist pearl mirror
+OPERA2D|OK|ballerina clears any lobby voice before its watch instruction
+OPERA2D|OK|ballerina lets each your-turn cue finish before the next phase
+OPERA2D|OK|ballerina avoids copied combat phases
+OPERA2D|OK|ballerina keeps the stage finale for the job contest
+OPERA2D|OK|ballerina begins in its navigable rehearsal room with finale art ready
+OPERA2D|OK|ballerina maps every recital lesson to a painted room object
+OPERA2D|OK|ballerina arms one dedicated surface while its room object waits
+OPERA2D|OK|ballerina recital maps heart, open, and crown atlas poses in order
+OPERA2D|OK|ballerina idle replay waits until Mirror hands the turn back
+OPERA2D|OK|ballerina hides progress chrome, race bars, and the rival in practice
+OPERA2D|OK|ballerina paints the supplied codex career world
+OPERA2D|OK|ballerina owns complete stage art
+OPERA2D|OK|ballerina loads every diegetic phase widget
+OPERA2D|OK|ballerina widgets remain input-causal with owner-gated completion
+OPERA2D|OK|ballerina suppresses every retired framed widget backdrop
+OPERA2D|OK|ballerina keeps a persistent borderless play affordance
+OPERA2D|OK|ballerina replaces clipboard and beacon textures with the room itself
+OPERA2D|OK|ballerina exposes one full-room constrained touch layer
+OPERA2D|OK|ballerina starts with the room available and its task closed
+OPERA2D|OK|ballerina builds only named physical ActivityHotspot objects
+OPERA2D|OK|ballerina hotspot invitations are pictorial and never reading-dependent
+OPERA2D|OK|ballerina PEARL MIRROR arms exactly its themed room object
+OPERA2D|OK|ballerina PEARL MIRROR hotspot art, glow, and touch target do not clip
+OPERA2D|OK|ballerina PEARL MIRROR keeps its idle object clear of Roshan's body
+OPERA2D|OK|ballerina RIBBON TRAIL arms exactly its themed room object
+OPERA2D|OK|ballerina RIBBON TRAIL hotspot art, glow, and touch target do not clip
+OPERA2D|OK|ballerina RIBBON TRAIL keeps its idle object clear of Roshan's body
+OPERA2D|OK|ballerina GRAND TWIRL arms exactly its themed room object
+OPERA2D|OK|ballerina GRAND TWIRL hotspot art, glow, and touch target do not clip
+OPERA2D|OK|ballerina GRAND TWIRL keeps its idle object clear of Roshan's body
+OPERA2D|OK|ballerina PEARL MIRROR auto-opens on the painted Opera stage
+OPERA2D|OK|ballerina PEARL MIRROR removes every rehearsal-room hotspot from the stage
+OPERA2D|OK|ballerina RIBBON TRAIL auto-opens on the painted Opera stage
+OPERA2D|OK|ballerina RIBBON TRAIL removes every rehearsal-room hotspot from the stage
+OPERA2D|OK|ballerina GRAND TWIRL auto-opens on the painted Opera stage
+OPERA2D|OK|ballerina GRAND TWIRL removes every rehearsal-room hotspot from the stage
+OPERA2D|OK|ballerina re-arms only the next phase object and blocks all others
+OPERA2D|OK|ballerina safely returns the phase-one invitation after rearm audit
+OPERA2D|OK|ballerina blocks every inactive room object
+OPERA2D|OK|ballerina animates its invitation without passive game progress
+OPERA2D|OK|ballerina cannot open or score a closed task with real gestures
+OPERA2D|OK|ballerina emulated mouse cannot steal the active touch
+OPERA2D|OK|ballerina touch drag does not act before release/arrival
+OPERA2D|OK|ballerina foreign finger cannot commit travel intent
+OPERA2D|OK|ballerina touch release queues object approach without opening remotely
+OPERA2D|OK|ballerina cancelled touch clears pending action and movement
+OPERA2D|OK|ballerina canceled vertical step settles at its clean floor coordinate
+OPERA2D|OK|ballerina mouse drag release shares touch object approach
+OPERA2D|OK|ballerina floor retarget cancels previous object intent
+OPERA2D|OK|ballerina hotspot tap starts an authored route, never the task
+OPERA2D|OK|ballerina hotspot tap cannot award immediate progress
+OPERA2D|OK|ballerina stays on authored walkways from tap through arrival
+OPERA2D|OK|ballerina arrives, plays one object opening, then opens the task
+OPERA2D|OK|ballerina ignores an extra touch during the object opening flourish
+OPERA2D|OK|ballerina approach and opening remain passive-safe
+OPERA2D|OK|ballerina hands input safely from the room to the minigame
+OPERA2D|OK|ballerina uses a transparent borderless activity focus
+OPERA2D|OK|ballerina keeps the opened activity and full Mermaid Roshan onscreen
+OPERA2D|OK|ballerina keeps every visible partner clear of Roshan and the activity
+OPERA2D|OK|ballerina returns from activity staging to the approached floor socket
+OPERA2D|OK|ballerina object opens its large borderless recital surface
+OPERA2D|OK|ballerina loads the authored magnifier prop
+OPERA2D|OK|ballerina borderless activity focus never covers animated Roshan
+OPERA2D|OK|ballerina keeps the rival hidden before its stage contest
+OPERA2D|OK|ballerina stages its actual recital rival for the performance
+OPERA2D|OK|ballerina finishes on the proscenium stage
+OPERA2D|OK|ballerina can complete through one-finger phases
+OPERA2D|OK|ballerina awards a graded crowd reaction
+OPERA2D|OK|ballerina gives the curtain-call cast distinct stage-local rests
+OPERA2D|OK|ballerina restores the touch layer on exit
+OPERA2D|OK|candymaker enters Canvas career world
+OPERA2D|OK|candymaker uses no 3D children in career play
+OPERA2D|OK|candymaker builds a scalable code-native career world
+OPERA2D|OK|candymaker loads Mermaid Roshan's outfit actor
+OPERA2D|OK|candymaker loads its dressed rival or care partner
+OPERA2D|OK|candymaker keeps the rival hidden during earlier minigames
+OPERA2D|OK|candymaker pauses competition scoring before the finale
+OPERA2D|OK|candymaker has a multi-phase job game
+OPERA2D|OK|candymaker applies the performance plan only to the three freeplay acts
+OPERA2D|OK|candymaker starts without passive progress
+OPERA2D|OK|candymaker opens with its job verb, not the shared brawl
+OPERA2D|OK|candymaker waits at the room entrance in its costume idle
+OPERA2D|OK|candymaker costume atlas advances frames
+OPERA2D|OK|candymaker contains its signature mechanic
+OPERA2D|OK|candymaker WRAP finishes in 1.5 to 2.2 rotations
+OPERA2D|OK|candymaker retains its thematic rotation verb
+OPERA2D|OK|candymaker SYRUP requires the full five-point pour
+OPERA2D|OK|Pixel 10 keeps candymaker SYRUP card and grab inside the fitted stage
+OPERA2D|OK|candymaker remains an empty-mold pour until the actual brim
+OPERA2D|OK|candymaker SYRUP selects its authored completion picture
+OPERA2D|OK|candymaker real SYRUP hold completes its connected world
+OPERA2D|OK|candymaker authored completion spawns no shared abstract burst
+OPERA2D|OK|candymaker success hold rights its visibly empty ladle
+OPERA2D|OK|candymaker brim advances cleanly to SORT without a stale ladle
+OPERA2D|OK|candymaker avoids copied combat phases
+OPERA2D|OK|candymaker keeps the stage finale for the job contest
+OPERA2D|OK|candymaker starts in its job world, off the proscenium
+OPERA2D|OK|candymaker paints the supplied codex career world
+OPERA2D|OK|candymaker owns complete stage art
+OPERA2D|OK|candymaker SHARE places pieces on authored surface anchors
+OPERA2D|OK|candymaker loads every diegetic phase widget
+OPERA2D|OK|candymaker widgets remain input-causal with owner-gated completion
+OPERA2D|OK|candymaker suppresses every retired framed widget backdrop
+OPERA2D|OK|candymaker keeps a persistent borderless play affordance
+OPERA2D|OK|candymaker replaces clipboard and beacon textures with the room itself
+OPERA2D|OK|candymaker exposes one full-room constrained touch layer
+OPERA2D|OK|candymaker starts with the room available and its task closed
+OPERA2D|OK|candymaker builds only named physical ActivityHotspot objects
+OPERA2D|OK|candymaker hotspot invitations are pictorial and never reading-dependent
+OPERA2D|OK|candymaker SYRUP arms exactly its themed room object
+OPERA2D|OK|candymaker SYRUP hotspot art, glow, and touch target do not clip
+OPERA2D|OK|candymaker SYRUP keeps its idle object clear of Roshan's body
+OPERA2D|OK|candymaker SORT arms exactly its themed room object
+OPERA2D|OK|candymaker SORT hotspot art, glow, and touch target do not clip
+OPERA2D|OK|candymaker SORT keeps its idle object clear of Roshan's body
+OPERA2D|OK|candymaker WRAP arms exactly its themed room object
+OPERA2D|OK|candymaker WRAP hotspot art, glow, and touch target do not clip
+OPERA2D|OK|candymaker WRAP keeps its idle object clear of Roshan's body
+OPERA2D|OK|candymaker SHARE arms exactly its themed room object
+OPERA2D|OK|candymaker SHARE hotspot art, glow, and touch target do not clip
+OPERA2D|OK|candymaker SHARE keeps its idle object clear of Roshan's body
+OPERA2D|OK|candymaker re-arms only the next phase object and blocks all others
+OPERA2D|OK|candymaker safely returns the phase-one invitation after rearm audit
+OPERA2D|OK|candymaker blocks every inactive room object
+OPERA2D|OK|candymaker animates its invitation without passive game progress
+OPERA2D|OK|candymaker cannot open or score a closed task with real gestures
+OPERA2D|OK|candymaker emulated mouse cannot steal the active touch
+OPERA2D|OK|candymaker touch drag does not act before release/arrival
+OPERA2D|OK|candymaker foreign finger cannot commit travel intent
+OPERA2D|OK|candymaker touch release queues object approach without opening remotely
+OPERA2D|OK|candymaker cancelled touch clears pending action and movement
+OPERA2D|OK|candymaker canceled vertical step settles at its clean floor coordinate
+OPERA2D|OK|candymaker mouse drag release shares touch object approach
+OPERA2D|OK|candymaker floor retarget cancels previous object intent
+OPERA2D|OK|candymaker hotspot tap starts an authored route, never the task
+OPERA2D|OK|candymaker hotspot tap cannot award immediate progress
+OPERA2D|OK|candymaker stays on authored walkways from tap through arrival
+OPERA2D|OK|candymaker arrives, plays one object opening, then opens the task
+OPERA2D|OK|candymaker ignores an extra touch during the object opening flourish
+OPERA2D|OK|candymaker approach and opening remain passive-safe
+OPERA2D|OK|candymaker hands input safely from the room to the minigame
+OPERA2D|OK|candymaker uses a transparent borderless activity focus
+OPERA2D|OK|candymaker keeps the opened activity and full Mermaid Roshan onscreen
+OPERA2D|OK|candymaker keeps every visible partner clear of Roshan and the activity
+OPERA2D|OK|candymaker returns from activity staging to the approached floor socket
+OPERA2D|OK|candymaker loads the authored magnifier prop
+OPERA2D|OK|candymaker borderless activity focus never covers animated Roshan
+OPERA2D|OK|candymaker keeps the rival hidden before its stage contest
+OPERA2D|OK|candymaker brings in its dressed finale partner
+OPERA2D|OK|candymaker stages the room-finale partner clear of Roshan and the activity
+OPERA2D|OK|candymaker finishes on the proscenium stage
+OPERA2D|OK|candymaker can complete through one-finger phases
+OPERA2D|OK|candymaker awards a graded crowd reaction
+OPERA2D|OK|candymaker gives the curtain-call cast distinct stage-local rests
+OPERA2D|OK|candymaker restores the touch layer on exit
+OPERA2D|OK|doctor enters Canvas career world
+OPERA2D|OK|doctor uses no 3D children in career play
+OPERA2D|OK|doctor builds a scalable code-native career world
+OPERA2D|OK|doctor loads Mermaid Roshan's outfit actor
+OPERA2D|OK|doctor loads its dressed rival or care partner
+OPERA2D|OK|doctor keeps the rival hidden during earlier minigames
+OPERA2D|OK|doctor pauses competition scoring before the finale
+OPERA2D|OK|doctor has a multi-phase job game
+OPERA2D|OK|doctor applies the performance plan only to the three freeplay acts
+OPERA2D|OK|doctor starts without passive progress
+OPERA2D|OK|doctor opens with its job verb, not the shared brawl
+OPERA2D|OK|doctor waits at the room entrance in its costume idle
+OPERA2D|OK|doctor costume atlas advances frames
+OPERA2D|OK|doctor contains its signature mechanic
+OPERA2D|OK|doctor CAST finishes in 1.5 to 2.2 rotations
+OPERA2D|OK|doctor retains its thematic rotation verb
+OPERA2D|OK|doctor FIND visibly cues its next correct choice
+OPERA2D|OK|doctor X-RAY resolves to the thematic exam_booth landmark
+OPERA2D|OK|doctor avoids copied combat phases
+OPERA2D|OK|doctor keeps the stage finale for the job contest
+OPERA2D|OK|doctor starts in its job world, off the proscenium
+OPERA2D|OK|doctor paints the supplied codex career world
+OPERA2D|OK|doctor owns complete stage art
+OPERA2D|OK|doctor loads every diegetic phase widget
+OPERA2D|OK|doctor widgets remain input-causal with owner-gated completion
+OPERA2D|OK|doctor suppresses every retired framed widget backdrop
+OPERA2D|OK|doctor keeps a persistent borderless play affordance
+OPERA2D|OK|doctor replaces clipboard and beacon textures with the room itself
+OPERA2D|OK|doctor exposes one full-room constrained touch layer
+OPERA2D|OK|doctor starts with the room available and its task closed
+OPERA2D|OK|doctor builds only named physical ActivityHotspot objects
+OPERA2D|OK|doctor hotspot invitations are pictorial and never reading-dependent
+OPERA2D|OK|doctor WASH arms exactly its themed room object
+OPERA2D|OK|doctor WASH hotspot art, glow, and touch target do not clip
+OPERA2D|OK|doctor WASH keeps its idle object clear of Roshan's body
+OPERA2D|OK|doctor FIND arms exactly its themed room object
+OPERA2D|OK|doctor FIND hotspot art, glow, and touch target do not clip
+OPERA2D|OK|doctor FIND keeps its idle object clear of Roshan's body
+OPERA2D|OK|doctor X-RAY arms exactly its themed room object
+OPERA2D|OK|doctor X-RAY hotspot art, glow, and touch target do not clip
+OPERA2D|OK|doctor X-RAY keeps its idle object clear of Roshan's body
+OPERA2D|OK|doctor CAST arms exactly its themed room object
+OPERA2D|OK|doctor CAST hotspot art, glow, and touch target do not clip
+OPERA2D|OK|doctor CAST keeps its idle object clear of Roshan's body
+OPERA2D|OK|doctor BANDAGE arms exactly its themed room object
+OPERA2D|OK|doctor BANDAGE hotspot art, glow, and touch target do not clip
+OPERA2D|OK|doctor BANDAGE keeps its idle object clear of Roshan's body
+OPERA2D|OK|doctor re-arms only the next phase object and blocks all others
+OPERA2D|OK|doctor safely returns the phase-one invitation after rearm audit
+OPERA2D|OK|doctor blocks every inactive room object
+OPERA2D|OK|doctor animates its invitation without passive game progress
+OPERA2D|OK|doctor cannot open or score a closed task with real gestures
+OPERA2D|OK|doctor emulated mouse cannot steal the active touch
+OPERA2D|OK|doctor touch drag does not act before release/arrival
+OPERA2D|OK|doctor foreign finger cannot commit travel intent
+OPERA2D|OK|doctor touch release queues object approach without opening remotely
+OPERA2D|OK|doctor cancelled touch clears pending action and movement
+OPERA2D|OK|doctor canceled vertical step settles at its clean floor coordinate
+OPERA2D|OK|doctor mouse drag release shares touch object approach
+OPERA2D|OK|doctor floor retarget cancels previous object intent
+OPERA2D|OK|doctor hotspot tap starts an authored route, never the task
+OPERA2D|OK|doctor hotspot tap cannot award immediate progress
+OPERA2D|OK|doctor stays on authored walkways from tap through arrival
+OPERA2D|OK|doctor arrives, plays one object opening, then opens the task
+OPERA2D|OK|doctor ignores an extra touch during the object opening flourish
+OPERA2D|OK|doctor approach and opening remain passive-safe
+OPERA2D|OK|doctor hands input safely from the room to the minigame
+OPERA2D|OK|doctor uses a transparent borderless activity focus
+OPERA2D|OK|doctor keeps the opened activity and full Mermaid Roshan onscreen
+OPERA2D|OK|doctor keeps every visible partner clear of Roshan and the activity
+OPERA2D|OK|doctor returns from activity staging to the approached floor socket
+OPERA2D|OK|doctor loads the authored magnifier prop
+OPERA2D|OK|doctor borderless activity focus never covers animated Roshan
+OPERA2D|OK|doctor WASH retains its reviewed work prop across input and time
+OPERA2D|OK|doctor FIND retains its reviewed work prop across input and time
+OPERA2D|OK|doctor X-RAY retains its reviewed work prop across input and time
+OPERA2D|OK|doctor CAST retains its reviewed work prop across input and time
+OPERA2D|OK|doctor BANDAGE retains its reviewed work prop across input and time
+OPERA2D|OK|doctor keeps the rival hidden before its stage contest
+OPERA2D|OK|doctor brings in its dressed finale partner
+OPERA2D|OK|doctor stages the room-finale partner clear of Roshan and the activity
+OPERA2D|OK|doctor finishes on the proscenium stage
+OPERA2D|OK|doctor can complete through one-finger phases
+OPERA2D|OK|doctor awards a graded crowd reaction
+OPERA2D|OK|doctor gives the curtain-call cast distinct stage-local rests
+OPERA2D|OK|doctor restores the touch layer on exit
+OPERA2D|OK|farmer enters Canvas career world
+OPERA2D|OK|farmer uses no 3D children in career play
+OPERA2D|OK|farmer builds a scalable code-native career world
+OPERA2D|OK|farmer loads Mermaid Roshan's outfit actor
+OPERA2D|OK|farmer loads its dressed rival or care partner
+OPERA2D|OK|farmer keeps the rival hidden during earlier minigames
+OPERA2D|OK|farmer pauses competition scoring before the finale
+OPERA2D|OK|farmer has a multi-phase job game
+OPERA2D|OK|farmer applies the performance plan only to the three freeplay acts
+OPERA2D|OK|farmer starts without passive progress
+OPERA2D|OK|farmer opens with its job verb, not the shared brawl
+OPERA2D|OK|farmer waits at the room entrance in its costume idle
+OPERA2D|OK|farmer costume atlas advances frames
+OPERA2D|OK|farmer contains its signature mechanic
+OPERA2D|OK|farmer PICNIC gives one unique snack to each of three piggies
+OPERA2D|OK|farmer PLANT uses its direct specialist surface
+OPERA2D|OK|farmer exposes every declared direct specialist phase
+OPERA2D|OK|farmer TOSS resolves to the thematic hay_bales landmark
+OPERA2D|OK|farmer avoids copied combat phases
+OPERA2D|OK|farmer keeps the stage finale for the job contest
+OPERA2D|OK|farmer starts in its job world, off the proscenium
+OPERA2D|OK|farmer paints the supplied codex career world
+OPERA2D|OK|farmer owns complete stage art
+OPERA2D|OK|farmer PICNIC places pieces on authored surface anchors
+OPERA2D|OK|farmer loads every diegetic phase widget
+OPERA2D|OK|farmer widgets remain input-causal with owner-gated completion
+OPERA2D|OK|farmer suppresses every retired framed widget backdrop
+OPERA2D|OK|farmer keeps a persistent borderless play affordance
+OPERA2D|OK|farmer replaces clipboard and beacon textures with the room itself
+OPERA2D|OK|farmer exposes one full-room constrained touch layer
+OPERA2D|OK|farmer starts with the room available and its task closed
+OPERA2D|OK|farmer builds only named physical ActivityHotspot objects
+OPERA2D|OK|farmer hotspot invitations are pictorial and never reading-dependent
+OPERA2D|OK|farmer PLANT arms exactly its themed room object
+OPERA2D|OK|farmer PLANT hotspot art, glow, and touch target do not clip
+OPERA2D|OK|farmer PLANT keeps its idle object clear of Roshan's body
+OPERA2D|OK|farmer TOSS arms exactly its themed room object
+OPERA2D|OK|farmer TOSS hotspot art, glow, and touch target do not clip
+OPERA2D|OK|farmer TOSS keeps its idle object clear of Roshan's body
+OPERA2D|OK|farmer HERD arms exactly its themed room object
+OPERA2D|OK|farmer HERD hotspot art, glow, and touch target do not clip
+OPERA2D|OK|farmer HERD keeps its idle object clear of Roshan's body
+OPERA2D|OK|farmer PICNIC arms exactly its themed room object
+OPERA2D|OK|farmer PICNIC hotspot art, glow, and touch target do not clip
+OPERA2D|OK|farmer PICNIC keeps its idle object clear of Roshan's body
+OPERA2D|OK|farmer re-arms only the next phase object and blocks all others
+OPERA2D|OK|farmer safely returns the phase-one invitation after rearm audit
+OPERA2D|OK|farmer blocks every inactive room object
+OPERA2D|OK|farmer animates its invitation without passive game progress
+OPERA2D|OK|farmer cannot open or score a closed task with real gestures
+OPERA2D|OK|farmer emulated mouse cannot steal the active touch
+OPERA2D|OK|farmer touch drag does not act before release/arrival
+OPERA2D|OK|farmer foreign finger cannot commit travel intent
+OPERA2D|OK|farmer touch release queues object approach without opening remotely
+OPERA2D|OK|farmer cancelled touch clears pending action and movement
+OPERA2D|OK|farmer canceled vertical step settles at its clean floor coordinate
+OPERA2D|OK|farmer mouse drag release shares touch object approach
+OPERA2D|OK|farmer floor retarget cancels previous object intent
+OPERA2D|OK|farmer hotspot tap starts an authored route, never the task
+OPERA2D|OK|farmer hotspot tap cannot award immediate progress
+OPERA2D|OK|farmer stays on authored walkways from tap through arrival
+OPERA2D|OK|farmer arrives, plays one object opening, then opens the task
+OPERA2D|OK|farmer ignores an extra touch during the object opening flourish
+OPERA2D|OK|farmer approach and opening remain passive-safe
+OPERA2D|OK|farmer hands input safely from the room to the minigame
+OPERA2D|OK|farmer uses a transparent borderless activity focus
+OPERA2D|OK|farmer keeps the opened activity and full Mermaid Roshan onscreen
+OPERA2D|OK|farmer keeps every visible partner clear of Roshan and the activity
+OPERA2D|OK|farmer returns from activity staging to the approached floor socket
+OPERA2D|OK|farmer loads the authored magnifier prop
+OPERA2D|OK|farmer borderless activity focus never covers animated Roshan
+OPERA2D|OK|farmer PLANT retains its reviewed work prop across input and time
+OPERA2D|OK|farmer TOSS retains its reviewed work prop across input and time
+OPERA2D|OK|farmer HERD retains its reviewed work prop across input and time
+OPERA2D|OK|farmer PICNIC retains its reviewed work prop across input and time
+OPERA2D|OK|farmer keeps the rival hidden before its stage contest
+OPERA2D|OK|farmer brings in its dressed finale partner
+OPERA2D|OK|farmer stages the room-finale partner clear of Roshan and the activity
+OPERA2D|OK|farmer finishes on the proscenium stage
+OPERA2D|OK|farmer can complete through one-finger phases
+OPERA2D|OK|farmer awards a graded crowd reaction
+OPERA2D|OK|farmer gives the curtain-call cast distinct stage-local rests
+OPERA2D|OK|farmer restores the touch layer on exit
+OPERA2D|OK|boxer enters Canvas career world
+OPERA2D|OK|boxer uses no 3D children in career play
+OPERA2D|OK|boxer builds a scalable code-native career world
+OPERA2D|OK|boxer loads Mermaid Roshan's outfit actor
+OPERA2D|OK|boxer loads its dressed rival or care partner
+OPERA2D|OK|boxer keeps the rival hidden during earlier minigames
+OPERA2D|OK|boxer pauses competition scoring before the finale
+OPERA2D|OK|boxer has a multi-phase job game
+OPERA2D|OK|boxer applies the performance plan only to the three freeplay acts
+OPERA2D|OK|boxer starts without passive progress
+OPERA2D|OK|boxer opens with its job verb, not the shared brawl
+OPERA2D|OK|boxer waits at the room entrance in its costume idle
+OPERA2D|OK|boxer costume atlas advances frames
+OPERA2D|OK|boxer contains its signature mechanic
+OPERA2D|OK|boxer replaces every generic card and brawl with five glove modes
+OPERA2D|OK|boxer phase goals match every specialist glove round
+OPERA2D|OK|boxer preserves the exact five recorded instruction cues
+OPERA2D|OK|boxer waits in its room with a dedicated two-glove surface armed
+OPERA2D|OK|boxer teaches three drills before its one-imp finale
+OPERA2D|OK|every boxer drill and finale has recorded and visible instruction
+OPERA2D|OK|thirty idle seconds never land a glove or finish a boxing mode
+OPERA2D|OK|crossed fingers keep independent left and right glove ownership
+OPERA2D|OK|releasing one glove leaves the other finger in control
+OPERA2D|OK|one finger can alternate and finish both floating glove lessons
+OPERA2D|OK|one forward extension latches to exactly one accepted jab
+OPERA2D|OK|friendly hits are cosmetic across surface, career, contest, and save state
+OPERA2D|OK|boxing cancellation returns both gloves to guard with no owner
+OPERA2D|OK|boxer avoids copied combat phases
+OPERA2D|OK|boxer keeps the stage finale for the job contest
+OPERA2D|OK|boxer starts in its job world, off the proscenium
+OPERA2D|OK|boxer paints the supplied codex career world
+OPERA2D|OK|boxer owns complete stage art
+OPERA2D|OK|boxer loads every diegetic phase widget
+OPERA2D|OK|boxer widgets remain input-causal with owner-gated completion
+OPERA2D|OK|boxer suppresses every retired framed widget backdrop
+OPERA2D|OK|boxer keeps a persistent borderless play affordance
+OPERA2D|OK|boxer replaces clipboard and beacon textures with the room itself
+OPERA2D|OK|boxer exposes one full-room constrained touch layer
+OPERA2D|OK|boxer starts with the room available and its task closed
+OPERA2D|OK|boxer builds only named physical ActivityHotspot objects
+OPERA2D|OK|boxer hotspot invitations are pictorial and never reading-dependent
+OPERA2D|OK|boxer GLOVE GUIDE arms exactly its themed room object
+OPERA2D|OK|boxer GLOVE GUIDE hotspot art, glow, and touch target do not clip
+OPERA2D|OK|boxer GLOVE GUIDE keeps its idle object clear of Roshan's body
+OPERA2D|OK|boxer JAB PRACTICE arms exactly its themed room object
+OPERA2D|OK|boxer JAB PRACTICE hotspot art, glow, and touch target do not clip
+OPERA2D|OK|boxer JAB PRACTICE keeps its idle object clear of Roshan's body
+OPERA2D|OK|boxer SOFT GUARD arms exactly its themed room object
+OPERA2D|OK|boxer SOFT GUARD hotspot art, glow, and touch target do not clip
+OPERA2D|OK|boxer SOFT GUARD keeps its idle object clear of Roshan's body
+OPERA2D|OK|boxer TITLE IMP arms exactly its themed room object
+OPERA2D|OK|boxer TITLE IMP hotspot art, glow, and touch target do not clip
+OPERA2D|OK|boxer TITLE IMP keeps its idle object clear of Roshan's body
+OPERA2D|OK|boxer BELT arms exactly its themed room object
+OPERA2D|OK|boxer BELT hotspot art, glow, and touch target do not clip
+OPERA2D|OK|boxer BELT keeps its idle object clear of Roshan's body
+OPERA2D|OK|boxer re-arms only the next phase object and blocks all others
+OPERA2D|OK|boxer safely returns the phase-one invitation after rearm audit
+OPERA2D|OK|boxer blocks every inactive room object
+OPERA2D|OK|boxer animates its invitation without passive game progress
+OPERA2D|OK|boxer cannot open or score a closed task with real gestures
+OPERA2D|OK|boxer emulated mouse cannot steal the active touch
+OPERA2D|OK|boxer touch drag does not act before release/arrival
+OPERA2D|OK|boxer foreign finger cannot commit travel intent
+OPERA2D|OK|boxer touch release queues object approach without opening remotely
+OPERA2D|OK|boxer cancelled touch clears pending action and movement
+OPERA2D|OK|boxer canceled vertical step settles at its clean floor coordinate
+OPERA2D|OK|boxer mouse drag release shares touch object approach
+OPERA2D|OK|boxer floor retarget cancels previous object intent
+OPERA2D|OK|boxer hotspot tap starts an authored route, never the task
+OPERA2D|OK|boxer hotspot tap cannot award immediate progress
+OPERA2D|OK|boxer stays on authored walkways from tap through arrival
+OPERA2D|OK|boxer arrives, plays one object opening, then opens the task
+OPERA2D|OK|boxer ignores an extra touch during the object opening flourish
+OPERA2D|OK|boxer approach and opening remain passive-safe
+OPERA2D|OK|boxer hands input safely from the room to the minigame
+OPERA2D|OK|boxer uses a transparent borderless activity focus
+OPERA2D|OK|boxer keeps the opened activity and full Mermaid Roshan onscreen
+OPERA2D|OK|boxer keeps every visible partner clear of Roshan and the activity
+OPERA2D|OK|boxer returns from activity staging to the approached floor socket
+OPERA2D|OK|boxer object opens its full-room two-glove view
+OPERA2D|OK|boxer loads the authored magnifier prop
+OPERA2D|OK|boxer keeps the rival hidden before its stage contest
+OPERA2D|OK|boxer finale uses one specialist padded imp, then a safe curtain call
+OPERA2D|OK|boxer finishes on the proscenium stage
+OPERA2D|OK|boxer can complete through one-finger phases
+OPERA2D|OK|boxer awards a graded crowd reaction
+OPERA2D|OK|boxer gives the curtain-call cast distinct stage-local rests
+OPERA2D|OK|boxer close clears live finger claims before freeing its surface
+OPERA2D|OK|boxer restores the touch layer on exit
+OPERA2D|OK|magician enters Canvas career world
+OPERA2D|OK|magician uses no 3D children in career play
+OPERA2D|OK|magician builds a scalable code-native career world
+OPERA2D|OK|magician loads Mermaid Roshan's outfit actor
+OPERA2D|OK|magician loads its dressed rival or care partner
+OPERA2D|OK|magician keeps the rival hidden during earlier minigames
+OPERA2D|OK|magician pauses competition scoring before the finale
+OPERA2D|OK|magician has a multi-phase job game
+OPERA2D|OK|magician applies the performance plan only to the three freeplay acts
+OPERA2D|OK|magician prepends three practice lessons then repeats its full show
+OPERA2D|OK|magician starts without passive progress
+OPERA2D|OK|magician opens with its job verb, not the shared brawl
+OPERA2D|OK|magician waits at the room entrance in its costume idle
+OPERA2D|OK|magician costume atlas advances frames
+OPERA2D|OK|magician contains its signature mechanic
+OPERA2D|OK|magician VANISH uses its direct specialist surface
+OPERA2D|OK|magician VANISH uses its direct specialist surface
+OPERA2D|OK|magician CABINET uses its direct specialist surface
+OPERA2D|OK|magician exposes every declared direct specialist phase
+OPERA2D|OK|magician PORTAL finishes in 1.5 to 2.2 rotations
+OPERA2D|OK|magician retains its thematic rotation verb
+OPERA2D|OK|magician TRACK visibly cues its next correct choice
+OPERA2D|OK|magician TRACK starts a fresh shuffle after every accepted hat
+OPERA2D|OK|magician TRACK visibly cues its next correct choice
+OPERA2D|OK|magician TRACK starts a fresh shuffle after every accepted hat
+OPERA2D|OK|magician avoids copied combat phases
+OPERA2D|OK|magician keeps the stage finale for the job contest
+OPERA2D|OK|magician starts in its job world, off the proscenium
+OPERA2D|OK|magician paints the supplied codex career world
+OPERA2D|OK|magician owns complete stage art
+OPERA2D|OK|magician loads every diegetic phase widget
+OPERA2D|OK|magician widgets remain input-causal with owner-gated completion
+OPERA2D|OK|magician suppresses every retired framed widget backdrop
+OPERA2D|OK|magician keeps a persistent borderless play affordance
+OPERA2D|OK|magician replaces clipboard and beacon textures with the room itself
+OPERA2D|OK|magician exposes one full-room constrained touch layer
+OPERA2D|OK|magician starts with the room available and its task closed
+OPERA2D|OK|magician builds only named physical ActivityHotspot objects
+OPERA2D|OK|magician hotspot invitations are pictorial and never reading-dependent
+OPERA2D|OK|magician VANISH arms exactly its themed room object
+OPERA2D|OK|magician VANISH hotspot art, glow, and touch target do not clip
+OPERA2D|OK|magician VANISH keeps its idle object clear of Roshan's body
+OPERA2D|OK|magician TRACK arms exactly its themed room object
+OPERA2D|OK|magician TRACK hotspot art, glow, and touch target do not clip
+OPERA2D|OK|magician TRACK keeps its idle object clear of Roshan's body
+OPERA2D|OK|magician ROPE arms exactly its themed room object
+OPERA2D|OK|magician ROPE hotspot art, glow, and touch target do not clip
+OPERA2D|OK|magician ROPE keeps its idle object clear of Roshan's body
+OPERA2D|OK|magician VANISH auto-opens on the painted Opera stage
+OPERA2D|OK|magician VANISH removes every rehearsal-room hotspot from the stage
+OPERA2D|OK|magician TRACK auto-opens on the painted Opera stage
+OPERA2D|OK|magician TRACK removes every rehearsal-room hotspot from the stage
+OPERA2D|OK|magician ROPE auto-opens on the painted Opera stage
+OPERA2D|OK|magician ROPE removes every rehearsal-room hotspot from the stage
+OPERA2D|OK|magician CABINET auto-opens on the painted Opera stage
+OPERA2D|OK|magician CABINET removes every rehearsal-room hotspot from the stage
+OPERA2D|OK|magician PORTAL auto-opens on the painted Opera stage
+OPERA2D|OK|magician PORTAL removes every rehearsal-room hotspot from the stage
+OPERA2D|OK|magician re-arms only the next phase object and blocks all others
+OPERA2D|OK|magician safely returns the phase-one invitation after rearm audit
+OPERA2D|OK|magician blocks every inactive room object
+OPERA2D|OK|magician animates its invitation without passive game progress
+OPERA2D|OK|magician cannot open or score a closed task with real gestures
+OPERA2D|OK|magician emulated mouse cannot steal the active touch
+OPERA2D|OK|magician touch drag does not act before release/arrival
+OPERA2D|OK|magician foreign finger cannot commit travel intent
+OPERA2D|OK|magician touch release queues object approach without opening remotely
+OPERA2D|OK|magician cancelled touch clears pending action and movement
+OPERA2D|OK|magician canceled vertical step settles at its clean floor coordinate
+OPERA2D|OK|magician mouse drag release shares touch object approach
+OPERA2D|OK|magician floor retarget cancels previous object intent
+OPERA2D|OK|magician hotspot tap starts an authored route, never the task
+OPERA2D|OK|magician hotspot tap cannot award immediate progress
+OPERA2D|OK|magician stays on authored walkways from tap through arrival
+OPERA2D|OK|magician arrives, plays one object opening, then opens the task
+OPERA2D|OK|magician ignores an extra touch during the object opening flourish
+OPERA2D|OK|magician approach and opening remain passive-safe
+OPERA2D|OK|magician hands input safely from the room to the minigame
+OPERA2D|OK|magician uses a transparent borderless activity focus
+OPERA2D|OK|magician keeps the opened activity and full Mermaid Roshan onscreen
+OPERA2D|OK|magician keeps every visible partner clear of Roshan and the activity
+OPERA2D|OK|magician returns from activity staging to the approached floor socket
+OPERA2D|OK|magician loads the authored magnifier prop
+OPERA2D|OK|magician borderless activity focus never covers animated Roshan
+OPERA2D|OK|magician practice VANISH holds its semantic Hall pose without credit
+OPERA2D|OK|magician practice TRACK holds its semantic Hall pose without credit
+OPERA2D|OK|magician practice ROPE holds its semantic Hall pose without credit
+OPERA2D|OK|magician stage VANISH holds its semantic Hall pose without credit
+OPERA2D|OK|magician stage TRACK holds its semantic Hall pose without credit
+OPERA2D|OK|magician stage ROPE holds its semantic Hall pose without credit
+OPERA2D|OK|magician stage CABINET holds its semantic Hall pose without credit
+OPERA2D|OK|magician stage PORTAL holds its semantic Hall pose without credit
+OPERA2D|OK|magician keeps the rival hidden before its stage contest
+OPERA2D|OK|magician brings in its dressed finale partner
+OPERA2D|OK|magician stages the room-finale partner clear of Roshan and the activity
+OPERA2D|OK|magician finishes on the proscenium stage
+OPERA2D|OK|magician can complete through one-finger phases
+OPERA2D|OK|magician awards a graded crowd reaction
+OPERA2D|OK|magician gives the curtain-call cast distinct stage-local rests
+OPERA2D|OK|magician restores the touch layer on exit
+OPERA2D|OK|painter enters Canvas career world
+OPERA2D|OK|painter uses no 3D children in career play
+OPERA2D|OK|painter builds a scalable code-native career world
+OPERA2D|OK|painter loads Mermaid Roshan's outfit actor
+OPERA2D|OK|painter loads its dressed rival or care partner
+OPERA2D|OK|painter keeps the rival hidden during earlier minigames
+OPERA2D|OK|painter pauses competition scoring before the finale
+OPERA2D|OK|painter has a multi-phase job game
+OPERA2D|OK|painter applies the performance plan only to the three freeplay acts
+OPERA2D|OK|painter starts without passive progress
+OPERA2D|OK|painter opens with its job verb, not the shared brawl
+OPERA2D|OK|painter waits at the room entrance in its costume idle
+OPERA2D|OK|painter costume atlas advances frames
+OPERA2D|OK|painter contains its signature mechanic
+OPERA2D|OK|painter GALLERY visibly cues its next correct choice
+OPERA2D|OK|painter avoids copied combat phases
+OPERA2D|OK|painter keeps the stage finale for the job contest
+OPERA2D|OK|painter starts in its job world, off the proscenium
+OPERA2D|OK|painter paints the supplied codex career world
+OPERA2D|OK|painter owns complete stage art
+OPERA2D|OK|painter STAMPS preserves true free finger placement
+OPERA2D|OK|painter loads every diegetic phase widget
+OPERA2D|OK|painter widgets remain input-causal with owner-gated completion
+OPERA2D|OK|painter suppresses every retired framed widget backdrop
+OPERA2D|OK|painter keeps a persistent borderless play affordance
+OPERA2D|OK|painter replaces clipboard and beacon textures with the room itself
+OPERA2D|OK|painter exposes one full-room constrained touch layer
+OPERA2D|OK|painter starts with the room available and its task closed
+OPERA2D|OK|painter builds only named physical ActivityHotspot objects
+OPERA2D|OK|painter hotspot invitations are pictorial and never reading-dependent
+OPERA2D|OK|painter PAINT arms exactly its themed room object
+OPERA2D|OK|painter PAINT hotspot art, glow, and touch target do not clip
+OPERA2D|OK|painter PAINT keeps its idle object clear of Roshan's body
+OPERA2D|OK|painter STAMPS arms exactly its themed room object
+OPERA2D|OK|painter STAMPS hotspot art, glow, and touch target do not clip
+OPERA2D|OK|painter STAMPS keeps its idle object clear of Roshan's body
+OPERA2D|OK|painter GALLERY arms exactly its themed room object
+OPERA2D|OK|painter GALLERY hotspot art, glow, and touch target do not clip
+OPERA2D|OK|painter GALLERY keeps its idle object clear of Roshan's body
+OPERA2D|OK|painter re-arms only the next phase object and blocks all others
+OPERA2D|OK|painter safely returns the phase-one invitation after rearm audit
+OPERA2D|OK|painter blocks every inactive room object
+OPERA2D|OK|painter animates its invitation without passive game progress
+OPERA2D|OK|painter cannot open or score a closed task with real gestures
+OPERA2D|OK|painter emulated mouse cannot steal the active touch
+OPERA2D|OK|painter touch drag does not act before release/arrival
+OPERA2D|OK|painter foreign finger cannot commit travel intent
+OPERA2D|OK|painter touch release queues object approach without opening remotely
+OPERA2D|OK|painter cancelled touch clears pending action and movement
+OPERA2D|OK|painter canceled vertical step settles at its clean floor coordinate
+OPERA2D|OK|painter mouse drag release shares touch object approach
+OPERA2D|OK|painter floor retarget cancels previous object intent
+OPERA2D|OK|painter hotspot tap starts an authored route, never the task
+OPERA2D|OK|painter hotspot tap cannot award immediate progress
+OPERA2D|OK|painter stays on authored walkways from tap through arrival
+OPERA2D|OK|painter arrives, plays one object opening, then opens the task
+OPERA2D|OK|painter ignores an extra touch during the object opening flourish
+OPERA2D|OK|painter approach and opening remain passive-safe
+OPERA2D|OK|painter hands input safely from the room to the minigame
+OPERA2D|OK|painter uses a transparent borderless activity focus
+OPERA2D|OK|painter keeps the opened activity and full Mermaid Roshan onscreen
+OPERA2D|OK|painter keeps every visible partner clear of Roshan and the activity
+OPERA2D|OK|painter returns from activity staging to the approached floor socket
+OPERA2D|OK|painter loads the authored magnifier prop
+OPERA2D|OK|painter borderless activity focus never covers animated Roshan
+OPERA2D|OK|painter keeps the rival hidden before its stage contest
+OPERA2D|OK|painter brings in its dressed finale partner
+OPERA2D|OK|painter stages the room-finale partner clear of Roshan and the activity
+OPERA2D|OK|painter finishes on the proscenium stage
+OPERA2D|OK|painter can complete through one-finger phases
+OPERA2D|OK|painter awards a graded crowd reaction
+OPERA2D|OK|painter gives the curtain-call cast distinct stage-local rests
+OPERA2D|OK|painter restores the touch layer on exit
+OPERA2D|OK|astronaut enters Canvas career world
+OPERA2D|OK|astronaut uses no 3D children in career play
+OPERA2D|OK|astronaut builds a scalable code-native career world
+OPERA2D|OK|astronaut loads Mermaid Roshan's outfit actor
+OPERA2D|OK|astronaut loads its dressed rival or care partner
+OPERA2D|OK|astronaut keeps the rival hidden during earlier minigames
+OPERA2D|OK|astronaut pauses competition scoring before the finale
+OPERA2D|OK|astronaut has a multi-phase job game
+OPERA2D|OK|astronaut applies the performance plan only to the three freeplay acts
+OPERA2D|OK|astronaut starts without passive progress
+OPERA2D|OK|astronaut opens with its job verb, not the shared brawl
+OPERA2D|OK|astronaut waits at the room entrance in its costume idle
+OPERA2D|OK|astronaut costume atlas advances frames
+OPERA2D|OK|astronaut contains its signature mechanic
+OPERA2D|OK|astronaut VALVE finishes in 1.5 to 2.2 rotations
+OPERA2D|OK|astronaut retains its thematic rotation verb
+OPERA2D|OK|astronaut avoids copied combat phases
+OPERA2D|OK|astronaut keeps the stage finale for the job contest
+OPERA2D|OK|astronaut starts in its job world, off the proscenium
+OPERA2D|OK|astronaut paints the supplied codex career world
+OPERA2D|OK|astronaut owns complete stage art
+OPERA2D|OK|astronaut PATCH places pieces on authored surface anchors
+OPERA2D|OK|astronaut loads every diegetic phase widget
+OPERA2D|OK|astronaut widgets remain input-causal with owner-gated completion
+OPERA2D|OK|astronaut suppresses every retired framed widget backdrop
+OPERA2D|OK|astronaut keeps a persistent borderless play affordance
+OPERA2D|OK|astronaut replaces clipboard and beacon textures with the room itself
+OPERA2D|OK|astronaut exposes one full-room constrained touch layer
+OPERA2D|OK|astronaut starts with the room available and its task closed
+OPERA2D|OK|astronaut builds only named physical ActivityHotspot objects
+OPERA2D|OK|astronaut hotspot invitations are pictorial and never reading-dependent
+OPERA2D|OK|astronaut PIPES arms exactly its themed room object
+OPERA2D|OK|astronaut PIPES hotspot art, glow, and touch target do not clip
+OPERA2D|OK|astronaut PIPES keeps its idle object clear of Roshan's body
+OPERA2D|OK|astronaut PATCH arms exactly its themed room object
+OPERA2D|OK|astronaut PATCH hotspot art, glow, and touch target do not clip
+OPERA2D|OK|astronaut PATCH keeps its idle object clear of Roshan's body
+OPERA2D|OK|astronaut VALVE arms exactly its themed room object
+OPERA2D|OK|astronaut VALVE hotspot art, glow, and touch target do not clip
+OPERA2D|OK|astronaut VALVE keeps its idle object clear of Roshan's body
+OPERA2D|OK|astronaut LAUNCH arms exactly its themed room object
+OPERA2D|OK|astronaut LAUNCH hotspot art, glow, and touch target do not clip
+OPERA2D|OK|astronaut LAUNCH keeps its idle object clear of Roshan's body
+OPERA2D|OK|astronaut re-arms only the next phase object and blocks all others
+OPERA2D|OK|astronaut safely returns the phase-one invitation after rearm audit
+OPERA2D|OK|astronaut blocks every inactive room object
+OPERA2D|OK|astronaut animates its invitation without passive game progress
+OPERA2D|OK|astronaut cannot open or score a closed task with real gestures
+OPERA2D|OK|astronaut emulated mouse cannot steal the active touch
+OPERA2D|OK|astronaut touch drag does not act before release/arrival
+OPERA2D|OK|astronaut foreign finger cannot commit travel intent
+OPERA2D|OK|astronaut touch release queues object approach without opening remotely
+OPERA2D|OK|astronaut cancelled touch clears pending action and movement
+OPERA2D|OK|astronaut canceled vertical step settles at its clean floor coordinate
+OPERA2D|OK|astronaut mouse drag release shares touch object approach
+OPERA2D|OK|astronaut floor retarget cancels previous object intent
+OPERA2D|OK|astronaut hotspot tap starts an authored route, never the task
+OPERA2D|OK|astronaut hotspot tap cannot award immediate progress
+OPERA2D|OK|astronaut stays on authored walkways from tap through arrival
+OPERA2D|OK|astronaut arrives, plays one object opening, then opens the task
+OPERA2D|OK|astronaut ignores an extra touch during the object opening flourish
+OPERA2D|OK|astronaut approach and opening remain passive-safe
+OPERA2D|OK|astronaut hands input safely from the room to the minigame
+OPERA2D|OK|astronaut uses a transparent borderless activity focus
+OPERA2D|OK|astronaut keeps the opened activity and full Mermaid Roshan onscreen
+OPERA2D|OK|astronaut keeps every visible partner clear of Roshan and the activity
+OPERA2D|OK|astronaut returns from activity staging to the approached floor socket
+OPERA2D|OK|astronaut loads the authored magnifier prop
+OPERA2D|OK|astronaut borderless activity focus never covers animated Roshan
+OPERA2D|OK|astronaut keeps the rival hidden before its stage contest
+OPERA2D|OK|astronaut brings in its dressed finale partner
+OPERA2D|OK|astronaut stages the room-finale partner clear of Roshan and the activity
+OPERA2D|OK|astronaut finishes on the proscenium stage
+OPERA2D|OK|astronaut can complete through one-finger phases
+OPERA2D|OK|astronaut awards a graded crowd reaction
+OPERA2D|OK|astronaut gives the curtain-call cast distinct stage-local rests
+OPERA2D|OK|astronaut restores the touch layer on exit
+OPERA2D|OK|racer enters Canvas career world
+OPERA2D|OK|racer Canvas world has a bounded post-build subtree
+OPERA2D|OK|racer uses the current animated Roshan atlas, rival and trophy art
+OPERA2D|OK|racer uses no 3D children in career play
+OPERA2D|OK|racer builds a scalable code-native career world
+OPERA2D|OK|racer loads Mermaid Roshan's outfit actor
+OPERA2D|OK|racer loads its dressed rival or care partner
+OPERA2D|OK|racer keeps the rival hidden during earlier minigames
+OPERA2D|OK|racer pauses competition scoring before the finale
+OPERA2D|OK|racer has a multi-phase job game
+OPERA2D|OK|racer applies the performance plan only to the three freeplay acts
+OPERA2D|OK|racer starts without passive progress
+OPERA2D|OK|racer opens with its job verb, not the shared brawl
+OPERA2D|OK|racer waits at the room entrance in its costume idle
+OPERA2D|OK|racer costume atlas advances frames
+OPERA2D|OK|racer contains its signature mechanic
+OPERA2D|OK|racer RACE uses its direct specialist surface
+OPERA2D|OK|racer exposes every declared direct specialist phase
+OPERA2D|OK|racer TUNE finishes in 1.5 to 2.2 rotations
+OPERA2D|OK|racer retains its thematic rotation verb
+OPERA2D|OK|racer avoids copied combat phases
+OPERA2D|OK|racer keeps the stage finale for the job contest
+OPERA2D|OK|racer starts in its job world, off the proscenium
+OPERA2D|OK|racer paints the supplied codex career world
+OPERA2D|OK|racer owns complete stage art
+OPERA2D|OK|racer loads every diegetic phase widget
+OPERA2D|OK|racer widgets remain input-causal with owner-gated completion
+OPERA2D|OK|racer suppresses every retired framed widget backdrop
+OPERA2D|OK|racer keeps a persistent borderless play affordance
+OPERA2D|OK|racer replaces clipboard and beacon textures with the room itself
+OPERA2D|OK|racer exposes one full-room constrained touch layer
+OPERA2D|OK|racer starts with the room available and its task closed
+OPERA2D|OK|racer builds only named physical ActivityHotspot objects
+OPERA2D|OK|racer hotspot invitations are pictorial and never reading-dependent
+OPERA2D|OK|racer TUNE arms exactly its themed room object
+OPERA2D|OK|racer TUNE hotspot art, glow, and touch target do not clip
+OPERA2D|OK|racer TUNE keeps its idle object clear of Roshan's body
+OPERA2D|OK|racer TO THE LINE arms exactly its themed room object
+OPERA2D|OK|racer TO THE LINE hotspot art, glow, and touch target do not clip
+OPERA2D|OK|racer TO THE LINE keeps its idle object clear of Roshan's body
+OPERA2D|OK|racer RACE arms exactly its themed room object
+OPERA2D|OK|racer RACE hotspot art, glow, and touch target do not clip
+OPERA2D|OK|racer RACE keeps its idle object clear of Roshan's body
+OPERA2D|OK|racer re-arms only the next phase object and blocks all others
+OPERA2D|OK|racer safely returns the phase-one invitation after rearm audit
+OPERA2D|OK|racer blocks every inactive room object
+OPERA2D|OK|racer animates its invitation without passive game progress
+OPERA2D|OK|racer cannot open or score a closed task with real gestures
+OPERA2D|OK|racer emulated mouse cannot steal the active touch
+OPERA2D|OK|racer touch drag does not act before release/arrival
+OPERA2D|OK|racer foreign finger cannot commit travel intent
+OPERA2D|OK|racer touch release queues object approach without opening remotely
+OPERA2D|OK|racer cancelled touch clears pending action and movement
+OPERA2D|OK|racer canceled vertical step settles at its clean floor coordinate
+OPERA2D|OK|racer mouse drag release shares touch object approach
+OPERA2D|OK|racer floor retarget cancels previous object intent
+OPERA2D|OK|racer hotspot tap starts an authored route, never the task
+OPERA2D|OK|racer hotspot tap cannot award immediate progress
+OPERA2D|OK|racer stays on authored walkways from tap through arrival
+OPERA2D|OK|racer arrives, plays one object opening, then opens the task
+OPERA2D|OK|racer ignores an extra touch during the object opening flourish
+OPERA2D|OK|racer approach and opening remain passive-safe
+OPERA2D|OK|racer hands input safely from the room to the minigame
+OPERA2D|OK|racer uses a transparent borderless activity focus
+OPERA2D|OK|racer keeps the opened activity and full Mermaid Roshan onscreen
+OPERA2D|OK|racer keeps every visible partner clear of Roshan and the activity
+OPERA2D|OK|racer returns from activity staging to the approached floor socket
+OPERA2D|OK|racer loads the authored magnifier prop
+OPERA2D|OK|racer borderless activity focus never covers animated Roshan
+OPERA2D|OK|racer TUNE retains its reviewed work prop across input and time
+OPERA2D|OK|racer TO THE LINE retains its reviewed work prop across input and time
+OPERA2D|OK|racer keeps the current three-beat career arc
+OPERA2D|OK|racer finale uses the exact recorded steering instruction
+OPERA2D|OK|racer finale is a code-native two-lap one-finger race
+OPERA2D|OK|racer race replaces both static actors with its drawn kart cast
+OPERA2D|OK|racer finale makes one exact pooled speech request
+OPERA2D|OK|recorded racer instruction needs no caption or yay fallback
+OPERA2D|OK|ten quiet racer seconds award no progress or curtain call
+OPERA2D|OK|racer finale stays visible inside the Opera Canvas world
+OPERA2D|OK|racer steering surface owns the contained 1280x720 stage
+OPERA2D|OK|racer finale adds no nodes beyond its post-build Canvas bound
+OPERA2D|OK|racer owns exactly one active Canvas career world
+OPERA2D|OK|racer finale launches no external main child
+OPERA2D|OK|cancelled racer touch freezes distance, then a fresh touch resumes
+OPERA2D|OK|racer keeps steering ownership while a second finger fires turbo
+OPERA2D|OK|genuine steering touches finish two laps within the frame bound
+OPERA2D|OK|racer race returns the trophy with no placement fail branch
+OPERA2D|OK|racer completion never leaves Opera or adds an external runtime
+OPERA2D|OK|racer keeps the rival hidden before its stage contest
+OPERA2D|OK|racer brings in its dressed finale partner
+OPERA2D|OK|racer stages the room-finale partner clear of Roshan and the activity
+OPERA2D|OK|racer finale was completed only through the real steering surface
+OPERA2D|OK|racer finishes on the proscenium stage
+OPERA2D|OK|racer can complete through one-finger phases
+OPERA2D|OK|racer awards a graded crowd reaction
+OPERA2D|OK|racer gives the curtain-call cast distinct stage-local rests
+OPERA2D|OK|racer restores the touch layer on exit
+OPERA2D|OK|popstar enters Canvas career world
+OPERA2D|OK|popstar uses no 3D children in career play
+OPERA2D|OK|popstar builds a scalable code-native career world
+OPERA2D|OK|popstar loads Mermaid Roshan's outfit actor
+OPERA2D|OK|popstar loads its dressed rival or care partner
+OPERA2D|OK|popstar keeps the rival hidden during earlier minigames
+OPERA2D|OK|popstar pauses competition scoring before the finale
+OPERA2D|OK|popstar has a multi-phase job game
+OPERA2D|OK|popstar applies the performance plan only to the three freeplay acts
+OPERA2D|OK|popstar prepends three practice lessons then repeats its full show
+OPERA2D|OK|popstar starts without passive progress
+OPERA2D|OK|popstar opens with its job verb, not the shared brawl
+OPERA2D|OK|popstar waits at the room entrance in its costume idle
+OPERA2D|OK|popstar costume atlas advances frames
+OPERA2D|OK|popstar contains its signature mechanic
+OPERA2D|OK|popstar ENCORE finishes in 1.5 to 2.2 rotations
+OPERA2D|OK|popstar retains its thematic rotation verb
+OPERA2D|OK|popstar DANCE visibly cues its next correct choice
+OPERA2D|OK|popstar DANCE visibly cues its next correct choice
+OPERA2D|OK|popstar avoids copied combat phases
+OPERA2D|OK|popstar keeps the stage finale for the job contest
+OPERA2D|OK|popstar starts in its job world, off the proscenium
+OPERA2D|OK|popstar paints the supplied codex career world
+OPERA2D|OK|popstar owns complete stage art
+OPERA2D|OK|popstar loads every diegetic phase widget
+OPERA2D|OK|popstar widgets remain input-causal with owner-gated completion
+OPERA2D|OK|popstar suppresses every retired framed widget backdrop
+OPERA2D|OK|popstar keeps a persistent borderless play affordance
+OPERA2D|OK|popstar replaces clipboard and beacon textures with the room itself
+OPERA2D|OK|popstar exposes one full-room constrained touch layer
+OPERA2D|OK|popstar starts with the room available and its task closed
+OPERA2D|OK|popstar builds only named physical ActivityHotspot objects
+OPERA2D|OK|popstar hotspot invitations are pictorial and never reading-dependent
+OPERA2D|OK|popstar SOUND CHECK arms exactly its themed room object
+OPERA2D|OK|popstar SOUND CHECK hotspot art, glow, and touch target do not clip
+OPERA2D|OK|popstar SOUND CHECK keeps its idle object clear of Roshan's body
+OPERA2D|OK|popstar DANCE arms exactly its themed room object
+OPERA2D|OK|popstar DANCE hotspot art, glow, and touch target do not clip
+OPERA2D|OK|popstar DANCE keeps its idle object clear of Roshan's body
+OPERA2D|OK|popstar RHYTHM arms exactly its themed room object
+OPERA2D|OK|popstar RHYTHM hotspot art, glow, and touch target do not clip
+OPERA2D|OK|popstar RHYTHM keeps its idle object clear of Roshan's body
+OPERA2D|OK|popstar SOUND CHECK auto-opens on the painted Opera stage
+OPERA2D|OK|popstar SOUND CHECK removes every rehearsal-room hotspot from the stage
+OPERA2D|OK|popstar DANCE auto-opens on the painted Opera stage
+OPERA2D|OK|popstar DANCE removes every rehearsal-room hotspot from the stage
+OPERA2D|OK|popstar RHYTHM auto-opens on the painted Opera stage
+OPERA2D|OK|popstar RHYTHM removes every rehearsal-room hotspot from the stage
+OPERA2D|OK|popstar ENCORE auto-opens on the painted Opera stage
+OPERA2D|OK|popstar ENCORE removes every rehearsal-room hotspot from the stage
+OPERA2D|OK|popstar re-arms only the next phase object and blocks all others
+OPERA2D|OK|popstar safely returns the phase-one invitation after rearm audit
+OPERA2D|OK|popstar blocks every inactive room object
+OPERA2D|OK|popstar animates its invitation without passive game progress
+OPERA2D|OK|popstar cannot open or score a closed task with real gestures
+OPERA2D|OK|popstar emulated mouse cannot steal the active touch
+OPERA2D|OK|popstar touch drag does not act before release/arrival
+OPERA2D|OK|popstar foreign finger cannot commit travel intent
+OPERA2D|OK|popstar touch release queues object approach without opening remotely
+OPERA2D|OK|popstar cancelled touch clears pending action and movement
+OPERA2D|OK|popstar canceled vertical step settles at its clean floor coordinate
+OPERA2D|OK|popstar mouse drag release shares touch object approach
+OPERA2D|OK|popstar floor retarget cancels previous object intent
+OPERA2D|OK|popstar hotspot tap starts an authored route, never the task
+OPERA2D|OK|popstar hotspot tap cannot award immediate progress
+OPERA2D|OK|popstar stays on authored walkways from tap through arrival
+OPERA2D|OK|popstar arrives, plays one object opening, then opens the task
+OPERA2D|OK|popstar ignores an extra touch during the object opening flourish
+OPERA2D|OK|popstar approach and opening remain passive-safe
+OPERA2D|OK|popstar hands input safely from the room to the minigame
+OPERA2D|OK|popstar uses a transparent borderless activity focus
+OPERA2D|OK|popstar keeps the opened activity and full Mermaid Roshan onscreen
+OPERA2D|OK|popstar keeps every visible partner clear of Roshan and the activity
+OPERA2D|OK|popstar returns from activity staging to the approached floor socket
+OPERA2D|OK|popstar loads the authored magnifier prop
+OPERA2D|OK|popstar borderless activity focus never covers animated Roshan
+OPERA2D|OK|popstar keeps the rival hidden before its stage contest
+OPERA2D|OK|popstar brings in its dressed finale partner
+OPERA2D|OK|popstar stages the room-finale partner clear of Roshan and the activity
+OPERA2D|OK|popstar finishes on the proscenium stage
+OPERA2D|OK|popstar can complete through one-finger phases
+OPERA2D|OK|popstar awards a graded crowd reaction
+OPERA2D|OK|popstar gives the curtain-call cast distinct stage-local rests
+OPERA2D|OK|popstar restores the touch layer on exit
+OPERA2D|OK|nursery enters Canvas career world
+OPERA2D|OK|nursery uses no 3D children in career play
+OPERA2D|OK|nursery builds a scalable code-native career world
+OPERA2D|OK|nursery loads Mermaid Roshan's outfit actor
+OPERA2D|OK|nursery loads its dressed rival or care partner
+OPERA2D|OK|nursery keeps its care partner beside Roshan from the first beat
+OPERA2D|OK|nursery pauses competition scoring before the finale
+OPERA2D|OK|nursery has a multi-phase job game
+OPERA2D|OK|nursery applies the performance plan only to the three freeplay acts
+OPERA2D|OK|nursery starts without passive progress
+OPERA2D|OK|nursery opens with its job verb, not the shared brawl
+OPERA2D|OK|nursery waits at the room entrance in its costume idle
+OPERA2D|OK|nursery costume atlas advances frames
+OPERA2D|OK|nursery contains its signature mechanic
+OPERA2D|OK|nursery WASH HANDS uses its direct specialist surface
+OPERA2D|OK|nursery FEED uses its direct specialist surface
+OPERA2D|OK|nursery BURP uses its direct specialist surface
+OPERA2D|OK|nursery BEDTIME uses its direct specialist surface
+OPERA2D|OK|nursery exposes every declared direct specialist phase
+OPERA2D|OK|nursery catch surface stays above and clear of its progress bar
+OPERA2D|OK|nursery avoids copied combat phases
+OPERA2D|OK|nursery keeps the stage finale for the job contest
+OPERA2D|OK|nursery starts in its job world, off the proscenium
+OPERA2D|OK|nursery paints the supplied codex career world
+OPERA2D|OK|nursery owns complete stage art
+OPERA2D|OK|nursery loads every diegetic phase widget
+OPERA2D|OK|nursery widgets remain input-causal with owner-gated completion
+OPERA2D|OK|nursery suppresses every retired framed widget backdrop
+OPERA2D|OK|nursery keeps a persistent borderless play affordance
+OPERA2D|OK|nursery replaces clipboard and beacon textures with the room itself
+OPERA2D|OK|nursery exposes one full-room constrained touch layer
+OPERA2D|OK|nursery starts with the room available and its task closed
+OPERA2D|OK|nursery builds only named physical ActivityHotspot objects
+OPERA2D|OK|nursery hotspot invitations are pictorial and never reading-dependent
+OPERA2D|OK|nursery WASH HANDS arms exactly its themed room object
+OPERA2D|OK|nursery WASH HANDS hotspot art, glow, and touch target do not clip
+OPERA2D|OK|nursery WASH HANDS keeps its idle object clear of Roshan's body
+OPERA2D|OK|nursery CATCH BABIES arms exactly its themed room object
+OPERA2D|OK|nursery CATCH BABIES hotspot art, glow, and touch target do not clip
+OPERA2D|OK|nursery CATCH BABIES keeps its idle object clear of Roshan's body
+OPERA2D|OK|nursery FEED arms exactly its themed room object
+OPERA2D|OK|nursery FEED hotspot art, glow, and touch target do not clip
+OPERA2D|OK|nursery FEED keeps its idle object clear of Roshan's body
+OPERA2D|OK|nursery BURP arms exactly its themed room object
+OPERA2D|OK|nursery BURP hotspot art, glow, and touch target do not clip
+OPERA2D|OK|nursery BURP keeps its idle object clear of Roshan's body
+OPERA2D|OK|nursery BEDTIME arms exactly its themed room object
+OPERA2D|OK|nursery BEDTIME hotspot art, glow, and touch target do not clip
+OPERA2D|OK|nursery BEDTIME keeps its idle object clear of Roshan's body
+OPERA2D|OK|nursery re-arms only the next phase object and blocks all others
+OPERA2D|OK|nursery safely returns the phase-one invitation after rearm audit
+OPERA2D|OK|nursery blocks every inactive room object
+OPERA2D|OK|nursery animates its invitation without passive game progress
+OPERA2D|OK|nursery cannot open or score a closed task with real gestures
+OPERA2D|OK|nursery emulated mouse cannot steal the active touch
+OPERA2D|OK|nursery touch drag does not act before release/arrival
+OPERA2D|OK|nursery foreign finger cannot commit travel intent
+OPERA2D|OK|nursery touch release queues object approach without opening remotely
+OPERA2D|OK|nursery cancelled touch clears pending action and movement
+OPERA2D|OK|nursery canceled vertical step settles at its clean floor coordinate
+OPERA2D|OK|nursery mouse drag release shares touch object approach
+OPERA2D|OK|nursery floor retarget cancels previous object intent
+OPERA2D|OK|nursery hotspot tap starts an authored route, never the task
+OPERA2D|OK|nursery hotspot tap cannot award immediate progress
+OPERA2D|OK|nursery stays on authored walkways from tap through arrival
+OPERA2D|OK|nursery arrives, plays one object opening, then opens the task
+OPERA2D|OK|nursery ignores an extra touch during the object opening flourish
+OPERA2D|OK|nursery approach and opening remain passive-safe
+OPERA2D|OK|nursery hands input safely from the room to the minigame
+OPERA2D|OK|nursery uses a transparent borderless activity focus
+OPERA2D|OK|nursery keeps the opened activity and full Mermaid Roshan onscreen
+OPERA2D|OK|nursery keeps every visible partner clear of Roshan and the activity
+OPERA2D|OK|nursery returns from activity staging to the approached floor socket
+OPERA2D|OK|nursery loads the authored magnifier prop
+OPERA2D|OK|nursery borderless activity focus never covers animated Roshan
+OPERA2D|OK|nursery keeps the rival hidden before its stage contest
+OPERA2D|OK|nursery brings in its dressed finale partner
+OPERA2D|OK|nursery stages the room-finale partner clear of Roshan and the activity
+OPERA2D|OK|nursery curtain call records cooperative care
+OPERA2D|OK|nursery finishes on the proscenium stage
+OPERA2D|OK|nursery can complete through one-finger phases
+OPERA2D|OK|nursery awards a graded crowd reaction
+OPERA2D|OK|nursery gives the curtain-call cast distinct stage-local rests
+OPERA2D|OK|nursery restores the touch layer on exit
+OPERA2D|OK|geologist enters Canvas career world
+OPERA2D|OK|geologist uses no 3D children in career play
+OPERA2D|OK|geologist builds a scalable code-native career world
+OPERA2D|OK|geologist loads Mermaid Roshan's outfit actor
+OPERA2D|OK|geologist loads its dressed rival or care partner
+OPERA2D|OK|geologist keeps its care partner beside Roshan from the first beat
+OPERA2D|OK|geologist pauses competition scoring before the finale
+OPERA2D|OK|geologist has a multi-phase job game
+OPERA2D|OK|geologist applies the performance plan only to the three freeplay acts
+OPERA2D|OK|geologist starts without passive progress
+OPERA2D|OK|geologist opens with its job verb, not the shared brawl
+OPERA2D|OK|geologist waits at the room entrance in its costume idle
+OPERA2D|OK|geologist idle does not cycle unrelated gesture keys
+OPERA2D|OK|geologist travel does not cycle unrelated gesture keys
+OPERA2D|OK|geologist work does not cycle unrelated gesture keys
+OPERA2D|OK|geologist idle and menu preserve the complete tail-fin pose
+OPERA2D|OK|geologist celebration settles without repeating
+OPERA2D|OK|geologist contains its signature mechanic
+OPERA2D|OK|geologist has exactly RIVER, FOSSIL, PAN, and GEODE at one goal each
+OPERA2D|OK|geologist uses its dedicated full-canvas one-finger surface
+OPERA2D|OK|thirty idle seconds never excavate, wash, or open geology material
+OPERA2D|OK|a second finger and cancellation cannot steal or advance a river stroke
+OPERA2D|OK|river keeps disconnected digging dry but accepts a new connected channel
+OPERA2D|OK|river checkpoint is JSON-safe and restores released partial material
+OPERA2D|OK|malformed geology checkpoint fields grant no phantom progress
+OPERA2D|OK|geology restore derives stage, wash, and finds from earned primitives
+OPERA2D|OK|fully earned restore awards once after opening and never while armed
+OPERA2D|OK|each physical geology task emits exactly one award with no duplicates
+OPERA2D|OK|geologist RIVER uses its direct specialist surface
+OPERA2D|OK|geologist FOSSIL uses its direct specialist surface
+OPERA2D|OK|geologist PAN uses its direct specialist surface
+OPERA2D|OK|geologist GEODE uses its direct specialist surface
+OPERA2D|OK|geologist exposes every declared direct specialist phase
+OPERA2D|OK|geologist avoids copied combat phases
+OPERA2D|OK|geologist keeps the stage finale for the job contest
+OPERA2D|OK|geologist starts in its job world, off the proscenium
+OPERA2D|OK|geologist paints the supplied codex career world
+OPERA2D|OK|geologist owns complete stage art
+OPERA2D|OK|geologist loads every diegetic phase widget
+OPERA2D|OK|geologist widgets remain input-causal with owner-gated completion
+OPERA2D|OK|geologist suppresses every retired framed widget backdrop
+OPERA2D|OK|geologist keeps a persistent borderless play affordance
+OPERA2D|OK|geologist replaces clipboard and beacon textures with the room itself
+OPERA2D|OK|geologist exposes one full-room constrained touch layer
+OPERA2D|OK|geologist starts with the room available and its task closed
+OPERA2D|OK|geologist builds only named physical ActivityHotspot objects
+OPERA2D|OK|geologist hotspot invitations are pictorial and never reading-dependent
+OPERA2D|OK|geologist RIVER arms exactly its themed room object
+OPERA2D|OK|geologist RIVER hotspot art, glow, and touch target do not clip
+OPERA2D|OK|geologist RIVER keeps its idle object clear of Roshan's body
+OPERA2D|OK|geologist FOSSIL arms exactly its themed room object
+OPERA2D|OK|geologist FOSSIL hotspot art, glow, and touch target do not clip
+OPERA2D|OK|geologist FOSSIL keeps its idle object clear of Roshan's body
+OPERA2D|OK|geologist PAN arms exactly its themed room object
+OPERA2D|OK|geologist PAN hotspot art, glow, and touch target do not clip
+OPERA2D|OK|geologist PAN keeps its idle object clear of Roshan's body
+OPERA2D|OK|geologist GEODE arms exactly its themed room object
+OPERA2D|OK|geologist GEODE hotspot art, glow, and touch target do not clip
+OPERA2D|OK|geologist GEODE keeps its idle object clear of Roshan's body
+OPERA2D|OK|geologist re-arms only the next phase object and blocks all others
+OPERA2D|OK|geologist safely returns the phase-one invitation after rearm audit
+OPERA2D|OK|geologist blocks every inactive room object
+OPERA2D|OK|geologist animates its invitation without passive game progress
+OPERA2D|OK|geologist cannot open or score a closed task with real gestures
+OPERA2D|OK|geologist emulated mouse cannot steal the active touch
+OPERA2D|OK|geologist touch drag does not act before release/arrival
+OPERA2D|OK|geologist foreign finger cannot commit travel intent
+OPERA2D|OK|geologist touch release queues object approach without opening remotely
+OPERA2D|OK|geologist cancelled touch clears pending action and movement
+OPERA2D|OK|geologist canceled vertical step settles at its clean floor coordinate
+OPERA2D|OK|geologist mouse drag release shares touch object approach
+OPERA2D|OK|geologist floor retarget cancels previous object intent
+OPERA2D|OK|geologist hotspot tap starts an authored route, never the task
+OPERA2D|OK|geologist hotspot tap cannot award immediate progress
+OPERA2D|OK|geologist stays on authored walkways from tap through arrival
+OPERA2D|OK|geologist arrives, plays one object opening, then opens the task
+OPERA2D|OK|geologist ignores an extra touch during the object opening flourish
+OPERA2D|OK|geologist approach and opening remain passive-safe
+OPERA2D|OK|geologist hands input safely from the room to the minigame
+OPERA2D|OK|geologist uses a transparent borderless activity focus
+OPERA2D|OK|geologist keeps the opened activity and full Mermaid Roshan onscreen
+OPERA2D|OK|geologist keeps every visible partner clear of Roshan and the activity
+OPERA2D|OK|geologist returns from activity staging to the approached floor socket
+OPERA2D|OK|geologist object opens its full-canvas material workspace
+OPERA2D|OK|geologist loads the authored magnifier prop
+OPERA2D|OK|geologist borderless activity focus never covers animated Roshan
+OPERA2D|OK|geologist keeps the rival hidden before its stage contest
+OPERA2D|OK|geologist brings in its dressed finale partner
+OPERA2D|OK|geologist stages the room-finale partner clear of Roshan and the activity
+OPERA2D|OK|geologist finishes on the proscenium stage
+OPERA2D|OK|geologist can complete through one-finger phases
+OPERA2D|OK|geologist awards a graded crowd reaction
+OPERA2D|OK|geologist gives the curtain-call cast distinct stage-local rests
+OPERA2D|OK|geologist restores the touch layer on exit
+OPERA2D|OK|teacher enters Canvas career world
+OPERA2D|OK|teacher uses Roshan's current teacher atlas and the existing doctor buddy
+OPERA2D|OK|teacher resolves every lesson, help, choice, and number recording
+OPERA2D|OK|teacher uses no 3D children in career play
+OPERA2D|OK|teacher builds a scalable code-native career world
+OPERA2D|OK|teacher loads Mermaid Roshan's outfit actor
+OPERA2D|OK|teacher loads its dressed rival or care partner
+OPERA2D|OK|teacher keeps the rival hidden during earlier minigames
+OPERA2D|OK|teacher pauses competition scoring before the finale
+OPERA2D|OK|teacher has a multi-phase job game
+OPERA2D|OK|teacher applies the performance plan only to the three freeplay acts
+OPERA2D|OK|teacher starts without passive progress
+OPERA2D|OK|teacher opens with its job verb, not the shared brawl
+OPERA2D|OK|teacher waits at the room entrance in its costume idle
+OPERA2D|OK|teacher idle does not cycle unrelated gesture keys
+OPERA2D|OK|teacher travel does not cycle unrelated gesture keys
+OPERA2D|OK|teacher work does not cycle unrelated gesture keys
+OPERA2D|OK|teacher celebration settles without repeating
+OPERA2D|OK|teacher contains its signature mechanic
+OPERA2D|OK|teacher rejects malformed JSON progress without phantom mastery
+OPERA2D|OK|teacher lessons deterministically grow AB, count, sum, and shape difficulty
+OPERA2D|OK|three clean wins promote only that subject while help never costs mastery
+OPERA2D|OK|teacher has exactly PATTERN, COUNT, ADD, and MATCH at one goal each
+OPERA2D|OK|teacher waits with a dedicated full-canvas learning surface armed
+OPERA2D|OK|thirty quiet seconds cannot answer or award a teacher lesson
+OPERA2D|OK|a wrong answer teaches the target, marks help, and grants no mastery
+OPERA2D|OK|count requires one touch per object and survives cancel plus JSON restore
+OPERA2D|OK|addition joins both groups, then counts every object before answering
+OPERA2D|OK|matching lays out four exact shapes and emits no duplicate win
+OPERA2D|OK|completed current lesson restore awards once only after its board opens
+OPERA2D|OK|teacher PATTERN uses its direct specialist surface
+OPERA2D|OK|teacher COUNT uses its direct specialist surface
+OPERA2D|OK|teacher ADD uses its direct specialist surface
+OPERA2D|OK|teacher MATCH uses its direct specialist surface
+OPERA2D|OK|teacher exposes every declared direct specialist phase
+OPERA2D|OK|teacher avoids copied combat phases
+OPERA2D|OK|teacher keeps the stage finale for the job contest
+OPERA2D|OK|teacher starts in its job world, off the proscenium
+OPERA2D|OK|teacher paints the supplied codex career world
+OPERA2D|OK|teacher owns complete stage art
+OPERA2D|OK|teacher loads every diegetic phase widget
+OPERA2D|OK|teacher widgets remain input-causal with owner-gated completion
+OPERA2D|OK|teacher suppresses every retired framed widget backdrop
+OPERA2D|OK|teacher keeps a persistent borderless play affordance
+OPERA2D|OK|teacher replaces clipboard and beacon textures with the room itself
+OPERA2D|OK|teacher exposes one full-room constrained touch layer
+OPERA2D|OK|teacher starts with the room available and its task closed
+OPERA2D|OK|teacher builds only named physical ActivityHotspot objects
+OPERA2D|OK|teacher hotspot invitations are pictorial and never reading-dependent
+OPERA2D|OK|teacher PATTERN arms exactly its themed room object
+OPERA2D|OK|teacher PATTERN hotspot art, glow, and touch target do not clip
+OPERA2D|OK|teacher PATTERN keeps its idle object clear of Roshan's body
+OPERA2D|OK|teacher COUNT arms exactly its themed room object
+OPERA2D|OK|teacher COUNT hotspot art, glow, and touch target do not clip
+OPERA2D|OK|teacher COUNT keeps its idle object clear of Roshan's body
+OPERA2D|OK|teacher ADD arms exactly its themed room object
+OPERA2D|OK|teacher ADD hotspot art, glow, and touch target do not clip
+OPERA2D|OK|teacher ADD keeps its idle object clear of Roshan's body
+OPERA2D|OK|teacher MATCH arms exactly its themed room object
+OPERA2D|OK|teacher MATCH hotspot art, glow, and touch target do not clip
+OPERA2D|OK|teacher MATCH keeps its idle object clear of Roshan's body
+OPERA2D|OK|teacher re-arms only the next phase object and blocks all others
+OPERA2D|OK|teacher safely returns the phase-one invitation after rearm audit
+OPERA2D|OK|teacher blocks every inactive room object
+OPERA2D|OK|teacher animates its invitation without passive game progress
+OPERA2D|OK|teacher cannot open or score a closed task with real gestures
+OPERA2D|OK|teacher emulated mouse cannot steal the active touch
+OPERA2D|OK|teacher touch drag does not act before release/arrival
+OPERA2D|OK|teacher foreign finger cannot commit travel intent
+OPERA2D|OK|teacher touch release queues object approach without opening remotely
+OPERA2D|OK|teacher cancelled touch clears pending action and movement
+OPERA2D|OK|teacher canceled vertical step settles at its clean floor coordinate
+OPERA2D|OK|teacher mouse drag release shares touch object approach
+OPERA2D|OK|teacher floor retarget cancels previous object intent
+OPERA2D|OK|teacher hotspot tap starts an authored route, never the task
+OPERA2D|OK|teacher hotspot tap cannot award immediate progress
+OPERA2D|OK|teacher stays on authored walkways from tap through arrival
+OPERA2D|OK|teacher arrives, plays one object opening, then opens the task
+OPERA2D|OK|teacher ignores an extra touch during the object opening flourish
+OPERA2D|OK|teacher approach and opening remain passive-safe
+OPERA2D|OK|teacher hands input safely from the room to the minigame
+OPERA2D|OK|teacher uses a transparent borderless activity focus
+OPERA2D|OK|teacher keeps the opened activity and full Mermaid Roshan onscreen
+OPERA2D|OK|teacher keeps every visible partner clear of Roshan and the activity
+OPERA2D|OK|teacher returns from activity staging to the approached floor socket
+OPERA2D|OK|teacher object opens its full-canvas learning board
+OPERA2D|OK|teacher loads the authored magnifier prop
+OPERA2D|OK|teacher borderless activity focus never covers animated Roshan
+OPERA2D|OK|quick counting queues every spoken number then choice in FIFO order
+OPERA2D|OK|teacher keeps the rival hidden before its stage contest
+OPERA2D|OK|teacher keeps the borrowed doctor buddy hidden through its lesson finale
+OPERA2D|OK|connected wrong-then-help records a round without false mastery
+OPERA2D|OK|teacher finishes on the proscenium stage
+OPERA2D|OK|teacher can complete through one-finger phases
+OPERA2D|OK|teacher awards a graded crowd reaction
+OPERA2D|OK|teacher gives the curtain-call cast distinct stage-local rests
+OPERA2D|OK|teacher restores the touch layer on exit
+OPERA2D|OK|racer lifecycle fixture exists
+OPERA2D|OK|racer lifecycle enters one Canvas world
+OPERA2D|OK|racer can be cancelled during a live one-finger turn
+OPERA2D|OK|mid-turn cancel frees the act, world and steering surface
+OPERA2D|OK|mid-turn cancel restores touch and leaves no Opera world
+OPERA2D|OK|mid-turn cancel changes no direct main children
+OPERA2D|OK|racer immediately re-enters one fresh Canvas world
+OPERA2D|OK|fresh racer re-entry resets steering and progress
+OPERA2D|OK|fresh racer re-entry can win and recover the approved trophy
+OPERA2D|OK|fresh racer award adds no direct main child
+OPERA2D|OK|completed racer re-entry tears down cleanly and restores touch
+OPERA2D|OK|inside-line steering has causal pace and pearl payoff
+OPERA2D|OK|held Turbo drives past three seconds and scene-tree pause cancels it
+OPERA2D|OK|five early exits and re-entries free every Opera world and restore touch
+OPERA2D|OK|all fifteen career jobs were exercised
+OPERA2D|OK|the current fifteen careers expose exactly seventy playable phase units
+OPERA2D|OK|all shared art-family career widget contracts were exercised
+OPERA2D|OK|every declared direct specialist surface was exercised
+OPERA2D|OK|every retained generic rotation uses the shortened pacing
+OPERA2D|OK|reviewed pose coverage: doctor/WASH
+OPERA2D|OK|reviewed pose coverage: doctor/FIND
+OPERA2D|OK|reviewed pose coverage: doctor/X-RAY
+OPERA2D|OK|reviewed pose coverage: doctor/CAST
+OPERA2D|OK|reviewed pose coverage: doctor/BANDAGE
+OPERA2D|OK|reviewed pose coverage: farmer/PLANT
+OPERA2D|OK|reviewed pose coverage: farmer/TOSS
+OPERA2D|OK|reviewed pose coverage: farmer/HERD
+OPERA2D|OK|reviewed pose coverage: farmer/PICNIC
+OPERA2D|OK|reviewed pose coverage: racer/TUNE
+OPERA2D|OK|reviewed pose coverage: racer/TO THE LINE
+OPERA2D|OK|Hall semantic pose coverage: magician/practice/VANISH
+OPERA2D|OK|Hall semantic pose coverage: magician/practice/TRACK
+OPERA2D|OK|Hall semantic pose coverage: magician/practice/ROPE
+OPERA2D|OK|Hall semantic pose coverage: magician/stage/VANISH
+OPERA2D|OK|Hall semantic pose coverage: magician/stage/TRACK
+OPERA2D|OK|Hall semantic pose coverage: magician/stage/ROPE
+OPERA2D|OK|Hall semantic pose coverage: magician/stage/CABINET
+OPERA2D|OK|Hall semantic pose coverage: magician/stage/PORTAL
+OPERA2D|result: ALL OK
+PROBE probe_opera_2d process exit: 0
+=== probe_opera_nursery ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+NURSERY|OK|old Opera saves preserve retired bits without counting them playable
+NURSERY|OK|job twelve opens the dedicated Canvas nursery
+NURSERY|OK|nursery has no clinic or Stuffie Surgeon engine
+NURSERY|OK|Roshan and Faron use authored nursery actors
+NURSERY|OK|Nurse Faron stays beside Roshan as a cooperative partner
+NURSERY|OK|the care story keeps its beats inside the five-beat arc
+NURSERY|OK|hand washing opens with no passive progress or copied combat
+NURSERY|OK|WASH HANDS re-prompt preserves speaker and cue
+NURSERY|OK|CATCH BABIES re-prompt preserves speaker and cue
+NURSERY|OK|CATCH BABIES re-prompt selects exact Faron clip
+NURSERY|OK|FEED re-prompt preserves speaker and cue
+NURSERY|OK|FEED re-prompt selects exact Faron clip
+NURSERY|OK|BURP re-prompt preserves speaker and cue
+NURSERY|OK|BEDTIME re-prompt preserves speaker and cue
+NURSERY|OK|BEDTIME re-prompt selects exact Faron clip
+NURSERY|OK|open-task re-prompt exercises the intended idle branch
+NURSERY|OK|open-task re-prompt uses active phase identity and exact cue
+NURSERY|OK|catch phase reuses and expands the falling-baby grammar
+NURSERY|OK|catch phase keeps the painted nursery visible behind its mobile
+NURSERY|OK|falling babies never catch themselves without fresh touch
+NURSERY|OK|misses remain safe and invoke the mercy path
+NURSERY|OK|one-finger steering catches all five babies after safe misses
+NURSERY|OK|feeding waits at its painted station before the bottle opens
+NURSERY|OK|waiting-at-station re-prompt exercises the intended idle branch
+NURSERY|OK|waiting-at-station re-prompt uses active phase identity and exact cue
+NURSERY|OK|feeding uses the approved bottle hold tableau
+NURSERY|OK|feeding clears into the gentle burp-pat beat without an imp chase
+NURSERY|OK|four gentle pats advance to the direct blanket scene
+NURSERY|OK|three one-use blanket tucks complete bedtime
+NURSERY|OK|blanket tuck completes the cooperative nursery show
+NURSERY|OK|curtain call celebrates cozy babies, not beating Faron
+NURSERY|OK|nursery restores the touch layer on exit
+NURSERY|result: ALL OK
+WARNING: 16 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 8 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+PROBE probe_opera_nursery process exit: 0
+=== probe_castle_door_language ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DOORLANGUAGE|OK|one highlight while bubble_bath is current
+DOORLANGUAGE|OK|bubble_bath is the sole rainbow plot door
+DOORLANGUAGE|OK|mermaid_pool stays fog blocked
+DOORLANGUAGE|OK|playroom stays fog blocked
+DOORLANGUAGE|OK|craft_room stays fog blocked
+DOORLANGUAGE|OK|one highlight while mermaid_pool is current
+DOORLANGUAGE|OK|mermaid_pool is the sole rainbow plot door
+DOORLANGUAGE|OK|bubble_bath stays quiet open
+DOORLANGUAGE|OK|playroom stays fog blocked
+DOORLANGUAGE|OK|craft_room stays fog blocked
+DOORLANGUAGE|OK|one highlight while playroom is current
+DOORLANGUAGE|OK|playroom is the sole rainbow plot door
+DOORLANGUAGE|OK|bubble_bath stays quiet open
+DOORLANGUAGE|OK|mermaid_pool stays quiet open
+DOORLANGUAGE|OK|craft_room stays fog blocked
+DOORLANGUAGE|OK|one highlight while craft_room is current
+DOORLANGUAGE|OK|craft_room is the sole rainbow plot door
+DOORLANGUAGE|OK|bubble_bath stays quiet open
+DOORLANGUAGE|OK|mermaid_pool stays quiet open
+DOORLANGUAGE|OK|playroom stays quiet open
+DOORLANGUAGE|OK|Baby Eagle rescue is plot, never bonus
+DOORLANGUAGE|OK|unrelated early rooms stay blocked
+DOORLANGUAGE|OK|boss handoff has one highlight
+DOORLANGUAGE|OK|Royal Hall becomes the sole plot door after four rooms
+DOORLANGUAGE|OK|bubble_bath remains open at boss handoff
+DOORLANGUAGE|OK|mermaid_pool remains open at boss handoff
+DOORLANGUAGE|OK|playroom remains open at boss handoff
+DOORLANGUAGE|OK|craft_room remains open at boss handoff
+DOORLANGUAGE|OK|optional arbitration still permits only one red highlight
+DOORLANGUAGE|OK|bonus cue is a slow red pulse
+DOORLANGUAGE|OK|plot cue remains slower and restrained
+DOORLANGUAGE|OK|unknown direct routes fail closed
+DOORLANGUAGE|OK|blocked state cannot travel
+DOORLANGUAGE|OK|open and highlighted states can travel
+DOORLANGUAGE|OK|plot cue is visible and input-transparent
+DOORLANGUAGE|OK|real plot cue survives process frame 0
+DOORLANGUAGE|OK|real plot cue survives process frame 1
+DOORLANGUAGE|OK|real plot cue survives process frame 2
+DOORLANGUAGE|OK|real plot cue survives process frame 3
+DOORLANGUAGE|OK|real plot cue survives process frame 4
+DOORLANGUAGE|OK|real plot cue survives process frame 5
+DOORLANGUAGE|OK|story attention pulse never expires the real plot state
+DOORLANGUAGE|OK|unified cue has no legacy keyhole child
+DOORLANGUAGE|OK|blocked fog cue owns local feedback
+DOORLANGUAGE|OK|repeated blocked feedback cannot advertise plot 0
+DOORLANGUAGE|OK|repeated blocked feedback cannot advertise plot 1
+DOORLANGUAGE|OK|repeated blocked feedback cannot advertise plot 2
+DOORLANGUAGE|OK|newly unlocked plot survives earlier blocked feedback
+DOORLANGUAGE|OK|ordinary open has no cue
+DOORLANGUAGE|ALL OK
+PROBE probe_castle_door_language process exit: 0
+=== probe_day_one_bathroom_movie_handoff ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DAY_ONE_BATHROOM_MOVIE_HANDOFF|cleanup movie seam follows committed bathroom completion: OK
+DAY_ONE_BATHROOM_MOVIE_HANDOFF|entry movie blocks before the basket rescue is constructed: OK
+DAY_ONE_BATHROOM_MOVIE_HANDOFF|both movies are optional full-frame Canvas2D overlays: OK
+DAY_ONE_BATHROOM_MOVIE_HANDOFF|two stable future OGV paths and save keys exist: OK
+DAY_ONE_BATHROOM_MOVIE_HANDOFF|a present movie commits its phase marker before playback: OK
+DAY_ONE_BATHROOM_MOVIE_HANDOFF|paths normalize independently and reject non-OGV media: OK
+DAY_ONE_BATHROOM_MOVIE_HANDOFF|absent entry movie fails open exactly once in memory: OK
+DAY_ONE_BATHROOM_MOVIE_HANDOFF|saved entry marker prevents replay across Continue: OK
+DAY_ONE_BATHROOM_MOVIE_HANDOFF|absent cleanup movie falls through to the clean room: OK
+DAY_ONE_BATHROOM_MOVIE_HANDOFF|pool picture waits while either movie or its save is active: OK
+DAY_ONE_BATHROOM_MOVIE_HANDOFF|generic room action is not restored by cleanup completion: OK
+DAY_ONE_BATHROOM_MOVIE_HANDOFF|RESULT: PASS checks_failed=0
+PROBE probe_day_one_bathroom_movie_handoff process exit: 0
+=== probe_day_one_art_attack_state ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DAY_ONE_ART_ATTACK_STATE|child-friendly aqua attack default: OK
+DAY_ONE_ART_ATTACK_STATE|art begins empty and gated: OK
+DAY_ONE_ART_ATTACK_STATE|one pickup and one scrub cannot unlock the desk: OK
+DAY_ONE_ART_ATTACK_STATE|all seven cleanup actions unlock the desk: OK
+DAY_ONE_ART_ATTACK_STATE|customization is desk-gated: OK
+DAY_ONE_ART_ATTACK_STATE|art completion uses the existing room order: OK
+DAY_ONE_ART_ATTACK_STATE|serialized art state is JSON-safe: OK
+DAY_ONE_ART_ATTACK_STATE|malformed attack values use safe defaults: OK
+DAY_ONE_ART_ATTACK_STATE|partial unknown art collections remain safely gated: OK
+DAY_ONE_ART_ATTACK_STATE|studio builds seven large Canvas cleanup targets at castle scale: OK
+DAY_ONE_ART_ATTACK_STATE|art neighbours brushes/pink_paint have separate generous targets: OK
+DAY_ONE_ART_ATTACK_STATE|gap between brushes/pink_paint does not collect a neighbour: OK
+DAY_ONE_ART_ATTACK_STATE|art neighbours pink_paint/blue_paint have separate generous targets: OK
+DAY_ONE_ART_ATTACK_STATE|gap between pink_paint/blue_paint does not collect a neighbour: OK
+DAY_ONE_ART_ATTACK_STATE|art neighbours blue_paint/paint_cups have separate generous targets: OK
+DAY_ONE_ART_ATTACK_STATE|gap between blue_paint/paint_cups does not collect a neighbour: OK
+DAY_ONE_ART_ATTACK_STATE|hand points above visible brushes in its touch region: OK
+DAY_ONE_ART_ATTACK_STATE|one visible brushes tap collects only that supply: OK
+DAY_ONE_ART_ATTACK_STATE|art tap brushes never opens logo: OK
+DAY_ONE_ART_ATTACK_STATE|hand points above visible pink_paint in its touch region: OK
+DAY_ONE_ART_ATTACK_STATE|one visible pink_paint tap collects only that supply: OK
+DAY_ONE_ART_ATTACK_STATE|art tap pink_paint never opens logo: OK
+DAY_ONE_ART_ATTACK_STATE|hand points above visible blue_paint in its touch region: OK
+DAY_ONE_ART_ATTACK_STATE|one visible blue_paint tap collects only that supply: OK
+DAY_ONE_ART_ATTACK_STATE|art tap blue_paint never opens logo: OK
+DAY_ONE_ART_ATTACK_STATE|hand points above visible paint_cups in its touch region: OK
+DAY_ONE_ART_ATTACK_STATE|one visible paint_cups tap collects only that supply: OK
+DAY_ONE_ART_ATTACK_STATE|art tap paint_cups never opens logo: OK
+DAY_ONE_ART_ATTACK_STATE|hand points above visible left_counter: OK
+DAY_ONE_ART_ATTACK_STATE|visible left_counter touch cleans its own spot: OK
+DAY_ONE_ART_ATTACK_STATE|art tap left_counter never opens logo: OK
+DAY_ONE_ART_ATTACK_STATE|hand points above visible desk_counter: OK
+DAY_ONE_ART_ATTACK_STATE|visible desk_counter touch cleans its own spot: OK
+DAY_ONE_ART_ATTACK_STATE|art tap desk_counter never opens logo: OK
+DAY_ONE_ART_ATTACK_STATE|hand points above visible right_counter: OK
+DAY_ONE_ART_ATTACK_STATE|visible right_counter touch cleans its own spot: OK
+DAY_ONE_ART_ATTACK_STATE|art tap right_counter never opens logo: OK
+DAY_ONE_ART_ATTACK_STATE|seven art taps finish cleanup without logo hijack: OK
+DAY_ONE_ART_ATTACK_STATE|customizer opens with child guidance and picture confirmation: OK
+DAY_ONE_ART_ATTACK_STATE|dim tap before a choice does not confirm: OK
+DAY_ONE_ART_ATTACK_STATE|color choice is visible before confirmation: OK
+DAY_ONE_ART_ATTACK_STATE|dim tap after one choice confirms: OK
+DAY_ONE_ART_ATTACK_STATE|Grand Puff feedback uses saved color and splash effect: OK
+DAY_ONE_ART_ATTACK_STATE|Grand Puff feedback tears down with encounter: OK
+DAY_ONE_ART_ATTACK_STATE|RESULT: PASS failures=0
+PROBE probe_day_one_art_attack_state process exit: 0
+=== probe_start_menu_new_game ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+START_MENU_NEW_GAME|seeded save counts as an adventure to keep: OK
+START_MENU_NEW_GAME|start menu, confirm sheet and START NEW exist: OK
+START_MENU_NEW_GAME|START NEW names the hold gesture for a grown-up: OK
+START_MENU_NEW_GAME|START NEW carries a hold progress bar: OK
+START_MENU_NEW_GAME|NEW GAME opens the confirm sheet: OK
+START_MENU_NEW_GAME|hold caption is visible on the confirm sheet: OK
+START_MENU_NEW_GAME|START NEW starts disarmed: OK
+START_MENU_NEW_GAME|a tap on the disarmed START NEW changes nothing: OK
+START_MENU_NEW_GAME|START NEW arms after its delay: OK
+START_MENU_NEW_GAME|the pointer press reached START NEW: OK
+START_MENU_NEW_GAME|the bar fills while START NEW is held: OK
+START_MENU_NEW_GAME|a quick tap never starts a new game: OK
+START_MENU_NEW_GAME|a lifted press empties the bar: OK
+START_MENU_NEW_GAME|a lifted press pulses the hold caption: OK
+ERROR: Parameter "current_scene" is null.
+   at: reload_current_scene (scene/main/scene_tree.cpp:1749)
+START_MENU_NEW_GAME|a full hold fills the bar: OK
+START_MENU_NEW_GAME|a full hold installs a fresh save: OK
+START_MENU_NEW_GAME|a full hold keeps the old adventure in the grown-up archive: OK
+START_MENU_NEW_GAME|a full hold routes the reload into Day One: OK
+START_MENU_NEW_GAME|a completed hold does not pulse the tap hint: OK
+START_MENU_NEW_GAME|the reloaded game skips the menu and starts Day One: OK
+START_MENU_NEW_GAME|the reload consumes its one-shot marker: OK
+START_MENU_NEW_GAME|the reloaded game runs on the fresh save: OK
+START_MENU_NEW_GAME|the fresh Day One has no finished rooms: OK
+START_MENU_NEW_GAME|RESULT: PASS failures=0
+PROBE probe_start_menu_new_game process exit: 0
+=== probe_props ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PROPS|stage + arena shell build: OK
+PROPS|4 props spawn under the cap: OK
+PROPS|fleet settles on the stage floor via the solver: OK
+PROPS|arena walls keep the fleet on the promenade: OK
+PROPS|settled fleet stays put with nobody near: OK
+PROPS|settled fleet is asleep (perf contract): OK
+PROPS|contact push shoves the prop away: OK
+PROPS|stirred prop rides the solver tide: OK
+PROPS|tide fades and the fleet sleeps again: OK
+PROPS|sleeping sprite sways with the wave: OK
+PROPS|cosmetic tide never moves the body: OK
+PROPS|a breach-tier proc spawns splash + ripple cards: OK
+PROPS|the per-emitter cooldown holds: OK
+PROPS|the concurrent-card cap holds: OK
+PROPS|cards animate out and free themselves: OK
+PROPS|every shipped atlas matches the KINDS grid: OK
+PROPS|a card flipbooks the atlas art: OK
+PROPS|the foam waterline builds and tiles: OK
+PROPS|the waterline drifts with the water clock: OK
+PROPS|freed waterlines are pruned: OK
+PROPS|a prop crossing the waterline procs a splash: OK
+PROPS|fleet cap holds at PROPS_MAX: OK
+PROPS|teardown reclaims every body: OK
+PROPS|no orphan spawns after teardown: OK
+PROPS|result: ALL OK
+PROBE probe_props process exit: 0

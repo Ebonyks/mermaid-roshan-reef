@@ -1,0 +1,927 @@
+=== probe_save_recovery ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SAVE_RECOVERY|OK: primary created
+SAVE_RECOVERY|OK: backup created on first write
+SAVE_RECOVERY|OK: schema version added
+SAVE_RECOVERY|OK: unknown dictionary preserved
+SAVE_RECOVERY|OK: Classic touch preference serialized
+SAVE_RECOVERY|OK: unknown array preserved
+SAVE_RECOVERY|OK: dungeon checkpoint serialized
+SAVE_RECOVERY|OK: raw sparse Opera mask serialized
+SAVE_RECOVERY|OK: Opera progress counts only live bits
+SAVE_RECOVERY|OK: new primary installed
+SAVE_RECOVERY|OK: backup retains last known-good primary
+SAVE_RECOVERY|OK: Hybrid touch preference serialized
+SAVE_RECOVERY|OK: touch rollback preference survives in backup
+SAVE_RECOVERY|OK: unknown key survives another write
+SAVE_RECOVERY|OK: dungeon completion serialized and clamped
+SAVE_RECOVERY|OK: retired Opera bits survive a rewrite
+SAVE_RECOVERY|OK: complete Opera progress is thirteen live careers
+SAVE_RECOVERY|OK: Opera backup retains prior sparse mask semantics
+SAVE_RECOVERY|OK: fresh reader reloads dungeon completion
+SAVE_RECOVERY|OK: fresh reader reloads effective Opera completion
+SAVE_RECOVERY|OK: fresh reader reloads touch preference
+SAVE_RECOVERY|OK: old save receives additive Teacher learning defaults
+SAVE_RECOVERY|OK: old save receives empty Teacher lesson checkpoint
+SAVE_RECOVERY|OK: Teacher learning progress survives JSON disk round-trip
+SAVE_RECOVERY|OK: Teacher lesson checkpoint survives JSON disk round-trip
+SAVE_RECOVERY|OK: Teacher save normalization preserves unrelated keys
+SAVE_RECOVERY|OK: invalid Teacher checkpoint heals without losing unrelated keys
+SAVE_RECOVERY|OK: invalid Teacher checkpoint heals without losing unrelated keys
+SAVE_RECOVERY|OK: invalid Teacher checkpoint heals without losing unrelated keys
+SAVE_RECOVERY|OK: invalid Teacher checkpoint heals without losing unrelated keys
+SAVE_RECOVERY|OK: truncated primary found a clean recovery copy
+SAVE_RECOVERY|OK: backup selected after truncation
+SAVE_RECOVERY|OK: backup progress recovered
+SAVE_RECOVERY|OK: backup dungeon checkpoint recovered
+SAVE_RECOVERY|OK: primary repaired from backup
+SAVE_RECOVERY|OK: repaired primary is readable
+SAVE_RECOVERY|OK: wrong known type falls back to clean backup
+SAVE_RECOVERY|OK: incomplete primary falls back to complete backup
+SAVE_RECOVERY|OK: noncritical damage keeps newer primary
+SAVE_RECOVERY|OK: noncritical repair preserves newer progress
+SAVE_RECOVERY|OK: invalid touch preference repairs to Hybrid
+SAVE_RECOVERY|OK: future schema recognized
+WARNING: SaveState: writes disabled — the save on disk uses a newer schema than this build; the newer save is preserved and progress stays in memory
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] write_save (res://scripts/save_state.gd:236)
+       [1] _init (res://scripts/probe_save_recovery.gd:176)
+SAVE_RECOVERY|OK: write against a future primary reports failure
+SAVE_RECOVERY|OK: fresh writer leaves future schema byte-for-byte untouched
+SAVE_RECOVERY|OK: future backup outranks older clean temp
+SAVE_RECOVERY|OK: baseline write succeeds
+SAVE_RECOVERY|OK: stale future temp does not disable writes
+SAVE_RECOVERY|OK: write landed despite stale future temp
+SAVE_RECOVERY|OK: stale future temp does not hijack load selection
+SAVE_RECOVERY|OK: core-quartet fixture written
+SAVE_RECOVERY|OK: save missing a newly-added key is still clean
+SAVE_RECOVERY|OK: missing key restored with its default
+SAVE_RECOVERY|OK: pre-Critter-Book save defaults critters without demotion
+SAVE_RECOVERY|OK: pre-touch-mode save defaults to Hybrid
+SAVE_RECOVERY|OK: no demotion: newest progress kept
+SAVE_RECOVERY|OK: pre-Geologist save defaults geology checkpoint to empty
+SAVE_RECOVERY|OK: Geologist checkpoint fixture written
+SAVE_RECOVERY|OK: valid Geologist checkpoint survives JSON disk round-trip
+SAVE_RECOVERY|OK: checkpoint and save preserve unrelated keys
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: invalid Geologist checkpoint schema heals to empty
+SAVE_RECOVERY|OK: invalid checkpoint healing retains unrelated key
+SAVE_RECOVERY|OK: archive fixture baseline write succeeds
+SAVE_RECOVERY|OK: New Game installs a fresh save
+SAVE_RECOVERY|OK: before-New-Game archive preserves unknown fields
+SAVE_RECOVERY|OK: before-New-Game archive keeps the prior generation
+SAVE_RECOVERY|OK: fresh New Game backup is newer than the archive
+WARNING: SaveState: no clean before-New-Game archive is available to restore
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] restore_new_game_archive (res://scripts/save_state.gd:380)
+       [1] _init (res://scripts/probe_save_recovery.gd:315)
+SAVE_RECOVERY|OK: corrupt before-New-Game archive is refused
+SAVE_RECOVERY|OK: clean before-New-Game archive restores transactionally
+SAVE_RECOVERY|OK: archive restore keeps progress and unknown fields
+SAVE_RECOVERY|OK: archive restore generation outranks the fresh backup
+SAVE_RECOVERY|RESULT: ALL OK
+PROBE probe_save_recovery process exit: 0
+=== probe_fetch ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+f=1 phase=aim round=0 miss=0 ballx=0.0
+f=73 phase=fly round=0 miss=0 ballx=0.0
+f=110 phase=fetch round=0 miss=0 ballx=-4.5
+f=113 phase=pickup round=0 miss=0 ballx=-4.5
+f=133 phase=return round=0 miss=0 ballx=-4.6
+f=146 phase=aim round=1 miss=0 ballx=0.2
+f=241 phase=fly round=1 miss=0 ballx=0.0
+f=278 phase=fetch round=1 miss=0 ballx=-4.4
+f=289 phase=pickup round=1 miss=0 ballx=-4.4
+f=309 phase=return round=1 miss=0 ballx=-4.3
+END game= won=true frames=319
+WARNING: 20 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 8 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+PROBE probe_fetch process exit: 0
+=== probe_audio ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+AUDIO|Music bus exists: OK
+AUDIO|Voice bus exists: OK
+AUDIO|SFX bus exists: OK
+AUDIO|Ambience bus exists: OK
+AUDIO|UI bus exists: OK
+AUDIO|music is routed: OK
+AUDIO|voice fallback is routed: OK
+AUDIO|voice pool is routed: OK
+AUDIO|effects are routed: OK
+AUDIO|ambience is routed: OK
+AUDIO|UI taps are routed: OK
+AUDIO|all authored area cues exist: OK
+AUDIO|all authored area cues import looped: OK
+AUDIO|every live Opera career owns a unique cue: OK
+AUDIO|every Castle room owns a cue: OK
+AUDIO|missing cue does not poison return track: OK
+AUDIO|visible Castle room state selects its cue: OK
+AUDIO|Castle observer yields to a covered activity: OK
+AUDIO|area cue routes through Music: OK
+AUDIO|Castle area cue preserves room ambience: OK
+AUDIO|portable Stuffie cue preserves its source ambience: OK
+AUDIO|late picture close cannot overwrite a newer picture: OK
+AUDIO|current picture close restores its source music: OK
+AUDIO|Galaxy cue keeps the Lagoon ambience bed: OK
+AUDIO|result: ALL OK
+PROBE probe_audio process exit: 0
+=== probe_sky_lagoon_animals ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+LAGOONANIMALS|exact_five_species_roster|OK
+LAGOONANIMALS|ecological_page_rosters|OK|{ 0: 2, 1: 2, 2: 1 }
+LAGOONANIMALS|authored_paths_clear_route_props_and_seams|OK
+LAGOONANIMALS|animal_atlas_contract|OK
+LAGOONANIMALS|authored_day_night_lighting|OK
+LAGOONANIMALS|single_pooled_canvas_animal|OK
+LAGOONANIMALS|single_pooled_canvas_contact_shadow|OK
+LAGOONANIMALS|bind_otter|OK
+LAGOONANIMALS|otter_reuses_canvas_pool|OK
+LAGOONANIMALS|otter_idle_path_and_production_touch|OK
+LAGOONANIMALS|otter_actual_phone_readability_and_clear_staging|OK|bounds=[P: (4.667694, 395.5409), S: (137.851, 66.32996)] overlap=0.000
+LAGOONANIMALS|otter_canvas_metadata_and_lighting|OK
+LAGOONANIMALS|otter_cute_startle_sequence|OK
+LAGOONANIMALS|bind_frog|OK
+LAGOONANIMALS|frog_reuses_canvas_pool|OK
+LAGOONANIMALS|frog_idle_path_and_production_touch|OK
+LAGOONANIMALS|frog_actual_phone_readability_and_clear_staging|OK|bounds=[P: (20.02264, 405.401), S: (101.2637, 68.98315)] overlap=0.001
+LAGOONANIMALS|frog_canvas_metadata_and_lighting|OK
+LAGOONANIMALS|frog_cute_startle_sequence|OK
+LAGOONANIMALS|bind_hare|OK
+LAGOONANIMALS|hare_reuses_canvas_pool|OK
+LAGOONANIMALS|hare_idle_path_and_production_touch|OK
+LAGOONANIMALS|hare_actual_phone_readability_and_clear_staging|OK|bounds=[P: (536.7051, 350.5196), S: (67.62769, 70.31937)] overlap=0.000
+LAGOONANIMALS|hare_canvas_metadata_and_lighting|OK
+LAGOONANIMALS|hare_cute_startle_sequence|OK
+LAGOONANIMALS|bind_squirrel|OK
+LAGOONANIMALS|squirrel_reuses_canvas_pool|OK
+LAGOONANIMALS|squirrel_idle_path_and_production_touch|OK
+LAGOONANIMALS|squirrel_actual_phone_readability_and_clear_staging|OK|bounds=[P: (534.2703, 312.5537), S: (85.22644, 68.1015)] overlap=0.000
+LAGOONANIMALS|squirrel_canvas_metadata_and_lighting|OK
+LAGOONANIMALS|squirrel_cute_startle_sequence|OK
+LAGOONANIMALS|bind_raccoon|OK
+LAGOONANIMALS|raccoon_reuses_canvas_pool|OK
+LAGOONANIMALS|raccoon_idle_path_and_production_touch|OK
+LAGOONANIMALS|raccoon_actual_phone_readability_and_clear_staging|OK|bounds=[P: (621.5978, 363.9399), S: (94.78455, 67.70325)] overlap=0.000
+LAGOONANIMALS|raccoon_canvas_metadata_and_lighting|OK
+LAGOONANIMALS|raccoon_cute_startle_sequence|OK
+LAGOONANIMALS|reef_route_visible_from_arrival_page|OK
+LAGOONANIMALS|shore_starts_with_otter|OK
+LAGOONANIMALS|arrival_plane_excludes_shore_animals|OK
+LAGOONANIMALS|shore_returns_after_plane_departure_bind|OK
+LAGOONANIMALS|shore_returns_after_plane_departure|OK
+LAGOONANIMALS|activation_exits_toward_safe_edge|OK
+LAGOONANIMALS|shore_roster_advances_otter_to_frog|OK
+LAGOONANIMALS|otter_night_lighting|OK
+LAGOONANIMALS|frog_night_lighting|OK
+LAGOONANIMALS|hare_night_lighting|OK
+LAGOONANIMALS|squirrel_night_lighting|OK
+LAGOONANIMALS|raccoon_night_lighting|OK
+SKY_LAGOON_ANIMALS|ALL OK
+PROBE probe_sky_lagoon_animals process exit: 0
+=== probe_northern ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+NORTH|promenade replaces Alpine courtyard portal: OK
+NORTH|northern world remains loadable: OK
+NORTH|three readable regions: OK
+NORTH|mobile dressing budget: OK (trees=83 houses=7 wisps=22 nodes=429)
+NORTH|forest has understory and mushrooms: OK
+NORTH|two grounded spirit clearings of standing stones: OK
+NORTH|mezzanine bedrooms exist: OK
+NORTH|forest POI chain built: OK (pois=8)
+NORTH|authored northern asset family: OK (instances=118)
+NORTH|pass descends into forest: OK (pass=-2166.4 forest=-2200.3)
+NORTH|town road is gentle: OK (forest=-2200.3 town=-2198.0)
+NORTH|castle closes the far end: OK (local=(0.0, -318.0))
+NORTH|forest act is a 20-30s walk: OK (span=448)
+NORTH|flora follows substrate and reserved footprints: OK
+NORTH|stream carves below its banks: OK (bed=-2200.4 bank=-2198.0)
+NORTH|log bridge deck is dry: OK (deck=-2197.7)
+NORTH|mill plank bridge is dry: OK (deck=-2197.3)
+NORTH|grand hall mezzanine + twin stairs zoned: OK (mezz=1 ramps=2)
+NORTH|passive-safe exploration: OK
+NORTH|return gate starts disarmed: OK
+NORTH|return reaches castle-side promenade: OK
+NORTH|return spawn is on Canvas screen three: OK
+NORTH|RESULT: OK
+PROBE probe_northern process exit: 0
+=== probe_skins ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+skin round-trip ok (huluu kept through forced fairy)
+sprite skin audit complete
+PROBE probe_skins process exit: 0
+=== probe_touch_adversary ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+TOUCH_ADVERSARY|RUN 01|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 02|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 03|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 04|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 05|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 06|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 07|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 08|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 09|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 10|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 11|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 12|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 13|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 14|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 15|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 16|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 17|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 18|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 19|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 20|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 21|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 22|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 23|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 24|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|RUN 25|CLEAR — no automated touch concern
+TOUCH_ADVERSARY|ALL 25 SCENARIO RUNS CLEAR
+PROBE probe_touch_adversary process exit: 0
+=== probe_day_one_voice ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DAY_ONE_VOICE|exact filler path for castle_home_day_one: OK
+DAY_ONE_VOICE|required event is classified: castle_home_day_one: OK
+DAY_ONE_VOICE|exact filler path for castle_door_resting: OK
+DAY_ONE_VOICE|required event is classified: castle_door_resting: OK
+DAY_ONE_VOICE|exact filler path for day_one_jobs_resting: OK
+DAY_ONE_VOICE|required event is classified: day_one_jobs_resting: OK
+DAY_ONE_VOICE|exact filler path for day_one_rescue_bunnies: OK
+DAY_ONE_VOICE|required event is classified: day_one_rescue_bunnies: OK
+DAY_ONE_VOICE|exact filler path for day_one_finish_current: OK
+DAY_ONE_VOICE|required event is classified: day_one_finish_current: OK
+DAY_ONE_VOICE|exact filler path for day_one_room_clean: OK
+DAY_ONE_VOICE|required event is classified: day_one_room_clean: OK
+DAY_ONE_VOICE|exact filler path for day_one_new_door: OK
+DAY_ONE_VOICE|required event is classified: day_one_new_door: OK
+DAY_ONE_VOICE|exact filler path for day_one_all_rooms_clean: OK
+DAY_ONE_VOICE|required event is classified: day_one_all_rooms_clean: OK
+DAY_ONE_VOICE|exact filler path for day_one_pool_ready: OK
+DAY_ONE_VOICE|required event is classified: day_one_pool_ready: OK
+DAY_ONE_VOICE|exact filler path for bathroom_supplies_found: OK
+DAY_ONE_VOICE|required event is classified: bathroom_supplies_found: OK
+DAY_ONE_VOICE|exact filler path for bathroom_cleanup_start: OK
+DAY_ONE_VOICE|required event is classified: bathroom_cleanup_start: OK
+DAY_ONE_VOICE|exact filler path for bathroom_basket_hint: OK
+DAY_ONE_VOICE|required event is classified: bathroom_basket_hint: OK
+DAY_ONE_VOICE|exact filler path for bathroom_sink_scrub: OK
+DAY_ONE_VOICE|required event is classified: bathroom_sink_scrub: OK
+DAY_ONE_VOICE|exact filler path for bathroom_tub_drain: OK
+DAY_ONE_VOICE|required event is classified: bathroom_tub_drain: OK
+DAY_ONE_VOICE|exact filler path for bathroom_tub_brush: OK
+DAY_ONE_VOICE|required event is classified: bathroom_tub_brush: OK
+DAY_ONE_VOICE|exact filler path for bathroom_cleanup_done: OK
+DAY_ONE_VOICE|required event is classified: bathroom_cleanup_done: OK
+DAY_ONE_VOICE|exact filler path for pool_surface_clean: OK
+DAY_ONE_VOICE|required event is classified: pool_surface_clean: OK
+DAY_ONE_VOICE|exact filler path for pool_waterfall_clean: OK
+DAY_ONE_VOICE|required event is classified: pool_waterfall_clean: OK
+DAY_ONE_VOICE|exact filler path for pool_seahorse_clean: OK
+DAY_ONE_VOICE|required event is classified: pool_seahorse_clean: OK
+DAY_ONE_VOICE|exact filler path for castle_playroom_rescue_start: OK
+DAY_ONE_VOICE|required event is classified: castle_playroom_rescue_start: OK
+DAY_ONE_VOICE|exact filler path for art_studio_hint: OK
+DAY_ONE_VOICE|required event is classified: art_studio_hint: OK
+DAY_ONE_VOICE|exact filler path for art_studio_material_hint: OK
+DAY_ONE_VOICE|required event is classified: art_studio_material_hint: OK
+DAY_ONE_VOICE|exact filler path for art_studio_scrub_hint: OK
+DAY_ONE_VOICE|required event is classified: art_studio_scrub_hint: OK
+DAY_ONE_VOICE|exact filler path for dustboss_show: OK
+DAY_ONE_VOICE|required event is classified: dustboss_show: OK
+DAY_ONE_VOICE|exact filler path for dustboss_tell_opening: OK
+DAY_ONE_VOICE|required event is classified: dustboss_tell_opening: OK
+DAY_ONE_VOICE|exact filler path for dustboss_tell_shielded: OK
+DAY_ONE_VOICE|required event is classified: dustboss_tell_shielded: OK
+DAY_ONE_VOICE|exact filler path for dustboss_again_miss: OK
+DAY_ONE_VOICE|required event is classified: dustboss_again_miss: OK
+DAY_ONE_VOICE|exact filler path for dustboss_again_closer: OK
+DAY_ONE_VOICE|required event is classified: dustboss_again_closer: OK
+DAY_ONE_VOICE|exact filler path for dustboss_again_mercy: OK
+DAY_ONE_VOICE|required event is classified: dustboss_again_mercy: OK
+DAY_ONE_VOICE|exact filler path for dustboss_dizzy_first: OK
+DAY_ONE_VOICE|required event is classified: dustboss_dizzy_first: OK
+DAY_ONE_VOICE|exact filler path for dustboss_dizzy_round: OK
+DAY_ONE_VOICE|required event is classified: dustboss_dizzy_round: OK
+DAY_ONE_VOICE|exact filler path for dustboss_angry: OK
+DAY_ONE_VOICE|required event is classified: dustboss_angry: OK
+DAY_ONE_VOICE|exact filler path for dustboss_win: OK
+DAY_ONE_VOICE|required event is classified: dustboss_win: OK
+DAY_ONE_VOICE|exact filler path for day_two_begins: OK
+DAY_ONE_VOICE|required event is classified: day_two_begins: OK
+DAY_ONE_VOICE|prefixed event still resolves one speaker prefix: OK
+DAY_ONE_VOICE|generic talk remains distinct from required objective paths: OK
+DAY_ONE_VOICE|generic talk cannot truncate required objective: OK
+DAY_ONE_VOICE|second Roshan objective is queued, not overlapped: OK
+DAY_ONE_VOICE|required path never resolves retired fallback: OK
+DAY_ONE_VOICE|RESULT: PASS failures=0
+WARNING: 12 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 6 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+PROBE probe_day_one_voice process exit: 0
+=== probe_combat ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+COMBAT|ice arena starts with eight surrounding imps: OK
+COMBAT|ice battle cannot win passively: OK
+COMBAT|frozen imps melt into popcorn: OK
+COMBAT|ice completion saves: OK
+COMBAT|pepper boss arena builds: OK
+COMBAT|pepper uses shared no-death encounter: OK
+COMBAT|pepper warning is visible on Canvas: OK
+COMBAT|pepper cannot win without input: OK
+COMBAT|stationary play receives a harmless shield bump: OK
+COMBAT|shell-tap spam cannot skip avoidance: OK
+COMBAT|adaptive movement earns a counter opening: OK
+COMBAT|pepper saves an earned round before interruption: OK
+COMBAT|pepper re-entry restores earned rounds and assistance: OK
+COMBAT|adaptive movement earns a counter opening: OK
+COMBAT|adaptive movement earns a counter opening: OK
+COMBAT|adaptive movement earns a counter opening: OK
+COMBAT|adaptive movement earns a counter opening: OK
+COMBAT|adaptive movement earns a counter opening: OK
+COMBAT|adaptive movement earns a counter opening: OK
+COMBAT|pepper fire tames boss after earned openings: OK
+COMBAT|final accepted Pepper round is checkpointed before victory delay: OK
+COMBAT|final Pepper checkpoint resumes the normal victory boundary: OK
+COMBAT|fire completion saves and returns: OK
+COMBAT|resumed Pepper victory grants its reward exactly once: OK
+COMBAT|finished Pepper callback is guarded against a second reward: OK
+COMBAT|normal Pepper finish clears its replay checkpoint: OK
+COMBAT|Pepper replay starts from round zero after completed reward: OK
+COMBAT|adaptive movement earns a counter opening: OK
+COMBAT|dual shell rejects fire before ice: OK
+COMBAT|dual ice opens the flashing head: OK
+COMBAT|dual fire lands only after the earned ice opening: OK
+COMBAT|dual progress uses a separate checkpoint key: OK
+COMBAT|malformed Pepper checkpoint defaults safely: OK
+COMBAT|Pepper checkpoint selection is isolated by room and kind: OK
+COMBAT|result: ALL OK
+PROBE probe_combat process exit: 0
+=== probe_hit ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+HIT|arena builds its hit engine: OK
+HIT|router finds the live arena: OK
+HIT|engine borrows the imp dicts: OK
+HIT|battle engine holds tap priority: OK
+HIT|no imp dies without input: OK
+HIT|far tap misses every imp: OK
+HIT|missed tap deals no hit: OK
+HIT|tap picks the imp under the finger: OK
+HIT|first tap harms, never fells (3 hp): OK
+HIT|combat pops use their own voice: OK
+HIT|the 1-2-3 combo fells the basic imp: OK
+HIT|frozen imp pops into the dying animation: OK
+HIT|popped imp leaves the stage: OK
+HIT|popped imp is no longer hittable: OK
+HIT|tapping every imp wins the arena: OK
+HIT|tap-won battle saves and returns: OK
+HIT|engine unregisters after victory: OK
+HIT|boss registers with the engine: OK
+HIT|shell phase still blocks a tap: OK
+HIT|movement through the shared attack earns the peek: OK
+HIT|peeking boss takes one HitEngine tap phase: OK
+HIT|engine unregisters after cancel: OK
+HIT|generic hit lands from any source: OK
+HIT|survivor keeps reduced hp: OK
+HIT|lethal hit starts the dying animation: OK
+HIT|defeat callback fired once: OK
+HIT|flop death disposes the node: OK
+HIT|dead record refuses further hits: OK
+HIT|charge waits through the grace: OK
+HIT|ring appears after the grace: OK
+HIT|stage one reached: OK
+HIT|the stage lamps show the hold working: OK
+HIT|stage-one release totals 2 damage: OK
+HIT|the lamps leave with the charge: OK
+HIT|stage two colors the ring: OK
+HIT|full charge fires itself: OK
+HIT|a full charge totals 4, not 5: OK
+HIT|stage-three charge finishes the enemy: OK
+HIT|a full hold is slower than her own tapping: OK
+HIT|a short drag is not a slice: OK
+HIT|a swipe outside the band cuts nothing: OK
+HIT|a swipe never cuts more than the cap: OK
+HIT|the slice deals its 2 damage: OK
+HIT|the far end of a long drag is out of reach: OK
+HIT|a spent blade cuts nothing: OK
+HIT|the blade comes back after its rest: OK
+HIT|a drag cancels the held charge: OK
+HIT|enemy outranks the overlapping interactable: OK
+HIT|covered interactable is left alone: OK
+HIT|tap_priority opt-out yields the tap: OK
+HIT|result: ALL OK
+PROBE probe_hit process exit: 0
+=== probe_mic ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+MIC|nothing is castable before the spells are taught: OK
+MIC|teaching ICE banks five templates: OK
+MIC|teaching both spells completes enrollment: OK
+MIC|a spoken ICE is recognised (6/6): OK
+MIC|a spoken FIRE is recognised (6/6): OK
+MIC|a sloppier delivery of the same word still lands (8/8): OK
+MIC|the two spells are never confused for each other: OK
+MIC|room noise casts no spell (0/8 leaked): OK
+MIC|silence casts no spell: OK
+MIC|a blip too short to be a word casts no spell: OK
+MIC|an ambiguous sound stays silent instead of guessing (<silent>): OK
+MIC|templates are stored outside reef_save.json: OK
+MIC|a relaunch reloads the taught spells: OK
+WARNING: MicInput: user://mic_spells.json is unreadable; spells must be taught again
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _load_templates (res://scripts/mic_input.gd:538)
+       [1] classify (res://scripts/mic_input.gd:397)
+       [2] _finish_utterance (res://scripts/mic_input.gd:367)
+       [3] test_utterance (res://scripts/mic_input.gd:583)
+       [4] _persistence_case (res://scripts/probe_mic.gd:205)
+       [5] _init (res://scripts/probe_mic.gd:35)
+MIC|a corrupt template file degrades to silence, not a crash: OK
+MIC|the toggle off refuses to arm the microphone: OK
+MIC|a disarmed microphone captures nothing: OK
+MIC|the toggle persists to the save document: OK
+MIC|the save document round-trips the toggle off: OK
+MIC|the ice arena builds with spoken spells enabled: OK
+MIC|no device means no spoken-spell promise is shown: OK
+MIC|spoken spells cannot win a battle passively: OK
+MIC|a stray word is dropped when the arena is not listening: OK
+MIC|a spoken ICE casts ice in the ice arena: OK
+MIC|a spoken FIRE is inert in the ice arena: OK
+MIC|leaving the arena closes the capture device: OK
+MIC|result: ALL OK
+PROBE probe_mic process exit: 0
+=== probe_opera ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+OPERA|the real Castle picture stage is the only career entry surface: OK
+OPERA|Castle careers, ambient motion and phone pause stack visibly: OK
+OPERA|Opera keeps sixteen historical positions and appends Geologist and Teacher: OK
+OPERA|the fifteen playable positions keep legacy slots stable: OK
+OPERA|the three retired boss positions remain inert tombstones: OK
+OPERA|the nine owner-approved Castle route sets are exact: OK
+OPERA|Opera Hall contains exactly Ballerina, Pop Star and Magician: OK
+OPERA|Movie Lounge is Racer's one canonical Castle home: OK
+OPERA|there is no generic all-career lobby script: OK
+OPERA|all and only the fifteen live slots have one room route: OK
+OPERA|every live career and tombstone retains its original bit: OK
+OPERA|all fifteen careers keep unique Canvas identities: OK
+OPERA|save migration keeps legacy progress 0 exact: OK
+OPERA|save migration keeps legacy progress 15 exact: OK
+OPERA|save migration keeps legacy progress 16 exact: OK
+OPERA|save migration keeps retired bits only exact: OK
+OPERA|save migration keeps all live careers exact: OK
+OPERA|save migration keeps all live careers including Geologist exact: OK
+OPERA|save migration keeps all live careers including Teacher exact: OK
+OPERA|save migration keeps old all-bits completion exact: OK
+OPERA|save migration keeps overflow clamps to eighteen bits exact: OK
+OPERA|save migration keeps negative mask clamps safely exact: OK
+OPERA|kitchen exposes its exact room-owned career pictures: OK
+OPERA|kitchen route cards stay full-size, separated and clear Roshan: OK
+OPERA|opera_hall exposes its exact room-owned career pictures: OK
+OPERA|Opera Hall opens the recovered three-floor explorable venue: OK
+OPERA|library exposes its exact room-owned career pictures: OK
+OPERA|library route cards stay full-size, separated and clear Roshan: OK
+OPERA|craft_room exposes its exact room-owned career pictures: OK
+OPERA|craft_room route cards stay full-size, separated and clear Roshan: OK
+OPERA|playroom exposes its exact room-owned career pictures: OK
+OPERA|playroom route cards stay full-size, separated and clear Roshan: OK
+OPERA|bubble_bath exposes its exact room-owned career pictures: OK
+OPERA|bubble_bath route cards stay full-size, separated and clear Roshan: OK
+OPERA|mermaid_pool exposes its exact room-owned career pictures: OK
+OPERA|mermaid_pool route cards stay full-size, separated and clear Roshan: OK
+OPERA|dining_room exposes its exact room-owned career pictures: OK
+OPERA|dining_room route cards stay full-size, separated and clear Roshan: OK
+OPERA|movie_lounge exposes its exact room-owned career pictures: OK
+OPERA|movie_lounge route cards stay full-size, separated and clear Roshan: OK
+OPERA|the nine visible room sets contain every career exactly once: OK
+OPERA|the Opera stage star opens the recovered three-floor venue: OK
+OPERA|the recovered venue is not an all-career picker: OK
+OPERA|idle room pictures cannot award or launch a career: OK
+OPERA|a career picture cannot launch from the wrong room: OK
+OPERA|a valid career tuple cannot launch outside its current Castle room: OK
+OPERA|retired slot 4 has no route or playable config: OK
+OPERA|retired slot 9 has no route or playable config: OK
+OPERA|retired slot 14 has no route or playable config: OK
+OPERA|slot 1 exposes its real library picture: OK
+OPERA|slot 1 reaches its routed career after the reveal: OK
+OPERA|slot 1 launches through raw viewport touch: OK
+OPERA|Detective owns its career cue while Library remains its return music: OK
+OPERA|an idle Detective act cannot advance or award itself: OK
+OPERA|cancel returns to the exact Library with no reward: OK
+OPERA|slot 0 exposes its real kitchen picture: OK
+OPERA|slot 0 reaches its routed career after the reveal: OK
+OPERA|slot 0 launches through raw viewport touch: OK
+OPERA|chef starts only its stable Canvas career: OK
+OPERA|chef cannot award itself while idle: OK
+OPERA|chef saves once and returns to kitchen: OK
+OPERA|slot 1 exposes its real library picture: OK
+OPERA|slot 1 reaches its routed career after the reveal: OK
+OPERA|slot 1 launches through raw viewport touch: OK
+OPERA|detective starts only its stable Canvas career: OK
+OPERA|detective cannot award itself while idle: OK
+OPERA|detective saves once and returns to library: OK
+OPERA|Opera Hall touch route enters the recovered foyer: OK
+OPERA|slot 2 exposes its real opera_hall picture: OK
+OPERA|slot 2 reaches its routed career after the reveal: OK
+OPERA|slot 2 launches through raw viewport touch: OK
+OPERA|ballerina starts only its stable Canvas career: OK
+OPERA|ballerina cannot award itself while idle: OK
+OPERA|ballerina saves once and returns to opera_hall: OK
+OPERA|slot 3 exposes its real kitchen picture: OK
+OPERA|slot 3 reaches its routed career after the reveal: OK
+OPERA|slot 3 launches through raw viewport touch: OK
+OPERA|candymaker starts only its stable Canvas career: OK
+OPERA|candymaker cannot award itself while idle: OK
+OPERA|candymaker saves once and returns to kitchen: OK
+OPERA|slot 5 exposes its real playroom picture: OK
+OPERA|slot 5 reaches its routed career after the reveal: OK
+OPERA|slot 5 launches through raw viewport touch: OK
+OPERA|doctor starts only its stable Canvas career: OK
+OPERA|doctor cannot award itself while idle: OK
+OPERA|doctor saves once and returns to playroom: OK
+OPERA|slot 6 exposes its real dining_room picture: OK
+OPERA|slot 6 reaches its routed career after the reveal: OK
+OPERA|slot 6 launches through raw viewport touch: OK
+OPERA|farmer starts only its stable Canvas career: OK
+OPERA|farmer cannot award itself while idle: OK
+OPERA|farmer saves once and returns to dining_room: OK
+OPERA|slot 7 exposes its real playroom picture: OK
+OPERA|slot 7 reaches its routed career after the reveal: OK
+OPERA|slot 7 launches through raw viewport touch: OK
+OPERA|boxer starts only its stable Canvas career: OK
+OPERA|boxer cannot award itself while idle: OK
+OPERA|boxer saves once and returns to playroom: OK
+OPERA|Opera Hall touch route enters the recovered foyer: OK
+OPERA|slot 8 exposes its real opera_hall picture: OK
+OPERA|slot 8 reaches its routed career after the reveal: OK
+OPERA|slot 8 launches through raw viewport touch: OK
+OPERA|magician starts only its stable Canvas career: OK
+OPERA|magician cannot award itself while idle: OK
+OPERA|magician saves once and returns to opera_hall: OK
+OPERA|slot 10 exposes its real craft_room picture: OK
+OPERA|slot 10 reaches its routed career after the reveal: OK
+OPERA|slot 10 launches through raw viewport touch: OK
+OPERA|painter starts only its stable Canvas career: OK
+OPERA|painter cannot award itself while idle: OK
+OPERA|painter saves once and returns to craft_room: OK
+OPERA|slot 11 exposes its real mermaid_pool picture: OK
+OPERA|slot 11 reaches its routed career after the reveal: OK
+OPERA|slot 11 launches through raw viewport touch: OK
+OPERA|astronaut starts only its stable Canvas career: OK
+OPERA|astronaut cannot award itself while idle: OK
+OPERA|astronaut saves once and returns to mermaid_pool: OK
+OPERA|slot 12 exposes its real movie_lounge picture: OK
+OPERA|slot 12 reaches its routed career after the reveal: OK
+OPERA|slot 12 launches through raw viewport touch: OK
+OPERA|racer starts only its stable Canvas career: OK
+OPERA|Racer exact objective voice replaces its caption fallback: OK
+OPERA|pause sheet rises above the room-started Opera career: OK
+OPERA|resume restores the nonblocking pause layer: OK
+OPERA|racer cannot award itself while idle: OK
+OPERA|racer saves once and returns to movie_lounge: OK
+OPERA|Opera Hall touch route enters the recovered foyer: OK
+OPERA|slot 13 exposes its real opera_hall picture: OK
+OPERA|slot 13 reaches its routed career after the reveal: OK
+OPERA|slot 13 launches through raw viewport touch: OK
+OPERA|popstar starts only its stable Canvas career: OK
+OPERA|popstar cannot award itself while idle: OK
+OPERA|popstar saves once and returns to opera_hall: OK
+OPERA|slot 15 exposes its real bubble_bath picture: OK
+OPERA|slot 15 reaches its routed career after the reveal: OK
+OPERA|slot 15 launches through raw viewport touch: OK
+OPERA|nursery starts only its stable Canvas career: OK
+OPERA|nursery cannot award itself while idle: OK
+OPERA|nursery saves once and returns to bubble_bath: OK
+OPERA|slot 16 exposes its real library picture: OK
+OPERA|slot 16 reaches its routed career after the reveal: OK
+OPERA|slot 16 launches through raw viewport touch: OK
+OPERA|geologist starts only its stable Canvas career: OK
+OPERA|geologist cannot award itself while idle: OK
+OPERA|geologist saves once and returns to library: OK
+OPERA|slot 17 exposes its real library picture: OK
+OPERA|slot 17 reaches its routed career after the reveal: OK
+OPERA|slot 17 launches through raw viewport touch: OK
+OPERA|teacher starts only its stable Canvas career: OK
+OPERA|teacher cannot award itself while idle: OK
+OPERA|teacher saves once and returns to library: OK
+OPERA|Teacher checkpoint clears only after its win is recorded: OK
+OPERA|all fifteen sparse careers complete through their nine rooms: OK
+OPERA|the finale reward and sticker are awarded exactly once: OK
+OPERA|slot 0 exposes its real kitchen picture: OK
+OPERA|slot 0 reaches its routed career after the reveal: OK
+OPERA|slot 0 launches through raw viewport touch: OK
+OPERA|replay curtain has earned but not yet duplicated the saved bit: OK
+OPERA|leaving during a replay curtain commits only the replay pearl: OK
+OPERA|slot 0 exposes its real kitchen picture: OK
+OPERA|slot 0 reaches its routed career after the reveal: OK
+OPERA|slot 0 launches through raw viewport touch: OK
+OPERA|neutral pause leave returns to the exact room without reward: OK
+OPERA|later frames cannot duplicate the curtain reward: OK
+OPERA|result: ALL OK
+PROBE probe_opera process exit: 0
+=== probe_opera_pipe ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PIPE|result: ALL OK
+PROBE probe_opera_pipe process exit: 0
+=== probe_bathroom_props ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+BATHROOM|sprite=room_bubble_bath_background.png size=(1024.0, 576.0)
+BATHROOM|sprite=room_bubble_bath_front_left.png size=(226.0, 218.0)
+BATHROOM|sprite=room_bubble_bath_front_right.png size=(226.0, 218.0)
+BATHROOM|sprite=room_bubble_bath_item_bathtub.png size=(321.0, 198.0)
+BATHROOM|sprite=room_bubble_bath_item_sink.png size=(205.0, 173.0)
+BATHROOM|sprite=room_bubble_bath_item_toilet.png size=(153.0, 192.0)
+BATHROOM|sprite=room_bubble_bath_item_rubber_duck.png size=(41.0, 40.0)
+BATHROOM|atlas=bubble_bath_bathtub_atlas.png size=(963.0, 594.0) frames=8
+BATHROOM|atlas=bubble_bath_sink_atlas.png size=(820.0, 346.0) frames=8
+BATHROOM|atlas=bubble_bath_toilet_atlas.png size=(612.0, 384.0) frames=8
+BATHROOM|atlas=bubble_bath_rubber_duck_atlas.png size=(164.0, 80.0) frames=8
+BATHROOM|RESULT=OK cards=11 pixels=1922269
+PROBE probe_bathroom_props process exit: 0
+=== probe_day_one_bathroom_cleanup ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DAY_ONE_BATHROOM|bathroom entry is automatically dirty and interactive: OK
+DAY_ONE_BATHROOM|separate dirty room plate and animated bunny are true 2D: OK
+DAY_ONE_BATHROOM|rescue has no passive win or fail state: OK
+DAY_ONE_BATHROOM|bathroom uses exact contextual cues for basket and supplies: OK
+DAY_ONE_BATHROOM|bathroom cleaning uses exact cues for every stage: OK
+DAY_ONE_BATHROOM|bathroom has no generic voice fallback in scoped owners: OK
+DAY_ONE_BATHROOM|rescue owns one pulsing front-right basket: OK
+DAY_ONE_BATHROOM|basket contains sponge and brush, never cleaner: OK
+DAY_ONE_BATHROOM|no magnifier or cabinet search route exists: OK
+DAY_ONE_BATHROOM|basket tap has spoken and visual invitation: OK
+DAY_ONE_BATHROOM|ordinary HUD and room hotspots stay out of rescue: OK
+DAY_ONE_BATHROOM|Canvas-only node tree: OK
+DAY_ONE_BATHROOM|normal room affordances are suppressed during rescue: OK
+DAY_ONE_BATHROOM|passive time cannot collect a supply: OK
+DAY_ONE_BATHROOM|runtime asset room_bubble_bath_dirty_day_one.png: OK
+DAY_ONE_BATHROOM|runtime asset room_bubble_bath_dirty_drained_day_one.png: OK
+DAY_ONE_BATHROOM|runtime asset cleanup_basket.png: OK
+DAY_ONE_BATHROOM|runtime asset tool_star_sponge.png: OK
+DAY_ONE_BATHROOM|runtime asset magic_cleaning_brush.png: OK
+DAY_ONE_BATHROOM|runtime asset ghost_hand.png: OK
+DAY_ONE_BATHROOM|runtime asset fx_stolen_sparkle.png: OK
+DAY_ONE_BATHROOM|runtime asset fx_soap_bubbles.png: OK
+DAY_ONE_BATHROOM|runtime asset target_bath_soap_ring.png: OK
+DAY_ONE_BATHROOM|runtime asset tool_star_sponge.png: OK
+DAY_ONE_BATHROOM|runtime asset fx_wipe_swoosh.png: OK
+DAY_ONE_BATHROOM|runtime asset target_sink_grime_v1.png: OK
+DAY_ONE_BATHROOM|runtime asset target_tub_grime_v1.png: OK
+DAY_ONE_BATHROOM|runtime asset dust_bunny_swimming.png: OK
+DAY_ONE_BATHROOM|real basket tap starts the rescue handoff: OK
+DAY_ONE_BATHROOM|sponge travels from basket toward the sink: OK
+DAY_ONE_BATHROOM|basket tap does not expose a magnifier or cabinet target: OK
+DAY_ONE_BATHROOM|hunt handoff opens the sink gesture without a fail state: OK
+DAY_ONE_BATHROOM|supply hunt does not unlock the pool: OK
+DAY_ONE_BATHROOM|partial bathroom completion is rejected: OK
+DAY_ONE_BATHROOM|rejected pool overlay remains absent: OK
+DAY_ONE_BATHROOM|teardown frees hunt: OK
+DAY_ONE_BATHROOM|normal room affordances restore after rescue teardown: OK
+DAY_ONE_BATHROOM|re-entry restores the next unfinished brush gesture: OK
+DAY_ONE_BATHROOM|cleanup persistence is monotonic on re-entry: OK
+DAY_ONE_BATHROOM|sink artwork stays dirty before intentional scrubbing: OK
+DAY_ONE_BATHROOM|room sink scrub records completion: OK
+DAY_ONE_BATHROOM|completed sink replaces baked dirty pixels immediately: OK
+DAY_ONE_BATHROOM|clean sink cutout follows the fixture and excludes rectangular scenery: OK
+DAY_ONE_BATHROOM|saved sink resumes clean while the tub stays dirty: OK
+DAY_ONE_BATHROOM|drained replacement preserves clean sink pixels: OK
+DAY_ONE_BATHROOM|busy press is buffered while the finger is down: OK
+DAY_ONE_BATHROOM|release clears a busy touch buffer: OK
+DAY_ONE_BATHROOM|released busy press cannot start a later gesture: OK
+DAY_ONE_BATHROOM|held busy press starts the gesture when travel clears: OK
+DAY_ONE_BATHROOM|sink phase has a visible one-finger pointer: OK
+DAY_ONE_BATHROOM|sink phase shows a circle demo and travelling sponge: OK
+DAY_ONE_BATHROOM|passive wait does not advance sink: OK
+DAY_ONE_BATHROOM|still held finger and passive time cannot win: OK
+DAY_ONE_BATHROOM|sink early motion does not complete: OK
+DAY_ONE_BATHROOM|partial grime progress is monotonic and visibly unfinished: OK
+DAY_ONE_BATHROOM|circular sink scrub needs arc, distance, and valid motion time: OK
+DAY_ONE_BATHROOM|sink grime fades away and tub grime becomes the next target: OK
+DAY_ONE_BATHROOM|sink completion leaves a clean visible basin: OK
+DAY_ONE_BATHROOM|cleanup persistence is monotonic: OK
+DAY_ONE_BATHROOM|lifted sink touch starts part 0: OK
+DAY_ONE_BATHROOM|lifted sink motion banks across a 0.5s lift 0: OK
+DAY_ONE_BATHROOM|lifted sink touch starts part 1: OK
+DAY_ONE_BATHROOM|lifted sink motion banks across a 0.5s lift 1: OK
+DAY_ONE_BATHROOM|lifted sink touch starts part 2: OK
+DAY_ONE_BATHROOM|lifted sink motion banks across a 0.5s lift 2: OK
+DAY_ONE_BATHROOM|three 0.8s sink touches with 0.5s lifts complete: OK
+DAY_ONE_BATHROOM|focus loss clears a held busy press fail-closed: OK
+DAY_ONE_BATHROOM|first idle re-prompt is not early: OK
+DAY_ONE_BATHROOM|first idle re-prompt fires by five seconds: OK
+DAY_ONE_BATHROOM|idle re-prompts repeat every twelve seconds with a cap: OK
+DAY_ONE_BATHROOM|idle re-prompt cap is stable: OK
+DAY_ONE_BATHROOM|re-entry resumes tub after sink: OK
+DAY_ONE_BATHROOM|tub phase asks for one clear drain tap before brushing: OK
+DAY_ONE_BATHROOM|passive wait does not advance tub: OK
+DAY_ONE_BATHROOM|live tub tap starts one bounded comic reaction: OK
+DAY_ONE_BATHROOM|bunny reaction spins once and shouts No without advancing: OK
+DAY_ONE_BATHROOM|drain reaction enables the demonstrated tub brush: OK
+DAY_ONE_BATHROOM|circular sink motion cannot complete the tub: OK
+DAY_ONE_BATHROOM|back-and-forth tub brush needs reversals, distance, and time: OK
+DAY_ONE_BATHROOM|two-to-three forgiving tub strokes are enough: OK
+DAY_ONE_BATHROOM|tub grime fades away after the final scrub: OK
+DAY_ONE_BATHROOM|tub completion waits for toilet cleaning: OK
+DAY_ONE_BATHROOM|toilet approach starts without holding a finger: OK
+DAY_ONE_BATHROOM|Roshan visibly approaches before the scrub invitation: OK
+DAY_ONE_BATHROOM|other fixtures cannot start toilet cleaning: OK
+DAY_ONE_BATHROOM|generous toilet target accepts one finger: OK
+DAY_ONE_BATHROOM|second finger cannot steal toilet gesture: OK
+DAY_ONE_BATHROOM|prearrival circles bank no arc distance or scrub time: OK
+DAY_ONE_BATHROOM|short touch release cannot strand Roshan before scrubbing: OK
+DAY_ONE_BATHROOM|Roshan arrives with brush attached to hand: OK
+DAY_ONE_BATHROOM|automatic approach and demonstration never clean the toilet: OK
+DAY_ONE_BATHROOM|partial toilet save stays unfinished: OK
+DAY_ONE_BATHROOM|intentional toilet circle saves clean state: OK
+DAY_ONE_BATHROOM|toilet clean state survives save restore: OK
+DAY_ONE_BATHROOM|completed legacy bathrooms stay completed: OK
+DAY_ONE_BATHROOM|focus loss cancels held toilet input and suspends approach: OK
+DAY_ONE_BATHROOM|focus return cannot resume toilet approach while still paused: OK
+DAY_ONE_BATHROOM|resumed toilet staging arrives without reviving a held scrub: OK
+DAY_ONE_BATHROOM|pause preserves partial scrub but stale drag cannot add progress: OK
+DAY_ONE_BATHROOM|toilet teardown cannot complete an unfinished scrub: OK
+DAY_ONE_BATHROOM|cleaning completion emits exactly once: OK
+DAY_ONE_BATHROOM|finale has whole-room sparkle and pool pointer seam: OK
+DAY_ONE_BATHROOM|cleaning exposes no fail state: OK
+DAY_ONE_BATHROOM|cleaning gestures are reachable, Canvas-only, and budgeted 2-5s: OK
+DAY_ONE_BATHROOM|interrupted completed tub re-emits completion once: OK
+DAY_ONE_BATHROOM|RESULT: PASS checks_failed=0
+PROBE probe_day_one_bathroom_cleanup process exit: 0
+=== probe_day_one_pool_cleanup ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DAY_ONE_POOL|seahorse stem stays in mouth through restored/slow/rapid/stopped tugs (208.75, 241.25): OK
+DAY_ONE_POOL|socket animation preserves partial progress without completing: OK
+DAY_ONE_POOL|seahorse stem stays in mouth through restored/slow/rapid/stopped tugs (400.0, 160.0): OK
+DAY_ONE_POOL|socket animation preserves partial progress without completing: OK
+DAY_ONE_POOL|seahorse stem stays in mouth through restored/slow/rapid/stopped tugs (120.0, 360.0): OK
+DAY_ONE_POOL|socket animation preserves partial progress without completing: OK
+DAY_ONE_POOL|trash 0 sampled region contains the complete measured subject: OK
+DAY_ONE_POOL|trash 0 live texture has transparent sampled edges without neighbor pixels: OK
+DAY_ONE_POOL|trash 1 sampled region contains the complete measured subject: OK
+DAY_ONE_POOL|trash 1 live texture has transparent sampled edges without neighbor pixels: OK
+DAY_ONE_POOL|both wrapper and can live textures were checked: OK
+DAY_ONE_POOL|three bespoke ordered activities: OK
+DAY_ONE_POOL|dirty arrival starts skimmer only: OK
+DAY_ONE_POOL|dirty arrival hides pristine rainbow and flow: OK
+DAY_ONE_POOL|canvas no-fail contract: OK
+DAY_ONE_POOL|pool has exact pickup and lane cue wiring: OK
+DAY_ONE_POOL|pool has monotonic seahorse milestones and finale cues: OK
+DAY_ONE_POOL|pool activity has no generic voice fallback: OK
+DAY_ONE_POOL|one visible Roshan owns the held skimmer: OK
+DAY_ONE_POOL|far touch cannot collect remotely: OK
+DAY_ONE_POOL|Roshan travels at bounded speed before collection: OK
+DAY_ONE_POOL|second finger cannot steal cleaning target: OK
+DAY_ONE_POOL|canceled touch cannot finish later: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|scoop keeps hand attached before awarding progress: OK
+DAY_ONE_POOL|quick tap travels then visibly scoops exactly one item: OK
+DAY_ONE_POOL|stop restores room actor at the action location: OK
+DAY_ONE_POOL|re-entry and focus cancellation retain only completed work: OK
+DAY_ONE_POOL|drag retarget cancels old work and slow frames never teleport: OK
+DAY_ONE_POOL|cleaner retains selected fairy cutout and hand socket: OK
+DAY_ONE_POOL|cleaner retains selected huluu cutout and hand socket: OK
+DAY_ONE_POOL|restored complete mask never creates a second Roshan: OK
+DAY_ONE_POOL|exact pool bunny cast keeps one land and one swimmer: OK
+DAY_ONE_POOL|swimmer remains inside central water with a simple 2D loop: OK
+DAY_ONE_POOL|runtime asset pool_skimmer.png: OK
+DAY_ONE_POOL|runtime asset floating_trash_atlas.png: OK
+DAY_ONE_POOL|runtime asset cleanup_basket.png: OK
+DAY_ONE_POOL|runtime asset waterfall_clogged_original_match.png: OK
+DAY_ONE_POOL|runtime asset waterfall_scrubber.png: OK
+DAY_ONE_POOL|runtime asset seahorse_sick_clear_mouth.png: OK
+DAY_ONE_POOL|runtime asset seahorse_mouth_trash.png: OK
+DAY_ONE_POOL|runtime asset rumi_pool_idle_swim_atlas.png: OK
+DAY_ONE_POOL|runtime asset rumi_eight_pose_runtime.png: OK
+DAY_ONE_POOL|runtime asset dust_bunny_swimming.png: OK
+DAY_ONE_POOL|restored complete pool activities emit once: OK
+DAY_ONE_POOL|re-entered complete pool activities stay one-shot: OK
+DAY_ONE_POOL|passive demo never advances: OK
+DAY_ONE_POOL|skimmer activity accepts six real collections: OK
+DAY_ONE_POOL|skimmer completion persists and unlocks waterfall: OK
+DAY_ONE_POOL|dirty waterfall is registered to live V4 fixture: OK
+DAY_ONE_POOL|clean stripe feedback sits above dirty waterfall lanes: OK
+DAY_ONE_POOL|static clean card under scrub lanes but flow remains stopped: OK
+DAY_ONE_POOL|waterfall activity clears three independent lanes: OK
+DAY_ONE_POOL|waterfall completion persists and unlocks seahorse: OK
+DAY_ONE_POOL|sick seahorse uses exact live V4 fixture bounds: OK
+DAY_ONE_POOL|rainbow animation still waits for rescue finale: OK
+DAY_ONE_POOL|one seahorse tap advances monotonically: OK
+DAY_ONE_POOL|partial tug saves without premature finale: OK
+DAY_ONE_POOL|remaining rapid taps start causal extraction: OK
+DAY_ONE_POOL|seahorse extraction completes legacy step four: OK
+DAY_ONE_POOL|finale creates approved Rumi reveal: OK
+DAY_ONE_POOL|ambient swimmer yields the finale focal point: OK
+DAY_ONE_POOL|Rumi performs authored wave after rising: OK
+DAY_ONE_POOL|Rumi settles into authored idle: OK
+DAY_ONE_POOL|teardown frees cleanup: OK
+DAY_ONE_POOL|teardown restores clean fixtures: OK
+DAY_ONE_POOL|RESULT: PASS checks_failed=0
+PROBE probe_day_one_pool_cleanup process exit: 0
+=== probe_start_menu_routing ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+START_MENU_ROUTING|Continue bypasses Day 1: OK
+START_MENU_ROUTING|Continue bypasses the legacy intro: OK
+START_MENU_ROUTING|New Game selects Day 1: OK
+START_MENU_ROUTING|New Game bypasses the legacy intro: OK
+START_MENU_ROUTING|Continue preserves an explicitly active Day One save: OK
+START_MENU_ROUTING|legacy Continue remains outside Day One: OK
+START_MENU_ROUTING|New Game confirmation is delayed and hold-gated: OK
+START_MENU_ROUTING|confirm sheet focuses the safe KEEP GAME action: OK
+START_MENU_ROUTING|saved menu makes Continue gold and New Game secondary: OK
+START_MENU_ROUTING|Options has no hidden hold that restores an archived save: OK
+START_MENU_ROUTING|Continue maps valid room bathroom: OK
+START_MENU_ROUTING|Continue maps valid room pool: OK
+START_MENU_ROUTING|Continue maps valid room stuffie: OK
+START_MENU_ROUTING|Continue maps valid room art: OK
+START_MENU_ROUTING|Continue invalid room fails closed to hall: OK
+START_MENU_ROUTING|save normalization preserves authoritative valid room: OK
+START_MENU_ROUTING|save normalization falls back invalid room safely: OK
+START_MENU_ROUTING|Day Two routing clear removes room and discovery latch: OK
+START_MENU_ROUTING|startup waits for the menu or probe driver: OK
+START_MENU_ROUTING|Continue derives its mode from the saved Day One flag: OK
+START_MENU_ROUTING|New Game calls the Day 1 route after reload: OK
+START_MENU_ROUTING|New Game reload marker survives the scene reset: OK
+START_MENU_ROUTING|menu cannot invoke the retired legacy intro: OK
+START_MENU_ROUTING|fresh Day One focuses the castle approach: OK
+START_MENU_ROUTING|retired Reef target is absent for every day: OK
+START_MENU_ROUTING|Day One castle affordance survives idle cap: OK
+START_MENU_ROUTING|castle art target stays visible and actionable without an elevator overlay: OK
+START_MENU_ROUTING|level exits route through Day One gate; reef attic portal is gone: OK
+START_MENU_ROUTING|pause never advertises a Reef tile: OK
+START_MENU_ROUTING|Day Two clears stale Day One routing: OK
+START_MENU_ROUTING|RESULT: PASS failures=0
+PROBE probe_start_menu_routing process exit: 0
+=== probe_fairy_art ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+FAIRY_ART|texture=pond_panorama.png size=(4096, 1024) alpha=false
+FAIRY_ART|texture=bug_jewel.png size=(1024, 1024) alpha=true
+FAIRY_ART|texture=bug_moth.png size=(1024, 1024) alpha=true
+FAIRY_ART|texture=bug_firefly.png size=(1024, 1024) alpha=true
+FAIRY_ART|texture=boss_leaf.png size=(1024, 1024) alpha=true
+FAIRY_ART|texture=boss_seed.png size=(1024, 1024) alpha=true
+FAIRY_ART|texture=boss_sprout.png size=(1024, 1024) alpha=true
+FAIRY_ART|texture=boss_bud.png size=(1024, 1024) alpha=true
+FAIRY_ART|texture=boss_opening.png size=(1024, 1024) alpha=true
+FAIRY_ART|texture=boss_bloom.png size=(1024, 1024) alpha=true
+FAIRY_ART|texture=helpful_flower_gate.png size=(1024, 1024) alpha=true
+FAIRY_ART|texture=danger_thorn_halo.png size=(1024, 1024) alpha=true
+FAIRY_ART|texture=ornament_lily_cluster.png size=(1024, 1024) alpha=true
+FAIRY_ART|texture=ornament_lavender_reeds.png size=(1024, 1024) alpha=true
+FAIRY_ART|RESULT=OK sprites=13
+PROBE probe_fairy_art process exit: 0

@@ -1,0 +1,23 @@
+CASTLE_NATIVE|RESULT=OK|painted_source_ownership=true|duplicates=0
+PIXEL_OWNERSHIP|RESULT|OK|castle_rooms=7|opera_worlds=2
+PIXEL_OWNERSHIP|RESULT|OK|castle_rooms=7|opera_worlds=2
+CASTLE_DEPTH_REFINE|RESULT=OK|cards=16|hidden_rgb=0
+{
+  "active_cards": 12,
+  "error_count": 0,
+  "manifest": "assets_src/castle/depth_cards/static_depth_card_refinement.json",
+  "ok": true,
+  "retired_cards": 5,
+  "runtime_layout": "scripts/arena/castle_rooms_25d.gd",
+  "runtime_pool_mid_references": [],
+  "verified_cards": 12
+}
+................................................................
+----------------------------------------------------------------------
+Ran 64 tests in 7.680s
+
+OK
+CASTLE_INTERACTION_FRAME_REVIEW|CANDIDATE|path=audit/castle_interaction_frame_review_v4/castle_interaction_frame_candidate_v4.json|sha256=b613a78030fb10efcf6ff799bd85b6d9679faccecea014d3c05303be300e1368
+CASTLE_INTERACTION_FRAME_REVIEW|FAIL|approval ledger candidate_payload_sha256 is missing or stale
+CASTLE_INTERACTION_FRAME_REVIEW|RESULT=FAIL|issues=1
+CASTLE INTERACTION PER-FRAME APPROVAL FAIL

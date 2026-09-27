@@ -32,7 +32,7 @@ const FRIENDS: Array[Dictionary] = [
 		"name": "Baby Eagle",
 		"room": "playroom",
 		"room_name": "Playroom",
-		"texture": "res://assets/book/baby_eagle.png",
+		"texture": "res://assets/characters/companions/baby_eagle.png",
 		"rect": Rect2(830.0, 335.0, 235.0, 300.0),
 		"line": "Chirp chirp! You found my hiding place!",
 	},
@@ -85,7 +85,7 @@ const BEDTIME_FAMILY: Array[Dictionary] = [
 	{
 		"id": "baby_eagle",
 		"name": "Baby Eagle",
-		"texture": "res://assets/book/baby_eagle.png",
+		"texture": "res://assets/characters/companions/baby_eagle.png",
 		"rect": Rect2(355.0, 330.0, 210.0, 270.0),
 		"line": "Goodnight, Baby Eagle. Tuck your wings in!",
 	},

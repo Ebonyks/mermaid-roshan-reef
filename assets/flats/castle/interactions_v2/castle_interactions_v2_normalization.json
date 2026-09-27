@@ -1154,7 +1154,7 @@
       "id": "craft_room_idea_board",
       "path": "assets/flats/castle/interactions_v2/craft_room_idea_board_sheet.png",
       "input_sha256": "91cbe2a9720535de1102859cdce5264303f779fc5cae9678a155c068eb3f4be4",
-      "runtime_sha256": "5d7df4b87a9bdf53331567751afb192e09d101d152f4ca99715bcfeb6dcbabec",
+      "runtime_sha256": "eab2de023ffaf3cb55ba515272e8ecaf7fd98b5e64cdef4dc885db00c9ff7348",
       "grid": [
         4,
         2
@@ -1167,7 +1167,7 @@
       "anchor_mode": "center",
       "uniform_scale": 1.0,
       "padding_pixels": 6,
-      "edge_gap_pixels": 6,
+      "edge_gap_pixels": 11,
       "anchor_spread_pixels": [
         1.0,
         1.0
@@ -1180,9 +1180,9 @@
           171
         ],
         [
-          6,
+          17,
           18,
-          250,
+          239,
           171
         ],
         [
@@ -1204,9 +1204,9 @@
           171
         ],
         [
-          6,
           17,
-          250,
+          17,
+          239,
           171
         ],
         [
@@ -1262,23 +1262,20 @@
             188
           ],
           "alpha_bbox": [
-            6,
+            17,
             18,
-            250,
+            239,
             171
           ],
-          "visible_pixels": 24818,
-          "canvas_coverage_ratio": 0.51566656,
-          "component_count": 5,
+          "visible_pixels": 24461,
+          "canvas_coverage_ratio": 0.50824884,
+          "component_count": 2,
           "component_sizes": [
             20579,
-            3882,
-            246,
-            65,
-            46
+            3882
           ],
           "tiny_component_count": 0,
-          "largest_component_ratio": 0.82919655,
+          "largest_component_ratio": 0.84129839,
           "enclosed_transparent_hole_count": 3,
           "visible_exact_chroma_pixels": 0,
           "visible_near_chroma_pixels": 0,
@@ -1369,23 +1366,20 @@
             188
           ],
           "alpha_bbox": [
-            6,
             17,
-            250,
+            17,
+            239,
             171
           ],
-          "visible_pixels": 24831,
-          "canvas_coverage_ratio": 0.51593667,
-          "component_count": 5,
+          "visible_pixels": 24483,
+          "canvas_coverage_ratio": 0.50870595,
+          "component_count": 2,
           "component_sizes": [
             20541,
-            3942,
-            241,
-            62,
-            45
+            3942
           ],
           "tiny_component_count": 0,
-          "largest_component_ratio": 0.82723209,
+          "largest_component_ratio": 0.83899032,
           "enclosed_transparent_hole_count": 4,
           "visible_exact_chroma_pixels": 0,
           "visible_near_chroma_pixels": 0,
@@ -1449,7 +1443,10 @@
       ],
       "fixed_canvas_review": true,
       "rgb_subject_repainted": false,
-      "repainted_pixels": false
+      "repainted_pixels": false,
+      "prior_runtime_sha256": "5d7df4b87a9bdf53331567751afb192e09d101d152f4ca99715bcfeb6dcbabec",
+      "pixel_repair_provenance": "assets_src/repairs/visual_polish_2026-09-26/PIXEL_EDITS.json",
+      "registration_provenance": "assets_src/repairs/visual_polish_2026-09-26/REGISTRATION.json"
     },
     {
       "id": "craft_room_paint_table",
@@ -4307,7 +4304,7 @@
       "id": "library_book_stack",
       "path": "assets/flats/castle/interactions_v2/library_book_stack_sheet.png",
       "input_sha256": "4007402b282f9afb49a2f7c6257db4279be052bc1ce0136d551ea90ae12de454",
-      "runtime_sha256": "41c9334badd3c5851695dbe075b458d8601e8b15c7a9411ea7183f35de27000d",
+      "runtime_sha256": "ae9ca243c13e8552770c427ce644bb1832f2b904f4cf24d80bf535b2220813e5",
       "grid": [
         4,
         2
@@ -4333,13 +4330,13 @@
           506
         ],
         [
-          8,
+          24,
           236,
           227,
           506
         ],
         [
-          9,
+          24,
           240,
           228,
           506
@@ -4357,13 +4354,13 @@
           506
         ],
         [
-          6,
+          26,
           247,
           225,
           506
         ],
         [
-          11,
+          28,
           248,
           230,
           506
@@ -4414,21 +4411,19 @@
             512
           ],
           "alpha_bbox": [
-            8,
+            24,
             236,
             227,
             506
           ],
-          "visible_pixels": 46290,
-          "canvas_coverage_ratio": 0.35316467,
-          "component_count": 3,
+          "visible_pixels": 45802,
+          "canvas_coverage_ratio": 0.34944153,
+          "component_count": 1,
           "component_sizes": [
-            45802,
-            378,
-            110
+            45802
           ],
           "tiny_component_count": 0,
-          "largest_component_ratio": 0.98945777,
+          "largest_component_ratio": 1.0,
           "enclosed_transparent_hole_count": 0,
           "visible_exact_chroma_pixels": 0,
           "visible_near_chroma_pixels": 0,
@@ -4441,21 +4436,19 @@
             512
           ],
           "alpha_bbox": [
-            9,
+            24,
             240,
             228,
             506
           ],
-          "visible_pixels": 45852,
-          "canvas_coverage_ratio": 0.349823,
-          "component_count": 3,
+          "visible_pixels": 45431,
+          "canvas_coverage_ratio": 0.34661102,
+          "component_count": 1,
           "component_sizes": [
-            45431,
-            329,
-            92
+            45431
           ],
           "tiny_component_count": 0,
-          "largest_component_ratio": 0.99081828,
+          "largest_component_ratio": 1.0,
           "enclosed_transparent_hole_count": 1,
           "visible_exact_chroma_pixels": 0,
           "visible_near_chroma_pixels": 0,
@@ -4519,21 +4512,19 @@
             512
           ],
           "alpha_bbox": [
-            6,
+            26,
             247,
             225,
             506
           ],
-          "visible_pixels": 43558,
-          "canvas_coverage_ratio": 0.33232117,
-          "component_count": 3,
+          "visible_pixels": 43209,
+          "canvas_coverage_ratio": 0.32965851,
+          "component_count": 1,
           "component_sizes": [
-            43209,
-            273,
-            76
+            43209
           ],
           "tiny_component_count": 0,
-          "largest_component_ratio": 0.99198769,
+          "largest_component_ratio": 1.0,
           "enclosed_transparent_hole_count": 0,
           "visible_exact_chroma_pixels": 0,
           "visible_near_chroma_pixels": 0,
@@ -4546,21 +4537,19 @@
             512
           ],
           "alpha_bbox": [
-            11,
+            28,
             248,
             230,
             506
           ],
-          "visible_pixels": 42777,
-          "canvas_coverage_ratio": 0.32636261,
-          "component_count": 3,
+          "visible_pixels": 42525,
+          "canvas_coverage_ratio": 0.32444,
+          "component_count": 1,
           "component_sizes": [
-            42525,
-            196,
-            56
+            42525
           ],
           "tiny_component_count": 0,
-          "largest_component_ratio": 0.99410898,
+          "largest_component_ratio": 1.0,
           "enclosed_transparent_hole_count": 0,
           "visible_exact_chroma_pixels": 0,
           "visible_near_chroma_pixels": 0,
@@ -4595,7 +4584,9 @@
       ],
       "fixed_canvas_review": true,
       "rgb_subject_repainted": false,
-      "repainted_pixels": false
+      "repainted_pixels": false,
+      "prior_runtime_sha256": "41c9334badd3c5851695dbe075b458d8601e8b15c7a9411ea7183f35de27000d",
+      "pixel_repair_provenance": "assets_src/repairs/visual_polish_2026-09-26/PIXEL_EDITS.json"
     },
     {
       "id": "library_magic_book",
@@ -7459,7 +7450,7 @@
       "id": "opera_hall_curtains",
       "path": "assets/flats/castle/interactions_v2/opera_hall_curtains_sheet.png",
       "input_sha256": "8f6dea9ccb776e0ba3f39b1544cb5a7377ca4fa92c3b86a2c0d000ac11989420",
-      "runtime_sha256": "51673baecdf196fd3e301630ae04c035f8d1ce1c6dde8c93ea72492c7cbe07d7",
+      "runtime_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
       "grid": [
         4,
         2
@@ -7517,7 +7508,7 @@
         [
           13,
           6,
-          250,
+          243,
           281
         ],
         [
@@ -7694,18 +7685,17 @@
           "alpha_bbox": [
             13,
             6,
-            250,
+            243,
             281
           ],
-          "visible_pixels": 52065,
-          "canvas_coverage_ratio": 0.39722443,
-          "component_count": 2,
+          "visible_pixels": 51919,
+          "canvas_coverage_ratio": 0.39611053,
+          "component_count": 1,
           "component_sizes": [
-            51919,
-            146
+            51919
           ],
           "tiny_component_count": 0,
-          "largest_component_ratio": 0.99719581,
+          "largest_component_ratio": 1.0,
           "enclosed_transparent_hole_count": 0,
           "visible_exact_chroma_pixels": 0,
           "visible_near_chroma_pixels": 0,
@@ -7740,13 +7730,15 @@
       ],
       "fixed_canvas_review": true,
       "rgb_subject_repainted": false,
-      "repainted_pixels": false
+      "repainted_pixels": false,
+      "prior_runtime_sha256": "51673baecdf196fd3e301630ae04c035f8d1ce1c6dde8c93ea72492c7cbe07d7",
+      "pixel_repair_provenance": "assets_src/repairs/visual_polish_2026-09-26/PIXEL_EDITS.json"
     },
     {
       "id": "opera_hall_footlights",
       "path": "assets/flats/castle/interactions_v2/opera_hall_footlights_sheet.png",
       "input_sha256": "62d8d5a797409d8bf8298baa0f9b9fdf180dd39a575d5a5e649bbe66c965ab03",
-      "runtime_sha256": "532dfb72c881f273da3c670256fc5c27b2e4a39c3c2da4279d7508701fd51336",
+      "runtime_sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
       "grid": [
         4,
         2
@@ -7772,15 +7764,15 @@
           506
         ],
         [
-          7,
+          26,
           417,
-          249,
+          230,
           506
         ],
         [
-          8,
-          440,
-          246,
+          24,
+          441,
+          233,
           506
         ],
         [
@@ -7796,15 +7788,15 @@
           506
         ],
         [
-          6,
+          13,
           440,
-          250,
+          242,
           506
         ],
         [
-          11,
+          15,
           436,
-          245,
+          239,
           506
         ],
         [
@@ -7853,20 +7845,19 @@
             512
           ],
           "alpha_bbox": [
-            7,
+            26,
             417,
-            249,
+            230,
             506
           ],
-          "visible_pixels": 11722,
-          "canvas_coverage_ratio": 0.08943176,
-          "component_count": 2,
+          "visible_pixels": 10967,
+          "canvas_coverage_ratio": 0.08367157,
+          "component_count": 1,
           "component_sizes": [
-            10967,
-            755
+            10967
           ],
           "tiny_component_count": 0,
-          "largest_component_ratio": 0.9355912,
+          "largest_component_ratio": 1.0,
           "enclosed_transparent_hole_count": 0,
           "visible_exact_chroma_pixels": 0,
           "visible_near_chroma_pixels": 0,
@@ -7879,20 +7870,19 @@
             512
           ],
           "alpha_bbox": [
-            8,
-            440,
-            246,
+            24,
+            441,
+            233,
             506
           ],
-          "visible_pixels": 12092,
-          "canvas_coverage_ratio": 0.09225464,
-          "component_count": 2,
+          "visible_pixels": 10933,
+          "canvas_coverage_ratio": 0.08341217,
+          "component_count": 1,
           "component_sizes": [
-            10933,
-            1159
+            10933
           ],
           "tiny_component_count": 0,
-          "largest_component_ratio": 0.90415151,
+          "largest_component_ratio": 1.0,
           "enclosed_transparent_hole_count": 0,
           "visible_exact_chroma_pixels": 0,
           "visible_near_chroma_pixels": 0,
@@ -7955,20 +7945,19 @@
             512
           ],
           "alpha_bbox": [
-            6,
+            13,
             440,
-            250,
+            242,
             506
           ],
-          "visible_pixels": 13203,
-          "canvas_coverage_ratio": 0.1007309,
-          "component_count": 2,
+          "visible_pixels": 13038,
+          "canvas_coverage_ratio": 0.09947205,
+          "component_count": 1,
           "component_sizes": [
-            13038,
-            165
+            13038
           ],
           "tiny_component_count": 0,
-          "largest_component_ratio": 0.98750284,
+          "largest_component_ratio": 1.0,
           "enclosed_transparent_hole_count": 0,
           "visible_exact_chroma_pixels": 0,
           "visible_near_chroma_pixels": 0,
@@ -7981,20 +7970,19 @@
             512
           ],
           "alpha_bbox": [
-            11,
+            15,
             436,
-            245,
+            239,
             506
           ],
-          "visible_pixels": 13459,
-          "canvas_coverage_ratio": 0.10268402,
-          "component_count": 2,
+          "visible_pixels": 13431,
+          "canvas_coverage_ratio": 0.1024704,
+          "component_count": 1,
           "component_sizes": [
-            13431,
-            28
+            13431
           ],
           "tiny_component_count": 0,
-          "largest_component_ratio": 0.99791961,
+          "largest_component_ratio": 1.0,
           "enclosed_transparent_hole_count": 0,
           "visible_exact_chroma_pixels": 0,
           "visible_near_chroma_pixels": 0,
@@ -8029,7 +8017,10 @@
       ],
       "fixed_canvas_review": true,
       "rgb_subject_repainted": false,
-      "repainted_pixels": false
+      "repainted_pixels": false,
+      "prior_runtime_sha256": "532dfb72c881f273da3c670256fc5c27b2e4a39c3c2da4279d7508701fd51336",
+      "pixel_repair_provenance": "assets_src/repairs/visual_polish_2026-09-26/PIXEL_EDITS.json",
+      "registration_provenance": "assets_src/repairs/visual_polish_2026-09-26/REGISTRATION.json"
     },
     {
       "id": "opera_hall_stage_star",
@@ -8320,7 +8311,7 @@
       "id": "playroom_blocks",
       "path": "assets/flats/castle/interactions_v2/playroom_blocks_sheet.png",
       "input_sha256": "804e3a5f00f6418d0f739e6a8300cf9bbecb299a43c5d6a8ff1d114952eedbf2",
-      "runtime_sha256": "b3370c661284889a004afa8dcc716d79c64bef49bf1940ba69a37b76b143f6ed",
+      "runtime_sha256": "434b2a37678a51d319dc0ecfc9dcb2e5aee0a2753230004796716fa32e595106",
       "grid": [
         4,
         2
@@ -8331,48 +8322,48 @@
       ],
       "frame_count": 8,
       "anchor_mode": "bottom_center",
-      "uniform_scale": 0.953125,
+      "uniform_scale": 0.744,
       "padding_pixels": 6,
       "edge_gap_pixels": 6,
       "anchor_spread_pixels": [
-        1.5,
+        1.0,
         0.0
       ],
       "frame_bboxes": [
         [
           36,
-          209,
+          208,
           220,
           383
         ],
         [
           39,
           207,
-          217,
-          383
-        ],
-        [
-          30,
           218,
-          247,
           383
         ],
         [
-          13,
+          32,
+          218,
+          237,
+          383
+        ],
+        [
+          9,
           179,
-          212,
+          211,
           383
         ],
         [
-          19,
-          300,
-          234,
+          10,
+          301,
+          246,
           383
         ],
         [
-          21,
-          244,
-          250,
+          27,
+          243,
+          223,
           383
         ],
         [
@@ -8382,8 +8373,8 @@
           383
         ],
         [
-          43,
-          221,
+          44,
+          222,
           213,
           383
         ]
@@ -8392,7 +8383,7 @@
       "whole_object_translation_only": true,
       "whole_sheet_uniform_scale_only": true,
       "alpha_matte_recovered": true,
-      "alpha_recovery": "5x5 interior opacity plus 1.35x soft-edge alpha",
+      "alpha_recovery": "Aseprite reviewed magenta field removal; foreground RGB retained before shared bilinear downsize",
       "low_alpha_exact_chroma_removed_pixels": 45,
       "tiny_alpha_island_pixels_removed": 0,
       "per_frame_alpha_qa": [
@@ -8403,15 +8394,15 @@
           ],
           "alpha_bbox": [
             36,
-            209,
+            208,
             220,
             383
           ],
-          "visible_pixels": 24563,
-          "canvas_coverage_ratio": 0.24665609,
+          "visible_pixels": 24682,
+          "canvas_coverage_ratio": 0.24785106,
           "component_count": 1,
           "component_sizes": [
-            24563
+            24682
           ],
           "tiny_component_count": 0,
           "largest_component_ratio": 1.0,
@@ -8429,14 +8420,14 @@
           "alpha_bbox": [
             39,
             207,
-            217,
+            218,
             383
           ],
-          "visible_pixels": 23027,
-          "canvas_coverage_ratio": 0.23123192,
+          "visible_pixels": 23125,
+          "canvas_coverage_ratio": 0.23221602,
           "component_count": 1,
           "component_sizes": [
-            23027
+            23125
           ],
           "tiny_component_count": 0,
           "largest_component_ratio": 1.0,
@@ -8452,20 +8443,19 @@
             389
           ],
           "alpha_bbox": [
-            30,
+            32,
             218,
-            247,
+            237,
             383
           ],
-          "visible_pixels": 21503,
-          "canvas_coverage_ratio": 0.21592826,
-          "component_count": 2,
+          "visible_pixels": 21429,
+          "canvas_coverage_ratio": 0.21518517,
+          "component_count": 1,
           "component_sizes": [
-            21471,
-            32
+            21429
           ],
           "tiny_component_count": 0,
-          "largest_component_ratio": 0.99851184,
+          "largest_component_ratio": 1.0,
           "enclosed_transparent_hole_count": 0,
           "visible_exact_chroma_pixels": 0,
           "visible_near_chroma_pixels": 0,
@@ -8478,20 +8468,20 @@
             389
           ],
           "alpha_bbox": [
-            13,
+            9,
             179,
-            212,
+            211,
             383
           ],
-          "visible_pixels": 21821,
-          "canvas_coverage_ratio": 0.21912155,
+          "visible_pixels": 21989,
+          "canvas_coverage_ratio": 0.22080856,
           "component_count": 2,
           "component_sizes": [
-            15044,
-            6777
+            15159,
+            6830
           ],
           "tiny_component_count": 0,
-          "largest_component_ratio": 0.68942762,
+          "largest_component_ratio": 0.68939015,
           "enclosed_transparent_hole_count": 0,
           "visible_exact_chroma_pixels": 0,
           "visible_near_chroma_pixels": 0,
@@ -8504,21 +8494,21 @@
             389
           ],
           "alpha_bbox": [
-            19,
-            300,
-            234,
+            10,
+            301,
+            246,
             383
           ],
-          "visible_pixels": 16446,
-          "canvas_coverage_ratio": 0.16514701,
+          "visible_pixels": 17970,
+          "canvas_coverage_ratio": 0.18045067,
           "component_count": 3,
           "component_sizes": [
-            6025,
-            6023,
-            4398
+            6021,
+            6011,
+            5938
           ],
           "tiny_component_count": 0,
-          "largest_component_ratio": 0.36635048,
+          "largest_component_ratio": 0.33505843,
           "enclosed_transparent_hole_count": 0,
           "visible_exact_chroma_pixels": 0,
           "visible_near_chroma_pixels": 0,
@@ -8531,20 +8521,19 @@
             389
           ],
           "alpha_bbox": [
-            21,
-            244,
-            250,
+            27,
+            243,
+            223,
             383
           ],
-          "visible_pixels": 18795,
-          "canvas_coverage_ratio": 0.18873514,
-          "component_count": 2,
+          "visible_pixels": 17261,
+          "canvas_coverage_ratio": 0.17333106,
+          "component_count": 1,
           "component_sizes": [
-            17207,
-            1588
+            17261
           ],
           "tiny_component_count": 0,
-          "largest_component_ratio": 0.91550944,
+          "largest_component_ratio": 1.0,
           "enclosed_transparent_hole_count": 0,
           "visible_exact_chroma_pixels": 0,
           "visible_near_chroma_pixels": 0,
@@ -8562,15 +8551,15 @@
             209,
             383
           ],
-          "visible_pixels": 20153,
-          "canvas_coverage_ratio": 0.20237187,
+          "visible_pixels": 20125,
+          "canvas_coverage_ratio": 0.2020907,
           "component_count": 2,
           "component_sizes": [
-            13244,
-            6909
+            13222,
+            6903
           ],
           "tiny_component_count": 0,
-          "largest_component_ratio": 0.65717263,
+          "largest_component_ratio": 0.65699379,
           "enclosed_transparent_hole_count": 0,
           "visible_exact_chroma_pixels": 0,
           "visible_near_chroma_pixels": 0,
@@ -8583,16 +8572,16 @@
             389
           ],
           "alpha_bbox": [
-            43,
-            221,
+            44,
+            222,
             213,
             383
           ],
-          "visible_pixels": 20954,
-          "canvas_coverage_ratio": 0.21041533,
+          "visible_pixels": 20931,
+          "canvas_coverage_ratio": 0.21018437,
           "component_count": 1,
           "component_sizes": [
-            20954
+            20931
           ],
           "tiny_component_count": 0,
           "largest_component_ratio": 1.0,
@@ -8605,7 +8594,14 @@
       ],
       "fixed_canvas_review": true,
       "rgb_subject_repainted": false,
-      "repainted_pixels": false
+      "repainted_pixels": false,
+      "prior_runtime_sha256": "b3370c661284889a004afa8dcc716d79c64bef49bf1940ba69a37b76b143f6ed",
+      "source_recovery": "assets_src/repairs/visual_polish_2026-09-26/BLOCKS_RECOVERY.json",
+      "source_recovery_uniform_scale": 0.744,
+      "registration_provenance": "assets_src/repairs/visual_polish_2026-09-26/REGISTRATION.json",
+      "pre_repair_normalization_uniform_scale": 0.953125,
+      "uniform_scale_source": "native chroma source, not the old already-clipped alpha input",
+      "repaired_on": "2026-09-26"
     },
     {
       "id": "playroom_play_tent",

@@ -27,7 +27,7 @@ func _run_probe() -> void:
 	if int(snapshot.get("dirty_room_count", 0)) != 4 \
 			or not bool(snapshot.get("exterior_grime", false)) \
 			or not bool(snapshot.get("interior_disrepair", false)) \
-			or int(snapshot.get("dust_bunny_count", 0)) != 4:
+			or int(snapshot.get("dust_bunny_count", 0)) != 3:
 		print("DAY_ONE_DRESSING|interior overlay: FAIL")
 		bad += 1
 	else:
@@ -46,6 +46,11 @@ func _run_probe() -> void:
 		bad += 1
 	else:
 		print("DAY_ONE_DRESSING|2D contract: OK")
+	if dressing.get_node_or_null("DustBunny_playroom") != null:
+		print("DAY_ONE_DRESSING|two-pin rescue has no duplicate family: FAIL")
+		bad += 1
+	else:
+		print("DAY_ONE_DRESSING|two-pin rescue has no duplicate family: OK")
 	dressing.set_visible_room("mermaid_pool")
 	dressing.update_dressing(0.25)
 	var land_snapshot: Dictionary = dressing.audit_snapshot().get(

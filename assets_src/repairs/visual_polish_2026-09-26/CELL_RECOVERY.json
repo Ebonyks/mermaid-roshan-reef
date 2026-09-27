@@ -1,0 +1,87 @@
+{
+  "method": "Aseprite recovery of complete source silhouette crossing the old cell; contain-fit with four-pixel gutter; no regenerated body or prop",
+  "assets": [
+    {
+      "id": "trash",
+      "source": "assets_src/repairs/visual_polish_2026-09-26/originals/trash.png",
+      "source_sha256": "e554c4f253bcaa9e5893d9e4fffe03feef96528211f2458dc5d8fc81299f56df",
+      "output": "assets/castle/day_one_pool/activities/floating_trash_atlas.png",
+      "native": "assets_src/repairs/visual_polish_2026-09-26/native/trash_recovered.aseprite",
+      "source_rect": [
+        0,
+        0,
+        355,
+        341
+      ],
+      "target_cell": [
+        0,
+        0,
+        341,
+        341
+      ],
+      "erase_rects": [
+        [
+          341,
+          152,
+          350,
+          180
+        ]
+      ],
+      "output_sha256": "3e04bee28ffa4230e3af9d5e7d87bb9560a7462d7320b6ad8557f10fcecbcb33",
+      "native_sha256": "216fd251321fc3205f6008fc316d4d7422eeeb3128e5a251eaabc1f59b39b081",
+      "verification": {
+        "recovered_cell_alpha_bounds": [
+          21,
+          47,
+          330,
+          311
+        ],
+        "native_source_pixels_reused": true,
+        "no_redraw": true,
+        "minimum_gutter_pixels": 4,
+        "runtime_context_review": "PENDING"
+      }
+    },
+    {
+      "id": "boss_jump",
+      "source": "assets_src/repairs/visual_polish_2026-09-26/originals/boss_jump.png",
+      "source_sha256": "7f117638631841c31eb58b9c81224158d29d64f325980c75c475e0376e36788c",
+      "output": "assets/sprites/dust_bunnies/boss/dust_bunny_boss_jump.png",
+      "native": "assets_src/repairs/visual_polish_2026-09-26/native/boss_jump_recovered.aseprite",
+      "source_rect": [
+        490,
+        512,
+        1024,
+        1024
+      ],
+      "target_cell": [
+        512,
+        512,
+        512,
+        512
+      ],
+      "erase_rects": [
+        [
+          490,
+          512,
+          512,
+          1024
+        ]
+      ],
+      "output_sha256": "26694e302edfae4bb5c5313c010caf8fc3bb94943a01617b7d7eeb0db0205977",
+      "native_sha256": "803ce4edf6591bda413d0f1ef334890d38318ca7209f9f34216dafed09d0a454",
+      "verification": {
+        "recovered_cell_alpha_bounds": [
+          15,
+          164,
+          482,
+          474
+        ],
+        "native_source_pixels_reused": true,
+        "no_redraw": true,
+        "minimum_gutter_pixels": 4,
+        "runtime_context_review": "PENDING"
+      }
+    }
+  ]
+}

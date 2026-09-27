@@ -1,0 +1,754 @@
+=== probe_rank ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+RANK|boot OK
+RANK|fresh state: OK no medals
+RANK|tier math: OK 47 threshold cases
+RANK|evaluate purity: OK
+RANK|legacy friend badge: OK detach + free + idempotent cleanup
+RANK|Canvas medal tally: OK exact non-reading glyph counts
+RANK|upgrade-only: OK bronze->gold sticks through a worse replay
+RANK|award feedback: OK bounded Canvas burst + rapid replacement
+RANK|award feedback lifecycle: OK teardown + clean re-entry
+RANK|fetch win medal: OK tier 3
+RANK|hud tally: OK
+RANK|save round trip: OK medals + won intact
+RANK|result: ALL OK
+PROBE probe_rank process exit: 0
+=== probe_mg2d ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PAINTER|OK|fill task finishes within timeout
+PAINTER|fill_elapsed_ms|34.545
+PAINTER|OK|closed region fills without crossing brush boundary
+PAINTER|OK|fill undo is exact
+PAINTER|OK|fill redo is exact
+PAINTER|OK|stroke undo restores blank
+PAINTER|OK|fill task finishes within timeout
+PAINTER|OK|cancelled background fill never applies
+PAINTER|OK|out of bounds seed rejected
+PAINTER|OK|history bounded at 16 half-megabyte canvases
+PAINTER|OK|imported scanline fill matches independent BFS on 32 seeded maps
+PAINTER|OK|atomic save
+PAINTER|OK|second save keeps previous backup
+PAINTER|OK|reload exact latest pixels
+PAINTER|OK|corrupt primary recovers previous valid canvas
+PAINTER|OK|recovered document repairs primary safely
+PAINTER|OK|passive scene makes no marks or awards
+PAINTER|OK|second finger cannot steal canvas
+PAINTER|OK|real ScreenTouch and drag paint
+PAINTER|OK|pause cancels held input and stale release
+PAINTER|OK|picture resume works
+PAINTER|OK|real undo control
+PAINTER|OK|real redo control
+PAINTER|OK|existing shell stamp via touch
+PAINTER|OK|tool press cannot turn into canvas stroke
+PAINTER|OK|studio applies worker result through live process
+PAINTER|OK|bucket and colour controls fill through real touch
+PAINTER|OK|touch bucket undo preserves prior picture
+PAINTER|OK|neutral exit emits once and releases touch
+PAINTER|RESULT|OK|failures=0
+PAINTER_GUIDED|OK|guided is default; idle cannot fill blanks
+PAINTER_GUIDED|OK|free-paint tools absent from minigame
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|wrong colour kindly cues without progress
+PAINTER_GUIDED|OK|valid contact immediately shows hold feedback before fill completes
+PAINTER_GUIDED|OK|short tap does not bypass hold instruction
+PAINTER_GUIDED|OK|pause cancels held guided action
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|intentional matching fill completes region 1
+PAINTER_GUIDED|OK|partial guided work persists
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|intentional matching fill completes region 0
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|intentional matching fill completes region 2
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|intentional matching fill completes region 3
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|intentional matching fill completes region 4
+PAINTER_GUIDED|OK|finished painting matches coloured reference pixel-for-pixel
+PAINTER_GUIDED|OK|completed template validates for reload
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|repeating finished region cannot add progress/history
+PAINTER_GUIDED|OK|undo returns one intentional blank
+PAINTER_GUIDED|OK|redo restores completed layout
+PAINTER_GUIDED|OK|re-entry retains the exact completed picture
+PAINTER_GUIDED|RESULT|OK|failures=0
+=== STAGE 2 MINIGAME STRESS TEST ===
+  snow assist: OK
+  picture feedback has no world sparkle request: OK
+  picture games have no jump/go overlay controls: OK
+  snow face touch targets: OK
+  snowman: WON (28.0s)
+  completed garden retains all five flowers: OK
+  garden: WON (8.5s)
+  trampoline uses direct art tap: OK
+  trampoline: WON (5.9s)
+  xmas: WON (6.3s)
+  snowball settle feedback/progression: OK (3/3)
+  snowman carrot authored angle survives moving chase: OK
+  garden growth + bounded win feedback: OK (10/10)
+  feedback teardown/re-entry: OK (4 closes, 4 fresh)
+MG2D|done: OK
+PROBE probe_mg2d process exit: 0
+=== probe_seek ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SEEK|OK|Evie and Lamb-a's Seek friend exists
+SEEK|OK|fresh isolated save has not pre-won Seek
+SEEK|OK|Evie's speaker portrait uses her authored portrait
+SEEK|OK|unowned close preserves another control owner's block
+SEEK|OK|foreign fixture cleanup restores the exact control baseline
+SEEK|OK|entry adds exactly one direct Seek Canvas child
+SEEK|OK|stage is exactly fourteen bounded Canvas nodes
+SEEK|OK|Seek sits above hidden HUD and below speech and pause
+SEEK|OK|only approved animated actors, v5 center meadow and tree covers are active
+SEEK|OK|all three characters use real 256-cell frame-swapped atlases
+SEEK|OK|four center-meadow tiles reconstruct one seam-free 2048-square crop
+SEEK|OK|four non-overlapping child-sized touch targets stay in bounds
+SEEK|OK|focus visibly pulses and never occupies the revealed pair
+SEEK|OK|picture-first no-fail contract records the missing exact tap cue
+SEEK|OK|rejected vinyl pair and low-grade bush have no runtime authority
+SEEK|OK|entry constructs no hidden arena and never moves the player
+SEEK|OK|Seek exclusively owns and blocks world controls while active
+SEEK|OK|available Evie start clip is selected
+SEEK|OK|Evie portrait neither masks nor intercepts the active opening clue
+SEEK|OK|Lamb-a stays fully hidden until an authored opaque peek
+SEEK|OK|sixty passive seconds never advance or win
+SEEK|OK|passive play leaves all persistent progress unchanged
+SEEK|OK|persistent focus moves without a tween or child growth
+SEEK|OK|patient help reveals an animated opaque peek but never auto-wins
+SEEK|OK|real wrong-bush touch rustles with no penalty or progress
+SEEK|OK|wrong feedback has a materially visible bounded rustle
+SEEK|OK|neutral leave synchronously detaches only Seek
+SEEK|OK|neutral leave frees the complete Seek subtree
+SEEK|OK|neutral leave is neither a win nor an award
+SEEK|OK|rapid rebuild replaces rather than duplicates Seek
+SEEK|OK|rapidly replaced layer is freed on the next frame
+SEEK|OK|entry adds exactly one direct Seek Canvas child
+SEEK|OK|stage is exactly fourteen bounded Canvas nodes
+SEEK|OK|Seek sits above hidden HUD and below speech and pause
+SEEK|OK|only approved animated actors, v5 center meadow and tree covers are active
+SEEK|OK|all three characters use real 256-cell frame-swapped atlases
+SEEK|OK|four center-meadow tiles reconstruct one seam-free 2048-square crop
+SEEK|OK|four non-overlapping child-sized touch targets stay in bounds
+SEEK|OK|focus visibly pulses and never occupies the revealed pair
+SEEK|OK|picture-first no-fail contract records the missing exact tap cue
+SEEK|OK|rejected vinyl pair and low-grade bush have no runtime authority
+SEEK|OK|entry constructs no hidden arena and never moves the player
+SEEK|OK|Seek exclusively owns and blocks world controls while active
+SEEK|OK|near-peak reveal is frame-animated, opaque and readable above cover
+SEEK|OK|near-peak reveal is frame-animated, opaque and readable above cover
+SEEK|OK|four real one-finger reveals complete the original goal
+SEEK|OK|slowest find preserves the exact bronze medal semantics
+SEEK|OK|first win awards exactly one trophy and persists Evie and Lamb-a'
+SEEK|OK|available exact Evie win clip is selected
+SEEK|OK|win removes Seek and restores controls without game-node mutation
+SEEK|OK|post-win re-entry starts one fresh zeroed surface
+SEEK|OK|fast routed replay completes four fresh reveals
+SEEK|OK|better replay upgrades to gold without duplicating the trophy
+SEEK|OK|replay teardown leaves no Seek layer or control leak
+SEEK|OK|all four archived meadow model payloads are absent
+SEEK|OK|Seek runtime contains only authored Canvas art and two-dimensional APIs
+SEEK|result: ALL OK
+PROBE probe_seek process exit: 0
+=== probe_l2_living_cards ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+LIVINGCARD|canvas_living_card_contract|OK|cards=5 bad=
+LIVINGCARD|quiet_loop_budget_per_screen|OK|p1=0,p2=1,p3=2
+LIVINGCARD|real_rear_base_foreground_parallax|OK|deltas=(368.64, 0.0, -122.88)
+LIVINGCARD|living_stage_page_1|OK
+LIVINGCARD|living_stage_page_2|OK
+LIVINGCARD|living_stage_page_3|OK
+LIVINGCARD|idle_event_is_bounded_canvas_state|OK
+LIVINGCARD|input_clears_idle_event_without_rebuild|OK
+LIVINGCARD|speedy_transparent_coverage|OK|1024:1.7%/0;3072:1.8%/0;5120:3.0%/0
+LIVINGCARD|canvas_node_inventory|OK|{"ambient":6,"backdrops":12,"contacts":5,"spatial":0,"sprites":34}
+LIVINGCARD|lifecycle_teardown_is_synchronous|OK
+LIVINGCARD|cold_build_determinism|OK
+LIVINGCARD|night_canvas_congruence|OK
+LIVINGCARD|ALL|OK
+PROBE probe_l2_living_cards process exit: 0
+=== probe_throne ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+THRONE|hall_open|OK|main_hall
+THRONE|royal_hall_hotspot_built|OK|
+THRONE|royal_hall_offscreen_at_spawn|OK|she starts two screens away from it
+THRONE|floor_tap_walks_her|OK|foot 380 -> 900
+THRONE|walking_brings_royal_hall_on_screen|OK|5 floor taps, foot=2415
+THRONE|royal_hall_hitbox_is_child_sized|OK|(200.0372, 359.8086)
+THRONE|locked_royal_hall_has_five_mist_cards|OK|
+THRONE|locked_royal_hall_tap_reaches_real_button|OK|
+THRONE|locked_mist_visibly_flutters|OK|feedback=true flutter=0.64 moved=true mist=5
+THRONE|locked_gate_has_spoken_feedback|OK|voice_i=1->2 stream=res://assets/audio/voices/filler_v1/roshan_castle_mist_resting.ogg caption=The royal mist is resting. It will float away for a special royal adventure!
+THRONE|locked_gate_does_not_award_or_open_picker|OK|crown=false picker=false mist=5 sfx=res://assets/audio/castle/curtain_swish.ogg
+THRONE|generation_contract_incumbent_arms|OK|
+THRONE|invalid_arm_preserves_incumbent|OK|token=1 current=1 id=probe_same_id
+THRONE|same_id_event_rearms|OK|
+THRONE|stale_same_id_clear_fails|OK|stale=1 current=2
+THRONE|current_generation_clear_works|OK|
+THRONE|crown_event_clears_royal_hall_mist|OK|event=crown_welcome mist=0
+THRONE|touch_awards_crown_star|OK|
+THRONE|royal_hall_offers_a_stuffie_friend|OK|companion_id=
+THRONE|picker_closed|OK|
+THRONE|royal_hall_re_offers_after_a_closed_picker|OK|
+THRONE|combat_tutorial_follows_crown_and_companion|OK|
+THRONE|mist_returns_after_first_combat_class|OK|
+THRONE|no_re_offer_once_she_has_a_friend|OK|companion_id=eagle
+THRONE|crown_progress_remains_recorded|OK|
+THRONE|rapid_double_event_arms|OK|
+THRONE|rapid_double_tap_preserves_callback_rearm|OK|first=1 next=0 token=6 pending=false
+THRONE|rapid_double_rearm_can_be_cleared_by_owner|OK|
+THRONE|menu_cancel_event_arms|OK|
+THRONE|global_back_cancels_arrival_and_preserves_event|OK|open=false calls=0 pending=false token=8
+THRONE|menu_cancel_owner_clears_event|OK|
+THRONE|navigation_cancel_event_arms|OK|
+THRONE|navigating_away_cancels_arrival_and_preserves_event|OK|room=library approach=true calls=0 pending=false id=probe_navigation_cancel token=10 expected=10 callable=true
+THRONE|global_room_back_returns_to_hall|OK|
+THRONE|room_back_returns_to_main_hall|OK|main_hall
+THRONE|navigation_cancel_owner_clears_event|OK|
+THRONE|reopen_event_arms|OK|
+THRONE|real_back_closes_hall_but_preserves_event|OK|open=false token=12
+THRONE|reopen_preserves_armed_event|OK|room=main_hall token=12
+THRONE|reopened_event_can_be_cleared_by_same_owner|OK|
+THRONE|floor_tap_walks_her_in_a_room_too|OK|foot 640 -> 920
+THRONE|galaxy_running|OK|game=galaxy
+THRONE|moon_throne_crowns_the_star_princess|OK|
+THRONE|done: ALL OK
+PROBE probe_throne process exit: 0
+=== probe_verbs ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+sprite transition engine: 3x temporal smoothing, one idle draw
+Roshan Canvas loop: authored anchors preserved through 3x smoothing
+Roshan Canvas swim torso holds within 8.8 px per loop
+sprite keyframes: 30 -> 120 (exactly 4x)
+verb wave: 4/4 sprite frames
+verb cheer: 4/4 sprite frames
+verb clap: 4/4 sprite frames
+verb twirl: 4/4 sprite frames
+verb look: 4/4 sprite frames
+verb giggle: 4/4 sprite frames
+verb sleep: 4/4 sprite frames
+verb point: 4/4 sprite frames
+verb collect: 4/4 sprite frames
+verb boing: 4/4 sprite frames
+verb hairtwirl: 4/4 sprite frames
+verb hum: 4/4 sprite frames
+verb flop: 4/4 sprite frames
+Roshan sprite animation probe complete
+PROBE probe_verbs process exit: 0
+=== probe_interaction ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+INTERACTION|ALL OK
+PROBE probe_interaction process exit: 0
+=== probe_voice ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+VOICE|Harper objective filler retains exact generator and ledger provenance: OK|
+VOICE|Yay and This is so much fun are exact synthetic filler cues: OK|
+VOICE|common Roshan reactions use distinct contextual cues: OK|
+VOICE|expected Roshan clips present: OK|15 / 15
+VOICE|Racer repair owns exact generated objective text: OK|
+VOICE|beans cue speaks once: OK|voice_i=2->3
+VOICE|beans cue resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_beans.ogg actual=res://assets/audio/voices/filler_v1/roshan_beans.ogg
+VOICE|Melody Daddy route exists for exact cue coverage: OK|
+VOICE|Melody entry makes one intended request: OK|requests=0->1 cue=roshan_op_popstar_rhythm
+VOICE|Melody entry plays one cue: OK|voice_i=3->4
+VOICE|Melody entry resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/roshan_op_popstar_rhythm.ogg actual=res://assets/audio/voices/filler_v1/roshan_op_popstar_rhythm.ogg
+VOICE|Melody exact cue path and immutable bytes are present: OK|
+VOICE|Melody entry retains the exact semantic objective copy: OK|
+VOICE|brawl entry makes one intended request: OK|requests=1->2 cue=huluu_greet
+VOICE|brawl entry plays one cue: OK|voice_i=4->5
+VOICE|brawl entry resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/huluu_greet.ogg actual=res://assets/audio/voices/filler_v1/huluu_greet.ogg
+VOICE|brawl entry caption and state stay intact: OK|
+VOICE|brawl route makes one intended request: OK|requests=2->3 cue=huluu_talk
+VOICE|brawl route plays one cue: OK|voice_i=5->6
+VOICE|brawl route resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/huluu_talk.ogg actual=res://assets/audio/voices/filler_v1/huluu_talk.ogg
+VOICE|brawl route caption and progression stay intact: OK|
+VOICE|brawl warning makes one intended request: OK|requests=3->4 cue=huluu_talk
+VOICE|brawl warning plays one cue: OK|voice_i=6->7
+VOICE|brawl warning resolves exact clip: OK|expected=res://assets/audio/voices/filler_v1/huluu_talk.ogg actual=res://assets/audio/voices/filler_v1/huluu_talk.ogg
+VOICE|brawl warning caption and one-shot state stay intact: OK|
+VOICE|fallback speech replaces prior exact speech: OK|
+VOICE|fallback speech is active before clear: OK|
+VOICE|clear stops every pooled voice: OK|
+VOICE|clear stops fallback voice: OK|
+VOICE|sequence starts one cue: OK|
+VOICE|sequence starts first exact clip: OK|
+VOICE|first rapid skip is consumed: OK|
+VOICE|first rapid skip stops prior cue: OK|
+VOICE|first rapid skip starts only next cue: OK|
+VOICE|second rapid skip is consumed: OK|
+VOICE|second rapid skip stops prior cue: OK|
+VOICE|second rapid skip starts only next cue: OK|
+VOICE|final rapid skip is consumed: OK|
+VOICE|sequence exhaustion stops final cue: OK|
+VOICE|sequence exhaustion clears dialogue state: OK|
+VOICE|voice cooldown still suppresses duplicate cue: OK|
+VOICE|result: ALL OK
+PROBE probe_voice process exit: 0
+=== probe_kart_feel ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+FEEL|save_isolation=redirected
+  run[none]: t=58.85 done=true drift_up=0.0 tier_max=0
+  run[outside]: t=62.77 done=true drift_up=0.0 tier_max=0
+  run[inside]: t=58.44 done=true drift_up=0.0 tier_max=0
+  run[drift]: t=55.98 done=true drift_up=32.8 tier_max=3
+FEEL|t_none=58.85 t_outside=62.77 t_inside=58.44 t_drift=55.98
+FEEL|line_advantage=4.33 (outside-inside, target >= 0.8)
+FEEL|drift_gain=2.87 (none-drift, target >= 0.8) tier_max=3 uptime=32.8
+FEEL|fov_range=20.9 (target >= 8)
+FEEL|strip_charge_1s=30hz:0.780 60hz:0.780
+FEEL|air_forward_alignment=1.000 (target >= 0.85)
+FEEL|touch_countdown_rocket=0.90 (target >= 0.8)
+FEEL|pause_bank=memory:2 disk:2 repeat:2
+FEEL|save_generation_recovery=true generation:4
+FEEL|second_place_commit=place:2 memory:true/true disk:true/true before_podium:true
+FEEL|full_pack_race=done game=''
+FEEL|zero_input_reward=none
+FEEL|quit_restore=ok
+FEEL|quit_pearl_delta=memory:3 disk:3 (target 3, no placement bonus)
+KARTFEEL|ALL OK
+WARNING: 9 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+PROBE probe_kart_feel process exit: 0
+=== probe_dust_boss ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DUSTBOSS|jump warning starts underneath Grand Puff: OK
+DUSTBOSS|jump warning arrives before lock flashes: OK
+DUSTBOSS|locked marker never chases later actor positions: OK
+DUSTBOSS|three distinct lock flashes precede a steady launched warning: OK
+DUSTBOSS|only the third flash changes to the launch colour: OK
+DUSTBOSS|every Grand Puff attack leaves time for travel and three lock flashes: OK
+DUSTBOSS|direct launch opens the live boss fight: OK
+DUSTBOSS|fight opens on an input-blocking 2D splash: OK
+DUSTBOSS|Grand Puff splash reserves the gold lesson for real play: OK
+DUSTBOSS|pause freezes splash progression: OK
+DUSTBOSS|floor warnings sit behind actors while gesture cues stay above: OK
+DUSTBOSS|the August 30 dusty room is the input-transparent Canvas background: OK
+DUSTBOSS|shared encounter contract checks pass: OK
+DUSTBOSS|showing follows splash: OK
+DUSTBOSS|unlearned movement waits without a fake gold opening: OK
+DUSTBOSS|encounter uses direct hybrid world touch without an action medallion: OK
+DUSTBOSS|encounter keeps direct classic world touch without an action medallion: OK
+DUSTBOSS|2D floor and screen navigation round-trips 16 arena points: OK
+DUSTBOSS|all 16 edge targets are captured, covered, escapable, and stage-valid in every phase step: OK
+DUSTBOSS|free steering enters live showing: OK
+DUSTBOSS|showing floor press immediately moves Roshan: OK
+DUSTBOSS|showing held finger can freely change direction: OK
+DUSTBOSS|showing second finger cannot steal steering: OK
+DUSTBOSS|showing released finger cannot retarget travel: OK
+DUSTBOSS|showing cancelled gesture cannot restart movement: OK
+DUSTBOSS|single floor tap swims without dash: OK
+DUSTBOSS|nearby second tap starts dash: OK
+DUSTBOSS|dash advances Roshan immediately: OK
+DUSTBOSS|dash remains inside arena: OK
+DUSTBOSS|touch cancellation stops dash and travel: OK
+DUSTBOSS|rapid repeated pairs cannot bypass dash cooldown: OK
+DUSTBOSS|drag followed by tap is not double tap: OK
+DUSTBOSS|expired first tap cannot dash: OK
+DUSTBOSS|dash starts only when ready: OK
+DUSTBOSS|dash is faster than normal swim: OK
+DUSTBOSS|dash lands at destination without overshoot: OK
+DUSTBOSS|burst expires and cooldown recovers: OK
+DUSTBOSS|dash becomes available again: OK
+DUSTBOSS|cancelled navigation has no residual dash: OK
+DUSTBOSS|first warning holds safely for a stationary new player: OK
+DUSTBOSS|floor taps near the old hint do not snap to a prescribed point: OK
+DUSTBOSS|safe ground tap arms real encounter navigation: OK
+DUSTBOSS|landing outline stays locked and has no prescribed safe marker: OK
+DUSTBOSS|storybook dust samples stay on the locked danger boundary: OK
+DUSTBOSS|storybook cues leave no finger overlay or spatial badge: OK
+DUSTBOSS|encounter captions have no tutorial panel: OK
+DUSTBOSS|pause freezes the storybook guidance: OK
+DUSTBOSS|safe ground navigation moves the player: OK
+DUSTBOSS|focus or touch cancellation drops encounter destination: OK
+DUSTBOSS|pause cancellation leaves no stale encounter destination: OK
+DUSTBOSS|real first dodge earns a real opening and saves the lesson: OK
+DUSTBOSS|zero input takes a harmless bump but cannot damage the boss: OK
+DUSTBOSS|free steering enters live damage_recovery: OK
+DUSTBOSS|damage_recovery floor press immediately moves Roshan: OK
+DUSTBOSS|damage_recovery held finger can freely change direction: OK
+DUSTBOSS|damage_recovery second finger cannot steal steering: OK
+DUSTBOSS|damage_recovery released finger cannot retarget travel: OK
+DUSTBOSS|damage_recovery cancelled gesture cannot restart movement: OK
+DUSTBOSS|a harmless bump restores the movement demonstration: OK
+DUSTBOSS|stationary tap spam traverses real tell, strike, and recovery: OK
+DUSTBOSS|stationary tap spam cannot damage the boss: OK
+DUSTBOSS|held action reaches an opening without auto-countering: OK
+DUSTBOSS|no-input and held input cannot finish: OK
+DUSTBOSS|live tell 0:0:0 lasts at least 1.4 seconds: OK
+DUSTBOSS|landed round writes its checkpoint: OK
+DUSTBOSS|first counter connects Roshan to Puff and remembers learning: OK
+DUSTBOSS|first counter offers one optional dust tuft: OK
+DUSTBOSS|walking contact scatters tuft without progress or reward: OK
+DUSTBOSS|interrupt clears the lesson and counter effect: OK
+DUSTBOSS|interrupt removes the dusty room Canvas: OK
+DUSTBOSS|interrupt preserves progress without reward: OK
+DUSTBOSS|re-entry restores the exact completed round: OK
+DUSTBOSS|checkpoint preserves damage mastery and opening assistance: OK
+DUSTBOSS|live tell 1:0:1 lasts at least 1.4 seconds: OK
+DUSTBOSS|live tell 1:1:1 lasts at least 1.4 seconds: OK
+DUSTBOSS|free steering enters live struck: OK
+DUSTBOSS|struck floor press immediately moves Roshan: OK
+DUSTBOSS|struck held finger can freely change direction: OK
+DUSTBOSS|struck second finger cannot steal steering: OK
+DUSTBOSS|struck released finger cannot retarget travel: OK
+DUSTBOSS|struck cancelled gesture cannot restart movement: OK
+DUSTBOSS|live tell 2:0:2 lasts at least 1.4 seconds: OK
+DUSTBOSS|live tell 2:1:2 lasts at least 1.4 seconds: OK
+DUSTBOSS|old screen corner tap cannot counter: OK
+DUSTBOSS|flashing boss head remains inside the touch viewport: OK
+DUSTBOSS|dragging across an open boss never becomes a counter: OK
+DUSTBOSS|paused screen touch cannot counter: OK
+DUSTBOSS|gold boss tap counters without a dash: OK
+DUSTBOSS|final counter writes all three earned rounds before celebration: OK
+DUSTBOSS|final-round interruption grants no early or duplicate reward: OK
+DUSTBOSS|final checkpoint restores three rounds exactly: OK
+DUSTBOSS|final checkpoint resumes friendship without repeated combat: OK
+DUSTBOSS|free steering was exercised between earned rounds: OK
+DUSTBOSS|adaptive movement observes all three phases: OK
+DUSTBOSS|phase one executes both warned circles: OK
+DUSTBOSS|phase two executes its warned lane: OK
+DUSTBOSS|live tells keep their captured target while the player moves: OK
+DUSTBOSS|a visible 2D telegraph accompanies live danger: OK
+DUSTBOSS|hybrid head touch can land a real counter: OK
+DUSTBOSS|one fresh counter edge per opening returns Day Two to Canvas: OK
+DUSTBOSS|Day Two route does not depend on menu launch: OK
+DUSTBOSS|the earned final round survives interruption: OK
+DUSTBOSS|completion grants the base reward exactly once: OK
+DUSTBOSS|completion saves defeat and begins Day Two: OK
+DUSTBOSS|Day Two and reward cannot duplicate: OK
+DUSTBOSS|result: ALL OK
+PROBE probe_dust_boss process exit: 0
+=== probe_imp_ai ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+IMPAI|the crew actually acts instead of waiting to be tapped: OK
+IMPAI|no imp ever charges without telegraphing first: OK
+IMPAI|every telegraph is at least the readability floor: OK
+IMPAI|the crew never exceeds its simultaneous-attacker ceiling: OK
+IMPAI|landed bumps keep the crew-wide breathing gap: OK
+IMPAI|the crew plays its whole repertoire of poses: OK
+IMPAI|every pose it asks a renderer for is a declared pose: OK
+IMPAI|the brain only emits declared, harmless events: OK
+IMPAI|the brain never pops an imp by itself: OK
+IMPAI|an untouched crew grows bolder instead of stalling: OK
+IMPAI|a committed charge can be stepped out of: OK
+IMPAI|a charge never re-homes onto her once committed: OK
+IMPAI|a thinned crew loses its nerve and scampers: OK
+IMPAI|the captain rallies what is left of the crew: OK
+IMPAI|a thinned crew stops swarming: OK
+IMPAI|a rally is a beat, not a loop: OK
+IMPAI|a hit that does not pop leaves the imp reeling: OK
+IMPAI|a staggered captain comes up guarding: OK
+IMPAI|a guard always drops on its own clock: OK
+IMPAI|a popped imp leaves the fight for good: OK
+IMPAI|a QTE fight keeps attacking to itself: OK
+IMPAI|a QTE fight still gets crew spacing and showmanship: OK
+IMPAI|a long fight eases into full mercy: OK
+IMPAI|mercy makes it a one-at-a-time fight: OK
+IMPAI|mercy lengthens the telegraph, never shortens it: OK
+IMPAI|the readability floor survives a fully bold crew: OK
+IMPAI|the same fight replays exactly the same way: OK
+IMPAI|a different fight is a different fight: OK
+IMPAI|result: ALL OK
+PROBE probe_imp_ai process exit: 0
+=== probe_ember ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+EMBER|fresh save keeps the fortress hidden in normal play: OK
+EMBER|saving the Butterfly World reveals the fortress: OK
+EMBER|a visited fortress stays discovered: OK
+EMBER|dev mode keeps the fortress open: OK
+EMBER|hidden fortress builds no junction gate: OK
+EMBER|promenade retires the 3D junction gate: OK
+WARNING: Ember planet kit missing; using the procedural safety fallback
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _build_planet (res://scripts/ember_fortress.gd:310)
+       [1] start (res://scripts/ember_fortress.gd:193)
+       [2] _start_ember (res://scripts/main.gd:2684)
+EMBER|finished ember-bound float race lands in the fortress: OK
+EMBER|junction destination resets after landing: OK
+EMBER|first landing marks the fortress discovered: OK
+EMBER|fortress wears its own dark scene grade: OK
+EMBER|ambient stays capped for the dark look: OK
+EMBER|five ember lanterns await: OK
+EMBER|the Great Gate starts shut: OK
+EMBER|planet uses the dedicated Ember shell: OK
+EMBER|lanterns retain their visible card and light fallback: OK
+EMBER|ash moon uses the visible card fallback: OK
+EMBER|geyser route keeps three animated card vents: OK
+EMBER|overworld uses dedicated Ember fallback art: OK
+EMBER|every Ember dungeon art role resolves through fallback: OK
+EMBER|Speedy disables the King and avatar detail lights: OK
+EMBER|no lantern lights without Roshan: OK
+EMBER|all five lanterns burn: OK
+EMBER|Speedy shows at most the nearest lantern light: OK
+EMBER|lantern checkpoints persist as hidden sticker keys: OK
+EMBER|five lanterns open the Great Gate: OK
+EMBER|fortress dungeon defines six rooms: OK
+EMBER|fortress mixes three battles with three puzzles: OK
+EMBER|open gate admits the dungeon: OK
+EMBER|fortress level pauses underneath: OK
+EMBER|sequencer runs the fortress room table: OK
+EMBER|fortress rooms receive the Ember-only art theme: OK
+EMBER|fortress combat cannot win passively: OK
+EMBER|puzzle solution physically opens door: OK
+EMBER|fortress checkpoints land in ember_progress: OK
+EMBER|castle dungeon progress stays untouched: OK
+EMBER|home icon returns to the fortress planet: OK
+EMBER|next visit resumes at fortress room three: OK
+EMBER|fortress room 3 uses puzzle engine: OK
+EMBER|puzzle solution physically opens door: OK
+EMBER|fortress room 4 uses combat engine: OK
+EMBER|fortress room 5 uses puzzle engine: OK
+EMBER|puzzle solution physically opens door: OK
+EMBER|fortress room 6 uses combat engine: OK
+EMBER|the Molten Throne opens with the ice shell phase: OK
+EMBER|movement earns the Molten Throne counter: OK
+EMBER|movement earns the Molten Throne counter: OK
+EMBER|movement earns the Molten Throne counter: OK
+EMBER|movement earns the Molten Throne counter: OK
+EMBER|dual-element throne resolves: OK
+EMBER|all six fortress checkpoints persist: OK
+EMBER|final room completes the fortress: OK
+EMBER|completion returns outside the Great Gate: OK
+EMBER|the Fortress Hero sticker is awarded: OK
+EMBER|the save carries the fortress keys: OK
+EMBER|castle dungeon still untouched after the finale: OK
+EMBER|home ring returns to the lagoon: OK
+EMBER|result: ALL OK
+PROBE probe_ember process exit: 0
+=== probe_opera_detective ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+OPERA_DETECTIVE|OK|detective begins in the navigable painted room
+OPERA_DETECTIVE|OK|painted magnifier tower invites the first search
+OPERA_DETECTIVE|OK|Roshan follows the authored route before search opens
+OPERA_DETECTIVE|OK|arrival opens the painted search and optical glass
+OPERA_DETECTIVE|OK|missing-crown setup begins on arrival as a two-voice story
+OPERA_DETECTIVE|OK|detective story and guidance recordings are installed
+OPERA_DETECTIVE|OK|crown finale uses the recorded spotlight instruction
+OPERA_DETECTIVE|OK|magnifier art and optical glass are child-readable
+OPERA_DETECTIVE|OK|glass performs true screen-space magnification
+OPERA_DETECTIVE|OK|painted room has many optional inspection targets
+OPERA_DETECTIVE|OK|edge clamping leaves every required clue reachable
+OPERA_DETECTIVE|OK|an ordinary prop responds without changing case progress
+OPERA_DETECTIVE|OK|a remaining clue glistens after twelve seconds without a find
+OPERA_DETECTIVE|OK|finding a clue launches a visible trail toward the next case step
+OPERA_DETECTIVE|result: ALL OK
+PROBE probe_opera_detective process exit: 0
+=== probe_kitchen_props ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+KITCHEN|sprite=room_kitchen_background.png size=(1024.0, 576.0)
+KITCHEN|sprite=room_kitchen_front_left.png size=(286.0, 222.0)
+KITCHEN|sprite=room_kitchen_front_right.png size=(374.0, 252.0)
+KITCHEN|sprite=room_kitchen_item_sink.png size=(201.0, 124.0)
+KITCHEN|sprite=room_kitchen_item_pan_1.png size=(41.0, 83.0)
+KITCHEN|sprite=room_kitchen_item_pan_2.png size=(45.0, 83.0)
+KITCHEN|sprite=room_kitchen_item_pan_3.png size=(45.0, 83.0)
+KITCHEN|sprite=room_kitchen_item_pan_4.png size=(31.0, 83.0)
+KITCHEN|sprite=room_kitchen_item_oven.png size=(202.0, 112.0)
+KITCHEN|sprite=room_kitchen_item_fridge.png size=(140.0, 263.0)
+KITCHEN|sprite=background_tiles/room_kitchen_background_r0_c0.png size=(1024.0, 768.0)
+KITCHEN|sprite=background_tiles/room_kitchen_background_r0_c1.png size=(1024.0, 768.0)
+KITCHEN|sprite=background_tiles/room_kitchen_background_r0_c2.png size=(1024.0, 768.0)
+KITCHEN|sprite=background_tiles/room_kitchen_background_r0_c3.png size=(1024.0, 768.0)
+KITCHEN|sprite=background_tiles/room_kitchen_background_r1_c0.png size=(1024.0, 768.0)
+KITCHEN|sprite=background_tiles/room_kitchen_background_r1_c1.png size=(1024.0, 768.0)
+KITCHEN|sprite=background_tiles/room_kitchen_background_r1_c2.png size=(1024.0, 768.0)
+KITCHEN|sprite=background_tiles/room_kitchen_background_r1_c3.png size=(1024.0, 768.0)
+KITCHEN|sprite=background_tiles/room_kitchen_background_r2_c0.png size=(1024.0, 768.0)
+KITCHEN|sprite=background_tiles/room_kitchen_background_r2_c1.png size=(1024.0, 768.0)
+KITCHEN|sprite=background_tiles/room_kitchen_background_r2_c2.png size=(1024.0, 768.0)
+KITCHEN|sprite=background_tiles/room_kitchen_background_r2_c3.png size=(1024.0, 768.0)
+KITCHEN|atlas=kitchen_sink_atlas.png size=(804.0, 248.0) frames=8
+KITCHEN|atlas=kitchen_pan_1_atlas.png size=(164.0, 166.0) frames=8
+KITCHEN|atlas=kitchen_pan_2_atlas.png size=(180.0, 166.0) frames=8
+KITCHEN|atlas=kitchen_pan_3_atlas.png size=(180.0, 166.0) frames=8
+KITCHEN|atlas=kitchen_pan_4_atlas.png size=(124.0, 166.0) frames=8
+KITCHEN|atlas=kitchen_oven_atlas.png size=(808.0, 224.0) frames=8
+KITCHEN|atlas=kitchen_fridge_atlas.png size=(560.0, 526.0) frames=8
+KITCHEN|RESULT=OK cards=29 pixels=11065074
+PROBE probe_kitchen_props process exit: 0
+=== probe_day_one_bathroom_bunny ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DAY_ONE_BATHROOM_BUNNY|sink-stage tub tap cannot advance: OK
+DAY_ONE_BATHROOM_BUNNY|post-sink entry exposes live tub brush stage: OK
+DAY_ONE_BATHROOM_BUNNY|passive tub wait does not advance: OK
+DAY_ONE_BATHROOM_BUNNY|bunny is a restrained true-2D casual swimmer: OK
+DAY_ONE_BATHROOM_BUNNY|live tub tap seam exists and accepts one tap: OK
+DAY_ONE_BATHROOM_BUNNY|drain reaction blocks brushing without advancing: OK
+DAY_ONE_BATHROOM_BUNNY|one comic spin is observable as a one-shot reaction: OK
+DAY_ONE_BATHROOM_BUNNY|reaction speaks exactly a comic No: OK
+DAY_ONE_BATHROOM_BUNNY|repeat tub tap cannot replay the one-shot: OK
+DAY_ONE_BATHROOM_BUNNY|repeat and passive input still cannot complete tub: OK
+DAY_ONE_BATHROOM_BUNNY|bounded reaction drains once and enables the brush: OK
+DAY_ONE_BATHROOM_BUNNY|saved drain state skips the comic reaction on Continue: OK
+DAY_ONE_BATHROOM_BUNNY|existing forgiving tub brush gesture remains causal: OK
+DAY_ONE_BATHROOM_BUNNY|cleanup wrapper exposes the same live tub tap route: OK
+DAY_ONE_BATHROOM_BUNNY|RESULT: PASS checks_failed=0
+PROBE probe_day_one_bathroom_bunny process exit: 0
+=== probe_day_one_integration ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DAY_ONE_INTEGRATION|director uses ReefMain state owner: OK
+DAY_ONE_INTEGRATION|Day One starts with jobs and opera locked: OK
+DAY_ONE_INTEGRATION|only physical bathroom route starts unlocked: OK
+DAY_ONE_INTEGRATION|completion advances the physical castle route: OK
+DAY_ONE_INTEGRATION|Day Two cannot bypass the real boss defeat: OK
+DAY_ONE_INTEGRATION|remaining physical rooms arm the real boss boundary: OK
+DAY_ONE_INTEGRATION|the recorded boss defeat starts Chapter 2 before Day Two: OK
+DAY_ONE_INTEGRATION|Day Two policy releases rooms, jobs, and opera: OK
+DAY_ONE_INTEGRATION|save normalization cannot skip the room order: OK
+DAY_ONE_INTEGRATION|exact origin Day-Two terminal backfills the boss defeat: OK
+DAY_ONE_INTEGRATION|Day-Two migration preserves independent Chapter 3 door state: OK
+DAY_ONE_INTEGRATION|inactive or unlocked legacy data alone cannot invent a defeat: OK
+DAY_ONE_INTEGRATION|wiring source is readable: res://scripts/main.gd: OK
+DAY_ONE_INTEGRATION|wired main.gd -> DayOneDirector.new(self): OK
+DAY_ONE_INTEGRATION|wired main.gd -> func day_one_try_enter_castle_room: OK
+DAY_ONE_INTEGRATION|wired main.gd -> func day_one_activate_castle_room: OK
+DAY_ONE_INTEGRATION|wired main.gd -> _day_one_begin_arrival(): OK
+DAY_ONE_INTEGRATION|wired main.gd -> _day_one_discover_dirty_castle(): OK
+DAY_ONE_INTEGRATION|wired main.gd -> _start_game(dust_boss_fr): OK
+DAY_ONE_INTEGRATION|wiring source is readable: res://scripts/save_state.gd: OK
+DAY_ONE_INTEGRATION|wired save_state.gd -> m._day_one_ref().restore_state(m.save_data): OK
+DAY_ONE_INTEGRATION|wired save_state.gd -> m._day_one_ref().serialize_state(): OK
+DAY_ONE_INTEGRATION|wired save_state.gd -> DayOneDirector.normalise_save_patch(raw): OK
+DAY_ONE_INTEGRATION|wiring source is readable: res://scripts/arena/castle_rooms_25d.gd: OK
+DAY_ONE_INTEGRATION|wired castle_rooms_25d.gd -> m.day_one_try_enter_castle_room(start_room): OK
+DAY_ONE_INTEGRATION|wired castle_rooms_25d.gd -> m.day_one_try_enter_castle_room(room_id): OK
+DAY_ONE_INTEGRATION|wired castle_rooms_25d.gd -> m.day_one_activate_castle_room(m.castle_room_id): OK
+DAY_ONE_INTEGRATION|wired castle_rooms_25d.gd -> m._day_one_attach_castle_dressing(): OK
+DAY_ONE_INTEGRATION|wired castle_rooms_25d.gd -> m._day_one_clear_castle_dressing(): OK
+DAY_ONE_INTEGRATION|wiring source is readable: res://scripts/castle_career_routes.gd: OK
+DAY_ONE_INTEGRATION|wired castle_career_routes.gd -> m.day_one_jobs_locked(): OK
+DAY_ONE_INTEGRATION|wiring source is readable: res://scripts/games/dust_boss.gd: OK
+DAY_ONE_INTEGRATION|wired dust_boss.gd -> m.day_one_complete_boss_and_begin_day_two(): OK
+DAY_ONE_INTEGRATION|wired dust_boss.gd -> m._end_game(true, fr: OK
+DAY_ONE_INTEGRATION|RESULT: PASS failures=0
+PROBE probe_day_one_integration process exit: 0
+=== probe_day_one_story_clips ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DAY_ONE_STORY_CLIPS|manifest lists the 13 story clips in story order: OK
+DAY_ONE_STORY_CLIPS|every story clip exists at its manifest path: OK
+DAY_ONE_STORY_CLIPS|the opening is the 30-second introduction to the game: OK
+DAY_ONE_STORY_CLIPS|unknown and traversal ids fail open: OK
+DAY_ONE_STORY_CLIPS|headless runs stay deterministic unless a probe opts in: OK
+DAY_ONE_STORY_CLIPS|every clip is an owner-directed runtime clip, never delivery-accepted: OK
+DAY_ONE_STORY_CLIPS|every story moment is wired to its clip: OK
+DAY_ONE_STORY_CLIPS|the global Back control is the one skip route: OK
+DAY_ONE_STORY_CLIPS|a missing clip fails open and leaves a paused tree paused: OK
+DAY_ONE_STORY_CLIPS|a real clip sets up and pauses the game behind it: OK
+DAY_ONE_STORY_CLIPS|the real OGV begins playback: OK
+DAY_ONE_STORY_CLIPS|skip is once-only and restores the unpaused game: OK
+DAY_ONE_STORY_CLIPS|the boss-defeated hook plays the transformation clip: OK
+DAY_ONE_STORY_CLIPS|the Day Two hook queues the epilogue behind it: OK
+DAY_ONE_STORY_CLIPS|the Day Two card waits for the story: OK
+DAY_ONE_STORY_CLIPS|Back hands the story over to the queued epilogue: OK
+DAY_ONE_STORY_CLIPS|after the epilogue the Day Two card is shown: OK
+DAY_ONE_STORY_CLIPS|a story clip never replays on the same save: OK
+DAY_ONE_STORY_CLIPS|watched clips persist in the save: OK
+DAY_ONE_STORY_CLIPS|Grand Puff stays visible and ends without imploding: OK
+DAY_ONE_STORY_CLIPS|the rainbow friend stays hidden until Grand Puff is befriended: OK
+DAY_ONE_STORY_CLIPS|the rainbow dust bunny follows Roshan on the side opposite Baby Eagle: OK
+DAY_ONE_STORY_CLIPS|RESULT: PASS failures=0
+PROBE probe_day_one_story_clips process exit: 0
+=== probe_castle_pearl_art ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+CASTLE2D|castle runtime opened: OK
+CASTLE2D|castle stage is a Control: OK
+CASTLE2D|castle safe-frame backdrop replaces default letterbox gray: OK
+CASTLE2D|castle canvas world is Node2D: OK
+CASTLE2D|castle canvas world is visible: OK
+CASTLE2D|castle canvas world owns negative base depth: OK
+CASTLE2D|castle stage contains only canvas runtime nodes: OK
+CASTLE2D|Roshan is a visible Sprite2D card: OK
+CASTLE2D|Roshan is fully visible inside the castle stage: OK (bounds=[P: (581.3772, 466.7144), S: (120.094, 154.3331)] stage=(1280.0, 720.0))
+CASTLE2D|castle background card exists: OK
+CASTLE2D|castle background composition is visible: OK
+CASTLE2D|castle_room_mid_layer exists: OK
+CASTLE2D|castle_room_mid_layer is visible: OK
+CASTLE2D|castle_room_front_layer exists: OK
+CASTLE2D|castle_room_front_layer is visible: OK
+CASTLE2D|castle_room_item_visual_layer exists: OK
+CASTLE2D|castle_room_item_visual_layer is visible: OK
+CASTLE2D|castle_room_item_effect_layer exists: OK
+CASTLE2D|castle_room_item_effect_layer is visible: OK
+CASTLE2D|every castle Sprite2D has a complete local texture rect: OK
+CASTLE2D|castle composition has authored cards: OK (cards=37)
+CASTLE2D|transition cover spans the complete stage: OK (cover=(1280.0, 720.0) stage=(1280.0, 720.0))
+CASTLE2D|physical castle door dictionary is populated: OK (count=8)
+CASTLE2D|picture elevator routes are retired: OK (count=0)
+CASTLE2D|castle door hotspot list is populated: OK
+CASTLE2D|castle interaction dictionary is populated: OK (count=3)
+CASTLE2D|room composition declares completion: OK
+CASTLE2D|fixture-rich room remains composed: OK
+CASTLE2D|bathroom bathtub exposes an authored route socket: OK (route=(270.0, 570.0))
+CASTLE2D|bathroom route socket is distinct from painted tub origin: OK
+CASTLE2D|castle stage is a Control: OK
+CASTLE2D|castle safe-frame backdrop replaces default letterbox gray: OK
+CASTLE2D|castle canvas world is Node2D: OK
+CASTLE2D|castle canvas world is visible: OK
+CASTLE2D|castle canvas world owns negative base depth: OK
+CASTLE2D|castle stage contains only canvas runtime nodes: OK
+CASTLE2D|Roshan is a visible Sprite2D card: OK
+CASTLE2D|Roshan is fully visible inside the castle stage: OK (bounds=[P: (546.593, 389.0002), S: (182.4506, 234.1639)] stage=(1280.0, 720.0))
+CASTLE2D|castle background card exists: OK
+CASTLE2D|castle background composition is visible: OK
+CASTLE2D|castle_room_mid_layer exists: OK
+CASTLE2D|castle_room_mid_layer is visible: OK
+CASTLE2D|castle_room_front_layer exists: OK
+CASTLE2D|castle_room_front_layer is visible: OK
+CASTLE2D|castle_room_item_visual_layer exists: OK
+CASTLE2D|castle_room_item_visual_layer is visible: OK
+CASTLE2D|castle_room_item_effect_layer exists: OK
+CASTLE2D|castle_room_item_effect_layer is visible: OK
+CASTLE2D|every castle Sprite2D has a complete local texture rect: OK
+CASTLE2D|castle composition has authored cards: OK (cards=39)
+CASTLE2D|transition cover spans the complete stage: OK (cover=(1280.0, 720.0) stage=(1280.0, 720.0))
+CASTLE2D|fixture rig dictionary is populated: OK (count=5)
+CASTLE2D|fixture bubble_bath:bathtub water layer is bounded CanvasItem: OK
+CASTLE2D|fixture bubble_bath:sink water layer is bounded CanvasItem: OK
+CASTLE2D|fixture bubble_bath:sink water layer is bounded CanvasItem: OK
+CASTLE2D|fixture bubble_bath:toilet water layer is bounded CanvasItem: OK
+CASTLE2D|fixture bubble_bath:rubber_duck water layer is bounded CanvasItem: OK
+CASTLE2D|fixture bubble_bath:rubber_duck has no engine body: OK
+CASTLE2D|fixture bubble_bath:rubber_duck spring is analytic: OK
+CASTLE2D|fixture water/spring nodes are 2D: OK
+CASTLE2D|fixture water contract exposes Sprite2D layers: OK (water=5)
+CASTLE2D|fixture spring contract exposes analytic springs: OK (springs=1)
+CASTLE2D|fixture telemetry exposes bounded caps: OK ({ "rigs": 5, "allocated": 1, "awake": 0, "body_cap": 12, "awake_cap": 8, "spring_cap": 12, "spring_awake_cap": 8, "water_mask_cache_entries": 10, "native_v4_loaded": 12, "native_v4_rejected": 0, "native_v4_background_rooms": 7 })
+CASTLE2D|dust-bunny burst uses the bounded mote count: OK (count=8)
+CASTLE2D|dust-bunny motes rise in a tight readable burst: OK
+CASTLE2D|dust-bunny burst fades within the short feedback window: OK
+CASTLE2D|Main Hall exposes ordinary bunnies for Daddy path: OK (count=3)
+CASTLE2D|Daddy partner pop emits one bounded burst per bunny: OK (count=24 expected=24)
+CASTLE2D|Daddy partner burst keeps its pink theme: OK
+CASTLE2D|Daddy partner path clears each ordinary bunny once: OK
+CASTLE2D|opera_hall displays every visible item in full: OK
+CASTLE2D|kitchen displays every visible item in full: OK
+CASTLE2D|library displays every visible item in full: OK
+CASTLE2D|playroom displays every visible item in full: OK
+CASTLE2D|craft_room displays every visible item in full: OK
+CASTLE2D|mermaid_pool displays every visible item in full: OK
+CASTLE2D|bubble_bath displays every visible item in full: OK
+CASTLE2D|dining_room displays every visible item in full: OK
+CASTLE2D|royal_bedroom displays every visible item in full: OK
+CASTLE2D|sleepover_bedroom displays every visible item in full: OK
+CASTLE2D|movie_lounge displays every visible item in full: OK
+CASTLE2D|family_gallery displays every visible item in full: OK
+CASTLE2D|done failures=0
+PROBE probe_castle_pearl_art process exit: 0

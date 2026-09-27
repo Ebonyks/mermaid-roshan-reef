@@ -1,0 +1,156 @@
+{
+  "status": "IMPLEMENTED_MACHINE_VERIFIED_EXTERNAL_ACCEPTANCE_PENDING",
+  "baseline": "6a38bc8caa1c153e8ebb05a15f7ab6696bb4d1f4",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "mobile",
+  "desktop_gpu": "NVIDIA GeForce RTX 3060 Ti",
+  "native_pipeline": "tools/aseprite/rebuild_visual_polish.ps1",
+  "native_pipeline_result": "PASS; exact source/output/native hashes reproduced",
+  "pixel_audit": "PASS; 1302 Roshan foreign pixels eliminated, retained RGBA unchanged; registered cells retain every visible RGBA pixel",
+  "visual_review": "Final desktop Mobile recapture: movie aperture, sleepover quilt, dining feet, pool objective occlusion and two-bunny rescue composition inspected. Still-frame capture does not establish every animation frame or phone acceptance.",
+  "full_suite": "PASS across recorded stages: static prefix, corrected native gate, unchanged-frame V4 binding revalidation, exact Godot 4.7.2 import/debt gate, all 77 trusted probes. Runtime probes used unchanged CI loop/checks in four isolated-save groups after first four passed sequentially. Exact remote single-run CI pending.",
+  "opera": "BLOCKED_NATIVE_PANEL_SIZE; built-in candidates 1672x941; API/CLI permission unanswered and OPENAI_API_KEY is not configured.",
+  "replay": "PLANNED; implementation not included in this bounded defect change",
+  "device_child_owner": "PENDING",
+  "captures": [
+    {
+      "path": "audit/visual_polish_2026-09-26/shots/boss_arena.png",
+      "sha256": "8e2d0328f3acec01c78d42f334af4f6be160ebe8f7268435af7008aee82e786f",
+      "size": [
+        2560,
+        1369
+      ],
+      "kind": "desktop Mobile capture; no device/owner acceptance"
+    },
+    {
+      "path": "audit/visual_polish_2026-09-26/shots/d1_bath_bubble_bath.png",
+      "sha256": "553759a782a74c86fed0aa9615c7e1442494f5da4e91023b7d2335c5a76f5eb5",
+      "size": [
+        2560,
+        1369
+      ],
+      "kind": "desktop Mobile capture; no device/owner acceptance"
+    },
+    {
+      "path": "audit/visual_polish_2026-09-26/shots/d1_playroom_playroom.png",
+      "sha256": "f300ab9563e1166ea3ee65d49aefd602e27928fa1a0559919f950efa79c691b6",
+      "size": [
+        2560,
+        1369
+      ],
+      "kind": "desktop Mobile capture; no device/owner acceptance"
+    },
+    {
+      "path": "audit/visual_polish_2026-09-26/shots/d1_pool_mermaid_pool.png",
+      "sha256": "cc8696592b4991a230d0f4615b6639613ba46b7f5a97230cd73d401bc2504a63",
+      "size": [
+        2560,
+        1369
+      ],
+      "kind": "desktop Mobile capture; no device/owner acceptance"
+    },
+    {
+      "path": "audit/visual_polish_2026-09-26/shots/free_dining_room.png",
+      "sha256": "f66150ec827cad745929f0dc9fa6560812ccab9dbb784deea1bcf92ddfa0b5f2",
+      "size": [
+        2560,
+        1369
+      ],
+      "kind": "desktop Mobile capture; no device/owner acceptance"
+    },
+    {
+      "path": "audit/visual_polish_2026-09-26/shots/free_movie_lounge.png",
+      "sha256": "1873e96a0f97d480f2eeb07cb34382c5d2c48b083768f9ea840efe2cd6ff2e2c",
+      "size": [
+        2560,
+        1369
+      ],
+      "kind": "desktop Mobile capture; no device/owner acceptance"
+    },
+    {
+      "path": "audit/visual_polish_2026-09-26/shots/free_opera_hall.png",
+      "sha256": "5428d23b82d5a3f4caeba23b45eeae1e92ccf2efa675419bf90408c341959092",
+      "size": [
+        2560,
+        1369
+      ],
+      "kind": "desktop Mobile capture; no device/owner acceptance"
+    },
+    {
+      "path": "audit/visual_polish_2026-09-26/shots/free_playroom.png",
+      "sha256": "2c977cdf4c28b6566694c3204b26e3ffdccd529c3e0c1d552427938e632743b3",
+      "size": [
+        2560,
+        1369
+      ],
+      "kind": "desktop Mobile capture; no device/owner acceptance"
+    },
+    {
+      "path": "audit/visual_polish_2026-09-26/shots/free_royal_bedroom.png",
+      "sha256": "d4ca0f861ea9ff9adc595be624180bb144d3f2d5a2e4e714c1b3c9cfc2f998b5",
+      "size": [
+        2560,
+        1369
+      ],
+      "kind": "desktop Mobile capture; no device/owner acceptance"
+    },
+    {
+      "path": "audit/visual_polish_2026-09-26/shots/free_sleepover_bedroom.png",
+      "sha256": "ce401b283f53602c37b85d4731290c6a31d6dfffba98f52adeed1a5b96725384",
+      "size": [
+        2560,
+        1369
+      ],
+      "kind": "desktop Mobile capture; no device/owner acceptance"
+    }
+  ],
+  "logs": [
+    {
+      "path": "audit/visual_polish_2026-09-26/logs/full-ci-complete.log",
+      "sha256": "a09a1a24173c93b0f754e030a8d5d06da851320df54b5cc14293bfe73417d47a",
+      "hash_kind": "UTF-8 LF normalized text (Git payload)"
+    },
+    {
+      "path": "audit/visual_polish_2026-09-26/logs/full-ci-remaining.log",
+      "sha256": "7bef22bed574eb354102619a33b504d355627dc975c656a2890af26c9a68d4ee",
+      "hash_kind": "UTF-8 LF normalized text (Git payload)"
+    },
+    {
+      "path": "audit/visual_polish_2026-09-26/logs/full-ci-runtime-resumed.log",
+      "sha256": "2e068d39ee9ce9e4c7916035b844c9d7884b4679436b362d8c5be91844473ab8",
+      "hash_kind": "UTF-8 LF normalized text (Git payload)"
+    },
+    {
+      "path": "audit/visual_polish_2026-09-26/logs/aseprite-rebuild-final.log",
+      "sha256": "7bf6af8933fd4707a7be89c104734db8ed842a1a4a8b2944db697f8d7063bdab",
+      "hash_kind": "UTF-8 LF normalized text (Git payload)"
+    },
+    {
+      "path": "audit/visual_polish_2026-09-26/logs/probe-group-0.log",
+      "sha256": "f9062080197b44fd2b4f721ac879774e9c454aacde7eb2d5cef6f2e06a209a2f",
+      "hash_kind": "UTF-8 LF normalized text (Git payload)"
+    },
+    {
+      "path": "audit/visual_polish_2026-09-26/logs/probe-group-1.log",
+      "sha256": "47b2b61bc96c41545e52ccd19d748d206d0939f7b3b036dcdffad69ff387ee51",
+      "hash_kind": "UTF-8 LF normalized text (Git payload)"
+    },
+    {
+      "path": "audit/visual_polish_2026-09-26/logs/probe-group-2.log",
+      "sha256": "c9075cbf8b00fb8792aa88719ea0afe7ebe68fd7bedc1f9ced871de35f9534e1",
+      "hash_kind": "UTF-8 LF normalized text (Git payload)"
+    },
+    {
+      "path": "audit/visual_polish_2026-09-26/logs/probe-group-3.log",
+      "sha256": "c87bcf1a31b0ab1f51aee2fca3cf341d2509c95cdd4eb7760ba935213b992a1a",
+      "hash_kind": "UTF-8 LF normalized text (Git payload)"
+    }
+  ],
+  "probe_count": 77,
+  "resolved_gate_failures": [
+    "Frame registration drift corrected by lossless integer translation.",
+    "Hidden RGB at zero alpha in blocks cleared through native Aseprite; visible RGBA identical.",
+    "V4 whole-file layout binding refreshed after reconstructing exact prior candidate by restoring only baseline script hash; all 96 existing reviewed frame hashes and other candidate data unchanged."
+  ],
+  "capture_limit": "Captures preceded final invisible-only blocks RGB cleanup; every visible RGBA and alpha value unchanged. Desktop 2560x1369, not target-device evidence."
+}

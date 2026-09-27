@@ -199,7 +199,7 @@ device, child, human, or owner acceptance.
 | acceptance | Every applicable item has accepted current live evidence and no unresolved FAIL, REVIEW_OPEN, MANUAL_OPEN, or COVERAGE_GAP remains. |
 | closure | Open as of 2026-08-13. The Sky product slice now has a locally approved candidate plus exact machine/build integration, but global unresolved totals are nonzero and no requested-Mobile remote Sky PASS, all-applicable-pass result, device/owner acceptance, or closure date exists. |
 | relationships | Contract mechanics closed under `MA-VIS-005`; active evidence gaps affect `MA-VIS-002`, `MA-VIS-003`, `MA-VIS-004`, and Opera visual findings. |
-| history | 2026-08-09: indexed as the fail-closed evidence gap. 2026-08-13: report remains 16/17/2/86/32/94. Historical source `7391c53c` exposed bounded Sky defects and a failed remote renderer step; source `51d0abc0` repairs that product slice locally, while the broader finding remains `CONFIRMED_OPEN`. |
+| history | 2026-08-09: indexed as the fail-closed evidence gap. 2026-08-13: report remains 16/17/2/86/32/94. Historical source `7391c53c` exposed bounded Sky defects and a failed remote renderer step; source `51d0abc0` repairs that product slice locally, while the broader finding remains `CONFIRMED_OPEN`. 2026-09-26: scoped sprite ownership, Eagle replacement and Castle occlusion repairs are recorded in `design/VISUAL_REPAIR_PLAN_2026-09-26.md` and `audit/visual_polish_2026-09-26/REVIEW.json`; machine evidence and desktop Mobile review do not close device, owner or game-wide evidence gaps. |
 
 ## MA-VIS-007
 

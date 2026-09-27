@@ -27,6 +27,7 @@ var m: ReefMain
 #   paintable → false hides the palette (a captured toy comes as it is)
 const ROSTER := [
 	{"id": "eagle", "name": "Baby Eagle", "kind": "bird", "attack": "PECK",
+		"sprite": "res://assets/characters/companions/baby_eagle.png", "paintable": false,
 		"body": Color(0.98, 0.72, 0.55), "accent": Color(1.0, 0.85, 0.40), "third": Color(1.0, 0.92, 0.55),
 		"hello": "Baby Eagle flies with you now! Peck peck!",
 		"pro": "Speedy wings and a quick peck!"},
@@ -627,6 +628,8 @@ func open_picker(say_prompt: bool = true, preselect: String = "", mode: String =
 	if say_prompt:
 		if m.companion_pick_mode == "studio":
 			m.show_msg("Roshan", "Makeover time! Tap a color, then the big heart to save it!", "talk")
+		elif not bool(def_by_id(m.companion_pick_id).get("paintable", true)):
+			m.show_msg("Roshan", "Tap the big heart to take your friend along!", "talk")
 		elif m.companion_pick_mode == "swap":
 			m.show_msg("Roshan", "Which stuffie comes with me? Tap a friend, then the big heart!", "talk")
 		else:
@@ -666,6 +669,8 @@ func _pick_friend(id: String) -> void:
 	_draw_picker()
 
 func _pick_color(slot: int, col: Color) -> void:
+	if not bool(def_by_id(m.companion_pick_id).get("paintable", true)):
+		return
 	while m.companion_pick_colors.size() < 3:
 		m.companion_pick_colors.append("ffffff")
 	m.companion_pick_colors[slot] = col.to_html(false)
@@ -678,6 +683,8 @@ func _pick_color(slot: int, col: Color) -> void:
 	_draw_picker()
 
 func _pick_color_slot(slot: int) -> void:
+	if not bool(def_by_id(m.companion_pick_id).get("paintable", true)):
+		return
 	m.companion_pick_slot = clampi(slot, 0, 2)
 	m._ui_tap()
 	if bool(m.g.get("stuffie_rescue_tutorial", false)):
@@ -786,6 +793,9 @@ func _draw_picker() -> void:
 		card.add_child(atk)
 	# big live preview, painted with the picked colours
 	var pick_def := def_by_id(m.companion_pick_id)
+	if bool(m.g.get("stuffie_rescue_tutorial", false)) \
+			and not bool(pick_def.get("paintable", true)):
+		m.g["stuffie_rescue_tutorial_step"] = 2
 	var pc0 := Color.html(String(m.companion_pick_colors[0]))
 	var pc1 := Color.html(String(m.companion_pick_colors[1]))
 	var preview_panel := StorybookUI.add_panel(stage, Rect2(460, 130, 330, 330), StorybookUI.LAVENDER, Color(0.94, 0.97, 1.0, 0.98), 34)

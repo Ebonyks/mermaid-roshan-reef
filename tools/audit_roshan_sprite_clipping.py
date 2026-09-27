@@ -373,6 +373,8 @@ def main() -> int:
 			lost, ghost = shipped_score
 			ship_lost += lost
 			ship_ghost += ghost
+			if ghost > 0:
+				failures.append(f"FAIL {key}[{frame['i']}]: {ghost}px from another frame")
 			if lost > 0:
 				failures.append(
 					f"FAIL {key}[{frame['i']}]: shipped window clips {lost}px of Roshan "

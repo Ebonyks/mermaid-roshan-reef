@@ -1,6 +1,6 @@
 {
   "schema_version": "castle_interaction_frame_approval_v2",
-  "candidate_payload_sha256": "d37e4eeb2fad107b10ac66b95586e904c218a3ea2f1bf35c329beb0f8c1d68d8",
+  "candidate_payload_sha256": "b613a78030fb10efcf6ff799bd85b6d9679faccecea014d3c05303be300e1368",
   "manifest_semantic_sha256": "47c94649d447c78d1415a895aec88fe183d5783eef46ce39d5a9d7cc39067e85",
   "metadata_revalidation": {
     "date": "2026-08-29",
@@ -272,6 +272,13 @@
     "runtime_layout_semantic_sha256": "3bf113a026aaf45925ecd43e16ac693d92060e425ab24259677347be642c9205",
     "frame_hash_evidence": "All 96 frame_review_sha256 values and every occlusion relation exactly match the existing ledger. Replacing only the runtime text hash with its baseline value exactly reproduces the prior approved candidate payload; no frame is newly approved.",
     "evidence_path": "design/audit_impacts/day-one-usability-fixes-20260912.json",
+    "owner_acceptance": "pending"
+  },
+  "visual_polish_binding_revalidation": {
+    "date": "2026-09-26",
+    "prior_candidate_payload_sha256": "d37e4eeb2fad107b10ac66b95586e904c218a3ea2f1bf35c329beb0f8c1d68d8",
+    "reason": "Whole-file Castle source hash changed for Eagle, movie aperture, pointer and caption repairs. Restoring only the baseline runtime_layout semantic hash reconstructs the exact prior approved candidate payload; every other candidate field, all 96 frame hashes, V4 assets, underlays, placement and occlusion relations are identical. Existing review is preserved, not newly asserted.",
+    "baseline": "6a38bc8caa1c153e8ebb05a15f7ab6696bb4d1f4",
     "owner_acceptance": "pending"
   }
 }

@@ -33,7 +33,6 @@ const MAIN_HALL_ID := "main_hall"
 const DUST_BUNNY_TEXTURES: Dictionary = {
 	"bubble_bath": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
 	"mermaid_pool": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
-	"playroom": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_family.png",
 	"craft_room": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
 }
 const EXTERIOR_GRIME_COLOR := Color(0.19, 0.16, 0.29, 0.18)
@@ -242,7 +241,9 @@ func _ensure_dust_bunnies() -> void:
 	if not is_inside_tree() and get_parent() == null:
 		return
 	for room_id: String in ROOM_IDS:
-		if _dust_bunnies.has(room_id):
+		# The playroom already owns the two interactive pinning bunnies.
+		# A third decorative family overlapped Eagle and confused the rescue.
+		if not DUST_BUNNY_TEXTURES.has(room_id) or _dust_bunnies.has(room_id):
 			continue
 		var texture_path: String = DUST_BUNNY_TEXTURES[room_id]
 		var texture: Texture2D = load(texture_path) as Texture2D

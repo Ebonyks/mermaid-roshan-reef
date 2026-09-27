@@ -5268,9 +5268,13 @@ func _audit_storybook_ui() -> bool:
 	ok = _ui_legacy_back_retired(main.collection_layer, "CritterBookBackButton") and ok
 	main._collection_ref().close_book()
 
-	main._companion_ref().open_picker(false)
+	main._companion_ref().open_picker(false, "eagle", "adopt")
 	await process_frame
 	ok = _ui_legacy_back_retired(main.companion_layer, "StuffiePickerBackButton") and ok
+	ok = _ui_named_count(main.companion_layer, "StuffiePart_*") == 0 and ok
+	ok = _ui_named_count(main.companion_layer, "StuffieSwatch_*") == 0 and ok
+	main._companion_ref()._pick_friend("mewsha")
+	await process_frame
 	ok = _ui_named_count(main.companion_layer, "StuffiePart_*") == 3 and ok
 	ok = _ui_named_count(main.companion_layer, "StuffieSwatch_*") == 8 and ok
 	main._companion_ref().close_picker()

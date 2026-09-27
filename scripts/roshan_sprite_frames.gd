@@ -1,32 +1,15 @@
 class_name RoshanSpriteFrames
 extends RefCounted
-# Per-frame atlas windows for the Mermaid Roshan 2.5D sheets.
-#
-# The generated sheets pack their figures on a ~236-250px pitch instead of the
-# nominal 256px cell pitch that hframes/vframes assumes, and the error
-# accumulates down the sheet. A plain uniform slice therefore does two visible
-# things in the lower rows: it cuts the top of Roshan's head off, and it shows
-# the head of the NEXT row's figure as a sliver along the bottom edge. The
-# worst case measured (play_a "land") loses 36% of her body.
-#
-# SHIFTS moves each frame's window onto the figure that frame owns. The window
-# stays 256x256, so the correction is lossless and conservative: paired with
-# offset_correction() every pixel that renders today keeps its exact screen
-# position, and the clipped pixels simply come back.
-#
-# These are measurements of the approved art, not art direction — not one pixel
-# of any source PNG is modified. Regenerate the table after any sheet changes:
-#     python3 tools/audit_roshan_sprite_clipping.py --emit-table
-#
-# Measured 2026-08-02 against the sheets landed 2026-08-01. Four frames still
-# carry a small unavoidable ghost because the neighbouring figure genuinely
-# overlaps the cell; those are listed in ROSHAN_SPRITE_CUTOFF_AUDIT_2026-08-02.md
-# for the Codex regeneration pass.
+# Approved figures are losslessly repacked into isolated 256px cells.
+# ART_OFFSETS preserves the old sampling-window translation for screen-space
+# placement; SHIFTS describes only the new atlas sampling. Anatomical anchors
+# remain unchanged. Provenance: assets_src/repairs/visual_polish_2026-09-26/.
+# Repacking removes foreign-frame pixels, never changes approved body pixels.
 
 const CELL := 256.0
 
 # frame index -> texture-space translation of that frame's 256x256 window
-const SHIFTS := {
+const ART_OFFSETS := {
 	"directional": [
 		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
 		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
@@ -79,6 +62,60 @@ const SHIFTS := {
 	],
 }
 
+# Runtime atlases now contain isolated uniform cells.
+const SHIFTS := {
+	"directional": [
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+	],
+	"swim_front": [
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+	],
+	"swim_back": [
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+	],
+	"gesture_a": [
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+	],
+	"gesture_b": [
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+	],
+	"gesture_c": [
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+	],
+	"gesture_d": [
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+	],
+	"play_a": [
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+	],
+	"play_b": [
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+		Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0),
+	],
+}
+
 static func has_sheet(sheet: String) -> bool:
 	return SHIFTS.has(sheet)
 
@@ -103,7 +140,10 @@ static func region(sheet: String, frame_index: int, columns: int) -> Rect2:
 # vertical term is negated — the same convention RoshanSpriteAnchors uses.
 static func offset_correction(sheet: String, frame_index: int,
 		flipped: bool) -> Vector2:
-	var s: Vector2 = shift(sheet, frame_index)
+	var frames: Array = ART_OFFSETS.get(sheet, [])
+	if frames.is_empty():
+		return Vector2.ZERO
+	var s: Vector2 = frames[clampi(frame_index, 0, frames.size() - 1)]
 	return Vector2(-s.x if flipped else s.x, -s.y)
 
 # Applies the corrected window to a Sprite3D.

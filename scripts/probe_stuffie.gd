@@ -58,6 +58,13 @@ func _picker_case() -> void:
 	await _settle(8)
 	main._enter_castle_interior_now(false)
 	await _settle(8)
+	main.hud_msg.text = "Caption layout check"
+	main.msg_timer = 2.0
+	main._sync_castle_voice_caption()
+	_ck("castle caption leaves cleanup floor visible",
+		main.castle_voice_caption.position.y + main.castle_voice_caption.size.y < 300.0
+		and main.castle_voice_caption.mouse_filter == Control.MOUSE_FILTER_IGNORE
+		and not main.hud_msg.visible)
 	# Playroom is the third Day One room, so enter it through the same
 	# state-owner checkpoint as the real pool handoff. The old fixture jumped
 	# directly from a fresh bathroom checkpoint; the castle correctly rejected
@@ -94,6 +101,10 @@ func _picker_case() -> void:
 	var right_record: Dictionary = main.castle_room_item_sprites.get(
 		"eagle_pin_right", {}) as Dictionary
 	var eagle_sprite: Sprite2D = eagle_record.get("sprite") as Sprite2D
+	var rescue_pointer: Sprite2D = main.castle_room_item_effect_layer.get_node_or_null(
+		"BabyEagleRescuePointer") as Sprite2D
+	_ck("pending rescue has a visible foreground pointer", rescue_pointer != null
+		and rescue_pointer.is_visible_in_tree() and rescue_pointer.z_index == 435)
 	var left_sprite: Sprite2D = left_record.get("sprite") as Sprite2D
 	var right_sprite: Sprite2D = right_record.get("sprite") as Sprite2D
 	# The V3 additive sticker pack is deliberately retired. The audited room now
@@ -181,7 +192,7 @@ func _picker_case() -> void:
 		and main.companion_layer != null
 		and main.companion_pick_id == "eagle"
 		and bool(main.g.get("stuffie_rescue_tutorial", false))
-		and int(main.g.get("stuffie_rescue_tutorial_step", -1)) == 0
+		and int(main.g.get("stuffie_rescue_tutorial_step", -1)) == 2
 		and main.companion_stage.get_node_or_null(
 			"StuffieRescueTutorialFocus") != null
 		and main.companion_stage.get_node_or_null(
@@ -204,25 +215,25 @@ func _picker_case() -> void:
 	_ck("playroom re-entry reopens the unconfirmed adoption",
 		main.companion_layer != null and main.companion_pick_id == "eagle"
 		and main.companion_id == "")
+	var eagle_colors: Array = main.companion_pick_colors.duplicate()
 	comp._pick_color_slot(1)
-	await process_frame
-	_ck("Tutorial state advances from part to color",
-		int(main.g.get("stuffie_rescue_tutorial_step", -1)) == 1)
-	_ck("Tutorial keeps the color focus visible",
-		main.companion_stage.get_node_or_null(
-			"StuffieRescueTutorialFocus") != null)
 	comp._pick_color(1, Color(0.45, 0.82, 0.95))
 	await process_frame
-	_ck("Tutorial focus advances from color to the heart",
+	_ck("Eagle skips painting and cannot be recoloured by stale callbacks",
 		int(main.g.get("stuffie_rescue_tutorial_step", -1)) == 2
-		and main.companion_stage.get_node_or_null(
-			"StuffieConfirmButton") != null)
+		and main.companion_pick_colors == eagle_colors
+		and main.companion_stage.find_children("StuffiePart_*", "Button", true, false).is_empty()
+		and main.companion_stage.find_children("StuffieSwatch_*", "Button", true, false).is_empty()
+		and main.companion_stage.get_node_or_null("StuffieConfirmButton") != null)
 	comp._confirm_pick()
 	await process_frame
 	_ck("Rescued Baby Eagle becomes the first stuffie friend",
 		main.companion_id == "eagle"
 		and main.companion_layer == null
 		and not main.g.has("stuffie_rescue_tutorial"))
+	rooms._add_playroom_rescue_pointer()
+	_ck("completed rescue cannot recreate its pointer",
+		main.castle_room_item_effect_layer.get_node_or_null("BabyEagleRescuePointer") == null)
 	var reward_card: Control = main.castle_companion_card
 	var reward_cards: Array[Node] = main.castle_room_item_visual_layer.find_children(
 		"CastleCompanionCard", "Control", true, false)
@@ -241,7 +252,7 @@ func _picker_case() -> void:
 		and is_instance_valid(reward_card) and reward_card.visible
 		and String(reward_card.get_meta("companion_id", "")) == "eagle"
 		and String(reward_card.get_meta("source_asset_path", ""))
-			== "res://assets/book/baby_eagle.png"
+			== "res://assets/characters/companions/baby_eagle.png"
 		and card_canvas_only)
 	_ck("castle companion card repositions without duplication",
 		card_is_reused and main.castle_room_item_visual_layer.find_children(

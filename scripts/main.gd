@@ -3193,7 +3193,7 @@ const SPEAKER_PORTRAIT := {
 	"wacky": "res://assets/characters/friends/wacky_chuck.png",
 	"chuck": "res://assets/characters/friends/wacky_chuck.png",
 	"shop": "res://assets/characters/roshan_25d/roshan_base.png",
-	"sparkle": "res://assets/book/baby_eagle.png",
+	"sparkle": "res://assets/characters/companions/baby_eagle.png",
 	"rosalina": "res://assets/characters/skins/fairy_mermaid.png",
 	"everyone": "res://assets/characters/roshan_25d/roshan_base.png"}
 
@@ -3275,8 +3275,17 @@ func _sync_castle_voice_caption() -> void:
 		and is_instance_valid(castle_room_layer) and castle_room_layer.visible
 	var has_message := hud_msg != null and hud_msg.text != "" \
 		and msg_timer > 0.0
+	# Raise only the captions whose original floor panel covered cleanup targets.
+	# Free-play rooms retain their established caption band and upper picture cues.
+	var floor_objective_room: bool = castle_room_id == "main_hall" \
+		or (day_one_is_active() and castle_room_id in ["bubble_bath", "mermaid_pool", "playroom"])
+	castle_voice_caption.position.y = 112.0 if floor_objective_room else 590.0
 	castle_voice_caption.text = hud_msg.text if hud_msg != null else ""
 	castle_voice_caption.visible = castle_visible and has_message
+	# The Castle owns one caption; its lower duplicate covered cleanup
+	# baskets and dust bunnies. Voice and the gameplay pointer stay active.
+	if castle_visible and hud_msg != null:
+		hud_msg.visible = false
 
 func say_sequence(lines: Array, opening_hold: float = 0.0) -> void:
 	_audio_ref().say_sequence(lines, opening_hold)
