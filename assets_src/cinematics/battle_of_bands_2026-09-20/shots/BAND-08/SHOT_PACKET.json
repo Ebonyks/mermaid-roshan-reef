@@ -1,0 +1,80 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "battle_of_bands",
+  "shot_id": "BAND-08",
+  "title": "The groove belongs to everyone",
+  "status": "DRAFT",
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "human_decision": "pending",
+      "blocking_gap": "Generate and approve this shot's clean full frame; do not bind board or runtime capture."
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/roshan_popstar.png",
+      "sha256": "2d7d45ee94bab0adbacb4331461942dd5ba14d20327ed7985945575adbf6d523",
+      "hud_present": false,
+      "human_decision": "existing source identity; new shot binding pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/daddy.webp",
+      "sha256": "9031736498f05662716988b6c9a8091dc148edf92ae1e8422fb5e4f2fd17c089",
+      "hud_present": false,
+      "human_decision": "existing source identity; new shot binding pending"
+    },
+    {
+      "id": "IMAGE_4",
+      "role": "object_or_material_identity",
+      "path": "references/roshan_drums.png",
+      "sha256": "8c053d0cff47f04f3297ca6c48016fb74f24bfcb862f8c2cedeb3fd980f1e709",
+      "hud_present": false,
+      "human_decision": "prototype instrument design; shot binding approval pending"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "Roshan keeps time while Daddy strums once in response"
+  ],
+  "must_not_move": [
+    "lawn geometry",
+    "unaffected props"
+  ],
+  "end_state": "Roshan and Daddy face the same audience",
+  "negative_constraints": [
+    "no HUD",
+    "no text",
+    "no extra limbs",
+    "no duplicate candle"
+  ],
+  "prompt_path": "shots/BAND-08/PROMPT.txt",
+  "prompt_sha256": "fb155fbd0003be2fa1d698090e2e4d5a444d79f6d77bd1092a6c440ce90a6f28",
+  "editorial_cue": "next recorded chorus or repeated phrase",
+  "recording_start_seconds": null,
+  "recording_end_seconds": null,
+  "timing_note": "Six seconds is a provisional generation length, NOT a measured song timecode. Split or repeat coverage after listening; do not stretch motion to fill a whole song.",
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "blocking_findings": [
+    "recording and cue map missing",
+    "approved clean first frame missing",
+    "per-shot identity/binding review pending"
+  ]
+}

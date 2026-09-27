@@ -1,0 +1,80 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "battle_of_bands",
+  "shot_id": "BAND-11",
+  "title": "Cheating after the contest",
+  "status": "DRAFT",
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "human_decision": "pending",
+      "blocking_gap": "Generate and approve this shot's clean full frame; do not bind board or runtime capture."
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/king.png",
+      "sha256": "422f7bd45a13f1d3c0304082727d72298e3bc01babd8919dc0c7e3e92777052c",
+      "hud_present": false,
+      "human_decision": "existing source identity; new shot binding pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/candle.png",
+      "sha256": "2c00e80e57315283e2612fb301cc9e2ac0c519bab1e0bfa44b4ff3dc4b13ff68",
+      "hud_present": false,
+      "human_decision": "existing source identity; new shot binding pending"
+    },
+    {
+      "id": "IMAGE_4",
+      "role": "object_or_material_identity",
+      "path": "references/king_guitar.png",
+      "sha256": "814a38609838f06eae651a8b453decd778281f0001f148730101bccef8f9d1b0",
+      "hud_present": false,
+      "human_decision": "prototype instrument design; shot binding approval pending"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "the King lifts the single lit rainbow candle from the cake using his royal magic"
+  ],
+  "must_not_move": [
+    "lawn geometry",
+    "unaffected props"
+  ],
+  "end_state": "the candle is in the King's hand and the intact cake has an empty candle place",
+  "negative_constraints": [
+    "no HUD",
+    "no text",
+    "no extra limbs",
+    "no duplicate candle"
+  ],
+  "prompt_path": "shots/BAND-11/PROMPT.txt",
+  "prompt_sha256": "8fbdc170dca18a14e96477899ddc52eae745a8a412589f501b12df1e394c0c5f",
+  "editorial_cue": "post-cadence story beat; not a missed player note",
+  "recording_start_seconds": null,
+  "recording_end_seconds": null,
+  "timing_note": "Six seconds is a provisional generation length, NOT a measured song timecode. Split or repeat coverage after listening; do not stretch motion to fill a whole song.",
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "blocking_findings": [
+    "recording and cue map missing",
+    "approved clean first frame missing",
+    "per-shot identity/binding review pending"
+  ]
+}

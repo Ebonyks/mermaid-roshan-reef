@@ -1,0 +1,31 @@
+{
+  "schema": "imagine-handoff-v1",
+  "movie_id": "battle_of_bands",
+  "archive_status": "incomplete",
+  "generation_status": "blocked",
+  "delivery_status": "not_accepted",
+  "shot_packets": [],
+  "draft_shot_packets": [
+    "shots/BAND-01/SHOT_PACKET.json",
+    "shots/BAND-02/SHOT_PACKET.json",
+    "shots/BAND-03/SHOT_PACKET.json",
+    "shots/BAND-04/SHOT_PACKET.json",
+    "shots/BAND-05/SHOT_PACKET.json",
+    "shots/BAND-06/SHOT_PACKET.json",
+    "shots/BAND-07/SHOT_PACKET.json",
+    "shots/BAND-08/SHOT_PACKET.json",
+    "shots/BAND-09/SHOT_PACKET.json",
+    "shots/BAND-10/SHOT_PACKET.json",
+    "shots/BAND-11/SHOT_PACKET.json",
+    "shots/BAND-12/SHOT_PACKET.json",
+    "shots/BAND-13/SHOT_PACKET.json"
+  ],
+  "shot_board": "SHOT_BOARD.png",
+  "archive_payload_manifest": "ARCHIVE_MANIFEST.json",
+  "blocking_findings": [
+    "Recorded Iko Iko source/cue timing missing",
+    "13 approved clean first frames missing",
+    "Drummer pose and kit acceptance pending",
+    "Remote receipt required"
+  ]
+}

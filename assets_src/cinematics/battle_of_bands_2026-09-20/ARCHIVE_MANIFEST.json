@@ -1,0 +1,550 @@
+{
+  "schema": "bands-review-archive-v1",
+  "payload_algorithm": "sha256 of sorted sha256 + two spaces + path + LF, excluding manifest and remote receipt",
+  "packet_payload_sha256": "887f193bcdc3b9ef111c84e9a1a6add855e02724a75f3b66b87dc068f997bbd5",
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "files": [
+    {
+      "path": ".gdignore",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/.gdignore",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "ART_PROVENANCE.json",
+      "sha256": "87ce5d0fbc0f2d33dbb8473ccac38f36169042b351f7d72b6a00add8c90928b1",
+      "source_path": "assets_src/imagegen/bands_20260920/PROVENANCE.json",
+      "role": "identity_or_location_reference",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "UTF-8 LF-normalized reference copy",
+      "dimensions": null
+    },
+    {
+      "path": "AUDIO_CUE_SHEET.json",
+      "sha256": "22ea963e2b70124281010b56fb7f2819a66f684695d1599ce27fe6c6feb34cdd",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/AUDIO_CUE_SHEET.json",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "CODEX_REFINEMENT.txt",
+      "sha256": "efa40f17609c771ad16155bafbac6c8135f3766424f383e77e98b950e3c986bf",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/CODEX_REFINEMENT.txt",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "IMAGINE_HANDOFF.json",
+      "sha256": "137cba3b5e385c611018f9cda3a31a643b72d3701e80b65d2615ea6f3b8d6c2d",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/IMAGINE_HANDOFF.json",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "README.md",
+      "sha256": "5c008cde3b769f3557a7c06eea3bd60c6b2b9293d8542e44115a27f51ff471da",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/README.md",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "RUNTIME_EVIDENCE.json",
+      "sha256": "ae8869aef2d460f0f0772f6caf317ac15b22a27c8c9d6a2253bcfb413895f1c8",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/RUNTIME_EVIDENCE.json",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "SHOT_BOARD.html",
+      "sha256": "83883b5cf5e650eea8e8d6d0f93960833202279e1d83775e6978bdc84525b012",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/SHOT_BOARD.html",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "SHOT_BOARD.png",
+      "sha256": "84772cae8e6068b06a558428be094a3755167031eb38bfb3c74598c298fea3a3",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/SHOT_BOARD.png",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": [
+        1500,
+        1750
+      ]
+    },
+    {
+      "path": "SOURCE_ASSET_LICENSES.txt",
+      "sha256": "7323e02f771f9f6b373730546ba4e1ecfd4da5e959f0805ece51eea91c786a05",
+      "source_path": "ASSET_LICENSES.md",
+      "role": "identity_or_location_reference",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "UTF-8 LF-normalized reference copy",
+      "dimensions": null
+    },
+    {
+      "path": "START_HERE.txt",
+      "sha256": "0ef054a99f19c2ca463108143a78becd60a9b165126a6e74655a026d3e22f3b7",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/START_HERE.txt",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "references/baby_eagle.png",
+      "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b",
+      "source_path": "assets/book/baby_eagle.png",
+      "role": "identity_or_location_reference",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "byte-identical copy",
+      "dimensions": [
+        290,
+        512
+      ]
+    },
+    {
+      "path": "references/cake.png",
+      "sha256": "91dbeb1f9c634eebac04cd61f29318a3f4da6c2486fcab1182cdbf93668cad59",
+      "source_path": "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/references/cake.png",
+      "role": "identity_or_location_reference",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "byte-identical copy",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "references/candle.png",
+      "sha256": "2c00e80e57315283e2612fb301cc9e2ac0c519bab1e0bfa44b4ff3dc4b13ff68",
+      "source_path": "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/references/candle_lit.png",
+      "role": "identity_or_location_reference",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "byte-identical copy",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "references/daddy.webp",
+      "sha256": "9031736498f05662716988b6c9a8091dc148edf92ae1e8422fb5e4f2fd17c089",
+      "source_path": "assets/characters/friends/daddy.webp",
+      "role": "identity_or_location_reference",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "byte-identical copy",
+      "dimensions": [
+        727,
+        1024
+      ]
+    },
+    {
+      "path": "references/daddy_ukulele.png",
+      "sha256": "a7327831de867596380035cdde1915292d19b5985f695be184e0f861f88e2fca",
+      "source_path": "assets/prototypes/bands/daddy_ukulele.png",
+      "role": "identity_or_location_reference",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "byte-identical copy",
+      "dimensions": [
+        727,
+        1024
+      ]
+    },
+    {
+      "path": "references/eagle_bass.png",
+      "sha256": "1617643325914845ce92250f9f811ff050d4662d962abd5f0066b3d97612dd2b",
+      "source_path": "assets/prototypes/bands/eagle_bass.png",
+      "role": "identity_or_location_reference",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "byte-identical copy",
+      "dimensions": [
+        683,
+        1024
+      ]
+    },
+    {
+      "path": "references/king.png",
+      "sha256": "422f7bd45a13f1d3c0304082727d72298e3bc01babd8919dc0c7e3e92777052c",
+      "source_path": "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/characters/ember_king_v4.png",
+      "role": "identity_or_location_reference",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "byte-identical copy",
+      "dimensions": [
+        1024,
+        683
+      ]
+    },
+    {
+      "path": "references/king_guitar.png",
+      "sha256": "814a38609838f06eae651a8b453decd778281f0001f148730101bccef8f9d1b0",
+      "source_path": "assets/prototypes/bands/king_guitar.png",
+      "role": "identity_or_location_reference",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "byte-identical copy",
+      "dimensions": [
+        937,
+        1024
+      ]
+    },
+    {
+      "path": "references/lawn.png",
+      "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+      "source_path": "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/references/lawn.png",
+      "role": "identity_or_location_reference",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "byte-identical copy",
+      "dimensions": [
+        6144,
+        2048
+      ]
+    },
+    {
+      "path": "references/popstar_stage.png",
+      "sha256": "131f4c3a88ce398b1cb5a4c629470c523d36d06289f8c2029852b1eeebea2be9",
+      "source_path": "assets_src/concepts/opera_regeneration_2026-08-01/cards/opera_stage_master_popstar.png",
+      "role": "identity_or_location_reference",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "byte-identical copy",
+      "dimensions": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "path": "references/prince.png",
+      "sha256": "95d5cf35321c87a1b5fae280a76a52fa7d3c6930e56503c10a4054c4c75169c4",
+      "source_path": "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/characters/ember_prince_identity.png",
+      "role": "identity_or_location_reference",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "byte-identical copy",
+      "dimensions": [
+        1024,
+        683
+      ]
+    },
+    {
+      "path": "references/prince_drums.png",
+      "sha256": "bdba7c762c44cfa41d3be560255b75562385715f2014ad095ae526f708b0177e",
+      "source_path": "assets/prototypes/bands/prince_drums.png",
+      "role": "identity_or_location_reference",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "byte-identical copy",
+      "dimensions": [
+        1024,
+        683
+      ]
+    },
+    {
+      "path": "references/roshan_costume_poses.png",
+      "sha256": "0084e74b73042832f248c26f6688e484b7376ea6418caee09b2e4beeebfb0ee9",
+      "source_path": "assets/opera/worlds/actors/animation/roshan_popstar_sheet_a.png",
+      "role": "identity_or_location_reference",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "byte-identical copy",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "references/roshan_drums.png",
+      "sha256": "8c053d0cff47f04f3297ca6c48016fb74f24bfcb862f8c2cedeb3fd980f1e709",
+      "source_path": "assets/prototypes/bands/roshan_drums.png",
+      "role": "identity_or_location_reference",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "byte-identical copy",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "references/roshan_popstar.png",
+      "sha256": "2d7d45ee94bab0adbacb4331461942dd5ba14d20327ed7985945575adbf6d523",
+      "source_path": "assets/opera/worlds/actors/roshan_popstar.png",
+      "role": "identity_or_location_reference",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "byte-identical copy",
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "references/rumi.png",
+      "sha256": "d5e0bff392a22c341c313ab94db5cea7a3cb6bb682b9ea8af2bc190a810c3f66",
+      "source_path": "assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/references/rumi_atlas.png",
+      "role": "identity_or_location_reference",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "byte-identical copy",
+      "dimensions": [
+        1024,
+        768
+      ]
+    },
+    {
+      "path": "runtime/prototype.png",
+      "sha256": "ccb5bf4bd043737062f719933bb1be532bd0adc6ac34124179f92c80d75b9c5b",
+      "source_path": "build/bands/prototype.png",
+      "role": "runtime_seam_reference_never_generation_pixels",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "byte-identical copy",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "shots/BAND-01/PROMPT.txt",
+      "sha256": "7669ee9f174d34fed1cdea9f47b3b7fc47b0df02225278707bf333e395398bee",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-01/PROMPT.txt",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-01/SHOT_PACKET.json",
+      "sha256": "75b6d4f0fbc76e037f515b14c530bc0fb781b27e670e6cccbe565d28f08caa4c",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-01/SHOT_PACKET.json",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-02/PROMPT.txt",
+      "sha256": "a5863a79e115712dac98ab6d7c3d588914aca798534aa33586faed58f61e18d0",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-02/PROMPT.txt",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-02/SHOT_PACKET.json",
+      "sha256": "c3df44009442f8a59754170d15fd63b73df3b2aabca5faecf20eabedee51f800",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-02/SHOT_PACKET.json",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-03/PROMPT.txt",
+      "sha256": "6ffd2c7ab4bf3221f362bbcee1287b3e6b83f747856cf978a0fd1416e3a9fbe7",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-03/PROMPT.txt",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-03/SHOT_PACKET.json",
+      "sha256": "38468f0ff6370e5f20271c4cc5b51f2d97d835cecec243f29f7e0b812d0f4929",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-03/SHOT_PACKET.json",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-04/PROMPT.txt",
+      "sha256": "ddc0036d9f718aab565242d98c367432f033560c78222816dc6c1cd5f6239032",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-04/PROMPT.txt",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-04/SHOT_PACKET.json",
+      "sha256": "b63edbca692385f66f37e05e07a848fd8a21b99e9f798fb842310230d7bfcd71",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-04/SHOT_PACKET.json",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-05/PROMPT.txt",
+      "sha256": "348fa84937ded7e391d0e3a1ef5dfc3aee2091419a01f664c48ccd4f5dcdcbfc",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-05/PROMPT.txt",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-05/SHOT_PACKET.json",
+      "sha256": "68bb1509f6f95038e4e1f53a9de5a09afc3f67f1d8dcd9ea388e3967b30cb23c",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-05/SHOT_PACKET.json",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-06/PROMPT.txt",
+      "sha256": "c25600da3049bd037a24b7f99087100e4803200b334e3af552eb50c28d2285db",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-06/PROMPT.txt",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-06/SHOT_PACKET.json",
+      "sha256": "25723bbefac8165b296b436c6baf38c94a1dd6e068e650b0403b21bff4e2ac86",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-06/SHOT_PACKET.json",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-07/PROMPT.txt",
+      "sha256": "48d73da3379cf7f96e0e7bf007e3d56bba335e1251b68af41e1c063f74bc580d",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-07/PROMPT.txt",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-07/SHOT_PACKET.json",
+      "sha256": "5596e4ecbcc80ca91705e75239498015d478c67c201e3bd7a4004e6862238c53",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-07/SHOT_PACKET.json",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-08/PROMPT.txt",
+      "sha256": "fb155fbd0003be2fa1d698090e2e4d5a444d79f6d77bd1092a6c440ce90a6f28",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-08/PROMPT.txt",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-08/SHOT_PACKET.json",
+      "sha256": "6a55a0ad766cdf02b559572a7e1e900d60b93aa7e8f94a381c2b4276c50c8c3a",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-08/SHOT_PACKET.json",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-09/PROMPT.txt",
+      "sha256": "94ed7ae990ecbc029d8e37e10ce120c3678fb3823f16728570221e71dc00dd27",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-09/PROMPT.txt",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-09/SHOT_PACKET.json",
+      "sha256": "289a9d224605aaf3b26ac5811b9f2bc851b02b0361ba56862b4642bd1a64fc26",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-09/SHOT_PACKET.json",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-10/PROMPT.txt",
+      "sha256": "d1c0e4574349e39853ba543c60304fbea056c6207cd24cb5031aaa07b6899475",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-10/PROMPT.txt",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-10/SHOT_PACKET.json",
+      "sha256": "6dadcdd1c4d0a28e435f1a75a19a53233a316f59d0280a4b250a19b8331cfdab",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-10/SHOT_PACKET.json",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-11/PROMPT.txt",
+      "sha256": "8fbdc170dca18a14e96477899ddc52eae745a8a412589f501b12df1e394c0c5f",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-11/PROMPT.txt",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-11/SHOT_PACKET.json",
+      "sha256": "c99148e9c3c4c000e9f3faad947d24cf8e8a3e02c22704405644faf97c09fa36",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-11/SHOT_PACKET.json",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-12/PROMPT.txt",
+      "sha256": "f2f7abf8f708ff081d28d945cdb13d9b9282b18030b0a82fcfc768694659735a",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-12/PROMPT.txt",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-12/SHOT_PACKET.json",
+      "sha256": "6a1ff4ef140575eaccaed14499bdebfe0ca630a93461362d064e691c9bb04257",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-12/SHOT_PACKET.json",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-13/PROMPT.txt",
+      "sha256": "3590bb724f2ba145b00d61a53d5ba87fbbe5e5ab26324ef157ec19d56f3200fe",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-13/PROMPT.txt",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    },
+    {
+      "path": "shots/BAND-13/SHOT_PACKET.json",
+      "sha256": "4ec6fd5028b3f674ca90bbbb875521f0e020884b086ba2f052a9131e65b977c1",
+      "source_path": "project-authored:assets_src/cinematics/battle_of_bands_2026-09-20/shots/BAND-13/SHOT_PACKET.json",
+      "role": "review_planning_not_delivery",
+      "license_provenance": "Project-owned source; existing source license retained; see packet SOURCE_ASSET_LICENSES.txt",
+      "modification_status": "new planning artifact",
+      "dimensions": null
+    }
+  ]
+}

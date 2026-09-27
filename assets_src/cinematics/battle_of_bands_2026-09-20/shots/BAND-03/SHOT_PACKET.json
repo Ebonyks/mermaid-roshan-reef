@@ -1,0 +1,80 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "battle_of_bands",
+  "shot_id": "BAND-03",
+  "title": "Daddy on ukulele",
+  "status": "DRAFT",
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "human_decision": "pending",
+      "blocking_gap": "Generate and approve this shot's clean full frame; do not bind board or runtime capture."
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/daddy.webp",
+      "sha256": "9031736498f05662716988b6c9a8091dc148edf92ae1e8422fb5e4f2fd17c089",
+      "hud_present": false,
+      "human_decision": "existing source identity; new shot binding pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/roshan_popstar.png",
+      "sha256": "2d7d45ee94bab0adbacb4331461942dd5ba14d20327ed7985945575adbf6d523",
+      "hud_present": false,
+      "human_decision": "existing source identity; new shot binding pending"
+    },
+    {
+      "id": "IMAGE_4",
+      "role": "object_or_material_identity",
+      "path": "references/daddy_ukulele.png",
+      "sha256": "a7327831de867596380035cdde1915292d19b5985f695be184e0f861f88e2fca",
+      "hud_present": false,
+      "human_decision": "prototype instrument design; shot binding approval pending"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "Daddy Mermaid strums his four-string ukulele beside Roshan on drums"
+  ],
+  "must_not_move": [
+    "lawn geometry",
+    "unaffected props"
+  ],
+  "end_state": "Daddy smiles toward Roshan with his ukulele still held naturally",
+  "negative_constraints": [
+    "no HUD",
+    "no text",
+    "no extra limbs",
+    "no duplicate candle"
+  ],
+  "prompt_path": "shots/BAND-03/PROMPT.txt",
+  "prompt_sha256": "6ffd2c7ab4bf3221f362bbcee1287b3e6b83f747856cf978a0fd1416e3a9fbe7",
+  "editorial_cue": "first light string phrase",
+  "recording_start_seconds": null,
+  "recording_end_seconds": null,
+  "timing_note": "Six seconds is a provisional generation length, NOT a measured song timecode. Split or repeat coverage after listening; do not stretch motion to fill a whole song.",
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "blocking_findings": [
+    "recording and cue map missing",
+    "approved clean first frame missing",
+    "per-shot identity/binding review pending"
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "battle_of_bands",
+  "shot_id": "BAND-04",
+  "title": "Baby Eagle on bass",
+  "status": "DRAFT",
+  "duration_seconds": 6,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "human_decision": "pending",
+      "blocking_gap": "Generate and approve this shot's clean full frame; do not bind board or runtime capture."
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/baby_eagle.png",
+      "sha256": "da8ead4677192ef404ed7b252fdb281cfb0234beb8064cfe7abdac2f8aade19b",
+      "hud_present": false,
+      "human_decision": "existing source identity; new shot binding pending"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/daddy.webp",
+      "sha256": "9031736498f05662716988b6c9a8091dc148edf92ae1e8422fb5e4f2fd17c089",
+      "hud_present": false,
+      "human_decision": "existing source identity; new shot binding pending"
+    },
+    {
+      "id": "IMAGE_4",
+      "role": "object_or_material_identity",
+      "path": "references/eagle_bass.png",
+      "sha256": "1617643325914845ce92250f9f811ff050d4662d962abd5f0066b3d97612dd2b",
+      "hud_present": false,
+      "human_decision": "prototype instrument design; shot binding approval pending"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "Baby Eagle plucks a four-string bass with one wing while the other steadies the neck"
+  ],
+  "must_not_move": [
+    "lawn geometry",
+    "unaffected props"
+  ],
+  "end_state": "Baby Eagle holds the bass securely, with no human hands or extra wings",
+  "negative_constraints": [
+    "no HUD",
+    "no text",
+    "no extra limbs",
+    "no duplicate candle"
+  ],
+  "prompt_path": "shots/BAND-04/PROMPT.txt",
+  "prompt_sha256": "ddc0036d9f718aab565242d98c367432f033560c78222816dc6c1cd5f6239032",
+  "editorial_cue": "first bass phrase",
+  "recording_start_seconds": null,
+  "recording_end_seconds": null,
+  "timing_note": "Six seconds is a provisional generation length, NOT a measured song timecode. Split or repeat coverage after listening; do not stretch motion to fill a whole song.",
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "blocking_findings": [
+    "recording and cue map missing",
+    "approved clean first frame missing",
+    "per-shot identity/binding review pending"
+  ]
+}
