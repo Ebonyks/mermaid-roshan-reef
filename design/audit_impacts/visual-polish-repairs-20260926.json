@@ -186,7 +186,7 @@
       "evidence": "6a38bc8c: all 78 manifest payload hashes/sizes match; 345 draws/217 regions/53 sheets/301 occlusion records; all 54 flagged-cell bleed counts reproduced; existing Roshan audit gives 0 clipped/1302 foreign pixels."
     },
     {
-      "command": "Exact Godot 4.7.2 CI stages plus all 77 trusted probes; changed-script parser/inference; authority/development gates",
+      "command": "Exact Godot 4.7.2 CI stages plus 76 assertion probes plus one explicitly skipped display-only headless capture; changed-script parser/inference; authority/development gates",
       "result": "PASS",
       "evidence": "audit/visual_polish_2026-09-26/REVIEW.json and hash-bound logs; earlier failures and their repairs retained. CI commands executed in recorded stages, not one uninterrupted successful invocation. Exact remote CI pending."
     },

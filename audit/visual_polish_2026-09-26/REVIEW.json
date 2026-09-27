@@ -8,7 +8,7 @@
   "native_pipeline_result": "PASS; exact source/output/native hashes reproduced",
   "pixel_audit": "PASS; 1302 Roshan foreign pixels eliminated, retained RGBA unchanged; registered cells retain every visible RGBA pixel",
   "visual_review": "Final desktop Mobile recapture: movie aperture, sleepover quilt, dining feet, pool objective occlusion and two-bunny rescue composition inspected. Still-frame capture does not establish every animation frame or phone acceptance.",
-  "full_suite": "PASS across recorded stages: static prefix, corrected native gate, unchanged-frame V4 binding revalidation, exact Godot 4.7.2 import/debt gate, all 77 trusted probes. Runtime probes used unchanged CI loop/checks in four isolated-save groups after first four passed sequentially. Exact remote single-run CI pending.",
+  "full_suite": "PASS across recorded stages: static prefix, corrected native gate, unchanged-frame V4 binding revalidation, exact Godot 4.7.2 import/debt gate, 76 assertion probes plus one display-only command returning HEADLESS SKIP. Runtime probes used unchanged CI loop/checks in four isolated-save groups after first four passed sequentially. Exact remote single-run CI pending.",
   "opera": "BLOCKED_NATIVE_PANEL_SIZE; built-in candidates 1672x941; API/CLI permission unanswered and OPENAI_API_KEY is not configured.",
   "replay": "PLANNED; implementation not included in this bounded defect change",
   "device_child_owner": "PENDING",
@@ -152,5 +152,12 @@
     "Hidden RGB at zero alpha in blocks cleared through native Aseprite; visible RGBA identical.",
     "V4 whole-file layout binding refreshed after reconstructing exact prior candidate by restoring only baseline script hash; all 96 existing reviewed frame hashes and other candidate data unchanged."
   ],
-  "capture_limit": "Captures preceded final invisible-only blocks RGB cleanup; every visible RGBA and alpha value unchanged. Desktop 2560x1369, not target-device evidence."
+  "capture_limit": "Captures preceded final invisible-only blocks RGB cleanup; every visible RGBA and alpha value unchanged. Desktop 2560x1369, not target-device evidence.",
+  "assertion_probe_count": 76,
+  "headless_skips": [
+    {
+      "command": "probe_human_art_audit",
+      "reason": "Display-only capture has no headless assertions; not counted as a passed visual review. Ten separate real Mobile captures are recorded above."
+    }
+  ]
 }
