@@ -391,6 +391,16 @@ func _audit_all_career_lifecycles() -> void:
 		if act == null:
 			continue
 		if act_index == 12:
+			# Force the fast-runner handoff: an exact Chapter Two route and a
+			# queued objective still own speech when Racer repeats its real phase.
+			main._audio_ref().chapter_two_prompt("chapter2_route_chef")
+			_check("Racer overlap fixture begins with audible route speech",
+				main._audio_ref()._has_active_speech())
+			main._say("roshan", "chapter2_route_farmer")
+			act.career_world_2d._repeat_phase_prompt()
+			_check("Racer phase clears stale required speech and its queued route",
+				main._audio_ref()._required_voice_queue.is_empty()
+				and not main.dialogue_active)
 			var racer_voice_path := ""
 			if main.voice_i > 0 and not main.voice_pool.is_empty():
 				var voice_index := posmod(main.voice_i - 1, main.voice_pool.size())

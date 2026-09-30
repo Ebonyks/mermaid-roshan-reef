@@ -1,0 +1,58 @@
+{
+  "id": "day-two-objective-handoff-20260930",
+  "scope": "CI-discovered bounded follow-up to the owner-authorized Day One/Two alpha repair: a new or explicitly repeated Opera phase supersedes stale speech and queued dialogue, keeps the exact speaker recording, and is not suppressed by a prior objective or its cooldown. Force a Chapter Two route cue and queued cue across the real Racer phase to reproduce the fast-runner failure. Existing voice bytes, gameplay, awards, touch and save behavior remain unchanged.",
+  "baseline": "83d7e1ed403143c8895935d5bd1d3b93807f7f20",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-SND-01",
+    "DL-SND-03",
+    "DL-SND-05",
+    "DL-QA-01",
+    "DL-QA-04",
+    "DL-INT-10"
+  ],
+  "findings": [
+    "MA-ACCESS-001",
+    "MA-AUDIO-001",
+    "MA-OPERA-006"
+  ],
+  "files": [
+    "scripts/opera_career_world_2d.gd",
+    "scripts/probe_opera.gd",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/evidence/day-one-two-alpha-20260930/objective_handoff_receipt.json",
+    "audit/evidence/day-one-two-alpha-20260930/objective_full_ci.log"
+  ],
+  "validation": [
+    {
+      "command": "Exact dev CI 36776251500 attempt 2 at b52fc32a2ad676fd9b235c0f3d6f1aba829cea77",
+      "result": "FAIL",
+      "evidence": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36776251500/attempts/2; OPERA|Racer exact objective voice replaces its caption fallback: FAIL; runtime matches the earlier green candidate, exposing timing-dependent speech suppression."
+    },
+    {
+      "command": "Forced-overlap Godot 4.7.2-stable probe_opera before and after runtime repair",
+      "result": "PASS",
+      "evidence": "audit/evidence/day-one-two-alpha-20260930/objective_handoff_receipt.json contains baseline failures, repaired ALL OK output and exact source/log hashes."
+    },
+    {
+      "command": "GODOT=Godot 4.7.2-stable bash scripts/ci.sh",
+      "result": "PASS",
+      "evidence": "audit/evidence/day-one-two-alpha-20260930/objective_full_ci.log; full static/audio/asset/import/audit gates and all 82 trusted probes exit 0; no runtime script errors."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "588/588 documents, 57 active/59 records; base 83d7e1ed403143c8895935d5bd1d3b93807f7f20; authority and complete impact coverage ALL OK."
+    },
+    {
+      "command": "Exact work-branch CI and integrated dev APK publication",
+      "result": "PENDING",
+      "evidence": "Remote run, source, APK digest and acceptance receipt will be bound to the final revision in the PR before delivery. Do not infer device/listening/child/owner acceptance."
+    }
+  ],
+  "acceptance_gaps": "Physical Android listening, touch/performance, child and owner acceptance remain open. No changed art or audio bytes. Whole-game true-2D satisfaction remains UNSATISFIED; source gates and APK publication do not establish acceptance."
+}

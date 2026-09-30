@@ -93,6 +93,8 @@ Scoped Grok builder consolidation (2026-09-14): [single project database](../ass
 
 Scoped Day One/Two alpha repair (2026-09-30): [impact and acceptance limits](../design/audit_impacts/day-one-two-alpha-20260930.json). Baseline `55032e88936b22723fd9af5282c61ba6696b3d43`; save, targeting, patient input-required assistance, Back, contact work and exact speech are bounded repairs. Current CI findings now distinguish repaired Day One coverage from remaining Chapter Two/game-wide acceptance. Overall `UNSATISFIED` remains unchanged.
 
+Scoped objective handoff follow-up (2026-09-30): [impact and failing baseline](../design/audit_impacts/day-two-objective-handoff-20260930.json) records the timing-dependent Racer speech suppression found by dev CI `36776251500`. The phase owns its replacement cue and clears obsolete speech/dialogue; forced overlap is now a blocking regression. Listening/device/child/owner and whole-game acceptance remain open.
+
 <!-- AUDIT_TASK_INDEX_END -->
 
 Owner handoff-publication correction (2026-09-16): [mandatory GitHub delivery](../AGENTS.md#external-handoffs-github-delivery-is-mandatory) and [change evidence](../design/audit_impacts/handoff-publication-memory-20260916.json). Publish and remotely verify each external handoff/QC revision before waiting for returns; local workspaces are staging only. This operational correction closes no cinematic or game-wide acceptance finding.
