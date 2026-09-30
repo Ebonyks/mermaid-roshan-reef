@@ -833,3 +833,9 @@ Kept as-is; noted so a future edit updates every copy.
 | `assets_src/handoffs/arborist_tree_book_20260929/recovered/assets_src/imagegen/opera_arborist_2026-08-09/REVIEW.md` | ⚪ | `HISTORICAL_ARCHIVE`; byte-preserved 2026-08-09 provenance/review record; no current art, runtime or owner acceptance. |
 
 | `design/OPERA_TREE_BOOK_TEST_2026-09-30.md` | 🔵 | `SUPPORTING_CURRENT`; scoped single-patient Opera House practice implementation and review evidence; no career/star or Day Two integration acceptance. |
+
+## Master-audit refinement handoff (2026-09-30)
+
+| Doc | | Note |
+|---|---|---|
+| `docs/handoffs/codex_master_audit_refinement_2026-09-30/README.md` | 🟣 | `PROPOSED / CANDIDATE` Codex handoff prepared by Claude (analysis only, no game change) at dev `55032e88`: measured diagnosis of the master audit and design 06 as a design reference (evidence density, copied evidence, stale hand-copied counts, stale findings, scattered owner decisions, missing canon register, unrouted patterns), and the recommended three-shelf refinement — a design reference front door with canon, pattern, token, engine and owner-decision registers, an evidence archive, generated live status and a findings re-baseline — as staged work packages with acceptance criteria and owner questions. Grants no runtime, visual, device, child or owner acceptance and changes no finding lifecycle. |
