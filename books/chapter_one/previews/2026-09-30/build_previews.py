@@ -197,7 +197,7 @@ for i,p in enumerate(doc):
   im.crop((1068,124,2076,844)).save(P/'after'/f'story_{S[i]:02}.png')
 doc.close()
 evidence=dict(page_points=[W,H],comparison_points=[CW,CH],font=dict(path=FONT.relative_to(R).as_posix(),sha256=sha(FONT)),layers=layers,text_lines=lines,book_json_sha256=sha(L/'book.json'),render_script_sha256=sha(L/'render_book.py'),status='PROPOSALS_ONLY')
-(P/'layout_evidence.json').write_text(json.dumps(evidence,indent=2,ensure_ascii=False),encoding='utf8')
+(P/'layout_evidence.json').write_text(json.dumps(evidence,indent=2,ensure_ascii=False),encoding='utf8',newline='\n')
 cards=[]
 for n in S:
  title,note=notes[n]
@@ -207,5 +207,5 @@ for n in [1,2]:
 page='''<!doctype html><html lang="en"><meta charset="utf-8"><title>Mermaid Roshan · Before and after proposals</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>
 *{box-sizing:border-box}body{margin:0;background:#122c40;color:#edf8ff;font:17px/1.55 system-ui}header,main{max-width:1500px;margin:auto;padding:24px}header{max-width:1100px;padding-top:40px}h1{font-size:34px;line-height:1.2}h2{font-size:23px}section{background:#e8f3f9;color:#183348;border-radius:16px;margin-bottom:32px;padding:20px}img{display:block;width:100%;height:auto;border-radius:5px}a{color:#0966aa}header a{color:#a8e1ff}nav{display:flex;gap:12px;flex-wrap:wrap}small{color:#accedf}.notice{padding:16px;border:1px solid #4d788f;border-radius:10px}footer{padding:20px}
 </style><header><h1>Before / after visual proposals</h1><p>Ten revised page previews and two page-turn studies. Before screenshots are the unchanged V27 book. After pages are separate, editable proposals at the same 7 × 5 inch proportions.</p><p><a href="BEFORE_AFTER.pdf">Open the complete comparison PDF</a> · <a href="README.md">Scope and remaining work</a> · <a href="manifest.json">Source and output manifest</a></p><nav>'''+''.join(f'<a href="#s{n}">Story {n}</a>' for n in S)+'''</nav><p class="notice">Adult review copy. The child-facing Lamb-a appearance has no clue, arrow or label. This set shows one hiding place; the eventual book would contain only two or three. The full manuscript has not been reordered or replaced.</p><p>Still open: the dirty-castle source check, waterfall-clearing action, rescue-room continuity, the remaining finale ceilings, further hidden appearances and a complete read-through after revision. These samples do not claim whole-book or print acceptance.</p></header><main>'''+''.join(cards)+'''</main></html>'''
-(P/'PREVIEWS.html').write_text(page,encoding='utf8')
+(P/'PREVIEWS.html').write_text(page,encoding='utf8',newline='\n')
 print(json.dumps(dict(pdf=str(PDF),comparisons=12,after_pages=10,text_lines=len(lines))))

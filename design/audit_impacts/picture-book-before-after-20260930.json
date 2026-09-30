@@ -86,12 +86,12 @@
     {
       "command": "python -B tools/audit_document_authority.py",
       "result": "PASS",
-      "evidence": "DOCAUTH inventory581 ledger581 active56 records58; ALL OK."
+      "evidence": "ALL OK; exact source changes covered. Auto base5920c673305989ee29d91876480ff445dba9fc8b. Canonical LF packet hashes checked against Git index."
     },
     {
       "command": "python -B tools/audit_development.py --base auto",
       "result": "PASS",
-      "evidence": "AUDITDEV base5920c673305989ee29d91876480ff445dba9fc8b; ALL OK."
+      "evidence": "ALL OK; exact source changes covered. Auto base5920c673305989ee29d91876480ff445dba9fc8b. Canonical LF packet hashes checked against Git index."
     },
     {
       "command": "Game import/probes",

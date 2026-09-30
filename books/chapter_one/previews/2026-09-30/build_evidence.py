@@ -4,6 +4,10 @@ import hashlib,json,subprocess
 from PIL import Image
 from pypdf import PdfReader
 P=Path(__file__).resolve().parent;R=P.parents[3];REL=P.relative_to(R).as_posix()
+# Match Git's canonical text bytes before hashing a portable packet.
+for tp in P.rglob('*'):
+ if tp.is_file() and tp.suffix in {'.json','.md','.html','.py'}:
+  tp.write_bytes(tp.read_bytes().replace(b'\r\n',b'\n'))
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 jobs=json.loads((P/'generation_jobs.json').read_text(encoding='utf-8-sig'))
 lookup={str(Path(j['generatedOriginal'])):P/j['output'] for j in jobs}
@@ -19,7 +23,7 @@ for j in jobs:
  for rp in j['references']:
   rp=lookup.get(str(Path(rp)),Path(rp))
   j['bound_references'].append(dict(path=rp.relative_to(R).as_posix(),sha256=sha(rp),dimensions=list(Image.open(rp).size),role='Scene/identity authority or previous edit iteration; exact role specified in prompt.'))
-(P/'generation_jobs.json').write_text(json.dumps(jobs,indent=2,ensure_ascii=False),encoding='utf8')
+(P/'generation_jobs.json').write_text(json.dumps(jobs,indent=2,ensure_ascii=False),encoding='utf8',newline='\n')
 media=sorted(p for p in P.rglob('*') if p.is_file() and p.suffix.lower() in ['.png','.pdf'])
 lic=R/'ASSET_LICENSES.md';s=lic.read_text(encoding='utf8');mark='## Picture-book before/after proposals — 2026-09-30'
 suffix=''
@@ -35,11 +39,11 @@ for p in media:
  'after':'Lossless whole-page document screenshot at144dpi of native Sniglet/layout and source-conditioned derivatives; review only.',
  'comparisons':'Lossless review-sheet screenshot of V27/proposed pages or pagination diagrams; whole-page comparisons, not new narrative art.'}.get(kind,'ReportLab review PDF: existing/project art, source-conditioned derivatives and live Sniglet type; no print-master claim.')
  rows.append('- `'+p.relative_to(R).as_posix()+'`: '+desc)
-lic.write_text(s.rstrip()+'\n\n'+'\n'.join(rows)+'\n'+suffix,encoding='utf8')
+lic.write_text(s.rstrip()+'\n\n'+'\n'.join(rows)+'\n'+suffix,encoding='utf8',newline='\n')
 led=R/'design/05_DOC_LEDGER.md';s=led.read_text(encoding='utf8')
 if REL+'/README.md' not in s:
  s+='\n| `'+REL+'/README.md` | 🟣 | `CANDIDATE`; ten separate before/after proposals and two pagination diagrams responding to the V27 review. Source/prompt/layout evidence; current book unchanged. No whole-book, child, print or owner acceptance. |\n'
- led.write_text(s,encoding='utf8')
+ led.write_text(s,encoding='utf8',newline='\n')
 preserved=[]
 for name in ['book.json','render_book.py']:
  rp='books/chapter_one/landscape/'+name
@@ -69,14 +73,14 @@ verification=dict(status='MECHANICAL_CHECKS_PASS_VISUAL_PROPOSALS_PENDING_OWNER'
  'Only one hidden Lamb-a location shown. Other one/two locations and child discovery untested.',
  '1484x1060 scene outputs are approximately212ppi at7x5, not certified300ppi print masters.',
  'No actual re-pagination, full-book language rewrite, runtime changes or finding closure.'])
-(P/'verification.json').write_text(json.dumps(verification,indent=2,ensure_ascii=False),encoding='utf8')
+(P/'verification.json').write_text(json.dumps(verification,indent=2,ensure_ascii=False),encoding='utf8',newline='\n')
 payload=[]
 for p in sorted(P.rglob('*')):
  if p.is_file() and p.name!='manifest.json' and '__pycache__' not in p.parts:
   payload.append(dict(path=p.relative_to(R).as_posix(),sha256=sha(p),bytes=p.stat().st_size))
 manifest=dict(id='picture-book-before-after-20260930-v1',status='VISUAL_PROPOSALS_NOT_APPLIED',repository='Ebonyks/mermaid-roshan-reef',branch='codex/mermaid-roshan-picture-book',baseline='7f6452aee60a6173034ca0df4b0b6a40893ef567',entry=REL+'/README.md',gallery=REL+'/PREVIEWS.html',recipient_access_required='Anonymous HTTPS read of exact revision',files=payload)
 manifest['sorted_payload_sha256']=hashlib.sha256(('\n'.join(x['path']+' '+x['sha256'] for x in payload)).encode()).hexdigest()
-(P/'manifest.json').write_text(json.dumps(manifest,indent=2),encoding='utf8')
+(P/'manifest.json').write_text(json.dumps(manifest,indent=2),encoding='utf8',newline='\n')
 ip=R/'design/audit_impacts/picture-book-before-after-20260930.json';impact=json.loads(ip.read_text(encoding='utf-8-sig'))
 impact['files']=[p.relative_to(R).as_posix() for p in sorted(P.rglob('*')) if p.is_file() and '__pycache__' not in p.parts]+['ASSET_LICENSES.md','design/05_DOC_LEDGER.md']
 impact['validation']=[
@@ -85,5 +89,5 @@ impact['validation']=[
  dict(command='python -B tools/audit_development.py --base auto',result='PENDING',evidence='Run after finalized impact coverage.'),
  dict(command='Game import/probes',result='NOT_APPLICABLE',evidence='Static book proposals only; no runtime assets/scripts changed.')]
 impact['acceptance_gaps']='Separate proposals, not a completed revised book. S15 contour/decoration placement, S19 larger speaking-figure exception, S27 ceiling junction, generated identity, print resolution, child discovery and the remaining comprehensive-review queue stay open.'
-ip.write_text(json.dumps(impact,indent=2),encoding='utf8')
+ip.write_text(json.dumps(impact,indent=2),encoding='utf8',newline='\n')
 print(json.dumps(dict(media_files=len(media),payload_files=len(payload),payload_bytes=sum(x['bytes'] for x in payload),source_hashes_unchanged=True)))
