@@ -1,0 +1,105 @@
+{
+  "id": "day2-replacements-batch1-20260930",
+  "scope": "Eight initial current-use image repairs; originals and runtime bindings preserved. No backgrounds, actor atlases, protected dolls, gameplay or save edits. User commissioned regeneration and a comprehensive final report for owner approval. All outputs are non-runtime review candidates. Generation addresses exact isolated-source defects; no invented scene or identity redesign. Selected eight candidates meet authored 4.6\u20134.7 source grades; nine native edits include rejected first Kitchen emblem drift. User approval remains pending; no runtime substitution.",
+  "baseline": "29bbd80aeb539b45b1f34bb93324883addf8b0c8",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-QA-12"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-OPERA-004",
+    "MA-OPERA-009",
+    "MA-OPERA-012"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/.gdignore",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/MANIFEST.json",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/REPORT.md",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/VERIFICATION.json",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0056/attempt-01.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0057/attempt-01.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0394/attempt-01.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0446/attempt-01.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0495/attempt-01.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0635/attempt-01.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0636/attempt-01.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0636/attempt-02.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0637/attempt-01.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/comparison_board.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/index.html",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0056-attempt-01.txt",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0057-attempt-01.txt",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0394-attempt-01.txt",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0446-attempt-01.txt",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0495-attempt-01.txt",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0635-attempt-01.txt",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0636-attempt-01.txt",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0636-attempt-02.txt",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0637-attempt-01.txt",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/references/D2A-0056.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/references/D2A-0057.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/references/D2A-0394.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/references/D2A-0446.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/references/D2A-0495.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/references/D2A-0635.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/references/D2A-0636.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/references/D2A-0637.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/selected/D2A-0056.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/selected/D2A-0057.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/selected/D2A-0394.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/selected/D2A-0446.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/selected/D2A-0495.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/selected/D2A-0635.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/selected/D2A-0636.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/selected/D2A-0637.png",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "tools/build_day2_replacement_review.py"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/build_day2_replacement_review.py --check; native and small-scale image inspection",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/day2_replacements_batch1_20260930/MANIFEST.json and comparison_board.png; all eight original/reference/selected/prompt/native hashes recheck; criteria/source>=4.5; 1024 RGBA with transparent corners and complete visible footprint; owner approval remains pending."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; full unchanged applicable CI and 2D regression gates",
+      "result": "PENDING",
+      "evidence": "Run before publication; no gameplay findings will be closed from source-file checks."
+    },
+    {
+      "command": "Edge/Playwright approval-page inspection at1440px and390px;33 image decodes; Python syntax; git diff --cached --check",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/day2_replacements_batch1_20260930/VERIFICATION.json; ignored screenshots tmp/day2-replacement-wide.png and mobile.png. Initial EOF formatting failure repaired, no source-pixel changes."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "DOCAUTH 589inventory/589ledger/57active/59records; AUDITDEV base29bbd80aeb539b45b1f34bb93324883addf8b0c8; both ALL OK. Remote exact-head CI pending."
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --regression-gate",
+      "result": "PASS",
+      "evidence": "GAME2D NO_REGRESSION;0 models/52 production3D/61 probe3D/1 scene/1 config; strict remains UNSATISFIED. No manifest exceptions or runtime changes."
+    }
+  ],
+  "acceptance_gaps": "User approval of the completed report and selected candidates; actual gameplay/device/child review and later runtime integration remain separate. No canonical finding lifecycle change."
+}

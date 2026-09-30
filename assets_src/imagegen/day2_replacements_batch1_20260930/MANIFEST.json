@@ -1,0 +1,596 @@
+{
+  "id": "day2-replacements-batch1-20260930",
+  "source_revision": "29bbd80aeb539b45b1f34bb93324883addf8b0c8",
+  "requested_minimum": 4.5,
+  "scoring_status": "Codex source candidate review; owner approval pending",
+  "owner_approval": null,
+  "runtime_integration": false,
+  "scope": "Eight initial current-use image repairs; originals and runtime bindings preserved. No backgrounds, actor atlases, protected dolls, gameplay or save edits.",
+  "items": [
+    {
+      "id": "D2A-0394",
+      "source_path": "assets/opera/worlds/props/fx_bop_puff.png",
+      "source_sha256": "4e64dfa88aa9a6105a61cdac0f978d207eb581b822ce854ac806a88e2a1c4e5c",
+      "source_score": 2.5,
+      "source_observation": "Thin vertical remnants appear beside the bop puff, creating unrelated marks outside the intended effect.",
+      "source_reference": "assets_src/imagegen/day2_replacements_batch1_20260930/references/D2A-0394.png",
+      "attempts": [
+        {
+          "attempt": 1,
+          "generation_method": "built-in image_gen image edit with original source reference",
+          "native_path": "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0394/attempt-01.png",
+          "native_sha256": "367658617ab352d4e6c50119808fb59e15c03a37c7dcede93dd4d39ccc6ab635",
+          "native_dimensions": [
+            1254,
+            1254
+          ],
+          "prompt_path": "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0394-attempt-01.txt",
+          "prompt_sha256": "f7325ee735b8a249240464fbc1efed035f2ee8a1649259f98c6827642b755072",
+          "reference_path": "assets/opera/worlds/props/fx_bop_puff.png",
+          "reference_sha256": "4e64dfa88aa9a6105a61cdac0f978d207eb581b822ce854ac806a88e2a1c4e5c",
+          "review": "SELECTED_CANDIDATE_MEETS_DRAFT_SOURCE_TARGET",
+          "score": 4.7,
+          "bound_references": [
+            {
+              "path": "assets/opera/worlds/props/fx_bop_puff.png",
+              "sha256": "4e64dfa88aa9a6105a61cdac0f978d207eb581b822ce854ac806a88e2a1c4e5c",
+              "role": "original identity and edit reference"
+            }
+          ]
+        }
+      ],
+      "selected_candidate": "assets_src/imagegen/day2_replacements_batch1_20260930/selected/D2A-0394.png",
+      "quality_score": 4.7,
+      "owner_approval": null,
+      "selected_sha256": "eefeae63d15b20e64e63fc589d39b931f9e7960e0077bb933fed56173f4b4cb5",
+      "selected_dimensions": [
+        1024,
+        1024
+      ],
+      "technical_normalization": "Whole-canvas aspect-preserving Lanczos reduction to 1024 max edge; alpha preserved; no local edits, crop, compositing or subject repair.",
+      "name": "Friendly boxing contact puff",
+      "reviewer": "Codex visual inspection; not owner approval",
+      "visual_reviewed_sha256": "eefeae63d15b20e64e63fc589d39b931f9e7960e0077bb933fed56173f4b4cb5",
+      "criteria_scores": {
+        "identity_and_visual_role": 4.8,
+        "contour_and_isolation": 4.7,
+        "palette_and_value": 4.6,
+        "painted_material_finish": 4.6,
+        "small_scale_source_readability": 4.6
+      },
+      "evaluation": "The unrelated vertical bars are gone. The same overlapping coral lobes and four detached droplets retain the friendly contact-effect silhouette. Plum contour and broad peach highlights stay readable on both cream and navy mats.",
+      "runtime_review_required": "Boxer loads PUFF_PATH and draws it in _draw_bop_fx; preserve its effect timing and contact position. This source repair does not verify live glove/mitt contact or acting.",
+      "source_review_complete": true,
+      "source_target_met": true,
+      "selected_attempt": 1,
+      "technical_quality": {
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "alpha_mode": "RGBA",
+        "normalization": "Whole-canvas reduction only; full native PNG retained",
+        "low_alpha_note": "Faint alpha 1-7 residue may extend beyond the visible alpha>=8 footprint; retained rather than silently deleting generated pixels. No visible bars/backing plates on reviewed light/dark proxies."
+      }
+    },
+    {
+      "id": "D2A-0446",
+      "source_path": "assets/opera/worlds/widgets/widget_catch_nursery_cradle.png",
+      "source_sha256": "9cacbc76cb577051150379a369add2576f5dc50b617d601f5b83bbe4ac0f068e",
+      "source_score": 3.1,
+      "source_observation": "The cradle is a flat U-shaped diagram with little painted toy finish.",
+      "source_reference": "assets_src/imagegen/day2_replacements_batch1_20260930/references/D2A-0446.png",
+      "attempts": [
+        {
+          "attempt": 1,
+          "generation_method": "built-in image_gen image edit with original source reference",
+          "native_path": "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0446/attempt-01.png",
+          "native_sha256": "4af5f46ff43885d755ce43b84e59091a716a3d43ba2aa97afb729bbe4636339f",
+          "native_dimensions": [
+            1254,
+            1254
+          ],
+          "prompt_path": "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0446-attempt-01.txt",
+          "prompt_sha256": "b1aa779de8355fba92a2f1ccaf8736b49c9e15dccccb1a632b745b5c1baa22b1",
+          "reference_path": "assets/opera/worlds/widgets/widget_catch_nursery_cradle.png",
+          "reference_sha256": "9cacbc76cb577051150379a369add2576f5dc50b617d601f5b83bbe4ac0f068e",
+          "review": "SELECTED_CANDIDATE_MEETS_DRAFT_SOURCE_TARGET",
+          "score": 4.6,
+          "bound_references": [
+            {
+              "path": "assets/opera/worlds/widgets/widget_catch_nursery_cradle.png",
+              "sha256": "9cacbc76cb577051150379a369add2576f5dc50b617d601f5b83bbe4ac0f068e",
+              "role": "original identity and edit reference"
+            }
+          ]
+        }
+      ],
+      "selected_candidate": "assets_src/imagegen/day2_replacements_batch1_20260930/selected/D2A-0446.png",
+      "quality_score": 4.6,
+      "owner_approval": null,
+      "selected_sha256": "c9cb896b8cb75fbda3369d4c0e34fb4973a0cf280e82bb765cbff45f949d1a42",
+      "selected_dimensions": [
+        1024,
+        1024
+      ],
+      "technical_normalization": "Whole-canvas aspect-preserving Lanczos reduction to 1024 max edge; alpha preserved; no local edits, crop, compositing or subject repair.",
+      "name": "Nursery catching-arms cue",
+      "reviewer": "Codex visual inspection; not owner approval",
+      "visual_reviewed_sha256": "c9cb896b8cb75fbda3369d4c0e34fb4973a0cf280e82bb765cbff45f949d1a42",
+      "criteria_scores": {
+        "identity_and_visual_role": 4.6,
+        "contour_and_isolation": 4.8,
+        "palette_and_value": 4.6,
+        "painted_material_finish": 4.6,
+        "small_scale_source_readability": 4.6
+      },
+      "evaluation": "The flat backing disc and target ring are replaced by readable cream cuffs, soft hands and an open coral padded sling. The center stays empty for the separately drawn baby. This preserves the bilateral catching/support role rather than introducing different furniture.",
+      "runtime_review_required": "The source controller draws this graphic around catch_point with a 116px maximum width, then draws babies separately. Review actual baby overlap, actor/hand ownership and settled-baby support before runtime integration; the cutout alone cannot close embodied-action evidence.",
+      "source_review_complete": true,
+      "source_target_met": true,
+      "selected_attempt": 1,
+      "technical_quality": {
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "alpha_mode": "RGBA",
+        "normalization": "Whole-canvas reduction only; full native PNG retained",
+        "low_alpha_note": "Faint alpha 1-7 residue may extend beyond the visible alpha>=8 footprint; retained rather than silently deleting generated pixels. No visible bars/backing plates on reviewed light/dark proxies."
+      }
+    },
+    {
+      "id": "D2A-0495",
+      "source_path": "assets/opera/worlds/widgets/widget_crank_racer_wheel.png",
+      "source_sha256": "3203d9bc5297fccfb3ee86fddab6c3a217de577943a063ef37404e5276c7e003",
+      "source_score": 3.2,
+      "source_observation": "The wheel edge is visibly soft and pixelated relative to the surrounding painted tools.",
+      "source_reference": "assets_src/imagegen/day2_replacements_batch1_20260930/references/D2A-0495.png",
+      "attempts": [
+        {
+          "attempt": 1,
+          "generation_method": "built-in image_gen image edit with original source reference",
+          "native_path": "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0495/attempt-01.png",
+          "native_sha256": "2fc2e035713521f2435a62ccacffaa24438adb848e37bb3d2e319f93d4a6b971",
+          "native_dimensions": [
+            1254,
+            1254
+          ],
+          "prompt_path": "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0495-attempt-01.txt",
+          "prompt_sha256": "0c958f7500b58d419c89b21674026ac9dd61eeef36e8237ac17729688ddecfe6",
+          "reference_path": "assets/opera/worlds/widgets/widget_crank_racer_wheel.png",
+          "reference_sha256": "3203d9bc5297fccfb3ee86fddab6c3a217de577943a063ef37404e5276c7e003",
+          "review": "SELECTED_CANDIDATE_MEETS_DRAFT_SOURCE_TARGET",
+          "score": 4.7,
+          "bound_references": [
+            {
+              "path": "assets/opera/worlds/widgets/widget_crank_racer_wheel.png",
+              "sha256": "3203d9bc5297fccfb3ee86fddab6c3a217de577943a063ef37404e5276c7e003",
+              "role": "original identity and edit reference"
+            }
+          ]
+        }
+      ],
+      "selected_candidate": "assets_src/imagegen/day2_replacements_batch1_20260930/selected/D2A-0495.png",
+      "quality_score": 4.7,
+      "owner_approval": null,
+      "selected_sha256": "694a1147d970e4fa9b78ac30ab69751dac32e9913c4eb34058d987510aa07702",
+      "selected_dimensions": [
+        1024,
+        1024
+      ],
+      "technical_normalization": "Whole-canvas aspect-preserving Lanczos reduction to 1024 max edge; alpha preserved; no local edits, crop, compositing or subject repair.",
+      "name": "Installed racer rear wheel",
+      "reviewer": "Codex visual inspection; not owner approval",
+      "visual_reviewed_sha256": "694a1147d970e4fa9b78ac30ab69751dac32e9913c4eb34058d987510aa07702",
+      "criteria_scores": {
+        "identity_and_visual_role": 4.8,
+        "contour_and_isolation": 4.8,
+        "palette_and_value": 4.6,
+        "painted_material_finish": 4.6,
+        "small_scale_source_readability": 4.5
+      },
+      "evaluation": "The circular indigo tire and warm gold scallop hub are much clearer than the soft jagged source. The same front-facing wheel, cream shell and pearl fastener remain recognizable at 36px. Broad bands improve material reading without tread noise.",
+      "runtime_review_required": "RacerSurface draws this as the existing rear wheel at Rect2(19.2,-36.25,36,36). Recheck hub seating, cockpit layering and optical diameter in a real race; do not add a second painted front wheel.",
+      "source_review_complete": true,
+      "source_target_met": true,
+      "selected_attempt": 1,
+      "technical_quality": {
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "alpha_mode": "RGBA",
+        "normalization": "Whole-canvas reduction only; full native PNG retained",
+        "low_alpha_note": "Faint alpha 1-7 residue may extend beyond the visible alpha>=8 footprint; retained rather than silently deleting generated pixels. No visible bars/backing plates on reviewed light/dark proxies."
+      }
+    },
+    {
+      "id": "D2A-0056",
+      "source_path": "assets/opera/tree_book_test/lagoon_tree_bigleaf_maple.png",
+      "source_sha256": "6d1be41b48707e686140b30f610ed5a9f18e22be435f832a01199370a1ddacc9",
+      "source_score": 3.8,
+      "source_observation": "The maple specimen sits on an opaque dark rectangle; dense leaf modeling and the backing separate it from the clean book cutouts.",
+      "source_reference": "assets_src/imagegen/day2_replacements_batch1_20260930/references/D2A-0056.png",
+      "attempts": [
+        {
+          "attempt": 1,
+          "generation_method": "built-in image_gen image edit with original source reference",
+          "native_path": "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0056/attempt-01.png",
+          "native_sha256": "8358a67eca8d50aada7255ef0ff63937cbebe1998e4ba9349f725788a312bc92",
+          "native_dimensions": [
+            1254,
+            1254
+          ],
+          "prompt_path": "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0056-attempt-01.txt",
+          "prompt_sha256": "00a033fa2e4ad0c4e0d44f996abaaf6315933df8d2f32952094d03372e103bb0",
+          "reference_path": "assets/opera/tree_book_test/lagoon_tree_bigleaf_maple.png",
+          "reference_sha256": "6d1be41b48707e686140b30f610ed5a9f18e22be435f832a01199370a1ddacc9",
+          "review": "SELECTED_CANDIDATE_MEETS_DRAFT_SOURCE_TARGET",
+          "score": 4.6,
+          "bound_references": [
+            {
+              "path": "assets/opera/tree_book_test/lagoon_tree_bigleaf_maple.png",
+              "sha256": "6d1be41b48707e686140b30f610ed5a9f18e22be435f832a01199370a1ddacc9",
+              "role": "original identity and edit reference"
+            }
+          ]
+        }
+      ],
+      "selected_candidate": "assets_src/imagegen/day2_replacements_batch1_20260930/selected/D2A-0056.png",
+      "quality_score": 4.6,
+      "owner_approval": null,
+      "selected_sha256": "96e59fc832cb28946b1c773ede41dd9f11c4e604ab2639f737018c0906a54e85",
+      "selected_dimensions": [
+        1024,
+        1024
+      ],
+      "technical_normalization": "Whole-canvas aspect-preserving Lanczos reduction to 1024 max edge; alpha preserved; no local edits, crop, compositing or subject repair.",
+      "name": "Tree Book Bigleaf Maple specimen",
+      "reviewer": "Codex visual inspection; not owner approval",
+      "visual_reviewed_sha256": "96e59fc832cb28946b1c773ede41dd9f11c4e604ab2639f737018c0906a54e85",
+      "criteria_scores": {
+        "identity_and_visual_role": 4.7,
+        "contour_and_isolation": 4.5,
+        "palette_and_value": 4.6,
+        "painted_material_finish": 4.6,
+        "small_scale_source_readability": 4.5
+      },
+      "evaluation": "The opaque navy plate is gone. The broad canopy, stout twisting trunk, full roots and two hanging paired winged seeds retain the specimen identity. Rounded painted values integrate better on the book paper and remain distinguishable at 112px. Canopy detail is still the busiest part of this batch.",
+      "runtime_review_required": "This is one distractor picture used in Tree Book page zero. It is not a new patient or authored scene. Check four-choice contrast, the quiet book page and consistent patient/specimen vocabulary in the actual split-screen layout.",
+      "source_review_complete": true,
+      "source_target_met": true,
+      "selected_attempt": 1,
+      "technical_quality": {
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "alpha_mode": "RGBA",
+        "normalization": "Whole-canvas reduction only; full native PNG retained",
+        "low_alpha_note": "Faint alpha 1-7 residue may extend beyond the visible alpha>=8 footprint; retained rather than silently deleting generated pixels. No visible bars/backing plates on reviewed light/dark proxies."
+      }
+    },
+    {
+      "id": "D2A-0057",
+      "source_path": "assets/opera/tree_book_test/lagoon_tree_pacific_dogwood.png",
+      "source_sha256": "e92e41cf81ccfdc251960a7c5599d6984b82ebb1cfc89f3f7cf0704b5dd565eb",
+      "source_score": 3.9,
+      "source_observation": "The dogwood is recognizable but uses the same opaque navy specimen plate and dense canopy rendering.",
+      "source_reference": "assets_src/imagegen/day2_replacements_batch1_20260930/references/D2A-0057.png",
+      "attempts": [
+        {
+          "attempt": 1,
+          "generation_method": "built-in image_gen image edit with original source reference",
+          "native_path": "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0057/attempt-01.png",
+          "native_sha256": "bd3c84cbdb2787dee705f34939764b0dc936dab1cf5d5882a12fe7ebebf3298f",
+          "native_dimensions": [
+            1254,
+            1254
+          ],
+          "prompt_path": "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0057-attempt-01.txt",
+          "prompt_sha256": "f6ae3439b3cfb88d0851fefd009dd71fd07a3e39e43d4eb7d20d490a05bcf125",
+          "reference_path": "assets/opera/tree_book_test/lagoon_tree_pacific_dogwood.png",
+          "reference_sha256": "e92e41cf81ccfdc251960a7c5599d6984b82ebb1cfc89f3f7cf0704b5dd565eb",
+          "review": "SELECTED_CANDIDATE_MEETS_DRAFT_SOURCE_TARGET",
+          "score": 4.6,
+          "bound_references": [
+            {
+              "path": "assets/opera/tree_book_test/lagoon_tree_pacific_dogwood.png",
+              "sha256": "e92e41cf81ccfdc251960a7c5599d6984b82ebb1cfc89f3f7cf0704b5dd565eb",
+              "role": "original identity and edit reference"
+            }
+          ]
+        }
+      ],
+      "selected_candidate": "assets_src/imagegen/day2_replacements_batch1_20260930/selected/D2A-0057.png",
+      "quality_score": 4.6,
+      "owner_approval": null,
+      "selected_sha256": "02968ece09cf3cc0e16e949c4798b58b2b02c5632582c4aec73d7145432bb377",
+      "selected_dimensions": [
+        1024,
+        1024
+      ],
+      "technical_normalization": "Whole-canvas aspect-preserving Lanczos reduction to 1024 max edge; alpha preserved; no local edits, crop, compositing or subject repair.",
+      "name": "Tree Book Pacific Dogwood specimen",
+      "reviewer": "Codex visual inspection; not owner approval",
+      "visual_reviewed_sha256": "02968ece09cf3cc0e16e949c4798b58b2b02c5632582c4aec73d7145432bb377",
+      "criteria_scores": {
+        "identity_and_visual_role": 4.7,
+        "contour_and_isolation": 4.6,
+        "palette_and_value": 4.6,
+        "painted_material_finish": 4.6,
+        "small_scale_source_readability": 4.6
+      },
+      "evaluation": "The opaque navy plate is gone. Three separate leafy canopy groups, exactly three cream blossoms, slender twisting trunk and full root base remain specific and readable. The flower count and branch silhouette distinguish this from the maple without text.",
+      "runtime_review_required": "This is another page-zero Tree Book distractor. Recheck equal choice-cell framing against the patient and tall-tree pictures. No species-specific patient or new story moment is created.",
+      "source_review_complete": true,
+      "source_target_met": true,
+      "selected_attempt": 1,
+      "technical_quality": {
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "alpha_mode": "RGBA",
+        "normalization": "Whole-canvas reduction only; full native PNG retained",
+        "low_alpha_note": "Faint alpha 1-7 residue may extend beyond the visible alpha>=8 footprint; retained rather than silently deleting generated pixels. No visible bars/backing plates on reviewed light/dark proxies."
+      }
+    },
+    {
+      "id": "D2A-0635",
+      "source_path": "assets/ui/castle_room_buttons_v2/room_craft_room.png",
+      "source_sha256": "eb21d47e9b3e3f1566df23a854102d0e86665aae5ec9d88a4d7275cb33ac5a24",
+      "source_score": 3.8,
+      "source_observation": "The craft-room badge is recognizable, but its outer edge is visibly soft and haloed compared with clean career crests.",
+      "source_reference": "assets_src/imagegen/day2_replacements_batch1_20260930/references/D2A-0635.png",
+      "attempts": [
+        {
+          "attempt": 1,
+          "generation_method": "built-in image_gen image edit with original source reference",
+          "native_path": "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0635/attempt-01.png",
+          "native_sha256": "b4ec270584cfa40e4355d2f79d5af14468b1202c5ed50cc6341b62f1af5e2538",
+          "native_dimensions": [
+            1254,
+            1254
+          ],
+          "prompt_path": "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0635-attempt-01.txt",
+          "prompt_sha256": "f4b8f7c98d071041df08e22e33cddc8aa45fc88f73024967b13d6d911f08abbb",
+          "reference_path": "assets/ui/castle_room_buttons_v2/room_craft_room.png",
+          "reference_sha256": "eb21d47e9b3e3f1566df23a854102d0e86665aae5ec9d88a4d7275cb33ac5a24",
+          "review": "SELECTED_CANDIDATE_MEETS_DRAFT_SOURCE_TARGET",
+          "score": 4.7,
+          "bound_references": [
+            {
+              "path": "assets/ui/castle_room_buttons_v2/room_craft_room.png",
+              "sha256": "eb21d47e9b3e3f1566df23a854102d0e86665aae5ec9d88a4d7275cb33ac5a24",
+              "role": "original identity and edit reference"
+            }
+          ]
+        }
+      ],
+      "selected_candidate": "assets_src/imagegen/day2_replacements_batch1_20260930/selected/D2A-0635.png",
+      "quality_score": 4.7,
+      "owner_approval": null,
+      "selected_sha256": "04929f2cca376213f7f89e0b84212096ad83ad5dc6bed77f780adfb46a36bd74",
+      "selected_dimensions": [
+        1024,
+        1024
+      ],
+      "technical_normalization": "Whole-canvas aspect-preserving Lanczos reduction to 1024 max edge; alpha preserved; no local edits, crop, compositing or subject repair.",
+      "name": "Day Two Craft Room badge",
+      "reviewer": "Codex visual inspection; not owner approval",
+      "visual_reviewed_sha256": "04929f2cca376213f7f89e0b84212096ad83ad5dc6bed77f780adfb46a36bd74",
+      "criteria_scores": {
+        "identity_and_visual_role": 4.8,
+        "contour_and_isolation": 4.7,
+        "palette_and_value": 4.6,
+        "painted_material_finish": 4.7,
+        "small_scale_source_readability": 4.6
+      },
+      "evaluation": "The purple-grey backing halo is removed, with a clean complete pearl/gold scalloped frame. The diagonal purple brush and five existing paint dots keep the same room meaning. The native reference has five dots although the initial prompt mistakenly listed four; source identity was retained in the result.",
+      "runtime_review_required": "DayTwoTransition2D uses the current room_craft_room icon. Recheck 64px and actual transition size alongside all other shared door/elevator crests; brighter edges must not compete with Roshan or duplicate a touch target.",
+      "source_review_complete": true,
+      "source_target_met": true,
+      "selected_attempt": 1,
+      "technical_quality": {
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "alpha_mode": "RGBA",
+        "normalization": "Whole-canvas reduction only; full native PNG retained",
+        "low_alpha_note": "Faint alpha 1-7 residue may extend beyond the visible alpha>=8 footprint; retained rather than silently deleting generated pixels. No visible bars/backing plates on reviewed light/dark proxies."
+      }
+    },
+    {
+      "id": "D2A-0636",
+      "source_path": "assets/ui/castle_room_buttons_v2/room_kitchen.png",
+      "source_sha256": "b21287d6b927dcd425aeec590d58be441985d8bd7080cd83c1021d777c81dfe8",
+      "source_score": 3.8,
+      "source_observation": "The kitchen badge has a strong pot symbol but a soft dark fringe around the outer shell frame.",
+      "source_reference": "assets_src/imagegen/day2_replacements_batch1_20260930/references/D2A-0636.png",
+      "attempts": [
+        {
+          "attempt": 1,
+          "generation_method": "built-in image_gen image edit with original source reference",
+          "native_path": "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0636/attempt-01.png",
+          "native_sha256": "1f30cefc3059f0a7221b263338863e77cde44d09d1a76dc0ed0772bb5de5e2af",
+          "native_dimensions": [
+            1254,
+            1254
+          ],
+          "prompt_path": "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0636-attempt-01.txt",
+          "prompt_sha256": "ee116e9820f4764bf9035d97b847e5bf4a9e34fddc605569f3ec03c5e07c3941",
+          "reference_path": "assets/ui/castle_room_buttons_v2/room_kitchen.png",
+          "reference_sha256": "b21287d6b927dcd425aeec590d58be441985d8bd7080cd83c1021d777c81dfe8",
+          "review": "REJECTED_IDENTITY_DRIFT",
+          "score": 4.3,
+          "bound_references": [
+            {
+              "path": "assets/ui/castle_room_buttons_v2/room_kitchen.png",
+              "sha256": "b21287d6b927dcd425aeec590d58be441985d8bd7080cd83c1021d777c81dfe8",
+              "role": "original identity and edit reference"
+            },
+            {
+              "path": "assets_src/imagegen/day2_replacements_batch1_20260930/selected/D2A-0635.png",
+              "sha256": "04929f2cca376213f7f89e0b84212096ad83ad5dc6bed77f780adfb46a36bd74",
+              "role": "candidate shared-frame finish reference only; not owner accepted"
+            }
+          ],
+          "rejection_reason": "Added two white petal/leaf wings beside the single pearl-drop pot emblem; not in the original."
+        },
+        {
+          "attempt": 2,
+          "generation_method": "built-in image_gen image edit with original source reference",
+          "native_path": "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0636/attempt-02.png",
+          "native_sha256": "9ba3d9648a0ac47437eec00908610d63bbb223bdd21ec9be0611e77d19d04c87",
+          "native_dimensions": [
+            1254,
+            1254
+          ],
+          "prompt_path": "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0636-attempt-02.txt",
+          "prompt_sha256": "6f1cfc6af0b565dcde8ecae844fe3d3b978104a48406dc8ecd50a9d0def7e8dd",
+          "reference_path": "assets/ui/castle_room_buttons_v2/room_kitchen.png",
+          "reference_sha256": "b21287d6b927dcd425aeec590d58be441985d8bd7080cd83c1021d777c81dfe8",
+          "review": "SELECTED_CANDIDATE_MEETS_DRAFT_SOURCE_TARGET",
+          "score": 4.7,
+          "bound_references": [
+            {
+              "path": "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0636/attempt-01.png",
+              "sha256": "1f30cefc3059f0a7221b263338863e77cde44d09d1a76dc0ed0772bb5de5e2af",
+              "role": "precise correction edit target"
+            },
+            {
+              "path": "assets/ui/castle_room_buttons_v2/room_kitchen.png",
+              "sha256": "b21287d6b927dcd425aeec590d58be441985d8bd7080cd83c1021d777c81dfe8",
+              "role": "original single-drop emblem identity reference"
+            }
+          ]
+        }
+      ],
+      "selected_candidate": "assets_src/imagegen/day2_replacements_batch1_20260930/selected/D2A-0636.png",
+      "quality_score": 4.7,
+      "owner_approval": null,
+      "selected_sha256": "2fafa9bbbad03aed4bd71eb28fde78cf8a9fd1669783e31be0e5f5a01621dd93",
+      "selected_dimensions": [
+        1024,
+        1024
+      ],
+      "technical_normalization": "Whole-canvas aspect-preserving Lanczos reduction to 1024 max edge; alpha preserved; no local edits, crop, compositing or subject repair.",
+      "name": "Day Two Kitchen badge",
+      "reviewer": "Codex visual inspection; not owner approval",
+      "visual_reviewed_sha256": "2fafa9bbbad03aed4bd71eb28fde78cf8a9fd1669783e31be0e5f5a01621dd93",
+      "criteria_scores": {
+        "identity_and_visual_role": 4.8,
+        "contour_and_isolation": 4.7,
+        "palette_and_value": 4.6,
+        "painted_material_finish": 4.7,
+        "small_scale_source_readability": 4.7
+      },
+      "evaluation": "The second candidate removes the first attempt's extra white side petals. A single pearl drop, teal pot, two handles and lid now preserve the original Kitchen meaning. Clean frame alpha and a sharp dark contour read well at 64px.",
+      "runtime_review_required": "DayTwoTransition2D uses the current room_kitchen icon. Recheck the shared crest family, optical size and child-safe target geometry in the actual transition; no new icon mechanism or room assignment is introduced.",
+      "source_review_complete": true,
+      "source_target_met": true,
+      "selected_attempt": 2,
+      "technical_quality": {
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "alpha_mode": "RGBA",
+        "normalization": "Whole-canvas reduction only; full native PNG retained",
+        "low_alpha_note": "Faint alpha 1-7 residue may extend beyond the visible alpha>=8 footprint; retained rather than silently deleting generated pixels. No visible bars/backing plates on reviewed light/dark proxies."
+      }
+    },
+    {
+      "id": "D2A-0637",
+      "source_path": "assets/ui/castle_room_buttons_v2/room_opera_hall.png",
+      "source_sha256": "b7c29e845656333d53ed342445410948a055ebf4ccd6fd1553dffe0839adfb66",
+      "source_score": 3.8,
+      "source_observation": "The opera masks communicate theatre clearly, but the small badge has a soft uneven outer halo.",
+      "source_reference": "assets_src/imagegen/day2_replacements_batch1_20260930/references/D2A-0637.png",
+      "attempts": [
+        {
+          "attempt": 1,
+          "generation_method": "built-in image_gen image edit with original source reference",
+          "native_path": "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0637/attempt-01.png",
+          "native_sha256": "4109924287f45e4d3323bfd28e8955751233d81bb076930dd1c874d6b232df1b",
+          "native_dimensions": [
+            1254,
+            1254
+          ],
+          "prompt_path": "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0637-attempt-01.txt",
+          "prompt_sha256": "2e734641c8113683ffaa979f094c168b6dfa933fa8fd883b94ce26c0d157895f",
+          "reference_path": "assets/ui/castle_room_buttons_v2/room_opera_hall.png",
+          "reference_sha256": "b7c29e845656333d53ed342445410948a055ebf4ccd6fd1553dffe0839adfb66",
+          "review": "SELECTED_CANDIDATE_MEETS_DRAFT_SOURCE_TARGET",
+          "score": 4.7,
+          "bound_references": [
+            {
+              "path": "assets/ui/castle_room_buttons_v2/room_opera_hall.png",
+              "sha256": "b7c29e845656333d53ed342445410948a055ebf4ccd6fd1553dffe0839adfb66",
+              "role": "original identity and edit reference"
+            },
+            {
+              "path": "assets_src/imagegen/day2_replacements_batch1_20260930/selected/D2A-0635.png",
+              "sha256": "04929f2cca376213f7f89e0b84212096ad83ad5dc6bed77f780adfb46a36bd74",
+              "role": "candidate shared-frame finish reference only; not owner accepted"
+            }
+          ]
+        }
+      ],
+      "selected_candidate": "assets_src/imagegen/day2_replacements_batch1_20260930/selected/D2A-0637.png",
+      "quality_score": 4.7,
+      "owner_approval": null,
+      "selected_sha256": "87f551f5d37fb25e5f0f89b407887d081392732e867145a4a328a9b35f5491bb",
+      "selected_dimensions": [
+        1024,
+        1024
+      ],
+      "technical_normalization": "Whole-canvas aspect-preserving Lanczos reduction to 1024 max edge; alpha preserved; no local edits, crop, compositing or subject repair.",
+      "name": "Day Two Opera Hall badge",
+      "reviewer": "Codex visual inspection; not owner approval",
+      "visual_reviewed_sha256": "87f551f5d37fb25e5f0f89b407887d081392732e867145a4a328a9b35f5491bb",
+      "criteria_scores": {
+        "identity_and_visual_role": 4.8,
+        "contour_and_isolation": 4.7,
+        "palette_and_value": 4.6,
+        "painted_material_finish": 4.6,
+        "small_scale_source_readability": 4.6
+      },
+      "evaluation": "The gold smiling and purple frowning masks retain their overlap and expressive faces. The soft backing halo is removed and the complete frame reads cleanly at 64px. Its visible frame occupies slightly more canvas width than the other two new badges, so the real shared-slot optical fit still needs review.",
+      "runtime_review_required": "DayTwoTransition2D uses the current room_opera_hall icon. Preserve the Opera venue meaning; these decorative masks are not new acting characters. Check it with the full crest set at actual UI scale before wiring in.",
+      "source_review_complete": true,
+      "source_target_met": true,
+      "selected_attempt": 1,
+      "technical_quality": {
+        "dimensions": [
+          1024,
+          1024
+        ],
+        "alpha_mode": "RGBA",
+        "normalization": "Whole-canvas reduction only; full native PNG retained",
+        "low_alpha_note": "Faint alpha 1-7 residue may extend beyond the visible alpha>=8 footprint; retained rather than silently deleting generated pixels. No visible bars/backing plates on reviewed light/dark proxies."
+      }
+    }
+  ],
+  "evaluation_date": "2026-09-30",
+  "rubric": "Five explicitly recorded source criteria, each reviewed visually. Overall score is an authored design judgment, not proof from an automatic metric or global average. No 5/5 awarded. Current gameplay/device/child/owner acceptance remains separate.",
+  "quality_gate": {
+    "requested_minimum": 4.5,
+    "selected_count": 8,
+    "all_selected_meet_source_target": true,
+    "owner_approval": "PENDING",
+    "full_runtime_acceptance": "PENDING"
+  },
+  "generation_count": 9,
+  "generator": "Built-in image_gen; one edit call per item or iteration; no CLI/API fallback",
+  "source_gap_and_reuse": {
+    "puff": "Existing exact source reused as edit input; unwanted bars contaminate its isolated effect. No other puff redesign commissioned.",
+    "nursery": "The current draw route uses this flat symbolic catching-arms graphic. Existing beds/cribs are different props and fail its open catching-support role.",
+    "wheel": "Existing mounted-wheel source reused as identity input. Its 256px extracted wheel is softer/jaggier than adjacent kart art; no different steering-wheel asset can substitute its mounted role.",
+    "trees": "Existing low-resolution species drawings retained as identity inputs. Opaque navy plates visibly conflict with book choice paper; ordinary copies retain that problem. New patient/story art is outside scope.",
+    "badges": "The v2 icons share exact physical-door signs in elevator_picture_icon_manifest.json. Those small source crests retain the same edge/backing weakness. The older 2026-08-01 files named button masters were inspected and are complete room-scene cards (1692x929,1691x930,1619x971), not sharper copies of these isolated motifs. Reusing them as buttons would change the established pictorial navigation family. New derivatives preserve the actual palette, pot, masks and scalloped frame."
+  }
+}
