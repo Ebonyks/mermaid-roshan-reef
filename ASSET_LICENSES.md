@@ -5242,3 +5242,7 @@ Owner-commissioned static-book artwork generated with the built-in OpenAI image 
 - `books/chapter_one/landscape/art/door_expression_v27/castle_approach_reference.png`: owner-provided project C11_S02 Grok handoff video, extracted at1s; existing project provenance; no new external license claimed.
 - `books/chapter_one/landscape/art/door_expression_v27/door.png`: builtin OpenAI image edit of above owner source; empty ceiling outpaint and local glow/routes; native preserved; see door_expression_evidence_v27.json.
 - `books/chapter_one/landscape/art/door_expression_v27/scrub.png`: builtin OpenAI expression-only edit of owner R09_open.png; originals preserved; see same provenance.
+
+## Picture-book comprehensive review previews — 2026-09-30
+
+- `books/chapter_one/reviews/2026-09-30/REVIEW.html`: embeds34 whole-page WEBP review thumbnails from the existing owner/project V27 proof, with repeated previews for two spreads. Existing book-art rights/provenance remain controlling; no external license or new artwork claimed. Poppler render144dpi, whole-page resize672×480 and WEBP quality88 for review only. No crop, protected-original modification or print-master substitution. PDF/render/embedded hashes and transforms: `books/chapter_one/reviews/2026-09-30/technical_evidence.json`. Original book examined but not republished. Lamb-a referenced in the plan, not inserted into pages.

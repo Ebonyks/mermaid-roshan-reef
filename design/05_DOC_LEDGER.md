@@ -824,3 +824,5 @@ Kept as-is; noted so a future edit updates every copy.
 | `books/chapter_one/landscape/BORDER_ART_DIRECTION.md` | 🔵 | `SUPPORTING_CURRENT`; owner-requested varied border performances and v17 repository-detail score; frightened lower-right stages supersede the quiet reveal; owner acceptance remains open. |
 
 | `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; whole-story V26 editorial audit with playful dust-bunny intent, Rumi history/rescue and continuous Grand Puff transformation; action/source gaps and next priorities; not visual or child acceptance. |
+
+| `books/chapter_one/reviews/2026-09-30/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; comprehensive unchanged-V27/original comparison, page-level art/story/pacing/type recommendations and conditional unprompted Lamb-a plan. Review evidence only; no art implementation, source-gap closure or child/print acceptance. |

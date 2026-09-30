@@ -1,3 +1,7 @@
+# Comprehensive editorial review — 2026-09-30
+
+The current book remains V27. A complete comparison with the original, 34-page art/story/pacing/type review, source-density evidence and conditional hidden Lamb-a plan are in [the comprehensive review](../reviews/2026-09-30/REVIEW.md), with an [illustrated companion](../reviews/2026-09-30/REVIEW.html). Recommendations only; no manuscript, artwork, PDF or pagination changes implemented. Source questions, print/dummy review, Lamb-a identity and owner/child acceptance remain open.
+
 # V27 — castle entrance and relieved Grand Puff
 
 Current review corrects story pages24 and27 only. Page24 replaces the erroneous opera-house scene with the C11_S02 castle boss approach, retaining completed rooms and shell door above red steps. Page27 changes only Grand Puff’s expression to relieved during the group scrub. Manuscript and other artwork retained. Native inputs, prompts and hashes: `door_expression_evidence_v27.json`. Owner/child/print acceptance remains open.
