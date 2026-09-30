@@ -345,12 +345,18 @@ remain open.
   Owner decision 2026-09-30 (`DL-INT-14`, target; implementation pending): the
   imp enters when the final act begins, and the act ends in one job-skill
   contest he can win. His win restarts that contest at once and costs nothing
-  earned. Until it ships, today's no-loss pacer remains the runtime behaviour.
+  earned. For the learning careers (the Teacher, and the Geologist pending
+  confirmation) the contest inverts: the imp teaches with deliberate mistakes
+  and she beats him by fixing them, with silly questions such as which smells
+  the worst. Until it ships, today's no-loss pacer
+  remains the runtime behaviour.
 - **Nursery Nurse (job 13) is cooperative,** not competitive: Nurse Faron is a
   visible partner from the first beat, never framed as an opponent.
 - **Geologist is cooperative,** not competitive: Roshan follows rock layers,
   brushes a fossil, sorts six shape-and-colour specimens, and lights the final
-  crystal gallery with a visible field-guide imp beside her.
+  crystal gallery with a visible field-guide imp beside her. Owner decision
+  2026-09-30 (`DL-INT-14`, target, pending confirmation for this career) would
+  make its final act an inverted contest with that imp.
 - Completing a performance yields Warm Cheers / Big Cheers / Standing Ovation
   by pace, accuracy and guided retries. Every completed career earns its star
   regardless.

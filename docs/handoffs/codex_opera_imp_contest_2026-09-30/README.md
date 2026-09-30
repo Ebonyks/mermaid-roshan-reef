@@ -7,6 +7,14 @@
 
 **Status:**
 - `PROPOSED / CANDIDATE`. Publication is not creative acceptance.
+- **Revision 4 (2026-09-30)** adds the owner's fourth decision (OD-D): lean into silly
+  humor, with silly questions like "which smells the worst?" and sillier imp lines.
+- **Revision 3** (`86732a47`) folded in the Day Two art review's corrections: reuse only the
+  current full-tail and borderless art routes, and show the imp touching his own job object
+  ([CONTEST_DESIGN.md §4.16](CONTEST_DESIGN.md)).
+- **Revision 2** (`df01b7ce`) added the owner's third decision (OD-C): a Teacher imp who
+  teaches wrong things for the child to fix, applied to the learning careers. Revision 1
+  was `7ec82d46`.
 - No visual, device, child or owner acceptance is claimed.
 - Implementation follows `CLAUDE.md`, `AGENTS.md` and the master-audit development contract:
   impact records, gates, CI, then integration into `dev`.
@@ -24,9 +32,20 @@ builds any image the work needs.
 - **OD-A:** "No, I think imp comes in during the final act, there should be a contest at
   the end that reflects part of the skill of the job that's a challenge against the imp"
 - **OD-B:** "If imp wins, the game restarts immediately afterwards."
+- **OD-C:** "The teacher should have an imp, but the game inverts, he teaches information
+  that's wrong and it's your job to figure it out, which beats the imp. Similar
+  educational type games"
+- **OD-D:** "Lean into silly humor here, questions like, which smells the worst, farts,
+  garbage, old diapers or rotten cheese?"
 
-**To confirm with the owner:** this design restarts the *contest only*. Earlier activities,
-stars, pearls and saves are kept. See [CONTEST_DESIGN.md §1](CONTEST_DESIGN.md) and §7.4.
+**To confirm with the owner:**
+- **Restart scope:** this design restarts the *contest only*. Earlier activities, stars,
+  pearls and saves are kept.
+- **Educational scope:** "similar educational type games" is read as the Teacher's four
+  lesson kinds plus the Geologist, the other learning career.
+- **Silly questions:** they alternate with the math lessons rather than replacing them.
+
+See [CONTEST_DESIGN.md §1](CONTEST_DESIGN.md), §7.2 and §7.4.
 
 ## The design in brief
 
@@ -49,6 +68,30 @@ stars, pearls and saves are kept. See [CONTEST_DESIGN.md §1](CONTEST_DESIGN.md)
 - He makes one funny mistake per attempt, using his existing recorded "copy" line. That is
   her comeback moment.
 
+**Learning careers invert (OD-C)**
+- **Teacher, IMP'S LESSON:** the imp becomes the teacher at the lesson board. He teaches
+  pattern, counting, adding and matching lessons, each with one deliberate mistake, which he
+  shows proudly. She finds the right answer, counting pearls where needed. Her correct first
+  pick fixes his lesson and scores her point; a wrong first pick is his point, then the
+  golden help shows the answer and she places it.
+- **Geologist, FIELD GUIDE MIX-UP (pending confirmation):** the field-guide imp shows a
+  fossil with one piece upside down, or three "same" rocks where one differs, and she taps
+  the mistake.
+- **No clock, and truth last:** every round ends with the right answer on the board, placed
+  by her.
+
+**Silly humor (OD-D)**
+- **Silly questions** alternate with the Teacher's math lessons. The first is the owner's
+  own: "Which smells the worst? Farts, garbage, old diapers, or rotten cheese?"
+  - The imp proudly picks a pretty rose. Any stinky answer beats him: he sniffs it, cries
+    "Pee-yew!" and faints. The fart card plays the game's existing fart sound.
+  - Seven more follow the same pattern: loudest (he says a mouse), biggest (an ant),
+    stickiest (a feather), coldest (the sun), slowest (a rocket), squishiest (a rock) and
+    yuckiest to eat (a cupcake).
+- **Every imp line gets sillier:** "One, two, three... eleventy-twelve!", "Two plus one
+  makes... a banana!", "It's a dinosaur's belly button!"
+- **The joke is always on the imp or the thing**, never on the child.
+
 **Winning and losing**
 - **She wins:** he staggers and flops with his existing "bop" line; her cheer tier becomes
   audible and visible. Then an existing flourish or the curtain call follows.
@@ -56,16 +99,21 @@ stars, pearls and saves are kept. See [CONTEST_DESIGN.md §1](CONTEST_DESIGN.md)
   contest resets at once. She stays where she is, and he is slower each time.
 
 **Reuse**
-- All art already exists: 156 of the 178 imp pose files would appear, against 41 today
-  (167 if the owner picks Nursery option B).
+- No new art is needed to ship: 167 of the 178 imp pose files would appear, against 41
+  today. The Teacher uses the plain mischief imp until an optional teacher costume is
+  approved.
 - 36 of the 56 existing imp lines would play, against 2 today (39 with Nursery option B).
-- Only 25 short new lines are needed (27 with Nursery option B).
+- 67 short new lines are needed (32 of them for the silly questions): 9 more if the
+  Geologist contest is confirmed, 2 more for Nursery option B.
+- The silly questions need one new set of 40 cartoon picture icons, plus 3 for the
+  Geologist's silly rocks. Codex makes them after checking existing art. You approve the
+  first five, for the smell question.
 
 ## What is in this folder
 
 | Path | What it is |
 |---|---|
-| [CONTEST_DESIGN.md](CONTEST_DESIGN.md) | The specification: contract C1 to C14, shared mechanics, code integration, the twelve contests, owner decisions, retirements, tests, governance, work order and acceptance |
+| [CONTEST_DESIGN.md](CONTEST_DESIGN.md) | The specification: contract C1 to C15, shared mechanics (including inverted contests), code integration, the twelve costumed contests plus the Teacher and Geologist, owner decisions, retirements, tests, governance, work order and acceptance |
 | [CURRENT_STATE_ANALYSIS.md](CURRENT_STATE_ANALYSIS.md) | The formula today, strengths, weaknesses, findings H1 to H10 with code anchors, and imp art and voice use in numbers |
 | [data/contest_spec.json](data/contest_spec.json) | The same contest design in machine-readable form |
 | [data/imp_art_inventory.json](data/imp_art_inventory.json) | Every imp pose file: path, bytes, SHA-256, size, shown today (with code evidence) and planned contest roles |
@@ -89,9 +137,11 @@ The full table with gates is in [CONTEST_DESIGN.md §11](CONTEST_DESIGN.md).
    - Magician (points duel; fixes shuffle taps, H9).
 4. **W4 to W6:** surface contracts, the remaining seven contests, then Boxer points and the
    Racer finish rule.
-5. **W7:** the 25 new voice lines through the existing filler pipeline, with licences and
-   audio-ledger rows.
-6. **W8:** fix the balance probe (H4), tune `base_seconds`, update the canon counts (H8), and
+5. **W6b:** the inverted contests: the Teacher's IMP'S LESSON, then the Geologist's FIELD
+   GUIDE MIX-UP once the owner confirms it.
+6. **W7:** the new voice lines through the existing filler pipeline, with licences and
+   audio-ledger rows, plus any teacher or geologist imp costume the owner approves.
+7. **W8:** fix the balance probe (H4), tune `base_seconds`, update the canon counts (H8), and
    merge to `dev` when CI is green.
 
 ## Owner decisions still open
@@ -99,8 +149,11 @@ The full table with gates is in [CONTEST_DESIGN.md §11](CONTEST_DESIGN.md).
 These are covered in [CONTEST_DESIGN.md §7](CONTEST_DESIGN.md).
 
 - **Nursery:** stay co-op, race the plain mischief imp, or commission a nursery imp.
-- **Geologist:** the same three options.
-- **Teacher:** recommended no contest.
+- **Geologist:** confirm the inverted FIELD GUIDE MIX-UP, or keep it co-op.
+- **Imp costumes:** a new teacher imp (recommended) and optionally a geologist imp, or keep
+  the stand-ins.
+- **Silly icons:** approve the style of the first five pictures (the smell question).
+- **Silly scope:** silly questions alternating with math (this design), or all silly.
 - **Restart scope:** contest only, or the whole career.
 - **Hall stage-long race:** retire it (recommended), or keep it as no-loss.
 - **Rematch mercy curves.**
@@ -111,6 +164,7 @@ These are covered in [CONTEST_DESIGN.md §7](CONTEST_DESIGN.md).
 - **`DL-INT-14`** is added to
   [design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md](../../../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md)
   as the owner-decided target contract. Implementation is pending.
+- Revision 2 extends `DL-INT-14` with the inverted format for learning careers.
 - Pointer sentences are added to `DL-INT-08`, `DL-INT-09` and `DL-INT-10`.
 - The "Competition is scoped" bullet in `design/01_GAME_DESIGN.md` is amended.
 - Notes are added to the master index and the master-audit planning entry.
@@ -120,8 +174,15 @@ These are covered in [CONTEST_DESIGN.md §7](CONTEST_DESIGN.md).
 - It records the owner's 2026-09-30 decision that Claude hands Codex written descriptions
   and builds no images. Its ledger row is updated to match.
 
-**Impact record:**
-[design/audit_impacts/codex-opera-imp-contest-handoff-20260930.json](../../../design/audit_impacts/codex-opera-imp-contest-handoff-20260930.json).
+**Impact records:**
+- Revision 1:
+  [design/audit_impacts/codex-opera-imp-contest-handoff-20260930.json](../../../design/audit_impacts/codex-opera-imp-contest-handoff-20260930.json).
+- Revision 2:
+  [design/audit_impacts/codex-opera-imp-contest-handoff-rev2-20260930.json](../../../design/audit_impacts/codex-opera-imp-contest-handoff-rev2-20260930.json).
+- Revision 3:
+  [design/audit_impacts/codex-opera-imp-contest-handoff-rev3-20260930.json](../../../design/audit_impacts/codex-opera-imp-contest-handoff-rev3-20260930.json).
+- Revision 4:
+  [design/audit_impacts/codex-opera-imp-contest-handoff-rev4-20260930.json](../../../design/audit_impacts/codex-opera-imp-contest-handoff-rev4-20260930.json).
 
 ## Checking this packet
 
