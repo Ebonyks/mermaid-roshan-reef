@@ -1,6 +1,6 @@
 {
   "id": "day2-art-library-20260930",
-  "scope": "First-pass illustrated source-art and sequencing review for fifteen career games, Opera Hall training/show variants, eight existing Day Two story adapters, and the current Tree Book practice plus owner-directed Arborist story replacement. No runtime, original artwork, save or acceptance-state changes. Review extended to the twelve newly specified imp contests plus three unresolved cooperative/competitive options, with 178 individually source-bound current/planned imp pose roles. Incoming owner/authority changes are inherited unchanged from origin/dev 285355eb9e09a29aa4ac53d36874e31419d4674e, including the upstream CLAUDE.md handoff rule; no new instruction-policy change is authored by this task. Repackage the same whole-source previews as individually hashed image files beside small HTML/JSON; keep the unchanged complete-text model scan and shrinking manifest authoritative. Explicitly label scores as Codex-authored drafts.",
+  "scope": "First-pass illustrated source-art and sequencing review for fifteen career games, Opera Hall training/show variants, eight existing Day Two story adapters, and the current Tree Book practice plus owner-directed Arborist story replacement. No runtime, original artwork, save or acceptance-state changes. Review extended to the twelve newly specified imp contests plus three unresolved cooperative/competitive options, with 178 individually source-bound current/planned imp pose roles. Incoming owner/authority changes are inherited unchanged from origin/dev 285355eb9e09a29aa4ac53d36874e31419d4674e, including the upstream CLAUDE.md handoff rule; no new instruction-policy change is authored by this task. Repackage the same whole-source previews as individually hashed image files beside small HTML/JSON; keep the unchanged complete-text model scan and shrinking manifest authoritative. Explicitly label scores as Codex-authored drafts. Reconciles inherited upstream Rumi/craft-board transparency repair at 08acb0ce without authoring source-pixel changes. Re-reviews the one changed inventoried Rumi sheet and affected birthday Popstar/seam notes, retaining prior source/score history and outstanding Day Two runtime acceptance.",
   "baseline": "55032e88936b22723fd9af5282c61ba6696b3d43",
   "rules": [
     "DL-ASSET-01",
@@ -757,6 +757,11 @@
       "command": "Unchanged model scan on complete library and preview byte hashes",
       "result": "PASS",
       "evidence": "All preview hashes/source bindings and rendered content match; 1.25MB HTML and separate complete images. python -B tools/audit_game_2d.py --regression-gate reports NO_REGRESSION with zero model/coverage files and unchanged 52 production/61 probe/1 scene/1 configuration debts; strict 2D remains UNSATISFIED."
+    },
+    {
+      "command": "Live development refresh at origin/dev 08acb0ce",
+      "result": "PASS",
+      "evidence": "refresh_delta.json changed exactly D2A-0627; old score invalidated; all eight new-source cells inspected at native size; score 4.5 retained for fringe/scale refinement, source history preserved and affected context notes updated."
     }
   ],
   "acceptance_gaps": "Draft source scores are not canonical runtime grades. Fresh full-state Mobile captures, animation, two aspects, target-device, child and owner acceptance remain open. Existing finding lifecycles unchanged. Sparse checkout excludes unrelated runtime resources; full game execution is not claimed."

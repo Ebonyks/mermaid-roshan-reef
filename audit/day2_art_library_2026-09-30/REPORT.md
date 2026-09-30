@@ -12,7 +12,7 @@ Scores from 4.6 to 4.9 identify strong reuse candidates. Scores from 4.0 to 4.5 
 
 Every file was inspected in source contact sheets, including raster previews of the five SVGs. Repeated family observations are preserved in individual records rather than pretending that a shared style issue is unique to every tile or costume pose. This is a breadth-first review; native-size edge inspection is a follow-up action where specified. Atlas previews display the complete sheets, including all cells. A sheet score does not certify every cell as an animation frame or assign a played-motion score.
 
-The baseline is `55032e88936b22723fd9af5282c61ba6696b3d43`, freshly fetched from `origin/dev`. The artwork and runtime code baseline remain unchanged; the September 30 target contest authority and per-pose handoff are reconciled from integration revision `285355eb9e09a29aa4ac53d36874e31419d4674e`. Production controller and domain-authority hashes are recorded in [inventory.json](inventory.json). Source records live in [reviews.json](reviews.json); context and phase evaluations live in [evaluations.json](evaluations.json). This audit changes no runtime, saves, protected source artwork or finding acceptance state. The evaluations were authored by Codex; no human or owner acceptance is claimed.
+The baseline is `55032e88936b22723fd9af5282c61ba6696b3d43`, freshly fetched from `origin/dev`. The initial artwork/runtime baseline is preserved in review history; one relevant source update, Rumi’s native transparency repair, is re-reviewed from integration `08acb0ce529660e79de6784aa4124352798bc4cd`. Runtime code remains unchanged; the September 30 target contest authority and per-pose handoff are reconciled from integration revision `285355eb9e09a29aa4ac53d36874e31419d4674e`. Production controller and domain-authority hashes are recorded in [inventory.json](inventory.json). Source records live in [reviews.json](reviews.json); context and phase evaluations live in [evaluations.json](evaluations.json). This audit authors no runtime, save or source-art edit and changes no finding acceptance state; it inherits the separately recorded Rumi repair during integration reconciliation. The evaluations were authored by Codex; no human or owner acceptance is claimed.
 
 ## Which jobs currently exist
 
@@ -87,7 +87,7 @@ The key graphics risk is reuse selection. The written plan names several retired
 
 **Ballerina — 3.9.** The playroom belongs to the story and the original cat/bunny identities must be retained. The nook is background decoration. The two active stuffies must independently mirror, twirl and bow beside Roshan; replayed ballet pearl/ribbon mechanics alone do not establish their acting payoff. Review cutout remnants without changing protected originals.
 
-**Popstar — 4.2.** Production code loads Rumi's eight-pose runtime sheet unmodified. Review relative scale, gaze, microphone ownership, stage movement and the same-group encore. Do not infer sung performance or motion quality from a static identity sheet. Keep the three rhythm cues visually distinct and readable without text.
+**Popstar — 4.2.** Production code loads Rumi's eight-pose runtime sheet. The incoming native repair restores the upright fins; source review retains 4.5/5 because fine green/white fringe and pose-scale variation remain. Review relative scale, gaze, microphone ownership, stage movement and the same-group encore. Do not infer sung performance or motion quality from a static identity sheet. Keep the three rhythm cues visually distinct and readable without text.
 
 **Astronaut — 3.6.** The intended result is explicitly parked-ready and unlaunched. READY PARK names `push_racer`; verify the actual override/draw path in a current capture so the rocket remains the subject. The adapter's parked flag alone does not prove a visually correct result, and the shared context alone does not prove a kart defect.
 
@@ -121,6 +121,8 @@ Use the persistent goal with: **Refresh the Day Two artwork library against curr
 4. Run `python -B tools/build_day2_art_library.py --render`, then `python -B tools/build_day2_art_library.py --check`. Inspect the rendered gallery, filter counts, originals and game/phase tables. Add/update audit impact coverage, navigation and evidence before the normal gates and publication.
 
 Keep the complete library folder together when copying or downloading it: `index.html` loads the local `previews/` images. The packet works offline and is inspectable by the unchanged 2D audit without a large embedded-image HTML file.
+
+The first live refresh changed exactly one inventoried file, D2A-0627 Rumi. The tool invalidated its old score before visual re-review. Its earlier hash, score and observation remain in `reviews.json` history. The repaired sheet still scores 4.5/5 at native size and remains a refinement priority. The associated Day Two Popstar notes were re-reviewed; unrelated pool/craft-room fixtures are not promoted into birthday acceptance.
 
 The initial report is a dated first pass. Preserve its conclusions and evidence when beginning a later round; record revisions rather than silently rewriting earlier acceptance claims. The refresh tool identifies what needs visual review. It does not generate art, edit the game, award owner acceptance or close master findings.
 

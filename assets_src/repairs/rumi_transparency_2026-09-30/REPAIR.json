@@ -1,0 +1,84 @@
+{
+  "baseline": "55032e88936b22723fd9af5282c61ba6696b3d43",
+  "method": "Native Aseprite drawPixel source recovery; complete lower tail from approved pose 1 for upright poses 0,2,3; owned pose component extraction; no generated art.",
+  "sources": {
+    "assets_src/characters/rumi_2026-08-22/rumi_eight_pose_atlas.png": "b5d31e649ad23150790bff0919c3b2f09ddb96317cd24c60478450731d3f8624",
+    "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+    "assets_src/repairs/rumi_transparency_2026-09-30/ownership.json": "0c9230777c43e6aa0fd11c6f942952729751012ee83a7244b6eb6b4ce05c3d39",
+    "assets_src/repairs/rumi_transparency_2026-09-30/rumi_before.png": "9833ee5c9deaa1ee39bbbe1f81a790e5f609993dbf3b9b0179b0cca993ae0014",
+    "assets_src/repairs/rumi_transparency_2026-09-30/rumi_pool_before.png": "39cd43295adfce51249ac97647520aee9643e397fe417bf0374727297b34528e",
+    "assets_src/repairs/rumi_transparency_2026-09-30/board_before.png": "eab2de023ffaf3cb55ba515272e8ecaf7fd98b5e64cdef4dc885db00c9ff7348",
+    "tools/aseprite/repair_rumi_transparency.lua": "476751c0502d9af480f7d585088d7a2649b31d1de44a08b55f2fd0197d220843",
+    "assets/flats/castle/rooms/room_craft_room_item_idea_board.png": "a31bd127b197d30637c34c4b92e64e38cc2d3c64529da1185a907e07c6aaa3c3",
+    "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/craft_room_idea_board_sheet_chroma.png": "f69f83373609d093b91d2b6d2df9993949ceb62bc1f8d3b7b84fcffaf113489f"
+  },
+  "outputs": {
+    "assets/characters/rumi/rumi_eight_pose_runtime.png": "44120bbb2b1e60a9ec94e0cf3db7e46e33f564671af986bb42357b8bd59c14d5",
+    "assets/characters/rumi/rumi_pool_idle_swim_atlas.png": "9068a5f6c56e90d57ae9c3219096d6f12bba97a2f6c6ed09175c1bc63f59cb41",
+    "assets/flats/castle/interactions_v2/craft_room_idea_board_sheet.png": "a88d626f5d455c8850f195b7b8ccb0f9ac75680f860a219c297bd8206ab8da03",
+    "assets_src/repairs/rumi_transparency_2026-09-30/rumi.aseprite": "98c0b9e9c342f57a299354388b43dbc94b92a2a26191f13f53945bb50f541fd9",
+    "assets_src/repairs/rumi_transparency_2026-09-30/rumi_pool.aseprite": "b559ef6ad1efab5e909cb9480280f56ad82b2b7cd3fd7a0bdc9e8ee7c72b7b3e",
+    "assets_src/repairs/rumi_transparency_2026-09-30/board.aseprite": "1476dd2487b9e446ef89a5fff44486b0679ce736907732bd1c936e310074bb9b"
+  },
+  "board": {
+    "frames": [
+      2,
+      6
+    ],
+    "erase_rects": [
+      [
+        10,
+        112,
+        19,
+        145
+      ],
+      [
+        10,
+        160,
+        19,
+        172
+      ]
+    ],
+    "translation": [
+      -4,
+      0
+    ],
+    "backing_polygon": [
+      [
+        42,
+        58
+      ],
+      [
+        92,
+        42
+      ],
+      [
+        128,
+        36
+      ],
+      [
+        163,
+        42
+      ],
+      [
+        216,
+        58
+      ],
+      [
+        216,
+        132
+      ],
+      [
+        42,
+        132
+      ]
+    ],
+    "backing_color_sample": [
+      47,
+      113
+    ],
+    "reason": "Approved room idea-board reference has solid backing; chroma master incorrectly painted background through the backing."
+  },
+  "acceptance": "Candidate source review; runtime, target-device and owner acceptance pending.",
+  "pool_idle_registration": "Whole-pose bounding-box crop with four-pixel gutter, shared 0.75 scale, centered at x128 and bottom250; restores original approximately236px character height."
+}

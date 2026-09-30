@@ -911,8 +911,8 @@
       "title": "Birthday job \u00b7 Popstar",
       "status": "Existing Day Two source route; current visual acceptance pending",
       "draft_design_score": 4.2,
-      "evaluation": "The production scene explicitly loads Rumi and marks her source unmodified. Her eight-pose sheet is recognizable; the remaining graphics review is singer scale, gaze and microphone/note ownership alongside Roshan.",
-      "refinement": "Review the persistent story object and its transition into the next job. Preserve identity, count, save compatibility and latest owner direction.",
+      "evaluation": "The production scene explicitly loads Rumi and marks her source unmodified. Her eight-pose sheet is recognizable; the remaining graphics review is singer scale, gaze and microphone/note ownership alongside Roshan. Source refresh at dev 08acb0ce restores Rumi upright fins; remaining edge fringe and relative scale need party-background review. The upstream pool/room fixtures do not establish this Day Two performance.",
+      "refinement": "Review the persistent story object and its transition into the next job. Preserve identity, count, save compatibility and latest owner direction. Use the repaired source hash 44120bbb2b1e60a9ec94e0cf3db7e46e33f564671af986bb42357b8bd59c14d5 while keeping actual birthday motion/contact and owner/device evidence open.",
       "artwork_ids": [
         "D2A-0075",
         "D2A-0413",
@@ -927,25 +927,25 @@
           "name": "SOUND CHECK",
           "mode": "hold",
           "review": "Rumi should visibly be the partner named by the voice, with feedback tied to the microphone.",
-          "next_evidence": "Current natural-input entry/contact/partial/completion/return capture and cross-job object continuity; device/child/owner review."
+          "next_evidence": "Current natural-input entry/contact/partial/completion/return capture and cross-job object continuity; device/child/owner review. Capture the refreshed full-fin Rumi source in this state; include dark/light contour checks."
         },
         {
           "name": "STAGE RUMI",
           "mode": "choice",
           "review": "The arrow cue should stage Rumi and band action, not just solve a generic lane card.",
-          "next_evidence": "Current natural-input entry/contact/partial/completion/return capture and cross-job object continuity; device/child/owner review."
+          "next_evidence": "Current natural-input entry/contact/partial/completion/return capture and cross-job object continuity; device/child/owner review. Capture the refreshed full-fin Rumi source in this state; include dark/light contour checks."
         },
         {
           "name": "RHYTHM",
           "mode": "echo",
           "review": "Keep three star cues distinguishable with the actual performer visible; review the normal-speed sequence.",
-          "next_evidence": "Current natural-input entry/contact/partial/completion/return capture and cross-job object continuity; device/child/owner review."
+          "next_evidence": "Current natural-input entry/contact/partial/completion/return capture and cross-job object continuity; device/child/owner review. Capture the refreshed full-fin Rumi source in this state; include dark/light contour checks."
         },
         {
           "name": "ENCORE",
           "mode": "circle",
           "review": "The same group should give a calm encore response. Avoid hiding the singers with a neon progress disk.",
-          "next_evidence": "Current natural-input entry/contact/partial/completion/return capture and cross-job object continuity; device/child/owner review."
+          "next_evidence": "Current natural-input entry/contact/partial/completion/return capture and cross-job object continuity; device/child/owner review. Capture the refreshed full-fin Rumi source in this state; include dark/light contour checks."
         }
       ]
     },
@@ -2153,5 +2153,15 @@
     }
   ],
   "planned_contest_source_revision": "8ce7929b3b859fa4966bff9051d861fbacfd136c",
-  "imp_binding_file_count": 178
+  "imp_binding_file_count": 178,
+  "source_refresh": {
+    "revision": "08acb0ce529660e79de6784aa4124352798bc4cd",
+    "changed_artwork": [
+      "D2A-0627"
+    ],
+    "affected_contexts": [
+      "story-popstar"
+    ],
+    "acceptance": "Source drafting review only; no current Day Two played capture added"
+  }
 }

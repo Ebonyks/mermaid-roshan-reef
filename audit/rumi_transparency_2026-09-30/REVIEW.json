@@ -1,0 +1,63 @@
+{
+  "baseline": "55032e88936b22723fd9af5282c61ba6696b3d43",
+  "date": "2026-09-30",
+  "implementation": [
+    "Rumi upright split fins recovered in poses 0,2,3 from approved pose 1; full braid/fin contours recovered for clipped cells.",
+    "Pool atlas idle row now uses complete fins; swimming row unchanged byte-for-byte.",
+    "Craft-board foreign slivers removed in frames 2,6; solid interior backing restored in all eight states."
+  ],
+  "investigated": {
+    "kitchen": "All four pan sheets, sink, oven, current V4 fridge, and foreground table inspected. Pan rim and handle holes are intentional. Foreground card meets stage edge intentionally. No additional reproduced alpha defect in these samples.",
+    "craft": "Idea-board backing holes confirmed against the solid approved room reference and repaired. Hollow paint-table spaces, brush poses, ribbon gaps and jar-row separation retained intentionally. Current V4 supply cupboard inspected.",
+    "eagle": "Approved replacement isolate inspected. Only 76 partial-alpha pixels in a three-pixel erosion of its alpha>0 footprint (56966 pixels); clusters fall at feather/foot/outer contours, not broad see-through body areas. No further Eagle alpha edit applied. User phrase early interpreted provisionally as Eagle; clarification remains unanswered."
+  },
+  "verification": {
+    "native_pixel_provenance": "PASS",
+    "six_output_deterministic_rebuild": "PASS",
+    "interaction_v2": "PASS",
+    "document_authority": "PASS",
+    "full_ci": "PASS exit 0; 77 probe processes exit 0, including one display-only headless SKIP; exact Godot 4.7.2",
+    "seen_clip_pool_visual_assertions": "PASS 0 failures",
+    "unseen_clip_pool_visual_assertions": "FAIL 7, introductory story clip obscured gameplay"
+  },
+  "visual_evidence": {
+    "engine": "4.7.2-stable official.ed1daf0bf",
+    "renderer": "Mobile Vulkan on desktop RTX 3060 Ti",
+    "viewport": [
+      2560,
+      1369
+    ],
+    "normal_free_play": [
+      "kitchen.png",
+      "craft_room.png",
+      "rumi_pool.png"
+    ],
+    "extended_fixture_limitation": "Extended reveal fixture shows overlapping Rumi actors and caption occlusion; not accepted composition proof. Normal free-play pool shows one Rumi with complete fins. Full reveal staging/device acceptance remains open."
+  },
+  "acceptance_gaps": [
+    "Target-phone alpha/compression, animation and touch readability.",
+    "Owner/child acceptance.",
+    "Unseen-story-clip visual-probe fixture and extended reveal staging remain unaccepted."
+  ],
+  "files": {
+    ".gdignore": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "board_before_after.png": "e615a26fb7627e04e404a197865a81c3a26d613a022995fa0ae0f3ebc0226059",
+    "craft_room.png": "e4c9cff8943b85ec999629c64b1905e6a931ee0e675f27d4c53b58b548543bb2",
+    "extended_fixture_overlap.png": "39db6977fc8d2385b841988ce51fc391962eeae88520fd4bd95398d5fdbeb6bf",
+    "full-ci.log": "21c94bddfca190d5a901ff75a6f0405b82b0d637c507e1cbee6fc7d3ca76ff76",
+    "index.html": "2c0b30258d8f24e8acafb8722365c8a972463412a57f0ca97d92d71a94656d7c",
+    "kitchen.png": "f1d3905c865690af7fd385d02b1323cc3e915db7fb79b05707de429904e228d5",
+    "pool_capture_fixture.gd.txt": "9e058cf350d345a8af98712ac3adec3a25e609007c7b10dbd9d2b1b4149deb0d",
+    "pool_seen_clips.log": "6b81b7ac9a46871df887b07f5a7dfde5cb9492196913de1bf92c590f784b956f",
+    "pool_unseen_clips_failure.log": "7b1fb833e2844230a64e3b616a53d5616e2c4366e72223660a06f0deace80aa9",
+    "rebuild.log": "575156ea079bdc5c04b85eedcac5ba290c3efef0e3fe7f095c027e6b0c3807d3",
+    "room_capture_fixture.gd.txt": "2b9d8c6134548e380d498dd79189f9900eac0b8f5c44c59bdd5570ea0aca3d45",
+    "rumi_pool.png": "80f41dcaa950c6577fcd967620ad7a80772b35cb4fb7e6854ccda1eb7e075d5c",
+    "rumi_pose0_before_after.png": "239ec91fb68c5074976fedb54f43a49628edeea7157473eb51febd5e98313e4d"
+  },
+  "reproduction": "Stored .gd.txt capture fixtures are evidence source. Copy to an ignored scratch .gd path and run only with isolated APPDATA/LOCALAPPDATA and DAY_ONE_POOL_CAPTURE_OUT; they must not run against the player save.",
+  "full_ci_log_normalization": {
+    "raw_sha256": "803eb3f26d8a5cfc86e06668838a3af76611e3eca5220da77db868363c10d1b9",
+    "changes": "Line endings normalized and trailing whitespace removed; all log text retained."
+  }
+}
