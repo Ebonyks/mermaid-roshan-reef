@@ -61,6 +61,8 @@ var guide_pointer: Sprite2D
 var guide_pointer_base := Vector2.ZERO
 var motion: Tween
 var elapsed := 0.0
+var practice_book: TextureButton
+var tree_book_test: OperaTreeBookTest
 
 
 func setup(main: ReefMain, star_mask: int, launch_callback: Callable) -> void:
@@ -90,6 +92,7 @@ func setup(main: ReefMain, star_mask: int, launch_callback: Callable) -> void:
 	_build_actor()
 	_build_portals()
 	_build_guide_pointer()
+	_build_practice_book()
 	refresh(star_mask)
 
 
@@ -102,6 +105,7 @@ func open(star_mask: int) -> void:
 
 
 func close() -> void:
+	_close_tree_book(false)
 	m._navigation_remove("opera_venue")
 	accepting_input = false
 	guide_button = null
@@ -137,6 +141,8 @@ func career_buttons() -> Array[Button]:
 
 
 func refresh(star_mask: int) -> void:
+	if practice_book != null:
+		practice_book.disabled = not accepting_input
 	for button: Button in buttons:
 		var act_index := int(button.get_meta("act_index", -1))
 		var complete := _portal_is_complete(act_index, star_mask)
@@ -432,3 +438,61 @@ func _process(delta: float) -> void:
 			+ sin(elapsed * 4.0) * 10.0
 	if floor_glow != null:
 		floor_glow.modulate.a = 0.72 + sin(elapsed * 2.6) * 0.20
+
+func _build_practice_book() -> void:
+	practice_book = TextureButton.new()
+	practice_book.name = "TreeBookPractice"
+	practice_book.position = Vector2(1032, 552)
+	practice_book.size = Vector2(174, 131)
+	practice_book.texture_normal = load("res://assets/opera/tree_book_test/book.png") as Texture2D
+	practice_book.ignore_texture_size = true
+	practice_book.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
+	practice_book.tooltip_text = "Tree Book practice"
+	practice_book.pressed.connect(open_tree_book)
+	add_child(practice_book)
+	var tree := TextureRect.new()
+	tree.position = Vector2(58, 33)
+	tree.size = Vector2(66, 64)
+	var atlas := AtlasTexture.new()
+	atlas.atlas = load("res://assets/opera/tree_book_test/patient.png") as Texture2D
+	atlas.region = Rect2(0, 0, 512, 512)
+	tree.texture = atlas
+	tree.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	tree.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	tree.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	practice_book.add_child(tree)
+
+
+func open_tree_book() -> void:
+	if not visible or not accepting_input or tree_book_test != null:
+		return
+	accepting_input = false
+	m._set_world_controls_enabled(false, "tree_book_practice")
+	refresh(m.opera_stars)
+	if guide_pointer != null:
+		guide_pointer.hide()
+	tree_book_test = OperaTreeBookTest.new()
+	tree_book_test.setup(m, m.save_data.get(OperaTreeBookTest.SAVE_KEY, {}))
+	tree_book_test.checkpoint_changed.connect(_save_tree_book)
+	tree_book_test.close_requested.connect(_close_tree_book)
+	add_child(tree_book_test)
+	m._navigation_push("arborist_tree_book_test", tree_book_test, Callable(self, "_close_tree_book"))
+
+
+func _save_tree_book(checkpoint: Dictionary) -> void:
+	m.save_data[OperaTreeBookTest.SAVE_KEY] = checkpoint
+	m._queue_save()
+
+
+func _close_tree_book(restore_venue: bool = true) -> void:
+	if tree_book_test == null:
+		return
+	tree_book_test.shutdown()
+	tree_book_test.queue_free()
+	tree_book_test = null
+	m._navigation_remove("arborist_tree_book_test")
+	m._set_world_controls_enabled(true, "tree_book_practice")
+	m._write_save()
+	if restore_venue and visible:
+		accepting_input = true
+		refresh(m.opera_stars)

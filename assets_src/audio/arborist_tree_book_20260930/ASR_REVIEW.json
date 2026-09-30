@@ -1,0 +1,50 @@
+[
+  {
+    "path": "assets/audio/arborist_tree_book/roshan_arborist_tree_book_tree.ogg",
+    "expected": "Which tree? Find the same tree.",
+    "recognized": "Which tree find the same tree?",
+    "method": "faster-whisper small.en CPU int8; not human acceptance"
+  },
+  {
+    "path": "assets/audio/arborist_tree_book/roshan_arborist_tree_book_leaf.ogg",
+    "expected": "What is wrong? Find the orange spots.",
+    "recognized": "What is wrong? Find the orange spots.",
+    "method": "faster-whisper small.en CPU int8; not human acceptance"
+  },
+  {
+    "path": "assets/audio/arborist_tree_book/roshan_arborist_tree_book_medicine.ogg",
+    "expected": "Orange spots need leaf spray. Find its bottle.",
+    "recognized": "Orange spots need leaf spray. Find its bottle.",
+    "method": "faster-whisper small.en CPU int8; not human acceptance"
+  },
+  {
+    "path": "assets/audio/arborist_tree_book/roshan_arborist_tree_book_carry.ogg",
+    "expected": "Let's take the spray to our tree.",
+    "recognized": "Let's take the spray to our tree.",
+    "method": "faster-whisper small.en CPU int8; not human acceptance"
+  },
+  {
+    "path": "assets/audio/arborist_tree_book/roshan_arborist_tree_book_spray.ogg",
+    "expected": "Hold this leaf. Spray, spray!",
+    "recognized": "Hold this leaf, spray, spray.",
+    "method": "faster-whisper small.en CPU int8; not human acceptance"
+  },
+  {
+    "path": "assets/audio/arborist_tree_book/roshan_arborist_tree_book_done.ogg",
+    "expected": "Our tree feels better!",
+    "recognized": "Our tree feels better.",
+    "method": "faster-whisper small.en CPU int8; not human acceptance"
+  },
+  {
+    "path": "assets/audio/arborist_tree_book/roshan_arborist_tree_book_try_tree.ogg",
+    "expected": "Look at our tree. Find the same shape.",
+    "recognized": "Look at our tree, find the same shape",
+    "method": "faster-whisper small.en CPU int8; not human acceptance"
+  },
+  {
+    "path": "assets/audio/arborist_tree_book/roshan_arborist_tree_book_try_spots.ogg",
+    "expected": "Find the orange spots.",
+    "recognized": "Find the orange spots.",
+    "method": "faster-whisper small.en CPU int8; not human acceptance"
+  }
+]

@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "date": "2026-08-09",
+  "generator": "built-in OpenAI ImageGen",
+  "generation_mode": "new bitmap generation",
+  "license": "project-owned original",
+  "url": null,
+  "prompt_record": {
+    "path": "assets_src/imagegen/opera_arborist_2026-08-09/PROMPTS.md",
+    "verbatim": false,
+    "reason": "Conversation compaction removed the word-for-word prompt bodies before the durable packet was written. Built-in ImageGen invocation records are the exact source of truth; PROMPTS.md contains faithful NON-VERBATIM semantic records.",
+    "invented_verbatim_claim": false
+  },
+  "generated_sources": {
+    "assets_src/imagegen/opera_arborist_2026-08-09/world_arborist_native.png": {
+      "generation_id": "exec-68d09b98-42c3-4147-8d67-dd24c248d26c",
+      "result_filename": "exec-68d09b98-42c3-4147-8d67-dd24c248d26c.png",
+      "sha256": "e5c824853757a8310f9eb7afe020d8abfb095a91b844f97fb5d32c5bfe9b843f",
+      "dimensions": [1672, 941],
+      "decision": "reference_only_baked_tree"
+    },
+    "assets_src/imagegen/opera_arborist_2026-08-09/stage_arborist_native.png": {
+      "generation_id": "exec-4876b297-3230-45f5-b89b-aa24894f3ab1",
+      "result_filename": "exec-4876b297-3230-45f5-b89b-aa24894f3ab1.png",
+      "sha256": "e074b59d921fb420fed524608abb2cb1c282aacd452810ddf0f46e022cb5f898",
+      "dimensions": [1672, 941],
+      "decision": "reference_only_baked_tree"
+    },
+    "assets_src/imagegen/opera_arborist_2026-08-09/world_arborist_clean_native.png": {
+      "generation_id": "exec-e5a526d0-e248-4575-8962-30a6b90df4e0",
+      "result_filename": "exec-e5a526d0-e248-4575-8962-30a6b90df4e0.png",
+      "sha256": "b895297f47ebe9a2a9657ac69b82df06512f9946fe5c31fbd8da341150d857be",
+      "dimensions": [1672, 941],
+      "decision": "accepted_clean_runtime_source"
+    },
+    "assets_src/imagegen/opera_arborist_2026-08-09/stage_arborist_clean_native.png": {
+      "generation_id": "exec-b92d947b-0fa4-418e-8fba-829e1794f854",
+      "result_filename": "exec-b92d947b-0fa4-418e-8fba-829e1794f854.png",
+      "sha256": "cb3acb580a17d783ae5646ffe30eb7a15047208990195b6e68569b5f9d0b7372",
+      "dimensions": [1672, 941],
+      "decision": "accepted_clean_runtime_source"
+    },
+    "assets_src/imagegen/opera_arborist_2026-08-09/tree_states_native.png": {
+      "generation_id": "exec-2beda1f0-460a-4706-9467-abe5a297e363",
+      "result_filename": "exec-2beda1f0-460a-4706-9467-abe5a297e363.png",
+      "sha256": "c096c24c84c56bcb05126245b16681bf1f23421092a668039b3efef28f4b4206",
+      "dimensions": [1254, 1254],
+      "decision": "accepted_four_state_source"
+    },
+    "assets_src/imagegen/opera_arborist_2026-08-09/tree_intermediate_native.png": {
+      "generation_id": "exec-de894bb7-49e4-4307-85bd-378b287ab49d",
+      "result_filename": "exec-de894bb7-49e4-4307-85bd-378b287ab49d.png",
+      "sha256": "9eb7125385e63af225f1a91c74dbb4abf04b06ac9c958015d7d1d050bf0b8536",
+      "dimensions": [1774, 887],
+      "decision": "accepted_two_state_source"
+    },
+    "assets_src/imagegen/opera_arborist_2026-08-09/roshan_arborist_sheet_a_candidate_01.png": {
+      "generation_id": "exec-a112c65c-6a77-42b0-a5b2-384bd5c6d102",
+      "result_filename": "exec-a112c65c-6a77-42b0-a5b2-384bd5c6d102.png",
+      "sha256": "febfb943d5ae57d3d15ace219ab1174b28595800e0154729f62a80705a1e1ec0",
+      "dimensions": [1254, 1254],
+      "decision": "rows_1_2_4_accepted_row_3_rejected_missing_tail_fin"
+    },
+    "assets_src/imagegen/opera_arborist_2026-08-09/roshan_arborist_work_native.png": {
+      "generation_id": "exec-b4c8951f-6c25-4774-bed9-d290c5a828f8",
+      "result_filename": "exec-b4c8951f-6c25-4774-bed9-d290c5a828f8.png",
+      "sha256": "15a4c0ed3aca7004ff7550bc381485092938f471d537db277af7ce2e92a2d115",
+      "dimensions": [1254, 1254],
+      "decision": "accepted_all_four_work_figures"
+    },
+    "assets_src/imagegen/opera_arborist_2026-08-09/imp_arborist_states_native.png": {
+      "generation_id": "exec-3ce2dadf-7d53-453a-9d97-f871b68c6c54",
+      "result_filename": "exec-3ce2dadf-7d53-453a-9d97-f871b68c6c54.png",
+      "sha256": "4540df60f34152935c1bc6ed3ba551a8da76af1a96fa3351bcdd4e74d5be680b",
+      "dimensions": [1254, 1254],
+      "decision": "accepted_cooperative_states"
+    },
+    "assets_src/imagegen/opera_arborist_2026-08-09/arborist_props_native.png": {
+      "generation_id": "exec-c5957f5a-1f5d-4fde-a36e-1c1d5eca663c",
+      "result_filename": "exec-c5957f5a-1f5d-4fde-a36e-1c1d5eca663c.png",
+      "sha256": "e9b93a5165381a46b5872976db8e619429308ca716736f5d0e15590e9897cfa7",
+      "dimensions": [1254, 1254],
+      "decision": "accepted_all_four_props"
+    }
+  },
+  "source_derivatives": {
+    "assets_src/imagegen/opera_arborist_2026-08-09/world_arborist_master_2048.png": ["ab444df7e15a6275a386b874a9e395f037f8383cd5b9f588da0315faffe49562", [2048, 2048], "world_master_clean_plate"],
+    "assets_src/imagegen/opera_arborist_2026-08-09/stage_arborist_master_2048.png": ["563e47d67403d440b68dc69c714a497fc4a12e054ce4eafc03a4b4fee0e0c67f", [2048, 2048], "stage_master_clean_plate"],
+    "assets_src/imagegen/opera_arborist_2026-08-09/arborist_props_alpha_native.png": ["1cf7d5b120767fba53b258e7b280fb50bc64052c2849d2f98774d0b9f47644b2", [1254, 1254], "standard_helper_review_derivative"],
+    "assets_src/imagegen/opera_arborist_2026-08-09/imp_arborist_states_alpha_native.png": ["0a62067192b44109ae585739828933e061c11f3e3e3f1dfcb78721264109e43e", [1254, 1254], "standard_helper_review_derivative"],
+    "assets_src/imagegen/opera_arborist_2026-08-09/roshan_arborist_sheet_a_candidate_01_alpha.png": ["8c1db69fcc0ceac0247d610c3b82177a379008366ae95402b09d4656c2792877", [1254, 1254], "standard_helper_review_derivative"],
+    "assets_src/imagegen/opera_arborist_2026-08-09/roshan_arborist_work_alpha_native.png": ["2956af7fcce873353794d05529092c108f6c897278747446d7367f28f3bb81dc", [1254, 1254], "standard_helper_review_derivative"],
+    "assets_src/imagegen/opera_arborist_2026-08-09/tree_intermediate_alpha_native.png": ["d86b566e2d3bf9b2e201c96fc9e1e52df142ec11c5c4155f4f786a44b8a7ec09", [1774, 887], "standard_helper_review_derivative"],
+    "assets_src/imagegen/opera_arborist_2026-08-09/tree_states_alpha_native.png": ["2ffd4a8a4e6afea092294fa87a0366af7e40240e86805650063924c907a9be10", [1254, 1254], "standard_helper_review_derivative"],
+    "assets_src/imagegen/opera_arborist_2026-08-09/arborist_props_alpha_connected.png": ["ac16a61c237309a7aa414145a7e8e9129cbbf5059c9b7a79cd4fbd0c65b2a457", [1254, 1254], "accepted_connected_matte"],
+    "assets_src/imagegen/opera_arborist_2026-08-09/imp_arborist_states_alpha_connected.png": ["1b6a5e296595868ba6958c8ec529c26c761f83f6cc0676ea3404f269b9b08ca1", [1254, 1254], "accepted_connected_matte"],
+    "assets_src/imagegen/opera_arborist_2026-08-09/roshan_arborist_sheet_a_candidate_01_alpha_connected.png": ["32576a5b7d84a0d2c2b5626c018419bb1cf03158e2e86e68ce02d3b10960d050", [1254, 1254], "accepted_connected_matte"],
+    "assets_src/imagegen/opera_arborist_2026-08-09/roshan_arborist_work_alpha_connected.png": ["b1c687a1dcb1b70d68e2d115950f8d816e205f808e060178546170982db2c5b0", [1254, 1254], "accepted_connected_matte"],
+    "assets_src/imagegen/opera_arborist_2026-08-09/tree_intermediate_alpha_connected.png": ["63e6d27dbd628e2d2151d56e441e8bc6a2f6f1c5d482e9107f834118b6b1e4df", [1774, 887], "accepted_connected_plus_strict_tree_key_matte"],
+    "assets_src/imagegen/opera_arborist_2026-08-09/tree_states_alpha_connected.png": ["5995f63401d423203a95303664bc867b85e288d2830fbe643583f94369e4d60e", [1254, 1254], "accepted_connected_plus_strict_tree_key_matte"],
+    "assets_src/imagegen/opera_arborist_2026-08-09/roshan_arborist_sheet_a_alpha_native.png": ["77ebc92e3ff2a7e3a1ebff8582a3cc47c70c56cf315ddcd7be6b9596ec2d06a6", [1254, 1254], "accepted_16_frame_alpha_assembly"],
+    "assets_src/imagegen/opera_arborist_2026-08-09/roshan_arborist_sheet_a_native.png": ["b622aede92e5d28b5d89b177370e140d4f59cd3eb508366d0911849e27b688d7", [1254, 1254], "accepted_16_frame_chroma_review_assembly"]
+  },
+  "runtime_outputs": {
+    "assets/opera/worlds/backdrops/world_arborist.png": ["940f71e7487dfc40661fd29d6103a0102147d05239811e10ca90d9d5b440dbc5", [1024, 576], "world_fallback"],
+    "assets/opera/worlds/backdrops/world_arborist_c0r0.png": ["505cc96e685d188fee740b1f34278836dc27060ede8eef6134a62c7ff44d500f", [1024, 1024], "world_tile_0_0"],
+    "assets/opera/worlds/backdrops/world_arborist_c1r0.png": ["3df696fa27254f5f069408f0deaebbabd62c08145f6236c4c51776635f5b88e0", [1024, 1024], "world_tile_1_0"],
+    "assets/opera/worlds/backdrops/world_arborist_c0r1.png": ["9ebb6551f1f0710cc9675bfe5dcaca8ed94ef9250798dd91356dcfca6443b203", [1024, 1024], "world_tile_0_1"],
+    "assets/opera/worlds/backdrops/world_arborist_c1r1.png": ["f4fd03f82fc62a05ae3a7b52783fdd48af0cd0db408bdd0ec016a590f40e404e", [1024, 1024], "world_tile_1_1"],
+    "assets/opera/worlds/backdrops/stage_arborist.png": ["7ee1075d40b4a8a98c94beca1469a71ab4137a414c35b97d37f9b4e6d060b830", [1024, 576], "stage_fallback"],
+    "assets/opera/worlds/backdrops/stage_arborist_c0r0.png": ["3c0149827d8a1d0db8f40b4d197928389bdc4898c078e16d49a77c80f4d724f1", [1024, 1024], "stage_tile_0_0"],
+    "assets/opera/worlds/backdrops/stage_arborist_c1r0.png": ["baf6aa9a867866bcb252487ac915e95a1f27a1f4ebf65662425ce223dabb11ce", [1024, 1024], "stage_tile_1_0"],
+    "assets/opera/worlds/backdrops/stage_arborist_c0r1.png": ["dfb09b05241d7780453eb5e373fe0235dfa76b938a18957117a1f27c32813cc3", [1024, 1024], "stage_tile_0_1"],
+    "assets/opera/worlds/backdrops/stage_arborist_c1r1.png": ["50ef7c020862fc29091d5025bc67da99ec0bcff0c525b51f62c7a9bae31ae766", [1024, 1024], "stage_tile_1_1"],
+    "assets/opera/worlds/arborist/tree_needs_care.png": ["23875ac730ec9f1e9e53d7482857bfe8a227238bc9b75d6465b8a845176fdcfc", [768, 768], "hero_tree_state"],
+    "assets/opera/worlds/arborist/tree_checked.png": ["c5b34f754b4fe1aa18e428ce1833ce5d98ac48e520506d4f9d220c402c262c84", [768, 768], "hero_tree_state"],
+    "assets/opera/worlds/arborist/tree_pruned.png": ["2fd08ffb0a8616f887d8356c9f4f7acca7323061b310f8d4a41579d0d07068ab", [768, 768], "hero_tree_state"],
+    "assets/opera/worlds/arborist/tree_watered.png": ["ee3a58b74d7aa963f376f28c3e375c0c83f782519058cb8cc8ea89cd666921aa", [768, 768], "hero_tree_state"],
+    "assets/opera/worlds/arborist/tree_treated.png": ["f523728effe45d30d4a712779997c8c3249141aa84987c1e885f3bb20d278cd8", [768, 768], "hero_tree_state_wrapped_semantic"],
+    "assets/opera/worlds/arborist/tree_bloom.png": ["ae4e6cbd711f4094b0abd65ae187d1c6bc1b46cc3734aa73a5223012627c3058", [768, 768], "hero_tree_state"],
+    "assets/opera/worlds/arborist/imp_arborist_ready.png": ["5eefc2bd01896c7889bc96349d7fd8ca5a4b808c0c27d91dce8c04a68155399e", [512, 512], "cooperative_imp_state"],
+    "assets/opera/worlds/arborist/imp_arborist_catch.png": ["b4312b0febaa6d64dcef8d65b656bb2921396f3532474d2aa178368a40e31322", [512, 512], "cooperative_imp_state"],
+    "assets/opera/worlds/arborist/imp_arborist_water.png": ["867b7af99a9d87cf1932fdf86fc6351608fef8e53bfc0fe4862e05fa71ca7834", [512, 512], "cooperative_imp_state"],
+    "assets/opera/worlds/arborist/imp_arborist_cheer.png": ["7506c7e536ba2d7fbb5ef4508a383d07efe8d95ee1a2968f2fded114cfa4d6cc", [512, 512], "cooperative_imp_state"],
+    "assets/opera/worlds/actors/rival_arborist.png": ["5eefc2bd01896c7889bc96349d7fd8ca5a4b808c0c27d91dce8c04a68155399e", [512, 512], "cooperative_partner_alias"],
+    "assets/opera/worlds/arborist/arborist_pruner.png": ["b1b544252bbe2e58e4d6ae347af459a6031b8f6af1d1d4ef54c16f9a5e3ed063", [512, 512], "care_tool"],
+    "assets/opera/worlds/arborist/arborist_water_pearl.png": ["5a923d459b18b997082f25b86f13a5ebdd8cb1011230cf6835de20c64c8aa611", [512, 512], "care_tool"],
+    "assets/opera/worlds/arborist/arborist_wrap.png": ["a4788134f260fdb8f89419804a3ce041a0ce4b93b39c5afed4a92dcdea86be2f", [512, 512], "care_tool"],
+    "assets/opera/worlds/ui/crests/opera_crest_arborist.png": ["72f052eb6fc0bd44997346b7f5c0e03f058b670bac739633c648a302b185bd98", [256, 256], "career_crest"],
+    "assets/opera/worlds/props/goal_arborist.png": ["88797575fbc6d9e38de7908e0953ed60c5357c8dfecd99896852e267a4518c4d", [512, 512], "goal_crest"],
+    "assets/opera/worlds/actors/animation/roshan_arborist_sheet_a.png": ["abdeb5ba2fcae8da6f853942892131f514df37c0a65c9facc2ec730cb12e4cec", [1024, 1024], "roshan_4x4_runtime_atlas"],
+    "assets/opera/worlds/actors/roshan_arborist.png": ["ec8e706316125aed08be497d4d82ca3e075e90eeb41636e283292c4892a1d3ee", [512, 512], "roshan_idle_card"]
+  },
+  "operations": {
+    "backgrounds": "Preserve the untouched 1672x941 clean generation separately; center it at native scale in the active band of a 2048x2048 whole-frame blurred appearance-only continuation with a uniform 24-pixel outer-edge feather; produce a 1024x576 fallback; slice the master as four exact non-overlapping 1024x1024 cards.",
+    "standard_helper": "Installed remove_chroma_key.py first pass using corner-derived key, soft matte, spill cleanup, one-pixel edge contraction, and one-pixel feather; preserved as review evidence but rejected as final alpha authority where broad color classification removed valid subject interiors.",
+    "accepted_matte": "Remove the edge-connected chroma field; borrow the standard helper only on a narrow exterior despilled shell. On tree boards only, additionally clear pixels within strict RGB max-channel distance 96 of the sampled magenta key and reassert that rule after helper-edge borrowing, removing enclosed key islands without broad color dominance.",
+    "cells": "Crop whole source cells, find authored alpha bounds, aspect-fit with documented padding by Lanczos, retain complete subject silhouette and bottom anchor; no repaint, isolated warp, or subject repair.",
+    "roshan_composite": "Use candidate rows 1, 2, and 4; replace all four row-3 cells with complete full-figure cells from the accepted 2x2 work generation; pack with the existing clip-safe Opera atlas tool."
+  },
+  "build_tools": {
+    "tools/prepare_opera_arborist_art.py": "43ffaf0a224b4d7e2ba498ff56984c8e14e7b77a0b293918a099d86cf3836f1d",
+    "tools/prepare_opera_roshan_animation.py": "0121bb9b8b3edc1a27281e87c91f602b417e6fb58bbbdf9e545296200108c6f4"
+  },
+  "reports": {
+    "assets_src/imagegen/opera_arborist_2026-08-09/DERIVATION_REPORT.json": "3cf783f7b38de4b58ac41f53287dab3d8fb9dabbec791b17d33d864ac83ddca7",
+    "assets_src/imagegen/opera_arborist_2026-08-09/roshan_arborist_sheet_a_pack_report.json": "cbe9f447fa736c472d3cf0d03aac95b4ab8795bca63fee1d61723a42002f32dd"
+  },
+  "text_hash_method": "SHA-256 after CRLF and CR are normalized to LF; stable across Git Windows/Linux checkouts",
+  "review_path": "assets_src/imagegen/opera_arborist_2026-08-09/REVIEW.json",
+  "protected_originals_modified": false,
+  "protected_originals_used_as_delivery_pixels": false,
+  "external_assets": []
+}
