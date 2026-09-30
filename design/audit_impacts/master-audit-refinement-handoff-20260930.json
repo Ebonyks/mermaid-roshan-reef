@@ -50,8 +50,8 @@
     },
     {
       "command": "Anonymous fetch of MANIFEST.json and every listed file from raw.githubusercontent.com at the pushed commit, SHA-256 compared with the manifest",
-      "result": "PENDING",
-      "evidence": "Recorded after publication."
+      "result": "PASS",
+      "evidence": "Revision 1 published at commit 0bbf8b7c548efcc3dcfe14089aeac9e3e3025c47 on branch claude/master-audit-refinement-handoff-20260930 (https://github.com/Ebonyks/mermaid-roshan-reef/tree/0bbf8b7c548efcc3dcfe14089aeac9e3e3025c47/docs/handoffs/codex_master_audit_refinement_2026-09-30). Anonymous HTTPS fetch from raw.githubusercontent.com with no token at 2026-09-30T16:41:43Z: MANIFEST.json HTTP 200, 3,223 bytes, SHA-256 8671145cf61e2e26681495c01339bf0b9e8fb2adc14653e3032f273a7eead463; all 13 listed files HTTP 200 with matching byte counts and SHA-256."
     },
     {
       "command": "GitHub Probe Suite at the branch head",
