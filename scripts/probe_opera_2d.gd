@@ -198,6 +198,8 @@ func _init() -> void:
 	main.g["phase"] = "hall"
 	main.g["t"] = 0.0
 	main.opera_stars = 0
+	var tree_book_checks := preload("res://scripts/tree_book_test_checks.gd").new()
+	_check("Tree Book optional practice input and lifecycle", await tree_book_checks.run(main, main))
 	# Build the shipping room-route overlay on an isolated 1280x720 Castle
 	# stage. probe_opera.gd separately drives these same controls through the
 	# complete Castle and ReefMain lifecycle.

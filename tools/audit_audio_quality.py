@@ -1079,6 +1079,7 @@ def category(rel: str) -> str:
     if rel.startswith("assets/audio/voices/") \
             or rel.startswith("assets/audio/teacher/") \
             or rel.startswith("assets/audio/chapter2_lawn/") \
+            or rel.startswith("assets/audio/arborist_tree_book/") \
             or rel == "assets/audio/voice_yay.mp3":
         return "voice"
     if rel.startswith("assets/audio/music/"):

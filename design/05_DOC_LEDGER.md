@@ -823,3 +823,5 @@ Kept as-is; noted so a future edit updates every copy.
 | `assets_src/handoffs/arborist_tree_book_20260929/README.md` | 🔵 | `SUPPORTING_CURRENT`; public art packet entry and selected review images; model-tested layout study, browser and production review pending. |
 | `assets_src/handoffs/arborist_tree_book_20260929/recovered/assets_src/imagegen/opera_arborist_2026-08-09/PROMPTS.md` | ⚪ | `HISTORICAL_ARCHIVE`; byte-preserved 2026-08-09 provenance/review record; no current art, runtime or owner acceptance. |
 | `assets_src/handoffs/arborist_tree_book_20260929/recovered/assets_src/imagegen/opera_arborist_2026-08-09/REVIEW.md` | ⚪ | `HISTORICAL_ARCHIVE`; byte-preserved 2026-08-09 provenance/review record; no current art, runtime or owner acceptance. |
+
+| `design/OPERA_TREE_BOOK_TEST_2026-09-30.md` | 🔵 | `SUPPORTING_CURRENT`; scoped single-patient Opera House practice implementation and review evidence; no career/star or Day Two integration acceptance. |

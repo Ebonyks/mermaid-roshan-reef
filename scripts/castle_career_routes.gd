@@ -139,6 +139,7 @@ func sync() -> void:
 
 
 func clear() -> void:
+	close_opera_venue()
 	_stop_animator()
 	buttons.clear()
 	opera_venue = null
@@ -191,6 +192,7 @@ func _attach(stage: Control) -> void:
 
 
 func _rebuild_room() -> void:
+	close_opera_venue()
 	_stop_animator()
 	buttons.clear()
 	opera_venue = null
