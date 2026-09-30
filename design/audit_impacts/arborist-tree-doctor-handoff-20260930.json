@@ -1,0 +1,75 @@
+{
+  "id": "arborist-tree-doctor-handoff-20260930",
+  "scope": "Owner direction 2026-09-30: two Day Two jobs in the Royal Kitchen do not make sense, and moving the Candy Maker to the Cloud Movie Lounge was rejected, so that attempt (2a578259) is reverted on this branch. The owner instead directs an Arborist job: a matching game in which Arborist Roshan's Tree Book picks the tree, its sickness and the best medicine with strong visual cues, delivered as an Opera House training level and a Sky Lagoon party-tree event that replaces the Candy Maker's Day Two slot. This change adds only the implementation handoff and its ledger row; no runtime, save, art or authority document changes. The revert restores the listed scripts and documents byte-for-byte to dev e7899cc0; they appear in a push-range diff from 2a578259 only. The earlier record chapter2-one-room-per-job-20260930.json stays unchanged as history of the reverted attempt.",
+  "baseline": "e7899cc095fc326ff007e30226ad7bafea8f1634",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-PLAN-01",
+    "DL-PLAN-02",
+    "DL-PLAN-03",
+    "DL-PLAN-04",
+    "DL-PLAN-05",
+    "DL-AGE-01",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-05",
+    "DL-AGE-08",
+    "DL-INT-02",
+    "DL-INT-05",
+    "DL-INT-06",
+    "DL-INT-07",
+    "DL-INT-12",
+    "DL-UI-03",
+    "DL-SND-01",
+    "DL-SAVE-01",
+    "DL-CODE-01"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-OPERA-012"
+  ],
+  "finding_scope": "Related planning context only; no finding lifecycle changes. The handoff requires Roshan to travel to the tree and perform the help action herself (MA-PLAY-004), and its Opera Hall home would change the Castle-room career map that MA-OPERA-012 tracks, once implemented.",
+  "files": [
+    "design/ARBORIST_TREE_DOCTOR_HANDOFF_2026-09-30.md",
+    "design/05_DOC_LEDGER.md",
+    "scripts/chapter_two_party_plan.gd",
+    "scripts/castle_career_routes.gd",
+    "scripts/probe_chapter2.gd",
+    "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/01_GAME_DESIGN.md",
+    "design/10_CHAPTER_REFERENCE_LIBRARY.md",
+    "audit/MASTER_AUDIT_2026-08-09.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH RESULT ALL OK on the candidate working tree before commit."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Change coverage against the dev merge-base on the candidate working tree before commit; the revert of 2a578259 nets to no change against dev."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "Audit tool unit tests on the candidate working tree before commit."
+    },
+    {
+      "command": "GitHub Probe suite on the pushed branch head",
+      "result": "PENDING",
+      "evidence": "Documentation-only change; the game tree is identical to dev e7899cc0, whose run 36332046705 passed."
+    },
+    {
+      "command": "Arborist implementation evidence",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Nothing is implemented by this change; the handoff lists the required probes, captures and device checks."
+    }
+  ],
+  "acceptance_gaps": "The Arborist art must be committed from the owner's local codex/arborist-tree-doctor worktree before implementation; it is not in any branch or the connected Drive. Owner answers are pending on the three default choices at the end of the handoff. Implementation, voice lines, probes, captures, device performance, child comprehension and owner review are all outstanding.",
+  "source_recheck": "Read the master audit task index, the chapter guide delegation table, the production spine, the cake progression contract, the lawn finale draft, DL-AGE, DL-INT, DL-UI, DL-SND and DL-SAVE rules, MA-PLAY-004, MA-OPERA-012, the document ledger, and the Teacher matching engine (scripts/teacher_lesson_plan.gd, scripts/opera_teacher_surface.gd) proposed for reuse."
+}
