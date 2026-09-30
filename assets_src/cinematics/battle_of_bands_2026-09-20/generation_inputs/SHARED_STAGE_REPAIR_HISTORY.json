@@ -1,0 +1,85 @@
+{
+  "scope": "Full-frame candidate repairs; no runtime or accepted delivery pixels changed",
+  "prior_candidates": [
+    {
+      "scene": 6,
+      "id": "BAND-06",
+      "path": "frames/BAND-06/candidate.png",
+      "sha256": "16fddf193e75e1067772536a674ec95f77fe1c22341cd89b0cd5bc1fa92b0667",
+      "native_dimensions": [
+        1672,
+        941
+      ],
+      "prompt_path": "frames/BAND-06/GENERATION_PROMPT.txt",
+      "prompt_sha256": "8ce0dc3bc742b1b9db9a7f2374e45f09ff2487ddc929d1c679fb0bc85a2925d0",
+      "method": "Codex built-in imagegen complete flattened full-frame generation",
+      "declared_state": "opening action pose; static scene design, not delivered timeline frame",
+      "human_identity_topology_style_review": "PENDING",
+      "accepted_neighboring_frames": [],
+      "timeline_frame_index": null,
+      "delivery_pixels": false,
+      "position_guide": null,
+      "references": [
+        {
+          "source_path": "assets/prototypes/bands/roshan_drums.png",
+          "sha256": "8c053d0cff47f04f3297ca6c48016fb74f24bfcb862f8c2cedeb3fd980f1e709",
+          "role": "generation_input_only; not an accepted neighboring delivery frame"
+        },
+        {
+          "source_path": "assets/prototypes/bands/stage_platform.png",
+          "sha256": "24e03b770e6b2dc4512a723b3cf6627cbb57d5ae5e38e94846dc483ee8b4f367",
+          "role": "generation_input_only; not an accepted neighboring delivery frame"
+        },
+        {
+          "source_path": "assets_src/cinematics/battle_of_bands_2026-09-20/references/sky_lagoon_middle_literal.png",
+          "sha256": "f96541ad1c9efafc4930449e989701c66c4a097045865ac79614160232fef2a0",
+          "role": "generation_input_only; not an accepted neighboring delivery frame"
+        }
+      ],
+      "native_modified": false,
+      "preserved_path": "generation_inputs/BAND-06_pre_shared_stage_closeup.png",
+      "preserved_prompt_path": "generation_inputs/BAND-06_pre_shared_stage_closeup_prompt.txt",
+      "superseded_reason": "Solo-platform framing; replaced with a close-up on the shared stage."
+    },
+    {
+      "scene": 8,
+      "id": "BAND-08",
+      "path": "frames/BAND-08/candidate.png",
+      "sha256": "f467539eee88ceec6a1c1e820675d9bc82c7c228055f990a45b6ba52afe7dcfc",
+      "native_dimensions": [
+        1672,
+        941
+      ],
+      "prompt_path": "frames/BAND-08/GENERATION_PROMPT.txt",
+      "prompt_sha256": "401a914c5046a32a621f43ff01c8e0d4e21386c0680c7d673edcbff7b63cfa62",
+      "method": "Codex built-in imagegen complete flattened full-frame generation",
+      "declared_state": "opening action pose; static scene design, not delivered timeline frame",
+      "human_identity_topology_style_review": "PENDING",
+      "accepted_neighboring_frames": [],
+      "timeline_frame_index": null,
+      "delivery_pixels": false,
+      "position_guide": null,
+      "references": [
+        {
+          "source_path": "assets/prototypes/bands/prince_drums.png",
+          "sha256": "bdba7c762c44cfa41d3be560255b75562385715f2014ad095ae526f708b0177e",
+          "role": "generation_input_only; not an accepted neighboring delivery frame"
+        },
+        {
+          "source_path": "assets/prototypes/bands/stage_platform.png",
+          "sha256": "24e03b770e6b2dc4512a723b3cf6627cbb57d5ae5e38e94846dc483ee8b4f367",
+          "role": "generation_input_only; not an accepted neighboring delivery frame"
+        },
+        {
+          "source_path": "assets_src/cinematics/battle_of_bands_2026-09-20/references/sky_lagoon_middle_literal.png",
+          "sha256": "f96541ad1c9efafc4930449e989701c66c4a097045865ac79614160232fef2a0",
+          "role": "generation_input_only; not an accepted neighboring delivery frame"
+        }
+      ],
+      "native_modified": false,
+      "preserved_path": "generation_inputs/BAND-08_pre_shared_stage_closeup.png",
+      "preserved_prompt_path": "generation_inputs/BAND-08_pre_shared_stage_closeup_prompt.txt",
+      "superseded_reason": "Solo-platform framing; replaced with a close-up on the shared stage."
+    }
+  ]
+}

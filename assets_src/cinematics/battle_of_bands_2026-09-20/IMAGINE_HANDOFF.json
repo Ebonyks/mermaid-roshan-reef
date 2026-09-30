@@ -1,0 +1,38 @@
+{
+  "schema": "imagine-handoff-v1",
+  "movie_id": "battle_of_bands",
+  "archive_status": "incomplete",
+  "archive_note": "Content candidate; completion evidence is in the subsequent immutable remote receipt.",
+  "generation_status": "blocked",
+  "delivery_status": "not_accepted",
+  "shot_packets": [],
+  "draft_shot_packets": [
+    "shots/BAND-01/SHOT_PACKET.json",
+    "shots/BAND-02A/SHOT_PACKET.json",
+    "shots/BAND-02B/SHOT_PACKET.json",
+    "shots/BAND-03/SHOT_PACKET.json",
+    "shots/BAND-04/SHOT_PACKET.json",
+    "shots/BAND-05/SHOT_PACKET.json",
+    "shots/BAND-06A/SHOT_PACKET.json",
+    "shots/BAND-06B/SHOT_PACKET.json",
+    "shots/BAND-07A/SHOT_PACKET.json",
+    "shots/BAND-07B/SHOT_PACKET.json",
+    "shots/BAND-08/SHOT_PACKET.json",
+    "shots/BAND-09A/SHOT_PACKET.json",
+    "shots/BAND-09B/SHOT_PACKET.json",
+    "shots/BAND-09C/SHOT_PACKET.json",
+    "shots/BAND-10/SHOT_PACKET.json",
+    "shots/BAND-11/SHOT_PACKET.json",
+    "shots/BAND-12/SHOT_PACKET.json",
+    "shots/BAND-13/SHOT_PACKET.json",
+    "shots/BAND-14/SHOT_PACKET.json"
+  ],
+  "shot_board": "SHOT_BOARD.html",
+  "scene_count": 14,
+  "job_count": 19,
+  "blocking_findings": [
+    "Owner first-frame approval and continuity/topology review pending",
+    "Five continuation jobs need accepted predecessor endpoints",
+    "Remote receipt required for archive completion"
+  ]
+}

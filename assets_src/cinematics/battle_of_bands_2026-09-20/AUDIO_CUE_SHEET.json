@@ -1,0 +1,37 @@
+{
+  "recording_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/music-iko-iko-v89-20260920/iko-iko-v89.wav",
+  "recording_sha256": "5c0546ae0752cda0a3aa07b434e29f528c4a9a5d348dc09e99841efc706c3f42",
+  "duration_seconds": 90.9998866213152,
+  "local_project_sha256": "1828f8798eeae100395fb244f38012bc2e410f9dda53816488c04dbc4a314b77",
+  "evidence_method": "Read-only local v89 RPP regions and Grind vocal layer item positions; mastering chain trim starts at 0 with latency compensation. No cloud listening; no RPP/source changes. Final region marker is stale at84.31; actual final item begins83.059965.",
+  "status": "ARRANGEMENT_TIMES_VERIFIED_LOCAL; editorial attribution awaits owner listening review",
+  "outburst_cues": [
+    {
+      "start_seconds": 25.303105,
+      "end_seconds": 31.061953,
+      "focus": "king"
+    },
+    {
+      "start_seconds": 48.268411,
+      "end_seconds": 54.027259,
+      "focus": "prince"
+    },
+    {
+      "start_seconds": 83.059965,
+      "end_seconds": 88.359965,
+      "focus": "both"
+    }
+  ],
+  "runtime_derivative": {
+    "path": "assets/prototypes/bands/iko_iko_v89.ogg",
+    "sha256": "e2d496da945ced316d4cd630a6f7c23b0fe34cee310df3a47ef0f0022b9ab227",
+    "method": "FFmpeg 8.1.2 libvorbis q5 48kHz stereo, gain -4.5dB, LOOP=false; one-shot story performance, no edit/retiming of the song"
+  },
+  "source_privacy": "Only published master used; original takes and muted backups stay local and are not in packet.",
+  "board_audio": {
+    "path": "audio/iko_iko_v89.mp3",
+    "source_url": "https://github.com/Ebonyks/mermaid-roshan-reef/releases/download/music-iko-iko-v89-20260920/iko-iko-v89.mp3",
+    "sha256": "e7aa99c05fb0dce4411bea954cd910ab6954c616022dc976e82ac963966fbab6",
+    "modification": "none; byte-identical published master for browser playback"
+  }
+}

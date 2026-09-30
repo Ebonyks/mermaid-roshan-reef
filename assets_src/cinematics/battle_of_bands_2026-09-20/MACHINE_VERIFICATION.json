@@ -1,0 +1,364 @@
+{
+  "current_required_gate_result": "PASS after documented isolated retry",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "baseline": "5920c673305989ee29d91876480ff445dba9fc8b",
+  "suite_command": "GODOT=Godot-4.7.2 bash scripts/ci.sh",
+  "suite_sha256": "96aba61e2d51296c9296f7ab63735e5df515756337ca21ed067feef3c69f466d",
+  "original_suite_exit_code": 1,
+  "original_suite_log_sha256": "83daae831af4683ddafdd5505ef3b26b9b9e99806e2554015df4e82d12d2226a",
+  "original_probe_results": [
+    {
+      "probe": "probe_reef_districts",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_ocean_kingdoms",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_audit",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_passive",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_living_world",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_load",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_rank",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_save_recovery",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_galaxy_state",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_collection",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_mg2d",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_fetch",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_melody",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_dolls",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_seek",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_audio",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_dance",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_l2",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_l2_living_cards",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_sky_lagoon_animals",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_l2_reenter",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_crown",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_throne",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_northern",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_human_art_audit",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_train",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_verbs",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_carry",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_grotto",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_flow",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_skins",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_touch_router",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_touch_stress",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_interaction",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_touch_adversary",
+      "exit_code": 127
+    },
+    {
+      "probe": "probe_touch_look",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_ui_system",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_voice",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_day_one_voice",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_day_one_d8_revisits",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_day_one_handoffs",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_kart_feel",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_combat",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_dust_bunny",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_dust_bunny_boss",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_dust_boss",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_hit",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_partner",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_combat_tutorial",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_imp_ai",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_mic",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_stuffie",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_dungeon",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_ember",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_opera",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_opera_2d",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_opera_diegetic_paths",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_opera_detective",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_opera_pipe",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_opera_nursery",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_opera_gesture_quality",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_kitchen_props",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_bathroom_props",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_castle_door_language",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_bathroom_integration",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_day_one_bathroom_bunny",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_day_one_bathroom_cleanup",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_day_one_bathroom_movie_handoff",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_day_one_director",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_day_one_integration",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_day_one_pool_cleanup",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_day_one_art_attack_state",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_day_one_castle_dressing",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_start_menu_routing",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_castle_pool_life_2d",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_castle_pearl_art",
+      "exit_code": 127
+    },
+    {
+      "probe": "probe_fairy_art",
+      "exit_code": 0
+    },
+    {
+      "probe": "probe_props",
+      "exit_code": 0
+    }
+  ],
+  "retry_history": [
+    {
+      "probe": "probe_touch_adversary",
+      "tool_session_exit_code": -1,
+      "completed_trials": 23,
+      "final_verdict_present": false,
+      "log_sha256": "a17914e40350a50ee0f64b544f0c1dd8ef56e6818910ad009c23a1bc2a4e1359"
+    },
+    {
+      "probe": "probe_touch_adversary",
+      "native_process_exit_code": -1,
+      "completed_trials": 17,
+      "final_verdict_present": false,
+      "log_sha256": "ec8b940aab4265094aa87ea6e78a2425108eba00d5422014cc02200bd0c8aaf4"
+    },
+    {
+      "probe": "probe_touch_adversary",
+      "exit_code": 0,
+      "completed_trials": 25,
+      "final_verdict": "TOUCH_ADVERSARY|ALL 25 SCENARIO RUNS CLEAR",
+      "command": "Godot-4.7.2 godot.exe --headless --path . -s scripts/probe_touch_adversary.gd -- --touch --hybrid-touch-test (direct engine; hidden Start-Process, isolated APPDATA)",
+      "log_sha256": "cd5cc317d8d35d65eb3c9990ac73eecf282c44eea8d0c87211b6b37a00cc06f8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "probe": "probe_castle_pearl_art",
+      "exit_code": 0,
+      "final_verdict": "CASTLE2D|done failures=0",
+      "command": "Godot-4.7.2 godot.exe --headless --path . -s scripts/probe_castle_pearl_art.gd -- --touch --classic-touch-test (direct engine; hidden Start-Process, isolated APPDATA)",
+      "log_sha256": "b4e6800c617aed1fe6d22da3ee05cc1c3728d71d8955465e9eef1a1c45c8570c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "trusted_probe_count": 78,
+  "audio_quality": "813/813 PASS",
+  "candidate_code": {
+    "scripts/battle_of_bands_prototype.gd": "55cc30f7ac6be24a1bd521ad3b4e56b885d38bd72d2c80f90651ac184c0acbdf",
+    "scripts/probe_battle_of_bands.gd": "0bf05d535eb8243d0a5347689cb6da7742da69a88b0ea3ea8d3e703806b5210b",
+    "scenes/battle_of_bands_prototype.tscn": "e084c8a6d0e98d24f95ea0f2c34254af6ebd9d27d412417739ec622e522a4118"
+  },
+  "scope": "All static/import checks and 76 trusted probes passed in the full run. Touch-adversary console-launched processes ended without final verdicts after 11, 23 and 17 clear trials, and castle-pearl-art also exited before its verdict; cause unconfirmed. Both unchanged probes passed with exit 0 when the same exact engine was launched directly, including all 25 touch scenarios. No probe, threshold or runtime implementation was changed to obtain these results. Runtime code/assets stayed unchanged through validation. Non-runtime scene repairs and packet metadata were rechecked by final archive/document gates. No device, child, owner or cinematic acceptance."
+}

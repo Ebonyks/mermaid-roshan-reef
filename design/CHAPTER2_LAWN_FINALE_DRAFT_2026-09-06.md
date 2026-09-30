@@ -11,6 +11,19 @@ and additive save contract in `CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30
 remain in force. Rocket ignition is retained provisionally pending the owner's
 answer. No Chapter 3 destination is changed by this draft.
 
+## September 20 contest revision
+
+The owner now selects a battle of the bands to the recorded Iko Iko: Roshan
+on drums, Daddy Mermaid on ukulele, Baby Eagle on bass, versus the Ember Prince
+on an absurdly elaborate metal drum kit and the Ember King on lead guitar.
+The contest now occupies the middle Sky Lagoon meadow where the playground
+equipment stood, using the literal existing background and a shared stage.
+The later [prototype and refinement commission](BATTLE_OF_BANDS_2026-09-20.md)
+supersedes the stomp/dodge story direction below. The old live runtime remains
+unconverted. Preserve the successful child performance followed by the King
+cheating and taking the candle, and the Prince's conflicted departure. The
+trial Ember family drum emblem is a candidate, not established canon.
+
 ## The chapter's emotional promise
 
 Roshan makes a birthday party with her friends. When someone stronger tries to
