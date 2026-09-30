@@ -17,5 +17,7 @@
   "diff_check": "PASS after removal of report/tool trailing blank lines; initial check failure retained here",
   "initial_diff_check": "FAIL: one new blank line at EOF in REPORT.md and builder; formatting repaired, source pixels untouched",
   "gdscript_gates": "NOT_APPLICABLE: no authored GDScript changes; full remote analyzer/probes still required for integration",
-  "python_syntax": "PASS: ast.parse on committed review builder"
+  "python_syntax": "PASS: ast.parse on committed review builder",
+  "reconciled_integration_revision": "7f068cb80766edd52a110cc1cb3958158f829822",
+  "incoming_change_scope": "Inherited objective-speech queue/zero-delay fix and probe evidence only. No change to the eight source images or their draw geometry; ratings remain bound to exact reviewed pixels."
 }

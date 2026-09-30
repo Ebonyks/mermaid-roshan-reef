@@ -2739,10 +2739,14 @@ func _show_phase_prompt(phase: Dictionary) -> void:
 		surface.set_meta("chapter2_voice_recording_gap", is_recording_gap)
 		surface.set_meta("chapter2_voice_gap_phase", String(
 			phase.get("name", "")) if is_recording_gap else "")
+	# A phase owns its current instruction. Completed or explicitly repeated
+	# work supersedes older route speech and queued dialogue on every career,
+	# including the legacy Racer phases outside the Chapter Two adapter.
+	m.clear_dialogue()
 	m.show_msg(
 		"" if using_chapter_two_phases else String(phase.get("speaker", "Roshan")),
 		String(phase.get("voice", "Follow the golden sparkle!")),
-		voice_key)
+		voice_key, 0.0)
 	if using_chapter_two_phases:
 		m._audio_ref().chapter_two_prompt(voice_key)
 
