@@ -2,6 +2,9 @@
 
 ## 0. Planning entry
 
+Arborist art recovery supplement (2026-09-29): [Tree Book handoff](../design/ARBORIST_TREE_BOOK_HANDOFF_2026-09-29.md) archives the previously uncommitted art independently of the obsolete prototype. Historical worktree findings below remain unchanged for runtime; no career implementation or finding closure is inferred.
+
+
 Planning guidance updated 2026-09-05 against integration source `775ceee1`.
 This is a document/selected-fact review, not a new whole-game runtime audit.
 The dated evidence below retains its original commit and acceptance limits;

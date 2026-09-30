@@ -1,0 +1,121 @@
+{
+  "schema": 1,
+  "review_date": "2026-08-09",
+  "scope": "Original generated sources at native resolution and all current runtime derivatives; technical/human task review, not owner 5-of-5 approval.",
+  "overall_decision": "accepted_with_release_gates",
+  "release_gates": [
+    "owner on-device visual acceptance under DL-VIS-07",
+    "exact protected-family voice recordings for op_arborist_inspect, op_arborist_prune, op_arborist_roots, op_arborist_wrap, and op_arborist_bloom",
+    "full CI and release evidence at the exact integration commit"
+  ],
+  "backgrounds": {
+    "direction_keys": {
+      "world_arborist_native.png": "reference_only_baked_tree",
+      "stage_arborist_native.png": "reference_only_baked_tree"
+    },
+    "accepted_clean_sources": [
+      "world_arborist_clean_native.png",
+      "stage_arborist_clean_native.png"
+    ],
+    "human_review": {
+      "hero_tree_absent_from_clean_bed": true,
+      "no_substitute_tree_in_clean_bed": true,
+      "composition_continuity": true,
+      "quiet_play_band": true,
+      "no_required_text": true,
+      "storybook_style": true
+    }
+  },
+  "hero_tree": {
+    "decision": "accepted",
+    "states": [
+      "needs_care",
+      "checked",
+      "pruned",
+      "watered",
+      "wrapped",
+      "bloom"
+    ],
+    "human_review": {
+      "one_coherent_tree_identity": true,
+      "complete_silhouette": true,
+      "stable_trunk_roots_and_heart": true,
+      "stable_view_scale_and_bottom_anchor": true,
+      "ordered_semantic_change": true,
+      "no_neighbor_bleed_or_crop": true
+    }
+  },
+  "roshan": {
+    "decision": "accepted_composite",
+    "accepted_generation": "exec-a112c65c-6a77-42b0-a5b2-384bd5c6d102 rows 1,2,4 + exec-b4c8951f-6c25-4774-bed9-d290c5a828f8 row 3",
+    "rows": [
+      "idle",
+      "travel",
+      "work",
+      "cheer"
+    ],
+    "human_review": {
+      "identity": true,
+      "rainbow_forelock": true,
+      "costume_continuity": true,
+      "one_mermaid_tail": true,
+      "complete_tail_fin_all_16_cells": true,
+      "no_human_legs": true,
+      "props_attached": true,
+      "no_neighbor_bleed_or_crop": true
+    },
+    "rejected_predecessors": [
+      {
+        "source": "roshan_arborist_sheet_a_candidate_01.png",
+        "generation": "exec-a112c65c-6a77-42b0-a5b2-384bd5c6d102",
+        "cells": "row 3, all four",
+        "defect": "complete tail fin missing",
+        "ships": false
+      }
+    ]
+  },
+  "helper_imp": {
+    "decision": "accepted",
+    "states": [
+      "ready",
+      "catch",
+      "water",
+      "cheer"
+    ],
+    "human_review": {
+      "same_character_identity": true,
+      "complete_silhouette": true,
+      "friendly_expression_and_body_language": true,
+      "cooperative_care_actions": true,
+      "no_weapon_or_combat_action": true,
+      "no_neighbor_bleed_or_crop": true
+    }
+  },
+  "props": {
+    "decision": "accepted",
+    "states": [
+      "heart_leaf_crest",
+      "rounded_pruner",
+      "pearl_water",
+      "soft_wrap"
+    ],
+    "human_review": {
+      "complete_isolated_objects": true,
+      "child_readable_silhouettes": true,
+      "aqua_water_interior_preserved": true,
+      "coral_wrap_interior_preserved": true,
+      "no_neighbor_bleed_or_crop": true
+    }
+  },
+  "matte_review": {
+    "standard_helper_derivatives_preserved": true,
+    "standard_helper_final_authority": false,
+    "standard_helper_defect": "global color dominance erased valid aqua-water and coral-wrap interior pixels",
+    "accepted_method": "edge-connected chroma field with helper RGB/alpha limited to a narrow exterior edge shell; tree boards additionally clear strict sampled-key RGB distance <= 96 after helper borrowing",
+    "enclosed_tree_key_islands_removed": true,
+    "guide_pixels_used": false,
+    "repaint_or_subject_warp": false
+  },
+  "owner_visual_score_5_of_5": false,
+  "owner_review_pending": true
+}
