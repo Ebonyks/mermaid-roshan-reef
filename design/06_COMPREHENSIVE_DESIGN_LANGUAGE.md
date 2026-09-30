@@ -628,10 +628,7 @@ launched from the Castle rooms that explain their jobs: Royal Kitchen owns Chef
 and Candymaker; Opera Hall owns Ballerina, Pop Star, and Magician; Royal Library
 owns Detective; Craft Room owns Painter; Stuffie Playroom owns Stuffie Doctor
 and Boxer; Bubble Bath owns Nursery; Mermaid Pool owns Astronaut; Family Dining
-Room owns Farmer; and Movie Lounge owns Racer. Chapter 2's birthday story is a
-scoped exception: owner direction 2026-09-30 gives every story job its own
-room, so its Candymaker job launches from Movie Lounge while the freeplay home
-stays in Royal Kitchen. Each activity returns to its
+Room owns Farmer; and Movie Lounge owns Racer. Each activity returns to its
 launching room and preserves its existing career/save identity. A central
 three-floor picker for all careers is forbidden, and Opera Hall MUST NOT expose
 the other ten jobs through a hidden back door. Commit `09e5e356` implements this

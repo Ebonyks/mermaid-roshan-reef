@@ -1,7 +1,7 @@
 # Chapter 2 Eight-Career Production Spine
 
 Status: current implementation authority for Chapter 2 birthday preparation.
-Owner direction incorporated through 2026-09-30.
+Owner direction incorporated through 2026-08-30.
 Supersedes the sequence, tutorial prelude, thirteen-career checklist, generic
 Candy Maker result, and early-Detective assumptions in the two earlier Chapter
 2 planning documents. Those files remain option/history records only.
@@ -30,7 +30,7 @@ eight-job sequence independently of later global career additions.
 | ---: | ---: | --- | --- | --- |
 | 1 | 6 | Farmer | Sky Lagoon strawberry grove | five fresh strawberries delivered in a basket |
 | 2 | 0 | Pastry Chef | Castle Kitchen | the actual tiered cake, stacked and frosted |
-| 3 | 3 | Candy Maker | Cloud Movie Lounge door to the candy workshop | those strawberries candied and placed; final cake locked |
+| 3 | 3 | Candy Maker | cake-decorating workstation | those strawberries candied and placed; final cake locked |
 | 4 | 10 | Painter | Craft Room to Main Hall | painted/stamped birthday banner hung in Main Hall |
 | 5 | 2 | Ballerina | Stuffie Playroom | stuffies mirror, twirl, bow, and keep their dance staging |
 | 6 | 13 | Pop Star | Opera stage with Rumi | sound check, musical echo, and party-song staging |
@@ -50,17 +50,6 @@ Detective activate through their authored room plot surface; this is not a
 general room-ability clause. Their first in-story phase teaches the ability and
 their completion records the learned skill. There is no duplicate four-game
 tutorial prelude.
-
-## One job per room
-
-Owner direction 2026-09-30: every story job has its own Castle room, so the
-day tours the castle instead of returning to one room twice. Candy Maker
-therefore launches from the Cloud Movie Lounge (movie-night treats) rather than
-sharing the Royal Kitchen with Chef; the candy workshop scene, cake states and
-save bits are unchanged. `ChapterTwoPartyPlan` owns these story rooms, and
-`CastleCareerRoutes.chapter2_room_act_indices` builds Chapter 2 room cards from
-them. Freeplay career homes under `DL-INT-12` are unchanged. The Chapter 2
-probe fails if two story jobs share a room.
 
 ## Opera mechanic reuse
 

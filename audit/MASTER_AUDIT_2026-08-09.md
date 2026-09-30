@@ -94,8 +94,6 @@ Scoped overnight-film repair (2026-09-12): [fresh rendered-frame audit](OVERNIGH
 
 Scoped visual repair evidence (2026-09-26): [repair plan](../design/VISUAL_REPAIR_PLAN_2026-09-26.md), [review receipt](visual_polish_2026-09-26/REVIEW.json), and [impact record](../design/audit_impacts/visual-polish-repairs-20260926.json) cover the bounded sprite/occlusion repairs. MA-VIS-006 remains open; Opera native panels, target-device and owner acceptance remain outstanding.
 
-Scoped Chapter 2 room staging (2026-09-30): [production spine](../design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md#one-job-per-room) and [impact](../design/audit_impacts/chapter2-one-room-per-job-20260930.json). Owner direction gives each Day Two story job its own Castle room; the Candy Maker birthday job moves from the Royal Kitchen to the Cloud Movie Lounge. Freeplay homes under `DL-INT-12` and `MA-OPERA-012` state are unchanged; device, child and owner review remain outstanding.
-
 ## Sealed audit snapshot and subsequent round metadata
 
 - **Audit ID:** `MA-2026-08-09`

@@ -292,10 +292,6 @@ them to the Castle rooms whose pictures and objects explain the job:
 | Family Dining Room | Farmer |
 | Cloud Movie Lounge | Racer — canonical home selected at `09e5e356` |
 
-These are the freeplay homes. Chapter 2's birthday story stages each of its
-eight jobs in its own room (owner direction 2026-09-30), so its Candy Maker job
-launches from the Cloud Movie Lounge instead of sharing the Kitchen with Chef.
-
 Commit `09e5e356` implemented the original thirteen-career mapping. Owner
 direction on 2026-08-30 appends Geologist at save bit 16 and adds its Library
 entry without changing any historical career or retired-boss bit. Opera Hall is
