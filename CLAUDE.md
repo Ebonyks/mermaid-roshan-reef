@@ -73,6 +73,27 @@ monitor-cycle results.
   full-frame provenance, protected originals, game integration and release gates
   remain unchanged.
 
+## Codex handoffs: Claude writes, Codex builds images
+
+Owner decision: 2026-09-30. "why are you building images? That isn't your
+job. You provide verbal descriptions for handoff to codex."
+
+- A Claude handoff to Codex is written: analysis, specifications, acceptance
+  criteria, and references to existing files by repository path (with SHA-256
+  where exact bytes matter). Claude recommends; Codex implements.
+- Claude does not build images. That covers mock-ups, storyboards, shot
+  boards, contact and pose sheets, composites, rendered diagrams, captures,
+  prototypes, and generated or edited art. It also covers scripts that output
+  images, and working aids made only for Claude's own inspection.
+- Describe the intended picture in words: who stands where, in which existing
+  pose file, over which backdrop, doing what, and what the child sees change.
+  To understand existing art, open the existing files directly.
+- Codex builds any image a handoff needs from Claude's written description.
+  That includes the visual-reference packets and shot boards that external
+  animation handoffs require.
+- The only exception is an explicit owner request, in the current task, for
+  a specific image. It covers only that image.
+
 ## What this is
 A Godot 4.7.2 game for one specific 4-year-old, playable on a 3–4-year-old
 Android phone by touch. Every decision is weighed against: non-reader,

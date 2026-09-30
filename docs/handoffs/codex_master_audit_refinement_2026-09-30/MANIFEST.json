@@ -1,0 +1,93 @@
+{
+ "schema": "codex_handoff_manifest/1",
+ "handoff": "codex_master_audit_refinement_2026-09-30",
+ "status": "PROPOSED / CANDIDATE",
+ "prepared_by": "Claude (analysis and recommendations only; no game changes)",
+ "recipient": "Codex",
+ "evidence_baseline": "dev 55032e88936b22723fd9af5282c61ba6696b3d43 (all measurements and sweeps)",
+ "entry": "README.md",
+ "file_count": 13,
+ "total_bytes": 236440,
+ "files": [
+  {
+   "path": ".gdignore",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "role": "keeps Godot from importing this folder"
+  },
+  {
+   "path": "README.md",
+   "bytes": 61338,
+   "sha256": "037ea86f5a173eb155b941cf821f0d798b19243ad47118d66c48f7a61727132b",
+   "role": "handoff document (entry)"
+  },
+  {
+   "path": "data/composition.json",
+   "bytes": 10426,
+   "sha256": "5d16916d0060e40971b382a6dedd365d6fc8cbdfe006adb994e20a6307fa05c2",
+   "role": "measurement output at dev 55032e88"
+  },
+  {
+   "path": "data/duplicated_evidence_tokens.json",
+   "bytes": 9540,
+   "sha256": "52416657c0f4a1b6edeba66e7509707cbfb4d5be31e7ae728a1e823804b36132",
+   "role": "measurement output at dev 55032e88"
+  },
+  {
+   "path": "data/finding_staleness.json",
+   "bytes": 16242,
+   "sha256": "129d6caf503994d0d4821af0f356f3629c32bed64edddd71184c3d7215e1c155",
+   "role": "measurement output at dev 55032e88"
+  },
+  {
+   "path": "data/live_vs_documented_counts.json",
+   "bytes": 9647,
+   "sha256": "d11e23d56bfd77cee5638693fcae2bff096ba0c643275567304c68876976443b",
+   "role": "measurement output at dev 55032e88"
+  },
+  {
+   "path": "data/owner_decisions.json",
+   "bytes": 25904,
+   "sha256": "1bceae4725855d42a9274a333eed103c235a9b6fa8ee8b10c180ce9a75096e67",
+   "role": "measurement output at dev 55032e88"
+  },
+  {
+   "path": "data/rule_inventory.json",
+   "bytes": 52907,
+   "sha256": "09c541877ed360acb275d3ad81a7614849e5283e6957106f3633e4367f6b2c05",
+   "role": "measurement output at dev 55032e88"
+  },
+  {
+   "path": "seed/canon_seed.json",
+   "bytes": 14040,
+   "sha256": "3f8c716230dee4f12c4c56d53522858e8d6c8ab98a08cf8ee02ec116cd679c9a",
+   "role": "starting seed for a work package (unverified where marked sweep)"
+  },
+  {
+   "path": "seed/open_questions_seed.json",
+   "bytes": 5741,
+   "sha256": "f229f8847089b3b14302fd092c5de6e110c03a6a80dcef35d696b53b36d89fa1",
+   "role": "starting seed for a work package (unverified where marked sweep)"
+  },
+  {
+   "path": "seed/patterns_seed.json",
+   "bytes": 11147,
+   "sha256": "53dca460fa162382dfc7cd3ba0e84623286fa25626ca380d9a7613bcee718d62",
+   "role": "starting seed for a work package (unverified where marked sweep)"
+  },
+  {
+   "path": "seed/tokens_seed.json",
+   "bytes": 6702,
+   "sha256": "8231155dd658d06f3084ba91214dbaa0a9386e5dbcec0592164abbf753117170",
+   "role": "starting seed for a work package (unverified where marked sweep)"
+  },
+  {
+   "path": "tools/measure_reference_health.py",
+   "bytes": 12806,
+   "sha256": "6d9cf405b604a8cfcc16e0c12d346fb9968a0b8337cf2c090cf0289b98dd90ba",
+   "role": "read-only measurement script"
+  }
+ ],
+ "hash_basis": "SHA-256 of the committed Git blob bytes (LF line endings), identical to what raw.githubusercontent.com serves",
+ "revision": "2 (2026-09-30): wording corrections in README.md (open-question sources, where the 2026-09-24 decision is recorded, the evidence-share sentence, one ledger-row description); revision 1 was 0bbf8b7c548efcc3dcfe14089aeac9e3e3025c47"
+}

@@ -1,0 +1,434 @@
+{
+ "measured_at_head": "55032e88936b22723fd9af5282c61ba6696b3d43",
+ "data": {
+  "audit/MASTER_AUDIT_2026-08-09.md": {
+   "lines": 2335,
+   "bytes": 269373,
+   "sections": [
+    {
+     "section": "(preamble)",
+     "lines": 2,
+     "bytes": 59,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    },
+    {
+     "section": "0. Planning entry",
+     "lines": 99,
+     "bytes": 15895,
+     "commit_shas": 1,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 1.0
+    },
+    {
+     "section": "Sealed audit snapshot and subsequent round metadata",
+     "lines": 137,
+     "bytes": 8398,
+     "commit_shas": 48,
+     "ci_run_ids": 13,
+     "durations": 13,
+     "evidence_tokens_per_100_lines": 54.0
+    },
+    {
+     "section": "1. Executive verdict",
+     "lines": 472,
+     "bytes": 48572,
+     "commit_shas": 100,
+     "ci_run_ids": 22,
+     "durations": 17,
+     "evidence_tokens_per_100_lines": 29.4
+    },
+    {
+     "section": "2. Audit-state taxonomy",
+     "lines": 82,
+     "bytes": 4855,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    },
+    {
+     "section": "3. Authority and comprehensive design-language confirmation",
+     "lines": 81,
+     "bytes": 9446,
+     "commit_shas": 14,
+     "ci_run_ids": 1,
+     "durations": 1,
+     "evidence_tokens_per_100_lines": 19.8
+    },
+    {
+     "section": "4. Evidence at the integration snapshot and named historical commits",
+     "lines": 537,
+     "bytes": 31531,
+     "commit_shas": 111,
+     "ci_run_ids": 39,
+     "durations": 44,
+     "evidence_tokens_per_100_lines": 36.1
+    },
+    {
+     "section": "5. Triage item index — not canonical finding records",
+     "lines": 153,
+     "bytes": 33825,
+     "commit_shas": 52,
+     "ci_run_ids": 9,
+     "durations": 7,
+     "evidence_tokens_per_100_lines": 44.4
+    },
+    {
+     "section": "6. Supporting repair evidence — not canonical finding records",
+     "lines": 92,
+     "bytes": 29623,
+     "commit_shas": 112,
+     "ci_run_ids": 18,
+     "durations": 28,
+     "evidence_tokens_per_100_lines": 171.7
+    },
+    {
+     "section": "7. Superseded, dismissed, and deferred ideas",
+     "lines": 47,
+     "bytes": 8173,
+     "commit_shas": 13,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 27.7
+    },
+    {
+     "section": "8. Expanded acceptance notes for highest-priority indexed items",
+     "lines": 228,
+     "bytes": 22330,
+     "commit_shas": 53,
+     "ci_run_ids": 10,
+     "durations": 4,
+     "evidence_tokens_per_100_lines": 29.4
+    },
+    {
+     "section": "9. Individual repair and regression protocol",
+     "lines": 29,
+     "bytes": 1547,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    },
+    {
+     "section": "10. Required finding fields",
+     "lines": 32,
+     "bytes": 1650,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    },
+    {
+     "section": "11. Audit-tool and documentation-control work",
+     "lines": 86,
+     "bytes": 4669,
+     "commit_shas": 16,
+     "ci_run_ids": 4,
+     "durations": 2,
+     "evidence_tokens_per_100_lines": 25.6
+    },
+    {
+     "section": "12. Master-audit satisfaction gate",
+     "lines": 103,
+     "bytes": 6175,
+     "commit_shas": 1,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 1.0
+    },
+    {
+     "section": "13. Current repair order",
+     "lines": 82,
+     "bytes": 5548,
+     "commit_shas": 28,
+     "ci_run_ids": 11,
+     "durations": 2,
+     "evidence_tokens_per_100_lines": 50.0
+    },
+    {
+     "section": "14. Change history",
+     "lines": 68,
+     "bytes": 35660,
+     "commit_shas": 95,
+     "ci_run_ids": 23,
+     "durations": 32,
+     "evidence_tokens_per_100_lines": 220.6
+    },
+    {
+     "section": "Stage pathfinding inventory (2026-09-06)",
+     "lines": 5,
+     "bytes": 1399,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    }
+   ],
+   "evidence_token_total": 944,
+   "share_of_bytes_in_sections_with_>=10_tokens_per_100_lines": 0.883
+  },
+  "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md": {
+   "lines": 1587,
+   "bytes": 98704,
+   "sections": [
+    {
+     "section": "(preamble)",
+     "lines": 248,
+     "bytes": 16081,
+     "commit_shas": 104,
+     "ci_run_ids": 29,
+     "durations": 17,
+     "evidence_tokens_per_100_lines": 60.5
+    },
+    {
+     "section": "1. How to use these rules",
+     "lines": 69,
+     "bytes": 3378,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    },
+    {
+     "section": "2. The child is the primary design constraint",
+     "lines": 36,
+     "bytes": 1693,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    },
+    {
+     "section": "3. Final medium decision: a 2D game",
+     "lines": 66,
+     "bytes": 3818,
+     "commit_shas": 1,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 1.5
+    },
+    {
+     "section": "4. Visual promise",
+     "lines": 60,
+     "bytes": 3226,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    },
+    {
+     "section": "5. Composition and child-readable hierarchy",
+     "lines": 28,
+     "bytes": 1202,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    },
+    {
+     "section": "6. 2D canvas living-card world construction",
+     "lines": 42,
+     "bytes": 2112,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    },
+    {
+     "section": "7. Interactions change the world truthfully",
+     "lines": 106,
+     "bytes": 6492,
+     "commit_shas": 9,
+     "ci_run_ids": 1,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 9.4
+    },
+    {
+     "section": "8. Touch and interface grammar",
+     "lines": 32,
+     "bytes": 1502,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    },
+    {
+     "section": "9. Motion, acting, feedback, and rewards",
+     "lines": 81,
+     "bytes": 4843,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    },
+    {
+     "section": "10. Voice, music, and non-reader communication",
+     "lines": 103,
+     "bytes": 5934,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    },
+    {
+     "section": "11. Cinematic exception",
+     "lines": 143,
+     "bytes": 9036,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    },
+    {
+     "section": "12. Mobile performance and asset discipline",
+     "lines": 31,
+     "bytes": 1464,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    },
+    {
+     "section": "13. Save, lifecycle, and release safety",
+     "lines": 31,
+     "bytes": 1498,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    },
+    {
+     "section": "14. Art sourcing, reuse, and provenance",
+     "lines": 46,
+     "bytes": 2284,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    },
+    {
+     "section": "15. Explicitly superseded, dismissed, and deferred ideas",
+     "lines": 41,
+     "bytes": 8792,
+     "commit_shas": 13,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 31.7
+    },
+    {
+     "section": "16. Acceptance and audit contract",
+     "lines": 143,
+     "bytes": 8640,
+     "commit_shas": 9,
+     "ci_run_ids": 3,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 8.4
+    },
+    {
+     "section": "17. Finding record fields",
+     "lines": 47,
+     "bytes": 2725,
+     "commit_shas": 4,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 8.5
+    },
+    {
+     "section": "18. Code architecture and refinement",
+     "lines": 88,
+     "bytes": 4841,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    },
+    {
+     "section": "19. Font, typography, glyph, and text-layout contract",
+     "lines": 90,
+     "bytes": 5397,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    },
+    {
+     "section": "20. Chapter planning, creative delegation, and strategic reuse",
+     "lines": 56,
+     "bytes": 3725,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    }
+   ],
+   "evidence_token_total": 190,
+   "share_of_bytes_in_sections_with_>=10_tokens_per_100_lines": 0.252
+  },
+  "design/00_MASTER_INDEX.md": {
+   "lines": 303,
+   "bytes": 20976,
+   "sections": [
+    {
+     "section": "(preamble)",
+     "lines": 81,
+     "bytes": 5294,
+     "commit_shas": 31,
+     "ci_run_ids": 11,
+     "durations": 7,
+     "evidence_tokens_per_100_lines": 60.5
+    },
+    {
+     "section": "Why this folder exists",
+     "lines": 48,
+     "bytes": 4460,
+     "commit_shas": 4,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 8.3
+    },
+    {
+     "section": "Precedence",
+     "lines": 38,
+     "bytes": 2151,
+     "commit_shas": 3,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 7.9
+    },
+    {
+     "section": "What was NOT done, deliberately",
+     "lines": 10,
+     "bytes": 516,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    },
+    {
+     "section": "Current medium decision",
+     "lines": 120,
+     "bytes": 8237,
+     "commit_shas": 40,
+     "ci_run_ids": 11,
+     "durations": 12,
+     "evidence_tokens_per_100_lines": 52.5
+    },
+    {
+     "section": "Maintaining this",
+     "lines": 6,
+     "bytes": 312,
+     "commit_shas": 0,
+     "ci_run_ids": 0,
+     "durations": 0,
+     "evidence_tokens_per_100_lines": 0.0
+    }
+   ],
+   "evidence_token_total": 119,
+   "share_of_bytes_in_sections_with_>=10_tokens_per_100_lines": 0.645
+  }
+ }
+}
