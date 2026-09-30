@@ -762,6 +762,11 @@
       "command": "Live development refresh at origin/dev 08acb0ce",
       "result": "PASS",
       "evidence": "refresh_delta.json changed exactly D2A-0627; old score invalidated; all eight new-source cells inspected at native size; score 4.5 retained for fringe/scale refinement, source history preserved and affected context notes updated."
+    },
+    {
+      "command": "Narrow-screen hash wrapping and exact push-range change coverage",
+      "result": "PASS",
+      "evidence": "Browser verified e13d1d359988ee2bb0127dedcdb740c5a66e1972 at 390px with no overflow; all 660 previews decode. Explicit audit_development --base f845c1eeb0237a78a3e1ff5d63be4c6b6517c396 revalidates the actual CSS push range with this updated record. Initial e13 CI 36765250140 rejected missing changed-record coverage for HTML, log and builder; this metadata correction preserves that failure history."
     }
   ],
   "acceptance_gaps": "Draft source scores are not canonical runtime grades. Fresh full-state Mobile captures, animation, two aspects, target-device, child and owner acceptance remain open. Existing finding lifecycles unchanged. Sparse checkout excludes unrelated runtime resources; full game execution is not claimed."
