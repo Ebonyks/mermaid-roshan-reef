@@ -1,0 +1,62 @@
+{
+  "id": "day-two-job-canon-correction-20260930",
+  "scope": "Owner correction 2026-09-30, after the party-needs change: 'No, bad fits for some. The pop star already has the iko iko material. Detective finds the relevant candle. Balarina is going to be a performance but there's no one to be the star of the show until lamma, unlocks her. The astronaut sends birthday invitations. Check rep more carefully, this information should be on record.' The CANDIDATE Day Two draft v2 is corrected to the job canon on record, found by re-reading every branch: the Astronaut sends the invitations by bubble rocket as the first job (CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md section 14, restated by the owner), and Daddy no longer sends them; the Pop Star's job is the family band with the Iko Iko material, and the finale's contest becomes the owner's 2026-09-20 battle of the bands in the same middle meadow (design/BATTLE_OF_BANDS_2026-09-20.md and the lawn draft's 'September 20 contest revision', both on the unmerged branch codex/battle-of-bands-20260920), replacing the stomp-and-dodge protection rounds; the Ballerina is a performance whose star is Lamma, and her joining unlocks it (the owner's words, recorded for the first time; the three acts from BALLERINA_PARTY_REBUILD_2026-08-09.md); the Detective finds the candle (the production spine). Related records the draft now follows: the Arborist's leaf-based Tree Book and the Candy Maker reserved outside the Kitchen (the owner's 2026-09-29 corrections on dev), and no imps in Chapter 2 story or tutorial runs (the imp-contest handoff's rule C13 and the design language's new Opera-contest rule, on dev). The forced additions of the previous round are removed (the twenty-need checklist, petal nest, berry baskets, cake for everyone after the wish, Roshan's picture on the banner, the countdown, Kareem's show, the wild twirl, the light at dusk), and so are the imp apprentice gag, Rumi's song and memory, the rainbow dome and friend shelters. Jobs are renumbered to play order (J1 Astronaut to J8 Detective). The README gains decision 14 (who lights the candle, now that the rocket carries the invitations) and decision 15 (confirm the battle of the bands, the party tree's place in the literal panorama, and whether the Iko Iko composition may ship, which its archive does not yet allow), and corrects decision 8 to the owner's Candy Maker ruling. The story bible gains section 12, quoting each correction beside its record and status. The level sheet's voice list is regenerated from the plotline; the book, finale production file, build and graphics audits, work packages, the older Arborist handoff's status note and the ledger rows follow. Documentation only: no runtime, save, art, voice or binding-document change.",
+  "baseline": "88610e5a2d86465f14adfb14837827cc05291b83",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-READ-04",
+    "DL-INT-07",
+    "DL-INT-08",
+    "DL-INT-12",
+    "DL-INT-13",
+    "DL-PLAN-03",
+    "DL-ASSET-08",
+    "DL-CIN-16",
+    "DL-SAVE-01"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-OPERA-005",
+    "MA-OPERA-011",
+    "MA-OPERA-012",
+    "MA-ACCESS-001"
+  ],
+  "finding_scope": "Related planning context only; no finding lifecycle changes. Every objective keeps an exact voiced line and a picture cue, including the battle's missing spoken objective, which the draft names as work (MA-ACCESS-001, DL-AGE-01); the battle of the bands keeps the prototype's no-deadline, no-failure taps, and waiting never plays the drum (DL-AGE-03, DL-AGE-04); Roshan still does each job in the world (MA-PLAY-004); the Ballerina's show uses the binding three-act recital and still needs its acceptance evidence (MA-OPERA-005, DL-INT-08); practices stay on the room cards and the Arborist's on the Opera House foyer's built test level (MA-OPERA-012, DL-INT-12, DL-INT-07); the cut stage bosses and their needs stay cut (MA-OPERA-011, DL-INT-13); book pages reuse existing or handoff art and record gaps (DL-ASSET-08); Day One's clips are untouched (DL-CIN-16); proposed saves are additive, and a save that won the old contest counts the battle as won (DL-SAVE-01).",
+  "files": [
+    "design/day_two_story_v2/00_DAY_TWO_PLOTLINE.md",
+    "design/day_two_story_v2/01_STORY_BIBLE.md",
+    "design/day_two_story_v2/02_PICTURE_BOOK_MANUSCRIPT.md",
+    "design/day_two_story_v2/03_LEVEL_DESIGN.md",
+    "design/day_two_story_v2/04_FINALE_PARTY_CHAPTER.md",
+    "design/day_two_story_v2/05_BUILD_AUDIT.md",
+    "design/day_two_story_v2/06_GRAPHICS_AUDIT.md",
+    "design/day_two_story_v2/07_WORK_PACKAGES.md",
+    "design/day_two_story_v2/README.md",
+    "design/ARBORIST_TREE_DOCTOR_HANDOFF_2026-09-30.md",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH RESULT ALL OK with 586 inventoried Markdown files and 586 ledger rows, on the candidate working tree before the commit. A first run failed DOC056 because the draft cited the Opera-contest rule that exists only on dev by its ID; the draft now describes that rule instead of citing it."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV RESULT ALL OK against the dev merge-base e7899cc0, and against the previous push 88610e5a with --base 88610e5a, on the candidate working tree before the commit."
+    },
+    {
+      "command": "Package consistency checks (scripted)",
+      "result": "PASS",
+      "evidence": "Every intra-package link and anchor resolves, including the older Arborist handoff's new link into the plotline, and every GFX ID used is defined in 06; the eight function lines (6 to 9 words) are identical in the plotline's party-script table, its script cards, its R-beats and the level sheet; the level sheet's new voice lines match every line the plotline marks new, 169 of 169 with no exceptions; Book Two keeps 32 pages at 16 caption words or fewer (average 14.2); the named guests agree across 00, 01, 04 and the README; a sweep for the removed content (imp apprentices, Rumi's song, shelters, petal nest, baskets, countdown, cake after the wish, the one-more frame) finds only intended references."
+    }
+  ],
+  "acceptance_gaps": "Owner review of the corrected draft and of decisions 1 (Astronaut first), 4, 8, 12, 14 (who lights the candle) and 15 (the battle of the bands replacing the protection rounds, which answers OQ-BANDS-VS-LAWN on dev; the party tree's place in the literal middle-meadow panorama; and game-use rights for the Iko Iko composition, which the v89 archive says are not yet granted). The battle of the bands, its scene candidates and its prototype live only on branch codex/battle-of-bands-20260920 and are not integrated; their first-frame, continuity, listening, contact-animation, device and child gates remain. Lamma as the star of the show rests on the owner's 2026-09-30 words alone. All earlier Day Two draft gaps remain open (owner decisions 1-13, the Arborist art's remaining gaps, and every implementation, voice, art, capture, device, child and cinematic gate in 07_WORK_PACKAGES.md).",
+  "source_recheck": "Re-read for this correction: on branch codex/battle-of-bands-20260920 (head 841510be), design/BATTLE_OF_BANDS_2026-09-20.md, the lawn draft's 'September 20 contest revision', design/audit_impacts/battle-of-bands-20260920.json, and the review packet's README, START_HERE.txt, CODEX_REFINEMENT.txt and AUDIO_CUE_SHEET.json; on branch codex/reaper-music-workflow-20260920, assets_src/audio/music/iko_iko_v89/README.md and the REAPER workflow's rights note; on dev (head b52fc32a), design/ARBORIST_TREE_BOOK_HANDOFF_2026-09-29.md, design/OPERA_TREE_BOOK_TEST_2026-09-30.md and scripts/opera_tree_book_test.gd, the imp-contest handoff (README, CONTEST_DESIGN.md rule C13 and section 7.7, CURRENT_STATE_ANALYSIS.md) and the design language's new Opera-contest rule, the master-audit refinement handoff's open questions (OQ-LAWN-ROCKET, OQ-BANDS-VS-LAWN, OQ-ARBORIST-DAY2) and canon conflict CANON-C05, the Day One/Two alpha repair (scripts/chapter_two_voice_catalog.gd route lines), scripts/chapter_two_party_plan.gd's eight function strings, and design/CHAPTER2_EIGHT_CAREER_STORY_OPTIONS_2026-08-30.md; on this branch, CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md sections 10, 14 and 15, BALLERINA_PARTY_REBUILD_2026-08-09.md, FABLE_OPERA_LAMBA_TAKEOVER_HANDOFF_2026-08-01.md, STUFFIE_COMPANIONS.md's capture loop, scripts/chapter_two_lawn_finale_2d.gd's middle-screen staging, the production spine, the ledger and master-index rows for the August review, and the active findings MA-OPERA-005 and MA-OPERA-009. A delegated search of every branch's history found no earlier record of Lamma as the star of the show."
+}

@@ -5,7 +5,9 @@ Part of the [Day Two story draft v2](README.md). Status: `CANDIDATE` audit,
 reading, the repository's recorded captures and audits, and the Chapter One
 book. There is no Godot binary in the authoring container, so nothing was
 run. Items marked **SOURCE-DERIVED** need a real-touch runtime check before
-they count as confirmed.
+they count as confirmed. Facts from `dev` at `b52fc32a` and from branch
+`codex/battle-of-bands-20260920` at `841510be` were added later the same day,
+and say so where they appear.
 
 ## The verdict in brief
 
@@ -180,7 +182,7 @@ holds, a 3.2 s curtain call, fades and castle walking.
 | Lamma | Absent from the story; exists only in the companion roster, a battle round and Seek, none of which a child can reach today (B12). Her only Day Two appearance is in Evie's arms in Evie's portrait at the party | The owner's new thread: three hiding moments and a joining game |
 | Mewsha | A roster starter whose art the owner rejected; to be rebuilt only from photos of the real toy | Not used in this draft until rebuilt |
 | Friends | Lawn portraits with procedural hats | Present only at the very end |
-| Imps | Race Roshan in every job | Unused recorded lines would tie them to a rival grey party (`tools/make_voices.py:376-427`), e.g. "I was sent to learn the DECORATING. Ours is very grey." |
+| Imps | Race Roshan in every job | They do not belong in Chapter 2's story: the imp-contest handoff on `dev` gives Chapter 2 story and tutorial runs no imp and no contest (rule C13; the design language's new Opera-contest rule on `dev` agrees), and its analysis names the Ember King, not the imps, as Chapter 2's antagonist. Their unused "grey party" lines (`tools/make_voices.py:376-427`) stay with the Opera shows |
 
 ## F. The lawn finale (implemented alpha)
 
@@ -201,6 +203,21 @@ holds, a 3.2 s curtain call, fades and castle walking.
 - The end returns straight to the Main Hall. The Chapter 3 sky-door reveal
   runs only when entering the castle from outside, so Day Two ends with no
   visible next route.
+- **Off `dev`, a newer contest exists.** On branch
+  `codex/battle-of-bands-20260920` (commits `c141a63e`, `841510be`), the
+  owner-commissioned battle of the bands replaces the three protection rounds
+  in the same middle meadow: a standalone prototype
+  (`scenes/battle_of_bands_prototype.tscn`) with twelve forgiving drum taps to
+  the published Iko Iko v89, its focused probe, 14 scene candidates and a
+  Codex work order. It is not routed from the production chapter, its spoken
+  objective (`bands_tap_glowing_drum`) is missing, and `dev` keeps the lawn
+  finale until the owner answers `OQ-BANDS-VS-LAWN`. The draft's finale
+  follows the bands ([04](04_FINALE_PARTY_CHAPTER.md)).
+- **On `dev` since this audit's snapshot,** the alpha repair of 2026-09-30
+  voices the route lines (among them "Tap the glowing Opera House door. Let's
+  sing with Rumi!") and replaces the "north-star clue" silhouette line with
+  the voiced "The Ember King took our glowing candle. Follow the north star!"
+  (`scripts/chapter_two_voice_catalog.gd`).
 - Presentation problems are itemised in the [graphics audit](06_GRAPHICS_AUDIT.md#6-the-lawn-finale)
   (GFX-LAWN-01 to -16): hats that cover faces, a tiny banner, the headline
   text, the flat ellipse warning, the static King and Prince, a candle
@@ -267,28 +284,37 @@ castle, `show_msg("", …)` is a silent caption.
 6. **The Day One threads are dropped:** gentle play, Rumi's castle, Baby
    Eagle's rescue, the hidden rainbow.
 7. **The finale arrives without set-up:** the King and Prince appear only at
-   the end; nothing foreshadows them. The unused imp "grey party" lines could
-   plant it.
+   the end; nothing foreshadows them. The imps cannot plant it: Chapter 2
+   story and tutorial runs get no imp (rule C13 of the imp-contest handoff on
+   `dev`). The draft lets the candle's light reach the northern mountains
+   instead, and gives the King a reason the child can see: a band, and a
+   contest he expects to win.
 8. **A parallel family evening** competes with the birthday in the same rooms.
 9. **Nobody invited the guests.** Eight friend portraits, Daddy's among them,
    wait on the lawn (`GUEST_FILES`, `chapter_two_lawn_finale_2d.gd:34-35`),
    but no scene invites them and no job is for any of them. The August party-function
    script (`CHAPTER2_PARTY_ROLES_2026-08-03.md`) made "Somebody has to tell
-   me" a guest's first need and gave every job a named guest. The draft
-   answers with Daddy's invitations at dawn and a named friend for each job
-   (`D2-OPEN-2`; [01, section 11](01_STORY_BIBLE.md#11-the-party-preparation-script-what-day-two-keeps)).
+   me" a guest's first need, and its owner ruling gave the invitations to the
+   Astronaut. The draft answers with that ruling, which the owner restated on
+   2026-09-30: Roshan sends every friend an invitation by rocket as the first
+   job (`J1`), and three jobs are made for one friend each
+   ([01, sections 11 and 12](01_STORY_BIBLE.md#12-the-job-canon-on-record)).
 
 ## J. What is strong and should be kept
 
-- The causal chain and additive save model (berries → cake → candle → rocket
-  → party).
+- The causal chain and additive save model (berries → cake → candle →
+  party), with the invitations moved to the front.
 - The persistent cake with its seven honest picture states.
 - The Day One in-room activity pattern (pool, bath, toilet), the right engine
   for in-world levels.
 - The stuffie ballet idea: Roshan leading the stuffies on the playroom's own
   tiles (its stations and doll crops need the repairs in
   [06](06_GRAPHICS_AUDIT.md#ballerina-scene-255)).
-- The lawn's walk-and-press rocket ignition with real hand contact.
+- The lawn's walk-and-press rocket ignition with real hand contact (kept for
+  the candle if the owner chooses the rocket in decision 14).
+- The bands prototype's input and save contract on its branch: forgiving
+  taps, no deadline, song position kept across interruptions, success before
+  the theft.
 - The Opera freeplay careers as finished teaching levels, with exact
   `_stage` recordings for every job.
 - The Teacher lesson plan as the model for the Arborist's Tree Book.

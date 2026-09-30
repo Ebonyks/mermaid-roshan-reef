@@ -2,7 +2,9 @@
 
 Part of the [Day Two story draft v2](README.md). Status: `CANDIDATE` audit,
 2026-09-30, at repository head `b3d168f9` (art and scripts unchanged since
-`e7899cc0`). Nothing here is owner, device or child acceptance.
+`e7899cc0`), with facts from `dev` at `b52fc32a` and from branch
+`codex/battle-of-bands-20260920` at `841510be` added later the same day.
+Nothing here is owner, device or child acceptance.
 
 This audit covers every picture a child sees in Day Two, from the Day Two
 card to the lawn finale. It also covers the Opera career worlds that host each
@@ -68,7 +70,7 @@ flaws are worth fixing now and some disappear when their scene is replaced:
 | 5 | [GFX-LAWN-01](#gfx-lawn-01) | Code-drawn party hats cover friends' faces, including a protected family portrait |
 | 6 | [GFX-LAWN-07](#gfx-lawn-07) | The day's payoff, lighting the candle, is a 7 px dot and a 20 px flame |
 | 7 | [GFX-CHAR-KING-01](#gfx-char-king-01) | The King never moves; demand, battle and theft all use one static pose |
-| 8 | [GFX-LAWN-08](#gfx-lawn-08) | The stomp warning is a faint orange ellipse on yellow-green grass |
+| 8 | [GFX-LAWN-08](#gfx-lawn-08) | The stomp warning is a faint orange ellipse on yellow-green grass (for as long as the lawn alpha's protection rounds stay; the draft's battle of the bands has none) |
 | 9 | [GFX-SYS-12](#gfx-sys-12) | Words stand in for pictures: "DAY TWO!", "Happy Birthday, Roshan!", screenplay captions |
 | 10 | [GFX-LAMMA-01](#gfx-lamma-01) | Lamma has two different designs; settle one before she is staged anywhere |
 | 11 | [GFX-SYS-03](#gfx-sys-03) | A see-through stripe runs down Roshan's tail in all eight costume sheets |
@@ -181,7 +183,7 @@ Evidence V, H, R, C.
 | Detective storybook board | `opera_career_world_2d.gd:2193-2207` | A lilac rounded box with dots, like a domino | Retire; the J8 level uses the Library's painted magic book |
 | Chef BAKE oven | Gauge widget | Brown boxes and a dial beside the world's own painted hearth oven | Fix now for freeplay and practice: use the painted oven as the BAKE object |
 | Astronaut pipe board | Pipe widget | A grey grid with tan boxes and black dots over the painted rocket | Fix now: a painted pipe-tile kit (new art) |
-| Farmer basket | `opera_world_backdrop_2d.gd:151-152` | A brown disc with a gold arc, like a pie | Retire with J2; the grove level uses a painted basket that fills from one to five |
+| Farmer basket | `opera_world_backdrop_2d.gd:151-152` | A brown disc with a gold arc, like a pie | Retire with J3; the grove level uses a painted basket that fills from one to five |
 | Pop Star echo | Rhythm widget | Three flat vector stars | Fix now: painted star-note pads (new art) |
 | Shared widgets | `widget_pour_chef_fill.png`, `widget_crank_*_progress.png`, `widget_trace_*_lit.png`, `widget_gauge_shared_needle.png`, `widget_charge_popstar_*.png` | A tan blob, thin rings, a thin zigzag, flat bars | Fix now, replacing one at a time |
 | Activity darkening | `_draw_activity_focus` (`opera_career_world_2d.gd:2007`) | A dark ellipse over the painting behind every activity | Fix now: remove, or use a soft light halo |
@@ -304,12 +306,12 @@ pass's ratings out of five.
 
 | ID | Sev | Evidence | Flaw | Fix | Disposition |
 |---|---|---|---|---|---|
-| GFX-FARM-01 | P0 | R, C | The Sky Lagoon backdrop is cropped row by row (`_draw_sky_lagoon_farmer`, `Rect2(0, 224, 1024, 576)` per row), which drops 448 source rows (the bushes and lupines: the actual meadow) and leaves a straight horizon seam at screen y=360 | Crop one continuous window across both rows (about y 448-1600 of the 2048-tall column pair), drawn as one rectangle | Reuse the fixed crop for the J2 grove level |
-| GFX-FARM-02 | P1 | R | The five strawberries hover in the sky above the seam, evenly spaced like a menu row | Seat each berry on a painted strawberry plant (new small art, three variants) in the meadow band | With WP-08 |
-| GFX-FARM-03 | P0 | R | Roshan starts in the sky on the seam, following the Farmer world's path | A path on the lilac walk | With WP-08 |
-| GFX-FARM-04 | P1 | C | Code basket (brown disc and gold arc) | A painted basket derivative that fills from one to five berries | With WP-08 |
-| GFX-FARM-05 | P1 | R | Picked berries stay where they were as grey-purple ghosts (tinted, 38% opacity); nothing goes into a basket | Each picked berry flies into the basket | With WP-08 |
-| GFX-FARM-06 | P1 | C | DELIVER uses the pig (SYS-06) | The full basket is the thing she swipes | With WP-08 |
+| GFX-FARM-01 | P0 | R, C | The Sky Lagoon backdrop is cropped row by row (`_draw_sky_lagoon_farmer`, `Rect2(0, 224, 1024, 576)` per row), which drops 448 source rows (the bushes and lupines: the actual meadow) and leaves a straight horizon seam at screen y=360 | Crop one continuous window across both rows (about y 448-1600 of the 2048-tall column pair), drawn as one rectangle | Reuse the fixed crop for the J3 grove level |
+| GFX-FARM-02 | P1 | R | The five strawberries hover in the sky above the seam, evenly spaced like a menu row | Seat each berry on a painted strawberry plant (new small art, three variants) in the meadow band | With WP-09 |
+| GFX-FARM-03 | P0 | R | Roshan starts in the sky on the seam, following the Farmer world's path | A path on the lilac walk | With WP-09 |
+| GFX-FARM-04 | P1 | C | Code basket (brown disc and gold arc) | A painted basket derivative that fills from one to five berries | With WP-09 |
+| GFX-FARM-05 | P1 | R | Picked berries stay where they were as grey-purple ghosts (tinted, 38% opacity); nothing goes into a basket | Each picked berry flies into the basket | With WP-09 |
+| GFX-FARM-06 | P1 | C | DELIVER uses the pig (SYS-06) | The full basket is the thing she swipes | With WP-09 |
 | GFX-FARM-07 | P2 | C | The work loop shows digging and a carrot | Hold a neutral work cell, or a strawberry-holding derivative | Fix now |
 
 ### Chef (scene 2/5)
@@ -317,14 +319,14 @@ pass's ratings out of five.
 | ID | Sev | Evidence | Flaw | Fix | Disposition |
 |---|---|---|---|---|---|
 | GFX-CHEF-01 | P0 | H | Blurred frame (SYS-01) | SYS-01 | Fix now |
-| GFX-CHEF-02 | P1 | R, H | Two cakes on screen (the story cake and the painted cherry cake on the dais), three during FROST; two mixing bowls during MIX and STIR | One cake, placed on the dais where it hides the painted one | Retire; the J3 level is in the Royal Kitchen |
+| GFX-CHEF-02 | P1 | R, H | Two cakes on screen (the story cake and the painted cherry cake on the dais), three during FROST; two mixing bowls during MIX and STIR | One cake, placed on the dais where it hides the painted one | Retire; the J4 level is in the Royal Kitchen |
 | GFX-CHEF-03 | P0 | H | Code-drawn oven box beside the painted hearth oven | Use the painted oven as the BAKE object | Fix now (freeplay and practice) |
 | GFX-CHEF-04 | P1 | V, C | The old cherry cake is the BAKE success and the room invitation | Suppress it on Day Two | Fix now |
-| GFX-CHEF-05 | P1 | V | STACK pieces are cherries, cream and a brown swirl on a plain sponge | Six rainbow tier pieces cut from `chapter2_chef_baked_tiers_unstacked.png` as separate derivatives | With WP-09 |
+| GFX-CHEF-05 | P1 | V | STACK pieces are cherries, cream and a brown swirl on a plain sponge | Six rainbow tier pieces cut from `chapter2_chef_baked_tiers_unstacked.png` as separate derivatives | With WP-10 |
 | GFX-CHEF-06 | P1 | H | A beige batter oval and a flat cream rectangle cake sit next to the rainbow bowl and stack | Remove them when the story art is on screen | Retire |
-| GFX-CHEF-07 | P2 | R | The cake jumps in size between steps: 207×296, then 166×237 (20% smaller), then 194×276 | One fixed on-screen height for all cake stages | With WP-09 |
+| GFX-CHEF-07 | P2 | R | The cake jumps in size between steps: 207×296, then 166×237 (20% smaller), then 194×276 | One fixed on-screen height for all cake stages | With WP-10 |
 | GFX-CHEF-08 | P2 | V | Roshan's work row holds a pink bowl of beige batter, not the lavender shell bowl of rainbow batter | Hold a neutral cell during story steps | Fix now |
-| GFX-CHEF-09 | P1 | C | Before MIX, `ChapterTwoGiantCake2D._draw()` paints a code tray and an orange capsule "bowl" (lines 463-467) behind five tiny berries, then swaps to the painted bowl: a style jump and a bowl that changes shape. The same code tray shows on the Main Hall party table after the Farmer | Draw the painted bowl from the start, or nothing | With WP-09 |
+| GFX-CHEF-09 | P1 | C | Before MIX, `ChapterTwoGiantCake2D._draw()` paints a code tray and an orange capsule "bowl" (lines 463-467) behind five tiny berries, then swaps to the painted bowl: a style jump and a bowl that changes shape. The same code tray shows on the Main Hall party table after the Farmer | Draw the painted bowl from the start, or nothing | With WP-10 |
 
 ### Candy Maker (scene 1.5/5; leaving Day Two)
 
@@ -343,28 +345,28 @@ step: its weak "candied" look, a flaw for the Candy Maker, suits fresh berries
 | ID | Sev | Evidence | Flaw | Fix | Disposition |
 |---|---|---|---|---|---|
 | GFX-PAINT-01 | P0 | H | Blurred frame (SYS-01) | SYS-01 | Fix now |
-| GFX-PAINT-02 | P1 | H, C | PAINT reveals the sunrise painting on a flat cream rectangle floating over the easel | The banner states in [GFX-PROP-BANNER-01](#gfx-prop-banner-01) | With WP-10 |
-| GFX-PAINT-03 | P1 | C | STAMP stamps paint splats for "stars"; HANG shows easel icons; the Main Hall never appears | Star stamps; the J4 level hangs the banner in the real room | With WP-10 |
-| GFX-PAINT-04 | P1 | R | The curtain-call banner (110×220) floats over a coral pot, its pale wash vanishes on the sand, and it shows nothing the child painted | Show the finished banner state, grounded | With WP-10 |
+| GFX-PAINT-02 | P1 | H, C | PAINT reveals the sunrise painting on a flat cream rectangle floating over the easel | The banner states in [GFX-PROP-BANNER-01](#gfx-prop-banner-01) | With WP-11 |
+| GFX-PAINT-03 | P1 | C | STAMP stamps paint splats for "stars"; HANG shows easel icons; the Main Hall never appears | Star stamps; the J5 level hangs the banner in the real room | With WP-11 |
+| GFX-PAINT-04 | P1 | R | The curtain-call banner (110×220) floats over a coral pot, its pale wash vanishes on the sand, and it shows nothing the child painted | Show the finished banner state, grounded | With WP-11 |
 | GFX-PAINT-05 | P2 | C | The party table remembers the Painter's job as the sunrise painting (`goal_painter.png` at (54, 502), `chapter_two_party_table_2d.gd`) | Show the banner | With WP-16 |
 
 ### Ballerina (scene 2.5/5)
 
 | ID | Sev | Evidence | Flaw | Fix | Disposition |
 |---|---|---|---|---|---|
-| GFX-BALLET-01 | P1 | R, C | The Stuffie Room backdrop is the empty playroom shell (bricks, balcony, two shelves, bare floor); the nook and toys are separate castle cards not drawn here | The J5 level runs in the Playroom's own art with its item cards | Retire |
+| GFX-BALLET-01 | P1 | R, C | The Stuffie Room backdrop is the empty playroom shell (bricks, balcony, two shelves, bare floor); the nook and toys are separate castle cards not drawn here | The J6 level runs in the Playroom's own art with its item cards | Retire |
 | GFX-BALLET-02 | P1 | R | Stations point at a blank brick wall (`trifold_mirror` at (475, 205)) and a floor edge (`wave_tuffets`) | Point stations at the drawn toys | Retire |
 | GFX-BALLET-03 | P1 | V, M | Kitty and Bunny are damaged protected book crops ([GFX-CHAR-DOLLS-01](#gfx-char-dolls-01)) | See that finding | Owner |
-| GFX-BALLET-04 | P2 | R | The dolls' thin-line watercolour style against the painted room, with no shadows, about 700 px from the Roshan they are meant to mirror | Stage them within about 300 px of Roshan, with contact shadows | With WP-11 |
+| GFX-BALLET-04 | P2 | R | The dolls' thin-line watercolour style against the painted room, with no shadows, about 700 px from the Roshan they are meant to mirror | Stage them within about 300 px of Roshan, with contact shadows | With WP-12 |
 
 ### Pop Star (scene 3/5, the best of the eight)
 
 | ID | Sev | Evidence | Flaw | Fix | Disposition |
 |---|---|---|---|---|---|
 | GFX-POP-01 | P0 | H | Blurred frame (SYS-01) | SYS-01 | Fix now |
-| GFX-POP-02 | P2 | R | Rumi is about 156 px tall against Roshan's 200 px, so the older friend reads younger; no contact shadow on the dome steps | Scale Rumi to at least Roshan's height; add a shadow. No new Rumi frames | With WP-12 |
+| GFX-POP-02 | P2 | R | Rumi is about 156 px tall against Roshan's 200 px, so the older friend reads younger; no contact shadow on the dome steps | Scale Rumi to at least Roshan's height; add a shadow. No new Rumi frames | Freeplay: the draft's Pop Star job is the family band, without Rumi |
 | GFX-POP-03 | P1 | H | The rhythm echo draws three flat stars and a dark ellipse over Rumi | Painted star-note pads placed clear of Rumi | Fix now |
-| GFX-POP-04 | P2 | V | STAGE RUMI shows abstract arrow tiles, not Rumi being staged | In J6, Rumi herself is the choice target | With WP-12 |
+| GFX-POP-04 | P2 | V | STAGE RUMI shows abstract arrow tiles, not Rumi being staged | In freeplay, Rumi herself is the choice target. The draft's Day Two Pop Star is the family band (J7), so STAGE RUMI leaves the chapter's job | Freeplay |
 
 ### Astronaut (scene 2/5)
 
@@ -373,8 +375,8 @@ step: its weak "candied" look, a flaw for the Candy Maker, suits fresh berries
 | GFX-ASTRO-01 | P0 | H | Blurred frame (SYS-01) | SYS-01 | Fix now |
 | GFX-ASTRO-02 | P0 | H | BUILD ROCKET covers the right half, painted rocket included, with the code pipe grid; the "rocket parts" never appear | A painted pipe-tile kit (new art) laid beside the rocket, not over it | Fix now |
 | GFX-ASTRO-03 | P1 | V | PATCH pastes flat vector badges on the painted rocket | Painted patch pieces in the rocket's style | Fix now |
-| GFX-ASTRO-04 | P1 | C | READY PARK uses the race kart | The party rocket (`goal_astronaut.png`) as the thing she parks | With WP-13 |
-| GFX-ASTRO-05 | P1 | R | The curtain-call rocket (coral fins, porthole) is not the painted rocket (red nose, star window, door) | One rocket design everywhere: `goal_astronaut.png`, which is already the party rocket | With WP-13 |
+| GFX-ASTRO-04 | P1 | C | READY PARK uses the race kart | No kart and no parking: in the draft Roshan loads the invitations into the party rocket (`goal_astronaut.png`) and launches it at the pool (J1) | With WP-07 |
+| GFX-ASTRO-05 | P1 | R | The curtain-call rocket (coral fins, porthole) is not the painted rocket (red nose, star window, door) | One rocket design everywhere: `goal_astronaut.png`, which is already the party rocket | With WP-07 |
 
 ### Detective (scene 1/5)
 
@@ -389,15 +391,25 @@ step: its weak "candied" look, a flaw for the Candy Maker, suits fresh berries
 | GFX-DET-07 | P2 | V | The cheer cell holds a blue gem | Hold a cell without the gem | Fix now |
 | GFX-DET-08 | P1 | V | The Library's magic book item (`room_library_item_magic_book.png`, 137×169) has a cream background smear behind the book and stray fragments along its top edge; the opening-book sheet has a mottled grey cover and blank pages | Clean alpha derivative; J8 paints the candle clue onto the pages as a derivative | With WP-14 |
 
-### Arborist (not yet in the repository)
+### Arborist (recovered on `dev`)
 
-**GFX-ARB-01 — The Arborist art is not committed.** P0 for J1. The owner
-says the art exists; it was not found in the repository or on Drive. It must
-be committed from the owner's local worktree (`codex/arborist-tree-doctor`)
-before J1 can be audited or built ([Arborist handoff](../ARBORIST_TREE_DOCTOR_HANDOFF_2026-09-30.md),
-Step 0). When it lands, check it against this audit's rules: one Roshan
-identity, painted objects rather than code shapes, redundant colour, shape and
-icon cues for every sickness and medicine, and a clean alpha on every cutout.
+**GFX-ARB-01 — The Arborist art: recovered, not yet final.** P0 for J2.
+When this audit was first written the art was not in the repository. On `dev`
+since 2026-09-29 it is: 63 historical art, provenance and tool files were
+copied byte for byte from the owner's Arborist worktree, and new still art was
+added (the book's open spread, a reading pose, the sick and healthy patient
+tree, four diseased leaves and four matching medicines), all under
+`assets_src/handoffs/arborist_tree_book_20260929/`
+(`design/ARBORIST_TREE_BOOK_HANDOFF_2026-09-29.md`). The Opera House test level
+uses it (`design/OPERA_TREE_BOOK_TEST_2026-09-30.md`). Still open, by the
+handoff's own account: the old background is upscaled from a 1672×941 source
+and fails the native-resolution rule; some recovered atlas cells clip Roshan's
+hat; the book has no opening or page-turn motion; three more patient cases and
+a four-species distinctness pass are missing; and a hand-contact spraying
+action is needed before the tree heals (`MA-PLAY-004`). Check every new piece
+against this audit's rules: one Roshan identity, painted objects rather than
+code shapes, redundant colour, shape and icon cues for every sickness and
+medicine, and a clean alpha on every cutout.
 
 ## 4. The Day Two card
 
@@ -461,11 +473,11 @@ Fix now.
 |---|---|---|---|---|
 | GFX-HALL-01 | P1 | C, R | The table stands inside a 710×238 rounded UI panel (`PartyTableGlow`, lines 364-368) that turns bright yellow when the party is ready (lines 103-108). It reads as a menu card on the floor | Remove the panel. Show readiness with a soft painted glow under the table and sparkles on the pieces |
 | GFX-HALL-02 | P1 | C, R | The banner is the tall pennant (`castle_banner_rainbow.png`, 256×512) squeezed into a 396×118 slot (lines 352-353). It shows as a pennant about 59 px wide, parked behind the top of the cake, with an empty medallion | A horizontal garland derivative of the painted banner, hung above the table |
-| GFX-HALL-03 | P1 | C | Two rockets: the candle-lighting rocket (112×112 at (815, 235)) and the Astronaut's 76 px summary icon at (1150, 502) | Drop the summary icon; the lighting rocket is the Astronaut's piece |
+| GFX-HALL-03 | P1 | C | Two rockets: the candle-lighting rocket (112×112 at (815, 235)) and the Astronaut's 76 px summary icon at (1150, 502) | Drop both with the table (GFX-HALL-07): in the draft the Astronaut's piece is the invitations, sent from the pool, and the rocket stays there |
 | GFX-HALL-04 | P1 | C | The other summary pieces are 76 px stickers at the screen edges (music box, sunrise painting, microphone). Unearned ones show as purple ghosts at 16% opacity, like disabled buttons | Put each piece on or beside the table at readable size; show unearned pieces as empty spots on the Party Plan board, not ghosts |
 | GFX-HALL-05 | P1 | R, C | In the reconstruction the cake floats 25-45 px above the table top with its shadow on the panel's edge. The cake is also about 1.8 times Roshan's visible height at the default hall depth (about 276 px against 153), against 0.88 on the lawn (189 against 215) | Take a capture; seat the cake stand on the tabletop; use the lawn's ratio (the cake about 0.9 times Roshan's visible height) in both places |
 | GFX-HALL-09 | P1 | C | The approved table (`dining_table.png`, 292×223) is fitted into a 620×206 box with its aspect kept, so it draws only about 270×206 in the middle of the 710 px panel: a small table under a cake twice its height | Size the table from its own aspect so it can hold the cake and pieces; drop the panel (GFX-HALL-01) |
-| GFX-HALL-10 | P1 | C, R | The lighting rocket (112 px, tilted) floats in mid-air in front of the Opera arch's curtains and sign | Stand it on the floor or a small pad beside the table |
+| GFX-HALL-10 | P1 | C, R | The lighting rocket (112 px, tilted) floats in mid-air in front of the Opera arch's curtains and sign | Until the table goes, stand it on the floor or a small pad beside the table; in the draft it leaves the hall |
 | GFX-HALL-11 | P1 | C | The castle caption panel (820×112 at (230, 112), `castle_rooms_25d.gd:1091-1092`, nearly opaque) covers the cake's top tiers, the candle and the Opera door sign while its line talks about the party | Captions go to a band clear of the story objects (bottom-left for the adult), never over the thing being described |
 | GFX-HALL-12 | P1 | V | The Main Hall panorama is lovely, but nothing in it changes for the birthday: all of the party lives in the screen-glued overlay | World-locked party dressing that grows with the day: bunting along the cornice, balloon clusters on two pillars, and the child's painted banner after the Painter job (new art at 1024 px or less, power-of-two) |
 | GFX-HALL-06 | P2 | C | Dead code: code-drawn flame shapes with dot eyes for an "Ember scout", "Ember King" and "son" (lines 212-285 and 448-535). Nothing calls them | Delete them, so the only King and Prince are the approved ones |
@@ -493,6 +505,18 @@ its room card, and several levels happen in these rooms.
 2026-09-06 (`assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/runtime/`)
 and zoomed crops of them. [04](04_FINALE_PARTY_CHAPTER.md) is the story these
 fixes serve.
+
+**The contest has moved on.** The owner's battle of the bands (2026-09-20),
+developed on branch `codex/battle-of-bands-20260920`, "supersedes the earlier
+stomp/dodge and birthday-lawn staging direction" in the same middle meadow,
+with one shared stage and the cake on a visible pedestal. The draft follows
+it. So the findings about the stomp warning, the safe spot and the shelter
+(GFX-LAWN-08, -09) apply only while the lawn alpha's protection rounds stay in
+the build; the rest (hats, the title, staging, the candle, the royals, the
+guide hand, wide phones) still apply to the party wherever it is staged. The
+bands commission records its own open visual checks: the candle's detail in
+wide shots, one stage across close-ups, the cake and pedestal's scale, and the
+bass's four strings and pegs in every frame.
 
 <a id="gfx-lawn-01"></a>
 **GFX-LAWN-01 — Code party hats cover faces and miss heads.** P0. Evidence
@@ -528,7 +552,8 @@ V, C. With WP-16.
      a crown already: no hat, perhaps a small party badge. Give Rumi and
      Roshan hats as well ([GFX-LAWN-16](#gfx-lawn-16)).
   5. Add a probe: no hat may overlap any face rectangle from the table.
-  6. On each stomp (F4), hats wobble with a short tilt of about 6°.
+  6. On the King's footsteps (F4) and his loud chords (F5), hats wobble with
+     a short tilt of about 6°.
 - The portraits stay untouched; hats remain overlays
   (`protected_source_unchanged` stays true).
 
@@ -600,10 +625,13 @@ Evidence V, C. With WP-16.
 **GFX-LAWN-06 — The cake, rocket and props crowd and float.** P1. Evidence
 V, C. With WP-16. The rocket (140×145 at (480, 422)) stands in front of the
 table, overlapping it and hiding guests. The microphone (64×75 at (630, 440))
-and the music box (70×68 at (205, 460)) float with nothing under them. Fix:
-the rocket on its own small painted launch pad beside the table, tilted toward
-the candle; the microphone on Rumi's little shell stage; the music box on the
-stuffie blanket.
+and the music box (70×68 at (205, 460)) float with nothing under them. Fix in
+the draft's staging: the cake on its visible pedestal in the middle of the
+shared stage, the instruments on the stage, and the music box by the
+stuffies' little curtain. The rocket and the microphone leave the party: the
+rocket carried the invitations (unless decision 14 keeps it for the candle,
+then on its own small painted pad, tilted toward the candle), and Roshan drums
+with no microphone.
 
 <a id="gfx-lawn-07"></a>
 **GFX-LAWN-07 — Lighting the candle is too small to see.** P0. Evidence V,
@@ -618,7 +646,8 @@ C. With WP-16.
   - Nothing glows, and no guest reacts: every pose matches the unlit capture.
   - This is the payoff of the whole day.
 - **Fix:**
-  1. The rocket points at the candle (GFX-LAWN-06).
+  1. The spark comes from beside Daddy as he leans in (decision 14), or from
+     the rocket pointed at the candle if the owner keeps it (GFX-LAWN-06).
   2. The spark becomes a painted sparkle trail, at least 24 px, travelling
      1.0-1.2 s in an arc. Reuse existing sparkle art.
   3. At ignition the camera moves in about 1.15× on the cake for 1.5 s
@@ -630,8 +659,9 @@ C. With WP-16.
   6. Hold the lit candle for at least 2.4 s.
 
 <a id="gfx-lawn-08"></a>
-**GFX-LAWN-08 — The stomp warning barely shows.** P0. Evidence V, C. With
-WP-16.
+**GFX-LAWN-08 — The stomp warning barely shows.** P0 while the protection
+rounds stay in the build; superseded for the draft by the battle of the bands,
+which has no attacks to warn about. Evidence V, C. With WP-16.
 
 - **What is wrong:** the warning is a flat orange ellipse at 34% opacity with
   a 6 px outline. The safe spot is an unfilled mint circle with a 24 px radius
@@ -648,28 +678,25 @@ WP-16.
   - Each landing puffs `fx_dust_puff.png`.
   - The King's foot lift comes from [GFX-CHAR-KING-01](#gfx-char-king-01).
 
-**GFX-LAWN-09 — The shelter is three thin lines.** P1. Evidence V, C. With
-WP-16.
+**GFX-LAWN-09 — The shelter is three thin lines.** P1 while the protection
+rounds stay in the build; superseded for the draft, which has no shelter to
+build. Evidence V, C. With WP-16.
 
 - **What is wrong:** each finished round adds a 7 px pastel arc centred at
   (343, 530) with a radius of 260-280 (lines 572-574). The arcs are outlines
   only; guests at the far left sit half outside them. They stay up after the
   theft and to the end.
-- **Fix:** the three friend layers from F5.
-  1. A dust bunny wall: five to seven existing dust bunny cutouts
-     (`assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_family.png`,
-     `dust_bunny_curl_ears.png`) standing shoulder to shoulder in front of the
-     guests.
-  2. Baby Eagle holding a horizontal banner canopy over them.
-  3. A painted rainbow dome (new effect art: seven soft bands with a gentle
-     inner glow, at 40-55% opacity) sized over all guests and the cake. That
-     needs the tighter guest arc from GFX-LAWN-05.
-  - The dome softly pops into sparkles at the start of F7.
+- **Fix, for the lawn alpha only:** remove the arcs when the contest ends. (An
+  earlier round of this draft built three friend layers here: a dust bunny
+  wall, Baby Eagle's banner canopy and a rainbow dome. The battle of the bands
+  replaces them.)
 
 **GFX-LAWN-10 — The royals never act.** P0. Evidence V, C. With WP-16.
 Arrival, demand, battle, theft and departure all show the same two still
 images. The candle jumps into the King's upturned palm with no reach, and the
-two never walk in or out. See [GFX-CHAR-KING-01](#gfx-char-king-01) and
+two never walk in or out. In the draft they must also play their instruments;
+the bands commission's scene candidates show the guitar and drum poses,
+awaiting approval. See [GFX-CHAR-KING-01](#gfx-char-king-01) and
 [GFX-CHAR-PRINCE-01](#gfx-char-prince-01).
 
 **GFX-LAWN-11 — After the theft, nothing changes.** P1. Evidence V. With
@@ -690,7 +717,7 @@ who stands alone facing the camera.
     frames from the Day One clip, which must not be edited (`DL-CIN-16`).
 
 **GFX-LAWN-12 — A tiny banner hangs from nothing.** P1. Evidence V, C. With
-WP-10 and WP-16. The banner is 90×145 at (50, 118), with five 20 px star stamps
+WP-11 and WP-16. The banner is 90×145 at (50, 118), with five 20 px star stamps
 (lines 135-147), top left in the sky. It reads as a rank ribbon. Fix: the
 finished banner garland in the party tree, at least 420×140 on screen, stars
 at least 36 px.
@@ -709,8 +736,10 @@ against the green bushes. The portrait is protected. Fix: stage it where the
 curl is covered by a foreground plant or sits against a pale cloud; or, with
 the owner's approval, an alpha-only mask in a new file with no repainting.
 
-**GFX-LAWN-15 — A tiny opening target.** P1. Evidence C. With WP-16. The
-counter opening is a 9 px yellow ring of radius 110 around the King's centre
+**GFX-LAWN-15 — A tiny opening target.** P1 while the protection rounds stay
+in the build; superseded for the draft, whose only target in the contest is
+the glowing drum (at least 112 px, per the bands work order). Evidence C.
+With WP-16. The counter opening is a 9 px yellow ring of radius 110 around the King's centre
 with four dots (lines 615-622). It is not the gold star the child learned on
 Day One. Fix: show the Day One gold star (`assets/opera/worlds/props/fx_stolen_sparkle.png`,
 `DustBossLesson2D.STAR`) large on his crown crest, and add
@@ -743,15 +772,17 @@ probe that the fingertip lies inside each target's rectangle.
 WP-16. She keeps the base cutout's happy smile through the demand, the theft
 and the loss. The approved gesture sheet
 (`assets/characters/roshan_25d/roshan_gestures.png`, 16 poses) goes unused on
-the lawn. Fix with no new art: surprised hands-up at the stomps, hands
+the lawn. Fix with no new art: surprised hands-up at the King's arrival, hands
 clasped for "He's so big…", pointing for her invitation, the self-hug for the
 theft, eyes-closed clasped hands for "We'll find our light together", cheers
-for the ignition, and the holding pose for the hat. A sad pose is an art gap.
+for the lit candle and the end of the song, and the holding pose for the hat.
+A sad pose and the drumming poses are art gaps.
 
 **GFX-LAWN-21 — The Prince stands with Roshan.** P1. Evidence V, C. With
 WP-16. The Prince's box (x 848-958) sits shoulder to shoulder with Roshan,
 so he reads as her ally rather than his father's son. Fix: keep him half a
-step behind the King and apart from Roshan until he helps in round 2.
+step behind the King and apart from Roshan; in the draft he sits behind his
+own drum kit on the royals' side of the stage.
 
 **GFX-LAWN-22 — The grass outshouts the characters.** P1. Evidence M. With
 WP-16. Measured on the party capture, the open grass is more saturated (0.77)
@@ -782,20 +813,20 @@ frames without HUD, with a shot choice per beat.
 
 | ID | Sev | Evidence | Flaw | Fix |
 |---|---|---|---|---|
-| <a id="gfx-char-king-01"></a>GFX-CHAR-KING-01 | P0 | V, M, C | One still cutout (`assets/chapter2/ember_alpha/king_v4_cutout.png`, 747×817) for every beat. Its palm-up gesture reads as welcoming, not demanding. Its edge has no soft pixels at all (hard alpha) and a thin white keyline runs round the whole silhouette, so it stair-steps at 0.36 scale and looks like a sticker | Now, with no new art: whole-card acting (a squash and heavy drop for each stomp, a tilt for the wobble, a spin with `fx_dizzy_stars.png`, a flip to turn away, a slide to walk), with `fx_dust_puff.png` on each step. Next: isolate the views the approved sheets already show, as the V4 gameplay cutout was isolated: the owner reference (`assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/characters/ember_king_owner_reference.jpg`) has a side view for walking in and out, a back view (with the glowing shell seams) for leaving, and four head expressions. Then a pose set (point, foot up, foot down, wobble, reach, hold the candle), with soft antialiased edges. It is an approved identity: poses only, never a redesign |
-| GFX-CHAR-KING-02 | P2 | V | For a four-year-old the design has sharp cues: horns, lower tusks, claws, spiked cuffs, a chain | Do not redesign. Keep the menace comic through acting (big wobbles, dizzy stars), distance (never looming over the guests), and a theatrical rather than scary voice |
-| <a id="gfx-char-prince-01"></a>GFX-CHAR-PRINCE-01 | P0 | C | Runtime uses one idle frame (`prince_idle.png`, region 144×301). The V2 motion package (`idle_glance`, a 16-frame `sleek_walk`, `cinderstep`) is described in `ember_prince_ANIMATION_DELIVERY.txt`, but its atlas files are not in this tree; the record cites commit `671b8b4a` | Recover and commit the V2 package from history, then use `sleek_walk` in and out and `idle_glance` in dialogue. The identity sheet (`ember_prince_identity.png`) has front, side and back views and four heads, including a sad face for "I'm sorry": isolate those. New poses are an art gap: the "Over here!" point, one clap, the look back |
+| <a id="gfx-char-king-01"></a>GFX-CHAR-KING-01 | P0 | V, M, C | One still cutout (`assets/chapter2/ember_alpha/king_v4_cutout.png`, 747×817) for every beat. Its palm-up gesture reads as welcoming, not demanding. Its edge has no soft pixels at all (hard alpha) and a thin white keyline runs round the whole silhouette, so it stair-steps at 0.36 scale and looks like a sticker | Now, with no new art: whole-card acting (a heavy drop for each footstep, a lean into each guitar flourish, a flip to turn away, a slide to walk), with `fx_dust_puff.png` on each step. Next: isolate the views the approved sheets already show, as the V4 gameplay cutout was isolated: the owner reference (`assets_src/cinematics/chapter2_lawn_scale_v2_2026-09-06/characters/ember_king_owner_reference.jpg`) has a side view for walking in and out, a back view (with the glowing shell seams) for leaving, and four head expressions. Then a pose set (point, strum, flourish, lift the candle by royal magic, hold it), with soft antialiased edges; the bands commission's guitar candidates are a starting point, pending approval. It is an approved identity: poses only, never a redesign |
+| GFX-CHAR-KING-02 | P2 | V | For a four-year-old the design has sharp cues: horns, lower tusks, claws, spiked cuffs, a chain | Do not redesign. Keep the menace comic through acting (big flourishes, a comic growl), distance (never looming over the guests), and a theatrical rather than scary voice |
+| <a id="gfx-char-prince-01"></a>GFX-CHAR-PRINCE-01 | P0 | C | Runtime uses one idle frame (`prince_idle.png`, region 144×301). The V2 motion package (`idle_glance`, a 16-frame `sleek_walk`, `cinderstep`) is described in `ember_prince_ANIMATION_DELIVERY.txt`, but its atlas files are not in this tree; the record cites commit `671b8b4a` | Recover and commit the V2 package from history, then use `sleek_walk` in and out and `idle_glance` in dialogue. The identity sheet (`ember_prince_identity.png`) has front, side and back views and four heads, including a sad face for "I'm sorry": isolate those. New poses are an art gap: the drum fill, one clap, the look back |
 | GFX-CHAR-PRINCE-02 | P2 | V | Father and son do not read as family: a chunky, big-headed King and a lanky Prince with realistic proportions and different skin rendering | Both are approved; do not repaint either. Stage the bond: they enter together, the Prince mirrors his father's first pose, both leave the same ember-dust footsteps |
 | <a id="gfx-lamma-01"></a>GFX-LAMMA-01 | P0 for Day Two | V, M | Two Lamma designs. The companion card (`assets/sprites/stuffie_studio/lamma.png`) is an egg-shaped plush in flat cel shading, grey-white shaded blue-grey, legless, holding a lavender Easter egg, matching the protected identity source (`assets/characters/lamb_0.png`). The Seek sheet (`assets/minigames/seek/lamma_animation.png`) is a bright fluffy lamb with little feet and no egg. Evie's protected portrait shows a third look: a round, fluffy, pale-blue lamb. The identity source itself is opaque, on a teal ground, with brand-like lettering on the egg, so it cannot be used as a cutout | Make the identity-source design canonical: egg shape, no legs, the lavender egg. Derive the moments Day Two needs from it as new files: peek, hide, bounce away, sniff, hug the egg, dance, hat offer. Keep the Seek sheet as provenance. Owner art review |
 | <a id="gfx-lamma-02"></a>GFX-LAMMA-02 | P1 | V, C | Two Lammas at the party: Evie's protected portrait (`pearl_friend.png`) already shows Evie hugging her, so any separate Lamma on the stuffie blanket makes two | At the party, stage Evie with her Seek sheet (`assets/minigames/seek/evie_animation.png`: idle, point, giggle, clap, cheer), which has no lamb and also gives her reactions. Or the owner decides otherwise ([decision 9](README.md#owner-decisions)) |
-| GFX-CHAR-EAGLE-01 | P1 | V, C | Baby Eagle is one still pose (`assets/characters/companions/baby_eagle.png`), follows only in castle rooms, and is absent from the Sky Lagoon and the lawn | Extend the follower to the Sky Lagoon and lawn. Poses Day Two needs: chirp on a branch (J1, F2), carry the banner (F5), hop along. The Book One page 20 art (`eagle_inviting.png`, on the book branch) is a source for a walking pose, with owner approval |
-| GFX-CHAR-PUFF-01 | P1 | V, C | The rainbow friend (Grand Puff restored) is one still 132 px card (`rainbow_friend.png`), castle only, with no tap. He has no wings | Now: a whole-card hop (squash and stretch) and a tap reaction. Next: presence on the Sky Lagoon and lawn, and the rainbow dome effect. He always hops, never flies |
-| GFX-CHAR-BUNNY-01 | P2 | V | Good dust bunny art exists (curl ears, family, hop, shell hide, sleepy, swimming), but not the helpful poses Day Two needs | New small poses from the same family: carrying a strawberry, rolling (for the wall), saying sorry (the book's `bunny_apology_canvas.png` is a source, with owner approval). On Day Two the Main Hall's three pop-for-a-pearl bunnies also return on every castle visit, under the party table, although the chapter opens with "The castle is clean!"; in v2 they are the playful helpers, not targets: stop spawning them after Day One, or stage the befriended family (`dust_bunny_family.png`) in party hats beside the table |
+| GFX-CHAR-EAGLE-01 | P1 | V, C | Baby Eagle is one still pose (`assets/characters/companions/baby_eagle.png`), follows only in castle rooms, and is absent from the Sky Lagoon and the lawn | Extend the follower to the Sky Lagoon and lawn. Poses Day Two needs: chirp on a branch (J2, F2), carry the banner (J5), pluck the bass (J7, F5), hop along. The Book One page 20 art (`eagle_inviting.png`, on the book branch) is a source for a walking pose, with owner approval |
+| GFX-CHAR-PUFF-01 | P1 | V, C | The rainbow friend (Grand Puff restored) is one still 132 px card (`rainbow_friend.png`), castle only, with no tap. He has no wings | Now: a whole-card hop (squash and stretch) and a tap reaction. Next: presence on the Sky Lagoon and at the party. He always hops, never flies |
+| GFX-CHAR-BUNNY-01 | P2 | V | Good dust bunny art exists (curl ears, family, hop, shell hide, sleepy, swimming), but not the helpful poses Day Two needs | New small poses from the same family: carrying a strawberry, rolling, saying sorry (the book's `bunny_apology_canvas.png` is a source, with owner approval). On Day Two the Main Hall's three pop-for-a-pearl bunnies also return on every castle visit, under the party table, although the chapter opens with "The castle is clean!"; in v2 they are the playful helpers, not targets: stop spawning them after Day One, or stage the befriended family (`dust_bunny_family.png`) in party hats beside the table |
 | <a id="gfx-char-dolls-01"></a>GFX-CHAR-DOLLS-01 | P1 | V, M | Kitty (`assets/book/doll_cat.png`, 220×205) has a hole in her nose, a see-through speckled belly, straight cuts along her left and bottom edges and a stray fragment. Bunny (`doll_bunny.png`, 220×159) is cut off at the right edge through the face, with a ragged bottom and stray line fragments | Protected, so never edit these files. Ask the owner to authorise re-isolations from the full book source pages, saved as new files with provenance ([decision 11](README.md#owner-decisions)). Until then, never enlarge them above their native size, and hide the damaged edges |
 | GFX-CHAR-GUESTS-01 | P1 | V, C | The guest portraits mix styles and sizes, and hats hide faces (GFX-LAWN-01, GFX-LAWN-05) | Staging only: sizes, bands, shadows, hats, as in those findings |
 | GFX-CHAR-GUESTS-02 | P2 | M, V | Several portraits carry a pale halo along their edges (a white rim measured on Flower Friend, Faron, Evie, Harper and Fiona, and Wacky and Chuck), which shows as a light outline on the green lawn. Huluu's portrait is 640×1039, above the 1024 px texture rule | Protected: no edits. Stage them against mid-value backgrounds; alpha-erode derivatives only with the owner's approval ([decision 11](README.md#owner-decisions)) |
 | GFX-CHAR-RUMI-01 | P2 | V | Rumi's sheet (`rumi_eight_pose_runtime.png`) is in a realistic teen style unlike chibi Roshan, with a faint greenish edge fringe; two cells touch their left edges; frame 0 is clean | Use frame 0 and the wave cells only. No new frames (IP hold) |
-| GFX-CHAR-DADDY-01 | P1 | V | Daddy has no pose beyond his still portrait, and Day Two makes him the planner, the coach and the hug | Whole-card motion for now. Pointing at the Party Plan, tying the apron and the hug are art gaps. Day One clip frames are not borrowed (`DL-CIN-16`) |
+| GFX-CHAR-DADDY-01 | P1 | V | Daddy has no pose beyond his still portrait, and Day Two makes him the planner, the coach, the ukulele player and the hug | Whole-card motion for now. Pointing at the Party Plan, tying the apron, strumming and the hug are art gaps; his ukulele candidates on the bands branch await approval. Day One clip frames are not borrowed (`DL-CIN-16`) |
 
 ## 8. Props
 
@@ -809,10 +840,10 @@ frames without HUD, with a shot choice per beat.
 | GFX-PROP-CANDLE-01 | P2 | V | Good art: the unlit and lit candles line up exactly. The glitter turns to noise at 44-53 px (the Library and Detective sizes). The unlit candle's wick is dark and twisted, like one already burned | Show it larger when it is found. Optionally a pale wick on the unlit derivative |
 | GFX-PROP-BERRY-01 | P2 | V | The field strawberries (`sky_lagoon_strawberry_single.png`, `…_cluster.png`) are sticker-style with thick navy outlines. The tray and cake berries are painterly, with no outline and a different stem. The child may not see them as the same berries. The cluster shows three berries in a five-berry job | Keep the field berries as the model. Match the tray and cake berries' outline and calyx in the derivatives above. Use five single berries, not the cluster, for "five" |
 | <a id="gfx-prop-berry-02"></a>GFX-PROP-BERRY-02 | P2 | V | The candied tray's five berries touch, so they are hard to count | 6-8 px gaps in a derivative. Reused for the Chef's topping step, the berries are fresh, so no glaze is needed |
-| <a id="gfx-prop-banner-01"></a>GFX-PROP-BANNER-01 | P1 | V, C | The only banner (`assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png`, 256×512) is a near-white pennant with an empty medallion. Nothing on it says birthday, it vanishes on sand and pale walls, and it has one state, so painting and stamping never change it | Non-destructive derivative states: painted (Roshan's own smiling picture in the medallion, a small derivative of her approved cutout, so the banner says whose party it is, with the Craft Room colour she chose on Day One), stamped (five gold stars), hung (on a hook with a shadow), and a horizontal garland version for the party. Leave the approved template untouched |
-| GFX-PROP-ROCKET-01 | P1 | V, C | `goal_astronaut.png` is good art, but three rockets exist: the Astronaut world's painted rocket, this prop, and a second copy on the party table | One rocket everywhere: this prop (GFX-ASTRO-05, GFX-HALL-03) |
-| GFX-PROP-MIC-01 | P2 | V | The shell microphone is good art, but floats on the lawn | On Rumi's small stage (GFX-LAWN-06) |
-| GFX-PROP-BOX-01 | P2 | V | The music box (`goal_ballerina.png`) is good art, but floats beside Faron | On the stuffie blanket (GFX-LAWN-06) |
+| <a id="gfx-prop-banner-01"></a>GFX-PROP-BANNER-01 | P1 | V, C | The only banner (`assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png`, 256×512) is a near-white pennant with an empty medallion. Nothing on it says birthday, it vanishes on sand and pale walls, and it has one state, so painting and stamping never change it | Non-destructive derivative states: painted (a cake and candle in the medallion, using the Craft Room colour Roshan chose on Day One), stamped (five gold stars), hung (on a hook with a shadow), and a horizontal garland version for the party. Leave the approved template untouched |
+| GFX-PROP-ROCKET-01 | P1 | V, C | `goal_astronaut.png` is good art, but three rockets exist: the Astronaut world's painted rocket, this prop, and a second copy on the party table | One rocket everywhere: this prop, which carries the invitations in J1 (GFX-ASTRO-05, GFX-HALL-03) |
+| GFX-PROP-MIC-01 | P2 | V | The shell microphone is good art, but floats on the lawn | Keep it for freeplay; the draft's party has no microphone, because Roshan drums (GFX-LAWN-06) |
+| GFX-PROP-BOX-01 | P2 | V | The music box (`goal_ballerina.png`) is good art, but floats beside Faron | By the stuffies' little curtain on the stage, for Lamma's show (GFX-LAWN-06) |
 | GFX-PROP-CREST-01 | P2 | V | The Opera crests on the room cards are embossed, with ornate frames that leave the symbol about 25 px wide at runtime. The Chef, Farmer and Candy crests show a layer cake, vegetables and a wrapped sweet | Symbol-only small variants; Day Two variants (rainbow cake, strawberry) as derivatives |
 
 ## 9. New art the draft needs
@@ -822,30 +853,29 @@ the navy-and-plum-contour storybook style.
 
 | Art | For | Notes |
 |---|---|---|
-| Arborist job art | J1 | Exists with the owner; commit it (GFX-ARB-01) |
+| Arborist job art | J2 | Recovered on `dev`; the remaining gaps are in GFX-ARB-01 |
 | Party hat set (4 colours, 2 sizes) | F1-F8 | GFX-LAWN-01 |
-| Picnic blanket and cushions | Finale | GFX-LAWN-05; or reuse castle cushions |
-| Rainbow dome effect | F5 | GFX-LAWN-09 |
-| Lily pad safe spot | F5 | GFX-LAWN-08 |
-| Launch pad for the rocket | F3 | GFX-LAWN-06 |
 | Party Plan board and its empty-frame state | D2-OPEN-2 | 03 |
-| The Party Plan's guest row: seven small frames and one empty "one more" frame | D2-OPEN-2, R1-R8 | The frames are new; the friend pictures are the protected portraits shown small at runtime, never edited, with no names or words (`DL-READ-04`) |
+| The Party Plan's guest row: seven small frames, empty until the invitations fly | D2-OPEN-2, R1-R8 | The frames are new; the friend pictures are the protected portraits shown small at runtime, never edited, with no names or words (`DL-READ-04`) |
+| The plan's stage picture with its empty star | D2-OPEN-2, LAMMA-JOIN, R6 | A small new picture; the star fills with Lamma's picture |
+| Seven picture invitations and the rocket's open hatch | J1 | Each card shows one protected portrait small, at runtime, never edited; the hatch is a derivative of `goal_astronaut.png` |
+| Invitation bubbles | J1, R1 | Reuse the bubble effects; one bubble per friend |
+| The stuffies' little stage, curtain and star spot | J6, F2 | New small art; the music box is `goal_ballerina.png` |
+| The shared party stage and the cake pedestal | F1-F7 | The bands commission's stage (a transparent full-canvas generation, with a runtime version of at most 1024 px) and pedestal, pending approval |
 | Party hats for the dust bunnies | F1-F8 | Separate cutouts, like the guests' (GFX-LAWN-01) |
-| The petal nest: a soft pile of pink petals at the foot of the party tree | J1 B7, the lawn | From the Arborist blossom art where possible; it must read as soft and safe, never as litter |
-| A tiny berry basket, one cutout placed beside each guest | R2, the lawn, F8 | A small derivative of the J2 basket art; never drawn over a protected portrait |
-| The cut cake and slices on plates | F7, E1 | A cut-cake derivative of the final cake (GFX-PROP-CAKE-01 fixes first) and one slice-on-a-plate cutout |
-| Strawberry plants (3) and a basket that fills 1-5 | J2 | GFX-FARM-02, GFX-FARM-04 |
+| Strawberry plants (3) and a basket that fills 1-5 | J3 | GFX-FARM-02, GFX-FARM-04 |
 | Pipe-tile kit; star-note pads; patch pieces | Practice and freeplay | GFX-SYS-05, GFX-ASTRO-02, GFX-ASTRO-03 |
 | Costume overlays for Roshan (8) | In-world levels | GFX-SYS-04 option (b) |
+| Instrument-playing poses: Roshan drumming, Daddy strumming, Baby Eagle plucking, the King's guitar, the Prince's drums | J7, F5 | The bands commission's bounded new poses and scene candidates, pending approval; readable strike, contact and rebound for Roshan |
 | King pose set | F4-F6 | GFX-CHAR-KING-01 |
-| Prince poses: point, clap, apology, look back | F4-F6 | GFX-CHAR-PRINCE-01 |
-| Lamma poses in the canonical design | LAMMA-*, F7 | GFX-LAMMA-01 |
-| Baby Eagle: branch chirp, banner carry, hop | J1, F2, F5 | GFX-CHAR-EAGLE-01 |
-| Dust bunnies: strawberry carry, roll, sorry | J2, J3, F5 | GFX-CHAR-BUNNY-01 |
-| Daddy: point, apron, hug | D2-OPEN, J3, F7 | GFX-CHAR-DADDY-01 |
+| Prince poses: drum fill, clap, apology, look back | F4-F6 | GFX-CHAR-PRINCE-01 |
+| Lamma poses in the canonical design | LAMMA-*, J6, F2, F7 | GFX-LAMMA-01, including the star's twirl and bow |
+| Baby Eagle: branch chirp, banner carry, bass, hop | J2, J5, J7, F5 | GFX-CHAR-EAGLE-01 |
+| Dust bunnies: strawberry carry, roll, sorry | J3, J4 | GFX-CHAR-BUNNY-01 |
+| Daddy: point, apron, ukulele, hug | D2-OPEN, J4, J7, F7 | GFX-CHAR-DADDY-01 |
 | A painted Dining Room plate (then the Family Gallery and Movie Lounge) | The Farmer's launch room | GFX-ROOM-03, GFX-ROOM-04 |
 | Main Hall party dressing: bunting and balloon clusters | The Main Hall through the day | GFX-HALL-12 |
-| Derivatives: cake ledge and berries, banner states, tray gaps, candle holder (on the cake from J3 on, empty until F1), costume alpha repair, venue plaques, Day Two medallion | Various | Sections 1-8 |
+| Derivatives: cake ledge and berries, banner states, tray gaps, candle holder (on the cake from J4 on, empty until F1), costume alpha repair, venue plaques, Day Two medallion | Various | Sections 1-8 |
 
 ## 10. Fix order and work packages
 
@@ -862,7 +892,7 @@ the navy-and-plum-contour storybook style.
 | The finale | GFX-LAWN-* (except -17, -19, -20), GFX-CHAR-KING-*, GFX-CHAR-PRINCE-*, GFX-CHAR-GUESTS-01, GFX-CHAR-RUMI-01 | WP-16 |
 | Cinematic cards | GFX-CIN-01 | WP-20 |
 | Venue and room icons | GFX-VEN-*; GFX-ROOM-08 | WP-18 (VEN-03 waits for the commissioned venue) |
-| Arborist | GFX-ARB-01 | WP-07 (Step 0 of the Arborist handoff) |
+| Arborist | GFX-ARB-01 | WP-08 (the art recovered on `dev`; its remaining gaps) |
 
 ## 11. Keep: the strongest art
 

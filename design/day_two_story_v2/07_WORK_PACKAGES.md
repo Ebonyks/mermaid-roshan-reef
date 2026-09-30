@@ -48,7 +48,7 @@ WP-21 probes and acceptance runs alongside every package
 
 ### WP-00 — Owner decisions (blocking)
 
-- **Goal:** answers to the thirteen decisions in the
+- **Goal:** answers to the fifteen decisions in the
   [README](README.md#owner-decisions).
 - **Output:** a dated owner-decision note appended to the README.
 - **Acceptance:** each decision recorded verbatim with its date.
@@ -60,14 +60,20 @@ WP-21 probes and acceptance runs alongside every package
   contract.
 - **Outputs:**
   - `design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md`: Arborist
-    replaces Candy Maker; new sequence and masks (Arborist-first:
-    `[18, 6, 0, 10, 2, 13, 11, 1]`, chapter mask `0x42C47`); the
-    practise-then-for-real routine; Chef's strawberry-topping step.
+    replaces Candy Maker; the Astronaut sends the invitations instead of
+    building the candle-lighting rocket; new sequence and masks
+    (Astronaut-first: `[11, 18, 6, 0, 10, 2, 13, 1]`, chapter mask
+    `0x42C47`); the practise-then-for-real routine; Chef's strawberry-topping
+    step; the Pop Star's family band; the Ballerina card gated on
+    `lamma_joined`; who lights the candle (decision 14).
   - `design/CHAPTER2_CAKE_VISUAL_PROGRESSION_2026-08-31.md`: Chef owns bits 5
     and 6.
   - `DL-INT-12`/`DL-INT-07` only if WP-00 chose Opera Hall launches or a
     freeplay Arborist.
-  - The lawn finale draft marked superseded by `04`.
+  - The lawn finale draft and the battle-of-the-bands commission reconciled
+    with `04` once the owner answers decision 15 (`OQ-BANDS-VS-LAWN` on
+    `dev`), and the bands branch merged or ported with its own acceptance
+    gates.
   - Ledger rows and an impact record.
 - **Acceptance:** the document audit's mask and sequence checks pass against
   `scripts/chapter_two_party_plan.gd` after WP-02.
@@ -76,19 +82,25 @@ WP-21 probes and acceptance runs alongside every package
 
 - **Depends on:** WP-01.
 - **Outputs:** additive keys with defaults:
+  - `chapter2_invitations_mask` (one bit per friend's invitation);
   - `chapter2_party_tree_phase` (0–4);
   - `lamma_moments_seen` (bitmask of LAMMA-1…3);
   - `lamma_joined` (mirrors the existing `friend_lamma` unlock);
   - `chapter2_lawn_tour` (bitmask);
+  - `chapter2_band_taps`, `chapter2_band_song_position`,
+    `chapter2_band_song_done` (the battle of the bands);
   - `chapter2_cameo_seed`;
   - per-job `chapter2_job_levels` (bit 0 practice done, bit 1 world level
     done).
 
   Migration:
   - A legacy Candy Maker bit in `chapter2_party_piece_mask` credits the
-    Arborist and sets the tree to blooming.
-  - A save mid-chapter under the old order gets the Arborist as its next job
-    without losing any finished job.
+    Arborist and sets the tree to blooming (the Tree Book handoff's rule).
+  - A save mid-chapter under the old order gets the jobs it has not done, in
+    the new order, without losing any finished job. A save whose Astronaut
+    already built the parked candle rocket counts the invitations as sent.
+  - A save that already won the old protection rounds counts the battle of
+    the bands as won.
   - Saves past Day One mark LAMMA-1 and LAMMA-2 seen.
 - **Acceptance:** `probe_chapter2.gd` covers every migration case, including
   malformed values, and restores the same visuals after restart.
@@ -106,21 +118,23 @@ WP-21 probes and acceptance runs alongside every package
     eight frames, the next one glowing, filled frames showing the real party
     pieces; and the **R-beat** after every job, where Daddy arrives with the
     scroll wherever Roshan finished.
-  - **The guest row and the function beat** (the party-preparation script,
-    [plotline](00_DAY_TWO_PLOTLINE.md#what-each-job-gives-the-party)): the
-    seven invited friends along the bottom of the scroll, as small runtime
-    views of the protected portraits, plus one empty "one more" frame; in
-    each R-beat the friend the piece is for hops into its frame while Roshan
-    says the job's function line (`Jn-FN`). No new save: the pictures follow
-    the party bits, and the empty frame follows `lamma_joined`.
+  - **The guest row, the empty star and the function beat** (the
+    party-preparation script,
+    [plotline](00_DAY_TWO_PLOTLINE.md#what-each-job-gives-the-party)): seven
+    empty frames along the bottom of the scroll that fill with small runtime
+    views of the protected portraits when the invitations fly (`R1`); the
+    stage picture's empty star, which Lamma fills (`LAMMA-JOIN`); and in each
+    R-beat, whoever the piece is for joins its frame while Roshan says the
+    job's function line (`Jn-FN`). No new save: the pictures follow the party
+    bits, and the star follows `lamma_joined`.
   - The Main Hall's party dressing as the day goes on (bunting, balloons,
     the glowing doors), world-locked ([GFX-HALL-12](06_GRAPHICS_AUDIT.md)).
   - Every opening line voiced.
   - The caption-only chapter-start message removed.
 - **Acceptance:** a non-reader can reach the first job from the Main Hall
   using only voice and pictures; captures of the board at 0, 4 and 8 pieces,
-  with the guest row, and after R5 with Lamma in the one-more frame; protected
-  portraits byte-identical.
+  after R1 with the guest row full, and after LAMMA-JOIN with Lamma in the
+  star; protected portraits byte-identical.
 
 ### WP-04 — The practise-then-for-real routine
 
@@ -130,9 +144,12 @@ WP-21 probes and acceptance runs alongside every package
     cut to the steps named in the plotline through the dormant
     `chapter2_tutorial` path: no rival race, a short bow. The bow hands
     Roshan the costume piece and routes her to level 2.
-  - The imp apprentice at every practice: arrive, copy, grab the prop, get
-    booped, drop it and scurry off, using the existing `imp_op_*`
-    recordings (new lines for the Arborist).
+  - No imp at any practice: Chapter 2 story and tutorial runs get no imp and
+    no contest (rule C13 of the imp-contest handoff on `dev`, and the design
+    language's new Opera-contest rule there).
+  - The two practices that come from elsewhere: the Arborist's Tree Book test
+    level (on `dev`) and the Pop Star's drum part (the bands commission's
+    reusable drumming component).
   - A one-phase warm-up for children who already hold the career star.
   - Grand Puff as the travel guide between places, including the Sky Lagoon,
     and the next job's door lit in the Day One golden-door language
@@ -153,7 +170,7 @@ WP-21 probes and acceptance runs alongside every package
   - makes Roshan travel to each object and visibly do the action
     (`MA-PLAY-004`);
   - exposes phase callbacks to the Chapter 2 director.
-- **Acceptance:** one job (recommend J3, Kitchen) fully playable in the
+- **Acceptance:** one job (recommend J4, Kitchen) fully playable in the
   Kitchen room art with passive, held, off-target, focus-loss and re-entry
   probes.
 
@@ -183,18 +200,18 @@ cues, challenge deck, R-beat, saves and assets:
 
 | Package | Job | Level 2 place | Notes |
 |---|---|---|---|
-| WP-07 | J1 Arborist | Sky Lagoon lawn, party tree | Needs the Arborist art committed first; new career (Arborist handoff); the petal nest in the shade; Baby Eagle's lookout perch on the mended branch |
-| WP-08 | J2 Farmer | Sky Lagoon strawberry grove | Reuse Chapter 2 Farmer phases in-world; R2 gives the dust bunnies one more berry, and they fill a tiny berry basket for every friend (shown, no input) |
-| WP-09 | J3 Chef | Royal Kitchen | Adds the strawberry-topping phase; the finished cake shows the empty shell candle holder from then on; the cut-cake state for F7; LAMMA-3 at the end |
-| WP-10 | J4 Painter | Craft Room | Banner goes to the party tree via Baby Eagle; the paint reveals Roshan's own picture in the medallion; R4 hangs it on the mended branch ("On the branch we mended!") |
-| WP-11 | J5 Ballerina | Stuffie Playroom | Starts with LAMMA-JOIN (WP-15); the grand twirl spins as fast as the child draws (the wild half); R5 fills the one-more frame with Lamma |
-| WP-12 | J6 Pop Star | Opera Hall stage | Rumi has no voice: her memory is shown as a picture and said by Roshan |
-| WP-13 | J7 Astronaut | Mermaid Pool | Rainbow waterfall fuels the rocket; seahorse helps; the rocket's three-blink countdown is built with WP-16 |
+| WP-07 | J1 Astronaut | Mermaid Pool | Rainbow waterfall fuels the rocket; the seahorse helps; one picture invitation per friend, named as it goes in; hold to launch; the guest row fills (R1). The rocket no longer waits to light the candle (decision 14) |
+| WP-08 | J2 Arborist | Sky Lagoon middle meadow, party tree | The Tree Book loop as the owner corrected it on 2026-09-29; the practice is the built foyer test level on `dev`; the art's remaining gaps (GFX-ARB-01) |
+| WP-09 | J3 Farmer | Sky Lagoon strawberry grove | Reuse Chapter 2 Farmer phases in-world; R3 gives the dust bunnies one more berry |
+| WP-10 | J4 Chef | Royal Kitchen | Adds the strawberry-topping phase; the finished cake shows the empty shell candle holder from then on; LAMMA-3 at the end |
+| WP-11 | J5 Painter | Craft Room | Banner goes to the party tree via Baby Eagle; a cake and candle in its medallion |
+| WP-12 | J6 Ballerina | Stuffie Playroom | Starts with LAMMA-JOIN (WP-15), which wakes the card: the show cannot start without its star; the three acts with Lamma on the star |
+| WP-13 | J7 Pop Star | Opera Hall stage | The family band rehearses to the opening of the unedited Iko Iko with the bands commission's drumming component; Daddy's ukulele and Baby Eagle's bass; blocked on decision 15 |
 | WP-14 | J8 Detective | Royal Library | The unlit candle; completes the party |
 
 - **Acceptance for each:** strict order; passive, held and off-target input
   earn nothing; save at every phase; persistent piece visible in the room,
-  on the Party Plan (with the friend it is for) and on the lawn; the job's
+  on the Party Plan (with whoever it is for) and at the party; the job's
   function line voiced in its R-beat; captures at two aspects.
 
 ### WP-15 — Lamma
@@ -211,14 +228,16 @@ cues, challenge deck, R-beat, saves and assets:
     as in-room gameplay peeks, never inside story clips (`DL-CIN-16`);
   - LAMMA-3 in the Kitchen, leaving floury bounce marks and her dropped egg;
   - LAMMA-JOIN as a four-find game built on `scripts/games/seek.gd` (wool,
-    bounce marks, her egg, then Lamma in the tent), given a live entry in the
-    Playroom;
-  - the `friend_lamma` unlock on joining;
-  - her presence in the stuffie ballet and the finale, staged so only one
-    Lamma is ever on screen (Evie's portrait already holds her; see
+    bounce marks, the play tent, then Lamma among the stuffies), given a live
+    entry in the Playroom;
+  - the `friend_lamma` unlock on joining, and `lamma_joined`, which wakes the
+    Ballerina card: the show has no star until she joins (owner, 2026-09-30);
+  - her part as the star of the stuffies' show in the rehearsal and at the
+    party, and in the finale, staged so only one Lamma is ever on screen
+    (Evie's portrait already holds her; see
     [GFX-LAMMA-02](06_GRAPHICS_AUDIT.md#gfx-lamma-02));
   - poses in the canonical egg-carrying design: peek, hide, bounce away,
-    sniff, hug the egg, dance, hat offer;
+    sniff, hug the egg, the star's twirl and bow, hat offer;
   - a soft lamb bleat sound effect (new, licensed and listed in
     `ASSET_LICENSES.md`);
   - the legacy lines that speak for her through Evie's voice (the roster
@@ -229,34 +248,37 @@ cues, challenge deck, R-beat, saves and assets:
 
 ### WP-16 — The party chapter (F1–F8)
 
-- **Depends on:** WP-07…WP-15.
+- **Depends on:** WP-07…WP-15, and decisions 14 and 15.
 - **Outputs:** everything in plotline sections 9 and 10, with the production
   detail in [04](04_FINALE_PARTY_CHAPTER.md):
-  - the party map (each guest beside the piece made for them, a tiny berry
-    basket beside each, the petal nest by Faron), the candle set in its
-    holder, and the payoff tour with each piece's friend reacting as a whole
-    picture (existing guest clips optional, unaltered);
-  - every party need met in the scenes: Baby Eagle's hello from the mended
-    branch (F1), the countdown and Kareem watching Rumi's show (F3), the
-    Prince reading Roshan's picture on the banner (F4), the lawn falling into
-    dusk without the candle and the cake shared after the wish (F7), and the
-    friends going home with their berry baskets (F8);
-  - ignition with Rumi's song, and the imp scout;
-  - the royal entrance, with the King's "MY birthday party!";
-  - three rounds with friend shelter layers and painted warnings;
-  - the King's motion set;
-  - the Prince's acting;
+  - the party in the middle meadow on the bands commission's one shared stage,
+    with the cake on its visible pedestal and the party tree beside it; the
+    playground equipment removed only while the party is staged;
+  - the party map (the three friends a job was made for beside their piece),
+    the candle set in its holder, and the payoff tour with Lamma's show;
+  - the candle lit (Daddy, or the rocket if decision 14 keeps it);
+  - the royal entrance with their instruments, and the King's "MY birthday
+    party!";
+  - the battle of the bands: the bands prototype
+    (`scenes/battle_of_bands_prototype.tscn` on branch
+    `codex/battle-of-bands-20260920`) joined to the production route as its
+    Codex work order sets out, with the reusable drumming component, the
+    exact spoken objective (`bands_tap_glowing_drum`) and a visual pointer,
+    the unedited Iko Iko, and the song-position saves;
+  - the King's guitar playing and royal magic; the Prince's drumming and
+    acting;
   - the theft composition;
-  - Lamma's comfort and the wish;
+  - Lamma's comfort, Daddy's soft ukulele and the wish;
   - the evening walk and the sky-door reveal;
   - the birthday evening (supper with the cake, the movie of the day, the
     sleepover), reskinning the existing comfy games.
 
   Also removes the stale scout and "north-star clue" lines and objective from
-  `scripts/main.gd`.
-- **Acceptance:** existing lawn probe cases still pass; the new beats save
-  and resume; the reassurance can never be skipped after the theft; captures
-  of every beat.
+  `scripts/main.gd`, and retires the stomp-and-dodge rounds from Day Two.
+- **Acceptance:** existing lawn probe cases still pass or are retired with the
+  owner's answer to decision 15; the bands prototype's focused probe cases
+  pass in the production route; the new beats save and resume; the
+  reassurance can never be skipped after the theft; captures of every beat.
 
 ### WP-17 — Voice production
 
@@ -267,6 +289,9 @@ cues, challenge deck, R-beat, saves and assets:
     filler, with new presets for the King and the Prince.
   - Distinct keys for new Daddy lines; no Rumi voice; nothing trained or
     conditioned on family recordings.
+  - The band's song is the published Iko Iko v89 master, never edited or
+    retimed, with no invented lyrics or replacement voices; its game use waits
+    on decision 15.
   - Caption text matches each voice line exactly.
 - **Acceptance:** exact-word ASR gate passes for every line; owner listening
   session recorded.
@@ -309,9 +334,12 @@ cues, challenge deck, R-beat, saves and assets:
 ### WP-20 — Cinematic cards
 
 - **Depends on:** WP-00, WP-16 staging.
-- **Outputs:** revised Grok shot cards replacing C2-01…C2-09 for the new
-  finale beats, using `design/templates/IMAGINE_SHOT_CARD_V1.md`, published
-  and verified on GitHub per the handoff rules.
+- **Outputs:** for the contest, the bands commission's 19 V1 shot cards
+  (`BAND-01` to `BAND-14`), once their first frames are approved; revised
+  Grok shot cards replacing C2-01…C2-09 for the other finale beats (arrival,
+  tour and show, candle, comfort, door), using
+  `design/templates/IMAGINE_SHOT_CARD_V1.md`, published and verified on
+  GitHub per the handoff rules.
 - **Acceptance:** `ARCHIVE_COMPLETE` / `GENERATION_READY` /
   `DELIVERY_ACCEPTED` reported separately.
 
@@ -320,8 +348,9 @@ cues, challenge deck, R-beat, saves and assets:
 - **Runs with:** every package.
 - **Outputs:**
   - Probe updates: `probe_chapter2.gd`, `probe_chapter2_lawn.gd`,
-    `probe_chapter2_farmer_resume.gd`, new `probe_arborist.gd`,
-    `probe_lamma.gd` and `probe_chapter2_cameo.gd`.
+    `probe_chapter2_farmer_resume.gd`, the Tree Book's `probe_tree_book_test.gd`
+    and the bands' `probe_battle_of_bands.gd` (both built on their branches),
+    new `probe_lamma.gd` and `probe_chapter2_cameo.gd`.
   - A Day Two playtest protocol modelled on
     `audit/day_one_playthroughs_2026-09-02/`.
 - **Acceptance:** green CI on each package's head; device 30 fps; a recorded

@@ -4,6 +4,17 @@ Status: `CANDIDATE` owner-directed implementation handoff, 2026-09-30.
 Nothing here is implemented yet. It grants no art, voice, device, child,
 owner or release acceptance.
 
+**Superseded in part.** The owner's corrections recorded on `dev` in
+`design/ARBORIST_TREE_BOOK_HANDOFF_2026-09-29.md` replace this handoff's
+conflicting defaults: every patient has a visibly diseased leaf and three
+decisions with four choices each; the thirsty-then-broken-branch event is
+gone; Roshan visibly gives the medicine to the same tree, which becomes
+healthy, and a tree sticker is the payoff; and the Candy Maker is reserved for
+a later section of the game and is not placed in the Kitchen. The art has
+since been recovered there, and `design/OPERA_TREE_BOOK_TEST_2026-09-30.md` on
+`dev` builds the practice. The Day Two story draft v2 follows those
+corrections ([J2](day_two_story_v2/00_DAY_TWO_PLOTLINE.md#j2--arborist-baby-eagles-tree)).
+
 ## Owner direction (2026-09-30)
 
 - Two Day Two jobs in the Royal Kitchen (Chef and Candy Maker) do not make
