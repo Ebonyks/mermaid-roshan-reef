@@ -1,0 +1,94 @@
+{
+  "id": "door-highlight-rewrite-handoff-20260930",
+  "scope": "Owner-requested 2026-09-30 Codex handoff to rewrite the Pearl Castle door highlighting (Door Guidance v2). Adds the work-order document with 13 defects verified at dev e7899cc0, the target specification, work packages, acceptance criteria and owner decisions; a document-ledger row; ASSET_LICENSES provenance; and review-only diagnostic composites plus seed door geometry and their deterministic generators under audit/door_highlight_rewrite_2026-09-30/. No runtime script, scene, save, voice, workflow, protected or approved asset changes. Related findings are cited for routing only; none changes lifecycle.",
+  "baseline": "e7899cc095fc326ff007e30226ad7bafea8f1634",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-07",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-03",
+    "DL-READ-05",
+    "DL-READ-06",
+    "DL-VIS-04",
+    "DL-VIS-07",
+    "DL-LAY-01",
+    "DL-INT-01",
+    "DL-INT-04",
+    "DL-UI-03",
+    "DL-MOT-03",
+    "DL-MOT-06",
+    "DL-SND-01",
+    "DL-SND-13",
+    "DL-SND-15",
+    "DL-PERF-03",
+    "DL-CODE-01",
+    "DL-CODE-02",
+    "DL-CODE-04",
+    "DL-CODE-05",
+    "DL-CODE-07",
+    "DL-CODE-08",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-07"
+  ],
+  "findings": [
+    "MA-PLAY-001",
+    "MA-PLAY-003",
+    "MA-ACCESS-001",
+    "MA-CHILD-001",
+    "MA-CODE-003"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "CODEX_DOOR_HIGHLIGHT_REWRITE_HANDOFF_2026-09-30.md",
+    "audit/door_highlight_rewrite_2026-09-30/concept_day_one_bubble_bath_entry.jpg",
+    "audit/door_highlight_rewrite_2026-09-30/concept_day_one_wandered_left.jpg",
+    "audit/door_highlight_rewrite_2026-09-30/concept_free_play_royal_event_entry.jpg",
+    "audit/door_highlight_rewrite_2026-09-30/current_day_one_bubble_bath_entry.jpg",
+    "audit/door_highlight_rewrite_2026-09-30/current_day_one_wandered_left.jpg",
+    "audit/door_highlight_rewrite_2026-09-30/current_free_play_royal_event_entry.jpg",
+    "audit/door_highlight_rewrite_2026-09-30/measure_hall_door_geometry.py",
+    "audit/door_highlight_rewrite_2026-09-30/measured_door_geometry.json",
+    "audit/door_highlight_rewrite_2026-09-30/measured_door_geometry_overlay.jpg",
+    "audit/door_highlight_rewrite_2026-09-30/render_review_mocks.py",
+    "audit/door_highlight_rewrite_2026-09-30/squint_quarter_scale_current_vs_concept.jpg",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "Local run on the staged candidate over base e7899cc0: DOCAUTH|INVENTORY=577|LEDGER=577|ACTIVE=56|RECORDS=58, RESULT ALL OK."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Local run on the staged candidate: AUDITDEV|BASE|e7899cc095fc326ff007e30226ad7bafea8f1634, RESULT ALL OK (every changed path covered by this record)."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "Local run: 52 tests OK."
+    },
+    {
+      "command": "python3 audit/door_highlight_rewrite_2026-09-30/measure_hall_door_geometry.py && python3 audit/door_highlight_rewrite_2026-09-30/render_review_mocks.py",
+      "result": "PASS",
+      "evidence": "Regenerated from the approved master tiles with Pillow 12.3.0 and numpy 2.4.6; all nine images and the geometry JSON were byte-identical (SHA-256) to the committed files."
+    },
+    {
+      "command": "Exact Godot 4.7.2-stable import and scripts/ci.sh trusted probes",
+      "result": "NOT_APPLICABLE",
+      "evidence": "No runtime script, scene, resource or asset under Godot import changed; the audit/ folder is excluded by audit/.gdignore. The GitHub probe workflow still runs on push and its result is reported separately."
+    }
+  ],
+  "acceptance_gaps": "This change is a plan plus diagnostic composites and changes no runtime behaviour. The implementation (WP-D0 to WP-D8), its exact Godot 4.7.2 Mobile runtime captures (AC-17), Lenovo Tab M11 and phone device checks including the squint test, child observation, generation of the new voice lines and their listening review, and owner acceptance all remain open. The PIL composites are design intent, not DL-QA-03 runtime evidence. MA-PLAY-001, MA-PLAY-003, MA-ACCESS-001, MA-CHILD-001 and MA-CODE-003 keep their current lifecycle."
+}
