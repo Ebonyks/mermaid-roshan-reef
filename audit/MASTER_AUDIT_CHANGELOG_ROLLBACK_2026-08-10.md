@@ -1,7 +1,7 @@
 # Mermaid Roshan master-audit change and rollback ledger
 
 - **Ledger ID:** `MA-CHANGELOG-2026-08-10`
-- **Change-ID namespace:** `CHG-001` through `CHG-031`; IDs are permanent and
+- **Change-ID namespace:** historical planner records `CHG-001` through `CHG-031`, with scoped review addition `CHG-032` below; IDs are permanent and
   are never reassigned or renumbered
 - **Audit lineage:** `codex/master-audit-20260809`
 - **Dedicated current audit branch:**
@@ -1966,3 +1966,17 @@ new evidence, and changed rollback dependency. It must not rewrite the original
 record. A genuinely new behavior receives the next unused ID. This preserves a
 reviewable history in which positive and negative outcomes can coexist without
 either being hidden.
+
+### Day Two graphics review addition CHG-032
+
+- Date: 2026-09-30. New review-tool/library behavior, distinct from historical CHG-023 maintenance.
+- Exact integration baseline: `55032e88936b22723fd9af5282c61ba6696b3d43`. First exact source commit: `788e614eb1ebde47d3f9e5a87d5634638d5eb7bb`. Exact planned-contest extension and authority reconciliation commit: `2eae4ceb31b9274a53e4767c9845b6c6934260cc`. Publication metadata follows without changing those source records.
+- Paths: `tools/build_day2_art_library.py`, `audit/day2_art_library_2026-09-30/REPORT.md`, `inventory.json`, `reviews.json`, `evaluations.json`, `index.html`, `priority_queue.csv`, `cover.jpg`, `preview_provenance.json`, `refresh_delta.json`, and `verification.log` in that same audit directory; `design/audit_impacts/day2-art-library-20260930.json`, `design/05_DOC_LEDGER.md`, `audit/MASTER_AUDIT_2026-08-09.md`, `ASSET_LICENSES.md`, and this changelog. The impact record enumerates exact repository paths, including all 660 adjacent source/historical preview images.
+- Intended benefit: individually inspect 637 images and 190 current/planned phase or beat evaluations, prioritize the inclusive 4.5/5 threshold, and invalidate changed source reviews on a later manual refresh.
+- Plausible negative effects: source opinions could be mistaken for runtime acceptance, historical screenshots for current captures, or inactive weak art for a generation order. The report, item records and UI explicitly retain those limits. The complete folder contains small HTML/JSON and separately hashed whole-source previews; source images remain unchanged.
+- Dependencies and evidence: named baseline image/controller hashes, owner-corrected Arborist direction, design authority, historical capture manifests, individual authored reviews, browser inspection and audit gates recorded in `verification.log` and the impact record. Existing finding lifecycles are unchanged; no runtime, save, protected asset or release authority changes.
+- Rollback class: `documentation_migration`. Start a clean dedicated `codex/rollback-chg-032` branch, inspect the exact source paths, preserve later review evidence, remove/migrate the tool and library together, and repair only these new navigation/license/ledger entries. The existing rollback planner has no emitter for this new scoped record; no raw inverse is authorized by this entry. Re-run authority/change coverage and applicable focused/full regression gates before publishing any rollback.
+
+CHG-032 packaging correction: the first published large HTML exceeded the unchanged 4 MiB complete-text scan cap and failed run `36755706002` at `G2D101`. The same accepted-for-draft thumbnail pixels are now separate inspectable images; no migration-manifest, audit, runtime or original-art change is made. Exact packaging/source-link correction commit: `6757ea5e0c0bc4ddfbc1cd9615558df7b92ddec0`. Codex authorship replaces inaccurate human-authorship wording; human and owner acceptance remain outstanding.
+
+CHG-032 live refresh: incoming integration `08acb0ce529660e79de6784aa4124352798bc4cd` changes one inventoried Rumi sheet. Its old source review is preserved in history, native re-review retains 4.5/5 for remaining fringe/scale work, and associated birthday Popstar/seam notes are updated. Upstream source-pixel edits remain owned by the separate Rumi repair impact; this task authors no new source-art change. Exact live-refresh source commit: `17ce3c9bf14f9140bd25a08b63eda1a61811b7cc`.

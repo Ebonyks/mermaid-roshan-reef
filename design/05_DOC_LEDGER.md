@@ -45,7 +45,7 @@ unclassified until this ledger gains one new scoped row for it.
 | Doc | | Note |
 |---|---|---|
 | `design/FAIRY_RESTORATION_PROTOTYPE_2026-09-30.md` | 🟣 | `PROPOSED / CANDIDATE`; owner-commissioned isolated true-2D faerie-half magic restoration prototype: arborist tree care, harvest, chef slices, butterfly picnic and flower shooter using existing art and additive synthetic cues. Production Chapter 3 route/rescue/save/rewards are unchanged; device/child/owner and final art/audio acceptance remain pending. |
-| `design/VISUAL_REPAIR_PLAN_2026-09-26.md` | 🔵 | `SUPPORTING_CURRENT`; owner-requested repair register, four-panel Opera production plan, replay safeguards and native Aseprite/aesthetic methods. Partial implementation and pending native-art/runtime/device gates are explicit; no release or finding closure. |
+| `design/VISUAL_REPAIR_PLAN_2026-09-26.md` | 🔵 | `SUPPORTING_CURRENT`; owner-requested repair register, four-panel Opera production plan, replay safeguards and native Aseprite/aesthetic methods. September 30 follow-up records Rumi tail recovery and craft-board backing repair, with kitchen/Eagle alpha investigation. Partial implementation and pending native-art/runtime/device gates are explicit; no release or finding closure. |
 | `design/PAINTER_ENGINE_PROTOTYPE_2026-09-16.md` | 🟣 | `PROPOSED / CANDIDATE`; owner-commissioned single standalone Painter prototype with a pinned Pixelorama fill import, unchanged Roshan graphics and isolated artwork persistence. No career/chapter integration, device/child/owner acceptance or master-audit closure. |
 | `audit/OVERNIGHT_RECUT_FRAME_AUDIT_2026-09-12.md` | 🔵 | `SUPPORTING_CURRENT`; fresh sampled/native-frame review of the 3150-frame overnight Resolve render and eighteen bounded repair/conditional cards. Owner direction: recognizable big bunny, soapy scrubbing obscures form, concept friend jumps while casing collapses and dust scatters. Includes original-book Eagle correction and exact Daddy/attic locks. No generated-frame, human, runtime, device or delivery acceptance. |
 | `assets_src/cinematics/grok_builder_2026-09-14/README.md` | 🔵 | `SUPPORTING_CURRENT`; single builder import/navigation for the shared character, location, prop, event, shot and reference database. Consolidates scoped Day One corrections and Chapter 2 planning; historical boards retain explicit conflicts. Does not grant generation, delivery, runtime, device, child or whole-game acceptance. |
@@ -834,6 +834,8 @@ Kept as-is; noted so a future edit updates every copy.
 | `assets_src/handoffs/arborist_tree_book_20260929/recovered/assets_src/imagegen/opera_arborist_2026-08-09/REVIEW.md` | ⚪ | `HISTORICAL_ARCHIVE`; byte-preserved 2026-08-09 provenance/review record; no current art, runtime or owner acceptance. |
 
 | `design/OPERA_TREE_BOOK_TEST_2026-09-30.md` | 🔵 | `SUPPORTING_CURRENT`; scoped single-patient Opera House practice implementation and review evidence; no career/star or Day Two integration acceptance. |
+
+| `audit/day2_art_library_2026-09-30/REPORT.md` | 🟣 | `CANDIDATE`; owner-commissioned first-pass illustrated Day Two source-art and phase/sequence review. Includes individual drafting scores, explicit historical capture limits and a source-change refresh trigger; no runtime, device, child, owner or finding acceptance. |
 
 ## Master-audit refinement handoff (2026-09-30)
 

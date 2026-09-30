@@ -218,5 +218,8 @@ func _run() -> void:
 	stage.queue_free()
 	await process_frame
 	await process_frame
+	# The dummy audio driver releases stopped OGG playback on its own thread.
+	# Uncapped headless frames can otherwise quit before that release finishes.
+	await create_timer(0.25).timeout
 	print("FAIRYPROBE|RESULT|", "ALL OK" if failures == 0 else "FAIL", "|failures=", failures)
 	quit(0 if failures == 0 else 1)
