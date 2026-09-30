@@ -52,8 +52,8 @@
   },
   {
    "command": "Remote verification: unauthenticated fetch of MANIFEST.json and every listed file from raw.githubusercontent.com at the pushed commit, SHA-256 and byte comparison",
-   "result": "PENDING",
-   "evidence": "Recorded after the push."
+   "result": "PASS",
+   "evidence": "Revision 86732a4736d144d635d917fcf7412ae5aa83f3ad on ccr-1ef62322-breknu; checked 2026-09-30T21:18:38Z. MANIFEST.json fetched from https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/86732a4736d144d635d917fcf7412ae5aa83f3ad/docs/handoffs/codex_opera_imp_contest_2026-09-30/MANIFEST.json (SHA-256 1f6cbcd6c46c6865f10b9dfbe860c99cae5d35b73ea7346fbb8629d73ab28223, byte-identical to the committed file, revision 3); all 8 listed files at the same revision match their manifest SHA-256 and byte counts. Access mode: HTTPS GET with no Authorization header, through the session proxy; the repository is public."
   },
   {
    "command": "Exact Godot 4.7.2 probe suite (scripts/ci.sh) via .github/workflows/probes.yml on the pushed head",
