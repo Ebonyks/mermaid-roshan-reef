@@ -1,0 +1,82 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "battle_of_bands",
+  "shot_id": "BAND-10",
+  "scene_id": "BAND-10",
+  "title": "Roshan completes her phrase",
+  "status": "DRAFT",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "duration_seconds": 7.059965000000005,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "frames/BAND-10/candidate.png",
+      "sha256": "94a73938669ce548ee5d1a108df1fc5ae4c7c53b94280babd9c8a969e11c9867",
+      "candidate_scene_path": "frames/BAND-10/candidate.png",
+      "hud_present": false,
+      "human_decision": "pending",
+      "blocking_gap": "Owner first-frame/continuity approval pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/roshan_drums.png",
+      "sha256": "8c053d0cff47f04f3297ca6c48016fb74f24bfcb862f8c2cedeb3fd980f1e709",
+      "hud_present": false,
+      "human_decision": "pending shot binding review"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "roshan lands a satisfying final tom contact then raises both sticks in delight"
+  ],
+  "must_not_move": [
+    "stage geometry",
+    "literal lagoon geography",
+    "unaffected props"
+  ],
+  "end_state": "roshan is pleased with her successful phrase; the candle still belongs to her",
+  "negative_constraints": [
+    "no cuts",
+    "no HUD",
+    "no extra limbs",
+    "no instrument topology drift",
+    "no duplicate candle"
+  ],
+  "prompt_path": "shots/BAND-10/PROMPT.txt",
+  "prompt_sha256": "c32f6e0d31b557fca9234b4ce135d659716c337a45dcb8a30be397a9869a9e41",
+  "editorial_start_seconds": 76.0,
+  "editorial_end_seconds": 83.059965,
+  "recording_start_seconds": 76.0,
+  "recording_end_seconds": 83.059965,
+  "continuation_of": null,
+  "timing_note": "One continuous clip per job. Trim excess handles only. Never retime song or repeat a frame to fill action. Later parts need an accepted previous endpoint. 91.000 rounds the 90.9998866-second master.",
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.html",
+      "used_as_pixel_reference": false
+    },
+    {
+      "path": "runtime/prototype.png",
+      "used_as_pixel_reference": false
+    }
+  ],
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "blocking_findings": [
+    "Owner first-frame/continuity approval pending",
+    "Human identity/contact/topology review pending"
+  ]
+}

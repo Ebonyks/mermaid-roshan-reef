@@ -1,0 +1,41 @@
+{
+  "id": "2026-09-30-aseprite-only-art-workflow",
+  "scope": "Make Aseprite the sole active raster-art workflow tool for 1:1 pixel regeneration, cutout preparation, sprite-sheet assembly, and related review instructions. No runtime assets or protected originals are changed; existing Aseprite tooling remains the implementation authority.",
+  "baseline": "5920c673305989ee29d91876480ff445dba9fc8b",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-06",
+    "DL-ASSET-08"
+  ],
+  "findings": [],
+  "no_findings_reason": "No existing finding is repaired or reclassified; this is an explicit workflow-tool authority decision only.",
+  "files": [
+    "AGENTS.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/2026-09-30-aseprite-only-art-workflow.json"
+  ],
+  "validation": [
+    {
+      "command": "repository-wide active-file search for Krita, krita, and kitra",
+      "result": "PASS",
+      "evidence": "No active repository file outside archived .claude worktrees contains Krita, krita, or kitra. Existing production helpers and provenance records already use Aseprite."
+    },
+    {
+      "command": "Aseprite workflow inventory",
+      "result": "PASS",
+      "evidence": "tools/aseprite/roshan_grok_openings.lua and tools/build_roshan_grok_auditions.py remain the active image-editing path; no replacement editor is introduced."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PENDING",
+      "evidence": "Must be run on the committed change before integration."
+    }
+  ],
+  "acceptance_gaps": "No runtime, asset, device, child, cinematic, or owner product acceptance is claimed. This record changes workflow authority only; existing protected-content and full-frame cinematic rules remain in force."
+}

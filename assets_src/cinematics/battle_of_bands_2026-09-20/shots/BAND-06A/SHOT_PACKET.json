@@ -1,0 +1,82 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "battle_of_bands",
+  "shot_id": "BAND-06A",
+  "scene_id": "BAND-06",
+  "title": "Roshan answers without fear",
+  "status": "DRAFT",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "duration_seconds": 4.4690235000000005,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "frames/BAND-06/candidate.png",
+      "sha256": "16fddf193e75e1067772536a674ec95f77fe1c22341cd89b0cd5bc1fa92b0667",
+      "candidate_scene_path": "frames/BAND-06/candidate.png",
+      "hud_present": false,
+      "human_decision": "pending",
+      "blocking_gap": "Owner first-frame/continuity approval pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/roshan_drums.png",
+      "sha256": "8c053d0cff47f04f3297ca6c48016fb74f24bfcb862f8c2cedeb3fd980f1e709",
+      "hud_present": false,
+      "human_decision": "pending shot binding review"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "roshan answers with two tom contacts and one light cymbal contact"
+  ],
+  "must_not_move": [
+    "stage geometry",
+    "literal lagoon geography",
+    "unaffected props"
+  ],
+  "end_state": "the cymbal settles as she resumes her cheerful groove",
+  "negative_constraints": [
+    "no cuts",
+    "no HUD",
+    "no extra limbs",
+    "no instrument topology drift",
+    "no duplicate candle"
+  ],
+  "prompt_path": "shots/BAND-06A/PROMPT.txt",
+  "prompt_sha256": "9c02b4b6d0bfc4f86f311019035f0fbda30235bada286ab668e0979de58261a7",
+  "editorial_start_seconds": 31.061953,
+  "editorial_end_seconds": 35.5309765,
+  "recording_start_seconds": 31.061953,
+  "recording_end_seconds": 35.5309765,
+  "continuation_of": null,
+  "timing_note": "One continuous clip per job. Trim excess handles only. Never retime song or repeat a frame to fill action. Later parts need an accepted previous endpoint. 91.000 rounds the 90.9998866-second master.",
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.html",
+      "used_as_pixel_reference": false
+    },
+    {
+      "path": "runtime/prototype.png",
+      "used_as_pixel_reference": false
+    }
+  ],
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "blocking_findings": [
+    "Owner first-frame/continuity approval pending",
+    "Human identity/contact/topology review pending"
+  ]
+}

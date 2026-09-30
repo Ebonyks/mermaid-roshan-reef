@@ -734,6 +734,7 @@ Kept as-is; noted so a future edit updates every copy.
 | Thirteen careers belong in Castle rooms; Opera Hall is one three-career venue | owner direction `7426c187`, `CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md` §10, `DL-INT-12`, `MA-OPERA-012`, design 00/01/04/06 |
 | Curtain Dragon/Shadow Phantom/Midnight Maestro are cut; save slots 4/9/14 are tombstones | owner cut `3d1236fe`, section-17 clarification `ef2fd982`, `CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md` §§16–17, `DL-INT-13`, `DL-SAVE-06`, `MA-OPERA-011`, design 00/01/03/04/06 |
 | Music inventory, authorship, routing and open listening gates | `MUSIC_AUDIT_2026-08-09.md`, design 01/03/05, `ASSET_LICENSES.md`, score and manifest machine data |
+| Aseprite-only raster editing workflow for authorized 1:1 pixel operations | `AGENTS.md#pixel-art-editing-workflow-owner-decision-2026-09-30`, `tools/aseprite/`, `tools/build_roshan_grok_auditions.py`, `design/audit_impacts/2026-09-30-aseprite-only-art-workflow.json` |
 
 ## Teacher learning engine candidate — 2026-09-05
 
@@ -778,7 +779,7 @@ Kept as-is; noted so a future edit updates every copy.
 | `audit/minigame_art_quality_2026-09-05/pool_runtime_followup.md` | 🔵 | `SUPPORTING_CURRENT`; real-room desktop diagnostic art review and four-target handoff sizing repair; no animation, device, child, or game-wide acceptance. |
 | `audit/minigame_art_quality_2026-09-05/carrot_runtime_followup.md` | 🔵 | `SUPPORTING_CURRENT`; approved carrot reuse with configured Snowman/kitchen desktop diagnostics; complete motion and scene acceptance remain open. |
 | `audit/minigame_art_quality_2026-09-05/hall_visual_comparison.md` | 🔵 | `SUPPORTING_CURRENT`; exact Hall PNG comparison for Ballerina, Magician and Pop Star plus rejected/neutral Magician ROPE/PORTAL mappings; sparse configured still evidence only, no animation, device, child or game-wide acceptance. |
-| `design/CHAPTER2_LAWN_FINALE_DRAFT_2026-09-06.md` | 🟣 | `CANDIDATE` rough story and implemented alpha draft following the owner-selected lawn celebration, protection victory then cheating candle theft, and sincerely conflicted Prince. King identity is owner-confirmed V4; Prince identity is recovered from the approved Git history package. The owner-authorized V4 cutout and recovered thin Prince are implemented in the gameplay draft; final visual/device review and cinematic delivery remain open. It does not accept character pixels, cinematics, runtime integration, device performance, or release. |
+| `design/CHAPTER2_LAWN_FINALE_DRAFT_2026-09-06.md` | 🟣 | `CANDIDATE` rough story and implemented alpha draft; the 2026-09-20 battle-of-bands commission supersedes its stomp/dodge story direction while that old runtime remains live. Lawn celebration, successful performance then cheating candle theft, and sincerely conflicted Prince are retained. King identity is owner-confirmed V4; Prince identity is recovered from the approved Git history package. The owner-authorized V4 cutout and recovered thin Prince are implemented in the gameplay draft; final visual/device review and cinematic delivery remain open. It does not accept character pixels, cinematics, runtime integration, device performance, or release. |
 
 ## Stage pathfinding audit — 2026-09-06
 
@@ -807,3 +808,7 @@ Kept as-is; noted so a future edit updates every copy.
 | `design/GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.md` | 🔵 | `SUPPORTING_CURRENT`; sequence continuity controls implementing existing cinematic rules; grants no opening, motion or delivery acceptance. |
 | `audit/GROK_HANDOFF_2_FOOTAGE_AUDIT_2026-09-09.md` | 🔵 | `SUPPORTING_CURRENT`; scoped 73-file inventory, selected-cut/native-sample review and 74-shot reconciliation; historical evidence is distinguished from fresh observations. |
 | `assets_src/cinematics/day_one_grok_handoff_2_2026-09-09/README.md` | 🔵 | `SOURCE_PACKAGE_EVIDENCE`; versioned repair archive operator index; 47 draft jobs remain generation-blocked and delivery-unaccepted. |
+
+| `design/BATTLE_OF_BANDS_2026-09-20.md` | 🟣 | `CANDIDATE`; owner-commissioned Iko Iko band contest, isolated playable prototype with v89 audio and a shared stage on the literal middle-lagoon background, plus 14-scene/19-job review handoffs. Supersedes earlier lawn stomp/dodge direction and location interpretation only; final listening/voice, production integration, cinematic, device, child and owner acceptance remain open. |
+
+| `assets_src/cinematics/battle_of_bands_2026-09-20/README.md` | 🟣 | `CANDIDATE`; review packet entry with 14 full-frame scene candidates, 19 draft clip jobs, literal middle-lagoon stage and locally timed v89 song. First-frame/continuity approval and continuation endpoints block generation; no cinematic delivery, production integration or device acceptance. |

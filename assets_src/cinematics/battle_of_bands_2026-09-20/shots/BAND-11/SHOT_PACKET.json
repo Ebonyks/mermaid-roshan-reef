@@ -1,0 +1,90 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "battle_of_bands",
+  "shot_id": "BAND-11",
+  "scene_id": "BAND-11",
+  "title": "Ember final interruption",
+  "status": "DRAFT",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "duration_seconds": 7.940034999999995,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "frames/BAND-11/candidate.png",
+      "sha256": "0f4bbd9ac30df37623574b3a34425996dc4835d6bf503d51841cffb65fa5f4a1",
+      "candidate_scene_path": "frames/BAND-11/candidate.png",
+      "hud_present": false,
+      "human_decision": "pending",
+      "blocking_gap": "Owner first-frame/continuity approval pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/king_guitar.png",
+      "sha256": "814a38609838f06eae651a8b453decd778281f0001f148730101bccef8f9d1b0",
+      "hud_present": false,
+      "human_decision": "pending shot binding review"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/prince_drums.png",
+      "sha256": "bdba7c762c44cfa41d3be560255b75562385715f2014ad095ae526f708b0177e",
+      "hud_present": false,
+      "human_decision": "pending shot binding review"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "the king strums a final flourish as the prince lands a two-stick fill"
+  ],
+  "must_not_move": [
+    "stage geometry",
+    "literal lagoon geography",
+    "unaffected props"
+  ],
+  "end_state": "their instruments settle; the king looks toward the offscreen candle",
+  "negative_constraints": [
+    "no cuts",
+    "no HUD",
+    "no extra limbs",
+    "no instrument topology drift",
+    "no duplicate candle"
+  ],
+  "prompt_path": "shots/BAND-11/PROMPT.txt",
+  "prompt_sha256": "47432921bdfcf860d1fb6fe8bdca85ad5297505022c46d5d23cc6215cbfba9ee",
+  "editorial_start_seconds": 83.059965,
+  "editorial_end_seconds": 91,
+  "recording_start_seconds": 83.059965,
+  "recording_end_seconds": 91,
+  "continuation_of": null,
+  "timing_note": "One continuous clip per job. Trim excess handles only. Never retime song or repeat a frame to fill action. Later parts need an accepted previous endpoint. 91.000 rounds the 90.9998866-second master.",
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.html",
+      "used_as_pixel_reference": false
+    },
+    {
+      "path": "runtime/prototype.png",
+      "used_as_pixel_reference": false
+    }
+  ],
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "blocking_findings": [
+    "Owner first-frame/continuity approval pending",
+    "Human identity/contact/topology review pending"
+  ]
+}

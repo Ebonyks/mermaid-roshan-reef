@@ -1,0 +1,82 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "battle_of_bands",
+  "shot_id": "BAND-04",
+  "scene_id": "BAND-04",
+  "title": "Baby Eagle holds the bass line",
+  "status": "DRAFT",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "duration_seconds": 6.803104999999999,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "frames/BAND-04/candidate.png",
+      "sha256": "4615cb138135aaff8398493f59df553b9492612400b2ad6cae11a47a81e1c5ed",
+      "candidate_scene_path": "frames/BAND-04/candidate.png",
+      "hud_present": false,
+      "human_decision": "pending",
+      "blocking_gap": "Owner first-frame/continuity approval pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/eagle_bass.png",
+      "sha256": "1617643325914845ce92250f9f811ff050d4662d962abd5f0066b3d97612dd2b",
+      "hud_present": false,
+      "human_decision": "pending shot binding review"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "baby eagle plucks the four-string bass with one wing while the other supports the neck"
+  ],
+  "must_not_move": [
+    "stage geometry",
+    "literal lagoon geography",
+    "unaffected props"
+  ],
+  "end_state": "the bass stays secure with four strings connected to four posts and four keys",
+  "negative_constraints": [
+    "no cuts",
+    "no HUD",
+    "no extra limbs",
+    "no instrument topology drift",
+    "no duplicate candle"
+  ],
+  "prompt_path": "shots/BAND-04/PROMPT.txt",
+  "prompt_sha256": "23a85f6d67b03281c433055cf242d13f820d70fec65ec426d786f2a6a957987e",
+  "editorial_start_seconds": 18.5,
+  "editorial_end_seconds": 25.303105,
+  "recording_start_seconds": 18.5,
+  "recording_end_seconds": 25.303105,
+  "continuation_of": null,
+  "timing_note": "One continuous clip per job. Trim excess handles only. Never retime song or repeat a frame to fill action. Later parts need an accepted previous endpoint. 91.000 rounds the 90.9998866-second master.",
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.html",
+      "used_as_pixel_reference": false
+    },
+    {
+      "path": "runtime/prototype.png",
+      "used_as_pixel_reference": false
+    }
+  ],
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "blocking_findings": [
+    "Owner first-frame/continuity approval pending",
+    "Human identity/contact/topology review pending"
+  ]
+}

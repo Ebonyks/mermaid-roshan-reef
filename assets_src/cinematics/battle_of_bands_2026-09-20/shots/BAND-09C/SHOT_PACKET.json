@@ -1,0 +1,90 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "battle_of_bands",
+  "shot_id": "BAND-09C",
+  "scene_id": "BAND-09",
+  "title": "Everyone finds the groove again",
+  "status": "DRAFT",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "duration_seconds": 7.324247,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": null,
+      "sha256": null,
+      "candidate_scene_path": "frames/BAND-09/candidate.png",
+      "hud_present": false,
+      "human_decision": "pending",
+      "blocking_gap": "Bind accepted preceding clip endpoint after it exists; never substitute a board"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/roshan_drums.png",
+      "sha256": "8c053d0cff47f04f3297ca6c48016fb74f24bfcb862f8c2cedeb3fd980f1e709",
+      "hud_present": false,
+      "human_decision": "pending shot binding review"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/eagle_bass.png",
+      "sha256": "1617643325914845ce92250f9f811ff050d4662d962abd5f0066b3d97612dd2b",
+      "hud_present": false,
+      "human_decision": "pending shot binding review"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "roshan keeps a gentle tom pulse while baby eagle answers with a bass pluck"
+  ],
+  "must_not_move": [
+    "stage geometry",
+    "literal lagoon geography",
+    "unaffected props"
+  ],
+  "end_state": "roshan and baby eagle exchange a happy glance, still playing securely",
+  "negative_constraints": [
+    "no cuts",
+    "no HUD",
+    "no extra limbs",
+    "no instrument topology drift",
+    "no duplicate candle"
+  ],
+  "prompt_path": "shots/BAND-09C/PROMPT.txt",
+  "prompt_sha256": "1725125ea1a0bea4116fc22bab4392790ed25550b5db05baffa00ff6c6196536",
+  "editorial_start_seconds": 68.675753,
+  "editorial_end_seconds": 76,
+  "recording_start_seconds": 68.675753,
+  "recording_end_seconds": 76,
+  "continuation_of": "BAND-09B",
+  "timing_note": "One continuous clip per job. Trim excess handles only. Never retime song or repeat a frame to fill action. Later parts need an accepted previous endpoint. 91.000 rounds the 90.9998866-second master.",
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.html",
+      "used_as_pixel_reference": false
+    },
+    {
+      "path": "runtime/prototype.png",
+      "used_as_pixel_reference": false
+    }
+  ],
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "blocking_findings": [
+    "Bind accepted preceding clip endpoint after it exists; never substitute a board",
+    "Human identity/contact/topology review pending"
+  ]
+}

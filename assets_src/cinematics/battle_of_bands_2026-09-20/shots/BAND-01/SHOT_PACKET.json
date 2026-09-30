@@ -1,0 +1,90 @@
+{
+  "schema": "imagine-shot-packet-v1",
+  "movie_id": "battle_of_bands",
+  "shot_id": "BAND-01",
+  "scene_id": "BAND-01",
+  "title": "Ready in the middle meadow",
+  "status": "DRAFT",
+  "template": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+  "duration_seconds": 3.583,
+  "aspect_ratio": "16:9",
+  "delivery_size": [
+    1280,
+    720
+  ],
+  "mode": "image_to_video",
+  "output_disposition": "motion_reference_only",
+  "bound_references": [
+    {
+      "id": "IMAGE_1",
+      "role": "approved_clean_first_frame",
+      "path": "frames/BAND-01/candidate.png",
+      "sha256": "ebd995b5247c9821506579a0e477dbdabf59f23b79e65ed8371fdd429a3aaf4a",
+      "candidate_scene_path": "frames/BAND-01/candidate.png",
+      "hud_present": false,
+      "human_decision": "pending",
+      "blocking_gap": "Owner first-frame/continuity approval pending"
+    },
+    {
+      "id": "IMAGE_2",
+      "role": "subject_identity",
+      "path": "references/roshan_drums.png",
+      "sha256": "8c053d0cff47f04f3297ca6c48016fb74f24bfcb862f8c2cedeb3fd980f1e709",
+      "hud_present": false,
+      "human_decision": "pending shot binding review"
+    },
+    {
+      "id": "IMAGE_3",
+      "role": "object_or_material_identity",
+      "path": "references/candle.png",
+      "sha256": "2c00e80e57315283e2612fb301cc9e2ac0c519bab1e0bfa44b4ff3dc4b13ff68",
+      "hud_present": false,
+      "human_decision": "pending shot binding review"
+    }
+  ],
+  "camera": {
+    "verb": "locked",
+    "move_count": 0
+  },
+  "must_move": [
+    "roshan raises her two sticks and looks to her bandmates"
+  ],
+  "must_not_move": [
+    "stage geometry",
+    "literal lagoon geography",
+    "unaffected props"
+  ],
+  "end_state": "everyone is ready; the single candle stays on the supported cake",
+  "negative_constraints": [
+    "no cuts",
+    "no HUD",
+    "no extra limbs",
+    "no instrument topology drift",
+    "no duplicate candle"
+  ],
+  "prompt_path": "shots/BAND-01/PROMPT.txt",
+  "prompt_sha256": "1beb6f0d29c946f49c779dcf54b6374083e20ee05390681488d7ffa0dd17f1cf",
+  "editorial_start_seconds": 0.0,
+  "editorial_end_seconds": 3.583,
+  "recording_start_seconds": 0.0,
+  "recording_end_seconds": 3.583,
+  "continuation_of": null,
+  "timing_note": "One continuous clip per job. Trim excess handles only. Never retime song or repeat a frame to fill action. Later parts need an accepted previous endpoint. 91.000 rounds the 90.9998866-second master.",
+  "non_pixel_references": [
+    {
+      "path": "SHOT_BOARD.html",
+      "used_as_pixel_reference": false
+    },
+    {
+      "path": "runtime/prototype.png",
+      "used_as_pixel_reference": false
+    }
+  ],
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "blocking_findings": [
+    "Owner first-frame/continuity approval pending",
+    "Human identity/contact/topology review pending"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "source": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+  "source_sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+  "crop_native_pixels": [
+    1536,
+    320,
+    4608,
+    2048
+  ],
+  "output_dimensions": [
+    1536,
+    864
+  ],
+  "method": "literal crop and uniform 0.5 scale only; no painting, healing, relighting or new terrain",
+  "role": "authoritative background appearance/reference; new actors must fit this terrain"
+}

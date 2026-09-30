@@ -137,6 +137,17 @@ can meet the need efficiently.
   provenance violations, or bypassing the project's asset constraints.
   Store derived variants at new paths and preserve their source attribution.
 
+## PIXEL ART EDITING WORKFLOW (owner decision 2026-09-30)
+All raster asset cleanup, 1:1 pixel regeneration, cutout preparation, sprite
+sheet assembly, and related hands-on image editing use **Aseprite** as the
+project workflow tool. Do not introduce an alternate raster editor into active
+production instructions, scripts, handoff cards, or review steps.
+This is a tooling decision, not permission to redraw approved scenes or alter
+protected originals. Preserve source files, dimensions, alpha, hashes, and
+provenance; use Aseprite only for authorized derivatives and exact pixel
+operations. Cinematic full-frame generation and its separate audit rules remain
+unchanged.
+
 ## ABSOLUTE CINEMATIC RULE (owner decision 2026-07-29): FULL-FRAME IMAGE REGENERATION
 
 Authored cinematic delivery frames MUST be complete, flattened images produced
