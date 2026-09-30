@@ -41,4 +41,3 @@ recovered REVIEW files do not grant current acceptance.
 Repository: Ebonyks/mermaid-roshan-reef, public recipient access.
 Branch: codex/arborist-art-recovery-20260929.
 Publication and byte-verification receipt are linked from the final handoff.
-

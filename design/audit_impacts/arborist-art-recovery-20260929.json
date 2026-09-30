@@ -142,6 +142,11 @@
       "command": "python -B tools/audit_development.py --base auto",
       "result": "PASS",
       "evidence": "AUDITDEV ALL OK; e7899cc095fc326ff007e30226ad7bafea8f1634 baseline"
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "52 tests; DOCAUTH STRESS6/6. Historical recovered Markdown hard-break spaces preserved byte-for-byte."
     }
   ],
   "acceptance_gaps": "No game implementation or finding closure; animation/runtime/device/child/owner acceptance pending."

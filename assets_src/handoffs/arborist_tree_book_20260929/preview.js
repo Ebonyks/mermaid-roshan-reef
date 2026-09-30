@@ -27,4 +27,3 @@ patient.onclick=()=>{if(m.stage!==3||locked)return;locked=true;hint.textContent=
 document.querySelector('#voice').onclick=e=>{speaking=!speaking;e.target.textContent=speaking?'Voice on':'Voice off';e.target.setAttribute('aria-pressed',String(speaking));if(speaking)say(lines[m.stage]);else if('speechSynthesis'in window)speechSynthesis.cancel()};
 document.querySelector('#reset').onclick=()=>{try{localStorage.removeItem('treebook_review_v1')}catch{}location.reload()};
 setInterval(()=>{if(!document.hidden&&!locked){m.tick(.25);help()}},250);render();
-

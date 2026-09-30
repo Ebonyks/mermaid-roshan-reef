@@ -148,4 +148,3 @@ wrong/passive/focus/teardown checks; target-device30fps; child comprehension and
 owner art/voice acceptance. No current finding is closed by this handoff.
 
 [Audit impact](audit_impacts/arborist-art-recovery-20260929.json).
-

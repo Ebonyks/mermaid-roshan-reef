@@ -13,4 +13,3 @@ const m=new M();m.tick(4.9);assert.equal(m.assist,0);m.tick(.1);assert.equal(m.a
 const t=new M({stage:3});assert.equal(t.treat(false),false);t.tick(100);assert.equal(t.stage,3);assert.equal(t.treat(true),true);assert.equal(t.treat(true),false);
 assert.equal(new M({stage:999}).stage,4);assert.equal(new M({stage:-99}).stage,0);
 console.log('PASS: three-stage right/wrong/passive/assistance/resume and treatment checks. No browser or Godot validation claimed.');
-
