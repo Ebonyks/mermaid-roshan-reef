@@ -4,6 +4,11 @@
   probes and acceptance are pending.
 - **Baseline:** `dev` at `55032e88936b22723fd9af5282c61ba6696b3d43`. Every `file:line`
   anchor refers to that commit.
+- **Revisions:**
+  - 1 (`7ec82d46`): the twelve costumed contests;
+  - 2 (`df01b7ce`): owner decision OD-C and the inverted Teacher and Geologist contests;
+  - 3: the Day Two art review's corrections on reusing current art and on the imp touching
+    his work (§4.16).
 - **Prepared by:** Claude. Written specification only, with no images, per the CLAUDE.md
   rule "Codex handoffs: Claude writes, Codex builds images". Codex implements.
 - **Machine-readable twin:** [data/contest_spec.json](data/contest_spec.json). The prose and
@@ -283,10 +288,10 @@ Each rule has an ID (C1 to C15) so probes and reviews can cite it.
   surface; `:2822-2844`).
 - **The imp:** at the `_stage_room_finale_partner` mark, facing her.
 - **His mirror station:** the same kind of input-transparent `OperaGestureSurface` the Hall
-  already uses (`:769-777`), at scale 0.6 (about 235 × 139).
-  - It docks directly above him.
-  - If that overlaps her card, Roshan or the header, it tries beside him, left then right,
-    using the `_safer_panel_rect` candidate search (`:2847-2870`).
+  already uses (`:769-777`), at scale 0.6 (about 235 × 139). It is his job object, so it
+  sits at his hands on his reach side, never floating above him (§4.16).
+  - If that spot overlaps her card, Roshan or the header, he takes the next clear route rest
+    instead, using the `_safer_panel_rect` candidate search (`:2847-2870`).
   - It never covers her card or her body.
 
 **Hall careers**
@@ -294,7 +299,8 @@ Each rule has an ID (C1 to C15) so probes and reviews can cite it.
   - Roshan at (48, 264), size 300;
   - her activity at (390, 204), 500 × 376;
   - the imp at (974, 294), size 220;
-  - his mirror at (916, 144), 392 × 232, scale 0.7.
+  - his mirror at (916, 144), 392 × 232, scale 0.7. That spot floats above his head: for
+    the contest, move it down to his hands (§4.16) and confirm the contact in captures.
 - The Ballerina keeps its exception: Roshan at (12, 372), size 300; the imp at (238, 350),
   size 150; the ballet canvas at (382, 20), 874 × 680. His small music box sits by his mark
   (§6.3).
@@ -364,6 +370,8 @@ contest.
 - **Inverted contests** use the same states differently: `charge` and `slash` point at the
   board and place his wrong answer; `taunt` is his proud claim; `stagger` then `recover`
   when she fixes it; `hop_b` then `taunt` when he tricks her. Defeat and bow are as usual.
+- **Contact:** each of his units lands on the contact moment of his `slash` pose, where his
+  hand or tool meets his job object (§4.16).
 - **Preload:** only the career's family, 13 textures (fixes H7).
 
 ### 4.14 Hall careers (Ballerina, Magician, Pop Star)
@@ -423,6 +431,33 @@ catch a puppet's counting errors even before their own counting is reliable (Gel
 Meck, 1983, *Cognition* 13, 343–359). Spotting the imp's mistake is therefore
 age-appropriate. That is design rationale, not evidence about this game; the child session
 in §12 checks it.
+
+### 4.16 Art reuse and the imp's contact
+
+These rules come from the Day Two art review's reading of revision 1
+([REPORT.md, "Planned final act contests"](../../../audit/day2_art_library_2026-09-30/REPORT.md)).
+
+**Reuse the current art routes only.**
+- Never draw the retired family bases `widget_<context>.png`. They are the pale clipboard or
+  easel cards the surface keeps only as `retired_widget_backdrop_path`
+  (`scripts/opera_gesture_surface.gd:758-764`).
+- Never draw the static `roshan_<career>.png` cards, which crop her tail. Use the full-tail
+  atlases `assets/opera/worlds/actors/animation/roshan_<career>_sheet_a.png`.
+- Use the borderless routes the surfaces already draw: `_mover`, `_mark`, `_lit`,
+  `_success` and the code-drawn surfaces. `data/contest_spec.json` names the exact file for
+  each career.
+- The Racer keeps its in-kart driver art (`roshan_racer.png` inside the kart), which is its
+  existing route.
+
+**The imp touches his work.** Each of his units must show readable contact with his own job
+object:
+- the object sits at his hands, facing him, not floating above him;
+- the unit lands on his `slash` contact moment, with a small puff;
+- alternating `charge` and `slash` beside a miniature picture is not enough;
+- captures must show his hand or tool touching the object.
+
+**Optional art stays optional.** The Doctor's bandage overlay and the new teacher, geologist
+or nursery imp costumes are owner-dependent options, not generation orders.
 
 ## 5. How to build it
 
@@ -555,8 +590,9 @@ confirmation) are the inverted contests from OD-C.
 - **Skill:** decorating. Her cake shows seven glowing sockets
   (`TARGET_ANCHORS.target_chef`). Each tap on an empty socket places one topping; each socket
   takes one.
-- **His side:** above him, a small copy of the same cake fills its sockets in the same order.
-  He alternates reaching (`charge`) and placing (`slash`).
+- **His side:** at his hands, a small copy of the same borderless cake
+  (`widget_target_chef_mover.png`) fills its sockets in the same order. He reaches
+  (`charge`) and places (`slash`); each topping lands as his hand touches the cake.
 - **Pace:** 7 units, `base_seconds` 13.0.
 - **Flub:** at his 4th topping.
   - He staggers, a cherry topping (`widget_target_chef_piece_1.png`) lands on his chef's
@@ -564,8 +600,8 @@ confirmation) are the inverted contests from OD-C.
   - Line: "Flour goes in the bowl... or on my head. Either way!"
   - His row pauses 1.8 s.
 - **What the child sees:** her big cake is filling with toppings. Across the room a little
-  purple chef-imp hurries to fill a tiny cake; the two pearl rows at the top show who is
-  ahead.
+  purple chef-imp hurries to top the small cake in his hands; the two pearl rows at the top
+  show who is ahead.
 - **Lines:**
   - his challenge (new `imp_op_chef_challenge`): "Bake-off! Whoever tops their cake first
     wins!";
@@ -612,7 +648,7 @@ confirmation) are the inverted contests from OD-C.
   GRAND TWIRL unchanged.
 - **Skill:** turning. She guides the pearl around the shell music box three times, either
   direction, with the same monotonic rules (multi-turn contract, §5.5).
-- **His side:** beside his mark, a small copy of the music box (`props/goal_ballerina.png`)
+- **His side:** at his mark, within reach, a small copy of the music box (`props/goal_ballerina.png`)
   with a purple arc that grows turn by turn. He spins in place, alternating `charge` and
   `slash`.
 - **Pace:** 3 turns, `base_seconds` 10.5.
@@ -632,7 +668,8 @@ confirmation) are the inverted contests from OD-C.
 - **Final act:** the contest only, at `candy_cart`.
 - **Skill:** sharing one-to-one. Six waving friends (`TARGET_ANCHORS.target_candymaker` with
   the existing `_draw_candymaker_recipients`); each tap gives one friend one candy.
-- **His side:** a small copy of the same friends; his are served in order.
+- **His side:** a small copy of the same waving friends at his hands; he serves them in
+  order, each candy leaving his hand on his contact frame.
 - **Pace:** 6 units, `base_seconds` 11.0.
 - **Flub:** at his 3rd candy.
   - He eats it instead of giving it: `hop_b`, `taunt` with a candy piece at his mouth, then
@@ -648,7 +685,9 @@ confirmation) are the inverted contests from OD-C.
 - **Final act:** CAST (`exam_booth`), then the contest at `recovery_bed`.
 - **Skill:** bandaging. She traces the glowing authored bandage corridor (`trace_doctor`)
   three times, once per sore paw (multi-pass contract, §5.5).
-- **His side:** a small copy of the plushy patient; his bandage fill grows pass by pass.
+- **His side:** a small copy of the same authored bandage trace (the
+  `widget_trace_doctor_lit.png` route) at his hands; his wrap advances pass by pass on his
+  contact frames.
 - **Pace:** 3 passes, `base_seconds` 14.0.
 - **Flub:** after his 2nd pass.
   - He wraps his own head instead of the paw: `stagger`, `guard` (1.0 s), `recover`.
@@ -668,7 +707,8 @@ confirmation) are the inverted contests from OD-C.
     four landings in all. This is the existing `farm_lob` verb (`FARM_LOB_GOAL` 4, cycling
     foods, pig munch reaction), which TOSS taught.
   - PICNIC's tap activity is replaced by this lob contest.
-- **His side:** a small copy of the piggy picnic; his four landing dots fill.
+- **His side:** a small copy of the piggy picnic (`widget_target_farmer_mover.png`) just in
+  front of him; each veggie leaves his hand, and his four landing dots fill.
 - **Pace:** 4 units, `base_seconds` 17.0.
 - **Flub:** after his 2nd landing.
   - His veggie bonks his own hat and he slips in mud: `charge`, `bopped` (1.1 s), `recover`.
@@ -732,7 +772,8 @@ confirmation) are the inverted contests from OD-C.
 - **Skill:** painting. She brushes across her canvas until the picture shows, using the
   existing coverage brush (`PAINT_REQUIRED_COVERAGE` 0.62 of the 10 × 6 grid) and the
   `goal_painter.png` reveal.
-- **His side:** a small canvas revealing the same picture in a fixed stroke order.
+- **His side:** a small canvas on an easel at his brush hand, revealing the same picture in
+  a fixed stroke order as his brush touches it.
 - **Pace:** coverage 0 to 1, `base_seconds` 16.0.
 - **Flub:** at 0.55 coverage.
   - He paints himself: painter stamp marks (`widget_target_painter_mark.png`) splat on his
@@ -750,7 +791,8 @@ confirmation) are the inverted contests from OD-C.
   speed on the launch-pad rocket and adds the launch.
   - She taps the five leak sockets on her rocket (`TARGET_ANCHORS.target_astronaut`).
   - Then she holds for 1.2 s to blast off. The hold is the sixth unit.
-- **His side:** a small copy of the rocket; his patches fill, then his rocket rises.
+- **His side:** a small copy of the same rocket (`widget_target_astronaut_mover.png`) at his
+  hands; he presses each patch on, then his rocket rises.
 - **Pace:** 6 units, `base_seconds` 12.0.
 - **Flub:** at his 3rd patch.
   - His rocket hops sideways and bumps down (`props/fx_dust_puff.png`). He plays `stagger`,

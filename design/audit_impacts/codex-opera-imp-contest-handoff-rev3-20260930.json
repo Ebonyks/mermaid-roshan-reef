@@ -1,0 +1,65 @@
+{
+ "id": "codex-opera-imp-contest-handoff-rev3-20260930",
+ "scope": "Revision 3 of the written-only Codex handoff docs/handoffs/codex_opera_imp_contest_2026-09-30/, folding in the Day Two art review's reading of revision 1 (audit/day2_art_library_2026-09-30/REPORT.md, 'Planned final act contests'): the spec now names the full-tail Roshan atlases instead of the static roshan_<career>.png cards, and the current borderless draw routes (_mover, _lit, _mark and code-drawn surfaces) instead of the retired widget_<context>.png family bases; a new section 4.16 and spec rules require the imp's job object to sit at his hands with each unit landing on his contact moment, and keep optional overlays and costumes as owner-dependent options, not generation orders. Also merges current dev (b52fc32a) into the branch, keeping both new master-audit supplement lines. No game script, scene, asset, save key or runtime behaviour changes.",
+ "baseline": "b52fc32a2ad676fd9b235c0f3d6f1aba829cea77",
+ "rules": [
+  "DL-AUTH-05",
+  "DL-AUTH-06",
+  "DL-AUTH-07",
+  "DL-INT-02",
+  "DL-INT-14",
+  "DL-MOT-03",
+  "DL-MOT-07",
+  "DL-PLAN-03",
+  "DL-PLAN-04"
+ ],
+ "findings": [],
+ "no_findings_reason": "Documentation-only correction of the handoff's art references and imp-contact rule. No MA-* finding is repaired, changed or created; the corrections come from the Day Two art review's graphics-risk note, which is already recorded in that review.",
+ "files": [
+  "design/05_DOC_LEDGER.md",
+  "design/audit_impacts/codex-opera-imp-contest-handoff-rev3-20260930.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/CONTEST_DESIGN.md",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/MANIFEST.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/README.md",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/data/contest_spec.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/tools/build_packet_data.py"
+ ],
+ "validation": [
+  {
+   "command": "python3 -B tools/audit_document_authority.py",
+   "result": "PASS",
+   "evidence": "DOCAUTH|INVENTORY=587|LEDGER=587|ACTIVE=56|RECORDS=58; DOCAUTH|RESULT|ALL OK; --stress DOCAUTH|STRESS|6/6."
+  },
+  {
+   "command": "python3 -B tools/audit_development.py --base auto",
+   "result": "PASS",
+   "evidence": "AUDITDEV|BASE|b52fc32a2ad676fd9b235c0f3d6f1aba829cea77; AUDITDEV|RESULT|ALL OK (revision 2 and 3 records together cover every changed path)."
+  },
+  {
+   "command": "python3 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+   "result": "PASS",
+   "evidence": "Ran 52 tests, OK."
+  },
+  {
+   "command": "python3 -B docs/handoffs/codex_opera_imp_contest_2026-09-30/tools/build_packet_data.py --check",
+   "result": "PASS",
+   "evidence": "PACKET_CHECK|OK|FILES=8 (revision 3 manifest); no image in the folder."
+  },
+  {
+   "command": "Spec asset-path existence check: every assets/... path named in data/contest_spec.json exists in the working tree",
+   "result": "PASS",
+   "evidence": "54 paths, none missing; the only static Roshan card left is roshan_racer.png, the existing in-kart driver route."
+  },
+  {
+   "command": "Remote verification: unauthenticated fetch of MANIFEST.json and every listed file from raw.githubusercontent.com at the pushed commit, SHA-256 and byte comparison",
+   "result": "PENDING",
+   "evidence": "Recorded after the push."
+  },
+  {
+   "command": "Exact Godot 4.7.2 probe suite (scripts/ci.sh) via .github/workflows/probes.yml on the pushed head",
+   "result": "PENDING",
+   "evidence": "Documentation-only change plus a merge of current dev; the suite runs as the gate before integration into dev."
+  }
+ ],
+ "acceptance_gaps": "Written handoff only. Codex implementation, captures showing the imp's hand or tool touching his job object, target-device play, an observed child session and owner acceptance are pending. No master-audit satisfaction, finding closure or release is claimed."
+}

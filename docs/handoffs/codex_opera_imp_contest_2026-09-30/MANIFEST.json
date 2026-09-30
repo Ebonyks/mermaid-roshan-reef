@@ -7,9 +7,9 @@
   "evidence_baseline": "dev 55032e88936b22723fd9af5282c61ba6696b3d43",
   "entry": "README.md",
   "file_count": 8,
-  "total_bytes": 292888,
+  "total_bytes": 298245,
   "hash_basis": "SHA-256 of the committed Git blob bytes (LF line endings), identical to what raw.githubusercontent.com serves",
-  "revision": "2 (2026-09-30): adds OD-C, the inverted Teacher and Geologist contests; revision 1 was 7ec82d46",
+  "revision": "3 (2026-09-30): art-reuse and imp-contact corrections from the Day Two art review; revision 2 (OD-C, inverted Teacher and Geologist contests) was df01b7ce, revision 1 was 7ec82d46",
   "files": [
     {
       "path": ".gdignore",
@@ -19,8 +19,8 @@
     },
     {
       "path": "CONTEST_DESIGN.md",
-      "bytes": 64239,
-      "sha256": "c51f5c49baeb7c38faf2a8a24014222f93e9ae9d84a0c3afea8f40cab11725f1",
+      "bytes": 66812,
+      "sha256": "2d01c2f8f822327e8fd167496fadc493dcea7dc5f8c41185e232f21373c5d388",
       "role": "contest design and implementation specification"
     },
     {
@@ -31,14 +31,14 @@
     },
     {
       "path": "README.md",
-      "bytes": 8715,
-      "sha256": "dff068ef577ac7513d6eec85b83e2681aa7b7c80c0780836e0c8a8ff7a8be020",
+      "bytes": 9124,
+      "sha256": "e0bb855cf48c5ab46dc373254cdc29a598e5bcf4ec78abddfa8528aafd366474",
       "role": "handoff entry point"
     },
     {
       "path": "data/contest_spec.json",
-      "bytes": 46467,
-      "sha256": "ec009a01b23ce45cca09a81c2f732a4d4c9cdf7136e760371e65c4015be79736",
+      "bytes": 48758,
+      "sha256": "c1e5ae4248e945ce534e13ffc783e4b5f45b57e5db99c9fa1acba722405bb7b6",
       "role": "machine-readable contest specification (hand-authored)"
     },
     {
@@ -55,8 +55,8 @@
     },
     {
       "path": "tools/build_packet_data.py",
-      "bytes": 18768,
-      "sha256": "f385a5716c75f8229cdd606620d829abb730ad3bf2f41e0f0b98612edfde5952",
+      "bytes": 18852,
+      "sha256": "0bd23929b39d31d2a48745a02e8cdf3d1ee13a4f97e940ad2c310d2255112a4f",
       "role": "text-only generator and checker for the inventories and manifest"
     }
   ]

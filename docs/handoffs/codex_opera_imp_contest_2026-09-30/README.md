@@ -7,7 +7,10 @@
 
 **Status:**
 - `PROPOSED / CANDIDATE`. Publication is not creative acceptance.
-- **Revision 2 (2026-09-30)** adds the owner's third decision (OD-C): a Teacher imp who
+- **Revision 3 (2026-09-30)** folds in the Day Two art review's corrections: reuse only the
+  current full-tail and borderless art routes, and show the imp touching his own job object
+  ([CONTEST_DESIGN.md §4.16](CONTEST_DESIGN.md)).
+- **Revision 2** (`df01b7ce`) added the owner's third decision (OD-C): a Teacher imp who
   teaches wrong things for the child to fix, applied to the learning careers. Revision 1
   was `7ec82d46`.
 - No visual, device, child or owner acceptance is claimed.
@@ -154,6 +157,8 @@ These are covered in [CONTEST_DESIGN.md §7](CONTEST_DESIGN.md).
   [design/audit_impacts/codex-opera-imp-contest-handoff-20260930.json](../../../design/audit_impacts/codex-opera-imp-contest-handoff-20260930.json).
 - Revision 2:
   [design/audit_impacts/codex-opera-imp-contest-handoff-rev2-20260930.json](../../../design/audit_impacts/codex-opera-imp-contest-handoff-rev2-20260930.json).
+- Revision 3:
+  [design/audit_impacts/codex-opera-imp-contest-handoff-rev3-20260930.json](../../../design/audit_impacts/codex-opera-imp-contest-handoff-rev3-20260930.json).
 
 ## Checking this packet
 

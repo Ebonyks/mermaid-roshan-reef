@@ -2,7 +2,7 @@
   "schema": "opera_imp_contest_spec/1",
   "status": "PROPOSED / CANDIDATE - owner direction recorded; implementation, probes and acceptance pending",
   "baseline": "55032e88936b22723fd9af5282c61ba6696b3d43",
-  "revision": "2 (2026-09-30): adds OD-C, the inverted Teacher and Geologist contests; revision 1 was 7ec82d46",
+  "revision": "3 (2026-09-30): art-reuse and imp-contact corrections from the Day Two art review; revision 2 (OD-C, inverted Teacher and Geologist contests) was df01b7ce, revision 1 was 7ec82d46",
   "owner_decisions": [
     {
       "id": "OD-2026-09-30-A",
@@ -73,18 +73,20 @@
       "poses": {"pointing and placing": ["charge", "slash"], "claim": ["taunt"], "she fixed it": ["stagger", "recover"], "tricked her": ["hop_b", "taunt"], "defeat": ["stagger", "bopped", "recover"], "curtain": ["bow"]},
       "save": "attempts are never saved; the Teacher and Geologist keep using teacher_lesson_checkpoint and opera_geology_checkpoint for the phase index, with an empty mechanic snapshot on the contest phase"
     },
+    "art_reuse_guard": "Never draw the retired family bases widget_<context>.png (the pale clipboard or easel cards that the surface keeps only as retired_widget_backdrop_path, scripts/opera_gesture_surface.gd:758-764) or the static roshan_<career>.png cards, which crop her tail. Use the full-tail atlases (assets/opera/worlds/actors/animation/roshan_<career>_sheet_a.png) and the current borderless draw routes (_mover, _mark, _lit, _success and the code-drawn surfaces). Source: audit/day2_art_library_2026-09-30/REPORT.md (Planned final act contests).",
+    "imp_contact_rule": "Each of his units must show readable contact with his own job object: the object sits at his hands, not floating above him; the unit lands on his slash contact moment with a small puff; he faces it. Alternating charge and slash beside a miniature picture is not sufficient. Captures must show the hand or tool touching the object.",
     "venue_rule": "DL-INT-02 (owner clarification 2026-09-06): Roshan performs a job at its actual location. Room careers therefore hold the contest at the room station she walks to, as today; only the three Opera Hall careers, whose stage act is already the playable venue, use the stage layout. The non-interactive curtain call stays on the proscenium for everyone.",
     "room_layout": {
       "her_card": "_card_position_near_station(): 416 x 292 card, 392 x 232 surface (scripts/opera_career_world_2d.gd:2822-2844)",
       "imp_mark": "_stage_room_finale_partner(): the route rest clear of Roshan and her card (scripts/opera_career_world_2d.gd:1786-1830)",
-      "imp_station": "the same input-transparent OperaGestureSurface mirror the Hall uses, at scale 0.6 (235 x 139), docked above the imp and clear of her card and Roshan using the _safer_panel_rect candidate search"
+      "imp_station": "the same input-transparent OperaGestureSurface mirror the Hall uses, at scale 0.6 (235 x 139), placed at the imp's hands on his reach side (imp_contact_rule) and clear of her card and Roshan using the _safer_panel_rect candidate search"
     },
     "hall_stage_layout_source": "scripts/opera_career_world_2d.gd:4945-4976 (_performance_stage_layout) and :769-777 (performance_rival_surface)",
     "hall_stage_layout": {
       "roshan": {"position": [48, 264], "size": [300, 300]},
       "activity_panel": {"position": [390, 204], "size": [500, 376]},
       "imp": {"position": [974, 294], "size": [220, 220]},
-      "imp_station": {"position": [916, 144], "size": [392, 232], "scale": 0.7, "input": "transparent"},
+      "imp_station": {"position": [916, 144], "size": [392, 232], "scale": 0.7, "input": "transparent", "note": "today's position floats above his head; for the contest move it down to his hands (imp_contact_rule) and verify contact in captures"},
       "ballerina_exception": {"roshan": {"position": [12, 372], "size": [300, 300]}, "imp": {"position": [238, 350], "size": [150, 150]}}
     }
   },
@@ -115,7 +117,7 @@
         "skill": "decorating: put each topping on its glowing spot",
         "venue": "room: grand_cake_stage (the TOP station)",
         "player": {"mode": "tap", "visual_context": "target_chef", "units": 7, "reuse": "TARGET_ANCHORS.target_chef (seven one-use sockets)"},
-        "imp_station": "mini copy of widget_target_chef.png with his first N sockets filled (mirror API)",
+        "imp_station": "a small copy of the same borderless cake subject (widget_target_chef_mover.png) held at his hands, his toppings landing on his contact frames (mirror API)",
         "imp": {"family": "rival_chef", "base_seconds": 13.0, "flub_at_units": 4, "flub_seconds": 1.8},
         "flub": {"poses": [["stagger", 0.4], ["bopped", 1.0], ["recover", 0.4]], "visual": "one topping (widget_target_chef_piece_1.png) lands on his toque", "voice": "op_chef_copy"},
         "victory_flourish": null
@@ -129,8 +131,8 @@
       },
       "art": {
         "backdrop": "stage",
-        "roshan": "assets/opera/worlds/actors/roshan_chef.png",
-        "her_object": "assets/opera/worlds/widgets/widget_target_chef.png",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_chef_sheet_a.png",
+        "her_object": "assets/opera/worlds/widgets/widget_target_chef_mover.png",
         "pieces": ["assets/opera/worlds/widgets/widget_target_chef_piece_0.png", "assets/opera/worlds/widgets/widget_target_chef_piece_1.png", "assets/opera/worlds/widgets/widget_target_chef_piece_2.png"],
         "flub_sprite": "assets/opera/worlds/widgets/widget_target_chef_piece_1.png",
         "new": []
@@ -163,7 +165,7 @@
       },
       "art": {
         "backdrop": "world",
-        "roshan": "assets/opera/worlds/actors/roshan_detective.png",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_detective_sheet_a.png",
         "her_object": "assets/opera/worlds/ui/magnifier.png",
         "pieces": ["assets/opera/worlds/props/fx_stolen_sparkle.png"],
         "flub_sprite": null,
@@ -196,7 +198,7 @@
       },
       "art": {
         "backdrop": "finale_stage",
-        "roshan": "assets/opera/worlds/actors/roshan_ballerina.png",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_ballerina_sheet_a.png",
         "her_object": "assets/opera/worlds/props/goal_ballerina.png",
         "pieces": [],
         "flub_sprite": "assets/opera/worlds/props/fx_dizzy_stars.png",
@@ -214,7 +216,7 @@
         "skill": "sharing: give one candy to each waving friend (one-to-one)",
         "venue": "room: candy_cart (the SHARE station)",
         "player": {"mode": "tap", "visual_context": "target_candymaker", "units": 6, "reuse": "TARGET_ANCHORS.target_candymaker and _draw_candymaker_recipients"},
-        "imp_station": "mini copy of widget_target_candymaker.png with his first N friends served (mirror API)",
+        "imp_station": "a small copy of the same waving friends at his hands, each served on his contact frame (mirror API)",
         "imp": {"family": "rival_candymaker", "base_seconds": 11.0, "flub_at_units": 3, "flub_seconds": 1.8},
         "flub": {"poses": [["hop_b", 0.5], ["taunt", 0.6], ["recover", 0.7]], "visual": "he eats the candy instead of giving it (candy piece at his mouth); his count does not advance", "voice": "op_candymaker_copy"},
         "victory_flourish": null
@@ -228,8 +230,8 @@
       },
       "art": {
         "backdrop": "stage",
-        "roshan": "assets/opera/worlds/actors/roshan_candymaker.png",
-        "her_object": "assets/opera/worlds/widgets/widget_target_candymaker.png",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png",
+        "her_object": "assets/opera/worlds/widgets/widget_target_candymaker_mover.png",
         "pieces": ["assets/opera/worlds/widgets/widget_target_candymaker_piece_0.png", "assets/opera/worlds/widgets/widget_target_candymaker_piece_1.png", "assets/opera/worlds/widgets/widget_target_candymaker_piece_2.png"],
         "flub_sprite": "assets/opera/worlds/widgets/widget_target_candymaker_piece_0.png",
         "new": []
@@ -246,7 +248,7 @@
         "skill": "bandaging: wrap each sore paw along the glowing path",
         "venue": "room: recovery_bed (the BANDAGE station)",
         "player": {"mode": "swipe", "visual_context": "trace_doctor (existing authored bandage corridor)", "units": 3, "surface_change": "multi-pass contract: after each completed pass the corridor re-arms on the next paw; a pass banks once"},
-        "imp_station": "mini copy of the plushy patient with his bandage fill (set_fill already drives trace art)",
+        "imp_station": "a small copy of the same authored bandage trace (widget_trace_doctor_lit.png route) at his hands, his wrap advancing on his contact frames (mirror API)",
         "imp": {"family": "rival_doctor", "base_seconds": 14.0, "flub_at_units": 2, "flub_seconds": 2.0},
         "flub": {"poses": [["stagger", 0.4], ["guard", 1.0], ["recover", 0.6]], "visual": "he wraps his own head instead of the paw", "voice": "op_doctor_copy"},
         "victory_flourish": "optional kindness beat: tap the imp to give him a bandage (hop_b); never required, auto-continues after 3 s, pays nothing"
@@ -260,11 +262,11 @@
       },
       "art": {
         "backdrop": "stage",
-        "roshan": "assets/opera/worlds/actors/roshan_doctor.png",
-        "her_object": "assets/opera/worlds/widgets/widget_crank_doctor_patient.png",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_doctor_sheet_a.png",
+        "her_object": "assets/opera/worlds/widgets/widget_trace_doctor_lit.png",
         "pieces": [],
         "flub_sprite": null,
-        "new": ["optional P2 only: a small bandage-wrap overlay for the imp if the guard pose does not read as 'wrapped up' at phone size"]
+        "new": ["owner-dependent option, not a generation order: a small bandage-wrap overlay for the imp, only if the guard pose does not read as wrapped up at phone size"]
       }
     },
     "farmer": {
@@ -278,7 +280,7 @@
         "skill": "aiming: pull back and toss veggies into the hungry piggy's picnic (four landings)",
         "venue": "room: blossom_arch (the PICNIC station)",
         "player": {"mode": "farm_lob", "units": 4, "reuse": "FARM_LOB_GOAL = 4, cycling foods, pig munch reaction"},
-        "imp_station": "mini copy of the piggy picnic (widget_target_farmer.png) with his four landing dots filling (mirror API)",
+        "imp_station": "a small copy of the piggy picnic (widget_target_farmer_mover.png) just in front of him, his veggie leaving his hand on each toss and his four landing dots filling (mirror API)",
         "imp": {"family": "rival_farmer", "base_seconds": 17.0, "flub_at_units": 2, "flub_seconds": 1.8},
         "flub": {"poses": [["charge", 0.3], ["bopped", 1.1], ["recover", 0.4]], "visual": "his veggie bonks his own hat and he slips in mud (fx_dust_puff drawn with a brown modulate; the art itself is not recoloured)", "voice": "op_farmer_bop"},
         "victory_flourish": "his piggies trot over to her side (optional visual)",
@@ -293,8 +295,8 @@
       },
       "art": {
         "backdrop": "stage",
-        "roshan": "assets/opera/worlds/actors/roshan_farmer.png",
-        "her_object": "assets/opera/worlds/widgets/widget_target_farmer.png",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_farmer_sheet_a.png",
+        "her_object": "assets/opera/worlds/widgets/widget_target_farmer_mover.png",
         "pieces": ["assets/opera/worlds/widgets/widget_target_farmer_piece_0.png", "assets/opera/worlds/widgets/widget_target_farmer_piece_1.png", "assets/opera/worlds/widgets/widget_target_farmer_piece_2.png"],
         "flub_sprite": "assets/opera/worlds/widgets/widget_target_farmer_piece_0.png",
         "new": []
@@ -326,9 +328,9 @@
       },
       "art": {
         "backdrop": "stage",
-        "roshan": "assets/opera/worlds/actors/roshan_boxer.png",
-        "her_object": "assets/opera/worlds/widgets/widget_target_boxer.png",
-        "pieces": [],
+        "roshan": "assets/opera/worlds/actors/animation/roshan_boxer_sheet_a.png",
+        "her_object": "assets/opera/worlds/widgets/widget_track_boxer_mover.png",
+        "pieces": ["assets/opera/worlds/widgets/widget_target_boxer_mark.png", "assets/opera/worlds/props/fx_telegraph_ring.png", "assets/opera/worlds/props/goal_boxer.png"],
         "flub_sprite": null,
         "new": []
       }
@@ -358,9 +360,9 @@
       },
       "art": {
         "backdrop": "stage",
-        "roshan": "assets/opera/worlds/actors/roshan_magician.png",
-        "her_object": "assets/opera/worlds/widgets/widget_lanes_magician.png",
-        "pieces": ["assets/minigames/seek/lamma_animation.png"],
+        "roshan": "assets/opera/worlds/actors/animation/roshan_magician_sheet_a.png",
+        "her_object": "assets/opera/worlds/widgets/widget_lanes_magician_lit.png",
+        "pieces": ["assets/opera/worlds/widgets/widget_lanes_shared_pick.png", "assets/minigames/seek/lamma_animation.png"],
         "flub_sprite": null,
         "new": []
       }
@@ -376,7 +378,7 @@
         "skill": "painting: brush across the canvas until the picture shows",
         "venue": "room: gazebo_easel (new PHASE_STATIONS entry, the PAINT easel)",
         "player": {"mode": "paint_reveal", "units": "coverage 0 to 1 (PAINT_REQUIRED_COVERAGE 0.62 of the 10 x 6 grid)", "reuse": "existing coverage brush and goal_painter.png reveal"},
-        "imp_station": "mini canvas revealing goal_painter.png in a fixed stroke order (mirror API)",
+        "imp_station": "a small canvas on an easel at his brush hand, revealing goal_painter.png in a fixed stroke order as his brush touches it (mirror API)",
         "imp": {"family": "rival_painter", "base_seconds": 16.0, "flub_at_fraction": 0.55, "flub_seconds": 2.0},
         "flub": {"poses": [["slash", 0.3], ["stagger", 0.5], ["recover", 1.2]], "visual": "he paints himself: painter stamp marks (widget_target_painter_mark.png) splat on his sprite", "voice": "op_painter_copy"},
         "victory_flourish": "GALLERY (hang her painting; existing choice)"
@@ -390,7 +392,7 @@
       },
       "art": {
         "backdrop": "stage",
-        "roshan": "assets/opera/worlds/actors/roshan_painter.png",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_painter_sheet_a.png",
         "her_object": "assets/opera/worlds/props/goal_painter.png",
         "pieces": ["assets/opera/worlds/widgets/widget_target_painter_mark.png"],
         "flub_sprite": "assets/opera/worlds/widgets/widget_target_painter_mark.png",
@@ -408,7 +410,7 @@
         "skill": "repairing: patch every leak, then hold to blast off",
         "venue": "room: rocket_launch_dais (the LAUNCH station)",
         "player": {"mode": "tap then hold", "visual_context": "target_astronaut then charge_astronaut", "units": 6, "reuse": "TARGET_ANCHORS.target_astronaut (five leaks) plus a 1.2 s launch hold as the sixth unit"},
-        "imp_station": "mini copy of widget_target_astronaut.png with his first N patches (mirror API)",
+        "imp_station": "a small copy of the same rocket (widget_target_astronaut_mover.png) at his hands, each patch pressed on by his contact frame, then his rocket rising (mirror API)",
         "imp": {"family": "rival_astronaut", "base_seconds": 12.0, "flub_at_units": 3, "flub_seconds": 1.8},
         "flub": {"poses": [["stagger", 0.5], ["bopped", 0.9], ["recover", 0.4]], "visual": "his rocket hops sideways and bumps down (fx_dust_puff)", "voice": "op_astronaut_copy"},
         "victory_flourish": null
@@ -422,8 +424,8 @@
       },
       "art": {
         "backdrop": "stage",
-        "roshan": "assets/opera/worlds/actors/roshan_astronaut.png",
-        "her_object": "assets/opera/worlds/widgets/widget_target_astronaut.png",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+        "her_object": "assets/opera/worlds/widgets/widget_target_astronaut_mover.png",
         "pieces": ["assets/opera/worlds/widgets/widget_target_astronaut_piece_0.png", "assets/opera/worlds/widgets/widget_target_astronaut_piece_1.png", "assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png"],
         "flub_sprite": "assets/opera/worlds/props/fx_dust_puff.png",
         "new": []
@@ -456,7 +458,7 @@
       },
       "art": {
         "backdrop": "world",
-        "roshan": "assets/opera/worlds/actors/roshan_racer.png",
+        "roshan": "assets/opera/worlds/actors/roshan_racer.png (existing in-kart driver route of OperaRacerSurface; the full-tail atlas animation/roshan_racer_sheet_a.png is used out of the kart)",
         "her_object": "assets/opera/worlds/widgets/widget_crank_racer_kart.png",
         "pieces": [],
         "flub_sprite": null,
@@ -488,7 +490,7 @@
       },
       "art": {
         "backdrop": "stage",
-        "roshan": "assets/opera/worlds/actors/roshan_popstar.png",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_popstar_sheet_a.png",
         "her_object": null,
         "her_object_note": "The three singing stars are code-drawn: popstar_star_note_unlit/_lit.png are ledgered P2 art that was never delivered (scripts/opera_career_world_2d.gd:2345-2347), so _draw_echo_star falls back to a 10-point polygon (scripts/opera_gesture_surface.gd:5914-5923). Mirror the same drawing for his stars in imp purple.",
         "pieces": ["assets/opera/worlds/props/goal_popstar.png"],
@@ -522,9 +524,9 @@
       },
       "art": {
         "backdrop": "world",
-        "roshan": "assets/opera/worlds/actors/roshan_nursery.png",
-        "her_object": "assets/opera/worlds/widgets/widget_push_nursery.png",
-        "pieces": [],
+        "roshan": "assets/opera/worlds/actors/animation/roshan_nursery_sheet_a.png",
+        "her_object": "assets/opera/worlds/nursery/baby_0.png",
+        "pieces": ["assets/opera/worlds/nursery/baby_1.png", "assets/opera/worlds/nursery/baby_2.png", "code-drawn cribs and blankets (nursery_bedtime)"],
         "flub_sprite": null,
         "new": ["option C only: rival_nursery 13-state family via tools/build_imp_costume_family.py"]
       }
