@@ -6,13 +6,13 @@ The [illustrated library](index.html) displays all **637 source images**, with a
 
 ## What the scores mean
 
-The source score is a first-pass human design opinion about the visible image: recognizable identity, painted finish, contour and cutout quality, broad value/color hierarchy, and clarity of its stated visual role. It is deliberately separate from a provisional game design/sequence score. Neither score is a canonical runtime grade. Motion, contact, current composed-runtime quality, device behavior and owner acceptance remain ungraded where they have not been observed.
+The source score is a first-pass Codex design opinion about the visible image: recognizable identity, painted finish, contour and cutout quality, broad value/color hierarchy, and clarity of its stated visual role. It is deliberately separate from a provisional game design/sequence score. Neither score is a canonical runtime grade. Motion, contact, current composed-runtime quality, device behavior and owner acceptance remain ungraded where they have not been observed.
 
 Scores from 4.6 to 4.9 identify strong reuse candidates. Scores from 4.0 to 4.5 identify useful art with a specific refinement or context dependency. Scores from 3.0 to 3.9 indicate inconsistent finish, ambiguous ownership or a substantial source/composition issue. Scores below 3.0 identify a large visible presentation problem. A 5/5 requires owner acceptance in runtime under DL-VIS-07; this pass awards no 5s. There is no global average claiming compliance under DL-VIS-08.
 
 Every file was inspected in source contact sheets, including raster previews of the five SVGs. Repeated family observations are preserved in individual records rather than pretending that a shared style issue is unique to every tile or costume pose. This is a breadth-first review; native-size edge inspection is a follow-up action where specified. Atlas previews display the complete sheets, including all cells. A sheet score does not certify every cell as an animation frame or assign a played-motion score.
 
-The baseline is `55032e88936b22723fd9af5282c61ba6696b3d43`, freshly fetched from `origin/dev`. The artwork and runtime code baseline remain unchanged; the September 30 target contest authority and per-pose handoff are reconciled from integration revision `285355eb9e09a29aa4ac53d36874e31419d4674e`. Production controller and domain-authority hashes are recorded in [inventory.json](inventory.json). Source records live in [reviews.json](reviews.json); context and phase evaluations live in [evaluations.json](evaluations.json). This audit changes no runtime, saves, protected source artwork or finding acceptance state.
+The baseline is `55032e88936b22723fd9af5282c61ba6696b3d43`, freshly fetched from `origin/dev`. The artwork and runtime code baseline remain unchanged; the September 30 target contest authority and per-pose handoff are reconciled from integration revision `285355eb9e09a29aa4ac53d36874e31419d4674e`. Production controller and domain-authority hashes are recorded in [inventory.json](inventory.json). Source records live in [reviews.json](reviews.json); context and phase evaluations live in [evaluations.json](evaluations.json). This audit changes no runtime, saves, protected source artwork or finding acceptance state. The evaluations were authored by Codex; no human or owner acceptance is claimed.
 
 ## Which jobs currently exist
 
@@ -117,10 +117,12 @@ Use the persistent goal with: **Refresh the Day Two artwork library against curr
 
 1. Fetch the latest repository and use a clean `codex/` task branch under the project workflow. Read the master planning entry, applicable rules, active findings and ledger again.
 2. Run `python -B tools/build_day2_art_library.py --refresh`. It compares the complete source census, image hashes and production-controller/shared-owner/domain-authority fingerprints. New/changed image bytes invalidate their old scores; affected composition review is marked stale. Removed files and all changed paths are written to `refresh_delta.json`.
-3. Visually inspect every changed image and its current composed usage. Update `reviews.json` with that exact source hash and a human observation, score and next action. Re-review affected entries in `evaluations.json` and restore `composition_status` only after that review. Unchanged reviews may be retained; changed images do not inherit old acceptance or receive automatic grades.
+3. Visually inspect every changed image and its current composed usage. Update `reviews.json` with that exact source hash and an authored visual observation, draft score and next action. Re-review affected entries in `evaluations.json` and restore `composition_status` only after that review. Unchanged reviews may be retained; changed images do not inherit old acceptance or receive automatic grades.
 4. Run `python -B tools/build_day2_art_library.py --render`, then `python -B tools/build_day2_art_library.py --check`. Inspect the rendered gallery, filter counts, originals and game/phase tables. Add/update audit impact coverage, navigation and evidence before the normal gates and publication.
 
-The initial report is a dated first pass. Preserve its conclusions and evidence when beginning a later round; record revisions rather than silently rewriting earlier acceptance claims. The refresh tool identifies what needs human review. It does not generate art, edit the game, award owner acceptance or close master findings.
+Keep the complete library folder together when copying or downloading it: `index.html` loads the local `previews/` images. The packet works offline and is inspectable by the unchanged 2D audit without a large embedded-image HTML file.
+
+The initial report is a dated first pass. Preserve its conclusions and evidence when beginning a later round; record revisions rather than silently rewriting earlier acceptance claims. The refresh tool identifies what needs visual review. It does not generate art, edit the game, award owner acceptance or close master findings.
 
 ## Machine verification and acceptance reporting
 

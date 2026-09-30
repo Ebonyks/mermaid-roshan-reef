@@ -11,7 +11,7 @@ AUDITDEV|BASE|55032e88936b22723fd9af5282c61ba6696b3d43
 AUDITDEV|RESULT|ALL OK
 git diff --check: PASS
 Reference-gate inputs: 632 actual baseline-tracked references restored; 418 verified-identical read-only-use hardlinks and 214 exact Git files. No linked original was edited.
-PASS: python -B tools/build_day2_art_library.py --check (637 human source bindings, inclusive threshold, current controller/authority fingerprints).
+PASS: python -B tools/build_day2_art_library.py --check (637 authored source bindings, inclusive threshold, current controller/authority fingerprints).
 
 Scope review: source/runtime artwork unchanged; contest target DL-INT-14 reconciled from dev 285355eb9e09a29aa4ac53d36874e31419d4674e. Added twelve specified future contests and three unresolved options, with 178 supporting source-bound imp pose roles. Current runtime grades remain unobserved.
 
@@ -34,3 +34,30 @@ Command: git diff --cached --check
 Exit: 0
 Expanded exact source commit: 2eae4ceb31b9274a53e4767c9845b6c6934260cc
 Upstream authority inherited from: 285355eb9e09a29aa4ac53d36874e31419d4674e
+
+Initial published CI b5d346998ac6dee140962f8c0b0ffe1e491d5082: run 36755706002 failed G2D101 because index.html exceeded the unchanged 4 MiB complete-text model scan budget. Static gates and music provenance passed; full probes did not run. Repair: separate whole-source preview images into a complete offline library folder, without changing the model audit or migration manifest. Corrected authorship wording to Codex-authored draft; human and owner acceptance remain open.
+
+Packaging repair checks:
+PASS: 660/660 separated previews decoded; 637 source cards; 23 historical captures; 40 contexts; 190 phase/beat rows; 432 priority results; exact-commit original link; zero page errors; no horizontal overflow at 390px.
+PASS: source, preview SHA-256, original-source link, rendered-content, score and context binding checks.
+PASS: isolated source-change/stale/removal/threshold controls plus preview provenance and uncommitted-original link control.
+All 23 historical originals match their source SHA-256 at the linked baseline.
+Sparse preview omissions during checkout reapply were restored from their exact staged blobs; explicit preview patterns now preserve the whole packet.
+Command: python -B tools/build_day2_art_library.py --check
+PASS: 637 individually source-bound reviews; inclusive <=4.5 threshold; controller/authority fingerprints current; no acceptance promotion
+Exit: 0
+Command: python -B tools/audit_game_2d.py --regression-gate
+GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0
+GAME2D| STATUS| UNSATISFIED
+GAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED
+Exit: 0
+Command: python -B tools/audit_document_authority.py
+DOCAUTH|INVENTORY=587|LEDGER=587|ACTIVE=56|RECORDS=58
+DOCAUTH|RESULT|ALL OK
+Exit: 0
+Command: python -B tools/audit_development.py --base auto
+AUDITDEV|BASE|285355eb9e09a29aa4ac53d36874e31419d4674e
+AUDITDEV|RESULT|ALL OK
+Exit: 0
+Command: git diff --cached --check
+Exit: 0

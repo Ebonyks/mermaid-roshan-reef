@@ -144,6 +144,19 @@ def markdown_prose(document):
         else:blocks.append('<p>'+inline(part)+'</p>')
     return ''.join(blocks)
 
+def save_preview(identifier, value, source_path):
+    ext='.svg' if source_path.endswith('.svg') else '.webp'
+    relative='previews/'+identifier+ext
+    target=OUT/relative
+    target.parent.mkdir(parents=True,exist_ok=True)
+    if value and value.startswith('data:'):
+        target.write_bytes(base64.b64decode(value.split(',',1)[1]))
+    elif value and (OUT/value).exists():
+        if OUT/value!=target:target.write_bytes((OUT/value).read_bytes())
+    else:
+        target.write_bytes(base64.b64decode(preview(source_path).split(',',1)[1]))
+    return relative
+
 def render(rows,reviews,baseline):
     evaluations=json.loads((OUT/'evaluations.json').read_text(encoding='utf-8'))
     cached={}
@@ -151,10 +164,32 @@ def render(rows,reviews,baseline):
     if existing.exists():
         match=re.search(r'<script id="library-data" type="application/json">(.*?)</script>',existing.read_text(encoding='utf-8'),re.S)
         if match:cached={r['path']:r for r in json.loads(match[1])['items']}
+    revision=git('rev-parse','HEAD').decode().strip()
+    committed={}
+    for entry in git('ls-tree','-r','-z','HEAD').split(b'\0'):
+        if entry:
+            meta,path=entry.split(b'\t',1);committed[path.decode('utf-8')]=meta.split()[2].decode()
     data=[]
     for r in rows:
         item=dict(r);old=cached.get(r['path'])
-        item['preview']=old['preview'] if old and old['sha256']==r['sha256'] else preview(r['path']);data.append(item)
+        original=source_bytes(r['path'])
+        blob=hashlib.sha1(b'blob '+str(len(original)).encode()+b'\0'+original).hexdigest()
+        item['source_revision']=revision if committed.get(r['path'])==blob else None
+        cached_preview=old['preview'] if old and old['sha256']==r['sha256'] else None
+        item['preview']=save_preview(r['id'],cached_preview,r['path']);data.append(item)
+    for index,capture in enumerate(evaluations['captures'],1):
+        capture['preview']=save_preview(f'capture-{index:02}',capture.get('preview'),capture['path'])
+    (OUT/'evaluations.json').write_text(json.dumps(evaluations,indent=2)+'\n',encoding='utf-8')
+    provenance_file=OUT/'preview_provenance.json'
+    provenance=json.loads(provenance_file.read_text(encoding='utf-8')) if provenance_file.exists() else {}
+    preview_records=[]
+    for item in data:
+        preview_records.append({'path':item['preview'],'source_path':item['path'],'source_sha256':item['sha256'],'preview_sha256':sha((OUT/item['preview']).read_bytes().replace(b'\r\n',b'\n') if item['preview'].endswith('.svg') else (OUT/item['preview']).read_bytes()),'role':'whole-source review preview','modification':'Whole-canvas aspect-preserving thumbnail with original alpha; SVG source copied with LF line endings','used_as_runtime_art':False})
+    for capture in evaluations['captures']:
+        preview_records.append({'path':capture['preview'],'source_path':capture['path'],'source_sha256':capture['sha256'],'preview_sha256':sha((OUT/capture['preview']).read_bytes()),'role':'historical composition review preview','modification':'Whole-canvas aspect-preserving thumbnail; original source and manifest hashes preserved in evaluations.json','used_as_runtime_art':False})
+    provenance['preview_files']=preview_records
+    provenance['preview_hash_basis']='Exact image bytes; SVG text canonicalized to LF, matching its Git blob.'
+    provenance_file.write_text(json.dumps(provenance,indent=2)+'\n',encoding='utf-8')
     document=(OUT/'REPORT.md').read_text(encoding='utf-8')
     # Markdown remains the canonical written companion; HTML embeds readable prose.
     intro=markdown_prose(document)
@@ -164,9 +199,9 @@ def render(rows,reviews,baseline):
 <header><p>Mermaid Roshan · First pass · 30 September 2026</p><h1>Day Two artwork<br>and game sequence library</h1><p>Every source image has its own score, observations and next review action. Browse all careers, the Opera training/show paths, the birthday jobs and Tree Book.</p><p class="notice">Draft source scores are design opinions. A score at or below 4.5/5 is a refinement priority. No score here establishes current gameplay, animation, device, child or owner acceptance.</p><nav><a href="#written">Written review</a><a href="#games">Games and phases</a><a href="#artwork">Artwork gallery</a><a href="#evidence">Historical compositions</a></nav><p class="meta">Source baseline BASELINE · Thumbnails preserve whole source composition; originals and full hashes are linked per item.</p></header><main><details id="written"><summary>Read the complete first-pass report and refresh instructions</summary>INTRO</details><section id="games"><h2>Every game and its visual sequence</h2><div id="game-list"></div></section><section id="artwork"><h2>Individual artwork reviews</h2><form class="sticky" onsubmit="return false"><input id="search" placeholder="Search ID, filename or review" aria-label="Search artwork"><select id="career" aria-label="Career"><option value="">All careers and shared art</option></select><select id="role" aria-label="Art role"><option value="">All art roles</option></select><select id="filter" aria-label="Review filter"><option value="all">All images</option><option value="priority">Refinement: score ≤4.5</option><option value="retain">Retain: score &gt;4.5</option><option value="retired">Retired/inactive/reference alternatives</option><option value="pending">Pending new review</option></select><select id="sort" aria-label="Sort"><option value="id">Inventory order</option><option value="weak">Lowest scores first</option><option value="strong">Highest scores first</option></select><span id="count"></span></form><div class="grid" id="gallery"></div></section><section id="evidence"><h2>Recorded composition examples</h2><p class="notice">These are earlier diagnostic captures, labeled with their own manifests. They illustrate composition concerns and are not fresh captures of the source baseline.</p><div id="shots"></div></section></main><dialog id="detail"><button class="close" onclick="this.closest('dialog').close()">Close</button><div id="detail-content"></div></dialog><script id="library-data" type="application/json">PAYLOAD</script><script>
 const data=JSON.parse(document.getElementById('library-data').textContent),items=data.items;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const raw=p=>'https://github.com/Ebonyks/mermaid-roshan-reef/blob/BASELINE/'+p.split('/').map(encodeURIComponent).join('/');
+const raw=x=>x.source_revision?'https://github.com/Ebonyks/mermaid-roshan-reef/blob/'+x.source_revision+'/'+x.path.split('/').map(encodeURIComponent).join('/'):null;
 for(const key of ['career','role'])for(const val of [...new Set(items.map(x=>x[key]))].sort()){const o=document.createElement('option');o.value=val;o.textContent=val;document.getElementById(key).append(o)}
-function show(id){const x=items.find(x=>x.id===id);document.getElementById('detail-content').innerHTML=`<h2>${esc(x.id)} · ${esc(x.path.split('/').pop())}</h2><img src="${x.preview}" alt="${esc(x.path)}"><p><b>${x.draft_source_score??'Pending'}/5</b> · ${esc(x.usage)}</p><p>${esc(x.review)}</p><p><b>Next action:</b> ${esc(x.refinement)}</p><p class="path">${esc(x.path)}<br>SHA-256 ${esc(x.sha256)}<br>${x.width} × ${x.height}</p><p>${esc(x.rule_ids.join(', '))}</p><p>${esc(x.review_basis)}</p><p class="notice">${esc(x.acceptance)}</p><a href="${raw(x.path)}" target="_blank" rel="noopener">Inspect original at the exact source revision</a>`;document.getElementById('detail').showModal()}
+function show(id){const x=items.find(x=>x.id===id);document.getElementById('detail-content').innerHTML=`<h2>${esc(x.id)} · ${esc(x.path.split('/').pop())}</h2><img src="${x.preview}" alt="${esc(x.path)}"><p><b>${x.draft_source_score??'Pending'}/5</b> · ${esc(x.usage)}</p><p>${esc(x.review)}</p><p><b>Next action:</b> ${esc(x.refinement)}</p><p class="path">${esc(x.path)}<br>SHA-256 ${esc(x.sha256)}<br>${x.width} × ${x.height}</p><p>${esc(x.rule_ids.join(', '))}</p><p>${esc(x.review_basis)}</p><p class="notice">${esc(x.acceptance)}</p>${raw(x)?`<a href="${raw(x)}" target="_blank" rel="noopener">Inspect original at the exact source revision</a>`:`<p>Original bytes are not yet committed at the displayed revision; inspect the recorded repository path locally.</p>`}`;document.getElementById('detail').showModal()}
 function draw(){const q=document.getElementById('search').value.toLowerCase(),career=document.getElementById('career').value,role=document.getElementById('role').value,f=document.getElementById('filter').value;
 let visible=items.filter(x=>(!career||x.career===career)&&(!role||x.role===role)&&(!q||[x.id,x.path,x.review,x.refinement].join(' ').toLowerCase().includes(q))&&(f==='all'||f==='priority'&&x.priority||f==='retain'&&x.draft_source_score>4.5||f==='retired'&&/retired|reference|superseded|inactive/.test(x.usage)||f==='pending'&&x.draft_source_score==null));const s=document.getElementById('sort').value;if(s!=='id')visible.sort((a,b)=>(s==='weak'?1:-1)*((a.draft_source_score??-1)-(b.draft_source_score??-1)));document.getElementById('count').textContent=visible.length+' / '+items.length+' images';document.getElementById('gallery').innerHTML=visible.map(x=>`<article class="card"><span class="score ${x.priority?'priority':''}">${x.draft_source_score??'Pending'}/5</span><h3>${esc(x.id)}</h3><img class="art" loading="lazy" src="${x.preview}" alt="${esc(x.path)}"><p class="path">${esc(x.path)}</p><p class="meta">${esc(x.career)} · ${esc(x.role)} · ${esc(x.usage)}</p><p>${esc(x.review)}</p><p><b>Refine:</b> ${esc(x.refinement)}</p><button onclick="show('${x.id}')">Details and original</button></article>`).join('')}
 for(const id of ['search','career','role','filter','sort'])document.getElementById(id).addEventListener(id==='search'?'input':'change',draw);draw();
@@ -198,7 +233,7 @@ def main():
     if args.refresh:
         old={r['path']:r for r in previous['items']};now={r['path']:r for r in rows}
         old_watch=previous.get('watched_sources',{})
-        delta={'source_revision':git('rev-parse','HEAD').decode().strip(),'added':sorted(set(now)-set(old)),'removed':sorted(set(old)-set(now)),'changed':[p for p in now if p in old and now[p]['sha256']!=old[p]['sha256']],'changed_controllers_or_authority':[p for p in sorted(set(watch)|set(old_watch)) if old_watch.get(p)!=watch.get(p)], 'required_action':'Human review new/changed images and all affected phase/composition evaluations. No scores are inferred or promoted.'}
+        delta={'source_revision':git('rev-parse','HEAD').decode().strip(),'added':sorted(set(now)-set(old)),'removed':sorted(set(old)-set(now)),'changed':[p for p in now if p in old and now[p]['sha256']!=old[p]['sha256']],'changed_controllers_or_authority':[p for p in sorted(set(watch)|set(old_watch)) if old_watch.get(p)!=watch.get(p)], 'required_action':'Visually review new/changed images and all affected phase/composition evaluations. No scores are inferred or promoted.'}
         (OUT/'refresh_delta.json').write_text(json.dumps(delta,indent=2)+'\n',encoding='utf-8')
         if any(delta[k] for k in ['added','removed','changed','changed_controllers_or_authority']):
             reviews['composition_status']='STALE: changed source requires a new context/sequence review'
@@ -209,12 +244,39 @@ def main():
         if {r['path']:r['sha256'] for r in rows}!={r['path']:r['sha256'] for r in previous['items']}:errors.append('Image census/bytes changed; run --refresh')
         if watch!=previous.get('watched_sources'):errors.append('Controller/authority bytes changed; run --refresh')
         for r in rows:
-            if r['draft_source_score'] is None:errors.append(r['id']+' missing current human source review')
+            if r['draft_source_score'] is None:errors.append(r['id']+' missing current authored source review')
             elif not 0<=r['draft_source_score']<5:errors.append(r['id']+' invalid drafting score')
             elif r['priority']!=(r['draft_source_score']<=4.5):errors.append(r['id']+' threshold mismatch')
+        provenance_file=OUT/'preview_provenance.json'
+        if provenance_file.exists():
+            for preview_record in json.loads(provenance_file.read_text(encoding='utf-8')).get('preview_files',[]):
+                preview_file=OUT/preview_record['path']
+                if not preview_file.exists():errors.append('Missing preview '+preview_record['path']);continue
+                preview_bytes=preview_file.read_bytes()
+                if preview_file.suffix=='.svg':preview_bytes=preview_bytes.replace(b'\r\n',b'\n')
+                if sha(preview_bytes)!=preview_record['preview_sha256']:errors.append('Changed preview '+preview_record['path'])
+        artifact=OUT/'index.html'
+        if artifact.exists():
+            if not provenance_file.exists():errors.append('Missing preview provenance')
+            match=re.search(r'<script id="library-data" type="application/json">(.*?)</script>',artifact.read_text(encoding='utf-8'),re.S)
+            if not match:errors.append('Missing rendered library data')
+            else:
+                rendered=json.loads(match[1]);by_id={x['id']:x for x in rendered['items']}
+                if len(by_id)!=len(rows):errors.append('Rendered image census differs')
+                for row in rows:
+                    item=by_id.get(row['id'],{})
+                    if any(item.get(k)!=v for k,v in row.items()):errors.append(row['id']+' rendered review stale; run --render')
         ids={r['id'] for r in rows}
         if len(ids)!=len(rows):errors.append('Duplicate image identifiers')
         evaluations=json.loads((OUT/'evaluations.json').read_text(encoding='utf-8'))
+        if artifact.exists() and match and rendered['evaluations']!=evaluations:errors.append('Rendered context review stale; run --render')
+        if provenance_file.exists():
+            bindings={r['path']:r for r in json.loads(provenance_file.read_text(encoding='utf-8')).get('preview_files',[])}
+            for row in rows:
+                relative='previews/'+row['id']+('.svg' if row['path'].endswith('.svg') else '.webp')
+                if bindings.get(relative,{}).get('source_sha256')!=row['sha256']:errors.append(row['id']+' preview source binding stale')
+            for capture in evaluations['captures']:
+                if bindings.get(capture['preview'],{}).get('source_sha256')!=capture['sha256']:errors.append('Historical preview source binding stale')
         game_ids=[g['id'] for g in evaluations['games']]
         if len(set(game_ids))!=len(game_ids):errors.append('Duplicate context identifiers')
         for game in evaluations['games']:
