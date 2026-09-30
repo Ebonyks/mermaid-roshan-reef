@@ -10,8 +10,8 @@ it does not change any binding document until the owner approves it (see
 
 | File | What it is | Main reader |
 |---|---|---|
-| [00 Plotline](00_DAY_TWO_PLOTLINE.md) | **Start here.** The whole of Day Two, scene by scene: every room's story, the cast, the challenge decks mixing in Daddy, the dust bunnies, Grand Puff and Baby Eagle, Lamma from her first peek to the stuffie team, the eight jobs with their practice and real levels, the party with the Ember King and the Prince, the evening, and the map from the built levels to each scene | Everyone |
-| [01 Story bible](01_STORY_BIBLE.md) | Canon from Book One, the Day Two premise and themes, the shape of the day, the practise-then-for-real routine, the cast, Lamma's arc, and the rules for mixing Day One friends into challenges | Owner, writers |
+| [00 Plotline](00_DAY_TWO_PLOTLINE.md) | **Start here.** The whole of Day Two, scene by scene: every room's story, the cast, the challenge decks mixing in Daddy, the dust bunnies, Grand Puff and Baby Eagle, Lamma from her first peek to the stuffie team, the party-preparation script (what each job gives the party, and who it is for), the eight jobs with their practice and real levels, the party with the Ember King and the Prince, the evening, and the map from the built levels to each scene | Everyone |
+| [01 Story bible](01_STORY_BIBLE.md) | Canon from Book One, the Day Two premise and themes, the shape of the day, the practise-then-for-real routine, the cast, Lamma's arc, the rules for mixing Day One friends into challenges, and what Day Two keeps from the August party-function script | Owner, writers |
 | [02 Book Two manuscript](02_PICTURE_BOOK_MANUSCRIPT.md) | The 32-page picture-book text in Book One's style; every page names the game beat it anchors | Owner, book team |
 | [03 Level mechanics](03_LEVEL_DESIGN.md) | The plotline's build sheet: every step's gesture mode, object and save, and every new voice line, generated from the plotline | Designers, Astra |
 | [04 Party chapter](04_FINALE_PARTY_CHAPTER.md) | The finale with the Ember King and the Prince, beat by beat | Owner, designers, animators |
@@ -38,7 +38,8 @@ Stable IDs are used across all files:
 - **D2-OPEN-1…3:** the opening.
 - **J1–J8:** the eight jobs, each with **-L1** (Opera practice) and **-L2**
   (in-world level); **Jn-DECK-xx:** each job's challenge cards; **R1–R8:**
-  the Party Plan beat after each job.
+  the Party Plan beat after each job; **Jn-FN:** each job's function line
+  (what the party has now, and who it is for).
 - **LAMMA-1…3, LAMMA-JOIN:** Lamma's moments.
 - **F1–F8:** the finale.
 - **E1–E3:** the birthday evening.
@@ -54,6 +55,8 @@ Stable IDs are used across all files:
 | `design/CHAPTER2_CAKE_VISUAL_PROGRESSION_2026-08-31.md` | Binding | Proposes Chef owning cake bits 5 and 6 |
 | `design/CHAPTER2_LAWN_FINALE_DRAFT_2026-09-06.md` | Candidate | Revised in detail by [04](04_FINALE_PARTY_CHAPTER.md) |
 | `design/ARBORIST_TREE_DOCTOR_HANDOFF_2026-09-30.md` | Candidate | Folded in as job J1; its defaults stand unless noted |
+| `CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md`, sections 11-20 | Mixed authority | Its owner rulings and reconciled party-role map (section 15) are the source of the party-preparation script; the parts since superseded (the Astronaut's invitations, the Imp Captain's invitation) are not used ([01, section 11](01_STORY_BIBLE.md#11-the-party-preparation-script-what-day-two-keeps)) |
+| `CHAPTER2_PARTY_ROLES_2026-08-03.md`, `CHAPTER2_BIBLE_ACT_SCRIPTS_2026-08-03.md` | Proposal deferred, historical | Parts adopted for Day Two as a candidate: the function-over-object rule, function lines, named guests, the party map and "one more". They stay deferred until the owner approves (decision 12) |
 | `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` (`DL-INT-12`, `DL-INT-07`) | Binding | Unchanged unless the owner wants practices launched from the Opera Hall, or the Arborist added to freeplay |
 
 ## Owner decisions
@@ -99,3 +102,20 @@ owner answers.
     pages, and an alpha-only mask for the white patch in the Wacky and Chuck
     portrait, all as new files with the originals untouched
     ([GFX-CHAR-DOLLS-01](06_GRAPHICS_AUDIT.md#gfx-char-dolls-01)).
+12. **The party-preparation script.** Recommended: adopt the August
+    party-function rule for the eight jobs, as in the plotline's
+    [what each job gives the party](00_DAY_TWO_PLOTLINE.md#what-each-job-gives-the-party):
+    a named guest for each job, cast from the protected portraits; a
+    function line in each R-beat; Daddy sending the invitations at dawn; and
+    one empty "room for one more" frame that Lamma fills. The alternative for
+    the invitations is the August ruling (the Astronaut sends them by rocket),
+    which would change J7 and the binding spine
+    ([01, section 11](01_STORY_BIBLE.md#11-the-party-preparation-script-what-day-two-keeps)).
+13. **New lines for the party guests.** Recommended: none on Day Two.
+    Roshan says each function line, and existing guest clips play unaltered
+    where they fit (Wacky's hello, Faron's "Shhh...", Harper's "Wheee!",
+    Huluu's thank-you). The alternative is new lines for Evie, Harper, Huluu,
+    Wacky and Kareem in their provisional synthetic presets. Faron's
+    recordings are protected, so she would get none, and Kareem's voice route
+    plays the adult "Shop" preset, which does not fit his portrait (a boy), so
+    he would need his own preset first.

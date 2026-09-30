@@ -48,7 +48,7 @@ WP-21 probes and acceptance runs alongside every package
 
 ### WP-00 — Owner decisions (blocking)
 
-- **Goal:** answers to the eight decisions in the
+- **Goal:** answers to the thirteen decisions in the
   [README](README.md#owner-decisions).
 - **Output:** a dated owner-decision note appended to the README.
 - **Acceptance:** each decision recorded verbatim with its date.
@@ -106,12 +106,21 @@ WP-21 probes and acceptance runs alongside every package
     eight frames, the next one glowing, filled frames showing the real party
     pieces; and the **R-beat** after every job, where Daddy arrives with the
     scroll wherever Roshan finished.
+  - **The guest row and the function beat** (the party-preparation script,
+    [plotline](00_DAY_TWO_PLOTLINE.md#what-each-job-gives-the-party)): the
+    seven invited friends along the bottom of the scroll, as small runtime
+    views of the protected portraits, plus one empty "one more" frame; in
+    each R-beat the friend the piece is for hops into its frame while Roshan
+    says the job's function line (`Jn-FN`). No new save: the pictures follow
+    the party bits, and the empty frame follows `lamma_joined`.
   - The Main Hall's party dressing as the day goes on (bunting, balloons,
     the glowing doors), world-locked ([GFX-HALL-12](06_GRAPHICS_AUDIT.md)).
   - Every opening line voiced.
   - The caption-only chapter-start message removed.
 - **Acceptance:** a non-reader can reach the first job from the Main Hall
-  using only voice and pictures; captures of the board at 0, 4 and 8 pieces.
+  using only voice and pictures; captures of the board at 0, 4 and 8 pieces,
+  with the guest row, and after R5 with Lamma in the one-more frame; protected
+  portraits byte-identical.
 
 ### WP-04 — The practise-then-for-real routine
 
@@ -175,17 +184,18 @@ cues, challenge deck, R-beat, saves and assets:
 | Package | Job | Level 2 place | Notes |
 |---|---|---|---|
 | WP-07 | J1 Arborist | Sky Lagoon lawn, party tree | Needs the Arborist art committed first; new career (Arborist handoff) |
-| WP-08 | J2 Farmer | Sky Lagoon strawberry grove | Reuse Chapter 2 Farmer phases in-world |
-| WP-09 | J3 Chef | Royal Kitchen | Adds the strawberry-topping phase; LAMMA-3 at the end |
+| WP-08 | J2 Farmer | Sky Lagoon strawberry grove | Reuse Chapter 2 Farmer phases in-world; R2 gives the dust bunnies one more berry |
+| WP-09 | J3 Chef | Royal Kitchen | Adds the strawberry-topping phase; the finished cake shows the empty shell candle holder from then on; LAMMA-3 at the end |
 | WP-10 | J4 Painter | Craft Room | Banner goes to the party tree via Baby Eagle |
-| WP-11 | J5 Ballerina | Stuffie Playroom | Starts with LAMMA-JOIN (WP-15) |
+| WP-11 | J5 Ballerina | Stuffie Playroom | Starts with LAMMA-JOIN (WP-15); R5 fills the one-more frame with Lamma |
 | WP-12 | J6 Pop Star | Opera Hall stage | Rumi has no voice: her memory is shown as a picture and said by Roshan |
 | WP-13 | J7 Astronaut | Mermaid Pool | Rainbow waterfall fuels the rocket; seahorse helps |
 | WP-14 | J8 Detective | Royal Library | The unlit candle; completes the party |
 
 - **Acceptance for each:** strict order; passive, held and off-target input
   earn nothing; save at every phase; persistent piece visible in the room,
-  on the party table and on the lawn; captures at two aspects.
+  on the Party Plan (with the friend it is for) and on the lawn; the job's
+  function line voiced in its R-beat; captures at two aspects.
 
 ### WP-15 — Lamma
 
@@ -222,7 +232,9 @@ cues, challenge deck, R-beat, saves and assets:
 - **Depends on:** WP-07…WP-15.
 - **Outputs:** everything in plotline sections 9 and 10, with the production
   detail in [04](04_FINALE_PARTY_CHAPTER.md):
-  - the candle set in its holder, and the payoff tour;
+  - the party map (each guest beside the piece made for them), the candle
+    set in its holder, and the payoff tour with each piece's friend reacting
+    as a whole picture (existing guest clips optional, unaltered);
   - ignition with Rumi's song, and the imp scout;
   - the royal entrance, with the King's "MY birthday party!";
   - three rounds with friend shelter layers and painted warnings;

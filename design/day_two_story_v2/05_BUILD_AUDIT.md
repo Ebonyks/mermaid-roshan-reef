@@ -231,6 +231,12 @@ castle, `show_msg("", …)` is a silent caption.
   nothing reads them.
 - This is `MA-ACCESS-001` (required objectives lack exact spoken cues) and
   `DL-AGE-01` / `DL-SND-01`.
+- Kareem's voice route (`_speaker_key` maps "kareem" to "shop",
+  `audio_director.gd:470`) plays the adult shopkeeper preset ("Shop, Jon,
+  welcoming adult voice" in `assets/audio/voices/VOICE_MANIFEST.md`), but his
+  protected portrait (`kareem.png`) shows a boy in a shell armchair. No Day
+  Two scene uses his voice today; any new line for him needs his own preset
+  first ([decision 13](README.md#owner-decisions)).
 
 ## H. Saves, probes and document drift
 
@@ -249,7 +255,9 @@ castle, `show_msg("", …)` is a silent caption.
 1. **The birthday lives only in captions.** It is never said in the castle,
    never on the card, and every job ends with the same "Yay! I did it!".
 2. **One template for eight jobs.** Nothing tells the child why this job,
-   for whom, or what it adds to the party.
+   for whom, or what it adds to the party. The draft answers with the
+   party-preparation script
+   ([plotline](00_DAY_TWO_PLOTLINE.md#what-each-job-gives-the-party)).
 3. **Nobody helps.** Book One's heart is helping friends; Day Two has Roshan
    working alone against a rival.
 4. **The world does not remember.** Rooms stay the same; the party appears
@@ -262,6 +270,13 @@ castle, `show_msg("", …)` is a silent caption.
    the end; nothing foreshadows them. The unused imp "grey party" lines could
    plant it.
 8. **A parallel family evening** competes with the birthday in the same rooms.
+9. **Nobody invited the guests.** Eight friend portraits, Daddy's among them,
+   wait on the lawn (`GUEST_FILES`, `chapter_two_lawn_finale_2d.gd:34-35`),
+   but no scene invites them and no job is for any of them. The August party-function
+   script (`CHAPTER2_PARTY_ROLES_2026-08-03.md`) made "Somebody has to tell
+   me" a guest's first need and gave every job a named guest. The draft
+   answers with Daddy's invitations at dawn and a named friend for each job
+   (`D2-OPEN-2`; [01, section 11](01_STORY_BIBLE.md#11-the-party-preparation-script-what-day-two-keeps)).
 
 ## J. What is strong and should be kept
 

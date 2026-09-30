@@ -37,12 +37,30 @@ standing left of centre. Three depth bands:
 | Band | Contents |
 |---|---|
 | Back | The blooming party tree; the birthday banner strung between two of its branches (Painter); Baby Eagle on a branch; the castle on the horizon |
-| Middle | The shell table with the one six-tier cake and its empty shell candle holder, waiting for the candle Roshan brings (Farmer, Chef, Detective); the parked rocket beside it (Astronaut); Rumi on a small shell stage with the microphone (Pop Star); guests in a shallow arc, each in a painted party hat |
+| Middle | The shell table with the one six-tier cake and its empty shell candle holder, waiting for the candle Roshan brings (Farmer, Chef, Detective); the parked rocket beside it (Astronaut); Rumi on a small shell stage with the microphone (Pop Star); guests in a shallow arc, each in a painted party hat and each nearest the piece made for them (the party map below) |
 | Front | A picnic blanket with the stuffie team (Kitty, Bunny and Lamma) and the music box (Ballerina); dust bunnies bouncing at the edges; the path in from the right |
 
 The **right third of the lawn stays open**: the royals enter there and the
 protection rounds happen there, so the child never has to find Roshan among
 the guests. Roshan starts centre-right, the rainbow friend at her feet.
+
+**The party map.** Every job made its piece for someone
+([plotline: what each job gives the party](00_DAY_TWO_PLOTLINE.md#what-each-job-gives-the-party)),
+so each guest stands in the arc nearest their piece and the eight pieces read
+as one party:
+
+| Guest (protected portrait) | Stands | Their piece |
+|---|---|---|
+| Faron and her baby (`mama_baby.png`) | The arc's left end, in the tree's deepest shade | The party tree's shade (J1) |
+| Flower Friend (`flower_friend.png`) | Under the banner | The banner's colours (J4) |
+| Evie (`pearl_friend.png`) | At the table, beside the cake | The cake (J3) |
+| Harper and Fiona (`two_friends.png`) | At the stuffie blanket's edge | The stuffie dance (J5) |
+| Kareem (`kareem.png`) | Furthest back, his big chair facing Rumi's stage | The song (J6) |
+| Princess Huluu (`huluu.png`) | By the rocket | The rocket's spark (J7) |
+| Wacky and Chuck (`wacky_chuck.png`) | The arc's right end, nearest the path | The invitations: they came furthest |
+
+The dust bunnies (J2) bounce at the blanket's edges in party hats. The arc
+stays shallow and never enters the open right third.
 
 Replace these current placeholders (see the [graphics audit](06_GRAPHICS_AUDIT.md)
 for the detailed fixes):
@@ -72,23 +90,28 @@ at a natural stopping point with a save.
 | Where it starts | Main Hall, after the Detective job. Daddy's Party Plan has all eight pictures filled; the big doors glow; Roshan holds the unlit candle |
 | Child | Touches the glowing doors (the current "party hotspot"); then, on the lawn, touches the cake's empty holder to set the candle in it |
 | On screen | Daddy puts a painted party hat on Roshan (it matters in F4 and F7). Roshan swims out of the castle and along the Sky Lagoon path; the rainbow friend hops ahead as the guide (he has no wings); Baby Eagle flies above; the lawn comes into view with everyone waiting |
-| Voice | Daddy: "A hat for the birthday girl!" A crowd cheer (sound effect). Daddy: "Everyone is here, birthday girl!" Roshan: "Our candle goes on top!" |
+| Voice | Daddy: "A hat for the birthday girl!" A crowd cheer (sound effect); Wacky's existing "Ho ho! Hello there, little mermaid!" may follow as he and Chuck wave from the end nearest the path. Daddy: "Everyone is here, birthday girl!" Roshan: "Our candle goes on top!" |
 | Save | Existing `chapter2_lawn_started` |
 
 ### F2 — Everything we made (about 60–90 s)
 
-The payoff tour. Each of the eight party pieces glows once, in the order it
-was made. The child touches it to hear who helped and see it come alive. This
-replaces a checklist with the child's own work.
+The payoff tour. Each piece glows once, in the order it was made: six stops,
+because the strawberries ride on the cake and the candle was set in F1. The
+child touches it to hear who helped, see it come alive and see the friend it
+was made for. This replaces a checklist with the child's own work.
 
-| Touch | What happens | Voice |
-|---|---|---|
-| Party tree | Blossoms drift down; Baby Eagle chirps from his branch | Roshan: "Baby Eagle's tree is all better!" |
-| Cake | The five strawberries twinkle | Roshan: "Our rainbow cake!" |
-| Banner | It ripples in the breeze; the five stars shine | Roshan: "Our banner!" |
-| Stuffies | Kitty, Bunny and Lamma do their little bow; then Lamma bounces to Evie, who hugs her (Evie staged with her Seek sheet so only one Lamma is on screen) | Roshan: "Our stuffie team!" |
-| Rumi | Rumi waves from her shell stage (existing wave frames); the microphone plays a two-note chime | None: Rumi has no voice, and the chime is music |
-| Rocket | It wiggles, ready | Roshan: "Our little rocket!" |
+| Touch | What happens | Its friend | Voice |
+|---|---|---|---|
+| Party tree | Blossoms drift down; Baby Eagle chirps from his branch | Faron rocks her baby in the shade (her whole picture sways) | Roshan: "Baby Eagle's tree is all better!" Faron's existing "Shhh... the babies are getting sleepy." may follow |
+| Cake | The five strawberries twinkle | Evie leans in beside it | Roshan: "Our rainbow cake!" |
+| Banner | It ripples in the breeze; the five stars shine | Flower Friend sways beneath its colours | Roshan: "My banner!" |
+| Stuffies | Kitty, Bunny and Lamma do their little bow; then Lamma bounces to Evie, who hugs her (Evie staged with her Seek sheet so only one Lamma is on screen) | Harper and Fiona bounce at the blanket's edge | Roshan: "Our stuffie team!" Harper's existing "Wheee! That was amazing!" may follow |
+| Rumi | Rumi waves from her shell stage (existing wave frames); the microphone plays a two-note chime | Kareem, furthest back, leans toward the music | Roshan: "Rumi's song!" (Rumi herself has no voice; the chime is music) |
+| Rocket | It wiggles, ready | Princess Huluu leans in, arms still folded | Roshan: "Our little rocket!" |
+
+Guest reactions are whole-picture moves only (sway, lean, bob, bounce); the
+protected portraits are never re-posed or edited. The optional clips are the
+guests' existing recordings, unaltered, and never delay the next touch.
 
 Then Roshan turns to everyone: **"We made all of this together!"** A friend
 straightens a crooked hat; the dust bunnies bounce.
@@ -103,7 +126,7 @@ straightens a crooked hat; the dust bunnies bounce.
 |---|---|
 | Child | Touches the rocket (moving hand pointer on it) |
 | On screen | Roshan swims to the rocket, reaches up and presses its brass button (the implemented approach and hand-contact behaviour); one small spark travels up to the candle; the rainbow flame opens; a soft crowd "Oooh!" plays (a crowd sound effect, never family voices); the candle's glow tints the whole scene warm |
-| Voice | Roshan: "Ready? Let's light our rainbow!" … "Look! Our rainbow candle is shining!" |
+| Voice | Roshan: "Ready? Let's light our rainbow!" … "Look! Our rainbow candle is shining!" Princess Huluu, arms folded all party, bounces, helmet and all; her existing "Thank you, Mermaid Roshan! You did a great job!" may follow |
 | Music | "Happy Birthday" begins as an instrumental score from Rumi's shell stage (existing Pop Star performance score). Rumi sways in her existing idle frames: she is on IP hold, so she gets no new frames and no voice |
 | Hidden hook | For one second, far away on the castle, a moonflower shape glows in answer (sets up the Chapter 3 door; see F8) |
 | The scout | In the hedge beside the path, an ember imp (the same kind as the imp apprentices at every Opera practice) peeks out, stares at the candle, gasps and scurries down the hill. Imp: "The rainbow light! The King must see this!" Roshan: "The little imp from the Opera?" The song keeps playing |
@@ -232,7 +255,7 @@ dodged. The child only watches (touch to advance).
 | 4 | Lamma | (a soft bleat: a new lamb sound effect; she has no words) | |
 | 5 | — | — | Roshan puts the hat back on. The friends close in around her. Daddy hugs her (a callback to the Day One epilogue hug) |
 | 6 | Daddy | "I'm proud of you." | |
-| 7 | — | — | Roshan looks around: the tree, the cake, the banner, the stuffie team, Rumi, the friends; each bobs as she sees it |
+| 7 | — | — | Roshan looks around: the tree, the cake, the banner, the stuffie team, Rumi, the friends, each still beside the thing made for them; each bobs as she sees it |
 | 8 | Roshan | "But you're all still here." | Stands tall |
 | 9 | Daddy | "And you can still make a wish." | |
 | 10 | Roshan, whispering | "We'll find our light together." | Eyes closed, hands together (the approved clasped-hands gesture); sparkles gather in her hands while the child holds; the birthday song returns softly from Rumi's stage; everyone sways |
@@ -245,6 +268,9 @@ dodged. The child only watches (touch to advance).
   `chapter2_wish_made` (new, additive). The reassurance checkpoint stays
   separate from the theft, so restarting after the theft can never skip the
   kind ending (existing rule).
+- **Why a wish:** everything the jobs made for someone is still here. Only the
+  candle, the light to wish on, is gone, and the wish shows the child it was
+  never the candle's ([plotline: what no job makes](00_DAY_TWO_PLOTLINE.md#what-each-job-gives-the-party)).
 
 ### F8 — The door wakes (about 30 s)
 
@@ -352,7 +378,8 @@ plays as gameplay staging.
 
 | Area | Implemented alpha (2026-09-06) | This draft |
 |---|---|---|
-| Party payoff | Static collage; one line | Touch-to-thank tour of every piece (F2) |
+| Party payoff | Static collage; one line | Touch-to-thank tour of every piece (F2), each with the friend it was made for |
+| Guests | Eight portraits in a generic arc | The party map: each guest beside the piece made for them, invited by Daddy at dawn |
 | Party tree | None | Healed Arborist tree frames the scene |
 | Banner | Tiny 90×145 px card, top-left | Full banner strung in the tree |
 | Hats | Procedural triangles | Painted hat cutouts per guest |

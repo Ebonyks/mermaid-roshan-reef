@@ -23,6 +23,11 @@ wins.
   gestures, reskinned to the story's objects.
 - **Decks** list each job's challenge cards by role (plotline section 5): D a
   dust bunny, P Grand Puff, E Baby Eagle, M Daddy. The book card plays first.
+- **R-beats** (after every job) are watched, then touched to continue. The
+  friend the piece is for joins its Party Plan frame while Roshan says the
+  job's function line (`Jn-FN`, plotline
+  [what each job gives the party](00_DAY_TWO_PLOTLINE.md#what-each-job-gives-the-party)).
+  Only R2 adds a step: one `tap`.
 
 ## Act I
 
@@ -30,7 +35,8 @@ wins.
 |---|---|---|---|---|
 | D2-OPEN-1 | Wake Roshan | tap | Roshan in the bubble pile | — |
 | D2-OPEN-1 | Leave the attic | tap | The attic door | `day2_wakeup_seen` |
-| D2-OPEN-2 | Open the plan | tap | Daddy's rolled scroll | `chapter2_party_plan_seen` |
+| D2-OPEN-2 | Open the plan | tap | Daddy's rolled scroll | — |
+| D2-OPEN-2 | Ask about the empty frame | tap (Roshan asks anyway after 6 s) | The empty frame at the end of the guest row | `chapter2_party_plan_seen` |
 
 ## The jobs
 
@@ -55,6 +61,7 @@ then the party bit.
 | Real | B2 Gather | `tap` ×5 (the built berry pickups, seated on plants) | Ripe berries; green ones wiggle |
 | Real | B5 Into the basket | `farm_lob` ×5 | Each berry toward the basket |
 | Real | B6 Home | `swipe` | The basket's cart along the path |
+| R2 | One more berry, for the dust bunnies | `tap` (Roshan picks it after 6 s) | The glowing berry on the nearest plant |
 
 Deck: D1 and E1 (book), D2, D3, P1, E2, M1, M2. Save:
 `chapter2_strawberry_mask` `0x1F`, then the party bit.
@@ -69,7 +76,7 @@ Deck: D1 and E1 (book), D2, D3, P1, E2, M1, M2. Save:
 | Real | B3 Bake | `oven` | Six tins; the gold window; the mitt |
 | Real | B4 Stack | `tap` ×6, biggest first | The baked rounds |
 | Real | B5 Frost | `swipe` | The frosting ribbon |
-| Real | B6 Strawberries | `tap` ×5 | Five spots on the tiers |
+| Real | B6 Strawberries | `tap` ×5 | Five spots on the tiers; the empty shell candle holder shows on the top tier from now on |
 | LAMMA-3 | Egg | `tap` (auto after 6 s) | Lamma's lavender egg |
 
 Deck: M1 (book), D1, D2, P1, E1, M2. Save: `chapter2_cake_piece_mask` `0x7F`
@@ -165,6 +172,7 @@ Deck: M1 (book), D1, E1, P1. Save: `rainbow_candle_found`,
 | Rumi | None, by rule |
 | Baby Eagle | His existing chirp (`sparkle.ogg`) |
 | Chuck | His real bark (`chuck_bark.ogg`), unaltered |
+| The party guests | No new lines (decision 13); their existing clips only, unaltered |
 
 Nothing is trained or conditioned on family recordings. Every line needs its
 exact caption text, and its picture cue must be on screen while it plays.
@@ -178,6 +186,11 @@ exact caption text, and its picture cue must be on screen while it plays.
 - The lawn's "Ready? Let's light our rainbow!" and "Look! Our rainbow candle
   is shining!", and "The castle found a secret sky door!".
 - The comfy bedtime lines ("Goodnight, Rumi. Snuggle in!" and the others).
+- The party guests' existing clips, each optional and unaltered: Wacky's
+  "Ho ho! Hello there, little mermaid!" (`wacky.ogg`, F1), Faron's "Shhh...
+  the babies are getting sleepy." (`faron.ogg`, protected, F2), Harper's
+  "Wheee! That was amazing!" (`harper_win.ogg`, F2) and Princess Huluu's
+  "Thank you, Mermaid Roshan! You did a great job!" (`huluu_thanks.ogg`, F3).
 - The Tree Book lines are specified in the
   [Arborist handoff](../ARBORIST_TREE_DOCTOR_HANDOFF_2026-09-30.md#voice-lines);
   they are new recordings in the Roshan voice.
@@ -195,6 +208,9 @@ new):
 | D2-OPEN-1 | Roshan | "It's my birthday! Can we have a party?" | Synthetic Roshan |
 | D2-OPEN-1 | Daddy | "The best party ever." | Daddy filler (Will) |
 | D2-OPEN-2 | Daddy | "A place, a cake, a banner, a dance, a song and a light!" | Daddy filler (Will) |
+| D2-OPEN-2 | Daddy | "I invited all your friends, even Wacky and Chuck from far away!" | Daddy filler (Will) |
+| D2-OPEN-2 | Roshan | "Who's that one for?" | Synthetic Roshan |
+| D2-OPEN-2 | Daddy | "There's always room for one more." | Daddy filler (Will) |
 | D2-OPEN-2 | Daddy | "Let's make it together. One little job at a time." | Daddy filler (Will) |
 | D2-OPEN-2 | Roshan | "One little job at a time!" | Synthetic Roshan |
 | D2-OPEN-3 | Daddy | "First we practise on the Opera stage. Then we do it for real!" | Daddy filler (Will) |
@@ -212,6 +228,7 @@ new):
 | J1 | Roshan | "Grand Puff, you're all sparkly!" | Synthetic Roshan |
 | J1 | Daddy | "Up you go, tree doctor!" | Daddy filler (Will) |
 | J1 | Daddy | "Tip, tip, like this!" | Daddy filler (Will) |
+| R1 | Roshan | "Now there's shade for everyone, even Faron's baby!" | Synthetic Roshan |
 | R1 | Daddy | "Next, strawberries!" | Daddy filler (Will) |
 | J2 | Roshan | "Strawberries for my cake!" | Synthetic Roshan |
 | J2 | Roshan | "Five red strawberries!" | Synthetic Roshan |
@@ -228,6 +245,7 @@ new):
 | J2 | Roshan | "Rainbow strawberries!" | Synthetic Roshan |
 | J2 | Daddy | "One... two... three..." | Daddy filler (Will) |
 | J2 | Daddy | "Heave-ho!" | Daddy filler (Will) |
+| R2 | Roshan | "Five for the cake, and one for you, bunnies!" | Synthetic Roshan |
 | R2 | Daddy | "Next, the cake!" | Daddy filler (Will) |
 | J3 | Daddy | "Apron on, birthday chef!" | Daddy filler (Will) |
 | J3 | Roshan | "Let's learn the cake!" | Synthetic Roshan |
@@ -245,6 +263,7 @@ new):
 | J3 | Daddy | "Careful, it's warm. You take them out!" | Daddy filler (Will) |
 | LAMMA-3 | Roshan | "Someone small wants cake!" | Synthetic Roshan |
 | LAMMA-3 | Roshan | "Her egg! We'll keep it safe for her." | Synthetic Roshan |
+| R3 | Roshan | "Cake for everyone, and a place for the candle!" | Synthetic Roshan |
 | R3 | Daddy | "Next, the banner!" | Daddy filler (Will) |
 | J4 | Roshan | "The little lamb's wool!" | Synthetic Roshan |
 | J4 | Roshan | "A banner for my party! Paint, paint!" | Synthetic Roshan |
@@ -254,6 +273,7 @@ new):
 | J4 | Roshan | "Sparkly paw prints! They look pretty!" | Synthetic Roshan |
 | J4 | Roshan | "Pop, pop!" | Synthetic Roshan |
 | J4 | Daddy | "I've got this end!" | Daddy filler (Will) |
+| R4 | Roshan | "Now everyone can see it's a party!" | Synthetic Roshan |
 | R4 | Daddy | "Next, the dance!" | Daddy filler (Will) |
 | LAMMA-JOIN, J5 | Roshan | "We need one more dancer!" | Synthetic Roshan |
 | LAMMA-JOIN, J5 | Roshan | "The little lamb! Let's find her. Gently!" | Synthetic Roshan |
@@ -268,6 +288,8 @@ new):
 | LAMMA-JOIN, J5 | Daddy | "One, two, three, twirl!" | Daddy filler (Will) |
 | LAMMA-JOIN, J5 | Dust bunny | "Whee! Sorry!" | New dust bunny voice |
 | LAMMA-JOIN, J5 | Roshan | "A rainbow spotlight!" | Synthetic Roshan |
+| R5 | Roshan | "Now everyone can dance, Harper and Fiona too!" | Synthetic Roshan |
+| R5 | Roshan | "Lamma is our one more!" | Synthetic Roshan |
 | R5 | Daddy | "Next, the song!" | Daddy filler (Will) |
 | J6 | Roshan | "Rumi! Will you sing with me?" | Synthetic Roshan |
 | J6 | Roshan | "Testing, testing!" | Synthetic Roshan |
@@ -279,6 +301,7 @@ new):
 | J6 | Roshan | "Bounce with the music!" | Synthetic Roshan |
 | J6 | Daddy | "Clap, clap, clap!" | Daddy filler (Will) |
 | J6 | Roshan | "A rainbow spotlight for Rumi!" | Synthetic Roshan |
+| R6 | Roshan | "Now everyone can hear, even Kareem at the back!" | Synthetic Roshan |
 | R6 | Daddy | "A rocket spark! Next, the rocket!" | Daddy filler (Will) |
 | J7 | Roshan | "Rainbow water for my rocket!" | Synthetic Roshan |
 | J7 | Roshan | "Click, click!" | Synthetic Roshan |
@@ -289,6 +312,7 @@ new):
 | J7 | Roshan | "Splash, splash!" | Synthetic Roshan |
 | J7 | Daddy | "Righty tighty!" | Daddy filler (Will) |
 | J7 | Roshan | "Fizzy rainbow!" | Synthetic Roshan |
+| R7 | Roshan | "Everyone will see the spark, even Princess Huluu!" | Synthetic Roshan |
 | R7 | Daddy | "The last one! The candle!" | Daddy filler (Will) |
 | J8 | Roshan | "Rumi's storybook!" | Synthetic Roshan |
 | J8 | Roshan | "Rainbow drips!" | Synthetic Roshan |
@@ -299,6 +323,7 @@ new):
 | J8 | Dust bunny | "Achoo! Sorry!" | New dust bunny voice |
 | J8 | Roshan | "Grand Puff found it!" | Synthetic Roshan |
 | R8 | Daddy | "Look what you made! Everything for the party!" | Daddy filler (Will) |
+| R8 | Roshan | "A candle for my birthday wish!" | Synthetic Roshan |
 | R8 | Daddy | "Everyone is waiting on the lawn!" | Daddy filler (Will) |
 | F1 | Daddy | "A hat for the birthday girl!" | Daddy filler (Will) |
 | F1 | Daddy | "Everyone is here, birthday girl!" | Daddy filler (Will) |

@@ -1,0 +1,54 @@
+{
+  "id": "day-two-party-preparation-script-20260930",
+  "scope": "Owner direction 2026-09-30, after reviewing the complete Day Two plotline: 'What we have is good, there's also a script about the various jobs and how they contribute to preparing for the party.' That script is the August party-function work (CHAPTER2_PARTY_ROLES_2026-08-03.md, the reconciled party-role map and owner rulings in CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md sections 11-20, and CHAPTER2_BIBLE_ACT_SCRIPTS_2026-08-03.md). This change folds it into the CANDIDATE Day Two draft v2 under design/day_two_story_v2/: the plotline gains a party-preparation script (each job's need in a guest's words, a named guest cast from the protected portraits, a function line in each R-beat, a place at the party, what breaks without it, how its moves earn it, what the imp misses, and links between jobs); Daddy sends the invitations at dawn with one empty 'room for one more' frame that Lamma fills; the finished cake carries its empty candle holder from J3; the lawn gains a party map and guest reactions using only whole-picture moves and existing unaltered clips; the story bible records what was kept, changed and left out and why; the README adds owner decisions 12 and 13; the level sheet, book, finale, audits, work packages and ledger rows follow. Documentation only: no runtime, save, art, voice or binding-document change, and the August papers keep their PROPOSAL_DEFERRED or historical status.",
+  "baseline": "94374299dfa9e3bc9e6d8d653a6ea8dc55663a85",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-READ-04",
+    "DL-INT-12",
+    "DL-INT-13",
+    "DL-PLAN-03",
+    "DL-ASSET-08"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-OPERA-011",
+    "MA-OPERA-012",
+    "MA-ACCESS-001"
+  ],
+  "finding_scope": "Related planning context only; no finding lifecycle changes. Every function line is specified as an exact voiced line with a picture cue (MA-ACCESS-001, DL-AGE-01); in-world levels still show Roshan doing each job (MA-PLAY-004); practice launches stay on the Castle-room cards (MA-OPERA-012, DL-INT-12); the three cut stage bosses stay cut, and their August party needs are recorded as non-gaps (MA-OPERA-011, DL-INT-13).",
+  "files": [
+    "design/day_two_story_v2/00_DAY_TWO_PLOTLINE.md",
+    "design/day_two_story_v2/01_STORY_BIBLE.md",
+    "design/day_two_story_v2/02_PICTURE_BOOK_MANUSCRIPT.md",
+    "design/day_two_story_v2/03_LEVEL_DESIGN.md",
+    "design/day_two_story_v2/04_FINALE_PARTY_CHAPTER.md",
+    "design/day_two_story_v2/05_BUILD_AUDIT.md",
+    "design/day_two_story_v2/06_GRAPHICS_AUDIT.md",
+    "design/day_two_story_v2/07_WORK_PACKAGES.md",
+    "design/day_two_story_v2/README.md",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH RESULT ALL OK with 586 inventoried Markdown files and 586 ledger rows, on the candidate working tree before the commit."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV RESULT ALL OK against the dev merge-base e7899cc0, and against the previous push 94374299 with --base 94374299, on the candidate working tree before the commit."
+    },
+    {
+      "command": "Package consistency checks (scripted)",
+      "result": "PASS",
+      "evidence": "Every intra-package link and anchor resolves and every GFX ID used is defined in 06; the eight function lines (all 6 to 9 words) are identical in the plotline's party-script table, its R-beats and the level sheet; the level sheet's 174 new voice lines match every line the plotline marks new, apart from the seven existing special cases (the Arborist imp lines and the King's exclamations); Book Two stays at 16 caption words or fewer a page (average 14.1); the named-guest casting agrees across 00, 01, 04 and the README; a word-level comparison against 94374299 shows the plotline edit removed no text, only added and re-wrapped it."
+    }
+  ],
+  "acceptance_gaps": "Owner review of the party-preparation script and of decisions 12 (named guests, Daddy's invitations and the one-more frame, versus the August Astronaut-invitation ruling) and 13 (no new guest lines); all earlier Day Two draft gaps remain open (owner decisions 1-11, the Arborist art commit, and every implementation, voice, art, capture, device, child and cinematic gate in 07_WORK_PACKAGES.md). The protected friend portraits were viewed, not changed; the named-guest casting rests on what they show and needs the owner's confirmation.",
+  "source_recheck": "Read in full CHAPTER2_PARTY_ROLES_2026-08-03.md (taxonomy, all depth passes, interlock web, count motif, order-independence rule, party-table map); CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md sections 11-20; the floor-1, farmer, painter, astronaut and pop-star parts of CHAPTER2_BIBLE_ACT_SCRIPTS_2026-08-03.md; CHAPTER2_EIGHT_CAREER_STORY_OPTIONS_2026-08-30.md (the Astronaut's candle rocket ranked above invitation launch), CHAPTER2_BIRTHDAY_IMPLEMENTATION_2026-08-30.md and scripts/chapter_two_party_plan.gd (the live eight-career function strings); the document ledger rows for all of these; scripts/chapter_two_lawn_finale_2d.gd GUEST_FILES (lines 34-35) and the FRIEND_DEFS roster in scripts/main.gd; scripts/audio_director.gd speaker routing and protected speakers; assets/audio/voices/VOICE_MANIFEST.md and filler_v1/FILLER_MANIFEST.json for the guests' existing clips; and the seven protected friend portraits under assets/characters/friends/, viewed to cast each named guest."
+}

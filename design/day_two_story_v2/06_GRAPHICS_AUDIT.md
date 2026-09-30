@@ -829,6 +829,8 @@ the navy-and-plum-contour storybook style.
 | Lily pad safe spot | F5 | GFX-LAWN-08 |
 | Launch pad for the rocket | F3 | GFX-LAWN-06 |
 | Party Plan board and its empty-frame state | D2-OPEN-2 | 03 |
+| The Party Plan's guest row: seven small frames and one empty "one more" frame | D2-OPEN-2, R1-R8 | The frames are new; the friend pictures are the protected portraits shown small at runtime, never edited, with no names or words (`DL-READ-04`) |
+| Party hats for the dust bunnies | F1-F8 | Separate cutouts, like the guests' (GFX-LAWN-01) |
 | Strawberry plants (3) and a basket that fills 1-5 | J2 | GFX-FARM-02, GFX-FARM-04 |
 | Pipe-tile kit; star-note pads; patch pieces | Practice and freeplay | GFX-SYS-05, GFX-ASTRO-02, GFX-ASTRO-03 |
 | Costume overlays for Roshan (8) | In-world levels | GFX-SYS-04 option (b) |
@@ -840,7 +842,7 @@ the navy-and-plum-contour storybook style.
 | Daddy: point, apron, hug | D2-OPEN, J3, F7 | GFX-CHAR-DADDY-01 |
 | A painted Dining Room plate (then the Family Gallery and Movie Lounge) | The Farmer's launch room | GFX-ROOM-03, GFX-ROOM-04 |
 | Main Hall party dressing: bunting and balloon clusters | The Main Hall through the day | GFX-HALL-12 |
-| Derivatives: cake ledge and berries, banner states, tray gaps, candle holder, costume alpha repair, venue plaques, Day Two medallion | Various | Sections 1-8 |
+| Derivatives: cake ledge and berries, banner states, tray gaps, candle holder (on the cake from J3 on, empty until F1), costume alpha repair, venue plaques, Day Two medallion | Various | Sections 1-8 |
 
 ## 10. Fix order and work packages
 

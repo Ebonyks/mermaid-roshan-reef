@@ -51,7 +51,7 @@ IDs used across this package.
 | Cover | *Mermaid Roshan and the Rainbow Candle* | — | Roshan under the blooming party tree holding the unlit rainbow candle, friends around her. **GAP**: needs a new composition of existing cutouts, like Book One's cover | — |
 | 1 | Morning sun sparkled on the bubbles. "Wake up, birthday girl!" said Daddy. | 12 | The Book One bubble-nap pile in morning light. Source: Book One p32 art with a targeted light change | D2-OPEN-1 |
 | 2 | It was her birthday! "Can we have a party?" "The best party ever," said Daddy. | 15 | Roshan sitting up in the bubbles, delighted; Daddy smiling. **GAP**: the pose exists in the Roshan atlas; the scene needs a composition | D2-OPEN-1 |
-| 3 | Daddy drew a party plan. "Let's make it together. One little job at a time." | 15 | Daddy's Party Plan board with its pictures still empty: tree, strawberries, cake, banner, stuffies, microphone, rocket, candle. **GAP**: new board art | D2-OPEN-2 |
+| 3 | Daddy drew a party plan. "Let's make it together. One little job at a time." | 15 | Daddy's Party Plan board with its pictures still empty: tree, strawberries, cake, banner, stuffies, microphone, rocket, candle; along the bottom, the seven invited friends and one empty frame. **GAP**: new board art | D2-OPEN-2 |
 | 4 | "First we practise on the Opera stage," said Daddy. "Then we do it for real!" | 15 | The Pearl Opera House stage, curtains open | D2-OPEN-3 |
 | 5 | Chirp, chirp! Baby Eagle flew round and round. "Someone needs help!" said Roshan. | 13 | Baby Eagle circling over the Sky Lagoon lawn. Book One p16 composition as reference | J1-L2 |
 | 6 | Baby Eagle's tree was sick. Its leaves drooped. A branch was broken. "I'll help!" said Roshan. | 16 | The sick party tree on the lawn. Source: Arborist art (sick state) | J1-L2 |
@@ -71,7 +71,7 @@ IDs used across this package.
 | 20 | Rumi and Roshan sang. Then Rumi remembered a rainbow candle that needed a spark. | 14 | Opera Hall stage; Rumi at the microphone; a faint candle shape in a thought bubble | J6-L2 |
 | 21 | At the pool, rainbow waterfall water filled Roshan's little rocket. Click, click! Not yet… | 14 | Mermaid Pool, rainbow waterfall, the parked rocket | J7-L2 |
 | 22 | In the library, the magic storybook glowed. Rainbow drips! There was the rainbow candle! | 14 | The unlit candle rising from the glowing storybook. Source: `rainbow_candle_unlit.png` | J8-L2 |
-| 23 | Everyone came to the party tree. "We made all of this together!" | 12 | The whole party under the tree: cake, banner, stuffies, Rumi, rocket, friends | F1, F2 |
+| 23 | Everyone came to the party tree. Something for everyone! "We made all of this together!" | 15 | The whole party under the tree: cake, banner, stuffies, Rumi, rocket, and each friend beside the thing made for them | F1, F2 |
 | 24 | Whoosh! The little rocket sent a spark. The candle glowed with rainbow light! | 13 | The candle lit, warm light on every face | F3 |
 | 25 | Stomp. Stomp. STOMP! The Ember King came up the hill with his son. | 13 | King and Prince on the path; the Prince looking at the people | F4 |
 | 26 | "You made that?" asked the Prince. "All of us did. You can join us." | 14 | The Prince looking at the cake; Roshan with open hands | F4 |
@@ -84,7 +84,7 @@ IDs used across this package.
 | Back cover | — | — | The ensemble in pastel, as Book One's approved rear cover H | — |
 
 Every page keeps to Book One's measured limit of 16 caption words (Book One
-averages 11.3). This manuscript averages 14.0.
+averages 11.3). This manuscript averages 14.1.
 
 ## Art sourcing summary
 
