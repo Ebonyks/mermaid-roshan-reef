@@ -1,6 +1,6 @@
 {
   "id": "CHG-FAIRY-RESTORATION-PROTOTYPE-20260930",
-  "scope": "Owner commission 2026-09-30: isolated true-2D playable prototype for the faerie/butterfly half of castle magic restoration after the Ember King takes the candle. Reuse existing art; connect arborist tree care, fruit harvest, chef preparation, butterfly feeding and gentle flower shooter. No production route/save/reward replacement or second-world ending. Required audio-ledger maintenance changes only picture_garden.ogg runtime reference count 0 to 1 and inventory hash; no audio bytes, grades or human acceptance change.",
+  "scope": "Owner commission 2026-09-30: isolated true-2D playable prototype for the faerie/butterfly half of castle magic restoration after the Ember King takes the candle. Reuse existing art; connect arborist tree care, fruit harvest, chef preparation, butterfly feeding and gentle flower shooter. No production route/save/reward replacement or second-world ending. Required audio-ledger maintenance changes only picture_garden.ogg runtime reference count 0 to 1 and inventory hash; no audio bytes, grades or human acceptance change. Preserve literal native review-packet bytes and LF hashes for the new source files across Git checkouts.",
   "baseline": "285355eb9e09a29aa4ac53d36874e31419d4674e",
   "rules": [
     "DL-AUTH-05",
@@ -68,6 +68,7 @@
   ],
   "finding_scope": "Related constraints only: no new spatial debt; embodied approach/contact/action. No existing finding closure or production conversion is claimed.",
   "files": [
+    ".gitattributes",
     "ASSET_LICENSES.md",
     "assets/prototypes/fairy_restoration/voices/arborist.ogg",
     "assets/prototypes/fairy_restoration/voices/chef.ogg",
@@ -164,6 +165,11 @@
       "command": "Exact-head GitHub Probe suite (graphics fork), followed by dev reconciliation",
       "result": "PENDING",
       "evidence": "Required before dev integration; remote run/revision will be reported when published."
+    },
+    {
+      "command": "Git blob byte/hash comparison for the native packet and new code",
+      "result": "PASS",
+      "evidence": "Pre-publication Git index comparison: all 23 packet/code files are byte-identical to their native/source originals; git diff --cached --check is clean. Raw native transcript spaces are preserved by the scoped packet attribute, and portable source hashes use LF."
     }
   ],
   "acceptance_gaps": "Isolated prototype only. Final sick-tree/cut-fruit/hand-tool artwork, contextual art approval, synthetic-voice listening/intelligibility, production route/save/reward integration, device/child/owner acceptance and game-wide strict-zero 2D acceptance remain open. Exact new spoken cues are additive assets outside protected voices. No protected original changes, cinematics or paid commission."

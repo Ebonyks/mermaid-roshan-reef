@@ -651,7 +651,9 @@
     "speed": 1.02,
     "generator_sha256": "1dc1a144e9283d5c832b5e04f542028ed4927e1462e854b54fec3f4e53112a7a",
     "pipeline_sha256": "5bd2b913bb658ce8ab088175d9b80c582fc29259aa6938b9a6c6d406ea4329a2",
-    "cue_text_sha256": "4b17fd63a243a412c1b76858b10e46873fcae396c9b9c1ba3cdd9ca8230ab1e8"
+    "cue_text_sha256": "4b17fd63a243a412c1b76858b10e46873fcae396c9b9c1ba3cdd9ca8230ab1e8",
+    "pipeline_hash_scope": "pipeline_sha256 records the raw local source used for generation; the additional UTF-8 LF hash is portable Git source identity.",
+    "pipeline_sha256_utf8_lf": "5496c9f153ae9f0735f68ddd627c9c341971757950b033cdd9cee72226c6f7f1"
   },
   "source_master": {
     "path": "assets_src/fairy_conservatory_handoff_2026-08-30/masters/handoff_background_master_3640x2048.png",
