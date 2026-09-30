@@ -41,6 +41,11 @@ PORTALS = {
 }
 LOW_CONFIDENCE = {"opera_hall", "__royal_hall"}
 THRESHOLD_Y = {"__royal_hall": 470.0}  # stop at the top stair; stairs are warm
+# Copied from scripts/arena/fairy_conservatory_door_2d.gd at dev e7899cc0.
+GATE = ROOT / "assets/flats/castle/fairy_conservatory/butterfly_gate_available.png"
+GATE_SCALE = 0.5372  # AVAILABLE_ART_SCALE
+GATE_CENTER = (1672.0, 620.0 - (992.0 - 512.0) * GATE_SCALE)  # AVAILABLE_CENTER
+GATE_TOUCH_RECT = (1396.0, 142.0, 552.0, 498.0)  # DOOR_HOTSPOT_RECT
 
 
 def load_master() -> tuple[Image.Image, dict[str, str]]:
@@ -85,6 +90,87 @@ def rdp(points: list[tuple[float, float]], eps: float) -> list[tuple[float, floa
 	if best > eps:
 		return rdp(points[:index + 1], eps)[:-1] + rdp(points[index:], eps)
 	return [points[0], points[-1]]
+
+
+def measure_gate() -> dict:
+	"""Measure the revealed Moonflower gate's painted doorway inside its card.
+
+	The cream doorway frame is found on rows that cross plain water (card y
+	600-780, above the lily pads); the opening's vertical extent is read on
+	the centre column between the purple reveal bands. Card pixels map to
+	hall art through the satellite's own centre and scale.
+	"""
+	image = Image.open(GATE).convert("RGBA")
+	rgba = np.asarray(image).astype(np.int32)
+	red, green, blue, alpha = (rgba[..., i] for i in range(4))
+	luma = 0.299 * red + 0.587 * green + 0.114 * blue
+	spread = rgba[..., :3].max(axis=2) - rgba[..., :3].min(axis=2)
+	cream = (alpha > 200) & (luma >= 175) & (red >= blue - 5) & (spread <= 70)
+	purple = (alpha > 200) & (blue > red + 25) & (luma < 150)
+	centre = 512
+	inner_l: list[int] = []
+	inner_r: list[int] = []
+	outer_l: list[int] = []
+	outer_r: list[int] = []
+	for yy in range(600, 781, 4):
+		row = cream[yy]
+		left = first_run(row, centre, -1, 400, True, 4)
+		right = first_run(row, centre, 1, 400, True, 4)
+		if left is None or right is None:
+			continue
+		left_out = first_run(row, left, -1, 200, False, 6)
+		right_out = first_run(row, right, 1, 200, False, 6)
+		if left_out is None or right_out is None:
+			continue
+		inner_l.append(left)
+		inner_r.append(right)
+		outer_l.append(left_out)
+		outer_r.append(right_out)
+	column = purple[:, centre]
+	apex = next(yy for yy in range(700, 0, -1) if column[yy])
+	# Walk up from below the card's base: the first cream run is the threshold
+	# step, and its top edge is the opening's bottom. Scanning down from the
+	# water instead would stop on the white lily flowers.
+	base = next(yy for yy in range(1020, 700, -1)
+		if cream[yy, centre] and cream[yy - 1, centre] and cream[yy - 2, centre])
+	threshold = next(yy for yy in range(base, 700, -1)
+		if not any(cream[yy - k, centre] for k in range(4))) + 1
+	to_x = lambda px: round(GATE_CENTER[0] + (px - 512) * GATE_SCALE, 1)
+	to_y = lambda py: round(GATE_CENTER[1] + (py - 512) * GATE_SCALE, 1)
+	median = lambda values: sorted(values)[len(values) // 2]
+	frame_x = [to_x(median(outer_l)), to_x(median(outer_r))]
+	opening_x = [to_x(median(inner_l)), to_x(median(inner_r))]
+	result = {
+		"confidence": "MEDIUM_VERIFY_IN_OVERLAY",
+		"source": GATE.relative_to(ROOT).as_posix(),
+		"source_sha256": hashlib.sha256(GATE.read_bytes()).hexdigest(),
+		"card_to_hall_art": {"centre": list(GATE_CENTER), "scale": GATE_SCALE},
+		"current_touch_rect": list(GATE_TOUCH_RECT),
+		"opening_x": opening_x,
+		"opening_apex_y": to_y(apex),
+		"opening_threshold_y": to_y(threshold),
+		"frame_outer_x": frame_x,
+		"touch_to_frame_width_ratio": round(
+			GATE_TOUCH_RECT[2] / (frame_x[1] - frame_x[0]), 2),
+	}
+	preview = Image.new("RGBA", image.size, (120, 110, 170, 255))
+	preview.alpha_composite(image)
+	draw = ImageDraw.Draw(preview)
+	card = lambda x, y: ((x - GATE_CENTER[0]) / GATE_SCALE + 512,
+		(y - GATE_CENTER[1]) / GATE_SCALE + 512)
+	tx, ty, tw, th = GATE_TOUCH_RECT
+	draw.rectangle([card(tx, ty), card(tx + tw, ty + th)],
+		outline=(255, 255, 0, 255), width=6)
+	for x in (median(outer_l), median(outer_r)):
+		draw.line([(x, 560), (x, 820)], fill=(255, 0, 255, 255), width=5)
+	for x in (median(inner_l), median(inner_r)):
+		draw.line([(x, 560), (x, 820)], fill=(0, 255, 0, 255), width=5)
+	draw.line([(centre - 60, apex), (centre + 60, apex)], fill=(0, 255, 0, 255), width=5)
+	draw.line([(centre - 60, threshold), (centre + 60, threshold)],
+		fill=(0, 255, 0, 255), width=5)
+	preview.convert("RGB").resize((512, 512), Image.LANCZOS).save(
+		OUT / "measured_moonflower_gate_overlay.jpg", quality=90)
+	return result
 
 
 def main() -> None:
@@ -173,6 +259,7 @@ def main() -> None:
 		"method": "centre-line outward scan for warm frame pixels (R-B>8, luma>120); upward from threshold to apex; RDP 0.6",
 		"legend": "overlay: yellow = current HALL_PORTALS hotspot rect, green = painted opening, magenta = painted frame outer edge",
 		"doors": doors,
+		"moonflower_gate": measure_gate(),
 	}, indent=1) + "\n", encoding="utf-8")
 
 

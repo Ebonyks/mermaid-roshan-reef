@@ -32,6 +32,22 @@ Moonflower card. In free play a waiting Royal Hall story event is completely
 off-screen with nothing pointing at it. The resting doors move more than the
 plot door does.
 
+**Why the cues are drawn at the wrong size (root cause, D3).** Each door has
+one rect that plays two roles. It is the *touch box*: generous, so a small
+finger hits it, then grown to at least 112×112 for the button and by 18 more
+units for tap routing. It is *also* the box the cue is drawn into.
+`_update_hall_portals()` reads `HALL_PORTALS.rect` (into a variable misleadingly
+named `art_rect`), clips it to the screen, and assigns it as the cue's position
+and size. `_arch_points()` then stretches a generic arch to fill that box. The
+touch box is not the door. On the standard doors the line drawn from it lands
+up to 14 units right of the painted frame. The box includes the crest and sign
+above the arch, so the arch peaks 36–40 units too high, and on the Royal Hall
+it includes the stairs. The Moonflower cue is sized from `DOOR_HOTSPOT_RECT`,
+which covers the whole butterfly and is 3.0× the width of the painted doorway
+frame. v2 separates the two for good: highlights are drawn only from each
+door's *visual geometry*, measured from the painted art, and the touch box
+becomes input-only (§3.8).
+
 **What to build.** One arbiter chooses at most one highlighted door. That door
 gets a lit golden doorway, a soft gold halo with a travelling rainbow, and a
 guide star. When the door is off-screen, the star docks in an edge beacon that
@@ -49,11 +65,11 @@ beneath Roshan, and allocate nothing per frame.
 |---|---|---|---|---|
 | D1 | The plot highlight is too faint to read: a 2.5 px inner gold line, a 5–7 px outer line at α 0.18–0.34, six 1.5 px rainbow hairlines at α 0.28, and an 8.5 px star | `scripts/castle_door_cue.gd:120-151` (`band_width` at :135, `star_radius` at :145). Quarter-scale measurement of the current composite: the plot opening is only ~10 luma brighter than the resting openings, and just as cool (mean R − B ≈ −43 for all four) | At the quarter-scale squint the target door looks like every other door | `DL-READ-02`, `DL-READ-03`, `DL-AGE-01` |
 | D2 | The gold outline sits on a cream/gold painted frame, so the only visible gold is where the line strays onto the wall | Hall master; [current composite](audit/door_highlight_rewrite_2026-09-30/current_day_one_bubble_bath_entry.jpg) | The cue reads as a stray scratch rather than a promise | `DL-READ-01`, `DL-VIS-04` |
-| D3 | Cue geometry is not fitted to the door. `_arch_points()` fits a generic ellipse into the `HALL_PORTALS` hotspot rect, which overhangs every standard painted frame by 15–21 art units on the right. The star lands on the room sign | `castle_door_cue.gd:158-174`; `scripts/arena/castle_rooms_25d.gd:159` (rects); [overlay](audit/door_highlight_rewrite_2026-09-30/measured_door_geometry_overlay.jpg) (yellow rect vs painted frame) | The outline floats off the door on one side and cuts across the sign | `DL-INT-04`, `DL-READ-06` |
+| D3 | **Root cause of the wrong size: the cue is shaped from the touch interaction box, not the door's visual box.** Each door has one rect. Its code comment says it traces "the painted doorway frames and their approach", and it is used both for input and for drawing. For input, it becomes the button hit area (min 112×112) and, grown by 18, the tap-routing region. For drawing, the same rect, clipped to the screen, becomes the cue's position and size, and `_arch_points()` fills it with a generic arch. Measured against the painted frames (Appendix A2): on the seven standard doors the bright line is shifted right by up to 14 art units, so one side sits on the cream frame and the other on the wall; its apex is 36–40 units above the painted opening's apex, up under the sign; and its spring line is 10–14 units too high. On the Opera Hall it is 41 units too wide (−14/+27). On the Royal Hall it is 49 units too wide and its sides run down the stairs. The Moonflower cue is sized from `DOOR_HOTSPOT_RECT` (552 wide, the whole butterfly) while the painted doorway frame is 183 wide: 3.0×. The star sits at the touch box's top, which is the room sign | `scripts/arena/castle_rooms_25d.gd:159-162` (rects and comment), `:5243` (`art_rect` = the touch rect), `:5257-5262` (cue position and size), `:5275-5284` (hit area), `:2463-2472` (tap routing), `:2933-2934` (sign fallback from the touch rect); `castle_door_cue.gd:158-174`; `scripts/arena/fairy_conservatory_door_2d.gd:23`, `:235-252`; overlays for the [hall](audit/door_highlight_rewrite_2026-09-30/measured_door_geometry_overlay.jpg) and the [Moonflower](audit/door_highlight_rewrite_2026-09-30/measured_moonflower_gate_overlay.jpg) (yellow = touch box) | Every outline is the wrong size or in the wrong place: it floats off the door on one side, crowns the sign instead of the arch, spills onto the stairs, or wraps both butterfly wings | `DL-INT-01`, `DL-INT-04`, `DL-READ-06` |
 | D4 | No off-screen pointer. In free play Roshan spawns at x 380 with the camera at 0, while a Royal Hall event door sits at x 2870+. In Day One the plot door leaves the screen as soon as the child walks away. A search of dev found no edge or off-screen pointer anywhere; the only edge-aware code, `scripts/opera_world_hotspot_2d.gd:119` `_reframe_to_stage`, keeps a hotspot halo on stage and is a useful reference | `castle_rooms_25d.gd:2849` (`_center_player`), `:5224-5284` (a cue is hidden when off-canvas); [free-play composite](audit/door_highlight_rewrite_2026-09-30/current_free_play_royal_event_entry.jpg) | "Follow the golden door" when no golden door is visible | `DL-AGE-01`, `DL-READ-06`, `DL-SND-13` |
 | D5 | Resting doors are louder than the plot door. Each draws a full-rect navy veil plus five drifting fog ellipses, redrawn every frame, on up to eight doors | `castle_door_cue.gd:67-107` (`draw_rect` of the whole rect at :87) | Motion attracts the eye to the wrong doors, and the rectangles read as debug boxes | `DL-READ-03`, `DL-MOT-03` |
 | D6 | The cue draws above Roshan: it lives in a stage `Control` layer at z 25 while the world root sits at z −1000 | `castle_rooms_25d.gd:1307`, `:1371` | Veil, fog and lines paint over Roshan at the door foot | `DL-READ-05`, `DL-LAY-01` |
-| D7 | Each frame the cue is re-fitted to the clipped on-screen rect instead of being clipped | `castle_rooms_25d.gd:5257-5262` | The arch squashes and slides at the screen edge while scrolling | `DL-INT-04` |
+| D7 | A consequence of D3: each frame the cue is re-fitted to the *clipped touch box* instead of being clipped by the viewport | `castle_rooms_25d.gd:5257-5262`, `fairy_conservatory_door_2d.gd:244-252` | The arch squashes and slides at the screen edge while scrolling | `DL-INT-04` |
 | D8 | Two gold doors are possible. The Moonflower cue is hard-set to PLOT and never consults `active_door_highlight_id()`, so it can coexist with a Royal Hall PLOT in free play | `scripts/arena/fairy_conservatory_door_2d.gd:188`, `:250` | Breaks the owner's "at most one highlighted door" promise | `design/07` rule; `DL-READ-03` |
 | D9 | The Royal Hall has two resting vocabularies. Its authored mist follows `_royal_hall_event_id()`, while its cue follows `door_state()`. In Day One the mist is hidden (built-in events are non-empty) and the procedural veil shows; in free play both stack | `castle_rooms_25d.gd:3047-3101` | The same "resting" meaning looks different on different days | `DL-READ-03`, `DL-CODE-05` |
 | D10 | The dormant Moonflower card is the largest, brightest door in most Day One views, yet it has no resting treatment and no tap feedback (a tap just walks) | `fairy_conservatory_door_2d.gd:227-250` (hotspot only when revealed); [Day One composite](audit/door_highlight_rewrite_2026-09-30/current_day_one_bubble_bath_entry.jpg) | A child's first tap goes to a silent door | `DL-AGE-03`, `DL-AGE-07` |
@@ -85,6 +101,11 @@ also exist for the Day One arrival, resting, and new-door lines (§3.6).
   approach, arrival, then transition. Releasing over the floor commits movement
   only, so there is no doorstep auto-enter. Blocked doors stay tappable and
   answer kindly, without progress mutation.
+- Two geometries per door, with a one-way dependency. The *visual geometry*,
+  measured from the painted art, drives every pixel of every highlight. The
+  *touch box* drives input only. A touch box may be derived from the visual
+  geometry plus a margin; a highlight may never be derived from a touch box
+  (§3.8).
 - No new save keys. The last-shown highlight is runtime-only.
 - True 2D Canvas and the Mobile renderer. No 3D, no 3D lights, no new
   spatial debt. Approved art is never modified, and derived masks go to new
@@ -99,11 +120,11 @@ also exist for the Day One arrival, resting, and new-door lines (§3.6).
 | ID | Guarantee (each maps to AC in §6) |
 |---|---|
 | G1 | One highlight. At most one Plot/Bonus door across the hall doors, the Royal Hall and the Moonflower gate, decided by one arbiter (§3.5). |
-| G2 | Always findable. Within 2 rendered frames of any hall state with a highlight, either the highlighted frame is ≥ 35% on the 1280×720 stage, or exactly one edge beacon on its side is visible. Hysteresis: dock at < 35%, re-anchor at ≥ 55%. |
+| G2 | Always findable. Within 2 rendered frames of any hall state with a highlight, either the highlighted door's *visual* frame is ≥ 35% on the 1280×720 stage, or exactly one edge beacon on its side is visible. Hysteresis: dock at < 35%, re-anchor at ≥ 55%. The visible fraction is measured on the visual frame, never on the touch box. |
 | G3 | Unmistakable. In a quarter-scale capture, the highlighted opening has the highest mean luma of all door openings on screen by ≥ 25/255, and it is the only warm opening (mean R − B > 30; resting and open openings < 0). Calibration on the review composites: today Δ ≈ 10 with R − B ≈ −43 (fails); the concept gives Δ ≈ 51 with R − B ≈ +70 against −36 (passes). |
 | G4 | Quiet elsewhere. Resting and Open doors have no `_process`, no redraw, and no animated property at rest. Only the highlighted door and the guide star animate. Tap feedback lasts ≤ 0.8 s. |
 | G5 | On the door, under Roshan. Door visuals are world-space Canvas nodes on the door plane. They scroll with the art and are clipped, never re-fitted, by the viewport. Signs, mist, Roshan and her shadow render above them. |
-| G6 | Fits the painted doorway. Light stays inside the painted opening and the halo starts at the painted frame edge, with ≤ 2 stage px deviation in overlays and captures. |
+| G6 | Drawn from the door, never from the touch box. Every highlight element (light, haze, fog, halo, rainbow, threshold pool, star anchor) and the G2 visible fraction come only from the measured visual geometry, so changing a touch box changes no pixel. Light stays inside the painted opening and the halo starts at the painted frame edge, with ≤ 2 stage px deviation in overlays and captures. |
 | G7 | Spoken and truthful. Every guidance moment plays an exact clip whose words match the screen. While a clip is pending, its caption shows with no audio; it never resolves to `talk`, `win`, `yay`, or another line. |
 | G8 | Protocol travel. Door, beacon, tap and drag all converge on one idempotent travel request. A floor release only moves Roshan. The return from a room restores the exit door (OD-3). |
 | G9 | Cheap. Zero per-frame allocation in cue, guide and tick paths. Resting geometry is built once per hall build. Speedy tier drops the shimmer and threshold pool. Measured transparent overdraw ≤ today's. |
@@ -263,23 +284,69 @@ reached for a door line. Listening review stays pending (`DL-SND-15`).
 - **Stage space**: the star and beacon form one `Control` at stage z 27. That is
   above the transparent door hotspots (25) and below the transition cover (100);
   the global navigation `CanvasLayer` 29 stays on top.
-- **Input**: door hotspots stay transparent `Button`s at stage z 25, sized from
-  measured geometry as the frame bounds plus the threshold pool, with a minimum
-  of 112×112 and no overlap between doors. The beacon hit area is 128×128.
+- **Input**: door hotspots stay transparent `Button`s at stage z 25. They are
+  sized from each door's *touch box* (§3.8), which is derived from the visual
+  frame and never feeds back into drawing. The beacon hit area is 128×128.
   Light, haze and fog nodes are `Node2D` and take no input.
 
-### 3.8 Geometry
+### 3.8 Geometry: visual box versus touch box
+
+Today one rect per door is both the touch box and the drawing box (D3). In v2
+every door carries two separately named geometries, and highlights read only
+the first.
+
+| | Visual geometry | Touch box |
+|---|---|---|
+| Purpose | What the child sees; where every highlight pixel goes | Where a finger lands; input routing only |
+| Source | Measured from the approved painted art by the bake tool | Derived from the visual frame bounds and threshold pool, plus a margin |
+| Contents | Opening polygon, frame-and-crest silhouette, frame bounds, threshold centre, star anchor | Stage hit rect for the door `Button`, the tap-routing region in `_hall_portal_at_screen_position()`, the beacon hit area |
+| Consumers | Light, haze, fog, halo, rainbow, threshold pool, star anchor, and the G2 visible fraction | `Button` position and size, tap and drag routing, beacon input |
+| At the screen edge | Clipped by the viewport as world-space nodes; never re-fitted | May be clamped on screen, as today |
+| Size rule | Matches the painted door within ≤ 2 stage px | ≥ 112×112 stage px (`DL-UI-03`); contains the whole visual frame; never covers another door's visual frame |
+
+Rules:
+
+1. The cue API takes only visual geometry, for example
+   `configure(visual: CastleDoorVisual)`. Input code never assigns a cue's
+   position, size or scale, and cue and guide drawing code never reads a touch
+   box, a `Button`, or `hit_size`.
+2. Name data by role. Rename `HALL_PORTALS.rect` to `touch_rect` and rewrite
+   its comment (`castle_rooms_25d.gd:160-162`), which today says one rect
+   traces both "the painted doorway frames and their approach". Rename the
+   `art_rect` local at `:5243`. Add a `visual` entry per door from the bake
+   tool, and move the sign-position fallback at `:2933-2934` onto the visual
+   frame.
+3. Derive touch from visual, never the reverse. For hall doors the default is
+   `touch_rect = (frame bounds ∪ threshold pool).grow(margin)`, clamped to at
+   least 112×112. A larger authored touch box is allowed where the whole object
+   is tappable (rule 4), but no visual geometry may ever be derived from a
+   touch box. The bake tool emits both, and `--check` fails if a touch box
+   does not contain its visual frame or covers a neighbour's.
+4. The Moonflower keeps the whole butterfly as its touch box, which is a
+   generous and legitimate target, but draws its highlight only from the
+   doorway's visual geometry. Store that geometry per card state in card-local
+   pixels, because the dormant and available cards use different centres and
+   scales (`fairy_conservatory_door_2d.gd:16-22`), and transform it with the
+   card.
+5. The Day One dressing's `set_room_door_rect()` and
+   `set_boss_back_door_rect()` receive the clipped touch box today. They draw
+   nothing now; if they ever need door positions for drawing, pass visual
+   bounds instead.
+
+Bake tool and data:
 
 - Replace `_arch_points()` with per-door data baked by a new deterministic tool,
   `tools/bake_castle_door_guidance.py` (with `--check`). Record the source tile
   SHA-256 and output hashes, and store stable output under
-  `assets/castle/door_guidance/`. Each door needs: the opening polygon, the
-  frame and crest silhouette for the halo, the threshold centre, the star
-  anchor, and the hit rect, all in hall-art logical units (3344×941).
-- Seeds: Appendix A, plus
-  [`measured_door_geometry.json`](audit/door_highlight_rewrite_2026-09-30/measured_door_geometry.json).
-  The seven standard doors measure HIGH confidence. The Opera Hall and Royal
-  Hall defeat the colour scan (curtains, columns, stairs) and need a manual
+  `assets/castle/door_guidance/`. Each door needs its visual geometry (opening
+  polygon, frame-and-crest silhouette, frame bounds, threshold centre, star
+  anchor) in hall-art logical units (3344×941), plus its derived touch box.
+- Seeds: Appendix A1 (visual geometry) and A2 (today's drawing box against the
+  painted door), plus
+  [`measured_door_geometry.json`](audit/door_highlight_rewrite_2026-09-30/measured_door_geometry.json),
+  which includes the Moonflower gate. The seven standard doors measure HIGH
+  confidence and the Moonflower gate MEDIUM. The Opera Hall and Royal Hall
+  defeat the colour scan (curtains, columns, stairs) and need a manual
   re-trace.
 - If polygons cannot express the halo cleanly, bake small alpha masks. Follow
   the `tools/prepare_sky_lagoon_castle_symmetry.py::_build_door_highlight`
@@ -306,11 +373,11 @@ reached for a door line. Listening review stays pending (`DL-SND-15`).
 | WP | Deliverable | Notes |
 |---|---|---|
 | WP-D0 | Failing baseline. Write the new assertions (§6), run them against `e7899cc0` with exact Godot 4.7.2-stable, and keep the failing logs as evidence. Land the assertions together with the fix so CI stays green | Master audit §9, step 3 |
-| WP-D1 | `tools/bake_castle_door_guidance.py`, the geometry data, and an overlay review sheet | Verify against Appendix A; re-trace the Opera Hall and Royal Hall |
+| WP-D1 | `tools/bake_castle_door_guidance.py`, emitting each door's visual geometry and its derived touch box as separate, role-named fields (§3.8 rules 2–3), plus an overlay review sheet showing both | Verify against Appendix A; re-trace the Opera Hall and Royal Hall; add the Moonflower per-state visual geometry |
 | WP-D2 | `CastleDoorLanguage.arbitrate()` (pure). Rewire `door_state()` and `active_door_highlight_id()` to it | Keep the existing static API |
-| WP-D3 | Rewrite `scripts/castle_door_cue.gd` as a world-space `Node2D`. Keep `class_name CastleDoorCue`, `set_door_state()`, `pulse_blocked_feedback()` and `pulse_plot_feedback()`. Add `configure(geometry)`. Delete `_arch_points()` and the per-frame `_draw()` | No `Control` cue remains in the hall |
+| WP-D3 | Rewrite `scripts/castle_door_cue.gd` as a world-space `Node2D`. Keep `class_name CastleDoorCue`, `set_door_state()`, `pulse_blocked_feedback()` and `pulse_plot_feedback()`. Add `configure(visual)` (§3.8 rule 1). Delete `_arch_points()` and the per-frame `_draw()`. Rename `HALL_PORTALS.rect` to `touch_rect` and stop `_update_hall_portals()` assigning cue position and size | No `Control` cue remains in the hall, and no touch box reaches drawing code |
 | WP-D4 | New `scripts/castle_door_guide.gd`: a `RefCounted` satellite that receives `main` by reference and owns the star, beacon, transfer, blocked ping, idle timers, exit guidance and voice selection | Use typed fields and no new `m.g[...]` keys (`DL-CODE-04`). Keep `castle_rooms_25d.gd` net-negative in lines (`DL-CODE-02`, currently 5,755) and `main.gd` at ≤ 0 net lines (`DL-CODE-01`) |
-| WP-D5 | Make the Royal Hall mist follow `door_state()`. The Moonflower satellite consumes the arbiter, and its dormant card becomes a resting participant | Keep that satellite's hash-isolation contract |
+| WP-D5 | Make the Royal Hall mist follow `door_state()`. The Moonflower satellite consumes the arbiter, draws its highlight from per-state doorway geometry instead of `DOOR_HOTSPOT_RECT` (which stays its touch box), and its dormant card becomes a resting participant | Keep that satellite's hash-isolation contract |
 | WP-D6 | Return to the exit door (M6). Keep the courtyard-entry spawn rule, and align `restore_day_one_handoff_view()` | OD-3 |
 | WP-D7 | Voice: add the new catalog rows and exact-only registration, move the M5/M6 lines, fix the caption and voice mismatches, and generate the clips | `tools/audit_day_one_contextual_voices.py` |
 | WP-D8 | Probes, captures, frame-ledger revalidation, the `design/07` v2 rewrite, ledger rows, `ASSET_LICENSES.md`, and the impact record | §6, §8 |
@@ -346,7 +413,7 @@ test.
 | AC-5 | Resting doors are static: across 60 frames at rest, resting nodes report `is_processing() == false`, make no redraw requests, and keep unchanged transforms. |
 | AC-6 | Layering: every door light, haze, fog and halo node descends from `castle_room_world_root` with an effective z below Roshan's. A capture of Roshan at the plot door foot shows her unobscured. |
 | AC-7 | Scroll: while the camera pans, the cue's offset from the door art stays constant (no re-fit). |
-| AC-8 | Geometry: `bake_castle_door_guidance.py --check` passes. Overlays show light inside the opening and the halo from the frame edge within ≤ 2 stage px. |
+| AC-8 | Geometry: `bake_castle_door_guidance.py --check` passes. For every door, including the Moonflower in each card state, each highlight node's bounds match the visual geometry within ≤ 2 stage px, and overlays show light inside the opening and the halo from the frame edge. |
 | AC-9 | Transfer: complete each beat through the real API and press Back. Roshan stands at the exit door foot (±2 px); the star flies to the next door; `day_one_new_door` (or `day_one_all_rooms_clean`) is requested once; a tap mid-flight completes the transfer; re-entry does not replay it. |
 | AC-10 | Exit guidance: the star is visible beside the Back control after each completion. The room teardown frees it and leaves no leaked nodes, tweens or voice. |
 | AC-11 | Free play with a built-in Royal Hall event and a revealed Moonflower gate highlights exactly the arbiter's choice. The Moonflower no longer self-assigns PLOT. |
@@ -357,6 +424,9 @@ test.
 | AC-16 | Every requested key is on the §3.6 map. Ready keys resolve to exact files; pending keys give caption only. No door key reaches `talk`, `win` or `yay`. `tools/audit_day_one_contextual_voices.py` passes in implementation mode. |
 | AC-17 | Exact Godot 4.7.2-stable Mobile captures at 1280×720, bound to the commit: Day One beats 1–5 at entry, the wandered-left beacon, a blocked tap mid-billow, a transfer mid-flight, Roshan at the plot door, free-play Royal Hall and Moonflower, each with a quarter-scale squint version checked against G3. |
 | AC-18 | `python3 tools/review_castle_interaction_frames_v4.py check` passes after an honest metadata-only revalidation, with all 96 reviewed frame hashes unchanged. |
+| AC-19 | Touch-box independence (mutation test in a gated probe): at runtime, grow every door's touch box by 40 art units and shift it 20 units right, and set the Moonflower's to its full card rect. Assert that every highlight node's transform, polygon, texture region and shader parameters are unchanged, and that the G2 visible fraction is unchanged. Restore the boxes afterwards. |
+| AC-20 | Touch coverage: each door `Button`'s hit rect contains its door's on-screen visual frame, is ≥ 112×112 stage px, and does not cover another door's visual frame. A tap anywhere on a door's visual frame routes to that door through `_hall_portal_at_screen_position()`. |
+| AC-21 | Static separation: `scripts/castle_door_cue.gd` and the guide's drawing paths contain no reference to `touch_rect`, `DOOR_HOTSPOT_RECT`, `hit_size`, or a door `Button`'s size. `HALL_PORTALS` has no field named plain `rect`. The check is a source scan in `probe_castle_door_language.gd`. |
 
 ---
 
@@ -399,6 +469,9 @@ test.
 - the frame-review check reports changed frame hashes rather than only a
   payload hash;
 - a gated probe would have to be weakened rather than extended;
+- a highlight cannot be drawn from visual geometry alone (for example, the
+  Opera Hall or Royal Hall re-trace fails). Report it; never fall back to
+  shaping from a touch box;
 - `castle_rooms_25d.gd` or `main.gd` would grow;
 - the Speedy-tier frame time regresses on measurement;
 - the voice pipeline is unavailable. In that case ship the pending captions
@@ -416,26 +489,55 @@ AC-17 captures.
 
 ---
 
-## Appendix A — measured painted-door seeds (hall-art logical units)
+## Appendix A — measured geometry (hall-art logical units)
 
-Method: an outward scan from each door's centre line for warm frame pixels,
-upward from the threshold, on the 7280×2048 master (tile hashes in the JSON).
-Frame x is the painted frame's outer edge on the pillars.
+### A1 — visual geometry seeds
 
-| Door | Confidence | Opening x | Apex y | Spring y | Threshold y | Frame outer x | Hotspot x today |
-|---|---|---|---|---|---|---|---|
-| family_gallery | HIGH | 237.0–339.9 | 382.7 | 417.7 | 597.8 | 218.6–357.8 | 210–370 |
-| library | HIGH | 403.3–502.1 | 379.1 | 414.0 | 597.8 | 384.9–520.4 | 380–540 |
-| kitchen | HIGH | 568.2–668.3 | 380.0 | 414.0 | 597.8 | 550.3–686.7 | 545–705 |
-| opera_hall | LOW, re-trace | 913.9–1123.5 | 279.8 | 311.1 | 597.8 | 899.4–1137.8 | 875–1175 |
-| playroom | HIGH | 1963.2–2067.0 | 382.7 | 416.7 | 597.8 | 1944.8–2084.9 | 1940–2100 |
-| craft_room | HIGH | 2161.2–2264.5 | 381.8 | 416.7 | 597.8 | 2143.3–2282.9 | 2140–2300 |
-| mermaid_pool | HIGH | 2354.1–2457.5 | 379.1 | 415.8 | 597.8 | 2336.2–2475.8 | 2340–2500 |
-| bubble_bath | HIGH | 2557.1–2660.5 | 379.1 | 416.7 | 597.8 | 2539.2–2678.9 | 2540–2700 |
-| __royal_hall | LOW, re-trace | 2934.3–3157.0 | 216.9 | 305.1 | 469.6 (top stair) | 2905.3–3185.5 | 2870–3220 |
+Method for the hall doors: an outward scan from each door's centre line for
+warm frame pixels, upward from the threshold, on the 7280×2048 master (tile
+hashes in the JSON). Frame x is the painted frame's outer edge on the pillars.
+For the Moonflower gate (the available card), the cream frame edges are read on
+rows that cross plain water, the opening on the centre column between the
+purple reveal bands, and card pixels are mapped through the satellite's own
+centre and scale. Its opening x includes the purple reveal band.
 
-The Moonflower gate is a card (`scripts/arena/fairy_conservatory_door_2d.gd`,
-card rect 1396–1948), so measure it in card-local coordinates.
+| Door | Confidence | Opening x | Apex y | Spring y | Threshold y | Frame outer x |
+|---|---|---|---|---|---|---|
+| family_gallery | HIGH | 237.0–339.9 | 382.7 | 417.7 | 597.8 | 218.6–357.8 |
+| library | HIGH | 403.3–502.1 | 379.1 | 414.0 | 597.8 | 384.9–520.4 |
+| kitchen | HIGH | 568.2–668.3 | 380.0 | 414.0 | 597.8 | 550.3–686.7 |
+| opera_hall | LOW, re-trace | 913.9–1123.5 | 279.8 | 311.1 | 597.8 | 899.4–1137.8 |
+| playroom | HIGH | 1963.2–2067.0 | 382.7 | 416.7 | 597.8 | 1944.8–2084.9 |
+| craft_room | HIGH | 2161.2–2264.5 | 381.8 | 416.7 | 597.8 | 2143.3–2282.9 |
+| mermaid_pool | HIGH | 2354.1–2457.5 | 379.1 | 415.8 | 597.8 | 2336.2–2475.8 |
+| bubble_bath | HIGH | 2557.1–2660.5 | 379.1 | 416.7 | 597.8 | 2539.2–2678.9 |
+| __royal_hall | LOW, re-trace | 2934.3–3157.0 | 216.9 | 305.1 | 469.6 (top stair) | 2905.3–3185.5 |
+| Moonflower gate (available card) | MEDIUM | 1594.1–1747.2 | 347.6 | not measured | 594.8 | 1579.1–1762.2 |
+
+### A2 — today's drawing box against the painted door
+
+The touch box is `HALL_PORTALS.rect`, or `DOOR_HOTSPOT_RECT` for the
+Moonflower. "Line x" is today's bright inner line, which `_arch_points()`
+insets 8 stage px inside the touch box. A positive offset means the line lies
+to the right of the painted frame's outer edge. A negative spring offset means
+the drawn arch starts curving too high. The values are unclipped, so the real
+drawing is further distorted near the screen edges (D7).
+
+| Door | Touch box x | Frame outer x | Line x | Left offset | Right offset | Line apex y | Painted opening apex y | Spring offset |
+|---|---|---|---|---|---|---|---|---|
+| family_gallery | 210–370 | 218.6–357.8 | 220.4–359.6 | +1.8 | +1.8 | 342.7 | 382.7 | −14.0 |
+| library | 380–540 | 384.9–520.4 | 390.4–529.5 | +5.6 | +9.1 | 342.7 | 379.1 | −10.3 |
+| kitchen | 545–705 | 550.3–686.7 | 555.5–694.5 | +5.2 | +7.8 | 342.7 | 380.0 | −10.3 |
+| opera_hall | 875–1175 | 899.4–1137.8 | 885.5–1164.5 | −13.9 | +26.8 | 239.5 | 279.8 | +13.4 |
+| playroom | 1940–2100 | 1944.8–2084.9 | 1950.5–2089.6 | +5.7 | +4.7 | 342.7 | 382.7 | −13.0 |
+| craft_room | 2140–2300 | 2143.3–2282.9 | 2150.4–2289.6 | +7.1 | +6.7 | 342.7 | 381.8 | −13.0 |
+| mermaid_pool | 2340–2500 | 2336.2–2475.8 | 2350.4–2489.6 | +14.2 | +13.8 | 342.7 | 379.1 | −12.1 |
+| bubble_bath | 2540–2700 | 2539.2–2678.9 | 2550.4–2689.6 | +11.2 | +10.7 | 342.7 | 379.1 | −13.0 |
+| __royal_hall | 2870–3220 | 2905.3–3185.5 | 2880.4–3209.6 | −24.9 | +24.1 | 215.8 | 216.9 | +4.7 |
+| Moonflower gate | 1396–1948 | 1579.1–1762.2 | 1406.5–1937.6 | −172.6 | +175.4 | 211.7 | 347.6 | not measured |
+
+The Royal Hall touch box also runs down to y 620, so its drawn sides cross the
+stairs. The Moonflower line encloses both butterfly wings.
 
 ## Appendix B — current code map (dev `e7899cc0`)
 
@@ -444,6 +546,7 @@ card rect 1396–1948), so measure it in card-local coordinates.
 | State resolver | `scripts/castle_door_language.gd:40` `resolve_act_one`, `:58` `resolve_free_play`, `:67` `active_highlight_id` |
 | Cue drawing | `scripts/castle_door_cue.gd:67` `_process`, `:85` blocked, `:109` bonus, `:120` plot, `:158` `_arch_points` |
 | Hall portals | `scripts/arena/castle_rooms_25d.gd:159` `HALL_PORTALS`, `:1657` build, `:5224` per-frame update, `:5286` enter |
+| One rect in two roles (D3) | `castle_rooms_25d.gd:159-162` (rects and comment), `:5243` (`art_rect` holds the touch rect), `:5257-5262` (drawing: cue position and size), `:5275-5284` (touch: button hit area), `:2463-2472` (touch: tap routing, grown by 18), `:2933-2934` (sign fallback); `scripts/arena/fairy_conservatory_door_2d.gd:23` (`DOOR_HOTSPOT_RECT`), `:235-252` (drawing and touch from the same rect) |
 | State plumbing | `castle_rooms_25d.gd:1686` `door_state`, `:1698` `active_door_highlight_id`, `:1741` blocked feedback, `:1777` `_pulse_active_door` |
 | Spawn and return | `castle_rooms_25d.gd:1729` `_day_one_hall_spawn_foot`, `:2849` `_center_player`, `:2879` `restore_day_one_handoff_view`, `:5740` `_go_back` |
 | Royal Hall | `castle_rooms_25d.gd:144` mist cards, `:2998` `arm_royal_hall_event`, `:3047` `_royal_hall_event_id`, `:3063` mist tick |
@@ -466,5 +569,6 @@ stand in for AC-17.
 | `squint_quarter_scale_current_vs_concept.jpg` | The same frame at quarter scale (G3) |
 | `current_day_one_wandered_left.jpg`, `concept_day_one_wandered_left.jpg` | Mermaid Pool beat with Roshan at the hall's left end; the concept shows the edge beacon |
 | `current_free_play_royal_event_entry.jpg`, `concept_free_play_royal_event_entry.jpg` | Free-play entry with a Royal Hall event waiting off-screen |
-| `measured_door_geometry_overlay.jpg`, `measured_door_geometry.json` | Seed geometry: green is the opening, magenta the frame edge, yellow today's hotspot rect |
+| `measured_door_geometry_overlay.jpg`, `measured_door_geometry.json` | Seed geometry for the hall doors: green is the painted opening, magenta the painted frame edge, and yellow today's touch box, which is also today's drawing box |
+| `measured_moonflower_gate_overlay.jpg` | The Moonflower gate card: yellow is `DOOR_HOTSPOT_RECT` (touch and today's drawing box, around the whole butterfly), magenta the doorway frame edges, green the opening edges, apex and threshold |
 | `measure_hall_door_geometry.py`, `render_review_mocks.py` | Deterministic generators (Pillow and numpy) |

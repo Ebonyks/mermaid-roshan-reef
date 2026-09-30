@@ -1,6 +1,6 @@
 {
   "id": "door-highlight-rewrite-handoff-20260930",
-  "scope": "Owner-requested 2026-09-30 Codex handoff to rewrite the Pearl Castle door highlighting (Door Guidance v2). Adds the work-order document with 13 defects verified at dev e7899cc0, the target specification, work packages, acceptance criteria and owner decisions; a document-ledger row; ASSET_LICENSES provenance; and review-only diagnostic composites plus seed door geometry and their deterministic generators under audit/door_highlight_rewrite_2026-09-30/. No runtime script, scene, save, voice, workflow, protected or approved asset changes. Related findings are cited for routing only; none changes lifecycle.",
+  "scope": "Owner-requested 2026-09-30 Codex handoff to rewrite the Pearl Castle door highlighting (Door Guidance v2), revised the same day on owner feedback that the highlight borders are shaped from the touch interaction box instead of the door's visual box. Adds the work-order document with 13 defects verified at dev e7899cc0, led by that root cause (measured per door, including the Moonflower gate at 3.0x its doorway width), the visual-geometry/touch-box split with one-way derivation rules, the target specification, work packages, acceptance criteria (including a touch-box mutation test) and owner decisions; a document-ledger row; ASSET_LICENSES provenance; and review-only diagnostic composites plus seed door geometry and their deterministic generators under audit/door_highlight_rewrite_2026-09-30/. No runtime script, scene, save, voice, workflow, protected or approved asset changes. Related findings are cited for routing only; none changes lifecycle.",
   "baseline": "e7899cc095fc326ff007e30226ad7bafea8f1634",
   "rules": [
     "DL-AUTH-05",
@@ -59,6 +59,7 @@
     "audit/door_highlight_rewrite_2026-09-30/measure_hall_door_geometry.py",
     "audit/door_highlight_rewrite_2026-09-30/measured_door_geometry.json",
     "audit/door_highlight_rewrite_2026-09-30/measured_door_geometry_overlay.jpg",
+    "audit/door_highlight_rewrite_2026-09-30/measured_moonflower_gate_overlay.jpg",
     "audit/door_highlight_rewrite_2026-09-30/render_review_mocks.py",
     "audit/door_highlight_rewrite_2026-09-30/squint_quarter_scale_current_vs_concept.jpg",
     "design/05_DOC_LEDGER.md"
@@ -67,12 +68,12 @@
     {
       "command": "python -B tools/audit_document_authority.py",
       "result": "PASS",
-      "evidence": "Local run on the staged candidate over base e7899cc0: DOCAUTH|INVENTORY=577|LEDGER=577|ACTIVE=56|RECORDS=58, RESULT ALL OK."
+      "evidence": "Local run on the staged revision over base e7899cc0: DOCAUTH|INVENTORY=577|LEDGER=577|ACTIVE=56|RECORDS=58, RESULT ALL OK."
     },
     {
       "command": "python -B tools/audit_development.py --base auto",
       "result": "PASS",
-      "evidence": "Local run on the staged candidate: AUDITDEV|BASE|e7899cc095fc326ff007e30226ad7bafea8f1634, RESULT ALL OK (every changed path covered by this record)."
+      "evidence": "Local run on the staged revision: AUDITDEV|BASE|e7899cc095fc326ff007e30226ad7bafea8f1634, RESULT ALL OK (every changed path covered by this record)."
     },
     {
       "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
@@ -82,7 +83,7 @@
     {
       "command": "python3 audit/door_highlight_rewrite_2026-09-30/measure_hall_door_geometry.py && python3 audit/door_highlight_rewrite_2026-09-30/render_review_mocks.py",
       "result": "PASS",
-      "evidence": "Regenerated from the approved master tiles with Pillow 12.3.0 and numpy 2.4.6; all nine images and the geometry JSON were byte-identical (SHA-256) to the committed files."
+      "evidence": "Regenerated from the approved master tiles and Moonflower card with Pillow 12.3.0 and numpy 2.4.6; all nine images and the geometry JSON were byte-identical (SHA-256) to the committed files."
     },
     {
       "command": "Exact Godot 4.7.2-stable import and scripts/ci.sh trusted probes",
