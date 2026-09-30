@@ -95,15 +95,15 @@ glow.
 | ID | Where | What happens | Friend it helps | Party piece | Who it's for at the party |
 |---|---|---|---|---|---|
 | D2-OPEN | Bubble pile → Main Hall | Birthday wake-up; Daddy's Party Plan, with the friends he invited and one empty frame; "practise first, then for real" | — | Party Plan board appears | Seven invited friends, and room for one more |
-| J1 Arborist | Sky Lagoon lawn | Baby Eagle's tree is sick; Tree Book matching; water and bandage | Baby Eagle | The blooming party tree | Faron and her baby: shade |
-| J2 Farmer | Sky Lagoon strawberry grove | Five strawberries; a playful dust bunny rolls one away | The dust bunnies (they learn to help) | Five strawberries | The dust bunnies: one of their own |
-| J3 Chef | Royal Kitchen | Daddy's apron; rainbow batter; bake, stack, frost, top | Daddy | The rainbow cake | Evie: the seat beside the cake |
+| J1 Arborist | Sky Lagoon lawn | Baby Eagle's tree is sick; Tree Book matching; water and bandage | Baby Eagle | The blooming party tree | Faron and her baby: shade and a soft nest; every friend: Baby Eagle's hello |
+| J2 Farmer | Sky Lagoon strawberry grove | Five strawberries; a playful dust bunny rolls one away | The dust bunnies (they learn to help) | Five strawberries | The dust bunnies: one of their own; every friend: berries to take home |
+| J3 Chef | Royal Kitchen | Daddy's apron; rainbow batter; bake, stack, frost, top | Daddy | The rainbow cake | Evie: the seat beside the cake; everyone: a slice |
 | LAMMA-3 | Royal Kitchen | Lamma sniffs the cake, hides, bounces away leaving floury bounce marks and drops her egg | Lamma | — | — |
-| J4 Painter | Craft Room | The birthday banner on the table Roshan cleaned yesterday | The rainbow friend (Grand Puff) | The banner | Flower Friend: a party that looks like one |
-| LAMMA-JOIN, J5 Ballerina | Stuffie Playroom | Hide-and-seek to find Lamma; she joins; the stuffie dance | Lamma and the stuffies | The stuffie team's dance | Harper and Fiona: something to do together; Lamma: the one more |
-| J6 Pop Star | Opera Hall | Sound check with Rumi; Rumi remembers the rainbow candle | Rumi | The birthday song | Kareem: a song he hears at the back |
-| J7 Astronaut | Mermaid Pool | Build the little rocket; rainbow water from Rumi's waterfall | Rumi's seahorse | The candle-lighting rocket | Princess Huluu: one WOW that even she can't resist |
-| J8 Detective | Royal Library | The magic storybook's clues; the unlit rainbow candle | Rumi (her memory) | The rainbow candle | Roshan: a light to wish on |
+| J4 Painter | Craft Room | The birthday banner on the table Roshan cleaned yesterday | The rainbow friend (Grand Puff) | The banner | Flower Friend: a party that looks like one; everyone: whose party it is, and where |
+| LAMMA-JOIN, J5 Ballerina | Stuffie Playroom | Hide-and-seek to find Lamma; she joins; the stuffie dance | Lamma and the stuffies | The stuffie team's dance | Harper and Fiona: something to do, gentle or wild; Lamma: the one more |
+| J6 Pop Star | Opera Hall | Sound check with Rumi; Rumi remembers the rainbow candle | Rumi | The birthday song | Kareem: a song he can hear and a show he can watch |
+| J7 Astronaut | Mermaid Pool | Build the little rocket; rainbow water from Rumi's waterfall | Rumi's seahorse | The candle-lighting rocket | Princess Huluu: one WOW; everyone: the countdown |
+| J8 Detective | Royal Library | The magic storybook's clues; the unlit rainbow candle | Rumi (her memory) | The rainbow candle | Roshan: a light to wish on, and to see by |
 | F1–F8 | Sky Lagoon lawn → Main Hall | The party, the Ember King and Prince, protection, theft, comfort, the wish, the glowing door | Everyone | — | — |
 | E1–E3 | Kitchen, Dining Room, Movie Lounge, Sleepover Bedroom | Birthday supper with the cake; the movie of the day; the birthday sleepover | Everyone | — | — |
 
@@ -330,15 +330,15 @@ plotline: [what each job gives the party](00_DAY_TWO_PLOTLINE.md#what-each-job-g
 | A job earns its place by meeting a need a guest would feel, not by making an object | **Kept**, as the rule for all eight jobs | It is the clearest answer to "why does this job make the party better?" |
 | One function line right after each piece lands ("[Piece], on the table!") | **Kept, moved:** the function line (`Jn-FN`) follows Daddy's "Look what you made!" in each R-beat, said by Roshan as the friend's picture hops into the frame | The Opera party table became Daddy's Party Plan, and Roshan's is the one voice every job already has |
 | A named guest with a concrete problem for each job | **Kept, re-cast from the portraits** (below) | Specific beats general, and a non-reader reads a face, not a list |
-| The fifteen needs | **Kept** for the eight jobs; the rest wait for their own careers (the plotline's table) | Review section 11 (no forced fits) and section 13 (careers across Chapters 2 to 5) |
+| The fifteen needs, and the two no job can make | **Kept, all of them,** and every one is met today: by the eight jobs, or (the invitations) by Daddy. The lawn adds two more (a shady place; a light to wish on), and the plotline's checklist maps all twenty | The owner's direction of 2026-09-30: the eight jobs fulfil the whole party. Each extra need is given to the job whose own moves and story already hold it, so none is forced (review section 11) |
 | Every piece has a named place beside the guest it serves (the party map) | **Kept** on the lawn: each guest stands nearest their piece | The Main Hall party became the lawn party (owner direction, 2026-09-05) |
 | Show the need before the job and the need met at the party | **Kept:** the empty frames, the grey tree, the empty shell on the cake | It is how a four-year-old sees why a job matters |
 | Invitations by the Astronaut's rocket, fixing a guest count that the bags, picnic and cake follow | **Changed:** Daddy sends the invitations at dawn, and nothing is counted | The eight-career spine gives the rocket to the candle, which supersedes the August invitation ruling; no Day Two job needs a count |
 | "And one more": a spare bag, plate, invitation and chair | **Kept as one thread:** the plan's empty frame, the dust bunnies' extra berry, and Lamma filling the frame | It is Book One's "There was room for everyone.", and Lamma is the one more |
 | The shared moment (candles, wish, song) is made by no job, and is what the villain steals | **Turned the right way up:** the King takes the candle and cannot take the moment; the wish survives (F7) | Canon: he takes only the candle, and what we make together can't be taken |
 | The imps ask "Are we invited?", and the Imp Captain is let in at the climax | **Not used:** the imps are the King's apprentices, "sent to learn"; the Prince is the one offered a place ("You can join us") | The 2026-08-30 canon: the King wants the candle for his own party, and the Prince is kind and conflicted |
-| The Curtain Dragon, Shadow Phantom and Midnight Maestro own the door, the light and the time | **Not used** | They are cut (`DL-INT-13`), and review section 16 finds those needs were never real gaps |
-| The Candy Maker's party bags, the Racer's delivery run, the Magician, Boxer, Nursery Nurse and Stuffie Surgeon | **Left for later days** | Not Day Two careers; their needs are listed in the plotline for their chapters |
+| The Curtain Dragon, Shadow Phantom and Midnight Maestro own the door, the light and the time | **The characters stay cut; their needs go to the jobs:** Baby Eagle's hello from the party tree (J1), the candle's light at sunset (J8) and the rocket's countdown (J7) | `DL-INT-13` cuts the bosses; the needs are small but real for a child, and each job already holds one |
+| The Candy Maker's party bags, the Racer's delivery run, the Magician's show, the Boxer's games, the Nursery Nurse's quiet corner and the Stuffie Surgeon's mending | **Their needs are met by the eight jobs; the careers wait for later days:** berry baskets to take home (J2), the banner to find the way (J4), Rumi's stage show (J6), the wild twirl (J5), the petal nest (J1), and the mended tree and shy Lamma still coming (J1, J5) | The careers run across Chapters 2 to 5 (review section 13), but the Day Two party needs everything a party needs |
 | Guests as the August papers imagined them: Kareem the grown-up shopkeeper, a Flower Friend who cannot speak, Huluu as the Ballerina's guest, Harper and Fiona as the Boxer's | **Re-cast from the protected portraits** | The portraits show Kareem as a boy in a big shell armchair, Flower Friend with rainbow hair holding a smiling rainbow flower, Princess Huluu in a bubble space helmet with her arms folded, and Harper and Fiona as sisters hugging |
 | Function lines in the guests' own voices | **Not in this draft:** Roshan says every function line; existing guest clips may play unaltered | New guest lines are an owner choice ([decision 13](README.md#owner-decisions)); Faron's recordings are protected |
 
@@ -347,11 +347,11 @@ plotline: [what each job gives the party](00_DAY_TWO_PLOTLINE.md#what-each-job-g
 | Job | Guest | Why this guest, from the portrait and the story |
 |---|---|---|
 | Invitations (Act I) | Wacky and Chuck | They live furthest away; without an invitation they would hear about the party tomorrow |
-| J1 Arborist | Faron and her baby | A baby needs shade to nap; Faron's own clip is "Shhh... the babies are getting sleepy." |
-| J2 Farmer | The dust bunnies | They grabbed a berry because they wanted one too; one of their own stops the grabbing |
-| J3 Chef | Evie | The best seat at a party is the one beside the cake, and Evie brings her lamb |
-| J4 Painter | Flower Friend | Rainbow hair and a rainbow flower: she loves colour more than anyone |
-| J5 Ballerina | Harper and Fiona (and Lamma, the one more) | Two sisters who always play together need something to do together, or they race laps round the table |
-| J6 Pop Star | Kareem | He sits thinking in his big chair at the back; the song has to reach him there |
-| J7 Astronaut | Princess Huluu | Arms folded, space helmet on: the hardest guest to impress, and a space princess gets the rocket's WOW |
-| J8 Detective | Roshan | The candle is the light for her birthday wish, and everyone wishes with her |
+| J1 Arborist | Faron and her baby; Wacky and Chuck | A baby needs shade and somewhere soft to nap (Faron's own clip is "Shhh... the babies are getting sleepy."); Baby Eagle, the lookout on the mended branch, greets the friends who come furthest |
+| J2 Farmer | The dust bunnies; every friend | They grabbed a berry because they wanted one too; once they have their own they stop grabbing and fill a basket of berries for every friend to take home |
+| J3 Chef | Evie; everyone | The best seat at a party is the one beside the cake, and Evie brings her lamb; after the wish there is a slice for everyone |
+| J4 Painter | Flower Friend; everyone on the path; the Prince | Rainbow hair and a rainbow flower: she loves colour more than anyone. Roshan's own picture on the banner tells everyone whose party it is, the Prince included, and the banner in the tree shows the way |
+| J5 Ballerina | Harper and Fiona; Lamma, the one more | Two sisters who always play together need something to do together, gentle or wild, or they race laps round the table; the shy lamb still gets to come |
+| J6 Pop Star | Kareem | He sits thinking in his big chair at the back: the song has to reach him there, and Rumi's stage gives him something to watch |
+| J7 Astronaut | Princess Huluu; everyone | Arms folded, space helmet on: the hardest guest to impress, and a space princess gets the rocket's WOW. The countdown tells everyone when |
+| J8 Detective | Roshan; everyone | The candle is the light for her birthday wish, and the light the party sees by as the sun goes down |

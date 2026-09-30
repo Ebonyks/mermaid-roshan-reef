@@ -1,0 +1,54 @@
+{
+  "id": "day-two-party-needs-filled-20260930",
+  "scope": "Owner direction 2026-09-30, on the party-preparation script: 'For elements missing, fill them in. What's here is good, but we have 8 jobs to fulfill.' The previous change left several August party needs to later days. This change meets every one of them with the eight Day Two jobs (or, for the invitations, Daddy) and completes each job's script card. The CANDIDATE plotline's party section gains a twenty-need checklist and, for each job, a full card (party role, needs, named guests, the stake, the need before and after, the moves, what the imp misses, the function line, its place at the party and links). New story beats carry the added needs: a soft petal nest under the party tree and Baby Eagle's hello from the mended branch (J1); the dust bunnies filling a tiny berry basket for every friend to take home (J2); cake for everyone after the wish (J3, in F7); Roshan's own picture in the banner so everyone, the Prince included, knows whose party it is, and the banner as the way to find it (J4); the wild twirl (J5); Kareem watching Rumi's show (J6); the rocket's countdown (J7); the candle as the light the party sees by at sunset (J8). The story bible, book, level sheet, finale production file, graphics new-art list, work packages, README and ledger rows follow. Documentation only: no runtime, save, art, voice or binding-document change.",
+  "baseline": "b86e697602b03de56a452d4ae6b08cecdd012fc5",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-READ-04",
+    "DL-INT-13",
+    "DL-PLAN-03",
+    "DL-ASSET-08",
+    "DL-SAVE-01"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-OPERA-011",
+    "MA-ACCESS-001"
+  ],
+  "finding_scope": "Related planning context only; no finding lifecycle changes. Each added need is shown with an exact voiced line or a picture the child can see (MA-ACCESS-001, DL-AGE-01); the new beats are watched or use gestures the jobs already teach, cannot fail and never let waiting win (DL-AGE-03, DL-AGE-04); Roshan still does each job in the world (MA-PLAY-004); the three cut stage bosses stay cut while their needs move to the jobs (MA-OPERA-011, DL-INT-13); no new save key is added, since the baskets, petal nest, banner picture and cut cake follow existing or already-proposed keys (DL-SAVE-01).",
+  "files": [
+    "design/day_two_story_v2/00_DAY_TWO_PLOTLINE.md",
+    "design/day_two_story_v2/01_STORY_BIBLE.md",
+    "design/day_two_story_v2/02_PICTURE_BOOK_MANUSCRIPT.md",
+    "design/day_two_story_v2/03_LEVEL_DESIGN.md",
+    "design/day_two_story_v2/04_FINALE_PARTY_CHAPTER.md",
+    "design/day_two_story_v2/06_GRAPHICS_AUDIT.md",
+    "design/day_two_story_v2/07_WORK_PACKAGES.md",
+    "design/day_two_story_v2/README.md",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH RESULT ALL OK with 586 inventoried Markdown files and 586 ledger rows, on the candidate working tree before the commit."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV RESULT ALL OK against the dev merge-base e7899cc0, and against the previous push b86e6976 with --base b86e6976, on the candidate working tree before the commit."
+    },
+    {
+      "command": "Package consistency checks (scripted)",
+      "result": "PASS",
+      "evidence": "Every intra-package link and anchor resolves, no heading anchor repeats and every GFX ID used is defined in 06; every table row has its header's column count; the eight function lines are identical in the party section's overview, the job cards' rows, the R-beats and the level sheet; the level sheet's 179 new voice lines match every line the plotline marks new, apart from the seven existing special cases; Book Two stays at 16 caption words or fewer a page (average 14.2); a word-level comparison against b86e6976 shows only intended rewrites removed text (the replaced per-job bullets, the 'left to other days' table and the superseded cake-state note)."
+    }
+  ],
+  "acceptance_gaps": "Owner review of the filled needs and their story beats under decision 12 (including the new cake-sharing beat in F7, the berry baskets, Roshan's picture replacing the cake-and-candle medallion on the banner, and the F3 countdown, which lengthens the built ignition); all earlier gaps remain open (owner decisions 1-13, the Arborist art commit, and every implementation, voice, art, capture, device, child and cinematic gate in 07_WORK_PACKAGES.md). New props (petal nest, tiny basket, banner medallion, cut cake and slices) are specified, not made.",
+  "source_recheck": "Re-read the plotline's scenes J1-J8, R1-R8 and F1-F8, the finale production file, the level sheet and the Book Two manuscript before placing each need; the August party-function papers (CHAPTER2_PARTY_ROLES_2026-08-03.md and CHAPTER2_BIRTHDAY_REVIEW_2026-08-03.md sections 11-20) for the fifteen needs, the two needs no job makes and the per-job card fields; the lawn's GUEST_FILES in scripts/chapter_two_lawn_finale_2d.gd; and the protected friend portraits, whose content the guest reactions keep to (whole-picture moves only)."
+}

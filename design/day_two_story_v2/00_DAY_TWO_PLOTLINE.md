@@ -69,7 +69,8 @@ sneaking into the shows to take notes ("I was sent to learn the CAKE!"), but
 nobody knows who sent him. Then she does each job for real, in the castle and
 on the Sky Lagoon. Every job helps a friend from Book One, and every piece is
 for someone at the party: shade for Faron's baby, cake for Evie, a dance for
-Harper and Fiona, a song that reaches Kareem at the back.
+Harper and Fiona, a song that reaches Kareem at the back, and a basket of
+berries for every friend to take home.
 
 Baby Eagle's favourite tree on the Sky Lagoon lawn is sick, so Tree Doctor
 Roshan opens her Tree Book, waters its roots and bandages its broken branch
@@ -133,14 +134,14 @@ None of these is ever spoken as a lesson. They are shown.
 |---|---|---|---|---|---|---|
 | Day One | Prologue (Episode One) | Lamma peeks twice | Playroom, Craft Room | Lamma (unseen) | — | — |
 | Dawn | Act I | Wake-up, the Party Plan, "practise first" | Attic, Main Hall | — | The plan | Seven invited friends, and room for one more |
-| Morning | Act II, J1 | Arborist: Baby Eagle's tree | Opera, then the Sky Lagoon lawn | Baby Eagle | The party tree | Faron and her baby: shade |
-| Morning | J2 | Farmer: five strawberries | Opera, then the grove through the Dining Room | The dust bunnies | Five strawberries | The dust bunnies: one of their own |
-| Midday | J3, LAMMA-3 | Chef: Daddy's apron | Opera, then the Royal Kitchen | Daddy | The rainbow cake | Evie: the seat beside the cake |
-| Midday | J4 | Painter: her own colours | Opera, then the Craft Room | Grand Puff | The banner | Flower Friend: a party that looks like one |
-| Afternoon | LAMMA-JOIN, J5 | Ballerina: room for everyone | The Playroom, Opera, the Playroom | Lamma, Kitty and Bunny | The stuffie dance | Harper and Fiona: something to do together; Lamma: the one more |
-| Afternoon | J6 | Pop Star: Rumi's song | Opera, then the Opera Hall stage | Rumi | The song | Kareem: a song he hears at the back |
-| Afternoon | J7 | Astronaut: rainbow water | Opera, then the Mermaid Pool | The seahorse | The little rocket | Princess Huluu: one WOW that even she can't resist |
-| Late afternoon | J8 | Detective: the book that remembers | Opera, then the Royal Library | Rumi's memory | The rainbow candle | Roshan: a light to wish on |
+| Morning | Act II, J1 | Arborist: Baby Eagle's tree | Opera, then the Sky Lagoon lawn | Baby Eagle | The party tree | Faron and her baby: shade and a soft nest; every friend: Baby Eagle's hello |
+| Morning | J2 | Farmer: five strawberries | Opera, then the grove through the Dining Room | The dust bunnies | Five strawberries | The dust bunnies: one of their own; every friend: berries to take home |
+| Midday | J3, LAMMA-3 | Chef: Daddy's apron | Opera, then the Royal Kitchen | Daddy | The rainbow cake | Evie: the seat beside the cake; everyone: a slice |
+| Midday | J4 | Painter: her own colours | Opera, then the Craft Room | Grand Puff | The banner | Flower Friend: a party that looks like one; everyone: whose party it is, and where |
+| Afternoon | LAMMA-JOIN, J5 | Ballerina: room for everyone | The Playroom, Opera, the Playroom | Lamma, Kitty and Bunny | The stuffie dance | Harper and Fiona: something to do, gentle or wild; Lamma: the one more |
+| Afternoon | J6 | Pop Star: Rumi's song | Opera, then the Opera Hall stage | Rumi | The song | Kareem: a song he can hear and a show he can watch |
+| Afternoon | J7 | Astronaut: rainbow water | Opera, then the Mermaid Pool | The seahorse | The little rocket | Princess Huluu: one WOW; everyone: the countdown |
+| Late afternoon | J8 | Detective: the book that remembers | Opera, then the Royal Library | Rumi's memory | The rainbow candle | Roshan: a light to wish on, and to see by |
 | Golden hour | Act III, F1-F3 | The party; the candle is lit | The Sky Lagoon lawn | Everyone | — | — |
 | Sunset | F4-F6 | The Ember King and the Prince | The lawn | Everyone | (the candle is taken) | — |
 | Dusk | F7-F8 | The wish; the door wakes | The lawn, the Main Hall | Roshan | — | — |
@@ -526,7 +527,9 @@ lean, flinch, cheer) and are never edited. Chuck's real bark
   Evie (the seat beside the cake), Flower Friend (the banner's colours),
   Harper and Fiona (the dance), Kareem (the song, reaching him at the back),
   Princess Huluu (the rocket's WOW). Wacky and Chuck come from furthest
-  away, which is why the invitations matter. See
+  away: Daddy's invitation tells them, the banner shows them the way, Baby
+  Eagle greets them from the tree, and they carry the longest way home a
+  basket of berries. See
   [what each job gives the party](#what-each-job-gives-the-party).
 - **What the portraits show** (and the story keeps to): Faron holds her baby;
   Evie hugs a round, fluffy lamb; Harper and Fiona are sisters hugging;
@@ -756,14 +759,15 @@ party-function work: the reconciled party-role map in
 owner's rulings) and its working papers, `CHAPTER2_PARTY_ROLES_2026-08-03.md`
 and `CHAPTER2_BIBLE_ACT_SCRIPTS_2026-08-03.md`. Those papers were written for
 thirteen careers, an Opera House party and three stage bosses. This is their
-rule fitted to today's eight jobs, the lawn and the Ember King. The
-[story bible, section 11](01_STORY_BIBLE.md#11-the-party-preparation-script-what-day-two-keeps)
+rule fitted to today's eight jobs, the lawn and the Ember King, and every need
+they list is met today by one of the eight jobs or by Daddy's invitations.
+The [story bible, section 11](01_STORY_BIBLE.md#11-the-party-preparation-script-what-day-two-keeps)
 records what was kept, changed and left out, and why.
 
 **The rule.** A job does not earn its place by making an object. It earns it
 by meeting a need that a guest would otherwise feel. So every job:
 
-1. meets one need, said the way a child at a party would feel it;
+1. meets its needs, said the way a child at a party would feel them;
 2. is for someone by name: a friend whose day would be worse without it;
 3. ends with one **function line** (`Jn-FN`): in its R-beat, that friend's
    picture hops into the Party Plan frame, and Roshan says what the party has
@@ -781,86 +785,171 @@ Wacky and Chuck, Faron and her baby, Kareem, Princess Huluu and Flower Friend.
 An eighth frame stays empty, "There's always room for one more", until Lamma
 joins the stuffie team (`R5`).
 
-| Job | What the party needs, in a guest's words | Who it is for | Function line (`Jn-FN`) | Its place at the party |
+**The eight jobs at a glance.**
+
+| Job | The one who... | Needs it meets | Who it is for | Function line (`Jn-FN`) |
 |---|---|---|---|---|
-| J1 Arborist | "There has to be a place where we all fit, cool and shady." | Faron and her sleepy baby | "Now there's shade for everyone, even Faron's baby!" | The party tree, the roof over everything. Faron sits in its deepest shade |
-| J2 Farmer | "I want one too!" | The dust bunnies, who grabbed because they wanted a berry of their own | "Five for the cake, and one for you, bunnies!" | On top of the cake. The bunnies, in party hats, bounce at the edges of the stuffie blanket |
-| J3 Chef | "There has to be CAKE!" | Evie: the best seat at a party is the one beside the cake | "Cake for everyone, and a place for the candle!" | On the table in the tree's shade, with Evie right beside it |
-| J4 Painter | "When I get there, it has to LOOK like a party." | Flower Friend, who loves colour more than anyone (rainbow hair, a rainbow flower) | "Now everyone can see it's a party!" | In the tree's branches over the table, the first thing seen from the path. Flower Friend stands beneath it |
-| J5 Ballerina | "There has to be something to DO." | Harper and Fiona, sisters who always play together; and the one more, Lamma | "Now everyone can dance, Harper and Fiona too!" | The stuffie blanket at the front, with the music box. Harper and Fiona at its edge |
-| J6 Pop Star | "Everybody has to HEAR, even at the back." | Kareem, thinking in his big shell chair at the back | "Now everyone can hear, even Kareem at the back!" | Rumi's shell stage, right of the tree. Kareem's chair is the furthest back, facing it |
-| J7 Astronaut | "One big WOW, and we all see it at once." | Princess Huluu, the space princess in her bubble helmet, arms folded: the hardest guest to impress | "Everyone will see the spark, even Princess Huluu!" | Beside the table, tilted at the candle. Huluu nearest, helmet and all |
-| J8 Detective | "There has to be a light to wish on." | Roshan, and everyone who wishes with her | "A candle for my birthday wish!" | In the little shell on top of the cake |
+| J1 Arborist | gives the party its place | A cool, shady place for all of us; somewhere soft for the little ones; someone glad to see me arrive; hurt, and still here | Faron and her baby; Wacky and Chuck, greeted by Baby Eagle | "Now there's shade for everyone, even Faron's baby!" |
+| J2 Farmer | makes sure nobody has to grab | "I want one too!"; something to take home | The dust bunnies; every friend, with berries for the way home | "Five for the cake, and one for you, bunnies!" |
+| J3 Chef | makes the middle of the party | CAKE; nobody goes home hungry | Evie, in the seat beside the cake; everyone, with a slice | "Cake for everyone, and a place for the candle!" |
+| J4 Painter | tells everyone: here is a party, and it is Roshan's | It LOOKS like a party; whose birthday it is; how to find it | Flower Friend; everyone coming up the path; the Prince, in F4 | "Now everyone can see it's my party!" |
+| J5 Ballerina | makes sure nobody just stands there, and nobody is left out | Something to DO, gentle or wild; shy or scared, and still here | Harper and Fiona; Lamma, the one more | "Now everyone can dance, Harper and Fiona too!" |
+| J6 Pop Star | makes sure everyone can hear, and watch | HEAR, even at the back; something to WATCH | Kareem, in his big chair at the back | "Now everyone can hear, even Kareem at the back!" |
+| J7 Astronaut | makes the moment everyone sees together | One big WOW at once; someone says when it's time | Princess Huluu; everyone, counting along | "Everyone will see the spark, even Princess Huluu!" |
+| J8 Detective | finds the light | A light to wish on; a light to see by as the sun goes down | Roshan, and everyone who wishes with her | "A candle for my birthday wish!" |
 
 Every function line is new, in the Roshan voice, one idea and at most nine
 words. The guests themselves get no new lines in this draft
 ([the party guests](#4-people-who-they-are-on-day-two)).
 
-**How each job earns it.**
+**Every need, and who meets it.** The August papers list fifteen things a
+party needs, and two that no job can make. Moving the party onto the lawn
+around one candle adds two more. All of them are met on Day Two:
 
-- **J1 Arborist.** *Without it:* a bare lawn in the midday sun, nowhere cool
-  to sit together, and Faron taking her hot, tired baby home before the cake.
-  *The moves:* the Tree Book asks what is wrong before anything is done, which
-  is how you help anyone. Watering the roots and wrapping the branch save the
-  one branch that will hold the banner (J4) and shade the table (J3), and
-  five buds open into a pink roof. *The imp:* "Mine! A party needs a tree!"
-  He knows a party needs a place, and grabs the pot; he never asks the tree
-  what it needs. *Linked:* it comes first, because a party needs a place
-  before it needs things.
-- **J2 Farmer.** *Without it:* a plain cake, and a dust bunny who still wants
-  a strawberry, so it sneaks one off the cake at the party. *The moves:* only
-  the red berries are picked (the green ones wiggle and wait), five go into
-  one basket, and one long swipe takes them home with the bunnies rolling
-  behind. Then one more ripe berry, just for them (`R2`): the bunny who
-  grabbed stops grabbing once it has its own. *The imp:* "Snack time! This
-  picnic is OUR picnic now!" *Linked:* the berries crown the cake (J3); the
-  bunnies' berry is the day's first "one more".
-- **J3 Chef.** *Without it:* a table with nothing in the middle, and nowhere
-  for a candle. *The moves:* six colours in one bowl, six layers in rainbow
-  order, frosting round every tier, five strawberries on top. The last thing
-  the child sees is the little empty shell on the top tier, the one thing the
-  plan still needs. *The imp:* "Mine now! A birthday needs a cake and I HAVE
-  one!" He has a cake and nobody to share it with. *Linked:* the berries (J2)
-  finish it, the candle (J8) completes it and the rocket (J7) points at it.
-  The King never takes it, and everyone has a slice at supper (E1).
-- **J4 Painter.** *Without it:* a lawn with a table on it. Nothing says
-  "party" as the friends come up the path. *The moves:* her own colour first,
-  then Grand Puff's rainbow, then five stars; then she sends it to the tree
-  she healed. *The imp:* "Pretty colours! Our party needs pretty too!" He
-  paints his hands, the wall and the floor: colour, with nobody to greet.
-  *Linked:* it hangs on the branch mended in J1. In F5 Baby Eagle holds it
-  over the guests as a roof, so the decoration becomes a shelter.
-- **J5 Ballerina.** *Without it:* the music plays and everyone stands in a
-  ring, looking at their feet, while Harper and Fiona race laps round the
-  table, right past the cake. *The moves:* anyone can copy a pose (Lamma is a
-  beat late and still gets it); the ribbon shows where to go; the dance needs
-  three paws held in a circle, so nobody can do it alone. *The imp:* "The
-  music box! No music, no party, hee hee!" He takes the music; a dance needs
-  people. *Linked:* LAMMA-JOIN fills the "one more" frame, and the stuffie
-  team is first to come close in F7.
-- **J6 Pop Star.** *Without it:* the birthday song reaches only the front
-  row, and Kareem, at the back, hears clapping without knowing what for. *The
-  moves:* the sound check is a hold until the note reaches Rumi (a song has
-  to reach someone); the echo is singing back what you hear. *The imp:* "No
-  microphone, no singing! Our band is better anyway!" *Linked:* the song
-  makes Rumi remember the candle (B5), which starts the last two jobs; it
-  plays when the candle lights (F3) and comes back softly for the wish (F7).
-- **J7 Astronaut.** *Without it:* no spark to light the candle, and no
-  moment when everyone looks at the same thing at once; Princess Huluu keeps
-  her arms folded all party. *The moves:* fuel from the waterfall Roshan freed
-  yesterday; pipes, patches and a valve; then she parks the rocket and waits.
-  The hardest part is not launching it: the spark is saved for everyone.
-  *The imp:* "I was sent to learn the SENDING. Nobody sends US anything." and
-  "No invitations, no guests!" The imps know about invitations and have never
-  had one; Roshan's party began with them (`D2-OPEN-2`). *Linked:* it aims at the shell on the cake (J3) and waits for the
-  candle (J8); its spark is also what the imp scout sees (F3).
-- **J8 Detective.** *Without it:* a cake with an empty shell on top, and no
-  light to wish on. *The moves:* the lens finds the drips the candle left over
-  hundreds of years, and putting the colours in rainbow order lifts it out of
-  the book. *The imp:* he never finds it, and trips over his tail on the way
-  out. *Linked:* Rumi's memory (J6) sends Roshan here; the shell (J3) holds
-  it; the spark (J7) lights it; the King takes it (F6); the wish outlives it
-  (F7).
+| # | The need, in a guest's words | Met by | Where the child sees it met |
+|---|---|---|---|
+| 1 | "Somebody has to tell me I'm invited." | Daddy's invitations | The guest row on the plan (`D2-OPEN-2`) |
+| 2 | "There has to be a place where we all fit, cool and shady." | J1 | The pink roof over the party |
+| 3 | "If I'm little or sleepy, I need somewhere soft, and still to be AT the party." | J1 | Faron's baby asleep in the petal nest |
+| 4 | "Somebody has to be glad to see me when I get there." | J1 | Baby Eagle's hello from the mended branch (F1) |
+| 5 | "If I'm hurt, I still get to come." | J1 | The bandaged branch holding the banner over the party |
+| 6 | "I want one too!" | J2 | The dust bunnies' own berry (`R2`) |
+| 7 | "I go home with something in my hand." | J2 | A tiny berry basket for every friend (F8) |
+| 8 | "There has to be CAKE!" | J3 | The cake in the middle of everything |
+| 9 | "Nobody goes home hungry." | J3 | A slice for everyone after the wish (F7) |
+| 10 | "When I get there, it has to LOOK like a party." | J4 | The banner in the tree |
+| 11 | "I have to know whose birthday it is." | J4 | Roshan's own picture on the banner; the Prince reads it (F4) |
+| 12 | "I have to be able to find it." | J4 | The banner, the first thing seen from the path |
+| 13 | "There has to be something to DO, gentle or wild." | J5 | The stuffie dance and its wild twirl |
+| 14 | "If I'm shy or scared, I still get to come." | J5 | Lamma fills the one-more frame (`R5`) |
+| 15 | "Everybody has to HEAR, even at the back." | J6 | Rumi's song reaching Kareem's chair |
+| 16 | "There has to be something to WATCH if I don't join in." | J6 | Kareem watching Rumi's stage (F3) |
+| 17 | "One big WOW, and we all see it at once." | J7 | The spark (F3) |
+| 18 | "Somebody has to say when it's time." | J7 | Everyone counting "Three... two... one!" (F3) |
+| 19 | "There has to be a light to wish on." | J8 | The lit candle |
+| 20 | "I have to be able to see when the sun goes down." | J8 | The candle's glow at sunset, and the dusk once it is gone (F7) |
+| — | The moment we all share: the candle, the song and the wish | No job, on purpose | The wish outlives the theft (F7) |
+| — | "Somebody wants me, even if nobody asked me before." | Everyone | Lamma, the one more (`R5`); "You can join us" to the Prince (F4) |
+
+The August papers gave some of these needs to careers that are not in Day
+Two: the Candy Maker's party bags, the Nursery Nurse's quiet corner, the
+Stuffie Surgeon's mending, the Magician's show, the Boxer's games and the
+Racer's journey, and the door, the light and the time to the three cut stage
+bosses. Those careers stay for later days, and the bosses stay cut
+(`DL-INT-13`). Their needs are met today by the eight jobs, so the party is
+complete without them.
+
+#### J1 Arborist: the one who gives the party its place
+
+| | |
+|---|---|
+| Needs it meets | "There has to be a place where we all fit, cool and shady." "If I'm little or sleepy, I need somewhere soft, and still to be AT the party." "Somebody has to be glad to see me when I get there." "If I'm hurt, I still get to come." |
+| Who it is for | Faron and her sleepy baby (the shade and the petal nest); everyone who arrives, from Wacky and Chuck, the last up the path, to Roshan herself, greeted by Baby Eagle, the lookout on his branch; and the tree itself, hurt this morning |
+| Without it | A bare lawn in the midday sun. Nowhere cool to sit together, Faron takes her hot, tired baby home before the cake, and nobody is watching the path when friends arrive |
+| The need, then the need met | Morning: grey drooping leaves, a branch hanging from a zigzag crack, cracked dry soil, Baby Eagle drooping. Party: a pink roof of blossom; Faron's baby asleep in a soft nest of fallen petals in the deepest shade; the bandaged branch holding the banner; Baby Eagle on it, chirping hello |
+| How the moves earn it | The Tree Book asks what is wrong before anything is done, which is how you help anyone. Watering the roots and wrapping the branch save the one branch that will hold the banner (J4). The five buds open into the roof, and their petals drift down into the nest (B7). A tree that was hurt this morning holds the whole party by sunset |
+| What the imp misses | At the practice he grabs the potted tree: "Mine! A party needs a tree!" He knows a party needs a place, and never asks the tree what it needs, which is the whole job |
+| Function line (`J1-FN`) | "Now there's shade for everyone, even Faron's baby!" |
+| Its place at the party | The roof over everything. Faron and her baby at the arc's left end, beside the petal nest; Baby Eagle on the mended branch above the table |
+| Links | It comes first, because a party needs a place before it needs things. The mended branch holds the banner (J4: "On the branch we mended!"), the shade covers the table (J3), and in F5 Baby Eagle carries the banner from this branch to shelter the guests |
+
+#### J2 Farmer: the one who makes sure nobody has to grab
+
+| | |
+|---|---|
+| Needs it meets | "I want one too!": everybody gets a treat, even the animals. "I go home with something in my hand." |
+| Who it is for | The dust bunnies, who grabbed because they wanted a berry of their own; and every friend, who goes home with a tiny basket of berries (Wacky and Chuck have the longest way home) |
+| Without it | A plain cake, a dust bunny sneaking a strawberry off it at the party, and friends going home with empty hands |
+| The need, then the need met | On the first play a dust bunny rolls the fifth berry away: the grab. At R2 the bunnies get one of their own, stop grabbing and help. At the party a tiny berry basket waits beside every friend, and in F8 each friend carries theirs home |
+| How the moves earn it | Only the red berries are picked (the green ones wiggle and wait): choosing the best. Five go into one basket, and one long swipe takes them home with the bunnies rolling behind. Then one more ripe berry, just for the bunnies. With one of their own, they help ("We can help!") and fill a tiny basket for every friend |
+| What the imp misses | "Snack time! This picnic is OUR picnic now!" He grabs the whole picnic; the bunnies stopped grabbing the moment one berry was theirs |
+| Function line (`J2-FN`) | "Five for the cake, and one for you, bunnies!" |
+| Its place at the party | On top of the cake; a tiny basket beside every guest; the bunnies, in party hats, bouncing at the stuffie blanket's edges |
+| Links | The berries crown the cake (J3). The bunnies' berry is the day's first "one more", and their "We can help!" comes back when they roll into the first shelter wall (F5) |
+
+#### J3 Chef: the one who makes the middle of the party
+
+| | |
+|---|---|
+| Needs it meets | "There has to be CAKE!" "Nobody goes home hungry." |
+| Who it is for | Evie: the best seat at a party is the one beside the cake. And everyone, with a slice after the wish: a crumb for every bunny, and the biggest slice for the birthday girl |
+| Without it | A table with nothing in the middle, nowhere for the candle, nothing to sing over, and friends going home hungry |
+| The need, then the need met | The plan's cake picture is an empty outline. After J3 the cake waits on the Kitchen's pearl table with a little empty shell on top. At the party it stands in the middle of everything, and after the wish Daddy cuts it: a slice for everyone (F7) |
+| How the moves earn it | Six colours in one bowl, six layers in rainbow order, frosting round every tier, five strawberries on top. The last thing the child sees is the little empty shell on the top tier, the one thing the plan still needs |
+| What the imp misses | "Mine now! A birthday needs a cake and I HAVE one!" He has a cake and nobody to share it with |
+| Function line (`J3-FN`) | "Cake for everyone, and a place for the candle!" |
+| Its place at the party | The table in the tree's shade, in the middle of everything; Evie right beside it |
+| Links | The berries (J2) finish it, the candle (J8) completes it, and the rocket (J7) aims at it. The King never takes it. After the wish everyone has a slice (F7), and the family finishes it at supper (E1) |
+
+#### J4 Painter: the one who tells everyone "here is a party, and it's Roshan's"
+
+| | |
+|---|---|
+| Needs it meets | "When I get there, it has to LOOK like a party." "I have to know whose birthday it is." "I have to be able to find it." |
+| Who it is for | Flower Friend, who loves colour more than anyone; everyone coming up the path, Wacky and Chuck from furthest away; and, in F4, the Prince |
+| Without it | A lawn with a table on it. Nothing says "party" as friends come up the path, nothing says whose, and a guest might wish the wrong mermaid happy birthday |
+| The need, then the need met | In the morning the tree is bare. After J4 the banner hangs in its branches with Roshan's own smiling picture in the middle, the first thing anyone sees from the path. In F4 the Prince looks from the banner to Roshan: "Father, it's HER birthday." |
+| How the moves earn it | Painting across the banner reveals it: her own colour first (the one she chose yesterday), then the rainbow bands, and in the middle, her own picture. Five stars, stamped. Then she sends it to the tree she healed |
+| What the imp misses | "Pretty colours! Our party needs pretty too!" He paints his hands, the wall and the floor: colour with no picture of whose party it is, and nobody to greet |
+| Function line (`J4-FN`) | "Now everyone can see it's my party!" |
+| Its place at the party | In the tree's branches over the table, facing the path; Flower Friend beneath it |
+| Links | It hangs on the branch mended in J1 ("On the branch we mended!"). In F4 it answers the King's "MY birthday party!" before the Prince does. In F5 Baby Eagle holds it over the guests as a roof, so the decoration becomes a shelter |
+
+#### J5 Ballerina: the one who makes sure nobody just stands there, and nobody is left out
+
+| | |
+|---|---|
+| Needs it meets | "There has to be something to DO", the gentle half and the wild half. "If I'm shy or scared, I still get to come." |
+| Who it is for | Harper and Fiona, sisters who always play together and love to go fast; and the one more, Lamma, hiding since the dust storm frightened her |
+| Without it | The music plays and everyone stands in a ring looking at their feet, while Harper and Fiona race laps round the table, right past the cake. And one shy lamb stays hidden in the Playroom |
+| The need, then the need met | All morning the plan's last guest frame is empty. Lamma is found, given back her egg, and fills it (R5). At the party the stuffie team dances on the blanket, and Harper and Fiona bounce through the wild twirl |
+| How the moves earn it | Anyone can copy a pose (Lamma is a beat late and still gets it): the gentle half. The ribbon shows where to go. The grand twirl spins as fast as the child draws: the wild half. The dance needs three paws held in a circle, so nobody can do it alone |
+| What the imp misses | "The music box! No music, no party, hee hee!" He takes the music; a dance needs people |
+| Function line (`J5-FN`) | "Now everyone can dance, Harper and Fiona too!" |
+| Its place at the party | The stuffie blanket at the front, with the music box; Harper and Fiona at its edge; Lamma, after the tour, with Evie |
+| Links | LAMMA-JOIN fills Daddy's one-more frame. In F7 the stuffie team is first to come close, and Lamma brings the hat |
+
+#### J6 Pop Star: the one who makes sure everyone can hear, and watch
+
+| | |
+|---|---|
+| Needs it meets | "Everybody has to HEAR, even at the back." "There has to be something to WATCH if I don't want to join in." |
+| Who it is for | Kareem, who sits thinking in his big shell chair at the back and would rather watch than dance |
+| Without it | The birthday song reaches only the front row, and Kareem hears clapping without knowing what for, with nothing to watch but everyone's backs |
+| The need, then the need met | At J6 the sound check's note has to cross the stage to reach Rumi. At the party Rumi's little shell stage faces Kareem's chair, and when the song begins (F3) he watches and sways |
+| How the moves earn it | The sound check is a hold until the note reaches Rumi (a song has to reach someone). Rumi's spot puts the singer where everyone can see her. The echo is singing back what you hear |
+| What the imp misses | "No microphone, no singing! Our band is better anyway!" A band, and nobody listening |
+| Function line (`J6-FN`) | "Now everyone can hear, even Kareem at the back!" |
+| Its place at the party | Rumi's shell stage, right of the tree; Kareem's chair furthest back, facing it |
+| Links | The song makes Rumi remember the candle (J6 B5), which starts J7 and J8. It plays when the candle lights (F3), is cut off by the stomps (F4), and comes back softly for the wish (F7) |
+
+#### J7 Astronaut: the one who makes the moment everyone sees together
+
+| | |
+|---|---|
+| Needs it meets | "One big WOW, and we all see it at once." "Somebody has to say when it's time." |
+| Who it is for | Princess Huluu, the space princess in her bubble helmet, arms folded: the hardest guest to impress. And everyone, counting along |
+| Without it | No spark, so no lit candle; no moment when everyone looks at the same thing; nobody knows when to start singing; and Princess Huluu keeps her arms folded all party |
+| The need, then the need met | At J7 the rocket is parked: "Ready... but not yet!" At the party the button glows, everyone counts "Three... two... one!", and every face turns to the spark as the candle lights |
+| How the moves earn it | Fuel from the waterfall Roshan freed yesterday; pipes, patches and a valve; then she parks the rocket and waits. The hardest part is not launching it: the spark is saved for everyone, and the countdown gets everyone ready together |
+| What the imp misses | "I was sent to learn the SENDING. Nobody sends US anything." and "No invitations, no guests!" The imps know about invitations and have never had one; Roshan's party began with them (`D2-OPEN-2`) |
+| Function line (`J7-FN`) | "Everyone will see the spark, even Princess Huluu!" |
+| Its place at the party | Beside the table, tilted at the candle; Huluu nearest |
+| Links | It aims at the shell on the cake (J3) and waits for the candle (J8). Its spark is also what the imp scout sees (F3) |
+
+#### J8 Detective: the one who finds the light
+
+| | |
+|---|---|
+| Needs it meets | "There has to be a light to wish on." "I have to be able to see when the sun goes down." |
+| Who it is for | Roshan, whose wish it is, and everyone who wishes with her |
+| Without it | An empty shell on top of the cake, no light to wish on, and a party that goes dark as the sun sets |
+| The need, then the need met | The shell on the cake is empty from J3 on. The candle rises into Roshan's arms (R8). Lit at golden hour, its rainbow light keeps every face bright as the sun goes down. When the King takes it, the warm light drains away (F7), and the wish still happens |
+| How the moves earn it | The lens finds the drips the candle left over hundreds of years, and putting the colours in rainbow order lifts it out of the book: remembering, in order |
+| What the imp misses | "I was sent to learn the SEARCHING. Where is everything?" He never finds it; the scout only sees the light once it is lit (F3) |
+| Function line (`J8-FN`) | "A candle for my birthday wish!" |
+| Its place at the party | In the little shell on top of the cake |
+| Links | Rumi's memory (J6) sends Roshan here; the shell (J3) holds it; the spark (J7) lights it; the King takes it (F6); the wish outlives it (F7) |
 
 **What no job makes: the moment we share.** The candle, the song and the wish
 happen only when every job is done. In the August papers the villain stole
@@ -870,20 +959,6 @@ and cannot take the moment. The friends stay, the song comes back, and Daddy
 says, "And you can still make a wish" (F7). The candle was the light to wish
 on; the wish was never the candle's. That is the day's promise, "what we make
 together can't be taken", told by the story's shape and never as a lesson.
-
-**Needs this day leaves to other days.** By the owner's rulings, no job is
-forced into the party (review section 11), and the careers run across
-Chapters 2 to 5 (section 13). These needs wait for their own careers:
-
-| Need, in a guest's words | On Day Two | Whose it is later |
-|---|---|---|
-| "I go home with something in my hand." | Not on Day Two | Candy Maker, which left Day Two for the Arborist |
-| "If I'm little or sleepy, I need somewhere soft, and still to be AT the party." | Partly, by the tree's shade (J1) | Nursery Nurse |
-| "If I'm torn or broken, I still get to come." | — | Stuffie Surgeon |
-| "Something to WATCH if I don't join in." | — | Magician |
-| "Somewhere to be wild." | — | Boxer |
-| "Somebody has to get me there." | The friends come up the lawn path | Racer, the travel career |
-| "Somebody glad at the door", "I have to see", "Somebody says when it's time" | Not real gaps (review section 16): Daddy greets everyone, the lawn is sunlit, and the child says "now" at the rocket | Nobody: the three stage bosses are cut (`DL-INT-13`) |
 
 **Why the imps can't get it right.** Each practice's imp apprentice is "sent
 to learn" one job for the King's grey party (section 2.3). Their lines show
@@ -902,8 +977,9 @@ spoken, and it never excuses the King ([section 11.2](#112-what-the-king-wants))
   sun hat with a satchel, Baby Eagle, Grand Puff, Daddy and one dust bunny
   (challenge cards).
 - **Piece:** the party tree. **Friend helped:** Baby Eagle.
-- **For the party:** a place where everyone fits, cool and shady, for Faron
-  and her sleepy baby ([the party script](#what-each-job-gives-the-party)).
+- **For the party:** a place where everyone fits, cool and shady; a soft
+  petal nest for Faron's sleepy baby; Baby Eagle's hello from the mended
+  branch for every friend who arrives ([the party script](#what-each-job-gives-the-party)).
 - **Book:** pages 5-8.
 
 **J1 set-up (Main Hall).**
@@ -946,7 +1022,7 @@ party needs a tree!"* and *"Ow, a leaf! Okay, okay!"*
 | B4 | Water | Page three: the watering can wears the blue drop. Then Roshan carries it to the roots | Taps the can; then holds to pour | *"Water!"* *"Pour it on the roots!"* | The label's badge; then the roots glow |
 | B5 | The branch | The soil darkens and the leaves turn green, but the branch still hangs. A bubble on it shows the zigzag badge; the book opens again | Taps the card, then the bark bandage, then draws circles round the branch | *"A branch is broken!"* *"A bark bandage!"* *"Wrap the branch!"* | The badge; then a circle trail on the branch |
 | B6 | Bloom | The branch lifts. Five buds appear | Taps each bud | Each: a soft pop | Each bud pulses |
-| B7 | The party tree | On the fifth bud the whole tree blooms pink. Petals drift. Baby Eagle hops up to his favourite branch | — | Baby Eagle: *"Cheep cheep! Cheep!"* Roshan: *"The tree feels better! Our party tree!" (new)* | — |
+| B7 | The party tree | On the fifth bud the whole tree blooms pink. Petals drift down and settle in a soft pink pile in the deepest shade at the foot of the trunk: a nest for napping. Baby Eagle hops up to his favourite branch, the one she mended | — | Baby Eagle: *"Cheep cheep! Cheep!"* Roshan: *"The tree feels better! Our party tree!" (new)* | — |
 
 The Tree Book lines are the Arborist handoff's exact lines. Help follows its
 ramp: at 5 seconds the right card breathes with a sparkle trail; at 10
@@ -983,8 +1059,9 @@ and the Arborist's party bit.
   Roshan in a straw hat, the dust bunnies, Baby Eagle, Daddy, Grand Puff.
 - **Piece:** five strawberries. **Friends helped:** the dust bunnies, who
   learn to play gently.
-- **For the party:** "I want one too!" Five for the cake, and one of their
-  own for the dust bunnies ([the party script](#what-each-job-gives-the-party)).
+- **For the party:** "I want one too!" Five for the cake, one of their own
+  for the dust bunnies, and a tiny basket of berries for every friend to take
+  home ([the party script](#what-each-job-gives-the-party)).
 - **Book:** pages 9-10.
 
 **J2 set-up (Dining Room).** Strawberry vines have grown round the garden
@@ -1035,9 +1112,13 @@ fills, and a picture of the dust bunnies pops into it. Behind him in the
 grove, the real bunnies look at the basket, ears down, and one more ripe berry
 glows on the nearest plant. The child taps it (after 6 seconds Roshan picks it
 herself); it hops to the bunnies, who share it, giggling. Roshan: *"Five for
-the cake, and one for you, bunnies!" (new, J2-FN)* Full and happy, the bunnies
-snooze under the leaves. Next: *"Next, the cake!" (new)* The Kitchen door
-lights. Saves: `chapter2_strawberry_mask` `0x1F` and the Farmer's party bit.
+the cake, and one for you, bunnies!" (new, J2-FN)* With one of their own, they
+stop grabbing and start helping. Dust bunnies: *"We can help!" (new)* They
+roll off with tiny baskets, and in a quick, happy picture each basket fills
+with berries, one for every friend at the party, to take home. Then, full and
+proud, the bunnies snooze under the leaves. Next: *"Next, the cake!" (new)*
+The Kitchen door lights. Saves: `chapter2_strawberry_mask` `0x1F` and the
+Farmer's party bit; the baskets need no key of their own.
 
 ### J3 — Chef: Daddy's apron
 
@@ -1049,8 +1130,9 @@ lights. Saves: `chapter2_strawberry_mask` `0x1F` and the Farmer's party bit.
   Kitchen. Roshan in Daddy's apron and a chef's hat, Daddy, a dust bunny, Baby
   Eagle, Grand Puff. Then Lamma.
 - **Piece:** the rainbow cake. **Friend helped:** Daddy, whose plan it is.
-- **For the party:** the cake, with a place for the candle, and the seat
-  beside it for Evie ([the party script](#what-each-job-gives-the-party)).
+- **For the party:** the cake in the middle of everything, with a place for
+  the candle, the seat beside it for Evie, and a slice for everyone after the
+  wish ([the party script](#what-each-job-gives-the-party)).
 - **Book:** pages 11-13.
 
 **J3 set-up (Kitchen).** The basket on the counter. Daddy ties the apron:
@@ -1127,8 +1209,9 @@ lights. Saves: `chapter2_cake_piece_mask` `0x7F` and the Chef's party bit.
   Daddy.
 - **Piece:** the birthday banner. **Friend helped:** Grand Puff, whose rainbow
   it carries.
-- **For the party:** a lawn that looks like a party from the path, in
-  colours for Flower Friend ([the party script](#what-each-job-gives-the-party)).
+- **For the party:** a lawn that looks like a party, in colours for Flower
+  Friend, with Roshan's own picture in the middle so everyone knows whose it
+  is, and seen first from the path so everyone can find it ([the party script](#what-each-job-gives-the-party)).
 - **Book:** page 14.
 
 **J4 set-up (Craft Room).** The tuft of wool from Episode One is still on the
@@ -1146,7 +1229,7 @@ needs pretty too!"* and, booped, *"Bonk! Now I'm a different colour."*
 
 | # | Beat | On screen | The child | Voice | Cue |
 |---|---|---|---|---|---|
-| B1 | Paint | A long blank banner across the clean table | Paints across it | Roshan: *"A banner for my party! Paint, paint!" (new)* Her chosen colour comes first, then the rainbow bands; a picture of the cake and candle appears in the medallion | Colour spreads under her brush |
+| B1 | Paint | A long blank banner across the clean table | Paints across it | Roshan: *"A banner for my party! Paint, paint!" (new)* Her chosen colour comes first, then the rainbow bands; in the medallion in the middle, her own smiling picture appears, so everyone will know whose party it is | Colour spreads under her brush |
 | B2 | Stamp | Five star outlines on the banner | Taps each | Roshan: *"Stamp, stamp! Five stars!" (new)* | Each outline twinkles |
 | B3 | Send it | Three pictures in the window: the party tree, the grove, the pool | Taps the party tree | Roshan: *"To the party tree!" (new)* | The tree picture glows |
 | B4 | Away | Baby Eagle takes the rolled banner in his claws and flies out of the window toward the lawn | — | Baby Eagle's chirp | — |
@@ -1165,11 +1248,13 @@ fixed (Baby Eagle always carries the banner).
 | J4-DECK-M1 | Coach | B1 | The long banner keeps rolling up; Daddy holds the far end | Paints | Daddy: *"I've got this end!" (new)* | The banner lies flat |
 | J4-DECK-E1 | Helper | B1 | Baby Eagle brings the brush in his beak | Taps him | Chirp | The brush is in Roshan's hand |
 
-**R4.** The banner hangs in the party tree's branches. While she painted,
-Daddy hung bunting along the Main Hall cornice. Daddy with the scroll: the
-banner frame fills, and Flower Friend's picture hops into it. Roshan: *"Now
-everyone can see it's a party!" (new, J4-FN)* Next: *"Next, the dance!" (new)*
-The Playroom door lights. Saves: the Painter's party bit.
+**R4.** The banner hangs in the party tree's branches, on the branch Roshan
+mended, with her own picture in the middle, facing the path. Roshan: *"On the
+branch we mended!" (new)* While she painted, Daddy hung bunting along the Main
+Hall cornice. Daddy with the scroll: the banner frame fills, and Flower
+Friend's picture hops into it. Roshan: *"Now everyone can see it's my party!"
+(new, J4-FN)* Next: *"Next, the dance!" (new)* The Playroom door lights.
+Saves: the Painter's party bit.
 
 ### LAMMA-JOIN and J5 — Ballerina: room for everyone
 
@@ -1182,8 +1267,8 @@ The Playroom door lights. Saves: the Painter's party bit.
   Eagle, Grand Puff, Daddy.
 - **Piece:** the stuffie team's dance. **Friends helped:** Lamma, Kitty and
   Bunny.
-- **For the party:** something to do, for Harper and Fiona, and room for one
-  more: Lamma ([the party script](#what-each-job-gives-the-party)).
+- **For the party:** something to do, gentle or wild, for Harper and Fiona,
+  and room for one more, the shy one: Lamma ([the party script](#what-each-job-gives-the-party)).
 - **Book:** pages 15-19.
 
 **LAMMA-JOIN — Hide-and-seek, gently.** This is the game in which Lamma
@@ -1224,7 +1309,7 @@ part."*, *"The music box! No music, no party, hee hee!"* and, booped,
 | B1 | The music box opens | The shell music box plays; Kitty, Bunny and Lamma in a row | — | Music | — |
 | B2 | Mirror | Roshan strikes a pose; the three copy. Lamma is a beat late, then gets it | Taps the matching pose, three times | Roshan: *"Point!" (new)* | The matching pose glows |
 | B3 | Twirl | A ribbon path across the floor | Traces the ribbon; the stuffies twirl along it | Roshan: *"Twirl!" (new)* | A dotted ribbon |
-| B4 | Bow | — | One grand circle, then everyone bows; Lamma bows too low and rolls over | Roshan: *"Bow! The stuffie team can dance!" (new)* | A circle trail |
+| B4 | The wild twirl, then the bow | — | Big circles, as fast as she likes: the faster she draws, the faster everyone spins (the wild half of the dance). Then everyone bows; Lamma bows too low and rolls over | Roshan: *"Faster, faster!" (new)*, then *"Bow! The stuffie team can dance!" (new)* | A circle trail |
 
 Before this can ship, the build's Ballerina blocker must be fixed: the story
 goals of 6 and 2 exceed the ballet surface's cap of 1.0 (build audit B2).
@@ -1257,8 +1342,8 @@ Saves: `chapter2_stuffie_ballet_done` and the Ballerina's party bit.
   the Opera Hall's own stage. Roshan with a headset, Rumi, the dust bunnies in
   the front row, Baby Eagle, Daddy, Grand Puff.
 - **Piece:** the song. **Friend helped:** Rumi, who shares her memory.
-- **For the party:** a song everyone can hear, even Kareem at the back
-  ([the party script](#what-each-job-gives-the-party)).
+- **For the party:** a song everyone can hear and a show to watch, even for
+  Kareem at the back ([the party script](#what-each-job-gives-the-party)).
 - **Book:** page 20.
 - **Rumi's rule:** no voice and no new frames. She acts with her existing idle
   and wave frames and speaks through music and pictures; Roshan says what
@@ -1317,7 +1402,7 @@ Mermaid Pool door lights. Saves: the Pop Star's party bit.
 - **Piece:** the little rocket. **Friend helped:** the seahorse, glad to
   return the favour.
 - **For the party:** one big WOW that everyone sees at once, even Princess
-  Huluu ([the party script](#what-each-job-gives-the-party)).
+  Huluu, and a countdown that says when ([the party script](#what-each-job-gives-the-party)).
 - **Book:** page 21.
 
 **J7-L1 — Practice: "The Rocket Repair Race," three steps.** PIPES (connect
@@ -1365,7 +1450,8 @@ Saves: the Astronaut's party bit and the rocket's parked, unlaunched state.
   dust bunny, Baby Eagle, Grand Puff.
 - **Piece:** the rainbow candle. **Friend helped:** Rumi's memory, and the
   castle's.
-- **For the party:** a light to wish on ([the party script](#what-each-job-gives-the-party)).
+- **For the party:** a light to wish on, and to see by as the sun goes
+  down ([the party script](#what-each-job-gives-the-party)).
 - **Book:** page 22.
 
 **J8-L1 — Practice: "The Two-Detective Mystery," two steps.** SEARCH (sweep
@@ -1429,7 +1515,8 @@ The lawn at golden hour, staged as in
 [GFX-LAWN-05](06_GRAPHICS_AUDIT.md#gfx-lawn-05):
 
 - **Left of centre:** the party tree in blossom, the banner strung in its
-  branches, Baby Eagle on his branch.
+  branches with Roshan's picture facing the path, Baby Eagle on his mended
+  branch. In the deepest shade at the foot of the trunk, the soft petal nest.
 - **Under the tree:** the table with the rainbow cake. On top of the cake is
   an empty shell candle holder.
 - **In front:** the stuffie blanket with Kitty, Bunny, Lamma and the music
@@ -1445,8 +1532,9 @@ The lawn at golden hour, staged as in
   the banner; Evie at the table, beside the cake; Harper and Fiona at the
   stuffie blanket's edge; Kareem's big chair furthest back, facing Rumi's
   stage; Princess Huluu by the rocket; Wacky and Chuck at the right end,
-  nearest the path, because they came furthest. The dust bunnies wear party
-  hats too. The arc stays shallow and the right third stays open.
+  nearest the path, because they came furthest. A tiny berry basket waits
+  beside every guest. The dust bunnies wear party hats too. The arc stays
+  shallow and the right third stays open.
 - **To the right:** open lawn, and the path that climbs up from the far
   northern mountains. That is where the King will come from.
 - **On the horizon:** the castle, small, where the moonflower door will glint.
@@ -1457,8 +1545,8 @@ The lawn at golden hour, staged as in
 |---|---|---|---|---|
 | 1 | The Main Hall at golden hour; the big doors glowing. Daddy holds out a painted party hat and puts it on Roshan | — | Daddy: *"A hat for the birthday girl!" (new)* | — |
 | 2 | — | Touches the doors | — | The doors glow; the hand |
-| 3 | Roshan swims out along the promenade with the candle in her arms. Grand Puff hops ahead; Baby Eagle flies above; party bubbles from the bath float past | — | — | — |
-| 4 | The lawn comes into view: everyone under the party tree, waving, each friend beside the thing made for them. Wacky and Chuck wave from the end nearest the path: they came furthest | — | A crowd cheer *(new sound)*; Wacky's existing *"Ho ho! Hello there, little mermaid!"* may follow. Daddy: *"Everyone is here, birthday girl!" (new)* | — |
+| 3 | Roshan swims out along the promenade with the candle in her arms. Grand Puff hops ahead; Baby Eagle flies ahead to his branch; party bubbles from the bath float past. The first thing she sees is the pink tree with her banner in it | — | — | — |
+| 4 | The lawn comes into view: everyone under the party tree, waving, each friend beside the thing made for them. From his mended branch Baby Eagle, the lookout, chirps hello first. Wacky and Chuck wave from the end nearest the path: they came furthest | — | Baby Eagle's chirp. A crowd cheer *(new sound)*; Wacky's existing *"Ho ho! Hello there, little mermaid!"* may follow. Daddy: *"Everyone is here, birthday girl!" (new)* | — |
 | 5 | The cake, with its empty candle holder | Touches the holder; Roshan sets the candle in it | Roshan: *"Our candle goes on top!" (new)* | A moving hand on the holder |
 
 Save: `chapter2_lawn_started` (existing).
@@ -1471,25 +1559,26 @@ pointer moves on by itself after about 8 seconds, so the tour never stalls.
 
 | Piece | What happens when touched | Its friend | Voice |
 |---|---|---|---|
-| The party tree | Blossoms drift down; Baby Eagle chirps on his branch | Faron rocks her baby in the shade (her whole picture sways) | Roshan: *"Baby Eagle's tree is all better!" (new)* Faron's existing *"Shhh... the babies are getting sleepy."* may follow |
+| The party tree | Blossoms drift down into the petal nest; Baby Eagle chirps on his mended branch | Faron rocks her baby by the nest, in the shade (her whole picture sways) | Roshan: *"Baby Eagle's tree is all better!" (new)* Faron's existing *"Shhh... the babies are getting sleepy."* may follow |
 | The cake | The five strawberries twinkle | Evie leans in beside it | Roshan: *"Our rainbow cake!" (new)* |
-| The banner | It ripples in the breeze; the five stars shine | Flower Friend sways beneath its colours | Roshan: *"My banner!" (new)* |
-| The stuffie team | Kitty, Bunny and Lamma bow; then Lamma bounces over to Evie, who hugs her (Evie's Seek sheet, so only one Lamma is ever on screen: [GFX-LAMMA-02](06_GRAPHICS_AUDIT.md#gfx-lamma-02)) | Harper and Fiona bounce at the blanket's edge | Roshan: *"Our stuffie team!" (new)* Harper's existing *"Wheee! That was amazing!"* may follow |
+| The banner | It ripples in the breeze; Roshan's picture in the middle shines, then the five stars | Flower Friend sways beneath its colours | Roshan: *"My banner!" (new)* |
+| The stuffie team | Kitty, Bunny and Lamma spin their wild twirl and bow; then Lamma bounces over to Evie, who hugs her (Evie's Seek sheet, so only one Lamma is ever on screen: [GFX-LAMMA-02](06_GRAPHICS_AUDIT.md#gfx-lamma-02)) | Harper and Fiona bounce at the blanket's edge | Roshan: *"Our stuffie team!" (new)* Harper's existing *"Wheee! That was amazing!"* may follow |
 | Rumi's stage | Rumi waves; the microphone chimes two notes | Kareem, furthest back, leans toward the music | Roshan: *"Rumi's song!" (new)* |
 | The rocket | It wiggles on its pad | Princess Huluu leans in, arms still folded | Roshan: *"Our little rocket!" (new)* |
 
 Then Roshan turns to everyone: *"We made all of this together!" (new)* A
-friend straightens a crooked hat; the dust bunnies bounce. Save:
-`chapter2_lawn_tour`, one bit per piece shown (new, additive).
+friend straightens a crooked hat; the dust bunnies bounce beside the berry
+baskets they filled. Save: `chapter2_lawn_tour`, one bit per piece shown
+(new, additive).
 
 ### F3 — Light our rainbow
 
 | # | On screen | The child | Voice | Cue |
 |---|---|---|---|---|
 | 1 | The rocket's brass button glows | Touches the rocket | Roshan: *"Ready? Let's light our rainbow!"* | The hand on the button, at the fingertip ([GFX-LAWN-19](06_GRAPHICS_AUDIT.md#gfx-lawn-19)) |
-| 2 | Roshan swims to the rocket, reaches up and presses the button (the built reach and hand contact) | — | — | — |
+| 2 | Roshan swims to the rocket, reaches up and presses the button (the built reach and hand contact). The button blinks three times, and everyone counts along, each guest bobbing on each number | — | Roshan: *"Three... two... one!" (new)* | Three blinks |
 | 3 | A sparkle trail arcs from the rocket's nose to the candle. The rainbow flame opens. The camera moves in on the cake; warm rainbow light spills over every face, and Princess Huluu, arms folded all party, bounces, helmet and all | — | A soft crowd "Oooh!" *(new sound)*. Chuck's real bark, once. Roshan: *"Look! Our rainbow candle is shining!"* Huluu's existing *"Thank you, Mermaid Roshan! You did a great job!"* may follow | — |
-| 4 | The birthday song begins from Rumi's stage; everyone sways. The lit candle holds on screen for at least 2.4 seconds before anything else moves | — | The song (the existing Pop Star score, instrumental) | — |
+| 4 | The birthday song begins from Rumi's stage; everyone sways. Kareem, who never dances, watches Rumi from his big chair at the back and sways too. The lit candle holds on screen for at least 2.4 seconds before anything else moves, its glow bright against the setting sun | — | The song (the existing Pop Star score, instrumental) | — |
 | 5 | Far away on the castle, for one second, a moonflower shape glints in answer | — | A faint chime | — |
 | 6 | In the hedge beside the path, two small glowing eyes. An ember imp, the same kind as at the Opera, peeks out, stares at the candle, gasps, and scurries off down the hill | — | Imp: *"The rainbow light! The King must see this!" (new)* Roshan: *"The little imp from the Opera?" (new)* | — |
 
@@ -1510,7 +1599,7 @@ learn" how to make a party, and now the child sees where they were going.
 | 5 | Roshan opens her hands toward the party | — | Roshan: *"All of us did. You can join us." (new)* |
 | 6 | The Prince nearly smiles. The King steps between them | — | — |
 | 7 | The King points a big claw at the candle | — | King: *"A rainbow light! That belongs at a KING'S party. MY birthday party!" (new)* |
-| 8 | The Prince takes a small step forward, hand half raised | — | Prince: *"Father, it's HER birthday." (new)* |
+| 8 | The Prince glances up at the banner, at Roshan's picture in the middle, then takes a small step forward, hand half raised | — | Prince: *"Father, it's HER birthday." (new)* |
 | 9 | The King stamps; a glowing ember ring marks the grass | — | King: *"Then show me how strong you are!" (new)* |
 | 10 | Roshan looks up at him (hands clasped), then back at her friends | — | Roshan, softly: *"He's so big..." (new)* |
 | 11 | She swims in front of her friends and stands tall | — | Roshan: *"...but I can keep my friends safe." (new)* |
@@ -1544,7 +1633,7 @@ using the existing encounter engine (`scripts/chapter_two_ember_encounter.gd`).
 
 | Round | The King | Friend | Shelter layer | Voice |
 |---|---|---|---|---|
-| 1, "Royal stomp" | One stomp on Roshan's last spot (engine phase `royal_stomp`) | The dust bunnies | They roll together into a soft wall in front of the guests | Dust bunnies: *"We can help!" (new)* |
+| 1, "Royal stomp" | One stomp on Roshan's last spot (engine phase `royal_stomp`) | The dust bunnies | They roll together into a soft wall in front of the guests | Dust bunnies: *"We can help!"* (their line from `R2`) |
 | 2, "Double demand" | Two stomps, each with its own full warning (`double_demand`) | The Prince, then Baby Eagle | Before the second stomp the Prince points at clear grass (his help is real). After the counter, Baby Eagle flies down with the banner and holds it over the guests like a roof | Prince: *"Over here!" (new)* Baby Eagle's chirp. Roshan: *"Thank you, Baby Eagle!" (new)* |
 | 3, "Make way" | One stomp, then a clearly marked straight sweep of his cape along a lane (`make_way`) | Grand Puff | He bounces to the middle and puffs his rainbow into a dome over everyone and the cake | Roshan: *"Your rainbow keeps us safe!" (new)* |
 
@@ -1595,7 +1684,7 @@ suggests his warning made Roshan responsible. Saves: beat 6 (the theft) and
 
 | # | On screen | The child | Voice |
 |---|---|---|---|
-| 1 | Quiet. The music has stopped. The warm light drains away. The rainbow dome softly pops into sparkles; the bunny wall unrolls; Baby Eagle lays the banner back in the tree | — | — |
+| 1 | Quiet. The music has stopped. The warm light drains away: the sun is almost down, and without the candle the lawn falls into dusk. The rainbow dome softly pops into sparkles; the bunny wall unrolls; Baby Eagle lays the banner back in the tree | — | — |
 | 2 | Roshan looks at the empty holder. Her tail droops; she hugs herself | — | Roshan: *"He took our light." (new)* |
 | 3 | The shyest friend moves first. Lamma bounces out from under the stuffie blanket with Roshan's party hat and holds it up | Touches Lamma (a glowing hand on her) | A soft bleat |
 | 4 | The hat goes back on Roshan's head. The friends lean in around her. Daddy moves beside her and hugs her | — | Daddy: *"I'm proud of you." (new)* |
@@ -1604,6 +1693,7 @@ suggests his warning made Roshan responsible. Saves: beat 6 (the theft) and
 | 7 | Daddy smiles | — | Daddy: *"And you can still make a wish." (new)* |
 | 8 | Roshan closes her eyes, hands together. Sparkles gather in her hands as the child holds; the birthday song comes back softly from Rumi's stage; everyone sways | Holds on Roshan (the hold learned in the Pop Star practice) | Roshan, whispering: *"We'll find our light together." (new)* |
 | 9 | She opens her hands; the sparkles float up into the evening sky, over the castle | — | — |
+| 10 | Daddy cuts the cake: a slice for every friend, a crumb for every dust bunny, and the biggest slice for the birthday girl. Everyone eats together in the dusk | — | Roshan: *"Cake for everyone!" (new)* |
 
 The touch at step 3 is the child's own act of accepting comfort, and the hold
 at step 8 is her wish. Neither can fail; after 8 seconds the hand shows the
@@ -1615,13 +1705,16 @@ never skip the kind ending (an existing rule).
 Everything the jobs made for someone is still here: the shade, the cake, the
 colours, the dance and the song. Only the candle, the light to wish on, is
 gone, and step 8 shows the child that the wish was never the candle's
-([what no job makes](#what-each-job-gives-the-party)).
+([what no job makes](#what-each-job-gives-the-party)). Step 10 pays off the
+Chef's function line, "Cake for everyone": nobody goes home hungry. The cake
+keeps its cut state from here on (a new picture state; no new save, since it
+follows `chapter2_wish_made`).
 
 ### F8 — The door wakes
 
 | # | On screen | The child | Voice |
 |---|---|---|---|
-| 1 | Sunset over the cloud sea. Everyone goes home together: the stuffie team riding on the cake's cart, Baby Eagle above, Grand Puff hopping ahead, the dust bunnies rolling behind | — | — |
+| 1 | The last of the sunset over the cloud sea. The friends wave goodbye and set off down the path, each with a tiny berry basket for the way home; Wacky and Chuck have the longest way. Then everyone else goes home to the castle together: the stuffie team riding on the cake's cart, Baby Eagle above, Grand Puff hopping ahead, the dust bunnies rolling behind | — | Roshan: *"Berries for the way home!" (new)* |
 | 2 | The Main Hall, lamps warm. The moonflower relief on the wall between the Opera Hall and the Playroom pulses with a soft rainbow glow: the light the candle woke, just as Roshan wished | — | Roshan: *"The castle found a secret sky door!"* (existing voiced line) |
 | 3 | One large moving pointer on the pearl at its centre | Touches the pearl | — |
 | 4 | The petals open. Beyond: a rainbow path over the night clouds (the Rainbow Skyway), and far away the little lights of the Butterfly House | — | Daddy, yawning: *"An adventure for tomorrow, birthday girl." (new)* Roshan: *"Tomorrow!" (new)* |
@@ -1647,10 +1740,9 @@ and picked up later.
 - The existing cooking game: tap the apple, the carrot and a strawberry into
   the pot, then stir. The dust bunnies watch from the counter.
 - New closing picture: the family and friends at the Dining Room table. Daddy
-  brings in the rainbow cake. Everyone gets a slice. Roshan: *"He took the
-  candle. But not the cake!" (new)*
-- After this the cake on the lawn is shown with a few slices missing (an
-  optional new cake state; otherwise the lawn keeps the whole cake).
+  brings in the rest of the rainbow cake, cut at the party (F7). Everyone gets
+  another slice. Roshan: *"He took the candle. But not the cake!" (new)*
+- The cake keeps its cut state from F7 wherever it is shown afterwards.
 
 ### E2 — The movie of the day (Movie Lounge)
 
@@ -1909,16 +2001,16 @@ Arborist-first sequence `[18, 6, 0, 10, 2, 13, 11, 1]`, chapter mask
 |---|---|---|---|---|---|
 | P-2 (Episode One) | — | A wool tuft on the Craft Room table | Baby Eagle | Peeked twice | Hidden in the storybook |
 | D2-OPEN-2 | 0 of 8; seven friends invited, one empty frame | The plan's easel in the Main Hall | Baby Eagle, Grand Puff | Hiding | Hidden |
-| J1 | 1 | The blooming party tree on the lawn | Baby Eagle, Grand Puff | Hiding | Hidden |
-| J2 | 2 | The strawberry basket on the Kitchen counter; vines on the berry door; the dust bunnies full and snoozing in the grove | Same | Hiding | Hidden |
+| J1 | 1 | The blooming party tree on the lawn, with a petal nest in its shade | Baby Eagle, Grand Puff | Hiding | Hidden |
+| J2 | 2 | The strawberry basket on the Kitchen counter; vines on the berry door; a tiny berry basket for every friend, filled by the dust bunnies, who now snooze in the grove | Same | Hiding | Hidden |
 | J3 and LAMMA-3 | 3 | The rainbow cake, with its empty shell candle holder, on the Kitchen's pearl table; floury bounce marks | Same, and the lavender egg | Peeked three times | Hidden |
-| J4 | 4 | The banner in the party tree; bunting in the Main Hall | Same, and the egg | Hiding | Hidden |
+| J4 | 4 | The banner, with Roshan's picture, in the party tree; bunting in the Main Hall | Same, and the egg | Hiding | Hidden |
 | LAMMA-JOIN and J5 | 5; Lamma fills the one-more frame | The stuffie team's blanket and music box, packed; balloons in the Main Hall | Baby Eagle, Grand Puff | Joined; in the roster | Hidden |
 | J6 | 6 | The shell microphone, packed for Rumi's stage | Same | With the team | Remembered by Rumi |
 | J7 | 7 | The rocket parked by the pool | Same | With the team | Needed |
 | J8 | 8 of 8 | The party carried to the lawn; the Main Hall doors glow | Same, and the candle | With the team | In Roshan's arms |
 | F3 | Full | The candle lit on the cake | Same | On the blanket | Lit |
 | F6 | Full | Everything but the candle | Same | On the blanket | Taken north by the King |
-| F7 | Full | The same; Roshan's hat back on | Same | Brought the hat | Gone |
-| F8 | Full | The moonflower door open onto the Rainbow Skyway | Same | Home with the team | Gone |
+| F7 | Full | The same; Roshan's hat back on; the cake cut, a slice for everyone | Same | Brought the hat | Gone |
+| F8 | Full | The guests gone home, each with a berry basket; the moonflower door open onto the Rainbow Skyway | Same | Home with the team | Gone |
 | E3 | Full | The birthday sleepover; the cake with slices missing | Everyone | Asleep, hugging her egg | Gone; "We'll find our light together" |

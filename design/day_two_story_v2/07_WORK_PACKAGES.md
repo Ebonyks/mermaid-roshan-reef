@@ -183,13 +183,13 @@ cues, challenge deck, R-beat, saves and assets:
 
 | Package | Job | Level 2 place | Notes |
 |---|---|---|---|
-| WP-07 | J1 Arborist | Sky Lagoon lawn, party tree | Needs the Arborist art committed first; new career (Arborist handoff) |
-| WP-08 | J2 Farmer | Sky Lagoon strawberry grove | Reuse Chapter 2 Farmer phases in-world; R2 gives the dust bunnies one more berry |
-| WP-09 | J3 Chef | Royal Kitchen | Adds the strawberry-topping phase; the finished cake shows the empty shell candle holder from then on; LAMMA-3 at the end |
-| WP-10 | J4 Painter | Craft Room | Banner goes to the party tree via Baby Eagle |
-| WP-11 | J5 Ballerina | Stuffie Playroom | Starts with LAMMA-JOIN (WP-15); R5 fills the one-more frame with Lamma |
+| WP-07 | J1 Arborist | Sky Lagoon lawn, party tree | Needs the Arborist art committed first; new career (Arborist handoff); the petal nest in the shade; Baby Eagle's lookout perch on the mended branch |
+| WP-08 | J2 Farmer | Sky Lagoon strawberry grove | Reuse Chapter 2 Farmer phases in-world; R2 gives the dust bunnies one more berry, and they fill a tiny berry basket for every friend (shown, no input) |
+| WP-09 | J3 Chef | Royal Kitchen | Adds the strawberry-topping phase; the finished cake shows the empty shell candle holder from then on; the cut-cake state for F7; LAMMA-3 at the end |
+| WP-10 | J4 Painter | Craft Room | Banner goes to the party tree via Baby Eagle; the paint reveals Roshan's own picture in the medallion; R4 hangs it on the mended branch ("On the branch we mended!") |
+| WP-11 | J5 Ballerina | Stuffie Playroom | Starts with LAMMA-JOIN (WP-15); the grand twirl spins as fast as the child draws (the wild half); R5 fills the one-more frame with Lamma |
 | WP-12 | J6 Pop Star | Opera Hall stage | Rumi has no voice: her memory is shown as a picture and said by Roshan |
-| WP-13 | J7 Astronaut | Mermaid Pool | Rainbow waterfall fuels the rocket; seahorse helps |
+| WP-13 | J7 Astronaut | Mermaid Pool | Rainbow waterfall fuels the rocket; seahorse helps; the rocket's three-blink countdown is built with WP-16 |
 | WP-14 | J8 Detective | Royal Library | The unlit candle; completes the party |
 
 - **Acceptance for each:** strict order; passive, held and off-target input
@@ -232,9 +232,15 @@ cues, challenge deck, R-beat, saves and assets:
 - **Depends on:** WP-07…WP-15.
 - **Outputs:** everything in plotline sections 9 and 10, with the production
   detail in [04](04_FINALE_PARTY_CHAPTER.md):
-  - the party map (each guest beside the piece made for them), the candle
-    set in its holder, and the payoff tour with each piece's friend reacting
-    as a whole picture (existing guest clips optional, unaltered);
+  - the party map (each guest beside the piece made for them, a tiny berry
+    basket beside each, the petal nest by Faron), the candle set in its
+    holder, and the payoff tour with each piece's friend reacting as a whole
+    picture (existing guest clips optional, unaltered);
+  - every party need met in the scenes: Baby Eagle's hello from the mended
+    branch (F1), the countdown and Kareem watching Rumi's show (F3), the
+    Prince reading Roshan's picture on the banner (F4), the lawn falling into
+    dusk without the candle and the cake shared after the wish (F7), and the
+    friends going home with their berry baskets (F8);
   - ignition with Rumi's song, and the imp scout;
   - the royal entrance, with the King's "MY birthday party!";
   - three rounds with friend shelter layers and painted warnings;

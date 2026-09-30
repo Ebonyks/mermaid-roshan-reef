@@ -101,7 +101,7 @@ Deck: P1 (book), D1, D2, M1, E1. Baby Eagle always carries the banner.
 | LAMMA-JOIN | Four finds | Seek's four-find `tap` (`scripts/games/seek.gd`) | Toy chest (wool), block tower (bounce marks), play tent (a bleat), stuffie nook (the stuffies point) |
 | LAMMA-JOIN | The egg | `tap` | Roshan's egg |
 | Practice | PEARL MIRROR, RIBBON TRAIL, GRAND TWIRL | `ballet_pose`, `ballet_ribbon`, `ballet_twirl` | The Ballerina world |
-| Real | B2-B4 Mirror, twirl, bow | The same three modes, with goals the surface can reach (build audit B2) | Kitty, Bunny and Lamma |
+| Real | B2-B4 Mirror, twirl, bow | The same three modes, with goals the surface can reach (build audit B2); in B4 the grand twirl spins as fast as the child draws, the wild half of the dance | Kitty, Bunny and Lamma |
 
 Deck (the dance only): M1 (book), D1, E1, P1. Save: `lamma_moments_seen` bit
 3, `lamma_joined`, `friend_lamma`, `chapter2_stuffie_ballet_done`.
@@ -149,11 +149,11 @@ Deck: M1 (book), D1, E1, P1. Save: `rainbow_candle_found`,
 |---|---|---|---|
 | F1 | Open the doors; set the candle in its holder | `tap`, `tap` | `chapter2_lawn_started` |
 | F2 | The payoff tour, six pieces | `tap` each (auto-advance after 8 s) | `chapter2_lawn_tour` |
-| F3 | Light the candle | `tap` the rocket; Roshan walks and presses (built) | `chapter2_lawn_beat` 1 |
+| F3 | Light the candle | `tap` the rocket; Roshan walks and presses (built); the three-blink countdown plays with no input | `chapter2_lawn_beat` 1 |
 | F4 | Dialogue | `tap` the forward picture, or wait for the voice | Beats 2-3 |
 | F5 | Three rounds | Move: `tap` or drag to the safe spot. Counter: `tap` the gold star | Protection rounds 1-3 |
 | F6 | The theft | `tap` to advance | Beat 6, `chapter2_candle_taken` |
-| F7 | Comfort; the wish | `tap` Lamma; `hold` on Roshan | Beat 8, `chapter2_story_complete`, `chapter2_wish_made` |
+| F7 | Comfort; the wish; cake for everyone | `tap` Lamma; `hold` on Roshan; then watch the cake shared | Beat 8, `chapter2_story_complete`, `chapter2_wish_made` (the cut cake follows it) |
 | F8 | The door | `tap` the pearl | The existing Chapter 3 reveal keys |
 | E1-E3 | Supper, the movie, the sleepover | The existing comfy games | Their existing keys |
 
@@ -246,6 +246,7 @@ new):
 | J2 | Daddy | "One... two... three..." | Daddy filler (Will) |
 | J2 | Daddy | "Heave-ho!" | Daddy filler (Will) |
 | R2 | Roshan | "Five for the cake, and one for you, bunnies!" | Synthetic Roshan |
+| R2, F5 | Dust bunnies | "We can help!" | New dust bunny voice |
 | R2 | Daddy | "Next, the cake!" | Daddy filler (Will) |
 | J3 | Daddy | "Apron on, birthday chef!" | Daddy filler (Will) |
 | J3 | Roshan | "Let's learn the cake!" | Synthetic Roshan |
@@ -273,7 +274,8 @@ new):
 | J4 | Roshan | "Sparkly paw prints! They look pretty!" | Synthetic Roshan |
 | J4 | Roshan | "Pop, pop!" | Synthetic Roshan |
 | J4 | Daddy | "I've got this end!" | Daddy filler (Will) |
-| R4 | Roshan | "Now everyone can see it's a party!" | Synthetic Roshan |
+| R4 | Roshan | "On the branch we mended!" | Synthetic Roshan |
+| R4 | Roshan | "Now everyone can see it's my party!" | Synthetic Roshan |
 | R4 | Daddy | "Next, the dance!" | Daddy filler (Will) |
 | LAMMA-JOIN, J5 | Roshan | "We need one more dancer!" | Synthetic Roshan |
 | LAMMA-JOIN, J5 | Roshan | "The little lamb! Let's find her. Gently!" | Synthetic Roshan |
@@ -284,6 +286,7 @@ new):
 | LAMMA-JOIN, J5 | Roshan | "Let's learn the dance!" | Synthetic Roshan |
 | LAMMA-JOIN, J5 | Roshan | "Point!" | Synthetic Roshan |
 | LAMMA-JOIN, J5 | Roshan | "Twirl!" | Synthetic Roshan |
+| LAMMA-JOIN, J5 | Roshan | "Faster, faster!" | Synthetic Roshan |
 | LAMMA-JOIN, J5 | Roshan | "Bow! The stuffie team can dance!" | Synthetic Roshan |
 | LAMMA-JOIN, J5 | Daddy | "One, two, three, twirl!" | Daddy filler (Will) |
 | LAMMA-JOIN, J5 | Dust bunny | "Whee! Sorry!" | New dust bunny voice |
@@ -335,6 +338,7 @@ new):
 | F2 | Roshan | "Rumi's song!" | Synthetic Roshan |
 | F2 | Roshan | "Our little rocket!" | Synthetic Roshan |
 | F2 | Roshan | "We made all of this together!" | Synthetic Roshan |
+| F3 | Roshan | "Three... two... one!" | Synthetic Roshan |
 | F3 | Imp | "The rainbow light! The King must see this!" | Imp voice |
 | F3 | Roshan | "The little imp from the Opera?" | Synthetic Roshan |
 | F4 | King | "Make way! Make way for the King!" | New King preset |
@@ -345,7 +349,6 @@ new):
 | F4 | King | "Then show me how strong you are!" | New King preset |
 | F4 | Roshan | "He's so big..." | Synthetic Roshan |
 | F4 | Roshan | "...but I can keep my friends safe." | Synthetic Roshan |
-| F5 | Dust bunnies | "We can help!" | New dust bunny voice |
 | F5 | Prince | "Over here!" | New Prince preset |
 | F5 | Roshan | "Thank you, Baby Eagle!" | Synthetic Roshan |
 | F5 | Roshan | "Your rainbow keeps us safe!" | Synthetic Roshan |
@@ -360,6 +363,8 @@ new):
 | F7 | Roshan | "But you're all still here." | Synthetic Roshan |
 | F7 | Daddy | "And you can still make a wish." | Daddy filler (Will) |
 | F7 | Roshan | "We'll find our light together." | Synthetic Roshan |
+| F7 | Roshan | "Cake for everyone!" | Synthetic Roshan |
+| F8 | Roshan | "Berries for the way home!" | Synthetic Roshan |
 | F8 | Daddy | "An adventure for tomorrow, birthday girl." | Daddy filler (Will) |
 | F8 | Roshan | "Tomorrow!" | Synthetic Roshan |
 | E1 | Roshan | "He took the candle. But not the cake!" | Synthetic Roshan |

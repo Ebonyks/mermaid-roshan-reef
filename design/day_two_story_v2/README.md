@@ -10,7 +10,7 @@ it does not change any binding document until the owner approves it (see
 
 | File | What it is | Main reader |
 |---|---|---|
-| [00 Plotline](00_DAY_TWO_PLOTLINE.md) | **Start here.** The whole of Day Two, scene by scene: every room's story, the cast, the challenge decks mixing in Daddy, the dust bunnies, Grand Puff and Baby Eagle, Lamma from her first peek to the stuffie team, the party-preparation script (what each job gives the party, and who it is for), the eight jobs with their practice and real levels, the party with the Ember King and the Prince, the evening, and the map from the built levels to each scene | Everyone |
+| [00 Plotline](00_DAY_TWO_PLOTLINE.md) | **Start here.** The whole of Day Two, scene by scene: every room's story, the cast, the challenge decks mixing in Daddy, the dust bunnies, Grand Puff and Baby Eagle, Lamma from her first peek to the stuffie team, the party-preparation script (every party need met by the eight jobs, and a full script card for each job), the eight jobs with their practice and real levels, the party with the Ember King and the Prince, the evening, and the map from the built levels to each scene | Everyone |
 | [01 Story bible](01_STORY_BIBLE.md) | Canon from Book One, the Day Two premise and themes, the shape of the day, the practise-then-for-real routine, the cast, Lamma's arc, the rules for mixing Day One friends into challenges, and what Day Two keeps from the August party-function script | Owner, writers |
 | [02 Book Two manuscript](02_PICTURE_BOOK_MANUSCRIPT.md) | The 32-page picture-book text in Book One's style; every page names the game beat it anchors | Owner, book team |
 | [03 Level mechanics](03_LEVEL_DESIGN.md) | The plotline's build sheet: every step's gesture mode, object and save, and every new voice line, generated from the plotline | Designers, Astra |
@@ -106,8 +106,10 @@ owner answers.
     party-function rule for the eight jobs, as in the plotline's
     [what each job gives the party](00_DAY_TWO_PLOTLINE.md#what-each-job-gives-the-party):
     a named guest for each job, cast from the protected portraits; a
-    function line in each R-beat; Daddy sending the invitations at dawn; and
-    one empty "room for one more" frame that Lamma fills. The alternative for
+    function line in each R-beat; Daddy sending the invitations at dawn; one
+    empty "room for one more" frame that Lamma fills; and every party need the
+    August papers list met by the eight jobs, none left for later days (the
+    plotline's checklist of twenty). The alternative for
     the invitations is the August ruling (the Astronaut sends them by rocket),
     which would change J7 and the binding spine
     ([01, section 11](01_STORY_BIBLE.md#11-the-party-preparation-script-what-day-two-keeps)).
