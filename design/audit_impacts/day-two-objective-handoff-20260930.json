@@ -1,6 +1,6 @@
 {
   "id": "day-two-objective-handoff-20260930",
-  "scope": "CI-discovered bounded follow-up to the owner-authorized Day One/Two alpha repair: a new or explicitly repeated Opera phase supersedes stale speech and queued dialogue, keeps the exact speaker recording, and is not suppressed by a prior objective or its cooldown. Force a Chapter Two route cue and queued cue across the real Racer phase to reproduce the fast-runner failure. Existing voice bytes, gameplay, awards, touch and save behavior remain unchanged.",
+  "scope": "CI-discovered bounded follow-up to the owner-authorized Day One/Two alpha repair: a new or explicitly repeated Opera phase supersedes stale speech and queued dialogue, keeps the exact speaker recording, and is not suppressed by a prior objective or its cooldown. Force a Chapter Two route cue and queued cue across the real Racer phase to reproduce the fast-runner failure. Existing voice bytes, gameplay, awards, touch and save behavior remain unchanged. Reconcile documentation-only dev 29bbd80a, preserving the separately authorized imp-contest target and handoff verification; canonical runtime files remain identical to local-green e0655b30.",
   "baseline": "83d7e1ed403143c8895935d5bd1d3b93807f7f20",
   "rules": [
     "DL-AUTH-05",
@@ -52,6 +52,16 @@
       "command": "Exact work-branch CI and integrated dev APK publication",
       "result": "PENDING",
       "evidence": "Remote run, source, APK digest and acceptance receipt will be bound to the final revision in the PR before delivery. Do not infer device/listening/child/owner acceptance."
+    },
+    {
+      "command": "Metadata reconciliation: git diff --exit-code HEAD -- scripts scenes assets project.godot export_presets.cfg .github/workflows",
+      "result": "PASS",
+      "evidence": "objective_handoff_receipt.json binds incoming 29bbd80aeb539b45b1f34bb93324883addf8b0c8 and local-green e0655b3033ac8f73b2e43c0195ea7c801bb7d74f; runtime diff NONE."
+    },
+    {
+      "command": "Reconciled authority/impact, Imagine handoffs, inventory regression and document/development contract tests",
+      "result": "PASS",
+      "evidence": "objective_handoff_receipt.json records exact base 29bbd80a, 588/588 authority, ALL OK impact and handoff, NO_REGRESSION/UNSATISFIED inventory, 52 contract tests and stress 6/6."
     }
   ],
   "acceptance_gaps": "Physical Android listening, touch/performance, child and owner acceptance remain open. No changed art or audio bytes. Whole-game true-2D satisfaction remains UNSATISFIED; source gates and APK publication do not establish acceptance."

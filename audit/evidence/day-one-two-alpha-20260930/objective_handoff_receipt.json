@@ -129,5 +129,31 @@
       "scripts\\opera_career_world_2d.gd": "72206317a9801ef20a12b4d62ade5b7c20449f0612f62c2372c30d3cfa4cea1b",
       "scripts\\probe_opera.gd": "35159fdb0f7321e7a5559f72b61e3b6936996405bd205b3e0be44a115eece1d2"
     }
+  },
+  "metadata_reconciliation": {
+    "incoming_source": "29bbd80aeb539b45b1f34bb93324883addf8b0c8",
+    "validated_local_source": "e0655b3033ac8f73b2e43c0195ea7c801bb7d74f",
+    "runtime_namespace": [
+      "scripts",
+      "scenes",
+      "assets",
+      "project.godot",
+      "export_presets.cfg",
+      ".github/workflows"
+    ],
+    "runtime_diff": "NONE; git diff --exit-code HEAD -- canonical runtime namespace",
+    "scope": "Preserve separately authorized Opera imp-contest target specification and its published verification. No runtime implementation or alpha gameplay changes arrive in this merge.",
+    "gates": {
+      "document_authority": "ALL OK; 588/588, 57 active/59 records",
+      "audit_development": "ALL OK; base 29bbd80aeb539b45b1f34bb93324883addf8b0c8",
+      "handoff": "IMAGINE|RESULT|ALL OK",
+      "game_medium": "NO_REGRESSION; UNSATISFIED",
+      "authority_contract_tests": "52 tests OK; stress 6/6",
+      "gate_log_sha256": {
+        "objective_2d_reconciliation.log": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+        "objective_handoff_reconciliation.log": "f6c7edfe84713e442ff4e8bfd0c714c2cf8f3258466e8f1ef9b04e076e974cb4",
+        "objective_authority_tests.log": "684c3879602ab9c55630d42e99cacbce1798e505f6944d192cade5df6355a186"
+      }
+    }
   }
 }
