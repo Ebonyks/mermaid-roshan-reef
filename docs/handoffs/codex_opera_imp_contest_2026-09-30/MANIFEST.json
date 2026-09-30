@@ -7,9 +7,9 @@
   "evidence_baseline": "dev 55032e88936b22723fd9af5282c61ba6696b3d43",
   "entry": "README.md",
   "file_count": 8,
-  "total_bytes": 298245,
+  "total_bytes": 329379,
   "hash_basis": "SHA-256 of the committed Git blob bytes (LF line endings), identical to what raw.githubusercontent.com serves",
-  "revision": "3 (2026-09-30): art-reuse and imp-contact corrections from the Day Two art review; revision 2 (OD-C, inverted Teacher and Geologist contests) was df01b7ce, revision 1 was 7ec82d46",
+  "revision": "4 (2026-09-30): adds OD-D, silly questions and sillier imp lines; revision 3 (art-reuse and imp-contact corrections) was 86732a47, revision 2 (OD-C) was df01b7ce, revision 1 was 7ec82d46",
   "files": [
     {
       "path": ".gdignore",
@@ -19,26 +19,26 @@
     },
     {
       "path": "CONTEST_DESIGN.md",
-      "bytes": 66812,
-      "sha256": "2d01c2f8f822327e8fd167496fadc493dcea7dc5f8c41185e232f21373c5d388",
+      "bytes": 74367,
+      "sha256": "cd6c88c049a3e34394dfb4750f94c81f39d6f9fd899424508130ac515332d679",
       "role": "contest design and implementation specification"
     },
     {
       "path": "CURRENT_STATE_ANALYSIS.md",
-      "bytes": 16137,
-      "sha256": "b7bf944fb4825dee9d225418a1a9d0de074e47346a6ac78061a036304d405d11",
+      "bytes": 16206,
+      "sha256": "6f1f269eb49af52b29b9a7ee8eaaeff4821c7ee821d74a204348d95ddb493415",
       "role": "current-state analysis with code anchors"
     },
     {
       "path": "README.md",
-      "bytes": 9124,
-      "sha256": "e0bb855cf48c5ab46dc373254cdc29a598e5bcf4ec78abddfa8528aafd366474",
+      "bytes": 10892,
+      "sha256": "03f39abb68659eafe2261df1830fa2e159bc9b55a3089ffdb9371a46b7801a62",
       "role": "handoff entry point"
     },
     {
       "path": "data/contest_spec.json",
-      "bytes": 48758,
-      "sha256": "c1e5ae4248e945ce534e13ffc783e4b5f45b57e5db99c9fa1acba722405bb7b6",
+      "bytes": 60339,
+      "sha256": "59ceab2e06ac3c1acaaae112edf21b62ca32b87c4713b5cb02262c4bc8c5fe57",
       "role": "machine-readable contest specification (hand-authored)"
     },
     {
@@ -49,14 +49,14 @@
     },
     {
       "path": "data/imp_voice_inventory.json",
-      "bytes": 49594,
-      "sha256": "5e17be85909e4e340dc7db97941c857eb3089cc285a3569c663748017bfc76dd",
+      "bytes": 59748,
+      "sha256": "8420d7f58411cb7a9ab0cf0b1621dacf297805b086733a69c07de42dc74a331f",
       "role": "generated imp voice inventory and new-line list (text)"
     },
     {
       "path": "tools/build_packet_data.py",
-      "bytes": 18852,
-      "sha256": "0bd23929b39d31d2a48745a02e8cdf3d1ee13a4f97e940ad2c310d2255112a4f",
+      "bytes": 18859,
+      "sha256": "7cfd956f1d499ce2ad6eb47c1c59d5e597bd59219242425c8a36818cb6d32bde",
       "role": "text-only generator and checker for the inventories and manifest"
     }
   ]

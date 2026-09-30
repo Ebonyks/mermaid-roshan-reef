@@ -2,7 +2,7 @@
   "schema": "opera_imp_contest_spec/1",
   "status": "PROPOSED / CANDIDATE - owner direction recorded; implementation, probes and acceptance pending",
   "baseline": "55032e88936b22723fd9af5282c61ba6696b3d43",
-  "revision": "3 (2026-09-30): art-reuse and imp-contact corrections from the Day Two art review; revision 2 (OD-C, inverted Teacher and Geologist contests) was df01b7ce, revision 1 was 7ec82d46",
+  "revision": "4 (2026-09-30): adds OD-D, silly questions and sillier imp lines; revision 3 (art-reuse and imp-contact corrections) was 86732a47, revision 2 (OD-C) was df01b7ce, revision 1 was 7ec82d46",
   "owner_decisions": [
     {
       "id": "OD-2026-09-30-A",
@@ -23,6 +23,13 @@
       "quote": "The teacher should have an imp, but the game inverts, he teaches information that's wrong and it's your job to figure it out, which beats the imp. Similar educational type games",
       "meaning": "The Teacher gets a visible imp. Its contest inverts: the imp teaches with deliberate mistakes, and the child beats him by finding each mistake and showing the right answer. Educational careers use the same inverted format.",
       "interpretation_to_confirm": "The Teacher's inverted rounds reuse its four lesson kinds (pattern, count, add, match). 'Similar educational type games' is also read as covering the Geologist, the other learning career (FIELD GUIDE MIX-UP). If the owner did not mean the Geologist, it stays cooperative."
+    },
+    {
+      "id": "OD-2026-09-30-D",
+      "date": "2026-09-30",
+      "quote": "Lean into silly humor here, questions like, which smells the worst, farts, garbage, old diapers or rotten cheese?",
+      "meaning": "The imp's lessons are deliberately silly and gross-funny. The Teacher contest gains silly questions like the owner's example, and every imp line gets sillier.",
+      "interpretation_to_confirm": "Silly questions alternate with the math lessons rather than replacing them; the owner's smell question is used exactly and always comes first. If the owner wants the whole Teacher contest to be silly questions, only the round list changes."
     }
   ],
   "shared": {
@@ -67,6 +74,7 @@
       "his_point": "her first pick is his wrong answer or another wrong answer: he plays hop_b then taunt with op_lesson_tricked; the golden help then shows the right answer (existing teacher_help clip) and she taps it to finish the round, scoring nothing",
       "hint": "the hint button stays available; a hinted round scores for nobody and still ends with her placing the right answer",
       "truth_last": "every round ends with the correct answer on the board, placed by her; his wrong answer is never left standing",
+      "humor": "silly and gross-funny, never mean: the joke is always on the imp or on the thing, never on the child or her family; he never calls her names and never says she smells; gross pictures stay cartoony",
       "clock": "none: he never scores by time, so there is no idle pause and zero input never decides",
       "flub": "none: every round is already his mistake",
       "rematch_mercy": "his target +1 per rematch (cap +2); rounds step down one tier (never below 0); his wrong answer becomes the most obviously wrong choice",
@@ -546,7 +554,8 @@
         "player": {
           "mode": "geology_mixup (new mode on OperaGeologySurface)",
           "points_to_win": 3,
-          "rounds": ["fossil", "rocks", "fossil", "rocks", "fossil"],
+          "rounds": ["fossil", "rocks", "silly_rock", "fossil", "rocks", "silly_rock"],
+          "round_silly_rock": "Two code-drawn rocks and one silly look-alike (a potato, a cookie or a meatball). He says they are all rocks and pretends to crunch one. She taps the look-alike; he bites a real rock instead. Exactly one right answer.",
           "round_fossil": "His fossil is assembled from the same three vertical strips of geologist_fossil.svg that she snapped together in FOSSIL, with exactly one strip upside down. Her finished fossil stays small beside it as the model. She taps the wrong strip; it flips the right way up.",
           "round_rocks": "Three code-drawn minerals (_draw_mineral) on the pan, two the same and one different. He says they are all the same. She taps the different one; it hops aside and sparkles.",
           "difficulty": "rocks: tier 0 differs in colour and shape, tier 1 in colour only, tier 2 in shape only (a round pebble against faceted crystals, drawn in the same style); fossil: tier 0 the middle strip, later tiers either end strip",
@@ -560,13 +569,16 @@
       "voice": {
         "entrance": "op_geologist_arrive",
         "defeat": "op_geologist_defeat",
-        "new_imp_challenge": {"key": "op_geologist_challenge", "text": "My turn to teach! Can you spot my mistakes?"},
+        "new_imp_challenge": {"key": "op_geologist_challenge", "text": "My turn to teach! Can you spot my silly mistakes?"},
         "new_roshan_contest": {"key": "op_geologist_contest", "text": "The imp is teaching it wrong! Tap his mistake to fix it!"},
         "new_lines": [
-          {"speaker": "imp", "key": "op_geologist_arrive", "text": "Hello! I'm the field guide. I know everything about rocks!"},
-          {"speaker": "imp", "key": "op_geologist_claim_fossil", "text": "Look at my perfect fossil!"},
-          {"speaker": "imp", "key": "op_geologist_claim_rocks", "text": "These rocks are all the same!"},
-          {"speaker": "imp", "key": "op_geologist_defeat", "text": "You know more about rocks than me!"}
+          {"speaker": "imp", "key": "op_geologist_arrive", "text": "Hello! I'm the field guide! Rocks are my favourite snack!"},
+          {"speaker": "imp", "key": "op_geologist_claim_fossil", "text": "Look at my perfect fossil! It's a dinosaur's belly button!"},
+          {"speaker": "imp", "key": "op_geologist_claim_rocks", "text": "These rocks are all the same! Like three peas in a pod!"},
+          {"speaker": "imp", "key": "op_geologist_defeat", "text": "You know more about rocks than me! My head must be a rock!"},
+          {"speaker": "imp", "key": "op_geologist_silly_rock_claim", "text": "These are all rocks! Crunchy crunchy!"},
+          {"speaker": "imp", "key": "op_geologist_silly_rock_right", "text": "Ow, my teeth! That one's a real rock!"},
+          {"speaker": "imp", "key": "op_geologist_silly_rock_tricked", "text": "Hee hee! Tricked you! That's a real rock!"}
         ]
       },
       "art": {
@@ -575,7 +587,7 @@
         "her_object": "assets/opera/worlds/hotspots/geologist_fossil.svg",
         "pieces": ["code-drawn minerals (_draw_mineral)"],
         "flub_sprite": null,
-        "new": ["recommended, not required: rival_geologist 13-state family (yellow hard hat with a small lamp, khaki vest with pockets, a small rock hammer as his held prop), made by Codex through the existing costume-family process"]
+        "new": ["for the silly-rock rounds: three look-alike icons (a potato, a cookie, a meatball) in the same icon set as the Teacher's silly pictures", "recommended, not required: rival_geologist 13-state family (yellow hard hat with a small lamp, khaki vest with pockets, a small rock hammer as his held prop), made by Codex through the existing costume-family process"]
       }
     },
     "teacher": {
@@ -592,7 +604,16 @@
         "player": {
           "mode": "teacher_imp_lesson (new mode on OperaTeacherSurface)",
           "points_to_win": 3,
-          "rounds": ["pattern", "count", "add", "match", "pattern"],
+          "rounds": ["silly", "pattern", "silly", "count", "silly", "add", "silly", "match"],
+          "round_note": "Silly rounds alternate with lesson rounds; the first silly round of an attempt is the owner's smell question, then the silly list rotates from the total of teacher_learning_progress rounds so visits vary without a new save key.",
+          "silly_rounds": {
+            "owner_decision": "OD-2026-09-30-D",
+            "shape": "Five picture cards: four that fit the question and one that obviously does not, which the imp picks proudly. Any fitting card is right (her choice among them is her opinion); the imp's pick is the only wrong answer.",
+            "flow": "The imp asks the question, naming the four fitting pictures as each one wiggles; he claims his pick (purple outline, taunt); her first pick decides the round. A fitting pick: he tests it (sniffs, listens, lifts, squeezes or tastes) with his reaction line, reaction poses and any sound, and she scores. His pick: his tricked line and his point, then the golden sparkle marks the four fitting cards and she picks one to see his reaction, scoring nothing. Hint: the sparkle marks the fitting cards and nobody scores.",
+            "layout": "five cards in one row on the lesson board (a new five-card branch in choice_rect, about 150 px wide on a 165 px step), positions shuffled each round",
+            "mastery": "silly rounds do not call record_result; they are not TeacherLessonPlan lessons",
+            "questions": [{"id": "smell", "owner_example": true, "ask": "Which smells the worst? Farts, garbage, old diapers, or rotten cheese?", "fitting": ["a green fart cloud with stink lines", "an overflowing garbage can", "an old droopy diaper with stink lines", "a moldy wedge of rotten cheese with two cartoon flies"], "imp_pick": "a pretty red rose", "claim": "I know! This pretty rose! Pee-yew!", "right": "Pee-yew! That's so stinky! I'm gonna faint!", "tricked": "Hee hee! Tricked you! Roses smell nice!", "reaction": [["stagger", 0.4], ["bopped", 1.0], ["recover", 0.5]], "sfx": {"a green fart cloud with stink lines": "assets/audio/fart.ogg"}}, {"id": "loud", "ask": "Which is the loudest? A burp, a big drum, a roaring lion, or a fire truck?", "fitting": ["a frog with puffed cheeks mid-burp", "a big drum", "a roaring lion", "a red fire truck with its siren flashing"], "imp_pick": "a teeny tiny mouse", "claim": "Easy! This teeny tiny mouse! Squeak!", "right": "Ow, my ears! That's so loud!", "tricked": "Hee hee! Tricked you! Mice are super quiet!", "reaction": [["guard", 1.2], ["recover", 0.5]], "sfx": {}}, {"id": "big", "ask": "Which is the biggest? A whale, an elephant, a dinosaur, or a castle?", "fitting": ["a whale", "an elephant", "a friendly long-neck dinosaur", "a castle"], "imp_pick": "an itty bitty ant", "claim": "I know! This itty bitty ant! Look at its muscles!", "right": "Whoa! That's so big! I feel teeny!", "tricked": "Hee hee! Tricked you! Ants are tiny!", "reaction": [["hop_b", 0.5], ["stagger", 0.6], ["recover", 0.4]], "sfx": {}}, {"id": "sticky", "ask": "Which is the stickiest? Honey, bubble gum, a booger, or slime?", "fitting": ["a dripping honey pot", "a big pink bubble-gum bubble", "a green cartoon booger on a tissue", "a blob of green slime"], "imp_pick": "a fluffy feather", "claim": "This fluffy feather! It sticks to everything!", "right": "Eww! My fingers are stuck together!", "tricked": "Hee hee! Tricked you! Feathers float away!", "reaction": [["recover", 0.8], ["stagger", 0.6]], "sfx": {}}, {"id": "cold", "ask": "Which is the coldest? Ice cream, a snowman, an ice cube, or a penguin?", "fitting": ["an ice-cream cone", "a snowman", "an ice cube", "a penguin"], "imp_pick": "the bright hot sun", "claim": "Brrr! The sun! It's freezing!", "right": "Brrr! My toes are frozen!", "tricked": "Hee hee! Tricked you! The sun is hot!", "reaction": [["guard", 1.2], ["recover", 0.5]], "sfx": {}}, {"id": "slow", "ask": "Which is the slowest? A snail, a turtle, a sloth, or a slug?", "fitting": ["a snail", "a turtle", "a sleepy sloth", "a slug"], "imp_pick": "a zooming rocket", "claim": "Zoom! This rocket is soooo slow!", "right": "Sooo... slooow... Yaaawn!", "tricked": "Hee hee! Tricked you! Rockets go zoom!", "reaction": [["idle", 1.0], ["recover", 0.6]], "sfx": {}}, {"id": "squishy", "ask": "Which is the squishiest? Jelly, a marshmallow, mud, or a whoopee cushion?", "fitting": ["a wobbly jelly", "a marshmallow", "a mud puddle", "a whoopee cushion"], "imp_pick": "a hard grey rock", "claim": "This hard rock! Squishy squishy!", "right": "Squish! So squishy!", "tricked": "Hee hee! Tricked you! Rocks are hard!", "reaction": [["charge", 0.4], ["stagger", 0.6], ["recover", 0.4]], "sfx": {"a whoopee cushion": "assets/audio/fart.ogg"}}, {"id": "yucky", "ask": "Which is the yuckiest to eat? A mud pie, a wiggly worm, a stinky sock, or soap?", "fitting": ["a mud pie", "a wiggly worm", "a stinky sock with stink lines", "a bar of soap"], "imp_pick": "a pink cupcake", "claim": "Yuck! This cupcake!", "right": "Bleh! Yucky yucky yuck!", "tricked": "Hee hee! Tricked you! Cupcakes are yummy!", "reaction": [["stagger", 0.4], ["bopped", 0.9], ["recover", 0.5]], "sfx": {}}]
+          },
           "lesson_source": "TeacherLessonPlan.make_lesson(kind, teacher_learning_progress) at her current tier for that kind, plus the imp's wrong answer: normally the nearest distractor, never the correct choice",
           "his_mistake": {
             "pattern": "he fills the blank with his wrong shape, inside a purple outline",
@@ -613,31 +634,63 @@
       "voice": {
         "entrance": "op_teacher_arrive",
         "defeat": "op_teacher_defeat",
-        "new_imp_challenge": {"key": "op_teacher_challenge", "text": "My turn to be the teacher! Can you catch my mistakes?"},
+        "new_imp_challenge": {"key": "op_teacher_challenge", "text": "My turn to be the teacher! Can you catch my silly mistakes?"},
         "new_roshan_contest": {"key": "op_teacher_contest", "text": "The imp is teaching it wrong! Tap the right answer to fix it!"},
         "new_lines": [
-          {"speaker": "imp", "key": "op_teacher_arrive", "text": "Hello, class! I'm the new teacher!"},
-          {"speaker": "imp", "key": "op_teacher_claim_pattern", "text": "Easy! This one comes next!"},
-          {"speaker": "imp", "key": "op_teacher_claim_count", "text": "I counted them all! It's this many!"},
-          {"speaker": "imp", "key": "op_teacher_claim_add", "text": "Put them together, and it makes this many!"},
-          {"speaker": "imp", "key": "op_teacher_claim_match", "text": "Look! These two are the same!"},
-          {"speaker": "imp", "key": "op_teacher_defeat", "text": "You're the real teacher! I'll sit down now."}
+          {"speaker": "imp", "key": "op_teacher_arrive", "text": "Hello, class! I'm the new teacher! I know everything! I think."},
+          {"speaker": "imp", "key": "op_teacher_claim_pattern", "text": "Easy peasy, lemon squeezy! This one comes next!"},
+          {"speaker": "imp", "key": "op_teacher_claim_count", "text": "One, two, three... eleventy-twelve! It's this many!"},
+          {"speaker": "imp", "key": "op_teacher_claim_add", "text": "Two plus one makes... a banana! No wait. This many!"},
+          {"speaker": "imp", "key": "op_teacher_claim_match", "text": "Look! These two are twins! Same, same, same!"},
+          {"speaker": "imp", "key": "op_teacher_defeat", "text": "You're the real teacher! I'll go sit in the silly corner."},
+          {"speaker": "imp", "key": "op_teacher_silly_smell_ask", "text": "Which smells the worst? Farts, garbage, old diapers, or rotten cheese?"},
+          {"speaker": "imp", "key": "op_teacher_silly_smell_claim", "text": "I know! This pretty rose! Pee-yew!"},
+          {"speaker": "imp", "key": "op_teacher_silly_smell_right", "text": "Pee-yew! That's so stinky! I'm gonna faint!"},
+          {"speaker": "imp", "key": "op_teacher_silly_smell_tricked", "text": "Hee hee! Tricked you! Roses smell nice!"},
+          {"speaker": "imp", "key": "op_teacher_silly_loud_ask", "text": "Which is the loudest? A burp, a big drum, a roaring lion, or a fire truck?"},
+          {"speaker": "imp", "key": "op_teacher_silly_loud_claim", "text": "Easy! This teeny tiny mouse! Squeak!"},
+          {"speaker": "imp", "key": "op_teacher_silly_loud_right", "text": "Ow, my ears! That's so loud!"},
+          {"speaker": "imp", "key": "op_teacher_silly_loud_tricked", "text": "Hee hee! Tricked you! Mice are super quiet!"},
+          {"speaker": "imp", "key": "op_teacher_silly_big_ask", "text": "Which is the biggest? A whale, an elephant, a dinosaur, or a castle?"},
+          {"speaker": "imp", "key": "op_teacher_silly_big_claim", "text": "I know! This itty bitty ant! Look at its muscles!"},
+          {"speaker": "imp", "key": "op_teacher_silly_big_right", "text": "Whoa! That's so big! I feel teeny!"},
+          {"speaker": "imp", "key": "op_teacher_silly_big_tricked", "text": "Hee hee! Tricked you! Ants are tiny!"},
+          {"speaker": "imp", "key": "op_teacher_silly_sticky_ask", "text": "Which is the stickiest? Honey, bubble gum, a booger, or slime?"},
+          {"speaker": "imp", "key": "op_teacher_silly_sticky_claim", "text": "This fluffy feather! It sticks to everything!"},
+          {"speaker": "imp", "key": "op_teacher_silly_sticky_right", "text": "Eww! My fingers are stuck together!"},
+          {"speaker": "imp", "key": "op_teacher_silly_sticky_tricked", "text": "Hee hee! Tricked you! Feathers float away!"},
+          {"speaker": "imp", "key": "op_teacher_silly_cold_ask", "text": "Which is the coldest? Ice cream, a snowman, an ice cube, or a penguin?"},
+          {"speaker": "imp", "key": "op_teacher_silly_cold_claim", "text": "Brrr! The sun! It's freezing!"},
+          {"speaker": "imp", "key": "op_teacher_silly_cold_right", "text": "Brrr! My toes are frozen!"},
+          {"speaker": "imp", "key": "op_teacher_silly_cold_tricked", "text": "Hee hee! Tricked you! The sun is hot!"},
+          {"speaker": "imp", "key": "op_teacher_silly_slow_ask", "text": "Which is the slowest? A snail, a turtle, a sloth, or a slug?"},
+          {"speaker": "imp", "key": "op_teacher_silly_slow_claim", "text": "Zoom! This rocket is soooo slow!"},
+          {"speaker": "imp", "key": "op_teacher_silly_slow_right", "text": "Sooo... slooow... Yaaawn!"},
+          {"speaker": "imp", "key": "op_teacher_silly_slow_tricked", "text": "Hee hee! Tricked you! Rockets go zoom!"},
+          {"speaker": "imp", "key": "op_teacher_silly_squishy_ask", "text": "Which is the squishiest? Jelly, a marshmallow, mud, or a whoopee cushion?"},
+          {"speaker": "imp", "key": "op_teacher_silly_squishy_claim", "text": "This hard rock! Squishy squishy!"},
+          {"speaker": "imp", "key": "op_teacher_silly_squishy_right", "text": "Squish! So squishy!"},
+          {"speaker": "imp", "key": "op_teacher_silly_squishy_tricked", "text": "Hee hee! Tricked you! Rocks are hard!"},
+          {"speaker": "imp", "key": "op_teacher_silly_yucky_ask", "text": "Which is the yuckiest to eat? A mud pie, a wiggly worm, a stinky sock, or soap?"},
+          {"speaker": "imp", "key": "op_teacher_silly_yucky_claim", "text": "Yuck! This cupcake!"},
+          {"speaker": "imp", "key": "op_teacher_silly_yucky_right", "text": "Bleh! Yucky yucky yuck!"},
+          {"speaker": "imp", "key": "op_teacher_silly_yucky_tricked", "text": "Hee hee! Tricked you! Cupcakes are yummy!"}
         ]
       },
       "art": {
         "backdrop": "Library background tiles (assets/flats/castle/interactions_v4/background_tiles/room_library_background_r0_c0.png to r1_c3.png)",
         "roshan": "assets/opera/worlds/actors/animation/roshan_teacher_sheet_a.png",
         "her_object": "assets/opera/worlds/hotspots/teacher_lesson_board.svg",
-        "pieces": ["code-drawn shapes, pearls and cards (OperaTeacherSurface)"],
+        "pieces": ["code-drawn shapes, pearls and cards (OperaTeacherSurface)", "assets/audio/fart.ogg (existing project-original sound, reused for the fart cloud and the whoopee cushion)"],
         "flub_sprite": null,
-        "new": ["recommended: rival_teacher 13-state family (round glasses slipping down his nose, a small mortarboard cap tilted over one horn, a cream cardigan with a coral bow tie, a wooden pointer with a star tip as his held prop), made by Codex through the existing costume-family process; the owner approves the new idle before Sheets A and B"]
+        "new": ["required for the silly rounds: one consistent set of 40 picture icons, the five pictures of each silly question (see silly_rounds.questions), made by Codex after first checking existing approved art (DL-PLAN-03); one object per icon, transparent, at most 512 px, broad pastel fills with navy outlines to match the lesson board; cartoon-gross, never realistic; the owner approves the first five (the smell question) before the rest", "recommended: rival_teacher 13-state family (round glasses slipping down his nose, a small mortarboard cap tilted over one horn, a cream cardigan with a coral bow tie, a wooden pointer with a star tip as his held prop), made by Codex through the existing costume-family process; the owner approves the new idle before Sheets A and B"]
       }
     }
   },
   "new_shared_voice": [
     {"speaker": "imp", "key": "op_contest_win", "text": "I won! I won! Let's play again!"},
     {"speaker": "roshan", "key": "op_contest_again", "text": "Again! I can do it this time!"},
-    {"speaker": "imp", "key": "op_lesson_fixed", "text": "Oops! You fixed it!", "use": "inverted contests: she fixed his mistake"},
-    {"speaker": "imp", "key": "op_lesson_tricked", "text": "Hee hee! I tricked you!", "use": "inverted contests: her first pick was wrong"}
+    {"speaker": "imp", "key": "op_lesson_fixed", "text": "Oops! You fixed it! My brain is full of bubbles!", "use": "inverted contests: she fixed his mistake"},
+    {"speaker": "imp", "key": "op_lesson_tricked", "text": "Hee hee! Tricked you!", "use": "inverted contests: her first pick was wrong (silly rounds use their own tricked lines)"}
   ]
 }

@@ -8,9 +8,9 @@
 
 This is the "before" picture for [CONTEST_DESIGN.md](CONTEST_DESIGN.md).
 
-**Revision 2 (2026-09-30):** the owner's decision OD-C (a Teacher imp who teaches wrong
-things for the child to fix) absorbs H2. The imp-use numbers in §5 now include the Teacher's
-and Geologist's inverted contests.
+**Revisions 2 to 4 (2026-09-30):** the owner's decision OD-C (a Teacher imp who teaches
+wrong things for the child to fix) absorbs H2. The imp-use numbers in §5 now include the
+Teacher's and Geologist's inverted contests and OD-D's silly questions.
 
 ## 1. The formula
 
@@ -270,10 +270,13 @@ Per-file evidence, hashes and planned roles are in
 - **After the contests:** 36 would play, or 39 with Nursery option B. For each costumed
   career, the arrive line becomes his entrance, the copy line his flub and the bop line his
   defeat. The Farmer swaps copy and bop; see `CONTEST_DESIGN.md` §6.6.
-- **New lines:** 35 are needed. That is 25 for the costumed careers and the shared win and
-  "Again!" lines, 8 for the Teacher, and 2 shared "fixed" and "tricked" lines. Add 6 more
-  if the Geologist contest is confirmed, and 2 if Nursery option B is chosen. Per-key detail
-  is in [data/imp_voice_inventory.json](data/imp_voice_inventory.json).
+- **New lines:** 67 are needed:
+  - 25 for the costumed careers and the shared win and "Again!" lines;
+  - 40 for the Teacher, 32 of them for the silly questions;
+  - 2 shared "fixed" and "tricked" lines.
+
+  Add 9 more if the Geologist contest is confirmed, and 2 if Nursery option B is chosen.
+  Per-key detail is in [data/imp_voice_inventory.json](data/imp_voice_inventory.json).
 
 ## 6. What this means for the design
 

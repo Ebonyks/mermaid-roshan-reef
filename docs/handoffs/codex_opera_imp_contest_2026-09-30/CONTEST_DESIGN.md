@@ -7,8 +7,9 @@
 - **Revisions:**
   - 1 (`7ec82d46`): the twelve costumed contests;
   - 2 (`df01b7ce`): owner decision OD-C and the inverted Teacher and Geologist contests;
-  - 3: the Day Two art review's corrections on reusing current art and on the imp touching
-    his work (§4.16).
+  - 3 (`86732a47`): the Day Two art review's corrections on reusing current art and on the
+    imp touching his work (§4.16);
+  - 4: owner decision OD-D, silly questions and sillier imp lines (§4.15, §6.13).
 - **Prepared by:** Claude. Written specification only, with no images, per the CLAUDE.md
   rule "Codex handoffs: Claude writes, Codex builds images". Codex implements.
 - **Machine-readable twin:** [data/contest_spec.json](data/contest_spec.json). The prose and
@@ -24,6 +25,8 @@
 - **OD-C:** "The teacher should have an imp, but the game inverts, he teaches information
   that's wrong and it's your job to figure it out, which beats the imp. Similar
   educational type games"
+- **OD-D:** "Lean into silly humor here, questions like, which smells the worst, farts,
+  garbage, old diapers or rotten cheese?"
 
 What they mean for the game:
 1. The career's costumed imp is **not seen** before the final act. He **enters** when the
@@ -34,6 +37,9 @@ What they mean for the game:
 4. **Learning careers invert.** The Teacher gets a visible imp who teaches with deliberate
    mistakes. The child beats him by finding each mistake and showing the right answer
    (§4.15, §6.13).
+5. **Silly and gross-funny.** The imp's lessons lean into silly humor. The Teacher contest
+   adds silly questions like the owner's smell question, and all his lines get sillier
+   (§6.13).
 
 **Interpretation to confirm with the owner (restart scope).**
 - This design restarts **the contest only**: both sides go back to zero and play again
@@ -48,6 +54,12 @@ What they mean for the game:
 - "Similar educational type games" is also read as covering the Geologist, the other
   learning career, which gets the same inverted format (§6.14).
 - If the owner did not mean the Geologist, it stays cooperative and §6.14 is dropped.
+
+**Interpretation to confirm with the owner (silly questions).**
+- Silly questions alternate with the math lessons rather than replacing them.
+- The owner's smell question is used word for word and always comes first.
+- If the owner wants the whole Teacher contest to be silly questions, only the round list
+  changes.
 
 The new binding rule `DL-INT-14`, in
 [design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md](../../../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md),
@@ -404,9 +416,9 @@ things wrong on purpose.
 4. Her **first pick** decides the round:
    - **Right** (the right answer, or the wrong part): his mistake pops off with a soft puff
      (`fx_dust_puff.png`), the right answer settles in, and he plays `stagger` then
-     `recover` with "Oops! You fixed it!". Her pearl.
+     `recover` with "Oops! You fixed it! My brain is full of bubbles!". Her pearl.
    - **Wrong** (his answer, or another wrong one): he plays `hop_b` then `taunt` with "Hee
-     hee! I tricked you!". His pearl. The golden help then shows the right answer, with the
+     hee! Tricked you!". His pearl. The golden help then shows the right answer, with the
      existing Teacher help clip ("Look at the golden sparkle. You can try again."), and she
      taps it to finish the round. That tap scores nothing.
    - **Hint:** the hint button stays available. A hinted round scores for nobody, and she
@@ -424,6 +436,13 @@ things wrong on purpose.
 - **Restart:** when he wins, the win beat and "Again!" play as in §4.7. Points reset; the
   round rotation continues where it was, so she never repeats the round she just lost.
 - **Cheer tier** uses the points margin (§4.8).
+- **Silly rounds** (Teacher, §6.13) show five pictures: four that fit the question and one
+  that obviously does not, which he picks. Any fitting picture is right, because the child's
+  choice among them is her opinion. His pick is the only wrong answer.
+- **Humor rule (OD-D):** silly and gross-funny, never mean.
+  - The joke is always on the imp or on the thing, never on the child or her family.
+  - He never calls her names and never says she smells.
+  - Gross pictures stay cartoony.
 
 **Why this suits a four-year-old.** Early-maths research has long used a "puppet paradigm":
 a puppet counts, sometimes wrongly, and the child says whether it was right. Preschoolers
@@ -848,31 +867,70 @@ confirmation) are the inverted contests from OD-C.
 - **Final act:** MATCH, then the contest, both at `lesson_desk` on the same lesson board. New
   `PHASE_STATIONS` entry `"IMP'S LESSON": "lesson_desk"`.
 - **Entrance:** when MATCH arms, he runs in and takes his place at the right end of the board
-  (§4.11). Line (new): "Hello, class! I'm the new teacher!" He watches her MATCH lesson and
+  (§4.11). Line (new): "Hello, class! I'm the new teacher! I know everything! I think." He
+  watches her MATCH lesson and
   bounces (`stagger`, `hop_b`) when she gets it right.
 - **Challenge:** he taps the board with his pointer.
-  - His line (new): "My turn to be the teacher! Can you catch my mistakes?"
+  - His line (new): "My turn to be the teacher! Can you catch my silly mistakes?"
   - Her line (new): "The imp is teaching it wrong! Tap the right answer to fix it!"
-- **Rounds:** pattern, count, add, match, pattern, and so on.
-  - Each lesson comes from `TeacherLessonPlan.make_lesson` at her current tier for that kind.
-  - His wrong answer comes from `imp_answer` (§5.5).
+- **Rounds:** silly, pattern, silly, count, silly, add, silly, match, and so on.
+  - Each lesson round comes from `TeacherLessonPlan.make_lesson` at her current tier for that
+    kind, and his wrong answer from `imp_answer` (§5.5).
+  - The first silly round of an attempt is always the owner's smell question. After that the
+    silly list rotates from the total of `teacher_learning_progress` rounds, so visits vary
+    without a new save key.
 - **His four kinds of mistake** (every line new):
   - **Pattern:** the row shows the pattern with its blank. He fills the blank with the wrong
-    shape inside a purple outline: "Easy! This one comes next!" She taps the shape card that
-    really comes next.
+    shape inside a purple outline: "Easy peasy, lemon squeezy! This one comes next!" She taps
+    the shape card that really comes next.
   - **Count:** his pointer hops across the pearls and visibly lands twice on one of them.
-    Then he marks the wrong group card: "I counted them all! It's this many!" She touches
+    Then he marks the wrong group card: "One, two, three... eleventy-twelve! It's this many!"
+    She touches
     each pearl herself and hears each number, as in her lesson; the answer cards wake only
     after every pearl is touched. Then she taps the right group.
   - **Add:** he presses the plus himself and the two groups join. He marks the wrong total:
-    "Put them together, and it makes this many!" She counts each pearl, then taps the right
-    total.
-  - **Match:** he lifts the wrong shape card up beside the model: "Look! These two are the
-    same!" She taps the shape that really matches.
+    "Two plus one makes... a banana! No wait. This many!" She counts each pearl, then taps
+    the right total.
+  - **Match:** he lifts the wrong shape card up beside the model: "Look! These two are twins!
+    Same, same, same!" She taps the shape that really matches.
+- **Silly questions (OD-D).** Each shows five picture cards in one row, in shuffled
+  positions: four that fit and his misfit.
+  1. He asks the question, naming the four fitting pictures as each one wiggles.
+  2. He proudly picks the misfit (purple outline, `taunt`).
+  3. When she taps a fitting picture he tests it (sniffs, listens, stretches up, touches,
+     shivers, yawns, squeezes or tastes) with his reaction line and poses, and she scores.
+  4. If she taps his misfit, his tricked line plays and he scores. The golden sparkle then
+     marks the fitting cards and she taps one to see his reaction.
+
+  The fart cloud and the whoopee cushion also play the existing `assets/audio/fart.ogg`.
+
+| He asks | Right answers (any of the four) | His pick and claim | His reaction to a right pick | If she picks his |
+|---|---|---|---|---|
+| Which smells the worst? Farts, garbage, old diapers, or rotten cheese? | a green fart cloud with stink lines, an overflowing garbage can, an old droopy diaper with stink lines, a moldy wedge of rotten cheese with two cartoon flies | a pretty red rose: "I know! This pretty rose! Pee-yew!" | "Pee-yew! That's so stinky! I'm gonna faint!" | "Hee hee! Tricked you! Roses smell nice!" |
+| Which is the loudest? A burp, a big drum, a roaring lion, or a fire truck? | a frog with puffed cheeks mid-burp, a big drum, a roaring lion, a red fire truck with its siren flashing | a teeny tiny mouse: "Easy! This teeny tiny mouse! Squeak!" | "Ow, my ears! That's so loud!" | "Hee hee! Tricked you! Mice are super quiet!" |
+| Which is the biggest? A whale, an elephant, a dinosaur, or a castle? | a whale, an elephant, a friendly long-neck dinosaur, a castle | an itty bitty ant: "I know! This itty bitty ant! Look at its muscles!" | "Whoa! That's so big! I feel teeny!" | "Hee hee! Tricked you! Ants are tiny!" |
+| Which is the stickiest? Honey, bubble gum, a booger, or slime? | a dripping honey pot, a big pink bubble-gum bubble, a green cartoon booger on a tissue, a blob of green slime | a fluffy feather: "This fluffy feather! It sticks to everything!" | "Eww! My fingers are stuck together!" | "Hee hee! Tricked you! Feathers float away!" |
+| Which is the coldest? Ice cream, a snowman, an ice cube, or a penguin? | an ice-cream cone, a snowman, an ice cube, a penguin | the bright hot sun: "Brrr! The sun! It's freezing!" | "Brrr! My toes are frozen!" | "Hee hee! Tricked you! The sun is hot!" |
+| Which is the slowest? A snail, a turtle, a sloth, or a slug? | a snail, a turtle, a sleepy sloth, a slug | a zooming rocket: "Zoom! This rocket is soooo slow!" | "Sooo... slooow... Yaaawn!" | "Hee hee! Tricked you! Rockets go zoom!" |
+| Which is the squishiest? Jelly, a marshmallow, mud, or a whoopee cushion? | a wobbly jelly, a marshmallow, a mud puddle, a whoopee cushion | a hard grey rock: "This hard rock! Squishy squishy!" | "Squish! So squishy!" | "Hee hee! Tricked you! Rocks are hard!" |
+| Which is the yuckiest to eat? A mud pie, a wiggly worm, a stinky sock, or soap? | a mud pie, a wiggly worm, a stinky sock with stink lines, a bar of soap | a pink cupcake: "Yuck! This cupcake!" | "Bleh! Yucky yucky yuck!" | "Hee hee! Tricked you! Cupcakes are yummy!" |
+
+  Reaction poses:
+  - smell and yucky: `stagger`, `bopped` (a faint), `recover`;
+  - loud and cold: `guard` (covering his ears, or shivering), then `recover`;
+  - big: `hop_b` (stretching up), then `stagger`;
+  - sticky: `recover` (stuck fingers), then `stagger`;
+  - slow: `idle` (a yawn), then `recover`;
+  - squishy: `charge` (a squeeze), then `stagger`.
+
+  Silly rounds do not call `record_result`, because they are not `TeacherLessonPlan`
+  lessons. Random tapping picks a right answer four times in five, and correct play always
+  does (`DL-AGE-05`). They are the laughs and the easier points; the lesson rounds carry the
+  challenge.
 - **Scoring:** as §4.15.
-  - First pick right: "Oops! You fixed it!", her pearl.
-  - First pick wrong: "Hee hee! I tricked you!", his pearl, then the golden help and her
-    fix.
+  - First pick right: "Oops! You fixed it! My brain is full of bubbles!", her pearl.
+  - First pick wrong: "Hee hee! Tricked you!" (silly rounds use their own tricked line), his
+    pearl, then the golden help and her fix.
   - Hint: nobody scores.
   - First to 3.
 - **Mercy after a lost attempt:** one tier easier per kind, and his most obviously wrong
@@ -892,11 +950,20 @@ confirmation) are the inverted contests from OD-C.
   - a wrong pick still gets immediate golden help;
   - nothing earned is lost.
   - The one change: inside the contest, her wrong first pick is his point (OD-B, OD-C).
-- **Defeat and curtain:** his defeat line (new) is "You're the real teacher! I'll sit down
-  now." He bows at the curtain call.
+- **Defeat and curtain:** his defeat line (new) is "You're the real teacher! I'll go sit in
+  the silly corner." He bows at the curtain call.
 - **H2 is absorbed:** the imp is now visible in the final act, so the win line's "learning
   buddy" no longer credits someone the child never saw.
-- **Art (no new art is required to ship):**
+- **Art:**
+  - **Required for the silly rounds:** one consistent set of 40 picture icons, the five
+    pictures of each silly question.
+    - Codex makes them after first checking existing approved art (`DL-PLAN-03`).
+    - One object per icon, transparent, at most 512 px.
+    - Broad pastel fills with navy outlines, to match the lesson board.
+    - Cartoon-gross, never realistic: the "farts" card is a green cloud with stink lines,
+      and the diaper and the booger stay cartoony.
+    - The owner approves the first five (the smell question) before the rest.
+  - The lesson rounds need no new art.
   - **Interim:** the plain mischief imp (`imp_mischief`). He has no `hop_a` or `hop_b`, so his
     entrance is `flee` then `idle`, and his win beat is `taunt` only. Do not use the doctor
     costume that the hidden buddy borrows today: a doctor teaching sums muddles the job.
@@ -924,17 +991,25 @@ confirmation) are the inverted contests from OD-C.
 - **What changes today:** the field-guide imp is a co-op partner beside her from the first
   beat. Under OD-A he now appears only in the final act.
 - **Entrance and challenge** (all lines new):
-  - arrive: "Hello! I'm the field guide. I know everything about rocks!";
-  - his challenge: "My turn to teach! Can you spot my mistakes?";
+  - arrive: "Hello! I'm the field guide! Rocks are my favourite snack!";
+  - his challenge: "My turn to teach! Can you spot my silly mistakes?";
   - her instruction: "The imp is teaching it wrong! Tap his mistake to fix it!"
-- **Rounds:** fossil, rocks, fossil, rocks, fossil.
+- **Rounds:** fossil, rocks, silly rock, fossil, rocks, silly rock.
   - **Fossil:** his fossil is built from the same three vertical strips of
     `geologist_fossil.svg` that she snapped together in FOSSIL, with one strip upside down.
     Her finished fossil sits small beside it as the model. His claim (new): "Look at my
-    perfect fossil!" She taps the upside-down strip and it flips the right way up.
+    perfect fossil! It's a dinosaur's belly button!" She taps the upside-down strip and it
+    flips the right way up.
   - **Rocks:** three rocks lie on the pan (code-drawn with `_draw_mineral`), two the same and
-    one different. His claim (new): "These rocks are all the same!" She taps the different
-    one; it hops aside and sparkles.
+    one different. His claim (new): "These rocks are all the same! Like three peas in a pod!"
+    She taps the different one; it hops aside and sparkles.
+  - **Silly rock (OD-D):** two code-drawn rocks and one silly look-alike: a potato, a cookie
+    or a meatball.
+    - His claim (new): "These are all rocks! Crunchy crunchy!", and he pretends to crunch
+      one.
+    - She taps the look-alike, and he bites a real rock instead: "Ow, my teeth! That one's a
+      real rock!"
+    - If she taps a rock, he scores: "Hee hee! Tricked you! That's a real rock!"
 - **Difficulty:** the Geologist has no mastery record, so the tier inside an attempt is her
   clean fixes so far, at most 2.
   - Rocks: tier 0 differs in colour and shape; tier 1 in colour only; tier 2 in shape only (a
@@ -952,12 +1027,15 @@ confirmation) are the inverted contests from OD-C.
   - the field-guide imp at the upper left, pointing proudly;
   - she taps the odd piece and it flips or hops, and he wobbles.
 - **After she wins:** the GEODE flourish plays as today, with him watching; his defeat line
-  (new) is "You know more about rocks than me!"; he bows at the curtain.
+  (new) is "You know more about rocks than me! My head must be a rock!"; he bows at the
+  curtain.
 - **Art:**
   - **Interim:** `rival_detective`, which already ships as the field guide.
   - **Recommended:** a `rival_geologist` family: a yellow hard hat with a small lamp, a khaki
     vest with pockets, and a small rock hammer as his held prop. Codex makes it through the
     same process as §6.13.
+  - Three look-alike icons for the silly-rock rounds (a potato, a cookie, a meatball), in the
+    same icon set as the Teacher's silly pictures.
   - No other new art.
 
 ## 7. Owner decisions still needed
@@ -1073,9 +1151,19 @@ career it checks:
     - count and add answers stay locked until every pearl is touched;
     - each round writes `record_result` with the right `assisted` flag;
     - ordinary lessons from `make_lesson` are unchanged.
-18. **Geologist rounds:** exactly one strip is upside down, or exactly one rock differs.
+18. **Geologist rounds:** exactly one strip is upside down, exactly one rock differs, or
+    exactly one look-alike sits among real rocks.
 19. **Mercy:** after a lost attempt, the tier drops one step (never below 0), his answer is
     the farthest wrong choice, and his target rises by 1.
+20. **Silly questions:**
+    - each shows exactly five cards: four fitting and his misfit;
+    - any fitting first pick scores for her, and his misfit scores for him;
+    - the question line names the four fitting pictures while each wiggles;
+    - the reaction poses and any fart sound play for the picked card;
+    - the first silly round of an attempt is the smell question;
+    - silly rounds never call `record_result`.
+21. **Humor rule:** no imp line names or teases the child (a text check over the new line
+    list).
 
 ### 9.2 Probes to update deliberately (behaviour changes are the goal)
 
@@ -1137,8 +1225,8 @@ audit tools in `CLAUDE.md`. Green probes do not establish owner, device or child
 | W4 | Surface contracts: multi-turn twirl, multi-pass trace, lob, paint mirror, tap then hold | focused probes green |
 | W5 | Remaining contests: Ballerina, Candymaker, Doctor, Farmer, Painter, Astronaut, Pop Star | full suite green |
 | W6 | Specialists: Boxer points and Racer finish | boxing and racer probes green |
-| W6b | Inverted contests: Teacher IMP'S LESSON, then Geologist FIELD GUIDE MIX-UP once the owner confirms it | inverted checks 14 to 19 green; owner plays the Teacher contest |
-| W7 | New voice lines through the filler pipeline, ledger rows and licences; any approved `rival_teacher` or `rival_geologist` family | voice and imp-art probes green |
+| W6b | Inverted contests: Teacher IMP'S LESSON, piloted with the owner's smell question as soon as its five icons are approved, then the other silly questions, then Geologist FIELD GUIDE MIX-UP once the owner confirms it | inverted checks 14 to 21 green; owner plays the Teacher contest |
+| W7 | New voice lines through the filler pipeline, ledger rows and licences; the silly icon set; any approved `rival_teacher` or `rival_geologist` family | voice and imp-art probes green |
 | W8 | Balance probe fix and `base_seconds` tuning, then the count and canon updates (H4, H8) | full suite green; merge to `dev` |
 
 ## 12. Acceptance
@@ -1155,6 +1243,8 @@ Report four things separately:
      does an imp win upset her;
    - for the Teacher: does she understand that she is correcting the imp, and does she still
      answer her ordinary lessons correctly afterwards (no mistakes learned from him);
+   - for the silly questions: does she laugh, and does the gross humor stay fun rather than
+     upsetting;
    - the owner playing each pilot.
 4. **Owner acceptance of the decisions in §7.**
 

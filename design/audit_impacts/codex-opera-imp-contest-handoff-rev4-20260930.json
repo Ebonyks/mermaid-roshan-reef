@@ -1,0 +1,78 @@
+{
+ "id": "codex-opera-imp-contest-handoff-rev4-20260930",
+ "scope": "Owner request 2026-09-30: \"Lean into silly humor here, questions like, which smells the worst, farts, garbage, old diapers or rotten cheese?\". Revision 4 of the written-only Codex handoff docs/handoffs/codex_opera_imp_contest_2026-09-30/ (no images): owner decision OD-D; silly-question rounds in the Teacher's IMP'S LESSON, alternating with the math lessons, the owner's smell question used word for word and always first, plus seven more (loudest, biggest, stickiest, coldest, slowest, squishiest, yuckiest to eat), each with four fitting pictures and the imp's one misfit pick; reaction poses and the existing project-original fart.ogg; a silly-rock round for the Geologist (pending confirmation); sillier imp lines throughout; a humor rule (never mean, the joke is on the imp or the thing, never the child); 40 plus 3 new picture icons described in words for Codex, with owner approval of the first five; new-line counts (67, plus 9 for the Geologist and 2 for Nursery option B); updated inventories, analysis, README, tests, work order and acceptance. Canon: DL-INT-14 gains the humor sentence; design 01, master-audit and ledger notes. No game script, scene, asset, save key or runtime behaviour changes.",
+ "baseline": "b52fc32a2ad676fd9b235c0f3d6f1aba829cea77",
+ "rules": [
+  "DL-AUTH-05",
+  "DL-AUTH-06",
+  "DL-AUTH-07",
+  "DL-AGE-01",
+  "DL-AGE-02",
+  "DL-AGE-03",
+  "DL-AGE-04",
+  "DL-AGE-05",
+  "DL-INT-06",
+  "DL-INT-14",
+  "DL-SND-01",
+  "DL-SND-05",
+  "DL-SND-10",
+  "DL-SND-12",
+  "DL-SND-13",
+  "DL-PLAN-03",
+  "DL-PLAN-04"
+ ],
+ "findings": [],
+ "no_findings_reason": "Documentation-only design revision. No MA-* finding covers the Teacher's or Geologist's contest content, and none is repaired, changed or created.",
+ "files": [
+  "audit/MASTER_AUDIT_2026-08-09.md",
+  "design/01_GAME_DESIGN.md",
+  "design/05_DOC_LEDGER.md",
+  "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+  "design/audit_impacts/codex-opera-imp-contest-handoff-rev4-20260930.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/CONTEST_DESIGN.md",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/CURRENT_STATE_ANALYSIS.md",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/MANIFEST.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/README.md",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/data/contest_spec.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/data/imp_voice_inventory.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/tools/build_packet_data.py"
+ ],
+ "validation": [
+  {
+   "command": "python3 -B tools/audit_document_authority.py",
+   "result": "PASS",
+   "evidence": "DOCAUTH|INVENTORY=587|LEDGER=587|ACTIVE=56|RECORDS=58; DOCAUTH|RESULT|ALL OK; --stress DOCAUTH|STRESS|6/6."
+  },
+  {
+   "command": "python3 -B tools/audit_development.py --base auto",
+   "result": "PASS",
+   "evidence": "AUDITDEV|BASE|b52fc32a2ad676fd9b235c0f3d6f1aba829cea77; AUDITDEV|RESULT|ALL OK."
+  },
+  {
+   "command": "python3 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+   "result": "PASS",
+   "evidence": "Ran 52 tests, OK."
+  },
+  {
+   "command": "python3 -B docs/handoffs/codex_opera_imp_contest_2026-09-30/tools/build_packet_data.py --check",
+   "result": "PASS",
+   "evidence": "PACKET_CHECK|OK|FILES=8 (revision 4 manifest); no image in the folder."
+  },
+  {
+   "command": "Humor-rule text check over every new imp line in data/imp_voice_inventory.json (names or teasing aimed at the child)",
+   "result": "PASS",
+   "evidence": "No hits for name-calling or 'you smell' patterns; the longest new line is 79 characters (op_teacher_silly_yucky_ask)."
+  },
+  {
+   "command": "Remote verification: unauthenticated fetch of MANIFEST.json and every listed file from raw.githubusercontent.com at the pushed commit, SHA-256 and byte comparison",
+   "result": "PENDING",
+   "evidence": "Recorded after the push."
+  },
+  {
+   "command": "Exact Godot 4.7.2 probe suite (scripts/ci.sh) via .github/workflows/probes.yml on the pushed head",
+   "result": "PENDING",
+   "evidence": "Documentation-only change; the suite runs as the gate before integration into dev."
+  }
+ ],
+ "acceptance_gaps": "Written handoff only. Owner approval of the silly icon style (the first five pictures), confirmation of the silly-question scope and the Geologist, Codex implementation, the new silly-round probes, captures, target-device play, an observed child session (does she laugh, does the gross humor stay fun) and owner acceptance are pending. No master-audit satisfaction, finding closure or release is claimed."
+}

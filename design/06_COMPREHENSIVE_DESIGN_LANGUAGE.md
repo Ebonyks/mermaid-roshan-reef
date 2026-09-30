@@ -677,7 +677,10 @@ to the `DL-INT-10` race. For learning careers the contest inverts (owner decisio
 child beats him by finding each mistake and placing the right answer. He
 scores only when her first pick is wrong, there is no clock, and every round
 ends with the correct answer placed by her. This applies to the Teacher and,
-pending owner confirmation, the Geologist. The contest-only restart scope
+pending owner confirmation, the Geologist. The imp's lessons are deliberately
+silly and gross-funny, including questions such as which smells the worst
+(owner decision 2026-09-30), but never mean: the joke is on the imp or the
+thing, never on the child. The contest-only restart scope
 awaits owner confirmation. Phase counts in `DL-INT-07` and `DL-QA-12` change when
 implementation lands. Specification:
 [Opera imp contests](../docs/handoffs/codex_opera_imp_contest_2026-09-30/CONTEST_DESIGN.md).

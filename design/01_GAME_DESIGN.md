@@ -347,7 +347,8 @@ remain open.
   contest he can win. His win restarts that contest at once and costs nothing
   earned. For the learning careers (the Teacher, and the Geologist pending
   confirmation) the contest inverts: the imp teaches with deliberate mistakes
-  and she beats him by fixing them. Until it ships, today's no-loss pacer
+  and she beats him by fixing them, with silly questions such as which smells
+  the worst. Until it ships, today's no-loss pacer
   remains the runtime behaviour.
 - **Nursery Nurse (job 13) is cooperative,** not competitive: Nurse Faron is a
   visible partner from the first beat, never framed as an opponent.

@@ -339,7 +339,7 @@ def build_manifest(spec: dict) -> dict:
         "file_count": len(entries),
         "total_bytes": total,
         "hash_basis": "SHA-256 of the committed Git blob bytes (LF line endings), identical to what raw.githubusercontent.com serves",
-        "revision": "3 (2026-09-30): art-reuse and imp-contact corrections from the Day Two art review; revision 2 (OD-C, inverted Teacher and Geologist contests) was df01b7ce, revision 1 was 7ec82d46",
+        "revision": "4 (2026-09-30): adds OD-D, silly questions and sillier imp lines; revision 3 (art-reuse and imp-contact corrections) was 86732a47, revision 2 (OD-C) was df01b7ce, revision 1 was 7ec82d46",
         "files": entries,
     }
 

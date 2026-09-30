@@ -7,7 +7,9 @@
 
 **Status:**
 - `PROPOSED / CANDIDATE`. Publication is not creative acceptance.
-- **Revision 3 (2026-09-30)** folds in the Day Two art review's corrections: reuse only the
+- **Revision 4 (2026-09-30)** adds the owner's fourth decision (OD-D): lean into silly
+  humor, with silly questions like "which smells the worst?" and sillier imp lines.
+- **Revision 3** (`86732a47`) folded in the Day Two art review's corrections: reuse only the
   current full-tail and borderless art routes, and show the imp touching his own job object
   ([CONTEST_DESIGN.md §4.16](CONTEST_DESIGN.md)).
 - **Revision 2** (`df01b7ce`) added the owner's third decision (OD-C): a Teacher imp who
@@ -33,12 +35,15 @@ builds any image the work needs.
 - **OD-C:** "The teacher should have an imp, but the game inverts, he teaches information
   that's wrong and it's your job to figure it out, which beats the imp. Similar
   educational type games"
+- **OD-D:** "Lean into silly humor here, questions like, which smells the worst, farts,
+  garbage, old diapers or rotten cheese?"
 
 **To confirm with the owner:**
 - **Restart scope:** this design restarts the *contest only*. Earlier activities, stars,
   pearls and saves are kept.
 - **Educational scope:** "similar educational type games" is read as the Teacher's four
   lesson kinds plus the Geologist, the other learning career.
+- **Silly questions:** they alternate with the math lessons rather than replacing them.
 
 See [CONTEST_DESIGN.md §1](CONTEST_DESIGN.md), §7.2 and §7.4.
 
@@ -75,6 +80,18 @@ See [CONTEST_DESIGN.md §1](CONTEST_DESIGN.md), §7.2 and §7.4.
 - **No clock, and truth last:** every round ends with the right answer on the board, placed
   by her.
 
+**Silly humor (OD-D)**
+- **Silly questions** alternate with the Teacher's math lessons. The first is the owner's
+  own: "Which smells the worst? Farts, garbage, old diapers, or rotten cheese?"
+  - The imp proudly picks a pretty rose. Any stinky answer beats him: he sniffs it, cries
+    "Pee-yew!" and faints. The fart card plays the game's existing fart sound.
+  - Seven more follow the same pattern: loudest (he says a mouse), biggest (an ant),
+    stickiest (a feather), coldest (the sun), slowest (a rocket), squishiest (a rock) and
+    yuckiest to eat (a cupcake).
+- **Every imp line gets sillier:** "One, two, three... eleventy-twelve!", "Two plus one
+  makes... a banana!", "It's a dinosaur's belly button!"
+- **The joke is always on the imp or the thing**, never on the child.
+
 **Winning and losing**
 - **She wins:** he staggers and flops with his existing "bop" line; her cheer tier becomes
   audible and visible. Then an existing flourish or the curtain call follows.
@@ -86,8 +103,11 @@ See [CONTEST_DESIGN.md §1](CONTEST_DESIGN.md), §7.2 and §7.4.
   today. The Teacher uses the plain mischief imp until an optional teacher costume is
   approved.
 - 36 of the 56 existing imp lines would play, against 2 today (39 with Nursery option B).
-- 35 short new lines are needed: 6 more if the Geologist contest is confirmed, 2 more for
-  Nursery option B.
+- 67 short new lines are needed (32 of them for the silly questions): 9 more if the
+  Geologist contest is confirmed, 2 more for Nursery option B.
+- The silly questions need one new set of 40 cartoon picture icons, plus 3 for the
+  Geologist's silly rocks. Codex makes them after checking existing art. You approve the
+  first five, for the smell question.
 
 ## What is in this folder
 
@@ -132,6 +152,8 @@ These are covered in [CONTEST_DESIGN.md §7](CONTEST_DESIGN.md).
 - **Geologist:** confirm the inverted FIELD GUIDE MIX-UP, or keep it co-op.
 - **Imp costumes:** a new teacher imp (recommended) and optionally a geologist imp, or keep
   the stand-ins.
+- **Silly icons:** approve the style of the first five pictures (the smell question).
+- **Silly scope:** silly questions alternating with math (this design), or all silly.
 - **Restart scope:** contest only, or the whole career.
 - **Hall stage-long race:** retire it (recommended), or keep it as no-loss.
 - **Rematch mercy curves.**
@@ -159,6 +181,8 @@ These are covered in [CONTEST_DESIGN.md §7](CONTEST_DESIGN.md).
   [design/audit_impacts/codex-opera-imp-contest-handoff-rev2-20260930.json](../../../design/audit_impacts/codex-opera-imp-contest-handoff-rev2-20260930.json).
 - Revision 3:
   [design/audit_impacts/codex-opera-imp-contest-handoff-rev3-20260930.json](../../../design/audit_impacts/codex-opera-imp-contest-handoff-rev3-20260930.json).
+- Revision 4:
+  [design/audit_impacts/codex-opera-imp-contest-handoff-rev4-20260930.json](../../../design/audit_impacts/codex-opera-imp-contest-handoff-rev4-20260930.json).
 
 ## Checking this packet
 
