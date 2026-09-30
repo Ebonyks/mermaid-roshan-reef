@@ -78,5 +78,22 @@
       "check_time_utc": "2026-09-30T21:18:29.043456+00:00",
       "acceptance": "Machine reconciliation checks only; current combined-head remote CI remains required before integration."
     }
-  ]
+  ],
+  "voice_transition_repair": {
+    "baseline": "ba1608de7e40438899b1352e45e18f945368a799",
+    "incoming_failure_revision": "b52fc32a2ad676fd9b235c0f3d6f1aba829cea77",
+    "incoming_failure_run": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36776251500",
+    "baseline_result": "3 direct assertions fail: required route retains speech channel instead of exact Racer instruction",
+    "baseline_log_sha256": "82f0c2de7ee8fb3fd160f96ab0194d7ccca02b6933e1abc3a42c65129e32c63c",
+    "audio_director_sha256_utf8_lf": "e2d2e2eceb63980797db2cf4e072563654d53d3816aea4c6abd67ec393aed5e4",
+    "probe_voice_sha256_utf8_lf": "0534d422920b0448f95ef6378883752215d4ddc48599ea752e374df2c2d48413",
+    "checks": "Final voice, Day One voice FIFO, Chapter Two and unchanged Opera lifecycle probes exit 0; exact required objective, generic talk/win/pearl guards, no overlap and HUD behavior verified. Canonical 844-file audio gate ALL OK.",
+    "checks_log_sha256": "3e0f656598d175f867eeb5ca2e2b4fc3bd631a38cf698f6fcb8dffd618f73399",
+    "parser_inference_analyzer": "PASS; official Godot 4.7.2",
+    "reconciled_dev": "83d7e1ed403143c8895935d5bd1d3b93807f7f20",
+    "incoming_doc_scope": "Job-game takeover audit and interim recipe preserved; no incoming runtime changes beyond b52fc32a",
+    "prototype_runtime": "Unchanged; all original review screenshots retain source binding",
+    "check_time_utc": "2026-09-30T22:22:47.006980+00:00",
+    "acceptance": "Scoped machine repair; full new combined-source branch CI and human listening/child/owner acceptance remain separate."
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "CHG-FAIRY-RESTORATION-PROTOTYPE-20260930",
-  "scope": "Owner commission 2026-09-30: isolated true-2D playable prototype for the faerie/butterfly half of castle magic restoration after the Ember King takes the candle. Reuse existing art; connect arborist tree care, fruit harvest, chef preparation, butterfly feeding and gentle flower shooter. No production route/save/reward replacement or second-world ending. Required audio-ledger maintenance changes only picture_garden.ogg runtime reference count 0 to 1 and inventory hash against incoming dev; no audio bytes, grades or human acceptance change. Preserve literal native review-packet bytes and LF hashes for the new source files and generator-owned canonical audio CSV across Git checkouts. Preserve subsequent incoming Day One/Two alpha fixes and their separately owned evidence without modifying them.",
+  "scope": "Owner commission 2026-09-30: isolated true-2D playable prototype for the faerie/butterfly half of castle magic restoration after the Ember King takes the candle. Reuse existing art; connect arborist tree care, fruit harvest, chef preparation, butterfly feeding and gentle flower shooter. No production route/save/reward replacement or second-world ending. Required audio-ledger maintenance changes only picture_garden.ogg runtime reference count 0 to 1 and inventory hash against incoming dev; no audio bytes, grades or human acceptance change. Preserve literal native review-packet bytes and LF hashes for the new source files and generator-owned canonical audio CSV across Git checkouts. Preserve subsequent incoming Day One/Two alpha fixes and their separately owned evidence without modifying them. Required integration repair lets an exact Opera/Chapter Two activity instruction replace an obsolete required Chapter Two route/phase cue; generic reactions and Day One FIFO priority remain unchanged. No voice bytes are modified.",
   "baseline": "285355eb9e09a29aa4ac53d36874e31419d4674e",
   "rules": [
     "DL-AUTH-05",
@@ -64,9 +64,11 @@
   ],
   "findings": [
     "MA-2D-002",
-    "MA-PLAY-004"
+    "MA-PLAY-004",
+    "MA-ACCESS-001",
+    "MA-DOC-006"
   ],
-  "finding_scope": "Related constraints only: no new spatial debt; embodied approach/contact/action. No existing finding closure or production conversion is claimed.",
+  "finding_scope": "Prototype constraints: no new spatial debt; embodied approach/contact/action. Integration repair scope added after incoming dev CI 36776251500 at b52fc32a fails the unchanged Racer exact-objective voice assertion: a required Chapter Two route cue can suppress the exact newly entered Opera objective. Reproduce and repair that voice transition, preserving Day One FIFO priority and all audio bytes. Related MA-ACCESS-001 retains external listening/child/owner blockers; no existing finding closure or production conversion is claimed. Incoming 83d7e1ed documentation adds MA-DOC-006 and an interim job-game recipe: this is its delegated standalone prototype path, with no permanent career registration, save-bit allocation or takeover-playbook closure.",
   "files": [
     ".gitattributes",
     "ASSET_LICENSES.md",
@@ -101,7 +103,10 @@
     "assets_src/prototypes/fairy_restoration_2026-09-30/review/FULL_CI_REMAINING_LOG.txt",
     "assets_src/prototypes/fairy_restoration_2026-09-30/review/LOCAL_GATE_RECEIPT.json",
     "assets_src/prototypes/fairy_restoration_2026-09-30/review/VERIFICATION.json",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/VOICE_TRANSITION_BASELINE.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/VOICE_TRANSITION_CHECKS.txt",
     "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
     "audit/audio_quality_ledger_2026-08-24.csv",
     "audit/audio_quality_summary_2026-08-24.json",
     "design/05_DOC_LEDGER.md",
@@ -110,9 +115,16 @@
     "scenes/fairy_restoration_prototype.tscn",
     "scripts/fairy_restoration_prototype.gd",
     "scripts/probe_fairy_restoration.gd",
+    "scripts/audio_director.gd",
+    "scripts/probe_voice.gd",
     "tools/build_fairy_restoration_voices.py"
   ],
   "validation": [
+    {
+      "command": "Reproduce and repair exact Opera objective replacement of a stale required Chapter Two route cue",
+      "result": "PASS",
+      "evidence": "Incoming dev b52fc32a2ad676fd9b235c0f3d6f1aba829cea77 run https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36776251500 fails OPERA|Racer exact objective voice replaces its caption fallback. Required evidence: direct failing baseline, unchanged probe_opera passing after repair, voice/Day One FIFO sibling checks, parser/inference/native analyzer and full combined-head branch CI. No generic substitution or probe relaxation. VOICE_TRANSITION_BASELINE.txt preserves the three direct failures at ba1608de. VOICE_TRANSITION_CHECKS.txt and LOCAL_GATE_RECEIPT.json bind final AudioDirector/probe LF hashes: voice, Day One FIFO, Chapter Two and unchanged Opera probes exit 0; Racer exact instruction plays with one speech channel and empty caption, while talk/win/pearl cannot displace required guidance. Parser/inference/4.7.2 analyzer, 52 authority/development tests and 6/6 stress controls pass; canonical 844-file audio check ALL OK. Incoming 83d7e1ed adds only preserved job-game audit documentation. Full new combined-head branch CI remains required before integration."
+    },
     {
       "command": "Godot 4.7.2 Mobile scripts/probe_fairy_restoration.gd -- --capture, isolated APPDATA/LOCALAPPDATA",
       "result": "PASS",
@@ -164,9 +176,9 @@
       "evidence": "Preserved review/LOCAL_GATE_RECEIPT.json and both FULL_CI logs: original setup plus exact normalized source suffix, all 95 visual tests, all remaining asset gates, official 4.7.2 import, exact shrinking inventory NO_REGRESSION, and all 77 trusted production probes exit 0. Final apple-half gap/flight-label correction separately passes parser, inference, native analyzer and the complete live-input probe with eleven fresh Mobile captures. Runtime source/probe/capture hashes bind VERIFICATION.json. Whole-game satisfaction and human acceptance remain open."
     },
     {
-      "command": "Exact-head GitHub Probe suite (graphics fork), followed by dev reconciliation",
-      "result": "PENDING",
-      "evidence": "Required before dev integration; remote run/revision will be reported when published."
+      "command": "Published pre-repair candidate ba1608de full GitHub Probe suite",
+      "result": "PASS",
+      "evidence": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36778607136 succeeds at ba1608de7e40438899b1352e45e18f945368a799: native analyzer, trusted production probes, required visual captures and area-music provenance. Incoming b52fc32a independently fails the Racer voice assertion; the new deterministic direct baseline reveals the timing-dependent suppression even though ba1608de passes the prior suite. Voice-transition repair is separately source-bound in the local receipt. Integration requires the green GitHub check attached to the new combined code revision; no pre-repair run grants that gate."
     },
     {
       "command": "Reconcile origin/dev 5d9668a9a49f59f3224c2951bbbffb9e3b3a1145 and recheck current authorities",

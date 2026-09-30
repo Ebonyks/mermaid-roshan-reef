@@ -168,3 +168,14 @@ review separates the split-apple regions visibly and names the flower-flight
 objective accurately; eleven fresh source-bound Mobile captures verify those
 presentation corrections. Child review must still check the water/chef gesture
 timing after Roshan arrives, alongside pacing and instruction comprehension.
+
+Integration regression: incoming dev b52fc32a fails the unchanged Opera Racer
+exact-instruction test. A direct baseline proves the stale Chapter Two route
+retains the speech channel. The shared AudioDirector repair permits an exact
+Opera/Chapter Two activity objective to supersede that obsolete route/phase cue;
+generic talk/win/pearl and Day One required FIFO keep their priorities. No
+recording or prototype artwork changes. Source-bound baseline and sibling
+checks are in the task impact; full branch CI remains required. The newer
+job-game audit at dev 83d7e1ed is preserved. Its interim recipe uses the delegated
+standalone-prototype extension path here; no permanent career, star bit or
+takeover-playbook implementation is added.

@@ -40,6 +40,10 @@ harness, but those are partial implementation controls only;
 they do not alter the historical inventory source or grant runtime, font/glyph,
 device, child, human, or owner acceptance.
 
+On 2026-09-30 the job-game takeover audit
+(`audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md`) appends one V1 record,
+`MA-DOC-006`, for the missing job-game development script.
+
 ## MA-2D-002
 
 | Field | Value |
@@ -131,6 +135,29 @@ device, child, human, or owner acceptance.
 | closure | Verified 2026-08-13 at exact `51887315`: official Godot 4.7.1 full local exits zero after 1,435.2 seconds/all 64, and remote run `31710377034` succeeds at the same SHA after executing the canonical-record gate, exact import/analyzer, and all 63 remote trusted probe headings. |
 | relationships | Depends on `MA-DOC-002`; complements external-source reconciliation `MA-DOC-003`; does not reopen terminal index items. |
 | history | 2026-08-09: gap identified. 2026-08-13: source `5ed0c754` adds 36 complete stable records and passes full local CI in 1,359.8 seconds/all 64; contiguous `7eb94595` hardens stale-claim enforcement and leaves the source checkpoint `FIXED_PENDING_VERIFICATION`. Later CHG-023 maintenance head `51887315` passes exact local and remote V3 gates, moving the item to `VERIFIED_FIXED` without changing the CHG-029 source boundary. |
+
+## MA-DOC-006
+
+| Field | Value |
+|---|---|
+| id | `MA-DOC-006` |
+| title | No current step-by-step script exists for building a new job game, so an agent cannot take over job-game development from the repository alone. |
+| rule_ids | `DL-AUTH-05`, `DL-AUTH-07`, `DL-PLAN-01`, `DL-PLAN-04`, `DL-PLAN-06`, `DL-INT-07`, `DL-SAVE-06`, `DL-CODE-10` |
+| domain / zone | Development process and documentation / every job game: Opera careers, the Opera House practice scene, Chapter 2 party jobs and Day One room jobs |
+| source | Owner request 2026-09-30 and `audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md` (static and Git-history audit at dev `5d9668a9`). |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1 static: document coverage and the history of recent job additions at dev `5d9668a9`. |
+| reproduction | At dev `5d9668a9`, open the master-audit task index and look for a route for a new job game: none exists, and the chapter route leads to a guide with no job recipe. Compare commit `f4a5de33` (Teacher, Geologist, Racer engine, two-act shows), which touched 155 files including 31 scripts, 17 voice clips, a music cue, the save mask and seven probes, none described as a procedure. Search the documents for the four `opera_stars` clamps in `scripts/save_state.gd`: no document mentions them. |
+| child_impact | Each new job re-derives registries, voice, music, art, save bits and probes from code, so jobs drift in verbs, help, exact voice and rewards, and a missed step ships a job the child cannot finish or hear. A career added at bit 18 without raising the four clamps would be clamped to 262143 on save, marking every live career complete and overwriting the retired raw bits. |
+| evidence | `audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md` sections 1, 3, 7 and 8; `scripts/save_state.gd:86`, `:198`, `:294`, `:619`, `:681`; `scripts/opera_house.gd:13-15`; `scripts/probe_opera.gd:91-93`; `scripts/probe_opera_2d.gd:159`, `:1343`, `:1345`; `tools/audit_opera_roshan_animation.py` `CAREERS` (13 of 15); the master-audit task index without a job route. |
+| owner_decision | 2026-09-30: the owner states that the purpose is for an agent to take over development of Mermaid Roshan, and that an audit ensuring the job-game script is included is critical. Severity stays P2 under section 2.3; the owner's priority is recorded here and in section 13. |
+| fix | Stage J of `docs/handoffs/codex_master_audit_refinement_2026-09-30/README.md` (revision 3): a maintained job-game playbook, a machine-checked job catalogue, a takeover kit and a cold-start dry run. Until then the interim recipe is section 4 of the audit. |
+| surrounding_tests | Catalogue checker against the code registries with injected faults (unregistered act, wrong star bit, job without a trusted probe); existence check of every file, symbol, command and gate the playbook names; document-authority and audit-development gates; dry-run checklist in section 10 of the audit. |
+| acceptance | The task-index route resolves to the playbook; every playbook reference exists at its head; the catalogue checker runs in the existing document gate and fails on the injected faults; the takeover kit corrects or lists every stale claim in audit sections 8 and 9; a cold-start dry run passes the section 10 checklist and the owner accepts it (V7). |
+| closure | Open as of 2026-09-30; no playbook, catalogue, checker, takeover kit or dry run exists. |
+| relationships | Related to `MA-DOC-002` (document inventory), `MA-CI-004` and `MA-CI-005` (probe and passive coverage), `MA-CODE-001` (the Mode Platform growth path is absent) and `MA-OPERA-012` (castle-room career routes). |
+| history | 2026-09-30: created from the job-game takeover audit at dev `5d9668a9`; P2 under section 2.3 with owner priority critical; interim recipe published in audit section 4. |
 
 ## MA-VIS-002
 
@@ -268,7 +295,7 @@ device, child, human, or owner acceptance.
 | acceptance | Every required objective communicates the exact action without reading, with authorized identity, correct playback, device intelligibility, and observed child comprehension. |
 | closure | Blocked as of 2026-08-13; recordings/approved alternative, device/child evidence, commit, and closure date are missing. |
 | relationships | Includes specific unresolved cases `MA-ACCESS-002` and `MA-ACCESS-003`; audio mix evidence also relates to `MA-AUDIO-001`. |
-| history | 2026-08-09: blocked exact-voice coverage indexed. 2026-08-13: no authorization or substitute evidence supplied; lifecycle unchanged. 2026-09-06: the Family Evening dinner, movie and bedtime objectives were added with the generic `talk` acknowledgement rather than exact semantic instructions; no protected recording authorization or independently sufficient diegetic substitute exists, so the blocker now explicitly includes those routes. 2026-09-30: owner-approved Day One/Two alpha repair inventories existing semantic audio, binds truthful reused career recordings and a separately generated provisional synthetic cohort to missing Chapter Two phases and room routes, and prevents stale instructions across phase changes. Protected recordings remain unchanged; machine selection is distinct from target-device listening, child comprehension and owner acceptance. |
+| history | 2026-08-09: blocked exact-voice coverage indexed. 2026-08-13: no authorization or substitute evidence supplied; lifecycle unchanged. 2026-09-06: the Family Evening dinner, movie and bedtime objectives were added with the generic `talk` acknowledgement rather than exact semantic instructions; no protected recording authorization or independently sufficient diegetic substitute exists, so the blocker now explicitly includes those routes. 2026-09-30: owner-approved Day One/Two alpha repair inventories existing semantic audio, binds truthful reused career recordings and a separately generated provisional synthetic cohort to missing Chapter Two phases and room routes, and prevents stale instructions across phase changes. Protected recordings remain unchanged; machine selection is distinct from target-device listening, child comprehension and owner acceptance. 2026-09-30: faerie-prototype integration reproduces a stale required Chapter Two route masking the existing exact Opera Racer instruction (incoming CI b52fc32a, run 36776251500; direct three-assertion failing baseline at ba1608de). The scoped audio transition candidate restores exact activity priority while retaining generic-reaction guards and Day One required FIFO; evidence is in the faerie impact record. Full candidate CI and external listening/child/owner acceptance remain separate; lifecycle unchanged. |
 
 ## MA-ACCESS-002
 
