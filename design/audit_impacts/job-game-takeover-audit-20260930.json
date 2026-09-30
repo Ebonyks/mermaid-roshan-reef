@@ -49,8 +49,8 @@
     },
     {
       "command": "Anonymous fetch of the revision-3 handoff MANIFEST.json and every listed file from raw.githubusercontent.com at the pushed commit",
-      "result": "PENDING",
-      "evidence": "Recorded after publication."
+      "result": "PASS",
+      "evidence": "Revision 3 published at commit 5da7bd53470821e4c5e292f87be897c416b29292 on branch claude/job-game-takeover-audit-20260930 (https://github.com/Ebonyks/mermaid-roshan-reef/tree/5da7bd53470821e4c5e292f87be897c416b29292/docs/handoffs/codex_master_audit_refinement_2026-09-30). Anonymous HTTPS fetch from raw.githubusercontent.com with no token at 2026-09-30T21:19:24Z: MANIFEST.json HTTP 200, 3,567 bytes, SHA-256 d3610d0385501349f099b673a097c594c6e9493ff9c4a7c2180a83bab9e843d1, revision 3; all 13 listed files match. The companion audit, findings register and master audit at the same commit are byte-identical to the committed blobs."
     },
     {
       "command": "GitHub Probe Suite at the branch head",
