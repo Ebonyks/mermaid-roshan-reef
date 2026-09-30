@@ -1,0 +1,557 @@
+{
+  "schema": "opera_imp_contest_spec/1",
+  "status": "PROPOSED / CANDIDATE - owner direction recorded; implementation, probes and acceptance pending",
+  "baseline": "55032e88936b22723fd9af5282c61ba6696b3d43",
+  "owner_decisions": [
+    {
+      "id": "OD-2026-09-30-A",
+      "date": "2026-09-30",
+      "quote": "No, I think imp comes in during the final act, there should be a contest at the end that reflects part of the skill of the job that's a challenge against the imp",
+      "meaning": "The career's costumed imp stays hidden until the final act and enters when it begins. The final act ends in one head-to-head contest against the imp that exercises a skill of that job."
+    },
+    {
+      "id": "OD-2026-09-30-B",
+      "date": "2026-09-30",
+      "quote": "If imp wins, the game restarts immediately afterwards.",
+      "meaning": "The imp can win the contest. When he does, the contest restarts at once.",
+      "interpretation_to_confirm": "Implemented as restart_scope=contest_only: the contest attempt resets; earlier activities, stars, pearls, stickers and saves are kept. If the owner meant the whole career, change restart_scope to career."
+    }
+  ],
+  "shared": {
+    "restart_scope": "contest_only",
+    "imp_hidden_before_final_act": true,
+    "imp_entrance": {
+      "when": "the first final-act phase arms (current FINALE_START, or the Hall stage_start)",
+      "poses": [["flee", 0.8], ["hop_a", 0.25], ["hop_b", 0.35], ["idle", 0.0]],
+      "path": "runs in from the nearer screen edge to his mark (flipped to face his direction of travel, as the dormant crew code does with face = -1), crouches, jumps onto the mark, then rests",
+      "voice": "imp_op_<career>_arrive (existing), once per act",
+      "blocks_input": false,
+      "max_seconds": 3.0
+    },
+    "imp_between_final_act_phases": "present at a clear rest; reacts to her completions with stagger then hop_b; no clock, no bars, no competing",
+    "contest_intro": "imp challenge line, then Roshan's contest instruction line and the existing ghost demo; the imp waits in windup",
+    "imp_starts_on": "her first valid contest input (listening, demo and looking time never count)",
+    "idle_pause_seconds": 4.0,
+    "idle_pause_behaviour": "if she has made no contest input for this long, the imp freezes (alternating taunt and guard), the existing rehint plays, and he resumes on her next input; zero input can never produce a win or a loss",
+    "flub": "exactly one scripted flub per attempt: the imp stops for about 2 s, plays his flub poses and his existing copy line; it is her comeback moment",
+    "race_pacing": "imp_units += delta * units_total / base_seconds * rematch_rate while active; ties go to Roshan",
+    "rematch_rate": "0.8 ^ rematches, floor 0.55 (race contests)",
+    "points_rematch": "the imp needs one more point per rematch, capped at +2; cues and shuffles run 25 percent slower after a lost attempt",
+    "imp_win_beat": {
+      "poses": [["hop_b", 0.6], ["taunt", 0.8]],
+      "voice": "imp_op_contest_win (new, generic)",
+      "max_seconds": 2.0,
+      "then": "restart the contest: reset both sides and the pearl rows, rematch += 1, Roshan says op_contest_again (new), she stays at her station (never walk back to a room object)"
+    },
+    "player_win_beat": "imp stagger then bopped then recover with his existing bop line, Roshan cheer; then the victory flourish phase if the career has one, else the curtain call where the imp bows",
+    "score_display": "reuse the existing header's two rows (hers above, his below) as wordless contest rows: discrete contests draw one pearl per unit or point (hers in the career accent, his in imp purple); continuous contests (paint coverage, racer distance) keep the existing bar; no numbers or text",
+    "miss_pay_in_contest": 0.0,
+    "save": "contest attempts are never saved: a resume always starts the contest from zero. Hall careers already checkpoint their phase index in opera_performance_checkpoints (save the contest phase with an empty current snapshot). Every other contest career gets the new additive dictionary key opera_phase_checkpoints = {career: {version: 1, phase_index: n}}, default {}, registered in save_state.gd DICTIONARY_KEYS and KNOWN_KEYS, written when a final-act phase arms and erased with the career's other checkpoints when the act is won (scripts/opera_house.gd:275-286). Leaving during the contest therefore never replays earlier activities.",
+    "phase_naming": "a replaced activity keeps its internal phase name (TOP, SHARE, BANDAGE, PICNIC, TITLE IMP, LAUNCH, RACE, BEDTIME, GEODE and the stage copy of GRAND TWIRL) because PHASE_STATIONS, HOTSPOT_PHASE_ALIASES, the hotspot catalog, voice keys and probes key on it; it gains a contest dictionary. Inserted contests (SPARKLE RACE, PAINT-OFF, HAT DUEL, SING-OFF) are new phases that need PHASE_STATIONS, hotspot, voice and probe entries. The contest names are design names, never child-facing text.",
+    "mastery_hall": "a rematch counts as one assist; a won contest still earns at least Bronze",
+    "cheer_tier": "by her winning margin: at least 0.35 of the contest ahead = 3, at least 0.15 = 2, else 1; any rematch caps it at 2; make it audible or visible, never text-only",
+    "story_and_tutorial_runs": "Chapter 2 story runs (reward_policy chapter2_story) and tutorial runs opt out: no imp and no contest",
+    "venue_rule": "DL-INT-02 (owner clarification 2026-09-06): Roshan performs a job at its actual location. Room careers therefore hold the contest at the room station she walks to, as today; only the three Opera Hall careers, whose stage act is already the playable venue, use the stage layout. The non-interactive curtain call stays on the proscenium for everyone.",
+    "room_layout": {
+      "her_card": "_card_position_near_station(): 416 x 292 card, 392 x 232 surface (scripts/opera_career_world_2d.gd:2822-2844)",
+      "imp_mark": "_stage_room_finale_partner(): the route rest clear of Roshan and her card (scripts/opera_career_world_2d.gd:1786-1830)",
+      "imp_station": "the same input-transparent OperaGestureSurface mirror the Hall uses, at scale 0.6 (235 x 139), docked above the imp and clear of her card and Roshan using the _safer_panel_rect candidate search"
+    },
+    "hall_stage_layout_source": "scripts/opera_career_world_2d.gd:4945-4976 (_performance_stage_layout) and :769-777 (performance_rival_surface)",
+    "hall_stage_layout": {
+      "roshan": {"position": [48, 264], "size": [300, 300]},
+      "activity_panel": {"position": [390, 204], "size": [500, 376]},
+      "imp": {"position": [974, 294], "size": [220, 220]},
+      "imp_station": {"position": [916, 144], "size": [392, 232], "scale": 0.7, "input": "transparent"},
+      "ballerina_exception": {"roshan": {"position": [12, 372], "size": [300, 300]}, "imp": {"position": [238, 350], "size": [150, 150]}}
+    }
+  },
+  "pose_meanings": {
+    "idle": "at rest between beats",
+    "windup": "ready: watching Roshan before and at the start of the contest",
+    "charge": "working, part 1 (reaching for the next piece)",
+    "slash": "working, part 2 (placing or swinging the tool)",
+    "recover": "after his flub, and when he has lost",
+    "guard": "worried when she is close to finishing; frozen while she is idle; Boxer guard",
+    "stagger": "surprised when she overtakes him or finishes a unit near him",
+    "flee": "running in to his mark at the entrance, or chasing a runaway object",
+    "bopped": "the dizzy flop: his flub and his defeat",
+    "bow": "curtain call",
+    "hop_a": "entrance crouch",
+    "hop_b": "entrance jump, and his victory jump when he wins",
+    "taunt": "challenge, ahead of her, 'ta-da'"
+  },
+  "careers": {
+    "chef": {
+      "status": "specified",
+      "final_act_starts_at": "FROST",
+      "phases_after": ["MIX", "STIR", "BAKE", "FROST", "TOPPING RACE"],
+      "contest": {
+        "name": "TOPPING RACE",
+        "replaces": "TOP",
+        "archetype": "race",
+        "skill": "decorating: put each topping on its glowing spot",
+        "venue": "room: grand_cake_stage (the TOP station)",
+        "player": {"mode": "tap", "visual_context": "target_chef", "units": 7, "reuse": "TARGET_ANCHORS.target_chef (seven one-use sockets)"},
+        "imp_station": "mini copy of widget_target_chef.png with his first N sockets filled (mirror API)",
+        "imp": {"family": "rival_chef", "base_seconds": 13.0, "flub_at_units": 4, "flub_seconds": 1.8},
+        "flub": {"poses": [["stagger", 0.4], ["bopped", 1.0], ["recover", 0.4]], "visual": "one topping (widget_target_chef_piece_1.png) lands on his toque", "voice": "op_chef_copy"},
+        "victory_flourish": null
+      },
+      "voice": {
+        "entrance": "op_chef_arrive",
+        "flub": "op_chef_copy",
+        "defeat": "op_chef_bop",
+        "new_imp_challenge": {"key": "op_chef_challenge", "text": "Bake-off! Whoever tops their cake first wins!"},
+        "new_roshan_contest": {"key": "op_chef_contest", "text": "Put the toppings on my cake before the imp finishes his!"}
+      },
+      "art": {
+        "backdrop": "stage",
+        "roshan": "assets/opera/worlds/actors/roshan_chef.png",
+        "her_object": "assets/opera/worlds/widgets/widget_target_chef.png",
+        "pieces": ["assets/opera/worlds/widgets/widget_target_chef_piece_0.png", "assets/opera/worlds/widgets/widget_target_chef_piece_1.png", "assets/opera/worlds/widgets/widget_target_chef_piece_2.png"],
+        "flub_sprite": "assets/opera/worlds/widgets/widget_target_chef_piece_1.png",
+        "new": []
+      }
+    },
+    "detective": {
+      "status": "specified",
+      "final_act_starts_at": "CASE BOARD",
+      "phases_after": ["SEARCH", "CASE BOARD", "SPARKLE RACE", "CROWN"],
+      "contest": {
+        "name": "SPARKLE RACE",
+        "inserted_before": "CROWN",
+        "archetype": "race",
+        "skill": "searching: sweep the magnifier and hold it on each hidden sparkle",
+        "venue": "room: the painting itself, starting from magnifier_tower (new PHASE_STATIONS entry); lens beats have no card",
+        "player": {"mode": "lens", "units": 3, "clue_spot_indices": [3, 4, 5], "clue_spot_note": "pass these indices explicitly; the default rotation (index + phase_index * 3) % 8 at scripts/opera_career_world_2d.gd:4253-4258 would pick 6, 7 and 0 for a phase at index 2, and SEARCH already uses 0, 1 and 2", "reuse": "existing lens engine, 0.45 s dwell, room-object reactions, 12 s glisten hint"},
+        "imp_station": "his own purple-tinted magnifier (assets/opera/worlds/ui/magnifier.png) travelling between his purple sparkles at clue spots 6, 7 and 1, never zooming",
+        "imp": {"family": "rival_detective", "base_seconds": 21.0, "flub_at_units": 2, "flub_seconds": 2.0},
+        "flub": {"poses": [["guard", 0.6], ["recover", 1.0], ["idle", 0.4]], "visual": "his lens detours to the moon or a lantern (DETECTIVE_ROOM_OBJECTS) and finds nothing", "voice": "op_detective_copy"},
+        "victory_flourish": "CROWN (tap the chest handle; existing crown_chest mode)",
+        "retires": "timed_retry, begin_guided_retry and the reveal path (handoff finding H1)",
+        "story_note": "The steal line at SEARCH is his voice: the detective imp is the crown thief pretending to investigate; his defeat line 'It didn't even fit on my horns' pays that off."
+      },
+      "voice": {
+        "entrance": "op_detective_arrive",
+        "flub": "op_detective_copy",
+        "defeat": "op_detective_bop",
+        "new_imp_challenge": {"key": "op_detective_challenge", "text": "Race you to the sparkles! Mine are purple!"},
+        "new_roshan_contest": {"key": "op_detective_contest", "text": "Find my gold sparkles before the imp finds his purple ones!"}
+      },
+      "art": {
+        "backdrop": "world",
+        "roshan": "assets/opera/worlds/actors/roshan_detective.png",
+        "her_object": "assets/opera/worlds/ui/magnifier.png",
+        "pieces": ["assets/opera/worlds/props/fx_stolen_sparkle.png"],
+        "flub_sprite": null,
+        "new": []
+      }
+    },
+    "ballerina": {
+      "status": "specified",
+      "final_act_starts_at": "stage (OperaPerformancePlan stage_start = 3)",
+      "phases_after": ["practice: PEARL MIRROR", "practice: RIBBON TRAIL", "practice: GRAND TWIRL", "stage: PEARL MIRROR", "stage: RIBBON TRAIL", "stage: TWIRL-OFF"],
+      "contest": {
+        "name": "TWIRL-OFF",
+        "replaces": "the stage copy of GRAND TWIRL (practice keeps GRAND TWIRL)",
+        "archetype": "race",
+        "skill": "turning: guide the pearl around the shell music box",
+        "venue": "hall stage (finale_stage tiles; ballerina layout exception)",
+        "player": {"mode": "ballet_twirl", "units": 3, "surface_change": "multi-turn contract: turns_required = 3, progress normalised over three orbits, same monotonic either-direction rules; today twirl_progress is capped at one orbit (scripts/opera_ballet_surface.gd:508-549)"},
+        "imp_station": "the imp twirls at his own mark beside a small copy of the music box (goal_ballerina.png)",
+        "imp": {"family": "rival_ballerina", "base_seconds": 10.5, "flub_at_units": 2, "flub_seconds": 2.0},
+        "flub": {"poses": [["hop_b", 0.3], ["stagger", 0.4], ["bopped", 1.3]], "visual": "dizzy stars (fx_dizzy_stars.png) after his second spin", "voice": "op_ballerina_copy"},
+        "victory_flourish": null,
+        "rule_note": "DL-INT-08 says Ballerina is not a race; DL-INT-14 supersedes that clause for this final contest only."
+      },
+      "voice": {
+        "entrance": "op_ballerina_arrive",
+        "flub": "op_ballerina_copy",
+        "defeat": "op_ballerina_bop",
+        "new_imp_challenge": {"key": "op_ballerina_challenge", "text": "Twirl-off! Three big spins. Ready? Spin!"},
+        "new_roshan_contest": {"key": "op_ballerina_contest", "text": "Twirl around the music box three times!"}
+      },
+      "art": {
+        "backdrop": "finale_stage",
+        "roshan": "assets/opera/worlds/actors/roshan_ballerina.png",
+        "her_object": "assets/opera/worlds/props/goal_ballerina.png",
+        "pieces": [],
+        "flub_sprite": "assets/opera/worlds/props/fx_dizzy_stars.png",
+        "new": []
+      }
+    },
+    "candymaker": {
+      "status": "specified",
+      "final_act_starts_at": "SHARE",
+      "phases_after": ["SYRUP", "SORT", "WRAP", "SHARING RACE"],
+      "contest": {
+        "name": "SHARING RACE",
+        "replaces": "SHARE",
+        "archetype": "race",
+        "skill": "sharing: give one candy to each waving friend (one-to-one)",
+        "venue": "room: candy_cart (the SHARE station)",
+        "player": {"mode": "tap", "visual_context": "target_candymaker", "units": 6, "reuse": "TARGET_ANCHORS.target_candymaker and _draw_candymaker_recipients"},
+        "imp_station": "mini copy of widget_target_candymaker.png with his first N friends served (mirror API)",
+        "imp": {"family": "rival_candymaker", "base_seconds": 11.0, "flub_at_units": 3, "flub_seconds": 1.8},
+        "flub": {"poses": [["hop_b", 0.5], ["taunt", 0.6], ["recover", 0.7]], "visual": "he eats the candy instead of giving it (candy piece at his mouth); his count does not advance", "voice": "op_candymaker_copy"},
+        "victory_flourish": null
+      },
+      "voice": {
+        "entrance": "op_candymaker_arrive",
+        "flub": "op_candymaker_copy",
+        "defeat": "op_candymaker_bop",
+        "new_imp_challenge": {"key": "op_candymaker_challenge", "text": "Candy race! First to give every friend a sweet wins!"},
+        "new_roshan_contest": {"key": "op_candymaker_contest", "text": "Give a candy to every friend before the imp does!"}
+      },
+      "art": {
+        "backdrop": "stage",
+        "roshan": "assets/opera/worlds/actors/roshan_candymaker.png",
+        "her_object": "assets/opera/worlds/widgets/widget_target_candymaker.png",
+        "pieces": ["assets/opera/worlds/widgets/widget_target_candymaker_piece_0.png", "assets/opera/worlds/widgets/widget_target_candymaker_piece_1.png", "assets/opera/worlds/widgets/widget_target_candymaker_piece_2.png"],
+        "flub_sprite": "assets/opera/worlds/widgets/widget_target_candymaker_piece_0.png",
+        "new": []
+      }
+    },
+    "doctor": {
+      "status": "specified",
+      "final_act_starts_at": "CAST",
+      "phases_after": ["WASH", "FIND", "X-RAY", "CAST", "BANDAGE RACE"],
+      "contest": {
+        "name": "BANDAGE RACE",
+        "replaces": "BANDAGE",
+        "archetype": "race",
+        "skill": "bandaging: wrap each sore paw along the glowing path",
+        "venue": "room: recovery_bed (the BANDAGE station)",
+        "player": {"mode": "swipe", "visual_context": "trace_doctor (existing authored bandage corridor)", "units": 3, "surface_change": "multi-pass contract: after each completed pass the corridor re-arms on the next paw; a pass banks once"},
+        "imp_station": "mini copy of the plushy patient with his bandage fill (set_fill already drives trace art)",
+        "imp": {"family": "rival_doctor", "base_seconds": 14.0, "flub_at_units": 2, "flub_seconds": 2.0},
+        "flub": {"poses": [["stagger", 0.4], ["guard", 1.0], ["recover", 0.6]], "visual": "he wraps his own head instead of the paw", "voice": "op_doctor_copy"},
+        "victory_flourish": "optional kindness beat: tap the imp to give him a bandage (hop_b); never required, auto-continues after 3 s, pays nothing"
+      },
+      "voice": {
+        "entrance": "op_doctor_arrive",
+        "flub": "op_doctor_copy",
+        "defeat": "op_doctor_bop",
+        "new_imp_challenge": {"key": "op_doctor_challenge", "text": "Bandage race! Wrap all three paws!"},
+        "new_roshan_contest": {"key": "op_doctor_contest", "text": "Wrap every sore paw, gentle and quick!"}
+      },
+      "art": {
+        "backdrop": "stage",
+        "roshan": "assets/opera/worlds/actors/roshan_doctor.png",
+        "her_object": "assets/opera/worlds/widgets/widget_crank_doctor_patient.png",
+        "pieces": [],
+        "flub_sprite": null,
+        "new": ["optional P2 only: a small bandage-wrap overlay for the imp if the guard pose does not read as 'wrapped up' at phone size"]
+      }
+    },
+    "farmer": {
+      "status": "specified",
+      "final_act_starts_at": "HERD",
+      "phases_after": ["PLANT", "TOSS", "HERD", "FEEDING RACE"],
+      "contest": {
+        "name": "FEEDING RACE",
+        "replaces": "PICNIC",
+        "archetype": "race",
+        "skill": "aiming: pull back and toss veggies into the hungry piggy's picnic (four landings)",
+        "venue": "room: blossom_arch (the PICNIC station)",
+        "player": {"mode": "farm_lob", "units": 4, "reuse": "FARM_LOB_GOAL = 4, cycling foods, pig munch reaction"},
+        "imp_station": "mini copy of the piggy picnic (widget_target_farmer.png) with his four landing dots filling (mirror API)",
+        "imp": {"family": "rival_farmer", "base_seconds": 17.0, "flub_at_units": 2, "flub_seconds": 1.8},
+        "flub": {"poses": [["charge", 0.3], ["bopped", 1.1], ["recover", 0.4]], "visual": "his veggie bonks his own hat and he slips in mud (fx_dust_puff drawn with a brown modulate; the art itself is not recoloured)", "voice": "op_farmer_bop"},
+        "victory_flourish": "his piggies trot over to her side (optional visual)",
+        "voice_note": "The farmer lines fit best swapped: the mud line is the flub, the rock line is the defeat."
+      },
+      "voice": {
+        "entrance": "op_farmer_arrive",
+        "flub": "op_farmer_bop",
+        "defeat": "op_farmer_copy",
+        "new_imp_challenge": {"key": "op_farmer_challenge", "text": "Feeding race! My piggies eat first!"},
+        "new_roshan_contest": {"key": "op_farmer_contest", "text": "Pull back and toss four veggies to the hungry piggy!"}
+      },
+      "art": {
+        "backdrop": "stage",
+        "roshan": "assets/opera/worlds/actors/roshan_farmer.png",
+        "her_object": "assets/opera/worlds/widgets/widget_target_farmer.png",
+        "pieces": ["assets/opera/worlds/widgets/widget_target_farmer_piece_0.png", "assets/opera/worlds/widgets/widget_target_farmer_piece_1.png", "assets/opera/worlds/widgets/widget_target_farmer_piece_2.png"],
+        "flub_sprite": "assets/opera/worlds/widgets/widget_target_farmer_piece_0.png",
+        "new": []
+      }
+    },
+    "boxer": {
+      "status": "specified",
+      "final_act_starts_at": "TITLE IMP",
+      "phases_after": ["GLOVE GUIDE", "JAB PRACTICE", "SOFT GUARD", "TITLE BOUT", "BELT"],
+      "contest": {
+        "name": "TITLE BOUT",
+        "replaces": "TITLE IMP (same specialist, new scoring)",
+        "archetype": "points",
+        "skill": "timing: punch in the open window and guard the counter",
+        "venue": "specialist: full-screen OperaBoxingSurface after she reaches shell_pavilion_stage",
+        "player": {"mode": "boxing_imp", "points_to_win": 6, "reuse": "existing windup, charge, recover and guard cycle (scripts/opera_boxing_surface.gd:366-420)"},
+        "imp_station": "in-surface opponent (existing)",
+        "imp": {"family": "rival_boxer", "points_to_win": 6, "scores_when": "a counter lands unblocked (receive_friendly_hit), and only if she made a contest input in the last 4 s", "flub_at_points": 3, "flub_seconds": 2.0},
+        "flub": {"poses": [["stagger", 0.8], ["recover", 1.2]], "visual": "he mixes up left and right and leaves a long open window", "voice": "op_boxer_copy"},
+        "victory_flourish": "BELT (existing)",
+        "rule_note": "DL-INT-09 and the MA-OPERA-009 owner note describe friendly no-loss boxing; DL-INT-14 supersedes the no-loss clause for the title bout only. Friendly contact stays harmless and never removes her points."
+      },
+      "voice": {
+        "entrance": "op_boxer_arrive",
+        "flub": "op_boxer_copy",
+        "defeat": "op_boxer_bop",
+        "new_imp_challenge": {"key": "op_boxer_challenge", "text": "First to six! Put 'em up!"},
+        "new_roshan_contest": {"key": "op_boxer_contest", "text": "Punch when the star shines, and guard when he winds up!"}
+      },
+      "art": {
+        "backdrop": "stage",
+        "roshan": "assets/opera/worlds/actors/roshan_boxer.png",
+        "her_object": "assets/opera/worlds/widgets/widget_target_boxer.png",
+        "pieces": [],
+        "flub_sprite": null,
+        "new": []
+      }
+    },
+    "magician": {
+      "status": "specified",
+      "final_act_starts_at": "stage (OperaPerformancePlan stage_start = 3)",
+      "phases_after": ["practice: VANISH", "practice: TRACK", "practice: ROPE", "stage: VANISH", "stage: TRACK", "stage: ROPE", "stage: CABINET", "stage: HAT DUEL", "stage: PORTAL"],
+      "contest": {
+        "name": "HAT DUEL",
+        "inserted_before": "PORTAL (stage only)",
+        "archetype": "points",
+        "skill": "tracking: follow the hat that hides Lamb-a' through the imp's shuffle",
+        "venue": "hall stage",
+        "player": {"mode": "choice", "visual_context": "lanes_magician", "points_to_win": 3, "surface_change": "presses during the shuffle glide (shuffle_t > 0) are ignored; a wrong pick pays nothing and gives the imp a point (today it pays a 0.05 crumb, scripts/opera_gesture_surface.gd:395-400)"},
+        "imp_station": "the imp performs the shuffle: windup before, charge and slash while hats move, taunt when she picks wrong, stagger when she picks right",
+        "imp": {"family": "rival_magician", "points_to_win": 3, "scores_when": "she picks a wrong hat after the shuffle has stopped", "flub_when": "he leads or is level at 2", "flub_seconds": 2.0},
+        "flub": {"poses": [["taunt", 0.4], ["stagger", 0.6], ["recover", 1.0]], "visual": "his trick backfires and Lamb-a' pops up visibly on the right hat for one round", "voice": "op_magician_copy"},
+        "victory_flourish": "PORTAL (existing circle)"
+      },
+      "voice": {
+        "entrance": "op_magician_arrive",
+        "flub": "op_magician_copy",
+        "defeat": "op_magician_bop",
+        "new_imp_challenge": {"key": "op_magician_challenge", "text": "Watch my hats! Can you find Lamb-a'?"},
+        "new_roshan_contest": {"key": "op_magician_contest", "text": "Watch the hat with Lamb-a', then tap it when it stops!"}
+      },
+      "art": {
+        "backdrop": "stage",
+        "roshan": "assets/opera/worlds/actors/roshan_magician.png",
+        "her_object": "assets/opera/worlds/widgets/widget_lanes_magician.png",
+        "pieces": ["assets/minigames/seek/lamma_animation.png"],
+        "flub_sprite": null,
+        "new": []
+      }
+    },
+    "painter": {
+      "status": "specified",
+      "final_act_starts_at": "PAINT-OFF (FINALE_START stays 2; the contest is inserted at index 2, so the imp enters and challenges at once)",
+      "phases_after": ["PAINT", "STAMPS", "PAINT-OFF", "GALLERY"],
+      "contest": {
+        "name": "PAINT-OFF",
+        "inserted_before": "GALLERY",
+        "archetype": "race",
+        "skill": "painting: brush across the canvas until the picture shows",
+        "venue": "room: gazebo_easel (new PHASE_STATIONS entry, the PAINT easel)",
+        "player": {"mode": "paint_reveal", "units": "coverage 0 to 1 (PAINT_REQUIRED_COVERAGE 0.62 of the 10 x 6 grid)", "reuse": "existing coverage brush and goal_painter.png reveal"},
+        "imp_station": "mini canvas revealing goal_painter.png in a fixed stroke order (mirror API)",
+        "imp": {"family": "rival_painter", "base_seconds": 16.0, "flub_at_fraction": 0.55, "flub_seconds": 2.0},
+        "flub": {"poses": [["slash", 0.3], ["stagger", 0.5], ["recover", 1.2]], "visual": "he paints himself: painter stamp marks (widget_target_painter_mark.png) splat on his sprite", "voice": "op_painter_copy"},
+        "victory_flourish": "GALLERY (hang her painting; existing choice)"
+      },
+      "voice": {
+        "entrance": "op_painter_arrive",
+        "flub": "op_painter_copy",
+        "defeat": "op_painter_bop",
+        "new_imp_challenge": {"key": "op_painter_challenge", "text": "Paint-off! First to finish their picture wins!"},
+        "new_roshan_contest": {"key": "op_painter_contest", "text": "Paint the whole picture before the imp finishes his!"}
+      },
+      "art": {
+        "backdrop": "stage",
+        "roshan": "assets/opera/worlds/actors/roshan_painter.png",
+        "her_object": "assets/opera/worlds/props/goal_painter.png",
+        "pieces": ["assets/opera/worlds/widgets/widget_target_painter_mark.png"],
+        "flub_sprite": "assets/opera/worlds/widgets/widget_target_painter_mark.png",
+        "new": []
+      }
+    },
+    "astronaut": {
+      "status": "specified",
+      "final_act_starts_at": "LAUNCH",
+      "phases_after": ["PIPES", "PATCH", "VALVE", "LAUNCH RACE"],
+      "contest": {
+        "name": "LAUNCH RACE",
+        "replaces": "LAUNCH",
+        "archetype": "race",
+        "skill": "repairing: patch every leak, then hold to blast off",
+        "venue": "room: rocket_launch_dais (the LAUNCH station)",
+        "player": {"mode": "tap then hold", "visual_context": "target_astronaut then charge_astronaut", "units": 6, "reuse": "TARGET_ANCHORS.target_astronaut (five leaks) plus a 1.2 s launch hold as the sixth unit"},
+        "imp_station": "mini copy of widget_target_astronaut.png with his first N patches (mirror API)",
+        "imp": {"family": "rival_astronaut", "base_seconds": 12.0, "flub_at_units": 3, "flub_seconds": 1.8},
+        "flub": {"poses": [["stagger", 0.5], ["bopped", 0.9], ["recover", 0.4]], "visual": "his rocket hops sideways and bumps down (fx_dust_puff)", "voice": "op_astronaut_copy"},
+        "victory_flourish": null
+      },
+      "voice": {
+        "entrance": "op_astronaut_arrive",
+        "flub": "op_astronaut_copy",
+        "defeat": "op_astronaut_bop",
+        "new_imp_challenge": {"key": "op_astronaut_challenge", "text": "Rocket race! Patch the leaks and blast off first!"},
+        "new_roshan_contest": {"key": "op_astronaut_contest", "text": "Patch every leak, then hold to blast off!"}
+      },
+      "art": {
+        "backdrop": "stage",
+        "roshan": "assets/opera/worlds/actors/roshan_astronaut.png",
+        "her_object": "assets/opera/worlds/widgets/widget_target_astronaut.png",
+        "pieces": ["assets/opera/worlds/widgets/widget_target_astronaut_piece_0.png", "assets/opera/worlds/widgets/widget_target_astronaut_piece_1.png", "assets/opera/worlds/widgets/widget_target_astronaut_piece_2.png"],
+        "flub_sprite": "assets/opera/worlds/props/fx_dust_puff.png",
+        "new": []
+      }
+    },
+    "racer": {
+      "status": "specified",
+      "final_act_starts_at": "RACE",
+      "phases_after": ["TUNE", "TO THE LINE", "GRAND PRIX"],
+      "contest": {
+        "name": "GRAND PRIX",
+        "replaces": "RACE (same specialist, new finish rule)",
+        "archetype": "race",
+        "skill": "steering: stay on the ribbon track and grab zoom strips",
+        "venue": "specialist: the Canvas circuit after she reaches ribbon_finish_arch (DL-INT-10)",
+        "player": {"mode": "kart_race", "units": "two laps", "reuse": "existing KartDriving kernel and lap dials"},
+        "imp_station": "his kart on the same track (existing)",
+        "imp": {"family": "rival_racer", "base_rate": "existing 0.94 x nominal plus rubber band (scripts/opera_racer_surface.gd:298-306)", "rematch_rate": "x0.9 per rematch, floor 0.75", "flub_when": "first bend of lap two", "flub_seconds": 1.5},
+        "flub": {"poses": [], "visual": "spin-out: his kart rotates once and stops for 1.5 s", "voice": "op_racer_copy"},
+        "surface_change": "detect the rival crossing two laps before her and emit rival_finished; reset both karts on restart; the rival waits while she is idle",
+        "victory_flourish": null,
+        "rule_note": "Today the race ends only when she finishes and she wins regardless of placement; DL-INT-14 makes the rival finishing first an imp win (restart)."
+      },
+      "voice": {
+        "entrance": "op_racer_arrive",
+        "flub": "op_racer_copy",
+        "defeat": "op_racer_bop",
+        "new_imp_challenge": {"key": "op_racer_challenge", "text": "Two laps! First one home wins! Go, go, go!"},
+        "new_roshan_contest": {"key": "op_racer_steer", "text": "Swipe to steer through the coral gates!", "existing": true}
+      },
+      "art": {
+        "backdrop": "world",
+        "roshan": "assets/opera/worlds/actors/roshan_racer.png",
+        "her_object": "assets/opera/worlds/widgets/widget_crank_racer_kart.png",
+        "pieces": [],
+        "flub_sprite": null,
+        "new": []
+      }
+    },
+    "popstar": {
+      "status": "specified",
+      "final_act_starts_at": "stage (OperaPerformancePlan stage_start = 3)",
+      "phases_after": ["practice: SOUND CHECK", "practice: DANCE", "practice: RHYTHM", "stage: SOUND CHECK", "stage: DANCE", "stage: RHYTHM", "stage: SING-OFF", "stage: ENCORE"],
+      "contest": {
+        "name": "SING-OFF",
+        "inserted_before": "ENCORE (stage only)",
+        "archetype": "points",
+        "skill": "listening: hear the imp's phrase and sing it back note for note",
+        "venue": "hall stage",
+        "player": {"mode": "echo", "points_to_win": 3, "surface_change": "a wrong note pays nothing, gives the imp a point and starts the next round (today it pays a crumb and replays, scripts/opera_gesture_surface.gd:5872-5910)"},
+        "imp_station": "the imp sings each phrase: the stars light as he sings (taunt and hop_b poses)",
+        "imp": {"family": "rival_popstar", "points_to_win": 3, "scores_when": "she sings a wrong note", "flub_when": "he leads or is level at 2", "flub_seconds": 1.5},
+        "flub": {"poses": [["taunt", 0.4], ["stagger", 0.5], ["recover", 0.6]], "visual": "his next phrase goes off-key and he sings it again as an easy two-note phrase", "voice": "op_popstar_copy"},
+        "victory_flourish": "ENCORE (existing circle)"
+      },
+      "voice": {
+        "entrance": "op_popstar_arrive",
+        "flub": "op_popstar_copy",
+        "defeat": "op_popstar_bop",
+        "new_imp_challenge": {"key": "op_popstar_challenge", "text": "Sing-off! Sing my song back to me!"},
+        "new_roshan_contest": {"key": "op_popstar_contest", "text": "Listen to the imp's song, then sing it back!"}
+      },
+      "art": {
+        "backdrop": "stage",
+        "roshan": "assets/opera/worlds/actors/roshan_popstar.png",
+        "her_object": null,
+        "her_object_note": "The three singing stars are code-drawn: popstar_star_note_unlit/_lit.png are ledgered P2 art that was never delivered (scripts/opera_career_world_2d.gd:2345-2347), so _draw_echo_star falls back to a 10-point polygon (scripts/opera_gesture_surface.gd:5914-5923). Mirror the same drawing for his stars in imp purple.",
+        "pieces": ["assets/opera/worlds/props/goal_popstar.png"],
+        "flub_sprite": null,
+        "new": []
+      }
+    },
+    "nursery": {
+      "status": "owner_decision_required",
+      "decision": "Nursery is cooperative with Faron today and no nursery imp costume exists. Option A: keep it cooperative (no contest). Option B (recommended if contests should be universal): this contest with the plain mischief imp. Option C: B plus a commissioned rival_nursery family.",
+      "final_act_starts_at": "BEDTIME",
+      "phases_after": ["WASH HANDS", "CATCH BABIES", "FEED", "BURP", "QUIET TUCK-IN"],
+      "contest": {
+        "name": "QUIET TUCK-IN",
+        "replaces": "BEDTIME",
+        "archetype": "race",
+        "skill": "gentle care: pull each blanket down slowly to tuck a baby in",
+        "venue": "room: moon_bed (the BEDTIME station); Faron stays beside Roshan",
+        "player": {"mode": "swipe (down)", "visual_context": "nursery_bedtime", "units": 3, "reuse": "existing three physical blanket tucks"},
+        "imp_station": "his three cribs beside the moon bed",
+        "imp": {"family": "imp_mischief", "base_seconds": 12.0, "flub_at_units": 2, "flub_seconds": 2.0, "pose_substitutions": {"hop_a": "flee", "hop_b": "taunt"}, "pose_note": "imp_mischief has 11 states and no hop_a or hop_b: the entrance runs in with flee then idle, and his win beat is taunt only"},
+        "flub": {"poses": [["taunt", 0.4], ["stagger", 0.6], ["recover", 1.0]], "visual": "his babies giggle awake and he has to tuck one again", "voice": "op_nursery_copy"},
+        "victory_flourish": null
+      },
+      "voice": {
+        "entrance": "op_nursery_arrive",
+        "flub": "op_nursery_copy",
+        "defeat": "op_nursery_bop",
+        "new_imp_challenge": {"key": "op_nursery_challenge", "text": "Tuck-in race! Shh... I'll be quiet this time!"},
+        "new_roshan_contest": {"key": "op_nursery_contest", "text": "Tuck in every baby, slow and gentle!"}
+      },
+      "art": {
+        "backdrop": "world",
+        "roshan": "assets/opera/worlds/actors/roshan_nursery.png",
+        "her_object": "assets/opera/worlds/widgets/widget_push_nursery.png",
+        "pieces": [],
+        "flub_sprite": null,
+        "new": ["option C only: rival_nursery 13-state family via tools/build_imp_costume_family.py"]
+      }
+    },
+    "geologist": {
+      "status": "owner_decision_required",
+      "decision": "Geologist is cooperative with a borrowed detective imp as field guide and has no painted world or imp lines. Option A: keep it cooperative. Option B: a geode race against the field-guide imp. Option C: B plus a commissioned rival_geologist family and four new imp lines.",
+      "final_act_starts_at": "GEODE",
+      "phases_after": ["RIVER", "FOSSIL", "PAN", "GEODE RACE"],
+      "contest": {
+        "name": "GEODE RACE",
+        "replaces": "GEODE",
+        "archetype": "race",
+        "skill": "careful opening: tap the five seams, then pull the geode open",
+        "venue": "room: crystal_gallery (full-screen geology surface)",
+        "player": {"mode": "geology_geode", "units": 6, "reuse": "five seam taps plus the 120 px opening pull"},
+        "imp_station": "his own geode on the field-guide table",
+        "imp": {"family": "rival_detective", "base_seconds": 12.0, "flub_at_units": 3, "flub_seconds": 2.0},
+        "flub": {"poses": [["stagger", 0.4], ["flee", 1.2], ["recover", 0.4]], "visual": "his geode rolls off the table and he chases it", "voice": "new line required (no geologist imp lines exist)"},
+        "victory_flourish": null
+      },
+      "voice": {
+        "entrance": "new line required",
+        "flub": "new line required",
+        "defeat": "new line required",
+        "new_imp_challenge": {"key": "op_geologist_challenge", "text": "Geode race! First one to see the crystals wins!"},
+        "new_roshan_contest": {"key": "op_geologist_contest", "text": "Tap every crack, then pull the geode open!"}
+      },
+      "art": {
+        "backdrop": "none (code-native fallback today)",
+        "roshan": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+        "her_object": null,
+        "pieces": [],
+        "flub_sprite": null,
+        "new": ["option C only: rival_geologist 13-state family"]
+      }
+    },
+    "teacher": {
+      "status": "owner_decision_required",
+      "decision": "Recommendation: no contest. The Teacher engine is deliberately clock-free, and racing a four-year-old through early number and pattern learning works against it. If a contest is wanted, the least harmful form is points-based 'solve the imp's puzzle' with no clock, which needs a teacher imp costume and new lines.",
+      "final_act_starts_at": "MATCH",
+      "phases_after": ["PATTERN", "COUNT", "ADD", "MATCH"],
+      "contest": null,
+      "voice": {},
+      "art": {"new": []}
+    }
+  },
+  "new_shared_voice": [
+    {"speaker": "imp", "key": "op_contest_win", "text": "I won! I won! Let's play again!"},
+    {"speaker": "roshan", "key": "op_contest_again", "text": "Again! I can do it this time!"}
+  ]
+}

@@ -342,6 +342,10 @@ remain open.
 - **Competition is scoped, not assumed.** Where a career retains a rival or
   finale meter, it stays hidden until its declared finale and cannot create a
   loss. Friendly contact is harmless; zero input never earns progress.
+  Owner decision 2026-09-30 (`DL-INT-14`, target; implementation pending): the
+  imp enters when the final act begins, and the act ends in one job-skill
+  contest he can win. His win restarts that contest at once and costs nothing
+  earned. Until it ships, today's no-loss pacer remains the runtime behaviour.
 - **Nursery Nurse (job 13) is cooperative,** not competitive: Nurse Faron is a
   visible partner from the first beat, never framed as an opponent.
 - **Geologist is cooperative,** not competitive: Roshan follows rock layers,

@@ -1,0 +1,99 @@
+{
+ "id": "codex-opera-imp-contest-handoff-20260930",
+ "scope": "Owner requests 2026-09-30: \"Let's refine the opera house games. Analyze what formula is present currently, analyze strengths and weaknesses, analyze ways to utilize the matching imp artwork\"; \"No, I think imp comes in during the final act, there should be a contest at the end that reflects part of the skill of the job that's a challenge against the imp\"; \"If imp wins, the game restarts immediately afterwards. Continue with build out and design to hand off to codex\"; and \"why are you building images? That isn't your job. You provide verbal descriptions for handoff to codex. Update rules to insure that this mistake is not made again\". Written-only Codex handoff under docs/handoffs/codex_opera_imp_contest_2026-09-30/: current-state analysis (formula, strengths, weaknesses, handoff-local findings H1-H10 with code anchors, imp art and voice use), the contest design (contract C1-C14, shared mechanics, code integration, twelve per-career contests described in words, owner decisions, retirements, tests, work order, acceptance), a machine-readable spec, text inventories of the 178 imp pose files and 56 imp lines, a text-only inventory/manifest checker and a SHA-256 manifest; no images. Canon: DL-INT-14 added to design 06 as the owner-decided target contract with pointer sentences on DL-INT-08/09/10; design 01 competition bullet amended; master index and master-audit planning-entry notes; ledger rows; dated history notes on MA-OPERA-005 and MA-OPERA-009 (authority superseded prospectively for the contest only; runtime, lifecycle and acceptance unchanged). High-risk file: CLAUDE.md gains the owner's explicit 2026-09-30 rule \"Codex handoffs: Claude writes, Codex builds images\", and its ledger row is updated. No game script, scene, asset, save key or runtime behaviour changes.",
+ "baseline": "55032e88936b22723fd9af5282c61ba6696b3d43",
+ "rules": [
+  "DL-AUTH-05",
+  "DL-AUTH-06",
+  "DL-AUTH-07",
+  "DL-AGE-01",
+  "DL-AGE-02",
+  "DL-AGE-03",
+  "DL-AGE-04",
+  "DL-AGE-05",
+  "DL-AGE-06",
+  "DL-INT-02",
+  "DL-INT-06",
+  "DL-INT-07",
+  "DL-INT-08",
+  "DL-INT-09",
+  "DL-INT-10",
+  "DL-INT-14",
+  "DL-MOT-03",
+  "DL-MOT-07",
+  "DL-SND-01",
+  "DL-SND-03",
+  "DL-SND-05",
+  "DL-SND-10",
+  "DL-SND-12",
+  "DL-SND-13",
+  "DL-SND-14",
+  "DL-SAVE-01",
+  "DL-SAVE-02",
+  "DL-PLAN-03",
+  "DL-PLAN-04",
+  "DL-QA-12"
+ ],
+ "findings": [
+  "MA-OPERA-005",
+  "MA-OPERA-009"
+ ],
+ "finding_notes": "MA-OPERA-005 and MA-OPERA-009 receive dated history notes only: DL-INT-14 prospectively supersedes the Ballerina no-race and Boxer no-loss clauses for the final contest. Their runtime facts, lifecycle and acceptance scope are unchanged. MA-PLAY-004 is related (embodied job) but unchanged. H1-H10 are handoff-local findings in CURRENT_STATE_ANALYSIS.md, not entered into the MA-* register; promoting any of them is left to Codex and the owner.",
+ "files": [
+  "CLAUDE.md",
+  "audit/MASTER_AUDIT_2026-08-09.md",
+  "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+  "design/00_MASTER_INDEX.md",
+  "design/01_GAME_DESIGN.md",
+  "design/05_DOC_LEDGER.md",
+  "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+  "design/audit_impacts/codex-opera-imp-contest-handoff-20260930.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/.gdignore",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/CONTEST_DESIGN.md",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/CURRENT_STATE_ANALYSIS.md",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/MANIFEST.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/README.md",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/data/contest_spec.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/data/imp_art_inventory.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/data/imp_voice_inventory.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/tools/build_packet_data.py"
+ ],
+ "validation": [
+  {
+   "command": "python3 -B tools/audit_document_authority.py",
+   "result": "PASS",
+   "evidence": "DOCAUTH|INVENTORY=585|LEDGER=585|ACTIVE=56|RECORDS=58; DOCAUTH|RESULT|ALL OK (three new packet documents ledgered). --stress: DOCAUTH|STRESS|6/6."
+  },
+  {
+   "command": "python3 -B tools/audit_development.py --base auto",
+   "result": "PASS",
+   "evidence": "AUDITDEV|BASE|55032e88936b22723fd9af5282c61ba6696b3d43; AUDITDEV|RESULT|ALL OK; this record covers all 17 changed paths."
+  },
+  {
+   "command": "python3 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+   "result": "PASS",
+   "evidence": "Ran 52 tests, OK."
+  },
+  {
+   "command": "python3 -B docs/handoffs/codex_opera_imp_contest_2026-09-30/tools/build_packet_data.py --check",
+   "result": "PASS",
+   "evidence": "PACKET_CHECK|OK|FILES=8: every packet file matches MANIFEST.json, both inventories regenerate byte-identically, and the folder contains no image."
+  },
+  {
+   "command": "python3 -B tools/audit_game_2d.py --regression-gate",
+   "result": "NOT_APPLICABLE",
+   "evidence": "Local clone is shallow, so the tool refuses shrinking-baseline validation (G2D403). The change touches no game, scene or asset file; the probes workflow runs this gate with full history on the pushed head."
+  },
+  {
+   "command": "Remote verification: unauthenticated fetch of MANIFEST.json and every listed file from raw.githubusercontent.com at the pushed commit, SHA-256 and byte comparison",
+   "result": "PENDING",
+   "evidence": "Recorded after the push."
+  },
+  {
+   "command": "Exact Godot 4.7.2 probe suite (scripts/ci.sh) via .github/workflows/probes.yml on the pushed head",
+   "result": "PENDING",
+   "evidence": "Documentation-only change; the suite still runs as a regression gate before integration into dev."
+  }
+ ],
+ "acceptance_gaps": "Written handoff only. Codex implementation, the new and updated probes, exact-head CI for that implementation, Mobile captures at two aspects, target-device play, an observed child session and owner acceptance are all pending. Open owner decisions: restart scope (contest only is this design's interpretation), Nursery, Geologist and Teacher contests, retiring the Hall stage-long race, rematch mercy. DL-INT-14 is a target contract, not implemented behaviour. No master-audit satisfaction, finding closure or release is claimed."
+}

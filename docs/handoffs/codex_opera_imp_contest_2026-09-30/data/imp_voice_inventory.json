@@ -1,0 +1,1075 @@
+{
+  "schema": "opera_imp_voice_inventory/1",
+  "generated_by": "docs/handoffs/codex_opera_imp_contest_2026-09-30/tools/build_packet_data.py",
+  "baseline": "55032e88936b22723fd9af5282c61ba6696b3d43",
+  "routing_rule": "show_msg(who, text, vo) plays <speaker>_<vo>.ogg, preferring filler_v1 (scripts/audio_director.gd:15-16, :220-231); in the Opera the caption is hidden whenever an exact clip exists (scripts/audio_director.gd:493)",
+  "generation_rule": "New lines are appended through the existing filler pipeline (tools/make_parler_voice_trials.py, tools/select_filler_voices.py, tools/master_filler_voices.py) with the imp 'Mike' and Roshan 'Joy' presets as PROVISIONAL_SYNTHETIC_FILLER. Nothing existing is modified or replaced; protected family recordings stay byte-identical (DL-SND-05, DL-SND-11); every new file gets its audio-ledger row (DL-SND-10) and meets DL-SND-12.",
+  "totals": {
+    "imp_keys": 56,
+    "routed_today": 2,
+    "planned_contest_use": 36,
+    "planned_with_nursery_option_b": 39,
+    "new_lines": 25,
+    "new_lines_if_nursery_option_b": 2
+  },
+  "imp_lines": [
+    {
+      "key": "imp_op_astronaut_arrive",
+      "text": "I was sent to learn the SENDING. Nobody sends US anything.",
+      "legacy_path": "assets/audio/voices/imp_op_astronaut_arrive.ogg",
+      "legacy_sha256": "df23ca46480ba179fc3f2e9decea0a85d1d1abc9a758e0be62b73a6dcdd16fca",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_astronaut_arrive.ogg",
+      "filler_sha256": "33e09418023d66d78da8d197ef7cdc7fd1297b75b1fe35cb96dc05c0604b795a",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "astronaut entrance"
+      ]
+    },
+    {
+      "key": "imp_op_astronaut_bop",
+      "text": "Wheee — oh. I landed. That's the hard bit.",
+      "legacy_path": "assets/audio/voices/imp_op_astronaut_bop.ogg",
+      "legacy_sha256": "1bb87472041173315cb8c327ff9d6102a01c0f8ef40849632f69550d2e22ec24",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_astronaut_bop.ogg",
+      "filler_sha256": "13afa8653507c87045dafea4691f6ec6a2cc643936b9fe4fc138129ab0e58911",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "astronaut defeat"
+      ]
+    },
+    {
+      "key": "imp_op_astronaut_copy",
+      "text": "My rocket went sideways. Into a wall. Twice.",
+      "legacy_path": "assets/audio/voices/imp_op_astronaut_copy.ogg",
+      "legacy_sha256": "f87cdf7867fc53a51a25d267a1483872f06cfc7e97932981613b6630b0648ca9",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_astronaut_copy.ogg",
+      "filler_sha256": "5fae9b18b7b0c86dac364ca82bebb91b6dc0cf499a7753058fa54b5e2970ab2c",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "astronaut flub"
+      ]
+    },
+    {
+      "key": "imp_op_astronaut_steal",
+      "text": "No invitations, no guests! Hee hee hee!",
+      "legacy_path": "assets/audio/voices/imp_op_astronaut_steal.ogg",
+      "legacy_sha256": "9469fed1d913da13d6e7a05423386601abbde4a520b75d2e22de68a97ad47a28",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_astronaut_steal.ogg",
+      "filler_sha256": "281b14498885534fe7ade68a0d309d35ffb9e86d833a27263c21588169602307",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "unchanged: the steal story beat is outside the contest"
+      ]
+    },
+    {
+      "key": "imp_op_ballerina_arrive",
+      "text": "I was sent to learn the DANCING. Watch my twirl!",
+      "legacy_path": "assets/audio/voices/imp_op_ballerina_arrive.ogg",
+      "legacy_sha256": "cef06304b0ba73153486e3e4739de3d65283f62078780ecc3de4523d7aeb2ced",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_ballerina_arrive.ogg",
+      "filler_sha256": "e815cfa9aba10ad49a1d374d1abebe06bc1f7fb94e2d0e6b734422f8b44a0def",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "ballerina entrance"
+      ]
+    },
+    {
+      "key": "imp_op_ballerina_bop",
+      "text": "Whoops! I'm dizzy. Dizzy is a kind of dancing.",
+      "legacy_path": "assets/audio/voices/imp_op_ballerina_bop.ogg",
+      "legacy_sha256": "95cbcfb4344c8470344ed0ce10f2c27ff705bb3ba1da00adf5e9f8e90a6ea044",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_ballerina_bop.ogg",
+      "filler_sha256": "ec55af5a494fcd11dafba3f7371e0f54abd4d7a467508598c0281ddbe17cd3d2",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "ballerina defeat"
+      ]
+    },
+    {
+      "key": "imp_op_ballerina_copy",
+      "text": "Spin, spin, spin, FALL. That's the hard part.",
+      "legacy_path": "assets/audio/voices/imp_op_ballerina_copy.ogg",
+      "legacy_sha256": "2b3040fbae53c33c8e3d3f0a7c3ca17d61e556ab923ca0e33dd94f04e8acae72",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_ballerina_copy.ogg",
+      "filler_sha256": "3e0216fe83d2b64f24cd250befe61da030976134902aa3afa620461eaf62fc21",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "ballerina flub"
+      ]
+    },
+    {
+      "key": "imp_op_ballerina_steal",
+      "text": "The music box! No music, no party, hee hee!",
+      "legacy_path": "assets/audio/voices/imp_op_ballerina_steal.ogg",
+      "legacy_sha256": "7e87e960d12d425fda0a5b7d8c3a9ed8fcce89203a0e0cd133aa5f2a40e4644a",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_ballerina_steal.ogg",
+      "filler_sha256": "f30c49c23437fe348797fd6ccbb4aa0039de0341d556ff416be1cc5092662bcb",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "unchanged: the steal story beat is outside the contest"
+      ]
+    },
+    {
+      "key": "imp_op_boxer_arrive",
+      "text": "I was sent to learn the BOUNCING. Put 'em up!",
+      "legacy_path": "assets/audio/voices/imp_op_boxer_arrive.ogg",
+      "legacy_sha256": "bd3480e7f7daf96bc0ad529d361886a770e9e93c10dd2801ec5d0b3eff60c186",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_boxer_arrive.ogg",
+      "filler_sha256": "5ef376eb53269d511e184c9415bf5d59869b5386ce89d39680cb0fafd7edc291",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "boxer entrance"
+      ]
+    },
+    {
+      "key": "imp_op_boxer_bop",
+      "text": "Good one! Best two out of three? No? Okay.",
+      "legacy_path": "assets/audio/voices/imp_op_boxer_bop.ogg",
+      "legacy_sha256": "6beb5184713ff373cfe4a0cfd939dea13bd9e9d37bd0b186dd0dd9f3376429ef",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_boxer_bop.ogg",
+      "filler_sha256": "b4700063e7cb26bcb17a9521d3991f23c5602e783e36253d7234d35a21b525ae",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "boxer defeat"
+      ]
+    },
+    {
+      "key": "imp_op_boxer_copy",
+      "text": "Left! Right! ...which one is left again?",
+      "legacy_path": "assets/audio/voices/imp_op_boxer_copy.ogg",
+      "legacy_sha256": "649727717672282c294284c49c80ba24b9f487d88a7f65d410f6b9049a8f4dd3",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_boxer_copy.ogg",
+      "filler_sha256": "c2eb6ef6fe933ebaf987acabb9fb0452729c56cc8c26e1ff48bf484d750e5dc0",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "boxer flub"
+      ]
+    },
+    {
+      "key": "imp_op_boxer_steal",
+      "text": "The shiny belt! Champions get invited to things!",
+      "legacy_path": "assets/audio/voices/imp_op_boxer_steal.ogg",
+      "legacy_sha256": "515e7fb221907a9534cd0564eb51ee652eb0ccc06c52823169ccaab534cf1b74",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_boxer_steal.ogg",
+      "filler_sha256": "b00fef428fb366f0d11eb79536ff6a568cf818fb8b3495df9064e5af1f7a8df0",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "unchanged: the steal story beat is outside the contest"
+      ]
+    },
+    {
+      "key": "imp_op_candymaker_arrive",
+      "text": "I was sent to learn the SWEETS. I am very good at sweets.",
+      "legacy_path": "assets/audio/voices/imp_op_candymaker_arrive.ogg",
+      "legacy_sha256": "65447b6a987ae5e8e423ce0eb62bce1877ab7862e4c568d8477c92ad4fa5c2ad",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_candymaker_arrive.ogg",
+      "filler_sha256": "1007c5aac871bc6789c5533d15699aa33938580b1955bb1151159f4423882d3e",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "candymaker entrance"
+      ]
+    },
+    {
+      "key": "imp_op_candymaker_bop",
+      "text": "Oof! My tummy hurts anyway. Too many gumdrops.",
+      "legacy_path": "assets/audio/voices/imp_op_candymaker_bop.ogg",
+      "legacy_sha256": "c81b8673ccb395f47a2173affdb08dd6b19ca4f751ddc8c6a42feb284797524c",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_candymaker_bop.ogg",
+      "filler_sha256": "eff2fb5d861445fe50038c9989988bcff9922518f58c5d9b710416a8fc572f10",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "candymaker defeat"
+      ]
+    },
+    {
+      "key": "imp_op_candymaker_copy",
+      "text": "One for the bag, two for me. That's how it works!",
+      "legacy_path": "assets/audio/voices/imp_op_candymaker_copy.ogg",
+      "legacy_sha256": "fb6dedcfcc708acae162bfe46d0788ab4eb835d963c167dbdbbc189714c8338e",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_candymaker_copy.ogg",
+      "filler_sha256": "2f2362d5ee49364a0eb78892ce90ecbd46f705d00ce386fa9b57bafcc08a5ae8",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "candymaker flub"
+      ]
+    },
+    {
+      "key": "imp_op_candymaker_steal",
+      "text": "Candy! Every party needs candy and now WE have it!",
+      "legacy_path": "assets/audio/voices/imp_op_candymaker_steal.ogg",
+      "legacy_sha256": "2e414024e79c684759118a56ff9fa59abab05d4cd63c237d5d8145c6bfe0df30",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_candymaker_steal.ogg",
+      "filler_sha256": "3f505d2a02428841a3f29146ee01a53baa2261c013590855ab509732d3227272",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "unchanged: the steal story beat is outside the contest"
+      ]
+    },
+    {
+      "key": "imp_op_captain",
+      "text": null,
+      "legacy_path": "assets/audio/voices/imp_op_captain.ogg",
+      "legacy_sha256": "cd0d36851c5a77b4524a49bf5530c0d2c07975cc281ea16310a39dd20933069d",
+      "filler_path": null,
+      "filler_sha256": null,
+      "filler_status": null,
+      "speaker_preset": null,
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": []
+    },
+    {
+      "key": "imp_op_captain_intro",
+      "text": "Two taps will stop me!",
+      "legacy_path": null,
+      "legacy_sha256": null,
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_captain_intro.ogg",
+      "filler_sha256": "16d62f9776e60debbc4c5fc9e4eaea6202a6feb715ebfc9644563e4fab40fda2",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": []
+    },
+    {
+      "key": "imp_op_captain_rally",
+      "text": "Crew! Back to me! Hee hee!",
+      "legacy_path": null,
+      "legacy_sha256": null,
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_captain_rally.ogg",
+      "filler_sha256": "d928217669075d955916b39626566cc7f83a693c57f715e2cabd8f002f25d24b",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": []
+    },
+    {
+      "key": "imp_op_chef_arrive",
+      "text": "I was sent to learn the CAKE. Don't mind me, I'm learning.",
+      "legacy_path": "assets/audio/voices/imp_op_chef_arrive.ogg",
+      "legacy_sha256": "8a3d3a70b8bc7e86273c0ccf938a75c5bed9e77ff1f3255d05e87b376504a619",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_chef_arrive.ogg",
+      "filler_sha256": "71125b189a1968e9ba8fb52676188dbd3a1173e4729d0025a397ac599c7c61e6",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "chef entrance"
+      ]
+    },
+    {
+      "key": "imp_op_chef_bop",
+      "text": "Fine! The cake needed more sugar anyway!",
+      "legacy_path": "assets/audio/voices/imp_op_chef_bop.ogg",
+      "legacy_sha256": "665ff91a5a43631564a512906f5f2719c0eea4d9c58b7a1f8002f1382a420aba",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_chef_bop.ogg",
+      "filler_sha256": "8e4bf2e2b07028a4a1a7cb5d5a6ff2330ec9f7df592a56782cd6e8d5314e4c53",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "chef defeat"
+      ]
+    },
+    {
+      "key": "imp_op_chef_copy",
+      "text": "Flour goes in the bowl... or on my head. Either way!",
+      "legacy_path": "assets/audio/voices/imp_op_chef_copy.ogg",
+      "legacy_sha256": "1ffa0c29daf5d3c489ec64d5a8839b80532e49b77a458917f034ecda383993e2",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_chef_copy.ogg",
+      "filler_sha256": "75f3ca1927d00a97a9d8667741e867550dc25ed0034fec8683e3148348d7d57d",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "chef flub"
+      ]
+    },
+    {
+      "key": "imp_op_chef_steal",
+      "text": "Mine now! A birthday needs a cake and I HAVE one!",
+      "legacy_path": "assets/audio/voices/imp_op_chef_steal.ogg",
+      "legacy_sha256": "122bb1e240de2021afe4532fe57f83d1901f91000503b14cb694e2cdbdeaacf6",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_chef_steal.ogg",
+      "filler_sha256": "1a0b2b2946dcaeb2f045fab77b4cfc51c1d268f2de2ca2fbd2d2f5ebf9d70839",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "unchanged: the steal story beat is outside the contest"
+      ]
+    },
+    {
+      "key": "imp_op_detective_arrive",
+      "text": "I was sent to learn the SEARCHING. Where is everything?",
+      "legacy_path": "assets/audio/voices/imp_op_detective_arrive.ogg",
+      "legacy_sha256": "e4545ea3ae2e5d756c134511b9c31702a0548d4ab6973a03ece1c1cee2aa5bf3",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_detective_arrive.ogg",
+      "filler_sha256": "ba11b459f0b8c819e56b806ffdb6a17d485f9da134b12ca8007d46ccccdf2a59",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "detective entrance"
+      ]
+    },
+    {
+      "key": "imp_op_detective_bop",
+      "text": "Aww. It didn't even fit on my horns.",
+      "legacy_path": "assets/audio/voices/imp_op_detective_bop.ogg",
+      "legacy_sha256": "fef1557f147d50f4de4ba8428a83b391cbb58f1cf0553cfe08764fb512eb6ef4",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_detective_bop.ogg",
+      "filler_sha256": "6446f3c47c7d08adaae8b350c7b18b07fba5854a50efe0c804f115c7df33bad3",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "detective defeat"
+      ]
+    },
+    {
+      "key": "imp_op_detective_copy",
+      "text": "I looked under here. And here. Nothing! Detecting is hard.",
+      "legacy_path": "assets/audio/voices/imp_op_detective_copy.ogg",
+      "legacy_sha256": "1fececac052485192a6e77d3a0044d51ac98b3f45fc93785a92ea33cf2a5ee95",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_detective_copy.ogg",
+      "filler_sha256": "80853b711d30524beebae53e521ad1cd0bcaf8dd282fc01735ca75cf9928b971",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "detective flub"
+      ]
+    },
+    {
+      "key": "imp_op_detective_steal",
+      "text": "The sparkly crown! Now everyone will look at ME!",
+      "legacy_path": "assets/audio/voices/imp_op_detective_steal.ogg",
+      "legacy_sha256": "63c84deaefc81be910a192837534d518bf11e0f76fefe12d3bf5ba805a6751f1",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_detective_steal.ogg",
+      "filler_sha256": "0fed9de99d8b39fb89b55ea44b91d38d2092675e6710c551f50d28bec4b2e7f3",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": true,
+      "routed_today_evidence": "scripts/opera_career_world_2d.gd:67 (detective intro lines)",
+      "planned_use": [
+        "unchanged: the steal story beat is outside the contest"
+      ]
+    },
+    {
+      "key": "imp_op_doctor_arrive",
+      "text": "I was sent to learn the MENDING. Something of mine is torn too.",
+      "legacy_path": "assets/audio/voices/imp_op_doctor_arrive.ogg",
+      "legacy_sha256": "ea43a24425439fe6d5c1a22847fd08c7ebc229870cf600794996c1b04e4cc074",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_doctor_arrive.ogg",
+      "filler_sha256": "13df02d396a27bce858f042bfcfc681ac3177700f4c82fb6122314e0ccf06745",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "doctor entrance"
+      ]
+    },
+    {
+      "key": "imp_op_doctor_bop",
+      "text": "Ouch! Can you fix ME after?",
+      "legacy_path": "assets/audio/voices/imp_op_doctor_bop.ogg",
+      "legacy_sha256": "4b73e8137f1b3772ff5a5bf99afdd8be3e995ab0397c24004c47588097067e5e",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_doctor_bop.ogg",
+      "filler_sha256": "a13a0c634729594522d535aaf540748f6fff4c5cad8d75c87908b413c2ce30cd",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "doctor defeat"
+      ]
+    },
+    {
+      "key": "imp_op_doctor_copy",
+      "text": "Bandage on... bandage off. Bandage on my nose?",
+      "legacy_path": "assets/audio/voices/imp_op_doctor_copy.ogg",
+      "legacy_sha256": "be1b2427ffebbe891f567b19cc60872e82e0f6cf773d51d13e5a4bf89d7c5ee2",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_doctor_copy.ogg",
+      "filler_sha256": "18561a14eb4096a6ad82c26c7577294e17db3211bd18e732f8065b5db3ffb14f",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "doctor flub"
+      ]
+    },
+    {
+      "key": "imp_op_doctor_steal",
+      "text": "I'm taking the patient! He likes me better!",
+      "legacy_path": "assets/audio/voices/imp_op_doctor_steal.ogg",
+      "legacy_sha256": "31f9c2ea89dfb18155ac43a0b1a97ee416a33dce842b5b37b4ea996cdc3eb349",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_doctor_steal.ogg",
+      "filler_sha256": "a302f431947c3533b92cb0b238b6288d460c3d80a21263f34ffcbd5b53896b3a",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "unchanged: the steal story beat is outside the contest"
+      ]
+    },
+    {
+      "key": "imp_op_farmer_arrive",
+      "text": "I was sent to learn the FEEDING. What do piggies even eat?",
+      "legacy_path": "assets/audio/voices/imp_op_farmer_arrive.ogg",
+      "legacy_sha256": "bd8f98077d8f28bf7e2c4df362e0ad2a679912c003256b053dc0a70b9e07af7e",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_farmer_arrive.ogg",
+      "filler_sha256": "d2dedc8cbc3dc49fe43ffa1443061a87322f1e2db1e3ed446a0e67e27a2a6281",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "farmer entrance"
+      ]
+    },
+    {
+      "key": "imp_op_farmer_bop",
+      "text": "Blegh! I got mud in my mouth.",
+      "legacy_path": "assets/audio/voices/imp_op_farmer_bop.ogg",
+      "legacy_sha256": "c9711353074aa80e4feb59fb73f0c64e2875ca8ace818f3b4d21670acfcfd527",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_farmer_bop.ogg",
+      "filler_sha256": "1110296ef3ea86d47509d377f0403a7925a8cf1ab22b1b8fcb23bcca3f3903ae",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "farmer flub"
+      ]
+    },
+    {
+      "key": "imp_op_farmer_copy",
+      "text": "I planted a rock. Nothing grew. Farming is tricky!",
+      "legacy_path": "assets/audio/voices/imp_op_farmer_copy.ogg",
+      "legacy_sha256": "dab9276961718a999159b13410b2969edbc9a839f2b4a5ac867f1bfd25fe92c1",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_farmer_copy.ogg",
+      "filler_sha256": "2891c95c601b91aae828cf251ceb785e54f8d57563fab2be9f296c30427c68e1",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "farmer defeat"
+      ]
+    },
+    {
+      "key": "imp_op_farmer_steal",
+      "text": "Snack time! This picnic is OUR picnic now!",
+      "legacy_path": "assets/audio/voices/imp_op_farmer_steal.ogg",
+      "legacy_sha256": "2d25024713a01d315e4e1cda5439a552ca4c30b7602cb689c8e8e340663d342f",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_farmer_steal.ogg",
+      "filler_sha256": "32f8e1f1af4a767d900feb3566f7bdb6a5b8b8f72f72a7690d9f1687c2fa4f4d",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "unchanged: the steal story beat is outside the contest"
+      ]
+    },
+    {
+      "key": "imp_op_magician_arrive",
+      "text": "I was sent to learn the MAGIC. Abraca-... something.",
+      "legacy_path": "assets/audio/voices/imp_op_magician_arrive.ogg",
+      "legacy_sha256": "54723a212ba24f379aef2ccabcdfb4322bb138a5d1adc692166b22918fba3649",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_magician_arrive.ogg",
+      "filler_sha256": "1d2d4c8afd46008b64000d8fba1074c10b0b3fe25f4f63cc2e06ed9676cf080b",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "magician entrance"
+      ]
+    },
+    {
+      "key": "imp_op_magician_bop",
+      "text": "Ta-daa! That was supposed to happen. Really.",
+      "legacy_path": "assets/audio/voices/imp_op_magician_bop.ogg",
+      "legacy_sha256": "26108866a4efb22265690f4fecbe3e16d3941632ba468357c891a9e743b22946",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_magician_bop.ogg",
+      "filler_sha256": "df47bab262cab5641036180315b24745e1e62cdf0869b38ffc410af8bf21477c",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "magician defeat"
+      ]
+    },
+    {
+      "key": "imp_op_magician_copy",
+      "text": "I made it disappear! ...where did it go? Uh oh.",
+      "legacy_path": "assets/audio/voices/imp_op_magician_copy.ogg",
+      "legacy_sha256": "907da3341a57b096d9a84d126d35ca568296baaf1fcf15a8ab5b75e40ebc6c89",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_magician_copy.ogg",
+      "filler_sha256": "30b0772ae7863fec86c1e15aa5345dafe31764f61797b51aecd0a77b79e9a685",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "magician flub"
+      ]
+    },
+    {
+      "key": "imp_op_magician_steal",
+      "text": "Now you see the show, now you DON'T!",
+      "legacy_path": "assets/audio/voices/imp_op_magician_steal.ogg",
+      "legacy_sha256": "51ea74480bcf1156b368c36edf5d401ea506151d0ab406a14b14d2252a42595a",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_magician_steal.ogg",
+      "filler_sha256": "e0e73e5f76e276de7eb9e7afa419c04628c4d18991dcb15bc6ec2100139bcdd1",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "unchanged: the steal story beat is outside the contest"
+      ]
+    },
+    {
+      "key": "imp_op_nursery_arrive",
+      "text": "I was sent to learn the QUIET. I am bad at quiet.",
+      "legacy_path": "assets/audio/voices/imp_op_nursery_arrive.ogg",
+      "legacy_sha256": "a0a9900506c6d45fe19e33abfa907a001eefaf028c58186eda5fd0b594cea480",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_nursery_arrive.ogg",
+      "filler_sha256": "4773e3ddc37f11044c36908921bc3391bcf6a9346e3ca18e9ace092aacfeae09",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "nursery entrance (owner option B)"
+      ]
+    },
+    {
+      "key": "imp_op_nursery_bop",
+      "text": "Sorry! Was that too loud? Was it?",
+      "legacy_path": "assets/audio/voices/imp_op_nursery_bop.ogg",
+      "legacy_sha256": "57d235eddfb6b59154a1f3660f165507c6639816bb3d58f598450dc5a8c4ca22",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_nursery_bop.ogg",
+      "filler_sha256": "8ef6475bce6cde0156b8e2498db12e952fe93b5e8802a72e0cfad45494000604",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "nursery defeat (owner option B)"
+      ]
+    },
+    {
+      "key": "imp_op_nursery_copy",
+      "text": "I tried to be quiet. Sorry! Sorry!",
+      "legacy_path": "assets/audio/voices/imp_op_nursery_copy.ogg",
+      "legacy_sha256": "57680d98c484ec69d13b017caf541e313958354fa2fbdb3440edf368c6fbc343",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_nursery_copy.ogg",
+      "filler_sha256": "17b8ce6dce8d0f60cc7adb95a80a3c9f8a15beffcbd626c9d70239dea5e1057f",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "nursery flub (owner option B)"
+      ]
+    },
+    {
+      "key": "imp_op_nursery_steal",
+      "text": "The star mobile! Ours is just a sock on a string!",
+      "legacy_path": "assets/audio/voices/imp_op_nursery_steal.ogg",
+      "legacy_sha256": "f623d004412ca1510e1c14b6ae275b675be2897e76c9d7044b8cb01275904424",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_nursery_steal.ogg",
+      "filler_sha256": "00a333e947ddbdaa802134299c53b3a44b3b58cdecf3e208edfb3c12c96b5f3f",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "unchanged: the steal story beat is outside the contest"
+      ]
+    },
+    {
+      "key": "imp_op_painter_arrive",
+      "text": "I was sent to learn the DECORATING. Ours is very grey.",
+      "legacy_path": "assets/audio/voices/imp_op_painter_arrive.ogg",
+      "legacy_sha256": "c63cca28485ddcf845d5153ac5a16678c67fbe9db91f589a0787319d3b420f8d",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_painter_arrive.ogg",
+      "filler_sha256": "7bc7f82c77cf96f907fcebae2d8ef0837c76abb778673e03133c410b30adddd5",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "painter entrance"
+      ]
+    },
+    {
+      "key": "imp_op_painter_bop",
+      "text": "Bonk! Now I'm a different colour.",
+      "legacy_path": "assets/audio/voices/imp_op_painter_bop.ogg",
+      "legacy_sha256": "62cb44e70d1a5fd955229c2c22eb52f603daaebdc7a8506ec35b96e397128634",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_painter_bop.ogg",
+      "filler_sha256": "65d2e02161af25404016c97219c71ce7847cd26974baee7b4f725f286fcced25",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "painter defeat"
+      ]
+    },
+    {
+      "key": "imp_op_painter_copy",
+      "text": "I painted my hands. And the wall. And a bit of the floor.",
+      "legacy_path": "assets/audio/voices/imp_op_painter_copy.ogg",
+      "legacy_sha256": "12786fe3a4084c75b886bb7f3cc4d5f56d5a0e682f94b704e8cb317bc4b5cb20",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_painter_copy.ogg",
+      "filler_sha256": "9ccf58e95d7bb21ef65255a34a0c6a0accc5d4a101c8369fcf284494bb92d039",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "painter flub"
+      ]
+    },
+    {
+      "key": "imp_op_painter_steal",
+      "text": "Pretty colours! Our party needs pretty too!",
+      "legacy_path": "assets/audio/voices/imp_op_painter_steal.ogg",
+      "legacy_sha256": "2a91c0b78daab6aa3061f1d3e93724b9006e01419b4cac9e03870477f9b9598f",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_painter_steal.ogg",
+      "filler_sha256": "e2e4667cd76790ad4dbc0117bf60c8ecc62de6384b0c8647e8c7fe4a70a26f8d",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "unchanged: the steal story beat is outside the contest"
+      ]
+    },
+    {
+      "key": "imp_op_popstar_arrive",
+      "text": "I learned a new song. Listen to me sing!",
+      "legacy_path": "assets/audio/voices/imp_op_popstar_arrive.ogg",
+      "legacy_sha256": "6909b6915bc0c7bb62be4371a57788fcc292be0783443978b4903979e809e402",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_popstar_arrive.ogg",
+      "filler_sha256": "ae799ea197ac307baf49e90064be00829fed10c29952af64b63a7c800443e997",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "popstar entrance"
+      ]
+    },
+    {
+      "key": "imp_op_popstar_bop",
+      "text": "My ears! Okay okay, you sing it.",
+      "legacy_path": "assets/audio/voices/imp_op_popstar_bop.ogg",
+      "legacy_sha256": "8514a7b7a0103d81a809cd952a0485f2f47d02d3758a7384aa5d34d94945fdba",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_popstar_bop.ogg",
+      "filler_sha256": "8d06ff7624ed21aa42d979a804269121cfe1387c30eb86ae45a05394133382d3",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "popstar defeat"
+      ]
+    },
+    {
+      "key": "imp_op_popstar_copy",
+      "text": "Was that the right note? It felt like a note.",
+      "legacy_path": "assets/audio/voices/imp_op_popstar_copy.ogg",
+      "legacy_sha256": "8bd68472e73549eda94d7fd09d759a7ff9639ac3e1134bbdee7819ae929e25fa",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_popstar_copy.ogg",
+      "filler_sha256": "2c54c5bc3a5d56db58cc365d69492cfd92314a1ef1c3c1a30b3b763f3ccc1c3b",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "popstar flub"
+      ]
+    },
+    {
+      "key": "imp_op_popstar_steal",
+      "text": "No microphone, no singing! Our band is better anyway!",
+      "legacy_path": "assets/audio/voices/imp_op_popstar_steal.ogg",
+      "legacy_sha256": "3b8e73793aed4162cee45635e9a8f4d51369ede2b82f79261c98216d3a585408",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_popstar_steal.ogg",
+      "filler_sha256": "e9d457048302278da3a1771560dd382445c1dd91eaff1d84ac83964f37b6db91",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "unchanged: the steal story beat is outside the contest"
+      ]
+    },
+    {
+      "key": "imp_op_racer_arrive",
+      "text": "I was sent to learn the FAST. I am already fast!",
+      "legacy_path": "assets/audio/voices/imp_op_racer_arrive.ogg",
+      "legacy_sha256": "a0a5dea8f858ccbad1a13559e4ae1c2db3302980aceb3a988d741309af096187",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_racer_arrive.ogg",
+      "filler_sha256": "d44944fd7146ffd29b36df321a9a4b34f51df30b52b5d5710c0381c14131e68f",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "racer entrance"
+      ]
+    },
+    {
+      "key": "imp_op_racer_bop",
+      "text": "Pit stop! Pit stop! I need a pit stop!",
+      "legacy_path": "assets/audio/voices/imp_op_racer_bop.ogg",
+      "legacy_sha256": "3d730e001f242d6923adc696fc42bf21253b2e1d4e84ccba3820e3be8e426d7f",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_racer_bop.ogg",
+      "filler_sha256": "8f6fa12c7abd90fe46a679245064f9861a257f45a740aaed92ac5e964c04b34a",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "racer defeat"
+      ]
+    },
+    {
+      "key": "imp_op_racer_copy",
+      "text": "Whoa whoa WHOA — how do you stop this thing?",
+      "legacy_path": "assets/audio/voices/imp_op_racer_copy.ogg",
+      "legacy_sha256": "47aed0819bb252b1a2364049aeeb2f39bd173c98e768c6b0bb23cf9888dd9a3c",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_racer_copy.ogg",
+      "filler_sha256": "8f23d7c5f1021a013f3d2170f944449792c137441e68948e486961f03fa486c9",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "racer flub"
+      ]
+    },
+    {
+      "key": "imp_op_racer_steal",
+      "text": "Catch me! You won't! ...you might!",
+      "legacy_path": "assets/audio/voices/imp_op_racer_steal.ogg",
+      "legacy_sha256": "4dd66637e90001631a1554d2559d6c963546d26136b341cf05e5aaacb2a6586d",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_racer_steal.ogg",
+      "filler_sha256": "9f7c927b111b5d98d7ef362af7dc10a7edf359638ff790ff16f6b19b5372e95a",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": false,
+      "routed_today_evidence": null,
+      "planned_use": [
+        "unchanged: the steal story beat is outside the contest"
+      ]
+    },
+    {
+      "key": "imp_op_retry",
+      "text": "I found it first! Watch the glowing answer, then solve the same mystery with your sparkle memory!",
+      "legacy_path": "assets/audio/voices/imp_op_retry.ogg",
+      "legacy_sha256": "8998e524238485bb2693be3433d2b8fbafacfc97d70a45d9a97078f842adde79",
+      "filler_path": "assets/audio/voices/filler_v1/imp_op_retry.ogg",
+      "filler_sha256": "926f78d76563f68bb87a73cdcbbff745e350882500392d4114e8a31da92a3e6d",
+      "filler_status": "PROVISIONAL_SYNTHETIC_FILLER",
+      "speaker_preset": "Mike",
+      "routed_today": true,
+      "routed_today_evidence": "scripts/opera_career_world_2d.gd:3710 (detective guided retry; retired by this design)",
+      "planned_use": []
+    }
+  ],
+  "new_lines": [
+    {
+      "career": "chef",
+      "speaker": "imp",
+      "key": "op_chef_challenge",
+      "file": "assets/audio/voices/filler_v1/imp_op_chef_challenge.ogg",
+      "text": "Bake-off! Whoever tops their cake first wins!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "chef",
+      "speaker": "roshan",
+      "key": "op_chef_contest",
+      "file": "assets/audio/voices/filler_v1/roshan_op_chef_contest.ogg",
+      "text": "Put the toppings on my cake before the imp finishes his!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "detective",
+      "speaker": "imp",
+      "key": "op_detective_challenge",
+      "file": "assets/audio/voices/filler_v1/imp_op_detective_challenge.ogg",
+      "text": "Race you to the sparkles! Mine are purple!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "detective",
+      "speaker": "roshan",
+      "key": "op_detective_contest",
+      "file": "assets/audio/voices/filler_v1/roshan_op_detective_contest.ogg",
+      "text": "Find my gold sparkles before the imp finds his purple ones!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "ballerina",
+      "speaker": "imp",
+      "key": "op_ballerina_challenge",
+      "file": "assets/audio/voices/filler_v1/imp_op_ballerina_challenge.ogg",
+      "text": "Twirl-off! Three big spins. Ready? Spin!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "ballerina",
+      "speaker": "roshan",
+      "key": "op_ballerina_contest",
+      "file": "assets/audio/voices/filler_v1/roshan_op_ballerina_contest.ogg",
+      "text": "Twirl around the music box three times!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "candymaker",
+      "speaker": "imp",
+      "key": "op_candymaker_challenge",
+      "file": "assets/audio/voices/filler_v1/imp_op_candymaker_challenge.ogg",
+      "text": "Candy race! First to give every friend a sweet wins!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "candymaker",
+      "speaker": "roshan",
+      "key": "op_candymaker_contest",
+      "file": "assets/audio/voices/filler_v1/roshan_op_candymaker_contest.ogg",
+      "text": "Give a candy to every friend before the imp does!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "doctor",
+      "speaker": "imp",
+      "key": "op_doctor_challenge",
+      "file": "assets/audio/voices/filler_v1/imp_op_doctor_challenge.ogg",
+      "text": "Bandage race! Wrap all three paws!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "doctor",
+      "speaker": "roshan",
+      "key": "op_doctor_contest",
+      "file": "assets/audio/voices/filler_v1/roshan_op_doctor_contest.ogg",
+      "text": "Wrap every sore paw, gentle and quick!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "farmer",
+      "speaker": "imp",
+      "key": "op_farmer_challenge",
+      "file": "assets/audio/voices/filler_v1/imp_op_farmer_challenge.ogg",
+      "text": "Feeding race! My piggies eat first!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "farmer",
+      "speaker": "roshan",
+      "key": "op_farmer_contest",
+      "file": "assets/audio/voices/filler_v1/roshan_op_farmer_contest.ogg",
+      "text": "Pull back and toss four veggies to the hungry piggy!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "boxer",
+      "speaker": "imp",
+      "key": "op_boxer_challenge",
+      "file": "assets/audio/voices/filler_v1/imp_op_boxer_challenge.ogg",
+      "text": "First to six! Put 'em up!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "boxer",
+      "speaker": "roshan",
+      "key": "op_boxer_contest",
+      "file": "assets/audio/voices/filler_v1/roshan_op_boxer_contest.ogg",
+      "text": "Punch when the star shines, and guard when he winds up!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "magician",
+      "speaker": "imp",
+      "key": "op_magician_challenge",
+      "file": "assets/audio/voices/filler_v1/imp_op_magician_challenge.ogg",
+      "text": "Watch my hats! Can you find Lamb-a'?",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "magician",
+      "speaker": "roshan",
+      "key": "op_magician_contest",
+      "file": "assets/audio/voices/filler_v1/roshan_op_magician_contest.ogg",
+      "text": "Watch the hat with Lamb-a', then tap it when it stops!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "painter",
+      "speaker": "imp",
+      "key": "op_painter_challenge",
+      "file": "assets/audio/voices/filler_v1/imp_op_painter_challenge.ogg",
+      "text": "Paint-off! First to finish their picture wins!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "painter",
+      "speaker": "roshan",
+      "key": "op_painter_contest",
+      "file": "assets/audio/voices/filler_v1/roshan_op_painter_contest.ogg",
+      "text": "Paint the whole picture before the imp finishes his!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "astronaut",
+      "speaker": "imp",
+      "key": "op_astronaut_challenge",
+      "file": "assets/audio/voices/filler_v1/imp_op_astronaut_challenge.ogg",
+      "text": "Rocket race! Patch the leaks and blast off first!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "astronaut",
+      "speaker": "roshan",
+      "key": "op_astronaut_contest",
+      "file": "assets/audio/voices/filler_v1/roshan_op_astronaut_contest.ogg",
+      "text": "Patch every leak, then hold to blast off!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "racer",
+      "speaker": "imp",
+      "key": "op_racer_challenge",
+      "file": "assets/audio/voices/filler_v1/imp_op_racer_challenge.ogg",
+      "text": "Two laps! First one home wins! Go, go, go!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "racer",
+      "speaker": "roshan",
+      "key": "op_racer_steer",
+      "file": "assets/audio/voices/filler_v1/roshan_op_racer_steer.ogg",
+      "text": "Swipe to steer through the coral gates!",
+      "state": "EXISTS (reuse)"
+    },
+    {
+      "career": "popstar",
+      "speaker": "imp",
+      "key": "op_popstar_challenge",
+      "file": "assets/audio/voices/filler_v1/imp_op_popstar_challenge.ogg",
+      "text": "Sing-off! Sing my song back to me!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "popstar",
+      "speaker": "roshan",
+      "key": "op_popstar_contest",
+      "file": "assets/audio/voices/filler_v1/roshan_op_popstar_contest.ogg",
+      "text": "Listen to the imp's song, then sing it back!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "nursery",
+      "speaker": "imp",
+      "key": "op_nursery_challenge",
+      "file": "assets/audio/voices/filler_v1/imp_op_nursery_challenge.ogg",
+      "text": "Tuck-in race! Shh... I'll be quiet this time!",
+      "state": "TO_GENERATE_IF_OPTION_B"
+    },
+    {
+      "career": "nursery",
+      "speaker": "roshan",
+      "key": "op_nursery_contest",
+      "file": "assets/audio/voices/filler_v1/roshan_op_nursery_contest.ogg",
+      "text": "Tuck in every baby, slow and gentle!",
+      "state": "TO_GENERATE_IF_OPTION_B"
+    },
+    {
+      "career": "all",
+      "speaker": "imp",
+      "key": "op_contest_win",
+      "file": "assets/audio/voices/filler_v1/imp_op_contest_win.ogg",
+      "text": "I won! I won! Let's play again!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "all",
+      "speaker": "roshan",
+      "key": "op_contest_again",
+      "file": "assets/audio/voices/filler_v1/roshan_op_contest_again.ogg",
+      "text": "Again! I can do it this time!",
+      "state": "TO_GENERATE"
+    }
+  ]
+}

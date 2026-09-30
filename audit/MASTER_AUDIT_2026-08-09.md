@@ -6,6 +6,8 @@ Arborist art recovery supplement (2026-09-29): [Tree Book handoff](../design/ARB
 
 Arborist practice supplement (2026-09-30): [Opera House test](../design/OPERA_TREE_BOOK_TEST_2026-09-30.md) adds one optional patient with three four-choice decisions and intentional treatment. This scoped candidate does not close MA-PLAY-004 or integrate a new career or Day Two role.
 
+Opera imp contest supplement (2026-09-30): the [Codex imp-contest handoff](../docs/handoffs/codex_opera_imp_contest_2026-09-30/README.md) records the owner decisions behind `DL-INT-14`. Each competitive career's imp stays hidden until the final act, which ends in one job-skill contest he can win, and his win restarts that contest at once. It is a written specification (target contract); it changes no runtime, closes no finding (including MA-OPERA-005, MA-OPERA-009 and MA-PLAY-004) and claims no acceptance.
+
 
 Planning guidance updated 2026-09-05 against integration source `775ceee1`.
 This is a document/selected-fact review, not a new whole-game runtime audit.
