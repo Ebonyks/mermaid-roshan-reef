@@ -28,6 +28,7 @@
     "assets_src/handoffs/arborist_tree_book_20260929/PREVIEW.html",
     "assets_src/handoffs/arborist_tree_book_20260929/README.md",
     "assets_src/handoffs/arborist_tree_book_20260929/RECOVERY_MANIFEST.json",
+    "assets_src/handoffs/arborist_tree_book_20260929/REMOTE_VERIFICATION.json",
     "assets_src/handoffs/arborist_tree_book_20260929/model.js",
     "assets_src/handoffs/arborist_tree_book_20260929/new_art/book_open.png",
     "assets_src/handoffs/arborist_tree_book_20260929/new_art/book_pose.png",
@@ -147,6 +148,11 @@
       "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
       "result": "PASS",
       "evidence": "52 tests; DOCAUTH STRESS6/6. Historical recovered Markdown hard-break spaces preserved byte-for-byte."
+    },
+    {
+      "command": "Anonymous exact-revision GitHub retrieval of manifest and every payload",
+      "result": "PASS",
+      "evidence": "REMOTE_VERIFICATION.json:81 files; f25b7c59b87f66e5c7702fdad3d09fd269630f08;2026-09-30T02:27:38Z"
     }
   ],
   "acceptance_gaps": "No game implementation or finding closure; animation/runtime/device/child/owner acceptance pending."
