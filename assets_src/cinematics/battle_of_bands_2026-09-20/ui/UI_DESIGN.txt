@@ -1,0 +1,42 @@
+POP STAR — SCROLLING DRUM INTERFACE STUDIES — 2026-09-30 / R3
+Status: CANDIDATE. Owner requests interfaces, storyboards and prototypes only; do not author actual drum parts or a note chart. This supersedes the earlier twelve ordered taps as the intended Pop Star/band-game interaction.
+
+TRY / REVIEW
+Serve the packet directory with a local HTTP server; open ui/index.html. No network service, external font, microphone or audio upload is used. UI files and references work together from the published GitHub archive. GitHub displays the PNGs and source; download/serve to play. ui/STORYBOARD.html contains all three layouts and six state captures. Open ui/index.html?embed=1&view=fall&state=contact for a clean state. Views: fall, fan, single. States: live, ready, approach, contact, feedback, passed, paused.
+
+LAYOUTS
+01 FALLING RIBBONS: three vertical paths, approaching actual tom/cymbal contact targets. Recommended starting candidate for the owner's Guitar Hero-style direction, subject to visual/child acceptance.
+02 SIDE APPROACHES: different edge-to-instrument paths leave the face clear. Direction changes may be harder for a four-year-old; test comprehension, do not assume equivalent difficulty.
+03 ONE-BAR PRACTICE: only the next path is bright. A teaching variant of the same contact gesture, with no separate abstract button row or reading task.
+
+SHARED GEOMETRY / REUSE
+1280x720 review canvas. Existing roshan_drums.png is uniformly placed at [330,30] with size [690,690]. Contact centres are left tom [499,333], right tom [741,340], cymbal [893,296]. Each route ends at exactly the corresponding touch centre. Targets are 110 design pixels and never below 44 CSS pixels in smaller previews; tested at 1280, 740 and 390 viewport widths without target overlap. 390px is a compact browser review, not landscape phone acceptance. Character/kit art is static and unmodified. The reusable stage is uniformly enlarged so the kit feet rest on its wood surface. Keep the literal middle-lagoon backdrop; this close-up is the Pop Star play surface, not a new full-band film shot.
+
+INTERACTION CONTRACT
+- Silent procedural UI fixtures, one cue at a time, 3.2 seconds of approach. Fixture order has no musical authority. Do not transfer it into an Iko Iko chart.
+- The bar centre meets the outlined instrument target at cue arrival. Accept intentional pointer-down within +/-350 ms; target shape and colour must agree. No chords or held-note mechanics.
+- Valid contact gives a 0.65-second warm ring on that instrument. Every owned touch receives a brief pale outline acknowledgement; wrong/early/late input adds no contact or progress. A missed cue leaves quietly and practice continues. There is no success threshold, score, punishment, theft trigger or reward in this lab.
+- First-finger ownership lasts until release/cancellation. Holding early never turns into an automatic hit. Second fingers do not add hits. Exit and pause are always reachable.
+- Focus loss pauses, clears held input and reveals resume. Resume provides at least 1.6 seconds of approach. Fixture reset has no game-save effect.
+- The code deliberately does not play drums, move Roshan's sticks or fake contact through bobbing the whole cutout. The future on-contact seam must trigger a real approved strike/rebound at the corresponding visible surface.
+
+AUDIT MAPPING
+DL-AGE-01..07, DL-READ-01/02/03/05/06: wordless play, one finger, small simultaneous choice set, calm response and no fail screen. Exact recorded objective voice is missing, so non-reader acceptance remains open. The still pointer is a prototype teaching cue, not a claim of completed voice-and-pointer onboarding.
+DL-UI-01/03/04/05/06/07: reused Storybook palette (ink/purple, pearl, lilac, mint, gold), stable corner Back/pause, adequate targets, clear foreground/background separation. Canvas lanes are low-detail; colour is reinforced by circle/diamond/dash. Adult controls stay outside the child play surface. No new approved font is claimed.
+DL-MOT-03/05/07 and MA-PLAY-004: cue movement serves timing; feedback occurs at the instrument. Actual strike/rebound and embodied performance are outstanding, not simulated by timer-only reward.
+MA-TOUCH-001: automated desktop pointer, focus, held/second-finger and layout checks do not replace real Android touch/multitouch/latency review.
+MA-TYPE-003: no text-dependent child objective. System type is only in the adult review shell; unresolved final font authority remains explicit.
+DL-ASSET-01..04, DL-CIN-11..15: reuse existing art, preserve originals/provenance. Browser UI composition and screenshots are interface references only, never cinematic generation bindings or delivery frames.
+DL-AUTH-05..07: these scoped checks close no canonical finding; machine evidence, owner art acceptance, phone/child acceptance and release remain separate.
+
+CODEX NEXT PASS — ONLY AFTER A SEPARATE IMPLEMENTATION COMMISSION
+1. Re-read current integration rules/ledger/career direction. Pop Star remains the Opera Hall-owned job; this drumming interaction is part of that job and reusable in the middle-lagoon band contest. Do not invent a new lobby route or override newer contest rules. The old Godot ordered-tap scene is historical staging/audio/save evidence only, not the rhythm design authority.
+2. Implement approved layout in 2D Canvas/Control, with one geometry source for lane end, hit region and animated strike point. Preserve approved art and background; no new drum design.
+3. Define the clock/latency seam against original unedited Iko Iko. Browser fixture time is not an audio clock; no beat timings or drum parts are authorized by this packet. Future chart/parts need their own commission and local-only audio work. No REAPER changes or cloud listening.
+4. Define reusable entry, pause, leave and return interfaces for the Pop Star job and Chapter 2 story. Leave story success, challenge outcomes, save compatibility and earned rewards to current production authority. A quiet missed cue never causes the King's theft; theft remains scripted cheating after Roshan succeeds and music ends.
+5. Obtain exact family-recorded objective cue; connect _say and visible pointer with appropriate music ducking. Supply approved strike/rebound poses without replacing protected identity art.
+6. Validate zero input, wrong/early/late input, holds, first-finger ownership, focus return, song interruption/resume, Back, additive save compatibility and no duplicate rewards. Use exact Godot 4.7.2/Mobile and current trusted gates, then target-phone 30 fps/overdraw, real audio latency, child and owner review.
+
+MACHINE EVIDENCE
+node tools/test_bands_rhythm_ui.cjs: eight behavioural checks.
+tools/check_bands_ui_browser.cjs: local Edge/Playwright geometry, actual pointer contact, pause/resume, focus, Back, responsive touch-size/overlap and console checks; exports nine deterministic review captures. See INTERFACE_TESTS.json for check time and SHA-256. These captures contain UI and must never be supplied as IMAGE_1..4 to Grok.

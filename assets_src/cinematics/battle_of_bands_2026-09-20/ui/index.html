@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Roshan • Pop Star interface studies</title><link rel="stylesheet" href="interface.css"></head>
+<body>
+<header class="adult"><p class="eyebrow">POP STAR JOB / INTERFACE STUDY 03</p><h1>Follow the bar. Meet the drum.</h1><p>Three touch layouts using the existing Roshan artwork. Silent test cues only — no Iko Iko chart, authored drum part, score or reward.</p></header>
+<main>
+<nav class="adult variants" aria-label="Interface study"><button data-layout="fall" aria-pressed="true">01 · Falling ribbons</button><button data-layout="fan" aria-pressed="false">02 · Side approaches</button><button data-layout="single" aria-pressed="false">03 · One-bar practice</button></nav>
+<div class="stage-wrap"><div class="stage" role="group" aria-label="Pop Star drum timing prototype">
+<canvas width="1280" height="720" aria-hidden="true"></canvas>
+<button class="world-control back" aria-label="Return to ready screen"><svg viewBox="0 0 48 48"><path d="M29 11 16 24l13 13M17 24h22"/></svg></button>
+<button class="world-control pause" aria-label="Pause"><svg viewBox="0 0 48 48"><path d="M18 12v24M30 12v24"/></svg></button>
+<div class="targets"><button class="drum" data-target="0" aria-label="Left tom"><span class="shape round"></span></button><button class="drum" data-target="1" aria-label="Right tom"><span class="shape diamond"></span></button><button class="drum" data-target="2" aria-label="Cymbal"><span class="shape dash"></span></button></div>
+<div class="veil"><button class="start" aria-label="Start practice"><svg viewBox="0 0 64 64"><path d="m25 15 25 17-25 17Z"/></svg></button></div>
+</div></div>
+<section class="adult notes"><div><p class="eyebrow" id="study-number">STUDY 01</p><h2 id="study-title">Falling ribbons</h2><p id="study-copy">Three familiar vertical paths lead directly to the two tom rims and cymbal. Tap the instrument when its moving bar meets the outlined landing mark.</p></div><div class="spec"><p><b>One finger</b> · 110 px targets at the 1280 × 720 design size</p><p><b>Kind timing</b> · ±350 ms, no missed-note penalty</p><p><b>Contact first</b> · feedback appears on the instrument</p><p><b>Identity</b> · shape plus colour; no reading needed in play</p></div></section>
+<section class="adult review"><h2>Review the interaction</h2><p>These controls freeze a synthetic cue for inspection. Choose “Live practice” to try the timing.</p><div class="states"><button data-state="live">Live practice</button><button data-state="ready">Ready</button><button data-state="approach">Approach</button><button data-state="contact">Meet the rim</button><button data-state="feedback">Contact feedback</button><button data-state="passed">A cue passes</button><button data-state="paused">Pause / return</button></div><p class="review-message" aria-live="polite">Press the large play symbol to begin. The child-facing surface has no written instructions.</p></section>
+<footer class="adult"><a href="STORYBOARD.html">Interface state storyboard</a> · <a href="UI_DESIGN.txt">Design and Codex implementation brief</a> · <a href="../README.md">Film handoff</a><p>Review prototype only. Roshan’s existing pose is static; strike/contact animation, exact objective voice, Godot integration, final font authority and phone/child testing remain open. No music or voice file is changed.</p></footer>
+</main><script src="rhythm-core.js"></script><script src="interface.js"></script></body></html>

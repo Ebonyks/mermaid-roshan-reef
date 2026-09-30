@@ -400,15 +400,16 @@
       "scene": 12,
       "id": "BAND-12",
       "path": "frames/BAND-12/candidate.png",
-      "sha256": "cc1248a76bd0dc08f7d4a0554092b11ecbdc361b373b9bede2f44c393d454f53",
+      "sha256": "d92e7e4856280652412c829f26cc8bb5e5140ae19ecf7d3546d93de5cf652154",
       "native_dimensions": [
         1672,
         941
       ],
       "prompt_path": "frames/BAND-12/GENERATION_PROMPT.txt",
-      "prompt_sha256": "f6afa1d7c26e737168d5f1e1471d89d0ab372b0ee9acae0d8e410af74ea55405",
+      "prompt_sha256": "3b8055610e10c9e1f7c91040e105db33be5dfb81eb033db622109952c1306e23",
       "method": "Codex built-in imagegen complete flattened full-frame generation",
-      "declared_state": "opening action pose; static scene design, not delivered timeline frame",
+      "attempt": 1,
+      "declared_state": "opening action pose; static scene-design candidate, not delivered timeline frame",
       "human_identity_topology_style_review": "PENDING",
       "accepted_neighboring_frames": [],
       "timeline_frame_index": null,
@@ -416,46 +417,29 @@
       "position_guide": null,
       "references": [
         {
-          "source_path": "assets/prototypes/bands/king_guitar.png",
-          "sha256": "814a38609838f06eae651a8b453decd778281f0001f148730101bccef8f9d1b0",
-          "role": "generation_input_only; not an accepted neighboring delivery frame"
-        },
-        {
-          "source_path": "assets_src/cinematics/battle_of_bands_2026-09-20/references/cake.png",
-          "sha256": "91dbeb1f9c634eebac04cd61f29318a3f4da6c2486fcab1182cdbf93668cad59",
-          "role": "generation_input_only; not an accepted neighboring delivery frame"
-        },
-        {
-          "source_path": "assets_src/cinematics/battle_of_bands_2026-09-20/references/candle.png",
-          "sha256": "2c00e80e57315283e2612fb301cc9e2ac0c519bab1e0bfa44b4ff3dc4b13ff68",
-          "role": "generation_input_only; not an accepted neighboring delivery frame"
-        },
-        {
-          "source_path": "assets/prototypes/bands/stage_platform.png",
-          "sha256": "24e03b770e6b2dc4512a723b3cf6627cbb57d5ae5e38e94846dc483ee8b4f367",
-          "role": "generation_input_only; not an accepted neighboring delivery frame"
-        },
-        {
-          "source_path": "assets_src/cinematics/battle_of_bands_2026-09-20/references/sky_lagoon_middle_literal.png",
-          "sha256": "f96541ad1c9efafc4930449e989701c66c4a097045865ac79614160232fef2a0",
-          "role": "generation_input_only; not an accepted neighboring delivery frame"
+          "source_path": "assets_src/cinematics/battle_of_bands_2026-09-20/generation_inputs/r2-BAND-12/candidate.png",
+          "sha256": "cc1248a76bd0dc08f7d4a0554092b11ecbdc361b373b9bede2f44c393d454f53",
+          "role": "superseded full-frame candidate used for identity/scene repair; not an accepted neighboring delivery frame"
         }
       ],
-      "native_modified": false
+      "native_modified": false,
+      "native_source_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0c236-27d6-7de0-9bb2-77f585cc5b06\\exec-84c15308-7ddb-48bb-8971-fb34e442bc9c.png",
+      "native_sha256": "d92e7e4856280652412c829f26cc8bb5e5140ae19ecf7d3546d93de5cf652154"
     },
     {
       "scene": 13,
       "id": "BAND-13",
       "path": "frames/BAND-13/candidate.png",
-      "sha256": "844dfac2486d6d24da24d953dbd32f1f090a1f22d2028845d670f966ea0eff82",
+      "sha256": "66f5d9e3fc8ff0f55baba05f707ae2799ef18b1b15dc97ef2f2c444fad3d2ffa",
       "native_dimensions": [
         1672,
         941
       ],
       "prompt_path": "frames/BAND-13/GENERATION_PROMPT.txt",
-      "prompt_sha256": "89cd04d4d7d2074e6ae983c4644b95494ae84881d217a40518452fa858e0ad96",
+      "prompt_sha256": "79be33888f22ac2f8775914fa5632b8dac4a00c7acdb8e7db74523405c3f274c",
       "method": "Codex built-in imagegen complete flattened full-frame generation",
-      "declared_state": "opening action pose; static scene design, not delivered timeline frame",
+      "attempt": 1,
+      "declared_state": "opening action pose; static scene-design candidate, not delivered timeline frame",
       "human_identity_topology_style_review": "PENDING",
       "accepted_neighboring_frames": [],
       "timeline_frame_index": null,
@@ -463,32 +447,19 @@
       "position_guide": null,
       "references": [
         {
-          "source_path": "assets_src/cinematics/battle_of_bands_2026-09-20/references/prince.png",
-          "sha256": "95d5cf35321c87a1b5fae280a76a52fa7d3c6930e56503c10a4054c4c75169c4",
-          "role": "generation_input_only; not an accepted neighboring delivery frame"
+          "source_path": "assets_src/cinematics/battle_of_bands_2026-09-20/generation_inputs/r2-BAND-13/candidate.png",
+          "sha256": "844dfac2486d6d24da24d953dbd32f1f090a1f22d2028845d670f966ea0eff82",
+          "role": "superseded full-frame candidate used for identity/scene repair; not an accepted neighboring delivery frame"
         },
         {
-          "source_path": "assets/prototypes/bands/king_guitar.png",
-          "sha256": "814a38609838f06eae651a8b453decd778281f0001f148730101bccef8f9d1b0",
-          "role": "generation_input_only; not an accepted neighboring delivery frame"
-        },
-        {
-          "source_path": "assets_src/cinematics/battle_of_bands_2026-09-20/references/candle.png",
-          "sha256": "2c00e80e57315283e2612fb301cc9e2ac0c519bab1e0bfa44b4ff3dc4b13ff68",
-          "role": "generation_input_only; not an accepted neighboring delivery frame"
-        },
-        {
-          "source_path": "assets/prototypes/bands/stage_platform.png",
-          "sha256": "24e03b770e6b2dc4512a723b3cf6627cbb57d5ae5e38e94846dc483ee8b4f367",
-          "role": "generation_input_only; not an accepted neighboring delivery frame"
-        },
-        {
-          "source_path": "assets_src/cinematics/battle_of_bands_2026-09-20/references/sky_lagoon_middle_literal.png",
-          "sha256": "f96541ad1c9efafc4930449e989701c66c4a097045865ac79614160232fef2a0",
-          "role": "generation_input_only; not an accepted neighboring delivery frame"
+          "source_path": "assets_src/cinematics/battle_of_bands_2026-09-20/generation_inputs/r2-BAND-12/candidate.png",
+          "sha256": "cc1248a76bd0dc08f7d4a0554092b11ecbdc361b373b9bede2f44c393d454f53",
+          "role": "superseded full-frame candidate used for identity/scene repair; not an accepted neighboring delivery frame"
         }
       ],
-      "native_modified": false
+      "native_modified": false,
+      "native_source_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0c236-27d6-7de0-9bb2-77f585cc5b06\\exec-549427ec-9e7e-4f77-877b-163efe8b1c82.png",
+      "native_sha256": "66f5d9e3fc8ff0f55baba05f707ae2799ef18b1b15dc97ef2f2c444fad3d2ffa"
     },
     {
       "scene": 14,
@@ -523,6 +494,40 @@
     "BAND-02/03/04 are tighter legacy candidates with support plane offscreen; verify camera relation to shared stage.",
     "BAND-06/08 now use tight regenerated views with continuous shared-stage floor and clipped neighboring performers. Previous solo-platform candidates remain as superseded generation inputs. Owner continuity/topology review remains pending.",
     "BAND-07/14 ukulele strings/keys and BAND-04/07/09/14 bass strings/keys require per-frame topology review; no machine count is claimed.",
-    "No frame is an accepted delivery keyframe. Do not bind a contact sheet or runtime capture."
+    "No frame is an accepted delivery keyframe. Do not bind a contact sheet or runtime capture.",
+    "2026-09-30 R3: BAND-12 physically reaches/grabs after dropping guitar; supplementary contact frame clarifies the grip and is NEVER a generation binding. BAND-13 leaves guitar on the stage. Music ends before the theft at editorial 91.000.",
+    "R3 visual review pending: reconcile the King belt/buckle detail between opening/contact/departure; preserve the single guitar location and loose strap across the shot. New candidates do not establish accepted frame continuity."
+  ],
+  "supplementary_storyboards": [
+    {
+      "scene": 12,
+      "id": "BAND-12-CONTACT",
+      "path": "frames/BAND-12/contact_storyboard.png",
+      "sha256": "1f575d601cc704f2233de446212e5b6f728cf7e8c528d4a0d1b22608416d6664",
+      "native_dimensions": [
+        1672,
+        941
+      ],
+      "prompt_path": "frames/BAND-12/CONTACT_GENERATION_PROMPT.txt",
+      "prompt_sha256": "92d7d97831998189c90b74eff2c265b03ef47df07d8105674dc463b20f40f75f",
+      "method": "Codex built-in imagegen complete flattened full-frame generation",
+      "attempt": 1,
+      "declared_state": "physical-contact storyboard only; never IMAGE_1 or delivery pixels",
+      "human_identity_topology_style_review": "PENDING",
+      "accepted_neighboring_frames": [],
+      "timeline_frame_index": null,
+      "delivery_pixels": false,
+      "position_guide": null,
+      "references": [
+        {
+          "source_path": "assets_src/cinematics/battle_of_bands_2026-09-20/generation_inputs/r2-BAND-12/candidate.png",
+          "sha256": "cc1248a76bd0dc08f7d4a0554092b11ecbdc361b373b9bede2f44c393d454f53",
+          "role": "superseded full-frame candidate used for identity/scene repair; not an accepted neighboring delivery frame"
+        }
+      ],
+      "native_modified": false,
+      "native_source_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0c236-27d6-7de0-9bb2-77f585cc5b06\\exec-d7df153d-6e0f-4397-8c3f-1f9bf73c19da.png",
+      "native_sha256": "1f575d601cc704f2233de446212e5b6f728cf7e8c528d4a0d1b22608416d6664"
+    }
   ]
 }

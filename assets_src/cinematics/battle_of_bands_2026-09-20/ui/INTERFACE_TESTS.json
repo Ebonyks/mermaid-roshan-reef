@@ -1,0 +1,98 @@
+{
+  "schema": "bands-ui-review-v1",
+  "checked_at": "2026-09-30T23:53:37.926Z",
+  "browser": "headless Microsoft Edge via Playwright, local HTTP",
+  "scope": "Silent browser UI fixtures only; no Godot/device/child acceptance",
+  "checks": [
+    "fall: every route ends at its visible instrument target",
+    "fan: every route ends at its visible instrument target",
+    "single: every route ends at its visible instrument target",
+    "DOM pointerdown at arrival registers one instrument contact",
+    "visible pause/resume freezes time and restores approach",
+    "focus loss pauses the fixture",
+    "return clears fixture without writing a game save",
+    "all three layouts: 1280px viewport, targets >=44 CSS px, no target overlap or horizontal overflow",
+    "all three layouts: 740px viewport, targets >=44 CSS px, no target overlap or horizontal overflow",
+    "all three layouts: 390px viewport, targets >=44 CSS px, no target overlap or horizontal overflow",
+    "no browser page errors"
+  ],
+  "captures": [
+    {
+      "path": "fall.png",
+      "sha256": "c4009131c33c0944cfc119dea9988d95dd957cdcf7ab6a09d782587a9b019de8"
+    },
+    {
+      "path": "fan.png",
+      "sha256": "ba731576182bf133d3ba5ffe94579310b31e0b5906e855cdbbf6c6aca5f6869e"
+    },
+    {
+      "path": "single.png",
+      "sha256": "c00b1ecbcb2c88bac8c154e32b54027ac7ab167cb84ea5685aafd36150c7e180"
+    },
+    {
+      "path": "state-ready.png",
+      "sha256": "7800d9d502021403aec15e173ad14221310eae4327295b72fee3a38dcbb61657"
+    },
+    {
+      "path": "state-approach.png",
+      "sha256": "c4009131c33c0944cfc119dea9988d95dd957cdcf7ab6a09d782587a9b019de8"
+    },
+    {
+      "path": "state-contact.png",
+      "sha256": "fe34bd361f9335321fcd6c732062ec9ad9be4fa568309acffb009a9d528b4653"
+    },
+    {
+      "path": "state-feedback.png",
+      "sha256": "daec4026944ef63be57c96819fc2c5d1ae19798df0971cc8453d1f9fa740fa6d"
+    },
+    {
+      "path": "state-passed.png",
+      "sha256": "1f7ea8480f404d8fcfa1960bc3bb01a858abdb62d6dea81306e90c396649d717"
+    },
+    {
+      "path": "state-paused.png",
+      "sha256": "014b3f2631c2a2faf3cb1b69876815d9c493cce0bd79f788b7ba2c64afe55b53"
+    }
+  ],
+  "unit_command": "node tools/test_bands_rhythm_ui.cjs",
+  "unit_result": "8 behavioural checks pass; see command output",
+  "acceptance_gaps": [
+    "Exact objective voice",
+    "Final strike/rebound poses",
+    "Godot Pop Star integration",
+    "Real phone audio latency and touch",
+    "Child and owner review",
+    "Final font authority; adult review shell uses system fallback"
+  ],
+  "source_files": [
+    {
+      "path": "index.html",
+      "sha256": "98b1b4b8cfb8ed7cc32278c5798effef064b58e3163bcc217773401dffac0edd"
+    },
+    {
+      "path": "interface.css",
+      "sha256": "4c21c067b8c597a336d6fd4017125276ebe61fd3945c10ff183ab5b42428b5fa"
+    },
+    {
+      "path": "interface.js",
+      "sha256": "26e4e4b9ab8007df792fd83cf32a3ce56b3f9a105339aa5076cf0749e823ffeb"
+    },
+    {
+      "path": "rhythm-core.js",
+      "sha256": "f172a96115306ae6d14bab6e1f0130477edee86422ee2da616ddf2e3e70ad71a"
+    },
+    {
+      "path": "../references/roshan_drums.png",
+      "sha256": "8c053d0cff47f04f3297ca6c48016fb74f24bfcb862f8c2cedeb3fd980f1e709"
+    },
+    {
+      "path": "../references/stage_platform.png",
+      "sha256": "24e03b770e6b2dc4512a723b3cf6627cbb57d5ae5e38e94846dc483ee8b4f367"
+    },
+    {
+      "path": "../references/sky_lagoon_middle_literal.png",
+      "sha256": "f96541ad1c9efafc4930449e989701c66c4a097045865ac79614160232fef2a0"
+    }
+  ],
+  "capture_method": "Whole browser viewport PNG, 1280x720, no raster editing. Original source PNGs reused unchanged in an interactive Canvas UI; never cinematic pixels."
+}

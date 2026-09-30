@@ -107,7 +107,30 @@
       "start": 91,
       "end": 97,
       "focus": "theft",
-      "action": "King uses royal magic to lift the single pillar candle off the cake into his free hand; guitar remains strapped."
+      "action": "Music has ended. King drops his guitar and loose strap onto the stage, reaches over, closes his fingers around the candle body and lifts it off the cake by hand. No magic.",
+      "beats": [
+        {
+          "seconds": [
+            91,
+            92.5
+          ],
+          "action": "Release guitar; it lands on stage with strap loose. Music is already over."
+        },
+        {
+          "seconds": [
+            92.5,
+            94.5
+          ],
+          "action": "Reach and close fingers/thumb around the candle body; cake stays supported."
+        },
+        {
+          "seconds": [
+            94.5,
+            97
+          ],
+          "action": "Lift the one candle by hand; empty place on intact cake; guitar stays on floor."
+        }
+      ]
     },
     {
       "id": "BAND-13",
@@ -115,7 +138,7 @@
       "start": 97,
       "end": 103,
       "focus": "objection",
-      "action": "Prince has set sticks down offscreen; he appeals with an empty hand, then follows the King out with the single candle."
+      "action": "Prince has set sticks down offscreen; he appeals with an empty hand, then follows the King carrying the single candle. The dropped guitar and slack strap stay on stage; neither character carries it."
     },
     {
       "id": "BAND-14",
@@ -123,7 +146,7 @@
       "start": 103,
       "end": 109,
       "focus": "comfort",
-      "action": "With the Embers already gone, Daddy and Eagle stay beside Roshan; cake and earned rewards remain."
+      "action": "With the Embers already gone, Daddy and Eagle stay beside Roshan; cake and earned rewards remain. The dropped guitar remains on stage outside this closer framing; no retrieval or second guitar."
     }
   ]
 }

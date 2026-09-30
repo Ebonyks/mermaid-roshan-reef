@@ -5178,3 +5178,53 @@ Audio derives from the owner-published v89 master for this specifically commissi
 BAND-06 and BAND-08 current candidates were regenerated as complete flattened images with Codex built-in imagegen on 2026-09-30 for shared-stage close-up continuity. Exact prompts, input hashes, native output hashes and superseded candidates are recorded in SCENE_ART_PROVENANCE.json and generation_inputs/SHARED_STAGE_REPAIR_HISTORY.json; no raster compositing or source modification.
 
 - `assets_src/cinematics/battle_of_bands_2026-09-20/MACHINE_VERIFICATION.json` — Project-authored verification evidence, all rights reserved; URL https://github.com/Ebonyks/mermaid-roshan-reef ; no source artwork modification or acceptance claim.
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/.gdignore` — Project-authored interface/planning source, all rights reserved; no cinematic pixel authority. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/frames/BAND-12/CONTACT_GENERATION_PROMPT.txt` — Project-authored interface/planning source, all rights reserved; no cinematic pixel authority. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/frames/BAND-12/contact_storyboard.png` — Codex built-in imagegen full-frame project commission or byte-preserved superseded source; all rights reserved; exact source/prompt hashes in SCENE_ART_PROVENANCE.json and generation_inputs/R2_SUPERSEDED_FRAMES.json; no protected original modification. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/generation_inputs/r2-BAND-12/candidate.png` — Codex built-in imagegen full-frame project commission or byte-preserved superseded source; all rights reserved; exact source/prompt hashes in SCENE_ART_PROVENANCE.json and generation_inputs/R2_SUPERSEDED_FRAMES.json; no protected original modification. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/generation_inputs/r2-BAND-12/GENERATION_PROMPT.txt` — Project-authored interface/planning source, all rights reserved; no cinematic pixel authority. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/generation_inputs/r2-BAND-13/candidate.png` — Codex built-in imagegen full-frame project commission or byte-preserved superseded source; all rights reserved; exact source/prompt hashes in SCENE_ART_PROVENANCE.json and generation_inputs/R2_SUPERSEDED_FRAMES.json; no protected original modification. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/generation_inputs/r2-BAND-13/GENERATION_PROMPT.txt` — Project-authored interface/planning source, all rights reserved; no cinematic pixel authority. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/generation_inputs/R2_SUPERSEDED_FRAMES.json` — Project-authored interface/planning source, all rights reserved; no cinematic pixel authority. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/ui/fall.png` — Unmodified browser interface screenshot reusing references/roshan_drums.png, stage_platform.png and sky_lagoon_middle_literal.png; source hashes and capture method in ui/INTERFACE_TESTS.json; project artwork, all rights reserved; never cinematic pixels. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/ui/fan.png` — Unmodified browser interface screenshot reusing references/roshan_drums.png, stage_platform.png and sky_lagoon_middle_literal.png; source hashes and capture method in ui/INTERFACE_TESTS.json; project artwork, all rights reserved; never cinematic pixels. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/ui/index.html` — Project-authored interface/planning source, all rights reserved; no cinematic pixel authority. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/ui/interface.css` — Project-authored interface/planning source, all rights reserved; no cinematic pixel authority. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/ui/interface.js` — Project-authored interface/planning source, all rights reserved; no cinematic pixel authority. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/ui/INTERFACE_TESTS.json` — Project-authored interface/planning source, all rights reserved; no cinematic pixel authority. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/ui/rhythm-core.js` — Project-authored interface/planning source, all rights reserved; no cinematic pixel authority. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/ui/single.png` — Unmodified browser interface screenshot reusing references/roshan_drums.png, stage_platform.png and sky_lagoon_middle_literal.png; source hashes and capture method in ui/INTERFACE_TESTS.json; project artwork, all rights reserved; never cinematic pixels. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/ui/state-approach.png` — Unmodified browser interface screenshot reusing references/roshan_drums.png, stage_platform.png and sky_lagoon_middle_literal.png; source hashes and capture method in ui/INTERFACE_TESTS.json; project artwork, all rights reserved; never cinematic pixels. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/ui/state-contact.png` — Unmodified browser interface screenshot reusing references/roshan_drums.png, stage_platform.png and sky_lagoon_middle_literal.png; source hashes and capture method in ui/INTERFACE_TESTS.json; project artwork, all rights reserved; never cinematic pixels. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/ui/state-feedback.png` — Unmodified browser interface screenshot reusing references/roshan_drums.png, stage_platform.png and sky_lagoon_middle_literal.png; source hashes and capture method in ui/INTERFACE_TESTS.json; project artwork, all rights reserved; never cinematic pixels. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/ui/state-passed.png` — Unmodified browser interface screenshot reusing references/roshan_drums.png, stage_platform.png and sky_lagoon_middle_literal.png; source hashes and capture method in ui/INTERFACE_TESTS.json; project artwork, all rights reserved; never cinematic pixels. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/ui/state-paused.png` — Unmodified browser interface screenshot reusing references/roshan_drums.png, stage_platform.png and sky_lagoon_middle_literal.png; source hashes and capture method in ui/INTERFACE_TESTS.json; project artwork, all rights reserved; never cinematic pixels. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/ui/state-ready.png` — Unmodified browser interface screenshot reusing references/roshan_drums.png, stage_platform.png and sky_lagoon_middle_literal.png; source hashes and capture method in ui/INTERFACE_TESTS.json; project artwork, all rights reserved; never cinematic pixels. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/ui/STORYBOARD.html` — Project-authored interface/planning source, all rights reserved; no cinematic pixel authority. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+- `assets_src/cinematics/battle_of_bands_2026-09-20/ui/UI_DESIGN.txt` — Project-authored interface/planning source, all rights reserved; no cinematic pixel authority. URL: https://github.com/Ebonyks/mermaid-roshan-reef .
+
+R3 (2026-09-30): BAND-12 and BAND-13 current candidates were regenerated as complete flattened images for physical hand theft and discarded-guitar continuity. Native PNGs are preserved byte-for-byte; the old candidates/prompts remain under generation_inputs/r2-BAND-12 and r2-BAND-13. The additional BAND-12 contact study is storyboard-only, not a generator binding. No image is accepted delivery footage.

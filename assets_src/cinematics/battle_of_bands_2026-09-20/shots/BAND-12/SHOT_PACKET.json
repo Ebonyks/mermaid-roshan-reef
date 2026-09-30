@@ -19,7 +19,7 @@
       "id": "IMAGE_1",
       "role": "approved_clean_first_frame",
       "path": "frames/BAND-12/candidate.png",
-      "sha256": "cc1248a76bd0dc08f7d4a0554092b11ecbdc361b373b9bede2f44c393d454f53",
+      "sha256": "d92e7e4856280652412c829f26cc8bb5e5140ae19ecf7d3546d93de5cf652154",
       "candidate_scene_path": "frames/BAND-12/candidate.png",
       "hud_present": false,
       "human_decision": "pending",
@@ -28,8 +28,8 @@
     {
       "id": "IMAGE_2",
       "role": "subject_identity",
-      "path": "references/king_guitar.png",
-      "sha256": "814a38609838f06eae651a8b453decd778281f0001f148730101bccef8f9d1b0",
+      "path": "references/king.png",
+      "sha256": "422f7bd45a13f1d3c0304082727d72298e3bc01babd8919dc0c7e3e92777052c",
       "hud_present": false,
       "human_decision": "pending shot binding review"
     },
@@ -47,14 +47,14 @@
     "move_count": 0
   },
   "must_move": [
-    "the king's royal magic lifts the one lit pillar candle from the intact cake into his free palm"
+    "after the music ends, the king drops his guitar onto the stage, reaches over and grips the candle body with his fingers, then lifts it by hand"
   ],
   "must_not_move": [
     "stage geometry",
     "literal lagoon geography",
     "unaffected props"
   ],
-  "end_state": "one candle rests in the king's palm; its former place on the cake is empty",
+  "end_state": "one candle is held in the king's hand; its former place on the intact cake is empty; the guitar and loose strap stay on the stage",
   "negative_constraints": [
     "no cuts",
     "no HUD",
@@ -63,7 +63,7 @@
     "no duplicate candle"
   ],
   "prompt_path": "shots/BAND-12/PROMPT.txt",
-  "prompt_sha256": "b31d12d3da90ace0ee30b4c8b5fd4e648c7600a833db8533c8a82d5622d69ff9",
+  "prompt_sha256": "f79e2fd3fdf45394fe461406b193c5295dc8edc8b2273b140ec64a4ff67ebea7",
   "editorial_start_seconds": 91.0,
   "editorial_end_seconds": 97,
   "recording_start_seconds": null,

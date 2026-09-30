@@ -8,6 +8,22 @@ Roshan drums; Daddy Mermaid plays ukulele; Baby Eagle plays four-string/four-peg
 
 These are full-frame **scene-design candidates**, awaiting first-frame and continuity approval. Grok clips are motion/editorial reference only. Download the directory and open SHOT_BOARD.html to inspect timing with local song playback. GitHub renders the scene images below; it displays HTML as source.
 
+## R3: Pop Star scrolling-drum interface studies
+
+The ordered-tap mechanic is superseded. A moving bar now reaches the actual drum rim or cymbal, where the child taps. This revision contains **interfaces and silent timing fixtures only**: no authored drum part or Iko Iko chart, no production-game replacement.
+
+[Playable UI source](ui/index.html) · [Six-state storyboard](ui/STORYBOARD.html) · [UI/Codex design brief](ui/UI_DESIGN.txt) · [Interface evidence](ui/INTERFACE_TESTS.json)
+
+![Falling ribbons — interface candidate, never film pixels](ui/fall.png)
+
+![Side approaches — interface candidate](ui/fan.png)
+
+![One-bar practice — interface candidate](ui/single.png)
+
+Download/serve this packet to try the interfaces. Each uses one-finger input, shape plus colour, instrument-aligned targets and gentle misses. Roshan's existing pose stays static pending a separate strike-animation pass.
+
+**Shot 12 correction:** at 91 seconds the music is over. The King drops his guitar, then takes the candle with his hand. No magical lift. The guitar remains on stage through his departure.
+
 ## BAND-01 — Ready in the middle meadow
 
 **0.000–3.583s.** Roshan raises her two sticks and looks to her bandmates. End: everyone is ready; the single candle stays on the supported cake.
@@ -98,15 +114,19 @@ These are full-frame **scene-design candidates**, awaiting first-frame and conti
 
 ## BAND-12 — The King cheats
 
-**91.000–97.000s.** The king's royal magic lifts the one lit pillar candle from the intact cake into his free palm. End: one candle rests in the king's palm; its former place on the cake is empty.
+**91.000–97.000s.** After the music ends, the king drops his guitar onto the stage, reaches over and grips the candle body with his fingers, then lifts it by hand. End: one candle is held in the king's hand; its former place on the intact cake is empty; the guitar and loose strap stay on the stage.
 
 ![BAND-12 scene candidate](frames/BAND-12/candidate.png)
 
 [BAND-12 card](shots/BAND-12/SHOT_PACKET.json) / [prompt](shots/BAND-12/PROMPT.txt)
 
+**Contact/end-state study — storyboard only, never a generation binding.**
+
+![Physical grip; guitar left on stage](frames/BAND-12/contact_storyboard.png)
+
 ## BAND-13 — The Prince objects
 
-**97.000–103.000s.** The prince appeals with one empty open hand; the king turns away with the candle and the disappointed prince follows. End: king and prince leave frame together with the single candle; the guitar stays strapped.
+**97.000–103.000s.** The prince appeals with one empty open hand; the king turns away holding the candle and the disappointed prince follows. End: king and prince leave frame together with the single candle; the discarded guitar and slack strap remain on the stage.
 
 ![BAND-13 scene candidate](frames/BAND-13/candidate.png)
 
@@ -114,16 +134,16 @@ These are full-frame **scene-design candidates**, awaiting first-frame and conti
 
 ## BAND-14 — Friends stay together
 
-**103.000–109.000s.** Daddy leans gently toward roshan; baby eagle moves a small step closer as she looks up. End: roshan has her friends beside her; instruments and earned cake remain safe.
+**103.000–109.000s.** Daddy leans gently toward roshan; baby eagle moves a small step closer as she looks up. End: roshan has her friends beside her; instruments and earned cake remain safe; the discarded guitar stays on stage outside this closer framing.
 
 ![BAND-14 scene candidate](frames/BAND-14/candidate.png)
 
 [BAND-14 card](shots/BAND-14/SHOT_PACKET.json) / [prompt](shots/BAND-14/PROMPT.txt)
 
-## Playable prototype
+## Earlier Godot staging prototype — rhythm mechanic superseded
 
-![Godot Mobile capture — never generator input](runtime/prototype.png)
+![Earlier Godot Mobile staging capture — never generator input](runtime/prototype.png)
 
-Run scenes/battle_of_bands_prototype.tscn in Godot 4.7.2. Twelve forgiving intentional hits plus completion of the recording unlock the story. Exact objective voice, contact animation, target-device/child review and production chapter integration remain open.
+The earlier scenes/battle_of_bands_prototype.tscn preserves staging/audio/save review history. Its twelve ordered taps are superseded by the scrolling-bar design above. No Godot script or production job was changed in this interface-only revision. Historical MACHINE_VERIFICATION.json and RUNTIME_EVIDENCE.json do not validate the new browser interface.
 
 **Archive:** consult REMOTE_VERIFICATION.json for exact published bytes. **Generation readiness: blocked** by first-frame/continuity/topology approval and continuation endpoint bindings. **Delivery acceptance: false.** Full-frame cinematic/human/device gates still apply.
