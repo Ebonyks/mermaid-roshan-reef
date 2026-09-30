@@ -599,6 +599,9 @@ banks monotonic progress in that direction. It is not a race, combat encounter,
 generic task card, or restored PHRASE/POSE/RIBBON/TWIRL reskin. Five- and
 ten-second assistance re-demonstrates or widens only the unresolved action and
 MUST NOT pay progress.
+Owner decision 2026-09-30 (`DL-INT-14`, target) makes the final stage twirl a
+twirl-off against the ballerina imp; the "not a race" clause does not apply to
+that contest.
 
 `DL-INT-09` — Boxer is one full-stage five-phase two-glove specialist: Glove
 Guide, Jab Practice, Soft Guard, Title Imp, and Belt. Separate touch indices may
@@ -607,6 +610,9 @@ MUST complete every phase sequentially. Touch ownership stays stable until
 release and clears on phase change, focus loss, close, and teardown. There is no
 health, life, damage score, lost progress, knockout, fail screen, required
 reaction time, or generic combat-layer payout.
+Owner decision 2026-09-30 (`DL-INT-14`, target) turns Title Imp into a
+first-to-six bout the imp can win, which restarts the bout; the no-loss clause
+does not apply to that bout, and contact stays harmless.
 
 `DL-INT-10` — Opera Racer remains inside the true-Canvas career world for TUNE,
 TO THE LINE, and RACE. RACE uses the large painted circle/steering grammar and
@@ -616,6 +622,8 @@ This is the required target. Commit `e2c25878` removes the `f3b0de07`
 ordinary-unforced alternate path and directly exercises the same Canvas route;
 `MA-OPERA-010` remains `FIXED_PENDING_VERIFICATION` after the green full-local
 and exact-head remote gates until external acceptance completes.
+Owner decision 2026-09-30 (`DL-INT-14`, target) adds one RACE rule: the imp's
+kart finishing two laps first is his win and restarts the race.
 
 `DL-INT-11` — Candymaker SYRUP uses one complete phone-legible mold and one
 generous pitcher grab region. The painted left spout, transformed stream origin,
@@ -650,6 +658,24 @@ art/music may remain inactive for possible later non-boss reuse; inactive asset
 reuse does not justify runtime reachability. Future boss fights, if separately
 authorized, belong to narratively relevant Ember-aligned henchmen and MUST NOT
 reuse the retired Opera slots or silently rehabilitate these characters.
+
+`DL-INT-14` — Owner decision 2026-09-30; target contract, implementation
+pending. Each competitive Opera career's costumed imp stays hidden until the
+final act and enters when it begins. The final act ends in one head-to-head
+contest that uses a real skill of that job at the object Roshan reached. The
+imp MAY win. His win plays a beat of at most 2 s, then restarts the contest at
+once, with no fail screen, text, life or wait. Stars, pearls, stickers, saves
+and finished activities are kept; resetting the one attempt is the
+owner-directed rematch, not a punitive fail state under `DL-AGE-03`. He works
+only while the child plays, so zero input never wins or loses (`DL-AGE-04`).
+Each rematch slows him or raises his target, down to a floor. Progress is
+wordless and every beat has an exact voice line. Chapter 2 story and tutorial
+runs opt out. For that contest only, this supersedes the no-race clause of
+`DL-INT-08` and the no-loss clause of `DL-INT-09`, and it adds a finish rule
+to the `DL-INT-10` race. The contest-only restart scope awaits owner
+confirmation. Phase counts in `DL-INT-07` and `DL-QA-12` change when
+implementation lands. Specification:
+[Opera imp contests](../docs/handoffs/codex_opera_imp_contest_2026-09-30/CONTEST_DESIGN.md).
 
 ---
 

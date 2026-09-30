@@ -429,7 +429,7 @@ device, child, human, or owner acceptance.
 | acceptance | Both aspects and target device pass touch/performance, an observed child understands the sequence, and the owner accepts identity/style. |
 | closure | Pending as of 2026-08-13; two-aspect/device/child/owner evidence, accepted result, closure commit, and date are missing. |
 | relationships | Visual capture depends on `MA-OPERA-004`; release gate under `MA-RELEASE-001`; Boxer V2 remains non-authoritative. |
-| history | 2026-08-09: specialist repair recorded. 2026-08-13: current runtime is machine-green, but lifecycle remains `FIXED_PENDING_VERIFICATION`. |
+| history | 2026-08-09: specialist repair recorded. 2026-08-13: current runtime is machine-green, but lifecycle remains `FIXED_PENDING_VERIFICATION`. 2026-09-30: owner decision `DL-INT-14` (target, implementation pending) makes Title Imp a first-to-six bout the imp can win, with an immediate restart; this supersedes the no-loss clause of the owner_decision above for that bout only. The current runtime, lifecycle and acceptance scope are unchanged until it is implemented. |
 
 ## MA-OPERA-010
 
@@ -820,7 +820,7 @@ device, child, human, or owner acceptance.
 | acceptance | Accepted two-aspect captures, M11 play, observed child comprehension, and owner identity/style approval pass for the current authority. |
 | closure | Pending as of 2026-08-13; external/accepted visual evidence, closure commit, and date are missing. |
 | relationships | Supersedes old Ballerina versions; capture gap `MA-OPERA-004`; release gate `MA-RELEASE-001`. |
-| history | 2026-08-09: newer mermaid atlas and three-act authority adopted. 2026-08-13: machine evidence remains green; lifecycle remains `FIXED_PENDING_VERIFICATION`. |
+| history | 2026-08-09: newer mermaid atlas and three-act authority adopted. 2026-08-13: machine evidence remains green; lifecycle remains `FIXED_PENDING_VERIFICATION`. 2026-09-30: owner decision `DL-INT-14` (target, implementation pending) makes the stage copy of Grand Twirl a three-turn twirl-off the imp can win, with an immediate contest-only restart; the current runtime, lifecycle and acceptance scope are unchanged until it is implemented. |
 
 ## MA-OPERA-006
 
