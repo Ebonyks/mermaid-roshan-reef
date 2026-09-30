@@ -143,7 +143,7 @@ func _audit_foyer_routes() -> void:
 	var expected_rooms: Dictionary = {
 		ChapterTwoDirector.ACT_FARMER: "dining_room",
 		ChapterTwoDirector.ACT_CHEF: "kitchen",
-		ChapterTwoDirector.ACT_CANDY_MAKER: "kitchen",
+		ChapterTwoDirector.ACT_CANDY_MAKER: "movie_lounge",
 		ChapterTwoDirector.ACT_PAINTER: "craft_room",
 		ChapterTwoDirector.ACT_POP_STAR: "opera_hall",
 		ChapterTwoDirector.ACT_ASTRONAUT: "mermaid_pool",
@@ -171,6 +171,20 @@ func _audit_foyer_routes() -> void:
 			ChapterTwoDirector.ACT_BALLERINA) == "playroom"
 		and CastleCareerRoutes.chapter2_foyer_owner_room(
 			ChapterTwoDirector.ACT_DETECTIVE) == "library")
+	var story_rooms: Array[String] = []
+	for entry: Dictionary in ChapterTwoPartyPlan.LIVE_CAREERS:
+		var story_room := String(entry.get("room", ""))
+		if not story_room.is_empty() and not story_rooms.has(story_room):
+			story_rooms.append(story_room)
+	_check("every Day Two job has its own Castle room",
+		story_rooms.size() == ChapterTwoPartyPlan.LIVE_CAREERS.size())
+	_check("story room cards follow the story plan, not freeplay homes",
+		CastleCareerRoutes.chapter2_room_act_indices("kitchen")
+			== [ChapterTwoDirector.ACT_CHEF]
+		and CastleCareerRoutes.chapter2_room_act_indices("movie_lounge")
+			== [ChapterTwoDirector.ACT_CANDY_MAKER]
+		and CastleCareerRoutes.chapter2_room_act_indices("playroom").is_empty()
+		and CastleCareerRoutes.chapter2_room_act_indices("library").is_empty())
 
 
 func _audit_cake_visual_progression() -> void:
@@ -322,6 +336,10 @@ func _audit_eight_career_sequence() -> void:
 		ChapterTwoDirector.ACT_PAINTER,
 	]
 	for act_index: int in normal_acts:
+		if act_index == ChapterTwoDirector.ACT_CANDY_MAKER:
+			_check("Candy Maker launches from the Movie Lounge, not the Kitchen",
+				main.chapter2_opera_route_matches("movie_lounge", act_index)
+				and not main.chapter2_opera_route_matches("kitchen", act_index))
 		_check("ordered party act %d completes" % act_index,
 			chapter_two.can_start_chapter2_act(act_index)
 			and chapter_two.record_party_contribution(act_index)

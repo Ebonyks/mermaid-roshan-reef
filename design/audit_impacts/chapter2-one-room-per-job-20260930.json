@@ -1,0 +1,79 @@
+{
+  "id": "chapter2-one-room-per-job-20260930",
+  "scope": "Owner direction 2026-09-30: two Day Two jobs in the Royal Kitchen do not make sense; divide the jobs through the castle. The Chapter 2 story plan now gives every birthday job its own Castle room. The Candy Maker job launches from the Cloud Movie Lounge instead of sharing the Kitchen with Chef: the lounge has no other Day Two job, already hosts a validated freeplay career-card slot, has its own room picture for the objective card, and reads as movie-night treats. Chapter 2 room cards are now built from ChapterTwoPartyPlan story rooms instead of the freeplay ROOM_ACT_INDICES. Freeplay career homes, save bits and keys, job order, cake states, the candy workshop scene and the lawn finale are unchanged. The Chapter 2 probe now fails if two story jobs share a room or if the Kitchen can launch the Candy Maker story job.",
+  "baseline": "e7899cc095fc326ff007e30226ad7bafea8f1634",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-PLAN-01",
+    "DL-PLAN-05",
+    "DL-PLAN-06",
+    "DL-INT-12",
+    "DL-UI-03",
+    "DL-READ-05",
+    "DL-AGE-01",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-SAVE-01"
+  ],
+  "findings": [
+    "MA-OPERA-012"
+  ],
+  "finding_scope": "Related context only. MA-OPERA-012 covers the freeplay Castle-room career routes, which are unchanged; its lifecycle and evidence are not altered or claimed. During Chapter 2 the Movie Lounge shows the Candy Maker story card in the same card slot that Racer uses in freeplay, so that finding's open route-card occlusion and device review apply to this room too.",
+  "files": [
+    "scripts/chapter_two_party_plan.gd",
+    "scripts/castle_career_routes.gd",
+    "scripts/probe_chapter2.gd",
+    "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/05_DOC_LEDGER.md",
+    "design/01_GAME_DESIGN.md",
+    "design/10_CHAPTER_REFERENCE_LIBRARY.md",
+    "audit/MASTER_AUDIT_2026-08-09.md"
+  ],
+  "validation": [
+    {
+      "command": "gdparse (gdtoolkit 4.5.0) scripts/chapter_two_party_plan.gd scripts/castle_career_routes.gd scripts/probe_chapter2.gd",
+      "result": "PASS",
+      "evidence": "All three changed GDScript files parse, as do their baseline versions. Syntax only; no Godot analyzer or runtime evidence."
+    },
+    {
+      "command": "python -B tools/lint_inference.py <three changed GDScript files>",
+      "result": "PASS",
+      "evidence": "Exit 0 with no findings for the three changed files."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH RESULT ALL OK on the candidate working tree before commit."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Change coverage for this record against the dev merge-base on the candidate working tree before commit."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "Audit tool unit tests on the candidate working tree before commit."
+    },
+    {
+      "command": "Godot 4.7.2 --headless -s scripts/probe_chapter2.gd",
+      "result": "PENDING",
+      "evidence": "No Godot binary in the authoring container; runs in the GitHub Probe suite workflow on push. New checks: one room per story job, plan-built room cards, and Movie Lounge-only Candy Maker launch."
+    },
+    {
+      "command": "GitHub Probe suite (.github/workflows/probes.yml) on the pushed branch head",
+      "result": "PENDING",
+      "evidence": "Full import plus trusted probes, including probe_opera_2d freeplay route cards, which this change must leave untouched."
+    },
+    {
+      "command": "Mobile capture of the Chapter 2 Kitchen and Movie Lounge route cards",
+      "result": "PENDING",
+      "evidence": "Not captured. Needed to confirm the Kitchen shows only Chef and the Movie Lounge shows only Candy Maker during Chapter 2."
+    }
+  ],
+  "acceptance_gaps": "Owner review of the Cloud Movie Lounge choice. Alternatives considered: the Family Dining Room (already the Farmer's doorway, so Farmer would also have to move) and the Main Hall (hub with no career-card rail; the party table appears only after the stuffie ballet). Mobile captures at two aspects, target-device touch and 30 fps, and child comprehension of the route through the Dream House Wing all remain open. Chapter 2 route guidance is still caption-only with the room-picture objective card; that DL-AGE-01 voice gap predates this change and is not repaired here. Freeplay homes are intentionally unchanged pending owner direction.",
+  "source_recheck": "Read the master audit planning entry and task index, DL-INT-12 and the DL-PLAN rules, MA-OPERA-012, the document ledger, the chapter guide delegation table, the binding production spine and the cake progression contract. The chapter guide delegates staging; the owner direction is recorded in the spine, DL-INT-12, the ledger and the master index."
+}

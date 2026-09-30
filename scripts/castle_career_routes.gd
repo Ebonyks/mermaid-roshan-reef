@@ -90,6 +90,19 @@ static func chapter2_foyer_owner_room(act_index: int) -> String:
 	return String(entry.get("room", "")) if not entry.is_empty() else ""
 
 
+static func chapter2_room_act_indices(target_room: String) -> Array[int]:
+	# Story jobs use ChapterTwoPartyPlan's one-job-per-room layout rather than
+	# the freeplay homes above. Ballerina and Detective remain plot-only room
+	# actions; their Opera cards must not create a second activation route.
+	var result: Array[int] = []
+	for act_index: int in ChapterTwoPartyPlan.act_indices_for_room(target_room):
+		if act_index in [ChapterTwoDirector.ACT_BALLERINA,
+				ChapterTwoDirector.ACT_DETECTIVE]:
+			continue
+		result.append(act_index)
+	return result
+
+
 static func routed_act_indices() -> Array[int]:
 	var result: Array[int] = []
 	for target_room: String in ROOM_ACT_INDICES:
@@ -207,9 +220,7 @@ func _rebuild_room() -> void:
 		return
 	var indices := act_indices_for_room(room_id)
 	if m.chapter2_is_active():
-		# Ballerina and Detective remain plot-only room actions. Their Opera
-		# cards must not create a second generic activation route.
-		indices = _chapter2_room_indices(indices)
+		indices = chapter2_room_act_indices(room_id)
 	if indices.is_empty():
 		return
 	if room_id == "opera_hall":
@@ -316,27 +327,13 @@ func _chapter2_completion_mask() -> int:
 
 func _preferred_act_for_current_room() -> int:
 	if m != null and m.chapter2_is_active():
-		var indices := _chapter2_room_indices(act_indices_for_room(room_id))
+		var indices := chapter2_room_act_indices(room_id)
 		var completion_mask := _chapter2_completion_mask()
 		for act_index: int in indices:
 			if (completion_mask & (1 << act_index)) == 0:
 				return act_index
 		return indices[0] if not indices.is_empty() else -1
 	return preferred_act_for_room(room_id, m.opera_stars)
-
-
-func _chapter2_room_indices(indices: Array[int]) -> Array[int]:
-	var result: Array[int] = []
-	if m == null or not m.chapter2_is_active():
-		return indices.duplicate()
-	for act_index: int in indices:
-		if not ChapterTwoPartyPlan.is_live_act(act_index):
-			continue
-		if act_index in [ChapterTwoDirector.ACT_BALLERINA,
-				ChapterTwoDirector.ACT_DETECTIVE]:
-			continue
-		result.append(act_index)
-	return result
 
 
 func _chapter2_tutorial_phase() -> bool:
