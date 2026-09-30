@@ -1,0 +1,69 @@
+{
+  "id": "day-two-story-draft-v2-20260930",
+  "scope": "Owner direction 2026-09-30: write the next, much more specific draft of the Day Two story that makes the game. Anchor it to the Chapter One picture book with a story for every room; mix Daddy Mermaid, the dust bunnies (including the rainbow one) and Baby Eagle into challenges at random; add Lamma with three hiding moments across Days One and Two and a game where she joins the stuffie team; make the Opera House the routine that introduces each minigame mechanic, with each job's second level in the game world reskinned to the plot; audit what is built and where theme is thin; audit Day Two graphics granularly with written fixes; break down the Ember King and Prince party chapter in detail; and structure it for breakdown by an agent (Astra). Documentation only: a candidate package under design/day_two_story_v2/ and its ledger rows. No runtime, save, art, voice or binding-document change.",
+  "baseline": "e7899cc095fc326ff007e30226ad7bafea8f1634",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-PLAN-01",
+    "DL-PLAN-02",
+    "DL-PLAN-03",
+    "DL-PLAN-04",
+    "DL-PLAN-05",
+    "DL-PLAN-06",
+    "DL-AGE-01",
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-05",
+    "DL-AGE-08",
+    "DL-INT-02",
+    "DL-INT-06",
+    "DL-INT-12",
+    "DL-SND-01",
+    "DL-SAVE-01",
+    "DL-ASSET-08",
+    "DL-CIN-16",
+    "DL-CODE-01"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-OPERA-012"
+  ],
+  "finding_scope": "Related planning context only; no finding lifecycle changes. The draft requires every in-world level to show Roshan travelling to and performing the job (MA-PLAY-004) and keeps practice launches on the Castle-room cards tracked by MA-OPERA-012 unless the owner changes DL-INT-12.",
+  "files": [
+    "design/day_two_story_v2/README.md",
+    "design/day_two_story_v2/01_STORY_BIBLE.md",
+    "design/day_two_story_v2/02_PICTURE_BOOK_MANUSCRIPT.md",
+    "design/day_two_story_v2/03_LEVEL_DESIGN.md",
+    "design/day_two_story_v2/04_FINALE_PARTY_CHAPTER.md",
+    "design/day_two_story_v2/05_BUILD_AUDIT.md",
+    "design/day_two_story_v2/06_GRAPHICS_AUDIT.md",
+    "design/day_two_story_v2/07_WORK_PACKAGES.md",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH RESULT ALL OK with 585 inventoried Markdown files and matching ledger rows, on the candidate working tree before commit."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Change coverage for this record against the dev merge-base, on the candidate working tree before commit."
+    },
+    {
+      "command": "Build and graphics audit completion (05 and 06)",
+      "result": "PENDING",
+      "evidence": "The first commit carries 05 and 06 as marked placeholders while the source and image review finishes; a follow-up commit on this branch replaces them."
+    },
+    {
+      "command": "Runtime, capture, device and child evidence",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Documentation-only draft; no game change. Its work packages list the evidence each implementation needs."
+    }
+  ],
+  "acceptance_gaps": "Owner review of the story, manuscript and eight listed decisions; the Arborist art must be committed from the owner's local worktree; every implementation, voice, art, capture, device, child and cinematic gate listed in 07_WORK_PACKAGES.md remains open.",
+  "source_recheck": "Read the Chapter One book (books/chapter_one on codex/mermaid-roshan-picture-book), Day One director, story clips and in-room activities, the Chapter 2 spine, cake contract, lawn finale draft and runtime captures, the Ember King and Prince identity records, the Chapter 2 scripts, the Opera career phase tables, companion/stuffie/seek code for Lamma, the voice manifest, the master audit task index, DL rules and the document ledger."
+}
