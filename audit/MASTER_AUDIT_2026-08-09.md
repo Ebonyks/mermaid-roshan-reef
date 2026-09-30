@@ -75,6 +75,8 @@ Scoped Day One Grok Handoff 2: [footage audit](GROK_HANDOFF_2_FOOTAGE_AUDIT_2026
 
 Scoped Grok builder consolidation (2026-09-14): [single project database](../assets_src/cinematics/grok_builder_2026-09-14/README.md) and [impact](../design/audit_impacts/grok-builder-20260914.json). Character/location/event state and missing-shot planning are unified; MA-VIS-006 and all cinematic delivery gates remain open.
 
+Scoped Battle of the Bands prototype (2026-09-20): [commission and refinement handoff](../design/BATTLE_OF_BANDS_2026-09-20.md), [impact](../design/audit_impacts/battle-of-bands-20260920.json). Isolated Pop Star drumming and cheating-theft review scene; no existing finding closure, production finale replacement, audio-sync, device or cinematic acceptance.
+
 <!-- AUDIT_TASK_INDEX_END -->
 
 Owner handoff-publication correction (2026-09-16): [mandatory GitHub delivery](../AGENTS.md#external-handoffs-github-delivery-is-mandatory) and [change evidence](../design/audit_impacts/handoff-publication-memory-20260916.json). Publish and remotely verify each external handoff/QC revision before waiting for returns; local workspaces are staging only. This operational correction closes no cinematic or game-wide acceptance finding.
