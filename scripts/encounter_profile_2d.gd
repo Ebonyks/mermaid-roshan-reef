@@ -10,10 +10,14 @@ extends Resource
 @export var warning_assist_max: float = 0.9
 @export var miss_assist_step: float = 0.45
 @export var miss_assist_max: float = 2.4
+@export var patient_after_attempts: int = 0
+@export var preserve_combo_progress: bool = false
 
 static func grand_puff() -> EncounterProfile2D:
 	var profile := EncounterProfile2D.new()
 	profile.encounter_id = &"grand_puff"
+	profile.patient_after_attempts = 2
+	profile.preserve_combo_progress = true
 	profile.phases = [
 		EncounterPhase2D.make(&"puffy", [EncounterAttack2D.circle(5.2, 2.35)]),
 		EncounterPhase2D.make(&"dizzy", [EncounterAttack2D.circle(5.2, 2.2), EncounterAttack2D.circle(5.2, 2.2)]),

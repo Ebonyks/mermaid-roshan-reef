@@ -1,11 +1,12 @@
 extends SceneTree
 ## Trusted contract for the Day One story clips (owner decision 2026-09-23,
 ## DL-CIN-16): manifest integrity, fail-open lookup, real OGV playback, the
-## single Back skip route, the story hook map, the transformation-then-epilogue
+## Back and double-tap skip routes, the story hook map, the transformation-then-epilogue
 ## queue ahead of the Day Two card, save persistence, and Grand Puff staying
 ## whole for the transformation clip instead of imploding.
 
 const CLIPS := preload("res://scripts/day_one_story_clips.gd")
+const SKIP_CASES := preload("res://tools/tests/fixtures/story_movie_skip_cases.gd")
 const PROVENANCE_PATH := \
 	"res://assets_src/cinematics/day_one_story_clips_2026-09-23/CLIP_MANIFEST.json"
 const PROBE_SAVE := "user://probe_day_one_story_clips.json"
@@ -59,7 +60,7 @@ func _init() -> void:
 			hooks_ok = false
 			print("DAY_ONE_STORY_CLIPS|missing hook: ", hook)
 	_check("every story moment is wired to its clip", hooks_ok)
-	_check("the global Back control is the one skip route",
+	_check("the global Back control remains a skip route",
 		main_source.contains(
 			'_navigation_push("day_one_story_clip", preview, Callable(preview, "skip"))')
 		and FileAccess.get_file_as_string("res://scripts/day_one_story_clips.gd").contains(
@@ -89,6 +90,7 @@ func _run_behavioral_checks() -> void:
 	if _behavior_started:
 		return
 	_behavior_started = true
+	await SKIP_CASES.new().run(self, Callable(self, "_check"))
 	CLIPS.headless_override = true
 	# --- the standalone player ---
 	var missing: DayOneStoryClips = CLIPS.new() as DayOneStoryClips

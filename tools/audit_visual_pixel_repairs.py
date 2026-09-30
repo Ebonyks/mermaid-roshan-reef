@@ -9,8 +9,17 @@ ROOT = Path(__file__).resolve().parents[1]
 PACKET = ROOT / 'assets_src/repairs/visual_polish_2026-09-26'
 def digest(path):
     return hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
+# Keep the September 26 pixel contract immutable against its frozen exports.
+# The current runtime successors are checked separately by verify() below.
+FOLLOWUP_ORIGINALS = {
+    'assets/characters/rumi/rumi_eight_pose_runtime.png': 'rumi_before.png',
+    'assets/flats/castle/interactions_v2/craft_room_idea_board_sheet.png': 'board_before.png',
+}
+def historical_path(path):
+    return ('assets_src/repairs/rumi_transparency_2026-09-30/' + FOLLOWUP_ORIGINALS[path]) if path in FOLLOWUP_ORIGINALS else path
+
 def rgba(path):
-    return np.array(Image.open(ROOT / path).convert('RGBA'))
+    return np.array(Image.open(ROOT / historical_path(path)).convert('RGBA'))
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--record',action='store_true');args=parser.parse_args()
     for name in ('PIXEL_EDITS.json','ROSHAN_REPACK.json','FURNITURE_RECOVERY.json'):
@@ -52,7 +61,7 @@ def main():
                 ys,xs=np.where(output[:,:,3]>8)
                 assert min(xs.min(),ys.min(),output.shape[1]-1-xs.max(),output.shape[0]-1-ys.max())>=4,e['id']+' missing gutter'
             for key in ('output','native'):
-                value=digest(e[key])
+                value=digest(historical_path(e[key]))
                 if args.record:e[key+'_sha256']=value
                 else:assert value==e[key+'_sha256'],e['id']+' '+key+' drift'
         if args.record:path.write_text(json.dumps(packet,indent=2)+'\n',encoding='utf-8')
@@ -76,7 +85,7 @@ def main():
                 ys,xs=np.where(cell[:,:,3]>8)
                 assert min(xs.min(),ys.min(),cell.shape[1]-1-xs.max(),cell.shape[0]-1-ys.max())>=4
             for key in ('output','native'):
-                value=digest(e[key])
+                value=digest(historical_path(e[key]))
                 if args.record:e[key+'_sha256']=value
                 else:assert value==e[key+'_sha256'],e.get('id','blocks')+' '+key+' drift'
         if args.record:path.write_text(json.dumps(packet,indent=2)+'\n',encoding='utf-8')
@@ -91,6 +100,8 @@ def main():
             assert np.array_equal(a[ys,xs],b[ys+dy,xs+dx])
             assert int((b[:,:,3]>0).sum())==len(ys)
         for key in ('output','native'):
-            assert digest(e[key])==e[key+'_sha256'],e['id']+' registration drift'
+            assert digest(historical_path(e[key]))==e[key+'_sha256'],e['id']+' registration drift'
+    from audit_rumi_transparency import verify
+    verify()
     print('VISUAL_PIXEL_REPAIRS|ALL OK')
 if __name__=='__main__':main()

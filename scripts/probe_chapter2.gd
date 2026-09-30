@@ -440,25 +440,24 @@ func _audit_eight_career_sequence() -> void:
 
 
 func _audit_story_voice_routing() -> void:
-	var all_rewritten_jobs_silent := true
-	for career_id: String in ["farmer", "candymaker", "painter"]:
-		var resolved := ChapterTwoCareerSceneAdapter.resolve(career_id)
-		for phase_value: Variant in resolved.get("phases", []):
-			var phase := phase_value as Dictionary
-			all_rewritten_jobs_silent = all_rewritten_jobs_silent \
-				and String(phase.get("vo", "")).is_empty()
-	var detective := ChapterTwoCareerSceneAdapter.resolve("detective")
-	var detective_phases := detective.get("phases", []) as Array
-	var final_detective := detective_phases[detective_phases.size() - 1] \
-		as Dictionary
-	_check("rewritten story phases never route false legacy recordings",
-		all_rewritten_jobs_silent
-		and String(final_detective.get("vo", "")).is_empty())
-	var pop_star := ChapterTwoCareerSceneAdapter.resolve("popstar")
-	var pop_phases := pop_star.get("phases", []) as Array
-	_check("truthful existing sound-check recording remains routed",
-		String((pop_phases[0] as Dictionary).get("vo", ""))
-		== "op_popstar_sound_check")
+	var frozen: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(
+		"res://audit/CHAPTER_TWO_VOICE_COVERAGE_2026-09-30.json")) as Dictionary
+	for cue: Dictionary in frozen.get("rows", []):
+		_check("export-safe caption matches generated speech " + String(cue["cue_id"]),
+			ChapterTwoVoiceCatalog.row(String(cue["cue_id"])).get("caption") == cue["caption"])
+	var count: int = 0
+	for entry: Dictionary in ChapterTwoPartyPlan.LIVE_CAREERS:
+		var career: String = String(entry["career"]).replace("_", "")
+		for value: Variant in ChapterTwoCareerSceneAdapter.resolve(career).get("phases", []):
+			var phase: Dictionary = value as Dictionary
+			var key: String = String(phase.get("vo", ""))
+			_check("exact phase audio " + career + "/" + String(phase["name"]),
+				not key.is_empty() and ResourceLoader.exists(
+					"res://assets/audio/voices/filler_v1/roshan_" + key + ".ogg"))
+			count += 1
+		_check("exact door guidance " + career, not ChapterTwoVoiceCatalog.row(
+			"chapter2_route_" + String(entry["career"])).is_empty())
+	_check("all 29 required Day Two phases covered", count == 29)
 
 
 func _audit_save_healing() -> void:

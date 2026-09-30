@@ -1,0 +1,88 @@
+{
+  "id": "story-movie-double-tap-20260930",
+  "scope": "Verify the selected Day One movies already play at normal story transitions, then add owner-requested double-tap skipping to the existing player. Single taps, drags, holds, multitouch, emulated duplicate mouse events and focus interruptions must not skip or leak into gameplay. Preserve existing Back, saved watched markers, queue order, movie bytes and progression. Reconciled with integration revision 285355eb9e09a29aa4ac53d36874e31419d4674e; its incoming changes are documentation/handoff-only and do not change any tested runtime source or movie bytes. Subsequent reconciliation includes dev art-repair revision 08acb0ce529660e79de6784aa4124352798bc4cd; gameplay scripts and movie bytes remain identical to the verified feature.",
+  "baseline": "55032e88936b22723fd9af5282c61ba6696b3d43",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-CIN-16",
+    "DL-UI-01",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-04"
+  ],
+  "findings": [
+    "MA-TOUCH-001",
+    "MA-VIS-006"
+  ],
+  "files": [
+    "scripts/day_one_story_clips.gd",
+    "scripts/probe_day_one_story_clips.gd",
+    "tools/tests/fixtures/story_movie_skip_cases.gd",
+    "tools/tests/fixtures/story_movie_skip_runner.gd"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2 --headless -s tools/tests/fixtures/story_movie_skip_runner.gd (isolated fixture)",
+      "result": "PASS",
+      "evidence": "C:/Users/Peter/Documents/mermaid-roshan-reef/export/story_movie_skip_20260930/INPUT_MATRIX.log: STORY_MOVIE_SKIP|RESULT: PASS. Real OGV, touch/mouse, single/double tap, hold/drag/multitouch, cancellation, focus/background reset, pause preservation and viewport event consumption."
+    },
+    {
+      "command": "Godot 4.7.2 --headless --path . -s scripts/probe_day_one_story_clips.gd -- --touch --classic-touch-test",
+      "result": "PASS",
+      "evidence": "C:/Users/Peter/Documents/mermaid-roshan-reef/export/story_movie_skip_20260930/STORY_PROBE.log: DAY_ONE_STORY_CLIPS|RESULT: PASS failures=0. All 13 movie paths/hooks, real playback, missing-clip fail-open, Back/once-only skip, transformation/epilogue/Day Two queue, watched save markers and Grand Puff/follower checks."
+    },
+    {
+      "command": "Godot 4.7.2 --headless --export-pack Android and Windows on the real-player fixture with unchanged project export_presets.cfg; inspect ZIP resource entries",
+      "result": "PASS",
+      "evidence": "C:/Users/Peter/Documents/mermaid-roshan-reef/export/story_movie_skip_20260930/ANDROID_PACKAGE.log and PACKAGE.log. Both include story_clips.json, the existing d1_rainbow_route.ogv and compiled day_one_story_clips.gdc; Android ZIP entries asserted. Fixture tests one existing movie; runtime manifest/hash gate independently covers all 13."
+    },
+    {
+      "command": "GODOT=Godot 4.7.2 scripts/ci.sh (initial native Windows run)",
+      "result": "FAIL",
+      "evidence": "C:/Users/Peter/Documents/mermaid-roshan-reef/export/story_movie_skip_20260930/FULL_CI.log: static gates through complete audio inventory passed; 94/95 visual contract tests passed. The remaining unchanged fixture failed because os.path.relpath cannot span H: worktree and C: temporary fixture. VISUAL_PLATFORM_DIAGNOSTIC.log records the exact error. Visual tool/test sources equal baseline."
+    },
+    {
+      "command": "python -m unittest tools.tests.test_audit_visual_design.VisualEvidenceContractTests.test_failed_fresh_probe_never_falls_back_to_saved_pass_facts with TEMP/TMP on H:",
+      "result": "PASS",
+      "evidence": "C:/Users/Peter/Documents/mermaid-roshan-reef/export/story_movie_skip_20260930/CI_REMAINING.log: the same unchanged test passed in 2.458 seconds; no audit or test code was changed."
+    },
+    {
+      "command": "Exact canonical scripts/ci.sh continuation from visual stress through all trusted probes",
+      "result": "FAIL",
+      "evidence": "C:/Users/Peter/Documents/mermaid-roshan-reef/export/story_movie_skip_20260930/CI_REMAINING.log: all remaining static gates, fresh import and 2D regression gate passed; 78/79 probe processes exited zero. Bathroom cleanup exited early with MSYS process status 127 and no test verdict. Headless human-art capture is an explicit skip."
+    },
+    {
+      "command": "Godot 4.7.2 --headless --path . -s scripts/probe_day_one_bathroom_cleanup.gd -- --touch --classic-touch-test (native PowerShell, fresh isolated userdata)",
+      "result": "PASS",
+      "evidence": "C:/Users/Peter/Documents/mermaid-roshan-reef/export/story_movie_skip_20260930/BATHROOM_PROBE_RETRY.log: native exit 0; DAY_ONE_BATHROOM|RESULT: PASS checks_failed=0. Probe/game source unchanged; rerun resolves the single early process exit."
+    },
+    {
+      "command": "Consolidated applicable local gates and all 79 trusted runtime probes",
+      "result": "PASS",
+      "evidence": "All canonical static gates and all 95 individual visual contract tests passed across the source-identical runs above. All 79 runtime probes passed, with the existing human-art headless capture skip. The full-suite movie probe includes the new real-player input matrix and existing queue/save/Back checks. Original failures and exact retry receipts are retained above."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; git diff --check (after current dev reconciliation)",
+      "result": "PASS",
+      "evidence": "C:/Users/Peter/Documents/mermaid-roshan-reef/export/story_movie_skip_20260930/PRECOMMIT_AUTHORITY.log: DOCAUTH|RESULT|ALL OK; PRECOMMIT_DEVELOPMENT.log: AUDITDEV|BASE|285355eb9e09a29aa4ac53d36874e31419d4674e and AUDITDEV|RESULT|ALL OK. git diff --check passed."
+    },
+    {
+      "command": "GitHub Probe suite for movie skip commit 5ce9dd673777963f85ab79434298b863fa9c3301",
+      "result": "PASS",
+      "evidence": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36758045354; both jobs success, all static/analyzer/gameplay and automated capture steps passed."
+    },
+    {
+      "command": "Verified incoming dev art repair; Godot 4.7.2 import; audit_visual_pixel_repairs.py; audit_castle_interactions_v2.py; build_day_one_story_clips.py --check; probe_day_one_story_clips.gd on combined tree",
+      "result": "PASS",
+      "evidence": "Incoming exact 08acb0ce CI: https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36755996409. Reconciliation import exit 0: export/story_movie_skip_20260930/RECONCILED_IMPORT.log in main checkout. Static receipts: RUMI_TRANSPARENCY|ALL OK, VISUAL_PIXEL_REPAIRS|ALL OK, CASTLEV2|RESULT|OK, STORYCLIPS|RESULT|ALL OK|13 clips. RECONCILED_STORY.log: RESULT PASS failures=0; pointer matrix, queue/save/Back/boss/follower cases passed. No test or movie source changed in reconciliation."
+    }
+  ],
+  "acceptance_gaps": "Owner request authorizes skipping. Target-phone touch/device and full-frame cinematic acceptance remain separate; related master findings are not closed. Existing selected runtime clips remain OWNER_DIRECTED_RUNTIME_CLIP under DL-CIN-16."
+}

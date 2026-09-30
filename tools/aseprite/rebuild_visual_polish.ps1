@@ -12,7 +12,8 @@ try {
   @('repack_roshan_frames.lua', 'ROSHAN_REPACK.json'),
   @('recover_crossing_cells.lua', 'CELL_RECOVERY.json'),
   @('recover_blocks.lua', 'BLOCKS_RECOVERY.json'),
-  @('register_repaired_cells.lua', 'REGISTRATION.json')
+  @('register_repaired_cells.lua', 'REGISTRATION.json'),
+  @('repair_rumi_transparency.lua', '')
  )
  foreach ($taskStep in $taskSteps) {
   $taskArguments = @('-b')

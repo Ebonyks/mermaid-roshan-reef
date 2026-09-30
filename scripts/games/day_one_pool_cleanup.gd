@@ -279,6 +279,7 @@ func _build_activities() -> void:
 	waterfall_activity.progress_changed.connect(_on_waterfall_progress)
 	waterfall_activity.completed.connect(_on_waterfall_completed)
 	add_child(waterfall_activity)
+	waterfall_activity.bind_room_actor(m.castle_room_player_sprite, m.castle_room_player_shadow as Sprite2D, m.skin_id)
 
 	seahorse_activity = POOL_SEAHORSE_ACTIVITY.new() as PoolSeahorseRescueActivity
 	seahorse_activity.name = "HelpTheSeahorse"
@@ -290,6 +291,7 @@ func _build_activities() -> void:
 	seahorse_activity.progress_changed.connect(_on_seahorse_progress)
 	seahorse_activity.completed.connect(_on_seahorse_completed)
 	add_child(seahorse_activity)
+	seahorse_activity.bind_room_actor(m.castle_room_player_sprite, m.castle_room_player_shadow as Sprite2D, m.skin_id)
 
 
 func _build_swimming_dust_bunny() -> void:

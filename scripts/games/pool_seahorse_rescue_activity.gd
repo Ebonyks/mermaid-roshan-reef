@@ -50,6 +50,7 @@ var _active := false
 var _completed := false
 var _completed_emitted := false
 var _completion_started := false
+var _contact_action: DayOneContactAction2D
 var _touch_active := false
 var _touch_id := -1
 var _last_tap_time := -1.0
@@ -102,6 +103,12 @@ func setup(new_fixture_center: Vector2, new_fixture_size: Vector2,
 	queue_redraw()
 
 
+func bind_room_actor(actor: Sprite2D, shadow: Sprite2D, skin: String) -> void:
+	_contact_action = DayOneContactAction2D.new()
+	add_child(_contact_action)
+	_contact_action.bind(actor, shadow, skin)
+
+
 func start() -> void:
 	_active = true
 	mouse_filter = Control.MOUSE_FILTER_STOP
@@ -115,6 +122,8 @@ func start() -> void:
 
 func stop() -> void:
 	_active = false
+	if _contact_action != null:
+		_contact_action.cancel()
 	cancel_touch()
 	_stop_tug_tween()
 	if not _completion_started:
@@ -126,7 +135,9 @@ func stop() -> void:
 	queue_redraw()
 
 
-func cancel_touch() -> void:
+func cancel_touch(cancel_work: bool = true) -> void:
+	if cancel_work and _contact_action != null:
+		_contact_action.cancel()
 	_touch_active = false
 	_touch_id = -1
 
@@ -186,13 +197,17 @@ func _gui_input(event: InputEvent) -> void:
 		return
 	if event is InputEventScreenTouch:
 		var touch := event as InputEventScreenTouch
-		if touch.pressed:
-			_touch_active = true
-			_touch_id = touch.index
-			_register_tap(touch.position)
-		else:
+		if touch.canceled:
 			if _touch_active and touch.index == _touch_id:
 				cancel_touch()
+		elif touch.pressed:
+			if not _touch_active:
+				_touch_active = true
+				_touch_id = touch.index
+				_register_tap(touch.position)
+		else:
+			if _touch_active and touch.index == _touch_id:
+				cancel_touch(false)
 		accept_event()
 		return
 	if event is InputEventMouseButton:
@@ -200,23 +215,31 @@ func _gui_input(event: InputEvent) -> void:
 		if button.button_index != MOUSE_BUTTON_LEFT:
 			return
 		if button.pressed:
-			_touch_active = true
-			_touch_id = 0
-			_register_tap(button.position)
+			if not _touch_active:
+				_touch_active = true
+				_touch_id = 0
+				_register_tap(button.position)
 		else:
-			cancel_touch()
+			if _touch_active and _touch_id == 0:
+				cancel_touch(false)
 		accept_event()
 
 
 func _register_tap(point: Vector2) -> void:
 	if not _active or _completed or _completion_started or _taps >= TAP_TOTAL:
 		return
-	# The activity is intentionally forgiving: a full-screen mounted Control can
-	# accept a tap anywhere, while a smaller mounted Control still has a broad
-	# seahorse-centered target. No tap can reduce progress or trigger a miss.
-	var canvas_rect := Rect2(Vector2.ZERO, size)
-	if size.x > 1.0 and size.y > 1.0 and not canvas_rect.has_point(point) \
-			and not _tap_region.has_point(point):
+	# The generous envelope belongs to the visible seahorse, even when this
+	# activity owns a full-screen Control. Off-target taps preserve progress.
+	if not _tap_region.has_point(point):
+		return
+	if _contact_action != null and _contact_action.available():
+		_contact_action.request(_prop_rest_position, Callable(self, "_finish_tug"))
+		return
+	_finish_tug()
+
+
+func _finish_tug() -> void:
+	if not _active or _completed or _completion_started:
 		return
 	var previous_tap_time := _last_tap_time
 	_last_tap_time = _activity_time

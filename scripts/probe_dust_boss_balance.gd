@@ -7,6 +7,9 @@ const PERSONAS: Array[Dictionary] = [
 	{"name": "learning", "reaction": 1.15, "speed": 0.65, "counter": 1.2},
 	{"name": "slow", "reaction": 2.0, "speed": 0.4, "counter": 2.4},
 	{"name": "slow_counter", "reaction": 1.0, "speed": 0.6, "counter": 4.0},
+	{"name": "patient_dodger", "reaction": 3.5, "speed": 0.4, "counter": 1.2},
+	{"name": "patient_counter", "reaction": 1.0, "speed": 0.6, "counter": 6.0},
+	{"name": "patient_both", "reaction": 4.5, "speed": 0.4, "counter": 8.0},
 	{"name": "moving_masher", "reaction": 0.9, "speed": 0.7, "counter": 0.0, "mash": true},
 ]
 const CONTROLS: Array[Dictionary] = [
@@ -32,10 +35,10 @@ func _init() -> void:
 	await process_frame
 	boss = main._game_obj("dustboss", DustBossGame) as DustBossGame
 	var controls: bool = "--controls" in OS.get_cmdline_user_args()
-	var roster: Array[Dictionary] = CONTROLS if controls else PERSONAS
+	var roster: Array[Dictionary] = CONTROLS if controls else PERSONAS + CONTROLS
 	print("DUSTBAL|schema persona,seconds,rounds,damage,avoids,opening_misses,taps,result")
 	for persona: Dictionary in roster:
-		await _play(persona, controls)
+		await _play(persona, CONTROLS.has(persona))
 	print("DUSTBAL|result: ", "ALL OK" if failures == 0 else "%d FAILED" % failures)
 	quit(1 if failures > 0 else 0)
 
@@ -44,6 +47,7 @@ func _play(persona: Dictionary, negative: bool) -> void:
 		main._clear_game()
 	main.game = ""
 	main.save_data["dustboss_pending_rounds"] = 0
+	main.save_data["dustboss_pending_attacks"] = 0
 	main.save_data["dustboss_pending_damage"] = 0
 	main.save_data["dustboss_pending_misses"] = 0
 	for step: String in ["move", "dodge", "counter", "dash"]:

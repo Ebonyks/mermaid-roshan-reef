@@ -6,6 +6,8 @@ Arborist art recovery supplement (2026-09-29): [Tree Book handoff](../design/ARB
 
 Arborist practice supplement (2026-09-30): [Opera House test](../design/OPERA_TREE_BOOK_TEST_2026-09-30.md) adds one optional patient with three four-choice decisions and intentional treatment. This scoped candidate does not close MA-PLAY-004 or integrate a new career or Day Two role.
 
+Day Two graphics first pass (2026-09-30): [illustrated review and refresh workflow](day2_art_library_2026-09-30/REPORT.md) inventories individual sources and evaluates career, Hall, birthday and Tree Book sequences. Draft scores and historical compositions guide refinement; current runtime/device/child/owner acceptance and all related finding lifecycles remain unchanged.
+
 Opera imp contest supplement (2026-09-30): the [Codex imp-contest handoff](../docs/handoffs/codex_opera_imp_contest_2026-09-30/README.md) records the owner decisions behind `DL-INT-14`. Each competitive career's imp stays hidden until the final act, which ends in one job-skill contest he can win, and his win restarts that contest at once. Revision 2 adds the inverted form for learning careers: the Teacher's imp teaches with deliberate mistakes and the child beats him by fixing them (the Geologist pending confirmation). It is a written specification (target contract); it changes no runtime, closes no finding (including MA-OPERA-005, MA-OPERA-009 and MA-PLAY-004) and claims no acceptance.
 
 
@@ -87,6 +89,8 @@ Scoped Day One Grok Handoff 2: [footage audit](GROK_HANDOFF_2_FOOTAGE_AUDIT_2026
 
 Scoped Grok builder consolidation (2026-09-14): [single project database](../assets_src/cinematics/grok_builder_2026-09-14/README.md) and [impact](../design/audit_impacts/grok-builder-20260914.json). Character/location/event state and missing-shot planning are unified; MA-VIS-006 and all cinematic delivery gates remain open.
 
+Scoped Day One/Two alpha repair (2026-09-30): [impact and acceptance limits](../design/audit_impacts/day-one-two-alpha-20260930.json). Baseline `55032e88936b22723fd9af5282c61ba6696b3d43`; save, targeting, patient input-required assistance, Back, contact work and exact speech are bounded repairs. Current CI findings now distinguish repaired Day One coverage from remaining Chapter Two/game-wide acceptance. Overall `UNSATISFIED` remains unchanged.
+
 <!-- AUDIT_TASK_INDEX_END -->
 
 Owner handoff-publication correction (2026-09-16): [mandatory GitHub delivery](../AGENTS.md#external-handoffs-github-delivery-is-mandatory) and [change evidence](../design/audit_impacts/handoff-publication-memory-20260916.json). Publish and remotely verify each external handoff/QC revision before waiting for returns; local workspaces are staging only. This operational correction closes no cinematic or game-wide acceptance finding.
@@ -99,7 +103,7 @@ Roshan handoff revision (2026-09-13): [video-first execution](../assets_src/cine
 
 Scoped overnight-film repair (2026-09-12): [fresh rendered-frame audit](OVERNIGHT_RECUT_FRAME_AUDIT_2026-09-12.md) and [impact](../design/audit_impacts/overnight-recut-repairs-20260912.json). The owner requests recognizable big-bunny form, four-helper soapy scrubbing that hides it in bubbles, then the concept friend jumping while the old casing collapses and scatters into dust. Eighteen repair/conditional jobs include original-book Eagle identity and exact Daddy/attic locks. Generated candidates retain explicit missing human opening/delivery acceptance.
 
-Scoped visual repair evidence (2026-09-26): [repair plan](../design/VISUAL_REPAIR_PLAN_2026-09-26.md), [review receipt](visual_polish_2026-09-26/REVIEW.json), and [impact record](../design/audit_impacts/visual-polish-repairs-20260926.json) cover the bounded sprite/occlusion repairs. MA-VIS-006 remains open; Opera native panels, target-device and owner acceptance remain outstanding.
+Scoped visual repair evidence (2026-09-26): [repair plan](../design/VISUAL_REPAIR_PLAN_2026-09-26.md), [review receipt](visual_polish_2026-09-26/REVIEW.json), and [impact record](../design/audit_impacts/visual-polish-repairs-20260926.json) cover the bounded sprite/occlusion repairs. The [September 30 follow-up](../design/audit_impacts/rumi-transparency-20260930.json) addresses residual Rumi tails and craft-board alpha. MA-VIS-006 remains open; Opera native panels, target-device and owner acceptance remain outstanding.
 
 ## Sealed audit snapshot and subsequent round metadata
 

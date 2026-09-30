@@ -133,6 +133,7 @@ func _prepare_terminal_boundary() -> void:
 	director.boss_door_glow = true
 	director.giant_dust_bunny_boss_defeated = false
 	main.save_data["dustboss_pending_rounds"] = 0
+	main.save_data["dustboss_pending_attacks"] = 0
 
 func _open_boss() -> void:
 	if main.game != "":
@@ -153,6 +154,16 @@ func _open_boss() -> void:
 	_ck("direct launch opens the live boss fight", main.game == "dustboss")
 
 func _splash_and_geometry_case() -> void:
+	for malformed: Variant in [null, false, "wrong", {}, [], INF, NAN]:
+		main.save_data["dustboss_pending_attacks"] = malformed
+		_boss()._restore_round_checkpoint()
+		_ck("malformed additive dodge checkpoint defaults safely %s" % str(malformed),
+			_boss().encounter.completed_attacks == 0 and _hits() == 0)
+	main.save_data["dustboss_pending_attacks"] = 1.0
+	_boss()._restore_round_checkpoint()
+	_ck("JSON numeric dodge checkpoint restores earned progress", _boss().encounter.completed_attacks == 1)
+	main.save_data["dustboss_pending_attacks"] = 0
+	_boss()._restore_round_checkpoint()
 	_ck("fight opens on an input-blocking 2D splash", _state() == "splash" and main.g.get("db_splash") is BossSplash2D)
 	var splash: BossSplash2D = main.g.get("db_splash") as BossSplash2D
 	_ck("Grand Puff splash reserves the gold lesson for real play", splash != null and not splash.teach_counter)
@@ -216,7 +227,12 @@ func _negative_input_case() -> void:
 	main.touch_ui.stick_vec = Vector2.ZERO
 	_ck("real first dodge earns a real opening and saves the lesson",
 		_state() == "vuln" and bool(main.save_data.get("dustboss_lesson_dodge", false)))
-	await _wait_state(["tell"], 1600)
+	var checkpoint: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("user://reef_save.json")) as Dictionary
+	_ck("earned dodge is on disk before any save debounce", int(checkpoint.get("dustboss_pending_attacks", 0)) == 1 and not main.save_pending)
+	# Start an unearned attack fixture: the previous dodge is now preserved.
+	_boss().encounter.completed_attacks = 0
+	main.save_data["dustboss_pending_attacks"] = 0
+	_boss()._begin_attack_tell()
 	var hits_before: int = _hits()
 	var damage_before: int = _damage()
 	var no_input_recovery := await _wait_state(["damage_recovery"], 900)
@@ -293,6 +309,20 @@ func _safe_navigation_case() -> void:
 	await _frames(3)
 	_ck("pause freezes the storybook guidance", lesson._time == effect_clock)
 	main.get_tree().paused = false
+	var frozen_state: String = _state()
+	var rounds_before: int = _hits()
+	main.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
+	await _frames(6)
+	_ck("focus loss suspends the live fight without leaving or advancing",
+		main.game == "dustboss" and main.get_tree().paused and _state() == frozen_state and _hits() == rounds_before)
+	main.touch_ui.notification(Node.NOTIFICATION_WM_GO_BACK_REQUEST)
+	await process_frame
+	_ck("Android Back resumes the same paused fight and never quits", main.game == "dustboss" and not main.get_tree().paused)
+	main.touch_ui.notification(Node.NOTIFICATION_WM_GO_BACK_REQUEST)
+	await _frames(3)
+	_ck("Android Back pauses the live fight without tearing it down", main.game == "dustboss" and main.get_tree().paused)
+	main.touch_ui.notification(Node.NOTIFICATION_WM_GO_BACK_REQUEST)
+	await process_frame
 	_ck("safe ground navigation moves the player", after.distance_to(before) > 0.05)
 	boss.navigation.move_to(safe)
 	main.touch_ui.cancel_all_touches()
@@ -421,7 +451,10 @@ func _navigation_roundtrip_case() -> void:
 	_ck("2D floor and screen navigation round-trips 16 arena points", all_ok)
 
 func _adaptive_completion_case() -> void:
-	# Begin observation at an attack boundary, independent of the negative leg.
+	# The held-input negative case earned a dodge, but no counter. Use a fresh
+	# attack fixture here so the choreography test still observes every step.
+	_boss().encounter.completed_attacks = 0
+	main.save_data["dustboss_pending_attacks"] = 0
 	_boss()._begin_attack_tell()
 	var saw_phase := [false, false, false]
 	var saw_phase_one_combo := false

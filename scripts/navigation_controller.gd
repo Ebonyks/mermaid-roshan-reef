@@ -65,6 +65,10 @@ func press() -> void:
 		m._pause_ref().toggle_pause()
 		return
 	_prune_invalid()
+	if (m.game == "dustboss" and m.day_one_is_active()) \
+			or (top_id() == "pearl_castle" and (m.day_one_is_active() or m.chapter2_is_active())):
+		m._pause_ref().toggle_pause()
+		return
 	if not m.navigation_routes.is_empty():
 		var route: Dictionary = m.navigation_routes.pop_back() as Dictionary
 		var close_action: Callable = route.get("close", Callable()) as Callable
@@ -90,7 +94,8 @@ func sync_button() -> void:
 	button.disabled = not button.visible
 	if not button.visible:
 		return
-	var menu_mode: bool = at_sky_lagoon_root()
+	var menu_mode: bool = at_sky_lagoon_root() or (m.game == "dustboss" and m.day_one_is_active()) \
+		or (top_id() == "pearl_castle" and (m.day_one_is_active() or m.chapter2_is_active()))
 	var mode := "menu" if menu_mode else "back"
 	if String(button.get_meta("global_navigation_mode", "")) == mode:
 		return
