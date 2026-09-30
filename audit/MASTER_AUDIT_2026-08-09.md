@@ -6,6 +6,8 @@ Arborist art recovery supplement (2026-09-29): [Tree Book handoff](../design/ARB
 
 Arborist practice supplement (2026-09-30): [Opera House test](../design/OPERA_TREE_BOOK_TEST_2026-09-30.md) adds one optional patient with three four-choice decisions and intentional treatment. This scoped candidate does not close MA-PLAY-004 or integrate a new career or Day Two role.
 
+Day Two graphics first pass (2026-09-30): [illustrated review and refresh workflow](day2_art_library_2026-09-30/REPORT.md) inventories individual sources and evaluates career, Hall, birthday and Tree Book sequences. Draft scores and historical compositions guide refinement; current runtime/device/child/owner acceptance and all related finding lifecycles remain unchanged.
+
 
 Planning guidance updated 2026-09-05 against integration source `775ceee1`.
 This is a document/selected-fact review, not a new whole-game runtime audit.

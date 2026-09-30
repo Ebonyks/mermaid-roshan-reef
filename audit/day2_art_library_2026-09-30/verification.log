@@ -1,0 +1,14 @@
+Baseline: 55032e88936b22723fd9af5282c61ba6696b3d43
+Source review: 637 individually inspected images; 432 inclusive priorities; 25 contexts; 105 phase evaluations; 23 historical captures.
+Current runtime/device/child/owner review: outstanding.
+Machine checks: in progress; exact results appended below.
+
+PASS: Headless Edge rendered the library; 637 artwork previews decoded, 25 current/story contexts, 23 historical captures, priority filter 432, Arborist filter 8, detail dialog image decoded, zero page errors.
+PASS: isolated refresh fixtures prove exact 4.5 is included, 4.6 retained, changed image loses old score, composition becomes stale, check fails closed, and removed controller is detected.
+DOCAUTH|INVENTORY=583|LEDGER=583|ACTIVE=56|RECORDS=58
+DOCAUTH|RESULT|ALL OK
+AUDITDEV|BASE|55032e88936b22723fd9af5282c61ba6696b3d43
+AUDITDEV|RESULT|ALL OK
+git diff --check: PASS
+Reference-gate inputs: 632 actual baseline-tracked references restored; 418 verified-identical read-only-use hardlinks and 214 exact Git files. No linked original was edited.
+PASS: python -B tools/build_day2_art_library.py --check (637 human source bindings, inclusive threshold, current controller/authority fingerprints).

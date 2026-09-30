@@ -1,0 +1,95 @@
+{
+  "id": "day2-art-library-20260930",
+  "scope": "First-pass illustrated source-art and sequencing review for fifteen career games, Opera Hall training/show variants, eight existing Day Two story adapters, and the current Tree Book practice plus owner-directed Arborist story replacement. No runtime, original artwork, save or acceptance-state changes.",
+  "baseline": "55032e88936b22723fd9af5282c61ba6696b3d43",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-03",
+    "DL-READ-05",
+    "DL-INT-02",
+    "DL-INT-07",
+    "DL-INT-12",
+    "DL-INT-13",
+    "DL-LAY-05",
+    "DL-LAY-07",
+    "DL-MOT-01",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-QA-11",
+    "DL-QA-12",
+    "DL-PLAN-05",
+    "DL-QA-14",
+    "DL-QA-15"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004",
+    "MA-OPERA-001",
+    "MA-OPERA-002",
+    "MA-OPERA-004",
+    "MA-OPERA-009",
+    "MA-OPERA-010",
+    "MA-OPERA-012"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/MASTER_AUDIT_CHANGELOG_ROLLBACK_2026-08-10.md",
+    "audit/day2_art_library_2026-09-30/REPORT.md",
+    "audit/day2_art_library_2026-09-30/cover.jpg",
+    "audit/day2_art_library_2026-09-30/evaluations.json",
+    "audit/day2_art_library_2026-09-30/index.html",
+    "audit/day2_art_library_2026-09-30/inventory.json",
+    "audit/day2_art_library_2026-09-30/preview_provenance.json",
+    "audit/day2_art_library_2026-09-30/priority_queue.csv",
+    "audit/day2_art_library_2026-09-30/reviews.json",
+    "audit/day2_art_library_2026-09-30/verification.log",
+    "design/05_DOC_LEDGER.md",
+    "tools/build_day2_art_library.py"
+  ],
+  "validation": [
+    {
+      "command": "637-image contact-sheet inspection, 105 authored phase evaluations and 23 explicitly historical compositions",
+      "result": "PASS",
+      "evidence": "audit/day2_art_library_2026-09-30/reviews.json and evaluations.json at baseline 55032e88936b22723fd9af5282c61ba6696b3d43; source-only breadth-first opinion, not current runtime acceptance"
+    },
+    {
+      "command": "python -B tools/build_day2_art_library.py --check",
+      "result": "PASS",
+      "evidence": "637 exact source bindings pass; SVG checkout line endings verified identical to canonical Git blobs; threshold inclusive; controller hashes normalized UTF-8/LF. See verification.log."
+    },
+    {
+      "command": "Browser render, all image decoding and interactive filters",
+      "result": "PASS",
+      "evidence": "637/637 embedded images decoded; 432 priority results; 8 Arborist sources; 25 context cards; 23 historical captures; working detail dialog; no browser errors. Headless Edge/Playwright, local artifact only."
+    },
+    {
+      "command": "Isolated refresh fixtures: exact score boundary, changed image, stale composition, removed controller",
+      "result": "PASS",
+      "evidence": "audit/day2_art_library_2026-09-30/verification.log; no production source mutation"
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "audit/day2_art_library_2026-09-30/verification.log"
+    },
+    {
+      "command": "Exact-head remote Probe Suite",
+      "result": "PENDING",
+      "evidence": "Work branch publication after static gates; no local full game/probe run in sparse checkout"
+    }
+  ],
+  "acceptance_gaps": "Draft source scores are not canonical runtime grades. Fresh full-state Mobile captures, animation, two aspects, target-device, child and owner acceptance remain open. Existing finding lifecycles unchanged. Sparse checkout excludes unrelated runtime resources; full game execution is not claimed."
+}

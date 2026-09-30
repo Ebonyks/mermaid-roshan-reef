@@ -825,3 +825,5 @@ Kept as-is; noted so a future edit updates every copy.
 | `assets_src/handoffs/arborist_tree_book_20260929/recovered/assets_src/imagegen/opera_arborist_2026-08-09/REVIEW.md` | ⚪ | `HISTORICAL_ARCHIVE`; byte-preserved 2026-08-09 provenance/review record; no current art, runtime or owner acceptance. |
 
 | `design/OPERA_TREE_BOOK_TEST_2026-09-30.md` | 🔵 | `SUPPORTING_CURRENT`; scoped single-patient Opera House practice implementation and review evidence; no career/star or Day Two integration acceptance. |
+
+| `audit/day2_art_library_2026-09-30/REPORT.md` | 🟣 | `CANDIDATE`; owner-commissioned first-pass illustrated Day Two source-art and phase/sequence review. Includes individual drafting scores, explicit historical capture limits and a source-change refresh trigger; no runtime, device, child, owner or finding acceptance. |
