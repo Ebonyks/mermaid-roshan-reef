@@ -57,6 +57,11 @@
       "command": "GitHub Probe Suite at the branch head",
       "result": "PENDING",
       "evidence": "Required green before merging into dev."
+    },
+    {
+      "command": "Revision 2 anonymous fetch of MANIFEST.json and every listed file at the pushed revision-2 commit",
+      "result": "PENDING",
+      "evidence": "Revision 2 corrects README wording only; recorded after publication."
     }
   ],
   "acceptance_gaps": "Recommendations only. The owner answers to questions Q1-Q8, Codex implementation of every work package, and all visual, device, child and owner acceptance remain open. The game-wide audit stays IN_PROGRESS / UNSATISFIED."

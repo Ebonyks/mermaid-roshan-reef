@@ -9,7 +9,8 @@ designs? Design as codex handoff."*
 change). **To:** Codex (implementation). **Owner:** answers the questions in
 section 8 and accepts the result.
 
-**Status:** `PROPOSED / CANDIDATE`. This packet recommends; it grants no
+**Status:** `PROPOSED / CANDIDATE`, revision 2 (wording corrections to
+revision 1 at `0bbf8b7c`). This packet recommends; it grants no
 visual, device, child or owner acceptance and changes no finding lifecycle.
 Every package still follows `CLAUDE.md`, `AGENTS.md` and the master-audit
 development contract (`DL-AUTH-05`, `DL-AUTH-06`, `DL-AUTH-07`): impact
@@ -41,7 +42,7 @@ with this packet, they win until the owner changes them.
 | `seed/canon_seed.json` | Starting canon entries (characters, places, story) with sources and 15 conflicts |
 | `seed/patterns_seed.json` | Nineteen starting design patterns with maturity, rules, reference code and anti-patterns |
 | `seed/tokens_seed.json` | Twenty-seven design constants with their rules, code anchors and drifting variants |
-| `seed/open_questions_seed.json` | Nineteen pending owner questions consolidated from six documents |
+| `seed/open_questions_seed.json` | Nineteen pending owner questions consolidated from current handoffs, design documents and findings |
 | `tools/measure_reference_health.py` | The measurement script (standard library only) |
 | `MANIFEST.json` | SHA-256 of every file in this folder |
 
@@ -94,10 +95,10 @@ mixed together, and to make the numbers generated instead of hand-copied:
 5. **Record owner decisions in one register.** Dated `ODR-*` records plus one
    open-question list (`OQ-*`), so a designer can see what the owner has
    decided and what is still pending. The 2026-09-24 decision to retire
-   `DL-INT-12` lives only in a handoff today.
+   `DL-INT-12` is recorded only in a handoff and a repair plan today.
 6. **Move evidence out of the way and generate status.** Move the sealed
-   evidence (88% of the master audit's bytes) verbatim into an archive with
-   stub headings, generate a live-status block from tools, and stop
+   evidence verbatim into an archive with stub headings (the evidence-dense
+   sections hold 88% of the master audit's bytes), generate a live-status block from tools, and stop
    hand-copying counts: 35 present-tense counts in the authority documents,
    including `CLAUDE.md`'s "513 model files", disagree with the tree (live: 0).
 7. **Re-baseline the findings for the next generation.** 46 of 56 open
@@ -442,7 +443,8 @@ commit, so every old citation can still be followed.
   "available implementation" section (the Mode Platform has not started).
 - **Ledger:** fix the stale notes the sweep found (the pool beat order row, the
   companion row, the `DUST_BUNNY_BOSS_2026-08-02.md` Grand Puff row, the
-  voice-manifest row, the duplicate `DL-INT-12` row, and "design 07" where the
+  voice-manifest row, the repeated-rules row saying thirteen careers belong in
+  Castle rooms (stale since the 2026-09-24 decision), and "design 07" where the
   Mode Platform is design 08); add rows for every new Markdown file; classify
   design 11 and the register as `CANONICAL_CURRENT` only after the owner
   accepts them (until then 🟣 `PROPOSED / CANDIDATE`).
