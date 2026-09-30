@@ -1,0 +1,63 @@
+{
+  "id": "master-audit-refinement-handoff-20260930",
+  "scope": "Owner-requested Codex handoff (2026-09-30) recommending how to refine the master audit into an easy design reference for the next generation of the game. Documentation-only packet under docs/handoffs/codex_master_audit_refinement_2026-09-30/: measured diagnosis at dev 55032e88 (evidence density, copied evidence, stale hand-copied counts, stale findings, scattered owner decisions, missing canon register, unrouted patterns, gate constraints), a three-shelf target design (design reference, rules, audit ledger), staged work packages, acceptance criteria, owner questions with defaults, machine-readable measurements and seeds, and the re-runnable read-only measurement script. Adds one document-ledger row. Changes no game runtime, rule text, finding, protected asset or workflow.",
+  "baseline": "55032e88936b22723fd9af5282c61ba6696b3d43",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-02",
+    "DL-AUTH-04",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-PLAN-05",
+    "DL-PLAN-06",
+    "DL-QA-07"
+  ],
+  "findings": [],
+  "no_findings_reason": "Recommendations only. The packet proposes a findings re-baseline and names candidate findings for Codex to confirm, but it opens, closes or edits no finding and changes no lifecycle.",
+  "files": [
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_master_audit_refinement_2026-09-30/.gdignore",
+    "docs/handoffs/codex_master_audit_refinement_2026-09-30/MANIFEST.json",
+    "docs/handoffs/codex_master_audit_refinement_2026-09-30/README.md",
+    "docs/handoffs/codex_master_audit_refinement_2026-09-30/data/composition.json",
+    "docs/handoffs/codex_master_audit_refinement_2026-09-30/data/duplicated_evidence_tokens.json",
+    "docs/handoffs/codex_master_audit_refinement_2026-09-30/data/finding_staleness.json",
+    "docs/handoffs/codex_master_audit_refinement_2026-09-30/data/live_vs_documented_counts.json",
+    "docs/handoffs/codex_master_audit_refinement_2026-09-30/data/owner_decisions.json",
+    "docs/handoffs/codex_master_audit_refinement_2026-09-30/data/rule_inventory.json",
+    "docs/handoffs/codex_master_audit_refinement_2026-09-30/seed/canon_seed.json",
+    "docs/handoffs/codex_master_audit_refinement_2026-09-30/seed/open_questions_seed.json",
+    "docs/handoffs/codex_master_audit_refinement_2026-09-30/seed/patterns_seed.json",
+    "docs/handoffs/codex_master_audit_refinement_2026-09-30/seed/tokens_seed.json",
+    "docs/handoffs/codex_master_audit_refinement_2026-09-30/tools/measure_reference_health.py"
+  ],
+  "validation": [
+    {
+      "command": "python -B docs/handoffs/codex_master_audit_refinement_2026-09-30/tools/measure_reference_health.py --out <scratch>/data (at dev 55032e88)",
+      "result": "PASS",
+      "evidence": "Exit 0; outputs committed as data/*.json with measured_at_head 55032e88936b22723fd9af5282c61ba6696b3d43. Key results: master audit 2,335 lines with 944 evidence tokens; 35 stale present-tense counts; 46 of 56 open findings without history since 2026-09-01; 98 owner-decision mentions over 30 dates; 183 rules, 19 never cited."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "Candidate working tree on branch claude/master-audit-refinement-handoff-20260930 over base 55032e88: DOCAUTH|INVENTORY=583|LEDGER=583|ACTIVE=56|RECORDS=58, RESULT ALL OK."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Staged candidate: AUDITDEV|BASE|55032e88936b22723fd9af5282c61ba6696b3d43, RESULT ALL OK (full coverage of every changed path)."
+    },
+    {
+      "command": "Anonymous fetch of MANIFEST.json and every listed file from raw.githubusercontent.com at the pushed commit, SHA-256 compared with the manifest",
+      "result": "PENDING",
+      "evidence": "Recorded after publication."
+    },
+    {
+      "command": "GitHub Probe Suite at the branch head",
+      "result": "PENDING",
+      "evidence": "Required green before merging into dev."
+    }
+  ],
+  "acceptance_gaps": "Recommendations only. The owner answers to questions Q1-Q8, Codex implementation of every work package, and all visual, device, child and owner acceptance remain open. The game-wide audit stays IN_PROGRESS / UNSATISFIED."
+}
