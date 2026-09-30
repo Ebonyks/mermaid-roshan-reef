@@ -58,7 +58,7 @@ House!" to "It's Roshan's birthday!"
 | | |
 |---|---|
 | Voice | Daddy: "First we practise on the Opera stage. Then we do it for real!" |
-| Picture | The board's first frame (the tree) glows; the rainbow friend flies to the job's door |
+| Picture | The board's first frame (the tree) glows; the rainbow friend hops to the job's door (he has no wings) |
 
 ## J1 — Arborist: Baby Eagle's tree
 
@@ -157,7 +157,7 @@ STAMPS (`tap`), GALLERY (`choice`).
 
 | Beat | Mode | What the child does | Voice | Picture cue |
 |---|---|---|---|---|
-| 1 PAINT | paint_reveal | Paint across the long banner to reveal rainbow stripes | Roshan: "A banner for my party! Paint, paint!" | Stripes appear under her brush |
+| 1 PAINT | paint_reveal | Paint across the long banner to reveal rainbow stripes and a cake-and-candle picture in its middle, in the colour she chose in the Craft Room on Day One (the saved `attack_color`) | Roshan: "A banner for my party! Paint, paint!" | Stripes appear under her brush |
 | 2 STAMP | tap | Stamp five birthday stars | Roshan: "Stamp, stamp! Five stars!" | Five star outlines to fill |
 | 3 SEND | choice | Choose the party tree picture (not the other two) to send it | Roshan: "To the party tree!" | Baby Eagle takes the rolled banner and flies out the window |
 
@@ -166,6 +166,8 @@ STAMPS (`tap`), GALLERY (`choice`).
   banner).
 - **Result:** the banner, strung in the party tree on the lawn; the board's
   banner frame fills.
+- **Art:** the banner's painted, stamped and hung states are derivatives of
+  the approved banner ([GFX-PROP-BANNER-01](06_GRAPHICS_AUDIT.md#gfx-prop-banner-01)).
 
 ## LAMMA-JOIN and J5 — Ballerina: the stuffie team
 
@@ -182,16 +184,16 @@ and someone has been hiding all along.
 | Find | What the child does | Voice | Picture cue |
 |---|---|---|---|
 | 1 Wool | Touch the tuft of wool on a shelf (from LAMMA-2) | Roshan: "Wool!" | A soft glow |
-| 2 Hoofprints | Touch the floury hoofprints on the floor (from LAMMA-3) | Roshan: "Hoofprints!" | The prints light up one by one |
-| 3 Bell | Touch the jingling toy chest | Roshan: "A bell! Jingle!" | The chest wiggles |
-| 4 Lamma | Touch the play tent; she peeks, then steps out | Roshan: "There she is! Will you dance with us? There's room for everyone." Lamma: "Baa!" | Seek atlas peek → reveal → celebrate |
+| 2 Bounce marks | Touch the round floury bounce marks on the floor (from LAMMA-3) | Roshan: "Bounce, bounce! She went this way!" | The marks light up one by one toward the toy chest |
+| 3 Egg | Touch the lavender egg peeking out of the toy chest (she dropped it in the kitchen) | Roshan: "Her egg! Let's give it back." | The chest lid bounces; the egg glows, then rides in Roshan's hand |
+| 4 Lamma | Touch the play tent; she peeks; Roshan holds out the egg; Lamma bounces out and hugs it | Roshan: "There you are! Here's your egg. Will you dance with us? There's room for everyone." Lamma: a happy bleat (sound effect) | Seek atlas peek → reveal → celebrate |
 
 **Level 2b: The stuffie dance** (the existing plot-owned Ballerina job, now
 in the Playroom's own art, with Lamma added).
 
 | Beat | Mode | What the child does | Voice |
 |---|---|---|---|
-| 1 MIRROR | ballet_pose | Match poses; cat, bunny and Lamma copy | Roshan: "Point!" |
+| 1 MIRROR | ballet_pose | Match poses; Kitty, Bunny and Lamma copy | Roshan: "Point!" |
 | 2 TWIRL | ballet_ribbon | Guide the ribbon; the stuffies twirl | Roshan: "Twirl!" |
 | 3 BOW | ballet_twirl | One grand twirl, then everyone bows | Roshan: "Bow! The stuffie team can dance!" |
 
@@ -280,9 +282,9 @@ Library's own art).
 
 | ID | Day | Room and trigger | Child | Voice | Save |
 |---|---|---|---|---|---|
-| LAMMA-1 | One | Stuffie Playroom, right after Baby Eagle is freed | Touch the ear peeking from the play tent; she ducks in | Lamma: "Baa?" Roshan: "Hello? Someone is shy." | `lamma_moments_seen` bit 0 |
+| LAMMA-1 | One | Stuffie Playroom, right after Baby Eagle is freed | Touch the ear peeking from the play tent; she ducks in | Lamma: a questioning bleat (sound effect). Roshan: "Hello? Someone is shy." | `lamma_moments_seen` bit 0 |
 | LAMMA-2 | One | Craft Room, during sorting | Touch the wobbling jar; she peeks and scampers off | Roshan: "A little lamb! She ran away." | bit 1; wool tuft stays on the table |
-| LAMMA-3 | Two | Kitchen, right after the cake is finished | Touch the floury nose behind the flour sack; she runs | Roshan: "Someone small wants cake!" | bit 2; hoofprints stay on the floor |
+| LAMMA-3 | Two | Kitchen, right after the cake is finished | Touch the floury nose behind the flour sack; she bounces away and drops her egg | Roshan: "Someone small wants cake!" | bit 2; bounce marks stay on the floor |
 
 All three are in-room gameplay moments, never edits to the Day One story
 clips (`DL-CIN-16`).
@@ -291,8 +293,12 @@ clips (`DL-CIN-16`).
 
 Speaker and voice source for every new line. "Filler" means the provisional
 Parler synthetic pipeline (`assets/audio/voices/VOICE_MANIFEST.md`), never
-trained on family recordings. The sacred family recordings (`daddy1..3.ogg`,
-Faron) stay untouched. Rumi has no voice.
+trained on family recordings; new Daddy lines use the manifest's Daddy-only
+"Will" filler preset. The sacred family recordings (`daddy1.ogg` to
+`daddy3.ogg`, `chuck.ogg`, `chuck_bark.ogg`, `chuck_whimper.ogg`) and Faron's
+protected voice stay untouched. Rumi has no voice. Lamma's legacy lines that
+play through Evie's voice (the roster hello and the capture plea) are revised
+in [WP-15](07_WORK_PACKAGES.md).
 
 | ID | Speaker | Line | Source |
 |---|---|---|---|
@@ -309,7 +315,7 @@ Faron) stay untouched. Rumi has no voice.
 | J2-* | Roshan, dust bunny | "One! Two! Three! Four! Five!", "In the basket!", "To the kitchen!", dust bunny: "We were just playing!", Roshan: "Let's play gently." | Synthetic; dust bunny filler |
 | J3-* | Daddy, Roshan, dust bunny | "Apron on, birthday chef!", "Mix, mix!", "Stir, stir!", "Into the oven!", "Stack them up!", "Frosting!", "Five strawberries on top! A rainbow cake!", "Achoo!", "Swish it away!" | Filler / synthetic |
 | J4-* | Roshan | "A banner for my party! Paint, paint!", "Stamp, stamp! Five stars!", "To the party tree!" | Synthetic |
-| LAMMA-* | Roshan, Lamma | "Hello? Someone is shy.", "A little lamb! She ran away.", "Someone small wants cake!", "Wool!", "Hoofprints!", "A bell! Jingle!", "There she is! Will you dance with us? There's room for everyone.", Lamma: "Baa?" / "Baa!" | Synthetic; Lamma sound effect |
+| LAMMA-* | Roshan, Lamma | "Hello? Someone is shy.", "A little lamb! She ran away.", "Someone small wants cake!", "Wool!", "Bounce, bounce! She went this way!", "Her egg! Let's give it back.", "There you are! Here's your egg. Will you dance with us? There's room for everyone." Lamma has no words: questioning and happy bleats | Synthetic Roshan; new lamb bleat sound effect (none exists) |
 | J5-* | Roshan | "Point!", "Twirl!", "Bow! The stuffie team can dance!" | Synthetic |
 | J6-* | Roshan | "Testing, testing!", "Rumi, over here!", "La, la, la!", "Encore!", "Rumi remembers a rainbow candle!" | Synthetic |
 | J7-* | Roshan | "Click, click!", "Patch, patch!", "Rainbow water!", "Ready… but not yet!" | Synthetic |

@@ -46,17 +46,22 @@
     {
       "command": "python -B tools/audit_document_authority.py",
       "result": "PASS",
-      "evidence": "DOCAUTH RESULT ALL OK with 585 inventoried Markdown files and matching ledger rows, on the candidate working tree before commit."
+      "evidence": "DOCAUTH RESULT ALL OK with 585 inventoried Markdown files and 585 ledger rows, on the candidate working tree before the completion commit."
     },
     {
       "command": "python -B tools/audit_development.py --base auto",
       "result": "PASS",
-      "evidence": "Change coverage for this record against the dev merge-base, on the candidate working tree before commit."
+      "evidence": "AUDITDEV RESULT ALL OK against the dev merge-base e7899cc0 and against the previous push b3d168f9, on the candidate working tree before the completion commit."
     },
     {
       "command": "Build and graphics audit completion (05 and 06)",
-      "result": "PENDING",
-      "evidence": "The first commit carries 05 and 06 as marked placeholders while the source and image review finishes; a follow-up commit on this branch replaces them."
+      "result": "PASS",
+      "evidence": "05 and 06 replace the first commit's placeholders. 06 findings were checked against the art: eleven 2026-09-06 lawn engine captures and zoomed crops; the 2026-09-05 Opera baseline captures chef_01_pourt and detective_01_lens; contact sheets of assets/chapter2, the legacy widgets, props, book dolls, Lamma and Evie sheets and the FX props; pixel measurements of career-backdrop edge detail (outer bands five to eight times less detailed than centres), interior half-transparent pixels in the eight costume sheets (7,477 to 9,962 against 767 for Teacher), cake tier widths and the King cutout's hard alpha; and code reading of the lawn, party table, candle and backdrop scripts, including the candle touch-area arithmetic. Items a research pass reconstructed from script coordinates are labelled R and need an engine capture before fixing."
+    },
+    {
+      "command": "Research inputs",
+      "result": "PASS",
+      "evidence": "Four read-only research passes (Day One canon and characters; Opera build; career graphics; world and finale graphics) wrote scratch reports outside the repository. Their claims entered the package only after spot checks; corrections they found in the first commit (Book One quotation, page lengths over 16 words, Lamma's bell and voice, the wingless rainbow friend, the book dolls' names) are applied."
     },
     {
       "command": "Runtime, capture, device and child evidence",
@@ -64,6 +69,6 @@
       "evidence": "Documentation-only draft; no game change. Its work packages list the evidence each implementation needs."
     }
   ],
-  "acceptance_gaps": "Owner review of the story, manuscript and eight listed decisions; the Arborist art must be committed from the owner's local worktree; every implementation, voice, art, capture, device, child and cinematic gate listed in 07_WORK_PACKAGES.md remains open.",
+  "acceptance_gaps": "Owner review of the story, manuscript and eleven listed decisions; the Arborist art must be committed from the owner's local worktree; every implementation, voice, art, capture, device, child and cinematic gate listed in 07_WORK_PACKAGES.md remains open; graphics findings labelled R need engine captures before any fix.",
   "source_recheck": "Read the Chapter One book (books/chapter_one on codex/mermaid-roshan-picture-book), Day One director, story clips and in-room activities, the Chapter 2 spine, cake contract, lawn finale draft and runtime captures, the Ember King and Prince identity records, the Chapter 2 scripts, the Opera career phase tables, companion/stuffie/seek code for Lamma, the voice manifest, the master audit task index, DL rules and the document ledger."
 }

@@ -45,6 +45,18 @@ The game follows the same order, with story clips between rooms. After the
 transformation, the rainbow dust bunny follows Roshan through the castle, as
 Baby Eagle does.
 
+**Where the Day One game differs from the book, and how Day Two answers:**
+
+| Book One | Day One game today | Day Two picks it up |
+|---|---|---|
+| The dust bunnies say sorry and learn to play gently | Every dust bunny is popped into sparkles, even the two on Baby Eagle | The bunnies come back clean, play tricks, say "We were just playing!", and end up helping (J2, the F5 wall) |
+| Daddy hands out the tools and says "One little job at a time." | Daddy appears only in the story clips; the refrain is never said | Daddy's Party Plan and his refrain after every job (D2-OPEN, the routine) |
+| "I choose purple!" is self-expression | The colour choice became the Grand Puff attack colour | The banner is painted in the colour she chose (J4), and the brush sparkles in it in F5 |
+| Roshan's shell makes Grand Puff dizzy | The magic brush and a gold star | Day Two keeps the brush and the gold star (F5) |
+| Rumi's castle home for hundreds of years | Never mentioned; Rumi has no voice | Rumi remembers the long-lost candle, shown as a picture (J6) |
+| Everyone sleeps in the bubbles | No nap; the day ends with Daddy's hug and the Day Two card | Day Two wakes in the bubble pile (D2-OPEN-1) and ends there (F8) |
+| The rainbow friend is Grand Puff himself | A nameless static card in castle rooms, no voice | Named, the day's guide, the finale's rainbow dome |
+
 ## 2. Book Two in one paragraph
 
 On the morning after the bubble nap, it is Roshan's birthday. Daddy draws a
@@ -65,7 +77,8 @@ glow.
 
 - **We make it together.** Every piece of the party is made by Roshan with a
   friend's help.
-- **There's room for everyone.** The shy lamb joins; the Prince is invited.
+- **There's room for everyone.** Book Two's echo of Book One's last line,
+  "There was room for everyone." The shy lamb joins; the Prince is invited.
 - **Kind is strong.** Roshan cannot beat the King, but she can keep her
   friends safe.
 - **What we make together can't be taken.** He takes one light; he cannot
@@ -79,7 +92,7 @@ glow.
 | J1 Arborist | Sky Lagoon lawn | Baby Eagle's tree is sick; Tree Book matching; water and bandage | Baby Eagle | The blooming party tree |
 | J2 Farmer | Sky Lagoon strawberry grove | Five strawberries; a playful dust bunny rolls one away | The dust bunnies (they learn to help) | Five strawberries |
 | J3 Chef | Royal Kitchen | Daddy's apron; rainbow batter; bake, stack, frost, top | Daddy | The rainbow cake |
-| LAMMA-3 | Royal Kitchen | Lamma sniffs the cake, hides, leaves floury hoofprints | Lamma | — |
+| LAMMA-3 | Royal Kitchen | Lamma sniffs the cake, hides, bounces away leaving floury bounce marks and drops her egg | Lamma | — |
 | J4 Painter | Craft Room | The birthday banner on the table Roshan cleaned yesterday | The rainbow friend (Grand Puff) | The banner |
 | LAMMA-JOIN, J5 Ballerina | Stuffie Playroom | Hide-and-seek to find Lamma; she joins; the stuffie dance | Lamma and the stuffies | The stuffie team's dance |
 | J6 Pop Star | Opera Hall | Sound check with Rumi; Rumi remembers the rainbow candle | Rumi | The birthday song |
@@ -112,7 +125,7 @@ rhythm:
    the mechanic on the stage, short and forgiving, with a curtain call. Roshan
    comes out wearing the job's costume.
 3. **Level 2, for real.** Roshan goes to the real place in the castle or the
-   Sky Lagoon (the rainbow friend flies ahead as the guide) and uses the same
+   Sky Lagoon (the rainbow friend hops ahead as the guide) and uses the same
    mechanic, reskinned into the room's story, with a friend who needs it.
 4. **Back on the plan.** The finished piece appears on the party table and
    in its picture frame on Daddy's board. Daddy: "One little job at a time!"
@@ -141,38 +154,59 @@ Rules:
 | **Playful dust bunnies** | Still playful, now learning to help; one mess per level at most; the soft wall in the finale | Everywhere | Mischief |
 | **Rumi** | Sings with Roshan; remembers the rainbow candle; her waterfall fuels the rocket | Opera Hall, Mermaid Pool, finale | — (story anchor) |
 | **Lamma** | The shy lamb who has been hiding since Day One; joins the stuffie team; brings Roshan her hat | Three hiding places, then the Playroom and the finale | — (authored only) |
-| **Stuffie team** (cat, bunny, then Lamma) | Dance at the party | Playroom, finale | — |
+| **Stuffie team** (Kitty and Bunny, the book dolls from the Ballerina job, then Lamma) | Dance at the party | Playroom, finale | — |
 | **Party guests** (protected friend portraits) | Arrive, wear hats, react, comfort | Finale | — |
 | **The Ember King** | Demands the light, loses the challenge, cheats | Finale | — |
 | **The Prince** | Kind, conflicted, helps once, apologises | Finale | — |
 
 ## 7. Lamma's arc
 
-**Who she is.** Lamb-a' ("Lamma") is a small, soft stuffed lamb, Evie's lamb
-in the Seek game. She is shy: the dusty castle and the tumbling dust bunnies
-frightened her on Day One, so she hides. She is also curious and follows the
-fun from a safe distance. She says only "Baa."
+**Who she is.** Lamma is a small, soft, egg-shaped stuffed lamb who carries
+a lavender egg: the look of her protected identity source
+(`assets/characters/lamb_0.png`) and her companion card
+(`assets/sprites/stuffie_studio/lamma.png`). She is Evie's lamb in the Seek
+game, and Evie's protected portrait shows Evie hugging her. She is shy: the
+dusty castle and the tumbling dust bunnies frightened her on Day One, so she
+hides. She is also curious and follows the fun from a safe distance. She has
+no words of her own, only soft bleats (a new sound effect: no lamb sound
+exists yet). She bounces rather than walks, which matches her roster attack,
+BOUNCE.
+
+**Names.** The owner and the files say "Lamma"; the roster, battle and Seek
+display "Lamb-a'"; the Opera magician says "Lamba". This draft uses Lamma
+everywhere and asks the owner to confirm one spoken name
+([decision 9](README.md#owner-decisions)).
 
 **What already exists.** A companion roster entry locked behind
-`friend_lamma` (`scripts/companion.gd`), a stuffie-battle capture round
-(`boss_lamma`, `scripts/stuffie_battle.gd`), and the Seek game's animation
-atlas with hide, peek, reveal and celebrate states
-(`assets/minigames/seek/lamma_animation.png`).
+`stuffie_wins["friend_lamma"]` (`scripts/companion.gd`), a stuffie-battle
+capture round (`boss_lamma`, `scripts/stuffie_battle.gd`) that draws a
+generic boss rather than Lamma, the Seek game with its animation atlas (hide,
+peek, reveal and celebrate: `assets/minigames/seek/lamma_animation.png`), and
+the Opera magician's "Hold the wand to hide Lamba under a hat!".
+
+**What does not exist yet.** She cannot be unlocked in real play today: the
+battle has no authored caller and the Seek game has no live entry. She has no
+Day One moment at all, so LAMMA-1 and LAMMA-2 are new Day One room content.
+Her two designs disagree (the Seek atlas has feet and no egg), which
+[GFX-LAMMA-01](06_GRAPHICS_AUDIT.md#gfx-lamma-01) resolves before she is
+staged anywhere.
 
 | Moment | When | Where | What the child sees and does | Keepsake |
 |---|---|---|---|---|
 | LAMMA-1 | Day One, right after Baby Eagle is freed | Stuffie Playroom, the play tent | A lamb ear and nose peek out of the tent flap. Touch it: a tiny "Baa?" and she ducks inside; the flap wiggles. Roshan: "Hello? Someone is shy." | — |
 | LAMMA-2 | Day One, during the craft-table sorting | Craft Room, between the paint jars | A jar wobbles; Lamma peeks between two jars, then scampers off the table. Roshan: "A little lamb! She ran away." | A tuft of white wool on the table |
-| LAMMA-3 | Day Two, after the cake is frosted | Royal Kitchen, behind the flour sack | A floury nose sniffs the cake; touch it and she runs, leaving floury hoofprints toward the door. Roshan: "Someone small wants cake!" | Floury hoofprints |
+| LAMMA-3 | Day Two, after the cake is frosted | Royal Kitchen, behind the flour sack | A floury nose sniffs the cake; touch it and she bounces away, leaving round floury bounce marks toward the door and dropping her lavender egg as she goes. Roshan: "Someone small wants cake!" | Floury hoofprints |
 | LAMMA-JOIN | Day Two, the start of the Ballerina job | Stuffie Playroom | See below | Lamma joins the team |
 
 **LAMMA-JOIN: the joining game.** "We need one more dancer," says Roshan.
-The stuffies (cat and bunny) and Baby Eagle help search. The game reuses the
+The stuffies (Kitty and Bunny) and Baby Eagle help search. The game reuses the
 Seek engine (its four-find structure and Lamma's own atlas):
 
 1. **Find the wool** (from LAMMA-2): it glows on a shelf.
-2. **Find the hoofprints** (from LAMMA-3): they lead across the floor.
-3. **Find the bell:** a tiny jingle from the toy chest.
+2. **Find the bounce marks** (from LAMMA-3): round floury marks lead across
+   the floor. *Bounce, bounce!*
+3. **Find her egg:** the lavender egg she dropped in the kitchen peeks out of
+   the toy chest. Roshan picks it up to give back.
 4. **Find Lamma:** back in the play tent where it started (LAMMA-1). She
    peeks; the child touches her; she steps out.
 

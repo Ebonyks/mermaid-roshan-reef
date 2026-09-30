@@ -34,7 +34,7 @@ standing left of centre. Three depth bands:
 |---|---|
 | Back | The blooming party tree; the birthday banner strung between two of its branches (Painter); Baby Eagle on a branch; the castle on the horizon |
 | Middle | The shell table with the one six-tier cake and the unlit rainbow candle (Farmer, Chef, Detective); the parked rocket beside it (Astronaut); Rumi on a small shell stage with the microphone (Pop Star); guests in a shallow arc, each in a painted party hat |
-| Front | A picnic blanket with the stuffie team (cat, bunny and Lamma) and the music box (Ballerina); dust bunnies bouncing at the edges; the path in from the right |
+| Front | A picnic blanket with the stuffie team (Kitty, Bunny and Lamma) and the music box (Ballerina); dust bunnies bouncing at the edges; the path in from the right |
 
 The **right third of the lawn stays open**: the royals enter there and the
 protection rounds happen there, so the child never has to find Roshan among
@@ -67,7 +67,7 @@ at a natural stopping point with a save.
 |---|---|
 | Where it starts | Main Hall, after the Detective job. Daddy's Party Plan board has all eight pictures filled; the big doors glow |
 | Child | Touches the glowing doors (the current "party hotspot") |
-| On screen | Roshan swims out of the castle and along the Sky Lagoon path; the rainbow friend flies ahead as the guide; the lawn comes into view with everyone waiting |
+| On screen | Roshan swims out of the castle and along the Sky Lagoon path; the rainbow friend hops ahead as the guide (he has no wings); the lawn comes into view with everyone waiting; Daddy puts a painted party hat on Roshan (it matters in F4 and F7) |
 | Voice | Daddy: "Everyone is here, birthday girl!" |
 | Save | Existing `chapter2_lawn_started` |
 
@@ -82,8 +82,8 @@ replaces a checklist with the child's own work.
 | Party tree | Blossoms drift down; Baby Eagle chirps from his branch | Roshan: "Baby Eagle's tree is all better!" |
 | Cake | The five strawberries twinkle | Roshan: "Our rainbow cake!" |
 | Banner | It ripples in the breeze; the five stars shine | Roshan: "Our banner!" |
-| Stuffies | Cat, bunny and Lamma do their little bow | Roshan: "Our stuffie team!" |
-| Rumi | Rumi hums two notes into the microphone | Rumi: (existing performance cue) |
+| Stuffies | Kitty, Bunny and Lamma do their little bow | Roshan: "Our stuffie team!" |
+| Rumi | Rumi waves from her shell stage (existing wave frames); the microphone plays a two-note chime | None: Rumi has no voice, and the chime is music |
 | Rocket | It wiggles, ready | Roshan: "Our little rocket!" |
 
 Then Roshan turns to everyone: **"We made all of this together!"** A friend
@@ -98,9 +98,9 @@ straightens a crooked hat; the dust bunnies bounce.
 | | |
 |---|---|
 | Child | Touches the rocket (moving hand pointer on it) |
-| On screen | Roshan swims to the rocket, reaches up and presses its brass button (the implemented approach and hand-contact behaviour); one small spark travels up to the candle; the rainbow flame opens; everyone says "Oooh!"; the candle's glow tints the whole scene warm |
+| On screen | Roshan swims to the rocket, reaches up and presses its brass button (the implemented approach and hand-contact behaviour); one small spark travels up to the candle; the rainbow flame opens; a soft crowd "Oooh!" plays (a crowd sound effect, never family voices); the candle's glow tints the whole scene warm |
 | Voice | Roshan: "Ready? Let's light our rainbow!" … "Look! Our rainbow candle is shining!" |
-| Music | Rumi begins "Happy Birthday" (existing Pop Star performance score) |
+| Music | "Happy Birthday" begins as an instrumental score from Rumi's shell stage (existing Pop Star performance score). Rumi sways in her existing idle frames: she is on IP hold, so she gets no new frames and no voice |
 | Hidden hook | For one second, far away on the castle, a moonflower shape glows in answer (sets up the Chapter 3 door; see F8) |
 | Save | Existing ignition milestone: `chapter2_lawn_beat = 1`, party/candle keys |
 
@@ -111,7 +111,8 @@ Leaving or switching apps before the button press cancels the unfinished walk
 ### F4 — Two unexpected guests (about 40 s)
 
 The song is cut off by three heavy **stomps** that make the cake plates
-rattle. The guests' hats wobble. From the right, up the path:
+rattle. The guests' hats wobble, and Roshan's own hat tumbles off and rolls
+under the stuffie blanket (the set-up for F7). From the right, up the path:
 
 - **The Ember King:** broad, slow, heavy steps; cape sweeping; chest out.
   Every step puffs a little ember dust from the grass (no fire, no damage).
@@ -142,8 +143,11 @@ rattle. The guests' hats wobble. From the right, up the path:
 The rounds reuse the Grand Puff boss rules already configured in
 `scripts/chapter_two_ember_encounter.gd`: a fixed painted warning, one-finger
 movement out of it, then a large glowing target to tap during the opening.
-It is the same shell-sparkle move Roshan used on Grand Puff in Day One
-("Sparkles flew from Roshan's shell"), so the child already knows it.
+It is the move the child already learned against Grand Puff in the Day One
+game: wait for the big gold star, tap it, and Roshan's magic brush sends
+sparkles in the colour she chose in the Craft Room. (Book One says "Sparkles
+flew from Roshan's shell"; the game uses the brush, and Day Two keeps the
+brush so the prop stays consistent.)
 
 **The one cycle every round uses:**
 
@@ -154,10 +158,11 @@ It is the same shell-sparkle move Roshan used on Grand Puff in Day One
 2. **Move.** The child touches the safe spot (or drags); Roshan swims there.
 3. **Stomp.** The foot lands. A soft puff of ember dust and a small screen
    bounce. Friends flinch but are safe behind the shelter.
-4. **Opening.** The King wobbles off balance ("Whoa!") and the crest on his
-   crown glows gold, big and bright.
-5. **Counter.** The child taps the glowing crest. Sparkles fly from Roshan's
-   shell, the King spins dizzy for a moment (comic, never hurt), and a
+4. **Opening.** The King wobbles off balance ("Whoa!") and the big gold
+   star from Day One appears on his crown crest.
+5. **Counter.** The child taps the gold star. Sparkles in her chosen colour
+   fly from Roshan's magic brush, the King spins dizzy for a moment (comic,
+   never hurt), and a
    **friend adds a layer to the shelter**.
 
 **The three rounds, each paying off a Day One friendship:**
@@ -217,13 +222,13 @@ dodged. The child only watches (touch to advance).
 |---|---|---|---|
 | 1 | — | — | Quiet. The music has stopped. The warm candle tint drains from the scene |
 | 2 | Roshan | "He took our light." | Looks at the empty candle place; her tail droops |
-| 3 | — | — | **Lamma**, the shyest friend, hops out from the stuffie blanket with Roshan's party hat, which fell off during the stomps, and holds it up |
-| 4 | Lamma | "Baa." | |
+| 3 | — | — | **Lamma**, the shyest friend, hops out from under the stuffie blanket with Roshan's party hat, which rolled there in F4, and holds it up |
+| 4 | Lamma | (a soft bleat: a new lamb sound effect; she has no words) | |
 | 5 | — | — | Roshan puts the hat back on. The friends close in around her. Daddy hugs her (a callback to the Day One epilogue hug) |
 | 6 | Daddy | "I'm proud of you." | |
 | 7 | — | — | Roshan looks around: the tree, the cake, the banner, the stuffie team, Rumi, the friends |
 | 8 | Roshan | "But you're all still here. We'll find our light together." | Stands tall |
-| 9 | — | — | Rumi starts the birthday song again, softly; everyone sings along; the dust bunnies bounce in time |
+| 9 | — | — | The birthday song returns softly as instrumental score from Rumi's stage; the friends sway; the dust bunnies bounce in time |
 
 - Child: one touch — a **hug**. A glowing hand appears on Lamma holding the
   hat; touching her puts the hat back on Roshan. That is the child's own act
@@ -309,14 +314,15 @@ A four-year-old cannot tell who is talking.
 
 | Character | Needed | Exists today |
 |---|---|---|
-| Ember King | Walk in; point; stomp (foot up, land); wobble off-balance; dizzy spin; reach over the dome; hold candle; turn and walk away | One static V4 cutout (`assets/chapter2/ember_alpha/king_v4_cutout.png`); no motion |
-| Prince | Walk (sleek), idle glance, point "over here", clap once, apologise, look back while walking away | `idle_glance`, 16-frame `sleek_walk`, `cinderstep` (package V2, motion in REVIEW) |
-| Roshan | Swim, reach/press, protect pose, dodge swim, shell-sparkle counter, sad droop, hat on, stand tall | Swim and reach atlases (used for ignition); others to source from the approved Roshan atlas family |
+| Ember King | Walk in; point; stomp (foot up, land); wobble off-balance; dizzy spin; reach over the dome; hold candle; turn and walk away | One static V4 cutout (`assets/chapter2/ember_alpha/king_v4_cutout.png`); no motion. The owner reference sheet's side, back and expression views can be isolated first ([GFX-CHAR-KING-01](06_GRAPHICS_AUDIT.md#gfx-char-king-01)) |
+| Prince | Walk (sleek), idle glance, point "over here", clap once, apologise, look back while walking away | One idle frame at runtime. The V2 motion package (`idle_glance`, a 16-frame `sleek_walk`, `cinderstep`; motion in REVIEW) is recorded but its atlas is not in the current tree and must be recovered from history; the identity sheet's side, back and sad-face views can be isolated ([GFX-CHAR-PRINCE-01](06_GRAPHICS_AUDIT.md#gfx-char-prince-01)) |
+| Roshan | Swim, reach/press, protect pose, dodge swim, brush-sparkle counter, sad droop, hat on, stand tall | Swim and reach atlases (used for ignition), and the approved 16-pose gesture sheet (`roshan_gestures.png`), unused on the lawn today: surprise, clasped hands, pointing, self-hug, hope, cheers, holding. A sad droop is an art gap |
 | Friends | Hat wobble, flinch, wave hats, lean in | Protected static portraits: motion only as whole-card squash, bob or tilt; never repaint them |
 | Dust bunnies | Bounce, roll into a wall | Day One dust bunny art and animations |
 | Baby Eagle | Chirp on branch, carry banner down | Book Baby Eagle art; carrying pose needed |
 | Rainbow friend | Puff rainbow dome | Static rainbow friend card; puff motion needed |
-| Lamma | Hop out, hold up hat | Seek atlas (hide, peek, reveal, celebrate); hat-offer pose needed |
+| Lamma | Hop out, hold up hat | Seek atlas (hide, peek, reveal, celebrate), which is off-model (see [GFX-LAMMA-01](06_GRAPHICS_AUDIT.md#gfx-lamma-01)); hat-offer pose needed in the canonical egg-carrying design |
+| Rumi | Idle sway, wave | Existing eight-pose atlas only. She is on IP hold: no new frames, no regeneration, no voice |
 
 ## Cinematics
 
@@ -340,7 +346,7 @@ plays as gameplay staging.
 | Voices | All lines in synthetic Roshan's voice | Each speaker voiced; King and Prince get their own voices |
 | Warnings | Flat orange ellipse and thin white ring | Painted ember cracks and a sparkling safe spot |
 | Shelter | Thin pastel arcs | Three friend layers: dust bunny wall, banner canopy, rainbow dome |
-| Counter | Tap the King | Tap the glowing crown crest; shell sparkles, as in Day One |
+| Counter | Tap the King | Tap the gold star on the crown crest; brush sparkles in her chosen colour, as in Day One |
 | King motion | None | Stomp, wobble, dizzy, reach, walk away |
 | Comfort | Roshan's line only | Lamma brings the hat; Daddy's hug; the song returns |
 | Ending | Returns to Main Hall with a stale "north-star clue" objective | Evening walk home; the sky door opens in the Main Hall |

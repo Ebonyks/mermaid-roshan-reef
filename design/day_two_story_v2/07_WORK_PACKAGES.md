@@ -141,7 +141,8 @@ WP-21 probes and acceptance runs alongside every package
     selection, per-level slots and quotas, as specified in 01 §8.
   - Art and motion for: Daddy's demonstration, Baby Eagle carrying and
     spotting (also on the Sky Lagoon), dust bunny mischief (hide, puff,
-    roll, tangle), and the rainbow friend flying to a target.
+    roll, tangle), and the rainbow friend hopping to a target (he has no
+    wings).
 - **Acceptance:** fixed-seed probes prove determinism; the quota and
   no-repeat rules hold over a full playthrough; no role can block or undo
   progress.
@@ -169,18 +170,33 @@ its voice lines, visual cues, challenge slots, saves and assets:
 
 ### WP-15 — Lamma
 
-- **Depends on:** WP-02 (Day One inserts), WP-05 (LAMMA-3, LAMMA-JOIN).
+- **Depends on:** WP-00 (decision 9: her name, and whose lamb she is), WP-02
+  (Day One inserts), WP-05 (LAMMA-3, LAMMA-JOIN), and
+  [GFX-LAMMA-01](06_GRAPHICS_AUDIT.md#gfx-lamma-01) (one canonical design).
+- **Starting point:** she cannot be unlocked in real play today. The
+  `boss_lamma` battle has no authored caller and the Seek game has no live
+  entry, so this package builds her first reachable path. She has no Day One
+  moment and no sound of her own.
 - **Outputs:**
   - LAMMA-1 (Playroom tent, Day One) and LAMMA-2 (Craft Room jars, Day One)
     as in-room gameplay peeks, never inside story clips (`DL-CIN-16`);
-  - LAMMA-3 in the Kitchen;
-  - LAMMA-JOIN as a four-find game built on `scripts/games/seek.gd` and the
-    Lamma atlas;
+  - LAMMA-3 in the Kitchen, leaving floury bounce marks and her dropped egg;
+  - LAMMA-JOIN as a four-find game built on `scripts/games/seek.gd` (wool,
+    bounce marks, her egg, then Lamma in the tent), given a live entry in the
+    Playroom;
   - the `friend_lamma` unlock on joining;
-  - her presence in the stuffie ballet and the finale;
-  - new poses: hat offer, sniffing, scampering.
+  - her presence in the stuffie ballet and the finale, staged so only one
+    Lamma is ever on screen (Evie's portrait already holds her; see
+    [GFX-LAMMA-02](06_GRAPHICS_AUDIT.md#gfx-lamma-02));
+  - poses in the canonical egg-carrying design: peek, hide, bounce away,
+    sniff, hug the egg, dance, hat offer;
+  - a soft lamb bleat sound effect (new, licensed and listed in
+    `ASSET_LICENSES.md`);
+  - the legacy lines that speak for her through Evie's voice (the roster
+    hello and the capture plea) revised or retired with the owner.
 - **Acceptance:** the join game is completable without having seen every
-  sighting; saves at each clue; the companion roster shows Lamma afterwards.
+  sighting; saves at each clue; the companion roster shows Lamma afterwards;
+  a capture of every Lamma moment shows the same design.
 
 ### WP-16 — The party chapter (F1–F8)
 
@@ -217,11 +233,29 @@ its voice lines, visual cues, challenge slots, saves and assets:
 
 ### WP-18 — Graphics fixes
 
-- **Depends on:** nothing for most items.
-- **Outputs:** the GFX-* fixes in [06](06_GRAPHICS_AUDIT.md), in its priority
-  order.
-- **Acceptance:** before/after captures at two aspects for every fix; owner
-  art review.
+- **Depends on:** nothing for the first three groups; WP-00 for the
+  owner-gated items.
+- **Outputs:** the GFX-* fixes in [06](06_GRAPHICS_AUDIT.md), in the order of
+  its [fix table](06_GRAPHICS_AUDIT.md#10-fix-order-and-work-packages):
+  1. Can the child finish, and does it look broken: GFX-DET-03 (the candle
+     touch area), GFX-SYS-13 (steps with no pointer, with the 05 B1 repair),
+     GFX-HALL-07 (the party table glued to the screen) and GFX-HALL-08 (the
+     cake hiding the candle).
+  2. Fixes with no new art: the career-world framing (GFX-SYS-01, -02),
+     spotlights, wide-phone side panels, honest scene tags, Detective
+     targets, the cherry-cake invitation, stray work and cheer cells, dead
+     ember actors, the shipped superseded cake.
+  3. Derivative repairs: the costume tail alpha, the cake ledge and berry
+     size, the banner states, the berry trays.
+  4. Owner-gated: costume identity (decision 10), protected-art
+     re-isolations (decision 11).
+  5. The venue plaques and done states.
+
+  The in-world, Lamma, finale and opening fixes ride with WP-05 and WP-07 to
+  WP-16, as the fix table lists.
+- **Acceptance:** before/after captures at 16:9 and 20:9 for every fix;
+  protected files byte-identical; every derivative has a hash, provenance
+  and an `ASSET_LICENSES.md` line; owner art review.
 
 ### WP-19 — Book Two rough
 
