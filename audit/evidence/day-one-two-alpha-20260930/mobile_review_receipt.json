@@ -19,22 +19,22 @@
     "scripts/encounter_patterns_2d.gd": "d2feafa7dd1081fe5bf350f836421bbe2c4a545dfc6f22ec22c2aa7798ac5efe",
     "scripts/encounter_profile_2d.gd": "80ced9bb58afde098f12c8e017f86f953b64c0ca764759abf32144e82a50c971",
     "scripts/games/day_one_pool_cleanup.gd": "06cc9c0f276cfeac16aba85f7e93c443532c87d218428e48810cb422968175f0",
-    "scripts/games/dust_boss.gd": "788282860b78322f5624bec1df67374598cba2fbf3a45d79e2736cebc28e0ad2",
+    "scripts/games/dust_boss.gd": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
     "scripts/games/pool_seahorse_rescue_activity.gd": "72279c1b2ea982c1f9212a56e35b5aa1b08fdb119e80e01f5562852a71236bb8",
-    "scripts/games/pool_waterfall_activity.gd": "c92746620c5fae3c5b9ad2fe36db668118cda3068bac8a2ee8304d26c66b3758",
-    "scripts/main.gd": "56266448cd3e830891c50aef9b44af6706d22fdadfd19647bb44357519abc9a1",
+    "scripts/games/pool_waterfall_activity.gd": "1374edc17af0fa536230a41e43f2fc2454f48e42eb2ad55b871e978d549687e4",
+    "scripts/main.gd": "aba659693ed877e2845487b514c64e431d817143cf5c2803705c9f27c79bd256",
     "scripts/navigation_controller.gd": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873",
     "scripts/opera_career_world_2d.gd": "9c3caed544859c3cffbbd8ca3652f1ca83d146958c4854b56938667a508832f1",
     "scripts/probe_chapter2.gd": "f9ddc3ac5f7310592c27b00d6e40e751c72380552a48eed7fec2ba88a985a65d",
-    "scripts/probe_day_one_pool_cleanup.gd": "1c029902c5ed50c3e7417405166d4b9bd2910ddec42dcf812b8aea80962b8079",
-    "scripts/probe_dust_boss.gd": "69476b1c1f575c6fd592137df80d6e300773ffba2c02cab2c39db372aafe201d",
+    "scripts/probe_day_one_pool_cleanup.gd": "b669445f9d6ff90881adb24de584d7c33b264756b12e4d9597bbb30c1f0403f0",
+    "scripts/probe_dust_boss.gd": "1a8640957f477ac4756e08b5fdfc37a1ef70608124c43229a2896e968461fee3",
     "scripts/probe_dust_boss_balance.gd": "f4940fb4b5d6398e5d1fab94fdf92f4666c2302ff6c36f533312c6f3956be235",
     "scripts/probe_passive.gd": "e266e523af5c629f98ca8b52acfd931de7659b455a58634ccde6a917f3b50e97",
     "scripts/probe_voice.gd": "fdfddc959dfa32aefbf2a0ec2323f021dbbf36608a3670ec2a401ff692e48330",
     "scripts/touch_ui.gd": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
     "scripts/chapter_two_voice_catalog.gd": "878cdebb43c777741d0462369f11da32369bb2efa08b5fae2adbfa64fbacfe96",
     "scripts/day_one_contact_action_2d.gd": "0dcbb203d7ec179fa3347f6fca0aa62895bf650b64e2f12d6c1440e970716778",
-    "scripts/probe_alpha_milestone_save.gd": "b632e7e2566d2eb96ae1e244c39e201d83700cad1f9acb6e62ac139cb1f8e4be"
+    "scripts/probe_alpha_milestone_save.gd": "a489a5b8221e2c658183ae745ef803c0622889f6791c16c69e190c6f5382ff27"
   },
   "harness_source": "extends SceneTree\nvar main: ReefMain\nvar out: String\nfunc _init() -> void:\n\tcall_deferred(\"run\")\nfunc frames(count: int) -> void:\n\tfor index: int in range(count):\n\t\tawait process_frame\nfunc shot(name: String) -> void:\n\tawait RenderingServer.frame_post_draw\n\tvar pixels: Image = root.get_texture().get_image()\n\tpixels.save_png(out.path_join(name + \".png\"))\n\tprint(\"ALPHA_REVIEW|\", name, \"|\", pixels.get_size())\nfunc contact(action: DayOneContactAction2D, name: String) -> void:\n\tvar deadline: int = Time.get_ticks_msec() + 10000\n\twhile Time.get_ticks_msec() < deadline and action.work_time < 0.1:\n\t\tawait process_frame\n\tif not action.in_contact():\n\t\tprint(\"ALPHA_REVIEW|CONTACT_TIMEOUT|\", name)\n\t\tquit(1)\n\t\treturn\n\taction.set_process(false)\n\tif name == \"waterfall_hand_contact\":\n\t\tvar owner: PoolWaterfallActivity = action.get_parent() as PoolWaterfallActivity\n\t\tprint(\"ALPHA_REVIEW|SCRUBBER|\", owner._scrubber.visible, \" parent=\", owner.visible, \" at=\", owner._scrubber.global_position, \" hand=\", action.to_global(action.hand_offset), \" z=\", owner._scrubber.z_index)\n\tawait shot(name)\n\taction.set_process(true)\n\tawait create_timer(0.8).timeout\nfunc run() -> void:\n\tEngine.max_fps = 60\n\troot.mode = Window.MODE_WINDOWED\n\troot.size = Vector2i(1280, 720)\n\troot.content_scale_size = Vector2i(1280, 720)\n\tout = OS.get_environment(\"ALPHA_REVIEW_OUT\")\n\tDirAccess.make_dir_recursive_absolute(out)\n\tmain = load(\"res://scenes/main.tscn\").instantiate() as ReefMain\n\troot.add_child(main)\n\tawait frames(3)\n\tif main.start_menu_active:\n\t\tmain._start_menu_ref()._dismiss_menu()\n\tmain._skip_intro()\n\tmain.save_data[\"quality\"] = \"speedy\"\n\tmain._day_one_ref().restore_state({\"day_one_active\":true,\n\t\t\"day_one_completed_rooms\":[\"bathroom\",\"pool\",\"stuffie\"]})\n\tmain.level2_done_once = true\n\tmain._enter_level2_now(true, false, false)\n\tawait frames(12)\n\tmain._enter_castle_interior_now(false)\n\tawait frames(18)\n\tmain._castle_rooms_ref().show_room(\"craft_room\", false)\n\tawait frames(12)\n\tmain._open_day_one_art_studio()\n\tmain._day_one_cancel_story_clips()\n\tawait frames(8)\n\tvar art: DayOneArtStudio = main._day_one_art_studio\n\tawait shot(\"art_before\")\n\tart._on_material_pressed(\"brushes\")\n\tawait create_timer(0.15).timeout\n\tawait shot(\"art_approach\")\n\tawait contact(art._contact_action, \"art_material_contact\")\n\tfor material: String in DayOneDirector.ART_MATERIAL_IDS:\n\t\tmain.day_one_record_art_cleanup(\"material\", material)\n\tart.refresh_from_state()\n\tart._on_grime_pressed(\"desk_counter\")\n\tawait contact(art._contact_action, \"art_grime_contact\")\n\tmain._close_day_one_art_studio()\n\tmain._day_one_ref().restore_state({\"day_one_active\":true,\n\t\t\"day_one_completed_rooms\":[\"bathroom\"],\"day_one_pool_cleanup_step\":1,\"day_one_current_room\":\"pool\",\"day_one_pool_skimmer_mask\":63,\n\t\t\"day_one_pool_waterfall_mask\":0,\"day_one_pool_seahorse_tugs\":0})\n\tmain._castle_rooms_ref().show_room(\"mermaid_pool\", false)\n\tmain._day_one_cancel_story_clips()\n\tawait frames(8)\n\tvar pool: DayOnePoolCleanup = main._castle_rooms_ref().day_one_pool_cleanup\n\tvar waterfall: PoolWaterfallActivity = pool.waterfall_activity\n\tprint(\"ALPHA_REVIEW|POOL_STATE|\", pool.audit_snapshot())\n\twaterfall._begin_touch(waterfall.fixture_center, 0)\n\tprint(\"ALPHA_REVIEW|WATERFALL_ACTION|\", waterfall._contact_action.active, \" available=\", waterfall._contact_action.available(), \" paused=\", paused)\n\tawait contact(waterfall._contact_action, \"waterfall_hand_contact\")\n\twaterfall.cancel_touch()\n\tmain.day_one_record_pool_activity_progress(63, 7, 0)\n\tmain.day_one_record_pool_cleanup_step(2)\n\tmain._castle_rooms_ref().show_room(\"mermaid_pool\", false)\n\tmain._day_one_cancel_story_clips()\n\tawait frames(8)\n\tpool = main._castle_rooms_ref().day_one_pool_cleanup\n\tvar seahorse: PoolSeahorseRescueActivity = pool.seahorse_activity\n\tseahorse._register_tap(seahorse.fixture_center)\n\tawait contact(seahorse._contact_action, \"seahorse_hand_contact\")\n\tprint(\"ALPHA_REVIEW|RENDERER|\", RenderingServer.get_current_rendering_method())\n\tquit()\n",
   "harness_sha256": "9426b4d00666ebafde1d9a65c7522b2696a63d8456cd1276310a3e9c38611ebd",
@@ -44,115 +44,226 @@
   "captures": [
     {
       "path": "audit/evidence/day-one-two-alpha-20260930/art_approach.png",
-      "sha256": "95fe08843f505a3dd6498a936af9e1ee0dd85fbcc9ff7b29e894c340159c17cf",
+      "sha256": "d8dfd2b464bb57d3fd94515b1b88b0cb79f6d0be071332246f1f84875cff3d1b",
       "dimensions": [
         1280,
         720
       ],
       "role": "runtime_review_capture",
-      "source": "Exact Godot Mobile runtime using unchanged approved project art",
+      "source": "Exact 4.7.2 Mobile runtime after art reconciliation at origin/dev 08acb0ce; approved existing derivatives, no pixel edits",
       "modifications": "none; viewport capture"
     },
     {
       "path": "audit/evidence/day-one-two-alpha-20260930/art_before.png",
-      "sha256": "a76bd94a5d869c1c390e90b4e6a6eb1b0c59ab0dadfc375a09448d91a72f4c01",
+      "sha256": "a8ab8d38900350f3c52a4c83915e5c40e5ec3248a4fedf6b1ab0cf424d8d6d34",
       "dimensions": [
         1280,
         720
       ],
       "role": "runtime_review_capture",
-      "source": "Exact Godot Mobile runtime using unchanged approved project art",
+      "source": "Exact 4.7.2 Mobile runtime after art reconciliation at origin/dev 08acb0ce; approved existing derivatives, no pixel edits",
       "modifications": "none; viewport capture"
     },
     {
       "path": "audit/evidence/day-one-two-alpha-20260930/art_grime_contact.png",
-      "sha256": "3054f8ff456b16acb390fd6c8886061176b1a01ca019d9867e4f601b6e5cb3ef",
+      "sha256": "b0d9b79bbd479888fd964347c98b79eb46f8226ed8f62aa55ede4a620a9766b7",
       "dimensions": [
         1280,
         720
       ],
       "role": "runtime_review_capture",
-      "source": "Exact Godot Mobile runtime using unchanged approved project art",
+      "source": "Exact 4.7.2 Mobile runtime after art reconciliation at origin/dev 08acb0ce; approved existing derivatives, no pixel edits",
       "modifications": "none; viewport capture"
     },
     {
       "path": "audit/evidence/day-one-two-alpha-20260930/art_material_contact.png",
-      "sha256": "558afecf06c084ca21e0516bb5c7844469a2582b456a81e63d20e67f1db57f2c",
+      "sha256": "59258ff2d744858e8b102062462a62872c38581ac7bf398b77661f8b0abb0037",
       "dimensions": [
         1280,
         720
       ],
       "role": "runtime_review_capture",
-      "source": "Exact Godot Mobile runtime using unchanged approved project art",
+      "source": "Exact 4.7.2 Mobile runtime after art reconciliation at origin/dev 08acb0ce; approved existing derivatives, no pixel edits",
       "modifications": "none; viewport capture"
     },
     {
       "path": "audit/evidence/day-one-two-alpha-20260930/seahorse_hand_contact.png",
-      "sha256": "fb82c3f470169c6e6b539cfebfae4bbd3488184671a0c9eee4da546fd6c4b22e",
+      "sha256": "82568899f440fa59b83b18365ed5f310a8768438fd6afdd82c9dc1f23d83a1a5",
       "dimensions": [
         1280,
         720
       ],
       "role": "runtime_review_capture",
-      "source": "Exact Godot Mobile runtime using unchanged approved project art",
+      "source": "Exact 4.7.2 Mobile runtime after art reconciliation at origin/dev 08acb0ce; approved existing derivatives, no pixel edits",
       "modifications": "none; viewport capture"
     },
     {
       "path": "audit/evidence/day-one-two-alpha-20260930/waterfall_hand_contact.png",
-      "sha256": "99394d222149623e17c5f796bbb358304fdde31c16441bae8283a8373883f69c",
+      "sha256": "2f8975564254b5a06050eb8a4dc83e676f0ba03d58ed7bf8c838295ec294f010",
       "dimensions": [
         1280,
         720
       ],
       "role": "runtime_review_capture",
-      "source": "Exact Godot Mobile runtime using unchanged approved project art",
+      "source": "Exact 4.7.2 Mobile runtime after art reconciliation at origin/dev 08acb0ce; approved existing derivatives, no pixel edits",
       "modifications": "none; viewport capture"
     }
   ],
   "agent_visual_review": {
     "result": "PASS",
     "scope": "One visible Roshan approaches the requested materials/grime; the scrubber is visible at her hand; the seahorse blockage is held locally; pool captions are clear of upper contact fixtures. This is scoped desktop visual inspection.",
-    "owner_acceptance": false
+    "owner_acceptance": false,
+    "reconciled_captures_reviewed": true
   },
-  "runtime_log": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\nVulkan 1.4.325 - Forward Mobile - Using Device #0: NVIDIA - NVIDIA GeForce RTX 3060 Ti\n\nALPHA_REVIEW|art_before|(1280, 720)\nALPHA_REVIEW|art_approach|(1280, 720)\nALPHA_REVIEW|art_material_contact|(1280, 720)\nALPHA_REVIEW|art_grime_contact|(1280, 720)\nALPHA_REVIEW|POOL_STATE|{ \"activity_count\": 3, \"activity_ids\": [\"pool_surface\", \"waterfall\", \"seahorse\"], \"current_activity_index\": 1, \"current_activity\": \"waterfall\", \"legacy_completion_step\": 4, \"seahorse_is_last\": true, \"standalone_pool_rim_gate\": false, \"dingy_lighting\": true, \"finale_started\": false, \"clean_waterfall_visible\": true, \"animated_water_hidden\": true, \"waterfall_center\": (462.5, 216.25), \"waterfall_size\": (151.25, 207.5), \"skimmer\": { \"activity\": \"pool_skimmer\", \"running\": false, \"progress_mask\": 63, \"mask\": 63, \"item_count\": 6, \"remaining_count\": 0, \"completed\": true, \"skimmer_present\": true, \"basket_present\": true, \"trash_sprite_count\": 6, \"atlas_cell_size\": (341.0, 341.0), \"catch_radius\": 118.0, \"roshan_present\": false, \"roshan_position\": (640.0, 490.0), \"net_position\": (819.8328, 433.7738), \"target_index\": -1, \"scoop_time\": 0.0, \"contact_radius\": 24.0, \"hand_grip_error\": 0.0, \"live_input_required\": true, \"one_finger\": true, \"no_fail_state\": true, \"canvas_only\": true, \"borderless_room_grown\": true, \"demo_pointer_visible\": false }, \"waterfall\": { \"canvas_only\": true, \"no_fail\": true, \"active\": true, \"fixture_center\": (462.5, 216.25), \"fixture_size\": (151.25, 207.5), \"fixture_rect\": [P: (386.875, 112.5), S: (151.25, 207.5)], \"lane_count\": 3, \"clear_mask\": 0, \"lane_progress\": [0.0, 0.0, 0.0], \"lane_revealing\": [false, false, false], \"hint_lane\": 0, \"touch_active\": false, \"completed\": false, \"dirty_texture_path\": \"res://assets/castle/day_one_pool/activities/waterfall_clogged_original_match.png\", \"scrubber_texture_path\": \"res://assets/castle/day_one_pool/activities/waterfall_scrubber.png\", \"dirty_texture_loaded\": true, \"scrubber_texture_loaded\": true, \"dirty_slices_aligned\": true, \"wash_feedback_above_grime\": true, \"animated_flow_stopped\": true }, \"seahorse\": { \"activity\": \"pool_seahorse_rescue\", \"active\": false, \"running\": false, \"taps\": 0, \"tap_total\": 8, \"remaining_taps\": 8, \"completed\": false, \"completion_started\": false, \"fixture_center\": (922.5, 246.25), \"fixture_size\": (208.75, 241.25), \"fixture_rect\": [P: (818.125, 125.625), S: (208.75, 241.25)], \"tap_region\": [P: (685.4375, -7.0625), S: (474.125, 506.625)], \"tap_region_is_broad\": true, \"seahorse_present\": true, \"mouth_trash_present\": true, \"basket_present\": true, \"seahorse_base_stays_sick\": true, \"prop_is_separate\": true, \"quick_cadence_strength\": 0.0, \"touch_active\": false, \"no_fail\": true, \"monotonic_progress\": true, \"canvas_only\": true, \"live_input_required\": true, \"seahorse_texture_loaded\": true, \"mouth_trash_texture_loaded\": true, \"basket_texture_loaded\": true }, \"rumi_present\": false, \"rumi_approved_identity\": false, \"rumi_authored_animation\": false, \"rumi_animation\": \"\", \"dust_bunny_count\": 2, \"land_bunny_owner\": \"day_one_castle_dressing\", \"swimming_bunny\": { \"present\": true, \"asset\": \"res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png\", \"true_2d\": true, \"depth_z\": 205, \"animation\": \"bounded_bob_paddle\", \"bounds\": [P: (300.0, 285.0), S: (680.0, 235.0)], \"position\": (828.15, 465.1083), \"inside_bounds\": true, \"safe_center_bounds\": [P: (365.3502, 326.4188), S: (558.0575, 152.1625)], \"footprint\": [P: (762.7998, 423.6895), S: (121.9425, 82.83751)], \"fully_contained\": true, \"display_width\": 118.0, \"visible\": true, \"opacity\": 1.0, \"waterline_uv\": 1.0, \"submerged_lower_body\": false, \"drain_reaction_active\": false, \"drain_reaction_count\": 0, \"drain_reaction_played_once\": false, \"reaction_duration_ms\": 680, \"comic_shout\": \"\", \"comic_no_visible\": false }, \"canvas_only\": true, \"no_fail\": true }\nALPHA_REVIEW|WATERFALL_ACTION|true available=true paused=false\nALPHA_REVIEW|SCRUBBER|true parent=true at=(482.0782, 236.5487) hand=(499.0782, 252.5487) z=501\nALPHA_REVIEW|waterfall_hand_contact|(1280, 720)\nALPHA_REVIEW|seahorse_hand_contact|(1280, 720)\nALPHA_REVIEW|RENDERER|mobile\n",
-  "runtime_errors": "",
+  "runtime_log": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\nVulkan 1.4.325 - Forward Mobile - Using Device #0: NVIDIA - NVIDIA GeForce RTX 3060 Ti\n\nALPHA_REVIEW|art_before|(1280, 720)\nALPHA_REVIEW|art_approach|(1280, 720)\nALPHA_REVIEW|art_material_contact|(1280, 720)\nALPHA_REVIEW|art_grime_contact|(1280, 720)\nALPHA_REVIEW|POOL_STATE|{ \"activity_count\": 3, \"activity_ids\": [\"pool_surface\", \"waterfall\", \"seahorse\"], \"current_activity_index\": 1, \"current_activity\": \"waterfall\", \"legacy_completion_step\": 4, \"seahorse_is_last\": true, \"standalone_pool_rim_gate\": false, \"dingy_lighting\": true, \"finale_started\": false, \"clean_waterfall_visible\": true, \"animated_water_hidden\": true, \"waterfall_center\": (462.5, 216.25), \"waterfall_size\": (151.25, 207.5), \"skimmer\": { \"activity\": \"pool_skimmer\", \"running\": false, \"progress_mask\": 63, \"mask\": 63, \"item_count\": 6, \"remaining_count\": 0, \"completed\": true, \"skimmer_present\": true, \"basket_present\": true, \"trash_sprite_count\": 6, \"atlas_cell_size\": (341.0, 341.0), \"catch_radius\": 118.0, \"roshan_present\": false, \"roshan_position\": (640.0, 490.0), \"net_position\": (819.8328, 433.7738), \"target_index\": -1, \"scoop_time\": 0.0, \"contact_radius\": 24.0, \"hand_grip_error\": 0.0, \"live_input_required\": true, \"one_finger\": true, \"no_fail_state\": true, \"canvas_only\": true, \"borderless_room_grown\": true, \"demo_pointer_visible\": false }, \"waterfall\": { \"canvas_only\": true, \"no_fail\": true, \"active\": true, \"fixture_center\": (462.5, 216.25), \"fixture_size\": (151.25, 207.5), \"fixture_rect\": [P: (386.875, 112.5), S: (151.25, 207.5)], \"lane_count\": 3, \"clear_mask\": 0, \"lane_progress\": [0.0, 0.0, 0.0], \"lane_revealing\": [false, false, false], \"hint_lane\": 0, \"touch_active\": false, \"completed\": false, \"dirty_texture_path\": \"res://assets/castle/day_one_pool/activities/waterfall_clogged_original_match.png\", \"scrubber_texture_path\": \"res://assets/castle/day_one_pool/activities/waterfall_scrubber.png\", \"dirty_texture_loaded\": true, \"scrubber_texture_loaded\": true, \"dirty_slices_aligned\": true, \"wash_feedback_above_grime\": true, \"animated_flow_stopped\": true }, \"seahorse\": { \"activity\": \"pool_seahorse_rescue\", \"active\": false, \"running\": false, \"taps\": 0, \"tap_total\": 8, \"remaining_taps\": 8, \"completed\": false, \"completion_started\": false, \"fixture_center\": (922.5, 246.25), \"fixture_size\": (208.75, 241.25), \"fixture_rect\": [P: (818.125, 125.625), S: (208.75, 241.25)], \"tap_region\": [P: (685.4375, -7.0625), S: (474.125, 506.625)], \"tap_region_is_broad\": true, \"seahorse_present\": true, \"mouth_trash_present\": true, \"basket_present\": true, \"seahorse_base_stays_sick\": true, \"prop_is_separate\": true, \"quick_cadence_strength\": 0.0, \"touch_active\": false, \"no_fail\": true, \"monotonic_progress\": true, \"canvas_only\": true, \"live_input_required\": true, \"seahorse_texture_loaded\": true, \"mouth_trash_texture_loaded\": true, \"basket_texture_loaded\": true }, \"rumi_present\": false, \"rumi_approved_identity\": false, \"rumi_authored_animation\": false, \"rumi_animation\": \"\", \"dust_bunny_count\": 2, \"land_bunny_owner\": \"day_one_castle_dressing\", \"swimming_bunny\": { \"present\": true, \"asset\": \"res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png\", \"true_2d\": true, \"depth_z\": 205, \"animation\": \"bounded_bob_paddle\", \"bounds\": [P: (300.0, 285.0), S: (680.0, 235.0)], \"position\": (827.7759, 465.0171), \"inside_bounds\": true, \"safe_center_bounds\": [P: (365.3502, 326.4188), S: (558.0575, 152.1625)], \"footprint\": [P: (762.4257, 423.5983), S: (121.9425, 82.83751)], \"fully_contained\": true, \"display_width\": 118.0, \"visible\": true, \"opacity\": 1.0, \"waterline_uv\": 1.0, \"submerged_lower_body\": false, \"drain_reaction_active\": false, \"drain_reaction_count\": 0, \"drain_reaction_played_once\": false, \"reaction_duration_ms\": 680, \"comic_shout\": \"\", \"comic_no_visible\": false }, \"canvas_only\": true, \"no_fail\": true }\nALPHA_REVIEW|WATERFALL_ACTION|true available=true paused=false\nALPHA_REVIEW|SCRUBBER|true parent=true at=(482.0798, 236.5498) hand=(499.0798, 252.5498) z=501\nALPHA_REVIEW|waterfall_hand_contact|(1280, 720)\nALPHA_REVIEW|seahorse_hand_contact|(1280, 720)\nALPHA_REVIEW|RENDERER|mobile\n",
+  "runtime_errors": [],
   "source_hash_mode": "utf8_lf",
-  "subsequent_nonvisual_changes": [
-    {
-      "path": "scripts/games/dust_boss.gd",
-      "capture_source_sha256": "788282860b78322f5624bec1df67374598cba2fbf3a45d79e2736cebc28e0ad2",
-      "candidate_source_sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
-      "scope": "Malformed/non-finite additive boss-save checkpoint type guard and corresponding regression; no art/pool geometry, composition or rendering change."
+  "subsequent_nonvisual_changes": [],
+  "prior_capture_revision": {
+    "repair_commit": "4b8d89ca",
+    "receipt_sha256_utf8_lf": "a9a4d9a30d552acef6c91a3fa853b92ed063c6bd4baaabf5c05b57faf156cade",
+    "captures": [
+      {
+        "path": "audit/evidence/day-one-two-alpha-20260930/art_approach.png",
+        "sha256": "d8dfd2b464bb57d3fd94515b1b88b0cb79f6d0be071332246f1f84875cff3d1b",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "role": "runtime_review_capture",
+        "source": "Exact 4.7.2 Mobile runtime after art reconciliation at origin/dev 08acb0ce; approved existing derivatives, no pixel edits",
+        "modifications": "none; viewport capture"
+      },
+      {
+        "path": "audit/evidence/day-one-two-alpha-20260930/art_before.png",
+        "sha256": "a8ab8d38900350f3c52a4c83915e5c40e5ec3248a4fedf6b1ab0cf424d8d6d34",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "role": "runtime_review_capture",
+        "source": "Exact 4.7.2 Mobile runtime after art reconciliation at origin/dev 08acb0ce; approved existing derivatives, no pixel edits",
+        "modifications": "none; viewport capture"
+      },
+      {
+        "path": "audit/evidence/day-one-two-alpha-20260930/art_grime_contact.png",
+        "sha256": "b0d9b79bbd479888fd964347c98b79eb46f8226ed8f62aa55ede4a620a9766b7",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "role": "runtime_review_capture",
+        "source": "Exact 4.7.2 Mobile runtime after art reconciliation at origin/dev 08acb0ce; approved existing derivatives, no pixel edits",
+        "modifications": "none; viewport capture"
+      },
+      {
+        "path": "audit/evidence/day-one-two-alpha-20260930/art_material_contact.png",
+        "sha256": "59258ff2d744858e8b102062462a62872c38581ac7bf398b77661f8b0abb0037",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "role": "runtime_review_capture",
+        "source": "Exact 4.7.2 Mobile runtime after art reconciliation at origin/dev 08acb0ce; approved existing derivatives, no pixel edits",
+        "modifications": "none; viewport capture"
+      },
+      {
+        "path": "audit/evidence/day-one-two-alpha-20260930/seahorse_hand_contact.png",
+        "sha256": "82568899f440fa59b83b18365ed5f310a8768438fd6afdd82c9dc1f23d83a1a5",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "role": "runtime_review_capture",
+        "source": "Exact 4.7.2 Mobile runtime after art reconciliation at origin/dev 08acb0ce; approved existing derivatives, no pixel edits",
+        "modifications": "none; viewport capture"
+      },
+      {
+        "path": "audit/evidence/day-one-two-alpha-20260930/waterfall_hand_contact.png",
+        "sha256": "2f8975564254b5a06050eb8a4dc83e676f0ba03d58ed7bf8c838295ec294f010",
+        "dimensions": [
+          1280,
+          720
+        ],
+        "role": "runtime_review_capture",
+        "source": "Exact 4.7.2 Mobile runtime after art reconciliation at origin/dev 08acb0ce; approved existing derivatives, no pixel edits",
+        "modifications": "none; viewport capture"
+      }
+    ],
+    "source_sha256": {
+      "project.godot": "59b81dd5b6d51eb4109631addf362673a91fe69b49470071906e6109b10e2f8b",
+      "scripts/audio_director.gd": "7562ccfb1587438a077786901dbcd46dcedbcffc662cb36f9ed20c7510fbb0a9",
+      "scripts/boss_encounter_2d.gd": "371f260c9547f0665a41f290b2b1502c5ab22172b3d448f108d1b4e427bf9d55",
+      "scripts/chapter_two_career_scene_adapter.gd": "7397beeabc10e20ea3cdf38f2918d672711ac06dedb539d536a4eb1c1c656e2f",
+      "scripts/day_one_art_studio.gd": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a",
+      "scripts/encounter_contract_checks.gd": "910c876867420ddf2b1e9249512910c0838894285e3d07af755ce82195aae639",
+      "scripts/encounter_patterns_2d.gd": "d2feafa7dd1081fe5bf350f836421bbe2c4a545dfc6f22ec22c2aa7798ac5efe",
+      "scripts/encounter_profile_2d.gd": "80ced9bb58afde098f12c8e017f86f953b64c0ca764759abf32144e82a50c971",
+      "scripts/games/day_one_pool_cleanup.gd": "06cc9c0f276cfeac16aba85f7e93c443532c87d218428e48810cb422968175f0",
+      "scripts/games/dust_boss.gd": "788282860b78322f5624bec1df67374598cba2fbf3a45d79e2736cebc28e0ad2",
+      "scripts/games/pool_seahorse_rescue_activity.gd": "72279c1b2ea982c1f9212a56e35b5aa1b08fdb119e80e01f5562852a71236bb8",
+      "scripts/games/pool_waterfall_activity.gd": "c92746620c5fae3c5b9ad2fe36db668118cda3068bac8a2ee8304d26c66b3758",
+      "scripts/main.gd": "56266448cd3e830891c50aef9b44af6706d22fdadfd19647bb44357519abc9a1",
+      "scripts/navigation_controller.gd": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873",
+      "scripts/opera_career_world_2d.gd": "9c3caed544859c3cffbbd8ca3652f1ca83d146958c4854b56938667a508832f1",
+      "scripts/probe_chapter2.gd": "f9ddc3ac5f7310592c27b00d6e40e751c72380552a48eed7fec2ba88a985a65d",
+      "scripts/probe_day_one_pool_cleanup.gd": "1c029902c5ed50c3e7417405166d4b9bd2910ddec42dcf812b8aea80962b8079",
+      "scripts/probe_dust_boss.gd": "69476b1c1f575c6fd592137df80d6e300773ffba2c02cab2c39db372aafe201d",
+      "scripts/probe_dust_boss_balance.gd": "f4940fb4b5d6398e5d1fab94fdf92f4666c2302ff6c36f533312c6f3956be235",
+      "scripts/probe_passive.gd": "e266e523af5c629f98ca8b52acfd931de7659b455a58634ccde6a917f3b50e97",
+      "scripts/probe_voice.gd": "fdfddc959dfa32aefbf2a0ec2323f021dbbf36608a3670ec2a401ff692e48330",
+      "scripts/touch_ui.gd": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "scripts/chapter_two_voice_catalog.gd": "878cdebb43c777741d0462369f11da32369bb2efa08b5fae2adbfa64fbacfe96",
+      "scripts/day_one_contact_action_2d.gd": "0dcbb203d7ec179fa3347f6fca0aa62895bf650b64e2f12d6c1440e970716778",
+      "scripts/probe_alpha_milestone_save.gd": "b632e7e2566d2eb96ae1e244c39e201d83700cad1f9acb6e62ac139cb1f8e4be"
     },
-    {
-      "path": "scripts/probe_dust_boss.gd",
-      "capture_source_sha256": "69476b1c1f575c6fd592137df80d6e300773ffba2c02cab2c39db372aafe201d",
-      "candidate_source_sha256": "1a8640957f477ac4756e08b5fdfc37a1ef70608124c43229a2896e968461fee3",
-      "scope": "Malformed/non-finite additive boss-save checkpoint type guard and corresponding regression; no art/pool geometry, composition or rendering change."
-    },
-    {
-      "path": "scripts/games/pool_waterfall_activity.gd",
-      "capture_source_sha256": "c92746620c5fae3c5b9ad2fe36db668118cda3068bac8a2ee8304d26c66b3758",
-      "candidate_source_sha256": "1374edc17af0fa536230a41e43f2fc2454f48e42eb2ad55b871e978d549687e4",
-      "scope": "Retain quick/coalesced stroke distance before approach completes, finish only at local contact, and release ownership; input/completion test additions. Fixture art, hand/tool geometry and composition remain the captured versions."
-    },
-    {
-      "path": "scripts/probe_day_one_pool_cleanup.gd",
-      "capture_source_sha256": "1c029902c5ed50c3e7417405166d4b9bd2910ddec42dcf812b8aea80962b8079",
-      "candidate_source_sha256": "b669445f9d6ff90881adb24de584d7c33b264756b12e4d9597bbb30c1f0403f0",
-      "scope": "Retain quick/coalesced stroke distance before approach completes, finish only at local contact, and release ownership; input/completion test additions. Fixture art, hand/tool geometry and composition remain the captured versions."
-    },
-    {
-      "path": "scripts/main.gd",
-      "capture_source_sha256": "56266448cd3e830891c50aef9b44af6706d22fdadfd19647bb44357519abc9a1",
-      "candidate_source_sha256": "aba659693ed877e2845487b514c64e431d817143cf5c2803705c9f27c79bd256",
-      "scope": "Skip disk rewrites when pool masks/tug counts are unchanged, with 120-frame regression; earned milestones still save immediately. No art, hand/tool geometry, composition or rendering changes."
-    },
-    {
-      "path": "scripts/probe_alpha_milestone_save.gd",
-      "capture_source_sha256": "b632e7e2566d2eb96ae1e244c39e201d83700cad1f9acb6e62ac139cb1f8e4be",
-      "candidate_source_sha256": "a489a5b8221e2c658183ae745ef803c0622889f6791c16c69e190c6f5382ff27",
-      "scope": "Skip disk rewrites when pool masks/tug counts are unchanged, with 120-frame regression; earned milestones still save immediately. No art, hand/tool geometry, composition or rendering changes."
-    }
+    "subsequent_nonvisual_changes": [
+      {
+        "path": "scripts/games/dust_boss.gd",
+        "capture_source_sha256": "788282860b78322f5624bec1df67374598cba2fbf3a45d79e2736cebc28e0ad2",
+        "candidate_source_sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+        "scope": "Malformed/non-finite additive boss-save checkpoint type guard and corresponding regression; no art/pool geometry, composition or rendering change."
+      },
+      {
+        "path": "scripts/probe_dust_boss.gd",
+        "capture_source_sha256": "69476b1c1f575c6fd592137df80d6e300773ffba2c02cab2c39db372aafe201d",
+        "candidate_source_sha256": "1a8640957f477ac4756e08b5fdfc37a1ef70608124c43229a2896e968461fee3",
+        "scope": "Malformed/non-finite additive boss-save checkpoint type guard and corresponding regression; no art/pool geometry, composition or rendering change."
+      },
+      {
+        "path": "scripts/games/pool_waterfall_activity.gd",
+        "capture_source_sha256": "c92746620c5fae3c5b9ad2fe36db668118cda3068bac8a2ee8304d26c66b3758",
+        "candidate_source_sha256": "1374edc17af0fa536230a41e43f2fc2454f48e42eb2ad55b871e978d549687e4",
+        "scope": "Retain quick/coalesced stroke distance before approach completes, finish only at local contact, and release ownership; input/completion test additions. Fixture art, hand/tool geometry and composition remain the captured versions."
+      },
+      {
+        "path": "scripts/probe_day_one_pool_cleanup.gd",
+        "capture_source_sha256": "1c029902c5ed50c3e7417405166d4b9bd2910ddec42dcf812b8aea80962b8079",
+        "candidate_source_sha256": "b669445f9d6ff90881adb24de584d7c33b264756b12e4d9597bbb30c1f0403f0",
+        "scope": "Retain quick/coalesced stroke distance before approach completes, finish only at local contact, and release ownership; input/completion test additions. Fixture art, hand/tool geometry and composition remain the captured versions."
+      },
+      {
+        "path": "scripts/main.gd",
+        "capture_source_sha256": "56266448cd3e830891c50aef9b44af6706d22fdadfd19647bb44357519abc9a1",
+        "candidate_source_sha256": "aba659693ed877e2845487b514c64e431d817143cf5c2803705c9f27c79bd256",
+        "scope": "Skip disk rewrites when pool masks/tug counts are unchanged, with 120-frame regression; earned milestones still save immediately. No art, hand/tool geometry, composition or rendering changes."
+      },
+      {
+        "path": "scripts/probe_alpha_milestone_save.gd",
+        "capture_source_sha256": "b632e7e2566d2eb96ae1e244c39e201d83700cad1f9acb6e62ac139cb1f8e4be",
+        "candidate_source_sha256": "a489a5b8221e2c658183ae745ef803c0622889f6791c16c69e190c6f5382ff27",
+        "scope": "Skip disk rewrites when pool masks/tug counts are unchanged, with 120-frame regression; earned milestones still save immediately. No art, hand/tool geometry, composition or rendering changes."
+      }
+    ],
+    "note": "Earlier review remains recoverable at repair commit 4b8d89ca. Current six captures refreshed after Rumi/craft-board integration and final save/input guards."
+  },
+  "runtime_asset_sha256": {
+    "assets/characters/rumi/rumi_eight_pose_runtime.png": "44120bbb2b1e60a9ec94e0cf3db7e46e33f564671af986bb42357b8bd59c14d5",
+    "assets/characters/rumi/rumi_pool_idle_swim_atlas.png": "9068a5f6c56e90d57ae9c3219096d6f12bba97a2f6c6ed09175c1bc63f59cb41",
+    "assets/flats/castle/interactions_v2/craft_room_idea_board_sheet.png": "a88d626f5d455c8850f195b7b8ccb0f9ac75680f860a219c297bd8206ab8da03"
+  },
+  "reconciled_parent_commits": [
+    "4b8d89ca726843c09b46ebb4b60e26593fce2399",
+    "08acb0ce529660e79de6784aa4124352798bc4cd"
   ]
 }

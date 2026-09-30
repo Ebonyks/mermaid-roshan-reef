@@ -101,7 +101,7 @@ Roshan handoff revision (2026-09-13): [video-first execution](../assets_src/cine
 
 Scoped overnight-film repair (2026-09-12): [fresh rendered-frame audit](OVERNIGHT_RECUT_FRAME_AUDIT_2026-09-12.md) and [impact](../design/audit_impacts/overnight-recut-repairs-20260912.json). The owner requests recognizable big-bunny form, four-helper soapy scrubbing that hides it in bubbles, then the concept friend jumping while the old casing collapses and scatters into dust. Eighteen repair/conditional jobs include original-book Eagle identity and exact Daddy/attic locks. Generated candidates retain explicit missing human opening/delivery acceptance.
 
-Scoped visual repair evidence (2026-09-26): [repair plan](../design/VISUAL_REPAIR_PLAN_2026-09-26.md), [review receipt](visual_polish_2026-09-26/REVIEW.json), and [impact record](../design/audit_impacts/visual-polish-repairs-20260926.json) cover the bounded sprite/occlusion repairs. MA-VIS-006 remains open; Opera native panels, target-device and owner acceptance remain outstanding.
+Scoped visual repair evidence (2026-09-26): [repair plan](../design/VISUAL_REPAIR_PLAN_2026-09-26.md), [review receipt](visual_polish_2026-09-26/REVIEW.json), and [impact record](../design/audit_impacts/visual-polish-repairs-20260926.json) cover the bounded sprite/occlusion repairs. The [September 30 follow-up](../design/audit_impacts/rumi-transparency-20260930.json) addresses residual Rumi tails and craft-board alpha. MA-VIS-006 remains open; Opera native panels, target-device and owner acceptance remain outstanding.
 
 ## Sealed audit snapshot and subsequent round metadata
 

@@ -5154,3 +5154,21 @@ No source art is modified. The images are review-only, excluded from runtime by
 - `audit/evidence/day-one-two-alpha-20260930/art_material_contact.png` — Source: exact Godot 4.7.2 Mobile viewport of owner-controlled Mermaid Roshan project; underlying asset licenses remain in this ledger. Runtime review capture; no pixel edits; no new external asset. Provenance/hash: `audit/evidence/day-one-two-alpha-20260930/mobile_review_receipt.json`.
 - `audit/evidence/day-one-two-alpha-20260930/seahorse_hand_contact.png` — Source: exact Godot 4.7.2 Mobile viewport of owner-controlled Mermaid Roshan project; underlying asset licenses remain in this ledger. Runtime review capture; no pixel edits; no new external asset. Provenance/hash: `audit/evidence/day-one-two-alpha-20260930/mobile_review_receipt.json`.
 - `audit/evidence/day-one-two-alpha-20260930/waterfall_hand_contact.png` — Source: exact Godot 4.7.2 Mobile viewport of owner-controlled Mermaid Roshan project; underlying asset licenses remain in this ledger. Runtime review capture; no pixel edits; no new external asset. Provenance/hash: `audit/evidence/day-one-two-alpha-20260930/mobile_review_receipt.json`.
+
+### Rumi and craft-board follow-up (2026-09-30)
+
+Native Aseprite derivatives under `assets_src/repairs/rumi_transparency_2026-09-30/` preserve approved private-canon Rumi and Castle sources. Source URL: https://github.com/Ebonyks/mermaid-roshan-reef/tree/55032e88936b22723fd9af5282c61ba6696b3d43/assets_src/characters/rumi_2026-08-22 . Same owner-authorized project rights as originals; Rumi remains private playtest only, not public marketing or merchandising.
+
+- `assets_src/repairs/rumi_transparency_2026-09-30/rumi_before.png`: exact pre-repair pose atlas; source hashes in `REPAIR.json`.
+- `assets_src/repairs/rumi_transparency_2026-09-30/rumi_pool_before.png`: exact pre-repair pool atlas; source hashes in `REPAIR.json`.
+- `assets_src/repairs/rumi_transparency_2026-09-30/board_before.png`: exact pre-repair board atlas; source hashes in `REPAIR.json`.
+- `assets_src/repairs/rumi_transparency_2026-09-30/rumi.aseprite`: source-owned contours and complete neighboring-pose tail reuse; hidden original; source hashes in `REPAIR.json`.
+- `assets_src/repairs/rumi_transparency_2026-09-30/rumi_pool.aseprite`: complete idle fins; swimming row unchanged; hidden original; source hashes in `REPAIR.json`.
+- `assets_src/repairs/rumi_transparency_2026-09-30/board.aseprite`: bounded fragment erasure, four-pixel pivot correction and opaque backing restoration with adjacent source color; hidden original; source hashes in `REPAIR.json`.
+- Updated runtime derivatives: `assets/characters/rumi/rumi_eight_pose_runtime.png`, `assets/characters/rumi/rumi_pool_idle_swim_atlas.png`, and `assets/flats/castle/interactions_v2/craft_room_idea_board_sheet.png`; same rights and modifications as native masters.
+- `audit/rumi_transparency_2026-09-30/kitchen.png`: Unmodified Godot Mobile screenshot of the same owner-authorized repository art; source rights unchanged; review evidence only, not production artwork.
+- `audit/rumi_transparency_2026-09-30/craft_room.png`: Unmodified Godot Mobile screenshot of the same owner-authorized repository art; source rights unchanged; review evidence only, not production artwork.
+- `audit/rumi_transparency_2026-09-30/rumi_pool.png`: Unmodified Godot Mobile screenshot of the same owner-authorized repository art; source rights unchanged; review evidence only, not production artwork.
+- `audit/rumi_transparency_2026-09-30/extended_fixture_overlap.png`: Unmodified Godot Mobile screenshot of the same owner-authorized repository art; source rights unchanged; review evidence only, not production artwork.
+- `audit/rumi_transparency_2026-09-30/rumi_pose0_before_after.png`: Native Aseprite analytical comparison of the same owner-authorized repository art; source rights unchanged; review evidence only, not production artwork.
+- `audit/rumi_transparency_2026-09-30/board_before_after.png`: Native Aseprite analytical comparison of the same owner-authorized repository art; source rights unchanged; review evidence only, not production artwork.
