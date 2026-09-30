@@ -60,8 +60,8 @@
     },
     {
       "command": "Revision 2 anonymous fetch of MANIFEST.json and every listed file at the pushed revision-2 commit",
-      "result": "PENDING",
-      "evidence": "Revision 2 corrects README wording only; recorded after publication."
+      "result": "PASS",
+      "evidence": "Revision 2 published at commit ce9ac9b17d26711b880e0de3b5744fd00dc4e0c7 (https://github.com/Ebonyks/mermaid-roshan-reef/tree/ce9ac9b17d26711b880e0de3b5744fd00dc4e0c7/docs/handoffs/codex_master_audit_refinement_2026-09-30). Anonymous HTTPS fetch from raw.githubusercontent.com with no token at 2026-09-30T16:47:07Z: MANIFEST.json HTTP 200, 3,438 bytes, SHA-256 e316acf42dde0909a0efd492d85417b8d74331fef3945fd89d5cc9c5ceb05968, revision 2; all 13 listed files HTTP 200 with matching byte counts and SHA-256."
     }
   ],
   "acceptance_gaps": "Recommendations only. The owner answers to questions Q1-Q8, Codex implementation of every work package, and all visual, device, child and owner acceptance remain open. The game-wide audit stays IN_PROGRESS / UNSATISFIED."
