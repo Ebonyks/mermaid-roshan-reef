@@ -135,8 +135,13 @@ func _restore_round_checkpoint() -> void:
 	m.g["db_bumps"] = int(m.g["db_damage_taken"])
 	m.g["db_opening_misses"] = maxi(0, int(m.save_data.get(
 		"dustboss_pending_misses", 0)))
+	var pending_attacks: Variant = m.save_data.get("dustboss_pending_attacks", 0)
+	var attacks: int = 0
+	if typeof(pending_attacks) in [TYPE_INT, TYPE_FLOAT] and is_finite(float(pending_attacks)):
+		attacks = clampi(int(pending_attacks), 0, 3)
 	encounter.configure(EncounterProfile2D.grand_puff(), restored,
-		int(m.g["db_damage_taken"]), int(m.g["db_opening_misses"]))
+		int(m.g["db_damage_taken"]), int(m.g["db_opening_misses"]),
+		attacks)
 	patterns = encounter.patterns
 	if not _lesson_learned("counter"):
 		encounter.profile.counter_seconds = 8.0
@@ -380,6 +385,9 @@ func _begin_attack_tell() -> void:
 	var boss_here := Vector2(float(m.g.get("db_x", 0.0)),
 		float(m.g.get("db_z", 0.0)))
 	encounter.begin_attack(stage.player_local(), boss_here, RADIUS)
+	if encounter.state == BossEncounter2D.State.COUNTER_READY:
+		_begin_counter_opening()
+		return
 	_prepare_telegraph_geometry()
 	m.g["db_attack_hit"] = false
 	_enter_state("tell")
@@ -394,7 +402,8 @@ func _tick_attack_tell(delta: float, tapped: bool) -> void:
 		return
 	# On the first real warning, hold anticipation until she discovers an exit.
 	# Every point outside the shape is valid; the demonstration is not a target.
-	if not _lesson_learned("dodge") and patterns.contains(stage.player_local()) \
+	if (not _lesson_learned("dodge") or encounter.patient_warning()) \
+			and patterns.contains(stage.player_local()) \
 			and patterns.elapsed >= patterns.tell_time * EncounterWarningCue2D.AIM_FRACTION:
 		return
 	encounter.tick_tell(delta)
@@ -459,7 +468,9 @@ func _tick_attack_strike(st: float, tapped: bool) -> void:
 		return
 	if impact == BossEncounter2D.Impact.IGNORED:
 		return
-	_learn_lesson("dodge")
+	m.save_data["dustboss_pending_attacks"] = encounter.completed_attacks
+	_learn_lesson("dodge", false)
+	m._write_save()
 	m.g["db_dodge_help"] = false
 	m.g["db_avoids"] = encounter.avoids
 	m.g["db_dust_charge"] = int(m.g.get("db_dust_charge", 0)) + 1
@@ -574,6 +585,7 @@ func _tick_friends(st: float, fr: Dictionary, tapped: bool) -> void:
 		m.save_data["dustboss_pending_rounds"] = 0
 		m.save_data["dustboss_pending_damage"] = 0
 		m.save_data["dustboss_pending_misses"] = 0
+		m.save_data["dustboss_pending_attacks"] = 0
 		# The normal victory save commits this reset together with rewards.
 		var bumps: int = int(m.g.get("db_bumps", 0))
 		var tier: int = mastery_tier_for_bumps(bumps)
@@ -1004,6 +1016,7 @@ func _on_round_done() -> void:
 	var rounds: int = encounter.completed_rounds
 	m.g["db_hits"] = rounds
 	m.save_data["dustboss_pending_rounds"] = mini(rounds, HP)
+	m.save_data["dustboss_pending_attacks"] = encounter.completed_attacks
 	m.save_data["dustboss_pending_damage"] = int(m.g.get("db_damage_taken", 0))
 	m._write_save()
 	m.g["db_miss_streak"] = 0

@@ -236,7 +236,14 @@ func _voice_path(speaker: String, event: String = "", allow_generic: bool = true
 
 
 func _is_required_day_one_event(event: String) -> bool:
-	return bool(DAY_ONE_REQUIRED_EVENTS.get(event, false))
+	return bool(DAY_ONE_REQUIRED_EVENTS.get(event, false)) or event.begins_with("chapter2_")
+
+func chapter_two_prompt(event: String) -> void:
+	# A completed phase/changed route supersedes its previous instruction. Keep
+	# exact semantic audio on one channel, without queuing obsolete objectives.
+	_stop_active_speech()
+	if not _voice_path("roshan", event, false).is_empty():
+		_say("roshan", event)
 
 func _say(speaker: String, event: String = "", min_gap: float = 0.0) -> void:
 	var event_suffix := event.trim_prefix(speaker + "_")

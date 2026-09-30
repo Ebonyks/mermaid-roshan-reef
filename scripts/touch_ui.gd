@@ -655,6 +655,7 @@ func _notification(what: int) -> void:
 		_flush_parent_save()
 	elif what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		_clear_touch_state()
+		_flush_parent_save()
 		_request_navigation()
 	elif what == NOTIFICATION_WM_CLOSE_REQUEST:
 		_clear_touch_state()

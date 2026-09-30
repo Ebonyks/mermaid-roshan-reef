@@ -103,6 +103,8 @@ func _init() -> void:
 	await _check_brawl_message_cues(main, brawl_audio)
 	_check_dialogue_speech_lifecycle(main)
 
+	_probe_chapter_two_playback(main)
+
 	print("VOICE|result: ", "ALL OK" if bad == 0 else "%d check(s) FAILED" % bad)
 	quit(1 if bad > 0 else 0)
 
@@ -321,3 +323,26 @@ func _check(label: String, ok: bool, detail: String = "") -> void:
 	print("VOICE|%s: %s|%s" % [label, "OK" if ok else "FAIL", detail])
 	if not ok:
 		bad += 1
+
+
+func _probe_chapter_two_playback(main: ReefMain) -> void:
+	var cues: Array[String] = []
+	for entry: Dictionary in ChapterTwoPartyPlan.LIVE_CAREERS:
+		var career: String = String(entry["career"]).replace("_", "")
+		for phase: Dictionary in ChapterTwoCareerSceneAdapter.resolve(career).get("phases", []):
+			cues.append(String(phase["vo"]))
+		cues.append("chapter2_route_" + String(entry["career"]))
+	cues.append("chapter2_party_ready")
+	cues.append("chapter2_ember_clue")
+	var audio: AudioDirector = main._audio_ref()
+	for cue: String in cues:
+		var before: int = main.voice_i
+		audio.chapter_two_prompt(cue)
+		_check_exact_cue(main, cue, before)
+		_check("one speech channel after changed objective " + cue,
+			_playing_pool_count(main) == 1 and audio._required_voice_queue.is_empty())
+	var before_missing: int = main.voice_i
+	audio.chapter_two_prompt("chapter2_missing_negative_fixture")
+	_check("missing exact Day Two cue is silent without generic fallback",
+		main.voice_i == before_missing and _playing_pool_count(main) == 0)
+	main.clear_dialogue()

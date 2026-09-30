@@ -1,6 +1,6 @@
 {
   "id": "CHG-FAIRY-RESTORATION-PROTOTYPE-20260930",
-  "scope": "Owner commission 2026-09-30: isolated true-2D playable prototype for the faerie/butterfly half of castle magic restoration after the Ember King takes the candle. Reuse existing art; connect arborist tree care, fruit harvest, chef preparation, butterfly feeding and gentle flower shooter. No production route/save/reward replacement or second-world ending. Required audio-ledger maintenance changes only picture_garden.ogg runtime reference count 0 to 1 and inventory hash; no audio bytes, grades or human acceptance change. Preserve literal native review-packet bytes and LF hashes for the new source files across Git checkouts.",
+  "scope": "Owner commission 2026-09-30: isolated true-2D playable prototype for the faerie/butterfly half of castle magic restoration after the Ember King takes the candle. Reuse existing art; connect arborist tree care, fruit harvest, chef preparation, butterfly feeding and gentle flower shooter. No production route/save/reward replacement or second-world ending. Required audio-ledger maintenance changes only picture_garden.ogg runtime reference count 0 to 1 and inventory hash against incoming dev; no audio bytes, grades or human acceptance change. Preserve literal native review-packet bytes and LF hashes for the new source files and generator-owned canonical audio CSV across Git checkouts. Preserve subsequent incoming Day One/Two alpha fixes and their separately owned evidence without modifying them.",
   "baseline": "285355eb9e09a29aa4ac53d36874e31419d4674e",
   "rules": [
     "DL-AUTH-05",
@@ -94,6 +94,7 @@
     "assets_src/prototypes/fairy_restoration_2026-09-30/review/08_fountain_restored.png",
     "assets_src/prototypes/fairy_restoration_2026-09-30/review/09_castle_faerie_magic.png",
     "assets_src/prototypes/fairy_restoration_2026-09-30/review/CAPTURE_MANIFEST.json",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/ALPHA_RECONCILIATION_LOG.txt",
     "assets_src/prototypes/fairy_restoration_2026-09-30/review/FOCUSED_PROBE_LOG.txt",
     "assets_src/prototypes/fairy_restoration_2026-09-30/review/HEADLESS_RECHECK_LOG.txt",
     "assets_src/prototypes/fairy_restoration_2026-09-30/review/FULL_CI_INITIAL_LOG.txt",
@@ -176,6 +177,11 @@
       "command": "Git blob byte/hash comparison for the native packet and new code",
       "result": "PASS",
       "evidence": "Pre-publication Git index comparison: all 23 packet/code files are byte-identical to their native/source originals; git diff --cached --check is clean. Raw native transcript spaces are preserved by the scoped packet attribute, and portable source hashes use LF."
+    },
+    {
+      "command": "Reconcile origin/dev b52fc32a2ad676fd9b235c0f3d6f1aba829cea77; exact import, parser/inference, authority/coverage, 844-row audio reproduction and live faerie probe",
+      "result": "PASS",
+      "evidence": "ALPHA_RECONCILIATION_LOG.txt and LOCAL_GATE_RECEIPT.json preserve actual import/audio/probe transcripts. Both tasks' license entries and all incoming alpha runtime, voice, finding-history and existing CI changes are retained. Independent audio output has 844 rows: every value equals incoming dev except picture_garden.ogg runtime_reference_count 0 to 1. Canonical CSV is byte-identical to that reproduced LF output, SHA-256 9a2b99994bb71dc65f0fc8c772707dfe00f88be16474ac84e0c037f19016913e; summary values equal reproduction; scoped CSV eol=lf prevents merge-generated CRLF from breaking its hash. Audio-audit 25 tests pass. DOCAUTH 588/588 and AUDITDEV incoming-parent coverage ALL OK. Exact 4.7.2 import and final live faerie probe exit 0 with no script errors or probe warnings; all 41 art/music/voice hashes remain unchanged. No prototype runtime change or production/protected-asset edit against this incoming parent. Earlier 821-row checks retain their earlier candidate scope; combined-head CI remains required."
     }
   ],
   "acceptance_gaps": "Isolated prototype only. Final sick-tree/cut-fruit/hand-tool artwork, contextual art approval, synthetic-voice listening/intelligibility, production route/save/reward integration, device/child/owner acceptance and game-wide strict-zero 2D acceptance remain open. Exact new spoken cues are additive assets outside protected voices. No protected original changes, cinematics or paid commission."

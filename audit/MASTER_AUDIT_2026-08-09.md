@@ -89,6 +89,8 @@ Scoped Day One Grok Handoff 2: [footage audit](GROK_HANDOFF_2_FOOTAGE_AUDIT_2026
 
 Scoped Grok builder consolidation (2026-09-14): [single project database](../assets_src/cinematics/grok_builder_2026-09-14/README.md) and [impact](../design/audit_impacts/grok-builder-20260914.json). Character/location/event state and missing-shot planning are unified; MA-VIS-006 and all cinematic delivery gates remain open.
 
+Scoped Day One/Two alpha repair (2026-09-30): [impact and acceptance limits](../design/audit_impacts/day-one-two-alpha-20260930.json). Baseline `55032e88936b22723fd9af5282c61ba6696b3d43`; save, targeting, patient input-required assistance, Back, contact work and exact speech are bounded repairs. Current CI findings now distinguish repaired Day One coverage from remaining Chapter Two/game-wide acceptance. Overall `UNSATISFIED` remains unchanged.
+
 <!-- AUDIT_TASK_INDEX_END -->
 
 Scoped faerie restoration prototype (2026-09-30): [commission, reuse shortlist and playable review](../design/FAIRY_RESTORATION_PROTOTYPE_2026-09-30.md), [impact](../design/audit_impacts/fairy-restoration-prototype-20260930.json). Isolated true-2D arborist/harvest/chef/picnic/flower-shooter loop for the faerie half of castle magic; production chapter saves/routes/rewards, second-world ending, device/child/owner acceptance and game-wide finding states remain unchanged.

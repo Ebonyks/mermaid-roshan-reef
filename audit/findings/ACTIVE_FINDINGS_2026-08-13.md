@@ -268,7 +268,7 @@ device, child, human, or owner acceptance.
 | acceptance | Every required objective communicates the exact action without reading, with authorized identity, correct playback, device intelligibility, and observed child comprehension. |
 | closure | Blocked as of 2026-08-13; recordings/approved alternative, device/child evidence, commit, and closure date are missing. |
 | relationships | Includes specific unresolved cases `MA-ACCESS-002` and `MA-ACCESS-003`; audio mix evidence also relates to `MA-AUDIO-001`. |
-| history | 2026-08-09: blocked exact-voice coverage indexed. 2026-08-13: no authorization or substitute evidence supplied; lifecycle unchanged. 2026-09-06: the Family Evening dinner, movie and bedtime objectives were added with the generic `talk` acknowledgement rather than exact semantic instructions; no protected recording authorization or independently sufficient diegetic substitute exists, so the blocker now explicitly includes those routes. |
+| history | 2026-08-09: blocked exact-voice coverage indexed. 2026-08-13: no authorization or substitute evidence supplied; lifecycle unchanged. 2026-09-06: the Family Evening dinner, movie and bedtime objectives were added with the generic `talk` acknowledgement rather than exact semantic instructions; no protected recording authorization or independently sufficient diegetic substitute exists, so the blocker now explicitly includes those routes. 2026-09-30: owner-approved Day One/Two alpha repair inventories existing semantic audio, binds truthful reused career recordings and a separately generated provisional synthetic cohort to missing Chapter Two phases and room routes, and prevents stale instructions across phase changes. Protected recordings remain unchanged; machine selection is distinct from target-device listening, child comprehension and owner acceptance. |
 
 ## MA-ACCESS-002
 
@@ -728,7 +728,7 @@ device, child, human, or owner acceptance.
 | acceptance | Every applicable job has before/during/after runtime evidence showing travel, arrival, meaningful hand/tool action, then completion in that order. Record target coordinates, approach/contact radius, action state and completion time. No detached tool or reward-only probe substitutes for Roshan doing the work. All named cases pass and device/child/owner review is accepted. |
 | closure | Open: pool repair candidate is not game-wide closure. Bathtub, craft-room, baby-eagle, remaining pool work and equivalent jobs require their own implementation/evidence; target-phone and owner acceptance are outstanding. |
 | relationships | Complements `MA-PLAY-003` route/arrival geometry; extends `MA-PLAY-001` reachability and `MA-VIS-006` truthful visual interaction; related touch and child gates remain independent. |
-| history | 2026-09-06: owner reported the skimmer oversight and requested a game-wide master-audit requirement; source confirmed, pool repair begun, named follow-on cases explicitly retained. 2026-09-09: owner commissioned an additional toilet scrub; the new stage includes approach, hand-anchored brush contact and intentional gesture/save probes in [scoped evidence](../../design/audit_impacts/2026-09-09-day-one-toilet-clean.json). Device/child/owner acceptance remains pending and the other bathroom/job cases are not closed. 2026-09-12: the toilet follow-up automatically stages Roshan at the bowl before presenting the existing circle cue; arrival still awards no cleaning, and deliberate local scrub remains required. [Scoped evidence](../../design/audit_impacts/day-one-usability-fixes-20260912.json) preserves the other embodied-job and external acceptance gaps. |
+| history | 2026-09-06: owner reported the skimmer oversight and requested a game-wide master-audit requirement; source confirmed, pool repair begun, named follow-on cases explicitly retained. 2026-09-09: owner commissioned an additional toilet scrub; the new stage includes approach, hand-anchored brush contact and intentional gesture/save probes in [scoped evidence](../../design/audit_impacts/2026-09-09-day-one-toilet-clean.json). Device/child/owner acceptance remains pending and the other bathroom/job cases are not closed. 2026-09-12: the toilet follow-up automatically stages Roshan at the bowl before presenting the existing circle cue; arrival still awards no cleaning, and deliberate local scrub remains required. [Scoped evidence](../../design/audit_impacts/day-one-usability-fixes-20260912.json) preserves the other embodied-job and external acceptance gaps. 2026-09-30: remaining art material/grime and pool waterfall/seahorse requests gain a shared temporary Canvas travel/contact/work gate using the existing approved directional cutout and hand socket. Durable state remains on main. Six source-bound exact-Godot Mobile desktop captures in `audit/evidence/day-one-two-alpha-20260930/mobile_review_receipt.json` pass scoped agent inspection. Physical device, child and owner acceptance remain required; no lifecycle closure is claimed. |
 
 ## MA-COMBAT-001
 
@@ -889,7 +889,7 @@ device, child, human, or owner acceptance.
 | acceptance | Every ledger row has a final disposition; required voices pass exact semantics, identity, intelligibility, child comprehension, and teardown; all 42 new scores pass two-wrap/style review; the full mix passes mono, transitions, music-off, M11, older-phone, and performance review while machine evidence remains exact. |
 | closure | Pending as of 2026-08-13; human/device listening evidence, accepted result, closure commit, and date are missing. |
 | relationships | Exact objective voice gaps are `MA-ACCESS-001` through `003`; aggregate release gate is `MA-RELEASE-001`. |
-| history | 2026-08-12: deterministic 42/42 repair and remote Windows verification completed. 2026-08-13: exact-head Windows remains 42/42; lifecycle stays `FIXED_PENDING_VERIFICATION` for listening/device evidence. 2026-08-24: Luna-led 301-file baseline and 303-file final ledger extend the finding game-wide; six bounded repairs land without altering protected bytes, while subjective/device/child gates and documented candidates remain open. |
+| history | 2026-08-12: deterministic 42/42 repair and remote Windows verification completed. 2026-08-13: exact-head Windows remains 42/42; lifecycle stays `FIXED_PENDING_VERIFICATION` for listening/device evidence. 2026-08-24: Luna-led 301-file baseline and 303-file final ledger extend the finding game-wide; six bounded repairs land without altering protected bytes, while subjective/device/child gates and documented candidates remain open. 2026-09-30: the Day One/Two alpha repair appends 23 independently selected synthetic Chapter Two phase/route/story cues, extends frozen-catalog authority validation, and refreshes the complete audio ledger. The cohort records exact semantic, pitch and signal checks plus preserved prior cohorts and 690 unchanged existing audio files. New speech remains provisional pending listening, child and owner acceptance. |
 
 ## MA-CODE-001
 
@@ -935,20 +935,20 @@ device, child, human, or owner acceptance.
 | acceptance | Each confirmed sub-risk has a bounded repair and regression evidence, no speculative caller change is smuggled in, and state/input/save/render contracts remain green. |
 | closure | Open as of 2026-08-13; sub-risk decomposition and repairs are incomplete, with no aggregate acceptance result, closure commit, or date. |
 | relationships | Companion to size finding `MA-CODE-001`; save/release risk affects `MA-RELEASE-001`; remaining 3D glue contributes to `MA-2D-002`; Chef caller exclusion relates to `MA-OPERA-001`. |
-| history | 2026-08-09: grouped structural risks confirmed. 2026-08-12: speculative Chef caller hardening explicitly excluded. 2026-08-13: lifecycle remains `CONFIRMED_OPEN`. 2026-08-26: the code-refinement round re-measures the group at `9a1754c1` — 409 distinct string state keys, eight verbatim pointer-glyph copies, three `_action_pressed` copies, roughly 280 cross-module calls into main-side private builder helpers, and 38 probe-private `_frames` helpers — and carves bounded sub-findings `MA-CODE-003`, `MA-CODE-004`, `MA-PERF-002`, `MA-SAVE-001`, and `MA-CI-007` out of this group per its own fix plan; the residual group stays `CONFIRMED_OPEN` for what remains. |
+| history | 2026-08-09: grouped structural risks confirmed. 2026-08-12: speculative Chef caller hardening explicitly excluded. 2026-08-13: lifecycle remains `CONFIRMED_OPEN`. 2026-08-26: the code-refinement round re-measures the group at `9a1754c1` — 409 distinct string state keys, eight verbatim pointer-glyph copies, three `_action_pressed` copies, roughly 280 cross-module calls into main-side private builder helpers, and 38 probe-private `_frames` helpers — and carves bounded sub-findings `MA-CODE-003`, `MA-CODE-004`, `MA-PERF-002`, `MA-SAVE-001`, and `MA-CI-007` out of this group per its own fix plan; the residual group stays `CONFIRMED_OPEN` for what remains. 2026-09-30: bounded alpha repairs make visible Day One/Two milestones durable immediately, preserve earned Grand Puff attack steps with input-required assistance, and define non-quitting Back plus live-fight suspension. Main remains the state owner and shrinks from 9,826 to 9,817 lines. Broader structure enforcement and architecture work remain open. |
 
 ## MA-CI-004
 
 | Field | Value |
 |---|---|
 | id | `MA-CI-004` |
-| title | The Day One wing and start-menu routing ship with eight dedicated probes, none of which runs in either trusted roster. |
+| title | Day One and start-menu probes are now gated; mutation and release evidence remain incomplete. |
 | rule_ids | `DL-CODE-10`, `DL-QA-02`, `DL-QA-07`, `DL-SAVE-05` |
 | domain / zone | CI and release evidence / Day One wing, start menu, mermaid pool, art studio |
 | source | 2026-08-26 code-refinement round roster cross-check at integration head `9a1754c1`. |
 | severity | P1 |
 | lifecycle | `CONFIRMED_OPEN` |
-| verification | V1: roster absence is exact; the ungated probes' own health is unassessed. |
+| verification | 2026-09-30 source review: current local/remote rosters include deterministic Day One and start-menu probes; capture probes retain separate advisory classification. Original absence at `9a1754c1` is historical evidence. |
 | reproduction | At `9a1754c1`, list `scripts/probe_day_one_*.gd` plus `scripts/probe_start_menu_routing.gd` (eight files), then search the trusted loops in `scripts/ci.sh` and `.github/workflows/probes.yml`; zero of the eight appear in either roster, so no push can fail on a Day One or fresh-save-routing regression. |
 | child_impact | Day One is the fresh-save entry arc — the first thing the child meets after New Game. A routing, cleanup, or reward regression there ships without any gate noticing. |
 | evidence | `scripts/probe_day_one_art_attack_state.gd`, `probe_day_one_art_studio_shots.gd`, `probe_day_one_castle_dressing.gd`, `probe_day_one_director.gd`, `probe_day_one_integration.gd`, `probe_day_one_pool_cleanup.gd`, `probe_day_one_pool_shots.gd`, `probe_start_menu_routing.gd`; trusted rosters in `scripts/ci.sh` and `.github/workflows/probes.yml` contain none of them; `scripts/main.gd:3763` `_launch_from_start_menu` routes New Game into Day One. |
@@ -956,22 +956,22 @@ device, child, human, or owner acceptance.
 | fix | Classify the eight probes per master audit section 11.2; promote the deterministic non-capture ones (at minimum `probe_day_one_director`, `probe_day_one_integration`, `probe_day_one_pool_cleanup`, `probe_start_menu_routing`) into both trusted rosters; capture-style probes become `ADVISORY_CAPTURE`. |
 | surrounding_tests | Each promoted probe runs green three consecutive times locally before promotion; full suite before/after; roster parity check between `ci.sh` and `probes.yml`. |
 | acceptance | Both rosters carry the promoted probes, a deliberately injected Day One routing break turns the gate red, and suite wall time stays inside the workflow ceiling. |
-| closure | Open as of 2026-08-26; no roster change exists. |
+| closure | Still open: roster presence is repaired, but the original mutation, repeated-run and exact-release acceptance is not fully established. |
 | relationships | Decomposes release risk from `MA-RELEASE-001`; complements `MA-CI-003` classification and `MA-CI-005` passive coverage. |
-| history | 2026-08-26: confirmed by roster cross-check; opened `CONFIRMED_OPEN`. |
+| history | 2026-08-26: confirmed by roster cross-check; opened `CONFIRMED_OPEN`. 2026-09-30: refreshed against `55032e88936b22723fd9af5282c61ba6696b3d43`; current Day One gates supersede the roster-absence premise. The alpha repair also adds the three existing Chapter Two probes, abrupt-milestone save checks, and patient Grand Puff controls to both blocking rosters. No broad finding closure is claimed. |
 
 ## MA-CI-005
 
 | Field | Value |
 |---|---|
 | id | `MA-CI-005` |
-| title | The central zero-input negative probe snapshots only pearls, trophies, stickers, and medals, so a passive award in Opera, combat, castle interactions, or Day One is invisible to it. |
+| title | Central passive snapshots cover Day One and Chapter Two; remaining game-wide completion coverage still needs reconciliation. |
 | rule_ids | `DL-AGE-04`, `DL-CODE-10`, `DL-QA-02` |
 | domain / zone | CI negative coverage / `scripts/probe_passive.gd` game-wide |
 | source | 2026-08-26 code-refinement round probe-content audit at integration head `9a1754c1`. |
 | severity | P1 |
 | lifecycle | `CONFIRMED_OPEN` |
-| verification | V1: snapshot field list and per-mode idle checks are read exactly; no runtime demonstration of a slipped award exists. |
+| verification | 2026-09-30: current Day One fields were already covered at `55032e8`. The alpha repair adds every serialized Chapter Two field plus a mutation test for each field. Remaining Opera/combat/castle/Family Evening acceptance remains open. |
 | reproduction | At `9a1754c1`, read `scripts/probe_passive.gd` `_progress_snapshot()` — it reads `pearl_count`, `trophies`, `stickers`, `medals` (with shop/animal ownership) and never `opera_stars`, `opera_progress`, combat completion fields, `stuffie_wins`, castle interaction milestones, or Day One state; the file's mode coverage is the five friend games, shop, slide, fairy, and brawl. Newer modes carry their own opt-in idle assertions inside their own probes, which a brand-new mode does not inherit. |
 | child_impact | The no-fail promise's enforcement arm is the passive probe; a future mercy or assist feature that quietly awards progress for watching would ship ungated in every mode the snapshot does not cover. |
 | evidence | `scripts/probe_passive.gd` (snapshot function and mode list; three total references matching opera/combat/dungeon/stuffie/castle); distributed idle checks exist in `probe_opera.gd`, `probe_opera_2d.gd`, `probe_combat.gd`, `probe_stuffie.gd`, `probe_living_world.gd` but are opt-in per probe. |
@@ -981,7 +981,7 @@ device, child, human, or owner acceptance.
 | acceptance | The snapshot covers every save-backed reward surface at the audited commit, the mutation test fails closed for each section, and the rule is recorded in the probe header. |
 | closure | Open as of 2026-08-26; snapshot unchanged. |
 | relationships | Enforces the same invariant family as `MA-CI-004`; classification context is `MA-CI-003`. |
-| history | 2026-08-26: confirmed by probe-content read; opened `CONFIRMED_OPEN`. 2026-09-06: Family Evening added save-backed completion and reward state, but `probe_ui_system.gd` checks normalization/source presence only and neither drives a zero-input no-award leg nor extends the central passive snapshot; lifecycle remains `CONFIRMED_OPEN`. |
+| history | 2026-08-26: confirmed by probe-content read; opened `CONFIRMED_OPEN`. 2026-09-06: Family Evening added save-backed completion and reward state, but `probe_ui_system.gd` checks normalization/source presence only and neither drives a zero-input no-award leg nor extends the central passive snapshot; lifecycle remains `CONFIRMED_OPEN`. 2026-09-30: preserved the August baseline reproduction as history and corrected the present-tense snapshot claim. Chapter Two serialization and mutation checks are added; this scoped improvement does not close the wider mode-coverage finding. |
 
 ## MA-CODE-003
 

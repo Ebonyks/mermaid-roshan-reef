@@ -22,6 +22,8 @@ const MIN_DRAG_DISTANCE := 4.0
 const LANE_GUTTER := 24.0
 const TOOL_SIZE := 72.0
 const SCRUBBER_CONTACT_OFFSET := Vector2(22.0, 22.0)
+# Measured pink handle centre in the approved 1024px tool at TOOL_SIZE 72.
+const SCRUBBER_GRIP_OFFSET := Vector2(39.0, 38.0)
 
 var fixture_center := Vector2.ZERO
 var fixture_size := Vector2.ZERO
@@ -35,6 +37,7 @@ var _lane_revealing: Array[bool] = [false, false, false]
 var _clear_mask: int = 0
 var _active := false
 var _completed_emitted := false
+var _contact_action: DayOneContactAction2D
 var _touch_active := false
 var _touch_id := -1
 var _touch_lane := -1
@@ -77,6 +80,12 @@ func setup(fixture_center: Vector2, fixture_size: Vector2,
 	queue_redraw()
 
 
+func bind_room_actor(actor: Sprite2D, shadow: Sprite2D, skin: String) -> void:
+	_contact_action = DayOneContactAction2D.new()
+	add_child(_contact_action)
+	_contact_action.bind(actor, shadow, skin)
+
+
 func start() -> void:
 	_active = true
 	mouse_filter = Control.MOUSE_FILTER_STOP
@@ -89,6 +98,8 @@ func start() -> void:
 
 
 func stop() -> void:
+	if _contact_action != null:
+		_contact_action.cancel()
 	_active = false
 	_cancel_touch(false)
 	set_process(false)
@@ -97,6 +108,8 @@ func stop() -> void:
 
 
 func cancel_touch() -> void:
+	if _contact_action != null:
+		_contact_action.cancel()
 	_cancel_touch(true)
 
 
@@ -143,6 +156,8 @@ func _process(delta: float) -> void:
 	if not _active:
 		return
 	_pulse_time += maxf(delta, 0.0)
+	if _contact_action != null and _contact_action.active:
+		_show_scrubber(_contact_action.hand_point() - SCRUBBER_GRIP_OFFSET)
 	if _wash_overlay != null and is_instance_valid(_wash_overlay):
 		_wash_overlay.queue_redraw()
 
@@ -152,7 +167,10 @@ func _gui_input(event: InputEvent) -> void:
 		return
 	if event is InputEventScreenTouch:
 		var touch := event as InputEventScreenTouch
-		if touch.pressed:
+		if touch.canceled:
+			if _touch_active and touch.index == _touch_id:
+				cancel_touch()
+		elif touch.pressed:
 			_begin_touch(touch.position, touch.index)
 		else:
 			_end_touch(touch.position, touch.index)
@@ -176,7 +194,8 @@ func _gui_input(event: InputEvent) -> void:
 
 
 func _begin_touch(point: Vector2, touch_id: int) -> void:
-	_cancel_touch(false)
+	if _touch_active or (_contact_action != null and _contact_action.active):
+		return
 	_touch_active = true
 	_touch_id = touch_id
 	_touch_lane = _lane_at(point)
@@ -186,6 +205,8 @@ func _begin_touch(point: Vector2, touch_id: int) -> void:
 	if _touch_lane >= 0:
 		_hint_lane = _touch_lane
 		_show_scrubber(point)
+		if _contact_action != null and _contact_action.available():
+			_contact_action.request(point + SCRUBBER_GRIP_OFFSET)
 	else:
 		_hint_lane = _first_uncleared_lane()
 		_hide_scrubber()
@@ -200,9 +221,16 @@ func _update_touch(point: Vector2, touch_id: int) -> void:
 	if _touch_lane < 0:
 		queue_redraw()
 		return
-	_show_scrubber(point)
 	if delta.y > 0.0:
 		_touch_travel = maxf(_touch_travel, point.y - _touch_start.y)
+	if _contact_action != null and _contact_action.available():
+		_contact_action.follow(point + SCRUBBER_GRIP_OFFSET)
+		_show_scrubber(_contact_action.hand_point() - SCRUBBER_GRIP_OFFSET)
+		if _contact_action.hand_point().distance_to(point + SCRUBBER_GRIP_OFFSET) > 24.0:
+			return
+	else:
+		_show_scrubber(point)
+	if delta.y > 0.0:
 		var track_length := maxf(fixture_size.y * 0.78, 1.0)
 		var drag_amount := _touch_travel / track_length
 		# A pass can begin anywhere on the broad strip; a downward stroke to
@@ -219,17 +247,36 @@ func _end_touch(point: Vector2, touch_id: int) -> void:
 		return
 	if _touch_lane >= 0:
 		var moved_down := point.y - _touch_start.y
+		_touch_travel = maxf(_touch_travel, moved_down)
 		if moved_down < DRAG_START_DISTANCE:
 			# A tap is a gentle snap-assist, never a penalty or a reset.
-			_advance_lane(_touch_lane, TAP_ASSIST)
+			if _contact_action != null and _contact_action.available():
+				_contact_action.arm(Callable(self, "_finish_tap_lane").bind(_touch_lane))
+			else:
+				_advance_lane(_touch_lane, TAP_ASSIST)
 		elif _touch_travel < MIN_DRAG_DISTANCE:
 			_hint_lane = _touch_lane
+		elif _contact_action != null and _contact_action.available():
+			var amount: float = _touch_travel / maxf(fixture_size.y * 0.78, 1.0)
+			_contact_action.arm(Callable(self, "_finish_drag_lane").bind(_touch_lane, amount))
 	else:
 		_hint_lane = _first_uncleared_lane()
 	_cancel_touch(false)
+	if _contact_action != null and _contact_action.active:
+		_show_scrubber(_contact_action.hand_point() - SCRUBBER_GRIP_OFFSET)
 	_hint_lane = _first_uncleared_lane() if _hint_lane < 0 \
 		else _hint_lane
 	queue_redraw()
+
+
+func _finish_tap_lane(lane: int) -> void:
+	_advance_lane(lane, TAP_ASSIST)
+	_hide_scrubber()
+
+
+func _finish_drag_lane(lane: int, amount: float) -> void:
+	_advance_lane(lane, amount)
+	_hide_scrubber()
 
 
 func _cancel_touch(rehint: bool) -> void:
@@ -289,7 +336,7 @@ func _build_scrubber() -> void:
 	_scrubber = Sprite2D.new()
 	_scrubber.name = "WaterfallScrubberTool"
 	_scrubber.texture = _scrubber_texture
-	_scrubber.z_index = 12
+	_scrubber.z_index = 501 # Above the temporary action actor, at the held handle.
 	_scrubber.modulate = Color(0.86, 0.91, 0.88, 0.98)
 	_scrubber.visible = false
 	if _scrubber_texture != null:
@@ -319,7 +366,7 @@ func _show_scrubber(point: Vector2) -> void:
 	# Register the broad blade to the touch instead of floating the cutout's
 	# center over the grime.
 	_scrubber.position = point + SCRUBBER_CONTACT_OFFSET
-	_scrubber.rotation = clampf(
+	_scrubber.rotation = 0.0 if _contact_action != null and _contact_action.available() else clampf(
 		(point.y - _touch_start.y) * 0.0015, -0.18, 0.18)
 	_scrubber.visible = true
 

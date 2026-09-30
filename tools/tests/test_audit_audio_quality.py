@@ -16,6 +16,26 @@ SPEC.loader.exec_module(MODULE)
 
 
 class AudioQualityPolicyTests(unittest.TestCase):
+    def test_day_two_catalog_adds_exact_authority_and_rejects_conflicts(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "tools").mkdir()
+            (root / "audit").mkdir()
+            (root / "tools" / "make_voices.py").write_text(
+                "LINES = {'roshan_existing': ('roshan', 'Keep this exact line.')}\n",
+                encoding="utf-8")
+            catalog = root / "audit" / "CHAPTER_TWO_VOICE_COVERAGE_2026-09-30.json"
+            row = {"audio_path": "assets/audio/voices/filler_v1/roshan_chapter2_test.ogg",
+                   "caption": "Tap the cake!"}
+            catalog.write_text(json.dumps({"rows": [row]}), encoding="utf-8")
+            authority = MODULE.authoritative_filler_lines(root)
+            self.assertEqual(authority["roshan_chapter2_test"], ("roshan", "Tap the cake!"))
+            self.assertEqual(authority["roshan_existing"], ("roshan", "Keep this exact line."))
+            row["audio_path"] = "assets/audio/voices/filler_v1/roshan_existing.ogg"
+            catalog.write_text(json.dumps({"rows": [row]}), encoding="utf-8")
+            with self.assertRaisesRegex(RuntimeError, "authority conflicts"):
+                MODULE.authoritative_filler_lines(root)
+
     def test_source_hash_is_stable_across_checkout_line_endings(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "tool.py"
