@@ -1,0 +1,375 @@
+DOCAUTH|INVENTORY=586|LEDGER=586|ACTIVE=56|RECORDS=58
+DOCAUTH|RESULT|ALL OK
+AUDITDEV|BASE|17817d1f24320c06778952fede81b7f3f3f69e75
+AUDITDEV|RESULT|ALL OK
+GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0
+GAME2D| STATUS| UNSATISFIED
+GAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED
+=== probe_day_one_story_clips ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DAY_ONE_STORY_CLIPS|manifest lists the 13 story clips in story order: OK
+DAY_ONE_STORY_CLIPS|every story clip exists at its manifest path: OK
+DAY_ONE_STORY_CLIPS|the opening is the 30-second introduction to the game: OK
+DAY_ONE_STORY_CLIPS|unknown and traversal ids fail open: OK
+DAY_ONE_STORY_CLIPS|headless runs stay deterministic unless a probe opts in: OK
+DAY_ONE_STORY_CLIPS|every clip is an owner-directed runtime clip, never delivery-accepted: OK
+DAY_ONE_STORY_CLIPS|every story moment is wired to its clip: OK
+DAY_ONE_STORY_CLIPS|the global Back control remains a skip route: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|double-tap fixture plays the real movie: OK
+DAY_ONE_STORY_CLIPS|one touch tap keeps the movie and game pause: OK
+DAY_ONE_STORY_CLIPS|emulated mouse does not duplicate a physical tap: OK
+DAY_ONE_STORY_CLIPS|two short touch taps skip and restore gameplay once: OK
+DAY_ONE_STORY_CLIPS|double-tap followed by Back cannot finish twice: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|separated taps do not skip: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|two distant taps do not skip: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|a hold followed by a tap does not skip: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|drag and return followed by a tap do not skip: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|two simultaneous fingers followed by one tap do not skip: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|canceled touch clears the first tap: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|focus loss suppresses movie skip input: OK
+DAY_ONE_STORY_CLIPS|focus return starts a fresh tap pair: OK
+DAY_ONE_STORY_CLIPS|a fresh double tap works after focus return: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|backgrounding suppresses movie skip input: OK
+DAY_ONE_STORY_CLIPS|app resume clears the earlier tap: OK
+DAY_ONE_STORY_CLIPS|a fresh double tap works after app resume: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|one mouse click keeps the movie: OK
+DAY_ONE_STORY_CLIPS|two mouse clicks skip the movie: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|the next movie does not inherit the previous tap: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|skip preserves a caller that was already paused: OK
+DAY_ONE_STORY_CLIPS|skip case sets up a real OGV: OK
+DAY_ONE_STORY_CLIPS|viewport-dispatched single tap keeps the story: OK
+DAY_ONE_STORY_CLIPS|viewport double-tap release is consumed before resume: OK
+DAY_ONE_STORY_CLIPS|a missing clip fails open and leaves a paused tree paused: OK
+DAY_ONE_STORY_CLIPS|a real clip sets up and pauses the game behind it: OK
+DAY_ONE_STORY_CLIPS|the real OGV begins playback: OK
+DAY_ONE_STORY_CLIPS|skip is once-only and restores the unpaused game: OK
+DAY_ONE_STORY_CLIPS|the boss-defeated hook plays the transformation clip: OK
+DAY_ONE_STORY_CLIPS|the Day Two hook queues the epilogue behind it: OK
+DAY_ONE_STORY_CLIPS|the Day Two card waits for the story: OK
+DAY_ONE_STORY_CLIPS|Back hands the story over to the queued epilogue: OK
+DAY_ONE_STORY_CLIPS|after the epilogue the Day Two card is shown: OK
+DAY_ONE_STORY_CLIPS|a story clip never replays on the same save: OK
+DAY_ONE_STORY_CLIPS|watched clips persist in the save: OK
+DAY_ONE_STORY_CLIPS|Grand Puff stays visible and ends without imploding: OK
+DAY_ONE_STORY_CLIPS|the rainbow friend stays hidden until Grand Puff is befriended: OK
+DAY_ONE_STORY_CLIPS|the rainbow dust bunny follows Roshan on the side opposite Baby Eagle: OK
+DAY_ONE_STORY_CLIPS|RESULT: PASS failures=0
+PROBE probe_day_one_story_clips process exit: 0
+=== probe_day_one_handoffs ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DAY_ONE_HANDOFFS|mermaid_pool route cue builds: OK
+DAY_ONE_HANDOFFS|mermaid_pool completion creates no forward overlay: OK
+DAY_ONE_HANDOFFS|global Back stays upper left with a generous target: OK
+DAY_ONE_HANDOFFS|route target remains internal, not button metadata: OK
+DAY_ONE_HANDOFFS|completion supplies a short hall-and-door cue: OK
+DAY_ONE_HANDOFFS|Back returns to the hall instead of advancing: OK
+DAY_ONE_HANDOFFS|cue teardown preserves the sole global control: OK
+DAY_ONE_HANDOFFS|playroom route cue builds: OK
+DAY_ONE_HANDOFFS|playroom completion creates no forward overlay: OK
+DAY_ONE_HANDOFFS|global Back stays upper left with a generous target: OK
+DAY_ONE_HANDOFFS|route target remains internal, not button metadata: OK
+DAY_ONE_HANDOFFS|completion supplies a short hall-and-door cue: OK
+DAY_ONE_HANDOFFS|Back returns to the hall instead of advancing: OK
+DAY_ONE_HANDOFFS|cue teardown preserves the sole global control: OK
+DAY_ONE_HANDOFFS|craft_room route cue builds: OK
+DAY_ONE_HANDOFFS|craft_room completion creates no forward overlay: OK
+DAY_ONE_HANDOFFS|global Back stays upper left with a generous target: OK
+DAY_ONE_HANDOFFS|route target remains internal, not button metadata: OK
+DAY_ONE_HANDOFFS|completion supplies a short hall-and-door cue: OK
+DAY_ONE_HANDOFFS|Back returns to the hall instead of advancing: OK
+DAY_ONE_HANDOFFS|cue teardown preserves the sole global control: OK
+DAY_ONE_HANDOFFS|__royal_hall route cue builds: OK
+DAY_ONE_HANDOFFS|__royal_hall completion creates no forward overlay: OK
+DAY_ONE_HANDOFFS|global Back stays upper left with a generous target: OK
+DAY_ONE_HANDOFFS|route target remains internal, not button metadata: OK
+DAY_ONE_HANDOFFS|completion supplies a short hall-and-door cue: OK
+DAY_ONE_HANDOFFS|Back returns to the hall instead of advancing: OK
+DAY_ONE_HANDOFFS|cue teardown preserves the sole global control: OK
+DAY_ONE_HANDOFFS|RESULT: PASS failures=0
+PROBE probe_day_one_handoffs process exit: 0
+=== probe_dust_boss ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DUSTBOSS|jump warning starts underneath Grand Puff: OK
+DUSTBOSS|jump warning arrives before lock flashes: OK
+DUSTBOSS|locked marker never chases later actor positions: OK
+DUSTBOSS|three distinct lock flashes precede a steady launched warning: OK
+DUSTBOSS|only the third flash changes to the launch colour: OK
+DUSTBOSS|every Grand Puff attack leaves time for travel and three lock flashes: OK
+DUSTBOSS|direct launch opens the live boss fight: OK
+DUSTBOSS|malformed additive dodge checkpoint defaults safely <null>: OK
+DUSTBOSS|malformed additive dodge checkpoint defaults safely false: OK
+DUSTBOSS|malformed additive dodge checkpoint defaults safely wrong: OK
+DUSTBOSS|malformed additive dodge checkpoint defaults safely {  }: OK
+DUSTBOSS|malformed additive dodge checkpoint defaults safely []: OK
+DUSTBOSS|malformed additive dodge checkpoint defaults safely inf: OK
+DUSTBOSS|malformed additive dodge checkpoint defaults safely nan: OK
+DUSTBOSS|JSON numeric dodge checkpoint restores earned progress: OK
+DUSTBOSS|fight opens on an input-blocking 2D splash: OK
+DUSTBOSS|Grand Puff splash reserves the gold lesson for real play: OK
+DUSTBOSS|pause freezes splash progression: OK
+DUSTBOSS|floor warnings sit behind actors while gesture cues stay above: OK
+DUSTBOSS|the August 30 dusty room is the input-transparent Canvas background: OK
+DUSTBOSS|shared encounter contract checks pass: OK
+DUSTBOSS|showing follows splash: OK
+DUSTBOSS|unlearned movement waits without a fake gold opening: OK
+DUSTBOSS|encounter uses direct hybrid world touch without an action medallion: OK
+DUSTBOSS|encounter keeps direct classic world touch without an action medallion: OK
+DUSTBOSS|2D floor and screen navigation round-trips 16 arena points: OK
+DUSTBOSS|all 16 edge targets are captured, covered, escapable, and stage-valid in every phase step: OK
+DUSTBOSS|free steering enters live showing: OK
+DUSTBOSS|showing floor press immediately moves Roshan: OK
+DUSTBOSS|showing held finger can freely change direction: OK
+DUSTBOSS|showing second finger cannot steal steering: OK
+DUSTBOSS|showing released finger cannot retarget travel: OK
+DUSTBOSS|showing cancelled gesture cannot restart movement: OK
+DUSTBOSS|single floor tap swims without dash: OK
+DUSTBOSS|nearby second tap starts dash: OK
+DUSTBOSS|dash advances Roshan immediately: OK
+DUSTBOSS|dash remains inside arena: OK
+DUSTBOSS|touch cancellation stops dash and travel: OK
+DUSTBOSS|rapid repeated pairs cannot bypass dash cooldown: OK
+DUSTBOSS|drag followed by tap is not double tap: OK
+DUSTBOSS|expired first tap cannot dash: OK
+DUSTBOSS|dash starts only when ready: OK
+DUSTBOSS|dash is faster than normal swim: OK
+DUSTBOSS|dash lands at destination without overshoot: OK
+DUSTBOSS|burst expires and cooldown recovers: OK
+DUSTBOSS|dash becomes available again: OK
+DUSTBOSS|cancelled navigation has no residual dash: OK
+DUSTBOSS|first warning holds safely for a stationary new player: OK
+DUSTBOSS|floor taps near the old hint do not snap to a prescribed point: OK
+DUSTBOSS|safe ground tap arms real encounter navigation: OK
+DUSTBOSS|landing outline stays locked and has no prescribed safe marker: OK
+DUSTBOSS|storybook dust samples stay on the locked danger boundary: OK
+DUSTBOSS|storybook cues leave no finger overlay or spatial badge: OK
+DUSTBOSS|encounter captions have no tutorial panel: OK
+DUSTBOSS|pause freezes the storybook guidance: OK
+DUSTBOSS|focus loss suspends the live fight without leaving or advancing: OK
+DUSTBOSS|Android Back resumes the same paused fight and never quits: OK
+DUSTBOSS|Android Back pauses the live fight without tearing it down: OK
+DUSTBOSS|safe ground navigation moves the player: OK
+DUSTBOSS|focus or touch cancellation drops encounter destination: OK
+DUSTBOSS|pause cancellation leaves no stale encounter destination: OK
+DUSTBOSS|real first dodge earns a real opening and saves the lesson: OK
+DUSTBOSS|earned dodge is on disk before any save debounce: OK
+DUSTBOSS|zero input takes a harmless bump but cannot damage the boss: OK
+DUSTBOSS|free steering enters live damage_recovery: OK
+DUSTBOSS|damage_recovery floor press immediately moves Roshan: OK
+DUSTBOSS|damage_recovery held finger can freely change direction: OK
+DUSTBOSS|damage_recovery second finger cannot steal steering: OK
+DUSTBOSS|damage_recovery released finger cannot retarget travel: OK
+DUSTBOSS|damage_recovery cancelled gesture cannot restart movement: OK
+DUSTBOSS|a harmless bump restores the movement demonstration: OK
+DUSTBOSS|stationary tap spam traverses real tell, strike, and recovery: OK
+DUSTBOSS|stationary tap spam cannot damage the boss: OK
+DUSTBOSS|held action reaches an opening without auto-countering: OK
+DUSTBOSS|no-input and held input cannot finish: OK
+DUSTBOSS|live tell 0:0:0 lasts at least 1.4 seconds: OK
+DUSTBOSS|landed round writes its checkpoint: OK
+DUSTBOSS|first counter connects Roshan to Puff and remembers learning: OK
+DUSTBOSS|first counter offers one optional dust tuft: OK
+DUSTBOSS|walking contact scatters tuft without progress or reward: OK
+DUSTBOSS|interrupt clears the lesson and counter effect: OK
+DUSTBOSS|interrupt removes the dusty room Canvas: OK
+DUSTBOSS|interrupt preserves progress without reward: OK
+DUSTBOSS|re-entry restores the exact completed round: OK
+DUSTBOSS|checkpoint preserves damage mastery and opening assistance: OK
+DUSTBOSS|live tell 1:0:1 lasts at least 1.4 seconds: OK
+DUSTBOSS|live tell 1:1:1 lasts at least 1.4 seconds: OK
+DUSTBOSS|free steering enters live struck: OK
+DUSTBOSS|struck floor press immediately moves Roshan: OK
+DUSTBOSS|struck held finger can freely change direction: OK
+DUSTBOSS|struck second finger cannot steal steering: OK
+DUSTBOSS|struck released finger cannot retarget travel: OK
+DUSTBOSS|struck cancelled gesture cannot restart movement: OK
+DUSTBOSS|live tell 2:0:2 lasts at least 1.4 seconds: OK
+DUSTBOSS|live tell 2:1:2 lasts at least 1.4 seconds: OK
+DUSTBOSS|old screen corner tap cannot counter: OK
+DUSTBOSS|flashing boss head remains inside the touch viewport: OK
+DUSTBOSS|dragging across an open boss never becomes a counter: OK
+DUSTBOSS|paused screen touch cannot counter: OK
+DUSTBOSS|gold boss tap counters without a dash: OK
+DUSTBOSS|final counter writes all three earned rounds before celebration: OK
+DUSTBOSS|final-round interruption grants no early or duplicate reward: OK
+DUSTBOSS|final checkpoint restores three rounds exactly: OK
+DUSTBOSS|final checkpoint resumes friendship without repeated combat: OK
+DUSTBOSS|free steering was exercised between earned rounds: OK
+DUSTBOSS|adaptive movement observes all three phases: OK
+DUSTBOSS|phase one executes both warned circles: OK
+DUSTBOSS|phase two executes its warned lane: OK
+DUSTBOSS|live tells keep their captured target while the player moves: OK
+DUSTBOSS|a visible 2D telegraph accompanies live danger: OK
+DUSTBOSS|hybrid head touch can land a real counter: OK
+DUSTBOSS|one fresh counter edge per opening returns Day Two to Canvas: OK
+DUSTBOSS|Day Two route does not depend on menu launch: OK
+DUSTBOSS|the earned final round survives interruption: OK
+DUSTBOSS|completion grants the base reward exactly once: OK
+DUSTBOSS|completion saves defeat and begins Day Two: OK
+DUSTBOSS|Day Two and reward cannot duplicate: OK
+DUSTBOSS|result: ALL OK
+PROBE probe_dust_boss process exit: 0
+=== probe_load ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+save debounce cap (>4.0s forced flush): OK
+loaded trophies: 0/5  finale_done: false
+crafted fish data restored: 1
+released tank friend data restored: turtle
+Critter Book restored: coral_clownfish
+castle logo restored: purple puppy
+legacy resting companion recovered intact on first launch
+sparse Opera mask restored intact on first launch
+legacy Butterfly World access grandfathered on first launch
+legacy companion save rewrote only the retired resting flag
+legacy resting companion recovered intact on second launch
+sparse Opera mask restored intact on second launch
+legacy Butterfly World access grandfathered on second launch
+Day One Continue lands in a live bathroom (60/60 world frames, no rebuilds)
+Day One empty-world watchdog converges once (no per-frame rebuild)
+PROBE probe_load process exit: 0
+=== probe_chapter2 ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+CHAPTER2|boss defeat is blocked before the boss trigger: OK
+CHAPTER2|the four clean rooms arm the boss door: OK
+CHAPTER2|boss defeat starts Chapter 2: OK
+CHAPTER2|Detective telemetry names the accepted unlit candle asset: OK
+CHAPTER2|there is no standalone tutorial prelude: OK
+CHAPTER2|chapter starts at Farmer, not Detective: OK
+CHAPTER2|foyer cards resolve to truthful Castle launch owners: OK
+CHAPTER2|foyer rejects a non-Opera career from hardcoded opera_hall: OK
+CHAPTER2|plot-only Ballerina and Detective keep their room owners: OK
+CHAPTER2|Farmer hands the same five visible strawberries to the kitchen: OK
+CHAPTER2|Chef visibly builds one persistent cake through five distinct states: OK
+CHAPTER2|Candy Maker keeps the frosted cake and stages five glazed berries: OK
+CHAPTER2|Candy placement reveals the selected runtime cake without a candle: OK
+CHAPTER2|Chef and Candy Maker phase data names the actual resulting art: OK
+CHAPTER2|the Chapter 2 party roster is exactly eight stable Opera bits: OK
+CHAPTER2|Chef cannot precede Farmer: OK
+CHAPTER2|stale phase callbacks cannot award the wrong act: OK
+CHAPTER2|Farmer phase callback fills exactly five strawberries: OK
+CHAPTER2|ordered party act 6 completes: OK
+CHAPTER2|Chef phase callback records the bottom cake piece: OK
+CHAPTER2|ordered party act 0 completes: OK
+CHAPTER2|ordered party act 3 completes: OK
+CHAPTER2|ordered party act 10 completes: OK
+CHAPTER2|Farmer ingredient and Chef cake milestones persist: OK
+CHAPTER2|Painter unlocks the second four story careers: OK
+CHAPTER2|Ballerina remains a plot-owned room action: OK
+CHAPTER2|Ballerina completes after Painter: OK
+CHAPTER2|Pop Star sound check follows Ballerina: OK
+CHAPTER2|Astronaut parks the rocket before the final candle search: OK
+CHAPTER2|all eight Chapter 2 careers teach a nonempty truthful skill: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_chef_stack: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_detective_unlit_rainbow_candle_reveal: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_ballerina_stuffies_mirror: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_candymaker_coat_strawberries: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_candymaker_sort_strawberries: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_candymaker_glaze_strawberries: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_candymaker_place_candied_strawberries: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_farmer_gather_strawberries: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_farmer_fill_basket: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_farmer_deliver_to_kitchen: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_painter_paint_banner: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_painter_hang_banner: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_astronaut_ready_park: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_route_farmer: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_route_chef: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_route_candy_maker: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_route_painter: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_route_ballerina: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_route_popstar: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_route_astronaut: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_route_detective: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_party_ready: OK
+CHAPTER2|export-safe caption matches generated speech chapter2_ember_clue: OK
+CHAPTER2|exact phase audio farmer/GATHER STRAWBERRIES: OK
+CHAPTER2|exact phase audio farmer/FILL BASKET: OK
+CHAPTER2|exact phase audio farmer/DELIVER TO KITCHEN: OK
+CHAPTER2|exact door guidance farmer: OK
+CHAPTER2|exact phase audio chef/MIX: OK
+CHAPTER2|exact phase audio chef/STIR: OK
+CHAPTER2|exact phase audio chef/BAKE: OK
+CHAPTER2|exact phase audio chef/STACK: OK
+CHAPTER2|exact phase audio chef/FROST: OK
+CHAPTER2|exact door guidance chef: OK
+CHAPTER2|exact phase audio candymaker/COAT STRAWBERRIES: OK
+CHAPTER2|exact phase audio candymaker/SORT STRAWBERRIES: OK
+CHAPTER2|exact phase audio candymaker/GLAZE STRAWBERRIES: OK
+CHAPTER2|exact phase audio candymaker/PLACE ON CAKE: OK
+CHAPTER2|exact door guidance candymaker: OK
+CHAPTER2|exact phase audio painter/PAINT: OK
+CHAPTER2|exact phase audio painter/STAMP: OK
+CHAPTER2|exact phase audio painter/HANG: OK
+CHAPTER2|exact door guidance painter: OK
+CHAPTER2|exact phase audio ballerina/STUFFIES MIRROR: OK
+CHAPTER2|exact phase audio ballerina/STUFFIES TWIRL: OK
+CHAPTER2|exact phase audio ballerina/STUFFIES BOW: OK
+CHAPTER2|exact door guidance ballerina: OK
+CHAPTER2|exact phase audio popstar/SOUND CHECK: OK
+CHAPTER2|exact phase audio popstar/STAGE RUMI: OK
+CHAPTER2|exact phase audio popstar/RHYTHM: OK
+CHAPTER2|exact phase audio popstar/ENCORE: OK
+CHAPTER2|exact door guidance popstar: OK
+CHAPTER2|exact phase audio astronaut/BUILD ROCKET: OK
+CHAPTER2|exact phase audio astronaut/PATCH: OK
+CHAPTER2|exact phase audio astronaut/VALVE: OK
+CHAPTER2|exact phase audio astronaut/READY PARK: OK
+CHAPTER2|exact door guidance astronaut: OK
+CHAPTER2|exact phase audio detective/LENS: OK
+CHAPTER2|exact phase audio detective/STORYBOOK BOARD: OK
+CHAPTER2|exact phase audio detective/UNLIT RAINBOW CANDLE: OK
+CHAPTER2|exact door guidance detective: OK
+CHAPTER2|all 29 required Day Two phases covered: OK
+CHAPTER2|Detective waits until every earlier preparation is ready: OK
+CHAPTER2|Detective finds the last missing candle unlit: OK
+CHAPTER2|party event phase stays at candle-found until ignition: OK
+CHAPTER2|party cannot start in unrelated rooms: OK
+CHAPTER2|party ignition starts only after all eight milestones: OK
+CHAPTER2|Main Hall offers the lawn route without advancing the story on a timer: OK
+CHAPTER2|leaving Main Hall cancels party beat timing without progress: OK
+CHAPTER2|the safe ember scout beat precedes the King take: OK
+CHAPTER2|King theft rejects missing protection and Main Hall callers: OK
+CHAPTER2|Ember King takes the lit candle for his birthday: OK
+CHAPTER2|Main Hall does not reintroduce the departed Prince placeholder: OK
+CHAPTER2|Ember take removes only the candle and leaves the cake: OK
+CHAPTER2|save healing rejects skipped milestones and early crash: OK
+CHAPTER2|save normalization retains all eight milestones: OK
+CHAPTER2|new milestone fields have strict boolean validation: OK
+CHAPTER2|new masks are fixed, typed, and heal future bits: OK
+CHAPTER2|save healing stores the same contiguous cake rendered after load: OK
+CHAPTER2|phase healing preserves the current job and prunes later jobs: OK
+CHAPTER2|Ember protection uses valid shared boss rules: OK
+CHAPTER2|Ember round 0 offers a counter after safe dodges: OK
+CHAPTER2|held and off-target input cannot protect a round: OK
+CHAPTER2|one visible fresh counter saves exactly one protection round: OK
+CHAPTER2|Ember re-entry preserves completed rounds: OK
+CHAPTER2|Ember round 1 offers a counter after safe dodges: OK
+CHAPTER2|held and off-target input cannot protect a round: OK
+CHAPTER2|one visible fresh counter saves exactly one protection round: OK
+CHAPTER2|Ember re-entry preserves completed rounds: OK
+CHAPTER2|Ember round 2 offers a counter after safe dodges: OK
+CHAPTER2|held and off-target input cannot protect a round: OK
+CHAPTER2|one visible fresh counter saves exactly one protection round: OK
+CHAPTER2|Ember re-entry preserves completed rounds: OK
+CHAPTER2|protecting friends does not itself steal the candle or finish the story: OK
+CHAPTER2|Ember checkpoint rejects malformed types: OK
+CHAPTER2|Ember cannot pre-win before party preparation: OK
+CHAPTER2|RESULT: PASS checks_failed=0
+PROBE probe_chapter2 process exit: 0
