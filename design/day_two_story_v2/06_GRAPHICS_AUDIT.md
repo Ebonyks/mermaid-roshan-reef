@@ -408,7 +408,7 @@ and the Opera House!"
 
 | ID | Sev | Evidence | Flaw | Fix |
 |---|---|---|---|---|
-| GFX-CARD-01 | P0 | C, R | Nothing says birthday: no cake, balloons or candle, and no Roshan, Baby Eagle or rainbow friend. The tray advertises jobs, and the voice never mentions the birthday | Keep the dawn animation. Add the three friends waking (cutouts), a picture of the birthday (the cake silhouette or balloons), and a pointer toward the first place. New voice: "It's Roshan's birthday!" ([03 D2-OPEN-1](03_LEVEL_DESIGN.md)) |
+| GFX-CARD-01 | P0 | C, R | Nothing says birthday: no cake, balloons or candle, and no Roshan, Baby Eagle or rainbow friend. The tray advertises three jobs, none of them the first (the Farmer, in the Dining Room today), and the voice never mentions the birthday | Keep the dawn animation. Add the three friends waking (cutouts), a picture of the birthday (the cake silhouette or balloons), and a pointer toward the first place. New voice: "It's Roshan's birthday!" ([03 D2-OPEN-1](03_LEVEL_DESIGN.md)) |
 | GFX-CARD-02 | P1 | C | Its words ("A NEW DAY", "DAY TWO!", "NEW ADVENTURES") are the message | Keep words only as decoration for the adult; the picture must tell the story alone |
 | GFX-CARD-03 | P2 | V | The Opera medallion (`assets/ui/castle_room_buttons_v2/room_opera_hall.png`) pairs a smiling mask with a frowning black one: a sad face on the birthday card, and again over the Main Hall's Opera door | A Day Two variant medallion (a smiling mask with a star, or a curtain and microphone) as a derivative |
 | GFX-CARD-04 | P2 | R, C | The castle is placed at (160, 128), 748×590 (lines 229-230), so its wooden ramp runs past the card's rounded frame at the bottom. The castle floats on nothing, and the dimmed, tinted cloud bank behind it reads as grey smog rather than a cloud island | Scale the castle to about 0.92 and raise it so the ramp ends inside the frame; seat it on a bright cloud island in front of the bank |
@@ -463,10 +463,11 @@ Fix now.
 | GFX-HALL-02 | P1 | C, R | The banner is the tall pennant (`castle_banner_rainbow.png`, 256×512) squeezed into a 396×118 slot (lines 352-353). It shows as a pennant about 59 px wide, parked behind the top of the cake, with an empty medallion | A horizontal garland derivative of the painted banner, hung above the table |
 | GFX-HALL-03 | P1 | C | Two rockets: the candle-lighting rocket (112×112 at (815, 235)) and the Astronaut's 76 px summary icon at (1150, 502) | Drop the summary icon; the lighting rocket is the Astronaut's piece |
 | GFX-HALL-04 | P1 | C | The other summary pieces are 76 px stickers at the screen edges (music box, sunrise painting, microphone). Unearned ones show as purple ghosts at 16% opacity, like disabled buttons | Put each piece on or beside the table at readable size; show unearned pieces as empty spots on the Party Plan board, not ghosts |
-| GFX-HALL-05 | P1 | R, C | In the reconstruction the cake floats 25-45 px above the table top with its shadow on the panel's edge. The cake is also about 1.45 times Roshan's height here, against about 1.1 on the lawn | Take a capture; seat the cake stand on the tabletop; use one cake-to-Roshan ratio everywhere |
+| GFX-HALL-05 | P1 | R, C | In the reconstruction the cake floats 25-45 px above the table top with its shadow on the panel's edge. The cake is also about 1.8 times Roshan's visible height at the default hall depth (about 276 px against 153), against 0.88 on the lawn (189 against 215) | Take a capture; seat the cake stand on the tabletop; use the lawn's ratio (the cake about 0.9 times Roshan's visible height) in both places |
 | GFX-HALL-09 | P1 | C | The approved table (`dining_table.png`, 292×223) is fitted into a 620×206 box with its aspect kept, so it draws only about 270×206 in the middle of the 710 px panel: a small table under a cake twice its height | Size the table from its own aspect so it can hold the cake and pieces; drop the panel (GFX-HALL-01) |
 | GFX-HALL-10 | P1 | C, R | The lighting rocket (112 px, tilted) floats in mid-air in front of the Opera arch's curtains and sign | Stand it on the floor or a small pad beside the table |
 | GFX-HALL-11 | P1 | C | The castle caption panel (820×112 at (230, 112), `castle_rooms_25d.gd:1091-1092`, nearly opaque) covers the cake's top tiers, the candle and the Opera door sign while its line talks about the party | Captions go to a band clear of the story objects (bottom-left for the adult), never over the thing being described |
+| GFX-HALL-12 | P1 | V | The Main Hall panorama is lovely, but nothing in it changes for the birthday: all of the party lives in the screen-glued overlay | World-locked party dressing that grows with the day: bunting along the cornice, balloon clusters on two pillars, and the child's painted banner after the Painter job (new art at 1024 px or less, power-of-two) |
 | GFX-HALL-06 | P2 | C | Dead code: code-drawn flame shapes with dot eyes for an "Ember scout", "Ember King" and "son" (lines 212-285 and 448-535). Nothing calls them | Delete them, so the only King and Prince are the approved ones |
 
 ### 5.2 The castle rooms on Day Two
@@ -477,12 +478,14 @@ its room card, and several levels happen in these rooms.
 
 | ID | Sev | Evidence | Flaw | Fix |
 |---|---|---|---|---|
-| GFX-ROOM-01 | P1 | C, R | Roshan and her followers merge into one blob. The rainbow friend (a 165 px box at the foot offset (-104, -78)) is drawn in front of Roshan and covers her tail; Baby Eagle (a 195 px box at (+108, -100)) covers her hand and fin. Neither has a shadow, and the rainbow friend's saturated gradient reads as a sticker against the pastel rooms. The followers do not scale with depth: Roshan scales from 0.72 to 1.05, the followers stay fixed, so at the back of a room Baby Eagle is as tall as Roshan | Spread the offsets so the three silhouettes do not overlap at phone size (about 40 px clear on each side), scale the followers with Roshan's depth, draw them behind her front plane, and add contact shadows. Do not recolour the approved rainbow friend |
+| GFX-ROOM-01 | P1 | C, R | Roshan and her followers merge into one blob. The rainbow friend (a 165 px box at the foot offset (-104, -78)) is drawn in front of Roshan and covers her tail; Baby Eagle (a 195 px box at (+108, -100)) covers her hand and fin. Neither has a shadow, and the rainbow friend's saturated gradient reads as a sticker against the pastel rooms. The followers do not scale with depth: Roshan scales from 0.72 to 1.05 (163-237 px visible), while Baby Eagle stays 182 px and the rainbow friend 161 px, so at the back of a room Baby Eagle is taller than Roshan | Spread the offsets so the three silhouettes do not overlap at phone size (about 40 px clear on each side), scale the followers with Roshan's depth, draw them behind her front plane, and add contact shadows. Do not recolour the approved rainbow friend |
 | GFX-ROOM-02 | P1 | V, R | Career cards are near-white rounded squares that cover painted details: in the Kitchen, two cards hide the range hood and copper pans; in the Dining Room the Farmer card overlaps the chandelier. At about 112 px the Chef and Candy Maker costumes look alike, and each crest's symbol is about 25 px wide | One card per room in v2 (the Arborist takes the Candy Maker's slot). Place cards in quiet wall space, use painted frames instead of white panels, and show the job's key object large (GFX-PROP-CREST-01) |
-| GFX-ROOM-03 | P1 | V | The Dining Room backdrop (`assets/flats/castle/rooms/room_dining_room_background.png`, 1024×576) is a flat vector placeholder: plain lavender bricks, a featureless teal arch, a pastel checkerboard floor with harsh navy perspective lines, and a flat purple ceiling band. The painterly hutch, table and stools float on it without shadows. Its teal arch is the Farmer's "berry doorway", with no berry in sight | A painted Dining Room plate in the castle style, commissioned as a named replacement; until then, dress the arch with strawberry vines and baskets as cutouts so the doorway says "berries" |
-| GFX-ROOM-04 | P2 | R | The Dream House Wing's Family Gallery and the Movie Lounge also use flat vector backdrops, with blank cream circles above the gallery arches. The gallery is on the Farmer's route (Main Hall, Dream House Wing, Dining Room) | Named replacements after the Dining Room; fill the blank circles with each doorway's picture |
-| GFX-ROOM-06 | P0 | C | On Day Two no door is lit for the next job. `door_state()` falls back to the free-play resolver once Day One ends, and `active_door_highlight_id()` only ever lights the Royal Hall event (`castle_rooms_25d.gd:1686-1702`). With the objective card also hidden in the castle (build audit B6), the only guide to the next job is a caption and, sometimes, a voice | Light the next job's door with the Day One golden-door language, and point the hand at it; after v2's Party Plan, the glowing frame on the board and the lit door name the same job |
+| GFX-ROOM-03 | P1 | V | The Dining Room backdrop (`assets/flats/castle/rooms/room_dining_room_background.png`, 1024×576) is a flat vector placeholder: plain lavender bricks, a featureless teal arch, a pastel checkerboard floor with harsh navy perspective lines, and a flat purple ceiling band. The painterly hutch, table and stools float on it without shadows. Its teal arch is the Farmer's "berry doorway", with no berry in sight | A painted Dining Room plate in the castle style, commissioned as a named replacement, whose teal arch becomes a garden door with strawberry vines; until then, dress the arch with vines and a basket of `sky_lagoon_strawberry_cluster.png` as cutouts so the doorway says "berries". The room's centrepiece table (`dining_table.png`, 292×223) is also drawn 1.43 times enlarged, about 2.1 times on a 1080p phone, so it looks soft: draw it at its source size or cut a larger isolate from its 1254 px source sheet |
+| GFX-ROOM-04 | P2 | R | The Dream House Wing's Family Gallery and the Movie Lounge also use flat vector backdrops, with blank cream circles above the gallery arches. The gallery is on the Farmer's route (Main Hall, Dream House Wing, Dining Room) | Named replacements after the Dining Room; fill the blank circles with each doorway's picture. The Movie Lounge's screen frame is also drawn twice its size and looks soft |
+| GFX-ROOM-06 | P0 | C | On Day Two no door is lit for the next job. `door_state()` falls back to the free-play resolver once Day One ends, and `active_door_highlight_id()` only ever lights the Royal Hall event (`castle_rooms_25d.gd:1686-1702`). With the objective card also hidden in the castle (build audit B6), the only guide to the next job is a caption and, sometimes, a voice | Light the next job's door with the Day One golden-door language, and point the hand at it; after v2's Party Plan, the glowing frame on the board and the lit door name the same job. Where the route passes through another room, badge the door sign with the job's object (a small strawberry on the Dream House Wing sign while the Farmer is next) |
 | GFX-ROOM-05 | P2 | C, R | In the Library the found candle is small (about 40×75 px at (588, 200), scale 0.7) and overlaps the magic book; when Roshan reaches the book, the rainbow friend covers the pedestal | Show the candle larger when found, standing clear above the book, and keep followers beside Roshan, not in front of the goal |
+| GFX-ROOM-07 | P1 | C | From the Detective job until the party, the one and only candle shows in two places at once: in the Library (`should_show_candle`, `chapter_two_director.gd:588-590`: found and the party not yet started) and on the Main Hall cake (`party_candle.visible` whenever it is found and not yet taken) | Show it in one place: after the Library find it travels to the party table, and the Library keeps an empty glowing book |
+| GFX-ROOM-08 | P2 | V | The twelve room picture icons (`assets/ui/castle_room_buttons_v2/`) come in three shapes: seven round scallop crests, four oval crops with purple arch-stone wedges at the corners, and one tall shell house, with soft motifs and grey-purple halos | One round crest template for all twelve, re-seated from the source motifs, as `castle_room_buttons_v3/` derivatives; the dining icon keeps its berries |
 
 ## 6. The lawn finale
 
@@ -503,8 +506,8 @@ V, C. With WP-16.
     161-169). The portrait is fitted and centred inside that box, so the
     points do not match where heads are.
   - In the captures:
-    - Faron's lavender hat covers her whole face: a protected family portrait
-      with the face hidden.
+    - Faron's lavender hat covers her whole face (92% of the hat lies on the
+      portrait): a protected family portrait with the face hidden.
     - The baby's small hat floats in the air beside her.
     - Huluu's yellow hat covers her helmet and eyes.
     - Harper's and Fiona's hats cover both sisters' faces.
@@ -521,8 +524,9 @@ V, C. With WP-16.
      coordinates, not box coordinates.
   3. Scale each hat to 55-70% of the head's width, tilt it with the head, and
      sit the brim on the hairline, never below the eyebrows.
-  4. Give Faron's baby a hat only if the baby's head is visible. Give Rumi
-     and Roshan hats as well ([GFX-LAWN-16](#gfx-lawn-16)).
+  4. Give Faron's baby a hat only if the baby's head is visible. Daddy wears
+     a crown already: no hat, perhaps a small party badge. Give Rumi and
+     Roshan hats as well ([GFX-LAWN-16](#gfx-lawn-16)).
   5. Add a probe: no hat may overlap any face rectangle from the table.
   6. On each stomp (F4), hats wobble with a short tilt of about 6°.
 - The portraits stay untouched; hats remain overlays
@@ -567,7 +571,9 @@ Evidence V, C. With WP-16.
 - **What is wrong:**
   - Every protected portrait is fitted into the same 118×140 box (lines
     150-158). The two sisters, a mother with a baby, a boy in an armchair and
-    Daddy all get roughly the same size, whatever their real size.
+    Daddy all get roughly the same size, whatever their real size. The adults
+    stand about 140 px tall, 65% of four-year-old Roshan's 215, and Daddy's
+    face is about 14 px wide: hard to recognise on a phone.
   - Daddy, the planner and the one who hugs her, is small and far back at
     (520, 280), behind the cake.
   - Eight guests, Rumi, the stuffies, the cake, the rocket and three props
@@ -577,10 +583,13 @@ Evidence V, C. With WP-16.
     grass. Kareem's armchair, part of his portrait, stands on the lawn.
   - The stuffies sit on the stone path at the bottom edge (y 620-688).
 - **Fix:**
-  1. Three depth bands (back y≈330, middle y≈450, front y≈560) in a shallow
-     arc around the table, facing the path the royals will use.
-  2. Size each portrait from a height table (adult 1.0, teen 0.9, child 0.75,
-     baby carried), keeping aspect, instead of one box for all.
+  1. A shallow semicircle of guests around the cake, centred near x 420, in
+     depth bands, with Roshan at its open side (near x 640), the royals'
+     entrance clear at x 1000-1230, and every foot on the grass above y 690.
+  2. Fit each portrait by its visible silhouette height, as the King and
+     Prince already are (`KING_VISIBLE_HEIGHT`), not by a box: adults about
+     1.15 times Roshan's visible height at the same depth, children 0.9-1.0,
+     seated Kareem about 0.8. Sort everyone by foot position.
   3. Daddy front-left, near Roshan's start.
   4. A picnic blanket with cushions, so the merfolk rest on something and
      Kareem's armchair stands at the blanket's edge. New small art, or
@@ -727,7 +736,8 @@ about (37, 77) inside the picture. So the fingertip lands about 55 px right
 of and 85 px below every target: in the captures it points at the rocket's
 fins, not its brass button, and below the forward button, partly off the
 canvas. Fix: place the hand so its fingertip, not its corner, is on the
-target; add a probe that the fingertip lies inside each target's rectangle.
+target (`pointer.position = hint - Vector2(37, 77)` plus the bob); add a
+probe that the fingertip lies inside each target's rectangle.
 
 **GFX-LAWN-20 — Roshan's face never changes.** P1. Evidence V, C. With
 WP-16. She keeps the base cutout's happy smile through the demand, the theft
@@ -747,8 +757,9 @@ step behind the King and apart from Roshan until he helps in round 2.
 WP-16. Measured on the party capture, the open grass is more saturated (0.77)
 than every character (0.33-0.60), and the dark King (value 0.33) stands
 against the dark hedge (0.42). Fix without restyling the approved painting:
-stage the King where the lighter cloud and sky band is behind him, add a soft
-2D rim-glow sprite behind dark figures, and ask the owner before any colour
+stage the party on the paler meadow and path zone, put a soft world-locked
+ember glow behind the King (a 512 px radial sprite, orange, about 25%
+opacity), which also sells who he is, and ask the owner before any colour
 grade on the panorama.
 
 <a id="gfx-lawn-16"></a>
@@ -779,7 +790,7 @@ frames without HUD, with a shot choice per beat.
 | <a id="gfx-lamma-02"></a>GFX-LAMMA-02 | P1 | V, C | Two Lammas at the party: Evie's protected portrait (`pearl_friend.png`) already shows Evie hugging her, so any separate Lamma on the stuffie blanket makes two | At the party, stage Evie with her Seek sheet (`assets/minigames/seek/evie_animation.png`: idle, point, giggle, clap, cheer), which has no lamb and also gives her reactions. Or the owner decides otherwise ([decision 9](README.md#owner-decisions)) |
 | GFX-CHAR-EAGLE-01 | P1 | V, C | Baby Eagle is one still pose (`assets/characters/companions/baby_eagle.png`), follows only in castle rooms, and is absent from the Sky Lagoon and the lawn | Extend the follower to the Sky Lagoon and lawn. Poses Day Two needs: chirp on a branch (J1, F2), carry the banner (F5), hop along. The Book One page 20 art (`eagle_inviting.png`, on the book branch) is a source for a walking pose, with owner approval |
 | GFX-CHAR-PUFF-01 | P1 | V, C | The rainbow friend (Grand Puff restored) is one still 132 px card (`rainbow_friend.png`), castle only, with no tap. He has no wings | Now: a whole-card hop (squash and stretch) and a tap reaction. Next: presence on the Sky Lagoon and lawn, and the rainbow dome effect. He always hops, never flies |
-| GFX-CHAR-BUNNY-01 | P2 | V | Good dust bunny art exists (curl ears, family, hop, shell hide, sleepy, swimming), but not the helpful poses Day Two needs | New small poses from the same family: carrying a strawberry, rolling (for the wall), saying sorry (the book's `bunny_apology_canvas.png` is a source, with owner approval). On Day Two the Main Hall's three pop-for-a-pearl bunnies also return on every castle visit, under the party table; in v2 they are the playful helpers, not targets |
+| GFX-CHAR-BUNNY-01 | P2 | V | Good dust bunny art exists (curl ears, family, hop, shell hide, sleepy, swimming), but not the helpful poses Day Two needs | New small poses from the same family: carrying a strawberry, rolling (for the wall), saying sorry (the book's `bunny_apology_canvas.png` is a source, with owner approval). On Day Two the Main Hall's three pop-for-a-pearl bunnies also return on every castle visit, under the party table, although the chapter opens with "The castle is clean!"; in v2 they are the playful helpers, not targets: stop spawning them after Day One, or stage the befriended family (`dust_bunny_family.png`) in party hats beside the table |
 | <a id="gfx-char-dolls-01"></a>GFX-CHAR-DOLLS-01 | P1 | V, M | Kitty (`assets/book/doll_cat.png`, 220×205) has a hole in her nose, a see-through speckled belly, straight cuts along her left and bottom edges and a stray fragment. Bunny (`doll_bunny.png`, 220×159) is cut off at the right edge through the face, with a ragged bottom and stray line fragments | Protected, so never edit these files. Ask the owner to authorise re-isolations from the full book source pages, saved as new files with provenance ([decision 11](README.md#owner-decisions)). Until then, never enlarge them above their native size, and hide the damaged edges |
 | GFX-CHAR-GUESTS-01 | P1 | V, C | The guest portraits mix styles and sizes, and hats hide faces (GFX-LAWN-01, GFX-LAWN-05) | Staging only: sizes, bands, shadows, hats, as in those findings |
 | GFX-CHAR-GUESTS-02 | P2 | M, V | Several portraits carry a pale halo along their edges (a white rim measured on Flower Friend, Faron, Evie, Harper and Fiona, and Wacky and Chuck), which shows as a light outline on the green lawn. Huluu's portrait is 640×1039, above the 1024 px texture rule | Protected: no edits. Stage them against mid-value backgrounds; alpha-erode derivatives only with the owner's approval ([decision 11](README.md#owner-decisions)) |
@@ -828,6 +839,7 @@ the navy-and-plum-contour storybook style.
 | Dust bunnies: strawberry carry, roll, sorry | J2, J3, F5 | GFX-CHAR-BUNNY-01 |
 | Daddy: point, apron, hug | D2-OPEN, J3, F7 | GFX-CHAR-DADDY-01 |
 | A painted Dining Room plate (then the Family Gallery and Movie Lounge) | The Farmer's launch room | GFX-ROOM-03, GFX-ROOM-04 |
+| Main Hall party dressing: bunting and balloon clusters | The Main Hall through the day | GFX-HALL-12 |
 | Derivatives: cake ledge and berries, banner states, tray gaps, candle holder, costume alpha repair, venue plaques, Day Two medallion | Various | Sections 1-8 |
 
 ## 10. Fix order and work packages
@@ -835,16 +847,16 @@ the navy-and-plum-contour storybook style.
 | Step | Fixes | Package |
 |---|---|---|
 | Now: can the child finish, and does it look broken? | GFX-DET-03, GFX-SYS-13, GFX-HALL-07, GFX-HALL-08, GFX-ROOM-06, GFX-LAWN-19 | WP-18, with the B1 repair from 05 |
-| Now: fixes with no new art | GFX-SYS-01, -02, -08, -09, -10; GFX-DET-02; GFX-CHEF-04; GFX-FARM-07; GFX-DET-07; GFX-HALL-06, -09, -10, -11; GFX-LAWN-17, -20; GFX-ROOM-01; GFX-CARD-04 to -07; GFX-PROP-CAKE-05 | WP-18 |
+| Now: fixes with no new art | GFX-SYS-01, -02, -08, -09, -10; GFX-DET-02; GFX-CHEF-04; GFX-FARM-07; GFX-DET-07; GFX-HALL-06, -09, -10, -11; GFX-LAWN-17, -20; GFX-ROOM-01, -07; GFX-CARD-04 to -07; GFX-PROP-CAKE-05 | WP-18 |
 | Now: derivative repairs | GFX-SYS-03; GFX-PROP-CAKE-01 to -04; GFX-PROP-BANNER-01; GFX-PROP-BERRY-01, -02 | WP-18 |
 | Owner decisions | GFX-SYS-04 (decision 10); GFX-LAMMA-02 (decision 9); GFX-CHAR-DOLLS-01, GFX-LAWN-14, GFX-CHAR-GUESTS-02 (decision 11) | WP-00 |
-| Opening and the Main Hall picture | GFX-CARD-01 to -03; GFX-HALL-01 to -05 | WP-03 |
+| Opening and the Main Hall picture | GFX-CARD-01 to -03; GFX-HALL-01 to -05, -12 | WP-03 |
 | Friends in the challenges | GFX-ROOM-01; GFX-CHAR-EAGLE-01, GFX-CHAR-PUFF-01, GFX-CHAR-BUNNY-01, GFX-CHAR-DADDY-01 | WP-06 |
 | The in-world levels | GFX-FARM-*, GFX-CHEF-05/-07/-09, GFX-PAINT-*, GFX-BALLET-04, GFX-POP-02/-04, GFX-ASTRO-04/-05, GFX-DET-08, GFX-ROOM-02 to -05 | WP-05, WP-07 to WP-14 |
 | Lamma | GFX-LAMMA-01, -02 | WP-15 |
 | The finale | GFX-LAWN-* (except -17, -19, -20), GFX-CHAR-KING-*, GFX-CHAR-PRINCE-*, GFX-CHAR-GUESTS-01, GFX-CHAR-RUMI-01 | WP-16 |
 | Cinematic cards | GFX-CIN-01 | WP-20 |
-| Venue | GFX-VEN-* | WP-18 (VEN-03 waits for the commissioned venue) |
+| Venue and room icons | GFX-VEN-*; GFX-ROOM-08 | WP-18 (VEN-03 waits for the commissioned venue) |
 | Arborist | GFX-ARB-01 | WP-07 (Step 0 of the Arborist handoff) |
 
 ## 11. Keep: the strongest art
@@ -870,3 +882,9 @@ the navy-and-plum-contour storybook style.
 - The scale-v2 lawn numbers: the King, Prince, Roshan, candle and stuffie
   sizes are much better than the earlier staging; keep them.
 - Roshan's approved gesture sheet: sixteen poses ready for acting.
+- The painted castle rooms (Kitchen, Craft Room, Playroom, Opera Hall,
+  Mermaid Pool, Library) and the Main Hall panorama. Their front cards are
+  exact crops of the room plates, so nothing is doubled.
+- The Main Hall door signs match the room medallions, so a child can pair a
+  picture with a door.
+- The Day Two card's castle, with Roshan in its stained-glass window.

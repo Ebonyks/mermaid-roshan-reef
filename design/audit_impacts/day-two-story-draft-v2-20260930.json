@@ -51,7 +51,7 @@
     {
       "command": "python -B tools/audit_development.py --base auto",
       "result": "PASS",
-      "evidence": "AUDITDEV RESULT ALL OK against the dev merge-base e7899cc0 and against the previous push b3d168f9, on the candidate working tree before the completion commit."
+      "evidence": "AUDITDEV RESULT ALL OK against the dev merge-base e7899cc0 and against each previous push of this record (b3d168f9, then 4f6867df), on the candidate working tree before each commit."
     },
     {
       "command": "Build and graphics audit completion (05 and 06)",
@@ -61,7 +61,7 @@
     {
       "command": "Research inputs",
       "result": "PASS",
-      "evidence": "Four read-only research passes (Day One canon and characters; Opera build; career graphics; world and finale graphics) wrote scratch reports outside the repository. Their claims entered the package only after spot checks; corrections they found in the first commit (Book One quotation, page lengths over 16 words, Lamma's bell and voice, the wingless rainbow friend, the book dolls' names) are applied."
+      "evidence": "Four read-only research passes (Day One canon and characters; Opera build; career graphics; world and finale graphics) wrote scratch reports outside the repository. Their claims entered the package only after spot checks; corrections they found in the first commit (Book One quotation, page lengths over 16 words, Lamma's bell and voice, the wingless rainbow friend, the book dolls' names) are applied. A follow-up commit folds in the world-and-finale report's final findings (the Main Hall's missing party dressing, the candle shown in two rooms at once, the mixed room-icon set, measured cake-to-Roshan ratios of 1.8 in the hall and 0.88 on the lawn, guest face sizes), each checked against code or art before entry."
     },
     {
       "command": "Runtime, capture, device and child evidence",
