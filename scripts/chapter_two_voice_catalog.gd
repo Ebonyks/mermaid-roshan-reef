@@ -1,0 +1,32 @@
+class_name ChapterTwoVoiceCatalog
+extends RefCounted
+## Export-safe exact captions, bound to the frozen audit catalog by probe_chapter2.
+## Audit JSON is intentionally excluded from Android exports.
+const CUES := {
+	"chapter2_chef_stack": {"caption": "Tap each cake tier to stack the rainbow cake!"},
+	"chapter2_detective_unlit_rainbow_candle_reveal": {"caption": "Tap the unlit rainbow candle to reveal the final clue!"},
+	"chapter2_ballerina_stuffies_mirror": {"caption": "Tap the matching pose as the stuffies mirror Roshan!"},
+	"chapter2_candymaker_coat_strawberries": {"caption": "Tip the shiny coat over the strawberries!"},
+	"chapter2_candymaker_sort_strawberries": {"caption": "Sort the strawberries by their matching color!"},
+	"chapter2_candymaker_glaze_strawberries": {"caption": "Twist the glaze around each strawberry!"},
+	"chapter2_candymaker_place_candied_strawberries": {"caption": "Place the five candied strawberries on the cake!"},
+	"chapter2_farmer_gather_strawberries": {"caption": "Tap five ripe Sky Lagoon strawberries!"},
+	"chapter2_farmer_fill_basket": {"caption": "Tap to load all five strawberries into the basket!"},
+	"chapter2_farmer_deliver_to_kitchen": {"caption": "Swipe the full basket all the way to the kitchen!"},
+	"chapter2_painter_paint_banner": {"caption": "Paint the birthday banner for Main Hall!"},
+	"chapter2_painter_hang_banner": {"caption": "Choose the Main Hall spot and hang the birthday banner!"},
+	"chapter2_astronaut_ready_park": {"caption": "Swipe to park the repaired rocket. Leave it ready for later!"},
+	"chapter2_route_farmer": {"caption": "Tap the glowing Dining Room door. Let's pick five strawberries!"},
+	"chapter2_route_chef": {"caption": "Tap the glowing Kitchen door. Let's bake the birthday cake!"},
+	"chapter2_route_candy_maker": {"caption": "Tap the glowing Kitchen door. Let's candy the strawberries!"},
+	"chapter2_route_painter": {"caption": "Tap the glowing Craft Room door. Let's paint the birthday banner!"},
+	"chapter2_route_ballerina": {"caption": "Tap the glowing Playroom door. Let's dance with the stuffies!"},
+	"chapter2_route_popstar": {"caption": "Tap the glowing Opera House door. Let's sing with Rumi!"},
+	"chapter2_route_astronaut": {"caption": "Tap the glowing Pool door. Let's build the little rocket!"},
+	"chapter2_route_detective": {"caption": "Tap the glowing Library door. Find the unlit rainbow candle in the magic storybook!"},
+	"chapter2_party_ready": {"caption": "Tap the glowing Main Hall door. Our birthday party is ready!"},
+	"chapter2_ember_clue": {"caption": "The Ember King took our glowing candle. Follow the north star!"},
+}
+
+static func row(cue_id: String) -> Dictionary:
+	return (CUES.get(cue_id, {}) as Dictionary).duplicate()

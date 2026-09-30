@@ -3278,7 +3278,8 @@ func _sync_castle_voice_caption() -> void:
 	# Raise only the captions whose original floor panel covered cleanup targets.
 	# Free-play rooms retain their established caption band and upper picture cues.
 	var floor_objective_room: bool = castle_room_id == "main_hall" \
-		or (day_one_is_active() and castle_room_id in ["bubble_bath", "mermaid_pool", "playroom"])
+		or (day_one_is_active() and (castle_room_id in ["bubble_bath", "playroom"] \
+			or (castle_room_id == "mermaid_pool" and day_one_pool_cleanup_step == 0)))
 	castle_voice_caption.position.y = 112.0 if floor_objective_room else 590.0
 	castle_voice_caption.text = hud_msg.text if hud_msg != null else ""
 	castle_voice_caption.visible = castle_visible and has_message
@@ -3822,13 +3823,13 @@ func _notification(what: int) -> void:
 				chapter2_lawn_view.set_input_context(&"focus", true)
 			_lose_melody_input_context(MELODY_CONTEXT_FOCUS)
 			_lose_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_FOCUS)
-			_day_one_abort_boss_for_lifecycle()
+			_day_one_suspend_boss_for_lifecycle()
 		NOTIFICATION_APPLICATION_PAUSED:
 			if is_instance_valid(chapter2_lawn_view):
 				chapter2_lawn_view.set_input_context(&"application", true)
 			_lose_melody_input_context(MELODY_CONTEXT_APPLICATION)
 			_lose_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_APPLICATION)
-			_day_one_abort_boss_for_lifecycle()
+			_day_one_suspend_boss_for_lifecycle()
 		NOTIFICATION_APPLICATION_RESUMED:
 			if is_instance_valid(chapter2_lawn_view):
 				chapter2_lawn_view.set_input_context(&"application", false)
@@ -3842,8 +3843,9 @@ func _notification(what: int) -> void:
 		NOTIFICATION_WM_CLOSE_REQUEST:
 			_lose_melody_input_context(MELODY_CONTEXT_CLOSE)
 			_lose_slide_canvas_input_context(SLIDE_CANVAS_CONTEXT_CLOSE)
-			_day_one_abort_boss_for_lifecycle()
-	if what == NOTIFICATION_APPLICATION_PAUSED or what == NOTIFICATION_WM_CLOSE_REQUEST:
+			_day_one_suspend_boss_for_lifecycle()
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,
+			NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_WM_CLOSE_REQUEST]:
 		# flush BOTH a failed write awaiting retry and a debounced pending
 		# write — going to the background must never drop queued progress
 		if save_dirty or save_pending:
@@ -6426,7 +6428,7 @@ func _end_chapter2_lawn(_result: Variant = "back") -> void:
 func chapter2_record_party_contribution(act_index: int) -> bool:
 	var changed := _chapter_two_ref().record_party_contribution(act_index)
 	if changed:
-		_queue_save()
+		_write_save()
 	return changed
 
 
@@ -6437,7 +6439,7 @@ func chapter2_on_opera_phase_completed(act_index: int, phase_index: int,
 	var changed := _chapter_two_ref().record_opera_phase_event(
 		act_index, phase_index, phase_name, true)
 	if changed:
-		_queue_save()
+		_write_save()
 	return changed
 
 
@@ -6446,21 +6448,21 @@ func chapter2_on_opera_phase_snapshot(snapshot: Dictionary) -> bool:
 	var changed := _chapter_two_ref().record_opera_phase_snapshot(
 		act_index, snapshot, true)
 	if changed:
-		_queue_save()
+		_write_save()
 	return changed
 
 
 func chapter2_record_strawberry_pick(pick_index: int) -> bool:
 	var changed := _chapter_two_ref().record_strawberry_pick(pick_index)
 	if changed:
-		_queue_save()
+		_write_save()
 	return changed
 
 
 func chapter2_record_cake_piece(piece_index: int) -> bool:
 	var changed := _chapter_two_ref().record_cake_piece(piece_index)
 	if changed:
-		_queue_save()
+		_write_save()
 	return changed
 
 
@@ -6484,10 +6486,11 @@ func chapter2_on_opera_completed(act_index: int,
 		plot_context: String = "") -> void:
 	if not chapter2_is_active():
 		return
-	if plot_context != "" or _chapter_two_ref().tutorial_phase_is_active():
-		_chapter_two_ref().record_opera_completion(act_index, plot_context)
-	else:
-		_chapter_two_ref().record_party_contribution(act_index)
+	var changed: bool = _chapter_two_ref().record_opera_completion(act_index, plot_context) \
+		if plot_context != "" or _chapter_two_ref().tutorial_phase_is_active() \
+		else _chapter_two_ref().record_party_contribution(act_index)
+	if changed:
+		_write_save()
 
 
 ## The attack customizer is intentionally loaded lazily. This keeps the main
@@ -6715,7 +6718,7 @@ func day_one_record_bathroom_cleanup_step(step: int) -> void:
 		return
 	day_one_bathroom_cleanup_step = clampi(maxi(
 		day_one_bathroom_cleanup_step, step), 0, 3)
-	_queue_save()
+	_write_save()
 
 func day_one_record_bathroom_supply_step(step: int) -> void:
 	if not day_one_is_active():
@@ -6724,21 +6727,21 @@ func day_one_record_bathroom_supply_step(step: int) -> void:
 		day_one_bathroom_supply_hunt_step, step), 0, 2)
 	if day_one_bathroom_supply_hunt_step >= 2:
 		day_one_bathroom_tools_authorized = true
-	_queue_save()
+	_write_save()
 
 
 func day_one_record_bathroom_toilet_cleaned() -> void:
 	if not day_one_is_active() or day_one_bathroom_cleanup_step < 2:
 		return
 	day_one_bathroom_toilet_cleaned = true
-	_queue_save()
+	_write_save()
 
 
 func day_one_record_bathroom_tub_drained() -> void:
 	if not day_one_is_active() or day_one_bathroom_tub_drained:
 		return
 	day_one_bathroom_tub_drained = true
-	_queue_save()
+	_write_save()
 
 
 ## The basket is the single authorization point for the two cleaning tools.
@@ -6786,7 +6789,7 @@ func day_one_record_art_cleanup(kind: String, item_id: String) -> bool:
 		return false
 	var changed: bool = _day_one_ref().record_art_cleanup(kind, item_id)
 	if changed:
-		_queue_save()
+		_write_save()
 	return changed
 
 
@@ -6818,18 +6821,24 @@ func day_one_record_pool_cleanup_step(step: int) -> void:
 		return
 	day_one_pool_cleanup_step = clampi(maxi(
 		day_one_pool_cleanup_step, step), 0, 4)
-	_queue_save()
+	_write_save()
 
 
 func day_one_record_pool_activity_progress(
 		skimmer_mask: int, waterfall_mask: int, seahorse_tugs: int) -> void:
 	if not day_one_is_active():
 		return
-	day_one_pool_skimmer_mask |= skimmer_mask & 0x3F
-	day_one_pool_waterfall_mask |= waterfall_mask & 0x07
-	day_one_pool_seahorse_tugs = clampi(maxi(
+	var next_skimmer: int = day_one_pool_skimmer_mask | (skimmer_mask & 0x3F)
+	var next_waterfall: int = day_one_pool_waterfall_mask | (waterfall_mask & 0x07)
+	var next_tugs: int = clampi(maxi(
 		day_one_pool_seahorse_tugs, seahorse_tugs), 0, 8)
-	_queue_save()
+	if next_skimmer == day_one_pool_skimmer_mask and next_waterfall == day_one_pool_waterfall_mask \
+			and next_tugs == day_one_pool_seahorse_tugs:
+		return
+	day_one_pool_skimmer_mask = next_skimmer
+	day_one_pool_waterfall_mask = next_waterfall
+	day_one_pool_seahorse_tugs = next_tugs
+	_write_save()
 
 func day_one_complete_pool_scene() -> bool:
 	if not day_one_is_active():
@@ -7447,10 +7456,8 @@ func _day_one_play_story_clip_for_room(room_id: String,
 		_day_one_play_story_clip(movie_id)
 
 
-func _day_one_abort_boss_for_lifecycle() -> void:
-	# Focus loss, application pause and close are all interruption boundaries for
-	# the active fight. End it through the same neutral teardown as Pause Leave;
-	# the post-clear seam re-arms the door and writes the safe state.
+func _day_one_suspend_boss_for_lifecycle() -> void:
+	# Interruptions keep the live fight paused; only deliberate Leave tears it down.
 	if _day_one_story_boss_start_pending:
 		_day_one_cancel_story_clips()
 		_day_one_ref().giant_dust_bunny_boss_triggered = false
@@ -7459,8 +7466,8 @@ func _day_one_abort_boss_for_lifecycle() -> void:
 	if game != "dustboss" or not day_one_is_active() \
 			or _day_one_ref().giant_dust_bunny_boss_defeated:
 		return
-	_leave_arena_now()
-	_clear_game()
+	if not get_tree().paused:
+		_pause_ref().toggle_pause()
 	_write_save()
 
 
@@ -7495,22 +7502,19 @@ func _on_chapter_two_hook_event(event_name: String,
 					_set_objective("chapter2_library_detective",
 						load("res://assets/ui/castle_room_buttons_v2/room_library.png") \
 							as Texture2D, "")
-					show_msg("",
-						"Detective sparkle points to the Royal Library storybook!", "hint")
+					_chapter_two_say("chapter2_route_detective")
 				ChapterTwoDirector.OBJECTIVE_STUFFIE_BALLET:
 					_set_objective("chapter2_stuffie_ballet",
 						load("res://assets/ui/castle_room_buttons_v2/room_playroom.png") \
 							as Texture2D, "")
-					show_msg("",
-						"The Stuffie Room is ready for a birthday dance!",
-						"hint")
+					_chapter_two_say("chapter2_route_ballerina")
 				ChapterTwoDirector.OBJECTIVE_PARTY_PREP:
 					_chapter_two_guide_next_party_piece()
 				ChapterTwoDirector.OBJECTIVE_MAIN_HALL_PARTY:
 					_set_objective("chapter2_main_hall_party",
 						load("res://assets/ui/castle_room_buttons_v2/room_main_hall.png") \
 							as Texture2D, "")
-					show_msg("", "Everything is ready! Come to the Main Hall!", "hint")
+					_chapter_two_say("chapter2_party_ready")
 				ChapterTwoDirector.OBJECTIVE_EMBER_KING_CRASH:
 					_set_objective("chapter2_main_hall_party",
 						load("res://assets/ui/castle_room_buttons_v2/room_main_hall.png") \
@@ -7547,7 +7551,7 @@ func _on_chapter_two_hook_event(event_name: String,
 			_set_objective("chapter2_main_hall_party",
 				load("res://assets/ui/castle_room_buttons_v2/room_main_hall.png") \
 					as Texture2D, "")
-			show_msg("", "Every party piece is ready! Meet in the Main Hall!", "hint")
+			_chapter_two_say("chapter2_party_ready")
 		ChapterTwoDirector.EVENT_PARTY_STARTED:
 			show_msg("",
 				"The little rocket lights the rainbow candle beside the gigantic cake!",
@@ -7558,42 +7562,29 @@ func _on_chapter_two_hook_event(event_name: String,
 			_set_objective("chapter3_north_fire_mountain",
 				load("res://assets/opera/worlds/props/goal_astronaut.png") \
 					as Texture2D, "")
-			show_msg("",
-				"The Ember King took the glowing rainbow candle for his own birthday party! His little son's silhouette points to the bright north-star clue!",
-				"hint")
-	_queue_save()
+			_chapter_two_say("chapter2_ember_clue")
+	_write_save()
 
 
-func _chapter_two_guide_next_party_piece(completed_career: String = "") -> void:
-	var entry := ChapterTwoPartyPlan.next_incomplete_entry(
-		chapter2_party_piece_mask)
+func _chapter_two_say(cue_id: String) -> void:
+	var cue: Dictionary = ChapterTwoVoiceCatalog.row(cue_id)
+	show_msg("", String(cue.get("caption", "")), "")
+	_audio_ref().chapter_two_prompt(cue_id)
+
+
+func _chapter_two_guide_next_party_piece(_completed_career: String = "") -> void:
+	var entry: Dictionary = ChapterTwoPartyPlan.next_incomplete_entry(chapter2_party_piece_mask)
 	if entry.is_empty():
 		return
-	var career_name := String(entry.get("career", "party")).replace("_", " ")
-	var room_id := String(entry.get("room", "main_hall"))
-	var room_name := room_id.replace("_", " ")
-	var location_name := String(entry.get("location_label", room_name))
-	var route_label := String(entry.get("route_label", ""))
-	var icon_path := "res://assets/ui/castle_room_buttons_v2/room_%s.png" % room_id
-	var icon: Texture2D = load(icon_path) as Texture2D \
-		if ResourceLoader.exists(icon_path) else null
-	_set_objective("chapter2_party_prep_%s" % career_name.replace(" ", "_"),
-		icon, "")
-	var celebration := "%s is ready! " % completed_career.capitalize() \
-		if completed_career != "" else ""
-	var route_hint := " Enter through the %s!" % route_label \
-		if not route_label.is_empty() else ""
-	show_msg("", "%sNext party sparkle: %s in the %s!%s" % [
-		celebration, career_name.capitalize(), location_name, route_hint], "hint")
+	var career_name: String = String(entry["career"])
+	var icon_path := "res://assets/ui/castle_room_buttons_v2/room_%s.png" % entry["room"]
+	_set_objective("chapter2_party_prep_" + career_name, load(icon_path) as Texture2D, "")
+	_chapter_two_say("chapter2_route_" + career_name)
 
 
 func _chapter_two_announce_start() -> void:
-	if not chapter2_is_active():
-		return
-	show_msg("",
-		"The castle is clean! The Opera House is open. Farmer Roshan can gather strawberries first!",
-		"home")
-	_chapter_two_guide_next_party_piece()
+	if chapter2_is_active():
+		_chapter_two_guide_next_party_piece()
 
 func _rainbow_friend_ref() -> RainbowFriendFollower:
 	if _rainbow_friend == null:

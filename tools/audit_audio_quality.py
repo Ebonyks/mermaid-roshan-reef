@@ -337,8 +337,12 @@ def authoritative_filler_lines(root: Path,
         key: value for key, value in lines.items()
         if value[0] != "faron" and key not in excluded
     }
-    contextual_path = root / "audit" / "DAY_ONE_CONTEXTUAL_VOICE_COVERAGE_2026-09-01.json"
-    if contextual_path.is_file():
+    for catalog_name in (
+            "DAY_ONE_CONTEXTUAL_VOICE_COVERAGE_2026-09-01.json",
+            "CHAPTER_TWO_VOICE_COVERAGE_2026-09-30.json"):
+        contextual_path = root / "audit" / catalog_name
+        if not contextual_path.is_file():
+            continue
         contextual = json.loads(contextual_path.read_text(encoding="utf-8"))
         for row in contextual.get("rows", []):
             if not isinstance(row, dict):

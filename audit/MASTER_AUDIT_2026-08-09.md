@@ -87,6 +87,8 @@ Scoped Day One Grok Handoff 2: [footage audit](GROK_HANDOFF_2_FOOTAGE_AUDIT_2026
 
 Scoped Grok builder consolidation (2026-09-14): [single project database](../assets_src/cinematics/grok_builder_2026-09-14/README.md) and [impact](../design/audit_impacts/grok-builder-20260914.json). Character/location/event state and missing-shot planning are unified; MA-VIS-006 and all cinematic delivery gates remain open.
 
+Scoped Day One/Two alpha repair (2026-09-30): [impact and acceptance limits](../design/audit_impacts/day-one-two-alpha-20260930.json). Baseline `55032e88936b22723fd9af5282c61ba6696b3d43`; save, targeting, patient input-required assistance, Back, contact work and exact speech are bounded repairs. Current CI findings now distinguish repaired Day One coverage from remaining Chapter Two/game-wide acceptance. Overall `UNSATISFIED` remains unchanged.
+
 <!-- AUDIT_TASK_INDEX_END -->
 
 Owner handoff-publication correction (2026-09-16): [mandatory GitHub delivery](../AGENTS.md#external-handoffs-github-delivery-is-mandatory) and [change evidence](../design/audit_impacts/handoff-publication-memory-20260916.json). Publish and remotely verify each external handoff/QC revision before waiting for returns; local workspaces are staging only. This operational correction closes no cinematic or game-wide acceptance finding.

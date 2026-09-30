@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "status": "PASS_ALL_LOCAL_GATES_COMPLETED",
+  "source_ci_sha256_utf8_lf": "ca52d4b29e561de3a88c24de22134119903be17b65edf8c3770bf868102aa77e",
+  "initial_run": {
+    "command": "GODOT=exact-4.7.2 scripts/ci.sh",
+    "exit": 1,
+    "log": "audit/evidence/day-one-two-alpha-20260930/local_ci_initial.log",
+    "failure": "Metadata-only inventory count identifiers in impact prose were classified as spatial API markers. No runtime code or ceiling change."
+  },
+  "remaining_run": {
+    "script": "tmp/alpha_ci_resume.sh",
+    "sha256": "ebc30294a608e367fdf56aa9d3a611a178e514db900773f249d11fe6e8325947",
+    "source_line": 166,
+    "source_fragment": "#!/usr/bin/env bash\n# Full local gate: fresh import + every trusted probe.  Probe user data is\n# isolated so one bot cannot make the next bot pass by pre-winning content.\nset -uo pipefail\nGODOT=\"${GODOT:-godot}\"\ncd \"$(dirname \"$0\")/..\"\n# Windows-local parity (2026-08-04): on Windows the Python default text codec\n# is cp1252, so every tool below that reads a UTF-8 source file or prints an\n# arrow/em-dash dies with a charmap error and the suite never reaches the\n# probes. Linux CI already defaults to UTF-8, so this is a no-op there.\nexport PYTHONIOENCODING=\"utf-8\"\nexport PYTHONUTF8=1\nRUNTIME_ERROR_RE='SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)'\nFAILURE_RE='FAIL|FAILED|ISSUE|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error'\npython3 tools/audit_document_authority.py || exit 1\npython3 tools/audit_development.py --base auto || exit 1\npython3 -m gdtoolkit.parser scripts/games/dust_boss.gd scripts/probe_dust_boss.gd || exit 1\npython3 tools/lint_inference.py scripts/games/dust_boss.gd scripts/probe_dust_boss.gd || exit 1\npython3 tools/audit_game_2d.py --regression-gate \\\n\t|| { echo \"GAME-WIDE 2D MIGRATION REGRESSION (debt may only shrink)\"; exit 1; }\nrc=0\nfor p in probe_reef_districts probe_ocean_kingdoms probe_audit probe_passive probe_living_world probe_load probe_rank probe_save_recovery probe_galaxy_state probe_collection probe_mg2d probe_fetch probe_melody probe_dolls probe_seek probe_audio probe_dance probe_l2 probe_l2_living_cards probe_sky_lagoon_animals probe_l2_reenter probe_crown probe_throne probe_northern probe_human_art_audit probe_train probe_verbs probe_skins probe_touch_router probe_touch_stress probe_interaction probe_touch_adversary probe_touch_look probe_ui_system probe_voice probe_day_one_voice probe_day_one_d8_revisits probe_day_one_handoffs probe_kart_feel probe_combat probe_dust_bunny probe_dust_bunny_boss probe_dust_boss probe_hit probe_partner probe_combat_tutorial probe_imp_ai probe_mic probe_stuffie probe_dungeon probe_ember probe_opera probe_opera_2d probe_opera_diegetic_paths probe_opera_detective probe_opera_pipe probe_opera_nursery probe_opera_gesture_quality probe_kitchen_props probe_bathroom_props probe_castle_door_language probe_bathroom_integration probe_day_one_bathroom_bunny probe_day_one_bathroom_cleanup probe_day_one_bathroom_movie_handoff probe_day_one_director probe_day_one_integration probe_day_one_pool_cleanup probe_day_one_art_attack_state probe_day_one_castle_dressing probe_day_one_story_clips probe_chapter2 probe_chapter2_farmer_resume probe_chapter2_lawn probe_alpha_milestone_save probe_dust_boss_balance probe_start_menu_routing probe_start_menu_new_game probe_castle_pool_life_2d probe_castle_pearl_art probe_fairy_art probe_props; do\n\t[ -f \"scripts/$p.gd\" ] || { echo \"PROBE $p MISSING: scripts/$p.gd is required\"; rc=1; continue; }\n\techo \"=== $p ===\"\n\tprobe_home=\"$(mktemp -d)\"\n\tmkdir -p \"$probe_home/data\" \"$probe_home/config\" \\\n\t\t\"$probe_home/appdata\" \"$probe_home/localappdata\"\n\tprobe_appdata=\"$probe_home/appdata\"\n\tprobe_localappdata=\"$probe_home/localappdata\"\n\tif command -v cygpath >/dev/null 2>&1; then\n\t\t# Godot's Windows build uses APPDATA/LOCALAPPDATA, not XDG_*.\n\t\t# Native paths keep one probe's save from pre-winning the next probe.\n\t\tprobe_appdata=\"$(cygpath -w \"$probe_appdata\")\"\n\t\tprobe_localappdata=\"$(cygpath -w \"$probe_localappdata\")\"\n\tfi\n\tprobe_output=\"$probe_home/$p.out\"\n\ttouch_test_mode=\"--classic-touch-test\"\n\tcase \"$p\" in\n\t\tprobe_passive|probe_touch_router|probe_touch_stress|probe_interaction|probe_touch_adversary)\n\t\t\ttouch_test_mode=\"--hybrid-touch-test\"\n\t\t\t;;\n\tesac\n\tprobe_rc=0\n\tAPPDATA=\"$probe_appdata\" LOCALAPPDATA=\"$probe_localappdata\" \\\n\t\tXDG_DATA_HOME=\"$probe_home/data\" XDG_CONFIG_HOME=\"$probe_home/config\" \\\n\t\ttimeout 8m \"$GODOT\" --headless -s \"scripts/$p.gd\" -- --touch \"$touch_test_mode\" 2>&1 | tee \"$probe_output\" || probe_rc=$?\n\techo \"PROBE $p process exit: $probe_rc\"\n\tif [ \"$probe_rc\" -ne 0 ]; then\n\t\t# Known engine flaw (2026-07-18): Godot 4.4 sometimes deadlocks at EXIT\n\t\t# after a probe printed its complete verdict (seen after kart-heavy\n\t\t# probes, always AFTER an ALL OK line). Accept a timeout kill (124)\n\t\t# only when the transcript ends with a final verdict marker; the\n\t\t# failure greps below still veto bad content. Anything else is real.\n\t\tif [ \"$probe_rc\" -eq 124 ] && tail -n 5 \"$probe_output\" | grep -qE \"ALL OK|RESULT\"; then\n\t\t\techo \"PROBE $p reached its verdict; engine hung at exit and was reaped - accepted\"\n\t\telse\n\t\t\trc=1\n\t\tfi\n\tfi\n\tgrep -qE \"$FAILURE_RE\" \"$probe_output\" \\\n\t\t&& { echo \"PROBE $p reported a failure or runtime script error\"; rc=1; }\n\t# a script that cannot compile leaves the probe waiting on a world that\n\t# never builds - bail on the whole gate instead of timing out per-probe\n\tgrep -qE \"Parse Error|Compile Error\" \"$probe_output\" \\\n\t\t&& { echo \"PROBE $p hit a script compile error - aborting gate\"; exit 1; }\n\tgrep -qE \"$RUNTIME_ERROR_RE\" \"$probe_output\" \\\n\t\t&& { echo \"PROBE $p reported a resource or property runtime error\"; rc=1; }\n\t# positive floor: a probe that exits 0 while printing nothing asserted\n\t# nothing - a startup crash swallowed before any output must not pass\n\t[ -s \"$probe_output\" ] \\\n\t\t|| { echo \"PROBE $p produced no output - silent no-op treated as failure\"; rc=1; }\n\trm -rf \"$probe_home\"\ndone\nexit $rc\n",
+    "repeats": "Document authority, development coverage, parser/inference for the later checkpoint guard, exact spatial inventory; then the unchanged full trusted-probe loop and footer from scripts/ci.sh.",
+    "log": "audit/evidence/day-one-two-alpha-20260930/local_ci_remaining.log",
+    "exit": 0,
+    "trusted_probe_processes": 82
+  },
+  "acceptance": "All original gates must complete successfully; remote CI replays the original complete entry point before integration.",
+  "final_targeted": {
+    "exit": 0,
+    "probes": [
+      "probe_alpha_milestone_save",
+      "probe_day_one_pool_cleanup",
+      "probe_day_one_integration",
+      "probe_passive",
+      "probe_load",
+      "probe_save_recovery"
+    ],
+    "log": "audit/evidence/day-one-two-alpha-20260930/local_ci_final_targeted.log",
+    "reason": "Latest unchanged-mask/tug disk-write guard; final changed-script parser/inference and exact 4.7.2 main/probe analyzer pass."
+  },
+  "source_sha256_utf8_lf": {
+    "scripts/audio_director.gd": "7562ccfb1587438a077786901dbcd46dcedbcffc662cb36f9ed20c7510fbb0a9",
+    "scripts/boss_encounter_2d.gd": "371f260c9547f0665a41f290b2b1502c5ab22172b3d448f108d1b4e427bf9d55",
+    "scripts/chapter_two_career_scene_adapter.gd": "7397beeabc10e20ea3cdf38f2918d672711ac06dedb539d536a4eb1c1c656e2f",
+    "scripts/chapter_two_voice_catalog.gd": "878cdebb43c777741d0462369f11da32369bb2efa08b5fae2adbfa64fbacfe96",
+    "scripts/day_one_art_studio.gd": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a",
+    "scripts/day_one_contact_action_2d.gd": "0dcbb203d7ec179fa3347f6fca0aa62895bf650b64e2f12d6c1440e970716778",
+    "scripts/encounter_contract_checks.gd": "910c876867420ddf2b1e9249512910c0838894285e3d07af755ce82195aae639",
+    "scripts/encounter_patterns_2d.gd": "d2feafa7dd1081fe5bf350f836421bbe2c4a545dfc6f22ec22c2aa7798ac5efe",
+    "scripts/encounter_profile_2d.gd": "80ced9bb58afde098f12c8e017f86f953b64c0ca764759abf32144e82a50c971",
+    "scripts/games/day_one_pool_cleanup.gd": "06cc9c0f276cfeac16aba85f7e93c443532c87d218428e48810cb422968175f0",
+    "scripts/games/dust_boss.gd": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d",
+    "scripts/games/pool_seahorse_rescue_activity.gd": "72279c1b2ea982c1f9212a56e35b5aa1b08fdb119e80e01f5562852a71236bb8",
+    "scripts/games/pool_waterfall_activity.gd": "1374edc17af0fa536230a41e43f2fc2454f48e42eb2ad55b871e978d549687e4",
+    "scripts/main.gd": "aba659693ed877e2845487b514c64e431d817143cf5c2803705c9f27c79bd256",
+    "scripts/navigation_controller.gd": "8a7c805f6b0d73840d62316dc349390d8125299fd8bdf0c146c6699ca725a873",
+    "scripts/opera_career_world_2d.gd": "9c3caed544859c3cffbbd8ca3652f1ca83d146958c4854b56938667a508832f1",
+    "scripts/probe_alpha_milestone_save.gd": "a489a5b8221e2c658183ae745ef803c0622889f6791c16c69e190c6f5382ff27",
+    "scripts/probe_chapter2.gd": "f9ddc3ac5f7310592c27b00d6e40e751c72380552a48eed7fec2ba88a985a65d",
+    "scripts/probe_day_one_pool_cleanup.gd": "b669445f9d6ff90881adb24de584d7c33b264756b12e4d9597bbb30c1f0403f0",
+    "scripts/probe_dust_boss.gd": "1a8640957f477ac4756e08b5fdfc37a1ef70608124c43229a2896e968461fee3",
+    "scripts/probe_dust_boss_balance.gd": "f4940fb4b5d6398e5d1fab94fdf92f4666c2302ff6c36f533312c6f3956be235",
+    "scripts/probe_passive.gd": "e266e523af5c629f98ca8b52acfd931de7659b455a58634ccde6a917f3b50e97",
+    "scripts/probe_voice.gd": "fdfddc959dfa32aefbf2a0ec2323f021dbbf36608a3670ec2a401ff692e48330",
+    "scripts/touch_ui.gd": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d"
+  },
+  "source_baseline": "285355eb9e09a29aa4ac53d36874e31419d4674e",
+  "log_normalization": {
+    "method": "UTF-8/LF and trim line-end whitespace only for Git diff hygiene; assertions and verdicts unchanged. Original runtime logs retained in tmp.",
+    "changed": [
+      {
+        "path": "audit/evidence/day-one-two-alpha-20260930/local_ci_remaining.log",
+        "source_utf8_lf_sha256": "3303b265d877450bc1657e1c5bce46fb9e335a6aa74c36f7dcacb4493d9db377",
+        "repository_sha256": "633e63af549a7518fac1021b6192585603502c40152d003ea3cebe3ae0b2b93f"
+      }
+    ]
+  }
+}

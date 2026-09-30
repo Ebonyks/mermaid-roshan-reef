@@ -33,6 +33,8 @@ func _run_probe() -> void:
 	host.size = StorybookUI.CANVAS_SIZE
 	get_root().add_child(host)
 	await _probe_seahorse_mouth_contact(host)
+	_probe_seahorse_input_contract(host)
+	_probe_contact_action(host)
 	var tap_player := AudioStreamPlayer.new()
 	host.add_child(tap_player)
 	main._tap_player = tap_player
@@ -431,3 +433,120 @@ func _probe_trash_atlas_sampling(activity: PoolSkimmerActivity) -> void:
 		_check("trash %d live texture has transparent sampled edges without neighbor pixels" % index,
 			edge_alpha <= 1.0 / 255.0)
 	_check("both wrapper and can live textures were checked", sampled == 2)
+
+
+func _probe_seahorse_input_contract(host: Control) -> void:
+	var activity: PoolSeahorseRescueActivity = POOL_SEAHORSE.new()
+	host.add_child(activity)
+	activity.size = StorybookUI.CANVAS_SIZE
+	for bounds: Vector2 in [Vector2(208.75, 241.25), Vector2(400, 160), Vector2(120, 360)]:
+		activity.setup(Vector2(921.875, 245.625), bounds)
+		activity.start()
+		var touch := InputEventScreenTouch.new()
+		touch.index = 0
+		touch.position = Vector2(20, 20)
+		for _tap: int in range(8):
+			touch.pressed = true
+			activity._gui_input(touch)
+			touch.pressed = false
+			activity._gui_input(touch)
+		_check("off-target seahorse taps never earn rescue %s" % bounds,
+			activity._taps == 0 and not activity._completion_started)
+		touch.position = activity.fixture_center
+		touch.pressed = true
+		activity._gui_input(touch)
+		activity._gui_input(touch)
+		var second := InputEventScreenTouch.new()
+		second.index = 1
+		second.position = activity.fixture_center
+		second.pressed = true
+		activity._gui_input(second)
+		second.pressed = false
+		activity._gui_input(second)
+		_check("held/secondary seahorse presses preserve the first owner %s" % bounds,
+			activity._taps == 1 and activity._touch_active and activity._touch_id == 0)
+		touch.canceled = true
+		activity._gui_input(touch)
+		_check("canceled press earns nothing and releases its owner %s" % bounds,
+			activity._taps == 1 and not activity._touch_active)
+		touch.canceled = false
+		for _tap: int in range(7):
+			touch.pressed = true
+			activity._gui_input(touch)
+			touch.pressed = false
+			activity._gui_input(touch)
+		_check("eight deliberate seahorse taps start one rescue %s" % bounds,
+			activity._taps == 8 and activity._completion_started)
+		activity.stop()
+	activity.free()
+
+
+func _probe_contact_action(host: Control) -> void:
+	var actor := Sprite2D.new()
+	host.add_child(actor)
+	actor.position = Vector2(80.0, 600.0)
+	var action := DayOneContactAction2D.new()
+	host.add_child(action)
+	action.bind(actor, null, "classic")
+	var calls: Array[int] = [0]
+	_check("contact action accepts one deliberate job", action.request(Vector2(850.0, 280.0), func() -> void: calls[0] += 1))
+	_check("a second job cannot steal the active approach", not action.request(Vector2.ZERO))
+	action._process(0.2)
+	_check("travel and waiting never award before hand contact", calls[0] == 0 and not action.in_contact() and not actor.visible)
+	for index: int in range(80):
+		action._process(0.05)
+	_check("arrival and local work complete exactly once", calls[0] == 1 and actor.visible and not action.active)
+	action.request(Vector2(40.0, 280.0), func() -> void: calls[0] += 1)
+	action.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
+	action._process(10.0)
+	_check("focus interruption cancels unearned local work", calls[0] == 1 and actor.visible and not action.active)
+	var seahorse: PoolSeahorseRescueActivity = POOL_SEAHORSE.new()
+	host.add_child(seahorse)
+	seahorse.size = StorybookUI.CANVAS_SIZE
+	seahorse.setup(Vector2(960.0, 390.0), Vector2(208.75, 241.25), 0)
+	seahorse.bind_room_actor(actor, null, "classic")
+	seahorse.start()
+	seahorse._register_tap(seahorse.fixture_center)
+	_check("seahorse tap requests work without instant credit", seahorse._taps == 0 and seahorse._contact_action.active)
+	for index: int in range(80):
+		seahorse._contact_action._process(0.05)
+	_check("seahorse earns one tug after real contact", seahorse._taps == 1 and actor.visible)
+	seahorse.stop()
+	seahorse.free()
+	actor.position = Vector2(80.0, 600.0)
+	var waterfall: PoolWaterfallActivity = POOL_WATERFALL.new()
+	host.add_child(waterfall)
+	waterfall.size = StorybookUI.CANVAS_SIZE
+	waterfall.setup(Vector2(700.0, 290.0), Vector2(260.0, 240.0), 0)
+	waterfall.bind_room_actor(actor, null, "classic")
+	waterfall.start()
+	waterfall._begin_touch(waterfall.fixture_center, 4)
+	waterfall._end_touch(waterfall.fixture_center, 4)
+	waterfall._begin_touch(waterfall.fixture_center + Vector2(70.0, 0.0), 5)
+	_check("waterfall tap waits for contact and rejects a second job", waterfall._lane_progress[1] == 0.0 and not waterfall._touch_active)
+	waterfall._contact_action.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
+	waterfall._contact_action._process(10.0)
+	_check("canceled waterfall work earns no progress", waterfall._lane_progress[1] == 0.0 and actor.visible)
+	waterfall._begin_touch(waterfall.fixture_center, 4)
+	waterfall._end_touch(waterfall.fixture_center, 4)
+	for index: int in range(80):
+		waterfall._contact_action._process(0.05)
+		waterfall._process(0.05)
+	_check("waterfall earns one local scrub after arrival", is_equal_approx(waterfall._lane_progress[1], waterfall.TAP_ASSIST) and not waterfall._scrubber.visible and actor.visible)
+	var stroke_start: Vector2 = waterfall.fixture_center - Vector2(waterfall.fixture_size.x / 3.0, 96.0)
+	var stroke_end: Vector2 = stroke_start + Vector2(0.0, waterfall.fixture_size.y)
+	waterfall._begin_touch(stroke_start, 7)
+	waterfall._update_touch(stroke_end, 7)
+	waterfall._end_touch(stroke_end, 7)
+	_check("quick waterfall swipe waits for contact without remote credit", waterfall._lane_progress[0] == 0.0 and waterfall._contact_action.active)
+	for index: int in range(80):
+		waterfall._contact_action._process(0.05)
+		waterfall._process(0.05)
+	_check("released quick stroke completes locally and frees its owner", (waterfall._clear_mask & 1) != 0 and not waterfall._contact_action.active and actor.visible)
+	waterfall._begin_touch(waterfall.fixture_center, 8)
+	_check("waterfall accepts the next gesture after a quick stroke", waterfall._touch_active and waterfall._touch_id == 8)
+	waterfall.cancel_touch()
+	waterfall.stop()
+	waterfall.free()
+	action.free()
+	actor.free()

@@ -42,6 +42,10 @@ func _init() -> void:
 	player = main.player
 	print("PASSIVE|boot OK")
 	var bad := 0
+	bad += _probe_chapter_two_snapshot_contract()
+	if OS.get_cmdline_user_args().has("--snapshot-only"):
+		quit(1 if bad else 0)
+		return
 	var day_one_missing: Array[String] = _missing_day_one_snapshot_keys()
 	if not day_one_missing.is_empty():
 		print("PASSIVE|Day One snapshot contract: FAIL missing=", day_one_missing)
@@ -144,7 +148,7 @@ func _init() -> void:
 	else:
 		print("PASSIVE|Water FX: OK ambient channels proc nothing")
 	print("PASSIVE|result: ", ("ALL OK" if bad == 0 else "%d game(s) FAILED" % bad))
-	quit()
+	quit(1 if bad > 0 else 0)
 
 func _frames(n: int):
 	for i in range(n):
@@ -168,7 +172,13 @@ func _progress_snapshot() -> Dictionary:
 		"animals": animals_now.duplicate(true),
 		"medals": medals_now.duplicate(true),
 		"day_one": _day_one_snapshot(),
+		"chapter_two": _chapter_two_snapshot(),
 	}
+
+func _chapter_two_snapshot() -> Dictionary:
+	var serialized: Dictionary = main._chapter_two_ref().serialize_state()
+	return serialized.duplicate(true)
+
 
 func _day_one_snapshot() -> Dictionary:
 	# Use the director's canonical serialized representation rather than a
@@ -193,7 +203,39 @@ func _progress_unchanged(before: Dictionary) -> bool:
 		and main.shop_owned == before["shop"] \
 		and main.animals_owned == before["animals"] \
 		and main.medals == before["medals"] \
-		and _day_one_snapshot() == before["day_one"]
+		and _day_one_snapshot() == before["day_one"] \
+		and _chapter_two_snapshot() == before["chapter_two"]
+
+func _probe_chapter_two_snapshot_contract() -> int:
+	var failures: int = 0
+	var before: Dictionary = _progress_snapshot()
+	var serialized: Dictionary = before["chapter_two"] as Dictionary
+	for key: String in serialized:
+		var original: Variant = main.get(key)
+		var changed: Variant = original
+		match typeof(original):
+			TYPE_BOOL: changed = not bool(original)
+			TYPE_INT: changed = int(original) ^ 1
+			TYPE_STRING: changed = String(original) + "_mutation"
+			TYPE_ARRAY:
+				changed = (original as Array).duplicate(true)
+				if (changed as Array).is_empty():
+					(changed as Array).append(1)
+				else:
+					(changed as Array)[0] = int((changed as Array)[0]) ^ 1
+			TYPE_DICTIONARY:
+				changed = (original as Dictionary).duplicate(true)
+				(changed as Dictionary)["mutation"] = 1
+			_:
+				print("PASSIVE|unsupported mutation field ", key, " type=", typeof(original))
+				failures += 1
+		main.set(key, changed)
+		if _progress_unchanged(before):
+			print("PASSIVE|undetected mutation field ", key)
+			failures += 1
+		main.set(key, original)
+	print("PASSIVE|Chapter Two snapshot mutation contract: ", "OK all %d fields detected" % serialized.size() if failures == 0 else "FAIL %d" % failures)
+	return failures
 
 func _probe_companion_patient_care() -> int:
 	# The retired 120-second send-home path was a zero-input failure. Cross that
