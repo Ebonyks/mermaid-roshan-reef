@@ -1,0 +1,87 @@
+{
+ "id": "codex-opera-imp-contest-handoff-rev2-20260930",
+ "scope": "Owner request 2026-09-30: \"The teacher should have an imp, but the game inverts, he teaches information that's wrong and it's your job to figure it out, which beats the imp. Similar educational type games\". Revision 2 of the written-only Codex handoff docs/handoffs/codex_opera_imp_contest_2026-09-30/ (no images, per the CLAUDE.md written-handoff rule): owner decision OD-C; the inverted contest format (contract C15 'truth last', shared rules in section 4.15: rounds with one deliberate imp mistake, her first pick decides, no clock, hint rounds score nobody, rematch mercy by easier tiers and more obvious mistakes); the Teacher's IMP'S LESSON built from TeacherLessonPlan (pattern, count, add, match, with mastery recorded per round); the Geologist's FIELD GUIDE MIX-UP (upside-down fossil strip, odd rock out), specified by interpretation pending owner confirmation; interim imps (plain mischief imp for the Teacher, the existing detective costume for the Geologist) and recommended rival_teacher/rival_geologist costumes described in words for Codex; 35 new lines plus 6 if the Geologist is confirmed and 2 for Nursery option B; updated inventories, analysis (H2 absorbed), README, tests, work order and manifest. Canon: DL-INT-14 extended with the inverted format; design 01 competition and Geologist bullets, master index and master-audit notes; ledger rows. No game script, scene, asset, save key or runtime behaviour changes.",
+ "baseline": "8ce7929b3b859fa4966bff9051d861fbacfd136c",
+ "rules": [
+  "DL-AUTH-05",
+  "DL-AUTH-06",
+  "DL-AUTH-07",
+  "DL-AGE-01",
+  "DL-AGE-02",
+  "DL-AGE-03",
+  "DL-AGE-04",
+  "DL-AGE-05",
+  "DL-AGE-06",
+  "DL-INT-02",
+  "DL-INT-06",
+  "DL-INT-07",
+  "DL-INT-14",
+  "DL-MOT-07",
+  "DL-SND-01",
+  "DL-SND-05",
+  "DL-SND-10",
+  "DL-SND-12",
+  "DL-SND-13",
+  "DL-SAVE-01",
+  "DL-SAVE-02",
+  "DL-PLAN-03",
+  "DL-PLAN-04",
+  "DL-QA-12"
+ ],
+ "findings": [],
+ "no_findings_reason": "No MA-* finding covers the Teacher or the Geologist, and revision 2 changes nothing recorded by MA-OPERA-005 or MA-OPERA-009. The handoff-local finding H2 (Teacher credits an unseen buddy) is marked absorbed inside the packet; handoff-local findings are not entered into the MA-* register.",
+ "files": [
+  "audit/MASTER_AUDIT_2026-08-09.md",
+  "design/00_MASTER_INDEX.md",
+  "design/01_GAME_DESIGN.md",
+  "design/05_DOC_LEDGER.md",
+  "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+  "design/audit_impacts/codex-opera-imp-contest-handoff-rev2-20260930.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/CONTEST_DESIGN.md",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/CURRENT_STATE_ANALYSIS.md",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/MANIFEST.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/README.md",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/data/contest_spec.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/data/imp_art_inventory.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/data/imp_voice_inventory.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/tools/build_packet_data.py"
+ ],
+ "validation": [
+  {
+   "command": "python3 -B tools/audit_document_authority.py",
+   "result": "PASS",
+   "evidence": "DOCAUTH|INVENTORY=585|LEDGER=585|ACTIVE=56|RECORDS=58; DOCAUTH|RESULT|ALL OK. --stress: DOCAUTH|STRESS|6/6."
+  },
+  {
+   "command": "python3 -B tools/audit_development.py --base auto",
+   "result": "PASS",
+   "evidence": "AUDITDEV|BASE|8ce7929b3b859fa4966bff9051d861fbacfd136c; AUDITDEV|RESULT|ALL OK; this record covers all 14 changed paths."
+  },
+  {
+   "command": "python3 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+   "result": "PASS",
+   "evidence": "Ran 52 tests, OK."
+  },
+  {
+   "command": "python3 -B docs/handoffs/codex_opera_imp_contest_2026-09-30/tools/build_packet_data.py --check",
+   "result": "PASS",
+   "evidence": "PACKET_CHECK|OK|FILES=8: every packet file matches MANIFEST.json (revision 2), both inventories regenerate byte-identically, and the folder contains no image."
+  },
+  {
+   "command": "python3 -B tools/audit_game_2d.py --regression-gate",
+   "result": "NOT_APPLICABLE",
+   "evidence": "Local clone is shallow, so the tool refuses shrinking-baseline validation (G2D403). The change touches no game, scene or asset file; the probes workflow runs this gate with full history on the pushed head."
+  },
+  {
+   "command": "Remote verification: unauthenticated fetch of MANIFEST.json and every listed file from raw.githubusercontent.com at the pushed commit, SHA-256 and byte comparison",
+   "result": "PENDING",
+   "evidence": "Recorded after the push."
+  },
+  {
+   "command": "Exact Godot 4.7.2 probe suite (scripts/ci.sh) via .github/workflows/probes.yml on the pushed head",
+   "result": "PENDING",
+   "evidence": "Documentation-only change; the suite still runs as a regression gate before integration into dev."
+  }
+ ],
+ "acceptance_gaps": "Written handoff only. Owner confirmation that OD-C covers the Geologist, approval of any rival_teacher or rival_geologist costume, Codex implementation, the new inverted-contest probes, exact-head CI for that implementation, Mobile captures, target-device play, an observed child session (does she understand she is correcting the imp, and does she keep answering ordinary lessons correctly) and owner acceptance are all pending. DL-INT-14 is a target contract, not implemented behaviour. No master-audit satisfaction, finding closure or release is claimed."
+}

@@ -16,6 +16,9 @@
 - **OD-A:** "No, I think imp comes in during the final act, there should be a contest at
   the end that reflects part of the skill of the job that's a challenge against the imp"
 - **OD-B:** "If imp wins, the game restarts immediately afterwards."
+- **OD-C:** "The teacher should have an imp, but the game inverts, he teaches information
+  that's wrong and it's your job to figure it out, which beats the imp. Similar
+  educational type games"
 
 What they mean for the game:
 1. The career's costumed imp is **not seen** before the final act. He **enters** when the
@@ -23,6 +26,9 @@ What they mean for the game:
 2. The final act **ends in one head-to-head contest** against him. The contest uses a real
    skill of that job.
 3. **He can win.** When he does, the contest **restarts at once**.
+4. **Learning careers invert.** The Teacher gets a visible imp who teaches with deliberate
+   mistakes. The child beats him by finding each mistake and showing the right answer
+   (§4.15, §6.13).
 
 **Interpretation to confirm with the owner (restart scope).**
 - This design restarts **the contest only**: both sides go back to zero and play again
@@ -30,6 +36,13 @@ What they mean for the game:
 - Earlier activities, stars, pearls, stickers and saves are kept.
 - If the owner meant the whole career, change `restart_scope` to `career` in the JSON and
   §4.7. Nothing else in this design depends on it.
+
+**Interpretation to confirm with the owner (educational scope).**
+- The Teacher's wrong lessons reuse its own four lesson kinds: pattern, count, add and
+  match.
+- "Similar educational type games" is also read as covering the Geologist, the other
+  learning career, which gets the same inverted format (§6.14).
+- If the owner did not mean the Geologist, it stays cooperative and §6.14 is dropped.
 
 The new binding rule `DL-INT-14`, in
 [design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md](../../../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md),
@@ -49,10 +62,12 @@ records these decisions as the target contract.
 | mirror station | The imp's own small copy of the activity, showing his units; input-transparent |
 | flub | His one scripted mistake per attempt, which is her comeback moment |
 | flourish | An existing victory activity after the contest, such as CROWN, BELT, PORTAL or ENCORE |
+| inverted contest | A points contest in rounds: the imp teaches with one deliberate mistake per round, and she scores by fixing it (Teacher, Geologist) |
+| round | One lesson or specimen in an inverted contest; it always ends with the right answer placed by her |
 
 ## 3. The contest contract
 
-Each rule has an ID (C1 to C14) so probes and reviews can cite it.
+Each rule has an ID (C1 to C15) so probes and reviews can cite it.
 
 - **C1. Hidden until the final act.** Before the final act there is no imp sprite, mirror
   station, score row, clock or imp voice. The one exception is the offscreen Detective
@@ -68,7 +83,8 @@ Each rule has an ID (C1 to C14) so probes and reviews can cite it.
   `DL-INT-02` requires. Only the three Hall careers compete on the stage, which is already
   their playable venue.
 - **C6. He can win.** In a race contest he wins by finishing his units first. In a points
-  contest he wins by reaching his target first. Ties go to Roshan.
+  contest he wins by reaching his target first. Ties go to Roshan. In an inverted contest
+  he scores only when her first pick in a round is wrong; he never scores by time.
 - **C7. Instant, friendly restart.**
   - When he wins there is a win beat of at most 2 s, then the contest resets and she can
     play again immediately.
@@ -78,17 +94,19 @@ Each rule has an ID (C1 to C14) so probes and reviews can cite it.
     owner-directed rematch, not a punitive fail state (`DL-AGE-03`).
 - **C8. Zero input never decides.** He works only while she is playing. With no input he
   freezes (§4.5). No input can produce a win or a loss (`DL-AGE-04`), and demonstrations
-  never move either side (`DL-INT-06`).
-- **C9. Mercy on every rematch.** Each rematch makes him slower, or makes him need more
-  points, down to a floor (§4.3, §4.4). An engaged child always wins eventually.
+  never move either side (`DL-INT-06`). Inverted contests have no clock at all.
+- **C9. Mercy on every rematch.** Each rematch makes him slower, makes him need more points,
+  or makes his mistakes easier to spot, down to a floor (§4.3, §4.4, §4.15). An engaged
+  child always wins eventually.
 - **C10. Wordless and readable.**
-  - Progress shows as two rows of pearls or bars with a face icon each. There are no
-    numbers or words on screen for the child.
+  - Progress shows as two rows of pearls or bars with a face icon each. The score rows
+    carry no numbers or words. Lesson content keeps its own existing symbols, such as the
+    Teacher's numeral labels.
   - Every beat also has an exact voice line (`DL-SND-13`).
 - **C11. One finger.** Every contest can be finished with one finger, using the same verb
   as the activity it comes from.
-- **C12. No payment for misses.** Inside a contest, wrong input pays nothing. In points
-  contests a wrong answer is the imp's point.
+- **C12. No payment for misses.** Inside a contest, wrong input pays nothing. In points and
+  inverted contests a wrong answer is the imp's point.
 - **C13. Story runs opt out.** Chapter 2 story runs (`reward_policy chapter2_story`), tutorial
   runs, and configs with `phase_overrides` or `scene_adapter` get no imp and no contest. The
   test is the same as `OperaPerformancePlan.enabled`
@@ -96,6 +114,8 @@ Each rule has an ID (C1 to C14) so probes and reviews can cite it.
 - **C14. Clean teardown.** Close, Back, pause-leave and focus loss stop every contest timer,
   tween and queued imp line. Re-entering resumes at the contest phase with a fresh attempt
   (§4.9).
+- **C15. Truth last.** In an inverted contest every round ends with the correct answer on
+  the board, placed by her. The imp's wrong answer is never left standing (§4.15).
 
 ## 4. Shared mechanics
 
@@ -161,6 +181,7 @@ Each rule has an ID (C1 to C14) so probes and reviews can cite it.
 - **Resume:** he resumes on her next touch.
 - **Rule:** the pause never ends by itself. A contest with no input stays unresolved
   forever, and the passive probe must prove it.
+- **Inverted contests** have no idle pause, because he never acts on time (§4.15).
 
 ### 4.6 The flub
 
@@ -173,6 +194,7 @@ Each rule has an ID (C1 to C14) so probes and reviews can cite it.
 - **What it is for:** it is her comeback moment. His row visibly pauses while hers can keep
   growing.
 - **Rematches:** the flub resets with each rematch, so every attempt has one.
+- **Inverted contests** have no flub: every round is already his mistake (§4.15).
 
 ### 4.7 He wins: instant rematch (contest-only restart)
 
@@ -236,6 +258,9 @@ Each rule has an ID (C1 to C14) so probes and reviews can cite it.
 - **Result:** leaving during the final act resumes at the first unfinished final-act phase,
   with the imp already present (no second entrance). This absorbs H5 for the final act. The
   earlier phases of those ten careers stay as they are unless the owner asks otherwise.
+- **Teacher and Geologist** keep their existing checkpoints (`teacher_lesson_checkpoint`,
+  `opera_geology_checkpoint`) for the phase index, with an empty mechanic snapshot on the
+  contest phase. They do not use `opera_phase_checkpoints`.
 - **Save rules:** never remove a save key (`DL-SAVE-01`). Flushes on pause and focus loss
   follow `DL-SAVE-02`.
 
@@ -278,6 +303,13 @@ Each rule has an ID (C1 to C14) so probes and reviews can cite it.
 - **Boxer:** the full-screen boxing surface already draws the imp as the opponent, and Roshan
   is first-person gloves.
 - **Racer:** the full-screen circuit already draws both karts.
+
+**Inverted contests** have no mirror station: he teaches on her own board.
+- **Teacher:** he stands at the right end of the board, about 150 px tall with his feet near
+  (1205, 640). He stays clear of every choice card (the right-most card ends at x = 1133)
+  and of the hint button at (1115, 150).
+- **Geologist:** he stands at the existing field-guide spot, (78, 218) at 176 px
+  (`_stage_room_finale_partner`, `:1793-1799`).
 
 **Curtain call:** stays on the proscenium for everyone (`_position_curtain_call_cast`, `:1852`).
 
@@ -329,6 +361,9 @@ contest.
   `guard` while she has at least 80 % of her units and leads.
 - **Show every step.** The runtime shows the authored poses; it never tweens between them
   to fake frames (`DL-MOT-07`).
+- **Inverted contests** use the same states differently: `charge` and `slash` point at the
+  board and place his wrong answer; `taunt` is his proud claim; `stagger` then `recover`
+  when she fixes it; `hop_b` then `taunt` when he tricks her. Defeat and bow are as usual.
 - **Preload:** only the career's family, 13 textures (fixes H7).
 
 ### 4.14 Hall careers (Ballerina, Magician, Pop Star)
@@ -345,6 +380,49 @@ contest.
     stay no-loss, and only the contest can restart.
 - **Mastery** (`scripts/opera_mastery.gd`): medal times still use the stage's active seconds.
   Each rematch counts as one assist. A won contest earns at least Bronze.
+
+### 4.15 Inverted contests (Teacher; Geologist pending confirmation)
+
+OD-C turns the contest around for learning careers. The imp is the teacher, and he gets
+things wrong on purpose.
+
+**A round**
+1. The board shows one lesson (Teacher) or one specimen (Geologist).
+2. He presents it with exactly one deliberate mistake. He points and places his wrong
+   answer (`charge`, `slash`), marks it with a purple outline, and claims it proudly
+   (`taunt`) with his claim line.
+3. She checks it. Where the lesson already asks her to count, she counts first, exactly as
+   in her lessons.
+4. Her **first pick** decides the round:
+   - **Right** (the right answer, or the wrong part): his mistake pops off with a soft puff
+     (`fx_dust_puff.png`), the right answer settles in, and he plays `stagger` then
+     `recover` with "Oops! You fixed it!". Her pearl.
+   - **Wrong** (his answer, or another wrong one): he plays `hop_b` then `taunt` with "Hee
+     hee! I tricked you!". His pearl. The golden help then shows the right answer, with the
+     existing Teacher help clip ("Look at the golden sparkle. You can try again."), and she
+     taps it to finish the round. That tap scores nothing.
+   - **Hint:** the hint button stays available. A hinted round scores for nobody, and she
+     still finishes it by placing the right answer.
+5. The next round starts with the next lesson kind or specimen.
+
+**Rules**
+- **Truth last (C15):** every round ends with the correct answer on the board, placed by
+  her.
+- **No clock:** he never scores by time, so there is no idle pause and no flub. Zero input
+  leaves the round waiting forever.
+- **Points:** first to 3. His target is 3, plus 1 per rematch, at most plus 2.
+- **Rematch mercy:** rounds step down one difficulty tier (never below 0), and his wrong
+  answer becomes the most obviously wrong choice: for three pearls he claims five, not four.
+- **Restart:** when he wins, the win beat and "Again!" play as in §4.7. Points reset; the
+  round rotation continues where it was, so she never repeats the round she just lost.
+- **Cheer tier** uses the points margin (§4.8).
+
+**Why this suits a four-year-old.** Early-maths research has long used a "puppet paradigm":
+a puppet counts, sometimes wrongly, and the child says whether it was right. Preschoolers
+catch a puppet's counting errors even before their own counting is reliable (Gelman and
+Meck, 1983, *Cognition* 13, 343–359). Spotting the imp's mistake is therefore
+age-appropriate. That is design rationale, not evidence about this game; the child session
+in §12 checks it.
 
 ## 5. How to build it
 
@@ -367,6 +445,8 @@ It holds:
 - `tick(delta, her_units, her_touched) -> Array[String]`. The events are `imp_unit`,
   `imp_overtaken`, `imp_worried`, `idle_pause`, `idle_resume`, `flub_start`, `flub_end`,
   `imp_won` and `player_won`;
+- for the `inverted` archetype, no pacing at all: `score_round(result)` takes `fixed`,
+  `tricked` or `hinted` from the surface and returns `imp_won`, `player_won` or nothing;
 - `reset_attempt()` and `result() -> {margin, tier, rematches}`.
 
 ### 5.2 Phase naming
@@ -374,8 +454,9 @@ It holds:
 - **Replaced activities keep their internal names:** TOP, SHARE, BANDAGE, PICNIC, TITLE IMP,
   LAUNCH, RACE, and the stage copy of GRAND TWIRL. `PHASE_STATIONS`,
   `HOTSPOT_PHASE_ALIASES`, the hotspot catalog, voice keys and probes all key on those names.
-- **Inserted contests are new phases:** SPARKLE RACE, PAINT-OFF, HAT DUEL and SING-OFF. Each
-  needs a `PHASE_STATIONS` entry (§6), a hotspot entry, voice keys and probe coverage.
+- **Inserted contests are new phases:** SPARKLE RACE, PAINT-OFF, HAT DUEL, SING-OFF, IMP'S
+  LESSON and FIELD GUIDE MIX-UP. Each needs a `PHASE_STATIONS` entry (§6), a hotspot entry,
+  voice keys and probe coverage.
 - **Contest names are design names only.** The child never sees them.
 
 ### 5.3 Career world (`scripts/opera_career_world_2d.gd`)
@@ -391,6 +472,12 @@ It holds:
 - **`_set_finale_visible`.** Contest careers show the imp from the final act, but the score
   rows only from the challenge.
 - **`_set_rival_pose`.** Use it for every contest pose. Its guard for co-op careers stays.
+- **Teacher and Geologist stop being co-op.** Their special branches must show the imp from
+  the final act and hide him before it:
+  - the Teacher hides its buddy in `_stage_room_finale_partner` (`:1787-1792`),
+    `_set_finale_visible` (`:3202-3208`) and the curtain call (`:3778`, `:3792`);
+  - the Geologist shows its guide from the first beat (`:1793-1799` and the Geologist branch
+    of `_set_finale_visible`).
 - **Prewarm.** `_prewarm_imp_textures`: the career family only (H7).
 - **Remove the Detective retry path (H1):**
   - `begin_guided_retry` (`:3696-3710`);
@@ -403,6 +490,8 @@ It holds:
   - For contest careers, stop the background pacer outside the contest. The rival meter no
     longer fills during earlier phases.
   - Remove `timed_retry`, the `rival_solved` event and `guided_retry()`.
+  - Drop `cooperative` from the Teacher and Geologist entries in `CAREERS`. Their partner
+    names ("Learning Buddy Imp", "Field Guide Imp") become the imps' names.
   - Let `complete()` accept the contest result (tier and rematches) instead of the time-based
     quality.
   - Co-op careers keep today's behaviour.
@@ -435,6 +524,16 @@ It holds:
 | boxing_imp (TITLE BOUT) | Her landed punches are her points; his point is a counter that lands unblocked, counted only if she touched in the last 4 s; friendly contact never removes her points |
 | kart_race (GRAND PRIX) | Emit `rival_finished` when his kart completes two laps first; reset both karts on a rematch; his kart waits while she is idle |
 | tap then hold (LAUNCH RACE) | One phase: five leak sockets, then a 1.2 s hold, which is the sixth unit |
+| teacher_imp_lesson (IMP'S LESSON) | New mode on `OperaTeacherSurface`: the lesson comes from `TeacherLessonPlan`, plus the imp's wrong answer drawn with a purple outline and his pointer mark; her first pick decides the round and emits `fixed`, `tricked` or `hinted`; golden help follows a wrong pick; one `record_result(kind, assisted)` per round |
+| geology_mixup (FIELD GUIDE MIX-UP) | New mode on `OperaGeologySurface`: fossil rounds (three strips of `geologist_fossil.svg`, one upside down, her finished fossil small beside it) and rocks rounds (three `_draw_mineral` rocks, one different); her first tap decides the round |
+
+**Teacher lesson plan:** add `TeacherLessonPlan.imp_answer(lesson, mercy) -> int`, which is
+deterministic and never returns the correct choice.
+- It normally picks the nearest wrong choice: the closest wrong number for count and add,
+  the first distractor for pattern and match.
+- With mercy it picks the farthest wrong choice.
+- Keep `make_lesson` unchanged, so ordinary lessons and saved progress behave exactly as
+  today.
 
 ### 5.6 Other systems
 
@@ -443,10 +542,12 @@ It holds:
 - **Save state:** the new `opera_phase_checkpoints` key (§4.9).
 - **Chapter 2 adapter:** untouched. `enabled()` keeps story runs out (C13).
 
-## 6. The twelve specified contests
+## 6. The specified contests
 
 Every contest follows §3 and §4. Each entry lists only what is specific to the career. The
 line texts are exact. "New" lines do not exist yet; every other line is an existing clip.
+§6.1 to §6.12 are the costumed careers. §6.13 (Teacher) and §6.14 (Geologist, pending
+confirmation) are the inverted contests from OD-C.
 
 ### 6.1 Chef — TOPPING RACE (race; replaces TOP)
 
@@ -700,6 +801,123 @@ line texts are exact. "New" lines do not exist yet; every other line is an exist
   - her instruction (new): "Listen to the imp's song, then sing it back!";
   - his defeat line: "My ears! Okay okay, you sing it."
 
+### 6.13 Teacher — IMP'S LESSON (inverted; inserted after MATCH)
+
+- **Final act:** MATCH, then the contest, both at `lesson_desk` on the same lesson board. New
+  `PHASE_STATIONS` entry `"IMP'S LESSON": "lesson_desk"`.
+- **Entrance:** when MATCH arms, he runs in and takes his place at the right end of the board
+  (§4.11). Line (new): "Hello, class! I'm the new teacher!" He watches her MATCH lesson and
+  bounces (`stagger`, `hop_b`) when she gets it right.
+- **Challenge:** he taps the board with his pointer.
+  - His line (new): "My turn to be the teacher! Can you catch my mistakes?"
+  - Her line (new): "The imp is teaching it wrong! Tap the right answer to fix it!"
+- **Rounds:** pattern, count, add, match, pattern, and so on.
+  - Each lesson comes from `TeacherLessonPlan.make_lesson` at her current tier for that kind.
+  - His wrong answer comes from `imp_answer` (§5.5).
+- **His four kinds of mistake** (every line new):
+  - **Pattern:** the row shows the pattern with its blank. He fills the blank with the wrong
+    shape inside a purple outline: "Easy! This one comes next!" She taps the shape card that
+    really comes next.
+  - **Count:** his pointer hops across the pearls and visibly lands twice on one of them.
+    Then he marks the wrong group card: "I counted them all! It's this many!" She touches
+    each pearl herself and hears each number, as in her lesson; the answer cards wake only
+    after every pearl is touched. Then she taps the right group.
+  - **Add:** he presses the plus himself and the two groups join. He marks the wrong total:
+    "Put them together, and it makes this many!" She counts each pearl, then taps the right
+    total.
+  - **Match:** he lifts the wrong shape card up beside the model: "Look! These two are the
+    same!" She taps the shape that really matches.
+- **Scoring:** as §4.15.
+  - First pick right: "Oops! You fixed it!", her pearl.
+  - First pick wrong: "Hee hee! I tricked you!", his pearl, then the golden help and her
+    fix.
+  - Hint: nobody scores.
+  - First to 3.
+- **Mercy after a lost attempt:** one tier easier per kind, and his most obviously wrong
+  answer.
+- **Mastery:** every round calls `TeacherLessonPlan.record_result(kind, assisted)` exactly
+  like a lesson. `assisted` is true when her first pick was wrong or she used the hint. The
+  contest counts as practice, and her later lessons adapt to it.
+- **What the child sees:**
+  - her familiar cream board, with the purple imp at its right end in his costume, pointing
+    proudly at an answer outlined in purple;
+  - she thinks, counts where needed, and taps the real answer;
+  - his answer puffs away, the right one glows gold, and he wobbles and rubs his head;
+  - two pearl rows at the top of the screen show who is ahead.
+- **What stays true to the Teacher engine:**
+  - time never answers;
+  - counting stays one-to-one;
+  - a wrong pick still gets immediate golden help;
+  - nothing earned is lost.
+  - The one change: inside the contest, her wrong first pick is his point (OD-B, OD-C).
+- **Defeat and curtain:** his defeat line (new) is "You're the real teacher! I'll sit down
+  now." He bows at the curtain call.
+- **H2 is absorbed:** the imp is now visible in the final act, so the win line's "learning
+  buddy" no longer credits someone the child never saw.
+- **Art (no new art is required to ship):**
+  - **Interim:** the plain mischief imp (`imp_mischief`). He has no `hop_a` or `hop_b`, so his
+    entrance is `flee` then `idle`, and his win beat is `taunt` only. Do not use the doctor
+    costume that the hidden buddy borrows today: a doctor teaching sums muddles the job.
+  - **Recommended:** a new `rival_teacher` family with the same 13 states as the others. His
+    costume:
+    - round glasses slipping down his nose;
+    - a small mortarboard cap tilted over one horn;
+    - a cream cardigan with a coral bow tie;
+    - a wooden pointer with a star tip as his held prop in every pose;
+    - colours from the Teacher board: cream, navy outline, aqua and coral.
+  - **How Codex makes it:** through the existing costume-family process.
+    1. The owner approves the new idle.
+    2. Codex generates Sheets A and B, with the identity locked to that idle, in the style of
+       `assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md`.
+    3. `tools/build_imp_costume_family.py` extracts the states (`--reuse-windup-hop-a`, as the
+       other families did).
+    4. `tools/build_imp_animation_delivery_manifest.py` records them, and every file gets its
+       `ASSET_LICENSES.md` row.
+
+### 6.14 Geologist — FIELD GUIDE MIX-UP (inverted; inserted before GEODE; pending confirmation)
+
+- **Final act:** the contest, then the GEODE flourish (`crystal_gallery`, unchanged).
+  - New `PHASE_STATIONS` entry `"FIELD GUIDE MIX-UP": "fossil_table"`.
+  - `FINALE_START` stays 3, so the imp enters and challenges at once.
+- **What changes today:** the field-guide imp is a co-op partner beside her from the first
+  beat. Under OD-A he now appears only in the final act.
+- **Entrance and challenge** (all lines new):
+  - arrive: "Hello! I'm the field guide. I know everything about rocks!";
+  - his challenge: "My turn to teach! Can you spot my mistakes?";
+  - her instruction: "The imp is teaching it wrong! Tap his mistake to fix it!"
+- **Rounds:** fossil, rocks, fossil, rocks, fossil.
+  - **Fossil:** his fossil is built from the same three vertical strips of
+    `geologist_fossil.svg` that she snapped together in FOSSIL, with one strip upside down.
+    Her finished fossil sits small beside it as the model. His claim (new): "Look at my
+    perfect fossil!" She taps the upside-down strip and it flips the right way up.
+  - **Rocks:** three rocks lie on the pan (code-drawn with `_draw_mineral`), two the same and
+    one different. His claim (new): "These rocks are all the same!" She taps the different
+    one; it hops aside and sparkles.
+- **Difficulty:** the Geologist has no mastery record, so the tier inside an attempt is her
+  clean fixes so far, at most 2.
+  - Rocks: tier 0 differs in colour and shape; tier 1 in colour only; tier 2 in shape only (a
+    round pebble among faceted crystals, drawn in the same style).
+  - Fossil: tier 0 flips the middle strip; later tiers an end strip.
+  - A rematch starts again from tier 0.
+- **Scoring:** as §4.15.
+  - First tap on the wrong part: fixed, her pearl.
+  - First tap on a right part: tricked, his pearl; the golden sparkle then marks the wrong
+    part and she fixes it.
+  - First to 3.
+- **What the child sees:**
+  - the grotto work surface, with his big fossil (one piece upside down) next to her small
+    correct one, or three rocks on the pan;
+  - the field-guide imp at the upper left, pointing proudly;
+  - she taps the odd piece and it flips or hops, and he wobbles.
+- **After she wins:** the GEODE flourish plays as today, with him watching; his defeat line
+  (new) is "You know more about rocks than me!"; he bows at the curtain.
+- **Art:**
+  - **Interim:** `rival_detective`, which already ships as the field guide.
+  - **Recommended:** a `rival_geologist` family: a yellow hard hat with a small lamp, a khaki
+    vest with pockets, and a small rock hammer as his held prop. Codex makes it through the
+    same process as §6.13.
+  - No other new art.
+
 ## 7. Owner decisions still needed
 
 ### 7.1 Nursery (no costumed imp exists)
@@ -718,23 +936,16 @@ Today the Nursery is co-op with Nurse Faron, whose recordings are protected.
   - *Recommended if contests should be universal.*
 - **Option C:** B plus a commissioned `rival_nursery` family, which Codex would generate.
 
-### 7.2 Geologist (co-op with a borrowed detective imp)
+### 7.2 Geologist (specified by interpretation)
 
-- **Option A:** keep it co-op.
-- **Option B:** GEODE RACE against the field-guide imp at `crystal_gallery`: five seam taps,
-  then the opening pull.
-- **Option C:** B plus a commissioned `rival_geologist` family.
+§6.14 applies OD-C's "similar educational type games" to the Geologist. Confirm it.
+- If not, the Geologist stays co-op and §6.14 is dropped.
+- Also say whether to commission `rival_geologist` or keep the borrowed detective costume.
 
-B and C need four new imp lines, because no geologist imp lines exist.
+### 7.3 Teacher (decided 2026-09-30)
 
-### 7.3 Teacher
-
-**Recommended: no contest.** The Teacher engine is deliberately clock-free, and racing a
-four-year-old through early number and pattern learning works against it.
-
-If the owner wants one anyway, the least harmful form is a points contest with no clock:
-"solve the imp's puzzle". It would need a teacher imp costume and new lines. Either way, fix
-H2.
+OD-C decided it: the inverted IMP'S LESSON (§6.13). Still open: approve a `rival_teacher`
+costume (recommended), or keep the plain mischief imp.
 
 ### 7.4 Restart scope
 
@@ -796,7 +1007,8 @@ career it checks:
    - Boxer counters score only after recent input.
 9. **Save:** leaving during the contest resumes at the contest phase with zero units, the imp
    present and no earlier activity replayed. The Hall resumes through
-   `opera_performance_checkpoints`; the others through `opera_phase_checkpoints`.
+   `opera_performance_checkpoints`, the Teacher and Geologist through their own checkpoints,
+   and the others through `opera_phase_checkpoints`.
 10. **C13:** Chapter 2 story, tutorial and adapter configs contain no contest phase and never
     show the imp.
 11. **Demos:** a demonstration never moves either row (`DL-INT-06`).
@@ -804,6 +1016,24 @@ career it checks:
     its clip's text.
 13. **Teardown:** close, Back, pause-leave and focus loss mid-contest leave no running timer,
     tween or queued imp line.
+
+**Inverted contests** (Teacher; Geologist if confirmed) replace checks 4 and 7, and add:
+
+14. **No clock:** with a round open and zero input for 60 s, neither side scores.
+15. **Truth last (C15):**
+    - his marked answer is never the correct choice;
+    - every round ends with the correct answer placed by her;
+    - a wrong first pick scores his point, and the golden help follows at once.
+16. **Hint:** a hinted round scores for nobody and still ends with her placing the right
+    answer.
+17. **Teacher lessons:**
+    - rounds rotate pattern, count, add and match at her current tier per kind;
+    - count and add answers stay locked until every pearl is touched;
+    - each round writes `record_result` with the right `assisted` flag;
+    - ordinary lessons from `make_lesson` are unchanged.
+18. **Geologist rounds:** exactly one strip is upside down, or exactly one rock differs.
+19. **Mercy:** after a lost attempt, the tier drops one step (never below 0), his answer is
+    the farthest wrong choice, and his target rises by 1.
 
 ### 9.2 Probes to update deliberately (behaviour changes are the goal)
 
@@ -820,6 +1050,13 @@ career it checks:
   family, after substitutions.
 - `scripts/probe_opera_2d_balance.gd` and `scripts/probe_opera_balance.gd`: walk to stations
   and drive activities (H4). Report `T_child` per contest.
+- `scripts/probe_opera_2d.gd`, Teacher and Geologist:
+  - "teacher keeps the borrowed doctor buddy hidden through its lesson finale"
+    (`:1246-1248`) becomes "hidden before the final act, visible from MATCH";
+  - the Geologist's "care partner beside Roshan from the first beat" becomes "hidden before
+    the final act" if §6.14 is confirmed.
+- `scripts/probe_save_recovery.gd`: Teacher and Geologist checkpoints restore the contest
+  phase with an empty mechanic snapshot.
 
 ### 9.3 Gates
 
@@ -840,6 +1077,10 @@ audit tools in `CLAUDE.md`. Green probes do not establish owner, device or child
   `design/00_MASTER_INDEX.md` together (H8);
 - add `ASSET_LICENSES.md` rows and all-audio ledger rows for the new voice files;
 - carry an audit-impact record naming `DL-INT-14`, the updated rules, and evidence per rule;
+- rewrite the "Geologist is cooperative" bullet in `design/01_GAME_DESIGN.md` if §6.14 is
+  confirmed;
+- add `ASSET_LICENSES.md` rows and delivery-manifest entries for any `rival_teacher` or
+  `rival_geologist` family the owner approves;
 - report implementation, machine verification, and outstanding visual, device, child and
   owner acceptance separately.
 
@@ -854,7 +1095,8 @@ audit tools in `CLAUDE.md`. Green probes do not establish owner, device or child
 | W4 | Surface contracts: multi-turn twirl, multi-pass trace, lob, paint mirror, tap then hold | focused probes green |
 | W5 | Remaining contests: Ballerina, Candymaker, Doctor, Farmer, Painter, Astronaut, Pop Star | full suite green |
 | W6 | Specialists: Boxer points and Racer finish | boxing and racer probes green |
-| W7 | New voice lines through the filler pipeline, ledger rows and licences | voice probe green |
+| W6b | Inverted contests: Teacher IMP'S LESSON, then Geologist FIELD GUIDE MIX-UP once the owner confirms it | inverted checks 14 to 19 green; owner plays the Teacher contest |
+| W7 | New voice lines through the filler pipeline, ledger rows and licences; any approved `rival_teacher` or `rival_geologist` family | voice and imp-art probes green |
 | W8 | Balance probe fix and `base_seconds` tuning, then the count and canon updates (H4, H8) | full suite green; merge to `dev` |
 
 ## 12. Acceptance
@@ -869,6 +1111,8 @@ Report four things separately:
    - the target phone;
    - an observed child session: can she tell who is winning, does she want the rematch,
      does an imp win upset her;
+   - for the Teacher: does she understand that she is correcting the imp, and does she still
+     answer her ordinary lessons correctly afterwards (no mistakes learned from him);
    - the owner playing each pilot.
 4. **Owner acceptance of the decisions in §7.**
 

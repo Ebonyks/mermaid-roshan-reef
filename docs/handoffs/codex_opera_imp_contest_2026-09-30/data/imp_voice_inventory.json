@@ -9,7 +9,8 @@
     "routed_today": 2,
     "planned_contest_use": 36,
     "planned_with_nursery_option_b": 39,
-    "new_lines": 25,
+    "new_lines": 35,
+    "new_lines_if_geologist_confirmed": 6,
     "new_lines_if_nursery_option_b": 2
   },
   "imp_lines": [
@@ -1056,6 +1057,118 @@
       "state": "TO_GENERATE_IF_OPTION_B"
     },
     {
+      "career": "geologist",
+      "speaker": "imp",
+      "key": "op_geologist_challenge",
+      "file": "assets/audio/voices/filler_v1/imp_op_geologist_challenge.ogg",
+      "text": "My turn to teach! Can you spot my mistakes?",
+      "state": "TO_GENERATE_IF_CONFIRMED"
+    },
+    {
+      "career": "geologist",
+      "speaker": "roshan",
+      "key": "op_geologist_contest",
+      "file": "assets/audio/voices/filler_v1/roshan_op_geologist_contest.ogg",
+      "text": "The imp is teaching it wrong! Tap his mistake to fix it!",
+      "state": "TO_GENERATE_IF_CONFIRMED"
+    },
+    {
+      "career": "geologist",
+      "speaker": "imp",
+      "key": "op_geologist_arrive",
+      "file": "assets/audio/voices/filler_v1/imp_op_geologist_arrive.ogg",
+      "text": "Hello! I'm the field guide. I know everything about rocks!",
+      "state": "TO_GENERATE_IF_CONFIRMED"
+    },
+    {
+      "career": "geologist",
+      "speaker": "imp",
+      "key": "op_geologist_claim_fossil",
+      "file": "assets/audio/voices/filler_v1/imp_op_geologist_claim_fossil.ogg",
+      "text": "Look at my perfect fossil!",
+      "state": "TO_GENERATE_IF_CONFIRMED"
+    },
+    {
+      "career": "geologist",
+      "speaker": "imp",
+      "key": "op_geologist_claim_rocks",
+      "file": "assets/audio/voices/filler_v1/imp_op_geologist_claim_rocks.ogg",
+      "text": "These rocks are all the same!",
+      "state": "TO_GENERATE_IF_CONFIRMED"
+    },
+    {
+      "career": "geologist",
+      "speaker": "imp",
+      "key": "op_geologist_defeat",
+      "file": "assets/audio/voices/filler_v1/imp_op_geologist_defeat.ogg",
+      "text": "You know more about rocks than me!",
+      "state": "TO_GENERATE_IF_CONFIRMED"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_challenge",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_challenge.ogg",
+      "text": "My turn to be the teacher! Can you catch my mistakes?",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "roshan",
+      "key": "op_teacher_contest",
+      "file": "assets/audio/voices/filler_v1/roshan_op_teacher_contest.ogg",
+      "text": "The imp is teaching it wrong! Tap the right answer to fix it!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_arrive",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_arrive.ogg",
+      "text": "Hello, class! I'm the new teacher!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_claim_pattern",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_claim_pattern.ogg",
+      "text": "Easy! This one comes next!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_claim_count",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_claim_count.ogg",
+      "text": "I counted them all! It's this many!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_claim_add",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_claim_add.ogg",
+      "text": "Put them together, and it makes this many!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_claim_match",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_claim_match.ogg",
+      "text": "Look! These two are the same!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_defeat",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_defeat.ogg",
+      "text": "You're the real teacher! I'll sit down now.",
+      "state": "TO_GENERATE"
+    },
+    {
       "career": "all",
       "speaker": "imp",
       "key": "op_contest_win",
@@ -1069,6 +1182,22 @@
       "key": "op_contest_again",
       "file": "assets/audio/voices/filler_v1/roshan_op_contest_again.ogg",
       "text": "Again! I can do it this time!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "all",
+      "speaker": "imp",
+      "key": "op_lesson_fixed",
+      "file": "assets/audio/voices/filler_v1/imp_op_lesson_fixed.ogg",
+      "text": "Oops! You fixed it!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "all",
+      "speaker": "imp",
+      "key": "op_lesson_tricked",
+      "file": "assets/audio/voices/filler_v1/imp_op_lesson_tricked.ogg",
+      "text": "Hee hee! I tricked you!",
       "state": "TO_GENERATE"
     }
   ]
