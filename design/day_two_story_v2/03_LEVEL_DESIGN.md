@@ -1,326 +1,355 @@
-# 03 — Level design: every Day Two event
+# 03 — Level mechanics and voice lines
 
 Part of the [Day Two story draft v2](README.md). Status: `CANDIDATE`,
-2026-09-30. Rules and cast are in the [story bible](01_STORY_BIBLE.md); the
-finale is in [04](04_FINALE_PARTY_CHAPTER.md).
+2026-09-30.
 
-## How to read a job
+The story is told in full in [00, the plotline](00_DAY_TWO_PLOTLINE.md). This
+file is its compact build sheet: every scene's steps with the existing gesture
+mode each one reuses, the save each step writes, and every voice line and
+sound the day needs. If this file and the plotline disagree, the plotline
+wins.
 
-Every job has the same parts:
+## How to read it
 
-- **Room story:** the friend who needs it, the problem, the refrain.
-- **Level 1 (Opera practice):** a short cut of the job's existing Opera career
-  show, using only the verbs level 2 needs, then the curtain call. The full
-  show stays in freeplay. A child who already holds the career star gets a
-  one-phase warm-up instead.
-- **Level 2 (for real):** in the room's own art, with Roshan there doing it.
-  The mechanics are the same modes as level 1, reskinned to the plot object.
-  This is where today's Chapter 2 story phases move to; today they run inside
-  full-screen Opera career worlds.
-- **Challenge slots:** which roles from the story bible (§8) may appear.
-- **Result:** the persistent party piece and where it shows up afterwards.
+- **Gesture modes** are the existing modes in
+  `scripts/opera_career_world_2d.gd` and
+  `scripts/chapter_two_career_scene_adapter.gd`. "New" means no mode exists.
+- **Practice (L1)** runs in the job's existing Opera career world, cut short
+  through the dormant `chapter2_tutorial` path: no rival race, a short bow,
+  and the imp apprentice's four-line gag (plotline section 2.3). A child who
+  already holds that career's star plays only the first step.
+- **Real (L2)** runs in the room's own art on the Day One in-room activity
+  pattern, with Roshan there doing the job. Its gestures are the practice's
+  gestures, reskinned to the story's objects.
+- **Decks** list each job's challenge cards by role (plotline section 5): D a
+  dust bunny, P Grand Puff, E Baby Eagle, M Daddy. The book card plays first.
 
-Mode names are the existing gesture modes in
-`scripts/opera_career_world_2d.gd` and
-`scripts/chapter_two_career_scene_adapter.gd`.
+## Act I
 
-## D2-OPEN — Birthday morning
-
-### D2-OPEN-1 — Wake-up
-
-| | |
-|---|---|
-| Follows | The Day One epilogue clip and a revised Day Two card |
-| Scene | Morning light through the attic's shell windows on the bubble pile from Book One's last page (the calm attic where Grand Puff was freed); Daddy, Roshan, Rumi, Baby Eagle and the small rainbow friend waking |
-| Child | Touches Roshan to wake her (a moving hand on her) |
-| Voice | Daddy: "Wake up, birthday girl!" Roshan: "It's my birthday! Can we have a party?" |
-| Save | New `day2_wakeup_seen` |
-| Art source | The attic is not a castle room in the game (it is the Grand Puff arena), and the calm bubble pile exists only as Book One art (`books/chapter_one/landscape/art/personality_v20/bubble_nap.png`, non-runtime). Options: import that illustration as a runtime still with a morning-light derivative (owner approval, since book art is non-runtime today), or stage the wake-up in the calm Grand Puff arena with existing cutouts |
-
-**Day Two card fix:** keep the dawn animation, but show Roshan's birthday
-(the rainbow cake silhouette or balloons, no words needed) and point at the
-first place (the lawn), not the Opera, Craft and Kitchen medallions. Change
-its voice line from "The second day is here! Visit castle jobs and the Opera
-House!" to "It's Roshan's birthday!"
-
-### D2-OPEN-2 — Daddy's Party Plan
-
-| | |
-|---|---|
-| Scene | Main Hall. Daddy unrolls a big picture board: eight empty frames (tree, strawberries, cake, banner, stuffies, microphone, rocket, candle) |
-| Child | Touches the board |
-| Voice | Daddy: "The best party ever. Let's make it together. A place, a cake, a banner, a dance, a song and a light. One little job at a time." |
-| After | The board lives in the Main Hall all day. The next frame glows; filled frames show the real piece. It replaces the late-appearing party table as the day's progress picture |
-| Art | Frame pictures can reuse existing art: strawberries (`assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png`), cake (`chapter2_grand_five_strawberry_cake.png`), banner (`assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png`), stuffies (`assets/book/doll_cat.png`, used unchanged), microphone (`assets/opera/worlds/props/goal_popstar.png`), rocket (`goal_astronaut.png`), candle (`rainbow_candle_unlit.png`); the tree comes from the Arborist art. **GAP:** the board itself (a shell-framed picture board in the castle style) and a greyed "not yet" frame state |
-
-### D2-OPEN-3 — Practise first
-
-| | |
-|---|---|
-| Voice | Daddy: "First we practise on the Opera stage. Then we do it for real!" |
-| Picture | The board's first frame (the tree) glows; the rainbow friend hops to the job's door (he has no wings) |
-
-## J1 — Arborist: Baby Eagle's tree
-
-**Room story.** Baby Eagle's favourite tree on the Sky Lagoon lawn is sick:
-drooping grey leaves and a broken branch. He circles and cries. "Chirp,
-chirp! Someone needs help!" (the Book One echo). Healing it makes it the
-party tree.
-
-**Level 1: Tree Doctor Training** (new Opera career; see the
-[Arborist handoff](../ARBORIST_TREE_DOCTOR_HANDOFF_2026-09-30.md)). Three
-potted patients, two cards per page, sicknesses Thirsty, Spotty leaves and Bug
-tickles. It teaches the Tree Book: which tree, what's wrong, which medicine,
-then pour, spray and tap.
-
-**Level 2: The party tree** (Sky Lagoon lawn).
-
-| Beat | Mode | What the child does | Voice | Picture cue |
+| Scene | Step | Gesture | Object | Save |
 |---|---|---|---|---|
-| 1 Arrive | travel | Roshan swims to the tree after Baby Eagle | Baby Eagle: "Chirp, chirp!" Roshan: "Baby Eagle's tree is sick. I'll help!" | Baby Eagle circling the tree |
-| 2 TREE | book match | Match the tree's leaf in the Tree Book (3 cards) | Roshan: "Which tree? Find the same leaf!" | The leaf floats into the book |
-| 3 THIRSTY | book match + pour | Match "Thirsty" and the watering can, then pour on the roots | Roshan: "It's thirsty! Pour, pour!" | Blue-drop badge; roots darken as they drink |
-| 4 BRANCH | book match + circle | Match "Broken branch" and the bark bandage, then circle to wrap | Roshan: "Wrap, wrap!" | Zigzag badge; the bandage wraps round |
-| 5 BLOOM | tap | Touch the tree: blossoms open, Baby Eagle hops home | Roshan: "This is our party tree!" | Blossoms burst in a ring |
+| D2-OPEN-1 | Wake Roshan | tap | Roshan in the bubble pile | — |
+| D2-OPEN-1 | Leave the attic | tap | The attic door | `day2_wakeup_seen` |
+| D2-OPEN-2 | Open the plan | tap | Daddy's rolled scroll | `chapter2_party_plan_seen` |
 
-- **Challenge slots:** Mischief (a dust bunny sits on the bark bandage; tap to
-  bounce it off), Hint (always).
-- **Result:** the blooming party tree, saved in `chapter2_party_tree_phase`;
-  it stays in bloom on the lawn and in the finale; the board's tree frame
-  fills.
+## The jobs
 
-## J2 — Farmer: five strawberries
+### J1 — Arborist (practice in the Opera Hall; real on the lawn)
 
-**Room story.** The strawberry grove on the Sky Lagoon, next to the lawn.
-The playful dust bunnies are here too; they still love to play, and now they
-want to help.
-
-**Level 1: The Piggy Picnic Challenge, practice cut.** HERD (`swipe`) and
-PICNIC (`tap`). It teaches tapping each thing once and sweeping something
-along a path.
-
-**Level 2: The strawberry grove** (reuses Chapter 2 Farmer phases in-world).
-
-| Beat | Mode | What the child does | Voice | Picture cue |
-|---|---|---|---|---|
-| 1 GATHER | tap | Touch five ripe strawberries on the plants | Roshan: "One! Two! Three! Four! Five!" | Each ripe berry sparkles; a counter of five berry pictures fills |
-| 2 FILL BASKET | tap | Touch each picked berry to put it in the basket | Roshan: "In the basket!" | The berry hops in |
-| 3 DELIVER | swipe | Push the basket along the path to the castle door | Roshan: "To the kitchen!" | A glowing path arrow |
-
-- **Challenge slots:** Mischief (a dust bunny rolls the fifth berry under a
-  leaf; "We were just playing!"), Helper (Baby Eagle spots it: "Chirp,
-  chirp!").
-- **Result:** five strawberries (`chapter2_strawberry_mask`), carried to the
-  Kitchen; the board's strawberry frame fills.
-
-## J3 — Chef: the rainbow cake
-
-**Room story.** The Royal Kitchen. Daddy ties Roshan's apron. The cake's six
-rainbow colours come from the rainbow friend's sparkle: he shakes, and six
-colours of batter swirl in the bowl.
-
-**Level 1: The Castle Bake-Off, practice cut.** MIX (`pourt`), STIR
-(`circle`), BAKE (`oven`), FROST (`swipe`), TOP (`tap`). Chef already
-teaches every verb level 2 uses.
-
-**Level 2: The birthday cake** (Kitchen room art: oven, counter and sink are
-already room items).
-
-| Beat | Mode | What the child does | Voice | Picture cue |
-|---|---|---|---|---|
-| 1 MIX | pourt | Tip the batter into the shell bowl; six colours | Daddy: "Apron on, birthday chef!" Roshan: "Mix, mix!" | The rainbow friend's sparkle colours the batter |
-| 2 STIR | circle | Big circles; the ribbons swirl into one spiral | Roshan: "Stir, stir!" | Spiral guide |
-| 3 BAKE | oven | Roshan swims to the room's oven; wait for golden; mitt out | Roshan: "Into the oven!" | Oven glow turns gold |
-| 4 STACK | tap | Touch the six tiers, biggest first | Roshan: "Stack them up!" | The next tier pulses |
-| 5 FROST | swipe | Trace the frosting ribbon | Roshan: "Frosting!" | Glowing ribbon path |
-| 6 TOP (new) | tap | Place the five strawberries on the upper tiers | Roshan: "Five strawberries on top! A rainbow cake!" | Five sparkling places |
-
-- The TOP beat takes over the Candy Maker's placement: Chef now owns cake bits
-  5 and 6, and the cake reaches its final art.
-- **Challenge slots:** Coach (Daddy demonstrates the first tip of the bowl),
-  Mischief (a dust bunny sneezes flour over the counter: "Achoo!", swipe it
-  away).
-- **After the result: LAMMA-3** (see Lamma below).
-- **Result:** the rainbow cake (`chapter2_cake_piece_mask` `0x7F`), shown on
-  the Kitchen counter, the party table and the lawn; the board's cake frame
-  fills.
-
-## J4 — Painter: the birthday banner
-
-**Room story.** The Craft Room table Roshan cleaned in Book One ("Now there
-was room to make art"). The rainbow friend wants his colours on the banner.
-
-**Level 1: The Sunrise Paint-Off, practice cut.** PAINT (`paint_reveal`),
-STAMPS (`tap`), GALLERY (`choice`).
-
-**Level 2: The banner.**
-
-| Beat | Mode | What the child does | Voice | Picture cue |
-|---|---|---|---|---|
-| 1 PAINT | paint_reveal | Paint across the long banner to reveal rainbow stripes and a cake-and-candle picture in its middle, in the colour she chose in the Craft Room on Day One (the saved `attack_color`) | Roshan: "A banner for my party! Paint, paint!" | Stripes appear under her brush |
-| 2 STAMP | tap | Stamp five birthday stars | Roshan: "Stamp, stamp! Five stars!" | Five star outlines to fill |
-| 3 SEND | choice | Choose the party tree picture (not the other two) to send it | Roshan: "To the party tree!" | Baby Eagle takes the rolled banner and flies out the window |
-
-- **Challenge slots:** Mischief (a dust bunny walks across the wet paint
-  leaving paw prints; stamp stars over them), Helper (Baby Eagle carries the
-  banner).
-- **Result:** the banner, strung in the party tree on the lawn; the board's
-  banner frame fills.
-- **Art:** the banner's painted, stamped and hung states are derivatives of
-  the approved banner ([GFX-PROP-BANNER-01](06_GRAPHICS_AUDIT.md#gfx-prop-banner-01)).
-
-## LAMMA-JOIN and J5 — Ballerina: the stuffie team
-
-**Room story.** The Stuffie Playroom, where Roshan freed Baby Eagle in Book
-One. The stuffies want to dance at the party, but they need one more dancer,
-and someone has been hiding all along.
-
-**Level 1: The Mermaid Pearl Ballet Party, practice cut.** PEARL MIRROR
-(`ballet_pose`), RIBBON TRAIL (`ballet_ribbon`), GRAND TWIRL
-(`ballet_twirl`).
-
-**Level 2a: LAMMA-JOIN** (four-find, built on `scripts/games/seek.gd`):
-
-| Find | What the child does | Voice | Picture cue |
+| Part | Step | Gesture | Object |
 |---|---|---|---|
-| 1 Wool | Touch the tuft of wool on a shelf (from LAMMA-2) | Roshan: "Wool!" | A soft glow |
-| 2 Bounce marks | Touch the round floury bounce marks on the floor (from LAMMA-3) | Roshan: "Bounce, bounce! She went this way!" | The marks light up one by one toward the toy chest |
-| 3 Egg | Touch the lavender egg peeking out of the toy chest (she dropped it in the kitchen) | Roshan: "Her egg! Let's give it back." | The chest lid bounces; the egg glows, then rides in Roshan's hand |
-| 4 Lamma | Touch the play tent; she peeks; Roshan holds out the egg; Lamma bounces out and hugs it | Roshan: "There you are! Here's your egg. Will you dance with us? There's room for everyone." Lamma: a happy bleat (sound effect) | Seek atlas peek → reveal → celebrate |
+| Practice | Three patients: thirsty, spotty, broken branch | Tree Book `choice` ×3 each; then `pourt`, hold to spray, `circle` to wrap | Potted trees on the Opera stage (new Arborist career, bit 18) |
+| Real | B2 Which tree? | `choice` (3 cards) | The floating leaf |
+| Real | B3-B4 Thirsty; water | `choice` ×2, then `pourt` | The soil badge; the watering can |
+| Real | B5 Broken branch; bandage | `choice` ×2, then `circle` | The branch badge; the bark bandage |
+| Real | B6 Bloom | `tap` ×5 | Five buds |
 
-**Level 2b: The stuffie dance** (the existing plot-owned Ballerina job, now
-in the Playroom's own art, with Lamma added).
+Deck: E1 (book), D1, D2, P1, M1, M2. Save: `chapter2_party_tree_phase` 0-4,
+then the party bit.
 
-| Beat | Mode | What the child does | Voice |
+### J2 — Farmer (card in the Dining Room; real in the grove)
+
+| Part | Step | Gesture | Object |
 |---|---|---|---|
-| 1 MIRROR | ballet_pose | Match poses; Kitty, Bunny and Lamma copy | Roshan: "Point!" |
-| 2 TWIRL | ballet_ribbon | Guide the ribbon; the stuffies twirl | Roshan: "Twirl!" |
-| 3 BOW | ballet_twirl | One grand twirl, then everyone bows | Roshan: "Bow! The stuffie team can dance!" |
+| Practice | PLANT, TOSS, HERD | `garden_plant`, `farm_lob`, `swipe` | The Farmer world |
+| Real | B2 Gather | `tap` ×5 (the built berry pickups, seated on plants) | Ripe berries; green ones wiggle |
+| Real | B5 Into the basket | `farm_lob` ×5 | Each berry toward the basket |
+| Real | B6 Home | `swipe` | The basket's cart along the path |
 
-- **Challenge slots:** Helper (Baby Eagle points at a clue during the
-  search), Hint (always). No Mischief: this is Lamma's shy moment.
-- **Result:** Lamma joins (`lamma_joined`, `friend_lamma`); the stuffie
-  team's dance; the board's stuffie frame fills.
+Deck: D1 and E1 (book), D2, D3, P1, E2, M1, M2. Save:
+`chapter2_strawberry_mask` `0x1F`, then the party bit.
 
-## J6 — Pop Star: the birthday song with Rumi
+### J3 — Chef (Kitchen) and LAMMA-3
 
-**Room story.** The Opera Hall stage. Rumi has lived in the castle for
-hundreds of years and knows its oldest songs. When the song is ready, she
-remembers the castle's lost rainbow candle.
-
-**Level 1: The Starlight Sound-Off, practice cut.** SOUND CHECK (`hold`),
-RHYTHM (`echo`), ENCORE (`circle`).
-
-**Level 2: The birthday song.**
-
-| Beat | Mode | What the child does | Voice | Picture cue |
-|---|---|---|---|---|
-| 1 SOUND CHECK | hold | Hold the microphone while Rumi's rainbow note grows | Roshan: "Testing, testing!" | Note grows |
-| 2 STAGE RUMI | choice | Tap the arrow that puts Rumi beside the band | Roshan: "Rumi, over here!" | Glowing arrow |
-| 3 RHYTHM | echo | Listen to three stars, then tap them back | Roshan: "La, la, la!" | Stars light in order |
-| 4 ENCORE | circle | One big spin | Roshan: "Encore!" | Spin guide |
-| 5 MEMORY | watch | A thought bubble above Rumi shows a rainbow candle inside a glowing book | Roshan: "Rumi remembers a rainbow candle!" | The bubble; the board's last two frames (rocket, candle) sparkle |
-
-- **Rumi has no voice** (spine rule: approved animation and notes only). Her
-  memory is a picture, said aloud by Roshan.
-- **Challenge slots:** Mischief (the dust bunnies, as the audience, bang the
-  drum too early; tap in time to calm them), Coach (Daddy claps the rhythm
-  first).
-- **Result:** the party song (`party_song`), which plays at the party; the
-  board's microphone frame fills.
-
-## J7 — Astronaut: the candle-lighting rocket
-
-**Room story.** The Mermaid Pool, where the waterfall turned rainbow in Book
-One. A rainbow candle needs a rainbow spark, and the rainbow waterfall
-can fill the little rocket. The seahorse Roshan freed helps connect the
-pipe.
-
-**Level 1: The Rocket Repair Race, practice cut.** PIPES (`pipe`), PATCH
-(`tap`), VALVE (`circle`). LAUNCH is not practised: this rocket must not
-launch.
-
-**Level 2: The little rocket.**
-
-| Beat | Mode | What the child does | Voice | Picture cue |
-|---|---|---|---|---|
-| 1 BUILD | pipe | Connect the waterfall to the rocket through the pipe boards | Roshan: "Click, click!" | The seahorse holds the end of the pipe |
-| 2 PATCH | tap | Patch the sparkling leaks | Roshan: "Patch, patch!" | Leaks sparkle |
-| 3 FILL | circle | Turn the valve; rainbow water fills the rocket | Roshan: "Rainbow water!" | Rocket window fills with colour |
-| 4 PARK | swipe | Push the rocket onto its little cart, ready but parked | Roshan: "Ready… but not yet!" | Parking spot outline |
-
-- **Challenge slots:** Helper (the seahorse, fixed), Mischief (a dust bunny
-  bounces on the valve; tap to lift it off), Hint (always).
-- **Result:** the parked rocket, which rolls to the lawn for the party; the
-  board's rocket frame fills.
-
-## J8 — Detective: the rainbow candle
-
-**Room story.** The Royal Library and its magic storybook, the one from
-Rumi's memory. The rainbow candle has been hidden in it for hundreds of
-years, waiting for the right party.
-
-**Level 1: The Two-Detective Mystery, practice cut.** SEARCH (`lens`) and
-CASE BOARD (`clue_board`).
-
-**Level 2: The storybook** (the existing plot-owned Detective job, in the
-Library's own art).
-
-| Beat | Mode | What the child does | Voice | Picture cue |
-|---|---|---|---|---|
-| 1 LENS | lens | Sweep the magnifier over the glowing storybook | Roshan: "Rainbow drips!" | Rainbow wax clues appear under the lens |
-| 2 BOARD | tap | Touch each rainbow clue on the storybook board | Roshan: "Red, orange, yellow…" | Clues glow in rainbow order |
-| 3 CANDLE | tap | Touch the page; the unlit rainbow candle rises out | Roshan: "The rainbow candle! It's not lit yet." | The candle floats up |
-
-- **Challenge slots:** Mischief (a dust bunny hides between the books; the
-  lens finds it, it giggles and helps), Helper (Baby Eagle spots the right
-  shelf), Hint (always).
-- **Result:** the unlit candle on the cake (`chapter2_party_event_phase` 1);
-  all eight board frames full; the Main Hall doors glow for the party (F1).
-
-## Lamma's sightings
-
-| ID | Day | Room and trigger | Child | Voice | Save |
-|---|---|---|---|---|---|
-| LAMMA-1 | One | Stuffie Playroom, right after Baby Eagle is freed | Touch the ear peeking from the play tent; she ducks in | Lamma: a questioning bleat (sound effect). Roshan: "Hello? Someone is shy." | `lamma_moments_seen` bit 0 |
-| LAMMA-2 | One | Craft Room, during sorting | Touch the wobbling jar; she peeks and scampers off | Roshan: "A little lamb! She ran away." | bit 1; wool tuft stays on the table |
-| LAMMA-3 | Two | Kitchen, right after the cake is finished | Touch the floury nose behind the flour sack; she bounces away and drops her egg | Roshan: "Someone small wants cake!" | bit 2; bounce marks stay on the floor |
-
-All three are in-room gameplay moments, never edits to the Day One story
-clips (`DL-CIN-16`).
-
-## Voice script
-
-Speaker and voice source for every new line. "Filler" means the provisional
-Parler synthetic pipeline (`assets/audio/voices/VOICE_MANIFEST.md`), never
-trained on family recordings; new Daddy lines use the manifest's Daddy-only
-"Will" filler preset. The sacred family recordings (`daddy1.ogg` to
-`daddy3.ogg`, `chuck.ogg`, `chuck_bark.ogg`, `chuck_whimper.ogg`) and Faron's
-protected voice stay untouched. Rumi has no voice. Lamma's legacy lines that
-play through Evie's voice (the roster hello and the capture plea) are revised
-in [WP-15](07_WORK_PACKAGES.md).
-
-| ID | Speaker | Line | Source |
+| Part | Step | Gesture | Object |
 |---|---|---|---|
-| OPEN-1a | Daddy | "Wake up, birthday girl!" | Filler, new Daddy key |
-| OPEN-1b | Roshan | "It's my birthday! Can we have a party?" | Synthetic Roshan |
-| OPEN-2 | Daddy | "The best party ever. Let's make it together." | Filler |
-| OPEN-2b | Daddy | "A place, a cake, a banner, a dance, a song and a light." | Filler |
-| OPEN-2c | Daddy | "One little job at a time." | Filler |
-| OPEN-3 | Daddy | "First we practise on the Opera stage. Then we do it for real!" | Filler |
-| PLAN-next-* | Daddy | "Next, Baby Eagle's tree!" / "Next, strawberries!" / "Next, the cake!" / "Next, the banner!" / "Next, the dance!" / "Next, the song!" / "Next, the rocket!" / "Next, the light!" | Filler |
-| PLAN-done | Daddy | "Look what you made!" | Filler |
-| GUIDE | Roshan | "Follow Grand Puff!" | Synthetic Roshan |
-| J1-* | Roshan, Baby Eagle | As in J1 above, plus the Tree Book lines in the Arborist handoff | Synthetic Roshan; Baby Eagle existing chirp |
-| J2-* | Roshan, dust bunny | "One! Two! Three! Four! Five!", "In the basket!", "To the kitchen!", dust bunny: "We were just playing!", Roshan: "Let's play gently." | Synthetic; dust bunny filler |
-| J3-* | Daddy, Roshan, dust bunny | "Apron on, birthday chef!", "Mix, mix!", "Stir, stir!", "Into the oven!", "Stack them up!", "Frosting!", "Five strawberries on top! A rainbow cake!", "Achoo!", "Swish it away!" | Filler / synthetic |
-| J4-* | Roshan | "A banner for my party! Paint, paint!", "Stamp, stamp! Five stars!", "To the party tree!" | Synthetic |
-| LAMMA-* | Roshan, Lamma | "Hello? Someone is shy.", "A little lamb! She ran away.", "Someone small wants cake!", "Wool!", "Bounce, bounce! She went this way!", "Her egg! Let's give it back.", "There you are! Here's your egg. Will you dance with us? There's room for everyone." Lamma has no words: questioning and happy bleats | Synthetic Roshan; new lamb bleat sound effect (none exists) |
-| J5-* | Roshan | "Point!", "Twirl!", "Bow! The stuffie team can dance!" | Synthetic |
-| J6-* | Roshan | "Testing, testing!", "Rumi, over here!", "La, la, la!", "Encore!", "Rumi remembers a rainbow candle!" | Synthetic |
-| J7-* | Roshan | "Click, click!", "Patch, patch!", "Rainbow water!", "Ready… but not yet!" | Synthetic |
-| J8-* | Roshan | "Rainbow drips!", "Red, orange, yellow…", "The rainbow candle! It's not lit yet." | Synthetic |
-| F-* | All | Every line in [04](04_FINALE_PARTY_CHAPTER.md) | Roshan synthetic; King and Prince new filler presets; Daddy filler; dust bunnies filler; Lamma sound |
+| Practice | MIX, STIR, BAKE, FROST | `pourt`, `circle`, `oven`, `swipe` | The Chef world |
+| Real | B1 Mix | `pourt` | The rainbow pitcher into the shell bowl |
+| Real | B2 Stir | `circle` | The bowl |
+| Real | B3 Bake | `oven` | Six tins; the gold window; the mitt |
+| Real | B4 Stack | `tap` ×6, biggest first | The baked rounds |
+| Real | B5 Frost | `swipe` | The frosting ribbon |
+| Real | B6 Strawberries | `tap` ×5 | Five spots on the tiers |
+| LAMMA-3 | Egg | `tap` (auto after 6 s) | Lamma's lavender egg |
 
-Every line needs its exact caption text, and its picture cue must be on
-screen while it plays.
+Deck: M1 (book), D1, D2, P1, E1, M2. Save: `chapter2_cake_piece_mask` `0x7F`
+(the Chef now owns bits 5 and 6), `lamma_moments_seen` bit 2,
+`lamma_egg_carried`.
+
+### J4 — Painter (Craft Room)
+
+| Part | Step | Gesture | Object |
+|---|---|---|---|
+| Practice | PAINT, STAMPS, GALLERY | `paint_reveal`, `tap`, `choice` | The Painter world |
+| Real | B1 Paint | `paint_reveal` | The long banner, in her `attack_color` first |
+| Real | B2 Stamp | `tap` ×5 | Five star outlines |
+| Real | B3 Send | `choice` (3) | The party tree picture |
+
+Deck: P1 (book), D1, D2, M1, E1. Baby Eagle always carries the banner.
+
+### LAMMA-JOIN and J5 — Ballerina (Playroom)
+
+| Part | Step | Gesture | Object |
+|---|---|---|---|
+| LAMMA-JOIN | Four finds | Seek's four-find `tap` (`scripts/games/seek.gd`) | Toy chest (wool), block tower (bounce marks), play tent (a bleat), stuffie nook (the stuffies point) |
+| LAMMA-JOIN | The egg | `tap` | Roshan's egg |
+| Practice | PEARL MIRROR, RIBBON TRAIL, GRAND TWIRL | `ballet_pose`, `ballet_ribbon`, `ballet_twirl` | The Ballerina world |
+| Real | B2-B4 Mirror, twirl, bow | The same three modes, with goals the surface can reach (build audit B2) | Kitty, Bunny and Lamma |
+
+Deck (the dance only): M1 (book), D1, E1, P1. Save: `lamma_moments_seen` bit
+3, `lamma_joined`, `friend_lamma`, `chapter2_stuffie_ballet_done`.
+
+### J6 — Pop Star (Opera Hall stage)
+
+| Part | Step | Gesture | Object |
+|---|---|---|---|
+| Practice | SOUND CHECK, ECHO, ENCORE | `hold`, `echo`, `circle` | The Pop Star world |
+| Real | B1 Sound check | `hold` | The shell microphone |
+| Real | B2 Rumi's spot | `tap` (replaces the arrow `choice`) | Rumi herself |
+| Real | B3 Echo | `echo` (3 notes) | Three shells |
+| Real | B4 Encore | `circle` | The stage |
+| Real | B5 Memory | watch | Rumi's thought bubble |
+
+Deck: E1 (book), D1, M1, P1.
+
+### J7 — Astronaut (Mermaid Pool)
+
+| Part | Step | Gesture | Object |
+|---|---|---|---|
+| Practice | PIPES, PATCH, VALVE | `pipe`, `tap`, `circle` | The Astronaut world |
+| Real | B2 Pipes | `pipe` (3 pieces) | Waterfall spout to the tank |
+| Real | B3 Patch | `tap` | The leaks |
+| Real | B4 Fill | `circle` | The seahorse fountain's valve |
+| Real | B5 Park | `swipe` | The party rocket's cart (never the kart) |
+
+Deck: E1 (book), D1, M1, P1. Save: the rocket parked and unlaunched.
+
+### J8 — Detective (Royal Library)
+
+| Part | Step | Gesture | Object |
+|---|---|---|---|
+| Practice | SEARCH, CLUE BOARD | `lens`, `tap` | The Detective world (after its framing fix) |
+| Real | B2 Rainbow drips | `lens` | The storybook's pages |
+| Real | B3 The rainbow page | `tap` ×6 in colour order | The drips into the rainbow's bands |
+| Real | B4 The candle | `tap`, on a touch area at least 120×160 around the drawn candle | The page |
+
+Deck: M1 (book), D1, E1, P1. Save: `rainbow_candle_found`,
+`chapter2_party_event_phase` 1.
+
+## The party and the evening
+
+| Scene | Step | Gesture | Save |
+|---|---|---|---|
+| F1 | Open the doors; set the candle in its holder | `tap`, `tap` | `chapter2_lawn_started` |
+| F2 | The payoff tour, six pieces | `tap` each (auto-advance after 8 s) | `chapter2_lawn_tour` |
+| F3 | Light the candle | `tap` the rocket; Roshan walks and presses (built) | `chapter2_lawn_beat` 1 |
+| F4 | Dialogue | `tap` the forward picture, or wait for the voice | Beats 2-3 |
+| F5 | Three rounds | Move: `tap` or drag to the safe spot. Counter: `tap` the gold star | Protection rounds 1-3 |
+| F6 | The theft | `tap` to advance | Beat 6, `chapter2_candle_taken` |
+| F7 | Comfort; the wish | `tap` Lamma; `hold` on Roshan | Beat 8, `chapter2_story_complete`, `chapter2_wish_made` |
+| F8 | The door | `tap` the pearl | The existing Chapter 3 reveal keys |
+| E1-E3 | Supper, the movie, the sleepover | The existing comfy games | Their existing keys |
+
+## Voice lines
+
+**Voice sources.**
+
+| Speaker | Source |
+|---|---|
+| Roshan | The existing synthetic Roshan configuration |
+| Daddy | The manifest's Daddy-only "Will" filler preset. His real recordings (`daddy1.ogg` to `daddy3.ogg`) are never edited |
+| The Ember King, the Prince | Two new synthetic presets, a low theatrical King and a young soft Prince, pending owner listening (decision 5) |
+| The dust bunnies (Splash included) | A new small synthetic voice, used for a handful of lines |
+| The imps | The existing imp voice |
+| Lamma, Grand Puff | Sound effects only: bleats; a happy boing |
+| Rumi | None, by rule |
+| Baby Eagle | His existing chirp (`sparkle.ogg`) |
+| Chuck | His real bark (`chuck_bark.ogg`), unaltered |
+
+Nothing is trained or conditioned on family recordings. Every line needs its
+exact caption text, and its picture cue must be on screen while it plays.
+
+**Existing recordings the day reuses.**
+
+- The imp apprentices' lines for seven careers
+  (`imp_op_{farmer,chef,painter,ballerina,popstar,astronaut,detective}_{arrive,copy,steal,bop}`;
+  the Detective's steal and bop are not used).
+- Each practice step's exact `_stage` recording (`op_<career>_<step>_stage`).
+- The lawn's "Ready? Let's light our rainbow!" and "Look! Our rainbow candle
+  is shining!", and "The castle found a secret sky door!".
+- The comfy bedtime lines ("Goodnight, Rumi. Snuggle in!" and the others).
+- The Tree Book lines are specified in the
+  [Arborist handoff](../ARBORIST_TREE_DOCTOR_HANDOFF_2026-09-30.md#voice-lines);
+  they are new recordings in the Roshan voice.
+
+**New lines, in story order** (generated from every line the plotline marks
+new):
+
+| Scene | Speaker | Line | Voice source |
+|---|---|---|---|
+| Bubble Bath (optional) | Roshan | "Bubbles for the party!" | Synthetic Roshan |
+| P-1 | Roshan | "Hello? Someone is shy." | Synthetic Roshan |
+| P-2 | Roshan | "A little lamb! She ran away." | Synthetic Roshan |
+| Day Two card | Daddy | "It's Roshan's birthday today." | Daddy filler (Will) |
+| D2-OPEN-1 | Daddy | "Wake up, birthday girl!" | Daddy filler (Will) |
+| D2-OPEN-1 | Roshan | "It's my birthday! Can we have a party?" | Synthetic Roshan |
+| D2-OPEN-1 | Daddy | "The best party ever." | Daddy filler (Will) |
+| D2-OPEN-2 | Daddy | "A place, a cake, a banner, a dance, a song and a light!" | Daddy filler (Will) |
+| D2-OPEN-2 | Daddy | "Let's make it together. One little job at a time." | Daddy filler (Will) |
+| D2-OPEN-2 | Roshan | "One little job at a time!" | Synthetic Roshan |
+| D2-OPEN-3 | Daddy | "First we practise on the Opera stage. Then we do it for real!" | Daddy filler (Will) |
+| R-beats | Daddy | "Look what you made!" | Daddy filler (Will) |
+| R-beats | Daddy | "One little job at a time." | Daddy filler (Will) |
+| J1 | Roshan | "Chirp, chirp! Someone needs help!" | Synthetic Roshan |
+| J1 | Roshan | "Your tree is sick?" | Synthetic Roshan |
+| J1 | Daddy | "A tree doctor can help. Let's practise first!" | Daddy filler (Will) |
+| J1 | Roshan | "Baby Eagle's tree needs help!" | Synthetic Roshan |
+| J1 | Roshan | "The tree feels better! Our party tree!" | Synthetic Roshan |
+| J1 | Roshan | "Up there! Thank you, Baby Eagle!" | Synthetic Roshan |
+| J1 | Dust bunny | "We were just napping!" | New dust bunny voice |
+| J1 | Roshan | "Oops! Sorry, bunny!" | Synthetic Roshan |
+| J1 | Roshan | "That's the tree's leaf!" | Synthetic Roshan |
+| J1 | Roshan | "Grand Puff, you're all sparkly!" | Synthetic Roshan |
+| J1 | Daddy | "Up you go, tree doctor!" | Daddy filler (Will) |
+| J1 | Daddy | "Tip, tip, like this!" | Daddy filler (Will) |
+| R1 | Daddy | "Next, strawberries!" | Daddy filler (Will) |
+| J2 | Roshan | "Strawberries for my cake!" | Synthetic Roshan |
+| J2 | Roshan | "Five red strawberries!" | Synthetic Roshan |
+| J2 | Roshan | "Not yet! Still green." | Synthetic Roshan |
+| J2 | Roshan | "Where did it go?" | Synthetic Roshan |
+| J2 | Roshan | "Five!" | Synthetic Roshan |
+| J2 | Roshan | "Five in the basket!" | Synthetic Roshan |
+| J2 | Roshan | "To the kitchen!" | Synthetic Roshan |
+| J2 | Roshan | "Hey! Come back, strawberry!" | Synthetic Roshan |
+| J2 | Dust bunny | "We were just playing!" | New dust bunny voice |
+| J2 | Roshan | "Let's play gently." | Synthetic Roshan |
+| J2 | Dust bunny | "Sorry!" | New dust bunny voice |
+| J2 | Dust bunny | "Sorry! It was tickly!" | New dust bunny voice |
+| J2 | Roshan | "Rainbow strawberries!" | Synthetic Roshan |
+| J2 | Daddy | "One... two... three..." | Daddy filler (Will) |
+| J2 | Daddy | "Heave-ho!" | Daddy filler (Will) |
+| R2 | Daddy | "Next, the cake!" | Daddy filler (Will) |
+| J3 | Daddy | "Apron on, birthday chef!" | Daddy filler (Will) |
+| J3 | Roshan | "Let's learn the cake!" | Synthetic Roshan |
+| J3 | Roshan | "Pour, pour!" | Synthetic Roshan |
+| J3 | Roshan | "Round and round! Stir, stir!" | Synthetic Roshan |
+| J3 | Roshan | "Golden!" | Synthetic Roshan |
+| J3 | Roshan | "Biggest first! Stack them up!" | Synthetic Roshan |
+| J3 | Roshan | "Frosting!" | Synthetic Roshan |
+| J3 | Roshan | "Five strawberries on top! A rainbow cake!" | Synthetic Roshan |
+| J3 | Daddy | "Watch me: round and round!" | Daddy filler (Will) |
+| J3 | Dust bunny | "Sorry! It was tickly!" | New dust bunny voice |
+| J3 | Roshan | "Swish it away!" | Synthetic Roshan |
+| J3 | Dust bunny | "Sorry! It smelled so yummy!" | New dust bunny voice |
+| J3 | Roshan | "Rainbow sprinkles!" | Synthetic Roshan |
+| J3 | Daddy | "Careful, it's warm. You take them out!" | Daddy filler (Will) |
+| LAMMA-3 | Roshan | "Someone small wants cake!" | Synthetic Roshan |
+| LAMMA-3 | Roshan | "Her egg! We'll keep it safe for her." | Synthetic Roshan |
+| R3 | Daddy | "Next, the banner!" | Daddy filler (Will) |
+| J4 | Roshan | "The little lamb's wool!" | Synthetic Roshan |
+| J4 | Roshan | "A banner for my party! Paint, paint!" | Synthetic Roshan |
+| J4 | Roshan | "Stamp, stamp! Five stars!" | Synthetic Roshan |
+| J4 | Roshan | "To the party tree!" | Synthetic Roshan |
+| J4 | Roshan | "Grand Puff's rainbow!" | Synthetic Roshan |
+| J4 | Roshan | "Sparkly paw prints! They look pretty!" | Synthetic Roshan |
+| J4 | Roshan | "Pop, pop!" | Synthetic Roshan |
+| J4 | Daddy | "I've got this end!" | Daddy filler (Will) |
+| R4 | Daddy | "Next, the dance!" | Daddy filler (Will) |
+| LAMMA-JOIN, J5 | Roshan | "We need one more dancer!" | Synthetic Roshan |
+| LAMMA-JOIN, J5 | Roshan | "The little lamb! Let's find her. Gently!" | Synthetic Roshan |
+| LAMMA-JOIN, J5 | Roshan | "Wool! There she is!" | Synthetic Roshan |
+| LAMMA-JOIN, J5 | Roshan | "Bounce, bounce! She's playing!" | Synthetic Roshan |
+| LAMMA-JOIN, J5 | Roshan | "The tent! Just like before!" | Synthetic Roshan |
+| LAMMA-JOIN, J5 | Roshan | "Here's your egg. Will you dance with us? There's room for everyone." | Synthetic Roshan |
+| LAMMA-JOIN, J5 | Roshan | "Let's learn the dance!" | Synthetic Roshan |
+| LAMMA-JOIN, J5 | Roshan | "Point!" | Synthetic Roshan |
+| LAMMA-JOIN, J5 | Roshan | "Twirl!" | Synthetic Roshan |
+| LAMMA-JOIN, J5 | Roshan | "Bow! The stuffie team can dance!" | Synthetic Roshan |
+| LAMMA-JOIN, J5 | Daddy | "One, two, three, twirl!" | Daddy filler (Will) |
+| LAMMA-JOIN, J5 | Dust bunny | "Whee! Sorry!" | New dust bunny voice |
+| LAMMA-JOIN, J5 | Roshan | "A rainbow spotlight!" | Synthetic Roshan |
+| R5 | Daddy | "Next, the song!" | Daddy filler (Will) |
+| J6 | Roshan | "Rumi! Will you sing with me?" | Synthetic Roshan |
+| J6 | Roshan | "Testing, testing!" | Synthetic Roshan |
+| J6 | Roshan | "Rumi, over here!" | Synthetic Roshan |
+| J6 | Roshan | "La, la, la!" | Synthetic Roshan |
+| J6 | Roshan | "Rumi remembers a rainbow candle!" | Synthetic Roshan |
+| J6 | Daddy | "A rainbow candle needs a spark..." | Daddy filler (Will) |
+| J6 | Roshan | "A rocket spark!" | Synthetic Roshan |
+| J6 | Roshan | "Bounce with the music!" | Synthetic Roshan |
+| J6 | Daddy | "Clap, clap, clap!" | Daddy filler (Will) |
+| J6 | Roshan | "A rainbow spotlight for Rumi!" | Synthetic Roshan |
+| R6 | Daddy | "A rocket spark! Next, the rocket!" | Daddy filler (Will) |
+| J7 | Roshan | "Rainbow water for my rocket!" | Synthetic Roshan |
+| J7 | Roshan | "Click, click!" | Synthetic Roshan |
+| J7 | Roshan | "Patch, patch!" | Synthetic Roshan |
+| J7 | Roshan | "Rainbow water!" | Synthetic Roshan |
+| J7 | Roshan | "Ready... but not yet!" | Synthetic Roshan |
+| J7 | Splash | "Sorry! I love splashing!" | New dust bunny voice |
+| J7 | Roshan | "Splash, splash!" | Synthetic Roshan |
+| J7 | Daddy | "Righty tighty!" | Daddy filler (Will) |
+| J7 | Roshan | "Fizzy rainbow!" | Synthetic Roshan |
+| R7 | Daddy | "The last one! The candle!" | Daddy filler (Will) |
+| J8 | Roshan | "Rumi's storybook!" | Synthetic Roshan |
+| J8 | Roshan | "Rainbow drips!" | Synthetic Roshan |
+| J8 | Roshan | "Red! Orange! Yellow!..." | Synthetic Roshan |
+| J8 | Roshan | "The rainbow candle! It's not lit yet." | Synthetic Roshan |
+| J8 | Daddy | "Every job is done!" | Daddy filler (Will) |
+| J8 | Daddy | "This book is heavy! I'll hold it." | Daddy filler (Will) |
+| J8 | Dust bunny | "Achoo! Sorry!" | New dust bunny voice |
+| J8 | Roshan | "Grand Puff found it!" | Synthetic Roshan |
+| R8 | Daddy | "Look what you made! Everything for the party!" | Daddy filler (Will) |
+| R8 | Daddy | "Everyone is waiting on the lawn!" | Daddy filler (Will) |
+| F1 | Daddy | "A hat for the birthday girl!" | Daddy filler (Will) |
+| F1 | Daddy | "Everyone is here, birthday girl!" | Daddy filler (Will) |
+| F1 | Roshan | "Our candle goes on top!" | Synthetic Roshan |
+| F2 | Roshan | "Baby Eagle's tree is all better!" | Synthetic Roshan |
+| F2 | Roshan | "Our rainbow cake!" | Synthetic Roshan |
+| F2 | Roshan | "My banner!" | Synthetic Roshan |
+| F2 | Roshan | "Our stuffie team!" | Synthetic Roshan |
+| F2 | Roshan | "Rumi's song!" | Synthetic Roshan |
+| F2 | Roshan | "Our little rocket!" | Synthetic Roshan |
+| F2 | Roshan | "We made all of this together!" | Synthetic Roshan |
+| F3 | Imp | "The rainbow light! The King must see this!" | Imp voice |
+| F3 | Roshan | "The little imp from the Opera?" | Synthetic Roshan |
+| F4 | King | "Make way! Make way for the King!" | New King preset |
+| F4 | Prince | "You made that?" | New Prince preset |
+| F4 | Roshan | "All of us did. You can join us." | Synthetic Roshan |
+| F4 | King | "A rainbow light! That belongs at a KING'S party. MY birthday party!" | New King preset |
+| F4 | Prince | "Father, it's HER birthday." | New Prince preset |
+| F4 | King | "Then show me how strong you are!" | New King preset |
+| F4 | Roshan | "He's so big..." | Synthetic Roshan |
+| F4 | Roshan | "...but I can keep my friends safe." | Synthetic Roshan |
+| F5 | Dust bunnies | "We can help!" | New dust bunny voice |
+| F5 | Prince | "Over here!" | New Prince preset |
+| F5 | Roshan | "Thank you, Baby Eagle!" | Synthetic Roshan |
+| F5 | Roshan | "Your rainbow keeps us safe!" | Synthetic Roshan |
+| F5 | Roshan | "You're safe!" | Synthetic Roshan |
+| F5 | Prince | "She did it, Father." | New Prince preset |
+| F6 | King | "Enough games. I am taking the light." | New King preset |
+| F6 | Prince | "You promised a fair challenge!" | New Prince preset |
+| F6 | King | "Come, son." | New King preset |
+| F6 | Prince | "I'm sorry." | New Prince preset |
+| F7 | Roshan | "He took our light." | Synthetic Roshan |
+| F7 | Daddy | "I'm proud of you." | Daddy filler (Will) |
+| F7 | Roshan | "But you're all still here." | Synthetic Roshan |
+| F7 | Daddy | "And you can still make a wish." | Daddy filler (Will) |
+| F7 | Roshan | "We'll find our light together." | Synthetic Roshan |
+| F8 | Daddy | "An adventure for tomorrow, birthday girl." | Daddy filler (Will) |
+| F8 | Roshan | "Tomorrow!" | Synthetic Roshan |
+| E1 | Roshan | "He took the candle. But not the cake!" | Synthetic Roshan |
+| E2 | Roshan | "That was my birthday!" | Synthetic Roshan |
+| E3 | Roshan | "Goodnight, Grand Puff. Sweet rainbow dreams!" | Synthetic Roshan |
+| E3 | Roshan | "Goodnight, Kitty, Bunny and Lamma!" | Synthetic Roshan |
+| E3 | Roshan | "Goodnight, Mermaid Roshan. What a birthday!" | Synthetic Roshan |
+| J1 | Imp | "I was sent to learn the TREES. Do trees eat cake?" | Imp voice |
+| J1 | Imp | "I watered my foot. It did not grow." | Imp voice |
+| J1 | Imp | "Mine! A party needs a tree!" | Imp voice |
+| J1 | Imp | "Ow, a leaf! Okay, okay!" | Imp voice |
+| F5 | King | "Whoa!" | New King preset |
+| F5 | King | "Hmph!" | New King preset |
+| F5 | King | "Mine!" | New King preset |
+
+**New sound effects:** Lamma's bleats (questioning, startled, happy, soft);
+Grand Puff's hop "boing"; a crowd cheer and a crowd "Oooh!"; a faint chime for
+the moonflower's answer; a soft pop for each blossom and bubble.

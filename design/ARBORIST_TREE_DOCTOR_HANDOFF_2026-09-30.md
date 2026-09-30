@@ -144,8 +144,12 @@ listening is pending and no family voice is cloned. Captions are supplemental.
   career-count contract `DL-INT-07`, the room map in `design/01_GAME_DESIGN.md`,
   and `CastleCareerRoutes.ROOM_ACT_INDICES`.
 - **Content:** three potted patient trees, about 2–3 minutes. Easy tier: two
-  cards per page, sicknesses drawn from Thirsty, Spotty leaves and Bug
-  tickles. Curtain call and career star at the end, like the other careers.
+  cards per page. In Day Two's practice the three sicknesses are Thirsty,
+  Spotty leaves and Broken branch, so every verb the lawn needs (pour, hold to
+  spray, circle to wrap) is practised first (Day Two story draft v2,
+  `design/day_two_story_v2/00_DAY_TWO_PLOTLINE.md`, J1); Bug tickles joins
+  the replay variety. Curtain call and career star at the end, like the other
+  careers.
 - **Replay growth:** copy the Teacher career's pattern.
   `scripts/teacher_lesson_plan.gd` already does deterministic, reading-free
   choice sets that grow from two to three cards after repeated clean wins.

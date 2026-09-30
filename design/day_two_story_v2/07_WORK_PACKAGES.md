@@ -1,7 +1,10 @@
 # 07 — Work packages for Astra
 
 Part of the [Day Two story draft v2](README.md). Status: `CANDIDATE`,
-2026-09-30. This breaks the whole draft into self-contained packages. Each
+2026-09-30. This breaks the whole draft into self-contained packages. The
+story each package builds is in the [plotline](00_DAY_TWO_PLOTLINE.md); its
+[section 13](00_DAY_TWO_PLOTLINE.md#13-for-astra-from-the-built-levels-to-this-day)
+maps each built level to its completed scene. Each
 package names its inputs, outputs, dependencies and acceptance, so it can be
 picked up without reading the rest of the conversation that produced it.
 
@@ -94,11 +97,17 @@ WP-21 probes and acceptance runs alongside every package
 
 - **Depends on:** WP-02.
 - **Outputs:**
-  - A birthday wake-up beat after the Day One epilogue.
-  - The Day Two card rewritten so it says it is her birthday and points at
-    the first job.
-  - **Daddy's Party Plan board** in the Main Hall: eight picture frames, the
-    next one glowing, filled frames showing the real party pieces.
+  - Lamma's Episode One peeks can wait for WP-15; this package covers Day
+    Two's start.
+  - The birthday wake-up in the attic's bubble pile (`D2-OPEN-1`).
+  - The Day Two card rewritten: night to dawn, the attic window glowing, a
+    birthday picture, Daddy's whisper; no job medallions.
+  - **Daddy's Party Plan:** a picture scroll on an easel in the Main Hall,
+    eight frames, the next one glowing, filled frames showing the real party
+    pieces; and the **R-beat** after every job, where Daddy arrives with the
+    scroll wherever Roshan finished.
+  - The Main Hall's party dressing as the day goes on (bunting, balloons,
+    the glowing doors), world-locked ([GFX-HALL-12](06_GRAPHICS_AUDIT.md)).
   - Every opening line voiced.
   - The caption-only chapter-start message removed.
 - **Acceptance:** a non-reader can reach the first job from the Main Hall
@@ -108,11 +117,17 @@ WP-21 probes and acceptance runs alongside every package
 
 - **Depends on:** WP-02.
 - **Outputs:**
-  - For each job, its room card launches the Opera practice (level 1). The
-    curtain call hands Roshan the costume and routes her to level 2.
+  - For each job, its room card launches the Opera practice (level 1),
+    cut to the steps named in the plotline through the dormant
+    `chapter2_tutorial` path: no rival race, a short bow. The bow hands
+    Roshan the costume piece and routes her to level 2.
+  - The imp apprentice at every practice: arrive, copy, grab the prop, get
+    booped, drop it and scurry off, using the existing `imp_op_*`
+    recordings (new lines for the Arborist).
   - A one-phase warm-up for children who already hold the career star.
-  - The rainbow friend as the travel guide between places, including the Sky
-    Lagoon.
+  - Grand Puff as the travel guide between places, including the Sky Lagoon,
+    and the next job's door lit in the Day One golden-door language
+    ([GFX-ROOM-06](06_GRAPHICS_AUDIT.md)).
 - **Acceptance:** each job's two levels play in order; leaving mid-way
   resumes at the right level; no central all-career picker unless WP-00
   changed `DL-INT-12`.
@@ -138,7 +153,9 @@ WP-21 probes and acceptance runs alongside every package
 - **Depends on:** WP-05.
 - **Outputs:**
   - The four challenge roles (Mischief, Helper, Coach, Hint), seeded
-    selection, per-level slots and quotas, as specified in 01 §8.
+    selection, per-level slots and quotas, and every job's deck of cards, as
+    specified in the [plotline](00_DAY_TWO_PLOTLINE.md#5-the-challenge-mix)
+    (section 5 and each job in section 8).
   - Art and motion for: Daddy's demonstration, Baby Eagle carrying and
     spotting (also on the Sky Lagoon), dust bunny mischief (hide, puff,
     roll, tangle), and the rainbow friend hopping to a target (he has no
@@ -150,8 +167,10 @@ WP-21 probes and acceptance runs alongside every package
 ### WP-07 … WP-14 — The eight jobs
 
 One package per job, each covering level 1 (the Opera practice) and level 2
-(the in-world level) exactly as specified in [03](03_LEVEL_DESIGN.md), with
-its voice lines, visual cues, challenge slots, saves and assets:
+(the in-world level) exactly as told in the plotline's
+[Act II](00_DAY_TWO_PLOTLINE.md#8-act-ii-one-little-job-at-a-time), with the
+steps and gesture modes in [03](03_LEVEL_DESIGN.md): its voice lines, visual
+cues, challenge deck, R-beat, saves and assets:
 
 | Package | Job | Level 2 place | Notes |
 |---|---|---|---|
@@ -201,16 +220,19 @@ its voice lines, visual cues, challenge slots, saves and assets:
 ### WP-16 — The party chapter (F1–F8)
 
 - **Depends on:** WP-07…WP-15.
-- **Outputs:** everything in [04](04_FINALE_PARTY_CHAPTER.md):
-  - the payoff tour;
-  - ignition with Rumi's song;
-  - the royal entrance;
+- **Outputs:** everything in plotline sections 9 and 10, with the production
+  detail in [04](04_FINALE_PARTY_CHAPTER.md):
+  - the candle set in its holder, and the payoff tour;
+  - ignition with Rumi's song, and the imp scout;
+  - the royal entrance, with the King's "MY birthday party!";
   - three rounds with friend shelter layers and painted warnings;
   - the King's motion set;
   - the Prince's acting;
   - the theft composition;
-  - Lamma's comfort;
-  - the evening walk and the sky-door reveal.
+  - Lamma's comfort and the wish;
+  - the evening walk and the sky-door reveal;
+  - the birthday evening (supper with the cake, the movie of the day, the
+    sleepover), reskinning the existing comfy games.
 
   Also removes the stale scout and "north-star clue" lines and objective from
   `scripts/main.gd`.
@@ -222,7 +244,7 @@ its voice lines, visual cues, challenge slots, saves and assets:
 
 - **Depends on:** WP-00 (voice decision).
 - **Outputs:**
-  - Every line in the [voice script](03_LEVEL_DESIGN.md#voice-script) produced
+  - Every line in the [voice lines](03_LEVEL_DESIGN.md#voice-lines) produced
     through the Parler candidate/selector/master pipeline as provisional
     filler, with new presets for the King and the Prince.
   - Distinct keys for new Daddy lines; no Rumi voice; nothing trained or

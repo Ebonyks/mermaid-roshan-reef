@@ -1,7 +1,9 @@
 # 01 — Day Two story bible
 
 Part of the [Day Two story draft v2](README.md). Status: `CANDIDATE`,
-2026-09-30. Owner direction for this draft (2026-09-30):
+2026-09-30. This bible holds the canon and the rules; the whole story, scene
+by scene, is in the [plotline](00_DAY_TWO_PLOTLINE.md), which wins where the
+two differ. Owner direction for this draft (2026-09-30):
 
 - Anchor Day Two to the Chapter One picture book: every room has a story.
 - Mix Daddy Mermaid, the dust bunnies (including the rainbow one) and Baby
@@ -98,7 +100,8 @@ glow.
 | J6 Pop Star | Opera Hall | Sound check with Rumi; Rumi remembers the rainbow candle | Rumi | The birthday song |
 | J7 Astronaut | Mermaid Pool | Build the little rocket; rainbow water from Rumi's waterfall | Rumi's seahorse | The candle-lighting rocket |
 | J8 Detective | Royal Library | The magic storybook's clues; the unlit rainbow candle | Rumi (her memory) | The rainbow candle |
-| F1–F8 | Sky Lagoon lawn → Main Hall | The party, the Ember King and Prince, protection, theft, comfort, the glowing door | Everyone | — |
+| F1–F8 | Sky Lagoon lawn → Main Hall | The party, the Ember King and Prince, protection, theft, comfort, the wish, the glowing door | Everyone | — |
+| E1–E3 | Kitchen, Dining Room, Movie Lounge, Sleepover Bedroom | Birthday supper with the cake; the movie of the day; the birthday sleepover | Everyone | — |
 
 **Recommended job order change.** The binding production spine orders the
 jobs Farmer, Chef, Candy Maker, Painter, Ballerina, Pop Star, Astronaut,
@@ -119,16 +122,20 @@ text changes only in page order.
 Every job follows the same four steps, so a four-year-old learns the day's
 rhythm:
 
-1. **Daddy's Party Plan.** In the Main Hall, the next empty picture on
-   Daddy's board glows and Daddy names it: "Next, the cake! Let's practise!"
+1. **Daddy's Party Plan.** The next empty picture on Daddy's picture scroll
+   glows and Daddy names it: "Next, the cake!" Grand Puff hops to the right
+   door and it lights up.
 2. **Level 1, the Opera practice.** The job's Opera House career show teaches
-   the mechanic on the stage, short and forgiving, with a curtain call. Roshan
-   comes out wearing the job's costume.
+   the mechanic on the stage, short and forgiving, with a short bow. Roshan
+   comes out wearing the job's costume. An ember imp apprentice is always on
+   stage, "sent to learn" the job (his lines are existing recordings), which
+   plants the Ember King's birthday party long before the King arrives.
 3. **Level 2, for real.** Roshan goes to the real place in the castle or the
    Sky Lagoon (the rainbow friend hops ahead as the guide) and uses the same
    mechanic, reskinned into the room's story, with a friend who needs it.
-4. **Back on the plan.** The finished piece appears on the party table and
-   in its picture frame on Daddy's board. Daddy: "One little job at a time!"
+4. **Back on the plan.** The finished piece appears where it lives in the
+   world, and Daddy arrives with the scroll: its picture frame fills. Daddy:
+   "One little job at a time!"
 
 Rules:
 
@@ -156,6 +163,7 @@ Rules:
 | **Lamma** | The shy lamb who has been hiding since Day One; joins the stuffie team; brings Roshan her hat | Three hiding places, then the Playroom and the finale | — (authored only) |
 | **Stuffie team** (Kitty and Bunny, the book dolls from the Ballerina job, then Lamma) | Dance at the party | Playroom, finale | — |
 | **Party guests** (protected friend portraits) | Arrive, wear hats, react, comfort | Finale | — |
+| **The imp apprentices** | The Ember King's little helpers, sent to learn party-making for his birthday; one at every Opera practice, one scout at the party | Opera House, the lawn | — (authored only) |
 | **The Ember King** | Demands the light, loses the challenge, cheats | Finale | — |
 | **The Prince** | Kind, conflicted, helps once, apologises | Finale | — |
 
@@ -195,24 +203,28 @@ staged anywhere.
 |---|---|---|---|---|
 | LAMMA-1 | Day One, right after Baby Eagle is freed | Stuffie Playroom, the play tent | A lamb ear and nose peek out of the tent flap. Touch it: a tiny "Baa?" and she ducks inside; the flap wiggles. Roshan: "Hello? Someone is shy." | — |
 | LAMMA-2 | Day One, during the craft-table sorting | Craft Room, between the paint jars | A jar wobbles; Lamma peeks between two jars, then scampers off the table. Roshan: "A little lamb! She ran away." | A tuft of white wool on the table |
-| LAMMA-3 | Day Two, after the cake is frosted | Royal Kitchen, behind the flour sack | A floury nose sniffs the cake; touch it and she bounces away, leaving round floury bounce marks toward the door and dropping her lavender egg as she goes. Roshan: "Someone small wants cake!" | Floury hoofprints |
+| LAMMA-3 | Day Two, after the cake is frosted | Royal Kitchen, behind the flour sack | A floury nose sniffs the cake; touch it and she bounces away, leaving round floury bounce marks toward the door and dropping her lavender egg as she goes. Roshan: "Someone small wants cake!" Roshan picks up the egg: "Her egg! We'll keep it safe for her." | Floury bounce marks; the egg, carried by Roshan |
 | LAMMA-JOIN | Day Two, the start of the Ballerina job | Stuffie Playroom | See below | Lamma joins the team |
 
 **LAMMA-JOIN: the joining game.** "We need one more dancer," says Roshan.
-The stuffies (Kitty and Bunny) and Baby Eagle help search. The game reuses the
-Seek engine (its four-find structure and Lamma's own atlas):
+Then a tiny bleat: the little lamb! The game uses the Seek engine's
+four-find structure in the Playroom's own art, and every find plays back one
+of her earlier moments, so the child's memory is the clue:
 
-1. **Find the wool** (from LAMMA-2): it glows on a shelf.
-2. **Find the bounce marks** (from LAMMA-3): round floury marks lead across
-   the floor. *Bounce, bounce!*
-3. **Find her egg:** the lavender egg she dropped in the kitchen peeks out of
-   the toy chest. Roshan picks it up to give back.
-4. **Find Lamma:** back in the play tent where it started (LAMMA-1). She
-   peeks; the child touches her; she steps out.
+1. **The toy chest:** a tuft of wool pokes out of the lid (from LAMMA-2).
+2. **The block tower:** round floury bounce marks lead there (from LAMMA-3).
+   *Bounce, bounce!*
+3. **The play tent:** its flap wiggles with a tiny "Baa!", just like
+   yesterday (LAMMA-1).
+4. **The stuffie nook:** Kitty and Bunny point their paws; she is hiding
+   among them, and this time she stays, shy.
 
-Roshan kneels with an open hand: "Will you dance with us? There's room for
-everyone." Lamma nods and celebrates (atlas `celebrate`). She gets a party hat
-and dances in the stuffie ballet that follows.
+Each time she is found she giggles and bounces to the next hiding place: she
+is playing, gently. At the end Roshan kneels and holds out the lavender egg:
+"Here's your egg. Will you dance with us? There's room for everyone." Lamma
+hugs her egg and nods (atlas `celebrate`), and dances in the stuffie ballet
+that follows. The full scene is in the
+[plotline](00_DAY_TWO_PLOTLINE.md#lamma-join-and-j5--ballerina-room-for-everyone).
 
 Rules:
 
@@ -223,37 +235,39 @@ Rules:
   joining game's clues still make sense.
 - Joining sets the existing `friend_lamma` unlock, so she also becomes
   available in the companion roster. In story mode the gentle hide-and-seek
-  replaces the combat `boss_lamma` capture as the way she joins; the battle
-  round stays in freeplay.
+  is the way she joins; the unreachable 3D-era `boss_lamma` battle is not
+  revived for her.
 - She appears at the party (on the stuffie blanket) and brings Roshan her
   fallen party hat after the theft (finale F7).
 
 ## 8. Mixing Day One friends into the challenges
 
-Each Level 2 has one or two **challenge slots**. The game fills them from the
-Day One cast at random, so replays feel different, but always from a fixed
-menu of kind, fixable roles. Story anchors (Baby Eagle's tree, Rumi's song,
-Lamma) are authored, never random.
+Each real level has two or three **challenge slots**, filled from each job's
+deck of cards. The full rules and all eight decks are in the plotline
+([section 5](00_DAY_TWO_PLOTLINE.md#5-the-challenge-mix) and each job in
+section 8); this is the summary. Story anchors (Baby Eagle's tree, Rumi's
+song, Lamma) are authored, never random.
 
-| Role | Who can fill it | What it does to the level | How it resolves |
+| Role | Who | What it does | How it resolves |
 |---|---|---|---|
-| **Mischief** | A playful dust bunny | Adds one gentle, fixable complication using the level's own verb: hides one item, puffs a little flour, rolls a paint jar, tangles a ribbon | The child fixes it with the same verb. The bunny says sorry ("We were just playing!") and Roshan says "Let's play gently." It never undoes finished work |
-| **Helper** | Baby Eagle | Brings or spots one item ("Chirp, chirp!" over the hidden strawberry) | The child still makes the final touch; the helper never completes a step |
-| **Coach** | Daddy Mermaid | Demonstrates the first action once: "Watch me, then you try" | A demonstration never scores or completes (`DL-INT-06`) |
-| **Hint** | The rainbow friend | Replaces generic glows: after about 5 s he flies to the right target and sparkles over it; after about 10 s a hand shows the touch | Assistance only; never answers |
+| **Mischief** | A playful dust bunny; sometimes Grand Puff, whose mischief is always a lucky accident | One gentle, fixable complication using the level's own gesture: rolls a strawberry away, puffs flour, leaves paw prints in wet paint | The child fixes it with the same gesture. The bunny says sorry ("We were just playing!") and Roshan says "Let's play gently." It never undoes finished work |
+| **Helper** | Baby Eagle | Spots or carries one thing ("Chirp, chirp!" over the hidden strawberry) | The child still makes the final touch |
+| **Coach** | Daddy Mermaid | Shows the gesture once, holds something, or counts along: "Watch me: round and round!" | A demonstration never scores or completes (`DL-INT-06`) |
+| **Hint** | Grand Puff | Only when she hesitates: he hops beside the right target and it shimmers with rainbow light | Assistance only; never answers |
 
-Randomness rules (so the day stays fair and testable):
+The rules, in short:
 
-- A level declares which roles it supports; the game picks at most one
-  Mischief and one Helper or Coach per level.
-- Picks use a seeded random choice (save file, level ID and replay count), so
-  replays vary but tests can fix the seed.
-- Across one playthrough of the eight jobs, each of Daddy, Baby Eagle and the
-  dust bunnies fills a role at least twice, and the same Mischief never
-  happens in two levels in a row.
-- A Mischief never appears on the child's first ever attempt at a level if
-  that level is also new to her. The first time is about the job.
-- None of this adds failure, timers or lost progress (`DL-AGE-03`).
+- **First play is the book.** Each job's first play uses its book card, the
+  one Book Two prints.
+- **Replays are random,** seeded per save file, never the same card twice in
+  a row for a job.
+- **Everyone gets a turn:** across one Day Two, Daddy, Baby Eagle, the dust
+  bunnies and Grand Puff each appear in at least three jobs, with never two
+  Mischief cards in one job.
+- **Gentle and short:** one child action, at most about ten seconds, nothing
+  lost, nothing failed, nothing stalled (after 8 seconds the Helper or Coach
+  resolves it).
+- **Never** in Lamma's moments or the finale's rounds.
 
 ## 9. Continuity locks
 

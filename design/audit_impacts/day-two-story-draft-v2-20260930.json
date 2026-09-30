@@ -1,6 +1,6 @@
 {
   "id": "day-two-story-draft-v2-20260930",
-  "scope": "Owner direction 2026-09-30: write the next, much more specific draft of the Day Two story that makes the game. Anchor it to the Chapter One picture book with a story for every room; mix Daddy Mermaid, the dust bunnies (including the rainbow one) and Baby Eagle into challenges at random; add Lamma with three hiding moments across Days One and Two and a game where she joins the stuffie team; make the Opera House the routine that introduces each minigame mechanic, with each job's second level in the game world reskinned to the plot; audit what is built and where theme is thin; audit Day Two graphics granularly with written fixes; break down the Ember King and Prince party chapter in detail; and structure it for breakdown by an agent (Astra). Documentation only: a candidate package under design/day_two_story_v2/ and its ledger rows. No runtime, save, art, voice or binding-document change.",
+  "scope": "Owner direction 2026-09-30: write the next, much more specific draft of the Day Two story that makes the game. Anchor it to the Chapter One picture book with a story for every room; mix Daddy Mermaid, the dust bunnies (including the rainbow one) and Baby Eagle into challenges at random; add Lamma with three hiding moments across Days One and Two and a game where she joins the stuffie team; make the Opera House the routine that introduces each minigame mechanic, with each job's second level in the game world reskinned to the plot; audit what is built and where theme is thin; audit Day Two graphics granularly with written fixes; break down the Ember King and Prince party chapter in detail; and structure it for breakdown by an agent (Astra). Documentation only: a candidate package under design/day_two_story_v2/, led by 00_DAY_TWO_PLOTLINE.md (the complete scene-by-scene plotline written after the owner said the first package was not the full plotline document), its ledger rows, and a one-paragraph alignment of the Arborist handoff's practice patients. No runtime, save, art, voice or binding-document change.",
   "baseline": "e7899cc095fc326ff007e30226ad7bafea8f1634",
   "rules": [
     "DL-AUTH-05",
@@ -32,6 +32,7 @@
   ],
   "finding_scope": "Related planning context only; no finding lifecycle changes. The draft requires every in-world level to show Roshan travelling to and performing the job (MA-PLAY-004) and keeps practice launches on the Castle-room cards tracked by MA-OPERA-012 unless the owner changes DL-INT-12.",
   "files": [
+    "design/day_two_story_v2/00_DAY_TWO_PLOTLINE.md",
     "design/day_two_story_v2/README.md",
     "design/day_two_story_v2/01_STORY_BIBLE.md",
     "design/day_two_story_v2/02_PICTURE_BOOK_MANUSCRIPT.md",
@@ -40,7 +41,8 @@
     "design/day_two_story_v2/05_BUILD_AUDIT.md",
     "design/day_two_story_v2/06_GRAPHICS_AUDIT.md",
     "design/day_two_story_v2/07_WORK_PACKAGES.md",
-    "design/05_DOC_LEDGER.md"
+    "design/05_DOC_LEDGER.md",
+    "design/ARBORIST_TREE_DOCTOR_HANDOFF_2026-09-30.md"
   ],
   "validation": [
     {
@@ -57,6 +59,11 @@
       "command": "Build and graphics audit completion (05 and 06)",
       "result": "PASS",
       "evidence": "05 and 06 replace the first commit's placeholders. 06 findings were checked against the art: eleven 2026-09-06 lawn engine captures and zoomed crops; the 2026-09-05 Opera baseline captures chef_01_pourt and detective_01_lens; contact sheets of assets/chapter2, the legacy widgets, props, book dolls, Lamma and Evie sheets and the FX props; pixel measurements of career-backdrop edge detail (outer bands five to eight times less detailed than centres), interior half-transparent pixels in the eight costume sheets (7,477 to 9,962 against 767 for Teacher), cake tier widths and the King cutout's hard alpha; and code reading of the lawn, party table, candle and backdrop scripts, including the candle touch-area arithmetic. Items a research pass reconstructed from script coordinates are labelled R and need an engine capture before fixing."
+    },
+    {
+      "command": "Plotline consistency checks",
+      "result": "PASS",
+      "evidence": "Every page of the Book Two manuscript is 16 caption words or fewer (average 14.0); every GFX ID referenced across the package is defined in 06; every intra-package anchor link resolves; the 162 new voice lines in 03 are generated from the lines 00 marks new, with speakers checked against the royals' line list in 00 section 11.6."
     },
     {
       "command": "Research inputs",

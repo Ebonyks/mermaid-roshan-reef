@@ -8,6 +8,10 @@ Lagoon lawn, a protection victory followed by the King's cheating theft of
 the candle only, and a sincerely kind Prince who is conflicted about his
 father. Nothing here is implemented or accepted yet.
 
+The story version of this chapter is section 9 of the
+[plotline](00_DAY_TWO_PLOTLINE.md#9-act-iii-the-party). This file holds its
+production detail. Where the two differ, the plotline wins.
+
 ## What this chapter must make a four-year-old feel
 
 1. **Pride:** "We made all of this." Every piece on the lawn is something she
@@ -33,7 +37,7 @@ standing left of centre. Three depth bands:
 | Band | Contents |
 |---|---|
 | Back | The blooming party tree; the birthday banner strung between two of its branches (Painter); Baby Eagle on a branch; the castle on the horizon |
-| Middle | The shell table with the one six-tier cake and the unlit rainbow candle (Farmer, Chef, Detective); the parked rocket beside it (Astronaut); Rumi on a small shell stage with the microphone (Pop Star); guests in a shallow arc, each in a painted party hat |
+| Middle | The shell table with the one six-tier cake and its empty shell candle holder, waiting for the candle Roshan brings (Farmer, Chef, Detective); the parked rocket beside it (Astronaut); Rumi on a small shell stage with the microphone (Pop Star); guests in a shallow arc, each in a painted party hat |
 | Front | A picnic blanket with the stuffie team (Kitty, Bunny and Lamma) and the music box (Ballerina); dust bunnies bouncing at the edges; the path in from the right |
 
 The **right third of the lawn stays open**: the royals enter there and the
@@ -65,10 +69,10 @@ at a natural stopping point with a save.
 
 | | |
 |---|---|
-| Where it starts | Main Hall, after the Detective job. Daddy's Party Plan board has all eight pictures filled; the big doors glow |
-| Child | Touches the glowing doors (the current "party hotspot") |
-| On screen | Roshan swims out of the castle and along the Sky Lagoon path; the rainbow friend hops ahead as the guide (he has no wings); the lawn comes into view with everyone waiting; Daddy puts a painted party hat on Roshan (it matters in F4 and F7) |
-| Voice | Daddy: "Everyone is here, birthday girl!" |
+| Where it starts | Main Hall, after the Detective job. Daddy's Party Plan has all eight pictures filled; the big doors glow; Roshan holds the unlit candle |
+| Child | Touches the glowing doors (the current "party hotspot"); then, on the lawn, touches the cake's empty holder to set the candle in it |
+| On screen | Daddy puts a painted party hat on Roshan (it matters in F4 and F7). Roshan swims out of the castle and along the Sky Lagoon path; the rainbow friend hops ahead as the guide (he has no wings); Baby Eagle flies above; the lawn comes into view with everyone waiting |
+| Voice | Daddy: "A hat for the birthday girl!" A crowd cheer (sound effect). Daddy: "Everyone is here, birthday girl!" Roshan: "Our candle goes on top!" |
 | Save | Existing `chapter2_lawn_started` |
 
 ### F2 — Everything we made (about 60–90 s)
@@ -82,7 +86,7 @@ replaces a checklist with the child's own work.
 | Party tree | Blossoms drift down; Baby Eagle chirps from his branch | Roshan: "Baby Eagle's tree is all better!" |
 | Cake | The five strawberries twinkle | Roshan: "Our rainbow cake!" |
 | Banner | It ripples in the breeze; the five stars shine | Roshan: "Our banner!" |
-| Stuffies | Kitty, Bunny and Lamma do their little bow | Roshan: "Our stuffie team!" |
+| Stuffies | Kitty, Bunny and Lamma do their little bow; then Lamma bounces to Evie, who hugs her (Evie staged with her Seek sheet so only one Lamma is on screen) | Roshan: "Our stuffie team!" |
 | Rumi | Rumi waves from her shell stage (existing wave frames); the microphone plays a two-note chime | None: Rumi has no voice, and the chime is music |
 | Rocket | It wiggles, ready | Roshan: "Our little rocket!" |
 
@@ -102,6 +106,7 @@ straightens a crooked hat; the dust bunnies bounce.
 | Voice | Roshan: "Ready? Let's light our rainbow!" … "Look! Our rainbow candle is shining!" |
 | Music | "Happy Birthday" begins as an instrumental score from Rumi's shell stage (existing Pop Star performance score). Rumi sways in her existing idle frames: she is on IP hold, so she gets no new frames and no voice |
 | Hidden hook | For one second, far away on the castle, a moonflower shape glows in answer (sets up the Chapter 3 door; see F8) |
+| The scout | In the hedge beside the path, an ember imp (the same kind as the imp apprentices at every Opera practice) peeks out, stares at the candle, gasps and scurries down the hill. Imp: "The rainbow light! The King must see this!" Roshan: "The little imp from the Opera?" The song keeps playing |
 | Save | Existing ignition milestone: `chapter2_lawn_beat = 1`, party/candle keys |
 
 Hold the lit candle on screen for at least 2.4 s before anything else moves.
@@ -116,6 +121,7 @@ under the stuffie blanket (the set-up for F7). From the right, up the path:
 
 - **The Ember King:** broad, slow, heavy steps; cape sweeping; chest out.
   Every step puffs a little ember dust from the grass (no fire, no damage).
+  His imp scout rides on his shoulder, pointing at the candle.
 - **The Prince:** four-fifths of the King's height, quick and quiet, stepping
   around his father's dust. He looks at the **people** first, not the candle.
 
@@ -125,8 +131,8 @@ under the stuffie blanket (the set-up for F7). From the right, up the path:
 | 2 | Prince, quietly | "You made that?" | Looks at the cake, then at Roshan |
 | 3 | Roshan | "All of us did. You can join us." | Open hands toward the party |
 | 4 | — | — | The Prince nearly smiles. The King steps between them |
-| 5 | King | "A rainbow light! That belongs at a KING'S party." | Points at the candle with a big claw |
-| 6 | Prince | "Father, it's her birthday." | Small step forward, hand half-raised |
+| 5 | King | "A rainbow light! That belongs at a KING'S party. MY birthday party!" | Points at the candle with a big claw |
+| 6 | Prince | "Father, it's HER birthday." | Small step forward, hand half-raised |
 | 7 | King | "Then show me how strong you are!" | Stamps a heavy foot; a glowing ember ring marks the open grass |
 | 8 | Roshan, softly | "He's so big…" | Looks up at him, then back at her friends |
 | 9 | Roshan | "…but I can keep my friends safe." | Moves in front of the friends |
@@ -216,44 +222,52 @@ dodged. The child only watches (touch to advance).
   nothing implies his warning made Roshan responsible.
 - Save: existing beat 6 (theft) and the candle keys.
 
-### F7 — What he couldn't take (about 45 s)
+### F7 — What he couldn't take (about 60 s)
 
 | # | Speaker | Line | Acting |
 |---|---|---|---|
-| 1 | — | — | Quiet. The music has stopped. The warm candle tint drains from the scene |
-| 2 | Roshan | "He took our light." | Looks at the empty candle place; her tail droops |
-| 3 | — | — | **Lamma**, the shyest friend, hops out from under the stuffie blanket with Roshan's party hat, which rolled there in F4, and holds it up |
+| 1 | — | — | Quiet. The music has stopped. The warm candle tint drains from the scene. The rainbow dome pops softly into sparkles; the bunny wall unrolls; Baby Eagle lays the banner back in the tree |
+| 2 | Roshan | "He took our light." | Looks at the empty candle holder; her tail droops; the approved self-hug gesture |
+| 3 | — | — | **Lamma**, the shyest friend, bounces out from under the stuffie blanket with Roshan's party hat, which rolled there in F4, and holds it up |
 | 4 | Lamma | (a soft bleat: a new lamb sound effect; she has no words) | |
 | 5 | — | — | Roshan puts the hat back on. The friends close in around her. Daddy hugs her (a callback to the Day One epilogue hug) |
 | 6 | Daddy | "I'm proud of you." | |
-| 7 | — | — | Roshan looks around: the tree, the cake, the banner, the stuffie team, Rumi, the friends |
-| 8 | Roshan | "But you're all still here. We'll find our light together." | Stands tall |
-| 9 | — | — | The birthday song returns softly as instrumental score from Rumi's stage; the friends sway; the dust bunnies bounce in time |
+| 7 | — | — | Roshan looks around: the tree, the cake, the banner, the stuffie team, Rumi, the friends; each bobs as she sees it |
+| 8 | Roshan | "But you're all still here." | Stands tall |
+| 9 | Daddy | "And you can still make a wish." | |
+| 10 | Roshan, whispering | "We'll find our light together." | Eyes closed, hands together (the approved clasped-hands gesture); sparkles gather in her hands while the child holds; the birthday song returns softly from Rumi's stage; everyone sways |
+| 11 | — | — | She opens her hands; the sparkles float up into the evening sky, over the castle |
 
-- Child: one touch — a **hug**. A glowing hand appears on Lamma holding the
-  hat; touching her puts the hat back on Roshan. That is the child's own act
-  of accepting comfort.
-- Save: existing beat 8 and `chapter2_story_complete`. The reassurance
-  checkpoint stays separate from the theft, so restarting after the theft can
-  never skip the kind ending (existing rule).
+- **Child:** two acts, neither of which can fail. A glowing hand on Lamma
+  holding the hat: touching her puts the hat back on Roshan, the child's own
+  act of accepting comfort. Then a hold on Roshan: her wish.
+- **Save:** existing beat 8 and `chapter2_story_complete`, plus
+  `chapter2_wish_made` (new, additive). The reassurance checkpoint stays
+  separate from the theft, so restarting after the theft can never skip the
+  kind ending (existing rule).
 
-### F8 — Evening and the door (about 30 s)
+### F8 — The door wakes (about 30 s)
 
 The sun sets over the cloud sea. Everyone walks back to the castle together,
-the stuffie team riding on the cake table cart, Baby Eagle overhead.
+the stuffie team riding on the cake's cart, Baby Eagle overhead, Grand Puff
+hopping ahead, the dust bunnies rolling behind.
 
 In the Main Hall, the moonflower relief on the wall is glowing: it woke when
-the rainbow candle was lit (F3).
+the rainbow candle was lit (F3), just as Roshan wished.
 
 | Speaker | Line |
 |---|---|
 | Roshan | "The castle found a secret sky door!" (existing voiced line) |
+| Daddy, yawning | "An adventure for tomorrow, birthday girl." |
+| Roshan | "Tomorrow!" |
 
 - One large moving pointer on the pearl; a touch opens it and saves (the
   existing Fairy Conservatory reveal). Today it only runs on entering the
   castle from outside, so it must also run here, at the end of the lawn.
-- Then the day closes: Roshan and friends curl up in the bubbles (a mirror of
-  Book One's last page). The Day Three card can follow later.
+- Then the birthday evening, section 10 of the
+  [plotline](00_DAY_TWO_PLOTLINE.md#10-epilogue-birthday-evening): supper
+  with the cake, the movie of the day, and the birthday sleepover, built from
+  the existing comfy games.
 - Which next adventure the door opens is an owner decision; see
   [open decisions](README.md#owner-decisions).
 
@@ -308,7 +322,7 @@ A four-year-old cannot tell who is talking.
   plays (mouth or body movement, never a still card).
 - Captions: one short line for the adult, no speaker labels, never over a
   face, hidden during the rounds except the one-word cue.
-- Full line list for recording: see the [voice script](03_LEVEL_DESIGN.md#voice-script).
+- Full line list for recording: see the [voice lines](03_LEVEL_DESIGN.md#voice-lines).
 
 ## Animation needs
 
@@ -322,6 +336,7 @@ A four-year-old cannot tell who is talking.
 | Baby Eagle | Chirp on branch, carry banner down | Book Baby Eagle art; carrying pose needed |
 | Rainbow friend | Puff rainbow dome | Static rainbow friend card; puff motion needed |
 | Lamma | Hop out, hold up hat | Seek atlas (hide, peek, reveal, celebrate), which is off-model (see [GFX-LAMMA-01](06_GRAPHICS_AUDIT.md#gfx-lamma-01)); hat-offer pose needed in the canonical egg-carrying design |
+| Imp scout | Peek from the hedge, gasp, run, ride on the King's shoulder | An existing Opera rival imp cutout; whole-card motion |
 | Rumi | Idle sway, wave | Existing eight-pose atlas only. She is on IP hold: no new frames, no regeneration, no voice |
 
 ## Cinematics
@@ -349,5 +364,9 @@ plays as gameplay staging.
 | Counter | Tap the King | Tap the gold star on the crown crest; brush sparkles in her chosen colour, as in Day One |
 | King motion | None | Stomp, wobble, dizzy, reach, walk away |
 | Comfort | Roshan's line only | Lamma brings the hat; Daddy's hug; the song returns |
+| Foreshadowing | None | An imp apprentice at every Opera practice, and the imp scout who runs to fetch the King |
+| The King's motive | Said once, in text | Spoken: "MY birthday party!", as the production spine's canon has it |
+| The wish | None | Daddy: "You can still make a wish"; the child holds; the door answers |
+| After the party | Back to the Main Hall; an unrelated Family Evening | The door wakes; then supper with the cake, the movie of the day and the sleepover |
 | Ending | Returns to Main Hall with a stale "north-star clue" objective | Evening walk home; the sky door opens in the Main Hall |
 | Stale lines | "A little ember silhouette is watching the party!" and "His little son's silhouette points to the bright north-star clue!" still fire from `scripts/main.gd` | Removed |

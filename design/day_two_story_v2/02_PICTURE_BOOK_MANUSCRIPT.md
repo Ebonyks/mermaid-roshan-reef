@@ -38,7 +38,7 @@ aloud at bedtime is the story she plays. It continues Book One,
 | The dust bunnies' "We were just playing!" (p19) | A dust bunny rolls a strawberry away and says it again (p9-10), then helps build the wall (p29) |
 | "Your rainbow was there all along!" (p31) | Grand Puff's rainbow protects the party (p29) |
 | "There was room for everyone." (p32) | Lamma is invited onto the stuffie team (p18) |
-| Everyone asleep in the bubbles (p32) | Everyone curled up in the bubbles again, and a secret door glows (p32) |
+| Everyone asleep in the bubbles (p32) | Everyone wakes in the bubbles (p1), and ends the day at a birthday sleepover while a secret door glows (p32) |
 | "Sorry!" (p19 balloon) | The Prince whispers "Sorry" (p30) |
 
 ## Manuscript
@@ -61,10 +61,10 @@ IDs used across this package.
 | 10 | "We were just playing!" Baby Eagle found it. Five strawberries! "Let's play gently," said Roshan. | 15 | Baby Eagle pointing with a wing; five berries in the basket; the dust bunny looking sorry | J2-L2 |
 | 11 | In the kitchen, Daddy tied her apron. Mix, mix! Stir, stir! Six rainbow colours swirled. | 15 | Kitchen; batter bowl. Source: `chapter2_chef_batter_stirred.png` | J3-L2 |
 | 12 | Bake. Stack. Frost. Roshan put five strawberries on top. A rainbow cake! | 12 | The finished six-tier cake. Source: `chapter2_grand_five_strawberry_cake.png` (after the tier and berry fixes in [06](06_GRAPHICS_AUDIT.md#gfx-prop-cake-01)) | J3-L2 |
-| 13 | Sniff, sniff. A little nose peeked out behind the flour. Bounce, bounce! Floury marks ran away. | 16 | Lamma's nose and ear peeking behind a flour sack; round floury bounce marks on the floor; her lavender egg left behind. **GAP**: Lamma peek over kitchen art | LAMMA-3 |
+| 13 | Sniff, sniff. A little nose peeked out behind the flour. Bounce, bounce! She dropped her egg. | 16 | Lamma's nose and ear peeking behind a flour sack; round floury bounce marks on the floor; her lavender egg left behind, and Roshan picking it up. **GAP**: Lamma peek over kitchen art | LAMMA-3 |
 | 14 | In the craft room, Roshan painted a banner. Stamp, stamp! Five birthday stars. | 13 | The birthday banner with five stars. Source: banner derivative states ([06](06_GRAPHICS_AUDIT.md#gfx-prop-banner-01)) | J4-L2 |
 | 15 | The stuffies wanted to dance. "We need one more dancer," said Roshan. Who was hiding? | 15 | Stuffie Playroom; Kitty and Bunny looking around | J5-L2 |
-| 16 | Roshan followed the clues. A tuft of wool. Floury bounce marks. A little lavender egg! | 15 | Three clue close-ups in a row | LAMMA-JOIN |
+| 16 | Roshan followed the clues. A tuft of wool. Floury bounce marks. A tiny "Baa!" | 14 | Three clue close-ups in a row: wool in the toy chest, bounce marks to the block tower, the play tent's wiggling flap | LAMMA-JOIN |
 | 17 | There she was, in the play tent! A shy little lamb named Lamma. | 13 | Lamma peeking from the play tent. Source: the canonical Lamma poses ([06](06_GRAPHICS_AUDIT.md#gfx-lamma-01)) | LAMMA-JOIN |
 | 18 | Roshan held out the egg. "Will you dance with us? There's room for everyone." Lamma nodded. | 16 | Roshan kneeling with the egg in her open hand; Lamma bouncing out to hug it | LAMMA-JOIN |
 | 19 | Point! Twirl! Bow! The stuffie team danced together. | 8 | Kitty, Bunny and Lamma mid-bow with Roshan | J5-L2 |
@@ -80,7 +80,7 @@ IDs used across this package.
 | 29 | The dust bunnies made a wall. Baby Eagle brought the banner. Grand Puff puffed a rainbow. | 16 | The three shelter layers over the guests | F5 |
 | 30 | "Enough games." The King reached over the rainbow and took the candle. "Sorry," whispered the Prince. | 16 | The King holding the lit candle beside the intact cake; the Prince looking back | F6 |
 | 31 | "He took our light," said Roshan. Lamma brought her party hat. Everyone held her close. | 15 | The friends around Roshan; Lamma holding up the hat | F7 |
-| 32 | "You're all still here. We'll find our light together." That night, a secret door glowed. | 15 | Everyone curled up in the bubbles again; inset of the glowing moonflower door | F7, F8 |
+| 32 | Roshan made a wish: "We'll find our light together." That night, a secret door glowed. | 15 | Roshan wishing with her eyes closed, friends around her; inset: the birthday sleepover, and the glowing moonflower door | F7, F8 |
 | Back cover | — | — | The ensemble in pastel, as Book One's approved rear cover H | — |
 
 Every page keeps to Book One's measured limit of 16 caption words (Book One

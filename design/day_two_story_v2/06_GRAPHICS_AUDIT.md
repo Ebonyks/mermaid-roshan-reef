@@ -130,7 +130,7 @@ C. Fix now.
 - **Fix:** restore the tiles from before `a89599c8`, or draw only the native
   painting full-screen (about 1.2× enlargement). Then re-derive the bleed,
   paths and lens objects from that frame. In v2 the Detective's second level
-  moves to the Royal Library ([03 J8](03_LEVEL_DESIGN.md)), but this world
+  moves to the Royal Library ([plotline J8](00_DAY_TWO_PLOTLINE.md#j8--detective-the-book-that-remembers)), but this world
   stays for freeplay and the J8 practice.
 
 <a id="gfx-sys-03"></a>
@@ -297,7 +297,7 @@ Hall launches.
 
 Today every Day Two job runs inside its Opera career world with Chapter 2
 overlays. v2 keeps each world for the practice (Level 1) and builds Level 2
-in the real room ([03](03_LEVEL_DESIGN.md)). Scene scores are the research
+in the real room ([plotline, Act II](00_DAY_TWO_PLOTLINE.md#8-act-ii-one-little-job-at-a-time)). Scene scores are the research
 pass's ratings out of five.
 
 ### Farmer (scene 1.5/5)
@@ -408,7 +408,7 @@ and the Opera House!"
 
 | ID | Sev | Evidence | Flaw | Fix |
 |---|---|---|---|---|
-| GFX-CARD-01 | P0 | C, R | Nothing says birthday: no cake, balloons or candle, and no Roshan, Baby Eagle or rainbow friend. The tray advertises three jobs, none of them the first (the Farmer, in the Dining Room today), and the voice never mentions the birthday | Keep the dawn animation. Add the three friends waking (cutouts), a picture of the birthday (the cake silhouette or balloons), and a pointer toward the first place. New voice: "It's Roshan's birthday!" ([03 D2-OPEN-1](03_LEVEL_DESIGN.md)) |
+| GFX-CARD-01 | P0 | C, R | Nothing says birthday: no cake, balloons or candle, and no Roshan, Baby Eagle or rainbow friend. The tray advertises three jobs, none of them the first (the Farmer, in the Dining Room today), and the voice never mentions the birthday | Keep the dawn animation. Add the three friends waking (cutouts), a picture of the birthday (the cake silhouette or balloons), and a pointer toward the first place. New voice: "It's Roshan's birthday!" ([plotline, the night between](00_DAY_TWO_PLOTLINE.md#the-night-between)) |
 | GFX-CARD-02 | P1 | C | Its words ("A NEW DAY", "DAY TWO!", "NEW ADVENTURES") are the message | Keep words only as decoration for the adult; the picture must tell the story alone |
 | GFX-CARD-03 | P2 | V | The Opera medallion (`assets/ui/castle_room_buttons_v2/room_opera_hall.png`) pairs a smiling mask with a frowning black one: a sad face on the birthday card, and again over the Main Hall's Opera door | A Day Two variant medallion (a smiling mask with a star, or a curtain and microphone) as a derivative |
 | GFX-CARD-04 | P2 | R, C | The castle is placed at (160, 128), 748×590 (lines 229-230), so its wooden ramp runs past the card's rounded frame at the bottom. The castle floats on nothing, and the dimmed, tinted cloud bank behind it reads as grey smog rather than a cloud island | Scale the castle to about 0.92 and raise it so the ramp ends inside the frame; seat it on a bright cloud island in front of the bank |
@@ -421,7 +421,7 @@ and the Opera House!"
 ### 5.1 The party table
 
 `scripts/chapter_two_party_table_2d.gd`. In v2, Daddy's Party Plan board
-replaces the table as the day's progress picture ([03 D2-OPEN-2](03_LEVEL_DESIGN.md)).
+replaces the table as the day's progress picture ([plotline D2-OPEN-2](00_DAY_TWO_PLOTLINE.md#d2-open-2--daddys-party-plan)).
 The table remains the place the finished pieces gather before the party.
 
 <a id="gfx-hall-07"></a>

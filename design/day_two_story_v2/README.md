@@ -10,9 +10,10 @@ it does not change any binding document until the owner approves it (see
 
 | File | What it is | Main reader |
 |---|---|---|
+| [00 Plotline](00_DAY_TWO_PLOTLINE.md) | **Start here.** The whole of Day Two, scene by scene: every room's story, the cast, the challenge decks mixing in Daddy, the dust bunnies, Grand Puff and Baby Eagle, Lamma from her first peek to the stuffie team, the eight jobs with their practice and real levels, the party with the Ember King and the Prince, the evening, and the map from the built levels to each scene | Everyone |
 | [01 Story bible](01_STORY_BIBLE.md) | Canon from Book One, the Day Two premise and themes, the shape of the day, the practise-then-for-real routine, the cast, Lamma's arc, and the rules for mixing Day One friends into challenges | Owner, writers |
 | [02 Book Two manuscript](02_PICTURE_BOOK_MANUSCRIPT.md) | The 32-page picture-book text in Book One's style; every page names the game beat it anchors | Owner, book team |
-| [03 Level design](03_LEVEL_DESIGN.md) | Every Day Two event: the opening, each job's Opera practice (level 1) and in-world level (level 2), the Lamma moments, the full voice script | Designers, Astra |
+| [03 Level mechanics](03_LEVEL_DESIGN.md) | The plotline's build sheet: every step's gesture mode, object and save, and every new voice line, generated from the plotline | Designers, Astra |
 | [04 Party chapter](04_FINALE_PARTY_CHAPTER.md) | The finale with the Ember King and the Prince, beat by beat | Owner, designers, animators |
 | [05 Build audit](05_BUILD_AUDIT.md) | What is built today, in detail, and where the story and theme are thin | Owner, Astra |
 | [06 Graphics audit](06_GRAPHICS_AUDIT.md) | Asset-by-asset graphic flaws in the Day Two stage, each with a written fix | Art, Astra |
@@ -21,23 +22,27 @@ it does not change any binding document until the owner approves it (see
 ## How the pieces connect
 
 ```text
-Book Two manuscript (02)  ── anchors ──►  Story beats (IDs: D2-OPEN, J1–J8, LAMMA-*, F1–F8)
-        │                                         │
-        ▼                                         ▼
-Story bible (01) ── rules ──► Level design (03) + Party chapter (04)
-                                          │
-Build audit (05) + Graphics audit (06) ───┤  what exists, what is wrong
-                                          ▼
-                              Work packages (07) ──► Astra breaks down and builds
+Story bible (01) ── canon and rules ──►  PLOTLINE (00): the whole day, scene by scene
+                                              │            │
+              Book Two manuscript (02) ◄──────┘            ├──► Mechanics and voice lines (03)
+              prints the first-play story                  └──► Party chapter production (04)
+                                                                         │
+              Build audit (05) + Graphics audit (06) ── what exists, what is wrong
+                                                                         ▼
+                                             Work packages (07) ──► Astra breaks down and builds
 ```
 
 Stable IDs are used across all files:
 
+- **P-1, P-2:** Lamma's two peeks in Episode One (Day One).
 - **D2-OPEN-1…3:** the opening.
 - **J1–J8:** the eight jobs, each with **-L1** (Opera practice) and **-L2**
-  (in-world level).
+  (in-world level); **Jn-DECK-xx:** each job's challenge cards; **R1–R8:**
+  the Party Plan beat after each job.
 - **LAMMA-1…3, LAMMA-JOIN:** Lamma's moments.
 - **F1–F8:** the finale.
+- **E1–E3:** the birthday evening.
+- **ROOM-*:** each place's story.
 - **GFX-*:** graphics fixes.
 - **WP-*:** work packages.
 
