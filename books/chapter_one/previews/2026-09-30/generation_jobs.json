@@ -1,0 +1,552 @@
+[
+  {
+    "id": "rescue_release",
+    "transparent": false,
+    "refs": [
+      "books/chapter_one/landscape/art/identity_v21/rescue_release.png",
+      "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+      "books/chapter_one/landscape/art/stress_revision/eagle_original_isolated.png"
+    ],
+    "prompt": "Use case: precise-object-edit. Edit target Image 1, an existing 7:5 children's picture-book frame. Image 2 locks the lavender dust-bunny cloud body, two spiral ears and pearl hands. Image 3 locks Baby Eagle's exact feather colors, face, beak and grey feet. Make a bounded rescue-action correction, NOT a new scene. Keep the room, camera, Roshan's face/hair/crown/tail, same two bunnies, and all toys unchanged. Change only Roshan's forearms/brush direction and the trapping bunny's pose/contact so the brush points diagonally DOWN toward the lavender bunny at Eagle's lower left, well away from Eagle's face and wing. Show that bunny gently sliding away from Eagle's ankle; the other bunny at right has already hopped clear. Eagle is relieved with both feet becoming free. Bristles visibly touch only the side of the bunny, never the bird. Preserve the source's polished flat storybook style and every character's identity. Exactly two foreground dust bunnies. No blanket, no new tools, no extra arms, no text or speech balloons. Keep the bottom 18% of floor quiet for typeset text. Return the complete edited 7:5 frame at the highest available native resolution.",
+    "generatedOriginal": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-a6f1d964-225f-4219-97e7-08b2eb608635.png",
+    "output": "art/rescue_release.png",
+    "references": [
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/identity_v21/rescue_release.png",
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/stress_revision/eagle_original_isolated.png"
+    ],
+    "method": "builtin OpenAI imagegen source-conditioned edit",
+    "prompt_sha256": "155743e62d684cd02dfb71b4cca544d0a975810c4c9e5f8aae4f4d502e10071d",
+    "output_metadata": {
+      "sha256": "2b70889cc0027aaf039dbb8cdf2bfddfe08d73a9f889c8fbb26d1debe58a30f4",
+      "bytes": 2001022,
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "mode": "RGB"
+    },
+    "disposition": "REVIEW_CANDIDATE",
+    "reason": "Shown in a separate proposal; no owner or print acceptance claimed.",
+    "bound_references": [
+      {
+        "path": "books/chapter_one/landscape/art/identity_v21/rescue_release.png",
+        "sha256": "f08ce2cec47ecd1deae46af7438e9ac124a9f4b39dc245df8c328e02dc2bfdb4",
+        "dimensions": [
+          1484,
+          1060
+        ],
+        "role": "Scene/identity authority or previous edit iteration; exact role specified in prompt."
+      },
+      {
+        "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+        "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "Scene/identity authority or previous edit iteration; exact role specified in prompt."
+      },
+      {
+        "path": "books/chapter_one/landscape/art/stress_revision/eagle_original_isolated.png",
+        "sha256": "166461427017b2624dcf1c342bde658c63a8247b522ad113c92f6ec1bb084bd9",
+        "dimensions": [
+          944,
+          1666
+        ],
+        "role": "Scene/identity authority or previous edit iteration; exact role specified in prompt."
+      }
+    ]
+  },
+  {
+    "id": "rainbow_puff_cutout",
+    "transparent": true,
+    "refs": [
+      "books/chapter_one/plan/source_art/R11_land.png"
+    ],
+    "prompt": "Use case: background-extraction. Image 1 is the edit target and sole design authority. Extract ONLY the small central rainbow Grand Puff from this exact accepted landing frame, as a clean high-resolution transparent RGBA contour cutout. Keep his exact existing rainbow cloud silhouette, paired inward spiral ears, tiny pearl ear joints, two pearl hands, little glossy eyes, small mouth and forehead glint. Preserve the pose and color arrangement. Remove all floor, room, dust, people and bird; no scenic fragment and no sticker outline. Do not redesign or add features, clothing, limbs or a different expression. Fill the output canvas with this same isolated Puff, with a modest transparent margin. Actual transparent background required.",
+    "generatedOriginal": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-3ab5104b-9b64-4223-b183-d3e0b5b2a1d1.png",
+    "output": "art/rainbow_puff_cutout.png",
+    "references": [
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/plan/source_art/R11_land.png"
+    ],
+    "method": "builtin OpenAI imagegen source-conditioned edit",
+    "prompt_sha256": "ee7c8bc305ba7da5fcfe5fbdd550bf7be777974c4de91fda4d1e9d594db7f71d",
+    "output_metadata": {
+      "sha256": "c0d15aa35ab2056566a64c72d2ccfd690e65e8c5fa809c12e66b20ed87353135",
+      "bytes": 1135408,
+      "dimensions": [
+        1346,
+        1169
+      ],
+      "mode": "RGBA"
+    },
+    "disposition": "REVIEW_CANDIDATE",
+    "reason": "Shown in a separate proposal; no owner or print acceptance claimed.",
+    "bound_references": [
+      {
+        "path": "books/chapter_one/plan/source_art/R11_land.png",
+        "sha256": "d166ae3aa034d26beeda8e92dbc0da8da5347646b8b707746237d819e81a4e5a",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "role": "Scene/identity authority or previous edit iteration; exact role specified in prompt."
+      }
+    ]
+  },
+  {
+    "id": "fountain_clear",
+    "transparent": false,
+    "refs": [
+      "books/chapter_one/landscape/art/quality_v22/scene_13.png"
+    ],
+    "prompt": "Use case: precise-object-edit. Image 1 is the existing book scene to edit. Preserve the complete scene, characters, faces, hair, crowns, fountain, colors, room, camera and staging exactly. Change ONLY the pink rubbish cup and Roshan's hands/forearms enough to show that she has PULLED the cup OUT of the seahorse's mouth: place it a clearly visible short distance down and right of the mouth, still in both hands, with a clean gap between rim and mouth. A small clear fresh-water arc flows from the now open mouth past the cup into the pool, not into the cup. Do not add a second cup, alter expressions, redraw the room or redesign Roshan. No text. Maintain original 7:5 framing and polished illustrated style. The action must read as clearing a stuck cup, not feeding the fountain.",
+    "generatedOriginal": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-1c593a05-e3e1-4711-8aa8-40565e49f507.png",
+    "output": "art/fountain_clear.png",
+    "references": [
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/quality_v22/scene_13.png"
+    ],
+    "method": "builtin OpenAI imagegen source-conditioned edit",
+    "prompt_sha256": "ff60b710c8ebfc71b376c9e9976e51e68c3d20956ab7e3d9076fd865d766d08b",
+    "output_metadata": {
+      "sha256": "c005e88523ff7c19d5ca7c63bcd2ef6bdc58d1b3e39d17cc5d9313b198b6b504",
+      "bytes": 2461363,
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "mode": "RGB"
+    },
+    "disposition": "NOT_SELECTED",
+    "reason": "The stream entered the cup, implying filling rather than clearing.",
+    "bound_references": [
+      {
+        "path": "books/chapter_one/landscape/art/quality_v22/scene_13.png",
+        "sha256": "eb0f39180f63445ad5776c6e311f831f6d85cc20c8aa94cf244d5927956570be",
+        "dimensions": [
+          1484,
+          1060
+        ],
+        "role": "Scene/identity authority or previous edit iteration; exact role specified in prompt."
+      }
+    ]
+  },
+  {
+    "id": "hug_cutout",
+    "transparent": true,
+    "refs": [
+      "books/chapter_one/landscape/art/quality_v22/scene_15.png"
+    ],
+    "prompt": "Use case: background-extraction. Extract the connected hugging pair from Image 1 as one actual transparent RGBA contour cutout. Preserve exactly Rumi and little Roshan hugging, their existing faces, closed eyes, hair, arms, hands, contact, crowns, clothes, turquoise/purple/rainbow tails and the original relative scale. Remove ALL pool, room, water, waterfall, fountain, floor and corner foreground shell. No scene fragment, no circular mask, no sticker outline. Rumi's pink tail at the far left is clipped by the source edge: only outpaint the very small missing tip to finish its natural contour; do not change the pose or tail design. Include both complete figures with a transparent margin and natural gaps. No text or new props.",
+    "generatedOriginal": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-0b54b5f0-c304-4014-843a-eeb75740ec20.png",
+    "output": "art/hug_cutout.png",
+    "references": [
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/quality_v22/scene_15.png"
+    ],
+    "method": "builtin OpenAI imagegen source-conditioned edit",
+    "prompt_sha256": "c312530c690dab8f1dee7b3ae3653c09626c0af7e759a562d4c6e9a442d0e91f",
+    "output_metadata": {
+      "sha256": "8464a254d050732ea847370d680c0f05f571579f7b151a345be3aed2abbe979f",
+      "bytes": 1424376,
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "mode": "RGBA"
+    },
+    "disposition": "NOT_SELECTED",
+    "reason": "Superseded by edge-margin attempt.",
+    "bound_references": [
+      {
+        "path": "books/chapter_one/landscape/art/quality_v22/scene_15.png",
+        "sha256": "ad5f1f5f8e01c950348d86f49ec1b8bd919a92bc055b1500f97cc32180746807",
+        "dimensions": [
+          1484,
+          1060
+        ],
+        "role": "Scene/identity authority or previous edit iteration; exact role specified in prompt."
+      }
+    ]
+  },
+  {
+    "id": "scrub_ceiling",
+    "transparent": false,
+    "refs": [
+      "books/chapter_one/landscape/art/door_expression_v27/scrub.png"
+    ],
+    "prompt": "Use case: precise-object-edit, upward outpainting ONLY. Image 1 is the accepted 1672x941 wide Grand Puff scrubbing scene. Preserve the ENTIRE existing image at its original aspect ratio, scale and all positions. Extend the canvas upward only to make a 7:5 landscape page: the unchanged original image fills the bottom 78.8 percent of final canvas, and a new empty ceiling extension fills the top 21.2 percent. Do NOT crop, stretch, move, repaint or redesign anything in the original scene. Extend the purple vaulted ceiling upward seamlessly with consistent tile spacing and perspective, quiet lavender values and subtle existing gold lines. No new chandelier, no copied strip or duplicated columns, no extra characters. The new upper area should be quiet enough for a two-line navy caption. No text. Keep the original chandelier exactly once, entirely in its original image. Return complete 7:5 frame at high native resolution; only the new top extension will be used in the page layout.",
+    "generatedOriginal": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-5a75760b-36b4-489a-a886-12278cb09a13.png",
+    "output": "art/scrub_ceiling.png",
+    "references": [
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/door_expression_v27/scrub.png"
+    ],
+    "method": "builtin OpenAI imagegen source-conditioned edit",
+    "prompt_sha256": "430377b75920954300d25f67848584586ba8cbdb46096a56e2effe0548d9a69b",
+    "output_metadata": {
+      "sha256": "e556979391a202919ec65566a34d28bce4cc325e3de680592973fc331e36848e",
+      "bytes": 2404063,
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "mode": "RGB"
+    },
+    "disposition": "REVIEW_CANDIDATE",
+    "reason": "Shown in a separate proposal; no owner or print acceptance claimed.",
+    "bound_references": [
+      {
+        "path": "books/chapter_one/landscape/art/door_expression_v27/scrub.png",
+        "sha256": "dfa3717a4df2197b82c9730044284899ab0eee9aa86c37ff7c53dd8cddfe1e86",
+        "dimensions": [
+          1672,
+          941
+        ],
+        "role": "Scene/identity authority or previous edit iteration; exact role specified in prompt."
+      }
+    ]
+  },
+  {
+    "id": "lamba_bath",
+    "transparent": false,
+    "refs": [
+      "books/chapter_one/landscape/art/quality_v22/scene_08.png",
+      "assets/sprites/stuffie_studio/lamma.png"
+    ],
+    "prompt": "Use case: compositing, extremely small bounded edit. Image 1 is the complete existing bath scene and edit target; preserve it exactly. Image 2 is Lamb-a identity: white round plush, simple dark eyes with lashes, pink cheeks, short round ears, purple egg. Add just ONE tiny subtle Lamb-a hiding behind the rolled towels in the lower-left basket of Image 1. Her complete implied body is only about 5 percent of image width. Most of her is occluded by existing towels and basket; show only her familiar small face and one ear peeking between the purple and pink towel rolls. Keep her original illustrated identity, not a realistic llama. No lettering on her egg, no white sticker outline, no halo or sparkle or pointer. Match local occlusion so the face belongs behind the towels. Change no character, prop, room, lighting, color or staging anywhere else. Do not enlarge or emphasize her. No text. Same complete 7:5 frame. This is a hidden Easter egg, not a new story event.",
+    "generatedOriginal": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-f8d098c8-b8b6-4aaf-b2bd-9e64d7cc7060.png",
+    "output": "art/lamba_bath.png",
+    "references": [
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/quality_v22/scene_08.png",
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/assets/sprites/stuffie_studio/lamma.png"
+    ],
+    "method": "builtin OpenAI imagegen source-conditioned edit",
+    "prompt_sha256": "501a54ba8a2a6b79385aa6e8fdc502a2be77783bbd872d9d1f8e945cccabb521",
+    "output_metadata": {
+      "sha256": "bbfe81e64e896a3cc3532f1e243804e0720993c6db0b8b08c7c1c42ed5daf973",
+      "bytes": 2479419,
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "mode": "RGB"
+    },
+    "disposition": "REVIEW_CANDIDATE",
+    "reason": "Shown in a separate proposal; no owner or print acceptance claimed.",
+    "bound_references": [
+      {
+        "path": "books/chapter_one/landscape/art/quality_v22/scene_08.png",
+        "sha256": "ac7d2590df67923b3e2cc47dd05fe44d0cc2fcd74396b622a6f44e3bba03ecc1",
+        "dimensions": [
+          1484,
+          1060
+        ],
+        "role": "Scene/identity authority or previous edit iteration; exact role specified in prompt."
+      },
+      {
+        "path": "assets/sprites/stuffie_studio/lamma.png",
+        "sha256": "fa05513ecf6530691d712230acb4da9c0b3dd11fa694c788f3df8556efc33268",
+        "dimensions": [
+          949,
+          1024
+        ],
+        "role": "Scene/identity authority or previous edit iteration; exact role specified in prompt."
+      }
+    ]
+  },
+  {
+    "id": "sink_action",
+    "transparent": true,
+    "refs": [
+      "books/chapter_one/landscape/art/quality_v22/sink_large.png",
+      "books/chapter_one/archive/rough_v5/art/bath_drained_local.png"
+    ],
+    "prompt": "Use case: compositing with a bounded action correction. Make one transparent connected action cutout for the existing story's sink-wiping moment, using the exact supplied art. Image 1 is the existing pearl-shell sink to preserve, including gold faucet, shell handles and teal cabinet. Image 2 provides the exact existing Roshan design and leaning cleaning pose. Isolate Roshan from Image 2 without the bathtub, place her to the RIGHT of Image 1's sink, same small-child proportions, leaning LEFT over the rim. Preserve her face, hair/rainbow strands, crown, purple ruffle top and purple/rainbow complete tail; only adapt forearm/hand placement to this sink. Replace the scrub brush with the story's small yellow sponge in her hand, visibly pressed onto the basin rim, with a small soapy wiped arc and a little remaining green grime to its left. Her other hand rests naturally on the rim. No bath, no room, no floor, no water rectangle or scenic blob. Actual transparent RGBA outside the complete sink-and-Roshan contours; no white sticker border. Preserve object/character identity and storybook colors; no photorealism. No text.",
+    "generatedOriginal": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-b96c6e0f-0897-4530-a697-22657c3bc052.png",
+    "output": "art/sink_action.png",
+    "references": [
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/quality_v22/sink_large.png",
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/archive/rough_v5/art/bath_drained_local.png"
+    ],
+    "method": "builtin OpenAI imagegen source-conditioned edit",
+    "prompt_sha256": "6fc55a3d4b9cf6e60376af19b29377ca494829caee44564fc6d8cbb1fa11e39b",
+    "output_metadata": {
+      "sha256": "873d1cd6ecd508564404e77d25c0f33e6630b4446fd5bad422c2d50a2b778b52",
+      "bytes": 1554499,
+      "dimensions": [
+        1589,
+        990
+      ],
+      "mode": "RGBA"
+    },
+    "disposition": "REVIEW_CANDIDATE",
+    "reason": "Shown in a separate proposal; no owner or print acceptance claimed.",
+    "bound_references": [
+      {
+        "path": "books/chapter_one/landscape/art/quality_v22/sink_large.png",
+        "sha256": "d7024f4357bdc494388b49cbd81d51313450f2aa41ae7a9efab82e27abf8f883",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "role": "Scene/identity authority or previous edit iteration; exact role specified in prompt."
+      },
+      {
+        "path": "books/chapter_one/archive/rough_v5/art/bath_drained_local.png",
+        "sha256": "b33c3d90158d0618680803b1c9a3c9b2f61fee1bfd7db55fc57c138c14316dc3",
+        "dimensions": [
+          1589,
+          990
+        ],
+        "role": "Scene/identity authority or previous edit iteration; exact role specified in prompt."
+      }
+    ]
+  },
+  {
+    "id": "apology_canvas",
+    "transparent": false,
+    "refs": [
+      "books/chapter_one/landscape/art/story_detail_v23/bunny_apology_canvas.png",
+      "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
+    ],
+    "prompt": "Use case: precise-object-edit. Image 1 is the existing blue book stationery and edit target. Image 2 is authoritative dust-bunny identity. Preserve Image 1's 7:5 canvas, blue watercolor wash, dotted perimeter, bubbles, shells and two low blue ground banks. Change only the TWO existing bunnies into larger clearer narrative speakers, with genuine cloud-shaped bodies, TWO paired spiral ears, two pearl hand knobs, glossy dark eyes, blush and tiny mouths from Image 2. Remove the old tiny versions so there are exactly two bunnies total. Each new bunny stays naturally grounded on its bank, feet around 91% image height, height about 22% of canvas; left bunny centered at27% width, right bunny at73% width. Left bunny looks apologetic with pearl hands drawn together; right bunny looks sheepish with one pearl hand held out. Both glance inward/up toward the future Eagle in the center. Preserve all empty space above them for later native lettering and bubbles. No Eagle yet. No words, no speech balloons, no added scene or new props. Contact shadows subtle and naturally blended into blue banks. Keep the source simple illustrated identity, not furry realistic animals.",
+    "generatedOriginal": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-c72a5a94-f405-4662-94c9-bfa69231c19d.png",
+    "output": "art/apology_canvas.png",
+    "references": [
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/story_detail_v23/bunny_apology_canvas.png",
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png"
+    ],
+    "method": "builtin OpenAI imagegen source-conditioned edit",
+    "prompt_sha256": "1e6ed530e16f14735cd75abae9f706bf612d7f036e51a154b49798bf5da0b6c2",
+    "output_metadata": {
+      "sha256": "5c55b08ea11c32d236217edf78559497757ad15eb79f3076233e56546c1d5170",
+      "bytes": 1586645,
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "mode": "RGB"
+    },
+    "disposition": "REVIEW_CANDIDATE",
+    "reason": "Shown in a separate proposal; no owner or print acceptance claimed.",
+    "bound_references": [
+      {
+        "path": "books/chapter_one/landscape/art/story_detail_v23/bunny_apology_canvas.png",
+        "sha256": "d71a38db2a2b0f1457fdaff29c6d25c81df0c594619bf77d357dc964fce7c6d7",
+        "dimensions": [
+          1484,
+          1060
+        ],
+        "role": "Scene/identity authority or previous edit iteration; exact role specified in prompt."
+      },
+      {
+        "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+        "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "Scene/identity authority or previous edit iteration; exact role specified in prompt."
+      }
+    ]
+  },
+  {
+    "id": "fountain_clear_v2",
+    "transparent": false,
+    "absoluteRefs": [
+      "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-1c593a05-e3e1-4711-8aa8-40565e49f507.png"
+    ],
+    "refs": [],
+    "prompt": "Use case: precise-object-edit. Correct only the hand-held cup position and small water stream in this existing frame. The current cup is catching the stream, which is the wrong action. Keep the entire picture identical otherwise, including both faces, hair, tails, fountain sculpture and room. Roshan has removed rubbish from the mouth. Move the pink cup and her two hands farther RIGHT, close to her chest at about60% frame width and51% height, and turn the cup sideways so its opening faces sideways, away from the stream. The fresh-water arc leaves the seahorse mouth and falls freely into the pool LEFT of Roshan's hands, with a clearly visible gap from the cup. No water goes into the cup. Exactly one cup and two hands; no extra arm. This must read as pulling an obstruction aside, not filling a cup or offering a drink. No text. Preserve exact7:5 canvas.",
+    "generatedOriginal": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-bb4d9f86-eacd-4419-9a83-e6904cec9783.png",
+    "output": "art/fountain_clear_v2.png",
+    "references": [
+      "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-1c593a05-e3e1-4711-8aa8-40565e49f507.png"
+    ],
+    "method": "builtin OpenAI imagegen source-conditioned edit",
+    "prompt_sha256": "82ff2209d0c0de2dd1302ed577ac901e8509265a4dfc8e19a52bf5df32ed4166",
+    "output_metadata": {
+      "sha256": "e64ef03256642ec1eac68e0ae856d917879c011bd9c9a61645fcd34a501ea2c9",
+      "bytes": 2428899,
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "mode": "RGB"
+    },
+    "disposition": "REVIEW_CANDIDATE",
+    "reason": "Shown in a separate proposal; no owner or print acceptance claimed.",
+    "bound_references": [
+      {
+        "path": "books/chapter_one/previews/2026-09-30/art/fountain_clear.png",
+        "sha256": "c005e88523ff7c19d5ca7c63bcd2ef6bdc58d1b3e39d17cc5d9313b198b6b504",
+        "dimensions": [
+          1484,
+          1060
+        ],
+        "role": "Scene/identity authority or previous edit iteration; exact role specified in prompt."
+      }
+    ]
+  },
+  {
+    "id": "hug_cutout_v2",
+    "transparent": true,
+    "absoluteRefs": [
+      "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-0b54b5f0-c304-4014-843a-eeb75740ec20.png"
+    ],
+    "refs": [],
+    "prompt": "Use case: precise-object-edit / tiny outpaint. Keep this exact transparent hugging-pair cutout, identities, expressions, colors, all body contours and pose unchanged. Add a modest transparent margin on every side so the whole pair fits comfortably. At the very top, only complete the tiny clipped crest of Rumi's purple braided hair into a natural rounded contour; no hairstyle redesign. Preserve transparent holes, complete tail tips and all hands. No background, no shadow or white sticker edge, no text. This is a margin/edge completion only, not a redraw.",
+    "generatedOriginal": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-c8aed83a-3749-4a2a-bde6-11c027daeed0.png",
+    "output": "art/hug_cutout_v2.png",
+    "references": [
+      "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-0b54b5f0-c304-4014-843a-eeb75740ec20.png"
+    ],
+    "method": "builtin OpenAI imagegen source-conditioned edit",
+    "prompt_sha256": "d34708a11b4b6b68a4cc8a6388d46f7485e5f4ad93ce414a7950b5a46be2b6e2",
+    "output_metadata": {
+      "sha256": "7e9a7f111bc7bb31391ea33e66f5ccc3260cb80d6ac7a202c7124f495405dcd3",
+      "bytes": 1371053,
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "mode": "RGBA"
+    },
+    "disposition": "REVIEW_CANDIDATE",
+    "reason": "Shown in a separate proposal; no owner or print acceptance claimed.",
+    "bound_references": [
+      {
+        "path": "books/chapter_one/previews/2026-09-30/art/hug_cutout.png",
+        "sha256": "8464a254d050732ea847370d680c0f05f571579f7b151a345be3aed2abbe979f",
+        "dimensions": [
+          1484,
+          1060
+        ],
+        "role": "Scene/identity authority or previous edit iteration; exact role specified in prompt."
+      }
+    ]
+  },
+  {
+    "id": "art_caption_space",
+    "transparent": false,
+    "refs": [
+      "books/chapter_one/landscape/art/action_style_v25/art_simple.png"
+    ],
+    "prompt": "Use case: precise-object-edit, local background simplification for text. Image 1 is the existing complete7:5 art-making page. Preserve every pixel of Roshan, her hair/crown/tail/body, working hand, purple glitter bottle, paper, glitter stream, the table and ALL foreground tools. Change only the far UPPER-RIGHT background rectangle, approximately x=63–98 percent of image width, y=2–20 percent of height, into a quiet pale lavender painted wall recess with a softly shaded edge. Remove only the distant shelves/jars that currently run through that small rectangle; preserve room shelves elsewhere, including the foreground brush holders below it. Keep the same simple flat illustrated palette and line style. No photorealistic details. The patch must feel like part of the room, not an opaque caption card or a pasted panel. Do not put any text in it. Do not move or crop the scene.",
+    "generatedOriginal": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-e12b3468-2da8-4e6c-90fa-748f0229c6e2.png",
+    "output": "art/art_caption_space.png",
+    "references": [
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/action_style_v25/art_simple.png"
+    ],
+    "method": "builtin OpenAI imagegen source-conditioned edit",
+    "prompt_sha256": "0d859424153bf525c8555e50c38f2982e9517be506688cfc34c5657e775218f0",
+    "output_metadata": {
+      "sha256": "f1c26c3be4657a2cbfab0f219d58ddc8d0489217763b2f19c9d068e79670c52c",
+      "bytes": 1944960,
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "mode": "RGB"
+    },
+    "disposition": "REVIEW_CANDIDATE",
+    "reason": "Shown in a separate proposal; no owner or print acceptance claimed.",
+    "bound_references": [
+      {
+        "path": "books/chapter_one/landscape/art/action_style_v25/art_simple.png",
+        "sha256": "44a7301206314297e526a81ce8281b1a94e9369b21a03db31a84a5a253761f49",
+        "dimensions": [
+          1484,
+          1060
+        ],
+        "role": "Scene/identity authority or previous edit iteration; exact role specified in prompt."
+      }
+    ]
+  },
+  {
+    "id": "hug_stationery",
+    "transparent": false,
+    "refs": [
+      "books/chapter_one/landscape/art/quality_v22/bg_base.png",
+      "books/chapter_one/landscape/art/quality_v22/scene_15.png"
+    ],
+    "prompt": "Use case: precise-object-edit. Image 1 is the exact7:5 blue stationery base to retain. Image 2 is ONLY a source for the small seahorse fountain motif; do not copy its room, characters, detailed water or composition. Make one subtle page-specific lower-border variant for Rumi's grateful hug after clean water returns. Add a very small clear-water seahorse fountain echo on the LEFT blue mound slope, faithful to the violet/cream seahorse and little shell pedestal in Image2, with a tiny simple water arc. Total fountain+arc fits entirely in the lower15% and a12% by12% canvas bounding box. Nest it into the blue ground with natural contact and restrained shadow; no white sticker outline. On the RIGHT slope add only two tiny clean water beads beside the native shell, no brush or cleaning tool or bunny. Preserve dotted borders, bubbles, blue mound silhouettes, same aspect ratio, top85% empty and central gap completely empty. Keep the wash soft, simple and blue; crisp simple native outlines without texture noise. No text. This is a marginal story echo, not a new location or miniature scene.",
+    "generatedOriginal": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-b1f97aed-4cce-4204-845b-8d032d9c3f08.png",
+    "output": "art/hug_stationery.png",
+    "references": [
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/quality_v22/bg_base.png",
+      "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/picture-book-worktree/books/chapter_one/landscape/art/quality_v22/scene_15.png"
+    ],
+    "method": "builtin OpenAI imagegen source-conditioned edit",
+    "prompt_sha256": "ee3ed7f0c3c70f21749fbe5f68f80e1c272bc445a6fcfdf3088aff09049c22d0",
+    "output_metadata": {
+      "sha256": "ce88181c21245aef5f9c24afcca931c42a69b09f4108fa96f24e04c48a44ac66",
+      "bytes": 1415838,
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "mode": "RGB"
+    },
+    "disposition": "NOT_SELECTED",
+    "reason": "Fountain too large for the border.",
+    "bound_references": [
+      {
+        "path": "books/chapter_one/landscape/art/quality_v22/bg_base.png",
+        "sha256": "590d1f4165b846fe7c91135937432d86415a2e519a57a8cc1e74e2c585f8eca5",
+        "dimensions": [
+          1484,
+          1060
+        ],
+        "role": "Scene/identity authority or previous edit iteration; exact role specified in prompt."
+      },
+      {
+        "path": "books/chapter_one/landscape/art/quality_v22/scene_15.png",
+        "sha256": "ad5f1f5f8e01c950348d86f49ec1b8bd919a92bc055b1500f97cc32180746807",
+        "dimensions": [
+          1484,
+          1060
+        ],
+        "role": "Scene/identity authority or previous edit iteration; exact role specified in prompt."
+      }
+    ]
+  },
+  {
+    "id": "hug_stationery_v2",
+    "transparent": false,
+    "absoluteRefs": [
+      "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-b1f97aed-4cce-4204-845b-8d032d9c3f08.png"
+    ],
+    "refs": [],
+    "prompt": "Targeted precise edit of the existing blue stationery only. The seahorse fountain in the lower-left is too big. Reduce that SAME fountain, its pedestal and water arc to HALF their current width and height, and move the little group down so its entire silhouette is below 86% of the page height, nestled on the left mound next to the shell. Complete the blue wash and bank where the larger fountain used to be. Keep every other border dot, bubble, mound, shell, coral and blue wash unchanged. Do not add anything. Total fountain group approximately 8% canvas width by 10% canvas height. Preserve its seahorse design and actual ground contact. No text.",
+    "generatedOriginal": "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-143a6327-442b-4fb6-9edc-83b2b928e0de.png",
+    "output": "art/hug_stationery_v2.png",
+    "references": [
+      "C:\\Users\\Peter\\.codex\\generated_images\\01a0bd6a-0b70-7682-bd4c-44a20e6eed2d\\exec-b1f97aed-4cce-4204-845b-8d032d9c3f08.png"
+    ],
+    "method": "builtin OpenAI imagegen source-conditioned edit",
+    "prompt_sha256": "06772ded5d60860af418489752f8442559ec8c1fa146c013a8edb06bae1611a4",
+    "output_metadata": {
+      "sha256": "0432335fe6c435aadf43785118a32a2d0e650569b3cc59ff2ee2d2de5de41aa6",
+      "bytes": 1435353,
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "mode": "RGB"
+    },
+    "disposition": "REVIEW_CANDIDATE",
+    "reason": "Shown in a separate proposal; no owner or print acceptance claimed.",
+    "bound_references": [
+      {
+        "path": "books/chapter_one/previews/2026-09-30/art/hug_stationery.png",
+        "sha256": "ce88181c21245aef5f9c24afcca931c42a69b09f4108fa96f24e04c48a44ac66",
+        "dimensions": [
+          1484,
+          1060
+        ],
+        "role": "Scene/identity authority or previous edit iteration; exact role specified in prompt."
+      }
+    ]
+  }
+]

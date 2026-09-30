@@ -1,0 +1,46 @@
+{
+  "status": "MECHANICAL_CHECKS_PASS_VISUAL_PROPOSALS_PENDING_OWNER",
+  "current_book_preserved": [
+    {
+      "path": "books/chapter_one/landscape/book.json",
+      "git_blob_sha256": "9495ab56cb74bd2597e41979f610a1d864c5160c33520f550a5775ad297c4e59",
+      "working_file_sha256": "0f6a51805f61fa19db8168e47501d54096b60ea2ce2dc83afd8774adb42b445c",
+      "content_unchanged": true,
+      "note": "Git LF versus Windows checkout CRLF; content compared after newline normalization."
+    },
+    {
+      "path": "books/chapter_one/landscape/render_book.py",
+      "git_blob_sha256": "7ff11dae4d7fb7aa533792091cf0d9e9ebaaf815e27da2db79d94f69597552ba",
+      "working_file_sha256": "1ba97310998286bbbaadaf9fc58ac08e4908bca5dd63d9487dace0aec6e7928f",
+      "content_unchanged": true,
+      "note": "Git LF versus Windows checkout CRLF; content compared after newline normalization."
+    }
+  ],
+  "source_pdf_sha256": "be69cff6e2be12b9d2cdb3665613e3b07ba6ab6323e1ae20b79cce22c701442d",
+  "source_revision": "f857a65e95d5d7846af19f27046735a74cba4ec4",
+  "source_total_pages": 34,
+  "comparison_pdf_pages": 12,
+  "proposed_story_pages": 10,
+  "native_type_minimum_points": 18,
+  "after_screenshots": {
+    "dimensions": [
+      1008,
+      720
+    ],
+    "format": "lossless PNG",
+    "render_dpi": 144
+  },
+  "text_checks": "Builder asserts each line fits its declared width and18pt page-edge clearance.",
+  "visual_review": "All ten proposed pages and both page-turn sheets inspected. Native text render mode, closing eyeline, balloon-tail anchor, craft caption and diagram spacing corrected following render.",
+  "qualifications": [
+    "Separate proposals; unshown comprehensive-review queue remains open.",
+    "Generated edits are source-conditioned, not guaranteed pixel-exact extractions.",
+    "S19 proposed speaking figures exceed the existing bottom20% dialogue zone; layout acceptance pending.",
+    "S15 fountain starts around82% height, slightly above the bottom15% decorative zone; final placement/occlusion remains open.",
+    "S15 tiny upper hair contour needs final print-size inspection.",
+    "S27 upper-only ceiling extension retains original lower scene; junction/perspective remains a print-review item.",
+    "Only one hidden Lamb-a location shown. Other one/two locations and child discovery untested.",
+    "1484x1060 scene outputs are approximately212ppi at7x5, not certified300ppi print masters.",
+    "No actual re-pagination, full-book language rewrite, runtime changes or finding closure."
+  ]
+}

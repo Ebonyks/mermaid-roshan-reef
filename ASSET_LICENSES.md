@@ -5246,3 +5246,59 @@ Owner-commissioned static-book artwork generated with the built-in OpenAI image 
 ## Picture-book comprehensive review previews — 2026-09-30
 
 - `books/chapter_one/reviews/2026-09-30/REVIEW.html`: embeds34 whole-page WEBP review thumbnails from the existing owner/project V27 proof, with repeated previews for two spreads. Existing book-art rights/provenance remain controlling; no external license or new artwork claimed. Poppler render144dpi, whole-page resize672×480 and WEBP quality88 for review only. No crop, protected-original modification or print-master substitution. PDF/render/embedded hashes and transforms: `books/chapter_one/reviews/2026-09-30/technical_evidence.json`. Original book examined but not republished. Lamb-a referenced in the plan, not inserted into pages.
+
+## Picture-book before/after proposals — 2026-09-30
+
+Owner/project art rights and source provenance remain controlling. No external stock or newly inferred license. Exact sources, prompts, hashes and modifications: `books/chapter_one/previews/2026-09-30/generation_jobs.json` and `layout_evidence.json`. Originals and native outputs preserved; review proposals only.
+
+- `books/chapter_one/previews/2026-09-30/after/story_06.png`: Lossless whole-page document screenshot at144dpi of native Sniglet/layout and source-conditioned derivatives; review only.
+- `books/chapter_one/previews/2026-09-30/after/story_08.png`: Lossless whole-page document screenshot at144dpi of native Sniglet/layout and source-conditioned derivatives; review only.
+- `books/chapter_one/previews/2026-09-30/after/story_13.png`: Lossless whole-page document screenshot at144dpi of native Sniglet/layout and source-conditioned derivatives; review only.
+- `books/chapter_one/previews/2026-09-30/after/story_15.png`: Lossless whole-page document screenshot at144dpi of native Sniglet/layout and source-conditioned derivatives; review only.
+- `books/chapter_one/previews/2026-09-30/after/story_18.png`: Lossless whole-page document screenshot at144dpi of native Sniglet/layout and source-conditioned derivatives; review only.
+- `books/chapter_one/previews/2026-09-30/after/story_19.png`: Lossless whole-page document screenshot at144dpi of native Sniglet/layout and source-conditioned derivatives; review only.
+- `books/chapter_one/previews/2026-09-30/after/story_23.png`: Lossless whole-page document screenshot at144dpi of native Sniglet/layout and source-conditioned derivatives; review only.
+- `books/chapter_one/previews/2026-09-30/after/story_26.png`: Lossless whole-page document screenshot at144dpi of native Sniglet/layout and source-conditioned derivatives; review only.
+- `books/chapter_one/previews/2026-09-30/after/story_27.png`: Lossless whole-page document screenshot at144dpi of native Sniglet/layout and source-conditioned derivatives; review only.
+- `books/chapter_one/previews/2026-09-30/after/story_31.png`: Lossless whole-page document screenshot at144dpi of native Sniglet/layout and source-conditioned derivatives; review only.
+- `books/chapter_one/previews/2026-09-30/art/apology_canvas.png`: Builtin OpenAI source-conditioned edit, native output retained; exact sources and disposition in generation_jobs.json.
+- `books/chapter_one/previews/2026-09-30/art/art_caption_space.png`: Builtin OpenAI source-conditioned edit, native output retained; exact sources and disposition in generation_jobs.json.
+- `books/chapter_one/previews/2026-09-30/art/fountain_clear.png`: Builtin OpenAI source-conditioned edit, native output retained; exact sources and disposition in generation_jobs.json.
+- `books/chapter_one/previews/2026-09-30/art/fountain_clear_v2.png`: Builtin OpenAI source-conditioned edit, native output retained; exact sources and disposition in generation_jobs.json.
+- `books/chapter_one/previews/2026-09-30/art/hug_cutout.png`: Builtin OpenAI source-conditioned edit, native output retained; exact sources and disposition in generation_jobs.json.
+- `books/chapter_one/previews/2026-09-30/art/hug_cutout_v2.png`: Builtin OpenAI source-conditioned edit, native output retained; exact sources and disposition in generation_jobs.json.
+- `books/chapter_one/previews/2026-09-30/art/hug_stationery.png`: Builtin OpenAI source-conditioned edit, native output retained; exact sources and disposition in generation_jobs.json.
+- `books/chapter_one/previews/2026-09-30/art/hug_stationery_v2.png`: Builtin OpenAI source-conditioned edit, native output retained; exact sources and disposition in generation_jobs.json.
+- `books/chapter_one/previews/2026-09-30/art/lamba_bath.png`: Builtin OpenAI source-conditioned edit, native output retained; exact sources and disposition in generation_jobs.json.
+- `books/chapter_one/previews/2026-09-30/art/rainbow_puff_cutout.png`: Builtin OpenAI source-conditioned edit, native output retained; exact sources and disposition in generation_jobs.json.
+- `books/chapter_one/previews/2026-09-30/art/rescue_release.png`: Builtin OpenAI source-conditioned edit, native output retained; exact sources and disposition in generation_jobs.json.
+- `books/chapter_one/previews/2026-09-30/art/scrub_ceiling.png`: Builtin OpenAI source-conditioned edit, native output retained; exact sources and disposition in generation_jobs.json.
+- `books/chapter_one/previews/2026-09-30/art/sink_action.png`: Builtin OpenAI source-conditioned edit, native output retained; exact sources and disposition in generation_jobs.json.
+- `books/chapter_one/previews/2026-09-30/before/story_06.png`: Unmodified whole-page V27 proof PNG copied byte-for-byte; existing project art/font provenance.
+- `books/chapter_one/previews/2026-09-30/before/story_08.png`: Unmodified whole-page V27 proof PNG copied byte-for-byte; existing project art/font provenance.
+- `books/chapter_one/previews/2026-09-30/before/story_13.png`: Unmodified whole-page V27 proof PNG copied byte-for-byte; existing project art/font provenance.
+- `books/chapter_one/previews/2026-09-30/before/story_15.png`: Unmodified whole-page V27 proof PNG copied byte-for-byte; existing project art/font provenance.
+- `books/chapter_one/previews/2026-09-30/before/story_18.png`: Unmodified whole-page V27 proof PNG copied byte-for-byte; existing project art/font provenance.
+- `books/chapter_one/previews/2026-09-30/before/story_19.png`: Unmodified whole-page V27 proof PNG copied byte-for-byte; existing project art/font provenance.
+- `books/chapter_one/previews/2026-09-30/before/story_23.png`: Unmodified whole-page V27 proof PNG copied byte-for-byte; existing project art/font provenance.
+- `books/chapter_one/previews/2026-09-30/before/story_24.png`: Unmodified whole-page V27 proof PNG copied byte-for-byte; existing project art/font provenance.
+- `books/chapter_one/previews/2026-09-30/before/story_25.png`: Unmodified whole-page V27 proof PNG copied byte-for-byte; existing project art/font provenance.
+- `books/chapter_one/previews/2026-09-30/before/story_26.png`: Unmodified whole-page V27 proof PNG copied byte-for-byte; existing project art/font provenance.
+- `books/chapter_one/previews/2026-09-30/before/story_27.png`: Unmodified whole-page V27 proof PNG copied byte-for-byte; existing project art/font provenance.
+- `books/chapter_one/previews/2026-09-30/before/story_28.png`: Unmodified whole-page V27 proof PNG copied byte-for-byte; existing project art/font provenance.
+- `books/chapter_one/previews/2026-09-30/before/story_29.png`: Unmodified whole-page V27 proof PNG copied byte-for-byte; existing project art/font provenance.
+- `books/chapter_one/previews/2026-09-30/before/story_30.png`: Unmodified whole-page V27 proof PNG copied byte-for-byte; existing project art/font provenance.
+- `books/chapter_one/previews/2026-09-30/before/story_31.png`: Unmodified whole-page V27 proof PNG copied byte-for-byte; existing project art/font provenance.
+- `books/chapter_one/previews/2026-09-30/BEFORE_AFTER.pdf`: ReportLab review PDF: existing/project art, source-conditioned derivatives and live Sniglet type; no print-master claim.
+- `books/chapter_one/previews/2026-09-30/comparisons/page_turn_01.png`: Lossless review-sheet screenshot of V27/proposed pages or pagination diagrams; whole-page comparisons, not new narrative art.
+- `books/chapter_one/previews/2026-09-30/comparisons/page_turn_02.png`: Lossless review-sheet screenshot of V27/proposed pages or pagination diagrams; whole-page comparisons, not new narrative art.
+- `books/chapter_one/previews/2026-09-30/comparisons/story_06.png`: Lossless review-sheet screenshot of V27/proposed pages or pagination diagrams; whole-page comparisons, not new narrative art.
+- `books/chapter_one/previews/2026-09-30/comparisons/story_08.png`: Lossless review-sheet screenshot of V27/proposed pages or pagination diagrams; whole-page comparisons, not new narrative art.
+- `books/chapter_one/previews/2026-09-30/comparisons/story_13.png`: Lossless review-sheet screenshot of V27/proposed pages or pagination diagrams; whole-page comparisons, not new narrative art.
+- `books/chapter_one/previews/2026-09-30/comparisons/story_15.png`: Lossless review-sheet screenshot of V27/proposed pages or pagination diagrams; whole-page comparisons, not new narrative art.
+- `books/chapter_one/previews/2026-09-30/comparisons/story_18.png`: Lossless review-sheet screenshot of V27/proposed pages or pagination diagrams; whole-page comparisons, not new narrative art.
+- `books/chapter_one/previews/2026-09-30/comparisons/story_19.png`: Lossless review-sheet screenshot of V27/proposed pages or pagination diagrams; whole-page comparisons, not new narrative art.
+- `books/chapter_one/previews/2026-09-30/comparisons/story_23.png`: Lossless review-sheet screenshot of V27/proposed pages or pagination diagrams; whole-page comparisons, not new narrative art.
+- `books/chapter_one/previews/2026-09-30/comparisons/story_26.png`: Lossless review-sheet screenshot of V27/proposed pages or pagination diagrams; whole-page comparisons, not new narrative art.
+- `books/chapter_one/previews/2026-09-30/comparisons/story_27.png`: Lossless review-sheet screenshot of V27/proposed pages or pagination diagrams; whole-page comparisons, not new narrative art.
+- `books/chapter_one/previews/2026-09-30/comparisons/story_31.png`: Lossless review-sheet screenshot of V27/proposed pages or pagination diagrams; whole-page comparisons, not new narrative art.

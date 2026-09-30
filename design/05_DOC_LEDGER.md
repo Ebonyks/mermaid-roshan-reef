@@ -826,3 +826,5 @@ Kept as-is; noted so a future edit updates every copy.
 | `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; whole-story V26 editorial audit with playful dust-bunny intent, Rumi history/rescue and continuous Grand Puff transformation; action/source gaps and next priorities; not visual or child acceptance. |
 
 | `books/chapter_one/reviews/2026-09-30/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; comprehensive unchanged-V27/original comparison, page-level art/story/pacing/type recommendations and conditional unprompted Lamb-a plan. Review evidence only; no art implementation, source-gap closure or child/print acceptance. |
+
+| `books/chapter_one/previews/2026-09-30/README.md` | 🟣 | `CANDIDATE`; ten separate before/after proposals and two pagination diagrams responding to the V27 review. Source/prompt/layout evidence; current book unchanged. No whole-book, child, print or owner acceptance. |
