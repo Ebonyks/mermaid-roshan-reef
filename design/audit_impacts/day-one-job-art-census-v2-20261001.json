@@ -27,6 +27,7 @@
     "audit/day_one_job_art_census_v2_20261001/CURRENT_NATIVE_SOURCE_REVIEWS.json",
     "audit/day_one_job_art_census_v2_20261001/MANIFEST.json",
     "audit/day_one_job_art_census_v2_20261001/NATIVE_RESOURCE_CATALOG.json",
+    "audit/day_one_job_art_census_v2_20261001/REMOTE_VERIFICATION.json",
     "audit/day_one_job_art_census_v2_20261001/index.html",
     "audit/day_one_job_art_census_v2_20261001/inventory.json",
     "audit/day_one_job_art_census_v2_20261001/native_art_studio_gameplay_1280/00_loose_supplies.json",
@@ -283,6 +284,11 @@
       "command": "Qualified current native diagnostics and direct visual inspection",
       "result": "PASS",
       "evidence": "Adjacent CAPTURE_REVIEW/SEQUENTIAL_REVIEW JSON preserve real source hashes, scripted check counts, native images, failed/borderline graphics opinions and setup/cadence limitations. No all-action/owner pass."
+    },
+    {
+      "command": "Anonymous normalTLS immutable GitHub manifest/payload/dependency byte verification",
+      "result": "PASS",
+      "evidence": "audit/day_one_job_art_census_v2_20261001/REMOTE_VERIFICATION.json; sourcebdac06fff19a4e621f83b6a9995777404b373056;2621 files/1161979502 bytes exactSHA256; archive only."
     }
   ],
   "acceptance_gaps": "No new source-quality, mounted, action, device, child or owner pass is implied by discovering a reference. Full native played job contexts, all individual weak-item refinements and comprehensive final approval remain unfinished. Prior sealed census and originals are preserved. The later sequential-contact capture passes its35 checks; earlier immediate-request and tool-setup failures are preserved. Individual native graphics scoring and full elapsed/ordinary-route coverage remain unfinished."

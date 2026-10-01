@@ -30,6 +30,7 @@
     "assets_src/imagegen/day1_pool_skimmer_v2_20261001/MANIFEST.json",
     "assets_src/imagegen/day1_pool_skimmer_v2_20261001/PROFILE_AND_PROMPT.json",
     "assets_src/imagegen/day1_pool_skimmer_v2_20261001/REFERENCE_UPLOAD_REJECTION.json",
+    "assets_src/imagegen/day1_pool_skimmer_v2_20261001/REMOTE_VERIFICATION.json",
     "assets_src/imagegen/day1_pool_skimmer_v2_20261001/index.html",
     "assets_src/imagegen/day1_pool_skimmer_v2_20261001/native_gameplay_1280/00_dirty_arrival.json",
     "assets_src/imagegen/day1_pool_skimmer_v2_20261001/native_gameplay_1280/00_dirty_arrival.webp",
@@ -187,6 +188,11 @@
       "command": "Official Godot4.7.2 whole-canvas normalization and parser/inference/analyzer checks",
       "result": "PASS",
       "evidence": "normalized1024/PROVENANCE.json; source preserved; native57 frames/35 checks/process0. Future NPOT runtime import/performance not inferred."
+    },
+    {
+      "command": "Anonymous normalTLS immutable GitHub manifest/payload/dependency byte verification",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/day1_pool_skimmer_v2_20261001/REMOTE_VERIFICATION.json; sourcebdac06fff19a4e621f83b6a9995777404b373056;2621 files/1161979502 bytes exactSHA256; archive only."
     }
   ],
   "acceptance_gaps": "Every candidate must be scored separately; failed generations preserved. New material source does not prove contact, mounting, action, device, child, owner or all-job acceptance."

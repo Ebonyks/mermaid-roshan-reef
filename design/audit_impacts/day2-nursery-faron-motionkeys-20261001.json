@@ -53,6 +53,7 @@
     "assets_src/imagegen/day2_nursery_faron_motionkeys_20261001/PROMPT_rise-bridge-a_ATTEMPT_02.json",
     "assets_src/imagegen/day2_nursery_faron_motionkeys_20261001/PROMPT_rise-bridge-b.json",
     "assets_src/imagegen/day2_nursery_faron_motionkeys_20261001/PROMPT_rise-bridge-b_ATTEMPT_02.json",
+    "assets_src/imagegen/day2_nursery_faron_motionkeys_20261001/REMOTE_VERIFICATION.json",
     "assets_src/imagegen/day2_nursery_faron_motionkeys_20261001/SELECTED_STATIC_REVIEW.json",
     "assets_src/imagegen/day2_nursery_faron_motionkeys_20261001/TIMED_STUDY_PROFILE.json",
     "assets_src/imagegen/day2_nursery_faron_motionkeys_20261001/index.html",
@@ -203,6 +204,11 @@
       "command": "Official4.7.2 Mobile static source/contact capture; parser/inference/check-only",
       "result": "PASS",
       "evidence": "assets_src/imagegen/day2_nursery_faron_motionkeys_20261001/initial_fit/receipt.json; source/contact4.6 and initial chain4.2 stay separate. No runtime/action acceptance."
+    },
+    {
+      "command": "Anonymous normalTLS immutable GitHub manifest/payload/dependency byte verification",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/day2_nursery_faron_motionkeys_20261001/REMOTE_VERIFICATION.json; sourcebdac06fff19a4e621f83b6a9995777404b373056;2621 files/1161979502 bytes exactSHA256; archive only."
     }
   ],
   "acceptance_gaps": "No runtime/action pass. Full approach/pickup/carry/lower/settle, interrupt/progress, device/child/owner and comprehensive all-weak-items completion remain pending."
