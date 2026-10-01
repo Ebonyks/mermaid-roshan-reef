@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets_src\\local_motion\\day2_batch1_20260930\\inputs\\D2A-0446.png",
+  "source_sha256": "30e100720d57091134f0f326b1705b7ab7bccbe95e1cd6832d58d86879ab5720",
+  "source_dimensions": [
+    896,
+    512
+  ],
+  "prompt": "Locked camera, one continuous shot. Preserve the source as flat polished 2D storybook artwork: rounded painted forms, broad value bands, restrained navy-purple contours, pastel toy palette. Keep the neutral paper background perfectly still. Only the specified existing subject moves. 0.00-0.35 seconds: still, open palms. 0.35-0.72: both illustrated palms lift slightly toward the empty central opening. 0.72-1.10: pause with broad open support. 1.10-1.43: settle gently to the initial pose. 1.43-1.70: remain still. Keep the simple painted fingers grouped and the same two arms; no realistic joint acting. Sleeve ends and lower wrist support stay fixed. Central opening stays empty. No baby, face, torso, extra hand, skin texture, realistic lighting or invented prop. Do not add realistic shading, pores, dimensional rendering, camera zoom, cuts, color pumping, new objects or text. Sound: silence.\n",
+  "prompt_sha256": "3136cd60af5085b4554e373780d4fd035dd0f2300dcbab53eec3f0a852f2fd3a",
+  "preset": "quick",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "seed": 2026093002,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/GGUF_MODEL_RECEIPT.json",
+  "workflow_sha256": "a25b359b9cfde8661073b15a0befbb2969bf08edd3c8b56f68c8c7889af2e78f",
+  "started_at_utc": "20261001T024641Z",
+  "prompt_id": "64cfb7f4-8170-43e9-a3ea-e253e889cf83",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1q_d2a0446_20261001T024641Z_db3b36_00002_.webm",
+      "sha256": "d5284e3cfaf875b16fce4e20919f601c0929654499731460bf96de17b4df0b75",
+      "bytes": 127545
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1q_d2a0446_20261001T024641Z_db3b36_00002_.mp4",
+      "sha256": "7bd7eb250a54067262c5e5952e168572ba0632bb1eb8b36540194a272a2c6cb3",
+      "bytes": 108371,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708008"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 211.13,
+  "completed_at_utc": "2026-10-01T02:50:13.144840+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance"
+}

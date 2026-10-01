@@ -1,0 +1,108 @@
+bash.exe: warning: could not find /tmp, please create!
+=== probe_audio ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+AUDIO|Music bus exists: OK
+AUDIO|Voice bus exists: OK
+AUDIO|SFX bus exists: OK
+AUDIO|Ambience bus exists: OK
+AUDIO|UI bus exists: OK
+AUDIO|music is routed: OK
+AUDIO|voice fallback is routed: OK
+AUDIO|voice pool is routed: OK
+AUDIO|effects are routed: OK
+AUDIO|ambience is routed: OK
+AUDIO|UI taps are routed: OK
+AUDIO|all authored area cues exist: OK
+AUDIO|all authored area cues import looped: OK
+AUDIO|every live Opera career owns a unique cue: OK
+AUDIO|every Castle room owns a cue: OK
+AUDIO|missing cue does not poison return track: OK
+AUDIO|visible Castle room state selects its cue: OK
+AUDIO|Castle observer yields to a covered activity: OK
+AUDIO|area cue routes through Music: OK
+AUDIO|Castle area cue preserves room ambience: OK
+AUDIO|portable Stuffie cue preserves its source ambience: OK
+AUDIO|late picture close cannot overwrite a newer picture: OK
+AUDIO|current picture close restores its source music: OK
+AUDIO|Galaxy cue keeps the Lagoon ambience bed: OK
+AUDIO|result: ALL OK
+PROBE probe_audio process exit: 0
+=== probe_dust_bunny_boss ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+BUNNYBOSS|five animation atlases import: OK 
+BUNNYBOSS|boss is one animated 2D card: OK 
+BUNNYBOSS|idle holds one authored frame: OK 
+BUNNYBOSS|jump has four frames: OK 
+BUNNYBOSS|jump is a one shot: OK 
+BUNNYBOSS|laugh_vulnerable has four frames: OK 
+BUNNYBOSS|laugh_vulnerable is a one shot: OK 
+BUNNYBOSS|angry has four frames: OK 
+BUNNYBOSS|angry is a one shot: OK 
+BUNNYBOSS|angry_jump_final has four frames: OK 
+BUNNYBOSS|angry_jump_final is a one shot: OK 
+BUNNYBOSS|implode has four frames: OK 
+BUNNYBOSS|implode is a one shot: OK 
+BUNNYBOSS|final angry jump reuses approved angry and jump frames: OK 
+BUNNYBOSS|flinch_1 has two distinct reaction frames: OK 
+BUNNYBOSS|flinch_1 is a one shot: OK 
+BUNNYBOSS|flinch_2 has two distinct reaction frames: OK 
+BUNNYBOSS|flinch_2 is a one shot: OK 
+BUNNYBOSS|flinch_3 has two distinct reaction frames: OK 
+BUNNYBOSS|flinch_3 is a one shot: OK 
+BUNNYBOSS|idle loops: OK 
+BUNNYBOSS|paint stays unshaded: OK 
+BUNNYBOSS|card faces camera: OK 
+BUNNYBOSS|card casts no shadow: OK 
+BUNNYBOSS|boss scale is larger than regular bunny: OK 
+BUNNYBOSS|boss groups registered: OK 
+BUNNYBOSS|health starts as three rounds of three taps: OK 
+BUNNYBOSS|normal-round dust-plume jump starts: OK 
+BUNNYBOSS|three tap sounds use one positional SFX player: OK 
+BUNNYBOSS|protected boss rejects taps: OK 
+BUNNYBOSS|laugh begins protected: OK 
+BUNNYBOSS|head flash opens a short three-tap window: OK 
+BUNNYBOSS|tap one has its own flinch and sound: OK 
+BUNNYBOSS|tap one returns to exposed laugh: OK 
+BUNNYBOSS|tap two has its own stronger flinch and sound: OK 
+BUNNYBOSS|tap two returns to exposed laugh: OK 
+BUNNYBOSS|tap three has its own final flinch and sound: OK 
+BUNNYBOSS|first three taps remove one of three health rounds: OK 
+BUNNYBOSS|first damage round recycles through normal anger: OK 
+BUNNYBOSS|second round tap 1 accepted: OK 
+BUNNYBOSS|second round tap 2 accepted: OK 
+BUNNYBOSS|second round tap 3 accepted: OK 
+BUNNYBOSS|second damage round starts the faster final round: OK 
+BUNNYBOSS|last round replaces anger with the powerful angry jump: OK 
+BUNNYBOSS|final-round tell and tap window are faster but fair: OK 
+BUNNYBOSS|missed final window resets through angry jump without damage: OK 
+BUNNYBOSS|final round tap 1 accepted: OK 
+BUNNYBOSS|final round tap 2 accepted: OK 
+BUNNYBOSS|final round tap 3 accepted: OK 
+BUNNYBOSS|three rounds of three end in the full-speed implosion: OK 
+BUNNYBOSS|final wisps remove the card: OK 
+BUNNYBOSS|boss art adds no mesh: OK 
+BUNNYBOSS|boss art adds no physics body: OK 
+BUNNYBOSS|counter cannot hit a shielded head: OK 
+BUNNYBOSS|counter opening remains generous in every phase: OK 
+BUNNYBOSS|one counter removes exactly one round: OK 
+BUNNYBOSS|counter closes immediately against duplicate input: OK 
+BUNNYBOSS|counter starts approved first flinch: OK 
+BUNNYBOSS|counter retains approved second flinch: OK 
+BUNNYBOSS|counter retains approved third flinch: OK 
+BUNNYBOSS|counter opening remains generous in every phase: OK 
+BUNNYBOSS|one counter removes exactly one round: OK 
+BUNNYBOSS|counter closes immediately against duplicate input: OK 
+BUNNYBOSS|counter starts approved first flinch: OK 
+BUNNYBOSS|counter retains approved second flinch: OK 
+BUNNYBOSS|counter retains approved third flinch: OK 
+BUNNYBOSS|counter opening remains generous in every phase: OK 
+BUNNYBOSS|one counter removes exactly one round: OK 
+BUNNYBOSS|counter closes immediately against duplicate input: OK 
+BUNNYBOSS|counter starts approved first flinch: OK 
+BUNNYBOSS|counter retains approved second flinch: OK 
+BUNNYBOSS|counter retains approved third flinch: OK 
+BUNNYBOSS|third counter ends in approved implosion: OK 
+BUNNYBOSS|result: ALL OK
+PROBE probe_dust_bunny_boss process exit: 0

@@ -1,0 +1,123 @@
+{
+  "id": "D2A-0447",
+  "attempts": [
+    {
+      "attempt": 1,
+      "path": "assets_src/imagegen/day2_refinement_20261001/candidates/D2A-0447/attempt-01.png",
+      "sha256": "1cf680e66409ad805d1ee9553a42ff715d63370774d8ffea1c687c6c99d18201",
+      "prompt_path": "assets_src/imagegen/day2_refinement_20261001/prompts/D2A-0447-attempt-01.txt",
+      "prompt_file_sha256": "1a92727380312224d8d94e67d9ab04a014f9bebe9611f8156cd1bb0612d0ce1c",
+      "prompt_text_sha256": "5f6fed987dd52fdf93033e0abc722e38949a9858af092be1e63d5bc2b5bead9e",
+      "prompt_text_method": "UTF8 exact trimmed text sent to built-in tool",
+      "generation_method": "built-in image_gen targeted regeneration",
+      "references": [
+        {
+          "path": "assets/opera/worlds/widgets/widget_catch_nursery_pillows.png",
+          "sha256": "2a1ad09b777df4545cf84b0c6eff762852ce3e0b8a06fed4675570a0837b9549",
+          "role": "edit target; count, position and palette"
+        },
+        {
+          "path": "assets/flats/castle/dream_house/story_cushion.png",
+          "sha256": "107e0be63fbd62df28085ea11ff10b1cf37c7233bc6450362db617721e80f0c9",
+          "role": "painted material only; no book or furniture pixels"
+        }
+      ],
+      "score": 4.2,
+      "evaluation": "Too much small cloth texture and smooth modelling; weak contour at70px. Kept as a rejected attempt.",
+      "owner_accepted": false
+    },
+    {
+      "attempt": 2,
+      "path": "assets_src/imagegen/day2_refinement_20261001/candidates/D2A-0447/attempt-02.png",
+      "sha256": "660a4992d90dbee4d68b5f108c808312aab41b009e1b4d0fa1fedc01359cdc19",
+      "prompt_path": "assets_src/imagegen/day2_refinement_20261001/prompts/D2A-0447-attempt-02.txt",
+      "prompt_file_sha256": "5b396e4ecb753ca85c19104d336800621678f2749c88ddeb8bfa843649d54e1f",
+      "prompt_text_sha256": "fb64449d5f034469bcf34bbcf8340c31defd4ede55e24f9de6d77cdbc5896fa2",
+      "prompt_text_method": "UTF8 exact trimmed text sent to built-in tool",
+      "generation_method": "built-in image_gen targeted regeneration",
+      "references": [
+        {
+          "path": "assets/opera/worlds/widgets/widget_catch_nursery_pillows.png",
+          "sha256": "2a1ad09b777df4545cf84b0c6eff762852ce3e0b8a06fed4675570a0837b9549",
+          "role": "edit target; count, position and palette"
+        },
+        {
+          "path": "assets/flats/castle/dream_house/story_cushion.png",
+          "sha256": "107e0be63fbd62df28085ea11ff10b1cf37c7233bc6450362db617721e80f0c9",
+          "role": "painted material only; no book or furniture pixels"
+        }
+      ],
+      "score": 4.3,
+      "evaluation": "Simpler shading but continuous bright bands make the pads read as hard stacked disks. Material purpose needs refinement.",
+      "owner_accepted": false
+    },
+    {
+      "attempt": 3,
+      "path": "assets_src/imagegen/day2_refinement_20261001/candidates/D2A-0447/attempt-03.png",
+      "sha256": "29f10e12afb469c73077461ae47c0e53480f097ff6415075793bbebc99ff1254",
+      "prompt_path": "assets_src/imagegen/day2_refinement_20261001/prompts/D2A-0447-attempt-03.txt",
+      "prompt_file_sha256": "232f88f10d53e4a13b1524592c0a5abf4803727c16b59f600a34c0b35491ab37",
+      "prompt_text_sha256": "6bd7eb81970eca4864afe106ee187670729fc9ecc61115d6f994b1abb6b064e4",
+      "prompt_text_method": "UTF8 exact trimmed text sent to built-in tool",
+      "generation_method": "built-in image_gen targeted regeneration",
+      "references": [
+        {
+          "path": "assets/opera/worlds/widgets/widget_catch_nursery_pillows.png",
+          "sha256": "2a1ad09b777df4545cf84b0c6eff762852ce3e0b8a06fed4675570a0837b9549",
+          "role": "edit target; count, position and palette"
+        },
+        {
+          "path": "assets/flats/castle/dream_house/story_cushion.png",
+          "sha256": "107e0be63fbd62df28085ea11ff10b1cf37c7233bc6450362db617721e80f0c9",
+          "role": "painted material only; no book or furniture pixels"
+        }
+      ],
+      "score": 4.6,
+      "evaluation": "Soft oval stuffing, a restrained stitched underside and two broad side folds make each pad read as cloth. Alternating lavender hues and complete plum contours preserve the five-place grammar. Native padding requires a declared atlas region; final landing/support contact remains under review.",
+      "owner_accepted": false
+    }
+  ],
+  "selected_attempt": 3,
+  "selected_path": "assets_src/imagegen/day2_refinement_20261001/selected/D2A-0447.png",
+  "selected_sha256": "bf5f86e916b4c512c761518ad1815beac6df8c833d60980b71c73e4d7fada66f",
+  "source_score": 4.6,
+  "individual_pad_scores": [
+    {
+      "pad": 0,
+      "score": 4.6,
+      "basis": "Same complete soft-cloth topology; retained alternating lilac/lavender material and independent contour."
+    },
+    {
+      "pad": 1,
+      "score": 4.6,
+      "basis": "Same complete soft-cloth topology; retained alternating lilac/lavender material and independent contour."
+    },
+    {
+      "pad": 2,
+      "score": 4.6,
+      "basis": "Same complete soft-cloth topology; retained alternating lilac/lavender material and independent contour."
+    },
+    {
+      "pad": 3,
+      "score": 4.6,
+      "basis": "Same complete soft-cloth topology; retained alternating lilac/lavender material and independent contour."
+    },
+    {
+      "pad": 4,
+      "score": 4.6,
+      "basis": "Same complete soft-cloth topology; retained alternating lilac/lavender material and independent contour."
+    }
+  ],
+  "normalization": "Single whole-canvas aspect-preserving1024px longest-side reduction; native retained. No crop, mask, paint or local pixel edit.",
+  "runtime_atlas_region": [
+    6,
+    115,
+    1014,
+    117
+  ],
+  "atlas_role": "Declared renderer sampling of the full five-pad footprint, not a changed PNG or accepted runtime binding.",
+  "context_score": null,
+  "action_score": null,
+  "owner_approval": null,
+  "runtime_integration": false
+}

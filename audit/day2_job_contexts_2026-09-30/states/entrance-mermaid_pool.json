@@ -1,0 +1,1359 @@
+{
+  "case": "entrance-mermaid_pool",
+  "states": [
+    {
+      "acceptance": "DIAGNOSTIC_ONLY",
+      "aspect": "1280x720",
+      "beat": "entrance",
+      "case": "entrance-mermaid_pool",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "entry_method": "diagnostic_direct_state_selection",
+      "id": "entrance-mermaid_pool--p-1--entrance--1280x720",
+      "image": "captures/entrance-mermaid_pool--p-1--entrance--1280x720.webp",
+      "items": [
+        {
+          "class": "ColorRect",
+          "color": "(0.0, 0.0, 0.0, 1.0)",
+          "modulate": "(1.0, 1.0, 1.0, 0.0)",
+          "node": "/root/Main/@CanvasLayer@25/@ColorRect@26",
+          "rect": [
+            0.0,
+            0.0,
+            1280.0,
+            720.0
+          ],
+          "script": "",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Control",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/LivingWorldLayer/LivingWorldCanvas",
+          "rect": [
+            0.0,
+            0.0,
+            1280.0,
+            720.0
+          ],
+          "script": "scripts/living_world_canvas.gd",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Button",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/GlobalNavigationLayer/GlobalNavigationButton",
+          "rect": [
+            18.0,
+            18.0,
+            112.0,
+            112.0
+          ],
+          "script": "",
+          "text": "↩",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "ColorRect",
+          "color": "(0.055, 0.035, 0.105, 1.0)",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/CastleLetterboxBackdrop",
+          "rect": [
+            0.0,
+            0.0,
+            1280.0,
+            720.0
+          ],
+          "script": "",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": -2000
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_waterfall",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                1024,
+                512
+              ],
+              "path": "assets/flats/castle/interactions_v4/sheets/mermaid_pool_waterfall_sheet.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "d7a4d7d6a01fc454f1cbe6fb7a9c17ff032002bac33bd20b2106b82483565f52",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 65
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_flower_float",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                1024,
+                512
+              ],
+              "path": "assets/flats/castle/interactions_v4/sheets/mermaid_pool_flower_float_sheet.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "40e14632dfcd4a9f79b89b3232460d5e653731a85ecd9ca060dae62f66bfe8a9",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 202
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_seahorse_fountain",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                1024,
+                512
+              ],
+              "path": "assets/flats/castle/interactions_v4/sheets/mermaid_pool_seahorse_fountain_sheet.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "2c76698701ec4e5d0b1055ba21fe29a86fe78d5bbeaa0cd4cc8de2ed1bfbd156",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 200
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_star_float",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                1024,
+                512
+              ],
+              "path": "assets/flats/castle/interactions_v4/sheets/mermaid_pool_star_float_sheet.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "9847fd5b4ed7624ddcefb64ffbb6d785e37462334bb78142496d5920c7f7d214",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 203
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(0.24, 0.25, 0.48, 0.58)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanContactShadow",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                256,
+                64
+              ],
+              "path": "assets/flats/castle/rooms/room_actor_shadow.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "642aa3bdc6ef1be14febfd7855963da80071febd9ea7b69101261d6632ee3604",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 216
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanCutout",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                1024,
+                512
+              ],
+              "path": "assets/characters/roshan_25d/roshan_directional.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 220
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomForeground/room_mermaid_pool_front_left",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                160,
+                146
+              ],
+              "path": "assets/flats/castle/rooms/room_mermaid_pool_front_left.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "53fe38af2ad2e4e6b58a10d519d056b62a4a93b4d05e814a45f23cb7ff85d166",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 400
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomForeground/room_mermaid_pool_front_right",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                139,
+                141
+              ],
+              "path": "assets/flats/castle/rooms/room_mermaid_pool_front_right.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "a37692804f8312a9d546dbcb684728cb6e7129e3d886da7259b0d20bed6bc1e0",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 400
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r0_c0",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                910,
+                1024
+              ],
+              "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c0.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "3d1827d3f83b0fbb515831d7bd34b78fe227817970896556a5e77b54ebb6090f",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r0_c1",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                910,
+                1024
+              ],
+              "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c1.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "8285d08df8d57095992f4c2c2ae404f3b1220c0365662e7b04e657a583f97516",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r0_c2",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                910,
+                1024
+              ],
+              "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c2.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "746f17f2060b1e50bbfabf0369628f34cd782d533ff9e145c16839634eabe450",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r0_c3",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                910,
+                1024
+              ],
+              "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c3.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "0295252d806fb02a5d16e362f45f8b79bc588bdfd49a45d1cbf8fdf5aeb9ef7c",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r1_c0",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                910,
+                1024
+              ],
+              "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c0.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "35d644cc44e22dccbf7cffd846fbecb07cdfb7bc62569074c574bfb948108885",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r1_c1",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                910,
+                1024
+              ],
+              "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c1.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "6b8889b828b2e1062ebac7218f45aed0df579041c0567ed5cca9148d806ec693",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r1_c2",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                910,
+                1024
+              ],
+              "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c2.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "cafa0e24d949d75c216fc22d6ab6c59025482424959a58759b809f7c586d735d",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r1_c3",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                910,
+                1024
+              ],
+              "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c3.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "1940861bf7d1e5e67fce5619d969eefb9e41940634260afa793f994be9cfd519",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Button",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/TouchablePropHotspots/Touch_waterfall",
+          "rect": [
+            386.25,
+            112.5,
+            151.25,
+            207.5
+          ],
+          "script": "",
+          "text": "",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Button",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/TouchablePropHotspots/Touch_flower_float",
+          "rect": [
+            382.5,
+            356.875,
+            140.0,
+            140.0
+          ],
+          "script": "",
+          "text": "",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Button",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/TouchablePropHotspots/Touch_seahorse_fountain",
+          "rect": [
+            817.5,
+            125.0,
+            208.75,
+            241.25
+          ],
+          "script": "",
+          "text": "",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Button",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/TouchablePropHotspots/Touch_star_float",
+          "rect": [
+            648.75,
+            334.375,
+            140.0,
+            140.0
+          ],
+          "script": "",
+          "text": "",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "ColorRect",
+          "color": "(0.1, 0.07, 0.22, 1.0)",
+          "modulate": "(1.0, 1.0, 1.0, 0.0198)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleRoomTransitionCover",
+          "rect": [
+            0.0,
+            0.0,
+            1280.0,
+            720.0
+          ],
+          "script": "",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 100
+        },
+        {
+          "class": "Control",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/ChapterTwoRoomPlot",
+          "rect": [
+            0.0,
+            0.0,
+            1280.0,
+            720.0
+          ],
+          "script": "scripts/chapter_two_room_plot.gd",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 46
+        },
+        {
+          "class": "Button",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleCareerRoutes/RoomCareer_11",
+          "rect": [
+            563.0,
+            18.0,
+            154.0,
+            154.0
+          ],
+          "script": "",
+          "text": "",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "TextureRect",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleCareerRoutes/RoomCareer_11/RoshanActor",
+          "rect": [
+            584.0,
+            20.0,
+            112.0,
+            112.0
+          ],
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                1024,
+                1024
+              ],
+              "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+              "region": [
+                0.0,
+                0.0,
+                256.0,
+                256.0
+              ],
+              "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "TextureRect",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleCareerRoutes/RoomCareer_11/CareerCrest",
+          "rect": [
+            615.0,
+            116.0,
+            50.0,
+            50.0
+          ],
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                256,
+                256
+              ],
+              "path": "assets/opera/worlds/ui/crests/opera_crest_engineer.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "f9668419f298ab616132f8d9f70b144eae78a88f7cb0ae68b7c785ce495f9f97",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Panel",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@338/CastleRooms25D/StorybookStage/CastleCareerRoutes/RoomCareer_11/CareerPearl",
+          "rect": [
+            681.0,
+            24.0,
+            28.0,
+            28.0
+          ],
+          "script": "",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        }
+      ],
+      "phase_index": -1,
+      "save_error": 0,
+      "sha256": "b19fd8a0423592e8b7ddbf26e2b306e18ad80dc74b765c7f7fcc6d24e475ed25"
+    },
+    {
+      "acceptance": "DIAGNOSTIC_ONLY",
+      "aspect": "1600x720",
+      "beat": "entrance",
+      "case": "entrance-mermaid_pool",
+      "dimensions": [
+        1600,
+        720
+      ],
+      "entry_method": "diagnostic_direct_state_selection",
+      "id": "entrance-mermaid_pool--p-1--entrance--1600x720",
+      "image": "captures/entrance-mermaid_pool--p-1--entrance--1600x720.webp",
+      "items": [
+        {
+          "class": "ColorRect",
+          "color": "(0.0, 0.0, 0.0, 1.0)",
+          "modulate": "(1.0, 1.0, 1.0, 0.0)",
+          "node": "/root/Main/@CanvasLayer@25/@ColorRect@26",
+          "rect": [
+            0.0,
+            0.0,
+            1600.0,
+            720.0
+          ],
+          "script": "",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Control",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/LivingWorldLayer/LivingWorldCanvas",
+          "rect": [
+            0.0,
+            0.0,
+            1600.0,
+            720.0
+          ],
+          "script": "scripts/living_world_canvas.gd",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Button",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/GlobalNavigationLayer/GlobalNavigationButton",
+          "rect": [
+            18.0,
+            18.0,
+            112.0,
+            112.0
+          ],
+          "script": "",
+          "text": "↩",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "ColorRect",
+          "color": "(0.055, 0.035, 0.105, 1.0)",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/CastleLetterboxBackdrop",
+          "rect": [
+            0.0,
+            0.0,
+            1600.0,
+            720.0
+          ],
+          "script": "",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": -2000
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_waterfall",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                1024,
+                512
+              ],
+              "path": "assets/flats/castle/interactions_v4/sheets/mermaid_pool_waterfall_sheet.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "d7a4d7d6a01fc454f1cbe6fb7a9c17ff032002bac33bd20b2106b82483565f52",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 65
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_flower_float",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                1024,
+                512
+              ],
+              "path": "assets/flats/castle/interactions_v4/sheets/mermaid_pool_flower_float_sheet.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "40e14632dfcd4a9f79b89b3232460d5e653731a85ecd9ca060dae62f66bfe8a9",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 202
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_seahorse_fountain",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                1024,
+                512
+              ],
+              "path": "assets/flats/castle/interactions_v4/sheets/mermaid_pool_seahorse_fountain_sheet.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "2c76698701ec4e5d0b1055ba21fe29a86fe78d5bbeaa0cd4cc8de2ed1bfbd156",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 200
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_star_float",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                1024,
+                512
+              ],
+              "path": "assets/flats/castle/interactions_v4/sheets/mermaid_pool_star_float_sheet.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "9847fd5b4ed7624ddcefb64ffbb6d785e37462334bb78142496d5920c7f7d214",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 203
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(0.24, 0.25, 0.48, 0.58)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanContactShadow",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                256,
+                64
+              ],
+              "path": "assets/flats/castle/rooms/room_actor_shadow.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "642aa3bdc6ef1be14febfd7855963da80071febd9ea7b69101261d6632ee3604",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 216
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanCutout",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                1024,
+                512
+              ],
+              "path": "assets/characters/roshan_25d/roshan_directional.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 220
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomForeground/room_mermaid_pool_front_left",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                160,
+                146
+              ],
+              "path": "assets/flats/castle/rooms/room_mermaid_pool_front_left.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "53fe38af2ad2e4e6b58a10d519d056b62a4a93b4d05e814a45f23cb7ff85d166",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 400
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomForeground/room_mermaid_pool_front_right",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                139,
+                141
+              ],
+              "path": "assets/flats/castle/rooms/room_mermaid_pool_front_right.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "a37692804f8312a9d546dbcb684728cb6e7129e3d886da7259b0d20bed6bc1e0",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 400
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r0_c0",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                910,
+                1024
+              ],
+              "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c0.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "3d1827d3f83b0fbb515831d7bd34b78fe227817970896556a5e77b54ebb6090f",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r0_c1",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                910,
+                1024
+              ],
+              "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c1.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "8285d08df8d57095992f4c2c2ae404f3b1220c0365662e7b04e657a583f97516",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r0_c2",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                910,
+                1024
+              ],
+              "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c2.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "746f17f2060b1e50bbfabf0369628f34cd782d533ff9e145c16839634eabe450",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r0_c3",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                910,
+                1024
+              ],
+              "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c3.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "0295252d806fb02a5d16e362f45f8b79bc588bdfd49a45d1cbf8fdf5aeb9ef7c",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r1_c0",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                910,
+                1024
+              ],
+              "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c0.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "35d644cc44e22dccbf7cffd846fbecb07cdfb7bc62569074c574bfb948108885",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r1_c1",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                910,
+                1024
+              ],
+              "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c1.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "6b8889b828b2e1062ebac7218f45aed0df579041c0567ed5cca9148d806ec693",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r1_c2",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                910,
+                1024
+              ],
+              "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c2.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "cafa0e24d949d75c216fc22d6ab6c59025482424959a58759b809f7c586d735d",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Sprite2D",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r1_c3",
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                910,
+                1024
+              ],
+              "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c3.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "1940861bf7d1e5e67fce5619d969eefb9e41940634260afa793f994be9cfd519",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Button",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/TouchablePropHotspots/Touch_waterfall",
+          "rect": [
+            546.25,
+            112.5,
+            151.25,
+            207.5
+          ],
+          "script": "",
+          "text": "",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Button",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/TouchablePropHotspots/Touch_flower_float",
+          "rect": [
+            542.5,
+            356.875,
+            140.0,
+            140.0
+          ],
+          "script": "",
+          "text": "",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Button",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/TouchablePropHotspots/Touch_seahorse_fountain",
+          "rect": [
+            977.5,
+            125.0,
+            208.75,
+            241.25
+          ],
+          "script": "",
+          "text": "",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Button",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/TouchablePropHotspots/Touch_star_float",
+          "rect": [
+            808.75,
+            334.375,
+            140.0,
+            140.0
+          ],
+          "script": "",
+          "text": "",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "ColorRect",
+          "color": "(0.1, 0.07, 0.22, 1.0)",
+          "modulate": "(1.0, 1.0, 1.0, 0.0341)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleRoomTransitionCover",
+          "rect": [
+            160.0,
+            0.0,
+            1280.0,
+            720.0
+          ],
+          "script": "",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 100
+        },
+        {
+          "class": "Control",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/ChapterTwoRoomPlot",
+          "rect": [
+            160.0,
+            0.0,
+            1280.0,
+            720.0
+          ],
+          "script": "scripts/chapter_two_room_plot.gd",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 46
+        },
+        {
+          "class": "Button",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleCareerRoutes/RoomCareer_11",
+          "rect": [
+            723.0,
+            18.0,
+            154.0,
+            154.0
+          ],
+          "script": "",
+          "text": "",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "TextureRect",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleCareerRoutes/RoomCareer_11/RoshanActor",
+          "rect": [
+            744.0,
+            20.0,
+            112.0,
+            112.0
+          ],
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                1024,
+                1024
+              ],
+              "path": "assets/opera/worlds/actors/animation/roshan_astronaut_sheet_a.png",
+              "region": [
+                0.0,
+                0.0,
+                256.0,
+                256.0
+              ],
+              "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "TextureRect",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleCareerRoutes/RoomCareer_11/CareerCrest",
+          "rect": [
+            775.0,
+            116.0,
+            50.0,
+            50.0
+          ],
+          "script": "",
+          "textures": [
+            {
+              "native_size": [
+                256,
+                256
+              ],
+              "path": "assets/opera/worlds/ui/crests/opera_crest_engineer.png",
+              "region": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "sha256": "f9668419f298ab616132f8d9f70b144eae78a88f7cb0ae68b7c785ce495f9f97",
+              "slot": "texture"
+            }
+          ],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Panel",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/@CanvasLayer@1123/CastleRooms25D/StorybookStage/CastleCareerRoutes/RoomCareer_11/CareerPearl",
+          "rect": [
+            841.0,
+            24.0,
+            28.0,
+            28.0
+          ],
+          "script": "",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        },
+        {
+          "class": "Label",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "node": "/root/Main/CastleVoiceCaptionLayer/CastleVoiceCaptionRoot/CastleVoiceCaption",
+          "rect": [
+            230.0,
+            590.0,
+            820.0,
+            112.0
+          ],
+          "script": "",
+          "text": "Tap the unlit rainbow candle to reveal the final clue!",
+          "textures": [],
+          "visibility_qualification": "Visible node; stored draw textures may be unused in the current branch",
+          "z_index": 0
+        }
+      ],
+      "phase_index": -1,
+      "save_error": 0,
+      "sha256": "d78328752ac91f8419aa87a4776005069ba48520e2fc669c9ade7d703f9cca21"
+    }
+  ]
+}

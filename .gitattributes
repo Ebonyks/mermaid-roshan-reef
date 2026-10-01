@@ -24,3 +24,13 @@ assets/audio/voices/filler_v1/GRAND_PUFF_COHORT_20260912.json -text whitespace=c
 
 # Literal external-reference packet hashes must survive Windows/Linux checkouts.
 assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/** -text whitespace=cr-at-eol
+
+# Literal diagnostic captures and native receipt hashes for the all-job review.
+audit/day2_job_contexts_2026-09-30/** -text whitespace=cr-at-eol
+# Preserve literal engine log evidence, including its emitted trailing spaces.
+audit/day2_job_contexts_2026-09-30/suite_logs/*.log -text whitespace=-blank-at-eol,cr-at-eol
+tools/capture_day2_job_contexts.gd -text whitespace=cr-at-eol
+tools/capture_day2_job_outputs.gd -text whitespace=cr-at-eol
+audit/day2_action_continuity_20261001/** -text whitespace=cr-at-eol
+assets_src/imagegen/day2_refinement_20261001/** -text whitespace=cr-at-eol
+tools/capture_day2_action_continuity.gd -text whitespace=cr-at-eol

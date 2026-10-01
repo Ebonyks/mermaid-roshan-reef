@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets_src\\local_motion\\day2_batch1_20260930\\inputs\\D2A-0056.png",
+  "source_sha256": "a580dea07fa32ad095c419eb5d9fbcd064ae6de78a1a241ef2f069469247cc2c",
+  "source_dimensions": [
+    896,
+    512
+  ],
+  "prompt": "Locked camera, one continuous shot. Preserve the source as flat polished 2D storybook artwork: rounded painted forms, broad value bands, restrained navy-purple contours, pastel toy palette. Keep the neutral paper background perfectly still. Only the specified existing subject moves. 0.00-0.25 seconds: still. 0.25-0.75: the illustrated upper leaf group sways slightly right in one light breeze. 0.75-1.30: ease back to the initial silhouette. 1.30-1.70: still. The two paired winged maple seeds remain attached and retain their count and design. Trunk base and root contact fixed. Broad leaf grouping and species silhouette stable. No extra seeds, fruit, flowers, falling leaves or background. Do not add realistic shading, pores, dimensional rendering, camera zoom, cuts, color pumping, new objects or text. Sound: silence.\n",
+  "prompt_sha256": "b1b0c26e4adf013d22a0be499a29fabf8aef5d0cd32a9051fbfda3fa36a09465",
+  "preset": "quick",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "seed": 2026093004,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/GGUF_MODEL_RECEIPT.json",
+  "workflow_sha256": "04f803184d31d087575c33de48bd5cd710375279cf72d237f8fd6b18baa3ec2a",
+  "started_at_utc": "20261001T025632Z",
+  "prompt_id": "62069996-f08b-43f3-b812-97fbf56aaf9a",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1q_d2a0056_20261001T025632Z_707cb7_00002_.webm",
+      "sha256": "c0298bd7edc71302b262519cdadce7e4a900a1a842c1e62771270025bb3f05eb",
+      "bytes": 314344
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1q_d2a0056_20261001T025632Z_707cb7_00002_.mp4",
+      "sha256": "c8de2d1f23325148c23e91fc6ceece1c94634ab01c63f60b51e76b99e819e451",
+      "bytes": 223520,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 180.52,
+  "completed_at_utc": "2026-10-01T02:59:33.282087+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance"
+}

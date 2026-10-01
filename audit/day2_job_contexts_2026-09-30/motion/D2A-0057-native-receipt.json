@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets_src\\local_motion\\day2_batch1_20260930\\inputs\\D2A-0057.png",
+  "source_sha256": "adf1bd1840cb278844afe1efc60df6bd33691c9a2969fb6d4b8cbedee1bd53bb",
+  "source_dimensions": [
+    896,
+    512
+  ],
+  "prompt": "Locked camera, one continuous shot. Preserve the source as flat polished 2D storybook artwork: rounded painted forms, broad value bands, restrained navy-purple contours, pastel toy palette. Keep the neutral paper background perfectly still. Only the specified existing subject moves. 0.00-0.35 seconds: still. 0.35-0.85: the illustrated canopy moves slightly left in a soft breeze. 0.85-1.35: return gently to the original canopy shape. 1.35-1.70: still. Keep exactly the original three dogwood flowers and their centers; none opens, falls or changes identity. Trunk base and root contact fixed. Exactly three flowers retained; no new petals, fruit, leaves, creatures or background. Do not add realistic shading, pores, dimensional rendering, camera zoom, cuts, color pumping, new objects or text. Sound: silence.\n",
+  "prompt_sha256": "e21a155dc3feafa4a7fd40024f055c3e361654a26f40feb289da001e46e754ba",
+  "preset": "quick",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "seed": 2026093005,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/GGUF_MODEL_RECEIPT.json",
+  "workflow_sha256": "4ef18153d98404fe1a6a30607fc0b52569e250706d03457a92d0f1dcc84c19dc",
+  "started_at_utc": "20261001T030115Z",
+  "prompt_id": "85eb772a-f718-480f-9576-195a87ec3c26",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1q_d2a0057_20261001T030115Z_302c7e_00002_.webm",
+      "sha256": "851af111454800d68dbcd4da216a484f8a4214fd18ba9af6314a57273b79d5b5",
+      "bytes": 312244
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1q_d2a0057_20261001T030115Z_302c7e_00002_.mp4",
+      "sha256": "bb077a5e672bc2e67544cc7eec990abb6e386666e8ab9adbe2667400ea0f98fe",
+      "bytes": 236321,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 180.64,
+  "completed_at_utc": "2026-10-01T03:04:15.692048+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance"
+}

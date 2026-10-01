@@ -1,0 +1,83 @@
+{
+  "id": "D2A-0446",
+  "original_path": "assets/opera/worlds/widgets/widget_catch_nursery_cradle.png",
+  "original_sha256": "9cacbc76cb577051150379a369add2576f5dc50b617d601f5b83bbe4ac0f068e",
+  "prior_owner_rejection": "v4 too lifelike. Retained and still rejected; new source opinion does not erase that feedback.",
+  "attempts": [
+    {
+      "attempt": 5,
+      "generation_method": "built-in image_gen; fresh description-only generation",
+      "bound_references": [],
+      "path": "assets_src/imagegen/day2_refinement_20261001/candidates/D2A-0446/attempt-05.png",
+      "sha256": "82b92fbd7ee9f86b082a66430a7a20c07ee8f6cc3b6c8340d21014732adc8dad",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "visible_alpha8_bbox": [
+        1,
+        288,
+        1253,
+        972
+      ],
+      "prompt_path": "assets_src/imagegen/day2_refinement_20261001/prompts/D2A-0446-attempt-05.txt",
+      "prompt_sha256": "cded1e1ba55b689ab909ed02a34725dfda3ed0fff6dc2dcf5339045ab8cdf4a7",
+      "score": 4.4,
+      "score_lane": "Codex source drafting opinion; not owner/context/action acceptance",
+      "verdict": "REFINE_PADDING",
+      "evaluation": "Fresh stylization is substantially closer: plum outlines, broad lavender shadows and simplified cupped fingers. The complete sleeve contours approach within1px of the native boundary; safer padding is needed. No live-contact pass.",
+      "owner_accepted": false,
+      "prompt_text_sha256": "0647010a78fa52538b0865b832ccfd1d449655ce0241f455ec6c77bb00019515",
+      "prompt_text_method": "Exact LF paragraph string sent to the built-in tool; file byte hash recorded separately"
+    },
+    {
+      "attempt": 6,
+      "generation_method": "built-in image_gen; fresh description-only generation",
+      "bound_references": [],
+      "path": "assets_src/imagegen/day2_refinement_20261001/candidates/D2A-0446/attempt-06.png",
+      "sha256": "041981c61ae8cf385804a013868014a2f0f740426fcebdfa59305d209a652b42",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "visible_alpha8_bbox": [
+        57,
+        310,
+        1197,
+        917
+      ],
+      "prompt_path": "assets_src/imagegen/day2_refinement_20261001/prompts/D2A-0446-attempt-06.txt",
+      "prompt_sha256": "64bb50b710311e998b1ccbdc00beda9ccfe2dcee09cfe32bca2f5b74d2a5e6fe",
+      "score": 4.6,
+      "score_lane": "Codex source drafting opinion; not owner/context/action acceptance",
+      "verdict": "SOURCE_CANDIDATE_TARGET_MET",
+      "evaluation": "Simplified rounded fingers and rolled cuffs fit the pastel painted toy family. Broad peach/lavender values and plum contours remain clear when shown at112px. Both complete cuffs fit within the native canvas; the open receiving space is readable. Transparent margins are smaller than requested, but neither contour is clipped. Finger topology and safe support still require timed mounted review; source score does not approve catches or settled baby placement.",
+      "owner_accepted": false,
+      "prompt_text_sha256": "03f809fcb8213c29fd2c85173875cc4fa0f2c91a1e010d88fb1fc903a4d6ce51",
+      "prompt_text_method": "Exact LF paragraph string sent to the built-in tool; file byte hash recorded separately"
+    }
+  ],
+  "selected_attempt": 6,
+  "selected_path": "assets_src/imagegen/day2_refinement_20261001/selected/D2A-0446.png",
+  "selected_sha256": "81f2cba89d4e0c48d2d4ba1c4ac7386d7e96b4c50e58c6a93b1b27b5e0f10193",
+  "selected_dimensions": [
+    1024,
+    1024
+  ],
+  "normalization": "One whole-canvas1254-to1024 Lanczos reduction. Generated alpha retained; no crop, mask, compositing, anatomy repair or local pixel edit.",
+  "source_score": 4.6,
+  "criteria": {
+    "storybook_style": 4.6,
+    "contour_isolation": 4.6,
+    "palette_value": 4.7,
+    "simplified_identity": 4.5,
+    "small_scale_readability": 4.6
+  },
+  "context_score": null,
+  "action_score": null,
+  "owner_approval": null,
+  "runtime_integration": false,
+  "required_contact_review": "Compare original and candidate in identical touch-driven catching traces. Audit catch line against palm surface and every settled baby support/identity. Existing draw registration may need a separate reversible repair; good source styling cannot approve detached baby contact."
+}

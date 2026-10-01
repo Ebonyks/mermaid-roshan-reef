@@ -1,0 +1,42 @@
+{
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"harness_sha256": "d6492cc126a070136860786beff97b53e25028a07fcf75f5b623cf4c12429513",
+	"owner_accepted": false,
+	"receipts": [
+		{
+			"frames": 120,
+			"id": "chef-p00-pour-baseline-1280x720",
+			"inputs": 466,
+			"receipt": "chef-p00-pour-baseline-1280x720.json"
+		},
+		{
+			"frames": 45,
+			"id": "farmer-p00-berries-baseline-1280x720",
+			"inputs": 10,
+			"receipt": "farmer-p00-berries-baseline-1280x720.json"
+		},
+		{
+			"frames": 150,
+			"id": "nursery-p01-catch-baseline-1280x720",
+			"inputs": 491,
+			"receipt": "nursery-p01-catch-baseline-1280x720.json"
+		},
+		{
+			"frames": 150,
+			"id": "nursery-p01-catch-candidate-1280x720",
+			"inputs": 491,
+			"receipt": "nursery-p01-catch-candidate-1280x720.json"
+		}
+	],
+	"renderer": "mobile"
+}

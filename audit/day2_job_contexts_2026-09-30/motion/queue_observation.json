@@ -1,0 +1,204 @@
+{
+  "queue_id": "day2-local-motion-batch1-20260930-r3-current-service",
+  "manifest_sha256": "776f8a3872b292b1a8a0772d29f3eee6340f95a07caf1c7e962df5d35bf18221",
+  "created_at_utc": "2026-10-01T01:04:52+00:00",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "jobs": [
+    {
+      "id": "D2A-0394",
+      "name": "d2m_b1q_d2a0394",
+      "status": "MACHINE_RENDER_PASS_PENDING_VISUAL_REVIEW",
+      "child_pid": 23308,
+      "started_at_utc": "2026-10-01T01:26:37+00:00",
+      "receipt_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\d2m_b1q_d2a0394_20261001T012638Z_000605\\RENDER_RECEIPT.json",
+      "native_prompt_id": "1c64f644-d014-484e-8656-c1bf560f6da1",
+      "outputs": [
+        {
+          "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1q_d2a0394_20261001T012638Z_000605_00002_.webm",
+          "sha256": "fc4f04eeb61d8a588ffeb2e944be5b8faa410e373fea0e68243e441b5eccf93d",
+          "bytes": 249536
+        },
+        {
+          "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1q_d2a0394_20261001T012638Z_000605_00002_.mp4",
+          "sha256": "2bb0f1fdba9b6133aaf61dbb1e5946fbed3e3c7e0c123fe51f0fdeb97359a294",
+          "bytes": 183413,
+          "media": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 896,
+                "height": 512,
+                "r_frame_rate": "24/1",
+                "nb_read_frames": "41"
+              }
+            ],
+            "format": {
+              "duration": "1.708333"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "D2A-0446",
+      "name": "d2m_b1q_d2a0446",
+      "status": "MACHINE_RENDER_PASS_PENDING_VISUAL_REVIEW",
+      "child_pid": 18720,
+      "started_at_utc": "2026-10-01T02:46:41+00:00",
+      "receipt_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\d2m_b1q_d2a0446_20261001T024641Z_db3b36\\RENDER_RECEIPT.json",
+      "native_prompt_id": "64cfb7f4-8170-43e9-a3ea-e253e889cf83",
+      "finished_at_utc": "2026-10-01T02:50:21+00:00",
+      "outputs": [
+        {
+          "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1q_d2a0446_20261001T024641Z_db3b36_00002_.webm",
+          "sha256": "d5284e3cfaf875b16fce4e20919f601c0929654499731460bf96de17b4df0b75",
+          "bytes": 127545
+        },
+        {
+          "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1q_d2a0446_20261001T024641Z_db3b36_00002_.mp4",
+          "sha256": "7bd7eb250a54067262c5e5952e168572ba0632bb1eb8b36540194a272a2c6cb3",
+          "bytes": 108371,
+          "media": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 896,
+                "height": 512,
+                "r_frame_rate": "24/1",
+                "nb_read_frames": "41"
+              }
+            ],
+            "format": {
+              "duration": "1.708008"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "D2A-0495",
+      "name": "d2m_b1q_d2a0495",
+      "status": "MACHINE_RENDER_PASS_PENDING_VISUAL_REVIEW",
+      "child_pid": 29116,
+      "started_at_utc": "2026-10-01T02:51:51+00:00",
+      "receipt_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\d2m_b1q_d2a0495_20261001T025152Z_58a0e1\\RENDER_RECEIPT.json",
+      "native_prompt_id": "35979a0b-5a91-431c-ade5-340711f63ae7",
+      "finished_at_utc": "2026-10-01T02:55:01+00:00",
+      "outputs": [
+        {
+          "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1q_d2a0495_20261001T025152Z_58a0e1_00002_.webm",
+          "sha256": "e7fb86b2e7edc2d12609f55897195b1fb390ad6cbf6d8ad1b35312f1cdf31e66",
+          "bytes": 308560
+        },
+        {
+          "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1q_d2a0495_20261001T025152Z_58a0e1_00002_.mp4",
+          "sha256": "43162d56b317ba3340e82dabfc14577d8ba315cabfd627367fe359349b53cab0",
+          "bytes": 231519,
+          "media": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 896,
+                "height": 512,
+                "r_frame_rate": "24/1",
+                "nb_read_frames": "41"
+              }
+            ],
+            "format": {
+              "duration": "1.708333"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "D2A-0056",
+      "name": "d2m_b1q_d2a0056",
+      "status": "MACHINE_RENDER_PASS_PENDING_VISUAL_REVIEW",
+      "child_pid": 61360,
+      "started_at_utc": "2026-10-01T02:56:32+00:00",
+      "receipt_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\d2m_b1q_d2a0056_20261001T025632Z_707cb7\\RENDER_RECEIPT.json",
+      "native_prompt_id": "62069996-f08b-43f3-b812-97fbf56aaf9a",
+      "finished_at_utc": "2026-10-01T02:59:42+00:00",
+      "outputs": [
+        {
+          "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1q_d2a0056_20261001T025632Z_707cb7_00002_.webm",
+          "sha256": "c0298bd7edc71302b262519cdadce7e4a900a1a842c1e62771270025bb3f05eb",
+          "bytes": 314344
+        },
+        {
+          "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1q_d2a0056_20261001T025632Z_707cb7_00002_.mp4",
+          "sha256": "c8de2d1f23325148c23e91fc6ceece1c94634ab01c63f60b51e76b99e819e451",
+          "bytes": 223520,
+          "media": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 896,
+                "height": 512,
+                "r_frame_rate": "24/1",
+                "nb_read_frames": "41"
+              }
+            ],
+            "format": {
+              "duration": "1.708333"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "D2A-0057",
+      "name": "d2m_b1q_d2a0057",
+      "status": "MACHINE_RENDER_PASS_PENDING_VISUAL_REVIEW",
+      "child_pid": 60456,
+      "started_at_utc": "2026-10-01T03:01:14+00:00",
+      "receipt_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\d2m_b1q_d2a0057_20261001T030115Z_302c7e\\RENDER_RECEIPT.json",
+      "native_prompt_id": "85eb772a-f718-480f-9576-195a87ec3c26",
+      "finished_at_utc": "2026-10-01T03:04:24+00:00",
+      "outputs": [
+        {
+          "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1q_d2a0057_20261001T030115Z_302c7e_00002_.webm",
+          "sha256": "851af111454800d68dbcd4da216a484f8a4214fd18ba9af6314a57273b79d5b5",
+          "bytes": 312244
+        },
+        {
+          "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1q_d2a0057_20261001T030115Z_302c7e_00002_.mp4",
+          "sha256": "bb077a5e672bc2e67544cc7eec990abb6e386666e8ab9adbe2667400ea0f98fe",
+          "bytes": 236321,
+          "media": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 896,
+                "height": 512,
+                "r_frame_rate": "24/1",
+                "nb_read_frames": "41"
+              }
+            ],
+            "format": {
+              "duration": "1.708333"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "worker_pid": 34048,
+  "worker_started_at_utc": "2026-10-01T02:45:10+00:00",
+  "matching_benchmark_receipt": "H:\\MermaidReefTools\\LocalVideo\\jobs\\d2m_b1q_d2a0495_20261001T025152Z_58a0e1\\RENDER_RECEIPT.json",
+  "calibration_first_study": false,
+  "status": "ALL_MACHINE_RENDERS_DONE_VISUAL_REVIEW_PENDING",
+  "observed_at_utc": "2026-10-01T03:04:24+00:00",
+  "existing_prompt_ids": []
+}

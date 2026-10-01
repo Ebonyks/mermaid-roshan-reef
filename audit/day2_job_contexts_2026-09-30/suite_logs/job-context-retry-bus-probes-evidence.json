@@ -1,0 +1,11 @@
+{
+  "source": "scripts/ci.sh",
+  "source_lf_sha256": "ca52d4b29e561de3a88c24de22134119903be17b65edf8c3770bf868102aa77e",
+  "reason": "Isolated checkout omitted the committed default_bus_layout.tres. Restore its exact tracked bytes and rerun the two affected trusted probes using the original CI isolation, failure expressions, timeouts and verdict handling.",
+  "selected_probes": [
+    "probe_audio",
+    "probe_dust_bunny_boss"
+  ],
+  "runner_sha256": "26c9ccfb5f585ec081800f805e825eb4cab105d210c14b0ecdf23d2f73b6fdfe",
+  "production_and_test_source_modified": false
+}

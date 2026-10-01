@@ -1,0 +1,324 @@
+bash.exe: warning: could not find /tmp, please create!
+AUDIO_QUALITY|check 844/844|PASS
+...............................................................................................
+----------------------------------------------------------------------
+VISUALAUDIT| stress: 18 cases, 18 stressable checks, 8 fuzz rounds
+VISUALAUDIT| stress: ALL OK
+Ran 95 tests in 728.649s
+
+OK
+VISUALAUDIT| stress: 18 cases, 18 stressable checks, 24 fuzz rounds
+VISUALAUDIT| stress: ALL OK
+
+-- castle ------------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  WARN/REVIEW_OPEN       hygiene.orphan_art
+                         13/46 PNGs are referenced by no script or scene (4.8 MB of superseded art still shipping in the APK)
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.manual_squint_test
+                         no flat art
+  SKIP/COVERAGE_GAP      layering.standee_alpha
+                         zone declares no standees
+  SKIP/COVERAGE_GAP      overdraw.alpha_layers
+                         zone declares no murals
+  SKIP/COVERAGE_GAP      palette.background_recessive
+                         needs both murals and foreground art declared
+  SKIP/COVERAGE_GAP      palette.figure_ground_luminance
+                         needs both murals and foreground art declared
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- courtyard ---------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.orphan_art
+                         zone declares no asset roots
+  SKIP/COVERAGE_GAP      hygiene.superseded_generations
+                         no asset roots
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- ember -------------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.orphan_art
+                         no PNGs under the zone roots
+  SKIP/COVERAGE_GAP      hygiene.superseded_generations
+                         no PNGs
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- fairy_pond --------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  WARN/REVIEW_OPEN       palette.background_recessive
+                         source-average background saturation 0.512 vs foreground 0.457 (ratio 1.12, cap 0.90) is a review risk. These files may represent mutually exclusive states or transparent decorations, so this heuristic cannot establish an in-game failure
+  WARN/REVIEW_OPEN       palette.figure_ground_luminance
+                         source-average figure/ground luminance delta is 0.039 (review threshold 0.040); only a complete current state-local rendered composite can close or confirm this risk
+  MANUAL/MANUAL_OPEN     hygiene.manual_squint_test
+                         14 flats need the human pass this tool cannot do: no words/letters/digits, nothing scary at child eye level, and the M11 squint test (every socket still findable)
+  SKIP/COVERAGE_GAP      palette.rendered_composite_readability
+                         state 'fairy_intro' remains COVERAGE_GAP: probe_visual_audit does not yet enter and freeze the Fairy intro state or bind its live Canvas targets; an adapter-shaped string is not an implemented state transition; state 'fairy_boss' remains COVERAGE_GAP: probe_visual_audit does not yet enter and freeze the Fairy boss state or bind its live Canvas targets; an adapter-shaped string is not an implemented state transition
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+
+-- galaxy ------------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  WARN/REVIEW_OPEN       hygiene.orphan_art
+                         32/32 PNGs are referenced by no script or scene (11.7 MB of superseded art still shipping in the APK)
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- living_world ------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.orphan_art
+                         zone declares no asset roots
+  SKIP/COVERAGE_GAP      hygiene.superseded_generations
+                         no asset roots
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- northern ----------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.orphan_art
+                         no PNGs under the zone roots
+  SKIP/COVERAGE_GAP      hygiene.superseded_generations
+                         no PNGs
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- opera -------------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  WARN/REVIEW_OPEN       hygiene.orphan_art
+                         422/563 PNGs are referenced by no script or scene (156.9 MB of superseded art still shipping in the APK)
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.manual_squint_test
+                         no flat art
+  SKIP/COVERAGE_GAP      layering.standee_alpha
+                         zone declares no standees
+  SKIP/COVERAGE_GAP      overdraw.alpha_layers
+                         zone declares no murals
+  SKIP/COVERAGE_GAP      palette.background_recessive
+                         needs both murals and foreground art declared
+  SKIP/COVERAGE_GAP      palette.figure_ground_luminance
+                         needs both murals and foreground art declared
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- picture_games -----------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- reef --------------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.orphan_art
+                         no PNGs under the zone roots
+  SKIP/COVERAGE_GAP      hygiene.superseded_generations
+                         no PNGs
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+-- sky_lagoon --------------------------------------------------
+  ERROR/FAIL             layering.depth_spread
+                         builder exposes 3D stage types; 3D depth is rejected rather than credited as Canvas draw-order evidence
+  ERROR/FAIL             layering.engine_layer_api
+                         builder still reaches canonical spatial stage/resource/API debt; it cannot satisfy the Canvas 2D contract
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  ERROR/FAIL             layering.occlusion_band
+                         builder implements occlusion with Node3D/Sprite3D; only Canvas draw-order evidence can satisfy the 2D contract
+  WARN/REVIEW_OPEN       hygiene.orphan_art
+                         48/90 PNGs are referenced by no script or scene (41.9 MB of superseded art still shipping in the APK)
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_activity_frame' ships 2 generations: sky_lagoon_activity_frame_v2.png, sky_lagoon_activity_frame_v3.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_castle_four_tower' ships 2 generations: sky_lagoon_castle_four_tower_v3.png, sky_lagoon_castle_four_tower_v4.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_castle_gate' ships 2 generations: sky_lagoon_castle_gate.png, sky_lagoon_castle_gate_v3.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_plane' ships 2 generations: sky_lagoon_plane.png, sky_lagoon_plane_v4_audited_360.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_pnw_fir_sway' ships 2 generations: sky_lagoon_pnw_fir_sway.png, sky_lagoon_pnw_fir_sway_v2.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_seesaw' ships 3 generations: sky_lagoon_seesaw.png, sky_lagoon_seesaw_v4.png, sky_lagoon_seesaw_v4_compact.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_slide' ships 3 generations: sky_lagoon_slide.png, sky_lagoon_slide_v3.png, sky_lagoon_slide_v3_compact.png
+  WARN/REVIEW_OPEN       hygiene.superseded_generations
+                         'sky_lagoon_swing' ships 3 generations: sky_lagoon_swing.png, sky_lagoon_swing_v3.png, sky_lagoon_swing_v3_compact.png
+  WARN/REVIEW_OPEN       palette.background_recessive
+                         source-average background saturation 0.555 vs foreground 0.420 (ratio 1.32, cap 0.90) is a review risk. These files may represent mutually exclusive states or transparent decorations, so this heuristic cannot establish an in-game failure
+  WARN/REVIEW_OPEN       palette.figure_ground_luminance
+                         source-average figure/ground luminance delta is 0.015 (review threshold 0.040); only a complete current state-local rendered composite can close or confirm this risk
+  WARN/REVIEW_OPEN       texture.vram_compressible
+                         9/40 textures are non-power-of-two: 11.2 MB that must ship uncompressed on the Mali GPU
+  MANUAL/MANUAL_OPEN     hygiene.manual_squint_test
+                         19 flats need the human pass this tool cannot do: no words/letters/digits, nothing scary at child eye level, and the M11 squint test (every socket still findable)
+  SKIP/COVERAGE_GAP      layering.mural_is_a_stack
+                         declared layers need runtime Canvas evidence; run scripts/probe_visual_audit.gd
+  SKIP/COVERAGE_GAP      palette.rendered_composite_readability
+                         needs state-local viewport-composite evidence from scripts/probe_visual_audit.gd
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+
+-- storybook_ui ------------------------------------------------
+  ERROR/FAIL             layering.legacy_3d_debt
+                         active surface contains or is explicitly classified as 3D staging debt; every class/resource/API identified by the canonical game-wide 2D taxonomy, low-level spatial RID call, SideScrollStage, and active model load must migrate to live Canvas before the game-wide master audit can close
+  SKIP/COVERAGE_GAP      hygiene.license_line
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      hygiene.orphan_art
+                         zone declares no asset roots
+  SKIP/COVERAGE_GAP      hygiene.superseded_generations
+                         no asset roots
+  SKIP/COVERAGE_GAP      readability.tap_target_size
+                         needs runtime facts — run scripts/probe_visual_audit.gd to produce audit\visual_runtime_facts.json
+  SKIP/COVERAGE_GAP      texture.import_sidecar
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.pot_or_small
+                         zone declares no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.vram_compressible
+                         no runtime PNG art
+  SKIP/COVERAGE_GAP      texture.zone_budget
+                         no runtime PNG art
+
+==============================================================
+VISUALAUDIT| ERROR=15  WARN=17  MANUAL=2  INFO=126  SKIP=87
+VISUALAUDIT| STATE FAIL=15  REVIEW_OPEN=17  MANUAL_OPEN=2  COVERAGE_GAP=87  WAIVED=0  PASS=32  NOT_APPLICABLE=94  RESULT=UNSATISFIED
+cloud_single_drift       OK                   LabDelta=5.1 keyDelta=94deg density=1.82x
+plane                    OK                   LabDelta=13.2 keyDelta=12deg density=1.86x
+swing                    OK                   LabDelta=7.0 keyDelta=122deg density=3.37x
+slide                    OK                   LabDelta=14.5 keyDelta=153deg density=1.83x
+castle_four_tower        OK                   LabDelta=0.7 keyDelta=5deg density=2.00x
+roshan_idle_directional  OK                   LabDelta=1.8 keyDelta=14deg density=1.47x
+roshan_swim_front        OK                   LabDelta=9.1 keyDelta=76deg density=1.47x
+seesaw                   OK                   LabDelta=2.5 keyDelta=12deg density=1.89x
+pnw_tree_sticker_tall    OK                   LabDelta=2.3 keyDelta=79deg density=2.48x
+SCENE_CONGRUENCY 9/9
+SKY_LAGOON_LAYOUT_AUDIT|ALL OK
+{
+  "cards": 51,
+  "invisible_depth_failures": 0,
+  "contact": "audit/castle_sprite3d/castle_card_alpha_contact.png"
+}
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.010s
+
+OK
+zone                n |    clip% in->out |   crush% in->out | budget
+------------------------------------------------------------------------------
+castle_room        80 |   0.89 ->   0.89   |   1.25 ->   1.25   | clip<=6.0 crush<=2.5
+sky_lagoon         31 |   0.21 ->   0.08   |   0.00 ->   2.33   | clip<=1.0 crush<=4.0
+bright_pastel      80 |   9.70 ->  15.57   |   0.49 ->   2.33   | clip<=18.0 crush<=3.0
+
+GRADE HEADROOM OK
+{
+  "rooms": 8,
+  "unique_atlases": 33,
+  "physical_instances": 38,
+  "average_items_per_room": 4.75,
+  "maximum_depth_coverage": 0.8627,
+  "maximum_background_like_fraction": 0.0586,
+  "minimum_chassis_alpha_iou": 0.2014,
+  "minimum_sampled_roshan_visibility": 0.1583,
+  "minimum_material_changed_fraction": 0.0074,
+  "minimum_source_silhouette_retention": 0.9894,
+  "maximum_audio_sync_error_seconds": 0.0
+}
+FAIL: visual review contact file is missing
+CASTLE INTERACTION PACK FAIL

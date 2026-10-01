@@ -1,0 +1,180 @@
+{
+  "acceptance": "DRAFT_REFERENCE_ONLY; ALL_FRAME_AND_OWNER_REVIEW_PENDING",
+  "items": [
+    {
+      "id": "D2A-0394",
+      "status": "MACHINE_RENDER_PASS_PENDING_VISUAL_REVIEW",
+      "native_prompt_id": "1c64f644-d014-484e-8656-c1bf560f6da1",
+      "native_receipt": "D2A-0394-native-receipt.json",
+      "video": "D2A-0394-reference.mp4",
+      "sha256": "2bb0f1fdba9b6133aaf61dbb1e5946fbed3e3c7e0c123fe51f0fdeb97359a294",
+      "contact": "D2A-0394-contact.jpg",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      },
+      "acceptance": "LOCAL_MOTION_REFERENCE_ONLY; VISUAL_REVIEW_PENDING",
+      "name": "Friendly puff",
+      "sample_draft_score": 4.0,
+      "observation": "Sampled shapes retain a recognizable puff. The small lobe change is difficult to read, and the detached droplets still need an all-frame count/identity check.",
+      "refinement": "Review the complete motion before refining the lobe action; preserve the existing friendly silhouette.",
+      "review_method": "Five whole-canvas samples at frame indices 0, 10, 20, 30, 40; full clip supplied for owner inspection.",
+      "canonical_motion_grade": null,
+      "all_frame_review": false,
+      "owner_accepted": false,
+      "source_owner_style_status": "PENDING"
+    },
+    {
+      "id": "D2A-0446",
+      "status": "MACHINE_RENDER_PASS_PENDING_VISUAL_REVIEW",
+      "native_prompt_id": "64cfb7f4-8170-43e9-a3ea-e253e889cf83",
+      "native_receipt": "D2A-0446-native-receipt.json",
+      "video": "D2A-0446-reference.mp4",
+      "sha256": "7bd7eb250a54067262c5e5952e168572ba0632bb1eb8b36540194a272a2c6cb3",
+      "contact": "D2A-0446-contact.jpg",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708008"
+        }
+      },
+      "acceptance": "LOCAL_MOTION_REFERENCE_ONLY; VISUAL_REVIEW_PENDING",
+      "name": "Nursery catching support",
+      "sample_draft_score": 3.8,
+      "observation": "The five samples retain two arms but the finger groups change locally. The anatomically shaded skin still carries the owner rejection as too lifelike. No baby contact is demonstrated.",
+      "refinement": "Replace the rejected still styling with simpler painted hands before judging a mounted safe-catching sequence.",
+      "review_method": "Five whole-canvas samples at frame indices 0, 10, 20, 30, 40; full clip supplied for owner inspection.",
+      "canonical_motion_grade": null,
+      "all_frame_review": false,
+      "owner_accepted": false,
+      "source_owner_style_status": "REJECTED_TOO_LIFELIKE"
+    },
+    {
+      "id": "D2A-0495",
+      "status": "MACHINE_RENDER_PASS_PENDING_VISUAL_REVIEW",
+      "native_prompt_id": "35979a0b-5a91-431c-ade5-340711f63ae7",
+      "native_receipt": "D2A-0495-native-receipt.json",
+      "video": "D2A-0495-reference.mp4",
+      "sha256": "43162d56b317ba3340e82dabfc14577d8ba315cabfd627367fe359349b53cab0",
+      "contact": "D2A-0495-contact.jpg",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      },
+      "acceptance": "LOCAL_MOTION_REFERENCE_ONLY; VISUAL_REVIEW_PENDING",
+      "name": "Racer shell wheel",
+      "sample_draft_score": 3.1,
+      "observation": "The sampled shell petals visibly redraw and change their relationships around the hub. This does not demonstrate rigid conservation of the approved shell during a full turn.",
+      "refinement": "Refine the reference generation for conserved hub, rim and shell topology. Do not integrate this result as an accepted rotating wheel.",
+      "review_method": "Five whole-canvas samples at frame indices 0, 10, 20, 30, 40; full clip supplied for owner inspection.",
+      "canonical_motion_grade": null,
+      "all_frame_review": false,
+      "owner_accepted": false,
+      "source_owner_style_status": "PENDING"
+    },
+    {
+      "id": "D2A-0056",
+      "status": "MACHINE_RENDER_PASS_PENDING_VISUAL_REVIEW",
+      "native_prompt_id": "62069996-f08b-43f3-b812-97fbf56aaf9a",
+      "native_receipt": "D2A-0056-native-receipt.json",
+      "video": "D2A-0056-reference.mp4",
+      "sha256": "c8de2d1f23325148c23e91fc6ceece1c94634ab01c63f60b51e76b99e819e451",
+      "contact": "D2A-0056-contact.jpg",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      },
+      "acceptance": "LOCAL_MOTION_REFERENCE_ONLY; VISUAL_REVIEW_PENDING",
+      "name": "Maple breeze",
+      "sample_draft_score": 4.2,
+      "observation": "The broad crown and paired winged seeds remain recognizable across the five samples. Movement is restrained, but fixed root contact, exact attachment count and return timing need the complete clip review.",
+      "refinement": "Inspect every frame and the loop seam, then judge whether the breeze is legible at TreeBook scale.",
+      "review_method": "Five whole-canvas samples at frame indices 0, 10, 20, 30, 40; full clip supplied for owner inspection.",
+      "canonical_motion_grade": null,
+      "all_frame_review": false,
+      "owner_accepted": false,
+      "source_owner_style_status": "PENDING"
+    },
+    {
+      "id": "D2A-0057",
+      "status": "MACHINE_RENDER_PASS_PENDING_VISUAL_REVIEW",
+      "native_prompt_id": "85eb772a-f718-480f-9576-195a87ec3c26",
+      "native_receipt": "D2A-0057-native-receipt.json",
+      "video": "D2A-0057-reference.mp4",
+      "sha256": "bb077a5e672bc2e67544cc7eec990abb6e386666e8ab9adbe2667400ea0f98fe",
+      "contact": "D2A-0057-contact.jpg",
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      },
+      "acceptance": "LOCAL_MOTION_REFERENCE_ONLY; VISUAL_REVIEW_PENDING",
+      "name": "Dogwood breeze",
+      "sample_draft_score": 4.1,
+      "observation": "The three flowers remain readable in the sampled pictures. The branch/canopy drawing shifts slightly, so conservation of flower centers, root contact and branch attachments remains unproven.",
+      "refinement": "Review the complete clip and loop seam before approving botanical identity or mounted motion.",
+      "review_method": "Five whole-canvas samples at frame indices 0, 10, 20, 30, 40; full clip supplied for owner inspection.",
+      "canonical_motion_grade": null,
+      "all_frame_review": false,
+      "owner_accepted": false,
+      "source_owner_style_status": "PENDING"
+    }
+  ]
+}

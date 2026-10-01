@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets_src\\local_motion\\day2_batch1_20260930\\inputs\\D2A-0394.png",
+  "source_sha256": "f71c2dcd434f519660e2d0773561ba547ce5adf89d30a5e56446ced0927ab4d2",
+  "source_dimensions": [
+    896,
+    512
+  ],
+  "prompt": "Locked camera, one continuous shot. Preserve the source as flat polished 2D storybook artwork: rounded painted forms, broad value bands, restrained navy-purple contours, pastel toy palette. Keep the neutral paper background perfectly still. Only the specified existing subject moves. 0.00-0.25 seconds: hold the original friendly puff. 0.25-0.55: the existing puff lobes gently open by a very small amount. 0.55-1.20: they settle back together. 1.20-1.70: rest in the original silhouette. Keep the original detached painted droplets, their count and their relationship to the puff; do not add particles. Puff center fixed; disconnected droplets retain identity; no new flashes, smoke, stars, text or camera motion. Do not add realistic shading, pores, dimensional rendering, camera zoom, cuts, color pumping, new objects or text. Sound: silence.\n",
+  "prompt_sha256": "4fa0e41643cb733c84c885554f227e3ab0d6e07f6cf7004659753e7ec58378ac",
+  "preset": "quick",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "seed": 2026093001,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/GGUF_MODEL_RECEIPT.json",
+  "workflow_sha256": "f21aad37badff18aed8e1991a8b11648ad772c1a7cbb7dcc83364e8ac0426d8d",
+  "started_at_utc": "20261001T012638Z",
+  "prompt_id": "1c64f644-d014-484e-8656-c1bf560f6da1",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1q_d2a0394_20261001T012638Z_000605_00002_.webm",
+      "sha256": "fc4f04eeb61d8a588ffeb2e944be5b8faa410e373fea0e68243e441b5eccf93d",
+      "bytes": 249536
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1q_d2a0394_20261001T012638Z_000605_00002_.mp4",
+      "sha256": "2bb0f1fdba9b6133aaf61dbb1e5946fbed3e3c7e0c123fe51f0fdeb97359a294",
+      "bytes": 183413,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 1865.19,
+  "completed_at_utc": "2026-10-01T01:57:43.561308+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance"
+}

@@ -1,0 +1,9 @@
+{
+  "source": "scripts/ci.sh",
+  "source_native_sha256": "92f94855c4d870a52e9ba7b71b7e01d51fa3a9a9ad503e1559b39cf93195f887",
+  "source_normalized_lf_sha256": "ca52d4b29e561de3a88c24de22134119903be17b65edf8c3770bf868102aa77e",
+  "resume_at": "python3 tools/audit_audio_quality.py --check",
+  "suffix_sha256": "437077b160b0dae4f605b73edd38a1955be93020e2e170389c95c68f354aeca3",
+  "reason": "Earlier checks passed; the full invocation stopped at a missing sparse-checkout Teacher generator gzip. Restore exact committed input and continue every remaining original command.",
+  "suite_source_modified": false
+}

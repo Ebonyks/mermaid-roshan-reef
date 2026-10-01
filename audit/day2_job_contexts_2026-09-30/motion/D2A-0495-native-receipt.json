@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets_src\\local_motion\\day2_batch1_20260930\\inputs\\D2A-0495.png",
+  "source_sha256": "1b6209d7c2a2efc74a23834788e6395ec820bbf7bf5cb3e2a5f15089bb242e6a",
+  "source_dimensions": [
+    896,
+    512
+  ],
+  "prompt": "Locked camera, one continuous shot. Preserve the source as flat polished 2D storybook artwork: rounded painted forms, broad value bands, restrained navy-purple contours, pastel toy palette. Keep the neutral paper background perfectly still. Only the specified existing subject moves. 0.00-1.70 seconds: the existing painted wheel rotates slowly through one complete revolution about its fixed hub. Maintain a steady pace and finish at the original spoke phase. Rotate only the rim and spokes; keep any visible mounting or support fixed. Hub, wheel size, location, silhouette, palette and mounting fixed. No new axle, chassis, steering wheel, road, tread details or camera movement. Do not add realistic shading, pores, dimensional rendering, camera zoom, cuts, color pumping, new objects or text. Sound: silence.\n",
+  "prompt_sha256": "6343a1064e793bfd949ead2e7654bd993022ecc30438b075610b81b148ec1e62",
+  "preset": "quick",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "seed": 2026093003,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/GGUF_MODEL_RECEIPT.json",
+  "workflow_sha256": "0a8ae6ebe0a93bbac7fd12afcb80f626e254034e3779e20bf17e63f3fb072a03",
+  "started_at_utc": "20261001T025152Z",
+  "prompt_id": "35979a0b-5a91-431c-ade5-340711f63ae7",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1q_d2a0495_20261001T025152Z_58a0e1_00002_.webm",
+      "sha256": "e7fb86b2e7edc2d12609f55897195b1fb390ad6cbf6d8ad1b35312f1cdf31e66",
+      "bytes": 308560
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1q_d2a0495_20261001T025152Z_58a0e1_00002_.mp4",
+      "sha256": "43162d56b317ba3340e82dabfc14577d8ba315cabfd627367fe359349b53cab0",
+      "bytes": 231519,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 186.45,
+  "completed_at_utc": "2026-10-01T02:54:58.979434+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance"
+}

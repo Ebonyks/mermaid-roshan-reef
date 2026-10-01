@@ -1,0 +1,2701 @@
+{
+  "acceptance": "DIAGNOSTIC_ONLY",
+  "captured_at_utc": "2026-10-01T02:21:04",
+  "cases": [
+    {
+      "act_index": 0,
+      "aspect": "1280x720",
+      "career": "chef",
+      "id": "career-chef",
+      "lane": "career",
+      "phase_count": 5,
+      "phases": [
+        {
+          "goal": 5.0,
+          "mode": "pourt",
+          "name": "MIX",
+          "vo": "op_chef_pour_stage",
+          "voice": "Tip the sparkling batter into the bowl!"
+        },
+        {
+          "goal": 2.0,
+          "mode": "circle",
+          "name": "STIR",
+          "vo": "op_chef_stir_stage",
+          "voice": "Draw big circles to stir the batter!"
+        },
+        {
+          "goal": 6.0,
+          "mode": "oven",
+          "name": "BAKE",
+          "vo": "op_chef_bake_stage",
+          "voice": "Watch for golden, then take the cake out with the mitt!"
+        },
+        {
+          "goal": 6.0,
+          "mode": "swipe",
+          "name": "FROST",
+          "vo": "op_chef_pipe_stage",
+          "voice": "Trace the frosting ribbon across the cake!"
+        },
+        {
+          "goal": 7.0,
+          "mode": "tap",
+          "name": "TOP",
+          "vo": "op_chef_top_stage",
+          "voice": "Place the bright toppings on the finished cake!"
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 1,
+      "aspect": "1280x720",
+      "career": "detective",
+      "id": "career-detective",
+      "lane": "career",
+      "phase_count": 3,
+      "phases": [
+        {
+          "goal": 3.0,
+          "mode": "lens",
+          "name": "SEARCH",
+          "vo": "op_detective_lens_stage",
+          "voice": "Sweep the magnifying glass across the painted clues!"
+        },
+        {
+          "goal": 3.0,
+          "mode": "clue_board",
+          "name": "CASE BOARD",
+          "vo": "op_detective_match",
+          "voice": "Match each glowing clue to the case board!",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "crown_chest",
+          "name": "CROWN",
+          "vo": "op_detective_name",
+          "voice": "Tap when the spotlight shines on the answer!",
+          "widget": ""
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 2,
+      "aspect": "1280x720",
+      "career": "ballerina",
+      "id": "career-ballerina",
+      "lane": "career",
+      "phase_count": 6,
+      "phases": [
+        {
+          "goal": 3.0,
+          "mode": "ballet_pose",
+          "name": "PEARL MIRROR",
+          "performance_part": "practice",
+          "source_phase": 0,
+          "vo": "op_ballerina_watch",
+          "voice": "Watch Roshan hold each ballet pose, then tap the matching pearl mirror!",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "ballet_ribbon",
+          "name": "RIBBON TRAIL",
+          "performance_part": "practice",
+          "source_phase": 1,
+          "vo": "op_ballerina_ribbon_stage",
+          "voice": "Guide the pearl along the glowing ribbon current!",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "ballet_twirl",
+          "name": "GRAND TWIRL",
+          "performance_part": "practice",
+          "source_phase": 2,
+          "vo": "op_ballerina_twirl_stage",
+          "voice": "Turn the pearl around the shell for the grand twirl!",
+          "widget": ""
+        },
+        {
+          "goal": 3.0,
+          "mode": "ballet_pose",
+          "name": "PEARL MIRROR",
+          "performance_part": "stage",
+          "source_phase": 0,
+          "vo": "op_ballerina_watch",
+          "voice": "Watch Roshan hold each ballet pose, then tap the matching pearl mirror!",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "ballet_ribbon",
+          "name": "RIBBON TRAIL",
+          "performance_part": "stage",
+          "source_phase": 1,
+          "vo": "op_ballerina_ribbon_stage",
+          "voice": "Guide the pearl along the glowing ribbon current!",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "ballet_twirl",
+          "name": "GRAND TWIRL",
+          "performance_part": "stage",
+          "source_phase": 2,
+          "vo": "op_ballerina_twirl_stage",
+          "voice": "Turn the pearl around the shell for the grand twirl!",
+          "widget": ""
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 3,
+      "aspect": "1280x720",
+      "career": "candymaker",
+      "id": "career-candymaker",
+      "lane": "career",
+      "phase_count": 4,
+      "phases": [
+        {
+          "goal": 5.0,
+          "mode": "pourt",
+          "name": "SYRUP",
+          "vo": "op_candymaker_syrup_stage",
+          "voice": "Tip the syrup into the candy mold!"
+        },
+        {
+          "goal": 6.0,
+          "mode": "candy_sort",
+          "name": "SORT",
+          "vo": "op_candymaker_sort_stage",
+          "voice": "Drag each candy into its matching shape box!"
+        },
+        {
+          "goal": 1.8,
+          "mode": "circle",
+          "name": "WRAP",
+          "vo": "op_candymaker_wrap_stage",
+          "voice": "Twist the finished wrappers in circles!"
+        },
+        {
+          "goal": 6.0,
+          "mode": "tap",
+          "name": "SHARE",
+          "vo": "op_candymaker_share_stage",
+          "voice": "Give one finished candy to every waving friend!"
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 5,
+      "aspect": "1280x720",
+      "career": "doctor",
+      "id": "career-doctor",
+      "lane": "career",
+      "phase_count": 5,
+      "phases": [
+        {
+          "goal": 3.6,
+          "mode": "hold",
+          "name": "WASH",
+          "vo": "op_doctor_wash_stage",
+          "voice": "Hold the bubbly basin to wash Doctor Roshan's hands!"
+        },
+        {
+          "goal": 4.0,
+          "mode": "choice",
+          "name": "FIND",
+          "vo": "op_doctor_find_stage",
+          "voice": "Choose the plushy with the glowing ouch!"
+        },
+        {
+          "goal": 2.0,
+          "mode": "xray_scan",
+          "name": "X-RAY",
+          "vo": "op_doctor_x_ray_stage",
+          "voice": "Slide the scanner over the plushy to find the sore spots!"
+        },
+        {
+          "goal": 1.8,
+          "mode": "circle",
+          "name": "CAST",
+          "vo": "op_doctor_cast_stage",
+          "voice": "Draw gentle circles to wrap the soft cast!"
+        },
+        {
+          "goal": 5.0,
+          "mode": "swipe",
+          "name": "BANDAGE",
+          "vo": "op_doctor_bandage_stage",
+          "voice": "Swipe the stretchy bandage around the plushy!"
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 6,
+      "aspect": "1280x720",
+      "career": "farmer",
+      "id": "career-farmer",
+      "lane": "career",
+      "phase_count": 4,
+      "phases": [
+        {
+          "goal": 5.0,
+          "mode": "garden_plant",
+          "name": "PLANT",
+          "vo": "op_farmer_plant_stage",
+          "voice": "Plant each seed in the glowing garden bed!",
+          "widget": ""
+        },
+        {
+          "goal": 4.0,
+          "mode": "farm_lob",
+          "name": "TOSS",
+          "vo": "op_farmer_feed_stage",
+          "voice": "Pull back a vegetable and toss it gently to a piggy!"
+        },
+        {
+          "goal": 6.0,
+          "mode": "swipe",
+          "name": "HERD",
+          "vo": "op_farmer_herd_stage",
+          "voice": "Sweep the happy piggies through the barn gate!"
+        },
+        {
+          "goal": 3.0,
+          "mode": "tap",
+          "name": "PICNIC",
+          "vo": "op_farmer_picnic_stage",
+          "voice": "Set one picnic snack beside every piggy!"
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 7,
+      "aspect": "1280x720",
+      "career": "boxer",
+      "id": "career-boxer",
+      "lane": "career",
+      "phase_count": 5,
+      "phases": [
+        {
+          "goal": 2.0,
+          "mode": "boxing_guide",
+          "name": "GLOVE GUIDE",
+          "vo": "op_boxer_work",
+          "voice": "Put a finger on a glove and push it toward the glowing mitt!",
+          "widget": ""
+        },
+        {
+          "goal": 4.0,
+          "mode": "boxing_jab",
+          "name": "JAB PRACTICE",
+          "vo": "op_boxer_jab_stage",
+          "voice": "Jab practice! Punch each glowing training pad!",
+          "widget": ""
+        },
+        {
+          "goal": 3.0,
+          "mode": "boxing_guard",
+          "name": "SOFT GUARD",
+          "vo": "op_boxer_duck_stage",
+          "voice": "Bring a glove into the glowing guard bubble!",
+          "widget": ""
+        },
+        {
+          "goal": 6.0,
+          "mode": "boxing_imp",
+          "name": "TITLE IMP",
+          "vo": "op_boxer_bell_chase_stage",
+          "voice": "The boxer imp rang the bell! Punch when the bright star opens!",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "boxing_belt",
+          "name": "BELT",
+          "vo": "op_boxer_belt_stage",
+          "voice": "Punch the glowing championship belt for the curtain call!",
+          "widget": ""
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 8,
+      "aspect": "1280x720",
+      "career": "magician",
+      "id": "career-magician",
+      "lane": "career",
+      "phase_count": 8,
+      "phases": [
+        {
+          "goal": 3.8,
+          "mode": "hold",
+          "name": "VANISH",
+          "performance_part": "practice",
+          "source_phase": 0,
+          "visual_context": "magic_vanish",
+          "vo": "op_magician_vanish_stage",
+          "voice": "Hold the wand to hide Lamba under a hat!",
+          "widget": ""
+        },
+        {
+          "goal": 5.0,
+          "mode": "choice",
+          "name": "TRACK",
+          "performance_part": "practice",
+          "source_phase": 1,
+          "vo": "op_magician_track",
+          "voice": "Follow the glowing hat through the shuffle!"
+        },
+        {
+          "goal": 5.0,
+          "mode": "swipe",
+          "name": "ROPE",
+          "performance_part": "practice",
+          "source_phase": 2,
+          "vo": "op_magician_rope_stage",
+          "voice": "Swipe the knotted rope into one long ribbon!"
+        },
+        {
+          "goal": 3.8,
+          "mode": "hold",
+          "name": "VANISH",
+          "performance_part": "stage",
+          "source_phase": 0,
+          "visual_context": "magic_vanish",
+          "vo": "op_magician_vanish_stage",
+          "voice": "Hold the wand to hide Lamba under a hat!",
+          "widget": ""
+        },
+        {
+          "goal": 5.0,
+          "mode": "choice",
+          "name": "TRACK",
+          "performance_part": "stage",
+          "source_phase": 1,
+          "vo": "op_magician_track",
+          "voice": "Follow the glowing hat through the shuffle!"
+        },
+        {
+          "goal": 5.0,
+          "mode": "swipe",
+          "name": "ROPE",
+          "performance_part": "stage",
+          "source_phase": 2,
+          "vo": "op_magician_rope_stage",
+          "voice": "Swipe the knotted rope into one long ribbon!"
+        },
+        {
+          "goal": 1.0,
+          "mode": "magic_cabinet",
+          "name": "CABINET",
+          "performance_part": "stage",
+          "source_phase": 3,
+          "vo": "op_magician_cabinet_stage",
+          "voice": "Swipe down to open the magic cabinet!",
+          "widget": ""
+        },
+        {
+          "goal": 2.0,
+          "mode": "circle",
+          "name": "PORTAL",
+          "performance_part": "stage",
+          "source_phase": 4,
+          "vo": "op_magician_portal_stage",
+          "voice": "Draw circles to open the star portal!"
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 10,
+      "aspect": "1280x720",
+      "career": "painter",
+      "id": "career-painter",
+      "lane": "career",
+      "phase_count": 3,
+      "phases": [
+        {
+          "goal": 1.0,
+          "mode": "paint_reveal",
+          "name": "PAINT",
+          "vo": "op_painter_sketch_stage",
+          "voice": "Paint across the cloudy canvas to reveal the sunrise!"
+        },
+        {
+          "goal": 5.0,
+          "mode": "tap",
+          "name": "STAMPS",
+          "vo": "op_painter_splat_stage",
+          "voice": "Add any five bright finishing stamps!"
+        },
+        {
+          "goal": 1.0,
+          "mode": "choice",
+          "name": "GALLERY",
+          "vo": "op_painter_reveal_stage",
+          "voice": "Choose the glowing frame and hang your sunrise!"
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 11,
+      "aspect": "1280x720",
+      "career": "astronaut",
+      "id": "career-astronaut",
+      "lane": "career",
+      "phase_count": 4,
+      "phases": [
+        {
+          "goal": 3.0,
+          "mode": "pipe",
+          "name": "PIPES",
+          "vo": "op_astronaut_pipes_stage",
+          "voice": "Connect the fuel tank to the rocket through three pipe boards!"
+        },
+        {
+          "goal": 5.0,
+          "mode": "tap",
+          "name": "PATCH",
+          "vo": "op_astronaut_patch_stage",
+          "voice": "Patch every sparkling leak on the rocket!"
+        },
+        {
+          "goal": 1.8,
+          "mode": "circle",
+          "name": "VALVE",
+          "vo": "op_astronaut_valve",
+          "voice": "Draw circles to turn the launch valve!"
+        },
+        {
+          "goal": 4.5,
+          "mode": "hold",
+          "name": "LAUNCH",
+          "vo": "op_astronaut_launch_stage",
+          "voice": "Hold through the countdown and launch!"
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 12,
+      "aspect": "1280x720",
+      "career": "racer",
+      "id": "career-racer",
+      "lane": "career",
+      "phase_count": 3,
+      "phases": [
+        {
+          "goal": 1.8,
+          "mode": "circle",
+          "name": "TUNE",
+          "vo": "op_racer_tune_up_stage",
+          "voice": "Turn the wrench to finish the pit stop!"
+        },
+        {
+          "goal": 5.0,
+          "mode": "swipe",
+          "name": "TO THE LINE",
+          "vo": "op_racer_to_the_line_stage",
+          "voice": "Push the kart to the pearl starting arch!"
+        },
+        {
+          "goal": 2.0,
+          "mode": "kart_race",
+          "name": "RACE",
+          "vo": "op_racer_steer",
+          "voice": "Swipe to steer through the coral gates!",
+          "widget": ""
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 13,
+      "aspect": "1280x720",
+      "career": "popstar",
+      "id": "career-popstar",
+      "lane": "career",
+      "phase_count": 7,
+      "phases": [
+        {
+          "goal": 3.8,
+          "mode": "hold",
+          "name": "SOUND CHECK",
+          "performance_part": "practice",
+          "source_phase": 0,
+          "vo": "op_popstar_sound_check_stage",
+          "voice": "Hold the microphone while the rainbow note grows!"
+        },
+        {
+          "goal": 6.0,
+          "mode": "choice",
+          "name": "DANCE",
+          "performance_part": "practice",
+          "source_phase": 1,
+          "vo": "op_popstar_dance",
+          "voice": "Tap the glowing dance arrow!"
+        },
+        {
+          "goal": 3.0,
+          "mode": "echo",
+          "name": "RHYTHM",
+          "performance_part": "practice",
+          "source_phase": 2,
+          "vo": "op_popstar_rhythm_stage",
+          "voice": "Listen to the three stars, then sing their song back!"
+        },
+        {
+          "goal": 3.8,
+          "mode": "hold",
+          "name": "SOUND CHECK",
+          "performance_part": "stage",
+          "source_phase": 0,
+          "vo": "op_popstar_sound_check_stage",
+          "voice": "Hold the microphone while the rainbow note grows!"
+        },
+        {
+          "goal": 6.0,
+          "mode": "choice",
+          "name": "DANCE",
+          "performance_part": "stage",
+          "source_phase": 1,
+          "vo": "op_popstar_dance",
+          "voice": "Tap the glowing dance arrow!"
+        },
+        {
+          "goal": 3.0,
+          "mode": "echo",
+          "name": "RHYTHM",
+          "performance_part": "stage",
+          "source_phase": 2,
+          "vo": "op_popstar_rhythm_stage",
+          "voice": "Listen to the three stars, then sing their song back!"
+        },
+        {
+          "goal": 1.8,
+          "mode": "circle",
+          "name": "ENCORE",
+          "performance_part": "stage",
+          "source_phase": 3,
+          "vo": "op_popstar_encore_stage",
+          "voice": "Draw one big encore spin for the crowd!"
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 15,
+      "aspect": "1280x720",
+      "career": "nursery",
+      "id": "career-nursery",
+      "lane": "career",
+      "phase_count": 5,
+      "phases": [
+        {
+          "goal": 3.4,
+          "mode": "hold",
+          "name": "WASH HANDS",
+          "visual_context": "nursery_wash",
+          "vo": "op_nursery_wash_stage",
+          "voice": "Hold the bubbly basin to wash your hands first!",
+          "widget": ""
+        },
+        {
+          "goal": 5.0,
+          "mode": "catch",
+          "name": "CATCH BABIES",
+          "speaker": "Faron",
+          "vo": "op_nursery_catch",
+          "voice": "Slide the soft cradle under five babies. Pillows keep every miss safe!"
+        },
+        {
+          "goal": 4.0,
+          "mode": "hold",
+          "name": "FEED",
+          "speaker": "Faron",
+          "visual_context": "nursery_feed",
+          "vo": "op_nursery_feed",
+          "voice": "Hold the warm bottle while Roshan and Faron feed each baby!",
+          "widget": ""
+        },
+        {
+          "goal": 4.0,
+          "mode": "tap",
+          "name": "BURP",
+          "pace": 0.55,
+          "visual_context": "nursery_burp",
+          "vo": "op_nursery_burp_stage",
+          "voice": "Pat the baby's back gently and slowly: pat, pat, pat!",
+          "widget": ""
+        },
+        {
+          "dir": "down",
+          "goal": 3.0,
+          "mode": "swipe",
+          "name": "BEDTIME",
+          "speaker": "Faron",
+          "visual_context": "nursery_bedtime",
+          "vo": "op_nursery_bedtime",
+          "voice": "Swipe each blanket down and tuck every baby into bed!",
+          "widget": ""
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 16,
+      "aspect": "1280x720",
+      "career": "geologist",
+      "id": "career-geologist",
+      "lane": "career",
+      "phase_count": 4,
+      "phases": [
+        {
+          "goal": 1.0,
+          "mode": "geology_river",
+          "name": "RIVER",
+          "vo": "grotto_discovered",
+          "voice": "A secret grotto! The stones want to play!",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "geology_fossil",
+          "name": "FOSSIL",
+          "vo": "bathroom_tub_brush",
+          "voice": "Brush it back and forth. Swish, swish!",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "geology_pan",
+          "name": "PAN",
+          "vo": "grotto_discovered",
+          "voice": "A secret grotto! The stones want to play!",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "geology_geode",
+          "name": "GEODE",
+          "vo": "grotto_discovered",
+          "voice": "A secret grotto! The stones want to play!",
+          "widget": ""
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 17,
+      "aspect": "1280x720",
+      "career": "teacher",
+      "id": "career-teacher",
+      "lane": "career",
+      "phase_count": 4,
+      "phases": [
+        {
+          "goal": 1.0,
+          "mode": "teacher_pattern",
+          "name": "PATTERN",
+          "vo": "teacher_pattern",
+          "voice": "What comes next? Tap the shape that finishes the pattern.",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "teacher_count",
+          "name": "COUNT",
+          "vo": "teacher_count",
+          "voice": "Touch each pearl, one at a time. Then find the group with the same number.",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "teacher_add",
+          "name": "ADD",
+          "vo": "teacher_add",
+          "voice": "Put the two groups together. Touch each pearl to count them all.",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "teacher_match",
+          "name": "MATCH",
+          "vo": "teacher_match",
+          "voice": "Find the same shape.",
+          "widget": ""
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 6,
+      "aspect": "1280x720",
+      "career": "farmer",
+      "id": "day2-farmer",
+      "lane": "day2",
+      "phase_count": 3,
+      "phases": [
+        {
+          "goal": 5.0,
+          "milestone": "gather_strawberries",
+          "mode": "tap",
+          "name": "GATHER STRAWBERRIES",
+          "piece_path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png",
+          "vo": "chapter2_farmer_gather_strawberries",
+          "voice": "Gather exactly five ripe Sky Lagoon strawberries!",
+          "widget": "",
+          "widget_context": ""
+        },
+        {
+          "goal": 5.0,
+          "milestone": "fill_basket",
+          "mode": "tap",
+          "name": "FILL BASKET",
+          "piece_path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png",
+          "vo": "chapter2_farmer_fill_basket",
+          "voice": "Load all five strawberries into the basket!",
+          "widget": "",
+          "widget_context": ""
+        },
+        {
+          "goal": 6.0,
+          "milestone": "deliver_to_kitchen",
+          "mode": "swipe",
+          "name": "DELIVER TO KITCHEN",
+          "vo": "chapter2_farmer_deliver_to_kitchen",
+          "voice": "Swipe the full basket all the way to the kitchen!",
+          "widget_context": "push_farmer"
+        }
+      ],
+      "story_qualification": "Explicit catalog phase fixture; unmodified story setup separately checked"
+    },
+    {
+      "act_index": 0,
+      "aspect": "1280x720",
+      "career": "chef",
+      "id": "day2-chef",
+      "lane": "day2",
+      "phase_count": 5,
+      "phases": [
+        {
+          "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_batter_unstirred.png",
+          "goal": 5.0,
+          "milestone": "mix",
+          "mode": "pourt",
+          "name": "MIX",
+          "vo": "op_chef_pour_stage",
+          "voice": "Tip the sparkling batter into the bowl!"
+        },
+        {
+          "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_batter_stirred.png",
+          "goal": 2.0,
+          "milestone": "stir",
+          "mode": "circle",
+          "name": "STIR",
+          "vo": "op_chef_stir_stage",
+          "voice": "Draw big circles to stir the batter!"
+        },
+        {
+          "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_baked_tiers_unstacked.png",
+          "goal": 6.0,
+          "milestone": "bake",
+          "mode": "oven",
+          "name": "BAKE",
+          "vo": "op_chef_bake_stage",
+          "voice": "Watch for golden, then take the cake out with the mitt!"
+        },
+        {
+          "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_stacked_unfrosted_cake.png",
+          "goal": 3.0,
+          "milestone": "stack",
+          "mode": "tap",
+          "name": "STACK",
+          "vo": "chapter2_chef_stack",
+          "voice": "Tap each cake tier to stack the rainbow cake!"
+        },
+        {
+          "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png",
+          "goal": 6.0,
+          "milestone": "frost",
+          "mode": "swipe",
+          "name": "FROST",
+          "vo": "op_chef_pipe_stage",
+          "voice": "Trace the frosting ribbon across the cake!"
+        }
+      ],
+      "story_qualification": "Explicit catalog phase fixture; unmodified story setup separately checked"
+    },
+    {
+      "act_index": 3,
+      "aspect": "1280x720",
+      "career": "candymaker",
+      "id": "day2-candymaker",
+      "lane": "day2",
+      "phase_count": 4,
+      "phases": [
+        {
+          "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png",
+          "goal": 5.0,
+          "ingredient_path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+          "milestone": "coat_strawberries",
+          "mode": "pourt",
+          "name": "COAT STRAWBERRIES",
+          "vo": "chapter2_candymaker_coat_strawberries",
+          "voice": "Tip the shiny coat over the strawberries!",
+          "widget_context": "pour_candymaker"
+        },
+        {
+          "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png",
+          "goal": 6.0,
+          "ingredient_path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+          "milestone": "sort_strawberries",
+          "mode": "candy_sort",
+          "name": "SORT STRAWBERRIES",
+          "vo": "chapter2_candymaker_sort_strawberries",
+          "voice": "Sort the same strawberries by their matching color!",
+          "widget_context": "lanes_candymaker"
+        },
+        {
+          "cake_accessory_asset": "res://assets/chapter2/birthday/chapter2_candied_strawberries_tray.png",
+          "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png",
+          "goal": 2.0,
+          "ingredient_path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+          "milestone": "glaze_strawberries",
+          "mode": "circle",
+          "name": "GLAZE STRAWBERRIES",
+          "vo": "chapter2_candymaker_glaze_strawberries",
+          "voice": "Twist the glaze around each strawberry!",
+          "widget_context": "crank_candymaker"
+        },
+        {
+          "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png",
+          "goal": 5.0,
+          "ingredient_path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+          "milestone": "place_candied_strawberries",
+          "mode": "tap",
+          "name": "PLACE ON CAKE",
+          "prop": "res://assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png",
+          "vo": "chapter2_candymaker_place_candied_strawberries",
+          "voice": "Place the five candied strawberries on the actual cake!",
+          "widget_context": "target_candymaker"
+        }
+      ],
+      "story_qualification": "Explicit catalog phase fixture; unmodified story setup separately checked"
+    },
+    {
+      "act_index": 10,
+      "aspect": "1280x720",
+      "career": "painter",
+      "id": "day2-painter",
+      "lane": "day2",
+      "phase_count": 3,
+      "phases": [
+        {
+          "goal": 1.0,
+          "milestone": "paint_banner",
+          "mode": "paint_reveal",
+          "name": "PAINT",
+          "prop": "res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png",
+          "subject": "birthday_banner",
+          "vo": "chapter2_painter_paint_banner",
+          "voice": "Paint the birthday banner for Main Hall!",
+          "widget_context": "trace_painter"
+        },
+        {
+          "goal": 5.0,
+          "milestone": "stamp_banner",
+          "mode": "tap",
+          "name": "STAMP",
+          "prop": "res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png",
+          "subject": "birthday_banner",
+          "vo": "op_painter_splat_stage",
+          "voice": "Stamp bright birthday stars on the banner!",
+          "widget_context": "target_painter"
+        },
+        {
+          "goal": 1.0,
+          "milestone": "hang_banner",
+          "mode": "choice",
+          "name": "HANG",
+          "prop": "res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png",
+          "subject": "birthday_banner",
+          "vo": "chapter2_painter_hang_banner",
+          "voice": "Choose the Main Hall spot and hang the birthday banner!",
+          "widget_context": "lanes_painter"
+        }
+      ],
+      "story_qualification": "Explicit catalog phase fixture; unmodified story setup separately checked"
+    },
+    {
+      "act_index": 2,
+      "aspect": "1280x720",
+      "career": "ballerina",
+      "id": "day2-ballerina",
+      "lane": "day2",
+      "phase_count": 3,
+      "phases": [
+        {
+          "goal": 3.0,
+          "milestone": "stuffies_mirror",
+          "mode": "ballet_pose",
+          "name": "STUFFIES MIRROR",
+          "subject": "stuffies",
+          "vo": "chapter2_ballerina_stuffies_mirror",
+          "voice": "Tap the matching pose as the stuffies mirror Roshan!"
+        },
+        {
+          "goal": 6.0,
+          "milestone": "stuffies_twirling",
+          "mode": "ballet_ribbon",
+          "name": "STUFFIES TWIRL",
+          "subject": "stuffies",
+          "vo": "op_ballerina_ribbon",
+          "voice": "Guide the ribbon while the stuffies twirl along!"
+        },
+        {
+          "goal": 2.0,
+          "milestone": "stuffies_bow",
+          "mode": "ballet_twirl",
+          "name": "STUFFIES BOW",
+          "subject": "stuffies",
+          "vo": "op_ballerina_twirl",
+          "voice": "Take one grand twirl, then bow with the stuffies!"
+        }
+      ],
+      "story_qualification": "Explicit catalog phase fixture; unmodified story setup separately checked"
+    },
+    {
+      "act_index": 13,
+      "aspect": "1280x720",
+      "career": "popstar",
+      "id": "day2-popstar",
+      "lane": "day2",
+      "phase_count": 4,
+      "phases": [
+        {
+          "goal": 3.8,
+          "milestone": "sound_check",
+          "mode": "hold",
+          "name": "SOUND CHECK",
+          "subject": "rumi",
+          "visual_context": "charge_popstar",
+          "vo": "op_popstar_sound_check_stage",
+          "voice": "Hold the microphone while Rumi checks the rainbow note!"
+        },
+        {
+          "goal": 3.0,
+          "milestone": "stage_rumi",
+          "mode": "choice",
+          "name": "STAGE RUMI",
+          "subject": "rumi",
+          "vo": "op_popstar_dance",
+          "voice": "Tap the glowing arrow to stage Rumi with the band!"
+        },
+        {
+          "goal": 3.0,
+          "milestone": "rhythm",
+          "mode": "echo",
+          "name": "RHYTHM",
+          "vo": "op_popstar_rhythm_stage",
+          "voice": "Listen to the three stars, then sing their song back!"
+        },
+        {
+          "goal": 2.0,
+          "milestone": "encore",
+          "mode": "circle",
+          "name": "ENCORE",
+          "vo": "op_popstar_encore_stage",
+          "voice": "Draw one big encore spin for the crowd!"
+        }
+      ],
+      "story_qualification": "Explicit catalog phase fixture; unmodified story setup separately checked"
+    },
+    {
+      "act_index": 11,
+      "aspect": "1280x720",
+      "career": "astronaut",
+      "id": "day2-astronaut",
+      "lane": "day2",
+      "phase_count": 4,
+      "phases": [
+        {
+          "goal": 3.0,
+          "milestone": "build_rocket",
+          "mode": "pipe",
+          "name": "BUILD ROCKET",
+          "vo": "op_astronaut_pipes_stage",
+          "voice": "Connect the rocket parts from the tank to the nose!"
+        },
+        {
+          "goal": 5.0,
+          "milestone": "patch",
+          "mode": "tap",
+          "name": "PATCH",
+          "vo": "op_astronaut_patch_stage",
+          "voice": "Tap every sparkling leak to patch the rocket!"
+        },
+        {
+          "goal": 1.8,
+          "milestone": "valve",
+          "mode": "circle",
+          "name": "VALVE",
+          "vo": "op_astronaut_valve",
+          "voice": "Turn the launch valve, but keep the rocket parked!"
+        },
+        {
+          "goal": 5.0,
+          "milestone": "ready_park",
+          "mode": "swipe",
+          "name": "READY PARK",
+          "rocket_state": "parked_ready_unlaunched",
+          "vo": "chapter2_astronaut_ready_park",
+          "voice": "Park the repaired rocket and leave it ready for later!",
+          "widget_context": "push_racer"
+        }
+      ],
+      "story_qualification": "Explicit catalog phase fixture; unmodified story setup separately checked"
+    },
+    {
+      "act_index": 1,
+      "aspect": "1280x720",
+      "career": "detective",
+      "id": "day2-detective",
+      "lane": "day2",
+      "phase_count": 3,
+      "phases": [
+        {
+          "goal": 3.0,
+          "milestone": "storybook_lens",
+          "mode": "lens",
+          "name": "LENS",
+          "vo": "op_detective_lens_stage",
+          "voice": "Sweep the lens across the magic storybook clues!"
+        },
+        {
+          "goal": 3.0,
+          "milestone": "storybook_board",
+          "mode": "tap",
+          "name": "STORYBOOK BOARD",
+          "vo": "op_detective_match",
+          "voice": "Tap each glowing storybook clue on the board!",
+          "widget_context": "storybook_board"
+        },
+        {
+          "goal": 1.0,
+          "mechanic": "unlit_rainbow_candle",
+          "milestone": "unlit_rainbow_candle_reveal",
+          "mode": "tap",
+          "name": "UNLIT RAINBOW CANDLE",
+          "reveal": "unlit_rainbow_candle",
+          "vo": "chapter2_detective_unlit_rainbow_candle_reveal",
+          "voice": "Tap the unlit rainbow candle to reveal the final clue!",
+          "widget_context": "unlit_rainbow_candle"
+        }
+      ],
+      "story_qualification": "Explicit catalog phase fixture; unmodified story setup separately checked"
+    },
+    {
+      "aspect": "1280x720",
+      "career": "arborist",
+      "id": "practice-arborist",
+      "lane": "practice",
+      "phase_count": 6
+    },
+    {
+      "act_index": 0,
+      "aspect": "1600x720",
+      "career": "chef",
+      "id": "career-chef",
+      "lane": "career",
+      "phase_count": 5,
+      "phases": [
+        {
+          "goal": 5.0,
+          "mode": "pourt",
+          "name": "MIX",
+          "vo": "op_chef_pour_stage",
+          "voice": "Tip the sparkling batter into the bowl!"
+        },
+        {
+          "goal": 2.0,
+          "mode": "circle",
+          "name": "STIR",
+          "vo": "op_chef_stir_stage",
+          "voice": "Draw big circles to stir the batter!"
+        },
+        {
+          "goal": 6.0,
+          "mode": "oven",
+          "name": "BAKE",
+          "vo": "op_chef_bake_stage",
+          "voice": "Watch for golden, then take the cake out with the mitt!"
+        },
+        {
+          "goal": 6.0,
+          "mode": "swipe",
+          "name": "FROST",
+          "vo": "op_chef_pipe_stage",
+          "voice": "Trace the frosting ribbon across the cake!"
+        },
+        {
+          "goal": 7.0,
+          "mode": "tap",
+          "name": "TOP",
+          "vo": "op_chef_top_stage",
+          "voice": "Place the bright toppings on the finished cake!"
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 1,
+      "aspect": "1600x720",
+      "career": "detective",
+      "id": "career-detective",
+      "lane": "career",
+      "phase_count": 3,
+      "phases": [
+        {
+          "goal": 3.0,
+          "mode": "lens",
+          "name": "SEARCH",
+          "vo": "op_detective_lens_stage",
+          "voice": "Sweep the magnifying glass across the painted clues!"
+        },
+        {
+          "goal": 3.0,
+          "mode": "clue_board",
+          "name": "CASE BOARD",
+          "vo": "op_detective_match",
+          "voice": "Match each glowing clue to the case board!",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "crown_chest",
+          "name": "CROWN",
+          "vo": "op_detective_name",
+          "voice": "Tap when the spotlight shines on the answer!",
+          "widget": ""
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 2,
+      "aspect": "1600x720",
+      "career": "ballerina",
+      "id": "career-ballerina",
+      "lane": "career",
+      "phase_count": 6,
+      "phases": [
+        {
+          "goal": 3.0,
+          "mode": "ballet_pose",
+          "name": "PEARL MIRROR",
+          "performance_part": "practice",
+          "source_phase": 0,
+          "vo": "op_ballerina_watch",
+          "voice": "Watch Roshan hold each ballet pose, then tap the matching pearl mirror!",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "ballet_ribbon",
+          "name": "RIBBON TRAIL",
+          "performance_part": "practice",
+          "source_phase": 1,
+          "vo": "op_ballerina_ribbon_stage",
+          "voice": "Guide the pearl along the glowing ribbon current!",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "ballet_twirl",
+          "name": "GRAND TWIRL",
+          "performance_part": "practice",
+          "source_phase": 2,
+          "vo": "op_ballerina_twirl_stage",
+          "voice": "Turn the pearl around the shell for the grand twirl!",
+          "widget": ""
+        },
+        {
+          "goal": 3.0,
+          "mode": "ballet_pose",
+          "name": "PEARL MIRROR",
+          "performance_part": "stage",
+          "source_phase": 0,
+          "vo": "op_ballerina_watch",
+          "voice": "Watch Roshan hold each ballet pose, then tap the matching pearl mirror!",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "ballet_ribbon",
+          "name": "RIBBON TRAIL",
+          "performance_part": "stage",
+          "source_phase": 1,
+          "vo": "op_ballerina_ribbon_stage",
+          "voice": "Guide the pearl along the glowing ribbon current!",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "ballet_twirl",
+          "name": "GRAND TWIRL",
+          "performance_part": "stage",
+          "source_phase": 2,
+          "vo": "op_ballerina_twirl_stage",
+          "voice": "Turn the pearl around the shell for the grand twirl!",
+          "widget": ""
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 3,
+      "aspect": "1600x720",
+      "career": "candymaker",
+      "id": "career-candymaker",
+      "lane": "career",
+      "phase_count": 4,
+      "phases": [
+        {
+          "goal": 5.0,
+          "mode": "pourt",
+          "name": "SYRUP",
+          "vo": "op_candymaker_syrup_stage",
+          "voice": "Tip the syrup into the candy mold!"
+        },
+        {
+          "goal": 6.0,
+          "mode": "candy_sort",
+          "name": "SORT",
+          "vo": "op_candymaker_sort_stage",
+          "voice": "Drag each candy into its matching shape box!"
+        },
+        {
+          "goal": 1.8,
+          "mode": "circle",
+          "name": "WRAP",
+          "vo": "op_candymaker_wrap_stage",
+          "voice": "Twist the finished wrappers in circles!"
+        },
+        {
+          "goal": 6.0,
+          "mode": "tap",
+          "name": "SHARE",
+          "vo": "op_candymaker_share_stage",
+          "voice": "Give one finished candy to every waving friend!"
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 5,
+      "aspect": "1600x720",
+      "career": "doctor",
+      "id": "career-doctor",
+      "lane": "career",
+      "phase_count": 5,
+      "phases": [
+        {
+          "goal": 3.6,
+          "mode": "hold",
+          "name": "WASH",
+          "vo": "op_doctor_wash_stage",
+          "voice": "Hold the bubbly basin to wash Doctor Roshan's hands!"
+        },
+        {
+          "goal": 4.0,
+          "mode": "choice",
+          "name": "FIND",
+          "vo": "op_doctor_find_stage",
+          "voice": "Choose the plushy with the glowing ouch!"
+        },
+        {
+          "goal": 2.0,
+          "mode": "xray_scan",
+          "name": "X-RAY",
+          "vo": "op_doctor_x_ray_stage",
+          "voice": "Slide the scanner over the plushy to find the sore spots!"
+        },
+        {
+          "goal": 1.8,
+          "mode": "circle",
+          "name": "CAST",
+          "vo": "op_doctor_cast_stage",
+          "voice": "Draw gentle circles to wrap the soft cast!"
+        },
+        {
+          "goal": 5.0,
+          "mode": "swipe",
+          "name": "BANDAGE",
+          "vo": "op_doctor_bandage_stage",
+          "voice": "Swipe the stretchy bandage around the plushy!"
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 6,
+      "aspect": "1600x720",
+      "career": "farmer",
+      "id": "career-farmer",
+      "lane": "career",
+      "phase_count": 4,
+      "phases": [
+        {
+          "goal": 5.0,
+          "mode": "garden_plant",
+          "name": "PLANT",
+          "vo": "op_farmer_plant_stage",
+          "voice": "Plant each seed in the glowing garden bed!",
+          "widget": ""
+        },
+        {
+          "goal": 4.0,
+          "mode": "farm_lob",
+          "name": "TOSS",
+          "vo": "op_farmer_feed_stage",
+          "voice": "Pull back a vegetable and toss it gently to a piggy!"
+        },
+        {
+          "goal": 6.0,
+          "mode": "swipe",
+          "name": "HERD",
+          "vo": "op_farmer_herd_stage",
+          "voice": "Sweep the happy piggies through the barn gate!"
+        },
+        {
+          "goal": 3.0,
+          "mode": "tap",
+          "name": "PICNIC",
+          "vo": "op_farmer_picnic_stage",
+          "voice": "Set one picnic snack beside every piggy!"
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 7,
+      "aspect": "1600x720",
+      "career": "boxer",
+      "id": "career-boxer",
+      "lane": "career",
+      "phase_count": 5,
+      "phases": [
+        {
+          "goal": 2.0,
+          "mode": "boxing_guide",
+          "name": "GLOVE GUIDE",
+          "vo": "op_boxer_work",
+          "voice": "Put a finger on a glove and push it toward the glowing mitt!",
+          "widget": ""
+        },
+        {
+          "goal": 4.0,
+          "mode": "boxing_jab",
+          "name": "JAB PRACTICE",
+          "vo": "op_boxer_jab_stage",
+          "voice": "Jab practice! Punch each glowing training pad!",
+          "widget": ""
+        },
+        {
+          "goal": 3.0,
+          "mode": "boxing_guard",
+          "name": "SOFT GUARD",
+          "vo": "op_boxer_duck_stage",
+          "voice": "Bring a glove into the glowing guard bubble!",
+          "widget": ""
+        },
+        {
+          "goal": 6.0,
+          "mode": "boxing_imp",
+          "name": "TITLE IMP",
+          "vo": "op_boxer_bell_chase_stage",
+          "voice": "The boxer imp rang the bell! Punch when the bright star opens!",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "boxing_belt",
+          "name": "BELT",
+          "vo": "op_boxer_belt_stage",
+          "voice": "Punch the glowing championship belt for the curtain call!",
+          "widget": ""
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 8,
+      "aspect": "1600x720",
+      "career": "magician",
+      "id": "career-magician",
+      "lane": "career",
+      "phase_count": 8,
+      "phases": [
+        {
+          "goal": 3.8,
+          "mode": "hold",
+          "name": "VANISH",
+          "performance_part": "practice",
+          "source_phase": 0,
+          "visual_context": "magic_vanish",
+          "vo": "op_magician_vanish_stage",
+          "voice": "Hold the wand to hide Lamba under a hat!",
+          "widget": ""
+        },
+        {
+          "goal": 5.0,
+          "mode": "choice",
+          "name": "TRACK",
+          "performance_part": "practice",
+          "source_phase": 1,
+          "vo": "op_magician_track",
+          "voice": "Follow the glowing hat through the shuffle!"
+        },
+        {
+          "goal": 5.0,
+          "mode": "swipe",
+          "name": "ROPE",
+          "performance_part": "practice",
+          "source_phase": 2,
+          "vo": "op_magician_rope_stage",
+          "voice": "Swipe the knotted rope into one long ribbon!"
+        },
+        {
+          "goal": 3.8,
+          "mode": "hold",
+          "name": "VANISH",
+          "performance_part": "stage",
+          "source_phase": 0,
+          "visual_context": "magic_vanish",
+          "vo": "op_magician_vanish_stage",
+          "voice": "Hold the wand to hide Lamba under a hat!",
+          "widget": ""
+        },
+        {
+          "goal": 5.0,
+          "mode": "choice",
+          "name": "TRACK",
+          "performance_part": "stage",
+          "source_phase": 1,
+          "vo": "op_magician_track",
+          "voice": "Follow the glowing hat through the shuffle!"
+        },
+        {
+          "goal": 5.0,
+          "mode": "swipe",
+          "name": "ROPE",
+          "performance_part": "stage",
+          "source_phase": 2,
+          "vo": "op_magician_rope_stage",
+          "voice": "Swipe the knotted rope into one long ribbon!"
+        },
+        {
+          "goal": 1.0,
+          "mode": "magic_cabinet",
+          "name": "CABINET",
+          "performance_part": "stage",
+          "source_phase": 3,
+          "vo": "op_magician_cabinet_stage",
+          "voice": "Swipe down to open the magic cabinet!",
+          "widget": ""
+        },
+        {
+          "goal": 2.0,
+          "mode": "circle",
+          "name": "PORTAL",
+          "performance_part": "stage",
+          "source_phase": 4,
+          "vo": "op_magician_portal_stage",
+          "voice": "Draw circles to open the star portal!"
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 10,
+      "aspect": "1600x720",
+      "career": "painter",
+      "id": "career-painter",
+      "lane": "career",
+      "phase_count": 3,
+      "phases": [
+        {
+          "goal": 1.0,
+          "mode": "paint_reveal",
+          "name": "PAINT",
+          "vo": "op_painter_sketch_stage",
+          "voice": "Paint across the cloudy canvas to reveal the sunrise!"
+        },
+        {
+          "goal": 5.0,
+          "mode": "tap",
+          "name": "STAMPS",
+          "vo": "op_painter_splat_stage",
+          "voice": "Add any five bright finishing stamps!"
+        },
+        {
+          "goal": 1.0,
+          "mode": "choice",
+          "name": "GALLERY",
+          "vo": "op_painter_reveal_stage",
+          "voice": "Choose the glowing frame and hang your sunrise!"
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 11,
+      "aspect": "1600x720",
+      "career": "astronaut",
+      "id": "career-astronaut",
+      "lane": "career",
+      "phase_count": 4,
+      "phases": [
+        {
+          "goal": 3.0,
+          "mode": "pipe",
+          "name": "PIPES",
+          "vo": "op_astronaut_pipes_stage",
+          "voice": "Connect the fuel tank to the rocket through three pipe boards!"
+        },
+        {
+          "goal": 5.0,
+          "mode": "tap",
+          "name": "PATCH",
+          "vo": "op_astronaut_patch_stage",
+          "voice": "Patch every sparkling leak on the rocket!"
+        },
+        {
+          "goal": 1.8,
+          "mode": "circle",
+          "name": "VALVE",
+          "vo": "op_astronaut_valve",
+          "voice": "Draw circles to turn the launch valve!"
+        },
+        {
+          "goal": 4.5,
+          "mode": "hold",
+          "name": "LAUNCH",
+          "vo": "op_astronaut_launch_stage",
+          "voice": "Hold through the countdown and launch!"
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 12,
+      "aspect": "1600x720",
+      "career": "racer",
+      "id": "career-racer",
+      "lane": "career",
+      "phase_count": 3,
+      "phases": [
+        {
+          "goal": 1.8,
+          "mode": "circle",
+          "name": "TUNE",
+          "vo": "op_racer_tune_up_stage",
+          "voice": "Turn the wrench to finish the pit stop!"
+        },
+        {
+          "goal": 5.0,
+          "mode": "swipe",
+          "name": "TO THE LINE",
+          "vo": "op_racer_to_the_line_stage",
+          "voice": "Push the kart to the pearl starting arch!"
+        },
+        {
+          "goal": 2.0,
+          "mode": "kart_race",
+          "name": "RACE",
+          "vo": "op_racer_steer",
+          "voice": "Swipe to steer through the coral gates!",
+          "widget": ""
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 13,
+      "aspect": "1600x720",
+      "career": "popstar",
+      "id": "career-popstar",
+      "lane": "career",
+      "phase_count": 7,
+      "phases": [
+        {
+          "goal": 3.8,
+          "mode": "hold",
+          "name": "SOUND CHECK",
+          "performance_part": "practice",
+          "source_phase": 0,
+          "vo": "op_popstar_sound_check_stage",
+          "voice": "Hold the microphone while the rainbow note grows!"
+        },
+        {
+          "goal": 6.0,
+          "mode": "choice",
+          "name": "DANCE",
+          "performance_part": "practice",
+          "source_phase": 1,
+          "vo": "op_popstar_dance",
+          "voice": "Tap the glowing dance arrow!"
+        },
+        {
+          "goal": 3.0,
+          "mode": "echo",
+          "name": "RHYTHM",
+          "performance_part": "practice",
+          "source_phase": 2,
+          "vo": "op_popstar_rhythm_stage",
+          "voice": "Listen to the three stars, then sing their song back!"
+        },
+        {
+          "goal": 3.8,
+          "mode": "hold",
+          "name": "SOUND CHECK",
+          "performance_part": "stage",
+          "source_phase": 0,
+          "vo": "op_popstar_sound_check_stage",
+          "voice": "Hold the microphone while the rainbow note grows!"
+        },
+        {
+          "goal": 6.0,
+          "mode": "choice",
+          "name": "DANCE",
+          "performance_part": "stage",
+          "source_phase": 1,
+          "vo": "op_popstar_dance",
+          "voice": "Tap the glowing dance arrow!"
+        },
+        {
+          "goal": 3.0,
+          "mode": "echo",
+          "name": "RHYTHM",
+          "performance_part": "stage",
+          "source_phase": 2,
+          "vo": "op_popstar_rhythm_stage",
+          "voice": "Listen to the three stars, then sing their song back!"
+        },
+        {
+          "goal": 1.8,
+          "mode": "circle",
+          "name": "ENCORE",
+          "performance_part": "stage",
+          "source_phase": 3,
+          "vo": "op_popstar_encore_stage",
+          "voice": "Draw one big encore spin for the crowd!"
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 15,
+      "aspect": "1600x720",
+      "career": "nursery",
+      "id": "career-nursery",
+      "lane": "career",
+      "phase_count": 5,
+      "phases": [
+        {
+          "goal": 3.4,
+          "mode": "hold",
+          "name": "WASH HANDS",
+          "visual_context": "nursery_wash",
+          "vo": "op_nursery_wash_stage",
+          "voice": "Hold the bubbly basin to wash your hands first!",
+          "widget": ""
+        },
+        {
+          "goal": 5.0,
+          "mode": "catch",
+          "name": "CATCH BABIES",
+          "speaker": "Faron",
+          "vo": "op_nursery_catch",
+          "voice": "Slide the soft cradle under five babies. Pillows keep every miss safe!"
+        },
+        {
+          "goal": 4.0,
+          "mode": "hold",
+          "name": "FEED",
+          "speaker": "Faron",
+          "visual_context": "nursery_feed",
+          "vo": "op_nursery_feed",
+          "voice": "Hold the warm bottle while Roshan and Faron feed each baby!",
+          "widget": ""
+        },
+        {
+          "goal": 4.0,
+          "mode": "tap",
+          "name": "BURP",
+          "pace": 0.55,
+          "visual_context": "nursery_burp",
+          "vo": "op_nursery_burp_stage",
+          "voice": "Pat the baby's back gently and slowly: pat, pat, pat!",
+          "widget": ""
+        },
+        {
+          "dir": "down",
+          "goal": 3.0,
+          "mode": "swipe",
+          "name": "BEDTIME",
+          "speaker": "Faron",
+          "visual_context": "nursery_bedtime",
+          "vo": "op_nursery_bedtime",
+          "voice": "Swipe each blanket down and tuck every baby into bed!",
+          "widget": ""
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 16,
+      "aspect": "1600x720",
+      "career": "geologist",
+      "id": "career-geologist",
+      "lane": "career",
+      "phase_count": 4,
+      "phases": [
+        {
+          "goal": 1.0,
+          "mode": "geology_river",
+          "name": "RIVER",
+          "vo": "grotto_discovered",
+          "voice": "A secret grotto! The stones want to play!",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "geology_fossil",
+          "name": "FOSSIL",
+          "vo": "bathroom_tub_brush",
+          "voice": "Brush it back and forth. Swish, swish!",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "geology_pan",
+          "name": "PAN",
+          "vo": "grotto_discovered",
+          "voice": "A secret grotto! The stones want to play!",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "geology_geode",
+          "name": "GEODE",
+          "vo": "grotto_discovered",
+          "voice": "A secret grotto! The stones want to play!",
+          "widget": ""
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 17,
+      "aspect": "1600x720",
+      "career": "teacher",
+      "id": "career-teacher",
+      "lane": "career",
+      "phase_count": 4,
+      "phases": [
+        {
+          "goal": 1.0,
+          "mode": "teacher_pattern",
+          "name": "PATTERN",
+          "vo": "teacher_pattern",
+          "voice": "What comes next? Tap the shape that finishes the pattern.",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "teacher_count",
+          "name": "COUNT",
+          "vo": "teacher_count",
+          "voice": "Touch each pearl, one at a time. Then find the group with the same number.",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "teacher_add",
+          "name": "ADD",
+          "vo": "teacher_add",
+          "voice": "Put the two groups together. Touch each pearl to count them all.",
+          "widget": ""
+        },
+        {
+          "goal": 1.0,
+          "mode": "teacher_match",
+          "name": "MATCH",
+          "vo": "teacher_match",
+          "voice": "Find the same shape.",
+          "widget": ""
+        }
+      ],
+      "story_qualification": "Production freeplay configuration"
+    },
+    {
+      "act_index": 6,
+      "aspect": "1600x720",
+      "career": "farmer",
+      "id": "day2-farmer",
+      "lane": "day2",
+      "phase_count": 3,
+      "phases": [
+        {
+          "goal": 5.0,
+          "milestone": "gather_strawberries",
+          "mode": "tap",
+          "name": "GATHER STRAWBERRIES",
+          "piece_path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png",
+          "vo": "chapter2_farmer_gather_strawberries",
+          "voice": "Gather exactly five ripe Sky Lagoon strawberries!",
+          "widget": "",
+          "widget_context": ""
+        },
+        {
+          "goal": 5.0,
+          "milestone": "fill_basket",
+          "mode": "tap",
+          "name": "FILL BASKET",
+          "piece_path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png",
+          "vo": "chapter2_farmer_fill_basket",
+          "voice": "Load all five strawberries into the basket!",
+          "widget": "",
+          "widget_context": ""
+        },
+        {
+          "goal": 6.0,
+          "milestone": "deliver_to_kitchen",
+          "mode": "swipe",
+          "name": "DELIVER TO KITCHEN",
+          "vo": "chapter2_farmer_deliver_to_kitchen",
+          "voice": "Swipe the full basket all the way to the kitchen!",
+          "widget_context": "push_farmer"
+        }
+      ],
+      "story_qualification": "Explicit catalog phase fixture; unmodified story setup separately checked"
+    },
+    {
+      "act_index": 0,
+      "aspect": "1600x720",
+      "career": "chef",
+      "id": "day2-chef",
+      "lane": "day2",
+      "phase_count": 5,
+      "phases": [
+        {
+          "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_batter_unstirred.png",
+          "goal": 5.0,
+          "milestone": "mix",
+          "mode": "pourt",
+          "name": "MIX",
+          "vo": "op_chef_pour_stage",
+          "voice": "Tip the sparkling batter into the bowl!"
+        },
+        {
+          "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_batter_stirred.png",
+          "goal": 2.0,
+          "milestone": "stir",
+          "mode": "circle",
+          "name": "STIR",
+          "vo": "op_chef_stir_stage",
+          "voice": "Draw big circles to stir the batter!"
+        },
+        {
+          "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_baked_tiers_unstacked.png",
+          "goal": 6.0,
+          "milestone": "bake",
+          "mode": "oven",
+          "name": "BAKE",
+          "vo": "op_chef_bake_stage",
+          "voice": "Watch for golden, then take the cake out with the mitt!"
+        },
+        {
+          "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_stacked_unfrosted_cake.png",
+          "goal": 3.0,
+          "milestone": "stack",
+          "mode": "tap",
+          "name": "STACK",
+          "vo": "chapter2_chef_stack",
+          "voice": "Tap each cake tier to stack the rainbow cake!"
+        },
+        {
+          "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png",
+          "goal": 6.0,
+          "milestone": "frost",
+          "mode": "swipe",
+          "name": "FROST",
+          "vo": "op_chef_pipe_stage",
+          "voice": "Trace the frosting ribbon across the cake!"
+        }
+      ],
+      "story_qualification": "Explicit catalog phase fixture; unmodified story setup separately checked"
+    },
+    {
+      "act_index": 3,
+      "aspect": "1600x720",
+      "career": "candymaker",
+      "id": "day2-candymaker",
+      "lane": "day2",
+      "phase_count": 4,
+      "phases": [
+        {
+          "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png",
+          "goal": 5.0,
+          "ingredient_path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+          "milestone": "coat_strawberries",
+          "mode": "pourt",
+          "name": "COAT STRAWBERRIES",
+          "vo": "chapter2_candymaker_coat_strawberries",
+          "voice": "Tip the shiny coat over the strawberries!",
+          "widget_context": "pour_candymaker"
+        },
+        {
+          "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png",
+          "goal": 6.0,
+          "ingredient_path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+          "milestone": "sort_strawberries",
+          "mode": "candy_sort",
+          "name": "SORT STRAWBERRIES",
+          "vo": "chapter2_candymaker_sort_strawberries",
+          "voice": "Sort the same strawberries by their matching color!",
+          "widget_context": "lanes_candymaker"
+        },
+        {
+          "cake_accessory_asset": "res://assets/chapter2/birthday/chapter2_candied_strawberries_tray.png",
+          "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png",
+          "goal": 2.0,
+          "ingredient_path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+          "milestone": "glaze_strawberries",
+          "mode": "circle",
+          "name": "GLAZE STRAWBERRIES",
+          "vo": "chapter2_candymaker_glaze_strawberries",
+          "voice": "Twist the glaze around each strawberry!",
+          "widget_context": "crank_candymaker"
+        },
+        {
+          "cake_stage_asset": "res://assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png",
+          "goal": 5.0,
+          "ingredient_path": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+          "milestone": "place_candied_strawberries",
+          "mode": "tap",
+          "name": "PLACE ON CAKE",
+          "prop": "res://assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png",
+          "vo": "chapter2_candymaker_place_candied_strawberries",
+          "voice": "Place the five candied strawberries on the actual cake!",
+          "widget_context": "target_candymaker"
+        }
+      ],
+      "story_qualification": "Explicit catalog phase fixture; unmodified story setup separately checked"
+    },
+    {
+      "act_index": 10,
+      "aspect": "1600x720",
+      "career": "painter",
+      "id": "day2-painter",
+      "lane": "day2",
+      "phase_count": 3,
+      "phases": [
+        {
+          "goal": 1.0,
+          "milestone": "paint_banner",
+          "mode": "paint_reveal",
+          "name": "PAINT",
+          "prop": "res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png",
+          "subject": "birthday_banner",
+          "vo": "chapter2_painter_paint_banner",
+          "voice": "Paint the birthday banner for Main Hall!",
+          "widget_context": "trace_painter"
+        },
+        {
+          "goal": 5.0,
+          "milestone": "stamp_banner",
+          "mode": "tap",
+          "name": "STAMP",
+          "prop": "res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png",
+          "subject": "birthday_banner",
+          "vo": "op_painter_splat_stage",
+          "voice": "Stamp bright birthday stars on the banner!",
+          "widget_context": "target_painter"
+        },
+        {
+          "goal": 1.0,
+          "milestone": "hang_banner",
+          "mode": "choice",
+          "name": "HANG",
+          "prop": "res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png",
+          "subject": "birthday_banner",
+          "vo": "chapter2_painter_hang_banner",
+          "voice": "Choose the Main Hall spot and hang the birthday banner!",
+          "widget_context": "lanes_painter"
+        }
+      ],
+      "story_qualification": "Explicit catalog phase fixture; unmodified story setup separately checked"
+    },
+    {
+      "act_index": 2,
+      "aspect": "1600x720",
+      "career": "ballerina",
+      "id": "day2-ballerina",
+      "lane": "day2",
+      "phase_count": 3,
+      "phases": [
+        {
+          "goal": 3.0,
+          "milestone": "stuffies_mirror",
+          "mode": "ballet_pose",
+          "name": "STUFFIES MIRROR",
+          "subject": "stuffies",
+          "vo": "chapter2_ballerina_stuffies_mirror",
+          "voice": "Tap the matching pose as the stuffies mirror Roshan!"
+        },
+        {
+          "goal": 6.0,
+          "milestone": "stuffies_twirling",
+          "mode": "ballet_ribbon",
+          "name": "STUFFIES TWIRL",
+          "subject": "stuffies",
+          "vo": "op_ballerina_ribbon",
+          "voice": "Guide the ribbon while the stuffies twirl along!"
+        },
+        {
+          "goal": 2.0,
+          "milestone": "stuffies_bow",
+          "mode": "ballet_twirl",
+          "name": "STUFFIES BOW",
+          "subject": "stuffies",
+          "vo": "op_ballerina_twirl",
+          "voice": "Take one grand twirl, then bow with the stuffies!"
+        }
+      ],
+      "story_qualification": "Explicit catalog phase fixture; unmodified story setup separately checked"
+    },
+    {
+      "act_index": 13,
+      "aspect": "1600x720",
+      "career": "popstar",
+      "id": "day2-popstar",
+      "lane": "day2",
+      "phase_count": 4,
+      "phases": [
+        {
+          "goal": 3.8,
+          "milestone": "sound_check",
+          "mode": "hold",
+          "name": "SOUND CHECK",
+          "subject": "rumi",
+          "visual_context": "charge_popstar",
+          "vo": "op_popstar_sound_check_stage",
+          "voice": "Hold the microphone while Rumi checks the rainbow note!"
+        },
+        {
+          "goal": 3.0,
+          "milestone": "stage_rumi",
+          "mode": "choice",
+          "name": "STAGE RUMI",
+          "subject": "rumi",
+          "vo": "op_popstar_dance",
+          "voice": "Tap the glowing arrow to stage Rumi with the band!"
+        },
+        {
+          "goal": 3.0,
+          "milestone": "rhythm",
+          "mode": "echo",
+          "name": "RHYTHM",
+          "vo": "op_popstar_rhythm_stage",
+          "voice": "Listen to the three stars, then sing their song back!"
+        },
+        {
+          "goal": 2.0,
+          "milestone": "encore",
+          "mode": "circle",
+          "name": "ENCORE",
+          "vo": "op_popstar_encore_stage",
+          "voice": "Draw one big encore spin for the crowd!"
+        }
+      ],
+      "story_qualification": "Explicit catalog phase fixture; unmodified story setup separately checked"
+    },
+    {
+      "act_index": 11,
+      "aspect": "1600x720",
+      "career": "astronaut",
+      "id": "day2-astronaut",
+      "lane": "day2",
+      "phase_count": 4,
+      "phases": [
+        {
+          "goal": 3.0,
+          "milestone": "build_rocket",
+          "mode": "pipe",
+          "name": "BUILD ROCKET",
+          "vo": "op_astronaut_pipes_stage",
+          "voice": "Connect the rocket parts from the tank to the nose!"
+        },
+        {
+          "goal": 5.0,
+          "milestone": "patch",
+          "mode": "tap",
+          "name": "PATCH",
+          "vo": "op_astronaut_patch_stage",
+          "voice": "Tap every sparkling leak to patch the rocket!"
+        },
+        {
+          "goal": 1.8,
+          "milestone": "valve",
+          "mode": "circle",
+          "name": "VALVE",
+          "vo": "op_astronaut_valve",
+          "voice": "Turn the launch valve, but keep the rocket parked!"
+        },
+        {
+          "goal": 5.0,
+          "milestone": "ready_park",
+          "mode": "swipe",
+          "name": "READY PARK",
+          "rocket_state": "parked_ready_unlaunched",
+          "vo": "chapter2_astronaut_ready_park",
+          "voice": "Park the repaired rocket and leave it ready for later!",
+          "widget_context": "push_racer"
+        }
+      ],
+      "story_qualification": "Explicit catalog phase fixture; unmodified story setup separately checked"
+    },
+    {
+      "act_index": 1,
+      "aspect": "1600x720",
+      "career": "detective",
+      "id": "day2-detective",
+      "lane": "day2",
+      "phase_count": 3,
+      "phases": [
+        {
+          "goal": 3.0,
+          "milestone": "storybook_lens",
+          "mode": "lens",
+          "name": "LENS",
+          "vo": "op_detective_lens_stage",
+          "voice": "Sweep the lens across the magic storybook clues!"
+        },
+        {
+          "goal": 3.0,
+          "milestone": "storybook_board",
+          "mode": "tap",
+          "name": "STORYBOOK BOARD",
+          "vo": "op_detective_match",
+          "voice": "Tap each glowing storybook clue on the board!",
+          "widget_context": "storybook_board"
+        },
+        {
+          "goal": 1.0,
+          "mechanic": "unlit_rainbow_candle",
+          "milestone": "unlit_rainbow_candle_reveal",
+          "mode": "tap",
+          "name": "UNLIT RAINBOW CANDLE",
+          "reveal": "unlit_rainbow_candle",
+          "vo": "chapter2_detective_unlit_rainbow_candle_reveal",
+          "voice": "Tap the unlit rainbow candle to reveal the final clue!",
+          "widget_context": "unlit_rainbow_candle"
+        }
+      ],
+      "story_qualification": "Explicit catalog phase fixture; unmodified story setup separately checked"
+    },
+    {
+      "aspect": "1600x720",
+      "career": "arborist",
+      "id": "practice-arborist",
+      "lane": "practice",
+      "phase_count": 6
+    }
+  ],
+  "engine": {
+    "build": "official",
+    "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+    "hex": 263938,
+    "major": 4,
+    "minor": 7,
+    "patch": 2,
+    "status": "stable",
+    "string": "4.7.2-stable (official)",
+    "timestamp": 0
+  },
+  "harness_sha256": "048e45cfce65b7c3834338a805fe0a735ad1a9ccd76b419b648d1ff9d1b5563b",
+  "launch_checks": [
+    {
+      "act_index": 6,
+      "career": "farmer",
+      "phase_count": 0,
+      "production_equivalent_config": {
+        "career": "Farmer",
+        "costume": "farmer",
+        "curtain": "(0.4, 0.6, 0.35, 1.0)",
+        "emoji": "🐷",
+        "floor_col": "(0.55, 0.75, 0.5, 1.0)",
+        "gift": "carrots",
+        "kind": "scroll",
+        "music": "opera_farmer",
+        "name": "The Piggy Picnic Challenge",
+        "piggies": 12,
+        "rescue": "farmers",
+        "rescue_imps": 5,
+        "reward_policy": "chapter2_story",
+        "run_context": {
+          "chapter": "chapter2"
+        },
+        "save_bit": 6,
+        "scene_adapter": {
+          "backdrop": "sky_lagoon_farmer",
+          "cake_asset": "",
+          "career": "farmer",
+          "delivery": "kitchen",
+          "destination": "",
+          "finale_start": 2,
+          "id": "chapter2_farmer_strawberries",
+          "mechanic": "",
+          "persistent_prop": false,
+          "phase_count": 3,
+          "prop": "res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png",
+          "rocket_state": "",
+          "story_object": "",
+          "strawberry_asset": "res://assets/chapter2/birthday/sky_lagoon_strawberry_cluster.png",
+          "widget": ""
+        },
+        "story": 2,
+        "trim": "(0.95, 0.9, 0.55, 1.0)",
+        "type": "show",
+        "voice": "Farmer Roshan! Plant, feed and guide your piggies while the farmer imp tends the next meadow lane. Make the happiest herd!",
+        "win_line": "Roshan's happy herd wins the Piggy Picnic Challenge!"
+      },
+      "qualification": "Direct world seam using the unmodified OperaHouse story configuration, not UI route traversal",
+      "root_built": false
+    },
+    {
+      "act_index": 0,
+      "career": "chef",
+      "phase_count": 0,
+      "production_equivalent_config": {
+        "career": "Pastry Chef",
+        "costume": "chef",
+        "curtain": "(0.85, 0.3, 0.4, 1.0)",
+        "decorate": 4,
+        "emoji": "🍰",
+        "finale": "stir",
+        "floor_col": "(0.72, 0.5, 0.62, 1.0)",
+        "gift": "carrots",
+        "imps": 6,
+        "kind": "order",
+        "music": "opera_chef",
+        "name": "The Castle Bake-Off",
+        "order": [
+          0,
+          2,
+          1,
+          0,
+          2
+        ],
+        "props": "cake",
+        "rescue": "farmers",
+        "reward_policy": "chapter2_story",
+        "run_context": {
+          "chapter": "chapter2"
+        },
+        "save_bit": 0,
+        "scene_adapter": {
+          "backdrop": "chapter2_chef_cake",
+          "cake_asset": "res://assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png",
+          "career": "chef",
+          "delivery": "",
+          "destination": "",
+          "finale_start": 5,
+          "id": "chapter2_chef_cake",
+          "mechanic": "",
+          "persistent_prop": false,
+          "phase_count": 5,
+          "prop": "",
+          "rocket_state": "",
+          "story_object": "",
+          "strawberry_asset": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+          "widget": ""
+        },
+        "shell": true,
+        "story": 1,
+        "trim": "(1.0, 0.78, 0.86, 1.0)",
+        "type": "show",
+        "uses": "carrots",
+        "voice": "Chef hat on! You and the pastry imp each have a kitchen. Sift, pour, stir, bake, pipe and decorate the brightest celebration cake for the crowd!",
+        "win_line": "Roshan's celebration cake wins the Castle Bake-Off!"
+      },
+      "qualification": "Direct world seam using the unmodified OperaHouse story configuration, not UI route traversal",
+      "root_built": false
+    },
+    {
+      "act_index": 3,
+      "career": "candymaker",
+      "phase_count": 0,
+      "production_equivalent_config": {
+        "candies": 9,
+        "career": "Candy Maker",
+        "costume": "candymaker",
+        "curtain": "(0.82, 0.35, 0.5, 1.0)",
+        "emoji": "🍬",
+        "floor_col": "(0.78, 0.5, 0.58, 1.0)",
+        "gift": "sugar",
+        "kind": "press",
+        "music": "opera_candymaker",
+        "name": "The Candy Workshop Cup",
+        "rescue": "sweet-shop mice",
+        "rescue_imps": 4,
+        "reward_policy": "chapter2_story",
+        "run_context": {
+          "chapter": "chapter2"
+        },
+        "save_bit": 3,
+        "scene_adapter": {
+          "backdrop": "strawberry_cake_workshop",
+          "cake_asset": "res://assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png",
+          "career": "candymaker",
+          "delivery": "",
+          "destination": "",
+          "finale_start": 3,
+          "id": "strawberry_cake_workshop",
+          "mechanic": "",
+          "persistent_prop": false,
+          "phase_count": 4,
+          "prop": "",
+          "rocket_state": "",
+          "story_object": "",
+          "strawberry_asset": "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+          "widget": ""
+        },
+        "story": 1,
+        "trim": "(1.0, 0.75, 0.82, 1.0)",
+        "type": "show",
+        "voice": "Candy Maker Roshan! Mix, sort, wrap and load your parade candies while the candy imp runs the rival workshop!",
+        "win_line": "Roshan's smiling sweets win the Candy Workshop Cup!"
+      },
+      "qualification": "Direct world seam using the unmodified OperaHouse story configuration, not UI route traversal",
+      "root_built": false
+    },
+    {
+      "act_index": 10,
+      "career": "painter",
+      "phase_count": 0,
+      "production_equivalent_config": {
+        "career": "Painter",
+        "costume": "painter",
+        "curtain": "(0.75, 0.42, 0.3, 1.0)",
+        "decorate": 5,
+        "decorate_theme": "splatter",
+        "emoji": "🎨",
+        "floor_col": "(0.65, 0.5, 0.42, 1.0)",
+        "flow": "carry_paint",
+        "gift": "paints",
+        "imps": 5,
+        "kind": "paint",
+        "music": "opera_painter",
+        "name": "The Sunrise Paint-Off",
+        "order": [
+          2,
+          0,
+          1,
+          2,
+          0
+        ],
+        "props": "paint",
+        "rescue": "painter",
+        "reward_policy": "chapter2_story",
+        "run_context": {
+          "chapter": "chapter2"
+        },
+        "save_bit": 10,
+        "scene_adapter": {
+          "backdrop": "main_hall_birthday_banner",
+          "cake_asset": "",
+          "career": "painter",
+          "delivery": "",
+          "destination": "main_hall",
+          "finale_start": 3,
+          "id": "main_hall_birthday_banner",
+          "mechanic": "",
+          "persistent_prop": true,
+          "phase_count": 3,
+          "prop": "res://assets/flats/castle/logo_studio_v2/castle_banner_rainbow.png",
+          "rocket_state": "",
+          "story_object": "",
+          "strawberry_asset": "",
+          "widget": ""
+        },
+        "shell": true,
+        "story": 3,
+        "trim": "(1.0, 0.82, 0.55, 1.0)",
+        "type": "show",
+        "uses": "paints",
+        "voice": "Painter Roshan! You and the painter imp have matching easels. Trace, fill and paint your sunrise before the gallery reveal!",
+        "win_line": "Roshan's sunrise wins the paint-off and hangs in the gallery!"
+      },
+      "qualification": "Direct world seam using the unmodified OperaHouse story configuration, not UI route traversal",
+      "root_built": false
+    },
+    {
+      "act_index": 2,
+      "career": "ballerina",
+      "phase_count": 0,
+      "production_equivalent_config": {
+        "career": "Ballerina",
+        "costume": "ballerina",
+        "curtain": "(0.55, 0.3, 0.62, 1.0)",
+        "emoji": "🩰",
+        "floor_col": "(0.62, 0.45, 0.72, 1.0)",
+        "gift": "ribbons",
+        "kind": "echo",
+        "music": "opera_ballerina",
+        "name": "The Mermaid Pearl Ballet Party",
+        "pads": 3,
+        "pitch": 0.6,
+        "rescue": "dancers",
+        "rescue_imps": 4,
+        "reward_policy": "chapter2_story",
+        "rounds": [
+          2,
+          3,
+          3
+        ],
+        "run_context": {
+          "chapter": "chapter2"
+        },
+        "save_bit": 2,
+        "scene_adapter": {
+          "backdrop": "stuffie_room",
+          "cake_asset": "",
+          "career": "ballerina",
+          "delivery": "",
+          "destination": "",
+          "finale_start": 2,
+          "id": "stuffie_room",
+          "mechanic": "",
+          "persistent_prop": false,
+          "phase_count": 3,
+          "prop": "res://assets/flats/castle/rooms/room_playroom_item_stuffie_nook.png",
+          "rocket_state": "",
+          "story_object": "",
+          "strawberry_asset": "",
+          "widget": ""
+        },
+        "silence_entry_voice": true,
+        "story": 1,
+        "trim": "(1.0, 0.72, 0.86, 1.0)",
+        "type": "show",
+        "voice": "Mermaid ballet party! Hold pearl poses, guide the glowing ribbon, and finish with one beautiful grand twirl!",
+        "win_line": "Roshan's pearl-ribbon ballet ends with a beautiful grand twirl!"
+      },
+      "qualification": "Direct world seam using the unmodified OperaHouse story configuration, not UI route traversal",
+      "root_built": false
+    },
+    {
+      "act_index": 13,
+      "career": "popstar",
+      "phase_count": 0,
+      "production_equivalent_config": {
+        "career": "Pop Star",
+        "costume": "popstar",
+        "curtain": "(0.45, 0.2, 0.55, 1.0)",
+        "emoji": "🎤",
+        "floor_col": "(0.5, 0.3, 0.6, 1.0)",
+        "gift": "instruments",
+        "kind": "dance",
+        "music": "opera_popstar",
+        "name": "The Starlight Sound-Off",
+        "rescue": "the band",
+        "rescue_imps": 4,
+        "reward_policy": "chapter2_story",
+        "run_context": {
+          "chapter": "chapter2"
+        },
+        "save_bit": 13,
+        "scene_adapter": {
+          "backdrop": "chapter2_popstar_rumi",
+          "cake_asset": "",
+          "career": "popstar",
+          "delivery": "",
+          "destination": "",
+          "finale_start": 2,
+          "id": "chapter2_popstar_rumi",
+          "mechanic": "",
+          "persistent_prop": false,
+          "phase_count": 4,
+          "prop": "",
+          "rocket_state": "",
+          "story_object": "",
+          "strawberry_asset": "",
+          "widget": ""
+        },
+        "story": 3,
+        "trim": "(1.0, 0.7, 0.95, 1.0)",
+        "type": "show",
+        "voice": "Pop Star Roshan! The pop-star imp has the other microphone. Dance the floating arrows and lift the crowd higher with every rainbow phrase!",
+        "win_line": "Roshan wins the Starlight Sound-Off and the crowd sings along!"
+      },
+      "qualification": "Direct world seam using the unmodified OperaHouse story configuration, not UI route traversal",
+      "root_built": false
+    },
+    {
+      "act_index": 11,
+      "career": "astronaut",
+      "phase_count": 0,
+      "production_equivalent_config": {
+        "career": "Astronaut Engineer",
+        "costume": "astronaut",
+        "curtain": "(0.22, 0.26, 0.5, 1.0)",
+        "emoji": "🚀",
+        "floor_col": "(0.3, 0.34, 0.55, 1.0)",
+        "gift": "spare pipes",
+        "imps": 6,
+        "kind": "fix",
+        "music": "opera_astronaut",
+        "name": "The Rocket Repair Race",
+        "rescue": "bubble engineers",
+        "reward_policy": "chapter2_story",
+        "run_context": {
+          "chapter": "chapter2"
+        },
+        "save_bit": 11,
+        "scene_adapter": {
+          "backdrop": "chapter2_astronaut_rocket",
+          "cake_asset": "",
+          "career": "astronaut",
+          "delivery": "",
+          "destination": "",
+          "finale_start": 4,
+          "id": "chapter2_astronaut_rocket",
+          "mechanic": "",
+          "persistent_prop": false,
+          "phase_count": 4,
+          "prop": "res://assets/opera/worlds/props/goal_astronaut.png",
+          "rocket_state": "parked_ready_unlaunched",
+          "story_object": "",
+          "strawberry_asset": "",
+          "widget": ""
+        },
+        "shell": true,
+        "story": 3,
+        "trim": "(0.7, 0.9, 1.0, 1.0)",
+        "type": "show",
+        "uses": "spare pipes",
+        "voice": "Astronaut Engineer Roshan! Route your bubble pipes while the astronaut imp repairs the rival launch lane, then spin the valve and launch first!",
+        "win_line": "Roshan routes the bubbles and wins the Rocket Repair Race!"
+      },
+      "qualification": "Direct world seam using the unmodified OperaHouse story configuration, not UI route traversal",
+      "root_built": false
+    },
+    {
+      "act_index": 1,
+      "career": "detective",
+      "phase_count": 0,
+      "production_equivalent_config": {
+        "career": "Detective",
+        "clues": 5,
+        "costume": "detective",
+        "curtain": "(0.3, 0.35, 0.6, 1.0)",
+        "emoji": "🔍",
+        "floor_col": "(0.42, 0.46, 0.62, 1.0)",
+        "gift": "lanterns",
+        "imps": 6,
+        "kind": "sleuth",
+        "music": "opera_detective",
+        "name": "The Two-Detective Mystery",
+        "props_n": 12,
+        "rescue": "stagehands",
+        "reward_policy": "chapter2_story",
+        "run_context": {
+          "chapter": "chapter2"
+        },
+        "save_bit": 1,
+        "scene_adapter": {
+          "backdrop": "magic_storybook",
+          "cake_asset": "",
+          "career": "detective",
+          "delivery": "",
+          "destination": "",
+          "finale_start": 2,
+          "id": "magic_storybook",
+          "mechanic": "unlit_rainbow_candle",
+          "persistent_prop": false,
+          "phase_count": 3,
+          "prop": "res://assets/opera/worlds/props/goal_detective.png",
+          "rocket_state": "",
+          "story_object": "magic_storybook",
+          "strawberry_asset": "",
+          "widget": ""
+        },
+        "shell": true,
+        "story": 1,
+        "trim": "(0.72, 0.85, 1.0, 1.0)",
+        "type": "show",
+        "uses": "lanterns",
+        "voice": "Detective Roshan and the detective imp are solving the SAME case! Find five clues before the timer; if the imp gets there first, watch the answer and race the remembered mystery again!",
+        "win_line": "Case closed! Roshan solved the Two-Detective Mystery!"
+      },
+      "qualification": "Direct world seam using the unmodified OperaHouse story configuration, not UI route traversal",
+      "root_built": false
+    }
+  ],
+  "limitations": "Direct phase/open/progress/reward fixtures, hidden global HUD; no one-use authoritative layer proof, real route traversal, played motion, device, child or owner acceptance.",
+  "renderer": "mobile",
+  "schema": "reef.job_art_diagnostic.v1",
+  "state_files": [
+    "states/entrance-kitchen.json",
+    "states/entrance-opera_hall.json",
+    "states/entrance-library.json",
+    "states/entrance-craft_room.json",
+    "states/entrance-playroom.json",
+    "states/entrance-bubble_bath.json",
+    "states/entrance-mermaid_pool.json",
+    "states/entrance-dining_room.json",
+    "states/entrance-movie_lounge.json",
+    "states/career-chef.json",
+    "states/career-detective.json",
+    "states/career-ballerina.json",
+    "states/career-candymaker.json",
+    "states/career-doctor.json",
+    "states/career-farmer.json",
+    "states/career-boxer.json",
+    "states/career-magician.json",
+    "states/career-painter.json",
+    "states/career-astronaut.json",
+    "states/career-racer.json",
+    "states/career-popstar.json",
+    "states/career-nursery.json",
+    "states/career-geologist.json",
+    "states/career-teacher.json",
+    "states/day2-farmer.json",
+    "states/day2-chef.json",
+    "states/day2-candymaker.json",
+    "states/day2-painter.json",
+    "states/day2-ballerina.json",
+    "states/day2-popstar.json",
+    "states/day2-astronaut.json",
+    "states/day2-detective.json",
+    "states/practice-arborist.json"
+  ],
+  "raw_manifest_sha256": "8bef9a512a3bde0988ed2402675d80dd65f955ca7c4d6d57beceaab8b1bfe897",
+  "packaging": "Lossless JSON partition by context; every native state, item, snapshot, image and hash retained. No frame transformation."
+}

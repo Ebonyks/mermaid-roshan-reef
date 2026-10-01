@@ -1,0 +1,9 @@
+{
+  "source": "scripts/ci.sh",
+  "source_native_sha256": "92f94855c4d870a52e9ba7b71b7e01d51fa3a9a9ad503e1559b39cf93195f887",
+  "source_normalized_lf_sha256": "ca52d4b29e561de3a88c24de22134119903be17b65edf8c3770bf868102aa77e",
+  "resume_at": "python3 tools/audit_castle_interactions.py",
+  "suffix_sha256": "16faa8c223d0320a37065000f387d3408cbbf8752ded1d8aa8dce39407191f2a",
+  "reason": "Earlier original gates passed. Restore the exact committed sparse input missing at the recorded stop and continue every remaining original command, without changing source or tests.",
+  "suite_source_modified": false
+}

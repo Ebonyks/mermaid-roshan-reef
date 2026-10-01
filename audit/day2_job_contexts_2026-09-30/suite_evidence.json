@@ -1,0 +1,554 @@
+{
+  "engine": "Exactly Godot4.7.2-stable official.ed1daf0bf",
+  "source": "scripts/ci.sh",
+  "source_lf_sha256": "ca52d4b29e561de3a88c24de22134119903be17b65edf8c3770bf868102aa77e",
+  "suite_source_modified": false,
+  "result": "ALL_REQUIRED_GATES_AND_TRUSTED_PROBES_PASS_WITH_RECORDED_RESUMPTIONS",
+  "qualification": "The original single invocation stopped on absent sparse-checkout inputs. Continue the exact original suffix after restoring each committed input; full probe loop then recorded two missing-bus failures. Both original affected probes passed with the exact committed bus file restored. No game, test, probe, failure expression or source CI gate was changed; no claim the initial single invocation returned0.",
+  "gate_segments": [
+    "Original prefix through44 music checks and audio replacement gate: job-context-full-ci.log",
+    "Audio quality844,95 visual contract tests,18-case stress and scene/grade checks: job-context-ci-resumed.log",
+    "Castle checks resumed after exact committed review/native source inputs restored: resumed2 through6 logs",
+    "Original import and all trusted probes: resumed6; two original affected probes retried after missing default bus layout restored"
+  ],
+  "expected_probe_count": 82,
+  "probes": [
+    {
+      "probe": "probe_reef_districts",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_ocean_kingdoms",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_audit",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_passive",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_living_world",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_load",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_rank",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_save_recovery",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_galaxy_state",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_collection",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_mg2d",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_fetch",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_melody",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_dolls",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_seek",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_audio",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-retry-bus-probes.log",
+      "rerun_after_exact_missing_bus_restore": true
+    },
+    {
+      "probe": "probe_dance",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_l2",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_l2_living_cards",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_sky_lagoon_animals",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_l2_reenter",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_crown",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_throne",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_northern",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_human_art_audit",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_train",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_verbs",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_skins",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_touch_router",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_touch_stress",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_interaction",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_touch_adversary",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_touch_look",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_ui_system",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_voice",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_day_one_voice",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_day_one_d8_revisits",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_day_one_handoffs",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_kart_feel",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_combat",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_dust_bunny",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_dust_bunny_boss",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-retry-bus-probes.log",
+      "rerun_after_exact_missing_bus_restore": true
+    },
+    {
+      "probe": "probe_dust_boss",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_hit",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_partner",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_combat_tutorial",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_imp_ai",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_mic",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_stuffie",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_dungeon",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_ember",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_opera",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_opera_2d",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_opera_diegetic_paths",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_opera_detective",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_opera_pipe",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_opera_nursery",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_opera_gesture_quality",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_kitchen_props",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_bathroom_props",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_castle_door_language",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_bathroom_integration",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_day_one_bathroom_bunny",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_day_one_bathroom_cleanup",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_day_one_bathroom_movie_handoff",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_day_one_director",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_day_one_integration",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_day_one_pool_cleanup",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_day_one_art_attack_state",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_day_one_castle_dressing",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_day_one_story_clips",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_chapter2",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_chapter2_farmer_resume",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_chapter2_lawn",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_alpha_milestone_save",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_dust_boss_balance",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_start_menu_routing",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_start_menu_new_game",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_castle_pool_life_2d",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_castle_pearl_art",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_fairy_art",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    },
+    {
+      "probe": "probe_props",
+      "result": "PASS",
+      "evidence_log": "suite_logs/job-context-ci-resumed6.log",
+      "rerun_after_exact_missing_bus_restore": false
+    }
+  ],
+  "logs": [
+    {
+      "path": "suite_logs/job-context-full-ci.log",
+      "sha256": "876f305707d383da7bae6e10effc90cae33bbcf0d6f81c2f765c35389ad7b7d7",
+      "bytes": 22622
+    },
+    {
+      "path": "suite_logs/job-context-ci-resumed.log",
+      "sha256": "a2102f9f01976d1db847d1e3f7826b288385f7abaacb19fdf0a47893588d175d",
+      "bytes": 22619
+    },
+    {
+      "path": "suite_logs/job-context-ci-resumed2.log",
+      "sha256": "eeff9d61189f2c3dea4d96bfe19ea28bc478f7cf0d827dcd85c221740634d635",
+      "bytes": 2176
+    },
+    {
+      "path": "suite_logs/job-context-ci-resumed3.log",
+      "sha256": "6127d16a95dbcfb2c99e120f0f815fcb7e0c0c04fc38e1d7896033820b702203",
+      "bytes": 553
+    },
+    {
+      "path": "suite_logs/job-context-ci-resumed4.log",
+      "sha256": "ffd911d8885c8f7282f14f9d424b4aa4ed52a0df233a9bc40848bf3fea00df67",
+      "bytes": 579
+    },
+    {
+      "path": "suite_logs/job-context-ci-resumed5.log",
+      "sha256": "7a8ae1fd7c2b7b4f16e26908a261e1dc9f0a215a6ca1b9a6581c1b4444eea352",
+      "bytes": 376
+    },
+    {
+      "path": "suite_logs/job-context-ci-resumed6.log",
+      "sha256": "26fc904e28e78a9d5bcc0f28488b65041a53c67a1bd8791cc10d49d3995e48dc",
+      "bytes": 397867
+    },
+    {
+      "path": "suite_logs/job-context-retry-bus-probes.log",
+      "sha256": "df083252d2e1684338bf422c917ea10d8a5b2555febc55c41660e6adf1c7719b",
+      "bytes": 5136
+    }
+  ],
+  "restored_bus_sha256": "48736721b1768d532ece0bdd4f63241c5f678491e041654ef2fc3c8098bb89c4",
+  "checked_at_utc": "2026-10-01T04:37:04.372842+00:00",
+  "creative_runtime_device_child_owner_acceptance": false
+}

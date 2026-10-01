@@ -1,0 +1,1129 @@
+{
+  "schema": "reef.job_action_diagnostic.draft.v1",
+  "baseline": "ce0331738970205a5aead4d3e0258eb7873a1642",
+  "owner_approval": null,
+  "runtime_integration": false,
+  "files": [
+    {
+      "path": "audit/day2_action_continuity_20261001/.gdignore",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/candymaker-p02-circle-baseline-1280x720-archive-proof.json",
+      "sha256": "57d26fe79d33b15d2eded8c6b73a3496c59e7a4693aaa9daa29f6e008c2c63c6",
+      "bytes": 19992
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/candymaker-p02-circle-baseline-1280x720.json",
+      "sha256": "2abb63140fc72cfb39f80cb64ff22bf1193eac32033d2bccb4809c02785aebd0",
+      "bytes": 96590
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/capture_harness_pilot1.gd",
+      "sha256": "289c0c4c594466800390f3ec94cf1304babbbba5c26c53a103c9c2660b58db1b",
+      "bytes": 8262
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/capture_index.json",
+      "sha256": "98e5c6fd6f432702cf8f859d6345439dee780333b51ff94f1a301bb86871b892",
+      "bytes": 1431
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/candymaker-p02-circle-baseline-1280x720/0000.webp",
+      "sha256": "df414c6376122c4b480a50917e1e7571f053b37b3b5e23979b871565fa4d4518",
+      "bytes": 1136580
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/candymaker-p02-circle-baseline-1280x720/0006.webp",
+      "sha256": "09a08f07af33b72fff8cd1b2799b040cbac7309a57582fc3e318d4c47c01940a",
+      "bytes": 1136656
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/candymaker-p02-circle-baseline-1280x720/0012.webp",
+      "sha256": "97916bd2f90b363f0660422ab9ad217ef6f84310a39312f3e83ab0f1ea7cba55",
+      "bytes": 1139742
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/candymaker-p02-circle-baseline-1280x720/0018.webp",
+      "sha256": "04a51f3968624bd30e9c8cc0e863a0d455ecf495d9ad44b176579c10118d3976",
+      "bytes": 1139394
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/candymaker-p02-circle-baseline-1280x720/0024.webp",
+      "sha256": "c2fc43817216963383e5104105c0ccb0c0ba61c2b6d624bae6cd93feec6a2aae",
+      "bytes": 1135326
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/candymaker-p02-circle-baseline-1280x720/0030.webp",
+      "sha256": "1b3f7d9565d3e1a7d31d3b7a7d83ce183c6fdc62f22b6c2310036b0044641d8b",
+      "bytes": 1137578
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/candymaker-p02-circle-baseline-1280x720/0036.webp",
+      "sha256": "694b90ed2876ff89a35a0d068fc72712e0b0ab31090da62d65b950a059e0add2",
+      "bytes": 1139356
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/candymaker-p02-circle-baseline-1280x720/0042.webp",
+      "sha256": "6b9ab249a410209a21c5e2e9cd056b4ff2238379c2efd3f9c4a62954ed1b223d",
+      "bytes": 1135850
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/candymaker-p02-circle-baseline-1280x720/0048.webp",
+      "sha256": "4ad8c088a61bcc5ade765bef65d979e4324f96b1a2287b61ef25ad190f4e7e97",
+      "bytes": 1167052
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/candymaker-p02-circle-baseline-1280x720/0052.webp",
+      "sha256": "752f9cb9f4c43a20f4b19719ccd4327b52814624c50b584b552f38200f162ec1",
+      "bytes": 1168718
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p00-pour-baseline-1280x720/0000.webp",
+      "sha256": "e16fd2fa01b45a62ed45ad889b71989880c2d1d0afe9c10b4138377ae1cfb018",
+      "bytes": 1199828
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p00-pour-baseline-1280x720/0006.webp",
+      "sha256": "64e0860ba533d4b99d7d754881ba1ff6bd05189b980b24ea963c202a74644bb7",
+      "bytes": 1201260
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p00-pour-baseline-1280x720/0012.webp",
+      "sha256": "fe8ba5957645faad7ae67ee4477dcc8399d51a033d21977e482d5f4307b64c1c",
+      "bytes": 1205704
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p00-pour-baseline-1280x720/0018.webp",
+      "sha256": "723a1acd838bfb667b2d2c93acc3943359841d3ff7569c731e4b44adf7170d25",
+      "bytes": 1204790
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p00-pour-baseline-1280x720/0024.webp",
+      "sha256": "cffc4a62ac7f5e195cdeaf5425a1ef722d0065feb5d93f98490555403f8d6b17",
+      "bytes": 1200710
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p00-pour-baseline-1280x720/0030.webp",
+      "sha256": "4a6ca6e172154988a275145f15f99af66536f8150f78f322b1821baee3c1cd1d",
+      "bytes": 1202316
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p00-pour-baseline-1280x720/0036.webp",
+      "sha256": "28e94dd3f37114c9591de0b67d8be1d1739651d36a8f09a62e1ac68d2ee9dde4",
+      "bytes": 1206550
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p00-pour-baseline-1280x720/0042.webp",
+      "sha256": "12e7280d87d8c41dbdfe7ef0282d9459b29046111caa137d09316ee5e0ca993b",
+      "bytes": 1202546
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p00-pour-baseline-1280x720/0048.webp",
+      "sha256": "2d158fea3752d6e2bf231420a133e164e074f526a40e37ba537e9bdaae4386d1",
+      "bytes": 1199870
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p00-pour-baseline-1280x720/0054.webp",
+      "sha256": "7365faf643669865c05fe2e009df9d44227bf836e67f4053edd56ee6d64c193c",
+      "bytes": 1205130
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p00-pour-baseline-1280x720/0060.webp",
+      "sha256": "31d6cc5c0942e03622380ed6a13fce72474072f3988532530b3e4720addaf374",
+      "bytes": 1205616
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p00-pour-baseline-1280x720/0066.webp",
+      "sha256": "8ac1fdec4e540dc12dd56909bfde1c1dfea65d52259bf43b72f6236d09632e37",
+      "bytes": 1200620
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p00-pour-baseline-1280x720/0067.webp",
+      "sha256": "71c6b5486fa07cb6180962adb61a0692f7f7219374c10f0b924a05f2539187da",
+      "bytes": 1200486
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p01-circle-baseline-1280x720/0000.webp",
+      "sha256": "d3974c10cd045edd7b572dd11d0d0fbbf2576328e3cf59959116fe09507d033f",
+      "bytes": 1210610
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p01-circle-baseline-1280x720/0006.webp",
+      "sha256": "55d6d7ffccfb83af76f730744d823589affbba33d264005556cfb42852c73d0a",
+      "bytes": 1209886
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p01-circle-baseline-1280x720/0012.webp",
+      "sha256": "bbfd4d6a9c5b6b2249e41aa61e46027832e72894da2d055f527348fa325b8baa",
+      "bytes": 1214450
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p01-circle-baseline-1280x720/0018.webp",
+      "sha256": "d1dcabb5a8b0b9fe6c32eed079a2056e7c15087df95fbefdb171148ab0f21051",
+      "bytes": 1213880
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p01-circle-baseline-1280x720/0024.webp",
+      "sha256": "dd4cdb5ff6253e4d1c556a27e3a1317202dd6cd6075cc9e1aade816061ba6886",
+      "bytes": 1208538
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p01-circle-baseline-1280x720/0030.webp",
+      "sha256": "49112341d9887942d1be70522002a138ba8569ed522ff0ec902a1282ffe55ae6",
+      "bytes": 1211056
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p01-circle-baseline-1280x720/0036.webp",
+      "sha256": "cced7e62b5bb38b2d0337ea62437c269523e6fe01b8716ca9f4dde8dcd5cb0b6",
+      "bytes": 1222798
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p01-circle-baseline-1280x720/0042.webp",
+      "sha256": "51272a31dccdadeb055615d5f5bf75b71c7bb29d5b9c8712f5b4aa3b18f9c3d3",
+      "bytes": 1210962
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p01-circle-baseline-1280x720/0048.webp",
+      "sha256": "eefb8dd1d295be39f25fa589ff4d86d3b880c0721b1f55c2c6ad78dc54a084ae",
+      "bytes": 1209048
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/chef-p01-circle-baseline-1280x720/0052.webp",
+      "sha256": "617bafa99a1736674e4c2c5abc0190a0117888462ab3689cc97633d5c7d7a5fd",
+      "bytes": 1238282
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/doctor-p03-circle-baseline-1280x720/0000.webp",
+      "sha256": "cfc809b53a528ff251a105fe2311faf37ed176139e944d05ebd523fca97ee67a",
+      "bytes": 1172600
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/doctor-p03-circle-baseline-1280x720/0006.webp",
+      "sha256": "fa6f96ac7b746fa63136c71857af171acc715ca84d61887666c95485f0a94316",
+      "bytes": 1174862
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/doctor-p03-circle-baseline-1280x720/0012.webp",
+      "sha256": "5de3ad32b1bb14b6a608b5d2f80a56bc17768f0bf5f2b8ce65b7629f5c21e225",
+      "bytes": 1179116
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/doctor-p03-circle-baseline-1280x720/0018.webp",
+      "sha256": "3f7170e17ad0c73e0390d10614434ce8f51c05cbb362cf135dc05f8f2316c16a",
+      "bytes": 1176852
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/doctor-p03-circle-baseline-1280x720/0024.webp",
+      "sha256": "cb31370ba194d774d1c5fd74b283f31e08c0068cc4d10e19e142e49e7cbd6064",
+      "bytes": 1170654
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/doctor-p03-circle-baseline-1280x720/0030.webp",
+      "sha256": "561b43f4517150f74cc0aeb1aa55280f2559c0d68b42e6ec2146014648407e2a",
+      "bytes": 1171770
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/doctor-p03-circle-baseline-1280x720/0036.webp",
+      "sha256": "23565bd2cfa2dd1ec55c2aac9ef0333ccefe3e07bbf78ce85a1dc928449dec7b",
+      "bytes": 1175022
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/doctor-p03-circle-baseline-1280x720/0042.webp",
+      "sha256": "2706463d6b276af76bcc05158211ebead8ee3596562ce1786e6cafd428e779d5",
+      "bytes": 1171962
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/doctor-p03-circle-baseline-1280x720/0048.webp",
+      "sha256": "20030c8654d4522558042e5b098c8fb4045a9547b57f076af36fa637cc26dbca",
+      "bytes": 1188916
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/doctor-p03-circle-baseline-1280x720/0052.webp",
+      "sha256": "63c47a237b1fc15bff4610c8f48cb09c16a5a1f7b254940ea21b26160e7bd651",
+      "bytes": 1190550
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/farmer-p00-berries-baseline-1280x720/0000.webp",
+      "sha256": "f88b0ae8f8433ee1cc6b5d6795d3377a08a2eead6cf6141ae7d94ab7e4e74bab",
+      "bytes": 1233890
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/farmer-p00-berries-baseline-1280x720/0006.webp",
+      "sha256": "31fea5e32e49b0f03218183a50769cc0451bb6f1ae342bf6c33784ea669f9b21",
+      "bytes": 1230394
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/farmer-p00-berries-baseline-1280x720/0012.webp",
+      "sha256": "79c84b642dcdaf5230b5478abc0ccf2a250453e9e04dc98d30e9b468a6b52182",
+      "bytes": 1225162
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/farmer-p00-berries-baseline-1280x720/0018.webp",
+      "sha256": "8c161f1cf6c67764f009a07852a7103fa4b68855451dcc2d176b881b548fc1d4",
+      "bytes": 1221144
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/farmer-p00-berries-baseline-1280x720/0024.webp",
+      "sha256": "a6239c64dfd527de62899473656303905a01c90a6d7f47a5654c20eb973fbbbd",
+      "bytes": 1220594
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/farmer-p00-berries-baseline-1280x720/0030.webp",
+      "sha256": "7146928f822517dd2d5de4c191fd6339be9dd08264cd4edc089c68333804d054",
+      "bytes": 1216132
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/farmer-p00-berries-baseline-1280x720/0036.webp",
+      "sha256": "3b393246b0b8d55e2bedf1a37a5f165d226ce6bcd233277a18d56b0b6bd6fd3d",
+      "bytes": 1215696
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/farmer-p00-berries-baseline-1280x720/0037.webp",
+      "sha256": "3b393246b0b8d55e2bedf1a37a5f165d226ce6bcd233277a18d56b0b6bd6fd3d",
+      "bytes": 1215696
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-baseline-1280x720/0000.webp",
+      "sha256": "fb40ad0e8af2c86065055ff1a8290c1ea6a78a41c88f729503f0d1a9a46f9b43",
+      "bytes": 967826
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-baseline-1280x720/0006.webp",
+      "sha256": "c62c61f2c8f11a08f44c9dd55538feba0a6bcf6b960c3f590fced7fc01525e54",
+      "bytes": 966544
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-baseline-1280x720/0012.webp",
+      "sha256": "92decbc66d889ef13b26a765610fd3ad3c6516090625e38096c40b44ba993b60",
+      "bytes": 970108
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-baseline-1280x720/0018.webp",
+      "sha256": "f36b2e3a7eef1b282d568a1429a2ccf4f15ee78a17de112e8ab15435c6f7ff9c",
+      "bytes": 967256
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-baseline-1280x720/0024.webp",
+      "sha256": "44ced67cf7d26f4d22206f6b1e65ff5aaf89e9729881dd46639fff30f65ed2ec",
+      "bytes": 965930
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-baseline-1280x720/0030.webp",
+      "sha256": "098cb5f7c7c0421f9d08f96dc10753d656504b161ea5c17b62651cb6ce4ba113",
+      "bytes": 968106
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-baseline-1280x720/0036.webp",
+      "sha256": "2b34a08d13a91b59d872a34bfbbcd486783970e901e4ac8b0108d4bf9a816c40",
+      "bytes": 975656
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-baseline-1280x720/0042.webp",
+      "sha256": "09df7b0f0a8a23422ba41ebe8e73f892a6fd790e95da885f3d09821ff876fb9e",
+      "bytes": 974850
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-baseline-1280x720/0048.webp",
+      "sha256": "f8b8e253e4573fcbe57047083dc78af0e1e1ffc8a8994240d1629ed0408cbae8",
+      "bytes": 970456
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-baseline-1280x720/0054.webp",
+      "sha256": "fd6d23e9e803c851b2d594cf36038c08cf3b6df59dbf12dca1d567bd683080d4",
+      "bytes": 974246
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-baseline-1280x720/0060.webp",
+      "sha256": "ab67a4e7363e430811d6d25d3dc351c71063560701039fc4d9e6c36d420a91cf",
+      "bytes": 974676
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-baseline-1280x720/0066.webp",
+      "sha256": "53a5b6642f7ccc0a755820dfe7cbc40742f88433feb7fa5802525c4aa9880cc3",
+      "bytes": 972960
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-baseline-1280x720/0072.webp",
+      "sha256": "606608e4ab9bc7a4653e74a9fb0de95fd535c3dc58f47e9471da81e9dfd013b1",
+      "bytes": 977046
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-baseline-1280x720/0078.webp",
+      "sha256": "ef8eccc1cdac13026a3307cf6be24e7a35de607a685983c13a50ac6546ccc6c1",
+      "bytes": 977862
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-baseline-1280x720/0084.webp",
+      "sha256": "fc0f9ad8fcac4617a40e00d193f96483e19a9b38380d95c6b979af3e03e0e9c6",
+      "bytes": 978378
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-baseline-1280x720/0090.webp",
+      "sha256": "7e44058dd3951dcc4bf79e70ed825799144d5365432de0e13bb8b67d6602610a",
+      "bytes": 973986
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-baseline-1280x720/0096.webp",
+      "sha256": "2ab703d1941cc8fb5d9c00f5ac1ac1b2b7d2f619175782607f8a8e11853fb5df",
+      "bytes": 977854
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-baseline-1280x720/0102.webp",
+      "sha256": "f0f003e9793d03f16c9cef4a9348f30de098474611fcf5039d63755b0a72edb9",
+      "bytes": 979580
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-baseline-1280x720/0108.webp",
+      "sha256": "55637d54c22caa5b97ee8ca31684c272cf5ddc6cd5763b0f87b472d3d3ded128",
+      "bytes": 975988
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-baseline-1280x720/0112.webp",
+      "sha256": "5ea247fcda2359ad22edc9f6164c0c15e71185cbff2505757beedef0e34be5d9",
+      "bytes": 975260
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-candidate-1280x720/0000.webp",
+      "sha256": "3dec14c7c99a57b90113abdb4ac6bfb111c4b11652a216b857657889175e52c3",
+      "bytes": 970510
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-candidate-1280x720/0006.webp",
+      "sha256": "38bbc49fd481fd9dc65fd74ad604993d99eb3b03b419c85c03c044b2c335eb86",
+      "bytes": 969680
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-candidate-1280x720/0012.webp",
+      "sha256": "1195ce7dd4d5544b586f839556adf64237d58c431c79cfaef68b6cc0a8d0fe08",
+      "bytes": 972478
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-candidate-1280x720/0018.webp",
+      "sha256": "d5502b6b66eae69861c46d30eaca2e4e3d4c8eabf29901303ebdb1e9e6357fa6",
+      "bytes": 969790
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-candidate-1280x720/0024.webp",
+      "sha256": "bd60f9ca3f32b592c002532a1cd322afbe38c1ad1e40895c61ecfe587463c25f",
+      "bytes": 968956
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-candidate-1280x720/0030.webp",
+      "sha256": "ddab3a3d1ecf2bbb9de9f8f0aa05c4b8394c8491865a25e61af36bca9cac6ed6",
+      "bytes": 970348
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-candidate-1280x720/0036.webp",
+      "sha256": "0b6f54b91d6f769075df727e27cb269fa76bd870cf6776452962a2ee900f6ef3",
+      "bytes": 978366
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-candidate-1280x720/0042.webp",
+      "sha256": "757610a86a2ef1642060ac185ec9ad7d077916935bdfb8d06ff27f922fbbc88c",
+      "bytes": 977566
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-candidate-1280x720/0048.webp",
+      "sha256": "71a8cce15771e95632c202f6cdb552dbf9b6f3d63cb1794c6b506076761cc8f4",
+      "bytes": 972466
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-candidate-1280x720/0054.webp",
+      "sha256": "7d826f1d231cb124d42e4479b837d4003dadaca8aa44e3bfec64f46fb2da18ab",
+      "bytes": 976658
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-candidate-1280x720/0060.webp",
+      "sha256": "6580949d89005cfabde97592cfadfc5bb2dad30d41801ebd91b45641f758cfc4",
+      "bytes": 976218
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-candidate-1280x720/0066.webp",
+      "sha256": "ae09c5a69d6cb14c2c38778cbdd7708fcf43a5bd40ff0e994830970e75ad03d5",
+      "bytes": 975254
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-candidate-1280x720/0072.webp",
+      "sha256": "6937f47f2f566c2da0b094365770852a88e36f191b584fbbb786187dd009333c",
+      "bytes": 978712
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-candidate-1280x720/0078.webp",
+      "sha256": "b0135a8a82fe409eaaa6788a80ce618ef73ddf90765740f71ff4492bf3e457ab",
+      "bytes": 980324
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-candidate-1280x720/0084.webp",
+      "sha256": "50d451193a61a5a2547f910cd9f248ac8bdad8f97fcf9a82df44e457e7ee42b2",
+      "bytes": 980916
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-candidate-1280x720/0090.webp",
+      "sha256": "0557a28948009afbf12f3a0b9755810cf1c688605d6ceb0a8f7f74c426633305",
+      "bytes": 976494
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-candidate-1280x720/0096.webp",
+      "sha256": "31e153d88bf8c95fa63d0a4d60931a78b8172d830af27a6bc4d71b32194e47d1",
+      "bytes": 979900
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-candidate-1280x720/0102.webp",
+      "sha256": "5bfa817dcc46fbfa4d26f2a8a19d4e6596e7ad3b49cb99af41f0610c4df8ee7c",
+      "bytes": 982280
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-candidate-1280x720/0108.webp",
+      "sha256": "ba0b82a80b8ae7e7f4d48249496fb376c54e2ffe51747732b4aeba51759b1f47",
+      "bytes": 978534
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/captures/nursery-p01-catch-candidate-1280x720/0112.webp",
+      "sha256": "6994efd048178dbbd5daec97542e62a77755f4942bc4b29aca10572e30c0ead2",
+      "bytes": 978098
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/chef-p00-pour-baseline-1280x720-archive-proof.json",
+      "sha256": "38e07f68b82ac48e8464210b408d034e8599a03874818b7e6a5de9c5888f665e",
+      "bytes": 25338
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/chef-p00-pour-baseline-1280x720.json",
+      "sha256": "863371779e625f006ef7d2b19ed4380eda91ba80689cf23564ca787daddcaf71",
+      "bytes": 149831
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/chef-p01-circle-baseline-1280x720-archive-proof.json",
+      "sha256": "b0771ac5abd540079e9268cee277c4a9a761a6aafecd5aed80ea69175d1bca8c",
+      "bytes": 19974
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/chef-p01-circle-baseline-1280x720.json",
+      "sha256": "68b86237d9e36185e305b6a88042faf0d0a511ad0418220df922a0a5a4529695",
+      "bytes": 98081
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/doctor-p03-circle-baseline-1280x720-archive-proof.json",
+      "sha256": "4cf06ff5b6abca7a1300538b0b5e5c9ff9547186d2720d4dbae0d0f85332bfdf",
+      "bytes": 19980
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/doctor-p03-circle-baseline-1280x720.json",
+      "sha256": "316d7fc91734901c45668ac90b58c45c58a6407104ef248113b46eaecfdf94bb",
+      "bytes": 95885
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/farmer-p00-berries-baseline-1280x720-archive-proof.json",
+      "sha256": "e00d9c60ec58b409969fbffb7cdf67b70c4d6c4456ee34eba6e7d916512f22b3",
+      "bytes": 14613
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/farmer-p00-berries-baseline-1280x720.json",
+      "sha256": "6b378e19612a9dc1ac951a7a4f37de0d2f74489a7fc9a61f22a0180a3e12dc67",
+      "bytes": 69228
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/index.html",
+      "sha256": "506e0f57e16728e69fa4d779fe4f57354edd06ceec517f30d4aeb4ab9ceb1c56",
+      "bytes": 17822
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/movies/candymaker-p02-circle-baseline-1280x720-lossless.mkv",
+      "sha256": "7db60f37cee650bd3611bcf5b387337db55ddae20dab649e804d506a301ee826",
+      "bytes": 9942735
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/movies/candymaker-p02-circle-baseline-1280x720.mp4",
+      "sha256": "c64505104ad3092bda79d422ac00398838339638e69f47e9b909b01027be13ed",
+      "bytes": 920561
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/movies/chef-p00-pour-baseline-1280x720-lossless.mkv",
+      "sha256": "fb50a24d7e5a38cd984a4c8afdb584d9131d0db2cb3c9b823262b7f43e535629",
+      "bytes": 11332989
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/movies/chef-p00-pour-baseline-1280x720.mp4",
+      "sha256": "5c3a693d529572c51ea193bf4ad74591f0574e1bd4616d1c52231f40fe7b0e43",
+      "bytes": 935220
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/movies/chef-p01-circle-baseline-1280x720-lossless.mkv",
+      "sha256": "ebe5bb7967c1e9879f3d511618aacae72e0773491ce18daab493ef8a6e14803e",
+      "bytes": 9531465
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/movies/chef-p01-circle-baseline-1280x720.mp4",
+      "sha256": "251a2ca4c4200408248dd03fa5fa727ac688218b8fed32e6680cc4286e8773ca",
+      "bytes": 889234
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/movies/doctor-p03-circle-baseline-1280x720-lossless.mkv",
+      "sha256": "2ba6603825586c46cf6c969fe68badfd2f615c9ca234c8d5ed56f3d19abebf7e",
+      "bytes": 8880058
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/movies/doctor-p03-circle-baseline-1280x720.mp4",
+      "sha256": "2d7e2049bbe3fb6261baa1c5a24f535fba12bd829ee0d400b788cf0dcf43236c",
+      "bytes": 792367
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/movies/farmer-p00-berries-baseline-1280x720-lossless.mkv",
+      "sha256": "0f8015437ac59891e9843022ec42755983c8c7d76b0a991d81d97af263eb609a",
+      "bytes": 2997044
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/movies/farmer-p00-berries-baseline-1280x720.mp4",
+      "sha256": "4ea5cde797589e835673272d722bc609fcfa14bb01f6e1a4781fc92649afe6da",
+      "bytes": 660160
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/movies/nursery-p01-catch-baseline-1280x720-lossless.mkv",
+      "sha256": "b90b3a3fce3ea5a25823be98f84208baf1f1d84afae2b1d60bbebad95a3c052e",
+      "bytes": 19192902
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/movies/nursery-p01-catch-baseline-1280x720.mp4",
+      "sha256": "09b99cd1ce11ee80aa8b0b44d4fdb483e8c8084c925dc37038ab37f0f1f90103",
+      "bytes": 1344970
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/movies/nursery-p01-catch-candidate-1280x720-lossless.mkv",
+      "sha256": "21a967e81a9b518d86d98d3decd06fa6bc7ccdcb28df02abac979e34e15bfc1e",
+      "bytes": 19135448
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/movies/nursery-p01-catch-candidate-1280x720.mp4",
+      "sha256": "14047c48b29dc7d8bf38d89a6cb96d24458df7ba1326aa81eec911f70836b6b0",
+      "bytes": 1357448
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/nursery-p01-catch-baseline-1280x720-archive-proof.json",
+      "sha256": "473a5dc4f0aaf5fec4c137623c54dbd11b4228c11bb4dc74969fc71ad5f7b487",
+      "bytes": 41473
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/nursery-p01-catch-baseline-1280x720.json",
+      "sha256": "e78b35a9850bbe221d0caedfdd2f876c4a1930f466f332a7b8718faa5847725f",
+      "bytes": 305219
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/nursery-p01-catch-candidate-1280x720-archive-proof.json",
+      "sha256": "68480fe335becfde2626392767a67b45639493244eccb2474390fdfbfb03a2b5",
+      "bytes": 41476
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/nursery-p01-catch-candidate-1280x720.json",
+      "sha256": "7a5788e9e664317d62fa97a6b20c804d0d753546e13b40a4775f22d1937cb41f",
+      "bytes": 305595
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/capture_harness_pilot1.gd",
+      "sha256": "d6492cc126a070136860786beff97b53e25028a07fcf75f5b623cf4c12429513",
+      "bytes": 8155
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/capture_index.json",
+      "sha256": "027bc3e717f80e9967cc69cca96ac6c39d0462f8bfbb651423e2f9ac0bb08193",
+      "bytes": 981
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0000.webp",
+      "sha256": "e16fd2fa01b45a62ed45ad889b71989880c2d1d0afe9c10b4138377ae1cfb018",
+      "bytes": 1199828
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0006.webp",
+      "sha256": "64e0860ba533d4b99d7d754881ba1ff6bd05189b980b24ea963c202a74644bb7",
+      "bytes": 1201260
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0012.webp",
+      "sha256": "fe8ba5957645faad7ae67ee4477dcc8399d51a033d21977e482d5f4307b64c1c",
+      "bytes": 1205704
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0018.webp",
+      "sha256": "723a1acd838bfb667b2d2c93acc3943359841d3ff7569c731e4b44adf7170d25",
+      "bytes": 1204790
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0024.webp",
+      "sha256": "cffc4a62ac7f5e195cdeaf5425a1ef722d0065feb5d93f98490555403f8d6b17",
+      "bytes": 1200710
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0030.webp",
+      "sha256": "4a6ca6e172154988a275145f15f99af66536f8150f78f322b1821baee3c1cd1d",
+      "bytes": 1202316
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0036.webp",
+      "sha256": "28e94dd3f37114c9591de0b67d8be1d1739651d36a8f09a62e1ac68d2ee9dde4",
+      "bytes": 1206550
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0042.webp",
+      "sha256": "12e7280d87d8c41dbdfe7ef0282d9459b29046111caa137d09316ee5e0ca993b",
+      "bytes": 1202546
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0048.webp",
+      "sha256": "2d158fea3752d6e2bf231420a133e164e074f526a40e37ba537e9bdaae4386d1",
+      "bytes": 1199870
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0054.webp",
+      "sha256": "7365faf643669865c05fe2e009df9d44227bf836e67f4053edd56ee6d64c193c",
+      "bytes": 1205130
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0060.webp",
+      "sha256": "31d6cc5c0942e03622380ed6a13fce72474072f3988532530b3e4720addaf374",
+      "bytes": 1205616
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0066.webp",
+      "sha256": "8ac1fdec4e540dc12dd56909bfde1c1dfea65d52259bf43b72f6236d09632e37",
+      "bytes": 1200620
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0072.webp",
+      "sha256": "a79e9c5bf2fc8400fc6354b22d3d2b1e44c6ccfaa7775560b5d5beef076760d8",
+      "bytes": 1201538
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0078.webp",
+      "sha256": "3589561781343976659796007b51aeff1b034c166b05677dca5eecb07a624279",
+      "bytes": 1205488
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0084.webp",
+      "sha256": "3f12a5fc25bc1fd6c8cd79179263fa28fb19bf5f2fffe6fbaa3d35039403ed0a",
+      "bytes": 1202532
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0090.webp",
+      "sha256": "aa7a4bd5f0609dc7ce8656f7ae7e13d9803372ce059b7f19359ed8d2a364248e",
+      "bytes": 1198802
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0096.webp",
+      "sha256": "6c4b315c967c205926765737126c19524a7de331eb253a8bdc64d8e1092680f9",
+      "bytes": 1202994
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0102.webp",
+      "sha256": "260b2200a010e82eabe19876feda2626d5b3c48535560eb219c3d831bf90dbfa",
+      "bytes": 1204272
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0108.webp",
+      "sha256": "c5f3f1e9a7823f02b84bf4a8afcafbed02228d8cb02355d8e0e7cf3d8ff00f71",
+      "bytes": 1199282
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0114.webp",
+      "sha256": "4ea8c05e601cc9a030f4ff36a244d6fb445dfb73822690122eb179f69cea0dcf",
+      "bytes": 1199912
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/chef-p00-pour-baseline-1280x720/0119.webp",
+      "sha256": "6447e57ca9aec20238ffe72353c912005cdee4dc7d40d798010430166767498a",
+      "bytes": 1203520
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/farmer-p00-berries-baseline-1280x720/0000.webp",
+      "sha256": "f88b0ae8f8433ee1cc6b5d6795d3377a08a2eead6cf6141ae7d94ab7e4e74bab",
+      "bytes": 1233890
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/farmer-p00-berries-baseline-1280x720/0006.webp",
+      "sha256": "31fea5e32e49b0f03218183a50769cc0451bb6f1ae342bf6c33784ea669f9b21",
+      "bytes": 1230394
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/farmer-p00-berries-baseline-1280x720/0012.webp",
+      "sha256": "79c84b642dcdaf5230b5478abc0ccf2a250453e9e04dc98d30e9b468a6b52182",
+      "bytes": 1225162
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/farmer-p00-berries-baseline-1280x720/0018.webp",
+      "sha256": "8c161f1cf6c67764f009a07852a7103fa4b68855451dcc2d176b881b548fc1d4",
+      "bytes": 1221144
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/farmer-p00-berries-baseline-1280x720/0024.webp",
+      "sha256": "a22bc9cf3b12f202c88b442f6f887551ef5af7816a0aa1aece0ae7fbb097c82f",
+      "bytes": 1214256
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/farmer-p00-berries-baseline-1280x720/0030.webp",
+      "sha256": "da7fb0eb3e2e6c045a32b818bafc1af05fae8a51726cc0b2da0596084ce969aa",
+      "bytes": 1209726
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/farmer-p00-berries-baseline-1280x720/0036.webp",
+      "sha256": "5b972feb1d96032f1cbf53a2895ad5bcda2c36832aa7f161af56c955dc367d86",
+      "bytes": 1209014
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/farmer-p00-berries-baseline-1280x720/0042.webp",
+      "sha256": "f0f75a4d7c75850d3ff28cdf40cc5235264eabb47639af9d6164ff577c9a4e8d",
+      "bytes": 1208420
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/farmer-p00-berries-baseline-1280x720/0044.webp",
+      "sha256": "1eacbbc20dc24ef57023050db3061d9c2befbbb841ad33d1c8aef85b4a268bac",
+      "bytes": 1208426
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0000.webp",
+      "sha256": "fb40ad0e8af2c86065055ff1a8290c1ea6a78a41c88f729503f0d1a9a46f9b43",
+      "bytes": 967826
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0006.webp",
+      "sha256": "c62c61f2c8f11a08f44c9dd55538feba0a6bcf6b960c3f590fced7fc01525e54",
+      "bytes": 966544
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0012.webp",
+      "sha256": "92decbc66d889ef13b26a765610fd3ad3c6516090625e38096c40b44ba993b60",
+      "bytes": 970108
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0018.webp",
+      "sha256": "f36b2e3a7eef1b282d568a1429a2ccf4f15ee78a17de112e8ab15435c6f7ff9c",
+      "bytes": 967256
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0024.webp",
+      "sha256": "44ced67cf7d26f4d22206f6b1e65ff5aaf89e9729881dd46639fff30f65ed2ec",
+      "bytes": 965930
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0030.webp",
+      "sha256": "098cb5f7c7c0421f9d08f96dc10753d656504b161ea5c17b62651cb6ce4ba113",
+      "bytes": 968106
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0036.webp",
+      "sha256": "2b34a08d13a91b59d872a34bfbbcd486783970e901e4ac8b0108d4bf9a816c40",
+      "bytes": 975656
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0042.webp",
+      "sha256": "09df7b0f0a8a23422ba41ebe8e73f892a6fd790e95da885f3d09821ff876fb9e",
+      "bytes": 974850
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0048.webp",
+      "sha256": "f8b8e253e4573fcbe57047083dc78af0e1e1ffc8a8994240d1629ed0408cbae8",
+      "bytes": 970456
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0054.webp",
+      "sha256": "fd6d23e9e803c851b2d594cf36038c08cf3b6df59dbf12dca1d567bd683080d4",
+      "bytes": 974246
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0060.webp",
+      "sha256": "ab67a4e7363e430811d6d25d3dc351c71063560701039fc4d9e6c36d420a91cf",
+      "bytes": 974676
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0066.webp",
+      "sha256": "53a5b6642f7ccc0a755820dfe7cbc40742f88433feb7fa5802525c4aa9880cc3",
+      "bytes": 972960
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0072.webp",
+      "sha256": "606608e4ab9bc7a4653e74a9fb0de95fd535c3dc58f47e9471da81e9dfd013b1",
+      "bytes": 977046
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0078.webp",
+      "sha256": "ef8eccc1cdac13026a3307cf6be24e7a35de607a685983c13a50ac6546ccc6c1",
+      "bytes": 977862
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0084.webp",
+      "sha256": "fc0f9ad8fcac4617a40e00d193f96483e19a9b38380d95c6b979af3e03e0e9c6",
+      "bytes": 978378
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0090.webp",
+      "sha256": "7e44058dd3951dcc4bf79e70ed825799144d5365432de0e13bb8b67d6602610a",
+      "bytes": 973986
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0096.webp",
+      "sha256": "2ab703d1941cc8fb5d9c00f5ac1ac1b2b7d2f619175782607f8a8e11853fb5df",
+      "bytes": 977854
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0102.webp",
+      "sha256": "f0f003e9793d03f16c9cef4a9348f30de098474611fcf5039d63755b0a72edb9",
+      "bytes": 979580
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0108.webp",
+      "sha256": "55637d54c22caa5b97ee8ca31684c272cf5ddc6cd5763b0f87b472d3d3ded128",
+      "bytes": 975988
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0114.webp",
+      "sha256": "8d8af51b9ad7ee8ed96891ae2e3bd1ee3323d430dd71e0590a755a8d85275435",
+      "bytes": 977906
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0120.webp",
+      "sha256": "4a046351a245eeb5287dea24fbdcaffe6ef65b06888a46680d64cc0d152e0464",
+      "bytes": 978370
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0126.webp",
+      "sha256": "0cc24ab7787b98ec70eceb7a649b3943cc562d91120905fa464519217052cd55",
+      "bytes": 975918
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0132.webp",
+      "sha256": "0dd946cb4700dd6977a4a97849e26cb18e8e9ffc02bc961e04a07773c44bb10f",
+      "bytes": 983056
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0138.webp",
+      "sha256": "f695fd987e46f35ae7f50b7bdbb77c107d90efdccef27825c18b6bed4a3aa0e1",
+      "bytes": 984378
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0144.webp",
+      "sha256": "058ecdbec7dda743dc75d7b8a21c6f03da49377d898b188c4813f974f61ab4f1",
+      "bytes": 985684
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-baseline-1280x720/0149.webp",
+      "sha256": "84d208bdab86b1909886a456ba5174e6dee78eb68b37ff4cd6adf9d24d60f293",
+      "bytes": 985210
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0000.webp",
+      "sha256": "3dec14c7c99a57b90113abdb4ac6bfb111c4b11652a216b857657889175e52c3",
+      "bytes": 970510
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0006.webp",
+      "sha256": "38bbc49fd481fd9dc65fd74ad604993d99eb3b03b419c85c03c044b2c335eb86",
+      "bytes": 969680
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0012.webp",
+      "sha256": "1195ce7dd4d5544b586f839556adf64237d58c431c79cfaef68b6cc0a8d0fe08",
+      "bytes": 972478
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0018.webp",
+      "sha256": "d5502b6b66eae69861c46d30eaca2e4e3d4c8eabf29901303ebdb1e9e6357fa6",
+      "bytes": 969790
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0024.webp",
+      "sha256": "bd60f9ca3f32b592c002532a1cd322afbe38c1ad1e40895c61ecfe587463c25f",
+      "bytes": 968956
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0030.webp",
+      "sha256": "ddab3a3d1ecf2bbb9de9f8f0aa05c4b8394c8491865a25e61af36bca9cac6ed6",
+      "bytes": 970348
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0036.webp",
+      "sha256": "0b6f54b91d6f769075df727e27cb269fa76bd870cf6776452962a2ee900f6ef3",
+      "bytes": 978366
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0042.webp",
+      "sha256": "757610a86a2ef1642060ac185ec9ad7d077916935bdfb8d06ff27f922fbbc88c",
+      "bytes": 977566
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0048.webp",
+      "sha256": "71a8cce15771e95632c202f6cdb552dbf9b6f3d63cb1794c6b506076761cc8f4",
+      "bytes": 972466
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0054.webp",
+      "sha256": "7d826f1d231cb124d42e4479b837d4003dadaca8aa44e3bfec64f46fb2da18ab",
+      "bytes": 976658
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0060.webp",
+      "sha256": "6580949d89005cfabde97592cfadfc5bb2dad30d41801ebd91b45641f758cfc4",
+      "bytes": 976218
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0066.webp",
+      "sha256": "ae09c5a69d6cb14c2c38778cbdd7708fcf43a5bd40ff0e994830970e75ad03d5",
+      "bytes": 975254
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0072.webp",
+      "sha256": "6937f47f2f566c2da0b094365770852a88e36f191b584fbbb786187dd009333c",
+      "bytes": 978712
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0078.webp",
+      "sha256": "b0135a8a82fe409eaaa6788a80ce618ef73ddf90765740f71ff4492bf3e457ab",
+      "bytes": 980324
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0084.webp",
+      "sha256": "50d451193a61a5a2547f910cd9f248ac8bdad8f97fcf9a82df44e457e7ee42b2",
+      "bytes": 980916
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0090.webp",
+      "sha256": "0557a28948009afbf12f3a0b9755810cf1c688605d6ceb0a8f7f74c426633305",
+      "bytes": 976494
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0096.webp",
+      "sha256": "31e153d88bf8c95fa63d0a4d60931a78b8172d830af27a6bc4d71b32194e47d1",
+      "bytes": 979900
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0102.webp",
+      "sha256": "5bfa817dcc46fbfa4d26f2a8a19d4e6596e7ad3b49cb99af41f0610c4df8ee7c",
+      "bytes": 982280
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0108.webp",
+      "sha256": "ba0b82a80b8ae7e7f4d48249496fb376c54e2ffe51747732b4aeba51759b1f47",
+      "bytes": 978534
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0114.webp",
+      "sha256": "acd3378ddede4b5a0192c5eee3748c6ebc564ac169893fafb7f7bd6d03977384",
+      "bytes": 980056
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0120.webp",
+      "sha256": "328a1a7ed0c6cfd1508f528705a5e2e411d697026e4f06f6310d5f3dab406fcd",
+      "bytes": 980414
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0126.webp",
+      "sha256": "af41217162c7bd1e1e5ea10d95cf031d323d617e831ee84e1a9f2e0795a0a8a1",
+      "bytes": 978626
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0132.webp",
+      "sha256": "0dd946cb4700dd6977a4a97849e26cb18e8e9ffc02bc961e04a07773c44bb10f",
+      "bytes": 983056
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0138.webp",
+      "sha256": "f695fd987e46f35ae7f50b7bdbb77c107d90efdccef27825c18b6bed4a3aa0e1",
+      "bytes": 984378
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0144.webp",
+      "sha256": "058ecdbec7dda743dc75d7b8a21c6f03da49377d898b188c4813f974f61ab4f1",
+      "bytes": 985684
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/captures/nursery-p01-catch-candidate-1280x720/0149.webp",
+      "sha256": "84d208bdab86b1909886a456ba5174e6dee78eb68b37ff4cd6adf9d24d60f293",
+      "bytes": 985210
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/chef-p00-pour-baseline-1280x720-archive-proof.json",
+      "sha256": "b7c5bb8f13bd52f9b0ba04052d3f92e18a80aaeea0970ad2495e833ad23a7027",
+      "bytes": 43974
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/chef-p00-pour-baseline-1280x720.json",
+      "sha256": "b334566677e610e01e2f00c1f8b88a8ea393702302d4190fa8600e5ce5c5ad9f",
+      "bytes": 263555
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/farmer-p00-berries-baseline-1280x720-archive-proof.json",
+      "sha256": "696b676685e28997956d481e06539df8937fcffc80e609c2d2b1969176e047f5",
+      "bytes": 17119
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/farmer-p00-berries-baseline-1280x720.json",
+      "sha256": "e6d52d30de854ef3285e068fd071e4c69332c98b089d24eea118117ef081fdbb",
+      "bytes": 81177
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/movies/chef-p00-pour-baseline-1280x720-lossless.mkv",
+      "sha256": "cbdf1d965298e9e07aa498b73ae6d757a99d1102cc7c5005b876c8780345ea0c",
+      "bytes": 18715577
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/movies/chef-p00-pour-baseline-1280x720.mp4",
+      "sha256": "3a8e7d04afd0ee40ca24c4e25e5bb7bfa8b8c5859c17d59dd61696aafaffcc83",
+      "bytes": 1271771
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/movies/farmer-p00-berries-baseline-1280x720-lossless.mkv",
+      "sha256": "7b6e45191893bb1e7d37c4b9f3a15615de21c70278294e6142c2d752ab6f0e26",
+      "bytes": 3485485
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/movies/farmer-p00-berries-baseline-1280x720.mp4",
+      "sha256": "0303956a034f4fc69da5ec44b9267df8f75aaf9afd61be31aeef856dcf7bfdf9",
+      "bytes": 753914
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/movies/nursery-p01-catch-baseline-1280x720-lossless.mkv",
+      "sha256": "698a44d057c7a1a2a9653e84a4d9d6bfb379ccdb6caea9953e1f42daddd3927b",
+      "bytes": 25320340
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/movies/nursery-p01-catch-baseline-1280x720.mp4",
+      "sha256": "5cac2db12cb9c840a67f7d4ed3c28f72f9cdb4d8a577aeffd3f4bdc32298b721",
+      "bytes": 1702850
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/movies/nursery-p01-catch-candidate-1280x720-lossless.mkv",
+      "sha256": "0062b4642d902da3728fae88927cd89c400bbcf50606ab91e8ee347746a615e7",
+      "bytes": 25258805
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/movies/nursery-p01-catch-candidate-1280x720.mp4",
+      "sha256": "ab208fe24de6f352c0484290ac53e14062e43e8525dad7d7059ebd29fdfc4766",
+      "bytes": 1718023
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/nursery-p01-catch-baseline-1280x720-archive-proof.json",
+      "sha256": "098eb0d082ae8768196280b7cb7b4e7d99f7398b3b48c28bbfaed217f6c964bf",
+      "bytes": 54756
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/nursery-p01-catch-baseline-1280x720.json",
+      "sha256": "3a9fa4770834cb93f5aab0b61e6c54677028837dc87e663af705ead1a6655159",
+      "bytes": 386290
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/nursery-p01-catch-candidate-1280x720-archive-proof.json",
+      "sha256": "82c85adf7e9bb559818d1ab2ff1f13920460d7e77b895e26f14e0589f8268801",
+      "bytes": 54759
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/pilot_v2/nursery-p01-catch-candidate-1280x720.json",
+      "sha256": "685909b44cb3a38bf755cf5bd80d7dc8313bae7cd3399be354bfb3edf0a8bb0d",
+      "bytes": 386746
+    },
+    {
+      "path": "audit/day2_action_continuity_20261001/reviews.json",
+      "sha256": "b685c9d7fec60ecd17bb68e7ffd5b188b975ab2984480f8592d11caa83e14691",
+      "bytes": 21616
+    }
+  ],
+  "qualification": "Draft source/action studies; all weak live objects remain an ongoing commission, no collective target or owner acceptance claimed."
+}
