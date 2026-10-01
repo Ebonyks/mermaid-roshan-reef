@@ -1,8 +1,8 @@
 {
  "schema": "codex_handoff_manifest/1",
  "handoff": "codex_visual_design_language_2026-09-30",
- "revision": 2,
- "revision_note": "Owner decisions 2026-09-30: the approved atlases are Roshan's primary identity authority; her tail is iridescent, lavender-pink-purple or rainbow depending on light, so both renderings are correct. Adds the requested comprehensive appearance analysis, per-frame measurements and the variance review package. Revision 1 was bdab5f7e.",
+ "revision": 3,
+ "revision_note": "Records the owner's answers to Q12-Q16 (2026-09-30): no light-state protocol yet; keep the older career and playground design; tiara outside career costume; repairs and the deletion of retired art go to codex_roshan_art_repairs_2026-09-30. Revision 2 was ab825adf; revision 1 bdab5f7e.",
  "status": "PROPOSED / CANDIDATE",
  "prepared_by": "Claude (analysis, written specification and draft reference; no game changes; no images)",
  "recipient": "Codex",
@@ -10,7 +10,7 @@
  "tracking_finding": "MA-DOC-008",
  "entry": "README.md",
  "file_count": 18,
- "total_bytes": 533863,
+ "total_bytes": 535126,
  "files": [
   {
    "path": ".gdignore",
@@ -20,26 +20,26 @@
   },
   {
    "path": "README.md",
-   "bytes": 20810,
-   "sha256": "1ff6daed641231fb2a531bb6f179eb4f96fdf852713926f4db4fc99ca5598548",
-   "role": "handoff entry: target kit, work packages VL0-VL9 and VL2a, acceptance, owner questions"
+   "bytes": 20779,
+   "sha256": "307c1cfdd0620e263f9c7fce762b0cc7f931ab5bd046dc8a74cab8f7b9e44c55",
+   "role": "handoff entry: target kit, work packages, acceptance, owner questions (Q1, Q2, Q12-Q16 answered)"
   },
   {
    "path": "ROSHAN_APPEARANCE_ANALYSIS.md",
-   "bytes": 17643,
-   "sha256": "4e0607208922af2f26ac58d2c02a498a46c6acfaf5d6a193cb0681fe8e58416c",
-   "role": "revision 2: frame-by-frame Roshan appearance analysis, lineage and variance register"
+   "bytes": 18270,
+   "sha256": "e3c0403cf3991786b3728649407870f16807ae91d2252e181039b6cecb01c6ab",
+   "role": "frame-by-frame Roshan appearance analysis, lineage, variance register and owner answers"
   },
   {
    "path": "VISUAL_LANGUAGE_AUDIT.md",
    "bytes": 16775,
    "sha256": "996c31c8ea50f2e263f390afc38fdef48e61aa1fc2f76991eed168fbcdf55049",
-   "role": "the answer and its evidence (revision 2 adds a dated update note)"
+   "role": "the answer and its evidence (with a dated update note)"
   },
   {
    "path": "VISUAL_LANGUAGE_DRAFT.md",
-   "bytes": 17407,
-   "sha256": "0e551ce4827e82f6c12e2901c01b600b49cb25da8bf494f0357137d5cbb08a06",
+   "bytes": 17457,
+   "sha256": "16d15d12b105dabe1df368785be9d18af87b38c51d8cbcbb314f6ea958a5d8c5",
    "role": "draft reference text for design/reference/VISUAL_LANGUAGE.md"
   },
   {
@@ -56,8 +56,8 @@
   },
   {
    "path": "data/identity_sheets_seed.json",
-   "bytes": 8060,
-   "sha256": "cb9daa975145302eb2e6adc3e31776349ca717749ac8b016d9c66b7cbcda2684",
+   "bytes": 8677,
+   "sha256": "1a323e40cf46eeda0dfd5cc2ef970a0969ab02c9bfcd0bce391f5f0e2b03ba34",
    "role": "identity sheet seeds; Roshan settled by the owner"
   },
   {
@@ -70,7 +70,7 @@
    "path": "data/roshan_atlas_frames.json",
    "bytes": 302820,
    "sha256": "a0e209afbc2e776a14e0b63449042b1a9f350dfd6056cfbe8e0329a55d630e03",
-   "role": "revision 2: per-frame measurements of 24 Roshan atlases (368 frames)"
+   "role": "per-frame measurements of 24 Roshan atlases (368 frames)"
   },
   {
    "path": "data/roshan_identity_palette.json",
@@ -88,7 +88,7 @@
    "path": "data/roshan_single_images.json",
    "bytes": 67897,
    "sha256": "109fbcee5322bdad372f13e32d54bee288925511fd0ce383492eb8e918c8f455",
-   "role": "revision 2: measurements of 31 single Roshan images"
+   "role": "measurements of 31 single Roshan images"
   },
   {
    "path": "data/visual_contradictions.json",

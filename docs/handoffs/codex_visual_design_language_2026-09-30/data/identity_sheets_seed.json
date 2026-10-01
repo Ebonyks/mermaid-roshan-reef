@@ -1,6 +1,6 @@
 {
  "schema": "identity_sheets_seed/1",
- "status": "PROPOSED / CANDIDATE seed, revision 2 (Roshan settled by the owner on 2026-09-30); format follows assets_src/characters/grand_puff_2026-09-13/IDENTITY_LOCK.json",
+ "status": "PROPOSED / CANDIDATE seed, revision 3 (Roshan settled by the owner on 2026-09-30, including Q12-Q16); format follows assets_src/characters/grand_puff_2026-09-13/IDENTITY_LOCK.json",
  "measured_at_head": "b65c21fdddd79f272a6854f241faa1441abe6616",
  "sheets": [
   {
@@ -9,7 +9,8 @@
    "status": "OWNER_DECIDED 2026-09-30: the approved atlases are the primary identity authority; the tail is iridescent and both renderings are correct",
    "owner_decisions": [
     "2026-09-30: lavender tail is canon; the atlases are primary approved, with some variance in appearance",
-    "2026-09-30 (clarification): both tails are right; the tail is rainbow and iridescent pink/purple depending on how light hits it"
+    "2026-09-30 (clarification): both tails are right; the tail is rainbow and iridescent pink/purple depending on how light hits it",
+    "2026-09-30 (answers to Q12-Q16): \"1 - no clear protocols exist yet for why. 2. yes. 3. yes. 4. prepare handoff, 5. delete outright, this art is retired in this draft, existed in previous mermaid roshan wisconsia book\""
    ],
    "identity_authority": "approved atlas family (DL-MED-02): assets/characters/roshan_25d/ runtime atlases and assets/opera/worlds/actors/animation/roshan_<career>_sheet_a.png; the protected book image is a likeness reference only",
    "invariants": [
@@ -23,7 +24,6 @@
     "description": "iridescent scales: pink, purple and lavender that show rainbow colours where the light hits them; fins rainbow in every state",
     "light_states": {
      "LAVENDER": {
-      "when": "soft or ambient light (proposed)",
       "seen_in": "all nine runtime base-world atlases and roshan_base.png; Teacher and Geologist career atlases lean this way",
       "measured_base_world_per_frame": {
        "lavender_band": [
@@ -38,18 +38,19 @@
         0.084,
         0.159
        ]
-      }
+      },
+      "used_today": "exploring the castle and Sky Lagoon"
      },
      "RAINBOW": {
-      "when": "bright direct or stage light (proposed)",
-      "seen_in": "thirteen of fifteen career atlases and their portrait cards"
+      "seen_in": "thirteen of fifteen career atlases and their portrait cards",
+      "used_today": "Opera careers"
      },
      "MIXED": {
-      "when": "outdoor light (proposed)",
-      "seen_in": "Sky Lagoon playground sprites: paler, bluer lavender with a pastel rainbow belly band"
+      "seen_in": "Sky Lagoon playground sprites: paler, bluer lavender with a pastel rainbow belly band",
+      "used_today": "Sky Lagoon playground"
      }
     },
-    "proposed_rule": "Pick the light state from the scene light; keep one state within a sheet and within a scene; never a flat single-colour or left/right two-tone tail (OQ-VIS-LIGHT-STATE)"
+    "protocol": "none yet (owner 2026-09-30); new art continues the state of the exemplar it extends, names it on the card and keeps one state per sheet"
    },
    "base_outfit": {
     "top": "pink ruffled top with lilac ruffle sleeves",
@@ -81,7 +82,8 @@
       "#f4d74b"
      ]
     },
-    "evidence": "data/roshan_identity_palette.json"
+    "evidence": "data/roshan_identity_palette.json",
+    "tiara_rule": "worn whenever she is not in a career costume (owner 2026-09-30)"
    },
    "career_outfits": "a career costume may replace the top and the headwear; the face, hair colour, tail and fins stay Roshan",
    "measured_family_profile_base_world": {
@@ -111,7 +113,7 @@
     "third-party characters, brands or logos"
    ],
    "do_not_bind": [
-    "assets/characters/roshan_sprite.png: carries a branded third-party backpack; not loaded by runtime code"
+    "assets/characters/roshan_sprite.png: retired art from the earlier Mermaid Roshan Wisconsin book with a third-party backpack; deletion ordered by the owner on 2026-09-30 (repair handoff D-01)"
    ],
    "retired_wording": {
     "text": "chestnut hair, front-left rainbow forelock, lavender clothing, green-right / pink-left tail",
@@ -130,7 +132,9 @@
     "shows": "brown hair, rainbow front lock, crown, pink puffed top, green-into-purple scaled tail, rainbow fin",
     "use": "likeness reference only; never edited"
    },
-   "identity_anchor_rule": "every new Roshan job binds roshan_base.png or a base-world runtime atlas as its identity anchor; career atlases only as costume or pose anchors; roshan_sprite.png and the 13 career cards generated from it never"
+   "identity_anchor_rule": "every new Roshan job binds roshan_base.png or a base-world runtime atlas as its identity anchor; career atlases only as costume or pose anchors; roshan_sprite.png and the 13 career cards generated from it never",
+   "second_design": "the older career and playground design is kept as it is (owner 2026-09-30); all new art follows the base-world child",
+   "defects": "specified in docs/handoffs/codex_roshan_art_repairs_2026-09-30/ (finding MA-ROSHAN-005)"
   },
   {
    "id": "ID-DADDY",

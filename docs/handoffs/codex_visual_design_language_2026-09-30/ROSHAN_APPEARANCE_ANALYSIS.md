@@ -45,6 +45,12 @@ is both rainbow and iredescent pink/purple, depending how light hits it"*.
 - Everything else that differs between images is variance, sorted below into
   light, costume, second design and defect.
 
+**Owner answers to the variance review (2026-09-30):** "1 - no clear protocols exist yet for why. 2. yes. 3. yes. 4. prepare handoff, 5. delete outright, this art is retired in this draft, existed in previous mermaid roshan wisconsia book". So: no
+protocol yet explains which light state the tail shows; the older career and
+playground design is kept and new art follows the base-world child; she wears
+the tiara whenever she is not in a career costume; the defects go to the
+[repair handoff](../codex_roshan_art_repairs_2026-09-30/README.md); the retired backpack images are deleted.
+
 ## 3. Every Roshan image the game shows
 
 | Surface | Images | Used by |
@@ -212,12 +218,12 @@ listed for the owner; nothing changes without approval.
 
 | ID | Variance | Where | Kind | Suggested handling |
 |---|---|---|---|---|
-| RV-01 | Tail light state differs | All families | Light (accepted) | Record the state on every card; pick it from the scene light |
+| RV-01 | Tail light state differs | All families | Light (accepted) | No protocol yet (owner); continue the bound exemplar's state and name it |
 | RV-02 | Career costume replaces top and headwear | Career art | Costume (accepted) | Keep face, hair colour, tail and fins as canon |
-| RV-03 | Older, slimmer girl with a longer face, almond eyes and a pointed chin | 13 career cards, 13 career atlases, playground | Second design | Owner question; new art follows the canon age and build |
-| RV-04 | Loose rainbow lock or front streak instead of a tied ponytail | Same, plus Geologist and Teacher | Second design | Owner question; new base-outfit art uses the ponytail |
-| RV-05 | No tiara outside career costume | Playground | Second design | New base-outfit art wears the tiara |
-| RV-06 | Muted, darker painted finish (saturation about 0.5 against 0.7), warm brown lines, fins without white bands | Career cards and the 13 career atlases | Second design | Owner question; new Opera art matches whichever finish the owner keeps |
+| RV-03 | Older, slimmer girl with a longer face, almond eyes and a pointed chin | 13 career cards, 13 career atlases, playground | Second design | Kept (owner); new art follows the canon age and build |
+| RV-04 | Loose rainbow lock or front streak instead of a tied ponytail | Same, plus Geologist and Teacher | Second design | Kept (owner); new base-outfit art uses the ponytail |
+| RV-05 | No tiara outside career costume | Playground | Second design | Kept; new base-outfit art wears the tiara (owner) |
+| RV-06 | Muted, darker painted finish (saturation about 0.5 against 0.7), warm brown lines, fins without white bands | Career cards and the 13 career atlases | Second design | Kept (owner); new art follows the base-world finish |
 | RV-07 | Ponytail side jumps between frames | Swim pair, `play_b` 4–7, `gesture_a` 14; Candy Maker 14 | Continuity | Accept, or match the side when a sheet is regenerated |
 | RV-08 | Tail curls the wrong way for one frame | `roshan_gesture_b` frame 2 | Defect | Repair candidate |
 | RV-09 | No fins on two idle frames; white leftover background; baked sand | Geologist atlas 0–1; 12 and 14; 10 | Defect | Repair candidate (the idle row is the most-seen state) |
@@ -232,24 +238,24 @@ listed for the owner; nothing changes without approval.
 | RV-18 | Heavy near-black line; green hair patch | `roshan_book.png` | Drift | Repair if the Tree Book test ships |
 | RV-19 | Rainbow hair not visible | Boot splash | Drift | Accept or recompose |
 | RV-20 | Within-set colour jump | Playground `slide_3_v2`, `swing_3_v2` | Drift | Accept or match the set |
-| RV-21 | Third-party cartoon characters on a backpack | `roshan_sprite.png`, both `sky_lagoon_roshan` files (not loaded by game code) | IP | Owner decision: quarantine like the Gabby assets; never bind as a reference |
+| RV-21 | Third-party cartoon characters on a backpack | `roshan_sprite.png`, both `sky_lagoon_roshan` files (not loaded by game code) | IP | Delete outright (owner): retired art from the earlier Wisconsin book; repair handoff D-01 |
 
 ## 8. Proposed identity rules for `ID-ROSHAN`
 
 1. Identity anchor for every new Roshan job: `roshan_base.png` or a base-world
    runtime atlas, by hash.
-2. Tail: iridescent; the card names the light state (lavender for soft or
-   ambient light, rainbow for bright or stage light, mixed for outdoor light,
-   pending `OQ-VIS-LIGHT-STATE`); one state per sheet and per scene; fins
-   always rainbow.
+2. Tail: iridescent; no protocol yet explains which state appears (owner,
+   2026-09-30), so new art continues the state of the exemplar it extends,
+   names it on the card and keeps one state per sheet; fins always rainbow.
 3. Base outfit: pink ruffled top, small gold tiara with a blue gem, tied
    rainbow ponytail. A career costume may replace the top and the headwear
    only.
 4. Age and build: the base-world child (about four or five, round face, large
    brown eyes), whatever the costume.
-5. Line and finish: thin dark lines (plum on the body and tail, warm brown on
-   the hair) and soft pastel cel shading, within the measured base-world
-   ranges in section 5.1, unless the owner keeps the career finish (RV-06).
+5. Line and finish for new art: thin dark lines (plum on the body and tail,
+   warm brown on the hair) and soft pastel cel shading, within the measured
+   base-world ranges in section 5.1. Existing career and playground art keeps
+   its own finish (owner, RV-06).
 6. Forbidden: legs, feet or shoes; a second tail or tail-like ribbon; a flat
    or split two-tone tail; adult proportions; third-party characters, brands
    or logos.
@@ -264,7 +270,6 @@ listed for the owner; nothing changes without approval.
   career atlases as costume and pose exemplars only; `roshan_sprite.png` and
   the 13 older career cards as "never bind as identity" anti-exemplars with
   reason code `RC-IDENTITY-SOURCE`.
-- Put RV-03 to RV-21 to the owner as one review list with the suggested
-  handling; prepare (but do not run) repair cards for the defects the owner
-  approves.
+- The owner answered the review on 2026-09-30; the defects and the deletion
+  are specified in the [repair handoff](../codex_roshan_art_repairs_2026-09-30/README.md).
 - Change no approved image in this handoff.

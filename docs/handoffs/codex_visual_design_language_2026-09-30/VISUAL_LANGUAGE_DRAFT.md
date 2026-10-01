@@ -98,14 +98,15 @@ lavender rendering and the rainbow rendering are both correct. Evidence:
   and hands; no legs, feet or shoes.
 - **Tail light states:**
 
-| State | Looks like | Seen in | Proposed use |
+| State | Looks like | Seen in | Used today |
 |---|---|---|---|
-| Lavender | Lavender and periwinkle sequins with pink and sky-blue sheen | All base-world atlases; Teacher and Geologist lean this way | Soft or ambient light: exploring the castle and Sky Lagoon |
-| Rainbow | Continuous rainbow-gradient scales | Thirteen career atlases and their portrait cards | Bright or stage light: Opera careers |
-| Mixed | Paler, bluer lavender with a pastel rainbow belly band | Sky Lagoon playground sprites | Outdoor light |
+| Lavender | Lavender and periwinkle sequins with pink and sky-blue sheen | All base-world atlases; Teacher and Geologist lean this way | Exploring the castle and Sky Lagoon |
+| Rainbow | Continuous rainbow-gradient scales | Thirteen career atlases and their portrait cards | Opera careers |
+| Mixed | Paler, bluer lavender with a pastel rainbow belly band | Sky Lagoon playground sprites | Sky Lagoon playground |
 
-  Proposed rule (`OQ-VIS-LIGHT-STATE`): choose the state from the scene's
-  light, keep one state within a sheet and a scene, and keep the fins rainbow.
+  No protocol yet explains which state appears (owner, 2026-09-30). New art
+  continues the state of the exemplar it extends and names it on the card;
+  keep one state within a sheet; the fins stay rainbow.
 - **Base outfit (measured on the runtime atlases):** pink ruffled top
   `#eeb2e8`; small gold tiara with a blue gem `#f4d74b`; rainbow ponytail;
   brown hair `#ae743e`, `#7e492a`, `#e29455`; skin `#f9ddc2` with blush
@@ -113,14 +114,16 @@ lavender rendering and the rainbow rendering are both correct. Evidence:
   sheen `#aad3f9`, `#64a8db`.
 - **Career outfits:** a costume may replace the top and the headwear; her
   face, hair colour, tail and fins stay hers.
-- **Recorded variance:** hair style and where the rainbow sits, headwear,
-  outline colour, rendering and scale differ between atlas families
-  (analysis section 5). Each item goes to the owner; no art changes without
-  approval.
+- **Tiara:** worn whenever she is not in a career costume (owner,
+  2026-09-30).
+- **Recorded variance:** the older career and playground design (loose
+  rainbow lock, no tiara, muted finish) is kept as it is (owner, 2026-09-30);
+  all new art follows the base-world child. Defects are in the
+  [repair handoff](../codex_roshan_art_repairs_2026-09-30/README.md).
 - **Forbidden:** adult proportions; legs, feet or shoes; a second tail; a flat
   single-colour or left/right two-tone tail; different hair or eye colour;
-  third-party characters, brands or logos (the old sprite
-  `assets/characters/roshan_sprite.png` carries one and is never bound).
+  third-party characters, brands or logos (the retired sprite that carried
+  one is being deleted by owner decision).
 - **Retired wording:** "lavender clothing, green-right / pink-left tail"
   (design 01, design 02, scoring governance, generation contract) is
   superseded by the owner decision.
@@ -241,9 +244,9 @@ recolours approved art (`DL-VIS-08`).
 | ID | Question | Default until answered |
 |---|---|---|
 | `OQ-VIS-ROSHAN` | Which Roshan do new pictures continue? | **Answered 2026-09-30:** her tail is iridescent; lavender and rainbow renderings are both correct |
-| `OQ-VIS-LIGHT-STATE` | Does the tail's light state follow the scene light (lavender in soft or ambient light, rainbow in bright or stage light, mixed outdoors), one state per sheet and scene? | Yes |
-| `OQ-VIS-SECOND-DESIGN` | Keep the older, slimmer career and playground Roshan (loose rainbow lock, muted finish), or regenerate it from the base-world identity over time? | Keep existing art; all new art follows the base-world child |
-| `OQ-VIS-TIARA` | Does Roshan wear the tiara whenever she is not in a career costume? | Yes, for new art |
+| `OQ-VIS-LIGHT-STATE` | Does the tail's light state follow the scene light? | **Answered 2026-09-30:** no protocol yet; continue the exemplar's state and name it |
+| `OQ-VIS-SECOND-DESIGN` | Keep the older, slimmer career and playground Roshan, or regenerate it? | **Answered 2026-09-30:** keep it; all new art follows the base-world child |
+| `OQ-VIS-TIARA` | Does Roshan wear the tiara whenever she is not in a career costume? | **Answered 2026-09-30:** yes |
 | `OQ-VIS-AUTHORITY` | Is the identity authority the book (`DL-VIS-06`) or the approved atlas family (`DL-MED-02`)? | **Answered 2026-09-30:** the approved atlases are primary; the book is a likeness reference |
 | `OQ-VIS-RIVAL-LINE` | Keep the imps' heavy near-black line as their deliberate look, or move them to the plum line? | Keep, and record it as the rival family trait |
 | `OQ-VIS-FLAT-ROOMS` | Are the four flat-shell rooms placeholders to repaint? | Yes, as backlog; not part of this handoff |

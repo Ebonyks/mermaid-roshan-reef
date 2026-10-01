@@ -9,7 +9,9 @@ plan to refine it."*
 game change and no images). **To:** Codex (implementation, tools and every
 image). **Owner:** answers the questions in section 6 and accepts the result.
 
-**Status:** `PROPOSED / CANDIDATE`, revision 2 (2026-09-30). Revision 2
+**Status:** `PROPOSED / CANDIDATE`, revision 3 (2026-09-30). Revision 3 records
+the owner's answers to Q12–Q16; the repairs and the deletion they commissioned
+are specified in the [Roshan art repair handoff](../codex_roshan_art_repairs_2026-09-30/README.md). Revision 2
 records the owner's identity decisions (section 6) and adds a frame-by-frame
 [appearance analysis](ROSHAN_APPEARANCE_ANALYSIS.md) of every runtime Roshan
 image, which the owner asked to receive as part of this handoff. This packet
@@ -158,15 +160,15 @@ Puff's lock does. Then Daddy, Rumi, Baby Eagle, dust bunnies, Grand Puff (link
 its lock), the pearl plane and the rival imps. **Gate:** each sheet cites
 approved images by hash; no protected file changes.
 
-### VL2a — Roshan variance review
+### VL2a — Roshan variance decisions
 
-Put the variance register (analysis section 7, RV-03 to RV-21) to the owner as
-one review list with the suggested handling. For each defect the owner
-approves, prepare an art style card for the repair (same pose, costume and
-light state; identity anchor from the base world) but do not run it until the
-owner approves the batch. Make sure no runtime path draws the tail-cropping
-career cards as full-body actors. **Gate:** the review list is published with
-the impact record; no approved image changes in this handoff.
+The owner answered the variance review on 2026-09-30. Record the answers in
+`ID-ROSHAN` and the registry: no light-state protocol yet (RV-01); the older
+career and playground design is kept (RV-03, RV-04, RV-06); new base-outfit art
+wears the tiara (RV-05). The defects (RV-07 to RV-20) and the deletion of the
+retired art (RV-21) are specified in the [repair handoff](../codex_roshan_art_repairs_2026-09-30/README.md).
+**Gate:** the answers appear in `ID-ROSHAN`; no approved image changes in this
+handoff.
 
 ### VL3 — Registries
 
@@ -252,7 +254,7 @@ into the development contract only if the owner accepts it (Q10).
 | AC-9 | The cold-start dry run passes and the owner accepts it | Dry-run record |
 | AC-10 | No approved or protected image changed; no image written by Claude | `git diff` and the impact record |
 | AC-11 | `MA-DOC-008` acceptance met and recorded in its history | The finding record |
-| AC-12 | The Roshan variance review list (RV-03 to RV-21) is with the owner, each item with suggested handling; no approved image changed without approval | Review list and `git diff` |
+| AC-12 | The owner's answers to Q12–Q16 are recorded in `ID-ROSHAN` and the registry, and the repair handoff is linked; no approved image changes in this handoff | Sheet, registry and `git diff` |
 
 ## 6. Owner questions (Codex proceeds on the default and reports it)
 
@@ -269,11 +271,11 @@ into the development contract only if the owner accepts it (Q10).
 | Q9 | May the cold-start dry run generate its two images (kept as candidates, not placed in the game)? | No; stop at the cards |
 | Q10 | Add the keep-fresh step to the development contract? | Recommendation only until accepted |
 | Q11 | May Codex update the art-direction paragraphs of `CLAUDE.md` and `AGENTS.md` to point to the reference (high-risk files)? | No, unless the owner names it |
-| Q12 | Does the tail's light state follow the scene light: lavender in soft or ambient light, rainbow in bright or stage light, mixed outdoors, one state per sheet and scene (`OQ-VIS-LIGHT-STATE`)? | Yes |
-| Q13 | The 13 career cards, 13 career atlases and the playground sprites show an older, slimmer Roshan with a loose rainbow lock and a muted finish (RV-03, RV-04, RV-06). Keep them, or regenerate them from the base-world identity over time? | Keep them; all new art follows the base-world child; regenerate only when the owner orders it |
-| Q14 | Does Roshan wear the tiara whenever she is not in a career costume (RV-05)? | Yes, for new art |
-| Q15 | Approve repairs for the defects in RV-07 to RV-20 (Geologist's missing fins, Pop Star's second-tail ribbon, cropped tails, baked effects, halo, tail flip, specks, mismatched frames)? | Codex prepares repair cards; each repair waits for approval |
-| Q16 | The unused images with a third-party cartoon backpack (RV-21): quarantine them under an IP hold, as with Gabby, and stop the two tools reading them? | Yes; the owner decides whether they leave the public repository |
+| Q12 | Does the tail's light state follow the scene light (`OQ-VIS-LIGHT-STATE`)? | **Answered 2026-09-30:** no protocol yet explains why; new art continues the state of the exemplar it extends and names it; no rule is enforced |
+| Q13 | Keep the older career and playground Roshan, or regenerate it (RV-03, RV-04, RV-06)? | **Answered 2026-09-30:** keep it; all new art follows the base-world child |
+| Q14 | Does Roshan wear the tiara whenever she is not in a career costume (RV-05)? | **Answered 2026-09-30:** yes |
+| Q15 | Repair the defects in RV-07 to RV-20? | **Answered 2026-09-30:** prepare the handoff; see the [repair handoff](../codex_roshan_art_repairs_2026-09-30/README.md) |
+| Q16 | The unused images with a third-party cartoon backpack (RV-21)? | **Answered 2026-09-30:** delete outright; the art is retired from the earlier Mermaid Roshan Wisconsin book (repair handoff D-01) |
 
 ## 7. Gates and delivery
 

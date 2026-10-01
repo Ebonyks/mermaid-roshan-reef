@@ -1,0 +1,40 @@
+{
+ "schema": "codex_handoff_manifest/1",
+ "handoff": "codex_roshan_art_repairs_2026-09-30",
+ "revision": 1,
+ "status": "PROPOSED / CANDIDATE; commissioned by the owner on 2026-09-30",
+ "prepared_by": "Claude (written specification; no game changes; no images)",
+ "recipient": "Codex",
+ "evidence_baseline": "dev b65c21fdddd79f272a6854f241faa1441abe6616",
+ "tracking_finding": "MA-ROSHAN-005",
+ "entry": "README.md",
+ "file_count": 4,
+ "total_bytes": 34071,
+ "files": [
+  {
+   "path": ".gdignore",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "role": "keeps Godot from importing this folder"
+  },
+  {
+   "path": "README.md",
+   "bytes": 7944,
+   "sha256": "741198f4d748eb62b6abc995a85211231d1fa93c7fbd6e65d4c346600cc77105",
+   "role": "handoff entry: deletion D-01, repairs R-01 to R-11, acceptance, gates"
+  },
+  {
+   "path": "data/deletion_inventory.json",
+   "bytes": 3069,
+   "sha256": "4f35fa23020f25ce2a7d15eb903b31efdf13c66ac3bb5845ccc66deba40eaf27",
+   "role": "files to delete with SHA-256, live references to update, history to leave"
+  },
+  {
+   "path": "data/repair_targets.json",
+   "bytes": 23058,
+   "sha256": "8fd3d2b8d8f98f34ce1f444b2ce163778672aa4bd352b42ce4497a383a781219",
+   "role": "18 repair targets with frames, rectangles, SHA-256, consumers and pins"
+  }
+ ],
+ "hashes_are_of": "committed blobs (LF line endings)"
+}
