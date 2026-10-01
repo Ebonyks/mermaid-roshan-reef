@@ -1,0 +1,93 @@
+{
+  "checked_at_utc": "2026-10-01T01:12:15+00:00",
+  "baseline": "a21323f47e000add28006eaa28102c9dc9038070",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "checks": [
+    {
+      "name": "Exact source/input/prompt hashes and installed-tool/receipt snapshots; quantized preset, dimensions, explicit nursery style rejection",
+      "result": "PASS",
+      "command": "python -X utf8 -B tools/queue_day2_local_motion.py --check"
+    },
+    {
+      "name": "Existing artwork report hashes and RGBA checks; owner feedback preservation",
+      "result": "PASS",
+      "command": "python -X utf8 -B tools/build_day2_replacement_review.py --check"
+    },
+    {
+      "name": "Background local FIFO worker",
+      "result": "PASS",
+      "worker_pid": 11516,
+      "status": "WAITING_FOR_EXISTING_COMFY_JOBS",
+      "evidence": "QUEUE_SNAPSHOT.json; independently confirmed process alive"
+    },
+    {
+      "name": "Current-service quantized rendering",
+      "result": "PENDING",
+      "native_prompt_ids": [],
+      "evidence": "First puff study calibrates execution; other four require matching same-settings machine PASS and idle admission. Native prompt IDs prove submission only; outputs and visual acceptance remain pending."
+    },
+    {
+      "name": "Initial native detail puff attempt",
+      "result": "FAIL",
+      "native_prompt_id": "a67bc3ea-986a-4207-beb4-29c64b412345",
+      "evidence": "attempts/D2A-0394-fp16-failure.json; model-loading access violation, lost connection, no output observed; preserved originals and distinct revision2 names"
+    },
+    {
+      "name": "Document authority/change coverage and browser layout",
+      "result": "PASS",
+      "evidence": "DOCAUTH589 inventory/589 ledger/57 active/59 records; AUDITDEV base7f068cb80766edd52a110cc1cb3958158f829822 ALL OK;52 authority/coverage unit tests and6/6 stress PASS. Edge1440/390px:5/5 study plates and33/33 art images decode,8 art cards, no horizontal overflow or page errors, cross-packet link200. Python syntax passes."
+    },
+    {
+      "name": "Full unchanged runtime CI",
+      "result": "PENDING",
+      "evidence": "No runtime changes; exact publication-head workflow remains required. Predecessor a213 run36796034349 still in progress at first queue inspection."
+    },
+    {
+      "name": "OS lock rejects a second local worker before any prompt submission",
+      "result": "PASS",
+      "evidence": "Second worker exits with Day Two worker already active; no prompt submitted. Initial/revision2 duplicates rejected; revision2 waiting worker56664 stopped only after PID/command/state verification to refresh the developed8190 routing. Current worker PID11516 independently confirmed alive. No other native job cancelled."
+    },
+    {
+      "name": "Source-plate visual inspection",
+      "result": "PASS",
+      "evidence": "All five original960x544 plates inspected; revision2 uniformly rescales the same complete1024 source canvases to448px on896x512 mats. Nursery remains style rejected. No source artwork pixels changed."
+    }
+  ],
+  "owner_approval": null,
+  "nursery_style_status": "OWNER_REJECTED_TOO_LIFELIKE",
+  "runtime_integration": false,
+  "visual_motion_review": "PENDING_NO_OUTPUTS_ACCEPTED",
+  "device_child_acceptance": "PENDING",
+  "cinematic_delivery_acceptance": "NOT_CLAIMED",
+  "prompt_hash_semantics": {
+    "file_hash": "Manifest pins exact CRLF-preserved file bytes",
+    "consumed_text_hash": "Developed CLI reads UTF-8 text and normalizes CRLF to LF before hashing; distinct consumed-text hashes recorded here",
+    "jobs": [
+      {
+        "id": "D2A-0394",
+        "file_sha256": "e1cd5eaf465f2737acdabc9ea37e01a9512de3fe6b68303aa6135966e7a52fb1",
+        "consumed_text_sha256": "4fa0e41643cb733c84c885554f227e3ab0d6e07f6cf7004659753e7ec58378ac"
+      },
+      {
+        "id": "D2A-0446",
+        "file_sha256": "0449061db20c52083977ee5c482a510b77a5ba740c17317577b76f6f4a437e26",
+        "consumed_text_sha256": "3136cd60af5085b4554e373780d4fd035dd0f2300dcbab53eec3f0a852f2fd3a"
+      },
+      {
+        "id": "D2A-0495",
+        "file_sha256": "8d851df31188cc61509d759024e97543fab34a77f970145a779f8688590fd664",
+        "consumed_text_sha256": "6343a1064e793bfd949ead2e7654bd993022ecc30438b075610b81b148ec1e62"
+      },
+      {
+        "id": "D2A-0056",
+        "file_sha256": "de0ed06690196e99711e6555964e776a6103ab5e3039c5f743975669df13f027",
+        "consumed_text_sha256": "b1b0c26e4adf013d22a0be499a29fabf8aef5d0cd32a9051fbfda3fa36a09465"
+      },
+      {
+        "id": "D2A-0057",
+        "file_sha256": "385beeac47f1dc97b26e789d6821fd02f1060326e6851d430b62a8bc812439ba",
+        "consumed_text_sha256": "e21a155dc3feafa4a7fd40024f055c3e361654a26f40feb289da001e46e754ba"
+      }
+    ]
+  }
+}

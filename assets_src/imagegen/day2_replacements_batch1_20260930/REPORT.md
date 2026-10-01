@@ -1,14 +1,18 @@
 # Day Two replacement artwork — first approval batch
 
-Status: **candidate files ready for user review; user approval pending**. Eight separate replacement files address named source-image defects. No live game texture or protected original is changed. The original 637-image audit and 432-item inclusive priority queue retain their history.
+Status: **seven source candidates await review; nursery v4 remains style rejected**. The owner finds it improved but still too lifelike. Historical scores and all image bytes are preserved; no source or motion candidate has owner approval.
 
 [Illustrated before/after review](index.html) · [Exact manifest and prompts](MANIFEST.json) · [Public GitHub verification receipt](REMOTE_VERIFICATION.json)
 
 ## Result and scoring
 
-Eight selected candidates score **4.5–4.7/5** in Codex source review, meeting the requested minimum **4.5/5**. Twelve built-in imagegen calls were used: nine image edits and three fresh nursery text-to-image generations with zero image bindings. The first Kitchen attempt is retained and rejected at4.3 for emblem drift. The first nursery candidate retains its historical4.6 Codex opinion but is owner-rejected for game-style mismatch; it is no longer the selected candidate. The first two fresh trials are retained and rejected at4.3 for native-edge artifacts; the third fresh trial is selected at4.5 with tiny remaining specks disclosed.
+Historical Codex source opinions for the eight preserved candidates are **4.5–4.7/5**. Owner feedback supersedes the nursery v4 opinion for current style acceptance: **D2A-0446 needs simpler illustrated forms and remains an update priority**. Its4.5 score is retained as history, not a current style pass. Twelve imagegen calls and all rejected attempts remain preserved. The other seven source candidates are unchanged and await owner review.
 
-The five criteria are identity/visual role, contour/isolation, palette/value, painted material finish and small-scale readability. Each also meets 4.5 in this draft. These are authored visual opinions bound to exact selected hashes; this tool checks the binding and never grades a new image. No 5/5 or owner/runtime acceptance is claimed under DL-VIS-07 and DL-VIS-08.
+The five criteria are identity/visual role, contour/isolation, palette/value, painted material finish and small-scale readability. Their recorded values describe the earlier Codex draft review; nursery owner feedback overrides style acceptance. These are authored visual opinions bound to exact selected hashes; this tool checks the binding and never grades a new image. No 5/5 or owner/runtime acceptance is claimed under DL-VIS-07 and DL-VIS-08.
+
+## Local motion queue
+
+The owner requests studies through the developed local ComfyUI workflow. [Five individual briefs and source plates](../../local_motion/day2_batch1_20260930/index.html) cover boxing puff, nursery gesture, mounted wheel, maple and dogwood. [Timestamped queue snapshot](../../local_motion/day2_batch1_20260930/QUEUE_SNAPSHOT.json) distinguishes local FIFO entries from native prompt submission. All outputs are LOCAL_MOTION_REFERENCE_ONLY. Nursery uses the rejected v4 still only to study a gentle catching gesture; motion cannot repair or approve its appearance. Navigation badges stay static.
 
 ## Individual results
 
@@ -41,7 +45,7 @@ Source: assets/opera/worlds/props/fx_bop_puff.png. Source SHA-256: 4e64dfa88aa9a
 
 ## D2A-0446 — Nursery softly painted catching arms
 
-**Before 3.1/5 → candidate 4.5/5.** Three fresh text-to-image generations with zero bound images follow the owner rejection of the flat sling/cuff design. Attempts2 and3 are rejected for bright native-edge artifacts. Attempt4 uses calmer painted color bands, connected wrists, softly cupped palms, modest lilac sleeve ends and more generous margins. Its simplified warm storybook forms fit the game better in Codex review. Tiny colored edge specks remain at native magnification; they are disclosed and reduce the source grade to4.5/5. This meets the draft minimum, while owner style acceptance and runtime contact remain pending.
+**Before 3.1/5 → candidate 4.5/5.** Owner feedback on this exact v4 candidate: improved overall, but still too lifelike for the game. The earlier Codex4.5/5 source opinion is retained as history and does not establish current style acceptance. The palm modeling, finger articulation and soft skin shading need flatter rounded toy forms, broad painted bands and clearer navy/purple contour grouping. Attempts2/3 remain rejected for edge artifacts; v4 remains preserved as a style-rejected motion-study input. A ComfyUI gesture test cannot repair or approve its appearance.
 
 **Interaction/integration review:** The controller draws a square up to116px wide around catch_point and draws babies separately. Check actual baby overlap, the implied connection to Roshan, palms beneath a falling baby and the separate settled-baby row before integration. The preview proves source readability only.
 
@@ -139,7 +143,7 @@ Selected files have true RGBA, transparent corners and a complete visible alpha>
 
 ## Mobile replacement files
 
-The mobile copies were separately inspected on light/dark mats at 36px (wheel), 116px (nursery arms), 64px (badges) and112px (other cues). All eight retain their 4.5–4.7/5 draft source grades after reduction. Their exact reviewed hashes are recorded separately. The originals, 1254px native generations and 1024px review masters remain intact.
+The mobile copies were separately inspected on light/dark mats at 36px (wheel), 116px (nursery arms), 64px (badges) and112px (other cues). Historical4.5–4.7/5 source opinions remain recorded after reduction; nursery is currently style rejected. Their exact reviewed hashes are recorded separately. The originals, 1254px native generations and 1024px review masters remain intact.
 
 | Mobile file | Size | Draft source score |
 |---|---:|---:|
@@ -164,4 +168,4 @@ The faceted racer portrait D2A-0054 should first be compared with the existing p
 
 Machine evidence is in [VERIFICATION.json](VERIFICATION.json): exact source/reference/prompt/output hashes, 1024 and256/512 RGBA/margins, original preservation, browser/image decoding, document authority, change coverage and the shrinking 2D gate. Full CI results are linked when available. Checks never supply visual ratings or user approval.
 
-**User decision requested:** approve this report and the eight selected source candidates, or name item IDs for another revision. Approval must come from the user. All owner_approval fields remain null until that response. Runtime integration, live motion/contact, target device, child and whole-game acceptance are separate. No finding is closed and no release is authorized by this draft.
+**Owner review remains open.** Nursery v4 is explicitly rejected for lifelike styling and needs a later simpler still revision. The other seven source candidates and the written report await owner review. All owner_approval fields remain null. Queuing or rendering a reference does not grant visual, contact, device, child, runtime or cinematic delivery acceptance. No finding is closed and no release is authorized.

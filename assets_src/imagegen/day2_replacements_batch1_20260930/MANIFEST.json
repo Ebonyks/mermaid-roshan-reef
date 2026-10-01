@@ -163,9 +163,10 @@
           "prompt_sha256": "dd118747f94c56f45a2b58405d8289c2de6298bd4e4b92dcc1aa47cfca56103b",
           "bound_references": [],
           "input_images": 0,
-          "review": "SELECTED_CANDIDATE_MEETS_DRAFT_SOURCE_TARGET",
+          "review": "OWNER_REJECTED_TOO_LIFELIKE",
           "score": 4.5,
-          "review_note": "Attempt3 retains conspicuous bright edge flecks. Attempt4 improves painted-band simplicity, contour grouping and generous composition margins. Tiny remaining edge specks at native magnification are disclosed; source draft is4.5, not perfect or owner accepted."
+          "review_note": "Attempt3 retains conspicuous bright edge flecks. Attempt4 improves painted-band simplicity, contour grouping and generous composition margins. Tiny remaining edge specks at native magnification are disclosed; source draft is4.5, not perfect or owner accepted.",
+          "score_status": "Historical Codex4.5 draft opinion; superseded for current acceptance by owner style rejection. No owner score inferred."
         }
       ],
       "selected_candidate": "assets_src/imagegen/day2_replacements_batch1_20260930/selected/D2A-0446-v4.png",
@@ -187,10 +188,10 @@
         "painted_material_finish": 4.5,
         "small_scale_source_readability": 4.5
       },
-      "evaluation": "Three fresh text-to-image generations with zero bound images follow the owner rejection of the flat sling/cuff design. Attempts2 and3 are rejected for bright native-edge artifacts. Attempt4 uses calmer painted color bands, connected wrists, softly cupped palms, modest lilac sleeve ends and more generous margins. Its simplified warm storybook forms fit the game better in Codex review. Tiny colored edge specks remain at native magnification; they are disclosed and reduce the source grade to4.5/5. This meets the draft minimum, while owner style acceptance and runtime contact remain pending.",
+      "evaluation": "Owner feedback on this exact v4 candidate: improved overall, but still too lifelike for the game. The earlier Codex4.5/5 source opinion is retained as history and does not establish current style acceptance. The palm modeling, finger articulation and soft skin shading need flatter rounded toy forms, broad painted bands and clearer navy/purple contour grouping. Attempts2/3 remain rejected for edge artifacts; v4 remains preserved as a style-rejected motion-study input. A ComfyUI gesture test cannot repair or approve its appearance.",
       "runtime_review_required": "The controller draws a square up to116px wide around catch_point and draws babies separately. Check actual baby overlap, the implied connection to Roshan, palms beneath a falling baby and the separate settled-baby row before integration. The preview proves source readability only.",
       "source_review_complete": true,
-      "source_target_met": true,
+      "source_target_met": false,
       "selected_attempt": 4,
       "technical_quality": {
         "dimensions": [
@@ -231,7 +232,17 @@
           "review": "REJECTED_VISIBLE_NATIVE_EDGE_ARTIFACTS",
           "score": 4.3
         }
-      ]
+      ],
+      "owner_feedback": {
+        "date": "2026-09-30",
+        "feedback": "Too life-like for the overall art style, but better overall. Queue local animations through comfy ui workflow developed",
+        "decision": "OWNER_REJECTED_TOO_LIFELIKE",
+        "candidate_sha256": "4a667658d53ed093e384789a62cad2f5248012cb8d8871f6bd7e8b346f3e4191",
+        "motion_study_authorized": true,
+        "style_acceptance": false
+      },
+      "source_style_status": "OWNER_REJECTED_TOO_LIFELIKE",
+      "score_status": "Historical Codex4.5 draft opinion; superseded for current acceptance by owner style rejection. No owner score inferred."
     },
     {
       "id": "D2A-0495",
@@ -734,9 +745,13 @@
   "quality_gate": {
     "requested_minimum": 4.5,
     "selected_count": 8,
-    "all_selected_meet_source_target": true,
-    "owner_approval": "PENDING",
-    "full_runtime_acceptance": "PENDING"
+    "all_selected_meet_source_target": false,
+    "owner_approval": "PENDING_WITH_NURSERY_STYLE_REJECTION",
+    "full_runtime_acceptance": "PENDING",
+    "historical_codex_scores_meet_source_target": true,
+    "owner_style_rejected_ids": [
+      "D2A-0446"
+    ]
   },
   "generation_count": 12,
   "generator": "Built-in image_gen; one edit call per item or iteration; no CLI/API fallback",
@@ -754,6 +769,7 @@
   "mobile_decoded_rgba_bytes": 4456448,
   "review_master_decoded_rgba_bytes": 33554432,
   "mobile_visual_review_evidence": "Illustrated approval page uses exact mobile files for its light/dark proxies; comparison board shows selected review masters. Both are inspection composites, not runtime captures.",
-  "revision_note": "Nursery-only owner feedback revision: first reference-fitted candidate owner-rejected for style; three fresh zero-image-input generations preserved, two rejected for edge artifacts, fourth total nursery attempt selected at4.5 draft source grade. Every other candidate and prior image remains unchanged.",
-  "revision_baseline": "c280d373e275721ffd029e9b5093ffe30ad09fbf"
+  "revision_note": "Owner rejects current v4 nursery arms as still too lifelike while acknowledging improvement. Historical scores and all image bytes are preserved. Five local motion references are queued separately; badges stay static. No source candidate is owner-approved.",
+  "revision_baseline": "c280d373e275721ffd029e9b5093ffe30ad09fbf",
+  "motion_reference_packet": "assets_src/local_motion/day2_batch1_20260930/MANIFEST.json"
 }

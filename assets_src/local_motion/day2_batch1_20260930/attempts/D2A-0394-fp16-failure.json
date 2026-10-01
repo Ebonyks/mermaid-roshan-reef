@@ -1,0 +1,66 @@
+{
+  "status": "SERVICE_CRASH_NO_OUTPUT_OBSERVED",
+  "native_prompt_id": "a67bc3ea-986a-4207-beb4-29c64b412345",
+  "observed_at_utc": "2026-10-01T00:54:48+00:00",
+  "native_receipt_status_note": "Original receipt remains RUNNING because its CLI lost the service connection; that stale status is preserved as history and is not a current render claim.",
+  "receipt_sha256": "36db23de7b380eb53add41f80e9b04db93c72b7c8f48484b706507c833b934ee",
+  "workflow_sha256": "d30e77b77ec2e887e00a4945db2d89f21ec84cabe52da613ac488e570df7ee74",
+  "cli_log_sha256": "bf0625138cf729211e39cbf6673031f82bb1dd89371e771ed1fc06c6d34d5e9b",
+  "cli_log_text": "Submitted detail: a67bc3ea-986a-4207-beb4-29c64b412345. Receipt: H:\\MermaidReefTools\\LocalVideo\\jobs\\d2m_b1_d2a0394_20261001T004748Z_e178b8\\RENDER_RECEIPT.json\r\nRendering detail: 30 seconds elapsed\r\nTraceback (most recent call last):\r\n  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\python_embeded\\Lib\\site-packages\\urllib3\\connectionpool.py\", line 534, in _make_request\r\n    response = conn.getresponse()\r\n  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\python_embeded\\Lib\\site-packages\\urllib3\\connection.py\", line 571, in getresponse\r\n    httplib_response = super().getresponse()\r\n  File \"http\\client.py\", line 1459, in getresponse\r\n  File \"http\\client.py\", line 336, in begin\r\n  File \"http\\client.py\", line 297, in _read_status\r\n  File \"socket.py\", line 723, in readinto\r\nTimeoutError: timed out\r\n\r\nThe above exception was the direct cause of the following exception:\r\n\r\nTraceback (most recent call last):\r\n  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\python_embeded\\Lib\\site-packages\\requests\\adapters.py\", line 696, in send\r\n    resp = conn.urlopen(\r\n        method=request.method,\r\n    ...<9 lines>...\r\n        chunked=chunked,\r\n    )\r\n  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\python_embeded\\Lib\\site-packages\\urllib3\\connectionpool.py\", line 842, in urlopen\r\n    retries = retries.increment(\r\n        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]\r\n    )\r\n  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\python_embeded\\Lib\\site-packages\\urllib3\\util\\retry.py\", line 498, in increment\r\n    raise reraise(type(error), error, _stacktrace)\r\n          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\python_embeded\\Lib\\site-packages\\urllib3\\util\\util.py\", line 39, in reraise\r\n    raise value\r\n  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\python_embeded\\Lib\\site-packages\\urllib3\\connectionpool.py\", line 788, in urlopen\r\n    response = self._make_request(\r\n        conn,\r\n    ...<10 lines>...\r\n        **response_kw,\r\n    )\r\n  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\python_embeded\\Lib\\site-packages\\urllib3\\connectionpool.py\", line 536, in _make_request\r\n    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)\r\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\python_embeded\\Lib\\site-packages\\urllib3\\connectionpool.py\", line 367, in _raise_timeout\r\n    raise ReadTimeoutError(\r\n        self, url, f\"Read timed out. (read timeout={timeout_value})\"\r\n    ) from err\r\nurllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='127.0.0.1', port=8189): Read timed out. (read timeout=30)\r\n\r\nDuring handling of the above exception, another exception occurred:\r\n\r\nTraceback (most recent call last):\r\n  File \"H:\\MermaidReefTools\\LocalVideo\\render_local.py\", line 156, in <module>\r\n    main()\r\n    ~~~~^^\r\n  File \"H:\\MermaidReefTools\\LocalVideo\\render_local.py\", line 103, in main\r\n    history = requests.get(URL + f\"/history/{prompt_id}\", timeout=30).json()\r\n              ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\python_embeded\\Lib\\site-packages\\requests\\api.py\", line 87, in get\r\n    return request(\"get\", url, params=params, **kwargs)\r\n  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\python_embeded\\Lib\\site-packages\\requests\\api.py\", line 71, in request\r\n    return session.request(method=method, url=url, **kwargs)\r\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\python_embeded\\Lib\\site-packages\\requests\\sessions.py\", line 651, in request\r\n    resp = self.send(prep, **send_kwargs)\r\n  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\python_embeded\\Lib\\site-packages\\requests\\sessions.py\", line 784, in send\r\n    r = adapter.send(request, **kwargs)\r\n  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\python_embeded\\Lib\\site-packages\\requests\\adapters.py\", line 742, in send\r\n    raise ReadTimeout(e, request=request)\r\nrequests.exceptions.ReadTimeout: HTTPConnectionPool(host='127.0.0.1', port=8189): Read timed out. (read timeout=30)\r\n",
+  "server_observation": "Read server.stderr.log after lost connection: Windows fatal exception: access violation; stack in torch/storage.py and comfy/utils.py load_torch_file while UNETLoader loads diffusion model. Native service subsequently refused connections. No output matching this unique job prefix was present.",
+  "output_prefix_checked": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_b1_d2a0394_20261001T004748Z_e178b8",
+  "matching_output_count": 0,
+  "original_queue_archive": [
+    {
+      "original_packet_path": "inputs/D2A-0394.png",
+      "original_sha256": "4998b15c7d028db07fabf646e56af5853e5aba090498998de9a59aa2b7f5d186",
+      "preserved_path": "attempts/D2A-0394-fp16-input.png"
+    },
+    {
+      "original_packet_path": "prompts/D2A-0394.txt",
+      "original_sha256": "bb3b8d03a96ac5aa50f13138a5426b1173b001f7d62c2fde7f13df2909ce5b29",
+      "preserved_path": "attempts/D2A-0394-fp16-prompt.txt"
+    },
+    {
+      "original_packet_path": "inputs/D2A-0446.png",
+      "original_sha256": "942ce9e83b51d8cccc4f6250dc2415798658f1dc1c7b9f92973d4d5da5f74a3e",
+      "preserved_path": "attempts/D2A-0446-fp16-input.png"
+    },
+    {
+      "original_packet_path": "prompts/D2A-0446.txt",
+      "original_sha256": "f643064c4e4601a239ba2571520ff7f4f8366d286b09f725e5727800f06c5fb8",
+      "preserved_path": "attempts/D2A-0446-fp16-prompt.txt"
+    },
+    {
+      "original_packet_path": "inputs/D2A-0495.png",
+      "original_sha256": "0166f728a5a18b35916c818f1dc4803cc3f79980390829661309740fd5319d98",
+      "preserved_path": "attempts/D2A-0495-fp16-input.png"
+    },
+    {
+      "original_packet_path": "prompts/D2A-0495.txt",
+      "original_sha256": "fe77257d32b32d543e85b674df78076f15f048bedcde76b0f0d7f008d5b4aa30",
+      "preserved_path": "attempts/D2A-0495-fp16-prompt.txt"
+    },
+    {
+      "original_packet_path": "inputs/D2A-0056.png",
+      "original_sha256": "18104aa0e83cf79cccbc12624a4584a91110d1ba73da8980c99c56b08cfb72e4",
+      "preserved_path": "attempts/D2A-0056-fp16-input.png"
+    },
+    {
+      "original_packet_path": "prompts/D2A-0056.txt",
+      "original_sha256": "08e6f1ee6d95b929e5f347e091041da46b7d1c2f42f2d8f28c4cea73538d3fae",
+      "preserved_path": "attempts/D2A-0056-fp16-prompt.txt"
+    },
+    {
+      "original_packet_path": "inputs/D2A-0057.png",
+      "original_sha256": "85f8765dde2f261c7d54c9ae7bd39aae83605a7fbc0c8b73b5a4651e8d542733",
+      "preserved_path": "attempts/D2A-0057-fp16-input.png"
+    },
+    {
+      "original_packet_path": "prompts/D2A-0057.txt",
+      "original_sha256": "deaf12dc9baee6711e6215262e48ae2cc04c538381c2cc94744aeba22d7d3977",
+      "preserved_path": "attempts/D2A-0057-fp16-prompt.txt"
+    }
+  ],
+  "retry_policy": "No duplicate of a live prompt. Preserve failed native attempt; distinct revision2 names wait for successful matching quantized benchmark and idle queue before submission."
+}

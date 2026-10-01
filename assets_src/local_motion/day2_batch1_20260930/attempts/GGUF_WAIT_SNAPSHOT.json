@@ -1,0 +1,37 @@
+{
+  "queue_id": "day2-local-motion-batch1-20260930-r2-gguf",
+  "manifest_sha256": "7f42c8b4e437d0596d999461759927e06f3761b8510193f1560c280fd1f3bf77",
+  "created_at_utc": "2026-10-01T00:55:23+00:00",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "jobs": [
+    {
+      "id": "D2A-0394",
+      "name": "d2m_b1q_d2a0394",
+      "status": "QUEUED_LOCAL_FIFO"
+    },
+    {
+      "id": "D2A-0446",
+      "name": "d2m_b1q_d2a0446",
+      "status": "QUEUED_LOCAL_FIFO"
+    },
+    {
+      "id": "D2A-0495",
+      "name": "d2m_b1q_d2a0495",
+      "status": "QUEUED_LOCAL_FIFO"
+    },
+    {
+      "id": "D2A-0056",
+      "name": "d2m_b1q_d2a0056",
+      "status": "QUEUED_LOCAL_FIFO"
+    },
+    {
+      "id": "D2A-0057",
+      "name": "d2m_b1q_d2a0057",
+      "status": "QUEUED_LOCAL_FIFO"
+    }
+  ],
+  "worker_pid": 56664,
+  "worker_started_at_utc": "2026-10-01T00:55:23+00:00",
+  "status": "WAITING_FOR_MATCHING_QUANTIZED_BENCHMARK",
+  "observed_at_utc": "2026-10-01T01:03:56+00:00"
+}
