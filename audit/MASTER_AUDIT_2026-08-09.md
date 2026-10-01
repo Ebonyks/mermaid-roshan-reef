@@ -2,6 +2,10 @@
 
 ## 0. Planning entry
 
+Sky Lagoon moderate animation supplement (2026-09-30): [ten larger samples and layered context study](../assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/README.md), with [impact record](../design/audit_impacts/sky-lagoon-moderate-animation-20260930.json). Nine six-pose sheets and twelve reused-portrait light states supply 512px Aseprite references; source originals and prior rejected archive are preserved. No runtime, cinematic, owner, device, child or finding-closure acceptance.
+
+Sky Lagoon object-motion study (2026-09-30): [owner correction and unaccepted new swing pose trial](../assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/README.md). Owner rejected transformed source art as the requested animation replacement and the swing lateral axis. Fresh seat-pose trial targets fore-and-aft motion with fixed hooks; visual/contact/in-between gaps remain. No runtime/cinematic/owner/device/child acceptance or finding lifecycle changes.
+
 Arborist art recovery supplement (2026-09-29): [Tree Book handoff](../design/ARBORIST_TREE_BOOK_HANDOFF_2026-09-29.md) archives the previously uncommitted art independently of the obsolete prototype. Historical worktree findings below remain unchanged for runtime; no career implementation or finding closure is inferred.
 
 Arborist practice supplement (2026-09-30): [Opera House test](../design/OPERA_TREE_BOOK_TEST_2026-09-30.md) adds one optional patient with three four-choice decisions and intentional treatment. This scoped candidate does not close MA-PLAY-004 or integrate a new career or Day Two role.

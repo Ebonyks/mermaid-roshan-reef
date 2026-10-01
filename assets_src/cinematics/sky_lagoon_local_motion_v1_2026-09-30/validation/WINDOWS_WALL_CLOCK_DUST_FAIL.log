@@ -1,0 +1,110 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DUSTBOSS|jump warning starts underneath Grand Puff: OK
+DUSTBOSS|jump warning arrives before lock flashes: OK
+DUSTBOSS|locked marker never chases later actor positions: OK
+DUSTBOSS|three distinct lock flashes precede a steady launched warning: OK
+DUSTBOSS|only the third flash changes to the launch colour: OK
+DUSTBOSS|every Grand Puff attack leaves time for travel and three lock flashes: OK
+DUSTBOSS|direct launch opens the live boss fight: OK
+DUSTBOSS|malformed additive dodge checkpoint defaults safely <null>: OK
+DUSTBOSS|malformed additive dodge checkpoint defaults safely false: OK
+DUSTBOSS|malformed additive dodge checkpoint defaults safely wrong: OK
+DUSTBOSS|malformed additive dodge checkpoint defaults safely {  }: OK
+DUSTBOSS|malformed additive dodge checkpoint defaults safely []: OK
+DUSTBOSS|malformed additive dodge checkpoint defaults safely inf: OK
+DUSTBOSS|malformed additive dodge checkpoint defaults safely nan: OK
+DUSTBOSS|JSON numeric dodge checkpoint restores earned progress: OK
+DUSTBOSS|fight opens on an input-blocking 2D splash: OK
+DUSTBOSS|Grand Puff splash reserves the gold lesson for real play: OK
+DUSTBOSS|pause freezes splash progression: OK
+DUSTBOSS|floor warnings sit behind actors while gesture cues stay above: OK
+DUSTBOSS|the August 30 dusty room is the input-transparent Canvas background: OK
+DUSTBOSS|shared encounter contract checks pass: OK
+DUSTBOSS|showing follows splash: OK
+DUSTBOSS|unlearned movement waits without a fake gold opening: OK
+DUSTBOSS|encounter uses direct hybrid world touch without an action medallion: OK
+DUSTBOSS|encounter keeps direct classic world touch without an action medallion: OK
+DUSTBOSS|2D floor and screen navigation round-trips 16 arena points: OK
+DUSTBOSS|all 16 edge targets are captured, covered, escapable, and stage-valid in every phase step: OK
+DUSTBOSS|free steering enters live showing: OK
+DUSTBOSS|showing floor press immediately moves Roshan: OK
+DUSTBOSS|showing held finger can freely change direction: OK
+DUSTBOSS|showing second finger cannot steal steering: OK
+DUSTBOSS|showing released finger cannot retarget travel: OK
+DUSTBOSS|showing cancelled gesture cannot restart movement: OK
+DUSTBOSS|single floor tap swims without dash: OK
+DUSTBOSS|nearby second tap starts dash: OK
+DUSTBOSS|dash advances Roshan immediately: OK
+DUSTBOSS|dash remains inside arena: OK
+DUSTBOSS|touch cancellation stops dash and travel: OK
+DUSTBOSS|rapid repeated pairs cannot bypass dash cooldown: OK
+DUSTBOSS|drag followed by tap is not double tap: OK
+DUSTBOSS|expired first tap cannot dash: OK
+DUSTBOSS|dash starts only when ready: OK
+DUSTBOSS|dash is faster than normal swim: OK
+DUSTBOSS|dash lands at destination without overshoot: OK
+DUSTBOSS|burst expires and cooldown recovers: OK
+DUSTBOSS|dash becomes available again: OK
+DUSTBOSS|cancelled navigation has no residual dash: OK
+DUSTBOSS|first warning holds safely for a stationary new player: FAIL
+DUSTBOSS|floor taps near the old hint do not snap to a prescribed point: FAIL
+DUSTBOSS|safe ground tap arms real encounter navigation: OK
+DUSTBOSS|landing outline stays locked and has no prescribed safe marker: FAIL
+DUSTBOSS|storybook dust samples stay on the locked danger boundary: OK
+DUSTBOSS|storybook cues leave no finger overlay or spatial badge: OK
+DUSTBOSS|encounter captions have no tutorial panel: OK
+DUSTBOSS|pause freezes the storybook guidance: OK
+DUSTBOSS|focus loss suspends the live fight without leaving or advancing: OK
+DUSTBOSS|Android Back resumes the same paused fight and never quits: OK
+DUSTBOSS|Android Back pauses the live fight without tearing it down: OK
+DUSTBOSS|safe ground navigation moves the player: OK
+DUSTBOSS|focus or touch cancellation drops encounter destination: OK
+DUSTBOSS|pause cancellation leaves no stale encounter destination: OK
+DUSTBOSS|real first dodge earns a real opening and saves the lesson: OK
+DUSTBOSS|earned dodge is on disk before any save debounce: FAIL
+DUSTBOSS|zero input takes a harmless bump but cannot damage the boss: OK
+DUSTBOSS|free steering enters live damage_recovery: OK
+DUSTBOSS|damage_recovery floor press immediately moves Roshan: OK
+DUSTBOSS|damage_recovery held finger can freely change direction: OK
+DUSTBOSS|damage_recovery second finger cannot steal steering: OK
+DUSTBOSS|damage_recovery released finger cannot retarget travel: OK
+DUSTBOSS|damage_recovery cancelled gesture cannot restart movement: OK
+DUSTBOSS|a harmless bump restores the movement demonstration: OK
+DUSTBOSS|stationary tap spam traverses real tell, strike, and recovery: OK
+DUSTBOSS|stationary tap spam cannot damage the boss: OK
+DUSTBOSS|held action reaches an opening without auto-countering: OK
+DUSTBOSS|no-input and held input cannot finish: OK
+DUSTBOSS|live tell 1:0:1 lasts at least 1.4 seconds: OK
+DUSTBOSS|live tell 1:1:1 lasts at least 1.4 seconds: OK
+DUSTBOSS|free steering enters live struck: OK
+DUSTBOSS|struck floor press immediately moves Roshan: OK
+DUSTBOSS|struck held finger can freely change direction: OK
+DUSTBOSS|struck second finger cannot steal steering: OK
+DUSTBOSS|struck released finger cannot retarget travel: OK
+DUSTBOSS|struck cancelled gesture cannot restart movement: OK
+DUSTBOSS|live tell 2:0:2 lasts at least 1.4 seconds: OK
+DUSTBOSS|live tell 2:1:2 lasts at least 1.4 seconds: OK
+DUSTBOSS|old screen corner tap cannot counter: OK
+DUSTBOSS|flashing boss head remains inside the touch viewport: OK
+DUSTBOSS|dragging across an open boss never becomes a counter: OK
+DUSTBOSS|paused screen touch cannot counter: OK
+DUSTBOSS|gold boss tap counters without a dash: OK
+DUSTBOSS|final counter writes all three earned rounds before celebration: OK
+DUSTBOSS|final-round interruption grants no early or duplicate reward: OK
+DUSTBOSS|final checkpoint restores three rounds exactly: OK
+DUSTBOSS|final checkpoint resumes friendship without repeated combat: OK
+DUSTBOSS|free steering was exercised between earned rounds: OK
+DUSTBOSS|adaptive movement observes all three phases: FAIL
+DUSTBOSS|phase one executes both warned circles: OK
+DUSTBOSS|phase two executes its warned lane: OK
+DUSTBOSS|live tells keep their captured target while the player moves: OK
+DUSTBOSS|a visible 2D telegraph accompanies live danger: OK
+DUSTBOSS|hybrid head touch can land a real counter: OK
+DUSTBOSS|one fresh counter edge per opening returns Day Two to Canvas: OK
+DUSTBOSS|Day Two route does not depend on menu launch: OK
+DUSTBOSS|the earned final round survives interruption: OK
+DUSTBOSS|completion grants the base reward exactly once: OK
+DUSTBOSS|completion saves defeat and begins Day Two: OK
+DUSTBOSS|Day Two and reward cannot duplicate: OK
+DUSTBOSS|result: 5 check(s) FAILED
