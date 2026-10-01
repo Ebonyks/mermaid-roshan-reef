@@ -70,8 +70,8 @@
     },
     {
       "command": "Anonymous fetch of both handoff manifests and every listed file from raw.githubusercontent.com at the pushed commit",
-      "result": "PENDING",
-      "evidence": "Recorded after publication."
+      "result": "PASS",
+      "evidence": "Published at commit bdab5f7e03f8f8ebaf87d7008745977dc3e1d9fe on branch claude/visual-design-language-20260930 (https://github.com/Ebonyks/mermaid-roshan-reef/tree/bdab5f7e03f8f8ebaf87d7008745977dc3e1d9fe/docs/handoffs/codex_visual_design_language_2026-09-30). Anonymous HTTPS fetch from raw.githubusercontent.com with no token at 2026-10-01T03:53:21Z: visual design language MANIFEST.json HTTP 200, 3,686 bytes, SHA-256 b4a3eb5860f767f3d99a305e31e9f3756ec3bbd237c71a897cd14ae33e0c0b50, revision 1, 15 of 15 files match; reference consolidation MANIFEST.json HTTP 200, 2,096 bytes, SHA-256 726aa9f6ae94dae8b10686c851a46b20f444f52e5395258378a7405939786b05, revision 2, 6 of 6 files match. Both manifests and the master audit, finding register, ledger and this record at the same commit are byte-identical to the committed blobs."
     },
     {
       "command": "GitHub Probe Suite at the branch head",
