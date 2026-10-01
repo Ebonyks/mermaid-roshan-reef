@@ -1,0 +1,97 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "mermaid-roshan/job_record/1",
+ "title": "Job record",
+ "description": "One job game in content/jobs/<id>.json. Proposed contract from ARCHITECTURE.md section 4.2; Codex fixes final field names in package JP0 and keeps this file in step.",
+ "type": "object",
+ "required": ["schema", "id", "status", "family", "title", "career_label", "home", "phases", "surface", "voice", "music", "art", "probes", "docs"],
+ "additionalProperties": false,
+ "properties": {
+  "schema": {"const": "job_record/1"},
+  "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$", "description": "Permanent ID; equals the costume key used across runtime code today"},
+  "aliases": {"type": "array", "items": {"type": "string"}, "description": "Other spellings in shipped files and saves, e.g. candy_maker and candy for candymaker"},
+  "status": {"enum": ["LIVE", "PRACTICE", "PROTOTYPE", "PLANNED", "RETIRED"]},
+  "family": {"enum": ["opera_career", "venue_scene", "party_job", "room_job"]},
+  "owner_decision": {"type": ["string", "null"], "description": "ODR or dated owner direction that commissioned the job"},
+  "title": {"type": "string"},
+  "career_label": {"type": "string"},
+  "star_bit": {"type": ["integer", "null"], "minimum": 0, "description": "Must equal the ledger entry; null for jobs that use progress_key"},
+  "progress_key": {"type": ["string", "null"], "description": "Own additive save key for jobs outside the career star namespace (e.g. the Tree Book practice)"},
+  "home": {
+   "type": "object",
+   "required": ["room"],
+   "additionalProperties": false,
+   "properties": {
+    "room": {"type": "string"},
+    "room_order": {"type": "integer", "minimum": 0},
+    "venue": {"type": ["object", "null"], "properties": {"floor": {"type": "integer"}, "door": {"type": "integer"}}},
+    "crest": {"type": "string"}
+   }
+  },
+  "presentation": {
+   "type": "object",
+   "properties": {
+    "colors": {"type": "object", "description": "floor, trim, curtain, accent, overlay as [r, g, b] or #rrggbb"},
+    "backdrop": {"type": "object", "description": "mode (tiles, room_tiles, vector), tile prefix, palette"},
+    "actors": {"type": "object", "description": "card art, partner art, partner visibility, story pose"},
+    "goal_prop": {"type": "string"}
+   }
+  },
+  "phases": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "required": ["name", "mode"],
+    "properties": {
+     "name": {"type": "string"},
+     "mode": {"type": "string"},
+     "goal": {"type": "number"},
+     "vo": {"type": "string"},
+     "station": {"type": "string"},
+     "hotspot": {"type": "object"},
+     "alias": {"type": "string"},
+     "final_act": {"type": "boolean"}
+    }
+   }
+  },
+  "finale_start": {"type": "integer", "minimum": 0},
+  "practice_count": {"type": "integer", "minimum": 0},
+  "surface": {"type": "string", "description": "res:// path of a JobSurface, or 'gesture' for the shared gesture surface"},
+  "capabilities": {"type": "array", "items": {"enum": ["hide_partner", "partner_actor", "roshan_actor_atlas", "uses_room_tiles", "two_act_show", "cooperative_win_suffix", "nursery_catch_overlay"]}, "description": "Named behaviours the host reads instead of testing the job ID; new names are added to this enum by review"},
+  "voice": {
+   "type": "object",
+   "required": ["folder", "prefix", "required_keys"],
+   "properties": {
+    "engine": {"type": "string", "description": "Synthetic voice engine for new lines; protected family recordings are never generated or altered"},
+    "speaker": {"type": "string"},
+    "folder": {"type": "string"},
+    "prefix": {"type": "string"},
+    "required_keys": {"type": "array", "items": {"type": "string"}},
+    "intro_line": {"type": "string"},
+    "win_line": {"type": "string"},
+    "win_suffix": {"type": "string"}
+   }
+  },
+  "music": {"type": "object", "required": ["cue"], "properties": {"cue": {"type": "string"}}},
+  "art": {
+   "type": "object",
+   "properties": {
+    "costume_sheet": {"type": "string"},
+    "costume_sheet_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "provenance": {"type": "string"},
+    "props": {"type": "array", "items": {"type": "string"}}
+   }
+  },
+  "checkpoint": {"type": ["object", "null"], "properties": {"key": {"type": "string"}, "schema_version": {"type": "integer"}}, "description": "Mid-activity save; the phase bound is derived from the phase count"},
+  "competition": {"type": "object", "properties": {"par_time": {"type": "number"}, "rival_cap": {"type": "number"}, "cooperative": {"type": "boolean"}, "timed_retry": {"type": "boolean"}}},
+  "mastery": {"type": ["object", "null"], "properties": {"min_actions": {"type": "integer"}, "gold_seconds": {"type": "number"}, "silver_seconds": {"type": "number"}, "silver_misses": {"type": "integer"}, "silver_assists": {"type": "integer"}}},
+  "two_act": {"type": "boolean"},
+  "contest": {"type": ["object", "null"], "description": "DL-INT-14 block: archetype, skill, venue, player, imp, flub, voice, art (see the imp contest handoff's contest_spec.json)"},
+  "chapter2": {"type": ["object", "null"], "properties": {"party_role": {"type": "string"}, "room": {"type": "string"}, "piece": {"type": "string"}, "guide_order": {"type": "integer"}}},
+  "living_world": {"type": ["object", "null"]},
+  "stage_inventory_id": {"type": ["string", "null"]},
+  "probes": {"type": "array", "items": {"type": "string"}, "minItems": 1, "description": "Trusted probes that cover the job; each must be in both CI rosters"},
+  "docs": {"type": "array", "items": {"type": "string"}, "minItems": 1, "description": "Design documents for the job; each needs a document-ledger row"}
+ }
+}

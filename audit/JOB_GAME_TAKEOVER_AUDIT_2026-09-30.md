@@ -122,6 +122,11 @@ images and generated audio.
 | (c) Chapter 2 party job | `reward_policy: "chapter2_story"`, adapter `PHASE_SETS`, `ChapterTwoPartyPlan` | Chapter 2 masks; bits below 16 only | In story order (`GUIDE_ORDER`) | `probe_chapter2*` are in neither trusted roster *(sweep)* | Only with owner approval (story canon) |
 | (d) Day One room job | `scripts/games/*.gd` plus `DayOneDirector` | `day_one_*` keys | The fixed Day One sequence | `probe_day_one_*` | Only with owner approval |
 
+**Update (2026-09-30, after this audit's baseline):** commit `4b8d89ca` added
+`probe_chapter2`, `probe_chapter2_farmer_resume` and `probe_chapter2_lawn` to
+both trusted rosters, so the "neither trusted roster" note in row (c) no
+longer holds at later heads.
+
 ## 6. Pipelines
 
 - **Roshan costume sheets:** image generation from a Roshan identity reference
@@ -248,3 +253,7 @@ needed no fact from chat history or private memory.
   catalogue entry fails CI.
 - After every new job lands, the finding history records whether the recipe
   held; a material change to the playbook repeats the dry run.
+- The [Job Platform architecture handoff](../docs/handoffs/codex_job_platform_architecture_2026-09-30/ARCHITECTURE.md)
+  (2026-09-30) makes the job catalogue the runtime source: one record per job,
+  compiled to typed constants, with masks, bounds and probe expectations derived
+  from it, so most of the recipe in section 4 becomes generated.

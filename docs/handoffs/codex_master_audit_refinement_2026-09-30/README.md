@@ -9,7 +9,9 @@ designs? Design as codex handoff."*
 change). **To:** Codex (implementation). **Owner:** answers the questions in
 section 8 and accepts the result.
 
-**Status:** `PROPOSED / CANDIDATE`, revision 3 (2026-09-30): adds Stage J —
+**Status:** `PROPOSED / CANDIDATE`, revision 4 (2026-09-30): Stage J's job
+catalogue now follows the [Job Platform architecture](../codex_job_platform_architecture_2026-09-30/ARCHITECTURE.md).
+Revision 3 added Stage J —
 a job-game playbook, job catalogue checker, takeover kit and cold-start dry
 run — after the owner called takeover readiness critical. Revision 2 corrected
 wording in revision 1 (`0bbf8b7c`). This packet recommends; it grants no
@@ -209,7 +211,7 @@ protected content, and every acceptance gate. No game runtime file changes.
 | `design/reference/owner_decisions.json` and `OWNER_DECISIONS.md` | New | Owner decision register and open questions |
 | `design/templates/DESIGN_CARD_V1.md`, `design/templates/CHAPTER_BRIEF_V2.md` | New | One-page card; brief V2 cites reference IDs (V1 stays) |
 | `design/12_JOB_GAME_PLAYBOOK.md`, `design/templates/JOB_CARD_V1.md` | New (Stage J) | The maintained job-game script and its one-page job card |
-| `design/reference/jobs.json` | New (Stage J) | Catalogue of every job game, checked against the code registries |
+| `content/jobs/<id>.json` and `_ledger.json` | New (Stage J, per the Job Platform architecture) | Catalogue of every job game, compiled to typed constants and checked against the code registries |
 | `tools/design_reference.py` and its tests | New | Render generated blocks, `--check` them, validate IDs, paths, hashes and token drift |
 | `tools/audit_live_status.py` and its tests | New | Generate `audit/status/LIVE_STATUS.json` and the live-status block |
 | `audit/archive/MASTER_AUDIT_2026-08-09_SEALED_EVIDENCE.md` | New | Verbatim home for moved evidence |
@@ -512,8 +514,11 @@ Stage J closes that finding. It does not wait for Stages 1–5: the playbook
 cites today's documents and code first, then switches its citations to canon,
 pattern and token IDs as WP-4 to WP-6 land (WP-J5).
 
-**WP-J1 Job catalogue and checker.** Create `design/reference/jobs.json`: one
-entry per job game that exists in code or is planned. Fields: `id`, name,
+**WP-J1 Job catalogue and checker.** Revision 4: build this catalogue as the
+content layer of the [Job Platform architecture](../codex_job_platform_architecture_2026-09-30/ARCHITECTURE.md)
+— one record per job in `content/jobs/<id>.json`, compiled by
+`tools/content_build.py` (its package JP0) — not as a documentation-only
+`design/reference/jobs.json`. One entry per job game that exists in code or is planned. Fields: `id`, name,
 extension path (Opera career row, venue scene, Day Two job, room job),
 owning room or venue, act index and star bit (or its own save key), surface
 script, phases and their verbs, imp-contest status (`DL-INT-14`), voice
@@ -701,7 +706,7 @@ behaviour-identical.
 | AC-11 | `audit_document_authority.py` and `audit_development.py --base auto` ALL OK; unit tests green; CI green at the merged head | Logs |
 | AC-12 | No game runtime file changed in Stages 0–4; protected paths untouched | `git diff --stat` |
 | AC-13 | `design/12_JOB_GAME_PLAYBOOK.md` is routed from the task index and every file, symbol, command and gate it names exists at the merged head | WP-J2 existence check |
-| AC-14 | `design/reference/jobs.json` covers every job in code; its checker runs in the existing document gate and fails on the three injected faults | WP-J1 test log |
+| AC-14 | The job catalogue (`content/jobs/`) covers every job in code; its checker runs in the existing document gate and fails on the three injected faults | WP-J1 test log |
 | AC-15 | The takeover kit exists and every stale claim in sections 8 and 9 of the companion audit is corrected or listed as an open owner question | Review against the audit |
 | AC-16 | A cold-start dry run passes the companion audit's section 10 checklist, the owner accepts it, and `MA-DOC-006` moves to `VERIFIED_FIXED` | Dry-run record and finding history |
 
@@ -722,7 +727,7 @@ The reference becomes `CANONICAL_CURRENT` only after the owner accepts it
 | Q6 | Should "design reference checks green" join the satisfaction gate? | Advisory only for now |
 | Q7 | Run WP-12 (entry points)? | No, unless the owner names it |
 | Q8 | Runtime tokens (WP-13)? | Not in this handoff |
-| Q9 | Where the job-game playbook lives | `design/12_JOB_GAME_PLAYBOOK.md`, plus `design/templates/JOB_CARD_V1.md` and `design/reference/jobs.json` |
+| Q9 | Where the job-game playbook lives | `design/12_JOB_GAME_PLAYBOOK.md`, plus `design/templates/JOB_CARD_V1.md` and the job catalogue in `content/jobs/` |
 | Q10 | Who approves a new job | The owner approves each new permanent job's premise and room; practice or prototype jobs inside an approved scope are delegated (`DL-PLAN-01`) |
 | Q11 | Which synthetic voice speaks Roshan's new job lines | The engine of the Roshan layer the game prefers at runtime (Parler, per the audit sweep), recorded in the catalogue; protected family recordings are never altered |
 | Q12 | May Codex add the 2026-09-30 images rule and the real backup status to `AGENTS.md` (a high-risk file) | No, unless the owner names that change; the takeover kit states both meanwhile |

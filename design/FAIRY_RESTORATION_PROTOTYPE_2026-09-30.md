@@ -186,3 +186,11 @@ using the permitted probe-by-probe path and the [GitHub Probe suite](https://git
 job-game audit at dev 83d7e1ed is preserved. Its interim recipe uses the delegated
 standalone-prototype extension path here; no permanent career, star bit or
 takeover-playbook implementation is added.
+
+Latest reconciliation preserves dev `ce033173` phase-owned Opera voice clearing
+and its forced-overlap regression. The direct activity-priority guard and phase
+owner pass the voice, Day One FIFO, Chapter Two and Opera checks together; the
+new combined code requires its own full CI before integration. The incoming Job
+Platform architecture is a proposal, with no runtime implementation here.
+Official Windows headless processes can abort or access-violate locally; raw
+failures and successful probe-by-probe evidence remain separately recorded.

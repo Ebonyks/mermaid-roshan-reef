@@ -219,5 +219,30 @@
     "changed_runtime_ci_paths": [],
     "scope": "Preserves incoming Opera imp-contest specification revisions 2\u20134; documentation/evidence changes only. Cooperative faerie jobs retain their scope. Authority and incoming-parent impact coverage rechecked before commit.",
     "acceptance": "Machine evidence only; visual, listening, device, child and owner acceptance remain open."
+  },
+  "latest_reconciliation": {
+    "incoming_dev": "ce0331738970205a5aead4d3e0258eb7873a1642",
+    "runtime_delta_from_validated_code_33a2c8e3": [
+      "scripts/opera_career_world_2d.gd",
+      "scripts/probe_opera.gd"
+    ],
+    "scope": "Preserve incoming explicit phase-owned dialogue clearing and forced-overlap regression. Direct AudioDirector activity priority remains compatible; only phase owner consumes obsolete queued routes. Preserve Job Platform specification as PROPOSED/CANDIDATE; no framework implementation or permanent career registration.",
+    "checks": [
+      "probe_voice",
+      "probe_day_one_voice",
+      "probe_chapter2",
+      "probe_opera"
+    ],
+    "result": "All observed native exits zero; original failure guards clear",
+    "log": "COMBINED_VOICE_RECONCILIATION_LOG.txt",
+    "log_sha256": "0fdeb33bf4ca0d9808dca0e14991ed290c4cfe16e4f7d47507b9b689aab324bd",
+    "source_sha256_utf8_lf": {
+      "scripts/audio_director.gd": "e2d2e2eceb63980797db2cf4e072563654d53d3816aea4c6abd67ec393aed5e4",
+      "scripts/probe_voice.gd": "0534d422920b0448f95ef6378883752215d4ddc48599ea752e374df2c2d48413",
+      "scripts/opera_career_world_2d.gd": "2c68784b3e7f13cc872fd8884180e53f0dbf0891fb7a1d8341e712b65982e9fb",
+      "scripts/probe_opera.gd": "61ee98ae617232be5410129b4264ca79f03d5eeb3343046435c822cc93f484c6"
+    },
+    "check_time_utc": "2026-10-01T01:32:32.027939+00:00",
+    "acceptance": "Combined-source full CI required before integration; earlier CI retains exact 33a2c8e3 scope. Prototype art/runtime unchanged; local Windows native startup and human/device/child/owner limitations remain explicit."
   }
 }
