@@ -104,7 +104,8 @@ def file_role(path):
 
 def manifest():
     rows = []
-    for path in sorted(ROOT.rglob('*')):
+    # Explicit case-sensitive slash-path order, identical on Windows and Linux.
+    for path in sorted(ROOT.rglob('*'), key=lambda p: p.relative_to(ROOT).as_posix()):
         if not path.is_file() or path.name in ('MANIFEST.json', 'REMOTE_VERIFICATION.json'): continue
         rel = path.relative_to(ROOT).as_posix()
         dimensions = None

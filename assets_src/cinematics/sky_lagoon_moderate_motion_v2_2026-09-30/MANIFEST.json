@@ -15,7 +15,7 @@
   "ARCHIVE_COMPLETE": "PENDING_REMOTE_BYTE_VERIFICATION",
   "GENERATION_READY": false,
   "DELIVERY_ACCEPTED": false,
-  "packet_payload_sha256": "4b64b6354e1b7511f49eee54820488cb42e081685acb4570b0a49a07887a0514",
+  "packet_payload_sha256": "cc0dfbd896900d8a6902e1a8313c40ff9e534c5d8f4b4efb11f80680efc32ff4",
   "payload_hash_method": "SHA256 UTF-8 sorted path + TAB + file SHA256 + LF, relative to packet root",
   "excluded_from_payload": [
     "MANIFEST.json",
@@ -26,6 +26,90 @@
       "path": ".gdignore",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "bytes": 0,
+      "dimensions": null,
+      "role": "tool / archive metadata / operator index",
+      "sources": [],
+      "modification": "Project-authored reference archive content",
+      "license_provenance": "Project-authored content; no external source code copied",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "MACHINE_VERIFICATION.json",
+      "sha256": "22f38c568e664c1ca14a1c678dbaa78a91322ab4ae55c6f798a50424c3b6b6bc",
+      "bytes": 9788,
+      "dimensions": null,
+      "role": "tool / archive metadata / operator index",
+      "sources": [],
+      "modification": "Project-authored reference archive content",
+      "license_provenance": "Project-authored content; no external source code copied",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "PROJECT_VERIFICATION.json",
+      "sha256": "cddcfcca60ab0d2b20d8c0a98ed826b9538eb90656f2cac1d8f5dc30951a74de",
+      "bytes": 3040,
+      "dimensions": null,
+      "role": "tool / archive metadata / operator index",
+      "sources": [],
+      "modification": "Project-authored reference archive content",
+      "license_provenance": "Project-authored content; no external source code copied",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "PROMPT_SET.json",
+      "sha256": "ce3e551963d89af4e3e231e04ae002a57aa2a0ef921cbc77e8e2d16870477015",
+      "bytes": 18653,
+      "dimensions": null,
+      "role": "tool / archive metadata / operator index",
+      "sources": [],
+      "modification": "Project-authored reference archive content",
+      "license_provenance": "Project-authored content; no external source code copied",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "README.md",
+      "sha256": "9eeac6f4228d51a5e16822f45a24a389c31863000f51233eb5f3efad00b32179",
+      "bytes": 8530,
+      "dimensions": null,
+      "role": "tool / archive metadata / operator index",
+      "sources": [],
+      "modification": "Project-authored reference archive content",
+      "license_provenance": "Project-authored content; no external source code copied",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "REVIEW.json",
+      "sha256": "42b93c1d3e4e8bd579c96563ebe482d565561b1af021ddf172f380a61da35589",
+      "bytes": 1180,
+      "dimensions": null,
+      "role": "tool / archive metadata / operator index",
+      "sources": [],
+      "modification": "Project-authored reference archive content",
+      "license_provenance": "Project-authored content; no external source code copied",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "SAMPLES.json",
+      "sha256": "9989587e5a8c46024cd67937ce33cb6a5f2646c91d518306acd36b6a4b5da1de",
+      "bytes": 2759,
+      "dimensions": null,
+      "role": "tool / archive metadata / operator index",
+      "sources": [],
+      "modification": "Project-authored reference archive content",
+      "license_provenance": "Project-authored content; no external source code copied",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "TASK_START.json",
+      "sha256": "da1bd9d39439568b993097d1c74e7e23f6559feac7a05e35857469f980c7b3ac",
+      "bytes": 8931,
       "dimensions": null,
       "role": "tool / archive metadata / operator index",
       "sources": [],
@@ -107,18 +191,6 @@
       "accepted_keyframe": false
     },
     {
-      "path": "MACHINE_VERIFICATION.json",
-      "sha256": "22f38c568e664c1ca14a1c678dbaa78a91322ab4ae55c6f798a50424c3b6b6bc",
-      "bytes": 9788,
-      "dimensions": null,
-      "role": "tool / archive metadata / operator index",
-      "sources": [],
-      "modification": "Project-authored reference archive content",
-      "license_provenance": "Project-authored content; no external source code copied",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
       "path": "objects/01_fir/01_fir.aseprite",
       "sha256": "cdba05d76ce0b3bbf21021c80b0e4f500d12c7b49008c7ea1c9b58b65b30ff51",
       "bytes": 1506421,
@@ -146,6 +218,57 @@
       "path": "objects/01_fir/AUTHORING_RECEIPT.json",
       "sha256": "5c094e8b991ed99c9e3421fb338c3fe94e31ac98c142328e9f091cacd15b6221",
       "bytes": 2135,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
+          "sha256": "3c12081abe82c7bb55a8dae260d2255cfd390bfc48b4a0dfd0c1be714a9c469e"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/01_fir/GENERATION.json",
+      "sha256": "a180a2c7646fc01926398266703e613b5c14a7fc53f1cb6fae64760bc87c35b6",
+      "bytes": 1707,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
+          "sha256": "3c12081abe82c7bb55a8dae260d2255cfd390bfc48b4a0dfd0c1be714a9c469e"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/01_fir/IMPORT_PARAMETERS.json",
+      "sha256": "a96209ab195a54675d2b8130b22ccec2b8ce15c6ae0ae1364302fa3b572e6d6b",
+      "bytes": 237242,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
+          "sha256": "3c12081abe82c7bb55a8dae260d2255cfd390bfc48b4a0dfd0c1be714a9c469e"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/01_fir/REPAIR_PROMPTS.json",
+      "sha256": "c4e04a8c5a089bb0d491eae8c974d5698b084cf88b582d93bd32a3e588af60a2",
+      "bytes": 1271,
       "dimensions": null,
       "role": "generation/authoring/timing metadata",
       "sources": [
@@ -328,23 +451,6 @@
       "accepted_keyframe": false
     },
     {
-      "path": "objects/01_fir/GENERATION.json",
-      "sha256": "a180a2c7646fc01926398266703e613b5c14a7fc53f1cb6fae64760bc87c35b6",
-      "bytes": 1707,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
-          "sha256": "3c12081abe82c7bb55a8dae260d2255cfd390bfc48b4a0dfd0c1be714a9c469e"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
       "path": "objects/01_fir/identity_source.png",
       "sha256": "3c12081abe82c7bb55a8dae260d2255cfd390bfc48b4a0dfd0c1be714a9c469e",
       "bytes": 116380,
@@ -361,23 +467,6 @@
       ],
       "modification": "Unmodified byte copy",
       "license_provenance": "Existing project artwork; retain source ASSET_LICENSES.md row",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
-      "path": "objects/01_fir/IMPORT_PARAMETERS.json",
-      "sha256": "a96209ab195a54675d2b8130b22ccec2b8ce15c6ae0ae1364302fa3b572e6d6b",
-      "bytes": 237242,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
-          "sha256": "3c12081abe82c7bb55a8dae260d2255cfd390bfc48b4a0dfd0c1be714a9c469e"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
       "runtime_asset": false,
       "accepted_keyframe": false
     },
@@ -402,23 +491,6 @@
       ],
       "modification": "Fresh reference drawings; native output preserved",
       "license_provenance": "OpenAI-generated output based on project identity artwork; https://openai.com/policies/terms-of-use/",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
-      "path": "objects/01_fir/REPAIR_PROMPTS.json",
-      "sha256": "c4e04a8c5a089bb0d491eae8c974d5698b084cf88b582d93bd32a3e588af60a2",
-      "bytes": 1271,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
-          "sha256": "3c12081abe82c7bb55a8dae260d2255cfd390bfc48b4a0dfd0c1be714a9c469e"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
       "runtime_asset": false,
       "accepted_keyframe": false
     },
@@ -491,6 +563,57 @@
       "path": "objects/02_huckleberry/AUTHORING_RECEIPT.json",
       "sha256": "4a37f927bc066ff017a945d5e61c9f922a9a32dc13aa4bf3b88b646345e1ce37",
       "bytes": 2273,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/huckleberry-foreground.png",
+          "sha256": "ec29e2fec09a00cce93a2f3f17b17b60aa787f4b670ddc8cfd1ba23bb5923d47"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/02_huckleberry/GENERATION.json",
+      "sha256": "8f456804709bd42ff2f00e1dcf07e6e65161836a073ff81a6c79cf335722bf86",
+      "bytes": 1685,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/huckleberry-foreground.png",
+          "sha256": "ec29e2fec09a00cce93a2f3f17b17b60aa787f4b670ddc8cfd1ba23bb5923d47"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/02_huckleberry/IMPORT_PARAMETERS.json",
+      "sha256": "b00d33266e92818a6953c88dd505a9a0f74a1b192f7d3ada15de4809136ce72f",
+      "bytes": 304260,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/huckleberry-foreground.png",
+          "sha256": "ec29e2fec09a00cce93a2f3f17b17b60aa787f4b670ddc8cfd1ba23bb5923d47"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/02_huckleberry/REPAIR_PROMPTS.json",
+      "sha256": "06f5d0e9f5867a5026b4d33e596730c4c1ecd47bde366fea641f2ae20abab843",
+      "bytes": 1304,
       "dimensions": null,
       "role": "generation/authoring/timing metadata",
       "sources": [
@@ -673,23 +796,6 @@
       "accepted_keyframe": false
     },
     {
-      "path": "objects/02_huckleberry/GENERATION.json",
-      "sha256": "8f456804709bd42ff2f00e1dcf07e6e65161836a073ff81a6c79cf335722bf86",
-      "bytes": 1685,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/huckleberry-foreground.png",
-          "sha256": "ec29e2fec09a00cce93a2f3f17b17b60aa787f4b670ddc8cfd1ba23bb5923d47"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
       "path": "objects/02_huckleberry/identity_source.png",
       "sha256": "ec29e2fec09a00cce93a2f3f17b17b60aa787f4b670ddc8cfd1ba23bb5923d47",
       "bytes": 1423293,
@@ -706,23 +812,6 @@
       ],
       "modification": "Unmodified byte copy",
       "license_provenance": "Existing project artwork; retain source ASSET_LICENSES.md row",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
-      "path": "objects/02_huckleberry/IMPORT_PARAMETERS.json",
-      "sha256": "b00d33266e92818a6953c88dd505a9a0f74a1b192f7d3ada15de4809136ce72f",
-      "bytes": 304260,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/huckleberry-foreground.png",
-          "sha256": "ec29e2fec09a00cce93a2f3f17b17b60aa787f4b670ddc8cfd1ba23bb5923d47"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
       "runtime_asset": false,
       "accepted_keyframe": false
     },
@@ -747,23 +836,6 @@
       ],
       "modification": "Fresh reference drawings; native output preserved",
       "license_provenance": "OpenAI-generated output based on project identity artwork; https://openai.com/policies/terms-of-use/",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
-      "path": "objects/02_huckleberry/REPAIR_PROMPTS.json",
-      "sha256": "06f5d0e9f5867a5026b4d33e596730c4c1ecd47bde366fea641f2ae20abab843",
-      "bytes": 1304,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/huckleberry-foreground.png",
-          "sha256": "ec29e2fec09a00cce93a2f3f17b17b60aa787f4b670ddc8cfd1ba23bb5923d47"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
       "runtime_asset": false,
       "accepted_keyframe": false
     },
@@ -836,6 +908,40 @@
       "path": "objects/03_hydrangea/AUTHORING_RECEIPT.json",
       "sha256": "7ecb460feb20226c3160d6d14d0b9059f6de125a720def80397b267882d28a21",
       "bytes": 2139,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/hydrangea.png",
+          "sha256": "215a86b4a769a40518b679ee3c62124f9d58803b4ccd40ffe989a59dbf7810d7"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/03_hydrangea/GENERATION.json",
+      "sha256": "d10b43ec452c8b754b7ae40e6bc778d02e360228795fe3eb896923911f0e185c",
+      "bytes": 1702,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/hydrangea.png",
+          "sha256": "215a86b4a769a40518b679ee3c62124f9d58803b4ccd40ffe989a59dbf7810d7"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/03_hydrangea/IMPORT_PARAMETERS.json",
+      "sha256": "b728bff9ec34d8f74868536f55ffc25bbf9f57039928f8efac853ae2a2807e35",
+      "bytes": 437103,
       "dimensions": null,
       "role": "generation/authoring/timing metadata",
       "sources": [
@@ -1018,23 +1124,6 @@
       "accepted_keyframe": false
     },
     {
-      "path": "objects/03_hydrangea/GENERATION.json",
-      "sha256": "d10b43ec452c8b754b7ae40e6bc778d02e360228795fe3eb896923911f0e185c",
-      "bytes": 1702,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/hydrangea.png",
-          "sha256": "215a86b4a769a40518b679ee3c62124f9d58803b4ccd40ffe989a59dbf7810d7"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
       "path": "objects/03_hydrangea/identity_source.png",
       "sha256": "215a86b4a769a40518b679ee3c62124f9d58803b4ccd40ffe989a59dbf7810d7",
       "bytes": 880933,
@@ -1051,23 +1140,6 @@
       ],
       "modification": "Unmodified byte copy",
       "license_provenance": "Existing project artwork; retain source ASSET_LICENSES.md row",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
-      "path": "objects/03_hydrangea/IMPORT_PARAMETERS.json",
-      "sha256": "b728bff9ec34d8f74868536f55ffc25bbf9f57039928f8efac853ae2a2807e35",
-      "bytes": 437103,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/hydrangea.png",
-          "sha256": "215a86b4a769a40518b679ee3c62124f9d58803b4ccd40ffe989a59dbf7810d7"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
       "runtime_asset": false,
       "accepted_keyframe": false
     },
@@ -1140,6 +1212,40 @@
       "path": "objects/04_bellflower/AUTHORING_RECEIPT.json",
       "sha256": "4d69b812c351daab1470b0e4c6ffb309ae7749cae22704ebbaff3ed947f6e6e2",
       "bytes": 2143,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/cream-bellflower.png",
+          "sha256": "dc51f9e05220fe2e20fa51820b332e0454f75895f2712ab917c0fc69aef468e4"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/04_bellflower/GENERATION.json",
+      "sha256": "d5c41f6f689559b3286716e9f27c622bdc41b7f509df6f433f3238e7ddfdf200",
+      "bytes": 1681,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/cream-bellflower.png",
+          "sha256": "dc51f9e05220fe2e20fa51820b332e0454f75895f2712ab917c0fc69aef468e4"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/04_bellflower/IMPORT_PARAMETERS.json",
+      "sha256": "168478bb87cd0854e7dc367e4a3838cee0fc0b38155daaec6637e9cd2e5431f2",
+      "bytes": 512247,
       "dimensions": null,
       "role": "generation/authoring/timing metadata",
       "sources": [
@@ -1322,23 +1428,6 @@
       "accepted_keyframe": false
     },
     {
-      "path": "objects/04_bellflower/GENERATION.json",
-      "sha256": "d5c41f6f689559b3286716e9f27c622bdc41b7f509df6f433f3238e7ddfdf200",
-      "bytes": 1681,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/cream-bellflower.png",
-          "sha256": "dc51f9e05220fe2e20fa51820b332e0454f75895f2712ab917c0fc69aef468e4"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
       "path": "objects/04_bellflower/identity_source.png",
       "sha256": "dc51f9e05220fe2e20fa51820b332e0454f75895f2712ab917c0fc69aef468e4",
       "bytes": 1012841,
@@ -1355,23 +1444,6 @@
       ],
       "modification": "Unmodified byte copy",
       "license_provenance": "Existing project artwork; retain source ASSET_LICENSES.md row",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
-      "path": "objects/04_bellflower/IMPORT_PARAMETERS.json",
-      "sha256": "168478bb87cd0854e7dc367e4a3838cee0fc0b38155daaec6637e9cd2e5431f2",
-      "bytes": 512247,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/cream-bellflower.png",
-          "sha256": "dc51f9e05220fe2e20fa51820b332e0454f75895f2712ab917c0fc69aef468e4"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
       "runtime_asset": false,
       "accepted_keyframe": false
     },
@@ -1444,6 +1516,40 @@
       "path": "objects/05_cloud/AUTHORING_RECEIPT.json",
       "sha256": "e18238f377fe17033d18668fd4eed339297d215c0a43634a0057d4cd47db480a",
       "bytes": 2139,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+          "sha256": "c7c708694ff729e703271b40bf68cd23913d1c43485bf4b614fb0681cfb9cfdb"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/05_cloud/GENERATION.json",
+      "sha256": "a7493e476e4f5c92ef369450b391856cf7f2cdbc447cf92646cf6fbcc58e11f3",
+      "bytes": 1526,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+          "sha256": "c7c708694ff729e703271b40bf68cd23913d1c43485bf4b614fb0681cfb9cfdb"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/05_cloud/IMPORT_PARAMETERS.json",
+      "sha256": "9aefc9ecb36824776568dfa067608847acac494945a14725b22888e20ba48ffa",
+      "bytes": 161317,
       "dimensions": null,
       "role": "generation/authoring/timing metadata",
       "sources": [
@@ -1626,23 +1732,6 @@
       "accepted_keyframe": false
     },
     {
-      "path": "objects/05_cloud/GENERATION.json",
-      "sha256": "a7493e476e4f5c92ef369450b391856cf7f2cdbc447cf92646cf6fbcc58e11f3",
-      "bytes": 1526,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
-          "sha256": "c7c708694ff729e703271b40bf68cd23913d1c43485bf4b614fb0681cfb9cfdb"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
       "path": "objects/05_cloud/identity_source.png",
       "sha256": "c7c708694ff729e703271b40bf68cd23913d1c43485bf4b614fb0681cfb9cfdb",
       "bytes": 16828,
@@ -1659,23 +1748,6 @@
       ],
       "modification": "Unmodified byte copy",
       "license_provenance": "Existing project artwork; retain source ASSET_LICENSES.md row",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
-      "path": "objects/05_cloud/IMPORT_PARAMETERS.json",
-      "sha256": "9aefc9ecb36824776568dfa067608847acac494945a14725b22888e20ba48ffa",
-      "bytes": 161317,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
-          "sha256": "c7c708694ff729e703271b40bf68cd23913d1c43485bf4b614fb0681cfb9cfdb"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
       "runtime_asset": false,
       "accepted_keyframe": false
     },
@@ -1748,6 +1820,40 @@
       "path": "objects/06_smoke/AUTHORING_RECEIPT.json",
       "sha256": "93b5348bd9f0d8bdf87e6ce5a02c6f488124af25ff6b3aa2758954b0b0871f16",
       "bytes": 2143,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+          "sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/06_smoke/GENERATION.json",
+      "sha256": "36f21f864f422d4fe48d772f73ec560d1db0d98dab382f938dd39970f34127f8",
+      "bytes": 1559,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+          "sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/06_smoke/IMPORT_PARAMETERS.json",
+      "sha256": "69bb4ca9cf637de4d6baaa811527432fd8177d37ea87c96f53d4b562b7bb61f7",
+      "bytes": 173175,
       "dimensions": null,
       "role": "generation/authoring/timing metadata",
       "sources": [
@@ -1930,23 +2036,6 @@
       "accepted_keyframe": false
     },
     {
-      "path": "objects/06_smoke/GENERATION.json",
-      "sha256": "36f21f864f422d4fe48d772f73ec560d1db0d98dab382f938dd39970f34127f8",
-      "bytes": 1559,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
-          "sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
       "path": "objects/06_smoke/identity_source.png",
       "sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007",
       "bytes": 12563,
@@ -1963,23 +2052,6 @@
       ],
       "modification": "Unmodified byte copy",
       "license_provenance": "Existing project artwork; retain source ASSET_LICENSES.md row",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
-      "path": "objects/06_smoke/IMPORT_PARAMETERS.json",
-      "sha256": "69bb4ca9cf637de4d6baaa811527432fd8177d37ea87c96f53d4b562b7bb61f7",
-      "bytes": 173175,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
-          "sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
       "runtime_asset": false,
       "accepted_keyframe": false
     },
@@ -2052,6 +2124,40 @@
       "path": "objects/07_swing/AUTHORING_RECEIPT.json",
       "sha256": "f89e0a99073046876ba0fc1ccb760864147894a82c62fd040efebc78f05cf565",
       "bytes": 2138,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets_src/sky_lagoon/playground_revision_2026-07-29/swing_single_mermaid_gripfit_alpha_master.png",
+          "sha256": "0d62941af2a3a5c6b0436242c7fbd0959983c78a10adbb1637571d3c229d4e21"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/07_swing/GENERATION.json",
+      "sha256": "be8d87b999bb753cb3c863f06e8f493779667fe5ee86c70febcbebf38e88c944",
+      "bytes": 1990,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets_src/sky_lagoon/playground_revision_2026-07-29/swing_single_mermaid_gripfit_alpha_master.png",
+          "sha256": "0d62941af2a3a5c6b0436242c7fbd0959983c78a10adbb1637571d3c229d4e21"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/07_swing/IMPORT_PARAMETERS.json",
+      "sha256": "cb8cb2ad103a9fec53d12207558f25d6b94a8055443630e060739ddcd9dd841b",
+      "bytes": 187826,
       "dimensions": null,
       "role": "generation/authoring/timing metadata",
       "sources": [
@@ -2258,23 +2364,6 @@
       "accepted_keyframe": false
     },
     {
-      "path": "objects/07_swing/GENERATION.json",
-      "sha256": "be8d87b999bb753cb3c863f06e8f493779667fe5ee86c70febcbebf38e88c944",
-      "bytes": 1990,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets_src/sky_lagoon/playground_revision_2026-07-29/swing_single_mermaid_gripfit_alpha_master.png",
-          "sha256": "0d62941af2a3a5c6b0436242c7fbd0959983c78a10adbb1637571d3c229d4e21"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
       "path": "objects/07_swing/identity_source.png",
       "sha256": "0d62941af2a3a5c6b0436242c7fbd0959983c78a10adbb1637571d3c229d4e21",
       "bytes": 1462540,
@@ -2291,23 +2380,6 @@
       ],
       "modification": "Unmodified byte copy",
       "license_provenance": "Existing project artwork; retain source ASSET_LICENSES.md row",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
-      "path": "objects/07_swing/IMPORT_PARAMETERS.json",
-      "sha256": "cb8cb2ad103a9fec53d12207558f25d6b94a8055443630e060739ddcd9dd841b",
-      "bytes": 187826,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets_src/sky_lagoon/playground_revision_2026-07-29/swing_single_mermaid_gripfit_alpha_master.png",
-          "sha256": "0d62941af2a3a5c6b0436242c7fbd0959983c78a10adbb1637571d3c229d4e21"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
       "runtime_asset": false,
       "accepted_keyframe": false
     },
@@ -2380,6 +2452,40 @@
       "path": "objects/08_seesaw/AUTHORING_RECEIPT.json",
       "sha256": "fce799a3cce248e6fc4904c200b5881f992adf0f6c5acb580b04539321dddddd",
       "bytes": 2181,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+          "sha256": "e39464f3eb3d8bc275ddd4788dfe4eb50db2147d9e20d7bbd1c4ed02d51d6129"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/08_seesaw/GENERATION.json",
+      "sha256": "e545f4f36f21d0ded36c8782e07bc3b17ec2ac7b375591de71cdfa8cee4faba9",
+      "bytes": 1711,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+          "sha256": "e39464f3eb3d8bc275ddd4788dfe4eb50db2147d9e20d7bbd1c4ed02d51d6129"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/08_seesaw/IMPORT_PARAMETERS.json",
+      "sha256": "7ecded4f7597f7588b972b9ad992645e9736428e72850f71e3b98c43983de4aa",
+      "bytes": 218247,
       "dimensions": null,
       "role": "generation/authoring/timing metadata",
       "sources": [
@@ -2562,23 +2668,6 @@
       "accepted_keyframe": false
     },
     {
-      "path": "objects/08_seesaw/GENERATION.json",
-      "sha256": "e545f4f36f21d0ded36c8782e07bc3b17ec2ac7b375591de71cdfa8cee4faba9",
-      "bytes": 1711,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
-          "sha256": "e39464f3eb3d8bc275ddd4788dfe4eb50db2147d9e20d7bbd1c4ed02d51d6129"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
       "path": "objects/08_seesaw/identity_source.png",
       "sha256": "e39464f3eb3d8bc275ddd4788dfe4eb50db2147d9e20d7bbd1c4ed02d51d6129",
       "bytes": 52560,
@@ -2595,23 +2684,6 @@
       ],
       "modification": "Unmodified byte copy",
       "license_provenance": "Existing project artwork; retain source ASSET_LICENSES.md row",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
-      "path": "objects/08_seesaw/IMPORT_PARAMETERS.json",
-      "sha256": "7ecded4f7597f7588b972b9ad992645e9736428e72850f71e3b98c43983de4aa",
-      "bytes": 218247,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
-          "sha256": "e39464f3eb3d8bc275ddd4788dfe4eb50db2147d9e20d7bbd1c4ed02d51d6129"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
       "runtime_asset": false,
       "accepted_keyframe": false
     },
@@ -2684,6 +2756,40 @@
       "path": "objects/09_gate/AUTHORING_RECEIPT.json",
       "sha256": "89ff1efbce0410d88b705d2603cb2396ecac1dd636354cc5a9fde2ee1d471014",
       "bytes": 2198,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
+          "sha256": "f1003ba7d1d2a70d1e367805e2d8aacfefa71a6006935662d6285b064a380a09"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/09_gate/GENERATION.json",
+      "sha256": "af9b624089572c6b4074af1a7806be40347be62a5a5914b09cab9c1d0b177fec",
+      "bytes": 1736,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
+          "sha256": "f1003ba7d1d2a70d1e367805e2d8aacfefa71a6006935662d6285b064a380a09"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/09_gate/IMPORT_PARAMETERS.json",
+      "sha256": "6b8a0572391c7008a6de77b14e85f08f71bfa907287daa92a5ea55292349ab85",
+      "bytes": 306429,
       "dimensions": null,
       "role": "generation/authoring/timing metadata",
       "sources": [
@@ -2866,23 +2972,6 @@
       "accepted_keyframe": false
     },
     {
-      "path": "objects/09_gate/GENERATION.json",
-      "sha256": "af9b624089572c6b4074af1a7806be40347be62a5a5914b09cab9c1d0b177fec",
-      "bytes": 1736,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
-          "sha256": "f1003ba7d1d2a70d1e367805e2d8aacfefa71a6006935662d6285b064a380a09"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
       "path": "objects/09_gate/identity_source.png",
       "sha256": "f1003ba7d1d2a70d1e367805e2d8aacfefa71a6006935662d6285b064a380a09",
       "bytes": 179718,
@@ -2899,23 +2988,6 @@
       ],
       "modification": "Unmodified byte copy",
       "license_provenance": "Existing project artwork; retain source ASSET_LICENSES.md row",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
-      "path": "objects/09_gate/IMPORT_PARAMETERS.json",
-      "sha256": "6b8a0572391c7008a6de77b14e85f08f71bfa907287daa92a5ea55292349ab85",
-      "bytes": 306429,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
-          "sha256": "f1003ba7d1d2a70d1e367805e2d8aacfefa71a6006935662d6285b064a380a09"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
       "runtime_asset": false,
       "accepted_keyframe": false
     },
@@ -2988,6 +3060,40 @@
       "path": "objects/10_glass/AUTHORING_RECEIPT.json",
       "sha256": "576d0ca601ae14369a61e0655759ea46181e4623c5b2b91d9eea8ccf33e571e0",
       "bytes": 2438,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+          "sha256": "90da7b0106759690001a2bc7fd77042db5afa5e59f13c8557faa6b3b86d19cd8"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/10_glass/IMPORT_PARAMETERS.json",
+      "sha256": "5c52a08f1b607d71a4d2c78a1e3ff94d60533c1ac270d41e4f79d925968a4a49",
+      "bytes": 93444,
+      "dimensions": null,
+      "role": "generation/authoring/timing metadata",
+      "sources": [
+        {
+          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+          "sha256": "90da7b0106759690001a2bc7fd77042db5afa5e59f13c8557faa6b3b86d19cd8"
+        }
+      ],
+      "modification": "Authored JSON evidence; reference only",
+      "license_provenance": "Project-authored reference metadata",
+      "runtime_asset": false,
+      "accepted_keyframe": false
+    },
+    {
+      "path": "objects/10_glass/METHOD.json",
+      "sha256": "007955d0456fd40b22aaddd78f82523bd5e6b65ba67c797439f5d76c21000e45",
+      "bytes": 621,
       "dimensions": null,
       "role": "generation/authoring/timing metadata",
       "sources": [
@@ -3310,40 +3416,6 @@
       "accepted_keyframe": false
     },
     {
-      "path": "objects/10_glass/IMPORT_PARAMETERS.json",
-      "sha256": "5c52a08f1b607d71a4d2c78a1e3ff94d60533c1ac270d41e4f79d925968a4a49",
-      "bytes": 93444,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
-          "sha256": "90da7b0106759690001a2bc7fd77042db5afa5e59f13c8557faa6b3b86d19cd8"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
-      "path": "objects/10_glass/METHOD.json",
-      "sha256": "007955d0456fd40b22aaddd78f82523bd5e6b65ba67c797439f5d76c21000e45",
-      "bytes": 621,
-      "dimensions": null,
-      "role": "generation/authoring/timing metadata",
-      "sources": [
-        {
-          "path": "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
-          "sha256": "90da7b0106759690001a2bc7fd77042db5afa5e59f13c8557faa6b3b86d19cd8"
-        }
-      ],
-      "modification": "Authored JSON evidence; reference only",
-      "license_provenance": "Project-authored reference metadata",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
       "path": "objects/10_glass/spritesheet.json",
       "sha256": "78c1bb48047489d9b89659129ce88300d29713aa54cc47a04ab986d2540b5f56",
       "bytes": 3646,
@@ -3466,8 +3538,8 @@
     },
     {
       "path": "production/prepare_packet.py",
-      "sha256": "7e9bb24e6f33fb27860a6840b700f868a785ac92087f4e96a55b203b71378474",
-      "bytes": 19910,
+      "sha256": "dbdfd1166e58f78767153955c5fdd574555d6380ebbde2d1e368e81b60f75239",
+      "bytes": 20036,
       "dimensions": null,
       "role": "tool / archive metadata / operator index",
       "sources": [],
@@ -3489,62 +3561,23 @@
       "accepted_keyframe": false
     },
     {
-      "path": "PROJECT_VERIFICATION.json",
-      "sha256": "cddcfcca60ab0d2b20d8c0a98ed826b9538eb90656f2cac1d8f5dc30951a74de",
-      "bytes": 3040,
+      "path": "scene/SCENE_PARAMETERS.json",
+      "sha256": "53eb93690c03c14f983f5c47375c0f1e46a3626e9d2ae5c2ba4fad0165e7aa1b",
+      "bytes": 4974,
       "dimensions": null,
-      "role": "tool / archive metadata / operator index",
-      "sources": [],
-      "modification": "Project-authored reference archive content",
-      "license_provenance": "Project-authored content; no external source code copied",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
-      "path": "PROMPT_SET.json",
-      "sha256": "ce3e551963d89af4e3e231e04ae002a57aa2a0ef921cbc77e8e2d16870477015",
-      "bytes": 18653,
-      "dimensions": null,
-      "role": "tool / archive metadata / operator index",
-      "sources": [],
-      "modification": "Project-authored reference archive content",
-      "license_provenance": "Project-authored content; no external source code copied",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
-      "path": "README.md",
-      "sha256": "9eeac6f4228d51a5e16822f45a24a389c31863000f51233eb5f3efad00b32179",
-      "bytes": 8530,
-      "dimensions": null,
-      "role": "tool / archive metadata / operator index",
-      "sources": [],
-      "modification": "Project-authored reference archive content",
-      "license_provenance": "Project-authored content; no external source code copied",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
-      "path": "REVIEW.json",
-      "sha256": "42b93c1d3e4e8bd579c96563ebe482d565561b1af021ddf172f380a61da35589",
-      "bytes": 1180,
-      "dimensions": null,
-      "role": "tool / archive metadata / operator index",
-      "sources": [],
-      "modification": "Project-authored reference archive content",
-      "license_provenance": "Project-authored content; no external source code copied",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
-      "path": "SAMPLES.json",
-      "sha256": "9989587e5a8c46024cd67937ce33cb6a5f2646c91d518306acd36b6a4b5da1de",
-      "bytes": 2759,
-      "dimensions": null,
-      "role": "tool / archive metadata / operator index",
-      "sources": [],
-      "modification": "Project-authored reference archive content",
-      "license_provenance": "Project-authored content; no external source code copied",
+      "role": "layered context motion study / encoded preview",
+      "sources": [
+        {
+          "path": "assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/context/approved_clean_panorama.png",
+          "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41"
+        },
+        {
+          "path": "assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/scene/SCENE_PARAMETERS.json",
+          "sha256": "53eb93690c03c14f983f5c47375c0f1e46a3626e9d2ae5c2ba4fad0165e7aa1b"
+        }
+      ],
+      "modification": "Aseprite review composition; uniform scale, fixed approved fixtures, fresh object keys, local light/door study; FFmpeg MP4 encode",
+      "license_provenance": "Project reference derivative; source-specific rights retained",
       "runtime_asset": false,
       "accepted_keyframe": false
     },
@@ -4701,27 +4734,6 @@
       "accepted_keyframe": false
     },
     {
-      "path": "scene/SCENE_PARAMETERS.json",
-      "sha256": "53eb93690c03c14f983f5c47375c0f1e46a3626e9d2ae5c2ba4fad0165e7aa1b",
-      "bytes": 4974,
-      "dimensions": null,
-      "role": "layered context motion study / encoded preview",
-      "sources": [
-        {
-          "path": "assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/context/approved_clean_panorama.png",
-          "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41"
-        },
-        {
-          "path": "assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/scene/SCENE_PARAMETERS.json",
-          "sha256": "53eb93690c03c14f983f5c47375c0f1e46a3626e9d2ae5c2ba4fad0165e7aa1b"
-        }
-      ],
-      "modification": "Aseprite review composition; uniform scale, fixed approved fixtures, fresh object keys, local light/door study; FFmpeg MP4 encode",
-      "license_provenance": "Project reference derivative; source-specific rights retained",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
       "path": "scene/sky_lagoon_sample.aseprite",
       "sha256": "5de7f03b689aec88076b04519acc9d79695cc0fcf667fba0b2eba0abce20f141",
       "bytes": 23266112,
@@ -4790,18 +4802,6 @@
       ],
       "modification": "Aseprite review composition; uniform scale, fixed approved fixtures, fresh object keys, local light/door study; FFmpeg MP4 encode",
       "license_provenance": "Project reference derivative; source-specific rights retained",
-      "runtime_asset": false,
-      "accepted_keyframe": false
-    },
-    {
-      "path": "TASK_START.json",
-      "sha256": "da1bd9d39439568b993097d1c74e7e23f6559feac7a05e35857469f980c7b3ac",
-      "bytes": 8931,
-      "dimensions": null,
-      "role": "tool / archive metadata / operator index",
-      "sources": [],
-      "modification": "Project-authored reference archive content",
-      "license_provenance": "Project-authored content; no external source code copied",
       "runtime_asset": false,
       "accepted_keyframe": false
     },

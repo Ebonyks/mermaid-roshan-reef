@@ -282,6 +282,11 @@
       "command": "Anonymous immutable GitHub packet verification",
       "result": "PENDING",
       "evidence": "Publish and fetch every manifest payload at exact commit; receipt remains separate."
+    },
+    {
+      "command": "Case-sensitive slash-path sort plus independent local file/payload SHA256 check",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/MANIFEST.json; all 227 files verified; canonical payload cc0dfbd896900d8a6902e1a8313c40ff9e534c5d8f4b4efb11f80680efc32ff4. Corrects Windows path comparison ordering discovered by anonymous verification; no art changed."
     }
   ],
   "acceptance_gaps": "Reference samples only; visual continuity/contact, new owner selection, runtime/device/child and full-frame cinematic gates remain open."
