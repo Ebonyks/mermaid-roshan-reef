@@ -3,6 +3,7 @@ from pathlib import Path
 import argparse,json,html,hashlib,math
 from PIL import Image,ImageDraw
 from reportlab.pdfgen import canvas
+from reportlab import rl_config
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.utils import ImageReader
@@ -12,6 +13,7 @@ B=json.loads((ROOT/'book.json').read_text(encoding='utf8'))
 ap=argparse.ArgumentParser();ap.add_argument('--output',type=Path,default=Path.cwd()/'output/pdf/landscape');args=ap.parse_args();O=args.output;O.mkdir(parents=True,exist_ok=True)
 pdfmetrics.registerFont(TTFont('Sniglet',str(ROOT/B['font'])))
 W,H=504,360
+rl_config.useA85=0  # Preserve lossless image streams without ASCII85 overhead.
 PDF=O/'Mermaid_Roshan_LANDSCAPE_ROUGH.pdf';c=canvas.Canvas(str(PDF),pagesize=(W,H));c.setTitle(B['title']);c.setAuthor('Mermaid Roshan picture-book project')
 def path(k):return ROOT/B['sources'][k]['file']
 PAGE='front_cover'
@@ -26,6 +28,11 @@ def cliprect(x,y,w,h):
 def region(k,box,target):
  im=Image.open(path(k));iw,ih=im.size;l,t,r,b=box;x,y,w,h=target
  record(k,box,target,'source_region');c.saveState();cliprect(x,y,w,h);c.drawImage(str(path(k)),x-l*w/(r-l),y-(ih-b)*h/(b-t),width=iw*w/(r-l),height=ih*h/(b-t),mask='auto');c.restoreState()
+def visible_strip(k,box,target):
+ # PDF layout resource: omit permanently hidden pixels, keeping source files intact.
+ im=Image.open(path(k));x,y,w,h=target
+ record(k,box,target,'source_region_visible_pdf_resource')
+ c.drawImage(ImageReader(im.crop(box)),x,y,width=w,height=h,mask='auto')
 def full(k,anchor=.5):
  iw,ih=Image.open(path(k)).size;s=max(W/iw,H/ih);record(k,(0,0,iw,ih),((W-iw*s)*anchor,(H-ih*s)/2,iw*s,ih*s),'page_trim');c.saveState();cliprect(0,0,W,H);c.drawImage(str(path(k)),(W-iw*s)*anchor,(H-ih*s)/2,width=iw*s,height=ih*s);c.restoreState()
 def local_patch(p):
@@ -61,7 +68,7 @@ def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False):
    c.setFillColorRGB(.04,.09,.18);c.drawString(xx+.6,y-.6,line)
   c.setFillColorRGB(*((1,1,.98) if color=='white' else (.06,.16,.29)))
   if halo:
-   c.setStrokeColorRGB(*((.06,.12,.25) if color=='white' else (1,1,.98)));c.setLineWidth(1.6)
+   c.setStrokeColorRGB(*((.06,.12,.25) if color=='white' else (1,1,.98)));c.setLineWidth(.85)
    obj=c.beginText(xx,y);obj.setFont('Sniglet',size);obj.setTextRenderMode(1);obj.textOut(line);obj.setTextRenderMode(0);c.drawText(obj)
    obj=c.beginText(xx,y);obj.setFont('Sniglet',size);obj.setTextRenderMode(0);obj.textOut(line);c.drawText(obj)
   else:c.drawString(xx,y,line)
@@ -73,14 +80,15 @@ def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False):
 def speech(q):
  x,y,w,h=q['box'];tx,ty=q['tail'];c.saveState()
  c.setFillColorRGB(1,1,.98);c.setStrokeColorRGB(.16,.26,.45);c.setLineWidth(1.2)
- # A true ellipse, with only a small lower arc replaced by a curved speech tail.
- rx,ry=w/2,h/2;cx,cy=x+rx,y+ry;phi=math.degrees(math.asin(7/rx))
- start=270+phi;end=270-phi
- sx=cx+rx*math.cos(math.radians(start));sy=cy+ry*math.sin(math.radians(start))
- ex=cx+rx*math.cos(math.radians(end));ey=cy+ry*math.sin(math.radians(end))
- p=c.beginPath();p.moveTo(sx,sy);p.arcTo(x,y,x+w,y+h,startAng=start,extent=360-2*phi)
- p.curveTo(ex+2,ey-6,tx-5,ty+5,tx,ty)
- p.curveTo(tx+1,ty+8,sx-2,sy-6,sx,sy)
+ # Rounded capsule with an integrated, short curved tail aimed at its speaker.
+ r=h/2;cy=y+h/2;mid=max(x+r+10,min(tx+5,x+w-r-10))
+ p=c.beginPath();p.moveTo(x+r,y);p.lineTo(mid-7,y)
+ p.curveTo(mid-6,y-7,tx-4,ty+4,tx,ty)
+ p.curveTo(tx+1,ty+7,mid+5,y-5,mid+7,y)
+ p.lineTo(x+w-r,y);p.curveTo(x+w-r*.448,y,x+w,y+r*.448,x+w,y+r)
+ p.curveTo(x+w,y+h-r*.448,x+w-r*.448,y+h,x+w-r,y+h)
+ p.lineTo(x+r,y+h);p.curveTo(x+r*.448,y+h,x,y+h-r*.448,x,y+h-r)
+ p.curveTo(x,y+r*.448,x+r*.448,y,x+r,y)
  p.close();c.drawPath(p,fill=1,stroke=1);c.restoreState()
  lines=q['text'].split('\n');size=18;leading=size*1.3
  ascent=pdfmetrics.getAscent('Sniglet')*size/1000;descent=pdfmetrics.getDescent('Sniglet')*size/1000
@@ -91,14 +99,23 @@ base='landscape_base'
 def background(p):
  global ROLE
  if p.get('integrated_background'):
-  ROLE='integrated_stationery';full(p['integrated_background']);ROLE='story_art';return
+  ROLE='integrated_stationery';full(p['integrated_background'])
+  ROLE='bounded_stationery_edit'
+  for patch in p.get('background_patches',[]):local_patch({'local_patch':patch})
+  ROLE='story_art';return
  ROLE='stationery_base';full(base)
  assert not p.get('border_placements'), 'Use an inspected integrated background; flat ground masks are retired.'
  ROLE='story_art'
 def extension(k):
  global ROLE
  ext=k+'_wide';iw,ih=Image.open(path(k)).size;middle=ih/iw*W;top=H-middle;ew,eh=Image.open(path(ext)).size
- ROLE='empty_ceiling_extension';region(ext,(0,0,ew,B['sources'][ext].get('ceiling_end',100)),(0,middle,W,top))
+ ROLE='empty_ceiling_extension';visible_strip(ext,(0,0,ew,B['sources'][ext].get('ceiling_end',100)),(0,middle,W,top))
+ ROLE='original_complete_scene';region(k,(0,0,iw,ih),(0,0,W,middle));ROLE='story_art'
+def page_extension(p):
+ global ROLE
+ k=p['art'][0];iw,ih=Image.open(path(k)).size;middle=W*ih/iw
+ ext=p['page_extension'];ew,eh=Image.open(path(ext)).size;edge=math.ceil((H-middle)*ew/W)
+ ROLE='empty_ceiling_extension';visible_strip(ext,(0,0,ew,edge),(0,H-edge*W/ew,W,edge*W/ew))
  ROLE='original_complete_scene';region(k,(0,0,iw,ih),(0,0,W,middle));ROLE='story_art'
 # Covers remain part of the rough, outside the 32 numbered story pages.
 full('cover_rendered')
@@ -109,12 +126,15 @@ c.showPage()
 for p in B['pages']:
  PAGE=p['page'];a=p['art'];layout=p['layout']
  if p['mode']=='F':
-  if 'art_crop' in p:region(a[0],p['art_crop'],(0,0,W,H))
+  if p.get('page_extension'):page_extension(p)
+  elif 'art_crop' in p:region(a[0],p['art_crop'],(0,0,W,H))
   elif layout=='extension':extension(a[0])
   else:full(a[0],0 if layout=='full_left' else .5)
  else:
   background(p)
-  if layout=='sink_and_sponge':
+  if p.get('placements'):
+   for placement in p['placements']:cut(placement['source'],*placement['box'])
+  elif layout=='sink_and_sponge':
    cut(a[0],42,73,215,188);cut(a[1],183,188,43,42)
   elif layout=='dodge_pair':
    cut(a[0],266,64,189,203);cut(a[1],48,75,189,179)
@@ -134,21 +154,23 @@ for p in B['pages']:
 PAGE='back_cover'
 full(B['back_cover']['art']);c.showPage();c.save()
 font_path=ROOT/B['font']
-(O/'page_provenance.json').write_text(json.dumps({'page_size_points':[W,H],'coordinate_system':'source pixels: top-left x,y; PDF target points: bottom-left x,y,width,height; page-trim layers clipped to page','font':{'file':B['font'],'sha256':hashlib.sha256(font_path.read_bytes()).hexdigest()},'layers':LAYERS,'text_lines':TEXT_LINES,'note':'Actual draw operations, including covers and background occlusion redraws. This proves source use, not visual acceptance.'},indent=2),encoding='utf8')
+(O/'page_provenance.json').write_text(json.dumps({'page_size_points':[W,H],'coordinate_system':'source pixels: top-left x,y; PDF target points: bottom-left x,y,width,height; page-trim layers clipped to page','font':{'file':B['font'],'sha256':hashlib.sha256(font_path.read_bytes()).hexdigest()},'layers':LAYERS,'text_lines':TEXT_LINES,'note':'Actual draw operations, including covers and background occlusion redraws. This proves source use, not visual acceptance.'},indent=2),encoding='utf8',newline='\n')
 doc=pdfium.PdfDocument(str(PDF));thumbs=[]
 for i,page in enumerate(doc):
- im=page.render(scale=3).to_pil().convert('RGB');im.save(O/f'page_{i:02}.png');im.save(O/f'page_{i:02}.jpg',quality=98,subsampling=0);im.thumbnail((336,240));thumbs.append(im.copy())
+ im=page.render(scale=3).to_pil().convert('RGB');im.save(O/f'page_{i:02}.png')
+ if not B.get('revision'):im.save(O/f'page_{i:02}.jpg',quality=98,subsampling=0)
+ im.thumbnail((336,240));thumbs.append(im.copy())
 for start in range(0,len(thumbs),8):
  sheet=Image.new('RGB',(1344,524),'#d8e3ed');d=ImageDraw.Draw(sheet)
  for j,im in enumerate(thumbs[start:start+8]):
   x=j%4*336;y=j//4*262;sheet.paste(im,(x,y));idx=start+j;d.text((x+5,y+243),'Cover' if idx==0 else 'Back cover' if idx==33 else f'Page {idx}',fill='black')
  sheet.save(O/f'contact_{start//8+1}.jpg',quality=94)
 body=''.join(f'<figure><figcaption>{"Cover" if i==0 else "Back cover" if i==33 else "Page "+str(i)}</figcaption><img loading="lazy" src="page_{i:02}.png" alt="{html.escape("Cover" if i==0 else "Back cover" if i==33 else B["pages"][i-1]["text"])}"></figure>' for i in range(34))
-(O/'READ_BOOK.html').write_text('<!doctype html><meta charset="utf-8"><title>Mermaid Roshan · Landscape rough</title><style>body{margin:0;background:#193449;color:#e3f5ff;font:18px system-ui}header{max-width:1100px;margin:30px auto;padding:20px}main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:24px}figure{margin:0}img{width:100%;display:block}figcaption{padding:8px}a{color:#9cddff}@media(max-width:800px){main{grid-template-columns:1fr}}</style><header><h1>Mermaid Roshan and the Hidden Rainbow</h1><p>7 × 5 inches · 32 story pages + covers · Stress-revised rough · owner acceptance pending</p><p><a href="Mermaid_Roshan_LANDSCAPE_ROUGH.pdf">Download PDF</a> · <a href="STRESS_TEST.html">Page-by-page stress review</a></p><p>Revised dirty-castle opening, contextual blue backgrounds and individual caption placement. Character and source limits remain explicit in the stress report.</p></header><main>'+body+'</main>',encoding='utf8')
+(O/'READ_BOOK.html').write_text('<!doctype html><meta charset="utf-8"><title>Mermaid Roshan · Landscape rough</title><style>body{margin:0;background:#193449;color:#e3f5ff;font:18px system-ui}header{max-width:1100px;margin:30px auto;padding:20px}main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:24px}figure{margin:0}img{width:100%;display:block}figcaption{padding:8px}a{color:#9cddff}@media(max-width:800px){main{grid-template-columns:1fr}}</style><header><h1>Mermaid Roshan and the Hidden Rainbow</h1><p>7 × 5 inches · 32 story pages + covers · V28 · helping Grand Puff · review proof</p><p><a href="Mermaid_Roshan_LANDSCAPE_ROUGH.pdf">Download PDF</a> · <a href="../REVISION_REVIEW.html">Revision review and page map</a></p><p>New castle-entry beat, small apology bunnies, and collaborative cleaning for Grand Puff. 34 pages including covers; source-resolution and final print review remain open.</p></header><main>'+body+'</main>',encoding='utf8',newline='\n')
 # A portable rebuild provides the written review even without the earlier v7 images.
-if not (O/'STRESS_TEST.html').exists() and (ROOT/'stress_review.json').exists():
+if not B.get('revision') and not (O/'STRESS_TEST.html').exists() and (ROOT/'stress_review.json').exists():
  review=json.loads((ROOT/'stress_review.json').read_text(encoding='utf8'))
  entries=''.join('<h2>Page '+str(row['page'])+'</h2><p><b>Baseline:</b> '+html.escape(row['baseline_issue'])+'</p><p><b>Revision:</b> '+html.escape(row['revision'])+'</p><p>'+html.escape(row['identity_review'])+'</p>' for row in review['pages'])
- (O/'STRESS_TEST.html').write_text('<!doctype html><meta charset="utf-8"><title>Book stress review</title><style>body{max-width:850px;margin:40px auto;padding:20px;font:18px/1.5 system-ui;color:#153047;background:#e5f2f8}</style><h1>Book stress review</h1><p>Revised rough; final owner acceptance remains open. This portable report contains the written review. The full before/after report additionally requires the v7 baseline proof.</p><a href="READ_BOOK.html">Read book</a>'+entries,encoding='utf8')
-(O/'verification.json').write_text(json.dumps({'pages':len(doc),'story_pages':len(B['pages']),'full_art':sum(p['mode']=='F' for p in B['pages']),'cutout':sum(p['mode']=='C' for p in B['pages']),'points':[W,H],'pdf_sha256':hashlib.sha256(PDF.read_bytes()).hexdigest(),'status':'rough; visual acceptance pending'},indent=2),encoding='utf8')
+ (O/'STRESS_TEST.html').write_text('<!doctype html><meta charset="utf-8"><title>Book stress review</title><style>body{max-width:850px;margin:40px auto;padding:20px;font:18px/1.5 system-ui;color:#153047;background:#e5f2f8}</style><h1>Book stress review</h1><p>Revised rough; final owner acceptance remains open. This portable report contains the written review. The full before/after report additionally requires the v7 baseline proof.</p><a href="READ_BOOK.html">Read book</a>'+entries,encoding='utf8',newline='\n')
+(O/'verification.json').write_text(json.dumps({'pages':len(doc),'story_pages':len(B['pages']),'full_art':sum(p['mode']=='F' for p in B['pages']),'cutout':sum(p['mode']=='C' for p in B['pages']),'points':[W,H],'pdf_sha256':hashlib.sha256(PDF.read_bytes()).hexdigest(),'status':'rough; visual acceptance pending'},indent=2),encoding='utf8',newline='\n')
 print(PDF)

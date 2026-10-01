@@ -1,0 +1,211 @@
+{
+  "baseline": "4eb7c58bd81ac820949d122e97052e3b76213997",
+  "owner_direction": "Approve preview changes except oversized19; replace unrelated23 with early dirty-castle exploration;26 offers cleaning supply and reassurance. Book-only cooperative cleaning.",
+  "generated": [
+    {
+      "id": "puff_reassurance",
+      "method": "built-in image_gen; bounded source-conditioned edit",
+      "prompt": "Use case: precise-object-edit. Target Image1 is the existing transparent Roshan-and-Grand-Puff cutout. Change ONLY the held object, action effects and Puff's expression for the owner's revised story: she is reassuring an uncomfortable dusty friend before cleaning him, never fighting him. Preserve the exact Roshan identity, face, rainbow hair, crown, purple top/tail, pose, proportions and right-side placement. Replace the pink seashell in her extended hand with the exact small PINK STAR-SHAPED SPONGE from Image3, held gently upright, with a few little white soap suds on its edge. Remove all airborne attack sparkles between them and all wobble lines. Keep Puff's lavender cloud silhouette, paired spiral ears, forehead marking and pearl hands exactly; replace spiral dizzy eyes and fangs with the tired, tender, uncomfortable glossy eyes and small mouth from Image2, looking toward Roshan with a little hope. No stars or magical projectile, no dizzy spirals, no beating, no extra arm or character. Do not change layout or turn this into a room scene. Complete natural contours and generous transparent margins; actual RGBA transparency throughout negative space, no sticker edge. No text or balloons; words will be typeset.",
+      "prompt_sha256": "41fb0355ce32d62520c8c359206420e8fb92714da7f6c2bd55b922aa26378564",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/action_style_v25/shell_duel.png",
+          "sha256": "e905b00084f94cd4abfb36673f7b22da401cf197ad049595da42ad8a153c8856",
+          "dimensions": [
+            1774,
+            887
+          ]
+        },
+        {
+          "path": "books/chapter_one/landscape/art/language_v26/puff_unwell.png",
+          "sha256": "ac6ecf90d5a024f7bd343a26c7e3cd1600cb906aff3a5749ab89600dae23bb38",
+          "dimensions": [
+            1254,
+            1254
+          ]
+        },
+        {
+          "path": "books/chapter_one/archive/rough_v5/art/sponge.png",
+          "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+          "dimensions": [
+            512,
+            512
+          ]
+        }
+      ],
+      "output": {
+        "path": "books/chapter_one/landscape/revisions/v28_kindness/art/puff_reassurance.png",
+        "sha256": "fff3fc0511da753b5f11ccd271d15f8a4444c7d85d5562d90a03c79f713cbb61",
+        "dimensions": [
+          1774,
+          887
+        ]
+      },
+      "use": "Selected: bounded page-layout patches for background edits; full RGBA derivative for reassurance. No full-scene replacement."
+    },
+    {
+      "id": "castle_entry_ceiling",
+      "method": "built-in image_gen; bounded source-conditioned edit",
+      "prompt": "Use case: bounded upward outpainting for a picture-book page. Extend this EXACT existing wide Grok frame upward only to a 7:5 landscape canvas. Preserve the entire original frame unchanged, full width, at the bottom 79.75 percent. Add only the upper 20.25 percent by continuing the lavender castle masonry, upper arch, and distant blue/lavender wall. The new topmost 15 percent should be quiet pale lavender stone suitable for navy text, with broad simple painted tones. Do not insert extra windows, doorways, bands, characters, props, light effects or new scene action. Do not redraw the characters or existing doors. No duplication, no new horizontal seam, no text. Same 2D painted game style. The final page will use only the new upper wall pixels over the untouched source frame.",
+      "prompt_sha256": "4546da66a0bb79f7be319e8e3bd3fd4144cafc73f43d75c443a0cc83a62fc56f",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v28_kindness/art/castle_entry_source.png",
+          "sha256": "f3814133804ddafa8fb52f8f523036302c7567d3633a059b7886a74df7dc3c8c",
+          "dimensions": [
+            1264,
+            720
+          ]
+        }
+      ],
+      "output": {
+        "path": "books/chapter_one/landscape/revisions/v28_kindness/art/castle_entry_ceiling.png",
+        "sha256": "5478d2b5f4dc182421407e13c2b534e5edfe4a92b9f8cdd9ff53356d92fe6ebc",
+        "dimensions": [
+          1484,
+          1060
+        ]
+      },
+      "use": "REJECTED_UNUSED: upper-wall join remained discontinuous; native trial retained as evidence only."
+    },
+    {
+      "id": "lamba_toy_peek",
+      "method": "built-in image_gen; bounded source-conditioned edit",
+      "prompt": "Use case: precise tiny Easter-egg inpaint. Keep Image1 EXACTLY unchanged except an extremely small edit at its lower-left stacking-ring toy, centered x=412,y=962 on the 1484x1060 canvas. Hide one tiny Lamb-a plush from Image2 behind the stack of rings. Only a little white forehead, two tiny rounded ears and her eyes should peek out beside/behind the tall central wooden peg above the cyan top ring. Head width about 35 pixels, height about 25 pixels (2.4 percent of canvas width); do not show her egg or body. She must look like the exact white round plush with dark eyelash eyes, never a long-neck llama. Keep the toy itself, both purple dust bunnies, blue mounds, empty center and all background pixels unchanged. Toy partially occludes Lamb-a. This is deliberately hard to spot, with no highlight, arrow, text or framing. Match the little toys' clean navy-outlined 2D game art. Preserve 7:5 aspect ratio and native page composition. No extra objects elsewhere.",
+      "prompt_sha256": "e69e3dde8f65374dfd06fb09272814be3a4f0b7c2763f909011b0a0e229554e2",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/quality_v22/bg_20_final.png",
+          "sha256": "a1bbf4ec53124c820874caaaaaccfab7441581068d1642876b3dc2dca987d1ad",
+          "dimensions": [
+            1484,
+            1060
+          ]
+        },
+        {
+          "path": "assets/sprites/stuffie_studio/lamma.png",
+          "sha256": "fa05513ecf6530691d712230acb4da9c0b3dd11fa694c788f3df8556efc33268",
+          "dimensions": [
+            949,
+            1024
+          ]
+        }
+      ],
+      "output": {
+        "path": "books/chapter_one/landscape/revisions/v28_kindness/art/lamba_toy_peek.png",
+        "sha256": "5256d3706c83bf414a158dffbafa11f3a7d97d12c0c80c466f39880dcaf9edcc",
+        "dimensions": [
+          1484,
+          1060
+        ]
+      },
+      "use": "Selected: bounded page-layout patches for background edits; full RGBA derivative for reassurance. No full-scene replacement."
+    },
+    {
+      "id": "apology_small_banks",
+      "method": "built-in image_gen; bounded source-conditioned edit",
+      "prompt": "Use case: precise scale-and-ground inpaint of the TWO existing little dust bunnies, nothing else. Preserve this exact 1484x1060 blue stationery background. Each existing bunny is a little too tall. Make BOTH existing speaking lavender bunnies about 78 percent of their current size, preserving exactly their curl ears, pearl hands, facial expressions and poses. Keep their feet touching the same left/right mound slopes at y=978, and keep horizontal centers x=346 and x=1146. Each should be at most 105 pixels tall; topmost ear at or below y=875, ideally y=885. Extend the original quiet blue wash behind the vacated pixels above their heads. The final bunny silhouettes and speech-motion marks must stay inside the lower 15 percent (y>=901), preferably make them 90 pixels tall with feet at 991 if necessary. Do not enlarge any element. Keep the empty central writing area, all existing coral/shells/bubbles/bank contours and watercolor grain unchanged. Natural local ground shadows, not pasted sticker edges. No text, speech balloons or new objects. Only the two local lower-bank patches will be used over the original background.",
+      "prompt_sha256": "06e58e5365950cee7faa3071091bb417a84babefbd1b44d1f23ffd1ee85c47ff",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/story_detail_v23/bunny_apology_canvas.png",
+          "sha256": "d71a38db2a2b0f1457fdaff29c6d25c81df0c594619bf77d357dc964fce7c6d7",
+          "dimensions": [
+            1484,
+            1060
+          ]
+        }
+      ],
+      "output": {
+        "path": "books/chapter_one/landscape/revisions/v28_kindness/art/apology_small_banks.png",
+        "sha256": "0c895006256f66352f6ec85325e7a52b8d0bba622abb15726d2474c4ff3a5517",
+        "dimensions": [
+          1484,
+          1060
+        ]
+      },
+      "use": "Selected: bounded page-layout patches for background edits; full RGBA derivative for reassurance. No full-scene replacement."
+    },
+    {
+      "id": "castle_entry_join",
+      "method": "built-in image_gen; bounded source-conditioned edit",
+      "prompt": "Use case: narrow architectural seam inpaint. Target is a 1484x1060 picture-book layout. Repair ONLY the horizontal discontinuity at y=214 across the upper wall/arch/turrets. Make a smooth coherent join to the EXACT LOWER SOURCE IMAGE. Work solely in the horizontal band y=150 through y=254, above Daddy's crown: reconnect masonry edges, tower roof slopes and gold trim, red door top and arch, and right lavender column highlights. The lower scene at y>=255 must remain absolutely unchanged, including all of Daddy, his crown, Roshan, their expressions/poses, the dirty interior and the doors below the joint. Above y150 also unchanged. No duplicated roof, no doubled column edge, no horizontal seam, no new architecture, no new window, no added characters, no text, no wash over the characters. Same simple painted2D colors. Return same full canvas dimensions. Only the narrow repaired band will be taken from your output and integrated over the original source-preserving layout.",
+      "prompt_sha256": "73e4672c966ecec312686bdd899d0b3b5059bc909e39a8f0787265ccc464b83b",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v28_kindness/art/entry_layout_reference.png",
+          "sha256": "76ecf8f616813af69f63ef9571f249b3ff9293dcd74599c476d65f57b53b0c71",
+          "dimensions": [
+            1484,
+            1060
+          ]
+        }
+      ],
+      "output": {
+        "path": "books/chapter_one/landscape/revisions/v28_kindness/art/castle_entry_join.png",
+        "sha256": "72fab4eeb1a5a673a8dfe33ce9862be9a978f92f58ade31553ebd9071f6b2298",
+        "dimensions": [
+          1484,
+          1060
+        ]
+      },
+      "use": "REJECTED_UNUSED: upper-wall join remained discontinuous; native trial retained as evidence only."
+    }
+  ],
+  "extraction": {
+    "source": "assets_src/cinematics/day_one_davinci_draft_2026-09-04/sources/C02_S01_v1_door_open.mp4",
+    "source_sha256": "df7559c706e582b0fbeea23342ad7b5f05b6725515c6ee2ca4cd8cb26182e814",
+    "fps": "24/1",
+    "timestamp_seconds": 4,
+    "frame_index_zero_based": 96,
+    "command": "ffmpeg -ss4 -i C02_S01_v1_door_open.mp4 -frames:v1 castle_entry_source.png",
+    "output": "books/chapter_one/landscape/revisions/v28_kindness/art/castle_entry_source.png",
+    "output_sha256": "f3814133804ddafa8fb52f8f523036302c7567d3633a059b7886a74df7dc3c8c",
+    "dimensions": [
+      1264,
+      720
+    ]
+  },
+  "reuse": {
+    "preview_manifest": "books/chapter_one/previews/2026-09-30/manifest.json",
+    "selected": [
+      "sink_action",
+      "lamba_bath",
+      "fountain_clear_v2",
+      "hug_cutout_v2",
+      "hug_stationery_v2",
+      "rescue_release",
+      "scrub_ceiling",
+      "rainbow_puff_cutout"
+    ],
+    "excluded": {
+      "apology_canvas": "owner rejected oversized speaking bunnies",
+      "art_caption_space": "craft-making beat removed",
+      "old26_copy": "superseded by new cleaning plot"
+    }
+  },
+  "inventory_rejections": [
+    {
+      "path": "assets_src/cinematics/d1_c02_first_dirty_castle_discovery_visual_v1/first_frames/S02_FIRST_FRAME.png",
+      "reason": "Upper duplicated architecture; pending first-frame review is not acceptance."
+    },
+    {
+      "path": "assets_src/cinematics/day_one_davinci_draft_2026-09-04/sources/C02_S02_v1_dirty_hall.mp4",
+      "reason": "Reviewed1s/4s; duplicated upper strip and character drift."
+    },
+    {
+      "path": "assets_src/cinematics/day_one_davinci_draft_2026-09-04/sources/C02_S03_v1_dirty_hall_evidence_REGEN.mp4",
+      "reason": "Literal rabbits and EVIDENCE signs; unsuitable narrative art."
+    }
+  ],
+  "hidden_appearances": {
+    "adult_only": true,
+    "story_pages": [
+      9,
+      31
+    ],
+    "unprompted": true,
+    "note": "Bath-towel peek and tiny toy peek. No child-facing clue, label, arrow or instruction."
+  },
+  "scope": "Static picture book. No game-canon, gameplay, cinematic-delivery or protected-original change."
+}

@@ -90,3 +90,13 @@ Owner correction V25: simplify the existing craft scene style; use the actual ro
 ## Owner language and identity clarification (2026-09-26)
 
 Rumi has lived in the castle for hundreds of years and is trapped underwater by gunk at discovery. That duration does not describe her entrapment. Dust bunnies are endearing playful pests; preserve the real two-bunny Baby Eagle trap and repair through apology/gentle play. Grand Puff is unwell beneath dust, then transforms into his own shiny rainbow self. This is one continuing character. The owner commissions supporting artwork for these corrections. Retain34 total pages including covers and the accepted rear H. Short read-aloud language should support growing reading participation without a claimed reading level.
+
+## Owner correction: V28 cooperative cleaning (2026-09-30)
+
+The owner approves the dated before/after proposals except oversized apology bunnies on former 19. Keep those bunnies small and secondary to Eagle; their speaking role does not justify enlarging them beyond the book's established border scale. Rounded editable speech capsules retain “Sorry!” and “We were just playing!” The earlier larger-figure interpretation and oversized preview are superseded. Small figures may retain the previously commissioned speaking-character margin; its exception must remain explicit rather than claiming strict bottom15% compliance.
+
+Remove the disconnected craft-making beat on former 23. Reallocate its page to an early exploration/entry beat using existing dirty-castle source material; no invented scene. Keep the craft-room sorting and cleaning as part of restoring the castle. Retain34 total pages, both covers and the exact landing. Current numbering and old-to-new map are in landscape/PAGE_PLAN.md and landscape/revisions/v28_kindness/pagination.json.
+
+**Grand Puff's book plot is now entirely care and collaborative cleaning.** Former26 must show Roshan holding a cleaning supply and saying “Hold on, we'll make you feel clean and better!” Replace the shell, attack sparkles and dizzy expression through bounded edits. Roshan and her friends wash the dusty Puff until his own rainbow colors show. This explicitly supersedes the V25 fighting/shell instruction for the book; it does not change game canon, gameplay or runtime movie rules.
+
+The owner also approves the proposed sink action, subtle bath visitor, fountain action, contour hug, clearer Eagle release, group-scrub ceiling and Roshan-to-Puff reflection. Keep their source/prompt evidence and record scoped layout exceptions. Two or three subtle Lamb-a appearances are permitted as unprompted discoveries; no child-facing clue or search instruction. Later scene requests remain subject to the existing source-preservation rule.

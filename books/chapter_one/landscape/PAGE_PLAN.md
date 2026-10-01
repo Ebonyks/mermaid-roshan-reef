@@ -1,84 +1,50 @@
-# V27 — castle entrance and relieved Grand Puff
+# V28 — helping Grand Puff
 
-Current review corrects story pages24 and27 only. Page24 replaces the erroneous opera-house scene with the C11_S02 castle boss approach, retaining completed rooms and shell door above red steps. Page27 changes only Grand Puff’s expression to relieved during the group scrub. Manuscript and other artwork retained. Native inputs, prompts and hashes: `door_expression_evidence_v27.json`. Owner/child/print acceptance remains open.
+Status: `SUPPORTING_CURRENT`; full 34-page review proof, not final owner, child or print acceptance. 32 story pages plus both covers; 7 × 5 inches, Sniglet. Page numbers below are story numbers; PDF page numbers are one higher because of the front cover.
 
-# Landscape page assignments
+The new early castle-entry beat uses an existing Grok door-opening frame. The separate craft-making page is removed. Sorting and scrubbing the craft room remain part of the castle cleanup. The former play invitation now bridges the rainbow reflection into the final bubble nap.
 
-## Current revision: V26 read together (2026-09-26)
+Grand Puff is an uncomfortable friend. Roshan offers a soapy star sponge and says, “Hold on, we’ll make you feel clean and better!” Daddy, Rumi and Baby Eagle help wash him. The same Puff emerges rainbow bright and feels like himself again. The shell attack, dizziness and combat reading are removed. This owner decision governs the book only.
 
-34 review pages means 32 numbered story pages plus front/rear covers. Rear H remains owner accepted. V25 craft-style, route-door and shell-action edits are retained and completed here after the prior tool interruption.
+The prior preview approvals are applied, except oversized apology bunnies and the removed craft page. The apology now has two small bank bunnies and editable rounded capsules. Two unprompted Lamb-a appearances are integrated locally; their locations remain in adult production evidence only.
 
-Rumi is named on9, her hundreds of years living in this castle are stated on10, and she is visibly freed on14 before her hug on15. The castle residence, not the entrapment, lasted hundreds of years. Page9 preserves the net. Three waterfall streams resolve explicitly across11/12, followed by the separate fountain clog13. Dust bunnies are introduced in5/8 as playful pests. Two tumble onto Baby Eagle17; intent is playful but he really needs rescue. Gentle play and direct apologies follow, in genuinely elliptical editable balloons. No blanket or invented hug replaces the trap.
+The door is on23 and Puff on24; bubbles are on27 and the rainbow reveal on28. These page-turn placements assume story1 begins on a right-hand page. A physical print dummy must confirm cover/endpaper and binding choices.
 
-Grand Puff feels unwell25. The same individual is named through29/30 and restored to his rainbow self. The original transformation/landing pixels remain; no separate hidden creature is implied. The new face conveys discomfort. Rumi's trapped/free insertions and Grand Puff's expression use scoped image-generation edits with native outputs and reference hashes preserved.
+## Current page assignments
 
-The language uses short concrete clauses, explicit referents, repeated useful phrases, clear cause/effect, and a few supported richer words. These are shared-reading editorial choices, not a certified reading age or controlled phonics sequence. Picture cues aid comprehension, not a replacement for decoding instruction. Sniglet and18-point minimum remain. No prompts or teaching exercises interrupt the34-page story. Family reading notes and before/after manuscript are separate.
-
-Earlier notes below are historical where this section supersedes them. Whole-book owner/child/print acceptance remains open.
-
-
-## Earlier revision: V23 story details and rear cover
-
-Page3 removes the doubled turquoise window behind Daddy and repairs the central corridor/threshold as one continuous doorway. Repository inspection traced those defects to earlier hall handoff artwork. Page9 now shows Roshan holding the established purple mesh strainer before scooping. Page13 uses the shorter, direct caption “Roshan pulled the rubbish free!” on the upper wall, clear of the faces, with white lettering and a restrained dark outline.
-
-On19, two canonical spiral-ear puffs address Baby Eagle: “sorry” and “we were just playing.” Their expressive faces, gaze and editable Sniglet speech balloons form a narrative exchange. This page alone uses a larger lower-margin speaking-character zone; other decorative bounds remain unchanged. Baby Eagle moves upward to make room for the exchange.
-
-Eight rear-cover studies are preserved. The owner rejected A–D as too photorealistic and missing the other characters. E–G restore the pastel ensemble; H refines E with simple painted lavender dust. H is selected: Roshan and Daddy show concern while Rumi, Baby Eagle and two canonical puffs share the same illustrated space. Aqua, lavender and pink match the front cover. All eight samples remain under `art/story_detail_v23/`; prompts and references are in `story_detail_jobs_v23.json` and `story_detail_evidence_v23.json`. The book rear cover is full art with no pasted tool inventory. This owner commission is specific to the rear cover.
-
-This is a revised rough, not final owner/child/print acceptance. Earlier four ceiling-strip resolution exceptions remain. All earlier revision descriptions below are historical where this section supersedes them.
-
-Status: `SUPPORTING_CURRENT`; v20 art-direction rough. 32 story pages plus covers. Two owner-commissioned rendered illustrations (cover and nap epilogue); other narrative sources retained or narrowly edited.
-
-| Page | Treatment | Main artwork | Border action / object state |
+| New story page | V27 page | Treatment | Caption |
 |---|---|---|---|
-| 1 | F | window | full scene |
-| 2 | F | arrival | full scene |
-| 3 | F | dirty_hall_entry | dirty castle interior |
-| 4 | C | brush, sponge | One dust puff peeks around the pail on the left; folded cloth alone on the right. Curious anticipation, no duplicated foreground tools. |
-| 5 | F | bath_dirty | full scene |
-| 6 | C | sink_complete, sponge | One puff wrings a cloth over a shell basin; a damp cloth rests on a shell dish opposite. |
-| 7 | C | bath_drained_local | Finishing the empty bath. LEFT bank: small yellow rubber duck with its visible dark eye from bottom-left reference cell, sitting level on a shallow bank shelf. RIGHT bank: rolled lavender towel from bottom-middle cell resting lengthwise along the slope, complete rounded end, contact shadow underneath. No folded cloths or soap dish. |
-| 8 | F | bath_safe | full scene |
-| 9 | F | pool_dirty | full scene |
-| 10 | C | net_cut | Actual pool rubbish: torn star wrapper left; algae-covered dented can and discarded blue cap right. Replaces clean accessories and empty basket. |
-| 11 | F | waterfall | full scene |
-| 12 | F | rainbowfall | full scene |
-| 13 | F | seahorse | full scene |
-| 14 | F | pool_clean | full scene |
-| 15 | F | rumi_hug | full scene |
-| 16 | F | stuffie_entry | full scene |
-| 17 | F | pinned | stuffie rescue |
-| 18 | F | loose | stuffie rescue |
-| 19 | C | eagle_original_isolated | Two dust puffs move outward, clearing space after Eagle's rescue. Small rolling and sheepish retreat reactions; no toys or second rescue. |
-| 20 | C | roshan_inviting, eagle_inviting | Two puffs cooperate with the canonical sailboat stacking-ring toy; Eagle takes an eager step toward Roshan. |
-| 21 | C | messy_paints | Messy paint-jar silhouette in the foreground. Tipped pink bottle and paint-marked crumpled paper in the banks establish the untidy state before the clean-table payoff. |
-| 22 | F | craft_table_action | Full art: existing Roshan/table brush-contact frame. |
-| 23 | F | paint | full scene |
-| 24 | C | door_glowing | A cobwebbed gold-banded attic chest and jar sit opposite a nervous puff peeking over dusty books; the royal door glows deep violet. |
-| 25 | C | boss_cut | Two lower-right puffs cower: one flattened with tucked ears, one frightened under a pink pearl shell. Attic chest and books sit left. |
-| 26 | C | grand_puff_jump_sheet, roshan_dodging | Three lower-right spectators cheer Roshan; one eats popcorn. Teal attic jar and lavender books anchor the left bank. |
-| 27 | F | R09_open | full scene |
-| 28 | F | R09_suds | full scene |
-| 29 | F | R10_jump | full scene |
-| 30 | F | R11_land | full scene |
-| 31 | C | daddy, roshan_reflecting | Existing conversational Roshan gesture replaces neutral standing pose; Daddy and puzzle-sharing border retained. |
-| 32 | F | bubble_nap | Full-art resting epilogue: all five friends asleep in one bubble pile, after the unchanged canonical landing. |
+| 1 | 1 | F | “Look, Daddy! / Pearl Castle!” |
+| 2 | 2 | F | Roshan and Daddy landed at Sky Lagoon. / Pearl Castle was close by. |
+| 3 | new | F | “Let’s look inside, / Daddy,” said Roshan. |
+| 4 | 3 | F | Inside, dust covered the floor. / “Let’s clean it together!” |
+| 5 | 4 | C | Daddy gave her a brush and a sponge. / “One little job at a time.” |
+| 6 | 5 | F | A dust bunny splashed in the dirty bath. / It loved to play. Splash, splash! |
+| 7 | 6 | C | Round and round went the sponge. / Roshan wiped the sink clean. |
+| 8 | 7 | C | Roshan let the dirty bath water out. / Then she scrubbed the tub. Scrub, scrub! |
+| 9 | 8 | F | Clean water filled the bath. / The dust bunny splashed again! |
+| 10 | 9 | F | A mermaid named Rumi was stuck / under the gunk in the pool. |
+| 11 | 10 | C | This castle had been Rumi’s home / for hundreds of years. / “I’ll help!” said Roshan. Scoop, scoop! |
+| 12 | 11 | F | One stream ran clear. / Roshan cleared the next... and the next. |
+| 13 | 12 | F | All three streams were clear. / Whoosh! The waterfall turned rainbow! |
+| 14 | 13 | F | Roshan pulled the cup free! |
+| 15 | 14 | F | Fresh water flowed. The gunk was gone. / Up came Rumi. She was free! |
+| 16 | 15 | C | “You helped me!” / said Rumi. / She gave Roshan / a great big hug. |
+| 17 | 16 | F | Chirp, chirp! / “Someone needs help!” said Roshan. |
+| 18 | 17 | F | Two dust bunnies had tumbled onto Baby Eagle. / They wanted to play, but he was stuck. |
+| 19 | 18 | F | “I’ll help!” said Roshan. / She brushed one bunny away, then the other. |
+| 20 | 19 | C | Baby Eagle was free! / Now they could play gently. |
+| 21 | 21 | C | Brushes here. Paints there. / Roshan put each thing in its place. |
+| 22 | 22 | F | Scrub, scrub! The table was clean. / Everything was back in its place. |
+| 23 | 24 | F | One last door began to glow. / A rumble came from behind it... |
+| 24 | 25 | C | Grand Puff! / He was so dusty. / He did not feel well. |
+| 25 | 26 | C | “Hold on, we’ll make you feel / clean and better!” said Roshan. |
+| 26 | 27 | F | Daddy, Rumi, and Baby Eagle helped Roshan. / Together, they washed Grand Puff. Scrub, scrub! |
+| 27 | 28 | F | Soft bubbles covered Grand Puff. / Under the bubbles, his colors began to shine. |
+| 28 | 29 | F | POP! Grand Puff sprang out, rainbow bright! / The dust fell away. |
+| 29 | 30 | F | Down came Grand Puff, soft and small. / He felt like himself again. |
+| 30 | 31 | C | “Your rainbow was there all along, / Grand Puff. We helped it shine!” |
+| 31 | 20 | C | “Come and play, Baby Eagle!” / The little dust bunnies played gently, too. |
+| 32 | 32 | F | There was room for everyone. / They curled up in the bubbles and fell asleep. |
 
-Front cover: unified rendered Pearl Castle composition, title kept in quiet upper-right blue space. Back cover unchanged.
-
-Quality selection: `background_quality_audit.json` grades every page; page21 and five other strong stationery sources retained exactly. `art_personality_evidence.json` records generation attempts, rejected scale trials, prompts/hashes, source references and visible bounds. These are review candidates, not final publication acceptance.
-
-## V21 identity and source-quality corrections
-
-Pages 20, 26 and 31 use large transparent restorations of their original Roshan gestures. Page 3 exposes only a repaired upper-wall strip over the original dirty-castle entry. Pages 17 and 18 are owner-commissioned rescue replacements: exactly two canonical cloud bunnies pin Baby Eagle, then release the wings; grey legs and black-tipped pink wings remain visible. All other pages, including the finale, retain V20 artwork. Native source density caused the former soft poses, not PDF compression. These are review candidates; owner acceptance remains open.
-
-
-## Earlier revision: V22 quality restoration
-
-The latest owner commission supersedes the earlier source-only limits for specifically defective low-resolution scenes and character repairs. Fourteen full-scene restorations replace tiny crops or defective framing, including dirty-castle3 and tiny-chirp16. Large sink and Grand Puff gesture assets replace small atlas cells. Page21 now shows Roshan sorting a messy craft table. All eleven blue stationery backgrounds have regenerated crisp bubble outlines and contextual lower-bank objects;26 uses the game cloud couch with two spectators, one cheering and one eating popcorn. Canonical lavender puff bodies, paired spiral ears and pearl hand knobs were compared with project references.
-
-The complete34-page proof was inspected through contact sheets and enlarged critical pages. Reader previews are lossless1512x1080 PNG; JPEGs are compatibility copies. `quality_audit_v22.json` records before/after placed density and preservation checks; `quality_evidence_v22.json` records exact prompts, references, native sizes and hashes. These are review candidates, not300ppi print masters or owner acceptance. Finale27–30 retains the entire V21 treatment. New high-density ceilings were rejected for worse perspective joins; the earlier low-density empty ceiling strips remain an explicit print-resolution exception. Page20 has a documented two-pixel ear-margin exception. Tiny cameo readability, source/action gaps and child/owner acceptance remain open.
-
-Earlier revision entries below are historical and superseded where this section differs.
-
-V25 owner revision:23 simplifies photorealistic craft surfaces into broad painted colors;24 becomes full-art route-light hall from the animation with neighboring completed doors;26 places dizzy Puff left and shell-holding Roshan right facing him, with visible sparkle arc. Caption names the visible shell and dizzy reaction. Page19 rounded balloons and approved rear H retained.
+Full-art pages have no stationery frame. Reduced pages retain contour cutouts and event-specific low blue banks; exact sources, layouts and bounded patches are in book.json and revisions/v28_kindness/complete/page_provenance.json. Prior page plans remain available in Git history.

@@ -44,8 +44,8 @@ unclassified until this ledger gains one new scoped row for it.
 
 | Doc | | Note |
 |---|---|---|
-| `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; dedicated static-book branch navigation; prior rough and current source gaps remain explicit. |
-| `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; owner static-book stationery integration rules, blue panels, exact foreground cutouts, lower-15% anchoring, 12% bounds, rendered background contact and no duplicate props; latest integrated-grounding correction supersedes flat-mask claims; owner-authorized dust-bunny action cameos preserve identity and echo page activities. Latest owner commissions specifically permit a unified rendered cover, bubble-nap epilogue and rescue17/18 identity regeneration; V22 additionally commissions low-resolution scene restoration, complete dirty-castle repair, canonical bunny cameos, game couch spectators and richer messy-art sorting. V23 commissions a unified pastel ensemble rear cover (eight studies; H selected after owner correction), targeted castle/net repairs and speaking apology bunnies on19 with a scoped narrative margin. Exact finale remains preserved; rejected sharper ceiling candidates are not delivered. Other source-preservation rules remain. No game/cinematic authority. |
+| `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; navigation to V28 full review book, accepted/rejected preview decisions, source and remaining acceptance limits. |
+| `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; static-book rules and scoped owner exceptions. Latest V28 owner decision keeps apology bunnies small, removes disconnected craft-making, adds source-based castle entry, and makes Grand Puff entirely cooperative cleaning with exact reassurance. Supersedes V25 shell/fight direction for the book only; no game/cinematic authority. |
 | `books/chapter_one/plan/PAGE_BY_PAGE_PLAN.md` | 🟣 | `SUPERSEDED`; preserved 40-page portrait proposal; current pagination and assignments are in landscape/PAGE_PLAN.md. No art acceptance inherited. |
 
 | `design/PAINTER_ENGINE_PROTOTYPE_2026-09-16.md` | 🟣 | `PROPOSED / CANDIDATE`; owner-commissioned single standalone Painter prototype with a pinned Pixelorama fill import, unchanged Roshan graphics and isolated artwork persistence. No career/chapter integration, device/child/owner acceptance or master-audit closure. |
@@ -816,15 +816,17 @@ Kept as-is; noted so a future edit updates every copy.
 
 | Doc | | Note |
 |---|---|---|
-| `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; 32-page landscape assignments supersede portrait pagination; no final art acceptance. |
-| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V27 correct castle shell-door approach and relieved scrub expression; V26 read-together manuscript, Rumi rescue context, continuous Grand Puff restoration and ellipse balloons, retaining V25 corrections and owner-accepted rear H, low-resolution/identity audit and lossless proof; ceiling perspective, print and owner acceptance remain open. |
+| `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; V28 32 story-page mapping plus covers, old/new page numbers and manuscript; source castle entry, craft-making removed, protected reveal turns and closing gentle play. |
+| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V28 applied preview decisions, smaller apology bunnies and cooperative Puff cleaning; source/print/border exceptions and owner/child acceptance remain open. |
 
 | `books/chapter_one/landscape/STRESS_TEST.md` | 🔵 | `SUPPORTING_CURRENT`; owner-rejected v7 and page-by-page revised rough audit; mechanical checks explicitly do not grant visual/identity acceptance. |
 
 | `books/chapter_one/landscape/BORDER_ART_DIRECTION.md` | 🔵 | `SUPPORTING_CURRENT`; owner-requested varied border performances and v17 repository-detail score; frightened lower-right stages supersede the quiet reveal; owner acceptance remains open. |
 
-| `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; whole-story V26 editorial audit with playful dust-bunny intent, Rumi history/rescue and continuous Grand Puff transformation; action/source gaps and next priorities; not visual or child acceptance. |
+| `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; V28 book-only helping arc from castle cleanup to four-friend Puff washing, play and rest; sequence/reading review, not a child test. |
 
-| `books/chapter_one/reviews/2026-09-30/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; comprehensive unchanged-V27/original comparison, page-level art/story/pacing/type recommendations and conditional unprompted Lamb-a plan. Review evidence only; no art implementation, source-gap closure or child/print acceptance. |
+| `books/chapter_one/reviews/2026-09-30/REVIEW.md` | ⚪ | `HISTORICAL_EVIDENCE`; unchanged-V27 comprehensive comparison and recommendations. V28 implements selected corrections; unresolved source/print questions remain current through landscape/REVIEW.md. |
 
-| `books/chapter_one/previews/2026-09-30/README.md` | 🟣 | `CANDIDATE`; ten separate before/after proposals and two pagination diagrams responding to the V27 review. Source/prompt/layout evidence; current book unchanged. No whole-book, child, print or owner acceptance. |
+| `books/chapter_one/previews/2026-09-30/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; ten before/after proposals and two page-turn studies. Owner approved most for V28, rejected oversized19, removed23 and superseded26 with cleaning. Original proposal artifacts remain unchanged. |
+
+| `books/chapter_one/landscape/revisions/v28_kindness/README.md` | 🔵 | `SUPPORTING_CURRENT`; versioned V28 full-book review package, exact source/generation evidence, before/after views and manifest; not final print or owner/child acceptance. |

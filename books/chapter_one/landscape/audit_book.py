@@ -12,6 +12,9 @@ def overlap(a,b):
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--proof',required=True,type=Path);ap.add_argument('--baseline',required=True,type=Path);args=ap.parse_args()
  b=json.loads((ROOT/'book.json').read_text(encoding='utf8'));p=json.loads((args.proof/'page_provenance.json').read_text(encoding='utf8'));review=json.loads((ROOT/'stress_review.json').read_text(encoding='utf8'));issues=[];pages={row['page']:row for row in b['pages']}
+ revised=b.get('revision','').startswith('V28')
+ by_old={row.get('original_page',row['page']):row for row in b['pages']}
+ if revised:review=json.loads((ROOT/'revisions/v28_kindness/visual_review.json').read_text(encoding='utf8'))
  pdf=PdfReader(args.proof/'Mermaid_Roshan_LANDSCAPE_ROUGH.pdf')
  if len(pdf.pages)!=34:issues.append('Expected 32 story pages plus covers.')
  for i,page in enumerate(pdf.pages):
@@ -29,7 +32,8 @@ def main():
     if layer['page']==page['page'] and layer['role']=='story_art' and overlap(line['box'],layer['target_box_points']):issues.append(f"Page {page['page']}: text intersects foreground bounding box.")
  for page in b['pages']:
   n=page['page']
-  if page.get('narrative_border_dialogue') and n!=19:issues.append(f'Page {n}: speaking-character margin exception is only commissioned for19.')
+  old=page.get('original_page',n)
+  if page.get('narrative_border_dialogue') and old!=19:issues.append(f'Page {n}: speaking-character margin exception is only commissioned for the Eagle apology.')
   for balloon in page.get('speech_bubbles',[]):
    x,y,w,h=balloon['box'];tx,ty=balloon['tail']
    if x<24 or y<24 or x+w>480 or y+h>336 or not (24<=tx<=480 and 24<=ty<=336):issues.append(f'Page {n}: speech balloon outside safety inset.')
@@ -48,7 +52,11 @@ def main():
     if len(actual)!=1 or actual[0]['source_key']!=page['integrated_background']:issues.append(f'Page {n}: integrated background source mismatch.')
     for box in page.get('integrated_prop_bounds',[]):
      x,y,w,h=box
-     if w>.12 or h>(.18 if page.get('narrative_border_dialogue') else .12) or y<(.80 if page.get('narrative_border_dialogue') else .85-2/1060 if n==20 else .85) or y+h>1 or (x<.62 and x+w>.38):issues.append(f'Page {n}: annotated decoration bounds fail limits.')
+     # Owner approved this exact hug-stationery preview, including its small crest.
+     approved_hug=revised and old==15 and page['integrated_background']=='approved_hug_stationery_v2' and box==[138/1484,868/1060,140/1484,114/1060]
+     min_y=868/1060 if approved_hug else .80 if page.get('narrative_border_dialogue') else .85-2/1060 if old==20 else .85
+     max_h=.12 if revised else .18 if page.get('narrative_border_dialogue') else .12
+     if w>.12 or h>max_h or y<min_y or y+h>1 or (x<.62 and x+w>.38):issues.append(f'Page {n}: annotated decoration bounds fail limits.')
    if set(page['art'])&set(page['border_assets']):issues.append(f'Page {n}: foreground/background source duplication.')
    for key in page['art']+page['border_assets']:
     im=Image.open(ROOT/b['sources'][key]['file'])
@@ -83,18 +91,31 @@ def main():
     if im.getchannel('A').crop((x0,y0,x1,y1)).getextrema()[0]!=0:issues.append(f'Atlas prop lacks transparent silhouette: {key}.')
  forbidden={'hug','eagle','playroom','rescue_isolated','release_cut','window_wide'}
  if forbidden & {layer['source_key'] for layer in p['layers']}:issues.append('Rejected identity/isolation source still used.')
- if pages[3]['art']!=['v23_castle_repair'] or 'clean it together' not in pages[3]['text']:issues.append('Dirty-castle/setup regression.')
- if pages[9]['art']!=['v26_rumi_trapped']:issues.append('First dirty-pool page must establish the strainer.')
- if [' '.join(q['text'].split()) for q in pages[19].get('speech_bubbles',[])]!=['Sorry!','We were just playing!']:issues.append('Missing commissioned bunny apology exchange.')
+ if by_old[3]['art']!=['v23_castle_repair'] or 'clean it together' not in by_old[3]['text']:issues.append('Dirty-castle/setup regression.')
+ if by_old[9]['art']!=['v26_rumi_trapped']:issues.append('First dirty-pool page must establish the strainer.')
+ if [' '.join(q['text'].split()) for q in by_old[19].get('speech_bubbles',[])]!=['Sorry!','We were just playing!']:issues.append('Missing commissioned bunny apology exchange.')
  back=[q for q in p['layers'] if q['page']=='back_cover']
  if len(back)!=1 or back[0]['source_key']!=b['back_cover']['art']:issues.append('Rear cover must be a single complete full-art composition.')
  for n,key in [(17,'rescue_trapped'),(18,'rescue_release'),(27,'v27_scrub'),(28,'R09_suds'),(29,'R10_jump'),(30,'R11_land')]:
-  if pages[n]['art']!=[key]:issues.append(f'Canonical rescue/finale order mismatch: page {n}.')
- if pages[23]['art']!=['v25_art_simple'] or 'art_crop' in pages[23]:issues.append('Paint page must use owner-requested simplified painted scene without crop.')
- if pages[24]['art']!=['v27_door'] or pages[24]['mode']!='F':issues.append('Door page must show complete route-light hall.')
- if pages[26]['art']!=['v25_shell_duel']:issues.append('Missing facing-shell-sparkle-dizzy action cutout.')
+  if revised and n==18:key='approved_rescue_release'
+  if by_old[n]['art']!=[key]:issues.append(f'Canonical rescue/finale order mismatch: former page {n}.')
+ if by_old[24]['art']!=['v27_door'] or by_old[24]['mode']!='F':issues.append('Door page must show complete route-light hall.')
+ if revised:
+  if 23 in by_old or pages[3]['art']!=['v28_castle_entry_source']:issues.append('Disconnected craft beat returned or castle entry missing.')
+  if by_old[26]['art']!=['v28_puff_reassurance'] or by_old[26]['text']!='“Hold on, we’ll make you feel\nclean and better!” said Roshan.':issues.append('Owner reassurance or sponge artwork missing.')
+  if [by_old[n]['page'] for n in [24,25,28,29]]!=[23,24,27,28]:issues.append('Reveal page-turn order changed.')
+  if any(term in ' '.join(q['text'].lower() for q in b['pages']) for term in ['dizzy','wobbled','beat him','stopped him','sparkles flew','fighting']):issues.append('Retired combat wording returned.')
+  if any(q['source_key'] in {'v25_shell_duel','approved_apology_canvas','v25_art_simple'} for q in p['layers']):issues.append('Rejected active art returned.')
+  if {q['page'] for q in p['layers'] if q['source_key'] in {'approved_lamba_bath','v28_lamba_toy_peek'}}!={9,31}:issues.append('Expected two unprompted hidden appearances.')
+ else:
+  if pages[23]['art']!=['v25_art_simple'] or 'art_crop' in pages[23]:issues.append('Paint page must use owner-requested simplified painted scene without crop.')
+  if pages[26]['art']!=['v25_shell_duel']:issues.append('Missing facing-shell-sparkle-dizzy action cutout.')
  results={'mechanical_status':'FAIL' if issues else 'PASS','issues':issues,'story_pages_checked':32,'pdf_pages_checked':34,'text_lines_checked':len(p['text_lines']),'image_operations_checked':len(p['layers']),'contextual_cutout_pages':sum(q['mode']=='C' for q in b['pages']),'unique_border_assignments':len({tuple(q.get('integrated_motifs',q['border_assets'])) for q in b['pages'] if q['mode']=='C'}),'unique_decorative_props':len(counts),'maximum_prop_repetition':max(counts.values(),default=0),'scope':'Geometry, source hashes, selected-source exclusions, contextual assignments, manually annotated visible border bounds, and manual focal-zone intersections. Integrated shadow/occlusion and exact prop pixel preservation are not measured. Not automatic character-identity, contrast or publication acceptance.','visual_verdict':review['revision_verdict'],'open_findings':review['open_findings']}
  (args.proof/'stress_results.json').write_text(json.dumps(results,indent=2,ensure_ascii=False),encoding='utf8')
+ if revised:
+  print(json.dumps(results,indent=2,ensure_ascii=False))
+  if issues:raise SystemExit(1)
+  return  # V28 has a separate current review; never relabel the historical V7 report.
  cards=[]
  for row in review['pages']:
   n=row['page'];old=(args.baseline/f'page_{n:02}.jpg').resolve().as_uri();new=f'page_{n:02}.jpg';q=pages[n]

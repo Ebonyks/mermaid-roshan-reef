@@ -1,0 +1,90 @@
+{
+  "mechanical_status": "PASS",
+  "issues": [],
+  "story_pages_checked": 32,
+  "pdf_pages_checked": 34,
+  "text_lines_checked": 73,
+  "image_operations_checked": 56,
+  "contextual_cutout_pages": 11,
+  "unique_border_assignments": 11,
+  "unique_decorative_props": 26,
+  "maximum_prop_repetition": 1,
+  "scope": "Geometry, source hashes, selected-source exclusions, contextual assignments, manually annotated visible border bounds, and manual focal-zone intersections. Integrated shadow/occlusion and exact prop pixel preservation are not measured. Not automatic character-identity, contrast or publication acceptance.",
+  "visual_verdict": "REVIEW_PROOF_READY_PENDING_OWNER_CHILD_PRINT",
+  "open_findings": [
+    {
+      "id": "BOOK-SOURCE-01",
+      "pages": [
+        12,
+        13
+      ],
+      "issue": "Waterfall clearing is partly narrated; no new missing action scene invented."
+    },
+    {
+      "id": "BOOK-CONTINUITY-01",
+      "pages": [
+        17,
+        18,
+        19
+      ],
+      "issue": "Stone tiny-chirp room to bright rescue room remains a source-continuity question."
+    },
+    {
+      "id": "BOOK-PRINT-01",
+      "pages": [
+        3,
+        27,
+        28,
+        29
+      ],
+      "issue": "Entrance frame144ppi and legacy finale ceiling strips require print review; no300ppi claim."
+    },
+    {
+      "id": "BOOK-BORDER-01",
+      "pages": [
+        16,
+        20,
+        31
+      ],
+      "issue": "Accepted hug fountain crest and small apology ears above strict lower15% target; existing toy-ear two-pixel exception. Figure size, zones and owner approval are not conflated."
+    },
+    {
+      "id": "BOOK-ACCEPTANCE-01",
+      "pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "issue": "New derivatives and repagination require owner/child/print-dummy review."
+    }
+  ]
+}
