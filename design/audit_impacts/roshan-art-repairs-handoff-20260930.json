@@ -55,8 +55,8 @@
     },
     {
       "command": "Anonymous fetch of both handoff manifests and every listed file from raw.githubusercontent.com at the pushed commit",
-      "result": "PENDING",
-      "evidence": "Recorded after publication."
+      "result": "PASS",
+      "evidence": "Published at commit dd4f5dfac7ff53331306bd36367c34b8f2f74a31 on branch claude/visual-design-language-20260930 (https://github.com/Ebonyks/mermaid-roshan-reef/tree/dd4f5dfac7ff53331306bd36367c34b8f2f74a31/docs/handoffs/codex_roshan_art_repairs_2026-09-30). Anonymous HTTPS fetch from raw.githubusercontent.com with no token at 2026-10-01T05:06:32Z: repair handoff MANIFEST.json HTTP 200, 1,394 bytes, SHA-256 2830411c5642a976f75c02b71ad0bd242b2a175eeb1d3602889ca6523961e188, revision 1, 4 of 4 files match; visual language MANIFEST.json HTTP 200, 4,759 bytes, SHA-256 623dd61987fa8ea03acbbe751ebbf0798428704581c467563bbe2286eca60dd5, revision 3, 18 of 18 files match. Both manifests and the master audit, finding register, ledger and this record at the same commit are byte-identical to the committed blobs."
     },
     {
       "command": "GitHub Probe Suite at the branch head",
