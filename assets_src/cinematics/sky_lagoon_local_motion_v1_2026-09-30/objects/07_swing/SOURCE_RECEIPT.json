@@ -1,0 +1,49 @@
+{
+  "id": "07_swing",
+  "title": "Swing: empty seat arc",
+  "source": "assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
+  "source_sha256": "cf75805c32df02bb6e8d92d536e65a41cec1c8587a21db383b84c1c2f36e31fd",
+  "source_dimensions": [
+    655,
+    576
+  ],
+  "source_crop": [
+    13,
+    7,
+    640,
+    568
+  ],
+  "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\07_swing\\input_neutral.png",
+  "prompt": "One isolated illustrated object on a perfectly flat solid bright magenta background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The complete swing frame, top beam, legs and shell decorations stay completely still. Only the two empty seats and their attached ropes make a small pendulum swing backward, then return. Ropes remain connected at their top hooks. No children or characters. 1.1-1.4s: settle. Background remains solid magenta. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence.",
+  "seed": 20261007,
+  "fit_xy": [
+    126,
+    24
+  ],
+  "fit_size": [
+    259,
+    232
+  ],
+  "status": "PENDING",
+  "lane": "MOTION_REFERENCE_ONLY",
+  "source_selection_reason": "Existing single-seat mermaid swing permits cleaner fixed-frame and moving-seat separation. Compact two-seat study rejected; no original changed.",
+  "derivative": "source.png",
+  "derivative_sha256": "48a71f9f7454ec81092e6d890fdcbe91b72b50b6bac801542d71683c3d1b8efa",
+  "fixed_source_crop": [
+    106,
+    -10,
+    406,
+    290
+  ],
+  "canvas": [
+    256,
+    256
+  ],
+  "source_bounds": [
+    15,
+    27,
+    240,
+    229
+  ],
+  "method": "Nondestructive source RGBA isolation and whole-cell normalization; original unchanged."
+}

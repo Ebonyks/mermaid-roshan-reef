@@ -2,6 +2,8 @@
 
 ## 0. Planning entry
 
+Sky Lagoon object-motion study (2026-09-30): [ten scripted Aseprite references and local Wan evaluation](../assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/README.md) reuse existing object identities. Local AI takes failed readable motion; source-based spatial resampling/articulation remains reference-only. Fresh frame redraws, runtime/cinematic delivery and owner/device/child acceptance are open; no finding lifecycle changes.
+
 Arborist art recovery supplement (2026-09-29): [Tree Book handoff](../design/ARBORIST_TREE_BOOK_HANDOFF_2026-09-29.md) archives the previously uncommitted art independently of the obsolete prototype. Historical worktree findings below remain unchanged for runtime; no career implementation or finding closure is inferred.
 
 Arborist practice supplement (2026-09-30): [Opera House test](../design/OPERA_TREE_BOOK_TEST_2026-09-30.md) adds one optional patient with three four-choice decisions and intentional treatment. This scoped candidate does not close MA-PLAY-004 or integrate a new career or Day Two role.

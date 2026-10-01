@@ -1,0 +1,65 @@
+{
+  "status": "FAILED",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\01_fir\\input_neutral.png",
+  "source_sha256": "d96c84fa0e99d1ed6a3c2819cb42d41dfebd6bf9b94423f0ed88b38301bf4470",
+  "source_dimensions": [
+    512,
+    288
+  ],
+  "prompt": "A wind gust bends the upper branches of the illustrated pine tree noticeably to the right, then they spring back left and settle upright. The top moves about one tenth of the tree's width. The lower trunk and the base stay planted in exactly the same place throughout. Flexible branches visibly change angle; this is a bending action, with stable painted colors and lighting. Keep the same branch tiers, connected needles, and storybook drawing. One isolated tree on the input's uniform light gray background. Fixed camera, one continuous two-second shot. Sound: silence.\n",
+  "prompt_sha256": "cc0aefeba3889ed35346bebf7046b92839b25ef08e60db4ea83794f2549691c7",
+  "preset": "quick",
+  "settings": {
+    "width": 1280,
+    "height": 704,
+    "frames": 49,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "seed": 20261011,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/GGUF_MODEL_RECEIPT.json",
+  "workflow_sha256": "c43708d909896daf5125409a085c36ea60aa3876be20d0b6b2330f5ee678846a",
+  "started_at_utc": "20261001T010359Z",
+  "prompt_id": "87eb577e-b89f-4cc2-a14f-de1a0e1f66a8",
+  "result": {
+    "status_str": "error",
+    "completed": false,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "87eb577e-b89f-4cc2-a14f-de1a0e1f66a8",
+          "timestamp": 1790816639359
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [],
+          "prompt_id": "87eb577e-b89f-4cc2-a14f-de1a0e1f66a8",
+          "timestamp": 1790816639382
+        }
+      ],
+      [
+        "execution_interrupted",
+        {
+          "prompt_id": "87eb577e-b89f-4cc2-a14f-de1a0e1f66a8",
+          "node_id": "9",
+          "node_type": "KSampler",
+          "executed": [
+            "3",
+            "8",
+            "5",
+            "2",
+            "4",
+            "1",
+            "7",
+            "6"
+          ],
+          "timestamp": 1790817132106
+        }
+      ]
+    ]
+  }
+}

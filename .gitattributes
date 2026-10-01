@@ -24,3 +24,6 @@ assets/audio/voices/filler_v1/GRAND_PUFF_COHORT_20260912.json -text whitespace=c
 
 # Literal external-reference packet hashes must survive Windows/Linux checkouts.
 assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/** -text whitespace=cr-at-eol
+
+# Preserve the literal hashes in the source-based Sky Lagoon reference archive.
+assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/** -text whitespace=cr-at-eol

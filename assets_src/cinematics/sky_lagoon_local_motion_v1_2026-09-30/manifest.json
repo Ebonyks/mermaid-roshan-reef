@@ -1,0 +1,2705 @@
+{
+  "id": "sky_lagoon_local_motion_v1_2026-09-30",
+  "source_baseline": "7f068cb80766edd52a110cc1cb3958158f829822",
+  "created_at_utc": "2026-10-01T01:47:16.418062+00:00",
+  "lane": "MOTION_REFERENCE_ONLY",
+  "archive_payload_complete": true,
+  "ARCHIVE_COMPLETE": "PENDING_IMMUTABLE_REMOTE_VERIFICATION",
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false,
+  "fresh_frame_redraw_complete": false,
+  "human_hand_drawn": false,
+  "ai_generated_motion_set_complete": false,
+  "scripted_source_motion_reference_objects": 10,
+  "timed_states": 320,
+  "files": [
+    {
+      "path": ".gdignore",
+      "role": "non_runtime_import_boundary",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "Owner-commissioned task record",
+      "modification_status": "NEW_TASK_RECORD",
+      "license_provenance": "Project-original task documentation"
+    },
+    {
+      "path": "MACHINE_VERIFICATION.json",
+      "role": "machine_evidence",
+      "bytes": 10094,
+      "sha256": "edcfe5c50475b73e8b7679f6af831a53c0d81c205b873f324744ca6c4e83d3a5",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\authored\\MACHINE_VERIFICATION.json",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "README.md",
+      "role": "operator_and_acceptance_record",
+      "bytes": 6621,
+      "sha256": "617ad5fb1ade99b0eb394cc8e95d536f1b2cedabedc135c8c33a517230d2a7fe",
+      "source_path": "Owner-commissioned task record",
+      "modification_status": "NEW_TASK_RECORD",
+      "license_provenance": "Project-original task documentation"
+    },
+    {
+      "path": "context/approved_panorama.png",
+      "role": "approved_room_background_and_style_context",
+      "bytes": 18000705,
+      "sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+      "source_path": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        6144,
+        2048
+      ]
+    },
+    {
+      "path": "index.html",
+      "role": "interactive_review_gallery",
+      "bytes": 6274,
+      "sha256": "07d14e678fd533f145b4c8362b2b630051f9060ce1d5d6bcef622b62c5706ec7",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\authored\\index.html",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/01_fir/MOTION_MEASUREMENT.json",
+      "role": "independent_silhouette_motion_measurement",
+      "bytes": 2375,
+      "sha256": "7f67219964bc2557e3861da880dc22f0ebdf5a34813af511549c91858043ca37",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\01_fir\\MOTION_MEASUREMENT.json",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/01_fir/bound_image.png",
+      "role": "actual_local_model_input",
+      "bytes": 40093,
+      "sha256": "d96c84fa0e99d1ed6a3c2819cb42d41dfebd6bf9b94423f0ed88b38301bf4470",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\01_fir\\input_neutral.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        512,
+        288
+      ]
+    },
+    {
+      "path": "local_ai/01_fir/isolated_board.png",
+      "role": "rejected_motion_review_board",
+      "bytes": 325381,
+      "sha256": "fd7308cf975d7b4efc2dee5635ceddf4985224adc9b94d79eb574de4814c286a",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\01_fir\\isolated_board.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        1280,
+        576
+      ]
+    },
+    {
+      "path": "local_ai/01_fir/rejected_native_take.mp4",
+      "role": "rejected_static_flicker_native_video",
+      "bytes": 69645,
+      "sha256": "37b3c0330810f6b27c0988b043c630a6105b0bd88843cd47a40d99d81072f458",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\sky_01_fir_20261001T011652Z_24cae4_00002_.mp4",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Wan2.2 Apache-2.0 model output conditioned on project-owned source; rejected motion reference only"
+    },
+    {
+      "path": "local_ai/03_hydrangea/MOTION_MEASUREMENT.json",
+      "role": "independent_silhouette_motion_measurement",
+      "bytes": 2387,
+      "sha256": "5e227a8d82a08367bc4c6777a6b07faa3a0cd3db7b5bd4491f84a8087dcc06ec",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\03_hydrangea\\MOTION_MEASUREMENT.json",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/03_hydrangea/bound_image.png",
+      "role": "actual_local_model_input",
+      "bytes": 39518,
+      "sha256": "c9ff97c373dbeb3856c03a1b61fb1f816b99dcc07560910f9409b583d10c5498",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\03_hydrangea\\input_neutral.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        512,
+        288
+      ]
+    },
+    {
+      "path": "local_ai/03_hydrangea/isolated_board.png",
+      "role": "rejected_motion_review_board",
+      "bytes": 323229,
+      "sha256": "3bc76e11ca98fd8a467e920c57af35161b0340f8ff58c65ce84cf1e7c00f15bf",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\03_hydrangea\\isolated_board.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        1280,
+        576
+      ]
+    },
+    {
+      "path": "local_ai/03_hydrangea/rejected_native_take.mp4",
+      "role": "rejected_static_flicker_native_video",
+      "bytes": 139603,
+      "sha256": "10d158a25b225f47ea3752b8dd563a3df85d5e5259e644e9e89cba65734af7fb",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\sky_03_hydrangea_20261001T002921Z_264a41_00002_.mp4",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Wan2.2 Apache-2.0 model output conditioned on project-owned source; rejected motion reference only"
+    },
+    {
+      "path": "local_ai/GGUF_MODEL_RECEIPT.json",
+      "role": "upstream_model_hash_and_license_evidence",
+      "bytes": 1277,
+      "sha256": "4d811ec8a04a34959d4272fe2cdc6e6c829ab64462f82a3323db8109132f59da",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\GGUF_MODEL_RECEIPT.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Upstream model metadata / Apache-2.0 notice; model weights are not redistributed"
+    },
+    {
+      "path": "local_ai/MODEL_RECEIPT.json",
+      "role": "upstream_model_hash_and_license_evidence",
+      "bytes": 1504,
+      "sha256": "371b8893b497a52ca50148f77ccf0c29ce1a4511c953d04c32669ba1a3f57f01",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\MODEL_RECEIPT.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Upstream model metadata / Apache-2.0 notice; model weights are not redistributed"
+    },
+    {
+      "path": "local_ai/WAN_LICENSE.txt",
+      "role": "upstream_model_hash_and_license_evidence",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\WAN_LICENSE.txt",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Upstream model metadata / Apache-2.0 notice; model weights are not redistributed"
+    },
+    {
+      "path": "local_ai/attempts/sky_01_fir_20261001T004517Z_70f1c2.json",
+      "role": "historical_local_render_receipt",
+      "bytes": 5927,
+      "sha256": "6b4c13dce06379005e8811c56ab45f04030822dde45fe3cd555df6afc15e286e",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\sky_01_fir_20261001T004517Z_70f1c2\\RENDER_RECEIPT.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/attempts/sky_01_fir_20261001T004517Z_70f1c2.workflow.json",
+      "role": "exact_local_generation_graph",
+      "bytes": 3347,
+      "sha256": "d1b676d0c436f21dc38b8d664c730f0f48af0dc422093c3f63065f8812e8d2cc",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\sky_01_fir_20261001T004517Z_70f1c2\\workflow.api.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/attempts/sky_01_fir_20261001T010359Z_20710a.json",
+      "role": "historical_local_render_receipt",
+      "bytes": 2342,
+      "sha256": "a395082050bf637caa677637aceaa3b1e1c49309d46b25d72423472619edc64b",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\sky_01_fir_20261001T010359Z_20710a\\RENDER_RECEIPT.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/attempts/sky_01_fir_20261001T010359Z_20710a.workflow.json",
+      "role": "exact_local_generation_graph",
+      "bytes": 3322,
+      "sha256": "02aadf13742cadb6929fb72cddf2c28a3d6f0c65de7657c81ad1ce4730880a59",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\sky_01_fir_20261001T010359Z_20710a\\workflow.api.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/attempts/sky_01_fir_20261001T011219Z_143893.json",
+      "role": "historical_local_render_receipt",
+      "bytes": 1542,
+      "sha256": "07bb884e8fc58b78265a328f5067be27524a366a324af1c24cdcb1ae7866d3fc",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\sky_01_fir_20261001T011219Z_143893\\RENDER_RECEIPT.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/attempts/sky_01_fir_20261001T011219Z_143893.workflow.json",
+      "role": "exact_local_generation_graph",
+      "bytes": 3185,
+      "sha256": "cd8ae423789d7b99b7dabacdd330e3ebe388278cdcda85c4f1106092a61a0643",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\sky_01_fir_20261001T011219Z_143893\\workflow.api.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/attempts/sky_01_fir_20261001T011652Z_24cae4.json",
+      "role": "historical_local_render_receipt",
+      "bytes": 2678,
+      "sha256": "ffe72aa995d60ba79cabe44f73493752bfb71f641585d899b70c765b46b70afb",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\sky_01_fir_20261001T011652Z_24cae4\\RENDER_RECEIPT.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/attempts/sky_01_fir_20261001T011652Z_24cae4.workflow.json",
+      "role": "exact_local_generation_graph",
+      "bytes": 3185,
+      "sha256": "d97633ce0ee66478bab0fd73280e315ef4d807addcfb0aa969a70454d06c67a0",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\sky_01_fir_20261001T011652Z_24cae4\\workflow.api.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/attempts/sky_03_hydrangea_20261001T000459Z_a9777d.json",
+      "role": "historical_local_render_receipt",
+      "bytes": 2488,
+      "sha256": "f9d598d3919c64693362d1a4fedbb82cdf10f53b27a7c8f098b17774b441f822",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\sky_03_hydrangea_20261001T000459Z_a9777d\\RENDER_RECEIPT.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/attempts/sky_03_hydrangea_20261001T000459Z_a9777d.workflow.json",
+      "role": "exact_local_generation_graph",
+      "bytes": 3055,
+      "sha256": "fa0402abaa331e0ee9b672398386e8e282d75c74ff2d465c1d9a94c8bd45bae4",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\sky_03_hydrangea_20261001T000459Z_a9777d\\workflow.api.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/attempts/sky_03_hydrangea_20261001T000824Z_54b4ce.json",
+      "role": "historical_local_render_receipt",
+      "bytes": 2485,
+      "sha256": "088a1127e36691800e948b26a86acac7439856640fae82e950aaf825d24a7c40",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\sky_03_hydrangea_20261001T000824Z_54b4ce\\RENDER_RECEIPT.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/attempts/sky_03_hydrangea_20261001T000824Z_54b4ce.workflow.json",
+      "role": "exact_local_generation_graph",
+      "bytes": 3052,
+      "sha256": "a40962c7e5a0949a140a44f092ffdadc3952e0efc89a4f240c803f99a88ea340",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\sky_03_hydrangea_20261001T000824Z_54b4ce\\workflow.api.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/attempts/sky_03_hydrangea_20261001T001028Z_a4ad93.json",
+      "role": "historical_local_render_receipt",
+      "bytes": 1601,
+      "sha256": "c502d3b305fd5294c8f08eeed91b1c5a3672095253a6ba7ec9d1ef111a09a88f",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\sky_03_hydrangea_20261001T001028Z_a4ad93\\RENDER_RECEIPT.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/attempts/sky_03_hydrangea_20261001T001028Z_a4ad93.workflow.json",
+      "role": "exact_local_generation_graph",
+      "bytes": 2942,
+      "sha256": "f6e0cb7bb479a1303dfb2e0f24b454de44fecccbf6f9a2d0b5fe6822dc590f05",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\sky_03_hydrangea_20261001T001028Z_a4ad93\\workflow.api.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/attempts/sky_03_hydrangea_20261001T001805Z_84eaff.json",
+      "role": "historical_local_render_receipt",
+      "bytes": 1612,
+      "sha256": "78b56ed45702237ebdd85a8c504b54bd04dbacb13272e3a0104dbcfa769de0e1",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\sky_03_hydrangea_20261001T001805Z_84eaff\\RENDER_RECEIPT.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/attempts/sky_03_hydrangea_20261001T001805Z_84eaff.workflow.json",
+      "role": "exact_local_generation_graph",
+      "bytes": 3265,
+      "sha256": "917ba37b260172ab540e82bf39c59554b86c9270ae9df26edaa981a55a61543f",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\sky_03_hydrangea_20261001T001805Z_84eaff\\workflow.api.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/attempts/sky_03_hydrangea_20261001T002305Z_e48e4d.json",
+      "role": "historical_local_render_receipt",
+      "bytes": 2486,
+      "sha256": "790cbec7c13465f2e1e2898cca0b428cef197a7392b7ab7f627f0a5a8341790e",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\sky_03_hydrangea_20261001T002305Z_e48e4d\\RENDER_RECEIPT.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/attempts/sky_03_hydrangea_20261001T002305Z_e48e4d.workflow.json",
+      "role": "exact_local_generation_graph",
+      "bytes": 3265,
+      "sha256": "e8b3ee47d7eba696067b6ae24d15bdbbfd2b6e3bd37af8ef9174f8e3dcacb98a",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\sky_03_hydrangea_20261001T002305Z_e48e4d\\workflow.api.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/attempts/sky_03_hydrangea_20261001T002921Z_264a41.json",
+      "role": "historical_local_render_receipt",
+      "bytes": 2898,
+      "sha256": "b088be850fdb5d3ad51f97a6e81bf73111ea33884df1410bc0c1d348db988dbc",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\sky_03_hydrangea_20261001T002921Z_264a41\\RENDER_RECEIPT.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "local_ai/attempts/sky_03_hydrangea_20261001T002921Z_264a41.workflow.json",
+      "role": "exact_local_generation_graph",
+      "bytes": 3275,
+      "sha256": "15a0957d23411253be165084f4f6a50228bb79c4897b9ed5206a155fc8c14818",
+      "source_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\sky_03_hydrangea_20261001T002921Z_264a41\\workflow.api.json",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/01_fir/01_fir.aseprite",
+      "role": "editable_scripted_motion_reference",
+      "bytes": 3376708,
+      "sha256": "91fcec8d4429826aae9c613d48e562c2273d20a07d9652645e588e9510097b28",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/01_fir/AUTHORING_RECEIPT.json",
+      "role": "scripted_authoring_provenance",
+      "bytes": 679,
+      "sha256": "ca8dca9b3398ff2ebceffde8104e11db0ffec655ea5a4f5c2a4d6dc418fc27d4",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/01_fir/SOURCE_RECEIPT.json",
+      "role": "source_provenance",
+      "bytes": 1606,
+      "sha256": "933a123b94502236ee70acdf445b56dcaa8cbc3bd2550825afec7e64c1ab854d",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/01_fir/bounds.lua",
+      "role": "normalization_bounds",
+      "bytes": 22,
+      "sha256": "4f7233262cfdc25ecad43692f975ca8d850c1ec45a32195b179bdf93a4f97088",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/01_fir/original_source.png",
+      "role": "object_identity_source",
+      "bytes": 116380,
+      "sha256": "3c12081abe82c7bb55a8dae260d2255cfd390bfc48b4a0dfd0c1be714a9c469e",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        276,
+        440
+      ]
+    },
+    {
+      "path": "objects/01_fir/pose_board.png",
+      "role": "inspectable_eight_beat_board",
+      "bytes": 196808,
+      "sha256": "22003275c2b9a28f365d5dd4e9d304c336ecfaae497c4362dc0a65ba0318f484",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "objects/01_fir/preview.gif",
+      "role": "animated_review_reference",
+      "bytes": 542010,
+      "sha256": "5453327baba18fc7291ff387b3fab15c2a067a254d6ee3c726eed52769081bea",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/01_fir/source.png",
+      "role": "normalized_isolated_identity",
+      "bytes": 44375,
+      "sha256": "d3a1e9f7f125178595eed56359f1834ed091a151451cd813584def2578453a35",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/01_fir/spritesheet.json",
+      "role": "timed_reference_states",
+      "bytes": 9286,
+      "sha256": "992df4589a7a839f045ede1a51530c0facc223b29bd39c1f79c3578a6f418165",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/01_fir/spritesheet.png",
+      "role": "reference_rgba_atlas",
+      "bytes": 1167618,
+      "sha256": "2388b7e91ddb0f0c886cd60528180a77f4f162c0fa2bf1cf3f68d98dd6882761",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "path": "objects/02_huckleberry/02_huckleberry.aseprite",
+      "role": "editable_scripted_motion_reference",
+      "bytes": 3281225,
+      "sha256": "0b5acacc81462cc2277cc05998b8c4ee34b36ff4985a8ccc86c4a6f019cd2c98",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/huckleberry-foreground.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/02_huckleberry/AUTHORING_RECEIPT.json",
+      "role": "scripted_authoring_provenance",
+      "bytes": 679,
+      "sha256": "8fcbf5b2f1219ae274c74d097fbca1086248c7bd384ae588d530176b6cc75aa6",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/huckleberry-foreground.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/02_huckleberry/SOURCE_RECEIPT.json",
+      "role": "source_provenance",
+      "bytes": 1629,
+      "sha256": "ab3708cc0a45c429877a4b2cbfa28ee1e60f1eb2eb367ffb7aa978adcdbdb1e2",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/huckleberry-foreground.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/02_huckleberry/bounds.lua",
+      "role": "normalization_bounds",
+      "bytes": 22,
+      "sha256": "e7121fae38af556bf76657f31278c58be3c8e7a3ca5aae72c1a6499cb9cd04cd",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/huckleberry-foreground.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/02_huckleberry/original_source.png",
+      "role": "object_identity_source",
+      "bytes": 1423293,
+      "sha256": "ec29e2fec09a00cce93a2f3f17b17b60aa787f4b670ddc8cfd1ba23bb5923d47",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/huckleberry-foreground.png",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        1711,
+        858
+      ]
+    },
+    {
+      "path": "objects/02_huckleberry/pose_board.png",
+      "role": "inspectable_eight_beat_board",
+      "bytes": 260645,
+      "sha256": "382e8dcda415262b8e8caefa46f74274e4af80fed6cf5b587e95a62ef2ff71d2",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/huckleberry-foreground.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "objects/02_huckleberry/preview.gif",
+      "role": "animated_review_reference",
+      "bytes": 558409,
+      "sha256": "04de5654c3a248b695880f255449968d5af1cd864baaba174119de37022945bc",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/huckleberry-foreground.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/02_huckleberry/source.png",
+      "role": "normalized_isolated_identity",
+      "bytes": 45005,
+      "sha256": "5d431820b2b0f5c213246f5e988f73a1ef201cc2548764b11b5f72f5bad629dd",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/huckleberry-foreground.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/02_huckleberry/spritesheet.json",
+      "role": "timed_reference_states",
+      "bytes": 9542,
+      "sha256": "33e67a8eeb39850616bab9cf2c719a325b507bfc32cdb3d85e3d6edee4c32b01",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/huckleberry-foreground.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/02_huckleberry/spritesheet.png",
+      "role": "reference_rgba_atlas",
+      "bytes": 1174870,
+      "sha256": "83221d56ca0e881830e0b7f32d09b46e27dca99ba6c996eadae96894195c94cb",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/huckleberry-foreground.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "path": "objects/03_hydrangea/03_hydrangea.aseprite",
+      "role": "editable_scripted_motion_reference",
+      "bytes": 3264751,
+      "sha256": "54ee12a21254df807013cb41a81994f3fa1cc0de15225f791599da50dfdcb781",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/hydrangea.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/03_hydrangea/AUTHORING_RECEIPT.json",
+      "role": "scripted_authoring_provenance",
+      "bytes": 679,
+      "sha256": "269d1880f45ee965c718196422e3e4ba7d9be4919ef3efff84b10b9ee501b94b",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/hydrangea.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/03_hydrangea/SOURCE_RECEIPT.json",
+      "role": "source_provenance",
+      "bytes": 1604,
+      "sha256": "86d4f30d231c978039b241f2d2104e08565207a510b4ea3f304544a29e454b44",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/hydrangea.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/03_hydrangea/bounds.lua",
+      "role": "normalization_bounds",
+      "bytes": 22,
+      "sha256": "342faecb610fbb844a36dcfa3bdd3eedf0e35626a533a2fcb3f5beee721e2fb0",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/hydrangea.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/03_hydrangea/original_source.png",
+      "role": "object_identity_source",
+      "bytes": 880933,
+      "sha256": "215a86b4a769a40518b679ee3c62124f9d58803b4ccd40ffe989a59dbf7810d7",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/hydrangea.png",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        1157,
+        1193
+      ]
+    },
+    {
+      "path": "objects/03_hydrangea/pose_board.png",
+      "role": "inspectable_eight_beat_board",
+      "bytes": 208123,
+      "sha256": "15f6fcfa6a5b58428bf09234b36a16e0299efdeb4800717e353e556ce350e8af",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/hydrangea.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "objects/03_hydrangea/preview.gif",
+      "role": "animated_review_reference",
+      "bytes": 517653,
+      "sha256": "229ff9e6854fe7c4b9e660dcefb400a4367503eb05948c586673eeeb1db228f7",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/hydrangea.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/03_hydrangea/source.png",
+      "role": "normalized_isolated_identity",
+      "bytes": 44895,
+      "sha256": "75bebebdf7049ee0f49016dd8b9a8596d5a99251b680205e43f3627da715ee15",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/hydrangea.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/03_hydrangea/spritesheet.json",
+      "role": "timed_reference_states",
+      "bytes": 9478,
+      "sha256": "c1d3ad74c25ea7862d423092305b95b7067c73b7e9b4bd3c4c308600355dc426",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/hydrangea.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/03_hydrangea/spritesheet.png",
+      "role": "reference_rgba_atlas",
+      "bytes": 1338765,
+      "sha256": "c24b667e94c7a290b50424bbbb8aeb6721b6252185abb8efea75f3b6378bfb0e",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/hydrangea.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "path": "objects/04_bellflower/04_bellflower.aseprite",
+      "role": "editable_scripted_motion_reference",
+      "bytes": 3706695,
+      "sha256": "2411663d0ff06b2d66e8a200597674533eb8e9944f742f6d0c74f675c6605c77",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/cream-bellflower.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/04_bellflower/AUTHORING_RECEIPT.json",
+      "role": "scripted_authoring_provenance",
+      "bytes": 679,
+      "sha256": "f0879c5bb958cc58ac93e07ca796b9aeec5b8e0574a3fa4ce0a1a7097e1b0204",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/cream-bellflower.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/04_bellflower/SOURCE_RECEIPT.json",
+      "role": "source_provenance",
+      "bytes": 1666,
+      "sha256": "f1a7163ebeece57adb1a7c78cc6d9fda8400c01e97834404fd31f6e93aee8d8f",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/cream-bellflower.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/04_bellflower/bounds.lua",
+      "role": "normalization_bounds",
+      "bytes": 22,
+      "sha256": "2b2139d1f94527f6b2aeaeb98de65294c7a14b1e6e69c8acc488de6eae603cef",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/cream-bellflower.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/04_bellflower/original_source.png",
+      "role": "object_identity_source",
+      "bytes": 1012841,
+      "sha256": "dc51f9e05220fe2e20fa51820b332e0454f75895f2712ab917c0fc69aef468e4",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/cream-bellflower.png",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        1238,
+        1248
+      ]
+    },
+    {
+      "path": "objects/04_bellflower/pose_board.png",
+      "role": "inspectable_eight_beat_board",
+      "bytes": 199292,
+      "sha256": "f7858d5d73196423d3c0ce7c085493d8f6d8b94bc430cc38baa6179db3a83978",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/cream-bellflower.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "objects/04_bellflower/preview.gif",
+      "role": "animated_review_reference",
+      "bytes": 591997,
+      "sha256": "f086a27a06045a60ef0bd5bc9a43222f6464fd286920a16590b6fec70489fc9f",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/cream-bellflower.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/04_bellflower/source.png",
+      "role": "normalized_isolated_identity",
+      "bytes": 51869,
+      "sha256": "1c4cb121a7bbb698b806203c6f93f9058a684fa2753428637917f306c4e3c3da",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/cream-bellflower.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/04_bellflower/spritesheet.json",
+      "role": "timed_reference_states",
+      "bytes": 9510,
+      "sha256": "5d0b4a52ca39baff6975aee555a0c9bdffa17f47f6a19a3346eee7b6a23252d6",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/cream-bellflower.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/04_bellflower/spritesheet.png",
+      "role": "reference_rgba_atlas",
+      "bytes": 1186097,
+      "sha256": "b9fb531093deaf48b1b698309469aabb67d5f6d87fec78dfaac74f57146860bc",
+      "source_path": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/cream-bellflower.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "path": "objects/05_cloud/05_cloud.aseprite",
+      "role": "editable_scripted_motion_reference",
+      "bytes": 1521042,
+      "sha256": "f6b7ebdd056016f48af434045815d103a17cf8fa290b0cdf4a10c6cf0c3154df",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/05_cloud/AUTHORING_RECEIPT.json",
+      "role": "scripted_authoring_provenance",
+      "bytes": 679,
+      "sha256": "5a46562a5fb370cfc192e99abb5fd5ecb9f0b2f27ca1be1095a7339a52e65dd0",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/05_cloud/SOURCE_RECEIPT.json",
+      "role": "source_provenance",
+      "bytes": 1597,
+      "sha256": "9bdadb7e767d7fb0ecc5f7958140bea23c0dd6a287e41f0f88f03b77f4acc9b1",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/05_cloud/bounds.lua",
+      "role": "normalization_bounds",
+      "bytes": 22,
+      "sha256": "4b79abc654f7a52a0495c5e8ab4aa525a50a1b80505d6f52b8bc701ecddf3120",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/05_cloud/original_source.png",
+      "role": "object_identity_source",
+      "bytes": 16828,
+      "sha256": "c7c708694ff729e703271b40bf68cd23913d1c43485bf4b614fb0681cfb9cfdb",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        221,
+        94
+      ]
+    },
+    {
+      "path": "objects/05_cloud/pose_board.png",
+      "role": "inspectable_eight_beat_board",
+      "bytes": 113989,
+      "sha256": "930ab4b5c865248ea5969ab00afe32edf7be51f32d8cbeaf0b1d900e84128583",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "objects/05_cloud/preview.gif",
+      "role": "animated_review_reference",
+      "bytes": 311396,
+      "sha256": "778295f13414584863372ce28a690c8343e729483713a28cc9ec50682236373b",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/05_cloud/source.png",
+      "role": "normalized_isolated_identity",
+      "bytes": 19660,
+      "sha256": "059ea03fbd59d86538372f10ccd1915bf977e379889900e275da419c7fa4e2ed",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/05_cloud/spritesheet.json",
+      "role": "timed_reference_states",
+      "bytes": 9350,
+      "sha256": "60ba97eb8c3461d5e7d7067cd27df4b7d55e5bc97761c49bf4464371acebbb2d",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/05_cloud/spritesheet.png",
+      "role": "reference_rgba_atlas",
+      "bytes": 563320,
+      "sha256": "529e1da5857b03204669c9213508c60aaa4b9d69736640d42d53a946f70ff1cd",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "path": "objects/06_smoke/06_smoke.aseprite",
+      "role": "editable_scripted_motion_reference",
+      "bytes": 793317,
+      "sha256": "1a51c27f06ddc985f6c4064932481c9bbc2783ace0b0df18f9cff9cafd2fa384",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/06_smoke/AUTHORING_RECEIPT.json",
+      "role": "scripted_authoring_provenance",
+      "bytes": 679,
+      "sha256": "232e86ea7e3bef66f3fe9e92436476e4377e2b0fdd25111b415a1bdc7f4fc7ba",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/06_smoke/SOURCE_RECEIPT.json",
+      "role": "source_provenance",
+      "bytes": 1585,
+      "sha256": "7a46d7af27ab9109ef6586e43412737abbd391146fe152824e83a65690fadf74",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/06_smoke/bounds.lua",
+      "role": "normalization_bounds",
+      "bytes": 23,
+      "sha256": "f26ed0431ab0e622bc5e6709df67dbcba0f111132a586ea0fbfcfdff14e28b75",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/06_smoke/original_source.png",
+      "role": "object_identity_source",
+      "bytes": 12563,
+      "sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        46,
+        256
+      ]
+    },
+    {
+      "path": "objects/06_smoke/pose_board.png",
+      "role": "inspectable_eight_beat_board",
+      "bytes": 68374,
+      "sha256": "72a713a9a2b00ef2b057c0f0e2a99d399dc54441240d230dd7c39b9fba9f0ff9",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "objects/06_smoke/preview.gif",
+      "role": "animated_review_reference",
+      "bytes": 175438,
+      "sha256": "cb439395ff37d980cd0d3188666e928fb907f0beff4fdc0058ae7f422c5324c6",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/06_smoke/source.png",
+      "role": "normalized_isolated_identity",
+      "bytes": 12200,
+      "sha256": "014f7620cb8f57e876c960a55377239567e42c537f45ef8b17302b8a7ee09a03",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/06_smoke/spritesheet.json",
+      "role": "timed_reference_states",
+      "bytes": 9350,
+      "sha256": "586f24223f061b56067a642d69dc207e450a1dc3ef42daeb074ccac33117a415",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/06_smoke/spritesheet.png",
+      "role": "reference_rgba_atlas",
+      "bytes": 374737,
+      "sha256": "d74b3073b945f9baf5a63228688dab857c22d95fc8f3bc39cac0778735a01d80",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "path": "objects/07_swing/07_swing.aseprite",
+      "role": "editable_scripted_motion_reference",
+      "bytes": 5493231,
+      "sha256": "0666709e519bffe47ee40b093e09ad88d96eef3b0d96c9b8dabdef920a5329ae",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/07_swing/AUTHORING_RECEIPT.json",
+      "role": "scripted_authoring_provenance",
+      "bytes": 679,
+      "sha256": "ef11ea9d2b09767c194ba965cfe205bb10a6195ef5d7daa6b3d8e9a317672a20",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/07_swing/SOURCE_RECEIPT.json",
+      "role": "source_provenance",
+      "bytes": 1835,
+      "sha256": "f4b315d3072d2b668056091c0a99574a148a001749ce006f256dc71b7896087b",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/07_swing/bounds.lua",
+      "role": "normalization_bounds",
+      "bytes": 22,
+      "sha256": "6495f9d3d18ff1d9afd10182ebaa246c14c48c5132a05715482800a3fb3d874c",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/07_swing/fixed_frame_isolated.png",
+      "role": "isolated_articulation_component",
+      "bytes": 45842,
+      "sha256": "abd7c90d1b5e70d1e7f2d5598b999568c93d7625fe4265cbca34b4ef9e199aeb",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/07_swing/moving_seat_isolated.png",
+      "role": "isolated_articulation_component",
+      "bytes": 27762,
+      "sha256": "2c9e6e3036fd6a19de429474ccecd3db437515c945bed900a2b9fb9d9d1fc2cf",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/07_swing/original_source.png",
+      "role": "object_identity_source",
+      "bytes": 449964,
+      "sha256": "cf75805c32df02bb6e8d92d536e65a41cec1c8587a21db383b84c1c2f36e31fd",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        655,
+        576
+      ]
+    },
+    {
+      "path": "objects/07_swing/pose_board.png",
+      "role": "inspectable_eight_beat_board",
+      "bytes": 182503,
+      "sha256": "9142a770abc3e18e513dab0555babc7457a5d88e42e0e35362a32b2f64143920",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "objects/07_swing/preview.gif",
+      "role": "animated_review_reference",
+      "bytes": 813432,
+      "sha256": "28c123d3288fbbd9c3142c7b95837c0b6632e544d83d04920bb2c18803c6f5fb",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/07_swing/source.png",
+      "role": "normalized_isolated_identity",
+      "bytes": 72592,
+      "sha256": "48a71f9f7454ec81092e6d890fdcbe91b72b50b6bac801542d71683c3d1b8efa",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/07_swing/spritesheet.json",
+      "role": "timed_reference_states",
+      "bytes": 9350,
+      "sha256": "f22ba79827c78f089f014fba86efa677fc72245ab9a817e629e91267cacfd12b",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/07_swing/spritesheet.png",
+      "role": "reference_rgba_atlas",
+      "bytes": 1085250,
+      "sha256": "c08791eeba8da00eb084f7bace457f5310b893261cc1d1af1a098e3b16f3cdfc",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "path": "objects/08_seesaw/08_seesaw.aseprite",
+      "role": "editable_scripted_motion_reference",
+      "bytes": 1931273,
+      "sha256": "411b155c4dd07f5fd6d0be0ce8486ed077df148222eb161da496fcb8b518937e",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/08_seesaw/AUTHORING_RECEIPT.json",
+      "role": "scripted_authoring_provenance",
+      "bytes": 679,
+      "sha256": "976c7d7a75c49a97c38c9da65b6b98a532eac6a721de235e4ac4a32b9eb48290",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/08_seesaw/SOURCE_RECEIPT.json",
+      "role": "source_provenance",
+      "bytes": 1654,
+      "sha256": "4cd9a010a7ca14a00e7241655a6ee9e7959a14f0c768779135642a1c014f1071",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/08_seesaw/bounds.lua",
+      "role": "normalization_bounds",
+      "bytes": 22,
+      "sha256": "5a6eb078da564db29738bdf1834ffac3fef03b3c58ade2e34b9ab7c3b0faec8f",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/08_seesaw/original_source.png",
+      "role": "object_identity_source",
+      "bytes": 52560,
+      "sha256": "e39464f3eb3d8bc275ddd4788dfe4eb50db2147d9e20d7bbd1c4ed02d51d6129",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        377,
+        168
+      ]
+    },
+    {
+      "path": "objects/08_seesaw/pose_board.png",
+      "role": "inspectable_eight_beat_board",
+      "bytes": 111139,
+      "sha256": "4d2b396deb5a319d7d9e3056391cd459bb0c7fdd3361f3e254d00e28c905d0c6",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "objects/08_seesaw/preview.gif",
+      "role": "animated_review_reference",
+      "bytes": 356301,
+      "sha256": "c293b77e6ad059b7990bca15539225b86630b1f046bdba6c3e2f53c71561a305",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/08_seesaw/source.png",
+      "role": "normalized_isolated_identity",
+      "bytes": 25849,
+      "sha256": "3744e11a19e86cebf701ed5e7597dae5776e0b858568e9d55cdca00910e30089",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/08_seesaw/spritesheet.json",
+      "role": "timed_reference_states",
+      "bytes": 9382,
+      "sha256": "f099e4b57aa8eb963d1f558f082a7d45d084ccee14378db987d33f8fc1419b71",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/08_seesaw/spritesheet.png",
+      "role": "reference_rgba_atlas",
+      "bytes": 655891,
+      "sha256": "593fa9e9a08d7ac9626f86451f3dbfa4ad923374a428e09fdf3c47b65668eaeb",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "path": "objects/09_gate/09_gate.aseprite",
+      "role": "editable_scripted_motion_reference",
+      "bytes": 5128704,
+      "sha256": "48715d92835ae68751ab1a37ba97a885948f7be8e7949e09f2cc3e3d6c1bb49d",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/09_gate/AUTHORING_RECEIPT.json",
+      "role": "scripted_authoring_provenance",
+      "bytes": 679,
+      "sha256": "20abb5bc4e22368e23817c99c4dbd6ecb10a8c9cccfa880cb998daa7d2779c58",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/09_gate/SOURCE_RECEIPT.json",
+      "role": "source_provenance",
+      "bytes": 1626,
+      "sha256": "aa86037e2fcce990ee3166fba6a76de5b900411162eb1d8af0763276d1cf7ede",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/09_gate/bounds.lua",
+      "role": "normalization_bounds",
+      "bytes": 22,
+      "sha256": "b3c1f4e5a53b757c3b3e500465d79a8a2783ea0b7ad40c3d02acaca93b97e822",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/09_gate/original_source.png",
+      "role": "object_identity_source",
+      "bytes": 179718,
+      "sha256": "f1003ba7d1d2a70d1e367805e2d8aacfefa71a6006935662d6285b064a380a09",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        294,
+        420
+      ]
+    },
+    {
+      "path": "objects/09_gate/pose_board.png",
+      "role": "inspectable_eight_beat_board",
+      "bytes": 174019,
+      "sha256": "2bef6be1f61b1865cac7b07541f96f3a743736231837c9fc21ec0841f1c87d4f",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "objects/09_gate/preview.gif",
+      "role": "animated_review_reference",
+      "bytes": 795753,
+      "sha256": "aec3775fb1db589f13cd458e796ee855b7a8e9a3f3487d782562ea78e2e853d6",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/09_gate/source.png",
+      "role": "normalized_isolated_identity",
+      "bytes": 66211,
+      "sha256": "36f178c7f66e72956d2fa6c0ffffde15504ed77618907298501835609620db15",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/09_gate/spritesheet.json",
+      "role": "timed_reference_states",
+      "bytes": 9318,
+      "sha256": "1f8dd3ebb8b2ae9cf35e8fc55770c0f2c54c0251274f5e6f6923dbbbfd2b4227",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/09_gate/spritesheet.png",
+      "role": "reference_rgba_atlas",
+      "bytes": 515583,
+      "sha256": "1f0745f5b8b2c581b5aaa8d301f28c458a44d0da8d325c3e96f0fef271532e51",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "path": "objects/10_glass/10_glass.aseprite",
+      "role": "editable_scripted_motion_reference",
+      "bytes": 7008639,
+      "sha256": "1a167fd3ecd36cbd408c2b5383a1de5d7b83cae5f1a2c6e28378223ff38010ae",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/10_glass/AUTHORING_RECEIPT.json",
+      "role": "scripted_authoring_provenance",
+      "bytes": 679,
+      "sha256": "366ef65475a2b14f708f88b57ea35137f7e407a3d84d64ecbc9462d3c6d9e1e8",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/10_glass/SOURCE_RECEIPT.json",
+      "role": "source_provenance",
+      "bytes": 1639,
+      "sha256": "7ffee836e561546b59839b211622ac1353e2484438d2d1ff4b044009f7311fe2",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/10_glass/bounds.lua",
+      "role": "normalization_bounds",
+      "bytes": 22,
+      "sha256": "c0be1f26c1e378b07c28d4f82ce7e5023d3d17ad3364851591885daa9eea3bc0",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/10_glass/original_source.png",
+      "role": "object_identity_source",
+      "bytes": 1342038,
+      "sha256": "90da7b0106759690001a2bc7fd77042db5afa5e59f13c8557faa6b3b86d19cd8",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+      "modification_status": "BYTE_IDENTICAL_COPY",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        1024,
+        1000
+      ]
+    },
+    {
+      "path": "objects/10_glass/pose_board.png",
+      "role": "inspectable_eight_beat_board",
+      "bytes": 187169,
+      "sha256": "cfee46c730b006da97d0f90965a7669db889b5d7261ad19ecfb8ed1b19f7c6fe",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "objects/10_glass/preview.gif",
+      "role": "animated_review_reference",
+      "bytes": 1030346,
+      "sha256": "566f262179a5b2fd0457a766b75e8b01df090f277f263c48b3e0cae01fb8efd2",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/10_glass/source.png",
+      "role": "normalized_isolated_identity",
+      "bytes": 93190,
+      "sha256": "871eaff3ff49198ba129e46db49e47bba6f6e2ebc1644c5e2abfba12d9e5165a",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "objects/10_glass/spritesheet.json",
+      "role": "timed_reference_states",
+      "bytes": 9350,
+      "sha256": "ba3bbe82f5b5363452d235058f5d18a112bf395d76fb572c07bc23e422181583",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "objects/10_glass/spritesheet.png",
+      "role": "reference_rgba_atlas",
+      "bytes": 487895,
+      "sha256": "8726b12bbe0945eac7ecc33d4e45bc184fe242bb999ef818f0f1164e2497fb8f",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        2048,
+        1024
+      ]
+    },
+    {
+      "path": "objects/10_glass/window_detail.gif",
+      "role": "enlarged_glint_review",
+      "bytes": 685381,
+      "sha256": "a5a50eba27d4f16b03c10b18ac3e65bd8bcfc94998111646d5d11825ace3270c",
+      "source_path": "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        188,
+        276
+      ]
+    },
+    {
+      "path": "overview.gif",
+      "role": "ten_object_animated_review",
+      "bytes": 4144994,
+      "sha256": "0f7dd51051029988b7ba99f339478cc91f7e3b0e8ed05875fd686e88546159ae",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\authored\\overview.gif",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        1280,
+        576
+      ]
+    },
+    {
+      "path": "overview.png",
+      "role": "ten_object_still_index",
+      "bytes": 385229,
+      "sha256": "9d54427d6eaf92fbe65de55612cfd8fbbcdb8785697d4036f33a2abdf7d2626c",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\authored\\overview.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        1280,
+        576
+      ]
+    },
+    {
+      "path": "production/author_motion.lua",
+      "role": "production_method_source",
+      "bytes": 7568,
+      "sha256": "683c0386d3923aa5fed58a23b5ec961e7c1e3b2caf1dd86a2585e4244057c746",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\author_motion.lua",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original task tooling; repository code terms"
+    },
+    {
+      "path": "production/author_reference.py",
+      "role": "production_method_source",
+      "bytes": 2691,
+      "sha256": "ef52b381a2c57b03aa095e55951e07f9221c490784d217917ef50d50820ded7a",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\author_reference.py",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original task tooling; repository code terms"
+    },
+    {
+      "path": "production/measure_motion.py",
+      "role": "production_method_source",
+      "bytes": 1903,
+      "sha256": "dfb157cce3abf1cddf7cb578c15466a9d91a35687d053947d74324a495349c76",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\measure_motion.py",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original task tooling; repository code terms"
+    },
+    {
+      "path": "production/rebuild_reference.py",
+      "role": "portable_packet_verification_or_rebuild_tool",
+      "source_path": "Owner-commissioned task tooling",
+      "modification_status": "NEW_TASK_TOOL",
+      "license_provenance": "Project-original task tooling; repository code terms",
+      "bytes": 1643,
+      "sha256": "b0b37cc768bb629afadc6b66cb131f9e04737e57690ceccc8f71a58a6ec9810e"
+    },
+    {
+      "path": "production/verify_authored.py",
+      "role": "production_method_source",
+      "bytes": 4567,
+      "sha256": "239ec33f91f5ad5d6e8abd8ff35d4d8e15e3d2a642f86d95e1aaebedfc1de60c",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\verify_authored.py",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original task tooling; repository code terms"
+    },
+    {
+      "path": "production/verify_packet.py",
+      "role": "portable_packet_verification_or_rebuild_tool",
+      "source_path": "Owner-commissioned task tooling",
+      "modification_status": "NEW_TASK_TOOL",
+      "license_provenance": "Project-original task tooling; repository code terms",
+      "bytes": 2865,
+      "sha256": "3b9d4cf462601f53a55d38b29a7cccc6ee71c853c06374b1955c8c4f46d5fab7"
+    },
+    {
+      "path": "rejected/compact_swing/DISPOSITION.json",
+      "role": "rejected_part_isolation_evidence",
+      "bytes": 284,
+      "sha256": "2ee0a055db00858d11131b0b0f868e63b74ecac08a049ac224259095cabe9ee5",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\rejected_swing_compact\\DISPOSITION.json",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
+    },
+    {
+      "path": "rejected/compact_swing/pose_board.png",
+      "role": "rejected_part_isolation_evidence",
+      "bytes": 190121,
+      "sha256": "3c9624b0ed62babf02f16fdf852536fc6a27f7e14cf944c70d02634dc17d71f1",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\rejected_swing_compact\\pose_board.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        1024,
+        576
+      ]
+    },
+    {
+      "path": "rejected/compact_swing/source.png",
+      "role": "rejected_part_isolation_evidence",
+      "bytes": 69932,
+      "sha256": "0d02c5fb28bce1d944c611c58072364064abd1cb6e0a8c941e33afd1d28bbbbb",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\rejected_swing_compact\\source.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        256,
+        256
+      ]
+    },
+    {
+      "path": "source_board.png",
+      "role": "object_identity_board",
+      "bytes": 387003,
+      "sha256": "91b28c10249b093aa574b07785d6505f10775236d4e0d7daa3328118ea1a6f8c",
+      "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\authored\\source_board.png",
+      "modification_status": "DERIVATIVE",
+      "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md",
+      "dimensions": [
+        1280,
+        576
+      ]
+    },
+    {
+      "path": "validation/BASELINE_NATIVE_GATES.json",
+      "bytes": 36113,
+      "sha256": "2262054d7a8b47294717c72935f271bce94ee7a2700acef2463a51ce169cac2f",
+      "role": "baseline_machine_evidence",
+      "dimensions": null,
+      "source_path": "Exact native validation run under build/; runtime source unchanged at declared baseline",
+      "modification_status": "Copied diagnostic/evidence bytes; original Windows timing failures preserved alongside deterministic retry",
+      "license_provenance": "Project-authored machine evidence; no protected source pixels or creative acceptance"
+    },
+    {
+      "path": "validation/EDITABLE_PACKET_CHECK.json",
+      "bytes": 491,
+      "sha256": "94738cfcf36c93c1fc8fd5553e4a0fa5dc44fc046341c8e57854a308205239cb",
+      "role": "baseline_machine_evidence",
+      "dimensions": null,
+      "source_path": "Exact native validation run under build/; runtime source unchanged at declared baseline",
+      "modification_status": "Copied diagnostic/evidence bytes; original Windows timing failures preserved alongside deterministic retry",
+      "license_provenance": "Project-authored machine evidence; no protected source pixels or creative acceptance"
+    },
+    {
+      "path": "validation/WINDOWS_FIXED_CLOCK_CASTLE_FAIL.log",
+      "bytes": 5563,
+      "sha256": "17cb9f79bdff7472bc13d8cf919e211e7a7638c36a86e5da572447db99bd8e6a",
+      "role": "baseline_machine_evidence",
+      "dimensions": null,
+      "source_path": "Exact native validation run under build/; runtime source unchanged at declared baseline",
+      "modification_status": "Copied diagnostic/evidence bytes; original Windows timing failures preserved alongside deterministic retry",
+      "license_provenance": "Project-authored machine evidence; no protected source pixels or creative acceptance"
+    },
+    {
+      "path": "validation/WINDOWS_FIXED_CLOCK_DUST_PASS.log",
+      "bytes": 7417,
+      "sha256": "82f38563767cd2281954d8fdd08270757a51514000351daa842f0c5b7db5faa3",
+      "role": "baseline_machine_evidence",
+      "dimensions": null,
+      "source_path": "Exact native validation run under build/; runtime source unchanged at declared baseline",
+      "modification_status": "Copied diagnostic/evidence bytes; original Windows timing failures preserved alongside deterministic retry",
+      "license_provenance": "Project-authored machine evidence; no protected source pixels or creative acceptance"
+    },
+    {
+      "path": "validation/WINDOWS_NORMAL_CLOCK_CASTLE_PASS.log",
+      "bytes": 5407,
+      "sha256": "98d654e8fcff03cbd9129c21fb078a4a7a8bcbf1db35b7e5e1219ed8a110512a",
+      "role": "baseline_machine_evidence",
+      "dimensions": null,
+      "source_path": "Exact native validation run under build/; runtime source unchanged at declared baseline",
+      "modification_status": "Copied diagnostic/evidence bytes; original Windows timing failures preserved alongside deterministic retry",
+      "license_provenance": "Project-authored machine evidence; no protected source pixels or creative acceptance"
+    },
+    {
+      "path": "validation/WINDOWS_WALL_CLOCK_DUST_FAIL.log",
+      "bytes": 6824,
+      "sha256": "71680f232363c2293767208363870348bb46d0fde031f572cbc7be44276965f1",
+      "role": "baseline_machine_evidence",
+      "dimensions": null,
+      "source_path": "Exact native validation run under build/; runtime source unchanged at declared baseline",
+      "modification_status": "Copied diagnostic/evidence bytes; original Windows timing failures preserved alongside deterministic retry",
+      "license_provenance": "Project-authored machine evidence; no protected source pixels or creative acceptance"
+    }
+  ],
+  "packet_payload_sha256": "f5d8f465afb3dcdb2dd9c93b30e2789584cf6dd1e1aa9ffbc3c8518d302a4737",
+  "payload_hash_method": "SHA256 of lexically sorted path + TAB + file SHA256 + LF records; manifest and operational remote verification receipts excluded to avoid self-reference.",
+  "objects": [
+    {
+      "id": "01_fir",
+      "title": "Fir: branch settle",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_pnw_fir_sway_v2.png",
+      "source_sha256": "3c12081abe82c7bb55a8dae260d2255cfd390bfc48b4a0dfd0c1be714a9c469e",
+      "source_dimensions": [
+        276,
+        440
+      ],
+      "source_crop": [
+        13,
+        13,
+        263,
+        427
+      ],
+      "seed": 20261001,
+      "fit_xy": [
+        186,
+        24
+      ],
+      "fit_size": [
+        140,
+        232
+      ],
+      "lane": "MOTION_REFERENCE_ONLY",
+      "reference_outputs": {
+        "master": "objects/01_fir/01_fir.aseprite",
+        "atlas": "objects/01_fir/spritesheet.png",
+        "timing": "objects/01_fir/spritesheet.json",
+        "preview": "objects/01_fir/preview.gif",
+        "source": "objects/01_fir/source.png",
+        "board": "objects/01_fir/pose_board.png"
+      },
+      "state_rgba_sha256": [
+        "7a165a3666ceb24940abc9cb9597d713d9f19f651a8b380efbc04ec5348ade27",
+        "df5982f073f4f390ca2e7b34f4f0d8231e9a4119a6ac5834c8d56b883d6d335f",
+        "7c37f80c1062d46059107067edb97af95e75a45c1e4f29d1960a49b57ce55977",
+        "5c97bb7db2e891ec65be7ff5f8726a4f9610c262084f24428a0d3411d9ce9ad6",
+        "d4ca73df06ea8bb32a821affa0dc253d14a16171fd8f3035e9fcf63155b57d1e",
+        "47078b0cd9704f67b1406bd9bd9ef5188735e40b570766bb1b705c6c70203f54",
+        "b6da73236bdb4ab52861b8866d1a033f46829f6792bd359fa842d3f30d3bbd4d",
+        "4859c3b3eaade3d6375ba4933bd185dd551ff1c8eddbbe79ad29b8e5e4654d27",
+        "4caab15734e60a37b32da575a0cc5467950795144f979cb98b2c62d9c28b5e1e",
+        "4859c3b3eaade3d6375ba4933bd185dd551ff1c8eddbbe79ad29b8e5e4654d27",
+        "b6da73236bdb4ab52861b8866d1a033f46829f6792bd359fa842d3f30d3bbd4d",
+        "47078b0cd9704f67b1406bd9bd9ef5188735e40b570766bb1b705c6c70203f54",
+        "d4ca73df06ea8bb32a821affa0dc253d14a16171fd8f3035e9fcf63155b57d1e",
+        "5c97bb7db2e891ec65be7ff5f8726a4f9610c262084f24428a0d3411d9ce9ad6",
+        "7c37f80c1062d46059107067edb97af95e75a45c1e4f29d1960a49b57ce55977",
+        "df5982f073f4f390ca2e7b34f4f0d8231e9a4119a6ac5834c8d56b883d6d335f",
+        "7a165a3666ceb24940abc9cb9597d713d9f19f651a8b380efbc04ec5348ade27",
+        "5a28cf08b4235827f2e8a25e8025f30a52780c8007ada20946b13598b67a4513",
+        "910d2e0e2e0eb598294014eed4c5aa7a88c6ca3c1a288117b34bf8ad25f543cc",
+        "9eb6bd7ffe2c1dade6e9c8f58a3657f6ed11a30b4306681f86312dc20c0027f3",
+        "4b62a5a5791d0936f4a7f8f04becd3e235264e182c822e10ac8ecd5f3d5f0487",
+        "4461afb32fcf607b3da0ad5f4d72bcdc7fecde8082c203e8b6fb20c4e13cdde3",
+        "42383c90b4bf9ea69855393d38c13c4a5be9e67f0074f167a593fed97c79256f",
+        "1ee6ccc0eae91e3726a471dc7b14937edec4a308adbd4f30ec24f07221a10488",
+        "aa66c066f531f9e50c169f33c151e2915fdfc5e68e956b2073327d475a8c22d4",
+        "1ee6ccc0eae91e3726a471dc7b14937edec4a308adbd4f30ec24f07221a10488",
+        "42383c90b4bf9ea69855393d38c13c4a5be9e67f0074f167a593fed97c79256f",
+        "4461afb32fcf607b3da0ad5f4d72bcdc7fecde8082c203e8b6fb20c4e13cdde3",
+        "4b62a5a5791d0936f4a7f8f04becd3e235264e182c822e10ac8ecd5f3d5f0487",
+        "9eb6bd7ffe2c1dade6e9c8f58a3657f6ed11a30b4306681f86312dc20c0027f3",
+        "910d2e0e2e0eb598294014eed4c5aa7a88c6ca3c1a288117b34bf8ad25f543cc",
+        "5a28cf08b4235827f2e8a25e8025f30a52780c8007ada20946b13598b67a4513"
+      ],
+      "reference_status": "SCRIPTED_SOURCE_MOTION_REVIEW_DRAFT",
+      "ai_generated_motion": false,
+      "human_hand_drawn": false,
+      "historical_initial_local_brief": {
+        "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\01_fir\\input.png",
+        "prompt": "One isolated illustrated object on a perfectly flat solid bright magenta background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The trunk and roots stay completely fixed. Only the upper pine branch tips bend gently to the right, relax, then ease back toward the starting pose. Preserve all branch tiers and the exact pine silhouette. No whole-tree rotation. 1.1-1.4s: settle. Background remains solid magenta. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence.",
+        "status": "PENDING"
+      },
+      "motion_contract": {
+        "intent": "Upper branches flex both ways while the rooted lower trunk stays fixed.",
+        "construction": "Height-weighted 16px lateral bend; fixed root raster region.",
+        "lane": "MOTION_REFERENCE_ONLY",
+        "units": "256x256 cell pixels; +x right, +y down",
+        "timed_states": 32,
+        "unique_raster_poses": 17,
+        "duration_ms": 2656,
+        "timeline": "Cycle: frame 0 entry, frame 8 first apex, frame 16 opposite midpoint, frame 24 opposite apex, then return to frame 0. Gate instead opens to its apex at frame 16; glass glint traverses the window.",
+        "holds": "No holds substituted for missing action. Symmetric return states intentionally revisit poses.",
+        "camera": "Fixed cell; no scene camera movement.",
+        "contact_and_fixtures": "Declared fixed regions measured in MACHINE_VERIFICATION.json; final production sockets/occlusion/contact not accepted.",
+        "events": "None: no gameplay commits, rewards, input or audio.",
+        "interruptions": "Not runtime-integrated; pause/cancel/save obligations remain with any future game implementation.",
+        "review": "Codex source/beat-board inspection and machine integrity only; owner/production/device/child acceptance pending."
+      }
+    },
+    {
+      "id": "02_huckleberry",
+      "title": "Huckleberry: leaf flutter",
+      "source": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/huckleberry-foreground.png",
+      "source_sha256": "ec29e2fec09a00cce93a2f3f17b17b60aa787f4b670ddc8cfd1ba23bb5923d47",
+      "source_dimensions": [
+        1711,
+        858
+      ],
+      "source_crop": [
+        0,
+        0,
+        1711,
+        858
+      ],
+      "seed": 20261002,
+      "fit_xy": [
+        64,
+        63
+      ],
+      "fit_size": [
+        384,
+        193
+      ],
+      "lane": "MOTION_REFERENCE_ONLY",
+      "reference_outputs": {
+        "master": "objects/02_huckleberry/02_huckleberry.aseprite",
+        "atlas": "objects/02_huckleberry/spritesheet.png",
+        "timing": "objects/02_huckleberry/spritesheet.json",
+        "preview": "objects/02_huckleberry/preview.gif",
+        "source": "objects/02_huckleberry/source.png",
+        "board": "objects/02_huckleberry/pose_board.png"
+      },
+      "state_rgba_sha256": [
+        "722a88d9714cae3318d5f303810a03da3b0e862f1d4f84c00cd78627be6d5ea2",
+        "8944939dd7d95a64b517f8a80459123544464276c49543b2f219f33d18797403",
+        "e3deaf30e1ffe50daea2f711f06d75256dfa89cebf9975f8bcd4d69c6f3c02ba",
+        "2d0b1e21af1cf3065a72cf01a79ed9898bfb0802842479f5d4992804daa9f530",
+        "64fde5a06f8a0e873bb638e9b3aa421ffdcc5fed0f3187acedcd2c8d839f0031",
+        "7f012d7e75b5f2c1313871292b24d1df71ec5ad2a16008aa8d34a141c7139eb4",
+        "99c553d389dd3a7615d96d1328bd41c13fc69e26a12301f880296f3b8abe3b59",
+        "ccfb4dd86250af326427cd34a1733c7fd026c90410951b559e91e5611a4d388f",
+        "6203635f2f75f2fad1032c1d52db1935773f0b139a7bccc0ec7ce2e5bcfe9398",
+        "9c4229d935d7675b717ee4eb3f26d2a6b29f77a153411e3f34a62dcd669e5754",
+        "9d43fd54fa781bfd91aa8e5d2a545e13da375d832286c3552d841819fdac504e",
+        "dd28c32ffdb42bc38940ab0e325ea323e36d5ee0c755bd28eb32eccb70a79c2f",
+        "e1d82dfeee79c54917f28413947480a54749ccffce6fc06b056f8a7243c15b84",
+        "6844cbc8afd35533ea4937b3026d47147e93adb7007cac1781f5a6032637c55f",
+        "7ada0068982895fef8a135aafd19c97f587d711047a900beb3d1f512039a40b9",
+        "fb92c133befeff7946c4d3c3a1680c3232d551a4623a7151a2b75360cac15310",
+        "e20f347bff37affc918725501fe2fd7d91ec81ff34f431ab79339cc54141afce",
+        "e16617f55a115f547fe0b97f9a36a5c6cfb23f7ecbb87786c3cbd6892453d8ac",
+        "d151abc21afd00daa016244db1897fd99003fd678fa377943f9aea8b1b79a9b4",
+        "ac7f5cc908a994c499725bea52d83e78d86115ee8bad0f372761f150f36a7976",
+        "edb694a56056e2665e3a0e97d4d79213600e6924127ba789796c672a30bce7e1",
+        "9811d0eec3705ec8206c6091b0daf1bf0ec86d96862d2b5990861218c4600aa3",
+        "146f37baa9feebd0d5017693ebba4b42a300fa1e465cc08cecbddd09ad0cc4d2",
+        "c34164a640a9fe70ae5ecf71f9e2279bd2b130840df4cdfe0ddabb6b2f95c6d7",
+        "ffa993b04400363fbd633a85ec036752304746dae6b3ab1d452bf8a1f0a88f97",
+        "4b17ed1d1f8ed37f828012194b71687fe8ec0ff20e7df43880f89e04366df95b",
+        "8e57ab189270113f2a5e9f92d1566ddeb79b50e1b0aee913a170404e9770a725",
+        "829502d4f2254b96f8b07cd76a1a15891c12c9a1c84621615ec014aaf082c81f",
+        "ec45e11cbfa1b8d7f6fc1cc26be4ab398621f02871c80fa92b503b7c3d0acb9a",
+        "5a510c9eade52b9e4caabfa8fb9905757ccaefa0dcfe0b935333b4283cc30105",
+        "1008f8a550d3429fefb2f837bf67e006d5624c822e2affc0b36e89fb1430f9dd",
+        "de052e912937745f7b634243fc5e14921dbc06f448fdd22d02cf2e91b27e1625"
+      ],
+      "reference_status": "SCRIPTED_SOURCE_MOTION_REVIEW_DRAFT",
+      "ai_generated_motion": false,
+      "human_hand_drawn": false,
+      "historical_initial_local_brief": {
+        "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\02_huckleberry\\input.png",
+        "prompt": "One isolated illustrated object on a perfectly flat solid bright magenta background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The woody base stays fixed. The connected leaf groups gently flex to the right and settle. The purple berries stay attached and keep their number, size and position. No new leaves, no growth. 1.1-1.4s: settle. Background remains solid magenta. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence.",
+        "status": "PENDING"
+      },
+      "motion_contract": {
+        "intent": "Leaf and berry branches sway together; berries stay attached.",
+        "construction": "Height-weighted 11px bend with a small lateral phase offset; fixed woody base.",
+        "lane": "MOTION_REFERENCE_ONLY",
+        "units": "256x256 cell pixels; +x right, +y down",
+        "timed_states": 32,
+        "unique_raster_poses": 32,
+        "duration_ms": 2656,
+        "timeline": "Cycle: frame 0 entry, frame 8 first apex, frame 16 opposite midpoint, frame 24 opposite apex, then return to frame 0. Gate instead opens to its apex at frame 16; glass glint traverses the window.",
+        "holds": "No holds substituted for missing action. Symmetric return states intentionally revisit poses.",
+        "camera": "Fixed cell; no scene camera movement.",
+        "contact_and_fixtures": "Declared fixed regions measured in MACHINE_VERIFICATION.json; final production sockets/occlusion/contact not accepted.",
+        "events": "None: no gameplay commits, rewards, input or audio.",
+        "interruptions": "Not runtime-integrated; pause/cancel/save obligations remain with any future game implementation.",
+        "review": "Codex source/beat-board inspection and machine integrity only; owner/production/device/child acceptance pending."
+      }
+    },
+    {
+      "id": "03_hydrangea",
+      "title": "Hydrangea: flower nod",
+      "source": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/hydrangea.png",
+      "source_sha256": "215a86b4a769a40518b679ee3c62124f9d58803b4ccd40ffe989a59dbf7810d7",
+      "source_dimensions": [
+        1157,
+        1193
+      ],
+      "source_crop": [
+        0,
+        0,
+        1157,
+        1193
+      ],
+      "seed": 20261003,
+      "fit_xy": [
+        143,
+        24
+      ],
+      "fit_size": [
+        225,
+        232
+      ],
+      "lane": "MOTION_REFERENCE_ONLY",
+      "reference_outputs": {
+        "master": "objects/03_hydrangea/03_hydrangea.aseprite",
+        "atlas": "objects/03_hydrangea/spritesheet.png",
+        "timing": "objects/03_hydrangea/spritesheet.json",
+        "preview": "objects/03_hydrangea/preview.gif",
+        "source": "objects/03_hydrangea/source.png",
+        "board": "objects/03_hydrangea/pose_board.png"
+      },
+      "state_rgba_sha256": [
+        "5603086be41cc16a09ef12940c44815a48caca96caaf09b18c8a7497949ecc96",
+        "68694be39d0fd9155f994eb82e7ac72782a1821c5f8a0463d94ec44c26922ae8",
+        "f0e1392ef2db1aaeb616ae6300b78066b414bb1b3825fc29c16b9f301940ff74",
+        "24b260b10564c54617f91b6f2a8503297b30c89b8fefb5a2c90ecee5212b9b32",
+        "5e858ce42225c1282552e5b00ac138860263333a94a4f95bf8b0a680736f328b",
+        "c9887f16ffe2ec3678bfd3b7ab82ec2e8fd4352e270561f2a7a5bc28056dc3bc",
+        "cb07357d3f3392d96892c87633d194b1a7c49e011500fac1672e0cbcadba4117",
+        "e0e00cb5fc8d1647af9f17fd1b742afc42c82978765f18e2aea1ab4887375fb7",
+        "1d3f625e0ce1de5cff3d381ea772003d46140ed6e91ef569b2df1aeac02fbedf",
+        "e0e00cb5fc8d1647af9f17fd1b742afc42c82978765f18e2aea1ab4887375fb7",
+        "cb07357d3f3392d96892c87633d194b1a7c49e011500fac1672e0cbcadba4117",
+        "c9887f16ffe2ec3678bfd3b7ab82ec2e8fd4352e270561f2a7a5bc28056dc3bc",
+        "5e858ce42225c1282552e5b00ac138860263333a94a4f95bf8b0a680736f328b",
+        "24b260b10564c54617f91b6f2a8503297b30c89b8fefb5a2c90ecee5212b9b32",
+        "f0e1392ef2db1aaeb616ae6300b78066b414bb1b3825fc29c16b9f301940ff74",
+        "68694be39d0fd9155f994eb82e7ac72782a1821c5f8a0463d94ec44c26922ae8",
+        "5603086be41cc16a09ef12940c44815a48caca96caaf09b18c8a7497949ecc96",
+        "30ef0500a09f31b155a66352c9261e1847c7f0d01917f0dd75d8abeafadba862",
+        "db0ae89427a92c32fdf702d74f76462f9f4adde1f5bfb2e746fc9c3caa977b5a",
+        "b9d3bc0b139254215896c5d3831077097743dc54dd8f40e254a7dd2a2b91f151",
+        "2ca3cddc647469ad00e73ea76c1fe70e32488c85ae4cb6ca8d00634bd3260331",
+        "c0a40329ac2ebe0a682645fac7a066a7d8ee3f63b0a83a99b3d25a8a49418b10",
+        "8463a330ff7df07df9b693f5e28f5d3b57903432c5a8a6bdd3408b08ffb04cf8",
+        "e79dc23e9d906cdea0dae5fab3a8242fcf024f2a3b8ae2c6e98a233aab4f193f",
+        "47eb942394683f0a47ea2e8c1fcdbaaffe1ae80661209a49a8f74e8cf7b5424e",
+        "e79dc23e9d906cdea0dae5fab3a8242fcf024f2a3b8ae2c6e98a233aab4f193f",
+        "8463a330ff7df07df9b693f5e28f5d3b57903432c5a8a6bdd3408b08ffb04cf8",
+        "c0a40329ac2ebe0a682645fac7a066a7d8ee3f63b0a83a99b3d25a8a49418b10",
+        "2ca3cddc647469ad00e73ea76c1fe70e32488c85ae4cb6ca8d00634bd3260331",
+        "b9d3bc0b139254215896c5d3831077097743dc54dd8f40e254a7dd2a2b91f151",
+        "db0ae89427a92c32fdf702d74f76462f9f4adde1f5bfb2e746fc9c3caa977b5a",
+        "30ef0500a09f31b155a66352c9261e1847c7f0d01917f0dd75d8abeafadba862"
+      ],
+      "reference_status": "SCRIPTED_SOURCE_MOTION_REVIEW_DRAFT",
+      "ai_generated_motion": false,
+      "human_hand_drawn": false,
+      "historical_initial_local_brief": {
+        "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\03_hydrangea\\input.png",
+        "prompt": "One isolated illustrated object on a perfectly flat solid bright magenta background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The plant base stays fixed. The lavender flower head gently nods right then returns, followed by a small delayed leaf recovery. Keep the same stems, petals, leaf arrangement and colors. 1.1-1.4s: settle. Background remains solid magenta. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence.",
+        "status": "PENDING"
+      },
+      "motion_contract": {
+        "intent": "Flower heads nod through a visible lateral arc on connected stems.",
+        "construction": "Height-weighted 18px bend and bounded vertical sag; fixed base.",
+        "lane": "MOTION_REFERENCE_ONLY",
+        "units": "256x256 cell pixels; +x right, +y down",
+        "timed_states": 32,
+        "unique_raster_poses": 17,
+        "duration_ms": 2656,
+        "timeline": "Cycle: frame 0 entry, frame 8 first apex, frame 16 opposite midpoint, frame 24 opposite apex, then return to frame 0. Gate instead opens to its apex at frame 16; glass glint traverses the window.",
+        "holds": "No holds substituted for missing action. Symmetric return states intentionally revisit poses.",
+        "camera": "Fixed cell; no scene camera movement.",
+        "contact_and_fixtures": "Declared fixed regions measured in MACHINE_VERIFICATION.json; final production sockets/occlusion/contact not accepted.",
+        "events": "None: no gameplay commits, rewards, input or audio.",
+        "interruptions": "Not runtime-integrated; pause/cancel/save obligations remain with any future game implementation.",
+        "review": "Codex source/beat-board inspection and machine integrity only; owner/production/device/child acceptance pending."
+      }
+    },
+    {
+      "id": "04_bellflower",
+      "title": "Bellflower: bell nod",
+      "source": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/cream-bellflower.png",
+      "source_sha256": "dc51f9e05220fe2e20fa51820b332e0454f75895f2712ab917c0fc69aef468e4",
+      "source_dimensions": [
+        1238,
+        1248
+      ],
+      "source_crop": [
+        0,
+        0,
+        1238,
+        1248
+      ],
+      "seed": 20261004,
+      "fit_xy": [
+        141,
+        24
+      ],
+      "fit_size": [
+        230,
+        232
+      ],
+      "lane": "MOTION_REFERENCE_ONLY",
+      "reference_outputs": {
+        "master": "objects/04_bellflower/04_bellflower.aseprite",
+        "atlas": "objects/04_bellflower/spritesheet.png",
+        "timing": "objects/04_bellflower/spritesheet.json",
+        "preview": "objects/04_bellflower/preview.gif",
+        "source": "objects/04_bellflower/source.png",
+        "board": "objects/04_bellflower/pose_board.png"
+      },
+      "state_rgba_sha256": [
+        "b0132a182b4b91fa383c2271a82ba0b758e78d2af4a1a0839b055c993585f1e9",
+        "29b937fee25e5ec8f61ddc894d3942b91b7d94e9dabb9880da446e229547dd22",
+        "adf665c93dd97dbb65c2316fd33924acc72059ff726ab9f290b8815d93db4a26",
+        "22062549a1891c6c0946707d179b29099e3b74e35fbed293574982ef896488f1",
+        "18fc3476ad4489a14bc441a95c5996cf8a055d75d41420921cb3113f59cd26b1",
+        "e10b38fb9efca722bec3b0bc1a4dc30f45246995bea765c6c124ff0bdf8f98e8",
+        "844c287e24d845c8b0bd3479260a49eb154c9ef43dafe1f091c5e224451163b3",
+        "126e503209bda934ad45d9526cda5e0a3ae15f55c76d99b17679ad1c680f9495",
+        "1711d2755daca487ed5e08db516815140f56c996bdd752cfe89ea0e9059ab801",
+        "126e503209bda934ad45d9526cda5e0a3ae15f55c76d99b17679ad1c680f9495",
+        "844c287e24d845c8b0bd3479260a49eb154c9ef43dafe1f091c5e224451163b3",
+        "e10b38fb9efca722bec3b0bc1a4dc30f45246995bea765c6c124ff0bdf8f98e8",
+        "18fc3476ad4489a14bc441a95c5996cf8a055d75d41420921cb3113f59cd26b1",
+        "22062549a1891c6c0946707d179b29099e3b74e35fbed293574982ef896488f1",
+        "adf665c93dd97dbb65c2316fd33924acc72059ff726ab9f290b8815d93db4a26",
+        "29b937fee25e5ec8f61ddc894d3942b91b7d94e9dabb9880da446e229547dd22",
+        "b0132a182b4b91fa383c2271a82ba0b758e78d2af4a1a0839b055c993585f1e9",
+        "1cb0df3e595ed9fc9c9936cba95cc5aa75132694a1ddf2ed69b0d4c19480f565",
+        "6cb4ebe9b965c27aa4249cd67cd9ce5de00f0319aa88329c7e0971dd9e701347",
+        "cdbf2f4793c12b03a0b62161d1cbb4129dd51bfae5164aea08690f29d97c2cd0",
+        "c811e4852f14b55fe083be3aaefa2731b1c98a39682d8033277e92e7eb889f34",
+        "376fe181e2dc230e9a21e10f6f8ce58345d1c2e577acfcd7e9c08578129b0eca",
+        "f5dcdd5a40041d7dfc368e6fe1463059c3636cc6845b768a332fbd5725074d73",
+        "a6f0047fe420de8750e3c68c01981cfac032130fa959c69905f57a7bacc256f8",
+        "c77bbb70894dc95165ce031770bc82b6e7c0770eaf71bbe4ee2536242a3683c4",
+        "a6f0047fe420de8750e3c68c01981cfac032130fa959c69905f57a7bacc256f8",
+        "f5dcdd5a40041d7dfc368e6fe1463059c3636cc6845b768a332fbd5725074d73",
+        "376fe181e2dc230e9a21e10f6f8ce58345d1c2e577acfcd7e9c08578129b0eca",
+        "c811e4852f14b55fe083be3aaefa2731b1c98a39682d8033277e92e7eb889f34",
+        "cdbf2f4793c12b03a0b62161d1cbb4129dd51bfae5164aea08690f29d97c2cd0",
+        "6cb4ebe9b965c27aa4249cd67cd9ce5de00f0319aa88329c7e0971dd9e701347",
+        "1cb0df3e595ed9fc9c9936cba95cc5aa75132694a1ddf2ed69b0d4c19480f565"
+      ],
+      "reference_status": "SCRIPTED_SOURCE_MOTION_REVIEW_DRAFT",
+      "ai_generated_motion": false,
+      "human_hand_drawn": false,
+      "historical_initial_local_brief": {
+        "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\04_bellflower\\input.png",
+        "prompt": "One isolated illustrated object on a perfectly flat solid bright magenta background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The lower leaves and plant base stay fixed. The slender stems flex slightly right and the cream bells nod gently, then recover toward their original pose. Every flower stays connected to its original stem. No opening flowers or new petals. 1.1-1.4s: settle. Background remains solid magenta. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence.",
+        "status": "PENDING"
+      },
+      "motion_contract": {
+        "intent": "Hanging bells and upper stems nod while the lower leaf base stays planted.",
+        "construction": "Height-weighted 17px bend above the declared lower-leaf lock.",
+        "lane": "MOTION_REFERENCE_ONLY",
+        "units": "256x256 cell pixels; +x right, +y down",
+        "timed_states": 32,
+        "unique_raster_poses": 17,
+        "duration_ms": 2656,
+        "timeline": "Cycle: frame 0 entry, frame 8 first apex, frame 16 opposite midpoint, frame 24 opposite apex, then return to frame 0. Gate instead opens to its apex at frame 16; glass glint traverses the window.",
+        "holds": "No holds substituted for missing action. Symmetric return states intentionally revisit poses.",
+        "camera": "Fixed cell; no scene camera movement.",
+        "contact_and_fixtures": "Declared fixed regions measured in MACHINE_VERIFICATION.json; final production sockets/occlusion/contact not accepted.",
+        "events": "None: no gameplay commits, rewards, input or audio.",
+        "interruptions": "Not runtime-integrated; pause/cancel/save obligations remain with any future game implementation.",
+        "review": "Codex source/beat-board inspection and machine integrity only; owner/production/device/child acceptance pending."
+      }
+    },
+    {
+      "id": "05_cloud",
+      "title": "Cloud: internal drift",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_cloud_single_v1.png",
+      "source_sha256": "c7c708694ff729e703271b40bf68cd23913d1c43485bf4b614fb0681cfb9cfdb",
+      "source_dimensions": [
+        221,
+        94
+      ],
+      "source_crop": [
+        0,
+        0,
+        221,
+        94
+      ],
+      "seed": 20261005,
+      "fit_xy": [
+        145,
+        162
+      ],
+      "fit_size": [
+        221,
+        94
+      ],
+      "lane": "MOTION_REFERENCE_ONLY",
+      "reference_outputs": {
+        "master": "objects/05_cloud/05_cloud.aseprite",
+        "atlas": "objects/05_cloud/spritesheet.png",
+        "timing": "objects/05_cloud/spritesheet.json",
+        "preview": "objects/05_cloud/preview.gif",
+        "source": "objects/05_cloud/source.png",
+        "board": "objects/05_cloud/pose_board.png"
+      },
+      "state_rgba_sha256": [
+        "8d8a50dcf8558050fa9a15701f8def5d1d2aa4a99258a72be8ab4103072f46d3",
+        "f404ccbc55d764fa35f64d30d4b0f3b7f9cc950af0f41b9a63a85afb446d62b2",
+        "995dcff358a5f13ab781b983f0b20f7f04e0bd6aec89e1cd953a4f178791adec",
+        "95bc8de71a2d8d11bc48689efd2500db4184b6563c130be0f339e05a75b76b70",
+        "f2190518da667c3d2df43b016539b99dff9ab21da76ba8469fecf27f24e80804",
+        "0171cd62b5a169caa30541899b4c36068e7734bc8ad492852ef61d30c4ddb1cb",
+        "2bdaae2a66925dc39fd03a64ace6ae5d1488ff0deeed9243f8db4c9861e4f80d",
+        "b1f75138d74eaa5a9b1a7b9a8867c109fd2289fa99cd2c8420d97c5baed13e61",
+        "9fc42166bc24c85b8c0aedc20ea80b302774f3e78bc575285eede2cc4ea86b9e",
+        "cf6d31aa3bb21ac4d5b9320667c7f457e17f80a7407d2f3afe450bb868230f08",
+        "6782924a76ca17457c9feb8c2a7470ef6f61f58f280445e372caa63598c47ab1",
+        "977bc99dcead43c5796485671e48ea03dbea5b6d4989464297d2b16f0b6b8274",
+        "bafa9b8b23867cc1b09a13b43815ec7624e87eb9868a76a9805086f460b9e817",
+        "8dd8f44439e432978fb5c040c80a8a8dc75faaa297d70d8ccc5841f7bee22b97",
+        "2e110301acce511de74d8c7b4b40b66dd25c53feb2a20f1c0cb7415ac90b0877",
+        "0fbe6b07b90a2747cf2bdddfa88fe31b4cc305308e7fe5bbd78d69b19d123a4c",
+        "26063cc66c20a3bcb57a53b55c442bb7037d0be0a67bc3abd2402e45274f751e",
+        "658472af8f2c48e6a8d7cac19a6a3be09cc9c969ca93b39662af5e22c5cf0f33",
+        "151fbeae346452e58e8174fa22a64bcf5004b655edde46e169b43f26d9cbb03f",
+        "624155fc8e5c7ac90666df5ce8b0f1b264736965c60b00f09cef4b050e4fb864",
+        "5b7c4bf97b76a570451d62a51da92e0273eb91f15c52c87f08cb51f354d35f1f",
+        "ec1bc5d3ecd7017bfc53c0d894d2a539e5aa42ec83fc99d0842c7ce312d79f7f",
+        "dfc28793b6671c1d36af5c56eb083d161a85fa060df977539b44df2c833007a7",
+        "ae3afd54650c1a85553395e7eb6e14c166ffe098ea1e846d1e15c77f0d02c1c2",
+        "92b37d540d584a0fe34f2542d1862ee1857b77257481fc071c2919199278f0aa",
+        "d3bfbb40f37df8664f7a224a1fff2910614d73952c7719836bb2014a7f60559b",
+        "c516625b75058ce7638a97ef884a83af134eae98cc192b8f8a25b1e200bca287",
+        "9786f14061e7c4bbe9a45018953f0ae55f2f7f30bbbc2ef65bf4b449b1467816",
+        "425f528d73b1e6e4af3e9eda8124fe9b7c388a6e31cc8e5a112ee9c8fe3aad62",
+        "17dbb9b06466c4470c794ee27673096b81b396281d3eda3f20a0523771d3ae75",
+        "079c7068658853c8e4a7839f123adda3f5247161317f0bd356284de158e7d888",
+        "c42dada3363946195cabb2a0def1bab60925f132352cc50031a4d0ec0bfab536"
+      ],
+      "reference_status": "SCRIPTED_SOURCE_MOTION_REVIEW_DRAFT",
+      "ai_generated_motion": false,
+      "human_hand_drawn": false,
+      "historical_initial_local_brief": {
+        "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\05_cloud\\input.png",
+        "prompt": "One isolated illustrated object on a perfectly flat solid bright magenta background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The outer cloud outline and placement stay fixed. Soft internal painted blue highlights drift very slightly to the right. Keep the same rounded cloud lobes and graphic painted style. No cloud travel, no shape growth. 1.1-1.4s: settle. Background remains solid magenta. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence.",
+        "status": "PENDING"
+      },
+      "motion_contract": {
+        "intent": "The existing lobes visibly billow with a small drift.",
+        "construction": "Bounded spatial lobe resampling: 3px lateral drift, 5 percent horizontal swell and 7 percent vertical swell; blue palette reused.",
+        "lane": "MOTION_REFERENCE_ONLY",
+        "units": "256x256 cell pixels; +x right, +y down",
+        "timed_states": 32,
+        "unique_raster_poses": 32,
+        "duration_ms": 2656,
+        "timeline": "Cycle: frame 0 entry, frame 8 first apex, frame 16 opposite midpoint, frame 24 opposite apex, then return to frame 0. Gate instead opens to its apex at frame 16; glass glint traverses the window.",
+        "holds": "No holds substituted for missing action. Symmetric return states intentionally revisit poses.",
+        "camera": "Fixed cell; no scene camera movement.",
+        "contact_and_fixtures": "Declared fixed regions measured in MACHINE_VERIFICATION.json; final production sockets/occlusion/contact not accepted.",
+        "events": "None: no gameplay commits, rewards, input or audio.",
+        "interruptions": "Not runtime-integrated; pause/cancel/save obligations remain with any future game implementation.",
+        "review": "Codex source/beat-board inspection and machine integrity only; owner/production/device/child acceptance pending."
+      }
+    },
+    {
+      "id": "06_smoke",
+      "title": "Smoke: curl",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "source_sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007",
+      "source_dimensions": [
+        46,
+        256
+      ],
+      "source_crop": [
+        0,
+        1,
+        46,
+        255
+      ],
+      "seed": 20261006,
+      "fit_xy": [
+        235,
+        24
+      ],
+      "fit_size": [
+        42,
+        232
+      ],
+      "lane": "MOTION_REFERENCE_ONLY",
+      "reference_outputs": {
+        "master": "objects/06_smoke/06_smoke.aseprite",
+        "atlas": "objects/06_smoke/spritesheet.png",
+        "timing": "objects/06_smoke/spritesheet.json",
+        "preview": "objects/06_smoke/preview.gif",
+        "source": "objects/06_smoke/source.png",
+        "board": "objects/06_smoke/pose_board.png"
+      },
+      "state_rgba_sha256": [
+        "e5cf2dac0a585040312fc4fbb983fe4a5f3c6d1895fe6d19d515c2a9d4b516b9",
+        "82bf14a00527df37ccf887d2503330c9bf70f7a593e9a12ea59172fce60ab37f",
+        "c8ad40aabfb841712dc93697729e8cf30383666e242e1f98520641e2811a63cb",
+        "3d463ddae497cee53ddd2cf42706e44e0c48180317579af02d35302ed92a4ba2",
+        "3c5d93b5c27850106628715658d2962740db5cd39976840caafea31305a04d44",
+        "c2a7fb30ee0a7bb9202f664a2240d944f3e565110d35dab36e574e73907522e8",
+        "a6f85996aa654c23692da13d1e111a67463a97f059723565b62515fbde5bbe9d",
+        "71ce3d0eb483807d4610f6675138d40c2768084bf8e994d6bb1cbaaf8edf9740",
+        "5fe7365c7c49ac96c6bbcba0b28e4c354ec394790209ebceccdb38b154009da9",
+        "489287b75c21f561ecd1f49750324501f79185d08fa71d5d9fd73d5c248f783b",
+        "64c2a2d4a34b6075a0833527612e4512a58d6a45a4ab7ef5548ffb2d4da178b3",
+        "8e8caeeb127fb2040e427cef74079ff9f4150d9767f37372623ad5a3d6e34d5f",
+        "c3d7aded008a4d8c72e27821df68d3dffe11b6c63775945ab8f7e1452c80b845",
+        "b4ca7418a1ac70ec4415fe3103e790437dfa798b3e669cbcc244f249e3e5ffaa",
+        "14e3339d71b4dd393eee945ebbc29fd8bfe30b6e3d8f084206d5b559e5d44d99",
+        "546834dfbb76ab217d228c9616a7874ccd977f2248f29017610066c09cb23b40",
+        "3c330c0475bebed5527c27df857b7919823ea6bef1a11cff1c0bd703cec0fcd2",
+        "5b28ae11307ea790b06c7e69b76b38b0fe120c436d72a21349403c006034f479",
+        "030b45673b5d17097c01eb41e7fd6119f91e8904e8ab11b377d408eae670df80",
+        "adf8243fbe7ea10df53f536d0c8d1b3876bb127a7b4b18cfa5ead12931163980",
+        "d95a42cba80db9629b05d5f0b66fa5d764b8d30d13c3ba826072278daf75e0c4",
+        "25b78bec6870f92c19b0714949d339a3d48b6b4a35c2be470948a2685a9ac066",
+        "cceb7a26b99f6b8bf78fead61287db10f8d3efe13c5a12e4dae1f4fd99201e0f",
+        "6173000bc9611b260cbe5f30fe08944452e9a9e168fae4ecd744458a8a83a478",
+        "d8cf84f45fbc265386c7e6c5ede499b2669a5490de17fcb07ee95af4515fcfa9",
+        "769c9ca5c3eee5a8577116beba807883e80009868d0749c84533633d7a9ed1f5",
+        "5c85575b8835b6991014878be53a98cd60a597dd0dd788f943aff799a7c33344",
+        "7358865adb61c8ef8517667be05798b708e88569de328288e634be204d0224bc",
+        "9976f68b203468a31908a1762e06c475a11335f7087f314d490ef0d38e68a53a",
+        "ece28758cf6d3af4b1d2c2b6fdc6e1862f2c16534e76c33833854ea40a3c5798",
+        "3171cfec6f9699cae7620dc2bb80b73d1578e2378fbfc05e6d1ad2a60376aaf2",
+        "a9354e6be1f68df831d0197c2cfe5fd6c888fa832b995960e00a9cbfada9d214"
+      ],
+      "reference_status": "SCRIPTED_SOURCE_MOTION_REVIEW_DRAFT",
+      "ai_generated_motion": false,
+      "human_hand_drawn": false,
+      "historical_initial_local_brief": {
+        "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\06_smoke\\input.png",
+        "prompt": "One isolated illustrated object on a perfectly flat solid bright magenta background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The narrow bottom emission point stays fixed. The lavender smoke ribbon slowly curls upward and to the right in a gentle breeze. Keep one continuous translucent stylized wisp. No fire, no extra puffs, no opaque smoke. 1.1-1.4s: settle. Background remains solid magenta. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence.",
+        "status": "PENDING"
+      },
+      "motion_contract": {
+        "intent": "A bend wave travels along the connected smoke ribbon.",
+        "construction": "Height-weighted phase wave, up to 20px, with a fixed bottom emission region. No new emitted particles are claimed.",
+        "lane": "MOTION_REFERENCE_ONLY",
+        "units": "256x256 cell pixels; +x right, +y down",
+        "timed_states": 32,
+        "unique_raster_poses": 32,
+        "duration_ms": 2656,
+        "timeline": "Cycle: frame 0 entry, frame 8 first apex, frame 16 opposite midpoint, frame 24 opposite apex, then return to frame 0. Gate instead opens to its apex at frame 16; glass glint traverses the window.",
+        "holds": "No holds substituted for missing action. Symmetric return states intentionally revisit poses.",
+        "camera": "Fixed cell; no scene camera movement.",
+        "contact_and_fixtures": "Declared fixed regions measured in MACHINE_VERIFICATION.json; final production sockets/occlusion/contact not accepted.",
+        "events": "None: no gameplay commits, rewards, input or audio.",
+        "interruptions": "Not runtime-integrated; pause/cancel/save obligations remain with any future game implementation.",
+        "review": "Codex source/beat-board inspection and machine integrity only; owner/production/device/child acceptance pending."
+      }
+    },
+    {
+      "id": "07_swing",
+      "title": "Swing: empty seat arc",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_swing_single_mermaid_v1.png",
+      "source_sha256": "cf75805c32df02bb6e8d92d536e65a41cec1c8587a21db383b84c1c2f36e31fd",
+      "source_dimensions": [
+        655,
+        576
+      ],
+      "source_crop": [
+        13,
+        7,
+        640,
+        568
+      ],
+      "seed": 20261007,
+      "fit_xy": [
+        126,
+        24
+      ],
+      "fit_size": [
+        259,
+        232
+      ],
+      "lane": "MOTION_REFERENCE_ONLY",
+      "source_selection_reason": "Existing single-seat mermaid swing permits cleaner fixed-frame and moving-seat separation. Compact two-seat study rejected; no original changed.",
+      "reference_outputs": {
+        "master": "objects/07_swing/07_swing.aseprite",
+        "atlas": "objects/07_swing/spritesheet.png",
+        "timing": "objects/07_swing/spritesheet.json",
+        "preview": "objects/07_swing/preview.gif",
+        "source": "objects/07_swing/source.png",
+        "board": "objects/07_swing/pose_board.png"
+      },
+      "state_rgba_sha256": [
+        "df036053f4c85e04975c2e2efb5f2d70d9fb6b5c95bbbfcf5b0d764af6d565df",
+        "2eca7853186daf0015b90cb6548930c20c6e64f19517b3a82f83097b06f14a53",
+        "e5c0525354727981fd3f50008c89fb472f9084412ad79728420ea6eeb0b457c1",
+        "3da7714470e3575eb075aec56d6a4791d206c8073545b6b1acb3a7fbd7c13286",
+        "5da9ff37e6d16e74cb612e5692d0cb0d71846cf3a83c3267980531a75ee65f19",
+        "34b0d8ce7226f9e82b40ab8b7e0b514ed75f165d19086846868c3a6ff586bc84",
+        "2bbecf0e9d41556fe6245dbfc143e1fa46439d223eeb69640b3b8003fc079ece",
+        "2d387c52fa199f5b8a4310602c886d9856ce0043bc078b7a0f3e87da4460ea33",
+        "348d90b7283e2409644910181a65cf664f77529791ff9af41acb4c2dfce59ab9",
+        "2d387c52fa199f5b8a4310602c886d9856ce0043bc078b7a0f3e87da4460ea33",
+        "2bbecf0e9d41556fe6245dbfc143e1fa46439d223eeb69640b3b8003fc079ece",
+        "34b0d8ce7226f9e82b40ab8b7e0b514ed75f165d19086846868c3a6ff586bc84",
+        "5da9ff37e6d16e74cb612e5692d0cb0d71846cf3a83c3267980531a75ee65f19",
+        "3da7714470e3575eb075aec56d6a4791d206c8073545b6b1acb3a7fbd7c13286",
+        "e5c0525354727981fd3f50008c89fb472f9084412ad79728420ea6eeb0b457c1",
+        "2eca7853186daf0015b90cb6548930c20c6e64f19517b3a82f83097b06f14a53",
+        "df036053f4c85e04975c2e2efb5f2d70d9fb6b5c95bbbfcf5b0d764af6d565df",
+        "2cfd602e4d38d485aaf83022eab48ede200a84422d98e13c4dbe016030c6320b",
+        "ba1d7f44daf23d52d71f871e93e1fc99dc48af60d42e0ccd903811c2627b5e9d",
+        "e822d6e0cb6e9e9c0e0cb6c25cce269b1b90a28de5fbbfb63d337c7a99663d60",
+        "420860fd837912ce0a841824e9597df904b90460d9653756841ec887313ad0b2",
+        "8f30c9bf9d32ba849e448048487b761768cdb78b284c19973e10e4c40c7dfe86",
+        "d97dc6cc0b6ee48a41b0809c0b93739879285e5eaff262f52e4873d3f03cd7f5",
+        "8bb9f109a18c3565f2f1f3db64ac8581cb0d6195575fafbd3e037d55e52ab523",
+        "cfab49ab52f7cefdaa001217e211565c160b04457b848dc8c093e3a973b33872",
+        "8bb9f109a18c3565f2f1f3db64ac8581cb0d6195575fafbd3e037d55e52ab523",
+        "d97dc6cc0b6ee48a41b0809c0b93739879285e5eaff262f52e4873d3f03cd7f5",
+        "8f30c9bf9d32ba849e448048487b761768cdb78b284c19973e10e4c40c7dfe86",
+        "420860fd837912ce0a841824e9597df904b90460d9653756841ec887313ad0b2",
+        "e822d6e0cb6e9e9c0e0cb6c25cce269b1b90a28de5fbbfb63d337c7a99663d60",
+        "ba1d7f44daf23d52d71f871e93e1fc99dc48af60d42e0ccd903811c2627b5e9d",
+        "2cfd602e4d38d485aaf83022eab48ede200a84422d98e13c4dbe016030c6320b"
+      ],
+      "reference_status": "SCRIPTED_SOURCE_MOTION_REVIEW_DRAFT",
+      "ai_generated_motion": false,
+      "human_hand_drawn": false,
+      "historical_initial_local_brief": {
+        "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\07_swing\\input_neutral.png",
+        "prompt": "One isolated illustrated object on a perfectly flat solid bright magenta background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The complete swing frame, top beam, legs and shell decorations stay completely still. Only the two empty seats and their attached ropes make a small pendulum swing backward, then return. Ropes remain connected at their top hooks. No children or characters. 1.1-1.4s: settle. Background remains solid magenta. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence.",
+        "status": "PENDING"
+      },
+      "motion_contract": {
+        "intent": "The single empty seat arcs left and right while hooks and frame stay fixed.",
+        "construction": "Seat translates through a bounded 12px pendulum projection; ropes ramp from zero movement at fixed top hooks. Source components isolated explicitly.",
+        "lane": "MOTION_REFERENCE_ONLY",
+        "units": "256x256 cell pixels; +x right, +y down",
+        "timed_states": 32,
+        "unique_raster_poses": 17,
+        "duration_ms": 2656,
+        "timeline": "Cycle: frame 0 entry, frame 8 first apex, frame 16 opposite midpoint, frame 24 opposite apex, then return to frame 0. Gate instead opens to its apex at frame 16; glass glint traverses the window.",
+        "holds": "No holds substituted for missing action. Symmetric return states intentionally revisit poses.",
+        "camera": "Fixed cell; no scene camera movement.",
+        "contact_and_fixtures": "Declared fixed regions measured in MACHINE_VERIFICATION.json; final production sockets/occlusion/contact not accepted.",
+        "events": "None: no gameplay commits, rewards, input or audio.",
+        "interruptions": "Not runtime-integrated; pause/cancel/save obligations remain with any future game implementation.",
+        "review": "Codex source/beat-board inspection and machine integrity only; owner/production/device/child acceptance pending."
+      }
+    },
+    {
+      "id": "08_seesaw",
+      "title": "Seesaw: gentle tip",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_seesaw_v5_fitted.png",
+      "source_sha256": "e39464f3eb3d8bc275ddd4788dfe4eb50db2147d9e20d7bbd1c4ed02d51d6129",
+      "source_dimensions": [
+        377,
+        168
+      ],
+      "source_crop": [
+        12,
+        12,
+        366,
+        156
+      ],
+      "seed": 20261008,
+      "fit_xy": [
+        79,
+        112
+      ],
+      "fit_size": [
+        354,
+        144
+      ],
+      "lane": "MOTION_REFERENCE_ONLY",
+      "reference_outputs": {
+        "master": "objects/08_seesaw/08_seesaw.aseprite",
+        "atlas": "objects/08_seesaw/spritesheet.png",
+        "timing": "objects/08_seesaw/spritesheet.json",
+        "preview": "objects/08_seesaw/preview.gif",
+        "source": "objects/08_seesaw/source.png",
+        "board": "objects/08_seesaw/pose_board.png"
+      },
+      "state_rgba_sha256": [
+        "601caeaa5097c2f538392a1cf769ebd4add404b802b699b6305216b17d8953ab",
+        "6be8969a41d41d98fff01a9394ed9040ff2461380516f9d118033f3aeea6871f",
+        "df6c339394a6f6ce4a3db24c23e4156f8ce07655ffc5cd152659bbff15ae039a",
+        "a4283bb5ebd51c90d30048793773dce3ffa5550aa9cf43c4940d13da650403b8",
+        "192b803a4649a63a33986b17a81a5e9b8382a1d9cc68db8c48e4b5f042101ddc",
+        "c37276d71584db10ec0b27e5e31ee99d8a0c558b840422877127d8a4bada2cc7",
+        "3419104543007193f901b7a27d5a1525a01ee88ad8f764afc29a15d33ea65153",
+        "4fa2cfc82dd9429a8cec05969b552f5f12ad14a5aa1a6f2f6ea4d2318bf0f2c6",
+        "9d0aca34e38e6d4b926f69412bd03e4824f07adc82f6a3ba155f226341c93c05",
+        "4fa2cfc82dd9429a8cec05969b552f5f12ad14a5aa1a6f2f6ea4d2318bf0f2c6",
+        "3419104543007193f901b7a27d5a1525a01ee88ad8f764afc29a15d33ea65153",
+        "c37276d71584db10ec0b27e5e31ee99d8a0c558b840422877127d8a4bada2cc7",
+        "192b803a4649a63a33986b17a81a5e9b8382a1d9cc68db8c48e4b5f042101ddc",
+        "a4283bb5ebd51c90d30048793773dce3ffa5550aa9cf43c4940d13da650403b8",
+        "df6c339394a6f6ce4a3db24c23e4156f8ce07655ffc5cd152659bbff15ae039a",
+        "6be8969a41d41d98fff01a9394ed9040ff2461380516f9d118033f3aeea6871f",
+        "601caeaa5097c2f538392a1cf769ebd4add404b802b699b6305216b17d8953ab",
+        "94eec1726cdf971122f3e0a3bbd8525a81d85f5cad24c7ba6b4511467bc218ea",
+        "7dd1a2e8e91a3a1ecc8f0bb9b28f3cc0d83ad182221a3cbc5aaa32a8c027c24b",
+        "9f15f9f17c3d006122707d16a4684bd2ae8692bd221d321db61de0561b6b122a",
+        "5aa96812b8b448a5e8ae175c29a3353ed586c545ed2545800dcac59cf9710b7b",
+        "3224e4fa13a94e743874246cfc3660d187e065ff11bb6ffd0c892c3999f5afae",
+        "775388afd93bcc7086a2f2db45db95e1deff9583a7807834572aa9578e4a92f5",
+        "00dfad376b4b53c5746956963d07ca2ba275839b2e4fe667fa5cccb8348a36f9",
+        "397b158ea4f73454c94a4b307e4a4cca32914efb5137893c71b637e8b71540cb",
+        "00dfad376b4b53c5746956963d07ca2ba275839b2e4fe667fa5cccb8348a36f9",
+        "775388afd93bcc7086a2f2db45db95e1deff9583a7807834572aa9578e4a92f5",
+        "3224e4fa13a94e743874246cfc3660d187e065ff11bb6ffd0c892c3999f5afae",
+        "5aa96812b8b448a5e8ae175c29a3353ed586c545ed2545800dcac59cf9710b7b",
+        "9f15f9f17c3d006122707d16a4684bd2ae8692bd221d321db61de0561b6b122a",
+        "7dd1a2e8e91a3a1ecc8f0bb9b28f3cc0d83ad182221a3cbc5aaa32a8c027c24b",
+        "94eec1726cdf971122f3e0a3bbd8525a81d85f5cad24c7ba6b4511467bc218ea"
+      ],
+      "reference_status": "SCRIPTED_SOURCE_MOTION_REVIEW_DRAFT",
+      "ai_generated_motion": false,
+      "human_hand_drawn": false,
+      "historical_initial_local_brief": {
+        "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\08_seesaw\\input.png",
+        "prompt": "One isolated illustrated object on a perfectly flat solid bright magenta background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The triangular pedestal and center pivot stay fixed. The single connected seesaw plank slowly tips with its left end slightly up and right end down, then returns toward level. Keep the seats and handles attached to the same rigid plank. No characters, no bending plank. 1.1-1.4s: settle. Background remains solid magenta. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence.",
+        "status": "PENDING"
+      },
+      "motion_contract": {
+        "intent": "The rigid plank tips both ways around the stationary center pivot.",
+        "construction": "Rigid raster rotation through plus/minus 0.16 radians; pedestal and pivot stay fixed.",
+        "lane": "MOTION_REFERENCE_ONLY",
+        "units": "256x256 cell pixels; +x right, +y down",
+        "timed_states": 32,
+        "unique_raster_poses": 17,
+        "duration_ms": 2656,
+        "timeline": "Cycle: frame 0 entry, frame 8 first apex, frame 16 opposite midpoint, frame 24 opposite apex, then return to frame 0. Gate instead opens to its apex at frame 16; glass glint traverses the window.",
+        "holds": "No holds substituted for missing action. Symmetric return states intentionally revisit poses.",
+        "camera": "Fixed cell; no scene camera movement.",
+        "contact_and_fixtures": "Declared fixed regions measured in MACHINE_VERIFICATION.json; final production sockets/occlusion/contact not accepted.",
+        "events": "None: no gameplay commits, rewards, input or audio.",
+        "interruptions": "Not runtime-integrated; pause/cancel/save obligations remain with any future game implementation.",
+        "review": "Codex source/beat-board inspection and machine integrity only; owner/production/device/child acceptance pending."
+      }
+    },
+    {
+      "id": "09_gate",
+      "title": "Castle gate: door study",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
+      "source_sha256": "f1003ba7d1d2a70d1e367805e2d8aacfefa71a6006935662d6285b064a380a09",
+      "source_dimensions": [
+        294,
+        420
+      ],
+      "source_crop": [
+        11,
+        11,
+        283,
+        409
+      ],
+      "seed": 20261009,
+      "fit_xy": [
+        176,
+        24
+      ],
+      "fit_size": [
+        159,
+        232
+      ],
+      "lane": "MOTION_REFERENCE_ONLY",
+      "reference_outputs": {
+        "master": "objects/09_gate/09_gate.aseprite",
+        "atlas": "objects/09_gate/spritesheet.png",
+        "timing": "objects/09_gate/spritesheet.json",
+        "preview": "objects/09_gate/preview.gif",
+        "source": "objects/09_gate/source.png",
+        "board": "objects/09_gate/pose_board.png"
+      },
+      "state_rgba_sha256": [
+        "3cee88d764d2dd340c943f6fa53609f8f687956cc2e193f50e3909754546413b",
+        "46b245c87d0abc4dd77cb9566290744469b40a1598ba5b595919b3ae6fa8edf6",
+        "1066dc617fd2ba8b2bc628b0001517cb74c9efed9f390121f3104e099015e414",
+        "b0d9ff6dfd347a6597f59e095af6f0f1d04be8e767292c57c32929d6e3e0af95",
+        "c807be2493372be1d086ca4bb12911b118ebf1b5904294f29d351e07bb455b95",
+        "da45cab61f7009e42fb4e2d5f2105eb59b1b5f160ab0cf4ae30a1f1da1006ead",
+        "4928f6d81fc90e98ba5042f6ebe8c7ef05d50e3b095ccc07b19087c40e07ab03",
+        "61356c839bd96e8b99b3350f5f5ea10c2d51f0902d9e637305f97fd55023a28d",
+        "05246717b29d4c7fd2b90e931add96fb050b314d99d786a5c7b50823574d0d13",
+        "bf838baad170927077d60a59c38c46d0e7531e4b476d86081af2dfd1230fea47",
+        "c7d743a7277bfceed4fe96aada703ef16f7825f15544d99dc8efeb258fd7bcc6",
+        "10c638ef50320f7b7efa258422e5c9d8970d1d7cc00846344f4787526b0bd55d",
+        "34770ff8fa0b499f860c1615e8edd34194ae7d93a396781fa0fc16a78ad19806",
+        "63a4f50a28fa2651ce30cfbc9062548f7bc75034948f42b227b2104cde4b5657",
+        "fe28deabe163a8c5c8571da27ef09713103d67e3447938efd5fbd7d445c72f42",
+        "f0caa3acdf8a6abcd4d0c7f89f476f9d312aac243021cefa600f242f0e597d84",
+        "e975e3e0e64cdad7e999ab0e88f53fe0e87246ffd6c480093c90252c1d78f1c4",
+        "f0caa3acdf8a6abcd4d0c7f89f476f9d312aac243021cefa600f242f0e597d84",
+        "fe28deabe163a8c5c8571da27ef09713103d67e3447938efd5fbd7d445c72f42",
+        "63a4f50a28fa2651ce30cfbc9062548f7bc75034948f42b227b2104cde4b5657",
+        "34770ff8fa0b499f860c1615e8edd34194ae7d93a396781fa0fc16a78ad19806",
+        "10c638ef50320f7b7efa258422e5c9d8970d1d7cc00846344f4787526b0bd55d",
+        "c7d743a7277bfceed4fe96aada703ef16f7825f15544d99dc8efeb258fd7bcc6",
+        "bf838baad170927077d60a59c38c46d0e7531e4b476d86081af2dfd1230fea47",
+        "05246717b29d4c7fd2b90e931add96fb050b314d99d786a5c7b50823574d0d13",
+        "61356c839bd96e8b99b3350f5f5ea10c2d51f0902d9e637305f97fd55023a28d",
+        "4928f6d81fc90e98ba5042f6ebe8c7ef05d50e3b095ccc07b19087c40e07ab03",
+        "da45cab61f7009e42fb4e2d5f2105eb59b1b5f160ab0cf4ae30a1f1da1006ead",
+        "c807be2493372be1d086ca4bb12911b118ebf1b5904294f29d351e07bb455b95",
+        "b0d9ff6dfd347a6597f59e095af6f0f1d04be8e767292c57c32929d6e3e0af95",
+        "1066dc617fd2ba8b2bc628b0001517cb74c9efed9f390121f3104e099015e414",
+        "46b245c87d0abc4dd77cb9566290744469b40a1598ba5b595919b3ae6fa8edf6"
+      ],
+      "reference_status": "SCRIPTED_SOURCE_MOTION_REVIEW_DRAFT",
+      "ai_generated_motion": false,
+      "human_hand_drawn": false,
+      "historical_initial_local_brief": {
+        "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\09_gate\\input.png",
+        "prompt": "One isolated illustrated object on a perfectly flat solid bright magenta background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The stone arch and all architecture stay completely fixed. Only the center wooden door slowly opens inward a little, then starts to close. Keep the same door shape, hinge, frame and material. No camera motion, no added furniture, no character. 1.1-1.4s: settle. Background remains solid magenta. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence.",
+        "status": "PENDING"
+      },
+      "motion_contract": {
+        "intent": "Both door leaves open and close inside the unchanged stone arch.",
+        "construction": "Two-leaf horizontal hinge projection up to 0.98 radians. Revealed opening remains transparent; no interior invented.",
+        "lane": "MOTION_REFERENCE_ONLY",
+        "units": "256x256 cell pixels; +x right, +y down",
+        "timed_states": 32,
+        "unique_raster_poses": 17,
+        "duration_ms": 2656,
+        "timeline": "Cycle: frame 0 entry, frame 8 first apex, frame 16 opposite midpoint, frame 24 opposite apex, then return to frame 0. Gate instead opens to its apex at frame 16; glass glint traverses the window.",
+        "holds": "No holds substituted for missing action. Symmetric return states intentionally revisit poses.",
+        "camera": "Fixed cell; no scene camera movement.",
+        "contact_and_fixtures": "Declared fixed regions measured in MACHINE_VERIFICATION.json; final production sockets/occlusion/contact not accepted.",
+        "events": "None: no gameplay commits, rewards, input or audio.",
+        "interruptions": "Not runtime-integrated; pause/cancel/save obligations remain with any future game implementation.",
+        "review": "Codex source/beat-board inspection and machine integrity only; owner/production/device/child acceptance pending."
+      }
+    },
+    {
+      "id": "10_glass",
+      "title": "Stained glass: soft glint",
+      "source": "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+      "source_sha256": "90da7b0106759690001a2bc7fd77042db5afa5e59f13c8557faa6b3b86d19cd8",
+      "source_dimensions": [
+        1024,
+        1000
+      ],
+      "source_crop": [
+        8,
+        8,
+        1015,
+        991
+      ],
+      "seed": 20261010,
+      "fit_xy": [
+        137,
+        24
+      ],
+      "fit_size": [
+        238,
+        232
+      ],
+      "lane": "MOTION_REFERENCE_ONLY",
+      "reference_outputs": {
+        "master": "objects/10_glass/10_glass.aseprite",
+        "atlas": "objects/10_glass/spritesheet.png",
+        "timing": "objects/10_glass/spritesheet.json",
+        "preview": "objects/10_glass/preview.gif",
+        "source": "objects/10_glass/source.png",
+        "board": "objects/10_glass/pose_board.png"
+      },
+      "state_rgba_sha256": [
+        "1b8da8732c2e568c1b90fcc55aa46c69a67194acb6781fa500268afa8aff1d61",
+        "ec4afbb1a4566b741a80f18ab76fcc791be520f024a79121471f62272d285718",
+        "76e9723240b39866c53447615e55740556dd238c10c3b77331be7b135816630c",
+        "462dd9f4aad65a59a5a27181c529fc88a3dba01f6f89e0e3eca5c1751b4fd0ec",
+        "b478794455d74b312fb01c6ca914a39ecfd0446e9da8985fdf949488b85eec7b",
+        "c959fca482eacca4ffcac9e150aed6fc6cdd04ecb39b578269e3d4a145a1fe75",
+        "68bac52c4de296242e8f9706d6fe89410b7f8fd1eb6f3062553caefff97c403d",
+        "f3742f34b17000e0a9885eef62d3299d8a3839449a97393437af061ca2cbfd2c",
+        "d881758ce01746ed7113bd45c95dca6779e38f0617ea24a625b098036bf6e983",
+        "d3342b5454fae4cd7d07fdee38f86b54af6fbd1f8d2c60e868724717efab32bf",
+        "ed7dece8490cba9dfa31f76ce2938e368debb3b2012d68e6c2cc8f363421eb62",
+        "cbdcbda58c91c05ef06f4555f7146568fb9419aa9ce0fb194473741fe44d8c6f",
+        "1f773071e7ae211cf59135272297517cd0dfe759b5f64410b78af608df9ade50",
+        "2157904405716dbf677690920737cd7b1bba4ef932e1ad2925cc6b7d2ddda349",
+        "64beac1f26b84caba3f5684caf99f9aff0d2631562a3b6d54e48bd7433bd9e6e",
+        "b9136938be19d96d3732e18192514a06927370cde9c806d9f7116f224b0e5787",
+        "8d11ec582363277142363b8d24733469978c6ae1a6af84e0b41cbbe57e3f03c7",
+        "a43d99cfc025dfcabfacb8f17ac2410a5728af0234ac431293eaffcd8def3527",
+        "d8cf9093518133ff2b6c24d60df79ec16374106ecc1e880d78f563b0d531f61b",
+        "913e60544732e328479093b1cb3abdfe1509f9b4a3683a5c8e3440fef190e98e",
+        "63036000c3a5c68a04b5985e75f5203d28239cba30d80121e145540bcf235303",
+        "48a7c467b8c7cc8b23169e8c1321ff8d869186eb143cd97789e114e140fff45e",
+        "6ceb613d6c095d0f2c72a9ab0403f4384ccdd69d370f0343c73218299228016d",
+        "cdd182670f9afb40939c41645f345d7413568dc0823b9443170a522a1e82e4bc",
+        "d6a60156a2bdb945016ba38e43e729ba304331be32a6a7a59d3aee08efdd6c18",
+        "0f856a6a3a9a6b6fb30ccabfc682cb972352fc801ecae9739a005bb24092a8a3",
+        "18c42f9ad4ffd983e12d1d1f520b219529ded9f2d7604cbf4f66faf8c7413015",
+        "938ccd7f517b65915c0d6695919c02c5328d3cc62ca4306648f69b6d0eb03b26",
+        "0043dc5b71a086752d8cb02e6e2863fbf66ffbf101e6fb2ee5c5bfc7abf47429",
+        "87e68433b961ae5c58c8037fa9619a5e5e91d352c6b1ef46aa4e6acb82e6bcfa",
+        "9244329ab9033261cfd8584a0dcd796f415578b21e88d8d8815d1da2ae0083f9",
+        "1b8da8732c2e568c1b90fcc55aa46c69a67194acb6781fa500268afa8aff1d61"
+      ],
+      "reference_status": "SCRIPTED_SOURCE_MOTION_REVIEW_DRAFT",
+      "ai_generated_motion": false,
+      "human_hand_drawn": false,
+      "historical_initial_local_brief": {
+        "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\10_glass\\input.png",
+        "prompt": "One isolated illustrated object on a perfectly flat solid bright magenta background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The stained glass window outline, frame and every colored pane stay completely fixed. A small soft light glint slowly passes across the glass and fades. Keep the original pane geometry and colors. No rotating window, no changing glass design. 1.1-1.4s: settle. Background remains solid magenta. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence.",
+        "status": "PENDING"
+      },
+      "motion_contract": {
+        "intent": "A narrow glint travels across existing panes while the castle and lead geometry stay still.",
+        "construction": "Moving diagonal Gaussian light band confined to the window; bounded RGB brightening, unchanged alpha and pane geometry.",
+        "lane": "MOTION_REFERENCE_ONLY",
+        "units": "256x256 cell pixels; +x right, +y down",
+        "timed_states": 32,
+        "unique_raster_poses": 31,
+        "duration_ms": 2656,
+        "timeline": "Cycle: frame 0 entry, frame 8 first apex, frame 16 opposite midpoint, frame 24 opposite apex, then return to frame 0. Gate instead opens to its apex at frame 16; glass glint traverses the window.",
+        "holds": "No holds substituted for missing action. Symmetric return states intentionally revisit poses.",
+        "camera": "Fixed cell; no scene camera movement.",
+        "contact_and_fixtures": "Declared fixed regions measured in MACHINE_VERIFICATION.json; final production sockets/occlusion/contact not accepted.",
+        "events": "None: no gameplay commits, rewards, input or audio.",
+        "interruptions": "Not runtime-integrated; pause/cancel/save obligations remain with any future game implementation.",
+        "review": "Codex source/beat-board inspection and machine integrity only; owner/production/device/child acceptance pending."
+      }
+    }
+  ],
+  "local_ai_attempts": [
+    {
+      "id": "sky_01_fir_20261001T004517Z_70f1c2",
+      "raw_execution_status": "FAILED",
+      "visual_disposition": "DIAGNOSTIC_NOT_ACCEPTED",
+      "delivery_accepted": false
+    },
+    {
+      "id": "sky_01_fir_20261001T010359Z_20710a",
+      "raw_execution_status": "FAILED",
+      "visual_disposition": "DIAGNOSTIC_NOT_ACCEPTED",
+      "delivery_accepted": false
+    },
+    {
+      "id": "sky_01_fir_20261001T011219Z_143893",
+      "raw_execution_status": "FAILED_ACCESS_VIOLATION",
+      "visual_disposition": "NO_OUTPUT",
+      "delivery_accepted": false
+    },
+    {
+      "id": "sky_01_fir_20261001T011652Z_24cae4",
+      "raw_execution_status": "PASS",
+      "visual_disposition": "REJECTED_STATIC_FLICKER",
+      "delivery_accepted": false
+    },
+    {
+      "id": "sky_03_hydrangea_20261001T000459Z_a9777d",
+      "raw_execution_status": "PASS",
+      "visual_disposition": "DIAGNOSTIC_NOT_ACCEPTED",
+      "delivery_accepted": false
+    },
+    {
+      "id": "sky_03_hydrangea_20261001T000824Z_54b4ce",
+      "raw_execution_status": "PASS",
+      "visual_disposition": "DIAGNOSTIC_NOT_ACCEPTED",
+      "delivery_accepted": false
+    },
+    {
+      "id": "sky_03_hydrangea_20261001T001028Z_a4ad93",
+      "raw_execution_status": "REJECTED_ABORTED",
+      "visual_disposition": "DIAGNOSTIC_NOT_ACCEPTED",
+      "delivery_accepted": false
+    },
+    {
+      "id": "sky_03_hydrangea_20261001T001805Z_84eaff",
+      "raw_execution_status": "REJECTED_ABORTED",
+      "visual_disposition": "DIAGNOSTIC_NOT_ACCEPTED",
+      "delivery_accepted": false
+    },
+    {
+      "id": "sky_03_hydrangea_20261001T002305Z_e48e4d",
+      "raw_execution_status": "PASS",
+      "visual_disposition": "DIAGNOSTIC_NOT_ACCEPTED",
+      "delivery_accepted": false
+    },
+    {
+      "id": "sky_03_hydrangea_20261001T002921Z_264a41",
+      "raw_execution_status": "PASS",
+      "visual_disposition": "REJECTED_STATIC_FLICKER",
+      "delivery_accepted": false
+    }
+  ],
+  "external_route": {
+    "repository": "Ebonyks/mermaid-roshan-reef",
+    "branch": "codex/sky-lagoon-local-animation-20260930",
+    "path": "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30",
+    "recipient_access_mode": "ANONYMOUS_PUBLIC_GITHUB",
+    "basis": "Established owner-authorized public Sky Lagoon handoff destination; no visibility migration."
+  },
+  "generation_blockers": [
+    "Provider route/account credentials unresolved",
+    "Applicable clean first-frame IMAGE_1 owner layout approval pending for external generation",
+    "Local Wan motion pilot failed readability"
+  ],
+  "acceptance_gaps": [
+    "Owner review of source-based studies",
+    "Fresh independently authored frame redraws",
+    "Production identity/topology/contact/loop acceptance",
+    "Engine sampling and Mobile/Speedy device budget",
+    "Phone/child review",
+    "Full-frame cinematic evidence and release"
+  ],
+  "baseline_verification": {
+    "baseline": "7f068cb80766edd52a110cc1cb3958158f829822",
+    "linux_ci": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36791771742",
+    "native_windows_combined": true,
+    "runtime_source_changed": false,
+    "gates": 82,
+    "limits": "Combined native Windows baseline-source evidence. Initial import/first probes and final visual probes use normal clock; Dust Boss retry and intermediate probes use --fixed-fps 120, unchanged ci.sh assertions and touch modes. Original failed Dust Boss timing and Castle fixed-clock transient-layout runs retained alongside passing retries. Exact whole bash ci.sh success is not claimed; no runtime source changed. Baseline Linux CI succeeded at https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36791771742.",
+    "document_contract_tests": 52,
+    "document_contract_tests_result": "PASS"
+  }
+}
