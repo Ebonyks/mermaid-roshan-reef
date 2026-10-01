@@ -31,7 +31,7 @@ const BOXING_MODES: Array[String] = [
 const BOXING_GOALS: Array[float] = [2.0, 4.0, 3.0, 6.0, 1.0]
 const BOXING_VOICES: Array[String] = [
 	"op_boxer_work", "op_boxer_jab_stage", "op_boxer_duck_stage",
-	"op_boxer_bell_chase_stage", "op_boxer_belt_stage",
+	"op_boxer_contest", "op_boxer_belt_stage",
 ]
 const BalletSurface := preload("res://scripts/opera_ballet_surface.gd")
 const TeacherPlan := preload("res://scripts/teacher_lesson_plan.gd")
@@ -414,12 +414,17 @@ func _init() -> void:
 			world.two_act_enabled == two_act_expected
 			and (not two_act_expected or world.performance_stage_start == 3)
 			and world.phases.size() == (OperaCareerWorld2D.PHASES[career] as Array).size()
-				+ (3 if two_act_expected else 0))
+				+ (3 if two_act_expected else 0)
+				+ (1 if career in ["detective", "magician", "painter", "popstar"] else 0))
 		if two_act_expected:
 			var performance_parts_ok := true
 			for performance_i in range(world.phases.size()):
 				var performance_phase: Dictionary = world.phases[performance_i]
 				var expected_source := performance_i if performance_i < 3 else performance_i - 3
+				if career in ["magician", "popstar"] and performance_i == world.phases.size() - 2:
+					expected_source = -1
+				elif career in ["magician", "popstar"] and performance_i == world.phases.size() - 1:
+					expected_source -= 1
 				performance_parts_ok = performance_parts_ok \
 					and String(performance_phase.get("performance_part", "")) \
 						== ("practice" if performance_i < 3 else "stage") \
@@ -439,7 +444,10 @@ func _init() -> void:
 			for ballet_phase_index in range(world.phases.size()):
 				var source_phase := ballet_phase_index % BALLERINA_PHASE_CONTRACTS.size()
 				var actual_ballet_phase: Dictionary = world.phases[ballet_phase_index]
-				var expected_ballet_phase: Dictionary = BALLERINA_PHASE_CONTRACTS[source_phase]
+				var expected_ballet_phase: Dictionary = BALLERINA_PHASE_CONTRACTS[source_phase].duplicate(true)
+				if ballet_phase_index == world.phases.size() - 1:
+					expected_ballet_phase["goal"] = 3.0
+					expected_ballet_phase["vo"] = "op_ballerina_contest"
 				ballet_phase_contract_ok = ballet_phase_contract_ok \
 					and int(actual_ballet_phase.get("source_phase", -1)) == source_phase \
 					and String(actual_ballet_phase.get("performance_part", "")) \
@@ -542,9 +550,10 @@ func _init() -> void:
 			var picnic_phase: Dictionary = world.phases[3]
 			var picnic_anchors: Array = OperaGestureSurface.TARGET_ANCHORS.get(
 				"target_farmer", [])
-			_check("farmer PICNIC gives one unique snack to each of three piggies",
+			_check("farmer PICNIC races four snack landings into the piggy bowl",
 				String(picnic_phase.get("name", "")) == "PICNIC"
-				and is_equal_approx(float(picnic_phase.get("goal", 0.0)), 3.0)
+				and String(picnic_phase.get("mode", "")) == "farm_lob"
+				and is_equal_approx(float(picnic_phase.get("goal", 0.0)), 4.0)
 				and picnic_anchors.size() == 3)
 		var direct_contracts: Dictionary = DIRECT_SURFACE_CONTRACTS.get(career, {})
 		var direct_names_seen: Array[String] = []
@@ -552,7 +561,9 @@ func _init() -> void:
 			var direct_name := String(direct_phase.get("name", ""))
 			if not direct_contracts.has(direct_name):
 				continue
-			var direct_contract: Dictionary = direct_contracts[direct_name]
+			var direct_contract: Dictionary = direct_contracts[direct_name].duplicate(true)
+			if direct_phase.has("contest") and career == "ballerina":
+				direct_contract["goal"] = 3.0
 			var direct_mode := String(direct_phase.get("mode", ""))
 			var requested_context := String(direct_phase.get("visual_context", ""))
 			world.surface.configure(direct_mode, Color.WHITE,
@@ -618,7 +629,6 @@ func _init() -> void:
 			world.phase_progress = 0.0
 			world.phase_gap = 0.0
 			world.phase_advance_pending = false
-			world.reveal_t = 0.0
 			world.task_open = true
 			world.choice_target = 0
 			var choice_template := world._widget_template(choice_phase)
@@ -713,7 +723,6 @@ func _init() -> void:
 			world.phase_index = syrup_phase_index
 			world.phase_progress = 0.0
 			world.phase_gap = 0.0
-			world.reveal_t = 0.0
 			world.phase_advance_pending = false
 			world._show_phase()
 			# Pixel 10's 2424x1080 framebuffer maps to a 1616x720 logical
@@ -810,7 +819,6 @@ func _init() -> void:
 			world.phase_advance_pending = false
 			world.phase_complete_t = 0.0
 			world.phase_gap = 0.0
-			world.reveal_t = 0.0
 			world._show_phase()
 		if career in ["doctor", "farmer"]:
 			var station_phase_name := "X-RAY" if career == "doctor" else "TOSS"
@@ -890,7 +898,6 @@ func _init() -> void:
 			ballet_surface.configure("ballet_pose", Color.WHITE)
 			ballet_surface.armed_only = false
 			var mirror_repeat_before := world.ballet_instruction_repeats
-			world.reveal_t = 0.0
 			world.idle_t = 6.95
 			world._process(0.10)
 			var mirror_idle_demo_silent: bool = \
@@ -946,6 +953,7 @@ func _init() -> void:
 			var before_progress := world.phase_progress
 			world.surface.configure(phase_mode, Color.WHITE,
 				world.choice_target, context)
+			world.surface.armed_only = false
 			world.action_panel.visible = true
 			world.surface.visible = true
 			world.surface.queue_redraw()
@@ -1159,29 +1167,26 @@ func _init() -> void:
 				await process_frame
 				await process_frame
 				await _capture_viewport(detective_shot_out.path_join("detective_search_zoom_and_hint.png"))
-			var original_phase_count := world.phases.size()
-			while world.phase_index < world._finale_start():
+			while String(world.phases[world.phase_index]["name"]) != "SPARKLE RACE":
 				world._on_gesture("probe", 100.0, 1.0)
 				act._process(0.05)
-			# Reaching a finale now arms its room object instead of auto-opening it.
-			# The trusted probe path still has to perform that explicit open before
-			# auditing the rival clock.
-			for _open_attempt in range(3):
-				if world.task_open:
-					break
-				world._on_gesture("probe", 0.0, 1.0)
-			_check("detective imp enters only for the final shared mystery",
-				world.rival_actor.visible and world.in_competition_finale() and act.competition.active)
-			act.competition.round_elapsed = float(act.competition.spec.get("par_time", 40.0)) * 1.2
-			act._process(0.1)
-			_check("2D detective rival can solve at the 40-second clock",
-				world.reveal_t > 0.0 and not world.active)
-			world.reveal_t = 0.01
-			world._process(0.02)
-			_check("2D detective shows the answer then restarts the same guided case",
-				world.guided and world.active and world.phase_index == world._finale_start()
-				and world.phases.size() == original_phase_count
-				and act.competition.retries == 1)
+			world.phase_gap = 0.0
+			world._open_task()
+			_check("detective imp enters for the final shared mystery",
+				world.rival_actor.visible and world.in_competition_finale()
+				and world.contest != null)
+			var contest_phase := world.phase_index
+			world.contest.note_touch()
+			world.contest.flub_done = true
+			world.contest.his_units = world.contest.rival_target()
+			world._contest_apply(world.contest.tick(0.0, 0.0, true))
+			_check("detective imp can win its own sparkle contest",
+				world.contest.state == "imp_won" and world.surface.armed_only)
+			world._contest_tick(1.41)
+			_check("detective rematches only the same contest with a slower imp",
+				world.phase_index == contest_phase and world.task_open
+				and world.contest.state == "waiting" and world.contest.rematches == 1
+				and world.phase_progress == 0.0 and world.contest.his_rate == 0.8)
 
 		var saw_finale_imp := _finale_partner_present(world, career)
 		var rival_hidden_before_finale := true
@@ -1341,8 +1346,8 @@ func _init() -> void:
 		reentry_clean)
 
 	_check("all fifteen career jobs were exercised", show_count == 15)
-	_check("the current fifteen careers expose exactly seventy playable phase units",
-		total_phase_count == 70)
+	_check("the current fifteen careers expose exactly seventy-four playable freeplay phase units",
+		total_phase_count == 74)
 	_check("all shared art-family career widget contracts were exercised",
 		widget_contracts_complete and total_widget_count > 0)
 	_check("every declared direct specialist surface was exercised",
@@ -1383,7 +1388,6 @@ func _capture_diegetic_phase_rooms(world: OperaCareerWorld2D, career: String,
 		world.phase_progress = 0.0
 		world.phase_advance_pending = false
 		world.phase_complete_t = 0.0
-		world.reveal_t = 0.0
 		world.active = true
 		world._arm_phase()
 		if world.m != null:
@@ -1402,7 +1406,6 @@ func _capture_diegetic_phase_rooms(world: OperaCareerWorld2D, career: String,
 	world.phase_progress = 0.0
 	world.phase_advance_pending = false
 	world.phase_complete_t = 0.0
-	world.reveal_t = 0.0
 	world.active = true
 	for hotspot: OperaWorldHotspot2D in _opera_hotspots(world):
 		hotspot.elapsed = 0.0
@@ -1489,7 +1492,6 @@ func _audit_diegetic_room_flow(world: OperaCareerWorld2D, career: String) -> voi
 	world.phase_progress = 0.0
 	world.phase_advance_pending = false
 	world.phase_complete_t = 0.0
-	world.reveal_t = 0.0
 	world._arm_phase()
 	var canvas_rect := Rect2(Vector2.ZERO, StorybookUI.CANVAS_SIZE)
 	var wander_input := world.root.get_node_or_null("WalkableRoomInput") as Control
@@ -1696,7 +1698,6 @@ func _audit_phase_hotspot_rearming(world: OperaCareerWorld2D, career: String,
 		world.phase_progress = 0.0
 		world.phase_advance_pending = false
 		world.phase_complete_t = 0.0
-		world.reveal_t = 0.0
 		world._arm_phase()
 		var phase: Dictionary = world.phases[phase_number]
 		var phase_name := String(phase.get("name", "phase_%d" % phase_number))
@@ -1764,7 +1765,6 @@ func _audit_phase_hotspot_rearming(world: OperaCareerWorld2D, career: String,
 	world.phase_progress = 0.0
 	world.phase_advance_pending = false
 	world.phase_complete_t = 0.0
-	world.reveal_t = 0.0
 	world.actor_rests = practice_actor_rests.duplicate(true)
 	if world.m != null:
 		world.m.clear_dialogue()
@@ -2913,6 +2913,9 @@ func _exercise_boxing_surface(world: OperaCareerWorld2D, act: OperaAct,
 
 
 func _drive_boxer_phase(world: OperaCareerWorld2D) -> void:
+	if world.contest != null and world.contest.state == "imp_won":
+		world._contest_tick(1.41)
+		return
 	if world.phase_advance_pending:
 		world._advance_completed_phase()
 		return
@@ -2949,9 +2952,12 @@ func _drive_boxer_phase(world: OperaCareerWorld2D) -> void:
 			_boxing_touch(boxing, 0, false, target)
 			boxing._process(0.5)
 		"boxing_imp":
+			# The contest waits for child activity before the rival acts.
+			_boxing_touch(boxing, 0, true, boxing.glove_rest(hand))
 			var ticks := 0
 			while not boxing.imp_is_open() and ticks < 20:
 				boxing._process(0.4)
+				world._contest_tick(0.4)
 				ticks += 1
 			if boxing.imp_is_open():
 				_boxing_touch(boxing, 0, true, boxing.glove_rest(hand))
@@ -2959,6 +2965,8 @@ func _drive_boxer_phase(world: OperaCareerWorld2D) -> void:
 				_boxing_drag(boxing, 0, target)
 				_boxing_touch(boxing, 0, false, target)
 				boxing._process(0.5)
+			else:
+				_boxing_touch(boxing, 0, false, boxing.glove_rest(hand))
 		"boxing_belt":
 			_boxing_touch(boxing, 0, true, boxing.glove_rest(hand))
 			var target := boxing.active_target_position()
@@ -3183,7 +3191,7 @@ func _check(label: String, condition: bool) -> void:
 
 
 func _check_reviewed_task_pose(world: OperaCareerWorld2D, career: String) -> void:
-	if not world.active or world.reveal_t > 0.0 or world.phase_advance_pending \
+	if not world.active or world.phase_advance_pending \
 			or world.phase_gap > 0.0 or world.phase_index >= world.phases.size():
 		return
 	var expected: Dictionary = EXPECTED_WORK_POSES.get(career, {})
@@ -3215,7 +3223,7 @@ func _check_reviewed_task_pose(world: OperaCareerWorld2D, career: String) -> voi
 
 func _check_hall_task_pose(world: OperaCareerWorld2D, career: String) -> void:
 	if career != "magician" or not world.two_act_enabled \
-			or not world.active or world.reveal_t > 0.0 \
+			or not world.active \
 			or world.phase_advance_pending or world.phase_gap > 0.0 \
 			or world.phase_index >= world.phases.size():
 		return

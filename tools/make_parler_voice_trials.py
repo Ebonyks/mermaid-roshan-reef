@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import ast
 import hashlib
 import importlib.metadata
 import importlib.util
@@ -11,6 +12,7 @@ import json
 import platform
 import subprocess
 import sys
+from types import SimpleNamespace
 from pathlib import Path
 
 import soundfile as sf
@@ -71,9 +73,17 @@ KEY_MOODS = {
     # intended attack and melodic shape explicit to the preset synthesizer.
     "roshan_idle1": "gentle",
     "roshan_dustboss_win": "celebrate",
+    "roshan_op_magician_contest": "celebrate",
 }
 
 ROSHAN_REGISTER_PROFILES = {
+    "storybook": "short upper-register Joy direction",
+    "bright": (
+        " Joy speaks in a naturally bright, high-pitched four-year-old girl's voice, "
+        "with a tiny light vocal size and clear upper-register vowels in every phrase. "
+        "Use her consistent young-child register, relaxed and articulate, never an "
+        "adult chest voice, whisper, falsetto or squeal."
+    ),
     "baseline": "",
     "elevated": (
         " For this retry, Joy uses her lightest natural upper speaking register "
@@ -90,12 +100,18 @@ ROSHAN_REGISTER_PROFILES = {
 
 
 def load_legacy_module():
-    spec = importlib.util.spec_from_file_location("legacy_make_voices", ROOT / "tools" / "make_voices.py")
-    if spec is None or spec.loader is None:
-        raise RuntimeError("could not load tools/make_voices.py")
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
+    # Read the literal catalog without running its legacy Kokoro generator.
+    tree = ast.parse((ROOT / "tools/make_voices.py").read_text(encoding="utf-8"))
+    lines = next(ast.literal_eval(node.value) for node in tree.body if
+                 isinstance(node, ast.Assign) and any(isinstance(target, ast.Name)
+                 and target.id == "LINES" for target in node.targets))
+    cohort = json.loads((ROOT / "tools/opera_contest_voice_catalog.json").read_text(encoding="utf-8"))
+    for key, value in cohort["lines"].items():
+        pair = tuple(value)
+        if key in lines and lines[key] != pair:
+            raise RuntimeError("contest catalog conflicts with legacy line: " + key)
+        lines[key] = pair
+    return SimpleNamespace(LINES=lines)
 
 
 def mood_for(key: str, text: str) -> str:
@@ -103,6 +119,8 @@ def mood_for(key: str, text: str) -> str:
         return KEY_MOODS[key]
     low = f"{key} {text}".lower()
     if key.startswith("imp_"):
+        if key.startswith("imp_op_teacher_") or key.startswith("imp_op_lesson_"):
+            return "comic"
         if "_steal" in key or key.endswith("captain"):
             return "mischief"
         if "_bop" in key or key.endswith("retry"):
@@ -171,6 +189,17 @@ KEY_SPOKEN_TEXT = {
 }
 
 KEY_SPOKEN_SEGMENTS = {
+    "imp_op_teacher_claim_count": ["One, two, three.", "Eleven tee twelve!", "It's this many!"],
+    "imp_op_teacher_silly_big_tricked": ["Hee hee!", "Tricked you!", "Ants are tiny!"],
+    "imp_op_teacher_silly_cold_right": ["Burr! My toes are frozen!"],
+    "imp_op_teacher_silly_slow_right": ["So... slow... Yawn!"],
+    "imp_op_teacher_silly_smell_ask": ["Which smells the worst?", "Farts, garbage, old diapers, or rotten cheese?"],
+    "imp_op_teacher_silly_smell_claim": ["I know! This pretty rose! Pee you!"],
+    "imp_op_teacher_silly_smell_right": ["Pee-yew!", "That's so stinky!", "I'm gonna faint!"],
+    "imp_op_teacher_silly_sticky_right": ["Eww!", "My fingers are stuck together!"],
+    "imp_op_teacher_silly_yucky_right": ["Bleh! Yucky yucky yuck!"],
+    "roshan_op_magician_contest": ["Watch the hat with Lamba.", "Then tap it when it stops!"],
+    "roshan_op_popstar_contest": ["Listen to the imp's song.", "Then sing it back."],
     "roshan_idle1": ["I love swimming through the reef!"],
     "roshan_hide_seek_hint": ["Shh!", "I hear a friend hiding nearby!"],
     "roshan_combat_ice_start": [
@@ -276,6 +305,13 @@ def description_for(
         "kart": "KART", "pearl": "PURL", "quiet": "KWY-et",
         "mending": "MEN-ding", "bouncing": "BOWN-sing",
         "sending": "SEN-ding", "singing": "SING-ing",
+        "Eleventy-twelve": "eh-LEV-en-tee TWELV, the deliberately silly made-up number",
+        "Pee-yew": "PEE YOO, two clear syllables for a stinky smell",
+        "Brrr": "BURR, a short shivering sound with a clear initial b",
+        "Eww": "EEW, a brief disgusted exclamation",
+        "Ants": "ANTS with a crisp final nts, never answer",
+        "Farts": "FARTS with a clear initial f and crisp final ts, never parts",
+        "Bleh": "BLEH, a short disgusted exclamation",
         "BONK": "BONK with a crisp final k", "Blegh": "BLEH",
         "Ta-daa": "tah-DAH", "TA-DAA": "tah-DAH",
     }.items():
@@ -302,6 +338,15 @@ def description_for(
     )
     if character == "roshan":
         description += ROSHAN_REGISTER_PROFILES[roshan_register_profile]
+        if roshan_register_profile == "storybook":
+            description = (
+                "Joy speaks with a tiny four-year-old girl's voice in a playful, "
+                "very high-pitched natural upper register. Her clear, upbeat delivery "
+                "has a small vocal size and lightly rising intonation. She speaks "
+                "every provided word distinctly. The close-up recording is very "
+                "clear and dry, without background noise or reverberation."
+                + pronunciation
+            )
     return description
 
 

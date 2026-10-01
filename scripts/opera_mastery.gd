@@ -64,6 +64,10 @@ static func evaluate(career: String, stats: Variant) -> int:
 			return NONE
 	else:
 		return BRONZE
+	# Final-act contests use the earned winning margin for the same curtain,
+	# medal and token result. Legacy performances still use their measured verbs.
+	if values.has("contest_tier"):
+		return _read_bounded_int(values["contest_tier"], BRONZE, GOLD, BRONZE)
 
 	var actions := _read_nonnegative_int(values.get("actions"))
 	var misses := _read_nonnegative_int(values.get("misses"))

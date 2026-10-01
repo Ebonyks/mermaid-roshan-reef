@@ -1,0 +1,21 @@
+{
+  "actual_native_generation_segments": [
+    "Eww!",
+    "My fingers are stuck together!"
+  ],
+  "artifact_sha256": {
+    "config.json": "4a1848ebabe7938d9797c15a2e8e4ce1d36e6fd4a43d096ae5955257c67c7962",
+    "model.bin": "11b220779aea4c6f3ce9d2549c8a95ea869ed84066864b999531ef53e594fe5b",
+    "tokenizer.json": "929c5252409436dce1b38a75d1abbcb5e132d170d8e324e4e04ed915fa2d22df",
+    "vocabulary.txt": "ff77588746d3a2595d32ab5b69ffd7b95ce2441ac57533cb66fc3eb575a115cf"
+  },
+  "independent_model": "medium.en",
+  "limits": "Primary tiny.en and prior small.en disagreed on the first interjection; their failed reports are preserved. Human listening remains pending. No you-to-eww equivalence, pitch shift, semantic omission or quality threshold reduction.",
+  "medium_transcript": "Ew. My fingers are stuck together.",
+  "primary_cache_reuse": "Only identical tiny.en transcripts and signal metrics; all earlier small.en secondary transcripts discarded and medium.en recognition rerun. No expected-text prompt supplied to ASR.",
+  "primary_model": "tiny.en",
+  "repository": "https://huggingface.co/Systran/faster-whisper-medium.en",
+  "snapshot_revision": "a29b04bd15381511a9af671baec01072039215e3",
+  "status": "STRONGER_INDEPENDENT_RECOGNITION_NO_GATE_RELAXATION",
+  "sticky_selected_attempt": 42
+}

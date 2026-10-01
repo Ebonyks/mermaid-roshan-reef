@@ -273,6 +273,9 @@ func _act_won() -> void:
 		_finish(true)
 		return
 	var checkpoint_value: Variant = m.save_data.get("opera_performance_checkpoints", {})
+	var phase_checkpoints: Dictionary = m.save_data.get("opera_phase_checkpoints", {})
+	phase_checkpoints.erase(String((ACTS[finished] as Dictionary).get("costume", "")))
+	m.save_data["opera_phase_checkpoints"] = phase_checkpoints
 	if checkpoint_value is Dictionary:
 		var checkpoints := (checkpoint_value as Dictionary).duplicate(true)
 		checkpoints.erase(String((ACTS[finished] as Dictionary).get("costume", "")))

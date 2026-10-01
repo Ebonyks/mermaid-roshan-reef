@@ -13,6 +13,8 @@ signal progress_changed(snapshot: Dictionary)
 signal lesson_completed(kind: String, assisted: bool)
 signal counter_touched(number: int)
 signal guidance_requested(event: String)
+signal round_pick(result_name: String)
+signal round_completed(kind: String, was_assisted: bool, result_name: String)
 
 var lesson: Dictionary = {}
 var counted: Array[bool] = []
@@ -28,6 +30,11 @@ var join_t := 0.0
 var idle_demo_t := 0.0
 var _restored_complete := false
 var _numerals: Array[Label] = []
+var inverted := false
+var first_pick := ""
+var imp_choice := -1
+var presentation_t := 0.0
+var picture_textures: Array[Texture2D] = []
 
 func configure(next_mode: String, next_accent: Color, choice: int = 1,
 		next_context: String = "") -> void:
@@ -43,6 +50,11 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1,
 	join_t = 0.0
 	idle_demo_t = 0.0
 	_restored_complete = false
+	inverted = false
+	first_pick = ""
+	imp_choice = -1
+	presentation_t = 0.0
+	picture_textures.clear()
 	cancel_input(false)
 	demo_active = true
 
@@ -58,6 +70,33 @@ func set_lesson(value: Dictionary) -> void:
 func lesson_kind() -> String:
 	return String(lesson.get("kind", mode.trim_prefix("teacher_")))
 
+
+func set_inverted_lesson(value: Dictionary, pictures: Array[Texture2D] = []) -> void:
+	configure("teacher_imp_lesson", accent)
+	set_lesson(value)
+	inverted = true
+	first_pick = ""
+	imp_choice = int(lesson.get("imp_answer", -1))
+	presentation_t = 1.4
+	picture_textures = pictures
+	if lesson_kind() == "add":
+		joined = true
+		join_t = 0.4
+	queue_redraw()
+
+
+func correct_choice(index: int) -> bool:
+	if inverted and lesson_kind() == "silly":
+		return index in (lesson.get("correct_indices", []) as Array)
+	return index == answer_index()
+
+
+func _inverted_pick(result_name: String) -> void:
+	if not inverted or not first_pick.is_empty():
+		return
+	first_pick = result_name
+	round_pick.emit(result_name)
+
 func answer_index() -> int:
 	return int(lesson.get("answer", -1))
 
@@ -65,6 +104,9 @@ func choice_rect(index: int) -> Rect2:
 	var amount := (lesson.get("choices", []) as Array).size()
 	var step := 255.0 if amount > 2 else 355.0
 	var width := 174.0 if amount == 4 else 210.0
+	if amount == 5:
+		step = 159.0
+		width = 150.0
 	if amount == 4:
 		step = 194.0
 	var start := BOARD.get_center().x - (float(amount - 1) * step + width) * 0.5
@@ -80,7 +122,7 @@ func counter_position(index: int) -> Vector2:
 		255.0 + float(row) * 85.0 if total > columns else 290.0)
 
 func can_answer() -> bool:
-	return joined and not counted.has(false) and join_t <= 0.0
+	return joined and not counted.has(false) and join_t <= 0.0 and presentation_t <= 0.0
 
 func progress_snapshot() -> Dictionary:
 	return {"version": 1, "kind": lesson_kind(),
@@ -130,6 +172,7 @@ func restart_demo() -> void:
 	if solved or armed_only:
 		return
 	assisted = true
+	_inverted_pick("hinted")
 	help_visible = true
 	demo_active = true
 	idle_demo_t = 0.0
@@ -174,9 +217,11 @@ func _release(at: Vector2) -> void:
 	for index in range(choices.size()):
 		if choice_rect(index).has_point(at):
 			chosen = index
-			if index == answer_index():
+			if correct_choice(index):
+				_inverted_pick("fixed")
 				_complete()
 			else:
+				_inverted_pick("tricked")
 				wrong_attempts += 1
 				assisted = true
 				help_visible = true
@@ -197,10 +242,15 @@ func _complete() -> void:
 	if solved:
 		return
 	solved = true
-	chosen = answer_index()
+	if not (inverted and lesson_kind() == "silly"):
+		chosen = answer_index()
 	demo_active = false
-	lesson_completed.emit(lesson_kind(), assisted)
-	gesture.emit(mode, 1.0, 1.0)
+	if lesson_kind() != "silly":
+		lesson_completed.emit(lesson_kind(), assisted)
+	if inverted:
+		round_completed.emit(lesson_kind(), assisted, first_pick)
+	else:
+		gesture.emit(mode, 1.0, 1.0)
 	progress_changed.emit(progress_snapshot())
 	queue_redraw()
 
@@ -237,6 +287,7 @@ func _process(delta: float) -> void:
 		_restored_complete = false
 		_complete()
 	join_t = maxf(0.0, join_t - delta)
+	presentation_t = maxf(0.0, presentation_t - delta)
 	feedback_t = maxf(0.0, feedback_t - delta)
 	idle_demo_t += delta
 	if fmod(idle_demo_t, 0.06) < delta:
@@ -273,13 +324,15 @@ func _draw() -> void:
 			_draw_shape(int(lesson.get("target", 0)), Vector2(755, 285), 68.0)
 		"count", "add":
 			_draw_counting()
+		"silly":
+			pass
 	var choices: Array = lesson.get("choices", []) as Array
 	for index in range(choices.size()):
 		var card := choice_rect(index)
 		var fill := Color("#fffaf0") if can_answer() else Color("#dfdcde")
 		if solved and index == chosen:
 			fill = Color("#b6eadc")
-		elif help_visible and can_answer() and index == answer_index():
+		elif help_visible and can_answer() and correct_choice(index):
 			fill = Color("#fff0a9")
 		draw_style_box(StorybookUI.panel_style(INK, fill, 25, 5), card)
 		if lesson_kind() in ["count", "add"]:
@@ -287,12 +340,18 @@ func _draw() -> void:
 			var pearl_radius := _group_radius(amount, card.size.x - 24.0, 40.0)
 			_draw_group(amount, card.get_center() + Vector2(0, -15),
 				pearl_radius, Color("#75d3df"))
+		elif lesson_kind() == "silly":
+			if index < picture_textures.size() and picture_textures[index] != null:
+				var wiggle := sin(idle_demo_t * 10.0) * 5.0 if presentation_t > 0.0 else 0.0
+				draw_texture_rect(picture_textures[index], Rect2(card.position + Vector2(10, 10 + wiggle), card.size - Vector2(20, 20)), false)
 		else:
 			_draw_shape(int(choices[index]), card.get_center(), 49.0)
+		if inverted and not solved and index == imp_choice:
+			draw_style_box(StorybookUI.panel_style(Color("#9764c4"), Color.TRANSPARENT, 25, 8), card.grow(4))
 	if not solved:
 		_draw_demo()
 	else:
-		var at := choice_rect(answer_index()).get_center()
+		var at := choice_rect(chosen).get_center()
 		for index in range(6):
 			var angle := float(index) * TAU / 6.0 + idle_demo_t * 0.3
 			_draw_shape(3, at + Vector2.from_angle(angle) * 118.0, 10.0)
@@ -320,7 +379,11 @@ func _draw_pattern() -> void:
 	else:
 		draw_style_box(StorybookUI.panel_style(INK, Color("#e8ddeb"), 16, 3),
 			Rect2(blank - Vector2(37, 45), Vector2(74, 90)))
-		draw_line(blank - Vector2(16, 0), blank + Vector2(16, 0), Color("#947ca9"), 5)
+		if inverted and imp_choice >= 0:
+			_draw_shape(int((lesson["choices"] as Array)[imp_choice]), blank, 29)
+			draw_arc(blank, 42, 0, TAU, 32, Color("#9764c4"), 5, true)
+		else:
+			draw_line(blank - Vector2(16, 0), blank + Vector2(16, 0), Color("#947ca9"), 5)
 
 func _draw_counting() -> void:
 	if lesson_kind() == "add" and not joined:

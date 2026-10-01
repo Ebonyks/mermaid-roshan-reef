@@ -8,6 +8,14 @@ extends Control
 ## progress, so there is no dead end for a non-reader.
 
 signal gesture(kind: String, amount: float, quality: float)
+signal activity_touch
+
+var contest_mode := false
+var contest_cue_scale := 1.0
+var contest_easy_round := false
+var passes_required := 1
+var trace_passes := 0
+var shuffle_seconds := 1.5
 
 ## The room and career-world focus supply the visual ground. This surface owns
 ## only themed play objects/effects; it must never recreate the retired pale
@@ -190,6 +198,7 @@ var paint_covered: int = 0
 var paint_dragging := false
 var paint_last_point := Vector2.ZERO
 var paint_complete := false
+var mirror_reverse_paint := false
 var paint_reveal_texture: Texture2D = null
 
 ## Farmer feed: pull one vegetable back from the basket and let go. A valid
@@ -394,6 +403,8 @@ var long_push_journey := 0.0
 
 
 func _miss_pay() -> float:
+	if contest_mode:
+		return 0.0
 	# first miss trickles a crumb; repeats inside the cooldown pay nothing
 	if miss_cool > 0.0:
 		return 0.0
@@ -402,6 +413,11 @@ func _miss_pay() -> float:
 
 
 func configure(next_mode: String, next_accent: Color, choice: int = 1, next_context: String = "") -> void:
+	contest_mode = false
+	contest_cue_scale = 1.0
+	contest_easy_round = false
+	passes_required = 1
+	trace_passes = 0
 	mode = next_mode
 	accent = next_accent
 	target_choice = choice
@@ -522,6 +538,7 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 	paint_dragging = false
 	paint_last_point = Vector2.ZERO
 	paint_complete = false
+	mirror_reverse_paint = false
 	farm_piece_position = _farm_anchor_point()
 	farm_drag_offset = Vector2.ZERO
 	farm_dragging = false
@@ -806,6 +823,7 @@ func _load_widget_set() -> void:
 
 
 func note_input() -> void:
+	activity_touch.emit()
 	input_started = true
 	demo_active = false
 	queue_redraw()
@@ -928,12 +946,39 @@ func set_fill(value: float) -> void:
 	widget_fill = clampf(value, 0.0, 1.0)
 	if _uses_long_push_context():
 		long_push_journey = widget_fill
-	if _uses_authored_trace_context():
+	if _uses_authored_trace_context() and not contest_mode:
 		trace_journey = widget_fill
 	queue_redraw()
 
 
+func set_mirror_units(units: float, total: float) -> void:
+	# Passive display only. Never emits a gesture or runs a demonstration clock.
+	var progress := clampf(units / maxf(0.1, total), 0.0, 1.0)
+	set_fill(progress)
+	if _uses_anchored_targets():
+		for index in range(target_placed.size()):
+			target_placed[index] = index < floori(units)
+	if mode == "farm_lob":
+		farm_landed = floori(units)
+	if mode == "paint_reveal":
+		var count := ceili(float(paint_cells.size()) * PAINT_REQUIRED_COVERAGE * progress)
+		paint_covered = count
+		paint_complete = progress >= 1.0
+		for index in range(paint_cells.size()):
+			var order := index / PAINT_GRID_COLS * PAINT_GRID_COLS + PAINT_GRID_COLS - 1 - index % PAINT_GRID_COLS \
+				if mirror_reverse_paint else index
+			paint_cells[index] = order < count
+	if mode == "echo":
+		echo_verse = floori(units)
+	if _uses_authored_trace_context():
+		trace_passes = mini(passes_required, floori(units)) if contest_mode else 0
+		trace_journey = progress if passes_required == 1 else fmod(units, 1.0)
+	queue_redraw()
+
+
 func _press(at: Vector2) -> void:
+	if armed_only or completion_accepted or (mode == "choice" and shuffle_t > 0.0):
+		return
 	note_input()
 	held = true
 	pointer_pos = at
@@ -959,7 +1004,7 @@ func _press(at: Vector2) -> void:
 			if lane == target_choice:
 				gesture.emit("choice", 1.0, 1.0)
 			else:
-				gesture.emit("choice", _miss_pay(), 0.0)
+				gesture.emit("contest_wrong" if contest_mode else "choice", _miss_pay(), 0.0)
 		"timing":
 			if timing_position >= timing_zone.x and timing_position <= timing_zone.y:
 				gesture.emit("timing", 1.0, 1.0)
@@ -1086,6 +1131,9 @@ func _bop_press(at: Vector2) -> void:
 
 
 func _drag(at: Vector2) -> void:
+	if armed_only or completion_accepted:
+		return
+	activity_touch.emit()
 	note_input()
 	pointer_pos = at
 	var distance := at.distance_to(previous_pos)
@@ -1680,12 +1728,21 @@ func _trace_demo_point(progress: float) -> Vector2:
 			return Vector2(size.x * lerpf(0.12, 0.88, amount),
 				size.y * (0.50 + sin(amount * TAU) * 0.18))
 		"trace_doctor":
+			if contest_mode:
+				var route := _doctor_paw_route(trace_passes)
+				return route[0].lerp(route[1], amount) + Vector2(0, sin(amount * PI) * size.y * 0.055)
 			return Vector2(size.x * lerpf(0.18, 0.82, amount),
 				size.y * (0.28 + amount * 0.45 + sin(amount * TAU) * 0.07))
 		"trace_magician":
 			return Vector2(size.x * lerpf(0.16, 0.84, amount),
 				size.y * (0.27 + (1.0 - pow(2.0 * amount - 1.0, 2.0)) * 0.42))
 	return size * 0.5
+
+
+func _doctor_paw_route(index: int) -> Array[Vector2]:
+	var centers: Array[Vector2] = [Vector2(0.29, 0.52), Vector2(0.71, 0.52), Vector2(0.50, 0.77)]
+	var center := centers[clampi(index, 0, 2)] * size
+	return [center - Vector2(size.x * 0.11, 0), center + Vector2(size.x * 0.11, 0)]
 
 
 func _trace_goal_units() -> float:
@@ -1716,6 +1773,9 @@ func _trace_progress_for_point(point: Vector2) -> float:
 		"trace_ballerina":
 			return clampf(inverse_lerp(size.x * 0.12, size.x * 0.88, point.x), 0.0, 1.0)
 		"trace_doctor":
+			if contest_mode:
+				var route := _doctor_paw_route(trace_passes)
+				return clampf(inverse_lerp(route[0].x, route[1].x, point.x), 0.0, 1.0)
 			return clampf(inverse_lerp(size.x * 0.18, size.x * 0.82, point.x), 0.0, 1.0)
 		"trace_magician":
 			return clampf(inverse_lerp(size.x * 0.16, size.x * 0.84, point.x), 0.0, 1.0)
@@ -1756,7 +1816,14 @@ func _authored_trace_drag(at: Vector2) -> void:
 		trace_points.append(at)
 	trace_journey = minf(1.0, candidate)
 	widget_fill = trace_journey
-	gesture.emit("swipe", journey_delta * _trace_goal_units(), 1.0)
+	gesture.emit("swipe", journey_delta if contest_mode else journey_delta * _trace_goal_units(), 1.0)
+	if contest_mode and trace_journey >= 0.999:
+		trace_passes += 1
+		trace_engaged = false
+		if trace_passes < passes_required:
+			trace_journey = 0.0
+			trace_points.clear()
+			restart_demo()
 	previous_pos = at
 
 
@@ -1773,6 +1840,9 @@ func _trace_corridor_contains(point: Vector2) -> bool:
 			var expected_y := size.y * (0.50 + sin(amount * TAU) * 0.18)
 			return absf(point.y - expected_y) <= size.y * 0.14
 		"trace_doctor":
+			if contest_mode:
+				var amount := _trace_progress_for_point(point)
+				return point.distance_to(_trace_demo_point(amount)) <= maxf(28.0, size.y * 0.13)
 			var amount := inverse_lerp(size.x * 0.18, size.x * 0.82, point.x)
 			if amount < 0.0 or amount > 1.0:
 				return false
@@ -1917,6 +1987,14 @@ func _draw_trace_doctor_subject() -> void:
 	draw_set_transform(Vector2.ZERO)
 	draw_line(plush - Vector2(body.x * 0.56, 0.0),
 		plush + Vector2(body.x * 0.56, 0.0), Color(0.60, 0.45, 0.38, 0.38), 5.0, true)
+	if contest_mode:
+		for paw in range(3):
+			var route := _doctor_paw_route(paw)
+			var center := (route[0] + route[1]) * 0.5
+			draw_circle(center, size.y * 0.11, Color("#efb88a"))
+			if paw < trace_passes:
+				draw_line(route[0], route[1], Color("#f8e3c2"), 22.0, true)
+				draw_line(route[0], route[1], Color("#9d7b74"), 2.0, true)
 	var roll := _trace_demo_point(0.0)
 	draw_circle(roll, 25.0, Color("#f7ead4"))
 	draw_circle(roll, 10.0, Color("#9d7b74"))
@@ -5240,7 +5318,8 @@ func start_shuffle(from_lane: int) -> void:
 	# magician TRACK: the fiction promises motion — show it. The answer glow
 	# glides from the flashed lane to the true lane; a decoy arc crosses it.
 	shuffle_from = clampi(from_lane, 0, choice_count - 1)
-	shuffle_t = 1.5
+	shuffle_seconds = 1.5 * contest_cue_scale
+	shuffle_t = shuffle_seconds
 	choice_flash = maxf(choice_flash, 2.2)
 	queue_redraw()
 
@@ -5251,7 +5330,7 @@ func _lane_center(lane: int) -> Vector2:
 
 
 func _draw_shuffle_glide(target_lane: int) -> void:
-	var t := clampf(1.0 - shuffle_t / 1.5, 0.0, 1.0)
+	var t := clampf(1.0 - shuffle_t / shuffle_seconds, 0.0, 1.0)
 	var eased := t * t * (3.0 - 2.0 * t)
 	var from_point := _lane_center(shuffle_from)
 	var to_point := _lane_center(target_lane)
@@ -5856,7 +5935,7 @@ func _echo_tick(delta: float) -> void:
 	# SHOW: the stars sing their verse one by one; then it is her turn
 	echo_show_t -= delta
 	if echo_show_t <= 0.0:
-		var verse: Array = ECHO_VERSES[clampi(echo_verse, 0, ECHO_VERSES.size() - 1)]
+		var verse: Array = [0, 2] if contest_easy_round else ECHO_VERSES[clampi(echo_verse, 0, ECHO_VERSES.size() - 1)]
 		echo_show_i += 1
 		if echo_show_i >= verse.size():
 			echo_listening = true
@@ -5865,14 +5944,14 @@ func _echo_tick(delta: float) -> void:
 			echo_last_note = int(verse[echo_show_i])
 			echo_glow = 0.45
 			gesture.emit("echo_note", 0.0, 1.0)
-			echo_show_t = 0.55
+			echo_show_t = 0.55 * contest_cue_scale
 	queue_redraw()
 
 
 func _echo_press(at: Vector2) -> void:
 	if completion_accepted:
 		return
-	var verse: Array = ECHO_VERSES[clampi(echo_verse, 0, ECHO_VERSES.size() - 1)]
+	var verse: Array = [0, 2] if contest_easy_round else ECHO_VERSES[clampi(echo_verse, 0, ECHO_VERSES.size() - 1)]
 	var nearest := -1
 	var nearest_d := 92.0
 	for candidate in range(3):
@@ -5895,6 +5974,7 @@ func _echo_press(at: Vector2) -> void:
 				if echo_input_i >= verse.size():
 					# verse sung back! the song grows by one verse
 					echo_verse += 1
+					contest_easy_round = false
 					echo_listening = false
 					echo_show_i = -1
 					echo_show_t = 0.7
@@ -5902,7 +5982,9 @@ func _echo_press(at: Vector2) -> void:
 			else:
 				# kind replay: the stars sing the verse again
 				echo_last_note = star
-				gesture.emit("echo", _miss_pay(), 0.4)
+				if contest_mode:
+					echo_verse = (echo_verse + 1) % ECHO_VERSES.size()
+				gesture.emit("contest_wrong" if contest_mode else "echo", _miss_pay(), 0.4)
 				echo_listening = false
 				echo_show_i = -1
 				echo_show_t = 0.9

@@ -33,3 +33,9 @@ scripts/probe_fairy_restoration.gd text eol=lf
 tools/build_fairy_restoration_voices.py text eol=lf
 # The audio-summary inventory hash binds the generator's canonical LF CSV bytes.
 audit/audio_quality_ledger_2026-08-24.csv text eol=lf
+
+# Opera contest native sources and review receipts bind literal SHA-256 bytes.
+assets_src/audio/opera_contest_20260930/** -text whitespace=cr-at-eol
+assets_src/audio/opera_teacher_silly_20260930/** -text whitespace=cr-at-eol
+assets_src/imagegen/opera_teacher_silly_20260930/** -text whitespace=cr-at-eol
+audit/opera_imp_contests_2026-09-30/** -text whitespace=-blank-at-eol,cr-at-eol

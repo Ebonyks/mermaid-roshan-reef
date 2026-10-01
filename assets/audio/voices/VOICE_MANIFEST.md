@@ -130,3 +130,52 @@ loudness, true peak, protection, provenance class, and routing evidence. Human
 voice identity, pronunciation, intelligibility, child-safety, mono, mix, and
 target-device grades remain open until the listening matrix in `DL-SND-15` and
 `DL-SND-16` is completed.
+
+
+## 2026-09-30 Opera contest cohort
+
+Twenty-five exact cues are appended in `filler_v1/` for the twelve final-act
+skill contests: twelve imp challenges, eleven Roshan instructions, the imp win
+and Roshan rematch reactions. Racer reuses its existing exact steering cue.
+The original arrival/copy/bop lines and every other existing voice retain their
+bytes; `assets_src/audio/opera_contest_20260930/EXISTING_VOICES_UNCHANGED.json`
+binds the baseline and hashes.
+
+This is `PROVISIONAL_SYNTHETIC_FILLER`, using the pinned Parler Mini v1.1
+Joy/Mike presets. The non-runtime archive preserves every native candidate,
+attempt/seed, generation description, model/tool hash, independent ASR decision,
+quality measurement and mastering record. The selector retains exact audible
+words, a 225–360 Hz Roshan gate, unchanged DNSMOS thresholds and no pitch shift.
+A possessive apostrophe is spelling only: “imp's” and ASR “imps” retain the same
+final s; “imp” and omitted instruction words still fail. Independent ASR review
+can continue when an earlier exact transcript fails the voice-quality gate.
+
+The runtime queue preserves Roshan's instruction priority and serializes the
+imp win/rematch lines while the attempt resets immediately. Low-priority imp
+reactions may be dropped when speech collides. Human identity, pronunciation,
+intelligibility, mix/mono, child and target-device listening remain open under
+`DL-SND-15` and `DL-SND-16`; these machine decisions grant no listening acceptance.
+
+## 2026-09-30 Teacher inverted-contest preparation
+
+Forty-two exact Teacher/shared cues are appended through the same pinned native
+Parler presets and unchanged pitch, DNSMOS, exact-word and clipping gates.
+`assets_src/audio/opera_teacher_silly_20260930/` preserves every completed native
+take, its actual segmented generation text, run/model/seed identity, independent
+ASR decision and mastering evidence. Incomplete redundant CPU runs are preserved
+separately and supply no selected voice. The catalog snapshot is explicitly
+append-time authority, not a retrospective generation capture.
+
+Numeric and phonetic ASR spellings normalize only the same audible words: digit
+three to three, P.U. to pee-yew, and eleven tee twelve to eleventy-twelve.
+Omissions, wrong numbers, lower pitch and failed quality measurements still fail.
+The original Teacher generator retains its source after checkout line-ending
+normalization. All 738 pre-existing voice files retain their literal bytes;
+historical filler entries and generation runs stay unchanged.
+
+Teacher remains cooperative in production. The clock-free inverted plan and
+surface are preparation; world-phase/acting/speech/checkpoint integration and the
+approved 40-icon set are still required. The first five native smell pictures
+await owner style approval before the remaining 35 are generated. These cues
+remain `PROVISIONAL_SYNTHETIC_FILLER`; human identity, pronunciation, mix/mono,
+target-device, child and owner listening acceptance is pending.

@@ -43,6 +43,12 @@ PROMPT_WORD_EQUIVALENTS = {
     "flower": "flour", "shoe": "shoo",
     "bleh": "blegh", "blah": "blegh", "em": "them",
     "tada": "tadaa", "tadah": "tadaa",
+    "0": "zero", "1": "one", "2": "two", "3": "three", "4": "four",
+    "5": "five", "6": "six", "7": "seven", "8": "eight", "9": "nine",
+    "10": "ten", "11": "eleven", "12": "twelve",
+    "brr": "brrr", "brrrr": "brrr", "burr": "brrr",
+    "ew": "eww", "ewww": "eww",
+    "sooo": "so", "soooo": "so", "slooow": "slow", "yaaawn": "yawn",
 }
 GROUP_F0_RANGES = {
     "roshan": (225.0, 360.0),
@@ -81,15 +87,20 @@ def canonical_json_sha256(value: object) -> str:
 
 def normalize_prompt_words(value: str) -> list[str]:
     """Use the selector's narrow reviewed semantic-word normalization."""
-    normalized = value.lower().replace("lamb-a", "lamba")
+    normalized = value.lower().replace("\u2019", "'").replace("lamb-a", "lamba")
     for contraction, expanded in {
         "he's": "he is", "you'll": "you will", "didn't": "did not",
         "that's": "that is", "i'm": "i am", "it's": "it is",
         "let's": "let us", "where's": "where is",
     }.items():
         normalized = normalized.replace(contraction, expanded)
+    normalized = re.sub(r"\b([a-z]+)'s\b", r"\1s", normalized)
     normalized = normalized.replace("re-laying", "relaying").replace("re laying", "relaying")
     normalized = normalized.replace("tip-toe", "tiptoe").replace("tee hee", "heehee")
+    normalized = normalized.replace("bubble gum", "bubblegum")
+    normalized = normalized.replace("pee you", "pee yew").replace("eleventytwelve", "eleventy twelve")
+    normalized = re.sub(r"\b(?:eleven|11)[\s,-]+(?:tee|tea|t)\b", "eleventy", normalized)
+    normalized = re.sub(r"\bp[\s.-]*u\b", "pee yew", normalized)
     normalized = normalized.replace("uh oh", "oh")
     normalized = re.sub(r"\bmyoo[ -]?sha\b", "mewsha", normalized)
     normalized = re.sub(r"\bta[ -]?da+a\b", "tadaa", normalized)

@@ -227,7 +227,6 @@ func _check_timed_reprompt(world: OperaCareerWorld2D, label: String,
 		"" if speaker == "Faron" else "filler_v1/", cue_key]
 	main.clear_dialogue()
 	main.said_cool.erase(cue_key)
-	world.reveal_t = 0.0
 	world.phase_advance_pending = false
 	world.idle_t = 8.95
 	var before: int = main.voice_i

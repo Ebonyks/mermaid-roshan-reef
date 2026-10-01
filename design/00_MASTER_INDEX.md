@@ -273,7 +273,10 @@ fail renderer identity after 20 PASS rows and provide PNGs only, not remote
 JSON/Mobile PASS. Authoritative visual, exact voice, human listening, device,
 child, owner, and strict-zero 2D evidence remain open.
 
-Current Opera content is 14 careers, 57 phases, and 28 modes with newer
+The September 30 contest candidate has 15 careers, 65 logical phase definitions
+and 36 modes, expanded to 74 freeplay instances by the three Hall practice/stage
+plans. Chapter 2 opt-outs retain the 61 base lessons. Its exact evidence and open
+acceptance gates are in [the impact record](audit_impacts/opera-imp-contests-20260930.json). It preserves the newer
 diegetic rooms, the integrated Candymaker, current Ballerina/Boxer, and the
 Canvas Racer plus cooperative Geologist. Commit `09e5e356` distributed the
 original thirteen careers to exact thematic

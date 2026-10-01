@@ -5,9 +5,8 @@ extends RefCounted
 ## The career engine still owns its tactile minigames. This director turns
 ## those verbs into one readable stage contest: Roshan versus a dressed rival,
 ## a live audience meter, a performance score, and a graded curtain call.
-## Completing the act always earns the career star. The sole retry is the
-## Detective's guided rematch: the rival reveals the answer first, so the
-## second attempt is recognition rather than lost progress.
+## Completing the act earns the career star. OperaImpContest owns the final
+## job challenge and its attempts; earlier activities have no rival clock.
 
 const CAREERS := {
 	"chef": {
@@ -24,7 +23,6 @@ const CAREERS := {
 		"rival_verb": "checks a clue",
 		"par_time": 40.0,
 		"rival_cap": 1.0,
-		"timed_retry": true,
 		"accent": Color(0.58, 0.78, 1.0),
 	},
 	"ballerina": {
@@ -155,7 +153,7 @@ var retries := 0
 var rival_step := 0
 var cheer_tier := 1
 var _last_player_progress := 0.0
-var _rival_finish_sent := false
+var contest_result: Dictionary = {}
 
 
 func configure(costume: String) -> void:
@@ -174,7 +172,7 @@ func configure(costume: String) -> void:
 	rival_step = 0
 	cheer_tier = 1
 	_last_player_progress = 0.0
-	_rival_finish_sent = false
+	contest_result = {}
 
 
 func is_valid() -> bool:
@@ -218,6 +216,8 @@ func tick(delta: float, observed_progress: float) -> Array[String]:
 	if gained > 0.0001:
 		player_score += maxi(1, int(round(gained * 760.0)))
 		_last_player_progress = player_progress
+	if bool(spec.get("skill_contest", false)):
+		return events
 
 	var par_time := maxf(10.0, float(spec.get("par_time", 80.0)))
 	var cap := clampf(float(spec.get("rival_cap", 0.82)), 0.2, 1.0)
@@ -229,23 +229,7 @@ func tick(delta: float, observed_progress: float) -> Array[String]:
 	while rival_step < wanted_step:
 		rival_step += 1
 		events.append("rival_step")
-	if bool(spec.get("timed_retry", false)) and rival_progress >= 0.999 and player_progress < 0.999 and not _rival_finish_sent:
-		_rival_finish_sent = true
-		events.append("rival_solved")
 	return events
-
-
-func guided_retry() -> void:
-	retries += 1
-	active = true
-	round_elapsed = 0.0
-	# only the RIVAL restarts — the child keeps her bar and score
-	# high-water marks (recognition rematch, never lost progress)
-	rival_progress = 0.0
-	rival_step = 0
-	_rival_finish_sent = false
-	# The revealed layout makes the rematch intentionally slower for the rival.
-	spec["par_time"] = float(spec.get("par_time", 40.0)) + 12.0
 
 
 func complete() -> Dictionary:
@@ -277,6 +261,9 @@ func complete() -> Dictionary:
 		cheer_tier = 2
 	else:
 		cheer_tier = 1
+	if not contest_result.is_empty():
+		cheer_tier = int(contest_result.get("tier", 1))
+		retries = int(contest_result.get("rematches", 0))
 	return result()
 
 
@@ -299,9 +286,7 @@ func result() -> Dictionary:
 
 
 func time_left() -> float:
-	if not bool(spec.get("timed_retry", false)):
-		return -1.0
-	return maxf(0.0, float(spec.get("par_time", 40.0)) - round_elapsed)
+	return -1.0
 
 
 func audience_energy() -> float:

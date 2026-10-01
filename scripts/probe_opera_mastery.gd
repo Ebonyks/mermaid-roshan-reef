@@ -11,12 +11,24 @@ func _initialize() -> void:
 	_probe_invalid_and_practice()
 	_probe_upgrade_ledger()
 	_probe_spending_and_legacy()
+	_probe_contest_tiers()
 	if failures == 0:
 		print("OPERAMASTERY|result: ALL OK")
 		quit(0)
 	else:
 		print("OPERAMASTERY|result: %d FAIL" % failures)
 		quit(1)
+
+
+func _probe_contest_tiers() -> void:
+	var gold := Mastery.apply_result({}, "chef", {"stage_completed": true, "contest_tier": 3})
+	var rematch := Mastery.apply_result(gold["ledger"], "chef", {"stage_completed": true, "contest_tier": 2})
+	_check("contest margin grants gold once; rematch never downgrades or regrants tokens",
+		int(gold["tier"]) == 3 and int(gold["token_delta"]) == 6
+		and int(rematch["best_tier"]) == 3 and int(rematch["token_delta"]) == 0)
+	_check("contest telemetry cannot grant an unfinished or practice result",
+		Mastery.evaluate("chef", {"stage_completed": false, "contest_tier": 3}) == 0
+		and Mastery.evaluate("chef", {"stage_completed": true, "practice": true, "contest_tier": 3}) == 0)
 
 
 func _probe_thresholds() -> void:

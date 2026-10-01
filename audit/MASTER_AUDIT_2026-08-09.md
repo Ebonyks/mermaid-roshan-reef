@@ -10,6 +10,8 @@ Day Two graphics first pass (2026-09-30): [illustrated review and refresh workfl
 
 Opera imp contest supplement (2026-09-30): the [Codex imp-contest handoff](../docs/handoffs/codex_opera_imp_contest_2026-09-30/README.md) records the owner decisions behind `DL-INT-14`. Each competitive career's imp stays hidden until the final act, which ends in one job-skill contest he can win, and his win restarts that contest at once. Revision 2 adds the inverted form for learning careers: the Teacher's imp teaches with deliberate mistakes and the child beats him by fixing them (the Geologist pending confirmation). Revision 4 leans into silly humor with questions such as which smells the worst. It is a written specification (target contract); it changes no runtime, closes no finding (including MA-OPERA-005, MA-OPERA-009 and MA-PLAY-004) and claims no acceptance.
 
+The [implementation impact](../design/audit_impacts/opera-imp-contests-20260930.json) records the twelve-contest foundation: four inserted phases, 65 definitions / 74 expanded freeplay instances / 36 modes across fifteen careers, additive phase checkpoints, contest-only rematches and story opt-outs. Revision 4 also prepares the inverted Teacher plan/surface and 42 Teacher/shared voice cues alongside the 25 contest cues, plus five native smell-icon candidates for the required owner style review. Teacher world-phase integration and the approved 40-icon set remain incomplete; no whole-handoff completion or acceptance is claimed.
+
 
 Planning guidance updated 2026-09-05 against integration source `775ceee1`.
 This is a document/selected-fact review, not a new whole-game runtime audit.

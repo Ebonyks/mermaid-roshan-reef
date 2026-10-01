@@ -48,6 +48,9 @@ const JAB_TARGETS: Array[Vector2] = [
 
 ## Probe-visible transient state. None of it is persisted.
 var touch_owners: Dictionary = {}
+var contest_idle_t := 4.0
+var contest_pause_imp := false
+
 var landed_punches := 0
 var hit_feedback_t := 0.0
 var finished := false
@@ -170,7 +173,7 @@ func receive_friendly_hit() -> void:
 	_impact_t = maxf(_impact_t, 0.42)
 	_impact_position = Vector2(size.x * 0.5, size.y * 0.68)
 	_play_player(_bonk_player, 0.86)
-	gesture.emit("boxing_contact", 0.0, 1.0)
+	gesture.emit("contest_counter" if contest_mode and contest_idle_t < 4.0 else "boxing_contact", 0.0, 1.0)
 	if not completion_accepted:
 		restart_demo()
 	queue_redraw()
@@ -303,6 +306,7 @@ func _notification(what: int) -> void:
 func _process(delta: float) -> void:
 	var step := maxf(0.0, delta)
 	_elapsed += step
+	contest_idle_t += step
 	if feedback_t > 0.0:
 		feedback_t = maxf(0.0, feedback_t - step)
 	if hit_feedback_t > 0.0:
@@ -364,6 +368,9 @@ func _tick_counter(delta: float) -> void:
 
 
 func _tick_imp(delta: float) -> void:
+	if contest_mode and (contest_idle_t >= 4.0 or contest_pause_imp):
+		return
+	delta /= contest_cue_scale
 	_imp_state_t -= delta
 	if _imp_state_t > 0.0:
 		return
@@ -442,6 +449,7 @@ func _handle_press(finger_id: int, at: Vector2) -> void:
 	if completion_accepted or finished or armed_only or touch_owners.has(finger_id):
 		return
 	note_input()
+	contest_idle_t = 0.0
 	_stuck_t = 0.0
 	var hand := _choose_hand(at)
 	if hand < 0:
@@ -460,6 +468,10 @@ func _handle_press(finger_id: int, at: Vector2) -> void:
 func _handle_drag(finger_id: int, at: Vector2) -> void:
 	if not touch_owners.has(finger_id) or completion_accepted or finished:
 		return
+	if armed_only:
+		return
+	activity_touch.emit()
+	contest_idle_t = 0.0
 	var hand := int(touch_owners[finger_id])
 	var next := at + _touch_offsets[hand]
 	next.x = clampf(next.x, 62.0, size.x - 62.0)

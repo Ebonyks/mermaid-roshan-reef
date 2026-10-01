@@ -9,6 +9,7 @@ the complete cohort has passed and is explicitly mastered for delivery.
 from __future__ import annotations
 
 import argparse
+import ast
 import hashlib
 import importlib.metadata
 import importlib.util
@@ -77,6 +78,14 @@ ASR_WORD_EQUIVALENTS = {
     "bleh": "blegh", "blah": "blegh",
     "em": "them",
     "tada": "tadaa", "tadah": "tadaa",
+    # Spelling of the same audible numbers and deliberately stretched sounds.
+    # Fictional eleventy, wrong numbers and omitted words remain distinct.
+    "0": "zero", "1": "one", "2": "two", "3": "three", "4": "four",
+    "5": "five", "6": "six", "7": "seven", "8": "eight", "9": "nine",
+    "10": "ten", "11": "eleven", "12": "twelve",
+    "brr": "brrr", "brrrr": "brrr", "burr": "brrr",
+    "ew": "eww", "ewww": "eww",
+    "sooo": "so", "soooo": "so", "slooow": "slow", "yaaawn": "yawn",
 }
 
 F0_RANGES = {
@@ -107,24 +116,37 @@ GROUP_COMPONENTS = {
 
 
 def load_lines() -> dict[str, tuple[str, str]]:
-    spec = importlib.util.spec_from_file_location("legacy_make_voices", ROOT / "tools" / "make_voices.py")
-    if spec is None or spec.loader is None:
-        raise RuntimeError("could not load tools/make_voices.py")
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return dict(module.LINES) | GROUP_COMPONENTS
+    tree = ast.parse((ROOT / "tools/make_voices.py").read_text(encoding="utf-8"))
+    lines = next(ast.literal_eval(node.value) for node in tree.body if
+                 isinstance(node, ast.Assign) and any(isinstance(target, ast.Name)
+                 and target.id == "LINES" for target in node.targets))
+    cohort = json.loads((ROOT / "tools/opera_contest_voice_catalog.json").read_text(encoding="utf-8"))
+    for key, value in cohort["lines"].items():
+        pair = tuple(value)
+        if key in lines and lines[key] != pair:
+            raise RuntimeError("contest catalog conflicts with legacy line: " + key)
+        lines[key] = pair
+    return lines | GROUP_COMPONENTS
 
 
 def normalize_words(text: str) -> list[str]:
-    normalized = text.lower().replace("lamb-a", "lamba")
+    normalized = text.lower().replace("\u2019", "'").replace("lamb-a", "lamba")
     for contraction, expanded in {
         "he's": "he is", "you'll": "you will", "didn't": "did not",
         "that's": "that is", "i'm": "i am", "it's": "it is",
         "let's": "let us", "where's": "where is",
     }.items():
         normalized = normalized.replace(contraction, expanded)
+    # A possessive apostrophe has no sound. Preserve its audible s while
+    # accepting ASR's "imps" spelling for "imp's"; "imp" still fails.
+    normalized = re.sub(r"\b([a-z]+)'s\b", r"\1s", normalized)
     normalized = normalized.replace("re-laying", "relaying").replace("re laying", "relaying")
     normalized = normalized.replace("tip-toe", "tiptoe").replace("tee hee", "heehee")
+    normalized = normalized.replace("bubble gum", "bubblegum")
+    normalized = normalized.replace("pee you", "pee yew").replace("eleventytwelve", "eleventy twelve")
+    # ASR may spell the invented word as its unchanged audible syllables.
+    normalized = re.sub(r"\b(?:eleven|11)[\s,-]+(?:tee|tea|t)\b", "eleventy", normalized)
+    normalized = re.sub(r"\bp[\s.-]*u\b", "pee yew", normalized)
     normalized = normalized.replace("uh oh", "oh")
     normalized = re.sub(r"\bmyoo[ -]?sha\b", "mewsha", normalized)
     normalized = re.sub(r"\bta[ -]?da+a\b", "tadaa", normalized)
@@ -142,6 +164,18 @@ def normalize_words(text: str) -> list[str]:
         else:
             collapsed.append(word)
     return collapsed
+
+
+def eligible_candidate(character: str, row: dict, threshold: float) -> bool:
+    return (
+        (row.get("wer") == 0.0 or row.get("secondary_wer") == 0.0)
+        and float(row.get("selection_score", -999.0)) >= threshold
+        and row.get("f0_median_hz") is not None
+        and (character != "roshan" or (
+            F0_RANGES["roshan"][0] <= float(row["f0_median_hz"]) <= F0_RANGES["roshan"][1]
+        ))
+        and int(row.get("clipped_samples") or 0) == 0
+    )
 
 
 def minimum_score(expected: str) -> float:
@@ -276,12 +310,23 @@ def main() -> int:
         default=ROOT / "tmp" / "filler_candidate_audit_cache.json",
     )
     parser.add_argument("--secondary-whisper-model", default="small.en")
+    parser.add_argument("--cpu-threads", type=int, default=4)
+    parser.add_argument("--keys-file", type=Path,
+                        help="Select only this explicit append-only cohort of existing catalog keys.")
     parser.add_argument(
         "--contextual-catalog", type=Path,
         help="Frozen Day One coverage JSON; select only its PENDING_GENERATION rows.",
     )
     args = parser.parse_args()
+    if not 1 <= args.cpu_threads <= 16:
+        parser.error("--cpu-threads must be between 1 and 16")
     lines = load_lines()
+    if args.keys_file:
+        requested = set(args.keys_file.read_text(encoding="utf-8").split())
+        unknown = requested - set(lines)
+        if not requested or unknown:
+            parser.error("empty cohort or unknown keys: " + ", ".join(sorted(unknown)))
+        lines = {key: lines[key] for key in sorted(requested)}
     if args.contextual_catalog:
         document = json.loads(args.contextual_catalog.read_text(encoding="utf-8"))
         if document.get("speaker") != "roshan" or document.get("allow_generic") is not False:
@@ -298,7 +343,7 @@ def main() -> int:
         }
     manifest_paths = sorted(args.candidates.glob("attempt_*/*manifest.json"))
     contextual_manifest = args.candidates / "trial_manifest.json"
-    if args.contextual_catalog and contextual_manifest.is_file():
+    if (args.contextual_catalog or args.keys_file) and contextual_manifest.is_file():
         manifest_paths.append(contextual_manifest)
     manifests: list[dict[str, object]] = []
     for path in manifest_paths:
@@ -309,7 +354,8 @@ def main() -> int:
         if entry.get("speaker") != EXPECTED_SPEAKERS.get(character):
             continue
         by_key.setdefault(str(entry["key"]), []).append(entry)
-    whisper = WhisperModel("tiny.en", device="cpu", compute_type="int8")
+    whisper = WhisperModel("tiny.en", device="cpu", compute_type="int8",
+                           cpu_threads=args.cpu_threads, num_workers=1)
     secondary_whisper: WhisperModel | None = None
     cache: dict[str, dict[str, object]] = {}
     if args.cache.exists():
@@ -376,10 +422,14 @@ def main() -> int:
                     name: value for name, value in row.items()
                     if name not in {"path", "attempt", "seed"}
                 }
-        if candidates and not any(row.get("wer") == 0.0 for row in candidates):
+        threshold = minimum_score(expected)
+        # A correct transcript with a rejected voice cannot block independent
+        # ASR review of the other takes. Stop only after a fully eligible take.
+        if candidates and not any(eligible_candidate(character, row, threshold) for row in candidates):
             if secondary_whisper is None:
                 secondary_whisper = WhisperModel(
                     args.secondary_whisper_model, device="cpu", compute_type="int8",
+                    cpu_threads=args.cpu_threads, num_workers=1,
                 )
             for row in sorted(candidates, key=lambda item: int(item.get("attempt") or 0), reverse=True):
                 path = Path(str(row["path"]))
@@ -406,20 +456,11 @@ def main() -> int:
                         name: value for name, value in row.items()
                         if name not in {"path", "attempt", "seed"}
                     }
-                if row.get("secondary_wer") == 0.0:
+                if eligible_candidate(character, row, threshold):
                     break
-        threshold = minimum_score(expected)
         eligible = [
             row for row in candidates
-            if (row.get("wer") == 0.0 or row.get("secondary_wer") == 0.0)
-            and float(row.get("selection_score", -999.0)) >= threshold
-            and row.get("f0_median_hz") is not None
-            and (character != "roshan" or (
-                F0_RANGES["roshan"][0]
-                <= float(row["f0_median_hz"])
-                <= F0_RANGES["roshan"][1]
-            ))
-            and int(row.get("clipped_samples") or 0) == 0
+            if eligible_candidate(character, row, threshold)
             and group_signal_gate(key, character, row)
         ]
         chosen = max(eligible, key=lambda row: float(row["selection_score"])) if eligible else None
@@ -466,6 +507,7 @@ def main() -> int:
         "human_and_device_review_required": True,
         "whisper_model": "tiny.en", "whisper_compute_type": "int8",
         "secondary_whisper_model": args.secondary_whisper_model,
+        "cpu_threads": args.cpu_threads, "asr_workers": 1,
         "minimum_selection_score": MIN_SELECTION_SCORE,
         "minimum_short_selection_score": MIN_SHORT_SELECTION_SCORE,
         "short_selection_max_words": 2,

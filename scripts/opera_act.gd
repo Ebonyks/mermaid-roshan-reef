@@ -95,6 +95,12 @@ func _process(delta: float) -> void:
 
 
 func _notification(what: int) -> void:
+	if what in [NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_WM_CLOSE_REQUEST] \
+			and state == "play" and career_world_2d != null \
+			and career_world_2d.contest != null \
+			and career_world_2d.contest.state == "player_won" \
+			and career_world_2d.phase_advance_pending:
+		career_world_2d._advance_completed_phase()
 	if (what == NOTIFICATION_APPLICATION_PAUSED \
 			or what == NOTIFICATION_WM_CLOSE_REQUEST) and state == "won":
 		# The child earned the result before the curtain-call delay. Commit it
@@ -109,8 +115,6 @@ func _tick_competition(delta: float) -> void:
 	for event: String in competition.tick(delta, career_world_2d.competition_progress()):
 		if event == "rival_step":
 			career_world_2d.rival_step()
-		elif event == "rival_solved":
-			career_world_2d.begin_guided_retry()
 
 
 func _win() -> void:
@@ -135,7 +139,8 @@ func _win() -> void:
 				m._update_hud()
 		career_world_2d.celebrate(performance_result)
 		if career_world_2d.two_act_enabled:
-			m._play_success_yay()
+			if not career_world_2d.contest_enabled:
+				m._play_success_yay()
 			return
 	var win_line := String(config.get("win_line", "What a show! Everybody is cheering!"))
 	if not performance_result.is_empty():
@@ -173,6 +178,11 @@ func _finish() -> void:
 
 
 func cancel() -> void:
+	if state == "play" and career_world_2d != null \
+			and career_world_2d.contest != null \
+			and career_world_2d.contest.state == "player_won" \
+			and career_world_2d.phase_advance_pending:
+		career_world_2d._advance_completed_phase()
 	if state == "done":
 		return
 	if state == "invalid":
