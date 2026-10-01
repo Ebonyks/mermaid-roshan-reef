@@ -1,0 +1,165 @@
+{
+  "schema": "reef.lowering-review-pack.v1",
+  "source": "assets_src/imagegen/day2_nursery_lower_bridge_20261001/candidates/attempt-01.png",
+  "source_sha256": "464e9d3c4791c87a50103d645363ff70f191ff7905b7feebbc06e3f8cded5957",
+  "method": "Exact nonoverlapping native RGBA windows on1024px transparent review canvases; all pixels reconstructed; no resampling, alpha repair, color change or subject modification.",
+  "all_native_rgba_pixels_reconstructed": true,
+  "native_rgba_sha256": "3870557b01d8c485db9d0c567f45c30c97c875068f9ed63c79dadc93127447f6",
+  "poses": [
+    {
+      "index": 0,
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/lower_00_review.png",
+      "sha256": "c83966eaeeeb21ee5375c80fa69dece9fea617bac9383a4fde3ac89be42a6695",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_window": [
+        0,
+        0,
+        655,
+        627
+      ],
+      "padding_offset": [
+        184,
+        198
+      ],
+      "painted_50pct_bounds": [
+        304,
+        265,
+        783,
+        802
+      ],
+      "hip_xy": [
+        457,
+        673
+      ],
+      "palm_xy": [
+        368,
+        543
+      ],
+      "landmark_uncertainty_native_px": 5,
+      "pixel_copy_exact": true,
+      "runtime_bound": false
+    },
+    {
+      "index": 1,
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/lower_01_review.png",
+      "sha256": "d59e33c63a0abf288be2d05c124ca11fc20b28554993455e105c6fc71db36db6",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_window": [
+        655,
+        0,
+        1254,
+        627
+      ],
+      "padding_offset": [
+        212,
+        198
+      ],
+      "painted_50pct_bounds": [
+        293,
+        265,
+        783,
+        802
+      ],
+      "hip_xy": [
+        456,
+        676
+      ],
+      "palm_xy": [
+        352,
+        567
+      ],
+      "landmark_uncertainty_native_px": 5,
+      "pixel_copy_exact": true,
+      "runtime_bound": false
+    },
+    {
+      "index": 2,
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/lower_02_review.png",
+      "sha256": "8db572a99f5e28696ca08bad15ca312caeb4862afeba7ec69903fd9d65253656",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_window": [
+        0,
+        627,
+        655,
+        1254
+      ],
+      "padding_offset": [
+        184,
+        198
+      ],
+      "painted_50pct_bounds": [
+        271,
+        246,
+        815,
+        757
+      ],
+      "hip_xy": [
+        491,
+        659
+      ],
+      "palm_xy": [
+        345,
+        589
+      ],
+      "landmark_uncertainty_native_px": 5,
+      "pixel_copy_exact": true,
+      "runtime_bound": false
+    },
+    {
+      "index": 3,
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/lower_03_review.png",
+      "sha256": "eeadd41075fce8012038ef43d812834ef73bb2a1608d0d38e234de8a0f609b12",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_window": [
+        655,
+        627,
+        1254,
+        1254
+      ],
+      "padding_offset": [
+        212,
+        198
+      ],
+      "painted_50pct_bounds": [
+        252,
+        256,
+        795,
+        758
+      ],
+      "hip_xy": [
+        482,
+        660
+      ],
+      "palm_xy": [
+        310,
+        610
+      ],
+      "landmark_uncertainty_native_px": 5,
+      "pixel_copy_exact": true,
+      "runtime_bound": false
+    }
+  ],
+  "old_hold_50pct_bounds": [
+    71,
+    54,
+    429,
+    462
+  ],
+  "reference_painted_height_screen_px": 199.21875,
+  "common_new_review_card_extent_px": 379.8882681564246,
+  "scale_method": "One common whole-image display scale for all four new keys, set by painted full-body height of first source versus old held key3. No per-key scale, artificial socket adjustment or body translation hides displacement. Hip origin aligned across independently held comparisons.",
+  "owner_accepted": false,
+  "runtime_contact_accepted": false
+}

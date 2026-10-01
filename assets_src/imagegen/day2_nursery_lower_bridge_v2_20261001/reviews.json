@@ -1,0 +1,351 @@
+{
+  "reviewed_utc": "2026-10-01T11:19:05.277763+00:00",
+  "lane": "Individual source/style and provisional static contract review, not live action acceptance",
+  "items": [
+    {
+      "id": "LOWER-BRIDGE-0",
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/lower_00_review.png",
+      "source_style_score": 4.6,
+      "current_contract_transition_opinion": 4.0,
+      "evaluation": "Complete folded-arm body retains the source family. Under the first comparison's new anatomical-center estimates versus the old legacy pivot, the hands shift25.6px sideways on entry. This is not a valid current-contract bridge. The pivot definitions must be made consistent before a redesigned chain can be judged.",
+      "runtime_bound": false,
+      "sha256": "c83966eaeeeb21ee5375c80fa69dece9fea617bac9383a4fde3ac89be42a6695"
+    },
+    {
+      "id": "LOWER-BRIDGE-1",
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/lower_01_review.png",
+      "source_style_score": 4.6,
+      "current_contract_transition_opinion": 4.3,
+      "evaluation": "Complete second held body lowers the receiving hands slightly and remains readable in the native static view. The later source2 gap is21.3px under the first manual landmarks. A source-style pass does not establish the full intervening hand path.",
+      "runtime_bound": false,
+      "sha256": "d59e33c63a0abf288be2d05c124ca11fc20b28554993455e105c6fc71db36db6"
+    },
+    {
+      "id": "LOWER-BRIDGE-2",
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/lower_02_review.png",
+      "source_style_score": 4.6,
+      "current_contract_transition_opinion": 4.3,
+      "evaluation": "The forward/downward receiving pose is a possible later reuse candidate. Source style and static support remain clear, but its transition from the preceding held pose needs more states or a consistently measured reference contract. It is unbound.",
+      "runtime_bound": false,
+      "sha256": "8db572a99f5e28696ca08bad15ca312caeb4862afeba7ec69903fd9d65253656"
+    },
+    {
+      "id": "LOWER-BRIDGE-3",
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/lower_03_review.png",
+      "source_style_score": 4.6,
+      "current_contract_transition_opinion": 4.2,
+      "evaluation": "Complete lower-reaching body has readable hands and costume. The initial manual comparison overshoots the current endpoint then returns8.5px. Keep this as source/review evidence while contact and pivot continuity are unresolved.",
+      "runtime_bound": false,
+      "sha256": "eeadd41075fce8012038ef43d812834ef73bb2a1608d0d38e234de8a0f609b12"
+    }
+  ],
+  "quarter_attempts": [
+    {
+      "generation_id": "exec-2358133b-bb08-4059-ab5c-1489e71251ea",
+      "method": "Built-in imagegen new independent interactive gameplay state",
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/quarter-attempt-01.png",
+      "sha256": "6bc02fb14866b2a1a1bbd2332deb9580442c421838c438218efbe099d66f7cab",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "prompt_path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/PROMPT_QUARTER.txt",
+      "prompt_sha256": "8245dd296642822169f539c67d10e2e0ec526246781514d1a2f014648959aa4d",
+      "references": [
+        {
+          "path": "assets/opera/worlds/nursery/refinement_v2/care_03.png",
+          "sha256": "ebe2ce0f99d77ee26f8a73a87d996ca965e6ebc37e431cb7c5fc16ae1732850a",
+          "role": "held identity/anatomy entry"
+        },
+        {
+          "path": "assets/opera/worlds/nursery/refinement_v2/care_04.png",
+          "sha256": "d2ed0cd68b4dcec66f197d4d327e6aa779957b95737d5abc2cd47e086981452d",
+          "role": "lowering identity/anatomy endpoint"
+        }
+      ],
+      "individual_opinion": {
+        "source_style": 4.6,
+        "requested_pose_purpose": 4.0,
+        "decision": "REJECTED_REQUESTED_QUARTER_POSE",
+        "basis": "Complete body and broad painted identity retained, but both forearms are already extended almost like the lowered endpoint. The requested early quarter movement is missing. Keep as failed purpose attempt and do not bind it merely because source style is4.6."
+      },
+      "runtime_bound": false,
+      "owner_accepted": false
+    },
+    {
+      "generation_id": "exec-466a472b-9ea5-49cf-9761-60f59b477af5",
+      "method": "Built-in new independent pose from one held appearance/anatomy reference",
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/quarter-attempt-02.png",
+      "sha256": "b979d17cacb0ce34ede628a6fa5f0df3975fdd45a335509af8f46162b8434df6",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "prompt_path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/PROMPT_QUARTER_ATTEMPT_02.txt",
+      "prompt_sha256": "6ee14101c91344893592b5b9427a441300d82be033920e31f7a83e2dd7d8722d",
+      "references": [
+        {
+          "path": "assets/opera/worlds/nursery/refinement_v2/care_03.png",
+          "sha256": "ebe2ce0f99d77ee26f8a73a87d996ca965e6ebc37e431cb7c5fc16ae1732850a",
+          "role": "held identity/anatomy and canvas composition"
+        }
+      ],
+      "support_region_native": [
+        275,
+        665,
+        325,
+        690
+      ],
+      "support_point_native": [
+        290,
+        681
+      ],
+      "reference_pivot_native": [
+        558.4375,
+        898.88671875
+      ],
+      "pivot_method": "Same normalized512 canvas landmark as current held key3, preserving the reference composition; not a separately re-estimated pelvic center.",
+      "native_fit": "quarter_fit/receipt.json",
+      "source_opinion": 4.6,
+      "native_static_early_pose_opinion": 4.6,
+      "entry_displacement_screen_px": 7.76740931537794,
+      "remaining_next_gap_screen_px": 22.54480491554308,
+      "basis": "New source retains identity and folded elbows. Both native Mobile aspect views show the separate infant supported by the grouped receiving palms, at a small first lowering step on the held reference canvas. Provisional source/static fit only; the remaining22.54px transition still needs new intermediate states and a complete input/action trace.",
+      "runtime_bound": false,
+      "owner_accepted": false
+    }
+  ],
+  "first_comparison_qualification": "New anatomical-center estimates were compared with the older runtime legacy pivot. The25.6/21.3 distances are exact for those declared transforms and show that this proposed binding is not continuous; they do not prove pure anatomical/art drift. The newer single-source check preserves the held reference canvas coordinates. No original metadata or source was edited to erase the first result.",
+  "single_pose_entry_px": 7.76740931537794,
+  "remaining_single_pose_exit_px": 22.54480491554308,
+  "next_states": "No score assigned to ungenerated Half/MiddleB/MiddleC prompts. Reuse of independently reviewed later-height attempts avoids unnecessary additional generation.",
+  "remaining": "Selected complete source/static/standalone bridge opinions4.6. Current live action4.2 and safe return3.4 remain unchanged. Runtime-size whole-canvas derivatives, real input/carry/basket/interrupt route, device/child/owner and all weak job items remain pending.",
+  "middle_attempts": [
+    {
+      "generation_id": "exec-db1395f5-fc00-425a-9cc4-321417f92e0f",
+      "generation_method": "Built-in independent interactive pose generation",
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/middle-a-attempt-01.png",
+      "sha256": "9d479a352b067bdc4f2cfcc568d743f40dbfcd61612466b951b111bd374e47a3",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "prompt_path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/PROMPT_MIDDLE_A.txt",
+      "prompt_sha256": "4bfd56a0aa09ec97401dd00bf3e0267922a3275472521741b526de7681e13e24",
+      "appearance_reference": {
+        "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/quarter-attempt-02.png",
+        "sha256": "b979d17cacb0ce34ede628a6fa5f0df3975fdd45a335509af8f46162b8434df6"
+      },
+      "source_style_opinion": 4.6,
+      "requested_early_height_opinion": 4.0,
+      "decision": "Requested early height overshoots; preserve and evaluate later-pose reuse. No binding or action pass.",
+      "runtime_bound": false,
+      "owner_accepted": false,
+      "later_role_static_opinion": 4.6,
+      "later_role_evidence": "chain_v3_fit/receipt.json and motion_v3_fit/receipt.json; separate infant supported by paired connected hands at production72px and2x detail.",
+      "later_role_qualification": "Earlier requested-height/control failures are preserved; this is separately reviewed reuse at the visible later lowering height, not a retroactive pass of the failed request."
+    },
+    {
+      "generation_id": "exec-a8fb5426-a1fb-4ad6-9ca8-77a1cd72cafc",
+      "generation_method": "Built-in independent interactive pose generation",
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/middle-a-attempt-02.png",
+      "sha256": "3155fed1797df250b7c253ecb29d808e80840292b10c556af6cd64f7df307601",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "prompt_path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/PROMPT_MIDDLE_A_ATTEMPT_02.txt",
+      "prompt_sha256": "5a08cc9af5fc2056cf62b91a4fba4c20464cb668d389a45116353f0cfb1bc257",
+      "appearance_reference": {
+        "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/quarter-attempt-02.png",
+        "sha256": "b979d17cacb0ce34ede628a6fa5f0df3975fdd45a335509af8f46162b8434df6"
+      },
+      "source_style_opinion": 4.6,
+      "requested_early_height_opinion": 4.0,
+      "decision": "Requested early height overshoots; preserve and evaluate later-pose reuse. No binding or action pass.",
+      "runtime_bound": false,
+      "owner_accepted": false,
+      "position_guide": {
+        "path": "tmp/nursery_lower_bridge_guides_20261001/middle_a_position_only.png",
+        "sha256": "8b92e3b80a5246e75ce93850d3b93ace1d9533b1a93f7dae5cc4bc20d705b47f",
+        "dimensions": [
+          512,
+          512
+        ],
+        "role": "position_only",
+        "used_as_delivery_pixels": false,
+        "method": "Code-native neutral-field bounds, coordinate marks and labels only. No subject footprint, accepted background, texture, shading or source appearance pixels. Experimental control; must earn acceptance from measured complete independent generation."
+      },
+      "guide_control_result": "FAIL: native palms visibly below requested early guide support. No guide pixels are present in the completed figure; do not treat guide mode as accepted control.",
+      "later_role_static_opinion": 4.6,
+      "later_role_evidence": "chain_v3_fit/receipt.json and motion_v3_fit/receipt.json; separate infant supported by paired connected hands at production72px and2x detail.",
+      "later_role_qualification": "Earlier requested-height/control failures are preserved; this is separately reviewed reuse at the visible later lowering height, not a retroactive pass of the failed request."
+    },
+    {
+      "generation_id": "exec-e9a29bc0-2a6b-4adb-a74d-ae65a82c920e",
+      "generation_method": "Built-in local articulated-arm pose edit of complete interactive PNG; no procedural pixel repair",
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/middle-a-attempt-03.png",
+      "sha256": "b51c0f7d0b910531fb529277004d413703bd0a807a702f62f20bfac344f30125",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "prompt_path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/PROMPT_MIDDLE_A_ATTEMPT_03.txt",
+      "prompt_sha256": "33120132bee36f682fefc50e4a4c166e5fb44c863e65edeb81b98ada51c689a1",
+      "prompt_hash_scope": "Saved prompt file bytes. API text was read as Unicode with universal-newline LF normalization.",
+      "appearance_edit_target": {
+        "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/middle-a-attempt-01.png",
+        "sha256": "9d479a352b067bdc4f2cfcc568d743f40dbfcd61612466b951b111bd374e47a3"
+      },
+      "source_style_opinion": 4.6,
+      "requested_height_opinion": 4.6,
+      "support_point_native_xy": [
+        290,
+        715
+      ],
+      "support_point_qualification": "Visible broad cupped hand pad, not the outer fingertip/bottom outline. It is opaque skin at the requested native location. Both forearms remain attached and grouped. Native static assembly still pending.",
+      "decision": "Source/style/requested-height candidate retained. No complete action, runtime or owner pass.",
+      "runtime_bound": false,
+      "owner_accepted": false,
+      "cinematic_delivery": false,
+      "later_role_static_opinion": 4.6,
+      "later_role_evidence": "chain_v3_fit/receipt.json and motion_v3_fit/receipt.json; separate infant supported by paired connected hands at production72px and2x detail.",
+      "later_role_qualification": "Requested middle pad at290,715 is visible opaque hand skin. It is distinct from the lower finger outline; no socket was shifted onto an empty region to meet the step metric."
+    }
+  ],
+  "endpoint_attempt": {
+    "generation_id": "exec-7bc1c505-07bd-45ba-b3d8-eab0bd6c0983",
+    "generation_method": "Built-in articulated-arm edit of a complete interactive character; no pixel warp/blend/composite",
+    "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/endpoint-attempt-01.png",
+    "sha256": "84ca167fb86195394a57819d5913d9ff3581f3b5d783a26063fe7c3ede1cce54",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "prompt_path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/PROMPT_ENDPOINT_ATTEMPT_01.txt",
+    "prompt_file_sha256": "4aa96ab0398c03826bf9e826ce2182d5950573ed63a4c0622a21101677db47fd",
+    "exact_call_prompt_path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/CALL_PROMPT_ENDPOINT_01.json",
+    "exact_call_prompt_utf8_sha256": "f425db8b8b6de8f165c0ba80755cf8731ac3c453e836aec9d2a26d2f2fedf27a",
+    "edit_target": {
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/middle-a-attempt-02.png",
+      "sha256": "3155fed1797df250b7c253ecb29d808e80840292b10c556af6cd64f7df307601"
+    },
+    "source_style_opinion": 4.6,
+    "source_purpose_opinion": 4.6,
+    "static_pair_support_opinion": 4.6,
+    "support_point_native_xy": [
+      279,
+      800
+    ],
+    "evaluation": "The new endpoint preserves the preceding head size, quiet face, body/costume and tail composition. Both arms articulate into a lower paired receiving cup. The broad visible pad at279,800 supports the separate infant in both native views and2x detail. No infant is baked into the source. Native style/topology/static purpose meet the drafting4.6 target; this does not prove the later basket/release sequence or any actual game action.",
+    "runtime_bound": false,
+    "owner_accepted": false,
+    "cinematic_delivery": false
+  },
+  "transition_measurements": {
+    "chain_fit": [
+      {
+        "dimensions": [
+          1280,
+          720
+        ],
+        "step_screen_px": [
+          7.76740931537794,
+          5.84807187414505,
+          7.920726345108952,
+          5.984181972322053,
+          6.218653122827827
+        ]
+      },
+      {
+        "dimensions": [
+          1600,
+          720
+        ],
+        "step_screen_px": [
+          7.76740931537794,
+          5.84807187414505,
+          7.920726345108952,
+          5.984181972322053,
+          6.218653122827827
+        ]
+      }
+    ],
+    "chain_v2_fit": [
+      {
+        "dimensions": [
+          1280,
+          720
+        ],
+        "step_screen_px": [
+          7.76740931537794,
+          6.778305053710902,
+          6.977676391618282,
+          5.984181972322053,
+          6.218653122827827
+        ]
+      },
+      {
+        "dimensions": [
+          1600,
+          720
+        ],
+        "step_screen_px": [
+          7.76740931537794,
+          6.778305053710902,
+          6.977676391618282,
+          5.984181972322053,
+          6.218653122827827
+        ]
+      }
+    ],
+    "chain_v3_fit": [
+      {
+        "dimensions": [
+          1280,
+          720
+        ],
+        "step_screen_px": [
+          7.76740931537794,
+          6.778305053710902,
+          6.977676391618282,
+          5.984181972322053,
+          7.05413307792117
+        ]
+      },
+      {
+        "dimensions": [
+          1600,
+          720
+        ],
+        "step_screen_px": [
+          7.76740931537794,
+          6.778305053710902,
+          6.977676391618282,
+          5.984181972322053,
+          7.054043380559009
+        ]
+      }
+    ]
+  },
+  "ready_key_reuse": {
+    "path": "assets/opera/worlds/nursery/refinement_v2/care_00.png",
+    "original_ready_source_opinion": 4.6,
+    "proposed_lowering_contact_opinion": 4.4,
+    "decision": "REJECTED_FOR_THIS_ROLE",
+    "evaluation": "The numeric six-state chain fits the8px target, but the unused ready key puts its second hand away from the receiving cup and changes the upper-body direction. Passing distance alone did not establish secure paired support. Original ready state is preserved; no runtime or source metadata was changed."
+  },
+  "chain_v2": {
+    "static_pair_support_opinion": 4.6,
+    "timed_bridge_opinion": 4.4,
+    "evaluation": "The new sources maintain infant support and five hand steps under8px, but the old endpoint changes head/body scale and expression abruptly. This timed failure is preserved; source appearance scores cannot conceal it."
+  },
+  "chain_v3": {
+    "static_pair_support_opinion": 4.6,
+    "standalone_authored_bridge_opinion": 4.6,
+    "qualification": "Five changed complete gameplay figures and both existing-entry/native-aspect views are reviewed at250px card,72px infant and2x detail. It is a fixed-pivot source study of hold-to-first-lower only, with a declared0.167s playback slot. No gameplay input, local carry route, basket release, interruption, save or complete-action result is established.",
+    "evaluation": "Paired palms lower progressively without the old endpoint face/body jump. The infant keeps one scale and remains on the same visible supporting cup. Calm expression and quiet tail keep attention on the baby; all five hand displacements are below the predeclared8px target. The composed endpoint still needs its next release/basket transition reviewed in the live care route."
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schema": "reef.named-source-refinement.v1",
+  "baseline": "32d6176206739eb5cebfa5bdcb8df5cb6261f80b",
+  "named_item": "D2A-0078 Faron nursery helper",
+  "generation_method": "Codex built-in image_gen.imagegen, separate fresh text-only generations, transparent background",
+  "attempts": [
+    {
+      "generation_id": "exec-e71a9d44-e36b-428c-9687-055df6f3bbc7",
+      "generation_method": "Codex built-in image_gen.imagegen; fresh text-only; native generated transparency",
+      "attempt": 1,
+      "path": "assets_src/imagegen/day2_nursery_faron_v2_20261001/attempt-01.png",
+      "sha256": "353edff439a54fc24a55a5cab43fb70d6a11b6dc4557d2595af914b9396f86c0",
+      "bytes": 920740,
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        0,
+        12,
+        1218,
+        1220
+      ],
+      "opaque_alpha_bbox": [
+        206,
+        15,
+        1114,
+        1171
+      ],
+      "prompt_path": "assets_src/imagegen/day2_nursery_faron_v2_20261001/PROMPT.txt",
+      "prompt_sha256": "5e493ebaa2de1732f5c898cf30b10fc48a3bc52d2ea641066816d25edb589673",
+      "referenced_images": [],
+      "individual_opinion": {
+        "overall": 4.3,
+        "style": 4.3,
+        "identity": 4.5,
+        "purpose": 4.6,
+        "status": "REJECTED_STYLE",
+        "basis": "Direct native source review: complete connected body and two empty receiving palms, recognizable golden hair/green eyes/cream moon-and-star apron/burgundy tail. Dense ribbon hair highlights, numerous fabric value changes and glamorous eyelash/lip/face treatment remain more naturalistic and glossy than the broad painted game family. Repeated fine shading competes at the190px actor card scale. Preserve as failed attempt; do not bind."
+      },
+      "owner_accepted": false,
+      "runtime_bound": false
+    },
+    {
+      "generation_id": "exec-04cab251-8309-42e4-97bd-b08b358d292b",
+      "attempt": 2,
+      "path": "assets_src/imagegen/day2_nursery_faron_v2_20261001/attempt-02.png",
+      "sha256": "c986e68677c19b52aee77bab70c605d9aa92168e0226453da613048723bc9fb9",
+      "bytes": 813427,
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        25,
+        14,
+        1230,
+        1214
+      ],
+      "opaque_alpha_bbox": [
+        160,
+        17,
+        1202,
+        1196
+      ],
+      "prompt_path": "assets_src/imagegen/day2_nursery_faron_v2_20261001/PROMPT_ATTEMPT_02.txt",
+      "prompt_sha256": "de7e8f10720e47911b4565c2163151dc0b6cd72c342466ebe6aec06a9905474f",
+      "referenced_images": [],
+      "generation_method": "Built-in imagegen fresh text-only; native transparency preserved",
+      "source_opinion": {
+        "score": 4.6,
+        "basis": "Direct native source review: calm broad hair curls, clean plum contours, simpler nose/mouth/eye treatment, high-key face and two complete connected empty palms. Cream apron has broad quiet bands and readable large moon/star pocket; complete burgundy tail and two lobes retained. No baked baby, detailed fibers, strands, scales or glitter. Source-only style opinion; correct-alpha gameplay-size and receiving fit still pending."
+      },
+      "owner_accepted": false,
+      "runtime_bound": false
+    }
+  ],
+  "selected_source": "assets_src/imagegen/day2_nursery_faron_v2_20261001/attempt-02.png",
+  "selected_sha256": "c986e68677c19b52aee77bab70c605d9aa92168e0226453da613048723bc9fb9",
+  "native_pixels_preserved": true,
+  "modifications": "None to native PNGs. Native Canvas capture scales whole images for diagnostic display only. Original/master/chroma sources, runtime bindings and protected content unchanged. No cropping, alpha repair, recolour, compositing delivery or cinematic pixels.",
+  "runtime_bound": false,
+  "owner_accepted": false,
+  "source_and_static_opinion": 4.6,
+  "safe_return_action_opinion": 3.4,
+  "prompt_hash_scope": "Earlier prompt_sha256 fields hash saved file bytes; first actual API string was not retained separately. Exact attempt2 Unicode API prompt is retained in CALL_PROMPT_ATTEMPT_02.json.",
+  "exact_attempt2_call_utf8_sha256": "fc30afbfb70eade89cdf00128c56ee6a230e9b131ee05146546ab84804005e4b"
+}

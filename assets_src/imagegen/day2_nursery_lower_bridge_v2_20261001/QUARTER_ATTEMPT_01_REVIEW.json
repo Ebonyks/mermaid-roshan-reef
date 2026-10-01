@@ -1,0 +1,33 @@
+{
+  "generation_id": "exec-2358133b-bb08-4059-ab5c-1489e71251ea",
+  "method": "Built-in imagegen new independent interactive gameplay state",
+  "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/quarter-attempt-01.png",
+  "sha256": "6bc02fb14866b2a1a1bbd2332deb9580442c421838c438218efbe099d66f7cab",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "prompt_path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/PROMPT_QUARTER.txt",
+  "prompt_sha256": "8245dd296642822169f539c67d10e2e0ec526246781514d1a2f014648959aa4d",
+  "references": [
+    {
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_03.png",
+      "sha256": "ebe2ce0f99d77ee26f8a73a87d996ca965e6ebc37e431cb7c5fc16ae1732850a",
+      "role": "held identity/anatomy entry"
+    },
+    {
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_04.png",
+      "sha256": "d2ed0cd68b4dcec66f197d4d327e6aa779957b95737d5abc2cd47e086981452d",
+      "role": "lowering identity/anatomy endpoint"
+    }
+  ],
+  "individual_opinion": {
+    "source_style": 4.6,
+    "requested_pose_purpose": 4.0,
+    "decision": "REJECTED_REQUESTED_QUARTER_POSE",
+    "basis": "Complete body and broad painted identity retained, but both forearms are already extended almost like the lowered endpoint. The requested early quarter movement is missing. Keep as failed purpose attempt and do not bind it merely because source style is4.6."
+  },
+  "runtime_bound": false,
+  "owner_accepted": false
+}

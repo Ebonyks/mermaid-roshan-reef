@@ -1,0 +1,150 @@
+{
+	"cases": [
+		{
+			"dimensions": [
+				1280,
+				720
+			],
+			"geometry": [
+				{
+					"canvas_side": 512.0,
+					"card_extent": 250.0,
+					"hip": [
+						213.33332824707,
+						270.0
+					],
+					"hip_relative_palm_screen_px": [
+						-58.59375,
+						-49.31640625
+					],
+					"index": 0,
+					"name": "Current hold key3",
+					"palm": [
+						154.73957824707,
+						220.68359375
+					],
+					"path": "assets/opera/worlds/nursery/refinement_v2/care_03.png",
+					"source_sha256": "ebe2ce0f99d77ee26f8a73a87d996ca965e6ebc37e431cb7c5fc16ae1732850a"
+				},
+				{
+					"canvas_side": 1254.0,
+					"card_extent": 250.0,
+					"hip": [
+						640.0,
+						270.0
+					],
+					"hip_relative_palm_screen_px": [
+						-53.5162353515625,
+						-43.4383544921875
+					],
+					"index": 1,
+					"name": "Fresh quarter / attempt2",
+					"palm": [
+						586.483764648438,
+						226.561645507813
+					],
+					"path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/quarter-attempt-02.png",
+					"source_sha256": "b979d17cacb0ce34ede628a6fa5f0df3975fdd45a335509af8f46162b8434df6"
+				},
+				{
+					"canvas_side": 512.0,
+					"card_extent": 250.0,
+					"hip": [
+						1066.66662597656,
+						270.0
+					],
+					"hip_relative_palm_screen_px": [
+						-55.6640625,
+						-20.99609375
+					],
+					"index": 2,
+					"name": "Current first lower key4",
+					"palm": [
+						1011.00256347656,
+						249.00390625
+					],
+					"path": "assets/opera/worlds/nursery/refinement_v2/care_04.png",
+					"source_sha256": "d2ed0cd68b4dcec66f197d4d327e6aa779957b95737d5abc2cd47e086981452d"
+				}
+			],
+			"path": "1280x720.webp",
+			"sha256": "aae865e317aea0286d44086917ae484e6fea26cd2a27edde2342d97f720f7735"
+		},
+		{
+			"dimensions": [
+				1600,
+				720
+			],
+			"geometry": [
+				{
+					"canvas_side": 512.0,
+					"card_extent": 250.0,
+					"hip": [
+						266.666656494141,
+						270.0
+					],
+					"hip_relative_palm_screen_px": [
+						-58.59375,
+						-49.31640625
+					],
+					"index": 0,
+					"name": "Current hold key3",
+					"palm": [
+						208.072906494141,
+						220.68359375
+					],
+					"path": "assets/opera/worlds/nursery/refinement_v2/care_03.png",
+					"source_sha256": "ebe2ce0f99d77ee26f8a73a87d996ca965e6ebc37e431cb7c5fc16ae1732850a"
+				},
+				{
+					"canvas_side": 1254.0,
+					"card_extent": 250.0,
+					"hip": [
+						800.0,
+						270.0
+					],
+					"hip_relative_palm_screen_px": [
+						-53.5162353515625,
+						-43.4383544921875
+					],
+					"index": 1,
+					"name": "Fresh quarter / attempt2",
+					"palm": [
+						746.483764648438,
+						226.561645507813
+					],
+					"path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/quarter-attempt-02.png",
+					"source_sha256": "b979d17cacb0ce34ede628a6fa5f0df3975fdd45a335509af8f46162b8434df6"
+				},
+				{
+					"canvas_side": 512.0,
+					"card_extent": 250.0,
+					"hip": [
+						1333.33337402344,
+						270.0
+					],
+					"hip_relative_palm_screen_px": [
+						-55.6640625,
+						-20.99609375
+					],
+					"index": 2,
+					"name": "Current first lower key4",
+					"palm": [
+						1277.66931152344,
+						249.00390625
+					],
+					"path": "assets/opera/worlds/nursery/refinement_v2/care_04.png",
+					"source_sha256": "d2ed0cd68b4dcec66f197d4d327e6aa779957b95737d5abc2cd47e086981452d"
+				}
+			],
+			"path": "1600x720.webp",
+			"sha256": "95d1fceabcf17f1ecfc932dad12b7ffe3efc04cc96c2f42d9dd687fe264d085f"
+		}
+	],
+	"declared_transition_tolerance_screen_px": 8.0,
+	"engine": "4.7.2-stable (official)",
+	"harness_sha256": "863f500b51e2eed807cd68cb16f258503263ecd8092a237c4f5f47e4fdd94172",
+	"pack_sha256": "b98c56e13adc0ee14c99fd38a9d3def99b3fa41ef302b255933e5a24fc758692",
+	"qualification": "Manual support point290,681 in the receiving palm;250px whole-canvas display like the held reference. The new reference pivot uses the same normalized canvas location as key3, not an independently estimated anatomical center. Independently held hip-aligned sources show approximate contact/pose differences. No live binding, complete action, input, progress or device/child/owner acceptance.",
+	"renderer": "mobile"
+}

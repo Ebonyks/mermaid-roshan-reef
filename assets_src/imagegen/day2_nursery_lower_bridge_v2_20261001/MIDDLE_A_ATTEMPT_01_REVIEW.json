@@ -1,0 +1,24 @@
+{
+  "generation_id": "exec-db1395f5-fc00-425a-9cc4-321417f92e0f",
+  "generation_method": "Built-in independent interactive pose generation",
+  "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/middle-a-attempt-01.png",
+  "sha256": "9d479a352b067bdc4f2cfcc568d743f40dbfcd61612466b951b111bd374e47a3",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "prompt_path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/PROMPT_MIDDLE_A.txt",
+  "prompt_sha256": "4bfd56a0aa09ec97401dd00bf3e0267922a3275472521741b526de7681e13e24",
+  "appearance_reference": {
+    "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/quarter-attempt-02.png",
+    "sha256": "b979d17cacb0ce34ede628a6fa5f0df3975fdd45a335509af8f46162b8434df6"
+  },
+  "source_style_opinion": 4.6,
+  "requested_early_height_opinion": 4.0,
+  "decision": "Requested early height overshoots; preserve and evaluate later-pose reuse. No binding or action pass.",
+  "runtime_bound": false,
+  "owner_accepted": false,
+  "later_role_static_opinion": 4.6,
+  "later_role_evidence": "chain_v3_fit/receipt.json and motion_v3_fit/receipt.json; separate infant supported by paired connected hands at production72px and2x detail.",
+  "later_role_qualification": "Earlier requested-height/control failures are preserved; this is separately reviewed reuse at the visible later lowering height, not a retroactive pass of the failed request."
+}

@@ -1,0 +1,128 @@
+{
+  "checked_utc": "2026-10-01T11:24:55.431898+00:00",
+  "result": "PASS",
+  "commands": [
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "tools/capture_day2_nursery_faron_fit.gd",
+        "tools/capture_day2_nursery_lower_bridge_fit.gd",
+        "tools/capture_day2_nursery_lower_single_fit.gd",
+        "tools/capture_day2_nursery_lower_chain_fit.gd",
+        "tools/capture_day2_nursery_lower_motion_fit.gd"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "tools/capture_day2_nursery_faron_fit.gd",
+        "tools/capture_day2_nursery_lower_bridge_fit.gd",
+        "tools/capture_day2_nursery_lower_single_fit.gd",
+        "tools/capture_day2_nursery_lower_chain_fit.gd",
+        "tools/capture_day2_nursery_lower_motion_fit.gd"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        ".",
+        "--check-only",
+        "--script",
+        "tools/capture_day2_nursery_faron_fit.gd"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        ".",
+        "--check-only",
+        "--script",
+        "tools/capture_day2_nursery_lower_bridge_fit.gd"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        ".",
+        "--check-only",
+        "--script",
+        "tools/capture_day2_nursery_lower_single_fit.gd"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        ".",
+        "--check-only",
+        "--script",
+        "tools/capture_day2_nursery_lower_chain_fit.gd"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        ".",
+        "--check-only",
+        "--script",
+        "tools/capture_day2_nursery_lower_motion_fit.gd"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": "Python AST parse tools/pack_day2_nursery_lower_bridge_v2.py",
+      "exit_code": 0
+    }
+  ],
+  "source_files": [
+    {
+      "path": "tools/capture_day2_nursery_faron_fit.gd",
+      "sha256": "82c70a7b92dd6d4717d94c9099f313bb02b4130b837049da68d8351a5cbba505"
+    },
+    {
+      "path": "tools/capture_day2_nursery_lower_bridge_fit.gd",
+      "sha256": "890e87cd8d6e41dfd3b7ae632e282f13742a230557c1362b0501a3ccf7beae27"
+    },
+    {
+      "path": "tools/capture_day2_nursery_lower_single_fit.gd",
+      "sha256": "863f500b51e2eed807cd68cb16f258503263ecd8092a237c4f5f47e4fdd94172"
+    },
+    {
+      "path": "tools/capture_day2_nursery_lower_chain_fit.gd",
+      "sha256": "3cebd16f6f98ec1da47cca630bb67f3658ca8654562859b0eddc0199c6dad72c"
+    },
+    {
+      "path": "tools/capture_day2_nursery_lower_motion_fit.gd",
+      "sha256": "a03a61215a6c9a40b458e360e89d185d9c75484351f072439c569f38cb00bd2d"
+    },
+    {
+      "path": "tools/pack_day2_nursery_lower_bridge_v2.py",
+      "sha256": "6431f5e53065da6c578c7440103728b5982ea398f586b87dcea7ef3318014e08"
+    }
+  ],
+  "qualification": "QA helpers and source packer only; native art/action opinions are separate. No production script changes in this source-only continuation."
+}

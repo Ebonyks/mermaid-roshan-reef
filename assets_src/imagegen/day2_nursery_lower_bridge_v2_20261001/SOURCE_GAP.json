@@ -1,0 +1,175 @@
+{
+  "baseline": "32d6176206739eb5cebfa5bdcb8df5cb6261f80b",
+  "named_gap": "Measured four unbound sources do not bridge the current held-to-lower action. Preserve original source4.6 style opinions but reject this complete chain for contact continuity. Generate only first-quarter and middle hand-height poses; test existing lower source2 for later reuse.",
+  "declared_transition_tolerance_screen_px": 8,
+  "manual_native_landmark_uncertainty_px": 5,
+  "individual_source_style_opinions": [
+    4.6,
+    4.6,
+    4.6,
+    4.6
+  ],
+  "sequence_fit_opinion": 4.0,
+  "measurements": [
+    {
+      "canvas_side": 512.0,
+      "card_extent": 250.0,
+      "hip": [
+        213.33332824707,
+        270.0
+      ],
+      "hip_relative_palm_screen_px": [
+        -58.59375,
+        -49.31640625
+      ],
+      "index": 0,
+      "name": "Current hold key3",
+      "palm": [
+        154.73957824707,
+        220.68359375
+      ],
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_03.png",
+      "source_sha256": "ebe2ce0f99d77ee26f8a73a87d996ca965e6ebc37e431cb7c5fc16ae1732850a"
+    },
+    {
+      "canvas_side": 1024.0,
+      "card_extent": 379.888268156425,
+      "hip": [
+        640.0,
+        270.0
+      ],
+      "hip_relative_palm_screen_px": [
+        -33.0176391601563,
+        -48.2280120849609
+      ],
+      "index": 1,
+      "name": "Unbound bridge 0",
+      "palm": [
+        606.982360839844,
+        221.771987915039
+      ],
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/lower_00_review.png",
+      "source_sha256": "c83966eaeeeb21ee5375c80fa69dece9fea617bac9383a4fde3ac89be42a6695"
+    },
+    {
+      "canvas_side": 1024.0,
+      "card_extent": 379.888268156425,
+      "hip": [
+        1066.66662597656,
+        270.0
+      ],
+      "hip_relative_palm_screen_px": [
+        -38.5823974609375,
+        -40.4373168945313
+      ],
+      "index": 2,
+      "name": "Unbound bridge 1",
+      "palm": [
+        1028.08422851563,
+        229.562683105469
+      ],
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/lower_01_review.png",
+      "source_sha256": "d59e33c63a0abf288be2d05c124ca11fc20b28554993455e105c6fc71db36db6"
+    },
+    {
+      "canvas_side": 1024.0,
+      "card_extent": 379.888268156425,
+      "hip": [
+        213.33332824707,
+        620.0
+      ],
+      "hip_relative_palm_screen_px": [
+        -54.1637573242188,
+        -25.9689331054688
+      ],
+      "index": 3,
+      "name": "Unbound bridge 2",
+      "palm": [
+        159.169570922852,
+        594.031066894531
+      ],
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/lower_02_review.png",
+      "source_sha256": "8db572a99f5e28696ca08bad15ca312caeb4862afeba7ec69903fd9d65253656"
+    },
+    {
+      "canvas_side": 1024.0,
+      "card_extent": 379.888268156425,
+      "hip": [
+        640.0,
+        620.0
+      ],
+      "hip_relative_palm_screen_px": [
+        -63.8093872070313,
+        -18.5491943359375
+      ],
+      "index": 4,
+      "name": "Unbound bridge 3",
+      "palm": [
+        576.190612792969,
+        601.450805664063
+      ],
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/lower_03_review.png",
+      "source_sha256": "eeadd41075fce8012038ef43d812834ef73bb2a1608d0d38e234de8a0f609b12"
+    },
+    {
+      "canvas_side": 512.0,
+      "card_extent": 250.0,
+      "hip": [
+        1066.66662597656,
+        620.0
+      ],
+      "hip_relative_palm_screen_px": [
+        -55.6640625,
+        -20.99609375
+      ],
+      "index": 5,
+      "name": "Current first lower key4",
+      "palm": [
+        1011.00256347656,
+        599.00390625
+      ],
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_04.png",
+      "source_sha256": "d2ed0cd68b4dcec66f197d4d327e6aa779957b95737d5abc2cd47e086981452d"
+    }
+  ],
+  "transitions": [
+    {
+      "from": "Current hold key3",
+      "to": "Unbound bridge 0",
+      "distance_screen_px": 25.59925873048791
+    },
+    {
+      "from": "Unbound bridge 0",
+      "to": "Unbound bridge 1",
+      "distance_screen_px": 9.57399950367119
+    },
+    {
+      "from": "Unbound bridge 1",
+      "to": "Unbound bridge 2",
+      "distance_screen_px": 21.262946753841057
+    },
+    {
+      "from": "Unbound bridge 2",
+      "to": "Unbound bridge 3",
+      "distance_screen_px": 12.169252205632494
+    },
+    {
+      "from": "Unbound bridge 3",
+      "to": "Current first lower key4",
+      "distance_screen_px": 8.504918066948907
+    }
+  ],
+  "references": [
+    {
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_03.png",
+      "role": "held appearance and anatomical entry"
+    },
+    {
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_04.png",
+      "role": "lowering appearance and end direction"
+    }
+  ],
+  "generation_lane": "New independently authored interactive gameplay body states, built-in imagegen. No pixel blend/morph/warping, no cinematic delivery.",
+  "acceptance": "Geometry is a manual static diagnostic; errors remain explicit and do not grant runtime/action/device/child/owner acceptance.",
+  "continuation": "First mixed-pivot diagnostic preserved/qualified. New normalized-reference quarter, middle and matching endpoint sources meet source/static/standalone bridge4.6; original ready-role and old-endpoint timed failures retained. Current live action unchanged4.2. Complete release/basket/contact/interrupt and safe-return work remain open."
+}

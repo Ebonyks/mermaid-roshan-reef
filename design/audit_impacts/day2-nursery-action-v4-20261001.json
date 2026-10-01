@@ -1276,8 +1276,8 @@
     },
     {
       "command": "Automatic immutable GitHub publication and anonymous every-file SHA/byte verification",
-      "result": "PENDING",
-      "evidence": "audit/day2_nursery_action_v4_20261001/MANIFEST.json and planned REMOTE_VERIFICATION.json; publish the review draft and verify exact payload/dependencies before claiming delivered."
+      "result": "PASS",
+      "evidence": "Published payload32d6176206739eb5cebfa5bdcb8df5cb6261f80b; exact manifestSHA53e5a89825c95113bc13e4fee484bf218ec019d0620d906c65ab2126ef13b65b. REMOTE_VERIFICATION.json:1336 anonymous HTTPS SHA/byte matches,1110903119 bytes, checked2026-10-01T09:54:57.127427+00:00. Receiptsha0b3503204903c43efe6cdf231c2a3a7eda8825435cc028026c2273a342491669. Publication/bytes only; action and owner acceptance unchanged."
     },
     {
       "command": "audit_document_authority.py, audit_development.py --base auto and staged diff whitespace check",
@@ -1288,6 +1288,11 @@
       "command": "audit_document_authority.py, audit_development.py --base auto and staged diff whitespace check",
       "result": "PASS",
       "evidence": "Current staged joint review: authority594/594, development basece0331738970205a5aead4d3e0258eb7873a1642 ALL OK. Literal engine source_gates.log EOF is preserved with a specific whitespace attribute; staged diff check passes. Repeat these structural gates after manifest staging."
+    },
+    {
+      "command": "Published exact32d trusted suite and area provenance retry",
+      "result": "PASS",
+      "evidence": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36845504064; exact32d6176206739eb5cebfa5bdcb8df5cb6261f80b overallSUCCESS, probesSUCCESS, area-music-provenanceSUCCESS after checkout-timeout retry. No workflow/probe changes; not a creative/action/device acceptance claim."
     }
   ],
   "acceptance_gaps": "Action4.2, connected assembly4.3, safe return3.4, babies4.3 mounted and Faron4.1 mounted remain priorities. Additional four bridge sources are4.6 style only and unbound. Other weak jobs, Day One full census, complete played ordinary route, phone/M11 performance, child/owner and final comprehensive report approval remain open. No finding closure, integration or release."

@@ -1,0 +1,104 @@
+{
+  "id": "day2-nursery-faron-v2-20261001",
+  "baseline": "32d6176206739eb5cebfa5bdcb8df5cb6261f80b",
+  "scope": "Faron D2A-0078 retains mounted4.1/source4.4 styling and a baked infant. Current miss handling only bounces the static helper and fades a safely landed infant; it cannot express separately owned pickup/support/return. An empty-handed helper source is the first missing reusable contact state, not a complete action repair. Preserve original identity and inventory the existing runtime/alpha/chroma sources before generating only the missing reusable empty-handed state. Save fresh built-in text-only candidates and individual evaluations at new source paths. No runtime binding, cinematic delivery, protected-original or voice change is part of this source step.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-INT-02",
+    "DL-MOT-01",
+    "DL-MOT-02",
+    "DL-MOT-03",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-QA-03",
+    "DL-QA-07"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004",
+    "MA-OPERA-003",
+    "MA-OPERA-006"
+  ],
+  "files": [
+    ".gitattributes",
+    "ASSET_LICENSES.md",
+    "assets_src/imagegen/day2_nursery_faron_v2_20261001/.gdignore",
+    "assets_src/imagegen/day2_nursery_faron_v2_20261001/ATTEMPT_01_REVIEW.json",
+    "assets_src/imagegen/day2_nursery_faron_v2_20261001/ATTEMPT_02_REVIEW.json",
+    "assets_src/imagegen/day2_nursery_faron_v2_20261001/BROWSER_REVIEW.json",
+    "assets_src/imagegen/day2_nursery_faron_v2_20261001/CALL_PROMPT_ATTEMPT_02.json",
+    "assets_src/imagegen/day2_nursery_faron_v2_20261001/MANIFEST.json",
+    "assets_src/imagegen/day2_nursery_faron_v2_20261001/NATIVE_REVIEW.json",
+    "assets_src/imagegen/day2_nursery_faron_v2_20261001/PROMPT.txt",
+    "assets_src/imagegen/day2_nursery_faron_v2_20261001/PROMPT_ATTEMPT_02.txt",
+    "assets_src/imagegen/day2_nursery_faron_v2_20261001/PROVENANCE.json",
+    "assets_src/imagegen/day2_nursery_faron_v2_20261001/REMOTE_VERIFICATION.json",
+    "assets_src/imagegen/day2_nursery_faron_v2_20261001/SOURCE_GAP.json",
+    "assets_src/imagegen/day2_nursery_faron_v2_20261001/attempt-01.png",
+    "assets_src/imagegen/day2_nursery_faron_v2_20261001/attempt-02.png",
+    "assets_src/imagegen/day2_nursery_faron_v2_20261001/index.html",
+    "assets_src/imagegen/day2_nursery_faron_v2_20261001/native_fit/1280x720.webp",
+    "assets_src/imagegen/day2_nursery_faron_v2_20261001/native_fit/1600x720.webp",
+    "assets_src/imagegen/day2_nursery_faron_v2_20261001/native_fit/capture.log",
+    "assets_src/imagegen/day2_nursery_faron_v2_20261001/native_fit/receipt.json",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/job_artwork_refinement_live/index.html",
+    "design/05_DOC_LEDGER.md",
+    "tools/capture_day2_nursery_faron_fit.gd"
+  ],
+  "validation": [
+    {
+      "command": "Inventory and direct source comparison",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/day2_nursery_faron_v2_20261001/SOURCE_GAP.json; runtime512 PNG and native alpha master directly inspected, chroma source inventoried. No alternate empty-handed Faron art exists among matching repository sources."
+    },
+    {
+      "command": "Fresh built-in imagegen attempts and individual native source review",
+      "result": "PASS",
+      "evidence": "ATTEMPT_01_REVIEW.json style4.3 rejected; ATTEMPT_02_REVIEW.json source/static4.6 at both native aspects. Native1254 RGBA, saved prompt and exact retained attempt2 call fingerprints preserved. Original remains bound; complete helper return unfinished."
+    },
+    {
+      "command": "Official Godot4.7.2 parser/inference/analyzer and native Mobile static capture",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/day2_nursery_faron_v2_20261001/native_fit/receipt.json and capture.log; native1280/1600 static renders reviewed at190px helper, source and geometry fingerprints preserved. Export-only warnings are qualified: this diagnostic reads source files directly and is not a runtime scene."
+    },
+    {
+      "command": "Individual correct-alpha static fit opinion",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/day2_nursery_faron_v2_20261001/NATIVE_REVIEW.json: selected source/static4.6; attempt1 remains4.3 rejected. No ordinary runtime binding/action acceptance."
+    },
+    {
+      "command": "Illustrated desktop library and every local HTTP source byte check",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/day2_nursery_faron_v2_20261001/BROWSER_REVIEW.json:3cards/5images loaded,1280 no overflow;11 HTTP files exact SHA/size. Immutable publication is separately pending."
+    },
+    {
+      "command": "Unmodified full local scripts/ci.sh at exact official Godot4.7.2 with no production changes from32d",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/machine/full_ci_receipt.json; exit0, all82 trusted probes exit0. Raw logs retain engine leak and global advisory visual UNSATISFIED qualifications; no creative/device/owner acceptance."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py and python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "2026-10-01 source-continuation review: DOCAUTH594/594/57active/59records ALL OK; AUDITDEV basece0331738970205a5aead4d3e0258eb7873a1642 ALL OK. Re-run after manifest creation before commit."
+    }
+  ],
+  "acceptance_gaps": "Source/static4.6 candidate only. Original Faron remains bound at earlier mounted4.1; safe return remains3.4 and the helper approach/pickup/carry/lower/settle states are missing. All live nursery phases, texture/runtime sizing, M11 performance, child/owner and hundreds of other weak job items/full played coverage/final comprehensive report approval remain open. No finding closure, global4.5 pass, integration or release."
+}

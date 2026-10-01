@@ -1,0 +1,262 @@
+{
+	"cases": [
+		{
+			"dimensions": [
+				1280,
+				720
+			],
+			"geometry": [
+				{
+					"baby_card_extent": 60.0,
+					"baby_present": false,
+					"card_extent": 190.0,
+					"case": 0,
+					"name": "Original / baked infant",
+					"origin": [
+						118.333335876465,
+						45.0
+					],
+					"palm": [
+						226.66667175293,
+						138.787872314453
+					],
+					"socket_method": "Manual native palm sampling; static diagnostic only"
+				},
+				{
+					"baby_card_extent": 60.0,
+					"baby_present": false,
+					"card_extent": 190.0,
+					"case": 1,
+					"name": "Attempt 1 / style rejected",
+					"origin": [
+						545.0,
+						45.0
+					],
+					"palm": [
+						653.333312988281,
+						138.787872314453
+					],
+					"socket_method": "Manual native palm sampling; static diagnostic only"
+				},
+				{
+					"baby_card_extent": 60.0,
+					"baby_present": false,
+					"card_extent": 190.0,
+					"case": 2,
+					"name": "Attempt 2 / empty",
+					"origin": [
+						971.666625976563,
+						45.0
+					],
+					"palm": [
+						1080.0,
+						138.787872314453
+					],
+					"socket_method": "Manual native palm sampling; static diagnostic only"
+				},
+				{
+					"baby_card_extent": 60.0,
+					"baby_present": true,
+					"card_extent": 190.0,
+					"case": 3,
+					"name": "Attempt 2 / separate infant",
+					"origin": [
+						118.333335876465,
+						395.0
+					],
+					"palm": [
+						226.66667175293,
+						488.787872314453
+					],
+					"socket_method": "Manual native palm sampling; static diagnostic only"
+				},
+				{
+					"baby_card_extent": 80.0,
+					"baby_present": true,
+					"card_extent": 250.0,
+					"case": 4,
+					"name": "Current Roshan / same infant",
+					"origin": [
+						515.0,
+						395.0
+					],
+					"palm": [
+						564.8046875,
+						530.7421875
+					],
+					"socket_method": "Manual native palm sampling; static diagnostic only"
+				},
+				{
+					"baby_card_extent": 60.0,
+					"baby_present": false,
+					"card_extent": 300.0,
+					"case": 5,
+					"name": "Attempt 2 / detail view",
+					"origin": [
+						916.666625976563,
+						395.0
+					],
+					"palm": [
+						1087.71923828125,
+						543.086120605469
+					],
+					"socket_method": "Manual native palm sampling; static diagnostic only"
+				}
+			],
+			"path": "1280x720.webp",
+			"sha256": "d55ff5a61cdea8a7163a70822fa3a417e0d530ac5ee652fbcc21a685e2343add"
+		},
+		{
+			"dimensions": [
+				1600,
+				720
+			],
+			"geometry": [
+				{
+					"baby_card_extent": 60.0,
+					"baby_present": false,
+					"card_extent": 190.0,
+					"case": 0,
+					"name": "Original / baked infant",
+					"origin": [
+						171.66667175293,
+						45.0
+					],
+					"palm": [
+						280.0,
+						138.787872314453
+					],
+					"socket_method": "Manual native palm sampling; static diagnostic only"
+				},
+				{
+					"baby_card_extent": 60.0,
+					"baby_present": false,
+					"card_extent": 190.0,
+					"case": 1,
+					"name": "Attempt 1 / style rejected",
+					"origin": [
+						705.0,
+						45.0
+					],
+					"palm": [
+						813.333312988281,
+						138.787872314453
+					],
+					"socket_method": "Manual native palm sampling; static diagnostic only"
+				},
+				{
+					"baby_card_extent": 60.0,
+					"baby_present": false,
+					"card_extent": 190.0,
+					"case": 2,
+					"name": "Attempt 2 / empty",
+					"origin": [
+						1238.33325195313,
+						45.0
+					],
+					"palm": [
+						1346.66662597656,
+						138.787872314453
+					],
+					"socket_method": "Manual native palm sampling; static diagnostic only"
+				},
+				{
+					"baby_card_extent": 60.0,
+					"baby_present": true,
+					"card_extent": 190.0,
+					"case": 3,
+					"name": "Attempt 2 / separate infant",
+					"origin": [
+						171.66667175293,
+						395.0
+					],
+					"palm": [
+						280.0,
+						488.787872314453
+					],
+					"socket_method": "Manual native palm sampling; static diagnostic only"
+				},
+				{
+					"baby_card_extent": 80.0,
+					"baby_present": true,
+					"card_extent": 250.0,
+					"case": 4,
+					"name": "Current Roshan / same infant",
+					"origin": [
+						675.0,
+						395.0
+					],
+					"palm": [
+						724.8046875,
+						530.7421875
+					],
+					"socket_method": "Manual native palm sampling; static diagnostic only"
+				},
+				{
+					"baby_card_extent": 60.0,
+					"baby_present": false,
+					"card_extent": 300.0,
+					"case": 5,
+					"name": "Attempt 2 / detail view",
+					"origin": [
+						1183.33325195313,
+						395.0
+					],
+					"palm": [
+						1354.38586425781,
+						543.086120605469
+					],
+					"socket_method": "Manual native palm sampling; static diagnostic only"
+				}
+			],
+			"path": "1600x720.webp",
+			"sha256": "5abe34e6fdb81930a430654184cc35e469fe2052c4fe48073f73300aa50f33f8"
+		}
+	],
+	"engine": "4.7.2-stable (official)",
+	"harness_sha256": "82c70a7b92dd6d4717d94c9099f313bb02b4130b837049da68d8351a5cbba505",
+	"method": "Correct native alpha on actual nursery backdrop; helpers190px, Roshan250px, source-only infant60/80px and helper detail300px. Manual static sockets. No ordinary live helper binding, pickup/return action, input, progress or device/child/owner acceptance.",
+	"renderer": "mobile",
+	"sources": [
+		{
+			"dimensions": [
+				512,
+				512
+			],
+			"path": "assets/opera/worlds/actors/faron_nursery.png",
+			"sha256": "b2e326c2c52b91dd8a5c19525db9613ec7508870adaebfe4c44a991d496315f9"
+		},
+		{
+			"dimensions": [
+				1254,
+				1254
+			],
+			"path": "assets_src/imagegen/day2_nursery_faron_v2_20261001/attempt-01.png",
+			"sha256": "353edff439a54fc24a55a5cab43fb70d6a11b6dc4557d2595af914b9396f86c0"
+		},
+		{
+			"dimensions": [
+				1254,
+				1254
+			],
+			"path": "assets_src/imagegen/day2_nursery_faron_v2_20261001/attempt-02.png",
+			"sha256": "c986e68677c19b52aee77bab70c605d9aa92168e0226453da613048723bc9fb9"
+		},
+		{
+			"dimensions": [
+				512,
+				512
+			],
+			"path": "assets/opera/worlds/nursery/refinement_v2/care_01.png",
+			"sha256": "f75ebef743b99a4411cc81adc296f852db19b25bb445257c3920cbabfa2ebac7"
+		},
+		{
+			"dimensions": [
+				1024,
+				1024
+			],
+			"path": "assets_src/imagegen/day2_nursery_babies_v2_20261001/baby_0_review.png",
+			"sha256": "106a8e37fda02b4c2256ececd01919eeaf4573d8cb29b071e70db4b0667dbb38"
+		}
+	]
+}

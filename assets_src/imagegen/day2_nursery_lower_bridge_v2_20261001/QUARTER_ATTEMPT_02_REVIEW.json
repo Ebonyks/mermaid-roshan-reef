@@ -1,0 +1,43 @@
+{
+  "generation_id": "exec-466a472b-9ea5-49cf-9761-60f59b477af5",
+  "method": "Built-in new independent pose from one held appearance/anatomy reference",
+  "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/quarter-attempt-02.png",
+  "sha256": "b979d17cacb0ce34ede628a6fa5f0df3975fdd45a335509af8f46162b8434df6",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "prompt_path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/PROMPT_QUARTER_ATTEMPT_02.txt",
+  "prompt_sha256": "6ee14101c91344893592b5b9427a441300d82be033920e31f7a83e2dd7d8722d",
+  "references": [
+    {
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_03.png",
+      "sha256": "ebe2ce0f99d77ee26f8a73a87d996ca965e6ebc37e431cb7c5fc16ae1732850a",
+      "role": "held identity/anatomy and canvas composition"
+    }
+  ],
+  "support_region_native": [
+    275,
+    665,
+    325,
+    690
+  ],
+  "support_point_native": [
+    290,
+    681
+  ],
+  "reference_pivot_native": [
+    558.4375,
+    898.88671875
+  ],
+  "pivot_method": "Same normalized512 canvas landmark as current held key3, preserving the reference composition; not a separately re-estimated pelvic center.",
+  "native_fit": "quarter_fit/receipt.json",
+  "source_opinion": 4.6,
+  "native_static_early_pose_opinion": 4.6,
+  "entry_displacement_screen_px": 7.76740931537794,
+  "remaining_next_gap_screen_px": 22.54480491554308,
+  "basis": "New source retains identity and folded elbows. Both native Mobile aspect views show the separate infant supported by the grouped receiving palms, at a small first lowering step on the held reference canvas. Provisional source/static fit only; the remaining22.54px transition still needs new intermediate states and a complete input/action trace.",
+  "runtime_bound": false,
+  "owner_accepted": false
+}

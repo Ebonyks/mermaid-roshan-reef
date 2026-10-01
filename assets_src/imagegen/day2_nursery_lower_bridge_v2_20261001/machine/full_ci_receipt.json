@@ -1,0 +1,847 @@
+{
+  "schema": "reef.full-local-ci-receipt.v1",
+  "baseline": "32d6176206739eb5cebfa5bdcb8df5cb6261f80b",
+  "checked_utc": "2026-10-01T12:04:03.788040+00:00",
+  "started_local": "2026-10-01 04:16:06 America/Los_Angeles",
+  "command": "Unmodified scripts/ci.sh via task-local Bash wrapper; exact official4.7.2, PythonUTF8, isolated per-probe Windows APPDATA/LOCALAPPDATA",
+  "wrapper_path": "tmp/current_source_full_ci.sh",
+  "wrapper_sha256": "5f05000b598816081637a92ba07de65894d07f0cbddb6c9ad512545f3896d78c",
+  "exit_code": 0,
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "trusted_probes_completed": 82,
+  "trusted_probes": [
+    {
+      "name": "probe_reef_districts",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_ocean_kingdoms",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_audit",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_passive",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_living_world",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_load",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_rank",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_save_recovery",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_galaxy_state",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_collection",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_mg2d",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_fetch",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_melody",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_dolls",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_seek",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_audio",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_dance",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_l2",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_l2_living_cards",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_sky_lagoon_animals",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_l2_reenter",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_crown",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_throne",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_northern",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_human_art_audit",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_train",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_verbs",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_skins",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_touch_router",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_touch_stress",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_interaction",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_touch_adversary",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_touch_look",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_ui_system",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_voice",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_voice",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_d8_revisits",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_handoffs",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_kart_feel",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_combat",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_dust_bunny",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_dust_bunny_boss",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_dust_boss",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_hit",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_partner",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_combat_tutorial",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_imp_ai",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_mic",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_stuffie",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_dungeon",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_ember",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_opera",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_opera_2d",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_opera_diegetic_paths",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_opera_detective",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_opera_pipe",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_opera_nursery",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_opera_gesture_quality",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_kitchen_props",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_bathroom_props",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_castle_door_language",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_bathroom_integration",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_bathroom_bunny",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_bathroom_cleanup",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_bathroom_movie_handoff",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_director",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_integration",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_pool_cleanup",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_art_attack_state",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_castle_dressing",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_day_one_story_clips",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_chapter2",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_chapter2_farmer_resume",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_chapter2_lawn",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_alpha_milestone_save",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_dust_boss_balance",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_start_menu_routing",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_start_menu_new_game",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_castle_pool_life_2d",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_castle_pearl_art",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_fairy_art",
+      "process_exit": 0
+    },
+    {
+      "name": "probe_props",
+      "process_exit": 0
+    }
+  ],
+  "stdout": {
+    "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/machine/full_ci.stdout.log",
+    "sha256": "4b026fae6795fbb67cdc5b232a8a7bc1db2711e8cc7d7ae52e8e918c2f2bde53",
+    "bytes": 431224
+  },
+  "stderr": {
+    "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/machine/full_ci.stderr.log",
+    "sha256": "e21d6d8e6bb7f4dd11d1c43c7a957e3ee89be18948d0b50daf30980eb784fc96",
+    "bytes": 1633
+  },
+  "suite_and_probe_inputs": [
+    {
+      "path": "scripts/ci.sh",
+      "sha256": "92f94855c4d870a52e9ba7b71b7e01d51fa3a9a9ad503e1559b39cf93195f887",
+      "bytes": 14397
+    },
+    {
+      "path": "scripts/probe_reef_districts.gd",
+      "sha256": "dc508930e4f6e8332cfbec9317b3149fa73f687f5f8b02a3c0d41d1d7ad6be43",
+      "bytes": 5435
+    },
+    {
+      "path": "scripts/probe_ocean_kingdoms.gd",
+      "sha256": "1ad9e08b691702eae80422d38525ddc3a1d656da5b4f3dfd47274e9433606072",
+      "bytes": 4798
+    },
+    {
+      "path": "scripts/probe_audit.gd",
+      "sha256": "092c2c5cec5f5d87ab2a06c2c91ea65b204c51340b8d262b021c104f48a7975f",
+      "bytes": 263639
+    },
+    {
+      "path": "scripts/probe_passive.gd",
+      "sha256": "3a83d7bd13a5fc5d2489a1a3164dbe9b309611730baaca4426f0d424ef2aec51",
+      "bytes": 19121
+    },
+    {
+      "path": "scripts/probe_living_world.gd",
+      "sha256": "55e17b83bad35d03f0bf3d32cd694cc143e1137d9e50fcf597b7135f452128b4",
+      "bytes": 14629
+    },
+    {
+      "path": "scripts/probe_load.gd",
+      "sha256": "b14c80e4119b9287e6c147e3d542f05e727ba8911c565021c648e0a207f5fc40",
+      "bytes": 12785
+    },
+    {
+      "path": "scripts/probe_rank.gd",
+      "sha256": "d726356d0806d713ddf10434a715732a9c26ca0a784a7d15cc7e04e7728304d5",
+      "bytes": 18423
+    },
+    {
+      "path": "scripts/probe_save_recovery.gd",
+      "sha256": "6a85d25701cfc8b125ff3189192bf088efb7e9792fe0693f9529d1d7b58bf991",
+      "bytes": 19616
+    },
+    {
+      "path": "scripts/probe_galaxy_state.gd",
+      "sha256": "2f0c0bcb5afd65ce6de549712395e09518fe2392d7000e2f083fd7a2a70d446c",
+      "bytes": 9160
+    },
+    {
+      "path": "scripts/probe_collection.gd",
+      "sha256": "91446b5f3ebea649fe2c4a3ebdc0effcc0f20fcd1519044a40410a2f1a4046ba",
+      "bytes": 3560
+    },
+    {
+      "path": "scripts/probe_mg2d.gd",
+      "sha256": "15b4e22b580424c53f5c6b0dd9569f4f20877a28def41c8f4cdc0032c37cfd83",
+      "bytes": 15450
+    },
+    {
+      "path": "scripts/probe_fetch.gd",
+      "sha256": "d317de0e7e75a14f1b4e8f9a5bfcc82b7614a3f349d39b1598e5cf9edcf61233",
+      "bytes": 1421
+    },
+    {
+      "path": "scripts/probe_melody.gd",
+      "sha256": "27195d2f943b4b71d74225cd5ac743e4bf209557a861bb43b43156b7dda01f02",
+      "bytes": 115973
+    },
+    {
+      "path": "scripts/probe_dolls.gd",
+      "sha256": "fe9fa7e868cb4feb2c8c7c1906beca3844652da9effd354965ce1784542cc9e5",
+      "bytes": 28703
+    },
+    {
+      "path": "scripts/probe_seek.gd",
+      "sha256": "c9d9a5c3a11bcebe08c47a76a89def689aeb415f9fa1e240971e54da9a996da8",
+      "bytes": 30744
+    },
+    {
+      "path": "scripts/probe_audio.gd",
+      "sha256": "89cb2a394a627090060e3819072eddca384c27e774a5d02405dfb56e93d39170",
+      "bytes": 6017
+    },
+    {
+      "path": "scripts/probe_dance.gd",
+      "sha256": "6d23bba9d63734e7a39765eaf342c256939bd483e612bf305e1eaeb3427c1ff5",
+      "bytes": 3220
+    },
+    {
+      "path": "scripts/probe_l2.gd",
+      "sha256": "719422f5f394210255f19c29670b48c563f7eb2bf01bad76c932b06ec5072a58",
+      "bytes": 57245
+    },
+    {
+      "path": "scripts/probe_l2_living_cards.gd",
+      "sha256": "30be04d818f8983276ff36341e566285fb480c391a1e06ab85c51e5bc66ed2c7",
+      "bytes": 11526
+    },
+    {
+      "path": "scripts/probe_sky_lagoon_animals.gd",
+      "sha256": "b2333645673b782ebcdea5801b562387f157ae48ec8a5b3d43a84e37ef90b48e",
+      "bytes": 15414
+    },
+    {
+      "path": "scripts/probe_l2_reenter.gd",
+      "sha256": "4801003677cc50128df1a66e3b9ce2d77c58782d574e200d3cef2a860b14f0d0",
+      "bytes": 3314
+    },
+    {
+      "path": "scripts/probe_crown.gd",
+      "sha256": "d86893ea6f773371899ae26868d9e1632ebbb9638ffbc2f73cb068a6862c39af",
+      "bytes": 33775
+    },
+    {
+      "path": "scripts/probe_throne.gd",
+      "sha256": "b144585734a0983eab157bf03f265b76d4cd33c90e414cd9309e8e89a263af49",
+      "bytes": 21938
+    },
+    {
+      "path": "scripts/probe_northern.gd",
+      "sha256": "ed0b22b73862bcff2b68c1e9883011717ac7dc5dfdc3c1562b3d24015288c2fa",
+      "bytes": 8321
+    },
+    {
+      "path": "scripts/probe_human_art_audit.gd",
+      "sha256": "d92547ea6b66f1f99a720935dd2fa4b3c30a835c095d6b88a3e58591f6f9e39f",
+      "bytes": 6819
+    },
+    {
+      "path": "scripts/probe_train.gd",
+      "sha256": "8af47d91fe0564f9873a8fb06189d5b3103254d0c8674957241f1fac70e4db26",
+      "bytes": 3185
+    },
+    {
+      "path": "scripts/probe_verbs.gd",
+      "sha256": "207a827f59d217734a184b9bd682ccd8292bdbdc3eb5ee219c72f41f7eee189c",
+      "bytes": 13571
+    },
+    {
+      "path": "scripts/probe_skins.gd",
+      "sha256": "bbc0e95703afaf38c0d4362406af64034a14c3b6ccc8eea5abb5ec739d167cf5",
+      "bytes": 2768
+    },
+    {
+      "path": "scripts/probe_touch_router.gd",
+      "sha256": "3c597f87de48a15dc513e271e17531f9188d76a788e185aee49a29df629377c2",
+      "bytes": 15550
+    },
+    {
+      "path": "scripts/probe_touch_stress.gd",
+      "sha256": "eb3370ebc25ac4c3d1fc358a51aff191d78ba007ee07e17a858534ef1d3bdcb5",
+      "bytes": 21284
+    },
+    {
+      "path": "scripts/probe_interaction.gd",
+      "sha256": "868b376a9fb4393a5ba9bcf1be85f09462bb7fdd26c296aa60b068f9c4b43c74",
+      "bytes": 40691
+    },
+    {
+      "path": "scripts/probe_touch_adversary.gd",
+      "sha256": "72aae12811c597a32e929ab9ee62a1bd30297a87cc6e7072c212174cf91df2f1",
+      "bytes": 12351
+    },
+    {
+      "path": "scripts/probe_touch_look.gd",
+      "sha256": "bf28b403aabb95c795572f561b35ec32466c60cdc37ff8980092015176e505ef",
+      "bytes": 5486
+    },
+    {
+      "path": "scripts/probe_ui_system.gd",
+      "sha256": "98f7d49273599852b911fafe53ead7884d07e94ad01d3efa7fdd0ffc08ba28e3",
+      "bytes": 39945
+    },
+    {
+      "path": "scripts/probe_voice.gd",
+      "sha256": "36ff65130aaef6efed80358444e6fdcdf497ccb3dca690e5ec8bbc6a72b3926c",
+      "bytes": 16053
+    },
+    {
+      "path": "scripts/probe_day_one_voice.gd",
+      "sha256": "b4887cc66c94fa6b7dc1bc5eaaac47c064e554a09e74d933e90a0fd199326d23",
+      "bytes": 3588
+    },
+    {
+      "path": "scripts/probe_day_one_d8_revisits.gd",
+      "sha256": "6a4495a79652d3940a4d541192c845b9600a168d379cfd654f3900f2b2c560ff",
+      "bytes": 4330
+    },
+    {
+      "path": "scripts/probe_day_one_handoffs.gd",
+      "sha256": "7f2d0710ffd5fb486ea1e7d76b85ed08e3bf7529b287ed9ba3019d11c6fc21c9",
+      "bytes": 3898
+    },
+    {
+      "path": "scripts/probe_kart_feel.gd",
+      "sha256": "4b784becd5542d7e74e7932803c01c0dbddc3f8ab8a7af4ada821350d3cbbb98",
+      "bytes": 19576
+    },
+    {
+      "path": "scripts/probe_combat.gd",
+      "sha256": "b926698673b1af136dfeb5b299dfdbcb7c8cca1af7b981ad7357da75106c149a",
+      "bytes": 9225
+    },
+    {
+      "path": "scripts/probe_dust_bunny.gd",
+      "sha256": "019691e71989673cd7163a1d479f14c904822d56f82a075b5acbab6eb2e82dcf",
+      "bytes": 3756
+    },
+    {
+      "path": "scripts/probe_dust_bunny_boss.gd",
+      "sha256": "06508026c180cf416dc0b3428df9b2e39f8192be909f1ecef49dfeaad3accd47",
+      "bytes": 11695
+    },
+    {
+      "path": "scripts/probe_dust_boss.gd",
+      "sha256": "43640e183679a53fc8dc4543f83f6383f98b8c3a3a3976f1205a8030e249533d",
+      "bytes": 33922
+    },
+    {
+      "path": "scripts/probe_hit.gd",
+      "sha256": "2c23b4a96d9e7b33edef32b3581b432f789589a4d2ec91048d57487997ed392e",
+      "bytes": 13140
+    },
+    {
+      "path": "scripts/probe_partner.gd",
+      "sha256": "5e3e734372a6842c6192d2a9406d648eb46f6ad2a7c9f3f382db0ec8b734a605",
+      "bytes": 4562
+    },
+    {
+      "path": "scripts/probe_combat_tutorial.gd",
+      "sha256": "4386e067905614d85dd4856636ec441c817881e41fe199da7ae6c10150fabe19",
+      "bytes": 8410
+    },
+    {
+      "path": "scripts/probe_imp_ai.gd",
+      "sha256": "b07f89684baedf0f1917858f73c464473b0710ab610cb0f0044370209a4438b8",
+      "bytes": 12016
+    },
+    {
+      "path": "scripts/probe_mic.gd",
+      "sha256": "17b75eb8d230320caff168487a7372464caf8d89091b5fab428c747aadb9ad59",
+      "bytes": 10749
+    },
+    {
+      "path": "scripts/probe_stuffie.gd",
+      "sha256": "b40ea5b8b14ddb5dd9ac9e28c59b020a9cfe28701663a649277421d93dc0cc39",
+      "bytes": 35627
+    },
+    {
+      "path": "scripts/probe_dungeon.gd",
+      "sha256": "7429dbc6653f78189c13ff8453633f7ac10d7e575d907987803ee06def734ff2",
+      "bytes": 10141
+    },
+    {
+      "path": "scripts/probe_ember.gd",
+      "sha256": "a1759b9d89a50c4645a1d73c52c668a9c5b2622082ead5720f0853675ee08aeb",
+      "bytes": 11732
+    },
+    {
+      "path": "scripts/probe_opera.gd",
+      "sha256": "35159fdb0f7321e7a5559f72b61e3b6936996405bd205b3e0be44a115eece1d2",
+      "bytes": 28827
+    },
+    {
+      "path": "scripts/probe_opera_2d.gd",
+      "sha256": "440ca7095d1800bbc641e05ff727ad47f403a2ad253f398fb570a86af6f598f0",
+      "bytes": 154598
+    },
+    {
+      "path": "scripts/probe_opera_diegetic_paths.gd",
+      "sha256": "29c9ccf43ed2b308bb5e6aed154bdac9aff0d65c3ab146e0fc1bbc0b1a75eed5",
+      "bytes": 19045
+    },
+    {
+      "path": "scripts/probe_opera_detective.gd",
+      "sha256": "e515878b2f542d87b74c3b371003eb723821411af3b7cd47b9d57287388c6369",
+      "bytes": 6906
+    },
+    {
+      "path": "scripts/probe_opera_pipe.gd",
+      "sha256": "46b9839080731fb33d8262953ebe40f87bd1d32537c97fec9861311a318ae977",
+      "bytes": 4417
+    },
+    {
+      "path": "scripts/probe_opera_nursery.gd",
+      "sha256": "f3d5422ff395c33245979f719cc8f8fa954b7e2403681363996dfd98142e4cfa",
+      "bytes": 11325
+    },
+    {
+      "path": "scripts/probe_opera_gesture_quality.gd",
+      "sha256": "634ea1651024ba6e8ec88802246db1a1dc0b123ee8c7da47f47fa0c5b4d7f0f4",
+      "bytes": 94463
+    },
+    {
+      "path": "scripts/probe_kitchen_props.gd",
+      "sha256": "d7c318c867fa281416c5a038da3f3179c0cae6932deaa7deea6ddd3464ee2527",
+      "bytes": 6076
+    },
+    {
+      "path": "scripts/probe_bathroom_props.gd",
+      "sha256": "400136dc16f34866d777d479f6137aebeecbceceddc1c58bf4e89155f680b467",
+      "bytes": 3964
+    },
+    {
+      "path": "scripts/probe_castle_door_language.gd",
+      "sha256": "5c109f86860fff6a5b1406a738985f026e952e9c84109a15a0c0f6b5e21ddfe5",
+      "bytes": 6342
+    },
+    {
+      "path": "scripts/probe_bathroom_integration.gd",
+      "sha256": "907291590f2f853b7c5dbbc75688cd03b5ad705f89fb4b6d4f47ad31d7378004",
+      "bytes": 38123
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_bunny.gd",
+      "sha256": "86281b834d5a1716c6b744c113c68fa7eb89cbd37f4ac47b8eefecd847591cfa",
+      "bytes": 14409
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_cleanup.gd",
+      "sha256": "4c5589a02d092b8793e4064b7f30a5ca2aa6cbd6031cf5eb46b277d5da7f9ba9",
+      "bytes": 34290
+    },
+    {
+      "path": "scripts/probe_day_one_bathroom_movie_handoff.gd",
+      "sha256": "9217e4a68e22c22804384c81f1546ad8291903a536dabc02dd33dcb76e689f58",
+      "bytes": 5739
+    },
+    {
+      "path": "scripts/probe_day_one_director.gd",
+      "sha256": "36c1cb1fdbd1f054ae9aa029dfe07c1abe8bc48877cb41c244276ac494f907f5",
+      "bytes": 8598
+    },
+    {
+      "path": "scripts/probe_day_one_integration.gd",
+      "sha256": "cfcb6e34b6b3bd8435ee3514c1530c81f5676677c0abff31aeef792c4c620821",
+      "bytes": 6155
+    },
+    {
+      "path": "scripts/probe_day_one_pool_cleanup.gd",
+      "sha256": "6c11305e07e6d524d1e884bbc7150743bb6d841613a9b96cf913621ce66efe8e",
+      "bytes": 25898
+    },
+    {
+      "path": "scripts/probe_day_one_art_attack_state.gd",
+      "sha256": "df61e16de2ee8cfb5f9913e4c1dcbf78d9339f22b3efc4957a07708b59daf4f2",
+      "bytes": 13413
+    },
+    {
+      "path": "scripts/probe_day_one_castle_dressing.gd",
+      "sha256": "7e3e025d044e10e7da9d5113fc87743d6e1df1cf646a3c273959650619ce3eb2",
+      "bytes": 4476
+    },
+    {
+      "path": "scripts/probe_day_one_story_clips.gd",
+      "sha256": "1c766ee21b1c51e47a0812a0ac9374027e81928023a7a7664f16f941ddc117e8",
+      "bytes": 9473
+    },
+    {
+      "path": "scripts/probe_chapter2.gd",
+      "sha256": "e4e1dc0154997be18149aeaf55506004e05a7a12414d49c22c2a7136dc901c90",
+      "bytes": 25220
+    },
+    {
+      "path": "scripts/probe_chapter2_farmer_resume.gd",
+      "sha256": "b0185c639f3c9966c12e13e1f757989063d4b450014162bad02ea9cb7eb6a84a",
+      "bytes": 10041
+    },
+    {
+      "path": "scripts/probe_chapter2_lawn.gd",
+      "sha256": "6aee575a267d9cae387ebdc7e4a3b83cb29a6416472568fb0e15c276b3bbd032",
+      "bytes": 12266
+    },
+    {
+      "path": "scripts/probe_alpha_milestone_save.gd",
+      "sha256": "04aff5486af934c7a554da70920d8fc08306003a63feae6d6c388ffb8b896326",
+      "bytes": 5154
+    },
+    {
+      "path": "scripts/probe_dust_boss_balance.gd",
+      "sha256": "f7279a775cd2bfcdb10b2fc25a1c40c72c9f7d23dc414bc89360ecaa0b980a93",
+      "bytes": 5437
+    },
+    {
+      "path": "scripts/probe_start_menu_routing.gd",
+      "sha256": "a155f579c9038830924d5583e64aea6c88798723c46843b0807d8e5bd00bfb26",
+      "bytes": 7135
+    },
+    {
+      "path": "scripts/probe_start_menu_new_game.gd",
+      "sha256": "e1212dc0ef7feba7c4f63b8b3b84af21d99e644334729664243384a61df4aa84",
+      "bytes": 7958
+    },
+    {
+      "path": "scripts/probe_castle_pool_life_2d.gd",
+      "sha256": "defc69701ef5d44122a4a08e9ab1a1996fc955c1a162b90cbfc1286559229dee",
+      "bytes": 3064
+    },
+    {
+      "path": "scripts/probe_castle_pearl_art.gd",
+      "sha256": "922b2fc62780615b0c96bb85ce93fffb538949fbf953d41e73d679105925ed9e",
+      "bytes": 261
+    },
+    {
+      "path": "scripts/probe_fairy_art.gd",
+      "sha256": "10d4bfcbf973652c83947e74a0e9e708eda471ade3cf2641aac63e160c7b30a3",
+      "bytes": 2802
+    },
+    {
+      "path": "scripts/probe_props.gd",
+      "sha256": "3096e78f8108439bdb730a9302d259fdd86ac7bbded032621fda82f0155c8b37",
+      "bytes": 13304
+    }
+  ],
+  "review_tool_fingerprints": [
+    {
+      "path": "tools/capture_day2_nursery_faron_fit.gd",
+      "sha256": "82c70a7b92dd6d4717d94c9099f313bb02b4130b837049da68d8351a5cbba505"
+    },
+    {
+      "path": "tools/capture_day2_nursery_lower_bridge_fit.gd",
+      "sha256": "890e87cd8d6e41dfd3b7ae632e282f13742a230557c1362b0501a3ccf7beae27"
+    },
+    {
+      "path": "tools/capture_day2_nursery_lower_single_fit.gd",
+      "sha256": "863f500b51e2eed807cd68cb16f258503263ecd8092a237c4f5f47e4fdd94172"
+    },
+    {
+      "path": "tools/capture_day2_nursery_lower_chain_fit.gd",
+      "sha256": "3cebd16f6f98ec1da47cca630bb67f3658ca8654562859b0eddc0199c6dad72c"
+    },
+    {
+      "path": "tools/capture_day2_nursery_lower_motion_fit.gd",
+      "sha256": "a03a61215a6c9a40b458e360e89d185d9c75484351f072439c569f38cb00bd2d"
+    },
+    {
+      "path": "tools/pack_day2_nursery_lower_bridge_v2.py",
+      "sha256": "6431f5e53065da6c578c7440103728b5982ea398f586b87dcea7ef3318014e08"
+    }
+  ],
+  "production_diff_at_completion": [],
+  "production_qualification": "No tracked production scripts/runtime assets/project.godot changed from32d. Source-only reviewed imagery and six diagnostic tools are separate; their direct parser/analyzer/native gates are preserved in source_gates.json. Unfinished new Faron motion tool/images and expanded Day One draft are outside this source packet.",
+  "engine_error_warning_lines": [
+    "WARNING: Detected another project.godot at res://tmp/day2_svg_review. The folder will be ignored.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/sky_lagoon_slide_v3_compact.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/characters/friends/two_friends.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/props/gen2/clownfish_side.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_0.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_1.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2_v2.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3_v2.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: SaveState: writes disabled \u2014 the save on disk uses a newer schema than this build; the newer save is preserved and progress stays in memory",
+    "WARNING: SaveState: no clean before-New-Game archive is available to restore",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/characters/stickers/daddy.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/opera/worlds/actors/roshan_popstar.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r0_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c2.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/sky_lagoon/main/flat_sky_lagoon_main_panorama_v5_tile_r1_c3.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/characters/stickers/daddy.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/opera/worlds/actors/roshan_popstar.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: 8 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+    "ERROR: 4 resources still in use at exit (run with --verbose for details).",
+    "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+    "ERROR: 2 resources still in use at exit (run with --verbose for details).",
+    "WARNING: 9 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+    "WARNING: 16 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+    "ERROR: 8 resources still in use at exit (run with --verbose for details).",
+    "WARNING: MicInput: user://mic_spells.json is unreadable; spells must be taught again",
+    "WARNING: 12 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+    "ERROR: 6 resources still in use at exit (run with --verbose for details).",
+    "WARNING: Ember planet kit missing; using the procedural safety fallback",
+    "WARNING: Opera phase has no authored room object: farmer/GATHER STRAWBERRIES",
+    "WARNING: Opera phase has no authored room object: farmer/FILL BASKET",
+    "WARNING: Opera phase has no authored room object: farmer/DELIVER TO KITCHEN",
+    "WARNING: Opera phase has no authored room object: chef/STACK",
+    "WARNING: Opera phase has no authored room object: candymaker/COAT STRAWBERRIES",
+    "WARNING: Opera phase has no authored room object: candymaker/SORT STRAWBERRIES",
+    "WARNING: Opera phase has no authored room object: candymaker/GLAZE STRAWBERRIES",
+    "WARNING: Opera phase has no authored room object: candymaker/PLACE ON CAKE",
+    "ERROR: Parameter \"current_scene\" is null."
+  ],
+  "qualification": "The suite exit0 and82/82 successful process exits establish machine regression only. Exit-time engine leak warnings/errors and the global advisory visual UNSATISFIED findings remain in the raw logs. No full live action/phone/child/owner/global master satisfaction is inferred.",
+  "result": "PASS"
+}

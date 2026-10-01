@@ -344,6 +344,10 @@ unclassified until this ledger gains one new scoped row for it.
 | `CLAUDE_FABLE_ORNATE_SHELL_UI_HANDOFF_2026-07-29.md` | 🔵 | `HISTORICAL_EVIDENCE` for the UI lineage that produced `StorybookUI`; current UI rules live in design 06 and current runtime evidence. |
 | `CLAUDE_FABLE_UI_HANDOFF_2026-07-21.md` | 🔵 | `HISTORICAL_EVIDENCE` for the UI lineage that produced `StorybookUI`; current UI rules live in design 06 and current runtime evidence. |
 
+| `assets_src/imagegen/day2_nursery_faron_v2_20261001/index.html` | 🟣 | `CANDIDATE`; preserved D2A-0078 Faron reuse gap and both independent fresh empty-handed source attempts, style-rejected4.3 followed by provisional4.6 source/static native Mobile fit at two aspects. Originals remain bound; helper pickup/return action, device/child/owner and comprehensive completion remain open. |
+
+| `assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/index.html` | 🟣 | `CANDIDATE`; all4 older lowering sources and6 individual generated attempts, exact RGBA reconstruction, requested-height/guide/ready-contact and old-endpoint timed failures preserved. Selected source/static/standalone lowering bridge4.6 with all five hand steps below8px in both native aspects; complete live action remains4.2, safe return3.4. No runtime binding, device/child/owner/global acceptance. |
+
 ## Cinematics
 
 | Doc | | Note |

@@ -67,3 +67,21 @@ audit/day_one_job_art_census_20261001/** -text whitespace=-blank-at-eol,cr-at-eo
 
 # Preserve the literal analyzer transcript's engine-emitted terminal blank line.
 audit/day2_nursery_action_v4_20261001/machine/source_gates.log -text whitespace=-blank-at-eof,-blank-at-eol,cr-at-eol
+
+assets_src/imagegen/day2_nursery_faron_v2_20261001/** -text whitespace=-blank-at-eof,-blank-at-eol,cr-at-eol
+
+tools/capture_day2_nursery_faron_fit.gd -text whitespace=cr-at-eol
+
+assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/** -text whitespace=-blank-at-eof,-blank-at-eol,cr-at-eol
+
+tools/capture_day2_nursery_lower_bridge_fit.gd -text whitespace=cr-at-eol
+
+tools/capture_day2_nursery_lower_single_fit.gd -text whitespace=cr-at-eol
+
+tools/capture_day2_nursery_lower_chain_fit.gd -text whitespace=cr-at-eol
+
+tools/capture_day2_nursery_lower_motion_fit.gd -text whitespace=cr-at-eol
+
+tmp/nursery_lower_bridge_guides_20261001/** -text
+
+tools/pack_day2_nursery_lower_bridge_v2.py -text

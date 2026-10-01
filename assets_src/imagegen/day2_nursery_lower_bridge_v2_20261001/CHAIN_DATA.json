@@ -1,0 +1,67 @@
+{
+  "poses": [
+    {
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/quarter-attempt-02.png",
+      "hip_xy": [
+        558.4375,
+        898.88671875
+      ],
+      "palm_xy": [
+        290,
+        681
+      ],
+      "review_side": 1254,
+      "review_extent": 250,
+      "label": "Fresh early / small lowering",
+      "sha256": "b979d17cacb0ce34ede628a6fa5f0df3975fdd45a335509af8f46162b8434df6"
+    },
+    {
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_00.png",
+      "hip_xy": [
+        235,
+        375
+      ],
+      "palm_xy": [
+        126,
+        298
+      ],
+      "review_side": 512,
+      "review_extent": 250,
+      "label": "Existing unused ready key / reuse test",
+      "socket_qualification": "Point126,298 within visible left receiving palm; static support/other-hand role must be judged, not inferred from passing distance.",
+      "sha256": "3af164a76b617cd66f2351c55c05ac6a0b7004924c8d5ace855c13680f63fa40"
+    },
+    {
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/middle-a-attempt-01.png",
+      "hip_xy": [
+        558.4375,
+        898.88671875
+      ],
+      "palm_xy": [
+        290,
+        750
+      ],
+      "review_side": 1254,
+      "review_extent": 250,
+      "label": "Early request overshoot / later reuse",
+      "sha256": "9d479a352b067bdc4f2cfcc568d743f40dbfcd61612466b951b111bd374e47a3"
+    },
+    {
+      "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/middle-a-attempt-02.png",
+      "hip_xy": [
+        558.4375,
+        898.88671875
+      ],
+      "palm_xy": [
+        305,
+        776
+      ],
+      "review_side": 1254,
+      "review_extent": 250,
+      "label": "Guide miss / later reuse",
+      "sha256": "3155fed1797df250b7c253ecb29d808e80840292b10c556af6cd64f7df307601"
+    }
+  ],
+  "common_new_review_card_extent_px": 250,
+  "method": "Four proposed intermediate sources, with whole-canvas reference for three standalone generations and existing key0 reference. Manual points inside visible palm support. No runtime binding; native appearance/contact/figure continuity must pass independently."
+}

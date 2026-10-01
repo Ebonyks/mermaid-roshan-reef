@@ -1,0 +1,36 @@
+{
+  "generation_id": "exec-a8fb5426-a1fb-4ad6-9ca8-77a1cd72cafc",
+  "generation_method": "Built-in independent interactive pose generation",
+  "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/middle-a-attempt-02.png",
+  "sha256": "3155fed1797df250b7c253ecb29d808e80840292b10c556af6cd64f7df307601",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "prompt_path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/PROMPT_MIDDLE_A_ATTEMPT_02.txt",
+  "prompt_sha256": "5a08cc9af5fc2056cf62b91a4fba4c20464cb668d389a45116353f0cfb1bc257",
+  "appearance_reference": {
+    "path": "assets_src/imagegen/day2_nursery_lower_bridge_v2_20261001/quarter-attempt-02.png",
+    "sha256": "b979d17cacb0ce34ede628a6fa5f0df3975fdd45a335509af8f46162b8434df6"
+  },
+  "source_style_opinion": 4.6,
+  "requested_early_height_opinion": 4.0,
+  "decision": "Requested early height overshoots; preserve and evaluate later-pose reuse. No binding or action pass.",
+  "runtime_bound": false,
+  "owner_accepted": false,
+  "position_guide": {
+    "path": "tmp/nursery_lower_bridge_guides_20261001/middle_a_position_only.png",
+    "sha256": "8b92e3b80a5246e75ce93850d3b93ace1d9533b1a93f7dae5cc4bc20d705b47f",
+    "dimensions": [
+      512,
+      512
+    ],
+    "role": "position_only",
+    "used_as_delivery_pixels": false,
+    "method": "Code-native neutral-field bounds, coordinate marks and labels only. No subject footprint, accepted background, texture, shading or source appearance pixels. Experimental control; must earn acceptance from measured complete independent generation."
+  },
+  "guide_control_result": "FAIL: native palms visibly below requested early guide support. No guide pixels are present in the completed figure; do not treat guide mode as accepted control.",
+  "later_role_static_opinion": 4.6,
+  "later_role_evidence": "chain_v3_fit/receipt.json and motion_v3_fit/receipt.json; separate infant supported by paired connected hands at production72px and2x detail.",
+  "later_role_qualification": "Earlier requested-height/control failures are preserved; this is separately reviewed reuse at the visible later lowering height, not a retroactive pass of the failed request."
+}

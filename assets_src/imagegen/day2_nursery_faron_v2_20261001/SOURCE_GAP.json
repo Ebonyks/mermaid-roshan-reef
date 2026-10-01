@@ -1,0 +1,36 @@
+{
+  "baseline": "32d6176206739eb5cebfa5bdcb8df5cb6261f80b",
+  "named_gap": "Faron D2A-0078 retains mounted4.1/source4.4 styling and a baked infant. Current miss handling only bounces the static helper and fades a safely landed infant; it cannot express separately owned pickup/support/return. An empty-handed helper source is the first missing reusable contact state, not a complete action repair.",
+  "sources": [
+    {
+      "path": "assets/opera/worlds/actors/faron_nursery.png",
+      "sha256": "b2e326c2c52b91dd8a5c19525db9613ec7508870adaebfe4c44a991d496315f9",
+      "dimensions": [
+        512,
+        512
+      ],
+      "decision": "Existing same baked-baby pose and detailed naturalistic hair/fabric; no empty-handed ready/contact state. Original preserved; chroma source is inventoried, not used as delivery pixels."
+    },
+    {
+      "path": "assets_src/concepts/opera_nursery_2026-08-01/faron_nursery_nurse_alpha.png",
+      "sha256": "847065eaff1bec20ca05b478b445433c143916543e8f817685e72db2afec56d3",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "decision": "Existing same baked-baby pose and detailed naturalistic hair/fabric; no empty-handed ready/contact state. Original preserved; chroma source is inventoried, not used as delivery pixels."
+    },
+    {
+      "path": "assets_src/concepts/opera_nursery_2026-08-01/faron_nursery_nurse_chroma.png",
+      "sha256": "3df687a73b199dac8b4399e116000320b68d28cbac77b0fc25baecee04ba0a40",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "decision": "Existing same baked-baby pose and detailed naturalistic hair/fabric; no empty-handed ready/contact state. Original preserved; chroma source is inventoried, not used as delivery pixels."
+    }
+  ],
+  "reuse_decision": "Only this one reusable empty-handed contact state is commissioned first. Existing source masters repeat the infant-in-arms pose and do not meet that purpose; changing another character or costume would fail identity. Preserve every original and generate a fresh simplified same-design candidate.",
+  "generation_inputs": "Text-only fresh generation; no image paths bound, no source pixels fitted or composited. Inventoried source identity is described in text.",
+  "acceptance": "Attempt1 style4.3 rejected; attempt2 source/static4.6 at190px in1280/1600 native Mobile views and source-only infant contact. Browser illustrated-library QA passed. Original remains bound; complete helper pickup/carry/return action, runtime sizing, device/child/owner and comprehensive approval remain pending."
+}
