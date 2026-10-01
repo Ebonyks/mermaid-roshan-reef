@@ -44,6 +44,11 @@ On 2026-09-30 the job-game takeover audit
 (`audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md`) appends one V1 record,
 `MA-DOC-006`, for the missing job-game development script.
 
+On 2026-09-30 the staleness audit
+(`docs/handoffs/codex_reference_consolidation_2026-09-30/STALENESS_AUDIT.md`)
+appends one V1 record, `MA-DOC-007`, for stale and superseded facts presented
+as current and for outdated audits that outnumber reference documents.
+
 ## MA-2D-002
 
 | Field | Value |
@@ -158,6 +163,29 @@ On 2026-09-30 the job-game takeover audit
 | closure | Open as of 2026-09-30; no playbook, catalogue, checker, takeover kit or dry run exists. |
 | relationships | Related to `MA-DOC-002` (document inventory), `MA-CI-004` and `MA-CI-005` (probe and passive coverage), `MA-CODE-001` (the Mode Platform growth path is absent) and `MA-OPERA-012` (castle-room career routes). |
 | history | 2026-09-30: created from the job-game takeover audit at dev `5d9668a9`; P2 under section 2.3 with owner priority critical; interim recipe published in audit section 4. |
+
+## MA-DOC-007
+
+| Field | Value |
+|---|---|
+| id | `MA-DOC-007` |
+| title | The master audit and this register present stale and superseded facts as current, and outdated audits outnumber the reference documents a designer should use. |
+| rule_ids | `DL-AUTH-01`, `DL-AUTH-02`, `DL-AUTH-04`, `DL-AUTH-07`, `DL-PLAN-06` |
+| domain / zone | Development process and documentation / the master audit, this register, and the repository's audit, handoff and design documents |
+| source | Owner request 2026-09-30 and `docs/handoffs/codex_reference_consolidation_2026-09-30/STALENESS_AUDIT.md` (static and Git-history audit at dev `6fc2f48e`). |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1 static: element-by-element classification of the master audit, comparison of open findings with live tool output, and an inventory of 354 documents at dev `6fc2f48e`. |
+| reproduction | At dev `6fc2f48e`: `python -B tools/audit_game_2d.py` reports 0 model files and 52 production 3D files where master audit sections 1 and 4 and `MA-2D-002` state 509 and 65; `scripts/opera_house.gd` defines 15 live careers and mask `0x3BDEF` where the master audit states 13 careers and `0xBDEF`; the `MA-CODE-004` reproduction command reports 456 distinct keys against that record's 409; `ls *.md` at the repository root lists 196 files, of which the inventory keeps 16 as current. |
+| child_impact | Indirect: an agent following the master audit as written would redo finished work (the Detective crown painted out on 2026-08-29), restore the retired castle-room navigation rule `DL-INT-12`, or size a new career against 13 careers and the old mask. Contradictory documents let jobs drift in timing, help and rewards the child relies on. |
+| evidence | `docs/handoffs/codex_reference_consolidation_2026-09-30/STALENESS_AUDIT.md` sections 1–8; `data/master_audit_staleness_register.json` in that folder (65 elements: 19 current, 21 stale fact, 9 sealed evidence, 9 superseded decision, 6 duplicate, 1 obsolete process); `data/stale_findings.json` (24 findings and the register preamble); `REFERENCE_PLAN.md` section 3 (354 documents: 76 keep, 72 evidence, 85 absorb, 119 archive, 2 delete candidates). |
+| owner_decision | 2026-09-30: the owner asks for the stale elements of the master audit to be identified and for the many outdated audits to be streamlined and truncated into reference documents. Severity P2 under section 2.3. |
+| fix | Waves W0–W7 of `docs/handoffs/codex_reference_consolidation_2026-09-30/README.md`, coordinated with WP-1, WP-2, WP-3 and WP-10 of the master-audit refinement handoff. |
+| surrounding_tests | Document-authority and audit-development gates (no broken link after a move; no current-authority ledger row for an archived document); a verbatim-move check for sealed evidence; a grep for the ten misleading statements; a grep for commit hashes, run IDs and durations in references; the tools that read moved paths. |
+| acceptance | The master audit carries none of the ten misleading statements in STALENESS_AUDIT section 2 as present-tense claims; every element in the register has its disposition applied or a recorded reason; every finding in `data/stale_findings.json` has a dated re-verification entry and no history text is removed; the nine orphaned rules are in design 06 or have an owner question with their source kept; the 119 archive-now documents are archived with their file names and no broken link; each landed reference follows `REFERENCE_PLAN.md` section 1; the owner accepts the result (V7). |
+| closure | Open as of 2026-09-30; the staleness audit and the handoff exist, and no wave has run. |
+| relationships | Related to `MA-DOC-006` (the Opera reference must not duplicate the job-game playbook), `MA-DOC-002` (document inventory), and `MA-2D-002`, `MA-CI-003`, `MA-CODE-001`, `MA-CODE-004`, `MA-OPERA-011` and `MA-OPERA-012`, whose text is among the stale entries. |
+| history | 2026-09-30: created from the staleness audit at dev `6fc2f48e`; P2 under section 2.3; handoff published with waves W0–W7. |
 
 ## MA-VIS-002
 
