@@ -155,7 +155,7 @@ game-wide embodied-job finding `MA-PLAY-004`.
 | Source/authority/coverage | Parser, inference lint, exact 4.7.2 analyzer; document/development gates | Recorded in task impact after verification |
 | Intentional/negative/input/lifecycle/save | `--headless --script scripts/probe_fairy_restoration.gd`, isolated APPDATA profile | Recorded in task impact; live-input tests, not child observations |
 | Runtime composition | Same focused probe with `-- --capture`, measured 1280×720 Mobile | Eleven unchanged live captures, source/probe hashes and focused log in [review receipt](../assets_src/prototypes/fairy_restoration_2026-09-30/review/VERIFICATION.json); no accepted visual/device result is inferred |
-| Surrounding production regressions | Exact 4.7.2 local gate stages and branch CI before integration | All local stages pass, including 77/77 trusted probes. [Split-run receipt and logs](../assets_src/prototypes/fairy_restoration_2026-09-30/review/LOCAL_GATE_RECEIPT.json) preserve the initial cross-drive fixture failure, corrected TEMP/TMP environment, exact original CI suffix and final presentation recheck. Exact-head branch CI is required before integration |
+| Surrounding production regressions | Exact 4.7.2 source-bound checks and [combined-source GitHub suite](https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36801630810) | Full CI passes at `2219c84d`. All 82 original local probe obligations have passing executions through the permitted probe-by-probe path; the [receipt and raw logs](../assets_src/prototypes/fairy_restoration_2026-09-30/review/LOCAL_GATE_RECEIPT.json) preserve Windows process failures and the fixed-clock tutorial check. No green uninterrupted Windows run is claimed |
 | Voice and meaning | Nine exact new synthetic cues, known music, cue-state binding | Listening, phone intelligibility and one-finger comprehension pending |
 | Device/child/owner | Lenovo Tab M11/target phone: touch, 30 fps, memory, comprehension, pacing, art/canon | Pending; no fabricated human observations or game-wide satisfaction |
 
@@ -190,7 +190,12 @@ takeover-playbook implementation is added.
 Latest reconciliation preserves dev `ce033173` phase-owned Opera voice clearing
 and its forced-overlap regression. The direct activity-priority guard and phase
 owner pass the voice, Day One FIFO, Chapter Two and Opera checks together; the
-new combined code requires its own full CI before integration. The incoming Job
-Platform architecture is a proposal, with no runtime implementation here.
+combined code `2219c84d` passes its own [full CI](https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36801630810); the
+[source-bound CI/public-byte receipt](../assets_src/prototypes/fairy_restoration_2026-09-30/review/COMBINED_CI_VERIFICATION.json) records that exact revision.
+The incoming Job Platform architecture is a proposal, with no runtime implementation here.
 Official Windows headless processes can abort or access-violate locally; raw
 failures and successful probe-by-probe evidence remain separately recorded.
+
+Final evidence-only update preserves the exact green runtime, assets, tools,
+workflow and import configuration. Production Chapter 3 route/save/reward
+integration, final art, listening, device, child and owner acceptance remain open.
