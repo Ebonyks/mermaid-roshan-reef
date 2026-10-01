@@ -1,0 +1,21 @@
+{
+  "schema": "reef.original-visual-probe-control.v1",
+  "checked_utc": "2026-10-01T12:28:15.034274+00:00",
+  "base_probe": "scripts/probe_day_one_pool_shots.gd",
+  "base_probe_sha256": "62e44561687a00b87c5ac9d2a511e97c70c89ee32b4d237f0e8d21edc00120f5",
+  "process_exit": 1,
+  "failed_checks": [
+    "DAY_ONE_POOL_SHOTS|Roshan reaches the visible scoop: FAIL",
+    "DAY_ONE_POOL_SHOTS|skimmer first catch after travel and scoop: FAIL",
+    "DAY_ONE_POOL_SHOTS|waterfall unlocked after pool clear: FAIL",
+    "DAY_ONE_POOL_SHOTS|seahorse unlocked after waterfall clear: FAIL",
+    "DAY_ONE_POOL_SHOTS|rainbow flow remains stopped during rescue: FAIL",
+    "DAY_ONE_POOL_SHOTS|Rumi is visible during her reveal: FAIL",
+    "DAY_ONE_POOL_SHOTS|reveal capture precedes next-room overlay: FAIL"
+  ],
+  "comparison": "The original uninstrumented visual probe reproduces all seven failed checks and2560x1369 captures with an opaque opening/story clip. The new resource tracing is not the source of these failures. The first pool interaction is paused/covered by that clip and the capture script enters jobs before it finishes. This is a failed/outdated visual setup, not seven established game defects.",
+  "next": "A separate gameplay-only derived harness marks all story clip IDs seen in its isolated test save, cancels an existing preview, forces a1280x720 window and preserves all original gestures/checks. Ordinary narrative playback/room handoffs still require separate whole-route coverage.",
+  "mounted_score": null,
+  "action_score": null,
+  "result": "CONTROL_REPRODUCED_FAILURE"
+}

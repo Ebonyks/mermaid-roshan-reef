@@ -1,0 +1,48 @@
+{
+  "schema": "reef.native-context-capture.v1",
+  "status": "PASS_SCRIPTED_CHECKS",
+  "checks_passed": 11,
+  "checks_failed": 0,
+  "process_exit": 0,
+  "engine": "4.7.2-stable official",
+  "dimensions": [
+    1280,
+    720
+  ],
+  "harness_sha256": "73b3da6cb7d9c186822c683b65d91f7ffb76334bf65b0665246c0900e0b5a849",
+  "tracer_sha256": "d472a03e369c4083a05c1bfe330fa18a6a896ac76aff927966ef6d26aaec8e45",
+  "qualification": "Material/grime changes are scripted state-record calls, followed by refresh. This captures the real mounted intake/customizer surfaces and one FX state, not visible hand-driven pickup/wiping workflows. The customizer is deliberately hidden for the final FX diagnostic. Do not infer ordinary hint lifecycle or a complete played-action pass. Story clips marked seen in isolated home; forced window1280x720.",
+  "graphics_score": null,
+  "action_score": null,
+  "owner_accepted": false,
+  "captures": [
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_art_studio_gameplay_1280/00_loose_supplies.webp",
+      "sha256": "c88d54e45a9feecae14e3d7bb7a0d799cb8c87ca6b6a724539c13b8c7b362c9a"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_art_studio_gameplay_1280/01_grime_revealed.webp",
+      "sha256": "66195e7446de96ca6872e1a2495072b2e0f666cc42a6cad6ce45ce4af10c4251"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_art_studio_gameplay_1280/02_last_grime.webp",
+      "sha256": "227cfa57b619c2c62e36eef07c8b4726cb0c8e8df5407d59992d1b8f58cd61a8"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_art_studio_gameplay_1280/03_glowing_desk.webp",
+      "sha256": "600617d1b25ed04ff5f36e33ae27cbb6ac7981c00515d31185127aa24a97f540"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_art_studio_gameplay_1280/04_customizer_bubbles.webp",
+      "sha256": "6e861c148b6647ea755fee4d3af29425667de02f432951bcebcfa2db4f0d316c"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_art_studio_gameplay_1280/05_customizer_splashes.webp",
+      "sha256": "3a0ac0d0bcdad2a5ef29ccff084003a064606c3535e4c7d1a2ba9e6d7c9a340a"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_art_studio_gameplay_1280/06_splash_attack_frame.webp",
+      "sha256": "c7cd00cfee3c1ba7f24db46fc6705b8161b4c2c56f97e0d4f803cf5ce9021e21"
+    }
+  ]
+}

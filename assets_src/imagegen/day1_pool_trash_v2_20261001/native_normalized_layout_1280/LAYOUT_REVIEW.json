@@ -1,0 +1,128 @@
+{
+  "schema": "reef.native-layout-drafting-review.v1",
+  "checked_utc": "2026-10-01T14:34:05.896794+00:00",
+  "checks_passed": 35,
+  "checks_failed": 0,
+  "process_exit": 0,
+  "native_image_count": 56,
+  "sample_count": 45,
+  "actual_sample_intervals_ms": {
+    "1": [
+      628,
+      619,
+      612,
+      658,
+      629,
+      586,
+      598
+    ],
+    "2": [
+      615,
+      588,
+      655,
+      584,
+      560,
+      598,
+      601
+    ],
+    "3": [
+      641,
+      591,
+      625,
+      623,
+      634,
+      637,
+      614,
+      633,
+      569,
+      542
+    ],
+    "4": [
+      597,
+      574,
+      566,
+      593,
+      578,
+      587,
+      598,
+      597
+    ],
+    "5": [
+      567,
+      572,
+      559,
+      566,
+      604,
+      573,
+      544,
+      583
+    ]
+  },
+  "opinions": [
+    {
+      "item": "star-wrapper",
+      "source_style_score": 4.6,
+      "contact_static_score": 4.6,
+      "complete_action_score": null,
+      "evidence": [
+        "01_skimmer_catch.webp"
+      ],
+      "basis": "The normalized512px derivative retains the complete star and torn ends at68px. The displayed wrapper/net contact stays readable above scene decoration. This is a named static contact opinion; sparse samples do not establish the complete transfer."
+    },
+    {
+      "item": "metal-can",
+      "source_style_score": 4.6,
+      "initial_static_score": 4.6,
+      "contact_static_score": 4.6,
+      "complete_action_score": null,
+      "evidence": [
+        "00_dirty_arrival.webp",
+        "item_01_sample_006.webp"
+      ],
+      "basis": "The can opening and rolled rim separate clearly from aqua water at575,330, away from the dark clogged waterfall. The62px normalized derivative retains its broad bands. Net contact is visible. The existing feedback anchor still uses535,276; complete action remains open."
+    },
+    {
+      "item": "blue-cap",
+      "source_style_score": 4.6,
+      "initial_static_score": 4.6,
+      "contact_static_score": 4.6,
+      "complete_action_score": null,
+      "evidence": [
+        "00_dirty_arrival.webp",
+        "item_02_sample_006.webp"
+      ],
+      "basis": "The cobalt open cap, coarse ribs and continuous edge remain readable at66px after normalization. Its oval sits inside the displayed hoop at contact. This source/contact snapshot does not score every transfer frame."
+    },
+    {
+      "item": "purple-ribbon",
+      "source_style_score": 4.6,
+      "initial_static_score": 4.3,
+      "uncovered_static_score": 4.6,
+      "contact_static_score": 4.6,
+      "complete_action_score": null,
+      "evidence": [
+        "00_dirty_arrival.webp",
+        "00b_roshan_scooping_trash.webp",
+        "item_04_sample_007.webp"
+      ],
+      "basis": "The corrected activity depth clears the star/flower obstruction and shows both complete ribbon tips and curl when Roshan has moved. Contact is readable above the star float. However, the original initial actor/net position still hides the ribbon on arrival; retain that specific4.3 mounting failure and refine staging before a live pass."
+    },
+    {
+      "item": "yellow-sponge-attempt02",
+      "source_style_score": 4.6,
+      "initial_static_score": 4.6,
+      "contact_static_score": 4.6,
+      "complete_action_score": null,
+      "evidence": [
+        "00_dirty_arrival.webp",
+        "item_05_sample_007.webp"
+      ],
+      "basis": "The512px derivative preserves the shallow irregular pores and rounded yellow block at78px. Foreground task ownership keeps the sponge/net contact and hand/handle cue above the swimming bunny. Complete transfer and current last-item fade remain separate."
+    }
+  ],
+  "raw_receipt_correction": "The46 inherited sequential JSON receipts name the parent actions harness and carry its original1254px/original-placement qualification. Preserve those raw receipts. Their recorded candidate_bindings show512px hashes/dimensions, and EXACT_SOURCE_CHAIN plus the invoking wrapper establish the actual overriding normalized-layout harness. This review supplies the accurate512px/z210/can575,330 context; it does not retroactively rewrite raw records.",
+  "layout_profile": "../NORMALIZED_LAYOUT_PROFILE.json",
+  "runtime_bound": false,
+  "owner_accepted": false,
+  "qualification": "Disposable native1280 Mobile fixture. Depth210 set after setup, can575,330; original leaf, controller, extents,tints,rotation,bobbing/input/progress retained. Source normalization is whole-canvas only. Original35 assertions passed. Sparse cadence, initial ribbon occlusion and old can-feedback coordinate remain explicit. No device/child/owner/global or complete-action acceptance."
+}

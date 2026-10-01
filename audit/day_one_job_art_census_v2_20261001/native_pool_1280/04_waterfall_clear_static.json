@@ -1,0 +1,1166 @@
+{
+	"action_score": null,
+	"base_probe": "res://scripts/probe_day_one_pool_shots.gd",
+	"base_probe_sha256": "62e44561687a00b87c5ac9d2a511e97c70c89ee32b4d237f0e8d21edc00120f5",
+	"capture": "04_waterfall_clear_static",
+	"dimensions": [
+		2560,
+		1369
+	],
+	"engine": "4.7.2-stable (official)",
+	"harness": "res://tools/capture_day_one_pool_art_inventory.gd",
+	"harness_sha256": "45089b67620b534059697e7d310cd319cc5653059ed75ebb84a7470a9e2dc5e0",
+	"image_sha256": "f979fddf9c7270852729e69038861042b4655ad4c96955fcebb0530576b4271b",
+	"main_sha256": "5393c6e82628e66b58dd620c0c6a91b04dbd05052a4be53a207109404f500cc3",
+	"mounted_score": null,
+	"native_image": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\audit\\day_one_job_art_census_v2_20261001\\native_pool_1280/04_waterfall_clear_static.webp",
+	"qualification": "Native visual-probe scene at a named forced setup/gesture capture point. A visible-tree resource reference is evidence to inspect, not proof of every pixel or whole ordinary route. Scores require individual visual review; phone/child/owner/full coverage are pending.",
+	"references": [
+		{
+			"class": "Node2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/DayOneDirtyCastleDressing",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"script": "res://scripts/arena/day_one_castle_dressing.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 20
+		},
+		{
+			"canvas_rect": [
+				251.693939208984,
+				548.013793945313,
+				86.0,
+				86.0
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/DayOneDirtyCastleDressing/DustBunny_mermaid_pool",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							512,
+							512
+						],
+						"path": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+						"sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f"
+					}
+				}
+			],
+			"z_index": 5
+		},
+		{
+			"class": "Control",
+			"clip_contents": false,
+			"global_rect": [
+				33.0,
+				0.0,
+				1280.0,
+				720.0
+			],
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/ChapterTwoRoomPlot",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "res://scripts/chapter_two_room_plot.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 46
+		},
+		{
+			"class": "Control",
+			"clip_contents": false,
+			"global_rect": [
+				33.0,
+				0.0,
+				1280.0,
+				720.0
+			],
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "res://scripts/games/day_one_pool_cleanup.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 0
+		},
+		{
+			"class": "Control",
+			"clip_contents": false,
+			"global_rect": [
+				33.0,
+				0.0,
+				1280.0,
+				720.0
+			],
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup/HelpTheSeahorse",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "res://scripts/games/pool_seahorse_rescue_activity.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 70
+		},
+		{
+			"canvas_rect": [
+				951.735046386719,
+				504.0,
+				122.529968261719,
+				112.0
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 0.959999978542328,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup/HelpTheSeahorse/RescueCleanupBasket",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							1024,
+							936
+						],
+						"path": "res://assets/castle/day_one_pool/activities/cleanup_basket.png",
+						"sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910"
+					}
+				}
+			],
+			"z_index": 320
+		},
+		{
+			"canvas_rect": [
+				811.784484863281,
+				155.774230957031,
+				129.424987792969,
+				72.8015747070313
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 0.959999978542328,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup/HelpTheSeahorse/MouthTrashPullProp",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							1024,
+							576
+						],
+						"path": "res://assets/castle/day_one_pool/activities/seahorse_mouth_trash.png",
+						"sha256": "9c48ac1ca7be923fcb14902b3e2b62263f34d53e031f11002776bfc4322652f9"
+					}
+				}
+			],
+			"z_index": 6
+		},
+		{
+			"canvas_rect": [
+				855.299987792969,
+				136.629486083984,
+				200.399963378906,
+				219.240997314453
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 0.980000019073486,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup/HelpTheSeahorse/SickSeahorseBase",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							936,
+							1024
+						],
+						"path": "res://assets/castle/day_one_pool/activities/seahorse_sick_clear_mouth.png",
+						"sha256": "88aa2ce07e79144b13d8e699341404e7b15e79baed861169c9c17e196ddba941"
+					}
+				}
+			],
+			"z_index": 2
+		},
+		{
+			"class": "Control",
+			"clip_contents": false,
+			"global_rect": [
+				33.0,
+				0.0,
+				1280.0,
+				720.0
+			],
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup/ClearTheWaterfall",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "res://scripts/games/pool_waterfall_activity.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 70
+		},
+		{
+			"canvas_rect": [
+				520.737182617188,
+				112.5,
+				50.3590087890625,
+				207.5
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 0.980000019073486,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup/ClearTheWaterfall/DirtyWaterfallLane2",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							874,
+							1024
+						],
+						"path": "res://assets/castle/day_one_pool/activities/waterfall_clogged_original_match.png",
+						"sha256": "d4da588daece3fa12b5f094b50f5c8b33eeae31fd0761f1eeedce882cf1b7507"
+					}
+				}
+			],
+			"z_index": 2
+		},
+		{
+			"canvas_rect": [
+				470.320495605469,
+				112.5,
+				50.3590087890625,
+				207.5
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 0.980000019073486,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup/ClearTheWaterfall/DirtyWaterfallLane1",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							874,
+							1024
+						],
+						"path": "res://assets/castle/day_one_pool/activities/waterfall_clogged_original_match.png",
+						"sha256": "d4da588daece3fa12b5f094b50f5c8b33eeae31fd0761f1eeedce882cf1b7507"
+					}
+				}
+			],
+			"z_index": 2
+		},
+		{
+			"canvas_rect": [
+				419.903839111328,
+				112.5,
+				50.3589782714844,
+				207.5
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 0.980000019073486,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup/ClearTheWaterfall/DirtyWaterfallLane0",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							874,
+							1024
+						],
+						"path": "res://assets/castle/day_one_pool/activities/waterfall_clogged_original_match.png",
+						"sha256": "d4da588daece3fa12b5f094b50f5c8b33eeae31fd0761f1eeedce882cf1b7507"
+					}
+				}
+			],
+			"z_index": 2
+		},
+		{
+			"class": "Control",
+			"clip_contents": false,
+			"global_rect": [
+				33.0,
+				0.0,
+				1280.0,
+				720.0
+			],
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup/SkimThePool",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "res://scripts/games/pool_skimmer_activity.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 24
+		},
+		{
+			"canvas_rect": [
+				552.84765625,
+				386.962890625,
+				205.0,
+				136.533203125
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup/SkimThePool/RoshanHoldingSkimmer/PoolSkimmer",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							1024,
+							682
+						],
+						"path": "res://assets/castle/day_one_pool/activities/pool_skimmer.png",
+						"sha256": "308c86843ace9fb3d4a65a0c514d41b367d87ceabaf5f3d3676f54ce9be4b9b3"
+					}
+				}
+			],
+			"z_index": 35
+		},
+		{
+			"canvas_rect": [
+				407.567169189453,
+				359.626159667969,
+				243.199981689453,
+				243.200012207031
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup/SkimThePool/RoshanHoldingSkimmer/RoshanApprovedCutout",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"atlas": {
+							"class": "CompressedTexture2D",
+							"dimensions": [
+								1024,
+								512
+							],
+							"path": "res://assets/characters/roshan_25d/roshan_directional.png",
+							"sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a"
+						},
+						"class": "AtlasTexture",
+						"dimensions": [
+							256,
+							256
+						],
+						"path": "",
+						"region": [
+							256.0,
+							0.0,
+							256.0,
+							256.0
+						]
+					}
+				}
+			],
+			"z_index": 0
+		},
+		{
+			"canvas_rect": [
+				946.008056640625,
+				340.008056640625,
+				83.98388671875,
+				83.98388671875
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 0.899999976158142,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup/SkimThePool/FloatingTrash_05",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"atlas": {
+							"class": "CompressedTexture2D",
+							"dimensions": [
+								1023,
+								682
+							],
+							"path": "res://assets/castle/day_one_pool/activities/floating_trash_atlas.png",
+							"sha256": "3e04bee28ffa4230e3af9d5e7d87bb9560a7462d7320b6ad8557f10fcecbcb33"
+						},
+						"class": "AtlasTexture",
+						"dimensions": [
+							341,
+							341
+						],
+						"path": "",
+						"region": [
+							682.0,
+							341.0,
+							341.0,
+							341.0
+						]
+					}
+				}
+			],
+			"z_index": 8
+		},
+		{
+			"canvas_rect": [
+				660.8271484375,
+				376.8271484375,
+				96.345703125,
+				96.345703125
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 0.879999995231628,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup/SkimThePool/FloatingTrash_04",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"atlas": {
+							"class": "CompressedTexture2D",
+							"dimensions": [
+								1023,
+								682
+							],
+							"path": "res://assets/castle/day_one_pool/activities/floating_trash_atlas.png",
+							"sha256": "3e04bee28ffa4230e3af9d5e7d87bb9560a7462d7320b6ad8557f10fcecbcb33"
+						},
+						"class": "AtlasTexture",
+						"dimensions": [
+							341,
+							341
+						],
+						"path": "",
+						"region": [
+							341.0,
+							341.0,
+							341.0,
+							341.0
+						]
+					}
+				}
+			],
+			"z_index": 176
+		},
+		{
+			"canvas_rect": [
+				389.322204589844,
+				353.322204589844,
+				95.3555908203125,
+				95.3555908203125
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 0.899999976158142,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup/SkimThePool/FloatingTrash_03",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"atlas": {
+							"class": "CompressedTexture2D",
+							"dimensions": [
+								1023,
+								682
+							],
+							"path": "res://assets/castle/day_one_pool/activities/floating_trash_atlas.png",
+							"sha256": "3e04bee28ffa4230e3af9d5e7d87bb9560a7462d7320b6ad8557f10fcecbcb33"
+						},
+						"class": "AtlasTexture",
+						"dimensions": [
+							341,
+							341
+						],
+						"path": "",
+						"region": [
+							0.0,
+							341.0,
+							341.0,
+							341.0
+						]
+					}
+				}
+			],
+			"z_index": 176
+		},
+		{
+			"canvas_rect": [
+				793.391906738281,
+				257.391937255859,
+				69.2161865234375,
+				69.2161254882813
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 0.879999995231628,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup/SkimThePool/FloatingTrash_02",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"atlas": {
+							"class": "CompressedTexture2D",
+							"dimensions": [
+								1023,
+								682
+							],
+							"path": "res://assets/castle/day_one_pool/activities/floating_trash_atlas.png",
+							"sha256": "3e04bee28ffa4230e3af9d5e7d87bb9560a7462d7320b6ad8557f10fcecbcb33"
+						},
+						"class": "AtlasTexture",
+						"dimensions": [
+							341,
+							341
+						],
+						"path": "",
+						"region": [
+							682.0,
+							0.0,
+							341.0,
+							341.0
+						]
+					}
+				}
+			],
+			"z_index": 176
+		},
+		{
+			"canvas_rect": [
+				534.339233398438,
+				242.339233398438,
+				67.321533203125,
+				67.321533203125
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 0.899999976158142,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup/SkimThePool/FloatingTrash_01",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"atlas": {
+							"class": "CompressedTexture2D",
+							"dimensions": [
+								1023,
+								682
+							],
+							"path": "res://assets/castle/day_one_pool/activities/floating_trash_atlas.png",
+							"sha256": "3e04bee28ffa4230e3af9d5e7d87bb9560a7462d7320b6ad8557f10fcecbcb33"
+						},
+						"class": "AtlasTexture",
+						"dimensions": [
+							341,
+							341
+						],
+						"path": "",
+						"region": [
+							352.0,
+							0.0,
+							341.0,
+							341.0
+						]
+					}
+				}
+			],
+			"z_index": 176
+		},
+		{
+			"canvas_rect": [
+				304.879333496094,
+				277.879333496094,
+				76.2413330078125,
+				76.2413330078125
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 0.899999976158142,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup/SkimThePool/FloatingTrash_00",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"atlas": {
+							"class": "CompressedTexture2D",
+							"dimensions": [
+								1023,
+								682
+							],
+							"path": "res://assets/castle/day_one_pool/activities/floating_trash_atlas.png",
+							"sha256": "3e04bee28ffa4230e3af9d5e7d87bb9560a7462d7320b6ad8557f10fcecbcb33"
+						},
+						"class": "AtlasTexture",
+						"dimensions": [
+							341,
+							341
+						],
+						"path": "",
+						"region": [
+							12.0,
+							0.0,
+							341.0,
+							341.0
+						]
+					}
+				}
+			],
+			"z_index": 176
+		},
+		{
+			"canvas_rect": [
+				951.735046386719,
+				504.0,
+				122.529968261719,
+				112.0
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 0.959999978542328,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup/SkimThePool/CleanupBasket",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							1024,
+							936
+						],
+						"path": "res://assets/castle/day_one_pool/activities/cleanup_basket.png",
+						"sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910"
+					}
+				}
+			],
+			"z_index": 175
+		},
+		{
+			"class": "Node2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup/DayOneDustBunnySwimmer",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"script": "res://scripts/games/day_one_dust_bunny_swimmer.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 205
+		},
+		{
+			"canvas_rect": [
+				789.62109375,
+				415.6474609375,
+				118.0,
+				78.705078125
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOnePoolCleanup/DayOneDustBunnySwimmer/SwimmingDustBunnyCutout",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							1024,
+							683
+						],
+						"path": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png",
+						"sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143"
+					}
+				}
+			],
+			"z_index": 0
+		},
+		{
+			"canvas_rect": [
+				993.0,
+				360.0,
+				320.0,
+				360.0
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r1_c3",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							910,
+							1024
+						],
+						"path": "res://assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c3.png",
+						"sha256": "1940861bf7d1e5e67fce5619d969eefb9e41940634260afa793f994be9cfd519"
+					}
+				}
+			],
+			"z_index": 0
+		},
+		{
+			"canvas_rect": [
+				673.0,
+				360.0,
+				320.351623535156,
+				360.0
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r1_c2",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							910,
+							1024
+						],
+						"path": "res://assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c2.png",
+						"sha256": "cafa0e24d949d75c216fc22d6ab6c59025482424959a58759b809f7c586d735d"
+					}
+				}
+			],
+			"z_index": 0
+		},
+		{
+			"canvas_rect": [
+				352.999969482422,
+				360.0,
+				320.351593017578,
+				360.0
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r1_c1",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							910,
+							1024
+						],
+						"path": "res://assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c1.png",
+						"sha256": "6b8889b828b2e1062ebac7218f45aed0df579041c0567ed5cca9148d806ec693"
+					}
+				}
+			],
+			"z_index": 0
+		},
+		{
+			"canvas_rect": [
+				33.0,
+				360.0,
+				320.351623535156,
+				360.0
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r1_c0",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							910,
+							1024
+						],
+						"path": "res://assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r1_c0.png",
+						"sha256": "35d644cc44e22dccbf7cffd846fbecb07cdfb7bc62569074c574bfb948108885"
+					}
+				}
+			],
+			"z_index": 0
+		},
+		{
+			"canvas_rect": [
+				993.0,
+				0.0,
+				320.0,
+				360.3515625
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r0_c3",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							910,
+							1024
+						],
+						"path": "res://assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c3.png",
+						"sha256": "0295252d806fb02a5d16e362f45f8b79bc588bdfd49a45d1cbf8fdf5aeb9ef7c"
+					}
+				}
+			],
+			"z_index": 0
+		},
+		{
+			"canvas_rect": [
+				673.0,
+				0.0,
+				320.351623535156,
+				360.3515625
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r0_c2",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							910,
+							1024
+						],
+						"path": "res://assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c2.png",
+						"sha256": "746f17f2060b1e50bbfabf0369628f34cd782d533ff9e145c16839634eabe450"
+					}
+				}
+			],
+			"z_index": 0
+		},
+		{
+			"canvas_rect": [
+				352.999969482422,
+				0.0,
+				320.351593017578,
+				360.3515625
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r0_c1",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							910,
+							1024
+						],
+						"path": "res://assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c1.png",
+						"sha256": "8285d08df8d57095992f4c2c2ae404f3b1220c0365662e7b04e657a583f97516"
+					}
+				}
+			],
+			"z_index": 0
+		},
+		{
+			"canvas_rect": [
+				33.0,
+				0.0,
+				320.351623535156,
+				360.3515625
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomTile_mermaid_pool_r0_c0",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							910,
+							1024
+						],
+						"path": "res://assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c0.png",
+						"sha256": "3d1827d3f83b0fbb515831d7bd34b78fe227817970896556a5e77b54ebb6090f"
+					}
+				}
+			],
+			"z_index": 0
+		},
+		{
+			"canvas_rect": [
+				1139.25,
+				543.75,
+				173.75,
+				176.25
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomForeground/room_mermaid_pool_front_right",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							139,
+							141
+						],
+						"path": "res://assets/flats/castle/rooms/room_mermaid_pool_front_right.png",
+						"sha256": "a37692804f8312a9d546dbcb684728cb6e7129e3d886da7259b0d20bed6bc1e0"
+					}
+				}
+			],
+			"z_index": 400
+		},
+		{
+			"canvas_rect": [
+				33.0,
+				537.5,
+				200.0,
+				182.5
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomForeground/room_mermaid_pool_front_left",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							160,
+							146
+						],
+						"path": "res://assets/flats/castle/rooms/room_mermaid_pool_front_left.png",
+						"sha256": "53fe38af2ad2e4e6b58a10d519d056b62a4a93b4d05e814a45f23cb7ff85d166"
+					}
+				}
+			],
+			"z_index": 400
+		},
+		{
+			"canvas_rect": [
+				591.75,
+				245.0,
+				320.0,
+				320.0
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_star_float",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							1024,
+							512
+						],
+						"path": "res://assets/flats/castle/interactions_v4/sheets/mermaid_pool_star_float_sheet.png",
+						"sha256": "9847fd5b4ed7624ddcefb64ffbb6d785e37462334bb78142496d5920c7f7d214"
+					}
+				}
+			],
+			"z_index": 203
+		},
+		{
+			"canvas_rect": [
+				325.5,
+				267.5,
+				320.0,
+				320.0
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@390/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_flower_float",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							1024,
+							512
+						],
+						"path": "res://assets/flats/castle/interactions_v4/sheets/mermaid_pool_flower_float_sheet.png",
+						"sha256": "40e14632dfcd4a9f79b89b3232460d5e653731a85ecd9ca060dae62f66bfe8a9"
+					}
+				}
+			],
+			"z_index": 202
+		},
+		{
+			"class": "Control",
+			"clip_contents": false,
+			"global_rect": [
+				0.0,
+				0.0,
+				1346.0,
+				720.0
+			],
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/@Control@385",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "res://scripts/day_one_story_clips.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 70
+		},
+		{
+			"class": "Control",
+			"clip_contents": false,
+			"global_rect": [
+				0.0,
+				0.0,
+				1346.0,
+				720.0
+			],
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/LivingWorldLayer/LivingWorldCanvas",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "res://scripts/living_world_canvas.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 0
+		}
+	],
+	"renderer": "mobile",
+	"source_score": null,
+	"tracer_sha256": "af2ba26298e544d89b968ec320198282cbf4d8df17b5eb39e9c74118d287b01e"
+}

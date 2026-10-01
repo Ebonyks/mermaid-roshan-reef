@@ -1,0 +1,35 @@
+{
+  "schema": "reef.scoped-source-refinement-profile.v1",
+  "prepared_utc": "2026-10-01T14:27:07.163936+00:00",
+  "baseline": "04a362c732840b091cafe7731399789eb735789f",
+  "item": "D1N-0011",
+  "source_opinion": 4.5,
+  "draft_target": 4.6,
+  "inventory": "rg --files assets assets_src matched only one complete pool skimmer source; voice and native-capture matches are not alternative artwork",
+  "reuse_gap": "The one complete tool is at the inclusive4.5 threshold because dense pearls, shaft glints and fine mesh compete with the opening. No suitable simpler complete reusable skimmer was found. Retain the original design; change only its material/detail density.",
+  "references": [
+    {
+      "path": "assets/castle/day_one_pool/activities/pool_skimmer.png",
+      "copy": "assets_src/imagegen/day1_pool_skimmer_v2_20261001/references/original_skimmer.png",
+      "sha256": "308c86843ace9fb3d4a65a0c514d41b367d87ceabaf5f3d3676f54ce9be4b9b3",
+      "role": "EDIT_TARGET: object identity, complete shape, normalized hand/net sockets and layout",
+      "license": "Existing project-generated derivative of Mermaid Roshan LLC artwork; unchanged source reference",
+      "license_ledger": "ASSET_LICENSES.md, existing pool activities and dirty-cleanup tool entries"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
+      "copy": "assets_src/imagegen/day1_pool_skimmer_v2_20261001/references/approved_matte_style.png",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+      "role": "STYLE_ONLY: broad matte painted value bands and outline; not subject or layout",
+      "license": "Existing project-generated derivative of Mermaid Roshan LLC artwork; unchanged source reference",
+      "license_ledger": "ASSET_LICENSES.md, existing pool activities and dirty-cleanup tool entries"
+    }
+  ],
+  "prompt": "Refine the pool skimmer in IMAGE_1 as one complete transparent 2D illustrated game prop. IMAGE_1 is the edit target and exact object-design/layout authority. IMAGE_2 is a material/style reference only: its calm painted value bands, rounded matte forms and deep plum outline; do not include the sponge or change the net into a star.\nKeep the same single diagonal tool: lower-left pink rounded grip, aqua shaft, pink shell connector, upper-right lavender/aqua oval hoop and one hanging open mesh bag. Preserve its authored silhouette, orientation, proportions, pearl placement groups, complete endpoints, and continuous shaft-to-hoop connection. Keep the grip center and net-opening center in the same normalized canvas positions as IMAGE_1, with the same landscape composition and generous transparent margins. Return the whole complete tool, not fragments or a sheet.\nRepair only the named material/readability gap. Paint the grip, shaft and hoop in two or three broad pastel value bands with restrained lavender/aqua shadows and a continuous navy/plum contour. Group tiny reflections into a few quiet painted highlights. Retain simple round pearl accents, with one broad highlight per pearl rather than many bright speckles. Preserve the readable net opening. Simplify the bag to a small set of broad, evenly spaced cream mesh diagonals with clear diamond openings and a clean connected rim; the bag remains an open net, not a solid pouch. Match the project's polished rounded children's storybook toy palette. The useful opening should dominate the ornament at a 205-by-150-pixel game card.\nComplete transparent RGBA background. No scene, water, hand, person, lettering, extra prop, separate shadow plate, glow cloud, photographic surface, metallic microglints or realistic skin/material rendering. Preserve IMAGE_1's object identity; this is a scoped material refinement, not a new fantasy-tool design.",
+  "prompt_sha256": "a7ad270e6ca36eb89e873d31313441018b5f050c9989119d9f587cc4abb47c33",
+  "planned_native_path": "assets_src/imagegen/day1_pool_skimmer_v2_20261001/pool-skimmer-attempt-01.png",
+  "method": "OpenAI built-in imagegen complete transparent reference-guided refinement",
+  "runtime_bound": false,
+  "owner_accepted": false,
+  "required_evidence": "Direct complete-source style/topology/alpha review; measured actual generated grip/net sockets and whole-canvas POT normalization; disposable mounted fit and full scoop/transfer/input/lifecycle checks before any live claim."
+}

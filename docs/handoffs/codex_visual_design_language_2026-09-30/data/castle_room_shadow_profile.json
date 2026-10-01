@@ -1,0 +1,114 @@
+{
+ "measure": "shadows",
+ "method": "Castle room background tiles downsampled 6x; the darkest 15% of pixels by luma are classified cool (saturation >= 0.10 and hue 170-300), neutral (saturation < 0.10) or warm.",
+ "rooms": [
+  {
+   "room": "bubble_bath",
+   "tiles": 8,
+   "luma_p15": 108.8,
+   "luma_p50": 156.1,
+   "shadow_cool_share": 0.9,
+   "shadow_neutral_share": 0.0,
+   "shadow_warm_share": 0.1
+  },
+  {
+   "room": "craft_room",
+   "tiles": 8,
+   "luma_p15": 128.1,
+   "luma_p50": 164.5,
+   "shadow_cool_share": 0.17,
+   "shadow_neutral_share": 0.07,
+   "shadow_warm_share": 0.76
+  },
+  {
+   "room": "dining_room",
+   "tiles": 4,
+   "luma_p15": 97.6,
+   "luma_p50": 210.0,
+   "shadow_cool_share": 1.0,
+   "shadow_neutral_share": 0.0,
+   "shadow_warm_share": 0.0
+  },
+  {
+   "room": "family_gallery",
+   "tiles": 4,
+   "luma_p15": 63.1,
+   "luma_p50": 108.1,
+   "shadow_cool_share": 1.0,
+   "shadow_neutral_share": 0.0,
+   "shadow_warm_share": 0.0
+  },
+  {
+   "room": "kitchen",
+   "tiles": 12,
+   "luma_p15": 93.1,
+   "luma_p50": 136.3,
+   "shadow_cool_share": 0.72,
+   "shadow_neutral_share": 0.03,
+   "shadow_warm_share": 0.25
+  },
+  {
+   "room": "library",
+   "tiles": 8,
+   "luma_p15": 99.3,
+   "luma_p50": 139.1,
+   "shadow_cool_share": 0.76,
+   "shadow_neutral_share": 0.0,
+   "shadow_warm_share": 0.24
+  },
+  {
+   "room": "mermaid_pool",
+   "tiles": 8,
+   "luma_p15": 111.6,
+   "luma_p50": 168.0,
+   "shadow_cool_share": 0.89,
+   "shadow_neutral_share": 0.0,
+   "shadow_warm_share": 0.11
+  },
+  {
+   "room": "movie_lounge",
+   "tiles": 4,
+   "luma_p15": 65.0,
+   "luma_p50": 76.3,
+   "shadow_cool_share": 0.05,
+   "shadow_neutral_share": 0.0,
+   "shadow_warm_share": 0.95
+  },
+  {
+   "room": "opera_hall",
+   "tiles": 8,
+   "luma_p15": 107.6,
+   "luma_p50": 130.4,
+   "shadow_cool_share": 0.95,
+   "shadow_neutral_share": 0.0,
+   "shadow_warm_share": 0.05
+  },
+  {
+   "room": "playroom",
+   "tiles": 8,
+   "luma_p15": 144.8,
+   "luma_p50": 167.1,
+   "shadow_cool_share": 0.12,
+   "shadow_neutral_share": 0.29,
+   "shadow_warm_share": 0.58
+  },
+  {
+   "room": "royal_bedroom",
+   "tiles": 4,
+   "luma_p15": 136.4,
+   "luma_p50": 188.4,
+   "shadow_cool_share": 0.99,
+   "shadow_neutral_share": 0.0,
+   "shadow_warm_share": 0.01
+  },
+  {
+   "room": "sleepover_bedroom",
+   "tiles": 4,
+   "luma_p15": 89.4,
+   "luma_p50": 134.4,
+   "shadow_cool_share": 1.0,
+   "shadow_neutral_share": 0.0,
+   "shadow_warm_share": 0.0
+  }
+ ]
+}

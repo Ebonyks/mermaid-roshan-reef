@@ -1,0 +1,85 @@
+{
+  "schema": "reef.native-sequential-contact-review.v1",
+  "checked_utc": "2026-10-01T13:06:37.111049+00:00",
+  "status": "PASS_GAMEPLAY_ONLY_SEQUENCE_CHECKS",
+  "engine": "4.7.2-stable official",
+  "renderer": "Mobile on NVIDIA desktop",
+  "actual_dimensions": [
+    1280,
+    720
+  ],
+  "checks_passed": 35,
+  "checks_failed": 0,
+  "process_exit": 0,
+  "source_harness_sha256": "53d98f8940d4302f3027bf4db51e7c474877404ef3028a523e888876d99e0bb6",
+  "base_probe_sha256": "62e44561687a00b87c5ac9d2a511e97c70c89ee32b4d237f0e8d21edc00120f5",
+  "main_sha256": "98d91a560426cfa4c52a70221a0311856429c031805d7d9dc990eefe2affe30e",
+  "basis": "All eight original tug requests now await actual completed tap counts. Native midway/final snapshots record four/eight tugs; final snapshots show completed rescue and visible authored Rumi swim reveal. Direct image inspection confirms the net over the wrapper, the four-tug mouth blockage, the initial extraction state and Rumi reveal. This resolves the forced setup/capture sequencing gap; it does not establish a changed production defect or its repair.",
+  "qualification": "Disposable save marks selected story clips seen; window forced to1280x720; gestures are scripted helper calls. Eleven named native frames are not every elapsed action frame, ordinary narrative arrival/handoffs, all atlas frames, device/child/owner acceptance, or a numerical graphics-quality pass. The eight earlier immediate tug requests could overlap busy contact work; request-success checks do not prove completion.",
+  "captures": [
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_contact_complete_v2_1280/00_dirty_arrival.webp",
+      "sha256": "0570463a0a47d497b8f8477b5a40ee6837b6541646c1b18503cda064a9372356",
+      "phase": "pool_surface"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_contact_complete_v2_1280/00a_roshan_approaching_trash.webp",
+      "sha256": "0a9011c67cc424df2baf1cce9201093629dec06b9fd24476fd954800080a1c81",
+      "phase": "pool_surface"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_contact_complete_v2_1280/00b_roshan_scooping_trash.webp",
+      "sha256": "61fe01cb01f589592a5ec7426646e90293722230a6ec8d0827088fff6ac43f1d",
+      "phase": "pool_surface"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_contact_complete_v2_1280/01_skimmer_catch.webp",
+      "sha256": "b2e84fede4b96fb2480135d256b361c999940813934ef767b34c7d5827a8a002",
+      "phase": "pool_surface"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_contact_complete_v2_1280/02_pool_clear_waterfall_dirty.webp",
+      "sha256": "521084d702cb86c6e5c2f4308657ef1a818fa2a6b8cf3f815ad2841f2df2c4e5",
+      "phase": "waterfall"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_contact_complete_v2_1280/03_waterfall_scrub.webp",
+      "sha256": "6bb37d4c0e4fce2c55101a27859613bebd8f313099550a472a70108a22d22efb",
+      "phase": "waterfall"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_contact_complete_v2_1280/04_waterfall_clear_static.webp",
+      "sha256": "80b2c5ce7c6a5d241105cc21108ad240fd6f8752c592fd795c393345b96cb726",
+      "phase": "seahorse"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_contact_complete_v2_1280/05_seahorse_tug_midway.webp",
+      "sha256": "222fcc3c275be760a600499d1608edf57995a2cfce23401edc949644e0f54ffe",
+      "phase": "seahorse"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_contact_complete_v2_1280/06_seahorse_trash_release.webp",
+      "sha256": "dc237572c57ea6c1a62c43bc88b542abf3ea74a2813c987165972a9276cfc0a5",
+      "phase": "seahorse"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_contact_complete_v2_1280/07_rainbow_reveal_active.webp",
+      "sha256": "571add7a960c2c8e42299e312a51118277a4c49c7ba38bacf64a64a9e2e9c106",
+      "phase": "complete"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_contact_complete_v2_1280/08_rumi_reveal.webp",
+      "sha256": "33172a6f50cdca02f541fef321e747ab97c668a7574ead71e9cad855b4e59b03",
+      "phase": "complete"
+    }
+  ],
+  "mounted_score": null,
+  "action_score": null,
+  "owner_accepted": false,
+  "prior_failed_attempts": [
+    "native_pool_1280/ATTEMPT_REVIEW.json",
+    "pool_unmodified_control_requested1280/CONTROL_REVIEW.json",
+    "native_pool_gameplay_1280/ATTEMPT_REVIEW.json",
+    "native_pool_contact_complete_1280/ATTEMPT_REVIEW.json"
+  ]
+}

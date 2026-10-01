@@ -1,0 +1,110 @@
+{
+  "schema": "reef.named-live-trash-refinement.v1",
+  "checked_utc": "2026-10-01T13:01:53.884006+00:00",
+  "baseline_head": "04a362c732840b091cafe7731399789eb735789f",
+  "incoming_integration": "c5e98477efe4fe3c36d6bffe68818d84c2d08325",
+  "references": [
+    {
+      "path": "assets/castle/day_one_pool/activities/floating_trash_atlas.png",
+      "sha256": "3e04bee28ffa4230e3af9d5e7d87bb9560a7462d7320b6ad8557f10fcecbcb33",
+      "role": "named original trash identity only"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+      "role": "existing broad painted material treatment only"
+    }
+  ],
+  "existing_asset_inventory": "The actual pool skimmer binds the six-cell floating_trash_atlas. Repository search identifies pool algae, mouth trash, complete skimmer, cleanup basket and existing star cleaning sponge. Those props do not replace a can/cap/wrapper/ribbon/yellow block identity. The source atlas supplies those identities but its five weak cells have dense material detail. The simpler star sponge is a style input only; it is not substituted for the yellow trash sponge. The existing orange leaf4.6 and cleanup basket4.6 are retained without regeneration.",
+  "source_gap": "Only five named live trash-cell material treatments need simpler broad bands; no new object identities, scene composition, progress, protected art or runtime binding changes. Original source opinions remain attributed to the sealed Day One census; new candidates require individual alpha/style/native-size and later played-action review.",
+  "target": 4.6,
+  "owner_accepted": false,
+  "runtime_bound": false,
+  "items": [
+    {
+      "name": "star-wrapper",
+      "source_id": "D1C-TRASH-00",
+      "original_source_score": 4.4,
+      "actual_max_card_extent": 68,
+      "attempt": 1,
+      "prompt": "Create exactly ONE complete isolated bitmap game prop on transparent background for Mermaid Roshan, a polished 2D pastel storybook toy world for a four-year-old. IMAGE 1 supplies only the named object's existing identity, colors, silhouette and orientation among its six separate trash cells. IMAGE 2 supplies broad calm painted material bands and rounded readable treatment. Preserve the named object; show no other atlas item. Use clean deep-plum/navy contours, two or three broad matte-to-satin painted value bands, lavender/aqua shadow colors, high-key readable mass. A few large flat algae clumps communicate discarded pool litter. Group detail sparsely. Remove the old granular metal/foil texture, dozens of tiny wet glints and small dark pore speckles. Avoid photorealism, PBR, glassy 3D lighting, glossy candy render, gradients posing as volume, lens effects, glow halos, white sticker rim, scattered highlights, text, badges, decorative background, hands or characters. Keep the entire object inside the square source canvas with generous transparent margins, roughly 80–85 percent width coverage. Return a clean complete RGBA source; do not return a sheet or add any other object. The result must read at about 60–88 pixels in the actual game. Object-specific instruction: Only the pink discarded star wrapper, top-left source identity. Keep one big golden five-point star on its broad pink center and two simple cream/white torn foil ends. Maintain the source diagonal orientation and open crumpled wrapper silhouette; this is an empty wrapper, not a new wrapped candy. Limit folds to a few broad painted edges and algae to two simple flat green clusters.",
+      "prompt_sha256": "7112f10ae03e87543d62f9c2c9ff684726e8d9b9336cdd1acbb39075648d0938",
+      "referenced_image_paths": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets\\castle\\day_one_pool\\activities\\floating_trash_atlas.png",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets\\castle\\dirty_cleanup_2d\\tools\\tool_star_sponge.png"
+      ],
+      "transparent_background": true,
+      "planned_native_path": "assets_src/imagegen/day1_pool_trash_v2_20261001/star-wrapper-attempt-01.png",
+      "generated_source_score": null,
+      "mounted_score": null
+    },
+    {
+      "name": "metal-can",
+      "source_id": "D1C-TRASH-01",
+      "original_source_score": 4.3,
+      "actual_max_card_extent": 62,
+      "attempt": 1,
+      "prompt": "Create exactly ONE complete isolated bitmap game prop on transparent background for Mermaid Roshan, a polished 2D pastel storybook toy world for a four-year-old. IMAGE 1 supplies only the named object's existing identity, colors, silhouette and orientation among its six separate trash cells. IMAGE 2 supplies broad calm painted material bands and rounded readable treatment. Preserve the named object; show no other atlas item. Use clean deep-plum/navy contours, two or three broad matte-to-satin painted value bands, lavender/aqua shadow colors, high-key readable mass. A few large flat algae clumps communicate discarded pool litter. Group detail sparsely. Remove the old granular metal/foil texture, dozens of tiny wet glints and small dark pore speckles. Avoid photorealism, PBR, glassy 3D lighting, glossy candy render, gradients posing as volume, lens effects, glow halos, white sticker rim, scattered highlights, text, badges, decorative background, hands or characters. Keep the entire object inside the square source canvas with generous transparent margins, roughly 80–85 percent width coverage. Return a clean complete RGBA source; do not return a sheet or add any other object. The result must read at about 60–88 pixels in the actual game. Object-specific instruction: Only the short silver/blue-grey open cylindrical can, top-middle source identity. Its visible oval open rim faces up-left and a short rounded cylinder extends down-right. Make the hollow interior and rolled rim readable with broad grey/lavender value bands. Preserve the discarded can identity, with two or three large flat green algae clumps. No metallic sparkle noise, sharp photographic reflections or realistic dents.",
+      "prompt_sha256": "5fc052fb35df525b42d203b7c53a623a6b3a7ac43e72e6e18d71bd4f23bbbe32",
+      "referenced_image_paths": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets\\castle\\day_one_pool\\activities\\floating_trash_atlas.png",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets\\castle\\dirty_cleanup_2d\\tools\\tool_star_sponge.png"
+      ],
+      "transparent_background": true,
+      "planned_native_path": "assets_src/imagegen/day1_pool_trash_v2_20261001/metal-can-attempt-01.png",
+      "generated_source_score": null,
+      "mounted_score": null
+    },
+    {
+      "name": "blue-cap",
+      "source_id": "D1C-TRASH-02",
+      "original_source_score": 4.5,
+      "actual_max_card_extent": 66,
+      "attempt": 1,
+      "prompt": "Create exactly ONE complete isolated bitmap game prop on transparent background for Mermaid Roshan, a polished 2D pastel storybook toy world for a four-year-old. IMAGE 1 supplies only the named object's existing identity, colors, silhouette and orientation among its six separate trash cells. IMAGE 2 supplies broad calm painted material bands and rounded readable treatment. Preserve the named object; show no other atlas item. Use clean deep-plum/navy contours, two or three broad matte-to-satin painted value bands, lavender/aqua shadow colors, high-key readable mass. A few large flat algae clumps communicate discarded pool litter. Group detail sparsely. Remove the old granular metal/foil texture, dozens of tiny wet glints and small dark pore speckles. Avoid photorealism, PBR, glassy 3D lighting, glossy candy render, gradients posing as volume, lens effects, glow halos, white sticker rim, scattered highlights, text, badges, decorative background, hands or characters. Keep the entire object inside the square source canvas with generous transparent margins, roughly 80–85 percent width coverage. Return a clean complete RGBA source; do not return a sheet or add any other object. The result must read at about 60–88 pixels in the actual game. Object-specific instruction: Only the cobalt/aqua shallow round bottle cap, top-right source identity, opening visible upward with an oval rim and short ribbed side wall. Preserve its cup-shaped cap silhouette and blue family; use six or seven broad grouped side ribs and two flat green algae patches. Empty cap, no water or bubbles. Make its hollow interior readable in simple painted bands rather than specular glass.",
+      "prompt_sha256": "737cc207fb893a57b30be36b81b59f90bc406bf0eef051ab4629c7fa6c2a32f5",
+      "referenced_image_paths": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets\\castle\\day_one_pool\\activities\\floating_trash_atlas.png",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets\\castle\\dirty_cleanup_2d\\tools\\tool_star_sponge.png"
+      ],
+      "transparent_background": true,
+      "planned_native_path": "assets_src/imagegen/day1_pool_trash_v2_20261001/blue-cap-attempt-01.png",
+      "generated_source_score": null,
+      "mounted_score": null
+    },
+    {
+      "name": "purple-ribbon",
+      "source_id": "D1C-TRASH-04",
+      "original_source_score": 4.4,
+      "actual_max_card_extent": 88,
+      "attempt": 1,
+      "prompt": "Create exactly ONE complete isolated bitmap game prop on transparent background for Mermaid Roshan, a polished 2D pastel storybook toy world for a four-year-old. IMAGE 1 supplies only the named object's existing identity, colors, silhouette and orientation among its six separate trash cells. IMAGE 2 supplies broad calm painted material bands and rounded readable treatment. Preserve the named object; show no other atlas item. Use clean deep-plum/navy contours, two or three broad matte-to-satin painted value bands, lavender/aqua shadow colors, high-key readable mass. A few large flat algae clumps communicate discarded pool litter. Group detail sparsely. Remove the old granular metal/foil texture, dozens of tiny wet glints and small dark pore speckles. Avoid photorealism, PBR, glassy 3D lighting, glossy candy render, gradients posing as volume, lens effects, glow halos, white sticker rim, scattered highlights, text, badges, decorative background, hands or characters. Keep the entire object inside the square source canvas with generous transparent margins, roughly 80–85 percent width coverage. Return a clean complete RGBA source; do not return a sheet or add any other object. The result must read at about 60–88 pixels in the actual game. Object-specific instruction: Only the single discarded lavender-purple curving ribbon strip, bottom-middle source identity. Keep its rounded inverted-S curl and one broad visible twist, with both tips fully present. Pale lavender front, plum-violet back and one or two flat green algae patches. The same strip is continuous, wide and flexible. No speckle, wet beads or extra loops; interior texture must stay quiet.",
+      "prompt_sha256": "c277f4ead2614118a7607521b1f66ce7a8ad25a40f8b3e8188c7ce9b5377dbeb",
+      "referenced_image_paths": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets\\castle\\day_one_pool\\activities\\floating_trash_atlas.png",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets\\castle\\dirty_cleanup_2d\\tools\\tool_star_sponge.png"
+      ],
+      "transparent_background": true,
+      "planned_native_path": "assets_src/imagegen/day1_pool_trash_v2_20261001/purple-ribbon-attempt-01.png",
+      "generated_source_score": null,
+      "mounted_score": null
+    },
+    {
+      "name": "yellow-sponge",
+      "source_id": "D1C-TRASH-05",
+      "original_source_score": 4.3,
+      "actual_max_card_extent": 78,
+      "attempt": 1,
+      "prompt": "Create exactly ONE complete isolated bitmap game prop on transparent background for Mermaid Roshan, a polished 2D pastel storybook toy world for a four-year-old. IMAGE 1 supplies only the named object's existing identity, colors, silhouette and orientation among its six separate trash cells. IMAGE 2 supplies broad calm painted material bands and rounded readable treatment. Preserve the named object; show no other atlas item. Use clean deep-plum/navy contours, two or three broad matte-to-satin painted value bands, lavender/aqua shadow colors, high-key readable mass. A few large flat algae clumps communicate discarded pool litter. Group detail sparsely. Remove the old granular metal/foil texture, dozens of tiny wet glints and small dark pore speckles. Avoid photorealism, PBR, glassy 3D lighting, glossy candy render, gradients posing as volume, lens effects, glow halos, white sticker rim, scattered highlights, text, badges, decorative background, hands or characters. Keep the entire object inside the square source canvas with generous transparent margins, roughly 80–85 percent width coverage. Return a clean complete RGBA source; do not return a sheet or add any other object. The result must read at about 60–88 pixels in the actual game. Object-specific instruction: Only the discarded warm-yellow rounded rectangular sponge block, bottom-right source identity. Keep a three-quarter view with a broad upper face and one short side band. Its five or six LARGE simple round pores are grouped calmly; two or three flat green algae patches identify litter. Preserve this yellow block shape; do not substitute the pink star-shaped cleaning tool from the style reference. No dozens of tiny holes, gritty fiber texture or slime glints.",
+      "prompt_sha256": "a37fc8dc13cc6448358651189f967872703fe9d4f0169240823cebf0900cb44d",
+      "referenced_image_paths": [
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets\\castle\\day_one_pool\\activities\\floating_trash_atlas.png",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets\\castle\\dirty_cleanup_2d\\tools\\tool_star_sponge.png"
+      ],
+      "transparent_background": true,
+      "planned_native_path": "assets_src/imagegen/day1_pool_trash_v2_20261001/yellow-sponge-attempt-01.png",
+      "generated_source_score": null,
+      "mounted_score": null
+    }
+  ]
+}

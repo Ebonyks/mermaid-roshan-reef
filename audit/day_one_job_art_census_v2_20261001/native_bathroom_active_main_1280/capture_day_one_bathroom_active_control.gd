@@ -1,0 +1,219 @@
+extends "res://scripts/probe_day_one_bathroom_shots.gd"
+const ART_TRACE := preload("res://tools/job_art_scene_trace.gd")
+
+func _capture(name: String) -> void:
+	await _frames(3)
+	await RenderingServer.frame_post_draw
+	ART_TRACE.save_frame_receipt(root, name, capture_root,
+		"res://tools/capture_day_one_bathroom_active_control.gd", "res://scripts/probe_day_one_bathroom_shots.gd")
+	var receipt_path: String = capture_root.path_join(name + ".json")
+	var receipt: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(receipt_path)) as Dictionary
+	receipt["qualification"] = str(receipt["qualification"]) + " Gameplay-only: story clips marked seen in isolated save and window forced1280x720. Original probe gestures/assertions retained. Main processing remains active; this separate control tests whether the earlier persistent caption was a frozen-fixture artifact. Normal narrative/physical-device acceptance remains separate."
+	var file: FileAccess = FileAccess.open(receipt_path, FileAccess.WRITE)
+	file.store_string(JSON.stringify(receipt, "\t") + "\n")
+	file.close()
+
+func _run() -> void:
+	_check("real Mobile viewport is available",
+		DisplayServer.get_name() != "headless", DisplayServer.get_name())
+	if failures > 0:
+		quit(1)
+		return
+	root.size = Vector2i(1280, 720)
+	await _frames(4)
+	capture_root = OS.get_environment("DAY_ONE_BATHROOM_CAPTURE_OUT")
+	if capture_root == "":
+		capture_root = ProjectSettings.globalize_path(
+			"user://day_one_bathroom_shots")
+	_check("capture directory",
+		DirAccess.make_dir_recursive_absolute(capture_root) == OK,
+		capture_root)
+
+	var scene: PackedScene = load("res://scenes/main.tscn") as PackedScene
+	var main: ReefMain = scene.instantiate() as ReefMain
+	root.add_child(main)
+	await _frames(3)
+	if main.start_menu_active:
+		main._start_menu_ref()._dismiss_menu()
+		main._launch_from_start_menu(false)
+	else:
+		main._skip_intro()
+	await _frames(3)
+	# Qualified gameplay-only diagnostic in an isolated save; ordinary clips remain a separate lane.
+	for movie_id: String in DayOneStoryClips.clip_ids():
+		main.day_one_story_clips_seen[movie_id] = true
+	main._day_one_cancel_story_clips()
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	root.size = Vector2i(1280, 720)
+	DisplayServer.window_set_size(root.size)
+	await _frames(6)
+	main._day_one_ref().restore_state({
+		"day_one_active": true,
+		"day_one_current_room": "bathroom",
+		"day_one_completed_rooms": [],
+		"day_one_bathroom_cleanup_step": 0,
+		"day_one_bathroom_supply_hunt_step": 0,
+		"day_one_bathroom_tools_authorized": false,
+	})
+	main.pearl_count = main.PEARL_TOTAL
+	main.level2_done_once = true
+	main._enter_level2_now(true, false, false)
+	await _frames(12)
+	main._enter_castle_interior_now(false)
+	await _frames(18)
+	main._castle_rooms_ref().show_room("bubble_bath", false)
+	await _frames(8)
+	main._sync_day_one_bathroom_cleanup()
+	await _frames(5)
+	# Separate control: retain normal Main processing; the earlier frozen fixture is preserved.
+
+	var cleanup: DayOneBathroomCleanup = main._day_one_bathroom_cleanup
+	_check("fresh entry mounts dirty rescue", cleanup != null)
+	if cleanup == null:
+		main.queue_free()
+		quit(1)
+		return
+	var entry: Dictionary = cleanup.audit_snapshot()
+	_check("entry is dirty with one basket target",
+		bool(entry.get("sink_grime_visible", false))
+		and bool(entry.get("tub_grime_visible", false))
+		and int(entry.get("active_target_count", 0)) == 1
+		and bool(entry.get("localized_fixture_grime", false))
+		and bool(entry.get("basket_clear_of_action_zone", false)))
+	var dirty_plate_entry: Dictionary = \
+		cleanup.day_one_bathroom_plate_snapshot()
+	_check("entry uses the separate full dirty 2D room plate",
+		bool(dirty_plate_entry.get("dirty_plate_visible", false))
+		and bool(dirty_plate_entry.get("true_2d", false))
+		and not bool(dirty_plate_entry.get("contains_tub_swimmer", true))
+		and bool(dirty_plate_entry.get("separate_animated_bunny", false))
+		and bool(dirty_plate_entry.get("bunny_depth_occluded", false))
+		and bool(dirty_plate_entry.get("clean_fixture_pixels_occluded", false))
+		and not bool(dirty_plate_entry.get(
+			"clean_fixture_layer_visible", true))
+		and dirty_plate_entry.get("texture_size", Vector2i.ZERO)
+			== Vector2i(1024, 576))
+	_check("entry bath visibly contains one depth-occluded mermaid bunny",
+		bool(dirty_plate_entry.get("dirty_plate_visible", false))
+		and bool(dirty_plate_entry.get("separate_animated_bunny", false))
+		and bool(dirty_plate_entry.get("bunny_depth_occluded", false)))
+	var elevator: Control = main.castle_room_stage.get_node_or_null(
+		"ElevatorButton") as Control
+	var elevator_pointer: Control = main.castle_room_stage.get_node_or_null(
+		"ElevatorPointer") as Control
+	_check("rescue has no retired lower-corner overlay controls",
+		main.castle_room_action_button == null
+		and elevator == null and elevator_pointer == null)
+	await _capture("00_dirty_basket_prompt")
+
+	_check("basket tap starts real handoff", cleanup.probe_tap_basket())
+	await create_timer(0.16).timeout
+	await _capture("01_sponge_travels_to_sink")
+	await create_timer(0.28).timeout
+	_check("circle guide is live",
+		bool(cleanup.cleaning_audit_snapshot().get(
+			"circle_demo_visible", false)))
+	await _capture("02_sink_circle_guide")
+
+	var sink_points: Array[Vector2] = []
+	for index: int in range(49):
+		var angle: float = float(index) / 48.0 * TAU * 1.2
+		sink_points.append(SINK_CENTER
+			+ Vector2(cos(angle), sin(angle)) * 120.0)
+	_check("live sink gesture completes",
+		cleanup.probe_cleaning_sink_circle(sink_points))
+	_check("sink completion replaces the painted dirty basin",
+		bool(cleanup.day_one_bathroom_plate_snapshot().get("sink_clean_pixels", false)))
+	await _capture("03_sink_clean_sponge_returns")
+	await create_timer(0.48).timeout
+	await _capture("04_brush_travels_to_tub")
+	await create_timer(0.30).timeout
+	_check("tub drain tap is live before brush arrows",
+		bool(cleanup.cleaning_audit_snapshot().get("tub_drain_ready", false))
+		and bool(cleanup.cleaning_audit_snapshot().get(
+			"one_tap_drain_target_visible", false))
+		and bool(cleanup.cleaning_audit_snapshot().get(
+			"brush_parked_on_tub_rim", false))
+		and not bool(cleanup.cleaning_audit_snapshot().get(
+			"back_and_forth_arrows_visible", true)))
+	await _capture("05_tub_drain_prompt")
+	_check("tub tap starts the bunny's comic reaction", cleanup.probe_tap_tub())
+	await create_timer(0.16).timeout
+	_check("comic No and one spin are visible",
+		int(cleanup.cleaning_audit_snapshot().get(
+			"drain_reaction_count", 0)) == 1
+		and String(cleanup.cleaning_audit_snapshot().get(
+			"comic_shout", "")) == "NO!")
+	await _capture("06_bunny_no_spin")
+	await create_timer(0.92).timeout
+	_check("tub arrows are live",
+		bool(cleanup.cleaning_audit_snapshot().get(
+			"back_and_forth_arrows_visible", false))
+		and bool(cleanup.cleaning_audit_snapshot().get("tub_drained", false)))
+	await _capture("07_tub_arrow_guide")
+
+	var tub_points: Array[Vector2] = [
+		TUB_CENTER + Vector2(-210.0, 0.0),
+		TUB_CENTER + Vector2(210.0, 0.0),
+		TUB_CENTER + Vector2(-210.0, 0.0),
+		TUB_CENTER + Vector2(210.0, 0.0),
+		TUB_CENTER + Vector2(-210.0, 0.0),
+	]
+	var cleaning: DayOneBathroomCleaning = cleanup._cleaning_stage
+	_check("three forgiving tub reversals complete",
+		cleaning != null and cleaning.probe_tub_strokes(tub_points, 0.75))
+	await _capture("08a_toilet_circle_prompt")
+	var toilet: DayOneBathroomToilet = cleaning._toilet_stage
+	var toilet_center := DayOneBathroomToilet.CENTER
+	toilet.begin_gesture(toilet_center + Vector2(65, 0))
+	await create_timer(1.4).timeout
+	for i: int in range(1, 18):
+		var angle: float = float(i) / 32.0 * TAU
+		toilet.move_gesture(toilet_center + Vector2(cos(angle), sin(angle)) * 65.0, 0.06)
+	await _capture("08b_toilet_scrubbing")
+	for i: int in range(18, 48):
+		var angle: float = float(i) / 32.0 * TAU
+		toilet.move_gesture(toilet_center + Vector2(cos(angle), sin(angle)) * 65.0, 0.06)
+	_check("toilet cleaning completes before the room celebration", main.day_one_bathroom_toilet_cleaned)
+	await create_timer(0.12).timeout
+	var clean_plate_finale: Dictionary = cleanup.day_one_bathroom_plate_snapshot()
+	_check("completion permanently reveals the distinct clean room state",
+		not bool(clean_plate_finale.get("dirty_plate_visible", true))
+		and bool(clean_plate_finale.get(
+			"clean_fixture_layer_visible", false)))
+	await _capture("08_whole_room_sparkle")
+	await create_timer(0.96).timeout
+	_check("finale preserves neutral global Back",
+		main.global_navigation_button != null
+		and main.global_navigation_button.visible
+		and String(main.global_navigation_button.get_meta(
+			"global_navigation_mode", "")) == "back"
+		and main.global_navigation_button.anchor_left == 0.0
+		and main.global_navigation_button.offset_left == 18.0
+		and main._day_one_room_handoff_target == "mermaid_pool")
+	_check("no picture card covers the clean room",
+		main.castle_room_stage.get_node_or_null("DayOneRouteCard") == null)
+	_check("no forward cue decorates or repurposes Back",
+		main.global_navigation_button.get_node_or_null("DayOneRouteGhostHand") == null
+		and main.global_navigation_button.get_node_or_null("DayOneArrowGlow") == null
+		and not main.global_navigation_button.has_meta("day_one_route_target"))
+	_check("pool route does not revive retired overlay controls",
+		main.castle_room_action_button == null
+		and elevator == null and elevator_pointer == null)
+	await _capture("09_clean_pool_route")
+	main.set_process(true)
+	main._navigation_ref().press()
+	await _frames(18)
+	# Separate control: retain normal Main processing; the earlier frozen fixture is preserved.
+	var pool_door: Button = main.castle_room_buttons.get("mermaid_pool") as Button
+	_check("Back returns to hall with the painted pool door available",
+		main.castle_room_id == "main_hall"
+		and main._castle_rooms_ref().active_door_highlight_id() == "mermaid_pool"
+		and pool_door != null and pool_door.visible)
+	await _capture("10_hall_glowing_pool_door")
+
+	main.queue_free()
+	await _frames(4)
+	print("DAY_ONE_BATHROOM_SHOTS|RESULT: %s failures=%d output=%s" % [
+		"PASS" if failures == 0 else "FAIL", failures, capture_root])
+	quit(1 if failures > 0 else 0)

@@ -1,0 +1,46 @@
+{
+  "checked_utc": "2026-10-01T14:33:11.770421+00:00",
+  "files": [
+    {
+      "source": "tools/capture_day_one_pool_art_inventory.gd",
+      "copy": "capture_day_one_pool_art_inventory.gd",
+      "sha256": "53d98f8940d4302f3027bf4db51e7c474877404ef3028a523e888876d99e0bb6"
+    },
+    {
+      "source": "tools/capture_day_one_pool_candidate_fit.gd",
+      "copy": "capture_day_one_pool_candidate_fit.gd",
+      "sha256": "177b0a7e110382cb2caef4091ee6613f791a460aba4cd266c34e64e71f4df39e"
+    },
+    {
+      "source": "tools/capture_day_one_pool_candidate_actions.gd",
+      "copy": "capture_day_one_pool_candidate_actions.gd",
+      "sha256": "dcd6141fa74c1e17c10727ce52f7d441521387885afa2eb58d55e2ecf9b12ed4"
+    },
+    {
+      "source": "tools/capture_day_one_pool_normalized_layout_fit.gd",
+      "copy": "capture_day_one_pool_normalized_layout_fit.gd",
+      "sha256": "f3278efb52227729f76cd5d2dcaf7a216954946d8cb00423d0010d67c1285b47"
+    },
+    {
+      "source": "tools/job_art_scene_trace.gd",
+      "copy": "job_art_scene_trace.gd",
+      "sha256": "f8fe4d48e5c8de1e420157e4ba7d14b4e72ffcbf598473cd09e751493f1fd9a2"
+    },
+    {
+      "source": "scripts/probe_day_one_pool_shots.gd",
+      "copy": "probe_day_one_pool_shots.gd",
+      "sha256": "62e44561687a00b87c5ac9d2a511e97c70c89ee32b4d237f0e8d21edc00120f5"
+    },
+    {
+      "source": "scripts/games/day_one_pool_cleanup.gd",
+      "copy": "day_one_pool_cleanup.gd",
+      "sha256": "11e9936ad3c67a271d77f8694b3a3d3ec9fcade42bef65a687aa927d1a937593"
+    },
+    {
+      "source": "scripts/games/pool_skimmer_activity.gd",
+      "copy": "pool_skimmer_activity.gd",
+      "sha256": "dc4e8d159a29a3d70a437b82c7a04b4bed5837c56e7b5fb4bebeeabb1eb5e970"
+    }
+  ],
+  "qualification": "Exact tool/controller bytes retained at successful capture completion. Copied scripts are evidence under .gdignore, not runtime fallbacks or new production classes."
+}

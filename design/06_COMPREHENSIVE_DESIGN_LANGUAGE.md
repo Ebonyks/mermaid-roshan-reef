@@ -651,6 +651,17 @@ gates, and has matching dev APK evidence from Android run `31763879294`.
 Route cards MUST preserve their large touch targets without obscuring Roshan's
 lower body/tail.
 
+Owner direction 2026-09-30 adds a scoped temporary developer exception to
+`DL-INT-12`: the Opera House's painted left elevator opens a playtest menu for
+every live world-triggered job. Each choice launches the same shipping Canvas
+activity as a fresh practice run, then returns to this menu. Practice does not
+change saved story progress, checkpoints, learning progress, stars, pearls,
+medals or mastery. Normal room ownership and return routes remain intact;
+retired boss slots remain unreachable. This request commissions neither the
+separate four-floor venue remake nor a job redesign. Device/child/owner
+acceptance and `MA-OPERA-012` remain open. See the
+[impact and evidence](audit_impacts/opera-job-playtest-20260930.json).
+
 `DL-INT-13` — Curtain Dragon, Shadow Phantom, and Midnight Maestro are cut from
 the reachable product. They MUST NOT appear as Opera cards, floor gates,
 required stars, finales, voices, music routes, or boss-runtime entries. Existing

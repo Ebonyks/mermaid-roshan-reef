@@ -1,0 +1,97 @@
+{
+  "schema": "reef.individual-complete-source-review.v1",
+  "checked_utc": "2026-10-01T12:02:30.066333+00:00",
+  "items": [
+    {
+      "name": "lateral-bridge",
+      "generation_id": "exec-d111d456-a6a7-4ccc-b472-a217fb874468",
+      "native_path": "assets_src/imagegen/day2_nursery_faron_motionkeys_20261001/lateral-bridge-attempt-01.png",
+      "sha256": "6241010bbd3fa47ff5e9e516213ef60e5a52a8cd7f4a905ad01c14b92e1e5133",
+      "bytes": 859190,
+      "provider_original_preserved": true,
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "exact_call_prompt_unicode_sha256": "a9a725777423ba45f7707ce20fd5ddd73c87644b810bfc421529919027fc7027",
+      "reference": "assets_src/imagegen/day2_nursery_faron_motionkeys_20261001/lift-middle-attempt-01.png",
+      "reference_sha256": "e58be4187ce6cf95814daf6955d607acb97494b8128357ab909d17c245602595",
+      "requested_palm": [
+        635,
+        742
+      ],
+      "initial_visual_pad_estimate": [
+        700,
+        738
+      ],
+      "style_score": 4.6,
+      "requested_role_score": 4.0,
+      "review": "Direct native visual review retains the simplified complete Faron source family. Requested-coordinate control failed: lateral state is already as extended as the near-held pose; both rising sources overshoot into chest-height cups above the intended held endpoint. The estimates are not yet native-fit acceptance landmarks. Preserve all sources and regenerate only missing lower-apron receiving states.",
+      "contact_score": null,
+      "action_score": null,
+      "runtime_bound": false,
+      "owner_accepted": false
+    },
+    {
+      "name": "rise-bridge-a",
+      "generation_id": "exec-01efb426-fd73-4a90-a8b8-e29130a6c744",
+      "native_path": "assets_src/imagegen/day2_nursery_faron_motionkeys_20261001/rise-bridge-a-attempt-01.png",
+      "sha256": "689841861ff417138d5dc4d4e184972871242f63499d1ae03118c39d811791c2",
+      "bytes": 845873,
+      "provider_original_preserved": true,
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "exact_call_prompt_unicode_sha256": "5cf62d6d239af705434b546c7db43b4007a50bd8bd6b5dbec953e0d20cdf8145",
+      "reference": "assets_src/imagegen/day2_nursery_faron_motionkeys_20261001/lift-near-held-attempt-01.png",
+      "reference_sha256": "fad4d36e701b54bc5cfd4fb7128e03d66526f03449e8809b76039faaa894e878",
+      "requested_palm": [
+        687,
+        694
+      ],
+      "initial_visual_pad_estimate": [
+        715,
+        545
+      ],
+      "style_score": 4.6,
+      "requested_role_score": 4.0,
+      "review": "Direct native visual review retains the simplified complete Faron source family. Requested-coordinate control failed: lateral state is already as extended as the near-held pose; both rising sources overshoot into chest-height cups above the intended held endpoint. The estimates are not yet native-fit acceptance landmarks. Preserve all sources and regenerate only missing lower-apron receiving states.",
+      "contact_score": null,
+      "action_score": null,
+      "runtime_bound": false,
+      "owner_accepted": false
+    },
+    {
+      "name": "rise-bridge-b",
+      "generation_id": "exec-6fc45a09-c8ac-4f71-8f24-d214ebf70bbc",
+      "native_path": "assets_src/imagegen/day2_nursery_faron_motionkeys_20261001/rise-bridge-b-attempt-01.png",
+      "sha256": "405c2d3e280d15b7e04b15ec0a0bec6883633885cd657f92c6ec1a1e01d7b140",
+      "bytes": 842139,
+      "provider_original_preserved": true,
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "exact_call_prompt_unicode_sha256": "4ddf3795f3780bcbe895bd0500ac77ff547fc3b9051d7a6b86d239798022f346",
+      "reference": "assets_src/imagegen/day2_nursery_faron_motionkeys_20261001/lift-near-held-attempt-01.png",
+      "reference_sha256": "fad4d36e701b54bc5cfd4fb7128e03d66526f03449e8809b76039faaa894e878",
+      "requested_palm": [
+        701,
+        656
+      ],
+      "initial_visual_pad_estimate": [
+        704,
+        567
+      ],
+      "style_score": 4.6,
+      "requested_role_score": 4.0,
+      "review": "Direct native visual review retains the simplified complete Faron source family. Requested-coordinate control failed: lateral state is already as extended as the near-held pose; both rising sources overshoot into chest-height cups above the intended held endpoint. The estimates are not yet native-fit acceptance landmarks. Preserve all sources and regenerate only missing lower-apron receiving states.",
+      "contact_score": null,
+      "action_score": null,
+      "runtime_bound": false,
+      "owner_accepted": false
+    }
+  ],
+  "method": "Built-in imagegen complete transparent-character edit; no warped/generated intermediate pixels or production binding"
+}

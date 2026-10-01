@@ -1,0 +1,1210 @@
+{
+  "checked_utc": "2026-10-01T14:56:42.912665+00:00",
+  "result": "PASS",
+  "script_count": 27,
+  "checks": [
+    {
+      "path": "scripts/audio_director.gd",
+      "source_sha256": "9de96599bd4b303a732e9ca5127547874ff35247771aee1d3fe4e0bcfbba59ba",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/audio_director.gd"
+      ],
+      "process_exit": 0,
+      "log": "00_audio_director_parser.log"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "source_sha256": "9de96599bd4b303a732e9ca5127547874ff35247771aee1d3fe4e0bcfbba59ba",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/audio_director.gd"
+      ],
+      "process_exit": 0,
+      "log": "00_audio_director_inference.log"
+    },
+    {
+      "path": "scripts/audio_director.gd",
+      "source_sha256": "9de96599bd4b303a732e9ca5127547874ff35247771aee1d3fe4e0bcfbba59ba",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "scripts/audio_director.gd"
+      ],
+      "process_exit": 0,
+      "log": "00_audio_director_analyzer.log"
+    },
+    {
+      "path": "scripts/fairy_restoration_prototype.gd",
+      "source_sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/fairy_restoration_prototype.gd"
+      ],
+      "process_exit": 0,
+      "log": "01_fairy_restoration_prototype_parser.log"
+    },
+    {
+      "path": "scripts/fairy_restoration_prototype.gd",
+      "source_sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/fairy_restoration_prototype.gd"
+      ],
+      "process_exit": 0,
+      "log": "01_fairy_restoration_prototype_inference.log"
+    },
+    {
+      "path": "scripts/fairy_restoration_prototype.gd",
+      "source_sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "scripts/fairy_restoration_prototype.gd"
+      ],
+      "process_exit": 0,
+      "log": "01_fairy_restoration_prototype_analyzer.log"
+    },
+    {
+      "path": "scripts/main.gd",
+      "source_sha256": "98d91a560426cfa4c52a70221a0311856429c031805d7d9dc990eefe2affe30e",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/main.gd"
+      ],
+      "process_exit": 0,
+      "log": "02_main_parser.log"
+    },
+    {
+      "path": "scripts/main.gd",
+      "source_sha256": "98d91a560426cfa4c52a70221a0311856429c031805d7d9dc990eefe2affe30e",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/main.gd"
+      ],
+      "process_exit": 0,
+      "log": "02_main_inference.log"
+    },
+    {
+      "path": "scripts/main.gd",
+      "source_sha256": "98d91a560426cfa4c52a70221a0311856429c031805d7d9dc990eefe2affe30e",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "scripts/main.gd"
+      ],
+      "process_exit": 0,
+      "log": "02_main_analyzer.log"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "source_sha256": "eddaa34b8dccd17f41f744176a1ceef6c38c788b200a66995438d42c74a78a63",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/opera_act.gd"
+      ],
+      "process_exit": 0,
+      "log": "03_opera_act_parser.log"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "source_sha256": "eddaa34b8dccd17f41f744176a1ceef6c38c788b200a66995438d42c74a78a63",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/opera_act.gd"
+      ],
+      "process_exit": 0,
+      "log": "03_opera_act_inference.log"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "source_sha256": "eddaa34b8dccd17f41f744176a1ceef6c38c788b200a66995438d42c74a78a63",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "scripts/opera_act.gd"
+      ],
+      "process_exit": 0,
+      "log": "03_opera_act_analyzer.log"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "source_sha256": "f58088a214bffb8ceb68a01c771e20241a32d987ac180b4be51be236247922ae",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/opera_career_world_2d.gd"
+      ],
+      "process_exit": 0,
+      "log": "04_opera_career_world_2d_parser.log"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "source_sha256": "f58088a214bffb8ceb68a01c771e20241a32d987ac180b4be51be236247922ae",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/opera_career_world_2d.gd"
+      ],
+      "process_exit": 0,
+      "log": "04_opera_career_world_2d_inference.log"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "source_sha256": "f58088a214bffb8ceb68a01c771e20241a32d987ac180b4be51be236247922ae",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "scripts/opera_career_world_2d.gd"
+      ],
+      "process_exit": 0,
+      "log": "04_opera_career_world_2d_analyzer.log"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "source_sha256": "09a70ca5f9abd836f66a2327e62553b8d603f9318845c404d7d3527fee953910",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/opera_house.gd"
+      ],
+      "process_exit": 0,
+      "log": "05_opera_house_parser.log"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "source_sha256": "09a70ca5f9abd836f66a2327e62553b8d603f9318845c404d7d3527fee953910",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/opera_house.gd"
+      ],
+      "process_exit": 0,
+      "log": "05_opera_house_inference.log"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "source_sha256": "09a70ca5f9abd836f66a2327e62553b8d603f9318845c404d7d3527fee953910",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "scripts/opera_house.gd"
+      ],
+      "process_exit": 0,
+      "log": "05_opera_house_analyzer.log"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "source_sha256": "69f7251f96ec5234fd733fc2d8ad56211d7cbe386122c9a93d76912c4cc8fac1",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/opera_house_venue_2d.gd"
+      ],
+      "process_exit": 0,
+      "log": "06_opera_house_venue_2d_parser.log"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "source_sha256": "69f7251f96ec5234fd733fc2d8ad56211d7cbe386122c9a93d76912c4cc8fac1",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/opera_house_venue_2d.gd"
+      ],
+      "process_exit": 0,
+      "log": "06_opera_house_venue_2d_inference.log"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "source_sha256": "69f7251f96ec5234fd733fc2d8ad56211d7cbe386122c9a93d76912c4cc8fac1",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "scripts/opera_house_venue_2d.gd"
+      ],
+      "process_exit": 0,
+      "log": "06_opera_house_venue_2d_analyzer.log"
+    },
+    {
+      "path": "scripts/opera_job_playtest_menu.gd",
+      "source_sha256": "836d71b493cea9e63c4e398234752adb0e59a1c7c6f791c88c68dfccb5ee2a3b",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/opera_job_playtest_menu.gd"
+      ],
+      "process_exit": 0,
+      "log": "07_opera_job_playtest_menu_parser.log"
+    },
+    {
+      "path": "scripts/opera_job_playtest_menu.gd",
+      "source_sha256": "836d71b493cea9e63c4e398234752adb0e59a1c7c6f791c88c68dfccb5ee2a3b",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/opera_job_playtest_menu.gd"
+      ],
+      "process_exit": 0,
+      "log": "07_opera_job_playtest_menu_inference.log"
+    },
+    {
+      "path": "scripts/opera_job_playtest_menu.gd",
+      "source_sha256": "836d71b493cea9e63c4e398234752adb0e59a1c7c6f791c88c68dfccb5ee2a3b",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "scripts/opera_job_playtest_menu.gd"
+      ],
+      "process_exit": 0,
+      "log": "07_opera_job_playtest_menu_analyzer.log"
+    },
+    {
+      "path": "scripts/opera_route_presentation.gd",
+      "source_sha256": "c7d6c94df382d14fa75cb18416647f1f540ae912756b8bba0c2962ae07b6867e",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/opera_route_presentation.gd"
+      ],
+      "process_exit": 0,
+      "log": "08_opera_route_presentation_parser.log"
+    },
+    {
+      "path": "scripts/opera_route_presentation.gd",
+      "source_sha256": "c7d6c94df382d14fa75cb18416647f1f540ae912756b8bba0c2962ae07b6867e",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/opera_route_presentation.gd"
+      ],
+      "process_exit": 0,
+      "log": "08_opera_route_presentation_inference.log"
+    },
+    {
+      "path": "scripts/opera_route_presentation.gd",
+      "source_sha256": "c7d6c94df382d14fa75cb18416647f1f540ae912756b8bba0c2962ae07b6867e",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "scripts/opera_route_presentation.gd"
+      ],
+      "process_exit": 0,
+      "log": "08_opera_route_presentation_analyzer.log"
+    },
+    {
+      "path": "scripts/probe_fairy_restoration.gd",
+      "source_sha256": "4d11763e5a817164af567bfa04cbadbc1fc8916f59b5144024151083d6d06c4a",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/probe_fairy_restoration.gd"
+      ],
+      "process_exit": 0,
+      "log": "09_probe_fairy_restoration_parser.log"
+    },
+    {
+      "path": "scripts/probe_fairy_restoration.gd",
+      "source_sha256": "4d11763e5a817164af567bfa04cbadbc1fc8916f59b5144024151083d6d06c4a",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/probe_fairy_restoration.gd"
+      ],
+      "process_exit": 0,
+      "log": "09_probe_fairy_restoration_inference.log"
+    },
+    {
+      "path": "scripts/probe_fairy_restoration.gd",
+      "source_sha256": "4d11763e5a817164af567bfa04cbadbc1fc8916f59b5144024151083d6d06c4a",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "scripts/probe_fairy_restoration.gd"
+      ],
+      "process_exit": 0,
+      "log": "09_probe_fairy_restoration_analyzer.log"
+    },
+    {
+      "path": "scripts/probe_opera.gd",
+      "source_sha256": "46f4dc26a626ec80de4aee7f1bc83a726f124d5a92fadb7465b1b962a4623169",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/probe_opera.gd"
+      ],
+      "process_exit": 0,
+      "log": "10_probe_opera_parser.log"
+    },
+    {
+      "path": "scripts/probe_opera.gd",
+      "source_sha256": "46f4dc26a626ec80de4aee7f1bc83a726f124d5a92fadb7465b1b962a4623169",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/probe_opera.gd"
+      ],
+      "process_exit": 0,
+      "log": "10_probe_opera_inference.log"
+    },
+    {
+      "path": "scripts/probe_opera.gd",
+      "source_sha256": "46f4dc26a626ec80de4aee7f1bc83a726f124d5a92fadb7465b1b962a4623169",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "scripts/probe_opera.gd"
+      ],
+      "process_exit": 0,
+      "log": "10_probe_opera_analyzer.log"
+    },
+    {
+      "path": "scripts/probe_voice.gd",
+      "source_sha256": "69cd427945ef038e67f6cf65717f65e708258d3a16b7583b655c891a312d2255",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/probe_voice.gd"
+      ],
+      "process_exit": 0,
+      "log": "11_probe_voice_parser.log"
+    },
+    {
+      "path": "scripts/probe_voice.gd",
+      "source_sha256": "69cd427945ef038e67f6cf65717f65e708258d3a16b7583b655c891a312d2255",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/probe_voice.gd"
+      ],
+      "process_exit": 0,
+      "log": "11_probe_voice_inference.log"
+    },
+    {
+      "path": "scripts/probe_voice.gd",
+      "source_sha256": "69cd427945ef038e67f6cf65717f65e708258d3a16b7583b655c891a312d2255",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "scripts/probe_voice.gd"
+      ],
+      "process_exit": 0,
+      "log": "11_probe_voice_analyzer.log"
+    },
+    {
+      "path": "tools/capture_day2_nursery_faron_lift_fit.gd",
+      "source_sha256": "8ab0193c5d3d7417eb48b4605402c8ebf9e55c06485c7e99d486cf313531b561",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "tools/capture_day2_nursery_faron_lift_fit.gd"
+      ],
+      "process_exit": 0,
+      "log": "12_capture_day2_nursery_faron_lift_fit_parser.log"
+    },
+    {
+      "path": "tools/capture_day2_nursery_faron_lift_fit.gd",
+      "source_sha256": "8ab0193c5d3d7417eb48b4605402c8ebf9e55c06485c7e99d486cf313531b561",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "tools/capture_day2_nursery_faron_lift_fit.gd"
+      ],
+      "process_exit": 0,
+      "log": "12_capture_day2_nursery_faron_lift_fit_inference.log"
+    },
+    {
+      "path": "tools/capture_day2_nursery_faron_lift_fit.gd",
+      "source_sha256": "8ab0193c5d3d7417eb48b4605402c8ebf9e55c06485c7e99d486cf313531b561",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "tools/capture_day2_nursery_faron_lift_fit.gd"
+      ],
+      "process_exit": 0,
+      "log": "12_capture_day2_nursery_faron_lift_fit_analyzer.log"
+    },
+    {
+      "path": "tools/capture_day2_nursery_faron_lift_motion.gd",
+      "source_sha256": "360c19a94e346676e486049435ba54a2f4f1344a0763af5de85321c58e101ac8",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "tools/capture_day2_nursery_faron_lift_motion.gd"
+      ],
+      "process_exit": 0,
+      "log": "13_capture_day2_nursery_faron_lift_motion_parser.log"
+    },
+    {
+      "path": "tools/capture_day2_nursery_faron_lift_motion.gd",
+      "source_sha256": "360c19a94e346676e486049435ba54a2f4f1344a0763af5de85321c58e101ac8",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "tools/capture_day2_nursery_faron_lift_motion.gd"
+      ],
+      "process_exit": 0,
+      "log": "13_capture_day2_nursery_faron_lift_motion_inference.log"
+    },
+    {
+      "path": "tools/capture_day2_nursery_faron_lift_motion.gd",
+      "source_sha256": "360c19a94e346676e486049435ba54a2f4f1344a0763af5de85321c58e101ac8",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "tools/capture_day2_nursery_faron_lift_motion.gd"
+      ],
+      "process_exit": 0,
+      "log": "13_capture_day2_nursery_faron_lift_motion_analyzer.log"
+    },
+    {
+      "path": "tools/capture_day2_nursery_faron_motion_fit.gd",
+      "source_sha256": "f44ba3edec79eb7ae16c7c5cd7b86d5f0f1f6aa12ae0714a0930341089376ac0",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "tools/capture_day2_nursery_faron_motion_fit.gd"
+      ],
+      "process_exit": 0,
+      "log": "14_capture_day2_nursery_faron_motion_fit_parser.log"
+    },
+    {
+      "path": "tools/capture_day2_nursery_faron_motion_fit.gd",
+      "source_sha256": "f44ba3edec79eb7ae16c7c5cd7b86d5f0f1f6aa12ae0714a0930341089376ac0",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "tools/capture_day2_nursery_faron_motion_fit.gd"
+      ],
+      "process_exit": 0,
+      "log": "14_capture_day2_nursery_faron_motion_fit_inference.log"
+    },
+    {
+      "path": "tools/capture_day2_nursery_faron_motion_fit.gd",
+      "source_sha256": "f44ba3edec79eb7ae16c7c5cd7b86d5f0f1f6aa12ae0714a0930341089376ac0",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "tools/capture_day2_nursery_faron_motion_fit.gd"
+      ],
+      "process_exit": 0,
+      "log": "14_capture_day2_nursery_faron_motion_fit_analyzer.log"
+    },
+    {
+      "path": "tools/capture_day_one_art_studio_inventory.gd",
+      "source_sha256": "73b3da6cb7d9c186822c683b65d91f7ffb76334bf65b0665246c0900e0b5a849",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "tools/capture_day_one_art_studio_inventory.gd"
+      ],
+      "process_exit": 0,
+      "log": "15_capture_day_one_art_studio_inventory_parser.log"
+    },
+    {
+      "path": "tools/capture_day_one_art_studio_inventory.gd",
+      "source_sha256": "73b3da6cb7d9c186822c683b65d91f7ffb76334bf65b0665246c0900e0b5a849",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "tools/capture_day_one_art_studio_inventory.gd"
+      ],
+      "process_exit": 0,
+      "log": "15_capture_day_one_art_studio_inventory_inference.log"
+    },
+    {
+      "path": "tools/capture_day_one_art_studio_inventory.gd",
+      "source_sha256": "73b3da6cb7d9c186822c683b65d91f7ffb76334bf65b0665246c0900e0b5a849",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "tools/capture_day_one_art_studio_inventory.gd"
+      ],
+      "process_exit": 0,
+      "log": "15_capture_day_one_art_studio_inventory_analyzer.log"
+    },
+    {
+      "path": "tools/capture_day_one_bathroom_active_control.gd",
+      "source_sha256": "e578b7fe3d7dbdc414d436c8f0535be200eb9bda00df43588754b8caeb528c9c",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "tools/capture_day_one_bathroom_active_control.gd"
+      ],
+      "process_exit": 0,
+      "log": "16_capture_day_one_bathroom_active_control_parser.log"
+    },
+    {
+      "path": "tools/capture_day_one_bathroom_active_control.gd",
+      "source_sha256": "e578b7fe3d7dbdc414d436c8f0535be200eb9bda00df43588754b8caeb528c9c",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "tools/capture_day_one_bathroom_active_control.gd"
+      ],
+      "process_exit": 0,
+      "log": "16_capture_day_one_bathroom_active_control_inference.log"
+    },
+    {
+      "path": "tools/capture_day_one_bathroom_active_control.gd",
+      "source_sha256": "e578b7fe3d7dbdc414d436c8f0535be200eb9bda00df43588754b8caeb528c9c",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "tools/capture_day_one_bathroom_active_control.gd"
+      ],
+      "process_exit": 0,
+      "log": "16_capture_day_one_bathroom_active_control_analyzer.log"
+    },
+    {
+      "path": "tools/capture_day_one_bathroom_art_inventory.gd",
+      "source_sha256": "ede7789d8b990acd29c36943363aad134a891ca084937c73c51b4a33bcb49c28",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "tools/capture_day_one_bathroom_art_inventory.gd"
+      ],
+      "process_exit": 0,
+      "log": "17_capture_day_one_bathroom_art_inventory_parser.log"
+    },
+    {
+      "path": "tools/capture_day_one_bathroom_art_inventory.gd",
+      "source_sha256": "ede7789d8b990acd29c36943363aad134a891ca084937c73c51b4a33bcb49c28",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "tools/capture_day_one_bathroom_art_inventory.gd"
+      ],
+      "process_exit": 0,
+      "log": "17_capture_day_one_bathroom_art_inventory_inference.log"
+    },
+    {
+      "path": "tools/capture_day_one_bathroom_art_inventory.gd",
+      "source_sha256": "ede7789d8b990acd29c36943363aad134a891ca084937c73c51b4a33bcb49c28",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "tools/capture_day_one_bathroom_art_inventory.gd"
+      ],
+      "process_exit": 0,
+      "log": "17_capture_day_one_bathroom_art_inventory_analyzer.log"
+    },
+    {
+      "path": "tools/capture_day_one_pool_art_inventory.gd",
+      "source_sha256": "53d98f8940d4302f3027bf4db51e7c474877404ef3028a523e888876d99e0bb6",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "tools/capture_day_one_pool_art_inventory.gd"
+      ],
+      "process_exit": 0,
+      "log": "18_capture_day_one_pool_art_inventory_parser.log"
+    },
+    {
+      "path": "tools/capture_day_one_pool_art_inventory.gd",
+      "source_sha256": "53d98f8940d4302f3027bf4db51e7c474877404ef3028a523e888876d99e0bb6",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "tools/capture_day_one_pool_art_inventory.gd"
+      ],
+      "process_exit": 0,
+      "log": "18_capture_day_one_pool_art_inventory_inference.log"
+    },
+    {
+      "path": "tools/capture_day_one_pool_art_inventory.gd",
+      "source_sha256": "53d98f8940d4302f3027bf4db51e7c474877404ef3028a523e888876d99e0bb6",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "tools/capture_day_one_pool_art_inventory.gd"
+      ],
+      "process_exit": 0,
+      "log": "18_capture_day_one_pool_art_inventory_analyzer.log"
+    },
+    {
+      "path": "tools/capture_day_one_pool_buffered_actions.gd",
+      "source_sha256": "0f5f56813dfb9e35d5c45cfd8dd64b7c7a4abe66b4b4fee435a1768dc3c143b3",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "tools/capture_day_one_pool_buffered_actions.gd"
+      ],
+      "process_exit": 0,
+      "log": "19_capture_day_one_pool_buffered_actions_parser.log"
+    },
+    {
+      "path": "tools/capture_day_one_pool_buffered_actions.gd",
+      "source_sha256": "0f5f56813dfb9e35d5c45cfd8dd64b7c7a4abe66b4b4fee435a1768dc3c143b3",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "tools/capture_day_one_pool_buffered_actions.gd"
+      ],
+      "process_exit": 0,
+      "log": "19_capture_day_one_pool_buffered_actions_inference.log"
+    },
+    {
+      "path": "tools/capture_day_one_pool_buffered_actions.gd",
+      "source_sha256": "0f5f56813dfb9e35d5c45cfd8dd64b7c7a4abe66b4b4fee435a1768dc3c143b3",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "tools/capture_day_one_pool_buffered_actions.gd"
+      ],
+      "process_exit": 0,
+      "log": "19_capture_day_one_pool_buffered_actions_analyzer.log"
+    },
+    {
+      "path": "tools/capture_day_one_pool_candidate_actions.gd",
+      "source_sha256": "0e6f241d48677c2445fc5dc62e4e092b7e2587757792ad28f735e438bf48ae22",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "tools/capture_day_one_pool_candidate_actions.gd"
+      ],
+      "process_exit": 0,
+      "log": "20_capture_day_one_pool_candidate_actions_parser.log"
+    },
+    {
+      "path": "tools/capture_day_one_pool_candidate_actions.gd",
+      "source_sha256": "0e6f241d48677c2445fc5dc62e4e092b7e2587757792ad28f735e438bf48ae22",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "tools/capture_day_one_pool_candidate_actions.gd"
+      ],
+      "process_exit": 0,
+      "log": "20_capture_day_one_pool_candidate_actions_inference.log"
+    },
+    {
+      "path": "tools/capture_day_one_pool_candidate_actions.gd",
+      "source_sha256": "0e6f241d48677c2445fc5dc62e4e092b7e2587757792ad28f735e438bf48ae22",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "tools/capture_day_one_pool_candidate_actions.gd"
+      ],
+      "process_exit": 0,
+      "log": "20_capture_day_one_pool_candidate_actions_analyzer.log"
+    },
+    {
+      "path": "tools/capture_day_one_pool_candidate_fit.gd",
+      "source_sha256": "177b0a7e110382cb2caef4091ee6613f791a460aba4cd266c34e64e71f4df39e",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "tools/capture_day_one_pool_candidate_fit.gd"
+      ],
+      "process_exit": 0,
+      "log": "21_capture_day_one_pool_candidate_fit_parser.log"
+    },
+    {
+      "path": "tools/capture_day_one_pool_candidate_fit.gd",
+      "source_sha256": "177b0a7e110382cb2caef4091ee6613f791a460aba4cd266c34e64e71f4df39e",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "tools/capture_day_one_pool_candidate_fit.gd"
+      ],
+      "process_exit": 0,
+      "log": "21_capture_day_one_pool_candidate_fit_inference.log"
+    },
+    {
+      "path": "tools/capture_day_one_pool_candidate_fit.gd",
+      "source_sha256": "177b0a7e110382cb2caef4091ee6613f791a460aba4cd266c34e64e71f4df39e",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "tools/capture_day_one_pool_candidate_fit.gd"
+      ],
+      "process_exit": 0,
+      "log": "21_capture_day_one_pool_candidate_fit_analyzer.log"
+    },
+    {
+      "path": "tools/capture_day_one_pool_normalized_layout_fit.gd",
+      "source_sha256": "f3278efb52227729f76cd5d2dcaf7a216954946d8cb00423d0010d67c1285b47",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "tools/capture_day_one_pool_normalized_layout_fit.gd"
+      ],
+      "process_exit": 0,
+      "log": "22_capture_day_one_pool_normalized_layout_fit_parser.log"
+    },
+    {
+      "path": "tools/capture_day_one_pool_normalized_layout_fit.gd",
+      "source_sha256": "f3278efb52227729f76cd5d2dcaf7a216954946d8cb00423d0010d67c1285b47",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "tools/capture_day_one_pool_normalized_layout_fit.gd"
+      ],
+      "process_exit": 0,
+      "log": "22_capture_day_one_pool_normalized_layout_fit_inference.log"
+    },
+    {
+      "path": "tools/capture_day_one_pool_normalized_layout_fit.gd",
+      "source_sha256": "f3278efb52227729f76cd5d2dcaf7a216954946d8cb00423d0010d67c1285b47",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "tools/capture_day_one_pool_normalized_layout_fit.gd"
+      ],
+      "process_exit": 0,
+      "log": "22_capture_day_one_pool_normalized_layout_fit_analyzer.log"
+    },
+    {
+      "path": "tools/capture_day_one_pool_skimmer_candidate_fit.gd",
+      "source_sha256": "5b55ece203aca17276b81e45b765fe7d4cd9fb98c52d83b837f2e34999702430",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "tools/capture_day_one_pool_skimmer_candidate_fit.gd"
+      ],
+      "process_exit": 0,
+      "log": "23_capture_day_one_pool_skimmer_candidate_fit_parser.log"
+    },
+    {
+      "path": "tools/capture_day_one_pool_skimmer_candidate_fit.gd",
+      "source_sha256": "5b55ece203aca17276b81e45b765fe7d4cd9fb98c52d83b837f2e34999702430",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "tools/capture_day_one_pool_skimmer_candidate_fit.gd"
+      ],
+      "process_exit": 0,
+      "log": "23_capture_day_one_pool_skimmer_candidate_fit_inference.log"
+    },
+    {
+      "path": "tools/capture_day_one_pool_skimmer_candidate_fit.gd",
+      "source_sha256": "5b55ece203aca17276b81e45b765fe7d4cd9fb98c52d83b837f2e34999702430",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "tools/capture_day_one_pool_skimmer_candidate_fit.gd"
+      ],
+      "process_exit": 0,
+      "log": "23_capture_day_one_pool_skimmer_candidate_fit_analyzer.log"
+    },
+    {
+      "path": "tools/job_art_scene_trace.gd",
+      "source_sha256": "f8fe4d48e5c8de1e420157e4ba7d14b4e72ffcbf598473cd09e751493f1fd9a2",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "tools/job_art_scene_trace.gd"
+      ],
+      "process_exit": 0,
+      "log": "24_job_art_scene_trace_parser.log"
+    },
+    {
+      "path": "tools/job_art_scene_trace.gd",
+      "source_sha256": "f8fe4d48e5c8de1e420157e4ba7d14b4e72ffcbf598473cd09e751493f1fd9a2",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "tools/job_art_scene_trace.gd"
+      ],
+      "process_exit": 0,
+      "log": "24_job_art_scene_trace_inference.log"
+    },
+    {
+      "path": "tools/job_art_scene_trace.gd",
+      "source_sha256": "f8fe4d48e5c8de1e420157e4ba7d14b4e72ffcbf598473cd09e751493f1fd9a2",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "tools/job_art_scene_trace.gd"
+      ],
+      "process_exit": 0,
+      "log": "24_job_art_scene_trace_analyzer.log"
+    },
+    {
+      "path": "tools/normalize_day_one_pool_prop_candidates.gd",
+      "source_sha256": "3cd18de91d3ba3f397aed3c1c2e23f03fb0bbd68b100460bb10fdc03f6b07356",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "tools/normalize_day_one_pool_prop_candidates.gd"
+      ],
+      "process_exit": 0,
+      "log": "25_normalize_day_one_pool_prop_candidates_parser.log"
+    },
+    {
+      "path": "tools/normalize_day_one_pool_prop_candidates.gd",
+      "source_sha256": "3cd18de91d3ba3f397aed3c1c2e23f03fb0bbd68b100460bb10fdc03f6b07356",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "tools/normalize_day_one_pool_prop_candidates.gd"
+      ],
+      "process_exit": 0,
+      "log": "25_normalize_day_one_pool_prop_candidates_inference.log"
+    },
+    {
+      "path": "tools/normalize_day_one_pool_prop_candidates.gd",
+      "source_sha256": "3cd18de91d3ba3f397aed3c1c2e23f03fb0bbd68b100460bb10fdc03f6b07356",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "tools/normalize_day_one_pool_prop_candidates.gd"
+      ],
+      "process_exit": 0,
+      "log": "25_normalize_day_one_pool_prop_candidates_analyzer.log"
+    },
+    {
+      "path": "tools/normalize_day_one_pool_skimmer_candidate.gd",
+      "source_sha256": "c489f82ea5cf3f3ce7fed4e486d2f586b992b7f9e33f4a8f4b865aae0262c978",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "tools/normalize_day_one_pool_skimmer_candidate.gd"
+      ],
+      "process_exit": 0,
+      "log": "26_normalize_day_one_pool_skimmer_candidate_parser.log"
+    },
+    {
+      "path": "tools/normalize_day_one_pool_skimmer_candidate.gd",
+      "source_sha256": "c489f82ea5cf3f3ce7fed4e486d2f586b992b7f9e33f4a8f4b865aae0262c978",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "tools/normalize_day_one_pool_skimmer_candidate.gd"
+      ],
+      "process_exit": 0,
+      "log": "26_normalize_day_one_pool_skimmer_candidate_inference.log"
+    },
+    {
+      "path": "tools/normalize_day_one_pool_skimmer_candidate.gd",
+      "source_sha256": "c489f82ea5cf3f3ce7fed4e486d2f586b992b7f9e33f4a8f4b865aae0262c978",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "tools/normalize_day_one_pool_skimmer_candidate.gd"
+      ],
+      "process_exit": 0,
+      "log": "26_normalize_day_one_pool_skimmer_candidate_analyzer.log"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "process_exit": 0,
+      "log": "document_contract_tests.log"
+    }
+  ],
+  "qualification": "Parser/inference/exactGodot4.7.2 analyzer for staged changed live tools/scripts, plus mandatory document/development tests. Full82-probe source-snapshot retry remains separate; no graphic/device/owner acceptance."
+}

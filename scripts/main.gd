@@ -25,14 +25,6 @@ const FAIRY_CONSERVATORY_DOOR := preload(
 	"res://scripts/arena/fairy_conservatory_door_2d.gd")
 const DAY_ONE_POOL_ROUTE_PREVIEW_TEXTURE := \
 	"res://assets/flats/castle/rooms/room_mermaid_pool.png"
-const DAY_ONE_ROUTE_PREVIEW_TEXTURES: Dictionary = {
-	"mermaid_pool": DAY_ONE_POOL_ROUTE_PREVIEW_TEXTURE,
-	"playroom": "res://assets/flats/castle/rooms/room_playroom.png",
-	"craft_room": "res://assets/flats/castle/rooms/room_craft_room.png",
-	# Royal Hall is an event-only portal, so its card uses the approved main-hall
-	# image as the physical doorway preview.
-	"__royal_hall": "res://assets/flats/castle/rooms/room_main_hall.png",
-}
 const NavigationControllerLogic = preload("res://scripts/navigation_controller.gd")
 # Mermaid Roshan's Ocean World — Godot phase 2
 # Undersea fairy garden (Kenney Nature Kit, CC0) + PBR seabed + rainbow pearls + 5 minigames.
@@ -113,7 +105,6 @@ var collection_category := "fish"
 var voice: AudioStreamPlayer
 var model_cache := {}
 var _toon_mats := {}   # source material -> shared pastel override (see _toonify)
-var _nature_mats: Dictionary = {}   # pastel rgba32 -> shared flat material (see _dress_nature)
 var cluster_centers: Array[Vector3] = []
 var pulse_lights: Array = []        # dicts {light, base, phase}
 var _reef_districts: ReefDistricts = null
@@ -177,8 +168,6 @@ var portal_cool := 0.0
 var portal_armed := false
 var ocean_routes_enabled := false
 var ocean_return_gate_armed := false
-var draining := false
-var drain_t := 0.0
 var level2_done_once := false
 var l2_stars: Array = []
 var l2_door: MeshInstance3D = null
@@ -307,7 +296,6 @@ var castle_room_door_hotspots: Array[Dictionary] = []
 var castle_room_item_sprites: Dictionary = {}
 var castle_room_fixture_manifest: Dictionary = {}
 var castle_room_fixture_rigs: Dictionary = {}
-var castle_room_fixture_physics: Array[Node2D] = []
 var castle_room_light_states: Dictionary = {}
 var castle_room_prop_sfx: AudioStreamPlayer = null
 var castle_room_player_sprite: Sprite2D = null
@@ -451,7 +439,6 @@ var companion_pick_mode := "adopt"         # adopt / swap at chest / studio repa
 var companion_cool := 0.0                 # cheer cooldown
 var companion_cheer_t := -1.0
 var companion_greeted := false            # one-time hello per session
-var companion_den_said := false           # one-time den intro per session
 var companion_action_prev := false
 var companion_p2 := false                 # true while a pad holds R1 — P2 steers the stuffie
 var stuffie_game: StuffieBattle = null
@@ -611,7 +598,6 @@ var kart_legA := Vector3.ZERO   # rainbow leg in world 2 -> forward race
 var kart_legB := Vector3.ZERO   # rainbow leg in world 2 -> reversed race
 var kart_from := ""             # which world launched the race ("" reef / "level2")
 var mg := {}
-var _nat_cache := {}
 
 # ---- 3.0: platform / persistence / flow ----
 const SAVE_PATH := "user://reef_save.json"
@@ -696,7 +682,6 @@ var pause_layer: CanvasLayer
 var pause_panel: Control
 var pause_dim: ColorRect = null      # full-screen cool dim under the pause panel
 var pause_gear_btn: Button = null    # compatibility alias for global_navigation_button
-var pause_grid: GridContainer = null # secondary icon tiles (probe-checked sizes)
 var pause_resume_btn: Button = null
 var pause_leave_btn: Button = null
 var fps_lbl: Label = null
@@ -714,7 +699,6 @@ var finale_done := false
 var finale_t := -1.0
 var anim_cull: Array = []
 var cull_timer := 0.0
-var wreck_pos := Vector3.ZERO   # stays ZERO: the 3D wreck was deleted 2026-07-28 (redesigned); guards below and companion.gd no-op on ZERO
 var shop_cool := 0.0
 var treasure_cool := 0.0
 # Cosmetics are full alternative skins (mutually exclusive), chosen at the bedroom wardrobe.
@@ -798,7 +782,6 @@ var intro_idx := 0
 var intro_art: TextureRect
 var intro_art2: TextureRect
 var intro_text: Label
-const BTN_COLS := [Color(0.35, 0.95, 0.4), Color(1.0, 0.35, 0.35), Color(0.4, 0.55, 1.0), Color(1.0, 0.9, 0.35)]  # A B X Y
 
 const FRIEND_DEFS := [
 	{"tex": "pearl_friend",  "fname": "Evie and Lamb-a'",      "msg": "You found us! Swim close again to play hide and seek!", "game": "seek"},
@@ -1536,36 +1519,7 @@ func _toon_water_mat(deep: Color, shallow: Color, alpha: float, wobble_h: float,
 	return m
 
 var water_node: MeshInstance3D
-var rock_pbr: StandardMaterial3D
-var wood_overlay: StandardMaterial3D
 
-func _texture_mats() -> void:
-	rock_pbr = StandardMaterial3D.new()
-	rock_pbr.albedo_texture = load("res://assets/terrain/up_cliff_col.jpg")
-	rock_pbr.albedo_color = Color(0.62, 0.68, 0.76)
-	rock_pbr.normal_enabled = true
-	rock_pbr.normal_texture = load("res://assets/terrain/up_cliff_nrm.jpg")
-	rock_pbr.roughness_texture = load("res://assets/terrain/up_cliff_rgh.jpg")
-	rock_pbr.uv1_triplanar = true
-	rock_pbr.uv1_world_triplanar = true   # static rocks: same texel size no matter the node scale
-	rock_pbr.uv1_scale = Vector3(0.3, 0.3, 0.3)
-	wood_overlay = StandardMaterial3D.new()
-	wood_overlay.albedo_texture = load("res://assets/terrain/up_shipwood_col.png")
-	wood_overlay.albedo_color = Color(1.2, 1.16, 1.2)      # lift so MUL keeps base colors
-	wood_overlay.normal_enabled = false
-	wood_overlay.uv1_triplanar = true
-	wood_overlay.uv1_scale = Vector3(0.9, 0.9, 0.9)
-	wood_overlay.blend_mode = BaseMaterial3D.BLEND_MODE_MUL
-	wood_overlay.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-
-func _apply_mat(node: Node, mat: Material, overlay: bool) -> void:
-	if node is MeshInstance3D:
-		if overlay:
-			(node as MeshInstance3D).material_overlay = mat
-		else:
-			(node as MeshInstance3D).material_override = mat
-	for c in node.get_children():
-		_apply_mat(c, mat, overlay)
 
 func _halo(pos: Vector3, col: Color, size: float) -> MeshInstance3D:
 	var gt := GradientTexture2D.new()
@@ -1691,20 +1645,6 @@ func _cyl_solid(center: Vector3, r: float, half_h: float, pad: float = 1.6) -> v
 		"pad": pad,   # CameraKit: the pad ring is body-clearance AIR, not mesh
 	})
 
-func _iwall(center: Vector3, size: Vector3, col: Color, tex: String = "") -> MeshInstance3D:
-	# an interior wall: visible box + solid collider + registered for camera cutaway fade.
-	# tex (e.g. "castle") swaps the flat plaster for a real PBR stone material.
-	var node := _l2_box(center, size, col)
-	if tex == "castle":
-		node.material_override = _castle_mat("wall", 0.065, col)
-	elif tex != "":
-		node.material_override = _up_mat(tex, 0.045, col)
-	_wall_solid(center, size)
-	var base_a: float = 1.0
-	if node.material_override is StandardMaterial3D:
-		base_a = (node.material_override as StandardMaterial3D).albedo_color.a
-	fade_walls.append({"node": node, "c": center, "h": size * 0.5, "base_a": base_a, "a": base_a})
-	return node
 
 func _rainbow_mat() -> ShaderMaterial:
 	var sh := Shader.new()
@@ -1854,39 +1794,8 @@ func _place_aq(model: String, pos: Vector3, scl: float, play_anim: bool) -> Node
 			if not play_anim:
 				flora_nodes.append(card)
 			return card
-	var ps := _aq(model)
-	if ps == null:
-		return null
-	var inst: Node3D = ps.instantiate()
-	inst.position = pos
-	inst.scale = Vector3.ONE * scl
-	inst.rotation.y = randf() * TAU
-	_paint_aq(inst, _aq_mat(model))
-	_toonify(inst)
-	if model.begins_with("Rock"):
-		# painted reef stone (fallback path) - bigger strokes, richer tint so
-		# the cliff sheet reads instead of washing white (owner 2026-07-11)
-		_toon_tile(inst, "cliff", 0.055, Color(0.82, 0.8, 0.95))
-	add_child(inst)
-	if not play_anim:
-		flora_nodes.append(inst)
-	if play_anim:
-		var ap := _find_anim(inst)
-		if ap != null:
-			var clips := ap.get_animation_list()
-			# prefer a swim/idle loop
-			var pick := clips[0]
-			for c in clips:
-				if "Swim" in c or "Idle" in c:
-					pick = c
-					break
-			var anim := ap.get_animation(pick)
-			if anim != null:
-				anim.loop_mode = Animation.LOOP_LINEAR
-			ap.play(pick)
-			ap.speed_scale = 0.6 + randf() * 0.5
-			anim_cull.append({"ap": ap, "node": inst})
-	return inst
+	_aq(model)   # Preserve the retired-pack null-cache side effect.
+	return null
 
 func _find_anim(n: Node) -> AnimationPlayer:
 	if n is AnimationPlayer:
@@ -2060,16 +1969,6 @@ func _aquatic_patrol_height(x: float, z: float, desired_y: float, clearance: flo
 	var floor: float = minf(seabed_y(x, z) + clearance, ceiling)
 	return clampf(desired_y, floor, ceiling)
 
-
-func _cutout_tex(name: String) -> Texture2D:
-	# STORYBOOK: in-world character cutouts use the die-cut STICKER bake
-	# (white vinyl rim + soft navy drop shadow, assets/characters/stickers/,
-	# generated from the sacred originals which stay untouched). UI portraits
-	# and wardrobe previews keep the clean originals.
-	var p := "res://assets/characters/stickers/" + name + ".png"
-	if ResourceLoader.exists(p):
-		return load(p)
-	return load("res://assets/characters/friends/" + name + ".png")
 
 func _build_friends() -> void:
 	# Data-only friend roster. The 3D reef pillars, beacons and sparks retired
@@ -2984,16 +2883,6 @@ func _cel_replace(root: Node, outline: ShaderMaterial, shader_path: String = "re
 				cm.next_pass = outline
 				mi.set_surface_override_material(si, cm)
 
-func _cel_outline(root: Node, outline: ShaderMaterial) -> void:
-	# additive ink outline only — never changes a material's type (cast-safe)
-	for mi in _all_meshes(root):
-		var mesh: Mesh = mi.mesh
-		if mesh == null:
-			continue
-		for si in range(mesh.get_surface_count()):
-			var m: Material = mi.get_active_material(si)
-			if m is BaseMaterial3D and m.next_pass == null:
-				m.next_pass = outline
 
 func _all_meshes(root: Node) -> Array[MeshInstance3D]:
 	var out: Array[MeshInstance3D] = []
@@ -5111,48 +5000,6 @@ func _enter_level2_now(from_castle: bool = false, from_north: bool = false,
 		_collection_ref().tick(0.0, player.position)
 		_navigation_set_root("sky_lagoon")
 		return
-	_build_pearl_castle(LEVEL2_POS)
-	if is_night:
-		_build_lagoon_night(LEVEL2_POS)
-	# (Phase 3 fix: a stale _play_music("finale") here overrode the "level2"
-	# track selected at the top of this function — the lagoon music never played)
-	if from_north:
-		# Return at the cave mouth, facing the snowy village. The star is disarmed
-		# until Roshan swims away, preventing a bounce loop.
-		var north_gate: Vector3 = g.get("northern_portal_pos",
-			LEVEL2_POS + Vector3(-128.0, 52.0, -165.0))
-		player.position = g.get("alpine_cave_entrance", north_gate + Vector3(20.0, 0.0, 0.0))
-		player.position.y = lagoon_walk_h(player.position.x, player.position.z) + 2.0
-		player.yaw = PI * 0.5
-		player.vel = Vector3.ZERO
-		g["northern_portal_armed"] = false
-		show_msg("Roshan", "Back through the magic cave star!", "pearl2")
-	elif from_castle:
-		# castle is already won: open the door, hide the collected stars, spawn at the entrance facing the courtyard
-		for sd in l2_stars:
-			sd["got"] = true
-			var sn: Node3D = sd["node"]
-			if is_instance_valid(sn):
-				sn.visible = false
-		l2_open = true
-		if g.has("door_solid"):
-			arena_solids.erase(g["door_solid"])   # the door is open — no invisible barrier
-		if l2_door != null and is_instance_valid(l2_door):
-			l2_door.position.y = float(g.get("door_closed_y", l2_door.position.y)) + 30.0
-		if g.has("arch") and is_instance_valid(g["arch"]):
-			(g["arch"] as Node3D).visible = true
-		player.position = LEVEL2_POS + Vector3(0, 8, -58)
-		player.yaw = 0.0
-		player.vel = Vector3.ZERO
-		show_msg("Roshan", "Out in the castle courtyard! Wheee!")
-	else:
-		player.position = LEVEL2_POS + Vector3(0, 8, 175)
-		player.vel = Vector3.ZERO
-		if at_ocean_gate_hub:
-			show_msg("Roshan", "Two ocean kingdoms! The sunny shell leads to the Caribbean. The blue ice gate leads to Norway!", "intro")
-		else:
-			show_msg("Princess Huluu", "Follow the sparkle trail! Find 3 Dream Stars!", "intro")
-	player.snap_cam()   # never lerp the lens across the world gap (CAMERA_AUDIT P0)
 
 func _enter_northern_kingdom() -> void:
 	_fade_cut(_enter_northern_kingdom_now)
@@ -5412,7 +5259,6 @@ func _nature(name: String, pos: Vector3, scl: float, yrot: float) -> Node3D:
 		return story_plant
 	return null
 
-var _kit_cache := {}
 
 func _toon_tile(node: Node, key: String, uvs: float, tint: Color = Color(1, 1, 1)) -> void:
 	# NANO-BANANA TILE WRAP (owner 2026-07-11): dress an EXISTING model in a
@@ -5499,67 +5345,13 @@ func _kit(name: String, pos: Vector3, target: float, yrot: float = 0.0) -> Node3
 			return kg
 	return null
 
-var _gen2_cache := {}
-var _gen2_mesh_cache := {}
 const GEN2_CEL := true   # banded cel light + navy ink outline on GEN2 props. Flip false to revert.
 var _gen2_outline: ShaderMaterial = null
 
 
-# A RIGGED family creature: same Meshy mesh as _gen2_creature but skinned to a
-# 20-bone quadruped (tools/build_chuck_rig.py + animate_kitty.py) with real
-# idle/walk/run/happy clips — legs actually cycle and paws plant, instead of a
-# static mesh sliding. Recolour still rides the sway shader (sway_amount 0 so it
-# never fights the skeleton; paint_body/fin map HER colours by luma). The
-# returned wrap carries meta "ap" = the AnimationPlayer for the behaviour FSM.
 func _gen2_creature_rigged(gname: String, target: float, body: Color, accent: Color, third: Color = Color(1, 1, 1)) -> Node3D:
-	var ps: PackedScene = _gen2_cache.get(gname, null)
-	if ps == null:
-		var path := ""
-		if not ResourceLoader.exists(path):
-			return null
-		ps = load(path)
-		_gen2_cache[gname] = ps
-	if ps == null:
-		return null
-	var wrap := Node3D.new()
-	var inst: Node3D = ps.instantiate()
-	_fit_prop(inst, target)          # fit footprint + seat base at y=0 (materials re-swapped below)
-	inst.rotation.y = -PI * 0.5      # face local -X (mover/FSM convention; memory gen2-creature-facing)
-	var swaysh: Shader = load("res://assets/shaders/creature_sway.gdshader")
-	for mi in _all_meshes(inst):
-		var mesh: Mesh = mi.mesh
-		if mesh == null:
-			continue
-		for si in range(mesh.get_surface_count()):
-			var src: Material = mi.get_active_material(si)
-			var alb: Texture2D = null
-			if src is StandardMaterial3D:
-				alb = (src as StandardMaterial3D).albedo_texture
-			var sm := ShaderMaterial.new()
-			sm.shader = swaysh
-			if alb != null:
-				sm.set_shader_parameter("albedo_tex", alb)
-			sm.set_shader_parameter("sway_amount", 0.0)   # the skeleton animates; no vertex sway
-			sm.set_shader_parameter("paint_mix", 1.0)
-			sm.set_shader_parameter("paint_body", body)
-			sm.set_shader_parameter("paint_fin", accent)
-			sm.set_shader_parameter("paint_third", third)
-			# zone mask (baked from geometry) paints the BOOK-ART pattern:
-			# body / accent / third-colour regions; black = fixed features
-			var mpath := "res://assets/props/gen2/" + gname.replace("_rigged", "_mask") + ".png"
-			if ResourceLoader.exists(mpath):
-				sm.set_shader_parameter("zone_mask", load(mpath))
-				sm.set_shader_parameter("use_zones", 1)
-			mi.set_surface_override_material(si, sm)
-	var ap: AnimationPlayer = inst.find_child("AnimationPlayer", true, false)
-	if ap != null:
-		for an in ap.get_animation_list():
-			ap.get_animation(an).loop_mode = Animation.LOOP_LINEAR
-		ap.play("idle")
-		wrap.set_meta("ap", ap)
-	wrap.add_child(inst)
-	wrap.set_meta("gen2", true)
-	return wrap
+	# Retired model resources have no runtime fallback.
+	return null
 
 func _gen2_creature(gname: String, pos: Vector3, target: float) -> Node3D:
 	# a family-style Meshy animal: loaded/fit like a prop, then every surface
@@ -5654,24 +5446,11 @@ func _attach_penguin_beak(wrap: Node3D) -> void:
 	beak.rotation = Vector3(-0.32, 0, 0)
 
 func _gen2_seagrass(pos: Vector3, size: float) -> Node3D:
-	# Converted 2D cards replace the crossed cards that dominated nearby cameras.
-	var variant: int = randi() % 2
-	var family: String = "kelp" if randf() > 0.82 else "seagrass"
-	var path := ""
-	if not ResourceLoader.exists(path):
-		return null
-	var packed: PackedScene = load(path)
-	if packed == null:
-		return null
-	var wrap := Node3D.new()
-	var inst: Node3D = packed.instantiate()
-	_fit_prop(inst, size * (0.62 if family == "kelp" else 0.46))
-	wrap.add_child(inst)
-	wrap.position = pos
-	wrap.rotation.y = randf() * TAU
-	add_child(wrap)
-	flora_nodes.append(wrap)
-	return wrap
+	# Preserve both random draws before the retired model path returns null.
+	randi()
+	randf()
+	return null
+
 func _gen2_outline_mat() -> ShaderMaterial:
 	if _gen2_outline == null:
 		_gen2_outline = ShaderMaterial.new()
@@ -5680,43 +5459,6 @@ func _gen2_outline_mat() -> ShaderMaterial:
 		_gen2_outline.set_shader_parameter("line_color", Color(0.16, 0.12, 0.3))
 	return _gen2_outline
 
-func _art35_static_mesh(path: String) -> Mesh:
-	var cached: Mesh = _gen2_mesh_cache.get(path, null)
-	if cached != null:
-		return cached
-	if not ResourceLoader.exists(path):
-		return null
-	var packed: PackedScene = load(path)
-	if packed == null:
-		return null
-	var inst: Node3D = packed.instantiate()
-	var meshes := _all_meshes(inst)
-	if meshes.is_empty():
-		inst.free()
-		return null
-	var result: Mesh = (meshes[0] as MeshInstance3D).mesh
-	_gen2_mesh_cache[path] = result
-	inst.free()
-	return result
-
-func _art35_prop(path: String, pos: Vector3, scl: float = 1.0, yaw: float = 0.0) -> Node3D:
-	# Authored multi-part props must stay as scene trees; taking only the first
-	# mesh would drop their outlines, petals, legs, books, or snow layers.
-	if not ResourceLoader.exists(path):
-		return null
-	var packed: PackedScene = load(path) as PackedScene
-	if packed == null:
-		return null
-	var prop: Node3D = packed.instantiate() as Node3D
-	if prop == null:
-		return null
-	prop.position = pos
-	prop.scale = Vector3.ONE * scl
-	prop.rotation.y = yaw
-	_cel_replace(prop, _gen2_outline_mat())
-	add_child(prop)
-	game_nodes.append(prop)
-	return prop
 
 func _gen2_prop(name: String, pos: Vector3, target: float, yrot: float = 0.0, sink: float = 0.0) -> Node3D:
 	# GEN2 pipeline prop: art generated in the family storybook style and
@@ -5740,36 +5482,7 @@ func _gen2_prop(name: String, pos: Vector3, target: float, yrot: float = 0.0, si
 		shell.rotation.y = yrot
 		add_child(shell)
 		return shell
-	var ps: PackedScene = _gen2_cache.get(name, null)
-	if ps == null:
-		var path := ""
-		if not ResourceLoader.exists(path):
-			return null
-		ps = load(path)
-		_gen2_cache[name] = ps
-	if ps == null:
-		return null
-	var wrap := Node3D.new()
-	var inst: Node3D = ps.instantiate()
-	var h: float = _fit_prop(inst, target)
-	if GEN2_CEL:
-		# WW toon-bake 2/2: flat posterized albedo (shrink pass) + banded cel
-		# light + inverted-hull navy outline. GEN2 props only — bounded, one
-		# const to revert, per CEL_SHADING.md's incremental wiring plan.
-		# Corals get the two-layer FLOW variant: green growth sways with the
-		# ocean, rocky bodies stay rigid (greenness-gated in the shader).
-		if name.begins_with("coral"):
-			_cel_replace(inst, _gen2_outline_mat(), "res://assets/shaders/coral_flow.gdshader")
-		else:
-			_cel_replace(inst, _gen2_outline_mat())
-	wrap.add_child(inst)
-	# sink settles the prop into the ground by a fraction of its height —
-	# Meshy meshes have smooth rounded bases that only kiss the terrain at one
-	# tangent point and read as floating on any slope (playtest 2026-07-10)
-	wrap.position = pos - Vector3(0.0, h * sink, 0.0)
-	wrap.rotation.y = yrot
-	add_child(wrap)
-	return wrap
+	return null
 
 func _pastel(c: Color) -> Color:
 	# the book palette: colours drift toward airy pastel (lifted, softened)
@@ -5779,35 +5492,6 @@ func _pastel(c: Color) -> Color:
 	var v: float = clampf(c.v * 0.9 + 0.16, 0.0, 1.0)
 	return Color.from_hsv(h, s, v, c.a)
 
-func _dress_nature(node: Node) -> void:
-	# STORYBOOK FORK: flat pastel toon materials — no realistic texture detail
-	if node is MeshInstance3D:
-		var mi := node as MeshInstance3D
-		var mesh := mi.mesh
-		if mesh != null:
-			for si in range(mesh.get_surface_count()):
-				var bm: Material = mesh.surface_get_material(si)
-				var col := Color(0.5, 0.6, 0.4)
-				if bm is StandardMaterial3D:
-					col = (bm as StandardMaterial3D).albedo_color
-				# perf (Mali-G52): identical pastel colors share ONE material.
-				# A fresh StandardMaterial3D per surface per instance made
-				# every nature prop its own draw-state (hundreds of unique
-				# RIDs in the lagoon, defeating batching, re-allocated on
-				# every arena entry). All other params are constants, so the
-				# final pastel color is the whole visual identity of the mat.
-				var pc: Color = _pastel(col)
-				var key: int = pc.to_rgba32()
-				var nm: StandardMaterial3D = _nature_mats.get(key)
-				if nm == null:
-					nm = StandardMaterial3D.new()
-					nm.albedo_color = pc
-					nm.roughness = 1.0
-					nm.metallic_specular = 0.1
-					_nature_mats[key] = nm
-				mi.set_surface_override_material(si, nm)
-	for c in node.get_children():
-		_dress_nature(c)
 
 func _toonify(node: Node) -> void:
 	# restyle any imported CC0 prop for the storybook look: strip realistic
@@ -6140,44 +5824,6 @@ func _enter_castle_interior_now(from_back: bool = false) -> void:
 				else "The secret shell door opens into the Main Hall!",
 				entry_voice)
 
-func _panel_glass(pos: Vector3, rot_deg: Vector3, w: float, h: float) -> void:
-	# a stained-glass grid of glowing coloured panels (no mermaid)
-	var cols := [Color(0.9, 0.3, 0.4), Color(0.3, 0.6, 1.0), Color(1.0, 0.85, 0.3), Color(0.4, 0.85, 0.5), Color(0.7, 0.4, 0.9), Color(1.0, 0.55, 0.3)]
-	var root := Node3D.new()
-	root.position = pos
-	root.rotation_degrees = rot_deg
-	add_child(root)
-	game_nodes.append(root)
-	var nx := 3
-	var ny := 4
-	for ix in range(nx):
-		for iy in range(ny):
-			var q := MeshInstance3D.new()
-			var qm := QuadMesh.new()
-			qm.size = Vector2(w / float(nx) * 0.9, h / float(ny) * 0.9)
-			q.mesh = qm
-			var mm := StandardMaterial3D.new()
-			var cc: Color = cols[(ix + iy * nx) % cols.size()]
-			mm.albedo_color = Color(cc.r, cc.g, cc.b, 0.72)
-			mm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-			mm.cull_mode = BaseMaterial3D.CULL_DISABLED
-			mm.emission_enabled = true
-			mm.emission = cc
-			mm.emission_energy_multiplier = 0.85
-			mm.roughness = 0.4
-			q.material_override = mm
-			q.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-			q.position = Vector3((float(ix) - float(nx - 1) * 0.5) * w / float(nx), (float(iy) - float(ny - 1) * 0.5) * h / float(ny), 0)
-			root.add_child(q)
-	var bl := OmniLight3D.new()
-	bl.light_color = Color(1.0, 0.95, 0.95)
-	bl.light_energy = 2.0
-	bl.omni_range = h * 2.0
-	bl.position = pos
-	bl.translate_object_local(Vector3(0, 0, -3.0))
-	add_child(bl)
-	game_nodes.append(bl)
-	_register_castle_light(bl, false)
 
 func _glass_window(pos: Vector3, rot_deg: Vector3, height: float) -> void:
 	var pane := MeshInstance3D.new()
@@ -7687,202 +7333,6 @@ func _tick_wall_fade(delta: float) -> void:
 			mat.transparency = BaseMaterial3D.TRANSPARENCY_DISABLED
 			mat.albedo_color.a = base_a
 
-func _find_skel(n: Node) -> Skeleton3D:
-	if n is Skeleton3D:
-		return n
-	for c in n.get_children():
-		var r := _find_skel(c)
-		if r != null:
-			return r
-	return null
-
-func _ring_bell(bd: Dictionary) -> void:
-	(bd["player"] as AudioStreamPlayer).play()
-	var bn: Node3D = bd["node"]
-	var base_y: float = float(bd.get("base_y", 5.0))
-	if bd.get("tw") != null and (bd["tw"] as Tween).is_valid():
-		(bd["tw"] as Tween).kill()
-	bn.position.y = base_y
-	var bbtw: Tween = bn.create_tween()
-	bbtw.tween_property(bn, "position:y", base_y - 1.6, 0.06)
-	bbtw.tween_property(bn, "position:y", base_y, 0.16)
-	bd["tw"] = bbtw
-	# art pass 3.5 made the bars GLB props — the root Node3D has no
-	# material_override, so the burst color comes from the bell dict
-	_sparkle_burst(bn.position + Vector3(0, 4, 0), Color(bd.get("color", Color(1.0, 0.9, 0.55))))
-
-func _tick_bellgame(bg2: Dictionary, delta: float, ppos: Vector3) -> void:
-	if bg2.is_empty():
-		return
-	bg2["cool"] = maxf(0.0, float(bg2["cool"]) - delta)
-	var st := String(bg2["state"])
-	if st == "idle":
-		if not touch_uses_explicit_interactions() and float(bg2["cool"]) <= 0.0 and g.has("song_star") and (g["song_star"] as Vector3).distance_to(ppos) < 5.0:
-			_start_bellgame(bg2)
-	elif st == "play":
-		bg2["t"] = float(bg2["t"]) - delta
-		if float(bg2["t"]) <= 0.0:
-			var seq: Array = bg2["seq"]
-			var i: int = int(bg2["i"])
-			if i < seq.size():
-				_ring_bell((g["bells"] as Array)[int(seq[i])])
-				bg2["i"] = i + 1
-				bg2["t"] = 0.75
-			else:
-				bg2["state"] = "echo"
-				bg2["i"] = 0
-				show_msg("Music Room", "Your turn! Ring the bells in the same order!")
-				_populate_touch_interactables()
-
-func _start_bellgame(bg2: Dictionary) -> void:
-	if bg2.is_empty() or String(bg2.get("state", "")) != "idle" or float(bg2.get("cool", 0.0)) > 0.0:
-		return
-	bg2["round"] = 0
-	bg2["oops"] = 0
-	show_msg("Music Room", "The bells want to sing you a song! Listen... then copy it!")
-	_bellgame_new_round(bg2)
-
-func _bellgame_new_round(bg2: Dictionary) -> void:
-	bg2["round"] = int(bg2["round"]) + 1
-	var seq: Array = []
-	var prev := -1
-	for i in range(int(bg2["round"]) + 1):
-		# no note twice in a row — the echo is edge-triggered (leave + re-enter
-		# the same bell would stump a little player)
-		var pick := randi() % 7
-		while pick == prev:
-			pick = randi() % 7
-		seq.append(pick)
-		prev = pick
-	bg2["seq"] = seq
-	bg2["state"] = "play"
-	bg2["i"] = 0
-	bg2["t"] = 1.1
-	_populate_touch_interactables()
-
-func _bellgame_echo(bg2: Dictionary, bell_idx: int) -> void:
-	var seq: Array = bg2["seq"]
-	var i: int = int(bg2["i"])
-	if i >= seq.size():
-		return
-	if bell_idx == int(seq[i]):
-		bg2["i"] = i + 1
-		if int(bg2["i"]) >= seq.size():
-			if int(bg2["round"]) >= 3:
-				bg2["state"] = "idle"
-				bg2["cool"] = 30.0
-				pearl_count += 2
-				_write_save()
-				_update_hud()
-				_reward()
-				award_sticker("bells")
-				_medal_ref().award_stats("bells", {"oops": int(bg2.get("oops", 0))})
-				show_msg("Music Room", "You played the WHOLE bell song! +2 rainbow pearls!", "win")
-				_populate_touch_interactables()
-			else:
-				if chime != null:
-					chime.pitch_scale = 1.4
-					chime.play()
-				show_msg("Music Room", "Beautiful! Now a longer one — listen!")
-				_bellgame_new_round(bg2)
-	else:
-		if chime != null:
-			chime.pitch_scale = 0.5
-			chime.play()
-		show_msg("Music Room", "Almost! Listen to the song one more time...", "oops")
-		bg2["oops"] = int(bg2.get("oops", 0)) + 1
-		bg2["state"] = "play"
-		bg2["i"] = 0
-		bg2["t"] = 1.2
-		_populate_touch_interactables()
-
-func _begin_sleep() -> void:
-	# tuck-in cutscene: Roshan snuggles onto the bed, Zzz's float up, the screen
-	# fades, day flips to night (or night to day), and she wakes refreshed
-	if sleep_t >= 0.0:
-		return
-	_set_world_controls_enabled(false, "sleep")
-	award_sticker("sleepy")
-	_play_music("home")   # A Place I Call Home — the tuck-in lullaby
-	sleep_t = 0.0
-	sleep_flip_done = false
-	var bp: Vector3 = g["bed_pos"]
-	player.position = bp + Vector3(0, 1.0, 0.4)
-	player.vel = Vector3.ZERO
-	player.rotation_degrees = Vector3(-64, 180, 0)   # reclined on the pillow
-	if chime != null:
-		chime.pitch_scale = 0.9
-		chime.play()
-	hud_game.text = ""
-	show_msg("Roshan", "Time for a cosy little sleep... zZz")
-
-func _sleep_z() -> void:
-	var z := Label3D.new()
-	z.text = "z"
-	z.font_size = 90 + randi() % 60
-	z.outline_size = 14
-	z.modulate = Color(0.75, 0.85, 1.0)
-	z.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	var bp: Vector3 = g["bed_pos"]
-	z.position = bp + Vector3(randf() * 2.0 - 1.0, 2.5, randf() * 2.0 - 1.0)
-	add_child(z)
-	var tw := z.create_tween()
-	tw.tween_property(z, "position:y", z.position.y + 5.0, 1.6)
-	tw.parallel().tween_property(z, "modulate:a", 0.0, 1.6)
-	tw.tween_callback(z.queue_free)
-
-func _tick_sleep(delta: float) -> void:
-	sleep_t += delta
-	# slow breathing bob while she drifts off
-	if player != null and g.has("bed_pos"):
-		player.position.y = float((g["bed_pos"] as Vector3).y) + 1.0 + sin(sleep_t * 1.5) * 0.12
-	if fmod(sleep_t, 0.8) < delta and sleep_t < 3.2:
-		_sleep_z()
-		if chime != null and sleep_t > 0.5:
-			chime.pitch_scale = 0.85 - sleep_t * 0.06   # descending lullaby notes
-			chime.play()
-	if sleep_t >= 2.4 and sleep_layer == null:
-		# dream-fade to deep sleepy indigo
-		sleep_layer = CanvasLayer.new()
-		sleep_layer.layer = 24
-		add_child(sleep_layer)
-		sleep_overlay = ColorRect.new()
-		sleep_overlay.color = Color(0.03, 0.02, 0.10, 0.0)
-		sleep_overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
-		sleep_layer.add_child(sleep_overlay)
-		var tw := sleep_overlay.create_tween()
-		tw.tween_property(sleep_overlay, "color:a", 1.0, 0.9)
-	if sleep_t >= 3.6 and not sleep_flip_done:
-		sleep_flip_done = true
-		_set_night(not is_night)   # the whole ocean changes while she dreams
-	if sleep_t >= 4.6 and sleep_overlay != null and sleep_overlay.color.a >= 0.99:
-		var tw2 := sleep_overlay.create_tween()
-		tw2.tween_property(sleep_overlay, "color:a", 0.0, 1.0)
-		sleep_overlay.color.a = 0.98   # nudge below the gate so this runs once
-	if sleep_t >= 6.0:
-		_end_sleep()
-
-func _end_sleep() -> void:
-	sleep_t = -1.0
-	sleep_cool = 18.0
-	_play_music("hall")   # lullaby over — back to the castle theme
-	if sleep_layer != null and is_instance_valid(sleep_layer):
-		sleep_layer.queue_free()
-	sleep_layer = null
-	sleep_overlay = null
-	if player != null:
-		player.rotation_degrees = Vector3.ZERO
-		if g.has("bed_pos"):
-			player.position = (g["bed_pos"] as Vector3) + Vector3(-5.0, 1.0, 3.0)
-		player.vel = Vector3.ZERO
-	_sparkle_burst(player.position + Vector3(0, 2, 0), Color(0.8, 0.9, 1.0))
-	if is_night:
-		show_msg("Roshan", "What a lovely nap! It's NIGHT now - the ocean is full of moonbeams and glowing jellyfish!",
-			"ocean_nap_night")
-	else:
-		show_msg("Roshan", "Good morning! The sun is shining over the ocean again!",
-			"ocean_nap_morning")
-	_set_world_controls_enabled(true, "sleep")
 
 func _l2_start_slide() -> void:
 	# the rainbow slide is the 3D play place (same world as Harper's game), returning to the courtyard when done
@@ -7942,86 +7392,6 @@ func _return_to_courtyard() -> void:
 	game_nodes.clear()
 	_enter_level2(true)
 
-func _play_hug_cutscene() -> void:
-	if hug_layer != null:
-		return
-	_set_world_controls_enabled(false, "hug")
-	award_sticker("hug")
-	var cl := CanvasLayer.new()
-	cl.layer = 20
-	add_child(cl)
-	hug_layer = cl
-	var root := Control.new()
-	root.set_anchors_preset(Control.PRESET_FULL_RECT)
-	cl.add_child(root)
-	var vp: Vector2 = get_viewport().get_visible_rect().size
-	var bg := ColorRect.new()
-	bg.color = Color(0.06, 0.03, 0.14, 0.0)
-	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
-	root.add_child(bg)
-	var tb := create_tween()
-	tb.tween_property(bg, "color", Color(0.06, 0.03, 0.14, 0.5), 0.4)
-	# Daddy slides in from the left
-	var daddy := TextureRect.new()
-	daddy.texture = _cutout_tex("daddy")
-	daddy.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	daddy.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	daddy.size = Vector2(vp.y * 0.62, vp.y * 0.9)
-	daddy.position = Vector2(-daddy.size.x, vp.y * 0.1)
-	root.add_child(daddy)
-	# Roshan slides in from the right
-	var rosh := TextureRect.new()
-	rosh.texture = load(skin_sprite_path())
-	rosh.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	rosh.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	rosh.size = Vector2(vp.y * 0.5, vp.y * 0.7)
-	rosh.position = Vector2(vp.x, vp.y * 0.28)
-	root.add_child(rosh)
-	var lbl := Label.new()
-	lbl.text = "\u2764  I love you, Roshan!  \u2764"
-	lbl.add_theme_font_size_override("font_size", int(vp.y * 0.07))
-	lbl.add_theme_color_override("font_color", Color(1, 1, 1))
-	lbl.add_theme_color_override("font_outline_color", Color(0.6, 0.1, 0.3))
-	lbl.add_theme_constant_override("outline_size", 12)
-	lbl.position = Vector2(vp.x * 0.22, vp.y * 0.06)
-	lbl.modulate.a = 0.0
-	root.add_child(lbl)
-	var dp := AudioStreamPlayer.new()
-	dp.stream = load("res://assets/audio/voices/" + ["daddy1", "daddy2", "daddy3"][randi() % 3] + ".ogg")
-	dp.bus = "Voice"
-	dp.volume_db = 1.5   # was +4: headroom — the hot daddy clip clipped on small phone speakers
-	root.add_child(dp)
-	dp.play()
-	var tw := create_tween().set_parallel(true)
-	tw.tween_property(daddy, "position:x", vp.x * 0.5 - daddy.size.x * 0.64, 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tw.tween_property(rosh, "position:x", vp.x * 0.5 - rosh.size.x * 0.36, 0.6).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	tw.tween_property(lbl, "modulate:a", 1.0, 0.5).set_delay(0.5)
-	for hi in range(16):
-		var h := Label.new()
-		h.text = "\u2764"
-		h.add_theme_font_size_override("font_size", int(vp.y * 0.05 * (0.6 + randf())))
-		h.add_theme_color_override("font_color", Color.from_hsv(0.94 + randf() * 0.12, 0.55, 1.0))
-		h.position = Vector2(vp.x * 0.5 + randf() * vp.x * 0.34 - vp.x * 0.17, vp.y * 0.62)
-		root.add_child(h)
-		var ht := create_tween().set_parallel(true)
-		ht.tween_property(h, "position:y", vp.y * 0.08, 1.7 + randf()).set_delay(0.5 + randf() * 0.6)
-		ht.tween_property(h, "modulate:a", 0.0, 1.6).set_delay(0.9)
-	get_tree().create_timer(2.7).timeout.connect(func():
-		if not is_instance_valid(root):
-			return
-		var fo := root.create_tween()
-		fo.tween_property(root, "modulate:a", 0.0, 0.45)
-		fo.finished.connect(_end_hug_cutscene))
-
-func _end_hug_cutscene() -> void:
-	if hug_layer != null and is_instance_valid(hug_layer):
-		hug_layer.queue_free()
-	hug_layer = null
-	_set_world_controls_enabled(true, "hug")
-
-
-func _mg_noop_ref(_n: Node) -> void:
-	pass
 
 func _layer_fx(nd: Object, role: String, col: Color, rb: bool, kind: String) -> void:
 	# kill any prior fx tween on this layer
@@ -8050,9 +7420,8 @@ func _layer_fx(nd: Object, role: String, col: Color, rb: bool, kind: String) -> 
 	else:
 		nd.set("modulate", Color(col.r, col.g, col.b, base_a))
 
-# each craft-studio creature -> its family Meshy mesh + footprint target. All
-# three of HER creations are real 3D friends now, recolored in her chosen
-# colors by the sway shader (paint_body/paint_fin). Billboards are fallback.
+# Retired model names remain compatibility lookup keys.
+# The authored layered-card fallback below owns the current craft visuals.
 const CRAFT_GEN2 := {"fish": ["clownfish", 1.7], "cat": ["craft_kitty", 3.2], "bird": ["craft_birdie", 2.6]}
 # creatures with a real skeleton + gait clips take priority over the static sway
 # mesh (kitty -> Chuck's quadruped cage; birdie -> its own standing-bird rig,
@@ -8473,22 +7842,6 @@ func _clear_game() -> void:
 			living_layer.visible = slide_canvas_living_was_visible
 		_set_world_controls_enabled(true, "slide_canvas")
 
-func _fail_line() -> String:
-	# in-character failure lines, by game (the on-screen text; the matching
-	# character voice plays via show_msg's "fail" event — drop <speaker>_fail.ogg
-	# into assets/audio/voices to use a real recorded clip)
-	match game:
-		"fetch":      return "Aww... now Chuck is all wet!"
-		"dolls":      return "Oh no, the babies!"
-		"brawl":      return "The imps are extra giggly today! Huluu says come back soon!"
-		"dustboss":   return "The great dust bunny puffed away — he'll bounce back for another game!"
-		"seek":       return "Where did Lamb-a' go?"
-		"melody":     return "Oh no, the colors!"
-		"treasure":   return "Aww, the treasure slipped back into the dark!"
-		"shop":       return "Come back when you've found more pearls!"
-		"fairyshoot": return "Oh no, the shadow bugs got away!"
-		"slide":      return "He's too speedy without magic beans! Toot toot!" if String(g.get("mode", "fish")) == "chase" else "So close! Catch more fish next time!"
-		_:            return "So close! Swim back and try again!"
 
 var pose_t := -1.0        # >=0: trophy curtain-call — player holds a happy pose
 var night_star_t := 4.0   # countdown to the next shooting star over the night lagoon
@@ -8649,7 +8002,7 @@ func _end_game(win: bool, fr: Dictionary, txt: String, vo: String = "talk") -> v
 	# friends state. A generic result win here would stop that required sentence
 	# in the same frame; the Day Two bridge supplies the next exact cue.
 	if not completed_day_one_boss:
-		show_msg(fr["fname"], txt, "win" if win else vo)
+		show_msg(fr["fname"], txt, "win")
 	_update_hud()
 	_clear_game()
 	_write_save()
@@ -9253,8 +8606,6 @@ func _process(delta: float) -> void:
 		_tick_level2(delta, ppos)
 	elif game == "north":
 		_tick_northern(delta, ppos)
-	elif game == "kart":
-		pass   # the KartGame node ticks itself
 	elif game == "galaxy":
 		pass   # the GalaxyLevel node ticks itself
 	elif game == "chapter2_lawn":
@@ -9689,14 +9040,6 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_color = Color(0.86, 0.80, 0.98)
 		arena_env.ambient_light_energy = 0.60
 		arena_env.glow_bloom = 0.07
-	elif kind == "seek":         # sunny meadow
-		grade_profile = "bright_pastel"
-		arena_env.background_color = Color(0.30, 0.58, 0.78)
-		arena_env.ambient_light_color = Color(0.76, 0.86, 0.78)
-		arena_env.ambient_light_energy = 0.52
-		arena_env.glow_intensity = 0.54
-		arena_env.glow_bloom = 0.04
-		_arena_floor(Color(0.56, 0.70, 0.50), GTA + "up_grass_col.jpg", GTA + "up_grass_nrm.jpg", 0.06)
 	elif kind == "race":         # sunset sky
 		grade_profile = "warm_pastel"
 		arena_env.background_color = Color(0.82, 0.42, 0.30)
@@ -9733,13 +9076,6 @@ func _enter_arena(kind: String) -> void:
 		arena_env.ambient_light_energy = 0.58
 		arena_env.glow_intensity = 0.52
 		arena_env.glow_bloom = 0.08
-	elif kind == "melody":      # Daddy Mermaid's enclosed underwater rainbow theater
-		arena_env.background_color = Color(0.035, 0.09, 0.16)
-		arena_env.ambient_light_color = Color(0.48, 0.78, 0.88)
-		arena_env.ambient_light_energy = 0.68
-		arena_env.glow_intensity = 0.72
-		arena_env.glow_bloom = 0.12
-		_arena_floor(Color(0.22, 0.42, 0.50), GTA + "up_wood_col.jpg", GTA + "up_wood_nrm.jpg", 0.06)
 	else:
 		arena_env.background_color = Color(0.06, 0.03, 0.12)
 		arena_env.ambient_light_color = Color(0.8, 0.6, 1.0)

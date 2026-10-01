@@ -85,3 +85,39 @@ tools/capture_day2_nursery_lower_motion_fit.gd -text whitespace=cr-at-eol
 tmp/nursery_lower_bridge_guides_20261001/** -text
 
 tools/pack_day2_nursery_lower_bridge_v2.py -text
+
+# Native faerie review evidence binds literal bytes, including diagnostic spaces.
+assets_src/prototypes/fairy_restoration_2026-09-30/** -text whitespace=-blank-at-eol,cr-at-eol
+# New prototype code hashes bind the same UTF-8 LF source on Windows and Linux.
+scripts/fairy_restoration_prototype.gd text eol=lf
+scripts/probe_fairy_restoration.gd text eol=lf
+tools/build_fairy_restoration_voices.py text eol=lf
+# The audio-summary inventory hash binds the generator's canonical LF CSV bytes.
+audit/audio_quality_ledger_2026-08-24.csv text eol=lf
+
+# Preserve the literal hashes in the source-based Sky Lagoon reference archive.
+assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/** -text whitespace=cr-at-eol
+
+# Literal moderate-reference packet hashes survive every checkout.
+assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/** -text whitespace=cr-at-eol
+assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/** -text whitespace=cr-at-eol
+assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/verification/*.log whitespace=-blank-at-eof,cr-at-eol
+
+# Literal bytes for current named job-art review candidates and diagnostic provenance.
+assets_src/imagegen/day2_nursery_faron_motionkeys_20261001/** -text whitespace=cr-at-eol
+assets_src/imagegen/day1_pool_trash_v2_20261001/** -text whitespace=cr-at-eol
+audit/day_one_job_art_census_v2_20261001/** -text whitespace=cr-at-eol
+audit/job_art_current_source_reconciliation_20261001/** -text whitespace=cr-at-eol
+tools/job_art_scene_trace.gd -text whitespace=cr-at-eol
+tools/capture_day_one_*_inventory.gd -text whitespace=cr-at-eol
+tools/capture_day2_nursery_faron_*fit.gd -text whitespace=cr-at-eol
+tools/capture_day2_nursery_faron_lift_motion.gd -text whitespace=cr-at-eol
+tools/capture_day_one_pool_candidate_fit.gd -text whitespace=cr-at-eol
+tools/capture_day_one_pool_candidate_actions.gd -text whitespace=cr-at-eol
+tools/normalize_day_one_pool_prop_candidates.gd -text whitespace=cr-at-eol
+tools/capture_day_one_pool_normalized_layout_fit.gd -text whitespace=cr-at-eol
+tools/capture_day_one_pool_buffered_actions.gd -text whitespace=cr-at-eol
+tools/capture_day_one_bathroom_active_control.gd -text whitespace=cr-at-eol
+assets_src/imagegen/day1_pool_skimmer_v2_20261001/** -text whitespace=cr-at-eol
+tools/normalize_day_one_pool_skimmer_candidate.gd -text whitespace=cr-at-eol
+tools/capture_day_one_pool_skimmer_candidate_fit.gd -text whitespace=cr-at-eol

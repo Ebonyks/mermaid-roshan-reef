@@ -1,0 +1,92 @@
+{
+  "schema": "reef.native-sequential-prop-review.v1",
+  "checked_utc": "2026-10-01T13:44:33.538404+00:00",
+  "checks_passed": 35,
+  "checks_failed": 0,
+  "process_exit": 0,
+  "sample_count": 46,
+  "actual_sample_intervals_ms": {
+    "1": [
+      568,
+      563,
+      638,
+      608,
+      607,
+      647,
+      656
+    ],
+    "2": [
+      622,
+      650,
+      629,
+      599,
+      603,
+      608,
+      592,
+      580
+    ],
+    "3": [
+      593,
+      577,
+      536,
+      535,
+      554,
+      549,
+      595,
+      571,
+      594,
+      585
+    ],
+    "4": [
+      586,
+      570,
+      559,
+      515,
+      526,
+      514,
+      532,
+      570
+    ],
+    "5": [
+      574,
+      537,
+      578,
+      502,
+      542,
+      568,
+      564,
+      577
+    ]
+  },
+  "opinions": {
+    "replacement_sponge_static": {
+      "score": 4.6,
+      "evidence": "00_dirty_arrival.webp",
+      "basis": "At the original78px card extent, rotation and muted tint, shallow varied orange marks read as sponge pores; the deep round cheese-like pits from attempt1 are gone. Yellow block, grouped algae and contour stay readable on aqua water. This is a static fit of the second candidate, not complete action acceptance."
+    },
+    "can_approach_and_net_contact": {
+      "score": 4.5,
+      "evidence": "item_01_sample_006.webp",
+      "basis": "The can reaches the visible rim and retains a clear hollow opening, but sits close to the dark clogged waterfall during approach. Two sparse collection/flight snapshots do not prove smooth continuous transfer. Keep placement and complete transfer in the refinement queue."
+    },
+    "ribbon_approach_and_net_contact": {
+      "score": 3.7,
+      "evidence": "item_04_sample_007.webp",
+      "basis": "The ribbon crosses the net but the star float covers its curl and net rim; the flower float covers Roshan’s face along this approach. These are mounting/layer interactions. The source remains4.6; no source redraw fixes the scene ownership problem."
+    },
+    "sponge_approach_and_net_contact": {
+      "score": 4.2,
+      "evidence": "item_05_sample_007.webp",
+      "basis": "The revised sponge reaches the visible rim and keeps its porous identity. A swimming dust bunny crosses Roshan’s hand/handle and torso, obscuring the contact cue. Preserve the new source; test controlled ambient depth/position during the job."
+    },
+    "collection_flight_completeness": {
+      "score": null,
+      "evidence": "item_01_sample_007.webp;item_02_sample_008.webp;item_03_sample_010.webp;item_04_sample_008.webp;item_05_sample_008.webp",
+      "basis": "Actual sample intervals are approximately0.5–0.66sec despite an80ms target. Synchronous trace/file work affects engine cadence; these samples show collection and some flight states but cannot establish full-rate timing or every hand/net/basket contact. Source code declares a0.48sec shrinking flight and fade, and completion waits0.58sec before the next phase. Complete-rate contact/transfer review remains required; no numerical full-action pass is inferred."
+    }
+  },
+  "qualification": "Five separately completed real asynchronous local-touch requests on disposable controller; native1254px source fixtures, original positions/tints/rotation/bobbing/leaf. Story clips marked seen. File/trace IO changes cadence; not full-frame timing, all action acceptance, device/child/owner or a production bind.",
+  "selected_sources": "../SELECTED_SOURCE_RECORDS_V2.json",
+  "owner_accepted": false,
+  "runtime_bound": false
+}

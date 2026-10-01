@@ -1,0 +1,27 @@
+{
+  "checked_utc": "2026-10-01T14:34:05.896794+00:00",
+  "process_exit": 0,
+  "checks_passed": 23,
+  "checks_failed": 0,
+  "native_image_count": 13,
+  "exact_source_chain": "EXACT_SOURCE_CHAIN.json",
+  "harness": "tools/capture_day_one_bathroom_active_control.gd",
+  "qualification": "Separate control: exactly the earlier gesture/assertion flow with two main.set_process(false) calls removed. Main remains active; isolated save/gameplay-only seen clips/window1280 retained. Earlier frozen captures are preserved. Forced fast gestures still differ from ordinary time-aware child play.",
+  "written_observations": [
+    {
+      "evidence": "02_sink_circle_guide.webp;05_tub_drain_prompt.webp;07_tub_arrow_guide.webp;09_clean_pool_route.webp",
+      "basis": "Caption advances with sink/drain/brush/route instead of retaining the original basket line. Roshan remains in the lower activity area, clear of the top caption in these views. The earlier frozen persistent-caption/face-overlap concern is not established as an ordinary live defect."
+    },
+    {
+      "evidence": "02_sink_circle_guide.webp",
+      "basis": "The top of the sink tool/guide reaches the caption boundary. Retain a hierarchy/clearance review gap; direct scripted setup does not establish the duration or ordinary-play obstruction."
+    },
+    {
+      "evidence": "08a_toilet_circle_prompt.webp",
+      "basis": "This early transition still shows the tub cue while the toilet grime is visible. The unmodified probe advances gestures quickly; do not classify a persistent stale-cue defect without a separate timed ordinary-play check."
+    }
+  ],
+  "graphics_score": null,
+  "complete_action_score": null,
+  "owner_accepted": false
+}

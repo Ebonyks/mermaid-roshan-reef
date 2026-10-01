@@ -1,0 +1,109 @@
+{
+  "schema": "reef.failed-native-context-attempt.v1",
+  "checked_utc": "2026-10-01T12:25:53.727746+00:00",
+  "requested_window_dimensions": [
+    1280,
+    720
+  ],
+  "actual_captures": [
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_1280/00a_roshan_approaching_trash.webp",
+      "actual_dimensions": [
+        2560,
+        1369
+      ],
+      "sha256": "0a6925642d217b161857f8e83a3c1f36415d0f86f53236c71966138e660c9ac1"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_1280/00b_roshan_scooping_trash.webp",
+      "actual_dimensions": [
+        2560,
+        1369
+      ],
+      "sha256": "c38fd55d7eac565a97525bb38c90eab35277afc61690bad0c10a236312f87d73"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_1280/00_dirty_arrival.webp",
+      "actual_dimensions": [
+        2560,
+        1369
+      ],
+      "sha256": "31cf50f1213363755098ddeaf5243c60a58795c65acf857a1a89b9a11f3156c9"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_1280/01_skimmer_catch.webp",
+      "actual_dimensions": [
+        2560,
+        1369
+      ],
+      "sha256": "bbdeb83e3d100c3a07b6cf0a88702ce44d4de24a58d3fdf48c329548522dd8c8"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_1280/02_pool_clear_waterfall_dirty.webp",
+      "actual_dimensions": [
+        2560,
+        1369
+      ],
+      "sha256": "0a3c2f5ef6f68f0d78a06994a8664b386e2e016ae96ac1b638cad15972d13ca2"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_1280/03_waterfall_scrub.webp",
+      "actual_dimensions": [
+        2560,
+        1369
+      ],
+      "sha256": "c00da935b903676ab70ec47ef124144c2dc31ea47c75eb472b7e4b491c7641d5"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_1280/04_waterfall_clear_static.webp",
+      "actual_dimensions": [
+        2560,
+        1369
+      ],
+      "sha256": "f979fddf9c7270852729e69038861042b4655ad4c96955fcebb0530576b4271b"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_1280/05_seahorse_tug_midway.webp",
+      "actual_dimensions": [
+        2560,
+        1369
+      ],
+      "sha256": "7ef1c1ad8710389b626421e242794e2fbb92b1532b02576476f396e412bdc9a4"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_1280/06_seahorse_trash_release.webp",
+      "actual_dimensions": [
+        2560,
+        1369
+      ],
+      "sha256": "59f4eb32e3c8a55682d438472a16566be3b0f63bb66519789ba0b6b9ca54aa6f"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_1280/07_rainbow_reveal_active.webp",
+      "actual_dimensions": [
+        2560,
+        1369
+      ],
+      "sha256": "0a3c90f7cd4ce46ed824dd43c9cc1af53866793b78c6f74a3f93083ccc0f1994"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_1280/08_rumi_reveal.webp",
+      "actual_dimensions": [
+        2560,
+        1369
+      ],
+      "sha256": "11ce713e36d2768bcd7903f7248f746cb51fb61709b35bc6198e3892a33c21c5"
+    }
+  ],
+  "process_exit": 1,
+  "failed_checks": 7,
+  "status": "FAILED_CONTEXT_NOT_REACHED",
+  "visual_review": "Native images are covered by the initial owner-directed Day One story clips (plane/opening/castle), not unobstructed pool gameplay. The actual native output is2560x1369 despite the requested CLI1280 resolution. Visible-tree texture references behind that opaque story layer are not accepted drawn-art evidence.",
+  "cause_hypothesis": "Older visual probe does not wait for or pre-mark the new Day One between-scene clips; first tap/approach is blocked while the clip owns pause/input, causing missing first scoop and downstream phase/reveal failures. Unmodified control is being compared before assigning any production defect.",
+  "mounted_score": null,
+  "action_score": null,
+  "owner_accepted": false,
+  "next": "Preserve original-probe control. Create a separate explicitly isolated gameplay-only study that marks clips seen in its disposable test save and forces its actual native viewport. Preserve all original checks/gesture routes; do not change the production/trusted probe to hide this failure.",
+  "unmodified_control": "../pool_unmodified_control_requested1280/CONTROL_REVIEW.json",
+  "control_result": "Same seven failed checks and covered2560x1369 images reproduced without tracing"
+}

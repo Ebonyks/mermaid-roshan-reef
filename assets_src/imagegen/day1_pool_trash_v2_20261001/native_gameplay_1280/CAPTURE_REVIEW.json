@@ -1,0 +1,64 @@
+{
+  "schema": "reef.native-fixture-review.v1",
+  "status": "PASS_SCRIPTED_GAMEPLAY_CHECKS",
+  "checks_passed": 35,
+  "checks_failed": 0,
+  "process_exit": 0,
+  "engine": "4.7.2-stable official",
+  "renderer": "Mobile desktop NVIDIA",
+  "dimensions": [
+    1280,
+    720
+  ],
+  "harness_sha256": "177b0a7e110382cb2caef4091ee6613f791a460aba4cd266c34e64e71f4df39e",
+  "parent_harness_sha256": "53d98f8940d4302f3027bf4db51e7c474877404ef3028a523e888876d99e0bb6",
+  "tracer_sha256": "d472a03e369c4083a05c1bfe330fa18a6a896ac76aff927966ef6d26aaec8e45",
+  "qualification": "Five ImageTexture substitutions on disposable actual gameplay instance. Original tints, rotations, logical extents, callbacks and leaf preserved.35 scripted checks include actual completed eight tugs. Seen story clips/forced window; not ordinary narrative, all collection motions, device/child/owner or overall graphics acceptance.",
+  "captures": [
+    {
+      "path": "assets_src/imagegen/day1_pool_trash_v2_20261001/native_gameplay_1280/00_dirty_arrival.webp",
+      "sha256": "e2cefe7f9123b7fe14a5ac20e39e09bfee2aa137b2d583ff4a0e3916acd43897"
+    },
+    {
+      "path": "assets_src/imagegen/day1_pool_trash_v2_20261001/native_gameplay_1280/00a_roshan_approaching_trash.webp",
+      "sha256": "a1f525a2c932a16b827f30b309573e0acdb4b1c30f3b7419a8ddb9eabbf501d2"
+    },
+    {
+      "path": "assets_src/imagegen/day1_pool_trash_v2_20261001/native_gameplay_1280/00b_roshan_scooping_trash.webp",
+      "sha256": "f9488943fb1708a29514e3f3cc86d9436807207b18569b3a2df13fe486167a28"
+    },
+    {
+      "path": "assets_src/imagegen/day1_pool_trash_v2_20261001/native_gameplay_1280/01_skimmer_catch.webp",
+      "sha256": "0f2497f4fbaaa96d642f1d981af2a910cc61cf01f77e4288143a1de593346988"
+    },
+    {
+      "path": "assets_src/imagegen/day1_pool_trash_v2_20261001/native_gameplay_1280/02_pool_clear_waterfall_dirty.webp",
+      "sha256": "71a2ff951670530a4cdc61d2be0410271cf60b5b94e7110897c09cf391b90e9b"
+    },
+    {
+      "path": "assets_src/imagegen/day1_pool_trash_v2_20261001/native_gameplay_1280/03_waterfall_scrub.webp",
+      "sha256": "af7127b036f4969b3d4cbaf1b32183ab83dda9ea9dc64c1cc2c3e48e4d8e7634"
+    },
+    {
+      "path": "assets_src/imagegen/day1_pool_trash_v2_20261001/native_gameplay_1280/04_waterfall_clear_static.webp",
+      "sha256": "322d349d066c3da03f3f0cbe919b7f6c33401bddfba973e61554344daf08a87a"
+    },
+    {
+      "path": "assets_src/imagegen/day1_pool_trash_v2_20261001/native_gameplay_1280/05_seahorse_tug_midway.webp",
+      "sha256": "0a16557339af8a092dddecd59c7b95ae5192c1ac6465bbb88db12131fcda70fa"
+    },
+    {
+      "path": "assets_src/imagegen/day1_pool_trash_v2_20261001/native_gameplay_1280/06_seahorse_trash_release.webp",
+      "sha256": "737a9b44d32fb83c1374edf38dc480f1baed9495e6a4aac85a1e95bbe9dd00fd"
+    },
+    {
+      "path": "assets_src/imagegen/day1_pool_trash_v2_20261001/native_gameplay_1280/07_rainbow_reveal_active.webp",
+      "sha256": "a45ff838ce6aa90ced9c2d2bbb4fc46a0815e8755b9d6621b236b13885d5406c"
+    },
+    {
+      "path": "assets_src/imagegen/day1_pool_trash_v2_20261001/native_gameplay_1280/08_rumi_reveal.webp",
+      "sha256": "728e4d8fb805b9be807fc2ce49ab4c9f6196f01a923ae5a88edbcf96c2f5b242"
+    }
+  ],
+  "graphics_review": "../ATTEMPT_01_REVIEW.json"
+}

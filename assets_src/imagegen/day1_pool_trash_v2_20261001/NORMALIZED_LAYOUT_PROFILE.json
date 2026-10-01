@@ -1,0 +1,21 @@
+{
+  "schema": "reef.disposable-layout-proposal.v1",
+  "qualification": "Only a disposable native test instance, not a production binding or score. Five whole-canvas512px derivatives, same original tints/rotations/maximum sizes, original leaf and control/progress logic.",
+  "source_z_order_gap": "DayOnePoolCleanup sets skimmer_activity.z_index=210 before setup(), while setup() resets it to24. The fixture restores the caller-requested210 after setup; native snapshots must verify actual child/ambient composition. No production code is changed.",
+  "fixture_skimmer_z_index": 210,
+  "current_production_skimmer_z_index_after_setup": 24,
+  "positions": {
+    "can_original": [
+      535,
+      276
+    ],
+    "can_fixture": [
+      575,
+      330
+    ],
+    "all_other_slots": "unchanged"
+  },
+  "additional_action_gap": "The current feedback emitter uses the original TRASH_POSITIONS rather than the actual bobbing contact point; moving a slot in the fixture does not repair this existing emitter. Complete feedback/transfer/voice/input/device acceptance remains open.",
+  "owner_accepted": false,
+  "runtime_bound": false
+}

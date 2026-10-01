@@ -1,9 +1,9 @@
 {
   "schema": "reef.job-artwork-freshness.v1",
-  "checked_utc": "2026-10-01T09:37:09.090909+00:00",
+  "checked_utc": "2026-10-01T14:50:43.636401+00:00",
   "sealed_library_revision": "9038246cf9b34005afb8bc28a2f81396930988b6",
   "captured_production_revision": "ce0331738970205a5aead4d3e0258eb7873a1642",
-  "working_head": "10fd9ff3b7bc8fbbcc5e82aa63db00bbaaf41b64",
+  "working_head": "04a362c732840b091cafe7731399789eb735789f",
   "cached_origin_dev": "c5e98477efe4fe3c36d6bffe68818d84c2d08325",
   "baseline_sources": 777,
   "baseline_inclusive_source_priorities": 552,
@@ -47,9 +47,19 @@
   ],
   "changed_capture_dependencies": [
     {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "baseline_normalized_sha256": "5424466ce69d23275387a64cd1eaddbb4fa7e52cfc9e950bb8865b603cdd82de",
+      "current_normalized_sha256": "67e9bba77d4b14f8bd54e18b76c3d1ded1cc96485f864e74e6e2da2c0ae841aa"
+    },
+    {
       "path": "scripts/opera_career_world_2d.gd",
       "baseline_normalized_sha256": "2c68784b3e7f13cc872fd8884180e53f0dbf0891fb7a1d8341e712b65982e9fb",
-      "current_normalized_sha256": "40d1b44d34ae60ef59101bad9cafff18008d560b906a13b5df481335828d1632"
+      "current_normalized_sha256": "8a0abd9b335085fc580ff5de073d04da519ac9731cc4f1695353e6b3eee3bd3f"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "baseline_normalized_sha256": "8cdcb96bb607c62272772c414efe22eab27090cc20c6c8317e9e1f1944816bd3",
+      "current_normalized_sha256": "6d6aeead33ff8cc451daa09da215185171359fd218693371184f38ecadac2d7f"
     },
     {
       "path": "scripts/opera_nursery_catch.gd",
@@ -57,17 +67,52 @@
       "current_normalized_sha256": "0ce626ece555740df90fab139e6fb461e9f7748d90a43b3822c77ab4cb13e0a3"
     }
   ],
-  "watched_game_scripts": 293,
+  "watched_game_scripts": 297,
   "changed_game_scripts": [
+    {
+      "path": "scripts/audio_director.gd",
+      "baseline_git_blob": "905cff66d56ed63ab6ab892e992088f9a8c8e3df",
+      "current_normalized_git_blob": "43d62a68a9d3877f8accb5f667f6e117b86c0091"
+    },
+    {
+      "path": "scripts/fairy_restoration_prototype.gd",
+      "baseline_git_blob": null,
+      "current_normalized_git_blob": "12f420916be997cd87dba74542f9cd664bc19d86"
+    },
     {
       "path": "scripts/games/dolls.gd",
       "baseline_git_blob": "93865119d9ea972aefc66d18257fb6ccdb0847b3",
       "current_normalized_git_blob": "7c743767f7ec412d0294920459375a85c548a966"
     },
     {
+      "path": "scripts/main.gd",
+      "baseline_git_blob": "8fdcbd691433afbd17988af357c6569a1fbc9793",
+      "current_normalized_git_blob": "935b9f24623e77047252e30e2ff9b9ff22943d82"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "baseline_git_blob": "5af72f24689c04046bbea9ec766edd4c94535212",
+      "current_normalized_git_blob": "4b2b586f0fb5a168fea9e95926db975161f4d18c"
+    },
+    {
       "path": "scripts/opera_career_world_2d.gd",
       "baseline_git_blob": "043b81b3b36719071d344cbe703149f670a9f4ad",
-      "current_normalized_git_blob": "bda1a4d1f89326c419f22982a5ef5d77639da20f"
+      "current_normalized_git_blob": "d6d093ef2350a1815ee600627e773a2567ee1ea8"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "baseline_git_blob": "11bc6c5533dcac16327760637c9fade2d8f7660e",
+      "current_normalized_git_blob": "d5351dbfe27307b8d55fe45588daeec947ba8406"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "baseline_git_blob": "71b4755df43bbc525293b81297f861ba05b8ee25",
+      "current_normalized_git_blob": "434237588a3ebe9eec454a5fda9e63e66e11eb00"
+    },
+    {
+      "path": "scripts/opera_job_playtest_menu.gd",
+      "baseline_git_blob": null,
+      "current_normalized_git_blob": "27ef02430ff413d3ff57d06d8522b3f4d68ae91c"
     },
     {
       "path": "scripts/opera_nursery_care.gd",
@@ -78,6 +123,26 @@
       "path": "scripts/opera_nursery_catch.gd",
       "baseline_git_blob": "f0a192b9b11d2e83f5334fd88fa5bbd5c2062b1b",
       "current_normalized_git_blob": "65ba550baaad0cc899e6e58892a76ba1748b9fcb"
+    },
+    {
+      "path": "scripts/opera_route_presentation.gd",
+      "baseline_git_blob": null,
+      "current_normalized_git_blob": "178f8bfa823e3e55ad7d14398ad04208e5586ea8"
+    },
+    {
+      "path": "scripts/probe_fairy_restoration.gd",
+      "baseline_git_blob": null,
+      "current_normalized_git_blob": "41a4821b92e4eff64979afcaf92719b67e747252"
+    },
+    {
+      "path": "scripts/probe_opera.gd",
+      "baseline_git_blob": "fb36a3632f53399f364ee42826b45af59e1a4e7f",
+      "current_normalized_git_blob": "91a0c1a523e672f3aefbde082aac0c753d902861"
+    },
+    {
+      "path": "scripts/probe_voice.gd",
+      "baseline_git_blob": "f480f6f387219aa04f31fa4abe0201634bbb61e6",
+      "current_normalized_git_blob": "451b2fb48e9abaea173d889eb79646c97fe47269"
     }
   ],
   "new_care_pose_bindings": [

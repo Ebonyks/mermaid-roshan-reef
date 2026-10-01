@@ -1,0 +1,55 @@
+{
+  "schema": "reef.native-capture-setup-failure.v1",
+  "status": "FAILED_CAPTURE_TOOL_REQUEST_LOOP_UNCHANGED",
+  "review": "The attempted sequential-wait insertion did not match CRLF source lines. The unused wait function was added, but the request loops remained unchanged. The native run consequently preserves the same two reveal failures. No completed-tug or full-reveal pass is claimed. Exact tested harness is retained; corrected LF source now asserts both await call sites and snapshot insertion before writing.",
+  "source_harness_sha256": "9f57d41ab9584b3b0ebb403a8480db7dc9f05cf56ac6ed6d44018a12dbbba63e",
+  "captures": [
+    {
+      "path": "00_dirty_arrival.webp",
+      "sha256": "06a64fee1f1631e9a5cfbd2f1ffe96fcee3e831490666a5cf8a32ed9d3e82420"
+    },
+    {
+      "path": "00a_roshan_approaching_trash.webp",
+      "sha256": "b850af0751814f2c73b7760052b20970757a6898afe609d1e44a4ef31dae1b82"
+    },
+    {
+      "path": "00b_roshan_scooping_trash.webp",
+      "sha256": "6b89a8c309255a3c1e46e0ad61b33da3b19b9eac6e99fc57d69d96112e415325"
+    },
+    {
+      "path": "01_skimmer_catch.webp",
+      "sha256": "3ddebcd376f6afa17e057829589cf8814039b1c100ecbb2fa48700057e5ea9c7"
+    },
+    {
+      "path": "02_pool_clear_waterfall_dirty.webp",
+      "sha256": "f1d518464ab3b1871b302ccf0c961139d1eee7f7d23c4df471d3cf6af0a5f793"
+    },
+    {
+      "path": "03_waterfall_scrub.webp",
+      "sha256": "150fbfcc2e2bffa66b315b709f75ed7379b96a706ebe65af8e7ef7281ea83977"
+    },
+    {
+      "path": "04_waterfall_clear_static.webp",
+      "sha256": "cdd7fc10af10790e480b8a2151d9d1f18ac28141ea4a53effaf923272be5c019"
+    },
+    {
+      "path": "05_seahorse_tug_midway.webp",
+      "sha256": "8743b707ee2c200895e83c32e13e0b4d61dcaf1d7b46b8235c1d52c374fe7a42"
+    },
+    {
+      "path": "06_seahorse_trash_release.webp",
+      "sha256": "08586d5894eb0fc66d8bdafe6e65d8f2d6892bc281abbb9e81926cd5920f9613"
+    },
+    {
+      "path": "07_rainbow_reveal_active.webp",
+      "sha256": "9fe35559d84af7528ecf5794067e202f084cc7282b230f1619a5e0b9e449f747"
+    },
+    {
+      "path": "08_rumi_reveal.webp",
+      "sha256": "b63122ba09e33480a7dd0d86c1a200461412e91511730a6cf652471e3fb0dc1e"
+    }
+  ],
+  "process_exit": 1,
+  "mounted_score": null,
+  "action_score": null
+}

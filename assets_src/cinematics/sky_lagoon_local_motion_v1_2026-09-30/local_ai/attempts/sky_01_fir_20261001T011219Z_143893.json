@@ -1,0 +1,27 @@
+{
+  "status": "FAILED_ACCESS_VIOLATION",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\01_fir\\input_neutral.png",
+  "source_sha256": "d96c84fa0e99d1ed6a3c2819cb42d41dfebd6bf9b94423f0ed88b38301bf4470",
+  "source_dimensions": [
+    512,
+    288
+  ],
+  "prompt": "A wind gust bends the upper branches noticeably to the right, then they spring back left and settle upright. The top moves about one tenth of the tree's width. The lower trunk and base stay planted. Flexible branches visibly change angle. Keep the same connected branch tiers and needles. One isolated illustrated object on the input's uniform light gray background. Fixed camera, stable painted storybook lighting and color, one continuous two-second action. Sound: silence.\n",
+  "prompt_sha256": "ecc97217b4c01d38482ece526f187c6ea32b576176da8fbb7a9a0b723e7b5254",
+  "preset": "quick",
+  "settings": {
+    "width": 1280,
+    "height": 704,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "default"
+  },
+  "seed": 20261011,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/MODEL_RECEIPT.json",
+  "workflow_sha256": "2a738c5210852aa9ad2efee1922597aafd4b6a8df5984188bd8c9d3cefe07b2a",
+  "started_at_utc": "20261001T011219Z",
+  "prompt_id": "f16f9ecc-34b7-4d70-b8b3-17c19f76d36d",
+  "visual_disposition": "NO_OUTPUT",
+  "reason": "Windows access violation loading native safetensors text encoder after GGUF; retry with ComfyUI supported --disable-mmap."
+}

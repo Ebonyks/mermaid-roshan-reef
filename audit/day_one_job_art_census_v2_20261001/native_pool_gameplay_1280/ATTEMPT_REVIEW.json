@@ -1,0 +1,67 @@
+{
+  "schema": "reef.native-gameplay-diagnostic-review.v1",
+  "checked_utc": "2026-10-01T12:40:13.181634+00:00",
+  "status": "PARTIAL_CONTEXT_REACHED_TWO_REVEAL_CHECKS_FAILED",
+  "process_exit": 1,
+  "engine": "Godot 4.7.2-stable official",
+  "actual_dimensions": [
+    1280,
+    720
+  ],
+  "checks_passed": 25,
+  "checks_failed": [
+    "DAY_ONE_POOL_SHOTS|Rumi is visible during her reveal: FAIL",
+    "DAY_ONE_POOL_SHOTS|reveal capture precedes next-room overlay: FAIL"
+  ],
+  "setup": "Derived non-production capture harness copies the original visual-probe gestures/checks, marks all selected story clips seen in an isolated disposable save, cancels startup clip playback and forces a windowed 1280x720 viewport. Original production and trusted visual probe remain unchanged.",
+  "review": "Direct native arrival and final screenshots show unobstructed pool gameplay. Trash approach/scoop/catch, waterfall scrub/unlock and seahorse tug checks pass. The two Rumi reveal checks fail and the final screenshot has no visible Rumi. These observations do not establish the cause or an ordinary child-route defect. All initial seven-failure and unmodified-control evidence is preserved.",
+  "qualification": "Gameplay-only forced setup, not ordinary narrative transitions or all elapsed action frames. Visible-tree references can be occluded, offscreen or unused. No automatic source/mounted/action score, device/child/owner pass or complete library coverage.",
+  "captures": [
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_gameplay_1280/00_dirty_arrival.webp",
+      "sha256": "b39d71c23446923d319078c40c759cd9ce9c4d15662dd9aec9a50fde27cbd3de"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_gameplay_1280/00a_roshan_approaching_trash.webp",
+      "sha256": "5d95cf0a04d5de5528630a9b9c669eb6bf671e013e4b0407bcab5f95f4260b24"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_gameplay_1280/00b_roshan_scooping_trash.webp",
+      "sha256": "5a84e657fd08055fb316903d9acec52cf17e472a07eedc4a0f914c7708de404d"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_gameplay_1280/01_skimmer_catch.webp",
+      "sha256": "76ac3632429497908b3b7319c59de912f44f471b2a8020981d54f0c896f5f27e"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_gameplay_1280/02_pool_clear_waterfall_dirty.webp",
+      "sha256": "46679a8295316bbdb4a559082e1ed73429b18aa2b9f68be5f86e13f0e3517332"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_gameplay_1280/03_waterfall_scrub.webp",
+      "sha256": "8f3eee8d12d18059d46b1a0d3be62354e3855910fcc18ea0014fa3a3f2e11b10"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_gameplay_1280/04_waterfall_clear_static.webp",
+      "sha256": "4b6d0094ebec1f1029da302975cde8c32cc47148a9ca493f6736a2253929b189"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_gameplay_1280/05_seahorse_tug_midway.webp",
+      "sha256": "36df534be3ed4d221cd1530cfaca6a40dde52bbb15dfd204c6201457cbf91965"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_gameplay_1280/06_seahorse_trash_release.webp",
+      "sha256": "c3b67f2c6d90377d6aff98abffb88d3aa1b3838e45f7d9dc7710ef3ae904fbb3"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_gameplay_1280/07_rainbow_reveal_active.webp",
+      "sha256": "f570630a9c525ff8e338ec3d93dbb1c58de27e5beedc61c681741d916f3ee1f7"
+    },
+    {
+      "path": "audit/day_one_job_art_census_v2_20261001/native_pool_gameplay_1280/08_rumi_reveal.webp",
+      "sha256": "0782d63da0e34e8faf511397e400e8e8acb185fb1b62ca8c643577c0c564a0af"
+    }
+  ],
+  "mounted_score": null,
+  "action_score": null
+}

@@ -1,0 +1,113 @@
+{
+  "schema": "reef.source-contact-review.v1",
+  "checked_utc": "2026-10-01T11:58:39.225882+00:00",
+  "reviewer": "Codex drafting visual review; owner approval pending",
+  "items": [
+    {
+      "id": "low-reach-attempt-01",
+      "path": "assets_src/imagegen/day2_nursery_faron_motionkeys_20261001/low-reach-attempt-01.png",
+      "sha256": "d193b35474561dd66eb30ddaf6a1a26311177832bb9dd234e2f616cad0a2cbcf",
+      "requested_palm": [
+        810,
+        805
+      ],
+      "actual_manual_receiving_pad": [
+        635,
+        790
+      ],
+      "requested_screen_error_at_190px": 26.6123758640156,
+      "requested_position_score": 4.0,
+      "source_style_score": 4.6,
+      "actual_static_receiving_role_score": 4.6,
+      "static_basis": "Complete grouped golden hair, quiet warm face, plum outline, broad matte apron/cloth/tail bands retain simplified Faron identity. Both upturned receiving palms are connected and support the separate60px infant in native190px and300px detail; all sources share unchanged whole-canvas card origin. Actual support is usable at a different coordinate from the requested pose. No full lift/action acceptance.",
+      "request_basis": "The measured receiving pad misses the specific requested palm position. Preserve the failed request and its score even when separately reusing its actual static role.",
+      "runtime_bound": false,
+      "owner_accepted": false
+    },
+    {
+      "id": "lift-early-attempt-01",
+      "path": "assets_src/imagegen/day2_nursery_faron_motionkeys_20261001/lift-early-attempt-01.png",
+      "sha256": "6147e38dd64ecda53438588433de9268548b67668b961c97cbb7328915f4c646",
+      "requested_palm": [
+        785,
+        755
+      ],
+      "actual_manual_receiving_pad": [
+        617,
+        772
+      ],
+      "requested_screen_error_at_190px": 25.58453461344555,
+      "requested_position_score": 4.0,
+      "source_style_score": 4.6,
+      "actual_static_receiving_role_score": 4.6,
+      "static_basis": "Complete grouped golden hair, quiet warm face, plum outline, broad matte apron/cloth/tail bands retain simplified Faron identity. Both upturned receiving palms are connected and support the separate60px infant in native190px and300px detail; all sources share unchanged whole-canvas card origin. Actual support is usable at a different coordinate from the requested pose. No full lift/action acceptance.",
+      "request_basis": "The measured receiving pad misses the specific requested palm position. Preserve the failed request and its score even when separately reusing its actual static role.",
+      "runtime_bound": false,
+      "owner_accepted": false
+    },
+    {
+      "id": "lift-middle-attempt-01",
+      "path": "assets_src/imagegen/day2_nursery_faron_motionkeys_20261001/lift-middle-attempt-01.png",
+      "sha256": "e58be4187ce6cf95814daf6955d607acb97494b8128357ab909d17c245602595",
+      "requested_palm": [
+        760,
+        705
+      ],
+      "actual_manual_receiving_pad": [
+        597,
+        754
+      ],
+      "requested_screen_error_at_190px": 25.78875118703813,
+      "requested_position_score": 4.0,
+      "source_style_score": 4.6,
+      "actual_static_receiving_role_score": 4.6,
+      "static_basis": "Complete grouped golden hair, quiet warm face, plum outline, broad matte apron/cloth/tail bands retain simplified Faron identity. Both upturned receiving palms are connected and support the separate60px infant in native190px and300px detail; all sources share unchanged whole-canvas card origin. Actual support is usable at a different coordinate from the requested pose. No full lift/action acceptance.",
+      "request_basis": "The measured receiving pad misses the specific requested palm position. Preserve the failed request and its score even when separately reusing its actual static role.",
+      "runtime_bound": false,
+      "owner_accepted": false
+    },
+    {
+      "id": "lift-near-held-attempt-01",
+      "path": "assets_src/imagegen/day2_nursery_faron_motionkeys_20261001/lift-near-held-attempt-01.png",
+      "sha256": "fad4d36e701b54bc5cfd4fb7128e03d66526f03449e8809b76039faaa894e878",
+      "requested_palm": [
+        735,
+        655
+      ],
+      "actual_manual_receiving_pad": [
+        673,
+        731
+      ],
+      "requested_screen_error_at_190px": 14.86084828513846,
+      "requested_position_score": 4.0,
+      "source_style_score": 4.6,
+      "actual_static_receiving_role_score": 4.6,
+      "static_basis": "Complete grouped golden hair, quiet warm face, plum outline, broad matte apron/cloth/tail bands retain simplified Faron identity. Both upturned receiving palms are connected and support the separate60px infant in native190px and300px detail; all sources share unchanged whole-canvas card origin. Actual support is usable at a different coordinate from the requested pose. No full lift/action acceptance.",
+      "request_basis": "The measured receiving pad misses the specific requested palm position. Preserve the failed request and its score even when separately reusing its actual static role.",
+      "runtime_bound": false,
+      "owner_accepted": false
+    }
+  ],
+  "selected_static_opinion": 4.6,
+  "initial_lift_chain_score": 4.2,
+  "initial_lift_basis": "Individual source/contact quality passes the drafting bar. However the last two measured receiving-pad steps exceed the previously declared8px target and visually jump the separate infant; three complete intermediate receiving states are needed before timed lift review. No live approach/pickup/carry/lower/settle route is executed.",
+  "support_steps_at_190px": [
+    3.85694619381067,
+    4.07685568838409,
+    12.0309136130593,
+    18.1236440485174
+  ],
+  "draft_transition_target_px": 8,
+  "landmark_qualification": "Manual opaque skin receiving pads from direct native source and correct-alpha contact views; inspectable choices with roughly5 native pixel picking uncertainty. Do not translate the card or relabel empty pixels to make a chain pass.",
+  "evidence": [
+    "initial_fit/1280x720-contact.webp",
+    "initial_fit/1280x720-detail.webp",
+    "initial_fit/1600x720-contact.webp",
+    "initial_fit/1600x720-detail.webp",
+    "initial_fit/receipt.json"
+  ],
+  "next_gap": "One lateral bridge between middle and near-held, two rising bridges between near-held and existing held. Reuse all five current sources at their actually reviewed roles.",
+  "full_action_score": null,
+  "runtime_bound": false,
+  "owner_accepted": false
+}

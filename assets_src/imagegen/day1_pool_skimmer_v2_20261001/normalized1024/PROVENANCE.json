@@ -1,0 +1,30 @@
+{
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"harness": "res://tools/normalize_day_one_pool_skimmer_candidate.gd",
+	"harness_sha256": "c489f82ea5cf3f3ce7fed4e486d2f586b992b7f9e33f4a8f4b865aae0262c978",
+	"method": "Official Godot4.7.2 Lanczos whole-canvas resize; nearest integer output height. No crop, subject translation or local pixel repair.",
+	"output": "res://assets_src/imagegen/day1_pool_skimmer_v2_20261001/normalized1024/pool-skimmer.png",
+	"output_dimensions": [
+		1024,
+		683
+	],
+	"output_sha256": "d002da9e32688e570280d7bf62885a63714e0c6d59d177d6ad1375a669e9932c",
+	"runtime_bound": false,
+	"source": "res://assets_src/imagegen/day1_pool_skimmer_v2_20261001/pool-skimmer-attempt-01.png",
+	"source_dimensions": [
+		1536,
+		1024
+	],
+	"source_sha256": "522b5f6b9a4d241e3ec0fd3515655e744a08fd34aaa3e2a81c6203d54bdbb8f7",
+	"technical_qualification": "Longest edge1024 meets asset size limit. Height683 is NPOT: no VRAM compression/mode2; explicit uncompressed import required before a future runtime copy. Fixture uses ImageTexture only; no device/import/performance pass."
+}

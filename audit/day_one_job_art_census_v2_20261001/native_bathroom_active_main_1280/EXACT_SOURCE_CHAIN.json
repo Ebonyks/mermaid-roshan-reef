@@ -1,0 +1,21 @@
+{
+  "checked_utc": "2026-10-01T14:33:11.770421+00:00",
+  "files": [
+    {
+      "source": "tools/job_art_scene_trace.gd",
+      "copy": "job_art_scene_trace.gd",
+      "sha256": "f8fe4d48e5c8de1e420157e4ba7d14b4e72ffcbf598473cd09e751493f1fd9a2"
+    },
+    {
+      "source": "tools/capture_day_one_bathroom_active_control.gd",
+      "copy": "capture_day_one_bathroom_active_control.gd",
+      "sha256": "e578b7fe3d7dbdc414d436c8f0535be200eb9bda00df43588754b8caeb528c9c"
+    },
+    {
+      "source": "scripts/probe_day_one_bathroom_shots.gd",
+      "copy": "probe_day_one_bathroom_shots.gd",
+      "sha256": "29838a41c1a5a269bad9d2ade6dbfe2f94781a3e3965287a5dafef59edd09c7e"
+    }
+  ],
+  "qualification": "Exact tool/controller bytes retained at successful capture completion. Copied scripts are evidence under .gdignore, not runtime fallbacks or new production classes."
+}

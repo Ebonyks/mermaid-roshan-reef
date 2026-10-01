@@ -1,0 +1,94 @@
+{
+  "status": "FAILED",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\01_fir\\input_neutral.png",
+  "source_sha256": "d96c84fa0e99d1ed6a3c2819cb42d41dfebd6bf9b94423f0ed88b38301bf4470",
+  "source_dimensions": [
+    512,
+    288
+  ],
+  "prompt": "One isolated illustrated object on a perfectly flat solid neutral light gray background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The trunk and roots stay completely fixed. Only the upper pine branch tips bend gently to the right, relax, then ease back toward the starting pose. Preserve all branch tiers and the exact pine silhouette. No whole-tree rotation. 1.1-1.7s: settle. Background remains solid light gray. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence.",
+  "prompt_sha256": "5e51855159593be31f3b144788403703e148c9dc7ef33ca1e1b03709d9c8c635",
+  "preset": "quick",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "seed": 20261001,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/MODEL_RECEIPT.json",
+  "workflow_sha256": "47af32670cfe2985a5b263316a5a4ebe0a7aaf92b56c598e67bec090c759ff26",
+  "started_at_utc": "20261001T004517Z",
+  "prompt_id": "16a2310c-045f-47c1-b883-39b613bdcf2c",
+  "result": {
+    "status_str": "error",
+    "completed": false,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "16a2310c-045f-47c1-b883-39b613bdcf2c",
+          "timestamp": 1790815517602
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [],
+          "prompt_id": "16a2310c-045f-47c1-b883-39b613bdcf2c",
+          "timestamp": 1790815517681
+        }
+      ],
+      [
+        "execution_error",
+        {
+          "prompt_id": "16a2310c-045f-47c1-b883-39b613bdcf2c",
+          "node_id": "2",
+          "node_type": "CLIPLoaderGGUF",
+          "executed": [
+            "4",
+            "8",
+            "3"
+          ],
+          "exception_message": "Please make sure sentencepiece and protobuf are installed.\npip install sentencepiece protobuf\n",
+          "exception_type": "ImportError",
+          "traceback": [
+            "  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\ComfyUI\\execution.py\", line 545, in execute\n    output_data, output_ui, has_subgraph, has_pending_tasks = await get_output_data(prompt_id, unique_id, obj, input_data_all, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, v3_data=v3_data)\n                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+            "  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\ComfyUI\\execution.py\", line 344, in get_output_data\n    return_values = await _async_map_node_over_list(prompt_id, unique_id, obj, input_data_all, obj.FUNCTION, allow_interrupt=True, execution_block_cb=execution_block_cb, pre_execute_cb=pre_execute_cb, v3_data=v3_data)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+            "  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\ComfyUI\\execution.py\", line 318, in _async_map_node_over_list\n    await process_inputs(input_dict, i)\n",
+            "  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\ComfyUI\\execution.py\", line 306, in process_inputs\n    result = f(**inputs)\n",
+            "  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\ComfyUI\\custom_nodes\\ComfyUI-GGUF\\nodes.py\", line 251, in load_clip\n    return (self.load_patcher([clip_path], clip_type, self.load_data([clip_path])),)\n                                                      ~~~~~~~~~~~~~~^^^^^^^^^^^^^\n",
+            "  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\ComfyUI\\custom_nodes\\ComfyUI-GGUF\\nodes.py\", line 227, in load_data\n    sd = gguf_clip_loader(p)\n",
+            "  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\ComfyUI\\custom_nodes\\ComfyUI-GGUF\\loader.py\", line 477, in gguf_clip_loader\n    sd[\"spiece_model\"] = gguf_tokenizer_loader(path, sd[temb_key].shape)\n                         ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+            "  File \"C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\ComfyUI\\0.34.0\\ComfyUI_windows_portable\\ComfyUI\\custom_nodes\\ComfyUI-GGUF\\loader.py\", line 343, in gguf_tokenizer_loader\n    raise ImportError(\"Please make sure sentencepiece and protobuf are installed.\\npip install sentencepiece protobuf\")\n"
+          ],
+          "current_inputs": {
+            "clip_name": [
+              "umt5-xxl-encoder-Q4_K_S.gguf"
+            ],
+            "type": [
+              "wan"
+            ]
+          },
+          "current_outputs": [
+            "5",
+            "2",
+            "6",
+            "1",
+            "8",
+            "10",
+            "11",
+            "7",
+            "0",
+            "9",
+            "4",
+            "3"
+          ],
+          "timestamp": 1790815558741
+        }
+      ]
+    ]
+  }
+}

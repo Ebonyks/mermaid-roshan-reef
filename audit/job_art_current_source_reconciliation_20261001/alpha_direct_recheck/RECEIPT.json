@@ -1,0 +1,10 @@
+{
+  "status": "PASS_UNCHANGED_DIRECT_RECHECK",
+  "process_exit": 0,
+  "engine": "4.7.2-stable official",
+  "probe_sha256": "04aff5486af934c7a554da70920d8fc08306003a63feae6d6c388ffb8b896326",
+  "checks_passed": 0,
+  "stdout_sha256": "6a107049dd8e7a09d846a4c4f9d1c96745201f28e7586f49881394cef828f629",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "qualification": "Isolated direct Windows invocation of the unchanged trusted probe, without the initial Git Bash timeout wrapper. This does not erase the initial failed full-suite run or independently make the whole suite green."
+}

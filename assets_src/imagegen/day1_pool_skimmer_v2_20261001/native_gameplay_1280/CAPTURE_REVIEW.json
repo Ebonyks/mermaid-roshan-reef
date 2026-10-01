@@ -1,0 +1,60 @@
+{
+  "schema": "reef.native-source-fit-review.v1",
+  "checked_utc": "2026-10-01T14:49:37.202501+00:00",
+  "process_exit": 0,
+  "checks_passed": 35,
+  "checks_failed": 0,
+  "native_images": 57,
+  "source_style_score": 4.6,
+  "mounted_tool_score": 4.6,
+  "complete_action_score": null,
+  "runtime_bound": false,
+  "owner_accepted": false,
+  "evidence": [
+    "00_dirty_arrival.webp",
+    "00b_roshan_scooping_trash.webp",
+    "item_01_sample_007.webp",
+    "item_02_sample_007.webp",
+    "item_04_sample_007.webp",
+    "item_05_sample_007.webp"
+  ],
+  "logical_socket_checks": [
+    {
+      "capture": "00_dirty_arrival",
+      "controller_hand_grip_error": 0.0,
+      "qualification": "Logical socket equality only; this does not measure painted fingers or prove anatomy."
+    },
+    {
+      "capture": "00b_roshan_scooping_trash",
+      "controller_hand_grip_error": 1.52587890625e-05,
+      "qualification": "Logical socket equality only; this does not measure painted fingers or prove anatomy."
+    },
+    {
+      "capture": "item_01_sample_007",
+      "controller_hand_grip_error": 3.0517578125e-05,
+      "qualification": "Logical socket equality only; this does not measure painted fingers or prove anatomy."
+    },
+    {
+      "capture": "item_02_sample_007",
+      "controller_hand_grip_error": 0.0,
+      "qualification": "Logical socket equality only; this does not measure painted fingers or prove anatomy."
+    },
+    {
+      "capture": "item_04_sample_007",
+      "controller_hand_grip_error": 0.0,
+      "qualification": "Logical socket equality only; this does not measure painted fingers or prove anatomy."
+    },
+    {
+      "capture": "item_05_sample_007",
+      "controller_hand_grip_error": 0.0,
+      "qualification": "Logical socket equality only; this does not measure painted fingers or prove anatomy."
+    }
+  ],
+  "basis": "The held205px complete tool retains a continuous pink grip/aqua shaft, broad lavender rim and open cream mesh. In the six directly inspected views its grip stays at the visible hand and its hoop encloses the wrapper/cap/ribbon/sponge contact. The can contact/early-transfer view shows the can crossing the left edge; the shared backwards transfer is separately failed, not repaired by this source. Mesh holes show water through them rather than becoming a beige filled pouch. The subdued ornaments and coarse mesh remain subordinate to the opening.",
+  "gaps": [
+    "Original100,580/780,190 socket coordinates retained; numerical painted-socket remeasurement and wardrobe fits remain pending.",
+    "Initial ribbon is still covered by the actor/net. Can sparkle still originates at535,276 despite can575,330.",
+    "Sparse500ms tracing samples cannot establish complete motion. The separate buffered117-frame contact/transfer review uses the original tool, not this new skimmer.",
+    "1024x683 derivative is NPOT; future runtime import requires uncompressed mode0. Current ImageTexture fixture is not an import/performance/device pass."
+  ]
+}

@@ -1,0 +1,37 @@
+Input #0, concat, from 'C:\Users\Peter\Documents\mermaid-roshan-reef\tmp\day2_graphics_audit_20260930\assets_src\imagegen\day1_pool_trash_v2_20261001\native_buffered_all_props_1280\item_00.ffconcat':
+  Duration: 00:00:02.48, start: 0.000000, bitrate: 14 kb/s
+  Stream #0:0: Video: webp, yuv420p(tv, bt470bg/unknown/unknown), 1280x720, 1k fps, 1k tbr, 1k tbn
+Stream mapping:
+  Stream #0:0 -> #0:0 (webp (native) -> h264 (libx264))
+[libx264 @ 000001630ed3bc40] using cpu capabilities: MMX2 SSE2Fast SSSE3 SSE4.2 AVX FMA3 BMI2 AVX2
+[libx264 @ 000001630ed3bc40] profile High, level 6.0, 4:2:0, 8-bit
+[libx264 @ 000001630ed3bc40] 264 - core 165 r3223 0480cb0 - H.264/MPEG-4 AVC codec - Copyleft 2003-2025 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=18 lookahead_threads=3 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=16.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00
+Output #0, mp4, to 'C:\Users\Peter\Documents\mermaid-roshan-reef\tmp\day2_graphics_audit_20260930\assets_src\imagegen\day1_pool_trash_v2_20261001\native_buffered_all_props_1280\item_00_native_timestamps.mp4':
+  Metadata:
+    encoder         : Lavf62.12.102
+  Stream #0:0: Video: h264 (avc1 / 0x31637661), yuv420p(tv, bt470bg/unknown/unknown, progressive), 1280x720, q=2-31, 1k fps, 16k tbn
+    Metadata:
+      encoder         : Lavc62.28.102 libx264
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+frame=    0 fps=0.0 q=0.0 size=       0KiB time=N/A bitrate=N/A speed=N/A elapsed=0:00:00.51    frame=    0 fps=0.0 q=0.0 size=       0KiB time=N/A bitrate=N/A speed=N/A elapsed=0:00:01.03    frame=    0 fps=0.0 q=0.0 size=       0KiB time=N/A bitrate=N/A speed=N/A elapsed=0:00:01.55    frame=   31 fps= 15 q=22.0 size=    1024KiB time=N/A bitrate=N/A speed=N/A elapsed=0:00:02.05    [mp4 @ 00000163108cdc00] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 000001630ecdb4c0] video:1592KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.128739%
+frame=   69 fps= 32 q=-1.0 Lsize=    1594KiB time=00:00:02.38 bitrate=5480.6kbits/s speed=1.09x elapsed=0:00:02.19    
+[libx264 @ 000001630ed3bc40] frame I:1     Avg QP:15.06  size:309795
+[libx264 @ 000001630ed3bc40] frame P:19    Avg QP:14.81  size: 53300
+[libx264 @ 000001630ed3bc40] frame B:49    Avg QP:20.77  size:  6270
+[libx264 @ 000001630ed3bc40] consecutive B-frames:  1.4% 11.6%  0.0% 87.0%
+[libx264 @ 000001630ed3bc40] mb I  I16..4:  7.8% 23.1% 69.1%
+[libx264 @ 000001630ed3bc40] mb P  I16..4:  0.2%  0.1%  0.7%  P16..4: 40.0%  7.7% 13.9%  0.0%  0.0%    skip:37.3%
+[libx264 @ 000001630ed3bc40] mb B  I16..4:  0.0%  0.0%  0.0%  B16..8: 17.1%  1.0%  1.2%  direct: 1.2%  skip:79.5%  L0:32.6% L1:62.1% BI: 5.3%
+[libx264 @ 000001630ed3bc40] 8x8 transform intra:20.6% inter:45.3%
+[libx264 @ 000001630ed3bc40] coded y,uvDC,uvAC intra: 95.1% 96.4% 93.3% inter: 11.9% 17.6% 15.9%
+[libx264 @ 000001630ed3bc40] i16 v,h,dc,p: 26% 40% 26%  8%
+[libx264 @ 000001630ed3bc40] i8 v,h,dc,ddl,ddr,vr,hd,vl,hu:  8% 39%  9%  4%  4%  3% 13%  3% 17%
+[libx264 @ 000001630ed3bc40] i4 v,h,dc,ddl,ddr,vr,hd,vl,hu: 12% 26% 11%  6%  8%  7% 11%  7% 13%
+[libx264 @ 000001630ed3bc40] i8c dc,h,v,p: 47% 30% 11% 12%
+[libx264 @ 000001630ed3bc40] Weighted P-Frames: Y:5.3% UV:5.3%
+[libx264 @ 000001630ed3bc40] ref P L0: 83.3%  2.2% 10.2%  4.2%  0.1%
+[libx264 @ 000001630ed3bc40] ref B L0: 87.7% 10.2%  2.1%
+[libx264 @ 000001630ed3bc40] ref B L1: 94.5%  5.5%
+[libx264 @ 000001630ed3bc40] kb/s:5252.99

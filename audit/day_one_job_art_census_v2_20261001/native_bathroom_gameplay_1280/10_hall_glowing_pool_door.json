@@ -1,0 +1,761 @@
+{
+	"action_score": null,
+	"base_probe": "res://scripts/probe_day_one_bathroom_shots.gd",
+	"base_probe_sha256": "29838a41c1a5a269bad9d2ade6dbfe2f94781a3e3965287a5dafef59edd09c7e",
+	"capture": "10_hall_glowing_pool_door",
+	"dimensions": [
+		1280.0,
+		720.0
+	],
+	"engine": "4.7.2-stable (official)",
+	"harness": "res://tools/capture_day_one_bathroom_art_inventory.gd",
+	"harness_sha256": "ede7789d8b990acd29c36943363aad134a891ca084937c73c51b4a33bcb49c28",
+	"image_sha256": "b788cbbcedb1698044bf18b8d662c21edd9a14af58b240b2ee7a69255ce605d4",
+	"main_sha256": "98d91a560426cfa4c52a70221a0311856429c031805d7d9dc990eefe2affe30e",
+	"mounted_score": null,
+	"native_image": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\audit\\day_one_job_art_census_v2_20261001\\native_bathroom_gameplay_1280/10_hall_glowing_pool_door.webp",
+	"qualification": "Native visual-probe scene at a named forced setup/gesture capture point. A visible-tree resource reference is evidence to inspect, not proof of every pixel or whole ordinary route. Scores require individual visual review; phone/child/owner/full coverage are pending. Gameplay-only: story clips marked seen in isolated save and window forced1280x720. Original probe gestures/assertions retained.",
+	"references": [
+		{
+			"class": "Node2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/DayOneDirtyCastleDressing",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"script": "res://scripts/arena/day_one_castle_dressing.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 20.0
+		},
+		{
+			"class": "Control",
+			"clip_contents": false,
+			"global_rect": [
+				0.0,
+				0.0,
+				1280.0,
+				720.0
+			],
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/ChapterTwoRoomPlot",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "res://scripts/chapter_two_room_plot.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 46.0
+		},
+		{
+			"class": "Control",
+			"clip_contents": true,
+			"global_rect": [
+				1041.91381835938,
+				229.665069580078,
+				122.488037109375,
+				233.492828369141
+			],
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoorCue_mermaid_pool",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "res://scripts/castle_door_cue.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 0.0
+		},
+		{
+			"class": "Control",
+			"clip_contents": true,
+			"global_rect": [
+				888.803771972656,
+				229.665069580078,
+				122.488037109375,
+				233.492828369141
+			],
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoorCue_craft_room",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "res://scripts/castle_door_cue.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 0.0
+		},
+		{
+			"class": "Control",
+			"clip_contents": true,
+			"global_rect": [
+				735.693786621094,
+				229.665069580078,
+				122.488037109375,
+				233.492828369141
+			],
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoorCue_playroom",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "res://scripts/castle_door_cue.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 0.0
+		},
+		{
+			"class": "Control",
+			"clip_contents": true,
+			"global_rect": [
+				0.0,
+				137.799041748047,
+				150.0478515625,
+				325.358856201172
+			],
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/MainHallDoorHotspots/HallDoorCue_opera_hall",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "res://scripts/castle_door_cue.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 0.0
+		},
+		{
+			"canvas_rect": [
+				555.059936523438,
+				415.935455322266,
+				169.865661621094,
+				169.865631103516
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanCutout",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							1024.0,
+							512.0
+						],
+						"path": "res://assets/characters/roshan_25d/roshan_directional.png",
+						"sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a"
+					}
+				}
+			],
+			"z_index": 220.0
+		},
+		{
+			"canvas_rect": [
+				547.074951171875,
+				561.830932617188,
+				185.849975585938,
+				33.6300048828125
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 0.579999983310699,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoshanContactShadow",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							256.0,
+							64.0
+						],
+						"path": "res://assets/flats/castle/rooms/room_actor_shadow.png",
+						"sha256": "642aa3bdc6ef1be14febfd7855963da80071febd9ea7b69101261d6632ee3604"
+					}
+				}
+			],
+			"z_index": 216.0
+		},
+		{
+			"canvas_rect": [
+				338.621826171875,
+				102.832382202148,
+				383.808959960938,
+				383.808898925781
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/MoonflowerConservatoryDoor",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							1024.0,
+							1024.0
+						],
+						"path": "res://assets/flats/castle/fairy_conservatory/moonflower_door_closed.png",
+						"sha256": "b2634b80054bc03618e89918aea1639db010046c66777cec1e9152c40983de3c"
+					}
+				}
+			],
+			"z_index": 70.0
+		},
+		{
+			"canvas_rect": [
+				1154.44970703125,
+				162.296646118164,
+				195.980834960938,
+				195.980880737305
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_bubble_bath",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							256.0,
+							256.0
+						],
+						"path": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_bubble_bath.png",
+						"sha256": "3a43e1fc23f95f9f3a2ec256861d418017d783bbf0d30f7b85fee677838aa3c4"
+					}
+				}
+			],
+			"z_index": 68.0
+		},
+		{
+			"canvas_rect": [
+				1001.33966064453,
+				162.296646118164,
+				195.980895996094,
+				195.980880737305
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_mermaid_pool",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							256.0,
+							256.0
+						],
+						"path": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_mermaid_pool.png",
+						"sha256": "8ae6239cc8d01eecaa741842b591b2388659ff92929b9dec336e62ffa7ab4033"
+					}
+				}
+			],
+			"z_index": 68.0
+		},
+		{
+			"canvas_rect": [
+				848.229614257813,
+				162.296646118164,
+				195.980834960938,
+				195.980880737305
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_craft_room",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							256.0,
+							256.0
+						],
+						"path": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_craft_room.png",
+						"sha256": "17ccf96d936d557b28a88960d8793f58ceff73fa5328b42c7c41c4f65c138e2e"
+					}
+				}
+			],
+			"z_index": 68.0
+		},
+		{
+			"canvas_rect": [
+				695.11962890625,
+				162.296646118164,
+				195.980834960938,
+				195.980880737305
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_playroom",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							256.0,
+							256.0
+						],
+						"path": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_playroom.png",
+						"sha256": "22d9a3df8eda3b95ae93250165a64a947b4157a70b4405f90dc4d600edccd7df"
+					}
+				}
+			],
+			"z_index": 68.0
+		},
+		{
+			"canvas_rect": [
+				-116.669891357422,
+				20.3636474609375,
+				303.770324707031,
+				303.770324707031
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/RoomMidground/HallDoorSign_opera_hall",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							256.0,
+							256.0
+						],
+						"path": "res://assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_opera_hall.png",
+						"sha256": "7378b84c037fc6c5fe21880577f6eba2214d3c5e990b726bfaf67d83e8c03fd1"
+					}
+				}
+			],
+			"z_index": 68.0
+		},
+		{
+			"canvas_rect": [
+				144.750244140625,
+				572.692810058594,
+				125.427734375,
+				125.427734375
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_shell_bunny",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							512.0,
+							512.0
+						],
+						"path": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+						"sha256": "b3fbe139d79ba9567213afeb70a25bd986d90230052be7a9b320802a65613293"
+					}
+				}
+			],
+			"z_index": 305.0
+		},
+		{
+			"canvas_rect": [
+				-127.111946105957,
+				568.773193359375,
+				133.266983032227,
+				133.266967773438
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/TouchableRoomProps/Animated_sleepy_bunny",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							512.0,
+							512.0
+						],
+						"path": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_sleepy.png",
+						"sha256": "02c37b1d84a78da7c750308cbf708b98636808c855e9811bf82dcdccfc26ec90"
+					}
+				}
+			],
+			"z_index": 265.0
+		},
+		{
+			"canvas_rect": [
+				1170.5263671875,
+				360.19140625,
+				320.0,
+				360.19140625
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c6",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							910.0,
+							1024.0
+						],
+						"path": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c6.png",
+						"sha256": "0068537a79a205fa50f3747b37735c591f876ceac92d685abaa3d6f57605c92c"
+					}
+				}
+			],
+			"z_index": 0.0
+		},
+		{
+			"canvas_rect": [
+				850.526306152344,
+				360.19140625,
+				320.000061035156,
+				360.19140625
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c5",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							910.0,
+							1024.0
+						],
+						"path": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c5.png",
+						"sha256": "31b6d8a5dfef47c575b63f953c98240c826f5007ef1fa406ef17a853630ff808"
+					}
+				}
+			],
+			"z_index": 0.0
+		},
+		{
+			"canvas_rect": [
+				530.526306152344,
+				360.19140625,
+				320.0,
+				360.19140625
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c4",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							910.0,
+							1024.0
+						],
+						"path": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c4.png",
+						"sha256": "9e180247910d843b535998ad1167371b1990834279a26119714743af59a11203"
+					}
+				}
+			],
+			"z_index": 0.0
+		},
+		{
+			"canvas_rect": [
+				210.526306152344,
+				360.19140625,
+				320.0,
+				360.19140625
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c3",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							910.0,
+							1024.0
+						],
+						"path": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c3.png",
+						"sha256": "3b5ba5dd85ba1bf5969be08a191957e2eb476e741b717aa0e7fb843eb0aee40d"
+					}
+				}
+			],
+			"z_index": 0.0
+		},
+		{
+			"canvas_rect": [
+				-109.473693847656,
+				360.19140625,
+				320.0,
+				360.19140625
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r1_c2",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							910.0,
+							1024.0
+						],
+						"path": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r1_c2.png",
+						"sha256": "c2abbd83f3fce093addd9250c1930ee57d86f4c21e170b2d454121d12b723ea5"
+					}
+				}
+			],
+			"z_index": 0.0
+		},
+		{
+			"canvas_rect": [
+				1170.5263671875,
+				-0.0000152587890625,
+				320.0,
+				360.19140625
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c6",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							910.0,
+							1024.0
+						],
+						"path": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c6.png",
+						"sha256": "17e74663ad7b95414453e106265258642f51b820001a99e0f1882352a96012da"
+					}
+				}
+			],
+			"z_index": 0.0
+		},
+		{
+			"canvas_rect": [
+				850.526306152344,
+				-0.0000152587890625,
+				320.000061035156,
+				360.19140625
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c5",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							910.0,
+							1024.0
+						],
+						"path": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c5.png",
+						"sha256": "d1e4652e644bd5354c5bd779242f885cc58ad0f2a6adc61dff4105d7417fc0ae"
+					}
+				}
+			],
+			"z_index": 0.0
+		},
+		{
+			"canvas_rect": [
+				530.526306152344,
+				-0.0000152587890625,
+				320.0,
+				360.19140625
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c4",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							910.0,
+							1024.0
+						],
+						"path": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c4.png",
+						"sha256": "9bfa44736244ae50fda10461c48cc0ee0cf35f195dd6e3b59364c6c9756cfc82"
+					}
+				}
+			],
+			"z_index": 0.0
+		},
+		{
+			"canvas_rect": [
+				210.526306152344,
+				-0.0000152587890625,
+				320.0,
+				360.19140625
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c3",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							910.0,
+							1024.0
+						],
+						"path": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c3.png",
+						"sha256": "802731a92762c849f9c0597b2e75a6dbc0336dbf60032ee9290867cd4ce7d1a1"
+					}
+				}
+			],
+			"z_index": 0.0
+		},
+		{
+			"canvas_rect": [
+				-109.473693847656,
+				-0.0000152587890625,
+				320.0,
+				360.19140625
+			],
+			"class": "Sprite2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/MainHallTile_r0_c2",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							910.0,
+							1024.0
+						],
+						"path": "res://assets/flats/castle/main_hall_redraw_2026-08-03/tiles/main_hall_room_led_r0_c2.png",
+						"sha256": "ee46dfa20f4de0140c8dbfb56eacba2d59acdb8eff684c0c45422fd34862b892"
+					}
+				}
+			],
+			"z_index": 0.0
+		},
+		{
+			"class": "Control",
+			"clip_contents": false,
+			"global_rect": [
+				0.0,
+				0.0,
+				1280.0,
+				720.0
+			],
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/LivingWorldLayer/LivingWorldCanvas",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "res://scripts/living_world_canvas.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 0.0
+		}
+	],
+	"renderer": "mobile",
+	"source_score": null,
+	"tracer_sha256": "d472a03e369c4083a05c1bfe330fa18a6a896ac76aff927966ef6d26aaec8e45"
+}

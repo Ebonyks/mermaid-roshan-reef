@@ -63,6 +63,7 @@ var motion: Tween
 var elapsed := 0.0
 var practice_book: TextureButton
 var tree_book_test: OperaTreeBookTest
+var job_playtest_menu: OperaJobPlaytestMenu
 
 
 func setup(main: ReefMain, star_mask: int, launch_callback: Callable) -> void:
@@ -93,6 +94,7 @@ func setup(main: ReefMain, star_mask: int, launch_callback: Callable) -> void:
 	_build_portals()
 	_build_guide_pointer()
 	_build_practice_book()
+	_build_playtest_elevator()
 	refresh(star_mask)
 
 
@@ -105,6 +107,8 @@ func open(star_mask: int) -> void:
 
 
 func close() -> void:
+	if job_playtest_menu != null:
+		job_playtest_menu.shutdown()
 	_close_tree_book(false)
 	m._navigation_remove("opera_venue")
 	accepting_input = false
@@ -461,6 +465,26 @@ func _build_practice_book() -> void:
 	tree.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	tree.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	practice_book.add_child(tree)
+
+
+func _build_playtest_elevator() -> void:
+	if not OperaJobPlaytestMenu.ENABLED:
+		return
+	job_playtest_menu = OperaJobPlaytestMenu.new()
+	job_playtest_menu.setup(m, self)
+	add_child(job_playtest_menu)
+	var elevator := Button.new()
+	elevator.name = "OperaLeftElevatorPlaytest"
+	# The accepted painting's left brass elevator gate at base-canvas scale.
+	elevator.position = Vector2(178.0, 390.0)
+	elevator.size = Vector2(136.0, 134.0)
+	elevator.text = ""
+	elevator.tooltip_text = "Open job playtesting"
+	elevator.z_index = 8
+	elevator.set_meta("painted_elevator_hit_region", true)
+	_style_portal_button(elevator)
+	elevator.pressed.connect(job_playtest_menu.open)
+	add_child(elevator)
 
 
 func open_tree_book() -> void:

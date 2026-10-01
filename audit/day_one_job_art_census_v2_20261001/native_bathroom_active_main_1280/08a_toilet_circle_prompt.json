@@ -1,0 +1,616 @@
+{
+	"action_score": null,
+	"base_probe": "res://scripts/probe_day_one_bathroom_shots.gd",
+	"base_probe_sha256": "29838a41c1a5a269bad9d2ade6dbfe2f94781a3e3965287a5dafef59edd09c7e",
+	"capture": "08a_toilet_circle_prompt",
+	"dimensions": [
+		1280.0,
+		720.0
+	],
+	"engine": "4.7.2-stable (official)",
+	"harness": "res://tools/capture_day_one_bathroom_active_control.gd",
+	"harness_sha256": "e578b7fe3d7dbdc414d436c8f0535be200eb9bda00df43588754b8caeb528c9c",
+	"image_sha256": "ec05d3e576ecaf2d61f101aa9697e5d389b8a54f123d552e3903d78af213fc72",
+	"main_sha256": "98d91a560426cfa4c52a70221a0311856429c031805d7d9dc990eefe2affe30e",
+	"mounted_score": null,
+	"native_image": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\audit\\day_one_job_art_census_v2_20261001\\native_bathroom_active_main_1280/08a_toilet_circle_prompt.webp",
+	"qualification": "Native visual-probe scene at a named forced setup/gesture capture point. A visible-tree resource reference is evidence to inspect, not proof of every pixel or whole ordinary route. Scores require individual visual review; phone/child/owner/full coverage are pending. Gameplay-only: story clips marked seen in isolated save and window forced1280x720. Original probe gestures/assertions retained. Main processing remains active; this separate control tests whether the earlier persistent caption was a frozen-fixture artifact. Normal narrative/physical-device acceptance remains separate.",
+	"references": [
+		{
+			"class": "Control",
+			"clip_contents": false,
+			"global_rect": [
+				0.0,
+				0.0,
+				1280.0,
+				720.0
+			],
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/DayOneBathroomCleanup",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "res://scripts/games/day_one_bathroom_cleanup.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 22.0
+		},
+		{
+			"class": "Control",
+			"clip_contents": false,
+			"global_rect": [
+				0.0,
+				0.0,
+				1280.0,
+				720.0
+			],
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/DayOneBathroomCleanup/DayOneBathroomCleaning",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "res://scripts/games/day_one_bathroom_cleaning.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 0.0
+		},
+		{
+			"class": "Control",
+			"clip_contents": false,
+			"global_rect": [
+				0.0,
+				0.0,
+				1280.0,
+				720.0
+			],
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/DayOneBathroomCleanup/DayOneBathroomCleaning/ToiletCleaning",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "res://scripts/games/day_one_bathroom_toilet.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 45.0
+		},
+		{
+			"canvas_rect": [
+				1004.15997314453,
+				294.160003662109,
+				71.6799926757813,
+				71.6799926757813
+			],
+			"class": "Sprite2D",
+			"drawn_texture_window": [
+				0.0,
+				0.0,
+				1024.0,
+				1024.0
+			],
+			"flip_h": false,
+			"flip_v": false,
+			"frame": 0.0,
+			"frame_coords": [
+				0.0,
+				0.0
+			],
+			"hframes": 1.0,
+			"modulate_alpha": 0.649999976158142,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/DayOneBathroomCleanup/DayOneBathroomCleaning/ToiletCleaning/@Sprite2D@405",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"region_enabled": false,
+			"region_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"texture_window_qualification": "Current Sprite2D cell in local texture coordinates. Nested AtlasTexture regions remain separately recorded; this is not every animation cell or an occlusion/pixel pass.",
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							1024.0,
+							1024.0
+						],
+						"path": "res://assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png",
+						"sha256": "fe53ef3018b9f8164417cde5bf47489dff389179aad8432ea8ef1993cffab3ed"
+					}
+				}
+			],
+			"vframes": 1.0,
+			"z_index": -1.0
+		},
+		{
+			"canvas_rect": [
+				823.54248046875,
+				442.466613769531,
+				122.880004882813,
+				112.320007324219
+			],
+			"class": "Sprite2D",
+			"drawn_texture_window": [
+				0.0,
+				0.0,
+				936.0,
+				1024.0
+			],
+			"flip_h": false,
+			"flip_v": false,
+			"frame": 0.0,
+			"frame_coords": [
+				0.0,
+				0.0
+			],
+			"hframes": 1.0,
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/DayOneBathroomCleanup/DayOneBathroomCleaning/ToiletCleaning/RoshanCleaningToilet/@Sprite2D@404",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"region_enabled": false,
+			"region_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"texture_window_qualification": "Current Sprite2D cell in local texture coordinates. Nested AtlasTexture regions remain separately recorded; this is not every animation cell or an occlusion/pixel pass.",
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							936.0,
+							1024.0
+						],
+						"path": "res://assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+						"sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3"
+					}
+				}
+			],
+			"vframes": 1.0,
+			"z_index": 0.0
+		},
+		{
+			"canvas_rect": [
+				696.642456054688,
+				330.936614990234,
+				243.200012207031,
+				243.199981689453
+			],
+			"class": "Sprite2D",
+			"drawn_texture_window": [
+				0.0,
+				0.0,
+				256.0,
+				256.0
+			],
+			"flip_h": false,
+			"flip_v": false,
+			"frame": 0.0,
+			"frame_coords": [
+				0.0,
+				0.0
+			],
+			"hframes": 1.0,
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/DayOneBathroomCleanup/DayOneBathroomCleaning/ToiletCleaning/RoshanCleaningToilet/@Sprite2D@403",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"region_enabled": false,
+			"region_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"texture_window_qualification": "Current Sprite2D cell in local texture coordinates. Nested AtlasTexture regions remain separately recorded; this is not every animation cell or an occlusion/pixel pass.",
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"atlas": {
+							"class": "CompressedTexture2D",
+							"dimensions": [
+								1024.0,
+								512.0
+							],
+							"path": "res://assets/characters/roshan_25d/roshan_directional.png",
+							"sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a"
+						},
+						"class": "AtlasTexture",
+						"dimensions": [
+							256.0,
+							256.0
+						],
+						"path": "",
+						"region": [
+							256.0,
+							0.0,
+							256.0,
+							256.0
+						]
+					}
+				}
+			],
+			"vframes": 1.0,
+			"z_index": 0.0
+		},
+		{
+			"canvas_rect": [
+				940.480651855469,
+				512.656616210938,
+				71.0387573242188,
+				76.686767578125
+			],
+			"class": "Sprite2D",
+			"drawn_texture_window": [
+				0.0,
+				0.0,
+				936.0,
+				1024.0
+			],
+			"flip_h": false,
+			"flip_v": false,
+			"frame": 0.0,
+			"frame_coords": [
+				0.0,
+				0.0
+			],
+			"hframes": 1.0,
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/DayOneBathroomCleanup/BasketTool_brush",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"region_enabled": false,
+			"region_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"texture_window_qualification": "Current Sprite2D cell in local texture coordinates. Nested AtlasTexture regions remain separately recorded; this is not every animation cell or an occlusion/pixel pass.",
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							936.0,
+							1024.0
+						],
+						"path": "res://assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+						"sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3"
+					}
+				}
+			],
+			"vframes": 1.0,
+			"z_index": 29.0
+		},
+		{
+			"canvas_rect": [
+				886.705261230469,
+				529.705261230469,
+				38.5895385742188,
+				38.5895385742188
+			],
+			"class": "Sprite2D",
+			"drawn_texture_window": [
+				0.0,
+				0.0,
+				512.0,
+				512.0
+			],
+			"flip_h": false,
+			"flip_v": false,
+			"frame": 0.0,
+			"frame_coords": [
+				0.0,
+				0.0
+			],
+			"hframes": 1.0,
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/DayOneBathroomCleanup/BasketTool_sponge",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"region_enabled": false,
+			"region_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"texture_window_qualification": "Current Sprite2D cell in local texture coordinates. Nested AtlasTexture regions remain separately recorded; this is not every animation cell or an occlusion/pixel pass.",
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							512.0,
+							512.0
+						],
+						"path": "res://assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
+						"sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b"
+					}
+				}
+			],
+			"vframes": 1.0,
+			"z_index": 29.0
+		},
+		{
+			"canvas_rect": [
+				888.580261230469,
+				527.999145507813,
+				102.839477539063,
+				94.001708984375
+			],
+			"class": "Sprite2D",
+			"drawn_texture_window": [
+				0.0,
+				0.0,
+				1024.0,
+				936.0
+			],
+			"flip_h": false,
+			"flip_v": false,
+			"frame": 0.0,
+			"frame_coords": [
+				0.0,
+				0.0
+			],
+			"hframes": 1.0,
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/DayOneBathroomCleanup/FrontRightCleanupBasket",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"region_enabled": false,
+			"region_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"texture_window_qualification": "Current Sprite2D cell in local texture coordinates. Nested AtlasTexture regions remain separately recorded; this is not every animation cell or an occlusion/pixel pass.",
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							1024.0,
+							936.0
+						],
+						"path": "res://assets/castle/day_one_pool/activities/cleanup_basket.png",
+						"sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910"
+					}
+				}
+			],
+			"vframes": 1.0,
+			"z_index": 27.0
+		},
+		{
+			"class": "Node2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/DayOneDirtyCastleDressing",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"script": "res://scripts/arena/day_one_castle_dressing.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 20.0
+		},
+		{
+			"class": "Control",
+			"clip_contents": false,
+			"global_rect": [
+				0.0,
+				0.0,
+				1280.0,
+				720.0
+			],
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/ChapterTwoRoomPlot",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "res://scripts/chapter_two_room_plot.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 46.0
+		},
+		{
+			"canvas_rect": [
+				1.20001220703125,
+				-1.67999267578125,
+				1280.0,
+				720.0
+			],
+			"class": "Sprite2D",
+			"drawn_texture_window": [
+				0.0,
+				0.0,
+				1024.0,
+				576.0
+			],
+			"flip_h": false,
+			"flip_v": false,
+			"frame": 0.0,
+			"frame_coords": [
+				0.0,
+				0.0
+			],
+			"hframes": 1.0,
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOneDrainedDirtyBathroomPlate",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"region_enabled": false,
+			"region_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"texture_window_qualification": "Current Sprite2D cell in local texture coordinates. Nested AtlasTexture regions remain separately recorded; this is not every animation cell or an occlusion/pixel pass.",
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							1024.0,
+							576.0
+						],
+						"path": "res://assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png",
+						"sha256": "1382a8adcb37f1b0788989676e5412220878395727ac081ce1b8d6fc1335fd47"
+					}
+				}
+			],
+			"vframes": 1.0,
+			"z_index": 101.0
+		},
+		{
+			"class": "Polygon2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOneDrainedDirtyBathroomPlate/CleanTubCutout",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							1024.0,
+							576.0
+						],
+						"path": "res://assets/flats/castle/rooms/room_bubble_bath.png",
+						"sha256": "3ecd80b1be8444ae924e4fc05c86129d4ee3742e6708c3c3e38b84862e7bf4da"
+					}
+				}
+			],
+			"z_index": 0.0
+		},
+		{
+			"class": "Polygon2D",
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/DayOneDrainedDirtyBathroomPlate/CleanSinkCutout",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "CompressedTexture2D",
+						"dimensions": [
+							1024.0,
+							576.0
+						],
+						"path": "res://assets/flats/castle/rooms/room_bubble_bath.png",
+						"sha256": "3ecd80b1be8444ae924e4fc05c86129d4ee3742e6708c3c3e38b84862e7bf4da"
+					}
+				}
+			],
+			"z_index": 0.0
+		},
+		{
+			"canvas_rect": [
+				598.415405273438,
+				36.2907104492188,
+				205.569213867188,
+				174.05859375
+			],
+			"class": "Sprite2D",
+			"drawn_texture_window": [
+				0.0,
+				0.0,
+				128.0,
+				128.0
+			],
+			"flip_h": false,
+			"flip_v": false,
+			"frame": 0.0,
+			"frame_coords": [
+				0.0,
+				0.0
+			],
+			"hframes": 1.0,
+			"modulate_alpha": 0.179483652114868,
+			"node": "/root/Main/@CanvasLayer@384/CastleRooms25D/StorybookStage/CastleRoomsCanvasWorld/CastleTouchAffordance",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"region_enabled": false,
+			"region_rect": [
+				0.0,
+				0.0,
+				0.0,
+				0.0
+			],
+			"script": "",
+			"self_modulate_alpha": 1.0,
+			"texture_window_qualification": "Current Sprite2D cell in local texture coordinates. Nested AtlasTexture regions remain separately recorded; this is not every animation cell or an occlusion/pixel pass.",
+			"textures": [
+				{
+					"property": "texture",
+					"qualification": "Referenced visible-node texture property; button/state selection is not independently inferred",
+					"reference": {
+						"class": "GradientTexture2D",
+						"dimensions": [
+							128.0,
+							128.0
+						],
+						"path": ""
+					}
+				}
+			],
+			"vframes": 1.0,
+			"z_index": 83.0
+		},
+		{
+			"class": "Control",
+			"clip_contents": false,
+			"global_rect": [
+				0.0,
+				0.0,
+				1280.0,
+				720.0
+			],
+			"modulate_alpha": 1.0,
+			"node": "/root/Main/LivingWorldLayer/LivingWorldCanvas",
+			"observation": "Visible in tree only; clipping/occlusion/offscreen/custom-draw interpretation needs review",
+			"rect_intersects_viewport": true,
+			"script": "res://scripts/living_world_canvas.gd",
+			"self_modulate_alpha": 1.0,
+			"textures": [],
+			"z_index": 0.0
+		}
+	],
+	"renderer": "mobile",
+	"source_score": null,
+	"tracer_sha256": "f8fe4d48e5c8de1e420157e4ba7d14b4e72ffcbf598473cd09e751493f1fd9a2"
+}
