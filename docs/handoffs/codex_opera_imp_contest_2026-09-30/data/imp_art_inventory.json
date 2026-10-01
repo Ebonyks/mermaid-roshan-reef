@@ -6,9 +6,9 @@
   "totals": {
     "files": 178,
     "shown_today": 41,
-    "shown_after_specified_contests": 156,
+    "shown_after_specified_contests": 167,
     "shown_with_nursery_option_b": 167,
-    "note": "shown_after_specified_contests counts files the shipping game would show once the twelve specified contests ship; shown_with_nursery_option_b adds the plain mischief imp, used only if the owner chooses Nursery option B"
+    "note": "shown_after_specified_contests counts files the shipping game would show once the specified contests ship (the twelve costumed careers, the Teacher and, pending confirmation, the Geologist on the detective family). The Teacher's interim imp is the plain mischief imp, so Nursery option B adds nothing further; if the recommended rival_teacher family replaces it, the mischief imp's 11 files are used only by Nursery option B."
   },
   "families": [
     {
@@ -2542,7 +2542,8 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "rest between beats [nursery, owner option B]"
+            "rest between beats [nursery, owner option B]",
+            "rest between beats [teacher]"
           ]
         },
         {
@@ -2557,7 +2558,8 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "ready before the contest [nursery, owner option B]"
+            "ready before the contest [nursery, owner option B]",
+            "ready before the contest [teacher]"
           ]
         },
         {
@@ -2572,7 +2574,8 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "working (reach) [nursery, owner option B]"
+            "working (reach) [nursery, owner option B]",
+            "working (reach) [teacher]"
           ]
         },
         {
@@ -2587,7 +2590,8 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "working (place) [nursery, owner option B]"
+            "working (place) [nursery, owner option B]",
+            "working (place) [teacher]"
           ]
         },
         {
@@ -2604,7 +2608,9 @@
           "contest_roles": [
             "defeat (3) [nursery, owner option B]",
             "after his flub [nursery, owner option B]",
-            "flub [nursery, owner option B]"
+            "flub [nursery, owner option B]",
+            "defeat (3) [teacher]",
+            "after his flub [teacher]"
           ]
         },
         {
@@ -2620,7 +2626,9 @@
           "shown_today_evidence": null,
           "contest_roles": [
             "worried near her finish [nursery, owner option B]",
-            "idle-pause freeze [nursery, owner option B]"
+            "idle-pause freeze [nursery, owner option B]",
+            "worried near her finish [teacher]",
+            "idle-pause freeze [teacher]"
           ]
         },
         {
@@ -2637,7 +2645,9 @@
           "contest_roles": [
             "she overtakes him [nursery, owner option B]",
             "defeat (1) [nursery, owner option B]",
-            "flub [nursery, owner option B]"
+            "flub [nursery, owner option B]",
+            "she overtakes him [teacher]",
+            "defeat (1) [teacher]"
           ]
         },
         {
@@ -2653,7 +2663,9 @@
           "shown_today_evidence": null,
           "contest_roles": [
             "entrance run-in [nursery, owner option B]",
-            "entrance crouch [nursery, owner option B]"
+            "entrance crouch [nursery, owner option B]",
+            "entrance run-in [teacher]",
+            "entrance crouch [teacher]"
           ]
         },
         {
@@ -2668,7 +2680,8 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "defeat (2) [nursery, owner option B]"
+            "defeat (2) [nursery, owner option B]",
+            "defeat (2) [teacher]"
           ]
         },
         {
@@ -2683,7 +2696,8 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "curtain call [nursery, owner option B]"
+            "curtain call [nursery, owner option B]",
+            "curtain call [teacher]"
           ]
         },
         {
@@ -2714,7 +2728,13 @@
             "ahead of her [nursery, owner option B]",
             "his win beat [nursery, owner option B]",
             "idle-pause freeze [nursery, owner option B]",
-            "flub [nursery, owner option B]"
+            "flub [nursery, owner option B]",
+            "entrance jump [teacher]",
+            "his win jump [teacher]",
+            "challenge [teacher]",
+            "ahead of her [teacher]",
+            "his win beat [teacher]",
+            "idle-pause freeze [teacher]"
           ]
         }
       ]
