@@ -35,6 +35,7 @@
     "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/.gdignore",
     "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/MACHINE_VERIFICATION.json",
     "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/README.md",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/REMOTE_VERIFICATION_RECEIPT.json",
     "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/context/approved_panorama.png",
     "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/index.html",
     "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/local_ai/01_fir/MOTION_MEASUREMENT.json",
@@ -216,9 +217,9 @@
       "evidence": "Final covered diff at baseline 7f068cb80766edd52a110cc1cb3958158f829822; authority/development ALL OK and 52 contract tests passed. Rechecked after adding final gate evidence and .gitattributes literal-byte rule; publication verified separately."
     },
     {
-      "command": "Anonymous HTTPS GET of immutable GitHub manifest and each listed payload file",
-      "result": "PENDING",
-      "evidence": "Remote publication/verifier receipt required; no delivered-handoff claim before it passes."
+      "command": "Anonymous HTTPS GET of immutable manifest and every payload file",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/REMOTE_VERIFICATION_RECEIPT.json; packet revision 29e59b1ca25a3ea83102f82b37f662942e15bcbd; 157 payload files; manifest SHA-256 c04543b7b7edb74ac07be786e5512085e346554ae79ab3802db4fc37478df7e8; payload SHA-256 f5d8f465afb3dcdb2dd9c93b30e2789584cf6dd1e1aa9ffbc3c8518d302a4737; no credentials; checked 2026-10-01T02:19:21Z"
     }
   ],
   "acceptance_gaps": "All outputs are reference drafts. Spatial source resampling/articulation is explicit; not human hand drawing, fresh independent frame redraws or accepted AI motion. Owner selection, production topology/contact/loop, engine sampling, phone/child and full-frame cinematic/release gates remain open. Backend credentials and applicable IMAGE_1 layout approval block external generation, not review publication. Related MA-VIS-002/006 lifecycles unchanged."
