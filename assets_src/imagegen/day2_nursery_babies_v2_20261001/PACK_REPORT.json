@@ -1,0 +1,128 @@
+{
+  "schema": "reef.nursery-baby-source-pack.v1",
+  "native_sha256": "1fb5b34ad4cb7e7fc669f6f075bbff1a82c79f004909c60a7eff4c8c9cd90ea4",
+  "method": "Exact nonoverlapping RGBA windows on transparent1024px canvases; no resampling, filtering, alpha repair, recolor or subject modification.",
+  "all_native_rgba_pixels_reconstructed": true,
+  "poses": [
+    {
+      "index": 0,
+      "path": "assets_src/imagegen/day2_nursery_babies_v2_20261001/baby_0_review.png",
+      "sha256": "106a8e37fda02b4c2256ececd01919eeaf4573d8cb29b071e70db4b0667dbb38",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_window": [
+        0,
+        0,
+        591,
+        887
+      ],
+      "padding_offset": [
+        216,
+        68
+      ],
+      "alpha_bounds": [
+        218,
+        78,
+        777,
+        938
+      ],
+      "painted_50pct_bounds": [
+        373,
+        80,
+        758,
+        934
+      ],
+      "visible_foot_uv": [
+        0.55224609375,
+        0.912109375
+      ],
+      "candidate_card_extent_px": 80,
+      "candidate_visible_height_px": 66.71875,
+      "source_rgba_window_exact": true,
+      "runtime_bound": false
+    },
+    {
+      "index": 1,
+      "path": "assets_src/imagegen/day2_nursery_babies_v2_20261001/baby_1_review.png",
+      "sha256": "0343a93316024575f8d220b2eec04df5eb7419fbe27eb3179d28fa05dee083f9",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_window": [
+        591,
+        0,
+        1182,
+        887
+      ],
+      "padding_offset": [
+        216,
+        68
+      ],
+      "alpha_bounds": [
+        323,
+        82,
+        734,
+        939
+      ],
+      "painted_50pct_bounds": [
+        331,
+        85,
+        720,
+        934
+      ],
+      "visible_foot_uv": [
+        0.51318359375,
+        0.912109375
+      ],
+      "candidate_card_extent_px": 80,
+      "candidate_visible_height_px": 66.328125,
+      "source_rgba_window_exact": true,
+      "runtime_bound": false
+    },
+    {
+      "index": 2,
+      "path": "assets_src/imagegen/day2_nursery_babies_v2_20261001/baby_2_review.png",
+      "sha256": "3f4298d40a51d3654130b2c0d9bad6ce3214cc91947f2133dbeed9736ab121d6",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_window": [
+        1182,
+        0,
+        1774,
+        887
+      ],
+      "padding_offset": [
+        216,
+        68
+      ],
+      "alpha_bounds": [
+        273,
+        78,
+        736,
+        937
+      ],
+      "painted_50pct_bounds": [
+        301,
+        80,
+        692,
+        933
+      ],
+      "visible_foot_uv": [
+        0.48486328125,
+        0.9111328125
+      ],
+      "candidate_card_extent_px": 80,
+      "candidate_visible_height_px": 66.640625,
+      "source_rgba_window_exact": true,
+      "runtime_bound": false
+    }
+  ],
+  "decoded_review_rgba_bytes": 12582912,
+  "qualification": "Source-only review PNGs.80px candidate extent approximately matches the original visible infant height; mounted socket, mobile budget and runtime production sizing remain unverified. No new production asset is bound.",
+  "owner_accepted": false
+}

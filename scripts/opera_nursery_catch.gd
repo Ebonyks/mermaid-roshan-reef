@@ -46,6 +46,8 @@ var backdrop_texture: Texture2D = null
 var retired_backdrop_path := ""
 var cradle_texture: Texture2D = null
 var pillows_texture: Texture2D = null
+var cushion_surface_rows: Array[int] = []
+var care: OperaNurseryCare = null
 
 
 func _ready() -> void:
@@ -59,6 +61,10 @@ func _ready() -> void:
 	pads.atlas = _load_if_exists("res://assets/opera/worlds/nursery/refinement_v1/pillows.png")
 	pads.region = Rect2(6, 115, 1014, 117)
 	pillows_texture = pads if pads.atlas != null else null
+	_measure_cushion_surface()
+	var body := OperaNurseryCare.new()
+	if body.setup():
+		care = body
 	for path: String in BABY_PATHS:
 		var texture := load(path) as Texture2D
 		if texture != null:
@@ -72,6 +78,23 @@ func _ready() -> void:
 
 func _load_if_exists(path: String) -> Texture2D:
 	return load(path) as Texture2D if ResourceLoader.exists(path) else null
+
+
+func _measure_cushion_surface() -> void:
+	cushion_surface_rows.clear()
+	if pillows_texture == null:
+		return
+	var image: Image = pillows_texture.get_image()
+	if image == null or image.is_empty():
+		return
+	# Cache native alpha geometry once, never download texture pixels per draw.
+	for column in range(image.get_width()):
+		var support_row := 0
+		for row in range(image.get_height()):
+			if image.get_pixel(column, row).a >= 0.5:
+				support_row = row
+				break
+		cushion_surface_rows.append(support_row)
 
 
 func start(next_goal: int) -> void:
@@ -89,6 +112,8 @@ func start(next_goal: int) -> void:
 	safe_landings.clear()
 	settled.clear()
 	transfers.clear()
+	if care != null:
+		care.reset(Vector2(catcher_x * size.x, size.y * CATCH_Y))
 	active = true
 	set_process(true)
 	queue_redraw()
@@ -134,6 +159,7 @@ func _gui_input(event: InputEvent) -> void:
 		var touch := event as InputEventScreenTouch
 		if touch.pressed and touch_index in [-1, touch.index]:
 			touch_index = touch.index
+			mouse_held = false
 			_set_catcher_from_local(touch.position)
 		elif not touch.pressed and touch.index == touch_index:
 			touch_index = -1
@@ -145,13 +171,17 @@ func _gui_input(event: InputEvent) -> void:
 		accept_event()
 	elif event is InputEventMouseButton and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT:
 		var button := event as InputEventMouseButton
-		if button.pressed:
+		if touch_index >= 0:
+			# Android may also deliver mouse emulation for the owned touch. It
+			# must not retarget the hand or keep an unrelated mouse hold alive.
+			mouse_held = false
+		elif button.pressed:
 			mouse_held = true
 			_set_catcher_from_local(button.position)
 		else:
 			mouse_held = false
 		accept_event()
-	elif event is InputEventMouseMotion and mouse_held:
+	elif event is InputEventMouseMotion and mouse_held and touch_index < 0:
 		_set_catcher_from_local((event as InputEventMouseMotion).position)
 		accept_event()
 
@@ -189,6 +219,9 @@ func _catch(entry: Dictionary) -> void:
 	settled.append(int(entry.get("texture", 0)))
 	transfers.append({"slot": settled.size() - 1, "texture": int(entry.get("texture", 0)),
 		"time": 0.0, "from_x": catcher_x})
+	if care != null:
+		transfers[-1]["hip_x"] = care.hip.x
+		transfers[-1]["hip_y"] = care.hip.y
 	baby_caught.emit(1.0)
 	if caught >= goal:
 		active = false
@@ -210,9 +243,12 @@ func _process(delta: float) -> void:
 		var transfer: Dictionary = transfers[index]
 		var age: float = float(transfer["time"]) + delta
 		transfer["time"] = age
-		if age <= HOLD_SECONDS:
+		if age <= HOLD_SECONDS and care == null:
 			transfer["from_x"] = catcher_x
-		if age >= HOLD_SECONDS + TRANSFER_SECONDS:
+		if care != null:
+			care.transfer_pose(transfer, resting_point(int(transfer["slot"])))
+		var finish: float = OperaNurseryCare.TRANSFER_TIME if care != null else HOLD_SECONDS + TRANSFER_SECONDS
+		if age >= finish:
 			transfers.remove_at(index)
 		else:
 			transfers[index] = transfer
@@ -220,6 +256,26 @@ func _process(delta: float) -> void:
 		set_process(not transfers.is_empty())
 		queue_redraw()
 		return
+	if care != null and not transfers.is_empty():
+		# Helping one baby must not make another fall faster or require a second
+		# finger. Hold the remaining mobile safely until this placement resolves.
+		input_live_t = maxf(0.0, input_live_t - delta)
+		queue_redraw()
+		return
+	if care != null:
+		var target_x: float = catcher_x
+		var nearest_y := -1.0
+		for waiting: Dictionary in fallers:
+			var y: float = float(waiting.get("y", 0.0))
+			var x: float = float(waiting.get("x", 0.5))
+			var reach := minf(0.22, 0.145 + float(missed) * 0.013)
+			if input_live_t > 0.0 and y >= CATCH_Y - 0.14 and y > nearest_y \
+				and absf(x - catcher_x) <= reach:
+				# Existing generous intent eligibility becomes an early visible
+				# hand approach. The baby keeps its actual falling lane.
+				target_x = x
+				nearest_y = y
+		care.seek_hand(Vector2(target_x * size.x, size.y * CATCH_Y), delta)
 	elapsed += delta
 	input_live_t = maxf(0.0, input_live_t - delta)
 	spawn_t -= delta
@@ -239,13 +295,17 @@ func _process(delta: float) -> void:
 		fallers[index] = entry
 		var catch_width := minf(0.22, 0.145 + float(missed) * 0.013)
 		var hands_on := input_live_t > 0.0
+		var hand: Vector2 = catch_point()
+		var contact_y: float = maxf(_catch_plane(), hand.y / maxf(1.0, size.y)) if care != null else _catch_plane()
+		var contact_x: float = hand.x / maxf(1.0, size.x) if care != null else catcher_x
+		var support_width: float = 12.0 / maxf(1.0, size.x) if care != null else catch_width
 		if (
-			hands_on and float(entry["y"]) >= _catch_plane() and float(entry["y"]) < _pillow_plane()
-			and absf(float(entry["x"]) - catcher_x) <= catch_width
+			hands_on and float(entry["y"]) >= contact_y and float(entry["y"]) < _pillow_plane()
+			and absf(float(entry["x"]) - contact_x) <= support_width
 		):
 			fallers.remove_at(index)
 			_catch(entry)
-			if not active:
+			if not active or care != null:
 				break
 		elif float(entry["y"]) >= _pillow_plane():
 			fallers.remove_at(index)
@@ -272,7 +332,7 @@ func _catch_plane() -> float:
 
 
 func _pillow_plane() -> float:
-	return PILLOW_Y
+	return OperaNurseryCare.FLOOR_Y if care != null else PILLOW_Y
 
 
 func _baby_anchor(texture_index: int) -> Vector2:
@@ -301,15 +361,28 @@ func _draw_baby(texture_index: int, point: Vector2, extent: float, opacity: floa
 
 
 func resting_point(slot: int) -> Vector2:
-	return Vector2(size.x * (0.10 + float(slot) * 0.20), size.y * PILLOW_Y)
+	return cushion_point(0.10 + float(slot) * 0.20)
+
+
+func cushion_point(normalized_x: float) -> Vector2:
+	var point := Vector2(size.x * normalized_x, size.y * _pillow_plane())
+	if cushion_surface_rows.is_empty():
+		return point
+	# The atlas canvas contains a small transparent margin above the paint.
+	# Measure the receiving surface at this actual x; no art is redrawn and
+	# a baby cannot float above the pad just because its canvas begins there.
+	var width := cushion_surface_rows.size()
+	var column := clampi(int(roundf(normalized_x * float(width))), 0, width - 1)
+	point.y += float(cushion_surface_rows[column]) * size.x / float(width)
+	return point
 
 
 func catch_point() -> Vector2:
-	return Vector2(catcher_x * size.x, size.y * CATCH_Y)
+	return care.hand_point() if care != null else Vector2(catcher_x * size.x, size.y * CATCH_Y)
 
 
 func _resting_extent() -> float:
-	return minf(56.0, size.x * 0.12)
+	return OperaNurseryCare.BABY_EXTENT if care != null else minf(56.0, size.x * 0.12)
 
 
 func _draw() -> void:
@@ -324,11 +397,11 @@ func _draw() -> void:
 
 	# Pillow-safe floor. A miss rests here while Faron gently returns the baby.
 	if pillows_texture != null:
-		# Keep the authored cushion aspect; its upper painted surface is the
-		# same support plane used by falling and resting babies.
+		# Keep the authored cushion aspect. cushion_point measures each receiving
+		# painted surface independently of the transparent top canvas edge.
 		var pad_height: float = size.x * 117.0 / 1014.0
 		draw_texture_rect(pillows_texture,
-			Rect2(0.0, size.y * PILLOW_Y, size.x, pad_height), false)
+			Rect2(0.0, size.y * _pillow_plane(), size.x, pad_height), false)
 	else:
 		for index in range(5):
 			var pillow_x := size.x * (0.10 + float(index) * 0.20)
@@ -337,7 +410,7 @@ func _draw() -> void:
 		var fade := clampf(float(landing.get("time", 0.0)) / 0.35, 0.0, 1.0)
 		_draw_baby(
 			int(landing.get("texture", 0)),
-			Vector2(float(landing.get("x", 0.5)) * size.x, size.y * PILLOW_Y),
+			cushion_point(float(landing.get("x", 0.5))),
 			minf(76.0, size.x * 0.21),
 			fade
 		)
@@ -345,7 +418,9 @@ func _draw() -> void:
 	# Roshan's broad cradle/arms move directly under the player's finger.
 	var catch_point: Vector2 = catch_point()
 	var catch_radius := minf(58.0, size.x * 0.15)
-	if cradle_texture != null:
+	if care != null:
+		care.draw_body(self)
+	elif cradle_texture != null:
 		draw_texture_rect(
 			cradle_texture,
 			Rect2(catch_point - PALM_UV * catch_radius * 2.0, Vector2.ONE * catch_radius * 2.0),
@@ -366,7 +441,7 @@ func _draw() -> void:
 		_draw_baby(
 			int(entry.get("texture", 0)),
 			Vector2(float(entry.get("x", 0.5)) * size.x, float(entry.get("y", 0.0)) * size.y),
-			minf(86.0, size.x * 0.23)
+			OperaNurseryCare.BABY_EXTENT if care != null else minf(86.0, size.x * 0.23)
 		)
 
 	# A caught baby stays on the palms before moving into its own fixed pad.
@@ -386,6 +461,9 @@ func _draw() -> void:
 			_resting_extent()
 		)
 	for transfer: Dictionary in transfers:
+		if care != null:
+			_draw_baby(int(transfer["texture"]), care.hand_point(), OperaNurseryCare.BABY_EXTENT)
+			continue
 		var age: float = float(transfer["time"])
 		var fraction: float = clampf((age - HOLD_SECONDS) / TRANSFER_SECONDS, 0.0, 1.0)
 		var from := Vector2(float(transfer["from_x"]) * size.x, size.y * CATCH_Y)

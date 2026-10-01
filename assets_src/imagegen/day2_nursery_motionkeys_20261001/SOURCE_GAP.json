@@ -1,0 +1,18 @@
+{
+  "baseline": "10fd9ff3b7bc8fbbcc5e82aa63db00bbaaf41b64",
+  "intent": "Roshan receives one baby in connected palms, lifts it securely, carries it to its cushion and lowers it to painted support before releasing.",
+  "lane": "interactive_gameplay_authored_states",
+  "sources": [
+    {
+      "path": "assets_src/imagegen/day2_nursery_body_20261001/candidates/attempt-01.png",
+      "sha256": "237b41d5a4291bbec8bb54039ccb6d0ef5e423be94265e53b9062d69494c10c7"
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_nursery_sheet_a.png",
+      "sha256": "9880fc9ac328b0112d8a7162c656b2a2d9471a4995dd11bd606607f12ca13a52"
+    }
+  ],
+  "reuse_decision": "Existing full-body keys already have provisional4.6 source opinions and are retained as identity/contact references. The shipping16 nursery atlas has baked bottle/blanket and washing gestures; it has no actual empty-palmed receiving/lowering sequence. Detached arms and rejected realistic local-motion studies cannot supply a connected body action.",
+  "named_gap": "The four recent body keys are held poses, not temporal in-betweens. At240px body extent, their hip-relative catch-to-hold palm shift is4.2px horizontal/16.1px vertical; hold-to-set-down shift is47.8px horizontal/26.4px vertical. Immediate switching would create unsupported prop/contact jumps. Generate only the missing controlled bridge states, preserving all originals.",
+  "acceptance": "Every new cell needs individual topology/style review, measured native geometry and a runtime contact study. This generation provides no cinematic delivery or owner acceptance."
+}

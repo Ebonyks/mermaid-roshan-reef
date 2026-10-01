@@ -1,0 +1,157 @@
+{
+	"checks": [
+		{
+			"check": "eight intact padded care bodies load without detached-arm fallback",
+			"pass": true
+		},
+		{
+			"check": "three intact baby textures have nonempty measured support anchors",
+			"pass": true
+		},
+		{
+			"check": "engine samples the declared 1014 by 117 cushion atlas window",
+			"pass": true
+		},
+		{
+			"check": "all five receiving slots meet their first actual painted alpha surface",
+			"pass": true
+		},
+		{
+			"check": "passive mercy remains safe without earning a catch",
+			"pass": true
+		},
+		{
+			"check": "a second finger cannot steal the first hand position",
+			"pass": true
+		},
+		{
+			"check": "emulated mouse input cannot steal an owned touch or latch a mouse hold",
+			"pass": true
+		},
+		{
+			"check": "touch release cannot leave a synthetic mouse drag alive",
+			"pass": true
+		},
+		{
+			"check": "ordinary mouse fallback works again after the touch releases",
+			"pass": true
+		},
+		{
+			"check": "focus loss clears ownership and remembered catch intent",
+			"pass": true
+		},
+		{
+			"check": "one fresh supported catch earns once and begins its retained transfer",
+			"pass": true
+		},
+		{
+			"check": "final catch still has a visible hold after scoring stops",
+			"pass": true
+		},
+		{
+			"check": "one supported body owns every held transfer state",
+			"pass": true
+		},
+		{
+			"check": "final transfer settles without awarding another catch",
+			"pass": true
+		},
+		{
+			"check": "five distinct resting slots remain fixed when the catcher moves",
+			"pass": true
+		},
+		{
+			"check": "a baby already at the floor cannot be scored as a hand catch",
+			"pass": true
+		},
+		{
+			"check": "teardown clears pending transfer and input ownership",
+			"pass": true
+		}
+	],
+	"failures": 0,
+	"godot": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"native_atlas_dimensions": [
+		1014,
+		117
+	],
+	"qualification": "Focused deterministic intent/lifecycle fixture; not visual/device/child/owner acceptance.",
+	"receiving_surface": [
+		{
+			"above_clear": true,
+			"local_contact": [
+				47.2000007629395,
+				278.196441650391
+			],
+			"native_xy": [
+				101,
+				3
+			],
+			"painted": true,
+			"slot": 0
+		},
+		{
+			"above_clear": true,
+			"local_contact": [
+				141.600006103516,
+				277.73095703125
+			],
+			"native_xy": [
+				304,
+				2
+			],
+			"painted": true,
+			"slot": 1
+		},
+		{
+			"above_clear": true,
+			"local_contact": [
+				236.0,
+				277.265472412109
+			],
+			"native_xy": [
+				507,
+				1
+			],
+			"painted": true,
+			"slot": 2
+		},
+		{
+			"above_clear": true,
+			"local_contact": [
+				330.399993896484,
+				277.265472412109
+			],
+			"native_xy": [
+				710,
+				1
+			],
+			"painted": true,
+			"slot": 3
+		},
+		{
+			"above_clear": true,
+			"local_contact": [
+				424.799987792969,
+				277.265472412109
+			],
+			"native_xy": [
+				913,
+				1
+			],
+			"painted": true,
+			"slot": 4
+		}
+	],
+	"source_sha256": "479919ee4770bc070da06ddbac553ee9dc9c933dccad6bbaf8874e865c02a92a"
+}

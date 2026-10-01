@@ -1,0 +1,55 @@
+{
+  "schema": "reef.interactive-action-contract.v1",
+  "character": "Roshan",
+  "profile": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+  "intent": "Receive, support, carry and gently place one baby on a cushion",
+  "lane": "interactive_gameplay_authored_states",
+  "progress_owner": "OperaNurseryCatch / OperaCareerWorld2D",
+  "presentation_owner": "OperaNurseryCare",
+  "clip_duration_seconds": 1.42,
+  "body_card_extent_px": 250,
+  "baby_extent_px": 72,
+  "states": [
+    {
+      "index": 0,
+      "name": "Anticipation / available"
+    },
+    {
+      "index": 1,
+      "name": "Receive"
+    },
+    {
+      "index": 2,
+      "name": "Lift"
+    },
+    {
+      "index": 3,
+      "name": "Hold / carry"
+    },
+    {
+      "index": 4,
+      "name": "First lower"
+    },
+    {
+      "index": 5,
+      "name": "Lower"
+    },
+    {
+      "index": 6,
+      "name": "Reach down"
+    },
+    {
+      "index": 7,
+      "name": "Set down"
+    }
+  ],
+  "contact": "One retained transfer; the baby bottom follows the measured authored palm socket until fixed cushion support. Other fallers wait during care.",
+  "trigger": "Fresh intentional one-finger input and arrival of the visible palms; no passive catch or reward",
+  "exit": "Final transfer settles before FEED; normal route actor becomes visible in its retained room rest",
+  "known_failure": "Hold-to-first-lower hip-relative palm change: [2.9296875,28.3203125] screen pixels. Action remains 4.2.",
+  "safe_return": "Separate unresolved 3.4 action: existing safe fade does not show pickup and return.",
+  "evidence": "body_v3/capture_index.json",
+  "device": "PENDING",
+  "child": "PENDING",
+  "owner": "PENDING"
+}

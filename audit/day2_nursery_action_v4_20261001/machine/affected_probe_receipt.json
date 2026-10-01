@@ -1,0 +1,161 @@
+{
+  "checked_utc": "2026-10-01T08:15:34.113737+00:00",
+  "baseline": "10fd9ff3b7bc8fbbcc5e82aa63db00bbaaf41b64",
+  "probes": [
+    {
+      "probe": "scripts/probe_dolls.gd",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "-s",
+        "scripts/probe_dolls.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "source_normalized_sha256": "536e12af775c2c4ee320c024622bab54db6596bfaefa089c18d081d34da2cf08",
+      "log_sha256": "8ba9e312efa500fd8b96808579e66094842e65659d675ac1f6fe9480efb7185c",
+      "failure_diagnostic": false,
+      "result": "PASS"
+    },
+    {
+      "probe": "scripts/probe_opera_nursery.gd",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "-s",
+        "scripts/probe_opera_nursery.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "source_normalized_sha256": "b79612ce95275915902fe7d7a334e4b2d45ce866be977be6b46f6551356bd7f9",
+      "log_sha256": "ea99b8b123e699dca13b66bab6a6a0fc607ad7af6509935a9623c08e23a24dac",
+      "failure_diagnostic": false,
+      "result": "PASS"
+    },
+    {
+      "probe": "scripts/probe_opera_2d.gd",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "-s",
+        "scripts/probe_opera_2d.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 1,
+      "source_normalized_sha256": "2ad70501b0bc45faf5017f911825716f68ef30a0614e58daa8b93c1b082e50d8",
+      "log_sha256": "01f61d1c9eb248db6fabd41ca210cb7fc272aaf09a8ba4e6ff534e0b72e9d633",
+      "failure_diagnostic": true,
+      "result": "FAIL"
+    },
+    {
+      "probe": "scripts/probe_opera_diegetic_paths.gd",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "-s",
+        "scripts/probe_opera_diegetic_paths.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "source_normalized_sha256": "6f7c6a451e9669885e514c18b107013b4bd11e4afa503b3dd1587785fe2aa81e",
+      "log_sha256": "8b4fa69dca1eb815b72a9592ac787d7f7cf9650e94c21745b3a3293da39dfeb8",
+      "failure_diagnostic": false,
+      "result": "PASS"
+    },
+    {
+      "probe": "scripts/probe_chapter2.gd",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "-s",
+        "scripts/probe_chapter2.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "source_normalized_sha256": "f9ddc3ac5f7310592c27b00d6e40e751c72380552a48eed7fec2ba88a985a65d",
+      "log_sha256": "1092124da1c6f8e97210fdbd4d1f0ccf76c293f9f00644cb50c934d5ce89192b",
+      "failure_diagnostic": false,
+      "result": "PASS"
+    },
+    {
+      "probe": "scripts/probe_l2_reenter.gd",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "-s",
+        "scripts/probe_l2_reenter.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "source_normalized_sha256": "4a753fbfe0c51a93630f610f2da089e0381c8b1a980750df6476bcb7611a93cd",
+      "log_sha256": "0836edebc4578a0f6ad00c902b5b9db5457646438bb895b91e769498e18b9b94",
+      "failure_diagnostic": false,
+      "result": "PASS"
+    },
+    {
+      "probe": "scripts/probe_passive.gd",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "-s",
+        "scripts/probe_passive.gd",
+        "--",
+        "--touch",
+        "--hybrid-touch-test"
+      ],
+      "exit_code": 0,
+      "source_normalized_sha256": "e266e523af5c629f98ca8b52acfd931de7659b455a58634ccde6a917f3b50e97",
+      "log_sha256": "5946d5388fd2fe27c4d0d930f2a17e9df27da03dc37b8d7fe0a2ffe76fe5395f",
+      "failure_diagnostic": false,
+      "result": "PASS"
+    },
+    {
+      "probe": "scripts/probe_audit.gd",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "-s",
+        "scripts/probe_audit.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "source_normalized_sha256": "79ef070b36b4188c2995a9dab0e0df99efd7469937267b4ac49cd58e2bd0d4cb",
+      "log_sha256": "176ade2560a67ec2d529be639876f8219f1dd1c5cbc654c2a9765e4ac50a2689",
+      "failure_diagnostic": false,
+      "result": "PASS"
+    }
+  ],
+  "all_complete": true,
+  "result": "PENDING_OR_FAILED",
+  "qualification": "Unmodified affected trusted probes in isolated native-Windows save roots; creative and device/child/owner acceptance remain separate."
+}

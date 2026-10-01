@@ -1,0 +1,66 @@
+{
+  "checked_utc": "2026-10-01T08:18:40.521883+00:00",
+  "baseline": "10fd9ff3b7bc8fbbcc5e82aa63db00bbaaf41b64",
+  "probes": [
+    {
+      "probe": "scripts/probe_opera_2d.gd",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "-s",
+        "scripts/probe_opera_2d.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "source_normalized_sha256": "2ad70501b0bc45faf5017f911825716f68ef30a0614e58daa8b93c1b082e50d8",
+      "log_sha256": "a1c1a8a0d6b0690f610f1bc0706e4d6c9dc783e7a2c0b6e9d3180e1d5c2a2b77",
+      "failure_diagnostic": false,
+      "result": "PASS"
+    },
+    {
+      "probe": "scripts/probe_opera_nursery.gd",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "-s",
+        "scripts/probe_opera_nursery.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "source_normalized_sha256": "b79612ce95275915902fe7d7a334e4b2d45ce866be977be6b46f6551356bd7f9",
+      "log_sha256": "ea99b8b123e699dca13b66bab6a6a0fc607ad7af6509935a9623c08e23a24dac",
+      "failure_diagnostic": false,
+      "result": "PASS"
+    },
+    {
+      "probe": "scripts/probe_opera_diegetic_paths.gd",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "-s",
+        "scripts/probe_opera_diegetic_paths.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "source_normalized_sha256": "6f7c6a451e9669885e514c18b107013b4bd11e4afa503b3dd1587785fe2aa81e",
+      "log_sha256": "8b4fa69dca1eb815b72a9592ac787d7f7cf9650e94c21745b3a3293da39dfeb8",
+      "failure_diagnostic": false,
+      "result": "PASS"
+    }
+  ],
+  "all_complete": true,
+  "result": "PASS",
+  "qualification": "Unmodified affected trusted probes in isolated native-Windows save roots; creative and device/child/owner acceptance remain separate."
+}

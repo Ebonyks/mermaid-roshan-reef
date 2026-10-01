@@ -1,0 +1,289 @@
+{
+  "schema": "reef.nursery-care-pack.v1",
+  "source": "assets_src/imagegen/day2_nursery_motionkeys_20261001/candidates/attempt-01.png",
+  "source_sha256": "2645fcce60cceefe09e50b20be3f7786ee0af2cd0d9097b3f52b26c2409ba663",
+  "native_dimensions": [
+    1774,
+    887
+  ],
+  "method": "Nonoverlapping exact RGBA windows on transparent 512px canvases; no resampling, filtering, recolour, alpha repair, warping, or subject redraw.",
+  "native_reconstruction_rgba_sha256": "04b811160156a8d7481807948c1ffae8b0259f9850994f4b51a8887950307832",
+  "all_source_rgba_pixels_reconstructed": true,
+  "socket_method": "Manual native anatomical/socket estimates; fit review pending.",
+  "poses": [
+    {
+      "index": 0,
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_00.png",
+      "sha256": "3af164a76b617cd66f2351c55c05ac6a0b7004924c8d5ace855c13680f63fa40",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_window": [
+        0,
+        0,
+        471,
+        453
+      ],
+      "padding_offset": [
+        20,
+        29
+      ],
+      "alpha_bounds": [
+        71,
+        50,
+        475,
+        477
+      ],
+      "hip_xy": [
+        235,
+        375
+      ],
+      "palm_xy": [
+        126,
+        293
+      ],
+      "pixel_copy_exact": true
+    },
+    {
+      "index": 1,
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_01.png",
+      "sha256": "f75ebef743b99a4411cc81adc296f852db19b25bb445257c3920cbabfa2ebac7",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_window": [
+        471,
+        0,
+        903,
+        453
+      ],
+      "padding_offset": [
+        40,
+        29
+      ],
+      "alpha_bounds": [
+        56,
+        51,
+        439,
+        467
+      ],
+      "hip_xy": [
+        222,
+        369
+      ],
+      "palm_xy": [
+        102,
+        278
+      ],
+      "pixel_copy_exact": true
+    },
+    {
+      "index": 2,
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_02.png",
+      "sha256": "0cb213591fe572cf65b0d3a693a339aef16a947734bd022eecdf5efdd02dfbef",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_window": [
+        903,
+        0,
+        1340,
+        453
+      ],
+      "padding_offset": [
+        37,
+        29
+      ],
+      "alpha_bounds": [
+        72,
+        48,
+        444,
+        466
+      ],
+      "hip_xy": [
+        230,
+        368
+      ],
+      "palm_xy": [
+        115,
+        258
+      ],
+      "pixel_copy_exact": true
+    },
+    {
+      "index": 3,
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_03.png",
+      "sha256": "ebe2ce0f99d77ee26f8a73a87d996ca965e6ebc37e431cb7c5fc16ae1732850a",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_window": [
+        1340,
+        0,
+        1774,
+        453
+      ],
+      "padding_offset": [
+        39,
+        29
+      ],
+      "alpha_bounds": [
+        66,
+        51,
+        437,
+        466
+      ],
+      "hip_xy": [
+        228,
+        367
+      ],
+      "palm_xy": [
+        108,
+        266
+      ],
+      "pixel_copy_exact": true
+    },
+    {
+      "index": 4,
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_04.png",
+      "sha256": "d2ed0cd68b4dcec66f197d4d327e6aa779957b95737d5abc2cd47e086981452d",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_window": [
+        0,
+        453,
+        471,
+        887
+      ],
+      "padding_offset": [
+        20,
+        39
+      ],
+      "alpha_bounds": [
+        39,
+        43,
+        488,
+        446
+      ],
+      "hip_xy": [
+        238,
+        354
+      ],
+      "palm_xy": [
+        124,
+        311
+      ],
+      "pixel_copy_exact": true
+    },
+    {
+      "index": 5,
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_05.png",
+      "sha256": "be6f72ec39952f056ff2f41373280e45b48ec6cae81f2e12536ab06943a1f302",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_window": [
+        471,
+        453,
+        903,
+        887
+      ],
+      "padding_offset": [
+        40,
+        39
+      ],
+      "alpha_bounds": [
+        44,
+        43,
+        458,
+        447
+      ],
+      "hip_xy": [
+        224,
+        356
+      ],
+      "palm_xy": [
+        104,
+        309
+      ],
+      "pixel_copy_exact": true
+    },
+    {
+      "index": 6,
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_06.png",
+      "sha256": "d03413a6df8bc4356058daabb996ae03ae520eede0bdaa645d8c4646cede9297",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_window": [
+        903,
+        453,
+        1348,
+        887
+      ],
+      "padding_offset": [
+        33,
+        39
+      ],
+      "alpha_bounds": [
+        47,
+        62,
+        472,
+        451
+      ],
+      "hip_xy": [
+        240,
+        357
+      ],
+      "palm_xy": [
+        115,
+        336
+      ],
+      "pixel_copy_exact": true
+    },
+    {
+      "index": 7,
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_07.png",
+      "sha256": "dc85f634f827020f61f52c3fccba4566f37bff566640ba486aee3606343a302c",
+      "dimensions": [
+        512,
+        512
+      ],
+      "source_window": [
+        1348,
+        453,
+        1774,
+        887
+      ],
+      "padding_offset": [
+        43,
+        39
+      ],
+      "alpha_bounds": [
+        49,
+        61,
+        452,
+        449
+      ],
+      "hip_xy": [
+        233,
+        359
+      ],
+      "palm_xy": [
+        97,
+        361
+      ],
+      "pixel_copy_exact": true
+    }
+  ],
+  "owner_accepted": false,
+  "runtime_contact_accepted": false
+}

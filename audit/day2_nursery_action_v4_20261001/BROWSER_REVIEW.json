@@ -1,0 +1,28 @@
+{
+  "reviewer": "Codex browser UI review",
+  "desktop": {
+    "actual_viewport": [
+      1280,
+      720
+    ],
+    "source_cards": 8,
+    "original_cards": 4,
+    "loaded_visible_images": 13,
+    "horizontal_overflow": false,
+    "trace_selection": "Current catch-1600x720 sample87/87,25.5s,5caught,0misses,FEED phase",
+    "result": "PASS"
+  },
+  "narrow_attempt": {
+    "requested_viewport": [
+      390,
+      844
+    ],
+    "observed_viewport": [
+      1280,
+      720
+    ],
+    "result": "NOT_ESTABLISHED",
+    "qualification": "The viewport override did not change the actual review tab size. No narrow responsive/device pass is claimed; the temporary override was reset and the temporary tab closed."
+  },
+  "owner_accepted": false
+}

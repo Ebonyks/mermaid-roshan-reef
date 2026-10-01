@@ -1,0 +1,183 @@
+{
+  "schema": "reef.job-artwork-freshness.v1",
+  "checked_utc": "2026-10-01T09:37:09.090909+00:00",
+  "sealed_library_revision": "9038246cf9b34005afb8bc28a2f81396930988b6",
+  "captured_production_revision": "ce0331738970205a5aead4d3e0258eb7873a1642",
+  "working_head": "10fd9ff3b7bc8fbbcc5e82aa63db00bbaaf41b64",
+  "cached_origin_dev": "c5e98477efe4fe3c36d6bffe68818d84c2d08325",
+  "baseline_sources": 777,
+  "baseline_inclusive_source_priorities": 552,
+  "changed_source_art": [],
+  "source_byte_formatting_only": [
+    {
+      "id": "D2A-0387",
+      "path": "assets/opera/worlds/hotspots/geologist_fossil.svg",
+      "baseline_sha256": "2031077dbe2018151e0b9324bd88699bf1a7a95e0195bf08e6bce7ac79a4544c",
+      "current_sha256": "058d257160448dabf8b6bce78cbb0a7c6b1bdedbacc6e47db908c5d501d4e3bd",
+      "qualification": "Only CRLF/LF checkout formatting differs; SVG content is unchanged."
+    },
+    {
+      "id": "D2A-0388",
+      "path": "assets/opera/worlds/hotspots/geologist_layered_rock.svg",
+      "baseline_sha256": "a9ad70a8b9e4125a43836013544ece5bf48a4977e029573810b7249d3d6427c6",
+      "current_sha256": "5bca0522dbadf1fb5658a99f58a9ea88d15ed62d27966db4e4829ef692d3bcce",
+      "qualification": "Only CRLF/LF checkout formatting differs; SVG content is unchanged."
+    },
+    {
+      "id": "D2A-0390",
+      "path": "assets/opera/worlds/hotspots/teacher_lesson_board.svg",
+      "baseline_sha256": "c640d1697ae5aea4c948ab3abf2675866a96f8c1918821a8fbc63580516bee00",
+      "current_sha256": "74eb7da7e7f5ad516ac157c89388983e7a3c63ca9987dba44157ae5e0c852043",
+      "qualification": "Only CRLF/LF checkout formatting differs; SVG content is unchanged."
+    },
+    {
+      "id": "D2A-0409",
+      "path": "assets/opera/worlds/props/goal_geologist.svg",
+      "baseline_sha256": "14023de6e1338fb209b06be58dc37574060c3a22bcb08f3506843389620c2f50",
+      "current_sha256": "09ba5403d9d5bfbafec397f884fec4c725e50b3ba643c6ab66e4dd346d16b150",
+      "qualification": "Only CRLF/LF checkout formatting differs; SVG content is unchanged."
+    },
+    {
+      "id": "D2A-0429",
+      "path": "assets/opera/worlds/ui/crests/opera_crest_geologist.svg",
+      "baseline_sha256": "14023de6e1338fb209b06be58dc37574060c3a22bcb08f3506843389620c2f50",
+      "current_sha256": "09ba5403d9d5bfbafec397f884fec4c725e50b3ba643c6ab66e4dd346d16b150",
+      "qualification": "Only CRLF/LF checkout formatting differs; SVG content is unchanged."
+    }
+  ],
+  "changed_capture_dependencies": [
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "baseline_normalized_sha256": "2c68784b3e7f13cc872fd8884180e53f0dbf0891fb7a1d8341e712b65982e9fb",
+      "current_normalized_sha256": "40d1b44d34ae60ef59101bad9cafff18008d560b906a13b5df481335828d1632"
+    },
+    {
+      "path": "scripts/opera_nursery_catch.gd",
+      "baseline_normalized_sha256": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431",
+      "current_normalized_sha256": "0ce626ece555740df90fab139e6fb461e9f7748d90a43b3822c77ab4cb13e0a3"
+    }
+  ],
+  "watched_game_scripts": 293,
+  "changed_game_scripts": [
+    {
+      "path": "scripts/games/dolls.gd",
+      "baseline_git_blob": "93865119d9ea972aefc66d18257fb6ccdb0847b3",
+      "current_normalized_git_blob": "7c743767f7ec412d0294920459375a85c548a966"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "baseline_git_blob": "043b81b3b36719071d344cbe703149f670a9f4ad",
+      "current_normalized_git_blob": "bda1a4d1f89326c419f22982a5ef5d77639da20f"
+    },
+    {
+      "path": "scripts/opera_nursery_care.gd",
+      "baseline_git_blob": null,
+      "current_normalized_git_blob": "6de160a2b255330b48d667d105c3e7eeb427501d"
+    },
+    {
+      "path": "scripts/opera_nursery_catch.gd",
+      "baseline_git_blob": "f0a192b9b11d2e83f5334fd88fa5bbd5c2062b1b",
+      "current_normalized_git_blob": "65ba550baaad0cc899e6e58892a76ba1748b9fcb"
+    }
+  ],
+  "new_care_pose_bindings": [
+    {
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_00.png",
+      "declared_sha256": "3af164a76b617cd66f2351c55c05ac6a0b7004924c8d5ace855c13680f63fa40",
+      "current_sha256": "3af164a76b617cd66f2351c55c05ac6a0b7004924c8d5ace855c13680f63fa40",
+      "role": "Nursery connected-body candidate; creative/action acceptance remains open."
+    },
+    {
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_01.png",
+      "declared_sha256": "f75ebef743b99a4411cc81adc296f852db19b25bb445257c3920cbabfa2ebac7",
+      "current_sha256": "f75ebef743b99a4411cc81adc296f852db19b25bb445257c3920cbabfa2ebac7",
+      "role": "Nursery connected-body candidate; creative/action acceptance remains open."
+    },
+    {
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_02.png",
+      "declared_sha256": "0cb213591fe572cf65b0d3a693a339aef16a947734bd022eecdf5efdd02dfbef",
+      "current_sha256": "0cb213591fe572cf65b0d3a693a339aef16a947734bd022eecdf5efdd02dfbef",
+      "role": "Nursery connected-body candidate; creative/action acceptance remains open."
+    },
+    {
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_03.png",
+      "declared_sha256": "ebe2ce0f99d77ee26f8a73a87d996ca965e6ebc37e431cb7c5fc16ae1732850a",
+      "current_sha256": "ebe2ce0f99d77ee26f8a73a87d996ca965e6ebc37e431cb7c5fc16ae1732850a",
+      "role": "Nursery connected-body candidate; creative/action acceptance remains open."
+    },
+    {
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_04.png",
+      "declared_sha256": "d2ed0cd68b4dcec66f197d4d327e6aa779957b95737d5abc2cd47e086981452d",
+      "current_sha256": "d2ed0cd68b4dcec66f197d4d327e6aa779957b95737d5abc2cd47e086981452d",
+      "role": "Nursery connected-body candidate; creative/action acceptance remains open."
+    },
+    {
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_05.png",
+      "declared_sha256": "be6f72ec39952f056ff2f41373280e45b48ec6cae81f2e12536ab06943a1f302",
+      "current_sha256": "be6f72ec39952f056ff2f41373280e45b48ec6cae81f2e12536ab06943a1f302",
+      "role": "Nursery connected-body candidate; creative/action acceptance remains open."
+    },
+    {
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_06.png",
+      "declared_sha256": "d03413a6df8bc4356058daabb996ae03ae520eede0bdaa645d8c4646cede9297",
+      "current_sha256": "d03413a6df8bc4356058daabb996ae03ae520eede0bdaa645d8c4646cede9297",
+      "role": "Nursery connected-body candidate; creative/action acceptance remains open."
+    },
+    {
+      "path": "assets/opera/worlds/nursery/refinement_v2/care_07.png",
+      "declared_sha256": "dc85f634f827020f61f52c3fccba4566f37bff566640ba486aee3606343a302c",
+      "current_sha256": "dc85f634f827020f61f52c3fccba4566f37bff566640ba486aee3606343a302c",
+      "role": "Nursery connected-body candidate; creative/action acceptance remains open."
+    }
+  ],
+  "day_one_discovery_freshness": {
+    "inventory_present": true,
+    "watched_assets": 48,
+    "changed_assets": [],
+    "unavailable_assets": [],
+    "reused_source_opinions": 12,
+    "new_source_reviews_pending": 0,
+    "new_source_opinions_completed": 36,
+    "source_cells_reviewed": 30
+  },
+  "existing_literal_job_art_not_in_baseline_inventory": [
+    "assets/opera/worlds/nursery/refinement_v1/cradle.png",
+    "assets/opera/worlds/nursery/refinement_v1/pillows.png"
+  ],
+  "unresolved_literal_paths": [
+    "assets/opera/worlds/widgets/popstar_star_note_lit.png",
+    "assets/opera/worlds/widgets/popstar_star_note_unlit.png",
+    "assets/opera/worlds/widgets/widget_crank_magician_portal_mover.png",
+    "assets/opera/worlds/widgets/widget_crank_magician_portal_overlay.png",
+    "assets/opera/worlds/widgets/widget_crank_magician_portal_ring.png",
+    "assets/opera/worlds/widgets/widget_pipe_intake.png",
+    "assets/opera/worlds/widgets/widget_pipe_tank.png",
+    "assets/opera/worlds/widgets/widget_portal_magician_overlay.png",
+    "assets/opera/worlds/widgets/widget_portal_magician_ring.png"
+  ],
+  "dynamic_binding_templates": [
+    "assets/flats/castle/interactions_v4/background_tiles/room_library_background_r%d_c%d.png",
+    "assets/opera/worlds/actors/%s.png",
+    "assets/opera/worlds/actors/animation/roshan_%s_sheet_a.png",
+    "assets/opera/worlds/actors/rival_%s.png",
+    "assets/opera/worlds/actors/roshan_%s.png",
+    "assets/opera/worlds/backdrops/%s_%s_c%dr%d.png",
+    "assets/opera/worlds/backdrops/world_%s.png",
+    "assets/opera/worlds/nursery/baby_%d.png",
+    "assets/opera/worlds/stage/finale_stage_c%dr%d.png",
+    "assets/opera/worlds/widgets/widget_pipe_%s.png",
+    "assets/opera/worlds/widgets/widget_push_shared_%s.png",
+    "assets/opera/worlds/widgets/widget_target_%s_piece_%d.png",
+    "assets/opera/worlds/widgets/widget_target_farmer_piece_%d.png"
+  ],
+  "unavailable_in_checkout": [],
+  "capture_freshness": "REVIEW_REFRESH_REQUIRED",
+  "qualification": "Literal references supplement the existing dynamic census; they do not establish every loaded/drawn image. A changed hash is a review trigger, not a defect or automatic score. The sealed report is preserved.",
+  "coverage": {
+    "day_two_training_story_shared_outputs": "Sealed777-source first pass plus unfinished nursery supplements; normal traversal and all played actions remain open.",
+    "day_one_cleaning": "Additional48-file/179-drawing-function discovery census: 12 earlier byte-identical opinions, 36 new source opinions, 30 source cells and0 discovered-source reviews pending. Main helpers, dynamic bindings, remaining atlas cells and complete played-context review remain open; no complete census or acceptance is claimed.",
+    "all_weak_live_items": "INCOMPLETE: no global4.5 pass is claimed.",
+    "owner_final_report": "PENDING_APPROVAL_AFTER_COMPLETE_REPORT"
+  },
+  "refresh_command": "python -B tools/refresh_job_artwork_status.py --output audit/job_artwork_refinement_live/STATUS.json"
+}

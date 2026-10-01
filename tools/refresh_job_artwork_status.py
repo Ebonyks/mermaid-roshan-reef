@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / "audit/day2_job_contexts_2026-09-30/inventory.json"
-OUT = ROOT / "audit/job_artwork_refinement_20261001/STATUS.json"
+OUT = ROOT / "audit/job_artwork_refinement_live/STATUS.json"
 
 
 def digest(raw: bytes) -> str:
@@ -82,6 +82,43 @@ def status() -> dict:
         if oid != baseline_scripts.get(name):
             script_changes.append({"path": name, "baseline_git_blob": baseline_scripts.get(name),
                                    "current_normalized_git_blob": oid})
+    care_bindings = []
+    care_data = ROOT / "assets/opera/worlds/nursery/refinement_v2/care_keys.json"
+    if care_data.is_file():
+        for pose in json.loads(care_data.read_text(encoding="utf-8"))["poses"]:
+            path = ROOT / pose["path"]
+            care_bindings.append({"path": pose["path"], "declared_sha256": pose["sha256"],
+                                  "current_sha256": digest(path.read_bytes()) if path.is_file() else None,
+                                  "role": "Nursery connected-body candidate; creative/action acceptance remains open."})
+    day_one = {"inventory_present": False, "watched_assets": 0, "changed_assets": [],
+               "unavailable_assets": [], "reused_source_opinions": 0, "new_source_reviews_pending": 0,
+               "new_source_opinions_completed": 0, "source_cells_reviewed": 0}
+    day_one_path = ROOT / "audit/day_one_job_art_census_20261001/inventory.json"
+    if day_one_path.is_file():
+        census = json.loads(day_one_path.read_text(encoding="utf-8"))
+        day_one.update(inventory_present=True, watched_assets=len(census["items"]),
+                       reused_source_opinions=census["prior_exact_source_opinions_reused"],
+                       new_source_reviews_pending=census["remaining_source_review_pending"],
+                       new_source_opinions_completed=census.get("new_source_opinions_completed", 0),
+                       source_cells_reviewed=census.get("individual_source_cells_reviewed", 0))
+        for item in census["items"]:
+            path = ROOT / item["path"]
+            if path.is_file():
+                raw = path.read_bytes()
+            else:
+                # Sparse checkout is not a deleted asset. Read the current
+                # committed object without restoring or modifying its pixels.
+                result = subprocess.run(["git", "show", "HEAD:" + item["path"]],
+                                        cwd=ROOT, capture_output=True)
+                if result.returncode:
+                    day_one["unavailable_assets"].append(item["path"])
+                    continue
+                raw = result.stdout
+            current_hash = digest(raw)
+            if current_hash != item["sha256"]:
+                day_one["changed_assets"].append({"id": item["id"], "path": item["path"],
+                                                 "baseline_sha256": item["sha256"],
+                                                 "current_sha256": current_hash})
     return {
         "schema": "reef.job-artwork-freshness.v1",
         "checked_utc": datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -96,30 +133,39 @@ def status() -> dict:
         "changed_capture_dependencies": source_deltas,
         "watched_game_scripts": len(set(baseline_scripts) | current_scripts),
         "changed_game_scripts": script_changes,
+        "new_care_pose_bindings": care_bindings,
+        "day_one_discovery_freshness": day_one,
         "existing_literal_job_art_not_in_baseline_inventory": sorted(
             p for p in literal_art - known if "%" not in p and (ROOT / p).is_file()),
         "unresolved_literal_paths": sorted(p for p in literal_art - known if "%" not in p and not (ROOT / p).is_file()),
         "dynamic_binding_templates": sorted(p for p in literal_art if "%" in p),
         "unavailable_in_checkout": sorted(set(unavailable)),
-        "capture_freshness": "REVIEW_REFRESH_REQUIRED" if changed or source_deltas or script_changes or unavailable else "BASELINE_BYTES_MATCH",
+        "capture_freshness": "REVIEW_REFRESH_REQUIRED" if changed or source_deltas or script_changes or unavailable or day_one["changed_assets"] or day_one["unavailable_assets"] else "BASELINE_BYTES_MATCH",
         "qualification": "Literal references supplement the existing dynamic census; they do not establish every loaded/drawn image. A changed hash is a review trigger, not a defect or automatic score. The sealed report is preserved.",
         "coverage": {
             "day_two_training_story_shared_outputs": "Sealed777-source first pass plus unfinished nursery supplements; normal traversal and all played actions remain open.",
-            "day_one_cleaning": "PENDING: included under the stated all-job-days assumption; neither complete graphics census nor played-context acceptance is claimed.",
+            "day_one_cleaning": f"Additional{day_one['watched_assets']}-file/179-drawing-function discovery census: {day_one['reused_source_opinions']} earlier byte-identical opinions, {day_one['new_source_opinions_completed']} new source opinions, {day_one['source_cells_reviewed']} source cells and{day_one['new_source_reviews_pending']} discovered-source reviews pending. Main helpers, dynamic bindings, remaining atlas cells and complete played-context review remain open; no complete census or acceptance is claimed.",
             "all_weak_live_items": "INCOMPLETE: no global4.5 pass is claimed.",
             "owner_final_report": "PENDING_APPROVAL_AFTER_COMPLETE_REPORT",
         },
-        "refresh_command": "python -B tools/refresh_job_artwork_status.py",
+        "refresh_command": "python -B tools/refresh_job_artwork_status.py --output audit/job_artwork_refinement_live/STATUS.json",
     }
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="Compare saved status with current sources without writing.")
+    parser.add_argument("--output", default=OUT.relative_to(ROOT).as_posix(),
+                        help="Mutable live status or a new review snapshot; sealed earlier packets are preserved.")
     args = parser.parse_args()
+    output = (ROOT / args.output).resolve()
+    if not output.is_relative_to((ROOT / "audit").resolve()):
+        raise SystemExit("Status output must remain inside this project's audit directory")
+    if not args.check and output.is_relative_to((ROOT / "audit/job_artwork_refinement_20261001").resolve()):
+        raise SystemExit("The earlier published status packet is sealed; use a new snapshot or the mutable live status")
     current = status()
     if args.check:
-        saved = json.loads(OUT.read_text(encoding="utf-8"))
+        saved = json.loads(output.read_text(encoding="utf-8"))
         current.pop("checked_utc")
         saved.pop("checked_utc")
         # A documentation-only commit or remote ref move does not stale captures.
@@ -130,8 +176,8 @@ def main() -> None:
             raise SystemExit("JOB_ART_STATUS|STALE|Run the refresh command; no scores were changed")
         print("JOB_ART_STATUS|CURRENT|Source fingerprints match saved status; acceptance remains open")
     else:
-        OUT.parent.mkdir(parents=True, exist_ok=True)
-        OUT.write_text(json.dumps(current, indent=2) + "\n", encoding="utf-8")
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(json.dumps(current, indent=2) + "\n", encoding="utf-8")
         print("JOB_ART_STATUS|REFRESHED|", current["capture_freshness"], "|changed_dependencies=", len(current["changed_capture_dependencies"]))
 
 

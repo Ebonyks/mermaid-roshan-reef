@@ -1,0 +1,3562 @@
+{
+  "schema": "reef.day-one-job-art-census.v1",
+  "production_revision": "10fd9ff3b7bc8fbbcc5e82aa63db00bbaaf41b64",
+  "scope": "Named Day One bathroom/pool/stuffie/art, castle dressing and contact/dust presentation; direct declared script dependencies only. Shared Main helper bodies, runtime node inspection, class-name-only/directory-fragment references, atlas cells and full played phases remain pending.",
+  "sources": [
+    {
+      "path": "scripts/arena/castle_fixture_rigs.gd",
+      "literal_sha256": "c0efa70a5a00ba5c6204b5c960ce6de4ea702971dc7554cda23b32bf42f895e1",
+      "normalized_lf_sha256": "118af0b72b82d0bde5ab6ea701303fd8469a40b24f4fc2db607a109a5cddd6af"
+    },
+    {
+      "path": "scripts/arena/castle_rooms_25d.gd",
+      "literal_sha256": "95a7027d0b44b837b82a203da6a6c3794ee24f56c2d780af9aa4b042c9c232a2",
+      "normalized_lf_sha256": "6846b13f4ab854c7a8003ce33ea72b4b7be036f9a12e711c3b23f4dcd5b95aab"
+    },
+    {
+      "path": "scripts/arena/day_one_castle_dressing.gd",
+      "literal_sha256": "51e7de19690e2326e1c8d2b9c954461ec89ecda0d8734cb9c0905b35006e1033",
+      "normalized_lf_sha256": "5cd4b7f5933e532446f2dd05a85829644e4a9a734ce687065016f0bb18bd79b6"
+    },
+    {
+      "path": "scripts/boss_splash_2d.gd",
+      "literal_sha256": "62e9c65d87ff2a25f384fe16db444257326fea98ad72358f744103a3138ae141",
+      "normalized_lf_sha256": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2"
+    },
+    {
+      "path": "scripts/castle_door_cue.gd",
+      "literal_sha256": "f2a511a5a124fe3d336f80e9629dc4d53016c381c37233ac3a6bf1732dd5a849",
+      "normalized_lf_sha256": "0932feb34209b3dbd3e2738b32a7dddf0ee99ab607251356bb4fbac9cc7f895d"
+    },
+    {
+      "path": "scripts/castle_door_language.gd",
+      "literal_sha256": "20e166175a30e267899716108aade2315784ee07ff6cbee70821ea4f2909bac8",
+      "normalized_lf_sha256": "54d6cb97a34ffd0cd8ca8b916312d39c157856860db2fa2d1592f9b042ea3b5f"
+    },
+    {
+      "path": "scripts/day_one_art_studio.gd",
+      "literal_sha256": "a807cdcd8003ff368ebb6c8f85e19597eb9d60e2ed5e759bc1de0300f6a0ab1c",
+      "normalized_lf_sha256": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a"
+    },
+    {
+      "path": "scripts/day_one_contact_action_2d.gd",
+      "literal_sha256": "c79438858da025d35e8d61f05b6e72ee74d7b1cba64f156775b255db66c34d98",
+      "normalized_lf_sha256": "0dcbb203d7ec179fa3347f6fca0aa62895bf650b64e2f12d6c1440e970716778"
+    },
+    {
+      "path": "scripts/day_one_director.gd",
+      "literal_sha256": "1f26f9136d1b9eca6699dd91ffd17c0d36c04797d29ec9f858b1476f8aa87804",
+      "normalized_lf_sha256": "33235c3ff99454fd9b6b8ec3724cc246457abdef5dcb1cdd9d0401b438c35cbf"
+    },
+    {
+      "path": "scripts/dust_boss_lesson_2d.gd",
+      "literal_sha256": "50fd0897b2a78381c76ddba995622552d91e5d3b41a3f6b971581b1d9d6a2ba0",
+      "normalized_lf_sha256": "7a445184e36eaaed6d29886ae2197c0f0deef10362706c233c889af8df42fbd4"
+    },
+    {
+      "path": "scripts/dust_boss_telegraph_2d.gd",
+      "literal_sha256": "69ee774976c8fe338356c6e0fac4e4c5acad5d24156c6a9f324febf1dd02feed",
+      "normalized_lf_sha256": "ce1713cadd0eae48ae42c86ee5367193fdf5cb490097dbf54a10ad94f72b2982"
+    },
+    {
+      "path": "scripts/dust_bunny_boss_sprite.gd",
+      "literal_sha256": "3b97476eed2103256e3d6b1c5b6699b60b2081d4f5566aa53e5faeb3ae7f184a",
+      "normalized_lf_sha256": "106bedcba3881d2b9c6d105947aa14e89a06b21caf8b59e078290cacaac93739"
+    },
+    {
+      "path": "scripts/dust_bunny_sprite.gd",
+      "literal_sha256": "e103d0402cea68429d7af2d2e44f161aaafd84df91e227d31ca6549db5d9a1f5",
+      "normalized_lf_sha256": "4880c9090d6e8f70b7ed6fb9e251a4bcb5d86e0ce8d325c4c30c57f4969fa837"
+    },
+    {
+      "path": "scripts/encounter_telegraph_2d.gd",
+      "literal_sha256": "b816b8a4f9ee94f3dcb2d008a2978eca95dc0ccdd65c9dbd4b380f0b4929c822",
+      "normalized_lf_sha256": "f31b0ba990a8e1d70a8688460b810bb8c43ed91f42f7eaa0241f5cddc87abb29"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleaning.gd",
+      "literal_sha256": "feccc021210b166efe39486957f2537591d05c9e13d40040ab1cffcf56fce594",
+      "normalized_lf_sha256": "f81f7b928ba40c0665951e9216971447d4920dc62dd1703650ef762c21143f2d"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_cleanup.gd",
+      "literal_sha256": "c43add29686123d3fc89a8fcf5e34564b0039f94c899773cb610173452173455",
+      "normalized_lf_sha256": "aa5b836fb467f469c0c3b3b2cfb9e6f848315c3807b50554150f71e9835b7f95"
+    },
+    {
+      "path": "scripts/games/day_one_bathroom_toilet.gd",
+      "literal_sha256": "98de0dd564df398805485e664d6f808db367450780b0455d716d9069fbd16643",
+      "normalized_lf_sha256": "28413b931406d85afaaa45ab5e50133aa1df042d2aa29edb932096a0a752ed36"
+    },
+    {
+      "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "literal_sha256": "ac5ccb389f9802b03b7a5164961ce159d23750bda3346347c7211ebb385adeac",
+      "normalized_lf_sha256": "1f508b69f4e40ad7ccdca9234b5510b889841e1fe6a12f3b217d0c682dca6340"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "literal_sha256": "11e9936ad3c67a271d77f8694b3a3d3ec9fcade42bef65a687aa927d1a937593",
+      "normalized_lf_sha256": "06cc9c0f276cfeac16aba85f7e93c443532c87d218428e48810cb422968175f0"
+    },
+    {
+      "path": "scripts/games/dust_boss.gd",
+      "literal_sha256": "0d6f2acbbeaccb13d751ca3e10d5422f0ee33be372d83bb90827836ae9b85917",
+      "normalized_lf_sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d"
+    },
+    {
+      "path": "scripts/games/dust_boss_patterns.gd",
+      "literal_sha256": "52a5b26bf77ddc07805c063c0b1a733169ae04330a3083b100dcbd7e821af655",
+      "normalized_lf_sha256": "530c25b906a3c88a336f1492517dc94b67fd7835b93aaac4afbcd437a727360c"
+    },
+    {
+      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "literal_sha256": "b2ae032a1b126cdcee0366e733a3a01009a6e80c3600d7067616392be2be3a73",
+      "normalized_lf_sha256": "72279c1b2ea982c1f9212a56e35b5aa1b08fdb119e80e01f5562852a71236bb8"
+    },
+    {
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "literal_sha256": "dc4e8d159a29a3d70a437b82c7a04b4bed5837c56e7b5fb4bebeeabb1eb5e970",
+      "normalized_lf_sha256": "b753090c65b6cfc2483cb66c47b99b46310caa2a7e7efec131216f704abd13c8"
+    },
+    {
+      "path": "scripts/games/pool_waterfall_activity.gd",
+      "literal_sha256": "7460f5bcc44c97345298ce7b90c24d6e1b505f23fe75d4b52fcddb354136ac7d",
+      "normalized_lf_sha256": "1374edc17af0fa536230a41e43f2fc2454f48e42eb2ad55b871e978d549687e4"
+    },
+    {
+      "path": "scripts/interaction_affordance.gd",
+      "literal_sha256": "c6191e6ffc25c40423e5b11b46971485c2476d07f30ce91b4b863d96024fc73d",
+      "normalized_lf_sha256": "3c01ea0dc292bbccde681e7eba71efcaeb3c68c7e0a2e84a6ea4c2a66a8b5644"
+    },
+    {
+      "path": "scripts/roshan_sprite_anchors.gd",
+      "literal_sha256": "db1b235b6420fd0d29814411c49b47b901239a9f6cf28c62c074ac37026e09cc",
+      "normalized_lf_sha256": "a4d1b54324bb8faa959ec88d82ccf728efeec9cdb4134fac761b119cfac731a5"
+    },
+    {
+      "path": "scripts/roshan_sprite_frames.gd",
+      "literal_sha256": "ae237be824d5c7a365009ac36a4d10fd2786665ee3bfd9b5c8eaea014d653e8c",
+      "normalized_lf_sha256": "41860fcd11e0ee071cc1c7c8bacc8242160b209b73c3a5d4bc1d2eda4a908d81"
+    },
+    {
+      "path": "scripts/roshan_sprite_loop.gd",
+      "literal_sha256": "019c2b0cb54d97fffe55d0f30d25e24eb206db509bd820a546f8b004091137a7",
+      "normalized_lf_sha256": "7aa1f3058cce542b241ffb40817f0611922f60520d8b468b9bc7f356b2b82ab2"
+    },
+    {
+      "path": "scripts/sprite_transition_2d.gd",
+      "literal_sha256": "b2591c20ae4fe1ef95cb72e8854087f42556abd916c7b721e84c37bdf8cc2bff",
+      "normalized_lf_sha256": "0a5c87ff8c4eb812bc2b352382f069c82771f1f39860e9adece4b35a04bf4bd5"
+    },
+    {
+      "path": "scripts/stage_navigation_2d.gd",
+      "literal_sha256": "8fa2ae5b11da88b10b79f9d2b9d710452814062ec0165bd53b910a62f87f187e",
+      "normalized_lf_sha256": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b"
+    }
+  ],
+  "items": [
+    {
+      "id": "D1A-0001",
+      "path": "assets/book/hall/p_garden.jpg",
+      "sha256": "15ad84db35c564ed44d4395eaac29cad1fcdfb5444646d6d572bb43b9e414ec2",
+      "bytes": 102498,
+      "dimensions": [
+        514,
+        720
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/arena/castle_rooms_25d.gd",
+          "line": 261,
+          "reference": "assets/book/hall/p_garden.jpg",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/book/hall/p_garden.jpg",
+        "sha256": "15ad84db35c564ed44d4395eaac29cad1fcdfb5444646d6d572bb43b9e414ec2",
+        "score": 4.6,
+        "score_lane": "source_visual",
+        "evaluation": "Roshan watering the plants retains the protected rainbow forelock, pink costume and lavender tail. The pink watering can separates from the foliage and the pale aqua page keeps a clear foreground group. Fine leaves and embedded prose belong to this preserved book scene; current hall mounting and phone readability remain unreviewed.",
+        "next_review_or_refinement": "Reuse the protected source. If the live decoration competes with a task, adjust its non-destructive framing and display size after native review; do not redraw the scene.",
+        "mounted_score": null,
+        "priority": false,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": true
+      }
+    },
+    {
+      "id": "D1A-0002",
+      "path": "assets/book/hall/p_slide.jpg",
+      "sha256": "0bab352952ae47237403e015bdc0d74d69b988ae86b6046a9ac0778803a636f7",
+      "bytes": 97108,
+      "dimensions": [
+        514,
+        720
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/arena/castle_rooms_25d.gd",
+          "line": 259,
+          "reference": "assets/book/hall/p_slide.jpg",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/arena/castle_rooms_25d.gd",
+          "line": 741,
+          "reference": "assets/book/hall/p_slide.jpg",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "PRIOR_SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "prior_source_opinion": {
+        "id": "D2X-0116",
+        "revision": "9038246cf9b34005afb8bc28a2f81396930988b6",
+        "exact_source_sha256_match": true,
+        "lane": "Reused earlier source-only opinion; current Day One mounted/action pending"
+      }
+    },
+    {
+      "id": "D1A-0003",
+      "path": "assets/book/hall/p_snowman.jpg",
+      "sha256": "9e23b21708b64d2a3b11dde1357acd60af649762fadcce895f66572c69d07b61",
+      "bytes": 112191,
+      "dimensions": [
+        514,
+        720
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/arena/castle_rooms_25d.gd",
+          "line": 262,
+          "reference": "assets/book/hall/p_snowman.jpg",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/book/hall/p_snowman.jpg",
+        "sha256": "9e23b21708b64d2a3b11dde1357acd60af649762fadcce895f66572c69d07b61",
+        "score": 4.6,
+        "score_lane": "source_visual",
+        "evaluation": "The snowman and two family figures form a clear triangular group. Warm carrot and rainbow tails separate from blue snow, with recognizable Roshan and Daddy. Detailed snow and embedded prose are appropriate to a preserved picture-book source but do not establish a non-reading live objective.",
+        "next_review_or_refinement": "Preserve this identity source and review hall framing, task hierarchy and phone-size composition before any derivative.",
+        "mounted_score": null,
+        "priority": false,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": true
+      }
+    },
+    {
+      "id": "D1A-0004",
+      "path": "assets/book/hall/p_trampoline.jpg",
+      "sha256": "f1f4c14f5035fb17d5a42434a5e2bc7a019901f56f0f9d50d0c22e2adad77e1d",
+      "bytes": 128360,
+      "dimensions": [
+        514,
+        720
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/arena/castle_rooms_25d.gd",
+          "line": 260,
+          "reference": "assets/book/hall/p_trampoline.jpg",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/book/hall/p_trampoline.jpg",
+        "sha256": "f1f4c14f5035fb17d5a42434a5e2bc7a019901f56f0f9d50d0c22e2adad77e1d",
+        "score": 4.6,
+        "score_lane": "source_visual",
+        "evaluation": "The trampoline scene has coherent cool architecture and distinct warm mermaid silhouettes, led by the large foreground Roshan. Its several family figures and mesh lines are intentional story content. A small live wall copy may lose the background faces; source quality does not clear that mounting.",
+        "next_review_or_refinement": "Reuse unchanged; test the actual wall size and crop or isolate non-destructively only if the played scene requires it.",
+        "mounted_score": null,
+        "priority": false,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": true
+      }
+    },
+    {
+      "id": "D1A-0005",
+      "path": "assets/book/hall/p_xmas.jpg",
+      "sha256": "253c6f554eeb7b426e5f0e863979e1f69c056a80174cb31bef49e8cb118b239c",
+      "bytes": 118262,
+      "dimensions": [
+        514,
+        720
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/arena/castle_rooms_25d.gd",
+          "line": 263,
+          "reference": "assets/book/hall/p_xmas.jpg",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/book/hall/p_xmas.jpg",
+        "sha256": "253c6f554eeb7b426e5f0e863979e1f69c056a80174cb31bef49e8cb118b239c",
+        "score": 4.6,
+        "score_lane": "source_visual",
+        "evaluation": "The rear view makes the hand-to-ornament action clear and keeps the rainbow tail visible. Warm baubles punctuate the cool tree and room. Hair, scales and tree lights contain fine detail, while the story text and signs need separate live-context treatment.",
+        "next_review_or_refinement": "Preserve the original story moment. Review its intended decorative role, framing and phone readability rather than inventing replacement art.",
+        "mounted_score": null,
+        "priority": false,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": true
+      }
+    },
+    {
+      "id": "D1A-0006",
+      "path": "assets/castle/day_one_art_studio/grime_desk.png",
+      "sha256": "586021e28238f3ddba60447a3e7472a51a9af72f5bbc4319f95c79265b0a43bf",
+      "bytes": 146757,
+      "dimensions": [
+        512,
+        346
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/day_one_art_studio.gd",
+          "line": 34,
+          "reference": "assets/castle/day_one_art_studio/grime_desk.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.0,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_CURRENT_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/day_one_art_studio/grime_desk.png",
+        "sha256": "586021e28238f3ddba60447a3e7472a51a9af72f5bbc4319f95c79265b0a43bf",
+        "score": 4.0,
+        "score_lane": "source_visual",
+        "evaluation": "The desk grime is a quiet lavender/aqua blob with three readable paint marks. Its alpha composite clears the apparent raw-preview white fringe. Dense dry-brush scratches make the mass look chalky and weaken the broad painted value bands required for the world.",
+        "next_review_or_refinement": "First compare existing simpler dirt overlays at the actual desk. Reuse a fitting approved overlay, or generate only a calmer desk-shaped grime derivative with the same three color marks.",
+        "mounted_score": null,
+        "priority": true,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0007",
+      "path": "assets/castle/day_one_art_studio/grime_left.png",
+      "sha256": "125978f082934e3b290370c6a7a2c0082b8e5df5044feecbf22f3d5d6dca0ac1",
+      "bytes": 138013,
+      "dimensions": [
+        512,
+        306
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/day_one_art_studio.gd",
+          "line": 33,
+          "reference": "assets/castle/day_one_art_studio/grime_left.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.1,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_CURRENT_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/day_one_art_studio/grime_left.png",
+        "sha256": "125978f082934e3b290370c6a7a2c0082b8e5df5044feecbf22f3d5d6dca0ac1",
+        "score": 4.1,
+        "score_lane": "source_visual",
+        "evaluation": "The left grime has a clear horizontal footprint and three broad color marks. Correct alpha compositing leaves a clean perimeter. Interior streaks are distributed across the full surface, so they read as scratch texture rather than two or three calm dirt clusters.",
+        "next_review_or_refinement": "Preserve the left footprint; reduce detail through a separately saved approved reuse or targeted replacement after native placement review.",
+        "mounted_score": null,
+        "priority": true,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0008",
+      "path": "assets/castle/day_one_art_studio/grime_right.png",
+      "sha256": "339f248e488bf651749746c0819ba0214373684ec59859ed3815ddfa387bfe28",
+      "bytes": 133551,
+      "dimensions": [
+        512,
+        307
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/day_one_art_studio.gd",
+          "line": 35,
+          "reference": "assets/castle/day_one_art_studio/grime_right.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.1,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_CURRENT_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/day_one_art_studio/grime_right.png",
+        "sha256": "339f248e488bf651749746c0819ba0214373684ec59859ed3815ddfa387bfe28",
+        "score": 4.1,
+        "score_lane": "source_visual",
+        "evaluation": "The right grime balances pink, blue and green marks within a lavender mass. Its real alpha edge is clean. Repeated pale diagonal streaks and little value separation make it less legible as dirt than as decorative chalk on a bright work surface.",
+        "next_review_or_refinement": "Keep this position-specific shape and color identity; choose a simpler reusable dirt family before commissioning a replacement.",
+        "mounted_score": null,
+        "priority": true,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0009",
+      "path": "assets/castle/day_one_art_studio/loose_brush_bundle.png",
+      "sha256": "7de7cf80939fe62e16d6931d1eb6b377ec2454107b855703b76f445aa8aad99a",
+      "bytes": 319749,
+      "dimensions": [
+        768,
+        512
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/day_one_art_studio.gd",
+          "line": 29,
+          "reference": "assets/castle/day_one_art_studio/loose_brush_bundle.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/day_one_art_studio/loose_brush_bundle.png",
+        "sha256": "7de7cf80939fe62e16d6931d1eb6b377ec2454107b855703b76f445aa8aad99a",
+        "score": 4.6,
+        "score_lane": "source_visual",
+        "evaluation": "Three rounded brushes keep distinct pink, aqua and lavender paint tips. Deep plum contours, broad handles and grouped gold/pearl accents give a readable toy-tool silhouette. The painted bristles remain subordinate to the major forms.",
+        "next_review_or_refinement": "Reuse this bundle; if tools become separately interactive, preserve each exact brush and establish its own grip, tip and contact rather than rotating the whole bundle.",
+        "mounted_score": null,
+        "priority": false,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0010",
+      "path": "assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+      "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+      "bytes": 535795,
+      "dimensions": [
+        936,
+        1024
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/games/day_one_bathroom_cleaning.gd",
+          "line": 40,
+          "reference": "assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/games/day_one_bathroom_cleanup.gd",
+          "line": 64,
+          "reference": "assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/games/day_one_bathroom_toilet.gd",
+          "line": 15,
+          "reference": "assets/castle/day_one_art_studio/magic_cleaning_brush.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.7,
+      "mounted_score": null,
+      "priority": "PRIOR_SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "prior_source_opinion": {
+        "id": "D2A-0001",
+        "revision": "9038246cf9b34005afb8bc28a2f81396930988b6",
+        "exact_source_sha256_match": true,
+        "lane": "Reused earlier source-only opinion; current Day One mounted/action pending"
+      }
+    },
+    {
+      "id": "D1A-0011",
+      "path": "assets/castle/day_one_art_studio/paint_bottle_blue.png",
+      "sha256": "ce6adb14e4d877108ae2748138417ef436f6e154b8c4321f69196795114319ff",
+      "bytes": 158702,
+      "dimensions": [
+        384,
+        512
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/day_one_art_studio.gd",
+          "line": 31,
+          "reference": "assets/castle/day_one_art_studio/paint_bottle_blue.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/day_one_art_studio/paint_bottle_blue.png",
+        "sha256": "ce6adb14e4d877108ae2748138417ef436f6e154b8c4321f69196795114319ff",
+        "score": 4.6,
+        "score_lane": "source_visual",
+        "evaluation": "The blue bottle has a simple oval body, blank label and broad aqua value bands. Its gold flip cap and plum outline remain readable without required text. Highlights are grouped and its alpha composite is clean.",
+        "next_review_or_refinement": "Reuse unchanged; any opening or pouring state must preserve this bottle and its measured cap/spout rather than substituting another container.",
+        "mounted_score": null,
+        "priority": false,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0012",
+      "path": "assets/castle/day_one_art_studio/paint_bottle_pink.png",
+      "sha256": "089bcaf7b7e27a4760ca70f05cfeb6954e72eb59ac4ecd125fd6b5cfe0ebba4a",
+      "bytes": 151777,
+      "dimensions": [
+        384,
+        512
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/day_one_art_studio.gd",
+          "line": 30,
+          "reference": "assets/castle/day_one_art_studio/paint_bottle_pink.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/day_one_art_studio/paint_bottle_pink.png",
+        "sha256": "089bcaf7b7e27a4760ca70f05cfeb6954e72eb59ac4ecd125fd6b5cfe0ebba4a",
+        "score": 4.6,
+        "score_lane": "source_visual",
+        "evaluation": "The pink bottle keeps the same rounded body and gold cap as the blue sibling. A blank cream label and restrained highlights maintain color identity and phone-size readability. It fits the pastel painted prop family.",
+        "next_review_or_refinement": "Reuse the source and retain its exact identity in any authored open/close/pour action.",
+        "mounted_score": null,
+        "priority": false,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0013",
+      "path": "assets/castle/day_one_art_studio/paint_cups.png",
+      "sha256": "fca25541d66e07bf28ee31a36ff049130af64c495a077759750f291e526780a0",
+      "bytes": 266700,
+      "dimensions": [
+        768,
+        512
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/day_one_art_studio.gd",
+          "line": 32,
+          "reference": "assets/castle/day_one_art_studio/paint_cups.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/day_one_art_studio/paint_cups.png",
+        "sha256": "fca25541d66e07bf28ee31a36ff049130af64c495a077759750f291e526780a0",
+        "score": 4.6,
+        "score_lane": "source_visual",
+        "evaluation": "The three cups use broad pink, aqua and violet surfaces, calm rims and clear front/back overlap. The central stick visibly enters the pink liquid. This grouped source is coherent; it does not establish a child-controlled stirring verb.",
+        "next_review_or_refinement": "Reuse the group for its existing role; live stirring needs a measured stick grip, rim occlusion and liquid response without changing the cup designs.",
+        "mounted_score": null,
+        "priority": false,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0014",
+      "path": "assets/castle/day_one_pool/activities/cleanup_basket.png",
+      "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910",
+      "bytes": 965816,
+      "dimensions": [
+        1024,
+        936
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/games/day_one_bathroom_cleanup.gd",
+          "line": 70,
+          "reference": "assets/castle/day_one_pool/activities/cleanup_basket.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/games/pool_seahorse_rescue_activity.gd",
+          "line": 17,
+          "reference": "assets/castle/day_one_pool/activities/cleanup_basket.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/games/pool_skimmer_activity.gd",
+          "line": 18,
+          "reference": "assets/castle/day_one_pool/activities/cleanup_basket.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/day_one_pool/activities/cleanup_basket.png",
+        "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910",
+        "score": 4.6,
+        "score_lane": "source_visual",
+        "evaluation": "The shell basket has a generous open interior, clearly drawn front rim and two pearl handles. Its pink body, aqua braid and purple base match the room family. After correct alpha compositing there is no rectangular glow plate.",
+        "next_review_or_refinement": "Reuse the source. Native scooping review must show objects enter behind the same front rim and remain conserved in the basket.",
+        "mounted_score": null,
+        "priority": false,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0015",
+      "path": "assets/castle/day_one_pool/activities/floating_trash_atlas.png",
+      "sha256": "3e04bee28ffa4230e3af9d5e7d87bb9560a7462d7320b6ad8557f10fcecbcb33",
+      "bytes": 1008282,
+      "dimensions": [
+        1023,
+        682
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/games/pool_skimmer_activity.gd",
+          "line": 14,
+          "reference": "assets/castle/day_one_pool/activities/floating_trash_atlas.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.4,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_CURRENT_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/day_one_pool/activities/floating_trash_atlas.png",
+        "sha256": "3e04bee28ffa4230e3af9d5e7d87bb9560a7462d7320b6ad8557f10fcecbcb33",
+        "score": 4.4,
+        "score_lane": "source_visual",
+        "evaluation": "All six trash silhouettes are distinct, but foil, metal, slime and sponge surfaces carry many small specular and granular marks. The raw RGB glow lies under zero alpha and is not a rendered background defect. Individual cell opinions are recorded separately; the actual equal-sized source windows include two shifted origins.",
+        "next_review_or_refinement": "Keep the six identities and working source windows. Check their native target sizes, then simplify only the individual weak material treatments using approved reuse or separate derivatives.",
+        "mounted_score": null,
+        "priority": true,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0016",
+      "path": "assets/castle/day_one_pool/activities/pool_skimmer.png",
+      "sha256": "308c86843ace9fb3d4a65a0c514d41b367d87ceabaf5f3d3676f54ce9be4b9b3",
+      "bytes": 902749,
+      "dimensions": [
+        1024,
+        682
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/games/pool_skimmer_activity.gd",
+          "line": 16,
+          "reference": "assets/castle/day_one_pool/activities/pool_skimmer.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.5,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_CURRENT_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/day_one_pool/activities/pool_skimmer.png",
+        "sha256": "308c86843ace9fb3d4a65a0c514d41b367d87ceabaf5f3d3676f54ce9be4b9b3",
+        "score": 4.5,
+        "score_lane": "source_visual",
+        "evaluation": "The skimmer has a coherent diagonal grip, shaft, hoop and hanging mesh. Its plum outline is clean in the alpha composite. Dense pearl highlights, shaft reflections and the fine white mesh compete with the useful net opening at small sizes.",
+        "next_review_or_refinement": "Preserve the measured handle/net anchors. Native size review should determine whether a simpler existing tool or a restrained same-design derivative is required.",
+        "mounted_score": null,
+        "priority": true,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0017",
+      "path": "assets/castle/day_one_pool/activities/seahorse_mouth_trash.png",
+      "sha256": "9c48ac1ca7be923fcb14902b3e2b62263f34d53e031f11002776bfc4322652f9",
+      "bytes": 388008,
+      "dimensions": [
+        1024,
+        576
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/games/pool_seahorse_rescue_activity.gd",
+          "line": 15,
+          "reference": "assets/castle/day_one_pool/activities/seahorse_mouth_trash.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.3,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_CURRENT_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/day_one_pool/activities/seahorse_mouth_trash.png",
+        "sha256": "9c48ac1ca7be923fcb14902b3e2b62263f34d53e031f11002776bfc4322652f9",
+        "score": 4.3,
+        "score_lane": "source_visual",
+        "evaluation": "The pink mouth obstruction separates strongly from the olive seaweed, with a clear removable bundle silhouette. Crumpled glossy facets and dense seaweed brush texture give it a harder material treatment than surrounding broad painted forms.",
+        "next_review_or_refinement": "Preserve the exact obstruction and attachment location. Simplify the bundle at the source or reuse fitting existing trash after reviewing extraction/contact continuity.",
+        "mounted_score": null,
+        "priority": true,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0018",
+      "path": "assets/castle/day_one_pool/activities/seahorse_sick_clear_mouth.png",
+      "sha256": "88aa2ce07e79144b13d8e699341404e7b15e79baed861169c9c17e196ddba941",
+      "bytes": 1001587,
+      "dimensions": [
+        936,
+        1024
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/games/pool_seahorse_rescue_activity.gd",
+          "line": 13,
+          "reference": "assets/castle/day_one_pool/activities/seahorse_sick_clear_mouth.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.4,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_CURRENT_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/day_one_pool/activities/seahorse_sick_clear_mouth.png",
+        "sha256": "88aa2ce07e79144b13d8e699341404e7b15e79baed861169c9c17e196ddba941",
+        "score": 4.4,
+        "score_lane": "source_visual",
+        "evaluation": "The seahorse keeps a large expressive eye, curled tail and distinct lavender/aqua identity. Coral, rocks, algae ribbons and shiny surface speckles create several competing detail clusters within one card. The mouth is clean in this source; removing a separately owned obstruction must not replace the entire statue with a different identity.",
+        "next_review_or_refinement": "Inventory its clean/sick counterparts and reuse the same statue geometry. Refine only the weak detail or state continuity identified in actual rescue play.",
+        "mounted_score": null,
+        "priority": true,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0019",
+      "path": "assets/castle/day_one_pool/activities/waterfall_clogged_original_match.png",
+      "sha256": "d4da588daece3fa12b5f094b50f5c8b33eeae31fd0761f1eeedce882cf1b7507",
+      "bytes": 1200277,
+      "dimensions": [
+        874,
+        1024
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/games/pool_waterfall_activity.gd",
+          "line": 14,
+          "reference": "assets/castle/day_one_pool/activities/waterfall_clogged_original_match.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.2,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_CURRENT_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/day_one_pool/activities/waterfall_clogged_original_match.png",
+        "sha256": "d4da588daece3fa12b5f094b50f5c8b33eeae31fd0761f1eeedce882cf1b7507",
+        "score": 4.2,
+        "score_lane": "source_visual",
+        "evaluation": "The clogged waterfall retains the shell frame and basin identity, but many bright olive strands cover almost the full water sheet. Repeated tiny wet highlights compete with four much smaller removable trash marks. At reduced size the clog reads as a textured curtain rather than one clear obstruction.",
+        "next_review_or_refinement": "Preserve the fixture and clean-state geometry. Review the live clearing sequence and author simpler coherent clog/removal states using the same waterfall, with truthful water restoration.",
+        "mounted_score": null,
+        "priority": true,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0020",
+      "path": "assets/castle/day_one_pool/activities/waterfall_scrubber.png",
+      "sha256": "1b29ff463263be093a7e1ac33eb74e4075d6a795dd515d120107f66953b2dc7a",
+      "bytes": 462861,
+      "dimensions": [
+        962,
+        1024
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/games/pool_waterfall_activity.gd",
+          "line": 16,
+          "reference": "assets/castle/day_one_pool/activities/waterfall_scrubber.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.5,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_CURRENT_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/day_one_pool/activities/waterfall_scrubber.png",
+        "sha256": "1b29ff463263be093a7e1ac33eb74e4075d6a795dd515d120107f66953b2dc7a",
+        "score": 4.5,
+        "score_lane": "source_visual",
+        "evaluation": "The scrubber has an immediately readable straight working edge and long diagonal handle. Purple/aqua blocks fit the palette. Pearl details, glittery shell fill and shaft reflections make the tool busier than its useful blade.",
+        "next_review_or_refinement": "Retain its actual grip/blade coordinates. Reuse if native scale clears the detail; otherwise save a restrained same-design derivative rather than changing the tool silhouette.",
+        "mounted_score": null,
+        "priority": true,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0021",
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+      "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+      "bytes": 230768,
+      "dimensions": [
+        512,
+        512
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/arena/day_one_castle_dressing.gd",
+          "line": 35,
+          "reference": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/arena/day_one_castle_dressing.gd",
+          "line": 36,
+          "reference": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
+        "sha256": "d88f667724d2c06fc591b00ea91b018430bad1a359e7527124a6e25b0cc6da0f",
+        "score": 4.6,
+        "score_lane": "source_visual",
+        "evaluation": "The curled-ear dust bunny groups its lavender body into a few rounded masses and large spirals. Plum contours, two bright eyes and peach paws keep a friendly non-threatening identity. Highlights remain subordinate to the face.",
+        "next_review_or_refinement": "Reuse unchanged; any curl/uncurl action should preserve the same ears, face and paw ownership.",
+        "mounted_score": null,
+        "priority": false,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0022",
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+      "sha256": "b3fbe139d79ba9567213afeb70a25bd986d90230052be7a9b320802a65613293",
+      "bytes": 210083,
+      "dimensions": [
+        512,
+        512
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/arena/day_one_castle_dressing.gd",
+          "line": 34,
+          "reference": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_shell_hide.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "PRIOR_SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "prior_source_opinion": {
+        "id": "D2X-0136",
+        "revision": "9038246cf9b34005afb8bc28a2f81396930988b6",
+        "exact_source_sha256_match": true,
+        "lane": "Reused earlier source-only opinion; current Day One mounted/action pending"
+      }
+    },
+    {
+      "id": "D1A-0023",
+      "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png",
+      "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+      "bytes": 494857,
+      "dimensions": [
+        1024,
+        683
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/games/day_one_dust_bunny_swimmer.gd",
+          "line": 8,
+          "reference": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png",
+        "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143",
+        "score": 4.6,
+        "score_lane": "source_visual",
+        "evaluation": "The swimming dust bunny keeps the same lavender spirals, peach paws and large eyes in a clear diagonal motion pose. Correct alpha compositing clears the apparent top clipping seen in raw RGB; painted alpha bounds are [91,7,963,675]. This is one pose, not evidence of a coherent swim loop.",
+        "next_review_or_refinement": "Reuse this complete pose. Review neighboring held states, pivots and actual motion before generating any missing action state.",
+        "mounted_score": null,
+        "priority": false,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0024",
+      "path": "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
+      "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+      "bytes": 233301,
+      "dimensions": [
+        512,
+        512
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/dust_boss_lesson_2d.gd",
+          "line": 7,
+          "reference": "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/games/day_one_bathroom_cleaning.gd",
+          "line": 37,
+          "reference": "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.0,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_CURRENT_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
+        "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08",
+        "score": 4.0,
+        "score_lane": "source_visual",
+        "evaluation": "Five aqua soap bubbles have strong plum rings and simple silhouettes. Their white rim and glint shapes are visibly fragmented and speckled even after alpha compositing, producing rough highlight edges rather than calm painted patches.",
+        "next_review_or_refinement": "Inventory the already approved bubble family and replace this named weak effect through non-destructive reuse if it fits the current role; retain the original and review density/overdraw in play.",
+        "mounted_score": null,
+        "priority": true,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0025",
+      "path": "assets/castle/dirty_cleanup_2d/effects/fx_wipe_swoosh.png",
+      "sha256": "1e58e1ff959f288834d5aa4926b8beef747ca507ca44f95cd5251edbf6b59821",
+      "bytes": 155362,
+      "dimensions": [
+        512,
+        512
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/games/day_one_bathroom_cleaning.gd",
+          "line": 41,
+          "reference": "assets/castle/dirty_cleanup_2d/effects/fx_wipe_swoosh.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.5,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_CURRENT_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/dirty_cleanup_2d/effects/fx_wipe_swoosh.png",
+        "sha256": "1e58e1ff959f288834d5aa4926b8beef747ca507ca44f95cd5251edbf6b59821",
+        "score": 4.5,
+        "score_lane": "source_visual",
+        "evaluation": "The peach/aqua wipe arc and three droplets make the direction clear. Its broad bands fit the palette. Thin pale edge strips and small broken highlights are less clean than the major contour, and a whole effect arc cannot substitute for actual hand/tool contact.",
+        "next_review_or_refinement": "Reuse or derive a cleaner existing wipe effect if native rendering confirms the weakness; audit the cleaning verb separately.",
+        "mounted_score": null,
+        "priority": true,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0026",
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_bath_soap_ring.png",
+      "sha256": "50d4e42028c6d95da5bc400fd8c6a17c30091c4a75b78faa2c0e03c85f253562",
+      "bytes": 175258,
+      "dimensions": [
+        512,
+        512
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/games/day_one_bathroom_cleaning.gd",
+          "line": 38,
+          "reference": "assets/castle/dirty_cleanup_2d/targets/target_bath_soap_ring.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.5,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_CURRENT_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/dirty_cleanup_2d/targets/target_bath_soap_ring.png",
+        "sha256": "50d4e42028c6d95da5bc400fd8c6a17c30091c4a75b78faa2c0e03c85f253562",
+        "score": 4.5,
+        "score_lane": "source_visual",
+        "evaluation": "The soap ring has a clear open center and soft lavender/aqua bubble masses. Numerous tiny white glints and repeated individual bubbles make the ring decorative and busy. Its usefulness depends on lying against the actual bath surface without covering the active target.",
+        "next_review_or_refinement": "Review its mounted bath geometry and alpha density. Reuse a calmer existing foam family if needed while preserving the ring footprint.",
+        "mounted_score": null,
+        "priority": true,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0027",
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png",
+      "sha256": "fe53ef3018b9f8164417cde5bf47489dff389179aad8432ea8ef1993cffab3ed",
+      "bytes": 960326,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/games/day_one_bathroom_cleanup.gd",
+          "line": 82,
+          "reference": "assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/games/day_one_bathroom_toilet.gd",
+          "line": 84,
+          "reference": "assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.3,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_CURRENT_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/dirty_cleanup_2d/targets/target_sink_grime_v1.png",
+        "sha256": "fe53ef3018b9f8164417cde5bf47489dff389179aad8432ea8ef1993cffab3ed",
+        "score": 4.3,
+        "score_lane": "source_visual",
+        "evaluation": "The sink grime keeps three main dirt patches within a lavender foam oval, with a clear outlined silhouette. Fine brown flecks and many shiny bubbles distribute texture over the entire mass; the grime can appear as a floating decorative badge rather than adhered dirt.",
+        "next_review_or_refinement": "Review its live sink fit, rim occlusion and cleaning response. Preserve the sink identity and create a calmer localized dirt derivative only if reuse cannot meet the fit.",
+        "mounted_score": null,
+        "priority": true,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0028",
+      "path": "assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png",
+      "sha256": "52e8c42b0c044c1b5dba42681d7dfb5e34dc44b345e6535e9432df5f186ecb67",
+      "bytes": 593724,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/games/day_one_bathroom_cleanup.gd",
+          "line": 83,
+          "reference": "assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.3,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_CURRENT_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/dirty_cleanup_2d/targets/target_tub_grime_v1.png",
+        "sha256": "52e8c42b0c044c1b5dba42681d7dfb5e34dc44b345e6535e9432df5f186ecb67",
+        "score": 4.3,
+        "score_lane": "source_visual",
+        "evaluation": "The tub grime uses a U-shaped band that can leave the basin center readable. Broad dirt zones are present, but dense flecks, pearl-like bubbles and a heavy continuous outline compete with the tub material and imply a separate pasted-on object.",
+        "next_review_or_refinement": "Keep the U-shaped contact footprint. Test the actual tub curve and layer ownership, then reuse or regenerate only the weak adhered-dirt treatment.",
+        "mounted_score": null,
+        "priority": true,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0029",
+      "path": "assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+      "bytes": 219621,
+      "dimensions": [
+        512,
+        512
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/games/day_one_bathroom_cleaning.gd",
+          "line": 39,
+          "reference": "assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/games/day_one_bathroom_cleanup.gd",
+          "line": 63,
+          "reference": "assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
+        "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+        "score": 4.6,
+        "score_lane": "source_visual",
+        "evaluation": "The pink star sponge has one rounded silhouette, a readable side thickness and three broad value zones. Larger pores describe the material while a few small marks remain subordinate. The plum edge stays clear against a pale room.",
+        "next_review_or_refinement": "Reuse unchanged and measure the contact face/grip for the actual scrub action.",
+        "mounted_score": null,
+        "priority": false,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0030",
+      "path": "assets/castle/training/ghost_hand.png",
+      "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9",
+      "bytes": 123283,
+      "dimensions": [
+        512,
+        512
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/boss_splash_2d.gd",
+          "line": 19,
+          "reference": "assets/castle/training/ghost_hand.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/encounter_telegraph_2d.gd",
+          "line": 12,
+          "reference": "assets/castle/training/ghost_hand.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/games/day_one_bathroom_cleaning.gd",
+          "line": 42,
+          "reference": "assets/castle/training/ghost_hand.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/games/day_one_bathroom_cleanup.gd",
+          "line": 62,
+          "reference": "assets/castle/training/ghost_hand.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/games/day_one_bathroom_toilet.gd",
+          "line": 16,
+          "reference": "assets/castle/training/ghost_hand.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "PRIOR_SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "prior_source_opinion": {
+        "id": "D2A-0002",
+        "revision": "9038246cf9b34005afb8bc28a2f81396930988b6",
+        "exact_source_sha256_match": true,
+        "lane": "Reused earlier source-only opinion; current Day One mounted/action pending"
+      }
+    },
+    {
+      "id": "D1A-0031",
+      "path": "assets/characters/companions/baby_eagle.png",
+      "sha256": "7d6f10afbd8cd157436a05eaadab7eb4cc07c3a3d242ad2291111fc6b4f3ed2f",
+      "bytes": 139462,
+      "dimensions": [
+        290,
+        512
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/arena/castle_rooms_25d.gd",
+          "line": 232,
+          "reference": "assets/characters/companions/baby_eagle.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/arena/castle_rooms_25d.gd",
+          "line": 5022,
+          "reference": "assets/characters/companions/baby_eagle.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "PRIOR_SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "prior_source_opinion": {
+        "id": "D2X-0068",
+        "revision": "9038246cf9b34005afb8bc28a2f81396930988b6",
+        "exact_source_sha256_match": true,
+        "lane": "Reused earlier source-only opinion; current Day One mounted/action pending"
+      }
+    },
+    {
+      "id": "D1A-0032",
+      "path": "assets/characters/roshan_25d/roshan_directional.png",
+      "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+      "bytes": 396741,
+      "dimensions": [
+        1024,
+        512
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/day_one_contact_action_2d.gd",
+          "line": 5,
+          "reference": "assets/characters/roshan_25d/roshan_directional.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/games/day_one_bathroom_toilet.gd",
+          "line": 17,
+          "reference": "assets/characters/roshan_25d/roshan_directional.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/games/pool_skimmer_activity.gd",
+          "line": 26,
+          "reference": "assets/characters/roshan_25d/roshan_directional.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/roshan_sprite_loop.gd",
+          "line": 12,
+          "reference": "assets/characters/roshan_25d/roshan_directional.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "PRIOR_SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "prior_source_opinion": {
+        "id": "D2X-0009",
+        "revision": "9038246cf9b34005afb8bc28a2f81396930988b6",
+        "exact_source_sha256_match": true,
+        "lane": "Reused earlier source-only opinion; current Day One mounted/action pending"
+      }
+    },
+    {
+      "id": "D1A-0033",
+      "path": "assets/characters/roshan_25d/roshan_swim_back.png",
+      "sha256": "4e76c3c269039cf05a6a8b58bbaf70273746f520006d0af68128f863bdb99337",
+      "bytes": 660570,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/roshan_sprite_loop.gd",
+          "line": 16,
+          "reference": "assets/characters/roshan_25d/roshan_swim_back.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.5,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_CURRENT_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/characters/roshan_25d/roshan_swim_back.png",
+        "sha256": "4e76c3c269039cf05a6a8b58bbaf70273746f520006d0af68128f863bdb99337",
+        "score": 4.5,
+        "score_lane": "source_visual",
+        "evaluation": "All16 rear-swim Roshan cells preserve the rainbow hair, pink top and lavender/rainbow tail. The thin fingers and small scale highlights need phone review. Several cells have only one painted pixel of side margin; none has painted alpha on the actual 256px cell edge. Individual cell opinions are separate from temporal continuity.",
+        "next_review_or_refinement": "Reuse the approved identity family. Review pivots, neighbor scale and native motion; fix a measured cell/mounting defect individually without redesigning Roshan.",
+        "mounted_score": null,
+        "priority": true,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0034",
+      "path": "assets/characters/roshan_25d/roshan_swim_front.png",
+      "sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01",
+      "bytes": 685193,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/roshan_sprite_loop.gd",
+          "line": 14,
+          "reference": "assets/characters/roshan_25d/roshan_swim_front.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.4,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_PRIOR_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "prior_source_opinion": {
+        "id": "D2A-0626",
+        "revision": "9038246cf9b34005afb8bc28a2f81396930988b6",
+        "exact_source_sha256_match": true,
+        "lane": "Reused earlier source-only opinion; current Day One mounted/action pending"
+      }
+    },
+    {
+      "id": "D1A-0035",
+      "path": "assets/characters/rumi/rumi_eight_pose_runtime.png",
+      "sha256": "44120bbb2b1e60a9ec94e0cf3db7e46e33f564671af986bb42357b8bd59c14d5",
+      "bytes": 597242,
+      "dimensions": [
+        1024,
+        768
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/games/day_one_pool_cleanup.gd",
+          "line": 28,
+          "reference": "assets/characters/rumi/rumi_eight_pose_runtime.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.5,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_PRIOR_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "prior_source_opinion": {
+        "id": "D2A-0627",
+        "revision": "9038246cf9b34005afb8bc28a2f81396930988b6",
+        "exact_source_sha256_match": true,
+        "lane": "Reused earlier source-only opinion; current Day One mounted/action pending"
+      }
+    },
+    {
+      "id": "D1A-0036",
+      "path": "assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
+      "sha256": "9068a5f6c56e90d57ae9c3219096d6f12bba97a2f6c6ed09175c1bc63f59cb41",
+      "bytes": 301606,
+      "dimensions": [
+        1024,
+        512
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/games/day_one_pool_cleanup.gd",
+          "line": 26,
+          "reference": "assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.5,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_CURRENT_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
+        "sha256": "9068a5f6c56e90d57ae9c3219096d6f12bba97a2f6c6ed09175c1bc63f59cb41",
+        "score": 4.5,
+        "score_lane": "source_visual",
+        "evaluation": "The eight Rumi cells keep the long purple braid, patterned purple costume and aqua/pink tail. Correct alpha and cell measurements clear suspected clipping; every painted cell has interior margins. Fine costume motifs and finger/face details need phone review, and still cells do not prove a coherent idle-to-swim sequence.",
+        "next_review_or_refinement": "Reuse the identity. Audit each current cell and its actual timing/neighbor placement before any targeted continuity derivative.",
+        "mounted_score": null,
+        "priority": true,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0037",
+      "path": "assets/effects/grand_puff/purple_vortex_v4.png",
+      "sha256": "882a8feedb980399c2f4b7f782a4da7d2142b789de43cdd4c462b79c1d1e52e1",
+      "bytes": 223438,
+      "dimensions": [
+        512,
+        512
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/dust_boss_telegraph_2d.gd",
+          "line": 7,
+          "reference": "assets/effects/grand_puff/purple_vortex_v4.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/effects/grand_puff/purple_vortex_v4.png",
+        "sha256": "882a8feedb980399c2f4b7f782a4da7d2142b789de43cdd4c462b79c1d1e52e1",
+        "score": 4.6,
+        "score_lane": "source_visual",
+        "evaluation": "The purple vortex forms one broad readable spiral with rounded cloud masses, grouped lavender highlights and a clear outline. This source fits the painted effect family. Its presence in a source reference does not establish the permitted timing, current tell grammar or actor visibility.",
+        "next_review_or_refinement": "Reuse only within its current authorized effect role; inspect actual aiming/launch ownership and the owner-directed boss choreography before choosing any replacement.",
+        "mounted_score": null,
+        "priority": false,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0038",
+      "path": "assets/flats/castle/boss/dusty_attic_arena_2048.png",
+      "sha256": "a6f4bb59df43e63cedbf9a164526475b91985c85c73cac7e061f830d60ef4122",
+      "bytes": 4387792,
+      "dimensions": [
+        2048,
+        2048
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/games/dust_boss.gd",
+          "line": 9,
+          "reference": "assets/flats/castle/boss/dusty_attic_arena_2048.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/flats/castle/boss/dusty_attic_arena_2048.png",
+        "sha256": "a6f4bb59df43e63cedbf9a164526475b91985c85c73cac7e061f830d60ef4122",
+        "score": 4.6,
+        "score_lane": "source_visual",
+        "evaluation": "The attic plate keeps a quiet central arena, pastel stone bands and peripheral dusty chests. Cool windows and restrained warm columns frame the play area without occupying its center. Native2048 coverage is recorded; mounted HUD, foreground occlusion and actor separation still need review.",
+        "next_review_or_refinement": "Reuse unchanged; review the true composite and its actual background slicing/scaling rather than restyling the room.",
+        "mounted_score": null,
+        "priority": false,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0039",
+      "path": "assets/flats/castle/rooms/room_actor_shadow.png",
+      "sha256": "642aa3bdc6ef1be14febfd7855963da80071febd9ea7b69101261d6632ee3604",
+      "bytes": 3083,
+      "dimensions": [
+        256,
+        64
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/day_one_art_studio.gd",
+          "line": 36,
+          "reference": "assets/flats/castle/rooms/room_actor_shadow.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/day_one_contact_action_2d.gd",
+          "line": 6,
+          "reference": "assets/flats/castle/rooms/room_actor_shadow.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/games/dust_boss.gd",
+          "line": 1006,
+          "reference": "assets/flats/castle/rooms/room_actor_shadow.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.5,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_PRIOR_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "prior_source_opinion": {
+        "id": "D2X-0008",
+        "revision": "9038246cf9b34005afb8bc28a2f81396930988b6",
+        "exact_source_sha256_match": true,
+        "lane": "Reused earlier source-only opinion; current Day One mounted/action pending"
+      }
+    },
+    {
+      "id": "D1A-0040",
+      "path": "assets/flats/castle/rooms/room_bubble_bath.png",
+      "sha256": "3ecd80b1be8444ae924e4fc05c86129d4ee3742e6708c3c3e38b84862e7bf4da",
+      "bytes": 986757,
+      "dimensions": [
+        1024,
+        576
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/games/day_one_bathroom_cleanup.gd",
+          "line": 20,
+          "reference": "assets/flats/castle/rooms/room_bubble_bath.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/flats/castle/rooms/room_bubble_bath.png",
+        "sha256": "3ecd80b1be8444ae924e4fc05c86129d4ee3742e6708c3c3e38b84862e7bf4da",
+        "score": 4.6,
+        "score_lane": "source_visual",
+        "evaluation": "The clean bathroom has readable shell fixtures, cool windows, warm lighting and a broad quiet center floor. Pastel material bands are coherent. Peripheral baskets and coral are detailed, making actor/target separation a live-context question rather than a source defect.",
+        "next_review_or_refinement": "Reuse the established room design and test native HUD/task hierarchy and fixture contact.",
+        "mounted_score": null,
+        "priority": false,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0041",
+      "path": "assets/flats/castle/rooms/room_bubble_bath_dirty_day_one.png",
+      "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+      "bytes": 1239053,
+      "dimensions": [
+        1024,
+        576
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/games/day_one_bathroom_cleanup.gd",
+          "line": 15,
+          "reference": "assets/flats/castle/rooms/room_bubble_bath_dirty_day_one.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.3,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_CURRENT_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/flats/castle/rooms/room_bubble_bath_dirty_day_one.png",
+        "sha256": "90bcc501e471b8d8b00353914bb91e8805920fc45a161c6e57993e56afee7c5f",
+        "score": 4.3,
+        "score_lane": "source_visual",
+        "evaluation": "The dirty bathroom preserves the principal fixture layout and gives recognizable towels, footprints and murky water. Fine scratch texture is spread across walls, fixtures and floor, reducing the separation between intentional dirt targets and decorative detail. The cleaner counterpart is calmer.",
+        "next_review_or_refinement": "Keep the same room and story state. Review the exact dirty-to-clean transition and localize grime to child-readable targets; reuse existing plates/overlays before generating a targeted derivative.",
+        "mounted_score": null,
+        "priority": true,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0042",
+      "path": "assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png",
+      "sha256": "1382a8adcb37f1b0788989676e5412220878395727ac081ce1b8d6fc1335fd47",
+      "bytes": 1259130,
+      "dimensions": [
+        1024,
+        576
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/games/day_one_bathroom_cleanup.gd",
+          "line": 17,
+          "reference": "assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.3,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_CURRENT_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/flats/castle/rooms/room_bubble_bath_dirty_drained_day_one.png",
+        "sha256": "1382a8adcb37f1b0788989676e5412220878395727ac081ce1b8d6fc1335fd47",
+        "score": 4.3,
+        "score_lane": "source_visual",
+        "evaluation": "The drained dirty plate preserves the dirty-room staging and removes bath water, exposing the basin interior. The same dense all-surface texture weakens target hierarchy. Still-image comparison alone does not establish a correct drain contact/timeline or seamless handoff.",
+        "next_review_or_refinement": "Preserve the room and drained state, audit the live transition against its source endpoint, and repair only proven dirt/readability or fixture-continuity gaps.",
+        "mounted_score": null,
+        "priority": true,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0043",
+      "path": "assets/mg/star.png",
+      "sha256": "3cc5d5cbc5d6e0df0540cdc00ef557b0c7ed6e566331035c4e75d5d971ef3b98",
+      "bytes": 868379,
+      "dimensions": [
+        1024,
+        1008
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/arena/castle_rooms_25d.gd",
+          "line": 4408,
+          "reference": "assets/mg/star.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/arena/castle_rooms_25d.gd",
+          "line": 4889,
+          "reference": "assets/mg/star.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "PRIOR_SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "prior_source_opinion": {
+        "id": "D2X-0073",
+        "revision": "9038246cf9b34005afb8bc28a2f81396930988b6",
+        "exact_source_sha256_match": true,
+        "lane": "Reused earlier source-only opinion; current Day One mounted/action pending"
+      }
+    },
+    {
+      "id": "D1A-0044",
+      "path": "assets/opera/worlds/props/fx_dust_puff.png",
+      "sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+      "bytes": 47458,
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/dust_boss_lesson_2d.gd",
+          "line": 5,
+          "reference": "assets/opera/worlds/props/fx_dust_puff.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/dust_boss_telegraph_2d.gd",
+          "line": 6,
+          "reference": "assets/opera/worlds/props/fx_dust_puff.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "PRIOR_SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "prior_source_opinion": {
+        "id": "D2A-0396",
+        "revision": "9038246cf9b34005afb8bc28a2f81396930988b6",
+        "exact_source_sha256_match": true,
+        "lane": "Reused earlier source-only opinion; current Day One mounted/action pending"
+      }
+    },
+    {
+      "id": "D1A-0045",
+      "path": "assets/opera/worlds/props/fx_stolen_sparkle.png",
+      "sha256": "fad456ad3641cf67e194945ba9208108cd1f0cf9f35b8ee10516e18bc88eb772",
+      "bytes": 16687,
+      "dimensions": [
+        128,
+        128
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/dust_boss_lesson_2d.gd",
+          "line": 6,
+          "reference": "assets/opera/worlds/props/fx_stolen_sparkle.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/games/day_one_bathroom_cleaning.gd",
+          "line": 43,
+          "reference": "assets/opera/worlds/props/fx_stolen_sparkle.png",
+          "mode": "literal"
+        },
+        {
+          "source": "scripts/games/day_one_bathroom_cleanup.gd",
+          "line": 61,
+          "reference": "assets/opera/worlds/props/fx_stolen_sparkle.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "PRIOR_SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "prior_source_opinion": {
+        "id": "D2A-0398",
+        "revision": "9038246cf9b34005afb8bc28a2f81396930988b6",
+        "exact_source_sha256_match": true,
+        "lane": "Reused earlier source-only opinion; current Day One mounted/action pending"
+      }
+    },
+    {
+      "id": "D1A-0046",
+      "path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+      "sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007",
+      "bytes": 12563,
+      "dimensions": [
+        46,
+        256
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/arena/castle_rooms_25d.gd",
+          "line": 116,
+          "reference": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.6,
+      "mounted_score": null,
+      "priority": "SOURCE_ABOVE_QUEUE; CURRENT_USE_PENDING",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/sprites/sky_lagoon/sky_lagoon_smoke_wisp_v2.png",
+        "sha256": "ff0c49869ff0152323282b0228c2f76494ad2381ba64c0e535a68c8bc229e007",
+        "score": 4.6,
+        "score_lane": "source_visual",
+        "evaluation": "The narrow lavender wisp uses a clean curved silhouette and two broad value bands. Its sparse marks fit a supporting mist role. Its46px source width means large magnification and alpha density must be checked in the Royal Hall; an isolated source is not an accepted room effect.",
+        "next_review_or_refinement": "Reuse at its current suitable size and review actual mist density/actor visibility before changing it.",
+        "mounted_score": null,
+        "priority": false,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0047",
+      "path": "assets/terrain/caustics.png",
+      "sha256": "b4a046988fe57105cc47a90fa5d3dc74094f002a0ce7563a7a393f41be12492f",
+      "bytes": 58527,
+      "dimensions": [
+        512,
+        512
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/arena/castle_fixture_rigs.gd",
+          "line": 27,
+          "reference": "assets/terrain/caustics.png",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 4.0,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_CURRENT_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/terrain/caustics.png",
+        "sha256": "b4a046988fe57105cc47a90fa5d3dc74094f002a0ce7563a7a393f41be12492f",
+        "score": 4.0,
+        "score_lane": "source_visual",
+        "evaluation": "The caustic input is a monochrome field of irregular closed polygon rings, with several dense overlaps and soft edges. It is sampled by the unshaded Canvas fixture-water shader, not displayed as this literal black square. Its raw pattern suggests a repetitive ring texture, but mounted water quality cannot be inferred from the input alone.",
+        "next_review_or_refinement": "Audit the actual water composite/timing first. Prefer existing suitable technical inputs or a small deterministic shader/input repair if the live pattern fails; no speculative generated water plate.",
+        "mounted_score": null,
+        "priority": true,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    },
+    {
+      "id": "D1A-0048",
+      "path": "assets/terrain/up_water_nrm.jpg",
+      "sha256": "e9233e71728ae5b934fb8b0f1af817783df4011fb0403700477c0cdf2b75b219",
+      "bytes": 693,
+      "dimensions": [
+        64,
+        64
+      ],
+      "byte_origin": "Current local file",
+      "consumers": [
+        {
+          "source": "scripts/arena/castle_fixture_rigs.gd",
+          "line": 26,
+          "reference": "assets/terrain/up_water_nrm.jpg",
+          "mode": "literal"
+        }
+      ],
+      "source_score": 3.0,
+      "mounted_score": null,
+      "priority": "SOURCE_PRIORITY_CURRENT_OPINION",
+      "acceptance": "Discovery only; no actual draw, mounted quality or owner acceptance",
+      "current_source_opinion": {
+        "path": "assets/terrain/up_water_nrm.jpg",
+        "sha256": "e9233e71728ae5b934fb8b0f1af817783df4011fb0403700477c0cdf2b75b219",
+        "score": 3.0,
+        "score_lane": "technical_input",
+        "evaluation": "Technical-input opinion: all4096 pixels are the identical RGB(128,127,254). The current Canvas fixture-water shader samples its green/blue channels at moving UVs, so this input supplies no spatial ripple variation. This is not a painted prop style score, and the separately sampled caustics may still animate the final surface.",
+        "next_review_or_refinement": "Capture the live water before selecting a repair. Inventory existing suitable technical ripple inputs; use a separately saved lightweight technical input or Canvas shader repair if the intended water motion needs it.",
+        "mounted_score": null,
+        "priority": true,
+        "rules": [
+          "DL-VIS-01",
+          "DL-VIS-02",
+          "DL-VIS-05",
+          "DL-READ-02",
+          "DL-INT-02"
+        ],
+        "protected_original": false
+      }
+    }
+  ],
+  "drawing_functions": [
+    {
+      "source": "scripts/arena/castle_fixture_rigs.gd",
+      "function": "apply_frame",
+      "line": 538,
+      "normalized_function_sha256": "ece3ff25423509e49f5ba1496a74794f7fa934ab2040d356cebff0da34c5cc9c",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_fixture_rigs.gd",
+      "function": "teardown",
+      "line": 625,
+      "normalized_function_sha256": "f936821ffa5ec540448e730caf439bfa364ca07247ae3e1fa86b0c26cf6923e6",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_fixture_rigs.gd",
+      "function": "_add_water_layer",
+      "line": 697,
+      "normalized_function_sha256": "4a0ecabef8eca331b682d2e9179cd2cb96f8b4e588189e6405220e3d26e7d2f2",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_fixture_rigs.gd",
+      "function": "_update_polygon_water_for_frame",
+      "line": 812,
+      "normalized_function_sha256": "d9d039736ebf9813e80e4bda28cdcb42b193624dbd2baa87f6cb3529a62de7ee",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_fixture_rigs.gd",
+      "function": "_position_water_for_frame",
+      "line": 935,
+      "normalized_function_sha256": "1e25d65ae8a2fa44dcd69a25ac7caad0afb1cd7215431fdf2f4ca8db94b0caf5",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_fixture_rigs.gd",
+      "function": "_tick_bubbles",
+      "line": 1131,
+      "normalized_function_sha256": "ffaf5962bdb24151238d75b61313a1e5a33b085214807fdbccccbf110a0c47a7",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_build_stage",
+      "line": 1299,
+      "normalized_function_sha256": "8511ab1170b8dba2edacb3db01e412ae1f22c5a01d7e07d5f7a892f8de966b5c",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_build_hall_background_tiles",
+      "line": 1403,
+      "normalized_function_sha256": "292a246a37c1646ce5d93b75041ee9ea1455ab4574938a8109bf2dda2cecb56e",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_set_hall_background_visible",
+      "line": 1465,
+      "normalized_function_sha256": "ca47fd5436bf54353e7e925f011d995021b1a80cc17fb0f0f8596604865a116f",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_hall_card_inside_horizontal_span",
+      "line": 1491,
+      "normalized_function_sha256": "44a88c09de4a074e5bb4cae0b7c7af8f075cae0192eb75b2349bd13abc607110",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_sync_hall_horizontal_culling",
+      "line": 1505,
+      "normalized_function_sha256": "e01aa45c2f70153edb1394596f021bbc3c817d2cd0143e15f64d50f1a11d8ec4",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_clear_room_background_tiles",
+      "line": 1545,
+      "normalized_function_sha256": "cfee155ec77d3961f25f057180a4e774ee18fd08cba8f4987a5eae2f403799fc",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "apply_day_one_cleanup",
+      "line": 1937,
+      "normalized_function_sha256": "d9ff3972685c0d66ce27df3bfd3da1267325b01fcd33905d74c5c62933ef11f8",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "play_day_one_completed_room_response",
+      "line": 1991,
+      "normalized_function_sha256": "7236ecd3e267ae5a02ae026b98f6453ea45e402aac85f66d6980e396b51c490d",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_sync_day_one_persistent_rumi",
+      "line": 2030,
+      "normalized_function_sha256": "48513df05f5386cfa58b2d4241ed06d842829e6589e67e2fa6c18806f1fc9781",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "day_one_bathtub_swimmer_snapshot",
+      "line": 2139,
+      "normalized_function_sha256": "23c7c4ed9f6ca936360c047eb78f016c6366bb042a1bc25914a15679109c52c8",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_set_bathtub_fill_visible",
+      "line": 2158,
+      "normalized_function_sha256": "7a63beee63382d87df099bc064fbafc8e976f422c4852d8e1c576a5d829be4b2",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_bathtub_fill_water_visible",
+      "line": 2176,
+      "normalized_function_sha256": "8469c7aaf5b10053d38be540dcb0f3e799708ea4a4a5326cb82c8525721a93fc",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_room_item_at_stage_position",
+      "line": 2398,
+      "normalized_function_sha256": "7251dc9027e71e1cf7b0140f0b0a19c3c647a7f8e464e269c24669846a9bfe9c",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "navigation_snapshot",
+      "line": 2570,
+      "normalized_function_sha256": "76e6dbee76858e6c7490d523bbf89b6d4e60232628eb3bb21ab9451c02685deb",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_dust_bunny_id_from_camera_ray",
+      "line": 2695,
+      "normalized_function_sha256": "254606ada8919dc9f3e1441b8b14b5d6e35fff0897881d0a541c3c2898007b19",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_position_player_at_foot",
+      "line": 2722,
+      "normalized_function_sha256": "6e9eea8cd82174c808f96ab664e5f058c48ae325eceffbbb5a79b540a887ca7b",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_position_hall_player_at_foot",
+      "line": 2787,
+      "normalized_function_sha256": "dfd13a017709fb5a2de20863e076049c8d03cef978a2323eec94c730c016edd6",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_tick_royal_hall_mist",
+      "line": 3063,
+      "normalized_function_sha256": "7a8cda5dab0a7af21f270dc2cddb00de5dd8b4f8d1a9a100ee0ca0e48a0d57a1",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_rebuild_touch_items",
+      "line": 3103,
+      "normalized_function_sha256": "20806b3d9b31c2ef46ad7ce693148c5585c55c2682eb19796cf81a059cb9db12",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_add_touch_item",
+      "line": 3150,
+      "normalized_function_sha256": "b84931da69dd9e0f857cc81d5d4aa002c1b5c0224d11d728e814291383cb83e3",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_activate_room_item",
+      "line": 3480,
+      "normalized_function_sha256": "595c99071d4f058a75112b20c6e3c6cb20bbd4262b325d2b428ac1ab73a21528",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "play_day_one_art_station",
+      "line": 3570,
+      "normalized_function_sha256": "ad0edca9ef7eaf20570f523fd097ddb823cfee33c1b903943b065beff941ff98",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_activate_roleplay_item",
+      "line": 3605,
+      "normalized_function_sha256": "cf7853279c0d1768c78365797bef28cd523a4cc99fe2749afee909650db3622e",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_enter_gallery_room",
+      "line": 3638,
+      "normalized_function_sha256": "f2942af82f7ff88edf760c56f3e098ab32c88b878f1f70a33b7525f274b7b67b",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_serve_dining_meal",
+      "line": 3679,
+      "normalized_function_sha256": "9eb6a363f00cb2287ce089fc1077e0658b78e1c0944d5ee36e132d33a17eea19",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_reveal_dining_plate",
+      "line": 3717,
+      "normalized_function_sha256": "ea817baf171ded6fdd8ac7bd75a287e8e8645e3ecf35834ea82d69e9f96d1517",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_finish_serve_dining_meal",
+      "line": 3731,
+      "normalized_function_sha256": "9ca5eb8060ed04daedd3f34e6d2bf5861a9a0279b014bf292562170c4ebfaf68",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_eat_dining_meal",
+      "line": 3739,
+      "normalized_function_sha256": "f04495636c0c4b778961867622ba8c9627cd43fcfa46323b95f5949f00dbef26",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_set_dining_plate_alpha",
+      "line": 3787,
+      "normalized_function_sha256": "d9014f6a51908e3a0d4a9b0b212f05df80a42a0016a8d983c3ab72cf7b0bd494",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_finish_eat_dining_meal",
+      "line": 3795,
+      "normalized_function_sha256": "260189628ce1309cfc5387b1f8e258f133d1d0f6f632beaa07bef407b5ec55d1",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_sync_dining_plates",
+      "line": 3806,
+      "normalized_function_sha256": "25d9118c14502bb27c256b333c1a08922d63c7d52baf21645dc6ea38e9ade667",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_start_roleplay_sleep",
+      "line": 3821,
+      "normalized_function_sha256": "fb36e69b300d14de1a5de9616bbd7a9762081a277c7d9ff5193d305789702651",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_finish_roleplay_sleep",
+      "line": 3877,
+      "normalized_function_sha256": "9ff7bba44b40ca2a95d9fa6cd0644fd5981746efecd88863bc781e87f2549915",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_sync_movie_picture",
+      "line": 3898,
+      "normalized_function_sha256": "60de54d308b14fe8f7fca926418061b847ca26997fcf0812a573c443af9ffedd",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_cycle_home_movie",
+      "line": 3918,
+      "normalized_function_sha256": "2a53c3e826543a61807b5355515866f8129e365e1f7b89747cb5ec5212c58d33",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_apply_home_movie_picture",
+      "line": 3948,
+      "normalized_function_sha256": "afd6221fe5b1a218e85c6b35480330153bacf3a0e257138ff3cd0c54a224e03a",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_fit_home_movie_picture",
+      "line": 3962,
+      "normalized_function_sha256": "7dfa3fa27847ad6a7bedfd0451268256ceaeab85b3bfe2b1f3a8ccefc211416b",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_finish_home_movie_crossfade",
+      "line": 3979,
+      "normalized_function_sha256": "83c2b1821b327929e1a42fb389be7536e27e5166ee1a304e339175764dd6dc7c",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_relax_on_furniture",
+      "line": 3985,
+      "normalized_function_sha256": "288c0a702c8033ed709b67b8ee4cb4ba1d7051fd099717ab1a121a99f3e84698",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_toggle_bedside_light",
+      "line": 4001,
+      "normalized_function_sha256": "a736ab1d4d125a22f7ce5dd518a2528a0ccc9ae5c066dbde0b28a386f135c119",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_finish_bedside_light",
+      "line": 4029,
+      "normalized_function_sha256": "e150f4552c3ec86655f55dead674a406beff5c59b4729108929db9f361cfe918",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_sync_bedside_light",
+      "line": 4035,
+      "normalized_function_sha256": "3d38d23c902b092aaf55fcbc294bacacb84786adda241db2b4feba403d743830",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_open_roleplay_wardrobe",
+      "line": 4046,
+      "normalized_function_sha256": "67cd42d3112d85177e52af6afdd00a3e668e67f926d3095d6b4117e79f012955",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_finish_open_roleplay_wardrobe",
+      "line": 4072,
+      "normalized_function_sha256": "e6cd402d1fce87ae3d4631daf432df20f636349536c8d70b41b810bceb96e0b2",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_activate_item_group",
+      "line": 4083,
+      "normalized_function_sha256": "61f078f697f4dce647049f40052998f8c4f607fbd918d3d86bf9189356d8e4fe",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_toggle_hall_sconce",
+      "line": 4105,
+      "normalized_function_sha256": "1718b0ca18019cb850273bcad002208b28313d8f949b4a904ef7ff6077fffb42",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_sync_sconce_frame_uv",
+      "line": 4125,
+      "normalized_function_sha256": "fc1157c824783ff27bde22e18e6f73b4bf2afaa127a9e3d9d1103bd8d0534922",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_apply_sconce_visual",
+      "line": 4146,
+      "normalized_function_sha256": "fa66eb4dc4ce91c2d2c5dc9b1ca07294808a2f394cdeed23c4b25a65ef5190dc",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_sprite_transition",
+      "line": 4212,
+      "normalized_function_sha256": "26e5dd450d38a2314700aa3c31b94e6ad6836d0dc71b361306780ab39272ba1d",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_snap_item_atlas_frame",
+      "line": 4233,
+      "normalized_function_sha256": "c80ede78a6b6c561c0a34fcc95a89a9bfa1f27c0e97c2d26eaf3765de1e9b147",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_play_sprite_atlas_sequence",
+      "line": 4242,
+      "normalized_function_sha256": "0439d8f0cbd5b1d109cd701c14d90702be9b135730b62df36f2774f16df7b88d",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_show_item_atlas_frame",
+      "line": 4283,
+      "normalized_function_sha256": "6e7f037bfd99686058aece0630e9d7d41a35b74a26a7bd0c58057f9fd70c8aee",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_finish_sprite_atlas_sequence",
+      "line": 4314,
+      "normalized_function_sha256": "af0cce5d68721e856a01e2659db03ec7e4bdcb1621ee2e1c99e1d60c04525485",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_close_fridge_visual",
+      "line": 4365,
+      "normalized_function_sha256": "77974d54063f51256fb0e3dd0b078c6458899124380e355dd3a33b3552edffcb",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_item_burst",
+      "line": 4404,
+      "normalized_function_sha256": "48c56fdf83328b882bc7c2a145a405b395d5fa8ecb17a011dfaa311d4ed251d3",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_add_layer_piece",
+      "line": 4455,
+      "normalized_function_sha256": "59a60c6c237a4ebae4183170963f1bfb4cbfa8256612c4ca37f33e962d6450f4",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_player_shadow",
+      "line": 4480,
+      "normalized_function_sha256": "2194acf6bbb3d74dac1594674c720d44e0a6b532ed86f80c738fe210b296f79b",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_new_card",
+      "line": 4483,
+      "normalized_function_sha256": "8c1dcc408d1c4bff035b9f05e2cea3c20d1f7ac6eb6d3ef781cc0f8a3bb9360c",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_place_art_card",
+      "line": 4497,
+      "normalized_function_sha256": "5740c60427db4396482f9c16d09edd1257abdcaf81065a96c642801c7d24721c",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_sprite_frame_size",
+      "line": 4516,
+      "normalized_function_sha256": "e3e6656c76dd7d702409fe37896af0aa24f089276263829b84b299f7483bce50",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_sprite_stage_rect",
+      "line": 4564,
+      "normalized_function_sha256": "ff4868dde8f8688c70db1a573bc870b8c43c22624f5599609ed9b19f8f51e9a7",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "refresh_player_skin",
+      "line": 4595,
+      "normalized_function_sha256": "10495283d847aa890edd036f4600c91ffb227316b3e4e0de73c1de3f0ed4ca4d",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_update_dust_bunny_runner",
+      "line": 4684,
+      "normalized_function_sha256": "725becbac1a8c2e3434b8fe6cf94ee6fcb246d67179566bb0ae96861bc2c026f",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_explode_dust_bunny",
+      "line": 4754,
+      "normalized_function_sha256": "58df378e2d39591eeece4f9320e42f9b4ea0c6497f5c37dc201084d71b2fc348",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_daddy_splash",
+      "line": 4840,
+      "normalized_function_sha256": "648ecc933ea38a81642862d1eca8b5895841ce04b981f7f0049f371c1ca67a6f",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_add_playroom_rescue_pointer",
+      "line": 4882,
+      "normalized_function_sha256": "2f2cd53d02cd429ccc1bb8590969a1d311f32a725155fdd95379388190258b08",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_check_playroom_rescue_complete",
+      "line": 4912,
+      "normalized_function_sha256": "7abda71391a4b3ac2419b7ed64806c7b9c4891a3304d7a027f35ee21d4172c12",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_finish_playroom_eagle_departure",
+      "line": 4955,
+      "normalized_function_sha256": "ce903d71794970c471649339dbde15bcbed09906508a56373f858ea9706e3752",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "sync_castle_companion_card",
+      "line": 4984,
+      "normalized_function_sha256": "c87c4c934e1eb2ca3d17fbe000e34d0ce3c30f80c03b01a746329316291724b1",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_tick_item_affordances",
+      "line": 5114,
+      "normalized_function_sha256": "e9f8183614beddacee52f5845090172e8ca29c147b9eddaa798b99db0e673e76",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_update_touch_hotspot",
+      "line": 5171,
+      "normalized_function_sha256": "42457847ff6601c6ecd44bf605d4bc5d00333849157b0c02fc691193ccb01867",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/castle_rooms_25d.gd",
+      "function": "_wait_for_fridge_close",
+      "line": 5517,
+      "normalized_function_sha256": "a4094615d03d956f837b5768ee68c13a64b28275565abf61be0bc2d2821e122b",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/day_one_castle_dressing.gd",
+      "function": "_pool_land_bunny_snapshot",
+      "line": 213,
+      "normalized_function_sha256": "67fed290949ffef97a792d3724ed5b51bb6908519ec01be6d23aefa3ec3924a9",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/day_one_castle_dressing.gd",
+      "function": "_ensure_dust_bunnies",
+      "line": 240,
+      "normalized_function_sha256": "0719f237ba72ceacf411193ae68aae6b0055869ca7e31b3670ad4793c00a852d",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/day_one_castle_dressing.gd",
+      "function": "_refresh_dust_visibility",
+      "line": 262,
+      "normalized_function_sha256": "bd574077501cc46f3de703bdba3661312617db267ca264b260fae37c8002c8e9",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/day_one_castle_dressing.gd",
+      "function": "_draw",
+      "line": 274,
+      "normalized_function_sha256": "73a6e0f8d7562c6221bb5bef7e5100f8a37d2beb5621fffc36502785c09ca0aa",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/day_one_castle_dressing.gd",
+      "function": "_draw_exterior_grime",
+      "line": 283,
+      "normalized_function_sha256": "da8415794c34e9df3ea10aa75e1247f997c4f2fc572326f05b110d9510a7ea49",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/arena/day_one_castle_dressing.gd",
+      "function": "_draw_room_dressing",
+      "line": 295,
+      "normalized_function_sha256": "404331e1d5223e0ec1ebfa22e30748e918348e5de615e56df9fb7722e0ac6623",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/boss_splash_2d.gd",
+      "function": "_build_backdrop",
+      "line": 84,
+      "normalized_function_sha256": "98de3120924c5153bd8d3f5093aa18312581b671521e8d5e8b77bb024ece9177",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/boss_splash_2d.gd",
+      "function": "_build_character",
+      "line": 113,
+      "normalized_function_sha256": "90186380abcbbbf76d44eef8865f1ceaa740c3697a1c2ad52d827102feb396db",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/castle_door_cue.gd",
+      "function": "_draw",
+      "line": 73,
+      "normalized_function_sha256": "50a0fdaadb93863244be46775fc7ee60d604f10df05fa66f03c652078c9d5533",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/castle_door_cue.gd",
+      "function": "_draw_blocked",
+      "line": 85,
+      "normalized_function_sha256": "345edd583511c64570a7fccea9ab9ac2a29aa36a864d8c4ab1b2b477afb8c82a",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/castle_door_cue.gd",
+      "function": "_draw_bonus",
+      "line": 109,
+      "normalized_function_sha256": "48f9ba3a8537b517665ba50591e92fcab96b6afbd47aeb951ddb30570f6aac5c",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/castle_door_cue.gd",
+      "function": "_draw_plot",
+      "line": 120,
+      "normalized_function_sha256": "d9d646110a80a81f3b569a7788122762b9e92ac62a00609df0c653629cd9c317",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/day_one_art_studio.gd",
+      "function": "setup",
+      "line": 59,
+      "normalized_function_sha256": "73f35432fedb4e9282bd15b19dfa804c68817a7c58a704919ff3e35117628ad3",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/day_one_art_studio.gd",
+      "function": "refresh_from_state",
+      "line": 100,
+      "normalized_function_sha256": "fca273dd0baf393bfd61e38144b6d8235d7eb65dcb40961d84d04438aa8952ee",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/day_one_art_studio.gd",
+      "function": "_draw",
+      "line": 173,
+      "normalized_function_sha256": "9d149b0dd6d0e2846bfbe95209a823f5c05d3ce25316145faef1edbeb5f42caf",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/day_one_art_studio.gd",
+      "function": "_make_world_card",
+      "line": 251,
+      "normalized_function_sha256": "c62533411ae92f471219de50fef4f70e6f6ed68ec2068e25f9a18688ffcdb5ec",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/day_one_contact_action_2d.gd",
+      "function": "bind",
+      "line": 20,
+      "normalized_function_sha256": "b41dc3096d3cb713990b6cae368695571104c38b7f7e3dbb0bed4e504f9d2451",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/day_one_contact_action_2d.gd",
+      "function": "_draw",
+      "line": 118,
+      "normalized_function_sha256": "48c6d192cac8fdf8a325173c7fda7f6adb0b0408337abfe1adc9b869c5083c28",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/dust_boss_lesson_2d.gd",
+      "function": "_draw",
+      "line": 53,
+      "normalized_function_sha256": "2973fade6dc40fb9a5c783870b5c53986c5b2975c417de9eb1df9fceae5615a1",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/dust_boss_lesson_2d.gd",
+      "function": "_draw_current",
+      "line": 80,
+      "normalized_function_sha256": "91ab5ae21e98b17cb716232067336220c8dc07e08563504326b64bdf75ca88de",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/dust_boss_lesson_2d.gd",
+      "function": "_draw_counter",
+      "line": 90,
+      "normalized_function_sha256": "2dad0a7db0b83f6de9464a77a238d3a8a9820346a4537c09dd1dd8a0cc5eef93",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/dust_boss_lesson_2d.gd",
+      "function": "_draw_floor_effects",
+      "line": 104,
+      "normalized_function_sha256": "bd949380b1208b18554971653450b65ec37321e046fa0e22661d9720720b2b87",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/dust_boss_lesson_2d.gd",
+      "function": "_stamp",
+      "line": 117,
+      "normalized_function_sha256": "008d3ec05fabe169f8f98648dacdd4fc6c16cbfe31b60523e99eb36885c383be",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/dust_boss_telegraph_2d.gd",
+      "function": "_draw",
+      "line": 73,
+      "normalized_function_sha256": "5b1d3ec4e7c686ad997a6041a65794938dae35bfdd218576930c116eede85aff",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/dust_boss_telegraph_2d.gd",
+      "function": "_draw_danger",
+      "line": 90,
+      "normalized_function_sha256": "d777abaa1904f93a36c0f5ec07f187f60971ddde3742e85dedae37c0f8447dd5",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/dust_boss_telegraph_2d.gd",
+      "function": "_painted_stroke",
+      "line": 104,
+      "normalized_function_sha256": "fed378607f3cfd083b49ba2fc34fb44199f41b8f6c70c15980fd3eda862ba663",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/dust_boss_telegraph_2d.gd",
+      "function": "_draw_jump",
+      "line": 137,
+      "normalized_function_sha256": "94d19907bf993223951a945fa90a49b2050413dcf79ac117555ce38ab529a8b5",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/dust_boss_telegraph_2d.gd",
+      "function": "_draw_charge",
+      "line": 161,
+      "normalized_function_sha256": "6709ecce6f20ca880f23c3b76ea3c21fa702945d2712285436fd0f276973c7e8",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/dust_boss_telegraph_2d.gd",
+      "function": "_draw_charge_cloud",
+      "line": 194,
+      "normalized_function_sha256": "d4850a75e7b5874ad9462e4ec595a54d9752f26ea990f93ca34cec3fc5ed2ec3",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/dust_boss_telegraph_2d.gd",
+      "function": "_draw_vortex",
+      "line": 207,
+      "normalized_function_sha256": "382b6765370043af97898c7f26b80369f44c065a5c82fb1900f0863921730675",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/dust_boss_telegraph_2d.gd",
+      "function": "_stamp",
+      "line": 231,
+      "normalized_function_sha256": "9f5f403cb225482e50d715a5692942fc554ea9d5dee4469589401da375c585db",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/dust_bunny_boss_sprite.gd",
+      "function": "_ready",
+      "line": 113,
+      "normalized_function_sha256": "689ed6c26fbe0eac57f8e0451845afeb8f399ac1d4901c856df6fb54994b6e6f",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/dust_bunny_sprite.gd",
+      "function": "_make_frames",
+      "line": 59,
+      "normalized_function_sha256": "73972a50cc7ecf3e8662a0f3e65fc62bb7712ca476c2d3d7aabadfe749b3f52b",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/encounter_telegraph_2d.gd",
+      "function": "_ready",
+      "line": 34,
+      "normalized_function_sha256": "5c1e5dd9c448c804f4e91b4c47be4192b9ff80da05a8efc5283e402ff7029a32",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/encounter_telegraph_2d.gd",
+      "function": "_process",
+      "line": 50,
+      "normalized_function_sha256": "7a0b69ef1e6175ca23a8714498081e80ecd544463c34efb57c9ef053daab2bc2",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/encounter_telegraph_2d.gd",
+      "function": "configure_quality",
+      "line": 66,
+      "normalized_function_sha256": "fe1264276447cea4870f71700477e1efd25a7b16045bc142de8d8e7386dd1616",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/encounter_telegraph_2d.gd",
+      "function": "set_telegraph",
+      "line": 73,
+      "normalized_function_sha256": "6e97560050c501ca7b5aad1f9ccd049953bb21d5e9ae4e4914e575731764638b",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/encounter_telegraph_2d.gd",
+      "function": "_update_safe_hand",
+      "line": 118,
+      "normalized_function_sha256": "31b2d72a519e7c8b1a1fa7f806ab2300d7158913e30e384f6fcf6e1554e1a5f5",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/encounter_telegraph_2d.gd",
+      "function": "_draw",
+      "line": 125,
+      "normalized_function_sha256": "56e1b2851651629f9ede581cc762f2cacb71afd73ad7d53a2ff3baf955854827",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/encounter_telegraph_2d.gd",
+      "function": "_draw_danger",
+      "line": 135,
+      "normalized_function_sha256": "7a7557b864de57b22bdcf9c969273cc5ecf99280397d0be246287d11d50ec0a1",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/encounter_telegraph_2d.gd",
+      "function": "_draw_safe_destination",
+      "line": 158,
+      "normalized_function_sha256": "54483c4a1cd27016114a73e165fe8ea5abddd314e82c800693ae593edb100072",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/encounter_telegraph_2d.gd",
+      "function": "_draw_pips",
+      "line": 170,
+      "normalized_function_sha256": "be8db97455898538bb48e28621680420bcd60f1eea5af3701b02100ff76682c1",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_cleaning.gd",
+      "function": "set_dirty_overlays",
+      "line": 292,
+      "normalized_function_sha256": "e5b2c7c75b8655a7915989f9ed07c4d0bc9186f9b77a726da860b340f10dac9f",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_cleaning.gd",
+      "function": "_tune_dirty_overlay",
+      "line": 466,
+      "normalized_function_sha256": "e764bcba3d428fc68deb84819e495336cf0e54d94e15dc5492b428ea3423eb2d",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_cleaning.gd",
+      "function": "_build_presentation",
+      "line": 475,
+      "normalized_function_sha256": "b29b58539bef3655e639236f569111b834a1a7304df2bc4a99a0be2d6a1eeacd",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_cleaning.gd",
+      "function": "_make_sprite",
+      "line": 507,
+      "normalized_function_sha256": "e349b0fc39920b8d714c1e4a6099c812fea0a01500b57eb4861df90edfb77e7d",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_cleaning.gd",
+      "function": "_spawn_whole_room_sparkles",
+      "line": 933,
+      "normalized_function_sha256": "e988b3bb202ff4020520d799ac85160daf8e10d0a6df6874288809410917a4c4",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_cleanup.gd",
+      "function": "_suspend_clean_room_visuals",
+      "line": 404,
+      "normalized_function_sha256": "ce386ff541c0418f142bdd4c98688adfe1109b67da27e3db07de62f09ccb793a",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_cleanup.gd",
+      "function": "_restore_clean_room_visuals",
+      "line": 433,
+      "normalized_function_sha256": "7efcb92f340a92744b00539bf8796e447c8cd12fc1866e7dac71196bcf65600b",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_cleanup.gd",
+      "function": "_build_dirty_room_plate",
+      "line": 449,
+      "normalized_function_sha256": "6ed5449079ea2c71dbce9ca2a9eb29b2a9d0e669d2ad93e2049815dffb1880b5",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_cleanup.gd",
+      "function": "_add_clean_fixture_cutouts",
+      "line": 474,
+      "normalized_function_sha256": "fe88772ce0817f7a704ae822ca037eadd1d6996254ee1891a75a0f1c0729e640",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_cleanup.gd",
+      "function": "_add_clean_sink_cutout",
+      "line": 482,
+      "normalized_function_sha256": "cd295d2365a8d326f5eee824af76b383cadee08a3e2d1d0563b31ee1bfdf0487",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_cleanup.gd",
+      "function": "_add_fixture_cutout",
+      "line": 487,
+      "normalized_function_sha256": "3329c73632cd01c4fe83103c9ed91ff33a2f110a4998ae330362078ba2835905",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_cleanup.gd",
+      "function": "_reveal_drained_room_plate",
+      "line": 547,
+      "normalized_function_sha256": "975197734a5d860096b3ecadf1e455fd928de4e645c4fb6e9e66e25ac7bb1f67",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_cleanup.gd",
+      "function": "_finish_drained_room_reveal",
+      "line": 573,
+      "normalized_function_sha256": "0b44bcd76442ce72ce54e7363af8652050cb3a8bbda99d495d1115f27802161e",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_cleanup.gd",
+      "function": "_clear_dirty_room_plate",
+      "line": 586,
+      "normalized_function_sha256": "3c65c8395989d8e11e500b5daef428512f3a51797932ada85be5d185e2167b05",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_cleanup.gd",
+      "function": "day_one_bathroom_plate_snapshot",
+      "line": 605,
+      "normalized_function_sha256": "5bd3420e70b1c84347378e93f3d502965cbd70ef9c8fa67e5375bcc127642ea7",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_cleanup.gd",
+      "function": "_build_basket",
+      "line": 659,
+      "normalized_function_sha256": "6aaf31490db4b779e7d2a2cec6f5b1bc2c40512e140185df5bca1ea961a235e1",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_cleanup.gd",
+      "function": "_make_dirty_overlay",
+      "line": 680,
+      "normalized_function_sha256": "ae7e716d70da1b7aac48bd328eb4e373d42555a129ff29b5fe2deca9426b049a",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_cleanup.gd",
+      "function": "_build_guidance",
+      "line": 710,
+      "normalized_function_sha256": "48cf131127635e3a0b3e6d99e25622359ef7703effd25deff5a1859a53735b62",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_cleanup.gd",
+      "function": "_spawn_sparkle",
+      "line": 809,
+      "normalized_function_sha256": "808cac09537be17a8be739e5d141d460fcef480231e66d16931fc58a230b749e",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_cleanup.gd",
+      "function": "_on_cleaning_step_completed",
+      "line": 885,
+      "normalized_function_sha256": "1f446038fa4f22a163c3de718b2d64c537d8c6261fe7840f9cfe1162d040e6da",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_toilet.gd",
+      "function": "setup",
+      "line": 45,
+      "normalized_function_sha256": "f08e0f03c3fc2c856b0b3b60721e31223f0e35132ebd40c03ecf9bd75ea32288",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_bathroom_toilet.gd",
+      "function": "_draw",
+      "line": 220,
+      "normalized_function_sha256": "b07a52b43b22b253d68a4d3a685e76a3c64107773d4e162d7e9ae2f9a2326b72",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "function": "setup",
+      "line": 28,
+      "normalized_function_sha256": "101026c0f6fb76e37079001a01a12f8261be2478f408b056f697c367f4368642",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "function": "_draw",
+      "line": 223,
+      "normalized_function_sha256": "e77e633ce1b1e2b6b8c1d9ffade286101f16d7fa40be5c284be6834a857eb061",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_pool_cleanup.gd",
+      "function": "_capture_clean_waterfall",
+      "line": 227,
+      "normalized_function_sha256": "76fe24a28e47aec81f4919bac1deb1ace7919fc6518f47cbe674bad067723244",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_pool_cleanup.gd",
+      "function": "_capture_healthy_seahorse",
+      "line": 236,
+      "normalized_function_sha256": "d2add863efaba592e98ecbec77da674c6db6903472762dc31dfca8d21c677670",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_pool_cleanup.gd",
+      "function": "_build_activities",
+      "line": 259,
+      "normalized_function_sha256": "ce34d8483923a2b7dd9a282f8200a90f55763e7c784f35c74f550e37cce806ce",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_pool_cleanup.gd",
+      "function": "_spawn_rumi_rise",
+      "line": 546,
+      "normalized_function_sha256": "bea439de3380d116a3fab1ddf77cb333de3ea50573dda2b82b07225c45a79ec4",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/day_one_pool_cleanup.gd",
+      "function": "_rumi_atlas_frame",
+      "line": 603,
+      "normalized_function_sha256": "a778abc9517daa6454f68fc1230115dc4dea8d821be6ef9d96b25b67fba563fa",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/dust_boss.gd",
+      "function": "stage_close",
+      "line": 173,
+      "normalized_function_sha256": "5290d0dd2a0ad14899b7fad1bb96c4e8fb701c8e9dd867654d757c33073056bc",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/dust_boss.gd",
+      "function": "_place_boss",
+      "line": 747,
+      "normalized_function_sha256": "0d77393dd4be2ac56b16673d9cd6fac07de154320fc160c22177e22c6db54320",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/dust_boss.gd",
+      "function": "_build_mastery_ui",
+      "line": 784,
+      "normalized_function_sha256": "b587b59a474457b928c663a6666c7cddae4163cf5eeb87d6af19f0505cc13a37",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/dust_boss.gd",
+      "function": "_stage_open",
+      "line": 920,
+      "normalized_function_sha256": "6789b0e01fa730e10e88bac562c594ea568683b9887fd7524ae53dd328a18334",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/dust_boss.gd",
+      "function": "_build_attic_backdrop",
+      "line": 961,
+      "normalized_function_sha256": "9077bce690ce7c2437001cb63ee86691d95e9265ef32f0433c68486e0e983df2",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/dust_boss.gd",
+      "function": "_build_boss",
+      "line": 983,
+      "normalized_function_sha256": "9a614ea2dc9afc84419d4fa48f64913c920cedce6bbd64904d22a230608573fd",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "function": "bind_room_actor",
+      "line": 106,
+      "normalized_function_sha256": "95bbbccec5435362271789932612b0a5ed7b1cfecaff5eecf219693335d3e100",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "function": "_build_activity_art",
+      "line": 344,
+      "normalized_function_sha256": "b9d11f85fb259b92cfe87ad29c7be1aa3e044ee91614cf7ba41d91dffab02b40",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "function": "_draw",
+      "line": 472,
+      "normalized_function_sha256": "b06b84f37fd0841ef0eff1fb50ce355ddb79b666dac547d302476a57b0fb935d",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/pool_skimmer_activity.gd",
+      "function": "_process",
+      "line": 215,
+      "normalized_function_sha256": "26505a9308f3107764a5f5a67902f5d41ebc6931bde625bf209d516140f433bc",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/pool_skimmer_activity.gd",
+      "function": "_draw",
+      "line": 254,
+      "normalized_function_sha256": "a15c514c608b5cfdabe9c2d0bc6e58736250ade6d4f569cabd26f887e94d8863",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/pool_skimmer_activity.gd",
+      "function": "bind_room_actor",
+      "line": 380,
+      "normalized_function_sha256": "754f79340e8f6f182ba188fab5bd7c89b2c303edf1b272be365c9a91ed3fa2bb",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/pool_skimmer_activity.gd",
+      "function": "_collect_item",
+      "line": 429,
+      "normalized_function_sha256": "7db14f604190a6e5eebca97ff4f108aa13aecb8139ca10345c9f16087a863f0a",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/pool_skimmer_activity.gd",
+      "function": "_finish_piece_flight",
+      "line": 466,
+      "normalized_function_sha256": "ffedd659bb213f7c33e10389b381e137ee8598c3ba1fe25f8ec871891878d658",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/pool_skimmer_activity.gd",
+      "function": "_build_activity_art",
+      "line": 476,
+      "normalized_function_sha256": "5a78acc07d79171f6c6a67042a48f22e79798f2cb23eb82a194840d8c9c147df",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/pool_skimmer_activity.gd",
+      "function": "_atlas_frame",
+      "line": 553,
+      "normalized_function_sha256": "c8783bc174f02b470253ecf31fe5ec6b5eab58249f89fbe92725c019a02a0a32",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/pool_skimmer_activity.gd",
+      "function": "_trash_contact_position",
+      "line": 570,
+      "normalized_function_sha256": "64ede0f4cf80e0afa53720f9eb2ea383c56bf445b94ef96af92514481b75c8a5",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/pool_skimmer_activity.gd",
+      "function": "_fit_sprite",
+      "line": 578,
+      "normalized_function_sha256": "1d68ef49ae46fd3c4ae7d4404d95b652b0b01a98824cc1f3b3256793920fd3d5",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/pool_waterfall_activity.gd",
+      "function": "bind_room_actor",
+      "line": 83,
+      "normalized_function_sha256": "95bbbccec5435362271789932612b0a5ed7b1cfecaff5eecf219693335d3e100",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/pool_waterfall_activity.gd",
+      "function": "_build_dirty_slices",
+      "line": 295,
+      "normalized_function_sha256": "4d2ee47c62073b94852fa64fd8b1027983f52bfdabf63bb3b84796d7f467c93a",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/pool_waterfall_activity.gd",
+      "function": "_build_wash_overlay",
+      "line": 324,
+      "normalized_function_sha256": "57a77c323e0c1adf351f23a1ebdbd206e9b95389db748a9998e4b7cca2a48d3a",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/pool_waterfall_activity.gd",
+      "function": "_build_scrubber",
+      "line": 335,
+      "normalized_function_sha256": "dcbcd4c482414759ab785477b767340c951d492b6398803abd7b4b3a6c785a68",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/pool_waterfall_activity.gd",
+      "function": "_free_owned_nodes",
+      "line": 349,
+      "normalized_function_sha256": "5bb5e84815eb7d003b61302cab91b5200159639bf080b7369ed70c043ec47821",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/pool_waterfall_activity.gd",
+      "function": "_draw_wash_overlay",
+      "line": 459,
+      "normalized_function_sha256": "e4edb5e3618ce8788ea8d8ffbda686de90f7f441df66aa2748ee53a7e8324607",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/games/pool_waterfall_activity.gd",
+      "function": "_draw_lane_hint",
+      "line": 497,
+      "normalized_function_sha256": "a2a32978a057ebd3f0cbcafcb60c807c2a84827b397457e4d324b7352d1cf59b",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/roshan_sprite_loop.gd",
+      "function": "setup_texture_rect",
+      "line": 63,
+      "normalized_function_sha256": "17bfa9f4d83f794a3642cbece8b59ba89e1627f1dafadce6e481c59084ada424",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/roshan_sprite_loop.gd",
+      "function": "setup_sprite_2d",
+      "line": 75,
+      "normalized_function_sha256": "b1132d69941fd4a2f433a43c1d54991204062e2e1ea6d9ec4f2a38000264a2ab",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/sprite_transition_2d.gd",
+      "function": "setup",
+      "line": 35,
+      "normalized_function_sha256": "53acc83b9acdb1830e92b8cf6f8f8844f308e46efd15232c873129dfe52c31ae",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/sprite_transition_2d.gd",
+      "function": "transition_ghost",
+      "line": 79,
+      "normalized_function_sha256": "c7c0a6dfc3182003918170072802ba6d495b1ee9c83241dc661f5ac10451dc78",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    },
+    {
+      "source": "scripts/sprite_transition_2d.gd",
+      "function": "_ensure_ghost",
+      "line": 187,
+      "normalized_function_sha256": "c25a81b16db808c4ab443ad6feb1432517ea04190722c5b823afe278a60c5b39",
+      "visual_score": null,
+      "review": "PENDING native played/context review"
+    }
+  ],
+  "unresolved_literal_or_template_references": [],
+  "prior_exact_source_opinions_reused": 12,
+  "new_source_opinions_completed": 36,
+  "remaining_source_review_pending": 0,
+  "individual_source_cells_reviewed": 30,
+  "coverage": "INCOMPLETE; scoped source opinions complete, full discovery/actual use and every current Day One played-context score pending",
+  "owner_accepted": false
+}

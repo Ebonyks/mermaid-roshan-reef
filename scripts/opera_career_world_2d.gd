@@ -2456,7 +2456,7 @@ func _arm_phase() -> void:
 	_set_finale_visible(false)
 	# Boxing switches to first-person gloves only after the invitation opens;
 	# Roshan must remain visible while she walks to the physical training prop.
-	if career_id == "boxer" and player_actor != null:
+	if career_id in ["boxer", "nursery"] and player_actor != null:
 		player_actor.visible = true
 	if backdrop_node != null:
 		# The navigable room owns every interaction. Stage masters use different
@@ -2661,6 +2661,10 @@ func _open_task() -> void:
 		nursery_catch.visible = is_nursery_catch
 		if is_nursery_catch:
 			nursery_catch.start(int(ceilf(float(phase.get("goal", 5.0)))))
+			if nursery_catch.care != null and player_actor != null:
+				# The connected care body is Roshan's sole owner in this close
+				# activity. The normal route actor returns when the next phase arms.
+				player_actor.visible = false
 		else:
 			nursery_catch.stop()
 	_bind_widget(phase, mode_name, accent)
@@ -2836,11 +2840,16 @@ func _apply_panel_layout(phase: Dictionary) -> void:
 		action_panel.size = Vector2(496, 418)
 		var left_catch := Rect2(Vector2(24, 24), action_panel.size)
 		var right_catch := Rect2(Vector2(760, 24), action_panel.size)
-		action_panel.position = _safer_panel_rect(left_catch, right_catch).position
+		action_panel.position = left_catch.position if nursery_catch.care != null \
+			else _safer_panel_rect(left_catch, right_catch).position
 		surface.size = Vector2(472, 346)
 		nursery_catch.position = surface.position
 		nursery_catch.size = surface.size
-		_stage_player_clear_of_activity()
+		if nursery_catch.care == null:
+			_stage_player_clear_of_activity()
+		# The care focus replaces the route actor during this task. Moving the
+		# hidden route actor for its panel would overwrite her room rest and can
+		# put her back over the next feeding object when normal navigation returns.
 	action_panel.queue_redraw()
 
 
@@ -3644,7 +3653,8 @@ func _on_nursery_baby_caught(quality: float) -> void:
 	_bounce_actor(rival_actor, 9.0)
 	if phase_progress >= goal:
 		# join the shared advance rhythm: hold the cozy scene, then arm
-		phase_complete_t = NurseryCatch.HOLD_SECONDS + NurseryCatch.TRANSFER_SECONDS + 0.4
+		phase_complete_t = OperaNurseryCare.TRANSFER_TIME + 0.4 if nursery_catch.care != null \
+			else NurseryCatch.HOLD_SECONDS + NurseryCatch.TRANSFER_SECONDS + 0.4
 		phase_advance_pending = true
 		_play_roshan_animation("cheer")
 

@@ -1,0 +1,77 @@
+{
+  "schema": "reef.review-byte-preflight.v1",
+  "checked_utc": "2026-10-01T09:47:27.449047+00:00",
+  "staged_payload_files_checked": 1215,
+  "literal_matches": 1204,
+  "declared_line_ending_normalizations": [
+    {
+      "path": ".gitattributes",
+      "checkout_literal_sha256": "58d5ca51b7dc1ae7603efb255cd4485e3e47d1f1387fcaba9d25c21b3e772f15",
+      "staged_canonical_sha256": "73a7101e4b7c79543b4c4747dbfe4057705335bab74b67879616a556b69fb895",
+      "method": "Git CRLF/LF normalization only; native captured literal source snapshots remain unchanged"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "checkout_literal_sha256": "b11ee4d93eec78954ebeadf944cf8bc4b6eaa2bf1bf0e6ba9e35f9c2361fc47a",
+      "staged_canonical_sha256": "03160322d4d5309cd964b001e32d3127633f8f585502fec27b9458565ec5c0cd",
+      "method": "Git CRLF/LF normalization only; native captured literal source snapshots remain unchanged"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "checkout_literal_sha256": "8dc872ab7c01dd121456005b5823a4c288ccd83c99f121397116d2cfa150ac9b",
+      "staged_canonical_sha256": "7ec2d3bcdd943bbeb73273ccd6d63548fb3d6bac85d0c4ba4c7e8ab8e38b2c93",
+      "method": "Git CRLF/LF normalization only; native captured literal source snapshots remain unchanged"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "checkout_literal_sha256": "c852dd9529ca7396458789dee40a7e73e1c835f5bb14c521d4c269ce909210ad",
+      "staged_canonical_sha256": "f1dd0a8317faa2474801c183302fa66ab57f773d017b48eee4209b5fa5572bcc",
+      "method": "Git CRLF/LF normalization only; native captured literal source snapshots remain unchanged"
+    },
+    {
+      "path": "design/audit_impacts/day-one-job-art-census-20261001.json",
+      "checkout_literal_sha256": "22a7eb6fbae1ae99d090ec5bb46b9d3fb8a6b60ff379eebf3c42f2dc7e1eb9ca",
+      "staged_canonical_sha256": "ce0a454b6eedeb3310f0cbf57b9586336d3a07815003cc9d69096619e0e58d6b",
+      "method": "Git CRLF/LF normalization only; native captured literal source snapshots remain unchanged"
+    },
+    {
+      "path": "design/audit_impacts/day2-nursery-action-v4-20261001.json",
+      "checkout_literal_sha256": "efce7a0a6b831f667d4ccba984f5f6b3214f38e0aef0025f5f59e85005328778",
+      "staged_canonical_sha256": "1c8b487cee7f19f995d7de406eb71f1a542a519421fe9c5683927f956bbb212b",
+      "method": "Git CRLF/LF normalization only; native captured literal source snapshots remain unchanged"
+    },
+    {
+      "path": "design/audit_impacts/day2-nursery-care-v5-20261001.json",
+      "checkout_literal_sha256": "f641590d8840acc9a6a6c0ac2bcae63770453dbf386dd81b65a93b28d65751e0",
+      "staged_canonical_sha256": "f6be19e245949f4f6aa761a98e7c6ac1f696b0e42c2d72febbf7bd424e2f46d1",
+      "method": "Git CRLF/LF normalization only; native captured literal source snapshots remain unchanged"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "checkout_literal_sha256": "514de288b41ffa0a30ac7ee7d949ff143294674a8c0513494a0e97785046f527",
+      "staged_canonical_sha256": "40d1b44d34ae60ef59101bad9cafff18008d560b906a13b5df481335828d1632",
+      "method": "Git CRLF/LF normalization only; native captured literal source snapshots remain unchanged"
+    },
+    {
+      "path": "scripts/opera_nursery_catch.gd",
+      "checkout_literal_sha256": "479919ee4770bc070da06ddbac553ee9dc9c933dccad6bbaf8874e865c02a92a",
+      "staged_canonical_sha256": "0ce626ece555740df90fab139e6fb461e9f7748d90a43b3822c77ab4cb13e0a3",
+      "method": "Git CRLF/LF normalization only; native captured literal source snapshots remain unchanged"
+    },
+    {
+      "path": "tools/build_day2_nursery_action_v4_review.py",
+      "checkout_literal_sha256": "b67d1fcbb3ef5e902c2be259e9b661be43b1a1ff61d007dfa2d0209dd4ef9fb6",
+      "staged_canonical_sha256": "d8987b445e5dd461fcae49ac99cdbed60049efcea6aa109aee4972455aabbd17",
+      "method": "Git CRLF/LF normalization only; native captured literal source snapshots remain unchanged"
+    },
+    {
+      "path": "tools/pack_day2_nursery_babies_v2.py",
+      "checkout_literal_sha256": "22fefb664f39a37c9418021f50d6d75c92e660d387f289e825eb1d2e03bc66b6",
+      "staged_canonical_sha256": "24c776ffa8d17574db96bc065e62a5f9bddfcd7ad7fd6bee0a44b655c9ab80db",
+      "method": "Git CRLF/LF normalization only; native captured literal source snapshots remain unchanged"
+    }
+  ],
+  "current_native_source": "body_v3/capture_index.json retains exact literal source snapshots at both boundaries; current source gate matches them",
+  "result": "PASS",
+  "qualification": "Byte normalization is not subject repair. This covers the staged packet before its self-describing byte receipt/manifest and later remote receipt are added."
+}

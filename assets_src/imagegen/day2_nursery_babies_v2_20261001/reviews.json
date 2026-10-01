@@ -1,0 +1,54 @@
+{
+  "reviewer": "Codex drafting source inspection",
+  "items": [
+    {
+      "id": "D2A-0391-candidate-v2",
+      "original_id": "D2A-0391",
+      "name": "Aqua infant",
+      "source_style_score": 4.6,
+      "review": "The aqua wrapping preserves the first infant identity. Broad blue-green folds and a clear brown forelock replace fine fabric and facial rendering; a round calm face and closed swaddle remain readable.",
+      "path": "assets_src/imagegen/day2_nursery_babies_v2_20261001/baby_0_review.png",
+      "sha256": "106a8e37fda02b4c2256ececd01919eeaf4573d8cb29b071e70db4b0667dbb38",
+      "mounted_score": null,
+      "runtime_bound": false,
+      "owner_accepted": false,
+      "held_pose_fit_score": 4.6,
+      "held_pose_review": "Direct native1280x720 and1600x720 held fits: simple face and swaddle are readable beside the250px care body, with the painted visible foot resting on the measured hand socket. This is source-only static fitting, not a passed live action.",
+      "fit_evidence": "audit/day2_nursery_baby_fit_v1_20261001/receipt.json"
+    },
+    {
+      "id": "D2A-0392-candidate-v2",
+      "original_id": "D2A-0392",
+      "name": "Pink infant",
+      "source_style_score": 4.6,
+      "review": "The pink wrapping and golden forelock preserve the second identity. The same soft rounded head, simple smile and broad painted folds match the family without losing the warm color contrast.",
+      "path": "assets_src/imagegen/day2_nursery_babies_v2_20261001/baby_1_review.png",
+      "sha256": "0343a93316024575f8d220b2eec04df5eb7419fbe27eb3179d28fa05dee083f9",
+      "mounted_score": null,
+      "runtime_bound": false,
+      "owner_accepted": false,
+      "held_pose_fit_score": 4.6,
+      "held_pose_review": "Direct native1280x720 and1600x720 held fits: simple face and swaddle are readable beside the250px care body, with the painted visible foot resting on the measured hand socket. This is source-only static fitting, not a passed live action.",
+      "fit_evidence": "audit/day2_nursery_baby_fit_v1_20261001/receipt.json"
+    },
+    {
+      "id": "D2A-0393-candidate-v2",
+      "original_id": "D2A-0393",
+      "name": "Violet infant",
+      "source_style_score": 4.6,
+      "review": "The violet wrapping and brown forelock preserve the third identity. Its distinct cool color, navy contour and uncomplicated blue eyes read clearly beside the aqua and pink siblings.",
+      "path": "assets_src/imagegen/day2_nursery_babies_v2_20261001/baby_2_review.png",
+      "sha256": "3f4298d40a51d3654130b2c0d9bad6ce3214cc91947f2133dbeed9736ab121d6",
+      "mounted_score": null,
+      "runtime_bound": false,
+      "owner_accepted": false,
+      "held_pose_fit_score": 4.6,
+      "held_pose_review": "Direct native1280x720 and1600x720 held fits: simple face and swaddle are readable beside the250px care body, with the painted visible foot resting on the measured hand socket. This is source-only static fitting, not a passed live action.",
+      "fit_evidence": "audit/day2_nursery_baby_fit_v1_20261001/receipt.json"
+    }
+  ],
+  "packing": "Every native RGBA pixel reconstructed exactly",
+  "painted_support_metadata": "50% alpha bounds measured as metadata only; source alpha is unchanged. Low-alpha fringe remains retained.",
+  "runtime": "Not bound; current original infants still score4.3 mounted.",
+  "acceptance": "Individual source-style opinions; held-pose/native action, device, child and owner evidence remain separate and pending."
+}
