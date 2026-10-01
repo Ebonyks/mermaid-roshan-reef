@@ -7,9 +7,9 @@
   "evidence_baseline": "dev 55032e88936b22723fd9af5282c61ba6696b3d43",
   "entry": "README.md",
   "file_count": 8,
-  "total_bytes": 258532,
+  "total_bytes": 329379,
   "hash_basis": "SHA-256 of the committed Git blob bytes (LF line endings), identical to what raw.githubusercontent.com serves",
-  "revision": "1 (2026-09-30)",
+  "revision": "4 (2026-09-30): adds OD-D, silly questions and sillier imp lines; revision 3 (art-reuse and imp-contact corrections) was 86732a47, revision 2 (OD-C) was df01b7ce, revision 1 was 7ec82d46",
   "files": [
     {
       "path": ".gdignore",
@@ -19,44 +19,44 @@
     },
     {
       "path": "CONTEST_DESIGN.md",
-      "bytes": 47768,
-      "sha256": "736ae3e9546788e2819cba52e40aaf513d6121f1eab150bfe32fdfb433d9f1cf",
+      "bytes": 74367,
+      "sha256": "cd6c88c049a3e34394dfb4750f94c81f39d6f9fd899424508130ac515332d679",
       "role": "contest design and implementation specification"
     },
     {
       "path": "CURRENT_STATE_ANALYSIS.md",
-      "bytes": 15483,
-      "sha256": "ed033f19c1f516102318485492d74134e10bfc0bac62bdb97adfb728b75914ae",
+      "bytes": 16206,
+      "sha256": "6f1f269eb49af52b29b9a7ee8eaaeff4821c7ee821d74a204348d95ddb493415",
       "role": "current-state analysis with code anchors"
     },
     {
       "path": "README.md",
-      "bytes": 6662,
-      "sha256": "b3933181bfa2ab6559bb8af00c6944244748d26f184a786f8741d5272e8d6ac0",
+      "bytes": 10892,
+      "sha256": "03f39abb68659eafe2261df1830fa2e159bc9b55a3089ffdb9371a46b7801a62",
       "role": "handoff entry point"
     },
     {
       "path": "data/contest_spec.json",
-      "bytes": 37580,
-      "sha256": "d5c64849b971f7bbde3be4575af5939320012c96fd9c88e26a468d77e62a5edd",
+      "bytes": 60339,
+      "sha256": "59ceab2e06ac3c1acaaae112edf21b62ca32b87c4713b5cb02262c4bc8c5fe57",
       "role": "machine-readable contest specification (hand-authored)"
     },
     {
       "path": "data/imp_art_inventory.json",
-      "bytes": 87951,
-      "sha256": "378bf6df5aa5caef26878f2ecad38231fbec4eee5da1bcb98e60843487d6f14d",
+      "bytes": 88968,
+      "sha256": "ed0d56757b44692ce958660dcda808e0c7f510e9507a8454c1dbfdbc6123c9fe",
       "role": "generated imp art inventory (text)"
     },
     {
       "path": "data/imp_voice_inventory.json",
-      "bytes": 45260,
-      "sha256": "2972fddc24ce5f98a37acffded5df511ccfb93c25cfcd5f7fb9bf9c99f673a6d",
+      "bytes": 59748,
+      "sha256": "8420d7f58411cb7a9ab0cf0b1621dacf297805b086733a69c07de42dc74a331f",
       "role": "generated imp voice inventory and new-line list (text)"
     },
     {
       "path": "tools/build_packet_data.py",
-      "bytes": 17828,
-      "sha256": "8ce1f3078a9d05c8208e0fc70c635dc01f81930809d0015124f8a0a5d0b598aa",
+      "bytes": 18859,
+      "sha256": "7cfd956f1d499ce2ad6eb47c1c59d5e597bd59219242425c8a36818cb6d32bde",
       "role": "text-only generator and checker for the inventories and manifest"
     }
   ]

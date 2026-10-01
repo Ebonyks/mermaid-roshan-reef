@@ -8,6 +8,10 @@
 
 This is the "before" picture for [CONTEST_DESIGN.md](CONTEST_DESIGN.md).
 
+**Revisions 2 to 4 (2026-09-30):** the owner's decision OD-C (a Teacher imp who teaches
+wrong things for the child to fix) absorbs H2. The imp-use numbers in §5 now include the
+Teacher's and Geologist's inverted contests and OD-D's silly questions.
+
 ## 1. The formula
 
 ### 1.1 One act, one career, one room
@@ -166,8 +170,9 @@ work or queues them.
   (`scripts/opera_career_world_2d.gd:1787-1792` and the teacher branch of
   `_set_finale_visible`). The probe asserts it stays hidden (`scripts/probe_opera_2d.gd:1246-1248`).
 - Yet the win line thanks "her learning buddy" (`scripts/opera_house.gd:149`).
-- **Recommendation:** drop the buddy wording from the win line, or show the buddy. The owner
-  decides the Teacher's contest question (`CONTEST_DESIGN.md` §7).
+- **Status: absorbed.** Owner decision OD-C gives the Teacher a visible imp in the final act
+  (`CONTEST_DESIGN.md` §6.13), so the win line no longer credits someone the child never
+  sees.
 
 ### H3: co-op partners are frozen in one pose
 
@@ -242,14 +247,18 @@ work or queues them.
 
 ### 5.1 Art (178 files)
 
-| Family | Files | Shown today | Shown after the twelve contests |
+| Family | Files | Shown today | Shown after the specified contests |
 |---|---|---|---|
 | each of 10 costumed world families | 13 | 3 (idle, taunt, bow) | 13 |
 | rival_boxer | 13 | 9 | 13 |
 | rival_racer | 13 | 2 (idle, bow) | 13 |
-| imp_mischief | 11 | 0 | 0 (11 with Nursery option B) |
+| imp_mischief | 11 | 0 | 11 (the Teacher's interim imp; also Nursery option B) |
 | imp_captain | 11 | 0 | 0 |
-| **Total** | **178** | **41** | **156 (167 with option B)** |
+| **Total** | **178** | **41** | **167** |
+
+The Geologist's field guide already wears the detective costume, so it adds no files. If a
+`rival_teacher` family replaces the Teacher's interim imp, the mischief imp's 11 files are
+used only by Nursery option B.
 
 Per-file evidence, hashes and planned roles are in
 [data/imp_art_inventory.json](data/imp_art_inventory.json).
@@ -261,8 +270,13 @@ Per-file evidence, hashes and planned roles are in
 - **After the contests:** 36 would play, or 39 with Nursery option B. For each costumed
   career, the arrive line becomes his entrance, the copy line his flub and the bop line his
   defeat. The Farmer swaps copy and bop; see `CONTEST_DESIGN.md` §6.6.
-- **New lines:** 25 are needed, plus 2 more if Nursery option B is chosen. Per-key detail is in
-  [data/imp_voice_inventory.json](data/imp_voice_inventory.json).
+- **New lines:** 67 are needed:
+  - 25 for the costumed careers and the shared win and "Again!" lines;
+  - 40 for the Teacher, 32 of them for the silly questions;
+  - 2 shared "fixed" and "tricked" lines.
+
+  Add 9 more if the Geologist contest is confirmed, and 2 if Nursery option B is chosen.
+  Per-key detail is in [data/imp_voice_inventory.json](data/imp_voice_inventory.json).
 
 ## 6. What this means for the design
 
