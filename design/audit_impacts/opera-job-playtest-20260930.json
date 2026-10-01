@@ -91,9 +91,14 @@
       "command": "Exact-head GitHub Probe Suite (probes and area-music-provenance)",
       "result": "PENDING",
       "evidence": "Must be green on the exact published topic commit before dev integration. Baseline CI below is evidence for baseline only."
+    },
+    {
+      "command": "GODOT=4.7.2-stable scripts/ci.sh, reconciled canonical candidate at upstream 1e62991e",
+      "result": "PENDING",
+      "evidence": "Combined source snapshot v3; all seven launcher source Git hashes remain equivalent to b9b44fb6. Earlier v2 full PASS is pre-reconciliation evidence only. The combined full suite must pass before commit/push."
     }
   ],
-  "acceptance_gaps": "Full canonical local suite passes; exact-head remote CI is pending at pre-publication authoring and must pass before dev integration. Target-device touch/30 fps, observed child play and owner acceptance remain outstanding. The small duplicated HUD handoff is bounded temporary DL-CODE-05 debt after mandatory extraction reversion. No finding lifecycle or whole-game UNSATISFIED satisfaction changes. Existing art is reused without modifications; no protected content, new art, cinematic or release change.",
+  "acceptance_gaps": "Pre-reconciliation canonical local suite passes; combined local suite is pending; exact-head remote CI is pending at pre-publication authoring and must pass before dev integration. Target-device touch/30 fps, observed child play and owner acceptance remain outstanding. The small duplicated HUD handoff is bounded temporary DL-CODE-05 debt after mandatory extraction reversion. No finding lifecycle or whole-game UNSATISFIED satisfaction changes. Existing art is reused without modifications; no protected content, new art, cinematic or release change.",
   "baseline_evidence": {
     "probe_suite": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36807014650",
     "head": "b65c21fdddd79f272a6854f241faa1441abe6616",
@@ -151,6 +156,10 @@
     {
       "path": "tmp/opera-job-full-ci-clean-repeat.log",
       "sha256": "0e58e255d5f33ded2eb50b861fe0592015423245f9fa1920d99dd7a3a37fa7d6"
+    },
+    {
+      "path": "tmp/opera-job-clean-validation-snapshot-v3.json",
+      "sha256": "46d1ad13aef3ad73c76194dc61febd2ffde42d73a14f745a817733940d8ef265"
     }
   ],
   "source_payload": [
@@ -190,5 +199,11 @@
       "git_blob_sha256": "7ae3134a6197f8dfe0ac3a415c67ed02bcf5a8f9dfe02c96c5880bff5033d1c0"
     }
   ],
-  "source_payload_hashes": "sha256 binds tested local file bytes; git_blob_sha256 binds the equivalent LF-normalized Git file bytes. Differences are text line endings only."
+  "source_payload_hashes": "sha256 binds tested local file bytes; git_blob_sha256 binds the equivalent LF-normalized Git file bytes. Differences are text line endings only.",
+  "reconciliation": {
+    "upstream": "1e62991ee8db27afe045ed1791d938976762e38d",
+    "feature_source_commit": "b9b44fb696f5f07215778907c2c1dd4de1017536",
+    "scope": "Preserve upstream audit/handoff facts, dead-code pruning, typography test and shrinking 2D inventory. main.gd matches upstream exactly; this task makes no coordinator cleanup claim.",
+    "snapshot": "tmp/opera-job-clean-validation-snapshot-v3.json"
+  }
 }
