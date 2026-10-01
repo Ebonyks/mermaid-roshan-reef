@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-10-01T20:11:33.479841+00:00",
+  "results": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "process_exit": 0,
+      "stdout": "authority.stdout.log",
+      "stderr": "authority.stderr.log"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "process_exit": 0,
+      "stdout": "development.stdout.log",
+      "stderr": "development.stderr.log"
+    }
+  ],
+  "qualification": "Document authority and actual topic diff coverage of the current complete working tree. No hosted CI, seed delivery or visual acceptance claim."
+}

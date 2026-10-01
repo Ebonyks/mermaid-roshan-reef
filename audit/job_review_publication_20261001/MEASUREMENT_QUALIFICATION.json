@@ -1,0 +1,14 @@
+{
+  "earlier_measurement": "TREE_MEASURE_V5_PRESERVED.json",
+  "correction": "The earlier tree-root traversal included old repository objects and is not a measurement of the new commit push. Use the parented COMMIT_MEASURE_V6.json (2842164502 bytes). Raw earlier receipt retained unchanged.",
+  "executed_sealer": {
+    "path": "executed_sealer_v5.py",
+    "sha256": "654e0b15286e08d1c9b2f8b12cb6590e0e27b36bfe38d593e4da4653327f9e48",
+    "qualification": "Exact script executed after the v5 HTTP check. The already-sealed review_tools preparation snapshot predates the HTTP v5 guard update and is not claimed as the exact executed script. No sealed file was changed."
+  },
+  "executed_remote_verifier": {
+    "path": "executed_remote_verifier_v5.py",
+    "sha256": "4ee3cdbccc8373a5ca84b2f182a622e92b6b51c7fc273f62a4a18d2b8c69bc85",
+    "qualification": "Exact current prepared verifier; execution and immutable receipt remain pending."
+  }
+}
