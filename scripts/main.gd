@@ -2850,24 +2850,7 @@ func _start_opera_now() -> void:
 		return
 	opera_pending_act_index = -1
 	game = "opera"
-	if hud_layer != null:
-		opera_hud_was_visible = hud_layer.visible
-		opera_hud_previous_layer = hud_layer.layer
-		opera_hud_game_was_visible = hud_game != null and hud_game.visible
-		opera_obj_was_visible = obj_card != null and obj_card.visible
-		hud_layer.layer = 12
-		hud_layer.visible = true
-		if hud_game != null:
-			hud_game.visible = false
-		if obj_card != null:
-			obj_card.visible = false
-	if hud_msg != null:
-		hud_msg.text = ""
-		hud_msg.visible = false
-	opera_player_was_visible = player != null and player.visible
-	if player != null:
-		player.visible = false
-	_sync_pause_surface_layer()
+	OperaRoutePresentation.suspend(self)
 	var next_house := OperaHouse.new()
 	add_child(next_house)
 	if not next_house.start(

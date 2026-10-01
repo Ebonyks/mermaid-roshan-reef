@@ -596,6 +596,7 @@ var teacher_save_pending := false
 var teacher_save_cool := 0.0
 var teacher_voice_queue: Array[String] = []
 var teacher_caption: Label
+var teacher_playtest_progress: Dictionary = {}
 
 var backdrop_node: OperaWorldBackdrop2D
 var action_panel: ColorRect
@@ -733,11 +734,11 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 	phase_index = 0
 	if two_act_enabled:
 		_performance_restore()
-	if career_id == "teacher":
+	if career_id == "teacher" and not _is_dev_playtest():
 		var saved: Variant = m.save_data.get("teacher_lesson_checkpoint", {})
 		if saved is Dictionary and saved.get("version", 0) == 1:
 			phase_index = clampi(int(saved.get("phase_index", 0)), 0, phases.size())
-	if career_id == "geologist" and not using_chapter_two_phases:
+	if career_id == "geologist" and not using_chapter_two_phases and not _is_dev_playtest():
 		var checkpoint: Variant = m.save_data.get("opera_geology_checkpoint", {})
 		if checkpoint is Dictionary and int((checkpoint as Dictionary).get("version", 0)) == 1:
 			phase_index = clampi(int((checkpoint as Dictionary).get("phase_index", 0)), 0, phases.size())
@@ -782,6 +783,8 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 
 
 func _adapter_hook(event: String, payload: Dictionary = {}) -> void:
+	if _is_dev_playtest():
+		return
 	var callback: Variant = adapter_callbacks.get(event, Callable())
 	if not _valid_callback(callback):
 		callback = scene_adapter.get(event, Callable())
@@ -857,7 +860,7 @@ func _sync_root_scale() -> void:
 
 
 func _is_chapter2_story_scene() -> bool:
-	return using_chapter_two_phases and not scene_adapter.is_empty()
+	return not _is_dev_playtest() and using_chapter_two_phases and not scene_adapter.is_empty()
 
 
 func _is_chapter2_cake_scene() -> bool:
@@ -974,7 +977,7 @@ func _build_chapter2_strawberry_pickups() -> void:
 
 
 func _is_chapter2_strawberry_pick_phase() -> bool:
-	if career_id != "farmer" or not using_chapter_two_phases \
+	if _is_dev_playtest() or career_id != "farmer" or not using_chapter_two_phases \
 			or phase_index < 0 or phase_index >= phases.size():
 		return false
 	var phase := phases[phase_index] as Dictionary
@@ -1437,6 +1440,10 @@ func _build_chapter2_stuffie_cast() -> void:
 
 func _is_tutorial_run() -> bool:
 	return bool(config.get("chapter2_tutorial", false))
+
+
+func _is_dev_playtest() -> bool:
+	return String(config.get("reward_policy", "")) == "dev_playtest"
 
 
 func _animate_chapter2_guest(guest: TextureRect, target_rotation: float,
@@ -2559,14 +2566,15 @@ func _bind_widget(phase: Dictionary, mode_name: String, accent: Color, armed := 
 	surface.configure(mode_name, accent, choice_target, context)
 	if surface is TeacherSurface:
 		var kind := mode_name.trim_prefix("teacher_")
-		(surface as TeacherSurface).set_lesson(TeacherLessons.make_lesson(kind, m.save_data.get("teacher_learning_progress", {}) as Dictionary))
-		var checkpoint: Variant = m.save_data.get("teacher_lesson_checkpoint", {})
+		(surface as TeacherSurface).set_lesson(TeacherLessons.make_lesson(kind, _teacher_learning_progress()))
+		var checkpoint: Variant = {} if _is_dev_playtest() \
+			else m.save_data.get("teacher_lesson_checkpoint", {})
 		if checkpoint is Dictionary and int(checkpoint.get("phase_index", -1)) == phase_index:
 			var mechanic: Variant = checkpoint.get("mechanic", {})
 			if mechanic is Dictionary:
 				(surface as TeacherSurface).restore_progress(mechanic)
 	teacher_restoring = false
-	if career_id == "geologist" and surface is OperaGeologySurface:
+	if career_id == "geologist" and surface is OperaGeologySurface and not _is_dev_playtest():
 		var saved: Variant = m.save_data.get("opera_geology_checkpoint", {})
 		if saved is Dictionary and int((saved as Dictionary).get("phase_index", -1)) == phase_index:
 			var mechanic: Variant = (saved as Dictionary).get("mechanic", {})
@@ -4872,8 +4880,18 @@ func _on_teacher_progress(_snapshot: Dictionary) -> void:
 func _on_teacher_result(kind: String, assisted: bool) -> void:
 	if teacher_restoring or not active or not task_open or phase_advance_pending:
 		return
+	if _is_dev_playtest():
+		teacher_playtest_progress = TeacherLessons.record_result(
+			teacher_playtest_progress, kind, assisted)
+		return
 	m.save_data["teacher_learning_progress"] = TeacherLessons.record_result(
 		m.save_data.get("teacher_learning_progress", {}) as Dictionary, kind, assisted)
+
+
+func _teacher_learning_progress() -> Dictionary:
+	if _is_dev_playtest():
+		return teacher_playtest_progress
+	return m.save_data.get("teacher_learning_progress", {}) as Dictionary
 
 
 func _on_teacher_count(number: int) -> void:
@@ -4898,7 +4916,7 @@ func _tick_teacher_voice() -> void:
 
 
 func _checkpoint_teacher(flush: bool) -> void:
-	if teacher_restoring or career_id != "teacher" or m == null or not (surface is TeacherSurface):
+	if _is_dev_playtest() or teacher_restoring or career_id != "teacher" or m == null or not (surface is TeacherSurface):
 		return
 	var next_phase := mini(phases.size(), phase_index + (1 if phase_advance_pending else 0))
 	var snapshot := (surface as TeacherSurface).progress_snapshot() \
@@ -4919,7 +4937,7 @@ func _on_geology_progress_changed(_snapshot: Dictionary) -> void:
 
 
 func _checkpoint_geology(flush: bool) -> void:
-	if geology_restoring or career_id != "geologist" or m == null \
+	if _is_dev_playtest() or geology_restoring or career_id != "geologist" or m == null \
 			or not (surface is OperaGeologySurface):
 		return
 	var next_phase := mini(phases.size(), phase_index + (1 if phase_advance_pending else 0))
@@ -5153,7 +5171,7 @@ func _performance_checkpoint_echo_prefix() -> void:
 
 
 func _performance_checkpoint(flush: bool) -> void:
-	if not two_act_enabled or m == null:
+	if _is_dev_playtest() or not two_act_enabled or m == null:
 		return
 	var raw: Variant = m.save_data.get("opera_performance_checkpoints", {})
 	var checkpoints: Dictionary = (raw as Dictionary).duplicate(true) if raw is Dictionary else {}
@@ -5167,6 +5185,8 @@ func _performance_checkpoint(flush: bool) -> void:
 
 
 func _performance_restore() -> void:
+	if _is_dev_playtest():
+		return
 	var raw: Variant = m.save_data.get("opera_performance_checkpoints", {})
 	if not raw is Dictionary:
 		return

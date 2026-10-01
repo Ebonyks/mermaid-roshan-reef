@@ -1,0 +1,160 @@
+{
+  "id": "opera-job-playtest-20260930",
+  "scope": "Owner-requested temporary Opera House left-elevator developer menu launching every live world-triggered job through its shipping Canvas engine. Runs start fresh, preserve child saves/rewards/checkpoints, and return to the menu for repeated review. Normal world routes and retired boss slots stay intact. Shared presentation handoff is mechanically extracted from main, reducing its size.",
+  "baseline": "b65c21fdddd79f272a6854f241faa1441abe6616",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-04",
+    "DL-AGE-06",
+    "DL-MED-01",
+    "DL-INT-12",
+    "DL-INT-13",
+    "DL-UI-03",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-UI-06",
+    "DL-SND-03",
+    "DL-SND-08",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-CODE-01",
+    "DL-CODE-03",
+    "DL-CODE-05",
+    "DL-CODE-06",
+    "DL-TYPE-04",
+    "DL-TYPE-08"
+  ],
+  "findings": [
+    "MA-OPERA-012",
+    "MA-CODE-001"
+  ],
+  "files": [
+    "scripts/main.gd",
+    "scripts/opera_route_presentation.gd",
+    "scripts/opera_job_playtest_menu.gd",
+    "scripts/opera_house_venue_2d.gd",
+    "scripts/opera_house.gd",
+    "scripts/opera_act.gd",
+    "scripts/opera_career_world_2d.gd",
+    "scripts/probe_opera.gd",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/05_DOC_LEDGER.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md"
+  ],
+  "owner_direction": "2026-09-30: for the time being the left Opera House elevator opens a menu loading all Mermaid Roshan jobs normally triggered in the world, for playtesting, troubleshooting and review. This scopes a temporary dev route; it commissions no job redesign or full venue remake.",
+  "validation": [
+    {
+      "command": "python -m gdtoolkit.parser <changed .gd files> and python -B tools/lint_inference.py <changed .gd files>",
+      "result": "PASS",
+      "evidence": "All eight changed/new GDScript files parse and pass inference lint. Shared presentation extraction reduces main.gd from 9,817 to 9,800 lines against b65c21fd."
+    },
+    {
+      "command": "Godot 4.7.2-stable --headless -s scripts/probe_opera.gd",
+      "result": "PASS",
+      "evidence": "Godot 4.7.2-stable native, sequential Start-Process supervision; isolated workspace user data. Exit 0; OPERA|result: ALL OK, all 15 dev launches/repeats, checkpoint/reward/passive isolation, true story-gated state, Back/pause/teardown and normal-route siblings. Logs bound below."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py and python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "DOCAUTH ALL OK: 594 inventory/ledger, 58 active/60 records; AUDITDEV ALL OK against baseline b65c21fd; 52 contract unit tests passed. Recheck before commit/push remains required."
+    },
+    {
+      "command": "GODOT=4.7.2-stable scripts/ci.sh / exact-branch GitHub Probe Suite",
+      "result": "FAIL",
+      "evidence": "Initial aggregate failed on workspace temporary storage; standalone audio replacement check then passed. Native full aggregate tmp/opera-job-full-ci-native.log passed static/art/audio/interaction gates and import, then stopped at 29 G2D101 findings from pre-existing local-only addons/godot_ai (excluded by .git/info/exclude, no tracked project dependency). No full runtime probes ran in that aggregate. A complete canonical candidate snapshot will be revalidated in a separate Git worktree, preserving the local addon and both failed logs."
+    },
+    {
+      "command": "Godot 4.7.2-stable Mobile runtime capture and manual layout inspection at 1280x720 and 1600x720",
+      "result": "PASS",
+      "evidence": "Diagnostic runtime review only: fifteen cards readable, separated and onscreen; stale room caption cleared; existing crest art reused. This is not physical-device or owner acceptance."
+    },
+    {
+      "command": "GODOT=4.7.2-stable scripts/ci.sh in complete canonical H: Git validation worktree",
+      "result": "PENDING",
+      "evidence": "All 16,937 tracked inputs plus exact task files copied, source/config/sidecars independent, own import cache and userdata, no local-only addon; source/doc snapshot hash receipt bound below. Original checkout/addon preserved."
+    }
+  ],
+  "acceptance_gaps": "Mobile diagnostic captures were inspected at two aspects; target-device touch/30 fps, observed child play and owner acceptance remain outstanding. Full local aggregate and exact-head remote CI are pending. No finding lifecycle or whole-game UNSATISFIED satisfaction changes. Existing art is reused without modifications; no protected content, new art, cinematic or release change.",
+  "baseline_evidence": {
+    "probe_suite": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36807014650",
+    "head": "b65c21fdddd79f272a6854f241faa1441abe6616",
+    "result": "PASS"
+  },
+  "evidence_files": [
+    {
+      "path": "tmp/opera-job-probe-sequential.stdout.log",
+      "sha256": "b5c315296bab3c8ac83268d4bbb78ca6010cb3b3468695ee99be2fd05c0d7bf5"
+    },
+    {
+      "path": "tmp/opera-job-probe-sequential.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tmp/opera-job-import.log",
+      "sha256": "efce6674ce30199188387bc4c1d04f4486c78521b2fcd23587f2dfe2ecce6d64"
+    },
+    {
+      "path": "tmp/opera-job-analyzer-console.log",
+      "sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c"
+    },
+    {
+      "path": "tmp/opera-job-menu-1280.png",
+      "sha256": "6a93577c865000c2cf9e309dc29f07cfdc8ff7ea926cc16e5179ea31bd81e575"
+    },
+    {
+      "path": "tmp/opera-job-menu-1600.png",
+      "sha256": "61189a4aec6f45e35170ec1632c380d80aa6aaa1d2873774228ef7dd1ce5e868"
+    },
+    {
+      "path": "tmp/opera-job-full-ci.log",
+      "sha256": "1f1317fa6c43cb44fa639f384f14ddeeade5f1de00810072d954e33c616d824b"
+    },
+    {
+      "path": "tmp/opera-job-clean-validation-snapshot.json",
+      "sha256": "95a4b7ad3ab255f0ae9ca41c6347663834cdf8d0d97be9971e81082e766b8f58"
+    },
+    {
+      "path": "tmp/opera-job-full-ci-native.log",
+      "sha256": "0f76d5fbf3edfff96b1cbf083990209645966ee06a75b11c150e93cc4fe8238d"
+    }
+  ],
+  "source_payload": [
+    {
+      "path": "scripts/main.gd",
+      "sha256": "afaa5d5e56f5eadc662fb120b2103d73897a2656b74740f77b79fe2545680bcf"
+    },
+    {
+      "path": "scripts/opera_route_presentation.gd",
+      "sha256": "491d300daccfbad88ab7b18ac4f2740d22f12a451f6b16e91d9c5a7f8e6ac2d8"
+    },
+    {
+      "path": "scripts/opera_job_playtest_menu.gd",
+      "sha256": "e77790fb2b9bd2ff35d7c9b5856d77a7af1d8c9a5cc228cf8b8d363ec3884375"
+    },
+    {
+      "path": "scripts/opera_house_venue_2d.gd",
+      "sha256": "34eb932c285689003890dcd8815a7e37f0d55e19a8b7c6b4ea1f83c55df436d7"
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "sha256": "647d5b1a027139bfa3be0419a2eb79a6b12ff3d977665dc2c2184e0e33aea4c0"
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "sha256": "49c0a328587e3e4e43b37d9d664f2ad47394f06ed729c0da2efd6a973de416cc"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "914dedeedd939a2e24ca403f810317438c7bd1b8b4458ed510f5b5c2d5da6c3d"
+    },
+    {
+      "path": "scripts/probe_opera.gd",
+      "sha256": "5cde4cf1b82b2aa52f3b011a64467278da3e15034d286748be265edc1e753490"
+    }
+  ]
+}

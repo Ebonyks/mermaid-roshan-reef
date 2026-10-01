@@ -77,6 +77,7 @@ func _init() -> void:
 	await _audit_no_hidden_hub()
 	await _audit_wrong_and_passive_routes()
 	await _audit_cancel_return()
+	await _audit_job_playtest_menu()
 	await _audit_all_career_lifecycles()
 	await _audit_replay_curtain()
 	await _finish()
@@ -362,6 +363,302 @@ func _audit_cancel_return() -> void:
 		_route_returned(room_id) and main.opera_stars == stars_before
 		and main.opera_progress == progress_before and main.pearl_count == pearls_before
 		and main.cur_track == expected_room_track)
+
+
+func _audit_job_playtest_menu() -> void:
+	var original_save := main.save_data.duplicate(true)
+	var original_story := main._chapter_two_ref().serialize_state()
+	var original_events := main.chapter2_event_history.duplicate(true)
+	var original_seen := main.chapter2_event_seen.duplicate(true)
+	var original_boss_defeated := main.day_one_giant_dust_bunny_boss_defeated
+	original_story["day_one_giant_dust_bunny_boss_defeated"] = original_boss_defeated
+	main._chapter_two_ref().restore_state({})
+	rooms.show_room("opera_hall", false)
+	await _frames(3)
+	_check("playtest entry opens the existing Opera venue", routes.open_opera_venue())
+	await _frames(3)
+	var venue := routes.opera_venue
+	var menu: OperaJobPlaytestMenu = venue.job_playtest_menu if venue != null else null
+	var elevator: Button = venue.get_node_or_null("OperaLeftElevatorPlaytest") \
+		as Button if venue != null else null
+	var elevator_style: StyleBoxFlat = elevator.get_theme_stylebox("normal") \
+		as StyleBoxFlat if elevator != null else null
+	_check("painted left elevator owns one generous transparent dev hit region",
+		menu != null and elevator != null and elevator.is_visible_in_tree()
+		and Rect2(elevator.position, elevator.size) == Rect2(178, 390, 136, 134)
+		and elevator.get_child_count() == 0 and elevator.text.is_empty()
+		and elevator_style != null and is_zero_approx(elevator_style.bg_color.a))
+	if menu == null or elevator == null:
+		return
+	# Race the developer entry against the real painted-door approach. Its tween
+	# already owns the route, so elevator opening must leave that owner intact.
+	venue._choose_career(2)
+	menu.open()
+	_check("elevator cannot steal a pending normal portal approach",
+		not venue.accepting_input and venue.motion != null and venue.motion.is_valid()
+		and not menu.session_open and main.opera_game == null)
+	var normal_ready := await _await_route_ready(2)
+	_check("pending normal portal still launches its shipping Ballerina", normal_ready)
+	if main.opera_game != null:
+		(main.opera_game as OperaHouse)._leave_early()
+	await _frames(4)
+	_check("normal portal race returns to the venue", _route_returned("opera_hall"))
+	main.msg_timer = 100.0
+	main.hud_msg.text = "Stale job instruction"
+	main.hud_msg.show()
+	_tap_control(elevator, 140)
+	_check("developer entry clears the previous instruction and its timer",
+		is_zero_approx(main.msg_timer) and main.hud_msg.text.is_empty()
+		and not main.hud_msg.visible)
+	await _frames(3)
+	_check("Main processing cannot restore a stale caption over the developer menu",
+		is_zero_approx(main.msg_timer) and main.hud_msg.text.is_empty()
+		and not main.hud_msg.visible)
+	_check("raw elevator touch opens the developer menu above the venue",
+		_playtest_menu_returned(menu) and not venue.accepting_input
+		and main._navigation_ref().top_id() == OperaJobPlaytestMenu.ROUTE_ID)
+	var exposed: Array[int] = []
+	var pictures_ok := true
+	var rects: Array[Rect2] = []
+	for button: Button in menu.job_buttons:
+		exposed.append(int(button.get_meta("act_index", -1)))
+		var picture := button.get_node_or_null("JobPicture") as TextureRect
+		var rect := Rect2(button.position, button.size)
+		pictures_ok = pictures_ok and button.is_visible_in_tree() and not button.disabled \
+			and button.text.is_empty() and picture != null and picture.texture != null \
+			and button.size.x >= 110.0 and button.size.y >= 110.0 \
+			and ROUTE_CANVAS_RECT.encloses(rect)
+		for previous: Rect2 in rects:
+			pictures_ok = pictures_ok and not previous.intersects(rect, true)
+		rects.append(rect)
+	_check("dev pictures expose every shipping job once with separated touch targets",
+		exposed == OperaHouse.LIVE_ACT_INDICES and pictures_ok)
+	for rejected: int in [-1, 4, 9, 14, OperaHouse.ACTS.size()]:
+		_check("developer launcher rejects inactive slot %d" % rejected,
+			not menu.launch_job(rejected) and _playtest_menu_returned(menu))
+
+	# Nonempty, valid child checkpoints would resume late phases if the dev route
+	# accidentally reused a normal run. Preserve them through focus, leave and win.
+	main.save_data["teacher_lesson_checkpoint"] = {
+		"version": 1, "phase_index": 3, "mechanic": {"probe_preserved": true}}
+	main.save_data["opera_geology_checkpoint"] = {
+		"version": 1, "phase_index": 2, "mechanic": {"probe_preserved": true}}
+	main.save_data["teacher_learning_progress"] = TeacherLessonPlan.normalise_progress(
+		{"pattern": {"tier": 2, "rounds": 19, "clean_successes": 2}})
+	main.save_data["opera_performance_checkpoints"] = {
+		"ballerina": {"version": 1, "phase_index": 2},
+		"magician": {"version": 1, "phase_index": 2},
+		"popstar": {"version": 1, "phase_index": 2}}
+	main.save_data["opera_mastery"] = OperaMastery.normalise({})
+	_check("playtest isolation baseline persists valid child checkpoints", main._write_save())
+	var baseline := _playtest_progress_snapshot()
+	await _frames(45)
+	_check("idle developer menu cannot launch or change child progress",
+		_playtest_menu_returned(menu) and _playtest_progress_snapshot() == baseline)
+	for act_index: int in OperaHouse.LIVE_ACT_INDICES:
+		var house := await _start_via_playtest_touch(menu, act_index)
+		if house == null or house.act == null:
+			continue
+		var act := house.act
+		var world := act.career_world_2d
+		var instance_id := act.get_instance_id()
+		_check("dev slot %d starts its fresh shipping Canvas job" % act_index,
+			world != null and world.phase_index == 0 and act.state == "play"
+			and house.dev_playtest and not house.story_mode and not house.tutorial_mode
+			and String(house.run_context.get("reward_policy", "")) == "dev_playtest"
+			and not world.using_chapter_two_phases and world.scene_adapter.is_empty()
+			and _descendants_are_canvas(act) and not menu.visible and menu.running
+			and not menu.launch_job(act_index))
+		if world == null:
+			house._leave_early()
+			await _frames(4)
+			continue
+		await _frames(45)
+		_check("dev slot %d stays passive and preserves saved progress" % act_index,
+			act.state == "play" and world.phase_index == 0
+			and _playtest_progress_snapshot() == baseline)
+		if act_index in [2, 16, 17]:
+			world.propagate_notification(NOTIFICATION_APPLICATION_FOCUS_OUT)
+			world.propagate_notification(NOTIFICATION_APPLICATION_PAUSED)
+			main.toggle_pause()
+			_check("dev slot %d pauses above its Canvas job without saving scratch" % act_index,
+				main.get_tree().paused and main.pause_panel.visible
+				and main.pause_layer.layer > world.layer
+				and _playtest_progress_snapshot() == baseline)
+			main.toggle_pause()
+			world.propagate_notification(NOTIFICATION_APPLICATION_RESUMED)
+			world.propagate_notification(NOTIFICATION_APPLICATION_FOCUS_IN)
+		if act_index == 17:
+			world._open_task()
+			world._on_teacher_result("pattern", false)
+			world._checkpoint_teacher(true)
+			_check("dev Teacher learns only in per-run scratch",
+				not world.teacher_playtest_progress.is_empty()
+				and _playtest_progress_snapshot() == baseline)
+		# Simulate only the completion/reward boundary, as the existing lifecycle
+		# leg does. Real mechanic wins are covered by the specialist job probes.
+		_finish_playtest_curtain(act)
+		await _frames(4)
+		_check("dev slot %d completion returns to its menu without durable reward" % act_index,
+			_playtest_menu_returned(menu) and _playtest_progress_snapshot() == baseline)
+		var repeat := await _start_via_playtest_touch(menu, act_index)
+		if repeat == null or repeat.act == null:
+			continue
+		var repeated_world := repeat.act.career_world_2d
+		_check("dev slot %d re-entry creates fresh phase and learning state" % act_index,
+			repeat.act.get_instance_id() != instance_id and repeat.act.state == "play"
+			and repeated_world != null and repeated_world.phase_index == 0
+			and repeated_world.teacher_playtest_progress.is_empty()
+			and repeated_world.performance_milestones.is_empty())
+		if act_index == 17:
+			main.toggle_pause()
+			_tap_control(main.pause_leave_btn, 190)
+		else:
+			_tap_control(main.global_navigation_button, 190)
+		await _frames(4)
+		_check("dev slot %d neutral Back or pause Leave restores its menu" % act_index,
+			_playtest_menu_returned(menu) and not main.get_tree().paused
+			and _playtest_progress_snapshot() == baseline)
+
+	# A locked birthday job must remain reviewable through this explicit dev
+	# route, without loading story adapters or firing their persistent hooks.
+	# The save normalizer derives Chapter Two activation from the earned Day One
+	# boss boundary; an arbitrary chapter2_active flag is intentionally healed.
+	main.day_one_giant_dust_bunny_boss_defeated = true
+	main._chapter_two_ref().restore_state({
+		"day_one_giant_dust_bunny_boss_defeated": true,
+		"chapter2_active": true,
+		"chapter2_unlocked_opera_mask": ChapterTwoDirector.FIRST_WAVE_UNLOCK_MASK,
+		"chapter2_skill_mask": 0,
+		"chapter2_party_piece_mask": 0,
+		"chapter2_strawberry_mask": 0,
+		"chapter2_cake_piece_mask": 0,
+		"chapter2_job_phase_masks": [0, 0, 0, 0, 0, 0, 0, 0],
+		"chapter2_party_event_phase": ChapterTwoDirector.PARTY_EVENT_PREP,
+		"chapter2_party_started": false,
+		"chapter2_ember_king_crashed": false,
+	})
+	_check("story-active fixture locks later normal jobs",
+		main.chapter2_is_active() and not main.chapter2_can_start_opera_act(11)
+		and main.chapter2_can_start_opera_act(ChapterTwoDirector.ACT_FARMER)
+		and main.chapter2_active_objective == ChapterTwoDirector.OBJECTIVE_PARTY_PREP)
+	main._write_save()
+	var story_baseline := _playtest_progress_snapshot()
+	for story_index: int in [0, 11]:
+		var story_house := await _start_via_playtest_touch(menu, story_index)
+		if story_house == null or story_house.act == null:
+			continue
+		var story_act := story_house.act
+		var story_world := story_act.career_world_2d
+		_check("dev slot %d bypasses story locks using ordinary job phases" % story_index,
+			story_world != null and not story_world.using_chapter_two_phases
+			and story_world.scene_adapter.is_empty() and story_house.plot_context == ""
+			and not story_house.story_mode and not story_house.tutorial_mode)
+		_finish_playtest_curtain(story_act)
+		await _frames(4)
+		_check("dev slot %d story-active win preserves birthday milestones" % story_index,
+			_playtest_menu_returned(menu) and _playtest_progress_snapshot() == story_baseline)
+	_tap_control(main.global_navigation_button, 199)
+	await _frames(3)
+	_check("Back from developer menu restores normal Opera venue input",
+		not menu.session_open and not menu.running and not menu.visible
+		and venue.is_open() and venue.accepting_input
+		and main._navigation_ref().top_id() == "opera_venue"
+		and _playtest_progress_snapshot() == story_baseline)
+	_tap_control(main.global_navigation_button, 200)
+	await _frames(3)
+	_check("next Back closes only the Opera venue and preserves its room",
+		not venue.is_open() and main.castle_room_id == "opera_hall"
+		and main.castle_room_layer.visible
+		and main._navigation_ref().top_id() == "pearl_castle_room")
+	_tap_control(main.global_navigation_button, 201)
+	await _frames(3)
+	_check("room Back then returns safely to the Castle Main Hall",
+		main.castle_room_id == "main_hall" and main.castle_room_layer.visible)
+	main.save_data = original_save
+	main.day_one_giant_dust_bunny_boss_defeated = original_boss_defeated
+	main._chapter_two_ref().restore_state(original_story)
+	main.chapter2_event_history.assign(original_events)
+	main.chapter2_event_seen = original_seen
+	main._write_save()
+	rooms.show_room("opera_hall", false)
+	await _frames(3)
+	routes.open_opera_venue()
+	await _frames(3)
+	venue = routes.opera_venue
+	menu = venue.job_playtest_menu
+	elevator = venue.get_node("OperaLeftElevatorPlaytest") as Button
+	_tap_control(elevator, 202)
+	await _frames(3)
+	var teardown_house := await _start_via_playtest_touch(menu, 17)
+	var teardown_baseline := _playtest_progress_snapshot()
+	venue.close()
+	await _frames(4)
+	_check("closing the venue during a dev run tears down its separately owned job",
+		main.opera_game == null and not is_instance_valid(teardown_house)
+		and not menu.session_open and not menu.running and not venue.is_open()
+		and main.game == "level2" and main.castle_room_layer.visible
+		and main._navigation_ref().top_id() == "pearl_castle_room"
+		and _playtest_progress_snapshot() == teardown_baseline)
+
+
+func _start_via_playtest_touch(menu: OperaJobPlaytestMenu, act_index: int) -> OperaHouse:
+	var button: Button = null
+	for candidate: Button in menu.job_buttons:
+		if int(candidate.get_meta("act_index", -1)) == act_index:
+			button = candidate
+			break
+	_check("dev slot %d exposes its real menu picture" % act_index,
+		button != null and button.is_visible_in_tree() and not button.disabled)
+	if button == null or not button.is_visible_in_tree():
+		return null
+	_tap_control(button, 150 + act_index)
+	var ready := await _await_route_ready(act_index)
+	var house := main.opera_game as OperaHouse
+	_check("raw menu touch launches dev slot %d through the shipping engine" % act_index,
+		ready and house != null and house.act_index == act_index
+		and main.opera_active_act_index == act_index and menu.running)
+	return house
+
+
+func _finish_playtest_curtain(act: OperaAct) -> void:
+	var world := act.career_world_2d
+	if world != null and world.two_act_enabled:
+		world.phase_index = world.phases.size()
+		world.performance_stats = {
+			"actions": 100, "misses": 0, "assists": 0, "active_seconds": 1.0}
+	act._win()
+	if world != null and world.two_act_enabled:
+		_check("simulated dev gold result displays its tier without minting tokens",
+			int(act.performance_result.get("tier", 0)) == OperaMastery.GOLD
+			and int(act.performance_result.get("token_delta", -1)) == 0)
+	act.win_t = 0.0
+	act._process(0.1)
+
+
+func _playtest_menu_returned(menu: OperaJobPlaytestMenu) -> bool:
+	return menu.session_open and not menu.running and menu.is_visible_in_tree() \
+		and menu.venue.is_open() and main.opera_game == null \
+		and main.game == "level2" and main.castle_room_id == "opera_hall" \
+		and main.castle_room_layer.visible and main.opera_active_act_index == -1 \
+		and main.opera_return_room == ""
+
+
+func _playtest_progress_snapshot() -> Dictionary:
+	var job_save: Dictionary = {}
+	for key: String in ["teacher_lesson_checkpoint", "teacher_learning_progress",
+			"opera_geology_checkpoint", "opera_performance_checkpoints", "opera_mastery",
+			"opera_pantry"]:
+		job_save[key] = main.save_data.get(key, null)
+	return {
+		"stars": main.opera_stars, "progress": main.opera_progress,
+		"done": main.opera_done, "pearls": main.pearl_count,
+		"medals": main.medals.duplicate(true), "stickers": main.stickers.duplicate(true),
+		"story": main._chapter_two_ref().serialize_state(),
+		"story_events": main.chapter2_event_history.duplicate(true),
+		"job_save": job_save.duplicate(true),
+		"save_file_sha256": FileAccess.get_sha256(main.SAVE_PATH),
+	}
 
 
 func _audit_all_career_lifecycles() -> void:
