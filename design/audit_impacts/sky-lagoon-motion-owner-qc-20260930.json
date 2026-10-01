@@ -50,6 +50,7 @@
     "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/swing_pose_v2.aseprite",
     "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/production/verify_packet.py",
     "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/qc/OWNER_REVIEW.json",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/qc/REMOTE_VERIFICATION_QC_RECEIPT.json",
     "audit/MASTER_AUDIT_2026-08-09.md",
     "design/05_DOC_LEDGER.md",
     "design/audit_impacts/sky-lagoon-motion-owner-qc-20260930.json"
@@ -83,7 +84,7 @@
     {
       "command": "Anonymous immutable owner-QC publication verification",
       "result": "PENDING",
-      "evidence": "Verify the new manifest and all 179 payload files at the exact pushed revision; publish qc/REMOTE_VERIFICATION_QC_RECEIPT.json separately from the deterministic payload."
+      "evidence": "Anonymous manifest and 179-file byte verification passed for 0dbb5a080fb6c557289ed96dc7f6c1f0562d67fc; historical receipt preserved at build/owner_qc_verified_0dbb.json. All packet dimensions now explicit (Aseprite native headers; existing PNG/GIF metadata; ffprobe confirms both native videos at 1280x704; nonvisual rows null). Reverify owner_qc_3 manifest at its exact pushed revision and publish qc/REMOTE_VERIFICATION_QC_RECEIPT.json. Payload remains f7cf782e4608f67b01b7ff1bdf2f4cfd283249116b92825f2d181d26ca1e21ec."
     }
   ],
   "acceptance_gaps": "Current set fails the owner animation brief; swing axis is explicitly rejected. New pilot, other fresh motion poses, fresh frame redraws, owner selection, runtime/device/child and full-frame cinematic acceptance remain unfulfilled. New generation is bounded to the absent swing perspective poses; existing approved art supplies identity/style only. Built-in image generation is a pose-reference trial, not a Chinese video API success claim."
