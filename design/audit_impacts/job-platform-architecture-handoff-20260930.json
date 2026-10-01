@@ -58,8 +58,8 @@
     },
     {
       "command": "Anonymous fetch of both handoff manifests and every listed file from raw.githubusercontent.com at the pushed commit",
-      "result": "PENDING",
-      "evidence": "Recorded after publication."
+      "result": "PASS",
+      "evidence": "Published at commit 8b687cb8ca96b6ace6ef2dc97f1eed8542ff729f on branch claude/job-platform-architecture-20260930. Anonymous HTTPS fetch from raw.githubusercontent.com with no token at 2026-10-01T00:24:37Z: Job Platform MANIFEST.json HTTP 200, 2,253 bytes, SHA-256 9ceaac6249cac8a3d07498b2b3b0df9669830ac2d4b437457dc50a1506ebe981, revision 1, 9 of 9 files match; refinement handoff MANIFEST.json HTTP 200, 3,499 bytes, SHA-256 d39d7c7e373a8bc8892009b2ff670d3640c9ca2a408ffb761302b0f1a6ae0606, revision 4, 13 of 13 files match."
     },
     {
       "command": "GitHub Probe Suite at the branch head",
