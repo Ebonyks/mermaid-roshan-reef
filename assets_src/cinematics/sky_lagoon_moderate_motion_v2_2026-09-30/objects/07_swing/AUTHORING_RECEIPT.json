@@ -1,0 +1,99 @@
+{
+  "id": "07_swing",
+  "status": "REFERENCE_SAMPLE",
+  "frame_canvas": [
+    512,
+    512
+  ],
+  "unique_generated_pose_drawings": 6,
+  "authored_light_states": 0,
+  "method": "Fresh generated pose drawings; Aseprite alpha cleanup and anchor registration. No deformation of the old source supplies motion.",
+  "input": "generated_native.png",
+  "input_sha256": "7330d1f948ff127121d26bd455a1785ca26461c31264c572c59398abd8e91fc9",
+  "state_rgba_sha256": [
+    "08953461835d146b4488c80d1728b6c840c5c2e49e78bc0c3c23ee995dca9a62",
+    "8e45499ce1b9246b3b770b63886a497340bf6526b625923ce9696befa73ea2a5",
+    "5e2560ded922bfac4fe7d609a6da3ef5dceca64d4044b4d7c91eeafd167f79ab",
+    "98146e880f7c81833debb89d213a79246156f3583422613a4cd4331b04da6c2b",
+    "ac1446e62d5dcb738ca4f0c6fc9efe0b6414d21d40160b06f9ce5377586dd939",
+    "49c252c72f8ec720b7de7f33a6600a3e7ee38b85affd3a15d41e0b9a73fb6ed1"
+  ],
+  "pose_native_bounds": [
+    [
+      27,
+      120,
+      486,
+      472
+    ],
+    [
+      26,
+      146,
+      487,
+      449
+    ],
+    [
+      26,
+      165,
+      487,
+      421
+    ],
+    [
+      25,
+      88,
+      487,
+      442
+    ],
+    [
+      27,
+      51,
+      486,
+      415
+    ],
+    [
+      27,
+      23,
+      486,
+      430
+    ]
+  ],
+  "border_cap_repairs": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "fixed_bottom_y": null,
+  "fixed_base_rect": null,
+  "edge_cleanup": {
+    "alpha_cutoff": 192,
+    "opaque_contours": true,
+    "method": "Largest connected subject mask; Aseprite rejects stray semi-transparent border noise, nearest-neighbor native pose registration."
+  },
+  "loop_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "duration_units_12fps": [
+    2,
+    2,
+    4,
+    2,
+    2,
+    4
+  ],
+  "limits": "Six-key acting examples remain coarse. AI detail/topology continuity and manual contacts require owner/production review. Not human hand drawing, accepted runtime art or full-frame cinematic delivery.",
+  "playback_duration_units_12fps": [
+    2,
+    2,
+    4,
+    2,
+    2,
+    4
+  ]
+}

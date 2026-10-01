@@ -1,0 +1,100 @@
+{
+  "id": "02_huckleberry",
+  "status": "REFERENCE_SAMPLE",
+  "frame_canvas": [
+    512,
+    512
+  ],
+  "unique_generated_pose_drawings": 6,
+  "authored_light_states": 0,
+  "method": "Fresh generated pose drawings; Aseprite alpha cleanup and anchor registration. No deformation of the old source supplies motion. Aseprite keeps exactly two three-berry clusters fixed while fresh leaf drawings flutter.",
+  "input": "generated_native.png",
+  "input_sha256": "5c4d7fb7294d0550639d1bead25fc33370095c78583d7769d428c65983deeed8",
+  "state_rgba_sha256": [
+    "ba3ba0c59c76d21881fce76c386d8f69d78b32ab0263d68733b9ee09162a8670",
+    "b0617aa4c4ac41339df423f39c911f0363fb3466b0dde496f505ec1881829f30",
+    "83888251ba26b79258de6e6c3a61c9605073278788393a080188d6af3743728c",
+    "d9e79f1c225da988cccfdf4a4558ba210bcb3485ea550f451b9c543e7479c755",
+    "76a61badb388ff4e6b56f98198a84c0ffd67f47f22dc34f4afb73caef6cd8b51",
+    "08123d91690b2618a7237b42b8edb44f97aaa52239528af3690dda3471f3488b"
+  ],
+  "pose_native_bounds": [
+    [
+      10,
+      124,
+      505,
+      463
+    ],
+    [
+      9,
+      124,
+      504,
+      463
+    ],
+    [
+      11,
+      98,
+      505,
+      439
+    ],
+    [
+      11,
+      98,
+      507,
+      439
+    ],
+    [
+      11,
+      77,
+      505,
+      414
+    ],
+    [
+      9,
+      75,
+      507,
+      414
+    ]
+  ],
+  "border_cap_repairs": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "fixed_bottom_y": null,
+  "fixed_base_rect": null,
+  "edge_cleanup": {
+    "alpha_cutoff": 192,
+    "opaque_contours": true,
+    "method": "Largest connected subject mask; Aseprite rejects stray semi-transparent border noise, nearest-neighbor native pose registration."
+  },
+  "loop_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "duration_units_12fps": [
+    2,
+    2,
+    4,
+    2,
+    2,
+    4
+  ],
+  "limits": "Six-key acting examples remain coarse. AI detail/topology continuity and manual contacts require owner/production review. Not human hand drawing, accepted runtime art or full-frame cinematic delivery.",
+  "playback_duration_units_12fps": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    8
+  ],
+  "reference_phase_units_12fps": 7
+}

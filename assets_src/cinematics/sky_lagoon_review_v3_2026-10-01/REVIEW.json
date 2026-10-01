@@ -1,0 +1,156 @@
+{
+  "status": "AGENT_REVIEWED_REFERENCE_CANDIDATE",
+  "reviewer": "Codex",
+  "evidence_level": "Native FILE/SHEET plus reference-context/browser playback; not runtime or owner acceptance",
+  "checked_at_utc": "2026-10-01T06:41:32Z",
+  "iterations": [
+    {
+      "revision": "v2 at b9a502e75a37bbc451f81315393d929496ad5c6e",
+      "disposition": "REVISE",
+      "defects": [
+        "07_swing states 2/5: changing chair details and coarse perspective transition",
+        "02_huckleberry states 4/5: berry clusters move between branches",
+        "Scene: missing contact shadows, synchronized phases, tiny smoke emitter"
+      ]
+    },
+    {
+      "revision": "v3 first composition",
+      "disposition": "REVISE",
+      "defects": [
+        "Seat layer hides the lower ropes before the eyelets",
+        "New bush retains two clusters but their junctions need pixel locking"
+      ],
+      "retained_evidence": "Native generation sheets retained; rejected rope layering reproduced deterministically under review/rejected_behind_ropes"
+    },
+    {
+      "revision": "v3 corrected composition",
+      "disposition": "KEEP_FOR_REFERENCE_REVIEW",
+      "corrections": [
+        "12 fresh swing pitch drawings with fixed decorative topology",
+        "Foreground attached ropes",
+        "6 fresh bush drawings; exact stationary berry/junction pixels",
+        "Ground contact shadows, visible smoke emitter, independent phases and quieter timing"
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "id": "01_fir",
+      "disposition": "KEEP_FOR_REFERENCE",
+      "observation": "Five bough tiers and fixed trunk/root retained; local silhouettes change. Standalone only: scenic path exclusion preserved.",
+      "board": "objects/01_fir/spritesheet.png",
+      "board_sha256": "65549cbe68741a1d46a22f11f0666d3b40c1c6cc0fa90792e2b7e41af51ea107"
+    },
+    {
+      "id": "02_huckleberry",
+      "disposition": "KEEP_FOR_REFERENCE",
+      "observation": "Six berries, two clusters remain fixed after local junction cleanup; six fresh attached leaf silhouettes. Matte painted finish now closer to source than v2.",
+      "board": "objects/02_huckleberry/spritesheet.png",
+      "board_sha256": "367facc88b8670160c111d4e49b38712beb204f542139bd7f1ca650be5137197"
+    },
+    {
+      "id": "03_hydrangea",
+      "disposition": "KEEP_FOR_REFERENCE",
+      "observation": "One broad bloom cluster and one bud cluster retained; stem/leaf bending visible. Small blossom detail varies; acceptable for this reference purpose, production detail lock remains open.",
+      "board": "objects/03_hydrangea/spritesheet.png",
+      "board_sha256": "cf8a36f56853e63459792bbc30d9ccb4236c1b2355d6ca27c0f87a64bb1311f5"
+    },
+    {
+      "id": "04_bellflower",
+      "disposition": "KEEP_FOR_REFERENCE",
+      "observation": "Three open bells and one bud retained; turned petals expose interior, attached stems and fixed root. No cropped tips.",
+      "board": "objects/04_bellflower/spritesheet.png",
+      "board_sha256": "132bad41993ec76577daa0874d0a072d2b421894d141d1e01bc0345ead9dfdd6"
+    },
+    {
+      "id": "05_cloud",
+      "disposition": "KEEP_FOR_REFERENCE",
+      "observation": "Billowing silhouette changes at stable center; blue/cyan source identity retained. Broad shapes readable in scene.",
+      "board": "objects/05_cloud/spritesheet.png",
+      "board_sha256": "0917bdea7b6c81388c5c3f19bd69b3e35bf7d565f899ae69e9e5cc28db12bf26"
+    },
+    {
+      "id": "06_smoke",
+      "disposition": "KEEP_FOR_REFERENCE",
+      "observation": "Fresh curl contours rise from one stable emission point; soft alpha intentional. Visible emitter corrected to upper cabin roof.",
+      "board": "objects/06_smoke/spritesheet.png",
+      "board_sha256": "7daa0529f734415ab215c1bb6a48d031357e580217df35912c0d75c17bfb0313"
+    },
+    {
+      "id": "07_swing",
+      "disposition": "KEEP_FOR_REFERENCE",
+      "observation": "Fore/aft pitch reveals cushion/underside surfaces. Seven back panels, four front scrolls, one front shell/pearl and two eyelets retained. Fixed frame; foreground ropes visibly attach to each seat.",
+      "board": "objects/07_swing/spritesheet.png",
+      "board_sha256": "27d1fa02d9700784e9318e1640af47cdf738fe7449b497c654d214a99cac1a3a"
+    },
+    {
+      "id": "08_seesaw",
+      "disposition": "KEEP_FOR_REFERENCE",
+      "observation": "Beam/seats/handles change tilt about registered axle; fixed lower support and contact shadow ground it. Minor painted texture variance remains.",
+      "board": "objects/08_seesaw/spritesheet.png",
+      "board_sha256": "6548eb51e10e5f397f4778b3e2086d628719054b4efd5833f1795ee81abac111"
+    },
+    {
+      "id": "09_gate",
+      "disposition": "KEEP_FOR_REFERENCE",
+      "observation": "Two leaf faces open and return inside fixed facade/aperture. Existing castle portrait and bridge remain intact. This door crop is a study approximation.",
+      "board": "objects/09_gate/spritesheet.png",
+      "board_sha256": "93bbac94deab4ef026dc84aac0035f3d75f5f8b40124e971b2fd5441c97cd5ed"
+    },
+    {
+      "id": "10_glass",
+      "disposition": "KEEP_FOR_REFERENCE",
+      "observation": "Existing owner portrait geometry preserved with restrained light states; no identity redraw. Scene lights its original castle portrait.",
+      "board": "objects/10_glass/spritesheet.png",
+      "board_sha256": "db304207c36d01df2f5e72f32ded21ce57064b962703bafa1cc054a5912400fe"
+    }
+  ],
+  "scene": {
+    "still": "scene/sky_lagoon_sample.png",
+    "still_sha256": "301ae1db51e1fe495910834e0f107fd5fa1e09519fda752cbe4ed3eaa0d7f28c",
+    "parameters": "scene/SCENE_PARAMETERS.json",
+    "panorama": "Unmodified source byte copy; no new full-scene design",
+    "review_crops": [
+      "review/screen_0.png",
+      "review/screen_1.png",
+      "review/screen_2.png"
+    ],
+    "known_limits": [
+      "Reference composition only; no Roshan work/ride acting",
+      "AI leaf/blossom micro-detail variance and stepped flora",
+      "Door crop not an accepted runtime replacement"
+    ]
+  },
+  "loop_playback_review": {
+    "status": "PASS_FOR_REFERENCE_PLAYBACK",
+    "reviewer": "Codex",
+    "page": "http://127.0.0.1:8191/",
+    "viewport": [
+      1280,
+      720
+    ],
+    "speeds": [
+      0.5,
+      1.0
+    ],
+    "loaded_samples": 10,
+    "swing_count": 12,
+    "scene_states_observed": [
+      "frame_002.png",
+      "frame_009.png"
+    ],
+    "observations": [
+      "All ten PNG samples load and state counters advance.",
+      "Independent plant/effect state phases observed.",
+      "Swing seat surfaces change; fixed hooks and visible foreground ropes retained.",
+      "Playground scene preserves meadow, castle/bridge and mountain-path composition."
+    ],
+    "limits": "Native board review covers every key. Browser screenshots sample playback; they do not establish continuous-motion fluidity, actual Mobile gameplay, device or owner acceptance."
+  },
+  "owner_acceptance": false,
+  "runtime_integration": false,
+  "device_acceptance": false,
+  "child_acceptance": false,
+  "cinematic_delivery": false,
+  "findings_closed": []
+}

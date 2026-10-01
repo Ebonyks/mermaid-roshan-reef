@@ -1,0 +1,89 @@
+{
+  "id": "10_glass",
+  "status": "REFERENCE_SAMPLE",
+  "frame_canvas": [
+    512,
+    512
+  ],
+  "unique_generated_pose_drawings": 0,
+  "authored_light_states": 12,
+  "method": "Reuse the higher-resolution owner-supplied portrait without pose changes. Aseprite isolates the existing arch and paints twelve restrained moving light-band states; no identity redraw.",
+  "input": "window_identity_source.png",
+  "input_sha256": "775c814dbb918ec921b0570dcbcd7c377d2a2f8c52289f3b792d8cf33b0c3d1c",
+  "state_rgba_sha256": [
+    "ac4d94215868c3a4db3b6ea8bafbc6975944a74e72428b3589e0d6847e3aceec",
+    "e211127b88a4f8a366a2f041b9cc79541cccdbaed829afd8f9b3ba800f1eae61",
+    "d81253ead4d902cf01162a2e0dc5a192ca47b70b64da31160d09a569153c6c6d",
+    "412d8b9dcd9aff12ec7e65a0d867ad7e977ceeb33d8b6d47056a9dba57d90820",
+    "ee34c708f17f90d04047376a72fc03167ba67be4342f99fb4c70180a35e185dc",
+    "8acbd4a851012ca21371c86167812f9b32449ee6506421b00af90dd33c5ae87b",
+    "0b0cf388a91eadc1fbce4e4eae12bc0be62d3c9cbc422b3110bc012dbbde48e3",
+    "6b9a02b3d2a98954bce64ef6d83e4271b74de40e79e2ff00845357937a9c3688",
+    "41e0aeb630d72fb803504d3b3b891b9405d6db45a7b8b6f0884f02623f3c0db0",
+    "a23f00a46f47dda761d113a978792024a500e76a8f84c9f737f6771cf78677b2",
+    "0ffa4cc7e9deffec53dbcec49eb0eeb391265bf7f8ab5ec63e6a84b6583b4ed3",
+    "a37a476239118f4b431ed2db4ac24afe42a7cb10876283d32033817b89501eaf"
+  ],
+  "pose_native_bounds": [
+    [
+      100,
+      9,
+      783,
+      1173
+    ]
+  ],
+  "border_cap_repairs": [
+    []
+  ],
+  "fixed_bottom_y": null,
+  "fixed_base_rect": null,
+  "edge_cleanup": {
+    "alpha_cutoff": 192,
+    "opaque_contours": true,
+    "method": "Largest connected subject mask; Aseprite rejects stray semi-transparent border noise, nearest-neighbor native pose registration."
+  },
+  "loop_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "duration_units_12fps": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "limits": "Six-key acting examples remain coarse. AI detail/topology continuity and manual contacts require owner/production review. Not human hand drawing, accepted runtime art or full-frame cinematic delivery.",
+  "playback_duration_units_12fps": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "reference_phase_units_12fps": 0
+}

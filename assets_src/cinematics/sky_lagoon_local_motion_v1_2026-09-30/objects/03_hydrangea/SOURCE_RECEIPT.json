@@ -1,0 +1,48 @@
+{
+  "id": "03_hydrangea",
+  "title": "Hydrangea: flower nod",
+  "source": "assets_src/cinematics/sky_lagoon_garden_motion_v2_2026-09-16/layers/hydrangea.png",
+  "source_sha256": "215a86b4a769a40518b679ee3c62124f9d58803b4ccd40ffe989a59dbf7810d7",
+  "source_dimensions": [
+    1157,
+    1193
+  ],
+  "source_crop": [
+    0,
+    0,
+    1157,
+    1193
+  ],
+  "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\03_hydrangea\\input.png",
+  "prompt": "One isolated illustrated object on a perfectly flat solid bright magenta background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The plant base stays fixed. The lavender flower head gently nods right then returns, followed by a small delayed leaf recovery. Keep the same stems, petals, leaf arrangement and colors. 1.1-1.4s: settle. Background remains solid magenta. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence.",
+  "seed": 20261003,
+  "fit_xy": [
+    143,
+    24
+  ],
+  "fit_size": [
+    225,
+    232
+  ],
+  "status": "PENDING",
+  "lane": "MOTION_REFERENCE_ONLY",
+  "derivative": "source.png",
+  "derivative_sha256": "75bebebdf7049ee0f49016dd8b9a8596d5a99251b680205e43f3627da715ee15",
+  "fixed_source_crop": [
+    120,
+    4,
+    392,
+    276
+  ],
+  "canvas": [
+    256,
+    256
+  ],
+  "source_bounds": [
+    38,
+    54,
+    229,
+    236
+  ],
+  "method": "Nondestructive source RGBA isolation and whole-cell normalization; original unchanged."
+}

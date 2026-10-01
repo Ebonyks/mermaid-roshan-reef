@@ -33,3 +33,11 @@ scripts/probe_fairy_restoration.gd text eol=lf
 tools/build_fairy_restoration_voices.py text eol=lf
 # The audio-summary inventory hash binds the generator's canonical LF CSV bytes.
 audit/audio_quality_ledger_2026-08-24.csv text eol=lf
+
+# Preserve the literal hashes in the source-based Sky Lagoon reference archive.
+assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/** -text whitespace=cr-at-eol
+
+# Literal moderate-reference packet hashes survive every checkout.
+assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/** -text whitespace=cr-at-eol
+assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/** -text whitespace=cr-at-eol
+assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/verification/*.log whitespace=-blank-at-eof,cr-at-eol

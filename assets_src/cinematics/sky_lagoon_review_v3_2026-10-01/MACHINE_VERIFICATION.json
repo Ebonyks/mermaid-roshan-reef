@@ -1,0 +1,106 @@
+{
+  "status": "PASS",
+  "objects": [
+    {
+      "id": "01_fir",
+      "keys": 6,
+      "unique_states": 6,
+      "rgba_roundtrip": "PASS",
+      "clear_alpha_margins": "PASS",
+      "master_sha256": "29a340cb33d8be16bed7a703569ffd0e90ed5505678a5950281f55bc669e2ff1"
+    },
+    {
+      "id": "02_huckleberry",
+      "keys": 6,
+      "unique_states": 6,
+      "rgba_roundtrip": "PASS",
+      "clear_alpha_margins": "PASS",
+      "master_sha256": "7ce1659d9d390f5506a576eb81108a2e56e2ae3f5aeae9bf4df80385697930e3"
+    },
+    {
+      "id": "03_hydrangea",
+      "keys": 6,
+      "unique_states": 6,
+      "rgba_roundtrip": "PASS",
+      "clear_alpha_margins": "PASS",
+      "master_sha256": "4cd5abd2f801d93fcc3778293d4544987ef99267cf13c9e1ab5ce2cfc79eae94"
+    },
+    {
+      "id": "04_bellflower",
+      "keys": 6,
+      "unique_states": 6,
+      "rgba_roundtrip": "PASS",
+      "clear_alpha_margins": "PASS",
+      "master_sha256": "1ae9d403ce3180adbee67ba52dfd3f1116b9302e0f11160453c3034d44eaf467"
+    },
+    {
+      "id": "05_cloud",
+      "keys": 6,
+      "unique_states": 6,
+      "rgba_roundtrip": "PASS",
+      "clear_alpha_margins": "PASS",
+      "master_sha256": "8f82035e1bde84a9c327030701484950ee61e0e53f5acc26e960b667186fa885"
+    },
+    {
+      "id": "06_smoke",
+      "keys": 6,
+      "unique_states": 6,
+      "rgba_roundtrip": "PASS",
+      "clear_alpha_margins": "PASS",
+      "master_sha256": "27fda367e18915a88333db98f333291cc8f425fc3b59777e4917bf281a6091ac"
+    },
+    {
+      "id": "07_swing",
+      "keys": 12,
+      "unique_states": 12,
+      "rgba_roundtrip": "PASS",
+      "clear_alpha_margins": "PASS",
+      "master_sha256": "28c2f10e7bd68ef5bfbc8afe2a13d05308f20986b3e4d404f998ae3404fe2cac"
+    },
+    {
+      "id": "08_seesaw",
+      "keys": 6,
+      "unique_states": 6,
+      "rgba_roundtrip": "PASS",
+      "clear_alpha_margins": "PASS",
+      "master_sha256": "00d014e929b3f1d23a6044e1ef62f0874d0fe284f6e8c8da026c03c1614cb82b"
+    },
+    {
+      "id": "09_gate",
+      "keys": 6,
+      "unique_states": 6,
+      "rgba_roundtrip": "PASS",
+      "clear_alpha_margins": "PASS",
+      "master_sha256": "a58a23fb82f389e70f094d715de433946f0a193f1db5e4333d59d3f0fb244c09"
+    },
+    {
+      "id": "10_glass",
+      "keys": 12,
+      "unique_states": 12,
+      "rgba_roundtrip": "PASS",
+      "clear_alpha_margins": "PASS",
+      "master_sha256": "ea8d6b54824c3476b0fbdd495b94791b87f7eb2451ab9acf7dc9a2f279f0c32b"
+    }
+  ],
+  "object_count": 10,
+  "raster_states": 72,
+  "swing": {
+    "fixed_frame": "PASS",
+    "contact_endpoints": 24,
+    "maximum_endpoint_to_gold_pixel_px": 1.0,
+    "tolerance_px": 2.5,
+    "measurement_limit": "Colour/pixel attachment only; 3D mechanics and owner visual acceptance not inferred."
+  },
+  "berries": {
+    "stationary_junctions": "PASS",
+    "intent": "Exactly two clusters of three berries reviewed on native board; fresh leaf motion retained"
+  },
+  "panorama_source_identity": "PASS",
+  "scene_first_frame_native_roundtrip": "PASS",
+  "scene_frames": 48,
+  "scene_dimensions": [
+    1920,
+    640
+  ],
+  "acceptance_limits": "Reference-file checks only; no runtime, device, child, owner or cinematic acceptance."
+}

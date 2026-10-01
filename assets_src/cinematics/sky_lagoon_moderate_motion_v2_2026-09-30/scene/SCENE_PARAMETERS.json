@@ -1,0 +1,241 @@
+{
+  "width": 1920,
+  "height": 640,
+  "fps": 12,
+  "frame_count": 48,
+  "status": "MOTION_REFERENCE_CONTEXT_COMPOSITE",
+  "cards": [
+    {
+      "id": "05_cloud",
+      "name": "Cloud - fresh billow keys",
+      "scale": 0.41,
+      "x": 732.54,
+      "y": 34.75,
+      "frames": 6,
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "durations": [
+        2,
+        2,
+        4,
+        2,
+        2,
+        4
+      ],
+      "placement": "reference dressing on clear grass / sky; not an accepted runtime placement"
+    },
+    {
+      "id": "06_smoke",
+      "name": "Cabin smoke - fresh curls",
+      "scale": 0.11,
+      "x": 1446.84,
+      "y": 93.96000000000001,
+      "frames": 6,
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "durations": [
+        2,
+        2,
+        4,
+        2,
+        2,
+        4
+      ],
+      "placement": "reference dressing on clear grass / sky; not an accepted runtime placement"
+    },
+    {
+      "id": "02_huckleberry",
+      "name": "Huckleberry - foreground study",
+      "scale": 0.38,
+      "x": 247.72,
+      "y": 416.8,
+      "frames": 6,
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "durations": [
+        2,
+        2,
+        4,
+        2,
+        2,
+        4
+      ],
+      "placement": "reference dressing on clear grass / sky; not an accepted runtime placement"
+    },
+    {
+      "id": "03_hydrangea",
+      "name": "Hydrangea - foreground study",
+      "scale": 0.25,
+      "x": 1171.0,
+      "y": 482.25,
+      "frames": 6,
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "durations": [
+        2,
+        2,
+        4,
+        2,
+        2,
+        4
+      ],
+      "placement": "reference dressing on clear grass / sky; not an accepted runtime placement"
+    },
+    {
+      "id": "04_bellflower",
+      "name": "Bellflower - foreground study",
+      "scale": 0.24,
+      "x": 603.56,
+      "y": 456.64,
+      "frames": 6,
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "durations": [
+        2,
+        2,
+        4,
+        2,
+        2,
+        4
+      ],
+      "placement": "reference dressing on clear grass / sky; not an accepted runtime placement"
+    },
+    {
+      "id": "slide",
+      "name": "Existing slide - fixed",
+      "path": "context/current_slide.png",
+      "scale": 0.4702669902912621,
+      "x": 696.9432645631068,
+      "y": 243.75
+    },
+    {
+      "id": "07_swing",
+      "name": "Swing - fore/aft seat pitch",
+      "scale": 0.36764705882352944,
+      "x": 905.8823529411765,
+      "y": 267.4632352941176,
+      "frames": 6,
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "durations": [
+        2,
+        2,
+        4,
+        2,
+        2,
+        4
+      ],
+      "placement": "current equipment anchor"
+    },
+    {
+      "id": "08_seesaw",
+      "name": "Seesaw - axle-centered fresh keys",
+      "scale": 0.38879107981220656,
+      "x": 1096.094483568075,
+      "y": 319.84301643192487,
+      "frames": 6,
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "durations": [
+        2,
+        2,
+        4,
+        2,
+        2,
+        4
+      ],
+      "placement": "current equipment anchor"
+    }
+  ],
+  "castle": {
+    "scale": 0.3701896875,
+    "x": 1458.4710963541665,
+    "y": 110.16575999999998,
+    "source_contract": "scripts/arena/sky_lagoon_layout.json castle anchor; exact existing position/scale"
+  },
+  "gate_crop": [
+    192,
+    227,
+    325,
+    443
+  ],
+  "gate": {
+    "order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "durations": [
+      3,
+      2,
+      2,
+      2,
+      3,
+      4,
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "source_panorama_dimensions": [
+    6144,
+    2048
+  ],
+  "source_panorama_sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+  "excluded_from_context": {
+    "01_fir": "Standalone study only. The current shared runtime contract disables the tall fir because it covers the scenic mountain path; the existing painted fir stays intact."
+  },
+  "ownership": "No removal or deformation of the approved panorama. Equipment on unpainted meadow; garden studies on clear foreground grass. Existing castle/bridge anchor preserved. Door leaves are cropped into its existing aperture; original castle portrait gets light only. This is a review arrangement, not a runtime screenshot or generator input.",
+  "cinematic_delivery": false,
+  "runtime_integration": false
+}

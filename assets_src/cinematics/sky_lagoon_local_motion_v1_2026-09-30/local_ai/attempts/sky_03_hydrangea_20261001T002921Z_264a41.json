@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\03_hydrangea\\input_neutral.png",
+  "source_sha256": "c9ff97c373dbeb3856c03a1b61fb1f816b99dcc07560910f9409b583d10c5498",
+  "source_dimensions": [
+    512,
+    288
+  ],
+  "prompt": "One isolated illustrated object on a perfectly flat solid neutral light gray background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The plant base stays fixed. The lavender flower head gently nods right then returns, followed by a small delayed leaf recovery. Keep the same stems, petals, leaf arrangement and colors. 1.1-1.7s: settle. Background remains solid light gray. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence.",
+  "prompt_sha256": "cad17fce0fc436f8db94eeee93f4ac71ad4b0ce942a8441c6414684234d9a533",
+  "preset": "quick",
+  "settings": {
+    "width": 1280,
+    "height": 704,
+    "frames": 41,
+    "steps": 30,
+    "weight_dtype": "default"
+  },
+  "seed": 20261003,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/MODEL_RECEIPT.json",
+  "workflow_sha256": "adae332a53f1a5953fced10f689900495dd246720313fe4e391ddc55563fd0b1",
+  "started_at_utc": "20261001T002921Z",
+  "prompt_id": "e6ca6a9c-1808-4b61-a3ff-47216506bfa7",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\sky_03_hydrangea_20261001T002921Z_264a41_00002_.webm",
+      "sha256": "5e6f763db2672cfdb544d25335641a2515efa3fca38c069e1256770c68c0ee54",
+      "bytes": 122402
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\sky_03_hydrangea_20261001T002921Z_264a41_00002_.mp4",
+      "sha256": "10d158a25b225f47ea3752b8dd563a3df85d5e5259e644e9e89cba65734af7fb",
+      "bytes": 139603,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1280,
+            "height": 704,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 561.49,
+  "completed_at_utc": "2026-10-01T00:38:42.933332+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance",
+  "visual_disposition": "REJECTED_STATIC_FLICKER",
+  "visual_review": "Codex visual inspection: ten sampled native poses preserve the recognizable hydrangea, connected stems/leaves and calm small motion. Human/owner/runtime acceptance pending.",
+  "owner_feedback": "User: This isn't animating. It's just a flickering static image.",
+  "reviewed_at_utc": "2026-10-01T01:05:46.142143+00:00"
+}

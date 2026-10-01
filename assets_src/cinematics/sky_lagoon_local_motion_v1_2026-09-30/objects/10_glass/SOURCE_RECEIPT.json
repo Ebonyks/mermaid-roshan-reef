@@ -1,0 +1,48 @@
+{
+  "id": "10_glass",
+  "title": "Stained glass: soft glint",
+  "source": "assets/sprites/sky_lagoon/sky_lagoon_castle_stained_glass_v1.png",
+  "source_sha256": "90da7b0106759690001a2bc7fd77042db5afa5e59f13c8557faa6b3b86d19cd8",
+  "source_dimensions": [
+    1024,
+    1000
+  ],
+  "source_crop": [
+    8,
+    8,
+    1015,
+    991
+  ],
+  "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\10_glass\\input.png",
+  "prompt": "One isolated illustrated object on a perfectly flat solid bright magenta background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The stained glass window outline, frame and every colored pane stay completely fixed. A small soft light glint slowly passes across the glass and fades. Keep the original pane geometry and colors. No rotating window, no changing glass design. 1.1-1.4s: settle. Background remains solid magenta. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence.",
+  "seed": 20261010,
+  "fit_xy": [
+    137,
+    24
+  ],
+  "fit_size": [
+    238,
+    232
+  ],
+  "status": "PENDING",
+  "lane": "MOTION_REFERENCE_ONLY",
+  "derivative": "source.png",
+  "derivative_sha256": "871eaff3ff49198ba129e46db49e47bba6f6e2ebc1644c5e2abfba12d9e5165a",
+  "fixed_source_crop": [
+    117,
+    1,
+    395,
+    279
+  ],
+  "canvas": [
+    256,
+    256
+  ],
+  "source_bounds": [
+    16,
+    19,
+    240,
+    237
+  ],
+  "method": "Nondestructive source RGBA isolation and whole-cell normalization; original unchanged."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "06_smoke",
+  "prompt": "Use case: illustration-story. Six freshly drawn smoke-flow keys based on the exact slender lavender ribbon wisp in the reference, for Aseprite. PORTRAIT 1024 x 1536 transparent RGBA sheet: TWO columns by THREE rows, six equal 512px square cells. Each complete wisp is SMALL, only 350px tall and 100px wide, centered with its fixed emission point at x=256 y=440, leaving at least 60px empty margins. Keep pale lavender, purple rim and cream centre, the same painted flat 2D ribbon style. Fixed camera/light/emitter; no chimney or other object. Row-major six sequential phases of smoke continuously curling upward: low right curl forms; curl rises to middle; middle curl turns left and opens; left curl rises to top; top curl thins as a new lower right curl forms; top disperses and the lower curve returns toward the first shape. DRAW distinct connected ribbon contours, internal folds and gently tapering tips each frame so the smoke flows rather than rotating/translating a fixed S-image. Emission stem always touches the same fixed bottom point. No entire-image wobble, glow, blur, photoreal haze, black smoke, fire, falling bits or detaching rigid blobs. Crisp visible edges with restrained alpha only at taper tips. Actual transparent alpha, no backdrop, text, numbers, borders, shadows, checkerboard or halo. All six wisps isolated and completely inside their own cells.",
+  "mode": "built-in image_gen",
+  "referenced_image_paths": [
+    "objects/06_smoke/identity_source.png"
+  ],
+  "transparent_background": true
+}

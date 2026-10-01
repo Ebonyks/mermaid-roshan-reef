@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sky Lagoon · Reviewed animation studies</title>
+<style>
+:root{color-scheme:dark;font:16px system-ui,sans-serif;background:#101c2d;color:#e9f3fa}*{box-sizing:border-box}body{margin:0}main{max-width:1500px;margin:auto;padding:28px}h1{font-size:clamp(25px,4vw,40px);margin:0 0 12px}h2{font-size:23px;margin:24px 0 12px}p{max-width:940px;line-height:1.55;color:#c6d8e6}a{color:#86e7df;text-underline-offset:3px}button,select,input{font:inherit}button,select{background:#21354e;border:1px solid #66839d;border-radius:9px;color:#fff;padding:9px 14px;cursor:pointer}button[aria-pressed=true]{background:#315763}.controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:20px 0}.scene-view{border:1px solid #526c80;border-radius:12px;overflow:auto;background:#16253a}.scene-view img{display:block;width:100%;height:auto;image-rendering:pixelated}.scene-view.native img{width:1920px;max-width:none}.scene-links{display:flex;gap:18px;flex-wrap:wrap;margin:12px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}.card{background:#1b2b3f;border:1px solid #425b74;border-radius:13px;padding:16px}.card h3{margin:0 0 12px;font-size:19px}.pixels{width:100%;max-width:512px;aspect-ratio:1;display:block;margin:auto;image-rendering:pixelated;background-color:#cedbe2;background-image:conic-gradient(#b6c7d3 25%,transparent 0 50%,#b6c7d3 0 75%,transparent 0);background-size:28px 28px;border-radius:5px}.native .pixels{width:512px;max-width:none}.card.native{overflow:auto}.card label{display:flex;gap:10px;align-items:center;margin:13px 0}.card input{min-width:0;width:100%}.links{display:flex;gap:14px;flex-wrap:wrap;font-size:14px;margin-top:10px}.status{font-size:14px;color:#98b7ce}.hint{font-size:14px}footer{padding:20px 0;color:#a6c2d6}#loading{color:#ffddb3}noscript{display:block;padding:20px}
+</style>
+<main>
+<h1>Sky Lagoon · Reviewed animation studies</h1>
+<p>Ten isolated 512×512 examples, with fresh pose drawings and editable Aseprite files. Crisp PNG playback replaces the small GIF previews. The swing now has twelve pitch drawings. This revision corrects changing berry locations, rope occlusion, grounding and synchronized motion; these are reviewed environment references.</p>
+<div class="controls"><button id="play" aria-pressed="true">Pause</button><label>Speed <select id="speed"><option value=".5">½×</option><option value="1" selected>1×</option><option value="1.5">1½×</option></select></label><button id="native">Show native pixels</button><span class="status" id="clock">Loading PNG states…</span></div>
+<h2>Sky Lagoon context sample</h2>
+<div class="scene-view" id="sceneBox"><img id="scene" src="scene/sky_lagoon_sample.png" alt="Existing Sky Lagoon panorama with playground and garden animation studies"></div>
+<div class="scene-links"><a href="scene/sky_lagoon_sample.aseprite" download>Layered scene · Aseprite</a><a href="scene/sky_lagoon_sample.mp4">Play reviewed 4-second video</a><a href="scene/sky_lagoon_sample.png">Full-size still</a><button data-screen="0">Arrival</button><button data-screen="1">Playground</button><button data-screen="2">Castle</button></div>
+<p class="hint">1920×640, 48 frames at 12 fps. The approved panorama, slide, castle and bridge remain fixed. Swing and seesaw use their current anchors. Garden plants are review placements on open grass. Painted contact shadows ground the playground. Smoke now starts at the upper cabin roof. Door keys are shown inside the castle aperture; its original portrait receives light only. The extra fir remains standalone to protect the mountain path. This is a layered reference composite, not a runtime capture or accepted movie.</p>
+<h2>Isolated samples</h2><p id="loading">Loading all ten samples…</p><div id="grid" class="grid"></div>
+<footer><a href="README.md">Production notes</a> · <a href="PROMPT_SET.json">Correction prompts</a> · <a href="REVIEW.json">Audit and corrections</a> · <a href="MACHINE_VERIFICATION.json">Machine checks</a> · <a href="MANIFEST.json">Archive manifest</a></footer>
+<noscript>Use the PNG sprite sheets and Aseprite files linked in README.md.</noscript>
+</main>
+<script>
+let playing=true,native=false,time=0,last=performance.now(),speed=1,ready=false;
+const samples=[],sceneImages=[];
+function preload(src){return new Promise((resolve,reject)=>{const i=new Image;i.onload=()=>resolve(i);i.onerror=()=>reject(Error(src));i.src=src})}
+function state(s,t){const total=s.durations.reduce((a,b)=>a+b,0);let tick=t%total;for(let n=0;n<s.durations.length;n++){if(tick<s.durations[n])return s.order[n];tick-=s.durations[n]}return 0}
+function show(s,n){s.img.src=s.frames[n].src;s.scrub.value=n;s.number.textContent=`${n+1}/${s.count}`}
+async function init(){
+ const list=await fetch('SAMPLES.json',{cache:'no-store'}).then(r=>r.json());
+ for(const s of list){
+  const el=document.createElement('article');el.className='card';
+  el.innerHTML=`<h3>${s.title}</h3><img class="pixels" alt="${s.title}: isolated animation key"><label>Key <input type="range" min="0" max="${s.count-1}" value="0"><span class="status">1/${s.count}</span></label><div class="links"><a href="objects/${s.id}/${s.id}.aseprite" download>Aseprite master</a><a href="objects/${s.id}/spritesheet.png">PNG sheet</a><a href="objects/${s.id}/AUTHORING_RECEIPT.json">Timing / method</a></div>`;
+  document.getElementById('grid').append(el);s.el=el;s.img=el.querySelector('img');s.scrub=el.querySelector('input');s.number=el.querySelector('span');
+  s.frames=await Promise.all(Array.from({length:s.count},(_,n)=>preload(`objects/${s.id}/frames/frame_${String(n).padStart(2,'0')}.png`)));
+  s.scrub.addEventListener('input',()=>{playing=false;updatePlay();show(s,Number(s.scrub.value))});show(s,0);samples.push(s)
+ }
+ sceneImages.push(...await Promise.all(Array.from({length:48},(_,n)=>preload(`scene/frames/frame_${String(n).padStart(3,'0')}.png`))));
+ document.getElementById('loading').remove();ready=true;last=performance.now()
+}
+function updatePlay(){const b=document.getElementById('play');b.textContent=playing?'Pause':'Play';b.setAttribute('aria-pressed',playing)}
+document.getElementById('play').onclick=()=>{playing=!playing;last=performance.now();updatePlay()};
+document.getElementById('speed').onchange=e=>speed=Number(e.target.value);
+document.getElementById('native').onclick=()=>{native=!native;document.getElementById('sceneBox').classList.toggle('native',native);for(const s of samples)s.el.classList.toggle('native',native);document.getElementById('native').textContent=native?'Fit preview':'Show native pixels'};
+document.querySelectorAll('[data-screen]').forEach(b=>b.onclick=()=>{native=true;const box=document.getElementById('sceneBox');box.classList.add('native');box.scrollTo({left:Number(b.dataset.screen)*640,behavior:'smooth'});document.getElementById('native').textContent='Fit preview'});
+function animate(now){const delta=Math.min(100,now-last);last=now;if(ready&&playing){time=(time+delta/1000*12*speed)%48;for(const s of samples)show(s,state(s,time+(s.phase||0)));document.getElementById('scene').src=sceneImages[Math.floor(time)].src}if(ready)document.getElementById('clock').textContent=`PNG playback · ${playing?'playing':'paused'} · 512px masters`;requestAnimationFrame(animate)}
+init().catch(e=>{document.getElementById('loading').textContent='Preview load error: '+e.message});requestAnimationFrame(animate);
+</script>
+</html>
