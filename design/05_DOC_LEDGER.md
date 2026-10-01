@@ -40,6 +40,13 @@ subprocess.
 Future tracked or unignored Markdown is
 unclassified until this ledger gains one new scoped row for it.
 
+Scoped owner direction 2026-09-30 is recorded in design 06's `DL-INT-12`
+exception and the master task index: temporary Opera left-elevator access to
+all live jobs for development review, with fresh runs and isolated child
+progress/rewards/checkpoints. The structured
+[impact](audit_impacts/opera-job-playtest-20260930.json) records implementation
+and evidence; this does not grant device, child, owner or whole-game acceptance.
+
 **Legend**
 
 | Doc | | Note |

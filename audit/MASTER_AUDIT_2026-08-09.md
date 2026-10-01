@@ -96,6 +96,8 @@ Scoped Day One/Two alpha repair (2026-09-30): [impact and acceptance limits](../
 
 Scoped objective handoff follow-up (2026-09-30): [impact and failing baseline](../design/audit_impacts/day-two-objective-handoff-20260930.json) records the timing-dependent Racer speech suppression found by dev CI `36776251500`. The phase owns its replacement cue and clears obsolete speech/dialogue; forced overlap is now a blocking regression. Listening/device/child/owner and whole-game acceptance remain open.
 
+Scoped Opera developer access (2026-09-30): [impact and evidence](../design/audit_impacts/opera-job-playtest-20260930.json) records the owner's temporary left-elevator playtest menu. It launches all fifteen live world-triggered jobs fresh through the shipping Canvas engine, preserves child progression/rewards/checkpoints, and returns to the menu. Normal room routes and retired slots remain intact. This scoped exception to `DL-INT-12` changes no finding lifecycle; `MA-OPERA-012`, device/child/owner acceptance and overall `UNSATISFIED` remain open.
+
 <!-- AUDIT_TASK_INDEX_END -->
 
 Scoped faerie restoration prototype (2026-09-30): [commission, reuse shortlist and playable review](../design/FAIRY_RESTORATION_PROTOTYPE_2026-09-30.md), [impact](../design/audit_impacts/fairy-restoration-prototype-20260930.json). Isolated true-2D arborist/harvest/chef/picnic/flower-shooter loop for the faerie half of castle magic; production chapter saves/routes/rewards, second-world ending, device/child/owner acceptance and game-wide finding states remain unchanged. Integration also repairs the measured stale Chapter Two route/exact Opera voice transition (MA-ACCESS-001); no recording changes or accessibility closure are claimed.
