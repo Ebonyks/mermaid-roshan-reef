@@ -1,0 +1,1408 @@
+{
+  "schema": "book_bank_candidate_review_v1",
+  "review_kind": "Independent native-image second-attempt review; no owner or print acceptance",
+  "coordinates": "Native integer visible extents, XYXY right/bottom exclusive. Normalized x,y,w,h. Manual silhouette annotation checked against native color-pixel top rows. Base-native shells/coral/perimeter bubbles excluded; new glints, wiggles, splashes counted.",
+  "dimension_limits": {
+    "canvas": [
+      1484,
+      1060
+    ],
+    "top_min_pixel": 901,
+    "width_max_pixels": 178.08,
+    "height_max_pixels": 127.2,
+    "central_gap_normalized": [
+      0.38,
+      0.62
+    ]
+  },
+  "measurement_limit": "These are visible-object extents in flattened generated backgrounds. Full pre-occlusion silhouette cannot be independently recovered; no stronger pre-occlusion size or exact 10% hidden-area measurement is claimed.",
+  "candidates": [
+    {
+      "page": 11,
+      "candidate": "bank11_small",
+      "file": "art/bank11_small.png",
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "objects": [
+        {
+          "id": "unrequested_left_bunny",
+          "pixel_bounds_xyxy": [
+            227,
+            887,
+            345,
+            1006
+          ],
+          "bounds": [
+            0.15296496,
+            0.83679245,
+            0.07951482,
+            0.11226415
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "unrequested_right_bunny",
+          "pixel_bounds_xyxy": [
+            1099,
+            887,
+            1211,
+            1008
+          ],
+          "bounds": [
+            0.74056604,
+            0.83679245,
+            0.0754717,
+            0.11415094
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "star_wrapper",
+          "pixel_bounds_xyxy": [
+            350,
+            939,
+            464,
+            1019
+          ],
+          "bounds": [
+            0.23584906,
+            0.88584906,
+            0.07681941,
+            0.0754717
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "algae_can",
+          "pixel_bounds_xyxy": [
+            1015,
+            946,
+            1117,
+            1018
+          ],
+          "bounds": [
+            0.68396226,
+            0.89245283,
+            0.06873315,
+            0.06792453
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "blue_cap",
+          "pixel_bounds_xyxy": [
+            1200,
+            960,
+            1284,
+            1021
+          ],
+          "bounds": [
+            0.80862534,
+            0.90566038,
+            0.05660377,
+            0.05754717
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        }
+      ],
+      "geometric_pass": false,
+      "grounding": "FAIL: added beige foundation is foreign to the established blue mounds; unrelated bunnies were introduced.",
+      "blue_mounds": false,
+      "central_gap_clear": true,
+      "event_fit": "FAIL: two invented idle bunnies compete with urgent rubbish rescue and were not in requested plan. Preserve original page11 rubbish bank.",
+      "canon": "Canonical lavender cloud bodies, spiral ears and pearl paws; prop silhouettes follow supplied reference families. Lamma appears only on31 but must be made smaller/subtler.",
+      "status": "REJECTED_OR_SUPERSEDED",
+      "reason": "Unrequested figures and altered ground, in addition to top-zone failure."
+    },
+    {
+      "page": 16,
+      "candidate": "bank16_small",
+      "file": "art/bank16_small.png",
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "objects": [
+        {
+          "id": "seahorse_fountain_with_splash",
+          "pixel_bounds_xyxy": [
+            149,
+            852,
+            311,
+            1010
+          ],
+          "bounds": [
+            0.10040431,
+            0.80377358,
+            0.10916442,
+            0.1490566
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": false,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "hug_bunny",
+          "pixel_bounds_xyxy": [
+            1183,
+            868,
+            1314,
+            1005
+          ],
+          "bounds": [
+            0.79716981,
+            0.81886792,
+            0.08827493,
+            0.12924528
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": false,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "shell_cup",
+          "pixel_bounds_xyxy": [
+            1158,
+            955,
+            1236,
+            1005
+          ],
+          "bounds": [
+            0.78032345,
+            0.9009434,
+            0.05256065,
+            0.04716981
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "new_left_coral",
+          "pixel_bounds_xyxy": [
+            277,
+            917,
+            339,
+            996
+          ],
+          "bounds": [
+            0.18665768,
+            0.86509434,
+            0.04177898,
+            0.0745283
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "new_right_coral",
+          "pixel_bounds_xyxy": [
+            1130,
+            936,
+            1178,
+            1007
+          ],
+          "bounds": [
+            0.76145553,
+            0.88301887,
+            0.03234501,
+            0.06698113
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "left_star",
+          "pixel_bounds_xyxy": [
+            323,
+            980,
+            361,
+            1010
+          ],
+          "bounds": [
+            0.21765499,
+            0.9245283,
+            0.02560647,
+            0.02830189
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "right_star",
+          "pixel_bounds_xyxy": [
+            1312,
+            997,
+            1341,
+            1024
+          ],
+          "bounds": [
+            0.88409704,
+            0.94056604,
+            0.01954178,
+            0.0254717
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        }
+      ],
+      "geometric_pass": false,
+      "grounding": "Broad blue mound retained; narrow contact shadows indicate weight. Rounded feet/paws rest on slopes; exact percentage of hidden body is not measurable from flattened art.",
+      "blue_mounds": true,
+      "central_gap_clear": true,
+      "event_fit": "Relevant event props and small supporting actor, no replacement story scene.",
+      "canon": "Canonical lavender cloud bodies, spiral ears and pearl paws; prop silhouettes follow supplied reference families. Lamma appears only on31 but must be made smaller/subtler.",
+      "status": "REJECTED_OR_SUPERSEDED",
+      "reason": "Decorative silhouettes enter upper restricted area; some also exceed individual12% limits. Superseded by next smaller attempt."
+    },
+    {
+      "page": 20,
+      "candidate": "bank20_small",
+      "file": "art/bank20_small.png",
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "objects": [
+        {
+          "id": "left_apology_bunny",
+          "pixel_bounds_xyxy": [
+            202,
+            871,
+            328,
+            985
+          ],
+          "bounds": [
+            0.1361186,
+            0.82169811,
+            0.08490566,
+            0.10754717
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "right_apology_bunny",
+          "pixel_bounds_xyxy": [
+            1133,
+            870,
+            1253,
+            992
+          ],
+          "bounds": [
+            0.76347709,
+            0.82075472,
+            0.08086253,
+            0.11509434
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "toy_ring_stack",
+          "pixel_bounds_xyxy": [
+            319,
+            929,
+            371,
+            987
+          ],
+          "bounds": [
+            0.21495957,
+            0.87641509,
+            0.03504043,
+            0.05471698
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "toy_blocks",
+          "pixel_bounds_xyxy": [
+            1081,
+            947,
+            1139,
+            995
+          ],
+          "bounds": [
+            0.72843666,
+            0.89339623,
+            0.03908356,
+            0.04528302
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        }
+      ],
+      "geometric_pass": false,
+      "grounding": "Broad blue mound retained; narrow contact shadows indicate weight. Rounded feet/paws rest on slopes; exact percentage of hidden body is not measurable from flattened art.",
+      "blue_mounds": true,
+      "central_gap_clear": true,
+      "event_fit": "Relevant event props and small supporting actor, no replacement story scene.",
+      "canon": "Canonical lavender cloud bodies, spiral ears and pearl paws; prop silhouettes follow supplied reference families. Lamma appears only on31 but must be made smaller/subtler.",
+      "status": "REJECTED_OR_SUPERSEDED",
+      "reason": "Decorative silhouettes enter upper restricted area; some also exceed individual12% limits. Superseded by next smaller attempt."
+    },
+    {
+      "page": 24,
+      "candidate": "bank24_small",
+      "file": "art/bank24_small.png",
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "objects": [
+        {
+          "id": "chest_including_dust_crest",
+          "pixel_bounds_xyxy": [
+            155,
+            900,
+            278,
+            993
+          ],
+          "bounds": [
+            0.10444744,
+            0.8490566,
+            0.0828841,
+            0.08773585
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "attic_book_stack",
+          "pixel_bounds_xyxy": [
+            282,
+            931,
+            395,
+            1002
+          ],
+          "bounds": [
+            0.19002695,
+            0.87830189,
+            0.07614555,
+            0.06698113
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "cowering_bunny",
+          "pixel_bounds_xyxy": [
+            1057,
+            914,
+            1181,
+            1010
+          ],
+          "bounds": [
+            0.71226415,
+            0.86226415,
+            0.08355795,
+            0.09056604
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "shell_hiding_bunny",
+          "pixel_bounds_xyxy": [
+            1176,
+            961,
+            1295,
+            1007
+          ],
+          "bounds": [
+            0.79245283,
+            0.90660377,
+            0.08018868,
+            0.04339623
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "pink_shell",
+          "pixel_bounds_xyxy": [
+            1170,
+            922,
+            1297,
+            998
+          ],
+          "bounds": [
+            0.7884097,
+            0.86981132,
+            0.08557951,
+            0.07169811
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "upright_book",
+          "pixel_bounds_xyxy": [
+            1267,
+            916,
+            1321,
+            981
+          ],
+          "bounds": [
+            0.85377358,
+            0.86415094,
+            0.03638814,
+            0.06132075
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "left_fear_wiggle",
+          "pixel_bounds_xyxy": [
+            1060,
+            935,
+            1075,
+            968
+          ],
+          "bounds": [
+            0.71428571,
+            0.88207547,
+            0.01010782,
+            0.03113208
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "right_fear_wiggle",
+          "pixel_bounds_xyxy": [
+            1184,
+            908,
+            1203,
+            937
+          ],
+          "bounds": [
+            0.79784367,
+            0.85660377,
+            0.01280323,
+            0.02735849
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        }
+      ],
+      "geometric_pass": false,
+      "grounding": "Broad blue mound retained; narrow contact shadows indicate weight. Rounded feet/paws rest on slopes; exact percentage of hidden body is not measurable from flattened art.",
+      "blue_mounds": true,
+      "central_gap_clear": true,
+      "event_fit": "Strong relevant scared/cowering acting and shell hiding; chest/books supply attic context.",
+      "canon": "Canonical lavender cloud bodies, spiral ears and pearl paws; prop silhouettes follow supplied reference families. Lamma appears only on31 but must be made smaller/subtler.",
+      "status": "REJECTED_OR_SUPERSEDED",
+      "reason": "Chest dust crest nativey900 violates requiredtop901 by1pixel. Supersede with local final repair."
+    },
+    {
+      "page": 25,
+      "candidate": "bank25_small",
+      "file": "art/bank25_small.png",
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "objects": [
+        {
+          "id": "sofa",
+          "pixel_bounds_xyxy": [
+            1028,
+            884,
+            1251,
+            1017
+          ],
+          "bounds": [
+            0.69272237,
+            0.83396226,
+            0.15026954,
+            0.1254717
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": false,
+            "height_max_12": false,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "hopeful_bunny",
+          "pixel_bounds_xyxy": [
+            1055,
+            879,
+            1139,
+            970
+          ],
+          "bounds": [
+            0.71091644,
+            0.82924528,
+            0.05660377,
+            0.08584906
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "popcorn_bunny",
+          "pixel_bounds_xyxy": [
+            1141,
+            891,
+            1226,
+            980
+          ],
+          "bounds": [
+            0.76886792,
+            0.84056604,
+            0.05727763,
+            0.08396226
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "popcorn",
+          "pixel_bounds_xyxy": [
+            1160,
+            939,
+            1198,
+            977
+          ],
+          "bounds": [
+            0.78167116,
+            0.88584906,
+            0.02560647,
+            0.03584906
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "small_plant",
+          "pixel_bounds_xyxy": [
+            1227,
+            882,
+            1265,
+            990
+          ],
+          "bounds": [
+            0.82681941,
+            0.83207547,
+            0.02560647,
+            0.10188679
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "attic_jar",
+          "pixel_bounds_xyxy": [
+            229,
+            921,
+            298,
+            994
+          ],
+          "bounds": [
+            0.15431267,
+            0.86886792,
+            0.04649596,
+            0.06886792
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "attic_books",
+          "pixel_bounds_xyxy": [
+            297,
+            941,
+            409,
+            1008
+          ],
+          "bounds": [
+            0.20013477,
+            0.88773585,
+            0.0754717,
+            0.06320755
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        }
+      ],
+      "geometric_pass": false,
+      "grounding": "Broad blue mound retained; narrow contact shadows indicate weight. Rounded feet/paws rest on slopes; exact percentage of hidden body is not measurable from flattened art.",
+      "blue_mounds": true,
+      "central_gap_clear": true,
+      "event_fit": "Relevant attic/couch/popcorn context; hopeful care reaction better than triumph.",
+      "canon": "Canonical lavender cloud bodies, spiral ears and pearl paws; prop silhouettes follow supplied reference families. Lamma appears only on31 but must be made smaller/subtler.",
+      "status": "REJECTED_OR_SUPERSEDED",
+      "reason": "Decorative silhouettes enter upper restricted area; some also exceed individual12% limits. Superseded by next smaller attempt."
+    },
+    {
+      "page": 30,
+      "candidate": "bank30_small",
+      "file": "art/bank30_small.png",
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "objects": [
+        {
+          "id": "ring_sharing_left_bunny",
+          "pixel_bounds_xyxy": [
+            165,
+            866,
+            273,
+            988
+          ],
+          "bounds": [
+            0.11118598,
+            0.81698113,
+            0.07277628,
+            0.11509434
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "ring_sharing_right_bunny",
+          "pixel_bounds_xyxy": [
+            302,
+            885,
+            409,
+            1000
+          ],
+          "bounds": [
+            0.20350404,
+            0.83490566,
+            0.07210243,
+            0.10849057
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "ring_toy",
+          "pixel_bounds_xyxy": [
+            245,
+            950,
+            313,
+            1007
+          ],
+          "bounds": [
+            0.16509434,
+            0.89622642,
+            0.0458221,
+            0.05377358
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "open_attic_book",
+          "pixel_bounds_xyxy": [
+            1054,
+            943,
+            1224,
+            1031
+          ],
+          "bounds": [
+            0.71024259,
+            0.88962264,
+            0.11455526,
+            0.08301887
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "attic_lamp",
+          "pixel_bounds_xyxy": [
+            1195,
+            884,
+            1287,
+            995
+          ],
+          "bounds": [
+            0.80525606,
+            0.83396226,
+            0.06199461,
+            0.10471698
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        }
+      ],
+      "geometric_pass": false,
+      "grounding": "Broad blue mound retained; narrow contact shadows indicate weight. Rounded feet/paws rest on slopes; exact percentage of hidden body is not measurable from flattened art.",
+      "blue_mounds": true,
+      "central_gap_clear": true,
+      "event_fit": "Relevant event props and small supporting actor, no replacement story scene.",
+      "canon": "Canonical lavender cloud bodies, spiral ears and pearl paws; prop silhouettes follow supplied reference families. Lamma appears only on31 but must be made smaller/subtler.",
+      "status": "REJECTED_OR_SUPERSEDED",
+      "reason": "Decorative silhouettes enter upper restricted area; some also exceed individual12% limits. Superseded by next smaller attempt."
+    },
+    {
+      "page": 31,
+      "candidate": "bank31_small",
+      "file": "art/bank31_small.png",
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "objects": [
+        {
+          "id": "lamma_head",
+          "pixel_bounds_xyxy": [
+            235,
+            830,
+            383,
+            916
+          ],
+          "bounds": [
+            0.1583558,
+            0.78301887,
+            0.09973046,
+            0.08113208
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "sailboat_bunny",
+          "pixel_bounds_xyxy": [
+            1153,
+            828,
+            1293,
+            986
+          ],
+          "bounds": [
+            0.77695418,
+            0.78113208,
+            0.09433962,
+            0.1490566
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": false,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "toy_chest",
+          "pixel_bounds_xyxy": [
+            270,
+            881,
+            416,
+            1001
+          ],
+          "bounds": [
+            0.1819407,
+            0.83113208,
+            0.09838275,
+            0.11320755
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "ring_bunny",
+          "pixel_bounds_xyxy": [
+            166,
+            870,
+            286,
+            991
+          ],
+          "bounds": [
+            0.11185984,
+            0.82075472,
+            0.08086253,
+            0.11415094
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "stacking_sailboat",
+          "pixel_bounds_xyxy": [
+            1109,
+            875,
+            1193,
+            1003
+          ],
+          "bounds": [
+            0.74730458,
+            0.8254717,
+            0.05660377,
+            0.12075472
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": false,
+            "central_gap_clear": true
+          }
+        }
+      ],
+      "geometric_pass": false,
+      "grounding": "Broad blue mound retained; narrow contact shadows indicate weight. Rounded feet/paws rest on slopes; exact percentage of hidden body is not measurable from flattened art.",
+      "blue_mounds": true,
+      "central_gap_clear": true,
+      "event_fit": "Relevant event props and small supporting actor, no replacement story scene.",
+      "canon": "Canonical lavender cloud bodies, spiral ears and pearl paws; prop silhouettes follow supplied reference families. Lamma appears only on31 but must be made smaller/subtler.",
+      "status": "REJECTED_OR_SUPERSEDED",
+      "reason": "Decorative silhouettes enter upper restricted area; some also exceed individual12% limits. Superseded by next smaller attempt."
+    },
+    {
+      "page": 5,
+      "candidate": "bank05_small",
+      "file": "art/bank05_small.png",
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "objects": [
+        {
+          "id": "bunny",
+          "pixel_bounds_xyxy": [
+            196,
+            851,
+            313,
+            956
+          ],
+          "bounds": [
+            0.13207547,
+            0.80283019,
+            0.07884097,
+            0.0990566
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "supply_basket_towel",
+          "pixel_bounds_xyxy": [
+            210,
+            925,
+            365,
+            1001
+          ],
+          "bounds": [
+            0.14150943,
+            0.87264151,
+            0.10444744,
+            0.07169811
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "soap_dish",
+          "pixel_bounds_xyxy": [
+            1087,
+            936,
+            1219,
+            1005
+          ],
+          "bounds": [
+            0.73247978,
+            0.88301887,
+            0.08894879,
+            0.06509434
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "pump_bottle",
+          "pixel_bounds_xyxy": [
+            1193,
+            864,
+            1292,
+            995
+          ],
+          "bounds": [
+            0.80390836,
+            0.81509434,
+            0.06671159,
+            0.12358491
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": false,
+            "central_gap_clear": true
+          }
+        }
+      ],
+      "geometric_pass": false,
+      "grounding": "Broad blue mound retained; narrow contact shadows indicate weight. Rounded feet/paws rest on slopes; exact percentage of hidden body is not measurable from flattened art.",
+      "blue_mounds": true,
+      "central_gap_clear": true,
+      "event_fit": "Relevant event props and small supporting actor, no replacement story scene.",
+      "canon": "Canonical lavender cloud bodies, spiral ears and pearl paws; prop silhouettes follow supplied reference families. Lamma appears only on31 but must be made smaller/subtler.",
+      "status": "REJECTED_OR_SUPERSEDED",
+      "reason": "Decorative silhouettes enter upper restricted area; some also exceed individual12% limits. Superseded by next smaller attempt."
+    },
+    {
+      "page": 7,
+      "candidate": "bank07_small",
+      "file": "art/bank07_small.png",
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "objects": [
+        {
+          "id": "mirror_bunny",
+          "pixel_bounds_xyxy": [
+            170,
+            864,
+            299,
+            1000
+          ],
+          "bounds": [
+            0.11455526,
+            0.81509434,
+            0.08692722,
+            0.12830189
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": false,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "hand_mirror",
+          "pixel_bounds_xyxy": [
+            285,
+            909,
+            338,
+            1003
+          ],
+          "bounds": [
+            0.19204852,
+            0.85754717,
+            0.03571429,
+            0.08867925
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "mirror_glints",
+          "pixel_bounds_xyxy": [
+            310,
+            891,
+            354,
+            929
+          ],
+          "bounds": [
+            0.20889488,
+            0.84056604,
+            0.0296496,
+            0.03584906
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "folded_towel",
+          "pixel_bounds_xyxy": [
+            1125,
+            928,
+            1251,
+            1013
+          ],
+          "bounds": [
+            0.75808625,
+            0.8754717,
+            0.08490566,
+            0.08018868
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "soap_dish",
+          "pixel_bounds_xyxy": [
+            1225,
+            952,
+            1316,
+            1011
+          ],
+          "bounds": [
+            0.8254717,
+            0.89811321,
+            0.06132075,
+            0.05566038
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "new_bubbles",
+          "pixel_bounds_xyxy": [
+            1253,
+            898,
+            1293,
+            952
+          ],
+          "bounds": [
+            0.84433962,
+            0.84716981,
+            0.02695418,
+            0.0509434
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        }
+      ],
+      "geometric_pass": false,
+      "grounding": "Broad blue mound retained; narrow contact shadows indicate weight. Rounded feet/paws rest on slopes; exact percentage of hidden body is not measurable from flattened art.",
+      "blue_mounds": true,
+      "central_gap_clear": true,
+      "event_fit": "Relevant event props and small supporting actor, no replacement story scene.",
+      "canon": "Canonical lavender cloud bodies, spiral ears and pearl paws; prop silhouettes follow supplied reference families. Lamma appears only on31 but must be made smaller/subtler.",
+      "status": "REJECTED_OR_SUPERSEDED",
+      "reason": "Decorative silhouettes enter upper restricted area; some also exceed individual12% limits. Superseded by next smaller attempt."
+    },
+    {
+      "page": 8,
+      "candidate": "bank08_small",
+      "file": "art/bank08_small.png",
+      "dimensions": [
+        1484,
+        1060
+      ],
+      "objects": [
+        {
+          "id": "duck_bunny",
+          "pixel_bounds_xyxy": [
+            185,
+            881,
+            310,
+            991
+          ],
+          "bounds": [
+            0.12466307,
+            0.83113208,
+            0.08423181,
+            0.10377358
+          ],
+          "checks": {
+            "top_85_clear": false,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "rubber_duck",
+          "pixel_bounds_xyxy": [
+            290,
+            954,
+            342,
+            1007
+          ],
+          "bounds": [
+            0.19541779,
+            0.9,
+            0.03504043,
+            0.05
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "duck_ripples",
+          "pixel_bounds_xyxy": [
+            270,
+            987,
+            367,
+            1020
+          ],
+          "bounds": [
+            0.1819407,
+            0.93113208,
+            0.06536388,
+            0.03113208
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "duck_splashes",
+          "pixel_bounds_xyxy": [
+            344,
+            954,
+            373,
+            984
+          ],
+          "bounds": [
+            0.23180593,
+            0.9,
+            0.01954178,
+            0.02830189
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "rolled_towel",
+          "pixel_bounds_xyxy": [
+            1176,
+            933,
+            1310,
+            1006
+          ],
+          "bounds": [
+            0.79245283,
+            0.88018868,
+            0.0902965,
+            0.06886792
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        },
+        {
+          "id": "bath_plug_chain",
+          "pixel_bounds_xyxy": [
+            1124,
+            967,
+            1230,
+            1025
+          ],
+          "bounds": [
+            0.7574124,
+            0.91226415,
+            0.07142857,
+            0.05471698
+          ],
+          "checks": {
+            "top_85_clear": true,
+            "width_max_12": true,
+            "height_max_12": true,
+            "central_gap_clear": true
+          }
+        }
+      ],
+      "geometric_pass": false,
+      "grounding": "Broad blue mound retained; narrow contact shadows indicate weight. Rounded feet/paws rest on slopes; exact percentage of hidden body is not measurable from flattened art.",
+      "blue_mounds": true,
+      "central_gap_clear": true,
+      "event_fit": "Relevant event props and small supporting actor, no replacement story scene.",
+      "canon": "Canonical lavender cloud bodies, spiral ears and pearl paws; prop silhouettes follow supplied reference families. Lamma appears only on31 but must be made smaller/subtler.",
+      "status": "REJECTED_OR_SUPERSEDED",
+      "reason": "Decorative silhouettes enter upper restricted area; some also exceed individual12% limits. Superseded by next smaller attempt."
+    }
+  ]
+}

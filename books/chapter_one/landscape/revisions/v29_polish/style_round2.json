@@ -1,0 +1,721 @@
+{
+  "schema": "picture_book_style_round_v1",
+  "review": "Independent first assembled V29 proof; all 34 PDF-rendered page PNGs inspected individually at native export resolution, not only thumbnails.",
+  "proof_sha256": "35ae1612d53ed7fa1312f4536b5da016cb3725db201290972e430e355a52f2a4",
+  "page_size_points": [
+    504,
+    360
+  ],
+  "rendered_dimensions": [
+    1512,
+    1080
+  ],
+  "render_scale": 3,
+  "score_definition": "Internal craft judgment only. 4.9 is a near-final visual/readability target; it does not mean professional SLP approval, owner acceptance, child comprehension, physical print proof, or master-audit release-proven satisfaction.",
+  "scope": "34 pages including covers. Story and pagination unchanged. Preserve original source staging; local repair and marginal stationery performances only.",
+  "original_reference": "C:/Users/Peter/Downloads/Mermaid_Roshan_REVIEW-1.pdf",
+  "reference_comparison": "The alternating full art and contour cutouts, quiet pale blue field, dotted perimeter, bilateral low blue banks, event-specific props and purposeful small character performances now match the original design language substantially better. Current owner constraints govern full-art/cutout treatment and marginal sizes.",
+  "review_limitations": [
+    "Visible flattened bank silhouettes are measured; full pre-occlusion asset dimensions and exact hidden-area proportion cannot be independently recovered.",
+    "This review checks screen/PDF rendering. Physical 7×5 print legibility and color remain open.",
+    "Many native generation masters are 1484×1060, about 212ppi at 7×5. This is honest native resolution, not a 300ppi print claim."
+  ],
+  "geometric_bank_result": "Nine selected new banks pass visible top-85%, individual 12%-width/height and central 38–62% void checks per bank_annotations.json. Original preserved 11/21 banks require separate derivative scrutiny after the proposed whole-background bubble repair.",
+  "bubble_and_compression": {
+    "native_candidates": [
+      "bubbles11.png",
+      "bubbles21.png",
+      "ceiling27.png",
+      "ceiling28.png",
+      "nap32.png"
+    ],
+    "visual_result": "New blue perimeter rings are closed and crisp. Dense full-art bubble piles contain intact painted highlights; blue mottling and fine speckle read as watercolor, not a JPEG block grid. No smeared ring cluster or corrupt contour was found in the native candidates or the inspected PDF renders.",
+    "pdf_encoding": {
+      "image_occurrences": 64,
+      "filters": {
+        "FlateDecode": 64
+      },
+      "DCTDecode": 0,
+      "note": "Lossless PDF image embedding adds no JPEG recompression; pre-existing source artifacts would still require visual repair."
+    },
+    "actual_remaining_problem": "Hard composite seams in 11/21 and 27–29 are separate from compression."
+  },
+  "failures": [
+    {
+      "id": "STY-V29-01",
+      "pages": [
+        3
+      ],
+      "category": "readability",
+      "severity": "REPAIR_BEFORE_TARGET_CLAIM",
+      "region_normalized": [
+        0.76,
+        0.075,
+        0.13,
+        0.125
+      ],
+      "description": "White caption crosses very pale lavender column/arch pixels; final words lose separation.",
+      "repair": "Move caption into a calm dark/contrasting lane or apply a gentle continuous contrast underlay."
+    },
+    {
+      "id": "STY-V29-02",
+      "pages": [
+        6,
+        13
+      ],
+      "category": "readability",
+      "severity": "REPAIR_BEFORE_TARGET_CLAIM",
+      "regions_normalized": {
+        "6": [
+          0.15,
+          0.79,
+          0.73,
+          0.13
+        ],
+        "13": [
+          0.16,
+          0.79,
+          0.69,
+          0.13
+        ]
+      },
+      "description": "White caption crosses peach highlights on 6 and gold/green caustic lines on 13.",
+      "repair": "Bounded calm floor/water patch or continuous layout contrast treatment; preserve scene staging."
+    },
+    {
+      "id": "STY-V29-03",
+      "pages": [
+        10,
+        12,
+        15,
+        32
+      ],
+      "category": "readability",
+      "severity": "REFINE",
+      "regions_normalized": {
+        "10": [
+          0.2,
+          0.8,
+          0.6,
+          0.12
+        ],
+        "12": [
+          0.31,
+          0.79,
+          0.11,
+          0.05
+        ],
+        "15": [
+          0.16,
+          0.8,
+          0.68,
+          0.06
+        ],
+        "32": [
+          0.11,
+          0.145,
+          0.78,
+          0.065
+        ]
+      },
+      "description": "Text separation varies over shell paving, orange reflection, peach highlights, and pale side columns respectively.",
+      "repair": "A subtle continuous layout contrast treatment can address these without new scene art."
+    },
+    {
+      "id": "STY-V29-04",
+      "pages": [
+        11,
+        21
+      ],
+      "category": "compositing",
+      "severity": "REPAIR_BEFORE_TARGET_CLAIM",
+      "region_native": {
+        "top_edge_y": 110,
+        "side_edges_x": [
+          200,
+          1294
+        ],
+        "canvas": [
+          1484,
+          1060
+        ]
+      },
+      "description": "Three hard bubble-perimeter patch edges expose a rectangular change in watercolor wash, strongest on 21.",
+      "repair": "Use a coherent integrated derivative or transition edge that preserves the exact main cutout and existing story-prop identities."
+    },
+    {
+      "id": "STY-V29-05",
+      "pages": [
+        27,
+        28,
+        29
+      ],
+      "category": "compositing",
+      "severity": "BLOCKING_VISUAL_TEAR",
+      "region_normalized": [
+        0,
+        0.19,
+        1,
+        0.027
+      ],
+      "duplicate_chandelier_region": [
+        0.46,
+        0.19,
+        0.07,
+        0.025
+      ],
+      "description": "Full-width hard join at rendered y≈229/1080; mismatched column tops and a partial second chandelier sit above the original chandelier.",
+      "repair": "Reuse the coherent approved scrub ceiling or restrict replacement to ceiling-only pixels with a continuous transition. Preserve all original lower-scene geometry."
+    },
+    {
+      "id": "STY-V29-06",
+      "pages": [
+        17,
+        18
+      ],
+      "category": "scene_transition",
+      "severity": "REFINE",
+      "description": "Dirty toy-storage doorway and the more formal playroom use visibly different architectures.",
+      "repair": "Explicit 'In the playroom' wording supplies the location bridge; preserve both established source scenes."
+    }
+  ],
+  "iteration": [
+    "Root has already proposed repairs for caption lanes, coherent 11/21 stationery and approved scrub-ceiling reuse. Reinspect actual outputs before closing any finding.",
+    "No additional scene redesign is warranted for novelty; preserve accepted covers, source landing, main craft cutout and the event-specific native banks."
+  ],
+  "pages": [
+    {
+      "page_index": 0,
+      "pdf_page": 1,
+      "beat": "Cover",
+      "objects_reviewed": "Roshan, Daddy, Rumi, Baby Eagle, Grand Puff; bucket, sponge, painting",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.9,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.9,
+      "findings": "Rendered story composition with a clear title. Preserve owner-selected cover.",
+      "status": "INTERNAL_TARGET_MET"
+    },
+    {
+      "page_index": 1,
+      "pdf_page": 2,
+      "beat": "Arrival window",
+      "objects_reviewed": "Roshan profile, porthole, distant Pearl Castle",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.9,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.9,
+      "findings": "Strong first look and focal direction; source art remains crisp.",
+      "status": "INTERNAL_TARGET_MET"
+    },
+    {
+      "page_index": 2,
+      "pdf_page": 3,
+      "beat": "Sky Lagoon landing",
+      "objects_reviewed": "Plane, dock, Pearl Castle",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.9,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.9,
+      "findings": "Clear geography and excellent sky text lane; preserve the source landing.",
+      "status": "INTERNAL_TARGET_MET"
+    },
+    {
+      "page_index": 3,
+      "pdf_page": 4,
+      "beat": "Castle entrance",
+      "objects_reviewed": "Daddy and Roshan, open red door, shadowy interior",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.6,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.6,
+      "findings": "Door architecture is repaired; white caption loses separation over the pale right column.",
+      "status": "OPEN"
+    },
+    {
+      "page_index": 4,
+      "pdf_page": 5,
+      "beat": "Inside dirty castle",
+      "objects_reviewed": "Family pair, dusty floor, several destination doors",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.9,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.9,
+      "findings": "Motivation to clean is explicit in both art and words.",
+      "status": "INTERNAL_TARGET_MET"
+    },
+    {
+      "page_index": 5,
+      "pdf_page": 6,
+      "beat": "Tools",
+      "objects_reviewed": "Brush and star sponge; supply-basket bunny, folded towel, soap dish and pump",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.9,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.9,
+      "findings": "Main objects are easy to name; border expands the supplies without duplicating the main tools.",
+      "status": "INTERNAL_TARGET_MET"
+    },
+    {
+      "page_index": 6,
+      "pdf_page": 7,
+      "beat": "Dirty bath",
+      "objects_reviewed": "Canonical playful dust bunny, dirty bath and sink",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.6,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.6,
+      "findings": "Personality and the mess are clear; caption crosses pale peach floor highlights.",
+      "status": "OPEN"
+    },
+    {
+      "page_index": 7,
+      "pdf_page": 8,
+      "beat": "Sink clean",
+      "objects_reviewed": "Roshan wiping sink; mirror bunny, towel, soap",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.9,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.9,
+      "findings": "Contained action cutout; mirror cameo is distinct and low.",
+      "status": "INTERNAL_TARGET_MET"
+    },
+    {
+      "page_index": 8,
+      "pdf_page": 9,
+      "beat": "Drain and scrub",
+      "objects_reviewed": "Roshan scrubbing tub; duck bunny, bath plug, towel",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.9,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.9,
+      "findings": "Bath plug and duck make the border specific to this step.",
+      "status": "INTERNAL_TARGET_MET"
+    },
+    {
+      "page_index": 9,
+      "pdf_page": 10,
+      "beat": "Clean bath",
+      "objects_reviewed": "Roshan with dust bunny, clean water; hidden Lamma behind towels",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.9,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.9,
+      "findings": "After-state and friendly bunny continuity are clear. Lamma is recognizable and unprompted.",
+      "status": "INTERNAL_TARGET_MET"
+    },
+    {
+      "page_index": 10,
+      "pdf_page": 11,
+      "beat": "Rumi trapped",
+      "objects_reviewed": "Roshan with strainer, Rumi under dirty pool, blocked fountain",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.6,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.6,
+      "findings": "Strainer is present and Rumi is visible. White caption crosses pale shell paving.",
+      "status": "OPEN"
+    },
+    {
+      "page_index": 11,
+      "pdf_page": 12,
+      "beat": "Scoop rubbish",
+      "objects_reviewed": "Loaded strainer; dirty wrapper, gunky can and lid",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.5,
+        "readability": 4.9,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.5,
+      "findings": "Correct rubbish props retained; hard perimeter patch creates a faint rectangular wash join.",
+      "status": "OPEN"
+    },
+    {
+      "page_index": 12,
+      "pdf_page": 13,
+      "beat": "First waterfall stream",
+      "objects_reviewed": "One clear orange stream, two blocked green streams",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.7,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.7,
+      "findings": "Chronology is correct. Caption begins over a bright orange reflection.",
+      "status": "OPEN"
+    },
+    {
+      "page_index": 13,
+      "pdf_page": 14,
+      "beat": "Rainbow waterfall",
+      "objects_reviewed": "Three clear colored streams, floating rubbish remains",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.6,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.6,
+      "findings": "Waterfall payoff is distinct from page 12; caption competes with bright caustics.",
+      "status": "OPEN"
+    },
+    {
+      "page_index": 14,
+      "pdf_page": 15,
+      "beat": "Seahorse cup",
+      "objects_reviewed": "Roshan holding freed cup and seahorse fountain",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.9,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.9,
+      "findings": "New navy text is readable; cup and fountain cause-and-effect are visible.",
+      "status": "INTERNAL_TARGET_MET"
+    },
+    {
+      "page_index": 15,
+      "pdf_page": 16,
+      "beat": "Rumi free",
+      "objects_reviewed": "Rumi rising in clean pool, rainbow waterfall, clear seahorse",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.8,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.8,
+      "findings": "Strong rescue payoff; first caption line crosses peach highlights.",
+      "status": "OPEN"
+    },
+    {
+      "page_index": 16,
+      "pdf_page": 17,
+      "beat": "Hug",
+      "objects_reviewed": "Rumi hugging Roshan; seahorse fountain and shell-cup bunny",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.9,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.9,
+      "findings": "Tender rest beat and relevant low border motifs; good asymmetric text layout.",
+      "status": "INTERNAL_TARGET_MET"
+    },
+    {
+      "page_index": 17,
+      "pdf_page": 18,
+      "beat": "Chirp",
+      "objects_reviewed": "Roshan listening at doorway, dusty toy storage, one bunny",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.9,
+        "story_and_pacing": 4.8
+      },
+      "object_min_score": 4.8,
+      "findings": "Sharp face restores listening expression. Need explicit playroom transition on the next page to bridge architecture.",
+      "status": "OPEN"
+    },
+    {
+      "page_index": 18,
+      "pdf_page": 19,
+      "beat": "Baby Eagle stuck",
+      "objects_reviewed": "Roshan with brush, two bunnies pinning Baby Eagle wings",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.9,
+        "story_and_pacing": 4.8
+      },
+      "object_min_score": 4.8,
+      "findings": "Two-bunny cause is legible; dirty cobweb/toy context is retained. Playroom transition text resolves location change.",
+      "status": "OPEN"
+    },
+    {
+      "page_index": 19,
+      "pdf_page": 20,
+      "beat": "Baby Eagle freed",
+      "objects_reviewed": "Roshan brushing one bunny, Baby Eagle spreading wings, second bunny",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.9,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.9,
+      "findings": "Different bird pose and gentle action are clear. No blanket or fighting.",
+      "status": "INTERNAL_TARGET_MET"
+    },
+    {
+      "page_index": 20,
+      "pdf_page": 21,
+      "beat": "Apology",
+      "objects_reviewed": "Baby Eagle cutout; two small apologetic bunnies, toys, rounded speech capsules",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.9,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.9,
+      "findings": "Friendly bubble forms and clearly separated tails. Preserve the small bunnies to honor owner scale feedback.",
+      "status": "INTERNAL_TARGET_MET"
+    },
+    {
+      "page_index": 21,
+      "pdf_page": 22,
+      "beat": "Tidy crafts",
+      "objects_reviewed": "Roshan and messy craft trolley; spilled paint and painted paper",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.5,
+        "readability": 4.9,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.5,
+      "findings": "Main cutout remains strong; top/side hard wash joins create a faint rectangle around the central art.",
+      "status": "OPEN"
+    },
+    {
+      "page_index": 22,
+      "pdf_page": 23,
+      "beat": "Clean art room",
+      "objects_reviewed": "Roshan brushing a clean tabletop, organized paints and brushes",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.9,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.9,
+      "findings": "Purple puddle removed. This is cleaning and sorting, not an unrelated craft diversion.",
+      "status": "INTERNAL_TARGET_MET"
+    },
+    {
+      "page_index": 23,
+      "pdf_page": 24,
+      "beat": "Glowing door",
+      "objects_reviewed": "Roshan in castle hall, completed doors with route highlights, glowing final door",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.9,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.9,
+      "findings": "Strong anticipation beat; source castle route and navy caption remain legible.",
+      "status": "INTERNAL_TARGET_MET"
+    },
+    {
+      "page_index": 24,
+      "pdf_page": 25,
+      "beat": "Grand Puff unwell",
+      "objects_reviewed": "Sad dusty Grand Puff; attic chest and books, cowering bunny and shell-hidden bunny",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.9,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.9,
+      "findings": "Emotional cause is explicit. Both marginal bunnies are frightened in distinct ways; blue banks and scale pass.",
+      "status": "INTERNAL_TARGET_MET"
+    },
+    {
+      "page_index": 25,
+      "pdf_page": 26,
+      "beat": "Offer help",
+      "objects_reviewed": "Roshan holding soapy sponge, dusty Grand Puff; attic jar and books, couch bunnies and popcorn",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.9,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.9,
+      "findings": "Offer of cleaning care matches the plot. Couch performance is hopeful, with one popcorn eater.",
+      "status": "INTERNAL_TARGET_MET"
+    },
+    {
+      "page_index": 26,
+      "pdf_page": 27,
+      "beat": "Friends scrub",
+      "objects_reviewed": "Daddy, Roshan, Rumi and Baby Eagle washing happy Grand Puff",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.8,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.8,
+      "findings": "One coherent room and clear shared action. White text is readable but crosses patterned medium-value ceiling.",
+      "status": "OPEN"
+    },
+    {
+      "page_index": 27,
+      "pdf_page": 28,
+      "beat": "Bubbles cover Puff",
+      "objects_reviewed": "Friends around bubble mountain",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 3.8,
+        "readability": 4.8,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 3.8,
+      "findings": "Actual hard ceiling join and partial second chandelier caused by the top patch. Native scene candidate is coherent; assembled page is not.",
+      "status": "OPEN"
+    },
+    {
+      "page_index": 28,
+      "pdf_page": 29,
+      "beat": "Rainbow Puff pops",
+      "objects_reviewed": "Friends, small airborne rainbow Puff, falling bubbles",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 3.8,
+        "readability": 4.8,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 3.8,
+      "findings": "Same ceiling tear/partial second chandelier. Pop action and delighted gazes are otherwise excellent.",
+      "status": "OPEN"
+    },
+    {
+      "page_index": 29,
+      "pdf_page": 30,
+      "beat": "Rainbow Puff lands",
+      "objects_reviewed": "Friends, small rainbow Puff resting on dusty floor",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 3.8,
+        "readability": 4.8,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 3.8,
+      "findings": "Same ceiling tear/partial second chandelier. Preserve source landing geometry beneath the repair.",
+      "status": "OPEN"
+    },
+    {
+      "page_index": 30,
+      "pdf_page": 31,
+      "beat": "Rainbow reassurance",
+      "objects_reviewed": "Roshan and rainbow Puff cutouts; ring-playing bunnies and open book/lamp",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.9,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.9,
+      "findings": "A quiet reflective beat; book/lamp shifts the border toward rest.",
+      "status": "INTERNAL_TARGET_MET"
+    },
+    {
+      "page_index": 31,
+      "pdf_page": 32,
+      "beat": "Gentle play",
+      "objects_reviewed": "Roshan waving and Baby Eagle stepping; toy-chest bunny, Lamma peek and sailboat bunny",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.9,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.9,
+      "findings": "New low details tie gentle play to the earlier apology. Second Lamma peek is quiet and recognizable.",
+      "status": "INTERNAL_TARGET_MET"
+    },
+    {
+      "page_index": 32,
+      "pdf_page": 33,
+      "beat": "Everyone naps",
+      "objects_reviewed": "All five main friends plus two little bunnies asleep in bubbles",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 4.7,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.7,
+      "findings": "Warm complete ending; second caption line extends across pale columns at the outer edges.",
+      "status": "OPEN"
+    },
+    {
+      "page_index": 33,
+      "pdf_page": 34,
+      "beat": "Back cover",
+      "objects_reviewed": "Whole group observing dust-bunny craft mess",
+      "internal_craft_scores": {
+        "main_art": 4.9,
+        "background_and_compositing": 4.9,
+        "readability": 5,
+        "story_and_pacing": 4.9
+      },
+      "object_min_score": 4.9,
+      "findings": "Owner-selected rendered full-art composition retained; no text to conflict.",
+      "status": "INTERNAL_TARGET_MET"
+    }
+  ],
+  "summary": {
+    "pages": 34,
+    "pages_at_internal_target": 19,
+    "open_pages": [
+      3,
+      6,
+      10,
+      11,
+      12,
+      13,
+      15,
+      17,
+      18,
+      21,
+      26,
+      27,
+      28,
+      29,
+      32
+    ],
+    "minimum": 3.8,
+    "mean_of_page_minima": 4.72058823529412
+  }
+}

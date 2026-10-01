@@ -1,24 +1,13 @@
-# V28 revision review
+# V29 comprehensive polish review
 
-Status: `SUPPORTING_CURRENT`. Implemented owner corrections are reviewable in the [full book](revisions/v28_kindness/complete/READ_BOOK.html), [revision comparison](revisions/v28_kindness/REVISION_REVIEW.html) and [current page plan](PAGE_PLAN.md).
+Status: `SUPPORTING_CURRENT`; complete iterated proof for owner review, not final acceptance.
 
-## What changed
+The [all-page before/after package](revisions/v29_polish/AUDIT_REVIEW.html) compares every V28 page with V29. Three independent reviewers examine character identity, composition/backgrounds and age4–5 wording. Native source studies, rejected candidates and exact masks remain inspectable.
 
-- Former19 →20: reject enlarged preview bunnies; use locally reduced, grounded versions, about9.8% of page height. Eagle remains the foreground focus. Rounded speech capsules keep both exact apologies.
-- Former23: remove disconnected craft-making. New3 opens the actual castle doors to reveal the dirty interior. A left-anchored full-art trim preserves both source characters and the threshold. The unsuccessful wall-extension studies are excluded.
-- Former26 →25: soapy star sponge in Roshan’s hand, caring expression from Puff, exact owner reassurance. No projectile trail or dizzy eyes.
-- Former27 →26: four friends wash Puff together; approved upper-wall extension replaces the compressed strip above the unchanged source scene.
-- Approved sink action, bath wording/hidden visitor, fountain action, isolated hug, Eagle release and rainbow-Puff reflection are applied.
-- Former20 →31: gentle play before everyone sleeps. Two page turns protect the final reveals.34total pages retained.
+The selected repairs restore castle-entry clarity, plain Roshan costume details, the listening gesture, canonical two-bunny Eagle rescue, naturally rounded speech capsules and the sleeping bunnies. Event banks now vary supply gathering, cleaning, towel drying, apology, frightened hiding, cheering/popcorn, friendship and gentle toy play. Two tiny unprompted visitors have canonical identities. The strong page21 foreground, accepted covers and exact landing remain unchanged.
 
-## Review and limits
+The bubble lane checks broken contours, mottling/block patterns, halos and export degradation. Entire coherent11/21 stationery derivatives replace the old broken perimeter rings; rectangular patch seams are rejected. Existing approved26 ceiling is reused27–29 after generated extensions failed their composed joins. Dirty-bath and rainbow-waterfall caption surfaces receive bounded material-preserving calm edits. All white story type uses a fine editable navy contour, no opaque caption bars.
 
-Rendered page review checks seams, visible character features, caption placement and the complete story. Mechanical verification checks34pages,7×5trim,18pt minimum story type, safe placement, source hashes, transparent reduced art, selected-source exclusions, owner wording, page-turn order and two hidden appearances. Neither check establishes child comprehension or print acceptance.
+All34 PDF pages are rendered and compared to proof PNGs after lossless image-stream optimization. Mechanical checks cover native source hashes, full-art/cutout treatment, minimum18pt story type, margins, actual bound annotations, foreground/text separation, exact commissioned wording, cooperative cleaning and reveal order. Generated occlusion/shadow opacity and exact source prop pixels are not claimed measurable.
 
-Native sources remain mixed density. The new entrance frame is1264×720, 144ppi at full-page trim; existing restored scene art is often about212ppi. Lossless PDF stream optimization changes storage only, never decoded pixels. The last three finale ceiling strips remain a known lower-density exception. No300ppi print-master claim.
-
-The accepted hug preview’s tiny fountain crest begins above the strict lower15% target. The small apology ears also reach above that line, within the earlier speaking-character margin; their heights now meet12%. The play-border ear has its existing two-pixel exception. These are explicit review limits, not hidden automatic passes.
-
-The comprehensive V27 review’s waterfall-clearing action and rescue-room continuity questions remain open. Original cover, rear H, exact rainbow landing and protected project art remain unchanged. Resolve/handoff searching stays stopped. No runtime or game-canon changes, finding closure, device test or child acceptance is claimed.
-
-See [native generation provenance](revisions/v28_kindness/generation_evidence.json), [visual review](revisions/v28_kindness/visual_review.json), [machine results](revisions/v28_kindness/complete/stress_results.json), and [delivery manifest](revisions/v28_kindness/manifest.json). Earlier detailed review history is preserved in Git and the dated V27 review.
+The internal4.9 craft target and actual remaining sub-target observations are in the [combined audit](revisions/v29_polish/visual_review.json). Accepted source variations are recorded rather than arbitrarily redesigned. Native artwork is generally1484×1060, about212ppi at7×5; it is not a300ppi press master. Owner/child/physical-print review and professional SLP review remain outstanding. No game/master finding, runtime, cinematic delivery or protected original is changed.

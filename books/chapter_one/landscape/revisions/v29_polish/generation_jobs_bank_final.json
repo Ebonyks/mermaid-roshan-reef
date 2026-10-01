@@ -1,0 +1,29 @@
+[
+  {
+    "id": "bank24_final",
+    "page": 24,
+    "refs": [
+      "books/chapter_one/landscape/revisions/v29_polish/art/bank24_small.png"
+    ],
+    "prompt": "Tiny local inpaint ONLY the gray dust puff crest sitting above the LEFT chest. Erase the single small tuft above y905px and replace it with matching clean BLUE wash behind the chest. Keep dust low on chest base and books as is. Keep the whole tiny chest, two cowering bunnies under their shell, all bluebanks, bubbles, perimeter and canvas absolutely unchanged.1484x1060. No new objects or enlarged decorations; ensure everyaddedsubjectstartsbelow905px. Full image output but only the tiny crest erase patch will be used.",
+    "gap": "Round2 chest dust fringe violates85% boundary by1pixel.",
+    "transparent": false,
+    "attempt": 3,
+    "review": "PENDING"
+  },
+  {
+    "id": "bank31_final",
+    "page": 31,
+    "refs": [
+      "books/chapter_one/landscape/revisions/v29_polish/art/bank31_tiny.png",
+      "books/chapter_one/landscape/art/quality_v22/bg_base.png",
+      "assets/sprites/dust_bunnies/dust_bunny_idle.png",
+      "assets/sprites/stuffie_studio/lamma.png"
+    ],
+    "prompt": "Final targeted stationery correction.1484x1060 same BLUE wash, dotted border, native bubblecircles, shells/coral/banks. Both lower-bank storygroups still too high. Erase current groups then paint them 40% smaller AND 35pxLOWER. Every miniature begins below y930 and endsabove1020. LEFT: small lavender bunny with toy ring beside tiny chest, exactsame playfulaction; behind chest only tiny recognizable Lamma WHITE PLUSH face+SIDEWAYS droopingears visible from y942to982, visiblehead55pxwideTOTAL, not100px; hidebodyandmostheadwithchest. RIGHT: small canonical bunny gently playing toy rings+sailboat, maximum80pxtallINCLUDINGforeheadcurland2spiralears. IMAGE_3bunnyidentity, IMAGE_4Lammaidentity. Allnewsubjects below930pxcritical, maximum140pxwidth80pxheight each, groundedbluepaintmatchingbanks. No newlyaddedcharacters/objects. Keep centralx565–920empty. No text, no stickerstroke, no fullscene.",
+    "gap": "Round3 bunny/Lammapeek still enters top85%; smaller lowercameo needed.",
+    "transparent": false,
+    "attempt": 4,
+    "review": "PENDING"
+  }
+]

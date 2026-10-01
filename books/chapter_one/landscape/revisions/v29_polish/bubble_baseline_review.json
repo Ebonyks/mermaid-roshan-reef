@@ -1,0 +1,887 @@
+{
+  "schema_version": 1,
+  "status": "V28_BUBBLE_BASELINE_PLUS_V29_CANDIDATE_VISUAL_COMPARISON_NOT_CODEC_DIAGNOSIS",
+  "created_utc": "2026-10-01T01:43:38.304581+00:00",
+  "reviewer": "character_audit subagent",
+  "inspection": "All34 V28 rendered pages previously inspected native. Dedicated reinspection of full-art6,9,27,32 at original1512x1080, old native backgrounds11/21 and listed V29 native candidates. Final V29 pages also independently inspected.",
+  "limits": [
+    "No decoder/provenance forensic diagnosis made. A PNG container alone cannot establish that every upstream source was lossless.",
+    "No diagnostic regular8x8 grid observed in the reviewed bubble regions; this does not establish the absence of every compression artifact.",
+    "Watercolor grain, painted facets and intentionally stippled soap are not automatically compression defects.",
+    "Broken open ring edges11/21 are real visual defects independent of their unknown upstream cause."
+  ],
+  "pages": [
+    {
+      "page_index": 0,
+      "label": "front cover",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_00.png",
+      "baseline_screenshot_sha256": "608206aa4813208d3599be36cb3bba0f111dd5e4c9f1ddc65a61021feb61308e",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "small soap clusters around bucket, sponge and floor",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "White rounded lather beads remain clean; illustrated sparkle/grain is not a regular compression grid.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "cover_rendered",
+          "path": "books/chapter_one/landscape/art/personality_v20/cover_rendered.png",
+          "sha256": "7245b1a5edcb03c80ee4af75d5ca0fd7849574278b0a0bacbb63579f2d1bc1d2"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 1,
+      "label": "story page 1",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_01.png",
+      "baseline_screenshot_sha256": "9ec9b6f5df89bf8bcbea2acd0489c924f248af6db4615a365b8172ea87548761",
+      "bubble_presence": "none_or_incidental",
+      "artifact_status": "none",
+      "region": "No consequential bubble-pattern region",
+      "visual_classification": "no_bubble_defect",
+      "observed": "No bubble-specific defect observed; page has other subjects/text.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "v22_scene_01",
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_01.png",
+          "sha256": "e0a084746a0ef0bd935b7689df778c76d2f3489afd63279280ef19d180a3265b"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 2,
+      "label": "story page 2",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_02.png",
+      "baseline_screenshot_sha256": "89380abd85fa67129f96b08775a74cb2bd5de55b7f183c359398bd36ea924ce9",
+      "bubble_presence": "none_or_incidental",
+      "artifact_status": "none",
+      "region": "No consequential bubble-pattern region",
+      "visual_classification": "no_bubble_defect",
+      "observed": "No bubble-specific defect observed; page has other subjects/text.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "v22_scene_02",
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_02.png",
+          "sha256": "e4a2b560ff1cd8e0baf350521170ca38c389e688d836e3bb5d51aec597691da5"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 3,
+      "label": "story page 3",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_03.png",
+      "baseline_screenshot_sha256": "854773a9f9ff6062d677a25848355d74b11c0d804545cf23a81a661a9fc9423f",
+      "bubble_presence": "none_or_incidental",
+      "artifact_status": "none",
+      "region": "No consequential bubble-pattern region",
+      "visual_classification": "no_bubble_defect",
+      "observed": "No bubble-specific defect observed; page has other subjects/text.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "v28_castle_entry_source",
+          "path": "books/chapter_one/landscape/revisions/v28_kindness/art/castle_entry_source.png",
+          "sha256": "f3814133804ddafa8fb52f8f523036302c7567d3633a059b7886a74df7dc3c8c"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 4,
+      "label": "story page 4",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_04.png",
+      "baseline_screenshot_sha256": "8dc8a21acbe76ea553837c1a3942b8888057227b0dc06cf0ed474f26433ee8c8",
+      "bubble_presence": "none_or_incidental",
+      "artifact_status": "none",
+      "region": "No consequential bubble-pattern region",
+      "visual_classification": "no_bubble_defect",
+      "observed": "No bubble-specific defect observed; page has other subjects/text.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "v23_castle_repair",
+          "path": "books/chapter_one/landscape/art/story_detail_v23/castle_repair.png",
+          "sha256": "b1d25511be353a94ed989f1e25289b1d5e1ce3ae69983d544c1eca1a83e6ab17"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 5,
+      "label": "story page 5",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_05.png",
+      "baseline_screenshot_sha256": "887e21a5ba22bb6ce48dd33fc1a270c9db9aad1acef18bb961129660a4ef9552",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "old stationery perimeter rings and dots",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "Variable authored ring width; no diagnostic block grid. New bank05_tiny improves regular closed contours.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "brush",
+          "path": "books/chapter_one/archive/rough_v5/art/brush.png",
+          "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3"
+        },
+        {
+          "id": "sponge",
+          "path": "books/chapter_one/archive/rough_v5/art/sponge.png",
+          "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b"
+        },
+        {
+          "id": "v22_bg_04_final",
+          "path": "books/chapter_one/landscape/art/quality_v22/bg_04_final.png",
+          "sha256": "f8937921cb9f66a7835b220ad4f454fd53293c9390ceb848a1c98049587e60ce"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 6,
+      "label": "story page 6",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_06.png",
+      "baseline_screenshot_sha256": "1a7bc175c1f71e7dd9e7344ae022a263b18425723cad19808269c7c900164f72",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "bath splashes, dirty faceted stone and gunk",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "Large angular patches belong to painted dirty stone/gunk. Bunny edges and water droplets are crisp; no diagnostic 8x8 grid.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "v22_scene_05",
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_05.png",
+          "sha256": "0fe4964494794d1112d9829feadd96d418c712f5215b8201abe2270875ccfd96"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 7,
+      "label": "story page 7",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_07.png",
+      "baseline_screenshot_sha256": "a2d325824dd1abdb92b0f71cfa69415c91bba3df719de3ef3e5a0fcfc2839768",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "perimeter rings and little sink lather",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "Lather is irregular authored foam. Native replacement bank07_tiny has clean closed rings.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "approved_sink_action",
+          "path": "books/chapter_one/previews/2026-09-30/art/sink_action.png",
+          "sha256": "873d1cd6ecd508564404e77d25c0f33e6630b4446fd5bad422c2d50a2b778b52"
+        },
+        {
+          "id": "v22_bg_06_ground",
+          "path": "books/chapter_one/landscape/art/quality_v22/bg_06_ground.png",
+          "sha256": "d1f34eebf81910bd17825afaf7e07214dd9376efb0f5667e825a617f43e62b7f"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 8,
+      "label": "story page 8",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_08.png",
+      "baseline_screenshot_sha256": "7a9bb5fb09d67ff6693cb5e6039daa2554f24f9d6b81dfd2b44e88824fed9557",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "perimeter rings and scrub lather",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "Small irregular soap beads, not visually proven lossy artifact. Native replacement bank08_tiny is clean.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "bath_drained_local",
+          "path": "books/chapter_one/archive/rough_v5/art/bath_drained_local.png",
+          "sha256": "b33c3d90158d0618680803b1c9a3c9b2f61fee1bfd7db55fc57c138c14316dc3"
+        },
+        {
+          "id": "v22_bg_07_objects",
+          "path": "books/chapter_one/landscape/art/quality_v22/bg_07_objects.png",
+          "sha256": "372c29b109b068c362c70844915efcd18da0464fc80acbe38e5d85167bcdddd4"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 9,
+      "label": "story page 9",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_09.png",
+      "baseline_screenshot_sha256": "352922821c04e5fd949423f839616b3742e79070e86d347dd5cdc300db8977b3",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "underwater window bubbles and droplets below bunny",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "Smooth circular bubble rims and clean droplets; no block pattern observed.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "v22_scene_08",
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_08.png",
+          "sha256": "ac7d2590df67923b3e2cc47dd05fe44d0cc2fcd74396b622a6f44e3bba03ecc1"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 10,
+      "label": "story page 10",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_10.png",
+      "baseline_screenshot_sha256": "f8aa1083cbceb2a34c26a0d7e14e5561d89dbb0d9236d9d47ef45ebbdc52c4e1",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "underwater-window bubbles and gunk pond",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "Window bubbles remain smooth. Dense dirty texture is painted muck, not visually diagnosed codec blocking.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "v26_rumi_trapped",
+          "path": "books/chapter_one/landscape/art/language_v26/rumi_trapped.png",
+          "sha256": "dd7f716c7f470cef0361e339e281fc662558f88915448c42a25bcdaeb509d2d0"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 11,
+      "label": "story page 11",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_11.png",
+      "baseline_screenshot_sha256": "59ade3e1cd00579f55adb74ed99849c40e0b63f204f21e5a02a20bc1f1c77487",
+      "bubble_presence": "present",
+      "artifact_status": "repair_needed",
+      "region": "left, right and upper stationery perimeter",
+      "visual_classification": "broken_ring_edges",
+      "observed": "Some old outlined bubbles are chipped/open, and dotted path changes hollow/filled scale. Visual drawing/edge defects need repair; cause is authored/derived ring raster quality, not proven JPEG compression.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "net_cut",
+          "path": "books/chapter_one/landscape/art/net_cut.png",
+          "sha256": "5320644cfe21ad99828f0b2d4ecbcfd20041e8b6bb90623d08d821a7960cc206"
+        },
+        {
+          "id": "v22_bg_10_objects",
+          "path": "books/chapter_one/landscape/art/quality_v22/bg_10_objects.png",
+          "sha256": "f1b8b463ea413c024558b700ed5ea55832bcf14df839f0534f3ee20b091debff"
+        }
+      ],
+      "repair_brief": "Use scoped perimeter-rim replacement preserving lower story objects; close clipped rings and keep even dotted path."
+    },
+    {
+      "page_index": 12,
+      "label": "story page 12",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_12.png",
+      "baseline_screenshot_sha256": "d36970cab4917c8809e28c4cc5d397061cbf9d4ca19fb7586f3ac565e184f26e",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "waterfall spray and dirty stream texture",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "Gunk/stone facets and small froth are authored texture; clear orange/red left lane is already visible.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "v22_scene_11",
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_11.png",
+          "sha256": "17c6330b1faa8667ddb49769713589681f708ad65377f24f240d4c2f4441c5d3"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 13,
+      "label": "story page 13",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_13.png",
+      "baseline_screenshot_sha256": "9a1e1c1b0e97e2ca39178e243eb238fb41005935e4b6c208a2695e07a9aa47c3",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "rainbow waterfall splash, underwater bubble dots",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "Spray/rims are clean. Pool caustics are authored detailed water lines; no regular block grid.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "v22_scene_12_fit",
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_12_fit.png",
+          "sha256": "8b95e7b809aa38f0c939ab2f776321bfdeea7c638b5ed95ac624b84074c1e7b6"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 14,
+      "label": "story page 14",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_14.png",
+      "baseline_screenshot_sha256": "bb10b590958173ff7048f62a77907cca272f14947296c78a60393eff4a0a43ac",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "seahorse water splash and ripples",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "White spray points and caustics are irregular illustration detail; no repeated codec-sized block grid.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "approved_fountain_clear_v2",
+          "path": "books/chapter_one/previews/2026-09-30/art/fountain_clear_v2.png",
+          "sha256": "e64ef03256642ec1eac68e0ae856d917879c011bd9c9a61645fcd34a501ea2c9"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 15,
+      "label": "story page 15",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_15.png",
+      "baseline_screenshot_sha256": "0031489e84834e8ca439db089242c13c28a0f1084fa6c562d2c60afb93bd4a40",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "Rumi rising spray, window bubbles",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "Smooth window bubbles and crisp irregular water splash.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "v26_rumi_free",
+          "path": "books/chapter_one/landscape/art/language_v26/rumi_free.png",
+          "sha256": "c1f864bed9bcf443a326fdef85536f9b60592f104f873559a3e315101f06ba59"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 16,
+      "label": "story page 16",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_16.png",
+      "baseline_screenshot_sha256": "08e234a11a12a4a416bc832f6fb6b101ff4db6c310fec36354a7dc2668e13e99",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "stationery perimeter and mini-fountain",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "Old miniature foam softer than main figures; new bank16_tiny resolves it without irregular codec blocks.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "approved_hug_cutout_v2",
+          "path": "books/chapter_one/previews/2026-09-30/art/hug_cutout_v2.png",
+          "sha256": "7e9a7f111bc7bb31391ea33e66f5ccc3260cb80d6ac7a202c7124f495405dcd3"
+        },
+        {
+          "id": "approved_hug_stationery_v2",
+          "path": "books/chapter_one/previews/2026-09-30/art/hug_stationery_v2.png",
+          "sha256": "0432335fe6c435aadf43785118a32a2d0e650569b3cc59ff2ee2d2de5de41aa6"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 17,
+      "label": "story page 17",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_17.png",
+      "baseline_screenshot_sha256": "13ac84c91b682af529fdf8b2630d200aaa39cf017f6e094d48872a2c9208544d",
+      "bubble_presence": "none_or_incidental",
+      "artifact_status": "none",
+      "region": "No consequential bubble-pattern region",
+      "visual_classification": "no_bubble_defect",
+      "observed": "No bubble-specific defect observed; page has other subjects/text.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "v22_scene_16",
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_16.png",
+          "sha256": "de334d67ba6a345cc46b9e0cab3488fbc6dd8596a66d88b9dce01f2d1ae2c3fc"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 18,
+      "label": "story page 18",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_18.png",
+      "baseline_screenshot_sha256": "fa2f6fa327e8e06656427424230fce5f5f68baa733983e69c43455c1e46b7e28",
+      "bubble_presence": "none_or_incidental",
+      "artifact_status": "none",
+      "region": "No consequential bubble-pattern region",
+      "visual_classification": "no_bubble_defect",
+      "observed": "No bubble-specific defect observed; page has other subjects/text.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "rescue_trapped",
+          "path": "books/chapter_one/landscape/art/identity_v21/rescue_trapped.png",
+          "sha256": "1a2444c7dbb07f632d1b173a5422b971531fd23621f840e6685bdecf949b1f98"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 19,
+      "label": "story page 19",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_19.png",
+      "baseline_screenshot_sha256": "848e159da92478080d31396b8828fab925469f892fa979a8fc5cf35f9ad090b2",
+      "bubble_presence": "none_or_incidental",
+      "artifact_status": "none",
+      "region": "No consequential bubble-pattern region",
+      "visual_classification": "no_bubble_defect",
+      "observed": "No bubble-specific defect observed; page has other subjects/text.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "approved_rescue_release",
+          "path": "books/chapter_one/previews/2026-09-30/art/rescue_release.png",
+          "sha256": "2b70889cc0027aaf039dbb8cdf2bfddfe08d73a9f889c8fbb26d1debe58a30f4"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 20,
+      "label": "story page 20",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_20.png",
+      "baseline_screenshot_sha256": "7c24897e5d28d20a3721162eb25737aab2fd6957388eeb6e3cde03bceebf192f",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "stationery perimeter rings/dots",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "Old perimeter widths vary; new bank20_tiny closed rims and even navy dots read crisply.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "eagle_original_isolated",
+          "path": "books/chapter_one/landscape/art/stress_revision/eagle_original_isolated.png",
+          "sha256": "166461427017b2624dcf1c342bde658c63a8247b522ad113c92f6ec1bb084bd9"
+        },
+        {
+          "id": "v23_bunny_apology_canvas",
+          "path": "books/chapter_one/landscape/art/story_detail_v23/bunny_apology_canvas.png",
+          "sha256": "d71a38db2a2b0f1457fdaff29c6d25c81df0c594619bf77d357dc964fce7c6d7"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 21,
+      "label": "story page 21",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_21.png",
+      "baseline_screenshot_sha256": "0dce7180d77d5fe0b7e70d7b6c4cd67ae8389456a3dc0b5fae9eb88eda566831",
+      "bubble_presence": "present",
+      "artifact_status": "repair_needed",
+      "region": "upper-left ring near x320,y55 and lower-left near x50,y802, source1484x1060",
+      "visual_classification": "broken_ring_edges",
+      "observed": "Old rings have visible clipped/open edges. The wash is intentional watercolor grain; the circle breaks are repairable raster/drawing defects, not evidence of a known compression codec.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "v22_art_sorting",
+          "path": "books/chapter_one/landscape/art/quality_v22/art_sorting.png",
+          "sha256": "e37b46fb56aadf3c66c6f2b6584c8fd145001376a24e9c20420a6292e6eeec66"
+        },
+        {
+          "id": "v22_bg_21_objects",
+          "path": "books/chapter_one/landscape/art/quality_v22/bg_21_objects.png",
+          "sha256": "f0b59e414e5802021af20dcdd06a6c7170be9825c61965a60f395681e96e4787"
+        }
+      ],
+      "repair_brief": "Use scoped perimeter-rim replacement preserving lower story objects; close clipped rings and keep even dotted path."
+    },
+    {
+      "page_index": 22,
+      "label": "story page 22",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_22.png",
+      "baseline_screenshot_sha256": "ead3f344fe3384a9e61a0f558344a34a0f816cbf1194ca96f161acb709bcc98e",
+      "bubble_presence": "none_or_incidental",
+      "artifact_status": "none",
+      "region": "No consequential bubble-pattern region",
+      "visual_classification": "no_bubble_defect",
+      "observed": "No bubble-specific defect observed; page has other subjects/text.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "v22_scene_22_fit",
+          "path": "books/chapter_one/landscape/art/quality_v22/scene_22_fit.png",
+          "sha256": "55b50d90819968aa887e5831152071a04cd5ba9cecc5b7b0402ee8a016f57e5a"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 23,
+      "label": "story page 23",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_23.png",
+      "baseline_screenshot_sha256": "1f8b449782058626dcf82d2fa4696f41c83e01b5d66a4d3874b67d8f58ea2b9d",
+      "bubble_presence": "none_or_incidental",
+      "artifact_status": "none",
+      "region": "No consequential bubble-pattern region",
+      "visual_classification": "no_bubble_defect",
+      "observed": "No bubble-specific defect observed; page has other subjects/text.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "v27_door",
+          "path": "books/chapter_one/landscape/art/door_expression_v27/door.png",
+          "sha256": "e4312cfe20029842ca02cd53916910ca004960e4e96d0c412a715bc742da6394"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 24,
+      "label": "story page 24",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_24.png",
+      "baseline_screenshot_sha256": "c642f13c437d718e1795e803fb9b654323bdc84b38398fc96b01fdcd3bfd81f7",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "stationery perimeter rings/dots",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "No diagnostic grid; new bank24_final rings are crisp and continuous.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "v26_puff_unwell",
+          "path": "books/chapter_one/landscape/art/language_v26/puff_unwell.png",
+          "sha256": "ac6ecf90d5a024f7bd343a26c7e3cd1600cb906aff3a5749ab89600dae23bb38"
+        },
+        {
+          "id": "v22_bg_25_final",
+          "path": "books/chapter_one/landscape/art/quality_v22/bg_25_final.png",
+          "sha256": "2d25a014b69dc46ac0fe9830e3912b1ee8b752bd81d4640174e681bbf92a40ed"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 25,
+      "label": "story page 25",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_25.png",
+      "baseline_screenshot_sha256": "55146b72699de91ccf921d91a10f0404155cd10ae2173db70804028c8ae303f2",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "stationery rings, little sponge lather",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "Small foam intentional; new bank25_tiny has clean rings around couch details.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "v28_puff_reassurance",
+          "path": "books/chapter_one/landscape/revisions/v28_kindness/art/puff_reassurance.png",
+          "sha256": "fff3fc0511da753b5f11ccd271d15f8a4444c7d85d5562d90a03c79f713cbb61"
+        },
+        {
+          "id": "v22_bg_26_ground",
+          "path": "books/chapter_one/landscape/art/quality_v22/bg_26_ground.png",
+          "sha256": "41e9553c3c4a1cf1766659f91c1ee37c31b83211559758f8d66bdf0abfcdbf9f"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 26,
+      "label": "story page 26",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_26.png",
+      "baseline_screenshot_sha256": "5c50f1cdb481d1cae5d4fcbe51d91b9e975925a7884bd4b2403dab678066ccff",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "soap lather on Puff and floating round bubbles",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "Dense small lavender/white lather beads are authored foam; larger rims are smooth, no diagnostic block grid.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "v27_scrub",
+          "path": "books/chapter_one/landscape/art/door_expression_v27/scrub.png",
+          "sha256": "dfa3717a4df2197b82c9730044284899ab0eee9aa86c37ff7c53dd8cddfe1e86"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 27,
+      "label": "story page 27",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_27.png",
+      "baseline_screenshot_sha256": "a5192e1b5fa6ad7f66a2b7d48daff1008002259a7d2ff0990a1c6e9860fa8523",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "central whole soap pile and floating bubbles",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "Dense stippled foam can feel noisy, but larger smooth round rims and irregular sizes do not show regular8x8 blocks. Visual classification: authored granular soap. Independent ceiling seam is not bubble compression.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "R09_suds",
+          "path": "books/chapter_one/plan/source_art/R09_suds.png",
+          "sha256": "ed7f13735a560ee5a187bf1cbc4d40b1a04e2fc9a6375b7fb74ae6a81c285e2b"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 28,
+      "label": "story page 28",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_28.png",
+      "baseline_screenshot_sha256": "5cd1298ad3f1ccbfd1b9769a95793ad177a025e77db52f29dd4ec79456222087",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "bursting soap fountains and floating bubbles",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "Speckled uneven froth is authored bursting lather; no diagnostic block grid.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "R10_jump",
+          "path": "books/chapter_one/plan/source_art/R10_jump.png",
+          "sha256": "13ff639019cccadd0675aea4ed9550505c57a84ae666d647df6097bb18793889"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 29,
+      "label": "story page 29",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_29.png",
+      "baseline_screenshot_sha256": "1979689cc8606e724ae76480506792e77933f73cccd23e2cce2cfa00e6b01744",
+      "bubble_presence": "none_or_incidental",
+      "artifact_status": "none",
+      "region": "No consequential bubble-pattern region",
+      "visual_classification": "no_bubble_defect",
+      "observed": "No bubble-specific defect observed; page has other subjects/text.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "R11_land",
+          "path": "books/chapter_one/plan/source_art/R11_land.png",
+          "sha256": "d166ae3aa034d26beeda8e92dbc0da8da5347646b8b707746237d819e81a4e5a"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 30,
+      "label": "story page 30",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_30.png",
+      "baseline_screenshot_sha256": "b1d3aee6530830311a3be2de791746bcf58fa9f328a98318bd1253d3b76a5146",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "stationery rings/dots",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "New bank30_tiny perimeter clean; original ring widths vary without diagnostic block grid.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "roshan_reflect_large",
+          "path": "books/chapter_one/landscape/art/identity_v21/roshan_reflect_large.png",
+          "sha256": "f8b13e20e329c1f07fc284a980c53af512e8596c28a945c2e4976d5eb52c64fb"
+        },
+        {
+          "id": "approved_rainbow_puff_cutout",
+          "path": "books/chapter_one/previews/2026-09-30/art/rainbow_puff_cutout.png",
+          "sha256": "c0d15aa35ab2056566a64c72d2ccfd690e65e8c5fa809c12e66b20ed87353135"
+        },
+        {
+          "id": "v22_bg_31_final",
+          "path": "books/chapter_one/landscape/art/quality_v22/bg_31_final.png",
+          "sha256": "6791a8e9f55136d129ef4a6794455724dfd26ab61d02479acabe1ed255af6c71"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 31,
+      "label": "story page 31",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_31.png",
+      "baseline_screenshot_sha256": "d537515f76c941e9c9c4ac7ce3861477390bd6614ac3e4ad0c56dc32cf11c4a6",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "stationery rings/dots",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "New bank31_final rings clean and continuous; tiny details still readable.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "roshan_wave_large",
+          "path": "books/chapter_one/landscape/art/identity_v21/roshan_wave_large.png",
+          "sha256": "ba50ca0bee70762120f7986ee8557654cc6e45be4ab2c006ee5791e2329486fc"
+        },
+        {
+          "id": "eagle_inviting",
+          "path": "books/chapter_one/landscape/art/personality_v20/eagle_inviting.png",
+          "sha256": "fb70f4660ad4a45ccb760c5e5e72dbb8f5f36c43e80e8c9a63a050e5a491b79b"
+        },
+        {
+          "id": "v22_bg_20_final",
+          "path": "books/chapter_one/landscape/art/quality_v22/bg_20_final.png",
+          "sha256": "a1bbf4ec53124c820874caaaaaccfab7441581068d1642876b3dc2dca987d1ad"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 32,
+      "label": "story page 32",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_32.png",
+      "baseline_screenshot_sha256": "05840a7b7d5721f5214abccde8d6c3efe3b32c8e8fe246ebf35212db982c5934",
+      "bubble_presence": "present",
+      "artifact_status": "present",
+      "region": "whole foreground nap bubble pile",
+      "visual_classification": "authored_texture_or_clean_bubbles",
+      "observed": "Large overlapping iridescent spheres have smooth contours; speckled sparkle fill is deliberate illustration texture. No diagnostic8x8 blocks observed.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "bubble_nap",
+          "path": "books/chapter_one/landscape/art/personality_v20/bubble_nap.png",
+          "sha256": "938a33de574edef7bde90ddbe89e7616e1448d26dc33b62f6415f694b0c344df"
+        }
+      ],
+      "repair_brief": null
+    },
+    {
+      "page_index": 33,
+      "label": "rear cover",
+      "baseline_screenshot": "books/chapter_one/landscape/revisions/v28_kindness/complete/page_33.png",
+      "baseline_screenshot_sha256": "c8f5499578e1701db712c76f18ddbfecd32a5f07228c9301fd3b88b171d36ccb",
+      "bubble_presence": "none_or_incidental",
+      "artifact_status": "none",
+      "region": "No consequential bubble-pattern region",
+      "visual_classification": "no_bubble_defect",
+      "observed": "No bubble-specific defect observed; page has other subjects/text.",
+      "codec_blocking_observed": false,
+      "source_references": [
+        {
+          "id": "v23_cover_h",
+          "path": "books/chapter_one/landscape/art/story_detail_v23/cover_h.png",
+          "sha256": "6bb61625f4d052e9d7abd6f3669e692652fc703ef0b64113fea4443f4cdab923"
+        }
+      ],
+      "repair_brief": null
+    }
+  ],
+  "v29_candidate_comparison": [
+    {
+      "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank05_tiny.png",
+      "sha256": "6aafb29ad769a6b8ed1ac9d5d8c864429009963ad41d16e3da1585fb73787987",
+      "native_dimensions": [
+        1484,
+        1060
+      ],
+      "observed": "Closed clean navy circular rims, stable filled dotted path, smooth aqua wash; no visible regular block grid. Lower story assets remain readable.",
+      "recommendation": "accept scoped background/perimeter use; verify final composition independently"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank07_tiny.png",
+      "sha256": "730099f7acd4fa8b73e3c6630213edf9779cb99ceba42c9714e8e9b3134c5366",
+      "native_dimensions": [
+        1484,
+        1060
+      ],
+      "observed": "Closed clean navy circular rims, stable filled dotted path, smooth aqua wash; no visible regular block grid. Lower story assets remain readable.",
+      "recommendation": "accept scoped background/perimeter use; verify final composition independently"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank08_tiny.png",
+      "sha256": "cd0d6bb9145c99c0b240bd614ee94925423aa3ea85b4a2bb779473c95923138e",
+      "native_dimensions": [
+        1484,
+        1060
+      ],
+      "observed": "Closed clean navy circular rims, stable filled dotted path, smooth aqua wash; no visible regular block grid. Lower story assets remain readable.",
+      "recommendation": "accept scoped background/perimeter use; verify final composition independently"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank16_tiny.png",
+      "sha256": "a369ed0cf9a374c813144c9de93790095cf4900a62d6e33c4077194f09a95fa6",
+      "native_dimensions": [
+        1484,
+        1060
+      ],
+      "observed": "Closed clean navy circular rims, stable filled dotted path, smooth aqua wash; no visible regular block grid. Lower story assets remain readable.",
+      "recommendation": "accept scoped background/perimeter use; verify final composition independently"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank20_tiny.png",
+      "sha256": "406439f694d0e1e7e0814a416761f95db3ea8ed44671ce150847da88164a19a0",
+      "native_dimensions": [
+        1484,
+        1060
+      ],
+      "observed": "Closed clean navy circular rims, stable filled dotted path, smooth aqua wash; no visible regular block grid. Lower story assets remain readable.",
+      "recommendation": "accept scoped background/perimeter use; verify final composition independently"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank24_final.png",
+      "sha256": "f8285cad166d0947f9d3667a9eaa92b52eface00b2c7c67ba1c7efbe82916f3f",
+      "native_dimensions": [
+        1485,
+        1059
+      ],
+      "observed": "Closed clean navy circular rims, stable filled dotted path, smooth aqua wash; no visible regular block grid. Lower story assets remain readable.",
+      "recommendation": "accept scoped background/perimeter use; verify final composition independently"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank25_tiny.png",
+      "sha256": "dcbcc1303a57d327eedc7871ea5266a6a5afda158bdf2076d349da75124636f2",
+      "native_dimensions": [
+        1484,
+        1060
+      ],
+      "observed": "Closed clean navy circular rims, stable filled dotted path, smooth aqua wash; no visible regular block grid. Lower story assets remain readable.",
+      "recommendation": "accept scoped background/perimeter use; verify final composition independently"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank30_tiny.png",
+      "sha256": "f3c8843f2acf8a8e6304d6b9014fec5c95ef26434c8675ca3cd64adc453cc39e",
+      "native_dimensions": [
+        1484,
+        1060
+      ],
+      "observed": "Closed clean navy circular rims, stable filled dotted path, smooth aqua wash; no visible regular block grid. Lower story assets remain readable.",
+      "recommendation": "accept scoped background/perimeter use; verify final composition independently"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank31_final.png",
+      "sha256": "18e1a0c3db666500863503af71800bd2b5aa748af44b64f3e5cb22f96676c545",
+      "native_dimensions": [
+        1484,
+        1060
+      ],
+      "observed": "Closed clean navy circular rims, stable filled dotted path, smooth aqua wash; no visible regular block grid. Lower story assets remain readable.",
+      "recommendation": "accept scoped background/perimeter use; verify final composition independently"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v29_polish/art/bubbles11.png",
+      "sha256": "2ecc03a12ded1f66ed4fe58daa5bbbc216cf73f3e3e0e7e73e5f82369f8cdeec",
+      "native_dimensions": [
+        1484,
+        1060
+      ],
+      "observed": "Closed clean navy circular rims, stable filled dotted path, smooth aqua wash; no visible regular block grid. Lower story assets remain readable.",
+      "recommendation": "accept scoped background/perimeter use; verify final composition independently"
+    },
+    {
+      "path": "books/chapter_one/landscape/revisions/v29_polish/art/bubbles21.png",
+      "sha256": "cc2323bbb54e9dde9848f2e2463d3643f2891e348827f95f61c1425376714b94",
+      "native_dimensions": [
+        1484,
+        1060
+      ],
+      "observed": "Closed clean navy circular rims, stable filled dotted path, smooth aqua wash; no visible regular block grid. Lower story assets remain readable.",
+      "recommendation": "accept scoped background/perimeter use; verify final composition independently"
+    }
+  ],
+  "summary": {
+    "page_count": 34,
+    "repair_needed_baseline_pages": [
+      11,
+      21
+    ],
+    "confirmed_visual_codec_blocking_pages": [],
+    "v29_repair_results": "Perimeter replacements on11/21 eliminate the observed broken rims in the inspected V29 proof. New marginal banks use clean rings. Authored foam27/28 and sparkle32 remain detailed and do not show regular codec-sized blocks.",
+    "separate_failure": "V29 ceiling join on27/29, smaller28, remains a page-extension seam; it is not caused by bubble texture."
+  }
+}

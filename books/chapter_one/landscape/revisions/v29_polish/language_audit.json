@@ -1,0 +1,583 @@
+{
+  "schema_version": 1,
+  "artifact": "Mermaid Roshan V29 independent language audit",
+  "status": "BASELINE_DRAFT_AND_ROUND2_EDITORIAL_REVIEW_COMPLETE; TARGETED_AND_EXTERNAL_ACCEPTANCE_PENDING",
+  "scope": "All 32 story-page captions, two cover treatments, visual-language agreement and shared-reading suitability for ages 4–5. Read-only baseline review followed by this evidence record.",
+  "reviewed_revision": "V28 — helping Grand Puff",
+  "reviewed_book_json_sha256": "d76b948b109dbca26bfce0320128d52f5a1d076f934c534634ef42b00434ee52",
+  "reviewed_visuals": [
+    "../v28_kindness/complete/contact_1.jpg",
+    "../v28_kindness/complete/contact_2.jpg",
+    "../v28_kindness/complete/contact_3.jpg",
+    "../v28_kindness/complete/contact_4.jpg",
+    "../v28_kindness/complete/contact_5.jpg"
+  ],
+  "story_pages": 32,
+  "total_pages_including_covers": 34,
+  "caption_words_by_unicode_word_token": 362,
+  "count_note": "Caption count only. Covers and separate speech-balloon text are excluded. Contractions count as one token.",
+  "strengths": [
+    "Brief captions and uncluttered syntactic units.",
+    "Concrete actions with problem, help and relief.",
+    "Repeated help phrase and participatory sound words.",
+    "Playful dust bunnies remain welcome and learn gentle play.",
+    "Rumi's long residence is distinct from her current entrapment.",
+    "Grand Puff receives reassurance and collaborative cleaning.",
+    "A vivid rainbow metaphor and inclusive sleep ending."
+  ],
+  "highest_priority": [
+    {
+      "page": 14,
+      "finding": "The cup has no introduction, location or unmistakable visible removal."
+    },
+    {
+      "page": 20,
+      "finding": "Gentle-play guidance is clearer as an explicit invitation after the apology."
+    },
+    {
+      "pages": [
+        4,
+        6,
+        12,
+        13,
+        14,
+        15,
+        26,
+        27,
+        28,
+        29,
+        32
+      ],
+      "finding": "Several captions compete with dark or mottled full-art textures."
+    },
+    {
+      "page": 12,
+      "finding": "Essential clearing action is currently carried chiefly by words."
+    }
+  ],
+  "page_recommendations": [
+    {
+      "page": 1,
+      "mode_at_baseline": "F",
+      "current_text": "“Look, Daddy!\nPearl Castle!”",
+      "recommended_text": "“Look, Daddy!\nPearl Castle!”",
+      "change_text": false,
+      "priority": "keep",
+      "reason": "Short quotation invites participation and establishes the castle. Check contrast against the window.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 2,
+      "mode_at_baseline": "F",
+      "current_text": "Roshan and Daddy landed at Sky Lagoon.\nPearl Castle was close by.",
+      "recommended_text": "Roshan and Daddy landed at Sky Lagoon.\nPearl Castle was close by.",
+      "change_text": false,
+      "priority": "keep",
+      "reason": "Names and setting are clearly introduced and supported by the picture.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 3,
+      "mode_at_baseline": "F",
+      "current_text": "“Let’s look inside,\nDaddy,” said Roshan.",
+      "recommended_text": "“Let’s look inside,\nDaddy,” said Roshan.",
+      "change_text": false,
+      "priority": "keep",
+      "reason": "Intention, speaker and entry action align.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 4,
+      "mode_at_baseline": "F",
+      "current_text": "Inside, dust covered the floor.\n“Let’s clean it together!”",
+      "recommended_text": "Inside, dust covered the floor.\n“Let’s clean it together!” said Roshan.",
+      "change_text": true,
+      "priority": "high",
+      "reason": "Name the speaker who initiates the helping goal. Current text competes with dark architecture.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 5,
+      "mode_at_baseline": "C",
+      "current_text": "Daddy gave her a brush and a sponge.\n“One little job at a time.”",
+      "recommended_text": "Daddy gave her a brush and a sponge.\n“One little job at a time.”",
+      "change_text": false,
+      "priority": "keep",
+      "reason": "Two concrete tool names and the one-job-at-a-time phrase provide useful structure.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 6,
+      "mode_at_baseline": "F",
+      "current_text": "A dust bunny splashed in the dirty bath.\nIt loved to play. Splash, splash!",
+      "recommended_text": "A dust bunny splashed in the dirty bath.\nIt loved to play. Splash, splash!",
+      "change_text": false,
+      "priority": "visual",
+      "reason": "The playful dust bunny is introduced without blame. Preserve the Splash, splash! refrain; improve contrast over the mottled floor.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 7,
+      "mode_at_baseline": "C",
+      "current_text": "Round and round went the sponge.\nRoshan wiped the sink clean.",
+      "recommended_text": "Round and round went the sponge.\nRoshan wiped the sink clean.",
+      "change_text": false,
+      "priority": "art_alignment",
+      "reason": "Circular action and clean result are concrete. The sponge must visibly contact the sink.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 8,
+      "mode_at_baseline": "C",
+      "current_text": "Roshan let the dirty bath water out.\nThen she scrubbed the tub. Scrub, scrub!",
+      "recommended_text": "Roshan let the dirty bath water out.\nThen she scrubbed the tub. Scrub, scrub!",
+      "change_text": false,
+      "priority": "keep",
+      "reason": "Then makes the sequence explicit. Preserve the Scrub, scrub! refrain.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 9,
+      "mode_at_baseline": "F",
+      "current_text": "Clean water filled the bath.\nThe dust bunny splashed again!",
+      "recommended_text": "Clean water filled the bath.\nThe dust bunny splashed again!",
+      "change_text": false,
+      "priority": "keep",
+      "reason": "The clean bath payoff keeps the dust bunny welcome. No additional discovery instruction is needed.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 10,
+      "mode_at_baseline": "F",
+      "current_text": "A mermaid named Rumi was stuck\nunder the gunk in the pool.",
+      "recommended_text": "A mermaid named Rumi was stuck\nunder the gunk in the pool.",
+      "change_text": false,
+      "priority": "keep",
+      "reason": "Rumi is named, identified as a mermaid and given a clear immediate problem.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 11,
+      "mode_at_baseline": "C",
+      "current_text": "This castle had been Rumi’s home\nfor hundreds of years.\n“I’ll help!” said Roshan. Scoop, scoop!",
+      "recommended_text": "Rumi had lived in Pearl Castle\nfor hundreds of years.\n“I’ll help!” said Roshan. Scoop, scoop!",
+      "change_text": true,
+      "priority": "medium",
+      "reason": "Name the castle directly and keep long residence distinct from the recent entrapment.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 12,
+      "mode_at_baseline": "F",
+      "current_text": "One stream ran clear.\nRoshan cleared the next... and the next.",
+      "recommended_text": "One stream ran clear.\nRoshan cleared the next... and the next.",
+      "change_text": false,
+      "priority": "high_art_alignment",
+      "reason": "Words describe a clearing action that the current picture does not adequately demonstrate. Show at least one genuinely cleared stream.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 13,
+      "mode_at_baseline": "F",
+      "current_text": "All three streams were clear.\nWhoosh! The waterfall turned rainbow!",
+      "recommended_text": "All three streams were clear.\nWhoosh! The waterfall turned rainbow!",
+      "change_text": false,
+      "priority": "visual",
+      "reason": "Counting and rainbow payoff are strong; improve caption contrast against water.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 14,
+      "mode_at_baseline": "F",
+      "current_text": "Roshan pulled the cup free!",
+      "recommended_text": "A cup was stuck in the seahorse fountain.\nRoshan pulled it free!",
+      "change_text": true,
+      "priority": "highest",
+      "reason": "Introduce the cup and its location before resolving it. The current empty-handed image also needs action clarity.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 15,
+      "mode_at_baseline": "F",
+      "current_text": "Fresh water flowed. The gunk was gone.\nUp came Rumi. She was free!",
+      "recommended_text": "Fresh water flowed. The gunk was gone.\nUp came Rumi. She was free!",
+      "change_text": false,
+      "priority": "visual",
+      "reason": "Cause and result are clearly stated. Preserve the brief joyful reveal and improve legibility.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 16,
+      "mode_at_baseline": "C",
+      "current_text": "“You helped me!”\nsaid Rumi.\nShe gave Roshan\na great big hug.",
+      "recommended_text": "“You helped me!”\nsaid Rumi.\nShe gave Roshan\na great big hug.",
+      "change_text": false,
+      "priority": "keep",
+      "reason": "Short gratitude dialogue and the hug create a satisfying emotional pause.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 17,
+      "mode_at_baseline": "F",
+      "current_text": "Chirp, chirp!\n“Someone needs help!” said Roshan.",
+      "recommended_text": "Chirp, chirp!\n“Someone needs help!” said Roshan.",
+      "change_text": false,
+      "priority": "visual",
+      "reason": "The chirp provides a gentle prediction before the Eagle reveal. Ensure text is distinct from the floor.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 18,
+      "mode_at_baseline": "F",
+      "current_text": "Two dust bunnies had tumbled onto Baby Eagle.\nThey wanted to play, but he was stuck.",
+      "recommended_text": "Two dust bunnies had tumbled onto Baby Eagle.\nThey wanted to play, but he was stuck.",
+      "change_text": false,
+      "priority": "art_alignment",
+      "reason": "Intention and unintended consequence are explicit. Exactly two trapping bunnies must be clear in the picture.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 19,
+      "mode_at_baseline": "F",
+      "current_text": "“I’ll help!” said Roshan.\nShe brushed one bunny away, then the other.",
+      "recommended_text": "“I’ll help!” said Roshan.\nShe gently brushed one bunny away, then the other.",
+      "change_text": true,
+      "priority": "medium",
+      "reason": "Gently reinforces care and clarifies that the brush is not a punishment. Keep physical contact away from Eagle's face.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 20,
+      "mode_at_baseline": "C",
+      "current_text": "Baby Eagle was free!\nNow they could play gently.",
+      "recommended_text": "Baby Eagle was free!\n“Let’s play gently,” said Roshan.",
+      "change_text": true,
+      "priority": "high",
+      "reason": "The explicit model of gentle play makes the social resolution clearer than Now they could play gently. Preserve both owner-specified apology balloons.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 21,
+      "mode_at_baseline": "C",
+      "current_text": "Brushes here. Paints there.\nRoshan put each thing in its place.",
+      "recommended_text": "Brushes here. Paints there.\nRoshan put each thing in its place.",
+      "change_text": false,
+      "priority": "keep",
+      "reason": "Sorting uses concrete categories and here/there language. Do not add a disconnected craft-making task.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 22,
+      "mode_at_baseline": "F",
+      "current_text": "Scrub, scrub! The table was clean.\nEverything was back in its place.",
+      "recommended_text": "Scrub, scrub! The table was clean.\nEverything was back in its place.",
+      "change_text": false,
+      "priority": "keep",
+      "reason": "Quick cleanup payoff gives the art room a meaningful role without delaying the larger story.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 23,
+      "mode_at_baseline": "F",
+      "current_text": "One last door began to glow.\nA rumble came from behind it...",
+      "recommended_text": "One last door began to glow.\nA rumble came from behind it...",
+      "change_text": false,
+      "priority": "keep",
+      "reason": "Last and behind are useful relational words. The rumble prepares the reveal.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 24,
+      "mode_at_baseline": "C",
+      "current_text": "Grand Puff!\nHe was so dusty.\nHe did not feel well.",
+      "recommended_text": "Grand Puff!\nHe was so dusty.\nHe did not feel well.",
+      "change_text": false,
+      "priority": "keep",
+      "reason": "Dust and discomfort establish empathy for Puff rather than blame.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 25,
+      "mode_at_baseline": "C",
+      "current_text": "“Hold on, we’ll make you feel\nclean and better!” said Roshan.",
+      "recommended_text": "“Hold on, we’ll make you feel\nclean and better!” said Roshan.",
+      "change_text": false,
+      "priority": "owner_exact_keep",
+      "reason": "Preserve the owner's exact reassurance. Supply, gesture and expression should make care visible.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 26,
+      "mode_at_baseline": "F",
+      "current_text": "Daddy, Rumi, and Baby Eagle helped Roshan.\nTogether, they washed Grand Puff. Scrub, scrub!",
+      "recommended_text": "Daddy, Rumi, and Baby Eagle helped Roshan.\nTogether, they washed Grand Puff. Scrub, scrub!",
+      "change_text": false,
+      "priority": "high_visual",
+      "reason": "Names identify the helpers and Together confirms collaboration. The caption needs quiet high-contrast space.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 27,
+      "mode_at_baseline": "F",
+      "current_text": "Soft bubbles covered Grand Puff.\nUnder the bubbles, his colors began to shine.",
+      "recommended_text": "Soft bubbles covered Grand Puff.\nUnder the bubbles, his colors began to shine.",
+      "change_text": false,
+      "priority": "visual",
+      "reason": "Concealment prepares the next-page surprise and the continuing character remains clear.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 28,
+      "mode_at_baseline": "F",
+      "current_text": "POP! Grand Puff sprang out, rainbow bright!\nThe dust fell away.",
+      "recommended_text": "POP! Grand Puff sprang out, rainbow bright!\nThe dust fell away.",
+      "change_text": false,
+      "priority": "visual",
+      "reason": "Sprang is suitable picture-supported vocabulary. Preserve energetic sound and punctuation.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 29,
+      "mode_at_baseline": "F",
+      "current_text": "Down came Grand Puff, soft and small.\nHe felt like himself again.",
+      "recommended_text": "Down came Grand Puff, soft and small.\nHe felt like himself again.",
+      "change_text": false,
+      "priority": "visual",
+      "reason": "Down echoes earlier Up; size change is concrete and emotional recovery is clear. Improve contrast.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 30,
+      "mode_at_baseline": "C",
+      "current_text": "“Your rainbow was there all along,\nGrand Puff. We helped it shine!”",
+      "recommended_text": "“Your rainbow was there all along,\nGrand Puff. We helped it shine!”",
+      "change_text": false,
+      "priority": "keep",
+      "reason": "The rainbow metaphor is the emotional statement and is immediately supported by visible colors. Preserve its warmth.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 31,
+      "mode_at_baseline": "C",
+      "current_text": "“Come and play, Baby Eagle!”\nThe little dust bunnies played gently, too.",
+      "recommended_text": "“Come and play, Baby Eagle!”\nThe little dust bunnies played gently, too.",
+      "change_text": false,
+      "priority": "keep",
+      "reason": "Successful gentle play resolves the earlier accident and provides a bridge into rest. Art should feel quieter than the rescue.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    },
+    {
+      "page": 32,
+      "mode_at_baseline": "F",
+      "current_text": "There was room for everyone.\nThey curled up in the bubbles and fell asleep.",
+      "recommended_text": "There was room for everyone.\nThey curled up in the bubbles and fell asleep.",
+      "change_text": false,
+      "priority": "high_visual",
+      "reason": "Inclusive and restful close. The text needs a quiet area within the full art.",
+      "status": "RECOMMENDATION_NOT_IMPLEMENTATION_EVIDENCE"
+    }
+  ],
+  "cover_recommendations": [
+    {
+      "page": "front_cover",
+      "decision": "KEEP",
+      "reason": "Title invites interest and is paid off by the rainbow reveal."
+    },
+    {
+      "page": "rear_cover",
+      "decision": "KEEP_OWNER_ACCEPTED_H",
+      "reason": "Retain the approved image and keep development guidance outside the story."
+    }
+  ],
+  "reading_design": {
+    "intended_use": "Shared reading now, with growing participation through remembered phrases, picture retelling and familiar words.",
+    "preserve_refrains": [
+      "I’ll help!",
+      "Splash, splash!",
+      "Scoop, scoop!",
+      "Scrub, scrub!"
+    ],
+    "preserve_supported_vocabulary": [
+      "sponge",
+      "scoop",
+      "gunk",
+      "stream",
+      "rumble",
+      "sprang",
+      "rainbow"
+    ],
+    "minimum_caption_size_points": 18,
+    "text_placement_checks": [
+      "Use quiet picture space with clear contrast at actual 7 × 5 inch trim.",
+      "Keep lines in meaningful phrase units.",
+      "Retain editable Sniglet lettering and avoid shrinking type to fit revisions.",
+      "Ensure speech-balloon tails identify their speakers and do not cover eyes or mouths.",
+      "Do not add search instructions or clues for hidden background visitors."
+    ],
+    "not_claimed": [
+      "Formally decodable reader",
+      "Validated reading level",
+      "Guaranteed reading or language gains",
+      "Actual SLP approval"
+    ]
+  },
+  "professional_review_requested": [
+    "Review the final revised full-size PDF, not only this baseline record.",
+    "Confirm narrative cause, sequence, goals and outcomes are clear with the pictures.",
+    "Review pronouns, speaker attribution, Rumi's residence and the two-bunny role.",
+    "Assess vocabulary, sentence forms, prosody and dialogue in an age 4–5 shared-reading context.",
+    "Check invitation to gentle play and the cooperative care plot for social-emotional clarity.",
+    "Check real-size text legibility and speech-balloon reading order.",
+    "Identify any remaining concern and provide exact suggested wording."
+  ],
+  "limits": [
+    "This is an independent editorial/developmental review, not an SLP diagnosis, certification or approval.",
+    "No child observation or individual developmental assessment was performed.",
+    "No numeric master-audit acceptance score is certified by this language record.",
+    "A 4.9/5 target remains a project quality goal, separate from professional, owner, print and child acceptance.",
+    "The completed story, page count, approved covers and owner-specific reassurance remain fixed.",
+    "Artwork must be rechecked after repair because language-picture agreement can change."
+  ],
+  "sources": [
+    {
+      "title": "ASHA Communication Milestones: 4 to 5 Years",
+      "url": "https://www.asha.org/public/developmental-milestones/communication-milestones-4-to-5-years/",
+      "accessed_date": "2026-09-30",
+      "use": "Clear connected stories, picture-supported vocabulary, relational language, conversation and prediction.",
+      "limit": "Development varies. Guidance is not an individual assessment or approval of this manuscript."
+    },
+    {
+      "title": "IES Instructional Practices for Teaching Emergent Literacy at the Preschool Level",
+      "url": "https://ies.ed.gov/rel-southeast/2025/01/instructional-practices-teaching-emergent-literacy-preschool-level",
+      "accessed_date": "2026-09-30",
+      "use": "Repeated interactive reading, vocabulary and narrative discussion, and adult expansion of responses.",
+      "limit": "These practices do not establish a book reading level or promise independent decoding."
+    },
+    {
+      "title": "IES What Works Clearinghouse: Shared Book Reading",
+      "url": "https://ies.ed.gov/ncee/wwc/InterventionReport/458",
+      "accessed_date": "2026-09-30",
+      "use": "Calibrate claims about shared-reading outcomes; avoid implying guaranteed literacy gains.",
+      "limit": "Evidence for outcomes differs by measure and intervention; this book has not been experimentally assessed."
+    }
+  ],
+  "operational_age_4_5_rubric": [
+    {
+      "id": "LANG-01",
+      "area": "Narrative sequence",
+      "pass_check": "Each story event has an identifiable character/action/result in the words, pictures or their combination. An adult can retell why the help was needed and what changed without supplying missing plot.",
+      "current_evidence": "32-page draft read in order; cup introduction, Rumi residence and gentle-play invitation revised.",
+      "status": "DRAFT_EDITORIAL_PASS; FINAL_RENDER_CONFIRMATION_PENDING"
+    },
+    {
+      "id": "LANG-02",
+      "area": "Character and speaker reference",
+      "pass_check": "Every quotation has a clear pictured speaker or attribution. Pronouns have a nearby unambiguous referent; the two dust bunnies, Rumi and continuing Puff identity remain clear.",
+      "current_evidence": "Roshan attribution on4 is now intentionally three lines; said Roshan remains together. Quotes and speaker references are clear.",
+      "status": "ROUND2_EDITORIAL_PASS"
+    },
+    {
+      "id": "LANG-03",
+      "area": "Vocabulary support",
+      "pass_check": "New or figurative words are supported by a concrete image, action or meaningful phrase. Retain varied words when their meaning is supported; do not impose an invented age-based word limit.",
+      "current_evidence": "Scoop, scrub, gunk, stream, rumble and sprang have action/context support. The rainbow metaphor follows the visible transformation.",
+      "status": "DRAFT_EDITORIAL_PASS"
+    },
+    {
+      "id": "LANG-04",
+      "area": "Syntax and meaning",
+      "pass_check": "Sentences are grammatical and natural aloud. Sequence markers and contrasts make causes and outcomes understandable. Lines preserve complete phrases and do not strand a speaker name.",
+      "current_evidence": "The required phrase-preserving attribution fix on4 is visible. Sentence and sequence wording read naturally.",
+      "status": "ROUND2_EDITORIAL_PASS"
+    },
+    {
+      "id": "LANG-05",
+      "area": "Read-aloud participation",
+      "pass_check": "Refrains occur naturally in their action context and can be echoed voluntarily; there is no requirement to answer a quiz or decode the whole story. Read aloud without awkward breath or punctuation breaks.",
+      "current_evidence": "I’ll help!, Splash, splash!, Scoop, scoop! and Scrub, scrub! retained.",
+      "status": "ROUND2_EDITORIAL_PASS; ACTUAL_SLP_AND_CHILD_REVIEW_PENDING"
+    },
+    {
+      "id": "LANG-06",
+      "area": "Care and gentle-play clarity",
+      "pass_check": "Pictures and words distinguish playful intention from accidental harm, show apology and gentle-play guidance, and present Puff cleaning as cooperative care. No punitive brush action or attack language remains.",
+      "current_evidence": "Native rescue18/19 show exactly two puffs trapping/releasing Eagle’s wings and the brush touching a puff. Owner-exact reassurance remains on25; all helpers wash Puff on26.",
+      "status": "DRAFT_EDITORIAL_PASS"
+    },
+    {
+      "id": "LANG-07",
+      "area": "Actual-size typography",
+      "pass_check": "Story captions and dialogue use native Sniglet at least18pt at7×5in trim, with1.3× leading; no glyph is clipped. Meaningful line units, quiet space and visually readable contrast must pass final page inspection.",
+      "current_evidence": "All34 pages inspected. Native story text is embedded Sniglet18–20pt and boxes are inside trim. p3/6/10 retain targeted contrast-review notes.",
+      "status": "NATIVE_TYPE_AND_GEOMETRY_PASS; TARGETED_CONTRAST_AND_PHYSICAL_PRINT_REVIEW_PENDING"
+    },
+    {
+      "id": "LANG-08",
+      "area": "Picture-language agreement",
+      "pass_check": "Objects and actions named by the caption are visibly identifiable. Essential mechanics do not rely on adult explanation. Decorative performances do not change or contradict the main event.",
+      "current_evidence": "Pink cup is visible in Roshan’s hands beside the flowing fountain in14. Clearing progresses from one clear lane/two green lanes to rainbow payoff. Rescue18/19 show the two-puff release.",
+      "status": "ROUND2_PICTURE_LANGUAGE_PASS; WATERFALL_ACTION_BETWEEN_STATES_REMAINS_NARRATED"
+    },
+    {
+      "id": "LANG-09",
+      "area": "Pacing and attention",
+      "pass_check": "Problem/action/payoff units are understandable; reveals are not prematurely explained. Background details remain secondary to text/faces/action. The play-to-nap close is gentle.",
+      "current_evidence": "Bathroom6–9, pool10–16, rescue17–20, craft21–22 and Puff23–30 form linked help episodes;31–32 close with play and rest.",
+      "status": "DRAFT_EDITORIAL_PASS; CHILD_RESPONSE_NOT_OBSERVED"
+    },
+    {
+      "id": "LANG-10",
+      "area": "Acceptance and professional scope",
+      "pass_check": "Record exact revised PDF identity, an actual named SLP review when obtained, print proof and owner/child feedback separately from machine geometry and editorial review.",
+      "current_evidence": "No SLP review, physical print proof or child observation has been supplied.",
+      "status": "EXTERNAL_ACCEPTANCE_PENDING"
+    }
+  ],
+  "operational_rubric_note": "These are explicit project editorial checks informed by official guidance. They are not clinical screening criteria, developmental norms, or a certified numeric master-audit score.",
+  "v29_draft_review": {
+    "application_script": "apply_revision.py",
+    "application_script_sha256": "6614716acdbe742b7002df48a95da844a2351015f2f784c39b511a675966f05e",
+    "geometry_record": "manuscript_qa.json",
+    "text_edits_present_in_draft": [
+      4,
+      11,
+      12,
+      14,
+      19,
+      20
+    ],
+    "inspected_native_derivatives": [
+      "art/fountain14.png",
+      "art/rescue18.png",
+      "art/rescue19.png"
+    ],
+    "visual_findings": [
+      "Pink cup is unmistakably held in Roshan’s hands; fountain visibly flows.",
+      "Exactly two canonical puffs pin Eagle’s wings on18; on19 both are away and Eagle is upright with open wings.",
+      "Brush is against a puff, not Eagle’s face."
+    ],
+    "required_followup": [
+      {
+        "page": 4,
+        "request": "Use Inside, dust covered the floor.\\n“Let’s clean it together!”\\nsaid Roshan. or another phrase-preserving arrangement. The current width274 creates a lone Roshan. line."
+      }
+    ],
+    "final_pdf_review": "PENDING_RENDER"
+  },
+  "v29_round2_review": {
+    "record": "language_round2.json",
+    "pages_inspected": 34,
+    "story_caption_words": 371,
+    "native_true_type_sniglet_embedded": true,
+    "all32_story_pages_native_text_at_least18pt": true,
+    "p4_attribution_linebreak": "RESOLVED_IN_ASSEMBLED_PROOF",
+    "p20_dialogue": "Rounded capsule and curved-tail layout passes editorial digital inspection; physical print and owner/child review remain open.",
+    "open_targeted_checks": [
+      "p3 white type over pale right architecture",
+      "p6/10 mottled caption fields at physical print size",
+      "p17–18 verbal room bridge recommended",
+      "p27 visible horizontal ceiling join referred to art review"
+    ],
+    "actual_slp_approval": "PENDING"
+  }
+}

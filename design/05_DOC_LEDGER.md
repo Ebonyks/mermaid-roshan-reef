@@ -44,8 +44,8 @@ unclassified until this ledger gains one new scoped row for it.
 
 | Doc | | Note |
 |---|---|---|
-| `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; navigation to V28 full review book, accepted/rejected preview decisions, source and remaining acceptance limits. |
-| `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; static-book rules and scoped owner exceptions. Latest V28 owner decision keeps apology bunnies small, removes disconnected craft-making, adds source-based castle entry, and makes Grand Puff entirely cooperative cleaning with exact reassurance. Supersedes V25 shell/fight direction for the book only; no game/cinematic authority. |
+| `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; navigation to V29 full review book, all34 before/after comparisons, source/native generation evidence and honest remaining craft/acceptance limits. |
+| `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; static-book source/identity/layout rules and scoped owner exceptions. Finished kindness plot remains; latest owner commission adds all-object polish, substantial gap-repair iteration including50+ generations, varied small banks, two unprompted Lamma appearances and explicit bubble/export audit. Internal4.9 craft, SLP and actual owner/child/print acceptance stay separate; no game/cinematic authority. |
 | `books/chapter_one/plan/PAGE_BY_PAGE_PLAN.md` | 🟣 | `SUPERSEDED`; preserved 40-page portrait proposal; current pagination and assignments are in landscape/PAGE_PLAN.md. No art acceptance inherited. |
 
 | `design/PAINTER_ENGINE_PROTOTYPE_2026-09-16.md` | 🟣 | `PROPOSED / CANDIDATE`; owner-commissioned single standalone Painter prototype with a pinned Pixelorama fill import, unchanged Roshan graphics and isolated artwork persistence. No career/chapter integration, device/child/owner acceptance or master-audit closure. |
@@ -816,17 +816,18 @@ Kept as-is; noted so a future edit updates every copy.
 
 | Doc | | Note |
 |---|---|---|
-| `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; V28 32 story-page mapping plus covers, old/new page numbers and manuscript; source castle entry, craft-making removed, protected reveal turns and closing gentle play. |
-| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V28 applied preview decisions, smaller apology bunnies and cooperative Puff cleaning; source/print/border exceptions and owner/child acceptance remain open. |
+| `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; V29 exact32 story-page mapping plus covers, full-art/cutout treatment, final manuscript and source/bound provenance; finished kindness plot and reveal turns preserved. |
+| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V29 comprehensive native/composed character/background/bubble/readability polish, rejected-study evidence and lossless export checks; honest craft/source/print limits and owner/child/SLP acceptance remain open. |
 
 | `books/chapter_one/landscape/STRESS_TEST.md` | 🔵 | `SUPPORTING_CURRENT`; owner-rejected v7 and page-by-page revised rough audit; mechanical checks explicitly do not grant visual/identity acceptance. |
 
 | `books/chapter_one/landscape/BORDER_ART_DIRECTION.md` | 🔵 | `SUPPORTING_CURRENT`; owner-requested varied border performances and v17 repository-detail score; frightened lower-right stages supersede the quiet reveal; owner acceptance remains open. |
 
-| `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; V28 book-only helping arc from castle cleanup to four-friend Puff washing, play and rest; sequence/reading review, not a child test. |
+| `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; V29 developmental shared-reading review of finished castle/helping arc, Rumi residence, explicit playroom/gentle rescue, apology and same-Puff transformation; not child-test or professional SLP evidence. |
 
 | `books/chapter_one/reviews/2026-09-30/REVIEW.md` | ⚪ | `HISTORICAL_EVIDENCE`; unchanged-V27 comprehensive comparison and recommendations. V28 implements selected corrections; unresolved source/print questions remain current through landscape/REVIEW.md. |
 
 | `books/chapter_one/previews/2026-09-30/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; ten before/after proposals and two page-turn studies. Owner approved most for V28, rejected oversized19, removed23 and superseded26 with cleaning. Original proposal artifacts remain unchanged. |
 
-| `books/chapter_one/landscape/revisions/v28_kindness/README.md` | 🔵 | `SUPPORTING_CURRENT`; versioned V28 full-book review package, exact source/generation evidence, before/after views and manifest; not final print or owner/child acceptance. |
+| `books/chapter_one/landscape/revisions/v28_kindness/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; sealed V28 full-book kindness review and V29 comparison baseline. Original source/generation evidence, previews and manifest retained; V29 owns current manuscript and polish review. |
+| `books/chapter_one/landscape/revisions/v29_polish/README.md` | 🔵 | `SUPPORTING_CURRENT`; full34-page iterated polish package, independent all-object/language/style audits,50 native candidates, source/mask/hash evidence, before/after pages and exact remote manifest. Internal4.9 limits and owner/child/print/SLP gates are explicit. |

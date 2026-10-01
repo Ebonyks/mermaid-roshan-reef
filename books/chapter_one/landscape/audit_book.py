@@ -12,9 +12,10 @@ def overlap(a,b):
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--proof',required=True,type=Path);ap.add_argument('--baseline',required=True,type=Path);args=ap.parse_args()
  b=json.loads((ROOT/'book.json').read_text(encoding='utf8'));p=json.loads((args.proof/'page_provenance.json').read_text(encoding='utf8'));review=json.loads((ROOT/'stress_review.json').read_text(encoding='utf8'));issues=[];pages={row['page']:row for row in b['pages']}
- revised=b.get('revision','').startswith('V28')
+ revised=b.get('revision','').startswith(('V28','V29'))
+ polished=b.get('revision','').startswith('V29')
  by_old={row.get('original_page',row['page']):row for row in b['pages']}
- if revised:review=json.loads((ROOT/'revisions/v28_kindness/visual_review.json').read_text(encoding='utf8'))
+ if revised:review=json.loads((ROOT/('revisions/v29_polish' if polished else 'revisions/v28_kindness')/'visual_review.json').read_text(encoding='utf8'))
  pdf=PdfReader(args.proof/'Mermaid_Roshan_LANDSCAPE_ROUGH.pdf')
  if len(pdf.pages)!=34:issues.append('Expected 32 story pages plus covers.')
  for i,page in enumerate(pdf.pages):
@@ -98,15 +99,17 @@ def main():
  if len(back)!=1 or back[0]['source_key']!=b['back_cover']['art']:issues.append('Rear cover must be a single complete full-art composition.')
  for n,key in [(17,'rescue_trapped'),(18,'rescue_release'),(27,'v27_scrub'),(28,'R09_suds'),(29,'R10_jump'),(30,'R11_land')]:
   if revised and n==18:key='approved_rescue_release'
+  if polished and n in [17,18]:key='v29_rescue18' if n==17 else 'v29_rescue19'
   if by_old[n]['art']!=[key]:issues.append(f'Canonical rescue/finale order mismatch: former page {n}.')
  if by_old[24]['art']!=['v27_door'] or by_old[24]['mode']!='F':issues.append('Door page must show complete route-light hall.')
  if revised:
-  if 23 in by_old or pages[3]['art']!=['v28_castle_entry_source']:issues.append('Disconnected craft beat returned or castle entry missing.')
-  if by_old[26]['art']!=['v28_puff_reassurance'] or by_old[26]['text']!='“Hold on, we’ll make you feel\nclean and better!” said Roshan.':issues.append('Owner reassurance or sponge artwork missing.')
+  if 23 in by_old or pages[3]['art']!=['v29_castle03' if polished else 'v28_castle_entry_source']:issues.append('Disconnected craft beat returned or castle entry missing.')
+  if by_old[26]['art']!=['v29_sponge25' if polished else 'v28_puff_reassurance'] or by_old[26]['text']!='“Hold on, we’ll make you feel\nclean and better!” said Roshan.':issues.append('Owner reassurance or sponge artwork missing.')
   if [by_old[n]['page'] for n in [24,25,28,29]]!=[23,24,27,28]:issues.append('Reveal page-turn order changed.')
   if any(term in ' '.join(q['text'].lower() for q in b['pages']) for term in ['dizzy','wobbled','beat him','stopped him','sparkles flew','fighting']):issues.append('Retired combat wording returned.')
   if any(q['source_key'] in {'v25_shell_duel','approved_apology_canvas','v25_art_simple'} for q in p['layers']):issues.append('Rejected active art returned.')
-  if {q['page'] for q in p['layers'] if q['source_key'] in {'approved_lamba_bath','v28_lamba_toy_peek'}}!={9,31}:issues.append('Expected two unprompted hidden appearances.')
+  visitor_keys={'v29_lamma09','v29_bank31_final'} if polished else {'approved_lamba_bath','v28_lamba_toy_peek'}
+  if {q['page'] for q in p['layers'] if q['source_key'] in visitor_keys}!={9,31}:issues.append('Expected two unprompted hidden appearances.')
  else:
   if pages[23]['art']!=['v25_art_simple'] or 'art_crop' in pages[23]:issues.append('Paint page must use owner-requested simplified painted scene without crop.')
   if pages[26]['art']!=['v25_shell_duel']:issues.append('Missing facing-shell-sparkle-dizzy action cutout.')

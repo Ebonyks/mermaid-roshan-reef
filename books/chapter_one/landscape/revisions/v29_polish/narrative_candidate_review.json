@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "status": "INDEPENDENT_CANDIDATE_REVIEW; FINAL_COMPOSED_REVIEW_PENDING",
+  "reviewer": "character_audit subagent",
+  "created_utc": "2026-10-01T01:07:51.364643+00:00",
+  "scope": "Native V29 narrative candidates requested by root. No art modifications. All recommendations scoped to source-preserving use.",
+  "candidates": [
+    {
+      "candidate": "books/chapter_one/landscape/revisions/v29_polish/art/castle03.png",
+      "sha256": "4fc329bf1ec83d2269fb6670eb08da8c25fb89ea1e709d9b66aa6c07089893c6",
+      "decision": "ACCEPT_CANDIDATE",
+      "accepted_scope": "Source-conditioned resolution restoration of existing open-castle-door scene.",
+      "observations": "Sharper Daddy/Roshan outlines and gold hardware; preserved doorway staging, red doors, dirty interior and core identities. No duplicate window immediately above Daddy or visible door seam. Roshan arm/fingers coherent.",
+      "remaining_issues": "Generated source is1484x1060 (~212ppi at7x5), not automatic300ppi final. Right architecture extended relative old trim but same setting; verify provenance as quality restoration/outpaint.",
+      "internal_candidate_craft_score": 4.8,
+      "acceptance_limit": "Independent visual candidate recommendation only. Final composed page must be inspected; owner/child/print acceptance separate."
+    },
+    {
+      "candidate": "books/chapter_one/landscape/revisions/v29_polish/art/fountain14.png",
+      "sha256": "3031917eb02f4a606b57e08fe7a5924abe08020c11efd3faba8cf27343cdec62",
+      "decision": "ACCEPT_CANDIDATE",
+      "accepted_scope": "Prefer bounded blouse/wrist correction inside existing fountain scene; preserve remaining source art if pipeline allows.",
+      "observations": "Pearl collar and bracelet removed. Simple pink blouse restored. Cup still held by two hands; seahorse mouth, water and rainbow tail continuous. Roshan face identifiable.",
+      "remaining_issues": "Whole candidate has minor peripheral changes; use bounded correction for exact source preservation, then check seam.",
+      "internal_candidate_craft_score": 4.8,
+      "acceptance_limit": "Independent visual candidate recommendation only. Final composed page must be inspected; owner/child/print acceptance separate."
+    },
+    {
+      "candidate": "books/chapter_one/landscape/revisions/v29_polish/art/listen17.png",
+      "sha256": "225592b9442a61ef29c73d42e5383f33b319bd70ece6705ec0877fd837350d28",
+      "decision": "ACCEPT_FOR_BOUNDED_PATCH",
+      "accepted_scope": "Only Roshan upper body/head/arm correction; dirty storage room retained from existing source.",
+      "observations": "Cupped ear and turned gaze communicate listening. Two arms in full candidate, canonical simple top, crown, rainbow hair and tail. Body position/action still arrival/listening.",
+      "remaining_issues": "A head-only mask can retain OLD hanging left arm and add third limb. Conservative mask must include whole old arm and new raised arm, then composed page reinspection.",
+      "internal_candidate_craft_score": 4.8,
+      "acceptance_limit": "Independent visual candidate recommendation only. Final composed page must be inspected; owner/child/print acceptance separate."
+    },
+    {
+      "candidate": "books/chapter_one/landscape/revisions/v29_polish/art/rescue18.png",
+      "sha256": "e4fbfc0fe05cf4eaa76d6216baa413e02faeedfe1c1af680e4f006d86cf02fcd",
+      "decision": "ACCEPT_CANDIDATE",
+      "accepted_scope": "Foreground two-bunny trapped-Eagle staging retained; targeted dirty-state room corrections.",
+      "observations": "Exactly two curled-ear cloud bunnies hold Eagle wings. Original crest/cheek/black tips/gray feet preserved, brush safely left of face. Grime and cobwebs now present on toy bins/walls/floor. Roshan grips brush with both hands.",
+      "remaining_issues": "Dirty state continuity improved but stone storage architecture17 differs from grand hall18. Do not claim literal same-room geometry solved. Foreground action already brushing in setup remains intentional source sequence.",
+      "internal_candidate_craft_score": 4.8,
+      "acceptance_limit": "Independent visual candidate recommendation only. Final composed page must be inspected; owner/child/print acceptance separate."
+    },
+    {
+      "candidate": "books/chapter_one/landscape/revisions/v29_polish/art/rescue19.png",
+      "sha256": "73c0c8169b8a66cea719e1bea163e78d02c573cc9eecd7f1bb39cae00c5be562",
+      "decision": "ACCEPT_CANDIDATE_WITH_MINOR_COSTUME_NOTE",
+      "accepted_scope": "Same rescue release foreground and matched dirty playroom.",
+      "observations": "Eagle wings free, exactly two displaced smiling bunnies, brush on bunny rather than Eagle. Grime/cobwebs match18 and canonical identities retained. No major limb failure.",
+      "remaining_issues": "Tiny pendant/jewel below Roshan collar exists in accepted SOURCE19, so not a new regression. At4.9target a tiny blouse-only inpaint can remove; not worth full rescue regeneration.",
+      "internal_candidate_craft_score": 4.8,
+      "acceptance_limit": "Independent visual candidate recommendation only. Final composed page must be inspected; owner/child/print acceptance separate."
+    },
+    {
+      "candidate": "books/chapter_one/landscape/revisions/v29_polish/art/sponge25.png",
+      "sha256": "751dfca8d119dd8af374b59daec483293c6f0d3b1678b1025f3651e7e0ff6a58",
+      "decision": "ACCEPT_CANDIDATE_WITH_PROP_NOTE",
+      "accepted_scope": "Bounded cleaning supply repair on owner-approved offer cutout.",
+      "observations": "Yellow oval soapy sponge well gripped, clear care action. Roshan faces unwell Puff, no weapon or dizziness. Both contours complete. Aligns yellow sponge used26-29.",
+      "remaining_issues": "Changes pink star offered25 to yellow oval. Owner requested a cleaning supply, so within instruction, but5 introduction still star; document several cleaning tools or revise5 instead of editing canonical29.",
+      "internal_candidate_craft_score": 4.8,
+      "acceptance_limit": "Independent visual candidate recommendation only. Final composed page must be inspected; owner/child/print acceptance separate."
+    },
+    {
+      "candidate": "books/chapter_one/landscape/revisions/v29_polish/art/nap32.png",
+      "sha256": "defcc8f3df7bbf22a5a36970740456c11c15ffddfdb8c60aab587c7b8d00d033",
+      "decision": "ACCEPT_FOR_BOUNDED_PATCHES",
+      "accepted_scope": "Only two lower corner sleeping dust bunnies; preserve entire original main-cast nap and bubble setting.",
+      "observations": "Both little bunnies now recognizable cloud bodies with curled forehead and paired large spiral ears; closed eyes, pearl hands partially bubble-occluded. No anatomy/pose failure in new details.",
+      "remaining_issues": "Whole generated nap subtly changes cast/background framing. Use two local corner patches, not entire candidate. Check bubble edges and no duplicate old ears.",
+      "internal_candidate_craft_score": 4.8,
+      "acceptance_limit": "Independent visual candidate recommendation only. Final composed page must be inspected; owner/child/print acceptance separate."
+    },
+    {
+      "candidate": "books/chapter_one/landscape/revisions/v29_polish/art/ceiling27.png",
+      "sha256": "eb5f3a54477d83c56c4b1ccc92fd2d58376b96a01b6e82642d1a2afd04f0212e",
+      "decision": "ACCEPT_EXTENSION_ONLY",
+      "accepted_scope": "New top-ceiling strip only. Existing source scene below exact original transform.",
+      "observations": "Native painted ceiling masonry sharper and more continuous in perspective than old stretched strip. No visible texture tear in candidate.",
+      "remaining_issues": "Whole candidate slightly changes cast scale/positions; unacceptable as replacement main art, especially29 exact canonical landing. Match source scene at intended join and inspect composed page; strip alone does not prove seamless assembly.",
+      "internal_candidate_craft_score": 4.8,
+      "acceptance_limit": "Independent visual candidate recommendation only. Final composed page must be inspected; owner/child/print acceptance separate."
+    },
+    {
+      "candidate": "books/chapter_one/landscape/revisions/v29_polish/art/ceiling28.png",
+      "sha256": "a6378a3c8edbf1136b23b44b08451bc65d9afa8e7a9fd06869aa3ffcf8c6a050",
+      "decision": "ACCEPT_EXTENSION_ONLY",
+      "accepted_scope": "New top-ceiling strip only. Existing source scene below exact original transform.",
+      "observations": "Native painted ceiling masonry sharper and more continuous in perspective than old stretched strip. No visible texture tear in candidate.",
+      "remaining_issues": "Whole candidate slightly changes cast scale/positions; unacceptable as replacement main art, especially29 exact canonical landing. Match source scene at intended join and inspect composed page; strip alone does not prove seamless assembly.",
+      "internal_candidate_craft_score": 4.8,
+      "acceptance_limit": "Independent visual candidate recommendation only. Final composed page must be inspected; owner/child/print acceptance separate."
+    },
+    {
+      "candidate": "books/chapter_one/landscape/revisions/v29_polish/art/ceiling29.png",
+      "sha256": "df506bf58ebdce9a2b0a85883c704d7ba2e956e9d96c5e4ce6989075a42f4c66",
+      "decision": "ACCEPT_EXTENSION_ONLY",
+      "accepted_scope": "New top-ceiling strip only. Existing source scene below exact original transform.",
+      "observations": "Native painted ceiling masonry sharper and more continuous in perspective than old stretched strip. No visible texture tear in candidate.",
+      "remaining_issues": "Whole candidate slightly changes cast scale/positions; unacceptable as replacement main art, especially29 exact canonical landing. Match source scene at intended join and inspect composed page; strip alone does not prove seamless assembly.",
+      "internal_candidate_craft_score": 4.8,
+      "acceptance_limit": "Independent visual candidate recommendation only. Final composed page must be inspected; owner/child/print acceptance separate."
+    }
+  ],
+  "listen17_local_mask": {
+    "target": "listen17",
+    "reference_size": [
+      1484,
+      1060
+    ],
+    "polygon_xy": [
+      [
+        606,
+        130
+      ],
+      [
+        850,
+        130
+      ],
+      [
+        980,
+        220
+      ],
+      [
+        980,
+        395
+      ],
+      [
+        938,
+        522
+      ],
+      [
+        610,
+        522
+      ],
+      [
+        603,
+        409
+      ],
+      [
+        626,
+        325
+      ],
+      [
+        612,
+        250
+      ]
+    ],
+    "purpose": "Conservative upper-body patch includes both the old down-hanging left arm/fingertips and new cupped-ear raised arm, plus head/crown and shoulders. Not a numerical identity or exact-pixel preservation claim.",
+    "review_required": "Inspect final face/arm/waist/background boundary for remaining old skin, extra hand, severed shoulder, doubled outline or rectangular seam. Shrink later only after measuring both old/new silhouettes."
+  },
+  "costume_and_protection_notes": {
+    "p19_neckline_jewel": "Source19 already contains tiny pink pendant. Minor costume inconsistency versus canonical base; bounded removal improves high-quality consistency, full scene regen unwarranted.",
+    "p16_bracelet": "The old hug shows pearl bracelet, a minor ornament and now inconsistent with corrected14. Recommend wrist-only inpaint if routine; no need to redraw beautiful accepted hug or claim major character identity failure.",
+    "canonical29": "Keep books/chapter_one/plan/source_art/R11_land.png exact. Only generated ceiling pixels above scene may be used.",
+    "hidden_visitors": "Lamma entries belong to separate bank/background review. Existing9/31white faces not a reliable canonical identity baseline."
+  },
+  "professional_acceptance": "No SLP, print, child or owner approval claimed."
+}

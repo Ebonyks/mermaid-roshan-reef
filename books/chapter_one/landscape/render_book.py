@@ -43,8 +43,12 @@ def local_patch(p):
  for i,(x,y) in enumerate(q['polygon']):
   (shape.moveTo if i==0 else shape.lineTo)(ox+x*s,oy+(rh-y)*s)
  shape.close();c.clipPath(shape,stroke=0,fill=0)
- c.drawImage(str(path(k)),ox,oy,width=rw*s,height=rh*s)
- record(k,(0,0,iw,ih),(ox,oy,rw*s,rh*s),'bounded_inpaint_polygon')
+ # Embed only the PDF-visible source resource. Native derivative remains unchanged.
+ xs=[v[0] for v in q['polygon']];ys=[v[1] for v in q['polygon']]
+ l=max(0,math.floor(min(xs)*iw/rw));t=max(0,math.floor(min(ys)*ih/rh));r=min(iw,math.ceil(max(xs)*iw/rw));b=min(ih,math.ceil(max(ys)*ih/rh))
+ target=(ox+l*rw/iw*s,oy+(rh-b*rh/ih)*s,(r-l)*rw/iw*s,(b-t)*rh/ih*s)
+ c.drawImage(ImageReader(im.crop((l,t,r,b))),*target,mask='auto')
+ record(k,(l,t,r,b),target,'bounded_inpaint_polygon_visible_pdf_resource')
  LAYERS[-1]['clip_reference_size']=q['reference_size'];LAYERS[-1]['clip_polygon_source_pixels']=q['polygon']
  c.restoreState()
 
@@ -52,7 +56,7 @@ def cut(k,x,y,w,h):
  im=Image.open(path(k));assert im.mode=='RGBA' and im.getextrema()[3][0]==0,k
  box=B['sources'][k].get('alpha_box') or ((512,0,1024,512) if k=='grand_puff_jump_sheet' else im.getchannel('A').getbbox())
  l,t,r,b=box;s=min(w/(r-l),h/(b-t));dw=(r-l)*s;dh=(b-t)*s;region(k,box,(x+(w-dw)/2,y+(h-dh)/2,dw,dh));return (x+(w-dw)/2,y+(h-dh)/2,dw,dh)
-def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False):
+def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False,outline=0):
  lines=[]
  for para in s.split('\n'):
   line=''
@@ -71,6 +75,9 @@ def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False):
    c.setStrokeColorRGB(*((.06,.12,.25) if color=='white' else (1,1,.98)));c.setLineWidth(.85)
    obj=c.beginText(xx,y);obj.setFont('Sniglet',size);obj.setTextRenderMode(1);obj.textOut(line);obj.setTextRenderMode(0);c.drawText(obj)
    obj=c.beginText(xx,y);obj.setFont('Sniglet',size);obj.setTextRenderMode(0);obj.textOut(line);c.drawText(obj)
+  elif outline:
+   c.setStrokeColorRGB(.06,.16,.29);c.setLineWidth(outline)
+   obj=c.beginText(xx,y);obj.setFont('Sniglet',size);obj.setTextRenderMode(2);obj.textOut(line);c.drawText(obj)
   else:c.drawString(xx,y,line)
   c.restoreState()
   line_width=pdfmetrics.stringWidth(line,'Sniglet',size)
@@ -148,7 +155,8 @@ for p in B['pages']:
    cut(a[0],40,76,190,148);cut(a[1],232,146,207,116);cut(a[2],339,57,91,117)
   else:cut(a[0],*p.get('foreground_zone',[30,53,444,211]))
  if 'local_patch' in p:local_patch(p)
- q=p['caption'];text(p['text'],q['x'],q['y'],q['width'],q['size'],q['align']=='center',color=q['color'],shadow=q['shadow'],halo=q.get('halo',False))
+ for patch in p.get('local_patches',[]):local_patch({'local_patch':patch})
+ q=p['caption'];text(p['text'],q['x'],q['y'],q['width'],q['size'],q['align']=='center',color=q['color'],shadow=q['shadow'],halo=q.get('halo',False),outline=q.get('outline',0))
  for balloon in p.get('speech_bubbles',[]):speech(balloon)
  c.showPage()
 PAGE='back_cover'
@@ -166,7 +174,7 @@ for start in range(0,len(thumbs),8):
   x=j%4*336;y=j//4*262;sheet.paste(im,(x,y));idx=start+j;d.text((x+5,y+243),'Cover' if idx==0 else 'Back cover' if idx==33 else f'Page {idx}',fill='black')
  sheet.save(O/f'contact_{start//8+1}.jpg',quality=94)
 body=''.join(f'<figure><figcaption>{"Cover" if i==0 else "Back cover" if i==33 else "Page "+str(i)}</figcaption><img loading="lazy" src="page_{i:02}.png" alt="{html.escape("Cover" if i==0 else "Back cover" if i==33 else B["pages"][i-1]["text"])}"></figure>' for i in range(34))
-(O/'READ_BOOK.html').write_text('<!doctype html><meta charset="utf-8"><title>Mermaid Roshan · Landscape rough</title><style>body{margin:0;background:#193449;color:#e3f5ff;font:18px system-ui}header{max-width:1100px;margin:30px auto;padding:20px}main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:24px}figure{margin:0}img{width:100%;display:block}figcaption{padding:8px}a{color:#9cddff}@media(max-width:800px){main{grid-template-columns:1fr}}</style><header><h1>Mermaid Roshan and the Hidden Rainbow</h1><p>7 × 5 inches · 32 story pages + covers · V28 · helping Grand Puff · review proof</p><p><a href="Mermaid_Roshan_LANDSCAPE_ROUGH.pdf">Download PDF</a> · <a href="../REVISION_REVIEW.html">Revision review and page map</a></p><p>New castle-entry beat, small apology bunnies, and collaborative cleaning for Grand Puff. 34 pages including covers; source-resolution and final print review remain open.</p></header><main>'+body+'</main>',encoding='utf8',newline='\n')
+(O/'READ_BOOK.html').write_text('<!doctype html><meta charset="utf-8"><title>Mermaid Roshan · Landscape book</title><style>body{margin:0;background:#193449;color:#e3f5ff;font:18px system-ui}header{max-width:1100px;margin:30px auto;padding:20px}main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:24px}figure{margin:0}img{width:100%;display:block}figcaption{padding:8px}a{color:#9cddff}@media(max-width:800px){main{grid-template-columns:1fr}}</style><header><h1>Mermaid Roshan and the Hidden Rainbow</h1><p>7 × 5 inches · 32 story pages + covers · '+html.escape(B.get('revision','Review proof'))+'</p><p><a href="Mermaid_Roshan_LANDSCAPE_ROUGH.pdf">Download PDF</a> · <a href="'+html.escape(B.get('review_href','../REVISION_REVIEW.html'))+'">Revision audit and before/after views</a></p><p>34 pages including covers. Owner, child and final print acceptance remain open.</p></header><main>'+body+'</main>',encoding='utf8',newline='\n')
 # A portable rebuild provides the written review even without the earlier v7 images.
 if not B.get('revision') and not (O/'STRESS_TEST.html').exists() and (ROOT/'stress_review.json').exists():
  review=json.loads((ROOT/'stress_review.json').read_text(encoding='utf8'))

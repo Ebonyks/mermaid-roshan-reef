@@ -1,11 +1,9 @@
-# Mermaid Roshan — Chapter One picture book
+# Mermaid Roshan - Chapter One picture book
 
-Current edition: **V28 — Helping Grand Puff**.34 total pages including covers;7 × 5 in landscape; Sniglet. The owner-approved previews are integrated with small apology bunnies, a source-based castle entrance replacing the disconnected craft-making beat, and a cooperative cleaning plot for Grand Puff.
+Current edition: **V29 - comprehensive polish**.34 pages including covers;7 × 5 in landscape; Sniglet. The finished story follows friends cleaning Pearl Castle and helping the dusty Grand Puff feel better.
 
-[Open the V28 review package](landscape/revisions/v28_kindness/README.md) · [Full book](landscape/revisions/v28_kindness/complete/READ_BOOK.html) · [PDF](landscape/revisions/v28_kindness/complete/Mermaid_Roshan_LANDSCAPE_ROUGH.pdf) · [Before/after](landscape/revisions/v28_kindness/REVISION_REVIEW.html)
+[Review every before/after page](landscape/revisions/v29_polish/AUDIT_REVIEW.html) · [Read the book](landscape/revisions/v29_polish/complete/READ_BOOK.html) · [Full PDF](landscape/revisions/v29_polish/complete/Mermaid_Roshan_LANDSCAPE_ROUGH.pdf) · [Versioned package](landscape/revisions/v29_polish/README.md)
 
-Current authority and evidence: [design language](DESIGN_LANGUAGE.md), [page plan](landscape/PAGE_PLAN.md), [review and limitations](landscape/REVIEW.md), [story comprehension audit](landscape/STORY_COMPREHENSION_AUDIT.md), [source provenance](landscape/revisions/v28_kindness/generation_evidence.json), and [manifest](landscape/revisions/v28_kindness/manifest.json).
+Current authority and evidence: [design language](DESIGN_LANGUAGE.md), [page plan](landscape/PAGE_PLAN.md), [checks and limitations](landscape/REVIEW.md), [story review](landscape/STORY_COMPREHENSION_AUDIT.md), [object audit](landscape/revisions/v29_polish/visual_review.json), [native prompts/provenance](landscape/revisions/v29_polish/generation_evidence.json) and [manifest](landscape/revisions/v29_polish/manifest.json).
 
-The dated [V27 review](reviews/2026-09-30/REVIEW.md) and [before/after proposals](previews/2026-09-30/README.md) are preserved as baseline evidence. V28 accepts most proposals, rejects the oversized19figures, removes23, and supersedes26with cleaning. Earlier versions remain in Git history and archived art paths; they are not the current manuscript.
-
-This is a review proof. Owner/child/print acceptance, native print-resolution limits, waterfall action and rescue-room continuity remain open. No runtime, protected-original, game-canon or cinematic-delivery changes. Resolve searching remains stopped.
+V28 and earlier dated reviews remain historical evidence. V29 adds independent whole-book audits, selective source-preserving repairs, varied grounded bank performances, subtler hidden visitors, bubble-quality checks and clearer editable typography/language. The4.9 internal target is reported honestly. Owner, child, print and qualified SLP acceptance remain open. No game/runtime, cinematic or protected-original change. Resolve/handoff searching remains stopped.

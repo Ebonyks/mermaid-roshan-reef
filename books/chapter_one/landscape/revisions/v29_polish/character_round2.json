@@ -1,0 +1,5166 @@
+{
+  "schema_version": 1,
+  "status": "INDEPENDENT_V29_ROUND2_NATIVE_VISUAL_REVIEW_NOT_ACCEPTANCE",
+  "reviewer": "character_audit subagent",
+  "created_utc": "2026-10-01T01:46:21.555170+00:00",
+  "book_json_sha256": "b93170b53f0dfb0e11403d98bb5e7b9a66aaa62245d7e4eafb3347f744e5b721",
+  "page_provenance_sha256": "30fea10838da34f8e9e8b383fd0cfed100ffa8f8120058a5b895162b5018fc2f",
+  "rubric": {
+    "type": "Internal editorial visual-craft judgment1–5, subordinate to actual acceptance. Decimals prioritize repairs, not clinical measurement.",
+    "1": "Unusable/conflicting identity or scene.",
+    "2": "Major narrative/art failure.",
+    "3": "Readable rough with substantial repair.",
+    "4": "Good review art with visible correctable defects.",
+    "4.9": "Near-final visual craft after independent reinspection; external acceptance separate.",
+    "5": "No observed defect under inspection; never inferred from machine checks."
+  },
+  "target": 4.9,
+  "limitations": [
+    "These are internal subjective editorial craft scores, not clinical measurements or a claim of master-audit, SLP, owner, child/device or physical-print acceptance.",
+    "Score increases reflect actual local repair and clearer native inspection of specific identity/contact/edge evidence. Unchanged accepted cover variants are kept below4.9 where the canonical comparison remains imperfect; no generation is required merely to inflate the number.",
+    "Native art commonly~212ppi at7x5; clean on-screen proof does not establish300ppi press suitability.",
+    "Canonical/main scenes, accepted21/29 artwork and covers remain protected. No art edited by reviewer."
+  ],
+  "pages": [
+    {
+      "page_index": 0,
+      "label": "front cover",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_00.png",
+      "screenshot_sha256": "608206aa4813208d3599be36cb3bba0f111dd5e4c9f1ddc65a61021feb61308e",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.8,
+      "round2_internal_visual_craft_score": 4.8,
+      "objects": [
+        {
+          "object": "Roshan",
+          "internal_craft_score": 4.8,
+          "observed": "Accepted cover family has shell brooch rather than simple interior top; crisp expressive face, proper two arms and tail."
+        },
+        {
+          "object": "Daddy",
+          "internal_craft_score": 4.9,
+          "observed": "Glasses/crown/cape/coat/rainbow tail stable; human hands complete."
+        },
+        {
+          "object": "Rumi",
+          "internal_craft_score": 4.8,
+          "observed": "Rounder youthful face than runtime atlas, but purple segmented braid, costume and tail preserve identity; owner accepted cover."
+        },
+        {
+          "object": "Baby Eagle",
+          "internal_craft_score": 4.9,
+          "observed": "Crest, yellow cheek, patchwork feathers, black-tipped pink wings and gray feet clear."
+        },
+        {
+          "object": "peeking Puff",
+          "internal_craft_score": 4.9,
+          "observed": "Spiral ears/forehead curl and pearl limbs recognizable in door."
+        },
+        {
+          "object": "unified cover composition",
+          "internal_craft_score": 4.9,
+          "observed": "Rendered ensemble and props share light/contact; no pasted rectangle or scenic crop."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "below_target; see specific object notes; no automatic pass",
+      "repair_targets": [],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": "front_cover",
+          "source_key": "cover_rendered",
+          "file": "art/personality_v20/cover_rendered.png",
+          "sha256": "7245b1a5edcb03c80ee4af75d5ca0fd7849574278b0a0bacbb63579f2d1bc1d2",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "story_art",
+          "alpha": false
+        }
+      ],
+      "page_config_snapshot": {
+        "treatment": "Owner-commissioned unified rendered composition in shared Pearl Castle setting",
+        "art": [
+          "cover_rendered"
+        ],
+        "spoiler_policy": "Rainbow friend retained for interior reveal"
+      }
+    },
+    {
+      "page_index": 1,
+      "label": "story page 1",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_01.png",
+      "screenshot_sha256": "d605e5198f272badc29be6533fa248252f6c4fab39043c97f0e966ce7aa619e4",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.7,
+      "round2_internal_visual_craft_score": 4.9,
+      "objects": [
+        {
+          "object": "Roshan profile",
+          "internal_craft_score": 4.9,
+          "observed": "Large clean face, crown, rainbow hair and five-finger window gesture; no identity/anatomy defect seen."
+        },
+        {
+          "object": "castle and window",
+          "internal_craft_score": 4.9,
+          "observed": "Crisp framing and intact castle; full-art page."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.9,
+          "observed": "White letters with shadow read clearly against dark teal lower window frame."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "observed_pass_for_scoped_craft",
+      "repair_targets": [],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 1,
+          "source_key": "v22_scene_01",
+          "file": "art/quality_v22/scene_01.png",
+          "sha256": "e0a084746a0ef0bd935b7689df778c76d2f3489afd63279280ef19d180a3265b",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "story_art",
+          "alpha": false
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 1,
+        "mode": "F",
+        "art": [
+          "v22_scene_01"
+        ],
+        "text": "“Look, Daddy!\nPearl Castle!”",
+        "layout": "full",
+        "border_assets": [],
+        "background_theme": "full scene",
+        "caption": {
+          "x": 285,
+          "y": 72,
+          "width": 188,
+          "size": 20,
+          "align": "left",
+          "color": "white",
+          "shadow": false,
+          "halo": false,
+          "outline": 0.4
+        },
+        "foreground_zone": null,
+        "focal_exclusions": [],
+        "original_page": 1,
+        "beat": "v27_1"
+      }
+    },
+    {
+      "page_index": 2,
+      "label": "story page 2",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_02.png",
+      "screenshot_sha256": "58e7e348fcffaa17b119de207bbd02be6406e00093f4af817211a41f608be428",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.8,
+      "round2_internal_visual_craft_score": 4.9,
+      "objects": [
+        {
+          "object": "plane",
+          "internal_craft_score": 4.9,
+          "observed": "Rounded plane geometry and shell motif continuous, no tear/seam."
+        },
+        {
+          "object": "castle/pier",
+          "internal_craft_score": 4.9,
+          "observed": "Crisp whole objects at page trim; character in stained glass is decorative, not duplicate live character."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.9,
+          "observed": "Navy on quiet blue sky with good clearance."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "observed_pass_for_scoped_craft",
+      "repair_targets": [],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 2,
+          "source_key": "v22_scene_02",
+          "file": "art/quality_v22/scene_02.png",
+          "sha256": "e4a2b560ff1cd8e0baf350521170ca38c389e688d836e3bb5d51aec597691da5",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "story_art",
+          "alpha": false
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 2,
+        "mode": "F",
+        "art": [
+          "v22_scene_02"
+        ],
+        "text": "Roshan and Daddy landed at Sky Lagoon.\nPearl Castle was close by.",
+        "layout": "full",
+        "border_assets": [],
+        "background_theme": "full scene",
+        "caption": {
+          "x": 28,
+          "y": 318,
+          "width": 365,
+          "size": 18,
+          "align": "left",
+          "color": "navy",
+          "shadow": false,
+          "halo": false,
+          "outline": 0
+        },
+        "foreground_zone": null,
+        "focal_exclusions": [],
+        "original_page": 2,
+        "beat": "v27_2"
+      }
+    },
+    {
+      "page_index": 3,
+      "label": "story page 3",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_03.png",
+      "screenshot_sha256": "6ba42022a7cc3aecd1c2ef62e760c1a27bf35c5740073c6028dab08adff63679",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 3.8,
+      "round2_internal_visual_craft_score": 4.85,
+      "objects": [
+        {
+          "object": "Roshan/Daddy",
+          "internal_craft_score": 4.9,
+          "observed": "Native restoration holds original threshold action, identities and two-arm topology; no crushing/soft character crop."
+        },
+        {
+          "object": "doors/windows/threshold",
+          "internal_craft_score": 4.9,
+          "observed": "No duplicate window directly above Daddy and no split door seam observed; dirty interior evident."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.85,
+          "observed": "Readable white with shadow, but second line crosses from dark doorway to light lilac column. Minor value variation remains."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "below_target; see specific object notes; no automatic pass",
+      "repair_targets": [],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 3,
+          "source_key": "v29_castle03",
+          "file": "revisions/v29_polish/art/castle03.png",
+          "sha256": "4fc329bf1ec83d2269fb6670eb08da8c25fb89ea1e709d9b66aa6c07089893c6",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "story_art",
+          "alpha": false
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 3,
+        "mode": "F",
+        "art": [
+          "v29_castle03"
+        ],
+        "layout": "full",
+        "text": "“Let’s look inside,\nDaddy,” said Roshan.",
+        "border_assets": [],
+        "border_placements": [],
+        "background_theme": "Existing Grok frame at4seconds: Roshan and Daddy at open doors, dirty interior visible. Full-art left-anchored trim preserves both characters and the threshold; no generated wall pixels.",
+        "focal_exclusions": [
+          [
+            0,
+            0,
+            278,
+            330
+          ],
+          [
+            280,
+            0,
+            150,
+            280
+          ]
+        ],
+        "original_page": null,
+        "beat": "castle_entry",
+        "caption": {
+          "x": 242,
+          "y": 55,
+          "width": 232,
+          "size": 18,
+          "align": "left",
+          "color": "navy",
+          "shadow": false,
+          "halo": false,
+          "outline": 0
+        }
+      }
+    },
+    {
+      "page_index": 4,
+      "label": "story page 4",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_04.png",
+      "screenshot_sha256": "feeec2cd222aedb663fc821f782c670d9941507612c8dd578ab630b428b3ab30",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.3,
+      "round2_internal_visual_craft_score": 4.75,
+      "objects": [
+        {
+          "object": "Roshan/Daddy",
+          "internal_craft_score": 4.8,
+          "observed": "Stable identities; Roshan remains a small rigid frontal source pose. Her nearer hand does not clearly read as holding Daddy."
+        },
+        {
+          "object": "dirty hall/floor",
+          "internal_craft_score": 4.9,
+          "observed": "Dust, cobwebs, doorway icons readable and continuous."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.75,
+          "observed": "White text crosses column/chandelier ornament and horizontal gold rail; legible native but busy zone is below near-final reading target."
+        }
+      ],
+      "observed_remaining_failures": [
+        {
+          "severity": "minor",
+          "object": "caption",
+          "brief": "Consider moving the left-aligned caption into a quieter upper-wall column-free region or a restrained soft value support; preserve entire dirty hall scene and characters."
+        }
+      ],
+      "target_4_9_status": "below_target; see specific object notes; no automatic pass",
+      "repair_targets": [
+        {
+          "severity": "minor",
+          "object": "caption",
+          "brief": "Consider moving the left-aligned caption into a quieter upper-wall column-free region or a restrained soft value support; preserve entire dirty hall scene and characters."
+        }
+      ],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 4,
+          "source_key": "v23_castle_repair",
+          "file": "art/story_detail_v23/castle_repair.png",
+          "sha256": "b1d25511be353a94ed989f1e25289b1d5e1ce3ae69983d544c1eca1a83e6ab17",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "story_art",
+          "alpha": false
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 4,
+        "mode": "F",
+        "art": [
+          "v23_castle_repair"
+        ],
+        "text": "Inside, dust covered the floor.\n“Let’s clean it together!”\nsaid Roshan.",
+        "layout": "full",
+        "border_assets": [],
+        "background_theme": "dirty castle interior",
+        "caption": {
+          "x": 205,
+          "y": 320,
+          "width": 274,
+          "size": 18,
+          "align": "left",
+          "color": "white",
+          "shadow": false,
+          "halo": false,
+          "outline": 0.4
+        },
+        "foreground_zone": null,
+        "focal_exclusions": [],
+        "original_page": 3,
+        "beat": "v27_3"
+      }
+    },
+    {
+      "page_index": 5,
+      "label": "story page 5",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_05.png",
+      "screenshot_sha256": "9e812bc5a78f1579a77e68519714cd474e11733c9b5f87038bd661ca22a51206",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.8,
+      "round2_internal_visual_craft_score": 4.9,
+      "objects": [
+        {
+          "object": "brush/star sponge",
+          "internal_craft_score": 4.9,
+          "observed": "Clean large contourcutouts, no square fields or alpha halos."
+        },
+        {
+          "object": "basket bunny",
+          "internal_craft_score": 4.9,
+          "observed": "Forehead curl/spiral ears/pearl hands; distinct playful supply-basket action, grounded in mound."
+        },
+        {
+          "object": "bath accessories/perimeter",
+          "internal_craft_score": 4.9,
+          "observed": "Small towel basket, soap/pump grounded; navy rings closed/crisp, theme relevant without main-prop duplication."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.9,
+          "observed": "Quiet aqua writing field and large Sniglet."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "observed_pass_for_scoped_craft",
+      "repair_targets": [],
+      "image_treatment": "genuine irregular contourcutouts on compact event-specific background; no scenic rectangles",
+      "source_layers": [
+        {
+          "page": 5,
+          "source_key": "v29_bank05_tiny",
+          "file": "revisions/v29_polish/art/bank05_tiny.png",
+          "sha256": "6aafb29ad769a6b8ed1ac9d5d8c864429009963ad41d16e3da1585fb73787987",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "integrated_stationery",
+          "alpha": false
+        },
+        {
+          "page": 5,
+          "source_key": "brush",
+          "file": "../archive/rough_v5/art/brush.png",
+          "sha256": "17e76b7f758f31a9b148167ff103a68bdf9543e7aac5794314a97bbd91066ef3",
+          "native_size": [
+            936,
+            1024
+          ],
+          "source_box_pixels": [
+            45,
+            38,
+            899,
+            978
+          ],
+          "target_box_points": [
+            65.19148936170214,
+            65.0,
+            172.61702127659572,
+            190.0
+          ],
+          "operation": "source_region",
+          "role": "story_art",
+          "alpha": true
+        },
+        {
+          "page": 5,
+          "source_key": "sponge",
+          "file": "../archive/rough_v5/art/sponge.png",
+          "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b",
+          "native_size": [
+            512,
+            512
+          ],
+          "source_box_pixels": [
+            32,
+            32,
+            479,
+            480
+          ],
+          "target_box_points": [
+            304.15513392857144,
+            62.0,
+            138.68973214285714,
+            139.0
+          ],
+          "operation": "source_region",
+          "role": "story_art",
+          "alpha": true
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 5,
+        "mode": "C",
+        "art": [
+          "brush",
+          "sponge"
+        ],
+        "text": "Daddy gave her a brush and a sponge.\n“One little job at a time.”",
+        "layout": "tools",
+        "border_assets": [],
+        "background_theme": "Eager bunny peeks from supply basket; bath accessories remain ready without duplicating main brush/sponge.",
+        "caption": {
+          "x": 32,
+          "y": 316,
+          "width": 440,
+          "size": 18,
+          "align": "center",
+          "color": "navy",
+          "shadow": false,
+          "halo": false,
+          "outline": 0
+        },
+        "foreground_zone": [
+          30,
+          53,
+          444,
+          211
+        ],
+        "border_placements": [],
+        "integrated_background": "v29_bank05_tiny",
+        "integrated_motifs": [
+          "supply_basket_bunny",
+          "folded_towel_basket",
+          "soap_dish",
+          "soap_pump"
+        ],
+        "integrated_prop_bounds": [
+          [
+            0.15363881,
+            0.8745283,
+            0.05121294,
+            0.06320755
+          ],
+          [
+            0.16037736,
+            0.91698113,
+            0.06603774,
+            0.04528302
+          ],
+          [
+            0.75808625,
+            0.91698113,
+            0.05390836,
+            0.03962264
+          ],
+          [
+            0.8106469,
+            0.87830189,
+            0.03908356,
+            0.0745283
+          ]
+        ],
+        "bounds_note": "Round2 native visible-subject annotation; exact hidden occlusion/shadow opacity not measurable for generated pixels.",
+        "marginal_bunny_count": 1,
+        "original_page": 4,
+        "beat": "v27_4"
+      }
+    },
+    {
+      "page_index": 6,
+      "label": "story page 6",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_06.png",
+      "screenshot_sha256": "af9175033d948971460a7a26f7c70a91242269cc80679d06a040374df0ed7898",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.7,
+      "round2_internal_visual_craft_score": 4.65,
+      "objects": [
+        {
+          "object": "swimming bunny",
+          "internal_craft_score": 4.9,
+          "observed": "Canonical spiral ears, forehead curl, cloud silhouette and pearl hands; animated splash action."
+        },
+        {
+          "object": "dirty bath/sink",
+          "internal_craft_score": 4.9,
+          "observed": "Crisp gunk/drip contours; dirty painted facets are not diagnosed compression."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.65,
+          "observed": "White text overlays busy tan/pink facets and pale specular patches. Shadow makes native text legible but local contrast flickers; needs stronger quiet caption treatment."
+        }
+      ],
+      "observed_remaining_failures": [
+        {
+          "severity": "moderate",
+          "object": "caption",
+          "brief": "Strengthen continuous local contrast with a restrained soft dark value support behind current bottom caption or relocate within existing quiet region. Preserve full art and focal bunny; no opaque scenic crop."
+        }
+      ],
+      "target_4_9_status": "below_target; see specific object notes; no automatic pass",
+      "repair_targets": [
+        {
+          "severity": "moderate",
+          "object": "caption",
+          "brief": "Strengthen continuous local contrast with a restrained soft dark value support behind current bottom caption or relocate within existing quiet region. Preserve full art and focal bunny; no opaque scenic crop."
+        }
+      ],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 6,
+          "source_key": "v22_scene_05",
+          "file": "art/quality_v22/scene_05.png",
+          "sha256": "0fe4964494794d1112d9829feadd96d418c712f5215b8201abe2270875ccfd96",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "story_art",
+          "alpha": false
+        },
+        {
+          "page": 6,
+          "source_key": "v29_caption06",
+          "file": "revisions/v29_polish/art/caption06.png",
+          "sha256": "6fcc0398b3b92ec43dbaab21145daaeaebeb446c1e18b28e93791ff70fe593ef",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            760,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            101.88679245283018
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              70,
+              790
+            ],
+            [
+              185,
+              760
+            ],
+            [
+              1290,
+              760
+            ],
+            [
+              1440,
+              810
+            ],
+            [
+              1484,
+              1060
+            ],
+            [
+              0,
+              1060
+            ]
+          ]
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 6,
+        "mode": "F",
+        "art": [
+          "v22_scene_05"
+        ],
+        "text": "A dust bunny splashed in the dirty bath.\nIt loved to play. Splash, splash!",
+        "layout": "full",
+        "border_assets": [],
+        "background_theme": "full scene",
+        "caption": {
+          "x": 30,
+          "y": 59,
+          "width": 444,
+          "size": 20,
+          "align": "center",
+          "color": "white",
+          "shadow": false,
+          "halo": false,
+          "outline": 0.4
+        },
+        "foreground_zone": null,
+        "focal_exclusions": [
+          [
+            0,
+            80,
+            504,
+            280
+          ]
+        ],
+        "original_page": 5,
+        "beat": "v27_5",
+        "local_patch": {
+          "source": "v29_caption06",
+          "reference_size": [
+            1484,
+            1060
+          ],
+          "polygon": [
+            [
+              70,
+              790
+            ],
+            [
+              185,
+              760
+            ],
+            [
+              1290,
+              760
+            ],
+            [
+              1440,
+              810
+            ],
+            [
+              1484,
+              1060
+            ],
+            [
+              0,
+              1060
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "page_index": 7,
+      "label": "story page 7",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_07.png",
+      "screenshot_sha256": "44ce7bcc8d1b93bcd8e7cc49a0fc80e3109a85bc90a3084b09509623b48b4dbb",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.8,
+      "round2_internal_visual_craft_score": 4.9,
+      "objects": [
+        {
+          "object": "Roshan/sink action",
+          "internal_craft_score": 4.9,
+          "observed": "Two arms, real hand-to-sponge/basin contact and clean contourisolation."
+        },
+        {
+          "object": "mirror bunny",
+          "internal_craft_score": 4.9,
+          "observed": "Canonical little bunny looks into mirror; mirror tiny but identifiable."
+        },
+        {
+          "object": "towel/soap/perimeter",
+          "internal_craft_score": 4.9,
+          "observed": "Grounded small details, closed ring rims; caption area remains clear."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.9,
+          "observed": "Dark Sniglet on quiet aqua."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "observed_pass_for_scoped_craft",
+      "repair_targets": [],
+      "image_treatment": "genuine irregular contourcutouts on compact event-specific background; no scenic rectangles",
+      "source_layers": [
+        {
+          "page": 7,
+          "source_key": "v29_bank07_tiny",
+          "file": "revisions/v29_polish/art/bank07_tiny.png",
+          "sha256": "730099f7acd4fa8b73e3c6630213edf9779cb99ceba42c9714e8e9b3134c5366",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "integrated_stationery",
+          "alpha": false
+        },
+        {
+          "page": 7,
+          "source_key": "approved_sink_action",
+          "file": "../previews/2026-09-30/art/sink_action.png",
+          "sha256": "873d1cd6ecd508564404e77d25c0f33e6630b4446fd5bad422c2d50a2b778b52",
+          "native_size": [
+            1589,
+            990
+          ],
+          "source_box_pixels": [
+            50,
+            7,
+            1578,
+            978
+          ],
+          "target_box_points": [
+            80.47373841400619,
+            60.0,
+            343.0525231719876,
+            218.0
+          ],
+          "operation": "source_region",
+          "role": "story_art",
+          "alpha": true
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 7,
+        "mode": "C",
+        "art": [
+          "approved_sink_action"
+        ],
+        "text": "Round and round went the sponge.\nRoshan wiped the sink clean.",
+        "layout": "wide_cut",
+        "border_assets": [],
+        "background_theme": "Little bunny enjoys clean reflection, with folded towel and soap dish grounding the sink-clean moment.",
+        "caption": {
+          "x": 32,
+          "y": 318,
+          "width": 440,
+          "size": 18,
+          "align": "center",
+          "color": "navy",
+          "shadow": false,
+          "halo": false,
+          "outline": 0
+        },
+        "foreground_zone": [
+          32,
+          60,
+          440,
+          218
+        ],
+        "border_placements": [],
+        "integrated_background": "v29_bank07_tiny",
+        "integrated_motifs": [
+          "mirror_bunny",
+          "hand_mirror",
+          "mirror_glints",
+          "folded_towel",
+          "soap_dish",
+          "accessory_bubbles"
+        ],
+        "integrated_prop_bounds": [
+          [
+            0.13679245,
+            0.87924528,
+            0.05592992,
+            0.08018868
+          ],
+          [
+            0.19002695,
+            0.89622642,
+            0.02493261,
+            0.06415094
+          ],
+          [
+            0.20148248,
+            0.89339623,
+            0.02156334,
+            0.0254717
+          ],
+          [
+            0.77291105,
+            0.90471698,
+            0.05929919,
+            0.05660377
+          ],
+          [
+            0.81940701,
+            0.91981132,
+            0.0458221,
+            0.04150943
+          ],
+          [
+            0.8328841,
+            0.88207547,
+            0.01886792,
+            0.03962264
+          ]
+        ],
+        "marginal_bunny_count": 1,
+        "bounds_note": "Round2 native visible-subject annotation; exact hidden occlusion/shadow opacity not measurable for generated pixels.",
+        "original_page": 6,
+        "beat": "v27_6"
+      }
+    },
+    {
+      "page_index": 8,
+      "label": "story page 8",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_08.png",
+      "screenshot_sha256": "e6584998fdd2123e541b17633ee60ae85b2625ad3b2c736bb0250d4215018adb",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.7,
+      "round2_internal_visual_craft_score": 4.9,
+      "objects": [
+        {
+          "object": "Roshan/tub brush contact",
+          "internal_craft_score": 4.9,
+          "observed": "Brush held by fingers with bristles meeting gunk; emptied tub state readable."
+        },
+        {
+          "object": "duck bunny",
+          "internal_craft_score": 4.9,
+          "observed": "Canonical bunny nudges duck in tiny ripple; playful without taking main focus."
+        },
+        {
+          "object": "towel/plug/perimeter",
+          "internal_craft_score": 4.9,
+          "observed": "Plug/chain connects directly to drained bath beat; small props ground cleanly."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.9,
+          "observed": "Large dark type and clear field."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "observed_pass_for_scoped_craft",
+      "repair_targets": [],
+      "image_treatment": "genuine irregular contourcutouts on compact event-specific background; no scenic rectangles",
+      "source_layers": [
+        {
+          "page": 8,
+          "source_key": "v29_bank08_tiny",
+          "file": "revisions/v29_polish/art/bank08_tiny.png",
+          "sha256": "cd0d6bb9145c99c0b240bd614ee94925423aa3ea85b4a2bb779473c95923138e",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "integrated_stationery",
+          "alpha": false
+        },
+        {
+          "page": 8,
+          "source_key": "bath_drained_local",
+          "file": "../archive/rough_v5/art/bath_drained_local.png",
+          "sha256": "b33c3d90158d0618680803b1c9a3c9b2f61fee1bfd7db55fc57c138c14316dc3",
+          "native_size": [
+            1589,
+            990
+          ],
+          "source_box_pixels": [
+            0,
+            9,
+            1589,
+            990
+          ],
+          "target_box_points": [
+            81.11365953109072,
+            53.0,
+            341.77268093781856,
+            211.0
+          ],
+          "operation": "source_region",
+          "role": "story_art",
+          "alpha": true
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 8,
+        "mode": "C",
+        "art": [
+          "bath_drained_local"
+        ],
+        "text": "Roshan let the dirty bath water out.\nThen she scrubbed the tub. Scrub, scrub!",
+        "layout": "wide_cut",
+        "border_assets": [],
+        "background_theme": "One gentle bunny nudges duck; bath plug and rolled towel show emptied bath and cleaning context.",
+        "caption": {
+          "x": 32,
+          "y": 316,
+          "width": 440,
+          "size": 18,
+          "align": "center",
+          "color": "navy",
+          "shadow": false,
+          "halo": false,
+          "outline": 0
+        },
+        "foreground_zone": [
+          30,
+          53,
+          444,
+          211
+        ],
+        "border_placements": [],
+        "integrated_background": "v29_bank08_tiny",
+        "integrated_motifs": [
+          "duck_bunny",
+          "rubber_duck",
+          "duck_ripples",
+          "duck_splashes",
+          "rolled_towel",
+          "bath_plug_chain"
+        ],
+        "integrated_prop_bounds": [
+          [
+            0.12803235,
+            0.8754717,
+            0.05929919,
+            0.06981132
+          ],
+          [
+            0.18059299,
+            0.90943396,
+            0.02695418,
+            0.04245283
+          ],
+          [
+            0.17385445,
+            0.93584906,
+            0.04649596,
+            0.02169811
+          ],
+          [
+            0.20889488,
+            0.91037736,
+            0.01415094,
+            0.01981132
+          ],
+          [
+            0.80592992,
+            0.8990566,
+            0.06199461,
+            0.0490566
+          ],
+          [
+            0.77560647,
+            0.91698113,
+            0.05525606,
+            0.04716981
+          ]
+        ],
+        "marginal_bunny_count": 1,
+        "bounds_note": "Round2 native visible-subject annotation; exact hidden occlusion/shadow opacity not measurable for generated pixels.",
+        "original_page": 7,
+        "beat": "v27_7"
+      }
+    },
+    {
+      "page_index": 9,
+      "label": "story page 9",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_09.png",
+      "screenshot_sha256": "cece45ce1404fa7823953b42eef13b00ee498a2afa9144c50e0726dabbf1aa5b",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.6,
+      "round2_internal_visual_craft_score": 4.85,
+      "objects": [
+        {
+          "object": "Roshan/bath bunny",
+          "internal_craft_score": 4.9,
+          "observed": "Gentle supporting hands and pearl-limbed canonical bunny; clean bath payoff."
+        },
+        {
+          "object": "hidden Lamma",
+          "internal_craft_score": 4.9,
+          "observed": "Horizontal white ears, oval face, eyelashes/Y muzzle visible behind towels; subtle and unlabelled."
+        },
+        {
+          "object": "room/water bubbles",
+          "internal_craft_score": 4.9,
+          "observed": "Bubble rims smooth, water/room resolved; lamma patch has no square/alpha edge."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.85,
+          "observed": "Navy text on patterned warm floor remains readable, but the floor detail is richer than a quiet reading field."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "below_target; see specific object notes; no automatic pass",
+      "repair_targets": [],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 9,
+          "source_key": "v22_scene_08",
+          "file": "art/quality_v22/scene_08.png",
+          "sha256": "ac7d2590df67923b3e2cc47dd05fe44d0cc2fcd74396b622a6f44e3bba03ecc1",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "story_art",
+          "alpha": false
+        },
+        {
+          "page": 9,
+          "source_key": "v29_lamma09",
+          "file": "revisions/v29_polish/art/lamma09.png",
+          "sha256": "20bc3968451218a54e67905a754cd4de21285663cdf05310fb14fa2d3674dd2a",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            72,
+            733,
+            216,
+            822
+          ],
+          "target_box_points": [
+            24.452830188679272,
+            80.83018867924528,
+            48.90566037735849,
+            30.22641509433962
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              72,
+              773
+            ],
+            [
+              94,
+              739
+            ],
+            [
+              191,
+              733
+            ],
+            [
+              215,
+              757
+            ],
+            [
+              216,
+              798
+            ],
+            [
+              166,
+              820
+            ],
+            [
+              96,
+              822
+            ]
+          ]
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 9,
+        "mode": "F",
+        "art": [
+          "v22_scene_08"
+        ],
+        "text": "Clean water filled the bath.\nThe dust bunny splashed again!",
+        "layout": "full",
+        "border_assets": [],
+        "background_theme": "full scene",
+        "caption": {
+          "x": 30,
+          "y": 55,
+          "width": 444,
+          "size": 18,
+          "align": "center",
+          "color": "navy",
+          "shadow": false,
+          "halo": false,
+          "outline": 0
+        },
+        "foreground_zone": null,
+        "focal_exclusions": [
+          [
+            0,
+            80,
+            504,
+            280
+          ]
+        ],
+        "local_patch": {
+          "source": "v29_lamma09",
+          "reference_size": [
+            1484,
+            1060
+          ],
+          "polygon": [
+            [
+              72,
+              773
+            ],
+            [
+              94,
+              739
+            ],
+            [
+              191,
+              733
+            ],
+            [
+              215,
+              757
+            ],
+            [
+              216,
+              798
+            ],
+            [
+              166,
+              820
+            ],
+            [
+              96,
+              822
+            ]
+          ]
+        },
+        "original_page": 8,
+        "beat": "v27_8"
+      }
+    },
+    {
+      "page_index": 10,
+      "label": "story page 10",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_10.png",
+      "screenshot_sha256": "bb0478beadfc1c678e479799e4a2f9477f3c963b4dabb3a6cdd971c0ae9676f2",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.6,
+      "round2_internal_visual_craft_score": 4.8,
+      "objects": [
+        {
+          "object": "Roshan net",
+          "internal_craft_score": 4.9,
+          "observed": "Hands grip net handle; forward pose/action understandable."
+        },
+        {
+          "object": "trapped Rumi",
+          "internal_craft_score": 4.8,
+          "observed": "Face rounder/younger than adult runtime atlas but consistent braid/costume/tail identifiers; gunk visibly traps her."
+        },
+        {
+          "object": "gunk/rubbish/seahorse",
+          "internal_craft_score": 4.9,
+          "observed": "Dirty objects clear; seahorse cup blockage correctly previews14."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.8,
+          "observed": "White with shadow reads native; runs over detailed floor and Roshan fin edge."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "below_target; see specific object notes; no automatic pass",
+      "repair_targets": [],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 10,
+          "source_key": "v26_rumi_trapped",
+          "file": "art/language_v26/rumi_trapped.png",
+          "sha256": "dd7f716c7f470cef0361e339e281fc662558f88915448c42a25bcdaeb509d2d0",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "story_art",
+          "alpha": false
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 10,
+        "mode": "F",
+        "art": [
+          "v26_rumi_trapped"
+        ],
+        "text": "A mermaid named Rumi was stuck\nunder the gunk in the pool.",
+        "layout": "full",
+        "border_assets": [],
+        "background_theme": "full scene",
+        "caption": {
+          "x": 30,
+          "y": 55,
+          "width": 444,
+          "size": 20,
+          "align": "center",
+          "color": "white",
+          "shadow": false,
+          "halo": false,
+          "outline": 0.4
+        },
+        "foreground_zone": null,
+        "focal_exclusions": [
+          [
+            0,
+            80,
+            504,
+            280
+          ]
+        ],
+        "original_page": 9,
+        "beat": "v27_9"
+      }
+    },
+    {
+      "page_index": 11,
+      "label": "story page 11",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_11.png",
+      "screenshot_sha256": "4c219bfb4b7dfa0c4125e1828805a026613c015a62153e80e259b476b29a8f95",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.8,
+      "round2_internal_visual_craft_score": 4.9,
+      "objects": [
+        {
+          "object": "rubbish net",
+          "internal_craft_score": 4.9,
+          "observed": "True irregular cutout including mesh holes and dripping gunk; no square."
+        },
+        {
+          "object": "trash mound objects",
+          "internal_craft_score": 4.9,
+          "observed": "Wrapper, dented algae can and cap relevant, grounded with scene-compatible shading."
+        },
+        {
+          "object": "repaired perimeter",
+          "internal_craft_score": 4.9,
+          "observed": "Previous open/chipped bubble rims now cleanly closed; patch edges not visible."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.9,
+          "observed": "Dark text in clear blue field."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "observed_pass_for_scoped_craft",
+      "repair_targets": [],
+      "image_treatment": "genuine irregular contourcutouts on compact event-specific background; no scenic rectangles",
+      "source_layers": [
+        {
+          "page": 11,
+          "source_key": "v29_bubbles11",
+          "file": "revisions/v29_polish/art/bubbles11.png",
+          "sha256": "2ecc03a12ded1f66ed4fe58daa5bbbc216cf73f3e3e0e7e73e5f82369f8cdeec",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "integrated_stationery",
+          "alpha": false
+        },
+        {
+          "page": 11,
+          "source_key": "net_cut",
+          "file": "art/net_cut.png",
+          "sha256": "5320644cfe21ad99828f0b2d4ecbcfd20041e8b6bb90623d08d821a7960cc206",
+          "native_size": [
+            1706,
+            922
+          ],
+          "source_box_pixels": [
+            0,
+            21,
+            1682,
+            922
+          ],
+          "target_box_points": [
+            63.45172031076581,
+            53.0,
+            377.0965593784684,
+            202.0
+          ],
+          "operation": "source_region",
+          "role": "story_art",
+          "alpha": true
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 11,
+        "mode": "C",
+        "art": [
+          "net_cut"
+        ],
+        "text": "Rumi had lived in Pearl Castle\nfor hundreds of years.\n“I’ll help!” said Roshan. Scoop, scoop!",
+        "layout": "wide_cut",
+        "border_assets": [],
+        "background_theme": "Actual pool rubbish: torn star wrapper left; algae-covered dented can and discarded blue cap right. Replaces clean accessories and empty basket.",
+        "caption": {
+          "x": 32,
+          "y": 316,
+          "width": 440,
+          "size": 18,
+          "align": "center",
+          "color": "navy",
+          "shadow": false,
+          "halo": false,
+          "outline": 0
+        },
+        "foreground_zone": [
+          30,
+          53,
+          444,
+          202
+        ],
+        "border_placements": [],
+        "integrated_background": "v29_bubbles11",
+        "integrated_motifs": [
+          "torn_star_wrapper",
+          "algae_dented_can",
+          "discarded_blue_cap"
+        ],
+        "integrated_prop_bounds": [
+          [
+            0.2082210242587601,
+            0.8735849056603774,
+            0.09366576819407008,
+            0.09622641509433963
+          ],
+          [
+            0.6987870619946092,
+            0.8764150943396226,
+            0.0876010781671159,
+            0.08773584905660377
+          ],
+          [
+            0.8099730458221024,
+            0.8990566037735849,
+            0.07075471698113207,
+            0.07075471698113207
+          ]
+        ],
+        "marginal_bunny_count": 0,
+        "bounds_note": "Manual native-pixel visible-subject annotation, excludes native coral/shells and contact shadow; page20 ear antialias reaches y899 (2px above ideal line), retained explicitly as a minor placement exception.",
+        "original_page": 10,
+        "beat": "v27_10"
+      }
+    },
+    {
+      "page_index": 12,
+      "label": "story page 12",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_12.png",
+      "screenshot_sha256": "742584d7f1d173d6916994c59edf744400a7ac2320a73e8a3bd265f2784a10b6",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.4,
+      "round2_internal_visual_craft_score": 4.8,
+      "objects": [
+        {
+          "object": "part-cleared waterfall",
+          "internal_craft_score": 4.9,
+          "observed": "Left orange/red lane is already clear; two lanes remain gunky. Do not falsely audit all lanes blocked."
+        },
+        {
+          "object": "embedded rubbish",
+          "internal_craft_score": 4.9,
+          "observed": "Coherent debris embedded in remaining gunk; no tear."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.8,
+          "observed": "White caption over highlighted water/spray reads with shadow but crosses bright orange/white splash; quieter value field would improve."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "below_target; see specific object notes; no automatic pass",
+      "repair_targets": [],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 12,
+          "source_key": "v22_scene_11",
+          "file": "art/quality_v22/scene_11.png",
+          "sha256": "17c6330b1faa8667ddb49769713589681f708ad65377f24f240d4c2f4441c5d3",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "story_art",
+          "alpha": false
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 12,
+        "mode": "F",
+        "art": [
+          "v22_scene_11"
+        ],
+        "text": "One stream ran clear.\nThen Roshan cleared the other two.",
+        "layout": "full",
+        "border_assets": [],
+        "background_theme": "full scene",
+        "caption": {
+          "x": 30,
+          "y": 58,
+          "width": 444,
+          "size": 20,
+          "align": "center",
+          "color": "white",
+          "shadow": false,
+          "halo": false,
+          "outline": 0.4
+        },
+        "foreground_zone": null,
+        "focal_exclusions": [
+          [
+            0,
+            80,
+            504,
+            280
+          ]
+        ],
+        "original_page": 11,
+        "beat": "v27_11"
+      }
+    },
+    {
+      "page_index": 13,
+      "label": "story page 13",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_13.png",
+      "screenshot_sha256": "03f3b109a83bdffcab944d17cf90736b8c02e8767873cc57b5812cf7111b5f70",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.5,
+      "round2_internal_visual_craft_score": 4.7,
+      "objects": [
+        {
+          "object": "rainbow waterfall",
+          "internal_craft_score": 4.9,
+          "observed": "Streams visibly rainbow with clean crisp spray; restored required story event."
+        },
+        {
+          "object": "residual pool objects",
+          "internal_craft_score": 4.8,
+          "observed": "Floating tin/ring/leaves remain; caption claims streams clear, not whole pool. Fresh-water room payoff occurs15, so this is a retained intermediate state, not a forced correction."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.7,
+          "observed": "White type over bright caustics/reflections is readable native with shadow but busy and below quiet 4.9 reading target."
+        }
+      ],
+      "observed_remaining_failures": [
+        {
+          "severity": "moderate",
+          "object": "caption",
+          "brief": "Quiet only caption value region over bright water caustics or move text; preserve rainbow waterfall and intermediate pool state."
+        }
+      ],
+      "target_4_9_status": "below_target; see specific object notes; no automatic pass",
+      "repair_targets": [
+        {
+          "severity": "moderate",
+          "object": "caption",
+          "brief": "Quiet only caption value region over bright water caustics or move text; preserve rainbow waterfall and intermediate pool state."
+        }
+      ],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 13,
+          "source_key": "v22_scene_12_fit",
+          "file": "art/quality_v22/scene_12_fit.png",
+          "sha256": "8b95e7b809aa38f0c939ab2f776321bfdeea7c638b5ed95ac624b84074c1e7b6",
+          "native_size": [
+            1486,
+            1059
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1486,
+            1059
+          ],
+          "target_box_points": [
+            -0.5779036827195512,
+            0.0,
+            505.1558073654391,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "story_art",
+          "alpha": false
+        },
+        {
+          "page": 13,
+          "source_key": "v29_caption13",
+          "file": "revisions/v29_polish/art/caption13.png",
+          "sha256": "d22e70ae21fe8c976a9b1a964292d8b0f7487e7002d7914e00b52e23f22832a5",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            727,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            113.0943396226415
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              0,
+              738
+            ],
+            [
+              350,
+              727
+            ],
+            [
+              740,
+              732
+            ],
+            [
+              1140,
+              735
+            ],
+            [
+              1484,
+              749
+            ],
+            [
+              1484,
+              1060
+            ],
+            [
+              0,
+              1060
+            ]
+          ]
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 13,
+        "mode": "F",
+        "art": [
+          "v22_scene_12_fit"
+        ],
+        "text": "All three streams were clear.\nWhoosh! The waterfall turned rainbow!",
+        "layout": "full",
+        "border_assets": [],
+        "background_theme": "full scene",
+        "caption": {
+          "x": 30,
+          "y": 58,
+          "width": 444,
+          "size": 20,
+          "align": "center",
+          "color": "white",
+          "shadow": false,
+          "halo": false,
+          "outline": 0.4
+        },
+        "foreground_zone": null,
+        "focal_exclusions": [
+          [
+            0,
+            80,
+            504,
+            280
+          ]
+        ],
+        "original_page": 12,
+        "beat": "v27_12",
+        "local_patch": {
+          "source": "v29_caption13",
+          "reference_size": [
+            1484,
+            1060
+          ],
+          "polygon": [
+            [
+              0,
+              738
+            ],
+            [
+              350,
+              727
+            ],
+            [
+              740,
+              732
+            ],
+            [
+              1140,
+              735
+            ],
+            [
+              1484,
+              749
+            ],
+            [
+              1484,
+              1060
+            ],
+            [
+              0,
+              1060
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "page_index": 14,
+      "label": "story page 14",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_14.png",
+      "screenshot_sha256": "312285940ccae62f0ba8f0bcfcc60eb5b477099f7f6b7bfebf3f11df503d79c5",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.4,
+      "round2_internal_visual_craft_score": 4.85,
+      "objects": [
+        {
+          "object": "Roshan/cup grip",
+          "internal_craft_score": 4.9,
+          "observed": "Simple pink top restored; neckline ornaments removed. Two hands cup naturally; face has no low-resolution squashing."
+        },
+        {
+          "object": "seahorse/fountain",
+          "internal_craft_score": 4.9,
+          "observed": "Cup freed from mouth and renewed arc of water read clearly; crisp local details."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.85,
+          "observed": "Navy now readable against aqua water, but the first line meets intense white spray and tail reflection."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "below_target; see specific object notes; no automatic pass",
+      "repair_targets": [],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 14,
+          "source_key": "v29_fountain14",
+          "file": "revisions/v29_polish/art/fountain14.png",
+          "sha256": "3031917eb02f4a606b57e08fe7a5924abe08020c11efd3faba8cf27343cdec62",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "story_art",
+          "alpha": false
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 14,
+        "mode": "F",
+        "art": [
+          "v29_fountain14"
+        ],
+        "text": "A cup was stuck in the seahorse fountain.\nRoshan pulled it free!",
+        "layout": "full",
+        "border_assets": [],
+        "background_theme": "full scene",
+        "caption": {
+          "x": 30,
+          "y": 55,
+          "width": 444,
+          "size": 18,
+          "align": "center",
+          "color": "navy",
+          "shadow": false,
+          "halo": false,
+          "outline": 0
+        },
+        "foreground_zone": null,
+        "focal_exclusions": [],
+        "original_page": 13,
+        "beat": "v27_13"
+      }
+    },
+    {
+      "page_index": 15,
+      "label": "story page 15",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_15.png",
+      "screenshot_sha256": "5f864e170163679dcb11f6c7e69e7f6012c1afe10e6212f8d1203b3e635a0018",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.7,
+      "round2_internal_visual_craft_score": 4.9,
+      "objects": [
+        {
+          "object": "Rumi",
+          "internal_craft_score": 4.9,
+          "observed": "Adult atlas-like face, segmented braid, purple/gold jacket and turquoise/pink tail; joyful risen pose."
+        },
+        {
+          "object": "restored pool room",
+          "internal_craft_score": 4.9,
+          "observed": "Fresh water/working rainbow fall and seahorse show resolved local state."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.9,
+          "observed": "White with shadow on darker lower floor clear at native scale."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "observed_pass_for_scoped_craft",
+      "repair_targets": [],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 15,
+          "source_key": "v26_rumi_free",
+          "file": "art/language_v26/rumi_free.png",
+          "sha256": "c1f864bed9bcf443a326fdef85536f9b60592f104f873559a3e315101f06ba59",
+          "native_size": [
+            1483,
+            1061
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1483,
+            1061
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            -0.2913014160485261,
+            503.99999999999994,
+            360.58260283209705
+          ],
+          "operation": "page_trim",
+          "role": "story_art",
+          "alpha": false
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 15,
+        "mode": "F",
+        "art": [
+          "v26_rumi_free"
+        ],
+        "text": "Fresh water flowed. The gunk was gone.\nUp came Rumi. She was free!",
+        "layout": "full",
+        "border_assets": [],
+        "background_theme": "full scene",
+        "caption": {
+          "x": 30,
+          "y": 55,
+          "width": 444,
+          "size": 20,
+          "align": "center",
+          "color": "white",
+          "shadow": false,
+          "halo": false,
+          "outline": 0.4
+        },
+        "foreground_zone": null,
+        "focal_exclusions": [
+          [
+            0,
+            80,
+            504,
+            280
+          ]
+        ],
+        "original_page": 14,
+        "beat": "v27_14"
+      }
+    },
+    {
+      "page_index": 16,
+      "label": "story page 16",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_16.png",
+      "screenshot_sha256": "d8673bac60338cf8a3a574f4822a257f1c4bd2b0a415fe9489bc3027442a9486",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.5,
+      "round2_internal_visual_craft_score": 4.9,
+      "objects": [
+        {
+          "object": "hugging Rumi/Roshan",
+          "internal_craft_score": 4.9,
+          "observed": "Closely interacting arms and cheek contact; cleaned wrist no pearl bracelet. Complete smooth contourcutout."
+        },
+        {
+          "object": "mini fountain/bunny shell cup",
+          "internal_craft_score": 4.9,
+          "observed": "Working fountain recalls freed cup; bunny curl/ears/pearls stable, all details now compact and grounded."
+        },
+        {
+          "object": "caption/perimeter",
+          "internal_craft_score": 4.9,
+          "observed": "Comfortable left writing block and crisp rings, no text/art collision."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "observed_pass_for_scoped_craft",
+      "repair_targets": [],
+      "image_treatment": "genuine irregular contourcutouts on compact event-specific background; no scenic rectangles",
+      "source_layers": [
+        {
+          "page": 16,
+          "source_key": "v29_bank16_tiny",
+          "file": "revisions/v29_polish/art/bank16_tiny.png",
+          "sha256": "a369ed0cf9a374c813144c9de93790095cf4900a62d6e33c4077194f09a95fa6",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "integrated_stationery",
+          "alpha": false
+        },
+        {
+          "page": 16,
+          "source_key": "v29_hug16",
+          "file": "revisions/v29_polish/art/hug16.png",
+          "sha256": "8b88962e02af2cc9974491a860bc583f2167991699ab434554ac4782ac061f92",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            23,
+            0,
+            1464,
+            1044
+          ],
+          "target_box_points": [
+            184.0,
+            78.77446217904233,
+            296.0,
+            214.45107564191534
+          ],
+          "operation": "source_region",
+          "role": "story_art",
+          "alpha": true
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 16,
+        "mode": "C",
+        "art": [
+          "v29_hug16"
+        ],
+        "text": "“You helped me!”\nsaid Rumi.\nShe gave Roshan\na great big hug.",
+        "layout": "wide_cut",
+        "border_assets": [],
+        "background_theme": "Tiny working seahorse recalls freed fountain; one warm bunny and shell cup support Rumi's hug.",
+        "caption": {
+          "x": 40,
+          "y": 263,
+          "width": 148,
+          "size": 18,
+          "align": "left",
+          "color": "navy",
+          "shadow": false,
+          "halo": false,
+          "outline": 0
+        },
+        "foreground_zone": [
+          184,
+          64,
+          296,
+          244
+        ],
+        "integrated_background": "v29_bank16_tiny",
+        "integrated_motifs": [
+          "seahorse_fountain_splash",
+          "hug_bunny",
+          "shell_cup",
+          "new_left_coral",
+          "new_right_coral",
+          "left_star",
+          "right_star",
+          "fountain_bubble_pair",
+          "cup_bubble_pair"
+        ],
+        "integrated_prop_bounds": [
+          [
+            0.13477089,
+            0.85943396,
+            0.08894879,
+            0.1009434
+          ],
+          [
+            0.78706199,
+            0.86603774,
+            0.06536388,
+            0.09150943
+          ],
+          [
+            0.77021563,
+            0.92264151,
+            0.04312668,
+            0.03773585
+          ],
+          [
+            0.20350404,
+            0.89528302,
+            0.03032345,
+            0.05471698
+          ],
+          [
+            0.74528302,
+            0.90754717,
+            0.0309973,
+            0.04622642
+          ],
+          [
+            0.22843666,
+            0.93679245,
+            0.02088949,
+            0.0245283
+          ],
+          [
+            0.86253369,
+            0.93773585,
+            0.02358491,
+            0.02641509
+          ],
+          [
+            0.20148248,
+            0.87264151,
+            0.01684636,
+            0.0245283
+          ],
+          [
+            0.76415094,
+            0.87924528,
+            0.00876011,
+            0.02735849
+          ]
+        ],
+        "marginal_bunny_count": 1,
+        "border_placements": [],
+        "bounds_note": "Round2 native visible-subject annotation; exact hidden occlusion/shadow opacity not measurable for generated pixels.",
+        "original_page": 15,
+        "beat": "v27_15"
+      }
+    },
+    {
+      "page_index": 17,
+      "label": "story page 17",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_17.png",
+      "screenshot_sha256": "4135577c4218b525fd64edc9c21d01cb86a957c5d235fc03e3a55fdc1d62f1ab",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.1,
+      "round2_internal_visual_craft_score": 4.9,
+      "objects": [
+        {
+          "object": "listening Roshan",
+          "internal_craft_score": 4.9,
+          "observed": "Exactly two arms: one hand cupped at ear and one lowered; old arm fully removed. Crown/head/waist/background transition continuous."
+        },
+        {
+          "object": "storage bunny/toys",
+          "internal_craft_score": 4.9,
+          "observed": "Cloud body, two spiral ears/forehead curl/pearls remain canonical; dusty shelves and bins support chirp."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.9,
+          "observed": "White with shadow on darker quiet lower floor clear."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "observed_pass_for_scoped_craft",
+      "repair_targets": [],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 17,
+          "source_key": "v22_scene_16",
+          "file": "art/quality_v22/scene_16.png",
+          "sha256": "de334d67ba6a345cc46b9e0cab3488fbc6dd8596a66d88b9dce01f2d1ae2c3fc",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "story_art",
+          "alpha": false
+        },
+        {
+          "page": 17,
+          "source_key": "v29_listen17",
+          "file": "revisions/v29_polish/art/listen17.png",
+          "sha256": "225592b9442a61ef29c73d42e5383f33b319bd70ece6705ec0877fd837350d28",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            603,
+            130,
+            980,
+            522
+          ],
+          "target_box_points": [
+            204.7924528301887,
+            182.71698113207546,
+            128.0377358490566,
+            133.1320754716981
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              606,
+              130
+            ],
+            [
+              850,
+              130
+            ],
+            [
+              980,
+              220
+            ],
+            [
+              980,
+              395
+            ],
+            [
+              938,
+              522
+            ],
+            [
+              610,
+              522
+            ],
+            [
+              603,
+              409
+            ],
+            [
+              626,
+              325
+            ],
+            [
+              612,
+              250
+            ]
+          ]
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 17,
+        "mode": "F",
+        "art": [
+          "v22_scene_16"
+        ],
+        "text": "Chirp, chirp!\n“Someone needs help!” said Roshan.",
+        "layout": "full",
+        "border_assets": [],
+        "background_theme": "full scene",
+        "caption": {
+          "x": 30,
+          "y": 58,
+          "width": 444,
+          "size": 20,
+          "align": "center",
+          "color": "white",
+          "shadow": false,
+          "halo": false,
+          "outline": 0.4
+        },
+        "foreground_zone": null,
+        "focal_exclusions": [
+          [
+            0,
+            80,
+            504,
+            280
+          ]
+        ],
+        "original_page": 16,
+        "beat": "v27_16",
+        "local_patch": {
+          "source": "v29_listen17",
+          "reference_size": [
+            1484,
+            1060
+          ],
+          "polygon": [
+            [
+              606,
+              130
+            ],
+            [
+              850,
+              130
+            ],
+            [
+              980,
+              220
+            ],
+            [
+              980,
+              395
+            ],
+            [
+              938,
+              522
+            ],
+            [
+              610,
+              522
+            ],
+            [
+              603,
+              409
+            ],
+            [
+              626,
+              325
+            ],
+            [
+              612,
+              250
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "page_index": 18,
+      "label": "story page 18",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_18.png",
+      "screenshot_sha256": "c6fecff956ff43ff909b1c34959939686c11b9909639c9ebaf4c7a26f54594e5",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.0,
+      "round2_internal_visual_craft_score": 4.85,
+      "objects": [
+        {
+          "object": "Roshan brush",
+          "internal_craft_score": 4.9,
+          "observed": "Genuine two-handed brush grip and bristle contact with pinned bunny; no extra limbs."
+        },
+        {
+          "object": "pinned Baby Eagle",
+          "internal_craft_score": 4.9,
+          "observed": "Two bunnies restrain his wings, no blanket. Crest/cheeks/plumage/feet recognizable."
+        },
+        {
+          "object": "two bunnies",
+          "internal_craft_score": 4.9,
+          "observed": "Canonical spiral ears/forehead curl/pearl hands; different placements/pinned action."
+        },
+        {
+          "object": "dirty playroom",
+          "internal_craft_score": 4.85,
+          "observed": "New grime/cobwebs match need-to-clean state. Architecture remains grand pink toy hall, distinct from17 storage vestibule; do not claim identical room geometry."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.9,
+          "observed": "Navy on lower pink floor clear with foot clearance."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "below_target; see specific object notes; no automatic pass",
+      "repair_targets": [],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 18,
+          "source_key": "v29_rescue18",
+          "file": "revisions/v29_polish/art/rescue18.png",
+          "sha256": "e4fbfc0fe05cf4eaa76d6216baa413e02faeedfe1c1af680e4f006d86cf02fcd",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "story_art",
+          "alpha": false
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 18,
+        "mode": "F",
+        "art": [
+          "v29_rescue18"
+        ],
+        "text": "In the playroom, two dust bunnies sat on Baby Eagle.\nThey wanted to play, but he was stuck.",
+        "layout": "floor_caption",
+        "border_assets": [],
+        "background_theme": "stuffie rescue",
+        "caption": {
+          "x": 33,
+          "y": 64,
+          "width": 438,
+          "size": 18,
+          "align": "center",
+          "color": "navy",
+          "shadow": false,
+          "halo": false,
+          "outline": 0
+        },
+        "foreground_zone": null,
+        "focal_exclusions": [
+          [
+            115,
+            149,
+            88,
+            73
+          ],
+          [
+            250,
+            80,
+            168,
+            131
+          ],
+          [
+            0,
+            80,
+            504,
+            280
+          ]
+        ],
+        "focal_review_note": "V26 native page inspection: lowest character feet end aroundy85pt;80pt exclusion retains5pt clearance. Former55pt whole-scene band included blank floor.",
+        "original_page": 17,
+        "beat": "v27_17"
+      }
+    },
+    {
+      "page_index": 19,
+      "label": "story page 19",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_19.png",
+      "screenshot_sha256": "32f0a4397ba510dfd48e3469b1a03c4bb22880835dd41dfc50b3750445a71fcf",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.1,
+      "round2_internal_visual_craft_score": 4.9,
+      "objects": [
+        {
+          "object": "Roshan brush/neck",
+          "internal_craft_score": 4.9,
+          "observed": "Two-handed grip intact; targeted neckline jewel removal has no halo, tear or mask edge."
+        },
+        {
+          "object": "freed Eagle",
+          "internal_craft_score": 4.9,
+          "observed": "Distinct upright joyful wings vs18 pinned; canonical crest/cheek/plumage/gray feet retained."
+        },
+        {
+          "object": "brushed bunnies",
+          "internal_craft_score": 4.9,
+          "observed": "One at bristles, one scooted with motion ticks; correct curl/ears/pearls."
+        },
+        {
+          "object": "dirty playroom",
+          "internal_craft_score": 4.9,
+          "observed": "Matches18 background/cobweb/grime placement closely without erasing toys."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.9,
+          "observed": "Navy floor caption clear and separated from feet."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "observed_pass_for_scoped_craft",
+      "repair_targets": [],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 19,
+          "source_key": "v29_rescue19",
+          "file": "revisions/v29_polish/art/rescue19.png",
+          "sha256": "73c0c8169b8a66cea719e1bea163e78d02c573cc9eecd7f1bb39cae00c5be562",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "story_art",
+          "alpha": false
+        },
+        {
+          "page": 19,
+          "source_key": "v29_neck19_final",
+          "file": "revisions/v29_polish/art/neck19_final.png",
+          "sha256": "e9e094ed749b982af1c96e59646e7842b2c098e9e2f410ab05b6d67b08eb7cc0",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            448,
+            385,
+            537,
+            476
+          ],
+          "target_box_points": [
+            152.15094339622644,
+            198.33962264150944,
+            30.22641509433962,
+            30.90566037735849
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              448,
+              389
+            ],
+            [
+              477,
+              385
+            ],
+            [
+              514,
+              391
+            ],
+            [
+              537,
+              403
+            ],
+            [
+              535,
+              465
+            ],
+            [
+              516,
+              476
+            ],
+            [
+              458,
+              451
+            ]
+          ]
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 19,
+        "mode": "F",
+        "art": [
+          "v29_rescue19"
+        ],
+        "text": "“I’ll help!” said Roshan.\nShe gently brushed one bunny away, then the other.",
+        "layout": "floor_caption",
+        "border_assets": [],
+        "background_theme": "stuffie rescue",
+        "caption": {
+          "x": 33,
+          "y": 58,
+          "width": 438,
+          "size": 18,
+          "align": "center",
+          "color": "navy",
+          "shadow": false,
+          "halo": false,
+          "outline": 0
+        },
+        "foreground_zone": null,
+        "focal_exclusions": [
+          [
+            115,
+            149,
+            88,
+            73
+          ],
+          [
+            250,
+            80,
+            168,
+            131
+          ],
+          [
+            0,
+            80,
+            504,
+            280
+          ]
+        ],
+        "focal_review_note": "V26 native page inspection: lowest character feet end aroundy85pt;80pt exclusion retains5pt clearance. Former55pt whole-scene band included blank floor.",
+        "original_page": 18,
+        "beat": "v27_18",
+        "local_patch": {
+          "source": "v29_neck19_final",
+          "reference_size": [
+            1484,
+            1060
+          ],
+          "polygon": [
+            [
+              448,
+              389
+            ],
+            [
+              477,
+              385
+            ],
+            [
+              514,
+              391
+            ],
+            [
+              537,
+              403
+            ],
+            [
+              535,
+              465
+            ],
+            [
+              516,
+              476
+            ],
+            [
+              458,
+              451
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "page_index": 20,
+      "label": "story page 20",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_20.png",
+      "screenshot_sha256": "d0ce8e3f961ffa430dbb6a7b5f13be5b6a94e8f4465d33119c225be9b2a1126d",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.4,
+      "round2_internal_visual_craft_score": 4.9,
+      "objects": [
+        {
+          "object": "canonical Eagle cutout",
+          "internal_craft_score": 4.9,
+          "observed": "Faithful original identity; clean authored contour and distinct pose."
+        },
+        {
+          "object": "two small apologizing bunnies",
+          "internal_craft_score": 4.9,
+          "observed": "Kept small in lower bank, matching curl/ears/pearl hands and toy context."
+        },
+        {
+          "object": "rounded speech capsules",
+          "internal_craft_score": 4.9,
+          "observed": "Capsule curves read gently; short curved tails now clear of ear tips; text spacing comfortable."
+        },
+        {
+          "object": "background/perimeter",
+          "internal_craft_score": 4.9,
+          "observed": "Rings clean, toy groups grounded; no duplicated main Eagle."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "observed_pass_for_scoped_craft",
+      "repair_targets": [],
+      "image_treatment": "genuine irregular contourcutouts on compact event-specific background; no scenic rectangles",
+      "source_layers": [
+        {
+          "page": 20,
+          "source_key": "v29_bank20_tiny",
+          "file": "revisions/v29_polish/art/bank20_tiny.png",
+          "sha256": "406439f694d0e1e7e0814a416761f95db3ea8ed44671ce150847da88164a19a0",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "integrated_stationery",
+          "alpha": false
+        },
+        {
+          "page": 20,
+          "source_key": "eagle_original_isolated",
+          "file": "art/stress_revision/eagle_original_isolated.png",
+          "sha256": "166461427017b2624dcf1c342bde658c63a8247b522ad113c92f6ec1bb084bd9",
+          "native_size": [
+            944,
+            1666
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            944,
+            1564
+          ],
+          "target_box_points": [
+            205.71355498721226,
+            126.0,
+            96.57289002557545,
+            160.0
+          ],
+          "operation": "source_region",
+          "role": "story_art",
+          "alpha": true
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 20,
+        "mode": "C",
+        "art": [
+          "eagle_original_isolated"
+        ],
+        "text": "Baby Eagle was free!\n“Let’s play gently,” said Roshan.",
+        "layout": "wide_cut",
+        "border_assets": [],
+        "background_theme": "Two small sheepish bunnies remain secondary speakers; displaced toys explain their rough play.",
+        "caption": {
+          "x": 32,
+          "y": 318,
+          "width": 440,
+          "size": 18,
+          "align": "center",
+          "color": "navy",
+          "shadow": false,
+          "halo": false,
+          "outline": 0
+        },
+        "foreground_zone": [
+          205,
+          126,
+          98,
+          160
+        ],
+        "border_placements": [],
+        "integrated_background": "v29_bank20_tiny",
+        "integrated_motifs": [
+          "left_apology_bunny",
+          "ring_stack",
+          "right_apology_bunny",
+          "toy_blocks"
+        ],
+        "integrated_prop_bounds": [
+          [
+            0.17722372,
+            0.8754717,
+            0.05525606,
+            0.07830189
+          ],
+          [
+            0.23652291,
+            0.91226415,
+            0.02695418,
+            0.04433962
+          ],
+          [
+            0.76886792,
+            0.87830189,
+            0.05458221,
+            0.07735849
+          ],
+          [
+            0.73045822,
+            0.91886792,
+            0.03638814,
+            0.04150943
+          ]
+        ],
+        "bounds_note": "Round2 native visible-subject annotation; exact hidden occlusion/shadow opacity not measurable for generated pixels.",
+        "marginal_bunny_count": 2,
+        "narrative_border_dialogue": true,
+        "speech_bubbles": [
+          {
+            "text": "Sorry!",
+            "box": [
+              50,
+              70,
+              124,
+              48
+            ],
+            "tail": [
+              117,
+              55
+            ]
+          },
+          {
+            "text": "We were just\nplaying!",
+            "box": [
+              310,
+              70,
+              166,
+              62
+            ],
+            "tail": [
+              389,
+              55
+            ]
+          }
+        ],
+        "original_page": 19,
+        "beat": "v27_19"
+      }
+    },
+    {
+      "page_index": 21,
+      "label": "story page 21",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_21.png",
+      "screenshot_sha256": "3f03383a354e977664021acfb553504d2fb9d9365a3016bdf546d486519c6061",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.8,
+      "round2_internal_visual_craft_score": 4.9,
+      "objects": [
+        {
+          "object": "sorting Roshan/table",
+          "internal_craft_score": 4.9,
+          "observed": "Strong original retained; brushes/paint placement hands visible, messy table contextualized."
+        },
+        {
+          "object": "paint-paper banks",
+          "internal_craft_score": 4.9,
+          "observed": "Tipped bottle and crumpled paper are event-specific, grounded and sufficiently tiny."
+        },
+        {
+          "object": "repaired rings/caption",
+          "internal_craft_score": 4.9,
+          "observed": "Broken rings repaired; no patch seam; text in clear aqua field."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "observed_pass_for_scoped_craft",
+      "repair_targets": [],
+      "image_treatment": "genuine irregular contourcutouts on compact event-specific background; no scenic rectangles",
+      "source_layers": [
+        {
+          "page": 21,
+          "source_key": "v29_bubbles21",
+          "file": "revisions/v29_polish/art/bubbles21.png",
+          "sha256": "cc2323bbb54e9dde9848f2e2463d3643f2891e348827f95f61c1425376714b94",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "integrated_stationery",
+          "alpha": false
+        },
+        {
+          "page": 21,
+          "source_key": "v22_art_sorting",
+          "file": "art/quality_v22/art_sorting.png",
+          "sha256": "e37b46fb56aadf3c66c6f2b6584c8fd145001376a24e9c20420a6292e6eeec66",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            82,
+            0,
+            1388,
+            1060
+          ],
+          "target_box_points": [
+            110.31132075471697,
+            56.0,
+            283.37735849056605,
+            230.0
+          ],
+          "operation": "source_region",
+          "role": "story_art",
+          "alpha": true
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 21,
+        "mode": "C",
+        "art": [
+          "v22_art_sorting"
+        ],
+        "text": "Brushes here. Paints there.\nRoshan put each thing in its place.",
+        "layout": "wide_cut",
+        "border_assets": [],
+        "background_theme": "Roshan sorts a messy round craft table; paint drips, loose brushes and paper establish active cleanup. Lower banks retain tipped bottle and crumpled paper.",
+        "caption": {
+          "x": 32,
+          "y": 316,
+          "width": 440,
+          "size": 18,
+          "align": "center",
+          "color": "navy",
+          "shadow": false,
+          "halo": false,
+          "outline": 0
+        },
+        "foreground_zone": [
+          32,
+          56,
+          440,
+          230
+        ],
+        "border_placements": [],
+        "integrated_background": "v29_bubbles21",
+        "integrated_motifs": [
+          "tipped_pink_bottle",
+          "paint_marked_crumpled_paper"
+        ],
+        "integrated_prop_bounds": [
+          [
+            0.14690026954177898,
+            0.8735849056603774,
+            0.08018867924528301,
+            0.06792452830188679
+          ],
+          [
+            0.20619946091644206,
+            0.930188679245283,
+            0.0431266846361186,
+            0.031132075471698113
+          ],
+          [
+            0.23382749326145552,
+            0.9047169811320754,
+            0.04245283018867924,
+            0.04433962264150943
+          ],
+          [
+            0.7533692722371967,
+            0.8764150943396226,
+            0.11522911051212938,
+            0.07264150943396226
+          ]
+        ],
+        "marginal_bunny_count": 0,
+        "bounds_note": "Manual native-pixel visible-subject annotation, excludes native coral/shells and contact shadow; page20 ear antialias reaches y899 (2px above ideal line), retained explicitly as a minor placement exception.",
+        "original_page": 21,
+        "beat": "v27_21"
+      }
+    },
+    {
+      "page_index": 22,
+      "label": "story page 22",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_22.png",
+      "screenshot_sha256": "7952f4c646287bc43712dea9432124a56fed262f77c6a0d2426007acf715cb90",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.3,
+      "round2_internal_visual_craft_score": 4.9,
+      "objects": [
+        {
+          "object": "Roshan/brush contact",
+          "internal_craft_score": 4.9,
+          "observed": "Both hands hold brush with bristles touching tabletop; contour and anatomy stable."
+        },
+        {
+          "object": "clean table patch",
+          "internal_craft_score": 4.9,
+          "observed": "Purple spill removed locally without smearing table contour or neighboring pots."
+        },
+        {
+          "object": "craft room/caption",
+          "internal_craft_score": 4.9,
+          "observed": "Organized supplies support completed cleaning; dark floor text clear."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "observed_pass_for_scoped_craft",
+      "repair_targets": [],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 22,
+          "source_key": "v22_scene_22_fit",
+          "file": "art/quality_v22/scene_22_fit.png",
+          "sha256": "55b50d90819968aa887e5831152071a04cd5ba9cecc5b7b0402ee8a016f57e5a",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "story_art",
+          "alpha": false
+        },
+        {
+          "page": 22,
+          "source_key": "v29_table22",
+          "file": "revisions/v29_polish/art/table22.png",
+          "sha256": "00f962db263e4e484462d81cefabce59e4a6e9657503e1c6349da57bf68f8312",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            1154,
+            593,
+            1247,
+            638
+          ],
+          "target_box_points": [
+            391.92452830188677,
+            143.32075471698113,
+            31.584905660377355,
+            15.283018867924527
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              1156,
+              596
+            ],
+            [
+              1205,
+              593
+            ],
+            [
+              1241,
+              610
+            ],
+            [
+              1247,
+              631
+            ],
+            [
+              1200,
+              638
+            ],
+            [
+              1154,
+              628
+            ]
+          ]
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 22,
+        "mode": "F",
+        "art": [
+          "v22_scene_22_fit"
+        ],
+        "text": "Scrub, scrub! The table was clean.\nEverything was back in its place.",
+        "layout": "full",
+        "border_assets": [],
+        "background_theme": "Full art: existing Roshan/table brush-contact frame.",
+        "caption": {
+          "x": 30,
+          "y": 55,
+          "width": 444,
+          "size": 18,
+          "align": "center",
+          "color": "navy",
+          "shadow": false,
+          "halo": false,
+          "outline": 0
+        },
+        "border_placements": [],
+        "focal_exclusions": [
+          [
+            0,
+            80,
+            504,
+            280
+          ]
+        ],
+        "original_page": 22,
+        "beat": "v27_22",
+        "local_patch": {
+          "source": "v29_table22",
+          "reference_size": [
+            1484,
+            1060
+          ],
+          "polygon": [
+            [
+              1156,
+              596
+            ],
+            [
+              1205,
+              593
+            ],
+            [
+              1241,
+              610
+            ],
+            [
+              1247,
+              631
+            ],
+            [
+              1200,
+              638
+            ],
+            [
+              1154,
+              628
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "page_index": 23,
+      "label": "story page 23",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_23.png",
+      "screenshot_sha256": "4ee8e0aba0d10d493a4a422af5129c7e7e2c64879d99a2089087ecfc6c966a72",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.6,
+      "round2_internal_visual_craft_score": 4.85,
+      "objects": [
+        {
+          "object": "Roshan/route lights",
+          "internal_craft_score": 4.9,
+          "observed": "Flying pose and converging highlights guide to correct shell door; no battle action."
+        },
+        {
+          "object": "door/completed badges",
+          "internal_craft_score": 4.9,
+          "observed": "Non-opera shell door glows; earlier room icons and paths retained."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.85,
+          "observed": "Navy on upper lavender broadly clear; line2 meets gold rail/chandelier cord. Minor visual interference."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "below_target; see specific object notes; no automatic pass",
+      "repair_targets": [],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 23,
+          "source_key": "v27_door",
+          "file": "art/door_expression_v27/door.png",
+          "sha256": "e4312cfe20029842ca02cd53916910ca004960e4e96d0c412a715bc742da6394",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "story_art",
+          "alpha": false
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 23,
+        "mode": "F",
+        "art": [
+          "v27_door"
+        ],
+        "text": "One last door began to glow.\nA rumble came from behind it...",
+        "layout": "full",
+        "border_assets": [],
+        "background_theme": "Completed castle rooms and converging route lights lead to the last shell door. Source castle hall retained.",
+        "caption": {
+          "x": 50,
+          "y": 318,
+          "width": 404,
+          "size": 20,
+          "align": "center",
+          "color": "navy",
+          "shadow": false,
+          "halo": false,
+          "outline": 0
+        },
+        "foreground_zone": null,
+        "border_placements": [],
+        "focal_exclusions": [
+          [
+            205,
+            78,
+            132,
+            110
+          ],
+          [
+            404,
+            145,
+            61,
+            93
+          ]
+        ],
+        "original_page": 24,
+        "beat": "v27_24"
+      }
+    },
+    {
+      "page_index": 24,
+      "label": "story page 24",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_24.png",
+      "screenshot_sha256": "7b6bdd46b7331746ac2801f1772d4106a1f51665f80f56a0832b64db8e4ab333",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.7,
+      "round2_internal_visual_craft_score": 4.9,
+      "objects": [
+        {
+          "object": "unwell Puff",
+          "internal_craft_score": 4.9,
+          "observed": "Drooping brow/mouth portrays discomfort rather than aggression; cloud/spiral/pearl form."
+        },
+        {
+          "object": "scared pair/shell",
+          "internal_craft_score": 4.9,
+          "observed": "One crouches worried, one sheltered under shell; canonical curls/ears/pearls where visible."
+        },
+        {
+          "object": "attic objects/perimeter",
+          "internal_craft_score": 4.9,
+          "observed": "Chest/books relate to room, clean mound contact; Puff approaches right border bubble but no edge crop."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.9,
+          "observed": "Readable left block within safe field."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "observed_pass_for_scoped_craft",
+      "repair_targets": [],
+      "image_treatment": "genuine irregular contourcutouts on compact event-specific background; no scenic rectangles",
+      "source_layers": [
+        {
+          "page": 24,
+          "source_key": "v29_bank24_final",
+          "file": "revisions/v29_polish/art/bank24_final.png",
+          "sha256": "f8285cad166d0947f9d3667a9eaa92b52eface00b2c7c67ba1c7efbe82916f3f",
+          "native_size": [
+            1485,
+            1059
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1485,
+            1059
+          ],
+          "target_box_points": [
+            -0.4079320113314395,
+            0.0,
+            504.8158640226629,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "integrated_stationery",
+          "alpha": false
+        },
+        {
+          "page": 24,
+          "source_key": "v26_puff_unwell",
+          "file": "art/language_v26/puff_unwell.png",
+          "sha256": "ac6ecf90d5a024f7bd343a26c7e3cd1600cb906aff3a5749ab89600dae23bb38",
+          "native_size": [
+            1254,
+            1254
+          ],
+          "source_box_pixels": [
+            22,
+            17,
+            1237,
+            1230
+          ],
+          "target_box_points": [
+            263.0,
+            65.17119341563786,
+            208.0,
+            207.65761316872428
+          ],
+          "operation": "source_region",
+          "role": "story_art",
+          "alpha": true
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 24,
+        "mode": "C",
+        "art": [
+          "v26_puff_unwell"
+        ],
+        "text": "Grand Puff!\nHe was so dusty.\nHe did not feel well.",
+        "layout": "wide_cut",
+        "border_assets": [],
+        "background_theme": "Two scared bunnies cower on right, one hiding under shell. Closed chest/books establish dusty attic without adding a dust smudge.",
+        "caption": {
+          "x": 55,
+          "y": 257,
+          "width": 186,
+          "size": 18,
+          "align": "left",
+          "color": "navy",
+          "shadow": false,
+          "halo": false,
+          "outline": 0
+        },
+        "foreground_zone": [
+          263,
+          54,
+          208,
+          230
+        ],
+        "border_placements": [],
+        "integrated_background": "v29_bank24_final",
+        "integrated_motifs": [
+          "attic_chest",
+          "attic_book_stack",
+          "cowering_bunny",
+          "shell_hiding_bunny",
+          "pink_shell",
+          "upright_book",
+          "left_fear_wiggle",
+          "right_fear_wiggle"
+        ],
+        "integrated_prop_bounds": [
+          [
+            0.1043771,
+            0.85363551,
+            0.08282828,
+            0.08404155
+          ],
+          [
+            0.18989899,
+            0.87913126,
+            0.07609428,
+            0.06704438
+          ],
+          [
+            0.71111111,
+            0.86307838,
+            0.08417508,
+            0.09065156
+          ],
+          [
+            0.8040404,
+            0.9121813,
+            0.06666667,
+            0.03871577
+          ],
+          [
+            0.78787879,
+            0.87063267,
+            0.08552189,
+            0.07176582
+          ],
+          [
+            0.85319865,
+            0.86496695,
+            0.03636364,
+            0.06232295
+          ],
+          [
+            0.71380471,
+            0.8829084,
+            0.01010101,
+            0.03116147
+          ],
+          [
+            0.7973064,
+            0.85741265,
+            0.01279461,
+            0.02738432
+          ]
+        ],
+        "marginal_bunny_count": 2,
+        "bounds_note": "Round2 native visible-subject annotation; exact hidden occlusion/shadow opacity not measurable for generated pixels.",
+        "original_page": 25,
+        "beat": "v27_25"
+      }
+    },
+    {
+      "page_index": 25,
+      "label": "story page 25",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_25.png",
+      "screenshot_sha256": "4f2add55bf16b499b723f36f431af4ce9a9146c15921ddd21f4c54687e7aac21",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.7,
+      "round2_internal_visual_craft_score": 4.8,
+      "objects": [
+        {
+          "object": "Roshan/yellow sponge offer",
+          "internal_craft_score": 4.9,
+          "observed": "Faces Puff with kind expression and real palm/finger supply grip; no throwing/attack."
+        },
+        {
+          "object": "unwell Puff",
+          "internal_craft_score": 4.9,
+          "observed": "Scale/face match24; no random character compression."
+        },
+        {
+          "object": "couch/popcorn pair",
+          "internal_craft_score": 4.9,
+          "observed": "Canonical little bunnies act differently: hopeful one and popcorn-eating one, sitting in couch."
+        },
+        {
+          "object": "attic props/perimeter/caption",
+          "internal_craft_score": 4.9,
+          "observed": "Jar/books add relevant context, clean rings and quiet text field."
+        },
+        {
+          "object": "tool continuity",
+          "internal_craft_score": 4.8,
+          "observed": "Yellow tool now matches26–29. Page5 introduces pink star sponge and7 uses yellow: several tools plausible, but no explicit visual handoff; not a mandatory scene redraw."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "below_target; see specific object notes; no automatic pass",
+      "repair_targets": [],
+      "image_treatment": "genuine irregular contourcutouts on compact event-specific background; no scenic rectangles",
+      "source_layers": [
+        {
+          "page": 25,
+          "source_key": "v29_bank25_tiny",
+          "file": "revisions/v29_polish/art/bank25_tiny.png",
+          "sha256": "dcbcc1303a57d327eedc7871ea5266a6a5afda158bdf2076d349da75124636f2",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "integrated_stationery",
+          "alpha": false
+        },
+        {
+          "page": 25,
+          "source_key": "v29_sponge25",
+          "file": "revisions/v29_polish/art/sponge25.png",
+          "sha256": "751dfca8d119dd8af374b59daec483293c6f0d3b1678b1025f3651e7e0ff6a58",
+          "native_size": [
+            1774,
+            887
+          ],
+          "source_box_pixels": [
+            45,
+            78,
+            1759,
+            851
+          ],
+          "target_box_points": [
+            28.0,
+            70.47782963827305,
+            448.0,
+            202.0443407234539
+          ],
+          "operation": "source_region",
+          "role": "story_art",
+          "alpha": true
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 25,
+        "mode": "C",
+        "art": [
+          "v29_sponge25"
+        ],
+        "text": "“Hold on, we’ll make you feel\nclean and better!” said Roshan.",
+        "layout": "wide_cut",
+        "border_assets": [],
+        "background_theme": "Small couch spectators watch Roshan help Puff: one is hopeful, one nibbles popcorn; attic jar/books provide context.",
+        "caption": {
+          "x": 30,
+          "y": 317,
+          "width": 444,
+          "size": 18,
+          "align": "center",
+          "color": "navy",
+          "shadow": false,
+          "halo": false,
+          "outline": 0
+        },
+        "foreground_zone": [
+          28,
+          68,
+          448,
+          207
+        ],
+        "border_placements": [],
+        "integrated_background": "v29_bank25_tiny",
+        "integrated_motifs": [
+          "attic_jar",
+          "attic_books",
+          "small_star",
+          "sofa",
+          "hopeful_bunny",
+          "popcorn_bunny",
+          "popcorn",
+          "hopeful_glints",
+          "small_plant"
+        ],
+        "integrated_prop_bounds": [
+          [
+            0.1671159,
+            0.88962264,
+            0.03571429,
+            0.05283019
+          ],
+          [
+            0.20350404,
+            0.90377358,
+            0.06536388,
+            0.05377358
+          ],
+          [
+            0.26886792,
+            0.93490566,
+            0.01886792,
+            0.02358491
+          ],
+          [
+            0.71630728,
+            0.87169811,
+            0.1138814,
+            0.09245283
+          ],
+          [
+            0.72911051,
+            0.86698113,
+            0.04245283,
+            0.06792453
+          ],
+          [
+            0.77695418,
+            0.87358491,
+            0.04245283,
+            0.06698113
+          ],
+          [
+            0.78301887,
+            0.91415094,
+            0.01752022,
+            0.0254717
+          ],
+          [
+            0.71428571,
+            0.86698113,
+            0.01684636,
+            0.02358491
+          ],
+          [
+            0.82816712,
+            0.89339623,
+            0.01280323,
+            0.05188679
+          ]
+        ],
+        "marginal_bunny_count": 2,
+        "bounds_note": "Round2 native visible-subject annotation; exact hidden occlusion/shadow opacity not measurable for generated pixels.",
+        "original_page": 26,
+        "beat": "v27_26"
+      }
+    },
+    {
+      "page_index": 26,
+      "label": "story page 26",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_26.png",
+      "screenshot_sha256": "1c3382e4ec35c765c3c33a8015a595a78a4ebcb1f5829207856f6c6f54397b5e",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.4,
+      "round2_internal_visual_craft_score": 4.85,
+      "objects": [
+        {
+          "object": "four helpers",
+          "internal_craft_score": 4.9,
+          "observed": "Daddy/Rumi/Roshan stable; hands meet brushes/sponges, Eagle brush carried at beak; no extra wings/limbs."
+        },
+        {
+          "object": "happy scrubbed Puff",
+          "internal_craft_score": 4.9,
+          "observed": "Smiling eyes/mouth differ unwell24/25 and fit gentle cleaning plot."
+        },
+        {
+          "object": "foam",
+          "internal_craft_score": 4.9,
+          "observed": "Authored white lavender soap beads and smooth larger bubble rims; no regular block grid."
+        },
+        {
+          "object": "ceiling/text",
+          "internal_craft_score": 4.85,
+          "observed": "Original extension is aligned more naturally than27/29 but masonry has mild banding at same join; readable caption."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "below_target; see specific object notes; no automatic pass",
+      "repair_targets": [],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 26,
+          "source_key": "approved_scrub_ceiling",
+          "file": "../previews/2026-09-30/art/scrub_ceiling.png",
+          "sha256": "e556979391a202919ec65566a34d28bce4cc325e3de680592973fc331e36848e",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            225
+          ],
+          "target_box_points": [
+            0,
+            283.58490566037733,
+            504,
+            76.41509433962264
+          ],
+          "operation": "source_region_visible_pdf_resource",
+          "role": "empty_ceiling_extension",
+          "alpha": false
+        },
+        {
+          "page": 26,
+          "source_key": "v27_scrub",
+          "file": "art/door_expression_v27/scrub.png",
+          "sha256": "dfa3717a4df2197b82c9730044284899ab0eee9aa86c37ff7c53dd8cddfe1e86",
+          "native_size": [
+            1672,
+            941
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1672,
+            941
+          ],
+          "target_box_points": [
+            0,
+            0,
+            504,
+            283.6507177033493
+          ],
+          "operation": "source_region",
+          "role": "original_complete_scene",
+          "alpha": false
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 26,
+        "mode": "F",
+        "art": [
+          "v27_scrub"
+        ],
+        "text": "Daddy, Rumi, and Baby Eagle helped Roshan.\nTogether, they washed Grand Puff. Scrub, scrub!",
+        "layout": "extension",
+        "border_assets": [],
+        "background_theme": "full scene",
+        "caption": {
+          "x": 32,
+          "y": 318,
+          "width": 440,
+          "size": 20,
+          "align": "center",
+          "color": "white",
+          "shadow": false,
+          "halo": false,
+          "outline": 0.4
+        },
+        "foreground_zone": null,
+        "focal_exclusions": [
+          [
+            0,
+            0,
+            504,
+            283.65
+          ]
+        ],
+        "page_extension": "approved_scrub_ceiling",
+        "original_page": 27,
+        "beat": "v27_27"
+      }
+    },
+    {
+      "page_index": 27,
+      "label": "story page 27",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_27.png",
+      "screenshot_sha256": "c5ed053071201d03f7805c46a5a6655b3b5d6de2ddf89186a03c2e38a8786c67",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.2,
+      "round2_internal_visual_craft_score": 4.4,
+      "objects": [
+        {
+          "object": "four helpers",
+          "internal_craft_score": 4.9,
+          "observed": "Same cleaning acting and identities as26; Roshan/Eagle remain crisp."
+        },
+        {
+          "object": "covered Puff/bubble pile",
+          "internal_craft_score": 4.9,
+          "observed": "Puff intentionally obscured, floating rounded iridescent rims clean; grain is granular authored lather."
+        },
+        {
+          "object": "ceiling extension join",
+          "internal_craft_score": 4.4,
+          "observed": "Abrupt horizontal brightness/brick-phase change near rendered y229, with clipped brown chandelier-dome arc at center. Most visible remaining new seam."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.9,
+          "observed": "White with shadow reads clearly in subdued upper ceiling."
+        }
+      ],
+      "observed_remaining_failures": [
+        {
+          "severity": "high",
+          "object": "page-extension seam",
+          "normalized_region": [
+            0.0,
+            0.19,
+            1.0,
+            0.05
+          ],
+          "pixel_region_xyxy": [
+            0,
+            205,
+            1512,
+            260
+          ],
+          "brief": "Target top-extension strip bottom edge including clipped chandelier cap: align perspective brick courses and brightness seamlessly to fixed lower original. Preserve main art and complete original chandelier; do not replace entire scene."
+        }
+      ],
+      "target_4_9_status": "below_target; see specific object notes; no automatic pass",
+      "repair_targets": [
+        {
+          "severity": "high",
+          "object": "page-extension seam",
+          "normalized_region": [
+            0.0,
+            0.19,
+            1.0,
+            0.05
+          ],
+          "pixel_region_xyxy": [
+            0,
+            205,
+            1512,
+            260
+          ],
+          "brief": "Target top-extension strip bottom edge including clipped chandelier cap: align perspective brick courses and brightness seamlessly to fixed lower original. Preserve main art and complete original chandelier; do not replace entire scene."
+        }
+      ],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 27,
+          "source_key": "approved_scrub_ceiling",
+          "file": "../previews/2026-09-30/art/scrub_ceiling.png",
+          "sha256": "e556979391a202919ec65566a34d28bce4cc325e3de680592973fc331e36848e",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            225
+          ],
+          "target_box_points": [
+            0,
+            283.58490566037733,
+            504,
+            76.41509433962264
+          ],
+          "operation": "source_region_visible_pdf_resource",
+          "role": "empty_ceiling_extension",
+          "alpha": false
+        },
+        {
+          "page": 27,
+          "source_key": "R09_suds",
+          "file": "../plan/source_art/R09_suds.png",
+          "sha256": "ed7f13735a560ee5a187bf1cbc4d40b1a04e2fc9a6375b7fb74ae6a81c285e2b",
+          "native_size": [
+            1672,
+            941
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1672,
+            941
+          ],
+          "target_box_points": [
+            0,
+            0,
+            504,
+            283.6507177033493
+          ],
+          "operation": "source_region",
+          "role": "original_complete_scene",
+          "alpha": false
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 27,
+        "mode": "F",
+        "art": [
+          "R09_suds"
+        ],
+        "text": "Soft bubbles covered Grand Puff.\nUnder the bubbles, his colors began to shine.",
+        "layout": "extension",
+        "border_assets": [],
+        "background_theme": "full scene",
+        "caption": {
+          "x": 32,
+          "y": 318,
+          "width": 440,
+          "size": 20,
+          "align": "center",
+          "color": "white",
+          "shadow": false,
+          "halo": false,
+          "outline": 0.4
+        },
+        "foreground_zone": null,
+        "focal_exclusions": [
+          [
+            0,
+            0,
+            504,
+            283.65
+          ]
+        ],
+        "original_page": 28,
+        "beat": "v27_28",
+        "page_extension": "approved_scrub_ceiling"
+      }
+    },
+    {
+      "page_index": 28,
+      "label": "story page 28",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_28.png",
+      "screenshot_sha256": "dc1fc08d43d0374a9efc11dfd5b098ae716bd03bc4f9ac11d88f8310bc44a036",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.3,
+      "round2_internal_visual_craft_score": 4.7,
+      "objects": [
+        {
+          "object": "rainbow jump Puff/helpers",
+          "internal_craft_score": 4.9,
+          "observed": "Puff springs amid joyful up-gazes; same canonical ears/forehead/pearls/rainbow body. Cast identity stable."
+        },
+        {
+          "object": "soap fountains",
+          "internal_craft_score": 4.9,
+          "observed": "Dynamic irregular foam/bubble burst reads as authored lather; no diagnostic codec block grid."
+        },
+        {
+          "object": "ceiling extension join",
+          "internal_craft_score": 4.7,
+          "observed": "Less severe than27 but a straight interface/brick-phase step remains around y229."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.9,
+          "observed": "White on quiet lavender ceiling clear."
+        }
+      ],
+      "observed_remaining_failures": [
+        {
+          "severity": "moderate",
+          "object": "page-extension seam",
+          "normalized_region": [
+            0.0,
+            0.19,
+            1.0,
+            0.05
+          ],
+          "pixel_region_xyxy": [
+            0,
+            205,
+            1512,
+            260
+          ],
+          "brief": "Refine only extension-to-main-art brick phase/value transition, with original lower frame locked."
+        }
+      ],
+      "target_4_9_status": "below_target; see specific object notes; no automatic pass",
+      "repair_targets": [
+        {
+          "severity": "moderate",
+          "object": "page-extension seam",
+          "normalized_region": [
+            0.0,
+            0.19,
+            1.0,
+            0.05
+          ],
+          "pixel_region_xyxy": [
+            0,
+            205,
+            1512,
+            260
+          ],
+          "brief": "Refine only extension-to-main-art brick phase/value transition, with original lower frame locked."
+        }
+      ],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 28,
+          "source_key": "approved_scrub_ceiling",
+          "file": "../previews/2026-09-30/art/scrub_ceiling.png",
+          "sha256": "e556979391a202919ec65566a34d28bce4cc325e3de680592973fc331e36848e",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            225
+          ],
+          "target_box_points": [
+            0,
+            283.58490566037733,
+            504,
+            76.41509433962264
+          ],
+          "operation": "source_region_visible_pdf_resource",
+          "role": "empty_ceiling_extension",
+          "alpha": false
+        },
+        {
+          "page": 28,
+          "source_key": "R10_jump",
+          "file": "../plan/source_art/R10_jump.png",
+          "sha256": "13ff639019cccadd0675aea4ed9550505c57a84ae666d647df6097bb18793889",
+          "native_size": [
+            1672,
+            941
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1672,
+            941
+          ],
+          "target_box_points": [
+            0,
+            0,
+            504,
+            283.6507177033493
+          ],
+          "operation": "source_region",
+          "role": "original_complete_scene",
+          "alpha": false
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 28,
+        "mode": "F",
+        "art": [
+          "R10_jump"
+        ],
+        "text": "POP! Grand Puff sprang out, rainbow bright!\nThe dust fell away.",
+        "layout": "extension",
+        "border_assets": [],
+        "background_theme": "full scene",
+        "caption": {
+          "x": 32,
+          "y": 318,
+          "width": 440,
+          "size": 20,
+          "align": "center",
+          "color": "white",
+          "shadow": false,
+          "halo": false,
+          "outline": 0.4
+        },
+        "foreground_zone": null,
+        "focal_exclusions": [
+          [
+            0,
+            0,
+            504,
+            283.65
+          ]
+        ],
+        "original_page": 29,
+        "beat": "v27_29",
+        "page_extension": "approved_scrub_ceiling"
+      }
+    },
+    {
+      "page_index": 29,
+      "label": "story page 29",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_29.png",
+      "screenshot_sha256": "5b8c31d4331fe61a31cfb8060f3d2539a4ce075d97ce091b78ff78ab7b656c2d",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.3,
+      "round2_internal_visual_craft_score": 4.5,
+      "objects": [
+        {
+          "object": "canonical landed Puff/helpers",
+          "internal_craft_score": 4.9,
+          "observed": "Owner canonical R11 landing main art retained; complete cast identity and tools stable."
+        },
+        {
+          "object": "settled dusty floor",
+          "internal_craft_score": 4.9,
+          "observed": "Original dust remains room texture; Puff is clean, no story claim whole attic now clean."
+        },
+        {
+          "object": "ceiling extension join",
+          "internal_craft_score": 4.5,
+          "observed": "Straight brightness/brick-phase interface at y229 and clipped chandelier dome. Repair only extension; do not alter canonical main artwork."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.9,
+          "observed": "White on quiet ceiling clear."
+        }
+      ],
+      "observed_remaining_failures": [
+        {
+          "severity": "high",
+          "object": "page-extension seam",
+          "normalized_region": [
+            0.0,
+            0.19,
+            1.0,
+            0.05
+          ],
+          "pixel_region_xyxy": [
+            0,
+            205,
+            1512,
+            260
+          ],
+          "brief": "Refine only top extension brick phase/value and clipped dome. Keep canonical R11_land original main image and its placement byte-for-byte/exact; no subject re-generation."
+        }
+      ],
+      "target_4_9_status": "below_target; see specific object notes; no automatic pass",
+      "repair_targets": [
+        {
+          "severity": "high",
+          "object": "page-extension seam",
+          "normalized_region": [
+            0.0,
+            0.19,
+            1.0,
+            0.05
+          ],
+          "pixel_region_xyxy": [
+            0,
+            205,
+            1512,
+            260
+          ],
+          "brief": "Refine only top extension brick phase/value and clipped dome. Keep canonical R11_land original main image and its placement byte-for-byte/exact; no subject re-generation."
+        }
+      ],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 29,
+          "source_key": "approved_scrub_ceiling",
+          "file": "../previews/2026-09-30/art/scrub_ceiling.png",
+          "sha256": "e556979391a202919ec65566a34d28bce4cc325e3de680592973fc331e36848e",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            225
+          ],
+          "target_box_points": [
+            0,
+            283.58490566037733,
+            504,
+            76.41509433962264
+          ],
+          "operation": "source_region_visible_pdf_resource",
+          "role": "empty_ceiling_extension",
+          "alpha": false
+        },
+        {
+          "page": 29,
+          "source_key": "R11_land",
+          "file": "../plan/source_art/R11_land.png",
+          "sha256": "d166ae3aa034d26beeda8e92dbc0da8da5347646b8b707746237d819e81a4e5a",
+          "native_size": [
+            1672,
+            941
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1672,
+            941
+          ],
+          "target_box_points": [
+            0,
+            0,
+            504,
+            283.6507177033493
+          ],
+          "operation": "source_region",
+          "role": "original_complete_scene",
+          "alpha": false
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 29,
+        "mode": "F",
+        "art": [
+          "R11_land"
+        ],
+        "text": "Down came Grand Puff, soft and small.\nHe felt like himself again.",
+        "layout": "extension",
+        "border_assets": [],
+        "background_theme": "full scene",
+        "caption": {
+          "x": 32,
+          "y": 318,
+          "width": 440,
+          "size": 20,
+          "align": "center",
+          "color": "white",
+          "shadow": false,
+          "halo": false,
+          "outline": 0.4
+        },
+        "foreground_zone": null,
+        "focal_exclusions": [
+          [
+            0,
+            0,
+            504,
+            283.65
+          ]
+        ],
+        "original_page": 30,
+        "beat": "v27_30",
+        "page_extension": "approved_scrub_ceiling"
+      }
+    },
+    {
+      "page_index": 30,
+      "label": "story page 30",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_30.png",
+      "screenshot_sha256": "74aa90c82ffec8b309630ff4dac9b7a4c7a9eac7ccc0d77bd476adf2c4628d2a",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.7,
+      "round2_internal_visual_craft_score": 4.9,
+      "objects": [
+        {
+          "object": "Roshan/Puff",
+          "internal_craft_score": 4.9,
+          "observed": "Roshan faces happy small rainbow Puff; complete contourcutouts, crisp hands and tail."
+        },
+        {
+          "object": "cooperating ring bunnies",
+          "internal_craft_score": 4.9,
+          "observed": "Two canonical bunnies have distinct expressions/contact with stack; story-specific gentle play."
+        },
+        {
+          "object": "book/lamp/perimeter",
+          "internal_craft_score": 4.9,
+          "observed": "Clean restored-room details, grounded without repetitive brush/suds motif."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.9,
+          "observed": "Large navy in quiet top writing zone."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "observed_pass_for_scoped_craft",
+      "repair_targets": [],
+      "image_treatment": "genuine irregular contourcutouts on compact event-specific background; no scenic rectangles",
+      "source_layers": [
+        {
+          "page": 30,
+          "source_key": "v29_bank30_tiny",
+          "file": "revisions/v29_polish/art/bank30_tiny.png",
+          "sha256": "f3c8843f2acf8a8e6304d6b9014fec5c95ef26434c8675ca3cd64adc453cc39e",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "integrated_stationery",
+          "alpha": false
+        },
+        {
+          "page": 30,
+          "source_key": "roshan_reflect_large",
+          "file": "art/identity_v21/roshan_reflect_large.png",
+          "sha256": "f8b13e20e329c1f07fc284a980c53af512e8596c28a945c2e4976d5eb52c64fb",
+          "native_size": [
+            1024,
+            1536
+          ],
+          "source_box_pixels": [
+            65,
+            0,
+            1004,
+            1493
+          ],
+          "target_box_points": [
+            305.4460817146685,
+            56.0,
+            137.1078365706631,
+            218.0
+          ],
+          "operation": "source_region",
+          "role": "story_art",
+          "alpha": true
+        },
+        {
+          "page": 30,
+          "source_key": "approved_rainbow_puff_cutout",
+          "file": "../previews/2026-09-30/art/rainbow_puff_cutout.png",
+          "sha256": "c0d15aa35ab2056566a64c72d2ccfd690e65e8c5fa809c12e66b20ed87353135",
+          "native_size": [
+            1346,
+            1169
+          ],
+          "source_box_pixels": [
+            43,
+            9,
+            1326,
+            1151
+          ],
+          "target_box_points": [
+            62.0,
+            108.02260327357754,
+            146.0,
+            129.9547934528449
+          ],
+          "operation": "source_region",
+          "role": "story_art",
+          "alpha": true
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 30,
+        "mode": "C",
+        "art": [
+          "roshan_reflect_large",
+          "approved_rainbow_puff_cutout"
+        ],
+        "text": "“Your rainbow was there all along,\nGrand Puff. We helped it shine!”",
+        "layout": "placements",
+        "border_assets": [],
+        "background_theme": "Two little bunnies cooperate with canonical toy rings; clean open book and lamp echo restoration. No extra rainbow arch.",
+        "caption": {
+          "x": 32,
+          "y": 316,
+          "width": 440,
+          "size": 18,
+          "align": "center",
+          "color": "navy",
+          "shadow": false,
+          "halo": false,
+          "outline": 0
+        },
+        "foreground_zone": [
+          30,
+          53,
+          444,
+          211
+        ],
+        "border_placements": [],
+        "integrated_background": "v29_bank30_tiny",
+        "integrated_motifs": [
+          "left_ring_bunny",
+          "right_ring_bunny",
+          "ring_toy",
+          "open_book",
+          "attic_lamp"
+        ],
+        "integrated_prop_bounds": [
+          [
+            0.11455526,
+            0.86698113,
+            0.05929919,
+            0.07641509
+          ],
+          [
+            0.18867925,
+            0.8754717,
+            0.0606469,
+            0.08490566
+          ],
+          [
+            0.16509434,
+            0.91792453,
+            0.02695418,
+            0.04433962
+          ],
+          [
+            0.72708895,
+            0.91415094,
+            0.08894879,
+            0.06037736
+          ],
+          [
+            0.80525606,
+            0.8745283,
+            0.04784367,
+            0.07641509
+          ]
+        ],
+        "bounds_note": "Round2 native visible-subject annotation; exact hidden occlusion/shadow opacity not measurable for generated pixels.",
+        "marginal_bunny_count": 2,
+        "placements": [
+          {
+            "source": "roshan_reflect_large",
+            "box": [
+              276,
+              56,
+              196,
+              218
+            ]
+          },
+          {
+            "source": "approved_rainbow_puff_cutout",
+            "box": [
+              62,
+              86,
+              146,
+              174
+            ]
+          }
+        ],
+        "original_page": 31,
+        "beat": "v27_31"
+      }
+    },
+    {
+      "page_index": 31,
+      "label": "story page 31",
+      "mode": "C",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_31.png",
+      "screenshot_sha256": "2fed67e779ba66e601747ef8e667db420e9dacf36479e2d9946df305e2439e11",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.5,
+      "round2_internal_visual_craft_score": 4.9,
+      "objects": [
+        {
+          "object": "Roshan/Eagle invitation",
+          "internal_craft_score": 4.9,
+          "observed": "Distinct wave and Eagle raised-foot response; complete fingers/feet and clean contours."
+        },
+        {
+          "object": "gentle play bunnies",
+          "internal_craft_score": 4.9,
+          "observed": "Different ring and sailboat actions; proper curls/ears/pearls, small subordinate scale."
+        },
+        {
+          "object": "hidden Lamma",
+          "internal_craft_score": 4.9,
+          "observed": "White horizontal ears/oval face behind chest, canonical and unprompted; second subtle appearance."
+        },
+        {
+          "object": "caption/background",
+          "internal_craft_score": 4.9,
+          "observed": "Crisp border rings and quiet aqua field; grounded props."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "observed_pass_for_scoped_craft",
+      "repair_targets": [],
+      "image_treatment": "genuine irregular contourcutouts on compact event-specific background; no scenic rectangles",
+      "source_layers": [
+        {
+          "page": 31,
+          "source_key": "v29_bank31_final",
+          "file": "revisions/v29_polish/art/bank31_final.png",
+          "sha256": "18e1a0c3db666500863503af71800bd2b5aa748af44b64f3e5cb22f96676c545",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "integrated_stationery",
+          "alpha": false
+        },
+        {
+          "page": 31,
+          "source_key": "roshan_wave_large",
+          "file": "art/identity_v21/roshan_wave_large.png",
+          "sha256": "ba50ca0bee70762120f7986ee8557654cc6e45be4ab2c006ee5791e2329486fc",
+          "native_size": [
+            1024,
+            1536
+          ],
+          "source_box_pixels": [
+            0,
+            32,
+            987,
+            1464
+          ],
+          "target_box_points": [
+            94.56145251396647,
+            55.0,
+            148.87709497206706,
+            216.0
+          ],
+          "operation": "source_region",
+          "role": "story_art",
+          "alpha": true
+        },
+        {
+          "page": 31,
+          "source_key": "eagle_inviting",
+          "file": "art/personality_v20/eagle_inviting.png",
+          "sha256": "fb70f4660ad4a45ccb760c5e5e72dbb8f5f36c43e80e8c9a63a050e5a491b79b",
+          "native_size": [
+            944,
+            1665
+          ],
+          "source_box_pixels": [
+            0,
+            22,
+            944,
+            1623
+          ],
+          "target_box_points": [
+            321.29169269206744,
+            74.0,
+            101.41661461586509,
+            172.0
+          ],
+          "operation": "source_region",
+          "role": "story_art",
+          "alpha": true
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 31,
+        "mode": "C",
+        "art": [
+          "roshan_wave_large",
+          "eagle_inviting"
+        ],
+        "text": "“Come and play, Baby Eagle!”\nThe little dust bunnies played gently, too.",
+        "layout": "friends_pair",
+        "border_assets": [],
+        "background_theme": "Two distinct gentle play actions with ring and sailboat; Lamma's white face/ears subtly peek above toy chest without prompting.",
+        "caption": {
+          "x": 31,
+          "y": 316,
+          "width": 440,
+          "size": 18,
+          "align": "center",
+          "color": "navy",
+          "shadow": false,
+          "halo": false,
+          "outline": 0
+        },
+        "foreground_zone": [
+          30,
+          53,
+          444,
+          211
+        ],
+        "border_placements": [],
+        "integrated_background": "v29_bank31_final",
+        "integrated_motifs": [
+          "ring_bunny",
+          "toy_chest",
+          "orange_ring",
+          "lamma_face_peek",
+          "sailboat_bunny",
+          "stacking_sailboat",
+          "new_toy_coral"
+        ],
+        "integrated_prop_bounds": [
+          [
+            0.15229111,
+            0.87264151,
+            0.0606469,
+            0.07830189
+          ],
+          [
+            0.19946092,
+            0.88490566,
+            0.06873315,
+            0.06792453
+          ],
+          [
+            0.18733154,
+            0.92358491,
+            0.02628032,
+            0.03018868
+          ],
+          [
+            0.19137466,
+            0.85660377,
+            0.06671159,
+            0.03584906
+          ],
+          [
+            0.78571429,
+            0.85566038,
+            0.0606469,
+            0.09433962
+          ],
+          [
+            0.75202156,
+            0.8745283,
+            0.04514825,
+            0.08301887
+          ],
+          [
+            0.27088949,
+            0.90471698,
+            0.03234501,
+            0.04622642
+          ]
+        ],
+        "marginal_bunny_count": 2,
+        "bounds_note": "Round2 native visible-subject annotation; exact hidden occlusion/shadow opacity not measurable for generated pixels.",
+        "original_page": 20,
+        "beat": "v27_20"
+      }
+    },
+    {
+      "page_index": 32,
+      "label": "story page 32",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_32.png",
+      "screenshot_sha256": "061d5a336e066f0d6264115da6dd9026efe3b29ca2e111dde8076b952050acb3",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.4,
+      "round2_internal_visual_craft_score": 4.9,
+      "objects": [
+        {
+          "object": "sleeping main cast",
+          "internal_craft_score": 4.9,
+          "observed": "All five friends close and asleep, hands/tails/wings identifiable; original main framing preserved."
+        },
+        {
+          "object": "two patched sleeping bunnies",
+          "internal_craft_score": 4.9,
+          "observed": "Each now has forehead curl, two spiral ears with pearl roots and sleeping eyes; bodies submerged organically behind bubbles, no square masks/old ears/alpha seams."
+        },
+        {
+          "object": "bubble pile",
+          "internal_craft_score": 4.9,
+          "observed": "Smooth overlapping pastel spheres, authored sparkle grain; no diagnostic regular blocking."
+        },
+        {
+          "object": "caption",
+          "internal_craft_score": 4.9,
+          "observed": "White with shadow above heads on dark quiet lavender wall."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "observed_pass_for_scoped_craft",
+      "repair_targets": [],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": 32,
+          "source_key": "bubble_nap",
+          "file": "art/personality_v20/bubble_nap.png",
+          "sha256": "938a33de574edef7bde90ddbe89e7616e1448d26dc33b62f6415f694b0c344df",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "story_art",
+          "alpha": false
+        },
+        {
+          "page": 32,
+          "source_key": "v29_nap32",
+          "file": "revisions/v29_polish/art/nap32.png",
+          "sha256": "defcc8f3df7bbf22a5a36970740456c11c15ffddfdb8c60aab587c7b8d00d033",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            298,
+            736,
+            449,
+            879
+          ],
+          "target_box_points": [
+            101.20754716981135,
+            61.471698113207545,
+            51.283018867924525,
+            48.56603773584905
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              298,
+              791
+            ],
+            [
+              309,
+              751
+            ],
+            [
+              354,
+              736
+            ],
+            [
+              397,
+              755
+            ],
+            [
+              440,
+              784
+            ],
+            [
+              449,
+              866
+            ],
+            [
+              406,
+              879
+            ],
+            [
+              306,
+              869
+            ]
+          ]
+        },
+        {
+          "page": 32,
+          "source_key": "v29_nap32",
+          "file": "revisions/v29_polish/art/nap32.png",
+          "sha256": "defcc8f3df7bbf22a5a36970740456c11c15ffddfdb8c60aab587c7b8d00d033",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            1082,
+            782,
+            1240,
+            891
+          ],
+          "target_box_points": [
+            367.4716981132076,
+            57.39622641509434,
+            53.660377358490564,
+            37.0188679245283
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              1082,
+              830
+            ],
+            [
+              1104,
+              783
+            ],
+            [
+              1143,
+              782
+            ],
+            [
+              1202,
+              793
+            ],
+            [
+              1240,
+              835
+            ],
+            [
+              1225,
+              890
+            ],
+            [
+              1119,
+              891
+            ]
+          ]
+        }
+      ],
+      "page_config_snapshot": {
+        "page": 32,
+        "mode": "F",
+        "art": [
+          "bubble_nap"
+        ],
+        "text": "There was room for everyone.\nThey curled up in the bubbles and fell asleep.",
+        "layout": "full",
+        "border_assets": [],
+        "background_theme": "Full-art resting epilogue: all five friends asleep in one bubble pile, after the unchanged canonical landing.",
+        "caption": {
+          "x": 30,
+          "y": 318,
+          "width": 444,
+          "size": 20,
+          "align": "center",
+          "color": "white",
+          "shadow": false,
+          "halo": false,
+          "outline": 0.4
+        },
+        "border_placements": [],
+        "focal_exclusions": [
+          [
+            0,
+            0,
+            504,
+            270
+          ]
+        ],
+        "original_page": 32,
+        "beat": "v27_32",
+        "local_patches": [
+          {
+            "source": "v29_nap32",
+            "reference_size": [
+              1484,
+              1060
+            ],
+            "polygon": [
+              [
+                298,
+                791
+              ],
+              [
+                309,
+                751
+              ],
+              [
+                354,
+                736
+              ],
+              [
+                397,
+                755
+              ],
+              [
+                440,
+                784
+              ],
+              [
+                449,
+                866
+              ],
+              [
+                406,
+                879
+              ],
+              [
+                306,
+                869
+              ]
+            ]
+          },
+          {
+            "source": "v29_nap32",
+            "reference_size": [
+              1484,
+              1060
+            ],
+            "polygon": [
+              [
+                1082,
+                830
+              ],
+              [
+                1104,
+                783
+              ],
+              [
+                1143,
+                782
+              ],
+              [
+                1202,
+                793
+              ],
+              [
+                1240,
+                835
+              ],
+              [
+                1225,
+                890
+              ],
+              [
+                1119,
+                891
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "page_index": 33,
+      "label": "rear cover",
+      "mode": "F",
+      "screenshot": "books/chapter_one/landscape/revisions/v29_polish/complete/page_33.png",
+      "screenshot_sha256": "c8f5499578e1701db712c76f18ddbfecd32a5f07228c9301fd3b88b171d36ccb",
+      "inspection": "Full rendered1512x1080 page inspected at original detail, following full-contact-sheet pacing review; changed source candidates also inspected native.",
+      "baseline_internal_visual_craft_score": 4.8,
+      "round2_internal_visual_craft_score": 4.8,
+      "objects": [
+        {
+          "object": "Roshan/Daddy/Rumi/Eagle",
+          "internal_craft_score": 4.8,
+          "observed": "Owner-selected H retained exactly; Rumi is rounder than runtime adult atlas and Roshan shell brooch follows accepted cover family. No new anatomical failure observed."
+        },
+        {
+          "object": "bunnies/table composition",
+          "internal_craft_score": 4.9,
+          "observed": "Canonical ears/curl/pearls, unified rendered table/dust/props; no pasted collage rectangles."
+        }
+      ],
+      "observed_remaining_failures": [],
+      "target_4_9_status": "below_target; see specific object notes; no automatic pass",
+      "repair_targets": [],
+      "image_treatment": "complete full-art trim or page extension",
+      "source_layers": [
+        {
+          "page": "back_cover",
+          "source_key": "v23_cover_h",
+          "file": "art/story_detail_v23/cover_h.png",
+          "sha256": "6bb61625f4d052e9d7abd6f3669e692652fc703ef0b64113fea4443f4cdab923",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            0,
+            0,
+            1484,
+            1060
+          ],
+          "target_box_points": [
+            2.842170943040401e-14,
+            0.0,
+            503.99999999999994,
+            360.0
+          ],
+          "operation": "page_trim",
+          "role": "story_art",
+          "alpha": false
+        }
+      ],
+      "page_config_snapshot": {
+        "art": "v23_cover_h",
+        "mode": "full_art",
+        "selection": "H: full ensemble, front-cover aqua/lavender/pink palette, simplified painted dust. Supersedes owner-rejected photorealistic two-character studies A–D."
+      }
+    }
+  ],
+  "summary": {
+    "page_count": 34,
+    "all_pages_inspected_full_size": true,
+    "minimum_page_craft": 4.4,
+    "mean_page_craft": 4.826,
+    "pages_with_explicit_repair_targets": [
+      4,
+      6,
+      13,
+      27,
+      28,
+      29
+    ],
+    "target_achieved_for_all_objects": false,
+    "primary_remaining_failures": [
+      "Ceiling extension join27/29, weaker28",
+      "Busy white captions6/13; lesser caption-value interference4/12/14/23"
+    ],
+    "accepted_improvements": [
+      "castle03 native clarity without duplicated window or door seam",
+      "listen17 exactly two arms and ear gesture with no patch seam",
+      "rescue18/19 dirty-state continuity; neckline19 repaired cleanly",
+      "speech20 rounded capsules and short tails clear of ears",
+      "table22 purple spill removed cleanly",
+      "event-specific small grounded banks5/7/8/16/20/24/25/30/31",
+      "Lamma09 and31 visually canonical and subtle",
+      "canonical nap32 corner bunnies with organically occluding bubbles",
+      "broken rings11/21 repaired"
+    ],
+    "source_gaps_or_accepted_variations": [
+      "Cover/Rumi younger face and cover shell brooch are established accepted family; preserve exact owner-selected art.",
+      "13 residual pool debris does not contradict streams-clear text; pool finishes resolving14/15.",
+      "17 storage vestibule and18 grand toy hall still have different architecture; dirty-state continuity improved, not literal geometry equality.",
+      "5 pink star vs7/25–29 yellow sponge is several tools, minor unexplained transition; avoid full scene redraw."
+    ],
+    "binary_image_rule": "All34 pages remain full art or genuine contourcutouts. No reduced scenic rectangle found.",
+    "bubble_result": "No diagnostic regular8x8 block grid observed; granular lather27/28 and sparkle32 are authored texture. Separate baseline ring defects11/21 now corrected."
+  }
+}
