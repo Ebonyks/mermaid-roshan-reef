@@ -19,7 +19,7 @@
       "id": "IMAGE_1",
       "role": "approved_clean_first_frame",
       "path": "frames/BAND-01/candidate.png",
-      "sha256": "ebd995b5247c9821506579a0e477dbdabf59f23b79e65ed8371fdd429a3aaf4a",
+      "sha256": "4b57d3466ad7831ea78750dee9e5fe6758af0b1f1baaa0a17c8a7c9f41d90430",
       "candidate_scene_path": "frames/BAND-01/candidate.png",
       "hud_present": false,
       "human_decision": "pending",
@@ -40,6 +40,15 @@
       "sha256": "2c00e80e57315283e2612fb301cc9e2ac0c519bab1e0bfa44b4ff3dc4b13ff68",
       "hud_present": false,
       "human_decision": "pending shot binding review"
+    },
+    {
+      "id": "IMAGE_4",
+      "role": "object_or_material_identity",
+      "path": "stage_fit/site_candidate.png",
+      "sha256": "b88eea776d0b439cd3ea1f1a62a61c9ffa0e0834388affef0780c7644f88f8b4",
+      "hud_present": false,
+      "human_decision": "pending terrain-fit approval",
+      "binding_job": "low fitted deck material and shape continuity; opening-frame camera remains IMAGE_1"
     }
   ],
   "camera": {
@@ -63,7 +72,7 @@
     "no duplicate candle"
   ],
   "prompt_path": "shots/BAND-01/PROMPT.txt",
-  "prompt_sha256": "1beb6f0d29c946f49c779dcf54b6374083e20ee05390681488d7ffa0dd17f1cf",
+  "prompt_sha256": "19280adbc28a5d32b9b07d24f8d1ef75ea304d2126be8ac912e2022094c9441b",
   "editorial_start_seconds": 0.0,
   "editorial_end_seconds": 3.583,
   "recording_start_seconds": 0.0,
@@ -78,6 +87,10 @@
     {
       "path": "runtime/prototype.png",
       "used_as_pixel_reference": false
+    },
+    {
+      "path": "stage_fit/STAGE_FIT.html",
+      "used_as_pixel_reference": false
     }
   ],
   "ARCHIVE_COMPLETE": false,
@@ -86,5 +99,6 @@
   "blocking_findings": [
     "Owner first-frame/continuity approval pending",
     "Human identity/contact/topology review pending"
-  ]
+  ],
+  "terrain_fit_note": "R4 replaces the rejected oval footprint; preserve existing paths/grass/shrubs and use one shared deck. Owner site/first-frame/continuity approval remains pending."
 }

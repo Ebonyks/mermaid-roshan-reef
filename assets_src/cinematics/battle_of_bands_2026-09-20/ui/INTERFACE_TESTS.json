@@ -1,6 +1,6 @@
 {
   "schema": "bands-ui-review-v1",
-  "checked_at": "2026-09-30T23:53:37.926Z",
+  "checked_at": "2026-10-01T00:11:39.560Z",
   "browser": "headless Microsoft Edge via Playwright, local HTTP",
   "scope": "Silent browser UI fixtures only; no Godot/device/child acceptance",
   "checks": [
@@ -19,39 +19,39 @@
   "captures": [
     {
       "path": "fall.png",
-      "sha256": "c4009131c33c0944cfc119dea9988d95dd957cdcf7ab6a09d782587a9b019de8"
+      "sha256": "9d20a30ca11c6cf55dab38dc75a1e4779aa9dd4c6eea97453a5e5fd0a0a568dd"
     },
     {
       "path": "fan.png",
-      "sha256": "ba731576182bf133d3ba5ffe94579310b31e0b5906e855cdbbf6c6aca5f6869e"
+      "sha256": "7d0206f28e69ee239ef5e4850312efbeb25b64e1a4f601e611ebfcc5d9eb47c4"
     },
     {
       "path": "single.png",
-      "sha256": "c00b1ecbcb2c88bac8c154e32b54027ac7ab167cb84ea5685aafd36150c7e180"
+      "sha256": "c2704f5da583e702518369d080e95224d7d98880c4587baa83aa0ae92a2afaa8"
     },
     {
       "path": "state-ready.png",
-      "sha256": "7800d9d502021403aec15e173ad14221310eae4327295b72fee3a38dcbb61657"
+      "sha256": "999b4c3a831ff46431f1fc4d49c733be6534db241fe70ec11d69500d299454cc"
     },
     {
       "path": "state-approach.png",
-      "sha256": "c4009131c33c0944cfc119dea9988d95dd957cdcf7ab6a09d782587a9b019de8"
+      "sha256": "9d20a30ca11c6cf55dab38dc75a1e4779aa9dd4c6eea97453a5e5fd0a0a568dd"
     },
     {
       "path": "state-contact.png",
-      "sha256": "fe34bd361f9335321fcd6c732062ec9ad9be4fa568309acffb009a9d528b4653"
+      "sha256": "c16b001e5a9b6e3e98c18f4033e9c09b400b9e366a8a9838e1598d707cfb891a"
     },
     {
       "path": "state-feedback.png",
-      "sha256": "daec4026944ef63be57c96819fc2c5d1ae19798df0971cc8453d1f9fa740fa6d"
+      "sha256": "2d3e78f1e041281d5c68c0ecd52fdb173804c8033a14846b3d2e4b44d4b0ae05"
     },
     {
       "path": "state-passed.png",
-      "sha256": "1f7ea8480f404d8fcfa1960bc3bb01a858abdb62d6dea81306e90c396649d717"
+      "sha256": "6c02c70d9bf2e0569fcb098bfbc51f91e4029497347cfd36016ef601910ebff0"
     },
     {
       "path": "state-paused.png",
-      "sha256": "014b3f2631c2a2faf3cb1b69876815d9c493cce0bd79f788b7ba2c64afe55b53"
+      "sha256": "afb67e47727348d2c856de868c48e6f3f5c2338ca5b06325383644ae0f52ddaf"
     }
   ],
   "unit_command": "node tools/test_bands_rhythm_ui.cjs",
@@ -75,7 +75,7 @@
     },
     {
       "path": "interface.js",
-      "sha256": "26e4e4b9ab8007df792fd83cf32a3ce56b3f9a105339aa5076cf0749e823ffeb"
+      "sha256": "6cfe70a29e7eefd6d00ebc6c334b2fee932eaba1b24630cc21cd9d4f7111112d"
     },
     {
       "path": "rhythm-core.js",
@@ -86,12 +86,8 @@
       "sha256": "8c053d0cff47f04f3297ca6c48016fb74f24bfcb862f8c2cedeb3fd980f1e709"
     },
     {
-      "path": "../references/stage_platform.png",
-      "sha256": "24e03b770e6b2dc4512a723b3cf6627cbb57d5ae5e38e94846dc483ee8b4f367"
-    },
-    {
-      "path": "../references/sky_lagoon_middle_literal.png",
-      "sha256": "f96541ad1c9efafc4930449e989701c66c4a097045865ac79614160232fef2a0"
+      "path": "../stage_fit/site_candidate.png",
+      "sha256": "b88eea776d0b439cd3ea1f1a62a61c9ffa0e0834388affef0780c7644f88f8b4"
     }
   ],
   "capture_method": "Whole browser viewport PNG, 1280x720, no raster editing. Original source PNGs reused unchanged in an interactive Canvas UI; never cinematic pixels."

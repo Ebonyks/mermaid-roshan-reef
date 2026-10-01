@@ -19,7 +19,7 @@
       "id": "IMAGE_1",
       "role": "approved_clean_first_frame",
       "path": "frames/BAND-05/candidate.png",
-      "sha256": "fbe6e5e5921bfce9949ea390342685ef74bc924530aceb0ac94c5c29a09bf310",
+      "sha256": "02af237617fb9888bbb7f4a9d7dd6d1a08d8e3fc94902887c9a9ceaf47bb4834",
       "candidate_scene_path": "frames/BAND-05/candidate.png",
       "hud_present": false,
       "human_decision": "pending",
@@ -40,6 +40,15 @@
       "sha256": "bdba7c762c44cfa41d3be560255b75562385715f2014ad095ae526f708b0177e",
       "hud_present": false,
       "human_decision": "pending shot binding review"
+    },
+    {
+      "id": "IMAGE_4",
+      "role": "object_or_material_identity",
+      "path": "stage_fit/site_candidate.png",
+      "sha256": "b88eea776d0b439cd3ea1f1a62a61c9ffa0e0834388affef0780c7644f88f8b4",
+      "hud_present": false,
+      "human_decision": "pending terrain-fit approval",
+      "binding_job": "low fitted deck material and shape continuity; opening-frame camera remains IMAGE_1"
     }
   ],
   "camera": {
@@ -63,7 +72,7 @@
     "no duplicate candle"
   ],
   "prompt_path": "shots/BAND-05/PROMPT.txt",
-  "prompt_sha256": "1c3cb6bee9bffc56334e847a6d4a0ea772fa332ab91cb6b895a9728d49903da0",
+  "prompt_sha256": "a22bb3c51c0fcde16cb3b25a1ee0d6f58fa546f9b1202eef645b528c66e855a3",
   "editorial_start_seconds": 25.303105,
   "editorial_end_seconds": 31.061953,
   "recording_start_seconds": 25.303105,
@@ -78,6 +87,10 @@
     {
       "path": "runtime/prototype.png",
       "used_as_pixel_reference": false
+    },
+    {
+      "path": "stage_fit/STAGE_FIT.html",
+      "used_as_pixel_reference": false
     }
   ],
   "ARCHIVE_COMPLETE": false,
@@ -86,5 +99,6 @@
   "blocking_findings": [
     "Owner first-frame/continuity approval pending",
     "Human identity/contact/topology review pending"
-  ]
+  ],
+  "terrain_fit_note": "R4 replaces the rejected oval footprint; preserve existing paths/grass/shrubs and use one shared deck. Owner site/first-frame/continuity approval remains pending."
 }

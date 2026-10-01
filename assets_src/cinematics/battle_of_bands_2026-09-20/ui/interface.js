@@ -22,7 +22,8 @@ const descriptions = {
  single: ['03','One-bar practice','Only the next instrument and its path are highlighted. One clear moving cue introduces the same timing gesture without three competing paths.']
 };
 const art = {};
-const loaded = Promise.all([['background','sky_lagoon_middle_literal.png'],['stage','stage_platform.png'],['roshan','roshan_drums.png']].map(([key,file]) => new Promise((resolve,reject) => {const im=new Image();im.onload=()=>{art[key]=im;resolve();};im.onerror=reject;im.src='../references/'+file;})));
+const siteCamera = {x:.30,y:.25,width:.40,height:.40};
+const loaded = Promise.all([['background','../stage_fit/site_candidate.png'],['roshan','../references/roshan_drums.png']].map(([key,file]) => new Promise((resolve,reject) => {const im=new Image();im.onload=()=>{art[key]=im;resolve();};im.onerror=reject;im.src=file;})));
 drums.forEach((button,i)=>{button.style.left=targets[i][0]/12.8+'%';button.style.top=targets[i][1]/7.2+'%';button.style.setProperty('--target',tones[i]);button.style.setProperty('--target-ink',inks[i]);});
 function route(i) {
  const end=targets[i];
@@ -33,10 +34,10 @@ function rounded(x,y,w,h,r,fill,stroke,width=3){ctx.beginPath();ctx.roundRect(x,
 function glyph(i,x,y,size,color){ctx.save();ctx.translate(x,y);ctx.fillStyle=color;ctx.beginPath();if(i===0)ctx.arc(0,0,size/2,0,Math.PI*2);else if(i===1){ctx.moveTo(0,-size*.6);ctx.lineTo(size*.6,0);ctx.lineTo(0,size*.6);ctx.lineTo(-size*.6,0);}else ctx.roundRect(-size*.75,-size*.22,size*1.5,size*.44,size*.2);ctx.fill();ctx.restore();}
 function render(){
  if(!art.roshan)return;
- ctx.clearRect(0,0,1280,720);ctx.drawImage(art.background,0,0,1280,720);
+ // One camera crop of the complete terrain-fitted environment. No enlarged oval overlay.
+ const bg=art.background,c=siteCamera;
+ ctx.clearRect(0,0,1280,720);ctx.drawImage(bg,bg.width*c.x,bg.height*c.y,bg.width*c.width,bg.height*c.height,0,0,1280,720);
  ctx.fillStyle='#f3f3ff80';ctx.fillRect(0,0,1280,720);
- // Enlarge the existing platform uniformly: every kit foot rests on its wood top.
- ctx.drawImage(art.stage,-80,430,1440,1440*art.stage.height/art.stage.width);
  const cue=core.cue();
  // Faint paths sit behind the character. Bars remain legible in the foreground.
  for(let i=0;i<3;i++){
@@ -82,4 +83,4 @@ drums.forEach((button,i)=>{button.addEventListener('pointerdown',e=>{e.preventDe
 window.addEventListener('blur',pause);document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});
 function frame(now){if(last&&core.running)core.advance(Math.min((now-last)/1000,.1));last=now;render();requestAnimationFrame(frame);}
 if(query.get('embed')==='1')document.documentElement.classList.add('embed');
-updateDescription();loaded.then(()=>{freeze(query.get('state')||'live');window.BandsLab={core,targets,route,freeze,get layout(){return layout;},ready:true};requestAnimationFrame(frame);}).catch(()=>message('A reference image could not load. Open this folder through a local HTTP server.'));
+updateDescription();loaded.then(()=>{freeze(query.get('state')||'live');window.BandsLab={core,targets,route,freeze,siteCamera,get layout(){return layout;},ready:true};requestAnimationFrame(frame);}).catch(()=>message('A reference image could not load. Open this folder through a local HTTP server.'));

@@ -8,6 +8,14 @@ Roshan drums; Daddy Mermaid plays ukulele; Baby Eagle plays four-string/four-peg
 
 These are full-frame **scene-design candidates**, awaiting first-frame and continuity approval. Grok clips are motion/editorial reference only. Download the directory and open SHOT_BOARD.html to inspect timing with local song playback. GitHub renders the scene images below; it displays HTML as source.
 
+## R4: A stage fitted to the meadow
+
+The large oval footprint is rejected. The new low, asymmetric deck follows the existing clearing, indents around shrubs and leaves the stone cross-path and uphill junction clear. Close views use this same site; the environment is not stretched to fit a stage.
+
+![Terrain-fitted environment candidate](stage_fit/site_candidate.png)
+
+[Site comparison and band layout](stage_fit/STAGE_FIT.html) · [Construction / Codex brief](stage_fit/STAGE_FIT.txt) · [Environment provenance](stage_fit/PROVENANCE.json)
+
 ## R3: Pop Star scrolling-drum interface studies
 
 The ordered-tap mechanic is superseded. A moving bar now reaches the actual drum rim or cymbal, where the child taps. This revision contains **interfaces and silent timing fixtures only**: no authored drum part or Iko Iko chart, no production-game replacement.
@@ -142,7 +150,7 @@ Download/serve this packet to try the interfaces. Each uses one-finger input, sh
 
 ## Earlier Godot staging prototype — rhythm mechanic superseded
 
-![Earlier Godot Mobile staging capture — never generator input](runtime/prototype.png)
+[Earlier Godot capture — REJECTED oval footprint; history only](runtime/prototype.png)
 
 The earlier scenes/battle_of_bands_prototype.tscn preserves staging/audio/save review history. Its twelve ordered taps are superseded by the scrolling-bar design above. No Godot script or production job was changed in this interface-only revision. Historical MACHINE_VERIFICATION.json and RUNTIME_EVIDENCE.json do not validate the new browser interface.
 

@@ -1,0 +1,25 @@
+SKY LAGOON STAGE — TERRAIN FIT / R4 / 2026-09-30
+Owner correction: the stage can stay large, but its shape must account for the actual surrounding land. The previous generic oval and its landscape placement are REJECTED.
+
+LOCATION AUTHORITY
+references/sky_lagoon_middle_literal.png is the unchanged literal centre crop of the existing v5 panorama; BACKGROUND_PROVENANCE.json names its native source, crop and SHA-256. Preserve the meadow's shrub lobes, mountain/cloud/cabin arrangement, stone cross-path and uphill route. Never reshape the lagoon or invent a bigger clearing to accommodate a stage.
+
+NEW CONSTRUCTION
+stage_fit/site_candidate.png is a complete generated environment candidate, saved at native resolution. A shallow asymmetric deck follows the clearing: back edge follows the shrub boundary, left side indents around the shrub lobe, right corner angles away from the uphill route, and front edge stays above the cross-path. Visible grass seams separate deck from plants and path. The blue-green fascia is low with a thin gold edge. A short step stops within the grass margin. There are no broad front stairs, towering stage walls, floating edges or spans over vegetation.
+
+The deck retains useful horizontal width for five musicians in two staggered rows. The location establishes the footprint; arrange/camera-frame the musicians to fit it, never enlarge the platform underneath them. Roshan is front-left, Daddy back-left, cake/pedestal rear-middle, Eagle front-middle, Prince back-right, King front-right. Preserve single-kick Prince and four-string/four-peg bass. Cake and every performer/kit must be supported.
+
+CAMERAS / PROTOTYPE
+The establishing shot shows the entire meadow, stage and uninterrupted foreground path. Close shots are views into this one deck; they must not invent isolated oval mini-stages or move the foreground cross-path behind the performers. The UI uses an ordinary static prototype camera crop of site_candidate.png: normalized x=.30, y=.25, width=.40, height=.40. Its existing Roshan art, 1280x720 contact centres and touch geometry remain unchanged. This cropped Canvas interface is explicitly not cinematic delivery; final cinematic frames remain independent complete generations. The 1672x941 site candidate and its approximately 669x376 crop are REFERENCE-ONLY, not runtime-ready textures. Production must preserve the accepted geometry while satisfying >=2048x2048 native background coverage per playable screen; do not upscale this candidate and claim that gate passed.
+
+HISTORICAL SOURCES
+The old stage_platform.png and runtime/prototype.png remain preservation/staging evidence, not footprint authority. Previous scene candidates/prompts are preserved under generation_inputs/r3-before-terrain-fit and indexed in generation_inputs/R3_PRE_TERRAIN_FIT.json. The R3 timing mechanic and shot 12 correction remain: no authored drum parts, music ends before physical candle theft, dropped guitar stays behind.
+
+CHECKS / ACCEPTANCE
+Inspect visible grass clearance, the uninterrupted stone path, the right-hand uphill junction, low stage support, camera scale and every foot/prop contact. Match this site consistently across the entire storyboard. Hashes and native prompts document provenance; they do not establish owner topology/identity/continuity acceptance. No runtime Godot integration, target-phone performance, child acceptance, new musical chart or release is part of this revision.
+
+GROK / CODEX
+Use only each shot card's bound images after first-frame approval. This HTML site study, UI captures and history are never generator pixels. Final frame provenance and full-frame rules remain binding. Codex should implement the fitted footprint in the existing middle-meadow coordinate system and retain current path/return ownership; the old oval prototype is not the starting geometry. Keep acceptance separate from public archive completion.
+
+CAMERA REVIEW NOTES
+Eleven scene candidates and the contact study were regenerated as complete images. BAND-06, BAND-08 and BAND-10 reuse exact earlier close-ups because their wood context is compatible and neither the rejected footprint nor the foreground path is visible. Seven first attempts widened the focal framing or added cast and are rejected in generation_inputs/R4_REJECTED_FRAMING.json. Remaining review details: BAND-04 adds a raised rear trim; BAND-11/contact study retain decorative fascia. These are pending material-continuity corrections before first-frame approval, not an alternative site footprint. No human approval is inferred from assistant inspection.

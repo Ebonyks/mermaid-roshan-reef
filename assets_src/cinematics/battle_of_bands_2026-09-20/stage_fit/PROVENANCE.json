@@ -1,0 +1,159 @@
+{
+  "schema": "bands-terrain-fit-review-v1",
+  "baseline": "3dc3b44567eb6ecdd140826ecfed5e222b418925",
+  "generation_gap": "Owner rejects oversized oval crossing land/path. Existing standalone oval cannot provide an environment-fitted footprint; full-frame repair is required for the dependent cinematic candidates. Character/prop identities are reused.",
+  "site_candidate": {
+    "id": "SITE",
+    "path": "stage_fit/site_candidate.png",
+    "sha256": "b88eea776d0b439cd3ea1f1a62a61c9ffa0e0834388affef0780c7644f88f8b4",
+    "native_dimensions": [
+      1672,
+      941
+    ],
+    "prompt_path": "stage_fit/GENERATION_PROMPT.txt",
+    "prompt_sha256": "c6af58292ee0742efd1273ac319dcf5696ca1e1243b2601065cf174e0b13d9f1",
+    "method": "Codex built-in imagegen complete flattened full-frame generation",
+    "attempt": 1,
+    "declared_state": "static scene-design candidate; not delivered timeline frame",
+    "human_identity_topology_style_review": "PENDING",
+    "accepted_neighboring_frames": [],
+    "timeline_frame_index": null,
+    "delivery_pixels": false,
+    "position_guide": null,
+    "references": [
+      {
+        "source_path": "assets_src/cinematics/battle_of_bands_2026-09-20/references/sky_lagoon_middle_literal.png",
+        "sha256": "f96541ad1c9efafc4930449e989701c66c4a097045865ac79614160232fef2a0",
+        "role": "identity/location/scene candidate continuity reference; not an accepted neighboring delivery frame"
+      }
+    ],
+    "native_modified": false,
+    "native_source_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0c236-27d6-7de0-9bb2-77f585cc5b06\\exec-00788511-9457-4839-92b9-bfa20cfa5757.png",
+    "native_sha256": "b88eea776d0b439cd3ea1f1a62a61c9ffa0e0834388affef0780c7644f88f8b4"
+  },
+  "rejected_population_attempt": {
+    "id": "WIDE-ATTEMPT01",
+    "path": "stage_fit/wide_attempt01.png",
+    "sha256": "ad2cd9f6e3244de014c7e494df71745489a60b218ee64f3b0be3c204facdf485",
+    "native_dimensions": [
+      1672,
+      941
+    ],
+    "prompt_path": "stage_fit/WIDE_ATTEMPT01_PROMPT.txt",
+    "prompt_sha256": "3a745626b9151e64b896d0d719456d9dddb4c72006592d05ac31df967e0f3107",
+    "method": "Codex built-in imagegen complete flattened full-frame generation",
+    "attempt": 1,
+    "declared_state": "static scene-design candidate; not delivered timeline frame",
+    "human_identity_topology_style_review": "PENDING",
+    "accepted_neighboring_frames": [],
+    "timeline_frame_index": null,
+    "delivery_pixels": false,
+    "position_guide": null,
+    "references": [
+      {
+        "source_path": "assets_src/cinematics/battle_of_bands_2026-09-20/stage_fit/site_candidate.png",
+        "sha256": "b88eea776d0b439cd3ea1f1a62a61c9ffa0e0834388affef0780c7644f88f8b4",
+        "role": "identity/location/scene candidate continuity reference; not an accepted neighboring delivery frame"
+      },
+      {
+        "source_path": "assets_src/cinematics/battle_of_bands_2026-09-20/generation_inputs/r3-before-terrain-fit/BAND-01/candidate.png",
+        "sha256": "ebd995b5247c9821506579a0e477dbdabf59f23b79e65ed8371fdd429a3aaf4a",
+        "role": "identity/location/scene candidate continuity reference; not an accepted neighboring delivery frame"
+      },
+      {
+        "source_path": "assets_src/cinematics/battle_of_bands_2026-09-20/references/candle.png",
+        "sha256": "2c00e80e57315283e2612fb301cc9e2ac0c519bab1e0bfa44b4ff3dc4b13ff68",
+        "role": "identity/location/scene candidate continuity reference; not an accepted neighboring delivery frame"
+      }
+    ],
+    "native_modified": false,
+    "native_source_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0c236-27d6-7de0-9bb2-77f585cc5b06\\exec-3b45d98a-801a-4c5d-9419-d7b6f44fc950.png",
+    "native_sha256": "ad2cd9f6e3244de014c7e494df71745489a60b218ee64f3b0be3c204facdf485",
+    "disposition": "REJECTED: enlarged deck and displaced foreground path; character context only for attempt 2"
+  },
+  "selected_population_candidate": {
+    "id": "BAND-01",
+    "path": "frames/BAND-01/candidate.png",
+    "sha256": "4b57d3466ad7831ea78750dee9e5fe6758af0b1f1baaa0a17c8a7c9f41d90430",
+    "native_dimensions": [
+      1672,
+      941
+    ],
+    "prompt_path": "frames/BAND-01/GENERATION_PROMPT.txt",
+    "prompt_sha256": "e0d47f65e787a4dc7644b9aff93254500ca873abd4593c5db80f9141c716d49e",
+    "method": "Codex built-in imagegen complete flattened full-frame generation",
+    "attempt": 2,
+    "declared_state": "static scene-design candidate; not delivered timeline frame",
+    "human_identity_topology_style_review": "PENDING",
+    "accepted_neighboring_frames": [],
+    "timeline_frame_index": null,
+    "delivery_pixels": false,
+    "position_guide": null,
+    "references": [
+      {
+        "source_path": "assets_src/cinematics/battle_of_bands_2026-09-20/stage_fit/site_candidate.png",
+        "sha256": "b88eea776d0b439cd3ea1f1a62a61c9ffa0e0834388affef0780c7644f88f8b4",
+        "role": "identity/location/scene candidate continuity reference; not an accepted neighboring delivery frame"
+      },
+      {
+        "source_path": "assets_src/cinematics/battle_of_bands_2026-09-20/stage_fit/wide_attempt01.png",
+        "sha256": "ad2cd9f6e3244de014c7e494df71745489a60b218ee64f3b0be3c204facdf485",
+        "role": "identity/location/scene candidate continuity reference; not an accepted neighboring delivery frame"
+      }
+    ],
+    "native_modified": false,
+    "native_source_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0c236-27d6-7de0-9bb2-77f585cc5b06\\exec-33f1f6f4-4f28-480a-b24b-ca3ca0b843ea.png",
+    "native_sha256": "4b57d3466ad7831ea78750dee9e5fe6758af0b1f1baaa0a17c8a7c9f41d90430",
+    "scene": 1
+  },
+  "band_reference_copy": {
+    "path": "stage_fit/band_candidate.png",
+    "sha256": "4b57d3466ad7831ea78750dee9e5fe6758af0b1f1baaa0a17c8a7c9f41d90430",
+    "source_path": "frames/BAND-01/candidate.png",
+    "modification_status": "byte-identical native generated image"
+  },
+  "terrain_review": {
+    "method": "assistant visual comparison; not pixel-identical background certification or owner acceptance",
+    "site_deck_approximate_normalized_bounds": [
+      0.23,
+      0.48,
+      0.79,
+      0.705
+    ],
+    "cross_path_approximate_normalized_vertical_band": [
+      0.725,
+      0.815
+    ],
+    "notes": [
+      "Inward left edge follows shrub lobe; angled right edge avoids uphill junction.",
+      "Low rim and short access step end before stone cross-path, with visible grass margin.",
+      "Selected second population attempt retains site footprint; first attempt rejected for growing the deck.",
+      "Every establishing-shot performer, instrument support and cake pedestal rests on the deck. Exact masks and production collision/path meshes have not been created."
+    ]
+  },
+  "ui_camera_normalized": [
+    0.3,
+    0.25,
+    0.4,
+    0.4
+  ],
+  "runtime_resolution_status": "REFERENCE_ONLY; 1672x941 native site and approximately 669x376 UI crop do not satisfy >=2048x2048 per playable screen. No runtime integration.",
+  "original_location": {
+    "source": "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png",
+    "source_sha256": "017532ae864e534d9b356472e2e29150855ede6583a7f63f02f0401d28c7be41",
+    "crop_native_pixels": [
+      1536,
+      320,
+      4608,
+      2048
+    ],
+    "output_dimensions": [
+      1536,
+      864
+    ],
+    "method": "literal crop and uniform 0.5 scale only; no painting, healing, relighting or new terrain",
+    "role": "authoritative background appearance/reference; new actors must fit this terrain"
+  },
+  "all_human_approval": "PENDING",
+  "DELIVERY_ACCEPTED": false
+}

@@ -17,6 +17,18 @@ This supersedes the earlier stomp/dodge and birthday-lawn staging direction;
 the production finale still uses its old runtime until the refinement work is
 integrated. No protected source art or REAPER project was changed.
 
+The owner's subsequent terrain-fit correction rejects that prototype's broad
+oval footprint. R4 uses a **low asymmetric deck following the clearing**,
+with an inward left notch, angled right edge and visible grass margins. The
+foreground stone path and uphill connection stay clear. The band fits the
+site in two rows; close views use the same deck. See the
+[site study](../assets_src/cinematics/battle_of_bands_2026-09-20/stage_fit/STAGE_FIT.html),
+[construction brief](../assets_src/cinematics/battle_of_bands_2026-09-20/stage_fit/STAGE_FIT.txt)
+and [terrain-fit impact](audit_impacts/bands-terrain-fit-20260930.json).
+The UI now crops one complete environment candidate instead of enlarging an
+oval overlay. These review pixels are not production-resolution backgrounds;
+native per-screen coverage and all visual/device gates remain open.
+
 ## Current interface studies — 2026-09-30 owner correction
 
 The intended Pop Star drumming interaction is now a **scrolling bar that
