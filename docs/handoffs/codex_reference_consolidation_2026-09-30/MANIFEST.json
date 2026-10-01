@@ -1,16 +1,17 @@
 {
  "schema": "codex_handoff_manifest/1",
  "handoff": "codex_reference_consolidation_2026-09-30",
- "revision": 1,
+ "revision": 2,
+ "revision_note": "REFERENCE_PLAN names LIGHTING_2P5D_AUDIT_2026-08-02.md, keeps its headroom spec before archive, and points R06 to the visual design language handoff; README status updated. Revision 1 was add071dc.",
  "status": "PROPOSED / CANDIDATE",
  "prepared_by": "Claude (analysis only; no game changes)",
  "recipient": "Codex",
  "evidence_baseline": "dev 6fc2f48e527dc20286d25455785abd9680d57368",
- "branch_base": "dev ce0331738970205a5aead4d3e0258eb7873a1642",
+ "branch_base": "dev b65c21fdddd79f272a6854f241faa1441abe6616",
  "tracking_finding": "MA-DOC-007",
  "entry": "README.md",
  "file_count": 6,
- "total_bytes": 73416,
+ "total_bytes": 73961,
  "files": [
   {
    "path": ".gdignore",
@@ -20,14 +21,14 @@
   },
   {
    "path": "README.md",
-   "bytes": 19069,
-   "sha256": "6fc8b6a6fe913b07867f8dd1cfb0f5c647106cfef8e0faeff31ad522c7cc3cbb",
+   "bytes": 19271,
+   "sha256": "fe99a3813b75959e81fa9ac1ae85cbd452a9e66aa7d612c7563100916e4f5742",
    "role": "handoff entry: waves, acceptance, owner questions, gates"
   },
   {
    "path": "REFERENCE_PLAN.md",
-   "bytes": 19922,
-   "sha256": "a5ab6dd2b91bdf2a30d0f5ea39245347ff48bb252942e257665a5963cb8bc6e4",
+   "bytes": 20265,
+   "sha256": "f7658261ea243fbc3220ed156b449a992ba646ebe93615152e4076d011a283e2",
    "role": "fourteen reference outlines, per-document classification, root cleanup"
   },
   {

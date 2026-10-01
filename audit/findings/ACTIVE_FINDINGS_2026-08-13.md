@@ -49,6 +49,16 @@ On 2026-09-30 the staleness audit
 appends one V1 record, `MA-DOC-007`, for stale and superseded facts presented
 as current and for outdated audits that outnumber reference documents.
 
+On 2026-09-30 the visual design language audit
+(`docs/handoffs/codex_visual_design_language_2026-09-30/VISUAL_LANGUAGE_AUDIT.md`)
+appends one V1 record, `MA-DOC-008`, for a visual language that is not one
+measurable, example-backed reference and for Roshan descriptions that match no
+approved image.
+
+On 2026-09-30 the owner-requested Roshan appearance analysis appends one V1
+record, `MA-ROSHAN-005`, for frame defects in approved Roshan atlases and career
+cards, and the owner commissioned the repair handoff the same day.
+
 ## MA-2D-002
 
 | Field | Value |
@@ -186,6 +196,29 @@ as current and for outdated audits that outnumber reference documents.
 | closure | Open as of 2026-09-30; the staleness audit and the handoff exist, and no wave has run. |
 | relationships | Related to `MA-DOC-006` (the Opera reference must not duplicate the job-game playbook), `MA-DOC-002` (document inventory), and `MA-2D-002`, `MA-CI-003`, `MA-CODE-001`, `MA-CODE-004`, `MA-OPERA-011` and `MA-OPERA-012`, whose text is among the stale entries. |
 | history | 2026-09-30: created from the staleness audit at dev `6fc2f48e`; P2 under section 2.3; handoff published with waves W0–W7. |
+
+## MA-DOC-008
+
+| Field | Value |
+|---|---|
+| id | `MA-DOC-008` |
+| title | The visual design language is not articulated as one measurable, example-backed reference, and current documents describe Roshan in ways no approved image matches. |
+| rule_ids | `DL-VIS-01`, `DL-VIS-02`, `DL-VIS-03`, `DL-VIS-04`, `DL-VIS-05`, `DL-VIS-06`, `DL-VIS-08`, `DL-MED-02`, `DL-ASSET-01`, `DL-AUTH-04`, `DL-PLAN-06` |
+| domain / zone | Art direction and documentation / every new or changed picture: characters, rooms, props, effects and interface |
+| source | Owner request 2026-09-30 and `docs/handoffs/codex_visual_design_language_2026-09-30/VISUAL_LANGUAGE_AUDIT.md` (static review, direct inspection of approved images and read-only measurements at dev `b65c21fd`). |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1 static plus read-only source-file measurements; these are not state-local runtime evidence under `DL-VIS-08`. |
+| reproduction | At dev `b65c21fd`: the master-audit Art row links only design 06 sections 3–6 and 14, where one of ten `DL-VIS-*` rules gives numbers and none gives a colour value or names an image; `grep -n "lavender clothing" design/01_GAME_DESIGN.md design/02_ART_DIRECTION.md` finds Roshan anchors that match no approved image; the handoff's `measure_visual_profile.py identity` run over the runtime base-world and career atlases, with tail colours `#b9a1f2` and `#8e7adc`, finds them in 16–21% of every base-world atlas and 0.0–0.4% of thirteen career atlases; no registry of approved example images exists. |
+| child_impact | Roshan already appears with a lavender tail while exploring and a rainbow tail in careers; new art made from the written anchors would add a third look. Without measured tokens and example images, each new room, prop or character drifts in line, palette and finish, which a child reads as a different world. |
+| evidence | `VISUAL_LANGUAGE_AUDIT.md` sections 1–7 and the measurements under `data/` in that packet; `design/01_GAME_DESIGN.md:490`; `design/02_ART_DIRECTION.md:286-287`; `assets/ART_GENERATION_CONTRACT.md:46-47`; `scripts/storybook_ui.gd:8-23` and eight other `INK` definitions; `tools/gen2_batch.py:29`; `assets_src/characters/grand_puff_2026-09-13/IDENTITY_LOCK.json`. |
+| owner_decision | 2026-09-30: the owner asks whether the visual design language lets the game reference and learn from itself how to develop future art, and asks for a plan to refine it. Roshan's canonical variant and her identity authority were open (handoff section 6, Q1 and Q2); later the same day the owner settled both: the approved atlases are her primary identity authority, and her tail is iridescent, pink, purple and lavender scales that show rainbow colours depending on how light hits them, so both the base-world and career renderings are correct. The owner also asked for a more comprehensive analysis of the remaining appearance variance as part of the handoff. Severity P2 under section 2.3. |
+| fix | Work packages VL0–VL9 of `docs/handoffs/codex_visual_design_language_2026-09-30/README.md`, coordinated with refinement WP-4 to WP-6 and consolidation reference R06. |
+| surrounding_tests | Document-authority and audit-development gates; the registry check with injected faults (missing path, wrong hash, duplicate ID, family without exemplars); tool tests with a stress case; a grep for the retired Roshan wording; the cold-start art dry run. |
+| acceptance | The Art row reaches the reference in one link; tokens come from one data file; every recurring character has an identity sheet and Roshan's matches the owner's answer; every family has exemplars or a recorded gap; both cards are landed with worked examples; the registry check blocks in CI; the cold-start dry run passes and the owner accepts it (V7). |
+| closure | Open as of 2026-09-30; the audit, draft reference, templates, seeds and measurement tool exist, and no work package has run. |
+| relationships | Related to `MA-DOC-006` (new jobs need art cards), `MA-DOC-007` (stale and contradictory documents; reference R06), and `MA-VIS-003` and `MA-VIS-004` (source-average palette metrics stay under `DL-VIS-08`). |
+| history | 2026-09-30: created from the visual design language audit at dev `b65c21fd`; P2 under section 2.3; handoff published with VL0–VL9. 2026-09-30 (later): owner decisions recorded (atlases are the primary identity authority; the tail is iridescent and both renderings are correct); handoff revision 2 adds a frame-by-frame appearance analysis of every runtime Roshan image (`ROSHAN_APPEARANCE_ANALYSIS.md`); lifecycle unchanged. 2026-09-30 (later): the owner answered Q12–Q16 (no light-state protocol yet; the older career and playground design is kept; tiara outside career costume; prepare the repair handoff; delete the retired backpack art outright); handoff revision 3 records them, and the repairs and deletion are specified in `docs/handoffs/codex_roshan_art_repairs_2026-09-30/` (tracked by `MA-ROSHAN-005`); lifecycle unchanged. |
 
 ## MA-VIS-002
 
@@ -738,6 +771,29 @@ as current and for outdated audits that outnumber reference documents.
 | closure | Deferred as of 2026-08-13; no repair is authorized, and no closure commit/date is required unless new evidence reopens the item. |
 | relationships | Roshan clipping repairs are terminal elsewhere; device motivation would relate to `MA-PERF-001`; visual identity review relates to `MA-VIS-006`. |
 | history | 2026-08-09: repacking classified as optimization. 2026-08-13: current sampling remains green and lifecycle remains `DEFERRED_WITH_REASON`. |
+
+## MA-ROSHAN-005
+
+| Field | Value |
+|---|---|
+| id | `MA-ROSHAN-005` |
+| title | Approved Roshan atlases and career cards contain frame defects the child sees: missing fins, a ribbon that reads as a second tail, baked spell effects, hair through a sealed helmet, a light halo and frame-to-frame flicker. |
+| rule_ids | `DL-VIS-06`, `DL-MED-02`, `DL-MED-05`, `DL-MOT-01`, `DL-MOT-02`, `DL-MOT-08`, `DL-ASSET-01` |
+| domain / zone | Visual and assets / Roshan's Opera career atlases and portrait cards, and one base-world gesture atlas |
+| source | Owner-requested Roshan appearance analysis 2026-09-30 (`docs/handoffs/codex_visual_design_language_2026-09-30/ROSHAN_APPEARANCE_ANALYSIS.md`), image review by eye at dev `b65c21fd`. |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1 static: direct inspection of the committed images and their provenance, with runtime consumers traced in code; no runtime capture yet. |
+| reproduction | Open `assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png`: frames 0–1 (idle row) end the tail in a point with no fins, and `scripts/castle_career_routes.gd` draws idle frame 0 on the Geologist route card through `OperaRoshanActor.idle_frame`. Open `roshan_popstar_sheet_a.png` and `roshan_popstar.png` (drawn directly by `scripts/games/melody.gd`): a dark ribbon from the waist reads as a second tail. Every case, with frame rectangles and hashes, is in `docs/handoffs/codex_roshan_art_repairs_2026-09-30/data/repair_targets.json`. |
+| child_impact | The child sees Roshan without fins in the Geologist idle loop and on its castle card, with what looks like a second tail as the Pop Star and in Melody, with portals floating apart in the Magician's work animation and with hair passing through the Astronaut's helmet; flicker in the Farmer idle, the Candy Maker cheer and the exploring "look" gesture breaks continuity. |
+| evidence | Repair handoff `data/repair_targets.json` (18 targets with frames, hashes, consumers and pins); appearance analysis sections 5.2 to 5.4. |
+| owner_decision | 2026-09-30: the owner asked for the repair handoff ("prepare handoff") and kept the older career and playground design, so repairs stay inside each image's own design. |
+| fix | `docs/handoffs/codex_roshan_art_repairs_2026-09-30/README.md`, repairs R-01 to R-11. |
+| surrounding_tests | `tools/audit_opera_roshan_animation.py`, `tools/audit_roshan_2d.py` and `tools/audit_roshan_sprite_clipping.py` after recorded re-pinning; per-frame `cells` measurements within each sheet's range; pixel diffs confined to the repair regions; Mobile runtime captures where the child sees each case. |
+| acceptance | Every listed defect is absent in its frames, changes are confined to the repair regions, the tools pass after recorded re-pinning, and the owner accepts the before-and-after boards (V7). |
+| closure | Open as of 2026-09-30; the repair handoff is published and no repair is made. |
+| relationships | Related to `MA-DOC-008` (visual language and identity sheet), `MA-ROSHAN-002` (earlier playground clipping repair) and `MA-ROSHAN-003` (deferred atlas repacking). |
+| history | 2026-09-30: created from the owner-requested Roshan appearance analysis at dev `b65c21fd`; the owner commissioned the repair handoff the same day. |
 
 ## MA-PLAY-002
 

@@ -1,0 +1,231 @@
+{
+ "schema": "identity_sheets_seed/1",
+ "status": "PROPOSED / CANDIDATE seed, revision 3 (Roshan settled by the owner on 2026-09-30, including Q12-Q16); format follows assets_src/characters/grand_puff_2026-09-13/IDENTITY_LOCK.json",
+ "measured_at_head": "b65c21fdddd79f272a6854f241faa1441abe6616",
+ "sheets": [
+  {
+   "id": "ID-ROSHAN",
+   "name": "Mermaid Roshan",
+   "status": "OWNER_DECIDED 2026-09-30: the approved atlases are the primary identity authority; the tail is iridescent and both renderings are correct",
+   "owner_decisions": [
+    "2026-09-30: lavender tail is canon; the atlases are primary approved, with some variance in appearance",
+    "2026-09-30 (clarification): both tails are right; the tail is rainbow and iridescent pink/purple depending on how light hits it",
+    "2026-09-30 (answers to Q12-Q16): \"1 - no clear protocols exist yet for why. 2. yes. 3. yes. 4. prepare handoff, 5. delete outright, this art is retired in this draft, existed in previous mermaid roshan wisconsia book\""
+   ],
+   "identity_authority": "approved atlas family (DL-MED-02): assets/characters/roshan_25d/ runtime atlases and assets/opera/worlds/actors/animation/roshan_<career>_sheet_a.png; the protected book image is a likeness reference only",
+   "invariants": [
+    "one young child mermaid with the same soft round face, large brown eyes and age in every image",
+    "brown wavy hair with a rainbow section",
+    "one continuous iridescent mermaid tail with rainbow fins",
+    "child-sized, distinct arms and hands",
+    "no legs, feet or shoes"
+   ],
+   "tail": {
+    "description": "iridescent scales: pink, purple and lavender that show rainbow colours where the light hits them; fins rainbow in every state",
+    "light_states": {
+     "LAVENDER": {
+      "seen_in": "all nine runtime base-world atlases and roshan_base.png; Teacher and Geologist career atlases lean this way",
+      "measured_base_world_per_frame": {
+       "lavender_band": [
+        0.186,
+        0.286
+       ],
+       "pink_purple_band": [
+        0.025,
+        0.106
+       ],
+       "periwinkle_band": [
+        0.084,
+        0.159
+       ]
+      },
+      "used_today": "exploring the castle and Sky Lagoon"
+     },
+     "RAINBOW": {
+      "seen_in": "thirteen of fifteen career atlases and their portrait cards",
+      "used_today": "Opera careers"
+     },
+     "MIXED": {
+      "seen_in": "Sky Lagoon playground sprites: paler, bluer lavender with a pastel rainbow belly band",
+      "used_today": "Sky Lagoon playground"
+     }
+    },
+    "protocol": "none yet (owner 2026-09-30); new art continues the state of the exemplar it extends, names it on the card and keeps one state per sheet"
+   },
+   "base_outfit": {
+    "top": "pink ruffled top with lilac ruffle sleeves",
+    "headwear": "small gold tiara with a blue gem",
+    "hair": "rainbow ponytail at the back",
+    "measured_palette": {
+     "tail": [
+      "#b9a1f2",
+      "#8e7adc",
+      "#757094"
+     ],
+     "hair": [
+      "#ae743e",
+      "#7e492a",
+      "#e29455"
+     ],
+     "top": [
+      "#eeb2e8"
+     ],
+     "skin": [
+      "#f9ddc2",
+      "#d49e99"
+     ],
+     "sheen": [
+      "#aad3f9",
+      "#64a8db"
+     ],
+     "gold": [
+      "#f4d74b"
+     ]
+    },
+    "evidence": "data/roshan_identity_palette.json",
+    "tiara_rule": "worn whenever she is not in a career costume (owner 2026-09-30)"
+   },
+   "career_outfits": "a career costume may replace the top and the headwear; the face, hair colour, tail and fins stay Roshan",
+   "measured_family_profile_base_world": {
+    "frames": 129,
+    "saturation_mean": [
+     0.644,
+     0.731
+    ],
+    "lightness_mean": [
+     0.625,
+     0.675
+    ],
+    "silhouette_height_of_cell": [
+     0.594,
+     0.918
+    ],
+    "dark_edge_hue": "warm dark brown in 109 of 129 frames (hair-dominated edges); plum on the body and tail",
+    "evidence": "data/roshan_atlas_frames.json and data/roshan_single_images.json"
+   },
+   "variance": "ROSHAN_APPEARANCE_ANALYSIS.md sections 5 (results) and 7 (variance register RV-01 to RV-21); section 6 traces the second design to the identity reference roshan_sprite.png",
+   "forbidden_changes": [
+    "adult proportions",
+    "legs, feet, shoes or a skirt hiding legs",
+    "a second tail",
+    "a flat single-colour or left/right two-tone tail",
+    "different hair or eye colour",
+    "third-party characters, brands or logos"
+   ],
+   "do_not_bind": [
+    "assets/characters/roshan_sprite.png: retired art from the earlier Mermaid Roshan Wisconsin book with a third-party backpack; deletion ordered by the owner on 2026-09-30 (repair handoff D-01)"
+   ],
+   "retired_wording": {
+    "text": "chestnut hair, front-left rainbow forelock, lavender clothing, green-right / pink-left tail",
+    "found_in": [
+     "design/01_GAME_DESIGN.md:490",
+     "design/02_ART_DIRECTION.md:286-287",
+     "ART_SCORING_GOVERNANCE_2026-07-18.md:46-48",
+     "assets/ART_GENERATION_CONTRACT.md:46-47",
+     "ART_STYLE_GUIDE.md identity section"
+    ],
+    "reason": "superseded by the 2026-09-30 owner decision; the clothing is pink, and the tail is iridescent rather than split"
+   },
+   "book_reference": {
+    "path": "assets/book/hall/glass_mermaid.png",
+    "protected": true,
+    "shows": "brown hair, rainbow front lock, crown, pink puffed top, green-into-purple scaled tail, rainbow fin",
+    "use": "likeness reference only; never edited"
+   },
+   "identity_anchor_rule": "every new Roshan job binds roshan_base.png or a base-world runtime atlas as its identity anchor; career atlases only as costume or pose anchors; roshan_sprite.png and the 13 career cards generated from it never",
+   "second_design": "the older career and playground design is kept as it is (owner 2026-09-30); all new art follows the base-world child",
+   "defects": "specified in docs/handoffs/codex_roshan_art_repairs_2026-09-30/ (finding MA-ROSHAN-005)"
+  },
+  {
+   "id": "ID-DADDY",
+   "name": "Daddy Mermaid",
+   "status": "SEED from the cinematic guide",
+   "traits": [
+    "small approved crown",
+    "dark rectangular glasses",
+    "long brown/deep-green hair",
+    "navy coat with gold trim",
+    "teal cape",
+    "one continuous rainbow tail in the approved colour order",
+    "no legs"
+   ],
+   "reference_images": [
+    "docs/grok_animation_series_project/characters/daddy_mermaid/DADDY_FRONT_IDENTITY.png at guide commit 3af5a8eb",
+    "assets_src/daddy_master.png"
+   ],
+   "open": "CANON-C09 (hair colour) in the refinement handoff"
+  },
+  {
+   "id": "ID-RUMI",
+   "name": "Rumi (Violet)",
+   "status": "SEED from the cinematic guide",
+   "traits": [
+    "adult mermaid",
+    "enormous sculpted violet braid",
+    "pointed ears",
+    "star-shell earrings",
+    "navy/lavender sea jacket with gold trim and shell clasp",
+    "aqua/teal-to-violet-to-pink tail",
+    "coral-pink split fin"
+   ],
+   "reference_images": [
+    "docs/grok_animation_series_project/characters/rumi/ at guide commit 3af5a8eb",
+    "assets_src/characters/rumi_2026-08-22/"
+   ]
+  },
+  {
+   "id": "ID-BABY-EAGLE",
+   "name": "Baby Eagle",
+   "status": "SEED from the cinematic guide and DL-ASSET-08",
+   "traits": [
+    "exactly one young bird",
+    "turquoise, yellow and pink",
+    "consistent beak, wings, feet and childlike proportions",
+    "pinned under two dust bunnies, never a blanket"
+   ],
+   "protected": "book art is never recoloured",
+   "open": "OQ-EAGLE-PRONOUN in the refinement handoff"
+  },
+  {
+   "id": "ID-DUST-BUNNY",
+   "name": "Dust bunnies",
+   "status": "SEED from the cinematic guide",
+   "traits": [
+    "friendly round storybook creatures",
+    "not rodents, monsters, smoke or loose dust",
+    "the swimming bunny has no legs"
+   ],
+   "measured_contour": "#353b4e (data/contour_profile.json)"
+  },
+  {
+   "id": "ID-GRAND-PUFF",
+   "name": "Grand Puff",
+   "status": "PROPOSED_LOCK_AWAITING_SIGNATURE (existing lock)",
+   "lock": "assets_src/characters/grand_puff_2026-09-13/IDENTITY_LOCK.json",
+   "lock_sha256": "51c70f66632a8713163c0cbf81959d85cf04f44c35c5ef96e477e9302a3a9a17"
+  },
+  {
+   "id": "ID-PEARL-PLANE",
+   "name": "Pearl plane",
+   "status": "SEED from the cinematic guide",
+   "traits": [
+    "exact approved silhouette, windows, wing and tail placement, material and scale",
+    "never a modern jet"
+   ],
+   "reference_images": [
+    "docs/grok_animation_series_project/modules/opening_flight_to_sky_lagoon/references/06_AIRPLANE_EXACT.png at guide commit 3af5a8eb"
+   ]
+  },
+  {
+   "id": "ID-RIVAL-IMPS",
+   "name": "Opera imps and rivals",
+   "status": "GAP",
+   "traits_as_drawn": [
+    "chunky cartoon imp",
+    "saturated purple skin",
+    "heavy near-black contour"
+   ],
+   "open": "OQ-VIS-RIVAL-LINE"
+  }
+ ]
+}

@@ -8,7 +8,10 @@ streamlined and truncated into reference documents."*
 Codex (implementation). **Owner:** answers the questions in section 6 and
 accepts the result.
 
-**Status:** `PROPOSED / CANDIDATE`, revision 1. This packet recommends; it
+**Status:** `PROPOSED / CANDIDATE`, revision 2 (2026-09-30): the reference
+plan now names the lighting audit file, keeps its headroom spec, and points
+R06 to the [visual design language handoff](../codex_visual_design_language_2026-09-30/README.md).
+This packet recommends; it
 grants no visual, device, child or owner acceptance and changes no finding
 lifecycle. The one register change made with it is the new tracking finding
 [`MA-DOC-007`](../../../audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-007)
