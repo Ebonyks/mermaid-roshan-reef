@@ -1329,8 +1329,8 @@
     },
     {
       "command": "Anonymous HTTPS SHA256 verification of exact published manifest and all required payload/dependency files",
-      "result": "PENDING",
-      "evidence": "audit/day2_job_contexts_2026-09-30/REMOTE_VERIFICATION.json"
+      "result": "PASS",
+      "evidence": "audit/day2_job_contexts_2026-09-30/REMOTE_VERIFICATION.json; anonymous public exact-revision9038246cf9b34005afb8bc28a2f81396930988b6 fetch, manifest and3031 required files matched,1571670363 bytes, checked 2026-10-01T05:10:46.599148+00:00; no creative/owner/runtime acceptance"
     },
     {
       "command": "Unmodified scripts/ci.sh required static gates and82 trusted probes with exact tracked sparse inputs and recorded resumptions",
