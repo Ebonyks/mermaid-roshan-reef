@@ -98,7 +98,23 @@
       "command": "python -B tools/audit_document_authority.py and python -B tools/audit_development.py --base auto",
       "result": "PASS",
       "evidence": "2026-10-01 source-continuation review: DOCAUTH594/594/57active/59records ALL OK; AUDITDEV basece0331738970205a5aead4d3e0258eb7873a1642 ALL OK. Re-run after manifest creation before commit."
+    },
+    {
+      "command": "Anonymous public immutable GitHub manifest and every payload/dependency SHA-256/size verification",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/day2_nursery_faron_v2_20261001/REMOTE_VERIFICATION.json; exactf3fcbfcf061cc7b874c35ae54eb1a4d64c61e1f8,396 unique files/250351039bytes, both distinct manifests fetched independently. Normal TLS/no credentials. Exact-head hostedCI36859974162 is pending; no acceptance/integration follows."
     }
   ],
-  "acceptance_gaps": "Source/static4.6 candidate only. Original Faron remains bound at earlier mounted4.1; safe return remains3.4 and the helper approach/pickup/carry/lower/settle states are missing. All live nursery phases, texture/runtime sizing, M11 performance, child/owner and hundreds of other weak job items/full played coverage/final comprehensive report approval remain open. No finding closure, global4.5 pass, integration or release."
+  "acceptance_gaps": "Source/static4.6 candidate only. Original Faron remains bound at earlier mounted4.1; safe return remains3.4 and the helper approach/pickup/carry/lower/settle states are missing. All live nursery phases, texture/runtime sizing, M11 performance, child/owner and hundreds of other weak job items/full played coverage/final comprehensive report approval remain open. No finding closure, global4.5 pass, integration or release.",
+  "publication": {
+    "entry": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/f3fcbfcf061cc7b874c35ae54eb1a4d64c61e1f8/assets_src/imagegen/day2_nursery_faron_v2_20261001",
+    "immutable_tree": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/f3fcbfcf061cc7b874c35ae54eb1a4d64c61e1f8",
+    "direct_manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/f3fcbfcf061cc7b874c35ae54eb1a4d64c61e1f8/assets_src/imagegen/day2_nursery_faron_v2_20261001/MANIFEST.json",
+    "revision": "f3fcbfcf061cc7b874c35ae54eb1a4d64c61e1f8",
+    "manifest_sha256": "a076a6e77629a7d608435713815e05da30ffd53c3390eaced3e005dcf75cbf0c",
+    "receipt": "assets_src/imagegen/day2_nursery_faron_v2_20261001/REMOTE_VERIFICATION.json",
+    "access_mode": "Anonymous public HTTPS with normal TLS verification; no credentials or Authorization header",
+    "checked_utc": "2026-10-01T12:11:06.156959+00:00",
+    "result": "PASS"
+  }
 }
