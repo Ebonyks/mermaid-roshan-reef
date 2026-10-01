@@ -137,6 +137,23 @@ Every native 1254×1254 generated PNG is preserved byte-for-byte. Selected textu
 
 Selected files have true RGBA, transparent corners and a complete visible alpha>=8 footprint inside the canvas. Very faint alpha 1–7 residue can extend outside that footprint; it is recorded rather than silently deleted. The reviewed light/dark proxies show no visible plates, bars or solid edge clipping. Actual game sampling and device presentation still need review.
 
+## Mobile replacement files
+
+The mobile copies were separately inspected on light/dark mats at 36px (wheel), 64px (badges) and 112px (other cues). All eight retain their 4.6–4.7/5 draft source grades after reduction. Their exact reviewed hashes are recorded separately. The originals, 1254px native generations and 1024px review masters remain intact.
+
+| Mobile file | Size | Draft source score |
+|---|---:|---:|
+| [D2A-0394](mobile/D2A-0394.png) | 512×512 | 4.7/5 |
+| [D2A-0446](mobile/D2A-0446.png) | 256×256 | 4.6/5 |
+| [D2A-0495](mobile/D2A-0495.png) | 256×256 | 4.7/5 |
+| [D2A-0056](mobile/D2A-0056.png) | 512×512 | 4.6/5 |
+| [D2A-0057](mobile/D2A-0057.png) | 512×512 | 4.6/5 |
+| [D2A-0635](mobile/D2A-0635.png) | 256×256 | 4.7/5 |
+| [D2A-0636](mobile/D2A-0636.png) | 256×256 | 4.7/5 |
+| [D2A-0637](mobile/D2A-0637.png) | 256×256 | 4.7/5 |
+
+One whole-canvas Lanczos reduction directly from each selected native generation makes these copies. The eight mobile textures total **4.25 MiB of decoded RGBA**, compared with **32 MiB** for eight 1024px textures. This is a dimension-based estimate, not measured APK/VRAM savings or a device frame-rate result. Live game sampling, overlap and target-device performance remain to be tested when integration is commissioned.
+
 ## Remaining queue and next decisions
 
 This is the initial eight-item set, not a claim that all 432 priorities are repaired. The remaining **424** original queue entries include **149 inactive, retired or reference alternatives**, plus actor atlases, background families, vector/procedural graphics and context-dependent items. Each needs its own usage/reuse decision.

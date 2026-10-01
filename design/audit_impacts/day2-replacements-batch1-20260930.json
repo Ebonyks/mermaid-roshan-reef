@@ -1,26 +1,29 @@
 {
   "id": "day2-replacements-batch1-20260930",
-  "scope": "Eight initial current-use image repairs; originals and runtime bindings preserved. No backgrounds, actor atlases, protected dolls, gameplay or save edits. User commissioned regeneration and a comprehensive final report for owner approval. All outputs are non-runtime review candidates. Generation addresses exact isolated-source defects; no invented scene or identity redesign. Selected eight candidates meet authored 4.6\u20134.7 source grades; nine native edits include rejected first Kitchen emblem drift. User approval remains pending; no runtime substitution. Reconciled unchanged incoming objective-speech fix at7f068cb80766edd52a110cc1cb3958158f829822; eight image hashes and their drawing remain unchanged. Incoming finding history/evidence remains owned by the upstream objective-handoff impact.",
+  "scope": "Eight initial current-use image repairs; originals and runtime bindings preserved. No backgrounds, actor atlases, protected dolls, gameplay or save edits. User commissioned regeneration and a comprehensive final report for owner approval. All outputs are non-runtime review candidates. Generation addresses exact isolated-source defects; no invented scene or identity redesign. Selected eight candidates meet authored 4.6\u20134.7 source grades; nine native edits include rejected first Kitchen emblem drift. User approval remains pending; no runtime substitution. Reconciled unchanged incoming objective-speech fix at7f068cb80766edd52a110cc1cb3958158f829822; eight image hashes and their drawing remain unchanged. Incoming finding history/evidence remains owned by the upstream objective-handoff impact. Add whole-canvas mobile derivatives at256/512px, preserving the separate1024px reviewed masters and exact generator-bound frame reference. No runtime integration or GPU/30fps claim; estimated decoded RGBA memory4.25MiB instead of32MiB for the full1024 set.",
   "baseline": "29bbd80aeb539b45b1f34bb93324883addf8b0c8",
   "rules": [
-    "DL-AUTH-05",
-    "DL-AUTH-06",
-    "DL-AUTH-07",
-    "DL-VIS-01",
-    "DL-VIS-02",
-    "DL-VIS-03",
-    "DL-VIS-05",
-    "DL-VIS-07",
-    "DL-VIS-08",
-    "DL-READ-01",
-    "DL-READ-02",
     "DL-ASSET-01",
     "DL-ASSET-02",
     "DL-ASSET-03",
     "DL-ASSET-04",
     "DL-ASSET-05",
     "DL-ASSET-06",
-    "DL-QA-12"
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-PERF-03",
+    "DL-PERF-04",
+    "DL-PERF-07",
+    "DL-QA-12",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-07",
+    "DL-VIS-08"
   ],
   "findings": [
     "MA-VIS-006",
@@ -45,6 +48,14 @@
     "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0637/attempt-01.png",
     "assets_src/imagegen/day2_replacements_batch1_20260930/comparison_board.png",
     "assets_src/imagegen/day2_replacements_batch1_20260930/index.html",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/mobile/D2A-0056.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/mobile/D2A-0057.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/mobile/D2A-0394.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/mobile/D2A-0446.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/mobile/D2A-0495.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/mobile/D2A-0635.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/mobile/D2A-0636.png",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/mobile/D2A-0637.png",
     "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0056-attempt-01.txt",
     "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0057-attempt-01.txt",
     "assets_src/imagegen/day2_replacements_batch1_20260930/prompts/D2A-0394-attempt-01.txt",
@@ -78,12 +89,12 @@
     {
       "command": "python -B tools/build_day2_replacement_review.py --check; native and small-scale image inspection",
       "result": "PASS",
-      "evidence": "assets_src/imagegen/day2_replacements_batch1_20260930/MANIFEST.json and comparison_board.png; all eight original/reference/selected/prompt/native hashes recheck; criteria/source>=4.5; 1024 RGBA with transparent corners and complete visible footprint; owner approval remains pending."
+      "evidence": "assets_src/imagegen/day2_replacements_batch1_20260930/MANIFEST.json and comparison_board.png; all eight original/reference/selected/prompt/native hashes recheck; criteria/source>=4.5; 1024 RGBA with transparent corners and complete visible footprint; owner approval remains pending. Eight separately inspected256/512px mobile files retain4.6-4.7 source grades and reviewed hashes; decodedRGBA estimate4.25MiB."
     },
     {
       "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; full unchanged applicable CI and 2D regression gates",
       "result": "PENDING",
-      "evidence": "Run before publication; no gameplay findings will be closed from source-file checks."
+      "evidence": "Exact-head full CI pending; local authority/coverage and all source checks pass. Earlier review run failed on documentation-only token wording, corrected without altering gate or game source."
     },
     {
       "command": "Edge/Playwright approval-page inspection at1440px and390px;33 image decodes; Python syntax; git diff --cached --check",
@@ -98,7 +109,7 @@
     {
       "command": "python -B tools/audit_game_2d.py --regression-gate",
       "result": "PASS",
-      "evidence": "GAME2D NO_REGRESSION;0 models/52 production3D/61 probe3D/1 scene/1 config; strict remains UNSATISFIED. No manifest exceptions or runtime changes."
+      "evidence": "GAME2D NO_REGRESSION;0 models/52 production 3D/61 probe 3D/1 scene/1 config; strict remains UNSATISFIED. No manifest exceptions or runtime changes."
     }
   ],
   "acceptance_gaps": "User approval of the completed report and selected candidates; actual gameplay/device/child review and later runtime integration remain separate. No canonical finding lifecycle change."
