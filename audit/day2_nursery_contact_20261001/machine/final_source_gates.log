@@ -1,0 +1,60 @@
+
+COMMAND|["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-B", "-m", "gdtoolkit.parser", "scripts/games/dolls.gd", "scripts/opera_career_world_2d.gd", "scripts/opera_nursery_catch.gd", "tools/capture_day2_nursery_body_fit.gd", "tools/capture_day2_nursery_contact.gd", "tools/probe_day2_authored_launch.gd", "tools/probe_day2_nursery_contact.gd"]
+
+RESULT|PASS
+
+COMMAND|["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-B", "tools/lint_inference.py", "scripts/games/dolls.gd", "scripts/opera_career_world_2d.gd", "scripts/opera_nursery_catch.gd", "tools/capture_day2_nursery_body_fit.gd", "tools/capture_day2_nursery_contact.gd", "tools/probe_day2_authored_launch.gd", "tools/probe_day2_nursery_contact.gd"]
+
+RESULT|PASS
+
+COMMAND|["C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe", "--headless", "--path", "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930", "--check-only", "-s", "scripts/games/dolls.gd"]
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+RESULT|PASS
+
+COMMAND|["C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe", "--headless", "--path", "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930", "--check-only", "-s", "scripts/opera_career_world_2d.gd"]
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+RESULT|PASS
+
+COMMAND|["C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe", "--headless", "--path", "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930", "--check-only", "-s", "scripts/opera_nursery_catch.gd"]
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+RESULT|PASS
+
+COMMAND|["C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe", "--headless", "--path", "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930", "--check-only", "-s", "tools/capture_day2_nursery_body_fit.gd"]
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+RESULT|PASS
+
+COMMAND|["C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe", "--headless", "--path", "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930", "--check-only", "-s", "tools/capture_day2_nursery_contact.gd"]
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+RESULT|PASS
+
+COMMAND|["C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe", "--headless", "--path", "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930", "--check-only", "-s", "tools/probe_day2_authored_launch.gd"]
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+RESULT|PASS
+
+COMMAND|["C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe", "--headless", "--path", "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930", "--check-only", "-s", "tools/probe_day2_nursery_contact.gd"]
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+
+RESULT|PASS
+
+COMMAND|["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-B", "tools/refresh_job_artwork_status.py"]
+JOB_ART_STATUS|REFRESHED| REVIEW_REFRESH_REQUIRED |changed_dependencies= 2
+
+RESULT|PASS
+
+COMMAND|["C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe", "-B", "tools/refresh_job_artwork_status.py", "--check"]
+JOB_ART_STATUS|CURRENT|Source fingerprints match saved status; acceptance remains open
+
+RESULT|PASS

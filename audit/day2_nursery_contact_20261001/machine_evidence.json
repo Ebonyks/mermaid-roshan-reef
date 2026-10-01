@@ -1,0 +1,44 @@
+{
+  "schema": "reef.job-refinement-machine-evidence.v1",
+  "checked_utc": "2026-10-01T07:26:57.029430+00:00",
+  "engine": "Exact4.7.2.stable.official.ed1daf0bf",
+  "baseline": "a802ee70b77fb4962f5798e4e0876fe16ba7f420",
+  "production_sources": [
+    {
+      "path": "scripts/games/dolls.gd",
+      "literal_sha256": "acc69d2194a043bdc5b71df83a79d9d0646393826da74ecf950ce9b1b7cca451",
+      "normalized_lf_sha256": "94315ab4005446ddf76821d6d27159dded817e71f51989b85238ea3df92e19d5"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "literal_sha256": "c23e159a5941f60a2093220331c514525b73bad2d3a6294a7c114b62e8d7770a",
+      "normalized_lf_sha256": "4e79eb9e995d6934442f16039abda0554624505951d9ae2949c30d214c0b8026"
+    },
+    {
+      "path": "scripts/opera_nursery_catch.gd",
+      "literal_sha256": "aac74dd79f0eb2f6ec3aa48a1ebe9c63aae49f66e1a37ac55e4b552e4eb22cba",
+      "normalized_lf_sha256": "0b45a5ec3d82c56c2aec6ad32e8312a9e9c18199fcf70616518c926d6cfd8bd0"
+    }
+  ],
+  "current_source_gates": {
+    "path": "audit/day2_nursery_contact_20261001/machine/final_source_gates.json",
+    "sha256": "228470b35365233d8b2a82b8172e523eec6f3697253dfa9e75994bb814ec8c3e",
+    "result": "PASS"
+  },
+  "trusted_probe_aggregate": {
+    "path": "audit/day2_nursery_contact_20261001/machine/trusted_probe_aggregate.json",
+    "sha256": "2552c35a34c0e87b14ab6b9c6ee81e5032b185b25bc85383bf2334681ed6eac8",
+    "probes": 82,
+    "result": "PASS"
+  },
+  "required_suite_history": "Original ci.sh prefix/remaining static gates and all82 trusted probes were executed. Earlier coverage/missing sparse inputs/runtime/Dolls/layout failures remain in five exact logs. Affected unmodified callers rerun after fixes; native probe_audit retry completed. This is combined successful gate evidence, not a claimed single ci.sh exit0.",
+  "unchanged_ci_sha256": "92f94855c4d870a52e9ba7b71b7e01d51fa3a9a9ad503e1559b39cf93195f887",
+  "2d": "NO_REGRESSION only;52 production3D files remain; strict game-wide satisfaction UNSATISFIED.",
+  "predecessor_remote_ci": {
+    "revision": "a802ee70b77fb4962f5798e4e0876fe16ba7f420",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36820823838",
+    "result": "SUCCESS; does not cover current changes"
+  },
+  "document_gates": "Current document gates are preserved in machine/final_document_gates.json/log after staging.",
+  "visual": "All current nursery mounted/action scores below4.5; body source4.6 provisional/static only. No finding closed; no device, child, owner, final report or release acceptance."
+}

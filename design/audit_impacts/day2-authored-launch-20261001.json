@@ -1,0 +1,66 @@
+{
+  "id": "day2-authored-launch-20261001",
+  "baseline": "a802ee70b77fb4962f5798e4e0876fe16ba7f420",
+  "scope": "Repair the reproduced birthday-job setup seam before further graphics acceptance: an omitted phase_overrides key must resolve the authored Chapter Two catalog; explicitly empty or malformed supplied overrides must still be rejected. Exercise all eight ordinary director\u2192OperaHouse\u2192OperaAct\u2192world launches, plus freeplay siblings and negative overrides. No new objective, phase, reward, save key, artwork or protected content. The isolated progression fixtures establish launch behavior, not completed child gameplay or graphics acceptance.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-06",
+    "DL-INT-07",
+    "DL-INT-12",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-06",
+    "DL-QA-07",
+    "DL-QA-12"
+  ],
+  "findings": [
+    "MA-PLAY-001",
+    "MA-OPERA-004",
+    "MA-OPERA-010",
+    "MA-OPERA-012"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/day2_authored_launch_20261001/baseline.json",
+    "audit/day2_authored_launch_20261001/baseline.log",
+    "audit/day2_authored_launch_20261001/baseline_harness.gd",
+    "audit/day2_authored_launch_20261001/candidate.json",
+    "audit/day2_authored_launch_20261001/candidate.log",
+    "audit/day2_authored_launch_20261001/candidate_attempt1_fixture_failure.json",
+    "audit/day2_authored_launch_20261001/candidate_attempt1_fixture_failure.log",
+    "audit/day2_authored_launch_20261001/candidate_before_shared_geometry_fix.json",
+    "audit/day2_authored_launch_20261001/candidate_before_shared_geometry_fix.log",
+    "scripts/opera_career_world_2d.gd",
+    "tools/probe_day2_authored_launch.gd"
+  ],
+  "validation": [
+    {
+      "command": "Godot4.7.2 ordinary caller launch regression; all8 story/all15 freeplay, callback ownership and invalid supplied overrides",
+      "result": "PASS",
+      "evidence": "audit/day2_authored_launch_20261001/baseline.json/log, baseline_harness.gd and candidate.json/log; initial fixture flag failure retained separately. Setup/cancellation only, not played completion."
+    },
+    {
+      "command": "Parser, inference, full analyzer/import, trusted suite and document-authority/development gates",
+      "result": "PASS",
+      "evidence": "audit/day2_nursery_contact_20261001/machine_evidence.json and machine/final_source_gates.json; unchanged82 trusted aggregate PASS after affected reruns. Original failed suite attempts preserved; document gates recorded separately."
+    },
+    {
+      "command": "Current document authority/development and whitespace gates",
+      "result": "PASS",
+      "evidence": "audit/day2_nursery_contact_20261001/machine/final_document_gates.json/log; all four exact commands exit0. Publication is a separate pending gate."
+    },
+    {
+      "command": "Anonymous exact-revision manifest and every required file verification",
+      "result": "PENDING",
+      "evidence": "audit/job_artwork_refinement_20261001/MANIFEST.json and REMOTE_VERIFICATION.json after payload publication; no release or creative acceptance."
+    }
+  ],
+  "acceptance_gaps": "Normal caller launch fixtures pass. Canonical normal room touch traversal, complete child actions, composed graphics, device/child/owner acceptance remain open; existing findings retain their lifecycle."
+}

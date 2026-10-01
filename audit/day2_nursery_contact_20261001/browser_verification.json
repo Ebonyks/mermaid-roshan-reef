@@ -1,0 +1,52 @@
+{
+  "checked_utc": "2026-10-01T07:24:36.319443+00:00",
+  "method": "Supported CUA API. Current expanded nursery HTML inspected at verified innerWidth1280/390, no horizontal overflow, six source images decoded, seven video durations/ready states confirmed. Body and hub layout evidence retained from their unchanged visual structure. Every media URL verified separately; lazy gallery is not claimed exhaustively browser decoded.",
+  "pages": [
+    {
+      "path": "audit/day2_nursery_contact_20261001/index.html",
+      "widths": [
+        1280,
+        390
+      ],
+      "document_overflow": false,
+      "image_elements": 483,
+      "visible_source_images_loaded": 6,
+      "broken_visible_images": 0,
+      "videos": [
+        16,
+        16,
+        8,
+        18,
+        18,
+        18,
+        18
+      ],
+      "video_ready_state": 4
+    },
+    {
+      "path": "assets_src/imagegen/day2_nursery_body_20261001/index.html",
+      "widths": [
+        1280,
+        390
+      ],
+      "document_overflow": false,
+      "image_elements": 3,
+      "images_loaded": 3,
+      "broken_images": 0
+    },
+    {
+      "path": "audit/job_artwork_refinement_20261001/index.html",
+      "widths": [
+        1280,
+        390
+      ],
+      "document_overflow": false,
+      "image_elements": 1,
+      "images_loaded": 1,
+      "broken_images": 0,
+      "observed_console_errors_or_warnings": []
+    }
+  ],
+  "result": "PASS",
+  "qualification": "Document reading layout and available source media only. No game touch, device/child, animation or owner acceptance."
+}

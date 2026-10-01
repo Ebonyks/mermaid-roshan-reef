@@ -1,0 +1,303 @@
+{
+  "checked_utc": "2026-10-01T07:32:10.598507+00:00",
+  "method": "Every payload/dependency local blob compared with the exact staged Git object ID; only declared checkout CRLF/LF conversions accepted outside literal packet prefixes. No image/log/native snapshot normalized.",
+  "payload_files": 588,
+  "dependencies": 814,
+  "checkout_formatting": [
+    {
+      "path": ".gitattributes",
+      "local_literal_sha256": "ec004bd49e60d0ba11732f12d53f898bf0cd1c21215bc7068c252d111432fbcb",
+      "canonical_sha256": "98b452474b1acbb5d5bc0cf2ea19840399d0d45504d2ae8f1f536f8539aa4a93",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "local_literal_sha256": "41e142dfd383e31478dadc539115d80f48caa3140681543a5432ffee5fc3c174",
+      "canonical_sha256": "70fa340118c63048a9718c72ded39a41a870b30b8a5c863735fb2c4d0ae32e6d",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "local_literal_sha256": "5525abb2e8825137d8e951e3f79a29528d0d277e20b6f2ddd33c472e730473fc",
+      "canonical_sha256": "94422b16091fbed0f62c1a8408335c257cdca1bd4ec34de42e802bbf63d65bee",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "local_literal_sha256": "e1224d2fe35657d555ba3b8ee96a51a3994cb9fdab4389e96abd4513a49ee88d",
+      "canonical_sha256": "cf745094c32c7d9b73a13e8ee655e44b60f80b8bb3319840869482ec1f394be3",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "design/audit_impacts/day2-authored-launch-20261001.json",
+      "local_literal_sha256": "884b5797420bfbd4d024582fb4d122688aafa01b014a2a22efd32d8ac809e569",
+      "canonical_sha256": "e8306f938972c8f72873a92464cb2b001cc43fb611cc1e3898de10fa4ce5d489",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "design/audit_impacts/day2-nursery-body-poses-20261001.json",
+      "local_literal_sha256": "aaef3370923ae2fe36ef46ac9283c2ac11e3c46996ff2d8c5827129b3fa2050e",
+      "canonical_sha256": "97653cfcaede92944f87f3368a06d1c17319a927736dff34e9c0c0c241811e60",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "design/audit_impacts/day2-nursery-contact-refinement-20261001.json",
+      "local_literal_sha256": "a4fb9c25c7c77f6d55a5f28c59c16ee69ef634811668d8d90266dcfa21fb52d9",
+      "canonical_sha256": "672d8830b605305d7fb479ac9cb68de15ac95c973bac4f535186248a2dd141b4",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "design/audit_impacts/job-artwork-refinement-status-20261001.json",
+      "local_literal_sha256": "55824b056065948babd75ad3bf945e53c98d904787d965cc3467d44c2c888207",
+      "canonical_sha256": "96c23883c92ed21a7abafa16171cbc379c9a3fbb91ba80145ef0140c96127353",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/games/dolls.gd",
+      "local_literal_sha256": "acc69d2194a043bdc5b71df83a79d9d0646393826da74ecf950ce9b1b7cca451",
+      "canonical_sha256": "94315ab4005446ddf76821d6d27159dded817e71f51989b85238ea3df92e19d5",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "local_literal_sha256": "c23e159a5941f60a2093220331c514525b73bad2d3a6294a7c114b62e8d7770a",
+      "canonical_sha256": "4e79eb9e995d6934442f16039abda0554624505951d9ae2949c30d214c0b8026",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/opera_nursery_catch.gd",
+      "local_literal_sha256": "aac74dd79f0eb2f6ec3aa48a1ebe9c63aae49f66e1a37ac55e4b552e4eb22cba",
+      "canonical_sha256": "0b45a5ec3d82c56c2aec6ad32e8312a9e9c18199fcf70616518c926d6cfd8bd0",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "assets/opera/worlds/hotspots/geologist_fossil.svg",
+      "local_literal_sha256": "058d257160448dabf8b6bce78cbb0a7c6b1bdedbacc6e47db908c5d501d4e3bd",
+      "canonical_sha256": "2031077dbe2018151e0b9324bd88699bf1a7a95e0195bf08e6bce7ac79a4544c",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "assets/opera/worlds/hotspots/geologist_layered_rock.svg",
+      "local_literal_sha256": "5bca0522dbadf1fb5658a99f58a9ea88d15ed62d27966db4e4829ef692d3bcce",
+      "canonical_sha256": "a9ad70a8b9e4125a43836013544ece5bf48a4977e029573810b7249d3d6427c6",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "assets/opera/worlds/hotspots/teacher_lesson_board.svg",
+      "local_literal_sha256": "74eb7da7e7f5ad516ac157c89388983e7a3c63ca9987dba44157ae5e0c852043",
+      "canonical_sha256": "c640d1697ae5aea4c948ab3abf2675866a96f8c1918821a8fbc63580516bee00",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_geologist.svg",
+      "local_literal_sha256": "09ba5403d9d5bfbafec397f884fec4c725e50b3ba643c6ab66e4dd346d16b150",
+      "canonical_sha256": "14023de6e1338fb209b06be58dc37574060c3a22bcb08f3506843389620c2f50",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_geologist.svg",
+      "local_literal_sha256": "09ba5403d9d5bfbafec397f884fec4c725e50b3ba643c6ab66e4dd346d16b150",
+      "canonical_sha256": "14023de6e1338fb209b06be58dc37574060c3a22bcb08f3506843389620c2f50",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "local_literal_sha256": "edf89d4569c6eb1bf65eb491983f20043102211ea323f5731613af27d4a69ed5",
+      "canonical_sha256": "6de75b12fd5efadc8963519cea5862bddc464ae4078a27840e71d093253b2de3",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "local_literal_sha256": "94caf0498d80d1958f07ae771223200f082f49408db4c07d878069ef4d5509ba",
+      "canonical_sha256": "5424466ce69d23275387a64cd1eaddbb4fa7e52cfc9e950bb8865b603cdd82de",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+      "local_literal_sha256": "18b6f477b41241b509afda6a7cf76932c9af08be70f321ee2d744db424fe2b30",
+      "canonical_sha256": "bd3932fe2916c8223234a70694d22e80d96cc198eb9d31484254490edfef6f57",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md",
+      "local_literal_sha256": "6415353b4bf286d3da28f5d7596a15fecaa6ba7d875c5159b7639ac85859c912",
+      "canonical_sha256": "c4d4d5d8d458f3e290e8c106b267256f12d4ecc3d71ff01602eeb241db32cf6e",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "design/OPERA_TREE_BOOK_TEST_2026-09-30.md",
+      "local_literal_sha256": "a5744bcf8dada6ded6a411c48c890363c91d332843bc17f46e7e7e108ba6e891",
+      "canonical_sha256": "4c52228e27455a684e90c4aa2585f40ead5b6ce1ccc62c34dd7bb78ae1bbf29c",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+      "local_literal_sha256": "79df746086e417f240de5f271f85b00d78d310324becb0130862439a6478f3f6",
+      "canonical_sha256": "6b15debd817d3e135e253bc1207dce8bab15ffc18e3c603f97f2f1d9d57f65d6",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+      "local_literal_sha256": "8dd11b4b9c394cbb9d304c9f5d5eb71770ea106a278e87b26aba8004d62e8d94",
+      "canonical_sha256": "c766c05305be7d1fd990ae8d86232216a9f38d659511d60dd329315e58fffd02",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "project.godot",
+      "local_literal_sha256": "2587e8f6cbd52d437f6a08198d26a80465ee0e86868bc9f03526134f0cd6e770",
+      "canonical_sha256": "59b81dd5b6d51eb4109631addf362673a91fe69b49470071906e6109b10e2f8b",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/chapter_two_career_scene_adapter.gd",
+      "local_literal_sha256": "ffdcd602711a6acc42a5c6352ad8cbb701316f94c21233356fb56071f85ad40a",
+      "canonical_sha256": "7397beeabc10e20ea3cdf38f2918d672711ac06dedb539d536a4eb1c1c656e2f",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/chapter_two_director.gd",
+      "local_literal_sha256": "789ee737eec9477c8b1d6a89b60b6747accc14a6568b2dfa924fa3e5fca42d8d",
+      "canonical_sha256": "eb3e820217b08b87cab8a8ea8758a8da16736fdbd57db896ab016af2173c69b5",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/chapter_two_giant_cake_2d.gd",
+      "local_literal_sha256": "548bd0ddfcca5eee6181599dc4c0e284c66706b81ea5ac344cd4d04436cbd008",
+      "canonical_sha256": "f040e01beac2aa65933087bcca75153a8505ea7ce5aacb594a561201c407f757",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/chapter_two_party_plan.gd",
+      "local_literal_sha256": "c8fa0ff7f2f16d54085e920e3ad5ebc5c5a4e6c4d4afc85d98c702c900886dfa",
+      "canonical_sha256": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/chapter_two_rainbow_candle_2d.gd",
+      "local_literal_sha256": "42daa1d7b4ae97372bb7869defb39dce850c91a779c5bfb35ece7fa985212fa6",
+      "canonical_sha256": "12e1a75500e2cb4a535c075e3a32c54987a570f7d4bb5ffbdb64c3e35da3e62f",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/ci.sh",
+      "local_literal_sha256": "92f94855c4d870a52e9ba7b71b7e01d51fa3a9a9ad503e1559b39cf93195f887",
+      "canonical_sha256": "ca52d4b29e561de3a88c24de22134119903be17b65edf8c3770bf868102aa77e",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/main.gd",
+      "local_literal_sha256": "5393c6e82628e66b58dd620c0c6a91b04dbd05052a4be53a207109404f500cc3",
+      "canonical_sha256": "aba659693ed877e2845487b514c64e431d817143cf5c2803705c9f27c79bd256",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/opera_act.gd",
+      "local_literal_sha256": "ad107c7cd70171969676d2568991ea42035237ce0189389c9eece7aa9809d776",
+      "canonical_sha256": "2cb7235aaf7ef92caac65a7da3df722aea1909ebfee61e5f87fc1c96b40924af",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/opera_ballet_surface.gd",
+      "local_literal_sha256": "0603f780b841b0c4833ae863d797345f7e20bb731bafb294159d64beab4b4dd9",
+      "canonical_sha256": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/opera_boxing_surface.gd",
+      "local_literal_sha256": "32ec41c72dc8c23fc3d7667eb8f69a77c34eaca9c1b6aad45635e85317b07489",
+      "canonical_sha256": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "local_literal_sha256": "14226227f7a961511057318173737ec7340b2fc80fdb644e5670f5bd399989a6",
+      "canonical_sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "local_literal_sha256": "c28a885f68f2b16c66fcdaa5c4243ce9695a44d4ce015e56832ca392114cbedb",
+      "canonical_sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/opera_hotspot_catalog.gd",
+      "local_literal_sha256": "ad76445088eaaaa223f9374b2e7a098370350da7ebc5c419584453ff1da2ee5b",
+      "canonical_sha256": "713a43c5e2245f5dd4496a1a1909a5ba7c3bbd6961ebe4a8dd3db34e89b57222",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/opera_house.gd",
+      "local_literal_sha256": "0acdfba31cf54e9c96e6447ca44e4eb87b533ae40901c8d2d78457c850ea3199",
+      "canonical_sha256": "8cdcb96bb607c62272772c414efe22eab27090cc20c6c8317e9e1f1944816bd3",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/opera_imp_clips.gd",
+      "local_literal_sha256": "393eaf8e1cf03e9800abb9e1cefb044850d3e1b6bd2215d65092d6ab16ea7c4a",
+      "canonical_sha256": "e061de84be9831d4e9662c11d3440461078c505b4b1484d499fdf1fa37df0797",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/opera_performance_overlay.gd",
+      "local_literal_sha256": "1d41aa693d6d2fde851b4c612c2af210c79ae328e517f84c85f639edaf4c1e38",
+      "canonical_sha256": "16c7a17ed901750764481e7077ac2e60d4cf5bfc1a3b41970066e4a633545ddb",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/opera_performance_plan.gd",
+      "local_literal_sha256": "25517580638edcc8f63375ec6b14fd0de89287ed08af00111fec1d467cce6da3",
+      "canonical_sha256": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "local_literal_sha256": "5c95c6e09338f6acf6fc5630a7c2e2f7c29e5f311a1def618de8c9595cc597e2",
+      "canonical_sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "local_literal_sha256": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66",
+      "canonical_sha256": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/opera_teacher_surface.gd",
+      "local_literal_sha256": "b4893e222e45096cb539ad8025fdf7ba1a395cf6a921d7dc0205cff57acaa667",
+      "canonical_sha256": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/opera_tree_book_test.gd",
+      "local_literal_sha256": "18d6cf737d542ee911015f4d0461c09e4df161f5b6502f2199f6a96cb4298878",
+      "canonical_sha256": "20b33a534ca912b84e25f80342bfd7c17f0cd6f284e375f627d1e7b89e7caea1",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "local_literal_sha256": "1897f388cd04da9bc200b7b9ec03dea6e86d57e5eee7db6cef311a453f33a8ef",
+      "canonical_sha256": "520be663a672513f36926d5dd90d73ebb87b390be04b9463acd6799e5fd09e7c",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "local_literal_sha256": "da30f871435aefb79dc0d8b69d7267dc5fdb999d8959edaaef98d53976aa9d41",
+      "canonical_sha256": "3cdb80f462c0b59c7d06eed0bd8fc04fe165b01755305aa53b0931d1ccc2d0e4",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/save_state.gd",
+      "local_literal_sha256": "96834a20b83b4115afaefc97d51403a5dd2ae8124a5ba3d40a860033b794aab4",
+      "canonical_sha256": "61a000ace2dd91301887fe16a1c1817938cec896923104a246c77673626afe5d",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    },
+    {
+      "path": "scripts/teacher_lesson_plan.gd",
+      "local_literal_sha256": "ef0274e758fc078e567d10ffbb178f91f752d753bda972fc6cefd2d6fb8a43bf",
+      "canonical_sha256": "d82e5b7a817335b4da2d0d7b55706a5cde1ff1954c2b33d8ba34d891dac5778e",
+      "difference": "CRLF checkout versus LF Git blob only; literal native snapshots retained separately."
+    }
+  ],
+  "result": "PASS"
+}

@@ -1,0 +1,536 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+AUTHORED_LAUNCH|OK|slot0 baseline builds world
+AUTHORED_LAUNCH|OK|slot0 resolves exact authored phases
+AUTHORED_LAUNCH|OK|slot0 opens with zero earned progress
+AUTHORED_LAUNCH|OK|slot0 uses birthday policy exactly when requested
+AUTHORED_LAUNCH|OK|slot0 passive launch cannot award stars or party contributions
+AUTHORED_LAUNCH|OK|slot0 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|slot1 baseline builds world
+AUTHORED_LAUNCH|OK|slot1 resolves exact authored phases
+AUTHORED_LAUNCH|OK|slot1 opens with zero earned progress
+AUTHORED_LAUNCH|OK|slot1 uses birthday policy exactly when requested
+AUTHORED_LAUNCH|OK|slot1 passive launch cannot award stars or party contributions
+AUTHORED_LAUNCH|OK|slot1 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|slot2 baseline builds world
+AUTHORED_LAUNCH|OK|slot2 resolves exact authored phases
+AUTHORED_LAUNCH|OK|slot2 opens with zero earned progress
+AUTHORED_LAUNCH|OK|slot2 uses birthday policy exactly when requested
+AUTHORED_LAUNCH|OK|slot2 passive launch cannot award stars or party contributions
+AUTHORED_LAUNCH|OK|slot2 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|slot3 baseline builds world
+AUTHORED_LAUNCH|OK|slot3 resolves exact authored phases
+AUTHORED_LAUNCH|OK|slot3 opens with zero earned progress
+AUTHORED_LAUNCH|OK|slot3 uses birthday policy exactly when requested
+AUTHORED_LAUNCH|OK|slot3 passive launch cannot award stars or party contributions
+AUTHORED_LAUNCH|OK|slot3 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|slot5 baseline builds world
+AUTHORED_LAUNCH|OK|slot5 resolves exact authored phases
+AUTHORED_LAUNCH|OK|slot5 opens with zero earned progress
+AUTHORED_LAUNCH|OK|slot5 uses birthday policy exactly when requested
+AUTHORED_LAUNCH|OK|slot5 passive launch cannot award stars or party contributions
+AUTHORED_LAUNCH|OK|slot5 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|slot6 baseline builds world
+AUTHORED_LAUNCH|OK|slot6 resolves exact authored phases
+AUTHORED_LAUNCH|OK|slot6 opens with zero earned progress
+AUTHORED_LAUNCH|OK|slot6 uses birthday policy exactly when requested
+AUTHORED_LAUNCH|OK|slot6 passive launch cannot award stars or party contributions
+AUTHORED_LAUNCH|OK|slot6 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|slot7 baseline builds world
+AUTHORED_LAUNCH|OK|slot7 resolves exact authored phases
+AUTHORED_LAUNCH|OK|slot7 opens with zero earned progress
+AUTHORED_LAUNCH|OK|slot7 uses birthday policy exactly when requested
+AUTHORED_LAUNCH|OK|slot7 passive launch cannot award stars or party contributions
+AUTHORED_LAUNCH|OK|slot7 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|slot8 baseline builds world
+AUTHORED_LAUNCH|OK|slot8 resolves exact authored phases
+AUTHORED_LAUNCH|OK|slot8 opens with zero earned progress
+AUTHORED_LAUNCH|OK|slot8 uses birthday policy exactly when requested
+AUTHORED_LAUNCH|OK|slot8 passive launch cannot award stars or party contributions
+AUTHORED_LAUNCH|OK|slot8 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|slot10 baseline builds world
+AUTHORED_LAUNCH|OK|slot10 resolves exact authored phases
+AUTHORED_LAUNCH|OK|slot10 opens with zero earned progress
+AUTHORED_LAUNCH|OK|slot10 uses birthday policy exactly when requested
+AUTHORED_LAUNCH|OK|slot10 passive launch cannot award stars or party contributions
+AUTHORED_LAUNCH|OK|slot10 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|slot11 baseline builds world
+AUTHORED_LAUNCH|OK|slot11 resolves exact authored phases
+AUTHORED_LAUNCH|OK|slot11 opens with zero earned progress
+AUTHORED_LAUNCH|OK|slot11 uses birthday policy exactly when requested
+AUTHORED_LAUNCH|OK|slot11 passive launch cannot award stars or party contributions
+AUTHORED_LAUNCH|OK|slot11 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|slot12 baseline builds world
+AUTHORED_LAUNCH|OK|slot12 resolves exact authored phases
+AUTHORED_LAUNCH|OK|slot12 opens with zero earned progress
+AUTHORED_LAUNCH|OK|slot12 uses birthday policy exactly when requested
+AUTHORED_LAUNCH|OK|slot12 passive launch cannot award stars or party contributions
+AUTHORED_LAUNCH|OK|slot12 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|slot13 baseline builds world
+AUTHORED_LAUNCH|OK|slot13 resolves exact authored phases
+AUTHORED_LAUNCH|OK|slot13 opens with zero earned progress
+AUTHORED_LAUNCH|OK|slot13 uses birthday policy exactly when requested
+AUTHORED_LAUNCH|OK|slot13 passive launch cannot award stars or party contributions
+AUTHORED_LAUNCH|OK|slot13 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|slot15 baseline builds world
+AUTHORED_LAUNCH|OK|slot15 resolves exact authored phases
+AUTHORED_LAUNCH|OK|slot15 opens with zero earned progress
+AUTHORED_LAUNCH|OK|slot15 uses birthday policy exactly when requested
+AUTHORED_LAUNCH|OK|slot15 passive launch cannot award stars or party contributions
+AUTHORED_LAUNCH|OK|slot15 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|slot16 baseline builds world
+AUTHORED_LAUNCH|OK|slot16 resolves exact authored phases
+AUTHORED_LAUNCH|OK|slot16 opens with zero earned progress
+AUTHORED_LAUNCH|OK|slot16 uses birthday policy exactly when requested
+AUTHORED_LAUNCH|OK|slot16 passive launch cannot award stars or party contributions
+AUTHORED_LAUNCH|OK|slot16 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|slot17 baseline builds world
+AUTHORED_LAUNCH|OK|slot17 resolves exact authored phases
+AUTHORED_LAUNCH|OK|slot17 opens with zero earned progress
+AUTHORED_LAUNCH|OK|slot17 uses birthday policy exactly when requested
+AUTHORED_LAUNCH|OK|slot17 passive launch cannot award stars or party contributions
+AUTHORED_LAUNCH|OK|slot17 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|slot6 ordinary director supplies story policy without explicit phases
+ERROR: OperaCareerWorld2D: rejected invalid Chapter 2 phase override
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://scripts/opera_career_world_2d.gd:702)
+       [1] start (res://scripts/opera_act.gd:78)
+       [2] start (res://scripts/opera_house.gd:249)
+       [3] _launch (res://tools/probe_day2_authored_launch.gd:29)
+       [4] _run (res://tools/probe_day2_authored_launch.gd:86)
+       [5] _launch (res://tools/probe_day2_authored_launch.gd:44)
+       [6] _frames (res://tools/probe_day2_authored_launch.gd:16)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+AUTHORED_LAUNCH|FAIL|slot6 baseline builds world
+AUTHORED_LAUNCH|OK|slot6 passive launch cannot award stars or party contributions
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+AUTHORED_LAUNCH|OK|slot6 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|fixture policy advances ordered slot6
+AUTHORED_LAUNCH|OK|slot0 ordinary director supplies story policy without explicit phases
+ERROR: OperaCareerWorld2D: rejected invalid Chapter 2 phase override
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://scripts/opera_career_world_2d.gd:702)
+       [1] start (res://scripts/opera_act.gd:78)
+       [2] start (res://scripts/opera_house.gd:249)
+       [3] _launch (res://tools/probe_day2_authored_launch.gd:29)
+       [4] _run (res://tools/probe_day2_authored_launch.gd:86)
+       [5] _launch (res://tools/probe_day2_authored_launch.gd:44)
+       [6] _frames (res://tools/probe_day2_authored_launch.gd:16)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+AUTHORED_LAUNCH|FAIL|slot0 baseline builds world
+AUTHORED_LAUNCH|OK|slot0 passive launch cannot award stars or party contributions
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+AUTHORED_LAUNCH|OK|slot0 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|fixture policy advances ordered slot0
+AUTHORED_LAUNCH|OK|slot3 ordinary director supplies story policy without explicit phases
+ERROR: OperaCareerWorld2D: rejected invalid Chapter 2 phase override
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://scripts/opera_career_world_2d.gd:702)
+       [1] start (res://scripts/opera_act.gd:78)
+       [2] start (res://scripts/opera_house.gd:249)
+       [3] _launch (res://tools/probe_day2_authored_launch.gd:29)
+       [4] _run (res://tools/probe_day2_authored_launch.gd:86)
+       [5] _launch (res://tools/probe_day2_authored_launch.gd:44)
+       [6] _frames (res://tools/probe_day2_authored_launch.gd:16)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+AUTHORED_LAUNCH|FAIL|slot3 baseline builds world
+AUTHORED_LAUNCH|OK|slot3 passive launch cannot award stars or party contributions
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+AUTHORED_LAUNCH|OK|slot3 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|fixture policy advances ordered slot3
+AUTHORED_LAUNCH|OK|slot10 ordinary director supplies story policy without explicit phases
+ERROR: OperaCareerWorld2D: rejected invalid Chapter 2 phase override
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://scripts/opera_career_world_2d.gd:702)
+       [1] start (res://scripts/opera_act.gd:78)
+       [2] start (res://scripts/opera_house.gd:249)
+       [3] _launch (res://tools/probe_day2_authored_launch.gd:29)
+       [4] _run (res://tools/probe_day2_authored_launch.gd:86)
+       [5] _launch (res://tools/probe_day2_authored_launch.gd:44)
+       [6] _frames (res://tools/probe_day2_authored_launch.gd:16)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+AUTHORED_LAUNCH|FAIL|slot10 baseline builds world
+AUTHORED_LAUNCH|OK|slot10 passive launch cannot award stars or party contributions
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+AUTHORED_LAUNCH|OK|slot10 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|fixture policy advances ordered slot10
+AUTHORED_LAUNCH|OK|slot2 ordinary director supplies story policy without explicit phases
+ERROR: OperaCareerWorld2D: rejected invalid Chapter 2 phase override
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://scripts/opera_career_world_2d.gd:702)
+       [1] start (res://scripts/opera_act.gd:78)
+       [2] start (res://scripts/opera_house.gd:249)
+       [3] _launch (res://tools/probe_day2_authored_launch.gd:29)
+       [4] _run (res://tools/probe_day2_authored_launch.gd:86)
+       [5] _launch (res://tools/probe_day2_authored_launch.gd:44)
+       [6] _frames (res://tools/probe_day2_authored_launch.gd:16)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+AUTHORED_LAUNCH|FAIL|slot2 baseline builds world
+AUTHORED_LAUNCH|OK|slot2 passive launch cannot award stars or party contributions
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+AUTHORED_LAUNCH|OK|slot2 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|fixture policy advances ordered slot2
+AUTHORED_LAUNCH|OK|slot13 ordinary director supplies story policy without explicit phases
+ERROR: OperaCareerWorld2D: rejected invalid Chapter 2 phase override
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://scripts/opera_career_world_2d.gd:702)
+       [1] start (res://scripts/opera_act.gd:78)
+       [2] start (res://scripts/opera_house.gd:249)
+       [3] _launch (res://tools/probe_day2_authored_launch.gd:29)
+       [4] _run (res://tools/probe_day2_authored_launch.gd:86)
+       [5] _launch (res://tools/probe_day2_authored_launch.gd:44)
+       [6] _frames (res://tools/probe_day2_authored_launch.gd:16)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+AUTHORED_LAUNCH|FAIL|slot13 baseline builds world
+AUTHORED_LAUNCH|OK|slot13 passive launch cannot award stars or party contributions
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+AUTHORED_LAUNCH|OK|slot13 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|fixture policy advances ordered slot13
+AUTHORED_LAUNCH|OK|slot11 ordinary director supplies story policy without explicit phases
+ERROR: OperaCareerWorld2D: rejected invalid Chapter 2 phase override
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://scripts/opera_career_world_2d.gd:702)
+       [1] start (res://scripts/opera_act.gd:78)
+       [2] start (res://scripts/opera_house.gd:249)
+       [3] _launch (res://tools/probe_day2_authored_launch.gd:29)
+       [4] _run (res://tools/probe_day2_authored_launch.gd:86)
+       [5] _launch (res://tools/probe_day2_authored_launch.gd:44)
+       [6] _frames (res://tools/probe_day2_authored_launch.gd:16)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+AUTHORED_LAUNCH|FAIL|slot11 baseline builds world
+AUTHORED_LAUNCH|OK|slot11 passive launch cannot award stars or party contributions
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+AUTHORED_LAUNCH|OK|slot11 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|fixture policy advances ordered slot11
+AUTHORED_LAUNCH|OK|slot1 ordinary director supplies story policy without explicit phases
+ERROR: OperaCareerWorld2D: rejected invalid Chapter 2 phase override
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://scripts/opera_career_world_2d.gd:702)
+       [1] start (res://scripts/opera_act.gd:78)
+       [2] start (res://scripts/opera_house.gd:249)
+       [3] _launch (res://tools/probe_day2_authored_launch.gd:29)
+       [4] _run (res://tools/probe_day2_authored_launch.gd:86)
+       [5] _launch (res://tools/probe_day2_authored_launch.gd:44)
+       [6] _frames (res://tools/probe_day2_authored_launch.gd:16)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+SCRIPT ERROR: Invalid assignment of property or key 'value' with value of type 'float' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D.update_competition (res://scripts/opera_career_world_2d.gd:3722)
+   GDScript backtrace (most recent call first):
+       [0] update_competition (res://scripts/opera_career_world_2d.gd:3722)
+       [1] _process (res://scripts/opera_act.gd:94)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+AUTHORED_LAUNCH|FAIL|slot1 baseline builds world
+AUTHORED_LAUNCH|OK|slot1 passive launch cannot award stars or party contributions
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4609)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4609)
+AUTHORED_LAUNCH|OK|slot1 cancellation preserves earned state
+AUTHORED_LAUNCH|OK|fixture policy advances ordered slot1
+AUTHORED_LAUNCH|OK|explicit invalid phases rejected by shared caller validator
+AUTHORED_LAUNCH|OK|explicit invalid phases rejected by shared caller validator
+AUTHORED_LAUNCH|OK|explicit invalid phases rejected by shared caller validator
+AUTHORED_LAUNCH|RESULT|FAIL|8

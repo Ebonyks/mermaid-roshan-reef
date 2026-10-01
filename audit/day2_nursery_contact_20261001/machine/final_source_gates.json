@@ -1,0 +1,200 @@
+{
+  "checked_utc": "2026-10-01T07:24:06.163901+00:00",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "log": "final_source_gates.log",
+  "sources": [
+    {
+      "path": "scripts/games/dolls.gd",
+      "literal_sha256": "acc69d2194a043bdc5b71df83a79d9d0646393826da74ecf950ce9b1b7cca451",
+      "normalized_lf_sha256": "94315ab4005446ddf76821d6d27159dded817e71f51989b85238ea3df92e19d5"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "literal_sha256": "c23e159a5941f60a2093220331c514525b73bad2d3a6294a7c114b62e8d7770a",
+      "normalized_lf_sha256": "4e79eb9e995d6934442f16039abda0554624505951d9ae2949c30d214c0b8026"
+    },
+    {
+      "path": "scripts/opera_nursery_catch.gd",
+      "literal_sha256": "aac74dd79f0eb2f6ec3aa48a1ebe9c63aae49f66e1a37ac55e4b552e4eb22cba",
+      "normalized_lf_sha256": "0b45a5ec3d82c56c2aec6ad32e8312a9e9c18199fcf70616518c926d6cfd8bd0"
+    },
+    {
+      "path": "tools/capture_day2_nursery_body_fit.gd",
+      "literal_sha256": "cd14055528575913c1093627faf239ac87f931b35e7bb4b00cfbaeff62ec10f3",
+      "normalized_lf_sha256": "cd14055528575913c1093627faf239ac87f931b35e7bb4b00cfbaeff62ec10f3"
+    },
+    {
+      "path": "tools/capture_day2_nursery_contact.gd",
+      "literal_sha256": "bb993e361be00103e42a1b28b36f45a7901d27df399766f97e3759be8b4d96ab",
+      "normalized_lf_sha256": "ae494db2e34350fb62cdd8656d083163c20b7dd9d6ac7b8ee49abb978b3e5563"
+    },
+    {
+      "path": "tools/probe_day2_authored_launch.gd",
+      "literal_sha256": "99cceefb1c0cd2df90710c72a827f4f3f179a99c684bed551ed1af8743a5385f",
+      "normalized_lf_sha256": "99cceefb1c0cd2df90710c72a827f4f3f179a99c684bed551ed1af8743a5385f"
+    },
+    {
+      "path": "tools/probe_day2_nursery_contact.gd",
+      "literal_sha256": "c3c78ff3e1540ccd2c9b395170cb37c092610f8ac4814c9b9f80324d9f304494",
+      "normalized_lf_sha256": "c3c78ff3e1540ccd2c9b395170cb37c092610f8ac4814c9b9f80324d9f304494"
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/games/dolls.gd",
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_nursery_catch.gd",
+        "tools/capture_day2_nursery_body_fit.gd",
+        "tools/capture_day2_nursery_contact.gd",
+        "tools/probe_day2_authored_launch.gd",
+        "tools/probe_day2_nursery_contact.gd"
+      ],
+      "exit_code": 0,
+      "script_or_failure_diagnostic": false,
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/games/dolls.gd",
+        "scripts/opera_career_world_2d.gd",
+        "scripts/opera_nursery_catch.gd",
+        "tools/capture_day2_nursery_body_fit.gd",
+        "tools/capture_day2_nursery_contact.gd",
+        "tools/probe_day2_authored_launch.gd",
+        "tools/probe_day2_nursery_contact.gd"
+      ],
+      "exit_code": 0,
+      "script_or_failure_diagnostic": false,
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "-s",
+        "scripts/games/dolls.gd"
+      ],
+      "exit_code": 0,
+      "script_or_failure_diagnostic": false,
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "-s",
+        "scripts/opera_career_world_2d.gd"
+      ],
+      "exit_code": 0,
+      "script_or_failure_diagnostic": false,
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "-s",
+        "scripts/opera_nursery_catch.gd"
+      ],
+      "exit_code": 0,
+      "script_or_failure_diagnostic": false,
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "-s",
+        "tools/capture_day2_nursery_body_fit.gd"
+      ],
+      "exit_code": 0,
+      "script_or_failure_diagnostic": false,
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "-s",
+        "tools/capture_day2_nursery_contact.gd"
+      ],
+      "exit_code": 0,
+      "script_or_failure_diagnostic": false,
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "-s",
+        "tools/probe_day2_authored_launch.gd"
+      ],
+      "exit_code": 0,
+      "script_or_failure_diagnostic": false,
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "-s",
+        "tools/probe_day2_nursery_contact.gd"
+      ],
+      "exit_code": 0,
+      "script_or_failure_diagnostic": false,
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/refresh_job_artwork_status.py"
+      ],
+      "exit_code": 0,
+      "script_or_failure_diagnostic": false,
+      "result": "PASS"
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/refresh_job_artwork_status.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "script_or_failure_diagnostic": false,
+      "result": "PASS"
+    }
+  ],
+  "result": "PASS",
+  "qualification": "Current changed production scripts and new diagnostics only. Trusted probe aggregate is recorded separately. No visual/device/child/owner acceptance."
+}

@@ -1,0 +1,137 @@
+{
+  "schema": "reef.nursery-body-source-review.v1",
+  "reviewed_utc": "2026-10-01T06:25:02.722955+00:00",
+  "reviewer": "Codex native source drafting opinion; not owner/human acceptance",
+  "source_sha256": "237b41d5a4291bbec8bb54039ccb6d0ef5e423be94265e53b9062d69494c10c7",
+  "source_opinion_only": true,
+  "runtime_binding": false,
+  "native_transform": "None; full1254-square generation preserved exactly. No cell has been cropped/normalized as replacement art.",
+  "cells": [
+    {
+      "name": "ready",
+      "region": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "alpha8_bbox": [
+        96,
+        54,
+        598,
+        592
+      ],
+      "margins": [
+        96,
+        54,
+        29,
+        35
+      ],
+      "source_score": 4.6,
+      "opinion": "Both empty palms are visible and connected to the established lavender sleeves. The attentive face, hair streak, apron and complete single tail retain the approved identity. This gives the job an actual receiving body rather than a detached-arm graphic.",
+      "mounted_action_score": null,
+      "owner_accepted": false
+    },
+    {
+      "name": "catch",
+      "region": [
+        627,
+        0,
+        627,
+        627
+      ],
+      "alpha8_bbox": [
+        136,
+        64,
+        589,
+        594
+      ],
+      "margins": [
+        136,
+        64,
+        38,
+        33
+      ],
+      "source_score": 4.6,
+      "opinion": "The inward hands form a shallow receiving support in front of the apron; elbows and wrists stay connected and the face directs attention toward the action. No baked baby or bottle competes with the existing baby instance. Native body/hand sockets must be measured before a mounted claim.",
+      "mounted_action_score": null,
+      "owner_accepted": false
+    },
+    {
+      "name": "hold",
+      "region": [
+        0,
+        627,
+        627,
+        627
+      ],
+      "alpha8_bbox": [
+        149,
+        36,
+        592,
+        561
+      ],
+      "margins": [
+        149,
+        36,
+        35,
+        66
+      ],
+      "source_score": 4.6,
+      "opinion": "The close palms, softened elbows and content expression read as a gentle settled hold. The body is complete and the costume and tail colors remain coherent with the receiving poses. Empty palms preserve one separately owned baby in runtime; actual supported contact has not been played.",
+      "mounted_action_score": null,
+      "owner_accepted": false
+    },
+    {
+      "name": "set-down",
+      "region": [
+        627,
+        627,
+        627,
+        627
+      ],
+      "alpha8_bbox": [
+        64,
+        71,
+        599,
+        559
+      ],
+      "margins": [
+        64,
+        71,
+        28,
+        68
+      ],
+      "source_score": 4.6,
+      "opinion": "The lean and paired downward-forward palms communicate a careful set-down. The tail remains one complete continuous anatomy. The head/fin position changes require per-pose anchor registration; these four authored keys do not by themselves prove a fluid or accepted animation.",
+      "mounted_action_score": null,
+      "owner_accepted": false
+    }
+  ],
+  "qualification": "Four source 4.6 opinions do not establish contact, temporal animation, engine sampling, continuity, device/child or owner acceptance. Low-opacity alpha1 specks extend outside the alpha8 subject bounds; register meaningful hand/foot sockets explicitly rather than using unthresholded canvas bounds. Full runtime atlas preparation still pending.",
+  "gaps": [
+    "Measure per-pose hand/palm, body and tail anchors and prove engine-side sampling.",
+    "Place each existing baby exactly once on the actual support sockets.",
+    "Review real receiving/holding/set-down timing and settle at both aspects.",
+    "Preserve frame/identity ownership when multiple babies overlap.",
+    "Review every missed-baby safe return and all other nursery phases."
+  ],
+  "native_fit_review": {
+    "method": "Codex visual inspection of exact Godot 4.7.2 Mobile1280x720 and 1600x720 static diagnostics; four authored keys held independently, manually estimated sockets. Not played animation or acceptance.",
+    "evidence": [
+      "fit-captures/1280x720.webp",
+      "fit-captures/1600x720.webp",
+      "fit-captures/receipt.json"
+    ],
+    "observations": [
+      "Catch: the aqua baby visibly sits on connected palms in front of the apron at both widths; no separately floating arms or duplicate baby are present in this fixture.",
+      "Hold: the peach baby rests on the two palms close to the chest. The complete tail and costume remain visible. The closed-eye expression is a held pose key; timing and safe transition remain unreviewed.",
+      "Set-down: the lilac baby remains supported in the forward palms, with the torso leaning toward the action. No receiving cushion or release is staged, so this does not establish a completed set-down.",
+      "Ready: both empty receiving hands belong to the same complete body. Four side-by-side figures are a comparative diagnostic, not the intended game composition.",
+      "No conspicuous red/blue source fringe is visible at these engine display scales. The raw1254 source shown against black remains preserved for future edge inspection; no pixels were cleaned or altered.",
+      "Hip markers share one declared viewport y. Head and fin positions vary with the held keys; no temporal stability, natural transition, production atlas constraints or edge-of-stage gameplay clearance is proved."
+    ],
+    "mounted_action_score": null,
+    "owner_accepted": false
+  }
+}

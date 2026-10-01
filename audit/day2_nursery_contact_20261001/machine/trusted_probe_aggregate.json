@@ -1,0 +1,670 @@
+{
+  "schema": "reef.required-probe-aggregate.v1",
+  "checked_utc": "2026-10-01T07:15:17.748191+00:00",
+  "source_ci_sha256": "92f94855c4d870a52e9ba7b71b7e01d51fa3a9a9ad503e1559b39cf93195f887",
+  "result": "PASS",
+  "required_probes": 82,
+  "probes": [
+    {
+      "probe": "probe_reef_districts",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_ocean_kingdoms",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_audit",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-probe-audit-direct.log",
+      "result": "PASS",
+      "lane": "Current affected caller rerun"
+    },
+    {
+      "probe": "probe_passive",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-affected-gates.log",
+      "result": "PASS",
+      "lane": "Current affected caller rerun"
+    },
+    {
+      "probe": "probe_living_world",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_load",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_rank",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_save_recovery",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_galaxy_state",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_collection",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_mg2d",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_fetch",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_melody",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_dolls",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-affected-gates.log",
+      "result": "PASS",
+      "lane": "Current affected caller rerun"
+    },
+    {
+      "probe": "probe_seek",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_audio",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_dance",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_l2",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_l2_living_cards",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_sky_lagoon_animals",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_l2_reenter",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-affected-gates.log",
+      "result": "PASS",
+      "lane": "Current affected caller rerun"
+    },
+    {
+      "probe": "probe_crown",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_throne",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_northern",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_human_art_audit",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_train",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_verbs",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_skins",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_touch_router",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_touch_stress",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_interaction",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_touch_adversary",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_touch_look",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_ui_system",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_voice",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_day_one_voice",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_day_one_d8_revisits",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_day_one_handoffs",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_kart_feel",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_combat",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_dust_bunny",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_dust_bunny_boss",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_dust_boss",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_hit",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_partner",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_combat_tutorial",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_imp_ai",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_mic",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_stuffie",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_dungeon",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_ember",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_opera",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_opera_2d",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-affected-gates.log",
+      "result": "PASS",
+      "lane": "Current affected caller rerun"
+    },
+    {
+      "probe": "probe_opera_diegetic_paths",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-affected-gates.log",
+      "result": "PASS",
+      "lane": "Current affected caller rerun"
+    },
+    {
+      "probe": "probe_opera_detective",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_opera_pipe",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_opera_nursery",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-affected-gates.log",
+      "result": "PASS",
+      "lane": "Current affected caller rerun"
+    },
+    {
+      "probe": "probe_opera_gesture_quality",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_kitchen_props",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_bathroom_props",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_castle_door_language",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_bathroom_integration",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_day_one_bathroom_bunny",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_day_one_bathroom_cleanup",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_day_one_bathroom_movie_handoff",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_day_one_director",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_day_one_integration",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_day_one_pool_cleanup",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_day_one_art_attack_state",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_day_one_castle_dressing",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_day_one_story_clips",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_chapter2",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-affected-gates.log",
+      "result": "PASS",
+      "lane": "Current affected caller rerun"
+    },
+    {
+      "probe": "probe_chapter2_farmer_resume",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_chapter2_lawn",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_alpha_milestone_save",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_dust_boss_balance",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_start_menu_routing",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_start_menu_new_game",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_castle_pool_life_2d",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_castle_pearl_art",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_fairy_art",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    },
+    {
+      "probe": "probe_props",
+      "exit_code": 0,
+      "runtime_or_failure_regex_match": false,
+      "evidence": "nursery-contact-suite-resumed2.log",
+      "result": "PASS",
+      "lane": "Preserved unmodified unaffected caller result"
+    }
+  ],
+  "method": "Full82-probe original script run retained with failures. The task-introduced Dolls anchor error and catch-bar overlap were repaired; all8 affected/failed callers rerun without changing probes/validators. The first subset audit returned127; exact native isolated probe_audit retry returned0 and completed persisted-wins5/5/total-wall-time. These are combined required checks, not a claim that the initial whole script exited0. Unaffected checks retain their recorded source scope.",
+  "initial_whole_suite_exit": 1,
+  "affected_subset_exit": 1,
+  "strict_game2d": "UNSATISFIED; exact NO_REGRESSION only",
+  "acceptance": "No graphics/action, device, child, owner or release acceptance."
+}

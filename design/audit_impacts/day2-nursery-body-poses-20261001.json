@@ -1,0 +1,83 @@
+{
+  "id": "day2-nursery-body-poses-20261001",
+  "baseline": "a802ee70b77fb4962f5798e4e0876fe16ba7f420",
+  "scope": "Fresh candidate artwork for the named nursery action gap exposed by the native traces: connect catch/hold/set-down to the actual Roshan body instead of independent floating hands. Inventory and inspect the existing nursery atlas first; its work cells carry wash/bottle/pat/blanket props and its travel cells do not express palm-under-baby catching/placing. Generate only four fresh empty-handed care poses, preserving approved Roshan identity/costume. Approved atlas is appearance/identity reference only; no original pixel is modified. This nonruntime candidate does not replace a protected original, establish a finished animation or grant integration/owner acceptance. Extend source review with a nonruntime native Mobile diagnostic: four independently held pose keys sampled directly from the untouched1254 atlas at both1280/1600 widths, one existing baby instance anchored to declared approximate palms, fixed declared body pivots and current room backdrop. This is a diagnostic fixture, not normal gameplay, temporal motion or accepted contact. Measure and inspect before production atlas preparation; no source pixels, gameplay state or runtime bindings are changed.",
+  "rules": [
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-INT-04",
+    "DL-MOT-01",
+    "DL-MOT-02",
+    "DL-MOT-03",
+    "DL-MOT-07",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-QA-03",
+    "DL-QA-07",
+    "DL-READ-01",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-06"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-VIS-006",
+    "MA-OPERA-004"
+  ],
+  "files": [
+    ".gitattributes",
+    "ASSET_LICENSES.md",
+    "assets_src/imagegen/day2_nursery_body_20261001/.gdignore",
+    "assets_src/imagegen/day2_nursery_body_20261001/candidates/attempt-01.png",
+    "assets_src/imagegen/day2_nursery_body_20261001/fit-captures/1280x720.webp",
+    "assets_src/imagegen/day2_nursery_body_20261001/fit-captures/1600x720.webp",
+    "assets_src/imagegen/day2_nursery_body_20261001/fit-captures/capture.log",
+    "assets_src/imagegen/day2_nursery_body_20261001/fit-captures/receipt.json",
+    "assets_src/imagegen/day2_nursery_body_20261001/fit-contract.json",
+    "assets_src/imagegen/day2_nursery_body_20261001/index.html",
+    "assets_src/imagegen/day2_nursery_body_20261001/prompt.txt",
+    "assets_src/imagegen/day2_nursery_body_20261001/request.json",
+    "assets_src/imagegen/day2_nursery_body_20261001/review.json",
+    "tools/capture_day2_nursery_body_fit.gd"
+  ],
+  "validation": [
+    {
+      "command": "Individual native cell identity/style/whole-tail/hand socket and topology review",
+      "result": "PASS",
+      "evidence": "Native generation, four individual source drafting reviews and alpha8 cell margins all>=24 native pixels; review.json. Mounted/action/engine sampling remains pending."
+    },
+    {
+      "command": "Source/native prompt provenance, authority/development and exact-revision remote verification",
+      "result": "PENDING",
+      "evidence": "Before publication; runtime controller remains independent candidate until poses and mounted/contact/action review pass."
+    },
+    {
+      "command": "Godot4.7.2 native static sampling at1280x720 and1600x720; parser/inference/real analyzer for diagnostic harness",
+      "result": "PASS",
+      "evidence": "fit-captures/receipt.json and capture.log; both native views inspected, manually estimated anchors and acceptance limits in review.json. No source pixel edits or runtime binding."
+    },
+    {
+      "command": "Current document authority/development and whitespace gates",
+      "result": "PASS",
+      "evidence": "audit/day2_nursery_contact_20261001/machine/final_document_gates.json/log; all four exact commands exit0. Publication is a separate pending gate."
+    },
+    {
+      "command": "Anonymous exact-revision manifest and every required file verification",
+      "result": "PENDING",
+      "evidence": "audit/job_artwork_refinement_20261001/MANIFEST.json and REMOTE_VERIFICATION.json after payload publication; no release or creative acceptance."
+    }
+  ],
+  "acceptance_gaps": "All source cells, stability, mounted contact/action, engine sampling, device/child/owner acceptance pending. Fresh generation is authorized for this missing action only; the existing approved identity is not redesigned."
+}

@@ -1,0 +1,29 @@
+bash.exe: warning: could not find /tmp, please create!
+AUDITDEV|BASE|ce0331738970205a5aead4d3e0258eb7873a1642
+AUDITDEV|RESULT|ALL OK
+DOCAUTH|INVENTORY=592|LEDGER=592|ACTIVE=57|RECORDS=59
+DOCAUTH|RESULT|ALL OK
+....F...
+======================================================================
+FAIL: test_repair_archive_dispatch_preserves_readiness_and_integrity (tools.tests.test_audit_imagine_handoff.ImagineHandoffAuditTest.test_repair_archive_dispatch_preserves_readiness_and_integrity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\Documents\mermaid-roshan-reef\tmp\day2_graphics_audit_20260930\tools\tests\test_audit_imagine_handoff.py", line 16, in test_repair_archive_dispatch_preserves_readiness_and_integrity
+    self.assertEqual(audit_handoff(packet), [])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ["C:\\Users\\Peter\\Documents\\mermaid-ros[394 chars]ng'"] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+"C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets_src\\cinematics\\overnight_recut_repairs_2026-09-12\\IMAGINE_HANDOFF.json: invalid repair archive: [Errno 2] No such file or directory: 'C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\\\\tmp\\\\day2_graphics_audit_20260930\\\\assets_src\\\\cinematics\\\\overnight_recut_repairs_2026-09-12\\\\references\\\\baby_eagle_original_book.png'"
+
++ []
+- ['C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets_src\\cinematics\\overnight_recut_repairs_2026-09-12\\IMAGINE_HANDOFF.json: '
+-  'invalid repair archive: [Errno 2] No such file or directory: '
+-  "'C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\\\\tmp\\\\day2_graphics_audit_20260930\\\\assets_src\\\\cinematics\\\\overnight_recut_repairs_2026-09-12\\\\references\\\\baby_eagle_original_book.png'"]
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.393s
+
+FAILED (failures=1)
+IMAGINE HANDOFF CONTRACT TEST FAIL

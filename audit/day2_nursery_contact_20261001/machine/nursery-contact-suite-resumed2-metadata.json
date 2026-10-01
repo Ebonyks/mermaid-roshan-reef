@@ -1,0 +1,8 @@
+{
+  "source_ci_sha256": "92f94855c4d870a52e9ba7b71b7e01d51fa3a9a9ad503e1559b39cf93195f887",
+  "resume_from": "python3 -m unittest tools.tests.test_audit_imagine_handoff \\",
+  "reason": "First resume stopped at missing sparse legacy reference inputs. Restored113 exact tracked image inputs (112196022 bytes); the8 original tests and full Imagine scan now pass. Resume every remaining original command without changing any test or validator.",
+  "started_utc": "2026-10-01T06:17:11.702571+00:00",
+  "exit_code": 1,
+  "finished_utc": "2026-10-01T07:01:16.793840+00:00"
+}

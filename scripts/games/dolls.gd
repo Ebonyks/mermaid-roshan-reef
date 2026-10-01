@@ -29,6 +29,18 @@ class DollsNurserySurface extends OperaNurseryCatch:
 
 	var safe_mat_style: StyleBoxFlat = null
 
+	func _catch_plane() -> float:
+		# Dolls' centered baby canvases meet its approved sling at this plane.
+		return 0.74
+
+	func _pillow_plane() -> float:
+		return 0.91
+
+	func _baby_anchor(_texture_index: int) -> Vector2:
+		# Its rect/envelope contracts and safe mat use canvas centers. Opera's
+		# new foot sockets must not move this sibling's accepted presentation.
+		return Vector2(0.5, 0.5)
+
 	func _ready() -> void:
 		mouse_filter = Control.MOUSE_FILTER_STOP
 		clip_contents = true

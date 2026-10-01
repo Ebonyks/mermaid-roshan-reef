@@ -1,0 +1,61 @@
+{
+  "id": "job-artwork-refinement-status-20261001",
+  "baseline": "a802ee70b77fb4962f5798e4e0876fe16ba7f420",
+  "scope": "Add the current owner-review entry and a read-only refresh command that compares the sealed9038246cf9b34005afb8bc28a2f81396930988b6 all-job source/capture inventory against current source bytes. Preserve the sealed original report and all scores. Surface changed code/art, newly literal-bound job art, current nursery source/contact supplements and explicit unreviewed Day One/all-job-days coverage. Refreshing evidence never auto-accepts an image or changes a score, gameplay, finding lifecycle or protected artwork.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-06",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-QA-01",
+    "DL-QA-03",
+    "DL-QA-07",
+    "DL-QA-12"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-VIS-006",
+    "MA-OPERA-004"
+  ],
+  "files": [
+    ".gitattributes",
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/job_artwork_refinement_20261001/.gdignore",
+    "audit/job_artwork_refinement_20261001/BYTE_PREFLIGHT.json",
+    "audit/job_artwork_refinement_20261001/MANIFEST.json",
+    "audit/job_artwork_refinement_20261001/REMOTE_VERIFICATION.json",
+    "audit/job_artwork_refinement_20261001/STATUS.json",
+    "audit/job_artwork_refinement_20261001/browser_verification.json",
+    "audit/job_artwork_refinement_20261001/index.html",
+    "audit/job_artwork_refinement_20261001/local_media_verification.json",
+    "design/05_DOC_LEDGER.md",
+    "tools/refresh_job_artwork_status.py"
+  ],
+  "validation": [
+    {
+      "command": "Refresh status against exact baseline source fingerprints; source scores preserved; no source mutation",
+      "result": "PASS",
+      "evidence": "audit/job_artwork_refinement_20261001/STATUS.json;777 original sources unchanged in graphical content (five SVG line-ending-only checkout differences separate),292 game scripts watched, three production script changes trigger review. Current command and --check PASS; no scores modified."
+    },
+    {
+      "command": "Document authority/development and literal remote publication verification",
+      "result": "PENDING",
+      "evidence": "audit/job_artwork_refinement_20261001/MANIFEST.json and REMOTE_VERIFICATION.json"
+    },
+    {
+      "command": "Current document authority/development and whitespace gates",
+      "result": "PASS",
+      "evidence": "audit/day2_nursery_contact_20261001/machine/final_document_gates.json/log; all four exact commands exit0. Publication is a separate pending gate."
+    },
+    {
+      "command": "Anonymous exact-revision manifest and every required file verification",
+      "result": "PENDING",
+      "evidence": "audit/job_artwork_refinement_20261001/MANIFEST.json and REMOTE_VERIFICATION.json after payload publication; no release or creative acceptance."
+    }
+  ],
+  "acceptance_gaps": "All weak live objects/actions have not reached4.5. Day One cleaning context coverage remains open under the stated all-job-days assumption. Whole action/device/child/owner and final comprehensive report approval remain pending."
+}

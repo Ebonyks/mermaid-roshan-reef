@@ -1,0 +1,59 @@
+{
+  "schema": "reef.gameplay-action-contract.v1",
+  "id": "nursery-catch-transfer-v3",
+  "baseline": "a802ee70b77fb4962f5798e4e0876fe16ba7f420",
+  "lane": "Live 2D interactive candidate; incomplete embodied contact; not cinematic delivery",
+  "profile": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+  "profile_sha256": "8dd11b4b9c394cbb9d304c9f5d5eb71770ea106a278e87b26aba8004d62e8d94",
+  "intent": "Careful helping: attend to falling baby, catch, hold, place on its cushion and settle. Everyday register; no random bounce.",
+  "sources": {
+    "runtime": "scripts/opera_nursery_catch.gd",
+    "snapshots": "v3/runtime_catch_v3.gd; v3/runtime_world_v3.gd; v3/runtime_dolls_v3.gd",
+    "reuse": "Original three baby identities unchanged; reused source-only4.6 cradle/pad candidates, exact whole source copies at new paths.",
+    "missing": "Connected Roshan catch/hold/set-down performance, per-cushion painted support points, lateral reach, physical Faron missed-baby pickup. Fresh full-body keys are separate source draft only."
+  },
+  "entry": "Catcher at x0.5; no pending transfers/settled babies; live input required; default authored nursery phase caller retains scene and reward ownership.",
+  "geometry": {
+    "units": "normalized local surface width/height unless stated pixels; positive y downward",
+    "surface_px": [
+      472,
+      346
+    ],
+    "catch_plane_y": 0.64,
+    "pad_canvas_floor_y": 0.84,
+    "arm_palm_uv": [
+      0.5,
+      0.675
+    ],
+    "baby_anchor": "Native alpha-used foot; measured separately for each original texture.",
+    "pad_slot_x": [
+      0.1,
+      0.3,
+      0.5,
+      0.7,
+      0.9
+    ],
+    "known_failure": "Canvas floor differs from painted pad peaks. Foot-plane coincidence is not accepted cushion/body support.",
+    "dolls_sibling": "Explicit virtual plane/anchor hooks preserve its authored0.74/0.91 centered semantics."
+  },
+  "timeline": {
+    "catch": "At validated falling-plane crossing with recent intentional input",
+    "hold_seconds": 0.22,
+    "transfer_seconds": 0.65,
+    "transfer": "Current straight local interpolation/shrink is unfinished interactive feedback, not a newly authored full-body animation.",
+    "final_phase_hold_seconds": 1.27,
+    "miss": "1.25s safe landing fade remains visually inadequate"
+  },
+  "translation_owner": "Surface owns catcher x input and pending baby positions; world actor remains elsewhere, an explicitly unresolved presentation defect.",
+  "events": "baby_caught only after live-input gate and valid crossing; world retains quality/progress/reward callback. Transfer timer never grants another catch.",
+  "exit": "Each caught identity moves once to one fixed cushion slot; no pending/settled double draw. FEED follows final hold.",
+  "interruptions": "stop clears all owned fallers/transfers/safe landings and input. Focus loss clears finger/mouse ownership; surface freezes when tree paused. Second finger cannot steal; hybrid mouse-stealing behavior is still unreviewed.",
+  "readability": "Native1280x720/1600x720 diagnostics at7.5fps; 30fps processing. Progress bar clearance and settled instance separation checked, body/contact acceptance open.",
+  "verification": {
+    "geometry": "geometry_probe.json:10 checks PASS",
+    "traces": "v3/capture_index.json:2 widths135 sampled frames each, failures0",
+    "trusted": "machine/trusted_probe_aggregate.json:82 PASS with preserved failed attempts and targeted reruns",
+    "visual": "review.json; mounted/action3.4\u20134.2, still below target",
+    "acceptance": "NOT_ACCEPTED; device/child/owner/final report approval open"
+  }
+}

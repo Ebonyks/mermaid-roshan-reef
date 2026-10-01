@@ -1,0 +1,183 @@
+{
+	"cases": [
+		{
+			"dimensions": [
+				1280,
+				720
+			],
+			"measurements": [
+				{
+					"baby_present": false,
+					"body_rect": [
+						5.27719116210938,
+						200.751815795898,
+						339.2,
+						339.2
+					],
+					"cell_extent": 339.2,
+					"palm_xy": [
+						93.4583740234375,
+						395.5078125
+					],
+					"pivot_xy": [
+						160.0,
+						435.0
+					],
+					"pose": "ready"
+				},
+				{
+					"baby_present": true,
+					"body_rect": [
+						324.195190429688,
+						196.964904785156,
+						339.2,
+						339.2
+					],
+					"cell_extent": 339.2,
+					"palm_xy": [
+						449.704620361328,
+						393.884826660156
+					],
+					"pivot_xy": [
+						480.0,
+						435.0
+					],
+					"pose": "catch"
+				},
+				{
+					"baby_present": true,
+					"body_rect": [
+						643.113220214844,
+						207.784683227539,
+						339.2,
+						339.2
+					],
+					"cell_extent": 339.2,
+					"palm_xy": [
+						763.753723144531,
+						371.163330078125
+					],
+					"pivot_xy": [
+						800.0,
+						435.0
+					],
+					"pose": "hold"
+				},
+				{
+					"baby_present": true,
+					"body_rect": [
+						949.588500976563,
+						192.636993408203,
+						339.2,
+						339.2
+					],
+					"cell_extent": 339.2,
+					"palm_xy": [
+						1016.13012695313,
+						408.491577148438
+					],
+					"pivot_xy": [
+						1120.0,
+						435.0
+					],
+					"pose": "set-down"
+				}
+			],
+			"path": "fit-captures/1280x720.webp",
+			"sha256": "2f1d96444c592bc210e8b842b6cdd9ba8ad0dc2fbddb18f055a02e7e6f52811a"
+		},
+		{
+			"dimensions": [
+				1600,
+				720
+			],
+			"measurements": [
+				{
+					"baby_present": false,
+					"body_rect": [
+						40.3508758544922,
+						193.29345703125,
+						350.0,
+						350.0
+					],
+					"cell_extent": 350.0,
+					"palm_xy": [
+						131.339721679688,
+						394.250396728516
+					],
+					"pivot_xy": [
+						200.0,
+						435.0
+					],
+					"pose": "ready"
+				},
+				{
+					"baby_present": true,
+					"body_rect": [
+						439.234436035156,
+						189.385971069336,
+						350.0,
+						350.0
+					],
+					"cell_extent": 350.0,
+					"palm_xy": [
+						568.739990234375,
+						392.575744628906
+					],
+					"pivot_xy": [
+						600.0,
+						435.0
+					],
+					"pose": "catch"
+				},
+				{
+					"baby_present": true,
+					"body_rect": [
+						838.118041992188,
+						200.550231933594,
+						350.0,
+						350.0
+					],
+					"cell_extent": 350.0,
+					"palm_xy": [
+						962.599731445313,
+						369.130767822266
+					],
+					"pivot_xy": [
+						1000.0,
+						435.0
+					],
+					"pose": "hold"
+				},
+				{
+					"baby_present": true,
+					"body_rect": [
+						1224.16271972656,
+						184.920257568359,
+						350.0,
+						350.0
+					],
+					"cell_extent": 350.0,
+					"palm_xy": [
+						1292.82299804688,
+						407.647521972656
+					],
+					"pivot_xy": [
+						1400.0,
+						435.0
+					],
+					"pose": "set-down"
+				}
+			],
+			"path": "fit-captures/1600x720.webp",
+			"sha256": "da2506c41554907500c69d7992da97ecd26818e877b1a3cfd9798418bac40824"
+		}
+	],
+	"contract_sha256": "afda03ca9321adf17f43719321b81c9156ed11ec924fc91168309822751e5619",
+	"engine": "4.7.2-stable (official)",
+	"harness_sha256": "cd14055528575913c1093627faf239ac87f931b35e7bb4b00cfbaeff62ec10f3",
+	"method": "Static independently held source keys on nursery backdrop; manually estimated sockets, original babies, unchanged atlas pixels. No input, gameplay commits, animated action or normal route acceptance.",
+	"renderer": "mobile",
+	"schema": "reef.nursery-body-fit.receipt.v1",
+	"source_sha256": "237b41d5a4291bbec8bb54039ccb6d0ef5e423be94265e53b9062d69494c10c7"
+}

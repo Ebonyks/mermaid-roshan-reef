@@ -1,0 +1,75 @@
+{
+  "schema": "reef.nursery-body-fit.v1",
+  "lane": "NONRUNTIME_STATIC_DIAGNOSTIC",
+  "source": "assets_src/imagegen/day2_nursery_body_20261001/candidates/attempt-01.png",
+  "source_sha256": "237b41d5a4291bbec8bb54039ccb6d0ef5e423be94265e53b9062d69494c10c7",
+  "units": "Native627px cell; top-left origin; positive x right/y down. Hip pivots align at same viewport y. Palms are manually declared first estimates; a computed coincident transform is not proof of visual contact.",
+  "poses": [
+    {
+      "name": "ready",
+      "cell": [
+        0,
+        0
+      ],
+      "hip_xy": [
+        286,
+        433
+      ],
+      "palm_xy": [
+        163,
+        360
+      ]
+    },
+    {
+      "name": "catch",
+      "cell": [
+        1,
+        0
+      ],
+      "hip_xy": [
+        288,
+        440
+      ],
+      "palm_xy": [
+        232,
+        364
+      ]
+    },
+    {
+      "name": "hold",
+      "cell": [
+        0,
+        1
+      ],
+      "hip_xy": [
+        290,
+        420
+      ],
+      "palm_xy": [
+        223,
+        302
+      ]
+    },
+    {
+      "name": "set-down",
+      "cell": [
+        1,
+        1
+      ],
+      "hip_xy": [
+        315,
+        448
+      ],
+      "palm_xy": [
+        123,
+        399
+      ]
+    }
+  ],
+  "limits": {
+    "screen_contact_gap_px": 2,
+    "crop_allowed": false,
+    "anatomy_or_identity_change_allowed": false
+  },
+  "pending": "Visual socket correction, alpha/edge review, fluid state transitions, staging/input, body-to-room layer ownership, safe-return and runtime/device/owner acceptance."
+}

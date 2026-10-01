@@ -1,0 +1,20 @@
+{
+  "args": [
+    "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+    "--headless",
+    "--path",
+    ".",
+    "--script",
+    "scripts/probe_audit.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "started_utc": "2026-10-01T07:08:20.529565+00:00",
+  "completed_utc": "2026-10-01T07:08:54.886141+00:00",
+  "exit_code": 0,
+  "failure_regex_match": false,
+  "verdict": "PASS",
+  "source_ci_sha256": "92f94855c4d870a52e9ba7b71b7e01d51fa3a9a9ad503e1559b39cf93195f887",
+  "method": "Exact unmodified probe_audit, native Python subprocess timeout480s, isolated APPDATA/XDG directories; previous MSYS-loop127 preserved. No probe/test/validator changes."
+}

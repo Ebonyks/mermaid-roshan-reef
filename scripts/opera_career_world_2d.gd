@@ -661,8 +661,10 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 	if run_context.is_empty() and config.get("run_context", {}) is Dictionary:
 		run_context = (config.get("run_context", {}) as Dictionary).duplicate(false)
 	var override_config: Dictionary = {}
-	if config.get("phase_overrides", []) is Array:
-		override_config["phase_overrides"] = config.get("phase_overrides", [])
+	# Omission means use the authored Chapter 2 catalog. Preserve a supplied
+	# value exactly so the adapter rejects explicit empty/malformed overrides.
+	if config.has("phase_overrides"):
+		override_config["phase_overrides"] = config["phase_overrides"]
 	if config.get("finale_start", null) != null:
 		override_config["finale_start"] = int(config.get("finale_start", 0))
 	var requested_adapter: Dictionary = scene_adapter_config.duplicate(true)
@@ -2830,9 +2832,15 @@ func _apply_panel_layout(phase: Dictionary) -> void:
 	surface.position = Vector2(12, 12)
 	surface.size = Vector2(392, 232)
 	if mode == "catch" and nursery_catch != null:
-		# The catch surface owns the same borderless viewport as every other verb.
+		# Leave room for palm contact and five independent cushion resting slots.
+		action_panel.size = Vector2(496, 418)
+		var left_catch := Rect2(Vector2(24, 24), action_panel.size)
+		var right_catch := Rect2(Vector2(760, 24), action_panel.size)
+		action_panel.position = _safer_panel_rect(left_catch, right_catch).position
+		surface.size = Vector2(472, 346)
 		nursery_catch.position = surface.position
 		nursery_catch.size = surface.size
+		_stage_player_clear_of_activity()
 	action_panel.queue_redraw()
 
 
@@ -3636,7 +3644,7 @@ func _on_nursery_baby_caught(quality: float) -> void:
 	_bounce_actor(rival_actor, 9.0)
 	if phase_progress >= goal:
 		# join the shared advance rhythm: hold the cozy scene, then arm
-		phase_complete_t = 0.8
+		phase_complete_t = NurseryCatch.HOLD_SECONDS + NurseryCatch.TRANSFER_SECONDS + 0.4
 		phase_advance_pending = true
 		_play_roshan_animation("cheer")
 
