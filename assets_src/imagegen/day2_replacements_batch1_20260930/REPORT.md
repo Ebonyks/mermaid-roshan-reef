@@ -2,7 +2,7 @@
 
 Status: **candidate files ready for user review; user approval pending**. Eight separate replacement files address named source-image defects. No live game texture or protected original is changed. The original 637-image audit and 432-item inclusive priority queue retain their history.
 
-[Illustrated before/after review](index.html) · [Exact manifest and prompts](MANIFEST.json)
+[Illustrated before/after review](index.html) · [Exact manifest and prompts](MANIFEST.json) · [Public GitHub verification receipt](REMOTE_VERIFICATION.json)
 
 ## Result and scoring
 

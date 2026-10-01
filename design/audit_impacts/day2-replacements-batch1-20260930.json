@@ -35,6 +35,7 @@
     "ASSET_LICENSES.md",
     "assets_src/imagegen/day2_replacements_batch1_20260930/.gdignore",
     "assets_src/imagegen/day2_replacements_batch1_20260930/MANIFEST.json",
+    "assets_src/imagegen/day2_replacements_batch1_20260930/REMOTE_VERIFICATION.json",
     "assets_src/imagegen/day2_replacements_batch1_20260930/REPORT.md",
     "assets_src/imagegen/day2_replacements_batch1_20260930/VERIFICATION.json",
     "assets_src/imagegen/day2_replacements_batch1_20260930/candidates/D2A-0056/attempt-01.png",
@@ -110,6 +111,11 @@
       "command": "python -B tools/audit_game_2d.py --regression-gate",
       "result": "PASS",
       "evidence": "GAME2D NO_REGRESSION;0 models/52 production 3D/61 probe 3D/1 scene/1 config; strict remains UNSATISFIED. No manifest exceptions or runtime changes."
+    },
+    {
+      "command": "Unauthenticated exact-revision raw GitHub retrieval and byte/SHA-256 comparison of all61 packet/original files",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/day2_replacements_batch1_20260930/REMOTE_VERIFICATION.json; exact payload8efe2d795dd348568cd20ff866b6664502ec5ac2; checktime/access and every hash recorded."
     }
   ],
   "acceptance_gaps": "User approval of the completed report and selected candidates; actual gameplay/device/child review and later runtime integration remain separate. No canonical finding lifecycle change."
