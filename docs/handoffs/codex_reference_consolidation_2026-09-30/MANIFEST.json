@@ -1,0 +1,53 @@
+{
+ "schema": "codex_handoff_manifest/1",
+ "handoff": "codex_reference_consolidation_2026-09-30",
+ "revision": 1,
+ "status": "PROPOSED / CANDIDATE",
+ "prepared_by": "Claude (analysis only; no game changes)",
+ "recipient": "Codex",
+ "evidence_baseline": "dev 6fc2f48e527dc20286d25455785abd9680d57368",
+ "branch_base": "dev ce0331738970205a5aead4d3e0258eb7873a1642",
+ "tracking_finding": "MA-DOC-007",
+ "entry": "README.md",
+ "file_count": 6,
+ "total_bytes": 73416,
+ "files": [
+  {
+   "path": ".gdignore",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "role": "keeps Godot from importing this folder"
+  },
+  {
+   "path": "README.md",
+   "bytes": 19069,
+   "sha256": "6fc8b6a6fe913b07867f8dd1cfb0f5c647106cfef8e0faeff31ad522c7cc3cbb",
+   "role": "handoff entry: waves, acceptance, owner questions, gates"
+  },
+  {
+   "path": "REFERENCE_PLAN.md",
+   "bytes": 19922,
+   "sha256": "a5ab6dd2b91bdf2a30d0f5ea39245347ff48bb252942e257665a5963cb8bc6e4",
+   "role": "fourteen reference outlines, per-document classification, root cleanup"
+  },
+  {
+   "path": "STALENESS_AUDIT.md",
+   "bytes": 14521,
+   "sha256": "dbc5f147418b41dcd4737602f7adfa59b42c326b968bf3dce6e7c5a792650fd9",
+   "role": "the findings: stale master-audit elements, stale findings, document classes, contradictions, rules at risk"
+  },
+  {
+   "path": "data/master_audit_staleness_register.json",
+   "bytes": 15181,
+   "sha256": "b12872dade998f2ea9c171aaea468fe834d264dc35364ab448937223d435351e",
+   "role": "all 65 master-audit elements with class, truth and disposition"
+  },
+  {
+   "path": "data/stale_findings.json",
+   "bytes": 4723,
+   "sha256": "4ad2b58ffb9b8d9ee303294cb880e29dbff7d816f1d69abcf498fccee58c59e6",
+   "role": "24 open findings and the register preamble with stale and current text"
+  }
+ ],
+ "hashes_are_of": "committed blobs (LF line endings)"
+}

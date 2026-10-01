@@ -1,0 +1,63 @@
+{
+  "id": "reference-consolidation-handoff-20260930",
+  "scope": "Owner-requested staleness audit (2026-09-30) of the master audit, the finding register and the repository's audits, with a Codex handoff to streamline outdated audits into reference documents. Adds docs/handoffs/codex_reference_consolidation_2026-09-30/ (README with waves W0-W7, acceptance criteria and owner questions; STALENESS_AUDIT with the element-by-element master-audit classification, 24 stale findings, the 354-document inventory, 47 contradictions, nine rules found only in documents marked for archive, and files that cannot move freely; REFERENCE_PLAN with fourteen reference outlines, the per-document classification and the root cleanup; two data registers; .gdignore; MANIFEST). Records the gap as finding MA-DOC-007 (P2) with its section-5 index row and domain link, a planning-table pointer, an 'Audit or reference document' task-index route, a change-history row and a register preamble line; adds three ledger rows. Documentation only: no game script, scene, asset, save key, rule text, workflow or other finding lifecycle changes.",
+  "baseline": "ce0331738970205a5aead4d3e0258eb7873a1642",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-02",
+    "DL-AUTH-04",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-PLAN-06"
+  ],
+  "findings": [
+    "MA-DOC-007"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/reference-consolidation-handoff-20260930.json",
+    "docs/handoffs/codex_reference_consolidation_2026-09-30/.gdignore",
+    "docs/handoffs/codex_reference_consolidation_2026-09-30/MANIFEST.json",
+    "docs/handoffs/codex_reference_consolidation_2026-09-30/README.md",
+    "docs/handoffs/codex_reference_consolidation_2026-09-30/REFERENCE_PLAN.md",
+    "docs/handoffs/codex_reference_consolidation_2026-09-30/STALENESS_AUDIT.md",
+    "docs/handoffs/codex_reference_consolidation_2026-09-30/data/master_audit_staleness_register.json",
+    "docs/handoffs/codex_reference_consolidation_2026-09-30/data/stale_findings.json"
+  ],
+  "validation": [
+    {
+      "command": "Read-only element-by-element review of audit/MASTER_AUDIT_2026-08-09.md and line-level review of audit/findings/ACTIVE_FINDINGS_2026-08-13.md at dev 6fc2f48e527dc20286d25455785abd9680d57368, compared with live tool output",
+      "result": "PASS",
+      "evidence": "65 elements classified (19 current, 21 stale fact, 9 sealed evidence, 9 superseded decision, 6 duplicate, 1 obsolete process) in data/master_audit_staleness_register.json; 24 findings plus the preamble in data/stale_findings.json. Live facts re-run: python -B tools/audit_game_2d.py 0 model files and 52 production 3D files; scripts/main.gd 9,817 lines; 137 scripts/probe_*.gd files (138 with scripts/probe.gd) and 82/81 trusted roster entries; scripts/opera_house.gd 15 live careers, mask 0x3BDEF; 44 music cues; the MA-CODE-004 reproduction command reports 456 distinct keys (re-run at ce033173, whose tree equals 6fc2f48e)."
+    },
+    {
+      "command": "Read-only inventory and classification of tracked Markdown and audit documents at dev 6fc2f48e, with durable-knowledge extraction for Opera, castle, Day One/Day Two, art, audio, cinematics, performance and process",
+      "result": "PASS",
+      "evidence": "354 documents classified: 76 keep, 72 keep as evidence, 85 absorb then archive, 119 archive now, 2 delete candidates; 196 root Markdown files (ls *.md). Items the sweeps could not check are marked not verified in the data files and REFERENCE_PLAN.md."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "Staged candidate over base ce033173: DOCAUTH|INVENTORY=593|LEDGER=593|ACTIVE=58|RECORDS=60, RESULT ALL OK; --stress 6/6; unittest tools.tests.test_audit_document_authority and test_audit_development: 52 tests OK. Also run: tools/audit_game_2d.py --regression-gate NO_REGRESSION (0 model files, 52 production 3D, 61 probe 3D) and tools/audit_imagine_handoff.py --all ALL OK."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Staged candidate: AUDITDEV|BASE|ce0331738970205a5aead4d3e0258eb7873a1642, RESULT ALL OK."
+    },
+    {
+      "command": "Anonymous fetch of the handoff MANIFEST.json and every listed file from raw.githubusercontent.com at the pushed commit",
+      "result": "PENDING",
+      "evidence": "Recorded after publication."
+    },
+    {
+      "command": "GitHub Probe Suite at the branch head",
+      "result": "PENDING",
+      "evidence": "Required green before merging into dev."
+    }
+  ],
+  "acceptance_gaps": "Audit and recommendations only. MA-DOC-007 stays CONFIRMED_OPEN until Codex applies the dispositions, re-verifies the listed findings with dated history entries, saves the orphaned rules, archives the outdated documents and builds the references, and the owner accepts the result. Owner questions Q1-Q8 are pending with defaults. Counts are dated measurements at dev 6fc2f48e; no runtime, device, child or owner acceptance is claimed, and the game-wide audit remains IN_PROGRESS / UNSATISFIED."
+}
