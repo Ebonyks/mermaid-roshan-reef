@@ -75,6 +75,11 @@
       "command": "Authority/development and gallery checks before publication",
       "result": "PASS",
       "evidence": "Exact nursery comparison harness parser/inference/Godot4.7.2 check-only and execution passed; fit/browser_verification.json checks18 native states at1280/390 browser widths. Authority/development gate results recorded before publication; production scripts/source images unchanged. Full required82-probe suite evidence remains in immutable first-pass audit."
+    },
+    {
+      "command": "Anonymous public HTTPS exact-revision manifest and all48 source/reference/payload file SHA256 verification",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/day2_refinement_20261001/REMOTE_VERIFICATION.json; revision759ee6798e3fd99aa1c1a45dfedd39d904516c1a;22797930 bytes, checked 2026-10-01T05:32:27.652135+00:00; mounted and action target remain unmet, owner approval pending"
     }
   ],
   "acceptance_gaps": "Mounted washing, hand/basin contact, actual progress/animation binding, device, child and owner approval remain pending."
