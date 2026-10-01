@@ -12,11 +12,12 @@ def overlap(a,b):
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--proof',required=True,type=Path);ap.add_argument('--baseline',required=True,type=Path);args=ap.parse_args()
  b=json.loads((ROOT/'book.json').read_text(encoding='utf8'));p=json.loads((args.proof/'page_provenance.json').read_text(encoding='utf8'));review=json.loads((ROOT/'stress_review.json').read_text(encoding='utf8'));issues=[];pages={row['page']:row for row in b['pages']}
- revised=b.get('revision','').startswith(('V28','V29','V30'))
- polished=b.get('revision','').startswith(('V29','V30'))
- local_identity=b.get('revision','').startswith('V30')
+ revised=b.get('revision','').startswith(('V28','V29','V30','V31'))
+ polished=b.get('revision','').startswith(('V29','V30','V31'))
+ local_identity=b.get('revision','').startswith(('V30','V31'))
+ story_clarity=b.get('revision','').startswith('V31')
  by_old={row.get('original_page',row['page']):row for row in b['pages']}
- if revised:review=json.loads((ROOT/('revisions/v30_identity' if local_identity else 'revisions/v29_polish' if polished else 'revisions/v28_kindness')/'visual_review.json').read_text(encoding='utf8'))
+ if revised:review=json.loads((ROOT/('revisions/v31_story_clarity' if story_clarity else 'revisions/v30_identity' if local_identity else 'revisions/v29_polish' if polished else 'revisions/v28_kindness')/'visual_review.json').read_text(encoding='utf8'))
  pdf=PdfReader(args.proof/'Mermaid_Roshan_LANDSCAPE_ROUGH.pdf')
  if len(pdf.pages)!=34:issues.append('Expected 32 story pages plus covers.')
  for i,page in enumerate(pdf.pages):
@@ -101,6 +102,7 @@ def main():
  if not local_identity and len(back)!=1:issues.append('Uncommissioned rear-cover layers.')
  if local_identity:
   expected={'front_cover':{'v30_front_identity':2},'back_cover':{'v30_rear_identity':2},4:{'v30_castle_attention':2},10:{'v30_rumi_face_crop':1}}
+  if story_clarity:expected['back_cover']['v31_rear_lamma']=1
   for page_id,keys in expected.items():
    actual=Counter(q['source_key'] for q in p['layers'] if q['page']==page_id and q['operation']=='bounded_inpaint_polygon_visible_pdf_resource')
    if dict(actual)!=keys:issues.append(f'Page {page_id}: local identity edit sources/count differ from reviewed scope.')
@@ -117,8 +119,13 @@ def main():
   if [by_old[n]['page'] for n in [24,25,28,29]]!=[23,24,27,28]:issues.append('Reveal page-turn order changed.')
   if any(term in ' '.join(q['text'].lower() for q in b['pages']) for term in ['dizzy','wobbled','beat him','stopped him','sparkles flew','fighting']):issues.append('Retired combat wording returned.')
   if any(q['source_key'] in {'v25_shell_duel','approved_apology_canvas','v25_art_simple'} for q in p['layers']):issues.append('Rejected active art returned.')
-  visitor_keys={'v29_lamma09','v29_bank31_final'} if polished else {'approved_lamba_bath','v28_lamba_toy_peek'}
-  if {q['page'] for q in p['layers'] if q['source_key'] in visitor_keys}!={9,31}:issues.append('Expected two unprompted hidden appearances.')
+  visitor_keys={'v29_lamma09','v31_rear_lamma'} if story_clarity else {'v29_lamma09','v29_bank31_final'} if polished else {'approved_lamba_bath','v28_lamba_toy_peek'}
+  visitor_pages={9,'back_cover'} if story_clarity else {9,31}
+  if {q['page'] for q in p['layers'] if q['source_key'] in visitor_keys}!=visitor_pages:issues.append('Expected two unprompted hidden appearances.')
+  if story_clarity:
+   if any(term in pages[12]['text'].lower()+' '+pages[13]['text'].lower() for term in ['one stream','three streams','other two']):issues.append('Unsupported waterfall-count language returned.')
+   if pages[31]['art']!=['roshan_wave_large','approved_rainbow_puff_cutout'] or 'Grand Puff' not in pages[31]['text'] or 'rest with us' not in pages[31]['text']:issues.append('Puff belonging/rest ending missing.')
+   if [q['source'] for q in pages[31].get('background_patches',[])]!=['v31_rest_bank31','v31_rest_bank31']:issues.append('Former toy-bank cameo must be removed by both reviewed local rest patches.')
  else:
   if pages[23]['art']!=['v25_art_simple'] or 'art_crop' in pages[23]:issues.append('Paint page must use owner-requested simplified painted scene without crop.')
   if pages[26]['art']!=['v25_shell_duel']:issues.append('Missing facing-shell-sparkle-dizzy action cutout.')

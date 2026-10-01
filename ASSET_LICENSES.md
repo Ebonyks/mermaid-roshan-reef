@@ -5501,3 +5501,53 @@ Source-controlled static-book derivatives; original owner/reference licensing re
 - `books/chapter_one/landscape/revisions/v30_identity/complete/page_32.png`: Rendered static book/review output from attributed artwork and native Sniglet text. PNG/PDF lossless; JPEG contact sheet is review-only. Original sources are not recompressed.
 - `books/chapter_one/landscape/revisions/v30_identity/complete/page_33.png`: Rendered static book/review output from attributed artwork and native Sniglet text. PNG/PDF lossless; JPEG contact sheet is review-only. Original sources are not recompressed.
 - `books/chapter_one/landscape/revisions/v30_identity/references/rumi_face_crop.png`: Rendered static book/review output from attributed artwork and native Sniglet text. PNG/PDF lossless; JPEG contact sheet is review-only. Original sources are not recompressed.
+
+## Chapter One static book - V31 story clarity (2026-09-30)
+
+Owner-supplied project artwork and existing license/provenance remain controlling. Five built-in OpenAI image_gen local derivatives repair named gaps only; original scene art and protected originals are unchanged. Exact prompts, reference/native hashes, bounded delivery masks and candidate-versus-delivered scope are in `books/chapter_one/landscape/revisions/v31_story_clarity/generation_evidence.json`. Source URL: https://github.com/Ebonyks/mermaid-roshan-reef/blob/codex/mermaid-roshan-picture-book/books/chapter_one/landscape/revisions/v31_story_clarity/generation_evidence.json
+
+- `books/chapter_one/landscape/revisions/v31_story_clarity/art/door_mystery.png`: Built-in source-conditioned local derivative; delivered only through documented polygons over intact source base.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/art/puff_gratitude.png`: Built-in source-conditioned local derivative; delivered only through documented polygons over intact source base.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/art/rear_lamma.png`: Built-in source-conditioned local derivative; delivered only through documented polygons over intact source base.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/art/rest_bank31.png`: Built-in source-conditioned local derivative; delivered only through documented polygons over intact source base.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/art/waterfall_progress.png`: Built-in source-conditioned local derivative; delivered only through documented polygons over intact source base.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/contact_1.jpg`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/contact_2.jpg`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/contact_3.jpg`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/contact_4.jpg`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/contact_5.jpg`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/Mermaid_Roshan_LANDSCAPE_ROUGH.pdf`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_00.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_01.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_02.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_03.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_04.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_05.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_06.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_07.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_08.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_09.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_10.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_11.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_12.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_13.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_14.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_15.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_16.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_17.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_18.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_19.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_20.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_21.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_22.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_23.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_24.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_25.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_26.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_27.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_28.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_29.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_30.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_31.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_32.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.
+- `books/chapter_one/landscape/revisions/v31_story_clarity/complete/page_33.png`: Rendered static proof/review from attributed artwork and embedded Sniglet; PNG/PDF lossless, JPEG contacts review-only.

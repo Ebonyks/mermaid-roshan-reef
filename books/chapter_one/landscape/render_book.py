@@ -37,7 +37,16 @@ def full(k,anchor=.5):
  iw,ih=Image.open(path(k)).size;s=max(W/iw,H/ih);record(k,(0,0,iw,ih),((W-iw*s)*anchor,(H-ih*s)/2,iw*s,ih*s),'page_trim');c.saveState();cliprect(0,0,W,H);c.drawImage(str(path(k)),(W-iw*s)*anchor,(H-ih*s)/2,width=iw*s,height=ih*s);c.restoreState()
 def local_patch(p):
  # The original full-art frame remains the base. Only this irregular lane is exposed.
- q=p['local_patch'];k=q['source'];rw,rh=q['reference_size'];s=max(W/rw,H/rh);ox=(W-rw*s)*q.get('anchor',.5);oy=(H-rh*s)/2
+ q=p['local_patch'];k=q['source'];rw,rh=q['reference_size']
+ if q.get('placement'):
+  # A local expression repair may follow an existing true-alpha cutout placement.
+  pk=q['placement']['source'];x,y,w,h=q['placement']['box'];base_im=Image.open(path(pk))
+  l,t,r,b=B['sources'][pk].get('alpha_box') or base_im.getchannel('A').getbbox()
+  assert list(base_im.size)==[rw,rh]
+  s=min(w/(r-l),h/(b-t));dw=(r-l)*s;dh=(b-t)*s
+  ox=x+(w-dw)/2-l*s;oy=y+(h-dh)/2-(rh-b)*s
+ else:
+  s=max(W/rw,H/rh);ox=(W-rw*s)*q.get('anchor',.5);oy=(H-rh*s)/2
  im=Image.open(path(k));iw,ih=im.size
  c.saveState();cliprect(0,0,W,H);shape=c.beginPath()
  for i,(x,y) in enumerate(q['polygon']):
@@ -54,6 +63,7 @@ def local_patch(p):
  c.drawImage(ImageReader(im.crop((l,t,r,b))),*target,mask='auto')
  record(k,(l,t,r,b),target,'bounded_inpaint_polygon_visible_pdf_resource')
  LAYERS[-1]['clip_reference_size']=q['reference_size'];LAYERS[-1]['clip_polygon_source_pixels']=q['polygon'];LAYERS[-1]['source_canvas_box']=q.get('source_canvas_box',[0,0,rw,rh])
+ LAYERS[-1]['clip_canvas_transform_points']=[ox,oy,s]
  c.restoreState()
 
 def cut(k,x,y,w,h):

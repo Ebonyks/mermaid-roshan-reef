@@ -1,6 +1,6 @@
 # V30 - comprehensive book polish
 
-Status: `SUPPORTING_CURRENT`; complete iterated review proof.34 pages including covers;32 story pages;7 × 5 in landscape; Sniglet. Baseline `82a6dc1dba381c0b3ef507a8397512fa09ef624e`.
+Status: `HISTORICAL_EVIDENCE`; published V30 baseline, superseded for current review by [V31](../v31_story_clarity/README.md). Original proof/generation/audit files remain unchanged.34 pages including covers;32 story pages;7 × 5 in landscape; Sniglet. Baseline `82a6dc1dba381c0b3ef507a8397512fa09ef624e`.
 
 [Before/after of all34 pages](AUDIT_REVIEW.html) · [Reader](complete/READ_BOOK.html) · [Full PDF](complete/Mermaid_Roshan_LANDSCAPE_ROUGH.pdf) · [Current page plan](../../PAGE_PLAN.md) · [Language review packet](SLP_REVIEW_PACKET.html) · [Print spread dummy](PRINT_DUMMY.html)
 

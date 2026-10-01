@@ -816,14 +816,14 @@ Kept as-is; noted so a future edit updates every copy.
 
 | Doc | | Note |
 |---|---|---|
-| `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; V30 exact32 story-page mapping plus covers, full-art/cutout treatment, final manuscript and source/bound provenance; finished kindness plot and reveal turns preserved. |
-| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V30 comprehensive native/composed character/background/bubble/readability polish, rejected-study evidence and lossless export checks; honest craft/source/print limits and owner/child/SLP acceptance remain open. |
+| `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; V31 exact32 story-page mapping plus covers; truthful partial-waterfall/completion wording, mysterious final door and Puff gratitude/rest beat; full-art/cutout sources and both reveal turns preserved. |
+| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V31 owner comprehension/mood corrections over the V30 polished proof, local-mask iteration and lossless source/PDF checks; prior scores did not establish owner acceptance. Owner/child/SLP/print acceptance remain open. |
 
 | `books/chapter_one/landscape/STRESS_TEST.md` | 🔵 | `SUPPORTING_CURRENT`; owner-rejected v7 and page-by-page revised rough audit; mechanical checks explicitly do not grant visual/identity acceptance. |
 
 | `books/chapter_one/landscape/BORDER_ART_DIRECTION.md` | 🔵 | `SUPPORTING_CURRENT`; owner-requested varied border performances and v17 repository-detail score; frightened lower-right stages supersede the quiet reveal; owner acceptance remains open. |
 
-| `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; V30 developmental shared-reading review of finished castle/helping arc, Rumi residence, explicit playroom/gentle rescue, apology and same-Puff transformation; not child-test or professional SLP evidence. |
+| `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; V31 developmental shared-reading review adds partial progress/completed rainbow, closed-door uncertainty and same-Puff gratitude/welcome before rest; Rumi residence, gentle rescue and kindness canon remain. Not child-test or professional SLP evidence. |
 
 | `books/chapter_one/reviews/2026-09-30/REVIEW.md` | ⚪ | `HISTORICAL_EVIDENCE`; unchanged-V27 comprehensive comparison and recommendations. V28 implements selected corrections; unresolved source/print questions remain current through landscape/REVIEW.md. |
 
@@ -831,4 +831,5 @@ Kept as-is; noted so a future edit updates every copy.
 
 | `books/chapter_one/landscape/revisions/v28_kindness/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; sealed V28 full-book kindness review and V29 comparison baseline. Original source/generation evidence, previews and manifest retained; V29 owns current manuscript and polish review. |
 | `books/chapter_one/landscape/revisions/v29_polish/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; published V29 full-book polish and exact V30 baseline. Original50 candidates, object/style/language reports, proof and remote manifest remain unchanged; V30 owns current local corrections and final review. |
-| `books/chapter_one/landscape/revisions/v30_identity/README.md` | 🔵 | `SUPPORTING_CURRENT`; source-preserving local adult-identity/attention/costume and sponge-continuity polish, all34-page proof and comparisons, independent exact-hash audits, bound spread dummy and remote manifest; owner/child/print/qualified SLP acceptance remains separate. |
+| `books/chapter_one/landscape/revisions/v30_identity/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; published V30 local identity/attention/costume and sponge polish with exact proof/audit hashes; V31 retains29 identical page PNGs and supersedes current story/mood review facts. Original proof and generation evidence are unchanged. |
+| `books/chapter_one/landscape/revisions/v31_story_clarity/README.md` | 🔵 | `SUPPORTING_CURRENT`; owner-requested waterfall progress/count correction, same castle door with local mystery treatment, Puff gratitude/rest ending and tiny rear Lamma;34-page proof, local candidates/masks, all-page comparison, independent bound audits and anonymous remote manifest. Owner/child/SLP/print acceptance remain open. |

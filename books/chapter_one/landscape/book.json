@@ -10,7 +10,7 @@
     360
   ],
   "story_pages": 32,
-  "status": "iterated full review proof; external acceptance pending",
+  "status": "V31 story-clarity review proof; external acceptance pending",
   "font": "../archive/rough_v5/fonts/Sniglet-Regular.ttf",
   "sources": {
     "flight": {
@@ -3274,6 +3274,164 @@
         1156,
         1037
       ]
+    },
+    "v31_door_mystery": {
+      "file": "revisions/v31_story_clarity/art/door_mystery.png",
+      "provenance": {
+        "method": "Built-in image_gen local inpaint",
+        "native_path": "books/chapter_one/landscape/revisions/v31_story_clarity/art/door_mystery.png",
+        "native_sha256": "93991bd78a74a6608d97a996d2df554e6e217966731e5c67b0714a6abdacf5e3",
+        "dimensions": [
+          1484,
+          1060
+        ],
+        "mode": "RGB",
+        "prompt_sha256": "ba5255104ad9e6a84bf00f6693bb06e266810ba2c74105c2ea5ff56c9986c4b2",
+        "references": [
+          {
+            "path": "books/chapter_one/landscape/art/door_expression_v27/door.png",
+            "sha256": "e4312cfe20029842ca02cd53916910ca004960e4e96d0c412a715bc742da6394",
+            "dimensions": [
+              1484,
+              1060
+            ],
+            "role": "edit_target"
+          }
+        ],
+        "source_base_key": "v27_door",
+        "source_preserved": true,
+        "delivery": "Only explicit native candidate polygons are exposed over the existing source in the PDF renderer. Whole candidate is retained for provenance, not used as a scene replacement."
+      }
+    },
+    "v31_waterfall_progress": {
+      "file": "revisions/v31_story_clarity/art/waterfall_progress.png",
+      "provenance": {
+        "method": "Built-in image_gen local inpaint",
+        "native_path": "books/chapter_one/landscape/revisions/v31_story_clarity/art/waterfall_progress.png",
+        "native_sha256": "a52fff46d6ec0509ef67471974b0739ab534dc0051aa7089d626f8fd8703a165",
+        "dimensions": [
+          1484,
+          1060
+        ],
+        "mode": "RGB",
+        "prompt_sha256": "6d74b468a4fbe19febb5faa7463ecaa7bbf493dd90b5eaefd5b62f9c55987c0a",
+        "references": [
+          {
+            "path": "books/chapter_one/landscape/art/quality_v22/scene_11.png",
+            "sha256": "17c6330b1faa8667ddb49769713589681f708ad65377f24f240d4c2f4441c5d3",
+            "dimensions": [
+              1484,
+              1060
+            ],
+            "role": "edit_target"
+          }
+        ],
+        "source_base_key": "v22_scene_11",
+        "source_preserved": true,
+        "delivery": "Only explicit native candidate polygons are exposed over the existing source in the PDF renderer. Whole candidate is retained for provenance, not used as a scene replacement."
+      }
+    },
+    "v31_rear_lamma": {
+      "file": "revisions/v31_story_clarity/art/rear_lamma.png",
+      "provenance": {
+        "method": "Built-in image_gen local inpaint",
+        "native_path": "books/chapter_one/landscape/revisions/v31_story_clarity/art/rear_lamma.png",
+        "native_sha256": "7ee9bdf9ce1c451de3a524d2b6021333381ce6a3024ed1a056f5eef97f29120c",
+        "dimensions": [
+          1484,
+          1060
+        ],
+        "mode": "RGB",
+        "prompt_sha256": "f70508e2e74f48228b8b288bd978e152c118f7e59cc0579acc961cc7cfacde69",
+        "references": [
+          {
+            "path": "books/chapter_one/landscape/art/story_detail_v23/cover_h.png",
+            "sha256": "6bb61625f4d052e9d7abd6f3669e692652fc703ef0b64113fea4443f4cdab923",
+            "dimensions": [
+              1484,
+              1060
+            ],
+            "role": "edit_target"
+          },
+          {
+            "path": "assets/sprites/stuffie_studio/lamma.png",
+            "sha256": "fa05513ecf6530691d712230acb4da9c0b3dd11fa694c788f3df8556efc33268",
+            "dimensions": [
+              949,
+              1024
+            ],
+            "role": "identity_reference"
+          }
+        ],
+        "source_base_key": "v23_cover_h",
+        "source_preserved": true,
+        "delivery": "Only explicit native candidate polygons are exposed over the existing source in the PDF renderer. Whole candidate is retained for provenance, not used as a scene replacement."
+      }
+    },
+    "v31_rest_bank31": {
+      "file": "revisions/v31_story_clarity/art/rest_bank31.png",
+      "provenance": {
+        "method": "Built-in image_gen local inpaint",
+        "native_path": "books/chapter_one/landscape/revisions/v31_story_clarity/art/rest_bank31.png",
+        "native_sha256": "cfdc09769d4e65fd827a58b654f0926f723fe97306af1c3fc3b4360ab0ba44a2",
+        "dimensions": [
+          1484,
+          1060
+        ],
+        "mode": "RGB",
+        "prompt_sha256": "5d644b6d27f21983f647fa297f36b3e010dc4bbf3113e26dc733624afaebc224",
+        "references": [
+          {
+            "path": "books/chapter_one/landscape/revisions/v29_polish/art/bank31_final.png",
+            "sha256": "18e1a0c3db666500863503af71800bd2b5aa748af44b64f3e5cb22f96676c545",
+            "dimensions": [
+              1484,
+              1060
+            ],
+            "role": "edit_target"
+          },
+          {
+            "path": "books/chapter_one/archive/rough_v5/art/grand_puff_jump_sheet.png",
+            "sha256": "7f117638631841c31eb58b9c81224158d29d64f325980c75c475e0376e36788c",
+            "dimensions": [
+              1024,
+              1024
+            ],
+            "role": "identity_reference"
+          }
+        ],
+        "source_base_key": "v29_bank31_final",
+        "source_preserved": true,
+        "delivery": "Only explicit native candidate polygons are exposed over the existing source in the PDF renderer. Whole candidate is retained for provenance, not used as a scene replacement."
+      }
+    },
+    "v31_puff_gratitude": {
+      "file": "revisions/v31_story_clarity/art/puff_gratitude.png",
+      "provenance": {
+        "method": "Built-in image_gen local inpaint",
+        "native_path": "books/chapter_one/landscape/revisions/v31_story_clarity/art/puff_gratitude.png",
+        "native_sha256": "8c37ae8d1cfad63882cad25e9ea4e09b0df42604e73962d81dce16b159996a5a",
+        "dimensions": [
+          1346,
+          1168
+        ],
+        "mode": "RGBA",
+        "prompt_sha256": "cd342e578f1e90c150a6a3031101d7bf80d09e2314cfa4320c1835b8bcf41143",
+        "references": [
+          {
+            "path": "books/chapter_one/previews/2026-09-30/art/rainbow_puff_cutout.png",
+            "sha256": "c0d15aa35ab2056566a64c72d2ccfd690e65e8c5fa809c12e66b20ed87353135",
+            "dimensions": [
+              1346,
+              1169
+            ],
+            "role": "edit_target"
+          }
+        ],
+        "source_base_key": "approved_rainbow_puff_cutout",
+        "source_preserved": true,
+        "delivery": "Only explicit native candidate polygons are exposed over the existing source in the PDF renderer. Whole candidate is retained for provenance, not used as a scene replacement."
+      }
     }
   },
   "pages": [
@@ -4079,10 +4237,10 @@
       "art": [
         "v22_scene_11"
       ],
-      "text": "One stream ran clear.\nThen Roshan cleared the other two.",
+      "text": "Roshan kept clearing the gunk,\nlittle by little.",
       "layout": "full",
       "border_assets": [],
-      "background_theme": "full scene",
+      "background_theme": "Partial progress: one small aqua patch of falling water emerges from the gunk; completion is reserved for13. No stream count is claimed.",
       "caption": {
         "x": 30,
         "y": 58,
@@ -4104,7 +4262,90 @@
         ]
       ],
       "original_page": 11,
-      "beat": "v27_11"
+      "beat": "v27_11",
+      "local_patches": [
+        {
+          "source": "v31_waterfall_progress",
+          "reference_size": [
+            1484,
+            1060
+          ],
+          "polygon": [
+            [
+              398,
+              290
+            ],
+            [
+              415,
+              259
+            ],
+            [
+              449,
+              251
+            ],
+            [
+              492,
+              250
+            ],
+            [
+              548,
+              259
+            ],
+            [
+              570,
+              287
+            ],
+            [
+              568,
+              610
+            ],
+            [
+              570,
+              825
+            ],
+            [
+              590,
+              854
+            ],
+            [
+              680,
+              864
+            ],
+            [
+              1484,
+              867
+            ],
+            [
+              1484,
+              1060
+            ],
+            [
+              0,
+              1060
+            ],
+            [
+              0,
+              867
+            ],
+            [
+              380,
+              866
+            ],
+            [
+              399,
+              828
+            ],
+            [
+              408,
+              613
+            ],
+            [
+              408,
+              434
+            ]
+          ]
+        }
+      ]
     },
     {
       "page": 13,
@@ -4112,7 +4353,7 @@
       "art": [
         "v22_scene_12_fit"
       ],
-      "text": "All three streams were clear.\nWhoosh! The waterfall turned rainbow!",
+      "text": "Whoosh! Clean water flowed.\nThe waterfall turned rainbow!",
       "layout": "full",
       "border_assets": [],
       "background_theme": "full scene",
@@ -4780,10 +5021,10 @@
       "art": [
         "v27_door"
       ],
-      "text": "One last door began to glow.\nA rumble came from behind it...",
+      "text": "One last door was still shut.\nA low rumble came from behind it...",
       "layout": "full",
       "border_assets": [],
-      "background_theme": "Completed castle rooms and converging route lights lead to the last shell door. Source castle hall retained.",
+      "background_theme": "The same final shell door is shadowed violet with a narrow uncertain seam glow. Correct completed room doors and converging route paths remain, but there is no rainbow welcome; Roshan looks cautiously curious.",
       "caption": {
         "x": 50,
         "y": 316,
@@ -4812,7 +5053,95 @@
         ]
       ],
       "original_page": 24,
-      "beat": "v27_24"
+      "beat": "v27_24",
+      "local_patches": [
+        {
+          "source": "v31_door_mystery",
+          "reference_size": [
+            1484,
+            1060
+          ],
+          "polygon": [
+            [
+              1180,
+              632
+            ],
+            [
+              1189,
+              451
+            ],
+            [
+              1203,
+              403
+            ],
+            [
+              1240,
+              367
+            ],
+            [
+              1296,
+              346
+            ],
+            [
+              1346,
+              365
+            ],
+            [
+              1382,
+              402
+            ],
+            [
+              1407,
+              451
+            ],
+            [
+              1408,
+              638
+            ]
+          ]
+        },
+        {
+          "source": "v31_door_mystery",
+          "reference_size": [
+            1484,
+            1060
+          ],
+          "polygon": [
+            [
+              905,
+              558
+            ],
+            [
+              926,
+              544
+            ],
+            [
+              949,
+              545
+            ],
+            [
+              966,
+              559
+            ],
+            [
+              968,
+              589
+            ],
+            [
+              955,
+              610
+            ],
+            [
+              931,
+              611
+            ],
+            [
+              912,
+              597
+            ]
+          ]
+        }
+      ]
     },
     {
       "page": 24,
@@ -5244,12 +5573,12 @@
       "mode": "C",
       "art": [
         "roshan_wave_large",
-        "eagle_inviting"
+        "approved_rainbow_puff_cutout"
       ],
-      "text": "“Come and play, Baby Eagle!”\nThe little dust bunnies played gently, too.",
-      "layout": "friends_pair",
+      "text": "“Thank you,” said Grand Puff.\n“Come and rest with us!” said Roshan.",
+      "layout": "placements",
       "border_assets": [],
-      "background_theme": "Two distinct gentle play actions with ring and sailboat; Lamma's white face/ears subtly peek above toy chest without prompting.",
+      "background_theme": "Puff is welcomed to rest after cleaning; two tiny bunnies wind down beside their game toys. Old Lamma chest peek is removed, leaving two appearances total (bath9 and rear).",
       "caption": {
         "x": 31,
         "y": 316,
@@ -5270,62 +5599,223 @@
       "border_placements": [],
       "integrated_background": "v29_bank31_final",
       "integrated_motifs": [
-        "ring_bunny",
-        "toy_chest",
-        "orange_ring",
-        "lamma_face_peek",
-        "sailboat_bunny",
-        "stacking_sailboat",
+        "yawning_bunny",
+        "closed_toy_chest",
+        "resting_bunny",
+        "settled_sailboat",
+        "toy_rings",
         "new_toy_coral"
       ],
       "integrated_prop_bounds": [
         [
-          0.15229111,
-          0.87264151,
-          0.0606469,
-          0.07830189
+          0.139,
+          0.85,
+          0.073,
+          0.096
         ],
         [
-          0.19946092,
-          0.88490566,
-          0.06873315,
-          0.06792453
+          0.195,
+          0.879,
+          0.07,
+          0.07
         ],
         [
-          0.18733154,
-          0.92358491,
-          0.02628032,
-          0.03018868
+          0.78,
+          0.855,
+          0.072,
+          0.096
         ],
         [
-          0.19137466,
-          0.85660377,
-          0.06671159,
-          0.03584906
+          0.749,
+          0.866,
+          0.048,
+          0.088
         ],
         [
-          0.78571429,
-          0.85566038,
-          0.0606469,
-          0.09433962
+          0.751,
+          0.913,
+          0.046,
+          0.038
         ],
         [
-          0.75202156,
-          0.8745283,
-          0.04514825,
-          0.08301887
-        ],
-        [
-          0.27088949,
-          0.90471698,
-          0.03234501,
-          0.04622642
+          0.273,
+          0.908,
+          0.03,
+          0.043
         ]
       ],
       "marginal_bunny_count": 2,
       "bounds_note": "Final native visible-subject annotation; exact hidden occlusion/shadow opacity not measurable for generated pixels.",
       "original_page": 20,
-      "beat": "v27_20"
+      "beat": "puff_thanks_and_belonging",
+      "placements": [
+        {
+          "source": "roshan_wave_large",
+          "box": [
+            73,
+            57,
+            191,
+            215
+          ]
+        },
+        {
+          "source": "approved_rainbow_puff_cutout",
+          "box": [
+            303,
+            89,
+            139,
+            156
+          ]
+        }
+      ],
+      "background_patches": [
+        {
+          "source": "v31_rest_bank31",
+          "reference_size": [
+            1484,
+            1060
+          ],
+          "polygon": [
+            [
+              202,
+              909
+            ],
+            [
+              257,
+              900
+            ],
+            [
+              321,
+              900
+            ],
+            [
+              381,
+              911
+            ],
+            [
+              402,
+              940
+            ],
+            [
+              402,
+              997
+            ],
+            [
+              379,
+              1011
+            ],
+            [
+              257,
+              1012
+            ],
+            [
+              210,
+              995
+            ]
+          ]
+        },
+        {
+          "source": "v31_rest_bank31",
+          "reference_size": [
+            1484,
+            1060
+          ],
+          "polygon": [
+            [
+              1097,
+              929
+            ],
+            [
+              1118,
+              904
+            ],
+            [
+              1176,
+              901
+            ],
+            [
+              1238,
+              913
+            ],
+            [
+              1261,
+              946
+            ],
+            [
+              1252,
+              995
+            ],
+            [
+              1224,
+              1013
+            ],
+            [
+              1110,
+              1012
+            ],
+            [
+              1090,
+              983
+            ]
+          ]
+        }
+      ],
+      "local_patches": [
+        {
+          "source": "v31_puff_gratitude",
+          "reference_size": [
+            1346,
+            1169
+          ],
+          "polygon": [
+            [
+              336,
+              666
+            ],
+            [
+              457,
+              619
+            ],
+            [
+              632,
+              666
+            ],
+            [
+              807,
+              666
+            ],
+            [
+              928,
+              701
+            ],
+            [
+              969,
+              818
+            ],
+            [
+              847,
+              865
+            ],
+            [
+              619,
+              841
+            ],
+            [
+              390,
+              806
+            ]
+          ],
+          "placement": {
+            "source": "approved_rainbow_puff_cutout",
+            "box": [
+              303,
+              89,
+              139,
+              156
+            ]
+          }
+        }
+      ]
     },
     {
       "page": 32,
@@ -5667,9 +6157,54 @@
             497
           ]
         ]
+      },
+      {
+        "source": "v31_rear_lamma",
+        "reference_size": [
+          1484,
+          1060
+        ],
+        "polygon": [
+          [
+            39,
+            277
+          ],
+          [
+            59,
+            274
+          ],
+          [
+            66,
+            288
+          ],
+          [
+            96,
+            288
+          ],
+          [
+            110,
+            307
+          ],
+          [
+            108,
+            334
+          ],
+          [
+            69,
+            337
+          ],
+          [
+            47,
+            326
+          ],
+          [
+            39,
+            304
+          ]
+        ]
       }
     ]
   },
-  "revision": "V30 - local identity and continuity polish",
+  "revision": "V31 story clarity and belonging",
   "review_href": "../AUDIT_REVIEW.html"
 }
