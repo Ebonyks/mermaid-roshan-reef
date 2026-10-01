@@ -40,7 +40,8 @@
     {
       "name": "Full unchanged runtime CI",
       "result": "PENDING",
-      "evidence": "No runtime changes; exact publication-head workflow remains required. Predecessor a213 run36796034349 still in progress at first queue inspection."
+      "evidence": "Exact payload adccbd7baa17f30d9caee294deb56408d6e0a072 Probe Suite run36800330535 in progress. Predecessor a21323f47e000add28006eaa28102c9dc9038070 run36796034349 completed SUCCESS. Neither is source style/owner acceptance; current receipt commit triggers its own exact-head run.",
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36800330535"
     },
     {
       "name": "OS lock rejects a second local worker before any prompt submission",
@@ -51,6 +52,11 @@
       "name": "Source-plate visual inspection",
       "result": "PASS",
       "evidence": "All five original960x544 plates inspected; revision2 uniformly rescales the same complete1024 source canvases to448px on896x512 mats. Nursery remains style rejected. No source artwork pixels changed."
+    },
+    {
+      "name": "Current source 2D regression gate",
+      "result": "PASS",
+      "evidence": "GAME2D NO_REGRESSION at0 model/52 production/61 probe/1 scene/1 config; strict remains UNSATISFIED. New source packet is outside runtime under.gdignore."
     }
   ],
   "owner_approval": null,
@@ -89,5 +95,13 @@
         "consumed_text_sha256": "e21a155dc3feafa4a7fd40024f055c3e361654a26f40feb289da001e46e754ba"
       }
     ]
+  },
+  "public_payload_verification": {
+    "result": "PASS",
+    "revision": "adccbd7baa17f30d9caee294deb56408d6e0a072",
+    "files": 118,
+    "access_mode": "Unauthenticated public GitHub raw HTTPS; no credentials or recipient-specific login required",
+    "receipt": "REMOTE_VERIFICATION.json",
+    "completed_utc": "2026-10-01T01:17:43.707463+00:00"
   }
 }

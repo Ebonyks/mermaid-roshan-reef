@@ -100,8 +100,18 @@
     },
     {
       "command": "Anonymous exact-revision GitHub byte verification",
+      "result": "PASS",
+      "evidence": "REMOTE_VERIFICATION.json: exact public payloadadccbd7baa17f30d9caee294deb56408d6e0a072;118/118 packet, changed governance/tool and original source files fetched without authentication and byte/SHA-256 matched; check completed2026-10-01T01:17:43.707463+00:00. Local pending renders remain staging, not accepted delivery."
+    },
+    {
+      "command": "Exact-head Probe Suite",
       "result": "PENDING",
-      "evidence": "Established repository Ebonyks/mermaid-roshan-reef; branch codex/day2-art-replacements-batch1-20260930; packet assets_src/local_motion/day2_batch1_20260930. Native renders are local staging until separately reviewed/published."
+      "evidence": "Payload adccbd7baa17f30d9caee294deb56408d6e0a072 run36800330535 in progress; predecessor a213 run36796034349 SUCCESS. No runtime changes; receipt publication gets a separate exact-head run."
+    },
+    {
+      "command": "python -B tools/audit_game_2d.py --regression-gate; git diff --cached --check",
+      "result": "PASS",
+      "evidence": "NO_REGRESSION0 models/52 production/61 probe/1 scene/1 config, strict UNSATISFIED. Default whitespace checks retained with native CRLF recognition in source-packet attributes; exact hashed bytes preserved."
     }
   ],
   "acceptance_gaps": "Nursery art still too lifelike per direct owner feedback. No owner approval for any replacement. Native render success, per-frame motion/topology/style review, contextual contact/loop review, phone-scale/device/child acceptance, runtime integration and cinematic delivery are separate and outstanding. No current finding is closed by queueing studies. Queue snapshot is timestamped historical evidence; live worker state is local and does not silently update the published report."
