@@ -1,0 +1,131 @@
+{
+  "status": "PARTIAL_FOUR_DOCTOR_KEYS_REVIEWED",
+  "checked_utc": "2026-10-01T23:06:12.819755+00:00",
+  "machine_status": "PASS_ORIGINAL_VIEWPORT_ROUTE_NATIVE_CAPTURE",
+  "cases": [
+    {
+      "id": "opera_training_doctor_1280",
+      "frame_count": 256,
+      "duration_seconds": 8.504861,
+      "opened_frame": 51,
+      "accepted_frame": 176,
+      "advanced_frame": 243,
+      "passive_start_ok": true,
+      "stars_unchanged": true,
+      "sha256_match": true,
+      "timestamps_strictly_increasing": true
+    },
+    {
+      "id": "opera_training_nursery_1280",
+      "frame_count": 263,
+      "duration_seconds": 8.733483,
+      "opened_frame": 64,
+      "accepted_frame": 183,
+      "advanced_frame": 250,
+      "passive_start_ok": true,
+      "stars_unchanged": true,
+      "sha256_match": true,
+      "timestamps_strictly_increasing": true
+    },
+    {
+      "id": "birthday_story_catalog_doctor_1280",
+      "frame_count": 255,
+      "duration_seconds": 8.466714,
+      "opened_frame": 51,
+      "accepted_frame": 176,
+      "advanced_frame": 242,
+      "passive_start_ok": true,
+      "stars_unchanged": true,
+      "sha256_match": true,
+      "timestamps_strictly_increasing": true
+    },
+    {
+      "id": "birthday_story_catalog_nursery_1280",
+      "frame_count": 262,
+      "duration_seconds": 8.700932,
+      "opened_frame": 64,
+      "accepted_frame": 183,
+      "advanced_frame": 249,
+      "passive_start_ok": true,
+      "stars_unchanged": true,
+      "sha256_match": true,
+      "timestamps_strictly_increasing": true
+    },
+    {
+      "id": "opera_training_doctor_1600",
+      "frame_count": 256,
+      "duration_seconds": 8.502602,
+      "opened_frame": 51,
+      "accepted_frame": 176,
+      "advanced_frame": 243,
+      "passive_start_ok": true,
+      "stars_unchanged": true,
+      "sha256_match": true,
+      "timestamps_strictly_increasing": true
+    },
+    {
+      "id": "opera_training_nursery_1600",
+      "frame_count": 263,
+      "duration_seconds": 8.734267,
+      "opened_frame": 64,
+      "accepted_frame": 183,
+      "advanced_frame": 250,
+      "passive_start_ok": true,
+      "stars_unchanged": true,
+      "sha256_match": true,
+      "timestamps_strictly_increasing": true
+    },
+    {
+      "id": "birthday_story_catalog_doctor_1600",
+      "frame_count": 256,
+      "duration_seconds": 8.49733,
+      "opened_frame": 51,
+      "accepted_frame": 176,
+      "advanced_frame": 243,
+      "passive_start_ok": true,
+      "stars_unchanged": true,
+      "sha256_match": true,
+      "timestamps_strictly_increasing": true
+    },
+    {
+      "id": "birthday_story_catalog_nursery_1600",
+      "frame_count": 263,
+      "duration_seconds": 8.728586,
+      "opened_frame": 64,
+      "accepted_frame": 183,
+      "advanced_frame": 250,
+      "passive_start_ok": true,
+      "stars_unchanged": true,
+      "sha256_match": true,
+      "timestamps_strictly_increasing": true
+    }
+  ],
+  "frames": 2074,
+  "directly_reviewed": [
+    {
+      "path": "native_frames/opera_training_doctor_1280/0051.webp",
+      "sha256": "f2adf5a4e21d56ca728878c47bf1f86eeb2b603e17388098a6cbcbe4846092c4"
+    },
+    {
+      "path": "native_frames/opera_training_doctor_1280/0110.webp",
+      "sha256": "156ea543f2b50846a014d0ce516b96af66c78b1ab317d79196a39a84bd5ce310"
+    },
+    {
+      "path": "native_frames/opera_training_doctor_1280/0176.webp",
+      "sha256": "3fdebcd46f4b47d47f04d193c8956870d6f00812d7a908756d605e265d546ba6"
+    },
+    {
+      "path": "native_frames/opera_training_doctor_1280/0243.webp",
+      "sha256": "8b6a1f14671fbb404d70e5c0af8c0da40e9a5df8b84d9a6ee5f430e49b1e48ac"
+    }
+  ],
+  "evaluation": "The actual route opens correctly, but the doctor remains at the left medical station while a schematic washing basin is drawn on the right. The work pose holds medical tools rather than washing the child hands; completion adds the pink marked dust puff. The real approach does not repair the named spatial/verb/material defects. Four keys only, not all frames or cases.",
+  "doctor_selected_workflow_score": 2.7,
+  "doctor_selected_contact_spatial_score": 2.3,
+  "doctor_selected_surface_score": 2.9,
+  "remaining_frames_direct_reviewed": false,
+  "ordinary_main_menu_story_route_accepted": false,
+  "complete_visual_action_accepted": false,
+  "owner_accepted": false,
+  "qualification": "Actual viewport touch and unchanged production room approach/opening/hold/return callbacks with naturally measured render times. Main/menu/room arrival remains a fixture, desktop GPU not target device. Full 8-case imagery and all remaining native frames require direct review. Process PASS does not give visual/device/child/owner or cinematic acceptance."
+}

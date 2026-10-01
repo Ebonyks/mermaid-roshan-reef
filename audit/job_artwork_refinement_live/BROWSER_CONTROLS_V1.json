@@ -1,0 +1,95 @@
+{
+  "status": "PASS_SCOPED_FILTER_SEARCH_PAGINATION_AND_VISIBLE_IMAGES",
+  "checked_utc": "2026-10-01T19:22:09.234Z",
+  "checks": [
+    {
+      "cards": 30,
+      "lane": "priority",
+      "page": "Page 1 of 17",
+      "result": "481 matching items · showing 1–30"
+    },
+    {
+      "cards": 30,
+      "lane": "unreviewed",
+      "page": "Page 1 of 16",
+      "result": "463 matching items · showing 1–30"
+    },
+    {
+      "cards": 30,
+      "lane": "all",
+      "page": "Page 1 of 47",
+      "result": "1386 matching items · showing 1–30"
+    },
+    {
+      "cards": 30,
+      "lane": "cells",
+      "page": "Page 1 of 8",
+      "result": "240 matching items · showing 1–30"
+    },
+    {
+      "cards": 30,
+      "lane": "observed",
+      "page": "Page 1 of 4",
+      "result": "92 matching items · showing 1–30"
+    },
+    {
+      "cards": 5,
+      "lane": "changed",
+      "page": "Page 1 of 1",
+      "result": "5 matching items · showing 1–5"
+    },
+    {
+      "action": "next page",
+      "page": "Page 2 of 17",
+      "result": "481 matching items · showing 31–60"
+    },
+    {
+      "action": "wash search",
+      "images": [
+        {
+          "loaded": true,
+          "native": [
+            768,
+            456
+          ],
+          "src": "../../audit/day2_art_library_2026-09-30/previews/D2A-0441.webp"
+        },
+        {
+          "loaded": true,
+          "native": [
+            768,
+            456
+          ],
+          "src": "../../audit/day2_art_library_2026-09-30/previews/D2A-0443.webp"
+        },
+        {
+          "loaded": true,
+          "native": [
+            768,
+            456
+          ],
+          "src": "../../audit/day2_art_library_2026-09-30/previews/D2A-0440.webp"
+        },
+        {
+          "loaded": true,
+          "native": [
+            768,
+            456
+          ],
+          "src": "../../audit/day2_art_library_2026-09-30/previews/D2A-0442.webp"
+        },
+        {
+          "loaded": true,
+          "native": [
+            256,
+            256
+          ],
+          "src": "../../audit/day2_art_library_2026-09-30/previews/D2A-0444.webp"
+        }
+      ],
+      "query": "widget_basin_",
+      "result": "5 matching items · showing 1–5"
+    }
+  ],
+  "qualification": "Observed real browser controls and wash search results; complete thumbnail byte delivery is verified separately. This grants no artwork or owner acceptance."
+}

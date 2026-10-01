@@ -1,9 +1,9 @@
 {
   "schema": "reef.job-artwork-freshness.v1",
-  "checked_utc": "2026-10-01T14:50:43.636401+00:00",
+  "checked_utc": "2026-10-01T16:46:51.072955+00:00",
   "sealed_library_revision": "9038246cf9b34005afb8bc28a2f81396930988b6",
   "captured_production_revision": "ce0331738970205a5aead4d3e0258eb7873a1642",
-  "working_head": "04a362c732840b091cafe7731399789eb735789f",
+  "working_head": "5b8bfb989ca8012924115d45901252808edb9b62",
   "cached_origin_dev": "c5e98477efe4fe3c36d6bffe68818d84c2d08325",
   "baseline_sources": 777,
   "baseline_inclusive_source_priorities": 552,
@@ -80,9 +80,24 @@
       "current_normalized_git_blob": "12f420916be997cd87dba74542f9cd664bc19d86"
     },
     {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "baseline_git_blob": "52c5e333d1f83abbe5de3fab8ce51174796e0ffa",
+      "current_normalized_git_blob": "3e7b29b47af0671072ea3e75043731302757427f"
+    },
+    {
       "path": "scripts/games/dolls.gd",
       "baseline_git_blob": "93865119d9ea972aefc66d18257fb6ccdb0847b3",
       "current_normalized_git_blob": "7c743767f7ec412d0294920459375a85c548a966"
+    },
+    {
+      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+      "baseline_git_blob": "bb487a9887203e68bcc826c0dcfd64b924ea94cc",
+      "current_normalized_git_blob": "92c08efeaa4eb2024d2549232a5dee994b8aa5f5"
+    },
+    {
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "baseline_git_blob": "9025f13785b42a9f1c68e7d7b2624eaba6cd4ca0",
+      "current_normalized_git_blob": "49ad05f9c18a302d206d077af84f09440ee3cc26"
     },
     {
       "path": "scripts/main.gd",
@@ -244,5 +259,212 @@
     "all_weak_live_items": "INCOMPLETE: no global4.5 pass is claimed.",
     "owner_final_report": "PENDING_APPROVAL_AFTER_COMPLETE_REPORT"
   },
-  "refresh_command": "python -B tools/refresh_job_artwork_status.py --output audit/job_artwork_refinement_live/STATUS.json"
+  "refresh_command": "python -B tools/refresh_job_artwork_status.py --output audit/job_artwork_refinement_live/STATUS.json",
+  "current_pool_refinement": {
+    "entry": "audit/day_one_pool_live_refinement_v2_20261001/index.html",
+    "review": "audit/day_one_pool_live_refinement_v2_20261001/REVIEW.json",
+    "runtime_sources": [
+      {
+        "path": "scripts/games/day_one_pool_cleanup.gd",
+        "sha256": "9ba2ef522031ec5c9bf19487f3635b21bc9522e37a363e608c8a74be59682f02"
+      },
+      {
+        "path": "scripts/games/pool_skimmer_activity.gd",
+        "sha256": "760411763018cca06d3def0ad1d5da4c2ff9a1c346457b886132fd08f4372db2"
+      },
+      {
+        "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+        "sha256": "3538a2da28cfb164418bd00e5615325a1521fbdc948a18d817f890838c656f8f"
+      },
+      {
+        "path": "assets/castle/day_one_pool/activities/refinement_v2/floating_trash_atlas.png",
+        "sha256": "788bbbc3e069036ee66197186dcc93daa3d83c95f939fdcbb41bec785846996d"
+      },
+      {
+        "path": "assets/castle/day_one_pool/activities/refinement_v2/pool_skimmer.png",
+        "sha256": "58a3fe0772490ee20260720524f49088d8c12a6ddf93305370d30175041c4242"
+      }
+    ],
+    "classic_frames": 435,
+    "directly_reviewed_classic_action_frames": 433,
+    "classic_boards": 47,
+    "props_source_mount_contact_transfer_stored_score": 4.6,
+    "whole_played_actions_score": 4.2,
+    "priority_scores": {
+      "body_acting": 3.8,
+      "classic_grip": 4.2,
+      "fairy_grip": 4.1,
+      "huluu_grip": 3.5,
+      "initial_actor_overlap": 4.3
+    },
+    "wide_visual_scope": "Only initial, first wrapper catch and final in each432-frame capture; no complete wardrobe action pass.",
+    "current_full_ci": "The current unmodified official-Godot4.7.2 full suite passes overall0 with all82 trusted probe processes0 in exact order and all325 literal production-source hashes unchanged. All54 raw engine diagnostics remain inspectable. Earlier81/82 full failures and the narrow unchanged picture-games retry are retained. This is local source-bound machine verification; ordinary full played routes, complete graphics/action coverage, hosted exact-head results, phone/child/owner acceptance and integration/release remain separate.",
+    "qualification": "Refreshable bounded candidate evidence. No all-jobs/global pass, finding closure, device/child/owner/comprehensive report approval, integration or release.",
+    "full_ci_status": "PASS_UNMODIFIED_CURRENT_FULL_SUITE",
+    "current_skimmer_controller_sha256": "760411763018cca06d3def0ad1d5da4c2ff9a1c346457b886132fd08f4372db2",
+    "full_ci_in_progress": false,
+    "current_full_ci_retry_v3": "audit/day_one_pool_live_refinement_v2_20261001/full_ci_current_retry_v3/RECEIPT.json"
+  },
+  "current_playroom_sign_refinement": {
+    "id": "D1N-0072",
+    "original_source_score": 4.5,
+    "original_still_bound": true,
+    "candidate_source_score": 4.6,
+    "candidate_static_native_sign_fit_score": 4.6,
+    "runtime_bound": false,
+    "report": "assets_src/imagegen/day1_playroom_sign_v2_20261001/index.html",
+    "review": "assets_src/imagegen/day1_playroom_sign_v2_20261001/REVIEW.json",
+    "whole_hall_action_or_owner_pass": false
+  },
+  "current_boxing_puff": {
+    "status": "BOXING_SURFACE_CLEAN_SOURCE_BOUND_FADE_TO_ZERO_TIMED_REVIEW_PENDING_SHARED_WORLD_ORIGINAL_REMAINS",
+    "source_score": 4.6,
+    "static_and_timed_contact_score": 4.6,
+    "end_timing_score": 4.2,
+    "full_action_score": 4.0,
+    "current_original_source_score": 2.5,
+    "runtime_binding_changed": true,
+    "review": "audit/day_two_boxing_puff_reuse_v1_20261001/REVIEW.json",
+    "ordinary_route_acceptance": false
+  },
+  "current_boxing_gloves": {
+    "status": "PAINTED_CANDIDATES_BOUND_REVERSIBLY_CURRENT_TIMED_REVIEW_PENDING",
+    "review": "native_static_fit_v1/VISUAL_REVIEW.json",
+    "report": "assets_src/imagegen/day2_boxing_single_gloves_v1_20261001/index.html",
+    "individual_source_static_scores": [
+      4.6,
+      4.6
+    ],
+    "timed_acceptance": false,
+    "owner_approved": false,
+    "individual_timed_art_scores": [
+      4.6,
+      4.6
+    ],
+    "current_live_review": "audit/day_two_boxing_live_refinement_v1_20261001/REVIEW.json",
+    "complete_actions_accepted": false
+  },
+  "current_boxing_live_refinement": {
+    "status": "SCOPED_REVERSIBLE_RUNTIME_PROP_REFINEMENT_REVIEWED_SEQUENCING_PRIORITIES_OPEN",
+    "report": "audit/day_two_boxing_live_refinement_v1_20261001/index.html",
+    "runtime_surface_sha256": "0e5c680838159f635794c6918b72da45eaf5450000cc038fe2640bcfd95951de",
+    "items": [
+      {
+        "id": "BOX-LEFT-GLOVE-V1",
+        "name": "Painted left glove",
+        "path": "assets/opera/worlds/widgets/refinement_v1/boxing_glove_left.png",
+        "source_score": 4.6,
+        "static_mount_score": 4.6,
+        "current_edge_fit_score": 4.6,
+        "timed_individual_art_score": 4.6,
+        "evaluation": "Broad smooth coral mitten, right-facing authored thumb, gold shell and coral cuff retain a single readable contour. Matte painted bands, purple ink and aqua/lavender shadow fit the toy storybook stage. Complete-canvas texture is drawn intact with the existing position/depth/angle. The first left attempt with finger lobes remains rejected.",
+        "sha256": "8749d71eb5cdd5f84dc5a9bd96197b8ec6ac808b51333cd31bce9e1a032176ea",
+        "owner_approved": false
+      },
+      {
+        "id": "BOX-RIGHT-GLOVE-V1",
+        "name": "Painted right glove",
+        "path": "assets/opera/worlds/widgets/refinement_v1/boxing_glove_right.png",
+        "source_score": 4.6,
+        "static_mount_score": 4.6,
+        "current_edge_fit_score": 4.6,
+        "timed_individual_art_score": 4.6,
+        "evaluation": "The independently generated left-facing thumb and teal cuff distinguish the right hand while keeping the same coral mitten palette and matte material. Positive scale avoids accidentally reversing its authored hand. Whole painted contour survives contact, return and corner requests.",
+        "sha256": "6a748cb12f71b81f4b9d01cf08bdf14d99831c48a13530288dc537ef4bc150b9",
+        "owner_approved": false
+      },
+      {
+        "id": "BOX-PUFF-REUSE-V1",
+        "name": "Exact existing clean puff",
+        "path": "assets/opera/worlds/props/fx_dust_puff.png",
+        "source_score": 4.6,
+        "static_mount_score": 4.6,
+        "timed_art_and_fade_score": 4.6,
+        "evaluation": "Existing rounded white/lavender painted cloud removes the stray dark marks. The whole card expands modestly and alpha tends continuously to zero; every inspected final has no residual cloud. This rating evaluates effect artwork and fading only; the belt still lacks a rendered glove-contact beat.",
+        "sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+        "owner_approved": false
+      }
+    ],
+    "priorities": [
+      {
+        "id": "BOX-LIVE-COUNTER-01",
+        "item": "Guard incoming counter representation",
+        "score": 4.0,
+        "priority": true,
+        "evidence_frames": [
+          320,
+          501,
+          1021,
+          1201
+        ],
+        "evaluation": "Flat coral disk and straight yellow arrow remain visibly separate from the authored mitten materials. They indicate direction but do not show a friendly glove counter. Inventory authored reusable incoming glove artwork before generating any replacement."
+      },
+      {
+        "id": "BOX-LIVE-IMP-ACT-01",
+        "item": "Imp connected reaction and recovery acting",
+        "score": 3.8,
+        "priority": true,
+        "evidence_frames": [
+          540,
+          541,
+          582,
+          583,
+          1240,
+          1241,
+          1282,
+          1283
+        ],
+        "evaluation": "Source keys preserve the friendly identity, but sudden complete-pose substitutions do not explain anticipation, body contact and recovery. Preserve all approved identity sources; evaluate authored bridge states against exact action timing."
+      },
+      {
+        "id": "BOX-LIVE-BELT-RETURN-01",
+        "item": "Belt rendered contact and return",
+        "score": 3.8,
+        "priority": true,
+        "evidence_frames": [
+          624,
+          625,
+          666,
+          667,
+          1324,
+          1325,
+          1366,
+          1367
+        ],
+        "evaluation": "The accepted completion resets the glove to rest before the contact frame is rendered. Preserve cancellation on interruption; separate successful completion presentation from the interruption reset, then measure real contact/return and the parent transition."
+      },
+      {
+        "id": "BOX-SHARED-PUFF-01",
+        "item": "Marked puff in shared career-world drawing contexts",
+        "score": 2.5,
+        "priority": true,
+        "source_path": "assets/opera/worlds/props/fx_bop_puff.png",
+        "evaluation": "The boxing surface now uses exact clean existing art, but opera_career_world_2d.gd still binds the marked source in shared drawing contexts. This is an unchanged source opinion; current shared-context mounted and action scores remain unassigned."
+      }
+    ],
+    "reviewed_frames": 1402,
+    "native_actions": 20,
+    "current_edge_views": 16,
+    "full_ci": "RUNNING_PENDING",
+    "ordinary_routes_and_full_phases": "PENDING",
+    "owner_approved": false,
+    "full_ci_status": "PASS_UNMODIFIED_CURRENT_FULL_SUITE",
+    "full_ci_evidence": "audit/day_one_pool_live_refinement_v2_20261001/full_ci_current_retry_v3/RECEIPT.json"
+  },
+  "known_individual_register": {
+    "path": "audit/job_artwork_refinement_live/ALL_ITEMS.json",
+    "counts": {
+      "unique_source_files": 1150,
+      "individual_pose_cells": 240,
+      "additional_runtime_prop_regions": 38,
+      "registered_items": 1428,
+      "exact_earlier_bytes": 1423,
+      "changed_bytes": 5,
+      "unavailable_checkout": 0,
+      "inclusive_current_source_priorities": 555,
+      "unreviewed_current_source": 403
+    },
+    "actual_use_complete": false,
+    "all_job_quality_accepted": false
+  }
 }

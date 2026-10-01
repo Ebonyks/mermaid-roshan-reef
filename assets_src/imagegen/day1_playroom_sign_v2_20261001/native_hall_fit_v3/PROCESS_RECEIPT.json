@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "processes": [
+    {
+      "name": "parser",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "assets_src/imagegen/day1_playroom_sign_v2_20261001/capture_unbound_hall_fit_v3.gd"
+      ],
+      "exit": 0,
+      "seconds": 1.5742863000486977
+    },
+    {
+      "name": "inference",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "assets_src/imagegen/day1_playroom_sign_v2_20261001/capture_unbound_hall_fit_v3.gd"
+      ],
+      "exit": 0,
+      "seconds": 0.1160272000124678
+    },
+    {
+      "name": "analyzer",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "res://assets_src/imagegen/day1_playroom_sign_v2_20261001/capture_unbound_hall_fit_v3.gd"
+      ],
+      "exit": 0,
+      "seconds": 5.645714599988423
+    },
+    {
+      "name": "native",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--windowed",
+        "--resolution",
+        "1280x720",
+        "--script",
+        "res://assets_src/imagegen/day1_playroom_sign_v2_20261001/capture_unbound_hall_fit_v3.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 12.455155999981798
+    }
+  ],
+  "source_before": {
+    "project.godot": "2587e8f6cbd52d437f6a08198d26a80465ee0e86868bc9f03526134f0cd6e770",
+    "scenes/main.tscn": "064ca94c2eca6638eafe169c5fedeb6310a9ef31e5941351e7c41b2934263db7",
+    "scripts/main.gd": "98d91a560426cfa4c52a70221a0311856429c031805d7d9dc990eefe2affe30e",
+    "scripts/arena/castle_rooms_25d.gd": "95a7027d0b44b837b82a203da6a6c3794ee24f56c2d780af9aa4b042c9c232a2",
+    "assets_src/imagegen/day1_playroom_sign_v2_20261001/capture_unbound_hall_fit_v3.gd": "5e60c81ee22db6d1db0b57ed7ef6e07feca99dded345e33862aae8edce3c026a",
+    "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_playroom.png": "22d9a3df8eda3b95ae93250165a64a947b4157a70b4405f90dc4d600edccd7df",
+    "assets_src/imagegen/day1_playroom_sign_v2_20261001/attempt_02_native.png": "2032985e75da1c72db1f47759eda4e7fd7518fdea7ca653adff5b82a882040bb",
+    "assets_src/imagegen/day1_playroom_sign_v2_20261001/attempt_02_whole_canvas_256.png": "03ac9b4bdb881875ad83c34ae208dc29fda0aef148a42057e0b284ce1a61405f"
+  },
+  "source_after": {
+    "project.godot": "2587e8f6cbd52d437f6a08198d26a80465ee0e86868bc9f03526134f0cd6e770",
+    "scenes/main.tscn": "064ca94c2eca6638eafe169c5fedeb6310a9ef31e5941351e7c41b2934263db7",
+    "scripts/main.gd": "98d91a560426cfa4c52a70221a0311856429c031805d7d9dc990eefe2affe30e",
+    "scripts/arena/castle_rooms_25d.gd": "95a7027d0b44b837b82a203da6a6c3794ee24f56c2d780af9aa4b042c9c232a2",
+    "assets_src/imagegen/day1_playroom_sign_v2_20261001/capture_unbound_hall_fit_v3.gd": "5e60c81ee22db6d1db0b57ed7ef6e07feca99dded345e33862aae8edce3c026a",
+    "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_playroom.png": "22d9a3df8eda3b95ae93250165a64a947b4157a70b4405f90dc4d600edccd7df",
+    "assets_src/imagegen/day1_playroom_sign_v2_20261001/attempt_02_native.png": "2032985e75da1c72db1f47759eda4e7fd7518fdea7ca653adff5b82a882040bb",
+    "assets_src/imagegen/day1_playroom_sign_v2_20261001/attempt_02_whole_canvas_256.png": "03ac9b4bdb881875ad83c34ae208dc29fda0aef148a42057e0b284ce1a61405f"
+  },
+  "source_unchanged": true,
+  "qualification": "Unbound static actual-hall fit; no live binding or visual acceptance."
+}

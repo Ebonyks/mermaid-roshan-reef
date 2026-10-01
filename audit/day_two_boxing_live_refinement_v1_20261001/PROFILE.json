@@ -1,0 +1,74 @@
+{
+  "status": "SCOPED_REVERSIBLE_RUNTIME_PROP_REFINEMENT_REVIEWED_SEQUENCING_PRIORITIES_OPEN",
+  "baseline": "5b8bfb989ca8012924115d45901252808edb9b62",
+  "created_utc": "2026-10-01T18:29:53.309535+00:00",
+  "scope": "Bind individually reviewed painted left/right glove cards at new runtime paths only in OperaBoxingSurface, reuse the exact existing clean puff, and fade its complete opacity continuously tozero. Preserve original sources, existing input/contact/progress/phase/save/imp logic and prior pre-binding evidence. Shared career-world fx_bop_puff binding remains a separate unrefined context.",
+  "source_before": [
+    {
+      "path": "scripts/opera_boxing_surface.gd",
+      "sha256": "32ec41c72dc8c23fc3d7667eb8f69a77c34eaca9c1b6aad45635e85317b07489"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "f58088a214bffb8ceb68a01c771e20241a32d987ac180b4be51be236247922ae"
+    },
+    {
+      "path": "scripts/opera_gesture_surface.gd",
+      "sha256": "c28a885f68f2b16c66fcdaa5c4243ce9695a44d4ce015e56832ca392114cbedb"
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_bop_puff.png",
+      "sha256": "4e64dfa88aa9a6105a61cdac0f978d207eb581b822ce854ac806a88e2a1c4e5c"
+    },
+    {
+      "path": "assets/opera/worlds/props/fx_dust_puff.png",
+      "sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8"
+    },
+    {
+      "path": "assets_src/imagegen/day2_boxing_single_gloves_v1_20261001/left_whole_canvas_1024.png",
+      "sha256": "8749d71eb5cdd5f84dc5a9bd96197b8ec6ac808b51333cd31bce9e1a032176ea"
+    },
+    {
+      "path": "assets_src/imagegen/day2_boxing_single_gloves_v1_20261001/right_whole_canvas_1024.png",
+      "sha256": "6a748cb12f71b81f4b9d01cf08bdf14d99831c48a13530288dc537ef4bc150b9"
+    }
+  ],
+  "planned_runtime": [
+    "assets/opera/worlds/widgets/refinement_v1/boxing_glove_left.png",
+    "assets/opera/worlds/widgets/refinement_v1/boxing_glove_right.png"
+  ],
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-03",
+    "DL-INT-02",
+    "DL-MOT-03",
+    "DL-MOT-04",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-PERF-01",
+    "DL-QA-03",
+    "DL-QA-06",
+    "DL-QA-07"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "initial_status": "REVERSIBLE_BINDING_PLANNED",
+  "review": "REVIEW.json",
+  "runtime_surface_sha256": "0e5c680838159f635794c6918b72da45eaf5450000cc038fe2640bcfd95951de",
+  "acceptance_gaps": "Explicit actual career catalog phase fixtures, production local GUI handlers and process timers. Career-world processing is frozen to isolate the surface; phase progress is recorded without assigning persistent stars. Ordinary root/HUD routing, complete phase sets/training/job-day traversal, parent transition timing, listening/continuous playback, device/child/owner review and comprehensive all-job quality remain pending."
+}

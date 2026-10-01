@@ -1,0 +1,6 @@
+{
+  "status": "FAIL_PRESERVED",
+  "checked_utc": "2026-10-01T21:29:00.728463+00:00",
+  "failure": "AssertionError at video selection: broad pool-family prefix includes 24 historical and current videos, not six current return_v6 videos. Resource HEADs ran but their results were not sealed before assertion; no pass is claimed.",
+  "correction": "Use the exact six current native_actions_1280_return_v6 videos, leaving all earlier movies untouched."
+}

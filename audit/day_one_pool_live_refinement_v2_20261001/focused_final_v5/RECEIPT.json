@@ -1,0 +1,195 @@
+{
+  "schema": "reef.pool-live-focused-checks.v1",
+  "source_before": {
+    "scripts/games/pool_skimmer_activity.gd": "191fd8f07a1af09fc835d2ea8c413deed410acab4bebe2fc72bce89a6d868e30",
+    "scripts/games/day_one_pool_cleanup.gd": "a3edf46cf62faf1b5482926785bfb50b07c4d0ae62cd197f4a884ce2346089da",
+    "tools/pack_day_one_pool_refinement_atlas.gd": "12563e849ee8614790f335d81db5fd5d1bf87167a86e5d136b1a49ab59d80165",
+    "tools/capture_day_one_pool_live_refinement_actions.gd": "003aec1420db8b5604e578a399f6b1c45e1d8a16b0599314bfab0f38e2850a6a",
+    "tools/probe_day_one_pool_refinement.gd": "413ad3dd8be2408e5275db88691ef6de3d987b721cd81c21dc0a2e7ba094e044",
+    "scripts/games/pool_seahorse_rescue_activity.gd": "3538a2da28cfb164418bd00e5615325a1521fbdc948a18d817f890838c656f8f"
+  },
+  "source_after": {
+    "scripts/games/pool_skimmer_activity.gd": "191fd8f07a1af09fc835d2ea8c413deed410acab4bebe2fc72bce89a6d868e30",
+    "scripts/games/day_one_pool_cleanup.gd": "a3edf46cf62faf1b5482926785bfb50b07c4d0ae62cd197f4a884ce2346089da",
+    "tools/pack_day_one_pool_refinement_atlas.gd": "12563e849ee8614790f335d81db5fd5d1bf87167a86e5d136b1a49ab59d80165",
+    "tools/capture_day_one_pool_live_refinement_actions.gd": "003aec1420db8b5604e578a399f6b1c45e1d8a16b0599314bfab0f38e2850a6a",
+    "tools/probe_day_one_pool_refinement.gd": "413ad3dd8be2408e5275db88691ef6de3d987b721cd81c21dc0a2e7ba094e044",
+    "scripts/games/pool_seahorse_rescue_activity.gd": "3538a2da28cfb164418bd00e5615325a1521fbdc948a18d817f890838c656f8f"
+  },
+  "commands": [
+    {
+      "name": "parser",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/games/pool_skimmer_activity.gd",
+        "scripts/games/day_one_pool_cleanup.gd",
+        "tools/pack_day_one_pool_refinement_atlas.gd",
+        "tools/capture_day_one_pool_live_refinement_actions.gd",
+        "tools/probe_day_one_pool_refinement.gd",
+        "scripts/games/pool_seahorse_rescue_activity.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.831
+    },
+    {
+      "name": "inference",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/games/pool_skimmer_activity.gd",
+        "scripts/games/day_one_pool_cleanup.gd",
+        "tools/pack_day_one_pool_refinement_atlas.gd",
+        "tools/capture_day_one_pool_live_refinement_actions.gd",
+        "tools/probe_day_one_pool_refinement.gd",
+        "scripts/games/pool_seahorse_rescue_activity.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.12
+    },
+    {
+      "name": "import",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--import"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 15.336
+    },
+    {
+      "name": "analyzer_0",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "scripts/games/pool_skimmer_activity.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.345
+    },
+    {
+      "name": "analyzer_1",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "scripts/games/day_one_pool_cleanup.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 5.721
+    },
+    {
+      "name": "analyzer_2",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "tools/pack_day_one_pool_refinement_atlas.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.361
+    },
+    {
+      "name": "analyzer_3",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "tools/capture_day_one_pool_live_refinement_actions.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 5.711
+    },
+    {
+      "name": "analyzer_4",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "tools/probe_day_one_pool_refinement.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.36
+    },
+    {
+      "name": "analyzer_5",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "scripts/games/pool_seahorse_rescue_activity.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.357
+    },
+    {
+      "name": "pool_trusted",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--script",
+        "scripts/probe_day_one_pool_cleanup.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 12.679
+    },
+    {
+      "name": "contextual_voice",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--script",
+        "scripts/probe_day_one_contextual_voice.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 6.013
+    },
+    {
+      "name": "independent_transfer",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--script",
+        "tools/probe_day_one_pool_refinement.gd",
+        "scripts/games/pool_seahorse_rescue_activity.gd"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.806
+    }
+  ],
+  "pass": true
+}

@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "retried": {
+    "command": [
+      "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+      "-X",
+      "utf8",
+      "-B",
+      "tools/audit_development.py",
+      "--base",
+      "auto"
+    ],
+    "exit_code": 0,
+    "started_utc": "2026-10-01T23:18:43.661808+00:00",
+    "finished_utc": "2026-10-01T23:18:48.227014+00:00",
+    "stdout": "audit/job_review_v2_20261001/document_gates_v7/stdout.log",
+    "stderr": "audit/job_review_v2_20261001/document_gates_v7/stderr.log",
+    "stdout_tail": "AUDITDEV|BASE|c5e98477efe4fe3c36d6bffe68818d84c2d08325\nAUDITDEV|RESULT|ALL OK\n"
+  },
+  "still_applicable_passes": [
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-01T23:16:38.454497+00:00",
+      "finished_utc": "2026-10-01T23:16:48.982294+00:00",
+      "stdout": "audit/job_review_v2_20261001/document_gates_v6/0_audit_document_authority.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/document_gates_v6/0_audit_document_authority.stderr.log",
+      "stdout_tail": "DOCAUTH|INVENTORY=608|LEDGER=608|ACTIVE=59|RECORDS=62\nDOCAUTH|RESULT|ALL OK\n"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-01T23:16:38.454943+00:00",
+      "finished_utc": "2026-10-01T23:17:32.137386+00:00",
+      "stdout": "audit/job_review_v2_20261001/document_gates_v6/2_audit_game_2d.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/document_gates_v6/2_audit_game_2d.stderr.log",
+      "stdout_tail": "GAME2D| DEBT| model_files=0| model_scan_coverage_files=0| active_export_model_files=0| model_import_sidecars=0| active_untracked_model_import_sidecars=0| model_archive_files=0| production_3d_files=52| probe_3d_files=61| scene_3d_files=1| configuration_3d_files=1| archive_now_model_files=0\nGAME2D| STATUS| UNSATISFIED\nGAME2D| RESULT| NO_REGRESSION - exact shrinking baseline; migration debt remains UNSATISFIED\n"
+    }
+  ],
+  "repair": "Six predeclared log paths created with Windows separators were normalized to exact repository POSIX paths. All first failures/raw evidence retained; validator unchanged.",
+  "qualification": "Traceability only. No visual, strict2D, device/child/owner or hosted acceptance."
+}

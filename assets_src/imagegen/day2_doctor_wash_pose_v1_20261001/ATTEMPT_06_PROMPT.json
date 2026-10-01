@@ -1,0 +1,66 @@
+{
+  "status": "GENERATION_PENDING_UNBOUND",
+  "baseline": "5b8bfb989ca8012924115d45901252808edb9b62",
+  "source_revision": "8e41deaf34f925869395cd8ab0affefe89f89ab5",
+  "gap": "WASH-DOCTOR-WORK-POSE-01: approved work row has stethoscope, hand/tool-at-face and bandage poses, no intact two-hands soap-washing pose. Source and concept inventory examined; two signature-action concept cards depict stethoscope/patient examination. Existing painted sink is reusable and will not be regenerated. Selected actual washing views score work meaning2.7; approach/contact remains separately unproved.",
+  "use_case": "illustration-story",
+  "method": "Built-in image_gen fresh text-only generation; no images bound/uploaded or copied as appearance pixels.",
+  "prompt": "One intact full-body Doctor Roshan washing pose, a clean 2D anime storybook game illustration on actual transparent RGBA. Drawn warm-brown/plum outlines and broad pastel painted fills with a single gentle flat shadow band. Keep face and hair visibly drawn and matte, with no sculpted 3D skin or shiny plush texture.\n\nShe is the familiar young girl mermaid with a softly oval face, large drawn brown eyes, small nose, short brown bangs, shoulder-length warm caramel-brown waves, pearl flower hairclip, and one broad rainbow lock flowing to the RIGHT. Head is about one fifth of total figure height; no giant toddler/chibi head or adult glamour. Ivory short-sleeved doctor coat, coral collar/cuffs/hem and heart patch, teal gold-buttoned blouse, lavender waistband, cream/coral medicine satchel on her right hip. She looks attentively down at two attached hands rubbing together just below her chest in modest matte ivory/mint soap lather. Both forearms stay connected naturally to her shoulders. No tool or patient.\n\nSingle medium-width short mermaid tail in painted iridescent coral-gold-mint-aqua-lavender-pink scales, curved down and UP to the RIGHT in a broad C. One connected TWO-LOBED forked fan fin with a V notch at the tip, beside the lower coat. Fit the entire figure in a near-square compact silhouette about80 percent as wide as tall, generous transparent margins, head/hair and both fin lobes intact. Tail is neither a long dangling column nor a giant bulbous toddler body.\n\nPolished gentle 2D children's storybook, readable rounded masses, restrained simple scale shapes and soft aqua/lavender shadows. No realism, 3D, heavy surface texture, gloss, halo, glitter, extra limbs, legs/feet, detached hands, lettering, UI, background, sink or ground/shadow plate. One fresh sprite, not a sheet.",
+  "prompt_sha256": "36dd7a00579663ac7b09c45e4f72ec0cc0690000c9e19d8b961b101a79d8bf9f",
+  "text_identity_inventory": [
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_doctor_sheet_a.png",
+      "sha256": "bfffbd5389d63f8c9337a132bb20e09abbd4d8fc8471ec406fba2d722106a50e",
+      "role": "Local inventory/identity description only; not tool-bound generation reference."
+    },
+    {
+      "path": "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_doctor_sheet_a_native.png",
+      "sha256": "9d36ff75b1d1b7c6116fe7a4d3411ce960a88465ed557dcd83acef26f45de2aa",
+      "role": "Local inventory/identity description only; not tool-bound generation reference."
+    },
+    {
+      "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_doctor_outfit_signature_action_pose.png",
+      "sha256": "9f3c69bd8275c43bb43778f62d2d550c3cb3ae8614e8e32496f1663997a444be",
+      "role": "Local inventory/identity description only; not tool-bound generation reference."
+    },
+    {
+      "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_doctor_outfit_action_silhouette.png",
+      "sha256": "5609ed4bb830bac1f45626ee2a5c802fd1dcbdd263821da268cbd8f2688f6100",
+      "role": "Local inventory/identity description only; not tool-bound generation reference."
+    }
+  ],
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-05",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-READ-01"
+  ],
+  "source_score": null,
+  "native_fit_score": null,
+  "complete_action_score": null,
+  "owner_approval": "PENDING",
+  "runtime_binding": "UNBOUND; originals retained.",
+  "attempt": 6,
+  "preceding_rejected_candidate": {
+    "path": "assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_05_native.png",
+    "sha256": "cb570e0d0406fbdd126dece1fa8d1ede0643aa8c52e6fad2d25dd3bd68fa585a",
+    "score": 4.3,
+    "tool_reference": false
+  },
+  "targeted_change": "Recover drawn anime/storybook identity and moderate child head/body proportions; retain clear attached hands and compact two-lobed tail.",
+  "base_identity_anchor": {
+    "path": "assets/characters/roshan_25d/roshan_base.png",
+    "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+    "role": "Approved base-world identity anchor, directly viewed locally; not tool-uploaded or copied into generated candidate."
+  }
+}

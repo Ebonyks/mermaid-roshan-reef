@@ -28,7 +28,11 @@ const MITTS_PATH := \
 const TARGET_PATH := \
 	"res://assets/opera/worlds/widgets/widget_target_boxer_mark.png"
 const BELT_PATH := "res://assets/opera/worlds/props/goal_boxer.png"
-const PUFF_PATH := "res://assets/opera/worlds/props/fx_bop_puff.png"
+const PUFF_PATH := "res://assets/opera/worlds/props/fx_dust_puff.png"
+const LEFT_GLOVE_PATH := \
+	"res://assets/opera/worlds/widgets/refinement_v1/boxing_glove_left.png"
+const RIGHT_GLOVE_PATH := \
+	"res://assets/opera/worlds/widgets/refinement_v1/boxing_glove_right.png"
 const TELEGRAPH_PATH := \
 	"res://assets/opera/worlds/props/fx_telegraph_ring.png"
 
@@ -78,6 +82,8 @@ var _mitts_texture: Texture2D = null
 var _target_texture: Texture2D = null
 var _belt_texture: Texture2D = null
 var _puff_texture: Texture2D = null
+var _left_glove_texture: Texture2D = null
+var _right_glove_texture: Texture2D = null
 var _telegraph_texture: Texture2D = null
 var _imp_textures: Dictionary = {}
 var _pop_player: AudioStreamPlayer = null
@@ -256,6 +262,8 @@ func _load_resources() -> void:
 		_target_texture = _load_texture(TARGET_PATH)
 		_belt_texture = _load_texture(BELT_PATH)
 		_puff_texture = _load_texture(PUFF_PATH)
+		_left_glove_texture = _load_texture(LEFT_GLOVE_PATH)
+		_right_glove_texture = _load_texture(RIGHT_GLOVE_PATH)
 		_telegraph_texture = _load_texture(TELEGRAPH_PATH)
 	for state: String in [
 		"idle", "windup", "charge", "recover", "guard", "stagger",
@@ -462,8 +470,10 @@ func _handle_drag(finger_id: int, at: Vector2) -> void:
 		return
 	var hand := int(touch_owners[finger_id])
 	var next := at + _touch_offsets[hand]
-	next.x = clampf(next.x, 62.0, size.x - 62.0)
-	next.y = clampf(next.y, 54.0, size.y - 38.0)
+	# Keep the complete painted card inside the canvas at maximum depth/pulse
+	# scale and angle. Every authored target remains inside these safe bounds.
+	next.x = clampf(next.x, 144.0, size.x - 144.0)
+	next.y = clampf(next.y, 152.0, size.y - 128.0)
 	if next.distance_to(glove_positions[hand]) > 2.0:
 		_touch_moved[hand] = true
 	glove_positions[hand] = next
@@ -612,7 +622,7 @@ func _belt_rect() -> Rect2:
 
 func _draw() -> void:
 	# The approved 2K boxer painting remains the stage. This surface adds only
-	# interaction ink, targets, two vector gloves, the approved imp, and FX.
+	# interaction ink, targets, two painted gloves, the approved imp, and FX.
 	draw_rect(Rect2(Vector2.ZERO, size), Color(0.02, 0.03, 0.14, 0.06), true)
 	_draw_progress_lights()
 	_draw_punch_lanes()
@@ -759,46 +769,19 @@ func _glove_depth(hand: int) -> float:
 
 
 func _draw_glove(hand: int) -> void:
+	var texture: Texture2D = _left_glove_texture if hand == 0 else _right_glove_texture
+	if texture == null:
+		return
 	var position := glove_positions[hand]
 	var depth := _glove_depth(hand)
 	var scale_value := 0.92 + depth * 0.38
 	if _impact_t > 0.0 and position.distance_to(_impact_position) < 130.0:
 		scale_value += sin((_impact_t / 0.52) * PI) * 0.10
-	var mirror := 1.0 if hand == 0 else -1.0
 	var angle := (-0.08 if hand == 0 else 0.08) \
 		+ clampf((pointer_pos.x - position.x) / maxf(1.0, size.x), -0.08, 0.08)
-	draw_set_transform(position + Vector2(0.0, 15.0), angle,
-		Vector2(mirror * scale_value, scale_value))
-	draw_circle(Vector2(-4.0, -12.0), 54.0, Color(0.06, 0.03, 0.16, 0.20))
-	draw_circle(Vector2(23.0, -32.0), 35.0, Color(0.06, 0.03, 0.16, 0.20))
-	draw_circle(Vector2(38.0, 5.0), 28.0, Color(0.06, 0.03, 0.16, 0.20))
-	draw_set_transform(position, angle, Vector2(mirror * scale_value, scale_value))
-	# Compound circles give the fist a smooth storybook silhouette without
-	# deriving or regenerating the approved fused glove bitmap.
-	draw_circle(Vector2(-4.0, -12.0), 55.0, INK)
-	draw_circle(Vector2(22.0, -34.0), 36.0, INK)
-	draw_circle(Vector2(37.0, 5.0), 29.0, INK)
-	draw_rect(Rect2(-34.0, 18.0, 61.0, 35.0), INK, true)
-	draw_circle(Vector2(-4.0, -12.0), 49.0, GLOVE_CORAL)
-	draw_circle(Vector2(20.0, -33.0), 30.0, GLOVE_CORAL)
-	draw_circle(Vector2(35.0, 5.0), 23.0, GLOVE_SHADOW)
-	draw_rect(Rect2(-28.0, 17.0, 53.0, 34.0), GLOVE_CORAL, true)
-	draw_arc(Vector2(35.0, 5.0), 23.0, -1.3, 1.8, 20, INK, 4.0, true)
-	draw_arc(Vector2(-5.0, -28.0), 28.0, -2.8, -0.25, 20,
-		Color(GLOVE_LIGHT, 0.68), 5.0, true)
-	draw_line(Vector2(-17.0, -10.0), Vector2(18.0, -6.0),
-		Color(GLOVE_SHADOW, 0.74), 3.5, true)
-	var cuff := CUFF_CORAL if hand == 0 else CUFF_TEAL
-	draw_rect(Rect2(-35.0, 32.0, 70.0, 31.0), INK, true)
-	draw_rect(Rect2(-30.0, 36.0, 60.0, 22.0), cuff, true)
-	draw_line(Vector2(-30.0, 36.0), Vector2(30.0, 36.0),
-		Color("#fff1c9"), 2.0, true)
-	draw_circle(Vector2.ZERO + Vector2(0.0, 47.0), 12.0, PEARL_GOLD)
-	draw_arc(Vector2(0.0, 47.0), 12.0, 0.0, TAU, 20, INK, 3.2, true)
-	for ray in [-0.75, -0.25, 0.25, 0.75]:
-		var direction := Vector2(sin(float(ray)), -cos(float(ray)))
-		draw_line(Vector2(0.0, 49.0), Vector2(0.0, 49.0) + direction * 7.0,
-			Color("#fff0bd"), 2.4, true)
+	# Both complete authored cards already carry their inward thumb direction.
+	draw_set_transform(position, angle, Vector2(scale_value, scale_value))
+	draw_texture_rect(texture, Rect2(-82.0, -91.0, 164.0, 164.0), false)
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 
@@ -808,7 +791,7 @@ func _draw_impact() -> void:
 		var side := 130.0 + amount * 90.0
 		draw_texture_rect(_puff_texture,
 			Rect2(_impact_position - Vector2.ONE * side * 0.5, Vector2.ONE * side),
-			false, Color(1.0, 1.0, 1.0, 1.0 - amount * 0.55))
+			false, Color(1.0, 1.0, 1.0, 1.0 - amount))
 	else:
 		draw_arc(_impact_position, 42.0 + amount * 80.0, 0.0, TAU, 32,
 			Color(BUBBLE, 1.0 - amount), 8.0, true)

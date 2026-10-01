@@ -1,0 +1,59 @@
+{
+  "status": "BROWSER_PICKER_AND_SOURCE_IMAGES_VERIFIED",
+  "url": "http://127.0.0.1:8877/audit/day_two_boxing_puff_reuse_v1_20261001/index.html",
+  "cases": [
+    {
+      "action": "0",
+      "caption": "Frame 39 · t=0.671s · accepted punches=1 · impact state=0.000 (one-frame render/state limit retained)",
+      "frame": "39",
+      "max": "39",
+      "min": "0",
+      "src": "native_timed_reuse_v2/frame_0039.webp"
+    },
+    {
+      "action": "1",
+      "caption": "Frame 78 · t=0.665s · accepted punches=1 · impact state=0.000 (one-frame render/state limit retained)",
+      "frame": "78",
+      "max": "78",
+      "min": "40",
+      "src": "native_timed_reuse_v2/frame_0078.webp"
+    },
+    {
+      "action": "2",
+      "caption": "Frame 117 · t=0.670s · accepted punches=1 · impact state=0.000 (one-frame render/state limit retained)",
+      "frame": "117",
+      "max": "117",
+      "min": "79",
+      "src": "native_timed_reuse_v2/frame_0117.webp"
+    },
+    {
+      "action": "3",
+      "caption": "Frame 156 · t=0.665s · accepted punches=1 · impact state=0.000 (one-frame render/state limit retained)",
+      "frame": "156",
+      "max": "156",
+      "min": "118",
+      "src": "native_timed_reuse_v2/frame_0156.webp"
+    }
+  ],
+  "images": [
+    {
+      "complete": true,
+      "height": 512,
+      "src": "../../assets/opera/worlds/props/fx_bop_puff.png",
+      "width": 512
+    },
+    {
+      "complete": true,
+      "height": 256,
+      "src": "clean_puff_exact_reuse.png",
+      "width": 256
+    },
+    {
+      "complete": true,
+      "height": 720,
+      "src": "native_timed_reuse_v2/frame_0156.webp",
+      "width": 1600
+    }
+  ],
+  "qualification": "DOM source/picker verification and viewport screenshots only; native visual judgments retain explicit evidence bounds."
+}

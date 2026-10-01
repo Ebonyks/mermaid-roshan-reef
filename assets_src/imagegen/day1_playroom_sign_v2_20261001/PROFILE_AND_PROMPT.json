@@ -1,0 +1,47 @@
+{
+  "schema": "reef.playroom-sign-refinement.v1",
+  "status": "FRESH_MATTE_SOURCE_AND_SETTLED_STATIC_NATIVE_FIT_4_6_ORIGINAL_STILL_BOUND",
+  "baseline": "5b8bfb989ca8012924115d45901252808edb9b62",
+  "source_catalog": "audit/day_one_job_art_census_v2_20261001/NATIVE_RESOURCE_CATALOG.json#D1N-0072",
+  "gap": "Published whole-source4.5 drafting opinion remains an inclusive priority: the upper medal ring contains a short dark/tan/cream flat fragment breaking the otherwise scalloped border. This is a local coherence issue, not canvas-edge clipping of the bear.",
+  "reuse_inventory": [
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_playroom.png",
+      "sha256": "22d9a3df8eda3b95ae93250165a64a947b4157a70b4405f90dc4d600edccd7df",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Identity/layout source",
+      "source_modified": false
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_mermaid_pool.png",
+      "sha256": "8ae6239cc8d01eecaa741842b591b2388659ff92929b9dec336e62ffa7ab4033",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Existing sibling medal style source",
+      "source_modified": false
+    },
+    {
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_kitchen.png",
+      "sha256": "7f05f4b227ca10281af798f1ec632c7a662be15797abfc7c5cb15e2682b5d8dd",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Existing sibling medal style source",
+      "source_modified": false
+    }
+  ],
+  "scoped_search": "Relevant room-sign directory and repository filenames were searched for alternate bear/playroom badge/medal sources. Only this bear sign was found in the scoped existing family; water and kitchen medals carry different objective symbols. No suitable clean same-bear source was established. This is one named live navigation-art gap, not an open redesign.",
+  "constraints": "Preserve original and runtime binding. Candidate is non-runtime. Keep generic teddy head identity, warm rounded proportions, cream/gold scalloped frame and navy/plum/lavender contour family; no new scene, canon or protected artwork. New source/style and actual normalized navigation fit must be individually audited before selection.",
+  "prompt": "Use case: illustration-story. Asset type: a single transparent 2D game navigation medallion for the existing toy playroom, replacing only a named uneven top-border defect. Generate a fresh illustration from this text; no uploaded reference images.\nSubject: a friendly honey-brown teddy bear HEAD emblem, round and softly padded, two equal complete round ears with cream inner ears, simple large dark-brown eyes with tiny restrained highlights, a warm cream oval muzzle, small brown nose and a calm little smile. Front view, welcoming and suitable for a four-year-old. Keep the established generic teddy emblem identity; no body, costume, new character, scene or story.\nFrame: one complete circular cream scalloped medal with a coherent honey-gold inner edge, dark navy/plum outer contour, restrained lavender outer shadow. Every top scallop joins cleanly into the continuous ring; no flat dark fragment, tag, ribbon or extra attachment at twelve o'clock. Broad matte painted value bands, rounded toy forms and very restrained soft shading, polished 2D storybook illustration. No metallic realism, fine noise, wet glints, photorealistic fur or 3D render.\nComposition: perfectly centered square transparent canvas. The entire bear-and-medal silhouette is complete and occupies about forty percent of the canvas width and height, matching a generously padded existing256px icon card. True alpha around it, including the large empty margins. All art remains within the canvas. Plain transparent background, no checkerboard pixels, text, letters, symbols, watermark or extra objects. The face must stay readable when the medal itself is rendered about50px wide.",
+  "prompt_sha256": "9e054b03dc690085526a7a33877f4dbc9e3b742e2b002bc4ab9ed750fbb630ba",
+  "generation_method": "Built-in imagegen, fresh text-only, true transparent background; no reference uploads",
+  "acceptance": "No generation/source/native/owner pass yet; original score remains4.5. Source and in-context phone-size readability are separate. Working target4.6 clears the inclusive queue.",
+  "initial_status": "GENERATION_PENDING_SOURCE_AND_NATIVE_REVIEW",
+  "final_review": "assets_src/imagegen/day1_playroom_sign_v2_20261001/REVIEW.json"
+}

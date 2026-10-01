@@ -1,0 +1,111 @@
+{
+	"atlas": {
+		"dimensions": [
+			1024,
+			1024
+		],
+		"path": "res://assets/castle/day_one_pool/activities/refinement_v2/floating_trash_atlas.png",
+		"sha256": "788bbbc3e069036ee66197186dcc93daa3d83c95f939fdcbb41bec785846996d",
+		"slots": [
+			{
+				"method": "Complete512x512 canvas uniformly resized to341x341 then packed; no subject repair",
+				"output_region": [
+					12,
+					0,
+					341,
+					341
+				],
+				"slot": 0,
+				"source": "res://assets_src/imagegen/day1_pool_trash_v2_20261001/normalized512/star-wrapper.png",
+				"source_sha256": "bbb59e70fdd4bfe8dc0da125f5210a6d33d3abadd1e48fec132d6f4e26300793"
+			},
+			{
+				"method": "Complete512x512 canvas uniformly resized to341x341 then packed; no subject repair",
+				"output_region": [
+					352,
+					0,
+					341,
+					341
+				],
+				"slot": 1,
+				"source": "res://assets_src/imagegen/day1_pool_trash_v2_20261001/normalized512/metal-can.png",
+				"source_sha256": "e7b6db7ad8df799cb607df731936d5c464b6cff9beff964115e605091c00a6db"
+			},
+			{
+				"method": "Complete512x512 canvas uniformly resized to341x341 then packed; no subject repair",
+				"output_region": [
+					682,
+					0,
+					341,
+					341
+				],
+				"slot": 2,
+				"source": "res://assets_src/imagegen/day1_pool_trash_v2_20261001/normalized512/blue-cap.png",
+				"source_sha256": "4a6273e255dfc329d2d189e79d4af248724238fab19637e0e9b66bee16360c03"
+			},
+			{
+				"method": "Original341x341 leaf source window copied unchanged",
+				"output_region": [
+					0,
+					341,
+					341,
+					341
+				],
+				"slot": 3,
+				"source": "res://assets/castle/day_one_pool/activities/floating_trash_atlas.png",
+				"source_sha256": "3e04bee28ffa4230e3af9d5e7d87bb9560a7462d7320b6ad8557f10fcecbcb33"
+			},
+			{
+				"method": "Complete512x512 canvas uniformly resized to341x341 then packed; no subject repair",
+				"output_region": [
+					341,
+					341,
+					341,
+					341
+				],
+				"slot": 4,
+				"source": "res://assets_src/imagegen/day1_pool_trash_v2_20261001/normalized512/purple-ribbon.png",
+				"source_sha256": "163be3d7524ed7f82ca6ad45bdf586f443a4ffa3700819a9ec21242916e3a2f1"
+			},
+			{
+				"method": "Complete512x512 canvas uniformly resized to341x341 then packed; no subject repair",
+				"output_region": [
+					682,
+					341,
+					341,
+					341
+				],
+				"slot": 5,
+				"source": "res://assets_src/imagegen/day1_pool_trash_v2_20261001/normalized512/yellow-sponge.png",
+				"source_sha256": "56f7bd81f1bc7496fe9f1df5350898657f92064705b1271337c86ab2ce1a19e3"
+			}
+		]
+	},
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"original_atlas_sha256": "3e04bee28ffa4230e3af9d5e7d87bb9560a7462d7320b6ad8557f10fcecbcb33",
+	"owner_accepted": false,
+	"qualification": "Technical packing only; original approved leaf and complete selected source pixels preserved. No new generated subject, source edit, mounted/action/device acceptance.",
+	"schema": "reef.pool-runtime-packing.v1",
+	"skimmer": {
+		"dimensions": [
+			1024,
+			1024
+		],
+		"fit": "205x205 logical card preserves205px painted width; pixel sockets unchanged by padding",
+		"method": "Complete1024x683 canvas copied at0,0 into transparent1024POT canvas; source pixels unchanged",
+		"path": "res://assets/castle/day_one_pool/activities/refinement_v2/pool_skimmer.png",
+		"sha256": "58a3fe0772490ee20260720524f49088d8c12a6ddf93305370d30175041c4242",
+		"source": "res://assets_src/imagegen/day1_pool_skimmer_v2_20261001/normalized1024/pool-skimmer.png",
+		"source_sha256": "d002da9e32688e570280d7bf62885a63714e0c6d59d177d6ad1375a669e9932c"
+	}
+}

@@ -1,0 +1,13 @@
+{
+  "status": "PASS_SCOPED_DESKTOP_WASH_VIEWER_CONTROLS",
+  "case_count": 8,
+  "case_final_frame_checks": "wash_viewer_checks_v5.json",
+  "screenshots": [
+    "wash_viewer_doctor_v5.png",
+    "wash_viewer_nursery_v5.png"
+  ],
+  "native_keys_directly_reviewed": 108,
+  "total_captured_native_frames": 1520,
+  "every_native_frame_directly_reviewed": false,
+  "qualification": "Eight case selections and keyboard final-frame controls checked at desktop1265px, no horizontal overflow in recorded DOM. Current screenshots show controls and part of corresponding native view. This is local browser behavior/layout evidence only; responsive layout, ordinary gameplay actions, remaining frames and device/child/owner acceptance remain pending."
+}

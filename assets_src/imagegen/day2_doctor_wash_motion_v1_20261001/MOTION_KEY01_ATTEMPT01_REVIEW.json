@@ -1,0 +1,23 @@
+{
+  "status": "CANDIDATE_AT_SOURCE_FLOOR_UNBOUND",
+  "checked_utc": "2026-10-01T23:04:32.189288+00:00",
+  "id": "WASH-DOCTOR-MOTION-KEY01",
+  "path": "assets_src/imagegen/day2_doctor_wash_motion_v1_20261001/motion_key01_attempt01_native.png",
+  "sha256": "0c27e3a4e643b596161c06ebc1946ce9a58e87a1c9835b054ba42142223a5214",
+  "source_score": 4.5,
+  "identity_score": 4.5,
+  "hand_contact_source_score": 4.5,
+  "evaluation": "The same warm child face, doctor coat, broad pastel tail and intact two-lobed fin remain registered with the prior draft. One attached hand now strokes the back of the other, with readable finger contact and attached lather. The static painted source meets the4.5 floor; original-body/native contact and continuous rubbing remain unreviewed.",
+  "alpha_evaluation": "The apparent bright red flecks in the transparency display are alpha1/255 RGB samples. Direct original-size white and aqua composites show no visible disconnected red cluster. No manual alpha deletion, mask, colour cleanup or pixel repair was applied; do not misreport raw hidden/near-hidden RGB as an opaque subject defect.",
+  "source_input": "assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_06_native.png",
+  "source_input_sha256": "3ada2bd00859314ece42ccffa2dc20aae9543086b1161d6e8336689021c99d2c",
+  "direct_review": [
+    "Built-in generated full RGBA output",
+    "Original-size neutral white and aqua compositing views"
+  ],
+  "mounted_score": null,
+  "continuous_motion_score": null,
+  "complete_action_score": null,
+  "owner_accepted": false,
+  "qualification": "Source-only floor. A consecutive key may have small finger travel; exact hand/body registration, native sink contact, full action, current runtime, device, child and owner acceptance remain pending. Original bindings unchanged."
+}

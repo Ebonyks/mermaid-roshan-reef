@@ -1,0 +1,92 @@
+{
+  "status": "FOUR_EXTRA_SETTLED_FINAL_VIEWS_DIRECTLY_REVIEWED",
+  "updated_utc": "2026-10-01T18:03:29.794629+00:00",
+  "supplied_frame_count": 168,
+  "directly_viewed_frame_indices": [
+    42,
+    84,
+    127,
+    167
+  ],
+  "frames": [
+    {
+      "imp_state": "taunt",
+      "impact_position": [
+        550.400024414063,
+        230.399993896484
+      ],
+      "impact_time": 0.0,
+      "index": 42,
+      "landed_punches": 1,
+      "mode": "boxing_jab",
+      "path": "frame_0042.webp",
+      "phase_progress": 1.0,
+      "seconds": 0.719707,
+      "sha256": "0fb4f758fdccc307d526e25fb0abcfc64f443712e536af05a51d7f7d3c31c590",
+      "source": "res://assets/opera/worlds/props/fx_dust_puff.png",
+      "source_sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+      "touch_owners": {},
+      "width": 1280
+    },
+    {
+      "imp_state": "guard",
+      "impact_position": [
+        640.0,
+        309.600006103516
+      ],
+      "impact_time": 0.0,
+      "index": 84,
+      "landed_punches": 1,
+      "mode": "boxing_imp",
+      "path": "frame_0084.webp",
+      "phase_progress": 1.0,
+      "seconds": 0.709009,
+      "sha256": "a53e27f4bb08222a14b5f4174835fc9e603b4343dd049824b471867c739900b4",
+      "source": "res://assets/opera/worlds/props/fx_dust_puff.png",
+      "source_sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+      "touch_owners": {},
+      "width": 1280
+    },
+    {
+      "imp_state": "taunt",
+      "impact_position": [
+        550.400024414063,
+        230.399993896484
+      ],
+      "impact_time": 0.0,
+      "index": 127,
+      "landed_punches": 1,
+      "mode": "boxing_jab",
+      "path": "frame_0127.webp",
+      "phase_progress": 1.0,
+      "seconds": 0.726276,
+      "sha256": "400844b75d1a086f34f32a4511243d7459e7931eb6001182b00b0b69dd6aa286",
+      "source": "res://assets/opera/worlds/props/fx_dust_puff.png",
+      "source_sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+      "touch_owners": {},
+      "width": 1600
+    },
+    {
+      "imp_state": "guard",
+      "impact_position": [
+        640.0,
+        309.600006103516
+      ],
+      "impact_time": 0.0,
+      "index": 167,
+      "landed_punches": 1,
+      "mode": "boxing_imp",
+      "path": "frame_0167.webp",
+      "phase_progress": 1.0,
+      "seconds": 0.744271,
+      "sha256": "45bed6fc74ef46a0109f7976b93ca754a34eb2fd22b551fa30f0c7df1ca1c30c",
+      "source": "res://assets/opera/worlds/props/fx_dust_puff.png",
+      "source_sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+      "touch_owners": {},
+      "width": 1600
+    }
+  ],
+  "settled_final_puff_absence_score": 4.6,
+  "complete_action_score": null,
+  "opinion": "All four complete native final views directly inspected. Three extra rendered frames after the first zero engine-state capture show the puff fully cleared at both1280 and1600 widths in jab and imp modes. The remaining164 supplied frames are not newly visually reviewed; no v2 whole-action score is inherited by this attempt."
+}

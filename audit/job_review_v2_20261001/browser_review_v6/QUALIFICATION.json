@@ -1,0 +1,54 @@
+{
+  "status": "SCOPED_PASS_CURRENT_REGISTER_AND_TWO_REVIEW_PAGES",
+  "checked_utc": "2026-10-01T23:16:36.484221+00:00",
+  "register_counts": {
+    "sources": 1150,
+    "pose_cells": 240,
+    "prop_regions": 38,
+    "entries": 1428,
+    "inclusive_source_priorities": 555,
+    "unassigned_source_reviews": 403
+  },
+  "wash_viewer": {
+    "viewport": [
+      1280,
+      720
+    ],
+    "selected_case": "opera_training_doctor_1280",
+    "selected_index": 255,
+    "displayed_frame": "256/256",
+    "measured_time_seconds": 8.51,
+    "frame_native_dimensions": [
+      1280,
+      720
+    ],
+    "loaded_images": 5,
+    "horizontal_overflow": false,
+    "control": "DOM-grounded range End selected the final exact recorded frame; next disabled."
+  },
+  "motion_page": {
+    "viewport": [
+      1280,
+      720
+    ],
+    "loaded_images": 4,
+    "each_native_dimensions": [
+      1122,
+      1402
+    ],
+    "horizontal_overflow": false
+  },
+  "proofs": [
+    {
+      "path": "audit/job_review_v2_20261001/browser_review_v6/wash_route_browser_final_v29.png",
+      "bytes": 108264,
+      "sha256": "c6bf077bf034dcd830b7a2c625e51230d8dd3cfe33108c81cef507648d9b2494"
+    },
+    {
+      "path": "audit/job_review_v2_20261001/browser_review_v6/doctor_motion_browser_v29.png",
+      "bytes": 108143,
+      "sha256": "d84025dd3c7f54afb5519c400d36d5f4c1c141fc9ace675e478306c79fd2ec78"
+    }
+  ],
+  "qualification": "Browser resource/interaction and layout evidence only. Screenshots are viewport portions, not complete full-resolution source review or every recorded native frame. No new mounted/action score, device/child/owner acceptance, ordinary full Main/menu route or remote publication."
+}

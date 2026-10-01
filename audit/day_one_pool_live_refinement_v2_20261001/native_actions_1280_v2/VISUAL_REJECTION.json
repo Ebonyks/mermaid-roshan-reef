@@ -1,0 +1,13 @@
+{
+  "status": "REJECTED_DUPLICATE_BASKET",
+  "reviewer": "Codex",
+  "basis": "Direct full1280 native initialframe0000,wrapperlateframe0080 and finalframe0426. Complete remaining action frames/video not yet directly reviewed.",
+  "machine_checks": {
+    "total": 23,
+    "failed": 0
+  },
+  "context_score": 4.1,
+  "complete_action_score": null,
+  "observed_failure": "An existing local seahorse basket at145x112 and higher z overlays the new230x178 skimmer basket. The enlarged candidate exposes two nested handles/bodies. Source confirms seahorse_activity.z70 plus basket.z320=390, above skimmer.z210 plus stored.z176=386. This also explains the first attempt contents occlusion; small stored25px/spacing remain independently poor.",
+  "next_attempt": "Bind shared skimmer basket explicitly from DayOnePoolCleanup and hide rescue local basket in that composed context. Preserve standalone rescue basket. Verify one visible basket, all restored contents, sibling rescue targets and all six native carries."
+}

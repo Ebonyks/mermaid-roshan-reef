@@ -1,0 +1,16 @@
+from pathlib import Path
+import json
+r=Path(__file__).resolve().parents[1]
+folder=r/'audit/job_artwork_refinement_live'
+register=json.loads((folder/'ALL_ITEMS.json').read_text());c=register['counts']
+paragraph=(f"Known individual job-art register (2026-10-01): [searchable source and pose library](job_artwork_refinement_live/all_items.html) combines the earlier Day One/Day Two discovery inventories and current production-image snapshot into {c['unique_source_files']} source files, {c['individual_pose_cells']} pose cells and6 current pool prop regions ({c['registered_items']} addressable entries). {c['inclusive_current_source_priorities']} source opinions are inclusive priorities at or below4.5; {c['unreviewed_current_source']} current source reviews remain unassigned, including changed-byte opinions. Source hashes, historical evaluations, native-reference qualifications and later individual refinements remain explicit. Shared candidates are not exhaustive actual-use coverage. No new visual opinion, complete-action pass, finding closure or owner acceptance follows from registration. [Impact](../design/audit_impacts/day-two-boxing-live-refinement-v1-20261001.json).\n\n")
+p=r/'audit/MASTER_AUDIT_2026-08-09.md';s=p.read_text();assert 'Known individual job-art register (2026-10-01)' not in s;s=s.replace('## 0. Planning entry\n\n','## 0. Planning entry\n\n'+paragraph,1);p.write_text(s,encoding='utf-8',newline='\n')
+p=r/'audit/findings/ACTIVE_FINDINGS_2026-08-13.md';s=p.read_text();needle='FullCI/ordinary routes/device/child/owner/global acceptance remain open; lifecycle unchanged. |';assert needle in s;s=s.replace(needle,'FullCI/ordinary routes/device/child/owner/global acceptance remain open; lifecycle unchanged. 2026-10-01 known-item registration: [individual source/pose register](../job_artwork_refinement_live/all_items.html) retains exact-byte earlier source opinions and explicit changed/unreviewed status; candidate discovery and reference observations confer no new visible/action acceptance. |',1);p.write_text(s,encoding='utf-8',newline='\n')
+p=r/'ASSET_LICENSES.md';s=p.read_text()
+for file in sorted(folder.glob('browser_*_register_v1.png')):
+ rel=file.relative_to(r).as_posix()
+ if '`'+rel+'`' not in s:s+=f'| `{rel}` | Mermaid Roshan project artwork / local review browser screenshot | Existing source provenance; review evidence | Local project | Complete browser capture of individual written/source review; originals unchanged, no new artwork or acceptance |\n'
+p.write_text(s,encoding='utf-8',newline='\n')
+impact=r/'design/audit_impacts/day-two-boxing-live-refinement-v1-20261001.json';d=json.loads(impact.read_text());d['files']=sorted(set(d['files'])|{p.relative_to(r).as_posix() for p in folder.rglob('*') if p.is_file()});d['validation'].append(dict(command='Known-item register source hashing and observed real browser search/filter/pagination',result='PASS',evidence='audit/job_artwork_refinement_live/ALL_ITEMS.json; BROWSER_CONTROLS_V1.json; registration only, not new artwork or complete-action acceptance.'))
+impact.write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
+print('Registered bounded library evidence and history; lifecycle unchanged.')

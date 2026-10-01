@@ -1,0 +1,61 @@
+{
+  "status": "GENERATION_PENDING_UNBOUND",
+  "baseline": "5b8bfb989ca8012924115d45901252808edb9b62",
+  "source_revision": "8e41deaf34f925869395cd8ab0affefe89f89ab5",
+  "gap": "WASH-DOCTOR-WORK-POSE-01: approved work row has stethoscope, hand/tool-at-face and bandage poses, no intact two-hands soap-washing pose. Source and concept inventory examined; two signature-action concept cards depict stethoscope/patient examination. Existing painted sink is reusable and will not be regenerated. Selected actual washing views score work meaning2.7; approach/contact remains separately unproved.",
+  "use_case": "illustration-story",
+  "method": "Built-in image_gen fresh text-only generation; no images bound/uploaded or copied as appearance pixels.",
+  "prompt": "Generate one fresh complete connected Doctor Roshan hands-washing sprite on a SQUARE canvas, not a long portrait. Actual transparent RGBA outside the character. This is a 2D storybook game cutout and a missing work pose, not a redesign.\n\nSilhouette is the main constraint: the whole sprite fits a nearly square silhouette, width about80\u201390% of its height. The child is upright in front three-quarter view, with a compact torso. One single moderately short fish tail starts under the purple waistband, curves down in a broad C, then curls BACK UP on the right. Its one modest connected two-lobed fish fin ends to the right of the lower coat, around waist-to-lower-torso height, not hanging far below. Keep the face/head narrower than the flowing hair mass; the head must not dominate the torso. Leave clean transparent margins on all sides and show the entire hair, body and both fin lobes.\n\nText identity lock: warm peach small child mermaid, friendly large drawn brown eyes, brown soft bangs and caramel-brown wavy hair sweeping to her right; one broad pastel rainbow hair lock with a small cream pearl flower clip. Ivory short-sleeved little doctor's coat with coral collar/cuffs/hem, small rounded heart badge, teal blouse with tiny gold buttons, purple waistband; little ivory/coral medical pouch at the right hip. Gentle lavender-pink-purple/rainbow tail scales, simplified and matte. Two arms attach naturally to the shoulders and meet in front just below the chest, rubbing a small cream/mint soap lather. Look attentively down at the hands. No medical tool held, no bottle or bandage. No legs, feet, extra tails/arms or other characters.\n\nFinish: polished 2D painted storybook cutout with restrained dark plum/brown contours, clear rounded forms, broad calm painted colour bands and soft simple aqua/lavender shadow shapes. Friendly drawn facial features; preserve a child sprite's proportions. Softer illustrated line weight than a heavy vector icon, while keeping crisp contours. No realistic skin or fingers, 3D/glass gloss, hair-strand rendering, glitter/refraction, ambient glow, shadow plate, opaque backdrop, water jets, sink, text, UI or camera effects. One intact fresh sprite only. Square composition with the compact curling-up tail and modest fin is essential.",
+  "prompt_sha256": "78d6a12e630def5ab1e897d7e5a2362afddcc048dcf530489f36afe2dfd852ef",
+  "text_identity_inventory": [
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_doctor_sheet_a.png",
+      "sha256": "bfffbd5389d63f8c9337a132bb20e09abbd4d8fc8471ec406fba2d722106a50e",
+      "role": "Local inventory/identity description only; not tool-bound generation reference."
+    },
+    {
+      "path": "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_doctor_sheet_a_native.png",
+      "sha256": "9d36ff75b1d1b7c6116fe7a4d3411ce960a88465ed557dcd83acef26f45de2aa",
+      "role": "Local inventory/identity description only; not tool-bound generation reference."
+    },
+    {
+      "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_doctor_outfit_signature_action_pose.png",
+      "sha256": "9f3c69bd8275c43bb43778f62d2d550c3cb3ae8614e8e32496f1663997a444be",
+      "role": "Local inventory/identity description only; not tool-bound generation reference."
+    },
+    {
+      "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_doctor_outfit_action_silhouette.png",
+      "sha256": "5609ed4bb830bac1f45626ee2a5c802fd1dcbdd263821da268cbd8f2688f6100",
+      "role": "Local inventory/identity description only; not tool-bound generation reference."
+    }
+  ],
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-05",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-READ-01"
+  ],
+  "source_score": null,
+  "native_fit_score": null,
+  "complete_action_score": null,
+  "owner_approval": "PENDING",
+  "runtime_binding": "UNBOUND; originals retained.",
+  "attempt": 3,
+  "preceding_rejected_candidate": {
+    "path": "assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_02_native.png",
+    "sha256": "7961d8a57e66c5dfb970e9b759dabe01c9bc90743f2fafd9fac01908970b055d",
+    "score": 4.3,
+    "tool_reference": false
+  },
+  "targeted_change": "Compact approved-family near-square silhouette and upward curled tail; keep the flatter storybook finish and connected soap gesture."
+}

@@ -1,0 +1,53 @@
+{
+  "status": "GENERATION_PENDING_UNBOUND",
+  "baseline": "5b8bfb989ca8012924115d45901252808edb9b62",
+  "source_revision": "8e41deaf34f925869395cd8ab0affefe89f89ab5",
+  "gap": "WASH-DOCTOR-WORK-POSE-01: approved work row has stethoscope, hand/tool-at-face and bandage poses, no intact two-hands soap-washing pose. Source and concept inventory examined; two signature-action concept cards depict stethoscope/patient examination. Existing painted sink is reusable and will not be regenerated. Selected actual washing views score work meaning2.7; approach/contact remains separately unproved.",
+  "use_case": "illustration-story",
+  "method": "Built-in image_gen fresh text-only generation; no images bound/uploaded or copied as appearance pixels.",
+  "prompt": "Create ONE original full-body transparent-background 2D storybook game sprite: Doctor Roshan carefully rubbing her two soapy hands together at upper-waist height. This is a fresh generation of the missing washing pose, one connected character, not floating hands and not a sprite sheet.\n\nIdentity and costume: a cheerful small child mermaid with a round face, big warm brown eyes, short soft brown bangs and flowing caramel-brown hair sweeping to her right. One broad pastel rainbow lock runs through the rightward hair, with a tiny cream pearl flower hairclip. Warm peach skin. Ivory short-sleeved little doctor coat with coral-peach collar, cuffs and hem, a small rounded coral heart badge; teal buttoned blouse, purple waistband; a small cream/coral medical pouch at the right hip. Her single continuous gently curved fish tail has pastel iridescent lavender-pink-purple/rainbow scales and ends in one connected two-lobed fish fin sweeping to her right. No legs, feet, separate tails, wing fins, adult anatomy or glamour.\n\nAction and geometry: full head, hair, shoulders, two attached arms, torso and entire curved tail visible, in a front three-quarter view. Both elbows stay close to her sides; her forearms and clearly joined small hands meet just below the chest, gently rubbing a modest cream/mint soap lather. The hands are the readable working focus, away from her face. Her attentive gaze points down toward her own working hands. No medical tool held, no bottle, bandage, patient or other character. No basin/background included: the existing painted shell sink will be reused independently. Keep the head/body/fin silhouette quiet and stable, with generous transparent margins.\n\nArt finish: polished hand-painted 2D children's storybook toy-playset art, clear rounded shapes, restrained navy/plum contours, broad flat painted value bands, soft aqua/lavender shadows, matte cream/mint foam and calm pastel colours. Friendly child proportions and simple readable fingers. No photoreal skin, realistic hands, 3D/PBR gloss, glass refraction, skin pores, harsh lighting, excessive tiny detail, neon fringe, UI frame, lettering, water jets, ground/shadow plate or opaque background. Actual clean RGBA transparency outside the complete intact sprite.",
+  "prompt_sha256": "42f1404a2695a9f352e284da9a7434d95de6da8512b4fc9f3358be5034a69f8a",
+  "text_identity_inventory": [
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_doctor_sheet_a.png",
+      "sha256": "bfffbd5389d63f8c9337a132bb20e09abbd4d8fc8471ec406fba2d722106a50e",
+      "role": "Local inventory/identity description only; not tool-bound generation reference."
+    },
+    {
+      "path": "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_doctor_sheet_a_native.png",
+      "sha256": "9d36ff75b1d1b7c6116fe7a4d3411ce960a88465ed557dcd83acef26f45de2aa",
+      "role": "Local inventory/identity description only; not tool-bound generation reference."
+    },
+    {
+      "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_doctor_outfit_signature_action_pose.png",
+      "sha256": "9f3c69bd8275c43bb43778f62d2d550c3cb3ae8614e8e32496f1663997a444be",
+      "role": "Local inventory/identity description only; not tool-bound generation reference."
+    },
+    {
+      "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_doctor_outfit_action_silhouette.png",
+      "sha256": "5609ed4bb830bac1f45626ee2a5c802fd1dcbdd263821da268cbd8f2688f6100",
+      "role": "Local inventory/identity description only; not tool-bound generation reference."
+    }
+  ],
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-05",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-READ-01"
+  ],
+  "source_score": null,
+  "native_fit_score": null,
+  "complete_action_score": null,
+  "owner_approval": "PENDING",
+  "runtime_binding": "UNBOUND; originals retained."
+}

@@ -1,0 +1,10 @@
+from pathlib import Path
+import json,shutil
+r=Path('C:/Users/Peter/.codex/worktrees/job-art-review-v2-20261001/mermaid-roshan-reef')
+family=r/'audit/job_review_v2_20261001';tool=family/'review_tools'
+paths=['audit/job_review_v2_20261001/failed_probe_diagnostics_v1/RECEIPT.json']
+allow=r/'tmp/v2_preview_allowed.json';d=set(json.loads(allow.read_text()));assert all((r/p).is_file() for p in paths);d.update(paths);allow.write_text(json.dumps(sorted(d),indent=2)+'\n',encoding='utf-8');shutil.copyfile(allow,tool/'V2_PREVIEW_ALLOWED.json')
+(tool/'DIAGNOSTIC_LINK_CORRECTION_V9.json').write_text(json.dumps({'status':'EXACT_MISSING_LOCAL_LINK_ADDED','paths':paths,'prior_failure':'audit/job_review_v2_20261001/resource_checks_v4/RECEIPT.json','qualification':'The3945-resource run preserves one404 from this new direct-probe receipt, with18 exact video range checks passing. Only its exact known authored path is added; loopback scope and all server restrictions unchanged. New resource retry pending.'},indent=2)+'\n',encoding='utf-8')
+old=tool/'check_distinct_review_resources_v5.py';new=tool/'check_distinct_review_resources_v6.py';assert not new.exists();code=old.read_text().replace("resource_checks_v4';assert","resource_checks_v5';assert").replace('executed_check_distinct_review_resources_v5.py','executed_check_distinct_review_resources_v6.py').replace('resource_checks_v4/RECEIPT.json','resource_checks_v5/RECEIPT.json').replace("'command':'check_distinct_review_resources_v5.py'","'command':'check_distinct_review_resources_v6.py'");new.write_text(code,encoding='utf-8')
+shutil.copyfile(Path(__file__),tool/'executed_fix_review_diagnostic_link_and_retry_v9.py')
+p=r/'design/audit_impacts/job-review-separate-v2-20261001.json';impact=json.loads(p.read_text());impact['files']=sorted(set(impact['files']+[x.relative_to(r).as_posix() for x in family.rglob('*') if x.is_file()]));p.write_text(json.dumps(impact,indent=2)+'\n',encoding='utf-8');print('Added one exact missing diagnostic path; prior404 preserved; checkerV6 prepared.')

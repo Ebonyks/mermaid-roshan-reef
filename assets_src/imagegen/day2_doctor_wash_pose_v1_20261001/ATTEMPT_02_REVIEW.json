@@ -1,0 +1,35 @@
+{
+  "status": "REJECTED_UNBOUND_SOURCE",
+  "reviewed_utc": "2026-10-01T21:54:12.464140+00:00",
+  "native_path": "assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_02_native.png",
+  "native_sha256": "7961d8a57e66c5dfb970e9b759dabe01c9bc90743f2fafd9fac01908970b055d",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-33681976-7e8c-4183-9d43-ce864ecf6e04.png",
+  "method": "Built-in image_gen fresh text-only transparent request; native RGBA preserved. No images bound.",
+  "prompt_sha256": "81cfd39fd20cf36a930f6d9d478131d69c080c87fdc12a18cb03197cc0bb06c1",
+  "source_score": 4.3,
+  "gesture_meaning_score": 4.6,
+  "style_finish_score": 4.6,
+  "identity_silhouette_score": 4.2,
+  "native_fit_score": null,
+  "complete_action_score": null,
+  "evaluation": "Flat colour bands, stronger plum contour, matte lather and smaller fin improve the storybook finish. The source remains a narrow portrait silhouette with a long low tail, instead of the approved near-square doctor cutout with its tail curling back up to the side. Head/hair width and simplified facial design also change the approved family. These identity/silhouette differences remain below the4.5 target; source4.3 rejected, despite promising finish/gesture4.6. Test no runtime binding or full action from this draft.",
+  "technical": {
+    "mode": "RGBA",
+    "dimensions": [
+      1024,
+      1536
+    ],
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "alpha_ge16_bbox": [
+      118,
+      19,
+      937,
+      1455
+    ],
+    "silhouette_width_over_height": 0.5703342618384402
+  },
+  "owner_approval": "PENDING"
+}

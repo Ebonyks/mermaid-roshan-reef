@@ -1,0 +1,32 @@
+{
+  "status": "PASS_SCOPED_DESKTOP_BROWSER_LAYOUT_AND_SOURCE_PREVIEW",
+  "checked_utc": "2026-10-01T21:32:54.181175+00:00",
+  "screenshots": [
+    {
+      "path": "audit/job_review_v2_20261001/browser_review_v2/wash_register_v2_browser_corrected.png",
+      "sha256": "9208a86b659daa52942881efa750784f358c4ea6ff53a9e978d01bfd839ff0fb",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\tmp\\wash_register_v2_browser_corrected.png",
+      "modifications": "Exact screenshot bytes; no crop or pixel modification.",
+      "visual_review": "DIRECT"
+    },
+    {
+      "path": "audit/job_review_v2_20261001/browser_review_v2/wash_register_v2_browser_source_fixed.png",
+      "sha256": "32bf568805fa6bc048ac2a902e8d6efff19ac40126a1aad6d6cf2d01dda8902e",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\tmp\\wash_register_v2_browser_source_fixed.png",
+      "modifications": "Exact screenshot bytes; no crop or pixel modification.",
+      "visual_review": "DIRECT"
+    }
+  ],
+  "observed_width": 1265,
+  "observed_scroll_width": 1265,
+  "foam_search_matches": 3,
+  "shared_sink_search": "D2X-0001: one visible loaded image using audit/day2_job_contexts_2026-09-30/art/D2X-0001.webp",
+  "broken_observed_images": 0,
+  "resource_receipt": "audit/job_review_v2_20261001/resource_checks_v3/RECEIPT.json",
+  "preserved_failures": [
+    "audit/job_review_v2_20261001/browser_review_v1/REVIEW.json",
+    "audit/job_review_v2_20261001/resource_checks_v1/FAILURE.json",
+    "audit/job_review_v2_20261001/resource_checks_v2/RECEIPT.json"
+  ],
+  "qualification": "Only refreshed desktop layout, relevant searches, declared resource reachability and native-video byte ranges checked. All registered source/native/action, ordinary game routes, phone, child and owner acceptance remain separate."
+}

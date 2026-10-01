@@ -1,0 +1,32 @@
+{
+  "status": "PRESERVED_PRE_CORRECTION_OBSERVATIONS",
+  "screenshots": [
+    {
+      "path": "audit/job_review_v2_20261001/browser_review_v1/wash_review_v2_browser_summary.png",
+      "sha256": "8ae330f484e29b6e222a863db06e9efffe47965fd96879803687a715ecde3acd",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\tmp\\wash_review_v2_browser_summary.png",
+      "modifications": "Exact screenshot bytes; no crop or pixel modification.",
+      "review": "DIRECT",
+      "qualification": "Local desktop browser review, not game/device/child/owner acceptance."
+    },
+    {
+      "path": "audit/job_review_v2_20261001/browser_review_v1/wash_review_v2_browser_foam.png",
+      "sha256": "32d702afb3e6c2ec12ad559cd6398a4fe09f9d6571d3847032e5c670e7a6ca58",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\tmp\\wash_review_v2_browser_foam.png",
+      "modifications": "Exact screenshot bytes; no crop or pixel modification.",
+      "review": "DIRECT",
+      "qualification": "Local desktop browser review, not game/device/child/owner acceptance."
+    },
+    {
+      "path": "audit/job_review_v2_20261001/browser_review_v1/wash_register_v2_browser.png",
+      "sha256": "b77eb67aa20219e3bb784f991af8a47191b84abaceab1536c83bdd020abf017c",
+      "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\tmp\\wash_register_v2_browser.png",
+      "modifications": "Exact screenshot bytes; no crop or pixel modification.",
+      "review": "DIRECT",
+      "qualification": "Local desktop browser review, not game/device/child/owner acceptance."
+    }
+  ],
+  "register_failure": "Long foam source identifier extends the third card and introduces horizontal page scrolling at the observed browser width. The earlier control receipt does not establish V2 layout acceptance.",
+  "foam_review": "Source image loads and explicit source-only score is displayed; long page needs scrolling to inspect its full image.",
+  "corrected_browser_review": "PENDING"
+}

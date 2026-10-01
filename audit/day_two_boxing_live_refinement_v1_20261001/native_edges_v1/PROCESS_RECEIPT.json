@@ -1,0 +1,107 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-10-01T18:37:57.940620+00:00",
+  "processes": [
+    {
+      "name": "parser",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/opera_boxing_surface.gd",
+        "audit/day_two_boxing_live_refinement_v1_20261001/capture_edge_gloves_v1.gd"
+      ],
+      "exit": 0,
+      "seconds": 1.695825100003276
+    },
+    {
+      "name": "inference",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/opera_boxing_surface.gd",
+        "audit/day_two_boxing_live_refinement_v1_20261001/capture_edge_gloves_v1.gd"
+      ],
+      "exit": 0,
+      "seconds": 0.11560699995607138
+    },
+    {
+      "name": "analyzer_0",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "res://scripts/opera_boxing_surface.gd"
+      ],
+      "exit": 0,
+      "seconds": 0.6464741000090726
+    },
+    {
+      "name": "analyzer_1",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "res://audit/day_two_boxing_live_refinement_v1_20261001/capture_edge_gloves_v1.gd"
+      ],
+      "exit": 0,
+      "seconds": 5.558561799989548
+    },
+    {
+      "name": "native",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--windowed",
+        "--resolution",
+        "1280x720",
+        "--script",
+        "res://audit/day_two_boxing_live_refinement_v1_20261001/capture_edge_gloves_v1.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 14.312407699995674
+    }
+  ],
+  "source_before": {
+    "project.godot": "2587e8f6cbd52d437f6a08198d26a80465ee0e86868bc9f03526134f0cd6e770",
+    "scenes/main.tscn": "064ca94c2eca6638eafe169c5fedeb6310a9ef31e5941351e7c41b2934263db7",
+    "scripts/main.gd": "98d91a560426cfa4c52a70221a0311856429c031805d7d9dc990eefe2affe30e",
+    "scripts/opera_boxing_surface.gd": "4cd5095284ee31c81cafbdb8f941ccc294c12bdaa74fe44721240fd712675182",
+    "scripts/opera_career_world_2d.gd": "f58088a214bffb8ceb68a01c771e20241a32d987ac180b4be51be236247922ae",
+    "scripts/opera_gesture_surface.gd": "c28a885f68f2b16c66fcdaa5c4243ce9695a44d4ce015e56832ca392114cbedb",
+    "audit/day_two_boxing_live_refinement_v1_20261001/capture_edge_gloves_v1.gd": "77e1d4fab27507b57d356246525d31ffa8aaaa4b10ebdd88acd7aaddb6e3411e",
+    "assets/opera/worlds/props/fx_dust_puff.png": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+    "assets/opera/worlds/widgets/refinement_v1/boxing_glove_left.png": "8749d71eb5cdd5f84dc5a9bd96197b8ec6ac808b51333cd31bce9e1a032176ea",
+    "assets/opera/worlds/widgets/refinement_v1/boxing_glove_right.png": "6a748cb12f71b81f4b9d01cf08bdf14d99831c48a13530288dc537ef4bc150b9"
+  },
+  "source_after": {
+    "project.godot": "2587e8f6cbd52d437f6a08198d26a80465ee0e86868bc9f03526134f0cd6e770",
+    "scenes/main.tscn": "064ca94c2eca6638eafe169c5fedeb6310a9ef31e5941351e7c41b2934263db7",
+    "scripts/main.gd": "98d91a560426cfa4c52a70221a0311856429c031805d7d9dc990eefe2affe30e",
+    "scripts/opera_boxing_surface.gd": "4cd5095284ee31c81cafbdb8f941ccc294c12bdaa74fe44721240fd712675182",
+    "scripts/opera_career_world_2d.gd": "f58088a214bffb8ceb68a01c771e20241a32d987ac180b4be51be236247922ae",
+    "scripts/opera_gesture_surface.gd": "c28a885f68f2b16c66fcdaa5c4243ce9695a44d4ce015e56832ca392114cbedb",
+    "audit/day_two_boxing_live_refinement_v1_20261001/capture_edge_gloves_v1.gd": "77e1d4fab27507b57d356246525d31ffa8aaaa4b10ebdd88acd7aaddb6e3411e",
+    "assets/opera/worlds/props/fx_dust_puff.png": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+    "assets/opera/worlds/widgets/refinement_v1/boxing_glove_left.png": "8749d71eb5cdd5f84dc5a9bd96197b8ec6ac808b51333cd31bce9e1a032176ea",
+    "assets/opera/worlds/widgets/refinement_v1/boxing_glove_right.png": "6a748cb12f71b81f4b9d01cf08bdf14d99831c48a13530288dc537ef4bc150b9"
+  },
+  "source_unchanged": true,
+  "qualification": "Current production source local-handler/native actual local-handler boundary fixture checks. Engine import diagnostics retained. No ordinary-route, continuous playback, phone or owner acceptance."
+}

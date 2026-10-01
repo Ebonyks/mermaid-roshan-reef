@@ -1,0 +1,8 @@
+{
+  "status": "FAIL_NEIGHBOR_PIXELS_IN_REGION_GUTTER",
+  "evidence": "craft_region_register_scrolled_v12.png",
+  "diagnosis": "Image scaling preserves atlas geometry, but a220-square clip is wider than a uniformly scaled256x454 cell. Extra neighbouring cells remain visible in the side gutter. It is a review-gallery crop error, not a source-art or runtime change.",
+  "correction": "Use the selected cell actual scaled width/height as the clipping viewport; remove centering offsets from the full-atlas image. New browser proof pending.",
+  "responsive_qualification": "The requested390px override affected the register (375px content) but not the doctor/wash tab (1265px content and screenshot). Those wrongly named mobile screenshots are desktop evidence; no doctor/wash phone-width pass is claimed.",
+  "source_png_changes": 0
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "probe": "probe_mg2d",
+    "command": [
+      "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef",
+      "-s",
+      "scripts/probe_mg2d.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "started_utc": "2026-10-01T22:05:46.461119+00:00",
+    "finished_utc": "2026-10-01T22:06:00.944538+00:00",
+    "elapsed_seconds": 14.483005399990361,
+    "exit_code": 0,
+    "timeout": false,
+    "failure_lines": [],
+    "last_12_lines": [
+      "  trampoline: WON (6.0s)",
+      "  xmas: WON (6.4s)",
+      "  snowball settle feedback/progression: OK (3/3)",
+      "  snowman carrot authored angle survives moving chase: OK",
+      "  garden growth + bounded win feedback: OK (10/10)",
+      "  feedback teardown/re-entry: OK (4 closes, 4 fresh)",
+      "MG2D|done: OK",
+      "",
+      "WARNING: 16 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+      "   at: cleanup (core/object/object.cpp:2536)",
+      "ERROR: 8 resources still in use at exit (run with --verbose for details).",
+      "   at: clear (core/io/resource.cpp:822)"
+    ],
+    "stdout_sha256": "eec4f252aedc64db5b227589de1a727d8c042fab87b4f8cea3b0620b9d0eceea",
+    "stderr_sha256": "ad2e58cae79fc0161254abc4a56d9f8d3eb66aca270fe257aea77d616c1be251"
+  },
+  {
+    "probe": "probe_audit",
+    "command": [
+      "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+      "--headless",
+      "--path",
+      "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef",
+      "-s",
+      "scripts/probe_audit.gd",
+      "--",
+      "--touch",
+      "--classic-touch-test"
+    ],
+    "started_utc": "2026-10-01T22:06:00.948960+00:00",
+    "finished_utc": "2026-10-01T22:06:34.603780+00:00",
+    "elapsed_seconds": 33.653859100013506,
+    "exit_code": 0,
+    "timeout": false,
+    "failure_lines": [],
+    "last_12_lines": [
+      "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_2_v2.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+      "   at: load_from_file (core/io/image.cpp:2780)",
+      "   GDScript backtrace (most recent call first):",
+      "       [0] _slide_check_assets (res://scripts/probe_audit.gd:835)",
+      "       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:386)",
+      "       [2] _init (res://scripts/probe_audit.gd:141)",
+      "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/sprites/sky_lagoon/roshan_playground/roshan_slide_3_v2.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+      "   at: load_from_file (core/io/image.cpp:2780)",
+      "   GDScript backtrace (most recent call first):",
+      "       [0] _slide_check_assets (res://scripts/probe_audit.gd:835)",
+      "       [1] _audit_slide_canvas (res://scripts/probe_audit.gd:386)",
+      "       [2] _init (res://scripts/probe_audit.gd:141)"
+    ],
+    "stdout_sha256": "ec3863c112b0f92e8c17104512822b34b7b9ae71390d109f45e78dd4079b7a90",
+    "stderr_sha256": "666ce44da768308fd34a43793bdf95814f9023b12e70933e3b82c1221101688b"
+  }
+]

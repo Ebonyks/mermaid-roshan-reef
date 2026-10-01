@@ -1,0 +1,61 @@
+{
+  "status": "GENERATION_PENDING_UNBOUND",
+  "baseline": "5b8bfb989ca8012924115d45901252808edb9b62",
+  "source_revision": "8e41deaf34f925869395cd8ab0affefe89f89ab5",
+  "gap": "WASH-DOCTOR-WORK-POSE-01: approved work row has stethoscope, hand/tool-at-face and bandage poses, no intact two-hands soap-washing pose. Source and concept inventory examined; two signature-action concept cards depict stethoscope/patient examination. Existing painted sink is reusable and will not be regenerated. Selected actual washing views score work meaning2.7; approach/contact remains separately unproved.",
+  "use_case": "illustration-story",
+  "method": "Built-in image_gen fresh text-only generation; no images bound/uploaded or copied as appearance pixels.",
+  "prompt": "ONE full-body Doctor Roshan sprite, rubbing her attached two hands together in small matte cream/mint soap lather just below her chest. Front three-quarter view, looking gently down at her hands. Square composition and clean real RGBA transparency.\n\nUse FLAT 2D inked storybook cartoon drawing: clear dark plum/brown contour lines, broad simple colour fills, one soft flat lavender shadow shape. No 3D modelling, realistic skin, hair strands, glossy eyes, glitter, light halos or gradient background. Friendly drawn brown eyes and simple small nose/smile. Warm peach skin; brown bangs and flowing rounded brown hair with one broad pastel rainbow lock and a cream pearl flower clip. Keep the head/face compact relative to the body, not a chibi oversized head. Ivory short-sleeved doctor coat with coral collar/cuffs/hem and small heart badge; teal gold-buttoned blouse; purple waistband; small ivory/coral medical pouch at her right hip.\n\nOne single lavender-pink-purple/rainbow-scaled fish tail, moderately short and broad, curves down from the waist then curls UP to the right in a wide C. The tail tip ends beside the lower coat. At that one tip there is ONE connected forked fish fin with TWO distinct rounded lobes: an upper fan and lower fan joined to the same tail stem, a clear V-shaped notch between them. Do not make a single leaf fin, extra flippers or multiple tails. Use simple matte pastel painted scales and fin bands. Make the complete figure about80\u201390% as wide as it is tall; generous fully transparent margins, full hair and both fin lobes in frame. No legs/feet, detached hands, bottle/bandage/tool held, sink, patient, text, UI, ground or shadow plate. One intact fresh sprite, not a sheet.",
+  "prompt_sha256": "fa3a3e0b00358aaa5a0f2983a3f7c3d9190fd5fb36f92d5945677d2170ba2c07",
+  "text_identity_inventory": [
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_doctor_sheet_a.png",
+      "sha256": "bfffbd5389d63f8c9337a132bb20e09abbd4d8fc8471ec406fba2d722106a50e",
+      "role": "Local inventory/identity description only; not tool-bound generation reference."
+    },
+    {
+      "path": "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_doctor_sheet_a_native.png",
+      "sha256": "9d36ff75b1d1b7c6116fe7a4d3411ce960a88465ed557dcd83acef26f45de2aa",
+      "role": "Local inventory/identity description only; not tool-bound generation reference."
+    },
+    {
+      "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_doctor_outfit_signature_action_pose.png",
+      "sha256": "9f3c69bd8275c43bb43778f62d2d550c3cb3ae8614e8e32496f1663997a444be",
+      "role": "Local inventory/identity description only; not tool-bound generation reference."
+    },
+    {
+      "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_doctor_outfit_action_silhouette.png",
+      "sha256": "5609ed4bb830bac1f45626ee2a5c802fd1dcbdd263821da268cbd8f2688f6100",
+      "role": "Local inventory/identity description only; not tool-bound generation reference."
+    }
+  ],
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-05",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-READ-01"
+  ],
+  "source_score": null,
+  "native_fit_score": null,
+  "complete_action_score": null,
+  "owner_approval": "PENDING",
+  "runtime_binding": "UNBOUND; originals retained.",
+  "attempt": 4,
+  "preceding_rejected_candidate": {
+    "path": "assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_03_native.png",
+    "sha256": "5735b2e315012b6e31b513aea62d19a6031486eaf64d72407f822be927ea2000",
+    "score": 3.9,
+    "tool_reference": false
+  },
+  "targeted_change": "Restore flat finish; maintain compact curling-up tail and explicit approved connected two-lobed fin topology."
+}
