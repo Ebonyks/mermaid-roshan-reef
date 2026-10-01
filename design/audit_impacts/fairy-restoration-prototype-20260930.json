@@ -117,7 +117,18 @@
     "scripts/probe_fairy_restoration.gd",
     "scripts/audio_director.gd",
     "scripts/probe_voice.gd",
-    "tools/build_fairy_restoration_voices.py"
+    "tools/build_fairy_restoration_voices.py",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/FULL_CI_FINAL_DIRECT_LOG.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/REMOTE_VERIFICATION.json",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/FULL_CI_FINAL_WRAPPER_LOG.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/DIRECT_NATIVE_RECHECK_LOG.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/WINDOWS_NATIVE_FULL_TRUSTED_LOG.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/NATIVE_WINDOWS_PROBE_RUNNER.ps1",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/NATIVE_RUNNER_FILTER_RECHECK.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/WINDOWS_NATIVE_INITIAL_ATTEMPT_LOG.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/WINDOWS_NATIVE_FIXED_CLOCK_CONTINUATION_LOG.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/WINDOWS_NATIVE_ISOLATED_ENGINE_CONTINUATION_LOG.txt",
+    "assets_src/prototypes/fairy_restoration_2026-09-30/review/ISOLATED_ENGINE_VERIFICATION.json"
   ],
   "validation": [
     {
@@ -194,6 +205,46 @@
       "command": "Reconcile origin/dev b52fc32a2ad676fd9b235c0f3d6f1aba829cea77; exact import, parser/inference, authority/coverage, 844-row audio reproduction and live faerie probe",
       "result": "PASS",
       "evidence": "ALPHA_RECONCILIATION_LOG.txt and LOCAL_GATE_RECEIPT.json preserve actual import/audio/probe transcripts. Both tasks' license entries and all incoming alpha runtime, voice, finding-history and existing CI changes are retained. Independent audio output has 844 rows: every value equals incoming dev except picture_garden.ogg runtime_reference_count 0 to 1. Canonical CSV is byte-identical to that reproduced LF output, SHA-256 9a2b99994bb71dc65f0fc8c772707dfe00f88be16474ac84e0c037f19016913e; summary values equal reproduction; scoped CSV eol=lf prevents merge-generated CRLF from breaking its hash. Audio-audit 25 tests pass. DOCAUTH 588/588 and AUDITDEV incoming-parent coverage ALL OK. Exact 4.7.2 import and final live faerie probe exit 0 with no script errors or probe warnings; all 41 art/music/voice hashes remain unchanged. No prototype runtime change or production/protected-asset edit against this incoming parent. Earlier 821-row checks retain their earlier candidate scope; combined-head CI remains required."
+    },
+    {
+      "command": "Original scripts/ci.sh using official Godot 4.7.2 console launcher through Git Bash",
+      "result": "FAIL",
+      "evidence": "Final source 33a2c8e3cd86bb4a0dd9d372f6463095c666668d: all static/art/audio/import/2D gates pass, but native processes return abnormal exits [{'probe': 'probe_passive', 'exit': 127}, {'probe': 'probe_l2', 'exit': 127}, {'probe': 'probe_combat', 'exit': 127}]. FULL_CI_FINAL_WRAPPER_LOG.txt SHA-256 1891eee7dc6995ef2a5d3730037476a96a75a20de5ac0c5279b583d6e7db3c8f preserves the failed full run. No script or assertion failure accompanies the engine banners. The unchanged passive and Sky Lagoon probes pass with godot.exe directly; DIRECT_NATIVE_RECHECK_LOG.txt SHA-256 8f92f728209d748ae61b7ab3359b3700a85729ffab07e863041d1a597f687206 records those exact rechecks. This failed attempt never grants a pass."
+    },
+    {
+      "command": "Original scripts/ci.sh with official Godot 4.7.2 directly through Git Bash",
+      "result": "FAIL",
+      "evidence": "Final source 33a2c8e3cd86bb4a0dd9d372f6463095c666668d: original entry point unchanged; all static/art/authority/audio/import/2D stages pass, but the full attempt remains FAILED with abnormal native process exits [{'probe': 'probe_passive', 'exit': 127}, {'probe': 'probe_verbs', 'exit': 127}, {'probe': 'probe_kart_feel', 'exit': 127}]. FULL_CI_FINAL_DIRECT_LOG.txt SHA-256 da9b84c615c0a0d0661c68ce78262398d2eefe246a74b3dd91969a185d180537 and LOCAL_GATE_RECEIPT.json preserve actual output and source binding. Bypassing the console launcher alone did not resolve the local Bash/native process problem."
+    },
+    {
+      "command": "Native Windows uncapped combat tutorial",
+      "result": "FAIL",
+      "evidence": "WINDOWS_NATIVE_INITIAL_ATTEMPT_LOG.txt SHA-256 a01d32373a2651786013fe6f07bd7aa60933b77e8404d12c6d585206ca3ceab0 preserves the complete initial attempt. Despite native exit 0, two charge/wave assertions FAIL; original failure guards correctly block the run. The test waits 20 frames at time_scale 6 and assumes that exceeds the production 1.75-second charge threshold. No probe or gameplay is patched."
+    },
+    {
+      "command": "Native Windows continuation after the fixed-clock tutorial",
+      "result": "FAIL",
+      "evidence": "WINDOWS_NATIVE_FIXED_CLOCK_CONTINUATION_LOG.txt SHA-256 65ad8daac56d908ede13842d1bec70efcd1ad8a6db5dd31ab09d51a147ca7670 preserves the passing unchanged tutorial and following probes, then an Opera process abort with observed native exit -1. No failed process grants a pass."
+    },
+    {
+      "command": "Uniquely named identical official Windows engine continuation",
+      "result": "FAIL",
+      "evidence": "WINDOWS_NATIVE_ISOLATED_ENGINE_CONTINUATION_LOG.txt SHA-256 f0d012f702c977a27d3523c2e3f5213d082e5da34663c0c250111229dbc13175 records Opera through balance passing, then start-menu native Windows access violation exit -1073741819 (0xC0000005). Identical official engine-byte verification is archived. This full attempt remains FAILED; process-name isolation did not fully resolve native Windows instability."
+    },
+    {
+      "command": "All original static/art/audio/import/inventory stages plus permitted source-bound probe-by-probe obligations",
+      "result": "PASS",
+      "evidence": "Final source 33a2c8e3cd86bb4a0dd9d372f6463095c666668d: all original pre-probe stages and all 82 ordered probe obligations have complete passing executions, with original scripts, touch modes, profiles and guards. Tutorial alone uses official --fixed-fps 60 so its existing 20-frame/time_scale 6 hold represents two simulated seconds; no gameplay/probe/assertion changes. Composite successful evidence consists of literal passing native prefixes plus the final six successful original Bash blocks; every raw failed attempt and composition byte offsets/hashes remain archived. WINDOWS_NATIVE_FULL_TRUSTED_LOG.txt SHA-256 bb1074e45d94649941b86c19683ea2c847034f2131167c87eda6b8838e4709d9 and receipts bind exact source. This does not claim a green uninterrupted local run or resolved Windows startup stability; full exact-source CI is green. Human/device acceptance remains open."
+    },
+    {
+      "command": "Final combined-code GitHub Probe suite and public GitHub byte verification",
+      "result": "PASS",
+      "evidence": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36785254581 succeeds on exact code 33a2c8e3cd86bb4a0dd9d372f6463095c666668d; both probes and area-music-provenance jobs succeed. REMOTE_VERIFICATION.json records public unauthenticated raw access and SHA-256/bytes for all 38 prototype-packet/runtime and scoped voice-repair files. Full gates are machine evidence, not child/device/listening/owner acceptance."
+    },
+    {
+      "command": "Documentation-only reconcile with origin/dev 29bbd80aeb539b45b1f34bb93324883addf8b0c8; exact validated runtime/CI identity and incoming-parent authority/coverage",
+      "result": "PASS",
+      "evidence": "Incoming Opera imp-contest revisions 2\u20134 preserved. No scripts/assets/scenes/shaders/tools/.github/project.godot/export_presets.cfg/.gitattributes diff from green 33a2c8e3cd86bb4a0dd9d372f6463095c666668d. DL-INT-14 learning-career supplement remains scoped to competitive Opera and does not apply to cooperative faerie restoration. Mandatory document and impact gates rechecked before commit; original task baseline preserved."
     }
   ],
   "acceptance_gaps": "Isolated prototype only. Final sick-tree/cut-fruit/hand-tool artwork, contextual art approval, synthetic-voice listening/intelligibility, production route/save/reward integration, device/child/owner acceptance and game-wide strict-zero 2D acceptance remain open. Exact new spoken cues are additive assets outside protected voices. No protected original changes, cinematics or paid commission."

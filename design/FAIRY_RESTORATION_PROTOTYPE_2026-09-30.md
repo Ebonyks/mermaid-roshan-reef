@@ -107,6 +107,12 @@ Exact selected paths, source SHA-256, dimensions, protection and roles:
 | `picture_garden.ogg` | Existing garden score, not a newly composed cue | Quiet familiar activity bed, ducked under voice | Reuse; new cue ownership ends with scene teardown |
 
 New authored raster-art count: zero; native review screenshots are evidence.
+The same licensed story-prop family also contains `fruit_orange.png`,
+`fruit_melon.png` and `fruit_banana.png`. These are ingredient-variety candidates
+for a later pass; the orange was visually inspected and keeps the apple family's
+painted outline and palette. This first prototype uses three apples so the
+tree-to-table consequence can be reviewed before adding more choices. Whole-fruit
+reuse does not resolve the separately identified cut-face art gap.
 Source originals are unchanged. Sprite region cropping
 for split apples is a temporary runtime state visualization, not raster asset
 editing or a cinematic technique. Cut faces, sick-tree/healthy-tree action states,
@@ -175,7 +181,8 @@ retains the speech channel. The shared AudioDirector repair permits an exact
 Opera/Chapter Two activity objective to supersede that obsolete route/phase cue;
 generic talk/win/pearl and Day One required FIFO keep their priorities. No
 recording or prototype artwork changes. Source-bound baseline and sibling
-checks are in the task impact; full branch CI remains required. The newer
+checks are in the task impact. Final code `33a2c8e3` passes all local gate stages
+using the permitted probe-by-probe path and the [GitHub Probe suite](https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36785254581). All 82 original native probes pass; the fixed-frame combat tutorial uses the official 60-fps clock while its code and 1.75-second charge threshold remain unchanged. Bash/native process failures and the initial uncapped tutorial assertion failure remain honestly archived. The review packet preserves raw attempts, the success-log composition, runner and receipts. The newer
 job-game audit at dev 83d7e1ed is preserved. Its interim recipe uses the delegated
 standalone-prototype extension path here; no permanent career, star bit or
 takeover-playbook implementation is added.

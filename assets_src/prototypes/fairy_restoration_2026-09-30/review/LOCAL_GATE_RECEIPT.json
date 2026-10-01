@@ -1,6 +1,6 @@
 {
   "baseline": "285355eb9e09a29aa4ac53d36874e31419d4674e",
-  "status": "ALL_LOCAL_GATE_STAGES_PASS_WITH_DOCUMENTED_RESUME",
+  "status": "CI_SOURCE_VERIFIED_LOCAL_PROBE_BY_PROBE_OBLIGATIONS_PASS_WITH_ENGINE_LIMITATIONS",
   "original_entrypoint": "scripts/ci.sh",
   "original_sha256_raw": "be4f8be5513a865c508142812fd17bb915e82cb72716f126e9043efa4c4d4f1f",
   "original_sha256_utf8_lf": "2cf93b7c9191252a1259b12aebf308ffc241b126e3d6e2bf5e08ecd4a6886e0c",
@@ -95,5 +95,129 @@
     "prototype_runtime": "Unchanged; all original review screenshots retain source binding",
     "check_time_utc": "2026-09-30T22:22:47.006980+00:00",
     "acceptance": "Scoped machine repair; full new combined-source branch CI and human listening/child/owner acceptance remain separate."
+  },
+  "final_wrapper_run": {
+    "revision": "33a2c8e3cd86bb4a0dd9d372f6463095c666668d",
+    "entrypoint": "scripts/ci.sh",
+    "exit": 1,
+    "engine_invocation": "Official Godot 4.7.2 godot_console.exe through original Bash timeout commands",
+    "log": "FULL_CI_FINAL_WRAPPER_LOG.txt",
+    "log_sha256": "1891eee7dc6995ef2a5d3730037476a96a75a20de5ac0c5279b583d6e7db3c8f",
+    "nonzero_probes": [
+      {
+        "probe": "probe_passive",
+        "exit": 127
+      },
+      {
+        "probe": "probe_l2",
+        "exit": 127
+      },
+      {
+        "probe": "probe_combat",
+        "exit": 127
+      }
+    ],
+    "scope": "Every static/art/audio/import/inventory gate passes; preserve the abnormal native process exits as failures. The unchanged affected probes and then the full original gate are rerun with godot.exe directly; no assertions or gate scripts change.",
+    "direct_recheck_log": "DIRECT_NATIVE_RECHECK_LOG.txt",
+    "direct_recheck_sha256": "8f92f728209d748ae61b7ab3359b3700a85729ffab07e863041d1a597f687206"
+  },
+  "final_direct_bash_run": {
+    "revision": "33a2c8e3cd86bb4a0dd9d372f6463095c666668d",
+    "entrypoint": "scripts/ci.sh",
+    "entrypoint_sha256_utf8_lf": "ca52d4b29e561de3a88c24de22134119903be17b65edf8c3770bf868102aa77e",
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "engine_invocation": "Official godot.exe directly; excludes godot_console.exe launcher",
+    "log": "FULL_CI_FINAL_DIRECT_LOG.txt",
+    "log_sha256": "da9b84c615c0a0d0661c68ce78262398d2eefe246a74b3dd91969a185d180537",
+    "exit": 1,
+    "trusted_probes": {
+      "expected": 82,
+      "completed": 82,
+      "nonzero_exits": [
+        {
+          "probe": "probe_passive",
+          "exit": 127
+        },
+        {
+          "probe": "probe_verbs",
+          "exit": 127
+        },
+        {
+          "probe": "probe_kart_feel",
+          "exit": 127
+        }
+      ]
+    },
+    "environment": "Clean same-repository checkout; TEMP/TMP on H; original entry point unmodified; no ignored local addon payload.",
+    "check_time_utc": "2026-10-01T01:24:39.055457+00:00",
+    "scope": "All original static/art/authority/audio/import/2D regression stages pass. The full attempt remains FAILED because the original Bash launch path produces abnormal native process exits; these are never counted as successful probes."
+  },
+  "final_native_trusted_probes": {
+    "revision": "33a2c8e3cd86bb4a0dd9d372f6463095c666668d",
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "expected": 82,
+    "completed": 82,
+    "nonzero_exits": 0,
+    "log": "WINDOWS_NATIVE_FULL_TRUSTED_LOG.txt",
+    "log_sha256": "bb1074e45d94649941b86c19683ea2c847034f2131167c87eda6b8838e4709d9",
+    "runner": "NATIVE_WINDOWS_PROBE_RUNNER.ps1",
+    "runner_sha256": "df49bb06fb413c59373a9519e33d4d3b46fa7c23c66036a00187be02edc82809",
+    "invocation": "AGENTS.md permits probe-by-probe validation. Original ordered scripts, original per-probe touch mode, isolated APPDATA/LOCALAPPDATA and eight-minute timeout; native Windows Start-Process supervision observes HasExited/ExitCode. Original failure/resource guards retained. The unchanged combat-tutorial probe uses the official --fixed-fps 60 clock: its 20-frame hold at time_scale 6 represents two simulated seconds against the unchanged 1.75-second charge threshold. No gameplay/probe code or assertion is changed.",
+    "check_time_utc": "2026-10-01T01:24:39.055457+00:00",
+    "scope": "All 82 ordered local probe obligations have complete passing source-bound executions, with zero exits and original failure guards clear. Initial case-filter correction matches the original case-sensitive guard. Uncapped tutorial assertion failure remains FAILED; unchanged tutorial passes with official --fixed-fps 60. Subsequent native Opera exit -1 remains FAILED. A uniquely named SHA-256-identical official copy passes Opera through balance, then Windows startup access violation remains FAILED. The final six unchanged menu/art probes already passed both original Bash attempts and full source CI; their actual successful blocks supply the final obligations. Composite success evidence is explicitly probe-by-probe, not a claimed green uninterrupted local run. All original static/art/audio/import/inventory stages pass. Windows native process/crash limitations remain open; full source CI is green.",
+    "runner_filter_recheck": "NATIVE_RUNNER_FILTER_RECHECK.txt",
+    "runner_filter_recheck_sha256": "2676804a3cd89710a3012f34e3781d2a5c1ea2487aaa98cfc7b157171d2fa09b",
+    "initial_native_attempt": {
+      "log": "WINDOWS_NATIVE_INITIAL_ATTEMPT_LOG.txt",
+      "sha256": "a01d32373a2651786013fe6f07bd7aa60933b77e8404d12c6d585206ca3ceab0",
+      "result": "FAIL",
+      "failure": "Uncapped fixed-frame combat tutorial: 2 assertions fail"
+    },
+    "success_log_composition": {
+      "initial_prefix_bytes": 161767,
+      "initial_prefix_sha256": "060ae50fa6de72226ef0b1a7421b7be0715343bf973a6eb7e0eaef089e5be2d3",
+      "clock_prefix_bytes": 17670,
+      "clock_prefix_sha256": "cf05ea859b863515620d68a6d9a28ddcb20993621cd413e4b1120e261de0d6f9",
+      "clock_attempt_log": "WINDOWS_NATIVE_FIXED_CLOCK_CONTINUATION_LOG.txt",
+      "clock_attempt_sha256": "65ad8daac56d908ede13842d1bec70efcd1ad8a6db5dd31ab09d51a147ca7670",
+      "isolated_prefix_bytes": 188992,
+      "isolated_prefix_sha256": "21fb5d8ae31deb7423e99e0dee1601d4d06e45d97e9112dd82547d2fe9b3e1c7",
+      "isolated_attempt_log": "WINDOWS_NATIVE_ISOLATED_ENGINE_CONTINUATION_LOG.txt",
+      "isolated_attempt_sha256": "f0d012f702c977a27d3523c2e3f5213d082e5da34663c0c250111229dbc13175",
+      "final_six_bash_suffix_source": "FULL_CI_FINAL_DIRECT_LOG.txt",
+      "final_six_bash_suffix_bytes": 12533,
+      "final_six_bash_suffix_sha256": "72d84d47acaf7adf779500995bb8f174b925a0b0ebde47a564a115af2465378f"
+    },
+    "isolated_engine": {
+      "source": "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot.exe",
+      "copy": "H:/CodexWorktrees/mermaid-roshan-reef/fairy-restoration-final-validation-20260930/tmp/fairy_restoration_review/reef_validation_472.exe",
+      "sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+      "reason": "Unique process name for local isolation; official engine bytes unchanged",
+      "check_time_utc": "2026-10-01T01:05:58.6510131Z"
+    }
+  },
+  "final_remote_ci": {
+    "revision": "33a2c8e3cd86bb4a0dd9d372f6463095c666668d",
+    "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36785254581",
+    "result": "success",
+    "check_time_utc": "2026-10-01T01:24:39.055457+00:00"
+  },
+  "final_document_reconciliation": {
+    "incoming_dev": "29bbd80aeb539b45b1f34bb93324883addf8b0c8",
+    "validated_code_revision": "33a2c8e3cd86bb4a0dd9d372f6463095c666668d",
+    "runtime_ci_paths_compared": [
+      "scripts",
+      "assets",
+      "scenes",
+      "shaders",
+      "tools",
+      ".github",
+      "project.godot",
+      "export_presets.cfg",
+      ".gitattributes"
+    ],
+    "changed_runtime_ci_paths": [],
+    "scope": "Preserves incoming Opera imp-contest specification revisions 2\u20134; documentation/evidence changes only. Cooperative faerie jobs retain their scope. Authority and incoming-parent impact coverage rechecked before commit.",
+    "acceptance": "Machine evidence only; visual, listening, device, child and owner acceptance remain open."
   }
 }

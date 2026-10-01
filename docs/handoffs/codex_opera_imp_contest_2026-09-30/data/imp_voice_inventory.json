@@ -9,7 +9,8 @@
     "routed_today": 2,
     "planned_contest_use": 36,
     "planned_with_nursery_option_b": 39,
-    "new_lines": 25,
+    "new_lines": 67,
+    "new_lines_if_geologist_confirmed": 9,
     "new_lines_if_nursery_option_b": 2
   },
   "imp_lines": [
@@ -1056,6 +1057,398 @@
       "state": "TO_GENERATE_IF_OPTION_B"
     },
     {
+      "career": "geologist",
+      "speaker": "imp",
+      "key": "op_geologist_challenge",
+      "file": "assets/audio/voices/filler_v1/imp_op_geologist_challenge.ogg",
+      "text": "My turn to teach! Can you spot my silly mistakes?",
+      "state": "TO_GENERATE_IF_CONFIRMED"
+    },
+    {
+      "career": "geologist",
+      "speaker": "roshan",
+      "key": "op_geologist_contest",
+      "file": "assets/audio/voices/filler_v1/roshan_op_geologist_contest.ogg",
+      "text": "The imp is teaching it wrong! Tap his mistake to fix it!",
+      "state": "TO_GENERATE_IF_CONFIRMED"
+    },
+    {
+      "career": "geologist",
+      "speaker": "imp",
+      "key": "op_geologist_arrive",
+      "file": "assets/audio/voices/filler_v1/imp_op_geologist_arrive.ogg",
+      "text": "Hello! I'm the field guide! Rocks are my favourite snack!",
+      "state": "TO_GENERATE_IF_CONFIRMED"
+    },
+    {
+      "career": "geologist",
+      "speaker": "imp",
+      "key": "op_geologist_claim_fossil",
+      "file": "assets/audio/voices/filler_v1/imp_op_geologist_claim_fossil.ogg",
+      "text": "Look at my perfect fossil! It's a dinosaur's belly button!",
+      "state": "TO_GENERATE_IF_CONFIRMED"
+    },
+    {
+      "career": "geologist",
+      "speaker": "imp",
+      "key": "op_geologist_claim_rocks",
+      "file": "assets/audio/voices/filler_v1/imp_op_geologist_claim_rocks.ogg",
+      "text": "These rocks are all the same! Like three peas in a pod!",
+      "state": "TO_GENERATE_IF_CONFIRMED"
+    },
+    {
+      "career": "geologist",
+      "speaker": "imp",
+      "key": "op_geologist_defeat",
+      "file": "assets/audio/voices/filler_v1/imp_op_geologist_defeat.ogg",
+      "text": "You know more about rocks than me! My head must be a rock!",
+      "state": "TO_GENERATE_IF_CONFIRMED"
+    },
+    {
+      "career": "geologist",
+      "speaker": "imp",
+      "key": "op_geologist_silly_rock_claim",
+      "file": "assets/audio/voices/filler_v1/imp_op_geologist_silly_rock_claim.ogg",
+      "text": "These are all rocks! Crunchy crunchy!",
+      "state": "TO_GENERATE_IF_CONFIRMED"
+    },
+    {
+      "career": "geologist",
+      "speaker": "imp",
+      "key": "op_geologist_silly_rock_right",
+      "file": "assets/audio/voices/filler_v1/imp_op_geologist_silly_rock_right.ogg",
+      "text": "Ow, my teeth! That one's a real rock!",
+      "state": "TO_GENERATE_IF_CONFIRMED"
+    },
+    {
+      "career": "geologist",
+      "speaker": "imp",
+      "key": "op_geologist_silly_rock_tricked",
+      "file": "assets/audio/voices/filler_v1/imp_op_geologist_silly_rock_tricked.ogg",
+      "text": "Hee hee! Tricked you! That's a real rock!",
+      "state": "TO_GENERATE_IF_CONFIRMED"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_challenge",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_challenge.ogg",
+      "text": "My turn to be the teacher! Can you catch my silly mistakes?",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "roshan",
+      "key": "op_teacher_contest",
+      "file": "assets/audio/voices/filler_v1/roshan_op_teacher_contest.ogg",
+      "text": "The imp is teaching it wrong! Tap the right answer to fix it!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_arrive",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_arrive.ogg",
+      "text": "Hello, class! I'm the new teacher! I know everything! I think.",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_claim_pattern",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_claim_pattern.ogg",
+      "text": "Easy peasy, lemon squeezy! This one comes next!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_claim_count",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_claim_count.ogg",
+      "text": "One, two, three... eleventy-twelve! It's this many!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_claim_add",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_claim_add.ogg",
+      "text": "Two plus one makes... a banana! No wait. This many!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_claim_match",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_claim_match.ogg",
+      "text": "Look! These two are twins! Same, same, same!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_defeat",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_defeat.ogg",
+      "text": "You're the real teacher! I'll go sit in the silly corner.",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_smell_ask",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_smell_ask.ogg",
+      "text": "Which smells the worst? Farts, garbage, old diapers, or rotten cheese?",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_smell_claim",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_smell_claim.ogg",
+      "text": "I know! This pretty rose! Pee-yew!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_smell_right",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_smell_right.ogg",
+      "text": "Pee-yew! That's so stinky! I'm gonna faint!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_smell_tricked",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_smell_tricked.ogg",
+      "text": "Hee hee! Tricked you! Roses smell nice!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_loud_ask",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_loud_ask.ogg",
+      "text": "Which is the loudest? A burp, a big drum, a roaring lion, or a fire truck?",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_loud_claim",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_loud_claim.ogg",
+      "text": "Easy! This teeny tiny mouse! Squeak!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_loud_right",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_loud_right.ogg",
+      "text": "Ow, my ears! That's so loud!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_loud_tricked",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_loud_tricked.ogg",
+      "text": "Hee hee! Tricked you! Mice are super quiet!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_big_ask",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_big_ask.ogg",
+      "text": "Which is the biggest? A whale, an elephant, a dinosaur, or a castle?",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_big_claim",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_big_claim.ogg",
+      "text": "I know! This itty bitty ant! Look at its muscles!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_big_right",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_big_right.ogg",
+      "text": "Whoa! That's so big! I feel teeny!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_big_tricked",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_big_tricked.ogg",
+      "text": "Hee hee! Tricked you! Ants are tiny!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_sticky_ask",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_sticky_ask.ogg",
+      "text": "Which is the stickiest? Honey, bubble gum, a booger, or slime?",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_sticky_claim",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_sticky_claim.ogg",
+      "text": "This fluffy feather! It sticks to everything!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_sticky_right",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_sticky_right.ogg",
+      "text": "Eww! My fingers are stuck together!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_sticky_tricked",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_sticky_tricked.ogg",
+      "text": "Hee hee! Tricked you! Feathers float away!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_cold_ask",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_cold_ask.ogg",
+      "text": "Which is the coldest? Ice cream, a snowman, an ice cube, or a penguin?",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_cold_claim",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_cold_claim.ogg",
+      "text": "Brrr! The sun! It's freezing!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_cold_right",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_cold_right.ogg",
+      "text": "Brrr! My toes are frozen!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_cold_tricked",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_cold_tricked.ogg",
+      "text": "Hee hee! Tricked you! The sun is hot!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_slow_ask",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_slow_ask.ogg",
+      "text": "Which is the slowest? A snail, a turtle, a sloth, or a slug?",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_slow_claim",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_slow_claim.ogg",
+      "text": "Zoom! This rocket is soooo slow!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_slow_right",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_slow_right.ogg",
+      "text": "Sooo... slooow... Yaaawn!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_slow_tricked",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_slow_tricked.ogg",
+      "text": "Hee hee! Tricked you! Rockets go zoom!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_squishy_ask",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_squishy_ask.ogg",
+      "text": "Which is the squishiest? Jelly, a marshmallow, mud, or a whoopee cushion?",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_squishy_claim",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_squishy_claim.ogg",
+      "text": "This hard rock! Squishy squishy!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_squishy_right",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_squishy_right.ogg",
+      "text": "Squish! So squishy!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_squishy_tricked",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_squishy_tricked.ogg",
+      "text": "Hee hee! Tricked you! Rocks are hard!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_yucky_ask",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_yucky_ask.ogg",
+      "text": "Which is the yuckiest to eat? A mud pie, a wiggly worm, a stinky sock, or soap?",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_yucky_claim",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_yucky_claim.ogg",
+      "text": "Yuck! This cupcake!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_yucky_right",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_yucky_right.ogg",
+      "text": "Bleh! Yucky yucky yuck!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "teacher",
+      "speaker": "imp",
+      "key": "op_teacher_silly_yucky_tricked",
+      "file": "assets/audio/voices/filler_v1/imp_op_teacher_silly_yucky_tricked.ogg",
+      "text": "Hee hee! Tricked you! Cupcakes are yummy!",
+      "state": "TO_GENERATE"
+    },
+    {
       "career": "all",
       "speaker": "imp",
       "key": "op_contest_win",
@@ -1069,6 +1462,22 @@
       "key": "op_contest_again",
       "file": "assets/audio/voices/filler_v1/roshan_op_contest_again.ogg",
       "text": "Again! I can do it this time!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "all",
+      "speaker": "imp",
+      "key": "op_lesson_fixed",
+      "file": "assets/audio/voices/filler_v1/imp_op_lesson_fixed.ogg",
+      "text": "Oops! You fixed it! My brain is full of bubbles!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "all",
+      "speaker": "imp",
+      "key": "op_lesson_tricked",
+      "file": "assets/audio/voices/filler_v1/imp_op_lesson_tricked.ogg",
+      "text": "Hee hee! Tricked you!",
       "state": "TO_GENERATE"
     }
   ]
