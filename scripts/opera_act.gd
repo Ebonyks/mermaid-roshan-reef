@@ -123,16 +123,23 @@ func _win() -> void:
 	if career_world_2d != null and is_instance_valid(career_world_2d):
 		if career_world_2d.two_act_enabled:
 			var career := String(config.get("costume", ""))
-			var awarded := Mastery.apply_result(m.save_data.get("opera_mastery", {}),
-				career, career_world_2d.performance_result_stats())
-			if int(awarded["tier"]) > 0:
-				m.save_data["opera_mastery"] = awarded["ledger"]
-				m.medals["opera_" + career] = maxi(int(m.medals.get("opera_" + career, 0)), int(awarded["best_tier"]))
-				performance_result["tier"] = int(awarded["tier"])
-				performance_result["token_delta"] = int(awarded["token_delta"])
-				performance_result["token_balance"] = int(awarded["ledger"]["encore_tokens"]["balance"])
-				m._write_save()
-				m._update_hud()
+			if String(config.get("reward_policy", "")) == "dev_playtest":
+				# Show the normal result tier without touching the child's ledger.
+				performance_result["tier"] = Mastery.evaluate(
+					career, career_world_2d.performance_result_stats())
+				performance_result["token_delta"] = 0
+				performance_result["token_balance"] = 0
+			else:
+				var awarded := Mastery.apply_result(m.save_data.get("opera_mastery", {}),
+					career, career_world_2d.performance_result_stats())
+				if int(awarded["tier"]) > 0:
+					m.save_data["opera_mastery"] = awarded["ledger"]
+					m.medals["opera_" + career] = maxi(int(m.medals.get("opera_" + career, 0)), int(awarded["best_tier"]))
+					performance_result["tier"] = int(awarded["tier"])
+					performance_result["token_delta"] = int(awarded["token_delta"])
+					performance_result["token_balance"] = int(awarded["ledger"]["encore_tokens"]["balance"])
+					m._write_save()
+					m._update_hud()
 		career_world_2d.celebrate(performance_result)
 		if career_world_2d.two_act_enabled:
 			m._play_success_yay()

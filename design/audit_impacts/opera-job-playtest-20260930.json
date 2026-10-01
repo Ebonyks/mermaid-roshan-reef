@@ -1,0 +1,16 @@
+{
+  "id": "opera-job-playtest-20260930",
+  "scope": "Owner-requested temporary Opera House left-elevator developer menu launching every live world-triggered job through its shipping Canvas engine. Runs start fresh, preserve child saves/rewards/checkpoints, and return to the menu for repeated review. Normal world routes and retired boss slots stay intact. Shared presentation handoff is mechanically extracted from main, reducing its size.",
+  "baseline": "b65c21fdddd79f272a6854f241faa1441abe6616",
+  "rules": ["DL-AUTH-01", "DL-AUTH-05", "DL-AUTH-06", "DL-AUTH-07", "DL-AGE-04", "DL-AGE-06", "DL-MED-01", "DL-INT-12", "DL-INT-13", "DL-UI-03", "DL-UI-04", "DL-UI-05", "DL-UI-06", "DL-SND-03", "DL-SND-08", "DL-SAVE-01", "DL-SAVE-03", "DL-SAVE-04", "DL-CODE-01", "DL-CODE-03", "DL-CODE-05", "DL-CODE-06", "DL-TYPE-04", "DL-TYPE-08"],
+  "findings": ["MA-OPERA-012", "MA-CODE-001"],
+  "files": ["scripts/main.gd", "scripts/opera_route_presentation.gd", "scripts/opera_job_playtest_menu.gd", "scripts/opera_house_venue_2d.gd", "scripts/opera_house.gd", "scripts/opera_act.gd", "scripts/opera_career_world_2d.gd", "scripts/probe_opera.gd", "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md", "design/05_DOC_LEDGER.md", "audit/MASTER_AUDIT_2026-08-09.md", "audit/findings/ACTIVE_FINDINGS_2026-08-13.md"],
+  "owner_direction": "2026-09-30: for the time being the left Opera House elevator opens a menu loading all Mermaid Roshan jobs normally triggered in the world, for playtesting, troubleshooting and review. This scopes a temporary dev route; it commissions no job redesign or full venue remake.",
+  "validation": [
+    {"command": "python -m gdtoolkit.parser <changed .gd files> and python -B tools/lint_inference.py <changed .gd files>", "result": "PENDING", "evidence": "Changed-file syntax and inference validation pending."},
+    {"command": "Godot 4.7.2-stable --headless -s scripts/probe_opera.gd", "result": "PENDING", "evidence": "Trusted Opera probe will cover elevator touch, all live jobs, passive/save isolation, repeat, Back, pause leave, normal-route siblings and story-active launches."},
+    {"command": "python -B tools/audit_document_authority.py and python -B tools/audit_development.py --base auto", "result": "PENDING", "evidence": "Authority and exact-file coverage pending."},
+    {"command": "GODOT=4.7.2-stable scripts/ci.sh / exact-branch GitHub Probe Suite", "result": "PENDING", "evidence": "Full applicable static, analyzer, import and trusted-probe regression gates pending."}
+  ],
+  "acceptance_gaps": "Runtime captures and target-device touch/30 fps review, observed child play and owner acceptance remain outstanding. Machine verification establishes only this bounded feature's regression behavior; MA-OPERA-012, MA-CODE-001 and whole-game UNSATISFIED remain unchanged. Existing art is reused without modifications; no protected content, new art, cinematic or release change."
+}
