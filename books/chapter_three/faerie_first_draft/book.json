@@ -1,0 +1,363 @@
+{
+  "title": "Mermaid Roshan and the Butterfly Garden",
+  "status": "FIRST_DRAFT / SOURCE_ART_STUDY / STORY_AND_GAME_UNACCEPTED",
+  "baseline": "b65c21fdddd79f272a6854f241faa1441abe6616",
+  "format": "7 x 5 inch landscape; 32 story pages plus two covers; Sniglet",
+  "sources": {
+    "roshan": {
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "role": "existing Roshan identity; idle does not prove work or carrying",
+      "license": "Project-generated approved atlas/cutout family; ASSET_LICENSES.md"
+    },
+    "fairy": {
+      "path": "assets/characters/skins/fairy_mermaid.png",
+      "role": "existing complete fairy-form identity with actual alpha; no pixels changed",
+      "license": "Project-generated character art; ASSET_LICENSES.md"
+    },
+    "chef": {
+      "path": "assets/opera/worlds/actors/animation/roshan_chef_sheet_a.png",
+      "role": "whole first 256-pixel chef cell; contextual use candidate",
+      "license": "Project-generated career art; ASSET_LICENSES.md"
+    },
+    "book_pose": {
+      "path": "assets_src/handoffs/arborist_tree_book_20260929/new_art/book_pose.png",
+      "role": "complete-tail Tree Book reading pose; reviewed still candidate",
+      "license": "Project-owned builtin ImageGen; NEW_ART_PROVENANCE.json and ASSET_LICENSES.md"
+    },
+    "patient": {
+      "path": "assets_src/handoffs/arborist_tree_book_20260929/new_art/patient_spaced.png",
+      "role": "same tree's orange-spotted and healthy-blossom states; no obsolete prune/water default",
+      "license": "Project-owned builtin ImageGen; NEW_ART_PROVENANCE.json and ASSET_LICENSES.md"
+    },
+    "medicines": {
+      "path": "assets_src/handoffs/arborist_tree_book_20260929/new_art/leaf_medicine.png",
+      "role": "orange-spotted leaf and badge-matched spray excerpts; fictional treatment",
+      "license": "Project-owned builtin ImageGen; NEW_ART_PROVENANCE.json and ASSET_LICENSES.md"
+    },
+    "apple": {
+      "path": "assets/props/story/fruit_apple.png",
+      "role": "existing fruit identity; same-tree fruit consequence is a proposed book composition",
+      "license": "Project-generated story-prop family; ASSET_LICENSES.md"
+    },
+    "butterfly": {
+      "path": "assets/props/gen2/butterfly1.png",
+      "role": "existing complete butterfly card; seven instances are a layout study, not seven accepted baby designs",
+      "license": "Project-generated GEN2 art; ASSET_LICENSES.md"
+    },
+    "house": {
+      "path": "assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+      "role": "actual existing route destination and familiar return place",
+      "license": "Project-original builtin ImageGen handoff cutout; ASSET_LICENSES.md"
+    },
+    "walkway": {
+      "path": "assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+      "role": "actual Rainbow Skyway causeway; no direct castle-to-pond shortcut",
+      "license": "Project-original builtin ImageGen handoff cutout; ASSET_LICENSES.md"
+    },
+    "door_open": {
+      "path": "assets/flats/castle/fairy_conservatory/moonflower_door_open.png",
+      "role": "existing open Moonflower route identity",
+      "license": "Project-original doorway/handoff composite; ASSET_LICENSES.md"
+    },
+    "door_closed": {
+      "path": "assets/flats/castle/fairy_conservatory/moonflower_door_closed.png",
+      "role": "existing dormant moonflower relief",
+      "license": "Project-original doorway cutout; ASSET_LICENSES.md"
+    },
+    "sky": {
+      "path": "assets_src/fairy_conservatory_handoff_2026-08-30/masters/handoff_background_master_3640x2048.png",
+      "role": "existing upright continuous Skyway backdrop; untouched",
+      "license": "Project-generated retained source master; ASSET_LICENSES.md"
+    },
+    "pond": {
+      "path": "assets/fairy/pond_panorama.png",
+      "role": "existing mint-to-indigo whole pond journey; source crop positions recorded",
+      "license": "Project-generated Fairy V5 art; ASSET_LICENSES.md"
+    },
+    "leaf": {
+      "path": "assets/fairy/sprites/boss_leaf.png",
+      "role": "existing readable leaf motif and Fairy Flower wreath",
+      "license": "Project-generated Fairy state family; ASSET_LICENSES.md"
+    },
+    "bud": {
+      "path": "assets/fairy/sprites/boss_bud.png",
+      "role": "existing Fairy Flower closed state; retain single flower climax",
+      "license": "Project-generated Fairy state family; ASSET_LICENSES.md"
+    },
+    "opening": {
+      "path": "assets/fairy/sprites/boss_opening.png",
+      "role": "same Fairy Flower intermediate opening state",
+      "license": "Project-generated Fairy state family; ASSET_LICENSES.md"
+    },
+    "bloom": {
+      "path": "assets/fairy/sprites/boss_bloom.png",
+      "role": "same Fairy Flower bloom and candidate castle contribution",
+      "license": "Project-generated Fairy state family; ASSET_LICENSES.md"
+    }
+  },
+  "pages": [
+    {
+      "number": 1,
+      "beat": "home",
+      "art": "closed",
+      "text": "The Ember King had taken the Rainbow Candle. Pearl Castle needed more magic.",
+      "gaps": [
+        "G01"
+      ]
+    },
+    {
+      "number": 2,
+      "beat": "home",
+      "art": "rest",
+      "text": "Roshan wanted to help her home shine again. But where could she begin?"
+    },
+    {
+      "number": 3,
+      "beat": "wonder",
+      "art": "door",
+      "text": "A wing-chime rang. The moonflower door opened. Beyond it lay a rainbow path."
+    },
+    {
+      "number": 4,
+      "beat": "wonder",
+      "art": "skyway",
+      "text": "Roshan followed the Rainbow Skyway. At the far end stood the Butterfly House."
+    },
+    {
+      "number": 5,
+      "beat": "discovery",
+      "art": "house",
+      "text": "The house was beautiful. But its seven baby butterflies were missing."
+    },
+    {
+      "number": 6,
+      "beat": "rescue",
+      "art": "seven",
+      "text": "They had lost their way. Little wings fluttered here and there.",
+      "gaps": [
+        "G02"
+      ]
+    },
+    {
+      "number": 7,
+      "beat": "rescue",
+      "art": "one",
+      "text": "Roshan found the littlest one beside a leaf. \"I will help you get home.\"",
+      "gaps": [
+        "G02"
+      ]
+    },
+    {
+      "number": 8,
+      "beat": "rescue",
+      "art": "home",
+      "text": "She found another. And another. Soon all seven were home together.",
+      "gaps": [
+        "G02"
+      ]
+    },
+    {
+      "number": 9,
+      "beat": "rest",
+      "art": "rest",
+      "text": "The little butterflies rested. \"You look hungry,\" said Roshan. \"Let's have a picnic!\"",
+      "gaps": [
+        "G03"
+      ]
+    },
+    {
+      "number": 10,
+      "beat": "tree",
+      "art": "sick",
+      "text": "But the garden's fruit tree was not well. Its leaves were covered in orange spots."
+    },
+    {
+      "number": 11,
+      "beat": "tree",
+      "art": "sick",
+      "text": "There was no fruit to share. First, Roshan would help the tree feel better."
+    },
+    {
+      "number": 12,
+      "beat": "tree",
+      "art": "book",
+      "text": "She opened her Tree Book. She looked at the tree. Then she looked at its leaf."
+    },
+    {
+      "number": 13,
+      "beat": "tree",
+      "art": "leaf_match",
+      "text": "Orange spots on the leaf. Orange dots on the spray. The pictures matched!"
+    },
+    {
+      "number": 14,
+      "beat": "tree",
+      "art": "spray",
+      "text": "Roshan cared for the leaves. The butterflies waited close by.",
+      "gaps": [
+        "G04"
+      ]
+    },
+    {
+      "number": 15,
+      "beat": "tree",
+      "art": "healthy",
+      "text": "The tree felt better. Its leaves lifted. Pink blossoms opened."
+    },
+    {
+      "number": 16,
+      "beat": "tree",
+      "art": "fruit_tree",
+      "text": "Then fruit grew where the blossoms had been. Apples for the picnic!",
+      "gaps": [
+        "G05"
+      ]
+    },
+    {
+      "number": 17,
+      "beat": "harvest",
+      "art": "apples",
+      "text": "Roshan picked the ripe apples. There would be enough to share.",
+      "gaps": [
+        "G05"
+      ]
+    },
+    {
+      "number": 18,
+      "beat": "chef",
+      "art": "chef",
+      "text": "She remembered her work in the castle kitchen. \"I can make a butterfly snack!\""
+    },
+    {
+      "number": 19,
+      "beat": "chef",
+      "art": "apples",
+      "text": "First, she washed the fruit. Then she made room for little plates.",
+      "gaps": [
+        "G06"
+      ]
+    },
+    {
+      "number": 20,
+      "beat": "chef",
+      "art": "cut",
+      "text": "She cut small, soft pieces. Little mouths needed little bites.",
+      "gaps": [
+        "G06"
+      ]
+    },
+    {
+      "number": 21,
+      "beat": "picnic",
+      "art": "picnic",
+      "text": "The butterflies shared the snack. Roshan sat with them. Nobody ate alone.",
+      "gaps": [
+        "G03",
+        "G06"
+      ]
+    },
+    {
+      "number": 22,
+      "beat": "humour",
+      "art": "play",
+      "text": "One butterfly did a happy loop. Another wobbled after it. Roshan laughed.",
+      "gaps": [
+        "G03"
+      ]
+    },
+    {
+      "number": 23,
+      "beat": "reciprocity",
+      "art": "guide",
+      "text": "\"Now we can help you!\" They showed Roshan the way to the Fairy Fountain.",
+      "gaps": [
+        "G07"
+      ]
+    },
+    {
+      "number": 24,
+      "beat": "transformation",
+      "art": "fairy",
+      "text": "At the fountain, Roshan's fairy wings shimmered. Up she went!",
+      "gaps": [
+        "G07"
+      ]
+    },
+    {
+      "number": 25,
+      "beat": "journey",
+      "art": "pond",
+      "background_crop": [
+        0,
+        0,
+        1434,
+        1024
+      ],
+      "text": "Over the pond they flew together, past lilies and pools of blue.",
+      "gaps": [
+        "G08"
+      ]
+    },
+    {
+      "number": 26,
+      "beat": "climax",
+      "art": "bud",
+      "text": "The Fairy Flower waited ahead. Its petals were shut tight."
+    },
+    {
+      "number": 27,
+      "beat": "climax",
+      "art": "leaves",
+      "text": "Roshan looked carefully. The butterflies showed her a clear way through.",
+      "gaps": [
+        "G08"
+      ]
+    },
+    {
+      "number": 28,
+      "beat": "climax",
+      "art": "fairy",
+      "text": "Sparkle. Sparkle. Roshan sent gentle magic toward the flower.",
+      "gaps": [
+        "G08"
+      ]
+    },
+    {
+      "number": 29,
+      "beat": "climax",
+      "art": "opening",
+      "text": "Little by little, its leaves moved. Its petals began to open."
+    },
+    {
+      "number": 30,
+      "beat": "payoff",
+      "art": "bloom_full",
+      "background_crop": [
+        2662,
+        0,
+        4096,
+        1024
+      ],
+      "text": "The Fairy Flower bloomed! Colour and magic filled the pond."
+    },
+    {
+      "number": 31,
+      "beat": "return",
+      "art": "carry",
+      "text": "The flower shared a little magic for Pearl Castle. The garden kept its own.",
+      "gaps": [
+        "G09"
+      ]
+    },
+    {
+      "number": 32,
+      "beat": "home",
+      "art": "door",
+      "text": "Roshan brought the faerie magic home. There were more friends to meet, and more good things to do together.",
+      "gaps": [
+        "G01",
+        "G09"
+      ]
+    }
+  ]
+}

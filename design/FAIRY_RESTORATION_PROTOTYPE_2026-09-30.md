@@ -1,9 +1,11 @@
 # Faerie garden — castle magic restoration prototype
 
-Status: `PROPOSED / CANDIDATE`, isolated playable true-2D scene. Owner commission
+Status: `HISTORICAL_EXPERIMENT / NOT_CHAPTER_DESIGN_AUTHORITY`, isolated playable true-2D scene. Owner commission
 2026-09-30. Source baseline `285355eb9e09a29aa4ac53d36874e31419d4674e`.
 Implementation and machine checks do not grant visual/device/child/owner acceptance.
 Audit impact: [task record](audit_impacts/fairy-restoration-prototype-20260930.json).
+
+Owner correction 2026-09-30: development ran ahead of bottom-up story and whole-game design. Preserve this experiment and its measured evidence, but derive future faerie work from existing resources, a connected book draft and story review. Its simplified counts, gestures and compressed route are not chapter requirements. See the [story-first draft](../books/chapter_three/faerie_first_draft/STORY_AND_GAME_NOTES.md). No runtime reversion or finding closure is made by this documentation correction.
 
 ## 1. Commission and boundaries
 

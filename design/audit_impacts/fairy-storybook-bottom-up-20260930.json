@@ -1,0 +1,80 @@
+{
+  "id": "CHG-FAIRY-STORYBOOK-BOTTOM-UP-20260930",
+  "scope": "Owner correction 2026-09-30: replace implementation-led faerie planning with existing resources, connected story, picture-book pacing and only then proposed game adaptation. Produce an illustrated first-draft book and adult design notes. Earlier standalone prototype is historical experimental evidence, not chapter design authority. No runtime, save, route, reward, audio, policy or cinematic changes. Preserve protected originals and source-only book constraints.",
+  "baseline": "b65c21fdddd79f272a6854f241faa1441abe6616",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-02",
+    "DL-AUTH-04",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-PLAN-01",
+    "DL-PLAN-02",
+    "DL-PLAN-03",
+    "DL-PLAN-04",
+    "DL-PLAN-05",
+    "DL-PLAN-06",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-03",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-08",
+    "DL-INT-02",
+    "DL-SAVE-01",
+    "DL-QA-07"
+  ],
+  "findings": [
+    "MA-DOC-007",
+    "MA-PLAY-004"
+  ],
+  "finding_scope": "Scoped planning correction and authority labeling, not a finding repair or closure. MA-DOC-007 motivates current-source and ledger checks; MA-PLAY-004 constrains later adaptation, with no contact implementation claimed by this static book.",
+  "files": [
+    "books/chapter_three/faerie_first_draft/.gdignore",
+    "books/chapter_three/faerie_first_draft/book.json",
+    "books/chapter_three/faerie_first_draft/build_book.py",
+    "books/chapter_three/faerie_first_draft/SOURCE_MANIFEST.json",
+    "books/chapter_three/faerie_first_draft/REVIEW.json",
+    "books/chapter_three/faerie_first_draft/STORY_AND_GAME_NOTES.md",
+    "books/chapter_three/faerie_first_draft/fonts/Sniglet-Regular.ttf",
+    "books/chapter_three/faerie_first_draft/fonts/OFL.txt",
+    "output/.gdignore",
+    "output/pdf/Mermaid_Roshan_and_the_Butterfly_Garden_DRAFT_01.pdf",
+    "design/FAIRY_RESTORATION_PROTOTYPE_2026-09-30.md",
+    "design/05_DOC_LEDGER.md",
+    "design/10_CHAPTER_REFERENCE_LIBRARY.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "ASSET_LICENSES.md",
+    "output/pdf/.gitattributes",
+    "books/chapter_three/faerie_first_draft/fonts/.gitattributes"
+  ],
+  "validation": [
+    {
+      "command": "Current master planning entry/index, design language, ledger, findings, chapter guide, Chapter Two spine, Chapter Three route and revised Tree Book audit",
+      "result": "PASS",
+      "evidence": "Read before authoring. Current seven-baby rescue, Moonflower/Rainbow Skyway/Butterfly House/Fairy Fountain/Flower geography and leaf-to-medicine Tree Book supersession shape the manuscript. Rumi thread latest resource-led Turtle's Way Home proposal and Chapter One v29 pacing are references only; neither commissions new faerie canon."
+    },
+    {
+      "command": "build_book.py; Poppler pdftoppm -png -scale-to 1008; source/text/crop/page QA and visual inspection",
+      "result": "PASS",
+      "evidence": "books/chapter_three/faerie_first_draft/SOURCE_MANIFEST.json and REVIEW.json: 34 rendered/inspected pages, 32 exact captions, 18 sources whose SHA-256 matches the unchanged b65c21fdddd79f272a6854f241faa1441abe6616 originals, all glyphs/crops in bounds, seven baby instances on rescue/return/picnic pages. Revised seven layouts inspected; 27 other final renders exactly match the inspected first build. Zero raster derivatives or new generation."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "tmp/fairy_book_authority_final.log: INVENTORY=595, LEDGER=595, ACTIVE=58, RECORDS=60; RESULT ALL OK. Preliminary 668 failures were sparse-checkout omissions. Restored 628 byte-matched tracked evidence files with unchanged hardlinks and seven HEAD blobs; the remaining linked tools directory exists after its tracked children were hydrated. No baseline document repairs, invented evidence or validator changes."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto; git diff --check",
+      "result": "PASS",
+      "evidence": "tmp/fairy_book_coverage_final.log: exact base b65c21fdddd79f272a6854f241faa1441abe6616, RESULT ALL OK. Coverage's first run caught missing REVIEW.json coverage; this record now covers it and every other changed project file. git diff --check passed. Scoped Git attributes preserve the binary PDF and the byte-exact upstream OFL license, including its pre-existing trailing space; no authored-text whitespace exemptions."
+    },
+    {
+      "command": "Godot gameplay/probe/device/cinematic gates",
+      "result": "NOT_APPLICABLE",
+      "evidence": "Static story-first design artifact only. No runtime code, audio, save, route or accepted cinematic delivery is changed. The book does not establish game implementation or physical/child/owner acceptance."
+    }
+  ],
+  "acceptance_gaps": "First-draft manuscript and source-art layout study, not accepted story canon or a finished illustrated publication. Full rescue, treatment contact, cut-fruit/picnic, Fairy Fountain, carrying and castle-payoff compositions have source gaps. Final book art, read-aloud/SLP/child/owner review, shared faerie/undersea restoration mechanism and later production gameplay remain open. No new generation or protected-source modification is authorized or performed."
+}

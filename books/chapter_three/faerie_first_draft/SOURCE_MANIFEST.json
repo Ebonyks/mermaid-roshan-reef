@@ -1,0 +1,2047 @@
+{
+  "baseline": "b65c21fdddd79f272a6854f241faa1441abe6616",
+  "book_status": "FIRST_DRAFT / SOURCE_ART_STUDY / STORY_AND_GAME_UNACCEPTED",
+  "pdf": {
+    "path": "output/pdf/Mermaid_Roshan_and_the_Butterfly_Garden_DRAFT_01.pdf",
+    "sha256": "a23ce6caa9ff35cf7e0128e5fd27fc19be9863d4b53410ddc3e212ff8be779f0",
+    "pages": 34,
+    "page_points": [
+      504,
+      360
+    ]
+  },
+  "sources": [
+    {
+      "key": "roshan",
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "role": "existing Roshan identity; idle does not prove work or carrying",
+      "license": "Project-generated approved atlas/cutout family; ASSET_LICENSES.md",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "dimensions": [
+        256,
+        256
+      ],
+      "source_modified": false
+    },
+    {
+      "key": "fairy",
+      "path": "assets/characters/skins/fairy_mermaid.png",
+      "role": "existing complete fairy-form identity with actual alpha; no pixels changed",
+      "license": "Project-generated character art; ASSET_LICENSES.md",
+      "sha256": "de6e97375d6cae78dbcba02ce25a7c7f81de50c43bbe66b255e2b5130142c13d",
+      "dimensions": [
+        512,
+        707
+      ],
+      "source_modified": false
+    },
+    {
+      "key": "chef",
+      "path": "assets/opera/worlds/actors/animation/roshan_chef_sheet_a.png",
+      "role": "whole first 256-pixel chef cell; contextual use candidate",
+      "license": "Project-generated career art; ASSET_LICENSES.md",
+      "sha256": "78c666d2e87cc1cdcd2cde311c20e75a83ca86dae1366fe4aa9cacbee3e30566",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_modified": false
+    },
+    {
+      "key": "book_pose",
+      "path": "assets_src/handoffs/arborist_tree_book_20260929/new_art/book_pose.png",
+      "role": "complete-tail Tree Book reading pose; reviewed still candidate",
+      "license": "Project-owned builtin ImageGen; NEW_ART_PROVENANCE.json and ASSET_LICENSES.md",
+      "sha256": "08b5ef92a5ed6d26c00914e757bfe7f14f5216261621f4f3a6d3c7c1d62bfa36",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "source_modified": false
+    },
+    {
+      "key": "patient",
+      "path": "assets_src/handoffs/arborist_tree_book_20260929/new_art/patient_spaced.png",
+      "role": "same tree's orange-spotted and healthy-blossom states; no obsolete prune/water default",
+      "license": "Project-owned builtin ImageGen; NEW_ART_PROVENANCE.json and ASSET_LICENSES.md",
+      "sha256": "6a119f8a2af65063e7e0e62e9e398dca750d36ffa8fab2a7c13f44e679baa52c",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "source_modified": false
+    },
+    {
+      "key": "medicines",
+      "path": "assets_src/handoffs/arborist_tree_book_20260929/new_art/leaf_medicine.png",
+      "role": "orange-spotted leaf and badge-matched spray excerpts; fictional treatment",
+      "license": "Project-owned builtin ImageGen; NEW_ART_PROVENANCE.json and ASSET_LICENSES.md",
+      "sha256": "4e6fdb51161283908e925c676271a61ac569ce3511cdbb3ad847793c519a336d",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "source_modified": false
+    },
+    {
+      "key": "apple",
+      "path": "assets/props/story/fruit_apple.png",
+      "role": "existing fruit identity; same-tree fruit consequence is a proposed book composition",
+      "license": "Project-generated story-prop family; ASSET_LICENSES.md",
+      "sha256": "9d01d9ce8d34b67a9e5ffeb2e2050213760a94fd61c4199e2eec25cbadecff9a",
+      "dimensions": [
+        496,
+        541
+      ],
+      "source_modified": false
+    },
+    {
+      "key": "butterfly",
+      "path": "assets/props/gen2/butterfly1.png",
+      "role": "existing complete butterfly card; seven instances are a layout study, not seven accepted baby designs",
+      "license": "Project-generated GEN2 art; ASSET_LICENSES.md",
+      "sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "dimensions": [
+        512,
+        391
+      ],
+      "source_modified": false
+    },
+    {
+      "key": "house",
+      "path": "assets/flats/fairy_conservatory_handoff/butterfly_house.png",
+      "role": "actual existing route destination and familiar return place",
+      "license": "Project-original builtin ImageGen handoff cutout; ASSET_LICENSES.md",
+      "sha256": "95bebeeb343be83b465d52b7ee57427bcdce488795f409b285f959a0ea3eba09",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_modified": false
+    },
+    {
+      "key": "walkway",
+      "path": "assets/flats/fairy_conservatory_handoff/rainbow_walkway.png",
+      "role": "actual Rainbow Skyway causeway; no direct castle-to-pond shortcut",
+      "license": "Project-original builtin ImageGen handoff cutout; ASSET_LICENSES.md",
+      "sha256": "ef7503286fc2c19fb0dd5301e8062a19580c406cfc9fc758b1900da9d0eaa768",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_modified": false
+    },
+    {
+      "key": "door_open",
+      "path": "assets/flats/castle/fairy_conservatory/moonflower_door_open.png",
+      "role": "existing open Moonflower route identity",
+      "license": "Project-original doorway/handoff composite; ASSET_LICENSES.md",
+      "sha256": "91249bc04439a23a1f9ef0b8bb53d6a89fe51030168713c35bedb37b132e10c6",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_modified": false
+    },
+    {
+      "key": "door_closed",
+      "path": "assets/flats/castle/fairy_conservatory/moonflower_door_closed.png",
+      "role": "existing dormant moonflower relief",
+      "license": "Project-original doorway cutout; ASSET_LICENSES.md",
+      "sha256": "b2634b80054bc03618e89918aea1639db010046c66777cec1e9152c40983de3c",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_modified": false
+    },
+    {
+      "key": "sky",
+      "path": "assets_src/fairy_conservatory_handoff_2026-08-30/masters/handoff_background_master_3640x2048.png",
+      "role": "existing upright continuous Skyway backdrop; untouched",
+      "license": "Project-generated retained source master; ASSET_LICENSES.md",
+      "sha256": "2feba4cc27a27400a5f950df185da5cd48326031e927bc8f1c09857cb2110c78",
+      "dimensions": [
+        3640,
+        2048
+      ],
+      "source_modified": false
+    },
+    {
+      "key": "pond",
+      "path": "assets/fairy/pond_panorama.png",
+      "role": "existing mint-to-indigo whole pond journey; source crop positions recorded",
+      "license": "Project-generated Fairy V5 art; ASSET_LICENSES.md",
+      "sha256": "26b6ced234d71797e0013a7d161a33d09695d40aa5c43390126a369d63468a14",
+      "dimensions": [
+        4096,
+        1024
+      ],
+      "source_modified": false
+    },
+    {
+      "key": "leaf",
+      "path": "assets/fairy/sprites/boss_leaf.png",
+      "role": "existing readable leaf motif and Fairy Flower wreath",
+      "license": "Project-generated Fairy state family; ASSET_LICENSES.md",
+      "sha256": "64940fd682c0be201526bbd13b4191e3f1e1029e3c35a221d57fa3f767717d03",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_modified": false
+    },
+    {
+      "key": "bud",
+      "path": "assets/fairy/sprites/boss_bud.png",
+      "role": "existing Fairy Flower closed state; retain single flower climax",
+      "license": "Project-generated Fairy state family; ASSET_LICENSES.md",
+      "sha256": "8da84bb2023431ab35714daff918203836227552910f0e8e92360b0d0fc31a97",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_modified": false
+    },
+    {
+      "key": "opening",
+      "path": "assets/fairy/sprites/boss_opening.png",
+      "role": "same Fairy Flower intermediate opening state",
+      "license": "Project-generated Fairy state family; ASSET_LICENSES.md",
+      "sha256": "e3738c1d574ed8c29525186b493c36d75c0b4b9e8e957f7b683ad0ffb47be579",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_modified": false
+    },
+    {
+      "key": "bloom",
+      "path": "assets/fairy/sprites/boss_bloom.png",
+      "role": "same Fairy Flower bloom and candidate castle contribution",
+      "license": "Project-generated Fairy state family; ASSET_LICENSES.md",
+      "sha256": "36db20eff66d1da63ab8f13878f99313712fe3adb02ca314a2a73c6f86c59cf9",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "source_modified": false
+    }
+  ],
+  "placements": [
+    {
+      "pdf_page": 1,
+      "source": "house",
+      "source_sha256": "95bebeeb343be83b465d52b7ee57427bcdce488795f409b285f959a0ea3eba09",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        265,
+        24,
+        189,
+        214
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 1,
+      "source": "roshan",
+      "source_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "crop_xyxy": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "layout_box_points": [
+        44,
+        32,
+        150,
+        195
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 1,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        177,
+        131,
+        109,
+        82
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 2,
+      "source": "door_closed",
+      "source_sha256": "b2634b80054bc03618e89918aea1639db010046c66777cec1e9152c40983de3c",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        174,
+        34,
+        170,
+        242
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 2,
+      "source": "roshan",
+      "source_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "crop_xyxy": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "layout_box_points": [
+        38,
+        43,
+        129,
+        182
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 3,
+      "source": "roshan",
+      "source_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "crop_xyxy": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "layout_box_points": [
+        130,
+        22,
+        173,
+        238
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 3,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        278,
+        130,
+        131,
+        99
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 4,
+      "source": "door_open",
+      "source_sha256": "91249bc04439a23a1f9ef0b8bb53d6a89fe51030168713c35bedb37b132e10c6",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        46,
+        29,
+        236,
+        251
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 4,
+      "source": "roshan",
+      "source_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "crop_xyxy": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "layout_box_points": [
+        290,
+        35,
+        147,
+        202
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 5,
+      "source": "sky",
+      "source_sha256": "2feba4cc27a27400a5f950df185da5cd48326031e927bc8f1c09857cb2110c78",
+      "crop_xyxy": [
+        0,
+        0,
+        3640,
+        2048
+      ],
+      "layout_box_points": [
+        0,
+        0,
+        504,
+        360
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 5,
+      "source": "walkway",
+      "source_sha256": "ef7503286fc2c19fb0dd5301e8062a19580c406cfc9fc758b1900da9d0eaa768",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        90,
+        0,
+        320,
+        230
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 5,
+      "source": "house",
+      "source_sha256": "95bebeeb343be83b465d52b7ee57427bcdce488795f409b285f959a0ea3eba09",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        211,
+        139,
+        81,
+        91
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 5,
+      "source": "roshan",
+      "source_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "crop_xyxy": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "layout_box_points": [
+        106,
+        38,
+        64,
+        95
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 6,
+      "source": "house",
+      "source_sha256": "95bebeeb343be83b465d52b7ee57427bcdce488795f409b285f959a0ea3eba09",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        99,
+        20,
+        306,
+        265
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 7,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        35,
+        160,
+        48,
+        38
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 7,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        136,
+        215,
+        45,
+        36
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 7,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        257,
+        161,
+        48,
+        38
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 7,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        381,
+        218,
+        45,
+        36
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 7,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        62,
+        50,
+        48,
+        38
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 7,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        217,
+        73,
+        45,
+        36
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 7,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        412,
+        55,
+        48,
+        38
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 7,
+      "source": "roshan",
+      "source_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "crop_xyxy": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "layout_box_points": [
+        271,
+        7,
+        114,
+        155
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 8,
+      "source": "leaf",
+      "source_sha256": "64940fd682c0be201526bbd13b4191e3f1e1029e3c35a221d57fa3f767717d03",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        46,
+        35,
+        168,
+        137
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 8,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        180,
+        150,
+        60,
+        46
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 8,
+      "source": "roshan",
+      "source_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "crop_xyxy": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "layout_box_points": [
+        267,
+        26,
+        171,
+        234
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 9,
+      "source": "house",
+      "source_sha256": "95bebeeb343be83b465d52b7ee57427bcdce488795f409b285f959a0ea3eba09",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        176,
+        48,
+        162,
+        199
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 9,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        37,
+        218,
+        51,
+        40
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 9,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        100,
+        167,
+        51,
+        40
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 9,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        41,
+        91,
+        51,
+        40
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 9,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        111,
+        42,
+        51,
+        40
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 9,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        360,
+        205,
+        51,
+        40
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 9,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        417,
+        136,
+        51,
+        40
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 9,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        365,
+        63,
+        51,
+        40
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 10,
+      "source": "roshan",
+      "source_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "crop_xyxy": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "layout_box_points": [
+        130,
+        22,
+        173,
+        238
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 10,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        278,
+        130,
+        131,
+        99
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 11,
+      "source": "patient",
+      "source_sha256": "6a119f8a2af65063e7e0e62e9e398dca750d36ffa8fab2a7c13f44e679baa52c",
+      "crop_xyxy": [
+        0,
+        0,
+        887.0,
+        887
+      ],
+      "layout_box_points": [
+        111,
+        14,
+        288,
+        260
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 12,
+      "source": "patient",
+      "source_sha256": "6a119f8a2af65063e7e0e62e9e398dca750d36ffa8fab2a7c13f44e679baa52c",
+      "crop_xyxy": [
+        0,
+        0,
+        887.0,
+        887
+      ],
+      "layout_box_points": [
+        111,
+        14,
+        288,
+        260
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 13,
+      "source": "book_pose",
+      "source_sha256": "08b5ef92a5ed6d26c00914e757bfe7f14f5216261621f4f3a6d3c7c1d62bfa36",
+      "crop_xyxy": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "layout_box_points": [
+        69,
+        7,
+        280,
+        263
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 13,
+      "source": "patient",
+      "source_sha256": "6a119f8a2af65063e7e0e62e9e398dca750d36ffa8fab2a7c13f44e679baa52c",
+      "crop_xyxy": [
+        0,
+        0,
+        887,
+        887
+      ],
+      "layout_box_points": [
+        350,
+        106,
+        113,
+        145
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 14,
+      "source": "medicines",
+      "source_sha256": "4e6fdb51161283908e925c676271a61ac569ce3511cdbb3ad847793c519a336d",
+      "crop_xyxy": [
+        500,
+        0,
+        885,
+        431
+      ],
+      "layout_box_points": [
+        48,
+        31,
+        178,
+        205
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 14,
+      "source": "medicines",
+      "source_sha256": "4e6fdb51161283908e925c676271a61ac569ce3511cdbb3ad847793c519a336d",
+      "crop_xyxy": [
+        500,
+        433,
+        885,
+        887
+      ],
+      "layout_box_points": [
+        280,
+        31,
+        178,
+        205
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 15,
+      "source": "medicines",
+      "source_sha256": "4e6fdb51161283908e925c676271a61ac569ce3511cdbb3ad847793c519a336d",
+      "crop_xyxy": [
+        500,
+        0,
+        885,
+        431
+      ],
+      "layout_box_points": [
+        48,
+        31,
+        178,
+        205
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 15,
+      "source": "medicines",
+      "source_sha256": "4e6fdb51161283908e925c676271a61ac569ce3511cdbb3ad847793c519a336d",
+      "crop_xyxy": [
+        500,
+        433,
+        885,
+        887
+      ],
+      "layout_box_points": [
+        280,
+        31,
+        178,
+        205
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 16,
+      "source": "patient",
+      "source_sha256": "6a119f8a2af65063e7e0e62e9e398dca750d36ffa8fab2a7c13f44e679baa52c",
+      "crop_xyxy": [
+        887.0,
+        0,
+        1774,
+        887
+      ],
+      "layout_box_points": [
+        111,
+        14,
+        288,
+        260
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 17,
+      "source": "patient",
+      "source_sha256": "6a119f8a2af65063e7e0e62e9e398dca750d36ffa8fab2a7c13f44e679baa52c",
+      "crop_xyxy": [
+        887.0,
+        0,
+        1774,
+        887
+      ],
+      "layout_box_points": [
+        111,
+        14,
+        288,
+        260
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 17,
+      "source": "apple",
+      "source_sha256": "9d01d9ce8d34b67a9e5ffeb2e2050213760a94fd61c4199e2eec25cbadecff9a",
+      "crop_xyxy": [
+        0,
+        0,
+        496,
+        541
+      ],
+      "layout_box_points": [
+        177,
+        165,
+        39,
+        46
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 17,
+      "source": "apple",
+      "source_sha256": "9d01d9ce8d34b67a9e5ffeb2e2050213760a94fd61c4199e2eec25cbadecff9a",
+      "crop_xyxy": [
+        0,
+        0,
+        496,
+        541
+      ],
+      "layout_box_points": [
+        279,
+        150,
+        39,
+        46
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 17,
+      "source": "apple",
+      "source_sha256": "9d01d9ce8d34b67a9e5ffeb2e2050213760a94fd61c4199e2eec25cbadecff9a",
+      "crop_xyxy": [
+        0,
+        0,
+        496,
+        541
+      ],
+      "layout_box_points": [
+        229,
+        210,
+        39,
+        46
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 18,
+      "source": "apple",
+      "source_sha256": "9d01d9ce8d34b67a9e5ffeb2e2050213760a94fd61c4199e2eec25cbadecff9a",
+      "crop_xyxy": [
+        0,
+        0,
+        496,
+        541
+      ],
+      "layout_box_points": [
+        61,
+        67,
+        110,
+        126
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 18,
+      "source": "apple",
+      "source_sha256": "9d01d9ce8d34b67a9e5ffeb2e2050213760a94fd61c4199e2eec25cbadecff9a",
+      "crop_xyxy": [
+        0,
+        0,
+        496,
+        541
+      ],
+      "layout_box_points": [
+        195,
+        109,
+        110,
+        126
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 18,
+      "source": "apple",
+      "source_sha256": "9d01d9ce8d34b67a9e5ffeb2e2050213760a94fd61c4199e2eec25cbadecff9a",
+      "crop_xyxy": [
+        0,
+        0,
+        496,
+        541
+      ],
+      "layout_box_points": [
+        329,
+        67,
+        110,
+        126
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 19,
+      "source": "chef",
+      "source_sha256": "78c666d2e87cc1cdcd2cde311c20e75a83ca86dae1366fe4aa9cacbee3e30566",
+      "crop_xyxy": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "layout_box_points": [
+        46,
+        20,
+        220,
+        234
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 19,
+      "source": "apple",
+      "source_sha256": "9d01d9ce8d34b67a9e5ffeb2e2050213760a94fd61c4199e2eec25cbadecff9a",
+      "crop_xyxy": [
+        0,
+        0,
+        496,
+        541
+      ],
+      "layout_box_points": [
+        318,
+        74,
+        107,
+        125
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 20,
+      "source": "apple",
+      "source_sha256": "9d01d9ce8d34b67a9e5ffeb2e2050213760a94fd61c4199e2eec25cbadecff9a",
+      "crop_xyxy": [
+        0,
+        0,
+        496,
+        541
+      ],
+      "layout_box_points": [
+        61,
+        67,
+        110,
+        126
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 20,
+      "source": "apple",
+      "source_sha256": "9d01d9ce8d34b67a9e5ffeb2e2050213760a94fd61c4199e2eec25cbadecff9a",
+      "crop_xyxy": [
+        0,
+        0,
+        496,
+        541
+      ],
+      "layout_box_points": [
+        195,
+        109,
+        110,
+        126
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 20,
+      "source": "apple",
+      "source_sha256": "9d01d9ce8d34b67a9e5ffeb2e2050213760a94fd61c4199e2eec25cbadecff9a",
+      "crop_xyxy": [
+        0,
+        0,
+        496,
+        541
+      ],
+      "layout_box_points": [
+        329,
+        67,
+        110,
+        126
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 21,
+      "source": "chef",
+      "source_sha256": "78c666d2e87cc1cdcd2cde311c20e75a83ca86dae1366fe4aa9cacbee3e30566",
+      "crop_xyxy": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "layout_box_points": [
+        46,
+        20,
+        220,
+        234
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 21,
+      "source": "apple",
+      "source_sha256": "9d01d9ce8d34b67a9e5ffeb2e2050213760a94fd61c4199e2eec25cbadecff9a",
+      "crop_xyxy": [
+        0,
+        0,
+        496,
+        541
+      ],
+      "layout_box_points": [
+        318,
+        74,
+        107,
+        125
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 22,
+      "source": "chef",
+      "source_sha256": "78c666d2e87cc1cdcd2cde311c20e75a83ca86dae1366fe4aa9cacbee3e30566",
+      "crop_xyxy": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "layout_box_points": [
+        160,
+        20,
+        171,
+        207
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 22,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        39,
+        201,
+        51,
+        40
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 22,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        106,
+        234,
+        51,
+        40
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 22,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        44,
+        107,
+        51,
+        40
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 22,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        103,
+        38,
+        51,
+        40
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 22,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        360,
+        220,
+        51,
+        40
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 22,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        419,
+        139,
+        51,
+        40
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 22,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        365,
+        57,
+        51,
+        40
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 23,
+      "source": "roshan",
+      "source_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "crop_xyxy": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "layout_box_points": [
+        268,
+        20,
+        178,
+        244
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 23,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        72,
+        175,
+        64,
+        50
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 23,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        166,
+        94,
+        64,
+        50
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 24,
+      "source": "roshan",
+      "source_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "crop_xyxy": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "layout_box_points": [
+        80,
+        35,
+        135,
+        198
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 24,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        258,
+        60,
+        93,
+        74
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 24,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        322,
+        143,
+        93,
+        74
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 24,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        244,
+        199,
+        82,
+        65
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 25,
+      "source": "fairy",
+      "source_sha256": "de6e97375d6cae78dbcba02ce25a7c7f81de50c43bbe66b255e2b5130142c13d",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        707
+      ],
+      "layout_box_points": [
+        137,
+        9,
+        229,
+        278
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 26,
+      "source": "pond",
+      "source_sha256": "26b6ced234d71797e0013a7d161a33d09695d40aa5c43390126a369d63468a14",
+      "crop_xyxy": [
+        0,
+        0,
+        1434,
+        1024
+      ],
+      "layout_box_points": [
+        0,
+        0,
+        504,
+        360
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 26,
+      "source": "fairy",
+      "source_sha256": "de6e97375d6cae78dbcba02ce25a7c7f81de50c43bbe66b255e2b5130142c13d",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        707
+      ],
+      "layout_box_points": [
+        96,
+        27,
+        130,
+        181
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 26,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        278,
+        135,
+        77,
+        65
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 27,
+      "source": "bud",
+      "source_sha256": "8da84bb2023431ab35714daff918203836227552910f0e8e92360b0d0fc31a97",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        158,
+        27,
+        250,
+        246
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 27,
+      "source": "fairy",
+      "source_sha256": "de6e97375d6cae78dbcba02ce25a7c7f81de50c43bbe66b255e2b5130142c13d",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        707
+      ],
+      "layout_box_points": [
+        33,
+        12,
+        120,
+        173
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 28,
+      "source": "bud",
+      "source_sha256": "8da84bb2023431ab35714daff918203836227552910f0e8e92360b0d0fc31a97",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        158,
+        27,
+        250,
+        246
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 28,
+      "source": "leaf",
+      "source_sha256": "64940fd682c0be201526bbd13b4191e3f1e1029e3c35a221d57fa3f767717d03",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        298.0,
+        115.0,
+        70,
+        62
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 28,
+      "source": "leaf",
+      "source_sha256": "64940fd682c0be201526bbd13b4191e3f1e1029e3c35a221d57fa3f767717d03",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        245.5,
+        188.61215932167727,
+        70,
+        62
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 28,
+      "source": "leaf",
+      "source_sha256": "64940fd682c0be201526bbd13b4191e3f1e1029e3c35a221d57fa3f767717d03",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        140.50000000000003,
+        188.6121593216773,
+        70,
+        62
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 28,
+      "source": "leaf",
+      "source_sha256": "64940fd682c0be201526bbd13b4191e3f1e1029e3c35a221d57fa3f767717d03",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        88.0,
+        115.0,
+        70,
+        62
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 28,
+      "source": "leaf",
+      "source_sha256": "64940fd682c0be201526bbd13b4191e3f1e1029e3c35a221d57fa3f767717d03",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        140.49999999999994,
+        41.38784067832273,
+        70,
+        62
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 28,
+      "source": "leaf",
+      "source_sha256": "64940fd682c0be201526bbd13b4191e3f1e1029e3c35a221d57fa3f767717d03",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        245.5,
+        41.38784067832272,
+        70,
+        62
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 28,
+      "source": "fairy",
+      "source_sha256": "de6e97375d6cae78dbcba02ce25a7c7f81de50c43bbe66b255e2b5130142c13d",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        707
+      ],
+      "layout_box_points": [
+        33,
+        12,
+        120,
+        173
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 29,
+      "source": "fairy",
+      "source_sha256": "de6e97375d6cae78dbcba02ce25a7c7f81de50c43bbe66b255e2b5130142c13d",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        707
+      ],
+      "layout_box_points": [
+        137,
+        9,
+        229,
+        278
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 30,
+      "source": "opening",
+      "source_sha256": "e3738c1d574ed8c29525186b493c36d75c0b4b9e8e957f7b683ad0ffb47be579",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        158,
+        27,
+        250,
+        246
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 30,
+      "source": "fairy",
+      "source_sha256": "de6e97375d6cae78dbcba02ce25a7c7f81de50c43bbe66b255e2b5130142c13d",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        707
+      ],
+      "layout_box_points": [
+        33,
+        12,
+        120,
+        173
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 30,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        375,
+        185,
+        76,
+        59
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 31,
+      "source": "pond",
+      "source_sha256": "26b6ced234d71797e0013a7d161a33d09695d40aa5c43390126a369d63468a14",
+      "crop_xyxy": [
+        2662,
+        0,
+        4096,
+        1024
+      ],
+      "layout_box_points": [
+        0,
+        0,
+        504,
+        360
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 31,
+      "source": "bloom",
+      "source_sha256": "36db20eff66d1da63ab8f13878f99313712fe3adb02ca314a2a73c6f86c59cf9",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        158,
+        27,
+        250,
+        246
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 31,
+      "source": "fairy",
+      "source_sha256": "de6e97375d6cae78dbcba02ce25a7c7f81de50c43bbe66b255e2b5130142c13d",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        707
+      ],
+      "layout_box_points": [
+        33,
+        12,
+        120,
+        173
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 32,
+      "source": "bloom",
+      "source_sha256": "36db20eff66d1da63ab8f13878f99313712fe3adb02ca314a2a73c6f86c59cf9",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        158,
+        27,
+        250,
+        246
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 32,
+      "source": "roshan",
+      "source_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "crop_xyxy": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "layout_box_points": [
+        33,
+        12,
+        120,
+        173
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 33,
+      "source": "door_open",
+      "source_sha256": "91249bc04439a23a1f9ef0b8bb53d6a89fe51030168713c35bedb37b132e10c6",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        46,
+        29,
+        236,
+        251
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 33,
+      "source": "roshan",
+      "source_sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "crop_xyxy": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "layout_box_points": [
+        290,
+        35,
+        147,
+        202
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 34,
+      "source": "bloom",
+      "source_sha256": "36db20eff66d1da63ab8f13878f99313712fe3adb02ca314a2a73c6f86c59cf9",
+      "crop_xyxy": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "layout_box_points": [
+        153,
+        45,
+        203,
+        210
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    },
+    {
+      "pdf_page": 34,
+      "source": "butterfly",
+      "source_sha256": "d6f2447fb6538281a5489ccb86b4a5c71a3baf8ed0003ed4ebc4e466e208d30a",
+      "crop_xyxy": [
+        0,
+        0,
+        512,
+        391
+      ],
+      "layout_box_points": [
+        305,
+        183,
+        91,
+        68
+      ],
+      "treatment": "whole source image, PDF clipping/translation/uniform scaling only; no raster edits"
+    }
+  ],
+  "new_raster_art": 0,
+  "raster_derivatives": 0,
+  "source_gap_ids": [
+    "G01",
+    "G02",
+    "G03",
+    "G04",
+    "G05",
+    "G06",
+    "G07",
+    "G08",
+    "G09"
+  ],
+  "limits": "All pages are source-art layout studies. PDF clipping is non-destructive page layout, not raster editing or completed action art. No runtime/cinematic/owner/child/print acceptance."
+}
