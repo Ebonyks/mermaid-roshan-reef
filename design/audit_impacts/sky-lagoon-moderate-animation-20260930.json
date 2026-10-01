@@ -279,9 +279,9 @@
       "evidence": "assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/PROJECT_VERIFICATION.json; authority/development ALL OK, 52 tests, exact-4.7.2 clean import, zero runtime-source diff; baseline full-game CI success at b65c21fdddd79f272a6854f241faa1441abe6616."
     },
     {
-      "command": "Anonymous immutable GitHub packet verification",
-      "result": "PENDING",
-      "evidence": "Publish and fetch every manifest payload at exact commit; receipt remains separate."
+      "command": "production/verify_remote.py b9a502e75a37bbc451f81315393d929496ad5c6e",
+      "result": "PASS",
+      "evidence": "assets_src\\cinematics\\sky_lagoon_moderate_motion_v2_2026-09-30\\REMOTE_VERIFICATION.json; 227 files fetched anonymously from exact immutable revision, bytes/SHA256 and canonical payload cc0dfbd896900d8a6902e1a8313c40ff9e534c5d8f4b4efb11f80680efc32ff4 verified at 2026-10-01T05:56:58Z"
     },
     {
       "command": "Case-sensitive slash-path sort plus independent local file/payload SHA256 check",
