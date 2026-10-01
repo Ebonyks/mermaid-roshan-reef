@@ -1,0 +1,71 @@
+{
+  "id": "job-platform-architecture-handoff-20260930",
+  "scope": "Owner-requested architecture (2026-09-30) to support the master-audit refinement and job-game takeover changes more effectively, delivered as a Codex handoff: docs/handoffs/codex_job_platform_architecture_2026-09-30/ (README with work packages JP0-JP8, ARCHITECTURE, job record schema, Teacher and ledger examples, a read-only extractor and its outputs proving that per-job records reproduce all eleven hard-coded masks, counts and bounds). Cross-references: a dated correction and pointer in audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md, Job Platform links in the master-audit 'New job game' and 'Code' task rows plus a change-history row, revision 4 of the refinement handoff pointing Stage J WP-J1 at the compiled content layer, and document-ledger rows. Documentation only: no game script, scene, asset, save key, rule text, finding lifecycle or workflow changes.",
+  "baseline": "7f068cb80766edd52a110cc1cb3958158f829822",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-CODE-05",
+    "DL-CODE-06",
+    "DL-CODE-10",
+    "DL-CODE-11",
+    "DL-SAVE-01",
+    "DL-SAVE-06",
+    "DL-INT-07",
+    "DL-PLAN-04"
+  ],
+  "findings": [
+    "MA-DOC-006"
+  ],
+  "files": [
+    "audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "docs/handoffs/codex_job_platform_architecture_2026-09-30/.gdignore",
+    "docs/handoffs/codex_job_platform_architecture_2026-09-30/ARCHITECTURE.md",
+    "docs/handoffs/codex_job_platform_architecture_2026-09-30/MANIFEST.json",
+    "docs/handoffs/codex_job_platform_architecture_2026-09-30/README.md",
+    "docs/handoffs/codex_job_platform_architecture_2026-09-30/data/derivation_check.json",
+    "docs/handoffs/codex_job_platform_architecture_2026-09-30/data/extracted_catalog.json",
+    "docs/handoffs/codex_job_platform_architecture_2026-09-30/examples/ledger.example.json",
+    "docs/handoffs/codex_job_platform_architecture_2026-09-30/examples/teacher.job.json",
+    "docs/handoffs/codex_job_platform_architecture_2026-09-30/schema/job_record.schema.json",
+    "docs/handoffs/codex_job_platform_architecture_2026-09-30/tools/extract_job_catalog.py",
+    "docs/handoffs/codex_master_audit_refinement_2026-09-30/MANIFEST.json",
+    "docs/handoffs/codex_master_audit_refinement_2026-09-30/README.md"
+  ],
+  "validation": [
+    {
+      "command": "python -B docs/handoffs/codex_job_platform_architecture_2026-09-30/tools/extract_job_catalog.py --out docs/handoffs/codex_job_platform_architecture_2026-09-30/data (at 7f068cb8)",
+      "result": "PASS",
+      "evidence": "15 live jobs, 3 tombstones, 18 slots; 11 of 11 hard-coded values MATCH their derived values (ACTIVE_STAR_MASK and OPERA_ACTIVE_STAR_MASK 0x3BDEF, RETIRED_STAR_MASK 0x4210, both counts 15, LIVE and RETIRED indices, range(18), four 262143 clamps, ALL_PARTY_MASK 0x2C4F, 61 shipping phases); drift: geologist cue missing from the music build tool, geologist and teacher outside the atlas gate; next free bit 18 needs ceiling 524287."
+    },
+    {
+      "command": "Direct reads at 7f068cb8 of scripts/opera_house.gd, scripts/save_state.gd (:86, :198, :294, :619, :681, :731, :756), scripts/opera_career_world_2d.gd (specialist if-chain), scripts/opera_act.gd (:140-147), tools/build_area_music.py, tools/audit_opera_roshan_animation.py, scripts/ci.sh and .github/workflows/probes.yml",
+      "result": "PASS",
+      "evidence": "Facts cited in ARCHITECTURE sections 0, 1 and Appendix A; chapter2 probes added to both rosters by 4b8d89ca after the takeover audit baseline (correction recorded in that audit)."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "Staged candidate over base 7f068cb8: DOCAUTH|INVENTORY=590|LEDGER=590|ACTIVE=57|RECORDS=59, RESULT ALL OK."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Staged candidate: AUDITDEV|BASE|7f068cb80766edd52a110cc1cb3958158f829822, RESULT ALL OK."
+    },
+    {
+      "command": "Anonymous fetch of both handoff manifests and every listed file from raw.githubusercontent.com at the pushed commit",
+      "result": "PENDING",
+      "evidence": "Recorded after publication."
+    },
+    {
+      "command": "GitHub Probe Suite at the branch head",
+      "result": "PENDING",
+      "evidence": "Required green before merging into dev."
+    }
+  ],
+  "acceptance_gaps": "Specification only. Owner answers to Q1-Q8, Codex implementation of JP0-JP8, and all runtime, visual, device, child and owner acceptance remain open. MA-DOC-006 stays CONFIRMED_OPEN; the game-wide audit remains IN_PROGRESS / UNSATISFIED."
+}
