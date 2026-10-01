@@ -1,0 +1,360 @@
+{
+  "full_ci": {
+    "command": "TMP/TEMP/TMPDIR=isolatedH GODOT=Godot4.7.2-console scripts/ci.sh",
+    "checked_at_utc": "2026-10-01T02:44:42.4754617Z",
+    "exit_code": 1,
+    "seconds": 3142.8925531
+  },
+  "full_ci_log_sha256": "64606676300f02e3c1404b7a668f3001bfe8f7250794b3252b6f80c65dbb4d8d",
+  "three_probes": {
+    "probe_audit": {
+      "section": "=== probe_audit ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nAUDIT|Day One lock and progressive room contract: OK\nPROBE probe_audit process exit: 127",
+      "source_sha256": "092c2c5cec5f5d87ab2a06c2c91ea65b204c51340b8d262b021c104f48a7975f",
+      "canonical_source_sha256": "79ef070b36b4188c2995a9dab0e0df99efd7469937267b4ac49cd58e2bd0d4cb",
+      "same_as_faerie_commit_canonical": true,
+      "same_as_immutable_green7f_canonical": true,
+      "explicit_quit_sites": [
+        "\tquit()\r"
+      ]
+    },
+    "probe_audio": {
+      "section": "=== probe_audio ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nPROBE probe_audio process exit: 127",
+      "source_sha256": "89cb2a394a627090060e3819072eddca384c27e774a5d02405dfb56e93d39170",
+      "canonical_source_sha256": "14360c356e8f1b3034fed30bd4cb7cde35adc4754ebfee83c882843a39e2ae78",
+      "same_as_faerie_commit_canonical": true,
+      "same_as_immutable_green7f_canonical": true,
+      "explicit_quit_sites": [
+        "\tquit()\r"
+      ]
+    },
+    "probe_dust_boss_balance": {
+      "section": "=== probe_dust_boss_balance ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nDUSTBAL|schema persona,seconds,rounds,damage,avoids,opening_misses,taps,result\nPROBE probe_dust_boss_balance process exit: 127",
+      "source_sha256": "f7279a775cd2bfcdb10b2fc25a1c40c72c9f7d23dc414bc89360ecaa0b980a93",
+      "canonical_source_sha256": "f4940fb4b5d6398e5d1fab94fdf92f4666c2302ff6c36f533312c6f3956be235",
+      "same_as_faerie_commit_canonical": true,
+      "same_as_immutable_green7f_canonical": true,
+      "explicit_quit_sites": [
+        "\tquit(1 if failures > 0 else 0)\r"
+      ]
+    }
+  },
+  "faerie_receipt_sections": {
+    "final_native_trusted_probes": {
+      "revision": "33a2c8e3cd86bb4a0dd9d372f6463095c666668d",
+      "engine": "4.7.2.stable.official.ed1daf0bf",
+      "expected": 82,
+      "completed": 82,
+      "nonzero_exits": 0,
+      "log": "WINDOWS_NATIVE_FULL_TRUSTED_LOG.txt",
+      "log_sha256": "bb1074e45d94649941b86c19683ea2c847034f2131167c87eda6b8838e4709d9",
+      "runner": "NATIVE_WINDOWS_PROBE_RUNNER.ps1",
+      "runner_sha256": "df49bb06fb413c59373a9519e33d4d3b46fa7c23c66036a00187be02edc82809",
+      "invocation": "AGENTS.md permits probe-by-probe validation. Original ordered scripts, original per-probe touch mode, isolated APPDATA/LOCALAPPDATA and eight-minute timeout; native Windows Start-Process supervision observes HasExited/ExitCode. Original failure/resource guards retained. The unchanged combat-tutorial probe uses the official --fixed-fps 60 clock: its 20-frame hold at time_scale 6 represents two simulated seconds against the unchanged 1.75-second charge threshold. No gameplay/probe code or assertion is changed.",
+      "check_time_utc": "2026-10-01T01:24:39.055457+00:00",
+      "scope": "All 82 ordered local probe obligations have complete passing source-bound executions, with zero exits and original failure guards clear. Initial case-filter correction matches the original case-sensitive guard. Uncapped tutorial assertion failure remains FAILED; unchanged tutorial passes with official --fixed-fps 60. Subsequent native Opera exit -1 remains FAILED. A uniquely named SHA-256-identical official copy passes Opera through balance, then Windows startup access violation remains FAILED. The final six unchanged menu/art probes already passed both original Bash attempts and full source CI; their actual successful blocks supply the final obligations. Composite success evidence is explicitly probe-by-probe, not a claimed green uninterrupted local run. All original static/art/audio/import/inventory stages pass. Windows native process/crash limitations remain open; full source CI is green.",
+      "runner_filter_recheck": "NATIVE_RUNNER_FILTER_RECHECK.txt",
+      "runner_filter_recheck_sha256": "2676804a3cd89710a3012f34e3781d2a5c1ea2487aaa98cfc7b157171d2fa09b",
+      "initial_native_attempt": {
+        "log": "WINDOWS_NATIVE_INITIAL_ATTEMPT_LOG.txt",
+        "sha256": "a01d32373a2651786013fe6f07bd7aa60933b77e8404d12c6d585206ca3ceab0",
+        "result": "FAIL",
+        "failure": "Uncapped fixed-frame combat tutorial: 2 assertions fail"
+      },
+      "success_log_composition": {
+        "initial_prefix_bytes": 161767,
+        "initial_prefix_sha256": "060ae50fa6de72226ef0b1a7421b7be0715343bf973a6eb7e0eaef089e5be2d3",
+        "clock_prefix_bytes": 17670,
+        "clock_prefix_sha256": "cf05ea859b863515620d68a6d9a28ddcb20993621cd413e4b1120e261de0d6f9",
+        "clock_attempt_log": "WINDOWS_NATIVE_FIXED_CLOCK_CONTINUATION_LOG.txt",
+        "clock_attempt_sha256": "65ad8daac56d908ede13842d1bec70efcd1ad8a6db5dd31ab09d51a147ca7670",
+        "isolated_prefix_bytes": 188992,
+        "isolated_prefix_sha256": "21fb5d8ae31deb7423e99e0dee1601d4d06e45d97e9112dd82547d2fe9b3e1c7",
+        "isolated_attempt_log": "WINDOWS_NATIVE_ISOLATED_ENGINE_CONTINUATION_LOG.txt",
+        "isolated_attempt_sha256": "f0d012f702c977a27d3523c2e3f5213d082e5da34663c0c250111229dbc13175",
+        "final_six_bash_suffix_source": "FULL_CI_FINAL_DIRECT_LOG.txt",
+        "final_six_bash_suffix_bytes": 12533,
+        "final_six_bash_suffix_sha256": "72d84d47acaf7adf779500995bb8f174b925a0b0ebde47a564a115af2465378f"
+      },
+      "isolated_engine": {
+        "source": "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot.exe",
+        "copy": "H:/CodexWorktrees/mermaid-roshan-reef/fairy-restoration-final-validation-20260930/tmp/fairy_restoration_review/reef_validation_472.exe",
+        "sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+        "reason": "Unique process name for local isolation; official engine bytes unchanged",
+        "check_time_utc": "2026-10-01T01:05:58.6510131Z"
+      }
+    }
+  },
+  "prior_log_matches": {
+    "WINDOWS_NATIVE_INITIAL_ATTEMPT_LOG.txt": {
+      "sha256": "a01d32373a2651786013fe6f07bd7aa60933b77e8404d12c6d585206ca3ceab0",
+      "matches": [
+        {
+          "line": 412,
+          "text": "\nWINDOWS_NATIVE|probe_audit|exit=0|has_exited=True\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n"
+        },
+        {
+          "line": 1147,
+          "text": "\nWINDOWS_NATIVE|probe_audio|exit=0|has_exited=True\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n"
+        }
+      ],
+      "first_lines": [
+        "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org",
+        "",
+        "REEFDISTRICT|six district centers|OK",
+        "REEFDISTRICT|authored grove count|OK",
+        "REEFDISTRICT|district centers have neutral buffers|OK",
+        "REEFDISTRICT|Faron is within a short swim|OK",
+        "REEFDISTRICT|friend 0 is reachable|OK",
+        "REEFDISTRICT|friend 1 is reachable|OK",
+        "REEFDISTRICT|friend 2 is reachable|OK",
+        "REEFDISTRICT|friend 3 is reachable|OK",
+        "REEFDISTRICT|friend 4 is reachable|OK",
+        "REEFDISTRICT|six regional object signatures|OK"
+      ]
+    },
+    "WINDOWS_NATIVE_ISOLATED_ENGINE_CONTINUATION_LOG.txt": {
+      "sha256": "f0d012f702c977a27d3523c2e3f5213d082e5da34663c0c250111229dbc13175",
+      "matches": [
+        {
+          "line": 2967,
+          "text": "\nWINDOWS_NATIVE|probe_dust_boss_balance|exit=0|has_exited=True\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n"
+        },
+        {
+          "line": 3037,
+          "text": "\nWINDOWS_NATIVE|probe_start_menu_routing|exit=-1073741819|has_exited=True"
+        }
+      ],
+      "first_lines": [
+        "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org",
+        "",
+        "OPERA|the real Castle picture stage is the only career entry surface: OK",
+        "OPERA|Castle careers, ambient motion and phone pause stack visibly: OK",
+        "OPERA|Opera keeps sixteen historical positions and appends Geologist and Teacher: OK",
+        "OPERA|the fifteen playable positions keep legacy slots stable: OK",
+        "OPERA|the three retired boss positions remain inert tombstones: OK",
+        "OPERA|the nine owner-approved Castle route sets are exact: OK",
+        "OPERA|Opera Hall contains exactly Ballerina, Pop Star and Magician: OK",
+        "OPERA|Movie Lounge is Racer's one canonical Castle home: OK",
+        "OPERA|there is no generic all-career lobby script: OK",
+        "OPERA|all and only the fifteen live slots have one room route: OK"
+      ]
+    },
+    "WINDOWS_NATIVE_FIXED_CLOCK_CONTINUATION_LOG.txt": {
+      "sha256": "65ad8daac56d908ede13842d1bec70efcd1ad8a6db5dd31ab09d51a147ca7670",
+      "matches": [
+        {
+          "line": 396,
+          "text": "\nWINDOWS_NATIVE|probe_opera|exit=-1|has_exited=True"
+        }
+      ],
+      "first_lines": [
+        "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org",
+        "",
+        "TUTORIAL|the first class readies the Royal Hall gate: OK",
+        "TUTORIAL|the class gate is reached through real floor navigation: OK",
+        "TUTORIAL|the sparring class starts from the real Royal Hall touch target: OK",
+        "TUTORIAL|the Royal Hall door opens the sparring class: OK",
+        "TUTORIAL|the grotto is a true Canvas backdrop: OK",
+        "TUTORIAL|the reusable guide loads approved TAP and HOLD pictures: OK",
+        "TUTORIAL|class begins at the TAP lesson: OK",
+        "TUTORIAL|Roshan and the live imp remain in front of the Canvas grotto: OK",
+        "TUTORIAL|caption_geometry|(320.0, 626.0)|(640.0, 82.0)",
+        "TUTORIAL|the tutorial uses the compact scoped caption strip: OK"
+      ]
+    },
+    "WINDOWS_NATIVE_FULL_TRUSTED_LOG.txt": {
+      "sha256": "bb1074e45d94649941b86c19683ea2c847034f2131167c87eda6b8838e4709d9",
+      "matches": [
+        {
+          "line": 412,
+          "text": "\nWINDOWS_NATIVE|probe_audit|exit=0|has_exited=True\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n"
+        },
+        {
+          "line": 1147,
+          "text": "\nWINDOWS_NATIVE|probe_audio|exit=0|has_exited=True\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n"
+        },
+        {
+          "line": 5730,
+          "text": "\nWINDOWS_NATIVE|probe_dust_boss_balance|exit=0|has_exited=True\n=== probe_start_menu_routing ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+        }
+      ],
+      "first_lines": [
+        "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org",
+        "",
+        "REEFDISTRICT|six district centers|OK",
+        "REEFDISTRICT|authored grove count|OK",
+        "REEFDISTRICT|district centers have neutral buffers|OK",
+        "REEFDISTRICT|Faron is within a short swim|OK",
+        "REEFDISTRICT|friend 0 is reachable|OK",
+        "REEFDISTRICT|friend 1 is reachable|OK",
+        "REEFDISTRICT|friend 2 is reachable|OK",
+        "REEFDISTRICT|friend 3 is reachable|OK",
+        "REEFDISTRICT|friend 4 is reachable|OK",
+        "REEFDISTRICT|six regional object signatures|OK"
+      ]
+    },
+    "DIRECT_NATIVE_RECHECK_LOG.txt": {
+      "sha256": "8f92f728209d748ae61b7ab3359b3700a85729ffab07e863041d1a597f687206",
+      "matches": [],
+      "first_lines": [
+        "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org",
+        "",
+        "PASSIVE|boot OK",
+        "PASSIVE|Chapter Two snapshot mutation contract: OK all 26 fields detected",
+        "PASSIVE|Day One snapshot contract: OK serialized fields covered",
+        "PASSIVE|Critter Book: OK not collected",
+        "PASSIVE|Evie and Lamb-a' [seek]: OK active and unrewarded at 60s",
+        "PASSIVE|Harper and Fiona [slide]: OK active and unrewarded at 60s",
+        "PASSIVE|Faron [dolls]: OK active and unrewarded at 60s",
+        "PASSIVE|Daddy Mermaid [melody]: OK active and unrewarded at 60s",
+        "PASSIVE|Wacky and Chuck [fetch]: OK active and unrewarded at 60s",
+        "PASSIVE|Pearl Shop agency: OK idle/held safe; fresh press buys once"
+      ]
+    },
+    "FULL_CI_FINAL_WRAPPER_LOG.txt": {
+      "sha256": "1891eee7dc6995ef2a5d3730037476a96a75a20de5ac0c5279b583d6e7db3c8f",
+      "matches": [
+        {
+          "line": 6258,
+          "text": "PROBE probe_ocean_kingdoms process exit: 0\n=== probe_audit ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n"
+        },
+        {
+          "line": 6600,
+          "text": "AUDIT|total wall time: 18.2s\nPROBE probe_audit process exit: 0\n=== probe_passive ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+        },
+        {
+          "line": 6609,
+          "text": "PASSIVE|Evie and Lamb-a' [seek]: OK active and unrewarded at 60s\nPROBE probe_passive process exit: 127\n=== probe_living_world ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+        },
+        {
+          "line": 7296,
+          "text": "PROBE probe_seek process exit: 0\n=== probe_audio ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n"
+        },
+        {
+          "line": 7324,
+          "text": "AUDIO|result: ALL OK\nPROBE probe_audio process exit: 0\n=== probe_dance ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+        },
+        {
+          "line": 7340,
+          "text": "\nPROBE probe_l2 process exit: 127\n=== probe_l2_living_cards ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+        },
+        {
+          "line": 8199,
+          "text": "\nPROBE probe_combat process exit: 127\n=== probe_dust_bunny ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+        },
+        {
+          "line": 11800,
+          "text": "PROBE probe_alpha_milestone_save process exit: 0\n=== probe_dust_boss_balance ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n"
+        },
+        {
+          "line": 11817,
+          "text": "DUSTBAL|result: ALL OK\nPROBE probe_dust_boss_balance process exit: 0\n=== probe_start_menu_routing ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+        }
+      ],
+      "first_lines": [
+        "...",
+        "----------------------------------------------------------------------",
+        "Ran 3 tests in 0.158s",
+        "",
+        "OK",
+        "GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf",
+        "........s...............................",
+        "----------------------------------------------------------------------",
+        "Ran 40 tests in 25.176s",
+        "",
+        "OK (skipped=1)",
+        "TYPOGRAPHY_AUDIT status=OPEN"
+      ]
+    },
+    "FULL_CI_FINAL_DIRECT_LOG.txt": {
+      "sha256": "da9b84c615c0a0d0661c68ce78262398d2eefe246a74b3dd91969a185d180537",
+      "matches": [
+        {
+          "line": 770,
+          "text": "PROBE probe_ocean_kingdoms process exit: 0\n=== probe_audit ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n"
+        },
+        {
+          "line": 1112,
+          "text": "AUDIT|total wall time: 16.6s\nPROBE probe_audit process exit: 0\n=== probe_passive ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+        },
+        {
+          "line": 1123,
+          "text": "PASSIVE|Faron [dolls]: OK active and unrewarded at 60s\nPROBE probe_passive process exit: 127\n=== probe_living_world ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+        },
+        {
+          "line": 1810,
+          "text": "PROBE probe_seek process exit: 0\n=== probe_audio ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n"
+        },
+        {
+          "line": 1838,
+          "text": "AUDIO|result: ALL OK\nPROBE probe_audio process exit: 0\n=== probe_dance ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+        },
+        {
+          "line": 2143,
+          "text": "verb look: 4/4 sprite frames\nPROBE probe_verbs process exit: 127\n=== probe_skins ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+        },
+        {
+          "line": 2735,
+          "text": "  run[none]: t=58.85 done=true drift_up=0.0 tier_max=0\nPROBE probe_kart_feel process exit: 127\n=== probe_combat ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+        },
+        {
+          "line": 6375,
+          "text": "PROBE probe_alpha_milestone_save process exit: 0\n=== probe_dust_boss_balance ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n"
+        },
+        {
+          "line": 6392,
+          "text": "DUSTBAL|result: ALL OK\nPROBE probe_dust_boss_balance process exit: 0\n=== probe_start_menu_routing ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+        }
+      ],
+      "first_lines": [
+        "...",
+        "----------------------------------------------------------------------",
+        "Ran 3 tests in 0.014s",
+        "",
+        "OK",
+        "GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf",
+        "........s...............................",
+        "----------------------------------------------------------------------",
+        "Ran 40 tests in 31.167s",
+        "",
+        "OK (skipped=1)",
+        "TYPOGRAPHY_AUDIT status=OPEN"
+      ]
+    },
+    "FULL_CI_REMAINING_LOG.txt": {
+      "sha256": "11004c6c1cb7f6a6562cf699dac4bc80adf9457213b6c86dc3dbc4d9cc950e79",
+      "matches": [
+        {
+          "line": 5896,
+          "text": "PROBE probe_ocean_kingdoms process exit: 0\n=== probe_audit ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n"
+        },
+        {
+          "line": 6238,
+          "text": "AUDIT|total wall time: 16.1s\nPROBE probe_audit process exit: 0\n=== probe_passive ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+        },
+        {
+          "line": 6944,
+          "text": "PROBE probe_seek process exit: 0\n=== probe_audio ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n"
+        },
+        {
+          "line": 6972,
+          "text": "AUDIO|result: ALL OK\nPROBE probe_audio process exit: 0\n=== probe_dance ===\nGodot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+        }
+      ],
+      "first_lines": [
+        "VISUALAUDIT| stress: 18 cases, 18 stressable checks, 8 fuzz rounds",
+        "VISUALAUDIT| stress: ALL OK",
+        "...............................................................................................",
+        "----------------------------------------------------------------------",
+        "Ran 95 tests in 353.375s",
+        "",
+        "OK",
+        "VISUALAUDIT| stress: 18 cases, 18 stressable checks, 24 fuzz rounds",
+        "VISUALAUDIT| stress: ALL OK",
+        "",
+        "-- castle ------------------------------------------------------",
+        "  ERROR/FAIL             layering.legacy_3d_debt"
+      ]
+    }
+  }
+}

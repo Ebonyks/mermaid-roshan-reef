@@ -1,0 +1,586 @@
+--- a/tools/content_build.py
++++ b/tools/content_build.py
+@@ -11,10 +11,10 @@
+ import subprocess
+ from pathlib import Path
+ try:
+-    from .content_gd_literals import CONSTRUCTORS, GDParser, read_const, read_python_list, opera_rows
++    from .content_gd_literals import CONSTRUCTORS, GDParser, read_const, read_python_list, opera_rows, mask_source
+     from .content_source_refs import baseline_checkpoint_order, read_save_const, read_save_bounds, read_checkpoint_order
+ except ImportError:
+-    from content_gd_literals import CONSTRUCTORS, GDParser, read_const, read_python_list, opera_rows
++    from content_gd_literals import CONSTRUCTORS, GDParser, read_const, read_python_list, opera_rows, mask_source
+     from content_source_refs import baseline_checkpoint_order, read_save_const, read_save_bounds, read_checkpoint_order
+ 
+ BASELINE = "7f068cb80766edd52a110cc1cb3958158f829822"
+@@ -216,13 +216,17 @@
+     for source in DIRECTOR:result["CHAPTER2_"+source]=read_const(root/"scripts/chapter_two_director.gd",source)
+     result["DIEGETIC_EXPECTED_STATIONS"]=read_const(root/"scripts/probe_opera_diegetic_paths.gd","EXPECTED_STATIONS")
+     result["DIEGETIC_PLAYABLE_PHASE_STATIONS"]=read_const(root/"scripts/probe_opera_diegetic_paths.gd","PLAYABLE_PHASE_STATIONS")
+-    text=(root/"scripts/probe_chapter2.gd").read_text(encoding="utf-8")
+-    result["CHAPTER2_PHASE_TOTAL"]=int(re.search(r"count == (\d+)",text).group(1))
++    text=mask_source((root/"scripts/probe_chapter2.gd").read_text(encoding="utf-8"))
++    matches=list(re.finditer(r"(?m)^\t_check\(\s*,\s*count == (\d+)\b(?=\s*\))",text))
++    if len(matches)!=1:raise ValueError("expected one real Chapter Two phase-count assertion")
++    result["CHAPTER2_PHASE_TOTAL"]=int(matches[0].group(1))
+     result["LIVING_WORLD_OPERA_ROWS"]=opera_rows(root)
+     result.update(read_save_bounds(root,data))
+     result["SAVE_CHECKPOINT_JOB_ORDER"]=read_checkpoint_order(root,data)
+-    text=(root/"scripts/probe_opera_2d.gd").read_text(encoding="utf-8")
+-    result["SHIPPING_PHASE_TOTAL"]=int(re.search(r"shipping_phase_count == (\d+)",text).group(1))
++    text=mask_source((root/"scripts/probe_opera_2d.gd").read_text(encoding="utf-8"))
++    matches=list(re.finditer(r"(?m)^\t_check\(\s*,\s*shipping_phase_count == (\d+)\b(?=\s+and\s+missing_specs\.is_empty\(\)\))",text))
++    if len(matches)!=1:raise ValueError("expected one real shipping phase-count assertion")
++    result["SHIPPING_PHASE_TOTAL"]=int(matches[0].group(1))
+     return result
+ 
+ 
+--- a/tools/content_source_refs.py
++++ b/tools/content_source_refs.py
+@@ -13,9 +13,9 @@
+ from pathlib import Path
+ 
+ try:
+-    from .content_gd_literals import GDParser
++    from .content_gd_literals import GDParser, mask_source
+ except ImportError:
+-    from content_gd_literals import GDParser
++    from content_gd_literals import GDParser, mask_source
+ 
+ SAVE_PATH = "scripts/save_state.gd"
+ SCALAR_REFERENCES = {
+@@ -37,7 +37,7 @@
+ 
+ 
+ def _constant_parser(text: str, name: str) -> GDParser:
+-    matches = list(re.finditer(r"(?m)^const\s+" + re.escape(name) + r"\b[^=\n]*=(?:\s*\\)?", text))
++    matches = list(re.finditer(r"(?m)^const\s+" + re.escape(name) + r"\b[^=\n]*=(?:\s*\\)?", mask_source(text)))
+     if len(matches) != 1:
+         raise ValueError(f"SaveState must declare {name} exactly once")
+     return GDParser(text, matches[0].end())
+@@ -58,25 +58,33 @@
+ 
+ 
+ def _require_preload(text: str) -> None:
+-    declarations = list(re.finditer(r"(?m)^const\s+JobData\b[^\n]*", text))
++    declarations = list(re.finditer(r"(?m)^const\s+JobData\b[^\n]*", mask_source(text)))
+     if len(declarations) != 1 or not re.fullmatch(
+         r'const\s+JobData\s*:=\s*preload\("res://scripts/generated/job_catalog_data\.gd"\)\s*(?:#.*)?',
+-        declarations[0].group() if declarations else "",
++        text[declarations[0].start():declarations[0].end()] if declarations else "",
+     ):
+         raise ValueError("SaveState JobData preload differs from the fixed JP1 target")
+ 
+ 
+ def _function_body(text: str, name: str) -> str:
+-    start = re.search(r"(?m)^(?:static\s+)?func\s+" + re.escape(name) + r"\([^\n]*\)\s*->\s*[^:\n]+:\s*\n", text)
+-    if not start:
+-        raise ValueError("missing SaveState function " + name)
+-    end = re.search(r"(?m)^(?:static\s+)?func\b", text[start.end():])
++    code = mask_source(text)
++    matches = list(re.finditer(r"(?m)^(?:static\s+)?func\s+" + re.escape(name) + r"\([^\n]*\)\s*->\s*[^:\n]+:\s*\n", code))
++    if len(matches) != 1:
++        raise ValueError("expected exactly one real SaveState function " + name)
++    start = matches[0]
++    end = re.search(r"(?m)^(?:static\s+)?func\b", code[start.end():])
+     return text[start.end():start.end() + end.start() if end else len(text)]
+ 
+ 
+ def _literal_checkpoint_keys(text: str) -> list[str]:
+     body = _function_body(text, "_normalise_save")
+-    return re.findall(r'^\s*data\["([^"]+)"\]\s*=\s*_\w+_checkpoint_or_default\(raw\)\s*(?:#.*)?$', body, re.M)
++    result = []
++    for raw, code in zip(body.splitlines(), mask_source(body).splitlines()):
++        if re.search(r"_\w+_checkpoint_or_default\(raw\)", code):
++            match = re.fullmatch(r'\s*data\["([^"]+)"\]\s*=\s*_\w+_checkpoint_or_default\(raw\)\s*(?:#.*)?', raw)
++            if match:
++                result.append(match.group(1))
++    return result
+ 
+ 
+ @lru_cache(maxsize=16)
+@@ -155,29 +163,7 @@
+ 
+ 
+ def _without_comments(text: str) -> str:
+-    out, quote, escaped, comment = [], None, False, False
+-    for char in text:
+-        if comment:
+-            if char == "\n":
+-                comment = False
+-                out.append(char)
+-            continue
+-        if quote:
+-            out.append(char)
+-            if escaped:
+-                escaped = False
+-            elif char == "\\":
+-                escaped = True
+-            elif char == quote:
+-                quote = None
+-        elif char in ('"', "'"):
+-            quote = char
+-            out.append(char)
+-        elif char == "#":
+-            comment = True
+-        else:
+-            out.append(char)
+-    return "".join(out)
++    return mask_source(text, mask_strings=False)
+ 
+ 
+ def _compact(text: str) -> str:
+@@ -199,8 +185,8 @@
+     return "".join(out)
+ 
+ 
+-def _star_clamp(body: str, prefix: str, arguments: str) -> str:
+-    matches = list(re.finditer(r"(?m)^\t" + re.escape(prefix), body))
++def _star_clamp(body: str, prefix: str, arguments: str, before: str, after: str) -> str:
++    matches = list(re.finditer(r"(?m)^\t" + re.escape(prefix), mask_source(body)))
+     if len(matches) != 1:
+         raise ValueError("missing or duplicate commissioned star clamp: " + prefix)
+     start = body.index("clampi(", matches[0].start())
+@@ -222,6 +208,10 @@
+     if depth:
+         raise ValueError("unterminated commissioned star clamp")
+     _finish(body, index, prefix)
++    previous = [(raw.rstrip(), code) for raw, code in zip(body[:matches[0].start()].splitlines(), mask_source(body[:matches[0].start()]).splitlines()) if code.strip()]
++    following = [(raw.rstrip(), code) for raw, code in zip(body[index:].splitlines(), mask_source(body[index:]).splitlines()) if code.strip()]
++    if not previous or not following or previous[-1][0] != before or following[0][0] != after:
++        raise ValueError("commissioned star clamp moved from original insertion site: " + prefix)
+     call = _compact(body[start:index])
+     expected = "clampi(" + _compact(arguments)
+     if not call.startswith(expected):
+@@ -234,10 +224,20 @@
+ 
+ def read_save_bounds(root: Path, data: dict) -> dict[str, int]:
+     text = (Path(root) / SAVE_PATH).read_text(encoding="utf-8")
+-    live_body = _without_comments(_function_body(text, "_opera_live_star_count"))
++    code = mask_source(text)
++    if len(re.findall(r"\bfor\s+bit_index\s+in\s+range\(", code)) != 1:
++        raise ValueError("SaveState has extra or missing commissioned star loops")
++    clamp_targets = r"(?:m\.opera_stars\s*=|var\s+raw_opera_stars\s*:=|var\s+opera_stars\s*:\s*int\s*=)\s*clampi\("
++    if len(re.findall(clamp_targets, code)) != 4:
++        raise ValueError("SaveState has extra or missing commissioned star clamps")
++    live_body = mask_source(_function_body(text, "_opera_live_star_count"))
+     loops = re.findall(r'(?m)^\tfor bit_index in range\(([^\n)]*)\):\s*$', live_body)
+     if len(loops) != 1:
+         raise ValueError("SaveState commissioned star loop differs or is absent")
++    live_lines = [line.rstrip() for line in live_body.splitlines() if line.strip()]
++    loop_index = next(i for i, line in enumerate(live_lines) if line.startswith("\tfor bit_index in range("))
++    if loop_index == 0 or loop_index + 1 >= len(live_lines) or live_lines[loop_index - 1] != "\tvar total := 0" or live_lines[loop_index + 1] != "\t\tvar bit := 1 << bit_index":
++        raise ValueError("commissioned star loop moved from original insertion site")
+     bound = loops[0].strip()
+     if bound == "JobData.SLOT_COUNT":
+         _require_preload(text)
+@@ -247,14 +247,14 @@
+     else:
+         raise ValueError("unapproved SaveState star loop bound")
+     sites = (
+-        ("load_save", "m.opera_stars = clampi(", 'int(m.save_data.get("opera_stars", 0)), 0,'),
+-        ("write_save", "m.opera_stars = clampi(", 'm.opera_stars, 0,'),
+-        ("_normalise_save", "var raw_opera_stars := clampi(", '_nonnegative_int_or_default(raw, "opera_stars", 0), 0,'),
+-        ("_normalise_save", "var opera_stars: int = clampi(", '_nonnegative_int_or_default(raw, "opera_stars", (1 << opera_prog) - 1), 0,'),
++        ("load_save", "m.opera_stars = clampi(", 'int(m.save_data.get("opera_stars", 0)), 0,', '\tm.ember_done = bool(m.save_data.get("ember_done", false))', '\tm.opera_progress = _opera_live_star_count(m.opera_stars)'),
++        ("write_save", "m.opera_stars = clampi(", 'm.opera_stars, 0,', '\tnext_data["ember_done"] = m.ember_done', '\tm.opera_progress = _opera_live_star_count(m.opera_stars)'),
++        ("_normalise_save", "var raw_opera_stars := clampi(", '_nonnegative_int_or_default(raw, "opera_stars", 0), 0,', '\tdata["comfy_games"] = comfy_state', '\tvar chapter_two_state := ChapterTwoDirector.normalise_save_patch('),
++        ("_normalise_save", "var opera_stars: int = clampi(", '_nonnegative_int_or_default(raw, "opera_stars", (1 << opera_prog) - 1), 0,', '\tvar opera_prog: int = clampi(_nonnegative_int_or_default(raw, "opera_progress", 0), 0, 16)', '\tdata["opera_stars"] = opera_stars'),
+     )
+     ceilings = []
+-    for function, prefix, arguments in sites:
+-        upper = _star_clamp(_without_comments(_function_body(text, function)), prefix, arguments)
++    for function, prefix, arguments, before, after in sites:
++        upper = _star_clamp(_without_comments(_function_body(text, function)), prefix, arguments, before, after)
+         if upper == "JobData.STAR_CEILING":
+             _require_preload(text)
+             ceilings.append(data["STAR_CEILING"])
+@@ -277,22 +277,24 @@
+     text = (Path(root) / SAVE_PATH).read_text(encoding="utf-8")
+     body = _without_comments(_function_body(text, "_normalise_save"))
+     literal_keys = _literal_checkpoint_keys(text)
+-    lines = [line.rstrip() for line in body.splitlines() if line.strip()]
+-    if "JobData.SAVE_CHECKPOINT_JOB_ORDER" not in body:
++    pairs = [(raw.rstrip(), code) for raw, code in zip(body.splitlines(), mask_source(body).splitlines()) if code.strip()]
++    lines = [raw for raw, _ in pairs]
++    code_lines = [code for _, code in pairs]
++    if "JobData.SAVE_CHECKPOINT_JOB_ORDER" not in mask_source(body):
+         by_key = {spec["key"]: jid for jid, spec in data["SAVE_CHECKPOINTS"].items()}
+         if not literal_keys or any(key not in by_key for key in literal_keys):
+             raise ValueError("missing or unregistered literal checkpoint normalization")
+-        starts = [i for i, line in enumerate(lines) if re.search(r"_\w+_checkpoint_or_default\(raw\)", line)]
++        starts = [i for i, line in enumerate(code_lines) if re.search(r"_\w+_checkpoint_or_default\(raw\)", line)]
+         if len(starts) != len(LEGACY_NORMALIZATION_LINES) or tuple(lines[starts[0]:starts[0] + len(LEGACY_NORMALIZATION_LINES)]) != LEGACY_NORMALIZATION_LINES:
+             raise ValueError("literal checkpoint normalization differs from fixed legacy sequence or indentation")
+         _require_normalization_site(lines, starts[0], len(LEGACY_NORMALIZATION_LINES))
+         return [by_key[key] for key in literal_keys]
+     _require_preload(text)
+     loop = ["\t" + NORMALIZATION_LOOP[0], *["\t\t" + line for line in NORMALIZATION_LOOP[1:]]]
+-    starts = [i for i, line in enumerate(lines) if "for checkpoint_job_id:" in line]
++    starts = [i for i, line in enumerate(code_lines) if "for checkpoint_job_id:" in line]
+     if len(starts) != 1 or lines[starts[0]:starts[0] + len(loop)] != loop or literal_keys:
+         raise ValueError("checkpoint normalization loop differs from fixed JP1 form or indentation")
+     _require_normalization_site(lines, starts[0], len(loop))
+-    if sum("JobData.SAVE_CHECKPOINT_JOB_ORDER" in line for line in lines) != 1:
++    if sum("JobData.SAVE_CHECKPOINT_JOB_ORDER" in line for line in code_lines) != 1:
+         raise ValueError("duplicate checkpoint normalization loop")
+     return copy.deepcopy(data["SAVE_CHECKPOINT_JOB_ORDER"])
+--- a/tools/content_gd_literals.py
++++ b/tools/content_gd_literals.py
+@@ -1,151 +1,205 @@
+-"""Read a constrained GDScript literal subset without executing project code."""
+-from __future__ import annotations
+-
+-import ast
+-import json
+-import re
+-from pathlib import Path
+-
+-CONSTRUCTORS = {"Color", "Vector2", "Vector2i", "Rect2", "PackedStringArray",
+-                "PackedInt32Array", "PackedFloat32Array"}
+-TAG_KEYS = {"__call__", "__dict__", "__stringname__"}
+-
+-
+-class GDParser:
+-    def __init__(self, text: str, start: int = 0):
+-        self.s, self.i = text, start
+-
+-    def ws(self):
+-        while self.i < len(self.s):
+-            if self.s[self.i] in " \t\r\n\\":
+-                self.i += 1
+-            elif self.s[self.i] == "#":
+-                self.i = self.s.find("\n", self.i)
+-                if self.i < 0:
+-                    self.i = len(self.s)
+-            else:
+-                break
+-
+-    def peek(self):
+-        self.ws()
+-        return self.s[self.i:self.i + 1]
+-
+-    def value(self):
+-        c = self.peek()
+-        if c == "{":
+-            return self.mapping()
+-        if c == "[":
+-            return self.sequence("]")
+-        if c == "&":
+-            self.i += 1
+-            return {"__stringname__": self.string()}
+-        if c in ("'", '"'):
+-            return self.string()
+-        if c.isdigit() or c in ("-", "."):
+-            m = re.match(r"-?(?:0x[0-9A-Fa-f_]+|\d[\d_]*(?:\.\d+)?(?:[eE][-+]?\d+)?|\.\d+)", self.s[self.i:])
+-            if not m:
+-                raise ValueError("invalid number at " + str(self.i))
+-            raw = m.group().replace("_", "")
+-            self.i += len(m.group())
+-            return int(raw, 16) if "0x" in raw else (float(raw) if any(x in raw for x in ".eE") else int(raw))
+-        m = re.match(r"[A-Za-z_][A-Za-z0-9_]*", self.s[self.i:])
+-        if m:
+-            name = m.group()
+-            self.i += len(name)
+-            if name in ("true", "false", "null"):
+-                return {"true": True, "false": False, "null": None}[name]
+-            if self.peek() == "(":
+-                if name not in CONSTRUCTORS:
+-                    raise ValueError("forbidden constructor " + name)
+-                return {"__call__": name, "args": self.sequence(")")}
+-            raise ValueError("unsupported identifier " + name)
+-        raise ValueError("unsupported literal at " + str(self.i))
+-
+-    def string(self):
+-        quote, start = self.s[self.i], self.i
+-        self.i += 1
+-        while self.i < len(self.s):
+-            if self.s[self.i] == "\\":
+-                self.i += 2
+-            elif self.s[self.i] == quote:
+-                self.i += 1
+-                raw = self.s[start:self.i]
+-                # JSON handles Unicode exactly; single quoted Godot literals are
+-                # read by Python's literal reader, never eval.
+-                return json.loads(raw) if quote == '"' else ast.literal_eval(raw)
+-            else:
+-                self.i += 1
+-        raise ValueError("unterminated string")
+-
+-    def sequence(self, end):
+-        self.i += 1
+-        result = []
+-        while self.peek() != end:
+-            if not self.peek():
+-                raise ValueError("unterminated sequence")
+-            result.append(self.value())
+-            if self.peek() == ",":
+-                self.i += 1
+-            elif self.peek() != end:
+-                raise ValueError("missing sequence separator")
+-        self.i += 1
+-        return result
+-
+-    def mapping(self):
+-        self.i += 1
+-        pairs = []
+-        while self.peek() != "}":
+-            key = self.value()
+-            if self.peek() not in (":", "="):
+-                raise ValueError("missing dictionary separator")
+-            self.i += 1
+-            pairs.append([key, self.value()])
+-            if self.peek() == ",":
+-                self.i += 1
+-            elif self.peek() != "}":
+-                raise ValueError("missing dictionary comma")
+-        self.i += 1
+-        if all(isinstance(k, str) for k, _ in pairs):
+-            if len(set(k for k, _ in pairs)) != len(pairs):
+-                raise ValueError("duplicate dictionary key")
+-            return dict(pairs)
+-        return {"__dict__": pairs}
+-
+-
+-def read_const(path: Path, name: str):
+-    text = path.read_text(encoding="utf-8")
+-    match = re.search(r"(?m)^const\s+" + re.escape(name) + r"\b[^=\n]*=(?:\s*\\)?", text)
+-    if not match:
+-        raise ValueError(f"{path}: missing constant {name}")
+-    parser = GDParser(text, match.end())
+-    value = parser.value()
+-    tail = text[parser.i:text.find("\n", parser.i) if text.find("\n", parser.i) >= 0 else len(text)].strip()
+-    if tail and not tail.startswith("#"):
+-        raise ValueError(f"{path}: trailing expression after {name}")
+-    return value
+-
+-
+-def read_python_list(path: Path, name: str):
+-    tree = ast.parse(path.read_text(encoding="utf-8"))
+-    for node in tree.body:
+-        if isinstance(node, (ast.Assign, ast.AnnAssign)):
+-            targets = node.targets if isinstance(node, ast.Assign) else [node.target]
+-            if any(isinstance(t, ast.Name) and t.id == name for t in targets):
+-                return ast.literal_eval(node.value)
+-    raise ValueError(f"{path}: missing literal {name}")
+-
+-
+-def opera_rows(root: Path):
+-    text = (root / "scripts/living_world_catalog.gd").read_text(encoding="utf-8")
+-    start = text.index('static func _add_opera_acts(')
+-    match = re.search(r'_add_rows\(specs,\s*"opera_act",\s*11,\s*', text[start:])
+-    if not match:
+-        raise ValueError("missing Opera living-world rows")
+-    return GDParser(text, start + match.end()).value()
+-
+-
+-def integer_mapping(value):
+-    if isinstance(value, dict) and set(value) == {"__dict__"}:
+-        return dict(value["__dict__"])
+-    return value
+-
++"""Read a constrained GDScript literal subset without executing project code."""
++from __future__ import annotations
++
++import ast
++import json
++import re
++from pathlib import Path
++
++CONSTRUCTORS = {"Color", "Vector2", "Vector2i", "Rect2", "PackedStringArray",
++                "PackedInt32Array", "PackedFloat32Array"}
++TAG_KEYS = {"__call__", "__dict__", "__stringname__"}
++
++
++def mask_source(text: str, mask_strings: bool = True) -> str:
++    """Preserve source offsets/newlines while hiding comments and string tokens."""
++    out = list(text)
++    index = 0
++    def hide(start: int, end: int) -> None:
++        for position in range(start, end):
++            if out[position] not in "\r\n":
++                out[position] = " "
++    while index < len(text):
++        if text[index] == "#":
++            end = text.find("\n", index)
++            end = end if end >= 0 else len(text)
++            hide(index, end)
++            index = end
++        elif text[index] in ('"', "'"):
++            start = index
++            delimiter = text[index] * (3 if text.startswith(text[index] * 3, index) else 1)
++            index += len(delimiter)
++            while index < len(text):
++                if text[index] == "\\":
++                    index += 2
++                elif text.startswith(delimiter, index):
++                    index += len(delimiter)
++                    break
++                else:
++                    index += 1
++            else:
++                raise ValueError("unterminated string in GDScript source")
++            if mask_strings:
++                hide(start, index)
++        else:
++            index += 1
++    return "".join(out)
++
++
++class GDParser:
++    def __init__(self, text: str, start: int = 0):
++        self.s, self.i = text, start
++
++    def ws(self):
++        while self.i < len(self.s):
++            if self.s[self.i] in " \t\r\n\\":
++                self.i += 1
++            elif self.s[self.i] == "#":
++                self.i = self.s.find("\n", self.i)
++                if self.i < 0:
++                    self.i = len(self.s)
++            else:
++                break
++
++    def peek(self):
++        self.ws()
++        return self.s[self.i:self.i + 1]
++
++    def value(self):
++        c = self.peek()
++        if c == "{":
++            return self.mapping()
++        if c == "[":
++            return self.sequence("]")
++        if c == "&":
++            self.i += 1
++            return {"__stringname__": self.string()}
++        if c in ("'", '"'):
++            return self.string()
++        if c.isdigit() or c in ("-", "."):
++            m = re.match(r"-?(?:0x[0-9A-Fa-f_]+|\d[\d_]*(?:\.\d+)?(?:[eE][-+]?\d+)?|\.\d+)", self.s[self.i:])
++            if not m:
++                raise ValueError("invalid number at " + str(self.i))
++            raw = m.group().replace("_", "")
++            self.i += len(m.group())
++            return int(raw, 16) if "0x" in raw else (float(raw) if any(x in raw for x in ".eE") else int(raw))
++        m = re.match(r"[A-Za-z_][A-Za-z0-9_]*", self.s[self.i:])
++        if m:
++            name = m.group()
++            self.i += len(name)
++            if name in ("true", "false", "null"):
++                return {"true": True, "false": False, "null": None}[name]
++            if self.peek() == "(":
++                if name not in CONSTRUCTORS:
++                    raise ValueError("forbidden constructor " + name)
++                return {"__call__": name, "args": self.sequence(")")}
++            raise ValueError("unsupported identifier " + name)
++        raise ValueError("unsupported literal at " + str(self.i))
++
++    def string(self):
++        quote, start = self.s[self.i], self.i
++        self.i += 1
++        while self.i < len(self.s):
++            if self.s[self.i] == "\\":
++                self.i += 2
++            elif self.s[self.i] == quote:
++                self.i += 1
++                raw = self.s[start:self.i]
++                # JSON handles Unicode exactly; single quoted Godot literals are
++                # read by Python's literal reader, never eval.
++                return json.loads(raw) if quote == '"' else ast.literal_eval(raw)
++            else:
++                self.i += 1
++        raise ValueError("unterminated string")
++
++    def sequence(self, end):
++        self.i += 1
++        result = []
++        while self.peek() != end:
++            if not self.peek():
++                raise ValueError("unterminated sequence")
++            result.append(self.value())
++            if self.peek() == ",":
++                self.i += 1
++            elif self.peek() != end:
++                raise ValueError("missing sequence separator")
++        self.i += 1
++        return result
++
++    def mapping(self):
++        self.i += 1
++        pairs = []
++        while self.peek() != "}":
++            key = self.value()
++            if self.peek() not in (":", "="):
++                raise ValueError("missing dictionary separator")
++            self.i += 1
++            pairs.append([key, self.value()])
++            if self.peek() == ",":
++                self.i += 1
++            elif self.peek() != "}":
++                raise ValueError("missing dictionary comma")
++        self.i += 1
++        if all(isinstance(k, str) for k, _ in pairs):
++            if len(set(k for k, _ in pairs)) != len(pairs):
++                raise ValueError("duplicate dictionary key")
++            return dict(pairs)
++        return {"__dict__": pairs}
++
++
++def read_const(path: Path, name: str):
++    text = path.read_text(encoding="utf-8")
++    matches = list(re.finditer(r"(?m)^const\s+" + re.escape(name) + r"\b[^=\n]*=(?:\s*\\)?", mask_source(text)))
++    if len(matches) != 1:
++        raise ValueError(f"{path}: expected exactly one real constant {name}")
++    parser = GDParser(text, matches[0].end())
++    value = parser.value()
++    tail = text[parser.i:text.find("\n", parser.i) if text.find("\n", parser.i) >= 0 else len(text)].strip()
++    if tail and not tail.startswith("#"):
++        raise ValueError(f"{path}: trailing expression after {name}")
++    return value
++
++
++def read_python_list(path: Path, name: str):
++    tree = ast.parse(path.read_text(encoding="utf-8"))
++    for node in tree.body:
++        if isinstance(node, (ast.Assign, ast.AnnAssign)):
++            targets = node.targets if isinstance(node, ast.Assign) else [node.target]
++            if any(isinstance(t, ast.Name) and t.id == name for t in targets):
++                return ast.literal_eval(node.value)
++    raise ValueError(f"{path}: missing literal {name}")
++
++
++def opera_rows(root: Path):
++    text = (root / "scripts/living_world_catalog.gd").read_text(encoding="utf-8")
++    code = mask_source(text)
++    functions = list(re.finditer(r"(?m)^static func _add_opera_acts\(", code))
++    if len(functions) != 1:
++        raise ValueError("expected one real Opera living-world function")
++    function = functions[0]
++    following = re.search(r"(?m)^(?:static\s+)?func\b", code[function.end():])
++    end = function.end() + following.start() if following else len(text)
++    calls = list(re.finditer(r"_add_rows\(", code[function.end():end]))
++    if len(calls) != 1:
++        raise ValueError("expected one real Opera living-world row call")
++    start = function.end() + calls[0].start()
++    match = re.match(r'_add_rows\(specs,\s*"opera_act",\s*11,\s*', text[start:end])
++    if not match:
++        raise ValueError("Opera living-world row call differs")
++    parser = GDParser(text, start + match.end())
++    value = parser.value()
++    if parser.peek() != ")":
++        raise ValueError("trailing expression after Opera living-world rows")
++    parser.i += 1
++    newline = text.find("\n", parser.i)
++    tail = text[parser.i:newline if newline >= 0 else len(text)].strip()
++    if tail and not tail.startswith("#"):
++        raise ValueError("trailing expression after Opera living-world call")
++    return value
++
++
++def integer_mapping(value):
++    if isinstance(value, dict) and set(value) == {"__dict__"}:
++        return dict(value["__dict__"])
++    return value
++

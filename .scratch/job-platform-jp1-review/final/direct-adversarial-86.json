@@ -1,0 +1,443 @@
+{
+  "schema": "reef.jp1-final-compiler-direct-matrix.v1",
+  "checked_at_utc": "2026-10-01T02:41:59.474136+00:00",
+  "candidate": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp1-review\\final\\after",
+  "case_count": 86,
+  "failed_count": 0,
+  "cases": [
+    {
+      "case": "all74 native source shapes",
+      "passed": true
+    },
+    {
+      "case": "triple complete decoy ignored \"\"\"0",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "triple complete decoy ignored \"\"\"1",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "triple complete decoy ignored \"\"\"2",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "real source replaced by triple \"\"\"const JobData := preload(",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "real source replaced by triple \"\"\"const OPERA_ACTIVE_STAR_M",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "real source replaced by triple \"\"\"func _normalise_save(raw:",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "real source replaced by triple \"\"\"m.opera_stars = clampi(in",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "prefixed triple masked \"\"\"0",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked \"\"\"1",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked \"\"\"2",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked r\"\"\"0",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked r\"\"\"1",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked r\"\"\"2",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked &\"\"\"0",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked &\"\"\"1",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked &\"\"\"2",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked ^\"\"\"0",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked ^\"\"\"1",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked ^\"\"\"2",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "triple complete decoy ignored '''0",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "triple complete decoy ignored '''1",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "triple complete decoy ignored '''2",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "real source replaced by triple '''const JobData := preload(",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "real source replaced by triple '''const OPERA_ACTIVE_STAR_M",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "real source replaced by triple '''func _normalise_save(raw:",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "real source replaced by triple '''m.opera_stars = clampi(in",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "prefixed triple masked '''0",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked '''1",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked '''2",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked r'''0",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked r'''1",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked r'''2",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked &'''0",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked &'''1",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked &'''2",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked ^'''0",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked ^'''1",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "prefixed triple masked ^'''2",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "single/raw/prefix string ignored \"",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "single/raw/prefix string ignored '",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "single/raw/prefix string ignored &\"",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "single/raw/prefix string ignored ^\"",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "single/raw/prefix string ignored r\"",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "single/raw/prefix string ignored r'",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "unterminated string \"",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "unterminated string '",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "unterminated string \"\"\"",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "unterminated string '''",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "duplicate actual function load_save",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "duplicate actual function write_save",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "duplicate actual function _normalise_save",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "duplicate actual function _opera_live_star_count",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "clamp relocated inside original function",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "slot loop original next statement changed",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "quoted/comment constant ignored",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "quoted/comment constant ignored",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "quoted/comment constant ignored",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "constant missing/duplicate/tail rejected",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "constant missing/duplicate/tail rejected",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "constant missing/duplicate/tail rejected",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "mask exact offsets/newlines/escape parity",
+      "passed": true
+    },
+    {
+      "case": "mask exact offsets/newlines/escape parity",
+      "passed": true
+    },
+    {
+      "case": "world quoted selectors ignored \"\"\"",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "missing world function cannot use quoted substitute \"\"\"",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "world quoted selectors ignored '''",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "missing world function cannot use quoted substitute '''",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "count quoted/comment ignored scripts/probe_chapter2.gd",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "count quoted replacement rejected scripts/probe_chapter2.gd",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "duplicate actual count producer rejected scripts/probe_chapter2.gd",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "count RHS rejects count == 29 + 1",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "count RHS rejects count == 29.5",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "count RHS rejects count == 29_0",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "count RHS rejects other_count == 29",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "unrelated count name ignored scripts/probe_chapter2.gd",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "count quoted/comment ignored scripts/probe_opera_2d.gd",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "count quoted replacement rejected scripts/probe_opera_2d.gd",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "duplicate actual count producer rejected scripts/probe_opera_2d.gd",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "count RHS rejects shipping_phase_count == 61 + 1",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "count RHS rejects shipping_phase_count == 61.5",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "count RHS rejects shipping_phase_count == 61_0",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "count RHS rejects other_shipping_phase_count == 61",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "unrelated count name ignored scripts/probe_opera_2d.gd",
+      "passed": true,
+      "expected": "accept"
+    },
+    {
+      "case": "extra real clamp rejected globally",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "extra real loop rejected globally",
+      "passed": true,
+      "expected": "reject"
+    },
+    {
+      "case": "quoted duplicate global sites ignored",
+      "passed": true,
+      "expected": "accept"
+    }
+  ],
+  "all74_source_shapes_equal": true,
+  "candidate_source_sha256": {
+    "content_build.py": "07cc66654c94586709b5117b0cb3bc448f2290c483729629a4868619c89abd70",
+    "content_source_refs.py": "25192f93d8b3bfd9fc5991faa39a73cd95b9938059e59a090796a01515f44a76",
+    "content_gd_literals.py": "fd5b08094b6d9161cd07a1a4b5126031991282dfe14c7893a4c62a6a40c5d088"
+  },
+  "runtime_save_source_sha256": "9096257375df8e93fc6ce0bd4884ea46eb175e4b55a8ffc16f75ffc33009501c"
+}

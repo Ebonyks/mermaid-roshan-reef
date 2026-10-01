@@ -1,0 +1,214 @@
+{
+  "schema": "reef.jp1-compiler-lexical-review.v1",
+  "checked_at_utc": "2026-10-01T02:45:16.473019+00:00",
+  "status": "SOURCE_REVIEW_FROZEN_READY_FOR_APPROVAL",
+  "artifact_directory": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp1-review\\final",
+  "patch_sha256": "df9ea5006f132600e6e5ae51ba93d6ea5092be0cc8e38a22937fe202b65eb022",
+  "files": [
+    {
+      "path": "content/catalog.json",
+      "jp0_base_sha256": "5ac7bd3bde36af2f8734a2454b275fb68eeaaec0a0862c1633f4537ada5ba63c",
+      "current_jp1_sha256": "2f792e26679049ed2fa238458ee51ab1030f94ce6ba8d7614bae08bffa9265ff",
+      "review_candidate_sha256": "2f792e26679049ed2fa238458ee51ab1030f94ce6ba8d7614bae08bffa9265ff",
+      "review_candidate_size": 12738
+    },
+    {
+      "path": "scripts/generated/job_catalog_data.gd",
+      "jp0_base_sha256": "48214124b9d4a903991c094438451263092467a1ba059b51786e24ea48466307",
+      "current_jp1_sha256": "119fbde690441145d3b8af502a33c5467bc6e2a017eb6d575b760ddfce7836cb",
+      "review_candidate_sha256": "119fbde690441145d3b8af502a33c5467bc6e2a017eb6d575b760ddfce7836cb",
+      "review_candidate_size": 313370
+    },
+    {
+      "path": "tools/content_build.py",
+      "jp0_base_sha256": "48d514907f66f815160188bd23f4f139ba78a8c069b9a5c1b6c7a234fc1fbc67",
+      "current_jp1_sha256": "eea72ab0d11a910ec3bd813c54ecc6154f58b8e2df247b9a09ec5405d0e0c73e",
+      "review_candidate_sha256": "07cc66654c94586709b5117b0cb3bc448f2290c483729629a4868619c89abd70",
+      "review_candidate_size": 39826
+    },
+    {
+      "path": "tools/content_extract.py",
+      "jp0_base_sha256": "e2fa1a32144b79a0b603cf5fa59e889fd62678277861a3d9153fd9a4609e253a",
+      "current_jp1_sha256": "6066ea97da7295b283d406d4941b0da087b68571dd56127353358916cf62223c",
+      "review_candidate_sha256": "6066ea97da7295b283d406d4941b0da087b68571dd56127353358916cf62223c",
+      "review_candidate_size": 16869
+    },
+    {
+      "path": "tools/content_source_refs.py",
+      "jp0_base_sha256": null,
+      "current_jp1_sha256": "ce9381c324e06018ef664cd535e67785e3ddbdcbe083d1d3be6e4e399071df0f",
+      "review_candidate_sha256": "25192f93d8b3bfd9fc5991faa39a73cd95b9938059e59a090796a01515f44a76",
+      "review_candidate_size": 15142
+    },
+    {
+      "path": "tools/content_gd_literals.py",
+      "jp0_base_sha256": "fad9ec2e2033b4079b883a5da4ef2877ac0876faf02a9e9be62078b57ee155f5",
+      "current_jp1_sha256": "fad9ec2e2033b4079b883a5da4ef2877ac0876faf02a9e9be62078b57ee155f5",
+      "review_candidate_sha256": "fd5b08094b6d9161cd07a1a4b5126031991282dfe14c7893a4c62a6a40c5d088",
+      "review_candidate_size": 7859
+    }
+  ],
+  "git_authority": {
+    "common_directory": "C:/Users/Peter/Documents/mermaid-roshan-reef/.git",
+    "branch": "codex/job-platform-jp1-20261001",
+    "head": "ce0331738970205a5aead4d3e0258eb7873a1642",
+    "origin": "https://github.com/Ebonyks/mermaid-roshan-reef.git"
+  },
+  "proof": {
+    "in_memory_adversarial_cases_passed": 86,
+    "case_groups": [
+      "single/double/triple/raw/StringName/NodePath payloads",
+      "escaped quote and slash parity; # inside literals versus quote inside comments",
+      "mask character/CR/LF offsets and unterminated literals",
+      "quoted/commented fake preload/constant/function/clamp/loop/checkpoint sites",
+      "duplicate real constants/functions/count assertions",
+      "moved scoped clamp and slot-loop adjacent sites",
+      "living-world actual function/call selectors and raw native rows",
+      "Chapter Two and shipping count selectors",
+      "extra real slot-loop/clamp calls in unrelated functions rejected; quoted duplicates ignored"
+    ],
+    "strict_source_native_shapes_equal": 74,
+    "all_preexisting_generated_values_equal": 86,
+    "only_added_generated_constant": {
+      "SAVE_CHECKPOINT_JOB_ORDER": [
+        "teacher",
+        "geologist"
+      ],
+      "type": "Array[String]"
+    },
+    "catalog_validation_errors": [],
+    "generated_freshness_errors": [],
+    "render_matches_current_generated_bytes": true,
+    "no_generated_output_used_for_source_resolution": true,
+    "immutable_model_files": [
+      {
+        "path": "content/.gdignore",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "content/compatibility.json",
+        "sha256": "2c6e649254917f3fd2cee242a57ed62844cb154a9ff40acd6bd52d4a0d933712"
+      },
+      {
+        "path": "content/job_record.schema.json",
+        "sha256": "2060782c8e9ad3181f829a0cb5d4d269e6e6539f5139806a87ee93c069749480"
+      },
+      {
+        "path": "content/jobs/_ledger.json",
+        "sha256": "45108c183de6126eb38c241b9a9d807dc31c23da2234334624f7573e7a02e7ea"
+      },
+      {
+        "path": "content/jobs/astronaut.json",
+        "sha256": "03ddd5884ce73cc854904a31f28ea891cd8b4c0718a18e92270e127a99a8ed1e"
+      },
+      {
+        "path": "content/jobs/ballerina.json",
+        "sha256": "e16206dde11e9aa25d55946194af5b2ce30ac114d531f3df21ac3e75c50658fc"
+      },
+      {
+        "path": "content/jobs/boxer.json",
+        "sha256": "e364099fb3403c159008a6ea3fa55c7261b02cd57300ec544634defdbf908e4d"
+      },
+      {
+        "path": "content/jobs/candymaker.json",
+        "sha256": "1c777c3e7244d77c9e4df6d5ecfe2dc9831f619c76d0c8853a99b0c9abead773"
+      },
+      {
+        "path": "content/jobs/chef.json",
+        "sha256": "722f780465a584a188cfbf8b81f51bda87e1c1c6716d89cbc6d44a0ba0311de9"
+      },
+      {
+        "path": "content/jobs/detective.json",
+        "sha256": "ce5b5386c837edb53ff9e726f5e029a33357802410d571dac274627b8671da4b"
+      },
+      {
+        "path": "content/jobs/doctor.json",
+        "sha256": "528a10f70b4ed0852b670335d164bf7b9e454d1047370c2f1749982547f07a3c"
+      },
+      {
+        "path": "content/jobs/farmer.json",
+        "sha256": "9298334bea704eeffd214eb70b639b550a95a37494c4f928ccf8a8ce5eb902e0"
+      },
+      {
+        "path": "content/jobs/geologist.json",
+        "sha256": "e9625e9b2bb7ed1c6af35d1542fd6c9c6818f0e96071ea595156f514cfcd0d8e"
+      },
+      {
+        "path": "content/jobs/magician.json",
+        "sha256": "e8708b67646a17c4df56938088c48e536b452905917546be147f0fa1fe294e42"
+      },
+      {
+        "path": "content/jobs/nursery.json",
+        "sha256": "c7140e845827a1846aa7af186e9b158382c6a09ca9c82d26c95ac9b49dbbb9c0"
+      },
+      {
+        "path": "content/jobs/painter.json",
+        "sha256": "5c946adcc5542cd6df2f10489524149e221ab2cf277e58b33264c8babaf5d26f"
+      },
+      {
+        "path": "content/jobs/popstar.json",
+        "sha256": "282c53f10db63bfe19a10b9c38ed554dba61554c0d115e86c0428d088da634c1"
+      },
+      {
+        "path": "content/jobs/racer.json",
+        "sha256": "2a08c4e08dbde288687655d2faeeb8f98f98c8af8056bd8ec0698942d84ff310"
+      },
+      {
+        "path": "content/jobs/teacher.json",
+        "sha256": "49e16fa275dfa223aa7af9f1d67ed6b1ed95f85f6b49a852474db157fb649e60"
+      }
+    ],
+    "exact_count_rhs_controls_passed": 10,
+    "count_selector_contract": "Actual top-level masked _check call; integer RHS must terminate at original ChapterTwo closing parenthesis or shipping and missing_specs.is_empty() tail. Arithmetic, float, underscore suffix and unrelated name controls reject/ignore as appropriate.",
+    "direct_matrix": {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp1-review\\final\\direct-adversarial-86.json",
+      "sha256": "a3ca0826f7399a2327f22748b849bc01378ef605a071e067d40209ea33e33721",
+      "cases": 86,
+      "failures": 0
+    },
+    "independent_source_review": {
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp1-review\\final-matrix-results\\static_review_receipt.json",
+      "sha256": "49524ed9b4cbef730ea9ef46608b6177a4d1525895a091cd1b2de299045588be",
+      "cases": 69,
+      "failures": 0,
+      "source_hashes": {
+        "tools/content_gd_literals.py": "fd5b08094b6d9161cd07a1a4b5126031991282dfe14c7893a4c62a6a40c5d088",
+        "tools/content_source_refs.py": "25192f93d8b3bfd9fc5991faa39a73cd95b9938059e59a090796a01515f44a76",
+        "tools/content_build.py": "07cc66654c94586709b5117b0cb3bc448f2290c483729629a4868619c89abd70"
+      },
+      "prior_exports_preserved": 86,
+      "source_shapes_equal": 74
+    },
+    "focused_compiler_tests": {
+      "passed": 3,
+      "elapsed_seconds": 18.486,
+      "test_draft_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp1-review\\tools\\tests\\test_content_build.py",
+      "test_draft_sha256": "49e0d7936cf8de3c7852242a08b572f1d16bde94431bee6103812bb7ecaf3fd6",
+      "reported_by": "catalog_tests"
+    },
+    "planning_hook_tests": {
+      "passed": 9,
+      "shared_source_resolver_review": "DOC072 uses fresh-derived catalogue or legacy literal through the same resolver; DOC081 independently validates generated bytes; load_tests includes compiler controls.",
+      "reported_by": "catalog_tests; independently reviewed by catalog_builder"
+    }
+  },
+  "approval_state": {
+    "blocked_action": "Applying or completing the H: compiler draft/worktree edits",
+    "automatic_review_reason": "H: mutations lack trusted explicit user authorization under AGENTS only-project-clone instruction, despite registered same-clone Git worktree evidence.",
+    "h_worktree_files_mutated_by_this_artifact_creation": false,
+    "c_workspace_artifact_writes_only": true
+  },
+  "historical_evidence": {
+    "48_compiler_controls": "PASS 187.282 seconds on helper86142ad72da5582ea3d5211151f8569daf5db968230c46ffee07a9649897f36d; not attributed to this candidate",
+    "independent_static_review": "51/53 on pre-uniqueness/total-occurrence draft; two remaining total-occurrence negatives now reject in memory",
+    "native_source_positive_controls": "14 positive quote/raw/prefix/triple/escape controls passed independent Godot4.7.2 check-only",
+    "native_runtime_fixtures": "196 baseline /197 current /226 synthetic reported passing; runtime/generated bytes unchanged by lexical fix"
+  },
+  "remaining": [
+    "Explicit H: worktree application authorization",
+    "Apply exact approved bytes and run full50 compiler controls",
+    "Root full regression/document gates and publication"
+  ],
+  "apply_current_patch_sha256": "da9690b8e89f9111a783be7b673b4c8211dcdd0c1ae238ce3a75291b7d6a26c4",
+  "source_bytes_frozen": true
+}

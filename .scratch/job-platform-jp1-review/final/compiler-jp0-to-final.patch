@@ -1,0 +1,3463 @@
+--- a/content/catalog.json
++++ b/content/catalog.json
+@@ -1,598 +1,602 @@
+-{
+-  "schema": "job_catalog/1",
+-  "runtime_baseline": "7f068cb80766edd52a110cc1cb3958158f829822",
+-  "room_order": [
+-    "kitchen",
+-    "opera_hall",
+-    "library",
+-    "craft_room",
+-    "playroom",
+-    "bubble_bath",
+-    "mermaid_pool",
+-    "dining_room",
+-    "movie_lounge"
+-  ],
+-  "asset_meta": {
+-    "res://assets/opera/worlds/hotspots/teacher_lesson_board.svg": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_pour_chef_mover.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_crank_chef_mover.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/props/goal_chef.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          512,
+-          512
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_target_chef_piece_0.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/ui/magnifier.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          512,
+-          512
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_clue_board_tokens.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          768,
+-          256
+-        ]
+-      },
+-      "role": "object_group"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_crown_chest_closed.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          512,
+-          512
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_crank_ballerina_mover.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_lanes_ballerina_lit.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          768,
+-          256
+-        ]
+-      },
+-      "role": "object_group"
+-    },
+-    "res://assets/opera/worlds/props/goal_ballerina.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          512,
+-          512
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_pour_candymaker_mover.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          512,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_target_candymaker_piece_0.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/props/goal_candymaker.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          512,
+-          512
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_target_candymaker_mover.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_basin_doctor_bubbles.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          1024,
+-          608
+-        ]
+-      },
+-      "role": "effect"
+-    },
+-    "res://assets/opera/worlds/props/goal_doctor.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          512,
+-          512
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_target_doctor_mover.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_crank_doctor_mover.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_target_farmer_piece_2.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_target_farmer_piece_0.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_track_farmer_mover.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/props/goal_farmer.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          512,
+-          512
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_track_boxer_mover.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object_group"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_push_boxer_mover.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object_group"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_target_boxer_mover.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_magic_vanish_wand.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          512,
+-          512
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_track_magician_mover.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/hotspots/magician_rope.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          512,
+-          128
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_magic_cabinet_closed.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          512,
+-          512
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_portal_magician_mover.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_pour_painter_mover.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_target_painter_mark.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          128,
+-          128
+-        ]
+-      },
+-      "role": "effect"
+-    },
+-    "res://assets/opera/worlds/props/goal_painter.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          512,
+-          512
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_crank_astronaut_mover.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_target_astronaut_piece_1.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/props/goal_astronaut.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          512,
+-          512
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_crank_racer_mover.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_push_racer_mover.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_basin_nursery_bubbles.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          1024,
+-          608
+-        ]
+-      },
+-      "role": "effect"
+-    },
+-    "res://assets/opera/worlds/nursery/baby_0.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          320,
+-          320
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_pour_nursery_mover.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/nursery/baby_1.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          320,
+-          320
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/props/goal_nursery.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          1024,
+-          1024
+-        ]
+-      },
+-      "role": "object_group"
+-    },
+-    "res://assets/opera/worlds/props/goal_popstar.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          512,
+-          512
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_track_popstar_mover.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "effect"
+-    },
+-    "res://assets/opera/worlds/widgets/widget_crank_popstar_mover.png": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object_group"
+-    },
+-    "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/hotspots/geologist_fossil.svg": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object"
+-    },
+-    "res://assets/opera/worlds/props/goal_geologist.svg": {
+-      "dimensions": {
+-        "__call__": "Vector2i",
+-        "args": [
+-          256,
+-          256
+-        ]
+-      },
+-      "role": "object_group"
+-    }
+-  },
+-  "valid_modes": [
+-    "tap",
+-    "hold",
+-    "swipe",
+-    "circle",
+-    "pourt",
+-    "oven",
+-    "choice",
+-    "lens",
+-    "pipe",
+-    "echo",
+-    "timing",
+-    "bop",
+-    "catch",
+-    "candy_sort",
+-    "farm_lob",
+-    "garden_plant",
+-    "xray_scan",
+-    "paint_reveal",
+-    "talk",
+-    "clue_board",
+-    "geology_river",
+-    "geology_fossil",
+-    "geology_pan",
+-    "geology_geode",
+-    "crown_chest",
+-    "ballet_pose",
+-    "ballet_ribbon",
+-    "ballet_twirl",
+-    "kart_race",
+-    "boxing_guide",
+-    "boxing_jab",
+-    "boxing_guard",
+-    "boxing_imp",
+-    "boxing_belt"
+-  ],
+-  "non_job_stage_count": 85,
+-  "venue": {
+-    "floor_names": [
+-      "Lagoon Lights Foyer",
+-      "Starlight Balcony",
+-      "Grand Gallery"
+-    ],
+-    "floor_actor_positions": [
+-      {
+-        "__call__": "Vector2",
+-        "args": [
+-          584.0,
+-          548.0
+-        ]
+-      },
+-      {
+-        "__call__": "Vector2",
+-        "args": [
+-          584.0,
+-          354.0
+-        ]
+-      },
+-      {
+-        "__call__": "Vector2",
+-        "args": [
+-          584.0,
+-          166.0
+-        ]
+-      }
+-    ]
+-  },
+-  "chapter2": {
+-    "INITIAL_TUTORIAL_ACTS": [],
+-    "INITIAL_TUTORIAL_MASK": 0,
+-    "FIRST_WAVE_UNLOCK_MASK": 1097
+-  },
+-  "deferred_jp4": {
+-    "music_catalog": [
+-      "geologist"
+-    ],
+-    "atlas_gate": [
+-      "geologist",
+-      "teacher"
+-    ]
+-  }
+-}
++{
++  "schema": "job_catalog/1",
++  "runtime_baseline": "7f068cb80766edd52a110cc1cb3958158f829822",
++  "room_order": [
++    "kitchen",
++    "opera_hall",
++    "library",
++    "craft_room",
++    "playroom",
++    "bubble_bath",
++    "mermaid_pool",
++    "dining_room",
++    "movie_lounge"
++  ],
++  "asset_meta": {
++    "res://assets/opera/worlds/hotspots/teacher_lesson_board.svg": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_pour_chef_mover.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_crank_chef_mover.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/props/goal_chef.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          512,
++          512
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_target_chef_piece_0.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/ui/magnifier.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          512,
++          512
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_clue_board_tokens.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          768,
++          256
++        ]
++      },
++      "role": "object_group"
++    },
++    "res://assets/opera/worlds/widgets/widget_crown_chest_closed.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          512,
++          512
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_crank_ballerina_mover.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_lanes_ballerina_lit.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          768,
++          256
++        ]
++      },
++      "role": "object_group"
++    },
++    "res://assets/opera/worlds/props/goal_ballerina.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          512,
++          512
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_pour_candymaker_mover.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          512,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_target_candymaker_piece_0.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/props/goal_candymaker.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          512,
++          512
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_target_candymaker_mover.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_basin_doctor_bubbles.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          1024,
++          608
++        ]
++      },
++      "role": "effect"
++    },
++    "res://assets/opera/worlds/props/goal_doctor.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          512,
++          512
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_target_doctor_mover.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_crank_doctor_mover.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_target_farmer_piece_2.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_target_farmer_piece_0.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_track_farmer_mover.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/props/goal_farmer.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          512,
++          512
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_track_boxer_mover.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object_group"
++    },
++    "res://assets/opera/worlds/widgets/widget_push_boxer_mover.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object_group"
++    },
++    "res://assets/opera/worlds/widgets/widget_target_boxer_mover.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_magic_vanish_wand.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          512,
++          512
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_track_magician_mover.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/hotspots/magician_rope.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          512,
++          128
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_magic_cabinet_closed.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          512,
++          512
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_portal_magician_mover.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_pour_painter_mover.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_target_painter_mark.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          128,
++          128
++        ]
++      },
++      "role": "effect"
++    },
++    "res://assets/opera/worlds/props/goal_painter.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          512,
++          512
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_crank_astronaut_mover.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_target_astronaut_piece_1.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/props/goal_astronaut.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          512,
++          512
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_crank_racer_mover.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_push_racer_mover.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_basin_nursery_bubbles.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          1024,
++          608
++        ]
++      },
++      "role": "effect"
++    },
++    "res://assets/opera/worlds/nursery/baby_0.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          320,
++          320
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_pour_nursery_mover.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/nursery/baby_1.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          320,
++          320
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/props/goal_nursery.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          1024,
++          1024
++        ]
++      },
++      "role": "object_group"
++    },
++    "res://assets/opera/worlds/props/goal_popstar.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          512,
++          512
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/widgets/widget_track_popstar_mover.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "effect"
++    },
++    "res://assets/opera/worlds/widgets/widget_crank_popstar_mover.png": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object_group"
++    },
++    "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/hotspots/geologist_fossil.svg": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object"
++    },
++    "res://assets/opera/worlds/props/goal_geologist.svg": {
++      "dimensions": {
++        "__call__": "Vector2i",
++        "args": [
++          256,
++          256
++        ]
++      },
++      "role": "object_group"
++    }
++  },
++  "valid_modes": [
++    "tap",
++    "hold",
++    "swipe",
++    "circle",
++    "pourt",
++    "oven",
++    "choice",
++    "lens",
++    "pipe",
++    "echo",
++    "timing",
++    "bop",
++    "catch",
++    "candy_sort",
++    "farm_lob",
++    "garden_plant",
++    "xray_scan",
++    "paint_reveal",
++    "talk",
++    "clue_board",
++    "geology_river",
++    "geology_fossil",
++    "geology_pan",
++    "geology_geode",
++    "crown_chest",
++    "ballet_pose",
++    "ballet_ribbon",
++    "ballet_twirl",
++    "kart_race",
++    "boxing_guide",
++    "boxing_jab",
++    "boxing_guard",
++    "boxing_imp",
++    "boxing_belt"
++  ],
++  "non_job_stage_count": 85,
++  "venue": {
++    "floor_names": [
++      "Lagoon Lights Foyer",
++      "Starlight Balcony",
++      "Grand Gallery"
++    ],
++    "floor_actor_positions": [
++      {
++        "__call__": "Vector2",
++        "args": [
++          584.0,
++          548.0
++        ]
++      },
++      {
++        "__call__": "Vector2",
++        "args": [
++          584.0,
++          354.0
++        ]
++      },
++      {
++        "__call__": "Vector2",
++        "args": [
++          584.0,
++          166.0
++        ]
++      }
++    ]
++  },
++  "chapter2": {
++    "INITIAL_TUTORIAL_ACTS": [],
++    "INITIAL_TUTORIAL_MASK": 0,
++    "FIRST_WAVE_UNLOCK_MASK": 1097
++  },
++  "deferred_jp4": {
++    "music_catalog": [
++      "geologist"
++    ],
++    "atlas_gate": [
++      "geologist",
++      "teacher"
++    ]
++  },
++  "save_checkpoint_normalization_prefix": [
++    "teacher",
++    "geologist"
++  ]
++}
+--- a/scripts/generated/job_catalog_data.gd
++++ b/scripts/generated/job_catalog_data.gd
+@@ -627,6 +627,8 @@
+ 	"DICTIONARY_KEYS": ["teacher_lesson_checkpoint"],
+ 	"KNOWN_KEYS": ["opera_geology_checkpoint"],
+ }
++
++const SAVE_CHECKPOINT_JOB_ORDER: Array[String] = ["teacher", "geologist"]
+ 
+ const ACTOR_ROUTES: Dictionary = {
+ 	"chef": {"player": "res://assets/opera/worlds/actors/roshan_chef.png", "partner": "res://assets/opera/worlds/actors/rival_chef.png", "partner_visible_solo": true, "player_size": Vector2(250, 250), "partner_size": Vector2(190, 190), "surface": "res://scripts/opera_gesture_surface.gd"},
+--- a/tools/content_build.py
++++ b/tools/content_build.py
+@@ -1,545 +1,557 @@
+-#!/usr/bin/env python3
+-"""Compile authored job records into typed native GDScript; JP0 changes no consumer."""
+-from __future__ import annotations
+-import argparse
+-from functools import lru_cache
+-import copy
+-import hashlib
+-import json
+-import math
+-import re
+-import subprocess
+-from pathlib import Path
+-try:
+-    from .content_gd_literals import CONSTRUCTORS, GDParser, read_const, read_python_list, opera_rows
+-except ImportError:
+-    from content_gd_literals import CONSTRUCTORS, GDParser, read_const, read_python_list, opera_rows
+-
+-BASELINE = "7f068cb80766edd52a110cc1cb3958158f829822"
+-COMPATIBILITY_CONTRACT = {'schema': 'job_compatibility/1', 'registries': [{'generated': 'PHASES', 'path': 'scripts/opera_career_world_2d.gd', 'source': 'PHASES', 'field': 'phases', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'FINALE_START', 'path': 'scripts/opera_career_world_2d.gd', 'source': 'FINALE_START', 'field': 'finale_start', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'PHASE_STATIONS', 'path': 'scripts/opera_career_world_2d.gd', 'source': 'PHASE_STATIONS', 'field': 'phase_stations', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'HOTSPOT_PHASE_ALIASES', 'path': 'scripts/opera_career_world_2d.gd', 'source': 'HOTSPOT_PHASE_ALIASES', 'field': 'hotspot_aliases', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'GOAL_PROPS', 'path': 'scripts/opera_career_world_2d.gd', 'source': 'GOAL_PROPS', 'field': 'presentation.goal_prop', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'SLUGS', 'path': 'scripts/opera_career_world_2d.gd', 'source': 'SLUGS', 'field': 'legacy.slug', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'LEGACY_PHASES', 'path': 'scripts/opera_career_world_2d.gd', 'source': 'LEGACY_PHASES', 'field': 'legacy.phases', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'LEGACY_FINALE_START', 'path': 'scripts/opera_career_world_2d.gd', 'source': 'LEGACY_FINALE_START', 'field': 'legacy.finale_start', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'COMPETITION_CAREERS', 'path': 'scripts/opera_competition.gd', 'source': 'CAREERS', 'field': 'competition', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'MASTERY_RULES', 'path': 'scripts/opera_mastery.gd', 'source': 'RULES', 'field': 'mastery', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'PRACTICE_COUNTS', 'path': 'scripts/opera_performance_plan.gd', 'source': 'PRACTICE_COUNTS', 'field': 'practice_count', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'CAREER_COLORS', 'path': 'scripts/opera_performance_overlay.gd', 'source': 'CAREER_COLORS', 'field': 'presentation.colors.overlay', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'HOTSPOT_EXPECTED_PHASES', 'path': 'scripts/opera_hotspot_catalog.gd', 'source': 'EXPECTED_PHASES', 'field': 'hotspot_expected_phases', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'HOTSPOT_SPECS', 'path': 'scripts/opera_hotspot_catalog.gd', 'source': 'SPECS', 'field': 'hotspots', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'BACKDROP_PALETTES', 'path': 'scripts/opera_world_backdrop_2d.gd', 'source': 'PALETTES', 'field': 'presentation.backdrop.palette', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'STAGE_PATHS', 'path': 'scripts/opera_stage_paths.gd', 'source': 'PATHS', 'field': 'stage_geometry.paths', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'STAGE_STATION_NAV', 'path': 'scripts/opera_stage_paths.gd', 'source': 'STATION_NAV', 'field': 'stage_geometry.station_nav', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'STAGE_ROAM', 'path': 'scripts/opera_stage_paths.gd', 'source': 'ROAM', 'field': 'stage_geometry.roam', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'STAGE_BLEED', 'path': 'scripts/opera_stage_paths.gd', 'source': 'BLEED', 'field': 'stage_geometry.bleed', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'PHASE_SETS', 'path': 'scripts/chapter_two_career_scene_adapter.gd', 'source': 'PHASE_SETS', 'field': 'chapter2.scene', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'VENUE_LEGACY_PORTAL_RECTS', 'path': 'scripts/opera_house_venue_2d.gd', 'source': 'LEGACY_PORTAL_RECTS', 'field': 'home.venue.legacy_portal', 'type': 'Dictionary', 'kind': 'bit_dictionary'}, {'generated': 'VENUE_CHAPTER2_PORTAL_RECTS', 'path': 'scripts/opera_house_venue_2d.gd', 'source': 'CHAPTER2_PORTAL_RECTS', 'field': 'home.venue.chapter2_portal', 'type': 'Dictionary', 'kind': 'bit_dictionary'}, {'generated': 'VENUE_CHAPTER2_SECOND_WAVE_PORTAL_RECTS', 'path': 'scripts/opera_house_venue_2d.gd', 'source': 'CHAPTER2_SECOND_WAVE_PORTAL_RECTS', 'field': 'home.venue.chapter2_second_wave_portal', 'type': 'Dictionary', 'kind': 'bit_dictionary'}]}
+-GENERATED = Path("scripts/generated/job_catalog_data.gd")
+-CAPABILITIES = {"hide_partner", "roshan_actor_atlas", "nursery_catch_overlay", "two_act_show", "uses_room_tiles", "cooperative_win_suffix"}
+-SHARED = [
+- ("ACTS","opera_house","ACTS","Array"),
+- ("LIVE_ACT_INDICES","opera_house","LIVE_ACT_INDICES","Array[int]"),
+- ("RETIRED_ACT_INDICES","opera_house","RETIRED_ACT_INDICES","Array[int]"),
+- ("ACTIVE_STAR_MASK","opera_house","ACTIVE_STAR_MASK","int"),
+- ("RETIRED_STAR_MASK","opera_house","RETIRED_STAR_MASK","int"),
+- ("ACTIVE_ACT_COUNT","opera_house","ACTIVE_ACT_COUNT","int"),
+- ("OPERA_ACTIVE_STAR_MASK","save_state","OPERA_ACTIVE_STAR_MASK","int"),
+- ("OPERA_ACTIVE_ACT_COUNT","save_state","OPERA_ACTIVE_ACT_COUNT","int"),
+- ("ROOM_ACT_INDICES","castle_career_routes","ROOM_ACT_INDICES","Dictionary"),
+- ("CAREER_CREST_FILES","castle_career_routes","CAREER_CREST_FILES","Dictionary"),
+- ("MASTERY_CAREERS","opera_mastery","CAREERS","Array[String]"),
+- ("PERFORMANCE_ENABLED","opera_performance_plan","ENABLED","Array[String]"),
+- ("HOTSPOT_ASSET_META","opera_hotspot_catalog","ASSET_META","Dictionary"),
+- ("VENUE_FLOOR_NAMES","opera_house_venue_2d","FLOOR_NAMES","Array[String]"),
+- ("VENUE_FLOOR_ACTOR_POSITIONS","opera_house_venue_2d","FLOOR_ACTOR_POSITIONS","Array[Vector2]"),
+- ("VENUE_LEGACY_FLOOR_ACT_INDICES","opera_house_venue_2d","LEGACY_FLOOR_ACT_INDICES","Array[int]"),
+- ("EXPECTED_STAGE_COUNT","living_world_catalog","EXPECTED_STAGE_COUNT","int"),
+- ("LIVE_CAREERS","chapter_two_party_plan","LIVE_CAREERS","Array[Dictionary]"),
+- ("ALL_PARTY_MASK","chapter_two_party_plan","ALL_PARTY_MASK","int"),
+- ("GUIDE_ORDER","chapter_two_party_plan","GUIDE_ORDER","Array[int]"),
+- ("VALID_MODES","chapter_two_career_scene_adapter","VALID_MODES","Array"),
+- ("ADAPTER_CAREER_ORDER","chapter_two_career_scene_adapter","CAREER_ORDER","Array"),
+-]
+-DIRECTOR = ["ACT_CHEF","ACT_DETECTIVE","ACT_BALLERINA","ACT_CANDY_MAKER",
+- "ACT_FARMER","ACT_PAINTER","ACT_ASTRONAUT","ACT_POP_STAR",
+- "SKILL_CHEF","SKILL_DETECTIVE","SKILL_BALLERINA","SKILL_CANDY_MAKER",
+- "SKILL_FARMER","SKILL_PAINTER","SKILL_ASTRONAUT","SKILL_POP_STAR",
+- "INITIAL_TUTORIAL_ACTS","INITIAL_TUTORIAL_MASK","FIRST_WAVE_UNLOCK_MASK",
+- "JOB_PHASE_ACTS","JOB_PHASE_MASK_LIMITS"]
+-
+-
+-def _json(path):
+-    def reject(value): raise ValueError("non-finite JSON number "+value)
+-    def pairs(items):
+-        result={}
+-        for key,value in items:
+-            if key in result:raise ValueError("duplicate JSON key "+key)
+-            result[key]=value
+-        return result
+-    return json.loads(path.read_text(encoding="utf-8-sig"),parse_constant=reject,object_pairs_hook=pairs)
+-
+-
+-def load_catalog(root: Path):
+-    root=Path(root)
+-    return {"ledger":_json(root/"content/jobs/_ledger.json"),
+-      "jobs":[_json(p) for p in sorted((root/"content/jobs").glob("*.json")) if not p.name.startswith("_")],
+-      "config":_json(root/"content/catalog.json"),
+-      "compatibility":_json(root/"content/compatibility.json")}
+-
+-
+-def _field(row,path):
+-    value=row
+-    for key in path.split("."):
+-        if not isinstance(value,dict) or key not in value:return None
+-        value=value[key]
+-    return value
+-
+-
+-def _ordered_jobs(catalog):
+-    return sorted(catalog["jobs"],key=lambda j:(j["star_bit"],j["id"]))
+-
+-
+-def _table(catalog,name,field,bit_keys=False):
+-    rows=sorted((j for j in catalog["jobs"] if name in j["compat_order"]),key=lambda j:j["compat_order"][name])
+-    pairs=[[j["star_bit"] if bit_keys else j["id"],_field(j,field)] for j in rows]
+-    return {"__dict__":pairs} if bit_keys else dict(pairs)
+-
+-
+-def _exact_paths(job,event):
+-    suffix=event.removeprefix("roshan_")
+-    speaker=job["voice"].get("event_speakers",{}).get(suffix,job["voice"]["speaker"])
+-    key=speaker+"_"+suffix
+-    if speaker=="faron":return ["res://assets/audio/voices/"+key+".ogg"]
+-    if suffix.startswith("teacher_"):
+-        return ["res://assets/audio/teacher/"+key+".ogg","res://assets/audio/teacher/"+suffix+".ogg"]
+-    return [folder+key+".ogg" for folder in [job["voice"]["folder"]]+job["voice"]["fallback_folders"]]
+-
+-
+-def derive(catalog):
+-    jobs=_ordered_jobs(catalog)
+-    ledger=catalog["ledger"]["entries"]
+-    live=[j for j in jobs if j["status"]=="LIVE"]
+-    aliases={a:e["id"] for e in ledger for a in e.get("aliases",[])}
+-    lookup={j["id"]:j for j in jobs}
+-    runtime_jobs={}
+-    for job in jobs:
+-        runtime=copy.deepcopy(job)
+-        runtime["aliases"]=[a for a,jid in aliases.items() if jid==job["id"]]
+-        runtime_jobs[job["id"]]=runtime
+-    result={"JOBS":runtime_jobs,"ALIASES":aliases,"LEDGER":copy.deepcopy(ledger)}
+-    live_bits=[j["star_bit"] for j in live]
+-    retired_bits=[e["star_bit"] for e in ledger if e["status"]=="TOMBSTONE"]
+-    slots=max(e["star_bit"] for e in ledger)+1 if ledger else 0
+-    result.update({"LIVE_ACT_INDICES":live_bits,"RETIRED_ACT_INDICES":retired_bits,
+-      "ACTIVE_STAR_MASK":sum(1<<b for b in live_bits),"RETIRED_STAR_MASK":sum(1<<b for b in retired_bits),
+-      "ACTIVE_ACT_COUNT":len(live),"SLOT_COUNT":slots,"STAR_CEILING":(1<<slots)-1,
+-      "SHIPPING_PHASE_TOTAL":sum(len(j["phases"]) for j in live)})
+-    result["ALL_STARS"]=result["ACTIVE_STAR_MASK"]
+-    result["OPERA_ACTIVE_STAR_MASK"]=result["ACTIVE_STAR_MASK"]
+-    result["OPERA_ACTIVE_ACT_COUNT"]=result["ACTIVE_ACT_COUNT"]
+-    acts=[]
+-    for entry in ledger:
+-        if entry["status"]=="TOMBSTONE":
+-            acts.append({"save_bit":entry["star_bit"],"retired":True});continue
+-        job=lookup[entry["id"]]
+-        values={"save_bit":job["star_bit"],"name":job["title"],"career":job["career_label"],
+-          "costume":job["id"],"music":job["music"]["cue"],"voice":job["voice"]["intro_line"],
+-          "win_line":job["voice"]["win_line"],"floor_col":job["presentation"]["colors"]["floor"],
+-          "trim":job["presentation"]["colors"]["trim"],"curtain":job["presentation"]["colors"]["curtain"]}
+-        acts.append({k:values[k] if k in values else job["act_extra"][k] for k in job["act_key_order"]})
+-    result["ACTS"]=acts
+-    result["ROOM_ACT_INDICES"]={room:[j["star_bit"] for j in sorted(
+-        (j for j in live if j["home"]["room"]==room),key=lambda j:j["home"]["room_order"])]
+-        for room in catalog["config"]["room_order"]}
+-    result["CAREER_CREST_FILES"]={j["id"]:j["home"]["crest"] for j in sorted(
+-        (j for j in jobs if "CAREER_CREST_FILES" in j["compat_order"]),key=lambda j:j["compat_order"]["CAREER_CREST_FILES"])}
+-    for m in catalog["compatibility"]["registries"]:
+-        result[m["generated"]]=_table(catalog,m["generated"],m["field"],m["kind"]=="bit_dictionary")
+-    for name in ("MASTERY_CAREERS","PERFORMANCE_ENABLED","ADAPTER_CAREER_ORDER"):
+-        result[name]=[j["id"] for j in sorted((j for j in jobs if name in j["compat_order"]),key=lambda j:j["compat_order"][name])]
+-    result["HOTSPOT_ASSET_META"]=catalog["config"]["asset_meta"]
+-    result["VENUE_FLOOR_NAMES"]=catalog["config"]["venue"]["floor_names"]
+-    result["VENUE_FLOOR_ACTOR_POSITIONS"]=catalog["config"]["venue"]["floor_actor_positions"]
+-    venue=sorted((j for j in jobs if "legacy_floor" in j["home"]["venue"]),key=lambda j:j["home"]["venue"]["legacy_floor"])
+-    result["VENUE_LEGACY_FLOOR_ACT_INDICES"]=[j["star_bit"] for j in venue]
+-    result["LIVING_WORLD_OPERA_ROWS"]=[["opera.act.%02d" % j["star_bit"],j["living_world"]["name"],
+-        "scripts/opera_house.gd:ACTS[%d]; scripts/opera_career_world_2d.gd" % j["star_bit"],
+-        *j["living_world"]["accents"]] for j in jobs]
+-    result["EXPECTED_STAGE_COUNT"]=catalog["config"]["non_job_stage_count"]+len(live)
+-    party=sorted((j for j in jobs if j["chapter2"].get("party")),key=lambda j:j["chapter2"]["guide_order"])
+-    rows=[]
+-    for j in party:
+-        values={"act_index":j["star_bit"],**j["chapter2"]["party"]}
+-        rows.append({k:values[k] for k in j["chapter2"]["party_key_order"]})
+-    result["LIVE_CAREERS"]=rows
+-    result["GUIDE_ORDER"]=[j["star_bit"] for j in party]
+-    result["ALL_PARTY_MASK"]=sum(1<<j["star_bit"] for j in party)
+-    result["PARTY_MASK"]=result["ALL_PARTY_MASK"]
+-    result["VALID_MODES"]=catalog["config"]["valid_modes"]
+-    result.update({"CHAPTER2_"+name:value for name,value in catalog["config"]["chapter2"].items()})
+-    for job in party:
+-        name=job["chapter2"]["act_constant"]
+-        result["CHAPTER2_"+name]=job["star_bit"]
+-        result["CHAPTER2_"+name.replace("ACT_","SKILL_")]=job["chapter2"]["skill"]
+-    result["CHAPTER2_JOB_PHASE_ACTS"]=[j["star_bit"] for j in party]
+-    result["CHAPTER2_JOB_PHASE_MASK_LIMITS"]=[j["chapter2"]["phase_mask_limit"] for j in party]
+-    result["SAVE_CHECKPOINTS"]={}
+-    for job in jobs:
+-        cp=job["save"]["checkpoint"]
+-        if cp:result["SAVE_CHECKPOINTS"][job["id"]]={**cp,"phase_index_max":len(job["phases"])}
+-    result["SAVE_CHECKPOINT_KEY_LISTS"]={name:[cp["key"] for cp in result["SAVE_CHECKPOINTS"].values()
+-        if name in cp["registration_lists"]] for name in ("DICTIONARY_KEYS","KNOWN_KEYS")}
+-    result["ACTOR_ROUTES"]={j["id"]:{**j["presentation"]["actors"],"surface":j["surface"]} for j in jobs}
+-    result["VOICE_ROUTES"]={j["voice"]["prefix"]:{k:v for k,v in j["voice"].items() if k in (
+-        "speaker","folder","speaker_prefix","fallback_folders","allow_unprefixed_fallback","exact_required")} for j in jobs}
+-    routes={}
+-    for job in jobs:
+-        for event in job["voice"]["required_keys"]:
+-            event=event.removeprefix("roshan_")
+-            route={"speaker":job["voice"].get("event_speakers",{}).get(event,job["voice"]["speaker"]),"event":event,"paths":_exact_paths(job,event)}
+-            if event in routes and routes[event]!=route:raise ValueError("conflicting exact route "+event)
+-            routes[event]=route
+-    result["REQUIRED_VOICE_ROUTES"]=routes
+-    result["MUSIC_CUES"]=[j["music"]["cue"] for j in jobs]
+-    result["COSTUME_SHEETS"]={j["id"]:j["art"]["costume_sheet"] for j in jobs}
+-    result["DIEGETIC_EXPECTED_STATIONS"]={j["id"]:[station["id"] for station in j["stage_geometry"]["paths"]["stations"]] for j in sorted((j for j in jobs if "DIEGETIC_EXPECTED_STATIONS" in j["compat_order"]),key=lambda j:j["compat_order"]["DIEGETIC_EXPECTED_STATIONS"])}
+-    result["DIEGETIC_PLAYABLE_PHASE_STATIONS"]={j["id"]:list(j["phase_stations"].values()) for j in sorted((j for j in jobs if "DIEGETIC_PLAYABLE_PHASE_STATIONS" in j["compat_order"]),key=lambda j:j["compat_order"]["DIEGETIC_PLAYABLE_PHASE_STATIONS"])}
+-    result["CHAPTER2_PHASE_TOTAL"]=sum(len(j["chapter2"]["scene"]["phases"]) for j in party)
+-    result["TRUSTED_PROBE_EXPECTATIONS"]={"live_job_count":len(live),"slot_count":slots,
+-      "shipping_phase_total":result["SHIPPING_PHASE_TOTAL"],"living_stage_count":result["EXPECTED_STAGE_COUNT"],
+-      "mastery_job_count":len(result["MASTERY_CAREERS"]),
+-      "room_job_count":sum(len(bits) for bits in result["ROOM_ACT_INDICES"].values()),
+-      "legacy_nursery_predecessor_count":sum(1 for j in live if j["star_bit"]<lookup["nursery"]["star_bit"]),
+-      "diegetic_phase_total":sum(len(v) for v in result["DIEGETIC_PLAYABLE_PHASE_STATIONS"].values()),
+-      "chapter2_phase_total":result["CHAPTER2_PHASE_TOTAL"],
+-      "two_act_unit_total":sum(len(j["phases"])+(min(len(j["phases"]),int(j.get("practice_count") or 0)) if j["two_act"] else 0) for j in jobs)}
+-    return result
+-
+-
+-def source_snapshot(root: Path):
+-    catalog=load_catalog(root)
+-    result={name:read_const(root/f"scripts/{file}.gd",source) for name,file,source,_ in SHARED}
+-    for m in catalog["compatibility"]["registries"]:
+-        result[m["generated"]]=read_const(root/m["path"],m["source"])
+-    for source in DIRECTOR:result["CHAPTER2_"+source]=read_const(root/"scripts/chapter_two_director.gd",source)
+-    result["DIEGETIC_EXPECTED_STATIONS"]=read_const(root/"scripts/probe_opera_diegetic_paths.gd","EXPECTED_STATIONS")
+-    result["DIEGETIC_PLAYABLE_PHASE_STATIONS"]=read_const(root/"scripts/probe_opera_diegetic_paths.gd","PLAYABLE_PHASE_STATIONS")
+-    text=(root/"scripts/probe_chapter2.gd").read_text(encoding="utf-8")
+-    result["CHAPTER2_PHASE_TOTAL"]=int(re.search(r"count == (\d+)",text).group(1))
+-    result["LIVING_WORLD_OPERA_ROWS"]=opera_rows(root)
+-    text=(root/"scripts/save_state.gd").read_text(encoding="utf-8")
+-    result["SLOT_COUNT"]=int(re.search(r"for bit_index in range\((\d+)\)",text).group(1))
+-    clamps=[]
+-    for match in re.finditer(r"clampi\(",text):
+-        depth,end=1,match.end()
+-        while depth:
+-            depth+={"(":1,")":-1}.get(text[end],0)
+-            end+=1
+-        call=text[match.start():end]
+-        if "opera_stars" in call:clamps.append(int(re.search(r"(\d+)\s*\)$",call).group(1)))
+-    if not clamps or len(set(clamps))!=1:raise ValueError("star clamps differ or absent")
+-    result["STAR_CEILING"]=clamps[0]
+-    text=(root/"scripts/probe_opera_2d.gd").read_text(encoding="utf-8")
+-    result["SHIPPING_PHASE_TOTAL"]=int(re.search(r"shipping_phase_count == (\d+)",text).group(1))
+-    return result
+-
+-
+-@lru_cache(maxsize=32)
+-def _first_declaration(root_name,jid):
+-    result=subprocess.check_output(["git","log","--reverse","--format=%H|%cs","-S",
+-        chr(34)+"costume"+chr(34)+": "+chr(34)+jid+chr(34),"--","scripts/opera_house.gd"],
+-        cwd=root_name,text=True).splitlines()
+-    if not result:raise ValueError("baseline allocation evidence missing for "+jid)
+-    commit,date=result[0].split("|")
+-    return {"first_declaration_commit":commit,"first_declaration_date":date}
+-
+-
+-def baseline_entries(root: Path,catalog):
+-    """Pinned initial allocation, extended only by the Git integration baseline."""
+-    def blob(ref,path):
+-        return subprocess.check_output(["git","show",ref+":"+path],cwd=root,text=True,encoding="utf-8",stderr=subprocess.DEVNULL)
+-    text=blob(BASELINE,"scripts/opera_house.gd")
+-    match=re.search(r"(?m)^const\s+ACTS\b[^=\n]*=",text)
+-    acts=GDParser(text,match.end()).value()
+-    initial=[{"star_bit":i,"id":None if a.get("retired") else a["costume"],
+-        "status":"TOMBSTONE" if a.get("retired") else "LIVE",
+-        "aliases":["candy_maker","candy"] if a.get("costume")=="candymaker" else []} for i,a in enumerate(acts)]
+-    observed_date=subprocess.check_output(["git","show","-s","--format=%cs",BASELINE],cwd=root,text=True).strip()
+-    for entry in initial:
+-        entry["allocated"]={"observed_commit":BASELINE,"observed_date":observed_date,
+-            "source":"scripts/opera_house.gd:ACTS[%d]" % entry["star_bit"]}
+-        if entry["id"] is not None:
+-            entry["allocated"].update(_first_declaration(str(root.resolve()),entry["id"]))
+-        else:
+-            entry["reason"]="Owner cut 3d1236fe; raw bit preserved permanently (DL-SAVE-06)"
+-    integration=subprocess.check_output(["git","merge-base","HEAD","origin/dev"],cwd=root,text=True).strip()
+-    exists=subprocess.run(["git","cat-file","-e",integration+":content/jobs/_ledger.json"],cwd=root,capture_output=True)
+-    if exists.returncode==0:
+-        previous=json.loads(blob(integration,"content/jobs/_ledger.json"))["entries"]
+-        if len(previous)<len(initial) or any(any(a.get(k)!=b.get(k) for k in ("star_bit","id","status","aliases","allocated","reason")) for a,b in zip(initial,previous)):
+-            raise ValueError("baseline integration allocation contradicts initial ledger")
+-        return previous
+-    return initial
+-
+-
+-def _strict_equal(a,b):
+-    if type(a) is not type(b):return False
+-    if isinstance(a,dict):return list(a)==list(b) and all(_strict_equal(a[k],b[k]) for k in a)
+-    if isinstance(a,list):return len(a)==len(b) and all(_strict_equal(x,y) for x,y in zip(a,b))
+-    return a==b
+-
+-
+-
+-def _schema_validate(value,schema,path,errors):
+-    types={"object":dict,"array":list,"string":str,"integer":int,"number":(int,float),"boolean":bool,"null":type(None)}
+-    wanted=schema.get("type")
+-    if wanted:
+-        allowed=wanted if isinstance(wanted,list) else [wanted]
+-        if not any(isinstance(value,types[t]) and not (t in ("integer","number") and isinstance(value,bool)) for t in allowed):
+-            errors.append("E01 "+path+": invalid type");return
+-    if "const" in schema and value!=schema["const"]:errors.append("E01 "+path+": invalid schema/value")
+-    if "enum" in schema and value not in schema["enum"]:errors.append("E01 "+path+": unsupported value")
+-    if isinstance(value,dict):
+-        props=schema.get("properties",{})
+-        for key in schema.get("required",[]):
+-            if key not in value:errors.append("E01 "+path+"."+key+": missing field")
+-        if schema.get("additionalProperties") is False:
+-            for key in value.keys()-props.keys():errors.append("E01 "+path+"."+key+": unknown field")
+-        for key,child in props.items():
+-            if key in value:_schema_validate(value[key],child,path+"."+key,errors)
+-    if isinstance(value,list):
+-        if len(value)<schema.get("minItems",0):errors.append("E01 "+path+": too few items")
+-        if "items" in schema:
+-            for i,child in enumerate(value):_schema_validate(child,schema["items"],f"{path}[{i}]",errors)
+-    if isinstance(value,(int,float)) and not isinstance(value,bool):
+-        if not math.isfinite(value):errors.append("E01 "+path+": nonfinite number")
+-        if value<schema.get("minimum",value):errors.append("E01 "+path+": below minimum")
+-    if isinstance(value,str) and "pattern" in schema and not re.fullmatch(schema["pattern"],value):errors.append("E01 "+path+": invalid string")
+-
+-
+-def _native_validate(value,path,errors):
+-    if isinstance(value,float) and not math.isfinite(value):errors.append("E01 "+path+": nonfinite number")
+-    if isinstance(value,dict):
+-        tags=[k for k in value if k.startswith("__")]
+-        if tags:
+-            if set(value)=={"__call__","args"}:
+-                name,args=value["__call__"],value["args"]
+-                good=isinstance(args,list) and name in CONSTRUCTORS
+-                if good:
+-                    numeric=lambda xs:all(type(x) in (int,float) and math.isfinite(x) for x in xs)
+-                    if name=="Color":
+-                        good=(len(args)==1 and isinstance(args[0],str) and bool(re.fullmatch(r"#[0-9A-Fa-f]{6}(?:[0-9A-Fa-f]{2})?",args[0]))) or (len(args) in (3,4) and numeric(args))
+-                    elif name in ("Vector2","Vector2i"):good=len(args)==2 and numeric(args) and (name!="Vector2i" or all(type(x) is int for x in args))
+-                    elif name=="Rect2":good=(len(args)==4 and numeric(args)) or (len(args)==2 and all(isinstance(x,dict) and x.get("__call__")=="Vector2" for x in args))
+-                    else:
+-                        good=len(args)==1 and isinstance(args[0],list)
+-                        if good and name=="PackedStringArray":good=all(isinstance(x,str) for x in args[0])
+-                        elif good and name=="PackedInt32Array":good=all(type(x) is int and -(1<<31)<=x<(1<<31) for x in args[0])
+-                        elif good and name=="PackedFloat32Array":good=numeric(args[0])
+-                if not good:errors.append("E01 "+path+": forbidden constructor or arguments")
+-            elif set(value)=={"__stringname__"}:
+-                if not isinstance(value["__stringname__"],str):errors.append("E01 "+path+": invalid StringName")
+-            elif set(value)=={"__dict__"}:
+-                pairs=value["__dict__"]
+-                if not isinstance(pairs,list) or any(not isinstance(p,list) or len(p)!=2 for p in pairs):
+-                    errors.append("E01 "+path+": invalid native dictionary");return
+-                keys=[json.dumps(p[0],sort_keys=True) for p in pairs]
+-                if len(set(keys))!=len(keys):errors.append("E01 "+path+": duplicate native dictionary key")
+-            else:errors.append("E01 "+path+": forbidden literal tag")
+-        for key,child in value.items():_native_validate(child,path+"."+key,errors)
+-    elif isinstance(value,list):
+-        for i,child in enumerate(value):_native_validate(child,f"{path}[{i}]",errors)
+-
+-
+-def _repo_path(root,value):
+-    if not isinstance(value,str) or not value:return None
+-    path=(root/value.removeprefix("res://")).resolve()
+-    return path if path.is_relative_to(root.resolve()) else None
+-
+-
+-def diagnostics(root: Path,catalog):
+-    music=set(read_python_list(root/"tools/build_area_music.py","EXPECTED_IDS"))
+-    atlas=set(read_python_list(root/"tools/audit_opera_roshan_animation.py","CAREERS"))
+-    return [f"JP4_DEFERRED music_catalog:{j['id']}" for j in _ordered_jobs(catalog) if j["music"]["cue"] not in music]+[
+-        f"JP4_DEFERRED atlas_gate:{j['id']}" for j in _ordered_jobs(catalog) if j["id"] not in atlas]
+-
+-
+-def validate(root: Path,catalog):
+-    root=Path(root)
+-    errors=[]
+-    try:
+-        schema=_json(root/"content/job_record.schema.json")
+-        for i,job in enumerate(catalog["jobs"]):
+-            _schema_validate(job,schema,f"job[{i}]",errors)
+-            _native_validate(job,f"job[{i}]",errors)
+-        _native_validate(catalog["config"],"config",errors)
+-        _native_validate(catalog["ledger"],"ledger",errors)
+-        if catalog.get("compatibility")!=COMPATIBILITY_CONTRACT:
+-            errors.append("E01 compatibility metadata differs from fixed JP0 contract")
+-            return errors
+-        entries=catalog["ledger"]["entries"]
+-        if catalog["config"].get("runtime_baseline")!=BASELINE:errors.append("E02 immutable runtime allocation baseline changed")
+-        try:old=baseline_entries(root,catalog)
+-        except (OSError,ValueError,subprocess.SubprocessError,RuntimeError) as exc:
+-            errors.append("E02 baseline history unavailable: "+str(exc));return errors
+-        if len(entries)<len(old) or any(any(a.get(k)!=b.get(k) for k in ("star_bit","id","status","aliases")) for a,b in zip(old,entries)):
+-            errors.append("E02 ledger removed, reordered, repointed or reused baseline allocation")
+-        if old and "allocated" in old[0] and any(a!=b for a,b in zip(old,entries)):errors.append("E02 allocation evidence changed")
+-        for entry in entries:
+-            evidence=entry.get("allocated",{})
+-            if not isinstance(evidence,dict) or not re.fullmatch(r"[0-9a-f]{40}",str(evidence.get("observed_commit",""))) or not re.fullmatch(r"[0-9]{4}-[0-9]{2}-[0-9]{2}",str(evidence.get("observed_date",""))) or not evidence.get("source"):
+-                errors.append("E02 allocation requires dated immutable Git evidence")
+-        bits=[e["star_bit"] for e in entries]
+-        if any(type(b) is not int or b<0 for b in bits) or bits!=list(range(len(entries))):
+-            errors.append("E02 star allocation must be unique contiguous append order")
+-        ids=[e["id"] for e in entries if e["id"] is not None]
+-        aliases=[a for e in entries for a in e.get("aliases",[])]
+-        if len(set(ids))!=len(ids) or len(set(aliases))!=len(aliases) or set(ids)&set(aliases):errors.append("E01 duplicate identity or alias")
+-        # This namespace object is pinned JP0 evidence, not an authoring bound.
+-        # Future appended entries grow STAR_CEILING from max(bit) with no edits
+-        # to this sealed baseline evidence.
+-        namespace=catalog["ledger"]["star_namespace"]
+-        if namespace!={"save_key":"opera_stars","highest_allocated_bit":17,"derived_ceiling":262143,"next_free_bit":18}:
+-            errors.append("E10 baseline star ceiling evidence changed")
+-        jobs=catalog["jobs"]
+-        jids=[j["id"] for j in jobs]
+-        if len(set(jids))!=len(jids):errors.append("E01 duplicate job id")
+-        if set(jids)!=set(ids):errors.append("E02 unregistered act or missing allocated job")
+-        allocations={e["id"]:e for e in entries if e["id"] is not None}
+-        rooms={r["id"] for r in read_const(root/"scripts/arena/castle_rooms_25d.gd","ROOMS")}
+-        room_orders=set()
+-        local=(root/"scripts/ci.sh").read_text(encoding="utf-8")
+-        remote=(root/".github/workflows/probes.yml").read_text(encoding="utf-8")
+-        local_roster=set(re.search(r"for p in (probe_\w+.*?)\s*;\s*do",local,re.S).group(1).split())
+-        remote_roster=set(re.search(r"for p in (probe_\w+.*?)\s*;\s*do",remote,re.S).group(1).split())
+-        ledger_text=(root/"design/05_DOC_LEDGER.md").read_text(encoding="utf-8")
+-        for job in jobs:
+-            jid=job["id"]
+-            allocation=allocations.get(jid,{})
+-            if allocation.get("star_bit")!=job["star_bit"] or allocation.get("status")!=job["status"]:errors.append("E02 "+jid+": job contradicts allocation")
+-            if job["two_act"] != ("PERFORMANCE_ENABLED" in job["compat_order"]):errors.append("E01 "+jid+": two_act differs from ordered enabled membership")
+-            home=job["home"]
+-            marker=(home["room"],home["room_order"])
+-            if home["room"] not in rooms or marker in room_orders:errors.append("E03 "+jid+": unknown room or duplicate room order")
+-            room_orders.add(marker)
+-            phases=job["phases"]
+-            if not phases or type(job["finale_start"]) is not int or not 0<=job["finale_start"]<len(phases):errors.append("E04 "+jid+": empty phases or invalid finale index")
+-            stations={s["id"] for s in job.get("stage_geometry",{}).get("paths",{}).get("stations",[])}
+-            for station in job.get("phase_stations",{}).values():
+-                if station not in stations:errors.append("E04 "+jid+": missing station "+str(station))
+-            for phase in phases:
+-                if "station" in phase and phase["station"] not in stations:errors.append("E04 "+jid+": unknown phase station")
+-            voice=job["voice"]
+-            if isinstance(voice.get("required_keys"),list):
+-                for event in voice["required_keys"]:
+-                    paths=_exact_paths(job,event)
+-                    if not any((_repo_path(root,p) or Path("__missing__")).is_file() for p in paths):errors.append("E05 "+jid+": missing exact voice "+event)
+-                if not {p["vo"] for p in phases}.issubset(set(voice["required_keys"])):errors.append("E05 "+jid+": phase voice not required")
+-            cue=_repo_path(root,"res://assets/audio/music/"+job["music"]["cue"]+".ogg")
+-            if not cue or not cue.is_file():errors.append("E06 "+jid+": missing music cue")
+-            art=job["art"]
+-            sheet=_repo_path(root,art["costume_sheet"])
+-            if not sheet or not sheet.is_file():errors.append("E07 "+jid+": missing costume sheet")
+-            elif hashlib.sha256(sheet.read_bytes()).hexdigest()!=art["costume_sheet_sha256"]:errors.append("E07 "+jid+": costume hash mismatch")
+-            crest=home["crest"] if str(home["crest"]).startswith("res://") else "res://assets/opera/worlds/ui/crests/"+str(home["crest"])
+-            goal=job["presentation"]["goal_prop"]
+-            goal="res://assets/opera/worlds/props/"+goal+("" if Path(goal).suffix else ".png")
+-            references=[crest,goal,job["surface"],*art["props"],*art["tiles"],job["presentation"]["actors"]["player"],job["presentation"]["actors"]["partner"]]
+-            for reference in references:
+-                path=_repo_path(root,reference)
+-                if not path or not path.is_file():errors.append("E08 "+jid+": missing reference "+str(reference))
+-            checkpoint=job["save"]["checkpoint"]
+-            if checkpoint:
+-                for name in checkpoint["registration_lists"]:
+-                    if checkpoint["key"] not in read_const(root/"scripts/save_state.gd",name):errors.append("E09 "+jid+": checkpoint missing from "+name)
+-            if job["chapter2"].get("party") and not 0<=job["star_bit"]<16:errors.append("E11 "+jid+": party bit exceeds present namespace")
+-            if not job["probes"] or any(p not in local_roster&remote_roster or not (root/"scripts"/(p+".gd")).is_file() for p in job["probes"]):errors.append("E13 "+jid+": no trusted probe coverage")
+-            for doc in job["docs"]:
+-                path=_repo_path(root,doc)
+-                if not path or not path.is_file() or ("| \x60"+doc+"\x60 |") not in ledger_text:errors.append("E14 "+jid+": missing or unclassified document "+doc)
+-        measured=diagnostics(root,catalog)
+-        expected={"music_catalog":["geologist"],"atlas_gate":["geologist","teacher"]}
+-        actual={"music_catalog":[x.split(":")[1] for x in measured if "music_catalog:" in x],
+-                "atlas_gate":[x.split(":")[1] for x in measured if "atlas_gate:" in x]}
+-        if catalog["config"].get("deferred_jp4")!=expected:errors.append("E01 JP4 evidence cannot create a waiver")
+-        if actual["music_catalog"]!=expected["music_catalog"]:errors.append("E06 music tool coverage differs from JP0 baseline")
+-        if actual["atlas_gate"]!=expected["atlas_gate"]:errors.append("E07 atlas tool coverage differs from JP0 baseline")
+-        if not errors:
+-            derived=derive(catalog)
+-            for name,literal in source_snapshot(root).items():
+-                if name not in derived or not _strict_equal(literal,derived[name]):errors.append("E16 source compatibility differs: "+name)
+-    except (OSError,ValueError,KeyError,TypeError,IndexError,AttributeError,subprocess.SubprocessError) as exc:
+-        errors.append("E01 validation failed closed: "+str(exc))
+-    return errors
+-
+-
+-def _gd(value,indent=0):
+-    if value is None:return "null"
+-    if type(value) is bool:return "true" if value else "false"
+-    if type(value) in (int,float):return repr(value)
+-    if isinstance(value,str):return json.dumps(value,ensure_ascii=False)
+-    if isinstance(value,dict):
+-        if "__call__" in value:return value["__call__"]+"("+", ".join(_gd(a) for a in value["args"])+")"
+-        if "__stringname__" in value:return "&"+_gd(value["__stringname__"])
+-        pairs=value["__dict__"] if "__dict__" in value else list(value.items())
+-        if not pairs:return "{}"
+-        if indent>0:return "{"+", ".join(_gd(k,indent+1)+": "+_gd(v,indent+1) for k,v in pairs)+"}"
+-        return "{\n"+"\n".join("\t"*(indent+1)+_gd(k)+": "+_gd(v,indent+1)+"," for k,v in pairs)+"\n"+"\t"*indent+"}"
+-    if isinstance(value,list):
+-        if not value:return "[]"
+-        if indent>0:return "["+", ".join(_gd(v,indent+1) for v in value)+"]"
+-        if all(type(v) in (str,int,float,bool) or v is None or (isinstance(v,dict) and "__call__" in v) for v in value):return "["+", ".join(_gd(v) for v in value)+"]"
+-        return "[\n"+"\n".join("\t"*(indent+1)+_gd(v,indent+1)+"," for v in value)+"\n"+"\t"*indent+"]"
+-    raise ValueError("cannot emit native value")
+-
+-
+-def render(catalog):
+-    data=derive(catalog)
+-    types={name:kind for name,_,_,kind in SHARED}
+-    types.update({m["generated"]:m["type"] for m in catalog["compatibility"]["registries"]})
+-    types.update({"LEDGER":"Array[Dictionary]","LIVING_WORLD_OPERA_ROWS":"Array","MUSIC_CUES":"Array[String]",
+-        "SLOT_COUNT":"int","STAR_CEILING":"int","SHIPPING_PHASE_TOTAL":"int","PARTY_MASK":"int"})
+-    for name,value in data.items():
+-        if name not in types:
+-            types[name]="Dictionary" if isinstance(value,dict) else ("Array[int]" if isinstance(value,list) and all(type(v) is int for v in value) else ("Array" if isinstance(value,list) else ("int" if type(value) is int else "String")))
+-    lines=["# GENERATED by tools/content_build.py - do not edit.",
+-      "# Authored records compile to native constants; no runtime JSON.","class_name JobCatalogData","extends RefCounted",""]
+-    for name,value in data.items():lines.extend(["const "+name+": "+types[name]+" = "+_gd(value),""])
+-    return "\n".join(lines)
+-
+-
+-def issues(root: Path):
+-    try:
+-        catalog=load_catalog(root)
+-        found=validate(root,catalog)
+-        if found:return found
+-        output=Path(root)/GENERATED
+-        if not output.is_file() or output.read_bytes()!=render(catalog).encode("utf-8"):
+-            return ["E15 generated catalogue missing/stale; run python -B tools/content_build.py --write"]
+-        return []
+-    except (OSError,ValueError,KeyError,TypeError) as exc:return ["E01 content load failed closed: "+str(exc)]
+-
+-
+-def write(root: Path):
+-    catalog=load_catalog(root)
+-    found=validate(root,catalog)
+-    if found:return found
+-    path=Path(root)/GENERATED
+-    path.parent.mkdir(parents=True,exist_ok=True)
+-    path.write_bytes(render(catalog).encode("utf-8"))
+-    return []
+-
+-
+-def main():
+-    ap=argparse.ArgumentParser(description=__doc__)
+-    group=ap.add_mutually_exclusive_group(required=True)
+-    group.add_argument("--write",action="store_true")
+-    group.add_argument("--check",action="store_true")
+-    group.add_argument("--explain",metavar="ID")
+-    ap.add_argument("--root",type=Path,default=Path(__file__).resolve().parents[1])
+-    args=ap.parse_args()
+-    if args.explain:
+-        catalog=load_catalog(args.root)
+-        aliases={a:e["id"] for e in catalog["ledger"]["entries"] for a in e.get("aliases",[])}
+-        jid=aliases.get(args.explain,args.explain)
+-        job=next((j for j in catalog["jobs"] if j["id"]==jid),None)
+-        if not job:ap.error("unknown job "+args.explain)
+-        print(json.dumps({"job":job,
+-          "registries":[m["generated"] for m in catalog["compatibility"]["registries"] if m["generated"] in job["compat_order"]],
+-          "voice_paths":{k:_exact_paths(job,k) for k in job["voice"]["required_keys"]},
+-          "checkpoint":derive(catalog)["SAVE_CHECKPOINTS"].get(jid),
+-          "deferred_jp4":[x for x in diagnostics(args.root,catalog) if x.endswith(":"+jid)]},ensure_ascii=True,indent=2))
+-        return 0
+-    found=write(args.root) if args.write else issues(args.root)
+-    for problem in found:print(problem)
+-    if found:return 1
+-    catalog=load_catalog(args.root)
+-    for diagnostic in diagnostics(args.root,catalog):print(diagnostic)
+-    print("CONTENT|OK|catalogue-current")
+-    return 0
+-
+-if __name__=="__main__":raise SystemExit(main())
+-
++#!/usr/bin/env python3
++"""Compile authored job records; accept only the commissioned JP1 save references."""
++from __future__ import annotations
++import argparse
++from functools import lru_cache
++import copy
++import hashlib
++import json
++import math
++import re
++import subprocess
++from pathlib import Path
++try:
++    from .content_gd_literals import CONSTRUCTORS, GDParser, read_const, read_python_list, opera_rows, mask_source
++    from .content_source_refs import baseline_checkpoint_order, read_save_const, read_save_bounds, read_checkpoint_order
++except ImportError:
++    from content_gd_literals import CONSTRUCTORS, GDParser, read_const, read_python_list, opera_rows, mask_source
++    from content_source_refs import baseline_checkpoint_order, read_save_const, read_save_bounds, read_checkpoint_order
++
++BASELINE = "7f068cb80766edd52a110cc1cb3958158f829822"
++COMPATIBILITY_CONTRACT = {'schema': 'job_compatibility/1', 'registries': [{'generated': 'PHASES', 'path': 'scripts/opera_career_world_2d.gd', 'source': 'PHASES', 'field': 'phases', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'FINALE_START', 'path': 'scripts/opera_career_world_2d.gd', 'source': 'FINALE_START', 'field': 'finale_start', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'PHASE_STATIONS', 'path': 'scripts/opera_career_world_2d.gd', 'source': 'PHASE_STATIONS', 'field': 'phase_stations', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'HOTSPOT_PHASE_ALIASES', 'path': 'scripts/opera_career_world_2d.gd', 'source': 'HOTSPOT_PHASE_ALIASES', 'field': 'hotspot_aliases', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'GOAL_PROPS', 'path': 'scripts/opera_career_world_2d.gd', 'source': 'GOAL_PROPS', 'field': 'presentation.goal_prop', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'SLUGS', 'path': 'scripts/opera_career_world_2d.gd', 'source': 'SLUGS', 'field': 'legacy.slug', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'LEGACY_PHASES', 'path': 'scripts/opera_career_world_2d.gd', 'source': 'LEGACY_PHASES', 'field': 'legacy.phases', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'LEGACY_FINALE_START', 'path': 'scripts/opera_career_world_2d.gd', 'source': 'LEGACY_FINALE_START', 'field': 'legacy.finale_start', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'COMPETITION_CAREERS', 'path': 'scripts/opera_competition.gd', 'source': 'CAREERS', 'field': 'competition', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'MASTERY_RULES', 'path': 'scripts/opera_mastery.gd', 'source': 'RULES', 'field': 'mastery', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'PRACTICE_COUNTS', 'path': 'scripts/opera_performance_plan.gd', 'source': 'PRACTICE_COUNTS', 'field': 'practice_count', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'CAREER_COLORS', 'path': 'scripts/opera_performance_overlay.gd', 'source': 'CAREER_COLORS', 'field': 'presentation.colors.overlay', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'HOTSPOT_EXPECTED_PHASES', 'path': 'scripts/opera_hotspot_catalog.gd', 'source': 'EXPECTED_PHASES', 'field': 'hotspot_expected_phases', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'HOTSPOT_SPECS', 'path': 'scripts/opera_hotspot_catalog.gd', 'source': 'SPECS', 'field': 'hotspots', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'BACKDROP_PALETTES', 'path': 'scripts/opera_world_backdrop_2d.gd', 'source': 'PALETTES', 'field': 'presentation.backdrop.palette', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'STAGE_PATHS', 'path': 'scripts/opera_stage_paths.gd', 'source': 'PATHS', 'field': 'stage_geometry.paths', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'STAGE_STATION_NAV', 'path': 'scripts/opera_stage_paths.gd', 'source': 'STATION_NAV', 'field': 'stage_geometry.station_nav', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'STAGE_ROAM', 'path': 'scripts/opera_stage_paths.gd', 'source': 'ROAM', 'field': 'stage_geometry.roam', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'STAGE_BLEED', 'path': 'scripts/opera_stage_paths.gd', 'source': 'BLEED', 'field': 'stage_geometry.bleed', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'PHASE_SETS', 'path': 'scripts/chapter_two_career_scene_adapter.gd', 'source': 'PHASE_SETS', 'field': 'chapter2.scene', 'type': 'Dictionary', 'kind': 'job_dictionary'}, {'generated': 'VENUE_LEGACY_PORTAL_RECTS', 'path': 'scripts/opera_house_venue_2d.gd', 'source': 'LEGACY_PORTAL_RECTS', 'field': 'home.venue.legacy_portal', 'type': 'Dictionary', 'kind': 'bit_dictionary'}, {'generated': 'VENUE_CHAPTER2_PORTAL_RECTS', 'path': 'scripts/opera_house_venue_2d.gd', 'source': 'CHAPTER2_PORTAL_RECTS', 'field': 'home.venue.chapter2_portal', 'type': 'Dictionary', 'kind': 'bit_dictionary'}, {'generated': 'VENUE_CHAPTER2_SECOND_WAVE_PORTAL_RECTS', 'path': 'scripts/opera_house_venue_2d.gd', 'source': 'CHAPTER2_SECOND_WAVE_PORTAL_RECTS', 'field': 'home.venue.chapter2_second_wave_portal', 'type': 'Dictionary', 'kind': 'bit_dictionary'}]}
++GENERATED = Path("scripts/generated/job_catalog_data.gd")
++CAPABILITIES = {"hide_partner", "roshan_actor_atlas", "nursery_catch_overlay", "two_act_show", "uses_room_tiles", "cooperative_win_suffix"}
++SHARED = [
++ ("ACTS","opera_house","ACTS","Array"),
++ ("LIVE_ACT_INDICES","opera_house","LIVE_ACT_INDICES","Array[int]"),
++ ("RETIRED_ACT_INDICES","opera_house","RETIRED_ACT_INDICES","Array[int]"),
++ ("ACTIVE_STAR_MASK","opera_house","ACTIVE_STAR_MASK","int"),
++ ("RETIRED_STAR_MASK","opera_house","RETIRED_STAR_MASK","int"),
++ ("ACTIVE_ACT_COUNT","opera_house","ACTIVE_ACT_COUNT","int"),
++ ("OPERA_ACTIVE_STAR_MASK","save_state","OPERA_ACTIVE_STAR_MASK","int"),
++ ("OPERA_ACTIVE_ACT_COUNT","save_state","OPERA_ACTIVE_ACT_COUNT","int"),
++ ("ROOM_ACT_INDICES","castle_career_routes","ROOM_ACT_INDICES","Dictionary"),
++ ("CAREER_CREST_FILES","castle_career_routes","CAREER_CREST_FILES","Dictionary"),
++ ("MASTERY_CAREERS","opera_mastery","CAREERS","Array[String]"),
++ ("PERFORMANCE_ENABLED","opera_performance_plan","ENABLED","Array[String]"),
++ ("HOTSPOT_ASSET_META","opera_hotspot_catalog","ASSET_META","Dictionary"),
++ ("VENUE_FLOOR_NAMES","opera_house_venue_2d","FLOOR_NAMES","Array[String]"),
++ ("VENUE_FLOOR_ACTOR_POSITIONS","opera_house_venue_2d","FLOOR_ACTOR_POSITIONS","Array[Vector2]"),
++ ("VENUE_LEGACY_FLOOR_ACT_INDICES","opera_house_venue_2d","LEGACY_FLOOR_ACT_INDICES","Array[int]"),
++ ("EXPECTED_STAGE_COUNT","living_world_catalog","EXPECTED_STAGE_COUNT","int"),
++ ("LIVE_CAREERS","chapter_two_party_plan","LIVE_CAREERS","Array[Dictionary]"),
++ ("ALL_PARTY_MASK","chapter_two_party_plan","ALL_PARTY_MASK","int"),
++ ("GUIDE_ORDER","chapter_two_party_plan","GUIDE_ORDER","Array[int]"),
++ ("VALID_MODES","chapter_two_career_scene_adapter","VALID_MODES","Array"),
++ ("ADAPTER_CAREER_ORDER","chapter_two_career_scene_adapter","CAREER_ORDER","Array"),
++]
++DIRECTOR = ["ACT_CHEF","ACT_DETECTIVE","ACT_BALLERINA","ACT_CANDY_MAKER",
++ "ACT_FARMER","ACT_PAINTER","ACT_ASTRONAUT","ACT_POP_STAR",
++ "SKILL_CHEF","SKILL_DETECTIVE","SKILL_BALLERINA","SKILL_CANDY_MAKER",
++ "SKILL_FARMER","SKILL_PAINTER","SKILL_ASTRONAUT","SKILL_POP_STAR",
++ "INITIAL_TUTORIAL_ACTS","INITIAL_TUTORIAL_MASK","FIRST_WAVE_UNLOCK_MASK",
++ "JOB_PHASE_ACTS","JOB_PHASE_MASK_LIMITS"]
++
++
++def _json(path):
++    def reject(value): raise ValueError("non-finite JSON number "+value)
++    def pairs(items):
++        result={}
++        for key,value in items:
++            if key in result:raise ValueError("duplicate JSON key "+key)
++            result[key]=value
++        return result
++    return json.loads(path.read_text(encoding="utf-8-sig"),parse_constant=reject,object_pairs_hook=pairs)
++
++
++def load_catalog(root: Path):
++    root=Path(root)
++    return {"ledger":_json(root/"content/jobs/_ledger.json"),
++      "jobs":[_json(p) for p in sorted((root/"content/jobs").glob("*.json")) if not p.name.startswith("_")],
++      "config":_json(root/"content/catalog.json"),
++      "compatibility":_json(root/"content/compatibility.json")}
++
++
++def _field(row,path):
++    value=row
++    for key in path.split("."):
++        if not isinstance(value,dict) or key not in value:return None
++        value=value[key]
++    return value
++
++
++def _ordered_jobs(catalog):
++    return sorted(catalog["jobs"],key=lambda j:(j["star_bit"],j["id"]))
++
++
++def _table(catalog,name,field,bit_keys=False):
++    rows=sorted((j for j in catalog["jobs"] if name in j["compat_order"]),key=lambda j:j["compat_order"][name])
++    pairs=[[j["star_bit"] if bit_keys else j["id"],_field(j,field)] for j in rows]
++    return {"__dict__":pairs} if bit_keys else dict(pairs)
++
++
++def _exact_paths(job,event):
++    suffix=event.removeprefix("roshan_")
++    speaker=job["voice"].get("event_speakers",{}).get(suffix,job["voice"]["speaker"])
++    key=speaker+"_"+suffix
++    if speaker=="faron":return ["res://assets/audio/voices/"+key+".ogg"]
++    if suffix.startswith("teacher_"):
++        return ["res://assets/audio/teacher/"+key+".ogg","res://assets/audio/teacher/"+suffix+".ogg"]
++    return [folder+key+".ogg" for folder in [job["voice"]["folder"]]+job["voice"]["fallback_folders"]]
++
++
++def _checkpoint_data(catalog):
++    specs={}
++    for job in _ordered_jobs(catalog):
++        cp=job["save"]["checkpoint"]
++        if cp:specs[job["id"]]={**cp,"phase_index_max":len(job["phases"])}
++    key_lists={name:[cp["key"] for cp in specs.values() if name in cp["registration_lists"]] for name in ("DICTIONARY_KEYS","KNOWN_KEYS")}
++    prefix=catalog["config"]["save_checkpoint_normalization_prefix"]
++    return {"SAVE_CHECKPOINTS":specs,"SAVE_CHECKPOINT_KEY_LISTS":key_lists,
++        "SAVE_CHECKPOINT_JOB_ORDER":[*prefix,*(jid for jid in specs if jid not in prefix)]}
++
++
++def derive(catalog):
++    jobs=_ordered_jobs(catalog)
++    ledger=catalog["ledger"]["entries"]
++    live=[j for j in jobs if j["status"]=="LIVE"]
++    aliases={a:e["id"] for e in ledger for a in e.get("aliases",[])}
++    lookup={j["id"]:j for j in jobs}
++    runtime_jobs={}
++    for job in jobs:
++        runtime=copy.deepcopy(job)
++        runtime["aliases"]=[a for a,jid in aliases.items() if jid==job["id"]]
++        runtime_jobs[job["id"]]=runtime
++    result={"JOBS":runtime_jobs,"ALIASES":aliases,"LEDGER":copy.deepcopy(ledger)}
++    live_bits=[j["star_bit"] for j in live]
++    retired_bits=[e["star_bit"] for e in ledger if e["status"]=="TOMBSTONE"]
++    slots=max(e["star_bit"] for e in ledger)+1 if ledger else 0
++    result.update({"LIVE_ACT_INDICES":live_bits,"RETIRED_ACT_INDICES":retired_bits,
++      "ACTIVE_STAR_MASK":sum(1<<b for b in live_bits),"RETIRED_STAR_MASK":sum(1<<b for b in retired_bits),
++      "ACTIVE_ACT_COUNT":len(live),"SLOT_COUNT":slots,"STAR_CEILING":(1<<slots)-1,
++      "SHIPPING_PHASE_TOTAL":sum(len(j["phases"]) for j in live)})
++    result["ALL_STARS"]=result["ACTIVE_STAR_MASK"]
++    result["OPERA_ACTIVE_STAR_MASK"]=result["ACTIVE_STAR_MASK"]
++    result["OPERA_ACTIVE_ACT_COUNT"]=result["ACTIVE_ACT_COUNT"]
++    acts=[]
++    for entry in ledger:
++        if entry["status"]=="TOMBSTONE":
++            acts.append({"save_bit":entry["star_bit"],"retired":True});continue
++        job=lookup[entry["id"]]
++        values={"save_bit":job["star_bit"],"name":job["title"],"career":job["career_label"],
++          "costume":job["id"],"music":job["music"]["cue"],"voice":job["voice"]["intro_line"],
++          "win_line":job["voice"]["win_line"],"floor_col":job["presentation"]["colors"]["floor"],
++          "trim":job["presentation"]["colors"]["trim"],"curtain":job["presentation"]["colors"]["curtain"]}
++        acts.append({k:values[k] if k in values else job["act_extra"][k] for k in job["act_key_order"]})
++    result["ACTS"]=acts
++    result["ROOM_ACT_INDICES"]={room:[j["star_bit"] for j in sorted(
++        (j for j in live if j["home"]["room"]==room),key=lambda j:j["home"]["room_order"])]
++        for room in catalog["config"]["room_order"]}
++    result["CAREER_CREST_FILES"]={j["id"]:j["home"]["crest"] for j in sorted(
++        (j for j in jobs if "CAREER_CREST_FILES" in j["compat_order"]),key=lambda j:j["compat_order"]["CAREER_CREST_FILES"])}
++    for m in catalog["compatibility"]["registries"]:
++        result[m["generated"]]=_table(catalog,m["generated"],m["field"],m["kind"]=="bit_dictionary")
++    for name in ("MASTERY_CAREERS","PERFORMANCE_ENABLED","ADAPTER_CAREER_ORDER"):
++        result[name]=[j["id"] for j in sorted((j for j in jobs if name in j["compat_order"]),key=lambda j:j["compat_order"][name])]
++    result["HOTSPOT_ASSET_META"]=catalog["config"]["asset_meta"]
++    result["VENUE_FLOOR_NAMES"]=catalog["config"]["venue"]["floor_names"]
++    result["VENUE_FLOOR_ACTOR_POSITIONS"]=catalog["config"]["venue"]["floor_actor_positions"]
++    venue=sorted((j for j in jobs if "legacy_floor" in j["home"]["venue"]),key=lambda j:j["home"]["venue"]["legacy_floor"])
++    result["VENUE_LEGACY_FLOOR_ACT_INDICES"]=[j["star_bit"] for j in venue]
++    result["LIVING_WORLD_OPERA_ROWS"]=[["opera.act.%02d" % j["star_bit"],j["living_world"]["name"],
++        "scripts/opera_house.gd:ACTS[%d]; scripts/opera_career_world_2d.gd" % j["star_bit"],
++        *j["living_world"]["accents"]] for j in jobs]
++    result["EXPECTED_STAGE_COUNT"]=catalog["config"]["non_job_stage_count"]+len(live)
++    party=sorted((j for j in jobs if j["chapter2"].get("party")),key=lambda j:j["chapter2"]["guide_order"])
++    rows=[]
++    for j in party:
++        values={"act_index":j["star_bit"],**j["chapter2"]["party"]}
++        rows.append({k:values[k] for k in j["chapter2"]["party_key_order"]})
++    result["LIVE_CAREERS"]=rows
++    result["GUIDE_ORDER"]=[j["star_bit"] for j in party]
++    result["ALL_PARTY_MASK"]=sum(1<<j["star_bit"] for j in party)
++    result["PARTY_MASK"]=result["ALL_PARTY_MASK"]
++    result["VALID_MODES"]=catalog["config"]["valid_modes"]
++    result.update({"CHAPTER2_"+name:value for name,value in catalog["config"]["chapter2"].items()})
++    for job in party:
++        name=job["chapter2"]["act_constant"]
++        result["CHAPTER2_"+name]=job["star_bit"]
++        result["CHAPTER2_"+name.replace("ACT_","SKILL_")]=job["chapter2"]["skill"]
++    result["CHAPTER2_JOB_PHASE_ACTS"]=[j["star_bit"] for j in party]
++    result["CHAPTER2_JOB_PHASE_MASK_LIMITS"]=[j["chapter2"]["phase_mask_limit"] for j in party]
++    result.update(_checkpoint_data(catalog))
++    result["ACTOR_ROUTES"]={j["id"]:{**j["presentation"]["actors"],"surface":j["surface"]} for j in jobs}
++    result["VOICE_ROUTES"]={j["voice"]["prefix"]:{k:v for k,v in j["voice"].items() if k in (
++        "speaker","folder","speaker_prefix","fallback_folders","allow_unprefixed_fallback","exact_required")} for j in jobs}
++    routes={}
++    for job in jobs:
++        for event in job["voice"]["required_keys"]:
++            event=event.removeprefix("roshan_")
++            route={"speaker":job["voice"].get("event_speakers",{}).get(event,job["voice"]["speaker"]),"event":event,"paths":_exact_paths(job,event)}
++            if event in routes and routes[event]!=route:raise ValueError("conflicting exact route "+event)
++            routes[event]=route
++    result["REQUIRED_VOICE_ROUTES"]=routes
++    result["MUSIC_CUES"]=[j["music"]["cue"] for j in jobs]
++    result["COSTUME_SHEETS"]={j["id"]:j["art"]["costume_sheet"] for j in jobs}
++    result["DIEGETIC_EXPECTED_STATIONS"]={j["id"]:[station["id"] for station in j["stage_geometry"]["paths"]["stations"]] for j in sorted((j for j in jobs if "DIEGETIC_EXPECTED_STATIONS" in j["compat_order"]),key=lambda j:j["compat_order"]["DIEGETIC_EXPECTED_STATIONS"])}
++    result["DIEGETIC_PLAYABLE_PHASE_STATIONS"]={j["id"]:list(j["phase_stations"].values()) for j in sorted((j for j in jobs if "DIEGETIC_PLAYABLE_PHASE_STATIONS" in j["compat_order"]),key=lambda j:j["compat_order"]["DIEGETIC_PLAYABLE_PHASE_STATIONS"])}
++    result["CHAPTER2_PHASE_TOTAL"]=sum(len(j["chapter2"]["scene"]["phases"]) for j in party)
++    result["TRUSTED_PROBE_EXPECTATIONS"]={"live_job_count":len(live),"slot_count":slots,
++      "shipping_phase_total":result["SHIPPING_PHASE_TOTAL"],"living_stage_count":result["EXPECTED_STAGE_COUNT"],
++      "mastery_job_count":len(result["MASTERY_CAREERS"]),
++      "room_job_count":sum(len(bits) for bits in result["ROOM_ACT_INDICES"].values()),
++      "legacy_nursery_predecessor_count":sum(1 for j in live if j["star_bit"]<lookup["nursery"]["star_bit"]),
++      "diegetic_phase_total":sum(len(v) for v in result["DIEGETIC_PLAYABLE_PHASE_STATIONS"].values()),
++      "chapter2_phase_total":result["CHAPTER2_PHASE_TOTAL"],
++      "two_act_unit_total":sum(len(j["phases"])+(min(len(j["phases"]),int(j.get("practice_count") or 0)) if j["two_act"] else 0) for j in jobs)}
++    return result
++
++
++def source_snapshot(root: Path,catalog=None):
++    catalog=catalog if catalog is not None else load_catalog(root)
++    data=derive(catalog)
++    result={name:(read_save_const(root,source,data,BASELINE) if file=="save_state" else read_const(root/f"scripts/{file}.gd",source)) for name,file,source,_ in SHARED}
++    for m in catalog["compatibility"]["registries"]:
++        result[m["generated"]]=read_const(root/m["path"],m["source"])
++    for source in DIRECTOR:result["CHAPTER2_"+source]=read_const(root/"scripts/chapter_two_director.gd",source)
++    result["DIEGETIC_EXPECTED_STATIONS"]=read_const(root/"scripts/probe_opera_diegetic_paths.gd","EXPECTED_STATIONS")
++    result["DIEGETIC_PLAYABLE_PHASE_STATIONS"]=read_const(root/"scripts/probe_opera_diegetic_paths.gd","PLAYABLE_PHASE_STATIONS")
++    text=mask_source((root/"scripts/probe_chapter2.gd").read_text(encoding="utf-8"))
++    matches=list(re.finditer(r"(?m)^\t_check\(\s*,\s*count == (\d+)\b(?=\s*\))",text))
++    if len(matches)!=1:raise ValueError("expected one real Chapter Two phase-count assertion")
++    result["CHAPTER2_PHASE_TOTAL"]=int(matches[0].group(1))
++    result["LIVING_WORLD_OPERA_ROWS"]=opera_rows(root)
++    result.update(read_save_bounds(root,data))
++    result["SAVE_CHECKPOINT_JOB_ORDER"]=read_checkpoint_order(root,data)
++    text=mask_source((root/"scripts/probe_opera_2d.gd").read_text(encoding="utf-8"))
++    matches=list(re.finditer(r"(?m)^\t_check\(\s*,\s*shipping_phase_count == (\d+)\b(?=\s+and\s+missing_specs\.is_empty\(\)\))",text))
++    if len(matches)!=1:raise ValueError("expected one real shipping phase-count assertion")
++    result["SHIPPING_PHASE_TOTAL"]=int(matches[0].group(1))
++    return result
++
++
++@lru_cache(maxsize=32)
++def _first_declaration(root_name,jid):
++    result=subprocess.check_output(["git","log","--reverse","--format=%H|%cs","-S",
++        chr(34)+"costume"+chr(34)+": "+chr(34)+jid+chr(34),"--","scripts/opera_house.gd"],
++        cwd=root_name,text=True).splitlines()
++    if not result:raise ValueError("baseline allocation evidence missing for "+jid)
++    commit,date=result[0].split("|")
++    return {"first_declaration_commit":commit,"first_declaration_date":date}
++
++
++def baseline_entries(root: Path,catalog):
++    """Pinned initial allocation, extended only by the Git integration baseline."""
++    def blob(ref,path):
++        return subprocess.check_output(["git","show",ref+":"+path],cwd=root,text=True,encoding="utf-8",stderr=subprocess.DEVNULL)
++    text=blob(BASELINE,"scripts/opera_house.gd")
++    match=re.search(r"(?m)^const\s+ACTS\b[^=\n]*=",text)
++    acts=GDParser(text,match.end()).value()
++    initial=[{"star_bit":i,"id":None if a.get("retired") else a["costume"],
++        "status":"TOMBSTONE" if a.get("retired") else "LIVE",
++        "aliases":["candy_maker","candy"] if a.get("costume")=="candymaker" else []} for i,a in enumerate(acts)]
++    observed_date=subprocess.check_output(["git","show","-s","--format=%cs",BASELINE],cwd=root,text=True).strip()
++    for entry in initial:
++        entry["allocated"]={"observed_commit":BASELINE,"observed_date":observed_date,
++            "source":"scripts/opera_house.gd:ACTS[%d]" % entry["star_bit"]}
++        if entry["id"] is not None:
++            entry["allocated"].update(_first_declaration(str(root.resolve()),entry["id"]))
++        else:
++            entry["reason"]="Owner cut 3d1236fe; raw bit preserved permanently (DL-SAVE-06)"
++    integration=subprocess.check_output(["git","merge-base","HEAD","origin/dev"],cwd=root,text=True).strip()
++    exists=subprocess.run(["git","cat-file","-e",integration+":content/jobs/_ledger.json"],cwd=root,capture_output=True)
++    if exists.returncode==0:
++        previous=json.loads(blob(integration,"content/jobs/_ledger.json"))["entries"]
++        if len(previous)<len(initial) or any(any(a.get(k)!=b.get(k) for k in ("star_bit","id","status","aliases","allocated","reason")) for a,b in zip(initial,previous)):
++            raise ValueError("baseline integration allocation contradicts initial ledger")
++        return previous
++    return initial
++
++
++def _strict_equal(a,b):
++    if type(a) is not type(b):return False
++    if isinstance(a,dict):return list(a)==list(b) and all(_strict_equal(a[k],b[k]) for k in a)
++    if isinstance(a,list):return len(a)==len(b) and all(_strict_equal(x,y) for x,y in zip(a,b))
++    return a==b
++
++
++
++def _schema_validate(value,schema,path,errors):
++    types={"object":dict,"array":list,"string":str,"integer":int,"number":(int,float),"boolean":bool,"null":type(None)}
++    wanted=schema.get("type")
++    if wanted:
++        allowed=wanted if isinstance(wanted,list) else [wanted]
++        if not any(isinstance(value,types[t]) and not (t in ("integer","number") and isinstance(value,bool)) for t in allowed):
++            errors.append("E01 "+path+": invalid type");return
++    if "const" in schema and value!=schema["const"]:errors.append("E01 "+path+": invalid schema/value")
++    if "enum" in schema and value not in schema["enum"]:errors.append("E01 "+path+": unsupported value")
++    if isinstance(value,dict):
++        props=schema.get("properties",{})
++        for key in schema.get("required",[]):
++            if key not in value:errors.append("E01 "+path+"."+key+": missing field")
++        if schema.get("additionalProperties") is False:
++            for key in value.keys()-props.keys():errors.append("E01 "+path+"."+key+": unknown field")
++        for key,child in props.items():
++            if key in value:_schema_validate(value[key],child,path+"."+key,errors)
++    if isinstance(value,list):
++        if len(value)<schema.get("minItems",0):errors.append("E01 "+path+": too few items")
++        if "items" in schema:
++            for i,child in enumerate(value):_schema_validate(child,schema["items"],f"{path}[{i}]",errors)
++    if isinstance(value,(int,float)) and not isinstance(value,bool):
++        if not math.isfinite(value):errors.append("E01 "+path+": nonfinite number")
++        if value<schema.get("minimum",value):errors.append("E01 "+path+": below minimum")
++    if isinstance(value,str) and "pattern" in schema and not re.fullmatch(schema["pattern"],value):errors.append("E01 "+path+": invalid string")
++
++
++def _native_validate(value,path,errors):
++    if isinstance(value,float) and not math.isfinite(value):errors.append("E01 "+path+": nonfinite number")
++    if isinstance(value,dict):
++        tags=[k for k in value if k.startswith("__")]
++        if tags:
++            if set(value)=={"__call__","args"}:
++                name,args=value["__call__"],value["args"]
++                good=isinstance(args,list) and name in CONSTRUCTORS
++                if good:
++                    numeric=lambda xs:all(type(x) in (int,float) and math.isfinite(x) for x in xs)
++                    if name=="Color":
++                        good=(len(args)==1 and isinstance(args[0],str) and bool(re.fullmatch(r"#[0-9A-Fa-f]{6}(?:[0-9A-Fa-f]{2})?",args[0]))) or (len(args) in (3,4) and numeric(args))
++                    elif name in ("Vector2","Vector2i"):good=len(args)==2 and numeric(args) and (name!="Vector2i" or all(type(x) is int for x in args))
++                    elif name=="Rect2":good=(len(args)==4 and numeric(args)) or (len(args)==2 and all(isinstance(x,dict) and x.get("__call__")=="Vector2" for x in args))
++                    else:
++                        good=len(args)==1 and isinstance(args[0],list)
++                        if good and name=="PackedStringArray":good=all(isinstance(x,str) for x in args[0])
++                        elif good and name=="PackedInt32Array":good=all(type(x) is int and -(1<<31)<=x<(1<<31) for x in args[0])
++                        elif good and name=="PackedFloat32Array":good=numeric(args[0])
++                if not good:errors.append("E01 "+path+": forbidden constructor or arguments")
++            elif set(value)=={"__stringname__"}:
++                if not isinstance(value["__stringname__"],str):errors.append("E01 "+path+": invalid StringName")
++            elif set(value)=={"__dict__"}:
++                pairs=value["__dict__"]
++                if not isinstance(pairs,list) or any(not isinstance(p,list) or len(p)!=2 for p in pairs):
++                    errors.append("E01 "+path+": invalid native dictionary");return
++                keys=[json.dumps(p[0],sort_keys=True) for p in pairs]
++                if len(set(keys))!=len(keys):errors.append("E01 "+path+": duplicate native dictionary key")
++            else:errors.append("E01 "+path+": forbidden literal tag")
++        for key,child in value.items():_native_validate(child,path+"."+key,errors)
++    elif isinstance(value,list):
++        for i,child in enumerate(value):_native_validate(child,f"{path}[{i}]",errors)
++
++
++def _repo_path(root,value):
++    if not isinstance(value,str) or not value:return None
++    path=(root/value.removeprefix("res://")).resolve()
++    return path if path.is_relative_to(root.resolve()) else None
++
++
++def diagnostics(root: Path,catalog):
++    music=set(read_python_list(root/"tools/build_area_music.py","EXPECTED_IDS"))
++    atlas=set(read_python_list(root/"tools/audit_opera_roshan_animation.py","CAREERS"))
++    return [f"JP4_DEFERRED music_catalog:{j['id']}" for j in _ordered_jobs(catalog) if j["music"]["cue"] not in music]+[
++        f"JP4_DEFERRED atlas_gate:{j['id']}" for j in _ordered_jobs(catalog) if j["id"] not in atlas]
++
++
++def validate(root: Path,catalog):
++    root=Path(root)
++    errors=[]
++    try:
++        schema=_json(root/"content/job_record.schema.json")
++        for i,job in enumerate(catalog["jobs"]):
++            _schema_validate(job,schema,f"job[{i}]",errors)
++            _native_validate(job,f"job[{i}]",errors)
++        _native_validate(catalog["config"],"config",errors)
++        _native_validate(catalog["ledger"],"ledger",errors)
++        if catalog.get("compatibility")!=COMPATIBILITY_CONTRACT:
++            errors.append("E01 compatibility metadata differs from fixed JP0 contract")
++            return errors
++        entries=catalog["ledger"]["entries"]
++        if catalog["config"].get("runtime_baseline")!=BASELINE:errors.append("E02 immutable runtime allocation baseline changed")
++        try:old=baseline_entries(root,catalog)
++        except (OSError,ValueError,subprocess.SubprocessError,RuntimeError) as exc:
++            errors.append("E02 baseline history unavailable: "+str(exc));return errors
++        if len(entries)<len(old) or any(any(a.get(k)!=b.get(k) for k in ("star_bit","id","status","aliases")) for a,b in zip(old,entries)):
++            errors.append("E02 ledger removed, reordered, repointed or reused baseline allocation")
++        if old and "allocated" in old[0] and any(a!=b for a,b in zip(old,entries)):errors.append("E02 allocation evidence changed")
++        for entry in entries:
++            evidence=entry.get("allocated",{})
++            if not isinstance(evidence,dict) or not re.fullmatch(r"[0-9a-f]{40}",str(evidence.get("observed_commit",""))) or not re.fullmatch(r"[0-9]{4}-[0-9]{2}-[0-9]{2}",str(evidence.get("observed_date",""))) or not evidence.get("source"):
++                errors.append("E02 allocation requires dated immutable Git evidence")
++        bits=[e["star_bit"] for e in entries]
++        if any(type(b) is not int or b<0 for b in bits) or bits!=list(range(len(entries))):
++            errors.append("E02 star allocation must be unique contiguous append order")
++        ids=[e["id"] for e in entries if e["id"] is not None]
++        aliases=[a for e in entries for a in e.get("aliases",[])]
++        if len(set(ids))!=len(ids) or len(set(aliases))!=len(aliases) or set(ids)&set(aliases):errors.append("E01 duplicate identity or alias")
++        # This namespace object is pinned JP0 evidence, not an authoring bound.
++        # Future appended entries grow STAR_CEILING from max(bit) with no edits
++        # to this sealed baseline evidence.
++        namespace=catalog["ledger"]["star_namespace"]
++        if namespace!={"save_key":"opera_stars","highest_allocated_bit":17,"derived_ceiling":262143,"next_free_bit":18}:
++            errors.append("E10 baseline star ceiling evidence changed")
++        jobs=catalog["jobs"]
++        jids=[j["id"] for j in jobs]
++        if len(set(jids))!=len(jids):errors.append("E01 duplicate job id")
++        if set(jids)!=set(ids):errors.append("E02 unregistered act or missing allocated job")
++        data=_checkpoint_data(catalog)
++        prefix=catalog["config"].get("save_checkpoint_normalization_prefix")
++        if prefix!=baseline_checkpoint_order(root,BASELINE,data):errors.append("E09 checkpoint normalization prefix differs from immutable baseline order")
++        checkpoint_keys=[spec["key"] for spec in data["SAVE_CHECKPOINTS"].values()]
++        if len(checkpoint_keys)!=len(set(checkpoint_keys)):errors.append("E09 duplicate checkpoint key")
++        for spec in data["SAVE_CHECKPOINTS"].values():
++            lists=spec["registration_lists"]
++            if not lists or len(lists)!=len(set(lists)) or any(name not in ("DICTIONARY_KEYS","KNOWN_KEYS") for name in lists):errors.append("E09 unknown or duplicate checkpoint registration list")
++        allocations={e["id"]:e for e in entries if e["id"] is not None}
++        rooms={r["id"] for r in read_const(root/"scripts/arena/castle_rooms_25d.gd","ROOMS")}
++        room_orders=set()
++        local=(root/"scripts/ci.sh").read_text(encoding="utf-8")
++        remote=(root/".github/workflows/probes.yml").read_text(encoding="utf-8")
++        local_roster=set(re.search(r"for p in (probe_\w+.*?)\s*;\s*do",local,re.S).group(1).split())
++        remote_roster=set(re.search(r"for p in (probe_\w+.*?)\s*;\s*do",remote,re.S).group(1).split())
++        ledger_text=(root/"design/05_DOC_LEDGER.md").read_text(encoding="utf-8")
++        for job in jobs:
++            jid=job["id"]
++            allocation=allocations.get(jid,{})
++            if allocation.get("star_bit")!=job["star_bit"] or allocation.get("status")!=job["status"]:errors.append("E02 "+jid+": job contradicts allocation")
++            if job["two_act"] != ("PERFORMANCE_ENABLED" in job["compat_order"]):errors.append("E01 "+jid+": two_act differs from ordered enabled membership")
++            home=job["home"]
++            marker=(home["room"],home["room_order"])
++            if home["room"] not in rooms or marker in room_orders:errors.append("E03 "+jid+": unknown room or duplicate room order")
++            room_orders.add(marker)
++            phases=job["phases"]
++            if not phases or type(job["finale_start"]) is not int or not 0<=job["finale_start"]<len(phases):errors.append("E04 "+jid+": empty phases or invalid finale index")
++            stations={s["id"] for s in job.get("stage_geometry",{}).get("paths",{}).get("stations",[])}
++            for station in job.get("phase_stations",{}).values():
++                if station not in stations:errors.append("E04 "+jid+": missing station "+str(station))
++            for phase in phases:
++                if "station" in phase and phase["station"] not in stations:errors.append("E04 "+jid+": unknown phase station")
++            voice=job["voice"]
++            if isinstance(voice.get("required_keys"),list):
++                for event in voice["required_keys"]:
++                    paths=_exact_paths(job,event)
++                    if not any((_repo_path(root,p) or Path("__missing__")).is_file() for p in paths):errors.append("E05 "+jid+": missing exact voice "+event)
++                if not {p["vo"] for p in phases}.issubset(set(voice["required_keys"])):errors.append("E05 "+jid+": phase voice not required")
++            cue=_repo_path(root,"res://assets/audio/music/"+job["music"]["cue"]+".ogg")
++            if not cue or not cue.is_file():errors.append("E06 "+jid+": missing music cue")
++            art=job["art"]
++            sheet=_repo_path(root,art["costume_sheet"])
++            if not sheet or not sheet.is_file():errors.append("E07 "+jid+": missing costume sheet")
++            elif hashlib.sha256(sheet.read_bytes()).hexdigest()!=art["costume_sheet_sha256"]:errors.append("E07 "+jid+": costume hash mismatch")
++            crest=home["crest"] if str(home["crest"]).startswith("res://") else "res://assets/opera/worlds/ui/crests/"+str(home["crest"])
++            goal=job["presentation"]["goal_prop"]
++            goal="res://assets/opera/worlds/props/"+goal+("" if Path(goal).suffix else ".png")
++            references=[crest,goal,job["surface"],*art["props"],*art["tiles"],job["presentation"]["actors"]["player"],job["presentation"]["actors"]["partner"]]
++            for reference in references:
++                path=_repo_path(root,reference)
++                if not path or not path.is_file():errors.append("E08 "+jid+": missing reference "+str(reference))
++            checkpoint=job["save"]["checkpoint"]
++            if checkpoint:
++                for name in checkpoint["registration_lists"]:
++                    if checkpoint["key"] not in read_save_const(root,name,data,BASELINE):errors.append("E09 "+jid+": checkpoint missing from "+name)
++            if job["chapter2"].get("party") and not 0<=job["star_bit"]<16:errors.append("E11 "+jid+": party bit exceeds present namespace")
++            if not job["probes"] or any(p not in local_roster&remote_roster or not (root/"scripts"/(p+".gd")).is_file() for p in job["probes"]):errors.append("E13 "+jid+": no trusted probe coverage")
++            for doc in job["docs"]:
++                path=_repo_path(root,doc)
++                if not path or not path.is_file() or ("| \x60"+doc+"\x60 |") not in ledger_text:errors.append("E14 "+jid+": missing or unclassified document "+doc)
++        measured=diagnostics(root,catalog)
++        expected={"music_catalog":["geologist"],"atlas_gate":["geologist","teacher"]}
++        actual={"music_catalog":[x.split(":")[1] for x in measured if "music_catalog:" in x],
++                "atlas_gate":[x.split(":")[1] for x in measured if "atlas_gate:" in x]}
++        if catalog["config"].get("deferred_jp4")!=expected:errors.append("E01 JP4 evidence cannot create a waiver")
++        if actual["music_catalog"]!=expected["music_catalog"]:errors.append("E06 music tool coverage differs from JP0 baseline")
++        if actual["atlas_gate"]!=expected["atlas_gate"]:errors.append("E07 atlas tool coverage differs from JP0 baseline")
++        if not errors:
++            derived=derive(catalog)
++            for name,literal in source_snapshot(root,catalog).items():
++                if name not in derived or not _strict_equal(literal,derived[name]):errors.append("E16 source compatibility differs: "+name)
++    except (OSError,ValueError,KeyError,TypeError,IndexError,AttributeError,subprocess.SubprocessError) as exc:
++        errors.append("E01 validation failed closed: "+str(exc))
++    return errors
++
++
++def _gd(value,indent=0):
++    if value is None:return "null"
++    if type(value) is bool:return "true" if value else "false"
++    if type(value) in (int,float):return repr(value)
++    if isinstance(value,str):return json.dumps(value,ensure_ascii=False)
++    if isinstance(value,dict):
++        if "__call__" in value:return value["__call__"]+"("+", ".join(_gd(a) for a in value["args"])+")"
++        if "__stringname__" in value:return "&"+_gd(value["__stringname__"])
++        pairs=value["__dict__"] if "__dict__" in value else list(value.items())
++        if not pairs:return "{}"
++        if indent>0:return "{"+", ".join(_gd(k,indent+1)+": "+_gd(v,indent+1) for k,v in pairs)+"}"
++        return "{\n"+"\n".join("\t"*(indent+1)+_gd(k)+": "+_gd(v,indent+1)+"," for k,v in pairs)+"\n"+"\t"*indent+"}"
++    if isinstance(value,list):
++        if not value:return "[]"
++        if indent>0:return "["+", ".join(_gd(v,indent+1) for v in value)+"]"
++        if all(type(v) in (str,int,float,bool) or v is None or (isinstance(v,dict) and "__call__" in v) for v in value):return "["+", ".join(_gd(v) for v in value)+"]"
++        return "[\n"+"\n".join("\t"*(indent+1)+_gd(v,indent+1)+"," for v in value)+"\n"+"\t"*indent+"]"
++    raise ValueError("cannot emit native value")
++
++
++def render(catalog):
++    data=derive(catalog)
++    types={name:kind for name,_,_,kind in SHARED}
++    types.update({m["generated"]:m["type"] for m in catalog["compatibility"]["registries"]})
++    types.update({"LEDGER":"Array[Dictionary]","LIVING_WORLD_OPERA_ROWS":"Array","MUSIC_CUES":"Array[String]",
++        "SLOT_COUNT":"int","STAR_CEILING":"int","SHIPPING_PHASE_TOTAL":"int","PARTY_MASK":"int",
++        "SAVE_CHECKPOINT_JOB_ORDER":"Array[String]"})
++    for name,value in data.items():
++        if name not in types:
++            types[name]="Dictionary" if isinstance(value,dict) else ("Array[int]" if isinstance(value,list) and all(type(v) is int for v in value) else ("Array" if isinstance(value,list) else ("int" if type(value) is int else "String")))
++    lines=["# GENERATED by tools/content_build.py - do not edit.",
++      "# Authored records compile to native constants; no runtime JSON.","class_name JobCatalogData","extends RefCounted",""]
++    for name,value in data.items():lines.extend(["const "+name+": "+types[name]+" = "+_gd(value),""])
++    return "\n".join(lines)
++
++
++def issues(root: Path):
++    try:
++        catalog=load_catalog(root)
++        found=validate(root,catalog)
++        if found:return found
++        output=Path(root)/GENERATED
++        if not output.is_file() or output.read_bytes()!=render(catalog).encode("utf-8"):
++            return ["E15 generated catalogue missing/stale; run python -B tools/content_build.py --write"]
++        return []
++    except (OSError,ValueError,KeyError,TypeError) as exc:return ["E01 content load failed closed: "+str(exc)]
++
++
++def write(root: Path):
++    catalog=load_catalog(root)
++    found=validate(root,catalog)
++    if found:return found
++    path=Path(root)/GENERATED
++    path.parent.mkdir(parents=True,exist_ok=True)
++    path.write_bytes(render(catalog).encode("utf-8"))
++    return []
++
++
++def main():
++    ap=argparse.ArgumentParser(description=__doc__)
++    group=ap.add_mutually_exclusive_group(required=True)
++    group.add_argument("--write",action="store_true")
++    group.add_argument("--check",action="store_true")
++    group.add_argument("--explain",metavar="ID")
++    ap.add_argument("--root",type=Path,default=Path(__file__).resolve().parents[1])
++    args=ap.parse_args()
++    if args.explain:
++        catalog=load_catalog(args.root)
++        aliases={a:e["id"] for e in catalog["ledger"]["entries"] for a in e.get("aliases",[])}
++        jid=aliases.get(args.explain,args.explain)
++        job=next((j for j in catalog["jobs"] if j["id"]==jid),None)
++        if not job:ap.error("unknown job "+args.explain)
++        print(json.dumps({"job":job,
++          "registries":[m["generated"] for m in catalog["compatibility"]["registries"] if m["generated"] in job["compat_order"]],
++          "voice_paths":{k:_exact_paths(job,k) for k in job["voice"]["required_keys"]},
++          "checkpoint":derive(catalog)["SAVE_CHECKPOINTS"].get(jid),
++          "deferred_jp4":[x for x in diagnostics(args.root,catalog) if x.endswith(":"+jid)]},ensure_ascii=True,indent=2))
++        return 0
++    found=write(args.root) if args.write else issues(args.root)
++    for problem in found:print(problem)
++    if found:return 1
++    catalog=load_catalog(args.root)
++    for diagnostic in diagnostics(args.root,catalog):print(diagnostic)
++    print("CONTENT|OK|catalogue-current")
++    return 0
++
++if __name__=="__main__":raise SystemExit(main())
++
+--- a/tools/content_extract.py
++++ b/tools/content_extract.py
+@@ -1,238 +1,241 @@
+-#!/usr/bin/env python3
+-"""Read-only bootstrap extractor for JP0; output is a reviewable content draft."""
+-from __future__ import annotations
+-import argparse
+-import hashlib
+-import json
+-import subprocess
+-from pathlib import Path
+-try:
+-    from .content_gd_literals import read_const, integer_mapping, opera_rows
+-except ImportError:
+-    from content_gd_literals import read_const, integer_mapping, opera_rows
+-
+-BASELINE = "7f068cb80766edd52a110cc1cb3958158f829822"
+-# generated name, source file, source const, record field, native output type
+-REGISTRIES = [
+- ("PHASES","opera_career_world_2d","PHASES","phases","Dictionary"),
+- ("FINALE_START","opera_career_world_2d","FINALE_START","finale_start","Dictionary"),
+- ("PHASE_STATIONS","opera_career_world_2d","PHASE_STATIONS","phase_stations","Dictionary"),
+- ("HOTSPOT_PHASE_ALIASES","opera_career_world_2d","HOTSPOT_PHASE_ALIASES","hotspot_aliases","Dictionary"),
+- ("GOAL_PROPS","opera_career_world_2d","GOAL_PROPS","presentation.goal_prop","Dictionary"),
+- ("SLUGS","opera_career_world_2d","SLUGS","legacy.slug","Dictionary"),
+- ("LEGACY_PHASES","opera_career_world_2d","LEGACY_PHASES","legacy.phases","Dictionary"),
+- ("LEGACY_FINALE_START","opera_career_world_2d","LEGACY_FINALE_START","legacy.finale_start","Dictionary"),
+- ("COMPETITION_CAREERS","opera_competition","CAREERS","competition","Dictionary"),
+- ("MASTERY_RULES","opera_mastery","RULES","mastery","Dictionary"),
+- ("PRACTICE_COUNTS","opera_performance_plan","PRACTICE_COUNTS","practice_count","Dictionary"),
+- ("CAREER_COLORS","opera_performance_overlay","CAREER_COLORS","presentation.colors.overlay","Dictionary"),
+- ("HOTSPOT_EXPECTED_PHASES","opera_hotspot_catalog","EXPECTED_PHASES","hotspot_expected_phases","Dictionary"),
+- ("HOTSPOT_SPECS","opera_hotspot_catalog","SPECS","hotspots","Dictionary"),
+- ("BACKDROP_PALETTES","opera_world_backdrop_2d","PALETTES","presentation.backdrop.palette","Dictionary"),
+- ("STAGE_PATHS","opera_stage_paths","PATHS","stage_geometry.paths","Dictionary"),
+- ("STAGE_STATION_NAV","opera_stage_paths","STATION_NAV","stage_geometry.station_nav","Dictionary"),
+- ("STAGE_ROAM","opera_stage_paths","ROAM","stage_geometry.roam","Dictionary"),
+- ("STAGE_BLEED","opera_stage_paths","BLEED","stage_geometry.bleed","Dictionary"),
+- ("PHASE_SETS","chapter_two_career_scene_adapter","PHASE_SETS","chapter2.scene","Dictionary"),
+-]
+-
+-def set_field(row, dotted, value):
+-    parts = dotted.split(".")
+-    current = row
+-    for part in parts[:-1]:
+-        current = current.setdefault(part, {})
+-    current[parts[-1]] = value
+-
+-
+-def extract(root: Path, out: Path):
+-    def const(file, name):
+-        return read_const(root / f"scripts/{file}.gd", name)
+-    acts = const("opera_house", "ACTS")
+-    rooms = const("castle_career_routes","ROOM_ACT_INDICES")
+-    crests = const("castle_career_routes","CAREER_CREST_FILES")
+-    party = const("chapter_two_party_plan","LIVE_CAREERS")
+-    enabled = const("opera_performance_plan","ENABLED")
+-    career_order = const("chapter_two_career_scene_adapter","CAREER_ORDER")
+-    mastery_order = const("opera_mastery","CAREERS")
+-    world_rows = opera_rows(root)
+-    jobs, entries = [], []
+-    observed_date = subprocess.check_output(["git","show","-s","--format=%cs",BASELINE],cwd=root,text=True).strip()
+-    for slot, act in enumerate(acts):
+-        if act.get("retired"):
+-            entries.append({"star_bit":slot,"id":None,"status":"TOMBSTONE","aliases":[],
+-              "allocated":{"observed_commit":BASELINE,"source":f"scripts/opera_house.gd:ACTS[{slot}]"},
+-              "reason":"Owner cut 3d1236fe; raw bit preserved permanently (DL-SAVE-06)"})
+-            entries[-1]["allocated"]["observed_date"] = observed_date
+-            continue
+-        jid = act["costume"]
+-        aliases = ["candy_maker","candy"] if jid == "candymaker" else []
+-        entry = {"star_bit":slot,"id":jid,"status":"LIVE","aliases":aliases,
+-          "allocated":{"observed_commit":BASELINE,"source":f"scripts/opera_house.gd:ACTS[{slot}]"}}
+-        # The first exact allocation declaration visible in this file's Git
+-        # history is evidence, not a claim about earlier authoring outside it.
+-        history = subprocess.run(["git","log","--reverse","--format=%H|%cs",
+-            "-S",f'"costume": "{jid}"',"--","scripts/opera_house.gd"],
+-            cwd=root, text=True, capture_output=True, check=True).stdout.splitlines()
+-        if history:
+-            commit,date = history[0].split("|")
+-            entry["allocated"].update({"first_declaration_commit":commit,"first_declaration_date":date})
+-        entry["allocated"]["observed_date"] = observed_date
+-        entries.append(entry)
+-        room = next(r for r, bits in rooms.items() if slot in bits)
+-        row = {"schema":"job_record/1","id":jid,"status":"LIVE","family":"opera_career",
+-           "title":act["name"],"career_label":act["career"],"star_bit":slot,"progress_key":None,
+-           "home":{"room":room,"room_order":rooms[room].index(slot),"crest":crests.get(jid),"venue":{}},
+-           "presentation":{"colors":{"floor":act["floor_col"],"trim":act["trim"],"curtain":act["curtain"]},
+-               "actors":{},"backdrop":{}},
+-           "voice":{"engine":"Parler-TTS Mini v1.1 provisional preferred Roshan route; Kokoro-82M exact legacy fallback (ASSET_LICENSES.md)",
+-               "speaker":"roshan","folder":"res://assets/audio/teacher/" if jid == "teacher" else "res://assets/audio/voices/filler_v1/",
+-               "prefix":"teacher_" if jid == "teacher" else "op_"+jid+"_",
+-               "fallback_folders":[] if jid == "teacher" else ["res://assets/audio/voices/"],
+-               "speaker_prefix":True,"allow_unprefixed_fallback":jid == "teacher","exact_required":jid == "teacher",
+-               "intro_line":act["voice"],"win_line":act["win_line"],"required_keys":[]},
+-           "music":{"cue":act["music"]},"art":{},"save":{"checkpoint":None},
+-           "competition":{},"mastery":{},"two_act":jid in enabled,
+-           "capabilities":[],"surface":"res://scripts/opera_gesture_surface.gd",
+-           "chapter2":{"party":None,"scene":None},"legacy":{},
+-           "living_world":world_rows[[int(w[0].split(".")[-1]) for w in world_rows].index(slot)],
+-           "stage_inventory_id":None,
+-           "probes":["probe_opera","probe_opera_2d"],"docs":["design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md"],
+-           "compat_order":{},"act_key_order":list(act),
+-           "act_extra":{k:v for k,v in act.items() if k not in {"save_bit","name","career","costume","music","voice","win_line","floor_col","trim","curtain"}}}
+-        for name,order in [("MASTERY_CAREERS",mastery_order),("PERFORMANCE_ENABLED",enabled),("ADAPTER_CAREER_ORDER",career_order)]:
+-            if jid in order: row["compat_order"][name] = order.index(jid)
+-        matching = next((p for p in party if p["act_index"] == slot),None)
+-        if matching:
+-            row["chapter2"]["party"] = {k:v for k,v in matching.items() if k != "act_index"}
+-            row["chapter2"]["party_key_order"] = list(matching)
+-            row["chapter2"]["guide_order"] = party.index(matching)
+-        sheet = f"res://assets/opera/worlds/actors/animation/roshan_{jid}_sheet_a.png"
+-        row["art"] = {"costume_sheet":sheet,"costume_sheet_sha256":hashlib.sha256((root/sheet[6:]).read_bytes()).hexdigest(),
+-            "provenance":"ASSET_LICENSES.md","props":[],"tiles":[]}
+-        partner = "faron_nursery" if jid == "nursery" else ("rival_doctor" if jid == "teacher" else ("rival_detective" if jid == "geologist" else "rival_"+jid))
+-        row["presentation"]["actors"] = {
+-            "player":sheet if jid == "geologist" else f"res://assets/opera/worlds/actors/roshan_{jid}.png",
+-            "partner":f"res://assets/opera/worlds/actors/{partner}.png",
+-            "partner_visible_solo":jid not in ("teacher","ballerina"),
+-            "player_size":{"__call__":"Vector2","args":[280,280] if jid == "ballerina" else [250,250]},
+-            "partner_size":{"__call__":"Vector2","args":[190,190]}}
+-        special = {"boxer":"boxing","ballerina":"ballet","teacher":"teacher","geologist":"geology","racer":"racer"}
+-        if jid in special: row["surface"]=f"res://scripts/opera_{special[jid]}_surface.gd"
+-        if jid in ("teacher","ballerina"): row["capabilities"].append("hide_partner")
+-        if jid == "geologist": row["capabilities"].append("roshan_actor_atlas")
+-        if jid == "nursery": row["capabilities"].append("nursery_catch_overlay")
+-        if row["two_act"]: row["capabilities"].append("two_act_show")
+-        if jid == "teacher":
+-            row["capabilities"].append("uses_room_tiles")
+-            row["presentation"]["backdrop"].update({"mode":"room_tiles","room":"library"})
+-            row["art"]["tiles"] = [f"res://assets/flats/castle/interactions_v4/background_tiles/room_library_background_r{r}_c{c}.png" for r in range(2) for c in range(4)]
+-            row["voice"]["engine"]="Kokoro af_heart; assets_src/teacher_learning_2026-09-05/audio_manifest.json"
+-            row["docs"].append("design/TEACHER_LEARNING_ENGINE_2026-09-05.md")
+-            row["save"]["checkpoint"]={"key":"teacher_lesson_checkpoint","schema_version":1,"registration_lists":["DICTIONARY_KEYS"]}
+-        else:
+-            row["presentation"]["backdrop"]["mode"]="career_tiles"
+-            row["presentation"]["backdrop"]["painting"]=f"res://assets/opera/worlds/backdrops/world_{jid}.png"
+-            row["art"]["tiles"]=[f"res://assets/opera/worlds/backdrops/{kind}_{jid}_c{c}r{r}.png" if not (jid=="ballerina" and kind=="stage") else f"res://assets/opera/worlds/stage/finale_stage_c{c}r{r}.png" for kind in ("world","stage") for r in range(2) for c in range(2)]
+-        if jid=="geologist":
+-            row["save"]["checkpoint"]={"key":"opera_geology_checkpoint","schema_version":1,"registration_lists":["KNOWN_KEYS"]}
+-        if jid=="geologist":
+-            row["art"]["tiles"]=[]
+-            row["presentation"]["backdrop"].update({"mode":"vector"})
+-            row["presentation"]["backdrop"].pop("painting",None)
+-        if jid=="nursery":row["voice"]["engine"]+="; Faron uses protected exact legacy cues"
+-        old_world=row["living_world"]
+-        row["living_world"]={"name":old_world[1],"accents":old_world[3:]}
+-        row["compat_order"]["CAREER_CREST_FILES"]=list(crests).index(jid)
+-        jobs.append(row)
+-    byid = {j["id"]:j for j in jobs}
+-    registry_manifest=[]
+-    for generated,file,source,field,native_type in REGISTRIES:
+-        values=const(file,source)
+-        for order,(jid,value) in enumerate(values.items()):
+-            set_field(byid[jid],field,value)
+-            byid[jid]["compat_order"][generated]=order
+-        registry_manifest.append({"generated":generated,"path":f"scripts/{file}.gd","source":source,"field":field,"type":native_type,"kind":"job_dictionary"})
+-    asset_meta=const("opera_hotspot_catalog","ASSET_META")
+-    config={"schema":"job_catalog/1","runtime_baseline":BASELINE,
+-      "room_order":list(rooms),"asset_meta":asset_meta,
+-      "valid_modes":const("chapter_two_career_scene_adapter","VALID_MODES"),
+-      "non_job_stage_count":const("living_world_catalog","EXPECTED_STAGE_COUNT")-len(jobs),
+-      "venue":{"floor_names":const("opera_house_venue_2d","FLOOR_NAMES"),"floor_actor_positions":const("opera_house_venue_2d","FLOOR_ACTOR_POSITIONS")},
+-      "chapter2":{},"deferred_jp4":{"music_catalog":["geologist"],"atlas_gate":["geologist","teacher"]}}
+-    for source,field in [("LEGACY_PORTAL_RECTS","legacy_portal"),("CHAPTER2_PORTAL_RECTS","chapter2_portal"),("CHAPTER2_SECOND_WAVE_PORTAL_RECTS","chapter2_second_wave_portal")]:
+-        for order,(bit,rect) in enumerate(integer_mapping(const("opera_house_venue_2d",source)).items()):
+-            row=next(j for j in jobs if j["star_bit"]==bit)
+-            row["home"]["venue"][field]=rect
+-            row["compat_order"]["VENUE_"+source]=order
+-        registry_manifest.append({"generated":"VENUE_"+source,"path":"scripts/opera_house_venue_2d.gd","source":source,"field":"home.venue."+field,"type":"Dictionary","kind":"bit_dictionary"})
+-    for floor,bit in enumerate(const("opera_house_venue_2d","LEGACY_FLOOR_ACT_INDICES")):
+-        next(j for j in jobs if j["star_bit"]==bit)["home"]["venue"]["legacy_floor"]=floor
+-    direct=["ACT_CHEF","ACT_DETECTIVE","ACT_BALLERINA","ACT_CANDY_MAKER","ACT_FARMER","ACT_PAINTER","ACT_ASTRONAUT","ACT_POP_STAR"]
+-    skill=["SKILL_CHEF","SKILL_DETECTIVE","SKILL_BALLERINA","SKILL_CANDY_MAKER","SKILL_FARMER","SKILL_PAINTER","SKILL_ASTRONAUT","SKILL_POP_STAR"]
+-    for name in direct+skill:
+-        val=const("chapter_two_director",name)
+-        bit=val if name in direct else const("chapter_two_director",name.replace("SKILL_","ACT_"))
+-        row=next(j for j in jobs if j["star_bit"]==bit)
+-        if name in direct: row["chapter2"]["act_constant"]=name
+-        else: row["chapter2"]["skill"]=val
+-    order=const("chapter_two_director","JOB_PHASE_ACTS")
+-    limits=const("chapter_two_director","JOB_PHASE_MASK_LIMITS")
+-    for bit,limit in zip(order,limits):
+-        row=next(j for j in jobs if j["star_bit"]==bit)
+-        row["chapter2"]["phase_mask_limit"]=limit
+-    for name in ["INITIAL_TUTORIAL_ACTS","INITIAL_TUTORIAL_MASK","FIRST_WAVE_UNLOCK_MASK"]:
+-        config["chapter2"][name]=const("chapter_two_director",name)
+-    inventory=json.loads((root/"audit/stage_pathfinding/stage_inventory.json").read_text(encoding="utf-8"))
+-    def find_id(value,bit):
+-        if isinstance(value,dict):
+-            for k,v in value.items():
+-                if k=="id" and isinstance(v,str) and v.startswith(f"opera.act.{bit:02}."): return v
+-                found=find_id(v,bit)
+-                if found:return found
+-        elif isinstance(value,list):
+-            for v in value:
+-                found=find_id(v,bit)
+-                if found:return found
+-    for name,source in [("DIEGETIC_EXPECTED_STATIONS","EXPECTED_STATIONS"),("DIEGETIC_PLAYABLE_PHASE_STATIONS","PLAYABLE_PHASE_STATIONS")]:
+-        order=list(const("probe_opera_diegetic_paths",source))
+-        for row in jobs:
+-            if row["id"] in order:row["compat_order"][name]=order.index(row["id"])
+-    for row in jobs:
+-        jid=row["id"]
+-        row["stage_inventory_id"]=find_id(inventory,row["star_bit"])
+-        if row["competition"].get("cooperative"):row["capabilities"].append("cooperative_win_suffix")
+-        # Explicit required file inventory includes phase cues and the exact
+-        # currently authored per-career Roshan clips. It never fabricates clips.
+-        keys=[p["vo"] for p in row["phases"]]
+-        keys += [p["vo"] for p in (row["chapter2"].get("scene") or {}).get("phases",[])]
+-        if jid=="teacher":
+-            keys += [p.stem for p in sorted((root/"assets/audio/teacher").glob("*.ogg"))]
+-        else:
+-            keys += [p.stem.removeprefix("roshan_") for p in sorted((root/"assets/audio/voices").glob("roshan_op_"+jid+"_*.ogg"))]
+-        row["voice"]["required_keys"]=list(dict.fromkeys(keys))
+-        if jid=="nursery":row["voice"]["event_speakers"]={p["vo"]:p["speaker"].lower() for p in row["phases"] if "speaker" in p}
+-        row["art"]["props"]=list(dict.fromkeys(spec["path"] for spec in row["hotspots"].values()))
+-    namespace={"save_key":"opera_stars","highest_allocated_bit":max(e["star_bit"] for e in entries),
+-      "derived_ceiling":(1<<len(entries))-1,"next_free_bit":len(entries)}
+-    out.mkdir(parents=True,exist_ok=True)
+-    (out/".gdignore").write_bytes(b"")
+-    (out/"jobs").mkdir(exist_ok=True)
+-    for name,value in [("catalog.json",config),("compatibility.json",{"schema":"job_compatibility/1","registries":registry_manifest}),("jobs/_ledger.json",{"schema":"job_ledger/1","star_namespace":namespace,"entries":entries})]:
+-        (out/name).write_text(json.dumps(value,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+-    for row in jobs:
+-        (out/"jobs"/(row["id"]+".json")).write_text(json.dumps(row,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+-    schema=root/"content/job_record.schema.json"
+-    if schema.is_file() and schema.resolve()!=(out/"job_record.schema.json").resolve():
+-        (out/"job_record.schema.json").write_bytes(schema.read_bytes())
+-    print(f"Extracted {len(jobs)} jobs, {len(entries)} allocations, {len(registry_manifest)} mapped registries.")
+-
+-def main():
+-    ap=argparse.ArgumentParser(description=__doc__)
+-    ap.add_argument("--out",required=True,type=Path)
+-    ap.add_argument("--root",type=Path,default=Path(__file__).resolve().parents[1])
+-    args=ap.parse_args()
+-    extract(args.root,args.out)
+-    return 0
+-
+-if __name__=="__main__":raise SystemExit(main())
+-
++#!/usr/bin/env python3
++"""Read-only bootstrap extractor for JP0; output is a reviewable content draft."""
++from __future__ import annotations
++import argparse
++import hashlib
++import json
++import subprocess
++from pathlib import Path
++try:
++    from .content_gd_literals import read_const, integer_mapping, opera_rows
++    from .content_source_refs import baseline_checkpoint_order
++except ImportError:
++    from content_gd_literals import read_const, integer_mapping, opera_rows
++    from content_source_refs import baseline_checkpoint_order
++
++BASELINE = "7f068cb80766edd52a110cc1cb3958158f829822"
++# generated name, source file, source const, record field, native output type
++REGISTRIES = [
++ ("PHASES","opera_career_world_2d","PHASES","phases","Dictionary"),
++ ("FINALE_START","opera_career_world_2d","FINALE_START","finale_start","Dictionary"),
++ ("PHASE_STATIONS","opera_career_world_2d","PHASE_STATIONS","phase_stations","Dictionary"),
++ ("HOTSPOT_PHASE_ALIASES","opera_career_world_2d","HOTSPOT_PHASE_ALIASES","hotspot_aliases","Dictionary"),
++ ("GOAL_PROPS","opera_career_world_2d","GOAL_PROPS","presentation.goal_prop","Dictionary"),
++ ("SLUGS","opera_career_world_2d","SLUGS","legacy.slug","Dictionary"),
++ ("LEGACY_PHASES","opera_career_world_2d","LEGACY_PHASES","legacy.phases","Dictionary"),
++ ("LEGACY_FINALE_START","opera_career_world_2d","LEGACY_FINALE_START","legacy.finale_start","Dictionary"),
++ ("COMPETITION_CAREERS","opera_competition","CAREERS","competition","Dictionary"),
++ ("MASTERY_RULES","opera_mastery","RULES","mastery","Dictionary"),
++ ("PRACTICE_COUNTS","opera_performance_plan","PRACTICE_COUNTS","practice_count","Dictionary"),
++ ("CAREER_COLORS","opera_performance_overlay","CAREER_COLORS","presentation.colors.overlay","Dictionary"),
++ ("HOTSPOT_EXPECTED_PHASES","opera_hotspot_catalog","EXPECTED_PHASES","hotspot_expected_phases","Dictionary"),
++ ("HOTSPOT_SPECS","opera_hotspot_catalog","SPECS","hotspots","Dictionary"),
++ ("BACKDROP_PALETTES","opera_world_backdrop_2d","PALETTES","presentation.backdrop.palette","Dictionary"),
++ ("STAGE_PATHS","opera_stage_paths","PATHS","stage_geometry.paths","Dictionary"),
++ ("STAGE_STATION_NAV","opera_stage_paths","STATION_NAV","stage_geometry.station_nav","Dictionary"),
++ ("STAGE_ROAM","opera_stage_paths","ROAM","stage_geometry.roam","Dictionary"),
++ ("STAGE_BLEED","opera_stage_paths","BLEED","stage_geometry.bleed","Dictionary"),
++ ("PHASE_SETS","chapter_two_career_scene_adapter","PHASE_SETS","chapter2.scene","Dictionary"),
++]
++
++def set_field(row, dotted, value):
++    parts = dotted.split(".")
++    current = row
++    for part in parts[:-1]:
++        current = current.setdefault(part, {})
++    current[parts[-1]] = value
++
++
++def extract(root: Path, out: Path):
++    def const(file, name):
++        return read_const(root / f"scripts/{file}.gd", name)
++    acts = const("opera_house", "ACTS")
++    rooms = const("castle_career_routes","ROOM_ACT_INDICES")
++    crests = const("castle_career_routes","CAREER_CREST_FILES")
++    party = const("chapter_two_party_plan","LIVE_CAREERS")
++    enabled = const("opera_performance_plan","ENABLED")
++    career_order = const("chapter_two_career_scene_adapter","CAREER_ORDER")
++    mastery_order = const("opera_mastery","CAREERS")
++    world_rows = opera_rows(root)
++    jobs, entries = [], []
++    observed_date = subprocess.check_output(["git","show","-s","--format=%cs",BASELINE],cwd=root,text=True).strip()
++    for slot, act in enumerate(acts):
++        if act.get("retired"):
++            entries.append({"star_bit":slot,"id":None,"status":"TOMBSTONE","aliases":[],
++              "allocated":{"observed_commit":BASELINE,"source":f"scripts/opera_house.gd:ACTS[{slot}]"},
++              "reason":"Owner cut 3d1236fe; raw bit preserved permanently (DL-SAVE-06)"})
++            entries[-1]["allocated"]["observed_date"] = observed_date
++            continue
++        jid = act["costume"]
++        aliases = ["candy_maker","candy"] if jid == "candymaker" else []
++        entry = {"star_bit":slot,"id":jid,"status":"LIVE","aliases":aliases,
++          "allocated":{"observed_commit":BASELINE,"source":f"scripts/opera_house.gd:ACTS[{slot}]"}}
++        # The first exact allocation declaration visible in this file's Git
++        # history is evidence, not a claim about earlier authoring outside it.
++        history = subprocess.run(["git","log","--reverse","--format=%H|%cs",
++            "-S",f'"costume": "{jid}"',"--","scripts/opera_house.gd"],
++            cwd=root, text=True, capture_output=True, check=True).stdout.splitlines()
++        if history:
++            commit,date = history[0].split("|")
++            entry["allocated"].update({"first_declaration_commit":commit,"first_declaration_date":date})
++        entry["allocated"]["observed_date"] = observed_date
++        entries.append(entry)
++        room = next(r for r, bits in rooms.items() if slot in bits)
++        row = {"schema":"job_record/1","id":jid,"status":"LIVE","family":"opera_career",
++           "title":act["name"],"career_label":act["career"],"star_bit":slot,"progress_key":None,
++           "home":{"room":room,"room_order":rooms[room].index(slot),"crest":crests.get(jid),"venue":{}},
++           "presentation":{"colors":{"floor":act["floor_col"],"trim":act["trim"],"curtain":act["curtain"]},
++               "actors":{},"backdrop":{}},
++           "voice":{"engine":"Parler-TTS Mini v1.1 provisional preferred Roshan route; Kokoro-82M exact legacy fallback (ASSET_LICENSES.md)",
++               "speaker":"roshan","folder":"res://assets/audio/teacher/" if jid == "teacher" else "res://assets/audio/voices/filler_v1/",
++               "prefix":"teacher_" if jid == "teacher" else "op_"+jid+"_",
++               "fallback_folders":[] if jid == "teacher" else ["res://assets/audio/voices/"],
++               "speaker_prefix":True,"allow_unprefixed_fallback":jid == "teacher","exact_required":jid == "teacher",
++               "intro_line":act["voice"],"win_line":act["win_line"],"required_keys":[]},
++           "music":{"cue":act["music"]},"art":{},"save":{"checkpoint":None},
++           "competition":{},"mastery":{},"two_act":jid in enabled,
++           "capabilities":[],"surface":"res://scripts/opera_gesture_surface.gd",
++           "chapter2":{"party":None,"scene":None},"legacy":{},
++           "living_world":world_rows[[int(w[0].split(".")[-1]) for w in world_rows].index(slot)],
++           "stage_inventory_id":None,
++           "probes":["probe_opera","probe_opera_2d"],"docs":["design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md"],
++           "compat_order":{},"act_key_order":list(act),
++           "act_extra":{k:v for k,v in act.items() if k not in {"save_bit","name","career","costume","music","voice","win_line","floor_col","trim","curtain"}}}
++        for name,order in [("MASTERY_CAREERS",mastery_order),("PERFORMANCE_ENABLED",enabled),("ADAPTER_CAREER_ORDER",career_order)]:
++            if jid in order: row["compat_order"][name] = order.index(jid)
++        matching = next((p for p in party if p["act_index"] == slot),None)
++        if matching:
++            row["chapter2"]["party"] = {k:v for k,v in matching.items() if k != "act_index"}
++            row["chapter2"]["party_key_order"] = list(matching)
++            row["chapter2"]["guide_order"] = party.index(matching)
++        sheet = f"res://assets/opera/worlds/actors/animation/roshan_{jid}_sheet_a.png"
++        row["art"] = {"costume_sheet":sheet,"costume_sheet_sha256":hashlib.sha256((root/sheet[6:]).read_bytes()).hexdigest(),
++            "provenance":"ASSET_LICENSES.md","props":[],"tiles":[]}
++        partner = "faron_nursery" if jid == "nursery" else ("rival_doctor" if jid == "teacher" else ("rival_detective" if jid == "geologist" else "rival_"+jid))
++        row["presentation"]["actors"] = {
++            "player":sheet if jid == "geologist" else f"res://assets/opera/worlds/actors/roshan_{jid}.png",
++            "partner":f"res://assets/opera/worlds/actors/{partner}.png",
++            "partner_visible_solo":jid not in ("teacher","ballerina"),
++            "player_size":{"__call__":"Vector2","args":[280,280] if jid == "ballerina" else [250,250]},
++            "partner_size":{"__call__":"Vector2","args":[190,190]}}
++        special = {"boxer":"boxing","ballerina":"ballet","teacher":"teacher","geologist":"geology","racer":"racer"}
++        if jid in special: row["surface"]=f"res://scripts/opera_{special[jid]}_surface.gd"
++        if jid in ("teacher","ballerina"): row["capabilities"].append("hide_partner")
++        if jid == "geologist": row["capabilities"].append("roshan_actor_atlas")
++        if jid == "nursery": row["capabilities"].append("nursery_catch_overlay")
++        if row["two_act"]: row["capabilities"].append("two_act_show")
++        if jid == "teacher":
++            row["capabilities"].append("uses_room_tiles")
++            row["presentation"]["backdrop"].update({"mode":"room_tiles","room":"library"})
++            row["art"]["tiles"] = [f"res://assets/flats/castle/interactions_v4/background_tiles/room_library_background_r{r}_c{c}.png" for r in range(2) for c in range(4)]
++            row["voice"]["engine"]="Kokoro af_heart; assets_src/teacher_learning_2026-09-05/audio_manifest.json"
++            row["docs"].append("design/TEACHER_LEARNING_ENGINE_2026-09-05.md")
++            row["save"]["checkpoint"]={"key":"teacher_lesson_checkpoint","schema_version":1,"registration_lists":["DICTIONARY_KEYS"]}
++        else:
++            row["presentation"]["backdrop"]["mode"]="career_tiles"
++            row["presentation"]["backdrop"]["painting"]=f"res://assets/opera/worlds/backdrops/world_{jid}.png"
++            row["art"]["tiles"]=[f"res://assets/opera/worlds/backdrops/{kind}_{jid}_c{c}r{r}.png" if not (jid=="ballerina" and kind=="stage") else f"res://assets/opera/worlds/stage/finale_stage_c{c}r{r}.png" for kind in ("world","stage") for r in range(2) for c in range(2)]
++        if jid=="geologist":
++            row["save"]["checkpoint"]={"key":"opera_geology_checkpoint","schema_version":1,"registration_lists":["KNOWN_KEYS"]}
++        if jid=="geologist":
++            row["art"]["tiles"]=[]
++            row["presentation"]["backdrop"].update({"mode":"vector"})
++            row["presentation"]["backdrop"].pop("painting",None)
++        if jid=="nursery":row["voice"]["engine"]+="; Faron uses protected exact legacy cues"
++        old_world=row["living_world"]
++        row["living_world"]={"name":old_world[1],"accents":old_world[3:]}
++        row["compat_order"]["CAREER_CREST_FILES"]=list(crests).index(jid)
++        jobs.append(row)
++    byid = {j["id"]:j for j in jobs}
++    registry_manifest=[]
++    for generated,file,source,field,native_type in REGISTRIES:
++        values=const(file,source)
++        for order,(jid,value) in enumerate(values.items()):
++            set_field(byid[jid],field,value)
++            byid[jid]["compat_order"][generated]=order
++        registry_manifest.append({"generated":generated,"path":f"scripts/{file}.gd","source":source,"field":field,"type":native_type,"kind":"job_dictionary"})
++    asset_meta=const("opera_hotspot_catalog","ASSET_META")
++    config={"schema":"job_catalog/1","runtime_baseline":BASELINE,
++      "room_order":list(rooms),"asset_meta":asset_meta,
++      "valid_modes":const("chapter_two_career_scene_adapter","VALID_MODES"),
++      "non_job_stage_count":const("living_world_catalog","EXPECTED_STAGE_COUNT")-len(jobs),
++      "venue":{"floor_names":const("opera_house_venue_2d","FLOOR_NAMES"),"floor_actor_positions":const("opera_house_venue_2d","FLOOR_ACTOR_POSITIONS")},
++      "chapter2":{},"deferred_jp4":{"music_catalog":["geologist"],"atlas_gate":["geologist","teacher"]}}
++    for source,field in [("LEGACY_PORTAL_RECTS","legacy_portal"),("CHAPTER2_PORTAL_RECTS","chapter2_portal"),("CHAPTER2_SECOND_WAVE_PORTAL_RECTS","chapter2_second_wave_portal")]:
++        for order,(bit,rect) in enumerate(integer_mapping(const("opera_house_venue_2d",source)).items()):
++            row=next(j for j in jobs if j["star_bit"]==bit)
++            row["home"]["venue"][field]=rect
++            row["compat_order"]["VENUE_"+source]=order
++        registry_manifest.append({"generated":"VENUE_"+source,"path":"scripts/opera_house_venue_2d.gd","source":source,"field":"home.venue."+field,"type":"Dictionary","kind":"bit_dictionary"})
++    for floor,bit in enumerate(const("opera_house_venue_2d","LEGACY_FLOOR_ACT_INDICES")):
++        next(j for j in jobs if j["star_bit"]==bit)["home"]["venue"]["legacy_floor"]=floor
++    direct=["ACT_CHEF","ACT_DETECTIVE","ACT_BALLERINA","ACT_CANDY_MAKER","ACT_FARMER","ACT_PAINTER","ACT_ASTRONAUT","ACT_POP_STAR"]
++    skill=["SKILL_CHEF","SKILL_DETECTIVE","SKILL_BALLERINA","SKILL_CANDY_MAKER","SKILL_FARMER","SKILL_PAINTER","SKILL_ASTRONAUT","SKILL_POP_STAR"]
++    for name in direct+skill:
++        val=const("chapter_two_director",name)
++        bit=val if name in direct else const("chapter_two_director",name.replace("SKILL_","ACT_"))
++        row=next(j for j in jobs if j["star_bit"]==bit)
++        if name in direct: row["chapter2"]["act_constant"]=name
++        else: row["chapter2"]["skill"]=val
++    order=const("chapter_two_director","JOB_PHASE_ACTS")
++    limits=const("chapter_two_director","JOB_PHASE_MASK_LIMITS")
++    for bit,limit in zip(order,limits):
++        row=next(j for j in jobs if j["star_bit"]==bit)
++        row["chapter2"]["phase_mask_limit"]=limit
++    for name in ["INITIAL_TUTORIAL_ACTS","INITIAL_TUTORIAL_MASK","FIRST_WAVE_UNLOCK_MASK"]:
++        config["chapter2"][name]=const("chapter_two_director",name)
++    inventory=json.loads((root/"audit/stage_pathfinding/stage_inventory.json").read_text(encoding="utf-8"))
++    def find_id(value,bit):
++        if isinstance(value,dict):
++            for k,v in value.items():
++                if k=="id" and isinstance(v,str) and v.startswith(f"opera.act.{bit:02}."): return v
++                found=find_id(v,bit)
++                if found:return found
++        elif isinstance(value,list):
++            for v in value:
++                found=find_id(v,bit)
++                if found:return found
++    for name,source in [("DIEGETIC_EXPECTED_STATIONS","EXPECTED_STATIONS"),("DIEGETIC_PLAYABLE_PHASE_STATIONS","PLAYABLE_PHASE_STATIONS")]:
++        order=list(const("probe_opera_diegetic_paths",source))
++        for row in jobs:
++            if row["id"] in order:row["compat_order"][name]=order.index(row["id"])
++    for row in jobs:
++        jid=row["id"]
++        row["stage_inventory_id"]=find_id(inventory,row["star_bit"])
++        if row["competition"].get("cooperative"):row["capabilities"].append("cooperative_win_suffix")
++        # Explicit required file inventory includes phase cues and the exact
++        # currently authored per-career Roshan clips. It never fabricates clips.
++        keys=[p["vo"] for p in row["phases"]]
++        keys += [p["vo"] for p in (row["chapter2"].get("scene") or {}).get("phases",[])]
++        if jid=="teacher":
++            keys += [p.stem for p in sorted((root/"assets/audio/teacher").glob("*.ogg"))]
++        else:
++            keys += [p.stem.removeprefix("roshan_") for p in sorted((root/"assets/audio/voices").glob("roshan_op_"+jid+"_*.ogg"))]
++        row["voice"]["required_keys"]=list(dict.fromkeys(keys))
++        if jid=="nursery":row["voice"]["event_speakers"]={p["vo"]:p["speaker"].lower() for p in row["phases"] if "speaker" in p}
++        row["art"]["props"]=list(dict.fromkeys(spec["path"] for spec in row["hotspots"].values()))
++    config["save_checkpoint_normalization_prefix"]=baseline_checkpoint_order(root,BASELINE,{"SAVE_CHECKPOINTS":{j["id"]:j["save"]["checkpoint"] for j in jobs if j["save"]["checkpoint"]}})
++    namespace={"save_key":"opera_stars","highest_allocated_bit":max(e["star_bit"] for e in entries),
++      "derived_ceiling":(1<<len(entries))-1,"next_free_bit":len(entries)}
++    out.mkdir(parents=True,exist_ok=True)
++    (out/".gdignore").write_bytes(b"")
++    (out/"jobs").mkdir(exist_ok=True)
++    for name,value in [("catalog.json",config),("compatibility.json",{"schema":"job_compatibility/1","registries":registry_manifest}),("jobs/_ledger.json",{"schema":"job_ledger/1","star_namespace":namespace,"entries":entries})]:
++        (out/name).write_text(json.dumps(value,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
++    for row in jobs:
++        (out/"jobs"/(row["id"]+".json")).write_text(json.dumps(row,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
++    schema=root/"content/job_record.schema.json"
++    if schema.is_file() and schema.resolve()!=(out/"job_record.schema.json").resolve():
++        (out/"job_record.schema.json").write_bytes(schema.read_bytes())
++    print(f"Extracted {len(jobs)} jobs, {len(entries)} allocations, {len(registry_manifest)} mapped registries.")
++
++def main():
++    ap=argparse.ArgumentParser(description=__doc__)
++    ap.add_argument("--out",required=True,type=Path)
++    ap.add_argument("--root",type=Path,default=Path(__file__).resolve().parents[1])
++    args=ap.parse_args()
++    extract(args.root,args.out)
++    return 0
++
++if __name__=="__main__":raise SystemExit(main())
++
+--- /dev/null
++++ b/tools/content_source_refs.py
+@@ -0,0 +1,300 @@
++"""Recognize only the JP1 SaveState catalogue substitutions; never execute code.
++
++Literal reading elsewhere remains the constrained GDParser contract. These
++source checks bind the preload, scalar expressions, registration fragments and
++normalization loop to their exact commissioned forms and pinned Git baseline.
++"""
++from __future__ import annotations
++
++import copy
++import re
++import subprocess
++from functools import lru_cache
++from pathlib import Path
++
++try:
++    from .content_gd_literals import GDParser, mask_source
++except ImportError:
++    from content_gd_literals import GDParser, mask_source
++
++SAVE_PATH = "scripts/save_state.gd"
++SCALAR_REFERENCES = {
++    "OPERA_ACTIVE_STAR_MASK": "ACTIVE_STAR_MASK",
++    "OPERA_ACTIVE_ACT_COUNT": "ACTIVE_ACT_COUNT",
++}
++REGISTRATION_LISTS = ("DICTIONARY_KEYS", "KNOWN_KEYS")
++NORMALIZATION_LOOP = (
++    'for checkpoint_job_id: String in JobData.SAVE_CHECKPOINT_JOB_ORDER:',
++    'var checkpoint_spec: Dictionary = JobData.SAVE_CHECKPOINTS[checkpoint_job_id] as Dictionary',
++    'var checkpoint_key: String = String(checkpoint_spec["key"])',
++    'data[checkpoint_key] = _normalise_job_checkpoint(raw, checkpoint_job_id)',
++)
++
++LEGACY_NORMALIZATION_LINES = (
++    '\tdata["teacher_lesson_checkpoint"] = _teacher_lesson_checkpoint_or_default(raw)',
++    '\tdata["opera_geology_checkpoint"] = _opera_geology_checkpoint_or_default(raw)',
++)
++
++
++def _constant_parser(text: str, name: str) -> GDParser:
++    matches = list(re.finditer(r"(?m)^const\s+" + re.escape(name) + r"\b[^=\n]*=(?:\s*\\)?", mask_source(text)))
++    if len(matches) != 1:
++        raise ValueError(f"SaveState must declare {name} exactly once")
++    return GDParser(text, matches[0].end())
++
++
++def _finish(text: str, index: int, context: str) -> None:
++    end = text.find("\n", index)
++    tail = text[index:end if end >= 0 else len(text)].strip()
++    if tail and not tail.startswith("#"):
++        raise ValueError("trailing expression after " + context)
++
++
++def _literal_const(text: str, name: str):
++    parser = _constant_parser(text, name)
++    value = parser.value()
++    _finish(text, parser.i, name)
++    return value
++
++
++def _require_preload(text: str) -> None:
++    declarations = list(re.finditer(r"(?m)^const\s+JobData\b[^\n]*", mask_source(text)))
++    if len(declarations) != 1 or not re.fullmatch(
++        r'const\s+JobData\s*:=\s*preload\("res://scripts/generated/job_catalog_data\.gd"\)\s*(?:#.*)?',
++        text[declarations[0].start():declarations[0].end()] if declarations else "",
++    ):
++        raise ValueError("SaveState JobData preload differs from the fixed JP1 target")
++
++
++def _function_body(text: str, name: str) -> str:
++    code = mask_source(text)
++    matches = list(re.finditer(r"(?m)^(?:static\s+)?func\s+" + re.escape(name) + r"\([^\n]*\)\s*->\s*[^:\n]+:\s*\n", code))
++    if len(matches) != 1:
++        raise ValueError("expected exactly one real SaveState function " + name)
++    start = matches[0]
++    end = re.search(r"(?m)^(?:static\s+)?func\b", code[start.end():])
++    return text[start.end():start.end() + end.start() if end else len(text)]
++
++
++def _literal_checkpoint_keys(text: str) -> list[str]:
++    body = _function_body(text, "_normalise_save")
++    result = []
++    for raw, code in zip(body.splitlines(), mask_source(body).splitlines()):
++        if re.search(r"_\w+_checkpoint_or_default\(raw\)", code):
++            match = re.fullmatch(r'\s*data\["([^"]+)"\]\s*=\s*_\w+_checkpoint_or_default\(raw\)\s*(?:#.*)?', raw)
++            if match:
++                result.append(match.group(1))
++    return result
++
++
++@lru_cache(maxsize=16)
++def _baseline_save(root_name: str, baseline: str):
++    text = subprocess.check_output(
++        ["git", "show", baseline + ":" + SAVE_PATH], cwd=root_name,
++        text=True, encoding="utf-8", stderr=subprocess.DEVNULL,
++    )
++    return text, {name: _literal_const(text, name) for name in REGISTRATION_LISTS}, _literal_checkpoint_keys(text)
++
++
++def baseline_checkpoint_order(root: Path, baseline: str, data: dict) -> list[str]:
++    _, _, keys = _baseline_save(str(Path(root).resolve()), baseline)
++    by_key = {spec["key"]: jid for jid, spec in data["SAVE_CHECKPOINTS"].items()}
++    if not keys or len(keys) != len(set(keys)) or any(key not in by_key for key in keys):
++        raise ValueError("checkpoint identity differs from the pinned normalization baseline")
++    return [by_key[key] for key in keys]
++
++
++def _registration_fragments(root: Path, baseline: str, name: str):
++    _, arrays, checkpoints = _baseline_save(str(Path(root).resolve()), baseline)
++    original = arrays[name]
++    slots = [i for i, key in enumerate(original) if key in checkpoints]
++    if not slots or slots != list(range(slots[0], slots[-1] + 1)):
++        raise ValueError("pinned checkpoint registration is not one contiguous segment in " + name)
++    return original[:slots[0]], original[slots[-1] + 1:], original
++
++
++def read_save_const(root: Path, name: str, data: dict, baseline: str):
++    """Resolve only two scalar aliases and two fixed registration concatenations."""
++    if name not in SCALAR_REFERENCES and name not in REGISTRATION_LISTS:
++        raise ValueError("unapproved SaveState catalogue constant " + name)
++    text = (Path(root) / SAVE_PATH).read_text(encoding="utf-8")
++    parser = _constant_parser(text, name)
++    parser.ws()
++    if name in SCALAR_REFERENCES:
++        reference = "JobData." + SCALAR_REFERENCES[name]
++        if text.startswith(reference, parser.i):
++            _require_preload(text)
++            _finish(text, parser.i + len(reference), name)
++            value = data[SCALAR_REFERENCES[name]]
++            if type(value) is not int:
++                raise ValueError("catalogue scalar is not an integer: " + reference)
++            return value
++        value = parser.value()
++        _finish(text, parser.i, name)
++        return value
++    prefix = parser.value()
++    prefix_end = parser.i
++    expected_prefix, expected_tail, original = _registration_fragments(root, baseline, name)
++    if parser.peek() != "+":
++        _finish(text, prefix_end, name)
++        if prefix != original:
++            raise ValueError("literal " + name + " differs from pinned key order")
++        return prefix
++    _require_preload(text)
++    if prefix != expected_prefix:
++        raise ValueError("static checkpoint registration prefix differs in " + name)
++    parser.i += 1
++    parser.ws()
++    reference = re.match(r'JobData\.SAVE_CHECKPOINT_KEY_LISTS\["' + name + r'"\]', text[parser.i:])
++    if not reference:
++        raise ValueError("unapproved checkpoint registration reference in " + name)
++    parser.i += len(reference.group())
++    if parser.peek() != "+":
++        raise ValueError("checkpoint registration must retain its exact static tail in " + name)
++    parser.i += 1
++    tail = parser.value()
++    _finish(text, parser.i, name)
++    if tail != expected_tail:
++        raise ValueError("static checkpoint registration tail differs in " + name)
++    keys = data["SAVE_CHECKPOINT_KEY_LISTS"][name]
++    if not isinstance(keys, list) or any(type(key) is not str for key in keys) or len(keys) != len(set(keys)) or set(keys) & set(prefix + tail):
++        raise ValueError("invalid or colliding checkpoint registration keys in " + name)
++    return copy.deepcopy(prefix + keys + tail)
++
++
++def _without_comments(text: str) -> str:
++    return mask_source(text, mask_strings=False)
++
++
++def _compact(text: str) -> str:
++    out, quote, escaped = [], None, False
++    for char in text:
++        if quote:
++            out.append(char)
++            if escaped:
++                escaped = False
++            elif char == "\\":
++                escaped = True
++            elif char == quote:
++                quote = None
++        elif char in ('"', "'"):
++            quote = char
++            out.append(char)
++        elif not char.isspace():
++            out.append(char)
++    return "".join(out)
++
++
++def _star_clamp(body: str, prefix: str, arguments: str, before: str, after: str) -> str:
++    matches = list(re.finditer(r"(?m)^\t" + re.escape(prefix), mask_source(body)))
++    if len(matches) != 1:
++        raise ValueError("missing or duplicate commissioned star clamp: " + prefix)
++    start = body.index("clampi(", matches[0].start())
++    depth, index, quote, escaped = 1, start + len("clampi("), None, False
++    while depth and index < len(body):
++        char = body[index]
++        if quote:
++            if escaped:
++                escaped = False
++            elif char == "\\":
++                escaped = True
++            elif char == quote:
++                quote = None
++        elif char in ('"', "'"):
++            quote = char
++        else:
++            depth += {"(": 1, ")": -1}.get(char, 0)
++        index += 1
++    if depth:
++        raise ValueError("unterminated commissioned star clamp")
++    _finish(body, index, prefix)
++    previous = [(raw.rstrip(), code) for raw, code in zip(body[:matches[0].start()].splitlines(), mask_source(body[:matches[0].start()]).splitlines()) if code.strip()]
++    following = [(raw.rstrip(), code) for raw, code in zip(body[index:].splitlines(), mask_source(body[index:]).splitlines()) if code.strip()]
++    if not previous or not following or previous[-1][0] != before or following[0][0] != after:
++        raise ValueError("commissioned star clamp moved from original insertion site: " + prefix)
++    call = _compact(body[start:index])
++    expected = "clampi(" + _compact(arguments)
++    if not call.startswith(expected):
++        raise ValueError("commissioned star clamp arguments differ: " + prefix)
++    upper = call[len(expected):-1]
++    if not re.fullmatch(r"\d+|JobData\.STAR_CEILING", upper):
++        raise ValueError("unapproved SaveState star ceiling expression")
++    return upper
++
++
++def read_save_bounds(root: Path, data: dict) -> dict[str, int]:
++    text = (Path(root) / SAVE_PATH).read_text(encoding="utf-8")
++    code = mask_source(text)
++    if len(re.findall(r"\bfor\s+bit_index\s+in\s+range\(", code)) != 1:
++        raise ValueError("SaveState has extra or missing commissioned star loops")
++    clamp_targets = r"(?:m\.opera_stars\s*=|var\s+raw_opera_stars\s*:=|var\s+opera_stars\s*:\s*int\s*=)\s*clampi\("
++    if len(re.findall(clamp_targets, code)) != 4:
++        raise ValueError("SaveState has extra or missing commissioned star clamps")
++    live_body = mask_source(_function_body(text, "_opera_live_star_count"))
++    loops = re.findall(r'(?m)^\tfor bit_index in range\(([^\n)]*)\):\s*$', live_body)
++    if len(loops) != 1:
++        raise ValueError("SaveState commissioned star loop differs or is absent")
++    live_lines = [line.rstrip() for line in live_body.splitlines() if line.strip()]
++    loop_index = next(i for i, line in enumerate(live_lines) if line.startswith("\tfor bit_index in range("))
++    if loop_index == 0 or loop_index + 1 >= len(live_lines) or live_lines[loop_index - 1] != "\tvar total := 0" or live_lines[loop_index + 1] != "\t\tvar bit := 1 << bit_index":
++        raise ValueError("commissioned star loop moved from original insertion site")
++    bound = loops[0].strip()
++    if bound == "JobData.SLOT_COUNT":
++        _require_preload(text)
++        slots = data["SLOT_COUNT"]
++    elif re.fullmatch(r"\d+", bound):
++        slots = int(bound)
++    else:
++        raise ValueError("unapproved SaveState star loop bound")
++    sites = (
++        ("load_save", "m.opera_stars = clampi(", 'int(m.save_data.get("opera_stars", 0)), 0,', '\tm.ember_done = bool(m.save_data.get("ember_done", false))', '\tm.opera_progress = _opera_live_star_count(m.opera_stars)'),
++        ("write_save", "m.opera_stars = clampi(", 'm.opera_stars, 0,', '\tnext_data["ember_done"] = m.ember_done', '\tm.opera_progress = _opera_live_star_count(m.opera_stars)'),
++        ("_normalise_save", "var raw_opera_stars := clampi(", '_nonnegative_int_or_default(raw, "opera_stars", 0), 0,', '\tdata["comfy_games"] = comfy_state', '\tvar chapter_two_state := ChapterTwoDirector.normalise_save_patch('),
++        ("_normalise_save", "var opera_stars: int = clampi(", '_nonnegative_int_or_default(raw, "opera_stars", (1 << opera_prog) - 1), 0,', '\tvar opera_prog: int = clampi(_nonnegative_int_or_default(raw, "opera_progress", 0), 0, 16)', '\tdata["opera_stars"] = opera_stars'),
++    )
++    ceilings = []
++    for function, prefix, arguments, before, after in sites:
++        upper = _star_clamp(_without_comments(_function_body(text, function)), prefix, arguments, before, after)
++        if upper == "JobData.STAR_CEILING":
++            _require_preload(text)
++            ceilings.append(data["STAR_CEILING"])
++        else:
++            ceilings.append(int(upper))
++    if len(set(ceilings)) != 1:
++        raise ValueError("the four commissioned SaveState star clamps differ")
++    return {"SLOT_COUNT": slots, "STAR_CEILING": ceilings[0]}
++
++
++def _require_normalization_site(lines: list[str], index: int, count: int) -> None:
++    if index < 2 or lines[index - 2:index] != [
++        '\tdata["teacher_learning_progress"] = TeacherLessonPlan.normalise_progress(',
++        '\t\traw.get("teacher_learning_progress", {}))',
++    ] or index + count >= len(lines) or lines[index + count] != '\tdata["stickers"] = _dictionary_or_default(raw, "stickers")':
++        raise ValueError("checkpoint normalization moved from its immutable insertion site")
++
++
++def read_checkpoint_order(root: Path, data: dict) -> list[str]:
++    text = (Path(root) / SAVE_PATH).read_text(encoding="utf-8")
++    body = _without_comments(_function_body(text, "_normalise_save"))
++    literal_keys = _literal_checkpoint_keys(text)
++    pairs = [(raw.rstrip(), code) for raw, code in zip(body.splitlines(), mask_source(body).splitlines()) if code.strip()]
++    lines = [raw for raw, _ in pairs]
++    code_lines = [code for _, code in pairs]
++    if "JobData.SAVE_CHECKPOINT_JOB_ORDER" not in mask_source(body):
++        by_key = {spec["key"]: jid for jid, spec in data["SAVE_CHECKPOINTS"].items()}
++        if not literal_keys or any(key not in by_key for key in literal_keys):
++            raise ValueError("missing or unregistered literal checkpoint normalization")
++        starts = [i for i, line in enumerate(code_lines) if re.search(r"_\w+_checkpoint_or_default\(raw\)", line)]
++        if len(starts) != len(LEGACY_NORMALIZATION_LINES) or tuple(lines[starts[0]:starts[0] + len(LEGACY_NORMALIZATION_LINES)]) != LEGACY_NORMALIZATION_LINES:
++            raise ValueError("literal checkpoint normalization differs from fixed legacy sequence or indentation")
++        _require_normalization_site(lines, starts[0], len(LEGACY_NORMALIZATION_LINES))
++        return [by_key[key] for key in literal_keys]
++    _require_preload(text)
++    loop = ["\t" + NORMALIZATION_LOOP[0], *["\t\t" + line for line in NORMALIZATION_LOOP[1:]]]
++    starts = [i for i, line in enumerate(code_lines) if "for checkpoint_job_id:" in line]
++    if len(starts) != 1 or lines[starts[0]:starts[0] + len(loop)] != loop or literal_keys:
++        raise ValueError("checkpoint normalization loop differs from fixed JP1 form or indentation")
++    _require_normalization_site(lines, starts[0], len(loop))
++    if sum("JobData.SAVE_CHECKPOINT_JOB_ORDER" in line for line in code_lines) != 1:
++        raise ValueError("duplicate checkpoint normalization loop")
++    return copy.deepcopy(data["SAVE_CHECKPOINT_JOB_ORDER"])
+--- a/tools/content_gd_literals.py
++++ b/tools/content_gd_literals.py
+@@ -1,151 +1,205 @@
+-"""Read a constrained GDScript literal subset without executing project code."""
+-from __future__ import annotations
+-
+-import ast
+-import json
+-import re
+-from pathlib import Path
+-
+-CONSTRUCTORS = {"Color", "Vector2", "Vector2i", "Rect2", "PackedStringArray",
+-                "PackedInt32Array", "PackedFloat32Array"}
+-TAG_KEYS = {"__call__", "__dict__", "__stringname__"}
+-
+-
+-class GDParser:
+-    def __init__(self, text: str, start: int = 0):
+-        self.s, self.i = text, start
+-
+-    def ws(self):
+-        while self.i < len(self.s):
+-            if self.s[self.i] in " \t\r\n\\":
+-                self.i += 1
+-            elif self.s[self.i] == "#":
+-                self.i = self.s.find("\n", self.i)
+-                if self.i < 0:
+-                    self.i = len(self.s)
+-            else:
+-                break
+-
+-    def peek(self):
+-        self.ws()
+-        return self.s[self.i:self.i + 1]
+-
+-    def value(self):
+-        c = self.peek()
+-        if c == "{":
+-            return self.mapping()
+-        if c == "[":
+-            return self.sequence("]")
+-        if c == "&":
+-            self.i += 1
+-            return {"__stringname__": self.string()}
+-        if c in ("'", '"'):
+-            return self.string()
+-        if c.isdigit() or c in ("-", "."):
+-            m = re.match(r"-?(?:0x[0-9A-Fa-f_]+|\d[\d_]*(?:\.\d+)?(?:[eE][-+]?\d+)?|\.\d+)", self.s[self.i:])
+-            if not m:
+-                raise ValueError("invalid number at " + str(self.i))
+-            raw = m.group().replace("_", "")
+-            self.i += len(m.group())
+-            return int(raw, 16) if "0x" in raw else (float(raw) if any(x in raw for x in ".eE") else int(raw))
+-        m = re.match(r"[A-Za-z_][A-Za-z0-9_]*", self.s[self.i:])
+-        if m:
+-            name = m.group()
+-            self.i += len(name)
+-            if name in ("true", "false", "null"):
+-                return {"true": True, "false": False, "null": None}[name]
+-            if self.peek() == "(":
+-                if name not in CONSTRUCTORS:
+-                    raise ValueError("forbidden constructor " + name)
+-                return {"__call__": name, "args": self.sequence(")")}
+-            raise ValueError("unsupported identifier " + name)
+-        raise ValueError("unsupported literal at " + str(self.i))
+-
+-    def string(self):
+-        quote, start = self.s[self.i], self.i
+-        self.i += 1
+-        while self.i < len(self.s):
+-            if self.s[self.i] == "\\":
+-                self.i += 2
+-            elif self.s[self.i] == quote:
+-                self.i += 1
+-                raw = self.s[start:self.i]
+-                # JSON handles Unicode exactly; single quoted Godot literals are
+-                # read by Python's literal reader, never eval.
+-                return json.loads(raw) if quote == '"' else ast.literal_eval(raw)
+-            else:
+-                self.i += 1
+-        raise ValueError("unterminated string")
+-
+-    def sequence(self, end):
+-        self.i += 1
+-        result = []
+-        while self.peek() != end:
+-            if not self.peek():
+-                raise ValueError("unterminated sequence")
+-            result.append(self.value())
+-            if self.peek() == ",":
+-                self.i += 1
+-            elif self.peek() != end:
+-                raise ValueError("missing sequence separator")
+-        self.i += 1
+-        return result
+-
+-    def mapping(self):
+-        self.i += 1
+-        pairs = []
+-        while self.peek() != "}":
+-            key = self.value()
+-            if self.peek() not in (":", "="):
+-                raise ValueError("missing dictionary separator")
+-            self.i += 1
+-            pairs.append([key, self.value()])
+-            if self.peek() == ",":
+-                self.i += 1
+-            elif self.peek() != "}":
+-                raise ValueError("missing dictionary comma")
+-        self.i += 1
+-        if all(isinstance(k, str) for k, _ in pairs):
+-            if len(set(k for k, _ in pairs)) != len(pairs):
+-                raise ValueError("duplicate dictionary key")
+-            return dict(pairs)
+-        return {"__dict__": pairs}
+-
+-
+-def read_const(path: Path, name: str):
+-    text = path.read_text(encoding="utf-8")
+-    match = re.search(r"(?m)^const\s+" + re.escape(name) + r"\b[^=\n]*=(?:\s*\\)?", text)
+-    if not match:
+-        raise ValueError(f"{path}: missing constant {name}")
+-    parser = GDParser(text, match.end())
+-    value = parser.value()
+-    tail = text[parser.i:text.find("\n", parser.i) if text.find("\n", parser.i) >= 0 else len(text)].strip()
+-    if tail and not tail.startswith("#"):
+-        raise ValueError(f"{path}: trailing expression after {name}")
+-    return value
+-
+-
+-def read_python_list(path: Path, name: str):
+-    tree = ast.parse(path.read_text(encoding="utf-8"))
+-    for node in tree.body:
+-        if isinstance(node, (ast.Assign, ast.AnnAssign)):
+-            targets = node.targets if isinstance(node, ast.Assign) else [node.target]
+-            if any(isinstance(t, ast.Name) and t.id == name for t in targets):
+-                return ast.literal_eval(node.value)
+-    raise ValueError(f"{path}: missing literal {name}")
+-
+-
+-def opera_rows(root: Path):
+-    text = (root / "scripts/living_world_catalog.gd").read_text(encoding="utf-8")
+-    start = text.index('static func _add_opera_acts(')
+-    match = re.search(r'_add_rows\(specs,\s*"opera_act",\s*11,\s*', text[start:])
+-    if not match:
+-        raise ValueError("missing Opera living-world rows")
+-    return GDParser(text, start + match.end()).value()
+-
+-
+-def integer_mapping(value):
+-    if isinstance(value, dict) and set(value) == {"__dict__"}:
+-        return dict(value["__dict__"])
+-    return value
+-
++"""Read a constrained GDScript literal subset without executing project code."""
++from __future__ import annotations
++
++import ast
++import json
++import re
++from pathlib import Path
++
++CONSTRUCTORS = {"Color", "Vector2", "Vector2i", "Rect2", "PackedStringArray",
++                "PackedInt32Array", "PackedFloat32Array"}
++TAG_KEYS = {"__call__", "__dict__", "__stringname__"}
++
++
++def mask_source(text: str, mask_strings: bool = True) -> str:
++    """Preserve source offsets/newlines while hiding comments and string tokens."""
++    out = list(text)
++    index = 0
++    def hide(start: int, end: int) -> None:
++        for position in range(start, end):
++            if out[position] not in "\r\n":
++                out[position] = " "
++    while index < len(text):
++        if text[index] == "#":
++            end = text.find("\n", index)
++            end = end if end >= 0 else len(text)
++            hide(index, end)
++            index = end
++        elif text[index] in ('"', "'"):
++            start = index
++            delimiter = text[index] * (3 if text.startswith(text[index] * 3, index) else 1)
++            index += len(delimiter)
++            while index < len(text):
++                if text[index] == "\\":
++                    index += 2
++                elif text.startswith(delimiter, index):
++                    index += len(delimiter)
++                    break
++                else:
++                    index += 1
++            else:
++                raise ValueError("unterminated string in GDScript source")
++            if mask_strings:
++                hide(start, index)
++        else:
++            index += 1
++    return "".join(out)
++
++
++class GDParser:
++    def __init__(self, text: str, start: int = 0):
++        self.s, self.i = text, start
++
++    def ws(self):
++        while self.i < len(self.s):
++            if self.s[self.i] in " \t\r\n\\":
++                self.i += 1
++            elif self.s[self.i] == "#":
++                self.i = self.s.find("\n", self.i)
++                if self.i < 0:
++                    self.i = len(self.s)
++            else:
++                break
++
++    def peek(self):
++        self.ws()
++        return self.s[self.i:self.i + 1]
++
++    def value(self):
++        c = self.peek()
++        if c == "{":
++            return self.mapping()
++        if c == "[":
++            return self.sequence("]")
++        if c == "&":
++            self.i += 1
++            return {"__stringname__": self.string()}
++        if c in ("'", '"'):
++            return self.string()
++        if c.isdigit() or c in ("-", "."):
++            m = re.match(r"-?(?:0x[0-9A-Fa-f_]+|\d[\d_]*(?:\.\d+)?(?:[eE][-+]?\d+)?|\.\d+)", self.s[self.i:])
++            if not m:
++                raise ValueError("invalid number at " + str(self.i))
++            raw = m.group().replace("_", "")
++            self.i += len(m.group())
++            return int(raw, 16) if "0x" in raw else (float(raw) if any(x in raw for x in ".eE") else int(raw))
++        m = re.match(r"[A-Za-z_][A-Za-z0-9_]*", self.s[self.i:])
++        if m:
++            name = m.group()
++            self.i += len(name)
++            if name in ("true", "false", "null"):
++                return {"true": True, "false": False, "null": None}[name]
++            if self.peek() == "(":
++                if name not in CONSTRUCTORS:
++                    raise ValueError("forbidden constructor " + name)
++                return {"__call__": name, "args": self.sequence(")")}
++            raise ValueError("unsupported identifier " + name)
++        raise ValueError("unsupported literal at " + str(self.i))
++
++    def string(self):
++        quote, start = self.s[self.i], self.i
++        self.i += 1
++        while self.i < len(self.s):
++            if self.s[self.i] == "\\":
++                self.i += 2
++            elif self.s[self.i] == quote:
++                self.i += 1
++                raw = self.s[start:self.i]
++                # JSON handles Unicode exactly; single quoted Godot literals are
++                # read by Python's literal reader, never eval.
++                return json.loads(raw) if quote == '"' else ast.literal_eval(raw)
++            else:
++                self.i += 1
++        raise ValueError("unterminated string")
++
++    def sequence(self, end):
++        self.i += 1
++        result = []
++        while self.peek() != end:
++            if not self.peek():
++                raise ValueError("unterminated sequence")
++            result.append(self.value())
++            if self.peek() == ",":
++                self.i += 1
++            elif self.peek() != end:
++                raise ValueError("missing sequence separator")
++        self.i += 1
++        return result
++
++    def mapping(self):
++        self.i += 1
++        pairs = []
++        while self.peek() != "}":
++            key = self.value()
++            if self.peek() not in (":", "="):
++                raise ValueError("missing dictionary separator")
++            self.i += 1
++            pairs.append([key, self.value()])
++            if self.peek() == ",":
++                self.i += 1
++            elif self.peek() != "}":
++                raise ValueError("missing dictionary comma")
++        self.i += 1
++        if all(isinstance(k, str) for k, _ in pairs):
++            if len(set(k for k, _ in pairs)) != len(pairs):
++                raise ValueError("duplicate dictionary key")
++            return dict(pairs)
++        return {"__dict__": pairs}
++
++
++def read_const(path: Path, name: str):
++    text = path.read_text(encoding="utf-8")
++    matches = list(re.finditer(r"(?m)^const\s+" + re.escape(name) + r"\b[^=\n]*=(?:\s*\\)?", mask_source(text)))
++    if len(matches) != 1:
++        raise ValueError(f"{path}: expected exactly one real constant {name}")
++    parser = GDParser(text, matches[0].end())
++    value = parser.value()
++    tail = text[parser.i:text.find("\n", parser.i) if text.find("\n", parser.i) >= 0 else len(text)].strip()
++    if tail and not tail.startswith("#"):
++        raise ValueError(f"{path}: trailing expression after {name}")
++    return value
++
++
++def read_python_list(path: Path, name: str):
++    tree = ast.parse(path.read_text(encoding="utf-8"))
++    for node in tree.body:
++        if isinstance(node, (ast.Assign, ast.AnnAssign)):
++            targets = node.targets if isinstance(node, ast.Assign) else [node.target]
++            if any(isinstance(t, ast.Name) and t.id == name for t in targets):
++                return ast.literal_eval(node.value)
++    raise ValueError(f"{path}: missing literal {name}")
++
++
++def opera_rows(root: Path):
++    text = (root / "scripts/living_world_catalog.gd").read_text(encoding="utf-8")
++    code = mask_source(text)
++    functions = list(re.finditer(r"(?m)^static func _add_opera_acts\(", code))
++    if len(functions) != 1:
++        raise ValueError("expected one real Opera living-world function")
++    function = functions[0]
++    following = re.search(r"(?m)^(?:static\s+)?func\b", code[function.end():])
++    end = function.end() + following.start() if following else len(text)
++    calls = list(re.finditer(r"_add_rows\(", code[function.end():end]))
++    if len(calls) != 1:
++        raise ValueError("expected one real Opera living-world row call")
++    start = function.end() + calls[0].start()
++    match = re.match(r'_add_rows\(specs,\s*"opera_act",\s*11,\s*', text[start:end])
++    if not match:
++        raise ValueError("Opera living-world row call differs")
++    parser = GDParser(text, start + match.end())
++    value = parser.value()
++    if parser.peek() != ")":
++        raise ValueError("trailing expression after Opera living-world rows")
++    parser.i += 1
++    newline = text.find("\n", parser.i)
++    tail = text[parser.i:newline if newline >= 0 else len(text)].strip()
++    if tail and not tail.startswith("#"):
++        raise ValueError("trailing expression after Opera living-world call")
++    return value
++
++
++def integer_mapping(value):
++    if isinstance(value, dict) and set(value) == {"__dict__"}:
++        return dict(value["__dict__"])
++    return value
++

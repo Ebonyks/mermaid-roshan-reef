@@ -1,0 +1,711 @@
+{
+  "schema": "jp1_independent_static_source_review/1",
+  "checked_at_utc": "2026-10-01T02:41:57.986017+00:00",
+  "source_helper_hashes": {
+    "tools/content_gd_literals.py": "fd5b08094b6d9161cd07a1a4b5126031991282dfe14c7893a4c62a6a40c5d088",
+    "tools/content_source_refs.py": "25192f93d8b3bfd9fc5991faa39a73cd95b9938059e59a090796a01515f44a76",
+    "tools/content_build.py": "07cc66654c94586709b5117b0cb3bc448f2290c483729629a4868619c89abd70"
+  },
+  "current_generated_sha256": "119fbde690441145d3b8af502a33c5467bc6e2a017eb6d575b760ddfce7836cb",
+  "cases": [
+    {
+      "case": "literal_real",
+      "kind": "literal",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "result": 2,
+      "error": "",
+      "source_sha256": "bcc563bf7c9f6559990ff0799e3cc645a2323775969d95cbcdf2fafb9eb4706e"
+    },
+    {
+      "case": "literal_triple_double_ignored",
+      "kind": "literal",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "result": 2,
+      "error": "",
+      "source_sha256": "72ae917a305f61c481fc7582fc46ede8b61900400c5bb9d26a172ada1bd35ad4"
+    },
+    {
+      "case": "literal_triple_double_missing",
+      "kind": "literal",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp1-review\\final-matrix-results\\literal_triple_double_missing\\scripts\\save_state.gd: expected exactly one real constant X",
+      "source_sha256": "4cb12ece981eeb20ba82c23fd3bc93c4666d7226208f69a6118ca537cb639665"
+    },
+    {
+      "case": "literal_triple_double_unsupported_value",
+      "kind": "literal",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp1-review\\final-matrix-results\\literal_triple_double_unsupported_value\\scripts\\save_state.gd: trailing expression after X",
+      "source_sha256": "400de8fd94db4114a988189c84f393d17cda8f4c70594066ac151f4db22b6e50"
+    },
+    {
+      "case": "literal_triple_single_ignored",
+      "kind": "literal",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "result": 2,
+      "error": "",
+      "source_sha256": "cbb105c9b77635a2f3067325bd85b8a9e09b6766128dedb7a710b4921acbcbd3"
+    },
+    {
+      "case": "literal_triple_single_missing",
+      "kind": "literal",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp1-review\\final-matrix-results\\literal_triple_single_missing\\scripts\\save_state.gd: expected exactly one real constant X",
+      "source_sha256": "98a953546f98d474a3962b7ea20501b66d4ed5d108340c1b739b3fabbf14021b"
+    },
+    {
+      "case": "literal_triple_single_unsupported_value",
+      "kind": "literal",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp1-review\\final-matrix-results\\literal_triple_single_unsupported_value\\scripts\\save_state.gd: trailing expression after X",
+      "source_sha256": "5ac8dcc54756f818c33baeda390ce633849bd023e91c84761b754bd482f05abd"
+    },
+    {
+      "case": "literal_comment_ignored",
+      "kind": "literal",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "result": 2,
+      "error": "",
+      "source_sha256": "3f99368024c3f06a0d6a74fbcc886b6d2563533fde173321493ea979e3489984"
+    },
+    {
+      "case": "literal_duplicate",
+      "kind": "literal",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp1-review\\final-matrix-results\\literal_duplicate\\scripts\\save_state.gd: expected exactly one real constant X",
+      "source_sha256": "c5eae4da9085c3fbdff82bfd7f0e0abf7abd8756d125765d251c10804287dfa0"
+    },
+    {
+      "case": "literal_arithmetic",
+      "kind": "literal",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp1-review\\final-matrix-results\\literal_arithmetic\\scripts\\save_state.gd: trailing expression after X",
+      "source_sha256": "9c22a1b13031e404ecf4066041ed91bf02e4cf30c0eb76421aa528fcd6766e85"
+    },
+    {
+      "case": "literal_method",
+      "kind": "literal",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp1-review\\final-matrix-results\\literal_method\\scripts\\save_state.gd: trailing expression after X",
+      "source_sha256": "eb217f60b928f10961c5ab320346a00a46fa2d029b7ed95991d1128559a38342"
+    },
+    {
+      "case": "literal_forbidden_constructor",
+      "kind": "literal",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: forbidden constructor preload",
+      "source_sha256": "bdefd61d22b6a327e38dadb813eb100beb1aeca4c87d414b5ba297e4cc796ed0"
+    },
+    {
+      "case": "literal_stringname",
+      "kind": "literal",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "result": {
+        "__stringname__": "a # fake const X = 9"
+      },
+      "error": "",
+      "source_sha256": "be380f000e8308c881d13ac892d66d5d63b4349009d04924968f0aa19e2e4ca4"
+    },
+    {
+      "case": "literal_escaped_double",
+      "kind": "literal",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "result": "a # \" q \\ end",
+      "error": "",
+      "source_sha256": "f96817fd1c894582d2267ebbcfbe4fd2909ed48f97fddc6055a80d8fbd39abf7"
+    },
+    {
+      "case": "literal_escaped_single",
+      "kind": "literal",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "result": "can't # q",
+      "error": "",
+      "source_sha256": "9aa95f68f925fa991d4d9d137a53585f0b16821c481af55600aca6eac81f66b3"
+    },
+    {
+      "case": "literal_unterminated_double",
+      "kind": "literal",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: unterminated string in GDScript source",
+      "source_sha256": "1e96c0a119fa72d842bdfcf32a47789b17f0cbfe01d09ab58ab95882d6b9122b"
+    },
+    {
+      "case": "literal_unterminated_single",
+      "kind": "literal",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: unterminated string in GDScript source",
+      "source_sha256": "4f1c933c8479f1353436392235669d0345dcd6c2501e8b66872a304998c43ef4"
+    },
+    {
+      "case": "literal_unterminated_triple_double",
+      "kind": "literal",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: unterminated string in GDScript source",
+      "source_sha256": "c75888246d29db6eb2ab90e6a2fc92ec118c3f7e2a2dc2e615a240d8f34fa760"
+    },
+    {
+      "case": "literal_unterminated_triple_single",
+      "kind": "literal",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: unterminated string in GDScript source",
+      "source_sha256": "8012fbb88a943788c54fa7a43c99585e034dd8d6dbb20e2766add683254fd0c2"
+    },
+    {
+      "case": "bounds_original",
+      "kind": "bounds",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "result": {
+        "SLOT_COUNT": 18,
+        "STAR_CEILING": 262143
+      },
+      "error": "",
+      "source_sha256": "6d2b6899d27e4056a45cf7f20293c5022c77ef3d5696019a497be966184020d1"
+    },
+    {
+      "case": "order_original",
+      "kind": "order",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "result": [
+        "teacher",
+        "geologist"
+      ],
+      "error": "",
+      "source_sha256": "6d2b6899d27e4056a45cf7f20293c5022c77ef3d5696019a497be966184020d1"
+    },
+    {
+      "case": "bounds_triple_double_whole_example",
+      "kind": "bounds",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "result": {
+        "SLOT_COUNT": 18,
+        "STAR_CEILING": 262143
+      },
+      "error": "",
+      "source_sha256": "140844a866cf7db7b860cff1b7d433ac67f7c292f092c64c68b08a69d3fbdfcd"
+    },
+    {
+      "case": "order_triple_double_whole_example",
+      "kind": "order",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "result": [
+        "teacher",
+        "geologist"
+      ],
+      "error": "",
+      "source_sha256": "140844a866cf7db7b860cff1b7d433ac67f7c292f092c64c68b08a69d3fbdfcd"
+    },
+    {
+      "case": "scalar_triple_double_whole_example",
+      "kind": "OPERA_ACTIVE_STAR_MASK",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "result": 245231,
+      "error": "",
+      "source_sha256": "140844a866cf7db7b860cff1b7d433ac67f7c292f092c64c68b08a69d3fbdfcd"
+    },
+    {
+      "case": "bounds_triple_double_fake_func_cannot_replace",
+      "kind": "bounds",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: SaveState has extra or missing commissioned star clamps",
+      "source_sha256": "eaf040f1c632e03f1239938eedcbcc36cf43788f0b601828af5cccce39ac5319"
+    },
+    {
+      "case": "order_triple_double_fake_func_cannot_replace",
+      "kind": "order",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: missing or unregistered literal checkpoint normalization",
+      "source_sha256": "dc16ad5cfd0fb57784269beb4b6cbd347637f7fcae54b6e884ab5ff63a553349"
+    },
+    {
+      "case": "bounds_triple_single_whole_example",
+      "kind": "bounds",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "result": {
+        "SLOT_COUNT": 18,
+        "STAR_CEILING": 262143
+      },
+      "error": "",
+      "source_sha256": "7a0d731b503aee1a64f0ad8f73ba9301f897426f984261c3a0ee90a7e81190ac"
+    },
+    {
+      "case": "order_triple_single_whole_example",
+      "kind": "order",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "result": [
+        "teacher",
+        "geologist"
+      ],
+      "error": "",
+      "source_sha256": "7a0d731b503aee1a64f0ad8f73ba9301f897426f984261c3a0ee90a7e81190ac"
+    },
+    {
+      "case": "scalar_triple_single_whole_example",
+      "kind": "OPERA_ACTIVE_STAR_MASK",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "result": 245231,
+      "error": "",
+      "source_sha256": "7a0d731b503aee1a64f0ad8f73ba9301f897426f984261c3a0ee90a7e81190ac"
+    },
+    {
+      "case": "bounds_triple_single_fake_func_cannot_replace",
+      "kind": "bounds",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: SaveState has extra or missing commissioned star clamps",
+      "source_sha256": "ae8bdaeb8641dc119a0b55cae862f14128a02ed7b12ecd521ecfac20338922af"
+    },
+    {
+      "case": "order_triple_single_fake_func_cannot_replace",
+      "kind": "order",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: missing or unregistered literal checkpoint normalization",
+      "source_sha256": "a25762b5a7517bdecc7926b44a10b16b30be1e8d6cd380721984954500cdea3a"
+    },
+    {
+      "case": "bounds_nested_clamp",
+      "kind": "bounds",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: missing or duplicate commissioned star clamp: m.opera_stars = clampi(",
+      "source_sha256": "2d044427e543d4014e6f182dae4e25f15eeb9ec486b714a8e7e8034f97e0d9e8"
+    },
+    {
+      "case": "bounds_duplicate_clamp_same_function",
+      "kind": "bounds",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: SaveState has extra or missing commissioned star clamps",
+      "source_sha256": "ea1c6649bf03974020e35e18528919866167161c9f7bec5bac4a2d40761ad2b1"
+    },
+    {
+      "case": "bounds_duplicate_clamp_other_function",
+      "kind": "bounds",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: SaveState has extra or missing commissioned star clamps",
+      "source_sha256": "a1c0456f797cb05cf690c40e54ef2fdd6d2da5431c383550de3c7c489bd88bd4"
+    },
+    {
+      "case": "bounds_moved_load_clamp",
+      "kind": "bounds",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: commissioned star clamp moved from original insertion site: m.opera_stars = clampi(",
+      "source_sha256": "59aa54d02a344750590fb48e5220555da8fd7396c68433e1209454c2914ae49b"
+    },
+    {
+      "case": "bounds_wrong_clamp_argument",
+      "kind": "bounds",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: commissioned star clamp arguments differ: m.opera_stars = clampi(",
+      "source_sha256": "34e00bbcbda1f490f8a135d65dc1e56b8565727de218f15c03d91e20497297d8"
+    },
+    {
+      "case": "bounds_clamp_arithmetic",
+      "kind": "bounds",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: unapproved SaveState star ceiling expression",
+      "source_sha256": "027811f791221afa83e20f5621e779a107216fde681f49f837cddb41cd9b4fc8"
+    },
+    {
+      "case": "bounds_slot_expression",
+      "kind": "bounds",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: unapproved SaveState star loop bound",
+      "source_sha256": "eb640d65d0a328ed893e88095fe0ab89d7406cd83bbd45151ff30d90c30c9c39"
+    },
+    {
+      "case": "bounds_duplicate_slot_other_function",
+      "kind": "bounds",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: SaveState has extra or missing commissioned star loops",
+      "source_sha256": "a48505932ffbde14845a326d47f41b5e30e5c3f6ac869ac39dec09cd444ded71"
+    },
+    {
+      "case": "bounds_nested_slot",
+      "kind": "bounds",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: SaveState commissioned star loop differs or is absent",
+      "source_sha256": "93bdb349963ba986b6e412a973807bfc7e8113f0357ebf7a7fe1f142a4c99a1e"
+    },
+    {
+      "case": "bounds_moved_slot_after_return",
+      "kind": "bounds",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: commissioned star loop moved from original insertion site",
+      "source_sha256": "52926f6969b6a8998a36429841dbbd35db31c6e36191e744f25d8600e04c779c"
+    },
+    {
+      "case": "order_nested",
+      "kind": "order",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: checkpoint normalization loop differs from fixed JP1 form or indentation",
+      "source_sha256": "a607e33a969126aa77d84c29552d8a7a204e08d558ddffdd93a704e1ff759033"
+    },
+    {
+      "case": "order_duplicate",
+      "kind": "order",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: checkpoint normalization loop differs from fixed JP1 form or indentation",
+      "source_sha256": "9602610bae1213cb8dc4dce737a386f0da5b78ab828f818b9f036b5017414a63"
+    },
+    {
+      "case": "order_moved",
+      "kind": "order",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: checkpoint normalization moved from its immutable insertion site",
+      "source_sha256": "1d635186ff60c1eec4f1ac760f2ab2e51153ce85bfab209467c55298fbe279e3"
+    },
+    {
+      "case": "preload_wrong_path",
+      "kind": "OPERA_ACTIVE_STAR_MASK",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: SaveState JobData preload differs from the fixed JP1 target",
+      "source_sha256": "e4a45d4c185521fac20aba8131caa692307567d8c3f9af28d9dfd87d4d3a565b"
+    },
+    {
+      "case": "scalar_arithmetic",
+      "kind": "OPERA_ACTIVE_STAR_MASK",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: trailing expression after OPERA_ACTIVE_STAR_MASK",
+      "source_sha256": "2ce3924ec0210bfbc2f7180eb29781c20a5a34330d28c87ca56536a2fcdac03c"
+    },
+    {
+      "case": "scalar_wrong_member",
+      "kind": "OPERA_ACTIVE_STAR_MASK",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: unsupported identifier JobData",
+      "source_sha256": "46b450c9ceb1e076f578824cd9e14e67055aa8c576032880e0c8cfb4ea3c8158"
+    },
+    {
+      "case": "registration_original",
+      "kind": "DICTIONARY_KEYS",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "result": [
+        "won",
+        "found",
+        "crafts",
+        "stickers",
+        "owned",
+        "animals",
+        "critters",
+        "stuffie_wins",
+        "medals",
+        "day_one_story_clips_seen",
+        "teacher_learning_progress",
+        "teacher_lesson_checkpoint",
+        "opera_mastery",
+        "opera_performance_checkpoints"
+      ],
+      "error": "",
+      "source_sha256": "6d2b6899d27e4056a45cf7f20293c5022c77ef3d5696019a497be966184020d1"
+    },
+    {
+      "case": "registration_wrong_fragment",
+      "kind": "DICTIONARY_KEYS",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: unapproved checkpoint registration reference in DICTIONARY_KEYS",
+      "source_sha256": "8a0115f0a60ac13a0d750a29ab75996993f4beb90436149cd83b4b61ef672f57"
+    },
+    {
+      "case": "registration_method",
+      "kind": "DICTIONARY_KEYS",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: checkpoint registration must retain its exact static tail in DICTIONARY_KEYS",
+      "source_sha256": "da5167d6e9b94b1a2487e74c349976ed4fa4050b75fb4c1378f5a82e394e219c"
+    },
+    {
+      "case": "fresh_data_bounds_ignore_existing_generated",
+      "kind": "bounds",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "result": {
+        "SLOT_COUNT": 19,
+        "STAR_CEILING": 524287
+      },
+      "error": "",
+      "source_sha256": "6d2b6899d27e4056a45cf7f20293c5022c77ef3d5696019a497be966184020d1"
+    },
+    {
+      "case": "fresh_data_mask_ignore_existing_generated",
+      "kind": "OPERA_ACTIVE_STAR_MASK",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "result": 507375,
+      "error": "",
+      "source_sha256": "6d2b6899d27e4056a45cf7f20293c5022c77ef3d5696019a497be966184020d1"
+    },
+    {
+      "case": "fresh_data_order_ignore_existing_generated",
+      "kind": "order",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "result": [
+        "teacher",
+        "geologist",
+        "jp1_hidden_practice"
+      ],
+      "error": "",
+      "source_sha256": "6d2b6899d27e4056a45cf7f20293c5022c77ef3d5696019a497be966184020d1"
+    },
+    {
+      "case": "bounds_duplicate_real_function",
+      "kind": "bounds",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: expected exactly one real SaveState function load_save",
+      "source_sha256": "5e95a5a7ea438c5e99baf313a57aedeee9b13875f5558f336911bcb9064b7a80"
+    },
+    {
+      "case": "order_duplicate_real_function",
+      "kind": "order",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "result": null,
+      "error": "ValueError: expected exactly one real SaveState function _normalise_save",
+      "source_sha256": "1694758efd0d64f6bc07c4d75cd83907c299d6a9666a882e63838bc957c73709"
+    },
+    {
+      "case": "CHAPTER2_PHASE_TOTAL_fake_ignored",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case": "CHAPTER2_PHASE_TOTAL_fake_cannot_replace",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "error": "ValueError: expected one real Chapter Two phase-count assertion"
+    },
+    {
+      "case": "CHAPTER2_PHASE_TOTAL_real_duplicate",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "error": "ValueError: expected one real Chapter Two phase-count assertion"
+    },
+    {
+      "case": "CHAPTER2_PHASE_TOTAL_other_identifier_ignored",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case": "CHAPTER2_PHASE_TOTAL_arithmetic_rhs",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "error": "ValueError: expected one real Chapter Two phase-count assertion"
+    },
+    {
+      "case": "CHAPTER2_PHASE_TOTAL_float_rhs",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "error": "ValueError: expected one real Chapter Two phase-count assertion"
+    },
+    {
+      "case": "CHAPTER2_PHASE_TOTAL_underscore_rhs",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "error": "ValueError: expected one real Chapter Two phase-count assertion"
+    },
+    {
+      "case": "SHIPPING_PHASE_TOTAL_fake_ignored",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case": "SHIPPING_PHASE_TOTAL_fake_cannot_replace",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "error": "ValueError: expected one real shipping phase-count assertion"
+    },
+    {
+      "case": "SHIPPING_PHASE_TOTAL_real_duplicate",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "error": "ValueError: expected one real shipping phase-count assertion"
+    },
+    {
+      "case": "SHIPPING_PHASE_TOTAL_other_identifier_ignored",
+      "expected_accept": true,
+      "observed_accept": true,
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case": "SHIPPING_PHASE_TOTAL_arithmetic_rhs",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "error": "ValueError: expected one real shipping phase-count assertion"
+    },
+    {
+      "case": "SHIPPING_PHASE_TOTAL_float_rhs",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "error": "ValueError: expected one real shipping phase-count assertion"
+    },
+    {
+      "case": "SHIPPING_PHASE_TOTAL_underscore_rhs",
+      "expected_accept": false,
+      "observed_accept": false,
+      "passed": true,
+      "error": "ValueError: expected one real shipping phase-count assertion"
+    }
+  ],
+  "failures": [],
+  "baseline_fixture": "Source Path.read_text is substituted in-memory per adversarial case; registration baseline lookup uses the immutable real Git result read before tests. Actual candidate selection/lexing/parsing/resolution and derive functions execute unchanged.",
+  "source_changes": false,
+  "derive_exports_current": 87,
+  "prior_exports_preserved": 86,
+  "source_shapes_equal": 74,
+  "generated_file_sha256": "119fbde690441145d3b8af502a33c5467bc6e2a017eb6d575b760ddfce7836cb",
+  "matrix_script_sha256": "78bb94d2b743acce22b2d4240078cd8b24865e0b288d785887e3f3c3d15a7183",
+  "H_mutations": false
+}

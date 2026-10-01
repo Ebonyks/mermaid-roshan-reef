@@ -1,0 +1,104 @@
+{
+  "schema": "reef.jp0-native-recovery-review.v1",
+  "checked_at_utc": "2026-10-01T02:56:51.892479+00:00",
+  "tested_source_base": "ce0331738970205a5aead4d3e0258eb7873a1642",
+  "functional_source_files_verified_unchanged": 32,
+  "deterministic_source_payload_sha256": "6b79e1e946455ef0e3f4038ba262b1040a307bcf1d8ac0f0764f46d2d8a52434",
+  "source_payload_raw_sha256": "4ecba48ed72bceb46ad903af5895062aca9376c6a3370ebec73dcee804fe43de",
+  "full_ci3": {
+    "result": "FAIL",
+    "execution": {
+      "command": "TMP/TEMP/TMPDIR=isolatedH GODOT=Godot4.7.2-console scripts/ci.sh",
+      "checked_at_utc": "2026-10-01T02:44:42.4754617Z",
+      "exit_code": 1,
+      "seconds": 3142.8925531
+    },
+    "log_sha256": "64606676300f02e3c1404b7a668f3001bfe8f7250794b3252b6f80c65dbb4d8d",
+    "stderr_sha256": "457d02d1ba73cab85f7358ed388f4281676037a68831ca8c4800eda8b984a7d7",
+    "process_records": 82,
+    "original_zero_exits": 79,
+    "incomplete_pipeline_exits": {
+      "probe_audit": 127,
+      "probe_audio": 127,
+      "probe_dust_boss_balance": 127
+    },
+    "cause": "Unproven; no missing-command or specific Windows exception claim"
+  },
+  "native_recovery": [
+    {
+      "probe": "probe_audit",
+      "source_path": "scripts/probe_audit.gd",
+      "canonical_source_sha256": "79ef070b36b4188c2995a9dab0e0df99efd7469937267b4ac49cd58e2bd0d4cb",
+      "canonical_source_equals_immutable_baseline": "7f068cb80766edd52a110cc1cb3958158f829822",
+      "result": {
+        "actual_engine_exit_code": 0,
+        "engine_pid": 39484,
+        "seconds": 38.4117,
+        "source_root": "H:/CodexWorktrees/mermaid-roshan-reef-job-platform-jp0-20260930",
+        "output_root": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp0-regression-review\\probe-audit-core-20261001",
+        "engine": "Godot4.7.2.stable.official.ed1daf0bf",
+        "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+        "method": "native actual core PowerShell Start-Process -Wait; unchanged probe/clock/touch and isolated C userdata"
+      },
+      "stdout": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp0-regression-review\\probe-audit-core-20261001\\stdout.raw.txt",
+      "stdout_sha256": "b05866899a59d2865da36a955ae206d4ed9d38b417655b24daec0f410560f739",
+      "stderr": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp0-regression-review\\probe-audit-core-20261001\\stderr.raw.txt",
+      "stderr_sha256": "666ce44da768308fd34a43793bdf95814f9023b12e70933e3b82c1221101688b",
+      "stderr_classification": "Existing raw-image import warnings only"
+    },
+    {
+      "probe": "probe_audio",
+      "source_path": "scripts/probe_audio.gd",
+      "canonical_source_sha256": "14360c356e8f1b3034fed30bd4cb7cde35adc4754ebfee83c882843a39e2ae78",
+      "canonical_source_equals_immutable_baseline": "7f068cb80766edd52a110cc1cb3958158f829822",
+      "result": {
+        "actual_engine_exit_code": 0,
+        "engine_pid": 38584,
+        "seconds": 8.1557325,
+        "source_root": "H:/CodexWorktrees/mermaid-roshan-reef-job-platform-jp0-20260930",
+        "output_root": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp0-regression-review\\probe-audio-core-20261001",
+        "engine": "Godot4.7.2.stable.official.ed1daf0bf",
+        "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+        "method": "native actual core PowerShell Start-Process -Wait; unchanged probe/clock/touch and isolated C userdata"
+      },
+      "stdout": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp0-regression-review\\probe-audio-core-20261001\\stdout.raw.txt",
+      "stdout_sha256": "08761f2d63e050264e0f256ca162f5707ce350cb337d0edecf40217606f0e7fa",
+      "stderr": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp0-regression-review\\probe-audio-core-20261001\\stderr.raw.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_classification": "Empty"
+    },
+    {
+      "probe": "probe_dust_boss_balance",
+      "source_path": "scripts/probe_dust_boss_balance.gd",
+      "canonical_source_sha256": "f4940fb4b5d6398e5d1fab94fdf92f4666c2302ff6c36f533312c6f3956be235",
+      "canonical_source_equals_immutable_baseline": "7f068cb80766edd52a110cc1cb3958158f829822",
+      "result": {
+        "actual_engine_exit_code": 0,
+        "engine_pid": 61356,
+        "seconds": 229.2023073,
+        "source_root": "H:/CodexWorktrees/mermaid-roshan-reef-job-platform-jp0-20260930",
+        "output_root": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp0-regression-review\\probe-dust-boss-balance-core-20261001",
+        "engine": "Godot4.7.2.stable.official.ed1daf0bf",
+        "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+        "method": "native actual core PowerShell Start-Process -Wait; unchanged probe/clock/touch and isolated C userdata"
+      },
+      "stdout": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp0-regression-review\\probe-dust-boss-balance-core-20261001\\stdout.raw.txt",
+      "stdout_sha256": "2f51a4410b23a928ae45c24540fdee73fcb82974342d769674320fbce894c8ea",
+      "stderr": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\.scratch\\job-platform-jp0-regression-review\\probe-dust-boss-balance-core-20261001\\stderr.raw.txt",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_classification": "Empty"
+    }
+  ],
+  "engine_path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot.exe",
+  "engine_sha256": "ab1824f85bfd8e0e4128182c000c4003a3e042245b2967848d089b2a04b22424",
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "claim": "Three unchanged probes complete under direct native supervision with actual engine exit 0; together with the 79 original zero-exit probes this supplies per-probe evidence at the frozen candidate.",
+  "limitations": [
+    "The original aggregate remains FAIL and is not relabeled as uninterrupted green regression.",
+    "Incoming dev 549ea956 must be reconciled and tested before integration.",
+    "JP1 final checker application, full50 tests and final full/exact-head CI remain pending.",
+    "Automatic approval review blocked H worktree writes; explicit authorization is pending.",
+    "No GitHub publication, integration, device/child/owner or game-wide acceptance claim.",
+    "The earlier attached core observation returned a null exit code and is retained as failed observation; only the direct native result is used here."
+  ]
+}
