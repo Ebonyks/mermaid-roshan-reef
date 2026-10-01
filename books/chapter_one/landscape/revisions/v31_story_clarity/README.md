@@ -1,6 +1,6 @@
 # V31 - story clarity and belonging
 
-Status: `SUPPORTING_CURRENT`; complete review proof awaiting owner/child/qualified SLP/physical-print acceptance.34 pages including both covers;32 interiors;7 x5 inches landscape;Sniglet. Exact V30 baseline: `19ee6ce8ec4c20c05714f101d0d222a33477e400`.
+Status: `HISTORICAL_EVIDENCE`; original published V31 review proof. Current edition: [V32](../v32_rainbow_story/README.md). Its water treatment and separate ending have been superseded; original artwork and audits remain evidence.34 pages including both covers;32 interiors;7 x5 inches landscape;Sniglet. Exact V30 baseline: `19ee6ce8ec4c20c05714f101d0d222a33477e400`.
 
 [All-page before/after](AUDIT_REVIEW.html) · [Reader](complete/READ_BOOK.html) · [Full PDF](complete/Mermaid_Roshan_LANDSCAPE_ROUGH.pdf) · [Bound spread dummy](PRINT_DUMMY.html) · [Language review packet](SLP_REVIEW_PACKET.html) · [Manifest](manifest.json)
 

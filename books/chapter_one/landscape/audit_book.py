@@ -12,12 +12,13 @@ def overlap(a,b):
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--proof',required=True,type=Path);ap.add_argument('--baseline',required=True,type=Path);args=ap.parse_args()
  b=json.loads((ROOT/'book.json').read_text(encoding='utf8'));p=json.loads((args.proof/'page_provenance.json').read_text(encoding='utf8'));review=json.loads((ROOT/'stress_review.json').read_text(encoding='utf8'));issues=[];pages={row['page']:row for row in b['pages']}
- revised=b.get('revision','').startswith(('V28','V29','V30','V31'))
- polished=b.get('revision','').startswith(('V29','V30','V31'))
- local_identity=b.get('revision','').startswith(('V30','V31'))
- story_clarity=b.get('revision','').startswith('V31')
+ revised=b.get('revision','').startswith(('V28','V29','V30','V31','V32'))
+ polished=b.get('revision','').startswith(('V29','V30','V31','V32'))
+ local_identity=b.get('revision','').startswith(('V30','V31','V32'))
+ story_clarity=b.get('revision','').startswith(('V31','V32'))
+ rainbow_story=b.get('revision','').startswith('V32')
  by_old={row.get('original_page',row['page']):row for row in b['pages']}
- if revised:review=json.loads((ROOT/('revisions/v31_story_clarity' if story_clarity else 'revisions/v30_identity' if local_identity else 'revisions/v29_polish' if polished else 'revisions/v28_kindness')/'visual_review.json').read_text(encoding='utf8'))
+ if revised:review=json.loads((ROOT/('revisions/v32_rainbow_story' if rainbow_story else 'revisions/v31_story_clarity' if story_clarity else 'revisions/v30_identity' if local_identity else 'revisions/v29_polish' if polished else 'revisions/v28_kindness')/'visual_review.json').read_text(encoding='utf8'))
  pdf=PdfReader(args.proof/'Mermaid_Roshan_LANDSCAPE_ROUGH.pdf')
  if len(pdf.pages)!=34:issues.append('Expected 32 story pages plus covers.')
  for i,page in enumerate(pdf.pages):
@@ -101,13 +102,13 @@ def main():
  if not back or back[0]['source_key']!=b['back_cover']['art'] or back[0]['operation']!='page_trim':issues.append('Rear cover must retain its complete accepted full-art base.')
  if not local_identity and len(back)!=1:issues.append('Uncommissioned rear-cover layers.')
  if local_identity:
-  expected={'front_cover':{'v30_front_identity':2},'back_cover':{'v30_rear_identity':2},4:{'v30_castle_attention':2},10:{'v30_rumi_face_crop':1}}
+  expected={'front_cover':{'v30_front_identity':2},'back_cover':{'v30_rear_identity':2},5 if rainbow_story else 4:{'v30_castle_attention':2},11 if rainbow_story else 10:{'v30_rumi_face_crop':1}}
   if story_clarity:expected['back_cover']['v31_rear_lamma']=1
   for page_id,keys in expected.items():
    actual=Counter(q['source_key'] for q in p['layers'] if q['page']==page_id and q['operation']=='bounded_inpaint_polygon_visible_pdf_resource')
    if dict(actual)!=keys:issues.append(f'Page {page_id}: local identity edit sources/count differ from reviewed scope.')
   if any(q['operation']!='bounded_inpaint_polygon_visible_pdf_resource' for q in back[1:]):issues.append('Rear cover added a non-local scene layer.')
-  if pages[5]['text']!='Daddy gave her a brush and some sponges.\n“One little job at a time.”':issues.append('Sponge variety introduction missing.')
+  if by_old[4]['text']!='Daddy gave her a brush and some sponges.\n“One little job at a time.”':issues.append('Sponge variety introduction missing.')
  for n,key in [(17,'rescue_trapped'),(18,'rescue_release'),(27,'v27_scrub'),(28,'R09_suds'),(29,'R10_jump'),(30,'R11_land')]:
   if revised and n==18:key='approved_rescue_release'
   if polished and n in [17,18]:key='v29_rescue18' if n==17 else 'v29_rescue19'
@@ -120,9 +121,18 @@ def main():
   if any(term in ' '.join(q['text'].lower() for q in b['pages']) for term in ['dizzy','wobbled','beat him','stopped him','sparkles flew','fighting']):issues.append('Retired combat wording returned.')
   if any(q['source_key'] in {'v25_shell_duel','approved_apology_canvas','v25_art_simple'} for q in p['layers']):issues.append('Rejected active art returned.')
   visitor_keys={'v29_lamma09','v31_rear_lamma'} if story_clarity else {'v29_lamma09','v29_bank31_final'} if polished else {'approved_lamba_bath','v28_lamba_toy_peek'}
-  visitor_pages={9,'back_cover'} if story_clarity else {9,31}
+  visitor_pages={10,'back_cover'} if rainbow_story else {9,'back_cover'} if story_clarity else {9,31}
   if {q['page'] for q in p['layers'] if q['source_key'] in visitor_keys}!=visitor_pages:issues.append('Expected two unprompted hidden appearances.')
-  if story_clarity:
+  if rainbow_story:
+   if any(term in pages[13]['text'].lower()+' '+pages[14]['text'].lower() for term in ['one stream','three streams','other two']):issues.append('Unsupported waterfall-count language returned.')
+   if pages[13]['art']!=['v22_scene_11'] or pages[13].get('local_patches') or 'v31_waterfall_progress' in {q['source_key'] for q in p['layers']}:issues.append('Existing rainbow-water progress source must be restored without the aqua patch.')
+   if not all(term in pages[14]['text'].lower() for term in ['swimming pool','magic','makes the water rainbow']):issues.append('Owner magical-pool rainbow explanation missing.')
+   if pages[4]['mode']!='C' or pages[4]['art']!=['v32_shell_cobweb','v32_dusty_chest']:issues.append('Source-derived dirty castle inspection page missing.')
+   if pages[22]['art']!=['v22_art_sorting'] or 'scrubbed the table' not in pages[22]['text']:issues.append('Art-room cleanup must be completed before the final door.')
+   if pages[30]['art']!=['v22_scene_22_fit'] or not any(q['source']=='v32_clean_room30' for q in pages[30].get('local_patches',[])):issues.append('Quiet clean-room completion picture missing.')
+   if pages[31]['art']!=['roshan_reflect_large','approved_rainbow_puff_cutout'] or not all(term in pages[31]['text'].lower() for term in ['rainbow shine','thank you','rest with us']):issues.append('Combined rainbow reflection, thanks and belonging missing.')
+   if [q['source'] for q in pages[31].get('background_patches',[])]!=['v31_rest_bank31','v31_rest_bank31']:issues.append('Combined ending must retain both reviewed sleepy-bank patches and exclude the old third cameo.')
+  elif story_clarity:
    if any(term in pages[12]['text'].lower()+' '+pages[13]['text'].lower() for term in ['one stream','three streams','other two']):issues.append('Unsupported waterfall-count language returned.')
    if pages[31]['art']!=['roshan_wave_large','approved_rainbow_puff_cutout'] or 'Grand Puff' not in pages[31]['text'] or 'rest with us' not in pages[31]['text']:issues.append('Puff belonging/rest ending missing.')
    if [q['source'] for q in pages[31].get('background_patches',[])]!=['v31_rest_bank31','v31_rest_bank31']:issues.append('Former toy-bank cameo must be removed by both reviewed local rest patches.')

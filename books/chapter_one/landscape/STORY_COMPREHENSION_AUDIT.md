@@ -1,18 +1,13 @@
-# V31 story and language review
+# V32 story comprehension and shared-reading audit
 
-Status: `SUPPORTING_CURRENT`; developmental editorial review, not an observed child test or professional SLP approval.
+Status: `SUPPORTING_CURRENT`. Internal editorial review for a shared-reading picture book, ages4–5. Professional SLP endorsement and child evidence remain open.
 
-| Pages | Narrative purpose | Current evidence |
-|---|---|---|
-|1–4|Arrive, enter, see dirt, agree to help|Actual source doorway and dirty hall establish entry before cleaning. Roshan's quotation has an explicit speaker.|
-|5–9|Tools, playful bunny, bath cleaning and payoff|Brush/sponge, contact scrubbing, drain and clean water support concrete verbs and playful repetition.|
-|10–16|Meet and help Rumi|Rumi's residence lasted hundreds of years, not her entrapment. Strainer removes rubbish; partial gunk removal is explicitly ongoing, followed by clear water and the rainbow payoff, freed cup, released friend and hug complete the cause chain.|
-|17–20|Hear, find, help Eagle; bunnies apologize|The playroom cue bridges the approach and toy hall. Exactly two playful cloud bunnies trap Eagle. Brushing is gentle, each speaker apologizes and Roshan models gentle play.|
-|21–22|Finish craft-room cleanup|Sorting and scrubbing advance restoration; no disconnected craft-making pause.|
-|23–25|Last door, uncomfortable Puff, reassurance|A closed shadowed-violet door and low rumble create cautious curiosity; Roshan holds cleaning supply and offers the owner's exact caring words.|
-|26–30|Friends wash Puff; rainbow reveal|Helpers wash together. Dirt hid the same friend's own colors. Bubble/reveal page turn, exact landing and reflection preserve continuity.|
-|31–32|Gratitude, welcome and shared rest|Puff thanks Roshan; she invites him to rest with the friends. The inclusive bubble nap completes his belonging arc.|
+The opening now moves from arrival and invitation3 to concrete cobweb/chest observations4, dusty-floor problem5, shared goal and visible supplies6. This uses existing castle material and preserves the setting. The bath supplies simple repeated actions. The pool sequence12–16 connects gunk clearing, rainbow water, the magic swimming pool, the obstructing cup and Rumi's freedom;17 keeps the immediate hug. Daddy's named speech on14 explains why the waterfall is rainbow. No unsupported stream count or ordinary-water substitution remains.
 
-Short concrete clauses, named referents, supported richer words and recurrent sounds invite participation as reading develops. This remains a shared-reading picture book, not a controlled phonics course or certified reading level. No hidden-character search instruction appears in the manuscript.
+Rumi has lived in the castle for hundreds of years; the text does not assign that duration to her trap.18–21 identify Baby Eagle's chirp, exactly two playful bunnies, an accidental trap, gentle brushing, apology and gentle play. The chirp and trapped-Eagle picture now share a spread, providing immediate identification rather than a concealed danger. The quiet bank bunnies remain secondary to the rescue.
 
-The [language packet](revisions/v31_story_clarity/SLP_REVIEW_PACKET.html) gives the exact manuscript, language-development rationale and review questions. Relevant ASHA and IES guidance is cited there. Actual SLP sign-off requires a qualified professional. Observe Roshan's understanding of the rescue, apology and same-Puff transformation; allow enjoyable reading without turning each page into a test. A print dummy must confirm all caption placements and reveal turns.
+22 combines sorting paints and cleaning the table before the last door.23→24 still uses a page turn to reveal dusty, uncomfortable Grand Puff.25–29 keep reassurance, cooperative washing, concealed colors, rainbow emergence and the exact landing. The quiet clean-room30 records the castle result;31 gives Roshan's rainbow reflection, Puff's thanks and a shared invitation.32 delivers the inclusive bubble nap. No renewed cleaning job, second transformation or unrelated Eagle subplot is introduced at the end.
+
+All32 captions have been reread against current pictures. Named speakers, concrete nouns, short breath groups and familiar helping/scrubbing refrains support adult read-aloud and later participation. New 'cobwebs' and 'rainbow-colored' have direct pictorial support. Useful vocabulary remains natural; no measured decoding level or clinical developmental outcome is asserted. Two silent Lamma appearances remain optional discoveries and are not explained in child-facing text.
+
+Exact text is in [page plan](PAGE_PLAN.md) and [language review packet](revisions/v32_rainbow_story/SLP_REVIEW_PACKET.html); [independent language audit](revisions/v32_rainbow_story/language_final.json) binds the current manuscript and proof hashes. [Spread dummy](revisions/v32_rainbow_story/PRINT_DUMMY.html) preserves right-side story1 and both23→24/27→28 reveals. A physical dummy and natural adult reading remain separate from digital checks.

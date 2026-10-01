@@ -44,7 +44,7 @@ unclassified until this ledger gains one new scoped row for it.
 
 | Doc | | Note |
 |---|---|---|
-| `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; navigation to V30 full review book, all34 before/after comparisons, source/native generation evidence and honest remaining craft/acceptance limits. |
+| `books/chapter_one/README.md` | 🔵 | `SUPPORTING_CURRENT`; V32 current34-page review navigation, magic rainbow pool, consolidated Puff welcome and mapped source/proof evidence; external acceptance remains open. |
 | `books/chapter_one/DESIGN_LANGUAGE.md` | 🟢 | `BINDING_DOMAIN`; static-book source/identity/layout rules and scoped owner exceptions. Finished kindness plot remains; latest owner commission adds all-object polish, substantial gap-repair iteration including50+ generations, varied small banks, two unprompted Lamma appearances and explicit bubble/export audit. Internal4.9 craft, SLP and actual owner/child/print acceptance stay separate; no game/cinematic authority. |
 | `books/chapter_one/plan/PAGE_BY_PAGE_PLAN.md` | 🟣 | `SUPERSEDED`; preserved 40-page portrait proposal; current pagination and assignments are in landscape/PAGE_PLAN.md. No art acceptance inherited. |
 
@@ -816,14 +816,14 @@ Kept as-is; noted so a future edit updates every copy.
 
 | Doc | | Note |
 |---|---|---|
-| `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; V31 exact32 story-page mapping plus covers; truthful partial-waterfall/completion wording, mysterious final door and Puff gratitude/rest beat; full-art/cutout sources and both reveal turns preserved. |
-| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V31 owner comprehension/mood corrections over the V30 polished proof, local-mask iteration and lossless source/PDF checks; prior scores did not establish owner acceptance. Owner/child/SLP/print acceptance remain open. |
+| `books/chapter_one/landscape/PAGE_PLAN.md` | 🔵 | `SUPPORTING_CURRENT`; V32 exact32-page map, dusty-castle insert4, rainbow pool dialogue13–14, combined cleanup22, quiet result30 and merged welcome31; both reveal turns preserved. |
+| `books/chapter_one/landscape/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; V32 six changed proofs and28 exact mapped V31 reuses; native extraction/local-mask limits, lossless PDF/source checks and external acceptance gaps. |
 
 | `books/chapter_one/landscape/STRESS_TEST.md` | 🔵 | `SUPPORTING_CURRENT`; owner-rejected v7 and page-by-page revised rough audit; mechanical checks explicitly do not grant visual/identity acceptance. |
 
 | `books/chapter_one/landscape/BORDER_ART_DIRECTION.md` | 🔵 | `SUPPORTING_CURRENT`; owner-requested varied border performances and v17 repository-detail score; frightened lower-right stages supersede the quiet reveal; owner acceptance remains open. |
 
-| `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; V31 developmental shared-reading review adds partial progress/completed rainbow, closed-door uncertainty and same-Puff gratitude/welcome before rest; Rumi residence, gentle rescue and kindness canon remain. Not child-test or professional SLP evidence. |
+| `books/chapter_one/landscape/STORY_COMPREHENSION_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT`; V32 magic pool dialogue, concrete early dust observations, completed cleanup before the final door and consolidated Puff gratitude/rest; all32 captions reread, not professional SLP or child-test evidence. |
 
 | `books/chapter_one/reviews/2026-09-30/REVIEW.md` | ⚪ | `HISTORICAL_EVIDENCE`; unchanged-V27 comprehensive comparison and recommendations. V28 implements selected corrections; unresolved source/print questions remain current through landscape/REVIEW.md. |
 
@@ -832,4 +832,5 @@ Kept as-is; noted so a future edit updates every copy.
 | `books/chapter_one/landscape/revisions/v28_kindness/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; sealed V28 full-book kindness review and V29 comparison baseline. Original source/generation evidence, previews and manifest retained; V29 owns current manuscript and polish review. |
 | `books/chapter_one/landscape/revisions/v29_polish/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; published V29 full-book polish and exact V30 baseline. Original50 candidates, object/style/language reports, proof and remote manifest remain unchanged; V30 owns current local corrections and final review. |
 | `books/chapter_one/landscape/revisions/v30_identity/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; published V30 local identity/attention/costume and sponge polish with exact proof/audit hashes; V31 retains29 identical page PNGs and supersedes current story/mood review facts. Original proof and generation evidence are unchanged. |
-| `books/chapter_one/landscape/revisions/v31_story_clarity/README.md` | 🔵 | `SUPPORTING_CURRENT`; owner-requested waterfall progress/count correction, same castle door with local mystery treatment, Puff gratitude/rest ending and tiny rear Lamma;34-page proof, local candidates/masks, all-page comparison, independent bound audits and anonymous remote manifest. Owner/child/SLP/print acceptance remain open. |
+| `books/chapter_one/landscape/revisions/v31_story_clarity/README.md` | ⚪ | `HISTORICAL_EVIDENCE`; published V31 mystery-door/rear-cameo and ending evidence. V32 restores rainbow water and consolidates the ending; original art/proofs/audits preserved. |
+| `books/chapter_one/landscape/revisions/v32_rainbow_story/README.md` | 🔵 | `SUPPORTING_CURRENT`; V32 magical rainbow pool, consolidated Puff page, freed early dusty-castle inspection and quiet clean-room closing; exact34-page proof, five bounded candidates, four delivered components, independent audits and anonymous remote manifest; owner/child/SLP/print acceptance remain open. |

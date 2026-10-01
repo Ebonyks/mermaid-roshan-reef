@@ -69,7 +69,20 @@ def local_patch(p):
 def cut(k,x,y,w,h):
  im=Image.open(path(k));assert im.mode=='RGBA' and im.getextrema()[3][0]==0,k
  box=B['sources'][k].get('alpha_box') or ((512,0,1024,512) if k=='grand_puff_jump_sheet' else im.getchannel('A').getbbox())
- l,t,r,b=box;s=min(w/(r-l),h/(b-t));dw=(r-l)*s;dh=(b-t)*s;region(k,box,(x+(w-dw)/2,y+(h-dh)/2,dw,dh));return (x+(w-dw)/2,y+(h-dh)/2,dw,dh)
+ l,t,r,b=box;s=min(w/(r-l),h/(b-t));dw=(r-l)*s;dh=(b-t)*s;target=(x+(w-dw)/2,y+(h-dh)/2,dw,dh)
+ contour=B['sources'][k].get('contour_polygon')
+ if contour:
+  # Document-level contour isolation preserves the native raster unchanged.
+  # It excludes residual atlas backing; no rectangular panel is delivered.
+  c.saveState();shape=c.beginPath();tx,ty,tw,th=target
+  for i,(px,py) in enumerate(contour):
+   assert l<=px<=r and t<=py<=b
+   (shape.moveTo if i==0 else shape.lineTo)(tx+(px-l)*s,ty+(b-py)*s)
+  shape.close();c.clipPath(shape,stroke=0,fill=0)
+ region(k,box,target)
+ if contour:
+  LAYERS[-1]['contour_polygon_source_pixels']=contour;c.restoreState()
+ return target
 def text(s,x,y,width,size=18,center=False,halo=False,color="navy",shadow=False,outline=0):
  lines=[]
  for para in s.split('\n'):
