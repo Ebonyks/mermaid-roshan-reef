@@ -6,7 +6,7 @@ Status: **candidate files ready for user review; user approval pending**. Eight 
 
 ## Result and scoring
 
-Eight selected candidates score **4.6–4.7/5** in Codex source review, meeting the requested minimum **4.5/5**. Nine built-in imagegen edit calls were used: eight initial candidates and one precise Kitchen correction. The first Kitchen candidate is retained and rejected at 4.3 for changing the pot emblem.
+Eight selected candidates score **4.5–4.7/5** in Codex source review, meeting the requested minimum **4.5/5**. Twelve built-in imagegen calls were used: nine image edits and three fresh nursery text-to-image generations with zero image bindings. The first Kitchen attempt is retained and rejected at4.3 for emblem drift. The first nursery candidate retains its historical4.6 Codex opinion but is owner-rejected for game-style mismatch; it is no longer the selected candidate. The first two fresh trials are retained and rejected at4.3 for native-edge artifacts; the third fresh trial is selected at4.5 with tiny remaining specks disclosed.
 
 The five criteria are identity/visual role, contour/isolation, palette/value, painted material finish and small-scale readability. Each also meets 4.5 in this draft. These are authored visual opinions bound to exact selected hashes; this tool checks the binding and never grades a new image. No 5/5 or owner/runtime acceptance is claimed under DL-VIS-07 and DL-VIS-08.
 
@@ -15,7 +15,7 @@ The five criteria are identity/visual role, contour/isolation, palette/value, pa
 | Item | Original score | Selected score | Attempts |
 |---|---:|---:|---:|
 | D2A-0394 — Friendly boxing contact puff | 2.5/5 | 4.7/5 | 1 |
-| D2A-0446 — Nursery catching-arms cue | 3.1/5 | 4.6/5 | 1 |
+| D2A-0446 — Nursery softly painted catching arms | 3.1/5 | 4.5/5 | 4 |
 | D2A-0495 — Installed racer rear wheel | 3.2/5 | 4.7/5 | 1 |
 | D2A-0056 — Tree Book Bigleaf Maple specimen | 3.8/5 | 4.6/5 | 1 |
 | D2A-0057 — Tree Book Pacific Dogwood specimen | 3.9/5 | 4.6/5 | 1 |
@@ -25,7 +25,7 @@ The five criteria are identity/visual role, contour/isolation, palette/value, pa
 
 ![Before/after and small-scale inspection](comparison_board.png)
 
-The board and HTML show inspection-only composites on neutral cream/navy mats. These are source readability proxies, not current runtime screenshots or generation inputs. Wheel previews use the actual 36px draw size, badges use 64px, and other proxies use 112px. Comparison-board pixels never become replacement art.
+The board and HTML show inspection-only composites on neutral cream/navy mats. These are source readability proxies, not current runtime screenshots or generation inputs. Wheel previews use the actual36px draw size, nursery arms use116px, badges use64px and other proxies use112px. Comparison-board pixels never become replacement art.
 
 ## D2A-0394 — Friendly boxing contact puff
 
@@ -39,17 +39,17 @@ Criterion scores: identity and visual role 4.8/5; contour and isolation 4.7/5; p
 
 Source: assets/opera/worlds/props/fx_bop_puff.png. Source SHA-256: 4e64dfa88aa9a6105a61cdac0f978d207eb581b822ce854ac806a88e2a1c4e5c. Selected SHA-256: eefeae63d15b20e64e63fc589d39b931f9e7960e0077bb933fed56173f4b4cb5.
 
-## D2A-0446 — Nursery catching-arms cue
+## D2A-0446 — Nursery softly painted catching arms
 
-**Before 3.1/5 → candidate 4.6/5.** The flat backing disc and target ring are replaced by readable cream cuffs, soft hands and an open coral padded sling. The center stays empty for the separately drawn baby. This preserves the bilateral catching/support role rather than introducing different furniture.
+**Before 3.1/5 → candidate 4.5/5.** Three fresh text-to-image generations with zero bound images follow the owner rejection of the flat sling/cuff design. Attempts2 and3 are rejected for bright native-edge artifacts. Attempt4 uses calmer painted color bands, connected wrists, softly cupped palms, modest lilac sleeve ends and more generous margins. Its simplified warm storybook forms fit the game better in Codex review. Tiny colored edge specks remain at native magnification; they are disclosed and reduce the source grade to4.5/5. This meets the draft minimum, while owner style acceptance and runtime contact remain pending.
 
-**Interaction/integration review:** The source controller draws this graphic around catch_point with a 116px maximum width, then draws babies separately. Review actual baby overlap, actor/hand ownership and settled-baby support before runtime integration; the cutout alone cannot close embodied-action evidence.
+**Interaction/integration review:** The controller draws a square up to116px wide around catch_point and draws babies separately. Check actual baby overlap, the implied connection to Roshan, palms beneath a falling baby and the separate settled-baby row before integration. The preview proves source readability only.
 
-[Original comparison reference](references/D2A-0446.png) · [Selected 1024px RGBA candidate](selected/D2A-0446.png)
+[Original comparison reference](references/D2A-0446.png) · [Selected 1024px RGBA candidate](selected/D2A-0446-v4.png)
 
-Criterion scores: identity and visual role 4.6/5; contour and isolation 4.8/5; palette and value 4.6/5; painted material finish 4.6/5; small scale source readability 4.6/5.
+Criterion scores: identity and visual role 4.7/5; contour and isolation 4.5/5; palette and value 4.7/5; painted material finish 4.5/5; small scale source readability 4.5/5.
 
-Source: assets/opera/worlds/widgets/widget_catch_nursery_cradle.png. Source SHA-256: 9cacbc76cb577051150379a369add2576f5dc50b617d601f5b83bbe4ac0f068e. Selected SHA-256: c9cb896b8cb75fbda3369d4c0e34fb4973a0cf280e82bb765cbff45f949d1a42.
+Source: assets/opera/worlds/widgets/widget_catch_nursery_cradle.png. Source SHA-256: 9cacbc76cb577051150379a369add2576f5dc50b617d601f5b83bbe4ac0f068e. Selected SHA-256: 4a667658d53ed093e384789a62cad2f5248012cb8d8871f6bd7e8b346f3e4191.
 
 ## D2A-0495 — Installed racer rear wheel
 
@@ -125,10 +125,10 @@ Source: assets/ui/castle_room_buttons_v2/room_opera_hall.png. Source SHA-256: b7
 
 ## Reuse, provenance and technical handling
 
-Task baseline: exact integration 29bbd80aeb539b45b1f34bb93324883addf8b0c8. Existing sources, physical-door/elevator manifest, source masters, Tree Book and specialist draw routes were inventoried. Every generation binds existing artwork as identity reference; no unrelated scene or full actor redesign is commissioned.
+Task baseline: exact integration 29bbd80aeb539b45b1f34bb93324883addf8b0c8. Existing sources, physical-door/elevator manifest, source masters, Tree Book and specialist draw routes were inventoried. Nine earlier edits bind existing artwork; the three fresh nursery trials use only written briefs and zero bound images, as explicitly commissioned by the owner. No new baby, face, torso, unrelated scene or full actor redesign is commissioned.
 
 - **Puff:** Existing exact source reused as edit input; unwanted bars contaminate its isolated effect. No other puff redesign commissioned.
-- **Nursery:** The current draw route uses this flat symbolic catching-arms graphic. Existing beds/cribs are different props and fail its open catching-support role.
+- **Nursery:** Owner explicitly rejected the first reference-fitted sling/cuff candidate for style mismatch and commissioned fresh generation. Existing crib/bed props do not provide cupped catching arms. Fresh attempts2-4 use the written design language and no image inputs; existing baby/Roshan images were read-only context, never generation references.
 - **Wheel:** Existing mounted-wheel source reused as identity input. Its 256px extracted wheel is softer/jaggier than adjacent kart art; no different steering-wheel asset can substitute its mounted role.
 - **Trees:** Existing low-resolution species drawings retained as identity inputs. Opaque navy plates visibly conflict with book choice paper; ordinary copies retain that problem. New patient/story art is outside scope.
 - **Badges:** The v2 icons share exact physical-door signs in elevator_picture_icon_manifest.json. Those small source crests retain the same edge/backing weakness. The older 2026-08-01 files named button masters were inspected and are complete room-scene cards (1692x929,1691x930,1619x971), not sharper copies of these isolated motifs. Reusing them as buttons would change the established pictorial navigation family. New derivatives preserve the actual palette, pot, masks and scalloped frame.
@@ -139,12 +139,12 @@ Selected files have true RGBA, transparent corners and a complete visible alpha>
 
 ## Mobile replacement files
 
-The mobile copies were separately inspected on light/dark mats at 36px (wheel), 64px (badges) and 112px (other cues). All eight retain their 4.6–4.7/5 draft source grades after reduction. Their exact reviewed hashes are recorded separately. The originals, 1254px native generations and 1024px review masters remain intact.
+The mobile copies were separately inspected on light/dark mats at 36px (wheel), 116px (nursery arms), 64px (badges) and112px (other cues). All eight retain their 4.5–4.7/5 draft source grades after reduction. Their exact reviewed hashes are recorded separately. The originals, 1254px native generations and 1024px review masters remain intact.
 
 | Mobile file | Size | Draft source score |
 |---|---:|---:|
 | [D2A-0394](mobile/D2A-0394.png) | 512×512 | 4.7/5 |
-| [D2A-0446](mobile/D2A-0446.png) | 256×256 | 4.6/5 |
+| [D2A-0446](mobile/D2A-0446-v4.png) | 256×256 | 4.5/5 |
 | [D2A-0495](mobile/D2A-0495.png) | 256×256 | 4.7/5 |
 | [D2A-0056](mobile/D2A-0056.png) | 512×512 | 4.6/5 |
 | [D2A-0057](mobile/D2A-0057.png) | 512×512 | 4.6/5 |
@@ -162,6 +162,6 @@ The faceted racer portrait D2A-0054 should first be compared with the existing p
 
 ## Verification and user approval
 
-Machine evidence is in [VERIFICATION.json](VERIFICATION.json): exact source/reference/prompt/output hashes, 1024 RGBA/margins, original preservation, browser/image decoding, document authority, change coverage and the shrinking 2D gate. Full CI results are linked when available. Checks never supply visual ratings or user approval.
+Machine evidence is in [VERIFICATION.json](VERIFICATION.json): exact source/reference/prompt/output hashes, 1024 and256/512 RGBA/margins, original preservation, browser/image decoding, document authority, change coverage and the shrinking 2D gate. Full CI results are linked when available. Checks never supply visual ratings or user approval.
 
 **User decision requested:** approve this report and the eight selected source candidates, or name item IDs for another revision. Approval must come from the user. All owner_approval fields remain null until that response. Runtime integration, live motion/contact, target device, child and whole-game acceptance are separate. No finding is closed and no release is authorized by this draft.

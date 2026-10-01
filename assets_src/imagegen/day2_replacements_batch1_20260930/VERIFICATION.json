@@ -1,11 +1,11 @@
 {
   "packet_id": "day2-replacements-batch1-20260930",
   "source_baseline": "29bbd80aeb539b45b1f34bb93324883addf8b0c8",
-  "checked_utc": "2026-10-01T00:06:39.525194+00:00",
-  "candidate_source_gate": "PASS: eight visually authored and pixel-hash-bound scores >=4.5; nine native generation attempts preserved",
+  "checked_utc": "2026-10-01T00:20:42.221229+00:00",
+  "candidate_source_gate": "PASS: eight current selected sources score4.5-4.7 in authored review; twelve native generations retained. Original nursery candidate owner-rejected for style; three fresh zero-image-input trials, two rejected for edge artifacts, final source4.5 with native specks disclosed.",
   "source_preservation": "PASS: eight original/reference hashes unchanged; no authored runtime, protected artwork, audio, save or workflow changes",
   "normalization": "Eight preserved1024x1024 RGBA review masters plus eight separately reviewed256/512px mobile files; whole-canvas Lanczos reduction directly from native1254x1254 only; no local pixel repair.",
-  "readability_evidence": "assets_src/imagegen/day2_replacements_batch1_20260930/comparison_board.png; neutral light/dark source proxies, wheel36px/badges64px/others112px. Not runtime captures.",
+  "readability_evidence": "comparison_board.png and illustrated page show current exact mobile files at36px wheel,116px nursery,64px badges,112px trees/puff; inspection composites only.",
   "owner_approval": null,
   "runtime_integration": false,
   "browser_qa": "PASS: Edge/Playwright,8 cards,33/33 images decoded,16 exact-mobile proxy images,8 mobile download links,zero page errors,390px viewport/content both390px; wide/mobile screenshots visually inspected.",
@@ -13,7 +13,7 @@
   "development_coverage": "PASS: AUDITDEV auto baseline7f068cb80766edd52a110cc1cb3958158f829822; ALL OK",
   "game2d_regression": "PASS: NO_REGRESSION,0 model files,52 production 3D files,61 probe 3D files,1 scene3D and1 configuration3D; strict whole-game status remains UNSATISFIED",
   "full_ci": {
-    "status": "PENDING_AT_PUBLICATION",
+    "status": "PENDING_CURRENT_NURSERY_REVISION",
     "branch_workflow_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions?query=branch%3Acodex%2Fday2-art-replacements-batch1-20260930",
     "payload_revision": "8efe2d795dd348568cd20ff866b6664502ec5ac2",
     "payload_run": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36794438175",
@@ -26,7 +26,8 @@
     "files": 61,
     "access_mode": "Unauthenticated public GitHub raw HTTPS; no credentials or recipient-specific login required",
     "checked_utc": "2026-10-01T00:06:04.334613+00:00",
-    "scope": "All eight original sources plus complete committed image/report/prompt/impact/tool packet. This receipt binds that immutable payload; subsequent receipt-link metadata does not alter artwork."
+    "scope": "All eight original sources plus complete committed image/report/prompt/impact/tool packet. This receipt binds that immutable payload; subsequent receipt-link metadata does not alter artwork.",
+    "status_for_current_revision": "Historical receipt covers prior payload only; nursery revision publication/reverification pending."
   },
   "diff_check": "PASS after removal of report/tool trailing blank lines; initial check failure retained here",
   "initial_diff_check": "FAIL: one new blank line at EOF in REPORT.md and builder; formatting repaired, source pixels untouched",
@@ -34,10 +35,12 @@
   "python_syntax": "PASS: ast.parse on committed review builder",
   "reconciled_integration_revision": "7f068cb80766edd52a110cc1cb3958158f829822",
   "incoming_change_scope": "Inherited objective-speech queue/zero-delay fix and probe evidence only. No change to the eight source images or their draw geometry; ratings remain bound to exact reviewed pixels.",
-  "mobile_quality_gate": "PASS: exact SHA-bound mobile source grades4.6-4.7; transparent corners and complete visible-alpha margins. Estimated decodedRGBA4.25MiB versus32MiB review-master set; device/GPU performance unmeasured.",
+  "mobile_quality_gate": "PASS: exact SHA-bound mobile draft scores4.5-4.7; transparent corners and visible-alpha margins. Nursery final mobile inspected at116px on light/dark mats. Estimated decodedRGBA4.25MiB; device/GPU performance unmeasured.",
   "initial_ci_failure": {
     "run": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36793387435",
     "revision": "ddec1d9dfc89970e8680d8241f8188367b87811b",
     "cause": "G2D101: prose debt-category words lacked spaces and matched the broad API scanner. Add spaces in documentation evidence; no game-code or gate exception/change."
-  }
+  },
+  "owner_feedback": "Prior nursery Codex source-grade4.6 is superseded by owner style rejection. Three fresh text-to-image trials use zero image bindings. Current source4.5 reaches draft minimum; user approval remains pending.",
+  "prompt_checkout_bytes": "Packet .gitattributes marks prompts/*.txt -text; exact SHA-bound prompt bytes retained across Windows/Linux."
 }
