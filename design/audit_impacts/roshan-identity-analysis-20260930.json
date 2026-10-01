@@ -61,8 +61,8 @@
     },
     {
       "command": "Anonymous fetch of the revision-2 MANIFEST.json and every listed file from raw.githubusercontent.com at the pushed commit",
-      "result": "PENDING",
-      "evidence": "Recorded after publication."
+      "result": "PASS",
+      "evidence": "Published at commit ab825adf99d8c1feb4c99580d7eccc2cda6c0e11 on branch claude/visual-design-language-20260930 (https://github.com/Ebonyks/mermaid-roshan-reef/tree/ab825adf99d8c1feb4c99580d7eccc2cda6c0e11/docs/handoffs/codex_visual_design_language_2026-09-30). Anonymous HTTPS fetch from raw.githubusercontent.com with no token at 2026-10-01T04:26:24Z: MANIFEST.json HTTP 200, 4,828 bytes, SHA-256 082a45ad5b0e12858f474fa6417cf72c29d661d528ccca15f2d9485f4660344b, revision 2, byte-identical to the committed blob; 18 of 18 listed files match bytes and SHA-256. The master audit, finding register, ledger and this record at the same commit are byte-identical to the committed blobs."
     },
     {
       "command": "GitHub Probe Suite at the branch head",
