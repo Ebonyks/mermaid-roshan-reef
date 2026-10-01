@@ -75,7 +75,7 @@
     {
       "command": "GODOT=4.7.2-stable scripts/ci.sh in complete canonical H: Git validation worktree",
       "result": "FAIL",
-      "evidence": "Complete canonical tracked source/config/art input, independent fresh cache/userdata: all static, import and 2D regression gates passed; 81 of 82 trusted probes exited 0. Unchanged probe_dust_boss reported seven cascading fixture assertions. No assertions were weakened. Log is retained below. The attempted main.gd extraction was then reverted under the mandatory refactor rule; this failure is historical evidence, not a pass."
+      "evidence": "Complete canonical tracked source/config/art input, independent fresh cache/userdata: all static, import and 2D regression gates passed; 80 assertion-bearing local probes passed with one expected display-only headless skip; one assertion-bearing probe failed. Unchanged probe_dust_boss reported seven cascading fixture assertions. No assertions were weakened. Log is retained below. The attempted main.gd extraction was then reverted under the mandatory refactor rule; this failure is historical evidence, not a pass."
     },
     {
       "command": "Sequential exact-baseline/candidate Dust Boss comparison, same Godot 4.7.2 and fresh profiles",
@@ -85,22 +85,22 @@
     {
       "command": "GODOT=4.7.2-stable scripts/ci.sh, canonical revised candidate with main.gd unchanged",
       "result": "PASS",
-      "evidence": "Complete canonical Git worktree, native exact Godot 4.7.2-stable official.ed1daf0bf, independent import cache and fresh per-probe profiles. Full scripts/ci.sh exited 0; all 82 trusted probes exited 0, including unchanged Dust Boss, all 15 launcher choices, normal Opera siblings, save recovery, passive safety, touch and chapter checks. All blocking static/audio/visual-unit/interaction/import/2D regression gates passed. Source snapshot v2 and complete log SHA-256 are bound below. Advisory whole-game visual and strict-zero-2D satisfaction remain open."
+      "evidence": "Complete canonical Git worktree, native exact Godot 4.7.2-stable official.ed1daf0bf, independent import cache and fresh per-probe profiles. Full scripts/ci.sh exited 0; 81 assertion-bearing local probes passed with one expected display-only headless skip, including unchanged Dust Boss, all 15 launcher choices, normal Opera siblings, save recovery, passive safety, touch and chapter checks. All blocking static/audio/visual-unit/interaction/import/2D regression gates passed. Source snapshot v2 and complete log SHA-256 are bound below. Advisory whole-game visual and strict-zero-2D satisfaction remain open."
     },
     {
       "command": "Exact-head GitHub Probe Suite (probes and area-music-provenance)",
-      "result": "PENDING",
-      "evidence": "Must be green on the exact published topic commit before dev integration. Baseline CI below is evidence for baseline only."
+      "result": "PASS",
+      "evidence": "Exact source commit 21a19222600893e00a2e38f46ba0658636311421: GitHub Probe Suite https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36827037541 completed successfully with required probes and area-music-provenance jobs both successful. All seven Git-normalized source payload SHA-256 values match the tested committed blobs; scripts/main.gd equals upstream 1e62991ee8db27afe045ed1791d938976762e38d exactly. Receipt tmp/opera-job-remote-source-21a19222-run-36827037541.json, SHA-256 740c48bdf46f698f9ce32a5f7ce0e2a7e5dd67f5e54ea9ce551a47ef6e9ed44c. This metadata-only follow-up retains identical runtime source. The final evidence revision must get its own exact-head whole CI green before dev integration, reported externally without a recursive self-SHA update loop. Baseline, failed local aggregates and composed completion evidence are retained; physical, child, owner and duplication gaps remain."
     },
     {
       "command": "GODOT=4.7.2-stable scripts/ci.sh, reconciled canonical candidate at upstream 1e62991e",
       "result": "FAIL",
-      "evidence": "Complete canonical tracked inputs and snapshot v3 at upstream 1e62991e. Blocking static/audio/visual-unit/interaction/import/2D regression gates pass; 81 of 82 trusted probes exit 0. Unchanged probe_dust_boss_balance stops with pipeline exit 127 after three successful personas, without its final verdict or a script error; aggregate scripts/ci.sh exits 1. This interruption remains a failed aggregate, with no crash cause established. No assertion or game code was changed; the separately supervised native completion is recorded below."
+      "evidence": "Complete canonical tracked inputs and snapshot v3 at upstream 1e62991e. Blocking static/audio/visual-unit/interaction/import/2D regression gates pass; 80 assertion-bearing local probes passed with one expected display-only headless skip; the remaining assertion-bearing probe was interrupted. Unchanged probe_dust_boss_balance stops with pipeline exit 127 after three successful personas, without its final verdict or a script error; aggregate scripts/ci.sh exits 1. This interruption remains a failed aggregate, with no crash cause established. No assertion or game code was changed; the separately supervised native completion is recorded below."
     },
     {
-      "command": "Documented full probe-by-probe alternative: 81 completed aggregate probes plus native supervised probe_dust_boss_balance",
+      "command": "Documented full probe-by-probe alternative: 80 completed assertion-bearing local probes plus native supervised probe_dust_boss_balance and one expected display-only headless skip",
       "result": "PASS",
-      "evidence": "Same unchanged combined source snapshot v3, exact Godot 4.7.2 and fresh isolated profiles. All 81 other trusted probes completed exit 0 in the aggregate; native balance rerun completes all eight positive personas and four negative controls, prints DUSTBAL|result: ALL OK and exits 0. All 82 trusted probes therefore complete successfully with the blocking static/import gates already passed. Composed receipt binds both logs, source and supervision; this does not relabel scripts/ci.sh exit 1 as a pass. Whole exact-topic remote CI remains required before integration."
+      "evidence": "Same unchanged combined source snapshot v3, exact Godot 4.7.2 and fresh isolated profiles. The aggregate completed 80 assertion-bearing local probes plus one expected display-only headless skip; native balance rerun completes all eight positive personas and four negative controls, prints DUSTBAL|result: ALL OK and exits 0. The native rerun completes the 81st assertion-bearing local probe; 81 assertion-bearing local probes plus one expected display-only headless skip are accounted for, with the blocking static/import gates already passed. Composed receipt binds both logs, source and supervision; this does not relabel scripts/ci.sh exit 1 as a pass. Whole exact-topic remote CI remains required before integration."
     },
     {
       "command": "Reconciled parser/inference, audit_document_authority.py and audit_development.py --base auto",
@@ -108,7 +108,7 @@
       "evidence": "Seven launcher GDScripts plus incoming main.gd parse and pass inference lint; authority and complete change coverage pass against incoming MERGE_HEAD 1e62991e. Final pre-commit/push rerun is mandatory."
     }
   ],
-  "acceptance_gaps": "All 82 reconciled canonical probes complete through aggregate plus native rerun, while the interrupted aggregate remains FAIL; exact-head remote CI is pending at pre-publication authoring and must pass before dev integration. Target-device touch/30 fps, observed child play and owner acceptance remain outstanding. The small duplicated HUD handoff is bounded temporary DL-CODE-05 debt after mandatory extraction reversion. No finding lifecycle or whole-game UNSATISFIED satisfaction changes. Existing art is reused without modifications; no protected content, new art, cinematic or release change.",
+  "acceptance_gaps": "All 81 assertion-bearing local probes complete through aggregate plus native rerun, with one expected display-only headless skip, while the interrupted aggregate remains FAIL; source 21a19222600893e00a2e38f46ba0658636311421 has verified exact-head remote Probe Suite PASS. Target-device touch/30 fps, observed child play and owner acceptance remain outstanding. The small duplicated HUD handoff is bounded temporary DL-CODE-05 debt after mandatory extraction reversion. No finding lifecycle or whole-game UNSATISFIED satisfaction changes. Existing art is reused without modifications; no protected content, new art, cinematic or release change.",
   "baseline_evidence": {
     "probe_suite": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36807014650",
     "head": "b65c21fdddd79f272a6854f241faa1441abe6616",
@@ -190,6 +190,14 @@
     {
       "path": "tmp/opera-job-preserved-h-evidence/receipt.json",
       "sha256": "4d17905dc344e7ba277b26e1490af4d355a227478a319c7d09886324f3fae7df"
+    },
+    {
+      "path": "tmp/opera-job-remote-source-21a19222-run-36827037541.json",
+      "sha256": "740c48bdf46f698f9ce32a5f7ce0e2a7e5dd67f5e54ea9ce551a47ef6e9ed44c"
+    },
+    {
+      "path": "tmp/opera-job-local-probe-classification-21a19222.json",
+      "sha256": "1d2d0438e49d41b1a48c286ceed4eb3eb576d6bfb15c9b5a489682c467081313"
     }
   ],
   "source_payload": [
