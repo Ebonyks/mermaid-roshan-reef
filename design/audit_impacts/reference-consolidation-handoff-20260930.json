@@ -50,8 +50,8 @@
     },
     {
       "command": "Anonymous fetch of the handoff MANIFEST.json and every listed file from raw.githubusercontent.com at the pushed commit",
-      "result": "PENDING",
-      "evidence": "Recorded after publication."
+      "result": "PASS",
+      "evidence": "Published at commit add071dc27ea3dd4c2abc56bc6c845077ee2e4f3 on branch claude/stale-audit-consolidation-20260930 (https://github.com/Ebonyks/mermaid-roshan-reef/tree/add071dc27ea3dd4c2abc56bc6c845077ee2e4f3/docs/handoffs/codex_reference_consolidation_2026-09-30). Anonymous HTTPS fetch from raw.githubusercontent.com with no token at 2026-10-01T01:54:31Z: MANIFEST.json HTTP 200, 1,877 bytes, SHA-256 a976d0582e074bf4878bc5f4b03e2909e6e425e7d120ebe8f30ef42d8ad9a128, revision 1, byte-identical to the committed blob; 6 of 6 listed files match bytes and SHA-256. The master audit, finding register, ledger and this record at the same commit are byte-identical to the committed blobs."
     },
     {
       "command": "GitHub Probe Suite at the branch head",
