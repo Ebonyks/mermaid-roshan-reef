@@ -1,0 +1,148 @@
+{
+  "id": "D2A-0394",
+  "updated_utc": "2026-10-01T18:03:29.794629+00:00",
+  "status": "SOURCE_AND_STATIC_CONTACT_4_6_EFFECT_END_4_2_ORIGINAL_STILL_BOUND",
+  "original": {
+    "path": "assets/opera/worlds/props/fx_bop_puff.png",
+    "sha256": "4e64dfa88aa9a6105a61cdac0f978d207eb581b822ce854ac806a88e2a1c4e5c",
+    "source_score": 2.5,
+    "opinion": "Native puff has unrelated thin vertical remnants at both sides; rounded coral cloud itself is readable."
+  },
+  "reused_source": {
+    "path": "assets/opera/worlds/props/fx_dust_puff.png",
+    "sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+    "copy": "audit/day_two_boxing_puff_reuse_v1_20261001/clean_puff_exact_reuse.png",
+    "copy_sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+    "purpose_source_score": 4.6,
+    "role": "Existing exact clean lavender/white friendly puff. Source-purpose, all four static contact cases and all four v2 timed contact fits4.6; ending timing4.2 remains a separate priority.",
+    "provenance_report": "assets_src/imagegen/imp_animation_states_2026-08-02/reports/fx_dust_puff.json"
+  },
+  "static_review": "native_context_v1/VISUAL_REVIEW.json",
+  "timed_review": "native_timed_reuse_v2/VISUAL_REVIEW.json",
+  "final_settling_review": "native_timed_reuse_v3/VISUAL_REVIEW.json",
+  "causal_checks": "CAUSAL_CHECKS.json",
+  "actions": [
+    {
+      "action": 0,
+      "first_frame": 0,
+      "impact_settled": true,
+      "landed_punches": 1,
+      "last_frame": 39,
+      "mode": "boxing_jab",
+      "phase_progress": 1.0,
+      "qualification": "Actual local touch/drag/release through unchanged production GUI handler from an explicit catalog phase fixture. Only puff texture overridden. No ordinary HUD route, device or owner pass.",
+      "source": "res://assets/opera/worlds/props/fx_dust_puff.png",
+      "source_sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+      "width": 1280,
+      "contact_frame": 8,
+      "individual_puff_style_score": 4.6,
+      "individual_puff_contact_fit_score": 4.6,
+      "puff_end_timing_score": 4.2,
+      "complete_action_score": 4.0,
+      "opinion": "Clean rounded lavender/white puff remains legible over the glove and pad/imp torso without hiding the face or leaving the original vertical marks. Actual punch refreshes the effect once. Existing alpha falls only to approximately0.45 before the draw condition stops; this makes the end visibly abrupt. Flat procedural coral gloves have heavier simpler contours than the painted props, and imp reaction switches between complete cards without sufficient authored recovery acting. These shared weaknesses keep the complete action below target.",
+      "prior_contact_puff": "No puff before player contact in this jab capture."
+    },
+    {
+      "action": 1,
+      "first_frame": 40,
+      "impact_settled": true,
+      "landed_punches": 1,
+      "last_frame": 78,
+      "mode": "boxing_imp",
+      "phase_progress": 1.0,
+      "qualification": "Actual local touch/drag/release through unchanged production GUI handler from an explicit catalog phase fixture. Only puff texture overridden. No ordinary HUD route, device or owner pass.",
+      "source": "res://assets/opera/worlds/props/fx_dust_puff.png",
+      "source_sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+      "width": 1280,
+      "contact_frame": 47,
+      "individual_puff_style_score": 4.6,
+      "individual_puff_contact_fit_score": 4.6,
+      "puff_end_timing_score": 4.2,
+      "complete_action_score": 4.0,
+      "opinion": "Clean rounded lavender/white puff remains legible over the glove and pad/imp torso without hiding the face or leaving the original vertical marks. Actual punch refreshes the effect once. Existing alpha falls only to approximately0.45 before the draw condition stops; this makes the end visibly abrupt. Flat procedural coral gloves have heavier simpler contours than the painted props, and imp reaction switches between complete cards without sufficient authored recovery acting. These shared weaknesses keep the complete action below target.",
+      "prior_contact_puff": "Expected friendly counter feedback is already active before the player punch; no phase award. Production receive_friendly_hit sets this cloud at center/bottom, then the accepted punch refreshes it at the target."
+    },
+    {
+      "action": 2,
+      "first_frame": 79,
+      "impact_settled": true,
+      "landed_punches": 1,
+      "last_frame": 117,
+      "mode": "boxing_jab",
+      "phase_progress": 1.0,
+      "qualification": "Actual local touch/drag/release through unchanged production GUI handler from an explicit catalog phase fixture. Only puff texture overridden. No ordinary HUD route, device or owner pass.",
+      "source": "res://assets/opera/worlds/props/fx_dust_puff.png",
+      "source_sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+      "width": 1600,
+      "contact_frame": 87,
+      "individual_puff_style_score": 4.6,
+      "individual_puff_contact_fit_score": 4.6,
+      "puff_end_timing_score": 4.2,
+      "complete_action_score": 4.0,
+      "opinion": "Clean rounded lavender/white puff remains legible over the glove and pad/imp torso without hiding the face or leaving the original vertical marks. Actual punch refreshes the effect once. Existing alpha falls only to approximately0.45 before the draw condition stops; this makes the end visibly abrupt. Flat procedural coral gloves have heavier simpler contours than the painted props, and imp reaction switches between complete cards without sufficient authored recovery acting. These shared weaknesses keep the complete action below target.",
+      "prior_contact_puff": "No puff before player contact in this jab capture."
+    },
+    {
+      "action": 3,
+      "first_frame": 118,
+      "impact_settled": true,
+      "landed_punches": 1,
+      "last_frame": 156,
+      "mode": "boxing_imp",
+      "phase_progress": 1.0,
+      "qualification": "Actual local touch/drag/release through unchanged production GUI handler from an explicit catalog phase fixture. Only puff texture overridden. No ordinary HUD route, device or owner pass.",
+      "source": "res://assets/opera/worlds/props/fx_dust_puff.png",
+      "source_sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+      "width": 1600,
+      "contact_frame": 125,
+      "individual_puff_style_score": 4.6,
+      "individual_puff_contact_fit_score": 4.6,
+      "puff_end_timing_score": 4.2,
+      "complete_action_score": 4.0,
+      "opinion": "Clean rounded lavender/white puff remains legible over the glove and pad/imp torso without hiding the face or leaving the original vertical marks. Actual punch refreshes the effect once. Existing alpha falls only to approximately0.45 before the draw condition stops; this makes the end visibly abrupt. Flat procedural coral gloves have heavier simpler contours than the painted props, and imp reaction switches between complete cards without sufficient authored recovery acting. These shared weaknesses keep the complete action below target.",
+      "prior_contact_puff": "Expected friendly counter feedback is already active before the player punch; no phase award. Production receive_friendly_hit sets this cloud at center/bottom, then the accepted punch refreshes it at the target."
+    }
+  ],
+  "individual_scores": [
+    {
+      "item": "Original coral impact source",
+      "score": 2.5,
+      "priority": true
+    },
+    {
+      "item": "Exact reused lavender/white source",
+      "score": 4.6,
+      "priority": false
+    },
+    {
+      "item": "Clean puff contact fit in both modes and widths",
+      "score": 4.6,
+      "priority": false
+    },
+    {
+      "item": "Puff end timing",
+      "score": 4.2,
+      "priority": true
+    },
+    {
+      "item": "Shared procedural glove visual coherence",
+      "score": 4.0,
+      "priority": true
+    },
+    {
+      "item": "Imp reaction/recovery acting",
+      "score": 3.8,
+      "priority": true
+    },
+    {
+      "item": "Complete fixture action",
+      "score": 4.0,
+      "priority": true
+    }
+  ],
+  "retained_failure": {
+    "path": "native_timed_reuse_v1/FAILURE_NOTE.json",
+    "description": "Root viewport dispatch attempt failed its accepted-punch assertion and was stopped after verifying its exact capture process. Cause unresolved. Local handler tests do not clear this ordinary input-route gap."
+  },
+  "acceptance_gaps": "Original2.5 remains live. Candidate is exact existing art at a non-runtime review path. Complete v2 actions4.0; effect end4.2. Four v3 settled finals4.6 establish only absence after extra render settling. No all-route, device/child/owner pass."
+}

@@ -1,0 +1,36 @@
+{
+  "id": "D2A-0394",
+  "baseline": "5b8bfb989ca8012924115d45901252808edb9b62",
+  "scope": "Named live boxing impact-puff source defect; assess exact existing clean effect before generating any artwork. No source, gameplay or runtime binding changed.",
+  "original": {
+    "path": "assets/opera/worlds/props/fx_bop_puff.png",
+    "sha256": "4e64dfa88aa9a6105a61cdac0f978d207eb581b822ce854ac806a88e2a1c4e5c",
+    "source_score": 2.5,
+    "opinion": "Native puff has unrelated thin vertical remnants at both sides; rounded coral cloud itself is readable."
+  },
+  "reused_source": {
+    "path": "assets/opera/worlds/props/fx_dust_puff.png",
+    "sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+    "copy": "audit/day_two_boxing_puff_reuse_v1_20261001/clean_puff_exact_reuse.png",
+    "copy_sha256": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8",
+    "purpose_source_score": 4.6,
+    "role": "Existing exact clean lavender/white friendly puff. Source-purpose, all four static contact cases and all four v2 timed contact fits4.6; ending timing4.2 remains a separate priority.",
+    "provenance_report": "assets_src/imagegen/imp_animation_states_2026-08-02/reports/fx_dust_puff.json"
+  },
+  "source_search": "Both existing runtime puff families directly inspected, existing generated-source pack report read. The clean effect is suitable for a bounded contextual test; generation is not justified while this reuse candidate is viable.",
+  "live_routes": [
+    {
+      "file": "scripts/opera_boxing_surface.gd",
+      "symbol": "PUFF_PATH/_puff_texture/_draw_impact",
+      "binding": "Literal defective source loaded and drawn during impact. The transient0.52-second effect never owns score."
+    },
+    {
+      "file": "scripts/opera_career_world_2d.gd",
+      "symbol": "bop_puff_texture",
+      "binding": "Same source is loaded into the shared career world; every actual draw context is not yet certified."
+    }
+  ],
+  "acceptance": "Original2.5 remains live. Candidate is exact existing art at a non-runtime review path. Complete v2 actions4.0; effect end4.2. Four v3 settled finals4.6 establish only absence after extra render settling. No all-route, device/child/owner pass.",
+  "updated_utc": "2026-10-01T18:03:29.794629+00:00",
+  "status": "SOURCE_AND_STATIC_CONTACT_4_6_EFFECT_END_4_2_ORIGINAL_STILL_BOUND"
+}

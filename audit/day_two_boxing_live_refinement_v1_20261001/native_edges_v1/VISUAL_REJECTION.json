@@ -1,0 +1,13 @@
+{
+  "status": "REJECTED_SCREEN_EDGE_CLIPPING",
+  "reviewed_utc": "2026-10-01T18:39:13.546027+00:00",
+  "machine_capture": "PROCESS_RECEIPT.json",
+  "geometry_result": "All16 conservative nonzero-alpha bounding rectangles exceed the action surface. The native top-left left glove and bottom-right right glove directly show real painted contour clipping, so rectangle conservatism does not explain away the defect.",
+  "directly_viewed_native_paths": [
+    "1280_hand0_corner0.webp",
+    "1280_hand1_corner3.webp"
+  ],
+  "remaining_native_views": "14 supplied; not newly directly visually inspected.",
+  "edge_fit_score": 4.0,
+  "scope_change": "Preserve every contact/reward/phase rule; change only drag-edge safety clamps so both complete painted gloves remain inside the playable surface at their maximum whole-card scale and angle. All five current target regions lie within the new bounds. Touch, cancellation and phase/save functions remain identical aside from drag-bound numbers."
+}

@@ -1,0 +1,41 @@
+{
+  "id": "boxing-painted-gloves-contact-fade-v1",
+  "status": "IMPLEMENTED_DRAFT_VISUAL_REVIEW_PENDING",
+  "profile": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+  "protocol": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+  "intention": "The child chooses an independent floating glove, moves it toward the visible padded target, makes contact, sees a friendly clean puff, releases and settles. Roshan boxer identity and imp acting remain the existing source family; this prop-presentation repair does not claim new character performance.",
+  "lane": "INTERACTIVE_2D_GAMEPLAY",
+  "source_coverage": {
+    "left": "assets/opera/worlds/widgets/refinement_v1/boxing_glove_left.png",
+    "right": "assets/opera/worlds/widgets/refinement_v1/boxing_glove_right.png",
+    "puff": "assets/opera/worlds/props/fx_dust_puff.png",
+    "source_reviews": [
+      "assets_src/imagegen/day2_boxing_single_gloves_v1_20261001/REVIEW.json",
+      "audit/day_two_boxing_puff_reuse_v1_20261001/REVIEW.json"
+    ]
+  },
+  "geometry": {
+    "card_rect": [
+      -82,
+      -91,
+      164,
+      164
+    ],
+    "pivot": "Actual independently finger-owned glove_positions[hand]",
+    "handedness": "Separately authored inward thumbs, no additional mirror",
+    "depth_scale": "Existing0.92+depth*0.38, existing contact pulse at max0.10",
+    "angle": "Existing left/right base \u00b10.08 and existing pointer correction"
+  },
+  "contact": {
+    "owner": "OperaBoxingSurface existing mode-specific forward/guard/belt validators emit units to OperaCareerWorld2D",
+    "puff": "One existing complete source card drawn only while impact_time>0; unchanged lifetimemax0.52,130\u2192220 whole-card expansion; opacity now decreases continuously tozero",
+    "awards": "No timer/clip-end awards; intentional local mode event advances authoritative phase progress; existing durable owner unchanged"
+  },
+  "return_and_interruption": {
+    "guide": "Accepted hand remains at its completed guide target by existing _guide_done rule",
+    "other_modes": "Existing release-owned return to rest; cancellation/notification functions identical bytes",
+    "imp": "Existing friendly counter/taunt/guard/recovery states and no-progress contacts preserved"
+  },
+  "timing": "Actual renderer/process timing remains authoritative; measured native frame timestamps will be captured, with a60fps diagnostic cap not a target-device result.",
+  "review_gaps": "All-mode both-hand native frames, edge/cancellation, ordinary routes, phone/child/owner acceptance pending. Existing imp pose-state reaction/recovery3.8 is not repaired by a painted prop or fading FX. No cinematic claim."
+}

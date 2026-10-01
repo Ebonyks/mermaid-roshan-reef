@@ -1,0 +1,74 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PAINTER|OK|fill task finishes within timeout
+PAINTER|fill_elapsed_ms|21.321
+PAINTER|OK|closed region fills without crossing brush boundary
+PAINTER|OK|fill undo is exact
+PAINTER|OK|fill redo is exact
+PAINTER|OK|stroke undo restores blank
+PAINTER|OK|fill task finishes within timeout
+PAINTER|OK|cancelled background fill never applies
+PAINTER|OK|out of bounds seed rejected
+PAINTER|OK|history bounded at 16 half-megabyte canvases
+PAINTER|OK|imported scanline fill matches independent BFS on 32 seeded maps
+PAINTER|OK|atomic save
+PAINTER|OK|second save keeps previous backup
+PAINTER|OK|reload exact latest pixels
+PAINTER|OK|corrupt primary recovers previous valid canvas
+PAINTER|OK|recovered document repairs primary safely
+PAINTER|OK|passive scene makes no marks or awards
+PAINTER|OK|second finger cannot steal canvas
+PAINTER|OK|real ScreenTouch and drag paint
+PAINTER|OK|pause cancels held input and stale release
+PAINTER|OK|picture resume works
+PAINTER|OK|real undo control
+PAINTER|OK|real redo control
+PAINTER|OK|existing shell stamp via touch
+PAINTER|OK|tool press cannot turn into canvas stroke
+PAINTER|OK|studio applies worker result through live process
+PAINTER|OK|bucket and colour controls fill through real touch
+PAINTER|OK|touch bucket undo preserves prior picture
+PAINTER|OK|neutral exit emits once and releases touch
+PAINTER|RESULT|OK|failures=0
+PAINTER_GUIDED|OK|guided is default; idle cannot fill blanks
+PAINTER_GUIDED|OK|free-paint tools absent from minigame
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|wrong colour kindly cues without progress
+PAINTER_GUIDED|OK|valid contact immediately shows hold feedback before fill completes
+PAINTER_GUIDED|OK|short tap does not bypass hold instruction
+PAINTER_GUIDED|OK|pause cancels held guided action
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|intentional matching fill completes region 1
+PAINTER_GUIDED|OK|partial guided work persists
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|intentional matching fill completes region 0
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|intentional matching fill completes region 2
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|intentional matching fill completes region 3
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|intentional matching fill completes region 4
+PAINTER_GUIDED|OK|finished painting matches coloured reference pixel-for-pixel
+PAINTER_GUIDED|OK|completed template validates for reload
+PAINTER_GUIDED|OK|guided worker completes
+PAINTER_GUIDED|OK|repeating finished region cannot add progress/history
+PAINTER_GUIDED|OK|undo returns one intentional blank
+PAINTER_GUIDED|OK|redo restores completed layout
+PAINTER_GUIDED|OK|re-entry retains the exact completed picture
+PAINTER_GUIDED|RESULT|OK|failures=0
+=== STAGE 2 MINIGAME STRESS TEST ===
+  snow assist: OK
+  picture feedback has no world sparkle request: OK
+  picture games have no jump/go overlay controls: OK
+  snow face touch targets: OK
+  snowman: WON (28.0s)
+  completed garden retains all five flowers: OK
+  garden: WON (8.6s)
+  trampoline uses direct art tap: OK
+  trampoline: WON (6.1s)
+  xmas: WON (6.4s)
+  snowball settle feedback/progression: OK (3/3)
+  snowman carrot authored angle survives moving chase: OK
+  garden growth + bounded win feedback: OK (10/10)
+  feedback teardown/re-entry: OK (4 closes, 4 fresh)
+MG2D|done: OK

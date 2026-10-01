@@ -1,0 +1,152 @@
+{
+	"checks": [
+		{
+			"name": "passive actor never collects",
+			"pass": true
+		},
+		{
+			"name": "item0 catch waits for local action",
+			"pass": true
+		},
+		{
+			"name": "item0 caught mask monotonic",
+			"pass": true
+		},
+		{
+			"name": "item0 stays attached/full-sized/opaque during carry",
+			"pass": true
+		},
+		{
+			"name": "item0 visible drop ends at exact stored pose",
+			"pass": true
+		},
+		{
+			"name": "item1 catch waits for local action",
+			"pass": true
+		},
+		{
+			"name": "item1 caught mask monotonic",
+			"pass": true
+		},
+		{
+			"name": "item1 stays attached/full-sized/opaque during carry",
+			"pass": true
+		},
+		{
+			"name": "item1 visible drop ends at exact stored pose",
+			"pass": true
+		},
+		{
+			"name": "item2 catch waits for local action",
+			"pass": true
+		},
+		{
+			"name": "item2 caught mask monotonic",
+			"pass": true
+		},
+		{
+			"name": "item2 stays attached/full-sized/opaque during carry",
+			"pass": true
+		},
+		{
+			"name": "item2 visible drop ends at exact stored pose",
+			"pass": true
+		},
+		{
+			"name": "item3 catch waits for local action",
+			"pass": true
+		},
+		{
+			"name": "item3 caught mask monotonic",
+			"pass": true
+		},
+		{
+			"name": "item3 stays attached/full-sized/opaque during carry",
+			"pass": true
+		},
+		{
+			"name": "item3 visible drop ends at exact stored pose",
+			"pass": true
+		},
+		{
+			"name": "item4 catch waits for local action",
+			"pass": true
+		},
+		{
+			"name": "item4 caught mask monotonic",
+			"pass": true
+		},
+		{
+			"name": "item4 stays attached/full-sized/opaque during carry",
+			"pass": true
+		},
+		{
+			"name": "item4 visible drop ends at exact stored pose",
+			"pass": true
+		},
+		{
+			"name": "item5 catch waits for local action",
+			"pass": true
+		},
+		{
+			"name": "item5 caught mask monotonic",
+			"pass": true
+		},
+		{
+			"name": "item5 stays attached/full-sized/opaque during carry",
+			"pass": true
+		},
+		{
+			"name": "item5 visible drop ends at exact stored pose",
+			"pass": true
+		},
+		{
+			"name": "six stored items and one completion",
+			"pass": true
+		},
+		{
+			"name": "later-phase basket passive and free pieces hidden",
+			"pass": true
+		},
+		{
+			"name": "partial restore shows exact stored count",
+			"pass": true
+		},
+		{
+			"name": "interruption fixture caught before landing",
+			"pass": true
+		},
+		{
+			"name": "interrupt settles caught item without progress loss",
+			"pass": true
+		},
+		{
+			"name": "re-entry restores four caught items",
+			"pass": true
+		},
+		{
+			"name": "packed atlas POT1024",
+			"pass": true
+		},
+		{
+			"name": "original leaf RGBA bytes preserved",
+			"pass": true
+		},
+		{
+			"name": "POT padding retains complete skimmer RGBA",
+			"pass": true
+		}
+	],
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"failures": 0
+}

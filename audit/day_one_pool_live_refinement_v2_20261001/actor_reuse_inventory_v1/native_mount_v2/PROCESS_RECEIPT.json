@@ -1,0 +1,87 @@
+{
+  "status": "PASS_UNBOUND_STATIC_VIEWS",
+  "checked_utc": "2026-10-01T16:59:00.447488+00:00",
+  "commands": [
+    {
+      "name": "parser",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "audit/day_one_pool_live_refinement_v2_20261001/actor_reuse_inventory_v1/capture_pose_mount_candidates_v2.gd"
+      ],
+      "process_exit": 0,
+      "elapsed_seconds": 0.6453355000121519
+    },
+    {
+      "name": "inference",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "audit/day_one_pool_live_refinement_v2_20261001/actor_reuse_inventory_v1/capture_pose_mount_candidates_v2.gd"
+      ],
+      "process_exit": 0,
+      "elapsed_seconds": 0.1355739000136964
+    },
+    {
+      "name": "analyzer",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "res://audit/day_one_pool_live_refinement_v2_20261001/actor_reuse_inventory_v1/capture_pose_mount_candidates_v2.gd"
+      ],
+      "process_exit": 0,
+      "elapsed_seconds": 6.69472670002142
+    },
+    {
+      "name": "native",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--windowed",
+        "--resolution",
+        "1280x720",
+        "--script",
+        "res://audit/day_one_pool_live_refinement_v2_20261001/actor_reuse_inventory_v1/capture_pose_mount_candidates_v2.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "process_exit": 0,
+      "elapsed_seconds": 12.425760600017384
+    }
+  ],
+  "source_before": {
+    "audit/day_one_pool_live_refinement_v2_20261001/actor_reuse_inventory_v1/capture_pose_mount_candidates_v2.gd": "e9743b550e6c9c73b7f0d79e1bd8be7c1449c674f26ac8e549fe1d41dea6f87e",
+    "scripts/games/pool_skimmer_activity.gd": "be0b539085fbb40829aa55978a94a0354937ed7da8a1292c03211a82c03d193a",
+    "scripts/games/day_one_pool_cleanup.gd": "9ba2ef522031ec5c9bf19487f3635b21bc9522e37a363e608c8a74be59682f02",
+    "scripts/main.gd": "98d91a560426cfa4c52a70221a0311856429c031805d7d9dc990eefe2affe30e",
+    "assets/characters/roshan_25d/roshan_gesture_c.png": "43ebe0e42cd9db5cf612bfaa4acbc9f14a3ad99f49909535b5508707fad15a0e",
+    "assets/characters/roshan_25d/roshan_gesture_d.png": "03cbc5931806ddc17675fb741f9dafcff66e8b16e08feb6795bda94aa1165abc",
+    "assets/characters/roshan_25d/roshan_play_a.png": "31eb7efc2da0bfe33305f13097b59e959b2ed02637dc8d36116a47b3e2804a08",
+    "assets/castle/day_one_pool/activities/refinement_v2/pool_skimmer.png": "58a3fe0772490ee20260720524f49088d8c12a6ddf93305370d30175041c4242"
+  },
+  "source_after": {
+    "audit/day_one_pool_live_refinement_v2_20261001/actor_reuse_inventory_v1/capture_pose_mount_candidates_v2.gd": "e9743b550e6c9c73b7f0d79e1bd8be7c1449c674f26ac8e549fe1d41dea6f87e",
+    "scripts/games/pool_skimmer_activity.gd": "be0b539085fbb40829aa55978a94a0354937ed7da8a1292c03211a82c03d193a",
+    "scripts/games/day_one_pool_cleanup.gd": "9ba2ef522031ec5c9bf19487f3635b21bc9522e37a363e608c8a74be59682f02",
+    "scripts/main.gd": "98d91a560426cfa4c52a70221a0311856429c031805d7d9dc990eefe2affe30e",
+    "assets/characters/roshan_25d/roshan_gesture_c.png": "43ebe0e42cd9db5cf612bfaa4acbc9f14a3ad99f49909535b5508707fad15a0e",
+    "assets/characters/roshan_25d/roshan_gesture_d.png": "03cbc5931806ddc17675fb741f9dafcff66e8b16e08feb6795bda94aa1165abc",
+    "assets/characters/roshan_25d/roshan_play_a.png": "31eb7efc2da0bfe33305f13097b59e959b2ed02637dc8d36116a47b3e2804a08",
+    "assets/castle/day_one_pool/activities/refinement_v2/pool_skimmer.png": "58a3fe0772490ee20260720524f49088d8c12a6ddf93305370d30175041c4242"
+  },
+  "source_unchanged": true,
+  "qualification": "Explicit prospective reuse fixture, not production textures/poses/actions. No progress awards. Source purpose and mounted/timed acceptance remain separate. No original/protected art or production controller changes."
+}

@@ -1,0 +1,281 @@
+{
+  "status": "ONLY_PRESENTATION_FUNCTIONS_AND_RESOURCE_BINDINGS_CHANGED",
+  "checks": [
+    {
+      "function": "configure(next_mode: String, next_accent: Color, choice: int = 1,",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "set_fill(value: float) -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "accept_completion() -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "restart_demo() -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "cancel_all_touches() -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "receive_friendly_hit() -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "glove_rest_position(side: int) -> Vector2:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "glove_rest(side: int) -> Vector2:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "guide_target_position(side: int) -> Vector2:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "guard_target_position(side: int) -> Vector2:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "punch_target(side: int = 0) -> Vector2:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "active_target_position() -> Vector2:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "touch_owner_snapshot() -> Dictionary:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "landed_count() -> int:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "round_index() -> int:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "is_demo_active() -> bool:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "has_friendly_hit_feedback() -> bool:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "imp_is_open() -> bool:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_mode_goal() -> int:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_load_texture(path: String) -> Texture2D:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_load_resources() -> void:",
+      "match": false,
+      "presentation_scope": true
+    },
+    {
+      "function": "_ensure_audio() -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_make_player(path: String, volume_db: float) -> AudioStreamPlayer:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_play_player(player: AudioStreamPlayer, pitch: float = 1.0) -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_notification(what: int) -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_process(delta: float) -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_tick_counter(delta: float) -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_tick_imp(delta: float) -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_resolve_imp_counter() -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_gui_input(event: InputEvent) -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_handle_press(finger_id: int, at: Vector2) -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_handle_drag(finger_id: int, at: Vector2) -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_handle_release(finger_id: int, _at: Vector2) -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_choose_hand(at: Vector2) -> int:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_forward_fraction(hand: int, target: Vector2) -> float:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_try_guide(hand: int) -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_try_forward_punch(hand: int) -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_try_belt_punch(hand: int) -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_accept_impact(at: Vector2, pitch: float) -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_target_radius() -> float:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_belt_rect() -> Rect2:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_draw() -> void:",
+      "match": false,
+      "presentation_scope": true
+    },
+    {
+      "function": "_draw_progress_lights() -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_draw_punch_lanes() -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_draw_mitts() -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_draw_target(at: Vector2, completed: bool) -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_draw_counter() -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_draw_boxer_imp() -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_draw_belt() -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_glove_depth(hand: int) -> float:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_draw_glove(hand: int) -> void:",
+      "match": false,
+      "presentation_scope": true
+    },
+    {
+      "function": "_draw_impact() -> void:",
+      "match": false,
+      "presentation_scope": true
+    },
+    {
+      "function": "_draw_friendly_hit() -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_draw_demo() -> void:",
+      "match": true,
+      "presentation_scope": false
+    },
+    {
+      "function": "_draw_star(center: Vector2, radius: float, color: Color) -> void:",
+      "match": true,
+      "presentation_scope": false
+    }
+  ],
+  "qualification": "All input/contact/progress/imp processing/save/lifecycle function bytes match the pre-binding source. Presentation transform parameters remain identical except mirrored card removal because separately authored sources already have correct handedness; uniform whole-card draw and fade-tozero only."
+}

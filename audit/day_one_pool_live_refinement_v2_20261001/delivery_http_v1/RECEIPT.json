@@ -1,0 +1,12 @@
+{
+  "status": "FAIL_PRESERVED_VIDEO_BYTE_RANGE",
+  "checked_utc": "2026-10-01T16:49:08.227985+00:00",
+  "path": "audit/day_one_pool_live_refinement_v2_20261001/native_actions_1280_return_v6/item_00_native_timestamps.mp4",
+  "requested_range": "bytes=0-1023",
+  "http_status": 200,
+  "content_range": null,
+  "received_bytes": 1866541,
+  "sha256": "4cdaab67811f32ce99e286ef25d9488d75f9cd5fe3b8fd82c53f0998a64651d0",
+  "cause": "Previous local SimpleHTTPRequestHandler returned200 and the complete file, so the player could not reliably seek by byte range. Original1376-file comparison completed before the first range assertion; per-file records were not written on failure and no receipt-bound all-file PASS is claimed.",
+  "qualification": "Review-server delivery failure only; game controller/artwork unchanged."
+}

@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-10-01T19:37:07.857920+00:00",
+  "commands": [
+    {
+      "command": [
+        "tools/audit_document_authority.py"
+      ],
+      "process_exit": 0,
+      "stdout": "authority.stdout.log",
+      "stderr": "authority.stderr.log"
+    },
+    {
+      "command": [
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "process_exit": 0,
+      "stdout": "development.stdout.log",
+      "stderr": "development.stderr.log"
+    },
+    {
+      "command": [
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "process_exit": 0,
+      "stdout": "contract_tests.stdout.log",
+      "stderr": "contract_tests.stderr.log"
+    }
+  ],
+  "coverage_paths": 7178,
+  "qualification": "Fresh current authority/development/52 contract tests after report/register updates. Full325-source engine run retains its own source boundary. No creative or external acceptance."
+}

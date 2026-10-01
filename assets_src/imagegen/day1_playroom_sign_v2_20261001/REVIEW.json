@@ -1,0 +1,43 @@
+{
+  "id": "D1N-0072",
+  "status": "REPLACEMENT_DRAFT_4_6_ORIGINAL_STILL_BOUND",
+  "updated_utc": "2026-10-01T17:31:36.228565+00:00",
+  "original": {
+    "path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_playroom.png",
+    "sha256": "22d9a3df8eda3b95ae93250165a64a947b4157a70b4405f90dc4d600edccd7df",
+    "source_score": 4.5,
+    "priority": true,
+    "opinion": "Friendly honey-brown teddy and warm border already fit the playroom. A short flat dark/tan/cream fragment at twelve o’clock breaks the scalloped ring. This is a named coherence defect, not a missing bear or canvas-edge clipping."
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "path": "attempt_01_native.png",
+      "sha256": "0435b3e11ac7e55a12f72b25ec7d8b2347a7c3bf44520bb12ce7a502a9439589",
+      "score": 4.4,
+      "material_score": 4.3,
+      "decision": "REJECTED_FURRY_MATERIAL",
+      "opinion": "The repaired ring is coherent4.6, but plush/fur strokes and more lifelike shading exceed the game’s broad matte painted bands. Preserve this rejected fresh candidate."
+    },
+    {
+      "attempt": 2,
+      "path": "attempt_02_native.png",
+      "sha256": "2032985e75da1c72db1f47759eda4e7fd7518fdea7ca653adff5b82a882040bb",
+      "score": 4.6,
+      "decision": "SELECTED_NON_RUNTIME_SOURCE_AND_STATIC_FIT_DRAFT",
+      "opinion": "Broad matte honey-brown/cream shapes and navy/plum contours retain the friendly generic teddy identity. The continuous scalloped ring removes the upper flat interruption. Source4.6; uniform complete-canvas normalization and two settled native exact-sign-node fits4.6 were subsequently reviewed. Original remains bound; no ordinary navigation/device/child/owner acceptance.",
+      "initial_opinion": "The second candidate uses broad matte honey-brown/cream shapes, restrained shading and a strong navy/plum contour. Two round ears and the friendly generic teddy face remain recognizable. The complete cream/gold scalloped frame has no upper flat interruption. Its larger native footprint needs whole-canvas normalization to the existing icon card before actual phone-size native review; no runtime or owner acceptance."
+    }
+  ],
+  "normalized_review_file": "assets_src/imagegen/day1_playroom_sign_v2_20261001/attempt_02_whole_canvas_256.png",
+  "normalized_sha256": "03ac9b4bdb881875ad83c34ae208dc29fda0aef148a42057e0b284ce1a61405f",
+  "static_native_sign_score_1280": 4.6,
+  "static_native_sign_score_1600": 4.6,
+  "native_evidence": "native_hall_fit_v3/VISUAL_REVIEW.json",
+  "earlier_fixture_limits": [
+    "native_hall_fit_v1/VISUAL_REVIEW.json",
+    "native_hall_fit_v2/VISUAL_REVIEW.json"
+  ],
+  "technical": "Native generator originals preserved unchanged. Uniform1254-square whole-canvas resize to175-square and centered transparent padding to256-square; no crop, mask, warp, subject editing or copied reference pixels. Existing sign node scale/position/depth were reused only in the diagnostic fit.",
+  "gaps": "Original remains bound. These are static exact-node fits with a directly centered hall fixture, not ordinary touch navigation, all-hall approval, device/child/owner acceptance or a whole-game4.5 pass. The original remains an inclusive priority until a later bounded binding/review."
+}

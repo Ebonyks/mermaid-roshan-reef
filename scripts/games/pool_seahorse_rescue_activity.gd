@@ -35,6 +35,7 @@ var _tap_region := Rect2()
 var _seahorse: Sprite2D = null
 var _mouth_trash: Sprite2D = null
 var _basket: Sprite2D = null
+var _shared_basket: Sprite2D = null
 var _feedback_layer: Control = null
 var _seahorse_texture: Texture2D = null
 var _mouth_trash_texture: Texture2D = null
@@ -73,6 +74,7 @@ func _ready() -> void:
 
 func setup(new_fixture_center: Vector2, new_fixture_size: Vector2,
 		initial_taps: int = 0) -> void:
+	_shared_basket = null
 	_stop_tug_tween()
 	_stop_completion_tween()
 	_clear_owned_children()
@@ -107,6 +109,13 @@ func bind_room_actor(actor: Sprite2D, shadow: Sprite2D, skin: String) -> void:
 	_contact_action = DayOneContactAction2D.new()
 	add_child(_contact_action)
 	_contact_action.bind(actor, shadow, skin)
+
+
+func bind_cleanup_basket(basket: Sprite2D) -> void:
+	_shared_basket = basket
+	if _basket != null:
+		_basket.visible = not is_instance_valid(_shared_basket)
+	_basket_position = _resolve_basket_position()
 
 
 func start() -> void:
@@ -402,6 +411,8 @@ func _hide_rescued_art() -> void:
 
 
 func _resolve_basket_position() -> Vector2:
+	if is_instance_valid(_shared_basket):
+		return get_global_transform().affine_inverse() * _shared_basket.global_position
 	var canvas := size if size.x > 1.0 and size.y > 1.0 else CANVAS_SIZE
 	return Vector2(clampf(BASKET_ANCHOR.x, 120.0, canvas.x - 120.0),
 		clampf(BASKET_ANCHOR.y, 110.0, canvas.y - 80.0))

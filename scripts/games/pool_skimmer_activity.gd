@@ -11,9 +11,9 @@ signal completed
 
 const CANVAS_SIZE := Vector2(1280.0, 720.0)
 const TRASH_ATLAS_PATH := \
-	"res://assets/castle/day_one_pool/activities/floating_trash_atlas.png"
+	"res://assets/castle/day_one_pool/activities/refinement_v2/floating_trash_atlas.png"
 const SKIMMER_PATH := \
-	"res://assets/castle/day_one_pool/activities/pool_skimmer.png"
+	"res://assets/castle/day_one_pool/activities/refinement_v2/pool_skimmer.png"
 const BASKET_PATH := \
 	"res://assets/castle/day_one_pool/activities/cleanup_basket.png"
 const TRASH_CELL_SIZE := Vector2(341.0, 341.0)
@@ -21,21 +21,28 @@ const TRASH_COUNT := 6
 const ALL_MASK := (1 << TRASH_COUNT) - 1
 const CATCH_RADIUS := 118.0
 const BASKET_POSITION := Vector2(980.0, 560.0)
-const SKIMMER_MAX_SIZE := Vector2(205.0, 150.0)
-const BASKET_MAX_SIZE := Vector2(145.0, 112.0)
+const SKIMMER_MAX_SIZE := Vector2(205.0, 205.0)
+const BASKET_MAX_SIZE := Vector2(230.0, 178.0)
 const ROSHAN_ATLAS := preload("res://assets/characters/roshan_25d/roshan_directional.png")
 # Measured on the existing art: right hand in directional cell 1, handle
-# grip and net centre in the complete 1024x682 skimmer. No art is regenerated.
+# grip and opening in the complete source. POT padding preserves pixel sockets
+# and the painted205px fit. Protected Roshan artwork remains unchanged.
 const HAND_OFFSET := Vector2(46.0, 23.0) * 0.95
 const HANDLE_PIXEL := Vector2(100.0, 580.0)
-const NET_PIXEL := Vector2(780.0, 190.0)
+const NET_PIXEL := Vector2(799.0, 170.0)
+const ACTOR_START := Vector2(230.0, 520.0)
+const BASKET_APPROACH := Vector2(955.0, 460.0)
+const ROOM_RETURN_POSITION := Vector2(770.0, 435.0)
+const DROP_SECONDS := 0.28
+const POINTER_TIP_OFFSET := Vector2(41.0, 6.0)
+const POINTER_TARGET_MARGIN := 6.0
 const SWIM_SPEED := 440.0
 const CONTACT_RADIUS := 24.0
 const SCOOP_SECONDS := 0.42
 const POOL_VISUAL_BOUNDS := Rect2(170.0, 220.0, 940.0, 250.0)
 const TRASH_POSITIONS: Array[Vector2] = [
 	Vector2(310.0, 316.0),
-	Vector2(535.0, 276.0),
+	Vector2(575.0, 330.0),
 	Vector2(795.0, 292.0),
 	Vector2(404.0, 401.0),
 	Vector2(676.0, 425.0),
@@ -88,6 +95,14 @@ var _target_index: int = -1
 var _scoop_time: float = 0.0
 var _owned_touch: int = -1
 var _hand_offset: Vector2 = HAND_OFFSET
+var _transport_index: int = -1
+var _drop_time: float = -1.0
+var _drop_start := Vector2.ZERO
+var _transport_scale := Vector2.ONE
+var _basket_contents: Array[Sprite2D] = []
+var _basket_only: bool = false
+var _demo_target_index: int = -1
+var _returning_to_room: bool = false
 
 
 func setup(initial_mask: int = 0) -> void:
@@ -99,6 +114,9 @@ func setup(initial_mask: int = 0) -> void:
 	_dragging = false
 	_completed = _progress_mask == ALL_MASK
 	_completed_emitted = false
+	_basket_only = false
+	_returning_to_room = false
+	_demo_target_index = -1
 	_demo_time = 0.0
 	_last_input_time = 0.0
 	_skimmer_position = Vector2(640.0, 380.0)
@@ -161,7 +179,14 @@ func probe_collect_next() -> bool:
 			for _tick: int in range(240):
 				_advance_cleaning(1.0 / 60.0)
 				if (_progress_mask & (1 << index)) != 0:
-					return true
+					# This synchronous helper simulates the complete collection,
+					# including its new visible carry/drop/return. Live input
+					# keeps the same rendered, bounded motion and saved catch.
+					for _settle_tick: int in range(240):
+						if not has_pending_transfer():
+							return true
+						_advance_cleaning(1.0 / 60.0)
+					return not has_pending_transfer()
 			return false
 	return false
 
@@ -190,11 +215,18 @@ func audit_snapshot() -> Dictionary:
 		"hand_grip_error": _hand_grip_error(),
 		"live_input_required": true,
 		"one_finger": true,
+		"transfer_pending": has_pending_transfer(),
+	"returning_to_room": _returning_to_room,
+		"carried_item": _transport_index,
+		"basket_contents": _visible_basket_contents(),
 		"no_fail_state": true,
 		"canvas_only": true,
 		"borderless_room_grown": true,
 		"demo_pointer_visible": _demo_pointer != null
 			and is_instance_valid(_demo_pointer) and _demo_pointer.visible,
+		"demo_target_index": _demo_target_index,
+		"demo_tip_position": _demo_pointer.get_transform() * POINTER_TIP_OFFSET
+			if _demo_pointer != null else Vector2.ZERO,
 	}
 
 
@@ -218,23 +250,27 @@ func _process(delta: float) -> void:
 	if _demo_pointer == null or not is_instance_valid(_demo_pointer):
 		queue_redraw()
 		return
-	if not _running or _completed or _dragging or _target_index >= 0:
+	if not _running or _completed or _dragging or _target_index >= 0 or has_pending_transfer():
 		_demo_pointer.visible = false
+		_demo_target_index = -1
 		queue_redraw()
 		return
 	var idle_seconds: float = _demo_time - _last_input_time
 	_demo_pointer.visible = idle_seconds > 0.45
+	_demo_target_index = -1
 	if _demo_pointer.visible:
 		var route_index: int = int(floor(_demo_time * 0.72)) % TRASH_COUNT
 		while (_progress_mask & (1 << route_index)) != 0:
 			route_index = (route_index + 1) % TRASH_COUNT
 		var route_phase: float = fmod(_demo_time * 0.72, 1.0)
 		var route_position: Vector2 = _trash_contact_position(route_index)
-		_demo_pointer.position = route_position + Vector2(
-			90.0 + sin(_demo_time * 3.0) * 9.0,
-			-92.0 + cos(_demo_time * 2.4) * 7.0)
+		_demo_target_index = route_index
 		_demo_pointer.rotation = sin(_demo_time * 2.0) * 0.06
 		_demo_pointer.scale = Vector2.ONE * (0.96 + sin(_demo_time * 4.0) * 0.06)
+		var intended_tip: Vector2 = route_position + Vector2(0.0,
+			TRASH_MAX_SIZES[route_index].y * 0.5 + POINTER_TARGET_MARGIN)
+		var actual_tip: Vector2 = _demo_pointer.get_transform() * POINTER_TIP_OFFSET
+		_demo_pointer.position += intended_tip - actual_tip
 		# route_phase is intentionally used to make the pointer breathe along
 		# the current target; it never catches anything without live input.
 		_demo_pointer.modulate.a = 0.86 + route_phase * 0.12
@@ -252,6 +288,8 @@ func _process(delta: float) -> void:
 
 
 func _draw() -> void:
+	if _basket_only:
+		return
 	# Only local water contact is drawn. The authored V4 pool remains the one
 	# visible surface; the generous catch radius stays entirely invisible.
 	for index: int in range(TRASH_COUNT):
@@ -339,6 +377,16 @@ func _update_live_drag(position: Vector2) -> void:
 
 
 func _advance_cleaning(delta: float) -> void:
+	if _running and _returning_to_room:
+		_cleaner.position = _cleaner.position.move_toward(ROOM_RETURN_POSITION,
+			SWIM_SPEED * clampf(delta, 0.0, 1.0 / 15.0))
+		_sync_net_position()
+		if _cleaner.position.distance_to(ROOM_RETURN_POSITION) <= 1.0:
+			_returning_to_room = false
+		return
+	if _running and _transport_index >= 0:
+		_advance_transport(clampf(delta, 0.0, 1.0 / 15.0))
+		return
 	if not _running or _completed or _target_index < 0 or _cleaner == null:
 		return
 	# A slow frame or resume must not collapse travel and acting into one jump.
@@ -397,7 +445,8 @@ func _claim_room_actor() -> void:
 	_cleaner.visible = true
 	if is_instance_valid(_room_roshan):
 		_room_visibility = _room_roshan.visible
-		_cleaner.position = get_global_transform().affine_inverse() * _room_roshan.global_position
+		# Start in clear water so the held body/tool cannot conceal a target.
+		_cleaner.position = ACTOR_START
 		_room_roshan.visible = false
 	if is_instance_valid(_room_shadow):
 		_shadow_visibility = _room_shadow.visible
@@ -434,19 +483,16 @@ func _collect_item(index: int) -> void:
 		return
 	_progress_mask |= bit
 	progress_changed.emit(_progress_mask)
-	_spawn_catch_feedback(TRASH_POSITIONS[index])
+	_spawn_catch_feedback(_trash_contact_position(index))
 	if index < _trash_sprites.size():
 		var piece: Sprite2D = _trash_sprites[index]
 		if piece != null and is_instance_valid(piece):
 			piece.set_meta("in_flight", true)
 			piece.z_index = 176
-			var flight: Tween = piece.create_tween().set_parallel(true)
-			_flight_tweens.append(flight)
-			flight.tween_property(piece, "position", BASKET_POSITION, 0.48) \
-				.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-			flight.tween_property(piece, "scale", piece.scale * 0.42, 0.48)
-			flight.tween_property(piece, "modulate:a", 0.0, 0.12).set_delay(0.39)
-			flight.chain().tween_callback(_finish_piece_flight.bind(index, flight))
+			_transport_index = index
+			_transport_scale = piece.scale
+			_drop_time = -1.0
+			piece.position = _skimmer_position
 	if _progress_mask == ALL_MASK:
 		_completed = true
 		_dragging = false
@@ -471,6 +517,62 @@ func _finish_piece_flight(index: int, flight: Tween) -> void:
 	if piece == null or not is_instance_valid(piece):
 		return
 	piece.visible = false
+
+
+func has_pending_transfer() -> bool:
+	return _transport_index >= 0 or _returning_to_room
+
+
+func show_basket_only(enabled: bool) -> void:
+	_basket_only = enabled
+	for index: int in range(_trash_sprites.size()):
+		_trash_sprites[index].visible = not enabled and (_progress_mask & (1 << index)) == 0
+	if _feedback_layer != null:
+		_feedback_layer.visible = not enabled
+	queue_redraw()
+
+
+func _advance_transport(delta: float) -> void:
+	var piece: Sprite2D = _trash_sprites[_transport_index]
+	if _drop_time < 0.0:
+		var net_offset: Vector2 = _hand_offset + (NET_PIXEL - HANDLE_PIXEL) * _skimmer.scale
+		var destination: Vector2 = BASKET_APPROACH - net_offset
+		_cleaner.position = _cleaner.position.move_toward(destination, SWIM_SPEED * delta)
+		_sync_net_position()
+		piece.position = _skimmer_position
+		if _cleaner.position.distance_to(destination) <= 1.0:
+			_drop_time = 0.0
+			_drop_start = piece.position
+		return
+	_drop_time += delta
+	var amount: float = clampf(_drop_time / DROP_SECONDS, 0.0, 1.0)
+	_cleaner.rotation = sin(amount * PI) * 0.035
+	_sync_net_position()
+	var stored: Sprite2D = _basket_contents[_transport_index]
+	piece.position = _drop_start.lerp(stored.position, amount) + Vector2(0.0, -sin(amount * PI) * 12.0)
+	piece.scale = _transport_scale.lerp(stored.scale, amount)
+	if amount >= 1.0:
+		_finish_transport()
+
+
+func _finish_transport() -> void:
+	if _transport_index < 0:
+		return
+	_trash_sprites[_transport_index].visible = false
+	_basket_contents[_transport_index].visible = true
+	_transport_index = -1
+	_drop_time = -1.0
+	_returning_to_room = _running and _completed
+	_cleaner.rotation = 0.0
+	_sync_net_position()
+
+
+func _visible_basket_contents() -> int:
+	var count: int = 0
+	for item: Sprite2D in _basket_contents:
+		if item.visible:
+			count += 1
+	return count
 
 
 func _build_activity_art() -> void:
@@ -505,7 +607,7 @@ func _build_activity_art() -> void:
 	_fit_sprite(_skimmer, SKIMMER_MAX_SIZE)
 	_cleaner = Node2D.new()
 	_cleaner.name = "RoshanHoldingSkimmer"
-	_cleaner.position = Vector2(640.0, 490.0)
+	_cleaner.position = ACTOR_START
 	_cleaner.z_index = 34
 	_cleaner.visible = false
 	add_child(_cleaner)
@@ -548,6 +650,18 @@ func _build_activity_art() -> void:
 
 	for index: int in range(_trash_sprites.size()):
 		_trash_sprites[index].visible = (_progress_mask & (1 << index)) == 0
+		var stored: Sprite2D = Sprite2D.new()
+		stored.name = "BasketStoredTrash_%02d" % index
+		stored.texture = _trash_sprites[index].texture
+		stored.position = BASKET_POSITION + Vector2(float(index % 3) * 36.0 - 36.0,
+			-52.0 + float(index / 3) * 26.0)
+		stored.rotation = TRASH_ROTATIONS[index]
+		stored.modulate = TRASH_TINTS[index]
+		stored.z_index = 176
+		stored.visible = (_progress_mask & (1 << index)) != 0
+		_fit_sprite(stored, Vector2(40.0, 40.0))
+		add_child(stored)
+		_basket_contents.append(stored)
 
 
 func _atlas_frame(index: int) -> AtlasTexture:
@@ -555,9 +669,8 @@ func _atlas_frame(index: int) -> AtlasTexture:
 	frame.atlas = _atlas
 	var origin: Vector2 = Vector2(float(index % 3) * TRASH_CELL_SIZE.x,
 		float(index / 3) * TRASH_CELL_SIZE.y)
-	# The approved wrapper extends through x345 across the nominal x341 grid.
-	# Shift these equal-size source windows to retain its tip and keep it out
-	# of the can. Measured alpha bounds leave transparent edges in both windows.
+	# Keep the existing341px sampling contract. The reversible replacement atlas
+	# packs complete cards at these exact windows; the original leaf is intact.
 	if index == 0:
 		origin.x = 12.0
 	elif index == 1:
@@ -613,6 +726,8 @@ func _spawn_catch_feedback(center: Vector2) -> void:
 
 
 func _stop_flights() -> void:
+	_finish_transport()
+	_returning_to_room = false
 	for flight: Tween in _flight_tweens:
 		if flight != null:
 			flight.kill()
@@ -624,6 +739,7 @@ func _clear_owned_children() -> void:
 		child.free()
 	_trash_sprites.clear()
 	_trash_base_positions.clear()
+	_basket_contents.clear()
 	_skimmer = null
 	_basket = null
 	_demo_pointer = null

@@ -1,0 +1,47 @@
+{
+  "status": "TWO_SELECTED_SOURCES_AND_STATIC_FITS_4_6_UNBOUND",
+  "reviewed_utc": "2026-10-01T18:29:27.830847+00:00",
+  "original_control_score": 4.0,
+  "individual_items": [
+    {
+      "id": "BOXING-GLOVE-LEFT-V1",
+      "source": "left_attempt_02_native.png",
+      "source_sha256": "0424654e9822b5762d1ffb841a5208500eaedd975f10ca643e8c4bd1459ea2df",
+      "runtime_size_candidate": "left_whole_canvas_1024.png",
+      "normalized_sha256": "8749d71eb5cdd5f84dc5a9bd96197b8ec6ac808b51333cd31bce9e1a032176ea",
+      "source_score": 4.6,
+      "static_mounted_score": 4.6,
+      "timed_action_score": null,
+      "owner_approved": false
+    },
+    {
+      "id": "BOXING-GLOVE-RIGHT-V1",
+      "source": "right_attempt_01_native.png",
+      "source_sha256": "f1cff2b92eaa4179fc3519dd3429f7696da2eac4f18d5fd9803ed1913d0a2457",
+      "runtime_size_candidate": "right_whole_canvas_1024.png",
+      "normalized_sha256": "6a748cb12f71b81f4b9d01cf08bdf14d99831c48a13530288dc537ef4bc150b9",
+      "source_score": 4.6,
+      "static_mounted_score": 4.6,
+      "timed_action_score": null,
+      "owner_approved": false
+    }
+  ],
+  "rejected_attempts": [
+    {
+      "attempt": 1,
+      "candidate": "assets_src/imagegen/day2_boxing_single_gloves_v1_20261001/left_attempt_01_native.png",
+      "sha256": "1441f6136dad705f38e14be2f99627b902cdd88903a054f4ba61377f4e494a4c",
+      "source_score": 4.3,
+      "material_style_score": 4.6,
+      "glove_silhouette_anatomy_score": 4.1,
+      "decision": "REJECTED_FINGER_LOBES",
+      "directly_viewed": true,
+      "opinion": "Matte coral paint, plum contours, separate side thumb and shell cuff fit the illustrated world. Three vertically separated finger-like knuckle lobes make it read too much as a padded bare fist rather than one protective boxing mitten. Require a single smooth continuous padded knuckle dome before mounted review. Preserve rejected original unchanged.",
+      "mounted_score": null,
+      "action_score": null
+    }
+  ],
+  "visual_evidence": "native_static_fit_v1/VISUAL_REVIEW.json",
+  "machine_evidence": "native_static_fit_v1/PROCESS_RECEIPT.json",
+  "acceptance_gaps": "Individual native sources and 12 painted native static mounted/contact views meet the drafting target at4.6. Rejected left finger-lobe attempt4.3 is preserved. Whole-canvas1024 normalization is technical only. Timed input/contact/release, remaining boxing modes and actual job/training routes, phone, child, owner and complete report approval remain open; production glove drawings are still unchanged at this review boundary."
+}

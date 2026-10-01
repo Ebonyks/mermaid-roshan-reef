@@ -1,0 +1,19 @@
+{
+  "status": "DIAGNOSTIC_ONLY_UNCHANGED_CHECKS",
+  "exit": 0,
+  "command": [
+    "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+    "-s",
+    "res://audit/day_one_pool_live_refinement_v2_20261001/probe_completion_timing_v1/diagnostic_unchanged_checks.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "seconds": 12.594283000042196,
+  "original_probe_sha256": "6c11305e07e6d524d1e884bbc7150743bb6d841613a9b96cf913621ce66efe8e",
+  "copy_sha256": "22c75a5700980888efa0010172d3b0b0e500096cfe3e480d3e1d6d20db3c81fb",
+  "difference": "One extra state print immediately after the existing0.72s wait; every check and deadline unchanged. Not a trusted run or a repair."
+}

@@ -1,0 +1,119 @@
+{
+  "schema": "reef.gameplay-action-contract.v1",
+  "id": "day-one-pool-scoop-carry-place-return",
+  "revision": "live-refinement-v2-return-v6",
+  "status": "CANDIDATE_NOT_ACCEPTED_ANIMATION",
+  "baseline": "bdac06fff19a4e621f83b6a9995777404b373056",
+  "intent": "Roshan wants to clear the pool: approach the selected debris, scoop at its actual location, carry it on the net, visibly place it in the basket, then return clear of the next instruction.",
+  "lane": "Interactive Canvas gameplay staging using intact approved static cutouts; no authored tail/eye/gaze performance acceptance.",
+  "register": "Attentive work, calm continuous translation. Existing restrained whole-card lean; no new anatomy or canonical redesign.",
+  "scene": "Day One actual castle mermaid_pool; classic/fairy/huluu selected skins, fixed background/waterfall/seahorse, one shared basket. Local touch capture does not cover ordinary HUD traversal.",
+  "sources": [
+    {
+      "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+      "sha256": "8dd11b4b9c394cbb9d304c9f5d5eb71770ea106a278e87b26aba8004d62e8d94",
+      "role": "current direction/protocol"
+    },
+    {
+      "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+      "sha256": "79df746086e417f240de5f271f85b00d78d310324becb0130862439a6478f3f6",
+      "role": "current direction/protocol"
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_directional.png",
+      "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+      "role": "exact runtime binding/source"
+    },
+    {
+      "path": "assets/castle/day_one_pool/activities/refinement_v2/floating_trash_atlas.png",
+      "sha256": "788bbbc3e069036ee66197186dcc93daa3d83c95f939fdcbb41bec785846996d",
+      "role": "exact runtime binding/source"
+    },
+    {
+      "path": "assets/castle/day_one_pool/activities/refinement_v2/pool_skimmer.png",
+      "sha256": "58a3fe0772490ee20260720524f49088d8c12a6ddf93305370d30175041c4242",
+      "role": "exact runtime binding/source"
+    },
+    {
+      "path": "assets/castle/day_one_pool/activities/cleanup_basket.png",
+      "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910",
+      "role": "exact runtime binding/source"
+    },
+    {
+      "path": "scripts/games/pool_skimmer_activity.gd",
+      "sha256": "be0b539085fbb40829aa55978a94a0354937ed7da8a1292c03211a82c03d193a",
+      "role": "exact runtime binding/source"
+    },
+    {
+      "path": "scripts/games/day_one_pool_cleanup.gd",
+      "sha256": "9ba2ef522031ec5c9bf19487f3635b21bc9522e37a363e608c8a74be59682f02",
+      "role": "exact runtime binding/source"
+    }
+  ],
+  "reuse": "Five named source4.6 replacements, original leaf, intact basket and protected selected character/skin cutouts. New runtime atlas/tool are reversible complete-canvas packs; no protected pixels changed.",
+  "entry": {
+    "held_actor_center": [
+      230,
+      520
+    ],
+    "target": "actual uncollected trash contact",
+    "hand": "classic local46,23 scaled.95; existing normalized skin sockets fairy.705,.552/huluu.811,.353",
+    "tool_grip_pixel": [
+      100,
+      580
+    ],
+    "net_opening_pixel": [
+      799,
+      170
+    ],
+    "tool_scale": "205/1024 uniform"
+  },
+  "exit": {
+    "last_item_landed": "exact stored sprite position/scale",
+    "visible_actor_return_center": [
+      770,
+      435
+    ],
+    "ownership": "held actor hidden only after room actor receives identical global center; restore previous actor/shadow visibility",
+    "safe_boundary": "full Sprite2D frame conservative bounds must be inside viewport and clear next caption"
+  },
+  "geometry": {
+    "canvas": [
+      1280,
+      720
+    ],
+    "basket_center": [
+      980,
+      560
+    ],
+    "basket_fit": [
+      230,
+      178
+    ],
+    "stored_card_fit": 40,
+    "stored_spacing": [
+      36,
+      26
+    ],
+    "logical_contact_tolerance_px": 24,
+    "logical_grip_tolerance_px": 0.01,
+    "guide": "none"
+  },
+  "timeline": {
+    "translation_px_per_second": 440,
+    "delta_cap_seconds": 0.06666666666666667,
+    "scoop_seconds": 0.42,
+    "scoop_lean_radians": 0.055,
+    "carry": "actual piece retains full scale/opacity, attached to net until basket approach955,460",
+    "drop_seconds": 0.28,
+    "drop": "whole complete piece moves to exact stored pose; twelve-pixel upward bow; lean.035",
+    "final_return": "after last visible landing, whole held actor moves to770,435 at same bounded speed, then two rendered frames before phase commit",
+    "intentional_holds": "no hidden motion holds/duplicate capture frames"
+  },
+  "translation_owner": "PoolSkimmerActivity while held; existing room actor resumes after stop. No camera movement or 3D. Ordinary room pathfinding/collision remains a separate surrounding audit.",
+  "events": "Catch at local contact/action gate emits monotonic mask to Main exactly once; saved at actual catch. Completed signal requests controller lifecycle-guarded wait while drop/return pending; phase commit only after visible landing/return. No passive rewards.",
+  "interruptions": "Precatch cancel retains uncollected piece; postcatch stop settles item without losing bit. Back/teardown restore room visibility/shadow and cancel presentation; lifecycle generation prevents stale phase callbacks. Saved complete mask re-entry restores basket and later phase.",
+  "readability": "All source/carry/drop/stored/cue/phase opinions separate. Classic1280x720 plus wider1600x720 fairy/huluu captures; no phone30fps, child or owner acceptance.",
+  "verification": "focused_return_v7 exact4.7.2 import/parser/inference/6analyzers, unchanged trusted pool/contextual voice,41 independent assertions. Complete native current sequences and current wholeCI remain required. Raw voice-probe tree playback diagnostic retained.",
+  "remaining_art_gap": "Static pose translation and whole-card lean do not establish authored Ribbon Glide tail/gaze/action animation. Painted skin sockets, direction/pose swaps and all full action scores remain direct-review obligations; source scores cannot waive them."
+}

@@ -1,0 +1,81 @@
+{
+  "status": "WEAK_ACTOR_CONTACT_PRESERVED",
+  "updated_utc": "2026-10-01T16:36:25.042005+00:00",
+  "views": [
+    {
+      "capture": "native_actions_1600_fairy_return_v2",
+      "direct_frames": [
+        0,
+        22,
+        431
+      ],
+      "hashes": [
+        {
+          "path": "native_actions_1600_fairy_return_v2/frame_0000.webp",
+          "sha256": "fce48cc7a5a68300ac5458ac96dbea773ab237fccb44ac74334cf4674c8cfa2e"
+        },
+        {
+          "path": "native_actions_1600_fairy_return_v2/frame_0022.webp",
+          "sha256": "07c735fe33f4c54d4dd5d7ba3b8e22fe825e164172dec733e83a74ddfdc770f8"
+        },
+        {
+          "path": "native_actions_1600_fairy_return_v2/frame_0431.webp",
+          "sha256": "a01fa7af8c3bd178fa92eb8815f429fcf23a53d428c86b135569786874934db5"
+        }
+      ]
+    },
+    {
+      "capture": "native_actions_1600_huluu_return_v2",
+      "direct_frames": [
+        0,
+        21,
+        431
+      ],
+      "hashes": [
+        {
+          "path": "native_actions_1600_huluu_return_v2/frame_0000.webp",
+          "sha256": "ed6c08ae86dcf9c9887baa6476e160ef1a65c3d0105225b777a3500d3ab08be0"
+        },
+        {
+          "path": "native_actions_1600_huluu_return_v2/frame_0021.webp",
+          "sha256": "d0812ca642fc7ed78768e0d268dc11f83a211b7b79323fc38a97952de44fd482"
+        },
+        {
+          "path": "native_actions_1600_huluu_return_v2/frame_0431.webp",
+          "sha256": "42102378c3a135a5831179202b87e635781f1226b9c88ec70862ec88855fd8cb"
+        }
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "id": "pool-final-return",
+      "name": "Final visible return and caption clearance",
+      "score": 4.6,
+      "priority": false,
+      "opinion": "Classic final and both inspected wide costume finals show the complete cutout above the next bottom caption after the visible last landing and bounded return. Full region bounds end around570–572px while the caption starts around594px. This is local framing, not accepted body motion."
+    },
+    {
+      "id": "pool-actor-start-occlusion",
+      "name": "Initial actor and dust-bunny overlap",
+      "score": 4.3,
+      "priority": true,
+      "opinion": "All three inspected initial views place a foreground dust bunny over Roshan’s lower body. The static-source hierarchy remains a specific mounting priority."
+    },
+    {
+      "id": "pool-fairy-grip",
+      "name": "Fairy painted hand and skimmer grip",
+      "score": 4.1,
+      "priority": true,
+      "opinion": "The first caught-wrapper view puts the handle near the Fairy wrist, but the unchanged hand/arm pose does not convincingly grasp or scoop. Only initial0/catch22/final431 are directly reviewed in this wide attempt."
+    },
+    {
+      "id": "pool-huluu-grip",
+      "name": "Huluu painted hand and skimmer grip",
+      "score": 3.5,
+      "priority": true,
+      "opinion": "The first caught-wrapper view shows crossed/folded arms while the net handle projects right from the lap/wrist region. This does not read as holding or controlling a skimmer. Only initial0/catch21/final431 are directly reviewed in this wide attempt; protected original portrait is unchanged."
+    }
+  ],
+  "qualification": "Candidate machine geometry and final caption clearance pass; painted grasp and acting remain priorities. No protected original edit, full wide-frame or continuous-playback approval."
+}

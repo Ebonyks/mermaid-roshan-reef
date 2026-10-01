@@ -1,0 +1,16 @@
+{
+  "status": "ONLY_SYNCHRONOUS_COLLECTION_HELPER_CHANGED",
+  "created_utc": "2026-10-01T17:29:32.928320+00:00",
+  "source_before_sha256": "be0b539085fbb40829aa55978a94a0354937ed7da8a1292c03211a82c03d193a",
+  "source_after_sha256": "760411763018cca06d3def0ad1d5da4c2ff9a1c346457b886132fd08f4372db2",
+  "same_bytes_outside_probe_collect_next": true,
+  "same_outside_window_sha256": "2ec733b925dafcc4c6fe7d90cfdfa1fdfc168e0fa4ca5b1dfb366ad9b6914fde",
+  "trusted_probe_original_sha256": "6c11305e07e6d524d1e884bbc7150743bb6d841613a9b96cf913621ce66efe8e",
+  "trusted_probe_current_sha256": "6c11305e07e6d524d1e884bbc7150743bb6d841613a9b96cf913621ce66efe8e",
+  "original_deadlines_and_checks_unchanged": true,
+  "failed_full_suite": "../full_ci_current_v1/RECEIPT.json",
+  "unchanged_instrumented_retry": "RECEIPT.json",
+  "diagnosis": "Original0.72-second trusted probe deadline follows the synchronous six-collection helper. That helper returned at last catch with carry/drop/return still pending. The visible added final transfer can approach/exceed that wall interval, and frame-clamped processing makes the deadline sensitive to scheduling. The preserved full suite fails phase transition; an unchanged diagnostic retry passes. This is a timing diagnosis, not proof of exact residual state in the failed full run.",
+  "repair": "Complete each synchronous helper collection using the same bounded1/60 state updates, at most240 settle ticks, without changing real child-input/rendered motion, save timing, phase owner, original trusted probe, or any source artwork. Report false if it cannot settle.",
+  "existing_native_evidence_limit": "All retained actual-input native captures call local GUI requests, not this synchronous helper. Their exact old controller hashes remain preserved; only shared unchanged production behavior/appearance can be reused after this declared narrow equivalence check. No new costume, acting or owner pass."
+}

@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "processes": [
+    {
+      "name": "parser",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "audit/day_two_boxing_puff_reuse_v1_20261001/capture_unbound_timed_reuse_v3.gd"
+      ],
+      "exit": 0,
+      "seconds": 1.7252276999643072
+    },
+    {
+      "name": "inference",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "audit/day_two_boxing_puff_reuse_v1_20261001/capture_unbound_timed_reuse_v3.gd"
+      ],
+      "exit": 0,
+      "seconds": 0.11957390001043677
+    },
+    {
+      "name": "analyzer",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--check-only",
+        "--script",
+        "res://audit/day_two_boxing_puff_reuse_v1_20261001/capture_unbound_timed_reuse_v3.gd"
+      ],
+      "exit": 0,
+      "seconds": 5.638496499974281
+    },
+    {
+      "name": "native",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--path",
+        "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930",
+        "--windowed",
+        "--resolution",
+        "1280x720",
+        "--script",
+        "res://audit/day_two_boxing_puff_reuse_v1_20261001/capture_unbound_timed_reuse_v3.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit": 0,
+      "seconds": 39.8898984999978
+    }
+  ],
+  "source_before": {
+    "project.godot": "2587e8f6cbd52d437f6a08198d26a80465ee0e86868bc9f03526134f0cd6e770",
+    "scenes/main.tscn": "064ca94c2eca6638eafe169c5fedeb6310a9ef31e5941351e7c41b2934263db7",
+    "scripts/main.gd": "98d91a560426cfa4c52a70221a0311856429c031805d7d9dc990eefe2affe30e",
+    "scripts/opera_career_world_2d.gd": "f58088a214bffb8ceb68a01c771e20241a32d987ac180b4be51be236247922ae",
+    "scripts/opera_boxing_surface.gd": "32ec41c72dc8c23fc3d7667eb8f69a77c34eaca9c1b6aad45635e85317b07489",
+    "audit/day_two_boxing_puff_reuse_v1_20261001/capture_unbound_timed_reuse_v3.gd": "3dd0bafae5c118d2f1cb92d6403e32505598387ef809b7b69bdb852dc5fb204a",
+    "assets/opera/worlds/props/fx_bop_puff.png": "4e64dfa88aa9a6105a61cdac0f978d207eb581b822ce854ac806a88e2a1c4e5c",
+    "assets/opera/worlds/props/fx_dust_puff.png": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8"
+  },
+  "source_after": {
+    "project.godot": "2587e8f6cbd52d437f6a08198d26a80465ee0e86868bc9f03526134f0cd6e770",
+    "scenes/main.tscn": "064ca94c2eca6638eafe169c5fedeb6310a9ef31e5941351e7c41b2934263db7",
+    "scripts/main.gd": "98d91a560426cfa4c52a70221a0311856429c031805d7d9dc990eefe2affe30e",
+    "scripts/opera_career_world_2d.gd": "f58088a214bffb8ceb68a01c771e20241a32d987ac180b4be51be236247922ae",
+    "scripts/opera_boxing_surface.gd": "32ec41c72dc8c23fc3d7667eb8f69a77c34eaca9c1b6aad45635e85317b07489",
+    "audit/day_two_boxing_puff_reuse_v1_20261001/capture_unbound_timed_reuse_v3.gd": "3dd0bafae5c118d2f1cb92d6403e32505598387ef809b7b69bdb852dc5fb204a",
+    "assets/opera/worlds/props/fx_bop_puff.png": "4e64dfa88aa9a6105a61cdac0f978d207eb581b822ce854ac806a88e2a1c4e5c",
+    "assets/opera/worlds/props/fx_dust_puff.png": "7d958da210e1cbc22de0b593391b262484e813593152e53f25c17db8e7d64bd8"
+  },
+  "source_unchanged": true,
+  "qualification": "Unbound timed actual-local-handler one-punch boxing puff fit; no live binding or visual acceptance."
+}
