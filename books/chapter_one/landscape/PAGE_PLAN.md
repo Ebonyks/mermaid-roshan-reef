@@ -1,4 +1,4 @@
-# V29 current page plan
+# V30 current page plan
 
 Status: `SUPPORTING_CURRENT`.34 total pages, including both covers;32 story pages;7 × 5 in landscape; Sniglet. F means full art; C means authored-contour cutout on low blue event stationery. No reduced scenic rectangles. The story and page order are finished.
 
@@ -10,7 +10,7 @@ Door23 precedes Puff24; bubble27 precedes rainbow28. These intended reveals assu
 | 2 | F | Roshan and Daddy landed at Sky Lagoon. / Pearl Castle was close by. |
 | 3 | F | “Let’s look inside, / Daddy,” said Roshan. |
 | 4 | F | Inside, dust covered the floor. / “Let’s clean it together!” / said Roshan. |
-| 5 | C | Daddy gave her a brush and a sponge. / “One little job at a time.” |
+| 5 | C | Daddy gave her a brush and some sponges. / “One little job at a time.” |
 | 6 | F | A dust bunny splashed in the dirty bath. / It loved to play. Splash, splash! |
 | 7 | C | Round and round went the sponge. / Roshan wiped the sink clean. |
 | 8 | C | Roshan let the dirty bath water out. / Then she scrubbed the tub. Scrub, scrub! |
@@ -39,4 +39,4 @@ Door23 precedes Puff24; bubble27 precedes rainbow28. These intended reveals assu
 | 31 | C | “Come and play, Baby Eagle!” / The little dust bunnies played gently, too. |
 | 32 | F | There was room for everyone. / They curled up in the bubbles and fell asleep. |
 
-Exact sources, masks, placements, typography and measured marginal bounds are in [book.json](book.json) and [page provenance](revisions/v29_polish/complete/page_provenance.json). The [all-page before/after review](revisions/v29_polish/AUDIT_REVIEW.html) records the final independent object judgments.
+Exact sources, masks, placements, typography and measured marginal bounds are in [book.json](book.json) and [page provenance](revisions/v30_identity/complete/page_provenance.json). The [all-page before/after review](revisions/v30_identity/AUDIT_REVIEW.html) records the final independent object judgments.

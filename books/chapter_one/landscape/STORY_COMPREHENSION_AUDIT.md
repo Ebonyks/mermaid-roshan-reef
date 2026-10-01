@@ -1,4 +1,4 @@
-# V29 story and language review
+# V30 story and language review
 
 Status: `SUPPORTING_CURRENT`; developmental editorial review, not an observed child test or professional SLP approval.
 
@@ -15,4 +15,4 @@ Status: `SUPPORTING_CURRENT`; developmental editorial review, not an observed ch
 
 Short concrete clauses, named referents, supported richer words and recurrent sounds invite participation as reading develops. This remains a shared-reading picture book, not a controlled phonics course or certified reading level. No hidden-character search instruction appears in the manuscript.
 
-The [language packet](revisions/v29_polish/SLP_REVIEW_PACKET.html) gives the exact manuscript, language-development rationale and review questions. Relevant ASHA and IES guidance is cited there. Actual SLP sign-off requires a qualified professional. Observe Roshan's understanding of the rescue, apology and same-Puff transformation; allow enjoyable reading without turning each page into a test. A print dummy must confirm all caption placements and reveal turns.
+The [language packet](revisions/v30_identity/SLP_REVIEW_PACKET.html) gives the exact manuscript, language-development rationale and review questions. Relevant ASHA and IES guidance is cited there. Actual SLP sign-off requires a qualified professional. Observe Roshan's understanding of the rescue, apology and same-Puff transformation; allow enjoyable reading without turning each page into a test. A print dummy must confirm all caption placements and reveal turns.

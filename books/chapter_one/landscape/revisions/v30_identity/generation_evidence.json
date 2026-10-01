@@ -1,0 +1,783 @@
+{
+  "revision": "V30",
+  "baseline": "82a6dc1dba381c0b3ef507a8397512fa09ef624e",
+  "previous_generation_evidence": {
+    "path": "books/chapter_one/landscape/revisions/v29_polish/generation_evidence.json",
+    "sha256": "b8324d686cd30f6ff84b990094bc07609e89dafdf71337e8ed9b41cb67c116b0"
+  },
+  "generated_count": 6,
+  "selected_candidate_count": 5,
+  "rejected_candidate_count": 1,
+  "cumulative_polish_generation_candidates": 56,
+  "cumulative_selected_derivatives": 29,
+  "generated": [
+    {
+      "id": "front_identity",
+      "method": "Built-in imagegen; source-conditioned bounded inpaint or isolated object derivative",
+      "prompt": "Use case: identity-preserve. This is a precise local edit, not a new cover design. IMAGE 1 is the accepted 1484x1060 edit target. IMAGE 2 is adult Rumi's identity reference; IMAGE 3 confirms her adult face in the interior. Keep IMAGE 1's entire composition, character positions, head sizes, hairstyles, joyful expressions, hands, props, background, watercolor style, palette and framing unchanged. Edit ONLY two small regions: (A) Rumi's face, roughly x392–490 y293–386 in IMAGE 1: keep her exact head tilt, purple hair, pointed ear, happy open smile, and cheerful attention; refine the face toward adult Rumi's almond eye shapes, eyebrows and gently narrower cheeks/jaw from IMAGE 2, in the same broad painted style. She is an adult castle resident, visibly older than little Roshan, not a child. No wrinkles, realistic skin or mature makeup. Do not enlarge or move the head. (B) Remove ONLY the tiny gold shell brooch on little Roshan's pink bodice, x735–781 y551–597; reconstruct the same existing pink fabric/ruffle around it. Keep the garment shape and every other detail unchanged. No extra jewelry, characters, objects, lettering, borders or watermark. Return the same complete 7:5 landscape canvas with the two bounded corrections. All other appearance comes exactly from IMAGE 1.",
+      "prompt_sha256": "fa67e22782f5cd7bd939cf9b0b508ab03af97facdddeb84cc94b86a6953a4d0a",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/personality_v20/cover_rendered.png",
+          "sha256": "7245b1a5edcb03c80ee4af75d5ca0fd7849574278b0a0bacbb63579f2d1bc1d2",
+          "role": "Edit target"
+        },
+        {
+          "path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
+          "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+          "role": "Adult identity / existing-object reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/art/language_v26/rumi_free.png",
+          "sha256": "c1f864bed9bcf443a326fdef85536f9b60592f104f873559a3e315101f06ba59",
+          "role": "Adult identity / existing-object reference"
+        }
+      ],
+      "native_output": "books/chapter_one/landscape/revisions/v30_identity/art/front_identity.png",
+      "native_sha256": "0df6e530f56ae8520f2e337ec2210d585c21720eeecd4a84c43b739cff287108",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "native_mode": "RGB",
+      "selection": "SELECTED_DERIVATIVE",
+      "selection_reason": "Bounded regions/source-derived whole object only; native proof and independent review required.",
+      "delivered_layers": [
+        {
+          "page": "front_cover",
+          "source_key": "v30_front_identity",
+          "file": "revisions/v30_identity/art/front_identity.png",
+          "sha256": "0df6e530f56ae8520f2e337ec2210d585c21720eeecd4a84c43b739cff287108",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            391,
+            291,
+            492,
+            386
+          ],
+          "target_box_points": [
+            132.7924528301887,
+            228.9056603773585,
+            34.30188679245283,
+            32.264150943396224
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              398,
+              310
+            ],
+            [
+              412,
+              296
+            ],
+            [
+              446,
+              291
+            ],
+            [
+              477,
+              300
+            ],
+            [
+              492,
+              324
+            ],
+            [
+              492,
+              350
+            ],
+            [
+              479,
+              374
+            ],
+            [
+              455,
+              386
+            ],
+            [
+              433,
+              378
+            ],
+            [
+              412,
+              362
+            ],
+            [
+              391,
+              348
+            ]
+          ],
+          "source_canvas_box": [
+            0,
+            0,
+            1484,
+            1060
+          ]
+        },
+        {
+          "page": "front_cover",
+          "source_key": "v30_front_identity",
+          "file": "revisions/v30_identity/art/front_identity.png",
+          "sha256": "0df6e530f56ae8520f2e337ec2210d585c21720eeecd4a84c43b739cff287108",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            731,
+            545,
+            789,
+            603
+          ],
+          "target_box_points": [
+            248.26415094339623,
+            155.2075471698113,
+            19.69811320754717,
+            19.69811320754717
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              734,
+              550
+            ],
+            [
+              758,
+              545
+            ],
+            [
+              783,
+              551
+            ],
+            [
+              789,
+              575
+            ],
+            [
+              779,
+              597
+            ],
+            [
+              757,
+              603
+            ],
+            [
+              737,
+              593
+            ],
+            [
+              731,
+              570
+            ]
+          ],
+          "source_canvas_box": [
+            0,
+            0,
+            1484,
+            1060
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rear_identity",
+      "method": "Built-in imagegen; source-conditioned bounded inpaint or isolated object derivative",
+      "prompt": "Use case: identity-preserve. Precise local correction of the owner-selected rear cover H, not a new composition. IMAGE 1 is the accepted 1484x1060 edit target; IMAGE 2 adult Rumi identity; IMAGE 3 adult Rumi interior confirmation. Preserve the complete original composition, characters, positions, head sizes/tilts, costume/hair/tails, hands, concerned/hopeful expressions, dirty table, all small bunnies, props, watercolor style, palette and 7:5 framing. Edit ONLY (A) Rumi's facial region approximately x947–1140 y291–445. Keep her exact head tilt, purple braided hair, pointed ear and upbeat open smile; use adult Rumi's almond eye shape, eyebrow angles and gently narrower cheek/jaw silhouette/shading. She should read as the adult castle resident, visibly older than Roshan, without wrinkles, realistic skin, mature makeup, enlarging the head or redrawing any character's body. (B) Remove ONLY Roshan's tiny gold shell brooch at x621–668 y478–527 and heal with the same pink bodice and ruffled fabric already there. Keep all garment contours and skin/hands unchanged. No new jewelry, props, lettering, characters, borders or watermark. Return the same complete canvas; change nothing outside these two bounded facial/bodice regions.",
+      "prompt_sha256": "9231d427a1823440e595dbdc457ff2a284fea9e7f5894a2c98a949dc808f0f5a",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/story_detail_v23/cover_h.png",
+          "sha256": "6bb61625f4d052e9d7abd6f3669e692652fc703ef0b64113fea4443f4cdab923",
+          "role": "Edit target"
+        },
+        {
+          "path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
+          "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+          "role": "Adult identity / existing-object reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/art/language_v26/rumi_free.png",
+          "sha256": "c1f864bed9bcf443a326fdef85536f9b60592f104f873559a3e315101f06ba59",
+          "role": "Adult identity / existing-object reference"
+        }
+      ],
+      "native_output": "books/chapter_one/landscape/revisions/v30_identity/art/rear_identity.png",
+      "native_sha256": "d122a3d106be9fe44ec7a96c5bfe61f9bd2eb2c385d7717425ca830df78bb2bc",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "native_mode": "RGB",
+      "selection": "SELECTED_DERIVATIVE",
+      "selection_reason": "Bounded regions/source-derived whole object only; native proof and independent review required.",
+      "delivered_layers": [
+        {
+          "page": "back_cover",
+          "source_key": "v30_rear_identity",
+          "file": "revisions/v30_identity/art/rear_identity.png",
+          "sha256": "d122a3d106be9fe44ec7a96c5bfe61f9bd2eb2c385d7717425ca830df78bb2bc",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            945,
+            290,
+            1138,
+            444
+          ],
+          "target_box_points": [
+            320.9433962264151,
+            209.2075471698113,
+            65.54716981132076,
+            52.30188679245283
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              971,
+              313
+            ],
+            [
+              990,
+              294
+            ],
+            [
+              1030,
+              290
+            ],
+            [
+              1072,
+              303
+            ],
+            [
+              1110,
+              326
+            ],
+            [
+              1137,
+              352
+            ],
+            [
+              1138,
+              380
+            ],
+            [
+              1111,
+              405
+            ],
+            [
+              1063,
+              438
+            ],
+            [
+              1027,
+              444
+            ],
+            [
+              998,
+              421
+            ],
+            [
+              974,
+              388
+            ],
+            [
+              945,
+              369
+            ]
+          ],
+          "source_canvas_box": [
+            0,
+            0,
+            1484,
+            1060
+          ]
+        },
+        {
+          "page": "back_cover",
+          "source_key": "v30_rear_identity",
+          "file": "revisions/v30_identity/art/rear_identity.png",
+          "sha256": "d122a3d106be9fe44ec7a96c5bfe61f9bd2eb2c385d7717425ca830df78bb2bc",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            615,
+            475,
+            672,
+            533
+          ],
+          "target_box_points": [
+            208.8679245283019,
+            178.9811320754717,
+            19.358490566037734,
+            19.69811320754717
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              622,
+              479
+            ],
+            [
+              645,
+              475
+            ],
+            [
+              670,
+              484
+            ],
+            [
+              672,
+              508
+            ],
+            [
+              659,
+              530
+            ],
+            [
+              637,
+              533
+            ],
+            [
+              620,
+              519
+            ],
+            [
+              615,
+              497
+            ]
+          ],
+          "source_canvas_box": [
+            0,
+            0,
+            1484,
+            1060
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rumi_trapped_identity",
+      "method": "Built-in imagegen; source-conditioned bounded inpaint or isolated object derivative",
+      "prompt": "Use case: identity-preserve. Local facial correction only. IMAGE 1 is the accepted 1484x1060 dirty-pool story frame; IMAGE 2 adult Rumi identity; IMAGE 3 same adult Rumi after rescue. Preserve IMAGE 1's exact room, pool/gunk/rubbish, waterfall, blocked seahorse, foreground Roshan/net, Rumi's submerged body, hand gestures, purple braid, head size/tilt and worried asking-for-help expression. Edit ONLY Rumi's small face around x734–828 y590–673: match the adult Rumi almond eyes, brows, cheek/jaw shading and face maturity from IMAGE 2, while retaining her existing worry and upward glance. She is the adult castle resident, not a child. Do not move/enlarge the head, change her ears/hair/clothes, remove gunk or alter any rescue/story action. Same broad simplified painted 2D children's-book style; no photorealism, skin pores, wrinkles or adult makeup. Exact original palette, camera/framing and whole 7:5 landscape canvas. Return a complete frame with only that bounded face correction; no lettering, border or watermark.",
+      "prompt_sha256": "fc6dd3db46c439699124063dc7bc2e820763e40511a52307f8f21ce01ccab577",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/language_v26/rumi_trapped.png",
+          "sha256": "dd7f716c7f470cef0361e339e281fc662558f88915448c42a25bcdaeb509d2d0",
+          "role": "Edit target"
+        },
+        {
+          "path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
+          "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+          "role": "Adult identity / existing-object reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/art/language_v26/rumi_free.png",
+          "sha256": "c1f864bed9bcf443a326fdef85536f9b60592f104f873559a3e315101f06ba59",
+          "role": "Adult identity / existing-object reference"
+        }
+      ],
+      "native_output": "books/chapter_one/landscape/revisions/v30_identity/art/rumi_trapped_identity.png",
+      "native_sha256": "85a23d5f06cd51fd21917df37a7042bc91f86094bfa1f1284030717820d56d70",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "native_mode": "RGB",
+      "selection": "REJECTED_UNUSED",
+      "selection_reason": "Face identity change too slight at book size; superseded by focused facial crop. No delivered page uses it.",
+      "delivered_layers": []
+    },
+    {
+      "id": "castle_attention",
+      "method": "Built-in imagegen; source-conditioned bounded inpaint or isolated object derivative",
+      "prompt": "Use case: identity-preserve. Precise facial-expression correction of existing dirty-castle scene. The reference is the edit target, 1484x1060. Keep every pixel concept outside two small faces unchanged: all architecture, doors, grime, cobwebs, floor, light, character positions, head sizes, brown/rainbow hair, crowns, clothes, hands, arms, poses, tails and 7:5 framing. Do NOT redraw the room or move either figure. Edit only Roshan's small face around x131–197 y507–571: she is still the same little mermaid standing beside Daddy, now looking to the right toward the dirty floor/rooms with gently determined eyebrows and a small warm speaking smile, ready to help clean together. Keep eyes large and childlike, same face outline and head angle. Edit only Daddy's face x269–337 y382–449 to a gentle attentive expression with open eyes looking toward the dirty hall on the right, same glasses, exact face geometry and warm reassurance. Do not make a new action gesture or alter their arms. Match the original simple broad painted 2D storybook shading/palette, crisp uncompressed outlines. No photorealism, new props, duplicate windows, lettering, borders or watermark. Return the same complete canvas with only those two bounded facial edits.",
+      "prompt_sha256": "22ba75bf25705dfb21b1816a7bac87792bda9ccfecbaee9a93d4e260298d8ded",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/story_detail_v23/castle_repair.png",
+          "sha256": "b1d25511be353a94ed989f1e25289b1d5e1ce3ae69983d544c1eca1a83e6ab17",
+          "role": "Edit target"
+        }
+      ],
+      "native_output": "books/chapter_one/landscape/revisions/v30_identity/art/castle_attention.png",
+      "native_sha256": "7dd0c4701d2d0b533cb244d38e5fdf271954128342006d459c599c36a56d8752",
+      "native_size": [
+        1484,
+        1060
+      ],
+      "native_mode": "RGB",
+      "selection": "SELECTED_DERIVATIVE",
+      "selection_reason": "Bounded regions/source-derived whole object only; native proof and independent review required.",
+      "delivered_layers": [
+        {
+          "page": 4,
+          "source_key": "v30_castle_attention",
+          "file": "revisions/v30_identity/art/castle_attention.png",
+          "sha256": "7dd0c4701d2d0b533cb244d38e5fdf271954128342006d459c599c36a56d8752",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            127,
+            504,
+            199,
+            575
+          ],
+          "target_box_points": [
+            43.13207547169814,
+            164.71698113207546,
+            24.452830188679243,
+            24.11320754716981
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              139,
+              508
+            ],
+            [
+              163,
+              504
+            ],
+            [
+              189,
+              511
+            ],
+            [
+              199,
+              531
+            ],
+            [
+              192,
+              553
+            ],
+            [
+              178,
+              574
+            ],
+            [
+              155,
+              575
+            ],
+            [
+              138,
+              561
+            ],
+            [
+              127,
+              539
+            ]
+          ],
+          "source_canvas_box": [
+            0,
+            0,
+            1484,
+            1060
+          ]
+        },
+        {
+          "page": 4,
+          "source_key": "v30_castle_attention",
+          "file": "revisions/v30_identity/art/castle_attention.png",
+          "sha256": "7dd0c4701d2d0b533cb244d38e5fdf271954128342006d459c599c36a56d8752",
+          "native_size": [
+            1484,
+            1060
+          ],
+          "source_box_pixels": [
+            265,
+            379,
+            340,
+            454
+          ],
+          "target_box_points": [
+            90.00000000000003,
+            205.81132075471697,
+            25.471698113207545,
+            25.471698113207545
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              279,
+              385
+            ],
+            [
+              302,
+              379
+            ],
+            [
+              327,
+              385
+            ],
+            [
+              340,
+              405
+            ],
+            [
+              333,
+              429
+            ],
+            [
+              314,
+              449
+            ],
+            [
+              292,
+              454
+            ],
+            [
+              274,
+              437
+            ],
+            [
+              265,
+              408
+            ]
+          ],
+          "source_canvas_box": [
+            0,
+            0,
+            1484,
+            1060
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rumi_face_crop",
+      "method": "Built-in imagegen; source-conditioned bounded inpaint or isolated object derivative",
+      "prompt": "Use case: identity-preserve. IMAGE 1 is the EXACT small edit target cropped from an existing dirty-pool scene, 159x153, not a new composition. Return only this same crop composition and aspect ratio as a high-quality painted raster; a higher pixel size is welcome. IMAGE 2 is adult Rumi's canonical identity; IMAGE 3 shows this adult in the book. In IMAGE 1 correct ONLY the face inside the existing purple hairstyle: it wrongly reads as a young child. Make her unmistakably the adult Rumi from IMAGE 2. Substantially narrower ALMOND-shaped eye openings with smaller iris-to-face ratio, defined angled upper eyelids/brows, and adult tapered cheek/jaw proportions with broad simplified cheek shading. Keep the exact head scale/location/tilt and the same worried upward gaze, small distressed open mouth, purple hair/braid, pointed ear, neck/costume, both raised hands and dirty water. Do NOT enlarge the head or turn worry into a smile. No wrinkles, mature makeup, realistic skin, beard, new jewelry or photorealism. Retain IMAGE 1's original simple polished 2D storybook color/style. Everything outside the facial region stays unchanged in shape and position. No text, border or watermark. This is one tightly bounded facial inpaint, not a new scene or replacement body.",
+      "prompt_sha256": "9117f2ca25b1537d6efb72cb1fd2e265478e696adc77a35bb9e2b99810446029",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/revisions/v30_identity/references/rumi_face_crop.png",
+          "sha256": "55c21baaee3a2e5346c0a77fa4e0da58d44589133bca78fb24ee907edbb98c1c",
+          "role": "Edit target"
+        },
+        {
+          "path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
+          "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f",
+          "role": "Adult identity / existing-object reference"
+        },
+        {
+          "path": "books/chapter_one/landscape/art/language_v26/rumi_free.png",
+          "sha256": "c1f864bed9bcf443a326fdef85536f9b60592f104f873559a3e315101f06ba59",
+          "role": "Adult identity / existing-object reference"
+        }
+      ],
+      "native_output": "books/chapter_one/landscape/revisions/v30_identity/art/rumi_face_crop.png",
+      "native_sha256": "6adbaff454926073a88132c30eeadcabfd104e589fc44f06a88090f3cf736e70",
+      "native_size": [
+        1278,
+        1230
+      ],
+      "native_mode": "RGB",
+      "selection": "SELECTED_DERIVATIVE",
+      "selection_reason": "Bounded regions/source-derived whole object only; native proof and independent review required.",
+      "delivered_layers": [
+        {
+          "page": 10,
+          "source_key": "v30_rumi_face_crop",
+          "file": "revisions/v30_identity/art/rumi_face_crop.png",
+          "sha256": "6adbaff454926073a88132c30eeadcabfd104e589fc44f06a88090f3cf736e70",
+          "native_size": [
+            1278,
+            1230
+          ],
+          "source_box_pixels": [
+            233,
+            241,
+            1021,
+            965
+          ],
+          "target_box_points": [
+            248.93941004517671,
+            129.72342383801197,
+            33.29577464788732,
+            30.58591808559595
+          ],
+          "operation": "bounded_inpaint_polygon_visible_pdf_resource",
+          "role": "story_art",
+          "alpha": false,
+          "clip_reference_size": [
+            1484,
+            1060
+          ],
+          "clip_polygon_source_pixels": [
+            [
+              744,
+              598
+            ],
+            [
+              766,
+              588
+            ],
+            [
+              792,
+              590
+            ],
+            [
+              815,
+              602
+            ],
+            [
+              829,
+              624
+            ],
+            [
+              831,
+              645
+            ],
+            [
+              814,
+              665
+            ],
+            [
+              792,
+              678
+            ],
+            [
+              767,
+              677
+            ],
+            [
+              749,
+              660
+            ],
+            [
+              735,
+              637
+            ],
+            [
+              733,
+              616
+            ]
+          ],
+          "source_canvas_box": [
+            704,
+            558,
+            863,
+            711
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yellow_sponge",
+      "method": "Built-in imagegen; source-conditioned bounded inpaint or isolated object derivative",
+      "prompt": "Use case: background-extraction / precise-object-edit. Create a true transparent cutout of ONE already-existing cleaning sponge. IMAGE 1 is the owner-accepted cover source: isolate only the golden-yellow porous rounded rectangular sponge held down by Roshan near x742–860 y703–847. IMAGE 2 confirms the same yellow sponge material/style in use. Extract and preserve this existing sponge's golden color, soft rounded four-sided shape, warm darker edge, broad simplified painted shading and clearly spaced irregular pores. Complete only the small part hidden by her fingers with matching sponge material (local inpaint); do not invent a new tool. No Roshan, no hand/fingers/skin, no crown/tail, no scene, no floor, no lettering, no watermark. No white sticker outline or background square. Omit loose soap bubbles so the whole sponge silhouette is clear. One complete sponge with its original gently diagonal orientation on fully transparent RGBA background; enough native detail to print crisply at a small foreground size. Keep the simple polished 2D picture-book style, not a photographic kitchen sponge or coral.",
+      "prompt_sha256": "3a45260e09afda7fe0c6cd6de572035f6791e8ecab5f907e1db4565643db73a1",
+      "references": [
+        {
+          "path": "books/chapter_one/landscape/art/personality_v20/cover_rendered.png",
+          "sha256": "7245b1a5edcb03c80ee4af75d5ca0fd7849574278b0a0bacbb63579f2d1bc1d2",
+          "role": "Edit target"
+        },
+        {
+          "path": "books/chapter_one/landscape/revisions/v29_polish/art/sponge25.png",
+          "sha256": "751dfca8d119dd8af374b59daec483293c6f0d3b1678b1025f3651e7e0ff6a58",
+          "role": "Adult identity / existing-object reference"
+        }
+      ],
+      "native_output": "books/chapter_one/landscape/revisions/v30_identity/art/yellow_sponge.png",
+      "native_sha256": "369966050378a1d4889e59c156268e9c80f53abc43e34bda31af977462ab4f98",
+      "native_size": [
+        1391,
+        1131
+      ],
+      "native_mode": "RGBA",
+      "selection": "SELECTED_DERIVATIVE",
+      "selection_reason": "Bounded regions/source-derived whole object only; native proof and independent review required.",
+      "delivered_layers": [
+        {
+          "page": 5,
+          "source_key": "v30_yellow_sponge",
+          "file": "revisions/v30_identity/art/yellow_sponge.png",
+          "sha256": "369966050378a1d4889e59c156268e9c80f53abc43e34bda31af977462ab4f98",
+          "native_size": [
+            1391,
+            1131
+          ],
+          "source_box_pixels": [
+            236,
+            108,
+            1156,
+            1037
+          ],
+          "target_box_points": [
+            247.0,
+            111.57934782608696,
+            86.0,
+            86.84130434782608
+          ],
+          "operation": "source_region",
+          "role": "story_art",
+          "alpha": true
+        }
+      ]
+    }
+  ],
+  "native_originals_preserved": true,
+  "source_crop_reference": {
+    "file": "books/chapter_one/landscape/revisions/v30_identity/references/rumi_face_crop.png",
+    "sha256": "55c21baaee3a2e5346c0a77fa4e0da58d44589133bca78fb24ee907edbb98c1c",
+    "source": "art/language_v26/rumi_trapped.png",
+    "source_sha256": "dd7f716c7f470cef0361e339e281fc662558f88915448c42a25bcdaeb509d2d0",
+    "source_box": [
+      704,
+      558,
+      863,
+      711
+    ],
+    "operation": "Lossless crop for targeted facial edit input only"
+  },
+  "scope": "Seven explicitly recorded irregular facial/bodice inpaint regions; one complete existing-source-derived yellow sponge cutout. No full-scene redraw or narrative invention. Accepted full-art base scenes remain unchanged outside the declared regions; page5 rearranges true foreground tool cutouts.",
+  "generation_budget": "Owner approved upwards of50 regenerations for quality gaps; no numeric upper cap inferred. No generation for novelty."
+}

@@ -45,11 +45,15 @@ def local_patch(p):
  shape.close();c.clipPath(shape,stroke=0,fill=0)
  # Embed only the PDF-visible source resource. Native derivative remains unchanged.
  xs=[v[0] for v in q['polygon']];ys=[v[1] for v in q['polygon']]
- l=max(0,math.floor(min(xs)*iw/rw));t=max(0,math.floor(min(ys)*ih/rh));r=min(iw,math.ceil(max(xs)*iw/rw));b=min(ih,math.ceil(max(ys)*ih/rh))
- target=(ox+l*rw/iw*s,oy+(rh-b*rh/ih)*s,(r-l)*rw/iw*s,(b-t)*rh/ih*s)
+ # A focused native inpaint may represent only a recorded window of the source.
+ # The polygon always uses the original whole-scene coordinates.
+ cl,ct,cr,cb=q.get('source_canvas_box',[0,0,rw,rh]);cw=cr-cl;ch=cb-ct
+ assert cw>0 and ch>0 and min(xs)>=cl and max(xs)<=cr and min(ys)>=ct and max(ys)<=cb
+ l=max(0,math.floor((min(xs)-cl)*iw/cw));t=max(0,math.floor((min(ys)-ct)*ih/ch));r=min(iw,math.ceil((max(xs)-cl)*iw/cw));b=min(ih,math.ceil((max(ys)-ct)*ih/ch))
+ target=(ox+(cl+l*cw/iw)*s,oy+(rh-ct-b*ch/ih)*s,(r-l)*cw/iw*s,(b-t)*ch/ih*s)
  c.drawImage(ImageReader(im.crop((l,t,r,b))),*target,mask='auto')
  record(k,(l,t,r,b),target,'bounded_inpaint_polygon_visible_pdf_resource')
- LAYERS[-1]['clip_reference_size']=q['reference_size'];LAYERS[-1]['clip_polygon_source_pixels']=q['polygon']
+ LAYERS[-1]['clip_reference_size']=q['reference_size'];LAYERS[-1]['clip_polygon_source_pixels']=q['polygon'];LAYERS[-1]['source_canvas_box']=q.get('source_canvas_box',[0,0,rw,rh])
  c.restoreState()
 
 def cut(k,x,y,w,h):
@@ -126,6 +130,7 @@ def page_extension(p):
  ROLE='original_complete_scene';region(k,(0,0,iw,ih),(0,0,W,middle));ROLE='story_art'
 # Covers remain part of the rough, outside the 32 numbered story pages.
 full('cover_rendered')
+for patch in B.get('cover',{}).get('local_patches',[]):local_patch({'local_patch':patch})
 text('Mermaid Roshan',142,312,338,30,True)
 text('and the Hidden Rainbow',142,282,338,22,True)
 text('A Pearl Castle friendship story',24,28,456,13,True)
@@ -160,7 +165,9 @@ for p in B['pages']:
  for balloon in p.get('speech_bubbles',[]):speech(balloon)
  c.showPage()
 PAGE='back_cover'
-full(B['back_cover']['art']);c.showPage();c.save()
+full(B['back_cover']['art'])
+for patch in B['back_cover'].get('local_patches',[]):local_patch({'local_patch':patch})
+c.showPage();c.save()
 font_path=ROOT/B['font']
 (O/'page_provenance.json').write_text(json.dumps({'page_size_points':[W,H],'coordinate_system':'source pixels: top-left x,y; PDF target points: bottom-left x,y,width,height; page-trim layers clipped to page','font':{'file':B['font'],'sha256':hashlib.sha256(font_path.read_bytes()).hexdigest()},'layers':LAYERS,'text_lines':TEXT_LINES,'note':'Actual draw operations, including covers and background occlusion redraws. This proves source use, not visual acceptance.'},indent=2),encoding='utf8',newline='\n')
 doc=pdfium.PdfDocument(str(PDF));thumbs=[]

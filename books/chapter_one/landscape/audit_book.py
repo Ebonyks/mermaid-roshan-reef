@@ -12,10 +12,11 @@ def overlap(a,b):
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--proof',required=True,type=Path);ap.add_argument('--baseline',required=True,type=Path);args=ap.parse_args()
  b=json.loads((ROOT/'book.json').read_text(encoding='utf8'));p=json.loads((args.proof/'page_provenance.json').read_text(encoding='utf8'));review=json.loads((ROOT/'stress_review.json').read_text(encoding='utf8'));issues=[];pages={row['page']:row for row in b['pages']}
- revised=b.get('revision','').startswith(('V28','V29'))
- polished=b.get('revision','').startswith('V29')
+ revised=b.get('revision','').startswith(('V28','V29','V30'))
+ polished=b.get('revision','').startswith(('V29','V30'))
+ local_identity=b.get('revision','').startswith('V30')
  by_old={row.get('original_page',row['page']):row for row in b['pages']}
- if revised:review=json.loads((ROOT/('revisions/v29_polish' if polished else 'revisions/v28_kindness')/'visual_review.json').read_text(encoding='utf8'))
+ if revised:review=json.loads((ROOT/('revisions/v30_identity' if local_identity else 'revisions/v29_polish' if polished else 'revisions/v28_kindness')/'visual_review.json').read_text(encoding='utf8'))
  pdf=PdfReader(args.proof/'Mermaid_Roshan_LANDSCAPE_ROUGH.pdf')
  if len(pdf.pages)!=34:issues.append('Expected 32 story pages plus covers.')
  for i,page in enumerate(pdf.pages):
@@ -96,7 +97,15 @@ def main():
  if by_old[9]['art']!=['v26_rumi_trapped']:issues.append('First dirty-pool page must establish the strainer.')
  if [' '.join(q['text'].split()) for q in by_old[19].get('speech_bubbles',[])]!=['Sorry!','We were just playing!']:issues.append('Missing commissioned bunny apology exchange.')
  back=[q for q in p['layers'] if q['page']=='back_cover']
- if len(back)!=1 or back[0]['source_key']!=b['back_cover']['art']:issues.append('Rear cover must be a single complete full-art composition.')
+ if not back or back[0]['source_key']!=b['back_cover']['art'] or back[0]['operation']!='page_trim':issues.append('Rear cover must retain its complete accepted full-art base.')
+ if not local_identity and len(back)!=1:issues.append('Uncommissioned rear-cover layers.')
+ if local_identity:
+  expected={'front_cover':{'v30_front_identity':2},'back_cover':{'v30_rear_identity':2},4:{'v30_castle_attention':2},10:{'v30_rumi_face_crop':1}}
+  for page_id,keys in expected.items():
+   actual=Counter(q['source_key'] for q in p['layers'] if q['page']==page_id and q['operation']=='bounded_inpaint_polygon_visible_pdf_resource')
+   if dict(actual)!=keys:issues.append(f'Page {page_id}: local identity edit sources/count differ from reviewed scope.')
+  if any(q['operation']!='bounded_inpaint_polygon_visible_pdf_resource' for q in back[1:]):issues.append('Rear cover added a non-local scene layer.')
+  if pages[5]['text']!='Daddy gave her a brush and some sponges.\n“One little job at a time.”':issues.append('Sponge variety introduction missing.')
  for n,key in [(17,'rescue_trapped'),(18,'rescue_release'),(27,'v27_scrub'),(28,'R09_suds'),(29,'R10_jump'),(30,'R11_land')]:
   if revised and n==18:key='approved_rescue_release'
   if polished and n in [17,18]:key='v29_rescue18' if n==17 else 'v29_rescue19'

@@ -3243,6 +3243,37 @@
         1060
       ],
       "provenance_record": "revisions/v29_polish/generation_evidence.json"
+    },
+    "v30_front_identity": {
+      "file": "revisions/v30_identity/art/front_identity.png",
+      "sha256": "0df6e530f56ae8520f2e337ec2210d585c21720eeecd4a84c43b739cff287108",
+      "provenance": "Built-in imagegen bounded inpaint. Native candidate preserved; only the explicit local polygon is delivered over the unchanged V29 scene."
+    },
+    "v30_rear_identity": {
+      "file": "revisions/v30_identity/art/rear_identity.png",
+      "sha256": "d122a3d106be9fe44ec7a96c5bfe61f9bd2eb2c385d7717425ca830df78bb2bc",
+      "provenance": "Built-in imagegen bounded inpaint. Native candidate preserved; only the explicit local polygon is delivered over the unchanged V29 scene."
+    },
+    "v30_castle_attention": {
+      "file": "revisions/v30_identity/art/castle_attention.png",
+      "sha256": "7dd0c4701d2d0b533cb244d38e5fdf271954128342006d459c599c36a56d8752",
+      "provenance": "Built-in imagegen bounded inpaint. Native candidate preserved; only the explicit local polygon is delivered over the unchanged V29 scene."
+    },
+    "v30_rumi_face_crop": {
+      "file": "revisions/v30_identity/art/rumi_face_crop.png",
+      "sha256": "6adbaff454926073a88132c30eeadcabfd104e589fc44f06a88090f3cf736e70",
+      "provenance": "Built-in imagegen bounded inpaint. Native candidate preserved; only the explicit local polygon is delivered over the unchanged V29 scene."
+    },
+    "v30_yellow_sponge": {
+      "file": "revisions/v30_identity/art/yellow_sponge.png",
+      "sha256": "369966050378a1d4889e59c156268e9c80f53abc43e34bda31af977462ab4f98",
+      "provenance": "Existing yellow sponge isolated with local hand-occlusion fill, true generated RGBA preserved. Whole authored sponge contour retained; padded crop excludes isolated alpha<=8 generator specks away from the object, without modifying native pixels.",
+      "alpha_box": [
+        236,
+        108,
+        1156,
+        1037
+      ]
     }
   },
   "pages": [
@@ -3374,16 +3405,109 @@
       "foreground_zone": null,
       "focal_exclusions": [],
       "original_page": 3,
-      "beat": "v27_3"
+      "beat": "v27_3",
+      "local_patches": [
+        {
+          "source": "v30_castle_attention",
+          "reference_size": [
+            1484,
+            1060
+          ],
+          "polygon": [
+            [
+              139,
+              508
+            ],
+            [
+              163,
+              504
+            ],
+            [
+              189,
+              511
+            ],
+            [
+              199,
+              531
+            ],
+            [
+              192,
+              553
+            ],
+            [
+              178,
+              574
+            ],
+            [
+              155,
+              575
+            ],
+            [
+              138,
+              561
+            ],
+            [
+              127,
+              539
+            ]
+          ]
+        },
+        {
+          "source": "v30_castle_attention",
+          "reference_size": [
+            1484,
+            1060
+          ],
+          "polygon": [
+            [
+              279,
+              385
+            ],
+            [
+              302,
+              379
+            ],
+            [
+              327,
+              385
+            ],
+            [
+              340,
+              405
+            ],
+            [
+              333,
+              429
+            ],
+            [
+              314,
+              449
+            ],
+            [
+              292,
+              454
+            ],
+            [
+              274,
+              437
+            ],
+            [
+              265,
+              408
+            ]
+          ]
+        }
+      ]
     },
     {
       "page": 5,
       "mode": "C",
       "art": [
         "brush",
-        "sponge"
+        "sponge",
+        "v30_yellow_sponge"
       ],
-      "text": "Daddy gave her a brush and a sponge.\n“One little job at a time.”",
+      "text": "Daddy gave her a brush and some sponges.\n“One little job at a time.”",
       "layout": "tools",
       "border_assets": [],
       "background_theme": "Eager bunny peeks from supply basket; bath accessories remain ready without duplicating main brush/sponge.",
@@ -3441,7 +3565,36 @@
       "bounds_note": "Final native visible-subject annotation; exact hidden occlusion/shadow opacity not measurable for generated pixels.",
       "marginal_bunny_count": 1,
       "original_page": 4,
-      "beat": "v27_4"
+      "beat": "v27_4",
+      "placements": [
+        {
+          "source": "brush",
+          "box": [
+            49,
+            65,
+            205,
+            190
+          ]
+        },
+        {
+          "source": "sponge",
+          "box": [
+            346,
+            82,
+            107,
+            126
+          ]
+        },
+        {
+          "source": "v30_yellow_sponge",
+          "box": [
+            247,
+            98,
+            86,
+            114
+          ]
+        }
+      ]
     },
     {
       "page": 6,
@@ -3794,7 +3947,72 @@
         ]
       ],
       "original_page": 9,
-      "beat": "v27_9"
+      "beat": "v27_9",
+      "local_patches": [
+        {
+          "source": "v30_rumi_face_crop",
+          "reference_size": [
+            1484,
+            1060
+          ],
+          "polygon": [
+            [
+              744,
+              598
+            ],
+            [
+              766,
+              588
+            ],
+            [
+              792,
+              590
+            ],
+            [
+              815,
+              602
+            ],
+            [
+              829,
+              624
+            ],
+            [
+              831,
+              645
+            ],
+            [
+              814,
+              665
+            ],
+            [
+              792,
+              678
+            ],
+            [
+              767,
+              677
+            ],
+            [
+              749,
+              660
+            ],
+            [
+              735,
+              637
+            ],
+            [
+              733,
+              616
+            ]
+          ],
+          "source_canvas_box": [
+            704,
+            558,
+            863,
+            711
+          ]
+        }
+      ]
     },
     {
       "page": 11,
@@ -5237,20 +5455,221 @@
     "Door on23 hides Puff24 behind a page turn; bubbles27 hide rainbow28. Assumes story1 starts on a recto.",
     "Former play invitation moved to31 for a gentle bridge into the bubble nap.",
     "Two unprompted hidden Lamb-a appearances. Adult-only location record in revision evidence.",
-    "V29: independent34-page audits; source-preserving quality repairs; lower-bank event performances; clearer speaker, residence, fountain, playroom and gentle-rescue wording; two recognizable unprompted Lamma peeks; bubble-pattern and typography proofs reviewed separately."
+    "V29: independent34-page audits; source-preserving quality repairs; lower-bank event performances; clearer speaker, residence, fountain, playroom and gentle-rescue wording; two recognizable unprompted Lamma peeks; bubble-pattern and typography proofs reviewed separately.",
+    "V30: local adult-Rumi face repairs0/10/33; Roshan brooch removals on covers; dirty-hall face attention4; supplies plural5 with an existing-source-derived yellow sponge cutout. Page5 brush stays exact; pink sponge is reduced/right-shifted beside the added yellow sponge. No new narrative scene. V29 native art/scene compositions/canon/borders remain the base."
   ],
   "cover": {
     "treatment": "Owner-commissioned unified rendered composition in shared Pearl Castle setting",
     "art": [
       "cover_rendered"
     ],
-    "spoiler_policy": "Rainbow friend retained for interior reveal"
+    "spoiler_policy": "Rainbow friend retained for interior reveal",
+    "local_patches": [
+      {
+        "source": "v30_front_identity",
+        "reference_size": [
+          1484,
+          1060
+        ],
+        "polygon": [
+          [
+            398,
+            310
+          ],
+          [
+            412,
+            296
+          ],
+          [
+            446,
+            291
+          ],
+          [
+            477,
+            300
+          ],
+          [
+            492,
+            324
+          ],
+          [
+            492,
+            350
+          ],
+          [
+            479,
+            374
+          ],
+          [
+            455,
+            386
+          ],
+          [
+            433,
+            378
+          ],
+          [
+            412,
+            362
+          ],
+          [
+            391,
+            348
+          ]
+        ]
+      },
+      {
+        "source": "v30_front_identity",
+        "reference_size": [
+          1484,
+          1060
+        ],
+        "polygon": [
+          [
+            734,
+            550
+          ],
+          [
+            758,
+            545
+          ],
+          [
+            783,
+            551
+          ],
+          [
+            789,
+            575
+          ],
+          [
+            779,
+            597
+          ],
+          [
+            757,
+            603
+          ],
+          [
+            737,
+            593
+          ],
+          [
+            731,
+            570
+          ]
+        ]
+      }
+    ]
   },
   "back_cover": {
     "art": "v23_cover_h",
     "mode": "full_art",
-    "selection": "H: full ensemble, front-cover aqua/lavender/pink palette, simplified painted dust. Supersedes owner-rejected photorealistic two-character studies A–D."
+    "selection": "H: full ensemble, front-cover aqua/lavender/pink palette, simplified painted dust. Supersedes owner-rejected photorealistic two-character studies A–D.",
+    "local_patches": [
+      {
+        "source": "v30_rear_identity",
+        "reference_size": [
+          1484,
+          1060
+        ],
+        "polygon": [
+          [
+            971,
+            313
+          ],
+          [
+            990,
+            294
+          ],
+          [
+            1030,
+            290
+          ],
+          [
+            1072,
+            303
+          ],
+          [
+            1110,
+            326
+          ],
+          [
+            1137,
+            352
+          ],
+          [
+            1138,
+            380
+          ],
+          [
+            1111,
+            405
+          ],
+          [
+            1063,
+            438
+          ],
+          [
+            1027,
+            444
+          ],
+          [
+            998,
+            421
+          ],
+          [
+            974,
+            388
+          ],
+          [
+            945,
+            369
+          ]
+        ]
+      },
+      {
+        "source": "v30_rear_identity",
+        "reference_size": [
+          1484,
+          1060
+        ],
+        "polygon": [
+          [
+            622,
+            479
+          ],
+          [
+            645,
+            475
+          ],
+          [
+            670,
+            484
+          ],
+          [
+            672,
+            508
+          ],
+          [
+            659,
+            530
+          ],
+          [
+            637,
+            533
+          ],
+          [
+            620,
+            519
+          ],
+          [
+            615,
+            497
+          ]
+        ]
+      }
+    ]
   },
-  "revision": "V29 · comprehensive polish",
+  "revision": "V30 - local identity and continuity polish",
   "review_href": "../AUDIT_REVIEW.html"
 }

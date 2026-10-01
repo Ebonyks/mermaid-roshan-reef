@@ -1,0 +1,163 @@
+{
+  "schema": "picture_book_continuation_style_scope_v1",
+  "reviewed_at_utc": "2026-10-01T02:52:39.756894+00:00",
+  "scope": "Read-only visual/source review of published V29, concentrated on pages 0,4,10,25,33 and native bubble integrity; no artwork, layout or manuscript was changed by this reviewer. This single V30 report is the only new file.",
+  "baseline": {
+    "book_sha256": "185dc950b7d44916e2b09ddaaf78b303c32655f9d0992e90f002d3af8f5be6b1",
+    "provenance_sha256": "2f23dc39826e37601219b306ce64d866d885f6ebf98187f0248a2eb1360a28fa",
+    "published_style_report_path": "books\\chapter_one\\landscape\\revisions\\v29_polish\\style_final.json",
+    "published_style_report_sha256": "339e54cf838de6f51c84261de71b2745ade5577623196ba8b16da159941bd676",
+    "published_reports_immutable": true
+  },
+  "requirements": {
+    "preserve": [
+      "34 total pages, finished kindness plot and pagination",
+      "accepted cover compositions, existing scene identity, action, figures and staging",
+      "full-art or true contour-cutout treatment, no scenic rectangles",
+      "exact canonical finale landing and strong page21 main artwork",
+      "Sniglet, readable quiet text lanes, safe trim margins",
+      "low consistently blue banks, event-specific props, canonical small dust-bunny performances, two unprompted recognizable Lamma peeks"
+    ],
+    "allowed": "Bounded face/gesture, isolation and local gap repair can restore identity or acting. They do not authorize a whole-scene redraw, relocation, new game event or unrelated prop. Supplied originals and rejected variants remain untouched; derivatives require source hashes, masks and candid visual review.",
+    "acceptance": "Internal 4.9 craft judgments are separate from owner/child, professional SLP and physical print acceptance. New generation count is not evidence of satisfaction."
+  },
+  "reference_evidence": [
+    {
+      "path": "assets_src/characters/rumi_2026-08-22/rumi_full_body_identity.png",
+      "sha256": "636ec38fd0e01d472163da8a83e7c818a488823545565f17136ca6eb7b5bb31f"
+    },
+    {
+      "path": "assets_src/characters/rumi_2026-08-22/rumi_relationship_sample.png",
+      "sha256": "963363147ef9527e77f5a7d3c936c32b84b227ddab1f87a34eee76914b6fca26"
+    },
+    {
+      "path": "assets_src/characters/rumi_2026-08-22/PROVENANCE.json",
+      "sha256": "c1554ede37d9372041d37502e49ee51cfc8446d25da077abafea8ff82c6d7c58"
+    },
+    {
+      "path": "assets/castle/dirty_cleanup_2d/tools/tool_star_sponge.png",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b"
+    },
+    {
+      "path": "books/chapter_one/DESIGN_LANGUAGE.md",
+      "sha256": "6c13861c02c6f40eb8f30ead1bc3b81f2b0da947cf22d9f8b55f67c6623699b6"
+    }
+  ],
+  "current_source_evidence": [
+    {
+      "key": "cover_rendered",
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\picture-book-worktree\\books\\chapter_one\\landscape\\art\\personality_v20\\cover_rendered.png",
+      "sha256": "7245b1a5edcb03c80ee4af75d5ca0fd7849574278b0a0bacbb63579f2d1bc1d2"
+    },
+    {
+      "key": "v23_castle_repair",
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\picture-book-worktree\\books\\chapter_one\\landscape\\art\\story_detail_v23\\castle_repair.png",
+      "sha256": "b1d25511be353a94ed989f1e25289b1d5e1ce3ae69983d544c1eca1a83e6ab17"
+    },
+    {
+      "key": "v26_rumi_trapped",
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\picture-book-worktree\\books\\chapter_one\\landscape\\art\\language_v26\\rumi_trapped.png",
+      "sha256": "dd7f716c7f470cef0361e339e281fc662558f88915448c42a25bcdaeb509d2d0"
+    },
+    {
+      "key": "v29_sponge25",
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\picture-book-worktree\\books\\chapter_one\\landscape\\revisions\\v29_polish\\art\\sponge25.png",
+      "sha256": "751dfca8d119dd8af374b59daec483293c6f0d3b1678b1025f3651e7e0ff6a58"
+    },
+    {
+      "key": "v23_cover_h",
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\picture-book-worktree\\books\\chapter_one\\landscape\\art\\story_detail_v23\\cover_h.png",
+      "sha256": "6bb61625f4d052e9d7abd6f3669e692652fc703ef0b64113fea4443f4cdab923"
+    },
+    {
+      "key": "v26_rumi_free",
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\picture-book-worktree\\books\\chapter_one\\landscape\\art\\language_v26\\rumi_free.png",
+      "sha256": "c1f864bed9bcf443a326fdef85536f9b60592f104f873559a3e315101f06ba59"
+    },
+    {
+      "key": "approved_sink_action",
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\picture-book-worktree\\books\\chapter_one\\previews\\2026-09-30\\art\\sink_action.png",
+      "sha256": "873d1cd6ecd508564404e77d25c0f33e6630b4446fd5bad422c2d50a2b778b52"
+    },
+    {
+      "key": "sponge",
+      "path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\picture-book-worktree\\books\\chapter_one\\archive\\rough_v5\\art\\sponge.png",
+      "sha256": "7c4f39ef353481f575a67636cf650cf967886e3f30ca5618f2961e0eb9e5c26b"
+    }
+  ],
+  "new_findings": [
+    {
+      "id": "V30-STY-01",
+      "pages": [
+        0,
+        33
+      ],
+      "object": "Rumi face identity",
+      "internal_current_identity_judgment": 4.7,
+      "observation": "Compared directly with the approved private-canon full-body identity, both cover faces have larger round childlike eyes and a softer rounded facial design. The reference has defined brows, tapered upper lids, a more mature pointed face and distinctive eye makeup. Hair, costume and purple identity cues remain correct.",
+      "recommendation": "Test bounded face restoration against the actual identity source and free-Rumi page15. Preserve joyful cover acting and all hair/body/composition pixels outside the chosen face region. Accept only if identity improves without a stiff pasted face, skin-color seam or expression loss."
+    },
+    {
+      "id": "V30-STY-02",
+      "pages": [
+        10
+      ],
+      "object": "Rumi distressed face",
+      "internal_current_identity_judgment": 4.8,
+      "observation": "Closer to the identity source than the covers, but the tiny softer face remains less defined than free Rumi. Her upward gaze and distressed acting are purposeful; distance in the room explains some detail reduction.",
+      "recommendation": "Evaluate a strictly bounded identity/detail candidate; preserve head size, pose, gaze toward Roshan, distress, braid, clothing and all dirty pool art. Retain the current face if the new candidate merely makes it prettier or changes the acting."
+    },
+    {
+      "id": "V30-STY-03",
+      "pages": [
+        4
+      ],
+      "object": "Roshan initiative/acting",
+      "internal_current_acting_judgment": 4.8,
+      "observation": "The worried arms-down pose suits discovering dirt, but the spoken offer to clean together has little corresponding initiative in her face or near arm. Ground contact and scene integration are already serviceable; extra shadow or re-isolation alone would not improve the acting.",
+      "recommendation": "A small worried-to-engaged facial edit is worthwhile. If needed, adjust only the near hand/forearm within the same figure footprint toward the dusty floor; preserve head/body scale, location, Daddy, room doors, text and surrounding art. Begin with the face rather than moving the whole source figure or redesigning the page.",
+      "prohibited_repair": "No full-scene redraw, character relocation, newly introduced cleaning tool before the tool-giving page, source warp or room rewrite."
+    },
+    {
+      "id": "V30-STY-04",
+      "pages": [
+        5,
+        7,
+        25,
+        26
+      ],
+      "object": "Sponge continuity",
+      "internal_current_continuity_judgment": 4.8,
+      "observation": "Page5 prominently teaches the actual pink star-shaped game sponge, while page7 and later cleaning actions use a yellow porous sponge. Page25 is already a clear cleaning supply, and its rounded outline versus page26 rectangle is minor deformation/pose variation. The stronger visual change is page5 pink star to page7 yellow.",
+      "recommendation": "If correcting continuity, one reusable yellow porous tool5 variant matching the existing sink/group-cleaning sources is more efficient than repainting multiple held sponges. Preserve the canonical pink-star asset separately and label the yellow illustration a static-book variant, not the canonical game tool. Do not change the clear page25 hand/tool solely to standardize its silhouette.",
+      "decision_limit": "This is a small continuity refinement, not a story error or permission to remove game source provenance."
+    }
+  ],
+  "preserve_results": {
+    "covers": "Rendered full-art compositions work. Do not replace them, add cast or restage rooms; only the justified local Rumi identity repair is under consideration.",
+    "page10": "Dirty gunk, trapped Rumi, strainer, rubbish and blocked fountain are clear. No pool-wide repaint or layout replacement is justified.",
+    "page25": "Roshan holds a visible soapy cleaning supply and offers care. Grand Puff is unwell, and hopeful couch bunnies/popcorn support the care scene. No fighting cue or need for a new main illustration was found.",
+    "bubbles": "Re-inspected native and proof contours: closed perimeter rings, stable outlines and painted highlights. Blue mottling and fine authored grain do not form a diagnosed JPEG block grid or smeared ring defect. No further bubble generation is justified by this review.",
+    "layout": "Current caption lanes and geometry fixes remain effective. No new page-format, ordering or bank revision is recommended."
+  },
+  "catalog_erratum": {
+    "published_report": "V29/style_final.json page_index2 objects_reviewed",
+    "incorrect": "Visible Roshan and Daddy are listed as reviewed objects.",
+    "actual_visible_objects": [
+      "sea-plane",
+      "wooden dock and rail posts",
+      "Pearl Castle exterior and stained-glass panel",
+      "lagoon, island vegetation, sky and clouds"
+    ],
+    "scope": "Their landing is stated in the text, but neither character is visible in this picture. This is an audit catalog error, not an artwork or story defect. Correct the catalog in the new V30 audit while preserving V29 as historical evidence."
+  },
+  "prior_score_qualification": "The prior 4.9 judgments were internal reviewer assessments, not proof of clinical or owner acceptance. The direct identity comparison in this continuation reveals a remaining face-consistency gap and a weaker acting beat; this report records them honestly rather than increasing or silently rewriting the published scores.",
+  "candidate_review_gates": [
+    "Outside each bounded repair mask, source pixels and accepted composition remain exact.",
+    "Inside the mask, compare identity, anatomy, expression, color and edge continuity at native size and the actual 7x5 layout.",
+    "For page4, initiative must improve without losing the initial dirty-castle concern or changing source location/action.",
+    "For Rumi10, retain worried upward gaze and pool entrapment; neutral or glamorous expressions fail.",
+    "Retain current assets if a candidate is only a novelty or loses clarity.",
+    "Reconcile new selected source and page hashes, then recheck the affected neighbors in the complete PDF."
+  ]
+}
