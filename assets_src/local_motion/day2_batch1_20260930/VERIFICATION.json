@@ -23,8 +23,10 @@
     {
       "name": "Current-service quantized rendering",
       "result": "PENDING",
-      "native_prompt_ids": [],
-      "evidence": "First puff study calibrates execution; other four require matching same-settings machine PASS and idle admission. Native prompt IDs prove submission only; outputs and visual acceptance remain pending."
+      "native_prompt_ids": [
+        "1c64f644-d014-484e-8656-c1bf560f6da1"
+      ],
+      "evidence": "Native puff submission active; exact original CLI receipt and workflow bytes are embedded with hashes in QUEUE_SNAPSHOT.json. Four others remain in local FIFO; render completion and visual review pending."
     },
     {
       "name": "Initial native detail puff attempt",
@@ -57,6 +59,11 @@
       "name": "Current source 2D regression gate",
       "result": "PASS",
       "evidence": "GAME2D NO_REGRESSION at0 model/52 production/61 probe/1 scene/1 config; strict remains UNSATISFIED. New source packet is outside runtime under.gdignore."
+    },
+    {
+      "name": "Native ComfyUI submission and actual graph/source/prompt binding",
+      "result": "PASS",
+      "evidence": "QUEUE_SNAPSHOT.json captures current puff prompt1c64f644-d014-484e-8656-c1bf560f6da1; source/input/consumed-prompt hashes match the declared job. This is not a render or style acceptance."
     }
   ],
   "owner_approval": null,
@@ -103,5 +110,6 @@
     "access_mode": "Unauthenticated public GitHub raw HTTPS; no credentials or recipient-specific login required",
     "receipt": "REMOTE_VERIFICATION.json",
     "completed_utc": "2026-10-01T01:17:43.707463+00:00"
-  }
+  },
+  "active_submission_snapshot_utc": "2026-10-01T01:33:48+00:00"
 }

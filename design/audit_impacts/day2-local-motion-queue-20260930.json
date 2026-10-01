@@ -112,6 +112,11 @@
       "command": "python -B tools/audit_game_2d.py --regression-gate; git diff --cached --check",
       "result": "PASS",
       "evidence": "NO_REGRESSION0 models/52 production/61 probe/1 scene/1 config, strict UNSATISFIED. Default whitespace checks retained with native CRLF recognition in source-packet attributes; exact hashed bytes preserved."
+    },
+    {
+      "command": "Native ComfyUI current-service submission receipt/graph inspection",
+      "result": "PASS",
+      "evidence": "Puff prompt1c64f644-d014-484e-8656-c1bf560f6da1 accepted and running; exact native receipt/workflow UTF-8 bytes and file hashes embedded in QUEUE_SNAPSHOT.json, including correct consumed-text prompt hash. Four local FIFO entries pending. No render/visual acceptance inferred."
     }
   ],
   "acceptance_gaps": "Nursery art still too lifelike per direct owner feedback. No owner approval for any replacement. Native render success, per-frame motion/topology/style review, contextual contact/loop review, phone-scale/device/child acceptance, runtime integration and cinematic delivery are separate and outstanding. No current finding is closed by queueing studies. Queue snapshot is timestamped historical evidence; live worker state is local and does not silently update the published report."

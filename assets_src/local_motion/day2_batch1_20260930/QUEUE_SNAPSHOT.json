@@ -7,7 +7,11 @@
     {
       "id": "D2A-0394",
       "name": "d2m_b1q_d2a0394",
-      "status": "QUEUED_LOCAL_FIFO"
+      "status": "RUNNING",
+      "child_pid": 23308,
+      "started_at_utc": "2026-10-01T01:26:37+00:00",
+      "receipt_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\d2m_b1q_d2a0394_20261001T012638Z_000605\\RENDER_RECEIPT.json",
+      "native_prompt_id": "1c64f644-d014-484e-8656-c1bf560f6da1"
     },
     {
       "id": "D2A-0446",
@@ -34,11 +38,21 @@
   "worker_started_at_utc": "2026-10-01T01:12:09+00:00",
   "matching_benchmark_receipt": null,
   "calibration_first_study": true,
-  "status": "WAITING_FOR_EXISTING_COMFY_JOBS",
-  "observed_at_utc": "2026-10-01T01:12:09+00:00",
-  "existing_prompt_ids": [
-    "87eb577e-b89f-4cc2-a14f-de1a0e1f66a8"
-  ],
-  "snapshot_semantics": "Historical observed queue state at this timestamp. Local FIFO/readiness waiting is not native ComfyUI submission. Native submission requires a prompt ID.",
-  "live_state_path": "build/day2_local_motion_active_20260930/STATE.json"
+  "status": "RENDERER_ACTIVE",
+  "observed_at_utc": "2026-10-01T01:33:48+00:00",
+  "existing_prompt_ids": [],
+  "snapshot_semantics": "Historical observed state, not a live status panel. Native prompt IDs prove submission, not render/visual approval.",
+  "live_state_path": "build/day2_local_motion_active_20260930/STATE.json",
+  "native_submissions": [
+    {
+      "id": "D2A-0394",
+      "native_prompt_id": "1c64f644-d014-484e-8656-c1bf560f6da1",
+      "captured_at_utc": "2026-10-01T01:33:52+00:00",
+      "native_receipt_file_sha256": "f71e6331678005c5abbf85324486f59afed51201932a48238130fde881bb59f3",
+      "native_receipt_utf8": "{\r\n  \"status\": \"RUNNING\",\r\n  \"acceptance\": \"LOCAL_MOTION_REFERENCE_ONLY\",\r\n  \"source\": \"C:\\\\Users\\\\Peter\\\\Documents\\\\mermaid-roshan-reef\\\\tmp\\\\day2_graphics_audit_20260930\\\\assets_src\\\\local_motion\\\\day2_batch1_20260930\\\\inputs\\\\D2A-0394.png\",\r\n  \"source_sha256\": \"f71c2dcd434f519660e2d0773561ba547ce5adf89d30a5e56446ced0927ab4d2\",\r\n  \"source_dimensions\": [\r\n    896,\r\n    512\r\n  ],\r\n  \"prompt\": \"Locked camera, one continuous shot. Preserve the source as flat polished 2D storybook artwork: rounded painted forms, broad value bands, restrained navy-purple contours, pastel toy palette. Keep the neutral paper background perfectly still. Only the specified existing subject moves. 0.00-0.25 seconds: hold the original friendly puff. 0.25-0.55: the existing puff lobes gently open by a very small amount. 0.55-1.20: they settle back together. 1.20-1.70: rest in the original silhouette. Keep the original detached painted droplets, their count and their relationship to the puff; do not add particles. Puff center fixed; disconnected droplets retain identity; no new flashes, smoke, stars, text or camera motion. Do not add realistic shading, pores, dimensional rendering, camera zoom, cuts, color pumping, new objects or text. Sound: silence.\\n\",\r\n  \"prompt_sha256\": \"4fa0e41643cb733c84c885554f227e3ab0d6e07f6cf7004659753e7ec58378ac\",\r\n  \"preset\": \"quick\",\r\n  \"settings\": {\r\n    \"width\": 896,\r\n    \"height\": 512,\r\n    \"frames\": 41,\r\n    \"steps\": 24,\r\n    \"weight_dtype\": \"GGUF_Q4_K_S\"\r\n  },\r\n  \"seed\": 2026093001,\r\n  \"model_receipt\": \"H:/MermaidReefTools/LocalVideo/GGUF_MODEL_RECEIPT.json\",\r\n  \"workflow_sha256\": \"f21aad37badff18aed8e1991a8b11648ad772c1a7cbb7dcc83364e8ac0426d8d\",\r\n  \"started_at_utc\": \"20261001T012638Z\",\r\n  \"prompt_id\": \"1c64f644-d014-484e-8656-c1bf560f6da1\"\r\n}",
+      "native_workflow_file_sha256": "22009e2aa35a26e7fc6d11ec8f85bce9b26e93d2589cd2b3bcdc4ac896850193",
+      "native_workflow_utf8": "{\r\n  \"0\": {\r\n    \"class_type\": \"SaveLatent\",\r\n    \"inputs\": {\r\n      \"samples\": [\r\n        \"9\",\r\n        0\r\n      ],\r\n      \"filename_prefix\": \"local_reference/d2m_b1q_d2a0394_20261001T012638Z_000605\"\r\n    }\r\n  },\r\n  \"1\": {\r\n    \"class_type\": \"UnetLoaderGGUFAdvanced\",\r\n    \"inputs\": {\r\n      \"unet_name\": \"Wan2.2-TI2V-5B-Q4_K_S.gguf\",\r\n      \"dequant_dtype\": \"bfloat16\",\r\n      \"patch_dtype\": \"bfloat16\",\r\n      \"patch_on_device\": true\r\n    }\r\n  },\r\n  \"2\": {\r\n    \"class_type\": \"CLIPLoaderGGUF\",\r\n    \"inputs\": {\r\n      \"clip_name\": \"umt5-xxl-encoder-Q4_K_S.gguf\",\r\n      \"type\": \"wan\"\r\n    }\r\n  },\r\n  \"3\": {\r\n    \"class_type\": \"VAELoader\",\r\n    \"inputs\": {\r\n      \"vae_name\": \"wan2.2_vae.safetensors\"\r\n    }\r\n  },\r\n  \"4\": {\r\n    \"class_type\": \"LoadImage\",\r\n    \"inputs\": {\r\n      \"image\": \"source_f71c2dcd434f5196.png\"\r\n    }\r\n  },\r\n  \"5\": {\r\n    \"class_type\": \"CLIPTextEncode\",\r\n    \"inputs\": {\r\n      \"clip\": [\r\n        \"2\",\r\n        0\r\n      ],\r\n      \"text\": \"Locked camera, one continuous shot. Preserve the source as flat polished 2D storybook artwork: rounded painted forms, broad value bands, restrained navy-purple contours, pastel toy palette. Keep the neutral paper background perfectly still. Only the specified existing subject moves. 0.00-0.25 seconds: hold the original friendly puff. 0.25-0.55: the existing puff lobes gently open by a very small amount. 0.55-1.20: they settle back together. 1.20-1.70: rest in the original silhouette. Keep the original detached painted droplets, their count and their relationship to the puff; do not add particles. Puff center fixed; disconnected droplets retain identity; no new flashes, smoke, stars, text or camera motion. Do not add realistic shading, pores, dimensional rendering, camera zoom, cuts, color pumping, new objects or text. Sound: silence.\\n\"\r\n    }\r\n  },\r\n  \"6\": {\r\n    \"class_type\": \"CLIPTextEncode\",\r\n    \"inputs\": {\r\n      \"clip\": [\r\n        \"2\",\r\n        0\r\n      ],\r\n      \"text\": \"camera movement, zoom, pan, cut, photorealism, 3D shading, new objects, changing architecture, moving shoreline, moving roots, flicker, color pumping, warped shapes, subtitles, text, watermark\"\r\n    }\r\n  },\r\n  \"7\": {\r\n    \"class_type\": \"ModelSamplingSD3\",\r\n    \"inputs\": {\r\n      \"model\": [\r\n        \"1\",\r\n        0\r\n      ],\r\n      \"shift\": 8.0\r\n    }\r\n  },\r\n  \"8\": {\r\n    \"class_type\": \"Wan22ImageToVideoLatent\",\r\n    \"inputs\": {\r\n      \"vae\": [\r\n        \"3\",\r\n        0\r\n      ],\r\n      \"width\": 896,\r\n      \"height\": 512,\r\n      \"length\": 41,\r\n      \"batch_size\": 1,\r\n      \"start_image\": [\r\n        \"4\",\r\n        0\r\n      ]\r\n    }\r\n  },\r\n  \"9\": {\r\n    \"class_type\": \"KSampler\",\r\n    \"inputs\": {\r\n      \"model\": [\r\n        \"7\",\r\n        0\r\n      ],\r\n      \"positive\": [\r\n        \"5\",\r\n        0\r\n      ],\r\n      \"negative\": [\r\n        \"6\",\r\n        0\r\n      ],\r\n      \"latent_image\": [\r\n        \"8\",\r\n        0\r\n      ],\r\n      \"seed\": 2026093001,\r\n      \"steps\": 24,\r\n      \"cfg\": 5.0,\r\n      \"sampler_name\": \"uni_pc\",\r\n      \"scheduler\": \"simple\",\r\n      \"denoise\": 1.0\r\n    }\r\n  },\r\n  \"10\": {\r\n    \"class_type\": \"VAEDecodeTiled\",\r\n    \"inputs\": {\r\n      \"samples\": [\r\n        \"9\",\r\n        0\r\n      ],\r\n      \"vae\": [\r\n        \"3\",\r\n        0\r\n      ],\r\n      \"tile_size\": 256,\r\n      \"overlap\": 64,\r\n      \"temporal_size\": 4096,\r\n      \"temporal_overlap\": 8\r\n    }\r\n  },\r\n  \"11\": {\r\n    \"class_type\": \"SaveWEBM\",\r\n    \"inputs\": {\r\n      \"images\": [\r\n        \"10\",\r\n        0\r\n      ],\r\n      \"filename_prefix\": \"local_reference/d2m_b1q_d2a0394_20261001T012638Z_000605\",\r\n      \"codec\": \"vp9\",\r\n      \"fps\": 24.0,\r\n      \"crf\": 18.0\r\n    }\r\n  }\r\n}",
+      "raw_evidence_note": "UTF-8 strings preserve exact original CRLF bytes; re-encode UTF-8 to verify the recorded file hashes. Legacy CLI model-receipt field is qualified by the actual quantized loader graph and manifest GGUF receipt."
+    }
+  ]
 }
