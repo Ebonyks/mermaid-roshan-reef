@@ -1,0 +1,83 @@
+{
+  "id": "visual-design-language-handoff-20260930",
+  "scope": "Owner-requested audit (2026-09-30) of whether the visual design language lets the game reference and learn from itself how to develop future art, with a plan to refine it. Adds docs/handoffs/codex_visual_design_language_2026-09-30/: VISUAL_LANGUAGE_AUDIT (answer no: the master audit only routes; one of ten DL-VIS rules has numbers; no colour values in governed documents; the approved Roshan atlases show two tails while design 01 and 02 describe a third; contour colour named seven ways; nine rubrics; no exemplar registry; measured indicators), VISUAL_LANGUAGE_DRAFT (the proposed reference text), README (work packages VL0-VL9, acceptance, owner questions Q1-Q11), two templates (art style card, art review card), seed data (22 tokens, 8 identity sheets, 25 hashed Roshan exemplars, registry sources, 15 contradictions), four measurement outputs, the read-only measurement tool tools/measure_visual_profile.py (writes numbers, never images), .gdignore and MANIFEST. Records the gap as finding MA-DOC-008 (P2) with its section-5 index row and domain link, an Art task-route link and a change-history row; adds five ledger rows. Revises the reference consolidation handoff to revision 2 (REFERENCE_PLAN names LIGHTING_2P5D_AUDIT_2026-08-02.md, keeps its headroom spec, and points R06 to this handoff; README status; MANIFEST). Documentation and an advisory read-only tool only: no game script, scene, asset, image, save key, rule text, workflow or other finding lifecycle changes.",
+  "baseline": "b65c21fdddd79f272a6854f241faa1441abe6616",
+  "rules": [
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-08",
+    "DL-MED-02",
+    "DL-ASSET-01",
+    "DL-AUTH-04",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-PLAN-06"
+  ],
+  "findings": [
+    "MA-DOC-008",
+    "MA-DOC-007"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/visual-design-language-handoff-20260930.json",
+    "docs/handoffs/codex_reference_consolidation_2026-09-30/MANIFEST.json",
+    "docs/handoffs/codex_reference_consolidation_2026-09-30/README.md",
+    "docs/handoffs/codex_reference_consolidation_2026-09-30/REFERENCE_PLAN.md",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/.gdignore",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/MANIFEST.json",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/README.md",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/VISUAL_LANGUAGE_AUDIT.md",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/VISUAL_LANGUAGE_DRAFT.md",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/data/castle_room_shadow_profile.json",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/data/contour_profile.json",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/data/identity_sheets_seed.json",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/data/registry_seed.json",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/data/roshan_identity_palette.json",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/data/roshan_identity_presence.json",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/data/visual_contradictions.json",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/data/visual_tokens_seed.json",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/templates/ART_REVIEW_CARD_V1.md",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/templates/ART_STYLE_CARD_V1.md",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/tools/measure_visual_profile.py"
+  ],
+  "validation": [
+    {
+      "command": "Three read-only sweeps (governance documents; other art documents; code, data and tools) and direct inspection of approved images (roshan_directional.png, roshan_sprite.png, roshan_chef_sheet_a.png, rival_astronaut.png, assets/book/hall/glass_mermaid.png, three castle room backgrounds) at dev b65c21fd",
+      "result": "PASS",
+      "evidence": "VISUAL_LANGUAGE_AUDIT.md sections 1-7. Verified directly: design 06, design 02 and the master audit contain 0 hex colour values; design 01:490 and design 02:286-287 carry Roshan anchors matching no approved image; INK is defined in storybook_ui.gd:8, boss_splash_2d.gd:16, dust_boss_telegraph_2d.gd:8, landmark_art.gd:3 and melody.gd:15 with different values; tools/gen2_batch.py:29 asks for thin black outlines; tools/audit_castle_card_alpha.py:102 and tools/audit_fairy_art_v2.py:173 save images; roshan_base.png is bound in 28 of 35 cinematic IMAGINE_HANDOFF.json packets."
+    },
+    {
+      "command": "python -B docs/handoffs/codex_visual_design_language_2026-09-30/tools/measure_visual_profile.py contour | shadows | palette | identity (outputs in docs/handoffs/codex_visual_design_language_2026-09-30/data/)",
+      "result": "PASS",
+      "evidence": "Contour: 29 families measured; indigo-violet contours in props, minigames, Day One pool and studio, birthday and water effects; near-neutral in Opera actors (#101314), Sky Lagoon sprites, room buttons and companions. Shadows: 8 of 12 castle rooms 72-100% cool; Craft Room, Movie Lounge and Playroom warm or neutral. Palette of six runtime base-world Roshan atlases: tail #b9a1f2/#8e7adc, hair #ae743e/#7e492a/#e29455, top #eeb2e8. Identity: tail colours 16-21% of all nine runtime base-world atlases and 0.0-0.4% of 13 of 15 career atlases. Source-file indicators only (DL-VIS-08); no image written."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "Staged candidate over base b65c21fd: DOCAUTH|INVENTORY=599|LEDGER=599|ACTIVE=59|RECORDS=61, RESULT ALL OK; --stress 6/6; unittest tools.tests.test_audit_document_authority and test_audit_development OK. Also run: tools/audit_game_2d.py --regression-gate NO_REGRESSION and tools/audit_imagine_handoff.py --all ALL OK. Not run by Claude: tools/audit_castle_card_alpha.py and tools/audit_fairy_art_v2.py, which write images; CI runs them."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Staged candidate: AUDITDEV|BASE|b65c21fdddd79f272a6854f241faa1441abe6616, RESULT ALL OK."
+    },
+    {
+      "command": "Anonymous fetch of both handoff manifests and every listed file from raw.githubusercontent.com at the pushed commit",
+      "result": "PENDING",
+      "evidence": "Recorded after publication."
+    },
+    {
+      "command": "GitHub Probe Suite at the branch head",
+      "result": "PENDING",
+      "evidence": "Required green before merging into dev."
+    }
+  ],
+  "acceptance_gaps": "Audit, draft reference and recommendations only. MA-DOC-008 stays CONFIRMED_OPEN until Codex lands the kit (VL1-VL7), the cold-start art dry run passes (VL8) and the owner accepts it. Roshan's canonical variant and identity authority (Q1, Q2) and Q3-Q11 are pending with defaults. Measurements are source-file indicators at dev b65c21fd, not state-local runtime evidence (DL-VIS-08), and justify no recolouring. No visual, device, child or owner acceptance is claimed; the game-wide audit remains IN_PROGRESS / UNSATISFIED."
+}

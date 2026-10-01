@@ -33,7 +33,7 @@ before extracting. Items marked *(nv)* were not verified by the sweeps.
 | R03 | `REF_DAY_ONE.md` | 2 pool audits; extracts from the persona runs and both Day One handoffs | File:line anchors; modelled timings presented as measured |
 | R04 | `design/10_CHAPTER_REFERENCE_LIBRARY.md`, extended | Chapter 2 decision history and story-option rationale | Dialogue scripts; career order from drafts |
 | R05 | `REF_WORLDS.md` | 13 Sky Lagoon, Ember and Northern documents | Camera and card-centre numbers; 3D or procedural tree plans |
-| R06 | `REF_ART_STYLE_AND_PRODUCTION.md` (built from the 2D sections of `ART_STYLE_GUIDE.md`) | 10 art documents | Blender, Meshy, GLB and rig sections; old texture channel; per-pass score tables |
+| R06 | `REF_ART_STYLE_AND_PRODUCTION.md` (built from the 2D sections of `ART_STYLE_GUIDE.md`); detailed by the [visual design language handoff](../codex_visual_design_language_2026-09-30/README.md), which lands it as `design/reference/VISUAL_LANGUAGE.md` | 10 art documents | Blender, Meshy, GLB and rig sections; old texture channel; per-pass score tables |
 | R07 | `REF_ANIMATION.md` | 3 animation documents | 2.5D staging and rig work; `design/animation/*` stays the binding home |
 | R08 | `design/reference/CANON.md` (refinement WP-4) | 2 Lamba documents | Rigs, recordings |
 | R09 | `REF_AUDIO_VOICE.md` | `MIC_SPELLS.md`; extracts from the voice manifest and ledgers | Loudness rules (already `DL-SND-*`); `MUSIC_AUDIT_2026-08-09.md` stays as is |
@@ -85,7 +85,7 @@ before extracting. Items marked *(nv)* were not verified by the sweeps.
 5. Readability and composition: design 02 L46-56; style guide L515-524 and L604-615.
 6. 2D medium, lanes and motion budgets: design 02 L91-148; living-card language L25-80.
 7. Technical gates: design 02 L220-236.
-8. Light on painted art: lighting audit L288-290, L365-381, L404-454, L562-591 (headroom spec; one shadow hue per zone).
+8. Light on painted art: `LIGHTING_2P5D_AUDIT_2026-08-02.md` L288-290, L365-381, L404-454, L562-591 (headroom spec C2; one shadow hue per zone).
 9. Generation and new-art protocol: object generation log L18-34 and L492-655 (rule IDs); style guide L617-673; aesthetics plan L173-191; repair plan L58-91; design 02 L260-273.
 10. Scoring and acceptance: scoring governance L19-33; human review audit L23-31 (seven caps); design 02 L240-258 and L363-383.
 11. Audit tooling: visual audit tool L42-103, L297-330, L444-467.
@@ -200,6 +200,9 @@ cozy-gap audits; the superseded opening-cinematic regeneration audit and the
 generation-two kit audit. Lift the few lessons the art, performance and
 process sweeps identified (for example the VRAM-versus-disk measurement and
 the ten audit-repair failure classes) into R06, R13 and R14 as you go.
+The light-headroom spec C2 of `LIGHTING_2P5D_AUDIT_2026-08-02.md` is the only
+measurable light rule: move it into the visual language before that file
+moves.
 
 **Delete candidates (2).** `audit/day_one_pool_lighting_image_audit_2026-08-22`
 (tool output; its ledger note miscounts) and `tools/out/lighting_image_audit`

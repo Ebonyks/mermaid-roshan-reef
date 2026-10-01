@@ -1,0 +1,186 @@
+{
+ "schema": "identity_sheets_seed/1",
+ "status": "PROPOSED / CANDIDATE seed; format follows assets_src/characters/grand_puff_2026-09-13/IDENTITY_LOCK.json",
+ "measured_at_head": "b65c21fdddd79f272a6854f241faa1441abe6616",
+ "sheets": [
+  {
+   "id": "ID-ROSHAN",
+   "name": "Mermaid Roshan",
+   "status": "OPEN: owner question OQ-VIS-ROSHAN",
+   "approved_images": {
+    "base_world_runtime_atlases": "assets/characters/roshan_25d/: roshan_directional, roshan_swim_front, roshan_swim_back, roshan_gesture_a to d, roshan_play_a and b, plus roshan_base.png; hashes in exemplar_seed.json",
+    "career_atlases": "assets/opera/worlds/actors/animation/roshan_<career>_sheet_a.png (15); hashes in exemplar_seed.json"
+   },
+   "invariants": [
+    "one young child mermaid; same face and age",
+    "brown wavy hair with a rainbow section",
+    "small gold tiara",
+    "child-sized, distinct arms and hands",
+    "one continuous mermaid tail",
+    "no legs, feet or shoes"
+   ],
+   "variants": {
+    "A_base_world": {
+     "top": "pink ruffled",
+     "tail": "lavender sequin with sky-blue sheen",
+     "fins": "rainbow with gold",
+     "hair": "rainbow ponytail",
+     "contour": "thin indigo-plum on the body, brown on the hair",
+     "measured_palette": {
+      "tail": [
+       "#b9a1f2",
+       "#8e7adc",
+       "#757094"
+      ],
+      "hair": [
+       "#ae743e",
+       "#7e492a",
+       "#e29455"
+      ],
+      "top": [
+       "#eeb2e8"
+      ],
+      "skin": [
+       "#f9ddc2",
+       "#d49e99"
+      ],
+      "sheen": [
+       "#aad3f9",
+       "#64a8db"
+      ],
+      "gold": [
+       "#f4d74b"
+      ]
+     },
+     "evidence": "data/roshan_identity_palette.json"
+    },
+    "B_careers_and_cinematics": {
+     "top": "career costume",
+     "tail": "continuous rainbow gradient",
+     "hair": "longer, rainbow section",
+     "contour": "warmer brown",
+     "evidence": "data/roshan_identity_presence.json: base-world tail colours are 0.0-0.4% of 13 of 15 career atlases versus 16-21% of the base-world atlases; the cinematic SHARED_STYLE_AND_CHARACTER_GUIDE.txt says one continuous rainbow mer-tail"
+    }
+   },
+   "forbidden_changes": [
+    "adult proportions",
+    "legs, feet, shoes or a skirt hiding legs",
+    "a second tail",
+    "a different crown",
+    "different hair colour",
+    "third-party characters, brands or logos"
+   ],
+   "do_not_bind": [
+    "assets/characters/roshan_sprite.png: carries a branded third-party backpack; not loaded by runtime code"
+   ],
+   "retired_wording": {
+    "text": "chestnut hair, front-left rainbow forelock, lavender clothing, green-right / pink-left tail",
+    "found_in": [
+     "design/01_GAME_DESIGN.md:490",
+     "design/02_ART_DIRECTION.md:286-287",
+     "ART_SCORING_GOVERNANCE_2026-07-18.md:46-48",
+     "assets/ART_GENERATION_CONTRACT.md:46-47",
+     "ART_STYLE_GUIDE.md identity section"
+    ],
+    "reason": "matches no approved image"
+   },
+   "book_reference": {
+    "path": "assets/book/hall/glass_mermaid.png",
+    "protected": true,
+    "shows": "brown hair, rainbow front lock, crown, pink puffed top, green-into-purple scaled tail, rainbow fin",
+    "use": "likeness reference only; never edited"
+   }
+  },
+  {
+   "id": "ID-DADDY",
+   "name": "Daddy Mermaid",
+   "status": "SEED from the cinematic guide",
+   "traits": [
+    "small approved crown",
+    "dark rectangular glasses",
+    "long brown/deep-green hair",
+    "navy coat with gold trim",
+    "teal cape",
+    "one continuous rainbow tail in the approved colour order",
+    "no legs"
+   ],
+   "reference_images": [
+    "docs/grok_animation_series_project/characters/daddy_mermaid/DADDY_FRONT_IDENTITY.png at guide commit 3af5a8eb",
+    "assets_src/daddy_master.png"
+   ],
+   "open": "CANON-C09 (hair colour) in the refinement handoff"
+  },
+  {
+   "id": "ID-RUMI",
+   "name": "Rumi (Violet)",
+   "status": "SEED from the cinematic guide",
+   "traits": [
+    "adult mermaid",
+    "enormous sculpted violet braid",
+    "pointed ears",
+    "star-shell earrings",
+    "navy/lavender sea jacket with gold trim and shell clasp",
+    "aqua/teal-to-violet-to-pink tail",
+    "coral-pink split fin"
+   ],
+   "reference_images": [
+    "docs/grok_animation_series_project/characters/rumi/ at guide commit 3af5a8eb",
+    "assets_src/characters/rumi_2026-08-22/"
+   ]
+  },
+  {
+   "id": "ID-BABY-EAGLE",
+   "name": "Baby Eagle",
+   "status": "SEED from the cinematic guide and DL-ASSET-08",
+   "traits": [
+    "exactly one young bird",
+    "turquoise, yellow and pink",
+    "consistent beak, wings, feet and childlike proportions",
+    "pinned under two dust bunnies, never a blanket"
+   ],
+   "protected": "book art is never recoloured",
+   "open": "OQ-EAGLE-PRONOUN in the refinement handoff"
+  },
+  {
+   "id": "ID-DUST-BUNNY",
+   "name": "Dust bunnies",
+   "status": "SEED from the cinematic guide",
+   "traits": [
+    "friendly round storybook creatures",
+    "not rodents, monsters, smoke or loose dust",
+    "the swimming bunny has no legs"
+   ],
+   "measured_contour": "#353b4e (data/contour_profile.json)"
+  },
+  {
+   "id": "ID-GRAND-PUFF",
+   "name": "Grand Puff",
+   "status": "PROPOSED_LOCK_AWAITING_SIGNATURE (existing lock)",
+   "lock": "assets_src/characters/grand_puff_2026-09-13/IDENTITY_LOCK.json",
+   "lock_sha256": "51c70f66632a8713163c0cbf81959d85cf04f44c35c5ef96e477e9302a3a9a17"
+  },
+  {
+   "id": "ID-PEARL-PLANE",
+   "name": "Pearl plane",
+   "status": "SEED from the cinematic guide",
+   "traits": [
+    "exact approved silhouette, windows, wing and tail placement, material and scale",
+    "never a modern jet"
+   ],
+   "reference_images": [
+    "docs/grok_animation_series_project/modules/opening_flight_to_sky_lagoon/references/06_AIRPLANE_EXACT.png at guide commit 3af5a8eb"
+   ]
+  },
+  {
+   "id": "ID-RIVAL-IMPS",
+   "name": "Opera imps and rivals",
+   "status": "GAP",
+   "traits_as_drawn": [
+    "chunky cartoon imp",
+    "saturated purple skin",
+    "heavy near-black contour"
+   ],
+   "open": "OQ-VIS-RIVAL-LINE"
+  }
+ ]
+}
