@@ -195,8 +195,13 @@
     },
     {
       "command": "Anonymous GitHub manifest and full-payload verification",
+      "result": "PASS",
+      "evidence": "Published and fetched exact revision 26cdbf30bcde1e545aa922f6a87db5613a2c5ef3; 185 files plus manifest verified by anonymous HTTPS without cookies/credentials at 2026-10-01T00:50:58.551611+00:00. Manifest SHA-256 4688c6164eb012f73571af2b557fe2ea2d6e8acecbc04b4ed8683344f9bd9148; deterministic payload SHA-256 38bd2641e4aa464704f53720a4eabb8b9db0ee5df67a6c5f7cb8f9c25e851079. Complete byte/hash and binding evidence in assets_src/cinematics/battle_of_bands_2026-09-20/REMOTE_VERIFICATION.json. ARCHIVE_COMPLETE true; GENERATION_READY false; DELIVERY_ACCEPTED false."
+    },
+    {
+      "command": "GitHub full Probe suite status",
       "result": "PENDING",
-      "evidence": "Established public Ebonyks/mermaid-roshan-reef branch codex/battle-of-bands-20260920, assets_src/cinematics/battle_of_bands_2026-09-20. Publish material revision and exact receipt without another upload permission request."
+      "evidence": "Task baseline 3dc3b44567eb6ecdd140826ecfed5e222b418925: success, run 36793692785. R4 content 26cdbf30bcde1e545aa922f6a87db5613a2c5ef3: run 36798080570 in progress at publication. No dev integration or runtime/release acceptance claimed."
     }
   ],
   "acceptance_gaps": "Owner site/first-frame approval and visual identity/topology/costume/material continuity remain pending (BAND-04 raised rear rim, BAND-11/contact decorative fascia explicitly flagged). Archive publication does not grant generation or delivery acceptance. Native 1672x941 site / ~669x376 UI crop are reference-only, not production DL-LAY-07 coverage. No production Godot integration, phone/child/performance or whole-game acceptance; no drum chart or audio change."
