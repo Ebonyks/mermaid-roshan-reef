@@ -132,6 +132,11 @@
       "command": "Owner feedback; three fresh text-to-image nursery trials; exact final1024/256px source and116px light/dark review",
       "result": "PASS",
       "evidence": "MANIFEST.json: old candidate owner-rejected; fresh attempts2/3 rejected4.3 for edge artifacts; attempt4 draft source/mobile4.5 with tiny native specks disclosed. Zero image inputs; all originals and trial files retained. Owner/runtime approval pending."
+    },
+    {
+      "command": "Unauthenticated exact-revision raw GitHub retrieval and byte/SHA-256 comparison of complete fresh nursery73-file packet/source set",
+      "result": "PASS",
+      "evidence": "REMOTE_VERIFICATION.json: payloadd6bc9919e3982895e8c52e2bfec14c8e35b178a5;73/73 byte matches including zero-image-input prompts and all retained prior/fresh native files; actual checktime/access recorded. Owner/runtime review remains pending."
     }
   ],
   "acceptance_gaps": "User approval of the completed report and selected candidates; actual gameplay/device/child review and later runtime integration remain separate. No canonical finding lifecycle change."
