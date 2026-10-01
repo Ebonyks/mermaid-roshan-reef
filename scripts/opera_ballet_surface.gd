@@ -43,6 +43,7 @@ const TWIRL_MAX_ANGLE_STEP := 0.78
 var pose_round: int = 0
 var ribbon_progress: float = 0.0
 var twirl_progress: float = 0.0
+var turns_required := 1
 var twirl_direction: int = 0
 
 var _ballerina_atlas: Texture2D = null
@@ -71,6 +72,7 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1,
 	pose_round = 0
 	ribbon_progress = 0.0
 	twirl_progress = 0.0
+	turns_required = 1
 	twirl_direction = 0
 	_ribbon_engaged = false
 	_twirl_engaged = false
@@ -346,6 +348,7 @@ func _press(at: Vector2) -> void:
 func _drag(at: Vector2) -> void:
 	if not held or armed_only or completion_accepted or _mode_complete():
 		return
+	activity_touch.emit()
 	pointer_pos = at
 	match mode:
 		"ballet_ribbon":
@@ -502,7 +505,7 @@ func _twirl_press(at: Vector2) -> void:
 	_twirl_handle_angle = _twirl_previous_angle
 	if twirl_direction != 0:
 		_twirl_arc_origin = _twirl_previous_angle \
-			- float(twirl_direction) * TAU * twirl_progress
+			- float(twirl_direction) * TAU * float(turns_required) * twirl_progress
 
 
 func _twirl_drag(at: Vector2) -> void:
@@ -525,12 +528,12 @@ func _twirl_drag(at: Vector2) -> void:
 	if twirl_direction == 0:
 		twirl_direction = direction
 		_twirl_arc_origin = _twirl_previous_angle \
-			- float(twirl_direction) * TAU * twirl_progress
+			- float(twirl_direction) * TAU * float(turns_required) * twirl_progress
 	elif direction != twirl_direction:
 		_note_wrong("ballet_twirl", at, false)
 		_twirl_previous_angle = angle
 		return
-	var delta := minf(absf(change) / TAU, 1.0 - twirl_progress)
+	var delta := minf(absf(change) / (TAU * float(turns_required)), 1.0 - twirl_progress)
 	if delta <= 0.0001:
 		return
 	twirl_progress = minf(1.0, twirl_progress + delta)
@@ -541,7 +544,7 @@ func _twirl_drag(at: Vector2) -> void:
 	feedback_positive = true
 	feedback_t = 0.22
 	feedback_anchor = twirl_handle_position()
-	gesture.emit("ballet_twirl", delta, 1.0)
+	gesture.emit("ballet_twirl", delta * float(turns_required), 1.0)
 	var pose_band := clampi(floori(twirl_progress * 3.0), 0, POSE_FRAMES.size() - 1)
 	if pose_band > _twirl_pose_band:
 		_twirl_pose_band = pose_band
@@ -689,7 +692,7 @@ func _draw_twirl_game() -> void:
 	draw_arc(center, radius, 0.0, TAU, 72, Color(0.43, 0.86, 0.88, 0.52),
 		twirl_ring_width(), true)
 	var direction := twirl_direction if twirl_direction != 0 else 1
-	var finish_angle := _twirl_arc_origin + float(direction) * TAU * twirl_progress
+	var finish_angle := _twirl_arc_origin + float(direction) * TAU * float(turns_required) * twirl_progress
 	if twirl_progress > 0.001:
 		draw_arc(center, radius, _twirl_arc_origin, finish_angle, 72,
 			Color("#ffe789"), 76.0, true)

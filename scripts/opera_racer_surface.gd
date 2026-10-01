@@ -37,6 +37,9 @@ const PEARLS := [
 var kart: Dictionary = {}
 var rival: Dictionary = {}
 var race_started := false
+var contest_rival_rate := 1.0
+var contest_rival_paused := false
+var contest_spin := 0.0
 var race_finished := false
 var race_clock := 0.0
 var race_input_t := 0.0
@@ -299,11 +302,12 @@ func _tick_driving(delta: float) -> void:
 	var rival_target := LAP_DISTANCE / LAP_SECONDS * 0.94 \
 		+ clampf(gap * 0.08, -LAP_DISTANCE / LAP_SECONDS * 0.30,
 			LAP_DISTANCE / LAP_SECONDS * 0.38)
-	Driving.accelerate(rival, maxf(0.0, rival_target), false, delta)
+	Driving.accelerate(rival, maxf(0.0, rival_target) * contest_rival_rate, false, delta)
 	# The rival follows the inside of the next bend, leaving Roshan room to pass.
 	var rival_lane := -signf(road_curvature(float(rival["s"]) + 18.0)) * 3.0
 	rival["lat"] = move_toward(float(rival["lat"]), rival_lane, delta * 2.0)
-	Driving.advance(rival, road_curvature(float(rival["s"])), delta)
+	if not contest_rival_paused:
+		Driving.advance(rival, road_curvature(float(rival["s"])), delta)
 	var lap_before := floori(previous / LAP_DISTANCE)
 	var lap_now := floori(progress / LAP_DISTANCE)
 	if lap_now > lap_before:
@@ -314,6 +318,9 @@ func _tick_driving(delta: float) -> void:
 		race_touch_owner = -1
 	# Emit distance in lap units, never frame-count or incidental touch credit.
 	gesture.emit("kart_race", (progress - previous) / LAP_DISTANCE, 1.0)
+	if contest_mode and not race_finished and float(rival["s"]) >= LAP_DISTANCE * float(Driving.LAPS):
+		race_finished = true
+		race_event.emit("rival_finished", float(Driving.LAPS))
 
 
 func _tick_collectibles(delta: float, previous: float, progress: float) -> void:
@@ -381,7 +388,7 @@ func _draw_car(state: Dictionary, driver: Texture2D, is_player: bool) -> void:
 	# Keep the contact ellipse under the full 150 px kart footprint.
 	draw_circle(Vector2(0, 7), 38.0, Color(0.12, 0.10, 0.25, 0.24))
 	var hop := sin(clampf(float(state.get("hop", 0.0)) / 0.22, 0.0, 1.0) * PI) * 10.0
-	draw_set_transform(at - Vector2(0, hop * depth), 0.0, Vector2(direction * depth, depth))
+	draw_set_transform(at - Vector2(0, hop * depth), TAU * contest_spin if not is_player else 0.0, Vector2(direction * depth, depth))
 	if driver != null:
 		# Crop to the occupied head/shoulder/hand area before scaling. This keeps
 		# the actor readable without mounting a second full body or tail in the

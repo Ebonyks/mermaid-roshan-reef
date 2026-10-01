@@ -35,7 +35,7 @@ const DICTIONARY_KEYS: Array[String] = [
 	"won", "found", "crafts", "stickers", "owned", "animals", "critters",
 	"stuffie_wins", "medals", "day_one_story_clips_seen",
 	"teacher_learning_progress", "teacher_lesson_checkpoint",
-	"opera_mastery", "opera_performance_checkpoints",
+	"opera_mastery", "opera_performance_checkpoints", "opera_phase_checkpoints",
 ]
 const ARRAY_KEYS: Array[String] = ["custom_fish", "custom_friends", "companion_colors",
 	"chapter2_job_phase_masks"]
@@ -52,6 +52,7 @@ const KNOWN_KEYS: Array[String] = [
 	"crafts", "galaxy", "bwdone", "fairyskin", "combat_ice", "combat_fire",
 	"dungeon_progress", "dungeon_done", "opera_progress", "opera_stars", "opera_done", "opera_pantry",
 	"opera_geology_checkpoint",
+	"opera_phase_checkpoints",
 	"chapter3_fairy_door_revealed", "chapter3_fairy_door_opened", "chapter3_fairy_mission_started",
 	"castle_logo_color", "castle_logo_symbol",
 	"stickers", "owned", "animals", "critters",
@@ -687,6 +688,7 @@ func _normalise_save(raw: Dictionary) -> Dictionary:
 	data["opera_pantry"] = (pantry_in as Dictionary) if pantry_in is Dictionary else {}
 	data["opera_mastery"] = OperaMasteryModel.normalise(raw.get("opera_mastery", {}))
 	data["opera_performance_checkpoints"] = _dictionary_or_default(raw, "opera_performance_checkpoints")
+	data["opera_phase_checkpoints"] = _dictionary_or_default(raw, "opera_phase_checkpoints")
 	data["teacher_learning_progress"] = TeacherLessonPlan.normalise_progress(
 		raw.get("teacher_learning_progress", {}))
 	data["teacher_lesson_checkpoint"] = _teacher_lesson_checkpoint_or_default(raw)

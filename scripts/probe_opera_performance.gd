@@ -2,6 +2,7 @@ extends SceneTree
 ## Connected contract for the three literal Opera Hall two-act performances.
 
 const Mastery := preload("res://scripts/opera_mastery.gd")
+const Contest := preload("res://scripts/opera_imp_contest.gd")
 const PerformancePlan := preload("res://scripts/opera_performance_plan.gd")
 const BalletSurface := preload("res://scripts/opera_ballet_surface.gd")
 
@@ -34,6 +35,7 @@ func _run() -> void:
 	await _probe_story_opt_out()
 	await _probe_stage_checkpoint_and_rival()
 	await _probe_current_mechanic_restore()
+	await _probe_legacy_contest_checkpoint()
 	await _probe_award_and_replay()
 	if failures == 0:
 		print("OPERAPERFORMANCE|result: ALL OK")
@@ -55,9 +57,10 @@ func _probe_three_runtime_plans() -> void:
 		await process_frame
 		var world: OperaCareerWorld2D = act.career_world_2d
 		var base: Array = OperaCareerWorld2D.PHASES[career]
+		var expanded: Array = Contest.apply(career, PerformancePlan.build(career, base)["phases"], true)
 		all_three_exact = all_three_exact and started and world != null \
 			and world.two_act_enabled and world.performance_stage_start == 3 \
-			and world.phases.size() == base.size() + 3 \
+			and world.phases.size() == expanded.size() \
 			and world.performance_overlay != null \
 			and world.performance_overlay.mouse_filter == Control.MOUSE_FILTER_IGNORE \
 			and world.performance_overlay.find_children("*", "Button", true, false).is_empty()
@@ -66,9 +69,7 @@ func _probe_three_runtime_plans() -> void:
 			continue
 		for index in range(world.phases.size()):
 			var phase: Dictionary = world.phases[index]
-			var source_index := int(phase.get("source_phase", -1))
-			var expected: Dictionary = base[source_index] if source_index >= 0 \
-				and source_index < base.size() else {}
+			var expected: Dictionary = expanded[index]
 			all_three_exact = all_three_exact and not expected.is_empty() \
 				and String(phase.get("name", "")) == String(expected.get("name", "")) \
 				and String(phase.get("mode", "")) == String(expected.get("mode", "")) \
@@ -161,7 +162,7 @@ func _probe_stage_checkpoint_and_rival() -> void:
 
 	_touch_choice(world)
 	act._process(float(world.competition.spec["par_time"]) * 3.0)
-	var imp_finishes_honestly: bool = world.competition.rival_progress >= 0.999 \
+	var retired_stage_pacer: bool = is_zero_approx(world.competition.rival_progress) \
 		and act.state == "play" and world.phase_index < world.phases.size() \
 		and main.save_data["opera_mastery"] == mastery_before
 	world._performance_note_help()
@@ -189,8 +190,8 @@ func _probe_stage_checkpoint_and_rival() -> void:
 	_check("stage remains passive until a genuine choice touch", passive_safe)
 	_check("a genuine stage choice starts both measured performers", real_choice_started)
 	_check("paused time never enters the active performance clock", pause_safe)
-	_check("the imp may finish first without forcing a loss, retry, or award",
-		imp_finishes_honestly)
+	_check("the retired stage pacer never decides the non-contest TRACK lesson",
+		retired_stage_pacer)
 	_check("stage phase, metrics, quarters, and help resume from checkpoint",
 		restore_exact and int(saved_stats["assists"]) == 1)
 
@@ -218,6 +219,30 @@ func _probe_award_and_replay() -> void:
 		replay_ok)
 
 
+func _probe_legacy_contest_checkpoint() -> void:
+	for career: String in ["magician", "popstar"]:
+		var legacy: Array = PerformancePlan.build(career, OperaCareerWorld2D.PHASES[career])["phases"]
+		var index := legacy.size() - 1
+		var phase: Dictionary = legacy[index]
+		main.save_data["opera_performance_checkpoints"] = {career: {
+			"version": PerformancePlan.VERSION, "phase_index": index,
+			"stats": {}, "milestones": {str(index): 2}, "helped": {},
+			"current": {"part": "stage", "source_phase": phase["source_phase"],
+				"mode": phase["mode"], "progress": 0.5, "completed": false, "mechanic": {}}}}
+		var act := OperaAct.new()
+		get_root().add_child(act)
+		act.start(main, _career_config(career), Callable())
+		await process_frame
+		var world := act.career_world_2d
+		_check(career + " old flourish checkpoint retains its lesson and half progress after insertion",
+			world.phase_index == index + 1 and String(world.phases[world.phase_index]["name"]) == String(phase["name"])
+			and is_equal_approx(world.phase_progress, float(phase["goal"]) * 0.5)
+			and int(world.performance_milestones.get(str(index + 1), 0)) == 2)
+		act.cancel()
+		await process_frame
+	main.save_data["opera_performance_checkpoints"] = {}
+
+
 func _probe_current_mechanic_restore() -> void:
 	main.save_data["opera_performance_checkpoints"] = {}
 	var magic_config := _career_config("magician")
@@ -226,7 +251,6 @@ func _probe_current_mechanic_restore() -> void:
 	practice.start(main, magic_config, Callable())
 	await process_frame
 	var practice_world := practice.career_world_2d
-	practice_world.reveal_t = 0.0
 	practice_world.phase_gap = 0.0
 	practice_world._open_task()
 	var magic_surface: OperaGestureSurface = practice_world.surface
@@ -421,6 +445,7 @@ func _run_house_performance(career: String) -> Dictionary:
 
 func _touch_choice(world: OperaCareerWorld2D) -> void:
 	var surface := world.surface
+	surface._process(surface.shuffle_t + 0.01)
 	var count := maxi(1, surface.choice_count)
 	var target := clampi(surface.target_choice, 0, count - 1)
 	_touch(surface, Vector2(surface.size.x * (float(target) + 0.5) / float(count),

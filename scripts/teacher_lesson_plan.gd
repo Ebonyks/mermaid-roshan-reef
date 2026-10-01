@@ -80,6 +80,27 @@ static func make_lesson(kind: String, saved: Dictionary) -> Dictionary:
 	return lesson
 
 
+static func imp_answer(lesson: Dictionary, mercy: bool = false) -> int:
+	# An index, never a new answer: ordinary lesson generation stays unchanged.
+	var choices: Array = lesson.get("choices", []) as Array
+	var correct := int(lesson.get("answer", -1))
+	if correct < 0 or correct >= choices.size() or choices.size() < 2:
+		return -1
+	var numeric := String(lesson.get("kind", "")) in ["count", "add"]
+	var best := -1
+	var best_distance := -1.0 if mercy else INF
+	for index in range(choices.size()):
+		if index == correct:
+			continue
+		if not numeric:
+			return index
+		var distance := absf(float(choices[index]) - float(choices[correct]))
+		if best < 0 or (mercy and distance > best_distance) or (not mercy and distance < best_distance):
+			best = index
+			best_distance = distance
+	return best
+
+
 static func _pattern_lesson(tier: int, sequence: int) -> Dictionary:
 	var a := sequence % SHAPE_COUNT
 	var b := (a + 1 + sequence / SHAPE_COUNT) % SHAPE_COUNT

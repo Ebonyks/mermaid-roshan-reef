@@ -1,0 +1,91 @@
+{
+  "audio_cohort": {
+    "existing_voice_bytes": "All baseline OGG/WAV/MP3 under assets/audio/voices byte-identical; durable receipt in source archive",
+    "existing_voices": 713,
+    "human_acceptance": "PENDING",
+    "source_archive": "assets_src/audio/opera_contest_20260930",
+    "status": "25_MACHINE_SELECTED_AND_MASTERED",
+    "takes": 121
+  },
+  "audio_inventory": 911,
+  "audio_inventory_scope": "assets/audio: 844 baseline +25 contest +42 Teacher/shared. No claim about the separately scoped faerie-prototype voice ledger.",
+  "audio_inventory_status": "Strict current combined-source writer PASS:911 assets/audio files, audio_ledger_write_r4.log. Prototype cues retain separately scoped upstream evidence.",
+  "current_runtime_base": "549ea956b63ce438d007b26537ec917508eae3cb",
+  "existing_manifest_entries": "All baseline FILLER_MANIFEST entries compare structurally equal after the append; only new cohort/evidence and current pipeline identities change.",
+  "final_contact_review": "contacts_r4_final/REVIEW.json: 116 captures at 549ea956/862 source hashes, exit0 in both shapes, all 116 images byte-identical to prior R4",
+  "final_full_ci": {
+    "base": "549ea956b63ce438d007b26537ec917508eae3cb",
+    "log_path": "audit/opera_imp_contests_2026-09-30/full_ci_revision4_candidate.log",
+    "log_sha256": "d3cc034e85a5d5ef8eae6709168d33718802c8fad69242692c572ce5707a20ad",
+    "probe_accounting": {
+      "headless_visual_skips": 1,
+      "registered_local_processes": 84,
+      "visual_skip": "probe_human_art_audit; display captures and acceptance are separate"
+    },
+    "probes": 84,
+    "receipt": "audit/opera_imp_contests_2026-09-30/FULL_CI_R4_SOURCE.json",
+    "source_identities": 2053,
+    "status": "FAIL_STARTUP_EXIT_127"
+  },
+  "focused_logs": {
+    "advisory_balance.log": "5d42915b58f786af4c769438baeaf59312033f97a890c2704771c21fcfaa0e1a",
+    "focused_contest.log": "80756b8df0ec486f53138131d1ffe1df1ccc040ed89182d5d7d774c8a8b4c815",
+    "focused_mastery.log": "1605854ad9a648e18c8737071930c2da8efc2a79ed38431bcdaa2b694b132385",
+    "focused_passive.log": "3250a5f5f7f8f8414ccf604e93b98be14030e4c52dcb79cb3d6fa8e7ac99ce34",
+    "focused_performance.log": "e1992a146c19398fbc95d2a0a461e1b1c7884e9974aaf8c2f642d6926c070ae2"
+  },
+  "interrupted_runner": "full_ci_revision4_bad_temp_env.log: interrupted stale temp environment before Godot/save probes; no pass claimed. Replacement uses own TMP/TEMP/TMPDIR and verified Bash/native containment; its Opera startup failure remains explicit.",
+  "limits": "All required local checks have passing results across the recorded full attempt and isolated Opera retry; the single full command remains failed. Source-bound two-aspect captures and strict 911-file audio writer/check pass. Exact-head GitHub gates and public first-five packet verification pending. Twelve contests implemented; Teacher plan/surface/cues prepared, but production wiring and 40 approved icons incomplete. Device/child/owner/voice listening and whole-game satisfaction pending.",
+  "literal_archive_portability": "Scoped .gitattributes -text retains native audio/image/log/provenance bytes across Windows/Linux; code-source hashes keep their declared mode.",
+  "live_packet_check": "NOT_APPLICABLE after implementation: build_packet_data.py --check compares current code usage to its pre-implementation inventory and reports two stale inventory outputs. Original instructions and manifest bytes are preserved; the original packet is not revised to rewrite historical runtime observations.",
+  "precommit_governance": {
+    "authority": "PASS; document_authority_r4.log",
+    "coverage": "PASS; development_coverage_r4.log"
+  },
+  "remaining_teacher_reuse": {
+    "inspected_sources": 3,
+    "new_generations": 0,
+    "path": "audit/opera_imp_contests_2026-09-30/teacher_remaining_reuse_inventory.json",
+    "picture_slots": 35,
+    "status": "SHORTLIST_ONLY_NOT_ASSET_OR_STYLE_ACCEPTANCE"
+  },
+  "required_local_checks": {
+    "receipt": "audit/opera_imp_contests_2026-09-30/VALIDATION_R4_SOURCE.json",
+    "status": "ALL_REQUIRED_CHECKS_PASS_ACROSS_RECORDED_RUNS"
+  },
+  "revision4_source": {
+    "commit": "29bbd80aeb539b45b1f34bb93324883addf8b0c8",
+    "manifest_sha256": "b40fddc41c9080d5f5dc38d738659a51302ea96095ff0e8d796d31712f0b7ccc"
+  },
+  "runtime_reconciliation": "Incoming 549ea956 exact-voice repair and isolated faerie prototype retained. Fresh combined-source 116 Mobile captures pass. The full local command failed on one unexplained Opera startup exit; its isolated native retry passes at unchanged source. Earlier captures remain historical.",
+  "simulated_input_scope": "Rows labelled real_child in the raw contest logs mean scripted one-finger InputEvent simulations. No child was observed, and these rows do not establish child comprehension or the 75-percent first-attempt target.",
+  "source_base": "b52fc32a2ad676fd9b235c0f3d6f1aba829cea77",
+  "source_packet_manifest_scope": "Historical Revision 1 at the original task baseline; preserved by this task. Upstream revisions 2-4 legitimately supersede those bytes.",
+  "source_packet_manifest_sha256": "1d0e46f8162a8540e9c328052e77a60f9ece34d0df72c98b8cc2d5493a0c8828",
+  "teacher_audio_cohort": {
+    "existing_voice_files_identical": 738,
+    "historical_entries_unchanged": 525,
+    "historical_runs_unchanged": 176,
+    "human_listening": "PENDING",
+    "independent_asr": "tiny.en plus stronger medium.en without expected-text prompt; prior failed tiny/small reports preserved",
+    "source_archive": "assets_src/audio/opera_teacher_silly_20260930",
+    "status": "42_MACHINE_SELECTED_AND_MASTERED",
+    "takes": 138
+  },
+  "teacher_preparation": {
+    "geologist_scope": "PENDING_CONFIRMATION_STAYS_COOPERATIVE",
+    "owner_style": "PENDING",
+    "status": "LOGIC_SURFACE_PASS_NOT_ACTIVE",
+    "teacher_costume": "OPTIONAL_APPROVAL_NOT_REQUESTED_OR_GENERATED"
+  },
+  "unchanged_files": [
+    ".gdignore",
+    "CONTEST_DESIGN.md",
+    "CURRENT_STATE_ANALYSIS.md",
+    "README.md",
+    "data/contest_spec.json",
+    "data/imp_art_inventory.json",
+    "data/imp_voice_inventory.json",
+    "tools/build_packet_data.py"
+  ]
+}

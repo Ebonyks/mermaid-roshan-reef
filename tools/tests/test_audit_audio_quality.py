@@ -1,3 +1,5 @@
+import ast
+import re
 import importlib.util
 import hashlib
 import gzip
@@ -16,6 +18,18 @@ SPEC.loader.exec_module(MODULE)
 
 
 class AudioQualityPolicyTests(unittest.TestCase):
+    def test_contest_catalog_extends_authority_without_changing_teacher_generator(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "tools").mkdir()
+            (root / "tools/make_voices.py").write_text("LINES = {'roshan_old': ('roshan', 'Old cue.')}\n", encoding="utf-8")
+            catalog = root / "tools/opera_contest_voice_catalog.json"
+            catalog.write_text(json.dumps({"lines": {"imp_new": ["imp", "Race me!"]}}), encoding="utf-8")
+            self.assertEqual(MODULE.authoritative_filler_lines(root)["imp_new"], ("imp", "Race me!"))
+            catalog.write_text(json.dumps({"lines": {"roshan_old": ["roshan", "Wrong cue."]}}), encoding="utf-8")
+            with self.assertRaisesRegex(RuntimeError, "authority conflicts"):
+                MODULE.authoritative_filler_lines(root)
+
     def test_day_two_catalog_adds_exact_authority_and_rejects_conflicts(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -35,6 +49,79 @@ class AudioQualityPolicyTests(unittest.TestCase):
             catalog.write_text(json.dumps({"rows": [row]}), encoding="utf-8")
             with self.assertRaisesRegex(RuntimeError, "authority conflicts"):
                 MODULE.authoritative_filler_lines(root)
+
+    def test_selector_preserves_possessive_s_and_all_instruction_words(self):
+        # Exercise the production text helpers without importing ML runtimes
+        # into the lightweight policy gate.
+        tree = ast.parse((ROOT / "tools/select_filler_voices.py").read_text(encoding="utf-8"))
+        helpers = [node for node in tree.body if
+                   isinstance(node, ast.FunctionDef) and node.name in {"normalize_words", "word_error_rate", "eligible_candidate"}
+                   or isinstance(node, ast.Assign) and any(
+                       isinstance(target, ast.Name) and target.id in {"ASR_WORD_EQUIVALENTS", "F0_RANGES"}
+                       for target in node.targets)]
+        namespace = {"re": re}
+        exec(compile(ast.Module(body=helpers, type_ignores=[]), "selector_text_helpers", "exec"), namespace)
+        wer = namespace["word_error_rate"]
+        expected = "Listen to the imp's song, then sing it back!"
+        self.assertEqual(wer(expected, "Listen to the imps song, then sing it back."), 0.0)
+        self.assertEqual(wer(expected, "Listen to the imp\u2019s song, then sing it back."), 0.0)
+        for missing in ["Listen to the imp song, then sing it back.",
+                        "Listen to the imps song, sing it back.",
+                        "Listen to his song, then sing it back."]:
+            self.assertGreater(wer(expected, missing), 0.0)
+        eligible = namespace["eligible_candidate"]
+        low_voice = {"wer": 0.0, "f0_median_hz": 217.0, "selection_score": 3.2}
+        self.assertFalse(eligible("roshan", low_voice, 2.65))
+        independent = {"wer": 0.1, "secondary_wer": 0.0,
+                       "f0_median_hz": 260.0, "selection_score": 3.2}
+        self.assertTrue(eligible("roshan", independent, 2.65))
+        self.assertFalse(eligible("roshan", independent | {"secondary_wer": 0.1}, 2.65))
+        self.assertFalse(eligible("roshan", independent | {"clipped_samples": 1}, 2.65))
+        master_spec = importlib.util.spec_from_file_location("master_words", ROOT / "tools/master_filler_voices.py")
+        master_words = importlib.util.module_from_spec(master_spec)
+        master_spec.loader.exec_module(master_words)
+        self.assertEqual(master_words.normalize_prompt_words(expected), namespace["normalize_words"](expected))
+        number_line = "Two plus one makes a banana! No wait. This many!"
+        self.assertEqual(wer(number_line, "2 plus 1 makes a banana. No wait. This many."), 0.0)
+        self.assertGreater(wer(number_line, "2 plus 3 makes a banana. No wait. This many."), 0.0)
+        self.assertGreater(wer(number_line, "2 plus 1 makes a banana. This many."), 0.0)
+        self.assertGreater(wer("One two three eleventy-twelve", "1 2 3 11 12"), 0.0)
+        for authored, spelling in [("Brrr!", "Burr!"), ("soooo slow", "so slow"),
+                                   ("Sooo slooow Yaaawn", "So slow yawn")]:
+            self.assertEqual(wer(authored, spelling), 0.0)
+            self.assertEqual(master_words.normalize_prompt_words(authored), namespace["normalize_words"](spelling))
+        self.assertGreater(wer("Brrr! My toes are frozen!", "Roar! My toes are frozen!"), 0.0)
+        self.assertEqual(wer("Honey, bubble gum, a booger, or slime!", "Honey, bubblegum, a booger, or slime!"), 0.0)
+        self.assertGreater(wer("Honey, bubble gum, a booger, or slime!", "Honey, bubblegum, booger, or slime!"), 0.0)
+        self.assertEqual(wer("Pee-yew! Eww! Eleventy-twelve!", "Pee you! Ew! Eleventytwelve!"), 0.0)
+        self.assertGreater(wer("Pee-yew! Eww! Eleventy-twelve!", "Pee! You! Eleven twelve!"), 0.0)
+        self.assertEqual(wer("One two three eleventy-twelve", "1 2 3 eleven tee twelve"), 0.0)
+        self.assertGreater(wer("One two three eleventy-twelve", "1 2 3 eleven two twelve"), 0.0)
+        self.assertEqual(wer("One two three eleventy-twelve", "1, 2, 3, eleven, t, twelve"), 0.0)
+        self.assertEqual(wer("Pee-yew!", "P. U.!"), 0.0)
+        self.assertGreater(wer("Pee-yew!", "P. E.!"), 0.0)
+
+    def test_append_cohorts_cannot_select_another_cohorts_attempt(self):
+        self.assertEqual(MODULE.generation_run_name({}, 1), "attempt_1")
+        self.assertEqual(MODULE.generation_run_name({"generation_cohort": "opera_contest"}, 1),
+                         "opera_contest_attempt_1")
+        self.assertEqual(MODULE.generation_run_name({"generation_cohort": "../escape"}, 1),
+                         "INVALID_GENERATION_COHORT")
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            candidates = [{"attempt": 1, "key": "imp_test", "seed": 7,
+                           "raw_sha256": "1" * 64}]
+            run = {"attempt": 1, "capture_state": "CAPTURED_AT_GENERATION",
+                   "candidate_count": 1, "candidate_rows": candidates,
+                   "candidate_rows_sha256": MODULE.canonical_json_sha256(candidates)}
+            entry = {"key": "imp_test", "selected_attempt": 1, "seed": 8,
+                     "generation_cohort": "opera_contest", "source_wav_sha256": "2" * 64,
+                     "ffmpeg_command": ["-serial_offset", str(MODULE._expected_ogg_serial("imp_test"))]}
+            issues = []
+            MODULE.validate_generation_evidence(root, {}, [entry],
+                {"opera_contest_attempt_1": run}, issues)
+            self.assertTrue(any("selected seed disagrees" in issue for issue in issues))
+            self.assertTrue(any("selected source hash disagrees" in issue for issue in issues))
 
     def test_source_hash_is_stable_across_checkout_line_endings(self):
         with tempfile.TemporaryDirectory() as directory:

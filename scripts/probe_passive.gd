@@ -139,6 +139,7 @@ func _init() -> void:
 	var brawl_bad: int = await _probe_brawl_agency()
 	bad += brawl_bad
 	bad += _probe_companion_patient_care()
+	bad += _probe_opera_contest_agency()
 	# Water-FX cards are EVENT effects (fx_water.gd): the swell, sleeping-prop
 	# sway and every other ambient channel must never proc one. Zero input
 	# across this whole run therefore means zero cards, ever.
@@ -153,6 +154,41 @@ func _init() -> void:
 func _frames(n: int):
 	for i in range(n):
 		await process_frame
+
+
+func _probe_opera_contest_agency() -> int:
+	var failed := 0
+	var previous_game: String = main.game
+	main.game = "opera"
+	for career: String in ["chef", "detective", "magician"]:
+		var config: Dictionary = {}
+		for source: Dictionary in OperaHouse.ACTS:
+			if String(source.get("costume", "")) == career:
+				config = source.duplicate(true)
+		var act := OperaAct.new()
+		get_root().add_child(act)
+		act.process_mode = Node.PROCESS_MODE_DISABLED
+		act.start(main as ReefMain, config, Callable())
+		var world := act.career_world_2d
+		for index in range(world.phases.size()):
+			if (world.phases[index] as Dictionary).has("contest"):
+				world.phase_index = index
+				break
+		world._arm_phase()
+		world._open_task()
+		var before := _progress_snapshot()
+		var stars: int = main.opera_stars
+		for frame in range(1800):
+			world.surface._process(1.0 / 30.0)
+			world._process(1.0 / 30.0)
+		var ok: bool = world.contest.state == "waiting" and world.contest.his_units == 0.0 \
+			and world.phase_progress == 0.0 and main.opera_stars == stars and _progress_unchanged(before)
+		print("PASSIVE|Opera ", career, ": ", "OK no win/loss/reward at 60s" if ok else "FAIL zero-input contest")
+		if not ok:
+			failed += 1
+		act.cancel()
+	main.game = previous_game
+	return failed
 
 
 func _save_fingerprint() -> String:

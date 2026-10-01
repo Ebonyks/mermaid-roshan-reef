@@ -24,6 +24,7 @@ const REVIEWED_HALL_POSES := {
 	},
 }
 
+const ImpContest := preload("res://scripts/opera_imp_contest.gd")
 const PerformancePlan := preload("res://scripts/opera_performance_plan.gd")
 const Mastery := preload("res://scripts/opera_mastery.gd")
 const PerformanceOverlay := preload("res://scripts/opera_performance_overlay.gd")
@@ -407,18 +408,18 @@ const FINALE_START := {
 const PHASE_STATIONS := {
 	"teacher": {"PATTERN": "lesson_desk", "COUNT": "lesson_desk", "ADD": "lesson_desk", "MATCH": "lesson_desk"},
 	"chef": {"MIX": "mixing_bowl", "STIR": "mixing_bowl", "BAKE": "hearth_oven", "FROST": "grand_cake_stage", "TOP": "grand_cake_stage"},
-	"detective": {"SEARCH": "magnifier_tower", "CASE BOARD": "evidence_shelves", "CROWN": "treasure_dais"},
+	"detective": {"SEARCH": "magnifier_tower", "CASE BOARD": "evidence_shelves", "SPARKLE RACE": "magnifier_tower", "CROWN": "treasure_dais"},
 	"ballerina": {"PEARL MIRROR": "trifold_mirror", "RIBBON TRAIL": "wave_tuffets", "GRAND TWIRL": "rose_finale_stage"},
 	"candymaker": {"SYRUP": "gumball_vat", "SORT": "taffy_press", "WRAP": "candy_bag_cottage", "SHARE": "candy_cart"},
 	"doctor": {"WASH": "stethoscope_clinic", "FIND": "starfish_triage", "X-RAY": "exam_booth", "CAST": "exam_booth", "BANDAGE": "recovery_bed"},
 	"farmer": {"PLANT": "seed_beds", "TOSS": "hay_bales", "HERD": "barn_doors", "PICNIC": "blossom_arch"},
 	"boxer": {"GLOVE GUIDE": "glove_wall_shelf", "JAB PRACTICE": "purple_sparring_mat", "SOFT GUARD": "teal_heavy_bag", "TITLE IMP": "shell_pavilion_stage", "BELT": "shell_pavilion_stage"},
-	"magician": {"VANISH": "violet_shell_stage", "TRACK": "pearl_tide_pool", "ROPE": "teal_shell_stage", "CABINET": "rose_shell_stage", "PORTAL": "rose_shell_stage"},
-	"painter": {"PAINT": "gazebo_easel", "STAMPS": "rainbow_brush", "GALLERY": "arch_easel"},
+	"magician": {"VANISH": "violet_shell_stage", "TRACK": "pearl_tide_pool", "ROPE": "teal_shell_stage", "CABINET": "rose_shell_stage", "HAT DUEL": "pearl_tide_pool", "PORTAL": "rose_shell_stage"},
+	"painter": {"PAINT": "gazebo_easel", "STAMPS": "rainbow_brush", "PAINT-OFF": "gazebo_easel", "GALLERY": "arch_easel"},
 	"astronaut": {"PIPES": "coolant_tank_pad", "PATCH": "pipe_arch_planter", "VALVE": "periscope_elbow", "LAUNCH": "rocket_launch_dais"},
 	"racer": {"TUNE": "pearl_dome_pavilion", "TO THE LINE": "pearl_start_arch", "RACE": "ribbon_finish_arch"},
 	"nursery": {"WASH HANDS": "wash_basin", "CATCH BABIES": "cuddle_cushions", "FEED": "bottle_nook", "BURP": "cuddle_cushions", "BEDTIME": "moon_bed"},
-	"popstar": {"SOUND CHECK": "mic_gazebo", "DANCE": "record_dais", "RHYTHM": "shell_stage", "ENCORE": "shell_stage"},
+	"popstar": {"SOUND CHECK": "mic_gazebo", "DANCE": "record_dais", "RHYTHM": "shell_stage", "SING-OFF": "shell_stage", "ENCORE": "shell_stage"},
 	"geologist": {"RIVER": "layer_wall", "FOSSIL": "fossil_table", "PAN": "specimen_trays", "GEODE": "crystal_gallery"},
 }
 
@@ -432,6 +433,10 @@ const HOTSPOT_PHASE_ALIASES := {
 		"RIBBON TRAIL": "RIBBON",
 		"GRAND TWIRL": "TWIRL",
 	},
+	"detective": {"SPARKLE RACE": "SEARCH"},
+	"painter": {"PAINT-OFF": "PAINT"},
+	"magician": {"HAT DUEL": "TRACK"},
+	"popstar": {"SING-OFF": "RHYTHM"},
 	"boxer": {
 		"GLOVE GUIDE": "COMBO",
 		"JAB PRACTICE": "COMBO",
@@ -469,9 +474,27 @@ var career_id := ""
 var phases: Array = []
 var phase_index := 0
 var phase_progress := 0.0
+var contest_enabled := false
+var contest: OperaImpContest = null
+var contest_entered := false
+var contest_suspended := false
+var contest_touch_pending := false
+var contest_win_t := 0.0
+var contest_pose_t := 0.0
+var contest_pose := "idle"
+var contest_entrance_t := -1.0
+var contest_mark := Vector2.ZERO
+var contest_entrance_from := Vector2.ZERO
+var contest_voice_cool := 0.0
+var contest_challenge_pending := false
+var contest_arrival_pending := false
+var contest_voice_queue: Array[Dictionary] = []
+var contest_contact_t := 0.0
+var contest_contact_index := 0
+var contest_contact_point := Vector2.ZERO
+var contest_rows: Control = null
+var contest_fx: Control = null
 var active := true
-var guided := false
-var reveal_t := 0.0
 var elapsed := 0.0
 var timing_phase := 0.0
 var choice_target := 1
@@ -612,6 +635,15 @@ var last_cheer := ""
 var surface: OperaGestureSurface
 var phase_fill: ProgressBar
 var confetti: Array[ColorRect] = []
+var cheer_beats_remaining := 0
+var cheer_beat_t := 0.0
+var cheer_tier := 1
+var cheer_beat_index := 0
+var contest_confetti_count := 12
+var contest_confetti_age: Array[float] = []
+var contest_confetti_positions: Array[Vector2] = []
+var contest_confetti_colours: Array[Color] = []
+var contest_confetti_canvas: Control = null
 var run_context: Dictionary = {}
 var geology_restoring := false
 var geology_save_pending := false
@@ -728,11 +760,21 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 		performance_stage_start = int(plan["stage_start"])
 		competition.spec["honest_stage"] = true
 		competition.spec["rival_cap"] = 1.0
-		competition.spec["timed_retry"] = false
 		competition.spec["par_time"] = float((Mastery.RULES[career_id] as Dictionary)["silver_seconds"])
+	contest_enabled = not using_chapter_two_phases and ImpContest.enabled(career_id, config)
+	if contest_enabled:
+		phases = ImpContest.apply(career_id, phases, two_act_enabled)
+		competition.spec["skill_contest"] = true
+		competition.spec["honest_stage"] = false
 	phase_index = 0
 	if two_act_enabled:
 		_performance_restore()
+	if contest_enabled and not two_act_enabled:
+		var checkpoints: Dictionary = m.save_data.get("opera_phase_checkpoints", {})
+		var saved_phase: Dictionary = checkpoints.get(career_id, {})
+		if int(saved_phase.get("version", 0)) == 1:
+			phase_index = clampi(int(saved_phase.get("phase_index", 0)), _finale_start(), phases.size() - 1)
+	contest_entered = contest_enabled and phase_index >= _finale_start()
 	if career_id == "teacher":
 		var saved: Variant = m.save_data.get("teacher_lesson_checkpoint", {})
 		if saved is Dictionary and saved.get("version", 0) == 1:
@@ -766,7 +808,7 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 		performance_overlay.size = StagePaths.SCREEN
 		performance_overlay.configure(career_id)
 		root.add_child(performance_overlay)
-		if career_id != "ballerina":
+		if career_id != "ballerina" and not contest_enabled:
 			performance_rival_surface = GestureSurface.new()
 			performance_rival_surface.position = Vector2(916, 144)
 			performance_rival_surface.size = Vector2(392, 232)
@@ -775,6 +817,20 @@ func setup(main: ReefMain, act_config: Dictionary, director: OperaCompetition,
 			root.add_child(performance_rival_surface)
 			performance_rival_surface.set_process(false)
 			performance_rival_surface.visible = false
+	if contest_enabled:
+		surface.activity_touch.connect(_contest_touch)
+		contest_rows = Control.new()
+		contest_rows.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		contest_rows.size = StagePaths.SCREEN
+		root.add_child(contest_rows)
+		contest_rows.draw.connect(_draw_contest_rows)
+		contest_rows.visible = false
+		contest_fx = Control.new()
+		contest_fx.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		contest_fx.size = StagePaths.SCREEN
+		root.add_child(contest_fx)
+		contest_fx.draw.connect(_draw_contest_fx)
+		_prepare_contest_confetti()
 	# The room is part of every activity. Setup arms the first physical object;
 	# it never bypasses discovery by opening a minigame synchronously.
 	_adapter_hook("scene_ready", scene_snapshot())
@@ -1965,7 +2021,7 @@ func _begin_wander_route(route: PackedVector2Array) -> void:
 
 
 func _on_hotspot_pressed(station_index: int) -> void:
-	if task_open or not active or reveal_t > 0.0 \
+	if task_open or not active or contest_suspended \
 			or station_index != armed_station \
 			or station_index < 0 or station_index >= station_list.size():
 		return
@@ -2433,6 +2489,7 @@ func _arm_phase() -> void:
 	wander_stride = 0.0
 	wander_feet = room_return_feet if room_return_feet.is_finite() \
 		else (_hero_feet() if player_actor != null else Vector2.ZERO)
+	_contest_arm()
 	if phase_index >= phases.size():
 		active = false
 		if win_callback.is_valid():
@@ -2452,6 +2509,8 @@ func _arm_phase() -> void:
 		phase_gap = 0.0
 	# Discovery/navigation time is never counted as competition time.
 	_set_finale_visible(false)
+	if contest_enabled and in_competition_finale():
+		_contest_entrance()
 	# Boxing switches to first-person gloves only after the invitation opens;
 	# Roshan must remain visible while she walks to the physical training prop.
 	if career_id == "boxer" and player_actor != null:
@@ -2506,6 +2565,8 @@ func _arm_phase() -> void:
 
 	if two_act_enabled:
 		performance_overlay.set_part(phase_index >= performance_stage_start)
+		if contest_enabled:
+			performance_overlay.visible = phase_index < performance_stage_start
 		if phase_index >= performance_stage_start:
 			phase_gap = 0.0
 			for hotspot_node in station_nodes:
@@ -2576,6 +2637,11 @@ func _bind_widget(phase: Dictionary, mode_name: String, accent: Color, armed := 
 	# while she is still wandering, the bound widget shows but its clocks
 	# (oven heat, pipe fuel, echo song) hold still until she arrives
 	surface.armed_only = armed
+	if _contest_phase():
+		surface.contest_mode = true
+		surface.passes_required = 3 if career_id == "doctor" else 1
+		if surface is OperaBalletSurface:
+			(surface as OperaBalletSurface).turns_required = 3
 
 
 func _open_task() -> void:
@@ -2696,6 +2762,8 @@ func _open_task() -> void:
 		competition.pause()
 		performance_started = false
 		_performance_stage_layout()
+	if _contest_phase():
+		_contest_open()
 
 
 func _activity_reveal_pivot() -> Vector2:
@@ -2743,6 +2811,13 @@ func _show_phase_prompt(phase: Dictionary) -> void:
 	# work supersedes older route speech and queued dialogue on every career,
 	# including the legacy Racer phases outside the Chapter Two adapter.
 	m.clear_dialogue()
+	if contest_arrival_pending:
+		contest_arrival_pending = false
+		m.say_sequence([
+			{"who": String(phase.get("speaker", "Roshan")), "text": String(phase.get("voice", "Follow the golden sparkle!")), "vo": voice_key},
+			{"who": "Mischief Imp", "text": ImpContest.VOICE_TEXT["imp_op_%s_arrive" % career_id], "vo": "op_%s_arrive" % career_id},
+		])
+		return
 	m.show_msg(
 		"" if using_chapter_two_phases else String(phase.get("speaker", "Roshan")),
 		String(phase.get("voice", "Follow the golden sparkle!")),
@@ -3200,6 +3275,15 @@ func competition_progress() -> float:
 
 
 func _set_finale_visible(show_finale: bool) -> void:
+	if contest_enabled:
+		player_bar.visible = false
+		rival_bar.visible = false
+		if career_id == "racer":
+			player_actor.visible = not _racer_is_driving()
+		rival_actor.visible = in_competition_finale() and not (task_open and career_id in ["boxer", "racer"])
+		if contest_rows != null:
+			contest_rows.visible = _contest_phase() and task_open and not phase_advance_pending
+		return
 	if two_act_enabled:
 		player_bar.visible = false
 		rival_bar.visible = false
@@ -3369,6 +3453,10 @@ func _racer_is_driving() -> bool:
 
 
 func _on_race_event(kind: String, value: float) -> void:
+	if kind == "rival_finished" and _contest_phase():
+		contest.observe_rival(value)
+		_contest_apply(contest.tick(0.0, phase_progress, false))
+		return
 	if not active or not _racer_is_driving():
 		return
 	idle_t = 0.0
@@ -3385,7 +3473,9 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 			phase_gap = 0.0
 		elif _kind != "probe":
 			return
-	if not active or reveal_t > 0.0 or phase_index >= phases.size():
+	if not active or contest_suspended or phase_index >= phases.size():
+		return
+	if _contest_phase() and task_open and _contest_gesture(_kind, amount, quality):
 		return
 	if career_id == "boxer":
 		_on_boxing_gesture(_kind, amount, quality)
@@ -3435,6 +3525,8 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 		_open_task()
 		if not task_open:
 			return
+	if _contest_phase() and _contest_gesture(_kind, amount, quality):
+		return
 	var phase := phases[phase_index] as Dictionary
 	var mode := String(phase.get("mode", ""))
 	if career_id == "geologist" and _kind not in [mode, "probe"]:
@@ -3467,6 +3559,14 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	var gain := amount if continuous else (maxf(0.04, amount) if amount > 0.0 else 0.0)
 	phase_progress += gain
 	var goal := maxf(0.1, float(phase.get("goal", 1.0)))
+	if _kind == "swipe" and mode == "swipe" and surface._uses_authored_trace_context() and surface.trace_journey >= 0.999:
+		# The drawn route has reached its endpoint. Accumulated float deltas
+		# must not strand a completed frosting ring or rope just below its goal.
+		phase_progress = goal
+	if _kind == "swipe" and mode == "swipe" and surface._uses_long_push_context() and surface.long_push_journey >= 0.999:
+		phase_progress = goal
+	if _kind == "pourt" and mode == "pourt" and surface.pour_level >= 0.999:
+		phase_progress = goal
 	if mode == "kart_race" and _kind == "kart_race" and surface is OperaRacerSurface:
 		# Absolute completed distance keeps the final lap exact despite float
 		# accumulation; no unrelated gesture can manufacture this distance.
@@ -3487,6 +3587,10 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	if bounce_cool <= 0.0:
 		bounce_cool = 0.22
 		_bounce_actor(player_actor, 14.0 if quality >= 0.5 else 7.0)
+		if quality >= 0.5 and gain > 0.0 and competition.is_cooperative() and rival_actor.visible:
+			# The existing helper acknowledges her useful work, without doing it
+			# for her or claiming a missing authored costume/working pose.
+			_bounce_actor(rival_actor, 8.0)
 	if mode == "choice":
 		if quality >= 0.5:
 			var previous_choice := choice_target
@@ -3699,23 +3803,6 @@ func rival_step() -> void:
 	_bounce_actor(rival_actor, 10.0 + float(competition.rival_step) * 1.8)
 
 
-func begin_guided_retry() -> void:
-	# the rival's clock may only claim the STAGE contest: the investigation
-	# (talk and lens hops) has no rival, so the retry can never teleport her
-	# past ASK ROSALINA, the FOUNTAIN, the STAIRS and the CROWN CHASE
-	if career_id != "detective" or reveal_t > 0.0 or phase_index < _finale_start():
-		return
-	active = false
-	reveal_t = 3.6
-	# the finale is the ally-corner: the rival detective DEMONSTRATES the
-	# corner (taunt + VO) — there is no choice widget in this career
-	_set_rival_pose("taunt")
-	_bounce_actor(rival_actor, 16.0, 0.5)
-	surface.restart_demo()
-	if m != null:
-		m.show_msg("Rival Imp", "The rival detective corners him first — watch, then trap him together!", "op_retry")
-
-
 func update_competition() -> void:
 	if competition == null:
 		return
@@ -3729,6 +3816,7 @@ func celebrate(result: Dictionary) -> void:
 			performance_rival_surface.visible = false
 		performance_overlay.show_result(int(result.get("tier", 1)),
 			int(result.get("token_delta", 0)), int(result.get("token_balance", 0)))
+		performance_overlay.visible = true
 		m.clear_dialogue()
 	if backdrop_node != null:
 		backdrop_node.racer_driving = false
@@ -3824,6 +3912,27 @@ func celebrate(result: Dictionary) -> void:
 			rival_actor.rotation = -0.045
 		_capture_actor_rest("rival", rival_actor)
 		_bounce_actor(rival_actor, 10.0, 0.58)
+	if contest_enabled:
+		cheer_tier = tier
+		cheer_beats_remaining = tier
+		cheer_beat_t = 0.0
+		cheer_beat_index = 0
+		_tick_contest_cheer(0.0)
+	else:
+		_confetti_burst()
+
+
+func _confetti_burst() -> void:
+	if contest_enabled:
+		var base := cheer_beat_index * contest_confetti_count
+		for index in range(contest_confetti_count):
+			var slot := base + index
+			if slot >= contest_confetti_age.size():
+				break
+			contest_confetti_positions[slot] = Vector2(30.0 + float((index * 197) % 1220), -30.0 - float((index * 31) % 160))
+			contest_confetti_age[slot] = 0.0
+		contest_confetti_canvas.queue_redraw()
+		return
 	for index in range(24):
 		var bit := ColorRect.new()
 		bit.color = Color.from_hsv(float(index) / 24.0, 0.58, 1.0)
@@ -3834,6 +3943,62 @@ func celebrate(result: Dictionary) -> void:
 		confetti.append(bit)
 		var fall := bit.create_tween()
 		fall.tween_property(bit, "position:y", 760.0, 1.8 + float(index % 5) * 0.17)
+
+
+func _prepare_contest_confetti() -> void:
+	contest_confetti_count = 12 if m.quality == "speedy" else 24
+	contest_confetti_canvas = Control.new()
+	contest_confetti_canvas.size = StagePaths.SCREEN
+	contest_confetti_canvas.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	root.add_child(contest_confetti_canvas)
+	contest_confetti_canvas.draw.connect(_draw_contest_confetti)
+	for index in range(contest_confetti_count * 3):
+		contest_confetti_age.append(-1.0)
+		contest_confetti_positions.append(Vector2.ZERO)
+		contest_confetti_colours.append(Color.from_hsv(float(index % contest_confetti_count) / float(contest_confetti_count), 0.58, 1.0))
+
+
+func _tick_contest_confetti(delta: float) -> void:
+	var changed := false
+	for index in range(contest_confetti_age.size()):
+		if contest_confetti_age[index] < 0.0:
+			continue
+		contest_confetti_age[index] += delta
+		changed = true
+		var duration := 1.8 + float((index % contest_confetti_count) % 5) * 0.17
+		contest_confetti_positions[index] += Vector2(0.0, 920.0 / duration * delta)
+		if contest_confetti_age[index] >= duration:
+			contest_confetti_age[index] = -1.0
+	if changed:
+		contest_confetti_canvas.queue_redraw()
+
+
+func _draw_contest_confetti() -> void:
+	for index in range(contest_confetti_age.size()):
+		if contest_confetti_age[index] >= 0.0:
+			contest_confetti_canvas.draw_rect(Rect2(contest_confetti_positions[index], Vector2(10, 22)), contest_confetti_colours[index])
+
+
+func _tick_contest_cheer(delta: float) -> void:
+	_tick_contest_confetti(delta)
+	if cheer_beats_remaining <= 0:
+		if contest_enabled and m.chime != null and not m.chime.playing:
+			m.chime.pitch_scale = 1.0
+		return
+	cheer_beat_t -= delta
+	if cheer_beat_t > 0.0:
+		return
+	cheer_beats_remaining -= 1
+	cheer_beat_t = 0.45
+	if m.chime != null:
+		m.chime.pitch_scale = 1.0 + float(cheer_beat_index) * 0.18
+		m.chime.play()
+	_confetti_burst()
+	cheer_beat_index += 1
+	if cheer_tier == 3 and cheer_beat_index == 3:
+		m._play_success_yay()
+		_set_rival_pose("bow")
+		_bounce_actor(rival_actor, 10.0, 0.4)
 
 
 func _tick_stage_combat(delta: float) -> void:
@@ -4029,6 +4194,10 @@ func _imp_family(captain: bool) -> String:
 
 
 func _prewarm_imp_textures() -> void:
+	if contest_enabled:
+		for state: String in IMP_PREWARM_STATES:
+			_state_texture("rival_%s" % career_id if state == "idle" else "rival_%s_%s" % [career_id, state])
+		return
 	var families: Array[String] = [_imp_family(false), _imp_family(true),
 		"imp_mischief", "imp_captain"]
 	var seen: Dictionary = {}
@@ -4261,7 +4430,9 @@ func _start_lens_phase(phase: Dictionary) -> void:
 	lens_clues = PackedVector2Array()
 	lens_found = []
 	for index in range(goal):
-		lens_clues.append(spots[(index + offset) % spots.size()])
+		var indices: Array = phase.get("clue_spot_indices", [])
+		var spot_index := int(indices[index]) if index < indices.size() else (index + offset) % spots.size()
+		lens_clues.append(spots[spot_index])
 		lens_found.append(false)
 	if career_id == "detective" and phase_index == 0 and not detective_intro_played:
 		detective_intro_played = true
@@ -4313,6 +4484,9 @@ func _set_lens_position(point: Vector2) -> void:
 
 
 func _move_lens_to(point: Vector2, inspect_room: bool) -> void:
+	if _contest_phase() and not contest.accepting_input():
+		return
+	_contest_touch()
 	_set_lens_position(point)
 	lens_demo = false
 	idle_t = 0.0
@@ -4374,6 +4548,8 @@ func _next_lens_story_target() -> Vector2:
 
 
 func _tick_lens(delta: float) -> void:
+	if _contest_phase() and not contest.accepting_input():
+		return
 	if lens_layer == null or not lens_layer.visible:
 		return
 	lens_since_find += delta
@@ -4529,6 +4705,9 @@ func _draw_lens_layer() -> void:
 
 
 func _process(delta: float) -> void:
+	if contest_suspended:
+		return
+	_tick_contest_cheer(delta)
 	_performance_tick(delta)
 	_tick_teacher_voice()
 	teacher_save_cool = maxf(0.0, teacher_save_cool - delta)
@@ -4557,9 +4736,9 @@ func _process(delta: float) -> void:
 		combat_miss_cool = maxf(0.0, combat_miss_cool - delta)
 	if phase_gap > 0.0:
 		phase_gap = maxf(0.0, phase_gap - delta)
-	if active and not task_open and reveal_t <= 0.0 and phase_index < phases.size():
+	if active and not task_open and phase_index < phases.size():
 		_wander_step(delta)
-	if active and task_open and not phase_advance_pending and reveal_t <= 0.0 \
+	if active and task_open and not phase_advance_pending \
 			and phase_index < phases.size() and talk_t > 0.0:
 		var talk_phase := phases[phase_index] as Dictionary
 		if String(talk_phase.get("mode", "")) == "talk":
@@ -4571,7 +4750,7 @@ func _process(delta: float) -> void:
 				phase_advance_pending = true
 		else:
 			talk_t = 0.0
-	if active and not phase_advance_pending and reveal_t <= 0.0 and phase_index < phases.size():
+	if active and not phase_advance_pending and phase_index < phases.size():
 		# quiet children get the prompt again plus a fresh finger demo
 		idle_t += delta
 		var task_hint_delay := 7.0 if career_id == "ballerina" else 9.0
@@ -4621,30 +4800,18 @@ func _process(delta: float) -> void:
 			_tick_stage_combat(delta)
 		elif mode == "lens":
 			_tick_lens(delta)
-	if reveal_t > 0.0:
-		reveal_t -= delta
-		# the reveal shows the ACTUAL answer, steady — recognition, not a light show
-		surface.target_choice = choice_target
-		surface.choice_flash = 0.6
-		surface.queue_redraw()
-		if reveal_t <= 0.0:
-			guided = true
-			phase_index = _finale_start()
-			phase_progress = 0.0
-			active = true
-			competition.guided_retry()
-			# A guided retry keeps the no-fail clue memory, but still returns to
-			# the room's glowing object. It must not resurrect the old auto-open
-			# card flow after the reveal.
-			_arm_phase()
-			if String((phases[phase_index] as Dictionary).get("mode", "")) == "choice":
-				# remembered clues earn a head start on a MEMORY rematch;
-				# a bop finale credits no hits she never landed
-				phase_progress = 2.0
-				phase_fill.value = clampf(2.0 / maxf(0.1, float((phases[phase_index] as Dictionary).get("goal", 1.0))), 0.0, 1.0) * 100.0
+	_contest_tick(delta)
 
 
 func close() -> void:
+	if contest_enabled and m != null and m.chime != null:
+		m.chime.pitch_scale = 1.0
+	_contest_checkpoint()
+	if contest != null:
+		contest.state = "stopped"
+	contest_challenge_pending = false
+	contest_voice_queue.clear()
+	contest_entrance_t = -1.0
 	_performance_checkpoint(true)
 	teacher_voice_queue.clear()
 	if career_id == "teacher":
@@ -4934,6 +5101,12 @@ func _checkpoint_geology(flush: bool) -> void:
 
 
 func _notification(what: int) -> void:
+	if contest_enabled and what in [NOTIFICATION_PAUSED, NOTIFICATION_APPLICATION_PAUSED,
+			NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_WM_WINDOW_FOCUS_OUT]:
+		_contest_suspend()
+	elif contest_enabled and contest_suspended and what in [NOTIFICATION_UNPAUSED,
+			NOTIFICATION_APPLICATION_RESUMED, NOTIFICATION_APPLICATION_FOCUS_IN]:
+		_contest_resume()
 	if what in [NOTIFICATION_PAUSED, NOTIFICATION_APPLICATION_PAUSED,
 			NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_WM_CLOSE_REQUEST]:
 		_checkpoint_teacher(true)
@@ -4946,6 +5119,659 @@ func _notification(what: int) -> void:
 
 func _performance_on_stage() -> bool:
 	return two_act_enabled and phase_index >= performance_stage_start and phase_index < phases.size()
+
+
+func _contest_phase() -> bool:
+	return contest_enabled and phase_index < phases.size() \
+		and (phases[phase_index] as Dictionary).has("contest")
+
+
+func _contest_arm() -> void:
+	if not contest_enabled:
+		return
+	contest_voice_queue.clear()
+	contest = null
+	contest_touch_pending = false
+	contest_win_t = 0.0
+	contest_challenge_pending = false
+	if performance_rival_surface != null:
+		performance_rival_surface.visible = false
+	if contest_rows != null:
+		contest_rows.visible = false
+	if _contest_phase():
+		contest = ImpContest.new()
+		contest.configure(career_id)
+	_contest_checkpoint()
+
+
+func _contest_checkpoint() -> void:
+	if not contest_enabled or two_act_enabled or phase_index < _finale_start() \
+			or phase_index >= phases.size() or m == null:
+		return
+	var checkpoints: Dictionary = m.save_data.get("opera_phase_checkpoints", {}).duplicate(true)
+	checkpoints[career_id] = {"version": 1, "phase_index": phase_index}
+	m.save_data["opera_phase_checkpoints"] = checkpoints
+	m._write_save()
+
+
+func _contest_entrance() -> void:
+	if contest_entered or rival_actor == null:
+		return
+	contest_entered = true
+	_stage_room_finale_partner()
+	contest_mark = rival_actor.position
+	contest_entrance_from = Vector2(-rival_actor.size.x if contest_mark.x < 640.0 else 1280.0, contest_mark.y)
+	contest_entrance_t = 0.0
+	rival_actor.position = contest_entrance_from
+	rival_actor.flip_h = contest_mark.x < 640.0
+	contest_arrival_pending = true
+
+
+func _contest_touch() -> void:
+	if _contest_phase() and contest != null and contest.accepting_input() \
+			and task_open and not contest_suspended:
+		contest_touch_pending = true
+		contest.note_touch()
+
+
+func _contest_voice(key: String) -> void:
+	# Instruction/Again lines keep priority. A colliding low-priority imp
+	# reaction may be dropped; its visible acting still plays.
+	if m == null or _contest_speech_active() or contest_voice_cool > 0.0:
+		return
+	var text := String(ImpContest.VOICE_TEXT.get("imp_" + key, ""))
+	if text.is_empty():
+		return
+	m.show_msg("Mischief Imp", text, key, 0.0)
+	contest_voice_cool = 3.0
+
+
+func _contest_speech_active() -> bool:
+	return m.dialogue_active or m._audio_ref()._has_active_speech()
+
+
+func _contest_flush_voice() -> void:
+	if contest_voice_queue.is_empty() or _contest_speech_active():
+		return
+	var line: Dictionary = contest_voice_queue[0]
+	if String(line["who"]) == "Mischief Imp" and contest_voice_cool > 0.0:
+		return
+	contest_voice_queue.pop_front()
+	m.show_msg(String(line["who"]), String(line["text"]), String(line["vo"]), 0.0)
+	if String(line["who"]) == "Mischief Imp":
+		contest_voice_cool = 3.0
+
+
+func _contest_open() -> void:
+	contest_mark = rival_actor.position
+	competition.pause()
+	_contest_checkpoint()
+	_contest_bind_surface()
+	contest_challenge_pending = true
+	_set_rival_pose("windup")
+	if career_id not in ["boxer", "racer", "detective"]:
+		if performance_rival_surface == null:
+			performance_rival_surface = BalletSurface.new() if career_id == "ballerina" else GestureSurface.new()
+			root.add_child(performance_rival_surface)
+		performance_rival_surface.size = Vector2(392, 232)
+		performance_rival_surface.scale = Vector2(0.60, 0.60)
+		if career_id == "ballerina":
+			# The specialist has phone-sized minimum ring geometry. Scale a full
+			# canvas, rather than drawing that ring outside a tiny control.
+			performance_rival_surface.size = Vector2(854, 660)
+			performance_rival_surface.scale = Vector2(0.28, 0.28)
+		var phase: Dictionary = phases[phase_index]
+		performance_rival_surface.configure(String(phase["mode"]), Color("#a681d3"), choice_target,
+			String(phase.get("visual_context", surface.visual_context)))
+		performance_rival_surface.contest_mode = true
+		performance_rival_surface.mirror_reverse_paint = career_id == "painter"
+		performance_rival_surface.passes_required = 3 if career_id == "doctor" else 1
+		if performance_rival_surface is OperaBalletSurface:
+			(performance_rival_surface as OperaBalletSurface).turns_required = 3
+		performance_rival_surface.armed_only = true
+		performance_rival_surface.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		performance_rival_surface.set_process(false)
+		_contest_dock_mirror()
+		performance_rival_surface.visible = true
+	if contest_rows != null:
+		contest_rows.visible = true
+		contest_rows.queue_redraw()
+
+
+func _contest_bind_surface() -> void:
+	surface.contest_mode = true
+	surface.contest_cue_scale = 1.0 + minf(0.50, float(contest.rematches) * 0.25)
+	surface.passes_required = 3 if career_id == "doctor" else 1
+	if surface is OperaBalletSurface:
+		(surface as OperaBalletSurface).turns_required = 3
+	if surface is OperaBoxingSurface:
+		(surface as OperaBoxingSurface).contest_idle_t = 4.0
+		(surface as OperaBoxingSurface).contest_pause_imp = false
+	if surface is OperaRacerSurface:
+		(surface as OperaRacerSurface).contest_rival_rate = contest.his_rate
+		(surface as OperaRacerSurface).contest_rival_paused = false
+
+
+const CONTEST_TOOL_TIPS := {
+	"chef": Vector2(0.15, 0.43), "candymaker": Vector2(0.79, 0.43),
+	"doctor": Vector2(0.64, 0.59), "farmer": Vector2(0.79, 0.85),
+	"magician": Vector2(0.10, 0.25), "painter": Vector2(0.135, 0.395),
+	"astronaut": Vector2(0.34, 0.50), "popstar": Vector2(0.88, 0.60),
+	"ballerina": Vector2(0.26, 0.31), "detective": Vector2(0.235, 0.60),
+}
+
+
+func _contest_mirror_contact(index: int) -> Vector2:
+	var mirror := performance_rival_surface
+	if mirror._uses_anchored_targets():
+		return mirror._target_anchor_point(index)
+	if mirror is OperaBalletSurface:
+		var ballet := mirror as OperaBalletSurface
+		return ballet.twirl_center() + Vector2(ballet.twirl_radius(), 0)
+	match mirror.mode:
+		"farm_lob": return mirror._farm_target_center()
+		"paint_reveal":
+			var area := mirror._paint_canvas_rect()
+			var column := OperaGestureSurface.PAINT_GRID_COLS - 1 - index % OperaGestureSurface.PAINT_GRID_COLS
+			var row := index / OperaGestureSurface.PAINT_GRID_COLS
+			return area.position + area.size * Vector2((float(column) + 0.5) / float(OperaGestureSurface.PAINT_GRID_COLS),
+				(float(row) + 0.5) / float(OperaGestureSurface.PAINT_GRID_ROWS))
+		"swipe":
+			if career_id == "doctor":
+				var route := mirror._doctor_paw_route(index)
+				return route[0].lerp(route[1], 0.65)
+			return mirror._trace_demo_point(0.65)
+		"echo": return mirror._echo_star_center(index % 3)
+		"choice": return Vector2(mirror.size.x * (float(mirror.target_choice) + 0.5) / 3.0, mirror.size.y * 0.5)
+	return mirror.size * 0.5
+
+
+func _contest_hand_offset(flipped: bool) -> Vector2:
+	var tip: Vector2 = CONTEST_TOOL_TIPS.get(career_id, Vector2(0.25, 0.55))
+	if flipped:
+		tip.x = 1.0 - tip.x
+	return tip * rival_actor.size * rival_actor.scale
+
+
+func _contest_dock_mirror() -> void:
+	if performance_rival_surface == null:
+		return
+	var hero_rect := Rect2(player_actor.position, player_actor.size * player_actor.scale).grow(12.0)
+	var work_rect := Rect2(action_panel.position, action_panel.size).grow(12.0)
+	var original := rival_actor.position
+	var best := original
+	var best_actor := original
+	var best_flipped := false
+	var best_scale := rival_actor.scale
+	var score := INF
+	var bounds := Rect2(12, 132, 1256, 530)
+	var extent := performance_rival_surface.size * performance_rival_surface.scale
+	var local_contact := _contest_mirror_contact(0) * performance_rival_surface.scale
+	var count := performance_rival_surface._paint_required_cells() if career_id == "painter" else ceili(contest.player_target())
+	var contact_bounds: Dictionary = {}
+	for unit in range(count):
+		var at := _contest_mirror_contact(unit) * performance_rival_surface.scale
+		var side := 0
+		if career_id == "painter":
+			side = 1 if _contest_mirror_contact(unit).x < performance_rival_surface._paint_canvas_rect().get_center().x else 2
+		if contact_bounds.has(side):
+			contact_bounds[side] = (contact_bounds[side] as Rect2).expand(at)
+		else:
+			contact_bounds[side] = Rect2(at, Vector2.ZERO)
+	# The object is staged from his authored floor rest and tool tip, rather
+	# than moving him to an arbitrary free rectangle above the room floor.
+	for depth_factor: float in [1.0, 0.86, 0.70]:
+		for sample_index in range(101):
+			_place_on_stage(rival_actor, StagePaths.point_along(stage_points, float(sample_index) / 100.0), depth_factor)
+			var actor_at := rival_actor.position
+			for flipped: bool in [false, true]:
+				if career_id == "ballerina" and flipped:
+					continue
+				var candidate := actor_at + _contest_hand_offset(flipped) - local_contact
+				var rect := Rect2(candidate, extent)
+				var actor_rect := Rect2(actor_at, rival_actor.size * rival_actor.scale)
+				var group := rect.merge(actor_rect)
+				# Point bounds are independent of the sampled floor rest. Merge
+				# one box per brush side instead of all 38 cells at every rest.
+				for side: int in contact_bounds:
+					var unit_flip := flipped
+					if career_id == "painter":
+						unit_flip = side == 1
+					var points: Rect2 = contact_bounds[side]
+					group = group.merge(Rect2(candidate + points.position - _contest_hand_offset(unit_flip),
+						points.size + rival_actor.size * rival_actor.scale))
+				var outside := group.get_area() - group.intersection(bounds).get_area()
+				var overlap := group.intersection(hero_rect).get_area() + group.intersection(work_rect).get_area()
+				var face_rect := Rect2(actor_at + rival_actor.size * rival_actor.scale * Vector2(0.25, 0.10),
+					rival_actor.size * rival_actor.scale * Vector2(0.50, 0.35))
+				var wanted := (outside + overlap + rect.intersection(face_rect).get_area()) * 1000.0 + actor_at.distance_to(original)
+				if wanted < score:
+					score = wanted
+					best = candidate
+					best_actor = actor_at
+					best_flipped = flipped
+					best_scale = rival_actor.scale
+	performance_rival_surface.position = best
+	performance_rival_surface.z_index = 1 if career_id == "painter" else 3
+	rival_actor.position = best_actor
+	rival_actor.scale = best_scale
+	rival_actor.flip_h = best_flipped
+	rival_actor.z_index = 2
+	contest_mark = best_actor
+	_capture_actor_rest("rival", rival_actor)
+	if contest_fx != null:
+		contest_fx.z_index = 4
+	if contest_rows != null:
+		contest_rows.z_index = 5
+
+
+func _contest_work_contact(delta: float) -> void:
+	if career_id == "detective" and contest != null and contest.state == "running":
+		var clue := _contest_detective_contact()
+		rival_actor.flip_h = clue.x > 850.0
+		var desired := clue - _contest_hand_offset(rival_actor.flip_h)
+		rival_actor.position = desired if contest_contact_t > 0.0 else rival_actor.position.lerp(desired, minf(1.0, delta * 12.0))
+		contest_contact_point = clue
+		return
+	if performance_rival_surface == null or contest == null or not contest.accepting_input():
+		return
+	if contest.state not in ["running", "flub"]:
+		return
+	var index := contest_contact_index if contest_contact_t > 0.0 else floori(contest.his_units)
+	if career_id == "painter":
+		index = clampi(floori(contest.his_units * float(performance_rival_surface._paint_required_cells())), 0,
+			performance_rival_surface._paint_required_cells() - 1)
+	if career_id == "magician" and contest_contact_t <= 0.0:
+		performance_rival_surface.target_choice = surface.target_choice
+	var point := performance_rival_surface.position + _contest_mirror_contact(index) * performance_rival_surface.scale
+	if career_id == "painter":
+		rival_actor.flip_h = _contest_mirror_contact(index).x < performance_rival_surface._paint_canvas_rect().get_center().x
+	var desired := point - _contest_hand_offset(rival_actor.flip_h)
+	if contest.state == "running":
+		rival_actor.position = desired if contest_contact_t > 0.0 else rival_actor.position.lerp(desired, minf(1.0, delta * 12.0))
+		contest_contact_point = point
+
+
+func _contest_land_unit() -> void:
+	contest_contact_t = 0.25
+	contest_contact_index = maxi(0, floori(contest.his_units) - 1)
+	if career_id == "detective":
+		contest_contact_point = _contest_detective_contact()
+		rival_actor.flip_h = contest_contact_point.x > 850.0
+		rival_actor.position = contest_contact_point - _contest_hand_offset(rival_actor.flip_h)
+		_set_rival_pose("slash")
+		return
+	if career_id == "painter" and performance_rival_surface != null:
+		contest_contact_index = performance_rival_surface._paint_required_cells() - 1
+		rival_actor.flip_h = _contest_mirror_contact(contest_contact_index).x < performance_rival_surface._paint_canvas_rect().get_center().x
+	if performance_rival_surface != null:
+		contest_contact_point = performance_rival_surface.position \
+			+ _contest_mirror_contact(contest_contact_index) * performance_rival_surface.scale
+		rival_actor.position = contest_contact_point - _contest_hand_offset(rival_actor.flip_h)
+	else:
+		contest_contact_point = rival_actor.position + _contest_hand_offset(rival_actor.flip_h)
+	_set_rival_pose("slash")
+
+
+func _contest_detective_contact() -> Vector2:
+	var spots := StagePaths.clue_spots(career_id)
+	var indices: Array[int] = [6, 7, 1]
+	if contest_contact_t > 0.0:
+		return spots[indices[clampi(contest_contact_index, 0, 2)]]
+	var index := mini(2, floori(contest.his_units))
+	return spots[indices[maxi(0, index - 1)]].lerp(spots[indices[index]], fmod(contest.his_units, 1.0))
+
+
+func _contest_gesture(kind: String, amount: float, quality: float) -> bool:
+	if contest == null:
+		return false
+	if phase_advance_pending:
+		if kind == "probe":
+			_advance_completed_phase()
+		return true
+	if not contest.accepting_input() or contest_suspended:
+		return true
+	if kind in ["echo_note", "pour_ding", "hold_release", "ballet_pose_cue", "ballet_ready", "boxing_contact"]:
+		return false
+	var mode := String((phases[phase_index] as Dictionary)["mode"])
+	var launch_hold := career_id == "astronaut" and phase_progress >= 5.0 and kind == "hold"
+	if kind not in [mode, "probe", "contest_counter", "contest_wrong"] and not launch_hold:
+		return true
+	if kind == "contest_counter" and career_id != "boxer":
+		return true
+	if kind == "contest_wrong" and career_id not in ["magician", "popstar"]:
+		return true
+	if kind == "contest_counter":
+		contest.rival_point()
+	elif kind == "contest_wrong":
+		_contest_touch()
+		contest.rival_point()
+		if career_id == "magician" and performance_rival_surface != null:
+			performance_rival_surface.target_choice = surface.target_choice
+		_contest_land_unit()
+		_performance_input(kind, 0.0)
+		if career_id == "magician":
+			_contest_next_hat()
+	else:
+		_contest_touch()
+		_performance_input(kind, quality)
+		if quality >= 0.5 and amount > 0.0:
+			phase_progress = minf(contest.player_target(), phase_progress + amount)
+			if surface is OperaBalletSurface and mode == "ballet_twirl" \
+					and (surface as OperaBalletSurface)._mode_complete():
+				phase_progress = contest.player_target()
+			if surface is OperaRacerSurface and mode == "kart_race" \
+					and float((surface as OperaRacerSurface).kart["s"]) >= RacerSurface.LAP_DISTANCE * 2.0:
+				phase_progress = contest.player_target()
+			_play_roshan_task_pose(phases[phase_index])
+			surface.note_result(true)
+			if career_id == "magician":
+				_contest_next_hat()
+			if career_id == "astronaut" and phase_progress >= 5.0 and surface.mode == "tap":
+				surface.configure("hold", surface.accent, 0, "charge_astronaut")
+				_contest_bind_surface()
+		else:
+			surface.note_result(false)
+	var progress := phase_progress / contest.player_target()
+	_performance_record_progress(progress, kind, quality)
+	surface.set_fill(progress)
+	phase_fill.value = progress * 100.0
+	_contest_apply(contest.tick(0.0, phase_progress, false))
+	return true
+
+
+func _contest_next_hat() -> void:
+	var previous := choice_target
+	choice_target = (choice_target + 1 + (contest.attempt % 2)) % 3
+	surface.target_choice = choice_target
+	surface.start_shuffle(previous)
+
+
+func _contest_apply(events: Array[String]) -> void:
+	for event: String in events:
+		match event:
+			"imp_unit":
+				_contest_land_unit()
+			"flub_start":
+				var key := "op_%s_%s" % [career_id, "bop" if career_id == "farmer" else "copy"]
+				_contest_voice(key)
+				if surface is OperaBoxingSurface:
+					(surface as OperaBoxingSurface).contest_pause_imp = true
+					(surface as OperaBoxingSurface)._imp_state = "recover"
+				if career_id == "magician":
+					surface.choice_flash = 3.5
+					surface.shuffle_t = 0.0
+				if career_id == "popstar":
+					surface.contest_easy_round = true
+					surface.echo_listening = false
+					surface.echo_show_i = -1
+					surface.echo_show_t = 0.7
+			"flub_end":
+				if surface is OperaBoxingSurface:
+					(surface as OperaBoxingSurface).contest_pause_imp = false
+			"imp_overtaken":
+				contest_pose = "stagger"
+				contest_pose_t = 0.3
+			"idle_pause":
+				surface.restart_demo()
+			"imp_won":
+				contest_win_t = 1.4
+				surface.armed_only = true
+				surface.held = false
+				surface.set_process(false)
+				contest_voice_queue.append({"who": "Mischief Imp",
+					"text": ImpContest.VOICE_TEXT["imp_op_contest_win"], "vo": "op_contest_win"})
+				_contest_flush_voice()
+			"player_won":
+				competition.contest_result = contest.result()
+				competition.rival_progress = contest.his_units / contest.rival_target()
+				surface.accept_completion()
+				_play_roshan_animation("cheer")
+				_contest_voice("op_%s_%s" % [career_id, "copy" if career_id == "farmer" else "bop"])
+				phase_complete_t = 2.0
+				phase_advance_pending = true
+				contest_win_t = 2.0
+				if contest_rows != null:
+					contest_rows.visible = false
+				if performance_rival_surface != null:
+					performance_rival_surface.visible = false
+				_performance_checkpoint(true)
+
+
+func _contest_reset(resumed: bool = false) -> void:
+	var demo := phase_progress <= 0.0
+	phase_progress = 0.0
+	phase_advance_pending = false
+	phase_complete_t = 0.0
+	if resumed:
+		contest.configure(career_id)
+	else:
+		contest.reset_attempt()
+		performance_stats["assists"] = int(performance_stats["assists"]) + 1
+	contest_win_t = 0.0
+	contest_contact_t = 0.0
+	rival_actor.position = contest_mark
+	contest_touch_pending = false
+	var phase: Dictionary = phases[phase_index]
+	if career_id == "detective":
+		_start_lens_phase(phase)
+		if not demo:
+			lens_demo = false
+	else:
+		_bind_widget(phase, String(phase["mode"]), surface.accent)
+		_contest_bind_surface()
+		if career_id == "magician":
+			surface.start_shuffle((choice_target + 1) % 3)
+		if not demo:
+			surface.demo_active = false
+	surface.armed_only = false
+	surface.set_process(true)
+	surface.set_fill(0.0)
+	phase_fill.value = 0.0
+	if performance_rival_surface != null:
+		if career_id == "astronaut":
+			performance_rival_surface.configure("tap", Color("#a681d3"), 0, "target_astronaut")
+			performance_rival_surface.contest_mode = true
+			performance_rival_surface.armed_only = true
+		performance_rival_surface.set_mirror_units(0.0, contest.player_target())
+		performance_rival_surface.visible = true
+	if contest_rows != null:
+		contest_rows.visible = true
+	if resumed:
+		m.clear_dialogue()
+	else:
+		# The attempt resumes immediately; its two spoken reactions remain
+		# serial, including when the win recording outlasts the victory hop.
+		contest_voice_queue.append({"who": "Roshan",
+			"text": ImpContest.VOICE_TEXT["roshan_op_contest_again"], "vo": "op_contest_again"})
+		_contest_flush_voice()
+	_set_rival_pose("windup")
+
+
+func _contest_tick(delta: float) -> void:
+	if not contest_enabled or contest_suspended:
+		return
+	contest_voice_cool = maxf(0.0, contest_voice_cool - delta)
+	if contest_contact_t > 0.0:
+		contest_contact_t = maxf(0.0, contest_contact_t - delta)
+		if contest_fx != null:
+			contest_fx.queue_redraw()
+	_contest_flush_voice()
+	if contest_entrance_t >= 0.0:
+		contest_entrance_t += delta
+		var age := contest_entrance_t
+		if age < 0.8:
+			rival_actor.position = contest_entrance_from.lerp(contest_mark, age / 0.8)
+			_set_rival_pose("flee")
+		elif age < 1.05:
+			rival_actor.position = contest_mark
+			_set_rival_pose("hop_a")
+		elif age < 1.4:
+			_set_rival_pose("hop_b")
+		else:
+			contest_entrance_t = -1.0
+			rival_actor.position = contest_mark
+			_set_rival_pose("idle")
+	if not _contest_phase() or contest == null or not task_open:
+		return
+	if contest_challenge_pending and contest.accepting_input() \
+			and not _contest_speech_active() and contest_voice_queue.is_empty() and contest_voice_cool <= 0.0:
+		_contest_voice("op_%s_challenge" % career_id)
+		contest_challenge_pending = false
+	if contest.state == "imp_won":
+		contest_win_t = maxf(0.0, contest_win_t - delta)
+		_set_rival_pose("slash" if contest_contact_t > 0.0 else ("hop_b" if contest_win_t > 0.8 else "taunt"))
+		if contest_win_t <= 0.0:
+			_contest_reset()
+		return
+	if contest.state == "player_won":
+		contest_win_t = maxf(0.0, contest_win_t - delta)
+		_set_rival_pose("stagger" if contest_win_t > 1.6 else ("bopped" if contest_win_t > 0.6 else "recover"))
+		return
+	if career_id == "astronaut" and surface.mode == "hold" and surface.held:
+		_contest_gesture("hold", delta / 1.2, 1.0)
+	if career_id == "painter" and surface.mode == "paint_reveal":
+		phase_progress = maxf(phase_progress, minf(1.0, float(surface.paint_covered) / float(surface._paint_required_cells())))
+	if surface is OperaRacerSurface:
+		var circuit := surface as OperaRacerSurface
+		contest.observe_rival(float(circuit.rival["s"]) / RacerSurface.LAP_DISTANCE)
+		circuit.contest_rival_paused = contest.state == "flub"
+		circuit.contest_spin = 1.0 - contest.beat_t / 1.5 if contest.state == "flub" else 0.0
+		if circuit.held or circuit.race_turbo_held:
+			_contest_touch()
+	_contest_apply(contest.tick(delta, phase_progress, contest_touch_pending))
+	contest_touch_pending = false
+	contest_pose_t = maxf(0.0, contest_pose_t - delta)
+	if contest_entrance_t < 0.0 and contest.accepting_input():
+		var pose := "windup"
+		if contest_contact_t > 0.0:
+			pose = "slash"
+		elif contest.state == "flub":
+			var passed := float(contest.spec["flub_seconds"]) - contest.beat_t
+			for step: Array in contest.spec.get("poses", []):
+				pose = String(step[0])
+				passed -= float(step[1])
+				if passed <= 0.0:
+					break
+		elif contest_pose_t > 0.0:
+			pose = contest_pose
+		elif contest.state == "idle":
+			pose = "taunt" if fmod(elapsed, 1.2) < 0.6 else "guard"
+		elif contest.state == "running":
+			pose = "guard" if phase_progress >= contest.player_target() * 0.8 and phase_progress > contest.his_units \
+				else ("charge" if fmod(contest.his_units, 1.0) < 0.5 else "slash")
+		_set_rival_pose(pose)
+	if performance_rival_surface != null:
+		if career_id == "astronaut" and contest.his_units >= 5.0:
+			if performance_rival_surface.mode != "hold":
+				performance_rival_surface.configure("hold", Color("#a681d3"), 0, "charge_astronaut")
+				performance_rival_surface.contest_mode = true
+				performance_rival_surface.armed_only = true
+			performance_rival_surface.set_mirror_units(contest.his_units - 5.0, 1.0)
+		else:
+			performance_rival_surface.set_mirror_units(contest.his_units, contest.rival_target())
+		_contest_work_contact(delta)
+	if contest_rows != null:
+		contest_rows.queue_redraw()
+	if contest_fx != null:
+		contest_fx.queue_redraw()
+
+
+func _draw_contest_rows() -> void:
+	if not _contest_phase() or contest == null:
+		return
+	var accent := Color(competition.spec.get("accent", Color("#a4dedd")))
+	for row in range(2):
+		var origin := Vector2(556, 38 + row * 48)
+		var units := contest.her_units if row == 0 else contest.his_units
+		var goal := contest.player_target() if row == 0 else contest.rival_target()
+		var colour := accent if row == 0 else Color("#9c71c6")
+		# A moving atlas frame has a different face position in every pose.
+		# Reuse the approved static costume cutout for a stable score portrait.
+		var face := _state_texture("roshan_%s" % career_id) if row == 0 else _state_texture("rival_%s" % career_id)
+		if face != null:
+			var center := origin - Vector2(48, 0)
+			contest_rows.draw_circle(center, 25, Color("#f5effa"))
+			var crop := Rect2(face.get_size() * Vector2(0.16, 0.05), face.get_size() * Vector2(0.68, 0.43))
+			contest_rows.draw_texture_rect_region(face, Rect2(center - Vector2(22, 22), Vector2(44, 44)), crop)
+		if career_id in ["painter", "racer"]:
+			contest_rows.draw_line(origin, origin + Vector2(214, 0), Color("#f5effa"), 14.0)
+			contest_rows.draw_line(origin, origin + Vector2(214 * clampf(units / goal, 0, 1), 0), colour, 12.0)
+		else:
+			for pearl in range(ceili(goal)):
+				var point := origin + Vector2(pearl * 28, 0)
+				contest_rows.draw_circle(point, 11, Color("#f5effa"))
+				contest_rows.draw_circle(point, 8, colour if units >= pearl + 1 else Color("#c8bfd0"))
+
+
+func _draw_contest_fx() -> void:
+	if not _contest_phase() or contest == null:
+		return
+	if contest_contact_t > 0.0:
+		var puff := _load_if_exists("res://assets/opera/worlds/props/fx_dust_puff.png")
+		if puff != null:
+			contest_fx.draw_texture_rect(puff, Rect2(contest_contact_point - Vector2(16, 16), Vector2(32, 32)), false,
+				Color(1, 1, 1, contest_contact_t / 0.25))
+	if career_id == "detective" and task_open and contest.accepting_input():
+		var spots := StagePaths.clue_spots(career_id)
+		var indices: Array[int] = [6, 7, 1]
+		var point := _contest_detective_contact()
+		for sparkle in range(3):
+			var at := spots[indices[sparkle]]
+			contest_fx.draw_circle(at, 10.0 if contest.his_units >= sparkle + 1 else 5.0, Color("#b28bda"))
+		# His authored held magnifier reaches the clue itself. No remote beam
+		# or second floating glass can stand in for hand/tool contact.
+		if contest.state == "running":
+			contest_fx.draw_arc(point, 24.0, 0.0, TAU, 32, Color("#9c71c6"), 4.0)
+	if contest.state != "flub" or career_id in ["detective", "boxer", "racer"]:
+		return
+	var path := "res://assets/opera/worlds/props/fx_dizzy_stars.png"
+	match career_id:
+		"chef": path = "res://assets/opera/worlds/widgets/widget_target_chef_piece_1.png"
+		"candymaker": path = "res://assets/opera/worlds/widgets/widget_target_candymaker_piece_0.png"
+		"painter": path = "res://assets/opera/worlds/widgets/widget_target_painter_mark.png"
+		"farmer", "astronaut": path = "res://assets/opera/worlds/props/fx_dust_puff.png"
+	var texture := _load_if_exists(path)
+	if career_id == "doctor":
+		var head := rival_actor.position + rival_actor.size * rival_actor.scale * Vector2(0.50, 0.20)
+		contest_fx.draw_line(head - Vector2(24, 0), head + Vector2(24, 0), Color("#f8e3c2"), 16.0, true)
+		return
+	if texture != null:
+		var point := rival_actor.position + rival_actor.size * rival_actor.scale * Vector2(0.5, 0.18)
+		contest_fx.draw_texture_rect(texture, Rect2(point - Vector2(42, 42), Vector2(84, 84)), false,
+			Color("#aa8056") if career_id == "farmer" else Color.WHITE)
+
+
+func _contest_suspend() -> void:
+	if contest != null and contest.state == "player_won" and phase_advance_pending:
+		_advance_completed_phase()
+	_contest_checkpoint()
+	contest_suspended = true
+	contest_entrance_t = -1.0
+	contest_challenge_pending = false
+	contest_arrival_pending = false
+	contest_voice_queue.clear()
+	_restore_stage_actors()
+	if contest != null:
+		contest.state = "stopped"
+	if surface != null:
+		surface.held = false
+		surface.armed_only = true
+		surface.set_process(false)
+		if surface is OperaBoxingSurface:
+			(surface as OperaBoxingSurface).cancel_all_touches()
+		if surface is OperaRacerSurface:
+			(surface as OperaRacerSurface).cancel_race_touch()
+	m.clear_dialogue()
+
+
+func _contest_resume() -> void:
+	contest_suspended = false
+	if _contest_phase() and task_open:
+		_contest_reset(true)
+	elif surface != null:
+		surface.set_process(true)
+		surface.armed_only = not task_open
 
 
 func _performance_stage_layout() -> void:
@@ -5030,6 +5856,8 @@ func _performance_tick(delta: float) -> void:
 
 
 func _performance_rival_work() -> void:
+	if contest_enabled:
+		return
 	if not _performance_on_stage():
 		return
 	var count := phases.size() - performance_stage_start
@@ -5056,10 +5884,15 @@ func performance_result_stats() -> Dictionary:
 	var result := performance_stats.duplicate(true)
 	result["stage_completed"] = two_act_enabled and phase_index >= phases.size()
 	result["practice"] = not two_act_enabled
+	var earned: Dictionary = competition.contest_result
+	if contest_enabled and not earned.is_empty():
+		result["contest_tier"] = int(earned["tier"])
 	return result
 
 
 func _performance_current_snapshot() -> Dictionary:
+	if _contest_phase():
+		return {}
 	# A restored practice phase may spend time walking back to its room object.
 	# Lifecycle saves during that gap must retain the validated earned work until
 	# the activity opens and consumes it.
@@ -5157,7 +5990,7 @@ func _performance_checkpoint(flush: bool) -> void:
 		return
 	var raw: Variant = m.save_data.get("opera_performance_checkpoints", {})
 	var checkpoints: Dictionary = (raw as Dictionary).duplicate(true) if raw is Dictionary else {}
-	checkpoints[career_id] = {"version": PerformancePlan.VERSION, "phase_index": phase_index,
+	checkpoints[career_id] = {"version": PerformancePlan.VERSION, "contest_protocol": 1, "phase_index": phase_index,
 		"stats": performance_stats.duplicate(true), "milestones": performance_milestones.duplicate(),
 		"helped": performance_helped.duplicate(), "current": _performance_current_snapshot()}
 	m.save_data["opera_performance_checkpoints"] = checkpoints
@@ -5176,6 +6009,7 @@ func _performance_restore() -> void:
 	var saved := value as Dictionary
 	if saved.get("version", 0) != PerformancePlan.VERSION:
 		return
+	saved = _migrate_performance_contest_checkpoint(saved)
 	var index: Variant = saved.get("phase_index", 0)
 	if typeof(index) not in [TYPE_INT, TYPE_FLOAT] or not is_finite(float(index)) \
 			or float(index) != floorf(float(index)) or float(index) < 0 or float(index) > phases.size():
@@ -5227,3 +6061,37 @@ func _performance_restore() -> void:
 		performance_stats["actions"] = int(performance_stats["actions"]) + int(amount)
 	competition.elapsed = float(performance_stats["active_seconds"])
 	competition.round_elapsed = competition.elapsed
+
+
+func _migrate_performance_contest_checkpoint(saved: Dictionary) -> Dictionary:
+	if not contest_enabled or int(saved.get("contest_protocol", 0)) == 1 \
+			or career_id not in ["magician", "popstar"]:
+		return saved
+	# Old Hall checkpoints identify source lessons, before the inserted contest.
+	# A child already at PORTAL/ENCORE keeps that unfinished flourish and all
+	# completed lessons. Never reinterpret its saved work as a new duel.
+	var legacy: Array = PerformancePlan.build(career_id, PHASES[career_id])["phases"]
+	var mapping: Dictionary = {str(legacy.size()): phases.size()}
+	for old_index in range(legacy.size()):
+		var old: Dictionary = legacy[old_index]
+		for new_index in range(phases.size()):
+			var phase: Dictionary = phases[new_index]
+			if phase.get("source_phase", -1) == old.get("source_phase", -2) \
+					and phase.get("performance_part", "") == old.get("performance_part", "?"):
+				mapping[str(old_index)] = new_index
+				break
+	var migrated := saved.duplicate(true)
+	var index: Variant = saved.get("phase_index", 0)
+	if typeof(index) in [TYPE_INT, TYPE_FLOAT] and is_finite(float(index)) \
+			and float(index) == floorf(float(index)) and mapping.has(str(int(index))):
+		migrated["phase_index"] = mapping[str(int(index))]
+	for key: String in ["milestones", "helped"]:
+		var values: Variant = saved.get(key, {})
+		if values is Dictionary:
+			var shifted: Dictionary = {}
+			for old_key: String in mapping:
+				if values.has(old_key):
+					shifted[str(mapping[old_key])] = values[old_key]
+			migrated[key] = shifted
+	migrated["contest_protocol"] = 1
+	return migrated

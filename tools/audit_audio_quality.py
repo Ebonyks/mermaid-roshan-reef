@@ -358,6 +358,16 @@ def authoritative_filler_lines(root: Path,
                 raise RuntimeError(
                     f"contextual filler authority conflicts with tools/make_voices.py: {key}")
             expected[key] = value
+    contest_catalog = root / "tools/opera_contest_voice_catalog.json"
+    if contest_catalog.is_file():
+        for key, value in json.loads(contest_catalog.read_text(encoding="utf-8"))["lines"].items():
+            if not isinstance(value, list) or len(value) != 2 \
+                    or value[0] not in {"roshan", "imp"} or not isinstance(value[1], str):
+                raise RuntimeError("invalid contest voice authority: " + key)
+            pair = tuple(value)
+            if key in expected and expected[key] != pair:
+                raise RuntimeError("contest filler authority conflicts with legacy: " + key)
+            expected[key] = pair
     expected["everyone"] = ("everyone", "Hooray!")
     return expected
 
@@ -620,9 +630,9 @@ def validate_generation_evidence(root: Path, manifest: dict[str, object],
             issues.append("selection_provenance.report_sha256 is invalid")
         elif isinstance(report_hash, str) and not re.fullmatch(r"[0-9a-fA-F]{64}", report_hash):
             issues.append("selection_provenance.report_sha256 is invalid")
-    candidate_cache: dict[int, dict[str, dict[str, object]]] = {}
+    candidate_cache: dict[str, dict[str, dict[str, object]]] = {}
     for run_name, record in generation_runs.items():
-        match = re.fullmatch(r"attempt_(\d+)", str(run_name))
+        match = re.fullmatch(r"(?:[a-z][a-z0-9_]*_)?attempt_(\d+)", str(run_name))
         if not match or not isinstance(record, dict):
             issues.append(f"invalid generation run record: {run_name!r}")
             continue
@@ -646,7 +656,7 @@ def validate_generation_evidence(root: Path, manifest: dict[str, object],
                     issues.append(f"{run_name} has invalid embedded candidate row")
                     continue
                 embedded_candidates[str(row["key"])] = row
-            candidate_cache[attempt] = embedded_candidates
+            candidate_cache[str(run_name)] = embedded_candidates
         elif record.get("capture_state") == "CAPTURED_AT_GENERATION":
             issues.append(f"{run_name} lacks embedded candidate rows")
         generator_hash = record.get("generator_sha256")
@@ -687,9 +697,9 @@ def validate_generation_evidence(root: Path, manifest: dict[str, object],
         if candidate_path.is_file():
             external_candidates = _candidate_evidence(
                 root, attempt, candidate_manifest_value)
-            if attempt in candidate_cache and external_candidates != candidate_cache[attempt]:
+            if str(run_name) in candidate_cache and external_candidates != candidate_cache[str(run_name)]:
                 issues.append(f"{run_name} embedded candidate rows disagree with local manifest")
-            candidate_cache[attempt] = external_candidates
+            candidate_cache[str(run_name)] = external_candidates
     for entry in entries:
         key = str(entry.get("key", ""))
         name = f"{key}.ogg"
@@ -708,12 +718,13 @@ def validate_generation_evidence(root: Path, manifest: dict[str, object],
             source_hash = component.get("raw_sha256", component.get("source_wav_sha256"))
             if not isinstance(attempt, int) or attempt < 1:
                 continue
-            run = generation_runs.get(f"attempt_{attempt}")
+            run_name = generation_run_name(component, attempt)
+            run = generation_runs.get(run_name)
             if not isinstance(run, dict):
                 continue
             if run.get("attempt") is not None and run.get("attempt") != attempt:
                 issues.append(f"{name} attempt disagrees with generation run")
-            candidates = candidate_cache.get(attempt, {})
+            candidates = candidate_cache.get(run_name, {})
             candidate = candidates.get(str(component.get("key", key)))
             if candidate:
                 if seed is not None and candidate.get("seed") != seed:
@@ -756,6 +767,15 @@ def validate_generation_evidence(root: Path, manifest: dict[str, object],
             serial_key = str(entry.get("final_audio_alias_of") or key)
             if command_serial != _expected_ogg_serial(serial_key):
                 issues.append(f"{name} deterministic Ogg serial evidence is invalid")
+
+
+def generation_run_name(entry: dict[str, object], attempt: int) -> str:
+    """Keep separate append-only cohorts' local attempts from colliding."""
+    cohort = entry.get("generation_cohort", "")
+    if cohort and (not isinstance(cohort, str)
+                   or not re.fullmatch(r"[a-z][a-z0-9_]*", cohort)):
+        return "INVALID_GENERATION_COHORT"
+    return f"{cohort}_attempt_{attempt}" if cohort else f"attempt_{attempt}"
 
 
 def validate_filler_manifest(root: Path,
@@ -899,7 +919,7 @@ def validate_filler_manifest(root: Path,
             attempt = entry.get("selected_attempt")
             if not isinstance(attempt, int) or attempt < 1:
                 issues.append(f"{name} has invalid selected_attempt")
-            elif not is_contextual and f"attempt_{attempt}" not in generation_runs:
+            elif not is_contextual and generation_run_name(entry, attempt) not in generation_runs:
                 issues.append(f"{name} selected attempt has no generation provenance")
             for field in ("generation_text", "generation_segments", "segment_seeds",
                           "source_wav_sha256", "speaker_preset", "description"):

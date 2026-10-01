@@ -584,8 +584,11 @@ unrecoverable.
 `DL-INT-06` — A demonstration may show a verb but MUST NOT collect, score,
 damage, solve, or cross the final completion threshold.
 
-`DL-INT-07` — The current Pearl Opera contract is 13 careers, 53 shipping
-phases, and 27 distinct modes with no generic `bop` phase. Shared one-finger
+`DL-INT-07` — The September 30 Pearl Opera candidate contract is 15 careers,
+65 logical phase definitions and 36 distinct modes with no generic `bop` phase.
+Three Hall practice/stage plans expand freeplay to 74 instances. Chapter 2 story
+and tutorial opt-outs retain the 61 base lessons. Exact catalog assertions live
+in `probe_opera_imp_contest.gd`; the impact record separates pending acceptance. Shared one-finger
 motor primitives may repeat, but each career's visible object and signature
 engine MUST express that job. A count change is a design change that requires
 updated routing, voice, passive, teardown, save, capture, and document evidence;
@@ -659,8 +662,9 @@ reuse does not justify runtime reachability. Future boss fights, if separately
 authorized, belong to narratively relevant Ember-aligned henchmen and MUST NOT
 reuse the retired Opera slots or silently rehabilitate these characters.
 
-`DL-INT-14` — Owner decision 2026-09-30; target contract, implementation
-pending. Each competitive Opera career's costumed imp stays hidden until the
+`DL-INT-14` — Owner decision 2026-09-30; twelve costumed contests implemented
+as a candidate, later inverted Teacher and silly-question additions in progress,
+acceptance pending under [the impact record](audit_impacts/opera-imp-contests-20260930.json). Each competitive Opera career's costumed imp stays hidden until the
 final act and enters when it begins. The final act ends in one head-to-head
 contest that uses a real skill of that job at the object Roshan reached. The
 imp MAY win. His win plays a beat of at most 2 s, then restarts the contest at
@@ -681,8 +685,10 @@ pending owner confirmation, the Geologist. The imp's lessons are deliberately
 silly and gross-funny, including questions such as which smells the worst
 (owner decision 2026-09-30), but never mean: the joke is on the imp or the
 thing, never on the child. The contest-only restart scope
-awaits owner confirmation. Phase counts in `DL-INT-07` and `DL-QA-12` change when
-implementation lands. Specification:
+awaits owner confirmation; the written handoff defaults authorize the contest-only
+reset, Hall-wide race retirement and prescribed mercy while that answer is pending.
+The Revision 1 foundation counts are recorded in `DL-INT-07` and `DL-QA-12`; the
+inverted Teacher and silly-question additions remain work in progress. Specification:
 [Opera imp contests](../docs/handoffs/codex_opera_imp_contest_2026-09-30/CONTEST_DESIGN.md).
 
 ---
@@ -1277,8 +1283,8 @@ evidence. Active 3D or unresolved dynamic/native reachability is `FAIL` or
 capture, adapter, source binding, or target proof fails closed, and every such
 gap blocks strict satisfaction.
 
-`DL-QA-12` — Opera integration acceptance binds the shipping 13-career,
-53-phase, 27-mode table to deterministic minigame-art, 208-frame animation,
+`DL-QA-12` — Opera integration acceptance binds the September 30 candidate
+15-career, 65-definition / 74-instance, 36-mode table to deterministic minigame-art, 208-frame animation,
 focused interaction/passive/voice/teardown probes, the complete trusted suite,
 Mobile captures at two supported aspects, target-device touch/performance, an
 observed child session, and owner art/identity review. A focused green specialist

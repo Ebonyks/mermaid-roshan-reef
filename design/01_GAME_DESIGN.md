@@ -260,12 +260,19 @@ inventory/debt, never authorization to preserve or extend 3D.
 | Dance | tap lanes on beat | Canvas/Control |
 | Critter collection | approach + catch | 2D world cards |
 | Stuffie battle | one-button attack + DODGE QTE | legacy arena → Canvas/Node2D |
-| Opera careers ×14 | 57 career-specific phases across 28 shipping modes | `OperaCareerWorld2D` / Canvas specialist surfaces |
+| Opera careers ×15 | Contest candidate: 65 definitions / 74 freeplay instances / 36 modes | `OperaCareerWorld2D` / Canvas specialist surfaces |
 
-### The fourteen careers — current content, distributed final home
+### The fifteen careers — current content, distributed final home
 
-Fourteen careers, 57 shipping phases and 28 unique shipping modes form a set
-of short, career-specific performances.
+The September 30 candidate has fifteen careers, 65 logical phase definitions
+and 36 unique modes. Hall practice/stage copies expand freeplay to 74 instances;
+story/tutorial opt-outs retain the 61 base lessons. Twelve final-act job contests
+use the existing art and reset only their attempt after an imp win. Nursery,
+Geologist and Teacher remain cooperative in this scoped foundation. Revision 4's
+inverted Teacher contest and silly questions are in preparation, with the first
+five smell icons awaiting the required owner style approval; Geologist inversion
+requires owner confirmation. [The impact record](audit_impacts/opera-imp-contests-20260930.json)
+separates implementation and machine evidence from phone, child and owner acceptance.
 `OPERA_CAREER_COMPETITION_SYSTEM_2026-07-29.md`,
 `OPERA_2D_REBUILD_2026-08-01.md`, and
 `OPERA_STAGE_INTERACTION_2026-08-02.md` still define the shared Canvas shell.
@@ -284,7 +291,7 @@ them to the Castle rooms whose pictures and objects explain the job:
 |---|---|
 | Royal Kitchen | Pastry Chef, Candy Maker |
 | Opera Hall | Ballerina, Pop Star, Magician |
-| Royal Library | Detective, Geologist |
+| Royal Library | Detective, Geologist, Teacher |
 | Craft Room | Painter |
 | Stuffie Playroom | Stuffie Doctor, Boxer |
 | Bubble Bath | Nursery Nurse |
@@ -425,7 +432,7 @@ assets, symbols, names, UI or music, ever.
 | Activity class | Standard | Source |
 |---|---|---|
 | Opera career act | ~2 minutes of real play; advisory sim band 70–150 s median | OPERA_2D_REBUILD_2026-08-01 |
-| Opera phase set | 3–5 career-specific beats with distinct causal verbs; no generic combat filler | Current 53-phase table plus binding specialist documents |
+| Opera phase set | 3–5 career-specific beats with distinct causal verbs; no generic combat filler | September 30 candidate: 65 definitions / 74 instances, plus binding specialist documents |
 | Arena minigame | enterable → winnable → exitable in a few minutes | AUDIT_REPAIR |
 | Any objective | voiced within ~2 s of becoming active, pointer visible | hard rule |
 
@@ -536,5 +543,5 @@ historical corroboration, so `MA-DOC-002` and `MA-DOC-005` remain
 
 The current branch-status boundary is equally strict: Candymaker is integrated;
 Painter-purpose and Arborist worktrees remain uncommitted candidates; Boxer V2
-is a docs-only branch proposal. None changes the 13-career/53-phase/27-mode
-shipping table until independently reviewed and integrated.
+is a docs-only branch proposal. Their candidate status cannot override the implemented fifteen-career catalog;
+the September 30 contest evidence is scoped separately and does not accept those prototypes.
