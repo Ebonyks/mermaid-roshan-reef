@@ -159,6 +159,7 @@ var act_index := -1
 var run_context: Dictionary = {}
 var plot_context := ""
 var story_mode := false
+var dev_playtest := false
 ## Chapter 2's four opening lessons teach a single verb and grant a skill.
 ## This flag is deliberately independent from run_context: plot performances
 ## (such as the Stuffie Ballet) remain full scored Opera runs.
@@ -196,6 +197,12 @@ func start(main: ReefMain, index: int, done_cb: Callable,
 	next_config.merge(config_overrides.duplicate(true), true)
 	if not run_context.is_empty():
 		next_config["run_context"] = run_context.duplicate(false)
+	# Only the explicit developer launcher context selects an isolated replay.
+	# Ordinary world and story configurations keep their existing reward policy.
+	dev_playtest = String(run_context.get("reward_policy", "")) == "dev_playtest"
+	if dev_playtest:
+		next_config["reward_policy"] = "dev_playtest"
+		next_config["chapter2_tutorial"] = false
 	story_mode = String(next_config.get("reward_policy", "")) == "chapter2_story"
 	if story_mode:
 		# Story careers use the Chapter 2 phase catalog and completion authority;
@@ -264,6 +271,9 @@ func _act_won() -> void:
 	if not is_live_act_index(finished):
 		push_error("OperaHouse: win callback had no live Opera slot")
 		_finish(false)
+		return
+	if dev_playtest:
+		_finish(true)
 		return
 	if tutorial_mode or story_mode:
 		# Opening Chapter 2 lessons are skill hooks, not Opera performances:
