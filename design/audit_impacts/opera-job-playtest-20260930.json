@@ -91,9 +91,24 @@
       "command": "Exact-head GitHub Probe Suite (probes and area-music-provenance)",
       "result": "PENDING",
       "evidence": "Must be green on the exact published topic commit before dev integration. Baseline CI below is evidence for baseline only."
+    },
+    {
+      "command": "GODOT=4.7.2-stable scripts/ci.sh, reconciled canonical candidate at upstream 1e62991e",
+      "result": "FAIL",
+      "evidence": "Complete canonical tracked inputs and snapshot v3 at upstream 1e62991e. Blocking static/audio/visual-unit/interaction/import/2D regression gates pass; 81 of 82 trusted probes exit 0. Unchanged probe_dust_boss_balance stops with pipeline exit 127 after three successful personas, without its final verdict or a script error; aggregate scripts/ci.sh exits 1. This interruption remains a failed aggregate, with no crash cause established. No assertion or game code was changed; the separately supervised native completion is recorded below."
+    },
+    {
+      "command": "Documented full probe-by-probe alternative: 81 completed aggregate probes plus native supervised probe_dust_boss_balance",
+      "result": "PASS",
+      "evidence": "Same unchanged combined source snapshot v3, exact Godot 4.7.2 and fresh isolated profiles. All 81 other trusted probes completed exit 0 in the aggregate; native balance rerun completes all eight positive personas and four negative controls, prints DUSTBAL|result: ALL OK and exits 0. All 82 trusted probes therefore complete successfully with the blocking static/import gates already passed. Composed receipt binds both logs, source and supervision; this does not relabel scripts/ci.sh exit 1 as a pass. Whole exact-topic remote CI remains required before integration."
+    },
+    {
+      "command": "Reconciled parser/inference, audit_document_authority.py and audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Seven launcher GDScripts plus incoming main.gd parse and pass inference lint; authority and complete change coverage pass against incoming MERGE_HEAD 1e62991e. Final pre-commit/push rerun is mandatory."
     }
   ],
-  "acceptance_gaps": "Full canonical local suite passes; exact-head remote CI is pending at pre-publication authoring and must pass before dev integration. Target-device touch/30 fps, observed child play and owner acceptance remain outstanding. The small duplicated HUD handoff is bounded temporary DL-CODE-05 debt after mandatory extraction reversion. No finding lifecycle or whole-game UNSATISFIED satisfaction changes. Existing art is reused without modifications; no protected content, new art, cinematic or release change.",
+  "acceptance_gaps": "All 82 reconciled canonical probes complete through aggregate plus native rerun, while the interrupted aggregate remains FAIL; exact-head remote CI is pending at pre-publication authoring and must pass before dev integration. Target-device touch/30 fps, observed child play and owner acceptance remain outstanding. The small duplicated HUD handoff is bounded temporary DL-CODE-05 debt after mandatory extraction reversion. No finding lifecycle or whole-game UNSATISFIED satisfaction changes. Existing art is reused without modifications; no protected content, new art, cinematic or release change.",
   "baseline_evidence": {
     "probe_suite": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36807014650",
     "head": "b65c21fdddd79f272a6854f241faa1441abe6616",
@@ -151,6 +166,30 @@
     {
       "path": "tmp/opera-job-full-ci-clean-repeat.log",
       "sha256": "0e58e255d5f33ded2eb50b861fe0592015423245f9fa1920d99dd7a3a37fa7d6"
+    },
+    {
+      "path": "tmp/opera-job-clean-validation-snapshot-v3.json",
+      "sha256": "46d1ad13aef3ad73c76194dc61febd2ffde42d73a14f745a817733940d8ef265"
+    },
+    {
+      "path": "tmp/opera-job-full-ci-reconciled.log",
+      "sha256": "4c2c8817ece4c02cca087ef4aa70406c12e8fc18aaf421f2d99cf1a23c75fec9"
+    },
+    {
+      "path": "tmp/opera-job-balance-native.stdout.log",
+      "sha256": "15ca394a12c658a2419d5926e21e00b546631ec0aa2d613654d04970a07f667f"
+    },
+    {
+      "path": "tmp/opera-job-balance-native.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tmp/opera-job-reconciled-composed-validation.json",
+      "sha256": "707d5337f83dc11447068eeeb7b62660566e791a8537b638b5fea1b5672b8d58"
+    },
+    {
+      "path": "tmp/opera-job-preserved-h-evidence/receipt.json",
+      "sha256": "4d17905dc344e7ba277b26e1490af4d355a227478a319c7d09886324f3fae7df"
     }
   ],
   "source_payload": [
@@ -190,5 +229,16 @@
       "git_blob_sha256": "7ae3134a6197f8dfe0ac3a415c67ed02bcf5a8f9dfe02c96c5880bff5033d1c0"
     }
   ],
-  "source_payload_hashes": "sha256 binds tested local file bytes; git_blob_sha256 binds the equivalent LF-normalized Git file bytes. Differences are text line endings only."
+  "source_payload_hashes": "sha256 binds tested local file bytes; git_blob_sha256 binds the equivalent LF-normalized Git file bytes. Differences are text line endings only.",
+  "reconciliation": {
+    "upstream": "1e62991ee8db27afe045ed1791d938976762e38d",
+    "feature_source_commit": "b9b44fb696f5f07215778907c2c1dd4de1017536",
+    "scope": "Preserve upstream audit/handoff facts, dead-code pruning, typography test and shrinking 2D inventory. main.gd matches upstream exactly; this task makes no coordinator cleanup claim.",
+    "snapshot": "tmp/opera-job-clean-validation-snapshot-v3.json"
+  },
+  "upstream_evidence": {
+    "head": "1e62991ee8db27afe045ed1791d938976762e38d",
+    "probe_suite": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36821673061",
+    "result": "PASS"
+  }
 }

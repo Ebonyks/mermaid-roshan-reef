@@ -1,0 +1,206 @@
+{
+ "schema": "visual_tokens_seed/1",
+ "status": "PROPOSED / CANDIDATE seed; values marked MEASURED come from tools/measure_visual_profile.py",
+ "measured_at_head": "b65c21fdddd79f272a6854f241faa1441abe6616",
+ "strength_values": [
+  "RULE: a DL rule states it",
+  "SOURCE: a current or historical document states it",
+  "MEASURED: derived from approved art",
+  "PROPOSED: new; needs acceptance"
+ ],
+ "tokens": [
+  {
+   "id": "TOK-VIS-CONTOUR-MAJOR",
+   "value": "2-4",
+   "unit": "screen px at 1280x720",
+   "strength": "RULE",
+   "rules": [
+    "DL-VIS-02"
+   ],
+   "check": "none today"
+  },
+  {
+   "id": "TOK-VIS-CONTOUR-INTERIOR",
+   "value": "1-2",
+   "unit": "screen px at 1280x720",
+   "strength": "RULE",
+   "rules": [
+    "DL-VIS-02"
+   ],
+   "check": "none today"
+  },
+  {
+   "id": "TOK-VIS-CONTOUR-COLOUR",
+   "value": {
+    "world_and_props": "dark indigo to plum: hue about 220-300 deg, luma below 90",
+    "hair_and_skin": "warm brown allowed",
+    "never": "white sticker rims"
+   },
+   "strength": "PROPOSED",
+   "rules": [
+    "DL-VIS-02"
+   ],
+   "evidence": "data/contour_profile.json; 427 prompt files use seven different words for the line"
+  },
+  {
+   "id": "TOK-VIS-SHADOW-HUE",
+   "value": {
+    "castle_interiors": "lavender, about 300 deg",
+    "sky_lagoon_and_water": "aqua, about 200 deg",
+    "rule": "one hue per zone; never neutral"
+   },
+   "strength": "PROPOSED",
+   "rules": [
+    "DL-VIS-03"
+   ],
+   "source": "LIGHTING_2P5D_AUDIT_2026-08-02.md section C2 (historical; marked for archive)"
+  },
+  {
+   "id": "TOK-VIS-VALUE-BANDS",
+   "value": 3,
+   "unit": "painted value bands per material",
+   "strength": "PROPOSED",
+   "rules": [
+    "DL-VIS-05"
+   ],
+   "conflict": "design 02 says three value families; ART_STYLE_GUIDE.md says two or three; design 06 says a few"
+  },
+  {
+   "id": "TOK-VIS-COOL-SHARE",
+   "value": 0.67,
+   "unit": "share of an environment in cool colour",
+   "strength": "SOURCE",
+   "rules": [
+    "DL-VIS-04"
+   ],
+   "source": "design/02_ART_DIRECTION.md section 2; ART_STYLE_GUIDE.md palette rules",
+   "check": "none today"
+  },
+  {
+   "id": "TOK-VIS-HEADROOM",
+   "value": {
+    "luma_p99_max": 0.88,
+    "luma_p01_min": 0.05,
+    "blown_max": 0.005,
+    "crushed_max": 0.005,
+    "painted_highlight": 0.85
+   },
+   "strength": "PROPOSED",
+   "source": "LIGHTING_2P5D_AUDIT_2026-08-02.md section C2",
+   "conflict": "tools/check_grade_headroom.py uses per-zone clipped/crushed budgets (castle 6.0/2.5%, sky 1.0/4.0%, bright pastel 18.0/3.0%) on graded output"
+  },
+  {
+   "id": "TOK-VIS-PROP-SHAPES",
+   "value": "5-8",
+   "unit": "colour shapes per prop",
+   "strength": "SOURCE",
+   "source": "ART_STYLE_GUIDE.md environment section"
+  },
+  {
+   "id": "TOK-VIS-SILHOUETTE-TEST-PX",
+   "value": 112,
+   "unit": "px longest side",
+   "strength": "SOURCE",
+   "source": "assets/OBJECT_GENERATION_AUDIT_LOG.md phone silhouette test"
+  },
+  {
+   "id": "TOK-VIS-BACKGROUND-NATIVE-PX",
+   "value": "at least 2048x2048 native coverage per playable screen",
+   "strength": "RULE",
+   "rules": [
+    "DL-LAY-07"
+   ]
+  },
+  {
+   "id": "TOK-VIS-LAYERS",
+   "value": "at least 2, aim for 4-5",
+   "strength": "RULE",
+   "rules": [
+    "DL-LAY-02"
+   ]
+  },
+  {
+   "id": "TOK-VIS-OVERDRAW",
+   "value": {
+    "cards_over_10pct_screen_max": 8,
+    "cumulative_overlap_max": 1.5
+   },
+   "strength": "SOURCE",
+   "source": "LIVING_CARD_DESIGN_LANGUAGE_2026-07-29.md; design/02_ART_DIRECTION.md technical gates"
+  },
+  {
+   "id": "TOK-VIS-MOTION-BUDGET",
+   "value": "one dominant moving landmark plus three quiet loops",
+   "strength": "SOURCE",
+   "source": "design/02_ART_DIRECTION.md section 3"
+  },
+  {
+   "id": "TOK-VIS-IDLE-DRIFT",
+   "value": "at most about 1% of body height",
+   "strength": "SOURCE",
+   "source": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md"
+  },
+  {
+   "id": "TOK-VIS-TEXTURE-MAX",
+   "value": "longest side at most 1024 px or power-of-two",
+   "strength": "RULE",
+   "rules": [
+    "DL-PERF-04"
+   ]
+  },
+  {
+   "id": "TOK-VIS-ATLAS-CELL-PX",
+   "value": 256,
+   "strength": "SOURCE",
+   "source": "assets/characters/roshan_25d/README.md"
+  },
+  {
+   "id": "TOK-VIS-SHEET-GUTTER-PX",
+   "value": "at least 8",
+   "strength": "SOURCE",
+   "source": "docs/handoffs/codex_visual_polish_2026-09-25/TRANSPARENCY_AUDIT.md",
+   "conflict": "Opera tools use 12, 14 or 24"
+  },
+  {
+   "id": "TOK-VIS-CHROMA",
+   "value": {
+    "backdrop": "#00ff00 flat",
+    "matte_thresholds": "12/220",
+    "despill": true
+   },
+   "strength": "SOURCE",
+   "source": "assets/characters/roshan_25d/PROMPTS.md",
+   "conflict": "Opera tooling uses 22/105 with feather 0.6; green spill has four definitions across tools"
+  },
+  {
+   "id": "TOK-VIS-PARTICLES-SPEEDY",
+   "value": "about 40",
+   "strength": "SOURCE",
+   "source": "docs/handoffs/codex_visual_polish_2026-09-25/AESTHETICS_PLAN.md"
+  },
+  {
+   "id": "TOK-UI-COLOURS",
+   "value": "scripts/storybook_ui.gd lines 8-23 (15 colour tokens; INK #332E7A)",
+   "strength": "RULE",
+   "rules": [
+    "DL-UI-06"
+   ],
+   "conflict": "INK is defined nine times in code with eight values; none equals ART_STYLE_GUIDE.md ink indigo #222E44"
+  },
+  {
+   "id": "TOK-UI-TOUCH-MIN-PX",
+   "value": 110,
+   "strength": "RULE",
+   "rules": [
+    "DL-UI-03"
+   ],
+   "conflict": "the door highlight handoff uses 112"
+  },
+  {
+   "id": "TOK-VIS-PALETTE",
+   "value": "GAP: one palette file with named anchors (the ART_STYLE_GUIDE.md 20 swatches) plus measured family palettes and a colour-difference tolerance",
+   "strength": "PROPOSED",
+   "conflict": "ART_STYLE_GUIDE.md and assets/ART_GENERATION_CONTRACT.md give different hex values for the same names; code adds more"
+  }
+ ]
+}
