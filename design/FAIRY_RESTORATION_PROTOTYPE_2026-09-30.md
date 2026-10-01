@@ -107,6 +107,12 @@ Exact selected paths, source SHA-256, dimensions, protection and roles:
 | `picture_garden.ogg` | Existing garden score, not a newly composed cue | Quiet familiar activity bed, ducked under voice | Reuse; new cue ownership ends with scene teardown |
 
 New authored raster-art count: zero; native review screenshots are evidence.
+The same licensed story-prop family also contains `fruit_orange.png`,
+`fruit_melon.png` and `fruit_banana.png`. These are ingredient-variety candidates
+for a later pass; the orange was visually inspected and keeps the apple family's
+painted outline and palette. This first prototype uses three apples so the
+tree-to-table consequence can be reviewed before adding more choices. Whole-fruit
+reuse does not resolve the separately identified cut-face art gap.
 Source originals are unchanged. Sprite region cropping
 for split apples is a temporary runtime state visualization, not raster asset
 editing or a cinematic technique. Cut faces, sick-tree/healthy-tree action states,
