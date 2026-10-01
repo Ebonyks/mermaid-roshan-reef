@@ -1,0 +1,447 @@
+{
+	"arms_sha256": "81f2cba89d4e0c48d2d4ba1c4ac7386d7e96b4c50e58c6a93b1b27b5e0f10193",
+	"engine": {
+		"build": "official",
+		"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+		"hex": 263938,
+		"major": 4,
+		"minor": 7,
+		"patch": 2,
+		"status": "stable",
+		"string": "4.7.2-stable (official)",
+		"timestamp": 0
+	},
+	"harness_sha256": "e554e25a83cc06d6e9b3e7e5f73692d7344a612ead67e0084844673876d959b7",
+	"owner_accepted": false,
+	"pads_sha256": "bf5f86e916b4c512c761518ad1815beac6df8c833d60980b71c73e4d7fada66f",
+	"renderer": "mobile",
+	"runtime_integration": false,
+	"states": [
+		{
+			"acceptance": "STATIC_DIAGNOSTIC_ONLY; actual input/contact/owner approval pending",
+			"candidate_arms": "",
+			"candidate_pads": "",
+			"catch_bounds": [
+				12.0,
+				12.0,
+				392.0,
+				232.0
+			],
+			"dimensions": [
+				1280,
+				720
+			],
+			"fixture": "contact",
+			"image": "original--contact--1280x720.webp",
+			"method": "Direct phase plus declared contact/floor/settled fixtures, processing paused, original production drawing and geometry. No runtime edit.",
+			"pads_atlas_region": [],
+			"save_error": 0,
+			"sha256": "79b35aaa27062b161c8c55a5354047c2e5b7d1f890292d79eee3f81095eb9be6",
+			"variant": "original"
+		},
+		{
+			"acceptance": "STATIC_DIAGNOSTIC_ONLY; actual input/contact/owner approval pending",
+			"candidate_arms": "",
+			"candidate_pads": "",
+			"catch_bounds": [
+				12.0,
+				12.0,
+				392.0,
+				232.0
+			],
+			"dimensions": [
+				1280,
+				720
+			],
+			"fixture": "safe-floor",
+			"image": "original--safe-floor--1280x720.webp",
+			"method": "Direct phase plus declared contact/floor/settled fixtures, processing paused, original production drawing and geometry. No runtime edit.",
+			"pads_atlas_region": [],
+			"save_error": 0,
+			"sha256": "66424ed23691033b64499ee418f1a308e1353c8cbbc8db39bb7118fe275863e2",
+			"variant": "original"
+		},
+		{
+			"acceptance": "STATIC_DIAGNOSTIC_ONLY; actual input/contact/owner approval pending",
+			"candidate_arms": "",
+			"candidate_pads": "",
+			"catch_bounds": [
+				12.0,
+				12.0,
+				392.0,
+				232.0
+			],
+			"dimensions": [
+				1280,
+				720
+			],
+			"fixture": "settled-five",
+			"image": "original--settled-five--1280x720.webp",
+			"method": "Direct phase plus declared contact/floor/settled fixtures, processing paused, original production drawing and geometry. No runtime edit.",
+			"pads_atlas_region": [],
+			"save_error": 0,
+			"sha256": "ca7f2a4966034df8d4826cf632b593bab7901515c21538050abe157944b17f53",
+			"variant": "original"
+		},
+		{
+			"acceptance": "STATIC_DIAGNOSTIC_ONLY; actual input/contact/owner approval pending",
+			"candidate_arms": "res://assets_src/imagegen/day2_refinement_20261001/selected/D2A-0446.png",
+			"candidate_pads": "",
+			"catch_bounds": [
+				12.0,
+				12.0,
+				392.0,
+				232.0
+			],
+			"dimensions": [
+				1280,
+				720
+			],
+			"fixture": "contact",
+			"image": "arms-only--contact--1280x720.webp",
+			"method": "Direct phase plus declared contact/floor/settled fixtures, processing paused, original production drawing and geometry. No runtime edit.",
+			"pads_atlas_region": [],
+			"save_error": 0,
+			"sha256": "3eee300becc3c041ee5f2da3bce2d62ab5108a3434d9daad162d09f951d53ca4",
+			"variant": "arms-only"
+		},
+		{
+			"acceptance": "STATIC_DIAGNOSTIC_ONLY; actual input/contact/owner approval pending",
+			"candidate_arms": "res://assets_src/imagegen/day2_refinement_20261001/selected/D2A-0446.png",
+			"candidate_pads": "",
+			"catch_bounds": [
+				12.0,
+				12.0,
+				392.0,
+				232.0
+			],
+			"dimensions": [
+				1280,
+				720
+			],
+			"fixture": "safe-floor",
+			"image": "arms-only--safe-floor--1280x720.webp",
+			"method": "Direct phase plus declared contact/floor/settled fixtures, processing paused, original production drawing and geometry. No runtime edit.",
+			"pads_atlas_region": [],
+			"save_error": 0,
+			"sha256": "82758194fe759ad960e2349776e804360e643e1d7b5f8203c6bd0bad5d57099f",
+			"variant": "arms-only"
+		},
+		{
+			"acceptance": "STATIC_DIAGNOSTIC_ONLY; actual input/contact/owner approval pending",
+			"candidate_arms": "res://assets_src/imagegen/day2_refinement_20261001/selected/D2A-0446.png",
+			"candidate_pads": "",
+			"catch_bounds": [
+				12.0,
+				12.0,
+				392.0,
+				232.0
+			],
+			"dimensions": [
+				1280,
+				720
+			],
+			"fixture": "settled-five",
+			"image": "arms-only--settled-five--1280x720.webp",
+			"method": "Direct phase plus declared contact/floor/settled fixtures, processing paused, original production drawing and geometry. No runtime edit.",
+			"pads_atlas_region": [],
+			"save_error": 0,
+			"sha256": "76c1f88ab60bc85bddeef64dee480a6de1046ecb007a6fcbcaf64b4ba6f2131b",
+			"variant": "arms-only"
+		},
+		{
+			"acceptance": "STATIC_DIAGNOSTIC_ONLY; actual input/contact/owner approval pending",
+			"candidate_arms": "res://assets_src/imagegen/day2_refinement_20261001/selected/D2A-0446.png",
+			"candidate_pads": "res://assets_src/imagegen/day2_refinement_20261001/selected/D2A-0447.png",
+			"catch_bounds": [
+				12.0,
+				12.0,
+				392.0,
+				232.0
+			],
+			"dimensions": [
+				1280,
+				720
+			],
+			"fixture": "contact",
+			"image": "arms-and-pads--contact--1280x720.webp",
+			"method": "Direct phase plus declared contact/floor/settled fixtures, processing paused, original production drawing and geometry. No runtime edit.",
+			"pads_atlas_region": [
+				6,
+				115,
+				1014,
+				117
+			],
+			"save_error": 0,
+			"sha256": "1d5a2ba37525083ffa67d1d1a4ea1e67c83fae2a55a435597bbe77ac98c225d5",
+			"variant": "arms-and-pads"
+		},
+		{
+			"acceptance": "STATIC_DIAGNOSTIC_ONLY; actual input/contact/owner approval pending",
+			"candidate_arms": "res://assets_src/imagegen/day2_refinement_20261001/selected/D2A-0446.png",
+			"candidate_pads": "res://assets_src/imagegen/day2_refinement_20261001/selected/D2A-0447.png",
+			"catch_bounds": [
+				12.0,
+				12.0,
+				392.0,
+				232.0
+			],
+			"dimensions": [
+				1280,
+				720
+			],
+			"fixture": "safe-floor",
+			"image": "arms-and-pads--safe-floor--1280x720.webp",
+			"method": "Direct phase plus declared contact/floor/settled fixtures, processing paused, original production drawing and geometry. No runtime edit.",
+			"pads_atlas_region": [
+				6,
+				115,
+				1014,
+				117
+			],
+			"save_error": 0,
+			"sha256": "8c8058395f85be9143307477d76e92630e7598f17c401620e6eaa0138ee42315",
+			"variant": "arms-and-pads"
+		},
+		{
+			"acceptance": "STATIC_DIAGNOSTIC_ONLY; actual input/contact/owner approval pending",
+			"candidate_arms": "res://assets_src/imagegen/day2_refinement_20261001/selected/D2A-0446.png",
+			"candidate_pads": "res://assets_src/imagegen/day2_refinement_20261001/selected/D2A-0447.png",
+			"catch_bounds": [
+				12.0,
+				12.0,
+				392.0,
+				232.0
+			],
+			"dimensions": [
+				1280,
+				720
+			],
+			"fixture": "settled-five",
+			"image": "arms-and-pads--settled-five--1280x720.webp",
+			"method": "Direct phase plus declared contact/floor/settled fixtures, processing paused, original production drawing and geometry. No runtime edit.",
+			"pads_atlas_region": [
+				6,
+				115,
+				1014,
+				117
+			],
+			"save_error": 0,
+			"sha256": "d8c2f93bb100a31029a0f81d598c5d432c19b21cd0eec2d016e499e99d8ed925",
+			"variant": "arms-and-pads"
+		},
+		{
+			"acceptance": "STATIC_DIAGNOSTIC_ONLY; actual input/contact/owner approval pending",
+			"candidate_arms": "",
+			"candidate_pads": "",
+			"catch_bounds": [
+				12.0,
+				12.0,
+				392.0,
+				232.0
+			],
+			"dimensions": [
+				1600,
+				720
+			],
+			"fixture": "contact",
+			"image": "original--contact--1600x720.webp",
+			"method": "Direct phase plus declared contact/floor/settled fixtures, processing paused, original production drawing and geometry. No runtime edit.",
+			"pads_atlas_region": [],
+			"save_error": 0,
+			"sha256": "27e6045ea91cbbe955b0df22d6f198c0f547173b191ed886340df40b23859512",
+			"variant": "original"
+		},
+		{
+			"acceptance": "STATIC_DIAGNOSTIC_ONLY; actual input/contact/owner approval pending",
+			"candidate_arms": "",
+			"candidate_pads": "",
+			"catch_bounds": [
+				12.0,
+				12.0,
+				392.0,
+				232.0
+			],
+			"dimensions": [
+				1600,
+				720
+			],
+			"fixture": "safe-floor",
+			"image": "original--safe-floor--1600x720.webp",
+			"method": "Direct phase plus declared contact/floor/settled fixtures, processing paused, original production drawing and geometry. No runtime edit.",
+			"pads_atlas_region": [],
+			"save_error": 0,
+			"sha256": "4fa8e715414a749d91c38700320b4f6761982e6db2b2222b25cb1f8fa6964a89",
+			"variant": "original"
+		},
+		{
+			"acceptance": "STATIC_DIAGNOSTIC_ONLY; actual input/contact/owner approval pending",
+			"candidate_arms": "",
+			"candidate_pads": "",
+			"catch_bounds": [
+				12.0,
+				12.0,
+				392.0,
+				232.0
+			],
+			"dimensions": [
+				1600,
+				720
+			],
+			"fixture": "settled-five",
+			"image": "original--settled-five--1600x720.webp",
+			"method": "Direct phase plus declared contact/floor/settled fixtures, processing paused, original production drawing and geometry. No runtime edit.",
+			"pads_atlas_region": [],
+			"save_error": 0,
+			"sha256": "9a479d3be6acd784865928f71b169c60c1a0fcf6db504dd9c86d70d58ebd9712",
+			"variant": "original"
+		},
+		{
+			"acceptance": "STATIC_DIAGNOSTIC_ONLY; actual input/contact/owner approval pending",
+			"candidate_arms": "res://assets_src/imagegen/day2_refinement_20261001/selected/D2A-0446.png",
+			"candidate_pads": "",
+			"catch_bounds": [
+				12.0,
+				12.0,
+				392.0,
+				232.0
+			],
+			"dimensions": [
+				1600,
+				720
+			],
+			"fixture": "contact",
+			"image": "arms-only--contact--1600x720.webp",
+			"method": "Direct phase plus declared contact/floor/settled fixtures, processing paused, original production drawing and geometry. No runtime edit.",
+			"pads_atlas_region": [],
+			"save_error": 0,
+			"sha256": "7f401d909843144e0cf7ec70b858bde542210514f19de05c38c533d7e607098c",
+			"variant": "arms-only"
+		},
+		{
+			"acceptance": "STATIC_DIAGNOSTIC_ONLY; actual input/contact/owner approval pending",
+			"candidate_arms": "res://assets_src/imagegen/day2_refinement_20261001/selected/D2A-0446.png",
+			"candidate_pads": "",
+			"catch_bounds": [
+				12.0,
+				12.0,
+				392.0,
+				232.0
+			],
+			"dimensions": [
+				1600,
+				720
+			],
+			"fixture": "safe-floor",
+			"image": "arms-only--safe-floor--1600x720.webp",
+			"method": "Direct phase plus declared contact/floor/settled fixtures, processing paused, original production drawing and geometry. No runtime edit.",
+			"pads_atlas_region": [],
+			"save_error": 0,
+			"sha256": "16e0cab76199ebb3af8db716abb98e930f683e378d2d133ae1db4ea6305ac0df",
+			"variant": "arms-only"
+		},
+		{
+			"acceptance": "STATIC_DIAGNOSTIC_ONLY; actual input/contact/owner approval pending",
+			"candidate_arms": "res://assets_src/imagegen/day2_refinement_20261001/selected/D2A-0446.png",
+			"candidate_pads": "",
+			"catch_bounds": [
+				12.0,
+				12.0,
+				392.0,
+				232.0
+			],
+			"dimensions": [
+				1600,
+				720
+			],
+			"fixture": "settled-five",
+			"image": "arms-only--settled-five--1600x720.webp",
+			"method": "Direct phase plus declared contact/floor/settled fixtures, processing paused, original production drawing and geometry. No runtime edit.",
+			"pads_atlas_region": [],
+			"save_error": 0,
+			"sha256": "dbabaaaef243fd3c5fdda90e558241da148aceab1ddab1469c4151e98a3263ad",
+			"variant": "arms-only"
+		},
+		{
+			"acceptance": "STATIC_DIAGNOSTIC_ONLY; actual input/contact/owner approval pending",
+			"candidate_arms": "res://assets_src/imagegen/day2_refinement_20261001/selected/D2A-0446.png",
+			"candidate_pads": "res://assets_src/imagegen/day2_refinement_20261001/selected/D2A-0447.png",
+			"catch_bounds": [
+				12.0,
+				12.0,
+				392.0,
+				232.0
+			],
+			"dimensions": [
+				1600,
+				720
+			],
+			"fixture": "contact",
+			"image": "arms-and-pads--contact--1600x720.webp",
+			"method": "Direct phase plus declared contact/floor/settled fixtures, processing paused, original production drawing and geometry. No runtime edit.",
+			"pads_atlas_region": [
+				6,
+				115,
+				1014,
+				117
+			],
+			"save_error": 0,
+			"sha256": "c5206bc27acf114ead7dedebe2869812534411b45cae08e83ad07cab8922d1bf",
+			"variant": "arms-and-pads"
+		},
+		{
+			"acceptance": "STATIC_DIAGNOSTIC_ONLY; actual input/contact/owner approval pending",
+			"candidate_arms": "res://assets_src/imagegen/day2_refinement_20261001/selected/D2A-0446.png",
+			"candidate_pads": "res://assets_src/imagegen/day2_refinement_20261001/selected/D2A-0447.png",
+			"catch_bounds": [
+				12.0,
+				12.0,
+				392.0,
+				232.0
+			],
+			"dimensions": [
+				1600,
+				720
+			],
+			"fixture": "safe-floor",
+			"image": "arms-and-pads--safe-floor--1600x720.webp",
+			"method": "Direct phase plus declared contact/floor/settled fixtures, processing paused, original production drawing and geometry. No runtime edit.",
+			"pads_atlas_region": [
+				6,
+				115,
+				1014,
+				117
+			],
+			"save_error": 0,
+			"sha256": "d5dca71061369924d6203123afe93a3f2721b43e5b838920d00942ab3bd76a12",
+			"variant": "arms-and-pads"
+		},
+		{
+			"acceptance": "STATIC_DIAGNOSTIC_ONLY; actual input/contact/owner approval pending",
+			"candidate_arms": "res://assets_src/imagegen/day2_refinement_20261001/selected/D2A-0446.png",
+			"candidate_pads": "res://assets_src/imagegen/day2_refinement_20261001/selected/D2A-0447.png",
+			"catch_bounds": [
+				12.0,
+				12.0,
+				392.0,
+				232.0
+			],
+			"dimensions": [
+				1600,
+				720
+			],
+			"fixture": "settled-five",
+			"image": "arms-and-pads--settled-five--1600x720.webp",
+			"method": "Direct phase plus declared contact/floor/settled fixtures, processing paused, original production drawing and geometry. No runtime edit.",
+			"pads_atlas_region": [
+				6,
+				115,
+				1014,
+				117
+			],
+			"save_error": 0,
+			"sha256": "ecf185f825d028be99086ea2809cb6b40de94f5371912e631db332b80331b5b3",
+			"variant": "arms-and-pads"
+		}
+	]
+}

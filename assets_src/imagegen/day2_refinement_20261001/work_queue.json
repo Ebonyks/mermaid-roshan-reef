@@ -12174,12 +12174,14 @@
         }
       ],
       "live_status": "LOADED_IN_CAPTURE; ACTUAL_DRAW_BRANCH_CONFIRMATION_REQUIRED",
-      "status": "REUSE_AND_BINDING_REVIEW_PENDING",
-      "source_target_met": false,
+      "status": "APPROVED_SOURCE_REUSE_4_6_BINDING_PENDING",
+      "source_target_met": true,
       "context_target_met": false,
       "action_target_met": false,
       "owner_accepted": false,
-      "attempts": []
+      "attempts": [],
+      "reuse_review": "reuse_review.json",
+      "candidate": "assets_src/imagegen/day2_refinement_20261001/selected/D2A-0443.png"
     },
     {
       "id": "D2A-0444",
@@ -12289,13 +12291,14 @@
         }
       ],
       "live_status": "LOADED_IN_CAPTURE; ACTUAL_DRAW_BRANCH_CONFIRMATION_REQUIRED",
-      "status": "FRESH_CANDIDATE_SOURCE_TARGET_MET; LIVE_CONTACT_REVIEW_PENDING",
+      "status": "SOURCE_CANDIDATE_4_6_MOUNTED_BELOW_TARGET",
       "source_target_met": false,
       "context_target_met": false,
       "action_target_met": false,
       "owner_accepted": false,
       "attempts": [],
-      "historical_candidate_packet": "assets_src/imagegen/day2_replacements_batch1_20260930/MANIFEST.json"
+      "historical_candidate_packet": "assets_src/imagegen/day2_replacements_batch1_20260930/MANIFEST.json",
+      "mounted_review": "fit/review.json"
     },
     {
       "id": "D2A-0447",
@@ -12338,13 +12341,14 @@
         }
       ],
       "live_status": "LOADED_IN_CAPTURE; ACTUAL_DRAW_BRANCH_CONFIRMATION_REQUIRED",
-      "status": "FRESH_CANDIDATE_SOURCE_TARGET_MET; ATLAS_BINDING_AND_LANDING_REVIEW_PENDING",
+      "status": "SOURCE_CANDIDATE_4_6_MOUNTED_BELOW_TARGET",
       "source_target_met": false,
       "context_target_met": false,
       "action_target_met": false,
       "owner_accepted": false,
       "attempts": [],
-      "candidate_source_score": 4.6
+      "candidate_source_score": 4.6,
+      "mounted_review": "fit/review.json"
     },
     {
       "id": "D2A-0448",

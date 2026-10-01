@@ -1,0 +1,118 @@
+{
+  "id": "D2A-0443",
+  "original_path": "assets/opera/worlds/widgets/widget_basin_nursery_bubbles.png",
+  "original_sha256": "4973339acfb923df1748e8a2f5dc945985c8ddc8986838268ab9ebfd84e34cd2",
+  "original_source_score": 3.0,
+  "reuse_source": "assets/sprites/fx_water/fx_water_bubble_burst_atlas.png",
+  "reuse_source_sha256": "4c98dd531d6869a2137d210c161efab86dff03c08ce2378e855d1d46c9c2896c",
+  "candidate": "assets_src/imagegen/day2_refinement_20261001/selected/D2A-0443.png",
+  "candidate_sha256": "4c98dd531d6869a2137d210c161efab86dff03c08ce2378e855d1d46c9c2896c",
+  "method": "LITERAL_APPROVED_ATLAS_REUSE",
+  "modifications": "None; exact1024x512 PNG copied. All eight256x256 AtlasTexture regions declared, no extracted or altered delivery pixels.",
+  "license": "Accepted project-original water-bubble alpha artwork, all rights reserved, inherited ASSET_LICENSES.md source row1652 and its master provenance.",
+  "cells": [
+    {
+      "index": 0,
+      "region": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "role": "emergence",
+      "source_score": 4.6,
+      "opinion": "Clear authored bubble/sparkle contour with broad aqua/blue value bands and restrained highlights. Exact approved effect pixels are preserved; emergence is a transient effect state, not a persistent work object."
+    },
+    {
+      "index": 1,
+      "region": [
+        256,
+        0,
+        256,
+        256
+      ],
+      "role": "rising",
+      "source_score": 4.6,
+      "opinion": "Clear authored bubble/sparkle contour with broad aqua/blue value bands and restrained highlights. Exact approved effect pixels are preserved; rising is a transient effect state, not a persistent work object."
+    },
+    {
+      "index": 2,
+      "region": [
+        512,
+        0,
+        256,
+        256
+      ],
+      "role": "expansion",
+      "source_score": 4.6,
+      "opinion": "Clear authored bubble/sparkle contour with broad aqua/blue value bands and restrained highlights. Exact approved effect pixels are preserved; expansion is a transient effect state, not a persistent work object."
+    },
+    {
+      "index": 3,
+      "region": [
+        768,
+        0,
+        256,
+        256
+      ],
+      "role": "full constellation",
+      "source_score": 4.6,
+      "opinion": "Clear authored bubble/sparkle contour with broad aqua/blue value bands and restrained highlights. Exact approved effect pixels are preserved; full constellation is a transient effect state, not a persistent work object."
+    },
+    {
+      "index": 4,
+      "region": [
+        0,
+        256,
+        256,
+        256
+      ],
+      "role": "initial pop",
+      "source_score": 4.6,
+      "opinion": "Clear authored bubble/sparkle contour with broad aqua/blue value bands and restrained highlights. Exact approved effect pixels are preserved; initial pop is a transient effect state, not a persistent work object."
+    },
+    {
+      "index": 5,
+      "region": [
+        256,
+        256,
+        256,
+        256
+      ],
+      "role": "dispersing",
+      "source_score": 4.6,
+      "opinion": "Clear authored bubble/sparkle contour with broad aqua/blue value bands and restrained highlights. Exact approved effect pixels are preserved; dispersing is a transient effect state, not a persistent work object."
+    },
+    {
+      "index": 6,
+      "region": [
+        512,
+        256,
+        256,
+        256
+      ],
+      "role": "remaining sparkle",
+      "source_score": 4.6,
+      "opinion": "Clear authored bubble/sparkle contour with broad aqua/blue value bands and restrained highlights. Exact approved effect pixels are preserved; remaining sparkle is a transient effect state, not a persistent work object."
+    },
+    {
+      "index": 7,
+      "region": [
+        768,
+        256,
+        256,
+        256
+      ],
+      "role": "final sparkle",
+      "source_score": 4.6,
+      "opinion": "Clear authored bubble/sparkle contour with broad aqua/blue value bands and restrained highlights. Exact approved effect pixels are preserved; final sparkle is a transient effect state, not a persistent work object."
+    }
+  ],
+  "source_score": 4.6,
+  "context_score": null,
+  "action_score": null,
+  "owner_approval": null,
+  "runtime_integration": false,
+  "route_evidence": "OperaGestureSurface basin widget_overlay is drawn when held or completion_accepted; OperaHotspotCatalog also names this effect. Loaded inputs alone do not establish every captured draw.",
+  "binding_gap": "This is an atlas candidate, not a direct legacy overlay PNG substitution. Select an exact reviewed cell and preserve intentional bubble rise/pop; do not draw the packed sheet or horizontal-cut it as a worksheet progress bar. Basin and visible hand contact still need repair."
+}
