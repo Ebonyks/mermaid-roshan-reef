@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\01_fir\\input_neutral.png",
+  "source_sha256": "d96c84fa0e99d1ed6a3c2819cb42d41dfebd6bf9b94423f0ed88b38301bf4470",
+  "source_dimensions": [
+    512,
+    288
+  ],
+  "prompt": "A wind gust bends the upper branches noticeably to the right, then they spring back left and settle upright. The top moves about one tenth of the tree's width. The lower trunk and base stay planted. Flexible branches visibly change angle. Keep the same connected branch tiers and needles. One isolated illustrated object on the input's uniform light gray background. Fixed camera, stable painted storybook lighting and color, one continuous two-second action. Sound: silence.\n",
+  "prompt_sha256": "ecc97217b4c01d38482ece526f187c6ea32b576176da8fbb7a9a0b723e7b5254",
+  "preset": "quick",
+  "settings": {
+    "width": 1280,
+    "height": 704,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "default"
+  },
+  "seed": 20261011,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/MODEL_RECEIPT.json",
+  "workflow_sha256": "515d59b29090203cfd3b5486f5ce9f9403d50c13560834b9dfa7b963edbf6a3d",
+  "started_at_utc": "20261001T011652Z",
+  "prompt_id": "19d53fe4-546f-449e-8684-0b2c8aaf3764",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\sky_01_fir_20261001T011652Z_24cae4_00002_.webm",
+      "sha256": "76df7554dab42587cc3974469e48603e0254dc9e75883eda55d64319a384f2b8",
+      "bytes": 80089
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\sky_01_fir_20261001T011652Z_24cae4_00002_.mp4",
+      "sha256": "37b3c0330810f6b27c0988b043c630a6105b0bd88843cd47a40d99d81072f458",
+      "bytes": 69645,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1280,
+            "height": 704,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 481.0,
+  "completed_at_utc": "2026-10-01T01:24:53.736117+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance",
+  "visual_disposition": "REJECTED_STATIC_FLICKER",
+  "visual_review": "Codex inspection and independent silhouette measurement: upper centroid spans 0.4505px horizontal and 0.4726px vertical; no readable branch bend. No owner/human production acceptance claimed."
+}

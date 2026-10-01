@@ -1,0 +1,48 @@
+{
+  "id": "09_gate",
+  "title": "Castle gate: door study",
+  "source": "assets/sprites/sky_lagoon/sky_lagoon_castle_gate_v3.png",
+  "source_sha256": "f1003ba7d1d2a70d1e367805e2d8aacfefa71a6006935662d6285b064a380a09",
+  "source_dimensions": [
+    294,
+    420
+  ],
+  "source_crop": [
+    11,
+    11,
+    283,
+    409
+  ],
+  "input": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\09_gate\\input.png",
+  "prompt": "One isolated illustrated object on a perfectly flat solid bright magenta background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The stone arch and all architecture stay completely fixed. Only the center wooden door slowly opens inward a little, then starts to close. Keep the same door shape, hinge, frame and material. No camera motion, no added furniture, no character. 1.1-1.4s: settle. Background remains solid magenta. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence.",
+  "seed": 20261009,
+  "fit_xy": [
+    176,
+    24
+  ],
+  "fit_size": [
+    159,
+    232
+  ],
+  "status": "PENDING",
+  "lane": "MOTION_REFERENCE_ONLY",
+  "derivative": "source.png",
+  "derivative_sha256": "36f178c7f66e72956d2fa6c0ffffde15504ed77618907298501835609620db15",
+  "fixed_source_crop": [
+    120,
+    4,
+    392,
+    276
+  ],
+  "canvas": [
+    256,
+    256
+  ],
+  "source_bounds": [
+    51,
+    18,
+    204,
+    239
+  ],
+  "method": "Nondestructive source RGBA isolation and whole-cell normalization; original unchanged."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "03_hydrangea",
+  "prompt": "Use case: illustration-story. Asset type: six fresh hydrangea animation drawings for Aseprite. Reference image locks the existing purple/lavender hydrangea, its one large open bloom head, one small bud cluster, broad leaves, stem and painted storybook style. Produce a PORTRAIT transparent RGBA sheet, 1024 x 1536: TWO columns x THREE rows of equal 512px square cells, one complete shrub per cell. Each plant must fit inside a 410px x 410px footprint with at least 45px empty transparent margin. Fixed root at cell x=256 y=460; constant camera, scale, palette and light. Six row-major poses: neutral; stems bend gently right; rightward nod apex; returning upright; stems bend left; leftward nod apex. Draw new flower-head inclination, visible petal faces and overlap and turning leaf undersides, with real new silhouette contours. Bloom tops move 20-30px while the lower stem/root stays fixed. Keep the exact one open flower head, one bud cluster and three prominent broad leaves, with the small supporting leaves kept in their original family; no extra blooms, detached flowers, seasonal growth or disappearing leaves. Independently draw these acting poses, do not just shift, rotate or rubber-warp a static shrub. Crisp moderate-resolution painted edges with clear purple outlines and restrained painterly detail. No blur, haze, glowing halos, cast shadows, matte, labels, numbers, borders or background pixels. True alpha transparency. Fully contained separate cells; no bloom or leaf may touch a cell edge.",
+  "mode": "built-in image_gen",
+  "referenced_image_paths": [
+    "objects/03_hydrangea/identity_source.png"
+  ],
+  "transparent_background": true
+}

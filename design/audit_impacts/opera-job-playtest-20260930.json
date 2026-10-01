@@ -106,6 +106,16 @@
       "command": "Reconciled parser/inference, audit_document_authority.py and audit_development.py --base auto",
       "result": "PASS",
       "evidence": "Seven launcher GDScripts plus incoming main.gd parse and pass inference lint; authority and complete change coverage pass against incoming MERGE_HEAD 1e62991e. Final pre-commit/push rerun is mandatory."
+    },
+    {
+      "command": "Later 3290af9d reconciliation: completed exact-topic 6c453ae9 whole CI, native exact Godot import and source/index proof",
+      "result": "PASS",
+      "evidence": "Topic 6c453ae960eae8ee8783c763803e9b98c8ddf6d9 whole Probe Suite https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36830919997 completed-success, with required probes and area-music-provenance jobs successful. Native official Godot 4.7.2 import after merging 3290af9d9624156f0a025e0cab90fdce3437ba00 exited 0. All seven Git-normalized source payloads remain identical to tested 21a19222600893e00a2e38f46ba0658636311421; index/HEAD scripts trees are unchanged and main.gd equals exact old/new upstream. The 676-path upstream range adds only nonruntime Sky Lagoon reference/archive packets and metadata; shared audit facts and literal archive bytes are preserved. Six inherited upstream verification-log blank-EOF warnings are retained; own-change diff --check against 3290 is clean. Source proof tmp/opera-job-reconciliation-3290-source-proof.json, SHA-256 25c89a666261cddc87fd974f4dc68efd306335056c0203021e87475378734513; CI/import bindings below. Original baseline, first reconciliation, all 21 bindings and acceptance/lifecycle remain unchanged."
+    },
+    {
+      "command": "Exact-head combined candidate GitHub Probe Suite after 3290af9d reconciliation",
+      "result": "PENDING",
+      "evidence": "The final combined candidate includes this reconciliation evidence in one commit. Its own exact-head whole Probe Suite and both required jobs must succeed before dev integration. Report that final revision/run externally; do not make another metadata-only self-SHA follow-up. Earlier source/topic passes retain their exact revision scope and do not replace this required combined-candidate pass."
     }
   ],
   "acceptance_gaps": "All 81 assertion-bearing local probes complete through aggregate plus native rerun, with one expected display-only headless skip, while the interrupted aggregate remains FAIL; source 21a19222600893e00a2e38f46ba0658636311421 has verified exact-head remote Probe Suite PASS. Target-device touch/30 fps, observed child play and owner acceptance remain outstanding. The small duplicated HUD handoff is bounded temporary DL-CODE-05 debt after mandatory extraction reversion. No finding lifecycle or whole-game UNSATISFIED satisfaction changes. Existing art is reused without modifications; no protected content, new art, cinematic or release change.",
@@ -198,6 +208,18 @@
     {
       "path": "tmp/opera-job-local-probe-classification-21a19222.json",
       "sha256": "1d2d0438e49d41b1a48c286ceed4eb3eb576d6bfb15c9b5a489682c467081313"
+    },
+    {
+      "path": "tmp/opera-job-reconciliation-3290-source-proof.json",
+      "sha256": "25c89a666261cddc87fd974f4dc68efd306335056c0203021e87475378734513"
+    },
+    {
+      "path": "tmp/opera-job-remote-6c453ae9-run-36830919997.json",
+      "sha256": "8b99016863053ecc0f29adea31ce5656ce541666d554ae3674526e56a6498b3b"
+    },
+    {
+      "path": "tmp/opera-job-import-reconciled-3290.log",
+      "sha256": "5d64d9cc5e1691e8305f0d93dfd5997422968a8af612c9eb180bafb77ed14a8a"
     }
   ],
   "source_payload": [
@@ -248,5 +270,27 @@
     "head": "1e62991ee8db27afe045ed1791d938976762e38d",
     "probe_suite": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36821673061",
     "result": "PASS"
-  }
+  },
+  "later_reconciliations": [
+    {
+      "previous_upstream": "1e62991ee8db27afe045ed1791d938976762e38d",
+      "upstream": "3290af9d9624156f0a025e0cab90fdce3437ba00",
+      "topic_head_before_merge": "6c453ae960eae8ee8783c763803e9b98c8ddf6d9",
+      "source_proof": {
+        "path": "tmp/opera-job-reconciliation-3290-source-proof.json",
+        "sha256": "25c89a666261cddc87fd974f4dc68efd306335056c0203021e87475378734513"
+      },
+      "topic_ci": {
+        "path": "tmp/opera-job-remote-6c453ae9-run-36830919997.json",
+        "sha256": "8b99016863053ecc0f29adea31ce5656ce541666d554ae3674526e56a6498b3b"
+      },
+      "native_import": {
+        "path": "tmp/opera-job-import-reconciled-3290.log",
+        "sha256": "5d64d9cc5e1691e8305f0d93dfd5997422968a8af612c9eb180bafb77ed14a8a"
+      },
+      "scope": "676 upstream nonruntime Sky Lagoon reference/archive paths; identical tested Opera runtime source; preserved shared audit facts.",
+      "combined_candidate_ci": "PENDING; final exact-head whole success must be reported externally before dev integration.",
+      "acceptance_lifecycle_change": false
+    }
+  ]
 }

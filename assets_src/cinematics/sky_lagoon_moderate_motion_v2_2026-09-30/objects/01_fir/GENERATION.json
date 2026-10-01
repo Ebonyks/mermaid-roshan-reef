@@ -1,0 +1,9 @@
+{
+  "id": "01_fir",
+  "prompt": "Use case: illustration-story. Asset type: six fresh hand-drawn animation pose references for a 2D game, to import into Aseprite. Input image: exact fir identity, silhouette family, colours and painted style reference only. Generate a PORTRAIT 1024 x 1536 transparent RGBA sprite sheet: exactly TWO columns and THREE rows of equal 512 x 512 cells. One complete fir per cell, centered x=256, rooted at y=460, with generous 45px safe margins and no clipped branches. Every cell uses the same fixed front camera, trunk/root position, scale, colours, branch count and soft painted lighting. Draw CRISP moderate-detail edges and clear navy/green contours; no blur, no glow or background. Six row-major poses: 1 neutral tree; 2 breeze flexes upper branch tips right; 3 rightward apex, needle fans turn and overlap differently; 4 returning through upright; 5 upper branches flex left; 6 left apex, then return to pose 1. Upper tip travel about 30px. The trunk and lower trunk/root region stay stationary. Independently redraw the bending branch and needle-clump forms, changing overlap and silhouette during the motion. This is real foliage acting, not six copies shifted, rotated, enlarged or warped as a whole. Match the approved existing toy storybook fir exactly; invent no ornaments, flowers or limbs. No text, labels, numbers, border, cast shadows or checkerboard pixels. Actual transparent background. All six individual trees must fit fully inside their own cells.",
+  "mode": "built-in image_gen",
+  "referenced_image_paths": [
+    "assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/objects/01_fir/identity_source.png"
+  ],
+  "transparent_background": true
+}
