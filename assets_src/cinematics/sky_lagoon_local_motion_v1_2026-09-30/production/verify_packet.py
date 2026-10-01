@@ -12,7 +12,7 @@ def main():
  payload=hashlib.sha256(''.join(r['path']+'\t'+r['sha256']+'\n' for r in sorted(rows,key=lambda r:r['path'])).encode()).hexdigest()
  assert payload==manifest['packet_payload_sha256']
  ase=args.aseprite if Path(args.aseprite).exists() else shutil.which('aseprite');assert ase,'Aseprite executable required for editable-master verification'
- checked=[]
+ checked=[];editable_states=0
  with tempfile.TemporaryDirectory(prefix='sky_packet_verify_') as scratch:
   scratch=Path(scratch).resolve()
   for item in manifest['objects']:
@@ -25,10 +25,24 @@ def main():
    subprocess.run([ase,'--batch',str(root/outputs['master']),'--save-as',str(target/'pose{frame}.png')],capture_output=True,check=True)
    paths=sorted(target.glob('pose*.png'),key=lambda p:int(p.stem.replace('pose','')));assert len(paths)==32
    for n,path in enumerate(paths):assert hashlib.sha256(Image.open(path).convert('RGBA').tobytes()).hexdigest()==item['state_rgba_sha256'][n],(item['id'],n,'editable state')
-   checked.append(item['id']);print(item['id']+' payload, atlas and editable states PASS',flush=True)
+   checked.append(item['id']);editable_states+=32;print(item['id']+' payload, atlas and editable states PASS',flush=True)
+  for pilot in manifest.get('fresh_pose_pilots',[]):
+   folder=(root/pilot['receipt']).parent;proof=json.loads((root/pilot['receipt']).read_text())
+   data=json.loads((folder/'spritesheet.json').read_text());atlas=Image.open(folder/'spritesheet.png').convert('RGBA')
+   count=pilot['keys'];assert count==8 and len(data['frames'])==count and atlas.size==(1024,512)
+   states=[]
+   for n,state in enumerate(data['frames']):
+    f=state['frame'];pose=atlas.crop((f['x'],f['y'],f['x']+f['w'],f['y']+f['h']))
+    assert pose.size==(256,256) and hashlib.sha256(pose.tobytes()).hexdigest()==proof['state_rgba_sha256'][n]
+    states.append(pose);assert pose.crop((0,0,256,69)).tobytes()==states[0].crop((0,0,256,69)).tobytes()
+   target=scratch/pilot['id'];target.mkdir()
+   subprocess.run([ase,'--batch',str(folder/'swing_pose_v2.aseprite'),'--save-as',str(target/'pose{frame}.png')],capture_output=True,check=True)
+   paths=sorted(target.glob('pose*.png'),key=lambda p:int(p.stem.replace('pose','')));assert len(paths)==count
+   for n,path in enumerate(paths):assert Image.open(path).convert('RGBA').tobytes()==states[n].tobytes(),(pilot['id'],n,'editable state')
+   checked.append(pilot['id']);editable_states+=count;print(pilot['id']+' fixed hooks, atlas and editable states PASS; creative gaps remain',flush=True)
   # TemporaryDirectory removes only its own verified, explicitly named scratch tree.
   assert scratch.name.startswith('sky_packet_verify_')
- result={'status':'PASS','payload_files':len(rows),'objects':checked,'editable_states':320,'payload_sha256':payload,'claim':'Byte integrity and exact editable raster states; reference-only, no creative/runtime/cinematic acceptance.'}
+ result={'status':'PASS','payload_files':len(rows),'objects':checked,'editable_states':editable_states,'payload_sha256':payload,'claim':'Byte integrity and exact editable raster states; reference-only, no creative/runtime/cinematic acceptance.'}
  if args.output:args.output.write_text(json.dumps(result,indent=2),encoding='utf-8')
- print('PACKET BYTES AND 320 EDITABLE RASTER STATES: ALL OK')
+ print('PACKET BYTES AND '+str(editable_states)+' EDITABLE RASTER STATES: ALL OK')
 if __name__=='__main__':main()

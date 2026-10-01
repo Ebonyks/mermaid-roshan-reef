@@ -1,0 +1,90 @@
+{
+  "id": "sky-lagoon-motion-owner-qc-20260930",
+  "scope": "Owner rejected transformed source art as the requested animation replacement and specifically rejected the swing's lateral axis. Record that rejection, correct gallery routing/status and the fore-and-aft swing brief, then evaluate fresh generated swing poses as a reference-only pilot before rebuilding other objects. Preserve all prior sources, failed takes and machine evidence. No runtime or cinematic acceptance.",
+  "baseline": "c9bc34c0644efa18cfd7c1b4dd93df134c14346a",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MOT-01",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-CIN-15"
+  ],
+  "findings": [
+    "MA-VIS-002",
+    "MA-VIS-006"
+  ],
+  "findings_effect": "Motion reference owner feedback only; no master-audit defect repaired or lifecycle changed.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/README.md",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/index.html",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/manifest.json",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/PILOT_RECEIPT.json",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/PROMPTS.json",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/alpha_edit_attempt_native.png",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/author_swing_pose.lua",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/fixed_frame_source.png",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/frames/frame_00.png",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/frames/frame_01.png",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/frames/frame_02.png",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/frames/frame_03.png",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/frames/frame_04.png",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/frames/frame_05.png",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/frames/frame_06.png",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/frames/frame_07.png",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/generated_pose_sheet_native.png",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/pose_board.png",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/pose_coordinates.lua",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/preview.gif",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/seat_isolation_native.png",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/spritesheet.json",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/spritesheet.png",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/swing_pose_v2.aseprite",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/production/verify_packet.py",
+    "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/qc/OWNER_REVIEW.json",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/sky-lagoon-motion-owner-qc-20260930.json"
+  ],
+  "validation": [
+    {
+      "command": "Owner visual review",
+      "result": "FAIL",
+      "evidence": "Owner: These just transform the existing items than truly animating them. Some are better than others, the swing is especially bad because it swings on the wrong axis. The entire set is rejected as a replacement animation solution; no individual acceptance inferred."
+    },
+    {
+      "command": "Existing exact-source whole-game CI",
+      "result": "PASS",
+      "evidence": "Unchanged game source at c9bc34c0644efa18cfd7c1b4dd93df134c14346a; https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36805436731 . New changes remain non-runtime; recheck scope before publication."
+    },
+    {
+      "command": "Fresh swing assembly; independent Aseprite export; gallery link/content checks",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/pilots/swing_pose_v2/PILOT_RECEIPT.json: eight newly generated drawings, identical upper hooks/frame pixels and exact editable export. Eight-key pilot still fails production quality/contact/completion; visual gaps listed explicitly. Gallery routing fixed and all 76 local href/src targets exist."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; production/verify_packet.py; gallery HTTP HEAD checks",
+      "result": "PASS",
+      "evidence": "Authority and diff coverage ALL OK; build/owner_qc_packet_check.json verifies all 179 payload files and 328 exact editable states, including eight new pilot keys. All 66 distinct gallery targets return HTTP 200. No runtime/source asset diff; previous exact whole-game CI c9bc34c0 is green. These checks grant no creative acceptance."
+    },
+    {
+      "command": "Official Godot 4.7.2 headless import with private save directory",
+      "result": "PASS",
+      "evidence": "build/owner_qc_import/import.log: exit 0, original CI critical error matcher clear; internal get_multiple_md5 f.is_null advisory retained. Generated import sidecars restored; new art is under the existing .gdignore boundary. Runtime/script/scene/source assets unchanged. No warning-clean claim."
+    },
+    {
+      "command": "Anonymous immutable owner-QC publication verification",
+      "result": "PENDING",
+      "evidence": "Verify the new manifest and all 179 payload files at the exact pushed revision; publish qc/REMOTE_VERIFICATION_QC_RECEIPT.json separately from the deterministic payload."
+    }
+  ],
+  "acceptance_gaps": "Current set fails the owner animation brief; swing axis is explicitly rejected. New pilot, other fresh motion poses, fresh frame redraws, owner selection, runtime/device/child and full-frame cinematic acceptance remain unfulfilled. New generation is bounded to the absent swing perspective poses; existing approved art supplies identity/style only. Built-in image generation is a pose-reference trial, not a Chinese video API success claim."
+}

@@ -1,16 +1,44 @@
 # Sky Lagoon â€” ten object motion studies and local Wan evaluation
 
 Owner commission: 2026-09-30. Source baseline: `7f068cb80766edd52a110cc1cb3958158f829822`.
-Status: `CANDIDATE / MOTION_REFERENCE_ONLY`. No game or runtime source changes.
+Status: `OWNER_REJECTED_AS_ANIMATION_REPLACEMENT / MOTION_REFERENCE_ONLY`. No game or runtime source changes.
 
 Open [the animated review gallery](index.html), [ten-object overview](overview.gif),
 or an individual editable Aseprite master under `objects/`.
 The set covers fir, huckleberry, hydrangea, bellflower, cloud, smoke,
 single-seat swing, seesaw, castle gate and stained-glass glint.
 
+## Owner correction and new swing pose trial
+
+The owner rejected this set as the requested animation replacement: it transforms
+existing items, and the swing moves on the wrong axis. “Some are better than
+others” grants no individual acceptance. The former lateral swing is rejected.
+Its masters, previews and machine checks remain historical evidence.
+
+The corrected swing rotates about the **horizontal suspension beam**. The seat
+moves toward and away from the camera, changing inclination, visible surfaces
+and occlusion; the frame and hooks stay fixed. That requires new drawn poses.
+[The exact review and corrected brief](qc/OWNER_REVIEW.json) record this distinction.
+
+[The new swing trial](pilots/swing_pose_v2/preview.gif) uses eight newly generated
+seat drawings, local rope-removal inpainting, and explicitly raster-painted
+suspension in [an editable Aseprite master](pilots/swing_pose_v2/swing_pose_v2.aseprite).
+The original approved frame stays fixed. Every output pixel is painted in
+Aseprite. A uniform 5/16 sampling step and per-pose horizontal registration fit
+the new drawings into the reference canvas; the old seat supplies identity only.
+This is a built-in ImageGen pose-reference pilot, not a Chinese video API result
+or human hand drawing. [Prompts](pilots/swing_pose_v2/PROMPTS.json), native outputs,
+the Lua recipe and [raster evidence](pilots/swing_pose_v2/PILOT_RECEIPT.json) are preserved.
+
+The pilot is **unaccepted**. Native cells 6–8 touch their boundaries; seat detail
+varies, socket/contact and constant-length perspective need review, and fresh
+in-between drawings are missing. Eight rough keys do not finish the requested
+ten-object redraw set. The original byte checks prove integrity, not animation
+quality or the correct axis. All runtime/cinematic/device/child gates stay open.
+
 ## What these files actually are
 
-The useful studies are **scripted source-based motion in Aseprite**, with 32
+The original studies are **scripted source-based transformations in Aseprite**, with 32
 timed RGBA states at nominal 12 fps. The Lua authoring tool paints each output
 pixel into a blank image using `Image.drawPixel`. It samples the existing art
 through explicit bends, rigid articulation/projection or a traveling light band.
@@ -48,7 +76,9 @@ interrupted 1280x704 attempt. A busy renderer must be left to its active client.
 dimensions, source path, modification and inherited license/provenance. Its
 deterministic payload hash is the SHA-256 of sorted `path + tab + file hash +
 newline` records. Operational remote-verification receipts are outside that
-payload; see `REMOTE_VERIFICATION_RECEIPT.json` after publication.
+payload. The original `REMOTE_VERIFICATION_RECEIPT.json` verifies the historical
+`29e59b1c` packet only. The owner-QC revision requires
+`qc/REMOTE_VERIFICATION_QC_RECEIPT.json` after its own immutable publication.
 
 [Machine verification](MACHINE_VERIFICATION.json) checks unchanged source
 hashes, all 320 timed states, exact Aseprite pixel round trips, transparent RGB,

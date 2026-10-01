@@ -4,7 +4,7 @@
   "created_at_utc": "2026-10-01T01:47:16.418062+00:00",
   "lane": "MOTION_REFERENCE_ONLY",
   "archive_payload_complete": true,
-  "ARCHIVE_COMPLETE": "PENDING_IMMUTABLE_REMOTE_VERIFICATION",
+  "ARCHIVE_COMPLETE": "PENDING_REVISED_IMMUTABLE_REMOTE_VERIFICATION",
   "GENERATION_READY": false,
   "DELIVERY_ACCEPTED": false,
   "fresh_frame_redraw_complete": false,
@@ -34,8 +34,8 @@
     {
       "path": "README.md",
       "role": "operator_and_acceptance_record",
-      "bytes": 6621,
-      "sha256": "617ad5fb1ade99b0eb394cc8e95d536f1b2cedabedc135c8c33a517230d2a7fe",
+      "bytes": 8670,
+      "sha256": "676dc4f6c14cddac1c71c1b5714a84071fac5af1b7dd5dfedc89995bf866455c",
       "source_path": "Owner-commissioned task record",
       "modification_status": "NEW_TASK_RECORD",
       "license_provenance": "Project-original task documentation"
@@ -56,8 +56,8 @@
     {
       "path": "index.html",
       "role": "interactive_review_gallery",
-      "bytes": 6274,
-      "sha256": "07d14e678fd533f145b4c8362b2b630051f9060ce1d5d6bcef622b62c5706ec7",
+      "bytes": 7512,
+      "sha256": "10650bdcddf381bab0412ebf658280436fbc69f714f34d72e24a4db79c16dccc",
       "source_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\authored\\index.html",
       "modification_status": "DERIVATIVE",
       "license_provenance": "Project-original source art and owner-authorized non-destructive reference derivative; inherited source terms in ASSET_LICENSES.md"
@@ -1523,6 +1523,255 @@
       ]
     },
     {
+      "path": "pilots/swing_pose_v2/PILOT_RECEIPT.json",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "bytes": 3380,
+      "sha256": "b6b147661cb2f0c60fdedc91afc68f146ee961c95244cb794a61f43cb4a27d4b"
+    },
+    {
+      "path": "pilots/swing_pose_v2/PROMPTS.json",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "bytes": 3936,
+      "sha256": "4649b5d766452897a27f95e45964e73d83010a26bf848da41cc67c05ccad4450"
+    },
+    {
+      "path": "pilots/swing_pose_v2/alpha_edit_attempt_native.png",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 2121917,
+      "sha256": "bccea07b5de9b1fda026f3cdec773469fab075f52568e4046392974a2168064d"
+    },
+    {
+      "path": "pilots/swing_pose_v2/author_swing_pose.lua",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "bytes": 3017,
+      "sha256": "eaf56242035e337c287e0d64cf40800d0e8241b15637df524b2ddb175c00f289"
+    },
+    {
+      "path": "pilots/swing_pose_v2/fixed_frame_source.png",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "dimensions": [
+        256,
+        256
+      ],
+      "bytes": 45842,
+      "sha256": "abd7c90d1b5e70d1e7f2d5598b999568c93d7625fe4265cbca34b4ef9e199aeb"
+    },
+    {
+      "path": "pilots/swing_pose_v2/frames/frame_00.png",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "dimensions": [
+        256,
+        256
+      ],
+      "bytes": 64510,
+      "sha256": "ca4bad001ef0a906f2bf58a5ec2cfe01ccb97a44878332e790c26e08aea35a9c"
+    },
+    {
+      "path": "pilots/swing_pose_v2/frames/frame_01.png",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "dimensions": [
+        256,
+        256
+      ],
+      "bytes": 62303,
+      "sha256": "14e89d3ff6757edc3e8a526176893dbf146e76381a53dda79c68b4076e33f445"
+    },
+    {
+      "path": "pilots/swing_pose_v2/frames/frame_02.png",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "dimensions": [
+        256,
+        256
+      ],
+      "bytes": 59982,
+      "sha256": "a0496706c8f9aa14c7675112035b2463e2c8b28f21cd224fef80317363565128"
+    },
+    {
+      "path": "pilots/swing_pose_v2/frames/frame_03.png",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "dimensions": [
+        256,
+        256
+      ],
+      "bytes": 62608,
+      "sha256": "d4f8fec433f88dc04e5201818d76fc253009d8b4f3ab042a73ae1c8d1785cef1"
+    },
+    {
+      "path": "pilots/swing_pose_v2/frames/frame_04.png",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "dimensions": [
+        256,
+        256
+      ],
+      "bytes": 64286,
+      "sha256": "0091c9a55bb3842610a7109bb0985926ce882a2b5b82d02b537039254545ca18"
+    },
+    {
+      "path": "pilots/swing_pose_v2/frames/frame_05.png",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "dimensions": [
+        256,
+        256
+      ],
+      "bytes": 64799,
+      "sha256": "8123334e6e48a988bd635699e74bb5fefe8d2844be8c66d8023e405a778b8716"
+    },
+    {
+      "path": "pilots/swing_pose_v2/frames/frame_06.png",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "dimensions": [
+        256,
+        256
+      ],
+      "bytes": 67275,
+      "sha256": "20d6c6b07e2aa55140cc2c14f5d9429fae1e1e65a3b7a20654e28bbfd8db160c"
+    },
+    {
+      "path": "pilots/swing_pose_v2/frames/frame_07.png",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "dimensions": [
+        256,
+        256
+      ],
+      "bytes": 64493,
+      "sha256": "4ca11a4c24539e250625b0273e4095f6cd42ab1bef2a9dc660fefe433c64f20b"
+    },
+    {
+      "path": "pilots/swing_pose_v2/generated_pose_sheet_native.png",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 2153306,
+      "sha256": "3553be3047d6187e10913b3ddee67bb83c86ade0356bc381989cb8a0f71048be"
+    },
+    {
+      "path": "pilots/swing_pose_v2/pose_board.png",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "bytes": 211572,
+      "sha256": "2024c6a833f0336a9aa3ec8adcef9ddcf12909683741e43552bfa1bf7644deac"
+    },
+    {
+      "path": "pilots/swing_pose_v2/pose_coordinates.lua",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "bytes": 355,
+      "sha256": "607c8cbb03d7d2f8568c5c20a14acded35007c26cd912a85f46ddcb5fc47fd76"
+    },
+    {
+      "path": "pilots/swing_pose_v2/preview.gif",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "dimensions": [
+        256,
+        256
+      ],
+      "bytes": 187743,
+      "sha256": "6255eeeaa607225b3259fdbaf154374bf5dc9acdc9745cab0c0d6080a0c89f3b"
+    },
+    {
+      "path": "pilots/swing_pose_v2/seat_isolation_native.png",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 1834158,
+      "sha256": "e71d924cc1f09aa8dbbf3f931d07dac6c5ee3cdc56edeb2ba7e81777811bb893"
+    },
+    {
+      "path": "pilots/swing_pose_v2/spritesheet.json",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "bytes": 2531,
+      "sha256": "a5196314d6071a1c695c18bbf11a04948a42659442d91db935b7d5e975d86597"
+    },
+    {
+      "path": "pilots/swing_pose_v2/spritesheet.png",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "bytes": 253339,
+      "sha256": "66c39f5d43e88b96c87ce88123346b0221d63c022977227c8ad008e12807773b"
+    },
+    {
+      "path": "pilots/swing_pose_v2/swing_pose_v2.aseprite",
+      "role": "unaccepted_fresh_swing_pose_pilot",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "bytes": 22472605,
+      "sha256": "b4c4cc3e43da27a9f730594dc3c9fa5c5446e8407a2a04e060ab9cf6ff632ca0"
+    },
+    {
       "path": "production/author_motion.lua",
       "role": "production_method_source",
       "bytes": 7568,
@@ -1573,8 +1822,17 @@
       "source_path": "Owner-commissioned task tooling",
       "modification_status": "NEW_TASK_TOOL",
       "license_provenance": "Project-original task tooling; repository code terms",
-      "bytes": 2865,
-      "sha256": "3b9d4cf462601f53a55d38b29a7cccc6ee71c853c06374b1955c8c4f46d5fab7"
+      "bytes": 4247,
+      "sha256": "065433301f44c4ebc2a9adeafc2fbba5309c1d0f2eca7989aba3ee52a5775c0f"
+    },
+    {
+      "path": "qc/OWNER_REVIEW.json",
+      "role": "owner_feedback_and_corrected_axis_contract",
+      "source_path": "Built-in image_gen and owner-authorized Aseprite pose-reference task; originals/inputs and hashes recorded in PILOT_RECEIPT.json and PROMPTS.json",
+      "modification_status": "NEW_NON_RUNTIME_REFERENCE; no creative acceptance",
+      "license_provenance": "Owner-commissioned generated derivative under OpenAI service terms and existing project source attribution; project-authored code/metadata. No exclusive copyright or acceptance claim.",
+      "bytes": 2243,
+      "sha256": "21025bcf058a1bdd1aacf7bf1dbff7c5634f2e86374c53c9adfa4adb9f532078"
     },
     {
       "path": "rejected/compact_swing/DISPOSITION.json",
@@ -1685,7 +1943,7 @@
       "license_provenance": "Project-authored machine evidence; no protected source pixels or creative acceptance"
     }
   ],
-  "packet_payload_sha256": "f5d8f465afb3dcdb2dd9c93b30e2789584cf6dd1e1aa9ffbc3c8518d302a4737",
+  "packet_payload_sha256": "f7cf782e4608f67b01b7ff1bdf2f4cfd283249116b92825f2d181d26ca1e21ec",
   "payload_hash_method": "SHA256 of lexically sorted path + TAB + file SHA256 + LF records; manifest and operational remote verification receipts excluded to avoid self-reference.",
   "objects": [
     {
@@ -1778,7 +2036,8 @@
         "events": "None: no gameplay commits, rewards, input or audio.",
         "interruptions": "Not runtime-integrated; pause/cancel/save obligations remain with any future game implementation.",
         "review": "Codex source/beat-board inspection and machine integrity only; owner/production/device/child acceptance pending."
-      }
+      },
+      "owner_disposition": "NOT_INDIVIDUALLY_ACCEPTED"
     },
     {
       "id": "02_huckleberry",
@@ -1870,7 +2129,8 @@
         "events": "None: no gameplay commits, rewards, input or audio.",
         "interruptions": "Not runtime-integrated; pause/cancel/save obligations remain with any future game implementation.",
         "review": "Codex source/beat-board inspection and machine integrity only; owner/production/device/child acceptance pending."
-      }
+      },
+      "owner_disposition": "NOT_INDIVIDUALLY_ACCEPTED"
     },
     {
       "id": "03_hydrangea",
@@ -1962,7 +2222,8 @@
         "events": "None: no gameplay commits, rewards, input or audio.",
         "interruptions": "Not runtime-integrated; pause/cancel/save obligations remain with any future game implementation.",
         "review": "Codex source/beat-board inspection and machine integrity only; owner/production/device/child acceptance pending."
-      }
+      },
+      "owner_disposition": "NOT_INDIVIDUALLY_ACCEPTED"
     },
     {
       "id": "04_bellflower",
@@ -2054,7 +2315,8 @@
         "events": "None: no gameplay commits, rewards, input or audio.",
         "interruptions": "Not runtime-integrated; pause/cancel/save obligations remain with any future game implementation.",
         "review": "Codex source/beat-board inspection and machine integrity only; owner/production/device/child acceptance pending."
-      }
+      },
+      "owner_disposition": "NOT_INDIVIDUALLY_ACCEPTED"
     },
     {
       "id": "05_cloud",
@@ -2146,7 +2408,8 @@
         "events": "None: no gameplay commits, rewards, input or audio.",
         "interruptions": "Not runtime-integrated; pause/cancel/save obligations remain with any future game implementation.",
         "review": "Codex source/beat-board inspection and machine integrity only; owner/production/device/child acceptance pending."
-      }
+      },
+      "owner_disposition": "NOT_INDIVIDUALLY_ACCEPTED"
     },
     {
       "id": "06_smoke",
@@ -2238,7 +2501,8 @@
         "events": "None: no gameplay commits, rewards, input or audio.",
         "interruptions": "Not runtime-integrated; pause/cancel/save obligations remain with any future game implementation.",
         "review": "Codex source/beat-board inspection and machine integrity only; owner/production/device/child acceptance pending."
-      }
+      },
+      "owner_disposition": "NOT_INDIVIDUALLY_ACCEPTED"
     },
     {
       "id": "07_swing",
@@ -2330,8 +2594,9 @@
         "contact_and_fixtures": "Declared fixed regions measured in MACHINE_VERIFICATION.json; final production sockets/occlusion/contact not accepted.",
         "events": "None: no gameplay commits, rewards, input or audio.",
         "interruptions": "Not runtime-integrated; pause/cancel/save obligations remain with any future game implementation.",
-        "review": "Codex source/beat-board inspection and machine integrity only; owner/production/device/child acceptance pending."
-      }
+        "review": "Owner rejected the lateral axis. Historical motion contract retained as failed evidence; current fore-and-aft contract is in qc/OWNER_REVIEW.json."
+      },
+      "owner_disposition": "REJECTED_WRONG_AXIS"
     },
     {
       "id": "08_seesaw",
@@ -2423,7 +2688,8 @@
         "events": "None: no gameplay commits, rewards, input or audio.",
         "interruptions": "Not runtime-integrated; pause/cancel/save obligations remain with any future game implementation.",
         "review": "Codex source/beat-board inspection and machine integrity only; owner/production/device/child acceptance pending."
-      }
+      },
+      "owner_disposition": "NOT_INDIVIDUALLY_ACCEPTED"
     },
     {
       "id": "09_gate",
@@ -2515,7 +2781,8 @@
         "events": "None: no gameplay commits, rewards, input or audio.",
         "interruptions": "Not runtime-integrated; pause/cancel/save obligations remain with any future game implementation.",
         "review": "Codex source/beat-board inspection and machine integrity only; owner/production/device/child acceptance pending."
-      }
+      },
+      "owner_disposition": "NOT_INDIVIDUALLY_ACCEPTED"
     },
     {
       "id": "10_glass",
@@ -2607,7 +2874,8 @@
         "events": "None: no gameplay commits, rewards, input or audio.",
         "interruptions": "Not runtime-integrated; pause/cancel/save obligations remain with any future game implementation.",
         "review": "Codex source/beat-board inspection and machine integrity only; owner/production/device/child acceptance pending."
-      }
+      },
+      "owner_disposition": "NOT_INDIVIDUALLY_ACCEPTED"
     }
   ],
   "local_ai_attempts": [
@@ -2701,5 +2969,53 @@
     "limits": "Combined native Windows baseline-source evidence. Initial import/first probes and final visual probes use normal clock; Dust Boss retry and intermediate probes use --fixed-fps 120, unchanged ci.sh assertions and touch modes. Original failed Dust Boss timing and Castle fixed-clock transient-layout runs retained alongside passing retries. Exact whole bash ci.sh success is not claimed; no runtime source changed. Baseline Linux CI succeeded at https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36791771742.",
     "document_contract_tests": 52,
     "document_contract_tests_result": "PASS"
-  }
+  },
+  "revision": "owner_qc_2",
+  "owner_review": {
+    "review_id": "owner-qc-20260930",
+    "owner_date": "2026-09-30 America/Los_Angeles",
+    "source_revision": "c9bc34c0644efa18cfd7c1b4dd93df134c14346a",
+    "owner_quote": "These just transform the existing items than truly animating them. Some are better than others, the swing is especially bad because it swings on the wrong axis",
+    "set_disposition": "REJECTED_AS_REQUESTED_ANIMATION_REPLACEMENT",
+    "individual_acceptance": "No individual acceptance inferred from some are better than others.",
+    "swing_v1_disposition": "REJECTED_WRONG_AXIS",
+    "corrected_swing_contract": {
+      "camera": "The existing fixed front view with slight downward view; use existing painted frame/seat identity.",
+      "axis": "Pendulum rotates about the horizontal left-to-right suspension beam. Seat travels fore and aft, toward and away from the camera; no lateral slide, yaw or horizontal swaying of the frame.",
+      "fixed": "Frame, hooks, support posts, camera and lighting.",
+      "required_new_pixels": "Fresh seat inclination, seat/backrest surface visibility, foreshortening and occlusion in individually drawn poses; ropes attach to fixed upper pivots and corresponding seat sockets. Source deformation is not a substitute for these drawings.",
+      "physics": "Constant physical rope length; speed highest through lowest center, slower near the apices. Apparent rope length and seat projection follow perspective.",
+      "beats": [
+        "Lowest neutral, going away",
+        "Departing toward rear",
+        "Rear apex",
+        "Returning toward neutral",
+        "Lowest neutral, coming toward camera",
+        "Departing toward near apex",
+        "Near apex",
+        "Returning toward neutral"
+      ],
+      "pilot": "pilots/swing_pose_v2/preview.gif",
+      "pilot_status": "UNACCEPTED_POSE_DIRECTION_PILOT",
+      "remaining": [
+        "Native seat detail varies.",
+        "Cells 6-8 touch native boundaries; clipping/neighbor contamination needs correction.",
+        "Socket/contact topology and constant-length perspective require review.",
+        "Fresh in-between drawings are missing."
+      ],
+      "lane": "MOTION_REFERENCE_ONLY; no cinematic or runtime acceptance"
+    },
+    "delivery_accepted": false,
+    "generation_ready": false
+  },
+  "creative_disposition": "REJECTED_AS_REQUESTED_ANIMATION_REPLACEMENT",
+  "fresh_pose_pilots": [
+    {
+      "id": "swing_pose_v2",
+      "status": "UNACCEPTED_POSE_DIRECTION_PILOT",
+      "keys": 8,
+      "receipt": "pilots/swing_pose_v2/PILOT_RECEIPT.json"
+    }
+  ],
+  "total_reference_timed_states": 328
 }
