@@ -306,9 +306,14 @@
       "evidence": "assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/PROJECT_VERIFICATION.json and verification/*.log"
     },
     {
-      "command": "Anonymous exact GitHub revision byte verification",
-      "result": "PENDING",
-      "evidence": "assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/REMOTE_VERIFICATION.json"
+      "command": "production/verify_remote.py 45c2b8269434cd241d4e94843ee85aa33fa4c39b",
+      "result": "PASS",
+      "evidence": "Anonymous HTTPS GET: 255 exact payload files, manifest and sorted payload ecc95de809dcd015d3467c1248abd77dc245b7cdccd33e25ef4d7426eac0844d; assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/REMOTE_VERIFICATION.json"
+    },
+    {
+      "command": "Hourly thread follow-up created",
+      "result": "PASS",
+      "evidence": "Codex heartbeat sky-lagoon-animation-review-loop ACTIVE; scoped correction/review and exact CI/integration continuation; quiet on unchanged state."
     }
   ],
   "acceptance_gaps": "References only. Agent inspection does not grant final runtime, Mobile, device, child, owner or cinematic acceptance; no finding closed."
