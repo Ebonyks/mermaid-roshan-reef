@@ -1,73 +1,113 @@
 {
  "schema": "identity_sheets_seed/1",
- "status": "PROPOSED / CANDIDATE seed; format follows assets_src/characters/grand_puff_2026-09-13/IDENTITY_LOCK.json",
+ "status": "PROPOSED / CANDIDATE seed, revision 2 (Roshan settled by the owner on 2026-09-30); format follows assets_src/characters/grand_puff_2026-09-13/IDENTITY_LOCK.json",
  "measured_at_head": "b65c21fdddd79f272a6854f241faa1441abe6616",
  "sheets": [
   {
    "id": "ID-ROSHAN",
    "name": "Mermaid Roshan",
-   "status": "OPEN: owner question OQ-VIS-ROSHAN",
-   "approved_images": {
-    "base_world_runtime_atlases": "assets/characters/roshan_25d/: roshan_directional, roshan_swim_front, roshan_swim_back, roshan_gesture_a to d, roshan_play_a and b, plus roshan_base.png; hashes in exemplar_seed.json",
-    "career_atlases": "assets/opera/worlds/actors/animation/roshan_<career>_sheet_a.png (15); hashes in exemplar_seed.json"
-   },
+   "status": "OWNER_DECIDED 2026-09-30: the approved atlases are the primary identity authority; the tail is iridescent and both renderings are correct",
+   "owner_decisions": [
+    "2026-09-30: lavender tail is canon; the atlases are primary approved, with some variance in appearance",
+    "2026-09-30 (clarification): both tails are right; the tail is rainbow and iridescent pink/purple depending on how light hits it"
+   ],
+   "identity_authority": "approved atlas family (DL-MED-02): assets/characters/roshan_25d/ runtime atlases and assets/opera/worlds/actors/animation/roshan_<career>_sheet_a.png; the protected book image is a likeness reference only",
    "invariants": [
-    "one young child mermaid; same face and age",
+    "one young child mermaid with the same soft round face, large brown eyes and age in every image",
     "brown wavy hair with a rainbow section",
-    "small gold tiara",
+    "one continuous iridescent mermaid tail with rainbow fins",
     "child-sized, distinct arms and hands",
-    "one continuous mermaid tail",
     "no legs, feet or shoes"
    ],
-   "variants": {
-    "A_base_world": {
-     "top": "pink ruffled",
-     "tail": "lavender sequin with sky-blue sheen",
-     "fins": "rainbow with gold",
-     "hair": "rainbow ponytail",
-     "contour": "thin indigo-plum on the body, brown on the hair",
-     "measured_palette": {
-      "tail": [
-       "#b9a1f2",
-       "#8e7adc",
-       "#757094"
-      ],
-      "hair": [
-       "#ae743e",
-       "#7e492a",
-       "#e29455"
-      ],
-      "top": [
-       "#eeb2e8"
-      ],
-      "skin": [
-       "#f9ddc2",
-       "#d49e99"
-      ],
-      "sheen": [
-       "#aad3f9",
-       "#64a8db"
-      ],
-      "gold": [
-       "#f4d74b"
-      ]
+   "tail": {
+    "description": "iridescent scales: pink, purple and lavender that show rainbow colours where the light hits them; fins rainbow in every state",
+    "light_states": {
+     "LAVENDER": {
+      "when": "soft or ambient light (proposed)",
+      "seen_in": "all nine runtime base-world atlases and roshan_base.png; Teacher and Geologist career atlases lean this way",
+      "measured_base_world_per_frame": {
+       "lavender_band": [
+        0.186,
+        0.286
+       ],
+       "pink_purple_band": [
+        0.025,
+        0.106
+       ],
+       "periwinkle_band": [
+        0.084,
+        0.159
+       ]
+      }
      },
-     "evidence": "data/roshan_identity_palette.json"
+     "RAINBOW": {
+      "when": "bright direct or stage light (proposed)",
+      "seen_in": "thirteen of fifteen career atlases and their portrait cards"
+     },
+     "MIXED": {
+      "when": "outdoor light (proposed)",
+      "seen_in": "Sky Lagoon playground sprites: paler, bluer lavender with a pastel rainbow belly band"
+     }
     },
-    "B_careers_and_cinematics": {
-     "top": "career costume",
-     "tail": "continuous rainbow gradient",
-     "hair": "longer, rainbow section",
-     "contour": "warmer brown",
-     "evidence": "data/roshan_identity_presence.json: base-world tail colours are 0.0-0.4% of 13 of 15 career atlases versus 16-21% of the base-world atlases; the cinematic SHARED_STYLE_AND_CHARACTER_GUIDE.txt says one continuous rainbow mer-tail"
-    }
+    "proposed_rule": "Pick the light state from the scene light; keep one state within a sheet and within a scene; never a flat single-colour or left/right two-tone tail (OQ-VIS-LIGHT-STATE)"
    },
+   "base_outfit": {
+    "top": "pink ruffled top with lilac ruffle sleeves",
+    "headwear": "small gold tiara with a blue gem",
+    "hair": "rainbow ponytail at the back",
+    "measured_palette": {
+     "tail": [
+      "#b9a1f2",
+      "#8e7adc",
+      "#757094"
+     ],
+     "hair": [
+      "#ae743e",
+      "#7e492a",
+      "#e29455"
+     ],
+     "top": [
+      "#eeb2e8"
+     ],
+     "skin": [
+      "#f9ddc2",
+      "#d49e99"
+     ],
+     "sheen": [
+      "#aad3f9",
+      "#64a8db"
+     ],
+     "gold": [
+      "#f4d74b"
+     ]
+    },
+    "evidence": "data/roshan_identity_palette.json"
+   },
+   "career_outfits": "a career costume may replace the top and the headwear; the face, hair colour, tail and fins stay Roshan",
+   "measured_family_profile_base_world": {
+    "frames": 129,
+    "saturation_mean": [
+     0.644,
+     0.731
+    ],
+    "lightness_mean": [
+     0.625,
+     0.675
+    ],
+    "silhouette_height_of_cell": [
+     0.594,
+     0.918
+    ],
+    "dark_edge_hue": "warm dark brown in 109 of 129 frames (hair-dominated edges); plum on the body and tail",
+    "evidence": "data/roshan_atlas_frames.json and data/roshan_single_images.json"
+   },
+   "variance": "ROSHAN_APPEARANCE_ANALYSIS.md sections 5 (results) and 7 (variance register RV-01 to RV-21); section 6 traces the second design to the identity reference roshan_sprite.png",
    "forbidden_changes": [
     "adult proportions",
     "legs, feet, shoes or a skirt hiding legs",
     "a second tail",
-    "a different crown",
-    "different hair colour",
+    "a flat single-colour or left/right two-tone tail",
+    "different hair or eye colour",
     "third-party characters, brands or logos"
    ],
    "do_not_bind": [
@@ -82,14 +122,15 @@
      "assets/ART_GENERATION_CONTRACT.md:46-47",
      "ART_STYLE_GUIDE.md identity section"
     ],
-    "reason": "matches no approved image"
+    "reason": "superseded by the 2026-09-30 owner decision; the clothing is pink, and the tail is iridescent rather than split"
    },
    "book_reference": {
     "path": "assets/book/hall/glass_mermaid.png",
     "protected": true,
     "shows": "brown hair, rainbow front lock, crown, pink puffed top, green-into-purple scaled tail, rainbow fin",
     "use": "likeness reference only; never edited"
-   }
+   },
+   "identity_anchor_rule": "every new Roshan job binds roshan_base.png or a base-world runtime atlas as its identity anchor; career atlases only as costume or pose anchors; roshan_sprite.png and the 13 career cards generated from it never"
   },
   {
    "id": "ID-DADDY",

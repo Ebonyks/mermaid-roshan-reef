@@ -7,6 +7,15 @@ only; no game change). Measured at `dev`
 The plan is [README.md](README.md); the proposed reference text is
 [VISUAL_LANGUAGE_DRAFT.md](VISUAL_LANGUAGE_DRAFT.md).
 
+**Update (2026-09-30, revision 2):** the owner settled the identity questions
+raised in sections 4.1 and 5. The approved atlases are Roshan's primary identity
+authority, and her tail is iridescent, lavender-pink-purple or rainbow
+depending on the light, so both renderings are correct. The frame-by-frame
+follow-up, which traces the remaining variance to the identity reference
+each batch was generated from, is
+[ROSHAN_APPEARANCE_ANALYSIS.md](ROSHAN_APPEARANCE_ANALYSIS.md). The evidence
+below is unchanged.
+
 **Owner request (2026-09-30):** *"Is the visual design language of the mermaid
 roshan articulated in the master audit in a way that it is easy for the game to
 reference and learn from itself how to develop future art? If not, implement a

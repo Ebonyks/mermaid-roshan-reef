@@ -9,9 +9,12 @@ plan to refine it."*
 game change and no images). **To:** Codex (implementation, tools and every
 image). **Owner:** answers the questions in section 6 and accepts the result.
 
-**Status:** `PROPOSED / CANDIDATE`, revision 1. This packet recommends; it
-grants no visual, device, child or owner acceptance and changes no existing
-finding lifecycle. The one register change made with it is the new tracking
+**Status:** `PROPOSED / CANDIDATE`, revision 2 (2026-09-30). Revision 2
+records the owner's identity decisions (section 6) and adds a frame-by-frame
+[appearance analysis](ROSHAN_APPEARANCE_ANALYSIS.md) of every runtime Roshan
+image, which the owner asked to receive as part of this handoff. This packet
+recommends; it grants no visual, device, child or owner acceptance and changes
+no existing finding lifecycle. The one register change made with it is the new tracking
 finding
 [`MA-DOC-008`](../../../audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-008)
 (P2, `CONFIRMED_OPEN`). Every work package still follows `CLAUDE.md`,
@@ -37,13 +40,15 @@ with this packet, they win until the owner changes them.
 | `README.md` | This handoff: target, work packages, acceptance, owner questions |
 | `VISUAL_LANGUAGE_AUDIT.md` | The answer and its evidence: routing, sources, measurements, contradictions |
 | `VISUAL_LANGUAGE_DRAFT.md` | Claude's draft of the reference text, to land as `design/reference/VISUAL_LANGUAGE.md` |
+| `ROSHAN_APPEARANCE_ANALYSIS.md` | Revision 2: every runtime Roshan image measured frame by frame and reviewed by eye; what is light, what is costume and what is drift |
 | `templates/ART_STYLE_CARD_V1.md` | One card per still-art job: bound exemplars, prompt fields, post-processing, checks |
 | `templates/ART_REVIEW_CARD_V1.md` | One review card: vetoes, six axes, weakest axis decides |
 | `data/visual_tokens_seed.json` | 22 visual tokens with value, strength, rule and source |
-| `data/identity_sheets_seed.json` | Identity sheets for Roshan (two approved variants) and seven more characters |
+| `data/identity_sheets_seed.json` | Identity sheets for Roshan (iridescent tail with two light states, per the owner) and seven more characters |
 | `data/registry_seed.json` | 25 hashed Roshan exemplars, exemplar candidate sources, rejection reason sources, today's nine rubrics |
 | `data/visual_contradictions.json` | 15 contradictions with a suggested resolution |
 | `data/contour_profile.json`, `castle_room_shadow_profile.json`, `roshan_identity_palette.json`, `roshan_identity_presence.json` | Measurements behind the audit |
+| `data/roshan_atlas_frames.json`, `data/roshan_single_images.json` | Revision 2: per-frame measurements of 24 atlases (368 frames) and 31 single images |
 | `tools/measure_visual_profile.py` | The read-only measurement script (Pillow; never writes images) |
 | `MANIFEST.json` | SHA-256 of every file in this folder |
 
@@ -61,7 +66,7 @@ follow.
 | The language is scattered over design 06, design 02, a partly superseded style guide, a generation contract, scoring documents, an archived lighting audit and 42 copies of a cinematic text | One reference, `design/reference/VISUAL_LANGUAGE.md`, one link from the master audit's Art row |
 | One of ten `DL-VIS-*` rules has numbers; no colour values in governed documents | Tokens with values, tolerances and sources in one data file that tools read |
 | One image named by any rule | Exemplar and anti-exemplar registries with hashes and the lesson each teaches |
-| Roshan described four ways | Identity sheets for every recurring character; the owner picks Roshan's canonical variant |
+| Roshan described four ways | Identity sheets for every recurring character; Roshan's records the owner's decision (atlases primary; iridescent tail) and a reviewed list of the remaining variance |
 | Ten partial generation protocols; nine rubrics | One style card and one review card |
 | Nothing learns | Family profiles are computed from the exemplars; every review adds to the registries |
 
@@ -102,8 +107,9 @@ How the game draws from it:
 - **Claude writes; Codex builds every image** (`CLAUDE.md`, 2026-09-30).
   Claude does not run `tools/audit_castle_card_alpha.py` or
   `tools/audit_fairy_art_v2.py`, which write contact sheets.
-- **No Roshan art changes in this handoff.** Her canonical variant is an
-  owner decision (section 6, Q1).
+- **No Roshan art changes in this handoff.** The owner settled her identity
+  (section 6, Q1 and Q2); every remaining variance item goes to the owner as a
+  review list before any art changes.
 - **Rules stay in design 06.** The reference links to `DL-*` IDs and does
   not restate them. New rules need the owner (section 6, Q8).
 - **No runtime file, protected path or high-risk file changes** unless the
@@ -118,7 +124,7 @@ How the game draws from it:
 | Refinement WP-11 (checks), WP-13 (runtime tokens) | `registry --check` joins WP-11's checks; runtime tokens stay owner-gated |
 | [Consolidation handoff](../codex_reference_consolidation_2026-09-30/README.md) R06 and W1 | This packet is R06's detailed plan. Absorb the style guide, generation contract, scoring documents, `LIGHTING_2P5D_AUDIT_2026-08-02.md` and `LIVING_CARD_DESIGN_LANGUAGE_2026-07-29.md` before W4 archives them |
 | [Visual polish handoff](../codex_visual_polish_2026-09-25/README.md) | Its repairs continue; its style-matching protocol becomes the style card; its line letting Claude build reference packs is superseded |
-| Door highlight and imp contest handoffs | Their colours and reuse rules feed the tokens and the registry |
+| Door highlight and imp contest handoffs | Their colours and reuse rules feed the tokens and the registry; the imp contest already forbids drawing the tail-cropping career cards as full-body actors (analysis RV-15) |
 | `MA-VIS-003`, `MA-VIS-004` | Stay under `DL-VIS-08`; source averages are not evidence |
 
 ## 4. Work packages
@@ -140,18 +146,35 @@ retired Roshan wording in `design/01_GAME_DESIGN.md` and
 section 4's opening paragraph to the reference. **Gate:** both governance
 gates ALL OK; every `DL-*`, `EX-*`, `ID-*` and token ID cited resolves.
 
-### VL2 — Identity sheets
+### VL2 — Identity sheets (Roshan settled by the owner)
 
-Write `ID-ROSHAN` first, with the variants the owner keeps (Q1). Sample
-colours with pixel coordinates from approved images and record scale against
-Roshan from runtime captures, as Grand Puff's lock does. Then Daddy, Rumi,
-Baby Eagle, dust bunnies, Grand Puff (link its lock), the pearl plane and the
-rival imps. **Gate:** each sheet cites approved images by hash; no protected
-file changes.
+Write `ID-ROSHAN` from section 8 of the
+[appearance analysis](ROSHAN_APPEARANCE_ANALYSIS.md): identity anchor is a
+base-world atlas or `roshan_base.png`; the tail is iridescent with a named
+light state; base outfit; age and build; line and finish; forbidden changes;
+the measured base-world ranges of section 5.1. Sample colours with pixel
+coordinates and record scale against props from runtime captures, as Grand
+Puff's lock does. Then Daddy, Rumi, Baby Eagle, dust bunnies, Grand Puff (link
+its lock), the pearl plane and the rival imps. **Gate:** each sheet cites
+approved images by hash; no protected file changes.
+
+### VL2a — Roshan variance review
+
+Put the variance register (analysis section 7, RV-03 to RV-21) to the owner as
+one review list with the suggested handling. For each defect the owner
+approves, prepare an art style card for the repair (same pose, costume and
+light state; identity anchor from the base world) but do not run it until the
+owner approves the batch. Make sure no runtime path draws the tail-cropping
+career cards as full-body actors. **Gate:** the review list is published with
+the impact record; no approved image changes in this handoff.
 
 ### VL3 — Registries
 
-Load the 25 Roshan exemplars from `data/registry_seed.json`. Promote
+Load the 25 Roshan exemplars from `data/registry_seed.json`, by role:
+base-world atlases are identity exemplars; career atlases are costume and pose
+exemplars only; `roshan_sprite.png` and the 13 career cards generated from it
+are "never bind as identity" anti-exemplars (reason code
+`RC-IDENTITY-SOURCE`, analysis section 6). Promote
 candidates from the existing approval ledgers only with approval evidence,
 and say what each teaches. Merge the rejection sources into one `RC-*`
 taxonomy and add anti-exemplars with reason codes. Link existing ledgers
@@ -179,7 +202,9 @@ validate against the templates' required fields.
 
 Build `tools/visual_language.py` from `measure_visual_profile.py`:
 `profile` (family statistics from exemplars), `check FILE --family F`
-(distance from the profile), `registry --check` (paths, hashes, unique IDs,
+(distance from the profile), `check FILE --identity ID-ROSHAN` (light state,
+hair and finish indicators against the base-world ranges, from the `cells`
+measurements), `registry --check` (paths, hashes, unique IDs,
 family coverage) and `render` (tokens table). Add unit tests with fixture
 images built in the test, a stress case that must fail, and run `profile` and
 `check` as advisory steps in `scripts/ci.sh`; `registry --check` blocks.
@@ -218,7 +243,7 @@ into the development contract only if the owner accepts it (Q10).
 |---|---|---|
 | AC-1 | The Art row reaches the reference in one link, and the reference reaches every visual token, identity sheet and template in one more | Link check |
 | AC-2 | Every token in the reference comes from `visual_language.json`; no value typed twice | `render --check` |
-| AC-3 | Roshan's sheet matches the owner's answer; no governed document keeps the retired wording | Grep |
+| AC-3 | `ID-ROSHAN` records the owner's decisions (atlases primary; iridescent tail with named light states); no governed document keeps the retired wording; every new Roshan card binds a base-world identity anchor | Grep and card check |
 | AC-4 | Every recurring character has an identity sheet citing hashed approved images | Registry check |
 | AC-5 | Every family has at least three exemplars or a recorded gap; every anti-exemplar has reason codes | Registry check |
 | AC-6 | One threshold each for spill, visible alpha, coverage and crushed pixels, used by the tool | Tool tests |
@@ -227,13 +252,14 @@ into the development contract only if the owner accepts it (Q10).
 | AC-9 | The cold-start dry run passes and the owner accepts it | Dry-run record |
 | AC-10 | No approved or protected image changed; no image written by Claude | `git diff` and the impact record |
 | AC-11 | `MA-DOC-008` acceptance met and recorded in its history | The finding record |
+| AC-12 | The Roshan variance review list (RV-03 to RV-21) is with the owner, each item with suggested handling; no approved image changed without approval | Review list and `git diff` |
 
 ## 6. Owner questions (Codex proceeds on the default and reports it)
 
 | # | Question | Default |
 |---|---|---|
-| Q1 | Which Roshan do new pictures continue: the base-world lavender sequin tail, the career and cinematic rainbow tail, or one unified design (`OQ-VIS-ROSHAN`)? | Keep both approved variants; every card names its variant; no art changes |
-| Q2 | Is Roshan's identity authority the book (`DL-VIS-06`) or the approved atlas family (`DL-MED-02`) (`OQ-VIS-AUTHORITY`)? | Atlas family for game art; book for picture-book pages and for face and age |
+| Q1 | Which Roshan do new pictures continue (`OQ-VIS-ROSHAN`)? | **Answered 2026-09-30:** her tail is iridescent; the lavender and rainbow renderings are both correct |
+| Q2 | Is Roshan's identity authority the book (`DL-VIS-06`) or the approved atlas family (`DL-MED-02`) (`OQ-VIS-AUTHORITY`)? | **Answered 2026-09-30:** the approved atlases are primary; the book is a likeness reference |
 | Q3 | Keep the imps' heavy near-black line as their deliberate look (`OQ-VIS-RIVAL-LINE`)? | Yes, recorded as the rival family trait |
 | Q4 | Are the four flat-shell rooms placeholders to repaint (`OQ-VIS-FLAT-ROOMS`)? | Yes, as backlog outside this handoff |
 | Q5 | May warm-floored rooms keep warm dark local colour (`OQ-VIS-WARM-ROOMS`)? | Yes for local colour; shading stays cool |
@@ -243,6 +269,11 @@ into the development contract only if the owner accepts it (Q10).
 | Q9 | May the cold-start dry run generate its two images (kept as candidates, not placed in the game)? | No; stop at the cards |
 | Q10 | Add the keep-fresh step to the development contract? | Recommendation only until accepted |
 | Q11 | May Codex update the art-direction paragraphs of `CLAUDE.md` and `AGENTS.md` to point to the reference (high-risk files)? | No, unless the owner names it |
+| Q12 | Does the tail's light state follow the scene light: lavender in soft or ambient light, rainbow in bright or stage light, mixed outdoors, one state per sheet and scene (`OQ-VIS-LIGHT-STATE`)? | Yes |
+| Q13 | The 13 career cards, 13 career atlases and the playground sprites show an older, slimmer Roshan with a loose rainbow lock and a muted finish (RV-03, RV-04, RV-06). Keep them, or regenerate them from the base-world identity over time? | Keep them; all new art follows the base-world child; regenerate only when the owner orders it |
+| Q14 | Does Roshan wear the tiara whenever she is not in a career costume (RV-05)? | Yes, for new art |
+| Q15 | Approve repairs for the defects in RV-07 to RV-20 (Geologist's missing fins, Pop Star's second-tail ribbon, cropped tails, baked effects, halo, tail flip, specks, mismatched frames)? | Codex prepares repair cards; each repair waits for approval |
+| Q16 | The unused images with a third-party cartoon backpack (RV-21): quarantine them under an IP hold, as with Gabby, and stop the two tools reading them? | Yes; the owner decides whether they leave the public repository |
 
 ## 7. Gates and delivery
 

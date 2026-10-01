@@ -7,6 +7,8 @@ Reproduces the measurements in VISUAL_LANGUAGE_AUDIT.md:
   shadows   hue family of the darkest 15% of pixels in each castle room background
   palette   dominant colours (k-means) of a set of images
   identity  share of pixels near named identity colours (for example Roshan's tail)
+  cells     the same per sprite-sheet frame, plus silhouette size, saturation and contour
+            colour (needs NumPy)
 
 Usage, from the repository root:
 
@@ -273,6 +275,125 @@ def measure_identity(files: list[str], groups: list[str], tolerance: int) -> dic
 	}
 
 
+def _hls_arrays(rgb):
+	"""Vectorised RGB (0-255, shape n x 3) to hue degrees, lightness, saturation."""
+	import numpy as np
+	values = rgb.astype(np.float64) / 255.0
+	high = values.max(axis=1)
+	low = values.min(axis=1)
+	light = (high + low) / 2.0
+	span = high - low
+	denom = 1.0 - np.abs(2.0 * light - 1.0)
+	sat = np.where(span > 1e-9, span / np.maximum(denom, 1e-9), 0.0)
+	r, g, b = values[:, 0], values[:, 1], values[:, 2]
+	safe = np.maximum(span, 1e-9)
+	hue = np.where(high == r, ((g - b) / safe) % 6.0,
+		np.where(high == g, (b - r) / safe + 2.0, (r - g) / safe + 4.0))
+	hue = np.where(span > 1e-9, hue * 60.0, 0.0)
+	return hue, light, np.clip(sat, 0.0, 1.0)
+
+
+def measure_cells(files: list[str], cell: int, groups: list[str], tolerance: int) -> dict:
+	"""Per-frame identity measurements for sprite sheets (cell > 0) or single images (cell 0)."""
+	try:
+		import numpy as np
+	except ImportError:  # pragma: no cover - environment guard
+		sys.exit("the cells measurement needs NumPy")
+	parsed: dict[str, "np.ndarray"] = {}
+	for group in groups:
+		name, _, colours = group.partition("=")
+		parsed[name] = np.array([parse_hex(c) for c in colours.split(",") if c.strip()], dtype=np.int32)
+	limit = tolerance * tolerance
+	results = []
+	for path in files:
+		if path.startswith(PROTECTED):
+			continue
+		data = np.asarray(Image.open(path).convert("RGBA")).astype(np.int32)
+		height, width = data.shape[:2]
+		if cell and width % cell == 0 and height % cell == 0:
+			origins = [(x, y) for y in range(0, height, cell) for x in range(0, width, cell)]
+			cell_w = cell_h = cell
+		else:
+			origins = [(0, 0)]
+			cell_w, cell_h = width, height
+		frames = []
+		for index, (ox, oy) in enumerate(origins):
+			block = data[oy:oy + cell_h, ox:ox + cell_w]
+			alpha = block[..., 3]
+			opaque = alpha >= 230
+			count = int(opaque.sum())
+			if count < 400:
+				continue
+			ys, xs = np.nonzero(opaque)
+			pixels = block[ys, xs, :3]
+			frame = {
+				"cell": index,
+				"opaque_px": count,
+				"bbox_height_frac": round(float(ys.max() - ys.min() + 1) / cell_h, 3),
+				"bbox_width_frac": round(float(xs.max() - xs.min() + 1) / cell_w, 3),
+				"bottom_margin_px": int(cell_h - 1 - ys.max()),
+				"centre_x_offset_frac": round(float((xs.max() + xs.min()) / 2.0 - cell_w / 2.0) / cell_w, 3),
+			}
+			for name, colours in parsed.items():
+				distances = ((pixels[:, None, :] - colours[None, :, :]) ** 2).sum(axis=2).min(axis=1)
+				frame[f"{name}_share"] = round(float((distances <= limit).mean()), 3)
+			hue, light, sat = _hls_arrays(pixels)
+			frame["saturation_mean"] = round(float(sat.mean()), 3)
+			frame["lightness_mean"] = round(float(light.mean()), 3)
+			vivid = (sat >= 0.6) & (light >= 0.3) & (light <= 0.8)
+			frame["vivid_share"] = round(float(vivid.mean()), 3)
+			# Any lavender or periwinkle, including paler lilac than the canonical swatches.
+			lavender = (hue >= 235) & (hue <= 290) & (sat >= 0.25) & (light >= 0.45) & (light <= 0.92)
+			frame["lavender_band_share"] = round(float(lavender.mean()), 3)
+			# Bluer periwinkle and blue-grey, which reads as lavender at a glance.
+			periwinkle = (hue >= 200) & (hue < 235) & (sat >= 0.15) & (light >= 0.45) & (light <= 0.92)
+			frame["periwinkle_band_share"] = round(float(periwinkle.mean()), 3)
+			# Pink to purple, the other iridescent state of the tail (and pink tops).
+			pink_purple = (hue > 290) & (hue <= 345) & (sat >= 0.25) & (light >= 0.45) & (light <= 0.92)
+			frame["pink_purple_band_share"] = round(float(pink_purple.mean()), 3)
+			if vivid.any():
+				bins = np.bincount((hue[vivid] // 30).astype(int) % 12, minlength=12) / float(vivid.sum())
+				frame["vivid_hue_bins_over_5pct"] = int((bins >= 0.05).sum())
+			solid = alpha >= 200
+			clear = alpha < 40
+			neighbour_clear = np.zeros_like(clear)
+			neighbour_clear[1:, :] |= clear[:-1, :]
+			neighbour_clear[:-1, :] |= clear[1:, :]
+			neighbour_clear[:, 1:] |= clear[:, :-1]
+			neighbour_clear[:, :-1] |= clear[:, 1:]
+			edge = solid & neighbour_clear
+			edge_rgb = block[edge][:, :3]
+			if len(edge_rgb):
+				luma_values = 0.2126 * edge_rgb[:, 0] + 0.7152 * edge_rgb[:, 1] + 0.0722 * edge_rgb[:, 2]
+				dark = edge_rgb[luma_values < DARK_LUMA]
+				frame["dark_edge_share"] = round(float(len(dark)) / len(edge_rgb), 3)
+				if len(dark):
+					frame["dark_edge_mean"] = describe(tuple(float(v) for v in dark.mean(axis=0)))
+			frames.append(frame)
+		summary = {"file": path, "size": [width, height], "cell": cell_w if len(origins) > 1 else 0, "frames_measured": len(frames)}
+		for key in [f"{name}_share" for name in parsed] + ["lavender_band_share", "periwinkle_band_share", "pink_purple_band_share", "bbox_height_frac", "saturation_mean", "lightness_mean", "vivid_share", "vivid_hue_bins_over_5pct"]:
+			values = [frame[key] for frame in frames if key in frame]
+			if values:
+				summary[key] = {"mean": round(sum(values) / len(values), 3), "min": min(values), "max": max(values)}
+		hexes = [frame["dark_edge_mean"]["hue"] for frame in frames if "dark_edge_mean" in frame]
+		if hexes:
+			summary["dark_edge_hue_range"] = [min(hexes), max(hexes)]
+		results.append({"summary": summary, "frames": frames})
+	return {
+		"measure": "cells",
+		"method": (
+			f"Frames are {cell}px grid cells (0 = whole image). Opaque means alpha >= 230; group shares count "
+			f"opaque pixels within RGB distance {tolerance} of any group colour; lavender band means hue 235-290 deg, "
+			f"saturation >= 0.25 and lightness 0.45-0.92 (catches paler lilac, but also purple costume); periwinkle band "
+			f"means hue 200-235 deg, saturation >= 0.15 and lightness 0.45-0.92 (bluer tails, but also blue costume); pink-purple "
+			f"band means hue 290-345 deg with the same saturation and lightness limits as lavender (tail or pink top); vivid means "
+			f"saturation >= 0.6 and lightness 0.3-0.8; dark edge means a silhouette-edge pixel with luma below {DARK_LUMA}."
+		),
+		"groups": {name: ["#%02x%02x%02x" % tuple(int(v) for v in c) for c in colours] for name, colours in parsed.items()},
+		"files": results,
+	}
+
+
 def main(argv: list[str] | None = None) -> int:
 	parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
 	sub = parser.add_subparsers(dest="command", required=True)
@@ -289,7 +410,12 @@ def main(argv: list[str] | None = None) -> int:
 	identity.add_argument("--group", action="append", required=True,
 		help="name=#hex,#hex,... (repeatable)")
 	identity.add_argument("--tolerance", type=int, default=32)
-	for command in (contour, shadows, palette, identity):
+	cells = sub.add_parser("cells")
+	cells.add_argument("files", nargs="+")
+	cells.add_argument("--cell", type=int, default=256, help="grid cell size in px; 0 measures each file whole")
+	cells.add_argument("--group", action="append", required=True, help="name=#hex,#hex,... (repeatable)")
+	cells.add_argument("--tolerance", type=int, default=32)
+	for command in (contour, shadows, palette, identity, cells):
 		command.add_argument("--out")
 	args = parser.parse_args(argv)
 	if args.command == "contour":
@@ -298,6 +424,8 @@ def main(argv: list[str] | None = None) -> int:
 		result = measure_shadows()
 	elif args.command == "identity":
 		result = measure_identity(args.files, args.group, args.tolerance)
+	elif args.command == "cells":
+		result = measure_cells(args.files, args.cell, args.group, args.tolerance)
 	else:
 		result = measure_palette(args.files, args.k, args.seed)
 	text = json.dumps(result, indent=1, ensure_ascii=False) + "\n"

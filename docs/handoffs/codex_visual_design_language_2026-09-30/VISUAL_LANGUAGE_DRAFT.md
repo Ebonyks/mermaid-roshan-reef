@@ -61,7 +61,7 @@ style cards), tokens, exemplars and anti-exemplars.
 
 | ID | Family | Style line | Measured now | Open question |
 |---|---|---|---|---|
-| F-HERO | Roshan atlases (base world and careers) | Polished children's storybook sprite, clean dark plum outline, soft cel shading | Body contour indigo-plum; hair contour brown | `OQ-VIS-ROSHAN` |
+| F-HERO | Roshan atlases (base world and careers) | Polished children's storybook sprite, clean dark plum outline, soft cel shading; iridescent tail in the scene's light state | Body contour indigo-plum; hair contour brown; base world saturation about 0.70, careers about 0.53 | Identity settled 2026-09-30; `OQ-VIS-LIGHT-STATE` |
 | F-CAST | Family and friends from the book and the cinematic guide | Match the identity sheet exactly; never restyle protected art | Not measured (protected) | — |
 | F-RIVAL | Opera imps and rivals | As drawn today: chunky cartoon imp, heavy dark outline, saturated purple skin | Contour near-neutral `#101314` | `OQ-VIS-RIVAL-LINE` |
 | F-CREATURE | Dust bunnies, Grand Puff, Baby Eagle | Friendly round storybook creatures; Grand Puff per its identity lock | Dust bunnies `#353b4e` (slate) | — |
@@ -83,29 +83,47 @@ and scale against Roshan.
 
 ### Roshan (`ID-ROSHAN`)
 
+**Settled by the owner on 2026-09-30:** the approved atlases are her primary
+identity authority, and her tail is iridescent: pink, purple and lavender
+scales that show rainbow colours depending on how the light hits them. The
+lavender rendering and the rainbow rendering are both correct. Evidence:
+[ROSHAN_APPEARANCE_ANALYSIS.md](ROSHAN_APPEARANCE_ANALYSIS.md).
+
 - **Approved images** (`DL-MED-02`): `assets/characters/roshan_25d/` (nine
   runtime atlases and `roshan_base.png`) and the fifteen career atlases in
   `assets/opera/worlds/actors/animation/`.
-- **Invariants in every variant:** one young child mermaid; the same face and
-  age; brown wavy hair with a rainbow section; small gold tiara; arms and
-  hands child-sized and distinct; one continuous mermaid tail; no legs, feet
-  or shoes.
-- **Variant A (base world, measured on the runtime atlases):** pink ruffled
-  top `#eeb2e8`; lavender sequin tail `#b9a1f2`, `#8e7adc` (shade `#757094`)
-  with sky-blue sheen `#aad3f9`, `#64a8db`; rainbow fins with gold `#f4d74b`;
+- **Invariants in every image:** one young child mermaid with the same soft
+  round face, large brown eyes and age; brown wavy hair with a rainbow section;
+  one continuous iridescent tail with rainbow fins; child-sized, distinct arms
+  and hands; no legs, feet or shoes.
+- **Tail light states:**
+
+| State | Looks like | Seen in | Proposed use |
+|---|---|---|---|
+| Lavender | Lavender and periwinkle sequins with pink and sky-blue sheen | All base-world atlases; Teacher and Geologist lean this way | Soft or ambient light: exploring the castle and Sky Lagoon |
+| Rainbow | Continuous rainbow-gradient scales | Thirteen career atlases and their portrait cards | Bright or stage light: Opera careers |
+| Mixed | Paler, bluer lavender with a pastel rainbow belly band | Sky Lagoon playground sprites | Outdoor light |
+
+  Proposed rule (`OQ-VIS-LIGHT-STATE`): choose the state from the scene's
+  light, keep one state within a sheet and a scene, and keep the fins rainbow.
+- **Base outfit (measured on the runtime atlases):** pink ruffled top
+  `#eeb2e8`; small gold tiara with a blue gem `#f4d74b`; rainbow ponytail;
   brown hair `#ae743e`, `#7e492a`, `#e29455`; skin `#f9ddc2` with blush
-  `#d49e99`; rainbow ponytail.
-- **Variant B (thirteen of the fifteen career atlases, and the cinematic
-  guide):** costume top; continuous rainbow tail; longer hair; warmer brown
-  contours. Geologist and Teacher keep more lavender in the tail.
-- **Forbidden:** adult proportions, legs, a second tail, a different crown,
-  different hair colour, third-party characters or brands (the old reference
-  sprite `assets/characters/roshan_sprite.png` carries one and must never be
-  bound).
+  `#d49e99`; lavender-state tail `#b9a1f2`, `#8e7adc` (shade `#757094`) with
+  sheen `#aad3f9`, `#64a8db`.
+- **Career outfits:** a costume may replace the top and the headwear; her
+  face, hair colour, tail and fins stay hers.
+- **Recorded variance:** hair style and where the rainbow sits, headwear,
+  outline colour, rendering and scale differ between atlas families
+  (analysis section 5). Each item goes to the owner; no art changes without
+  approval.
+- **Forbidden:** adult proportions; legs, feet or shoes; a second tail; a flat
+  single-colour or left/right two-tone tail; different hair or eye colour;
+  third-party characters, brands or logos (the old sprite
+  `assets/characters/roshan_sprite.png` carries one and is never bound).
 - **Retired wording:** "lavender clothing, green-right / pink-left tail"
-  matches no approved image (design 01, design 02, scoring governance,
-  generation contract).
-- **Open:** `OQ-VIS-ROSHAN`, `OQ-VIS-AUTHORITY`.
+  (design 01, design 02, scoring governance, generation contract) is
+  superseded by the owner decision.
 
 ### The rest of the cast
 
@@ -178,7 +196,9 @@ WP-13, owner-gated).
 
 1. Name the gap and show why existing art cannot be reused.
 2. Pick the family and bind exemplars: identity anchor, style anchor, and
-   optionally a neighbour and a previous state.
+   optionally a neighbour and a previous state. For Roshan the identity anchor
+   is always `roshan_base.png` or a base-world atlas; career art is bound only
+   for costume or pose (appearance analysis, section 6).
 3. Fill `ART_STYLE_CARD_V1` in the proven order: use case, inputs, request,
    invariants, backdrop, style line, framing, constraints, avoid.
 4. Codex generates, post-processes and checks. New frames for an existing
@@ -220,8 +240,11 @@ recolours approved art (`DL-VIS-08`).
 
 | ID | Question | Default until answered |
 |---|---|---|
-| `OQ-VIS-ROSHAN` | Which Roshan do new pictures continue: the base-world lavender-sequin tail, the career and cinematic rainbow tail, or one unified design? | Keep both approved variants; every card names its variant; no art changes |
-| `OQ-VIS-AUTHORITY` | Is the identity authority the book (`DL-VIS-06`) or the approved atlas family (`DL-MED-02`)? | Atlas family for game art; book for picture-book pages and for face and age |
+| `OQ-VIS-ROSHAN` | Which Roshan do new pictures continue? | **Answered 2026-09-30:** her tail is iridescent; lavender and rainbow renderings are both correct |
+| `OQ-VIS-LIGHT-STATE` | Does the tail's light state follow the scene light (lavender in soft or ambient light, rainbow in bright or stage light, mixed outdoors), one state per sheet and scene? | Yes |
+| `OQ-VIS-SECOND-DESIGN` | Keep the older, slimmer career and playground Roshan (loose rainbow lock, muted finish), or regenerate it from the base-world identity over time? | Keep existing art; all new art follows the base-world child |
+| `OQ-VIS-TIARA` | Does Roshan wear the tiara whenever she is not in a career costume? | Yes, for new art |
+| `OQ-VIS-AUTHORITY` | Is the identity authority the book (`DL-VIS-06`) or the approved atlas family (`DL-MED-02`)? | **Answered 2026-09-30:** the approved atlases are primary; the book is a likeness reference |
 | `OQ-VIS-RIVAL-LINE` | Keep the imps' heavy near-black line as their deliberate look, or move them to the plum line? | Keep, and record it as the rival family trait |
 | `OQ-VIS-FLAT-ROOMS` | Are the four flat-shell rooms placeholders to repaint? | Yes, as backlog; not part of this handoff |
 | `OQ-VIS-WARM-ROOMS` | May rooms with warm floors (Craft Room, Movie Lounge, Playroom) keep warm dark local colour? | Yes for local colour; shading stays cool |

@@ -1,0 +1,74 @@
+{
+  "id": "roshan-identity-analysis-20260930",
+  "scope": "Owner decisions (2026-09-30) on Roshan's identity and the owner-requested comprehensive appearance analysis, delivered as revision 2 of the visual design language handoff. Decisions: the approved atlases are the primary identity authority; the tail is iridescent (lavender-pink-purple or rainbow depending on light), so base-world and career renderings are both correct. Adds docs/handoffs/codex_visual_design_language_2026-09-30/ROSHAN_APPEARANCE_ANALYSIS.md (all 53 runtime Roshan images and two unused ones measured frame by frame and reviewed by eye; a second design traced to the identity reference assets/characters/roshan_sprite.png; identity rules; a 21-item variance register for owner review) and two per-frame measurement files; extends tools/measure_visual_profile.py with a cells mode (NumPy; numbers only); revises the README (VL2, VL2a, VL3, VL6, AC-3, AC-12, Q1-Q2 answered, Q12-Q16), the draft reference (Roshan identity, open questions, identity anchor rule), the audit (dated update note), and the identity, registry and contradiction seeds. Records the decisions in MA-DOC-008 (owner_decision and history), a planning-entry note and a change-history row in the master audit, ledger notes marking the old Roshan anchor sentences superseded in five documents, and the ledger row for the analysis. Documentation and an advisory read-only tool only: no game script, scene, asset, image, save key, rule text, workflow or finding lifecycle changes.",
+  "baseline": "0e20e1fa1fbacc00788b0cd309ff1ad53c3689a1",
+  "rules": [
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-06",
+    "DL-VIS-08",
+    "DL-MED-02",
+    "DL-ASSET-01",
+    "DL-ASSET-08",
+    "DL-AUTH-01",
+    "DL-AUTH-02",
+    "DL-AUTH-04",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-PLAN-06"
+  ],
+  "findings": [
+    "MA-DOC-008"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/roshan-identity-analysis-20260930.json",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/MANIFEST.json",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/README.md",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/ROSHAN_APPEARANCE_ANALYSIS.md",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/VISUAL_LANGUAGE_AUDIT.md",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/VISUAL_LANGUAGE_DRAFT.md",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/data/identity_sheets_seed.json",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/data/registry_seed.json",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/data/roshan_atlas_frames.json",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/data/roshan_single_images.json",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/data/visual_contradictions.json",
+    "docs/handoffs/codex_visual_design_language_2026-09-30/tools/measure_visual_profile.py"
+  ],
+  "validation": [
+    {
+      "command": "python -B docs/handoffs/codex_visual_design_language_2026-09-30/tools/measure_visual_profile.py cells over the 9 runtime base-world atlases and 15 career atlases (--cell 256) and 31 single images (--cell 0), with the identity colour groups recorded in the outputs",
+      "result": "PASS",
+      "evidence": "368 frames and 31 single images measured at dev b65c21fd (asset tree identical at 0e20e1fa). Base-world frames: lavender band 0.19-0.29, saturation 0.64-0.73, lightness 0.63-0.68. Career atlases: lavender band median 0.01 (rainbow state), hair share median 0.27 against 0.17, saturation median 0.53, lightness median 0.54. Nursery atlas idle height about 76% of canon. Outputs: data/roshan_atlas_frames.json and data/roshan_single_images.json. No image written."
+    },
+    {
+      "command": "Read-only review by eye of every runtime Roshan image against roshan_directional.png (Claude plus two read-only review passes), and provenance tracing through assets_src/concepts/opera_jobs_flat_2026-07-21/PROMPTS.md, assets_src/imagegen/opera_roshan_animation_2026-08-09/PROMPTS.md, assets_src/imagegen/geologist_roshan_2026-08-30/PROVENANCE.md, assets_src/imagegen/teacher_roshan_2026-09-03/PROVENANCE.md and ASSET_LICENSES.md",
+      "result": "PASS",
+      "evidence": "ROSHAN_APPEARANCE_ANALYSIS.md sections 5-7. Verified directly: career cards bind roshan_sprite.png as identity (opera_jobs_flat PROMPTS line 13); each 2026-08-09 career atlas binds its career card; Geologist and Teacher bind roshan_base.png; sky_lagoon_roshan.png derives from roshan_sprite.png; the Boxer card crops the tail; Geologist atlas frames 0-1 lack fins and frames 12 and 14 show leftover white background."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "Staged candidate: DOCAUTH|INVENTORY=600|LEDGER=600|ACTIVE=59|RECORDS=61, RESULT ALL OK; --stress 6/6; unittest tools.tests.test_audit_document_authority and test_audit_development: 52 tests OK; tools/audit_game_2d.py --regression-gate NO_REGRESSION; tools/audit_imagine_handoff.py --all ALL OK. Image-writing gates (audit_castle_card_alpha.py, audit_fairy_art_v2.py) left to CI."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Staged candidate: AUDITDEV|BASE|b65c21fdddd79f272a6854f241faa1441abe6616, RESULT ALL OK (covers revisions 1 and 2 together)."
+    },
+    {
+      "command": "Anonymous fetch of the revision-2 MANIFEST.json and every listed file from raw.githubusercontent.com at the pushed commit",
+      "result": "PENDING",
+      "evidence": "Recorded after publication."
+    },
+    {
+      "command": "GitHub Probe Suite at the branch head",
+      "result": "PENDING",
+      "evidence": "Required green before merging into dev."
+    }
+  ],
+  "acceptance_gaps": "Analysis and recommendations only. The owner settled the identity authority and the tail; the light-state rule, the second design, the tiara rule, defect repairs and the third-party backpack images (Q12-Q16) are pending with defaults. No approved image changes; repairs wait for owner approval. Measurements are source-file indicators (DL-VIS-08); visual review is not owner, child or device acceptance. MA-DOC-008 stays CONFIRMED_OPEN; the game-wide audit remains IN_PROGRESS / UNSATISFIED."
+}
