@@ -1,0 +1,142 @@
+{
+  "status": "PASS_FINAL_REVIEW_SUPPLEMENT_GATES",
+  "checked_utc": "2026-10-02T02:37:38.506819+00:00",
+  "processes": [
+    {
+      "name": "parser",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "audit/job_geode_embedded_mount_v2_20261001/attempt_02/capture.gd",
+        "audit/job_geode_embedded_mount_v2_20261001/attempt_02/study_surface.gd",
+        "audit/job_geode_embedded_mount_v2_20261001/capture.gd",
+        "audit/job_geode_embedded_mount_v2_20261001/study_surface.gd",
+        "audit/job_geology_painted_mount_v1_20261001/attempt_02/capture.gd",
+        "audit/job_geology_painted_mount_v1_20261001/attempt_02/study_surface.gd",
+        "audit/job_geology_painted_mount_v1_20261001/capture.gd",
+        "audit/job_geology_painted_mount_v1_20261001/study_surface.gd",
+        "audit/job_pan_painted_mount_v2_20261001/capture.gd",
+        "audit/job_pan_painted_mount_v2_20261001/study_surface.gd",
+        "audit/job_vector_mount_review_v1_20261001/attempt_02/capture.gd",
+        "audit/job_vector_mount_review_v1_20261001/capture.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 1.317351099976804,
+      "stdout": "audit/job_review_v2_20261001/geology_supplement_final_gates_v2/parser.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/geology_supplement_final_gates_v2/parser.stderr.log"
+    },
+    {
+      "name": "inference",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "audit/job_geode_embedded_mount_v2_20261001/attempt_02/capture.gd",
+        "audit/job_geode_embedded_mount_v2_20261001/attempt_02/study_surface.gd",
+        "audit/job_geode_embedded_mount_v2_20261001/capture.gd",
+        "audit/job_geode_embedded_mount_v2_20261001/study_surface.gd",
+        "audit/job_geology_painted_mount_v1_20261001/attempt_02/capture.gd",
+        "audit/job_geology_painted_mount_v1_20261001/attempt_02/study_surface.gd",
+        "audit/job_geology_painted_mount_v1_20261001/capture.gd",
+        "audit/job_geology_painted_mount_v1_20261001/study_surface.gd",
+        "audit/job_pan_painted_mount_v2_20261001/capture.gd",
+        "audit/job_pan_painted_mount_v2_20261001/study_surface.gd",
+        "audit/job_vector_mount_review_v1_20261001/attempt_02/capture.gd",
+        "audit/job_vector_mount_review_v1_20261001/capture.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 0.1344634999986738,
+      "stdout": "audit/job_review_v2_20261001/geology_supplement_final_gates_v2/inference.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/geology_supplement_final_gates_v2/inference.stderr.log"
+    },
+    {
+      "name": "import",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef",
+        "--import"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 13.288965399959125,
+      "stdout": "audit/job_review_v2_20261001/geology_supplement_final_gates_v2/import.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/geology_supplement_final_gates_v2/import.stderr.log"
+    },
+    {
+      "name": "contract_tests",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 13.52531179995276,
+      "stdout": "audit/job_review_v2_20261001/geology_supplement_final_gates_v2/contract_tests.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/geology_supplement_final_gates_v2/contract_tests.stderr.log"
+    },
+    {
+      "name": "authority",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 8.625601499981713,
+      "stdout": "audit/job_review_v2_20261001/geology_supplement_final_gates_v2/authority.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/geology_supplement_final_gates_v2/authority.stderr.log"
+    },
+    {
+      "name": "development",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 6.490406600001734,
+      "stdout": "audit/job_review_v2_20261001/geology_supplement_final_gates_v2/development.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/geology_supplement_final_gates_v2/development.stderr.log"
+    }
+  ],
+  "review_gd_files": [
+    "audit/job_geode_embedded_mount_v2_20261001/attempt_02/capture.gd",
+    "audit/job_geode_embedded_mount_v2_20261001/attempt_02/study_surface.gd",
+    "audit/job_geode_embedded_mount_v2_20261001/capture.gd",
+    "audit/job_geode_embedded_mount_v2_20261001/study_surface.gd",
+    "audit/job_geology_painted_mount_v1_20261001/attempt_02/capture.gd",
+    "audit/job_geology_painted_mount_v1_20261001/attempt_02/study_surface.gd",
+    "audit/job_geology_painted_mount_v1_20261001/capture.gd",
+    "audit/job_geology_painted_mount_v1_20261001/study_surface.gd",
+    "audit/job_pan_painted_mount_v2_20261001/capture.gd",
+    "audit/job_pan_painted_mount_v2_20261001/study_surface.gd",
+    "audit/job_vector_mount_review_v1_20261001/attempt_02/capture.gd",
+    "audit/job_vector_mount_review_v1_20261001/capture.gd"
+  ],
+  "source_unchanged": true,
+  "qualification": "Runtime325-file full suite and hostedD exact CI carry forward only unchanged sources. New source-only generation14 and every220 native fixture view are individually reviewed. Current complete training/story/device/child/owner/final report approval and strict2D remain open."
+}

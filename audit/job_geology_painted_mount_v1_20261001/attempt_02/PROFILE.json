@@ -1,0 +1,74 @@
+{
+  "status": "PREPARED_REVIEW_ONLY_NATIVE_PAINTED_STAGING",
+  "baseline": "6edb4ca8c57bfbfe3123636863a29c95165ac23f",
+  "variant_lanes": [
+    "original",
+    "literal_raster",
+    "painted_staging"
+  ],
+  "planned_views": 78,
+  "viewports": [
+    [
+      1280,
+      720
+    ],
+    [
+      1600,
+      720
+    ]
+  ],
+  "source_paths": {
+    "fossil": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil/attempt_02/whole_canvas_1024.png",
+    "layered_rock": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/layered_rock/attempt_01/whole_canvas_1024.png",
+    "washing_pan": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/washing_pan/attempt_01/whole_canvas_1024.png",
+    "closed_geode": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/closed_geode/attempt_01/whole_canvas_1024.png",
+    "crystal_reward": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/crystal_reward/attempt_01/whole_canvas_1024.png",
+    "open_geode": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/open_geode/attempt_01/whole_canvas_1024.png",
+    "work_surface": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/work_surface/attempt_04/whole_canvas_1024.png"
+  },
+  "source_atlas_boxes": {
+    "fossil": [
+      115,
+      171,
+      917,
+      845
+    ],
+    "layered_rock": [
+      120,
+      188,
+      920,
+      862
+    ],
+    "washing_pan": [
+      44,
+      233,
+      981,
+      822
+    ],
+    "closed_geode": [
+      192,
+      213,
+      837,
+      815
+    ],
+    "crystal_reward": [
+      231,
+      130,
+      800,
+      897
+    ],
+    "open_geode": [
+      104,
+      214,
+      921,
+      814
+    ],
+    "work_surface": [
+      68,
+      332,
+      957,
+      701
+    ]
+  },
+  "qualification": "StudySurface only overrides work/geode drawing; all actual touch/progress remains inherited. Painted staging explicitly reveals new invitation objects and uses undersize room as style/layout reference only. Original325 literal production files, saves and star awards must remain unchanged. No runtime binding, complete career/training/story/device/child/owner acceptance."
+}

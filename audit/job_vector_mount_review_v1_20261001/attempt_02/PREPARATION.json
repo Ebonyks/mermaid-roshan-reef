@@ -1,0 +1,11 @@
+{
+  "status": "CORRECTED_DISPOSABLE_FIXTURE_PREPARED",
+  "checked_utc": "2026-10-02T01:28:30.952213+00:00",
+  "failure": "Runtime typed Array[String] assignment from conditional untyped array; original failed source/process logs preserved at parent,0captures.",
+  "original_capture": "audit/job_vector_mount_review_v1_20261001/capture.gd",
+  "original_capture_sha256": "dc6b730682a247d89a0a6fcc93cc551d443e20b9f25b395a9c8e3419996081ad",
+  "corrected_capture": "audit/job_vector_mount_review_v1_20261001/attempt_02/capture.gd",
+  "corrected_capture_sha256": "4c13b6cf8c087b952325d219fdfe879a8749f4dbcfafadba64ea1e0e8742c036",
+  "modification": "Use explicit Array[String].assign for each unchanged4-name phase list; separate native output directory. No game code, object source, score, phase selection, input, reward guard or gate changes.",
+  "failed_process_stop": "Only verified failed Godot capture PID47904 stopped; wrapper recorded actual4294967295 exit, no synthetic pass."
+}

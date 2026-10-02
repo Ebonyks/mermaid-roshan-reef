@@ -1,0 +1,80 @@
+{
+  "status": "PASS_NATIVE_VECTOR_MOUNT_CAPTURE",
+  "checked_utc": "2026-10-02T01:30:05.189315+00:00",
+  "processes": [
+    {
+      "name": "parser",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "audit/job_vector_mount_review_v1_20261001/attempt_02/capture.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 0.6222369999741204,
+      "stdout": "audit/job_vector_mount_review_v1_20261001/attempt_02/parser.stdout.log",
+      "stderr": "audit/job_vector_mount_review_v1_20261001/attempt_02/parser.stderr.log"
+    },
+    {
+      "name": "inference",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "audit/job_vector_mount_review_v1_20261001/attempt_02/capture.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 0.10877759999129921,
+      "stdout": "audit/job_vector_mount_review_v1_20261001/attempt_02/inference.stdout.log",
+      "stderr": "audit/job_vector_mount_review_v1_20261001/attempt_02/inference.stderr.log"
+    },
+    {
+      "name": "analyzer",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://audit/job_vector_mount_review_v1_20261001/attempt_02/capture.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 5.558572700014338,
+      "stdout": "audit/job_vector_mount_review_v1_20261001/attempt_02/analyzer.stdout.log",
+      "stderr": "audit/job_vector_mount_review_v1_20261001/attempt_02/analyzer.stderr.log"
+    },
+    {
+      "name": "native",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef",
+        "--script",
+        "res://audit/job_vector_mount_review_v1_20261001/attempt_02/capture.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 87.92027160001453,
+      "stdout": "audit/job_vector_mount_review_v1_20261001/attempt_02/native.stdout.log",
+      "stderr": "audit/job_vector_mount_review_v1_20261001/attempt_02/native.stderr.log"
+    }
+  ],
+  "original_source_hashes_unchanged": true,
+  "original_source_hashes": {
+    "assets/opera/worlds/hotspots/geologist_fossil.svg": "058d257160448dabf8b6bce78cbb0a7c6b1bdedbacc6e47db908c5d501d4e3bd",
+    "assets/opera/worlds/hotspots/geologist_layered_rock.svg": "5bca0522dbadf1fb5658a99f58a9ea88d15ed62d27966db4e4829ef692d3bcce",
+    "assets/opera/worlds/hotspots/teacher_lesson_board.svg": "74eb7da7e7f5ad516ac157c89388983e7a3c63ca9987dba44157ae5e0c852043",
+    "assets/opera/worlds/props/goal_geologist.svg": "09ba5403d9d5bfbafec397f884fec4c725e50b3ba643c6ab66e4dd346d16b150",
+    "assets/opera/worlds/ui/crests/opera_crest_geologist.svg": "09ba5403d9d5bfbafec397f884fec4c725e50b3ba643c6ab66e4dd346d16b150"
+  },
+  "qualification": "Machine capture only. Original typed-array failure remains preserved. Native context grades,50px crest, complete career/story/action/device/child/owner remain unassigned."
+}

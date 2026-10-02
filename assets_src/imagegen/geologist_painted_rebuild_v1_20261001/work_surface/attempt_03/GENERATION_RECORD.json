@@ -1,0 +1,76 @@
+{
+  "id": "work_surface",
+  "attempt": 3,
+  "native_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/work_surface/attempt_03/native.png",
+  "native_sha256": "e0d81225d290b4fea0f7a254eb132383df884e395eea645ebbeef70d4ab218ac",
+  "native_dimensions": [
+    1536,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    254
+  ],
+  "alpha_clear_pixels": 898652,
+  "alpha_bounds_by_threshold": {
+    "1": [
+      62,
+      19,
+      1476,
+      1000
+    ],
+    "16": [
+      64,
+      263,
+      1473,
+      779
+    ],
+    "128": [
+      65,
+      264,
+      1473,
+      778
+    ],
+    "240": [
+      66,
+      265,
+      1472,
+      777
+    ]
+  },
+  "prompt_sha256": "32f35f16e58a3f4dae1a33af76b630747d06da419bdb2f5323ecacaf1678c889",
+  "prompt_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/work_surface/attempt_03/PROMPT.txt",
+  "generation_method": "BUILT_IN_CODEX_IMAGEGEN",
+  "provider_native_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-dbfc3ef0-8387-4d9a-8c6c-e47fad94bab2.png",
+  "provider_native_preserved": true,
+  "transparent_background_requested": true,
+  "reference_images": [
+    {
+      "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/work_surface/attempt_02/native.png",
+      "role": "EDIT_TARGET_REMOVE_SURROUNDING_HALO",
+      "sha256": "090ae565058777f0eaf3ccea59961aeb1cebed187da4129d72d75f52715c8010"
+    }
+  ],
+  "source_direct_generated_display_review": true,
+  "source_score": null,
+  "mounted_score": null,
+  "complete_action_score": null,
+  "owner_approval": null,
+  "runtime_binding_changed": false,
+  "audit_previews": [
+    {
+      "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/work_surface/attempt_03/audit_white.png",
+      "sha256": "7a29e039ab49ed25d7c8aa6ccd04e6a4e2f8ec7716ffd9a7b00c545c22fda522",
+      "role": "AUDIT_DISPLAY_ONLY_WHOLE_NATIVE_CANVAS_ALPHA_ON_NEUTRAL_FIELD",
+      "not_runtime_art": true
+    },
+    {
+      "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/work_surface/attempt_03/audit_aqua.png",
+      "sha256": "d78ec6fa4f5091c1d4d2864b3e452dbb5048670f99aabd2a91f516f102d6118e",
+      "role": "AUDIT_DISPLAY_ONLY_WHOLE_NATIVE_CANVAS_ALPHA_ON_NEUTRAL_FIELD",
+      "not_runtime_art": true
+    }
+  ],
+  "created_utc": "2026-10-02T01:50:19.885025+00:00"
+}

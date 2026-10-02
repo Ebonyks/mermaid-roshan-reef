@@ -1,0 +1,74 @@
+{
+  "id": "washing_pan",
+  "attempt": 2,
+  "native_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/washing_pan/attempt_02/native.png",
+  "native_sha256": "676297877ff5c7e3766e73150ba728616b1acc03ade4dec7a7d697111b5bb295",
+  "native_dimensions": [
+    1659,
+    948
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "alpha_bounds_by_threshold": {
+    "1": [
+      27,
+      49,
+      1593,
+      892
+    ],
+    "16": [
+      71,
+      122,
+      1588,
+      859
+    ],
+    "128": [
+      72,
+      123,
+      1587,
+      859
+    ],
+    "240": [
+      73,
+      124,
+      1586,
+      858
+    ]
+  },
+  "prompt_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/washing_pan/attempt_02/PROMPT.txt",
+  "prompt_sha256": "fe59e6d84649a25764da33cd70222727ce1ddecbb1ff785b79a0752f4f6ffd55",
+  "provider_native_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-ad5f64a4-0c35-4410-ae30-e6dfb585c3ee.png",
+  "provider_native_preserved": true,
+  "generation_method": "BUILT_IN_CODEX_IMAGEGEN",
+  "transparent_background_requested": true,
+  "reference_images": [
+    {
+      "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/washing_pan/attempt_01/native.png",
+      "sha256": "b49a89102df90c53e9f519a4409963b8548a323f9588586e27eee718ad184874",
+      "role": "ESTABLISHED_PAN_IDENTITY_COLOR_PERSPECTIVE"
+    }
+  ],
+  "audit_previews": [
+    {
+      "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/washing_pan/attempt_02/audit_white.png",
+      "sha256": "c223e40c911ffea9292a8c13f3f4ec0ecdd0b7b4637470a446811a281c3b2225",
+      "role": "AUDIT_DISPLAY_ONLY_WHOLE_NATIVE_CANVAS_ON_NEUTRAL_FIELD",
+      "not_runtime_art": true
+    },
+    {
+      "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/washing_pan/attempt_02/audit_aqua.png",
+      "sha256": "d8032865947a70ee4cc11fb85aa2de7639f37fda3de8113cb37595210ef8d874",
+      "role": "AUDIT_DISPLAY_ONLY_WHOLE_NATIVE_CANVAS_ON_NEUTRAL_FIELD",
+      "not_runtime_art": true
+    }
+  ],
+  "source_score": null,
+  "mounted_score": null,
+  "complete_action_score": null,
+  "owner_approval": null,
+  "runtime_binding_changed": false,
+  "created_utc": "2026-10-02T02:28:52.636574+00:00"
+}

@@ -1,0 +1,74 @@
+{
+  "status": "PASS_MACHINE_NATIVE_CAPTURE",
+  "processes": [
+    {
+      "name": "parser",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "audit/job_geode_embedded_mount_v2_20261001/attempt_02/capture.gd",
+        "audit/job_geode_embedded_mount_v2_20261001/attempt_02/study_surface.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 0.9515389999723993,
+      "stdout": "audit/job_geode_embedded_mount_v2_20261001/attempt_02/parser.stdout.log",
+      "stderr": "audit/job_geode_embedded_mount_v2_20261001/attempt_02/parser.stderr.log"
+    },
+    {
+      "name": "inference",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "audit/job_geode_embedded_mount_v2_20261001/attempt_02/capture.gd",
+        "audit/job_geode_embedded_mount_v2_20261001/attempt_02/study_surface.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 0.17449010000564158,
+      "stdout": "audit/job_geode_embedded_mount_v2_20261001/attempt_02/inference.stdout.log",
+      "stderr": "audit/job_geode_embedded_mount_v2_20261001/attempt_02/inference.stderr.log"
+    },
+    {
+      "name": "analyzer",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://audit/job_geode_embedded_mount_v2_20261001/attempt_02/capture.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 7.130812600022182,
+      "stdout": "audit/job_geode_embedded_mount_v2_20261001/attempt_02/analyzer.stdout.log",
+      "stderr": "audit/job_geode_embedded_mount_v2_20261001/attempt_02/analyzer.stderr.log"
+    },
+    {
+      "name": "native",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef",
+        "--script",
+        "res://audit/job_geode_embedded_mount_v2_20261001/attempt_02/capture.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 28.51831819996005,
+      "stdout": "audit/job_geode_embedded_mount_v2_20261001/attempt_02/native.stdout.log",
+      "stderr": "audit/job_geode_embedded_mount_v2_20261001/attempt_02/native.stderr.log"
+    }
+  ],
+  "original325_source_hashes_unchanged": true,
+  "qualification": "Machine capture only, direct review pending. No production binding or complete route/device/child/owner pass."
+}

@@ -1,0 +1,39 @@
+{
+  "status": "PASS_EXACT_PUBLISHED_D_CI",
+  "head": "6edb4ca8c57bfbfe3123636863a29c95165ac23f",
+  "run_id": "36950549322",
+  "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36950549322",
+  "fetched_utc": "2026-10-02T02:22:55.405713+00:00",
+  "jobs": [
+    {
+      "name": "probes",
+      "conclusion": "success"
+    },
+    {
+      "name": "area-music-provenance",
+      "conclusion": "success"
+    }
+  ],
+  "raw_log_bytes": 2205262,
+  "raw_log_sha256": "112269e9430164593e528175ecda250dc0a87771b4c2b105d67f84d525595e9c",
+  "metadata_command": [
+    "C:/Program Files/GitHub CLI/gh.exe",
+    "run",
+    "view",
+    "36950549322",
+    "--repo",
+    "Ebonyks/mermaid-roshan-reef",
+    "--json",
+    "status,conclusion,headSha,jobs,url,createdAt,updatedAt"
+  ],
+  "raw_command": [
+    "C:/Program Files/GitHub CLI/gh.exe",
+    "run",
+    "view",
+    "36950549322",
+    "--repo",
+    "Ebonyks/mermaid-roshan-reef",
+    "--log"
+  ],
+  "qualification": "Machine acceptance for published6edb4ca8 only, no latest uncommitted supplement/art/action/device/child/owner/strict2D acceptance."
+}

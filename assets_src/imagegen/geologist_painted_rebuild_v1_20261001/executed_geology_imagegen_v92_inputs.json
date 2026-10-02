@@ -1,0 +1,49 @@
+[
+  {
+    "id": "open_geode",
+    "attempt": 1,
+    "result": "geologyOpenGen1",
+    "prompt": "Use case: precise-object-edit. Input image1 is the identity/style reference for the CLOSED lavender geode. Produce a NEW complete painted game asset showing that SAME stone opened at its central vertical seam into exactly two matching halves. Preserve the original outer round outline, lavender/aqua colors, broad matte gouache brushwork and varied plum contour. Front view. Place its left and right halves side by side with a modest transparent gap between their matching broken vertical edges, both interiors facing the viewer. Each interior is a shallow smooth light cream/lilac bowl with just two broad quiet painted value planes, no crystals yet: the separate reward will be placed by the game. Keep the overall height and outer contours recognizably continuous with the closed reference, no redesign or new facets. Two halves only, no fragments, black holes, realistic fracture texture, grain, glitter, extra props, scenery or writing. Generate every pixel anew on genuinely transparent RGBA; do not paste reference pixels. Entire paired object centered in the central two-thirds of a square canvas with broad transparent margins, nothing touching any edge. No floor plate, cast shadow or checkerboard. Requested native1024x1024.",
+    "references": [
+      {
+        "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/closed_geode/attempt_01/native.png",
+        "role": "CLOSED_GEODE_IDENTITY_AND_PAINTED_STYLE"
+      }
+    ],
+    "provider_native_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-e668bec0-5572-4e42-b7bb-4229246bf0d9.png"
+  },
+  {
+    "id": "work_surface",
+    "attempt": 1,
+    "result": "geologyWorkGen1",
+    "prompt": "Use case: illustration-story. One isolated empty geology work tray for a preschool pastel hand-painted storybook game, fresh artwork on genuine transparent RGBA. A broad low rounded rectangular sandstone work slab seen nearly straight-on from slightly above, width-to-height about3:2. Warm creamy golden sandstone top, softly rounded lavender sidewall and a fine varied plum painted outline. Large quiet unobstructed central working area for a child to brush fossils, dig a river path or pan minerals. Gentle handmade asymmetry, broad matte gouache value bands and restrained grouped brush marks; a small visible front thickness makes it feel like a physical toy slab. Keep the center smooth, light and low-contrast. It must read as painted picture-book material with gentle dimensionality, not a flat vector rounded rectangle, interface panel, realistic rock photo or glossy3D object. No geology objects already painted into it, no fossil, rocks, crystals, bowl, brush, grids, patterns, cracks, flecks, writing or diagram marks. Complete uncropped slab centered with wide transparent margins on every side, no floor plate or outside cast shadow, background or checkerboard. Requested native1536x1024 landscape.",
+    "provider_native_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-e13d30d2-ba27-4d15-a289-c3dc6f2518aa.png"
+  },
+  {
+    "id": "work_surface",
+    "attempt": 2,
+    "result": "geologyWorkGen2",
+    "prompt": "Generate ONE isolated empty warm cream geology work slab for a preschool hand-painted storybook game. Transparent-background cutout. Softly rounded rectangular sandstone toy tray, width-to-height3:2, nearly front-on with slight view of its broad top and a narrow lavender front thickness. Fine plum painted outline, quiet matte gouache brush strokes, broad cream and lavender values. Center area light, smooth, unobstructed and low-contrast for geology work. It is a painted physical object, never a vector UI panel. Complete slab placed SMALLER in the central60percent of a landscape3:2 canvas. Every exterior pixel outside the solid slab silhouette MUST be fully transparent: NO glow, NO halo, NO haze, NO ground shadow, NO ambient color field, NO vignette, NO backdrop. Wide completely empty transparent margin on ALL sides. No patterns, cracks, speckles, props, crystals, fossil, grid, writing, floor or extra objects. Native1536x1024 requested. Only the complete isolated slab, nothing else.",
+    "provider_native_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-685a2c3e-d03b-46a9-9d2e-ba3fa937547b.png"
+  },
+  {
+    "id": "work_surface",
+    "attempt": 3,
+    "result": "geologyWorkGen3",
+    "prompt": "Use case: background-extraction. Edit target is this painted cream and lavender slab. Preserve the complete slab, its painted top, its contour and front thickness. REMOVE THE ENTIRE SURROUNDING GLOW/HALO/HAZE and all background pixels, including faint translucent glow next to the edge. Output ONLY the solid slab as a clean transparent RGBA cutout with zero-opacity pixels outside its exact silhouette. No cast shadow, no glow, no vignette, no backdrop, no checkerboard. Keep the slab centered, whole and uncropped with generous empty transparent margins. Do not add or paint anything outside the slab. Keep the matte hand-painted storybook finish.",
+    "references": [
+      {
+        "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/work_surface/attempt_02/native.png",
+        "role": "EDIT_TARGET_REMOVE_SURROUNDING_HALO"
+      }
+    ],
+    "provider_native_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-dbfc3ef0-8387-4d9a-8c6c-e47fad94bab2.png"
+  },
+  {
+    "id": "work_surface",
+    "attempt": 4,
+    "result": "geologyWorkGen4",
+    "prompt": "One solid painted geology work tray isolated on a completely transparent SQUARE canvas. Fresh picture-book game artwork. Broad gently rounded cream sandstone slab, width-to-height3:2, with a narrow lavender front thickness and a fine plum ink outline. Quiet matte gouache brush marks and broad values, simple toy-like dimensionality. Smooth empty light center for preschool geology work, no props or decoration. The solid slab is the ONLY visible thing. A crisp natural painted cutout edge with absolutely no glow, halo, translucent haze, ground shadow or color field outside it. Place the complete object in the center of a square1024x1024 native canvas, sized to about70percent of canvas width with wide empty genuinely transparent space on all four sides. No scenery, floor, text, grid, fossil, crystal, pattern, checkerboard, 3D render or vector UI panel. Square format mandatory.",
+    "provider_native_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-94920450-207f-4e26-9141-ea3bb89b9efa.png"
+  }
+]

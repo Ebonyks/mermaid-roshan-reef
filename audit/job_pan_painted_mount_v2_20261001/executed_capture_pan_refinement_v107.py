@@ -1,0 +1,28 @@
+from pathlib import Path
+import json,hashlib,shutil,subprocess,sys,time,re
+from PIL import Image
+r=Path('C:/Users/Peter/.codex/worktrees/job-art-review-v2-20261001/mermaid-roshan-reef');out=r/'audit/job_pan_painted_mount_v2_20261001';assert not out.exists();out.mkdir()
+def rel(p):return p.relative_to(r).as_posix()
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def write(p,d):p.write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
+previous=r/'audit/job_geode_embedded_mount_v2_20261001/attempt_02'
+code=(previous/'capture.gd').read_text(encoding='utf-8').replace('tmp/geode_embedded_mount_v99/native_views','tmp/pan_painted_mount_v107/native_views').replace('res://audit/job_geode_embedded_mount_v2_20261001/attempt_02/study_surface.gd','res://'+rel(out/'study_surface.gd')).replace('names.assign(["GEODE"])','names.assign(["PAN"])').replace('washing_pan/attempt_01/whole_canvas_1024.png','washing_pan/attempt_02/whole_canvas_1024.png').replace('records.size() == 24','records.size() == 18').replace('24_NATIVE_EMBEDDED_GEODE_FIXTURE_COMPARISONS_CAPTURED','18_NATIVE_PAN_REFINEMENT_FIXTURE_COMPARISONS_CAPTURED').replace('EMBEDDED_GEODE_MOUNT','PAINTED_PAN_REFINEMENT')
+source=r/'assets_src/imagegen/geologist_painted_rebuild_v1_20261001/washing_pan/attempt_02/whole_canvas_1024.png';im=Image.open(source);bounds=im.getchannel('A').point(lambda p:255 if p>=16 else 0).getbbox();code,n=re.subn(r'"washing_pan":\s*\[.*?\]', '"washing_pan": '+json.dumps(list(bounds)),code,count=1,flags=re.S);assert n==1
+code=code.replace('GEODE phase selected followed by actual viewport approach, five seam taps,65px partial pull and continuation to120px full surface opening. Only endpoint completion callbacks are disconnected in this disposable fixture so no career award/save can run. Three drawing lanes paired at identical inherited progress. No full career/training/story, cinematic, device, child or owner acceptance.','PAN phase selected followed by actual viewport approach and three inherited panning reversals. Current procedural, new-pan literal texture and painted-reference-room lanes paired at identical progress. No surface completion or career award/save; no full career/training/story, device, child or owner acceptance.')
+(out/'.gdignore').write_text('');(out/'capture.gd').write_text(code,encoding='utf-8',newline='\n');shutil.copyfile(previous/'study_surface.gd',out/'study_surface.gd');shutil.copyfile(__file__,out/'executed_capture_pan_refinement_v107.py')
+snapshot=json.loads((r/'audit/job_review_v2_20261001/full_ci_candidate_retry_v2/SOURCE_BEFORE.json').read_text())['source_files'];before={x['path']:sha(r/x['path']) for x in snapshot};assert all(before[x['path']]==x['sha256'] for x in snapshot);write(out/'SOURCE_BEFORE.json',before)
+write(out/'PROFILE.json',dict(status='PREPARED_DISPOSABLE_PAN_REFINEMENT_FIXTURE',baseline='6edb4ca8c57bfbfe3123636863a29c95165ac23f',planned_views=18,pan_source=rel(source),sha256=sha(source),alpha16_atlas_region=list(bounds),production_input_and_rewards_unchanged=True,production_bindings_changed=False,qualification='New pan alone is independently mounted in literal inherited drawing; painted background remains undersize reference-only. Three partial reversals, not a complete panning job.'))
+impact=r/'design/audit_impacts/job-geology-painted-rebuild-20261001.json';d=json.loads(impact.read_text());d['scope']+=' Add separate18-view inherited-input PAN fixture for new source at both native aspects; no production source edits or complete-job claim.';d['files']=sorted(set(d['files'])|{rel(p) for p in out.rglob('*') if p.is_file()});write(impact,d)
+godot='C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe';cmds=[('parser',[sys.executable,'-X','utf8','-B','-m','gdtoolkit.parser',rel(out/'capture.gd'),rel(out/'study_surface.gd')]),('inference',[sys.executable,'-X','utf8','-B','tools/lint_inference.py',rel(out/'capture.gd'),rel(out/'study_surface.gd')]),('analyzer',[godot,'--headless','--path',str(r),'--check-only','--script','res://'+rel(out/'capture.gd')]),('native',[godot,'--path',str(r),'--script','res://'+rel(out/'capture.gd')])]
+rows=[]
+for name,cmd in cmds:
+ start=time.monotonic()
+ with (out/(name+'.stdout.log')).open('wb') as so,(out/(name+'.stderr.log')).open('wb') as se:
+  try:p=subprocess.run(cmd,cwd=r,stdout=so,stderr=se,timeout=600 if name=='native' else 240,creationflags=subprocess.CREATE_NO_WINDOW);exit_code=p.returncode;timed_out=False
+  except subprocess.TimeoutExpired:exit_code=None;timed_out=True
+ rows.append(dict(name=name,command=cmd,process_exit=exit_code,timed_out=timed_out,seconds=time.monotonic()-start,stdout=rel(out/(name+'.stdout.log')),stderr=rel(out/(name+'.stderr.log'))));print(name,exit_code,flush=True)
+ if exit_code!=0:print((out/(name+'.stderr.log')).read_text(encoding='utf-8',errors='replace')[-1600:],flush=True);break
+after={p:sha(r/p) for p in before};passed=len(rows)==4 and all(x['process_exit']==0 for x in rows) and before==after
+write(out/'PROCESS_RECEIPT.json',dict(status='PASS_MACHINE_NATIVE_CAPTURE' if passed else 'FAIL_PRESERVED',processes=rows,original325_source_hashes_unchanged=before==after,qualification='Machine capture only, direct review pending. No production binding or complete route/device/child/owner pass.'))
+d=json.loads(impact.read_text());d['files']=sorted(set(d['files'])|{rel(p) for p in out.rglob('*') if p.is_file()});d['validation'].append(dict(command='Official4.7.2 inherited-input pan18-view fixture/parser/inference/analyzer/325-file guard',result='PASS' if passed else 'FAIL',evidence=rel(out/'PROCESS_RECEIPT.json')));write(impact,d)
+raise SystemExit(0 if passed else 1)

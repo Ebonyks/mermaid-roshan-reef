@@ -1,0 +1,109 @@
+{
+  "status": "OWNER_COMMISSIONED_PAINTED_GEOLOGY_REBUILD",
+  "baseline": "6edb4ca8c57bfbfe3123636863a29c95165ac23f",
+  "prepared_utc": "2026-10-02T01:35:09.881592+00:00",
+  "owner_correction": "assets_src/vector/job_geology_teacher_refinement_v1_20261001/OWNER_CORRECTION_V1.json",
+  "inventoried_sources": [
+    {
+      "path": "assets_src/geologist_rebuild_2026-09-05/geology_props_candidate.png",
+      "sha256": "d36dbd3af772b95182b4ce1757c74a9db9947830ba390a3989506622875dfdcd",
+      "direct_native_review": true
+    },
+    {
+      "path": "assets_src/geologist_rebuild_2026-09-05/geology_props_alpha_retry.png",
+      "sha256": "b91680888b3eff6acc25bcd6c62a407a60489deed41eabed3b8195699f5bb629",
+      "direct_native_review": true
+    },
+    {
+      "path": "assets_src/geologist_rebuild_2026-09-05/geology_grotto_candidate.png",
+      "sha256": "e60684278d33e43a51eea3534b99aa8c70e90b2ef3f11004f4d04154273fbd4b",
+      "direct_native_review": true
+    },
+    {
+      "path": "assets_src/minigame_art_quality_2026-09-05/geode-open-alpha-attempt02/native.png",
+      "sha256": "0ca5e2572f5f306f3a46b75d5babf892fffd2cd65b16d0c5c7ee90426ae4bb2c",
+      "direct_native_review": true
+    }
+  ],
+  "reuse_decision": "Earlier geology prop sheets are explicitly REJECTED_RUNTIME with baked RGB checkerboards. Older grotto1672x941 is reference-only below2048x2048 native coverage. Older open geode has dense glossy facets and noisy edges unsuitable for simple child-readable painted replacement. Existing Roshan/imp atlases and the approved painted brush remain untouched/reused. Generate only named missing/owner-rejected prop and surface gaps.",
+  "jobs": [
+    {
+      "id": "fossil",
+      "gap": "Vector spiral slab lacks painted physical material; enlarged source is stretched and later cut into three assembly regions.",
+      "prompt": "One polished hand-painted 2D storybook game prop for Mermaid Roshan, a preschool pastel toy playset. Soft matte gouache illustration, rounded handmade silhouette, fine varied plum/brown ink contour, a few broad painted cream/aqua/lavender value washes. Warm and high-key, gentle painted dimensionality, restrained grouped brush marks. It must look like a carefully painted picture-book object, never a flat SVG/vector diagram, geometric logo, photorealistic mineral specimen, rendered3D object or glossy plastic. Isolated complete object centered with generous clear margins on genuine transparent RGBA, no ground plate, checkerboard, scenery, writing, grid or UI. Paint one broad, gently irregular oval lavender sandstone slab viewed straight at its front face, with a single large warm golden-cream ammonite fossil clearly embedded in the stone. The shell has one clean readable spiral and only6–8 broad gently rounded ridges, not dozens of tiny chambers. Keep stone and shell one attached sturdy toy-like mass. Two or three calm color/value groups, subtle lavender underside, no glitter, dense speckles or harsh white highlights. Leave the entire oval slab uncropped. Square native canvas, requested1024x1024.",
+      "attempt": 1,
+      "status": "GENERATION_PENDING_UNBOUND",
+      "prompt_sha256": "e01e9199ea046a7de0b8e3d8aeaa8d53710196f8074ab89deaa30bab3b592051",
+      "transparent_background": true,
+      "reference_images": [],
+      "source_score": null,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_approval": null
+    },
+    {
+      "id": "layered_rock",
+      "gap": "Layer-wall specimen is a coarse vector; existing PAN rock invitation also has a separate semantic misuse.",
+      "prompt": "One polished hand-painted 2D storybook game prop for Mermaid Roshan, a preschool pastel toy playset. Soft matte gouache illustration, rounded handmade silhouette, fine varied plum/brown ink contour, a few broad painted cream/aqua/lavender value washes. Warm and high-key, gentle painted dimensionality, restrained grouped brush marks. It must look like a carefully painted picture-book object, never a flat SVG/vector diagram, geometric logo, photorealistic mineral specimen, rendered3D object or glossy plastic. Isolated complete object centered with generous clear margins on genuine transparent RGBA, no ground plate, checkerboard, scenery, writing, grid or UI. Paint one chunky rounded cross-section sandstone specimen, straight-on with a small top plane, showing exactly three broad horizontal mineral strata: soft lavender upper layer, warm golden-cream middle layer, pale aqua lower layer. Preserve the simple three-color learning groups, with two large warm cream mineral inclusions in the middle area. Gentle irregular rounded stone edges and broad painted material values; no crisp vector stripes, black wedges, distributed pebbles, writing or diagram arrows. Square native canvas, requested1024x1024.",
+      "attempt": 1,
+      "status": "GENERATION_PENDING_UNBOUND",
+      "prompt_sha256": "06a65b430819157d9cde905a481dcfa5df78f10c756de16ff062db061472cbc3",
+      "transparent_background": true,
+      "reference_images": [],
+      "source_score": null,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_approval": null
+    },
+    {
+      "id": "washing_pan",
+      "gap": "Current procedural thick ellipse is flat; rock invitation does not depict panning.",
+      "prompt": "One polished hand-painted 2D storybook game prop for Mermaid Roshan, a preschool pastel toy playset. Soft matte gouache illustration, rounded handmade silhouette, fine varied plum/brown ink contour, a few broad painted cream/aqua/lavender value washes. Warm and high-key, gentle painted dimensionality, restrained grouped brush marks. It must look like a carefully painted picture-book object, never a flat SVG/vector diagram, geometric logo, photorealistic mineral specimen, rendered3D object or glossy plastic. Isolated complete object centered with generous clear margins on genuine transparent RGBA, no ground plate, checkerboard, scenery, writing, grid or UI. Paint one empty shallow mineral-washing pan seen slightly from above, a broad open ellipse with a thick rounded lavender stone rim and pale aqua water inside. The interior opening is generous and unobstructed for separately placed mineral grains and child touch input. One clear near rim and quiet soft reflection, substantial handmade bowl depth, no handle, stones, crystals, brush, drops outside the bowl or busy waves. Preserve one complete symmetrical readable pan suitable for back-and-forth panning. Square native canvas, requested1024x1024.",
+      "attempt": 1,
+      "status": "GENERATION_PENDING_UNBOUND",
+      "prompt_sha256": "e6ca77ef24916c253b13dd1ff29173579aea85f9857e730ce495cf1efb1dad56",
+      "transparent_background": true,
+      "reference_images": [],
+      "source_score": null,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_approval": null
+    },
+    {
+      "id": "closed_geode",
+      "gap": "Current split rock is a pair of flat dark procedural half ellipses; needs painted closed identity suitable for later matching split states.",
+      "prompt": "One polished hand-painted 2D storybook game prop for Mermaid Roshan, a preschool pastel toy playset. Soft matte gouache illustration, rounded handmade silhouette, fine varied plum/brown ink contour, a few broad painted cream/aqua/lavender value washes. Warm and high-key, gentle painted dimensionality, restrained grouped brush marks. It must look like a carefully painted picture-book object, never a flat SVG/vector diagram, geometric logo, photorealistic mineral specimen, rendered3D object or glossy plastic. Isolated complete object centered with generous clear margins on genuine transparent RGBA, no ground plate, checkerboard, scenery, writing, grid or UI. Paint one friendly round lavender geode stone viewed straight-on. It is closed, with a single narrow gently irregular vertical seam at the center to show where it will split. A softly chunky rounded silhouette, broad lilac highlight and aqua/lavender underside, only a few grouped restrained stone marks. No visible interior or crystals yet, no black center hole, no fracture fragments, no sharp realistic texture. Whole object uncropped, square native canvas requested1024x1024.",
+      "attempt": 1,
+      "status": "GENERATION_PENDING_UNBOUND",
+      "prompt_sha256": "810334341b35069688bf1c6e0b492213cd64e24ab39722b7ddde4412c84da5d0",
+      "transparent_background": true,
+      "reference_images": [],
+      "source_score": null,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_approval": null
+    },
+    {
+      "id": "crystal_reward",
+      "gap": "Current two-crystal reward and crest are flat vector silhouettes, partly hidden during actual geode opening.",
+      "prompt": "One polished hand-painted 2D storybook game prop for Mermaid Roshan, a preschool pastel toy playset. Soft matte gouache illustration, rounded handmade silhouette, fine varied plum/brown ink contour, a few broad painted cream/aqua/lavender value washes. Warm and high-key, gentle painted dimensionality, restrained grouped brush marks. It must look like a carefully painted picture-book object, never a flat SVG/vector diagram, geometric logo, photorealistic mineral specimen, rendered3D object or glossy plastic. Isolated complete object centered with generous clear margins on genuine transparent RGBA, no ground plate, checkerboard, scenery, writing, grid or UI. Paint exactly two generously sized gently faceted crystals, one pale aqua and one lavender, growing from one attached rounded light-lavender mineral base. The aqua crystal is slightly taller at left, lavender crystal at right. Use only2–3 broad painted facets per crystal, restrained cream glints, a clear joined silhouette and a soft painted base. Friendly mineral toy, no glitter, neon, dense facets, extra crystal spikes, gold pedestal or magical aura. Square native canvas, requested1024x1024.",
+      "attempt": 1,
+      "status": "GENERATION_PENDING_UNBOUND",
+      "prompt_sha256": "01b3442b8a07e834b0480cb22b6c97f65dee99d02cac93c2ad4e7af154f8d889",
+      "transparent_background": true,
+      "reference_images": [],
+      "source_score": null,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_approval": null
+    }
+  ],
+  "followups": [
+    "Matching painted open-geode interior/halves must retain the accepted closed-geode identity, exact split seam and contact geometry; do not independently redesign states.",
+    "Painted fossil/river work surface and full friendly grotto environment need their own complete native evidence; do not retain flat procedural panels as accepted final art.",
+    "Full background needs at least2048x2048 native coverage per actual playable screen; undersize generated master stays reference-only, never silently upscale to claim native resolution.",
+    "All isolated generated art must pass actual alpha and phone-size placement/action review. Preserve every failed native output; no runtime binding until its independent evidence supports it."
+  ],
+  "runtime_binding_changed": false,
+  "cinematic_delivery": false
+}
