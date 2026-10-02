@@ -1,0 +1,44 @@
+{
+  "status": "PREPARED_NAMED_CONTACT_GAP",
+  "baseline": "dea7425a1e09752bd5102fc445bd2f84b96c0010",
+  "source_gap": "Every16 current atlas cell inspected; no two-handed raised rim grip. Whole-card reuse preserves identity4.6 but native contact4.2/work semantics3.8 in all6 study views. Generate only a new connected static panning contact pose, reusing established identity/costume/pan design references.",
+  "inventory": [
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+      "sha256": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37",
+      "regions": 16,
+      "directly_inspected": true,
+      "reuse_failure": "Idle/travel/wave/point/crystal/low palm poses do not grip the pan. Work0 palms rest low on the slab."
+    },
+    {
+      "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/washing_pan/attempt_02/native.png",
+      "sha256": "676297877ff5c7e3766e73150ba728616b1acc03ade4dec7a7d697111b5bb295",
+      "reuse": "Approved source design4.6 retained as exact visual authority; current oversized detached mounting fails the contact purpose."
+    }
+  ],
+  "references": [
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+      "sha256": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37",
+      "role": "identity_costume_full_fin_only"
+    },
+    {
+      "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/washing_pan/attempt_02/native.png",
+      "sha256": "676297877ff5c7e3766e73150ba728616b1acc03ade4dec7a7d697111b5bb295",
+      "role": "pan_identity_material_geometry_only"
+    }
+  ],
+  "prompt_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/panning_contact/attempt_01/PROMPT.txt",
+  "prompt_sha256": "ca3c7633920df8f45fb7c537fed45d7784488b83b2b1314414af889b456b1fd3",
+  "generation_method": "builtin_imagegen_new_static_contact_pose",
+  "attempt": 1,
+  "transparent_background": true,
+  "production_binding_changed": false,
+  "required_evidence": [
+    "Native alpha/neutral-source direct review",
+    "Exact prompt/reference/native hashes",
+    "Native 1280/1600 task view and inherited input placement audit",
+    "Separate static contact from complete motion/routes/device/child/owner"
+  ],
+  "owner_approval": null
+}

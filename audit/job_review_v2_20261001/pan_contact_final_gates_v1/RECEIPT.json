@@ -1,0 +1,159 @@
+{
+  "status": "PASS_REVIEW_SUPPLEMENT_MACHINE_GATES",
+  "checked_utc": "2026-10-02T03:20:53.439846+00:00",
+  "processes": [
+    {
+      "name": "parser",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "audit/job_pan_actor_contact_study_v1_20261001/capture.gd",
+        "audit/job_pan_actor_contact_study_v1_20261001/study_surface.gd",
+        "audit/job_pan_gripping_pose_study_v2_20261001/capture.gd",
+        "audit/job_pan_gripping_pose_study_v2_20261001/study_surface.gd",
+        "audit/job_pan_painted_mount_v3_20261001/attempt_02/capture.gd",
+        "audit/job_pan_painted_mount_v3_20261001/attempt_02/study_surface.gd",
+        "audit/job_pan_painted_mount_v3_20261001/attempt_03/capture.gd",
+        "audit/job_pan_painted_mount_v3_20261001/attempt_03/study_surface.gd",
+        "audit/job_pan_painted_mount_v3_20261001/attempt_04/capture.gd",
+        "audit/job_pan_painted_mount_v3_20261001/attempt_04/study_surface.gd",
+        "audit/job_pan_painted_mount_v3_20261001/capture.gd",
+        "audit/job_pan_painted_mount_v3_20261001/study_surface.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 1.0547087999875657,
+      "stdout": "audit/job_review_v2_20261001/pan_contact_final_gates_v1/parser.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/pan_contact_final_gates_v1/parser.stderr.log"
+    },
+    {
+      "name": "inference",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "audit/job_pan_actor_contact_study_v1_20261001/capture.gd",
+        "audit/job_pan_actor_contact_study_v1_20261001/study_surface.gd",
+        "audit/job_pan_gripping_pose_study_v2_20261001/capture.gd",
+        "audit/job_pan_gripping_pose_study_v2_20261001/study_surface.gd",
+        "audit/job_pan_painted_mount_v3_20261001/attempt_02/capture.gd",
+        "audit/job_pan_painted_mount_v3_20261001/attempt_02/study_surface.gd",
+        "audit/job_pan_painted_mount_v3_20261001/attempt_03/capture.gd",
+        "audit/job_pan_painted_mount_v3_20261001/attempt_03/study_surface.gd",
+        "audit/job_pan_painted_mount_v3_20261001/attempt_04/capture.gd",
+        "audit/job_pan_painted_mount_v3_20261001/attempt_04/study_surface.gd",
+        "audit/job_pan_painted_mount_v3_20261001/capture.gd",
+        "audit/job_pan_painted_mount_v3_20261001/study_surface.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 0.12558649998391047,
+      "stdout": "audit/job_review_v2_20261001/pan_contact_final_gates_v1/inference.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/pan_contact_final_gates_v1/inference.stderr.log"
+    },
+    {
+      "name": "import",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef",
+        "--import"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 11.378359899972565,
+      "stdout": "audit/job_review_v2_20261001/pan_contact_final_gates_v1/import.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/pan_contact_final_gates_v1/import.stderr.log"
+    },
+    {
+      "name": "contract_tests",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 10.766250199987553,
+      "stdout": "audit/job_review_v2_20261001/pan_contact_final_gates_v1/contract_tests.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/pan_contact_final_gates_v1/contract_tests.stderr.log"
+    },
+    {
+      "name": "2d_regression",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 48.41240279999329,
+      "stdout": "audit/job_review_v2_20261001/pan_contact_final_gates_v1/2d_regression.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/pan_contact_final_gates_v1/2d_regression.stderr.log"
+    },
+    {
+      "name": "authority",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 7.432788099977188,
+      "stdout": "audit/job_review_v2_20261001/pan_contact_final_gates_v1/authority.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/pan_contact_final_gates_v1/authority.stderr.log"
+    },
+    {
+      "name": "development",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 5.602160499955062,
+      "stdout": "audit/job_review_v2_20261001/pan_contact_final_gates_v1/development.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/pan_contact_final_gates_v1/development.stderr.log"
+    }
+  ],
+  "review_gd_files": [
+    "audit/job_pan_actor_contact_study_v1_20261001/capture.gd",
+    "audit/job_pan_actor_contact_study_v1_20261001/study_surface.gd",
+    "audit/job_pan_gripping_pose_study_v2_20261001/capture.gd",
+    "audit/job_pan_gripping_pose_study_v2_20261001/study_surface.gd",
+    "audit/job_pan_painted_mount_v3_20261001/attempt_02/capture.gd",
+    "audit/job_pan_painted_mount_v3_20261001/attempt_02/study_surface.gd",
+    "audit/job_pan_painted_mount_v3_20261001/attempt_03/capture.gd",
+    "audit/job_pan_painted_mount_v3_20261001/attempt_03/study_surface.gd",
+    "audit/job_pan_painted_mount_v3_20261001/attempt_04/capture.gd",
+    "audit/job_pan_painted_mount_v3_20261001/attempt_04/study_surface.gd",
+    "audit/job_pan_painted_mount_v3_20261001/capture.gd",
+    "audit/job_pan_painted_mount_v3_20261001/study_surface.gd"
+  ],
+  "source325_unchanged": true,
+  "strict_2d_status": "UNSATISFIED; regression-only pass is not strict zero debt",
+  "qualification": "Original325-source full suite and hostedD validation carry forward only unchanged production sources. New6 gripping captures all four local processes0; all72 new pan/actor views direct. Current new-head full hosted validation is separate. Static grip4.6 does not establish articulated motion/full ordinary routes/device/child/owner/final acceptance."
+}

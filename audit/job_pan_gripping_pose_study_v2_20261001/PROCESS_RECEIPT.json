@@ -1,0 +1,74 @@
+{
+  "status": "PASS_MACHINE_NATIVE_CAPTURE",
+  "processes": [
+    {
+      "name": "parser",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "audit/job_pan_gripping_pose_study_v2_20261001/capture.gd",
+        "audit/job_pan_gripping_pose_study_v2_20261001/study_surface.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 0.698487599962391,
+      "stdout": "audit/job_pan_gripping_pose_study_v2_20261001/parser.stdout.log",
+      "stderr": "audit/job_pan_gripping_pose_study_v2_20261001/parser.stderr.log"
+    },
+    {
+      "name": "inference",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "audit/job_pan_gripping_pose_study_v2_20261001/capture.gd",
+        "audit/job_pan_gripping_pose_study_v2_20261001/study_surface.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 0.1079543000087142,
+      "stdout": "audit/job_pan_gripping_pose_study_v2_20261001/inference.stdout.log",
+      "stderr": "audit/job_pan_gripping_pose_study_v2_20261001/inference.stderr.log"
+    },
+    {
+      "name": "analyzer",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://audit/job_pan_gripping_pose_study_v2_20261001/capture.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 5.743541400006507,
+      "stdout": "audit/job_pan_gripping_pose_study_v2_20261001/analyzer.stdout.log",
+      "stderr": "audit/job_pan_gripping_pose_study_v2_20261001/analyzer.stderr.log"
+    },
+    {
+      "name": "native",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef",
+        "--script",
+        "res://audit/job_pan_gripping_pose_study_v2_20261001/capture.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 22.818948299973272,
+      "stdout": "audit/job_pan_gripping_pose_study_v2_20261001/native.stdout.log",
+      "stderr": "audit/job_pan_gripping_pose_study_v2_20261001/native.stderr.log"
+    }
+  ],
+  "original325_sources_unchanged": true,
+  "qualification": "Machine static capture only. Every native view requires direct audit; articulated motion/full ordinary route/device/child/owner remain open."
+}

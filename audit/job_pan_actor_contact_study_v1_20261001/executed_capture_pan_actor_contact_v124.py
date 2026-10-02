@@ -1,0 +1,30 @@
+from pathlib import Path
+import json,hashlib,shutil,subprocess,sys,time
+b=Path(r'C:/Users/Peter/.codex/worktrees/job-art-review-v2-20261001/mermaid-roshan-reef');previous=b/'audit/job_pan_painted_mount_v3_20261001/attempt_04';out=b/'audit/job_pan_actor_contact_study_v1_20261001';out.mkdir(exist_ok=False)
+def rel(p):return p.relative_to(b).as_posix()
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def write(p,d):p.write_text(json.dumps(d,indent=2)+'\n',encoding='utf-8',newline='\n')
+impact=b/'design/audit_impacts/job-pan-painted-placement-20261001.json';d=json.loads(impact.read_text());d['scope']+=' Add separately named six-view static actor-contact study using the unchanged geologist work atlas, translating its whole2D card only onto the left tabletop/pan rim. No body generation, source edits, changed inputs or final acting claim.';d['rules']=sorted(set(d['rules'])|{'DL-INT-04','DL-INT-06','DL-QA-06'});write(impact,d)
+code=(previous/'capture.gd').read_text().replace('tmp/pan_final_contact_v120/native_views','tmp/pan_actor_contact_v124/native_views').replace('res://'+rel(previous/'study_surface.gd'),'res://'+rel(out/'study_surface.gd'))
+code=code.replace('var before := _snapshot(world)','var before := _snapshot(world)\n\tvar actor_position_before := world.player_actor.position\n\tvar actor_z_before := world.player_actor.z_index')
+code=code.replace('study.queue_redraw()\n\t\tawait _wait(2)','if study.painted_study and world.task_open:\n\t\t\tworld.player_actor.position = Vector2(373.0 + study.pan_visual_x, 270.0)\n\t\t\tworld.player_actor.z_index = 1\n\t\tstudy.queue_redraw()\n\t\tawait _wait(2)')
+code=code.replace('"goal_visible": world.prop_rect.visible if world.prop_rect != null else false,','"goal_visible": world.prop_rect.visible if world.prop_rect != null else false,\n\t\t\t"actor_rect": [world.player_actor.position.x, world.player_actor.position.y, world.player_actor.size.x, world.player_actor.size.y],\n\t\t\t"actor_canvas_z": world.player_actor.z_index,\n\t\t\t"actor_atlas": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",\n\t\t\t"actor_atlas_sha256": FileAccess.get_sha256("res://assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png"),')
+code=code.replace('assert(before == _snapshot(world))','world.player_actor.position = actor_position_before\n\tworld.player_actor.z_index = actor_z_before\n\tassert(before == _snapshot(world))')
+code=code.replace('aspect-preserving pan/slab drawing, source-reused painted grains, basin mineral contact and small invitation-support study.','source-reused pan/grain/slab and unchanged geologist whole-card actor contact study. No new anatomy or source pixels; static contact only, not timed acting acceptance.')
+(out/'.gdignore').write_text('');(out/'capture.gd').write_text(code,encoding='utf-8',newline='\n');shutil.copyfile(previous/'study_surface.gd',out/'study_surface.gd');shutil.copyfile(__file__,out/'executed_capture_pan_actor_contact_v124.py')
+snapshot=json.loads((b/'audit/job_review_v2_20261001/full_ci_candidate_retry_v2/SOURCE_BEFORE.json').read_text())['source_files'];before={x['path']:sha(b/x['path']) for x in snapshot};assert len(before)==325 and all(before[x['path']]==x['sha256'] for x in snapshot);write(out/'SOURCE_BEFORE.json',before)
+write(out/'PROFILE.json',dict(status='PREPARED_REUSED_ACTOR_STATIC_CONTACT_STUDY',views=6,baseline='dea7425a1e09752bd5102fc445bd2f84b96c0010',unchanged_atlas='assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png',sha256=sha(b/'assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png'),changes='Only entire actor2D card position373+panvisualX,270 and explicit foreground Canvas ownership in disposable fixture. Same inherited input/pose/state. No new character pixels, production binding or complete acting pass.'))
+def cover():
+ d=json.loads(impact.read_text());d['files']=sorted(set(d['files'])|{rel(p) for p in out.rglob('*') if p.is_file()});write(impact,d)
+cover();native=b/'tmp/pan_actor_contact_v124/native_views';native.mkdir(parents=True)
+godot='C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe';cmds=[('parser',[sys.executable,'-X','utf8','-B','-m','gdtoolkit.parser',rel(out/'capture.gd'),rel(out/'study_surface.gd')]),('inference',[sys.executable,'-X','utf8','-B','tools/lint_inference.py',rel(out/'capture.gd'),rel(out/'study_surface.gd')]),('analyzer',[godot,'--headless','--path',str(b),'--check-only','--script','res://'+rel(out/'capture.gd')]),('native',[godot,'--path',str(b),'--script','res://'+rel(out/'capture.gd')])];rows=[]
+for name,cmd in cmds:
+ so=out/(name+'.stdout.log');se=out/(name+'.stderr.log');so.touch();se.touch();cover();start=time.monotonic()
+ with so.open('wb') as a,se.open('wb') as c:
+  try:p=subprocess.run(cmd,cwd=b,stdout=a,stderr=c,timeout=240 if name!='native' else 600,creationflags=subprocess.CREATE_NO_WINDOW);code=p.returncode;timed=False
+  except subprocess.TimeoutExpired:code=None;timed=True
+ rows.append(dict(name=name,command=cmd,process_exit=code,timed_out=timed,seconds=time.monotonic()-start,stdout=rel(so),stderr=rel(se)));print(name,code,flush=True)
+ if code!=0:print(se.read_text(encoding='utf-8',errors='replace')[-1400:],flush=True);break
+passed=len(rows)==4 and all(x['process_exit']==0 for x in rows) and all(sha(b/p)==h for p,h in before.items())
+if passed:shutil.copytree(native,out/'native_views')
+write(out/'PROCESS_RECEIPT.json',dict(status='PASS_MACHINE_NATIVE_CAPTURE' if passed else 'FAIL_PRESERVED',processes=rows,original325_sources_unchanged=all(sha(b/p)==h for p,h in before.items()),qualification='Machine capture only. Every native static contact view requires direct audit; no ordinary route/full timing/device/child/owner pass.'));cover();d=json.loads(impact.read_text());d['validation'].append(dict(command='Unchanged actor source/static pan contact official4.7.2 analyzer and6-view native input capture',result='PASS' if passed else 'FAIL',evidence=rel(out/'PROCESS_RECEIPT.json')));write(impact,d);raise SystemExit(0 if passed else 1)

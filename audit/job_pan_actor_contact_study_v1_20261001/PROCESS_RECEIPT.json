@@ -1,0 +1,74 @@
+{
+  "status": "PASS_MACHINE_NATIVE_CAPTURE",
+  "processes": [
+    {
+      "name": "parser",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "audit/job_pan_actor_contact_study_v1_20261001/capture.gd",
+        "audit/job_pan_actor_contact_study_v1_20261001/study_surface.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 0.6701539999921806,
+      "stdout": "audit/job_pan_actor_contact_study_v1_20261001/parser.stdout.log",
+      "stderr": "audit/job_pan_actor_contact_study_v1_20261001/parser.stderr.log"
+    },
+    {
+      "name": "inference",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "audit/job_pan_actor_contact_study_v1_20261001/capture.gd",
+        "audit/job_pan_actor_contact_study_v1_20261001/study_surface.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 0.10884060000535101,
+      "stdout": "audit/job_pan_actor_contact_study_v1_20261001/inference.stdout.log",
+      "stderr": "audit/job_pan_actor_contact_study_v1_20261001/inference.stderr.log"
+    },
+    {
+      "name": "analyzer",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://audit/job_pan_actor_contact_study_v1_20261001/capture.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 5.556247600005008,
+      "stdout": "audit/job_pan_actor_contact_study_v1_20261001/analyzer.stdout.log",
+      "stderr": "audit/job_pan_actor_contact_study_v1_20261001/analyzer.stderr.log"
+    },
+    {
+      "name": "native",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef",
+        "--script",
+        "res://audit/job_pan_actor_contact_study_v1_20261001/capture.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 22.841351499955636,
+      "stdout": "audit/job_pan_actor_contact_study_v1_20261001/native.stdout.log",
+      "stderr": "audit/job_pan_actor_contact_study_v1_20261001/native.stderr.log"
+    }
+  ],
+  "original325_sources_unchanged": true,
+  "qualification": "Machine capture only. Every native static contact view requires direct audit; no ordinary route/full timing/device/child/owner pass."
+}
