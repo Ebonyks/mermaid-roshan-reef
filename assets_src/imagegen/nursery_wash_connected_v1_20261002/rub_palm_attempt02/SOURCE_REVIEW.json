@@ -1,0 +1,49 @@
+{
+  "status": "PROVISIONAL_STATIC_SOURCE_FLOOR_ONLY",
+  "score": 4.5,
+  "note": "The far cupped palm now reads beneath the near scrubbing hand rather than a prayer/clap clasp. Lather is bounded to the actual contact; wrists remain connected to the own-costume body. Fine fingertips are partly occluded by foam. Static provisional floor only; mounted/action/motion and owner lanes unassigned.",
+  "reviewed_utc": "2026-10-02T21:47:37.916266+00:00",
+  "method": "Direct complete native images displayed by built-in imagegen and inspected by root; separate from mounted action.",
+  "native": {
+    "mode": "RGBA",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "alpha_bbox": [
+      0,
+      21,
+      1204,
+      1222
+    ]
+  },
+  "native_sha256": "f1bba9ce219d152ce3997167473cfb0c770ca5ceed84549a3f9b657c82d6793c",
+  "prompt_sha256": "453a844f3e5e1f8b1d2a4e71cda623a8b5d4994ac234d751229dd11c0664ba03",
+  "references": [
+    {
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rub_back_attempt01/native.png",
+      "sha256": "18fc826e28a3536c2b1cbb55dcad35163b54f1b1e7a4231fd2b2e2ff48bdc995"
+    }
+  ],
+  "runtime_normalization": {
+    "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm02.png",
+    "sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+    "size": [
+      1024,
+      1024
+    ],
+    "method": "Godot4.7.2 Image.resize, uniform whole-canvas 1254-square to1024-square INTERPOLATE_LANCZOS; no isolated subject/pixel repair. Native original preserved.",
+    "runtime_selected": true
+  },
+  "mounted_score": null,
+  "action_score": null,
+  "owner_approval": false,
+  "priority_inclusive": true,
+  "current_mounted_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json",
+  "current_mounted_static_score": 4.5,
+  "complete_action_score": 3.9
+}

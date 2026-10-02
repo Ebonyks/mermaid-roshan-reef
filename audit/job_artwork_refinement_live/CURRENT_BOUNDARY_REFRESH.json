@@ -1,15 +1,21 @@
 {
   "schema": "reef.current-review-boundary-refresh.v1",
-  "status": "CURRENT_GEODE_CAPTURE_SOURCE_BOUNDARY_MATCH",
-  "checked_utc": "2026-10-02T14:01:26.826034+00:00",
-  "working_head": "bc2d14160a3f532895ed95c5db646e8cf0b451ad",
-  "registry_items": 1729,
-  "unique_registered_paths": 1247,
-  "registered_source_matches": 1729,
+  "status": "CURRENT_NURSERY_BOUNDARY_MATCH_GEODE_REVIEW_STALE",
+  "checked_utc": "2026-10-02T22:41:11.459133+00:00",
+  "working_head": "e4e26aeaa1f7e55985cb3915d35dca5aeba00d40",
+  "registry_items": 1756,
+  "unique_registered_paths": 1261,
+  "registered_source_matches": 1756,
   "source_changed_or_unavailable": [],
   "geode_capture_source_count": 375,
-  "geode_capture_boundary_match": true,
-  "geode_changed_sources": [],
+  "geode_capture_boundary_match": false,
+  "geode_changed_sources": [
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "recorded_sha256": "d6a8c92a61961c3774eb7aadc1267167315796dbb473c716165fb7ffbe80000c",
+      "observed_sha256": "36de131d46713f08171b200aa9bd81f2de7645c43866e2adbb259827c3cd5703"
+    }
+  ],
   "items": [
     {
       "id": "D2F-0001",
@@ -13809,7 +13815,7 @@
       "observed_sha256": "e47a731414210ef70c0b5fffce2828922a15611c6093c244811ee0a283534503",
       "registered_sha256": "e47a731414210ef70c0b5fffce2828922a15611c6093c244811ee0a283534503",
       "source_match": true,
-      "binding_match": true
+      "binding_match": false
     },
     {
       "id": "GEO-USE-DEV-MENU",
@@ -13842,7 +13848,227 @@
       "registered_sha256": "302b8f41ee747da8ddd34dd824506eec3f8431ffaf06fddbe253ff8fa21624ff",
       "source_match": true,
       "binding_match": null
+    },
+    {
+      "id": "NUR-WASH-SRC-CLEAN-ATTEMPT01-NATIVE",
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/clean_attempt01/native.png",
+      "observed_sha256": "c06fd7fc96292c0df920e3a8dc9dce031beba8329b2f89b26b6a9f042f57cbea",
+      "registered_sha256": "c06fd7fc96292c0df920e3a8dc9dce031beba8329b2f89b26b6a9f042f57cbea",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "NUR-WASH-SRC-CLEAN-ATTEMPT01-RUNTIME",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/clean.png",
+      "observed_sha256": "10e494c6a677556ccf4fe636032e26f03b1af6b09b686ae97b75b57cf3fe6530",
+      "registered_sha256": "10e494c6a677556ccf4fe636032e26f03b1af6b09b686ae97b75b57cf3fe6530",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "NUR-WASH-SRC-READY-ATTEMPT01-NATIVE",
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/ready_attempt01/native.png",
+      "observed_sha256": "e7ee2d512460cb3b72aafde956be2d2db03e6359a3ab933a98d4e0e208d66aab",
+      "registered_sha256": "e7ee2d512460cb3b72aafde956be2d2db03e6359a3ab933a98d4e0e208d66aab",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "NUR-WASH-SRC-READY-ATTEMPT01-RUNTIME",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/ready.png",
+      "observed_sha256": "a4145ed7673b937f49a54e4ebd0fb02efe1b2c4bd76315f325948a8f33740cd8",
+      "registered_sha256": "a4145ed7673b937f49a54e4ebd0fb02efe1b2c4bd76315f325948a8f33740cd8",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "NUR-WASH-SRC-RINSE-ATTEMPT01-NATIVE",
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rinse_attempt01/native.png",
+      "observed_sha256": "34179bd5133b4e4d14bff609dce2de716c1415cafe0f9e063983d5d8f42fefd7",
+      "registered_sha256": "34179bd5133b4e4d14bff609dce2de716c1415cafe0f9e063983d5d8f42fefd7",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "NUR-WASH-SRC-RINSE-ATTEMPT01-RUNTIME",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rinse.png",
+      "observed_sha256": "7629280357c273fb1de7f2d8c91b535242a00ada7a28c9aaab7e51116d6fb799",
+      "registered_sha256": "7629280357c273fb1de7f2d8c91b535242a00ada7a28c9aaab7e51116d6fb799",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "NUR-WASH-SRC-RUB-ATTEMPT01-NATIVE",
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rub_attempt01/native.png",
+      "observed_sha256": "4b4691a2a04de5fa5b56a91dc955dc408b96c5ddf65c9592344c6c838fd20507",
+      "registered_sha256": "4b4691a2a04de5fa5b56a91dc955dc408b96c5ddf65c9592344c6c838fd20507",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "NUR-WASH-SRC-RUB-ATTEMPT01-RUNTIME",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm.png",
+      "observed_sha256": "9de65b315c8ee742fc95765e1a2cd629ea8cdfef0e4381d906691b773ed24656",
+      "registered_sha256": "9de65b315c8ee742fc95765e1a2cd629ea8cdfef0e4381d906691b773ed24656",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "NUR-WASH-SRC-RUB-BACK-ATTEMPT01-NATIVE",
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rub_back_attempt01/native.png",
+      "observed_sha256": "18fc826e28a3536c2b1cbb55dcad35163b54f1b1e7a4231fd2b2e2ff48bdc995",
+      "registered_sha256": "18fc826e28a3536c2b1cbb55dcad35163b54f1b1e7a4231fd2b2e2ff48bdc995",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "NUR-WASH-SRC-RUB-BACK-ATTEMPT01-RUNTIME",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_back.png",
+      "observed_sha256": "8b0c7fd5b9a594f08d64389f7cf6a1904340991961a9f0d70fe5930354261d96",
+      "registered_sha256": "8b0c7fd5b9a594f08d64389f7cf6a1904340991961a9f0d70fe5930354261d96",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "NUR-WASH-SRC-RUB-PALM-ATTEMPT02-NATIVE",
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rub_palm_attempt02/native.png",
+      "observed_sha256": "f1bba9ce219d152ce3997167473cfb0c770ca5ceed84549a3f9b657c82d6793c",
+      "registered_sha256": "f1bba9ce219d152ce3997167473cfb0c770ca5ceed84549a3f9b657c82d6793c",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "NUR-WASH-SRC-RUB-PALM-ATTEMPT02-RUNTIME",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm02.png",
+      "observed_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "registered_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "NUR-WASH-SRC-WET-ATTEMPT01-NATIVE",
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/wet_attempt01/native.png",
+      "observed_sha256": "4a2ab2cfa336b47b4a827ce6a531939f15cfb34d43ec8365840882625c06e4cc",
+      "registered_sha256": "4a2ab2cfa336b47b4a827ce6a531939f15cfb34d43ec8365840882625c06e4cc",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "NUR-WASH-SRC-WET-ATTEMPT01-RUNTIME",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/wet.png",
+      "observed_sha256": "82b7643dc59846285d1c4c4659a0217aa4fdceb35dd4fcb6bd8cf4f63d66b5d2",
+      "registered_sha256": "82b7643dc59846285d1c4c4659a0217aa4fdceb35dd4fcb6bd8cf4f63d66b5d2",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "NUR-WASH-STATE-READY",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/ready.png",
+      "observed_sha256": "a4145ed7673b937f49a54e4ebd0fb02efe1b2c4bd76315f325948a8f33740cd8",
+      "registered_sha256": "a4145ed7673b937f49a54e4ebd0fb02efe1b2c4bd76315f325948a8f33740cd8",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "NUR-WASH-STATE-WET",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/wet.png",
+      "observed_sha256": "82b7643dc59846285d1c4c4659a0217aa4fdceb35dd4fcb6bd8cf4f63d66b5d2",
+      "registered_sha256": "82b7643dc59846285d1c4c4659a0217aa4fdceb35dd4fcb6bd8cf4f63d66b5d2",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "NUR-WASH-STATE-RUB-PALM",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm02.png",
+      "observed_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "registered_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "NUR-WASH-STATE-RUB-BACK",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_back.png",
+      "observed_sha256": "8b0c7fd5b9a594f08d64389f7cf6a1904340991961a9f0d70fe5930354261d96",
+      "registered_sha256": "8b0c7fd5b9a594f08d64389f7cf6a1904340991961a9f0d70fe5930354261d96",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "NUR-WASH-STATE-RINSE",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rinse.png",
+      "observed_sha256": "7629280357c273fb1de7f2d8c91b535242a00ada7a28c9aaab7e51116d6fb799",
+      "registered_sha256": "7629280357c273fb1de7f2d8c91b535242a00ada7a28c9aaab7e51116d6fb799",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "NUR-WASH-STATE-CLEAN",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/clean.png",
+      "observed_sha256": "10e494c6a677556ccf4fe636032e26f03b1af6b09b686ae97b75b57cf3fe6530",
+      "registered_sha256": "10e494c6a677556ccf4fe636032e26f03b1af6b09b686ae97b75b57cf3fe6530",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "NUR-WASH-USE-BASIN",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm02.png",
+      "observed_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "registered_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "NUR-WASH-USE-HANDS",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm02.png",
+      "observed_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "registered_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "NUR-WASH-USE-CONSEQUENCE",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/clean.png",
+      "observed_sha256": "10e494c6a677556ccf4fe636032e26f03b1af6b09b686ae97b75b57cf3fe6530",
+      "registered_sha256": "10e494c6a677556ccf4fe636032e26f03b1af6b09b686ae97b75b57cf3fe6530",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "NUR-WASH-USE-ACTION",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm02.png",
+      "observed_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "registered_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "NUR-WASH-USE-ATTENTION",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm02.png",
+      "observed_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "registered_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "NUR-WASH-USE-ROOM",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm02.png",
+      "observed_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "registered_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "NUR-WASH-USE-TRANSITION",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/clean.png",
+      "observed_sha256": "10e494c6a677556ccf4fe636032e26f03b1af6b09b686ae97b75b57cf3fe6530",
+      "registered_sha256": "10e494c6a677556ccf4fe636032e26f03b1af6b09b686ae97b75b57cf3fe6530",
+      "source_match": true,
+      "binding_match": true
     }
   ],
-  "qualification": "Refresh reads known literal sources and recorded binding hashes only. It does not generate art, change opinions, play the game or grant visual/owner acceptance. Changed sources withhold their current opinions in the register display; prior opinions remain in the saved register/history. Any changed member of the recorded geode capture source boundary requires a current rerender before its mounted claims can be displayed as current. All eight dated Doctor/Nursery capture cases remain explicitly historical, not rescued by this refresh."
+  "qualification": "Refresh reads known literal sources and recorded binding hashes only. It does not generate art, change opinions, play the game or grant visual/owner acceptance. Changed sources withhold their current opinions in the register display; prior opinions remain in the saved register/history. Any changed member of the recorded geode capture source boundary requires a current rerender before its mounted claims can be displayed as current. All eight dated Doctor/Nursery capture cases remain explicitly historical, not rescued by this refresh. Current Nursery v3 room/caller captures are separately source-bound; old Doctor/birthday/full-career/device evidence is not promoted by a hash refresh.",
+  "nursery_capture_boundary_match": true,
+  "nursery_capture_source_count": 783,
+  "nursery_changed_sources": [],
+  "nursery_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json"
 }

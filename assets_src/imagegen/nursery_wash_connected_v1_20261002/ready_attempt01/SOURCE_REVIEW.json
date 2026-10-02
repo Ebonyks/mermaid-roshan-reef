@@ -1,0 +1,54 @@
+{
+  "status": "PROVISIONAL_STATIC_SOURCE_FLOOR_ONLY",
+  "score": 4.5,
+  "note": "Clear initial joined hands, complete own-costume body, child-readable ceramic basin. Initial readiness is static; no actual action claim.",
+  "reviewed_utc": "2026-10-02T21:43:59.422298+00:00",
+  "method": "Direct complete native images displayed by built-in imagegen and inspected by root; separate from mounted action.",
+  "native": {
+    "mode": "RGBA",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "alpha_bbox": [
+      85,
+      21,
+      1198,
+      1238
+    ]
+  },
+  "native_sha256": "e7ee2d512460cb3b72aafde956be2d2db03e6359a3ab933a98d4e0e208d66aab",
+  "prompt_sha256": "3688f3c8cb28a3cc3cbfb515401bf382cc4fd4070d22981817fcb25385e72c49",
+  "references": [
+    {
+      "path": "assets/opera/worlds/actors/roshan_nursery.png",
+      "sha256": "453f770e57cf9493d022c17e59960af2a062f63d8bdf6167f4a855fa1dc4fed1"
+    }
+  ],
+  "runtime_normalization": {
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/ready.png",
+    "sha256": "a4145ed7673b937f49a54e4ebd0fb02efe1b2c4bd76315f325948a8f33740cd8",
+    "method": "Godot4.7.2 Image.resize uniform whole-canvas1254 to1024 INTERPOLATE_LANCZOS; native preserved, no isolated-subject repair.",
+    "runtime_selected": true
+  },
+  "mounted_score": null,
+  "action_score": null,
+  "owner_approval": false,
+  "priority_inclusive": true,
+  "current_mounted_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json",
+  "current_mounted_static_score": 4.5,
+  "complete_action_score": 3.9
+}

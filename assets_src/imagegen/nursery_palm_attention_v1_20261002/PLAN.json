@@ -1,0 +1,60 @@
+{
+  "status": "BLOCKED_AWAITING_EXPLICIT_REFERENCE_UPLOAD_APPROVAL",
+  "baseline": "e4e26aeaa1f7e55985cb3915d35dca5aeba00d40",
+  "inventory": [
+    {
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rub_palm_attempt02/native.png",
+      "sha256": "f1bba9ce219d152ce3997167473cfb0c770ca5ceed84549a3f9b657c82d6793c",
+      "reuse_gap": "Preserved source is forward-facing; failed local motion does not establish eyes-to-hands attention. Reuse entire identity/layout; target only attention."
+    }
+  ],
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-MED-01",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-LAY-07",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-INT-04",
+    "DL-INT-06",
+    "DL-INT-12",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-06"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004",
+    "MA-OPERA-012"
+  ],
+  "source_opinion": null,
+  "runtime_integration": false,
+  "owner_acceptance": null,
+  "generation_started": false,
+  "reference_uploaded": false,
+  "block_receipt": "assets_src/imagegen/nursery_palm_attention_v1_20261002/REFERENCE_UPLOAD_BLOCK.json"
+}

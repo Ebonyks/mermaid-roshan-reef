@@ -1,0 +1,54 @@
+{
+  "status": "PROVISIONAL_STATIC_SOURCE_FLOOR_ONLY",
+  "score": 4.5,
+  "note": "Near palm clearly contacts far hand back, connected wrists and small lather. Static washing intent meets provisional source floor; movement pending.",
+  "reviewed_utc": "2026-10-02T21:43:59.567397+00:00",
+  "method": "Direct complete native images displayed by built-in imagegen and inspected by root; separate from mounted action.",
+  "native": {
+    "mode": "RGBA",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "alpha_bbox": [
+      57,
+      21,
+      1214,
+      1222
+    ]
+  },
+  "native_sha256": "18fc826e28a3536c2b1cbb55dcad35163b54f1b1e7a4231fd2b2e2ff48bdc995",
+  "prompt_sha256": "84a90e58ddb47c89319df47e06ddc9874d2061aba8779de4d33cbaddf5d2b5fd",
+  "references": [
+    {
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rub_attempt01/native.png",
+      "sha256": "4b4691a2a04de5fa5b56a91dc955dc408b96c5ddf65c9592344c6c838fd20507"
+    }
+  ],
+  "runtime_normalization": {
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_back.png",
+    "sha256": "8b0c7fd5b9a594f08d64389f7cf6a1904340991961a9f0d70fe5930354261d96",
+    "method": "Godot4.7.2 Image.resize uniform whole-canvas1254 to1024 INTERPOLATE_LANCZOS; native preserved, no isolated-subject repair.",
+    "runtime_selected": true
+  },
+  "mounted_score": null,
+  "action_score": null,
+  "owner_approval": false,
+  "priority_inclusive": true,
+  "current_mounted_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json",
+  "current_mounted_static_score": 4.5,
+  "complete_action_score": 3.9
+}

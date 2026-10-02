@@ -1,0 +1,58 @@
+{
+  "status": "WEAK_SOURCE_REFINEMENT_REQUIRED",
+  "score": 4.4,
+  "note": "Soft lather and connected limbs pass material quality; same-direction fingers read as clasp/clap rather than an explicit rubbing movement. Preserve as weak transitional candidate.",
+  "reviewed_utc": "2026-10-02T21:43:59.517175+00:00",
+  "method": "Direct complete native images displayed by built-in imagegen and inspected by root; separate from mounted action.",
+  "native": {
+    "mode": "RGBA",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "alpha_bbox": [
+      24,
+      44,
+      1205,
+      1222
+    ]
+  },
+  "native_sha256": "4b4691a2a04de5fa5b56a91dc955dc408b96c5ddf65c9592344c6c838fd20507",
+  "prompt_sha256": "ce3fc8b496e07101e90a9c890458031f428df260825a1dd288893dd97faf6d83",
+  "references": [
+    {
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/ready_attempt01/native.png",
+      "sha256": "e7ee2d512460cb3b72aafde956be2d2db03e6359a3ab933a98d4e0e208d66aab"
+    },
+    {
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/wet_attempt01/native.png",
+      "sha256": "4a2ab2cfa336b47b4a827ce6a531939f15cfb34d43ec8365840882625c06e4cc"
+    }
+  ],
+  "runtime_normalization": {
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm.png",
+    "sha256": "9de65b315c8ee742fc95765e1a2cd629ea8cdfef0e4381d906691b773ed24656",
+    "method": "Godot4.7.2 Image.resize uniform whole-canvas1254 to1024 INTERPOLATE_LANCZOS; native preserved, no isolated-subject repair.",
+    "runtime_selected": false
+  },
+  "mounted_score": null,
+  "action_score": null,
+  "owner_approval": false,
+  "priority_inclusive": true,
+  "current_mounted_review": null,
+  "current_mounted_static_score": null,
+  "complete_action_score": null
+}

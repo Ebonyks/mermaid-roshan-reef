@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\nursery_connected_scrub_v1_20261002\\inputs\\NUR-SCRUB-A1.png",
+  "source_sha256": "8de48e5a6a17c8935c481331bf47b39e56a7bc9f9a1964b473237e7a26d53b8e",
+  "source_dimensions": [
+    896,
+    512
+  ],
+  "prompt": "Roshan quietly washes the far cupped palm with her near hand, keeping both wrists joined to her body and both hands touching above the basin.\n0.00-0.25s: remain in the exact source contact pose; her eyes gently notice her hands.\n0.25-1.20s: the near palm makes two short gentle back-and-forth rubbing strokes across the far cupped palm; a small contained patch of lather stays between the contacting palms.\n1.20-1.70s: the hands settle back into the original connected contact pose; eyes stay attentive to the hands.\nKeep the fixed camera, body, rainbow tail, apron, gingham sleeves, hair, basin, faucet, pedestal and neutral background unchanged. Faucet stays off. Preserve the rounded painted 2D storybook outlines, broad pastel value bands and simplified childlike anatomy. No realistic skin, clap, prayer pose, detached hand, extra limb, new object, foam explosion, camera movement, text or reward effect.\nSound: silence.\n",
+  "prompt_sha256": "d5d50b29364c3a59258639e5a4ddf2974ee6fc84eaa4de59b2f445530eef2f78",
+  "preset": "quick",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "seed": 2026100201,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/GGUF_MODEL_RECEIPT.json",
+  "workflow_sha256": "3a1574325e658c2f1b52a7bb2b6b55a45af3d9c2a5b8462ab31775940d441161",
+  "started_at_utc": "20261002T222155Z",
+  "prompt_id": "9682cfae-8100-497b-a2a5-96d7cc8a97c2",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\nursery_scrub_a1_20261002_20261002T222155Z_f00d89_00002_.webm",
+      "sha256": "1fdf4a7a8624e1c945ac5362fd72afba44a9cf3214b54dc523e3e19b4609c6e5",
+      "bytes": 551770
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\nursery_scrub_a1_20261002_20261002T222155Z_f00d89_00002_.mp4",
+      "sha256": "44b26f12ac62fdbbdf6b1c4383581753437cdc91e0ec0b585113b8187d2fa1a0",
+      "bytes": 367215,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 181.95,
+  "completed_at_utc": "2026-10-02T22:24:57.574038+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance"
+}

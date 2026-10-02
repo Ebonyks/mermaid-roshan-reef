@@ -1,0 +1,54 @@
+{
+  "status": "PROVISIONAL_STATIC_SOURCE_FLOOR_ONLY",
+  "score": 4.6,
+  "note": "Two legible clean palms, five fingers each, faucet off and no foam. Lift from rinse is a larger pose change requiring transition review.",
+  "reviewed_utc": "2026-10-02T21:43:59.668499+00:00",
+  "method": "Direct complete native images displayed by built-in imagegen and inspected by root; separate from mounted action.",
+  "native": {
+    "mode": "RGBA",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "alpha_bbox": [
+      79,
+      21,
+      1204,
+      1222
+    ]
+  },
+  "native_sha256": "c06fd7fc96292c0df920e3a8dc9dce031beba8329b2f89b26b6a9f042f57cbea",
+  "prompt_sha256": "68888673db0596b3d8f553f47729e99096243d17958e9997d0a30ae81072d29e",
+  "references": [
+    {
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rinse_attempt01/native.png",
+      "sha256": "34179bd5133b4e4d14bff609dce2de716c1415cafe0f9e063983d5d8f42fefd7"
+    }
+  ],
+  "runtime_normalization": {
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/clean.png",
+    "sha256": "10e494c6a677556ccf4fe636032e26f03b1af6b09b686ae97b75b57cf3fe6530",
+    "method": "Godot4.7.2 Image.resize uniform whole-canvas1254 to1024 INTERPOLATE_LANCZOS; native preserved, no isolated-subject repair.",
+    "runtime_selected": true
+  },
+  "mounted_score": null,
+  "action_score": null,
+  "owner_approval": false,
+  "priority_inclusive": false,
+  "current_mounted_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json",
+  "current_mounted_static_score": 4.6,
+  "complete_action_score": 3.9
+}

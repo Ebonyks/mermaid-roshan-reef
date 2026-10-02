@@ -1,0 +1,144 @@
+{
+  "0": {
+    "class_type": "SaveLatent",
+    "inputs": {
+      "samples": [
+        "9",
+        0
+      ],
+      "filename_prefix": "local_reference/nursery_scrub_a1_20261002_20261002T222155Z_f00d89"
+    }
+  },
+  "1": {
+    "class_type": "UnetLoaderGGUFAdvanced",
+    "inputs": {
+      "unet_name": "Wan2.2-TI2V-5B-Q4_K_S.gguf",
+      "dequant_dtype": "bfloat16",
+      "patch_dtype": "bfloat16",
+      "patch_on_device": true
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoaderGGUF",
+    "inputs": {
+      "clip_name": "umt5-xxl-encoder-Q4_K_S.gguf",
+      "type": "wan"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "wan2.2_vae.safetensors"
+    }
+  },
+  "4": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "source_8de48e5a6a17c893.png"
+    }
+  },
+  "5": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "text": "Roshan quietly washes the far cupped palm with her near hand, keeping both wrists joined to her body and both hands touching above the basin.\n0.00-0.25s: remain in the exact source contact pose; her eyes gently notice her hands.\n0.25-1.20s: the near palm makes two short gentle back-and-forth rubbing strokes across the far cupped palm; a small contained patch of lather stays between the contacting palms.\n1.20-1.70s: the hands settle back into the original connected contact pose; eyes stay attentive to the hands.\nKeep the fixed camera, body, rainbow tail, apron, gingham sleeves, hair, basin, faucet, pedestal and neutral background unchanged. Faucet stays off. Preserve the rounded painted 2D storybook outlines, broad pastel value bands and simplified childlike anatomy. No realistic skin, clap, prayer pose, detached hand, extra limb, new object, foam explosion, camera movement, text or reward effect.\nSound: silence.\n"
+    }
+  },
+  "6": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "text": "camera movement, zoom, pan, cut, photorealism, 3D shading, new objects, changing architecture, moving shoreline, moving roots, flicker, color pumping, warped shapes, subtitles, text, watermark"
+    }
+  },
+  "7": {
+    "class_type": "ModelSamplingSD3",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "shift": 8.0
+    }
+  },
+  "8": {
+    "class_type": "Wan22ImageToVideoLatent",
+    "inputs": {
+      "vae": [
+        "3",
+        0
+      ],
+      "width": 896,
+      "height": 512,
+      "length": 41,
+      "batch_size": 1,
+      "start_image": [
+        "4",
+        0
+      ]
+    }
+  },
+  "9": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "7",
+        0
+      ],
+      "positive": [
+        "5",
+        0
+      ],
+      "negative": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "8",
+        0
+      ],
+      "seed": 2026100201,
+      "steps": 24,
+      "cfg": 5.0,
+      "sampler_name": "uni_pc",
+      "scheduler": "simple",
+      "denoise": 1.0
+    }
+  },
+  "10": {
+    "class_type": "VAEDecodeTiled",
+    "inputs": {
+      "samples": [
+        "9",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "tile_size": 256,
+      "overlap": 64,
+      "temporal_size": 4096,
+      "temporal_overlap": 8
+    }
+  },
+  "11": {
+    "class_type": "SaveWEBM",
+    "inputs": {
+      "images": [
+        "10",
+        0
+      ],
+      "filename_prefix": "local_reference/nursery_scrub_a1_20261002_20261002T222155Z_f00d89",
+      "codec": "vp9",
+      "fps": 24.0,
+      "crf": 18.0
+    }
+  }
+}

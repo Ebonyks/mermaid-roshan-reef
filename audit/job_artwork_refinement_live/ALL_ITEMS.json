@@ -1,21 +1,23 @@
 {
   "schema": "reef.known-job-item-register.v1",
-  "created_utc": "2026-10-02T13:32:31.632055+00:00",
+  "created_utc": "2026-10-02T22:10:35.872131+00:00",
   "baseline": "40b1c7bfe025f284507c586fea61b9dd76b61423",
-  "scope": "V33 known source union: 1247 unique source files + 328 pose cells + 50 runtime prop-use regions + 104 source-object regions = 1729 entries. Two newly generated contact candidates are individually reviewed, source-only and unbound; first pose4.3 rejected, second static pose4.5 provisional, both material4.6. Five current geode uses retain direct review on the same 375 unchanged rendered source files. Full verification separately includes those sources plus two corrected detector/test files (377). Exact V31/V32 register bytes are preserved. Other opinions retain their dates. 678 source/cell/region inclusive priorities and 385 source reviews unassigned; four additional current geode mounted priorities. No exhaustive actual-use/all-job/complete-action/device/child/owner acceptance.",
+  "scope": "V34 known union:1261 unique source files,328 pose cells,63 runtime state/prop-use records,104 source-object regions =1756 entries. Fourteen new Nursery source/derivative files and thirteen current individual state/use/action opinions. Fresh Nursery direct review covers1631 consecutive captured frames on36 ordered boards and36 native state details. Six selected stills4.5–4.6; complete action3.9, attention3.8, room2.9. Old Geologist mounted evidence is withheld after shared CareerWorld change until a fresh rerender. Exact V33 JSON/HTML and old opinions remain available. Other opinions retain their own dates. This known union is not exhaustive live-use or all-job acceptance.",
   "counts": {
-    "unique_source_files": 1247,
+    "unique_source_files": 1261,
     "individual_pose_cells": 328,
-    "additional_runtime_prop_regions": 50,
+    "additional_runtime_prop_regions": 63,
     "individual_source_object_regions": 104,
-    "registered_items": 1729,
+    "registered_items": 1756,
     "exact_earlier_bytes": 1648,
     "changed_bytes": 0,
     "unavailable_checkout": 0,
-    "inclusive_current_source_priorities": 678,
+    "inclusive_current_source_priorities": 690,
     "unreviewed_current_source": 385,
-    "current_geode_mounted_priorities": 4,
-    "new_named_generated_sources": 2
+    "current_geode_mounted_priorities": 0,
+    "new_named_generated_sources": 7,
+    "current_nursery_mounted_priorities": 10,
+    "new_runtime_derivatives": 7
   },
   "items": [
     {
@@ -77690,9 +77692,1315 @@
       },
       "current_capture_review": "assets_src/imagegen/geologist_geode_contact_v1_20261002/attempt_02/SOURCE_REVIEW.json",
       "current_reviewed_utc": "2026-10-02T13:29:08.640331+00:00"
+    },
+    {
+      "kind": "source",
+      "native_reference_observations": [],
+      "protected_original": false,
+      "id": "NUR-WASH-SRC-CLEAN-ATTEMPT01-NATIVE",
+      "aliases": [
+        "NUR-WASH-SRC-CLEAN-ATTEMPT01-NATIVE"
+      ],
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/clean_attempt01/native.png",
+      "earlier_sha256": "c06fd7fc96292c0df920e3a8dc9dce031beba8329b2f89b26b6a9f042f57cbea",
+      "current_checkout_sha256": "c06fd7fc96292c0df920e3a8dc9dce031beba8329b2f89b26b6a9f042f57cbea",
+      "historical_source_score": 4.6,
+      "current_source_score": 4.6,
+      "evaluation": "Two legible clean palms, five fingers each, faucet off and no foam. Lift from rinse is a larger pose change requiring transition review.",
+      "refinement": "Static source draft only. Preserve the weak clasp unbound; refine action/attention and mounted room independently.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "clean_attempt01",
+        "native"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "audit/job_nursery_wash_connected_v1_20261002/index.html"
+      ],
+      "source_qualification": "Native individually inspected built-in imagegen source; runtime is the recorded uniform whole-canvas derivative. The selected runtime state has separate native mounted review. This source opinion is not complete action or owner acceptance.",
+      "preview_path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/clean_attempt01/native.png",
+      "image_path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/clean_attempt01/native.png",
+      "image_scope": "Complete preserved native RGBA",
+      "current_byte_status": "EXACT_REVIEWED_GENERATION_BYTES",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "priority": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "current_reviewed_utc": "2026-10-02T21:43:59.668499+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "note": "clean_attempt01 source 4.6/5; current complete action 3.9 is separate."
+      }
+    },
+    {
+      "kind": "source",
+      "native_reference_observations": [],
+      "protected_original": false,
+      "id": "NUR-WASH-SRC-CLEAN-ATTEMPT01-RUNTIME",
+      "aliases": [
+        "NUR-WASH-SRC-CLEAN-ATTEMPT01-RUNTIME"
+      ],
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/clean.png",
+      "earlier_sha256": "10e494c6a677556ccf4fe636032e26f03b1af6b09b686ae97b75b57cf3fe6530",
+      "current_checkout_sha256": "10e494c6a677556ccf4fe636032e26f03b1af6b09b686ae97b75b57cf3fe6530",
+      "historical_source_score": 4.6,
+      "current_source_score": 4.6,
+      "evaluation": "Two legible clean palms, five fingers each, faucet off and no foam. Lift from rinse is a larger pose change requiring transition review.",
+      "refinement": "Static source draft only. Preserve the weak clasp unbound; refine action/attention and mounted room independently.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "clean_attempt01",
+        "runtime"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "audit/job_nursery_wash_connected_v1_20261002/index.html"
+      ],
+      "source_qualification": "Native individually inspected built-in imagegen source; runtime is the recorded uniform whole-canvas derivative. The selected runtime state has separate native mounted review. This source opinion is not complete action or owner acceptance.",
+      "preview_path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/clean.png",
+      "image_path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/clean.png",
+      "image_scope": "Uniform whole-canvas 1024 POT runtime derivative",
+      "current_byte_status": "EXACT_REVIEWED_GENERATION_BYTES",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "priority": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "current_reviewed_utc": "2026-10-02T21:43:59.668499+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "note": "clean_attempt01 source 4.6/5; current complete action 3.9 is separate."
+      }
+    },
+    {
+      "kind": "source",
+      "native_reference_observations": [],
+      "protected_original": false,
+      "id": "NUR-WASH-SRC-READY-ATTEMPT01-NATIVE",
+      "aliases": [
+        "NUR-WASH-SRC-READY-ATTEMPT01-NATIVE"
+      ],
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/ready_attempt01/native.png",
+      "earlier_sha256": "e7ee2d512460cb3b72aafde956be2d2db03e6359a3ab933a98d4e0e208d66aab",
+      "current_checkout_sha256": "e7ee2d512460cb3b72aafde956be2d2db03e6359a3ab933a98d4e0e208d66aab",
+      "historical_source_score": 4.5,
+      "current_source_score": 4.5,
+      "evaluation": "Clear initial joined hands, complete own-costume body, child-readable ceramic basin. Initial readiness is static; no actual action claim.",
+      "refinement": "Static source draft only. Preserve the weak clasp unbound; refine action/attention and mounted room independently.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "ready_attempt01",
+        "native"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "audit/job_nursery_wash_connected_v1_20261002/index.html"
+      ],
+      "source_qualification": "Native individually inspected built-in imagegen source; runtime is the recorded uniform whole-canvas derivative. The selected runtime state has separate native mounted review. This source opinion is not complete action or owner acceptance.",
+      "preview_path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/ready_attempt01/native.png",
+      "image_path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/ready_attempt01/native.png",
+      "image_scope": "Complete preserved native RGBA",
+      "current_byte_status": "EXACT_REVIEWED_GENERATION_BYTES",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "priority": true,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "current_reviewed_utc": "2026-10-02T21:43:59.422298+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "note": "ready_attempt01 source 4.5/5; current complete action 3.9 is separate."
+      }
+    },
+    {
+      "kind": "source",
+      "native_reference_observations": [],
+      "protected_original": false,
+      "id": "NUR-WASH-SRC-READY-ATTEMPT01-RUNTIME",
+      "aliases": [
+        "NUR-WASH-SRC-READY-ATTEMPT01-RUNTIME"
+      ],
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/ready.png",
+      "earlier_sha256": "a4145ed7673b937f49a54e4ebd0fb02efe1b2c4bd76315f325948a8f33740cd8",
+      "current_checkout_sha256": "a4145ed7673b937f49a54e4ebd0fb02efe1b2c4bd76315f325948a8f33740cd8",
+      "historical_source_score": 4.5,
+      "current_source_score": 4.5,
+      "evaluation": "Clear initial joined hands, complete own-costume body, child-readable ceramic basin. Initial readiness is static; no actual action claim.",
+      "refinement": "Static source draft only. Preserve the weak clasp unbound; refine action/attention and mounted room independently.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "ready_attempt01",
+        "runtime"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "audit/job_nursery_wash_connected_v1_20261002/index.html"
+      ],
+      "source_qualification": "Native individually inspected built-in imagegen source; runtime is the recorded uniform whole-canvas derivative. The selected runtime state has separate native mounted review. This source opinion is not complete action or owner acceptance.",
+      "preview_path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/ready.png",
+      "image_path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/ready.png",
+      "image_scope": "Uniform whole-canvas 1024 POT runtime derivative",
+      "current_byte_status": "EXACT_REVIEWED_GENERATION_BYTES",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "priority": true,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "current_reviewed_utc": "2026-10-02T21:43:59.422298+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "note": "ready_attempt01 source 4.5/5; current complete action 3.9 is separate."
+      }
+    },
+    {
+      "kind": "source",
+      "native_reference_observations": [],
+      "protected_original": false,
+      "id": "NUR-WASH-SRC-RINSE-ATTEMPT01-NATIVE",
+      "aliases": [
+        "NUR-WASH-SRC-RINSE-ATTEMPT01-NATIVE"
+      ],
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rinse_attempt01/native.png",
+      "earlier_sha256": "34179bd5133b4e4d14bff609dce2de716c1415cafe0f9e063983d5d8f42fefd7",
+      "current_checkout_sha256": "34179bd5133b4e4d14bff609dce2de716c1415cafe0f9e063983d5d8f42fefd7",
+      "historical_source_score": 4.5,
+      "current_source_score": 4.5,
+      "evaluation": "Correct stream-to-hand-to-basin contact; reduced lather leaves a small wrist bubble. Actual removal/time continuity requires mounted review.",
+      "refinement": "Static source draft only. Preserve the weak clasp unbound; refine action/attention and mounted room independently.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "rinse_attempt01",
+        "native"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "audit/job_nursery_wash_connected_v1_20261002/index.html"
+      ],
+      "source_qualification": "Native individually inspected built-in imagegen source; runtime is the recorded uniform whole-canvas derivative. The selected runtime state has separate native mounted review. This source opinion is not complete action or owner acceptance.",
+      "preview_path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rinse_attempt01/native.png",
+      "image_path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rinse_attempt01/native.png",
+      "image_scope": "Complete preserved native RGBA",
+      "current_byte_status": "EXACT_REVIEWED_GENERATION_BYTES",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "priority": true,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "current_reviewed_utc": "2026-10-02T21:43:59.615843+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "note": "rinse_attempt01 source 4.5/5; current complete action 3.9 is separate."
+      }
+    },
+    {
+      "kind": "source",
+      "native_reference_observations": [],
+      "protected_original": false,
+      "id": "NUR-WASH-SRC-RINSE-ATTEMPT01-RUNTIME",
+      "aliases": [
+        "NUR-WASH-SRC-RINSE-ATTEMPT01-RUNTIME"
+      ],
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rinse.png",
+      "earlier_sha256": "7629280357c273fb1de7f2d8c91b535242a00ada7a28c9aaab7e51116d6fb799",
+      "current_checkout_sha256": "7629280357c273fb1de7f2d8c91b535242a00ada7a28c9aaab7e51116d6fb799",
+      "historical_source_score": 4.5,
+      "current_source_score": 4.5,
+      "evaluation": "Correct stream-to-hand-to-basin contact; reduced lather leaves a small wrist bubble. Actual removal/time continuity requires mounted review.",
+      "refinement": "Static source draft only. Preserve the weak clasp unbound; refine action/attention and mounted room independently.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "rinse_attempt01",
+        "runtime"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "audit/job_nursery_wash_connected_v1_20261002/index.html"
+      ],
+      "source_qualification": "Native individually inspected built-in imagegen source; runtime is the recorded uniform whole-canvas derivative. The selected runtime state has separate native mounted review. This source opinion is not complete action or owner acceptance.",
+      "preview_path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rinse.png",
+      "image_path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rinse.png",
+      "image_scope": "Uniform whole-canvas 1024 POT runtime derivative",
+      "current_byte_status": "EXACT_REVIEWED_GENERATION_BYTES",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "priority": true,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "current_reviewed_utc": "2026-10-02T21:43:59.615843+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "note": "rinse_attempt01 source 4.5/5; current complete action 3.9 is separate."
+      }
+    },
+    {
+      "kind": "source",
+      "native_reference_observations": [],
+      "protected_original": false,
+      "id": "NUR-WASH-SRC-RUB-ATTEMPT01-NATIVE",
+      "aliases": [
+        "NUR-WASH-SRC-RUB-ATTEMPT01-NATIVE"
+      ],
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rub_attempt01/native.png",
+      "earlier_sha256": "4b4691a2a04de5fa5b56a91dc955dc408b96c5ddf65c9592344c6c838fd20507",
+      "current_checkout_sha256": "4b4691a2a04de5fa5b56a91dc955dc408b96c5ddf65c9592344c6c838fd20507",
+      "historical_source_score": 4.4,
+      "current_source_score": 4.4,
+      "evaluation": "Soft lather and connected limbs pass material quality; same-direction fingers read as clasp/clap rather than an explicit rubbing movement. Preserve as weak transitional candidate.",
+      "refinement": "Static source draft only. Preserve the weak clasp unbound; refine action/attention and mounted room independently.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "rub_attempt01",
+        "native"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "audit/job_nursery_wash_connected_v1_20261002/index.html"
+      ],
+      "source_qualification": "Native individually inspected built-in imagegen source; runtime is the recorded uniform whole-canvas derivative. The selected runtime state has separate native mounted review. This source opinion is not complete action or owner acceptance.",
+      "preview_path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rub_attempt01/native.png",
+      "image_path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rub_attempt01/native.png",
+      "image_scope": "Complete preserved native RGBA",
+      "current_byte_status": "EXACT_REVIEWED_GENERATION_BYTES",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "priority": true,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "current_reviewed_utc": "2026-10-02T21:43:59.517175+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "note": "rub_attempt01 source 4.4/5; current complete action 3.9 is separate."
+      }
+    },
+    {
+      "kind": "source",
+      "native_reference_observations": [],
+      "protected_original": false,
+      "id": "NUR-WASH-SRC-RUB-ATTEMPT01-RUNTIME",
+      "aliases": [
+        "NUR-WASH-SRC-RUB-ATTEMPT01-RUNTIME"
+      ],
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm.png",
+      "earlier_sha256": "9de65b315c8ee742fc95765e1a2cd629ea8cdfef0e4381d906691b773ed24656",
+      "current_checkout_sha256": "9de65b315c8ee742fc95765e1a2cd629ea8cdfef0e4381d906691b773ed24656",
+      "historical_source_score": 4.4,
+      "current_source_score": 4.4,
+      "evaluation": "Soft lather and connected limbs pass material quality; same-direction fingers read as clasp/clap rather than an explicit rubbing movement. Preserve as weak transitional candidate.",
+      "refinement": "Static source draft only. Preserve the weak clasp unbound; refine action/attention and mounted room independently.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "rub_attempt01",
+        "runtime"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "audit/job_nursery_wash_connected_v1_20261002/index.html"
+      ],
+      "source_qualification": "Native individually inspected built-in imagegen source; runtime is the recorded uniform whole-canvas derivative. The selected runtime state has separate native mounted review. This source opinion is not complete action or owner acceptance.",
+      "preview_path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm.png",
+      "image_path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm.png",
+      "image_scope": "Uniform whole-canvas 1024 POT runtime derivative",
+      "current_byte_status": "EXACT_REVIEWED_GENERATION_BYTES",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "priority": true,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "current_reviewed_utc": "2026-10-02T21:43:59.517175+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "note": "rub_attempt01 source 4.4/5; current complete action 3.9 is separate."
+      }
+    },
+    {
+      "kind": "source",
+      "native_reference_observations": [],
+      "protected_original": false,
+      "id": "NUR-WASH-SRC-RUB-BACK-ATTEMPT01-NATIVE",
+      "aliases": [
+        "NUR-WASH-SRC-RUB-BACK-ATTEMPT01-NATIVE"
+      ],
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rub_back_attempt01/native.png",
+      "earlier_sha256": "18fc826e28a3536c2b1cbb55dcad35163b54f1b1e7a4231fd2b2e2ff48bdc995",
+      "current_checkout_sha256": "18fc826e28a3536c2b1cbb55dcad35163b54f1b1e7a4231fd2b2e2ff48bdc995",
+      "historical_source_score": 4.5,
+      "current_source_score": 4.5,
+      "evaluation": "Near palm clearly contacts far hand back, connected wrists and small lather. Static washing intent meets provisional source floor; movement pending.",
+      "refinement": "Static source draft only. Preserve the weak clasp unbound; refine action/attention and mounted room independently.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "rub_back_attempt01",
+        "native"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "audit/job_nursery_wash_connected_v1_20261002/index.html"
+      ],
+      "source_qualification": "Native individually inspected built-in imagegen source; runtime is the recorded uniform whole-canvas derivative. The selected runtime state has separate native mounted review. This source opinion is not complete action or owner acceptance.",
+      "preview_path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rub_back_attempt01/native.png",
+      "image_path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rub_back_attempt01/native.png",
+      "image_scope": "Complete preserved native RGBA",
+      "current_byte_status": "EXACT_REVIEWED_GENERATION_BYTES",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "priority": true,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "current_reviewed_utc": "2026-10-02T21:43:59.567397+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "note": "rub_back_attempt01 source 4.5/5; current complete action 3.9 is separate."
+      }
+    },
+    {
+      "kind": "source",
+      "native_reference_observations": [],
+      "protected_original": false,
+      "id": "NUR-WASH-SRC-RUB-BACK-ATTEMPT01-RUNTIME",
+      "aliases": [
+        "NUR-WASH-SRC-RUB-BACK-ATTEMPT01-RUNTIME"
+      ],
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_back.png",
+      "earlier_sha256": "8b0c7fd5b9a594f08d64389f7cf6a1904340991961a9f0d70fe5930354261d96",
+      "current_checkout_sha256": "8b0c7fd5b9a594f08d64389f7cf6a1904340991961a9f0d70fe5930354261d96",
+      "historical_source_score": 4.5,
+      "current_source_score": 4.5,
+      "evaluation": "Near palm clearly contacts far hand back, connected wrists and small lather. Static washing intent meets provisional source floor; movement pending.",
+      "refinement": "Static source draft only. Preserve the weak clasp unbound; refine action/attention and mounted room independently.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "rub_back_attempt01",
+        "runtime"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "audit/job_nursery_wash_connected_v1_20261002/index.html"
+      ],
+      "source_qualification": "Native individually inspected built-in imagegen source; runtime is the recorded uniform whole-canvas derivative. The selected runtime state has separate native mounted review. This source opinion is not complete action or owner acceptance.",
+      "preview_path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_back.png",
+      "image_path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_back.png",
+      "image_scope": "Uniform whole-canvas 1024 POT runtime derivative",
+      "current_byte_status": "EXACT_REVIEWED_GENERATION_BYTES",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "priority": true,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "current_reviewed_utc": "2026-10-02T21:43:59.567397+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "note": "rub_back_attempt01 source 4.5/5; current complete action 3.9 is separate."
+      }
+    },
+    {
+      "kind": "source",
+      "native_reference_observations": [],
+      "protected_original": false,
+      "id": "NUR-WASH-SRC-RUB-PALM-ATTEMPT02-NATIVE",
+      "aliases": [
+        "NUR-WASH-SRC-RUB-PALM-ATTEMPT02-NATIVE"
+      ],
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rub_palm_attempt02/native.png",
+      "earlier_sha256": "f1bba9ce219d152ce3997167473cfb0c770ca5ceed84549a3f9b657c82d6793c",
+      "current_checkout_sha256": "f1bba9ce219d152ce3997167473cfb0c770ca5ceed84549a3f9b657c82d6793c",
+      "historical_source_score": 4.5,
+      "current_source_score": 4.5,
+      "evaluation": "The far cupped palm now reads beneath the near scrubbing hand rather than a prayer/clap clasp. Lather is bounded to the actual contact; wrists remain connected to the own-costume body. Fine fingertips are partly occluded by foam. Static provisional floor only; mounted/action/motion and owner lanes unassigned.",
+      "refinement": "Static source draft only. Preserve the weak clasp unbound; refine action/attention and mounted room independently.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "rub_palm_attempt02",
+        "native"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "audit/job_nursery_wash_connected_v1_20261002/index.html"
+      ],
+      "source_qualification": "Native individually inspected built-in imagegen source; runtime is the recorded uniform whole-canvas derivative. The selected runtime state has separate native mounted review. This source opinion is not complete action or owner acceptance.",
+      "preview_path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rub_palm_attempt02/native.png",
+      "image_path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rub_palm_attempt02/native.png",
+      "image_scope": "Complete preserved native RGBA",
+      "current_byte_status": "EXACT_REVIEWED_GENERATION_BYTES",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "priority": true,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "current_reviewed_utc": "2026-10-02T21:47:37.916266+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "note": "rub_palm_attempt02 source 4.5/5; current complete action 3.9 is separate."
+      }
+    },
+    {
+      "kind": "source",
+      "native_reference_observations": [],
+      "protected_original": false,
+      "id": "NUR-WASH-SRC-RUB-PALM-ATTEMPT02-RUNTIME",
+      "aliases": [
+        "NUR-WASH-SRC-RUB-PALM-ATTEMPT02-RUNTIME"
+      ],
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm02.png",
+      "earlier_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "current_checkout_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "historical_source_score": 4.5,
+      "current_source_score": 4.5,
+      "evaluation": "The far cupped palm now reads beneath the near scrubbing hand rather than a prayer/clap clasp. Lather is bounded to the actual contact; wrists remain connected to the own-costume body. Fine fingertips are partly occluded by foam. Static provisional floor only; mounted/action/motion and owner lanes unassigned.",
+      "refinement": "Static source draft only. Preserve the weak clasp unbound; refine action/attention and mounted room independently.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "rub_palm_attempt02",
+        "runtime"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "audit/job_nursery_wash_connected_v1_20261002/index.html"
+      ],
+      "source_qualification": "Native individually inspected built-in imagegen source; runtime is the recorded uniform whole-canvas derivative. The selected runtime state has separate native mounted review. This source opinion is not complete action or owner acceptance.",
+      "preview_path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm02.png",
+      "image_path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm02.png",
+      "image_scope": "Uniform whole-canvas 1024 POT runtime derivative",
+      "current_byte_status": "EXACT_REVIEWED_GENERATION_BYTES",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "priority": true,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "current_reviewed_utc": "2026-10-02T21:47:37.916266+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "note": "rub_palm_attempt02 source 4.5/5; current complete action 3.9 is separate."
+      }
+    },
+    {
+      "kind": "source",
+      "native_reference_observations": [],
+      "protected_original": false,
+      "id": "NUR-WASH-SRC-WET-ATTEMPT01-NATIVE",
+      "aliases": [
+        "NUR-WASH-SRC-WET-ATTEMPT01-NATIVE"
+      ],
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/wet_attempt01/native.png",
+      "earlier_sha256": "4a2ab2cfa336b47b4a827ce6a531939f15cfb34d43ec8365840882625c06e4cc",
+      "current_checkout_sha256": "4a2ab2cfa336b47b4a827ce6a531939f15cfb34d43ec8365840882625c06e4cc",
+      "historical_source_score": 4.5,
+      "current_source_score": 4.5,
+      "evaluation": "Flow leaves the correct spout and visibly meets hands in basin. Far fingers partly occluded; full action/mounted scale pending.",
+      "refinement": "Static source draft only. Preserve the weak clasp unbound; refine action/attention and mounted room independently.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "wet_attempt01",
+        "native"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "audit/job_nursery_wash_connected_v1_20261002/index.html"
+      ],
+      "source_qualification": "Native individually inspected built-in imagegen source; runtime is the recorded uniform whole-canvas derivative. The selected runtime state has separate native mounted review. This source opinion is not complete action or owner acceptance.",
+      "preview_path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/wet_attempt01/native.png",
+      "image_path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/wet_attempt01/native.png",
+      "image_scope": "Complete preserved native RGBA",
+      "current_byte_status": "EXACT_REVIEWED_GENERATION_BYTES",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "priority": true,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "current_reviewed_utc": "2026-10-02T21:43:59.468845+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "note": "wet_attempt01 source 4.5/5; current complete action 3.9 is separate."
+      }
+    },
+    {
+      "kind": "source",
+      "native_reference_observations": [],
+      "protected_original": false,
+      "id": "NUR-WASH-SRC-WET-ATTEMPT01-RUNTIME",
+      "aliases": [
+        "NUR-WASH-SRC-WET-ATTEMPT01-RUNTIME"
+      ],
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/wet.png",
+      "earlier_sha256": "82b7643dc59846285d1c4c4659a0217aa4fdceb35dd4fcb6bd8cf4f63d66b5d2",
+      "current_checkout_sha256": "82b7643dc59846285d1c4c4659a0217aa4fdceb35dd4fcb6bd8cf4f63d66b5d2",
+      "historical_source_score": 4.5,
+      "current_source_score": 4.5,
+      "evaluation": "Flow leaves the correct spout and visibly meets hands in basin. Far fingers partly occluded; full action/mounted scale pending.",
+      "refinement": "Static source draft only. Preserve the weak clasp unbound; refine action/attention and mounted room independently.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "wet_attempt01",
+        "runtime"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "audit/job_nursery_wash_connected_v1_20261002/index.html"
+      ],
+      "source_qualification": "Native individually inspected built-in imagegen source; runtime is the recorded uniform whole-canvas derivative. The selected runtime state has separate native mounted review. This source opinion is not complete action or owner acceptance.",
+      "preview_path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/wet.png",
+      "image_path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/wet.png",
+      "image_scope": "Uniform whole-canvas 1024 POT runtime derivative",
+      "current_byte_status": "EXACT_REVIEWED_GENERATION_BYTES",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "priority": true,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "current_reviewed_utc": "2026-10-02T21:43:59.468845+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "assets_src/imagegen/nursery_wash_connected_v1_20261002/index.html",
+        "note": "wet_attempt01 source 4.5/5; current complete action 3.9 is separate."
+      }
+    },
+    {
+      "id": "NUR-WASH-STATE-READY",
+      "aliases": [
+        "NUR-WASH-STATE-READY"
+      ],
+      "kind": "runtime prop region",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/ready.png",
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "a4145ed7673b937f49a54e4ebd0fb02efe1b2c4bd76315f325948a8f33740cd8",
+      "current_checkout_sha256": "a4145ed7673b937f49a54e4ebd0fb02efe1b2c4bd76315f325948a8f33740cd8",
+      "historical_source_score": 4.5,
+      "current_source_score": 4.5,
+      "current_mounted_score": 4.5,
+      "current_complete_action_score": null,
+      "evaluation": "The connected wrists and body lead to a clearly bounded basin. Cream lip, aqua bowl and lilac pedestal retain painted broad values. The held hint lies inside the bowl rather than hiding a hand. The forward gaze is friendly but does not show attention to the wash.",
+      "refinement": "Preserve this static draft; refine the complete washing action and attention before final acceptance.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "Mounted ready"
+      ],
+      "original_reports": [
+        "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-STATE-READY"
+      ],
+      "source_qualification": "Directly inspected every one of 36 ordered QA boards covering all 1631 consecutive captured v3 frames, and all 36 unchanged full native state details. Thumbnail boards establish order, holds, subject visibility and presentation changes; fine hand/material judgement uses native details. No automated visual grading, interpolated frames or physical-device timing claim. Four direct training/authored catalog room fixtures and two real Bubble Bath card/caller partial-career routes. Nursery is absent from the live birthday roster. Earned first wash phase, pause/resume and normal Back are covered; no complete-career callback/reward, phone, child or owner acceptance.",
+      "preview_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_ready.webp",
+      "image_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_ready.webp",
+      "image_scope": "Unchanged full native actual Bubble Bath capture. The recorded region identifies the related runtime artwork; this screenshot is not cropped.",
+      "current_byte_status": "EXACT_CURRENT_REVIEW_BYTES",
+      "priority": true,
+      "native_reference_observations": [],
+      "protected_original": false,
+      "current_binding": "scripts/opera_nursery_surface.gd",
+      "binding_sha256": "03baa1833cd46259922283e0e7c834a2cef8af7449ee0bdbefab9144c1684688",
+      "capture_family": "nursery_wash_v3",
+      "current_capture_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json",
+      "current_reviewed_utc": "2026-10-02T22:07:30.857737+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-STATE-READY",
+        "note": "Mounted ready 4.5/5. The connected wrists and body lead to a clearly bounded basin. Cream lip, aqua bowl and lilac pedestal retain painted broad values. The held hint lies inside the bowl rather than hiding a hand. The forward gaze is friendly but does not show attention to the wash."
+      },
+      "preview_sha256": "e45354a4878e2abbc3ed4bb2d46f081e62983cd1b0878b43bf0c572ed6c1f110"
+    },
+    {
+      "id": "NUR-WASH-STATE-WET",
+      "aliases": [
+        "NUR-WASH-STATE-WET"
+      ],
+      "kind": "runtime prop region",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/wet.png",
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "82b7643dc59846285d1c4c4659a0217aa4fdceb35dd4fcb6bd8cf4f63d66b5d2",
+      "current_checkout_sha256": "82b7643dc59846285d1c4c4659a0217aa4fdceb35dd4fcb6bd8cf4f63d66b5d2",
+      "historical_source_score": 4.5,
+      "current_source_score": 4.5,
+      "current_mounted_score": 4.5,
+      "current_complete_action_score": null,
+      "evaluation": "The gold spout reaches the actual joined hands with a visible aqua stream and small splash inside the bowl. The hand silhouettes remain readable at the mounted size. Turning on the faucet and moving into contact are not yet acted.",
+      "refinement": "Preserve this static draft; refine the complete washing action and attention before final acceptance.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "Mounted wet"
+      ],
+      "original_reports": [
+        "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-STATE-WET"
+      ],
+      "source_qualification": "Directly inspected every one of 36 ordered QA boards covering all 1631 consecutive captured v3 frames, and all 36 unchanged full native state details. Thumbnail boards establish order, holds, subject visibility and presentation changes; fine hand/material judgement uses native details. No automated visual grading, interpolated frames or physical-device timing claim. Four direct training/authored catalog room fixtures and two real Bubble Bath card/caller partial-career routes. Nursery is absent from the live birthday roster. Earned first wash phase, pause/resume and normal Back are covered; no complete-career callback/reward, phone, child or owner acceptance.",
+      "preview_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_wet.webp",
+      "image_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_wet.webp",
+      "image_scope": "Unchanged full native actual Bubble Bath capture. The recorded region identifies the related runtime artwork; this screenshot is not cropped.",
+      "current_byte_status": "EXACT_CURRENT_REVIEW_BYTES",
+      "priority": true,
+      "native_reference_observations": [],
+      "protected_original": false,
+      "current_binding": "scripts/opera_nursery_surface.gd",
+      "binding_sha256": "03baa1833cd46259922283e0e7c834a2cef8af7449ee0bdbefab9144c1684688",
+      "capture_family": "nursery_wash_v3",
+      "current_capture_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json",
+      "current_reviewed_utc": "2026-10-02T22:07:30.857737+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-STATE-WET",
+        "note": "Mounted wet 4.5/5. The gold spout reaches the actual joined hands with a visible aqua stream and small splash inside the bowl. The hand silhouettes remain readable at the mounted size. Turning on the faucet and moving into contact are not yet acted."
+      },
+      "preview_sha256": "224d299a996ac15a8b9574f1ccbcfcddebf797b5fdd67d4a824f9fdf6b6dbc6c"
+    },
+    {
+      "id": "NUR-WASH-STATE-RUB-PALM",
+      "aliases": [
+        "NUR-WASH-STATE-RUB-PALM"
+      ],
+      "kind": "runtime prop region",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm02.png",
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "current_checkout_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "historical_source_score": 4.5,
+      "current_source_score": 4.5,
+      "current_mounted_score": 4.5,
+      "current_complete_action_score": null,
+      "evaluation": "Palm02 reads as a near hand washing across a far cupped palm; bounded foam makes actual contact clearer than the rejected same-direction clasp. Fingers are partially occluded by lather. This is one contact pose, with no visible repeated rubbing stroke.",
+      "refinement": "Preserve this static draft; refine the complete washing action and attention before final acceptance.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "Mounted rub palm"
+      ],
+      "original_reports": [
+        "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-STATE-RUB-PALM"
+      ],
+      "source_qualification": "Directly inspected every one of 36 ordered QA boards covering all 1631 consecutive captured v3 frames, and all 36 unchanged full native state details. Thumbnail boards establish order, holds, subject visibility and presentation changes; fine hand/material judgement uses native details. No automated visual grading, interpolated frames or physical-device timing claim. Four direct training/authored catalog room fixtures and two real Bubble Bath card/caller partial-career routes. Nursery is absent from the live birthday roster. Earned first wash phase, pause/resume and normal Back are covered; no complete-career callback/reward, phone, child or owner acceptance.",
+      "preview_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_rub_palm.webp",
+      "image_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_rub_palm.webp",
+      "image_scope": "Unchanged full native actual Bubble Bath capture. The recorded region identifies the related runtime artwork; this screenshot is not cropped.",
+      "current_byte_status": "EXACT_CURRENT_REVIEW_BYTES",
+      "priority": true,
+      "native_reference_observations": [],
+      "protected_original": false,
+      "current_binding": "scripts/opera_nursery_surface.gd",
+      "binding_sha256": "03baa1833cd46259922283e0e7c834a2cef8af7449ee0bdbefab9144c1684688",
+      "capture_family": "nursery_wash_v3",
+      "current_capture_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json",
+      "current_reviewed_utc": "2026-10-02T22:07:30.857737+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-STATE-RUB-PALM",
+        "note": "Mounted rub palm 4.5/5. Palm02 reads as a near hand washing across a far cupped palm; bounded foam makes actual contact clearer than the rejected same-direction clasp. Fingers are partially occluded by lather. This is one contact pose, with no visible repeated rubbing stroke."
+      },
+      "preview_sha256": "5e2f1e03006f9ed1463723fff70b6f11c049bebe7e0dec5e66402a0eff256f47"
+    },
+    {
+      "id": "NUR-WASH-STATE-RUB-BACK",
+      "aliases": [
+        "NUR-WASH-STATE-RUB-BACK"
+      ],
+      "kind": "runtime prop region",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_back.png",
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "8b0c7fd5b9a594f08d64389f7cf6a1904340991961a9f0d70fe5930354261d96",
+      "current_checkout_sha256": "8b0c7fd5b9a594f08d64389f7cf6a1904340991961a9f0d70fe5930354261d96",
+      "historical_source_score": 4.5,
+      "current_source_score": 4.5,
+      "current_mounted_score": 4.5,
+      "current_complete_action_score": null,
+      "evaluation": "The far hand turns over and the near palm contacts its back above the basin. The two connected forearms and reduced foam keep the task readable. The switch from the palm pose is abrupt and the head keeps the same forward gaze.",
+      "refinement": "Preserve this static draft; refine the complete washing action and attention before final acceptance.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "Mounted rub back"
+      ],
+      "original_reports": [
+        "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-STATE-RUB-BACK"
+      ],
+      "source_qualification": "Directly inspected every one of 36 ordered QA boards covering all 1631 consecutive captured v3 frames, and all 36 unchanged full native state details. Thumbnail boards establish order, holds, subject visibility and presentation changes; fine hand/material judgement uses native details. No automated visual grading, interpolated frames or physical-device timing claim. Four direct training/authored catalog room fixtures and two real Bubble Bath card/caller partial-career routes. Nursery is absent from the live birthday roster. Earned first wash phase, pause/resume and normal Back are covered; no complete-career callback/reward, phone, child or owner acceptance.",
+      "preview_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_rub_back.webp",
+      "image_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_rub_back.webp",
+      "image_scope": "Unchanged full native actual Bubble Bath capture. The recorded region identifies the related runtime artwork; this screenshot is not cropped.",
+      "current_byte_status": "EXACT_CURRENT_REVIEW_BYTES",
+      "priority": true,
+      "native_reference_observations": [],
+      "protected_original": false,
+      "current_binding": "scripts/opera_nursery_surface.gd",
+      "binding_sha256": "03baa1833cd46259922283e0e7c834a2cef8af7449ee0bdbefab9144c1684688",
+      "capture_family": "nursery_wash_v3",
+      "current_capture_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json",
+      "current_reviewed_utc": "2026-10-02T22:07:30.857737+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-STATE-RUB-BACK",
+        "note": "Mounted rub back 4.5/5. The far hand turns over and the near palm contacts its back above the basin. The two connected forearms and reduced foam keep the task readable. The switch from the palm pose is abrupt and the head keeps the same forward gaze."
+      },
+      "preview_sha256": "f7446723dadede0bff4649ec29bc4c4752304889e05a9800a28493cd412ce58c"
+    },
+    {
+      "id": "NUR-WASH-STATE-RINSE",
+      "aliases": [
+        "NUR-WASH-STATE-RINSE"
+      ],
+      "kind": "runtime prop region",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rinse.png",
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "7629280357c273fb1de7f2d8c91b535242a00ada7a28c9aaab7e51116d6fb799",
+      "current_checkout_sha256": "7629280357c273fb1de7f2d8c91b535242a00ada7a28c9aaab7e51116d6fb799",
+      "historical_source_score": 4.5,
+      "current_source_score": 4.5,
+      "current_mounted_score": 4.5,
+      "current_complete_action_score": null,
+      "evaluation": "Water runs from spout through the joined hand area into the basin. The reduced lather includes a residual wrist bubble, so this can represent an intermediate rinse. It stays frozen until the clean pose; foam removal, wrist turning and tap closure need acting.",
+      "refinement": "Preserve this static draft; refine the complete washing action and attention before final acceptance.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "Mounted rinse"
+      ],
+      "original_reports": [
+        "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-STATE-RINSE"
+      ],
+      "source_qualification": "Directly inspected every one of 36 ordered QA boards covering all 1631 consecutive captured v3 frames, and all 36 unchanged full native state details. Thumbnail boards establish order, holds, subject visibility and presentation changes; fine hand/material judgement uses native details. No automated visual grading, interpolated frames or physical-device timing claim. Four direct training/authored catalog room fixtures and two real Bubble Bath card/caller partial-career routes. Nursery is absent from the live birthday roster. Earned first wash phase, pause/resume and normal Back are covered; no complete-career callback/reward, phone, child or owner acceptance.",
+      "preview_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_rinse.webp",
+      "image_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_rinse.webp",
+      "image_scope": "Unchanged full native actual Bubble Bath capture. The recorded region identifies the related runtime artwork; this screenshot is not cropped.",
+      "current_byte_status": "EXACT_CURRENT_REVIEW_BYTES",
+      "priority": true,
+      "native_reference_observations": [],
+      "protected_original": false,
+      "current_binding": "scripts/opera_nursery_surface.gd",
+      "binding_sha256": "03baa1833cd46259922283e0e7c834a2cef8af7449ee0bdbefab9144c1684688",
+      "capture_family": "nursery_wash_v3",
+      "current_capture_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json",
+      "current_reviewed_utc": "2026-10-02T22:07:30.857737+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-STATE-RINSE",
+        "note": "Mounted rinse 4.5/5. Water runs from spout through the joined hand area into the basin. The reduced lather includes a residual wrist bubble, so this can represent an intermediate rinse. It stays frozen until the clean pose; foam removal, wrist turning and tap closure need acting."
+      },
+      "preview_sha256": "993f77e182e68307adca5a25af611c41a0d2b7aecfa4307d8b1493e8ba8e106e"
+    },
+    {
+      "id": "NUR-WASH-STATE-CLEAN",
+      "aliases": [
+        "NUR-WASH-STATE-CLEAN"
+      ],
+      "kind": "runtime prop region",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/clean.png",
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "10e494c6a677556ccf4fe636032e26f03b1af6b09b686ae97b75b57cf3fe6530",
+      "current_checkout_sha256": "10e494c6a677556ccf4fe636032e26f03b1af6b09b686ae97b75b57cf3fe6530",
+      "historical_source_score": 4.6,
+      "current_source_score": 4.6,
+      "current_mounted_score": 4.6,
+      "current_complete_action_score": null,
+      "evaluation": "Two separated foam-free palms, rounded five-digit silhouettes, an off faucet and restrained authored twinkles make the earned result readable. The unrelated boxing puff is absent. The lift from rinsing to displayed palms is an abrupt pose change and does not receive this still score as a movement score.",
+      "refinement": "Preserve this static draft; refine the complete washing action and attention before final acceptance.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "Mounted clean"
+      ],
+      "original_reports": [
+        "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-STATE-CLEAN"
+      ],
+      "source_qualification": "Directly inspected every one of 36 ordered QA boards covering all 1631 consecutive captured v3 frames, and all 36 unchanged full native state details. Thumbnail boards establish order, holds, subject visibility and presentation changes; fine hand/material judgement uses native details. No automated visual grading, interpolated frames or physical-device timing claim. Four direct training/authored catalog room fixtures and two real Bubble Bath card/caller partial-career routes. Nursery is absent from the live birthday roster. Earned first wash phase, pause/resume and normal Back are covered; no complete-career callback/reward, phone, child or owner acceptance.",
+      "preview_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_clean.webp",
+      "image_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_clean.webp",
+      "image_scope": "Unchanged full native actual Bubble Bath capture. The recorded region identifies the related runtime artwork; this screenshot is not cropped.",
+      "current_byte_status": "EXACT_CURRENT_REVIEW_BYTES",
+      "priority": false,
+      "native_reference_observations": [],
+      "protected_original": false,
+      "current_binding": "scripts/opera_nursery_surface.gd",
+      "binding_sha256": "03baa1833cd46259922283e0e7c834a2cef8af7449ee0bdbefab9144c1684688",
+      "capture_family": "nursery_wash_v3",
+      "current_capture_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json",
+      "current_reviewed_utc": "2026-10-02T22:07:30.857737+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-STATE-CLEAN",
+        "note": "Mounted clean 4.6/5. Two separated foam-free palms, rounded five-digit silhouettes, an off faucet and restrained authored twinkles make the earned result readable. The unrelated boxing puff is absent. The lift from rinsing to displayed palms is an abrupt pose change and does not receive this still score as a movement score."
+      },
+      "preview_sha256": "5cc751e347d4c9debea6dc34f6b8e534d618a0bfbf8be11a19f670103dd66cf8"
+    },
+    {
+      "id": "NUR-WASH-USE-BASIN",
+      "aliases": [
+        "NUR-WASH-USE-BASIN"
+      ],
+      "kind": "runtime prop region",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm02.png",
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "current_checkout_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "historical_source_score": 4.6,
+      "current_source_score": 4.6,
+      "current_mounted_score": 4.6,
+      "current_complete_action_score": null,
+      "evaluation": "Painted cream, aqua and lavender forms have coherent authored outline/value bands. The spout, rim and hand contact stay at the same work area through all six selected states. Stable rendered scale and unobscured cavity meet the material draft bar; floor support and the room mount remain separately weak.",
+      "refinement": "Reuse the painted basin identity; repair surrounding stage support without creating a duplicate prop.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "Basin, faucet and pedestal"
+      ],
+      "original_reports": [
+        "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-USE-BASIN"
+      ],
+      "source_qualification": "Directly inspected every one of 36 ordered QA boards covering all 1631 consecutive captured v3 frames, and all 36 unchanged full native state details. Thumbnail boards establish order, holds, subject visibility and presentation changes; fine hand/material judgement uses native details. No automated visual grading, interpolated frames or physical-device timing claim. Four direct training/authored catalog room fixtures and two real Bubble Bath card/caller partial-career routes. Nursery is absent from the live birthday roster. Earned first wash phase, pause/resume and normal Back are covered; no complete-career callback/reward, phone, child or owner acceptance.",
+      "preview_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_rub_palm.webp",
+      "image_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_rub_palm.webp",
+      "image_scope": "Unchanged full native actual Bubble Bath capture. The recorded region identifies the related runtime artwork; this screenshot is not cropped.",
+      "current_byte_status": "EXACT_CURRENT_REVIEW_BYTES",
+      "priority": false,
+      "native_reference_observations": [],
+      "protected_original": false,
+      "current_binding": "scripts/opera_nursery_surface.gd",
+      "binding_sha256": "03baa1833cd46259922283e0e7c834a2cef8af7449ee0bdbefab9144c1684688",
+      "capture_family": "nursery_wash_v3",
+      "current_capture_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json",
+      "current_reviewed_utc": "2026-10-02T22:07:30.857737+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-USE-BASIN",
+        "note": "Basin, faucet and pedestal 4.6/5. Painted cream, aqua and lavender forms have coherent authored outline/value bands. The spout, rim and hand contact stay at the same work area through all six selected states. Stable rendered scale and unobscured cavity meet the material draft bar; floor support and the room mount remain separately weak."
+      },
+      "preview_sha256": "5e2f1e03006f9ed1463723fff70b6f11c049bebe7e0dec5e66402a0eff256f47"
+    },
+    {
+      "id": "NUR-WASH-USE-HANDS",
+      "aliases": [
+        "NUR-WASH-USE-HANDS"
+      ],
+      "kind": "runtime prop region",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm02.png",
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "current_checkout_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "historical_source_score": null,
+      "current_source_score": null,
+      "current_mounted_score": 4.5,
+      "current_complete_action_score": null,
+      "evaluation": "Body-connected hands now contact water, the opposite palm and the hand back. The broad clean silhouettes remain legible at both aspects. Foam occludes fine tips during rubbing; meaningful rubbing and turning between contacts are still absent.",
+      "refinement": "Add purposefully authored rubbing, wrist-turn and rinse/clean lift poses while keeping exact contact and body identity.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "Hand contact across wash states"
+      ],
+      "original_reports": [
+        "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-USE-HANDS"
+      ],
+      "source_qualification": "Directly inspected every one of 36 ordered QA boards covering all 1631 consecutive captured v3 frames, and all 36 unchanged full native state details. Thumbnail boards establish order, holds, subject visibility and presentation changes; fine hand/material judgement uses native details. No automated visual grading, interpolated frames or physical-device timing claim. Four direct training/authored catalog room fixtures and two real Bubble Bath card/caller partial-career routes. Nursery is absent from the live birthday roster. Earned first wash phase, pause/resume and normal Back are covered; no complete-career callback/reward, phone, child or owner acceptance.",
+      "preview_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_rub_palm.webp",
+      "image_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_rub_palm.webp",
+      "image_scope": "Unchanged full native actual Bubble Bath capture. The recorded region identifies the related runtime artwork; this screenshot is not cropped.",
+      "current_byte_status": "EXACT_CURRENT_REVIEW_BYTES",
+      "priority": true,
+      "native_reference_observations": [],
+      "protected_original": false,
+      "current_binding": "scripts/opera_nursery_surface.gd",
+      "binding_sha256": "03baa1833cd46259922283e0e7c834a2cef8af7449ee0bdbefab9144c1684688",
+      "capture_family": "nursery_wash_v3",
+      "current_capture_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json",
+      "current_reviewed_utc": "2026-10-02T22:07:30.857737+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-USE-HANDS",
+        "note": "Hand contact across wash states 4.5/5. Body-connected hands now contact water, the opposite palm and the hand back. The broad clean silhouettes remain legible at both aspects. Foam occludes fine tips during rubbing; meaningful rubbing and turning between contacts are still absent."
+      },
+      "preview_sha256": "5e2f1e03006f9ed1463723fff70b6f11c049bebe7e0dec5e66402a0eff256f47"
+    },
+    {
+      "id": "NUR-WASH-USE-CONSEQUENCE",
+      "aliases": [
+        "NUR-WASH-USE-CONSEQUENCE"
+      ],
+      "kind": "runtime prop region",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/clean.png",
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "10e494c6a677556ccf4fe636032e26f03b1af6b09b686ae97b75b57cf3fe6530",
+      "current_checkout_sha256": "10e494c6a677556ccf4fe636032e26f03b1af6b09b686ae97b75b57cf3fe6530",
+      "historical_source_score": 4.6,
+      "current_source_score": 4.6,
+      "current_mounted_score": 4.6,
+      "current_complete_action_score": null,
+      "evaluation": "Clean palms appear only after held progress is earned, with the faucet off and no foam. The earlier chest-level boxing puff is absent in all six current clean captures and consecutive completion boards. The source twinkles are restrained.",
+      "refinement": "Keep the unobstructed result and add a readable rinse-to-clean lift with attention returning to the child.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "Earned clean consequence"
+      ],
+      "original_reports": [
+        "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-USE-CONSEQUENCE"
+      ],
+      "source_qualification": "Directly inspected every one of 36 ordered QA boards covering all 1631 consecutive captured v3 frames, and all 36 unchanged full native state details. Thumbnail boards establish order, holds, subject visibility and presentation changes; fine hand/material judgement uses native details. No automated visual grading, interpolated frames or physical-device timing claim. Four direct training/authored catalog room fixtures and two real Bubble Bath card/caller partial-career routes. Nursery is absent from the live birthday roster. Earned first wash phase, pause/resume and normal Back are covered; no complete-career callback/reward, phone, child or owner acceptance.",
+      "preview_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_clean.webp",
+      "image_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_clean.webp",
+      "image_scope": "Unchanged full native actual Bubble Bath capture. The recorded region identifies the related runtime artwork; this screenshot is not cropped.",
+      "current_byte_status": "EXACT_CURRENT_REVIEW_BYTES",
+      "priority": false,
+      "native_reference_observations": [],
+      "protected_original": false,
+      "current_binding": "scripts/opera_nursery_surface.gd",
+      "binding_sha256": "03baa1833cd46259922283e0e7c834a2cef8af7449ee0bdbefab9144c1684688",
+      "capture_family": "nursery_wash_v3",
+      "current_capture_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json",
+      "current_reviewed_utc": "2026-10-02T22:07:30.857737+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-USE-CONSEQUENCE",
+        "note": "Earned clean consequence 4.6/5. Clean palms appear only after held progress is earned, with the faucet off and no foam. The earlier chest-level boxing puff is absent in all six current clean captures and consecutive completion boards. The source twinkles are restrained."
+      },
+      "preview_sha256": "5cc751e347d4c9debea6dc34f6b8e534d618a0bfbf8be11a19f670103dd66cf8"
+    },
+    {
+      "id": "NUR-WASH-USE-ACTION",
+      "aliases": [
+        "NUR-WASH-USE-ACTION"
+      ],
+      "kind": "runtime prop region",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm02.png",
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "current_checkout_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "historical_source_score": null,
+      "current_source_score": null,
+      "current_mounted_score": 3.9,
+      "current_complete_action_score": 3.9,
+      "evaluation": "All ordered frames show the correct wet, palm, back, rinse and clean order, plus a stable pause/resume hold. Six held paintings explain the contacts but do not show repeated scrubbing, tap operation or gradual foam removal. Abrupt hand jumps and an unchanged gaze prevent a complete action pass.",
+      "refinement": "Author small connected strokes, deliberate wrist turns, tap operations and rinse-to-clean acting. Review a comparable movement study and recapture the real held route; do not raise the score from still quality.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "Complete meaningful washing action"
+      ],
+      "original_reports": [
+        "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-USE-ACTION"
+      ],
+      "source_qualification": "Directly inspected every one of 36 ordered QA boards covering all 1631 consecutive captured v3 frames, and all 36 unchanged full native state details. Thumbnail boards establish order, holds, subject visibility and presentation changes; fine hand/material judgement uses native details. No automated visual grading, interpolated frames or physical-device timing claim. Four direct training/authored catalog room fixtures and two real Bubble Bath card/caller partial-career routes. Nursery is absent from the live birthday roster. Earned first wash phase, pause/resume and normal Back are covered; no complete-career callback/reward, phone, child or owner acceptance.",
+      "preview_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_rub_palm.webp",
+      "image_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_rub_palm.webp",
+      "image_scope": "Unchanged full native actual Bubble Bath capture. The recorded region identifies the related runtime artwork; this screenshot is not cropped.",
+      "current_byte_status": "EXACT_CURRENT_REVIEW_BYTES",
+      "priority": true,
+      "native_reference_observations": [],
+      "protected_original": false,
+      "current_binding": "scripts/opera_nursery_surface.gd",
+      "binding_sha256": "03baa1833cd46259922283e0e7c834a2cef8af7449ee0bdbefab9144c1684688",
+      "capture_family": "nursery_wash_v3",
+      "current_capture_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json",
+      "current_reviewed_utc": "2026-10-02T22:07:30.857737+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-USE-ACTION",
+        "note": "Complete meaningful washing action 3.9/5. All ordered frames show the correct wet, palm, back, rinse and clean order, plus a stable pause/resume hold. Six held paintings explain the contacts but do not show repeated scrubbing, tap operation or gradual foam removal. Abrupt hand jumps and an unchanged gaze prevent a complete action pass."
+      },
+      "preview_sha256": "5e2f1e03006f9ed1463723fff70b6f11c049bebe7e0dec5e66402a0eff256f47"
+    },
+    {
+      "id": "NUR-WASH-USE-ATTENTION",
+      "aliases": [
+        "NUR-WASH-USE-ATTENTION"
+      ],
+      "kind": "runtime prop region",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm02.png",
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "current_checkout_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "historical_source_score": null,
+      "current_source_score": null,
+      "current_mounted_score": 3.8,
+      "current_complete_action_score": 3.8,
+      "evaluation": "The face remains almost identically forward-facing while the arms change. Ready-to-wet, cupped-palm-to-back and rinse-to-clean contacts change in one pose step. The eyes do not inspect hands or the faucet, and the clean lift has no anticipation.",
+      "refinement": "Give Roshan a short attention-to-hands beat, contact-preserving hand changes and a gentle return gaze at the earned result.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "Attention and hand-change continuity"
+      ],
+      "original_reports": [
+        "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-USE-ATTENTION"
+      ],
+      "source_qualification": "Directly inspected every one of 36 ordered QA boards covering all 1631 consecutive captured v3 frames, and all 36 unchanged full native state details. Thumbnail boards establish order, holds, subject visibility and presentation changes; fine hand/material judgement uses native details. No automated visual grading, interpolated frames or physical-device timing claim. Four direct training/authored catalog room fixtures and two real Bubble Bath card/caller partial-career routes. Nursery is absent from the live birthday roster. Earned first wash phase, pause/resume and normal Back are covered; no complete-career callback/reward, phone, child or owner acceptance.",
+      "preview_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_rub_palm.webp",
+      "image_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_rub_palm.webp",
+      "image_scope": "Unchanged full native actual Bubble Bath capture. The recorded region identifies the related runtime artwork; this screenshot is not cropped.",
+      "current_byte_status": "EXACT_CURRENT_REVIEW_BYTES",
+      "priority": true,
+      "native_reference_observations": [],
+      "protected_original": false,
+      "current_binding": "scripts/opera_nursery_surface.gd",
+      "binding_sha256": "03baa1833cd46259922283e0e7c834a2cef8af7449ee0bdbefab9144c1684688",
+      "capture_family": "nursery_wash_v3",
+      "current_capture_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json",
+      "current_reviewed_utc": "2026-10-02T22:07:30.857737+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-USE-ATTENTION",
+        "note": "Attention and hand-change continuity 3.8/5. The face remains almost identically forward-facing while the arms change. Ready-to-wet, cupped-palm-to-back and rinse-to-clean contacts change in one pose step. The eyes do not inspect hands or the faucet, and the clean lift has no anticipation."
+      },
+      "preview_sha256": "5e2f1e03006f9ed1463723fff70b6f11c049bebe7e0dec5e66402a0eff256f47"
+    },
+    {
+      "id": "NUR-WASH-USE-ROOM",
+      "aliases": [
+        "NUR-WASH-USE-ROOM"
+      ],
+      "kind": "runtime prop region",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rub_palm02.png",
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "current_checkout_sha256": "e7c35b3fc4ca805c2b5aa155d13d7179c73f5ffb3ba125112b798a2e5ce9ef55",
+      "historical_source_score": null,
+      "current_source_score": null,
+      "current_mounted_score": 2.9,
+      "current_complete_action_score": null,
+      "evaluation": "The work itself is crisp and oversized, but the central detailed room plate is surrounded by blurred vertical copies, broad aqua bands and visible rectangular seams. The pedestal has no clear floor/contact support and the small caretaker is stranded in the blurred side area. Wide capture adds plain navy side regions. The source/material scores do not establish this composition.",
+      "refinement": "Repair the room layering, focus grounding and caretaker placement using approved room sources with native per-screen coverage; preserve the background authority and avoid decorative overdraw.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "Whole mounted room and work focus"
+      ],
+      "original_reports": [
+        "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-USE-ROOM"
+      ],
+      "source_qualification": "Directly inspected every one of 36 ordered QA boards covering all 1631 consecutive captured v3 frames, and all 36 unchanged full native state details. Thumbnail boards establish order, holds, subject visibility and presentation changes; fine hand/material judgement uses native details. No automated visual grading, interpolated frames or physical-device timing claim. Four direct training/authored catalog room fixtures and two real Bubble Bath card/caller partial-career routes. Nursery is absent from the live birthday roster. Earned first wash phase, pause/resume and normal Back are covered; no complete-career callback/reward, phone, child or owner acceptance.",
+      "preview_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_rub_palm.webp",
+      "image_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_rub_palm.webp",
+      "image_scope": "Unchanged full native actual Bubble Bath capture. The recorded region identifies the related runtime artwork; this screenshot is not cropped.",
+      "current_byte_status": "EXACT_CURRENT_REVIEW_BYTES",
+      "priority": true,
+      "native_reference_observations": [],
+      "protected_original": false,
+      "current_binding": "scripts/opera_nursery_surface.gd",
+      "binding_sha256": "03baa1833cd46259922283e0e7c834a2cef8af7449ee0bdbefab9144c1684688",
+      "capture_family": "nursery_wash_v3",
+      "current_capture_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json",
+      "current_reviewed_utc": "2026-10-02T22:07:30.857737+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-USE-ROOM",
+        "note": "Whole mounted room and work focus 2.9/5. The work itself is crisp and oversized, but the central detailed room plate is surrounded by blurred vertical copies, broad aqua bands and visible rectangular seams. The pedestal has no clear floor/contact support and the small caretaker is stranded in the blurred side area. Wide capture adds plain navy side regions. The source/material scores do not establish this composition."
+      },
+      "preview_sha256": "5e2f1e03006f9ed1463723fff70b6f11c049bebe7e0dec5e66402a0eff256f47"
+    },
+    {
+      "id": "NUR-WASH-USE-TRANSITION",
+      "aliases": [
+        "NUR-WASH-USE-TRANSITION"
+      ],
+      "kind": "runtime prop region",
+      "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/clean.png",
+      "region": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "10e494c6a677556ccf4fe636032e26f03b1af6b09b686ae97b75b57cf3fe6530",
+      "current_checkout_sha256": "10e494c6a677556ccf4fe636032e26f03b1af6b09b686ae97b75b57cf3fe6530",
+      "historical_source_score": null,
+      "current_source_score": null,
+      "current_mounted_score": 4.0,
+      "current_complete_action_score": 4.0,
+      "evaluation": "The route actor approaches the socket and yields to one complete work painting; no duplicated Roshan remains while washing. The normal small actor returns and the catch hint arms after earned clean hands. The large work portrait appearing and abruptly shrinking back into the room still needs a designed transition. Actual Back works in the recorded partial career; full-career earned return is outside this capture.",
+      "refinement": "Refine the attention and settle transition without moving progress or reward ownership into animation; capture the whole career return separately.",
+      "families": [
+        "Nursery",
+        "Connected washing",
+        "Entrance, completion and next-task presentation"
+      ],
+      "original_reports": [
+        "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-USE-TRANSITION"
+      ],
+      "source_qualification": "Directly inspected every one of 36 ordered QA boards covering all 1631 consecutive captured v3 frames, and all 36 unchanged full native state details. Thumbnail boards establish order, holds, subject visibility and presentation changes; fine hand/material judgement uses native details. No automated visual grading, interpolated frames or physical-device timing claim. Four direct training/authored catalog room fixtures and two real Bubble Bath card/caller partial-career routes. Nursery is absent from the live birthday roster. Earned first wash phase, pause/resume and normal Back are covered; no complete-career callback/reward, phone, child or owner acceptance.",
+      "preview_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_clean.webp",
+      "image_path": "audit/job_nursery_wash_connected_v1_20261002/current_visual_v3/actual_bubble_bath_1280_clean.webp",
+      "image_scope": "Unchanged full native actual Bubble Bath capture. The recorded region identifies the related runtime artwork; this screenshot is not cropped.",
+      "current_byte_status": "EXACT_CURRENT_REVIEW_BYTES",
+      "priority": true,
+      "native_reference_observations": [],
+      "protected_original": false,
+      "current_binding": "scripts/opera_nursery_surface.gd",
+      "binding_sha256": "03baa1833cd46259922283e0e7c834a2cef8af7449ee0bdbefab9144c1684688",
+      "capture_family": "nursery_wash_v3",
+      "current_capture_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json",
+      "current_reviewed_utc": "2026-10-02T22:07:30.857737+00:00",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "audit/job_nursery_wash_connected_v1_20261002/index.html#NUR-WASH-USE-TRANSITION",
+        "note": "Entrance, completion and next-task presentation 4.0/5. The route actor approaches the socket and yields to one complete work painting; no duplicated Roshan remains while washing. The normal small actor returns and the catch hint arms after earned clean hands. The large work portrait appearing and abruptly shrinking back into the room still needs a designed transition. Actual Back works in the recorded partial career; full-career earned return is outside this capture."
+      },
+      "preview_sha256": "5cc751e347d4c9debea6dc34f6b8e534d618a0bfbf8be11a19f670103dd66cf8"
     }
   ],
-  "refresh_command": "python -B audit/job_artwork_refinement_live/review_tools/refresh_current_job_review_v33.py",
+  "refresh_command": "python -B audit/job_artwork_refinement_live/review_tools/refresh_current_job_review_v34.py",
   "qualification": "Literal source-byte continuity retains qualified source opinions. Current mounted/opening opinions are assigned only where exact reports state them; complete embodied action stays separate. The same source can pass material while failing mounting. Inclusive<=4.5 priorities include the named weak current representations;676 counts source opinions only. Protected originals and historical opinions remain preserved; broad all-job/device/child/owner acceptance is open.",
-  "historical_register_rebuild_command": "python -X utf8 -B audit/job_artwork_refinement_live/review_tools/build_current_job_item_register_v26.py"
+  "historical_register_rebuild_command": "python -X utf8 -B audit/job_artwork_refinement_live/review_tools/build_current_job_item_register_v26.py",
+  "display_revision": "V34.1: mounted-use previews and score-lane labels corrected; individual opinions unchanged."
 }

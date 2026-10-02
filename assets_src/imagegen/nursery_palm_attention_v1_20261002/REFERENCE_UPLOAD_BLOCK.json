@@ -1,0 +1,16 @@
+{
+  "recorded_utc": "2026-10-02T22:37:29.784745+00:00",
+  "status": "AUTO_REVIEW_REJECTED_BEFORE_UPLOAD",
+  "action": "Built-in image generation: targeted eyes-to-hands edit of the preserved complete Nursery palm-wash source",
+  "source_path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rub_palm_attempt02/native.png",
+  "source_sha256": "f1bba9ce219d152ce3997167473cfb0c770ca5ceed84549a3f9b657c82d6793c",
+  "prompt_path": "assets_src/imagegen/nursery_palm_attention_v1_20261002/PROMPT.json",
+  "prompt_sha256": "8dec99f8af6118d3becf3daf9a7dbc2b5c712c3ab97593dfa453c52b3970a324",
+  "proposed_destination": "OpenAI built-in image-generation service",
+  "review_reason": "The nested image-generation call would upload a private project artwork reference to an external image-generation service. General generation authorization did not establish explicit authorization for this exact payload and destination. Do not bypass through a workaround or indirect execution.",
+  "reference_uploaded": false,
+  "generation_started": false,
+  "question_status": "PENDING_USER_RESPONSE",
+  "question": "Approve sending this exact preserved Nursery palm-wash native artwork to OpenAI built-in image generation solely for the look-to-hands pose?",
+  "independent_work": "Dated Doctor review, machine gates and illustrated reporting continue; the overall goal remains active."
+}

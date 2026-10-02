@@ -1,0 +1,88 @@
+{
+  "schema": "reef.nursery-wash-interactive-clip-contract.v1",
+  "status": "IMPLEMENTED_AUTHORED_STATE_DRAFT_UNACCEPTED_MOTION",
+  "baseline": "e4e26aeaa1f7e55985cb3915d35dca5aeba00d40",
+  "lane": "Interactive gameplay, Canvas Control, fixed whole-body painted states. Not cinematic delivery or Comfy motion-study pixels.",
+  "profile_authority": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+  "personality": "Everyday careful helping register inherited from Roshan: gentle attention, purposeful hands, quiet tail. This draft explains contact and clean consequence, but has no accepted continuous rubbing/attention-motion study.",
+  "attention_gap": "Work sources keep their friendly forward gaze; purposeful eye tracking to hands and gaze return to child still need acting refinement.",
+  "support": "No added foot/mesh/rig anatomy. Complete rainbow tail retained; source sink/pedestal and Roshan remain fixed together. Broad mounted room/floor presentation remains a separate weakness.",
+  "timing_owner": "Original CareerWorld held-input accumulation, 3.4 authored catalog goal / 3.6 legacy definition. Actual resolved goal recorded in captures. Existing earned-completion hold2.2seconds unchanged. No animation timer or pose end awards progress.",
+  "states": [
+    {
+      "name": "ready",
+      "fraction": [
+        0,
+        0
+      ],
+      "marker": "Attention/hold hint above real basin; faucet off."
+    },
+    {
+      "name": "wet",
+      "fraction": [
+        0,
+        0.18
+      ],
+      "marker": "Spout water reaches joined hands and basin."
+    },
+    {
+      "name": "rub_palm",
+      "fraction": [
+        0.18,
+        0.42
+      ],
+      "marker": "Near palm on far cupped palm; small lather."
+    },
+    {
+      "name": "rub_back",
+      "fraction": [
+        0.42,
+        0.68
+      ],
+      "marker": "Near palm rubs far hand back."
+    },
+    {
+      "name": "rinse",
+      "fraction": [
+        0.68,
+        1.0
+      ],
+      "marker": "Water reaches hands; reduced lather."
+    },
+    {
+      "name": "clean",
+      "fraction": "completion_accepted only",
+      "marker": "Two foam-free palms and small authored twinkles. No generic boxing impact."
+    }
+  ],
+  "anchors_normalized": {
+    "spout": [
+      0.76,
+      0.48
+    ],
+    "wet_hand_contact": [
+      0.73,
+      0.55
+    ],
+    "basin_lip_center": [
+      0.74,
+      0.57
+    ],
+    "rub_palm_contact": [
+      0.67,
+      0.47
+    ],
+    "pedestal_base": [
+      0.74,
+      0.94
+    ]
+  },
+  "camera_and_pivot": "One fixed square canvas, uniformly normalized 1254 to1024, drawn at660px. No independently translated/warped hand or basin. Normal production panel opening tween retained; it is focus presentation, not washing motion.",
+  "loop_exit": "One state progression under real held input; no invented washing loop. Release holds current state/progress. Completion holds clean palms, then normal approached room actor returns and next phase arms. Back uses existing production navigation callback.",
+  "direction": "Only authored three-quarter work view; no invented mirrored anatomy or direction variants.",
+  "source_coverage": "Seven preserved native attempts; six selected runtime states including palm02. Weak clasp4.4 preserved and unbound. Sources/individual static opinions do not establish accepted movement.",
+  "required_next_study": "Comparable bounded identity/attention study and actual full rubbing/rinse/contact action at both aspects; retain all weak states and review outcomes.",
+  "owner_device_child_acceptance": false,
+  "current_action_review": "DIRECT_REVIEW_CURRENT_V3.json",
+  "current_action_score": 3.9
+}

@@ -1,0 +1,58 @@
+{
+  "status": "PROVISIONAL_STATIC_SOURCE_FLOOR_ONLY",
+  "score": 4.5,
+  "note": "Correct stream-to-hand-to-basin contact; reduced lather leaves a small wrist bubble. Actual removal/time continuity requires mounted review.",
+  "reviewed_utc": "2026-10-02T21:43:59.615843+00:00",
+  "method": "Direct complete native images displayed by built-in imagegen and inspected by root; separate from mounted action.",
+  "native": {
+    "mode": "RGBA",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "alpha_bbox": [
+      83,
+      43,
+      1206,
+      1222
+    ]
+  },
+  "native_sha256": "34179bd5133b4e4d14bff609dce2de716c1415cafe0f9e063983d5d8f42fefd7",
+  "prompt_sha256": "0b4edb8e44d899075a2dfe73b18b83df1ca31f0331e254ddd2eb2528f525296b",
+  "references": [
+    {
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/wet_attempt01/native.png",
+      "sha256": "4a2ab2cfa336b47b4a827ce6a531939f15cfb34d43ec8365840882625c06e4cc"
+    },
+    {
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rub_back_attempt01/native.png",
+      "sha256": "18fc826e28a3536c2b1cbb55dcad35163b54f1b1e7a4231fd2b2e2ff48bdc995"
+    }
+  ],
+  "runtime_normalization": {
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "path": "assets/opera/worlds/nursery/wash_connected_v1_20261002/rinse.png",
+    "sha256": "7629280357c273fb1de7f2d8c91b535242a00ada7a28c9aaab7e51116d6fb799",
+    "method": "Godot4.7.2 Image.resize uniform whole-canvas1254 to1024 INTERPOLATE_LANCZOS; native preserved, no isolated-subject repair.",
+    "runtime_selected": true
+  },
+  "mounted_score": null,
+  "action_score": null,
+  "owner_approval": false,
+  "priority_inclusive": true,
+  "current_mounted_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json",
+  "current_mounted_static_score": 4.5,
+  "complete_action_score": 3.9
+}

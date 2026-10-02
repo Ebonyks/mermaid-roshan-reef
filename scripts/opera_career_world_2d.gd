@@ -36,6 +36,7 @@ const TeacherLessons := preload("res://scripts/teacher_lesson_plan.gd")
 const GeologySurface := preload("res://scripts/opera_geology_surface.gd")
 const WorldBackdrop := preload("res://scripts/opera_world_backdrop_2d.gd")
 const NurseryCatch := preload("res://scripts/opera_nursery_catch.gd")
+const NurserySurface := preload("res://scripts/opera_nursery_surface.gd")
 const StagePaths := preload("res://scripts/opera_stage_paths.gd")
 const StageNavigation := preload("res://scripts/stage_navigation_2d.gd")
 const ImpClips := preload("res://scripts/opera_imp_clips.gd")
@@ -1292,6 +1293,8 @@ func _build_world() -> void:
 	elif career_id == "geologist":
 		surface = GeologySurface.new() as OperaGestureSurface
 		(surface as OperaGeologySurface).progress_changed.connect(_on_geology_progress_changed)
+	elif career_id == "nursery":
+		surface = NurserySurface.new() as OperaGestureSurface
 	elif career_id == "racer":
 		surface = RacerSurface.new() as OperaGestureSurface
 		(surface as OperaRacerSurface).race_event.connect(_on_race_event)
@@ -2023,8 +2026,14 @@ func _on_hotspot_opening_finished(station_index: int) -> void:
 	_open_task()
 
 
+func _is_nursery_wash_phase() -> bool:
+	return career_id == "nursery" and phase_index >= 0 and phase_index < phases.size() \
+		and String((phases[phase_index] as Dictionary).get("name", "")) == "WASH HANDS"
+
+
 func _draw_activity_focus() -> void:
-	if career_id in ["teacher", "geologist"] or _racer_is_driving():
+	if career_id in ["teacher", "geologist"] or _racer_is_driving() \
+			or _is_nursery_wash_phase():
 		return
 	# No clipboard, easel, title ribbon, or reading chrome. The existing themed
 	# minigame art floats in a soft theatre-light bloom, with a tiny pearl trail
@@ -2631,6 +2640,10 @@ func _open_task() -> void:
 	var accent := Color(competition.spec.get("accent", Color(1.0, 0.62, 0.8)))
 	choice_target = (phase_index + int(competition.rival_step)) % 3
 	_apply_panel_layout(phase)
+	if _is_nursery_wash_phase() and player_actor != null:
+		# The connected wash painting owns Roshan only while this lesson is open.
+		# The unmodified room actor returns at the approached socket next phase.
+		player_actor.visible = false
 	if career_id == "boxer" and player_actor != null:
 		# The walk-in is third person; the opened lesson is the specialist's
 		# first-person two-glove view.
@@ -2810,6 +2823,17 @@ func _apply_panel_layout(phase: Dictionary) -> void:
 		backdrop_node.racer_driving = true
 		backdrop_node.queue_redraw()
 		_set_finale_visible(true)
+		action_panel.queue_redraw()
+		return
+	if _is_nursery_wash_phase():
+		# A full connected body keeps the hands at readable phone scale.
+		# No framed clipboard or generic dark focus under this painting.
+		action_panel.visible = true
+		action_panel.position = Vector2(320, 24)
+		action_panel.size = Vector2(660, 660)
+		surface.position = Vector2.ZERO
+		surface.size = action_panel.size
+		phase_fill.visible = false
 		action_panel.queue_redraw()
 		return
 	if career_id == "boxer":
@@ -3572,6 +3596,9 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 
 
 func _uses_authored_completion_picture(mode: String) -> bool:
+	# Clean palms are the washing result. A boxing impact puff obscures them.
+	if _is_nursery_wash_phase():
+		return true
 	if career_id in ["teacher", "geologist"] \
 			or (career_id == "racer" and mode == "kart_race"):
 		return true

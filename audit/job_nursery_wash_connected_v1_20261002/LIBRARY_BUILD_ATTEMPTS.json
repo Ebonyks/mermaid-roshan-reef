@@ -1,0 +1,17 @@
+{
+  "status": "REGISTER_COMPLETED_AFTER_DOCUMENT_SCHEMA_CORRECTION",
+  "attempts": [
+    {
+      "source": "review_tools/update_nursery_library_v360_failed.original.py",
+      "result": "FAILED missing path in old minimal normalization metadata; existing provenance enriched, preservedV33 untouched."
+    },
+    {
+      "source": "review_tools/update_nursery_library_v360_partial.original.py",
+      "result": "FAILED after register/docs creation at history heading assertion; findings use table history rows. No duplicate register run."
+    },
+    {
+      "source": "review_tools/finish_nursery_library_v362.py",
+      "result": "Completes finding history rows without lifecycle change and updates coverage/refresh. No source or visual gate relaxation."
+    }
+  ]
+}
