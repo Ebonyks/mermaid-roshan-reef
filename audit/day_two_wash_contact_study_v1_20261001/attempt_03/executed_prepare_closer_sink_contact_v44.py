@@ -1,0 +1,27 @@
+from pathlib import Path
+import hashlib,json,shutil
+r=Path('C:/Users/Peter/.codex/worktrees/job-art-review-v2-20261001/mermaid-roshan-reef')
+old=r/'tmp/capture_doctor_sink_contact_v36.gd';gd=old.read_text(encoding='utf-8')
+gd=gd.replace('doctor_sink_contact_v36','doctor_sink_contact_v44')
+gd=gd.replace('\t"res://assets_src/imagegen/day2_doctor_wash_motion_v1_20261001/motion_key01_attempt01_native.png",','\t"res://assets_src/imagegen/day2_doctor_wash_motion_v1_20261001/motion_key01_attempt01_native.png",\n\t"res://assets_src/imagegen/day2_doctor_wash_clean_result_v1_20261001/attempt01_native.png",')
+gd=gd.replace('var sink_offset := 35.0','var sink_offset := 0.0\n\tvar hand_source := Vector2(535.0,594.0)')
+gd=gd.replace('Vector2(535.0,594.0) * (250.0/1402.0)','hand_source * (250.0/1402.0)')
+gd=gd.replace('Rect2(0.0,145.0,256.0,111.0)','Rect2(0.0,116.0,256.0,140.0)').replace('Vector2(0.0,145.0)','Vector2(0.0,116.0)')
+gd=gd.replace('for extent: float in [150.0,180.0]:','for extent: float in [180.0]:').replace('for offset: float in [35.0,55.0]:','for offset: float in [0.0,15.0]:')
+gd=gd.replace('\t\t\tcanvas.character=ImageTexture.create_from_image(Image.load_from_file(SOURCES[source_index]))','\t\t\tcanvas.character=ImageTexture.create_from_image(Image.load_from_file(SOURCES[source_index]))\n\t\t\tcanvas.hand_source=Vector2(550.0,594.0) if source_index==2 else Vector2(535.0,594.0)')
+gd=gd.replace('"front_region":[0,145,256,111]','"front_region":[0,116,256,140]').replace('"hand_source_landmark":[535,594]','"hand_source_landmark":[canvas.hand_source.x,canvas.hand_source.y]')
+gd=gd.replace('assert(records.size()==18)','assert(records.size()==14)').replace('18_CAPTURED','14_CAPTURED')
+target=r/'tmp/capture_doctor_sink_contact_v44.gd';assert not target.exists();target.write_text(gd,encoding='utf-8',newline='\n')
+runner=(r/'tmp/run_layered_sink_contact_v36.py').read_text(encoding='utf-8')
+runner=runner.replace('doctor_sink_contact_v36','doctor_sink_contact_v44').replace('capture_doctor_sink_contact_v36','capture_doctor_sink_contact_v44')
+runner=runner.replace("'assets_src/imagegen/day2_doctor_wash_motion_v1_20261001/motion_key01_attempt01_native.png']","'assets_src/imagegen/day2_doctor_wash_motion_v1_20261001/motion_key01_attempt01_native.png','assets_src/imagegen/day2_doctor_wash_clean_result_v1_20261001/attempt01_native.png']")
+runner=runner.replace('Two existing authored doctor keys, two sink extents150/180, hand-to-basin offsets35/55px,1280/1600 desktop widths;18 static views. Original first sink cell drawn behind character, then identical original front-region0,145,256,111 in front.','Three complete authored doctor keys including the clean ending, sink extent180, hand-to-basin offsets0/15px,1280/1600 desktop widths;14 static views. Original first sink cell behind character, identical original front-rim/cabinet region0,116,256,140 in front.')
+start=runner.index("impact=r/'design/audit_impacts/")
+end=runner.index('\nenv=dict(os.environ)',start)
+runner=runner[:start]+runner[end:]
+runpath=r/'tmp/run_closer_sink_contact_v44.py';assert not runpath.exists();runpath.write_text(runner,encoding='utf-8',newline='\n')
+impact=r/'design/audit_impacts/job-wash-contact-study-20261001.json';d=json.loads(impact.read_text(encoding='utf-8'))
+d['scope']+=' Test a closer180px basin at0/15px hand offsets with its actual front rim/cabinet region, and include the clean ending at the same250px character fit.'
+d['validation'].append({'command':'Official Godot4.7.2 closer-contact14 native views and individual review','result':'PENDING','evidence':'tmp/doctor_sink_contact_v44; original failed44 native placement evaluations remain archived. No current binding changed.'})
+impact.write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
+print(json.dumps({'prepared_script':target.relative_to(r).as_posix(),'planned_views':14,'source_edits':False,'production_edits':False,'timed_acceptance':None}))

@@ -1,0 +1,50 @@
+{
+  "status": "PASS_CURRENT_WORKING_REVIEW_GATES",
+  "checked_utc": "2026-10-02T00:08:02.053584+00:00",
+  "baseline": "fb03e0ac3dda1658e9ea188d33cc6e084871642b",
+  "processes": [
+    {
+      "name": "authority",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "process_exit": 0,
+      "stdout": "audit/job_review_v2_20261001/current_supplement_gates_v1/authority.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/current_supplement_gates_v1/authority.stderr.log"
+    },
+    {
+      "name": "development",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "process_exit": 0,
+      "stdout": "audit/job_review_v2_20261001/current_supplement_gates_v1/development.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/current_supplement_gates_v1/development.stderr.log"
+    },
+    {
+      "name": "2d",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "process_exit": 0,
+      "stdout": "audit/job_review_v2_20261001/current_supplement_gates_v1/2d.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/current_supplement_gates_v1/2d.stderr.log"
+    }
+  ],
+  "qualification": "Working review authority/development and2D no-regression. Exact staged/committed coverage is verified separately before publication. Strict2D, whole actions, device/child/owner and hosted acceptance remain open."
+}

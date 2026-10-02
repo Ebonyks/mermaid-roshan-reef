@@ -1,0 +1,24 @@
+{
+  "status": "PASS_ALL_IMMUTABLE_CURRENT_B_BYTES",
+  "revision": "c2116877de10202c40e1d939c77eb3646b5f202f",
+  "tree": "c62b1e97fe948def1c5b268fc8a6b9d415b200f8",
+  "entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/c2116877de10202c40e1d939c77eb3646b5f202f/audit/job_review_v2_20261001/index.html",
+  "manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/c2116877de10202c40e1d939c77eb3646b5f202f/audit/job_review_v2_20261001/CURRENT_B_FILES_V1.json",
+  "manifest_sha256": "76f46664a2e4967161593fe831ef9024dad9a8dfc4a191b34652b6d512691798",
+  "manifest_bytes": 2309610,
+  "payload_sha256": "960267e6448897d87726cfdfbda22ab89fcab744e65ec3cff29a5cb246c61519",
+  "started_utc": "2026-10-01T23:37:47.422444+00:00",
+  "checked_utc": "2026-10-01T23:44:39.934551+00:00",
+  "required_files": 13534,
+  "verified_files": 13534,
+  "verified_bytes": 3962010841,
+  "failures": [],
+  "access_mode": "Anonymous public HTTPS with normal TLS verification. No credentials or Authorization header. Every exact immutable path must be fetched.",
+  "journal_value_schema": [
+    "path",
+    "bytes",
+    "sha256",
+    "checked_utc"
+  ],
+  "qualification": "Every MATCH is a complete real anonymous GET at the exact currentB revision; resume records keep original check times. SourceA history remains separately pinned. Hosted CI, all-source/complete-action/device/child/owner acceptance, integration and release remain separate."
+}

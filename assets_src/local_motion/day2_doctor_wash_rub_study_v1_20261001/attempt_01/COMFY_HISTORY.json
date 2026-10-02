@@ -1,0 +1,223 @@
+{
+  "prompt": [
+    6,
+    "169a5bbc-32e7-4310-a9cc-3025748872e4",
+    {
+      "0": {
+        "class_type": "SaveLatent",
+        "inputs": {
+          "samples": [
+            "9",
+            0
+          ],
+          "filename_prefix": "local_reference/d2m_doctor_rub_v1_20261001_20261001T235338Z_c07d25"
+        }
+      },
+      "1": {
+        "class_type": "UnetLoaderGGUFAdvanced",
+        "inputs": {
+          "unet_name": "Wan2.2-TI2V-5B-Q4_K_S.gguf",
+          "dequant_dtype": "bfloat16",
+          "patch_dtype": "bfloat16",
+          "patch_on_device": true
+        }
+      },
+      "2": {
+        "class_type": "CLIPLoaderGGUF",
+        "inputs": {
+          "clip_name": "umt5-xxl-encoder-Q4_K_S.gguf",
+          "type": "wan"
+        }
+      },
+      "3": {
+        "class_type": "VAELoader",
+        "inputs": {
+          "vae_name": "wan2.2_vae.safetensors"
+        }
+      },
+      "4": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "source_3df05d3dd26d34c3.png"
+        }
+      },
+      "5": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "2",
+            0
+          ],
+          "text": "Locked camera, one continuous shot of this full little mermaid doctor in the same flat polished2D painted storybook style. Keep her face, brown curls/rainbow lock, flower, coat, satchel, torso, broad curled rainbow tail and paired fin fixed in identity, shape, scale and canvas position. Keep the plain aqua paper background perfectly still. 0.00-0.25seconds: rest in the original attached soapy-hand pose. 0.25-1.20: only the existing two forearms/hands gently rub together once, one hand making a small stroke over the back of the other; attached foam stays on those hands. 1.20-1.70: return the hands to their initial contact and settle. Keep head and body still. No sink or water is requested in this isolated rubbing study. Preserve warm brown/plum contours, broad painted values and soft aqua/lavender shadows. No new objects, detached hands, extra limbs/fingers, fin changes, medical tools, photorealism, skin pores,3D/plastic shading, whole-card motion, camera move, cuts, colour pumping, particles, text or background inventions. Sound: silence.\n"
+        }
+      },
+      "6": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "2",
+            0
+          ],
+          "text": "camera movement, zoom, pan, cut, photorealism, 3D shading, new objects, changing architecture, moving shoreline, moving roots, flicker, color pumping, warped shapes, subtitles, text, watermark"
+        }
+      },
+      "7": {
+        "class_type": "ModelSamplingSD3",
+        "inputs": {
+          "model": [
+            "1",
+            0
+          ],
+          "shift": 8.0
+        }
+      },
+      "8": {
+        "class_type": "Wan22ImageToVideoLatent",
+        "inputs": {
+          "vae": [
+            "3",
+            0
+          ],
+          "width": 896,
+          "height": 512,
+          "length": 41,
+          "batch_size": 1,
+          "start_image": [
+            "4",
+            0
+          ]
+        }
+      },
+      "9": {
+        "class_type": "KSampler",
+        "inputs": {
+          "model": [
+            "7",
+            0
+          ],
+          "positive": [
+            "5",
+            0
+          ],
+          "negative": [
+            "6",
+            0
+          ],
+          "latent_image": [
+            "8",
+            0
+          ],
+          "seed": 2026100101,
+          "steps": 24,
+          "cfg": 5.0,
+          "sampler_name": "uni_pc",
+          "scheduler": "simple",
+          "denoise": 1.0
+        }
+      },
+      "10": {
+        "class_type": "VAEDecodeTiled",
+        "inputs": {
+          "samples": [
+            "9",
+            0
+          ],
+          "vae": [
+            "3",
+            0
+          ],
+          "tile_size": 256,
+          "overlap": 64,
+          "temporal_size": 4096,
+          "temporal_overlap": 8
+        }
+      },
+      "11": {
+        "class_type": "SaveWEBM",
+        "inputs": {
+          "images": [
+            "10",
+            0
+          ],
+          "filename_prefix": "local_reference/d2m_doctor_rub_v1_20261001_20261001T235338Z_c07d25",
+          "codec": "vp9",
+          "fps": 24.0,
+          "crf": 18.0
+        }
+      }
+    },
+    {
+      "client_id": "d2m_doctor_rub_v1_20261001_20261001T235338Z_c07d25",
+      "create_time": 1790898818284
+    },
+    [
+      "0",
+      "11"
+    ]
+  ],
+  "outputs": {
+    "0": {
+      "latents": [
+        {
+          "filename": "d2m_doctor_rub_v1_20261001_20261001T235338Z_c07d25_00001_.latent",
+          "subfolder": "local_reference",
+          "type": "output"
+        }
+      ]
+    },
+    "11": {
+      "images": [
+        {
+          "filename": "d2m_doctor_rub_v1_20261001_20261001T235338Z_c07d25_00002_.webm",
+          "subfolder": "local_reference",
+          "type": "output"
+        }
+      ],
+      "animated": [
+        true
+      ]
+    }
+  },
+  "status": {
+    "status_str": "success",
+    "completed": true,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "169a5bbc-32e7-4310-a9cc-3025748872e4",
+          "timestamp": 1790898818289
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [],
+          "prompt_id": "169a5bbc-32e7-4310-a9cc-3025748872e4",
+          "timestamp": 1790898818304
+        }
+      ],
+      [
+        "execution_success",
+        {
+          "prompt_id": "169a5bbc-32e7-4310-a9cc-3025748872e4",
+          "timestamp": 1790898998182
+        }
+      ]
+    ]
+  },
+  "meta": {
+    "0": {
+      "node_id": "0",
+      "display_node": "0",
+      "parent_node": null,
+      "real_node_id": "0"
+    },
+    "11": {
+      "node_id": "11",
+      "display_node": "11",
+      "parent_node": null,
+      "real_node_id": "11"
+    }
+  }
+}

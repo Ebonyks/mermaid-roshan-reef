@@ -1,0 +1,46 @@
+{
+  "status": "HOSTED_CURRENT_B_FAILURE_PRESERVED",
+  "run_id": 36941786030,
+  "head_sha": "fb03e0ac3dda1658e9ea188d33cc6e084871642b",
+  "run_url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36941786030",
+  "checked_utc": "2026-10-01T23:55:20.909036+00:00",
+  "failed_steps": [
+    {
+      "job": "probes",
+      "conclusion": "failure",
+      "step": "Static gates (parse + Variant-inference lint)",
+      "step_number": 4
+    }
+  ],
+  "processes": [
+    {
+      "name": "state",
+      "process_exit": 0,
+      "command": [
+        "C:/Program Files/GitHub CLI/gh.exe",
+        "run",
+        "view",
+        "36941786030",
+        "--repo",
+        "Ebonyks/mermaid-roshan-reef",
+        "--json",
+        "status,conclusion,headSha,jobs,createdAt,updatedAt,url"
+      ]
+    },
+    {
+      "name": "failed_steps",
+      "process_exit": 0,
+      "command": [
+        "C:/Program Files/GitHub CLI/gh.exe",
+        "run",
+        "view",
+        "36941786030",
+        "--repo",
+        "Ebonyks/mermaid-roshan-reef",
+        "--log-failed"
+      ]
+    }
+  ],
+  "log_sha256": "c317475b3377b74c9c90cb58e36e6e2c55d0423e42d4499f5ea9ab5680a203ad",
+  "qualification": "Hosted failure is separate from local82/82 and anonymous currentB byte verification. No gate weakening, retroactive pass or dev integration."
+}

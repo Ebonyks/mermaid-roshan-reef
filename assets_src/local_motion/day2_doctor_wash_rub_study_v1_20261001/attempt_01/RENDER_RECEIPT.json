@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\day2_doctor_wash_rub_study_v1_20261001\\inputs\\doctor_rub_full_source.png",
+  "source_sha256": "3df05d3dd26d34c32f1b1447e0f5df19dcff0cfc70712804f5cdecf3cc3540fb",
+  "source_dimensions": [
+    896,
+    512
+  ],
+  "prompt": "Locked camera, one continuous shot of this full little mermaid doctor in the same flat polished2D painted storybook style. Keep her face, brown curls/rainbow lock, flower, coat, satchel, torso, broad curled rainbow tail and paired fin fixed in identity, shape, scale and canvas position. Keep the plain aqua paper background perfectly still. 0.00-0.25seconds: rest in the original attached soapy-hand pose. 0.25-1.20: only the existing two forearms/hands gently rub together once, one hand making a small stroke over the back of the other; attached foam stays on those hands. 1.20-1.70: return the hands to their initial contact and settle. Keep head and body still. No sink or water is requested in this isolated rubbing study. Preserve warm brown/plum contours, broad painted values and soft aqua/lavender shadows. No new objects, detached hands, extra limbs/fingers, fin changes, medical tools, photorealism, skin pores,3D/plastic shading, whole-card motion, camera move, cuts, colour pumping, particles, text or background inventions. Sound: silence.\n",
+  "prompt_sha256": "01f0e16989867d3236900030561cc7f58a719342e61f09d2aea0a5e6bfb5cdf9",
+  "preset": "quick",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "seed": 2026100101,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/GGUF_MODEL_RECEIPT.json",
+  "workflow_sha256": "6da17ad88daa48960d3b14ad19a3066b9137cf0023ccc4cdc8fe95ba3e512927",
+  "started_at_utc": "20261001T235338Z",
+  "prompt_id": "169a5bbc-32e7-4310-a9cc-3025748872e4",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_doctor_rub_v1_20261001_20261001T235338Z_c07d25_00002_.webm",
+      "sha256": "ec662f1b534338ee4893db3ed3c643ec944b59bc73e250be60dee9b3bf5d5469",
+      "bytes": 398440
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_doctor_rub_v1_20261001_20261001T235338Z_c07d25_00002_.mp4",
+      "sha256": "f0d959c299de61a309f03606ef21182df03c8b5173ff41cf22102f9ecabe018b",
+      "bytes": 314227,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 181.89,
+  "completed_at_utc": "2026-10-01T23:56:40.179519+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance"
+}

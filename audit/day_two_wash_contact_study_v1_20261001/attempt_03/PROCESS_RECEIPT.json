@@ -1,0 +1,91 @@
+{
+  "status": "PASS_STATIC_CAPTURE_ONLY",
+  "processes": [
+    {
+      "name": "parser",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "tmp/capture_doctor_sink_contact_v44.gd"
+      ],
+      "process_exit": 0,
+      "timed_out_owned_child": false,
+      "seconds": 2.212387400039006
+    },
+    {
+      "name": "inference",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "tmp/capture_doctor_sink_contact_v44.gd"
+      ],
+      "process_exit": 0,
+      "timed_out_owned_child": false,
+      "seconds": 0.17957139998907223
+    },
+    {
+      "name": "analyzer",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef",
+        "--check-only",
+        "--script",
+        "res://tmp/capture_doctor_sink_contact_v44.gd"
+      ],
+      "process_exit": 0,
+      "timed_out_owned_child": false,
+      "seconds": 6.497261799988337
+    },
+    {
+      "name": "native",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef",
+        "--windowed",
+        "--resolution",
+        "1280x720",
+        "--script",
+        "res://tmp/capture_doctor_sink_contact_v44.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "process_exit": 0,
+      "timed_out_owned_child": false,
+      "seconds": 19.86599980003666
+    }
+  ],
+  "source_before": {
+    "scripts/opera_career_world_2d.gd": "f58088a214bffb8ceb68a01c771e20241a32d987ac180b4be51be236247922ae",
+    "scripts/opera_gesture_surface.gd": "c28a885f68f2b16c66fcdaa5c4243ce9695a44d4ce015e56832ca392114cbedb",
+    "scripts/opera_roshan_actor.gd": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66",
+    "scripts/opera_hotspot_catalog.gd": "ad76445088eaaaa223f9374b2e7a098370350da7ebc5c419584453ff1da2ee5b",
+    "assets/flats/castle/interactions_v2/bubble_bath_sink_sheet.png": "843395316d3285e6f771f7ed0a4e1d818f1f2814854a8a883ff6e606688d2574",
+    "assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_06_native.png": "3ada2bd00859314ece42ccffa2dc20aae9543086b1161d6e8336689021c99d2c",
+    "assets_src/imagegen/day2_doctor_wash_motion_v1_20261001/motion_key01_attempt01_native.png": "0c27e3a4e643b596161c06ebc1946ce9a58e87a1c9835b054ba42142223a5214",
+    "assets_src/imagegen/day2_doctor_wash_clean_result_v1_20261001/attempt01_native.png": "c7923b95b393b70bfd575a9a0e03959bd6c8b31697f2685ce13f748866b9e88b"
+  },
+  "source_after": {
+    "scripts/opera_career_world_2d.gd": "f58088a214bffb8ceb68a01c771e20241a32d987ac180b4be51be236247922ae",
+    "scripts/opera_gesture_surface.gd": "c28a885f68f2b16c66fcdaa5c4243ce9695a44d4ce015e56832ca392114cbedb",
+    "scripts/opera_roshan_actor.gd": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66",
+    "scripts/opera_hotspot_catalog.gd": "ad76445088eaaaa223f9374b2e7a098370350da7ebc5c419584453ff1da2ee5b",
+    "assets/flats/castle/interactions_v2/bubble_bath_sink_sheet.png": "843395316d3285e6f771f7ed0a4e1d818f1f2814854a8a883ff6e606688d2574",
+    "assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_06_native.png": "3ada2bd00859314ece42ccffa2dc20aae9543086b1161d6e8336689021c99d2c",
+    "assets_src/imagegen/day2_doctor_wash_motion_v1_20261001/motion_key01_attempt01_native.png": "0c27e3a4e643b596161c06ebc1946ce9a58e87a1c9835b054ba42142223a5214",
+    "assets_src/imagegen/day2_doctor_wash_clean_result_v1_20261001/attempt01_native.png": "c7923b95b393b70bfd575a9a0e03959bd6c8b31697f2685ce13f748866b9e88b"
+  },
+  "source_unchanged": true,
+  "checked_utc": "2026-10-01T23:54:51.712317+00:00",
+  "qualification": "No new gameplay binding, causal water/foam/clean result, temporal loop/exit or device/child/owner acceptance."
+}

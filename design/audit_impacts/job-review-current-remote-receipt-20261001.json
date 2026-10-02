@@ -1,0 +1,111 @@
+{
+  "id": "job-review-current-remote-receipt-20261001",
+  "scope": "Archive complete anonymous byte verification of immutable currentB c211, distinguish the unchanged-tree published ancestry headfb03 and hosted CI pending state, and connect reversible wash study/clean source evaluations. Historical sourceA failures and original manifests remain unchanged. Correct the previously omitted expanded staged coverage record after hosted failure; update current register/authority and preserve all later wash/static/motion evidence separately from c211 verification.",
+  "baseline": "fb03e0ac3dda1658e9ea188d33cc6e084871642b",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-04",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-QA-03",
+    "DL-QA-09"
+  ],
+  "findings": [],
+  "no_findings_reason": "Publication and traceability evidence only. No new game defect is invented, no existing finding is closed and no visual or runtime acceptance is claimed.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/job_artwork_refinement_live/ALL_ITEMS.json",
+    "audit/job_artwork_refinement_live/STATUS.json",
+    "audit/job_artwork_refinement_live/all_items.html",
+    "audit/job_artwork_refinement_live/index.html",
+    "audit/job_artwork_refinement_live/review_tools/build_current_job_item_register_v9.py",
+    "audit/job_review_v2_20261001/CURRENT_REVIEW_SUPPLEMENT_FILES_V1.json",
+    "audit/job_review_v2_20261001/STAGING_COVERAGE_CORRECTION_V1.json",
+    "audit/job_review_v2_20261001/current_b_remote_v1/ARCHIVE_ATTEMPT01_FAILURE.json",
+    "audit/job_review_v2_20261001/current_b_remote_v1/CHECKPOINT_IDENTITY.json",
+    "audit/job_review_v2_20261001/current_b_remote_v1/FETCH_JOURNAL.jsonl",
+    "audit/job_review_v2_20261001/current_b_remote_v1/PUBLICATION_STATE.json",
+    "audit/job_review_v2_20261001/current_b_remote_v1/RESULT.json",
+    "audit/job_review_v2_20261001/current_b_remote_v1/executed_archive_current_remote_receipt_v40.py",
+    "audit/job_review_v2_20261001/current_b_remote_v1/executed_finish_remote_authority_v41.py",
+    "audit/job_review_v2_20261001/current_b_remote_v1/executed_verify_current_b_remote_bytes_v33.py",
+    "audit/job_review_v2_20261001/current_b_remote_v1/index.html",
+    "audit/job_review_v2_20261001/current_supplement_gates_v1/2d.stderr.log",
+    "audit/job_review_v2_20261001/current_supplement_gates_v1/2d.stdout.log",
+    "audit/job_review_v2_20261001/current_supplement_gates_v1/BROWSER_PREVIEW.json",
+    "audit/job_review_v2_20261001/current_supplement_gates_v1/RECEIPT.json",
+    "audit/job_review_v2_20261001/current_supplement_gates_v1/STAGED_REVIEW_VERIFICATION.json",
+    "audit/job_review_v2_20261001/current_supplement_gates_v1/authority.stderr.log",
+    "audit/job_review_v2_20261001/current_supplement_gates_v1/authority.stdout.log",
+    "audit/job_review_v2_20261001/current_supplement_gates_v1/development.stderr.log",
+    "audit/job_review_v2_20261001/current_supplement_gates_v1/development.stdout.log",
+    "audit/job_review_v2_20261001/current_supplement_gates_v1/doctor_motion_review_browser_v50.png",
+    "audit/job_review_v2_20261001/current_supplement_gates_v1/executed_run_current_review_gates_v51.py",
+    "audit/job_review_v2_20261001/current_supplement_gates_v1/executed_stage_and_verify_review_supplement_v52.py",
+    "audit/job_review_v2_20261001/current_supplement_gates_v1/final_authority.stderr.log",
+    "audit/job_review_v2_20261001/current_supplement_gates_v1/final_authority.stdout.log",
+    "audit/job_review_v2_20261001/current_supplement_gates_v1/final_development.stderr.log",
+    "audit/job_review_v2_20261001/current_supplement_gates_v1/final_development.stdout.log",
+    "audit/job_review_v2_20261001/current_supplement_gates_v1/inference.stderr.log",
+    "audit/job_review_v2_20261001/current_supplement_gates_v1/inference.stdout.log",
+    "audit/job_review_v2_20261001/current_supplement_gates_v1/parser.stderr.log",
+    "audit/job_review_v2_20261001/current_supplement_gates_v1/parser.stdout.log",
+    "audit/job_review_v2_20261001/hosted_current_b_failure_v1/RECEIPT.json",
+    "audit/job_review_v2_20261001/hosted_current_b_failure_v1/executed_read_hosted_current_failure_v45.py",
+    "audit/job_review_v2_20261001/hosted_current_b_failure_v1/failed_steps.stderr.log",
+    "audit/job_review_v2_20261001/hosted_current_b_failure_v1/failed_steps.stdout.log",
+    "audit/job_review_v2_20261001/hosted_current_b_failure_v1/state.stderr.log",
+    "audit/job_review_v2_20261001/hosted_current_b_failure_v1/state.stdout.log",
+    "audit/job_review_v2_20261001/index.html",
+    "audit/job_review_v2_20261001/review_tools/build_current_job_item_register_v9.py",
+    "audit/job_review_v2_20261001/review_tools/executed_prepare_register_v9_and_authority_v49.py",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/job-review-separate-v2-20261001.json"
+  ],
+  "validation": [
+    {
+      "command": "Anonymous normal-TLS immutable GET and SHA256 of every declared currentB file",
+      "result": "PASS",
+      "evidence": "audit/job_review_v2_20261001/current_b_remote_v1/RESULT.json;13534/13534 and3962010841 payload bytes, empty failures."
+    },
+    {
+      "command": "Git content-tree and published ancestry verification",
+      "result": "PASS",
+      "evidence": "audit/job_review_v2_20261001/current_b_remote_v1/PUBLICATION_STATE.json;fb03 andc211 trees identical; sourceA original manifest commits retained."
+    },
+    {
+      "command": "Hosted Probe suite run36941786030 on exact published fb03",
+      "result": "PENDING",
+      "evidence": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/36941786030; observed in progress, no hosted pass claimed."
+    },
+    {
+      "command": "Hosted Probe suite run36941786030 exact currentBfb03",
+      "result": "FAIL",
+      "evidence": "audit/job_review_v2_20261001/hosted_current_b_failure_v1/RECEIPT.json; exact failed-step log retained. Earlier pending observation remains historical."
+    },
+    {
+      "command": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe -X utf8 -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "audit/job_review_v2_20261001/current_supplement_gates_v1/authority.stdout.log; audit/job_review_v2_20261001/current_supplement_gates_v1/authority.stderr.log"
+    },
+    {
+      "command": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe -X utf8 -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "audit/job_review_v2_20261001/current_supplement_gates_v1/development.stdout.log; audit/job_review_v2_20261001/current_supplement_gates_v1/development.stderr.log"
+    },
+    {
+      "command": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe -X utf8 -B tools/audit_game_2d.py --regression-gate",
+      "result": "PASS",
+      "evidence": "audit/job_review_v2_20261001/current_supplement_gates_v1/2d.stdout.log; audit/job_review_v2_20261001/current_supplement_gates_v1/2d.stderr.log"
+    },
+    {
+      "command": "Exact staged source/coverage and parser/inference verification",
+      "result": "PASS",
+      "evidence": "audit/job_review_v2_20261001/current_supplement_gates_v1/STAGED_REVIEW_VERIFICATION.json; all changed ignored capture scripts parsed/linted;325 production source hashes unchanged; final authority/development pass."
+    }
+  ],
+  "acceptance_gaps": "Remote receipt proves immutable source/review bytes, not all-source graphics scores, full-action/native-device/child/owner acceptance, strict2D satisfaction, integration or release."
+}

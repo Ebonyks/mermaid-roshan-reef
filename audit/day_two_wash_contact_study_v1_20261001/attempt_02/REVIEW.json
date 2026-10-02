@@ -1,0 +1,799 @@
+{
+  "status": "ALL18_STATIC_NATIVE_VIEWS_REVIEWED_BELOW_CONTACT_FLOOR",
+  "reviewed_utc": "2026-10-01T23:47:42.322072+00:00",
+  "baseline": "fb03e0ac3dda1658e9ea188d33cc6e084871642b",
+  "direct_full_native_views": 18,
+  "views_unreviewed": 0,
+  "source_pixels_modified": false,
+  "source_opinions": "Doctor washing source6/key1 retain earlier source4.5; first painted sink cell retains earlier source4.6. No source score is raised by this contact study.",
+  "items": [
+    {
+      "id": "DOCTOR-SINK-A02-00",
+      "path": "doctor_1280_original.webp",
+      "sha256": "594b153ee790bcc95c3e7ab7d0558c928a50ec5534e82e8f120149f9ceacb144",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 2.3,
+      "static_composition_score": 2.9,
+      "complete_action_score": null,
+      "evaluation": "The current actor uses a medical-tool pose at the left station. Separate schematic hands and a large flat basin remain on the right. This width retains the measured spatial and style mismatch. This static capture does not audit the complete original sequence.",
+      "geometry": {
+        "source": null,
+        "sink_extent": null,
+        "sink_offset_x": null,
+        "front_region": null,
+        "draw_order": null,
+        "character_rect": null,
+        "hand_source_landmark": null,
+        "hand_local": null,
+        "sink_rect": null
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A02-01",
+      "path": "doctor_1280_key0_sink150_offset35.webp",
+      "sha256": "0900a35bf7174ddeabfa8c218d822238d7527cdb850d0c037ecd0d27a37118e9",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.0,
+      "static_composition_score": 4.1,
+      "complete_action_score": null,
+      "evaluation": "Drawing the same sink behind Roshan and its original front cabinet region in front keeps her face, arms and attached soap cluster visible. The hands remain left of the faucet/basin centre; no stream connects them to water. The cabinet occludes much of the tail and appears suspended in the busy station composition. The nearer35px offset improves the local work reading but does not establish contact. The 150.0px sink is a static test using unchanged source pixels; there is no accepted wet/rub/rinse/clean/return sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_06_native.png",
+        "sink_extent": 150.0,
+        "sink_offset_x": 35.0,
+        "front_region": [
+          0,
+          145,
+          256,
+          111
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535,
+          594
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          80.3994445800781,
+          44.3966827392578,
+          150.0,
+          150.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A02-02",
+      "path": "doctor_1280_key0_sink150_offset55.webp",
+      "sha256": "0e30905426982dfd33f1294bd7e8d4bb1401e1a39aa62b68867ad19355a8b735",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 3.7,
+      "static_composition_score": 4.1,
+      "complete_action_score": null,
+      "evaluation": "Drawing the same sink behind Roshan and its original front cabinet region in front keeps her face, arms and attached soap cluster visible. The hands remain left of the faucet/basin centre; no stream connects them to water. The cabinet occludes much of the tail and appears suspended in the busy station composition. The55px offset increases the hand-to-faucet gap and weakens the washing reading. The 150.0px sink is a static test using unchanged source pixels; there is no accepted wet/rub/rinse/clean/return sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_06_native.png",
+        "sink_extent": 150.0,
+        "sink_offset_x": 55.0,
+        "front_region": [
+          0,
+          145,
+          256,
+          111
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535,
+          594
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          100.399444580078,
+          44.3966827392578,
+          150.0,
+          150.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A02-03",
+      "path": "doctor_1280_key0_sink180_offset35.webp",
+      "sha256": "a1b11ee78964c9ca221669c21f11211692d2c65b2f50e637619a6a9b51e27bd5",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.0,
+      "static_composition_score": 4.0,
+      "complete_action_score": null,
+      "evaluation": "Drawing the same sink behind Roshan and its original front cabinet region in front keeps her face, arms and attached soap cluster visible. The hands remain left of the faucet/basin centre; no stream connects them to water. The cabinet occludes much of the tail and appears suspended in the busy station composition. The nearer35px offset improves the local work reading but does not establish contact. The 180.0px sink is a static test using unchanged source pixels; there is no accepted wet/rub/rinse/clean/return sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_06_native.png",
+        "sink_extent": 180.0,
+        "sink_offset_x": 35.0,
+        "front_region": [
+          0,
+          145,
+          256,
+          111
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535,
+          594
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          65.3994445800781,
+          32.0919952392578,
+          180.0,
+          180.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A02-04",
+      "path": "doctor_1280_key0_sink180_offset55.webp",
+      "sha256": "955c2e66c513214882a77cf01dc9ec6f7512924fb3cc52c1960fc1a55a6bf925",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 3.7,
+      "static_composition_score": 4.0,
+      "complete_action_score": null,
+      "evaluation": "Drawing the same sink behind Roshan and its original front cabinet region in front keeps her face, arms and attached soap cluster visible. The hands remain left of the faucet/basin centre; no stream connects them to water. The cabinet occludes much of the tail and appears suspended in the busy station composition. The55px offset increases the hand-to-faucet gap and weakens the washing reading. The 180.0px sink is a static test using unchanged source pixels; there is no accepted wet/rub/rinse/clean/return sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_06_native.png",
+        "sink_extent": 180.0,
+        "sink_offset_x": 55.0,
+        "front_region": [
+          0,
+          145,
+          256,
+          111
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535,
+          594
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          85.3994445800781,
+          32.0919952392578,
+          180.0,
+          180.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A02-05",
+      "path": "doctor_1280_key1_sink150_offset35.webp",
+      "sha256": "8044a443d06139c608fbee82eb08e3fc147d1d978aa5b8c292fca6c54b4e02b6",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.0,
+      "static_composition_score": 4.1,
+      "complete_action_score": null,
+      "evaluation": "Drawing the same sink behind Roshan and its original front cabinet region in front keeps her face, arms and attached soap cluster visible. The hands remain left of the faucet/basin centre; no stream connects them to water. The cabinet occludes much of the tail and appears suspended in the busy station composition. The nearer35px offset improves the local work reading but does not establish contact. The 150.0px sink is a static test using unchanged source pixels; there is no accepted wet/rub/rinse/clean/return sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_motion_v1_20261001/motion_key01_attempt01_native.png",
+        "sink_extent": 150.0,
+        "sink_offset_x": 35.0,
+        "front_region": [
+          0,
+          145,
+          256,
+          111
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535,
+          594
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          80.3994445800781,
+          44.3966827392578,
+          150.0,
+          150.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A02-06",
+      "path": "doctor_1280_key1_sink150_offset55.webp",
+      "sha256": "88840a2dd13150ff0b4f432bff1002640cb4831d020646d570164b9f16b8fe02",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 3.7,
+      "static_composition_score": 4.1,
+      "complete_action_score": null,
+      "evaluation": "Drawing the same sink behind Roshan and its original front cabinet region in front keeps her face, arms and attached soap cluster visible. The hands remain left of the faucet/basin centre; no stream connects them to water. The cabinet occludes much of the tail and appears suspended in the busy station composition. The55px offset increases the hand-to-faucet gap and weakens the washing reading. The 150.0px sink is a static test using unchanged source pixels; there is no accepted wet/rub/rinse/clean/return sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_motion_v1_20261001/motion_key01_attempt01_native.png",
+        "sink_extent": 150.0,
+        "sink_offset_x": 55.0,
+        "front_region": [
+          0,
+          145,
+          256,
+          111
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535,
+          594
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          100.399444580078,
+          44.3966827392578,
+          150.0,
+          150.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A02-07",
+      "path": "doctor_1280_key1_sink180_offset35.webp",
+      "sha256": "06acfc1ec0814dba33517803182591befa8715a6aba787a363aab06815a46fc8",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.0,
+      "static_composition_score": 4.0,
+      "complete_action_score": null,
+      "evaluation": "Drawing the same sink behind Roshan and its original front cabinet region in front keeps her face, arms and attached soap cluster visible. The hands remain left of the faucet/basin centre; no stream connects them to water. The cabinet occludes much of the tail and appears suspended in the busy station composition. The nearer35px offset improves the local work reading but does not establish contact. The 180.0px sink is a static test using unchanged source pixels; there is no accepted wet/rub/rinse/clean/return sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_motion_v1_20261001/motion_key01_attempt01_native.png",
+        "sink_extent": 180.0,
+        "sink_offset_x": 35.0,
+        "front_region": [
+          0,
+          145,
+          256,
+          111
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535,
+          594
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          65.3994445800781,
+          32.0919952392578,
+          180.0,
+          180.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A02-08",
+      "path": "doctor_1280_key1_sink180_offset55.webp",
+      "sha256": "ab252f2e8737c63e79a8346516d76639a0e5db2126f6b27cf87454f8748a34f7",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 3.7,
+      "static_composition_score": 4.0,
+      "complete_action_score": null,
+      "evaluation": "Drawing the same sink behind Roshan and its original front cabinet region in front keeps her face, arms and attached soap cluster visible. The hands remain left of the faucet/basin centre; no stream connects them to water. The cabinet occludes much of the tail and appears suspended in the busy station composition. The55px offset increases the hand-to-faucet gap and weakens the washing reading. The 180.0px sink is a static test using unchanged source pixels; there is no accepted wet/rub/rinse/clean/return sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_motion_v1_20261001/motion_key01_attempt01_native.png",
+        "sink_extent": 180.0,
+        "sink_offset_x": 55.0,
+        "front_region": [
+          0,
+          145,
+          256,
+          111
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535,
+          594
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          85.3994445800781,
+          32.0919952392578,
+          180.0,
+          180.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A02-09",
+      "path": "doctor_1600_original.webp",
+      "sha256": "d6dc39f05bdbe38108a1f03c92cb2dc99fa2254bfca0cdf739694514d0d3bf01",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 2.3,
+      "static_composition_score": 2.9,
+      "complete_action_score": null,
+      "evaluation": "The current actor uses a medical-tool pose at the left station. Separate schematic hands and a large flat basin remain on the right. This width retains the measured spatial and style mismatch. This static capture does not audit the complete original sequence.",
+      "geometry": {
+        "source": null,
+        "sink_extent": null,
+        "sink_offset_x": null,
+        "front_region": null,
+        "draw_order": null,
+        "character_rect": null,
+        "hand_source_landmark": null,
+        "hand_local": null,
+        "sink_rect": null
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A02-10",
+      "path": "doctor_1600_key0_sink150_offset35.webp",
+      "sha256": "423d90c42f460a72a96ab911bbdfc4be7a3e8bb71fda04597a1181e7ce49601f",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.0,
+      "static_composition_score": 4.1,
+      "complete_action_score": null,
+      "evaluation": "Drawing the same sink behind Roshan and its original front cabinet region in front keeps her face, arms and attached soap cluster visible. The hands remain left of the faucet/basin centre; no stream connects them to water. The cabinet occludes much of the tail and appears suspended in the busy station composition. The nearer35px offset improves the local work reading but does not establish contact. The 150.0px sink is a static test using unchanged source pixels; there is no accepted wet/rub/rinse/clean/return sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_06_native.png",
+        "sink_extent": 150.0,
+        "sink_offset_x": 35.0,
+        "front_region": [
+          0,
+          145,
+          256,
+          111
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535,
+          594
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          80.3994445800781,
+          44.3966827392578,
+          150.0,
+          150.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A02-11",
+      "path": "doctor_1600_key0_sink150_offset55.webp",
+      "sha256": "9d4fb4e70592aef97383ecd90bdbcc107d3898866b07881f83539bea1b64d7b4",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 3.7,
+      "static_composition_score": 4.1,
+      "complete_action_score": null,
+      "evaluation": "Drawing the same sink behind Roshan and its original front cabinet region in front keeps her face, arms and attached soap cluster visible. The hands remain left of the faucet/basin centre; no stream connects them to water. The cabinet occludes much of the tail and appears suspended in the busy station composition. The55px offset increases the hand-to-faucet gap and weakens the washing reading. The 150.0px sink is a static test using unchanged source pixels; there is no accepted wet/rub/rinse/clean/return sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_06_native.png",
+        "sink_extent": 150.0,
+        "sink_offset_x": 55.0,
+        "front_region": [
+          0,
+          145,
+          256,
+          111
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535,
+          594
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          100.399444580078,
+          44.3966827392578,
+          150.0,
+          150.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A02-12",
+      "path": "doctor_1600_key0_sink180_offset35.webp",
+      "sha256": "b5e75ce146a6afa573081ae79905a6ee0e60eaae872898e73aae1132fbbbbf84",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.0,
+      "static_composition_score": 4.0,
+      "complete_action_score": null,
+      "evaluation": "Drawing the same sink behind Roshan and its original front cabinet region in front keeps her face, arms and attached soap cluster visible. The hands remain left of the faucet/basin centre; no stream connects them to water. The cabinet occludes much of the tail and appears suspended in the busy station composition. The nearer35px offset improves the local work reading but does not establish contact. The 180.0px sink is a static test using unchanged source pixels; there is no accepted wet/rub/rinse/clean/return sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_06_native.png",
+        "sink_extent": 180.0,
+        "sink_offset_x": 35.0,
+        "front_region": [
+          0,
+          145,
+          256,
+          111
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535,
+          594
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          65.3994445800781,
+          32.0919952392578,
+          180.0,
+          180.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A02-13",
+      "path": "doctor_1600_key0_sink180_offset55.webp",
+      "sha256": "2805f07ce6a1a2a2a0bdd0ff08ba97dc0af2a1ba40d9a4b7152148bfb7092f2e",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 3.7,
+      "static_composition_score": 4.0,
+      "complete_action_score": null,
+      "evaluation": "Drawing the same sink behind Roshan and its original front cabinet region in front keeps her face, arms and attached soap cluster visible. The hands remain left of the faucet/basin centre; no stream connects them to water. The cabinet occludes much of the tail and appears suspended in the busy station composition. The55px offset increases the hand-to-faucet gap and weakens the washing reading. The 180.0px sink is a static test using unchanged source pixels; there is no accepted wet/rub/rinse/clean/return sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_06_native.png",
+        "sink_extent": 180.0,
+        "sink_offset_x": 55.0,
+        "front_region": [
+          0,
+          145,
+          256,
+          111
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535,
+          594
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          85.3994445800781,
+          32.0919952392578,
+          180.0,
+          180.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A02-14",
+      "path": "doctor_1600_key1_sink150_offset35.webp",
+      "sha256": "c4fb7dc4422a5cbb9d82bea543b130253878924376c462814356c286a2899482",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.0,
+      "static_composition_score": 4.1,
+      "complete_action_score": null,
+      "evaluation": "Drawing the same sink behind Roshan and its original front cabinet region in front keeps her face, arms and attached soap cluster visible. The hands remain left of the faucet/basin centre; no stream connects them to water. The cabinet occludes much of the tail and appears suspended in the busy station composition. The nearer35px offset improves the local work reading but does not establish contact. The 150.0px sink is a static test using unchanged source pixels; there is no accepted wet/rub/rinse/clean/return sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_motion_v1_20261001/motion_key01_attempt01_native.png",
+        "sink_extent": 150.0,
+        "sink_offset_x": 35.0,
+        "front_region": [
+          0,
+          145,
+          256,
+          111
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535,
+          594
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          80.3994445800781,
+          44.3966827392578,
+          150.0,
+          150.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A02-15",
+      "path": "doctor_1600_key1_sink150_offset55.webp",
+      "sha256": "54fb39eabfe010926c8fb0754c98c035d4a1b1b5cf0eeb0b065581aaccc230c4",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 3.7,
+      "static_composition_score": 4.1,
+      "complete_action_score": null,
+      "evaluation": "Drawing the same sink behind Roshan and its original front cabinet region in front keeps her face, arms and attached soap cluster visible. The hands remain left of the faucet/basin centre; no stream connects them to water. The cabinet occludes much of the tail and appears suspended in the busy station composition. The55px offset increases the hand-to-faucet gap and weakens the washing reading. The 150.0px sink is a static test using unchanged source pixels; there is no accepted wet/rub/rinse/clean/return sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_motion_v1_20261001/motion_key01_attempt01_native.png",
+        "sink_extent": 150.0,
+        "sink_offset_x": 55.0,
+        "front_region": [
+          0,
+          145,
+          256,
+          111
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535,
+          594
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          100.399444580078,
+          44.3966827392578,
+          150.0,
+          150.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A02-16",
+      "path": "doctor_1600_key1_sink180_offset35.webp",
+      "sha256": "ed8d3f099e656c001cb6d2fd2f4b87735b795718db65fdc9fcc317e69a38328a",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.0,
+      "static_composition_score": 4.0,
+      "complete_action_score": null,
+      "evaluation": "Drawing the same sink behind Roshan and its original front cabinet region in front keeps her face, arms and attached soap cluster visible. The hands remain left of the faucet/basin centre; no stream connects them to water. The cabinet occludes much of the tail and appears suspended in the busy station composition. The nearer35px offset improves the local work reading but does not establish contact. The 180.0px sink is a static test using unchanged source pixels; there is no accepted wet/rub/rinse/clean/return sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_motion_v1_20261001/motion_key01_attempt01_native.png",
+        "sink_extent": 180.0,
+        "sink_offset_x": 35.0,
+        "front_region": [
+          0,
+          145,
+          256,
+          111
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535,
+          594
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          65.3994445800781,
+          32.0919952392578,
+          180.0,
+          180.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A02-17",
+      "path": "doctor_1600_key1_sink180_offset55.webp",
+      "sha256": "f3778020ba31b3901a5ed3f72d1e781429df3c23f823e165a94a7b1105651369",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 3.7,
+      "static_composition_score": 4.0,
+      "complete_action_score": null,
+      "evaluation": "Drawing the same sink behind Roshan and its original front cabinet region in front keeps her face, arms and attached soap cluster visible. The hands remain left of the faucet/basin centre; no stream connects them to water. The cabinet occludes much of the tail and appears suspended in the busy station composition. The55px offset increases the hand-to-faucet gap and weakens the washing reading. The 180.0px sink is a static test using unchanged source pixels; there is no accepted wet/rub/rinse/clean/return sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_motion_v1_20261001/motion_key01_attempt01_native.png",
+        "sink_extent": 180.0,
+        "sink_offset_x": 55.0,
+        "front_region": [
+          0,
+          145,
+          256,
+          111
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535,
+          594
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          85.3994445800781,
+          32.0919952392578,
+          180.0,
+          180.0
+        ]
+      }
+    }
+  ],
+  "next_refinement": "Bring the faucet/basin closer to the exact hand anchors using the same original sink. Test the clean-hands source at game scale. A larger local activity composition may be needed for literal contact readability. Timed wet/rub/rinse/clean/return and interruption ownership remain open.",
+  "qualification": "Static fixture after real viewport approach; world activity stopped and current actor/task overlays hidden only for test. No shipping binding, animation, reward, device/child/owner or cinematic acceptance."
+}

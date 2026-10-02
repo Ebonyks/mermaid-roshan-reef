@@ -1,0 +1,5 @@
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/flats/castle/interactions_v2/bubble_bath_sink_sheet.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tmp/capture_doctor_sink_contact_v34.gd:69)
+       [1] _wait (res://tmp/capture_doctor_sink_contact_v34.gd:35)

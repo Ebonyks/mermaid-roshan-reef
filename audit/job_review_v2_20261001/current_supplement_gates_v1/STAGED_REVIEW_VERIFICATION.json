@@ -1,0 +1,84 @@
+{
+  "status": "PASS_STAGED_REVIEW_COVERAGE_AND_STATIC_GATES",
+  "checked_utc": "2026-10-02T00:09:00.087378+00:00",
+  "baseline": "fb03e0ac3dda1658e9ea188d33cc6e084871642b",
+  "staged_before_final_metadata": 230,
+  "changed_gd": [
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_01/executed_capture_doctor_sink_contact_v34.gd",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_02/executed_capture_doctor_sink_contact_v36.gd",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_03/executed_capture_doctor_sink_contact_v44.gd"
+  ],
+  "processes": [
+    {
+      "name": "parser",
+      "process_exit": 0,
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "audit/day_two_wash_contact_study_v1_20261001/attempt_01/executed_capture_doctor_sink_contact_v34.gd",
+        "audit/day_two_wash_contact_study_v1_20261001/attempt_02/executed_capture_doctor_sink_contact_v36.gd",
+        "audit/day_two_wash_contact_study_v1_20261001/attempt_03/executed_capture_doctor_sink_contact_v44.gd"
+      ],
+      "stdout": "audit/job_review_v2_20261001/current_supplement_gates_v1/parser.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/current_supplement_gates_v1/parser.stderr.log"
+    },
+    {
+      "name": "inference",
+      "process_exit": 0,
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "audit/day_two_wash_contact_study_v1_20261001/attempt_01/executed_capture_doctor_sink_contact_v34.gd",
+        "audit/day_two_wash_contact_study_v1_20261001/attempt_02/executed_capture_doctor_sink_contact_v36.gd",
+        "audit/day_two_wash_contact_study_v1_20261001/attempt_03/executed_capture_doctor_sink_contact_v44.gd"
+      ],
+      "stdout": "audit/job_review_v2_20261001/current_supplement_gates_v1/inference.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/current_supplement_gates_v1/inference.stderr.log"
+    },
+    {
+      "name": "final_authority",
+      "process_exit": 0,
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "stdout": "audit/job_review_v2_20261001/current_supplement_gates_v1/final_authority.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/current_supplement_gates_v1/final_authority.stderr.log"
+    },
+    {
+      "name": "final_development",
+      "process_exit": 0,
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "stdout": "audit/job_review_v2_20261001/current_supplement_gates_v1/final_development.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/current_supplement_gates_v1/final_development.stderr.log"
+    }
+  ],
+  "literal_production_source_count": 325,
+  "literal_production_sources_unchanged": true,
+  "coverage_record_sha256_before_final_pass_note": {
+    "design/audit_impacts/job-review-separate-v2-20261001.json": "39a6e449c1a17a4710336cbca3202e0221e1df6346dd740626b2736bdcb813ab",
+    "design/audit_impacts/job-wash-contact-study-20261001.json": "9a8ddd45fe2dc58455f33b7fc5515291298be84e3ff37020dd143abffcd11ab5",
+    "design/audit_impacts/job-review-current-remote-receipt-20261001.json": "f1074100e5de4bf99057891805f2f768d41b82d19989e04f09adcc545366b454",
+    "design/audit_impacts/job-doctor-local-rub-study-20261001.json": "69773326ccb1e86d42f8026764247654310a0d2d7abcf54c8b155f69f625854e"
+  },
+  "uncovered_paths": [],
+  "qualification": "Parser/inference and unchanged authority/development gate pass.2D no-regression is separately bound. Local82/82 full suite remains an unchanged325-source boundary with51 diagnostics; no new game source changes. Hosted retry, visual/action/device/child/owner and strict2D acceptance remain open."
+}

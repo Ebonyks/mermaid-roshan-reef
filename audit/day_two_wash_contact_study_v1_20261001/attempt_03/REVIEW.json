@@ -1,0 +1,628 @@
+{
+  "status": "ALL14_NATIVE_STATIC_VIEWS_REVIEWED_BELOW_FLOOR",
+  "checked_utc": "2026-10-01T23:58:26.330358+00:00",
+  "direct_full_native_views": 14,
+  "views_unreviewed": 0,
+  "source_pixels_modified": false,
+  "items": [
+    {
+      "id": "DOCTOR-SINK-A03-00",
+      "path": "doctor_1280_original.webp",
+      "sha256": "8af10323f132d95a1aca987c6b962df5c584d9eb7af221e7cfdd1d37f6ced9b5",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 2.3,
+      "static_composition_score": 2.9,
+      "clean_result_static_score": null,
+      "complete_action_score": null,
+      "evaluation": "Current actor holds a medical tool at the left station while separate schematic hands/basin occupy the right. The original spatial and style mismatch persists.",
+      "geometry": {
+        "source": null,
+        "sink_extent": null,
+        "sink_offset_x": null,
+        "front_region": null,
+        "draw_order": null,
+        "character_rect": null,
+        "hand_source_landmark": null,
+        "hand_local": null,
+        "sink_rect": null
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A03-01",
+      "path": "doctor_1280_key0_sink180_offset0.webp",
+      "sha256": "7ff8a199cba5b3aa26b1fbfa14407a5594b4229e1645efecc70a9a3729d2e6b0",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.2,
+      "static_composition_score": 4.1,
+      "clean_result_static_score": null,
+      "complete_action_score": null,
+      "evaluation": "The closer basin now sits under the connected hand cluster and the same original front-rim region provides clearer depth. The shell basin and child share the painted palette. At this250px character fit the hands and action remain small; the cabinet hides most of the body and no water/rinsing causality is shown. The lather is attached, but a static soapy pose is not a rubbing/rinsing action; the current visual still needs a literal connected water/result sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_06_native.png",
+        "sink_extent": 180.0,
+        "sink_offset_x": 0.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535.0,
+          594.0
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          30.3994369506836,
+          32.0919952392578,
+          180.0,
+          180.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A03-02",
+      "path": "doctor_1280_key0_sink180_offset15.webp",
+      "sha256": "53a615120d4e73bc7b8180fb95c5be84560e85a307a1d50e861c687f479a155f",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.2,
+      "static_composition_score": 4.1,
+      "clean_result_static_score": null,
+      "complete_action_score": null,
+      "evaluation": "The closer basin now sits under the connected hand cluster and the same original front-rim region provides clearer depth. The shell basin and child share the painted palette. At this250px character fit the hands and action remain small; the cabinet hides most of the body and no water/rinsing causality is shown. The lather is attached, but a static soapy pose is not a rubbing/rinsing action; the current visual still needs a literal connected water/result sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_06_native.png",
+        "sink_extent": 180.0,
+        "sink_offset_x": 15.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535.0,
+          594.0
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          45.3994445800781,
+          32.0919952392578,
+          180.0,
+          180.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A03-03",
+      "path": "doctor_1280_key1_sink180_offset0.webp",
+      "sha256": "a8c0f23c1e02612863d26a407d9b526f216c4945551a8d4399c971edec69bc73",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.2,
+      "static_composition_score": 4.1,
+      "clean_result_static_score": null,
+      "complete_action_score": null,
+      "evaluation": "The closer basin now sits under the connected hand cluster and the same original front-rim region provides clearer depth. The shell basin and child share the painted palette. At this250px character fit the hands and action remain small; the cabinet hides most of the body and no water/rinsing causality is shown. The lather is attached, but a static soapy pose is not a rubbing/rinsing action; the current visual still needs a literal connected water/result sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_motion_v1_20261001/motion_key01_attempt01_native.png",
+        "sink_extent": 180.0,
+        "sink_offset_x": 0.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535.0,
+          594.0
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          30.3994369506836,
+          32.0919952392578,
+          180.0,
+          180.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A03-04",
+      "path": "doctor_1280_key1_sink180_offset15.webp",
+      "sha256": "510bf4a66b18d7dd11712676854cfa24ae8f12e39ed0d0df2f5258a4bdafb30b",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.2,
+      "static_composition_score": 4.1,
+      "clean_result_static_score": null,
+      "complete_action_score": null,
+      "evaluation": "The closer basin now sits under the connected hand cluster and the same original front-rim region provides clearer depth. The shell basin and child share the painted palette. At this250px character fit the hands and action remain small; the cabinet hides most of the body and no water/rinsing causality is shown. The lather is attached, but a static soapy pose is not a rubbing/rinsing action; the current visual still needs a literal connected water/result sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_motion_v1_20261001/motion_key01_attempt01_native.png",
+        "sink_extent": 180.0,
+        "sink_offset_x": 15.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535.0,
+          594.0
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          45.3994445800781,
+          32.0919952392578,
+          180.0,
+          180.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A03-05",
+      "path": "doctor_1280_key2_sink180_offset0.webp",
+      "sha256": "edb3445b809d01a51e6ebfdc96c010cdd8604510ef7b9ab9cbda71fd9343991a",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.0,
+      "static_composition_score": 4.1,
+      "clean_result_static_score": 4.0,
+      "complete_action_score": null,
+      "evaluation": "The closer basin now sits under the connected hand cluster and the same original front-rim region provides clearer depth. The shell basin and child share the painted palette. At this250px character fit the hands and action remain small; the cabinet hides most of the body and no water/rinsing causality is shown. Clean palms remove the lather, but at native size their chest-level separation is partly lost against the rim. This static finishing view is4.0, below the source-only4.5 opinion.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_clean_result_v1_20261001/attempt01_native.png",
+        "sink_extent": 180.0,
+        "sink_offset_x": 0.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          550.0,
+          594.0
+        ],
+        "hand_local": [
+          123.074180603027,
+          105.920120239258
+        ],
+        "sink_rect": [
+          33.0741806030273,
+          32.0919952392578,
+          180.0,
+          180.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A03-06",
+      "path": "doctor_1280_key2_sink180_offset15.webp",
+      "sha256": "6c1d652442ee16fa779c3f681b9de03674c21b5d22d1375d7f596bb40ef90237",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.0,
+      "static_composition_score": 4.1,
+      "clean_result_static_score": 4.0,
+      "complete_action_score": null,
+      "evaluation": "The closer basin now sits under the connected hand cluster and the same original front-rim region provides clearer depth. The shell basin and child share the painted palette. At this250px character fit the hands and action remain small; the cabinet hides most of the body and no water/rinsing causality is shown. Clean palms remove the lather, but at native size their chest-level separation is partly lost against the rim. This static finishing view is4.0, below the source-only4.5 opinion.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_clean_result_v1_20261001/attempt01_native.png",
+        "sink_extent": 180.0,
+        "sink_offset_x": 15.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          550.0,
+          594.0
+        ],
+        "hand_local": [
+          123.074180603027,
+          105.920120239258
+        ],
+        "sink_rect": [
+          48.0741882324219,
+          32.0919952392578,
+          180.0,
+          180.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A03-07",
+      "path": "doctor_1600_original.webp",
+      "sha256": "dd10525dec71ba45d6239ebb6f12d0b788a732886280a5f8e121afc853ab5995",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 2.3,
+      "static_composition_score": 2.9,
+      "clean_result_static_score": null,
+      "complete_action_score": null,
+      "evaluation": "Current actor holds a medical tool at the left station while separate schematic hands/basin occupy the right. The original spatial and style mismatch persists.",
+      "geometry": {
+        "source": null,
+        "sink_extent": null,
+        "sink_offset_x": null,
+        "front_region": null,
+        "draw_order": null,
+        "character_rect": null,
+        "hand_source_landmark": null,
+        "hand_local": null,
+        "sink_rect": null
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A03-08",
+      "path": "doctor_1600_key0_sink180_offset0.webp",
+      "sha256": "eb60e44d2a3a1e53cf0f5814b9576661a6350956b0465424e5e64449cdd3f278",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.2,
+      "static_composition_score": 4.1,
+      "clean_result_static_score": null,
+      "complete_action_score": null,
+      "evaluation": "The closer basin now sits under the connected hand cluster and the same original front-rim region provides clearer depth. The shell basin and child share the painted palette. At this250px character fit the hands and action remain small; the cabinet hides most of the body and no water/rinsing causality is shown. The lather is attached, but a static soapy pose is not a rubbing/rinsing action; the current visual still needs a literal connected water/result sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_06_native.png",
+        "sink_extent": 180.0,
+        "sink_offset_x": 0.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535.0,
+          594.0
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          30.3994369506836,
+          32.0919952392578,
+          180.0,
+          180.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A03-09",
+      "path": "doctor_1600_key0_sink180_offset15.webp",
+      "sha256": "c7e02a4ed8b7c9389f9940c02a884671b72d7c51f609a23d04ff8cae2ee4c0d9",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.2,
+      "static_composition_score": 4.1,
+      "clean_result_static_score": null,
+      "complete_action_score": null,
+      "evaluation": "The closer basin now sits under the connected hand cluster and the same original front-rim region provides clearer depth. The shell basin and child share the painted palette. At this250px character fit the hands and action remain small; the cabinet hides most of the body and no water/rinsing causality is shown. The lather is attached, but a static soapy pose is not a rubbing/rinsing action; the current visual still needs a literal connected water/result sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_06_native.png",
+        "sink_extent": 180.0,
+        "sink_offset_x": 15.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535.0,
+          594.0
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          45.3994445800781,
+          32.0919952392578,
+          180.0,
+          180.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A03-10",
+      "path": "doctor_1600_key1_sink180_offset0.webp",
+      "sha256": "7da372ba29be87ea70d995f5cca9bc6556173190b14558ae7736db475d1a970e",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.2,
+      "static_composition_score": 4.1,
+      "clean_result_static_score": null,
+      "complete_action_score": null,
+      "evaluation": "The closer basin now sits under the connected hand cluster and the same original front-rim region provides clearer depth. The shell basin and child share the painted palette. At this250px character fit the hands and action remain small; the cabinet hides most of the body and no water/rinsing causality is shown. The lather is attached, but a static soapy pose is not a rubbing/rinsing action; the current visual still needs a literal connected water/result sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_motion_v1_20261001/motion_key01_attempt01_native.png",
+        "sink_extent": 180.0,
+        "sink_offset_x": 0.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535.0,
+          594.0
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          30.3994369506836,
+          32.0919952392578,
+          180.0,
+          180.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A03-11",
+      "path": "doctor_1600_key1_sink180_offset15.webp",
+      "sha256": "9afb588ff59581b7eb602909d7a88ccee7f9a446e4551791e20bc55a6e37a413",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.2,
+      "static_composition_score": 4.1,
+      "clean_result_static_score": null,
+      "complete_action_score": null,
+      "evaluation": "The closer basin now sits under the connected hand cluster and the same original front-rim region provides clearer depth. The shell basin and child share the painted palette. At this250px character fit the hands and action remain small; the cabinet hides most of the body and no water/rinsing causality is shown. The lather is attached, but a static soapy pose is not a rubbing/rinsing action; the current visual still needs a literal connected water/result sequence.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_motion_v1_20261001/motion_key01_attempt01_native.png",
+        "sink_extent": 180.0,
+        "sink_offset_x": 15.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          535.0,
+          594.0
+        ],
+        "hand_local": [
+          120.399436950684,
+          105.920120239258
+        ],
+        "sink_rect": [
+          45.3994445800781,
+          32.0919952392578,
+          180.0,
+          180.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A03-12",
+      "path": "doctor_1600_key2_sink180_offset0.webp",
+      "sha256": "90e0da6da8db689341b2855aa792f7d5d1a4c831a461e140bfd4ed23a823643f",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.0,
+      "static_composition_score": 4.1,
+      "clean_result_static_score": 4.0,
+      "complete_action_score": null,
+      "evaluation": "The closer basin now sits under the connected hand cluster and the same original front-rim region provides clearer depth. The shell basin and child share the painted palette. At this250px character fit the hands and action remain small; the cabinet hides most of the body and no water/rinsing causality is shown. Clean palms remove the lather, but at native size their chest-level separation is partly lost against the rim. This static finishing view is4.0, below the source-only4.5 opinion.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_clean_result_v1_20261001/attempt01_native.png",
+        "sink_extent": 180.0,
+        "sink_offset_x": 0.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          550.0,
+          594.0
+        ],
+        "hand_local": [
+          123.074180603027,
+          105.920120239258
+        ],
+        "sink_rect": [
+          33.0741806030273,
+          32.0919952392578,
+          180.0,
+          180.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A03-13",
+      "path": "doctor_1600_key2_sink180_offset15.webp",
+      "sha256": "3b5955d11ba02c7fec09c685d00ed1bbb77833a36c6c1bfd31a32eddc1f4f605",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.0,
+      "static_composition_score": 4.1,
+      "clean_result_static_score": 4.0,
+      "complete_action_score": null,
+      "evaluation": "The closer basin now sits under the connected hand cluster and the same original front-rim region provides clearer depth. The shell basin and child share the painted palette. At this250px character fit the hands and action remain small; the cabinet hides most of the body and no water/rinsing causality is shown. Clean palms remove the lather, but at native size their chest-level separation is partly lost against the rim. This static finishing view is4.0, below the source-only4.5 opinion.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_clean_result_v1_20261001/attempt01_native.png",
+        "sink_extent": 180.0,
+        "sink_offset_x": 15.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          550.0,
+          594.0
+        ],
+        "hand_local": [
+          123.074180603027,
+          105.920120239258
+        ],
+        "sink_rect": [
+          48.0741882324219,
+          32.0919952392578,
+          180.0,
+          180.0
+        ]
+      }
+    }
+  ],
+  "source_opinions": "Washing/rubbing/clean sources retain unbound source-only4.5, sink first cell4.6. All source opinions are distinct from these below-floor mounted static views.",
+  "next_refinement": "A source reach extending the hands away from the chest may let Roshan work beside the basin without losing her body to the front rim. Preserve the reused sink. Audit larger local-action readability, water/contact, rubbing, rinsing, clean consequence and quiet return before runtime binding.",
+  "qualification": "Test-only native composition after actual viewport approach. No shipping binding, continuous motion, gameplay progress, ordinary whole-route/device/child/owner or cinematic acceptance."
+}

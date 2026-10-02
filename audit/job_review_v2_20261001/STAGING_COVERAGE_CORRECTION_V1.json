@@ -1,0 +1,12 @@
+{
+  "status": "CORRECTION_STAGED_STATIC_VERIFICATION_PASS_HOSTED_PENDING",
+  "checked_utc": "2026-10-02T00:03:30.421030+00:00",
+  "failed_head": "fb03e0ac3dda1658e9ea188d33cc6e084871642b",
+  "failed_run": 36941786030,
+  "committed_coverage_entries": 95,
+  "working_expanded_coverage_entries": 3956,
+  "cause": "The expanded working impact record was not staged before the content commit. Hosted static coverage correctly rejected omitted entries before game probes.",
+  "repair": "Stage the expanded record in the next reversible review revision. Verify current authority/development/no-regression gates, then compare every staged changed path to coverage and verify the committed impact bytes immediately after commit. Hosted retry stays independent.",
+  "qualification": "No scanner, workflow, sourceA manifest, threshold or CI checker change; failed hosted evidence remains preserved. Original c211 exact-byte verification is unchanged.",
+  "verification": "audit/job_review_v2_20261001/current_supplement_gates_v1/STAGED_REVIEW_VERIFICATION.json"
+}

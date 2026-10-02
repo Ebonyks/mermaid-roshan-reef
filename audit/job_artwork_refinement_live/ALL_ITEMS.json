@@ -1,17 +1,17 @@
 {
   "schema": "reef.known-job-item-register.v1",
-  "created_utc": "2026-10-01T23:04:33.831420+00:00",
-  "baseline": "5b8bfb989ca8012924115d45901252808edb9b62",
+  "created_utc": "2026-10-02T00:03:30.068097+00:00",
+  "baseline": "fb03e0ac3dda1658e9ea188d33cc6e084871642b",
   "scope": "Union of two existing discovery inventories and240 individually catalogued pose cells. Shared dependency candidates may fall outside jobs. This is a known-item register, not proof of exhaustive actual use or all-game acceptance.",
   "counts": {
-    "unique_source_files": 1150,
+    "unique_source_files": 1151,
     "individual_pose_cells": 240,
     "additional_runtime_prop_regions": 38,
-    "registered_items": 1428,
-    "exact_earlier_bytes": 1423,
+    "registered_items": 1429,
+    "exact_earlier_bytes": 1424,
     "changed_bytes": 5,
     "unavailable_checkout": 0,
-    "inclusive_current_source_priorities": 555,
+    "inclusive_current_source_priorities": 556,
     "unreviewed_current_source": 403
   },
   "items": [
@@ -64643,6 +64643,44 @@
       "current_mounted_score": null,
       "current_complete_action_score": null,
       "image_path": "audit/day2_job_contexts_2026-09-30/art/D2X-0140.webp",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "WASH-DOCTOR-CLEAN-KEY01",
+      "aliases": [],
+      "kind": "source",
+      "path": "assets_src/imagegen/day2_doctor_wash_clean_result_v1_20261001/attempt01_native.png",
+      "earlier_sha256": "c7923b95b393b70bfd575a9a0e03959bd6c8b31697f2685ce13f748866b9e88b",
+      "historical_source_score": 4.5,
+      "evaluation": "The child face, brown curls/rainbow lock, flower, coral-trim coat, teal shirt, heart satchel, broad rainbow tail and paired fin remain coherent with the washing draft. Both attached hands gently separate with readable rounded child fingers and no lather. The small smile and gaze make a plausible clean-hands ending. Source-only4.5 is a drafting floor; chest-level palms, hand separation and the transition from rubbing still need exact game-size and complete-action review.",
+      "refinement": "Clean finishing source4.5 remains unbound. All58 exact native static sink placements are individually reviewed below4.5; clean result4.0 in the closer fixture. Local rub study4.0/return3.5 is reference only. Refine literal contact and complete wet/rub/rinse/clean/settle/return before accepting the game object.",
+      "families": [
+        "Day Two washing",
+        "Unbound doctor clean-hands source"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/day2_doctor_wash_clean_result_v1_20261001/index.html"
+      ],
+      "source_qualification": "One complete source-only ending candidate. No wetting/rubbing/rinsing timing, clean payoff in-game, interruption/return, device/child/owner or cinematic delivery acceptance.",
+      "preview_path": "assets_src/imagegen/day2_doctor_wash_clean_result_v1_20261001/attempt01_native.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "SOURCE_FLOOR_CANDIDATE_UNBOUND",
+      "latest_refinement": {
+        "report": "audit/day_two_wash_contact_study_v1_20261001/attempt_03/index.html",
+        "note": "All14 closer native static views directly reviewed; clean ending4.0 and washing contact4.2 remain below floor. The source-only4.5 opinion is not mounted/action acceptance."
+      },
+      "current_checkout_sha256": "c7923b95b393b70bfd575a9a0e03959bd6c8b31697f2685ce13f748866b9e88b",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.5,
+      "source_dimensions": [
+        1122,
+        1402
+      ],
+      "priority": true,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets_src/imagegen/day2_doctor_wash_clean_result_v1_20261001/attempt01_native.png",
       "image_scope": "Earlier source/cell preview; current byte status is separate"
     },
     {

@@ -1,0 +1,8 @@
+{
+  "status": "FAIL_ARCHIVE_AUTHORITY_FINISH_PRESERVED",
+  "checked_utc": "2026-10-01T23:49:48.219787+00:00",
+  "executed_helper_sha256": "c31b5d2e31c6e3ac3a47bc9a37e8c73fa694d378fe30926cdb003ec39276906c",
+  "failure": "AssertionError at line34: s.endswith(</main></html>) did not accept the existing final newline. No immutable c211 file map or remote verification result was changed.",
+  "scope_completed_before_failure": "Remote evidence copied exactly; publication state and receipt HTML created. Current entry/master/ledger authority update had not been written.",
+  "repair": "Treat trailing whitespace in the HTML wrapper as layout whitespace, then finish the exact planned authority update. No scoring or verification threshold is changed."
+}

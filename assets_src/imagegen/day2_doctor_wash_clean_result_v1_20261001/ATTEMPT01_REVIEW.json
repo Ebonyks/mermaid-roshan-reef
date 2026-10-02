@@ -1,0 +1,34 @@
+{
+  "id": "WASH-DOCTOR-CLEAN-KEY01",
+  "status": "SOURCE_FLOOR_CANDIDATE_UNBOUND",
+  "reviewed_utc": "2026-10-01T23:47:42.322072+00:00",
+  "path": "assets_src/imagegen/day2_doctor_wash_clean_result_v1_20261001/attempt01_native.png",
+  "sha256": "c7923b95b393b70bfd575a9a0e03959bd6c8b31697f2685ce13f748866b9e88b",
+  "dimensions": [
+    1122,
+    1402
+  ],
+  "source_score": 4.5,
+  "identity_score": 4.5,
+  "clean_state_source_score": 4.5,
+  "direct_review": [
+    "Complete generated native RGBA output",
+    "Original-size neutral white and aqua alpha compositing views"
+  ],
+  "evaluation": "The child face, brown curls/rainbow lock, flower, coral-trim coat, teal shirt, heart satchel, broad rainbow tail and paired fin remain coherent with the washing draft. Both attached hands gently separate with readable rounded child fingers and no lather. The small smile and gaze make a plausible clean-hands ending. Source-only4.5 is a drafting floor; chest-level palms, hand separation and the transition from rubbing still need exact game-size and complete-action review.",
+  "alpha_evaluation": "Neutral white and aqua original-size views show no visible disconnected red flecks. Pure-red samples in the transparency display are alpha1/255, with none at alpha16 or higher; native hidden RGB and alpha remain unchanged. This observation does not establish mounted edge or target-device acceptance.",
+  "method": "Built-in imagegen edit; one new complete RGBA candidate, no interpolation, source-pixel masking or manual subject repair.",
+  "input": {
+    "path": "assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_06_native.png",
+    "sha256": "3ada2bd00859314ece42ccffa2dc20aae9543086b1161d6e8336689021c99d2c",
+    "role": "Editable generated source-only4.5 draft, not protected original or owner-approved runtime art"
+  },
+  "prompt_sha256": "be9d20687cd1e2981eab769f94fc8084537a414f2417cf54dfca80468a384027",
+  "mounted_score": null,
+  "sink_contact_score": null,
+  "temporal_continuity_score": null,
+  "complete_action_score": null,
+  "runtime_bound": false,
+  "owner_accepted": false,
+  "qualification": "One complete source-only ending candidate. No wetting/rubbing/rinsing timing, clean payoff in-game, interruption/return, device/child/owner or cinematic delivery acceptance."
+}
