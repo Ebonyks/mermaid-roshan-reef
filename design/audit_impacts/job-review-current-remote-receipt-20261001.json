@@ -1,6 +1,6 @@
 {
   "id": "job-review-current-remote-receipt-20261001",
-  "scope": "Archive complete anonymous byte verification of immutable currentB c211, distinguish the unchanged-tree published ancestry headfb03 and hosted CI pending state, and connect reversible wash study/clean source evaluations. Historical sourceA failures and original manifests remain unchanged. Correct the previously omitted expanded staged coverage record after hosted failure; update current register/authority and preserve all later wash/static/motion evidence separately from c211 verification.",
+  "scope": "Archive complete anonymous byte verification of immutable currentB c211, distinguish the unchanged-tree published ancestry headfb03 and hosted CI pending state, and connect reversible wash study/clean source evaluations. Historical sourceA failures and original manifests remain unchanged. Correct the previously omitted expanded staged coverage record after hosted failure; update current register/authority and preserve all later wash/static/motion evidence separately from c211 verification. Archive exact C56d66 supplement remote verification, corrected verifier failure history and committed postcommit gates/push logs; do not rebind the older c211 map.",
   "baseline": "fb03e0ac3dda1658e9ea188d33cc6e084871642b",
   "rules": [
     "DL-AUTH-05",
@@ -53,6 +53,25 @@
     "audit/job_review_v2_20261001/current_supplement_gates_v1/inference.stdout.log",
     "audit/job_review_v2_20261001/current_supplement_gates_v1/parser.stderr.log",
     "audit/job_review_v2_20261001/current_supplement_gates_v1/parser.stdout.log",
+    "audit/job_review_v2_20261001/current_supplement_remote_v1/CHECKPOINT_IDENTITY.json",
+    "audit/job_review_v2_20261001/current_supplement_remote_v1/FETCH_JOURNAL.jsonl",
+    "audit/job_review_v2_20261001/current_supplement_remote_v1/PUBLICATION_STATE.json",
+    "audit/job_review_v2_20261001/current_supplement_remote_v1/RESULT.json",
+    "audit/job_review_v2_20261001/current_supplement_remote_v1/authority.stderr.log",
+    "audit/job_review_v2_20261001/current_supplement_remote_v1/authority.stdout.log",
+    "audit/job_review_v2_20261001/current_supplement_remote_v1/development.stderr.log",
+    "audit/job_review_v2_20261001/current_supplement_remote_v1/development.stdout.log",
+    "audit/job_review_v2_20261001/current_supplement_remote_v1/executed_archive_reach_contact_and_publication_v59.py",
+    "audit/job_review_v2_20261001/current_supplement_remote_v1/executed_verify_review_supplement_remote_v57.py",
+    "audit/job_review_v2_20261001/current_supplement_remote_v1/hosted_list.stderr.log",
+    "audit/job_review_v2_20261001/current_supplement_remote_v1/hosted_list.stdout.json",
+    "audit/job_review_v2_20261001/current_supplement_remote_v1/hosted_state.stderr.log",
+    "audit/job_review_v2_20261001/current_supplement_remote_v1/hosted_state.stdout.json",
+    "audit/job_review_v2_20261001/current_supplement_remote_v1/index.html",
+    "audit/job_review_v2_20261001/current_supplement_remote_v1/push.stderr.log",
+    "audit/job_review_v2_20261001/current_supplement_remote_v1/push.stdout.log",
+    "audit/job_review_v2_20261001/current_supplement_remote_v1/verifier_attempt01_failure/FAILURE.json",
+    "audit/job_review_v2_20261001/current_supplement_remote_v1/verifier_attempt01_failure/executed_verifier.py",
     "audit/job_review_v2_20261001/hosted_current_b_failure_v1/RECEIPT.json",
     "audit/job_review_v2_20261001/hosted_current_b_failure_v1/executed_read_hosted_current_failure_v45.py",
     "audit/job_review_v2_20261001/hosted_current_b_failure_v1/failed_steps.stderr.log",
@@ -105,6 +124,11 @@
       "command": "Exact staged source/coverage and parser/inference verification",
       "result": "PASS",
       "evidence": "audit/job_review_v2_20261001/current_supplement_gates_v1/STAGED_REVIEW_VERIFICATION.json; all changed ignored capture scripts parsed/linted;325 production source hashes unchanged; final authority/development pass."
+    },
+    {
+      "command": "Anonymous normal-TLS GET of all239 supplement payload blobs and self-map at56d66",
+      "result": "PASS",
+      "evidence": "audit/job_review_v2_20261001/current_supplement_remote_v1/RESULT.json;239/239,34451210 payload bytes, empty failures; map exactGit40562 bytes. Hosted run36944960786 pending separately."
     }
   ],
   "acceptance_gaps": "Remote receipt proves immutable source/review bytes, not all-source graphics scores, full-action/native-device/child/owner acceptance, strict2D satisfaction, integration or release."

@@ -1,0 +1,304 @@
+{
+  "status": "ALL7_CURRENT_SOURCES_AND5_CUSHION_OBJECTS_DIRECTLY_REVIEWED",
+  "checked_utc": "2026-10-02T01:00:03.201920+00:00",
+  "sources": [
+    {
+      "path": "assets/opera/worlds/nursery/refinement_v1/cradle.png",
+      "sha256": "81f2cba89d4e0c48d2d4ba1c4ac7386d7e96b4c50e58c6a93b1b27b5e0f10193",
+      "bytes": 346904,
+      "source_score": 4.6,
+      "review": "PENDING_CURRENT_NATIVE_PIXELS",
+      "literal_reference_evidence": "scripts\\opera_nursery_catch.gd:59:\tcradle_texture = _load_if_exists(\"res://assets/opera/worlds/nursery/refinement_v1/cradle.png\")\nscripts\\probe_dolls.gd:22:\t\"res://assets/opera/worlds/widgets/widget_catch_nursery_cradle.png\",\n",
+      "reference_search_exit": 0,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "alpha_bbox": {
+        "1": [
+          44,
+          43,
+          996,
+          990
+        ],
+        "16": [
+          46,
+          253,
+          978,
+          749
+        ],
+        "128": [
+          47,
+          254,
+          977,
+          748
+        ]
+      },
+      "transformation": "Complete native source composited only over neutral review backgrounds; no source repair/crop/scale.",
+      "id": "CURRENT-SOURCE-CRADLE",
+      "evaluation": "The current fresh description-only catching arms are strongly stylized: rounded lavender cuffs, warm peach palms, deep plum contours and two calm painted value bands. The cupped palms form a broad open cradle rather than lifelike fingers or a framed scene. Full native, white and aqua views show attached contours without a visible matte plate. This preserves the already documented attempt06 source-only4.6 opinion; connection to the complete caregiver, contact at catch and settling remain separate action priorities.",
+      "direct_full_native_review": true,
+      "preview_paths": [
+        "cradle_review_white.png",
+        "cradle_review_aqua.png"
+      ],
+      "qualification": "Current exact whole native source directly inspected. Source-only intended-use drafting opinion; actual mounted/complete-action/device/child/owner acceptance remains separate.",
+      "mounted_score": null,
+      "complete_action_score": null
+    },
+    {
+      "path": "assets/opera/worlds/nursery/refinement_v1/pillows.png",
+      "sha256": "bf5f86e916b4c512c761518ad1815beac6df8c833d60980b71c73e4d7fada66f",
+      "bytes": 153628,
+      "source_score": 4.6,
+      "review": "PENDING_CURRENT_NATIVE_PIXELS",
+      "literal_reference_evidence": "scripts\\opera_nursery_catch.gd:61:\tpads.atlas = _load_if_exists(\"res://assets/opera/worlds/nursery/refinement_v1/pillows.png\")\nscripts\\probe_dolls.gd:23:\t\"res://assets/opera/worlds/widgets/widget_catch_nursery_pillows.png\",\n",
+      "reference_search_exit": 0,
+      "dimensions": [
+        1024,
+        342
+      ],
+      "alpha_bbox": {
+        "1": [
+          4,
+          113,
+          1024,
+          304
+        ],
+        "16": [
+          7,
+          115,
+          1020,
+          232
+        ],
+        "128": [
+          7,
+          116,
+          1019,
+          232
+        ]
+      },
+      "transformation": "Complete native source composited only over neutral review backgrounds; no source repair/crop/scale.",
+      "id": "CURRENT-SOURCE-PILLOWS",
+      "evaluation": "All five rounded cushions use the same soft toy volume, plum outline, grouped broad lavender/periwinkle shading and restrained seam marks. Their horizontal row is coherent and calm. The current exact source agrees with the earlier selected attempt03 source-only4.6 opinion. The runtime crop6,115,1014,117 selects the strip; alignment, landing/deformation and the complete safe-return sequence remain separate.",
+      "direct_full_native_review": true,
+      "preview_paths": [
+        "pillows_review_white.png",
+        "pillows_review_aqua.png"
+      ],
+      "qualification": "Current exact whole native source directly inspected. Source-only intended-use drafting opinion; actual mounted/complete-action/device/child/owner acceptance remains separate.",
+      "mounted_score": null,
+      "complete_action_score": null
+    },
+    {
+      "path": "assets/opera/worlds/hotspots/geologist_fossil.svg",
+      "sha256": "058d257160448dabf8b6bce78cbb0a7c6b1bdedbacc6e47db908c5d501d4e3bd",
+      "bytes": 521,
+      "source_score": 4.2,
+      "review": "PENDING_CURRENT_NATIVE_PIXELS",
+      "literal_reference_evidence": "scripts\\opera_geology_surface.gd:42:const FOSSIL_PATH := \"res://assets/opera/worlds/hotspots/geologist_fossil.svg\"\nscripts\\opera_hotspot_catalog.gd:135:\t\t\"FOSSIL\": {\"path\": \"res://assets/opera/worlds/hotspots/geologist_fossil.svg\", \"motion\": \"rock\", \"size\": Vector2(132, 132), \"presentation\": \"painted\"},\nscripts\\opera_hotspot_catalog.gd:195:\t\"res://assets/opera/worlds/hotspots/geologist_fossil.svg\": {\"dimensions\": Vector2i(256, 256), \"role\": \"object\"},\n",
+      "reference_search_exit": 0,
+      "id": "CURRENT-SOURCE-GEOLOGIST_FOSSIL",
+      "evaluation": "The fossil is immediately recognizable as a spiral in a warm stone, and its palette belongs to the project. Its polygonal slab, very heavy uniform contour and single flat fill read as a rough symbol beside the painted job props. At the declared132px hotspot the12px source contour is about6.2 screen pixels, above the usual2–4 contour range. Add broad quiet stone value bands and a gentler contour while preserving the one spiral and slab identity; excavation/brush contact remains unreviewed.",
+      "direct_full_native_review": true,
+      "preview_paths": [
+        "geologist_fossil_native.png"
+      ],
+      "qualification": "Current exact whole native source directly inspected. Source-only intended-use drafting opinion; actual mounted/complete-action/device/child/owner acceptance remains separate.",
+      "mounted_score": null,
+      "complete_action_score": null
+    },
+    {
+      "path": "assets/opera/worlds/hotspots/geologist_layered_rock.svg",
+      "sha256": "5bca0522dbadf1fb5658a99f58a9ea88d15ed62d27966db4e4829ef692d3bcce",
+      "bytes": 503,
+      "source_score": 4.0,
+      "review": "PENDING_CURRENT_NATIVE_PIXELS",
+      "literal_reference_evidence": "scripts\\opera_geology_surface.gd:44:const ROCK_PATH := \"res://assets/opera/worlds/hotspots/geologist_layered_rock.svg\"\nscripts\\opera_hotspot_catalog.gd:134:\t\t\"RIVER\": {\"path\": \"res://assets/opera/worlds/hotspots/geologist_layered_rock.svg\", \"motion\": \"pulse\", \"size\": Vector2(128, 128), \"presentation\": \"painted\"},\nscripts\\opera_hotspot_catalog.gd:136:\t\t\"PAN\": {\"path\": \"res://assets/opera/worlds/hotspots/geologist_layered_rock.svg\", \"motion\": \"bounce\", \"size\": Vector2(112, 112), \"presentation\": \"overlay\"},\nscripts\\opera_hotspot_catalog.gd:194:\t\"res://assets/opera/worlds/hotspots/geologist_layered_rock.svg\": {\"dimensions\": Vector2i(256, 256), \"role\": \"object\"},\n",
+      "reference_search_exit": 0,
+      "id": "CURRENT-SOURCE-GEOLOGIST_LAYERED_ROCK",
+      "evaluation": "The colored strata and two mineral dots are easy to distinguish, but the solid dark slab, straight parallel stripes and heavy boundary read as a diagram. The two yellow dots are isolated accents rather than natural grouped mineral detail. The declared128px object makes the12px boundary about6px wide. Preserve the three colored educational layers and two dots while giving the stone a rounded mass and calm painted values. Its reuse as a PAN overlay is also a semantic action priority; prettier stone cannot prove actual panning.",
+      "direct_full_native_review": true,
+      "preview_paths": [
+        "geologist_layered_rock_native.png"
+      ],
+      "qualification": "Current exact whole native source directly inspected. Source-only intended-use drafting opinion; actual mounted/complete-action/device/child/owner acceptance remains separate.",
+      "mounted_score": null,
+      "complete_action_score": null
+    },
+    {
+      "path": "assets/opera/worlds/hotspots/teacher_lesson_board.svg",
+      "sha256": "74eb7da7e7f5ad516ac157c89388983e7a3c63ca9987dba44157ae5e0c852043",
+      "bytes": 795,
+      "source_score": 4.2,
+      "review": "PENDING_CURRENT_NATIVE_PIXELS",
+      "literal_reference_evidence": "scripts\\opera_career_world_2d.gd:448:\t\"teacher\": \"../hotspots/teacher_lesson_board.svg\",\nscripts\\opera_hotspot_catalog.gd:48:\t\t\"PATTERN\": {\"path\": \"res://assets/opera/worlds/hotspots/teacher_lesson_board.svg\", \"motion\": \"pulse\", \"size\": Vector2(190,190), \"presentation\": \"overlay\"},\nscripts\\opera_hotspot_catalog.gd:49:\t\t\"COUNT\": {\"path\": \"res://assets/opera/worlds/hotspots/teacher_lesson_board.svg\", \"motion\": \"pulse\", \"size\": Vector2(190,190), \"presentation\": \"overlay\"},\nscripts\\opera_hotspot_catalog.gd:50:\t\t\"ADD\": {\"path\": \"res://assets/opera/worlds/hotspots/teacher_lesson_board.svg\", \"motion\": \"pulse\", \"size\": Vector2(190,190), \"presentation\": \"overlay\"},\nscripts\\opera_hotspot_catalog.gd:51:\t\t\"MATCH\": {\"path\": \"res://assets/opera/worlds/hotspots/teacher_lesson_board.svg\", \"motion\": \"pulse\", \"size\": Vector2(190,190), \"presentation\": \"overlay\"},\nscripts\\opera_hotspot_catalog.gd:147:\t\"res://assets/opera/worlds/hotspots/teacher_lesson_board.svg\": {\"dimensions\": Vector2i(256,256), \"role\": \"object\"},\n",
+      "reference_search_exit": 0,
+      "id": "CURRENT-SOURCE-TEACHER_LESSON_BOARD",
+      "evaluation": "The lesson board keeps large non-text circles and a triangle, an accessible cream field and a clear silhouette. The uniform heavy rim and thin bent legs read as an interface card on wires, with little toy-board material or warm painted volume. At the190px hotspot the12px rim is about8.9px, too dominant beside authored career art. Preserve the exact six shapes and arrangement, improve the frame/supports and broad grouped values, and separately test every lesson interaction; one static board cannot pass PATTERN/COUNT/ADD/MATCH.",
+      "direct_full_native_review": true,
+      "preview_paths": [
+        "teacher_lesson_board_native.png"
+      ],
+      "qualification": "Current exact whole native source directly inspected. Source-only intended-use drafting opinion; actual mounted/complete-action/device/child/owner acceptance remains separate.",
+      "mounted_score": null,
+      "complete_action_score": null
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_geologist.svg",
+      "sha256": "09ba5403d9d5bfbafec397f884fec4c725e50b3ba643c6ab66e4dd346d16b150",
+      "bytes": 590,
+      "source_score": 4.2,
+      "review": "PENDING_CURRENT_NATIVE_PIXELS",
+      "literal_reference_evidence": "scripts\\opera_career_world_2d.gd:462:\t\"geologist\": \"goal_geologist.svg\",\nscripts\\opera_geology_surface.gd:47:const CRYSTALS_PATH := \"res://assets/opera/worlds/props/goal_geologist.svg\"\nscripts\\opera_hotspot_catalog.gd:137:\t\t\"GEODE\": {\"path\": \"res://assets/opera/worlds/props/goal_geologist.svg\", \"motion\": \"pulse\", \"size\": Vector2(150, 150), \"presentation\": \"painted\"},\nscripts\\opera_hotspot_catalog.gd:196:\t\"res://assets/opera/worlds/props/goal_geologist.svg\": {\"dimensions\": Vector2i(256, 256), \"role\": \"object_group\"},\n",
+      "reference_search_exit": 0,
+      "id": "CURRENT-SOURCE-GOAL_GEOLOGIST",
+      "evaluation": "The two aqua/lavender crystals and broad facets are child-readable, but the dark triangular base and heavy angled boundaries read as a coarse badge rather than a rounded collectible toy prop. Preserve the two crystal identities and large facets; add a calm rounded mineral base and broad value grouping. The declared150px object puts the10px internal borders near5.9 screen pixels. Geode splitting, crystal reveal and actual collection remain unreviewed.",
+      "direct_full_native_review": true,
+      "preview_paths": [
+        "goal_geologist_native.png"
+      ],
+      "qualification": "Current exact whole native source directly inspected. Source-only intended-use drafting opinion; actual mounted/complete-action/device/child/owner acceptance remains separate.",
+      "mounted_score": null,
+      "complete_action_score": null
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_geologist.svg",
+      "sha256": "09ba5403d9d5bfbafec397f884fec4c725e50b3ba643c6ab66e4dd346d16b150",
+      "bytes": 590,
+      "source_score": 4.4,
+      "review": "PENDING_CURRENT_NATIVE_PIXELS",
+      "literal_reference_evidence": "scripts\\castle_career_routes.gd:48:\t\"geologist\": \"opera_crest_geologist.svg\",\n",
+      "reference_search_exit": 0,
+      "id": "CURRENT-SOURCE-OPERA_CREST_GEOLOGIST",
+      "evaluation": "This crest exactly reuses the geologist reward silhouette. Its strong simplified crystal identity is suitable as an icon, and the compact palette is clear. The coarse dark mountain base and flat angular shapes still limit its overall artwork polish. Treat UI readability separately from world-prop realism and preserve the shared symbol; an icon-native variant can reuse the refined crystal shapes with an appropriate small-size contour. Exact mounted UI score remains unassigned.",
+      "direct_full_native_review": true,
+      "preview_paths": [
+        "opera_crest_geologist_native.png"
+      ],
+      "qualification": "Current exact whole native source directly inspected. Source-only intended-use drafting opinion; actual mounted/complete-action/device/child/owner acceptance remains separate.",
+      "mounted_score": null,
+      "complete_action_score": null
+    }
+  ],
+  "source_object_regions": [
+    {
+      "id": "CURRENT-NURSERY-CUSHION-01",
+      "source_path": "assets/opera/worlds/nursery/refinement_v1/pillows.png",
+      "source_sha256": "bf5f86e916b4c512c761518ad1815beac6df8c833d60980b71c73e4d7fada66f",
+      "position_in_runtime_strip": 1,
+      "source_score": 4.6,
+      "direct_native_review": true,
+      "evaluation": "Lavender cushion 1 keeps the shared rounded padded silhouette, broad value grouping, deep plum edge and restrained seam. Static/source opinion only; no individual landing/contact or complete-action acceptance.",
+      "region": [
+        6,
+        115,
+        203,
+        117
+      ],
+      "source_dimensions": [
+        1024,
+        342
+      ],
+      "preview_path": "audit/job_source_review_nursery_teacher_geology_v1_20261001/current-nursery-cushion-01.png",
+      "preview_sha256": "f34d42ea09b6ac58a87c1c908f91f06145b2664e2e8577150c94cc4578606673",
+      "region_qualification": "Exact non-overlapping native audit extraction inside the actual runtime strip6,115,1014,117. These five audit rectangles do not invent individual runtime UV bindings.",
+      "direct_isolated_native_preview_review": true
+    },
+    {
+      "id": "CURRENT-NURSERY-CUSHION-02",
+      "source_path": "assets/opera/worlds/nursery/refinement_v1/pillows.png",
+      "source_sha256": "bf5f86e916b4c512c761518ad1815beac6df8c833d60980b71c73e4d7fada66f",
+      "position_in_runtime_strip": 2,
+      "source_score": 4.6,
+      "direct_native_review": true,
+      "evaluation": "Periwinkle cushion 2 keeps the shared rounded padded silhouette, broad value grouping, deep plum edge and restrained seam. Static/source opinion only; no individual landing/contact or complete-action acceptance.",
+      "region": [
+        209,
+        115,
+        203,
+        117
+      ],
+      "source_dimensions": [
+        1024,
+        342
+      ],
+      "preview_path": "audit/job_source_review_nursery_teacher_geology_v1_20261001/current-nursery-cushion-02.png",
+      "preview_sha256": "4f2d43dec514825c9c82b0571519233e2d29cd070d44c186fca0686701fd59d3",
+      "region_qualification": "Exact non-overlapping native audit extraction inside the actual runtime strip6,115,1014,117. These five audit rectangles do not invent individual runtime UV bindings.",
+      "direct_isolated_native_preview_review": true
+    },
+    {
+      "id": "CURRENT-NURSERY-CUSHION-03",
+      "source_path": "assets/opera/worlds/nursery/refinement_v1/pillows.png",
+      "source_sha256": "bf5f86e916b4c512c761518ad1815beac6df8c833d60980b71c73e4d7fada66f",
+      "position_in_runtime_strip": 3,
+      "source_score": 4.6,
+      "direct_native_review": true,
+      "evaluation": "Lavender cushion 3 keeps the shared rounded padded silhouette, broad value grouping, deep plum edge and restrained seam. Static/source opinion only; no individual landing/contact or complete-action acceptance.",
+      "region": [
+        412,
+        115,
+        203,
+        117
+      ],
+      "source_dimensions": [
+        1024,
+        342
+      ],
+      "preview_path": "audit/job_source_review_nursery_teacher_geology_v1_20261001/current-nursery-cushion-03.png",
+      "preview_sha256": "7c95cfd5b2064d28a69ce6378146a6c0b8052d1cbff8f79f9b2ad8a454f9ef34",
+      "region_qualification": "Exact non-overlapping native audit extraction inside the actual runtime strip6,115,1014,117. These five audit rectangles do not invent individual runtime UV bindings.",
+      "direct_isolated_native_preview_review": true
+    },
+    {
+      "id": "CURRENT-NURSERY-CUSHION-04",
+      "source_path": "assets/opera/worlds/nursery/refinement_v1/pillows.png",
+      "source_sha256": "bf5f86e916b4c512c761518ad1815beac6df8c833d60980b71c73e4d7fada66f",
+      "position_in_runtime_strip": 4,
+      "source_score": 4.6,
+      "direct_native_review": true,
+      "evaluation": "Periwinkle cushion 4 keeps the shared rounded padded silhouette, broad value grouping, deep plum edge and restrained seam. Static/source opinion only; no individual landing/contact or complete-action acceptance.",
+      "region": [
+        615,
+        115,
+        203,
+        117
+      ],
+      "source_dimensions": [
+        1024,
+        342
+      ],
+      "preview_path": "audit/job_source_review_nursery_teacher_geology_v1_20261001/current-nursery-cushion-04.png",
+      "preview_sha256": "966d0a0b3a7e70ba232fd7738bb5f5424b48f7d31aec0d6c77e035653c29b975",
+      "region_qualification": "Exact non-overlapping native audit extraction inside the actual runtime strip6,115,1014,117. These five audit rectangles do not invent individual runtime UV bindings.",
+      "direct_isolated_native_preview_review": true
+    },
+    {
+      "id": "CURRENT-NURSERY-CUSHION-05",
+      "source_path": "assets/opera/worlds/nursery/refinement_v1/pillows.png",
+      "source_sha256": "bf5f86e916b4c512c761518ad1815beac6df8c833d60980b71c73e4d7fada66f",
+      "position_in_runtime_strip": 5,
+      "source_score": 4.6,
+      "direct_native_review": true,
+      "evaluation": "Lavender cushion 5 keeps the shared rounded padded silhouette, broad value grouping, deep plum edge and restrained seam. Static/source opinion only; no individual landing/contact or complete-action acceptance.",
+      "region": [
+        818,
+        115,
+        202,
+        117
+      ],
+      "source_dimensions": [
+        1024,
+        342
+      ],
+      "preview_path": "audit/job_source_review_nursery_teacher_geology_v1_20261001/current-nursery-cushion-05.png",
+      "preview_sha256": "dbd305880bf13f1f47fc6fe28fa1e58bbadf93eb7ca1d4f771ed279dc4745119",
+      "region_qualification": "Exact non-overlapping native audit extraction inside the actual runtime strip6,115,1014,117. These five audit rectangles do not invent individual runtime UV bindings.",
+      "direct_isolated_native_preview_review": true
+    }
+  ],
+  "qualification": "Five SVG native renderings, two native PNGs and four complete neutral PNG views directly inspected. Original source opinions were unassigned in the current register. Existing nursery attempt06/attempt03 provenance is preserved and confirmed; no novel nursery redraw. Current vector sources remain runtime authority pending a separate qualified replacement.",
+  "runtime_integration": false,
+  "owner_approval": null
+}

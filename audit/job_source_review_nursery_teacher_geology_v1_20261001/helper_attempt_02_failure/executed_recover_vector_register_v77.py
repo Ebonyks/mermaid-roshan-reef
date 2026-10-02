@@ -1,0 +1,20 @@
+from pathlib import Path
+import datetime,hashlib,json,shutil,subprocess,sys
+r=Path('C:/Users/Peter/.codex/worktrees/job-art-review-v2-20261001/mermaid-roshan-reef')
+old=Path(__file__).with_name('record_vector_attempt02_and_register_v76.py')
+out=r/'audit/job_source_review_nursery_teacher_geology_v1_20261001/helper_attempt_02_failure';out.mkdir(exist_ok=True)
+shutil.copyfile(old,out/'executed_record_vector_attempt02_and_register_v76.py')
+failed=r/'audit/job_review_v2_20261001/review_tools/build_current_job_item_register_v12.py';shutil.copyfile(failed,out/'executed_failed_register_v12.py')
+(out/'FAILURE.json').write_text(json.dumps(dict(status='REGISTER_REFRESH_FAILED_AFTER_REVIEWS_BEFORE_FACT_REFRESH',observed_error="KeyError: 'qualification'",executed_register_sha256=hashlib.sha256(failed.read_bytes()).hexdigest(),checked_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),qualification='Observed tool traceback. Vector per-item records omit a field supplied at the parent review level. Source scores and pixels were already reviewed and preserved; register still held its earlier1519-entry state. Recover by explicit source-only fallback in a separately executed helper.'),indent=2)+'\n',encoding='utf-8')
+s=old.read_text(encoding='utf-8')
+target="source_qualification=x['qualification'],preview_path=x['preview_path']";assert s.count(target)==1
+s=s.replace(target,"source_qualification=x.get('qualification','Complete native256x256 code-authored derivative directly inspected; source-only drafting opinion, no actual runtime/mounted/action/device/child/owner acceptance.'),preview_path=x['preview_path']")
+s=s.replace('executed_record_attempt02_and_register_v76.py','executed_record_attempt02_and_register_v77.py')
+new=r/'tmp/record_vector_attempt02_and_register_v77_executed.py';new.write_text(s,encoding='utf-8',newline='\n')
+shutil.copyfile(Path(__file__),out/'executed_recover_vector_register_v77.py')
+record=r/'design/audit_impacts/job-nursery-teacher-geology-native-review-20261001.json';d=json.loads(record.read_text(encoding='utf-8'));d['files']=sorted(set(d['files'])|{p.relative_to(r).as_posix() for p in out.rglob('*') if p.is_file()});record.write_text(json.dumps(d,indent=2)+'\n',encoding='utf-8')
+proc=subprocess.run([sys.executable,'-X','utf8','-B',str(new)],cwd=r,capture_output=True)
+(out.parent/'register_recovery.stdout.log').write_bytes(proc.stdout);(out.parent/'register_recovery.stderr.log').write_bytes(proc.stderr)
+print(proc.stdout.decode('utf-8','replace'));print(proc.stderr.decode('utf-8','replace'))
+d=json.loads(record.read_text(encoding='utf-8'));d['files']=sorted(set(d['files'])|{p.relative_to(r).as_posix() for p in out.parent.rglob('*') if p.is_file()});record.write_text(json.dumps(d,indent=2)+'\n',encoding='utf-8')
+raise SystemExit(proc.returncode)

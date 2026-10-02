@@ -1,0 +1,38 @@
+{
+  "id": "WASH-DOCTOR-REACH-KEY01",
+  "status": "SOURCE_FLOOR_CANDIDATE_UNBOUND",
+  "reviewed_utc": "2026-10-02T00:20:06.907807+00:00",
+  "path": "assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_native.png",
+  "sha256": "50a63f9c7465c2b39418cd58dd5bbeef19072279416c7cadbf533d8645b41b1a",
+  "dimensions": [
+    1122,
+    1402
+  ],
+  "source_score": 4.5,
+  "identity_score": 4.5,
+  "work_pose_meaning_source_score": 4.6,
+  "direct_review": [
+    "Complete generated native RGBA output",
+    "Original-size neutral white and aqua alpha views"
+  ],
+  "evaluation": "The child face, curls, pearl flower, rainbow forelock, coral-trim doctor coat, heart satchel, broad rainbow tail and two connected fin lobes remain coherent with the prior draft. Both forearms now reach out from the body; one palm rests visibly on the back of the other hand with a small attached soap cluster. This clearer back-of-hand washing pose addresses the chest-clasp gap. Finger grouping, foam and the side-basin fit still require exact native game-size and whole-action review. Small hair/costume line differences from the preceding source prevent claiming pixel-locked temporal identity.",
+  "alpha_evaluation": "Original-size white and aqua views show clean connected outlines and no visible detached colour specks; native hidden RGB and alpha are preserved.",
+  "method": "One complete built-in imagegen RGBA source edit; provider and native bytes preserved. No manual subject repair, interpolation or composite delivery frame.",
+  "provider_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-68988212-c314-463d-9caa-7ec9b71f279f.png",
+  "prompt_sha256": "4c1ecfb9507960ee072d3f149429c303711c55804c151fae2c1e95727177a763",
+  "measured_by_eye_hand_landmarks": {
+    "soap_contact": [
+      684,
+      680
+    ],
+    "lower_hand_tip": [
+      733,
+      739
+    ]
+  },
+  "mounted_contact_score": null,
+  "complete_action_score": null,
+  "runtime_bound": false,
+  "owner_accepted": false,
+  "qualification": "Source-only drafting floor; context, water/rinse/clean consequence, continuous motion, interruption/return, device/child/owner and cinematic gates remain open."
+}

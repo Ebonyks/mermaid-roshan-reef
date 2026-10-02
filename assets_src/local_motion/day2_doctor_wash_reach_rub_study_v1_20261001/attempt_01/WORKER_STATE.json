@@ -1,0 +1,63 @@
+{
+  "status": "MACHINE_RENDER_PASS_VISUAL_AUDIT_PENDING",
+  "manifest_sha256": "93513d51aa4d19964ac2670517516ff2d2c55a7edf469fc7e14bb29815d45706",
+  "worker_sha256": "07a7a9d18e235b5dc6310df7626b08bbb9c3f5491905e5f50658f472f93dc78c",
+  "created_utc": "2026-10-02T00:30:19.013901+00:00",
+  "pid": 56364,
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "runtime_integration": false,
+  "owner_approval": null,
+  "job_name": "d2m_doctor_reach_rub_v1_20261001",
+  "checked_utc": "2026-10-02T00:35:19.242029+00:00",
+  "benchmark_receipt": "H:\\MermaidReefTools\\LocalVideo\\jobs\\d2m_b1q_d2a0495_20261001T025152Z_58a0e1\\RENDER_RECEIPT.json",
+  "existing_prompt_ids": [],
+  "command": [
+    "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/ComfyUI/0.34.0/ComfyUI_windows_portable/python_embeded/python.exe",
+    "-s",
+    "-B",
+    "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\day2_doctor_wash_reach_rub_study_v1_20261001\\workflows\\render_gguf.py",
+    "--preset",
+    "quick",
+    "--image",
+    "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\day2_doctor_wash_reach_rub_study_v1_20261001\\inputs\\doctor_rub_full_source.png",
+    "--prompt-file",
+    "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\day2_doctor_wash_reach_rub_study_v1_20261001\\prompts\\doctor_rub_full_source.txt",
+    "--name",
+    "d2m_doctor_reach_rub_v1_20261001",
+    "--seed",
+    "2026100111"
+  ],
+  "owned_child_pid": 52756,
+  "native_prompt_id": "ec90ecb4-2fc0-4d96-bbc2-1d3eb4248d55",
+  "receipt_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\d2m_doctor_reach_rub_v1_20261001_20261002T003149Z_a5fa46\\RENDER_RECEIPT.json",
+  "process_exit": 0,
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_doctor_reach_rub_v1_20261001_20261002T003149Z_a5fa46_00002_.webm",
+      "sha256": "6f096fc7c8f37fb32599047b2a1b5d2c3b51ecd76f7a06e4ca7d4bf11a235626",
+      "bytes": 449604
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_doctor_reach_rub_v1_20261001_20261002T003149Z_a5fa46_00002_.mp4",
+      "sha256": "f230f031884864501df86a8464b720ae3f7f8de404895ba21d1d01373af2166e",
+      "bytes": 312468,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "completed_utc": "2026-10-02T00:35:19.242011+00:00"
+}

@@ -1,0 +1,18 @@
+from pathlib import Path
+import datetime,hashlib,json,shutil,subprocess,sys
+r=Path('C:/Users/Peter/.codex/worktrees/job-art-review-v2-20261001/mermaid-roshan-reef')
+old=Path(__file__).with_name('record_seven_sources_and_prepare_vector_candidates_v73.py')
+out=r/'audit/job_source_review_nursery_teacher_geology_v1_20261001/helper_attempt_01_failure';out.mkdir(exist_ok=True)
+shutil.copyfile(old,out/'executed_record_seven_sources_and_prepare_vector_candidates_v73.py')
+(out/'FAILURE.json').write_text(json.dumps(dict(status='HELPER_FAILED_BEFORE_REVIEWS_OR_CANDIDATES_WRITTEN',observed_error="TypeError: dict() got multiple values for keyword argument 'source_score'",line=25,executed_script_sha256=hashlib.sha256(old.read_bytes()).hexdigest(),checked_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),qualification='Observed original tool traceback; source_score already existed in the inventory dict. No source artwork or grades changed. Recover by an explicit dictionary copy with override in a separately executed helper.'),indent=2)+'\n',encoding='utf-8')
+s=old.read_text(encoding='utf-8');assert s.count('dict(**x,id=')==1;s=s.replace('dict(**x,id=','dict(x,id=')
+s=s.replace('executed_record_and_prepare_vector_candidates_v73.py','executed_record_and_prepare_vector_candidates_v74.py')
+s=s.replace('render_job_vector_candidates_v73.gd','render_job_vector_candidates_v74.gd')
+new=r/'tmp/record_seven_sources_and_prepare_vector_candidates_v74_executed.py';new.write_text(s,encoding='utf-8',newline='\n')
+shutil.copyfile(Path(__file__),out/'executed_recover_source_review_v74.py')
+impactfile=r/'design/audit_impacts/job-nursery-teacher-geology-native-review-20261001.json';d=json.loads(impactfile.read_text(encoding='utf-8'));d['files']=sorted(set(d['files'])|{p.relative_to(r).as_posix() for p in out.rglob('*') if p.is_file()});impactfile.write_text(json.dumps(d,indent=2)+'\n',encoding='utf-8')
+proc=subprocess.run([sys.executable,'-X','utf8','-B',str(new)],cwd=r,capture_output=True)
+(out.parent/'recovery.stdout.log').write_bytes(proc.stdout);(out.parent/'recovery.stderr.log').write_bytes(proc.stderr)
+print(proc.stdout.decode('utf-8','replace'));print(proc.stderr.decode('utf-8','replace'))
+d=json.loads(impactfile.read_text(encoding='utf-8'));d['files']=sorted(set(d['files'])|{p.relative_to(r).as_posix() for p in out.parent.rglob('*') if p.is_file()});impactfile.write_text(json.dumps(d,indent=2)+'\n',encoding='utf-8')
+raise SystemExit(proc.returncode)

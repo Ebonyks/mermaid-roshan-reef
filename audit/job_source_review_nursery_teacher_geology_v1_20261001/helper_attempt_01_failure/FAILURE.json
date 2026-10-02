@@ -1,0 +1,8 @@
+{
+  "status": "HELPER_FAILED_BEFORE_REVIEWS_OR_CANDIDATES_WRITTEN",
+  "observed_error": "TypeError: dict() got multiple values for keyword argument 'source_score'",
+  "line": 25,
+  "executed_script_sha256": "6e8b2c618a41201d9bea47f8f2721aca6b11ffffb7ce5d211467a04819b0bc47",
+  "checked_utc": "2026-10-02T01:00:03.019188+00:00",
+  "qualification": "Observed original tool traceback; source_score already existed in the inventory dict. No source artwork or grades changed. Recover by an explicit dictionary copy with override in a separately executed helper."
+}

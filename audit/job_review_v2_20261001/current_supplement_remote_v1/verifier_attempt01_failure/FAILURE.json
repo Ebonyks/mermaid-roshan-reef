@@ -1,0 +1,8 @@
+{
+  "status": "VERIFIER_FORMULA_FAILED_BEFORE_PAYLOAD_FETCH",
+  "checked_utc": "2026-10-02T00:16:39.668714+00:00",
+  "revision": "56d66f63e375b61cf02936b426a05a2b92c14d3b",
+  "actual_error": "AssertionError at digest check: verifier used NUL separators but sealed builder uses TAB separators",
+  "map_payload_sha256": "3c494ce385b73acfc19caec12cfce54b132985b2709ebc85beb6998f8298acfd",
+  "qualification": "Remote map exact bytes matched Git before formula assertion. No payload files fetched by this attempt; no sealed map or artwork changed. New v57 verifier uses the exact builder formula."
+}

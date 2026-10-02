@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\day2_doctor_wash_reach_rub_study_v1_20261001\\inputs\\doctor_rub_full_source.png",
+  "source_sha256": "556b948db23f609583ecbdc31272c1ccee508949e2f809f3c12af92f88e65f95",
+  "source_dimensions": [
+    896,
+    512
+  ],
+  "prompt": "Locked camera, one continuous shot of this complete small mermaid doctor in the exact same polished drawn2D storybook style and neutral aqua field. Her upper hand already rests palm-down on the BACK of the lower hand; her forearms reach out to image right. 0.00-0.30seconds: hold this exact connected contact still. 0.30-1.10: make ONE clearly visible short rubbing stroke: only the UPPER palm slides gently along the BACK of the LOWER hand toward its knuckles, then starts back. The lower hand remains relaxed, wrist attached, fingers pointing down/right in their original grouped shape. 1.10-1.50: the upper palm slides back to the exact initial contact. 1.50-1.70: settle in that initial pose. Keep BOTH hands in contact throughout; never open the lower palm or separate into a gesture. Lather stays small and attached at the contact. Keep her face, gaze, head, brown curls/rainbow lock, flower, doctor coat, satchel, torso, curled rainbow tail and paired fin fixed in identity, shape, scale and canvas position; only local wrist/forearm articulation may accompany the upper palm stroke. Keep the plain aqua field still. No sink/water is requested in this isolated rub reference. Warm brown/plum contours, broad matte painted values and aqua/lavender shadows stay stable. No clasping swap, hand opening, detached wrists, extra fingers/limbs, moving head/body/tail, fin changes, new objects/tools, foam growth, camera move, cuts, whole-card translation, photorealism,3D/plastic texture, sparkle, text or background invention. Sound: silence.\n",
+  "prompt_sha256": "545fb1b401c7f6c0d5b054ddb956bdc2d1ab7da78fc2a40d4bc8bdd2451e158f",
+  "preset": "quick",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "seed": 2026100111,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/GGUF_MODEL_RECEIPT.json",
+  "workflow_sha256": "6ad2dfcaa771636cbaa0be08da6ca3532a56631948d72f5d8cd7d19f6e24b2c6",
+  "started_at_utc": "20261002T003149Z",
+  "prompt_id": "ec90ecb4-2fc0-4d96-bbc2-1d3eb4248d55",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_doctor_reach_rub_v1_20261001_20261002T003149Z_a5fa46_00002_.webm",
+      "sha256": "6f096fc7c8f37fb32599047b2a1b5d2c3b51ecd76f7a06e4ca7d4bf11a235626",
+      "bytes": 449604
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_doctor_reach_rub_v1_20261001_20261002T003149Z_a5fa46_00002_.mp4",
+      "sha256": "f230f031884864501df86a8464b720ae3f7f8de404895ba21d1d01373af2166e",
+      "bytes": 312468,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 206.65,
+  "completed_at_utc": "2026-10-02T00:35:16.560143+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance"
+}

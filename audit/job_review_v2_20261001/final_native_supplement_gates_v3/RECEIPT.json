@@ -1,0 +1,120 @@
+{
+  "status": "PASS_FINAL_SCOPED_NATIVE_SUPPLEMENT_GATES",
+  "checked_utc": "2026-10-02T01:18:16.394316+00:00",
+  "processes": [
+    {
+      "name": "parser",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "assets_src/vector/job_geology_teacher_refinement_v1_20261001/render_svg_attempt02_native.gd",
+        "assets_src/vector/job_geology_teacher_refinement_v1_20261001/render_svg_native.gd",
+        "audit/day_two_wash_contact_study_v1_20261001/attempt_04/executed_capture_doctor_sink_contact_v58.gd",
+        "audit/day_two_wash_contact_study_v1_20261001/attempt_05/capture.gd",
+        "audit/job_source_review_nursery_teacher_geology_v1_20261001/render_svg_native.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 0.8883270000224002,
+      "stdout": "audit/job_review_v2_20261001/final_native_supplement_gates_v3/parser.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/final_native_supplement_gates_v3/parser.stderr.log"
+    },
+    {
+      "name": "inference",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "assets_src/vector/job_geology_teacher_refinement_v1_20261001/render_svg_attempt02_native.gd",
+        "assets_src/vector/job_geology_teacher_refinement_v1_20261001/render_svg_native.gd",
+        "audit/day_two_wash_contact_study_v1_20261001/attempt_04/executed_capture_doctor_sink_contact_v58.gd",
+        "audit/day_two_wash_contact_study_v1_20261001/attempt_05/capture.gd",
+        "audit/job_source_review_nursery_teacher_geology_v1_20261001/render_svg_native.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 0.1229839000152424,
+      "stdout": "audit/job_review_v2_20261001/final_native_supplement_gates_v3/inference.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/final_native_supplement_gates_v3/inference.stderr.log"
+    },
+    {
+      "name": "import",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef",
+        "--import"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 13.319787899963558,
+      "stdout": "audit/job_review_v2_20261001/final_native_supplement_gates_v3/import.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/final_native_supplement_gates_v3/import.stderr.log"
+    },
+    {
+      "name": "authority",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 7.9932990000233985,
+      "stdout": "audit/job_review_v2_20261001/final_native_supplement_gates_v3/authority.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/final_native_supplement_gates_v3/authority.stderr.log"
+    },
+    {
+      "name": "development",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 5.606404999969527,
+      "stdout": "audit/job_review_v2_20261001/final_native_supplement_gates_v3/development.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/final_native_supplement_gates_v3/development.stderr.log"
+    },
+    {
+      "name": "game2d",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_game_2d.py"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 49.18017150001833,
+      "stdout": "audit/job_review_v2_20261001/final_native_supplement_gates_v3/game2d.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/final_native_supplement_gates_v3/game2d.stderr.log"
+    }
+  ],
+  "review_gd_files": [
+    "assets_src/vector/job_geology_teacher_refinement_v1_20261001/render_svg_attempt02_native.gd",
+    "assets_src/vector/job_geology_teacher_refinement_v1_20261001/render_svg_native.gd",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/executed_capture_doctor_sink_contact_v58.gd",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_05/capture.gd",
+    "audit/job_source_review_nursery_teacher_geology_v1_20261001/render_svg_native.gd"
+  ],
+  "literal_sources_unchanged": true,
+  "literal_source_count": 325,
+  "source_mismatches": [],
+  "qualification": "Five vector source floors and clean source4.5 unbound; washing motion4.0/staticwater3.7 and other full actions remain open. No overall4.5, actual-use completeness, device/child/owner, strict2D, integration or release acceptance. New exact-head hosted check pending after publication."
+}

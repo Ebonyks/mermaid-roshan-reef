@@ -1,0 +1,65 @@
+{
+  "status": "PREPARED_LOCAL_MOTION_REFERENCE_ONLY",
+  "baseline": "56d66f63e375b61cf02936b426a05a2b92c14d3b",
+  "created_utc": "2026-10-02T00:30:12.557481+00:00",
+  "intention": "Roshan makes one clear upper-palm stroke along the back of her relaxed lower hand, then returns to exact initial outward contact.",
+  "event": "Prospective doctor WASH gesture response study; no gameplay event, reward or wash progress is implemented.",
+  "phases": {
+    "entry": [
+      0.0,
+      0.3
+    ],
+    "rub": [
+      0.3,
+      1.1
+    ],
+    "return": [
+      1.1,
+      1.5
+    ],
+    "settle": [
+      1.5,
+      1.7
+    ]
+  },
+  "anchors": {
+    "fixed": "Face/head/hair/costume/torso/satchel/tail/paired fin and neutral field",
+    "allowed": "Only small articulated forearm/hand travel with stable connected wrists; attached existing foam",
+    "source_hand_landmark": [
+      684,
+      680
+    ]
+  },
+  "source": {
+    "path": "assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_native.png",
+    "sha256": "50a63f9c7465c2b39418cd58dd5bbeef19072279416c7cadbf533d8645b41b1a",
+    "dimensions": [
+      1122,
+      1402
+    ],
+    "score": 4.5,
+    "owner_accepted": false
+  },
+  "normalization": {
+    "operation": "Whole full-character RGBA uniformly fit within896x500, centred on896x512 neutral aqua field; RGB is solely the established local model input. No cropping, subject translation/repair, painting, source masks or new scene pixels.",
+    "scaled_dimensions": [
+      400,
+      500
+    ],
+    "position": [
+      248,
+      6
+    ],
+    "background_rgba": [
+      230,
+      244,
+      245,
+      255
+    ],
+    "input_sha256": "556b948db23f609583ecbdc31272c1ccee508949e2f809f3c12af92f88e65f95"
+  },
+  "loop_contract": "Entry and final contact should match; no accepted looping/return exists. Inspect every41 native frames and any hand/body drift.",
+  "interruptions": "No shipping clip, lifecycle, pause/focus/Back/reload or handoff is implemented. Game input/progress/save ownership remains unchanged.",
+  "acceptance_criteria": "Full frame identity/topology/contour/palette remain fixed; hand motion is local, connected, non-zero, anatomically coherent and returns. Motion must be directly reviewed rather than inferred from process PASS. No sink contact or complete wash acceptance follows.",
+  "qualification": "LOCAL_MOTION_REFERENCE_ONLY; all unreviewed motion/contact/device/child/owner/cinematic gates remain open."
+}

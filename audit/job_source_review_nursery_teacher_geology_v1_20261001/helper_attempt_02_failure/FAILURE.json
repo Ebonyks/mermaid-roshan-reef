@@ -1,0 +1,7 @@
+{
+  "status": "REGISTER_REFRESH_FAILED_AFTER_REVIEWS_BEFORE_FACT_REFRESH",
+  "observed_error": "KeyError: 'qualification'",
+  "executed_register_sha256": "155f3cf86ac95eb0daaad94c4e05565f66d52f294d23b3b70c8e9af74bd69034",
+  "checked_utc": "2026-10-02T01:06:33.570048+00:00",
+  "qualification": "Observed tool traceback. Vector per-item records omit a field supplied at the parent review level. Source scores and pixels were already reviewed and preserved; register still held its earlier1519-entry state. Recover by explicit source-only fallback in a separately executed helper."
+}

@@ -1,6 +1,6 @@
 {
   "id": "job-wash-contact-study-20261001",
-  "scope": "After actual doctor station arrival, Roshan brings connected soapy hands above the existing painted sink. Test scale/layer contact before runtime binding. Address the exact missing clean-hands ending with one complete generated doctor source edit; current dust-puff completion and bake-in lather sources are unsuitable. Reuse the existing sink and preserve all original artwork. Test a closer180px basin at0/15px hand offsets with its actual front rim/cabinet region, and include the clean ending at the same250px character fit.",
+  "scope": "After actual doctor station arrival, Roshan brings connected soapy hands above the existing painted sink. Test scale/layer contact before runtime binding. Address the exact missing clean-hands ending with one complete generated doctor source edit; current dust-puff completion and bake-in lather sources are unsuitable. Reuse the existing sink and preserve all original artwork. Test a closer180px basin at0/15px hand offsets with its actual front rim/cabinet region, and include the clean ending at the same250px character fit. Named outward connected-hand source edit to let the reused basin sit beside the body after58 below-floor native placements; source and contact/causal action must be reviewed separately. Generate one matching complete clean-reaching ending for the named lather/pose-continuity gap; earlier chest-level clean source cannot truthfully finish the outward pose.",
   "baseline": "fb03e0ac3dda1658e9ea188d33cc6e084871642b",
   "rules": [
     "DL-ASSET-01",
@@ -45,6 +45,19 @@
     "assets_src/imagegen/day2_doctor_wash_clean_result_v1_20261001/executed_inspect_clean_hands_candidate_v38.py",
     "assets_src/imagegen/day2_doctor_wash_clean_result_v1_20261001/executed_prepare_clean_wash_result_v37.py",
     "assets_src/imagegen/day2_doctor_wash_clean_result_v1_20261001/index.html",
+    "assets_src/imagegen/day2_doctor_wash_reach_clean_v1_20261001/.gdignore",
+    "assets_src/imagegen/day2_doctor_wash_reach_clean_v1_20261001/ATTEMPT01_PROMPT.json",
+    "assets_src/imagegen/day2_doctor_wash_reach_clean_v1_20261001/executed_prepare_reach_clean_source_v65.py",
+    "assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/.gdignore",
+    "assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/ATTEMPT01_ALPHA.json",
+    "assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/ATTEMPT01_PROMPT.json",
+    "assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/ATTEMPT01_REVIEW.json",
+    "assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_native.png",
+    "assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_review_aqua.png",
+    "assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_review_white.png",
+    "assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/executed_prepare_doctor_reach_source_v56.py",
+    "assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/executed_prepare_reach_sink_contact_v58.py",
+    "assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/index.html",
     "audit/day_two_wash_contact_study_v1_20261001/.gdignore",
     "audit/day_two_wash_contact_study_v1_20261001/attempt_01/PROCESS_RECEIPT.json",
     "audit/day_two_wash_contact_study_v1_20261001/attempt_01/PROFILE.json",
@@ -153,7 +166,42 @@
     "audit/day_two_wash_contact_study_v1_20261001/attempt_03/native_views/doctor_1600_key2_sink180_offset15.webp",
     "audit/day_two_wash_contact_study_v1_20261001/attempt_03/native_views/doctor_1600_original.webp",
     "audit/day_two_wash_contact_study_v1_20261001/attempt_03/parser.stderr.log",
-    "audit/day_two_wash_contact_study_v1_20261001/attempt_03/parser.stdout.log"
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_03/parser.stdout.log",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/PROCESS_RECEIPT.json",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/PROFILE.json",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/REVIEW.json",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/analyzer.stderr.log",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/analyzer.stdout.log",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/executed_archive_reach_contact_and_publication_v59.py",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/executed_capture_doctor_sink_contact_v58.gd",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/executed_prepare_reach_sink_contact_v58.py",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/executed_run_reach_sink_contact_v58.py",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/index.html",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/inference.stderr.log",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/inference.stdout.log",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native.stderr.log",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native.stdout.log",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native_views/CAPTURE_RECEIPT.json",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native_views/doctor_1280_original.webp",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native_views/doctor_1280_reach_fit250_sink140_offset0.webp",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native_views/doctor_1280_reach_fit250_sink140_offset20.webp",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native_views/doctor_1280_reach_fit250_sink160_offset0.webp",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native_views/doctor_1280_reach_fit250_sink160_offset20.webp",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native_views/doctor_1280_reach_fit300_sink140_offset0.webp",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native_views/doctor_1280_reach_fit300_sink140_offset20.webp",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native_views/doctor_1280_reach_fit300_sink160_offset0.webp",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native_views/doctor_1280_reach_fit300_sink160_offset20.webp",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native_views/doctor_1600_original.webp",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native_views/doctor_1600_reach_fit250_sink140_offset0.webp",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native_views/doctor_1600_reach_fit250_sink140_offset20.webp",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native_views/doctor_1600_reach_fit250_sink160_offset0.webp",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native_views/doctor_1600_reach_fit250_sink160_offset20.webp",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native_views/doctor_1600_reach_fit300_sink140_offset0.webp",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native_views/doctor_1600_reach_fit300_sink140_offset20.webp",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native_views/doctor_1600_reach_fit300_sink160_offset0.webp",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/native_views/doctor_1600_reach_fit300_sink160_offset20.webp",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/parser.stderr.log",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_04/parser.stdout.log"
   ],
   "validation": [
     {
@@ -164,7 +212,7 @@
     {
       "command": "Individual native visual review, first26 placements",
       "result": "FAIL",
-      "evidence": "audit/day_two_wash_contact_study_v1_20261001/attempt_01/REVIEW.json; contact2.0–3.8/composition2.8–4.0. Earlier failure preserved."
+      "evidence": "audit/day_two_wash_contact_study_v1_20261001/attempt_01/REVIEW.json; contact2.0\u20133.8/composition2.8\u20134.0. Earlier failure preserved."
     },
     {
       "command": "Official Godot4.7.2 layered18 static placements",
@@ -174,7 +222,7 @@
     {
       "command": "Individual native visual review, layered18 placements",
       "result": "FAIL",
-      "evidence": "audit/day_two_wash_contact_study_v1_20261001/attempt_02/REVIEW.json; contact3.7–4.0 and composition4.0–4.1, original2.3/2.9. Static floor not reached."
+      "evidence": "audit/day_two_wash_contact_study_v1_20261001/attempt_02/REVIEW.json; contact3.7\u20134.0 and composition4.0\u20134.1, original2.3/2.9. Static floor not reached."
     },
     {
       "command": "Direct clean-hands full-source and neutral alpha review",
@@ -195,6 +243,36 @@
       "command": "Individual direct native visual review of all14 closer-contact views",
       "result": "FAIL",
       "evidence": "audit/day_two_wash_contact_study_v1_20261001/attempt_03/REVIEW.json; contact4.2/clean4.0/composition4.1 below floor; original2.3/2.9."
+    },
+    {
+      "command": "Direct native source and exact game-size side-basin contact review",
+      "result": "PENDING",
+      "evidence": "assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/ATTEMPT01_PROMPT.json; generation and subsequent native context evidence pending."
+    },
+    {
+      "command": "Native and neutral alpha inspection of outward washing source",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/ATTEMPT01_REVIEW.json; source4.5 only, mounted/whole-action pending."
+    },
+    {
+      "command": "Official Godot4.7.2 outward-reach18 native contact capture and individual review",
+      "result": "PENDING",
+      "evidence": "tmp/doctor_sink_contact_v58; actual approach then static test-only composition, no production edit or progress."
+    },
+    {
+      "command": "Official Godot4.7.2 outward-reach18 native contact capture",
+      "result": "PASS",
+      "evidence": "audit/day_two_wash_contact_study_v1_20261001/attempt_04/PROCESS_RECEIPT.json; parser/inference/analyzer/native0 and exact source hashes unchanged."
+    },
+    {
+      "command": "Individual direct native review of all18 reaching contact placements",
+      "result": "FAIL",
+      "evidence": "audit/day_two_wash_contact_study_v1_20261001/attempt_04/REVIEW.json; best static contact/composition4.4, whole action unassigned."
+    },
+    {
+      "command": "Complete generated clean-reaching source/native context/whole-action review",
+      "result": "PENDING",
+      "evidence": "assets_src/imagegen/day2_doctor_wash_reach_clean_v1_20261001/ATTEMPT01_PROMPT.json; source and context still need individual review."
     }
   ],
   "acceptance_gaps": "No new gameplay binding, causal water/foam/clean result, temporal loop/exit or device/child/owner acceptance."

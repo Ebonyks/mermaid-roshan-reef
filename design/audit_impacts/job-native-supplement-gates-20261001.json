@@ -1,0 +1,52 @@
+{
+  "id": "job-native-supplement-gates-20261001",
+  "scope": "Exact structural/literal-source verification for the source-only shared native region, reaching/clean image and reference-motion/contact supplement. Preserve failed art/motion grades and original byte maps, verify new native fixture scripts and document/development/2D gates, stage exact coverage before a separate review-only publication.",
+  "baseline": "56d66f63e375b61cf02936b426a05a2b92c14d3b",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-06",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-READ-01",
+    "DL-QA-03"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "audit/job_review_v2_20261001/current_native_supplement_gates_v2/.gdignore",
+    "audit/job_review_v2_20261001/current_native_supplement_gates_v2/LITERAL_SOURCE_BOUNDARY.json",
+    "audit/job_review_v2_20261001/current_native_supplement_gates_v2/RECEIPT.json",
+    "audit/job_review_v2_20261001/current_native_supplement_gates_v2/authority.stderr.log",
+    "audit/job_review_v2_20261001/current_native_supplement_gates_v2/authority.stdout.log",
+    "audit/job_review_v2_20261001/current_native_supplement_gates_v2/contract_tests.stderr.log",
+    "audit/job_review_v2_20261001/current_native_supplement_gates_v2/contract_tests.stdout.log",
+    "audit/job_review_v2_20261001/current_native_supplement_gates_v2/development.stderr.log",
+    "audit/job_review_v2_20261001/current_native_supplement_gates_v2/development.stdout.log",
+    "audit/job_review_v2_20261001/current_native_supplement_gates_v2/executed_verify_native_library_and_gates_v71.py",
+    "audit/job_review_v2_20261001/current_native_supplement_gates_v2/game2d.stderr.log",
+    "audit/job_review_v2_20261001/current_native_supplement_gates_v2/game2d.stdout.log",
+    "audit/job_review_v2_20261001/current_native_supplement_gates_v2/inference.stderr.log",
+    "audit/job_review_v2_20261001/current_native_supplement_gates_v2/inference.stdout.log",
+    "audit/job_review_v2_20261001/current_native_supplement_gates_v2/parser.stderr.log",
+    "audit/job_review_v2_20261001/current_native_supplement_gates_v2/parser.stdout.log"
+  ],
+  "validation": [
+    {
+      "command": "Parser/inference, document authority, development auto-base, existing2D gate and contract tests",
+      "result": "PASS",
+      "evidence": "audit/job_review_v2_20261001/current_native_supplement_gates_v2/RECEIPT.json"
+    }
+  ],
+  "acceptance_gaps": "Game code and all325 literal sources unchanged; no global4.5/complete-action/device/child/owner/strict2D/release acceptance. New exact hosted candidate pending."
+}

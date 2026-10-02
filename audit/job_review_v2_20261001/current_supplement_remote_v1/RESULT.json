@@ -1,0 +1,31 @@
+{
+  "status": "PASS_ALL_IMMUTABLE_REVIEW_SUPPLEMENT_BYTES",
+  "revision": "56d66f63e375b61cf02936b426a05a2b92c14d3b",
+  "tree": "4596458379816725f0f014a5d18e03b304f8d4a9",
+  "index": "audit/job_review_v2_20261001/CURRENT_REVIEW_SUPPLEMENT_FILES_V1.json",
+  "index_sha256": "355f0371c764aec3d65f1fb6fd4505c23e201602aae51cf8e05c856ce369b13f",
+  "index_bytes": 40562,
+  "payload_sha256": "3c494ce385b73acfc19caec12cfce54b132985b2709ebc85beb6998f8298acfd",
+  "required_files": 239,
+  "required_bytes": 34451210,
+  "access_mode": "Anonymous public HTTPS with normal TLS verification. No credentials or Authorization header. Complete GET of every immutable mapped path and of the map itself.",
+  "base_revision": "fb03e0ac3dda1658e9ea188d33cc6e084871642b",
+  "base_verified_content_commit": "c2116877de10202c40e1d939c77eb3646b5f202f",
+  "entry": "https://github.com/Ebonyks/mermaid-roshan-reef/blob/56d66f63e375b61cf02936b426a05a2b92c14d3b/audit/job_review_v2_20261001/index.html",
+  "tree_url": "https://github.com/Ebonyks/mermaid-roshan-reef/tree/56d66f63e375b61cf02936b426a05a2b92c14d3b",
+  "manifest": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/56d66f63e375b61cf02936b426a05a2b92c14d3b/audit/job_review_v2_20261001/CURRENT_REVIEW_SUPPLEMENT_FILES_V1.json",
+  "manifest_bytes": 40562,
+  "manifest_sha256": "355f0371c764aec3d65f1fb6fd4505c23e201602aae51cf8e05c856ce369b13f",
+  "started_utc": "2026-10-02T00:16:46.432967+00:00",
+  "checked_utc": "2026-10-02T00:16:53.213864+00:00",
+  "verified_files": 239,
+  "verified_bytes": 34451210,
+  "failures": [],
+  "journal_value_schema": [
+    "path",
+    "bytes",
+    "sha256",
+    "checked_utc"
+  ],
+  "qualification": "239 changed payload blobs and self-map at this exact revision; earlier13534 c211 bytes remain pinned to their original receipt. Hosted CI, source/context/action/device/child/owner acceptance, integration and release remain separate."
+}

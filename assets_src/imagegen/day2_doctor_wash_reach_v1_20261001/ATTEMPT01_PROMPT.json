@@ -1,0 +1,33 @@
+{
+  "id": "WASH-DOCTOR-REACH-KEY01",
+  "status": "GENERATION_PENDING_UNBOUND",
+  "baseline": "56d66f63e375b61cf02936b426a05a2b92c14d3b",
+  "prepared_utc": "2026-10-02T00:16:01.513227+00:00",
+  "gap": "All58 native static sink placements reviewed; chest-level hands force cabinet/body occlusion and fail contact4.2, clean result4.0. Prior41-frame rub study has purposeful motion4.0/return3.5. Existing doctor atlas/tool poses and all6 fresh washing candidates lack an outward two-hand reach suitable for a side basin. Reuse the exact existing painted sink; no sink redesign or approved/protected original change.",
+  "evidence": [
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_01/REVIEW.json",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_02/REVIEW.json",
+    "audit/day_two_wash_contact_study_v1_20261001/attempt_03/REVIEW.json",
+    "assets_src/local_motion/day2_doctor_wash_rub_study_v1_20261001/attempt_01/REVIEW.json"
+  ],
+  "method": "Built-in imagegen complete RGBA edit of unbound generated source-only draft; no manual pixel repair or motion synthesis.",
+  "input": {
+    "path": "assets_src/imagegen/day2_doctor_wash_pose_v1_20261001/attempt_06_native.png",
+    "sha256": "3ada2bd00859314ece42ccffa2dc20aae9543086b1161d6e8336689021c99d2c",
+    "role": "Full-body identity/style/pose starting candidate, unbound4.5 source draft"
+  },
+  "prompt": "Edit the supplied complete transparent Doctor Roshan sprite for one exact gameplay gap: she must extend her attached hands toward a washing basin beside her on IMAGE RIGHT, so the sink can sit beside her body rather than hiding her chest and tail. Return one new complete transparent RGBA full-body 2D storybook sprite.\n\nPreserve the source's drawn child identity, softly oval face, large brown eyes, caramel curls, pearl flower, broad rainbow forelock to the right, ivory short-sleeved doctor coat with coral trim and heart patch, teal blouse, lavender waistband, medicine satchel at image left, rainbow scale tail curving to image right, two joined fin lobes with V notch, entire silhouette and overall framing. Keep the same head/body proportions, flat painted warmth, fine brown/plum contours and aqua/lavender shadows. All of the head, hair, satchel, tail and fin must remain inside generous transparent margins.\n\nChange the connected shoulders, elbows and hands only as needed for this clear purposeful working pose. Both upper arms remain attached, elbows bend naturally, and both forearms reach diagonally down and OUT to image right, away from the blouse. Put the two-hand contact cluster at approximately x=720,y=650 on the source1122x1402 canvas (about64 percent across and46 percent down). The hand cluster sits clearly to the right of the chest, with visible air between forearms and torso. Her left palm rests on and gently rubs the BACK of her right hand; the right fingers point slightly down/right in one relaxed grouped shape. Show small matte ivory/mint soap lather where the two hands touch, with the silhouettes of both hands still readable. Keep hands child-sized but generous enough to read in a small game sprite; no tiny interlaced fingers. Eyes attend to her hands, calm concentrated small smile. Do not put hands back into a clasp against her chest.\n\nNo sink, faucet, basin, water jet, patient, tool, background, ground shadow plate, lettering or UI; the existing game sink will be reused separately. No floating hands, extra fingers/limbs, detached wrists, adult anatomy, giant head, glossy skin, realistic rendering, 3D, glitter, halo or sticker border. Preserve the entire native figure rather than giving a crop or a sheet.",
+  "prompt_sha256": "4c1ecfb9507960ee072d3f149429c303711c55804c151fae2c1e95727177a763",
+  "intention": "Attention to connected soapy hands, purposeful back-of-hand rub above side basin, visible rinse/clean result, quiet return. This file addresses working-pose source coverage only.",
+  "movement_profile": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+  "requested_hand_landmark": [
+    720,
+    650
+  ],
+  "runtime_binding": false,
+  "source_score": null,
+  "mounted_contact_score": null,
+  "whole_action_score": null,
+  "owner_accepted": false,
+  "qualification": "Source/mounted/complete-action scores must be independently reviewed. No new runtime action, water causality, sequence, device/child/owner or cinematic acceptance."
+}

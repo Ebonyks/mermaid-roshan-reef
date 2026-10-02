@@ -1,0 +1,71 @@
+{
+  "status": "PASS_FINAL_STAGED_NATIVE_REVIEW_COVERAGE",
+  "checked_utc": "2026-10-02T01:20:13.469416+00:00",
+  "baseline": "56d66f63e375b61cf02936b426a05a2b92c14d3b",
+  "changed_before_final_metadata": 444,
+  "actual_staged_impact_records": [
+    "design/audit_impacts/job-corrected-supplement-hosted-pass-20261001.json",
+    "design/audit_impacts/job-doctor-reach-clean-source-20261001.json",
+    "design/audit_impacts/job-doctor-reach-local-rub-study-20261001.json",
+    "design/audit_impacts/job-doctor-reach-water-contact-study-20261001.json",
+    "design/audit_impacts/job-native-final-supplement-gates-20261001.json",
+    "design/audit_impacts/job-native-supplement-gates-20261001.json",
+    "design/audit_impacts/job-nursery-teacher-geology-native-review-20261001.json",
+    "design/audit_impacts/job-review-current-remote-receipt-20261001.json",
+    "design/audit_impacts/job-review-separate-v2-20261001.json",
+    "design/audit_impacts/job-shared-native-source-review-20261001.json",
+    "design/audit_impacts/job-wash-contact-study-20261001.json"
+  ],
+  "uncovered_paths": [],
+  "expanded_actual_staged_coverage_entries": 3959,
+  "processes": [
+    {
+      "name": "staged_authority",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "process_exit": 0,
+      "stdout": "audit/job_review_v2_20261001/final_native_supplement_gates_v3/staged_authority.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/final_native_supplement_gates_v3/staged_authority.stderr.log"
+    },
+    {
+      "name": "staged_development",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "process_exit": 0,
+      "stdout": "audit/job_review_v2_20261001/final_native_supplement_gates_v3/staged_development.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/final_native_supplement_gates_v3/staged_development.stderr.log"
+    },
+    {
+      "name": "contract_tests",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "process_exit": 0,
+      "stdout": "audit/job_review_v2_20261001/final_native_supplement_gates_v3/contract_tests.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/final_native_supplement_gates_v3/contract_tests.stderr.log"
+    }
+  ],
+  "literal_source_count": 325,
+  "literal_production_sources_unchanged": true,
+  "source_guard_snapshot": "audit/job_review_v2_20261001/full_ci_candidate_retry_v2/SOURCE_BEFORE.json",
+  "qualification": "Review-only supplement. Exact C hosted success remains bound to C. Five selected vector sources meet source4.5,94 static washing views still fail and41 local motion-reference frames remain4.0. Source scores do not grant current mounted/action/device/child/owner, strict2D, dev integration or release acceptance."
+}

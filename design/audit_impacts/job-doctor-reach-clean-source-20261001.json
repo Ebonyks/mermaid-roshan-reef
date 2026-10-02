@@ -1,0 +1,55 @@
+{
+  "id": "job-doctor-reach-clean-source-20261001",
+  "scope": "Preserve the complete fresh clean-hands ending for the outward reaching doctor, then directly review native/white/aqua source identity, hand attachment and soap removal. Earlier chest-clean source and all original game art remain untouched.",
+  "baseline": "56d66f63e375b61cf02936b426a05a2b92c14d3b",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-INT-02",
+    "DL-QA-03",
+    "DL-ASSET-02"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-VIS-006"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/imagegen/day2_doctor_wash_reach_clean_v1_20261001/.gdignore",
+    "assets_src/imagegen/day2_doctor_wash_reach_clean_v1_20261001/ATTEMPT01_ALPHA.json",
+    "assets_src/imagegen/day2_doctor_wash_reach_clean_v1_20261001/ATTEMPT01_PROMPT.json",
+    "assets_src/imagegen/day2_doctor_wash_reach_clean_v1_20261001/ATTEMPT01_REVIEW.json",
+    "assets_src/imagegen/day2_doctor_wash_reach_clean_v1_20261001/attempt01_native.png",
+    "assets_src/imagegen/day2_doctor_wash_reach_clean_v1_20261001/attempt01_review_aqua.png",
+    "assets_src/imagegen/day2_doctor_wash_reach_clean_v1_20261001/attempt01_review_white.png",
+    "assets_src/imagegen/day2_doctor_wash_reach_clean_v1_20261001/executed_prepare_reach_clean_source_v65.py",
+    "assets_src/imagegen/day2_doctor_wash_reach_clean_v1_20261001/executed_record_reach_clean_and_motion_reviews_v67.py",
+    "assets_src/imagegen/day2_doctor_wash_reach_clean_v1_20261001/index.html"
+  ],
+  "validation": [
+    {
+      "command": "Direct full native/white/aqua clean-reaching source review",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/day2_doctor_wash_reach_clean_v1_20261001/ATTEMPT01_REVIEW.json; source-only drafting 4.5, no mounted/action pass."
+    }
+  ],
+  "acceptance_gaps": "Source-only 4.5; sink registration, clean transition, complete wet/rub/rinse/settle/return and runtime/device/child/owner/cinematic acceptance remain open."
+}

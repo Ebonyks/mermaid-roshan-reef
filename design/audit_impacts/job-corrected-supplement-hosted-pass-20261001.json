@@ -1,0 +1,49 @@
+{
+  "id": "job-corrected-supplement-hosted-pass-20261001",
+  "scope": "Archive exactC completed hosted machine state/full log and verification hashes after its corrected coverage passes. Preserve all earlier failures and immutable byte maps. Append current bounded evidence to master/library and MA-2D-002 history without lifecycle closure; new review-only additions remain a separate candidate.",
+  "baseline": "56d66f63e375b61cf02936b426a05a2b92c14d3b",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-06",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-READ-01",
+    "DL-QA-03"
+  ],
+  "findings": [
+    "MA-2D-002",
+    "MA-VIS-006"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/job_artwork_refinement_live/index.html",
+    "audit/job_review_v2_20261001/hosted_corrected_supplement_v1/.gdignore",
+    "audit/job_review_v2_20261001/hosted_corrected_supplement_v1/RECEIPT.json",
+    "audit/job_review_v2_20261001/hosted_corrected_supplement_v1/executed_archive_corrected_supplement_hosted_pass_v78.py",
+    "audit/job_review_v2_20261001/hosted_corrected_supplement_v1/index.html",
+    "audit/job_review_v2_20261001/hosted_corrected_supplement_v1/log.stderr.log",
+    "audit/job_review_v2_20261001/hosted_corrected_supplement_v1/log.stdout.log",
+    "audit/job_review_v2_20261001/hosted_corrected_supplement_v1/state.stderr.log",
+    "audit/job_review_v2_20261001/hosted_corrected_supplement_v1/state.stdout.json",
+    "audit/job_review_v2_20261001/index.html"
+  ],
+  "validation": [
+    {
+      "command": "gh run view36944960786 --json and --log, exacthead/completed/success assertions",
+      "result": "PASS",
+      "evidence": "audit/job_review_v2_20261001/hosted_corrected_supplement_v1/RECEIPT.json"
+    }
+  ],
+  "acceptance_gaps": "Exact published C hosted success only. Prior M coverage failure and A oversized-manifest failure remain preserved. New uncommitted reaching/shared/vector evidence has no exact-head hosted acceptance yet. Green machine probes do not establish complete4.5 graphics, action, strict2D, target-device, child, owner or release acceptance."
+}

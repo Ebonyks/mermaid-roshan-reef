@@ -1,0 +1,800 @@
+{
+  "status": "ALL18_NATIVE_REACH_VIEWS_REVIEWED_BELOW_CONTACT_FLOOR",
+  "checked_utc": "2026-10-02T00:23:50.636052+00:00",
+  "direct_full_native_views": 18,
+  "views_unreviewed": 0,
+  "items": [
+    {
+      "id": "DOCTOR-SINK-A04-00",
+      "path": "doctor_1280_original.webp",
+      "sha256": "a0d02b4d165f4c885455cc2af90d6faceeff86209ecec5f516726fc0011c9585",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 2.3,
+      "static_composition_score": 2.9,
+      "complete_action_score": null,
+      "evaluation": "Current actor has a medical-tool pose at the left station while detached schematic hands and a basin appear on the right. This original spatial/style mismatch remains unchanged.",
+      "geometry": {
+        "source": null,
+        "sink_extent": null,
+        "sink_offset_x": null,
+        "front_region": null,
+        "draw_order": null,
+        "character_rect": null,
+        "hand_source_landmark": null,
+        "hand_local": null,
+        "sink_rect": null
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A04-01",
+      "path": "doctor_1280_reach_fit250_sink140_offset0.webp",
+      "sha256": "2b05c23786702427fc85a382041790e00d170f473a18b6c96e317d4973830a89",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.3,
+      "static_composition_score": 4.3,
+      "complete_action_score": null,
+      "evaluation": "Connected outward forearms, a visible hand-over-hand lather cluster and the matching painted basin make the work clearer than the chest-clasp studies. The250px fit leaves the hand action small in the busy clinic scene. The140px cabinet hides less of the body. At zero offset the hands hover over the basin but remain left of the tap outlet; no running water connects them. The reused front rim provides plausible partial depth, but the cabinet still overlaps the tail and the action lacks wetting/rinsing and a matching clean-reaching result. This is a static fixture, not a completed wash.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_native.png",
+        "sink_extent": 140.0,
+        "sink_offset_x": 0.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          733.0,
+          739.0
+        ],
+        "hand_local": [
+          155.706146240234,
+          131.77604675293
+        ],
+        "sink_rect": [
+          85.7061462402344,
+          74.3541717529297,
+          140.0,
+          140.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A04-02",
+      "path": "doctor_1280_reach_fit250_sink140_offset20.webp",
+      "sha256": "a40db24f6248798d4e3609904c0542ecb03d7c103d066a8c79ecaef654f67133",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 3.9,
+      "static_composition_score": 4.3,
+      "complete_action_score": null,
+      "evaluation": "Connected outward forearms, a visible hand-over-hand lather cluster and the matching painted basin make the work clearer than the chest-clasp studies. The250px fit leaves the hand action small in the busy clinic scene. The140px cabinet hides less of the body. The20px rightward sink shift separates the tap and basin centre farther from the hand cluster; the hands sit near the left edge. The reused front rim provides plausible partial depth, but the cabinet still overlaps the tail and the action lacks wetting/rinsing and a matching clean-reaching result. This is a static fixture, not a completed wash.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_native.png",
+        "sink_extent": 140.0,
+        "sink_offset_x": 20.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          733.0,
+          739.0
+        ],
+        "hand_local": [
+          155.706146240234,
+          131.77604675293
+        ],
+        "sink_rect": [
+          105.706146240234,
+          74.3541717529297,
+          140.0,
+          140.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A04-03",
+      "path": "doctor_1280_reach_fit250_sink160_offset0.webp",
+      "sha256": "1988f1ddc6e29e0556dd2aa679ac8f5b1570d28da5f0cd36f005a5da1d583a81",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.3,
+      "static_composition_score": 4.2,
+      "complete_action_score": null,
+      "evaluation": "Connected outward forearms, a visible hand-over-hand lather cluster and the matching painted basin make the work clearer than the chest-clasp studies. The250px fit leaves the hand action small in the busy clinic scene. The160px cabinet conceals more of the lower silhouette. At zero offset the hands hover over the basin but remain left of the tap outlet; no running water connects them. The reused front rim provides plausible partial depth, but the cabinet still overlaps the tail and the action lacks wetting/rinsing and a matching clean-reaching result. This is a static fixture, not a completed wash.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_native.png",
+        "sink_extent": 160.0,
+        "sink_offset_x": 0.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          733.0,
+          739.0
+        ],
+        "hand_local": [
+          155.706146240234,
+          131.77604675293
+        ],
+        "sink_rect": [
+          75.7061462402344,
+          66.1510467529297,
+          160.0,
+          160.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A04-04",
+      "path": "doctor_1280_reach_fit250_sink160_offset20.webp",
+      "sha256": "a543feae9a4a629d9959de9ec0aab63c67f91402558f27ba724427be7a32926c",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.0,
+      "static_composition_score": 4.2,
+      "complete_action_score": null,
+      "evaluation": "Connected outward forearms, a visible hand-over-hand lather cluster and the matching painted basin make the work clearer than the chest-clasp studies. The250px fit leaves the hand action small in the busy clinic scene. The160px cabinet conceals more of the lower silhouette. The20px rightward sink shift separates the tap and basin centre farther from the hand cluster; the hands sit near the left edge. The reused front rim provides plausible partial depth, but the cabinet still overlaps the tail and the action lacks wetting/rinsing and a matching clean-reaching result. This is a static fixture, not a completed wash.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_native.png",
+        "sink_extent": 160.0,
+        "sink_offset_x": 20.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          733.0,
+          739.0
+        ],
+        "hand_local": [
+          155.706146240234,
+          131.77604675293
+        ],
+        "sink_rect": [
+          95.7061462402344,
+          66.1510467529297,
+          160.0,
+          160.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A04-05",
+      "path": "doctor_1280_reach_fit300_sink140_offset0.webp",
+      "sha256": "997f98c19d59c918373834c76f04eac10f3155bfb56ad471b8e90435cf9ccbd2",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.4,
+      "static_composition_score": 4.4,
+      "complete_action_score": null,
+      "evaluation": "Connected outward forearms, a visible hand-over-hand lather cluster and the matching painted basin make the work clearer than the chest-clasp studies. The300px fit enlarges the child and preserves more coat/tail visibility. The140px cabinet hides less of the body. At zero offset the hands hover over the basin but remain left of the tap outlet; no running water connects them. The reused front rim provides plausible partial depth, but the cabinet still overlaps the tail and the action lacks wetting/rinsing and a matching clean-reaching result. This is a static fixture, not a completed wash.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_native.png",
+        "sink_extent": 140.0,
+        "sink_offset_x": 0.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          240.085586547852,
+          300.0
+        ],
+        "hand_source_landmark": [
+          733.0,
+          739.0
+        ],
+        "hand_local": [
+          181.847366333008,
+          158.131240844727
+        ],
+        "sink_rect": [
+          111.847366333008,
+          100.709365844727,
+          140.0,
+          140.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A04-06",
+      "path": "doctor_1280_reach_fit300_sink140_offset20.webp",
+      "sha256": "4378c8cc8b3d6489cdb39f50b15bf107e8af66286b1e7a041b591388eecc5a05",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.0,
+      "static_composition_score": 4.4,
+      "complete_action_score": null,
+      "evaluation": "Connected outward forearms, a visible hand-over-hand lather cluster and the matching painted basin make the work clearer than the chest-clasp studies. The300px fit enlarges the child and preserves more coat/tail visibility. The140px cabinet hides less of the body. The20px rightward sink shift separates the tap and basin centre farther from the hand cluster; the hands sit near the left edge. The reused front rim provides plausible partial depth, but the cabinet still overlaps the tail and the action lacks wetting/rinsing and a matching clean-reaching result. This is a static fixture, not a completed wash.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_native.png",
+        "sink_extent": 140.0,
+        "sink_offset_x": 20.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          240.085586547852,
+          300.0
+        ],
+        "hand_source_landmark": [
+          733.0,
+          739.0
+        ],
+        "hand_local": [
+          181.847366333008,
+          158.131240844727
+        ],
+        "sink_rect": [
+          131.847366333008,
+          100.709365844727,
+          140.0,
+          140.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A04-07",
+      "path": "doctor_1280_reach_fit300_sink160_offset0.webp",
+      "sha256": "b59112ca4ea158d11939a4ce3ac9d5fb3e48281b9437a168e55cef68c08d1957",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.4,
+      "static_composition_score": 4.3,
+      "complete_action_score": null,
+      "evaluation": "Connected outward forearms, a visible hand-over-hand lather cluster and the matching painted basin make the work clearer than the chest-clasp studies. The300px fit enlarges the child and preserves more coat/tail visibility. The160px cabinet conceals more of the lower silhouette. At zero offset the hands hover over the basin but remain left of the tap outlet; no running water connects them. The reused front rim provides plausible partial depth, but the cabinet still overlaps the tail and the action lacks wetting/rinsing and a matching clean-reaching result. This is a static fixture, not a completed wash.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_native.png",
+        "sink_extent": 160.0,
+        "sink_offset_x": 0.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          240.085586547852,
+          300.0
+        ],
+        "hand_source_landmark": [
+          733.0,
+          739.0
+        ],
+        "hand_local": [
+          181.847366333008,
+          158.131240844727
+        ],
+        "sink_rect": [
+          101.847366333008,
+          92.5062408447266,
+          160.0,
+          160.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A04-08",
+      "path": "doctor_1280_reach_fit300_sink160_offset20.webp",
+      "sha256": "ec035ad38f07a98706210c3f68877d7891ba62efcefdd9d5ed317b1bf413df7b",
+      "native_dimensions": [
+        1280,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.1,
+      "static_composition_score": 4.3,
+      "complete_action_score": null,
+      "evaluation": "Connected outward forearms, a visible hand-over-hand lather cluster and the matching painted basin make the work clearer than the chest-clasp studies. The300px fit enlarges the child and preserves more coat/tail visibility. The160px cabinet conceals more of the lower silhouette. The20px rightward sink shift separates the tap and basin centre farther from the hand cluster; the hands sit near the left edge. The reused front rim provides plausible partial depth, but the cabinet still overlaps the tail and the action lacks wetting/rinsing and a matching clean-reaching result. This is a static fixture, not a completed wash.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_native.png",
+        "sink_extent": 160.0,
+        "sink_offset_x": 20.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          240.085586547852,
+          300.0
+        ],
+        "hand_source_landmark": [
+          733.0,
+          739.0
+        ],
+        "hand_local": [
+          181.847366333008,
+          158.131240844727
+        ],
+        "sink_rect": [
+          121.847366333008,
+          92.5062408447266,
+          160.0,
+          160.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A04-09",
+      "path": "doctor_1600_original.webp",
+      "sha256": "03c33b9ea66e39e0510d342c36a1de7bfd0fa3e963876b84621b1250fe085078",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 2.3,
+      "static_composition_score": 2.9,
+      "complete_action_score": null,
+      "evaluation": "Current actor has a medical-tool pose at the left station while detached schematic hands and a basin appear on the right. This original spatial/style mismatch remains unchanged.",
+      "geometry": {
+        "source": null,
+        "sink_extent": null,
+        "sink_offset_x": null,
+        "front_region": null,
+        "draw_order": null,
+        "character_rect": null,
+        "hand_source_landmark": null,
+        "hand_local": null,
+        "sink_rect": null
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A04-10",
+      "path": "doctor_1600_reach_fit250_sink140_offset0.webp",
+      "sha256": "70f5fcbd322fefb6707eac72d34d4adb53a43115d31c83f5098e503a125cf774",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.3,
+      "static_composition_score": 4.3,
+      "complete_action_score": null,
+      "evaluation": "Connected outward forearms, a visible hand-over-hand lather cluster and the matching painted basin make the work clearer than the chest-clasp studies. The250px fit leaves the hand action small in the busy clinic scene. The140px cabinet hides less of the body. At zero offset the hands hover over the basin but remain left of the tap outlet; no running water connects them. The reused front rim provides plausible partial depth, but the cabinet still overlaps the tail and the action lacks wetting/rinsing and a matching clean-reaching result. This is a static fixture, not a completed wash.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_native.png",
+        "sink_extent": 140.0,
+        "sink_offset_x": 0.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          733.0,
+          739.0
+        ],
+        "hand_local": [
+          155.706146240234,
+          131.77604675293
+        ],
+        "sink_rect": [
+          85.7061462402344,
+          74.3541717529297,
+          140.0,
+          140.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A04-11",
+      "path": "doctor_1600_reach_fit250_sink140_offset20.webp",
+      "sha256": "83420af911a79733016b51fc268f790a4424bfb9d93fcd91f3bb9b501fd89867",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 3.9,
+      "static_composition_score": 4.3,
+      "complete_action_score": null,
+      "evaluation": "Connected outward forearms, a visible hand-over-hand lather cluster and the matching painted basin make the work clearer than the chest-clasp studies. The250px fit leaves the hand action small in the busy clinic scene. The140px cabinet hides less of the body. The20px rightward sink shift separates the tap and basin centre farther from the hand cluster; the hands sit near the left edge. The reused front rim provides plausible partial depth, but the cabinet still overlaps the tail and the action lacks wetting/rinsing and a matching clean-reaching result. This is a static fixture, not a completed wash.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_native.png",
+        "sink_extent": 140.0,
+        "sink_offset_x": 20.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          733.0,
+          739.0
+        ],
+        "hand_local": [
+          155.706146240234,
+          131.77604675293
+        ],
+        "sink_rect": [
+          105.706146240234,
+          74.3541717529297,
+          140.0,
+          140.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A04-12",
+      "path": "doctor_1600_reach_fit250_sink160_offset0.webp",
+      "sha256": "5a6557682b489695014f29ebdc957ab29d3588f94374e1e4b57b9aa3ac61457b",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.3,
+      "static_composition_score": 4.2,
+      "complete_action_score": null,
+      "evaluation": "Connected outward forearms, a visible hand-over-hand lather cluster and the matching painted basin make the work clearer than the chest-clasp studies. The250px fit leaves the hand action small in the busy clinic scene. The160px cabinet conceals more of the lower silhouette. At zero offset the hands hover over the basin but remain left of the tap outlet; no running water connects them. The reused front rim provides plausible partial depth, but the cabinet still overlaps the tail and the action lacks wetting/rinsing and a matching clean-reaching result. This is a static fixture, not a completed wash.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_native.png",
+        "sink_extent": 160.0,
+        "sink_offset_x": 0.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          733.0,
+          739.0
+        ],
+        "hand_local": [
+          155.706146240234,
+          131.77604675293
+        ],
+        "sink_rect": [
+          75.7061462402344,
+          66.1510467529297,
+          160.0,
+          160.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A04-13",
+      "path": "doctor_1600_reach_fit250_sink160_offset20.webp",
+      "sha256": "6f872a390ebd274f08a7b67d4f57573f5ec85c31781cbb1fec6d2cfa49f7d434",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.0,
+      "static_composition_score": 4.2,
+      "complete_action_score": null,
+      "evaluation": "Connected outward forearms, a visible hand-over-hand lather cluster and the matching painted basin make the work clearer than the chest-clasp studies. The250px fit leaves the hand action small in the busy clinic scene. The160px cabinet conceals more of the lower silhouette. The20px rightward sink shift separates the tap and basin centre farther from the hand cluster; the hands sit near the left edge. The reused front rim provides plausible partial depth, but the cabinet still overlaps the tail and the action lacks wetting/rinsing and a matching clean-reaching result. This is a static fixture, not a completed wash.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_native.png",
+        "sink_extent": 160.0,
+        "sink_offset_x": 20.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          200.071319580078,
+          250.0
+        ],
+        "hand_source_landmark": [
+          733.0,
+          739.0
+        ],
+        "hand_local": [
+          155.706146240234,
+          131.77604675293
+        ],
+        "sink_rect": [
+          95.7061462402344,
+          66.1510467529297,
+          160.0,
+          160.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A04-14",
+      "path": "doctor_1600_reach_fit300_sink140_offset0.webp",
+      "sha256": "2a7c5f956c819d03583ee528a23cb64ff16c206b71144d2b50682955dbd1365f",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.4,
+      "static_composition_score": 4.4,
+      "complete_action_score": null,
+      "evaluation": "Connected outward forearms, a visible hand-over-hand lather cluster and the matching painted basin make the work clearer than the chest-clasp studies. The300px fit enlarges the child and preserves more coat/tail visibility. The140px cabinet hides less of the body. At zero offset the hands hover over the basin but remain left of the tap outlet; no running water connects them. The reused front rim provides plausible partial depth, but the cabinet still overlaps the tail and the action lacks wetting/rinsing and a matching clean-reaching result. This is a static fixture, not a completed wash.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_native.png",
+        "sink_extent": 140.0,
+        "sink_offset_x": 0.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          240.085586547852,
+          300.0
+        ],
+        "hand_source_landmark": [
+          733.0,
+          739.0
+        ],
+        "hand_local": [
+          181.847366333008,
+          158.131240844727
+        ],
+        "sink_rect": [
+          111.847366333008,
+          100.709365844727,
+          140.0,
+          140.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A04-15",
+      "path": "doctor_1600_reach_fit300_sink140_offset20.webp",
+      "sha256": "04aac2e568b5488acb1508689f0e82b178ae2ed7d37efc65ae9360509f867e97",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.0,
+      "static_composition_score": 4.4,
+      "complete_action_score": null,
+      "evaluation": "Connected outward forearms, a visible hand-over-hand lather cluster and the matching painted basin make the work clearer than the chest-clasp studies. The300px fit enlarges the child and preserves more coat/tail visibility. The140px cabinet hides less of the body. The20px rightward sink shift separates the tap and basin centre farther from the hand cluster; the hands sit near the left edge. The reused front rim provides plausible partial depth, but the cabinet still overlaps the tail and the action lacks wetting/rinsing and a matching clean-reaching result. This is a static fixture, not a completed wash.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_native.png",
+        "sink_extent": 140.0,
+        "sink_offset_x": 20.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          240.085586547852,
+          300.0
+        ],
+        "hand_source_landmark": [
+          733.0,
+          739.0
+        ],
+        "hand_local": [
+          181.847366333008,
+          158.131240844727
+        ],
+        "sink_rect": [
+          131.847366333008,
+          100.709365844727,
+          140.0,
+          140.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A04-16",
+      "path": "doctor_1600_reach_fit300_sink160_offset0.webp",
+      "sha256": "bca4e8a827207d6381b07f90a6e184849bfe58a3dc7a8cdce47d3316624240ab",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.4,
+      "static_composition_score": 4.3,
+      "complete_action_score": null,
+      "evaluation": "Connected outward forearms, a visible hand-over-hand lather cluster and the matching painted basin make the work clearer than the chest-clasp studies. The300px fit enlarges the child and preserves more coat/tail visibility. The160px cabinet conceals more of the lower silhouette. At zero offset the hands hover over the basin but remain left of the tap outlet; no running water connects them. The reused front rim provides plausible partial depth, but the cabinet still overlaps the tail and the action lacks wetting/rinsing and a matching clean-reaching result. This is a static fixture, not a completed wash.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_native.png",
+        "sink_extent": 160.0,
+        "sink_offset_x": 0.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          240.085586547852,
+          300.0
+        ],
+        "hand_source_landmark": [
+          733.0,
+          739.0
+        ],
+        "hand_local": [
+          181.847366333008,
+          158.131240844727
+        ],
+        "sink_rect": [
+          101.847366333008,
+          92.5062408447266,
+          160.0,
+          160.0
+        ]
+      }
+    },
+    {
+      "id": "DOCTOR-SINK-A04-17",
+      "path": "doctor_1600_reach_fit300_sink160_offset20.webp",
+      "sha256": "6ca4223fead607c7b8c23e400090f0dc88b762854ce8846e9f9699c5f17e762b",
+      "native_dimensions": [
+        1600,
+        720
+      ],
+      "direct_full_native_review": true,
+      "static_contact_score": 4.1,
+      "static_composition_score": 4.3,
+      "complete_action_score": null,
+      "evaluation": "Connected outward forearms, a visible hand-over-hand lather cluster and the matching painted basin make the work clearer than the chest-clasp studies. The300px fit enlarges the child and preserves more coat/tail visibility. The160px cabinet conceals more of the lower silhouette. The20px rightward sink shift separates the tap and basin centre farther from the hand cluster; the hands sit near the left edge. The reused front rim provides plausible partial depth, but the cabinet still overlaps the tail and the action lacks wetting/rinsing and a matching clean-reaching result. This is a static fixture, not a completed wash.",
+      "geometry": {
+        "source": "res://assets_src/imagegen/day2_doctor_wash_reach_v1_20261001/attempt01_native.png",
+        "sink_extent": 160.0,
+        "sink_offset_x": 20.0,
+        "front_region": [
+          0,
+          116,
+          256,
+          140
+        ],
+        "draw_order": "whole_sink_behind_character_then_same_sink_front_region",
+        "character_rect": [
+          25.0,
+          0.0,
+          240.085586547852,
+          300.0
+        ],
+        "hand_source_landmark": [
+          733.0,
+          739.0
+        ],
+        "hand_local": [
+          181.847366333008,
+          158.131240844727
+        ],
+        "sink_rect": [
+          121.847366333008,
+          92.5062408447266,
+          160.0,
+          160.0
+        ]
+      }
+    }
+  ],
+  "best_static_contact_score": 4.4,
+  "best_static_composition_score": 4.4,
+  "total_contact_native_views_across_four_attempts": 76,
+  "source_pixels_modified": false,
+  "next_refinement": "Reuse the same sink. Align its actual spout to the back-of-hand contact rather than the lower fingertips and add a small literal graphic stream/contact splash in a gameplay-only fixture. Generate a matching complete clean-reaching ending only for that named source gap. Audit timed rub/rinse/clean/quiet return independently.",
+  "qualification": "Actual viewport approach precedes static test-only composition. Old actor/stations/action panel hidden only for this study; no production asset/code binding, awards, wash progress, complete action, device/child/owner or cinematic acceptance."
+}

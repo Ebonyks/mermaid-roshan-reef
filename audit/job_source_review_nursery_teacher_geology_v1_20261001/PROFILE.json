@@ -1,0 +1,122 @@
+{
+  "status": "PREPARED_CURRENT_NATIVE_SOURCE_REVIEW",
+  "checked_utc": "2026-10-02T00:55:34.261544+00:00",
+  "baseline": "56d66f63e375b61cf02936b426a05a2b92c14d3b",
+  "scope": "Seven currently unassigned nursery/teacher/geologist source opinions. Native/current exact pixels and reference traces required before assigning source scores; vector sources remain runtime authority. Named illustration/semantic gaps determine any later reversible derivatives.",
+  "items": [
+    {
+      "path": "assets/opera/worlds/nursery/refinement_v1/cradle.png",
+      "sha256": "81f2cba89d4e0c48d2d4ba1c4ac7386d7e96b4c50e58c6a93b1b27b5e0f10193",
+      "bytes": 346904,
+      "source_score": null,
+      "review": "PENDING_CURRENT_NATIVE_PIXELS",
+      "literal_reference_evidence": "scripts\\opera_nursery_catch.gd:59:\tcradle_texture = _load_if_exists(\"res://assets/opera/worlds/nursery/refinement_v1/cradle.png\")\nscripts\\probe_dolls.gd:22:\t\"res://assets/opera/worlds/widgets/widget_catch_nursery_cradle.png\",\n",
+      "reference_search_exit": 0,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "alpha_bbox": {
+        "1": [
+          44,
+          43,
+          996,
+          990
+        ],
+        "16": [
+          46,
+          253,
+          978,
+          749
+        ],
+        "128": [
+          47,
+          254,
+          977,
+          748
+        ]
+      },
+      "transformation": "Complete native source composited only over neutral review backgrounds; no source repair/crop/scale."
+    },
+    {
+      "path": "assets/opera/worlds/nursery/refinement_v1/pillows.png",
+      "sha256": "bf5f86e916b4c512c761518ad1815beac6df8c833d60980b71c73e4d7fada66f",
+      "bytes": 153628,
+      "source_score": null,
+      "review": "PENDING_CURRENT_NATIVE_PIXELS",
+      "literal_reference_evidence": "scripts\\opera_nursery_catch.gd:61:\tpads.atlas = _load_if_exists(\"res://assets/opera/worlds/nursery/refinement_v1/pillows.png\")\nscripts\\probe_dolls.gd:23:\t\"res://assets/opera/worlds/widgets/widget_catch_nursery_pillows.png\",\n",
+      "reference_search_exit": 0,
+      "dimensions": [
+        1024,
+        342
+      ],
+      "alpha_bbox": {
+        "1": [
+          4,
+          113,
+          1024,
+          304
+        ],
+        "16": [
+          7,
+          115,
+          1020,
+          232
+        ],
+        "128": [
+          7,
+          116,
+          1019,
+          232
+        ]
+      },
+      "transformation": "Complete native source composited only over neutral review backgrounds; no source repair/crop/scale."
+    },
+    {
+      "path": "assets/opera/worlds/hotspots/geologist_fossil.svg",
+      "sha256": "058d257160448dabf8b6bce78cbb0a7c6b1bdedbacc6e47db908c5d501d4e3bd",
+      "bytes": 521,
+      "source_score": null,
+      "review": "PENDING_CURRENT_NATIVE_PIXELS",
+      "literal_reference_evidence": "scripts\\opera_geology_surface.gd:42:const FOSSIL_PATH := \"res://assets/opera/worlds/hotspots/geologist_fossil.svg\"\nscripts\\opera_hotspot_catalog.gd:135:\t\t\"FOSSIL\": {\"path\": \"res://assets/opera/worlds/hotspots/geologist_fossil.svg\", \"motion\": \"rock\", \"size\": Vector2(132, 132), \"presentation\": \"painted\"},\nscripts\\opera_hotspot_catalog.gd:195:\t\"res://assets/opera/worlds/hotspots/geologist_fossil.svg\": {\"dimensions\": Vector2i(256, 256), \"role\": \"object\"},\n",
+      "reference_search_exit": 0
+    },
+    {
+      "path": "assets/opera/worlds/hotspots/geologist_layered_rock.svg",
+      "sha256": "5bca0522dbadf1fb5658a99f58a9ea88d15ed62d27966db4e4829ef692d3bcce",
+      "bytes": 503,
+      "source_score": null,
+      "review": "PENDING_CURRENT_NATIVE_PIXELS",
+      "literal_reference_evidence": "scripts\\opera_geology_surface.gd:44:const ROCK_PATH := \"res://assets/opera/worlds/hotspots/geologist_layered_rock.svg\"\nscripts\\opera_hotspot_catalog.gd:134:\t\t\"RIVER\": {\"path\": \"res://assets/opera/worlds/hotspots/geologist_layered_rock.svg\", \"motion\": \"pulse\", \"size\": Vector2(128, 128), \"presentation\": \"painted\"},\nscripts\\opera_hotspot_catalog.gd:136:\t\t\"PAN\": {\"path\": \"res://assets/opera/worlds/hotspots/geologist_layered_rock.svg\", \"motion\": \"bounce\", \"size\": Vector2(112, 112), \"presentation\": \"overlay\"},\nscripts\\opera_hotspot_catalog.gd:194:\t\"res://assets/opera/worlds/hotspots/geologist_layered_rock.svg\": {\"dimensions\": Vector2i(256, 256), \"role\": \"object\"},\n",
+      "reference_search_exit": 0
+    },
+    {
+      "path": "assets/opera/worlds/hotspots/teacher_lesson_board.svg",
+      "sha256": "74eb7da7e7f5ad516ac157c89388983e7a3c63ca9987dba44157ae5e0c852043",
+      "bytes": 795,
+      "source_score": null,
+      "review": "PENDING_CURRENT_NATIVE_PIXELS",
+      "literal_reference_evidence": "scripts\\opera_career_world_2d.gd:448:\t\"teacher\": \"../hotspots/teacher_lesson_board.svg\",\nscripts\\opera_hotspot_catalog.gd:48:\t\t\"PATTERN\": {\"path\": \"res://assets/opera/worlds/hotspots/teacher_lesson_board.svg\", \"motion\": \"pulse\", \"size\": Vector2(190,190), \"presentation\": \"overlay\"},\nscripts\\opera_hotspot_catalog.gd:49:\t\t\"COUNT\": {\"path\": \"res://assets/opera/worlds/hotspots/teacher_lesson_board.svg\", \"motion\": \"pulse\", \"size\": Vector2(190,190), \"presentation\": \"overlay\"},\nscripts\\opera_hotspot_catalog.gd:50:\t\t\"ADD\": {\"path\": \"res://assets/opera/worlds/hotspots/teacher_lesson_board.svg\", \"motion\": \"pulse\", \"size\": Vector2(190,190), \"presentation\": \"overlay\"},\nscripts\\opera_hotspot_catalog.gd:51:\t\t\"MATCH\": {\"path\": \"res://assets/opera/worlds/hotspots/teacher_lesson_board.svg\", \"motion\": \"pulse\", \"size\": Vector2(190,190), \"presentation\": \"overlay\"},\nscripts\\opera_hotspot_catalog.gd:147:\t\"res://assets/opera/worlds/hotspots/teacher_lesson_board.svg\": {\"dimensions\": Vector2i(256,256), \"role\": \"object\"},\n",
+      "reference_search_exit": 0
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_geologist.svg",
+      "sha256": "09ba5403d9d5bfbafec397f884fec4c725e50b3ba643c6ab66e4dd346d16b150",
+      "bytes": 590,
+      "source_score": null,
+      "review": "PENDING_CURRENT_NATIVE_PIXELS",
+      "literal_reference_evidence": "scripts\\opera_career_world_2d.gd:462:\t\"geologist\": \"goal_geologist.svg\",\nscripts\\opera_geology_surface.gd:47:const CRYSTALS_PATH := \"res://assets/opera/worlds/props/goal_geologist.svg\"\nscripts\\opera_hotspot_catalog.gd:137:\t\t\"GEODE\": {\"path\": \"res://assets/opera/worlds/props/goal_geologist.svg\", \"motion\": \"pulse\", \"size\": Vector2(150, 150), \"presentation\": \"painted\"},\nscripts\\opera_hotspot_catalog.gd:196:\t\"res://assets/opera/worlds/props/goal_geologist.svg\": {\"dimensions\": Vector2i(256, 256), \"role\": \"object_group\"},\n",
+      "reference_search_exit": 0
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_geologist.svg",
+      "sha256": "09ba5403d9d5bfbafec397f884fec4c725e50b3ba643c6ab66e4dd346d16b150",
+      "bytes": 590,
+      "source_score": null,
+      "review": "PENDING_CURRENT_NATIVE_PIXELS",
+      "literal_reference_evidence": "scripts\\castle_career_routes.gd:48:\t\"geologist\": \"opera_crest_geologist.svg\",\n",
+      "reference_search_exit": 0
+    }
+  ],
+  "qualification": "Source-only inventory/neutral technical previews; no complete current timeline/action or mounted/owner acceptance."
+}
