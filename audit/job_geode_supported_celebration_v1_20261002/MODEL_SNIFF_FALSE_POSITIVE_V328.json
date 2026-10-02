@@ -1,0 +1,21 @@
+{
+  "status": "XML_DOCUMENT_PREFIX_REPAIR_FOCUSED_TESTS_PASS",
+  "checked_utc": "2026-10-02T13:18:40.193537+00:00",
+  "image": {
+    "path": "audit/job_geode_route_emblem_runtime_v1_20261002/attempt_02/native_frames/geode_1600_0035.webp",
+    "sha256": "0a060e95226b8035bd8fc6ffe7b8a1ffcbbcb83b4cbec6d685f899887c9eaacc",
+    "bytes": 50264,
+    "decoded_format": "WEBP",
+    "dimensions": [
+      1600,
+      720
+    ],
+    "coincidental_signature_offset": 49958
+  },
+  "cause": "A four-byte case-insensitive X3D tag prefix inside compressed VP8 image data was treated as an XML model. The previous full suite ran before this review screenshot was tracked; the next tracked-file discovery exposed the false positive.",
+  "repair": "Require the model XML document sample to begin with < after BOM/whitespace removal. Binary model magic, named model extensions, actual XML hidden under image suffixes, archive checks and the shrinking debt ceiling stay enforced.",
+  "before": "runtime_gate/model_sniff_beforev1.receipt.json",
+  "after": "runtime_gate/model_sniff_afterv1.receipt.json",
+  "failed_full_suite": "full_ci_v2/RECEIPT.json",
+  "qualification": "Verification tool repair only. All 375 rendered runtime/fixture/source hashes remain unchanged. Fresh full suite3 will add the two changed audit-tool files to its separate 377-file machine boundary. No new artwork, inherited machine pass, true-zero-debt or owner acceptance."
+}

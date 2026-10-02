@@ -1770,6 +1770,13 @@ func _anchor_goal_prop(curtain_call := false) -> void:
 		return
 	prop_rect.size = Vector2(220.0, 220.0)
 	if curtain_call:
+		if career_id == "geologist" and prop_rect.texture != null:
+			var supported := OperaWorldBackdrop2D.geology_celebration_goal_rect(prop_rect.texture)
+			prop_rect.position = supported.position
+			prop_rect.size = supported.size
+			prop_rect.set_meta("anchor_station", "painted_geology_display_slab")
+			prop_rect.set_meta("support_contact", OperaWorldBackdrop2D.GEOLOGY_CELEBRATION_CONTACT)
+			return
 		# The completed work gets the centre spotlight only after every room
 		# activity is over. This is a stage composition, not a room hotspot.
 		var curtain_anchor := Vector2(StagePaths.SCREEN.x * 0.5,
@@ -3850,7 +3857,8 @@ func celebrate(result: Dictionary) -> void:
 		# the old universal right-edge overlay position.
 		prop_rect.visible = true
 		_capture_actor_rest("prop", prop_rect)
-		_bounce_actor(prop_rect, 26.0, 0.48)
+		if career_id != "geologist":
+			_bounce_actor(prop_rect, 26.0, 0.48)
 	_bounce_actor(player_actor, 34.0 + float(tier) * 4.0, 0.52)
 	if rival_actor != null and rival_actor.visible:
 		if not _set_rival_pose("bow"):

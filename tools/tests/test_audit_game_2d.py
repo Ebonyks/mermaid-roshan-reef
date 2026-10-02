@@ -1042,6 +1042,26 @@ class Game2DAuditTests(unittest.TestCase):
 			{"<opaque-runtime-binary>": 1})
 		self.assertIn("G2D101", self.finding_ids(game_2d.audit(root, manifest)))
 
+	def test_compressed_image_xml_tag_bytes_are_not_model_debt(self) -> None:
+		# The published real WebP frame contains b"<X3d" at offset 49958.
+		# Compression bytes are not an XML document, regardless of suffix.
+		for prefix in (b"RIFF\x18\0\0\0WEBPVP8 ", b"\x89PNG\r\n\x1a\n"):
+			sample = prefix + b"\0compressed<X3d\x80random<COLLADA\0"
+			self.assertFalse(game_2d._sample_is_model(sample))
+
+	def test_model_xml_disguised_as_image_still_is_model_debt(self) -> None:
+		temp, root, manifest = self.fixture(with_debt=False)
+		self.addCleanup(temp.cleanup)
+		assets = root / "assets"
+		assets.mkdir()
+		(assets / "hidden.webp").write_bytes(
+			b"\xef\xbb\xbf \n<?xml version='1.0'?><x:X3D xmlns:x='urn:x3d'><x:Scene/></x:X3D>")
+		(assets / "hidden.png").write_bytes(
+			b" \n<!-- leading comment --><COLLADA><asset/></COLLADA>")
+		self.assertEqual(game_2d.discover(root).model_files,
+			("assets/hidden.png", "assets/hidden.webp"))
+		self.assertIn("G2D101", self.finding_ids(game_2d.audit(root, manifest)))
+
 	def test_disguised_glb_magic_is_model_debt(self) -> None:
 		temp, root, manifest = self.fixture(with_debt=False)
 		self.addCleanup(temp.cleanup)

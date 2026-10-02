@@ -22,6 +22,10 @@ const PALETTES := {
 	"popstar": [Color("#34164d"), Color("#9c3c8c"), Color("#62d9e8")],
 	"geologist": [Color("#172b4d"), Color("#725b8f"), Color("#72e0d3")],
 }
+const GEOLOGY_WORK_ART := "res://assets/opera/worlds/geology/painted_work_v1_20261001/"
+const GEOLOGY_CELEBRATION_SLAB := Rect2(475.0, 438.0, 330.0, 330.0 * 369.0 / 889.0)
+const GEOLOGY_CELEBRATION_CONTACT := Vector2(640.0, 490.0)
+
 const SKY_LAGOON_ROOT := "res://assets/flats/sky_lagoon/main/"
 
 var career_id := "chef"
@@ -42,12 +46,16 @@ var painting: Texture2D = null
 var world_tiles: Array[Texture2D] = []
 var stage_tiles: Array[Texture2D] = []
 var room_variant_tiles: Array[Texture2D] = []
+var geology_props: Dictionary = {}
 var sky_lagoon_tiles: Array[Texture2D] = []
 
 
 func setup(id: String, variant: String = "") -> void:
 	career_id = id
 	scene_variant = variant
+	geology_props.clear()
+	if career_id == "geologist":
+		_load_geology_props()
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	set_meta("chapter2_scene_variant", scene_variant)
 	set_meta("chapter2_scene_specific_2d", not scene_variant.is_empty())
@@ -559,6 +567,27 @@ func _draw_popstar(mid: Color, accent: Color) -> void:
 	draw_circle(Vector2(640, 250), 72, Color(accent, 0.42))
 
 
+static func geology_celebration_goal_rect(texture: Texture2D) -> Rect2:
+	var side := 220.0
+	var painted_height := side * texture.get_height() / float(texture.get_width())
+	return Rect2(GEOLOGY_CELEBRATION_CONTACT - Vector2(side * 0.5,
+		(side + painted_height) * 0.5), Vector2(side, side))
+
+
+func _load_geology_props() -> void:
+	var atlas := AtlasTexture.new()
+	atlas.atlas = load(GEOLOGY_WORK_ART + "work_slab.png") as Texture2D
+	atlas.region = Rect2(68, 332, 889, 369)
+	atlas.filter_clip = true
+	geology_props["slab"] = atlas
+
+
+func _draw_geology_prop(key: String, destination: Rect2) -> void:
+	var texture: Texture2D = geology_props.get(key) as Texture2D
+	if texture != null:
+		draw_texture_rect(texture, destination, false)
+
+
 func _draw_geologist(mid: Color, accent: Color) -> void:
 	# A readable crystal-cave laboratory: layered walls, a fossil table,
 	# specimen trays and one glowing destination cluster. All geometry stays
@@ -571,6 +600,10 @@ func _draw_geologist(mid: Color, accent: Color) -> void:
 			Vector2(470, y + 18), Vector2(760, y - 18),
 			Vector2(1040, y + 12), Vector2(1280, y - 10),
 		]), color, 34.0)
+	if stage_mode:
+		# Only the earned specimen is staged here; live room props stay separate.
+		_draw_geology_prop("slab", GEOLOGY_CELEBRATION_SLAB)
+		return
 	if bool(get_meta("geology_work_open", false)):
 		return
 	# Fossil inspection slab.

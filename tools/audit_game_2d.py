@@ -597,7 +597,11 @@ def _sample_is_model(sample: bytes) -> bool:
 	stripped = sample.lstrip(b"\xef\xbb\xbf\t\r\n ")
 	if stripped.startswith(b"#usda 1.0") or stripped.startswith(b"Ogawa"):
 		return True
-	if COLLADA_XML_RE.search(sample) or X3D_XML_RE.search(sample):
+	# XML tags inside compressed image/binary bytes are not model documents.
+	# Keep suffix-independent detection of actual XML, including BOM, comments
+	# and namespaced roots, without inventing model debt from random payloads.
+	if stripped.startswith(b"<") and (
+			COLLADA_XML_RE.search(sample) or X3D_XML_RE.search(sample)):
 		return True
 	if stripped.startswith(b"{"):
 		# A complete plausible JSON candidate is normally available here.  Parse

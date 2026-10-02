@@ -1,0 +1,65 @@
+{
+  "status": "PROVISIONALLY_SELECTED_STATIC_SOURCE_ONLY_UNBOUND",
+  "baseline": "bc2d14160a3f532895ed95c5db646e8cf0b451ad",
+  "created_utc": "2026-10-02T13:22:38.642877+00:00",
+  "scope": "One static connected Geologist Roshan/geode/support work source. Current actual hand-contact scores 2.7 despite rooted opening material 4.6. No runtime binding, animation, geometry/input/save/reward changes. Preserve every candidate and judge source/contact separately from mounted action.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-MOT-01",
+    "DL-MOT-03"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-VIS-006"
+  ],
+  "inventory": [
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+      "sha256": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37",
+      "role": "identity reference"
+    },
+    {
+      "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/open_geode/attempt_02/native.png",
+      "sha256": "1191313bc32098ef4c1acede1c2bf547448b6a57a32905e7324e87bc092d87d8",
+      "role": "identity reference"
+    },
+    {
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/work_slab.png",
+      "sha256": "592365e4fd9fec19fc002dc3b08fcddcbb9b40405ba21597bf518a5be1b67f80",
+      "role": "identity reference"
+    },
+    {
+      "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/panning_contact/attempt_01/native.png",
+      "sha256": "cec1c974c5796c309695e9ac55155d5712dd493edc300f7618e95ebfb4bc1a59",
+      "role": "existing pan-specific connected pose; source good but wrong object/grip for geode opening"
+    }
+  ],
+  "gap": "Existing work cells crouch with palms near the floor or point/hold a loose sample; they cannot brace both actual shell halves. Existing pan compound provides panning grip, not geode opening contact. Approved mineral/slab/identity artwork remains suitable as reference and is preserved.",
+  "references": [
+    "assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png",
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/open_geode/attempt_02/native.png",
+    "assets/opera/worlds/geology/painted_work_v1_20261001/work_slab.png"
+  ],
+  "prompt_sha256": "6bc2ba7bb252bff82771bbd8832c2a849ac27294eb3cdc7627552ab0584f308c",
+  "method": "builtin image_gen, transparent true",
+  "acceptance_gaps": "Static source only, complete action/actual mounting/arrival/opening/settle/return and device/child/owner approval remain separate.",
+  "selected": "attempt_02/native.png",
+  "rejected": [
+    "attempt_01/native.png"
+  ],
+  "current_review": "attempt_02/SOURCE_REVIEW.json"
+}

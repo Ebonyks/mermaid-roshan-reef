@@ -1,0 +1,14 @@
+F.
+======================================================================
+FAIL: test_compressed_image_xml_tag_bytes_are_not_model_debt (tools.tests.test_audit_game_2d.Game2DAuditTests.test_compressed_image_xml_tag_bytes_are_not_model_debt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\job-art-review-v2-20261001\mermaid-roshan-reef\tools\tests\test_audit_game_2d.py", line 1050, in test_compressed_image_xml_tag_bytes_are_not_model_debt
+    self.assertFalse(game_2d._sample_is_model(sample))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.666s
+
+FAILED (failures=1)

@@ -1,19 +1,21 @@
 {
   "schema": "reef.known-job-item-register.v1",
-  "created_utc": "2026-10-02T11:06:43.490015+00:00",
+  "created_utc": "2026-10-02T13:32:31.632055+00:00",
   "baseline": "40b1c7bfe025f284507c586fea61b9dd76b61423",
-  "scope": "V31 known source union:1245 unique source files,328 pose cells,49 runtime prop/use regions and104 source-object regions =1726 entries. Four added current Geologist uses are separate presentations of the same existing atlas, not four new sources. V30 exact JSON/HTML bytes preserved; source priorities676 and unassigned385 unchanged. Current celebration material4.6 does not pass unsupported mounting4.2. This is not exhaustive actual use or all-job/owner acceptance. Four pre-existing ambiguous technical labels now include their attempt number; old labels remain aliases, all source opinions/hashes unchanged.",
+  "scope": "V33 known source union: 1247 unique source files + 328 pose cells + 50 runtime prop-use regions + 104 source-object regions = 1729 entries. Two newly generated contact candidates are individually reviewed, source-only and unbound; first pose4.3 rejected, second static pose4.5 provisional, both material4.6. Five current geode uses retain direct review on the same 375 unchanged rendered source files. Full verification separately includes those sources plus two corrected detector/test files (377). Exact V31/V32 register bytes are preserved. Other opinions retain their dates. 678 source/cell/region inclusive priorities and 385 source reviews unassigned; four additional current geode mounted priorities. No exhaustive actual-use/all-job/complete-action/device/child/owner acceptance.",
   "counts": {
-    "unique_source_files": 1245,
+    "unique_source_files": 1247,
     "individual_pose_cells": 328,
-    "additional_runtime_prop_regions": 49,
+    "additional_runtime_prop_regions": 50,
     "individual_source_object_regions": 104,
-    "registered_items": 1726,
-    "exact_earlier_bytes": 1721,
-    "changed_bytes": 5,
+    "registered_items": 1729,
+    "exact_earlier_bytes": 1648,
+    "changed_bytes": 0,
     "unavailable_checkout": 0,
-    "inclusive_current_source_priorities": 676,
-    "unreviewed_current_source": 385
+    "inclusive_current_source_priorities": 678,
+    "unreviewed_current_source": 385,
+    "current_geode_mounted_priorities": 4,
+    "new_named_generated_sources": 2
   },
   "items": [
     {
@@ -77324,16 +77326,17 @@
       "earlier_sha256": "e47a731414210ef70c0b5fffce2828922a15611c6093c244811ee0a283534503",
       "historical_source_score": 4.5,
       "current_source_score": 4.5,
-      "evaluation": "The two plum-outlined halves and cyan/violet interiors remain distinct beneath Geologist Roshan on the pale card. Fine facets reduce at this size, but the painted silhouette and exact open-specimen identity survive at both widths.",
-      "refinement": "Inclusive 4.5 priority. Review on the target tablet and simplify only detail that actually loses clarity; preserve the approved two-half painting.",
+      "evaluation": "Two outlined open halves and their cyan/violet interiors remain recognizable beneath the Geologist card at both widths. Tiny inner facets simplify at this size.",
+      "refinement": "Keep the painted specimen identity; continue phone review and inclusive4.5 refinement.",
       "families": [
         "Geologist",
         "Current actual Library geode crest · 50 × 50"
       ],
       "original_reports": [
-        "audit/job_geode_route_emblem_runtime_v1_20261002/index.html#GEO-USE-LIBRARY"
+        "audit/job_geode_route_emblem_runtime_v1_20261002/index.html#GEO-USE-LIBRARY",
+        "audit/job_geode_supported_celebration_v1_20261002/index.html#GEO-USE-LIBRARY"
       ],
-      "source_qualification": "Individually inspected current presentation at1280/1600. Exact source region and complete captured native context preserved; material, mounting and complete embodied action remain separate. No owner/device/whole-job acceptance.",
+      "source_qualification": "Fresh direct desktop native-canvas/ordered-frame review, provisional drafting opinion. Not device/child/owner or whole-job acceptance.",
       "preview_path": "assets/opera/worlds/geology/coherent_geode_v1_20261002/opening_six_states.png",
       "native_reference_observations": [],
       "current_checkout_sha256": "e47a731414210ef70c0b5fffce2828922a15611c6093c244811ee0a283534503",
@@ -77348,11 +77351,22 @@
       "binding_sha256": "3b0ccd30cf5db7a85b29e82469ad1a9101918f91ab48dac37b3bda9ddf80c090",
       "owner_acceptance": null,
       "latest_refinement": {
-        "report": "audit/job_geode_route_emblem_runtime_v1_20261002/index.html#GEO-USE-LIBRARY",
-        "note": "Library geode crest · 50 × 50; source 4.5/5, actual mounting 4.5/5. The two plum-outlined halves and cyan/violet interiors remain distinct beneath Geologist Roshan on the pale card. Fine facets reduce at this size, but the painted silhouette and exact open-specimen identity survive at both widths."
+        "report": "audit/job_geode_supported_celebration_v1_20261002/index.html#GEO-USE-LIBRARY",
+        "note": "Library geode crest · 50px; material 4.5/5; mounting 4.5/5. Two outlined open halves and their cyan/violet interiors remain recognizable beneath the Geologist card at both widths. Tiny inner facets simplify at this size."
       },
-      "current_capture_review": "audit/job_geode_route_emblem_runtime_v1_20261002/REVIEW.json",
-      "current_reviewed_utc": "2026-10-02T11:52:31.742139+00:00"
+      "current_capture_review": "audit/job_geode_supported_celebration_v1_20261002/REVIEW.json",
+      "current_reviewed_utc": "2026-10-02T13:06:22.894877+00:00",
+      "mounted_review_history": [
+        {
+          "current_mounted_score": 4.5,
+          "current_source_score": 4.5,
+          "evaluation": "The two plum-outlined halves and cyan/violet interiors remain distinct beneath Geologist Roshan on the pale card. Fine facets reduce at this size, but the painted silhouette and exact open-specimen identity survive at both widths.",
+          "refinement": "Inclusive 4.5 priority. Review on the target tablet and simplify only detail that actually loses clarity; preserve the approved two-half painting.",
+          "current_capture_review": "audit/job_geode_route_emblem_runtime_v1_20261002/REVIEW.json",
+          "current_reviewed_utc": "2026-10-02T11:52:31.742139+00:00",
+          "binding_sha256": "3b0ccd30cf5db7a85b29e82469ad1a9101918f91ab48dac37b3bda9ddf80c090"
+        }
+      ]
     },
     {
       "id": "GEO-USE-INVITATION",
@@ -77374,16 +77388,17 @@
       "earlier_sha256": "e47a731414210ef70c0b5fffce2828922a15611c6093c244811ee0a283534503",
       "historical_source_score": 4.5,
       "current_source_score": 4.5,
-      "evaluation": "Broad lavender and aqua stone bands and one dark plum seam clearly invite opening. The pulse and halo leave the seam readable. This uses the closed state of the same atlas that later opens; the previous acceptable closed source is preserved.",
-      "refinement": "Inclusive 4.5 priority. Refine minor edge/fringe only after device review; the floating invitation and weak flat room are separate context issues.",
+      "evaluation": "One broad lavender/aqua stone and a clear plum seam remain legible inside the pulse halo. It matches the later opening family.",
+      "refinement": "Keep the same closed source; its floating invitation and overall room context remain separate room priorities.",
       "families": [
         "Geologist",
         "Current actual Closed invitation · 142 × 126.4146"
       ],
       "original_reports": [
-        "audit/job_geode_route_emblem_runtime_v1_20261002/index.html#GEO-USE-INVITATION"
+        "audit/job_geode_route_emblem_runtime_v1_20261002/index.html#GEO-USE-INVITATION",
+        "audit/job_geode_supported_celebration_v1_20261002/index.html#GEO-USE-INVITATION"
       ],
-      "source_qualification": "Individually inspected current presentation at1280/1600. Exact source region and complete captured native context preserved; material, mounting and complete embodied action remain separate. No owner/device/whole-job acceptance.",
+      "source_qualification": "Fresh direct desktop native-canvas/ordered-frame review, provisional drafting opinion. Not device/child/owner or whole-job acceptance.",
       "preview_path": "assets/opera/worlds/geology/coherent_geode_v1_20261002/opening_six_states.png",
       "native_reference_observations": [],
       "current_checkout_sha256": "e47a731414210ef70c0b5fffce2828922a15611c6093c244811ee0a283534503",
@@ -77398,11 +77413,22 @@
       "binding_sha256": "0027a534982c81056766c06097262cbc48ef78b2c2a3e1c6a1dab4a5f383e449",
       "owner_acceptance": null,
       "latest_refinement": {
-        "report": "audit/job_geode_route_emblem_runtime_v1_20261002/index.html#GEO-USE-INVITATION",
-        "note": "Closed invitation · 142 × 126.4146; source 4.5/5, actual mounting 4.5/5. Broad lavender and aqua stone bands and one dark plum seam clearly invite opening. The pulse and halo leave the seam readable. This uses the closed state of the same atlas that later opens; the previous acceptable closed source is preserved."
+        "report": "audit/job_geode_supported_celebration_v1_20261002/index.html#GEO-USE-INVITATION",
+        "note": "Closed invitation · 142px; material 4.5/5; mounting 4.5/5. One broad lavender/aqua stone and a clear plum seam remain legible inside the pulse halo. It matches the later opening family."
       },
-      "current_capture_review": "audit/job_geode_route_emblem_runtime_v1_20261002/REVIEW.json",
-      "current_reviewed_utc": "2026-10-02T11:52:31.742139+00:00"
+      "current_capture_review": "audit/job_geode_supported_celebration_v1_20261002/REVIEW.json",
+      "current_reviewed_utc": "2026-10-02T13:06:22.894877+00:00",
+      "mounted_review_history": [
+        {
+          "current_mounted_score": 4.5,
+          "current_source_score": 4.5,
+          "evaluation": "Broad lavender and aqua stone bands and one dark plum seam clearly invite opening. The pulse and halo leave the seam readable. This uses the closed state of the same atlas that later opens; the previous acceptable closed source is preserved.",
+          "refinement": "Inclusive 4.5 priority. Refine minor edge/fringe only after device review; the floating invitation and weak flat room are separate context issues.",
+          "current_capture_review": "audit/job_geode_route_emblem_runtime_v1_20261002/REVIEW.json",
+          "current_reviewed_utc": "2026-10-02T11:52:31.742139+00:00",
+          "binding_sha256": "0027a534982c81056766c06097262cbc48ef78b2c2a3e1c6a1dab4a5f383e449"
+        }
+      ]
     },
     {
       "id": "GEO-USE-CELEBRATION",
@@ -77424,35 +77450,47 @@
       "earlier_sha256": "e47a731414210ef70c0b5fffce2828922a15611c6093c244811ee0a283534503",
       "historical_source_score": 4.6,
       "current_source_score": 4.6,
-      "evaluation": "The painted specimen itself reads 4.6: cream cavity rims surround crystals rooted inside both stone halves, with intact contour and aspect. The mounted emblem remains suspended above three empty outlined trays. Its unsupported placement prevents a 4.5 mounted pass.",
-      "refinement": "Stage the opened specimen on an honest support and resolve the old tray/stage composition. Preserve this exact painted source and rooted crystals.",
+      "evaluation": "Both cream-rimmed cavities hold rooted mineral groups. The unchanged painting rests on the same painted slab throughout every captured curtain-call frame; the generic prop bounce is absent. The former unsupported4.2 placement is replaced.",
+      "refinement": "Retain this mounting. Inclusive4.5 refinement, phone/child/owner review and the flat stage remain open.",
       "families": [
         "Geologist",
         "Current actual Normal earned celebration · 220 × 220 rect"
       ],
       "original_reports": [
-        "audit/job_geode_route_emblem_runtime_v1_20261002/index.html#GEO-USE-CELEBRATION"
+        "audit/job_geode_route_emblem_runtime_v1_20261002/index.html#GEO-USE-CELEBRATION",
+        "audit/job_geode_supported_celebration_v1_20261002/index.html#GEO-USE-CELEBRATION"
       ],
-      "source_qualification": "Individually inspected current presentation at1280/1600. Exact source region and complete captured native context preserved; material, mounting and complete embodied action remain separate. No owner/device/whole-job acceptance.",
+      "source_qualification": "Fresh direct desktop native-canvas/ordered-frame review, provisional drafting opinion. Not device/child/owner or whole-job acceptance.",
       "preview_path": "assets/opera/worlds/geology/coherent_geode_v1_20261002/opening_six_states.png",
       "native_reference_observations": [],
       "current_checkout_sha256": "e47a731414210ef70c0b5fffce2828922a15611c6093c244811ee0a283534503",
       "current_byte_status": "EXACT_EARLIER_BYTES",
       "priority": true,
       "protected_original": false,
-      "current_mounted_score": 4.2,
+      "current_mounted_score": 4.5,
       "current_complete_action_score": null,
       "image_path": "assets/opera/worlds/geology/coherent_geode_v1_20261002/opening_six_states.png",
       "image_scope": "Exact unchanged source region shown by CSS; current mounted screenshot/evaluation linked separately",
       "current_binding": "scripts/opera_career_world_2d.gd",
-      "binding_sha256": "bdb08fe380e78c96918c96796f99942904f8fffea60f69860e04b039645ccdf1",
+      "binding_sha256": "d6a8c92a61961c3774eb7aadc1267167315796dbb473c716165fb7ffbe80000c",
       "owner_acceptance": null,
       "latest_refinement": {
-        "report": "audit/job_geode_route_emblem_runtime_v1_20261002/index.html#GEO-USE-CELEBRATION",
-        "note": "Normal earned celebration · 220 × 220 rect; source 4.6/5, actual mounting 4.2/5. The painted specimen itself reads 4.6: cream cavity rims surround crystals rooted inside both stone halves, with intact contour and aspect. The mounted emblem remains suspended above three empty outlined trays. Its unsupported placement prevents a 4.5 mounted pass."
+        "report": "audit/job_geode_supported_celebration_v1_20261002/index.html#GEO-USE-CELEBRATION",
+        "note": "Opened geode · supported normal celebration; material 4.6/5; mounting 4.5/5. Both cream-rimmed cavities hold rooted mineral groups. The unchanged painting rests on the same painted slab throughout every captured curtain-call frame; the generic prop bounce is absent. The former unsupported4.2 placement is replaced."
       },
-      "current_capture_review": "audit/job_geode_route_emblem_runtime_v1_20261002/REVIEW.json",
-      "current_reviewed_utc": "2026-10-02T11:52:31.742139+00:00"
+      "current_capture_review": "audit/job_geode_supported_celebration_v1_20261002/REVIEW.json",
+      "current_reviewed_utc": "2026-10-02T13:06:22.894877+00:00",
+      "mounted_review_history": [
+        {
+          "current_mounted_score": 4.2,
+          "current_source_score": 4.6,
+          "evaluation": "The painted specimen itself reads 4.6: cream cavity rims surround crystals rooted inside both stone halves, with intact contour and aspect. The mounted emblem remains suspended above three empty outlined trays. Its unsupported placement prevents a 4.5 mounted pass.",
+          "refinement": "Stage the opened specimen on an honest support and resolve the old tray/stage composition. Preserve this exact painted source and rooted crystals.",
+          "current_capture_review": "audit/job_geode_route_emblem_runtime_v1_20261002/REVIEW.json",
+          "current_reviewed_utc": "2026-10-02T11:52:31.742139+00:00",
+          "binding_sha256": "bdb08fe380e78c96918c96796f99942904f8fffea60f69860e04b039645ccdf1"
+        }
+      ]
     },
     {
       "id": "GEO-USE-DEV-MENU",
@@ -77474,16 +77512,17 @@
       "earlier_sha256": "e47a731414210ef70c0b5fffce2828922a15611c6093c244811ee0a283534503",
       "historical_source_score": 4.6,
       "current_source_score": 4.6,
-      "evaluation": "At 80 pixels, both stone halves, cavity rims and crystal groups read cleanly against the pale menu. The unchanged shared career-crest caller now gives the adult launcher the same end-state identity as the Library and earned celebration.",
-      "refinement": "Retain provisionally; confirm device rendering. This is the existing owner-directed developer launcher, not a new lesson or chapter route.",
+      "evaluation": "The pale launcher tile gives the two painted halves sufficient separation; both cavity rims and cyan/violet crystal groups read at both widths.",
+      "refinement": "Retain the same shared atlas/crop and menu caller.",
       "families": [
         "Geologist",
         "Current actual Developer playtest menu · 80 × 80"
       ],
       "original_reports": [
-        "audit/job_geode_route_emblem_runtime_v1_20261002/index.html#GEO-USE-DEV-MENU"
+        "audit/job_geode_route_emblem_runtime_v1_20261002/index.html#GEO-USE-DEV-MENU",
+        "audit/job_geode_supported_celebration_v1_20261002/index.html#GEO-USE-DEV-MENU"
       ],
-      "source_qualification": "Individually inspected current presentation at1280/1600. Exact source region and complete captured native context preserved; material, mounting and complete embodied action remain separate. No owner/device/whole-job acceptance.",
+      "source_qualification": "Fresh direct desktop native-canvas/ordered-frame review, provisional drafting opinion. Not device/child/owner or whole-job acceptance.",
       "preview_path": "assets/opera/worlds/geology/coherent_geode_v1_20261002/opening_six_states.png",
       "native_reference_observations": [],
       "current_checkout_sha256": "e47a731414210ef70c0b5fffce2828922a15611c6093c244811ee0a283534503",
@@ -77498,15 +77537,162 @@
       "binding_sha256": "3b0ccd30cf5db7a85b29e82469ad1a9101918f91ab48dac37b3bda9ddf80c090",
       "owner_acceptance": null,
       "latest_refinement": {
-        "report": "audit/job_geode_route_emblem_runtime_v1_20261002/index.html#GEO-USE-DEV-MENU",
-        "note": "Developer playtest menu · 80 × 80; source 4.6/5, actual mounting 4.6/5. At 80 pixels, both stone halves, cavity rims and crystal groups read cleanly against the pale menu. The unchanged shared career-crest caller now gives the adult launcher the same end-state identity as the Library and earned celebration."
+        "report": "audit/job_geode_supported_celebration_v1_20261002/index.html#GEO-USE-DEV-MENU",
+        "note": "Developer menu geode · 80px; material 4.6/5; mounting 4.6/5. The pale launcher tile gives the two painted halves sufficient separation; both cavity rims and cyan/violet crystal groups read at both widths."
       },
       "unchanged_caller": "scripts/opera_job_playtest_menu.gd",
-      "current_capture_review": "audit/job_geode_route_emblem_runtime_v1_20261002/REVIEW.json",
-      "current_reviewed_utc": "2026-10-02T11:52:31.742139+00:00"
+      "current_capture_review": "audit/job_geode_supported_celebration_v1_20261002/REVIEW.json",
+      "current_reviewed_utc": "2026-10-02T13:06:22.894877+00:00",
+      "mounted_review_history": [
+        {
+          "current_mounted_score": 4.6,
+          "current_source_score": 4.6,
+          "evaluation": "At 80 pixels, both stone halves, cavity rims and crystal groups read cleanly against the pale menu. The unchanged shared career-crest caller now gives the adult launcher the same end-state identity as the Library and earned celebration.",
+          "refinement": "Retain provisionally; confirm device rendering. This is the existing owner-directed developer launcher, not a new lesson or chapter route.",
+          "current_capture_review": "audit/job_geode_route_emblem_runtime_v1_20261002/REVIEW.json",
+          "current_reviewed_utc": "2026-10-02T11:52:31.742139+00:00",
+          "binding_sha256": "3b0ccd30cf5db7a85b29e82469ad1a9101918f91ab48dac37b3bda9ddf80c090"
+        }
+      ]
+    },
+    {
+      "id": "GEO-USE-SUPPORT",
+      "aliases": [
+        "GEO-USE-SUPPORT"
+      ],
+      "kind": "runtime prop region",
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/work_slab.png",
+      "region": [
+        68,
+        332,
+        889,
+        369
+      ],
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "592365e4fd9fec19fc002dc3b08fcddcbb9b40405ba21597bf518a5be1b67f80",
+      "historical_source_score": 4.6,
+      "current_source_score": 4.6,
+      "evaluation": "The same broad cream/lavender stone supports the opened pair between the cheering actors. Its stable footprint and palette agree with the specimen; sparse confetti briefly crosses it without hiding the cavities.",
+      "refinement": "Retain the supported rest; complete device and owner review.",
+      "families": [
+        "Geologist",
+        "Painted celebration support · 330 px"
+      ],
+      "original_reports": [
+        "audit/job_geode_supported_celebration_v1_20261002/index.html#GEO-USE-SUPPORT"
+      ],
+      "source_qualification": "Fresh direct desktop native-canvas/ordered-frame review, provisional drafting opinion. Not device/child/owner or whole-job acceptance.",
+      "preview_path": "assets/opera/worlds/geology/painted_work_v1_20261001/work_slab.png",
+      "native_reference_observations": [],
+      "current_checkout_sha256": "592365e4fd9fec19fc002dc3b08fcddcbb9b40405ba21597bf518a5be1b67f80",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "priority": true,
+      "protected_original": false,
+      "current_mounted_score": 4.5,
+      "current_complete_action_score": null,
+      "image_path": "assets/opera/worlds/geology/painted_work_v1_20261001/work_slab.png",
+      "image_scope": "Exact unchanged source region shown by CSS; current mounted screenshot/evaluation linked separately",
+      "current_binding": "scripts/opera_world_backdrop_2d.gd",
+      "binding_sha256": "d2ca04dc34975ca10e50de5aaaddbd504c435c027c0e88d2f151f74f39ee7dcb",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "audit/job_geode_supported_celebration_v1_20261002/index.html#GEO-USE-SUPPORT",
+        "note": "Painted celebration support · 330px; material 4.6/5; mounting 4.5/5. The same broad cream/lavender stone supports the opened pair between the cheering actors. Its stable footprint and palette agree with the specimen; sparse confetti briefly crosses it without hiding the cavities."
+      },
+      "current_capture_review": "audit/job_geode_supported_celebration_v1_20261002/REVIEW.json",
+      "current_reviewed_utc": "2026-10-02T13:06:22.894877+00:00"
+    },
+    {
+      "id": "GEO-CONTACT-SOURCE-01",
+      "aliases": [
+        "GEO-CONTACT-SOURCE-01"
+      ],
+      "kind": "source",
+      "path": "assets_src/imagegen/geologist_geode_contact_v1_20261002/attempt_01/native.png",
+      "region": null,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "earlier_sha256": "c70ec528ff095c1872935bc183f1d8a58945d130c3780f8fab37c0f275ac0fc0",
+      "historical_source_score": 4.3,
+      "current_source_score": 4.3,
+      "evaluation": "Friendly face, full mermaid fin and current tan/teal/lilac costume remain readable. Both cream-rimmed cavities keep cyan/violet crystals rooted inside and sit on the stone. Near fingers visibly contact the left shell. The two halves are chest-sized instead of hand-sized; the far hand requires a very long mostly hidden reach across the pair. Reject this as the practical working source despite its good painted material.",
+      "refinement": "Reduce both geode halves and the slab while preserving Roshan scale. Show the entire far upper arm, elbow and forearm with plausible length above the low specimen. Keep the interiors visible and both grips on outer shells.",
+      "families": [
+        "Geologist",
+        "Unbound geode work-contact source; rejected first candidate"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/geologist_geode_contact_v1_20261002/index.html"
+      ],
+      "source_qualification": "One native static source directly reviewed, not mounted gameplay, continuous animation, whole-job or owner acceptance.",
+      "preview_path": "assets_src/imagegen/geologist_geode_contact_v1_20261002/attempt_01/native.png",
+      "native_reference_observations": [],
+      "current_checkout_sha256": "c70ec528ff095c1872935bc183f1d8a58945d130c3780f8fab37c0f275ac0fc0",
+      "current_byte_status": "NEW_NAMED_GENERATED_SOURCE",
+      "priority": true,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets_src/imagegen/geologist_geode_contact_v1_20261002/attempt_01/native.png",
+      "image_scope": "Unchanged native static source on the register background; unbound, no mounted/action score",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "assets_src/imagegen/geologist_geode_contact_v1_20261002/index.html",
+        "note": "Native static pose 4.3/5; painted material 4.6. Friendly face, full mermaid fin and current tan/teal/lilac costume remain readable. Both cream-rimmed cavities keep cyan/violet crystals rooted inside and sit on the stone. Near fingers visibly contact the left shell. The two halves are chest-sized instead of hand-sized; the far hand requires a very long mostly hidden reach across the pair. Reject this as the practical working source despite its good painted material."
+      },
+      "current_capture_review": "assets_src/imagegen/geologist_geode_contact_v1_20261002/attempt_01/SOURCE_REVIEW.json",
+      "current_reviewed_utc": "2026-10-02T13:25:32.286999+00:00"
+    },
+    {
+      "id": "GEO-CONTACT-SOURCE-02",
+      "aliases": [
+        "GEO-CONTACT-SOURCE-02"
+      ],
+      "kind": "source",
+      "path": "assets_src/imagegen/geologist_geode_contact_v1_20261002/attempt_02/native.png",
+      "region": null,
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "earlier_sha256": "302b8f41ee747da8ddd34dd824506eec3f8431ffaf06fddbe253ff8fa21624ff",
+      "historical_source_score": 4.5,
+      "current_source_score": 4.5,
+      "evaluation": "The reduced pair now sits at a practical waist-level work scale on a smaller broad cream/lavender slab. Roshan has her complete curled rainbow fin, brown/rainbow hair and tan/teal/lilac geologist costume. Near fingers brace the left outer shell; the far upper arm runs from her shoulder toward the right outer grip, with proportions agreeing with the near arm. A short far forearm/elbow portion remains naturally occluded by the shell, so the static contact remains at the inclusive 4.5 drafting floor. Both cyan/violet mineral groups remain rooted inside cream rims. Material/identity/rooted semantics4.6; complete static pose4.5. Native alpha is preserved, including its low-level edge trace.",
+      "refinement": "Retain this source candidate. Test practical actual-work scale, contact anchors, the approach-to-grip/opening/settle/return states and compatibility with the existing independently opening geode before any runtime binding; do not show this settled compound alongside another painted geode.",
+      "families": [
+        "Geologist",
+        "Unbound geode work-contact source; provisionally selected second candidate"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/geologist_geode_contact_v1_20261002/index.html"
+      ],
+      "source_qualification": "Native static source directly reviewed only. Source floor does not grant runtime, accepted animation, ordinary route, target-device, child, owner or whole-job acceptance.",
+      "preview_path": "assets_src/imagegen/geologist_geode_contact_v1_20261002/attempt_02/native.png",
+      "native_reference_observations": [],
+      "current_checkout_sha256": "302b8f41ee747da8ddd34dd824506eec3f8431ffaf06fddbe253ff8fa21624ff",
+      "current_byte_status": "NEW_NAMED_GENERATED_SOURCE",
+      "priority": true,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets_src/imagegen/geologist_geode_contact_v1_20261002/attempt_02/native.png",
+      "image_scope": "Unchanged native static source on the register background; unbound, no mounted/action score",
+      "owner_acceptance": null,
+      "latest_refinement": {
+        "report": "assets_src/imagegen/geologist_geode_contact_v1_20261002/index.html",
+        "note": "Native static pose 4.5/5; painted material 4.6. The reduced pair now sits at a practical waist-level work scale on a smaller broad cream/lavender slab. Roshan has her complete curled rainbow fin, brown/rainbow hair and tan/teal/lilac geologist costume. Near fingers brace the left outer shell; the far upper arm runs from her shoulder toward the right outer grip, with proportions agreeing with the near arm. A short far forearm/elbow portion remains naturally occluded by the shell, so the static contact remains at the inclusive 4.5 drafting floor. Both cyan/violet mineral groups remain rooted inside cream rims. Material/identity/rooted semantics4.6; complete static pose4.5. Native alpha is preserved, including its low-level edge trace."
+      },
+      "current_capture_review": "assets_src/imagegen/geologist_geode_contact_v1_20261002/attempt_02/SOURCE_REVIEW.json",
+      "current_reviewed_utc": "2026-10-02T13:29:08.640331+00:00"
     }
   ],
-  "refresh_command": "python -B audit/job_artwork_refinement_live/review_tools/refresh_current_job_review_v31.py",
+  "refresh_command": "python -B audit/job_artwork_refinement_live/review_tools/refresh_current_job_review_v33.py",
   "qualification": "Literal source-byte continuity retains qualified source opinions. Current mounted/opening opinions are assigned only where exact reports state them; complete embodied action stays separate. The same source can pass material while failing mounting. Inclusive<=4.5 priorities include the named weak current representations;676 counts source opinions only. Protected originals and historical opinions remain preserved; broad all-job/device/child/owner acceptance is open.",
   "historical_register_rebuild_command": "python -X utf8 -B audit/job_artwork_refinement_live/review_tools/build_current_job_item_register_v26.py"
 }

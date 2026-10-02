@@ -1,0 +1,74 @@
+{
+  "id": "job-geode-contact-source-20261002",
+  "scope": "One static connected Geologist Roshan/geode/support work source. Current actual hand-contact scores 2.7 despite rooted opening material 4.6. No runtime binding, animation, geometry/input/save/reward changes. Preserve every candidate and judge source/contact separately from mounted action.",
+  "baseline": "bc2d14160a3f532895ed95c5db646e8cf0b451ad",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-MOT-01",
+    "DL-MOT-03"
+  ],
+  "findings": [
+    "MA-PLAY-004",
+    "MA-VIS-006"
+  ],
+  "files": [
+    ".gitattributes",
+    "ASSET_LICENSES.md",
+    "assets_src/imagegen/geologist_geode_contact_v1_20261002/.gdignore",
+    "assets_src/imagegen/geologist_geode_contact_v1_20261002/BROWSER_SOURCE_REVIEW_V332.json",
+    "assets_src/imagegen/geologist_geode_contact_v1_20261002/BROWSER_SOURCE_REVIEW_V332.png",
+    "assets_src/imagegen/geologist_geode_contact_v1_20261002/HANDOFF_ROUTE_M.json",
+    "assets_src/imagegen/geologist_geode_contact_v1_20261002/PLAN.json",
+    "assets_src/imagegen/geologist_geode_contact_v1_20261002/attempt_01/PROMPT.txt",
+    "assets_src/imagegen/geologist_geode_contact_v1_20261002/attempt_01/SOURCE_REVIEW.json",
+    "assets_src/imagegen/geologist_geode_contact_v1_20261002/attempt_01/native.png",
+    "assets_src/imagegen/geologist_geode_contact_v1_20261002/attempt_02/PLAN.json",
+    "assets_src/imagegen/geologist_geode_contact_v1_20261002/attempt_02/PROMPT.txt",
+    "assets_src/imagegen/geologist_geode_contact_v1_20261002/attempt_02/SOURCE_REVIEW.json",
+    "assets_src/imagegen/geologist_geode_contact_v1_20261002/attempt_02/native.png",
+    "assets_src/imagegen/geologist_geode_contact_v1_20261002/index.html",
+    "assets_src/imagegen/geologist_geode_contact_v1_20261002/review_tools/prepare_geode_contact_source_v330.py",
+    "assets_src/imagegen/geologist_geode_contact_v1_20261002/review_tools/record_geode_contact_a1_v331.py",
+    "assets_src/imagegen/geologist_geode_contact_v1_20261002/review_tools/record_geode_contact_a2_v332.py",
+    "assets_src/imagegen/geologist_geode_contact_v1_20261002/review_tools/register_contact_and_machine_scope_v333.py",
+    "audit/job_artwork_refinement_live/ALL_ITEMS.json",
+    "audit/job_artwork_refinement_live/ALL_ITEMS_V32.original.html",
+    "audit/job_artwork_refinement_live/ALL_ITEMS_V32.original.json",
+    "audit/job_artwork_refinement_live/all_items.html",
+    "audit/job_artwork_refinement_live/review_tools/refresh_current_job_review_v33.py",
+    "audit/job_review_v2_20261001/index.html",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "Inventory current geologist work cells, approved geode/slab and existing pan compound",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/geologist_geode_contact_v1_20261002/PLAN.json; native sources directly viewed; exact references and prompt hash recorded before generation."
+    },
+    {
+      "command": "Native first geode-contact candidate review",
+      "result": "FAIL",
+      "evidence": "assets_src/imagegen/geologist_geode_contact_v1_20261002/attempt_01/SOURCE_REVIEW.json; static pose4.3/scale4.1/far reach4.3 despite material/rooted semantics4.6."
+    },
+    {
+      "command": "Direct native complete second geode contact source review",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/geologist_geode_contact_v1_20261002/attempt_02/SOURCE_REVIEW.json; static floor4.5 only, mounted/action/owner lanes unassigned."
+    }
+  ],
+  "acceptance_gaps": "Static source only, complete action/actual mounting/arrival/opening/settle/return and device/child/owner approval remain separate."
+}

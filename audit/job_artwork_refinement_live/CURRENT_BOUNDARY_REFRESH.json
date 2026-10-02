@@ -1,13 +1,13 @@
 {
   "schema": "reef.current-review-boundary-refresh.v1",
   "status": "CURRENT_GEODE_CAPTURE_SOURCE_BOUNDARY_MATCH",
-  "checked_utc": "2026-10-02T11:52:35.220406+00:00",
-  "working_head": "c8f88df058434f1fd1b6d7fade712677003c641a",
-  "registry_items": 1726,
-  "unique_registered_paths": 1245,
-  "registered_source_matches": 1726,
+  "checked_utc": "2026-10-02T14:01:26.826034+00:00",
+  "working_head": "bc2d14160a3f532895ed95c5db646e8cf0b451ad",
+  "registry_items": 1729,
+  "unique_registered_paths": 1247,
+  "registered_source_matches": 1729,
   "source_changed_or_unavailable": [],
-  "geode_capture_source_count": 373,
+  "geode_capture_source_count": 375,
   "geode_capture_boundary_match": true,
   "geode_changed_sources": [],
   "items": [
@@ -13818,7 +13818,31 @@
       "registered_sha256": "e47a731414210ef70c0b5fffce2828922a15611c6093c244811ee0a283534503",
       "source_match": true,
       "binding_match": true
+    },
+    {
+      "id": "GEO-USE-SUPPORT",
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/work_slab.png",
+      "observed_sha256": "592365e4fd9fec19fc002dc3b08fcddcbb9b40405ba21597bf518a5be1b67f80",
+      "registered_sha256": "592365e4fd9fec19fc002dc3b08fcddcbb9b40405ba21597bf518a5be1b67f80",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "GEO-CONTACT-SOURCE-01",
+      "path": "assets_src/imagegen/geologist_geode_contact_v1_20261002/attempt_01/native.png",
+      "observed_sha256": "c70ec528ff095c1872935bc183f1d8a58945d130c3780f8fab37c0f275ac0fc0",
+      "registered_sha256": "c70ec528ff095c1872935bc183f1d8a58945d130c3780f8fab37c0f275ac0fc0",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-CONTACT-SOURCE-02",
+      "path": "assets_src/imagegen/geologist_geode_contact_v1_20261002/attempt_02/native.png",
+      "observed_sha256": "302b8f41ee747da8ddd34dd824506eec3f8431ffaf06fddbe253ff8fa21624ff",
+      "registered_sha256": "302b8f41ee747da8ddd34dd824506eec3f8431ffaf06fddbe253ff8fa21624ff",
+      "source_match": true,
+      "binding_match": null
     }
   ],
-  "qualification": "Refresh reads known literal sources and recorded binding hashes only. It does not generate art, change opinions, play the game or grant visual/owner acceptance. Changed sources withhold their current opinions in the register display; prior opinions remain in the saved register/history. Any changed member of the recorded geode capture source boundary requires a current rerender before its mounted claims can be displayed as current. Dated Doctor capture remains explicitly historical, not rescued by this refresh."
+  "qualification": "Refresh reads known literal sources and recorded binding hashes only. It does not generate art, change opinions, play the game or grant visual/owner acceptance. Changed sources withhold their current opinions in the register display; prior opinions remain in the saved register/history. Any changed member of the recorded geode capture source boundary requires a current rerender before its mounted claims can be displayed as current. All eight dated Doctor/Nursery capture cases remain explicitly historical, not rescued by this refresh."
 }

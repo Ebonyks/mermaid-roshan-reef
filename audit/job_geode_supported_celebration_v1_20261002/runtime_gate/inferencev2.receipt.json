@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "command": [
+    "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "tools/lint_inference.py",
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_world_backdrop_2d.gd",
+    "audit/job_geode_supported_celebration_v1_20261002/capture.gd",
+    "audit/job_geode_supported_celebration_v1_20261002/resource_contract.gd"
+  ],
+  "process_exit": 0,
+  "started_utc": "2026-10-02T12:54:15.470613+00:00",
+  "finished_utc": "2026-10-02T12:54:15.607091+00:00",
+  "elapsed_seconds": 0.13649399997666478,
+  "blocking_diagnostics": [],
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "qualification": "Scoped machine evidence; no visual, physical device, child, owner or full-suite acceptance."
+}

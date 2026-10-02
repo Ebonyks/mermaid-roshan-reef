@@ -1,0 +1,60 @@
+{
+  "status": "SCOPED_METHOD_DIFF_SOURCE_PNGS_AND_GEOLOGY_MECHANICS_UNCHANGED",
+  "methods": [
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "changed_existing_methods": [
+        "_anchor_goal_prop",
+        "celebrate"
+      ],
+      "new_methods": [],
+      "unchanged_existing_methods": 180,
+      "baseline_sha256": "bdb08fe380e78c96918c96796f99942904f8fffea60f69860e04b039645ccdf1",
+      "current_sha256": "d6a8c92a61961c3774eb7aadc1267167315796dbb473c716165fb7ffbe80000c"
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "changed_existing_methods": [
+        "setup",
+        "_draw_geologist"
+      ],
+      "new_methods": [
+        "_draw_geology_prop",
+        "_load_geology_props",
+        "geology_celebration_goal_rect"
+      ],
+      "unchanged_existing_methods": 25,
+      "baseline_sha256": "1897f388cd04da9bc200b7b9ec03dea6e86d57e5eee7db6cef311a453f33a8ef",
+      "current_sha256": "d2ca04dc34975ca10e50de5aaaddbd504c435c027c0e88d2f151f74f39ee7dcb"
+    }
+  ],
+  "unchanged_geology_surface": "441b24fcbd4752d6ec5bf8febfa7c79255311a813b56afb798aa19de77247666",
+  "source_inventory_checks": [
+    {
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/work_slab.png",
+      "sha256": "592365e4fd9fec19fc002dc3b08fcddcbb9b40405ba21597bf518a5be1b67f80",
+      "unchanged": true
+    },
+    {
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+      "sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+      "unchanged": true
+    },
+    {
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/pan.png",
+      "sha256": "700062113b36450983a871324847fc61fcf7c8f4225dbf489022e97152936803",
+      "unchanged": true
+    },
+    {
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/mineral.png",
+      "sha256": "b35ccc29b0adb02006828e6f4c55e6240ddec2e9b0fb1e3130132c05fb479b47",
+      "unchanged": true
+    },
+    {
+      "path": "assets/opera/worlds/geology/coherent_geode_v1_20261002/opening_six_states.png",
+      "sha256": "e47a731414210ef70c0b5fffce2828922a15611c6093c244811ee0a283534503",
+      "unchanged": true
+    }
+  ],
+  "qualification": "Source proof is separate from the fresh full behavioral suite and visual/device/owner acceptance."
+}
