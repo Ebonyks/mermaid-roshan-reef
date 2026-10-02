@@ -1,21 +1,16 @@
 {
   "schema": "reef.current-review-boundary-refresh.v1",
-  "status": "CURRENT_NURSERY_BOUNDARY_MATCH_GEODE_REVIEW_STALE",
-  "checked_utc": "2026-10-02T22:41:11.459133+00:00",
-  "working_head": "e4e26aeaa1f7e55985cb3915d35dca5aeba00d40",
-  "registry_items": 1756,
-  "unique_registered_paths": 1261,
-  "registered_source_matches": 1756,
+  "status": "CURRENT_CAPTURE_BOUNDARIES_MATCH",
+  "checked_utc": "2026-10-02T23:44:30.863984+00:00",
+  "working_head": "c2538760639d79b063152ce5530807c04545ba6e",
+  "registry_items": 1778,
+  "unique_registered_paths": 1278,
+  "registered_source_matches": 1778,
   "source_changed_or_unavailable": [],
-  "geode_capture_source_count": 375,
-  "geode_capture_boundary_match": false,
-  "geode_changed_sources": [
-    {
-      "path": "scripts/opera_career_world_2d.gd",
-      "recorded_sha256": "d6a8c92a61961c3774eb7aadc1267167315796dbb473c716165fb7ffbe80000c",
-      "observed_sha256": "36de131d46713f08171b200aa9bd81f2de7645c43866e2adbb259827c3cd5703"
-    }
-  ],
+  "geode_review": "audit/job_geode_current_recheck_v1_20261002/DIRECT_REVIEW.json",
+  "geode_capture_source_count": 783,
+  "geode_capture_boundary_match": true,
+  "geode_changed_sources": [],
   "items": [
     {
       "id": "D2F-0001",
@@ -13815,7 +13810,7 @@
       "observed_sha256": "e47a731414210ef70c0b5fffce2828922a15611c6093c244811ee0a283534503",
       "registered_sha256": "e47a731414210ef70c0b5fffce2828922a15611c6093c244811ee0a283534503",
       "source_match": true,
-      "binding_match": false
+      "binding_match": true
     },
     {
       "id": "GEO-USE-DEV-MENU",
@@ -14064,6 +14059,182 @@
       "registered_sha256": "10e494c6a677556ccf4fe636032e26f03b1af6b09b686ae97b75b57cf3fe6530",
       "source_match": true,
       "binding_match": true
+    },
+    {
+      "id": "GEO-OPEN-STATE-0",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_frames/geode_1280_0000.webp",
+      "observed_sha256": "909cb2d2ebd09bb1ca10efcaee2957373f03b667a19e4b6b8ed92d20df42629b",
+      "registered_sha256": "909cb2d2ebd09bb1ca10efcaee2957373f03b667a19e4b6b8ed92d20df42629b",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-OPEN-STATE-1",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_frames/geode_1280_0002.webp",
+      "observed_sha256": "e4ad9d52243f7df61abd0a9792c2aa92f103738db782cccac20a0c1eb7a4a1ca",
+      "registered_sha256": "e4ad9d52243f7df61abd0a9792c2aa92f103738db782cccac20a0c1eb7a4a1ca",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-OPEN-STATE-2",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_frames/geode_1280_0018.webp",
+      "observed_sha256": "53cee70bb9242818a5f6e1c2c18aea8c0d83a9793ac71d08b9d8b523d64ccd9b",
+      "registered_sha256": "53cee70bb9242818a5f6e1c2c18aea8c0d83a9793ac71d08b9d8b523d64ccd9b",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-OPEN-STATE-3",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_frames/geode_1280_0032.webp",
+      "observed_sha256": "d4cf6351773b0a722c38cf83d4f7fcb56336b3dced1384d4e4712303a8ca068f",
+      "registered_sha256": "d4cf6351773b0a722c38cf83d4f7fcb56336b3dced1384d4e4712303a8ca068f",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-OPEN-STATE-4",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_frames/geode_1280_0042.webp",
+      "observed_sha256": "2dfb6780a5b4e99bb86bc7f572de89855d8f8ed9c56c20f95227cc7dabb80938",
+      "registered_sha256": "2dfb6780a5b4e99bb86bc7f572de89855d8f8ed9c56c20f95227cc7dabb80938",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-OPEN-STATE-5",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_frames/geode_1280_0058.webp",
+      "observed_sha256": "ad6bb2fd4bbdae00b737f7cc233b1c60b81dfebf3d88396ced9456c636479f9f",
+      "registered_sha256": "ad6bb2fd4bbdae00b737f7cc233b1c60b81dfebf3d88396ced9456c636479f9f",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-OPEN-STATE-6",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_frames/geode_1280_0074.webp",
+      "observed_sha256": "38635b6c998a3914ba7cb8fe3a622b747be90ec4df8322d3b822354765d7be7c",
+      "registered_sha256": "38635b6c998a3914ba7cb8fe3a622b747be90ec4df8322d3b822354765d7be7c",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-CAVITIES",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_views/geologist_1280_phase3_full_interior_before_award.webp",
+      "observed_sha256": "548146bacc3c90b55973ba23cb2135e1618091156e7f228f31d7162f221412d0",
+      "registered_sha256": "548146bacc3c90b55973ba23cb2135e1618091156e7f228f31d7162f221412d0",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-SLAB",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_views/geologist_1280_phase3_full_interior_before_award.webp",
+      "observed_sha256": "548146bacc3c90b55973ba23cb2135e1618091156e7f228f31d7162f221412d0",
+      "registered_sha256": "548146bacc3c90b55973ba23cb2135e1618091156e7f228f31d7162f221412d0",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-CONTACT",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_views/geologist_1280_phase3_full_interior_before_award.webp",
+      "observed_sha256": "548146bacc3c90b55973ba23cb2135e1618091156e7f228f31d7162f221412d0",
+      "registered_sha256": "548146bacc3c90b55973ba23cb2135e1618091156e7f228f31d7162f221412d0",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-CLAP",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_views/geologist_1280_phase3_earned_completion.webp",
+      "observed_sha256": "3dbc3a27d6be330346e291277ae074406036ca3a0bf143d13a96b34ba7f4cf43",
+      "registered_sha256": "3dbc3a27d6be330346e291277ae074406036ca3a0bf143d13a96b34ba7f4cf43",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-ROOM",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_views/geologist_1280_phase3_invitation.webp",
+      "observed_sha256": "d72288c333ab3dc70a6bfba27f55dbc75b0394547c089ff52cb4cb47fd2fd95e",
+      "registered_sha256": "d72288c333ab3dc70a6bfba27f55dbc75b0394547c089ff52cb4cb47fd2fd95e",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-FLAT-FOSSIL",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_views/geologist_1280_phase3_invitation.webp",
+      "observed_sha256": "d72288c333ab3dc70a6bfba27f55dbc75b0394547c089ff52cb4cb47fd2fd95e",
+      "registered_sha256": "d72288c333ab3dc70a6bfba27f55dbc75b0394547c089ff52cb4cb47fd2fd95e",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-TRAYS",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_views/geologist_1280_phase3_invitation.webp",
+      "observed_sha256": "d72288c333ab3dc70a6bfba27f55dbc75b0394547c089ff52cb4cb47fd2fd95e",
+      "registered_sha256": "d72288c333ab3dc70a6bfba27f55dbc75b0394547c089ff52cb4cb47fd2fd95e",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-HALO",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_views/geologist_1280_phase3_invitation.webp",
+      "observed_sha256": "d72288c333ab3dc70a6bfba27f55dbc75b0394547c089ff52cb4cb47fd2fd95e",
+      "registered_sha256": "d72288c333ab3dc70a6bfba27f55dbc75b0394547c089ff52cb4cb47fd2fd95e",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-CELEBRATION-CONTEXT",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_frames/geode_1280_0112.webp",
+      "observed_sha256": "5ef3fa46c5080ac989fd989823afa3813caf80b47d16ac053dafdb36f700ac51",
+      "registered_sha256": "5ef3fa46c5080ac989fd989823afa3813caf80b47d16ac053dafdb36f700ac51",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-FOSSIL-CLEARING",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_views/geologist_1280_phase1_two_pieces.webp",
+      "observed_sha256": "d724b07d8ef6c763ea9711ec495e156670ba698e1c9137e2c5bf46f56f638afd",
+      "registered_sha256": "d724b07d8ef6c763ea9711ec495e156670ba698e1c9137e2c5bf46f56f638afd",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-PAN-ACTION",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_views/geologist_1280_phase2_pan_left.webp",
+      "observed_sha256": "fddedf70dfb7c1bab997ad8e89860919cd723b9f8eca0efcf8beaec0d4ec2ddc",
+      "registered_sha256": "fddedf70dfb7c1bab997ad8e89860919cd723b9f8eca0efcf8beaec0d4ec2ddc",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-RETURN-CAPTION",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_views/geologist_1280_actual_earned_library_return.webp",
+      "observed_sha256": "50d7cf13981e28a1665756690a4f45709e546d1f8b873f8f17baec4f2254584a",
+      "registered_sha256": "50d7cf13981e28a1665756690a4f45709e546d1f8b873f8f17baec4f2254584a",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-LIBRARY-ART",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_views/geologist_1280_normal_library_card.webp",
+      "observed_sha256": "12b60b8d196336fbe64c3b09f8c1cd4640956fd01ef33d247333a1d2849eb72b",
+      "registered_sha256": "12b60b8d196336fbe64c3b09f8c1cd4640956fd01ef33d247333a1d2849eb72b",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-RIVER-MOUNT",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_views/geologist_1280_phase0_earned_completion.webp",
+      "observed_sha256": "85fc9f2ea33409455be8a3eeb0c2073041ddd1742bfa4d9d9b635c48e5a23422",
+      "registered_sha256": "85fc9f2ea33409455be8a3eeb0c2073041ddd1742bfa4d9d9b635c48e5a23422",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "GEO-BRUSH-MOUNT",
+      "path": "audit/job_geode_current_recheck_v1_20261002/attempt01/native_views/geologist_1280_phase1_partial_brush.webp",
+      "observed_sha256": "aacbf9406f6f43b52256cb20ecc247a8ae9c8a2ec8296281cbdb49f62383f7b6",
+      "registered_sha256": "aacbf9406f6f43b52256cb20ecc247a8ae9c8a2ec8296281cbdb49f62383f7b6",
+      "source_match": true,
+      "binding_match": null
     }
   ],
   "qualification": "Refresh reads known literal sources and recorded binding hashes only. It does not generate art, change opinions, play the game or grant visual/owner acceptance. Changed sources withhold their current opinions in the register display; prior opinions remain in the saved register/history. Any changed member of the recorded geode capture source boundary requires a current rerender before its mounted claims can be displayed as current. All eight dated Doctor/Nursery capture cases remain explicitly historical, not rescued by this refresh. Current Nursery v3 room/caller captures are separately source-bound; old Doctor/birthday/full-career/device evidence is not promoted by a hash refresh.",

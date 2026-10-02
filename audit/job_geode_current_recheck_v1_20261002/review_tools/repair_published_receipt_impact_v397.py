@@ -1,0 +1,8 @@
+from pathlib import Path
+import json,shutil
+b=Path('C:/Users/Peter/.codex/worktrees/job-art-review-v2-20261001/mermaid-roshan-reef');f=b/'audit/job_geode_current_recheck_v1_20261002';p=b/'design/audit_impacts/job-nursery-published-verification-20261002.json';d=json.loads(p.read_text())
+d['acceptance_gaps']='Receipt-only evidence for previously publishedc253 checkpoint. Hosted probes were in progress at the dated snapshot. Source/machine/anonymous remote verification is distinct from visual, device, child, owner, strict2D, complete all-job, integration or release acceptance. Targeted Nursery external reference upload and Geologist preview-tab persistence await separate explicit authorization; publication does not authorize either blocked action.'
+p.write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
+q=f/'review_tools/prepare_current_review_checkpoint_p_v396.py';s=q.read_text().replace('_final_v2','_final_v3');out=f/'review_tools/prepare_current_review_checkpoint_p_v397.py';assert not out.exists();out.write_text(s,encoding='utf-8',newline='\n');shutil.copyfile(__file__,f/'review_tools'/Path(__file__).name)
+(f/'IMPACT_REPAIR_V397.json').write_text(json.dumps(dict(status='PRESERVED_DEVELOPMENT_GATE_FAILURE_REPAIRED',failure='development_final_v2: receipt-only impact missing mandatory acceptance_gaps; its18 exact paths consequently not accepted as covered.',repair='Add required honest acceptance_gaps to receipt impact. Run unchanged authority/development tools again as final_v3. Earlier failed logs/receipt preserved. No paths omitted or gate waived.'),indent=2)+'\n',encoding='utf-8')
+print('Receipt impact mandatory acceptance_gaps repaired; previous failed development check preserved.')

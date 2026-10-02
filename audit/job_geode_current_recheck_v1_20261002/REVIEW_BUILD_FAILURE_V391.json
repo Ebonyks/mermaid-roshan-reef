@@ -1,0 +1,6 @@
+{
+  "status": "PRESERVED_REPAIRED_QA_METADATA_FAILURE",
+  "error": "Count assertion included two runtime source records as use/action entries; registry unchanged because assertion occurred before its write. Corrected count excludes source and runtime source equally. Every direct image review unchanged.",
+  "repair": "review_tools/record_current_geode_review_v392.py",
+  "intermediate_shell_failure": "Quoted inline repair was rejected by Python syntax parser before writing or executing. This saved helper replaces the failed inline command."
+}

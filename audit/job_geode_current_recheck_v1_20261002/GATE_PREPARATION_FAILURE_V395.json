@@ -1,0 +1,9 @@
+{
+  "status": "PRESERVED_PREPARATION_FAILURE",
+  "actual_audit_commands_executed": false,
+  "failures": [
+    "authority_final_v1.stdout.log declared but absent",
+    "authority_final_v1.stderr.log remained absent during next attempted preparation"
+  ],
+  "repair": "Create explicit PENDING receipt and empty log files before exact stage checks, then execute unchanged authority/development tools as final_v2. No checker suppression, covered-path omission or waived gate."
+}

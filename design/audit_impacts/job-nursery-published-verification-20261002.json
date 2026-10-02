@@ -1,0 +1,56 @@
+{
+  "id": "job-nursery-published-verification-20261002",
+  "scope": "Persist complete anonymous immutable-byte verification for the connected Nursery topic checkpoint c2538760: all15118 required payload/reference files, complete per-file journal, publisher commands and unchanged783 local source boundary. Record hosted probes as a separate dated snapshot; preserve every creative/action/device/child/owner/integration/release limit and the explicit pending imagegen-reference upload. No artwork, production/source behavior, metadata settings, finding lifecycle, protected originals or release changes.",
+  "baseline": "c2538760639d79b063152ce5530807c04545ba6e",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-06"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004",
+    "MA-OPERA-012"
+  ],
+  "files": [
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/job_nursery_wash_connected_v1_20261002/remote_verified_v1/BOUNDARY_UNCHANGED.json",
+    "audit/job_nursery_wash_connected_v1_20261002/remote_verified_v1/HOSTED_PROBES_SNAPSHOT_V1.json",
+    "audit/job_nursery_wash_connected_v1_20261002/remote_verified_v1/PUBLISH_RECEIPT.json",
+    "audit/job_nursery_wash_connected_v1_20261002/remote_verified_v1/RESULT.json",
+    "audit/job_nursery_wash_connected_v1_20261002/remote_verified_v1/VERIFICATION_JOURNAL.jsonl",
+    "audit/job_nursery_wash_connected_v1_20261002/remote_verified_v1/authority.stderr.log",
+    "audit/job_nursery_wash_connected_v1_20261002/remote_verified_v1/authority.stdout.log",
+    "audit/job_nursery_wash_connected_v1_20261002/remote_verified_v1/commit.stderr.log",
+    "audit/job_nursery_wash_connected_v1_20261002/remote_verified_v1/commit.stdout.log",
+    "audit/job_nursery_wash_connected_v1_20261002/remote_verified_v1/development.stderr.log",
+    "audit/job_nursery_wash_connected_v1_20261002/remote_verified_v1/development.stdout.log",
+    "audit/job_nursery_wash_connected_v1_20261002/remote_verified_v1/fetch.stderr.log",
+    "audit/job_nursery_wash_connected_v1_20261002/remote_verified_v1/fetch.stdout.log",
+    "audit/job_nursery_wash_connected_v1_20261002/remote_verified_v1/index.html",
+    "audit/job_nursery_wash_connected_v1_20261002/remote_verified_v1/publish_connected_nursery_checkpoint_o_v386.py",
+    "audit/job_nursery_wash_connected_v1_20261002/remote_verified_v1/push.stderr.log",
+    "audit/job_nursery_wash_connected_v1_20261002/remote_verified_v1/push.stdout.log",
+    "audit/job_nursery_wash_connected_v1_20261002/review_tools/record_nursery_remote_verification_v389.py",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "Anonymous immutable topic payload/reference verification",
+      "result": "PASS",
+      "evidence": "audit/job_nursery_wash_connected_v1_20261002/remote_verified_v1/RESULT.json"
+    },
+    {
+      "command": "Unchanged783 local production/test/capture/import/UID members",
+      "result": "PASS",
+      "evidence": "audit/job_nursery_wash_connected_v1_20261002/remote_verified_v1/BOUNDARY_UNCHANGED.json"
+    }
+  ],
+  "acceptance_gaps": "Receipt-only evidence for previously publishedc253 checkpoint. Hosted probes were in progress at the dated snapshot. Source/machine/anonymous remote verification is distinct from visual, device, child, owner, strict2D, complete all-job, integration or release acceptance. Targeted Nursery external reference upload and Geologist preview-tab persistence await separate explicit authorization; publication does not authorize either blocked action."
+}
