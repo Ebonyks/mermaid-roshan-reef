@@ -1,0 +1,55 @@
+{
+  "status": "V4_UNIFORM_SCALE_CALIBRATION_PENDING_NATIVE_REVIEW",
+  "source_native_dimensions": [
+    1254,
+    1254
+  ],
+  "complete_runtime_derivative": [
+    1024,
+    1024
+  ],
+  "native_to_derivative": 0.8165869218500797,
+  "grid_cell": [
+    88,
+    76
+  ],
+  "branch_uniform_scale": 0.18,
+  "native_anchors": {
+    "elbow": [
+      889,
+      407
+    ],
+    "tee": [
+      317,
+      963
+    ],
+    "cross": [
+      941,
+      915.5
+    ],
+    "endcap": [
+      345.5555556,
+      345
+    ]
+  },
+  "endcap_uniform_scale": 0.18,
+  "straight_native_region": {
+    "wet": [
+      334.5,
+      734,
+      586,
+      302
+    ],
+    "dry": [
+      334.5,
+      310,
+      586,
+      300
+    ]
+  },
+  "orientation": "Normal Canvas2D rotation; quarter turns swap88/76 native field extents so final terminal planes still match grid centres. Complete closed endcap bowl retained, only open stubs trimmed.",
+  "method": "Read-only AtlasTexture fields of complete preserved derivatives. No rendered image pixels copied/edited, masking, warping or alpha repair. New source sampling/closed boundaries and every actual join still require direct native review.",
+  "reference": "Native wet aqua threshold was read-only RGBA/aquacolor geometry measurement; anchors are experimental, not accepted by IoU or source4.6 alone.",
+  "prior": "TILE_CALIBRATION_V3.json",
+  "reason": "V3 branches sampled before their banks become parallel; reduce branch uniform scale to match existing endcap width and sample nearer its already-painted open port. No pixels regenerated/stretched/warped/repaired. This experiment must pass every actual native join separately."
+}

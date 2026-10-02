@@ -1,0 +1,62 @@
+{
+  "status": "PASS_OBSERVED_BROWSER_LOADING",
+  "checked_utc": "2026-10-02T08:56:17.449831+00:00",
+  "browser": "Codex in-app browser4/tab36",
+  "viewport": 1280,
+  "document_width": 1265,
+  "checks": [
+    {
+      "path": "audit/job_geology_river_runtime_v1_20261002/network.html?revision=current-ci-pass",
+      "images": 28,
+      "loaded": 28,
+      "broken": 0
+    },
+    {
+      "path": "audit/job_geology_river_runtime_v1_20261002/timed.html?revision=actual-timed-v1",
+      "images": 26,
+      "loaded": 26,
+      "broken": 0,
+      "frame_evaluations": 312
+    },
+    {
+      "path": "audit/job_geode_coherent_pilot_v1_20261002/index.html?revision=pilot-v1",
+      "images": 26,
+      "loaded": 26,
+      "broken": 0,
+      "frame_evaluations": 312
+    },
+    {
+      "path": "assets_src/imagegen/geologist_geode_coherent_states_v1_20261002/index.html",
+      "images": 65,
+      "loaded": 65,
+      "broken": 0
+    },
+    {
+      "path": "audit/job_artwork_refinement_live/all_items.html?revision=geode-timed-v1&q=GEO-RIVER-RUNTIME-",
+      "filter": "GEO-RIVER-RUNTIME-",
+      "lane": "All known items",
+      "images": 6,
+      "loaded": 6,
+      "broken": 0
+    },
+    {
+      "path": "audit/job_artwork_refinement_live/all_items.html?revision=v27-pilot",
+      "filter": "GEO-COHERENT",
+      "lane": "All known items",
+      "matched": 65,
+      "page_images": [
+        30,
+        30,
+        5
+      ],
+      "page_loaded": [
+        30,
+        30,
+        5
+      ],
+      "broken": 0,
+      "first_region_style": "position:absolute;max-width:none;max-height:none;width:660px;height:440px;left:-220px;top:-220px;object-fit:fill"
+    }
+  ],
+  "qualification": "Browser DOM loading/layout/navigation verification only; every1712 register entry is not claimed loaded, and loading is not creative or owner acceptance."
+}

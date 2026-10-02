@@ -1,0 +1,33 @@
+{
+  "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/straight_attempt_02/whole_canvas_1024.png",
+  "sha256": "3631a77a46b75838be0979e96d32fe972923051d5cdea15615a3a63e5695f1b1",
+  "source_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/straight_attempt_02/native_generated.png",
+  "source_sha256": "77d996ebb8df367871868c5c09f6aee82976dccc05bc3cee84cbc8e5c050590f",
+  "dimensions": [
+    1024,
+    1024
+  ],
+  "method": "UNIFORM_COMPLETE_CANVAS1254_TO1024_RGBA_LANCZOS",
+  "command": [
+    "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/FFmpeg/8.1.2/bin/ffmpeg.exe",
+    "-hide_banner",
+    "-loglevel",
+    "warning",
+    "-i",
+    "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_river_junctions_v1_20261001\\straight_attempt_02\\native_generated.png",
+    "-vf",
+    "scale=1024:1024:flags=lanczos",
+    "-frames:v",
+    "1",
+    "-pix_fmt",
+    "rgba",
+    "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_river_junctions_v1_20261001\\straight_attempt_02\\whole_canvas_1024.png"
+  ],
+  "pixel_repair": false,
+  "alpha_cleanup": false,
+  "direct_review": true,
+  "source_score": 4.6,
+  "runtime_bound": false,
+  "reviewed_utc": "2026-10-02T07:24:38.986306+00:00",
+  "qualification": "Complete1024 RGBA derivative directly inspected, full contours and broad painted surface retained. Whole uniform transform only, no alpha cleanup. Source4.6; V6 wet detail4.5 provisional, dry loop4.4 below floor."
+}

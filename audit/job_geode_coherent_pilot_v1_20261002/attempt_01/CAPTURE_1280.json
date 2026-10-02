@@ -1,0 +1,5440 @@
+{
+	"events": [
+		{
+			"event": "viewport_invitation_arrival_open",
+			"phase_index": 0,
+			"task_open": true
+		},
+		{
+			"event": "intentional_completed",
+			"phase_index": 0,
+			"progress": 1.0
+		},
+		{
+			"event": "ordinary_advance_after_hold",
+			"phase_index": 1
+		},
+		{
+			"event": "viewport_invitation_arrival_open",
+			"phase_index": 1,
+			"task_open": true
+		},
+		{
+			"event": "intentional_completed",
+			"phase_index": 1,
+			"progress": 1.0
+		},
+		{
+			"event": "ordinary_advance_after_hold",
+			"phase_index": 2
+		},
+		{
+			"event": "viewport_invitation_arrival_open",
+			"phase_index": 2,
+			"task_open": true
+		},
+		{
+			"event": "intentional_completed",
+			"phase_index": 2,
+			"progress": 1.0
+		},
+		{
+			"event": "ordinary_advance_after_hold",
+			"phase_index": 3
+		},
+		{
+			"event": "viewport_invitation_arrival_open",
+			"phase_index": 3,
+			"task_open": true
+		},
+		{
+			"event": "passive_open_no_progress",
+			"phase_index": 3
+		},
+		{
+			"event": "intentional_completed",
+			"phase_index": 3,
+			"progress": 1.0
+		}
+	],
+	"final_checkpoint": {
+		"mechanic": {},
+		"phase_index": 4,
+		"version": 1
+	},
+	"motion_frames": [
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 0,
+			"direct_review": false,
+			"index": 0,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0000.webp",
+			"phase_index": 3,
+			"pull": 0.0,
+			"scores": {},
+			"sha256": "40ba40117de1d96255601261bd65ea0364a7dfd237ebd71684d77b89566e2b0b",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 48351,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 0,
+			"direct_review": false,
+			"index": 1,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0001.webp",
+			"phase_index": 3,
+			"pull": 0.0,
+			"scores": {},
+			"sha256": "9bb55eeae884a185dbd4e1baf30c364fd5bfc366a7a83cc4bdb036a1f1da9f61",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 48455,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 1,
+			"direct_review": false,
+			"index": 2,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0002.webp",
+			"phase_index": 3,
+			"pull": 2.5,
+			"scores": {},
+			"sha256": "ff7db28305e7259ebc7718e9383aece7bbcb45dc3a125a36cd05f337f3995d2c",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 2.5,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 48571,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 1,
+			"direct_review": false,
+			"index": 3,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0003.webp",
+			"phase_index": 3,
+			"pull": 2.5,
+			"scores": {},
+			"sha256": "33a0a37e7ed19da621725fb09e78dcd4dfeec7793bbfbdf9607bf6038a87a5b3",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 2.5,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 48674,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 1,
+			"direct_review": false,
+			"index": 4,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0004.webp",
+			"phase_index": 3,
+			"pull": 5.0,
+			"scores": {},
+			"sha256": "5cd1446ffc03edc276426b33bbf98803ea9aec38deeb07ba3c0f2e353b40112c",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 5.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 48794,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 1,
+			"direct_review": false,
+			"index": 5,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0005.webp",
+			"phase_index": 3,
+			"pull": 5.0,
+			"scores": {},
+			"sha256": "5bab8d4a59d4393634afcecff4dcbdd7f3a27986d6b6738a59d25587a066e0e1",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 5.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 48897,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 1,
+			"direct_review": false,
+			"index": 6,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0006.webp",
+			"phase_index": 3,
+			"pull": 7.5,
+			"scores": {},
+			"sha256": "2500a1c8a64ebc283f37e57e345693383029de9a00de715e2bd8a862acd9d2f0",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 7.5,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 49002,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 1,
+			"direct_review": false,
+			"index": 7,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0007.webp",
+			"phase_index": 3,
+			"pull": 7.5,
+			"scores": {},
+			"sha256": "fefd0e1aa2a4ea640fc53e46cf9b4becb201bc6e564f94eed15d86520fa76e03",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 7.5,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 49105,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 1,
+			"direct_review": false,
+			"index": 8,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0008.webp",
+			"phase_index": 3,
+			"pull": 10.0,
+			"scores": {},
+			"sha256": "cc0cf50ea3f5e6877c9e6d143a9485acaabc3b77481a539a3df33aa9d4a5815e",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 10.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 49212,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 1,
+			"direct_review": false,
+			"index": 9,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0009.webp",
+			"phase_index": 3,
+			"pull": 10.0,
+			"scores": {},
+			"sha256": "c4857879fb365529c179f8b5486207bef461fe3a381b66b8af33ba8051f3b403",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 10.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 49315,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 1,
+			"direct_review": false,
+			"index": 10,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0010.webp",
+			"phase_index": 3,
+			"pull": 12.5,
+			"scores": {},
+			"sha256": "b9444b91b8fcfe5d9288151c695c6cf1abdca5af70dc4854044f5cc2034fc07c",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 12.5,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 49420,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 1,
+			"direct_review": false,
+			"index": 11,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0011.webp",
+			"phase_index": 3,
+			"pull": 12.5,
+			"scores": {},
+			"sha256": "af022099a6d12225882953454b443de5b6335c34cf6142a5e3a91af502e9a3dd",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 12.5,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 49521,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 1,
+			"direct_review": false,
+			"index": 12,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0012.webp",
+			"phase_index": 3,
+			"pull": 15.0,
+			"scores": {},
+			"sha256": "21e1cc9c65d4fe0278744e55cf7c19afaaa0e200abd07ceb4a2b1dfbcb41cf54",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 15.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 49639,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 1,
+			"direct_review": false,
+			"index": 13,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0013.webp",
+			"phase_index": 3,
+			"pull": 15.0,
+			"scores": {},
+			"sha256": "9f90ee1c374d38ff72feb15fd0c3d9031f5ddb8c97bd8325ca9f0ff8ac864e66",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 15.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 49752,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 1,
+			"direct_review": false,
+			"index": 14,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0014.webp",
+			"phase_index": 3,
+			"pull": 17.5,
+			"scores": {},
+			"sha256": "5d4957decc37e49c2c16e2dfc15bedc411dfe9a335a58adbee21ab7ac547eff0",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 17.5,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 49899,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 1,
+			"direct_review": false,
+			"index": 15,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0015.webp",
+			"phase_index": 3,
+			"pull": 17.5,
+			"scores": {},
+			"sha256": "3f1192afce0a6547531f67bb40597271510426770b008895960c4e9ed8c283fa",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 17.5,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 50014,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 2,
+			"direct_review": false,
+			"index": 16,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0016.webp",
+			"phase_index": 3,
+			"pull": 20.0,
+			"scores": {},
+			"sha256": "fcaa0b091916c136c2b8955ed83269f5d6cb13bffa21c2afe0cc1c368bb2e09b",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 20.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 50124,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 2,
+			"direct_review": false,
+			"index": 17,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0017.webp",
+			"phase_index": 3,
+			"pull": 20.0,
+			"scores": {},
+			"sha256": "8c7f2dd2a843b99aaa3cadd04a634ed03259d252d5700b69eaedf3eef3dcdaa6",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 20.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 50241,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 2,
+			"direct_review": false,
+			"index": 18,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0018.webp",
+			"phase_index": 3,
+			"pull": 22.5,
+			"scores": {},
+			"sha256": "b8bad79163fb50d1f097acf3e913eeed58b037d15c4cb757b58a2bdb1d666305",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 22.5,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 50355,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 2,
+			"direct_review": false,
+			"index": 19,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0019.webp",
+			"phase_index": 3,
+			"pull": 22.5,
+			"scores": {},
+			"sha256": "d4a709245f263f391c1d21973cd164385b9973b256bdd17c5f33b6ebd15f0f7a",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 22.5,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 50473,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 2,
+			"direct_review": false,
+			"index": 20,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0020.webp",
+			"phase_index": 3,
+			"pull": 25.0,
+			"scores": {},
+			"sha256": "ec3f5964072f2d845f733692b6f2bd372391ce78150f5439eddededdf1605c3e",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 25.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 50595,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 2,
+			"direct_review": false,
+			"index": 21,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0021.webp",
+			"phase_index": 3,
+			"pull": 25.0,
+			"scores": {},
+			"sha256": "ec79bddf57ef79c8ba64366cc5b430c7667f5432c49ec5e2a8609e6f2060ac9b",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 25.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 50696,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 2,
+			"direct_review": false,
+			"index": 22,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0022.webp",
+			"phase_index": 3,
+			"pull": 25.0,
+			"scores": {},
+			"sha256": "7de5ff5552f004932123d9189d473b3aa55f3877fa99fe6a784fbdae57e91ec9",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 25.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 50808,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 2,
+			"direct_review": false,
+			"index": 23,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0023.webp",
+			"phase_index": 3,
+			"pull": 25.0,
+			"scores": {},
+			"sha256": "63c889d6f5e4e896f6ec3f9f16acccc353d24d2541cdd04c67046b920973b965",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 25.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 50934,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 2,
+			"direct_review": false,
+			"index": 24,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0024.webp",
+			"phase_index": 3,
+			"pull": 25.0,
+			"scores": {},
+			"sha256": "d63a9586ad124b532b9db17b38940987e494c4c3d0084c88e39dbe01c0b34594",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 25.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 51036,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 2,
+			"direct_review": false,
+			"index": 25,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0025.webp",
+			"phase_index": 3,
+			"pull": 25.0,
+			"scores": {},
+			"sha256": "a33a6bdbef363f9bdf49b30cbbee427c5a2abc6ce70a01680fa293d4e4345c73",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 25.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 51141,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 2,
+			"direct_review": false,
+			"index": 26,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0026.webp",
+			"phase_index": 3,
+			"pull": 29.0,
+			"scores": {},
+			"sha256": "2bceea65be615fd66f661562dbf071800d98d5cf20578fc55a44eebaa74a7c32",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 29.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 51246,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 2,
+			"direct_review": false,
+			"index": 27,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0027.webp",
+			"phase_index": 3,
+			"pull": 29.0,
+			"scores": {},
+			"sha256": "f509fef177facc8b57dba3a397f2cd2ffd421e24f8e06d7b8c1c34a9ca87f331",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 29.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 51346,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 2,
+			"direct_review": false,
+			"index": 28,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0028.webp",
+			"phase_index": 3,
+			"pull": 33.0,
+			"scores": {},
+			"sha256": "a7619e801afd69f66cdbee9d90da8fbf4e5f116f689c75655d524658ca93d334",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 33.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 51448,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 2,
+			"direct_review": false,
+			"index": 29,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0029.webp",
+			"phase_index": 3,
+			"pull": 33.0,
+			"scores": {},
+			"sha256": "60b6c5c1a7d36d9ec10b178d21904dd59a58c6970a1a72a1e1fe8b8b2b005827",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 33.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 51547,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 2,
+			"direct_review": false,
+			"index": 30,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0030.webp",
+			"phase_index": 3,
+			"pull": 37.0,
+			"scores": {},
+			"sha256": "930363c6d1030436c0e2922644e27d0c2ff56e0d6ce71bd9c7e1c7face87158c",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 37.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 51651,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 2,
+			"direct_review": false,
+			"index": 31,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0031.webp",
+			"phase_index": 3,
+			"pull": 37.0,
+			"scores": {},
+			"sha256": "8b37dfc7db4d0fdfefa3f4a2586a687c4d3bf1ac683188f29259c07b93e6b2ba",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 37.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 51755,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 3,
+			"direct_review": false,
+			"index": 32,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0032.webp",
+			"phase_index": 3,
+			"pull": 41.0,
+			"scores": {},
+			"sha256": "366e30ff1b9f3b5d2c051b71313cbabef7eb1607f1bfec9eb3c550e8523eafcf",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 41.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 51867,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 3,
+			"direct_review": false,
+			"index": 33,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0033.webp",
+			"phase_index": 3,
+			"pull": 41.0,
+			"scores": {},
+			"sha256": "4effa399276da9d1751639249669e0a1fea3e2b3aaf161c6f57e82806c8428b7",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 41.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 51995,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 3,
+			"direct_review": false,
+			"index": 34,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0034.webp",
+			"phase_index": 3,
+			"pull": 45.0,
+			"scores": {},
+			"sha256": "502d1bc34e81466b976bd5fb2f858f359db4bec2c707b321ec725d13aa7f088c",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 45.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 52101,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 3,
+			"direct_review": false,
+			"index": 35,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0035.webp",
+			"phase_index": 3,
+			"pull": 45.0,
+			"scores": {},
+			"sha256": "037ccb847923f85c7b8c600f07932ded8510cba608ddaa31c2cf54acf41f8dd6",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 45.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 52210,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 3,
+			"direct_review": false,
+			"index": 36,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0036.webp",
+			"phase_index": 3,
+			"pull": 49.0,
+			"scores": {},
+			"sha256": "8022ce66903aacb22288a3c2106a20c39546af42d51dfbd7038f6c679553d947",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 49.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 52317,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 3,
+			"direct_review": false,
+			"index": 37,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0037.webp",
+			"phase_index": 3,
+			"pull": 49.0,
+			"scores": {},
+			"sha256": "d5a3b11805a372a4f45ca5a97c6b5edb45a8f084ca70fb9291ed27592773e869",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 49.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 52424,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 3,
+			"direct_review": false,
+			"index": 38,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0038.webp",
+			"phase_index": 3,
+			"pull": 53.0,
+			"scores": {},
+			"sha256": "92c52026e05d4b093ec3f5923945ab0af4d67b3e496bde674784f3a4608c01bf",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 53.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 52529,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 3,
+			"direct_review": false,
+			"index": 39,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0039.webp",
+			"phase_index": 3,
+			"pull": 53.0,
+			"scores": {},
+			"sha256": "638102748782a40209b796a54fb73b6880ef393842491546ed115d78f5d7cbb8",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 53.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 52632,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 3,
+			"direct_review": false,
+			"index": 40,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0040.webp",
+			"phase_index": 3,
+			"pull": 57.0,
+			"scores": {},
+			"sha256": "37a34a30496933b05788190f57566267854fbbb021c17f73933854fafd975e93",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 57.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 52740,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 3,
+			"direct_review": false,
+			"index": 41,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0041.webp",
+			"phase_index": 3,
+			"pull": 57.0,
+			"scores": {},
+			"sha256": "81c6b7bc7efcfb7b7c5323c72e429879865b9674a773f0f4f8633e257f3ff3a7",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 57.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 52860,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 4,
+			"direct_review": false,
+			"index": 42,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0042.webp",
+			"phase_index": 3,
+			"pull": 61.0,
+			"scores": {},
+			"sha256": "7862ab9f360a8acc186e9127f07ea522993fa940b313c40024ed20e44f4b3805",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 61.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 52964,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 4,
+			"direct_review": false,
+			"index": 43,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0043.webp",
+			"phase_index": 3,
+			"pull": 61.0,
+			"scores": {},
+			"sha256": "0e3f8fa52fd69436a0bfa1931c8622af012754ceb026e0bd2d5858373fb8eb6f",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 61.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 53098,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 4,
+			"direct_review": false,
+			"index": 44,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0044.webp",
+			"phase_index": 3,
+			"pull": 65.0,
+			"scores": {},
+			"sha256": "bad83567635dcfb6ccfac3307f5c15c17204b67b2ea1946c8d17063cd6e87c85",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 65.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 53222,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 4,
+			"direct_review": false,
+			"index": 45,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0045.webp",
+			"phase_index": 3,
+			"pull": 65.0,
+			"scores": {},
+			"sha256": "ffd5a2471ffe27f6cf79be9bf0c6d1f19e19e126e1de01eb64f6201e30a81768",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 65.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 53334,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 4,
+			"direct_review": false,
+			"index": 46,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0046.webp",
+			"phase_index": 3,
+			"pull": 65.0,
+			"scores": {},
+			"sha256": "c186fb76d319bbf477a356a91adf8065ae3619fe1c175d30e2867098509ed682",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 65.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 53445,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 4,
+			"direct_review": false,
+			"index": 47,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0047.webp",
+			"phase_index": 3,
+			"pull": 65.0,
+			"scores": {},
+			"sha256": "c186fb76d319bbf477a356a91adf8065ae3619fe1c175d30e2867098509ed682",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 65.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 53558,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 4,
+			"direct_review": false,
+			"index": 48,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0048.webp",
+			"phase_index": 3,
+			"pull": 65.0,
+			"scores": {},
+			"sha256": "c91b3d7cf64cdd36230f3e4fb104444f1c563e02d6e8491d42536b7ebe35ed6d",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 65.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 53692,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 4,
+			"direct_review": false,
+			"index": 49,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0049.webp",
+			"phase_index": 3,
+			"pull": 65.0,
+			"scores": {},
+			"sha256": "742fc8298881bceb0add48684f91f9edcfab5deb724c6cc7af6b3a4123859a58",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 65.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 53802,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 4,
+			"direct_review": false,
+			"index": 50,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0050.webp",
+			"phase_index": 3,
+			"pull": 68.0,
+			"scores": {},
+			"sha256": "47f246411446e4feeae3418113e50115bdc68ddd9d85deaabe3604a592ca49f5",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 68.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 53909,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 4,
+			"direct_review": false,
+			"index": 51,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0051.webp",
+			"phase_index": 3,
+			"pull": 68.0,
+			"scores": {},
+			"sha256": "fe05ccaade04ff9d508372cadd9b8af559c4dfa602d3d0cfe24b069cafbbf316",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 68.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 54027,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 4,
+			"direct_review": false,
+			"index": 52,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0052.webp",
+			"phase_index": 3,
+			"pull": 71.0,
+			"scores": {},
+			"sha256": "5d7bfe7fde56884f39767485add795ca8c5755ba81984369eecf3bacb11ef342",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 71.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 54160,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 4,
+			"direct_review": false,
+			"index": 53,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0053.webp",
+			"phase_index": 3,
+			"pull": 71.0,
+			"scores": {},
+			"sha256": "91178d289610c42a4cc8bd4ec3923047b2fd7ef072c31a180c373c4a4c1f631f",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 71.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 54272,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 4,
+			"direct_review": false,
+			"index": 54,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0054.webp",
+			"phase_index": 3,
+			"pull": 74.0,
+			"scores": {},
+			"sha256": "c790b944ac214621232c45642a95da6820d3d54099f148a9026ebe96f89782bc",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 74.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 54390,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 4,
+			"direct_review": false,
+			"index": 55,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0055.webp",
+			"phase_index": 3,
+			"pull": 74.0,
+			"scores": {},
+			"sha256": "2c0818e0ee3e124ae1bd6387efbf35bb00df30c6ba3d6d9c767894a63698cfff",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 74.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 54498,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 4,
+			"direct_review": false,
+			"index": 56,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0056.webp",
+			"phase_index": 3,
+			"pull": 77.0,
+			"scores": {},
+			"sha256": "74a19c128b93ab1fb9433685bc48083027a5704b05ff13a9862f75183e0e9c96",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 77.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 54602,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 4,
+			"direct_review": false,
+			"index": 57,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0057.webp",
+			"phase_index": 3,
+			"pull": 77.0,
+			"scores": {},
+			"sha256": "5bc974350e268d684459710fa45ee45a81731d16952daaf60661381aae700b96",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 77.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 54707,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 5,
+			"direct_review": false,
+			"index": 58,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0058.webp",
+			"phase_index": 3,
+			"pull": 80.0,
+			"scores": {},
+			"sha256": "59783ab73070325f877e8288b08cddda2d4dca2a3808cacfd0c77b50219c67fe",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 80.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 54822,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 5,
+			"direct_review": false,
+			"index": 59,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0059.webp",
+			"phase_index": 3,
+			"pull": 80.0,
+			"scores": {},
+			"sha256": "2d23a58a6d71fb8bc59d35f5ed77df86153624b0cf541c9fcde325e908d97bc1",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 80.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 54932,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 5,
+			"direct_review": false,
+			"index": 60,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0060.webp",
+			"phase_index": 3,
+			"pull": 83.0,
+			"scores": {},
+			"sha256": "f424a2b3aed808c1eb3de7a4e6ce7292ab109910a982a946b6c57086ef78320a",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 83.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 55040,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 5,
+			"direct_review": false,
+			"index": 61,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0061.webp",
+			"phase_index": 3,
+			"pull": 83.0,
+			"scores": {},
+			"sha256": "05cc38ed9aec9774cd9ac12f7508d30a3119dacb1924a9941b556573568f1b5d",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 83.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 55173,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 5,
+			"direct_review": false,
+			"index": 62,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0062.webp",
+			"phase_index": 3,
+			"pull": 86.0,
+			"scores": {},
+			"sha256": "35d85db0ad44a7b65d7220c03be99c18a018d4fc1ac03fccc7c9bc532f9d9dfa",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 86.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 55279,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 5,
+			"direct_review": false,
+			"index": 63,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0063.webp",
+			"phase_index": 3,
+			"pull": 86.0,
+			"scores": {},
+			"sha256": "1e4c5d45e3359651e84c8a0df27453a55f6e0442120d09c074cb0d06155d442d",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 86.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 55382,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 5,
+			"direct_review": false,
+			"index": 64,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0064.webp",
+			"phase_index": 3,
+			"pull": 89.0,
+			"scores": {},
+			"sha256": "0a521f347c33f299f229909a43583d0047784fa41913a1c9e35e11675f8156df",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 89.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 55485,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 5,
+			"direct_review": false,
+			"index": 65,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0065.webp",
+			"phase_index": 3,
+			"pull": 89.0,
+			"scores": {},
+			"sha256": "741c521692a7070d5accedd458f064dc2083dfd6f9d54126836311e64be460cc",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 89.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 55594,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 5,
+			"direct_review": false,
+			"index": 66,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0066.webp",
+			"phase_index": 3,
+			"pull": 92.0,
+			"scores": {},
+			"sha256": "12970094a1756fb37d9859e39b231dbd9bcbd49246f8fd7936cac9ce61fd16ef",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 92.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 55711,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 5,
+			"direct_review": false,
+			"index": 67,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0067.webp",
+			"phase_index": 3,
+			"pull": 92.0,
+			"scores": {},
+			"sha256": "7c8d6678baabba928f286ad06d186de808b812718cd72981afc1857fe16c1a1d",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 92.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 55822,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 5,
+			"direct_review": false,
+			"index": 68,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0068.webp",
+			"phase_index": 3,
+			"pull": 95.0,
+			"scores": {},
+			"sha256": "6fba462019b40c05e9869420cd8aedcbe0e0d5cff750c755067539e4cdbc5e33",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 95.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 55929,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 5,
+			"direct_review": false,
+			"index": 69,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0069.webp",
+			"phase_index": 3,
+			"pull": 95.0,
+			"scores": {},
+			"sha256": "fdc8c07e78a108d0c7fdae658dbd5744ea8a4e317f79d84dcc5327f664a6cd1a",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 95.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 56035,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 5,
+			"direct_review": false,
+			"index": 70,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0070.webp",
+			"phase_index": 3,
+			"pull": 95.0,
+			"scores": {},
+			"sha256": "9a499d42d7adaac8f3822f8721284a01f99a37bf4d74ebcc5c8341e451cf2fdd",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 95.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 56140,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 5,
+			"direct_review": false,
+			"index": 71,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0071.webp",
+			"phase_index": 3,
+			"pull": 95.0,
+			"scores": {},
+			"sha256": "9a499d42d7adaac8f3822f8721284a01f99a37bf4d74ebcc5c8341e451cf2fdd",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 95.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 56268,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 5,
+			"direct_review": false,
+			"index": 72,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0072.webp",
+			"phase_index": 3,
+			"pull": 95.0,
+			"scores": {},
+			"sha256": "cbb5927fd65f3b410a488d129da36b99870bfad759cbffe419bac78e52d6c554",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 95.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 56375,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 5,
+			"direct_review": false,
+			"index": 73,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0073.webp",
+			"phase_index": 3,
+			"pull": 95.0,
+			"scores": {},
+			"sha256": "18ab9181b3ec0a073edf6efb7f92475bfaf7826ca73d9e6ef870a7b000789c92",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 95.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 56477,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 5,
+			"direct_review": false,
+			"index": 74,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0074.webp",
+			"phase_index": 3,
+			"pull": 97.5,
+			"scores": {},
+			"sha256": "d82d06693ae2d0b8e29a2c88bbab3b6bad3306b59773971d14c806b012f8493c",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 97.5,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 56581,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 5,
+			"direct_review": false,
+			"index": 75,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0075.webp",
+			"phase_index": 3,
+			"pull": 97.5,
+			"scores": {},
+			"sha256": "97e371c9899a14b432a60a3900b4fc4e109dc2cfd3124df9ccb01beffb731335",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 97.5,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 56684,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 76,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0076.webp",
+			"phase_index": 3,
+			"pull": 100.0,
+			"scores": {},
+			"sha256": "7d16ef04afac8bbac0867955e22d202558db01d3db9b0269dde0c701957bfcda",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 100.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 56787,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 77,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0077.webp",
+			"phase_index": 3,
+			"pull": 100.0,
+			"scores": {},
+			"sha256": "4d91920a89829c1e4a69a7587818e60aa351d0776813209056a4f87bda5ae002",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 100.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 56887,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 78,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0078.webp",
+			"phase_index": 3,
+			"pull": 102.5,
+			"scores": {},
+			"sha256": "5f5d5b92558701d8790bc5cafe52cc51572f28014816ecb0dc06e66fc3ade030",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 102.5,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 56990,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 79,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0079.webp",
+			"phase_index": 3,
+			"pull": 102.5,
+			"scores": {},
+			"sha256": "fb0bb503fe3da6df2de95e17e0e8266790458eba23282cfc7ff99993d6cfc97d",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 102.5,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 57090,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 80,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0080.webp",
+			"phase_index": 3,
+			"pull": 105.0,
+			"scores": {},
+			"sha256": "b85e425e166a10d41335b962764711e499b87c76fe2126a760c94899c2728e96",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 105.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 57197,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 81,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0081.webp",
+			"phase_index": 3,
+			"pull": 105.0,
+			"scores": {},
+			"sha256": "0a90612995e732e1f00ece898d959f2148125b1d9baea0a1156b795c938981b9",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 105.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 57331,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 82,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0082.webp",
+			"phase_index": 3,
+			"pull": 107.5,
+			"scores": {},
+			"sha256": "5dd50a5a4593b17917c864874db5e8abffe5934d66eb76dcf49b7c8ace7c21d5",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 107.5,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 57443,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 83,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0083.webp",
+			"phase_index": 3,
+			"pull": 107.5,
+			"scores": {},
+			"sha256": "5be3d12e5b9e0caf1fe0413530f39f923c4c52e76075e41616f17e1d3aa8f2eb",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 107.5,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 57549,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 84,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0084.webp",
+			"phase_index": 3,
+			"pull": 110.0,
+			"scores": {},
+			"sha256": "25b6de7c9e4ac3b95d0d07abd31294885df01aed84dc4929de79ef34a7e156eb",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 110.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 57654,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 85,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0085.webp",
+			"phase_index": 3,
+			"pull": 110.0,
+			"scores": {},
+			"sha256": "956f086e9e7b61f54c409807fe1b0ffc60f8bf910b1cd88370ef7a6044e44aee",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 110.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 57757,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 86,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0086.webp",
+			"phase_index": 3,
+			"pull": 112.5,
+			"scores": {},
+			"sha256": "74ed4dfec02462be84cf8651e744bbb5e9cad58191cfb49e3c515438640c5874",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 112.5,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 57861,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 87,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0087.webp",
+			"phase_index": 3,
+			"pull": 112.5,
+			"scores": {},
+			"sha256": "24ab5380bf66cfd8c9adb4f7a7c8695b293f9c74000879e58be65b3c13d0dc9e",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 112.5,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 57967,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 88,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0088.webp",
+			"phase_index": 3,
+			"pull": 115.0,
+			"scores": {},
+			"sha256": "74eb35d926af477b5397e1c8ae3a15f7421ea8a47c9060172418e7cf25401559",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 115.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 58071,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 89,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0089.webp",
+			"phase_index": 3,
+			"pull": 115.0,
+			"scores": {},
+			"sha256": "b642aeceac6a1c513123bbba6578bc4a0a131772892a62311817d489b8754772",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 115.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 58180,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 90,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0090.webp",
+			"phase_index": 3,
+			"pull": 117.5,
+			"scores": {},
+			"sha256": "e543773b4be4ee8cffdf14e9a303a7f22d5910344039ded23d3c879d66056206",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 117.5,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 58290,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 91,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0091.webp",
+			"phase_index": 3,
+			"pull": 117.5,
+			"scores": {},
+			"sha256": "80a861c475974d81171f664ae1c14c5fc746fc8848dfb0b4d97345fa9aa25de8",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 117.5,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 58424,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				409.618530273438
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 92,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0092.webp",
+			"phase_index": 3,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "6715dba21ec531d3c026c9951d3889796c3c41dda6f9abd30d0ad2c02029de42",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 58555,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				420.165069580078
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 93,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0093.webp",
+			"phase_index": 3,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "aaf2bd76a1470feaed27190697c7915b04db974d5d9c9d3dacb068ab19dfa8d0",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 58661,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 94,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0094.webp",
+			"phase_index": 3,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "96e7317f31a9723cf20bc26fd249afddb4603097a12fce9b5818f00411254f8f",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 58767,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 95,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0095.webp",
+			"phase_index": 3,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "2c675ec9d8171df0bb820957c092bda394ceaceae5ef0c76b29356a25a08eb65",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 58872,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 96,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0096.webp",
+			"phase_index": 3,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "3d9a1b6e3b91b0908834cac229aa8da6af80e726769d317e54791f0775fbd4ab",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 58974,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 97,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0097.webp",
+			"phase_index": 3,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "3d9a1b6e3b91b0908834cac229aa8da6af80e726769d317e54791f0775fbd4ab",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 59088,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 98,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0098.webp",
+			"phase_index": 3,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "2c675ec9d8171df0bb820957c092bda394ceaceae5ef0c76b29356a25a08eb65",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 59190,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 99,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0099.webp",
+			"phase_index": 3,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "2c675ec9d8171df0bb820957c092bda394ceaceae5ef0c76b29356a25a08eb65",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 59297,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 100,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0100.webp",
+			"phase_index": 3,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "96e7317f31a9723cf20bc26fd249afddb4603097a12fce9b5818f00411254f8f",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 59398,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 101,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0101.webp",
+			"phase_index": 3,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "f1aab3d7636597d3c06f1f0984df33e8bd2c52b2f9ade1287ca166d6a600f1f0",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 59522,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 102,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0102.webp",
+			"phase_index": 3,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "cc5df4212a673348348e6a028c32b945b8b7042667314fbff6f8c32477764ee7",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 59626,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 103,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0103.webp",
+			"phase_index": 3,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "65099995146cbb548abf7c6c1e0a4a86c961450ffba63301a8786a137a4bf9ed",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 59733,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 104,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0104.webp",
+			"phase_index": 3,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "55aaa241f44a0f1dfb84c7524b93f5a65f82c5013e160c65cdf09d8afa187496",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 59837,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 105,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0105.webp",
+			"phase_index": 3,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "6c77af3b61596518c33dac1aba2603b958f44781869710fc784c7129f7dd0b19",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 59942,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 106,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0106.webp",
+			"phase_index": 3,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "cf9a2b18203d380be642d2f498439048145f4b6c5395c1ea19088d12dd9277e8",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 60041,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 107,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0107.webp",
+			"phase_index": 3,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "b3c14869d695549d2d8dc673b4b7b9bae5d1aeb60dc6aa494b3d39b5f37c8253",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 60145,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 108,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0108.webp",
+			"phase_index": 3,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "b3c14869d695549d2d8dc673b4b7b9bae5d1aeb60dc6aa494b3d39b5f37c8253",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 60248,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 109,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0109.webp",
+			"phase_index": 3,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "5f0c13422c320436bb651830d38b4e019776b80d3f21dac421c01edf3368b860",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 60349,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 110,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0110.webp",
+			"phase_index": 3,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "5f0c13422c320436bb651830d38b4e019776b80d3f21dac421c01edf3368b860",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 60458,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				30.0,
+				422.0
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 111,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0111.webp",
+			"phase_index": 3,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "5f0c13422c320436bb651830d38b4e019776b80d3f21dac421c01edf3368b860",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 60565,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 112,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0112.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "ace15c43562cab369f845fcd506e4e44972a02e35268b306b6db3d72bd86e5c8",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 60671,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 113,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0113.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "df764f6a2b1a87bba6de75633fb9cbc8232cac7ea5ec35e52d714f4ce628fd6d",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 60774,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 114,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0114.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "6ad3b0b31bf56caadcf5572e042dbbf6788f845e30c6b90cad38200ff23416ee",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 60876,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 115,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0115.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "25873905d331dcbd165e4ccc933c129aad66d59765fc0e2c6a6ec125e6975556",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 60982,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 116,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0116.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "a23eb3a7a232d7cc268b4472447e4b6c68f776692ca267e58376e881ae9a7bac",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 61088,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 117,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0117.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "2808e018891ff889d8f88574b18425f25af772b42d9954346a3c0f5948837b36",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 61191,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 118,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0118.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "75c951cd1ba5ff4b8cf1929f6d673ba7f4cf845d3f0059bf8a6d976a858411f1",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 61291,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 119,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0119.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "a96da9ff1adabe0fc1aa837bcf36fe3bdf4b3e917be82c84328a5451b069d28a",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 61393,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 120,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0120.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "4c2b0bb96814bf7c8d90ed50eda4be4ed53e679e8dd9cdeda1bc74da125a5722",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 61498,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 121,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0121.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "e5af46dbeec56056975c4a62b5d6156ae83ac0c6e430206feefe144f978f9fd9",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 61598,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 122,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0122.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "89f6b65792f79d6ffff4d79113e85bf4d723d3032b159cc2713abbb793f69258",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 61702,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 123,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0123.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "8c758672ab210bed5091fe3cb35efaeeab7454aa3d623fa895b84677254d54d6",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 61805,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 124,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0124.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "bb1abbc9aca7900aad1678c626e8e78c9580ea52f1e254c4595c903c17d965b5",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 61912,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 125,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0125.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "0941cf176112b673d3017d81df7cae39d558ca130071e5b4d0d5a2748bec8ca4",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 62019,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 126,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0126.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "3f0d1edbc27389afdace00c91ee66b03c7ea6c0f015bf46d4879179fbe9e96dd",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 62128,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 127,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0127.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "d07c94b67f2865795b2e79509469eff84f18affad544cee4463fa7c81b63273c",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 62230,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 128,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0128.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "1cbac25a444a19e772f0f487467265b12d9354a75c038a219a38b2a3ab6e0875",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 62337,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 129,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0129.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "4613fc4bc04ecc436bafcb38f97cbe8742479a9e934dab0ebbc33eec357d1701",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 62440,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 130,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0130.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "27a6b857b9f558ef3da3ca78cadcd436753b2f168ebaac449c002f210065d4e8",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 62540,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 131,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0131.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "092e5d34c9cbd8eab19776d1c21b5229fce0762cb04d3c4540f5a660a16e7280",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 62642,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 132,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0132.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "6f28f16240ec0a6d1903b3daa31dc16ba24a60133482a8e8fbdb148ad5497beb",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 62753,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 133,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0133.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "ecdbc56cbae799c0deb87780104ae922b094dd2a37932327224a66e52dcc2a7f",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 62860,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 134,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0134.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "fbf02c30ce6cadbf5d4349c844d0e99144b7a680c2a323c3530b7b15b03186e1",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 62961,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 135,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0135.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "b4fb4ec0087356118ecaea12011e4876d3a52e5d499fa63a8abcd9acb980d0c9",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 63064,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 136,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0136.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "84105fa9d797b95dd2e878ae9d221e8c3db22ff4181a00ed3a4fc6da899f2359",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 63172,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 137,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0137.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "7e789562ae772cc630b76f7acb5ce3d9721442b8f190b3a0c657ea88be408e42",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 63269,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 138,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0138.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "79752736148e660ff7b7ac333b4f3bd3a0e8d444dc8dfff2da16660abb2e70e1",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 63370,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 139,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0139.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "48e5f4b76c194407710612958131bdaa0d216701fc8125413c38a71b52e620eb",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 63473,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 140,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0140.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "61f81cc227a93b4c86e82b191d961d46adc2430adc70988ad79774eb65fe9d8b",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 63583,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 141,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0141.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "a602a2f73e7d98b7467dfe7c2ab0ce61d738f30e7ffca72f5cf3ecdc64065ae1",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 63682,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 142,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0142.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "527c912a98ddef6bdfa41451e73df0563f7bea8632a28a584ca1189168a4391e",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 63787,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 143,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0143.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "e88111fa645537d27c1c5e9a10e0fb781f7e1513d0c31558d4218e80a2f7947a",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 63893,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 144,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0144.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "759a886f04375fe253155e15a9935a7dcb0facbed2b0e151adaa9d7cb2d4684d",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 64009,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 145,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0145.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "799a23854ece1daf719228e2a48370047f94628ec44e0554b598da031868b8fe",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 64124,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 146,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0146.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "e94f3fe0768ed7350d83558864316845f73d09c13b76bb6e614971c75bb8dceb",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 64225,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 147,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0147.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "32a8fa734a88a40d05c96c1dbf8cfb9b78cb85fb01399456b0c7c9332575ae5a",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 64328,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 148,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0148.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "fa3b03821ac67048fc44f962fe4c6f91da5100df9afef61d2984831921a6941a",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 64432,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 149,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0149.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "0fc5389da1a647283f594633e0ccf723ac81ae35a9061d85a8246e56b69959e2",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 64541,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 150,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0150.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "c4c87c90018092acfb34c5d90dfe72d234b758edc61f05997eba464ea02c25be",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 64643,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 151,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0151.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "ad88ad63b34b58d2ff1d7f9533c55ea6d745bf702679c1fee003635a0fe37d1a",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 64748,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 152,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0152.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "ff060f232301be3df1fee673bac19da010b3e438a347f5a7591189797bae8de7",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 64853,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 153,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0153.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "b9d6423db7777d7b3b91353a4a011c4f6db03135398bdf190ff38b2dacc920f7",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 64956,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 154,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0154.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "2a4c00fbbfaedd389efbf73bea515f8a49ae3d2daaffd8935eb900acb26987c2",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 65060,
+			"width": 1280
+		},
+		{
+			"actor_position": [
+				787.540832519531,
+				229.799743652344
+			],
+			"authored_state": 6,
+			"direct_review": false,
+			"index": 155,
+			"owner_acceptance": null,
+			"path": "audit/job_geode_coherent_pilot_v1_20261002/attempt_01/native_views/geode_1280_0155.webp",
+			"phase_index": 4,
+			"pull": 120.0,
+			"scores": {},
+			"sha256": "81eb099b3ff01ed03a05938f66ca4ef96ac025e441fcaf43266d72c67cf1a2dd",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"time_msec": 65163,
+			"width": 1280
+		}
+	],
+	"qualification": "Main entry and scripted touch intervals are a fixture. Actual production renderer and normal four-phase advancement; no capture freezes or restore interruption; non-runtime inherited surface subclass and initial phase0 rebind supply seven source paintings. Every rendered geode opening/earned completion frame preserved. Not physical device/child/owner/castle/training/story or human touch pacing evidence.",
+	"status": "ORDINARY_FOUR_PHASE_NATIVE_ROUTE_CAPTURED_REVIEW_PENDING",
+	"views": [
+		{
+			"motion_frame_index": 0,
+			"phase_index": 0,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "invitation",
+			"surface": {
+				"complete": false,
+				"mode": "geology_river",
+				"stage": "RIVER",
+				"version": 1,
+				"wet": []
+			}
+		},
+		{
+			"motion_frame_index": 0,
+			"phase_index": 0,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "task_open",
+			"surface": {
+				"complete": false,
+				"mode": "geology_river",
+				"stage": "RIVER",
+				"version": 1,
+				"wet": []
+			}
+		},
+		{
+			"motion_frame_index": 0,
+			"phase_index": 0,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "earned_completion",
+			"surface": {
+				"complete": true,
+				"mode": "geology_river",
+				"stage": "RIVER",
+				"version": 1,
+				"wet": [
+					11,
+					12,
+					13,
+					18,
+					19,
+					20,
+					22,
+					24,
+					25,
+					26,
+					31,
+					32,
+					33
+				]
+			}
+		},
+		{
+			"motion_frame_index": 0,
+			"phase_index": 1,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "invitation",
+			"surface": {
+				"cleared": [],
+				"complete": false,
+				"fossil_stage": 0,
+				"mode": "geology_fossil",
+				"snapped": [
+					false,
+					false,
+					false
+				],
+				"stage": "FOSSIL_BRUSH",
+				"version": 1
+			}
+		},
+		{
+			"motion_frame_index": 0,
+			"phase_index": 1,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "task_open",
+			"surface": {
+				"cleared": [],
+				"complete": false,
+				"fossil_stage": 0,
+				"mode": "geology_fossil",
+				"snapped": [
+					false,
+					false,
+					false
+				],
+				"stage": "FOSSIL_BRUSH",
+				"version": 1
+			}
+		},
+		{
+			"motion_frame_index": 0,
+			"phase_index": 1,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "partial_brush",
+			"surface": {
+				"cleared": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7
+				],
+				"complete": false,
+				"fossil_stage": 0,
+				"mode": "geology_fossil",
+				"snapped": [
+					false,
+					false,
+					false
+				],
+				"stage": "FOSSIL_BRUSH",
+				"version": 1
+			}
+		},
+		{
+			"motion_frame_index": 0,
+			"phase_index": 1,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "brushed",
+			"surface": {
+				"cleared": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10,
+					11,
+					12,
+					13,
+					18,
+					19,
+					20,
+					21,
+					22,
+					23,
+					24,
+					25,
+					26,
+					27,
+					28,
+					29
+				],
+				"complete": false,
+				"fossil_stage": 1,
+				"mode": "geology_fossil",
+				"snapped": [
+					false,
+					false,
+					false
+				],
+				"stage": "FOSSIL_ASSEMBLE",
+				"version": 1
+			}
+		},
+		{
+			"motion_frame_index": 0,
+			"phase_index": 1,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "one_piece",
+			"surface": {
+				"cleared": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10,
+					11,
+					12,
+					13,
+					18,
+					19,
+					20,
+					21,
+					22,
+					23,
+					24,
+					25,
+					26,
+					27,
+					28,
+					29
+				],
+				"complete": false,
+				"fossil_stage": 1,
+				"mode": "geology_fossil",
+				"snapped": [
+					true,
+					false,
+					false
+				],
+				"stage": "FOSSIL_ASSEMBLE",
+				"version": 1
+			}
+		},
+		{
+			"motion_frame_index": 0,
+			"phase_index": 1,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "two_pieces",
+			"surface": {
+				"cleared": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10,
+					11,
+					12,
+					13,
+					18,
+					19,
+					20,
+					21,
+					22,
+					23,
+					24,
+					25,
+					26,
+					27,
+					28,
+					29
+				],
+				"complete": false,
+				"fossil_stage": 1,
+				"mode": "geology_fossil",
+				"snapped": [
+					true,
+					true,
+					false
+				],
+				"stage": "FOSSIL_ASSEMBLE",
+				"version": 1
+			}
+		},
+		{
+			"motion_frame_index": 0,
+			"phase_index": 1,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "earned_completion",
+			"surface": {
+				"cleared": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10,
+					11,
+					12,
+					13,
+					18,
+					19,
+					20,
+					21,
+					22,
+					23,
+					24,
+					25,
+					26,
+					27,
+					28,
+					29
+				],
+				"complete": true,
+				"fossil_stage": 1,
+				"mode": "geology_fossil",
+				"snapped": [
+					true,
+					true,
+					true
+				],
+				"stage": "FOSSIL_ASSEMBLE",
+				"version": 1
+			}
+		},
+		{
+			"motion_frame_index": 0,
+			"phase_index": 2,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "invitation",
+			"surface": {
+				"complete": false,
+				"minerals": 0,
+				"mode": "geology_pan",
+				"reversals": 0,
+				"stage": "PAN",
+				"version": 1,
+				"wash": 0.0
+			}
+		},
+		{
+			"motion_frame_index": 0,
+			"phase_index": 2,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "task_open",
+			"surface": {
+				"complete": false,
+				"minerals": 0,
+				"mode": "geology_pan",
+				"reversals": 0,
+				"stage": "PAN",
+				"version": 1,
+				"wash": 0.0
+			}
+		},
+		{
+			"motion_frame_index": 0,
+			"phase_index": 2,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "pan_right",
+			"surface": {
+				"complete": false,
+				"minerals": 0,
+				"mode": "geology_pan",
+				"reversals": 0,
+				"stage": "PAN",
+				"version": 1,
+				"wash": 0.0
+			}
+		},
+		{
+			"motion_frame_index": 0,
+			"phase_index": 2,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "pan_left",
+			"surface": {
+				"complete": false,
+				"minerals": 0,
+				"mode": "geology_pan",
+				"reversals": 1,
+				"stage": "PAN",
+				"version": 1,
+				"wash": 0.111111111111111
+			}
+		},
+		{
+			"motion_frame_index": 0,
+			"phase_index": 2,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "partial_pan",
+			"surface": {
+				"complete": false,
+				"minerals": 1,
+				"mode": "geology_pan",
+				"reversals": 3,
+				"stage": "PAN",
+				"version": 1,
+				"wash": 0.333333333333333
+			}
+		},
+		{
+			"motion_frame_index": 0,
+			"phase_index": 2,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "earned_completion",
+			"surface": {
+				"complete": true,
+				"minerals": 3,
+				"mode": "geology_pan",
+				"reversals": 9,
+				"stage": "PAN",
+				"version": 1,
+				"wash": 1.0
+			}
+		},
+		{
+			"motion_frame_index": 0,
+			"phase_index": 3,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "invitation",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					false,
+					false,
+					false,
+					false,
+					false
+				],
+				"stage": "GEODE_SEAM",
+				"version": 1
+			}
+		},
+		{
+			"motion_frame_index": 0,
+			"phase_index": 3,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "task_open",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					false,
+					false,
+					false,
+					false,
+					false
+				],
+				"stage": "GEODE_SEAM",
+				"version": 1
+			}
+		},
+		{
+			"motion_frame_index": 0,
+			"phase_index": 3,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "five_seams_ready",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			}
+		},
+		{
+			"motion_frame_index": 24,
+			"phase_index": 3,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "early_crack",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 25.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			}
+		},
+		{
+			"motion_frame_index": 48,
+			"phase_index": 3,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "middle_open",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 65.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			}
+		},
+		{
+			"motion_frame_index": 72,
+			"phase_index": 3,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "full_interior_before_award",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 95.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			}
+		},
+		{
+			"motion_frame_index": 96,
+			"phase_index": 3,
+			"qualification": "No capture freeze; timeline marker only.",
+			"state": "earned_completion",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			}
+		}
+	]
+}

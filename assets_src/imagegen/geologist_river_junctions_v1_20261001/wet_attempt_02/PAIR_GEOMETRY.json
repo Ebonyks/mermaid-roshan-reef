@@ -1,0 +1,50 @@
+{
+  "old_sha256": "6dd4207ebe976b3e5db429051c81f06a1f644191be94f86f789766e2988fe05d",
+  "new_sha256": "9235d3650468cc1068a1943e0c481fbcc66f90038f98de3af7d883d7cea34e7f",
+  "measurements": [
+    {
+      "component": "ENDCAP",
+      "region": [
+        53,
+        119,
+        556,
+        423
+      ],
+      "alpha_gt4_iou": 0.9891831971995333,
+      "qualification": "Read-only alpha overlap, not pixel identity, actual fit, animation or visual acceptance."
+    },
+    {
+      "component": "ELBOW",
+      "region": [
+        756,
+        60,
+        448,
+        485
+      ],
+      "alpha_gt4_iou": 0.9853061384636511,
+      "qualification": "Read-only alpha overlap, not pixel identity, actual fit, animation or visual acceptance."
+    },
+    {
+      "component": "TEE",
+      "region": [
+        47,
+        688,
+        544,
+        424
+      ],
+      "alpha_gt4_iou": 0.9909231530751145,
+      "qualification": "Read-only alpha overlap, not pixel identity, actual fit, animation or visual acceptance."
+    },
+    {
+      "component": "CROSS",
+      "region": [
+        686,
+        653,
+        511,
+        519
+      ],
+      "alpha_gt4_iou": 0.9858977722654201,
+      "qualification": "Read-only alpha overlap, not pixel identity, actual fit, animation or visual acceptance."
+    }
+  ]
+}

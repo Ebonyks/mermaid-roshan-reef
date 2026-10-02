@@ -1,0 +1,10 @@
+{
+  "status": "PASS_CORRECT_MARKER_VALIDATION",
+  "reviewed_utc": "2026-10-02T08:00:23.512772+00:00",
+  "first_receipt": "network1600v1.receipt.json",
+  "process_exit": 0,
+  "stdout_sha256": "d47c82077de5e2d1720e5e1c237edeb44198f8cfc8f4a0a9c35a862b4f047bd3",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "reason": "The first wrapper incorrectly required ALL4_INTENTIONAL_PHASES for this isolated14-state network fixture. Correct marker and exit0 with no blocking diagnostics independently confirm the recorded run. No capture rerun, script change or overwritten failure receipt.",
+  "qualification": "Actual renderer14 input/flow/restore/completion assertions; not actor/room/action/global approval."
+}

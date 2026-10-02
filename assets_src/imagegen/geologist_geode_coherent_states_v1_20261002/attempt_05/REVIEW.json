@@ -1,0 +1,111 @@
+{
+  "status": "REJECTED_BACKGROUND_EXTRACTION",
+  "reviewed_utc": "2026-10-02T08:28:22.529087+00:00",
+  "native_path": "assets_src/imagegen/geologist_geode_coherent_states_v1_20261002/attempt_05/native.png",
+  "sha256": "8d76769f5f535666f985eb850e8c3c8841e20a003b222ba621f8802b265504be",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "mode": "RGBA",
+  "sheet_score": 3.8,
+  "cells": [
+    {
+      "id": "GEO-COHERENT-A5-STATE-0",
+      "state_index": 0,
+      "source_rect": [
+        0,
+        0,
+        512,
+        512
+      ],
+      "score": 3.8,
+      "material_score": 4.6,
+      "direct_review": true,
+      "evaluation": "Existing geode paintings remain recognizable and rooted, but extraction produces broad purple/aqua glow throughout the background instead of a clean cutout. Failed background extraction, not runtime-ready.",
+      "priority": true,
+      "owner_acceptance": null
+    },
+    {
+      "id": "GEO-COHERENT-A5-STATE-1",
+      "state_index": 1,
+      "source_rect": [
+        512,
+        0,
+        1024,
+        512
+      ],
+      "score": 3.8,
+      "material_score": 4.6,
+      "direct_review": true,
+      "evaluation": "Existing geode paintings remain recognizable and rooted, but extraction produces broad purple/aqua glow throughout the background instead of a clean cutout. Failed background extraction, not runtime-ready.",
+      "priority": true,
+      "owner_acceptance": null
+    },
+    {
+      "id": "GEO-COHERENT-A5-STATE-2",
+      "state_index": 2,
+      "source_rect": [
+        1024,
+        0,
+        1536,
+        512
+      ],
+      "score": 3.8,
+      "material_score": 4.6,
+      "direct_review": true,
+      "evaluation": "Existing geode paintings remain recognizable and rooted, but extraction produces broad purple/aqua glow throughout the background instead of a clean cutout. Failed background extraction, not runtime-ready.",
+      "priority": true,
+      "owner_acceptance": null
+    },
+    {
+      "id": "GEO-COHERENT-A5-STATE-3",
+      "state_index": 3,
+      "source_rect": [
+        0,
+        512,
+        512,
+        1024
+      ],
+      "score": 3.8,
+      "material_score": 4.6,
+      "direct_review": true,
+      "evaluation": "Existing geode paintings remain recognizable and rooted, but extraction produces broad purple/aqua glow throughout the background instead of a clean cutout. Failed background extraction, not runtime-ready.",
+      "priority": true,
+      "owner_acceptance": null
+    },
+    {
+      "id": "GEO-COHERENT-A5-STATE-4",
+      "state_index": 4,
+      "source_rect": [
+        512,
+        512,
+        1024,
+        1024
+      ],
+      "score": 3.8,
+      "material_score": 4.6,
+      "direct_review": true,
+      "evaluation": "Existing geode paintings remain recognizable and rooted, but extraction produces broad purple/aqua glow throughout the background instead of a clean cutout. Failed background extraction, not runtime-ready.",
+      "priority": true,
+      "owner_acceptance": null
+    },
+    {
+      "id": "GEO-COHERENT-A5-STATE-5",
+      "state_index": 5,
+      "source_rect": [
+        1024,
+        512,
+        1536,
+        1024
+      ],
+      "score": 3.8,
+      "material_score": 4.6,
+      "direct_review": true,
+      "evaluation": "Existing geode paintings remain recognizable and rooted, but extraction produces broad purple/aqua glow throughout the background instead of a clean cutout. Failed background extraction, not runtime-ready.",
+      "priority": true,
+      "owner_acceptance": null
+    }
+  ],
+  "qualification": "Every6 states directly inspected. Alpha requested does not establish alpha quality; broad background glow fails. No pixel cleanup, runtime binding or owner acceptance."
+}

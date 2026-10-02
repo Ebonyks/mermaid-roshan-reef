@@ -1,0 +1,33 @@
+{
+  "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_02/whole_canvas_1024.png",
+  "sha256": "583609303022d6aed39be963f74b8c5a9d5464ec8b5b8e1352dc5296606aed0b",
+  "source_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_02/native_generated.png",
+  "source_sha256": "05e1f9625dd7f4eedb4a71117345db2185bedc01af213b93dc1ef74f6472557a",
+  "dimensions": [
+    1024,
+    1024
+  ],
+  "method": "UNIFORM_COMPLETE_CANVAS1254_TO1024_RGBA_LANCZOS",
+  "command": [
+    "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/FFmpeg/8.1.2/bin/ffmpeg.exe",
+    "-hide_banner",
+    "-loglevel",
+    "warning",
+    "-i",
+    "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_river_junctions_v1_20261001\\dry_attempt_02\\native_generated.png",
+    "-vf",
+    "scale=1024:1024:flags=lanczos",
+    "-frames:v",
+    "1",
+    "-pix_fmt",
+    "rgba",
+    "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_river_junctions_v1_20261001\\dry_attempt_02\\whole_canvas_1024.png"
+  ],
+  "pixel_repair": false,
+  "alpha_cleanup": false,
+  "direct_review": true,
+  "source_score": 4.4,
+  "runtime_bound": false,
+  "reviewed_utc": "2026-10-02T07:33:07.899332+00:00",
+  "qualification": "Exact complete1024 derivative directly reviewed, retains generated red fringe pixels and fails4.4. Uniform whole-canvas transform only; no alpha cleanup."
+}

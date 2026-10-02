@@ -1,0 +1,17 @@
+{
+  "status": "PRE_GENERATION_NAMED_EXTERIOR_CUTOUT_GAP",
+  "attempt": 5,
+  "method": "BUILTIN_CODEX_IMAGEGEN_CLEAN_BACKGROUND_EXTRACTION_LIGHTER_BANK_EDIT",
+  "prompt_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/PROMPT_DRY_ATTEMPT_05.txt",
+  "prompt_sha256": "537de9c7694926973cb725fb74da1dac7ea9e6b36d7cd0688008cc618346d5fe",
+  "reference_paths": [
+    "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_04/native_generated.png"
+  ],
+  "reference_sha256": [
+    "81b7406b61c0585e4d058c75b7fbac13e2e79895ba550a37a8bf9719cddd385a"
+  ],
+  "transparent_background": true,
+  "runtime_bound": false,
+  "named_gap": "Fresh4 source3.8 has broad exterior brown/lavender glow and dark banks. Correct only exterior isolation and bank lightness, preserve solid object topology/floor/layout. No manual alpha cleanup or pixel compositing.",
+  "review_evidence": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_04/REVIEW.json"
+}

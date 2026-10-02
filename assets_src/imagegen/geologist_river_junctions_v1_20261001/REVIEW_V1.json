@@ -1,0 +1,311 @@
+{
+  "status": "SOURCE4_6_UNBOUND_ACTUAL_V4_WET_JOINS4_4_REJECTED",
+  "native_originals": [
+    {
+      "native_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_01/native_generated.png",
+      "sha256": "6dd4207ebe976b3e5db429051c81f06a1f644191be94f86f789766e2988fe05d",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_score": 4.6,
+      "direct_review": true,
+      "runtime_bound": false
+    },
+    {
+      "native_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_01/native_generated.png",
+      "sha256": "86eac09710c17cbf298068ae6fe9480a49571bd9a776f4a2fac13b79ffff926b",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_score": 4.6,
+      "direct_review": true,
+      "runtime_bound": false
+    }
+  ],
+  "technical_derivatives": [
+    {
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_01/whole_canvas_1024.png",
+      "sha256": "d944238ef2fd32fcf76da2c874c929b5af045d197e8f3d4678e735f84caee6f8",
+      "source_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_01/native_generated.png",
+      "source_sha256": "6dd4207ebe976b3e5db429051c81f06a1f644191be94f86f789766e2988fe05d",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "method": "ONE_UNIFORM_COMPLETE_CANVAS_LANCZOS_SCALE_1254_TO1024_RGBA",
+      "pixel_repair": false,
+      "alpha_cleanup": false,
+      "source_score": 4.6,
+      "direct_review": true,
+      "runtime_bound": false,
+      "qualification": "Exact complete native1024 derivative directly inspected after uniform whole-canvas conversion; source4.6 only. No sampled network/port/owner approval."
+    },
+    {
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_01/whole_canvas_1024.png",
+      "sha256": "77789423cd81570df1d30c9d5407d043d6377021d4a973b8c4573850a2fcb3dd",
+      "source_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_01/native_generated.png",
+      "source_sha256": "86eac09710c17cbf298068ae6fe9480a49571bd9a776f4a2fac13b79ffff926b",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "method": "ONE_UNIFORM_COMPLETE_CANVAS_LANCZOS_SCALE_1254_TO1024_RGBA",
+      "pixel_repair": false,
+      "alpha_cleanup": false,
+      "source_score": 4.6,
+      "direct_review": true,
+      "runtime_bound": false,
+      "qualification": "Exact complete native1024 derivative directly inspected after uniform whole-canvas conversion; source4.6 only. No sampled network/port/owner approval."
+    }
+  ],
+  "components": [
+    {
+      "id": "GEO-RIVER-JUNCTION-WET-A01-ENDCAP_RIGHT",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_01/native_generated.png",
+      "sha256": "6dd4207ebe976b3e5db429051c81f06a1f644191be94f86f789766e2988fe05d",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        53,
+        121,
+        556,
+        420
+      ],
+      "expected_ports": [
+        "RIGHT"
+      ],
+      "observed_ports": [
+        "RIGHT"
+      ],
+      "source_score": 4.6,
+      "material_score": 4.6,
+      "source_geometry_score": 4.6,
+      "runtime_bound": false,
+      "evaluation": "One right open port; round left end/bowl has intact exterior banks. Water reaches the right plane, with no internal ring. Broad matte ochre/cream, lavender shade and plum contour match the selected source family. Exact runtime port calibration/sampling/join widths remain pending.",
+      "qualification": "Fresh complete native generated atlas and each4 objects directly inspected. Source-only4.6; not actual mounted/joined/network/action/device/child/owner acceptance."
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-WET-A01-ELBOW_UP_RIGHT",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_01/native_generated.png",
+      "sha256": "6dd4207ebe976b3e5db429051c81f06a1f644191be94f86f789766e2988fe05d",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        756,
+        61,
+        447,
+        483
+      ],
+      "expected_ports": [
+        "UP",
+        "RIGHT"
+      ],
+      "observed_ports": [
+        "UP",
+        "RIGHT"
+      ],
+      "source_score": 4.6,
+      "material_score": 4.6,
+      "source_geometry_score": 4.6,
+      "runtime_bound": false,
+      "evaluation": "Two open ports and one continuously aqua rounded bend. Exterior earth banks follow the outside elbow without crossing the water. Broad matte ochre/cream, lavender shade and plum contour match the selected source family. Exact runtime port calibration/sampling/join widths remain pending.",
+      "qualification": "Fresh complete native generated atlas and each4 objects directly inspected. Source-only4.6; not actual mounted/joined/network/action/device/child/owner acceptance."
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-WET-A01-TEE_LEFT_RIGHT_UP",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_01/native_generated.png",
+      "sha256": "6dd4207ebe976b3e5db429051c81f06a1f644191be94f86f789766e2988fe05d",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        48,
+        688,
+        542,
+        423
+      ],
+      "expected_ports": [
+        "LEFT",
+        "RIGHT",
+        "UP"
+      ],
+      "observed_ports": [
+        "LEFT",
+        "RIGHT",
+        "UP"
+      ],
+      "source_score": 4.6,
+      "material_score": 4.6,
+      "source_geometry_score": 4.6,
+      "runtime_bound": false,
+      "evaluation": "Three broad open arms share one clear aqua centre; lower side closes with exterior earth bank. Broad matte ochre/cream, lavender shade and plum contour match the selected source family. Exact runtime port calibration/sampling/join widths remain pending.",
+      "qualification": "Fresh complete native generated atlas and each4 objects directly inspected. Source-only4.6; not actual mounted/joined/network/action/device/child/owner acceptance."
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-WET-A01-CROSS_ALL",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_01/native_generated.png",
+      "sha256": "6dd4207ebe976b3e5db429051c81f06a1f644191be94f86f789766e2988fe05d",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        687,
+        654,
+        508,
+        517
+      ],
+      "expected_ports": [
+        "UP",
+        "RIGHT",
+        "DOWN",
+        "LEFT"
+      ],
+      "observed_ports": [
+        "UP",
+        "RIGHT",
+        "DOWN",
+        "LEFT"
+      ],
+      "source_score": 4.6,
+      "material_score": 4.6,
+      "source_geometry_score": 4.6,
+      "runtime_bound": false,
+      "evaluation": "All four open arms share one clear interior with exterior corner banks only. No rail or circular wall divides the middle. Broad matte ochre/cream, lavender shade and plum contour match the selected source family. Exact runtime port calibration/sampling/join widths remain pending.",
+      "qualification": "Fresh complete native generated atlas and each4 objects directly inspected. Source-only4.6; not actual mounted/joined/network/action/device/child/owner acceptance."
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A01-ENDCAP_RIGHT",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_01/native_generated.png",
+      "sha256": "86eac09710c17cbf298068ae6fe9480a49571bd9a776f4a2fac13b79ffff926b",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        53,
+        119,
+        556,
+        423
+      ],
+      "expected_ports": [
+        "RIGHT"
+      ],
+      "observed_ports": [
+        "RIGHT"
+      ],
+      "source_score": 4.6,
+      "material_score": 4.6,
+      "source_geometry_score": 4.6,
+      "runtime_bound": false,
+      "evaluation": "The same declared RIGHT port topology remains open and the shared centre is clear dry ochre/lavender loam, with no aqua water or water glints. Broad matte cream/ochre banks and plum contour match the wet counterpart. Source-only4.6; actual switching/ports/joined dry networks remain pending.",
+      "qualification": "Matching dry edit complete native and all4 shapes directly inspected from fresh generated output. Exact whole original retained; no source pixel/alpha cleanup. Shape comparison is measured separately, not presumed pixel equality."
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A01-ELBOW_UP_RIGHT",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_01/native_generated.png",
+      "sha256": "86eac09710c17cbf298068ae6fe9480a49571bd9a776f4a2fac13b79ffff926b",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        756,
+        60,
+        448,
+        485
+      ],
+      "expected_ports": [
+        "UP",
+        "RIGHT"
+      ],
+      "observed_ports": [
+        "UP",
+        "RIGHT"
+      ],
+      "source_score": 4.6,
+      "material_score": 4.6,
+      "source_geometry_score": 4.6,
+      "runtime_bound": false,
+      "evaluation": "The same declared UP,RIGHT port topology remains open and the shared centre is clear dry ochre/lavender loam, with no aqua water or water glints. Broad matte cream/ochre banks and plum contour match the wet counterpart. Source-only4.6; actual switching/ports/joined dry networks remain pending.",
+      "qualification": "Matching dry edit complete native and all4 shapes directly inspected from fresh generated output. Exact whole original retained; no source pixel/alpha cleanup. Shape comparison is measured separately, not presumed pixel equality."
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A01-TEE_LEFT_RIGHT_UP",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_01/native_generated.png",
+      "sha256": "86eac09710c17cbf298068ae6fe9480a49571bd9a776f4a2fac13b79ffff926b",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        47,
+        688,
+        544,
+        424
+      ],
+      "expected_ports": [
+        "LEFT",
+        "RIGHT",
+        "UP"
+      ],
+      "observed_ports": [
+        "LEFT",
+        "RIGHT",
+        "UP"
+      ],
+      "source_score": 4.6,
+      "material_score": 4.6,
+      "source_geometry_score": 4.6,
+      "runtime_bound": false,
+      "evaluation": "The same declared LEFT,RIGHT,UP port topology remains open and the shared centre is clear dry ochre/lavender loam, with no aqua water or water glints. Broad matte cream/ochre banks and plum contour match the wet counterpart. Source-only4.6; actual switching/ports/joined dry networks remain pending.",
+      "qualification": "Matching dry edit complete native and all4 shapes directly inspected from fresh generated output. Exact whole original retained; no source pixel/alpha cleanup. Shape comparison is measured separately, not presumed pixel equality."
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A01-CROSS_ALL",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_01/native_generated.png",
+      "sha256": "86eac09710c17cbf298068ae6fe9480a49571bd9a776f4a2fac13b79ffff926b",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        686,
+        653,
+        511,
+        519
+      ],
+      "expected_ports": [
+        "UP",
+        "RIGHT",
+        "DOWN",
+        "LEFT"
+      ],
+      "observed_ports": [
+        "UP",
+        "RIGHT",
+        "DOWN",
+        "LEFT"
+      ],
+      "source_score": 4.6,
+      "material_score": 4.6,
+      "source_geometry_score": 4.6,
+      "runtime_bound": false,
+      "evaluation": "The same declared UP,RIGHT,DOWN,LEFT port topology remains open and the shared centre is clear dry ochre/lavender loam, with no aqua water or water glints. Broad matte cream/ochre banks and plum contour match the wet counterpart. Source-only4.6; actual switching/ports/joined dry networks remain pending.",
+      "qualification": "Matching dry edit complete native and all4 shapes directly inspected from fresh generated output. Exact whole original retained; no source pixel/alpha cleanup. Shape comparison is measured separately, not presumed pixel equality."
+    }
+  ],
+  "latest_refinement": {
+    "report": "audit/job_river_join_study_v1_20261001/index_v4.html",
+    "note": "Every28 V4 native state directly inspected; selected dry joins4.5 provisional, wet network4.4, flat bed3.2. Every78 preserved native study still directly reviewed; no production or full-action acceptance."
+  },
+  "qualification": "Source opinions only: every2 original,2 complete derivative and8 complete object regions directly reviewed4.6. None is production bound. Actual wet/dry shared joins, bed, contact, full action, training/story/device/child/owner remain open.",
+  "reviewed_utc": "2026-10-02T06:58:54.140350+00:00"
+}

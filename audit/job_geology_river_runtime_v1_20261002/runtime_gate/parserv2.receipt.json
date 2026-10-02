@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "command": [
+    "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "-m",
+    "gdtoolkit.parser",
+    "scripts/opera_geology_surface.gd",
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_hotspot_catalog.gd",
+    "scripts/opera_world_hotspot_2d.gd",
+    "audit/job_geology_river_runtime_v1_20261002/capture_geology_river_runtime.gd",
+    "audit/job_river_join_study_v1_20261001/join_surface_v5.gd",
+    "audit/job_river_join_study_v1_20261001/capture_join_study_v5.gd",
+    "audit/job_river_join_study_v1_20261001/join_surface_v6.gd",
+    "audit/job_river_join_study_v1_20261001/capture_join_study_v6.gd",
+    "audit/job_river_join_study_v1_20261001/join_surface_v7.gd",
+    "audit/job_river_join_study_v1_20261001/capture_join_study_v7.gd",
+    "audit/job_geology_river_runtime_v1_20261002/capture_production_river_network.gd"
+  ],
+  "process_exit": 0,
+  "started_utc": "2026-10-02T07:56:16.300264+00:00",
+  "finished_utc": "2026-10-02T07:56:18.402244+00:00",
+  "elapsed_seconds": 2.1019544000155292,
+  "blocking_diagnostics": [],
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "qualification": "Scoped machine evidence; no visual, physical device, child, owner or full-suite acceptance."
+}

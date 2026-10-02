@@ -1,0 +1,44 @@
+{
+  "reviewed_utc": "2026-10-02T07:33:07.899332+00:00",
+  "direct_review": true,
+  "source_score": 4.4,
+  "metrics": [
+    {
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_02/native_generated.png",
+      "sha256": "05e1f9625dd7f4eedb4a71117345db2185bedc01af213b93dc1ef74f6472557a",
+      "red_alpha_positive_count": 3744,
+      "red_alpha_over127_count": 611,
+      "alpha_range": [
+        1,
+        254
+      ],
+      "bbox": [
+        46,
+        58,
+        1206,
+        1174
+      ],
+      "method": "Read-only RGB/alpha inspection; no pixels written."
+    },
+    {
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_02/whole_canvas_1024.png",
+      "sha256": "583609303022d6aed39be963f74b8c5a9d5464ec8b5b8e1352dc5296606aed0b",
+      "red_alpha_positive_count": 2340,
+      "red_alpha_over127_count": 437,
+      "alpha_range": [
+        1,
+        255
+      ],
+      "bbox": [
+        38,
+        47,
+        983,
+        959
+      ],
+      "method": "Read-only RGB/alpha inspection; no pixels written."
+    }
+  ],
+  "evaluation": "Visible saturated red fringe pixels at all four open port silhouettes violate clean plum contour. Calm interior improves repeat joins but does not pass the complete component edge. Initial4.6 source opinion was too generous and is retained as history.",
+  "pixel_repair": false,
+  "alpha_cleanup": false
+}

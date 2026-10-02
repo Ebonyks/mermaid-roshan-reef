@@ -1,0 +1,38 @@
+{
+  "status": "COMPLETE_CANVAS_DERIVATIVE_DIRECTLY_REVIEWED4_6_UNBOUND",
+  "derivatives": [
+    {
+      "path": "assets_src/imagegen/geologist_river_bed_v1_20261002/attempt_01/whole_canvas_1024x512.png",
+      "sha256": "92e5860e8bdcf3a78263e13f2a31569d2cc1729babbd22ba96369320bd268d47",
+      "source_path": "assets_src/imagegen/geologist_river_bed_v1_20261002/attempt_01/native_generated.png",
+      "source_sha256": "10314d0693237ec1c7ae188cb1ed587170e6802da0cc0e49503ed7ba309996ab",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "method": "ONE_UNIFORM_COMPLETE_CANVAS_1774x887_TO1024x512_RGBA_LANCZOS",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/FFmpeg/8.1.2/bin/ffmpeg.exe",
+        "-hide_banner",
+        "-loglevel",
+        "warning",
+        "-i",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_river_bed_v1_20261002\\attempt_01\\native_generated.png",
+        "-vf",
+        "scale=1024:512:flags=lanczos",
+        "-frames:v",
+        "1",
+        "-pix_fmt",
+        "rgba",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_river_bed_v1_20261002\\attempt_01\\whole_canvas_1024x512.png"
+      ],
+      "pixel_repair": false,
+      "alpha_cleanup": false,
+      "direct_review": true,
+      "source_score": 4.6,
+      "runtime_bound": false,
+      "evaluation": "Complete1024x512 RGBA derivative directly inspected: full rounded authored contour and all corner-stone clusters retained, quiet broad painted field, no visible clipping or destructive cleanup. Source4.6 and V5 bed-context4.6; source review does not pass wet joins4.4 or full action.",
+      "reviewed_utc": "2026-10-02T07:16:34.504038+00:00"
+    }
+  ]
+}

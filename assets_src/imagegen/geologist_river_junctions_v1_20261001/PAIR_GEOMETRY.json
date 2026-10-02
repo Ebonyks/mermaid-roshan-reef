@@ -1,0 +1,95 @@
+{
+  "status": "NATIVE_ALPHA_GEOMETRY_MEASURED_NOT_PIXEL_EQUALITY",
+  "measurements": [
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A01-ENDCAP_RIGHT",
+      "wet_region": [
+        53,
+        121,
+        556,
+        420
+      ],
+      "dry_region": [
+        53,
+        119,
+        556,
+        423
+      ],
+      "opaque_shape_iou_alpha_gt4": 0.991121735674374,
+      "bbox_delta": [
+        0,
+        -2,
+        0,
+        3
+      ]
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A01-ELBOW_UP_RIGHT",
+      "wet_region": [
+        756,
+        61,
+        447,
+        483
+      ],
+      "dry_region": [
+        756,
+        60,
+        448,
+        485
+      ],
+      "opaque_shape_iou_alpha_gt4": 0.9874167671577623,
+      "bbox_delta": [
+        0,
+        -1,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A01-TEE_LEFT_RIGHT_UP",
+      "wet_region": [
+        48,
+        688,
+        542,
+        423
+      ],
+      "dry_region": [
+        47,
+        688,
+        544,
+        424
+      ],
+      "opaque_shape_iou_alpha_gt4": 0.9891407075218205,
+      "bbox_delta": [
+        -1,
+        0,
+        2,
+        1
+      ]
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A01-CROSS_ALL",
+      "wet_region": [
+        687,
+        654,
+        508,
+        517
+      ],
+      "dry_region": [
+        686,
+        653,
+        511,
+        519
+      ],
+      "opaque_shape_iou_alpha_gt4": 0.9851392708637836,
+      "bbox_delta": [
+        -1,
+        -1,
+        3,
+        2
+      ]
+    }
+  ],
+  "method": "Read-only alpha>4 binary IoU in disjoint native quadrants; no transformed image saved. Bounds/IoU measure silhouette only, not individual port widths, style/contact or runtime switching.",
+  "qualification": "Every wet/dry counterpart separately inspected; future atlas calibration/sampling remains required."
+}

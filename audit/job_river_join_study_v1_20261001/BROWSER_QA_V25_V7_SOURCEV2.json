@@ -1,0 +1,48 @@
+{
+  "checked_utc": "2026-10-02T07:46:52.187119+00:00",
+  "method": "Read-only CUA DOM evaluation of rendered localhost allowlisted galleries.",
+  "observations": [
+    {
+      "url": "http://127.0.0.1:8880/audit/job_river_join_study_v1_20261001/index_v7.html?revision=river-v7",
+      "cards": 28,
+      "images": 28,
+      "loaded": 28,
+      "broken": 0,
+      "document_width": 1265,
+      "viewport_width": 1280
+    },
+    {
+      "url": "http://127.0.0.1:8880/audit/job_artwork_refinement_live/all_items.html?revision=register-v25",
+      "filter": "all",
+      "query": "GEO-RIVER-",
+      "matches": 55,
+      "pages": [
+        {
+          "cards": 30,
+          "loaded": 30,
+          "pending": 0,
+          "broken": 0
+        },
+        {
+          "cards": 25,
+          "loaded": 25,
+          "pending": 0,
+          "broken": 0
+        }
+      ],
+      "document_width": 1265,
+      "viewport_width": 1280
+    },
+    {
+      "url": "http://127.0.0.1:8880/assets_src/imagegen/geologist_river_junctions_v1_20261001/index.html?revision=source-v2",
+      "images": 43,
+      "loaded": 43,
+      "pending": 0,
+      "broken": 0,
+      "regions": 30,
+      "document_width": 1265,
+      "viewport_width": 1280
+    }
+  ],
+  "qualification": "Exact rendered gallery verification, no saved browser screenshot claimed, not actual-use or complete-action/owner acceptance."
+}

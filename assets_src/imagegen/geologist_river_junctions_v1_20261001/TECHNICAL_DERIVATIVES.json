@@ -1,0 +1,40 @@
+{
+  "status": "BOTH_COMPLETE_DERIVATIVES_DIRECTLY_REVIEWED4_6_UNBOUND",
+  "derivatives": [
+    {
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_01/whole_canvas_1024.png",
+      "sha256": "d944238ef2fd32fcf76da2c874c929b5af045d197e8f3d4678e735f84caee6f8",
+      "source_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_01/native_generated.png",
+      "source_sha256": "6dd4207ebe976b3e5db429051c81f06a1f644191be94f86f789766e2988fe05d",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "method": "ONE_UNIFORM_COMPLETE_CANVAS_LANCZOS_SCALE_1254_TO1024_RGBA",
+      "pixel_repair": false,
+      "alpha_cleanup": false,
+      "source_score": 4.6,
+      "direct_review": true,
+      "runtime_bound": false,
+      "qualification": "Exact complete native1024 derivative directly inspected after uniform whole-canvas conversion; source4.6 only. No sampled network/port/owner approval."
+    },
+    {
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_01/whole_canvas_1024.png",
+      "sha256": "77789423cd81570df1d30c9d5407d043d6377021d4a973b8c4573850a2fcb3dd",
+      "source_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_01/native_generated.png",
+      "source_sha256": "86eac09710c17cbf298068ae6fe9480a49571bd9a776f4a2fac13b79ffff926b",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "method": "ONE_UNIFORM_COMPLETE_CANVAS_LANCZOS_SCALE_1254_TO1024_RGBA",
+      "pixel_repair": false,
+      "alpha_cleanup": false,
+      "source_score": 4.6,
+      "direct_review": true,
+      "runtime_bound": false,
+      "qualification": "Exact complete native1024 derivative directly inspected after uniform whole-canvas conversion; source4.6 only. No sampled network/port/owner approval."
+    }
+  ],
+  "reviewed_utc": "2026-10-02T06:52:38.646095+00:00"
+}

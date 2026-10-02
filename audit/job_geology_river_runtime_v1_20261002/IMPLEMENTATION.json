@@ -1,0 +1,15 @@
+{
+  "baseline": "40b1c7bfe025f284507c586fea61b9dd76b61423",
+  "changed_script": "scripts/opera_geology_surface.gd",
+  "before_sha256": "f97459b43bb8539ffd3b3cec2a80864c6ef6f58e382d3afd24ccfb29bd14bed2",
+  "after_sha256": "8b769f283c9c24b8fe3bed3d4901be8affd6b8f490543992ad52420792470b29",
+  "scope": "Drawing only; inherited grid, stroke/save/progress/flow/completion code unchanged. Imported texture and AtlasTexture caches, cleared when modes configure. River textures only loaded for river mode.",
+  "mechanic_methods_unchanged": [
+    "_river_stroke",
+    "river_path_cell_center",
+    "_river_connected",
+    "_river_flow_indices",
+    "progress_snapshot",
+    "restore_progress"
+  ]
+}

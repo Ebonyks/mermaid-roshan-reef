@@ -1,0 +1,50 @@
+from pathlib import Path
+import datetime, hashlib, html, json, shutil
+from PIL import Image
+b=Path('C:/Users/Peter/.codex/worktrees/job-art-review-v2-20261001/mermaid-roshan-reef')
+f=b/'audit/job_river_join_study_v1_20261001'; s=b/'assets_src/imagegen/geologist_river_junctions_v1_20261001'
+read=lambda p:json.loads(p.read_text(encoding='utf-8'))
+def write(p,d):p.write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest(); now=datetime.datetime.now(datetime.timezone.utc).isoformat()
+rv=read(f/'REVIEW_V6.json'); views=[]
+for width in [1280,1600]:
+ m=read(f/'attempt_07'/('MANIFEST_%d.json'%width));assert len(m['views'])==14
+ for x in m['views']:
+  assert sha(b/x['path'])==x['sha256']; state=x['state']; old=next(q for q in rv['current_native_views'] if q['state']==state and q['dimensions'][0]==width)
+  for key in ['material_score','mounted_detail_score','work_bed_context_score','complete_action_score','actor_contact_score','owner_acceptance']:x[key]=old[key]
+  quiet=state in ['dry_initial','isolated_dry']; mixed=state in ['connected_straight','connected_corner','connected_t_branch','connected_cross','partial_json_restored']; dry=state.startswith('isolated_dry') or state=='dry_initial'
+  score=4.6 if quiet else 4.5
+  note=old['evaluation'] if quiet else ('The dry recessed floor now stays calm golden ochre through rotated corners, T joins, cross and isolated loop. Heavy directional value planes are removed; small remaining bank-height and pigment steps keep joined detail at4.5 provisional. ' if dry or mixed else 'Calm painted aqua stays continuous through arbitrary branches and loop connections; small bank-height and pigment steps keep joined wet detail at4.5 provisional. ')
+  if mixed:note+='Both simultaneous dry loop and wet network now reach sampled4.5 provisional. '
+  if not quiet:note+='The full painted bed stays unclipped4.6. Whole-source A2 red port fringes remain a separate failed4.4 source review; the study trims open stubs to join planes without altering source pixels, and no red fringe is visible in these native states. No production, actor, room or complete-action acceptance.'
+  x.update(id='RIVER-JOIN-V7-%d-%s'%(width,state.upper()),direct_review=True,sampled_state_score=score,network_score=None if quiet else 4.5,wet_network_score=None if dry else 4.5,dry_network_score=None if quiet or not(dry or mixed) else 4.5,priority=score<=4.5,evaluation=note,reviewed_utc=now)
+  views.append(x)
+rv.update(schema='reef.river-join-study.v7',reviewed_utc=now,status='ALL28_V7_NATIVE_DIRECT_JOINED4_5_PROVISIONAL_SOURCE_FRINGES4_4_REJECTED',current_native_views=views,direct_native_views_all_attempts=162,prior_reviews=rv['prior_reviews']+['audit/job_river_join_study_v1_20261001/REVIEW_V6.json'],qualification='All28 V7 native stills directly inspected at both widths;162 direct across preserved attempts. Bed4.6; both dry/wet joined detail4.5 provisional. The complete new dry source A2 is corrected downward to4.4 because generated red edge pixels are visible; no source alpha cleanup. Production, actor, room, full action/training/story/device/child/owner/all-game acceptance unfinished.')
+write(f/'REVIEW_V7.json',rv);write(f/'attempt_07/DIRECT_REVIEW.json',rv)
+style='body{font:17px/1.5 system-ui;background:#e9eeef;color:#292542;margin:auto;max-width:1180px;padding:26px}img{display:block;max-width:100%;height:auto}article{background:white;padding:18px;margin:24px 0;border-radius:12px}code{overflow-wrap:anywhere}a{color:#45318b}'
+cards=''.join('<article id="%s"><h2>%s · sampled state%s/5</h2><img src="%s" alt="%s" loading="eager"><p>%s</p><code>%s</code></article>'%(x['id'],x['id'],x['sampled_state_score'],x['path'].split('job_river_join_study_v1_20261001/')[1],x['id'],html.escape(x['evaluation']),x['sha256']) for x in views)
+(f/'index_v7.html').write_text('<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>River V7 dry-floor review</title><style>'+style+'</style><h1>River V7: calmer joined dry and wet channels</h1><p>All28 latest native states directly reviewed;162 direct across preserved attempts. Joined detail4.5 provisional; bed4.6. Complete dry source A2 has visible red port fringes and fails4.4 independently.</p><p><a href="index_v6.html">V6 and prior failures</a> · <a href="REVIEW_V7.json">Individual written evaluations and hashes</a></p><p>Both inherited actual-input captures pass JSON restoration, arbitrary source-connected paths and single completion. Actor, full room, timed action, production and external acceptance remain open.</p>'+cards,encoding='utf-8',newline='\n')
+a=s/'dry_attempt_02'; p=a/'REVIEW.json'; d=read(p);write(a/'REVIEW_INITIAL_V1.json',d)
+metrics=[]
+for name in ['native_generated.png','whole_canvas_1024.png']:
+ im=Image.open(a/name).convert('RGBA'); pixels=im.load(); spots=[(x,y,pixels[x,y][3]) for y in range(im.height) for x in range(im.width) if pixels[x,y][0]>150 and pixels[x,y][1]<80 and pixels[x,y][2]<100 and pixels[x,y][3]>0]
+ metrics.append(dict(path=(a/name).relative_to(b).as_posix(),sha256=sha(a/name),red_alpha_positive_count=len(spots),red_alpha_over127_count=sum(q[2]>127 for q in spots),alpha_range=[min(q[2] for q in spots),max(q[2] for q in spots)] if spots else None,bbox=[min(q[0] for q in spots),min(q[1] for q in spots),max(q[0] for q in spots)+1,max(q[1] for q in spots)+1] if spots else None,method='Read-only RGB/alpha inspection; no pixels written.'))
+write(a/'EDGE_REVIEW_V2.json',dict(reviewed_utc=now,direct_review=True,source_score=4.4,metrics=metrics,evaluation='Visible saturated red fringe pixels at all four open port silhouettes violate clean plum contour. Calm interior improves repeat joins but does not pass the complete component edge. Initial4.6 source opinion was too generous and is retained as history.',pixel_repair=False,alpha_cleanup=False))
+d.update(source_score=4.4,reviewed_utc=now,qualification='Current complete source4.4 rejected: visible generated red fringe pixels at outer open port ends. Initial4.6 opinion preserved in REVIEW_INITIAL_V1.json; V7 visible joined portions4.5 provisional are a separate claim.')
+for x in d['components']:
+ x.update(source_score=4.4,reviewed_utc=now,evaluation='This '+x['id'].split('-')[-1].lower()+' has a calm golden recessed floor and intact rounded ochre/plum painted banks. Generated red fringe pixels remain visible at open port silhouettes; complete source4.4 fails clean-edge quality. The V7 trimmed study portion reaches joined4.5 provisional; this does not erase the complete-source defect.',qualification='Direct complete-source inspection. Source pixels preserved, no alpha cleanup. Initial4.6 retained as history; generated edge correction required.')
+write(p,d)
+p=a/'TECHNICAL_DERIVATIVE.json';d=read(p);d.update(source_score=4.4,direct_review=True,reviewed_utc=now,qualification='Exact complete1024 derivative directly reviewed, retains generated red fringe pixels and fails4.4. Uniform whole-canvas transform only; no alpha cleanup.');write(p,d)
+a=s/'dry_attempt_03';a.mkdir(exist_ok=False); target='assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_02/native_generated.png'
+prompt='''Use case: precise-object-edit
+Asset type: transparent 2D painted dry river junction atlas for a preschool storybook game.
+The single image is the EDIT TARGET. Preserve exactly its four separate endcap, elbow, T and cross shapes, current layout, open port geometry, positions, channel width, calm golden recessed earth floors, broad hand-painted pigment bands, rounded ochre banks, narrow lavender wall shadows and dark plum contours.
+Correct only the accidental red/orange fringe pixels around the outside silhouettes, especially the straight open port ends. Remove every bright red line, red speck and red halo from all four objects. Outside every authored object must be genuinely transparent; boundary antialiasing must use the adjacent golden earth or dark plum bank colour, never red. Open ends stay open, straight and clean. Preserve all internal painting and bank silhouettes as closely as possible. Do not add a closing rail at any open port. Keep all four complete shapes intact with transparent separation and generous exterior margins.
+Polished illustrated 2D children's storybook raster painting, same warm-earth and plum family. Exactly the same four objects, no new props, labels, vector replacement, photorealism, 3D, background or drop shadow. This is a targeted edge-colour correction only, not a redesign.
+'''
+p=s/'PROMPT_DRY_ATTEMPT_03.txt';p.write_text(prompt,encoding='utf-8',newline='\n')
+write(a/'GENERATION_PENDING.json',dict(status='PRE_GENERATION_NAMED_EDGE_GAP',attempt=3,method='BUILTIN_CODEX_IMAGEGEN_TARGETED_EDGE_COLOUR_EDIT',prompt_path=p.relative_to(b).as_posix(),prompt_sha256=sha(p),reference_paths=[target],reference_sha256=[sha(b/target)],transparent_background=True,runtime_bound=False,named_gap='A2 whole source and all four components corrected4.4 for visible generated saturated red port fringes. No clean same-geometry calm dry sheet available; A1 repeats with value seams4.4. Request only edge colour correction, preserving the V7 calm-floor improvement.',review_evidence='assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_02/EDGE_REVIEW_V2.json'))
+shutil.copyfile(__file__,f/Path(__file__).name)
+for name,folder in [('job-geology-river-junction-source-20261001',s),('job-geology-river-join-study-20261001',f)]:
+ ip=b/('design/audit_impacts/'+name+'.json');d=read(ip);d['files']=sorted(set(d['files'])|{x.relative_to(b).as_posix() for x in folder.rglob('*') if x.is_file()});d['acceptance_gaps']='Every162 native isolated-study still directly reviewed; bed4.6/joined dry-wet detail4.5 provisional. A2 complete dry source4.4 red fringes require correction. Production, actor, room, full action/training/story/device/child/owner/all-game acceptance unfinished.';write(ip,d)
+print(json.dumps(metrics)); print(prompt)

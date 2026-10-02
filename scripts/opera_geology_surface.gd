@@ -40,7 +40,7 @@ const GEODE_SEAM_SPOTS: Array[Vector2] = [
 	Vector2(744.0, 401.0), Vector2(770.0, 466.0),
 ]
 ## Painted geology props share reviewed source art and measured alpha regions.
-## River drawing, room composition and actor contact retain their own priorities.
+## Painted river regions retain separate room, actor and complete-action reviews.
 const WORK_ART := "res://assets/opera/worlds/geology/painted_work_v1_20261001/"
 const FOSSIL_PATH := WORK_ART + "fossil.png"
 const GEODE_ART := "res://assets/opera/worlds/geology/painted_geode_v1_20261001/"
@@ -49,6 +49,8 @@ const ROCK_PATH := WORK_ART + "layered_rock.png"
 const BRUSH_PATH := "res://assets/castle/day_one_art_studio/magic_cleaning_brush.png"
 const PAN_PATH := WORK_ART + "pan.png"
 const CRYSTALS_PATH := WORK_ART + "mineral.png"
+const RIVER_ART := "res://assets/opera/worlds/geology/painted_river_v1_20261002/"
+const RIVER_NATIVE_TO_RUNTIME := 1024.0 / 1254.0
 
 var fossil_texture: Texture2D = null
 var geode_texture: Texture2D = null
@@ -63,6 +65,11 @@ var crystals_texture: Texture2D = null
 var _work_slab_texture: Texture2D = null
 var _pan_grain_texture: Texture2D = null
 var _fossil_soil_texture: Texture2D = null
+var _river_source_textures: Dictionary = {}
+var _river_atlas_regions: Dictionary = {}
+var _river_dry_circle: Texture2D = null
+var _river_wet_circle: Texture2D = null
+var _river_earth: Texture2D = null
 
 var touch_owner := -1
 var river_wet: Array[bool] = []
@@ -272,6 +279,16 @@ func _load_textures() -> void:
 	_work_slab_texture = _geode_atlas(WORK_ART + "work_slab.png", Rect2(68, 332, 889, 369))
 	_pan_grain_texture = _geode_atlas(WORK_ART + "grain.png", Rect2(228, 120, 569, 439))
 	_fossil_soil_texture = _geode_atlas(WORK_ART + "fossil_soil.png", Rect2(72, 171, 881, 684))
+	_river_atlas_regions.clear()
+	_river_source_textures.clear()
+	_river_dry_circle = null
+	_river_wet_circle = null
+	_river_earth = null
+	if mode == "geology_river":
+		_river_earth = _optional_texture(RIVER_ART + "earth_bed.png")
+		_river_dry_circle = _river_region("nodes.png", Rect2(44, 167, 560, 547))
+		_river_wet_circle = _river_region("nodes.png", Rect2(655, 167, 560, 547))
+
 
 
 func _optional_texture(path: String) -> Texture2D:
@@ -660,33 +677,102 @@ func _draw() -> void:
 		_draw_demo_finger()
 
 
+func _river_region(source_name: String, native_rect: Rect2) -> Texture2D:
+	var key := source_name + str(native_rect)
+	if _river_atlas_regions.has(key):
+		return _river_atlas_regions[key] as Texture2D
+	if not _river_source_textures.has(source_name):
+		_river_source_textures[source_name] = _optional_texture(RIVER_ART + source_name)
+	var source := _river_source_textures[source_name] as Texture2D
+	if source == null:
+		return null
+	var atlas := AtlasTexture.new()
+	atlas.atlas = source
+	atlas.region = Rect2(native_rect.position * RIVER_NATIVE_TO_RUNTIME,
+		native_rect.size * RIVER_NATIVE_TO_RUNTIME)
+	_river_atlas_regions[key] = atlas
+	return atlas
+
+
+func _draw_river_circle_art(center: Vector2, wet: bool, width_now: float) -> void:
+	var art := _river_wet_circle if wet else _river_dry_circle
+	if art == null:
+		return
+	var size_now := Vector2(width_now,width_now * art.get_height() / float(art.get_width()))
+	draw_texture_rect(art,Rect2(center-size_now*0.5,size_now),false)
+
+func _river_neighbor_mask(cell: Vector2i) -> int:
+	var result := 0
+	var steps: Array[Vector2i] = [Vector2i.RIGHT,Vector2i.DOWN,Vector2i.LEFT,Vector2i.UP]
+	for bit: int in range(4):
+		var next := cell + steps[bit]
+		if next.x >= 0 and next.x < RIVER_COLS and next.y >= 0 and next.y < RIVER_ROWS \
+				and river_wet[next.y * RIVER_COLS + next.x]:
+			result |= 1 << bit
+	return result
+
+func _draw_river_field(center: Vector2, kind: String, angle: float, wet: bool) -> void:
+	var source_path := "wet_junctions.png" if wet else "dry_junctions.png"
+	var anchor := Vector2(941.0,915.5)
+	var pixel_scale := 0.18
+	if kind == "elbow":
+		anchor = Vector2(889.0,407.0)
+	elif kind == "tee":
+		anchor = Vector2(317.0,963.0)
+	var turned := not is_zero_approx(sin(angle))
+	var extent := Vector2(76.0,88.0) if turned else Vector2(88.0,76.0)
+	var region_now := Rect2(anchor - extent * 0.5 / pixel_scale,extent / pixel_scale)
+	if kind == "endcap":
+		anchor = Vector2(345.5555556,345.0)
+		pixel_scale = 0.18
+		# Keep the complete closed bowl; only its open right stub ends on its port plane.
+		region_now = Rect2(53.0,119.0,anchor.x + extent.x * 0.5 / pixel_scale - 53.0,423.0)
+	elif kind == "straight":
+		source_path = "wet_straight.png" if wet else "dry_straight.png"
+		var height_now := 302.0 if wet else 300.0
+		var source_y := 734.0 if wet else 310.0
+		pixel_scale = extent.x / 586.0
+		region_now = Rect2(334.5,source_y,586.0,height_now)
+		anchor = region_now.get_center()
+	var art := _river_region(source_path,region_now)
+	if art == null:
+		return
+	draw_set_transform(center,angle)
+	draw_texture_rect(art,Rect2((region_now.position-anchor)*pixel_scale,
+		region_now.size*pixel_scale),false)
+	draw_set_transform(Vector2.ZERO)
+
 func _draw_river() -> void:
-	# Any connected excavation is a valid solution. Dry, isolated holes stay
-	# dry until the child joins them to the spring; the suggested path is optional.
 	var flowing := _river_flow_indices()
-	for index in range(RIVER_COLS * RIVER_ROWS):
-		var cell := Vector2i(index % RIVER_COLS, index / RIVER_COLS)
-		var center := river_path_cell_center(cell)
+	for index: int in range(RIVER_COLS * RIVER_ROWS):
 		if not river_wet[index]:
-			draw_circle(center + Vector2(12, 9), 3.0, Color("#c6a482"))
 			continue
-		var color := Color("#6ed7df") if flowing.has(index) else Color("#a88c91")
-		for step: Vector2i in [Vector2i.RIGHT, Vector2i.DOWN]:
-			var next := cell + step
-			if next.x < RIVER_COLS and next.y < RIVER_ROWS \
-					and river_wet[next.y * RIVER_COLS + next.x]:
-				draw_line(center, river_path_cell_center(next), Color("#675477"), 53.0, true)
-				draw_line(center, river_path_cell_center(next), color, 39.0, true)
-		draw_circle(center, 27.0, Color("#675477"))
-		draw_circle(center, 21.0, color)
-		if flowing.has(index):
-			draw_arc(center, 13.0, PI, TAU, 14, Color("#b6f1ed"), 3.0, true)
-	draw_circle(river_path_point(0), 43.0, Color("#514466"))
-	draw_circle(river_path_point(0), 35.0, Color("#8bf1f3"))
-	var finish := river_path_point(RIVER_PATH.size() - 1)
-	draw_circle(finish, 47.0, Color("#514466"))
-	draw_circle(finish, 39.0, Color("#77dbe0") if _river_connected() else Color("#a58a95"))
-	draw_arc(finish, 26.0, 0.0, TAU, 28, Color("#ead6bd"), 4.0, true)
+		var cell := Vector2i(index % RIVER_COLS,index / RIVER_COLS)
+		var center := river_path_cell_center(cell)
+		var mask := _river_neighbor_mask(cell)
+		var wet := flowing.has(index)
+		if mask == 0:
+			_draw_river_circle_art(center,wet,60.0)
+		elif mask in [1,2,4,8]:
+			var angle := 0.0 if mask == 1 else PI*0.5 if mask == 2 else PI if mask == 4 else -PI*0.5
+			_draw_river_field(center,"endcap",angle,wet)
+		elif mask in [5,10]:
+			_draw_river_field(center,"straight",0.0 if mask == 5 else PI*0.5,wet)
+		elif mask in [9,3,6,12]:
+			var angle := 0.0 if mask == 9 else PI*0.5 if mask == 3 else PI if mask == 6 else -PI*0.5
+			_draw_river_field(center,"elbow",angle,wet)
+		elif mask in [13,11,7,14]:
+			var angle := 0.0 if mask == 13 else PI*0.5 if mask == 11 else PI if mask == 7 else -PI*0.5
+			_draw_river_field(center,"tee",angle,wet)
+		else:
+			assert(mask == 15)
+			_draw_river_field(center,"cross",0.0,wet)
+	if not river_wet[RIVER_PATH[0].y * RIVER_COLS + RIVER_PATH[0].x]:
+		_draw_river_circle_art(river_path_point(0),true,86.0)
+	if not river_wet[RIVER_PATH[-1].y * RIVER_COLS + RIVER_PATH[-1].x]:
+		_draw_river_circle_art(river_path_point(RIVER_PATH.size()-1),false,94.0)
+	if held:
+		_draw_brush(pointer_pos)
 
 
 func _river_flow_indices() -> Dictionary:
@@ -877,7 +963,10 @@ func _draw_geode() -> void:
 	draw_texture_rect(_geode_open_right_texture, _geode_right_rect(), false)
 
 func _draw_work_surface() -> void:
-	# River excavation retains its diagram until a matching material is reviewed.
+	if mode == "geology_river" and _river_earth != null:
+		draw_texture_rect(_river_earth,
+			Rect2(Vector2(248.0, 114.0), Vector2(1024.0, 512.0)), false)
+		return
 	if mode != "geology_river" and _work_slab_texture != null:
 		var slab_width := 900.0 if mode == "geology_fossil" else 860.0
 		var slab_center := Vector2(760.0, 400.0)

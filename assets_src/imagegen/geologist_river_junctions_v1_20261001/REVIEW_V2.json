@@ -1,0 +1,1011 @@
+{
+  "status": "DIRECT_INDIVIDUAL_SOURCE_REVIEWS_REJECTED_FRINGES_PRESERVED",
+  "reviewed_utc": "2026-10-02T07:41:07.519167+00:00",
+  "native_originals": [
+    {
+      "native_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_01/native_generated.png",
+      "sha256": "6dd4207ebe976b3e5db429051c81f06a1f644191be94f86f789766e2988fe05d",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_score": 4.6,
+      "direct_review": true,
+      "runtime_bound": false
+    },
+    {
+      "native_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_01/native_generated.png",
+      "sha256": "86eac09710c17cbf298068ae6fe9480a49571bd9a776f4a2fac13b79ffff926b",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_score": 4.6,
+      "direct_review": true,
+      "runtime_bound": false
+    },
+    {
+      "native_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_02/native_generated.png",
+      "sha256": "9235d3650468cc1068a1943e0c481fbcc66f90038f98de3af7d883d7cea34e7f",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_score": 4.6,
+      "direct_review": true,
+      "qualification": "Complete native generated atlas directly inspected. Calm painted water removes source glints without vector substitution; bank silhouette and actual joint fit require independent comparison. Source-only4.6, unbound."
+    },
+    {
+      "native_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/straight_attempt_02/native_generated.png",
+      "sha256": "77d996ebb8df367871868c5c09f6aee82976dccc05bc3cee84cbc8e5c050590f",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_score": 4.6,
+      "direct_review": true,
+      "qualification": "Complete native source directly inspected, source4.6 only. Corrected wet surface intended for repeated-port study; dry edit by-product unused."
+    },
+    {
+      "native_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_02/native_generated.png",
+      "sha256": "05e1f9625dd7f4eedb4a71117345db2185bedc01af213b93dc1ef74f6472557a",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_score": 4.4,
+      "direct_review": true,
+      "qualification": "Current complete source4.4 rejected: visible generated red fringe pixels at outer open port ends. Initial4.6 opinion preserved in REVIEW_INITIAL_V1.json; V7 visible joined portions4.5 provisional are a separate claim.",
+      "reviewed_utc": "2026-10-02T07:33:07.899332+00:00"
+    },
+    {
+      "native_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_03/native_generated.png",
+      "sha256": "8650fd930f3c3911cb6e56c8991fd998fa78a01c1e0a3273f8a313849ef8b694",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_score": 4.4,
+      "direct_review": true,
+      "reviewed_utc": "2026-10-02T07:35:22.353036+00:00",
+      "qualification": "Targeted edge edit failed; original and all four components4.4. Preserve rejected draft outside runtime."
+    },
+    {
+      "native_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_04/native_generated.png",
+      "sha256": "81b7406b61c0585e4d058c75b7fbac13e2e79895ba550a37a8bf9719cddd385a",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "source_score": 3.8,
+      "direct_review": true,
+      "reviewed_utc": "2026-10-02T07:38:30.680348+00:00",
+      "qualification": "Fresh4 source3.8 rejected: large brown/lavender exterior glow, darker banks; no whole-canvas derivative or runtime binding."
+    },
+    {
+      "native_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_05/native_generated.png",
+      "sha256": "dc3762b469b8544cf5982a84f6fac3643bdd7c8f7bba142353e09d28fae43774",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "source_score": 3.8,
+      "direct_review": true,
+      "reviewed_utc": "2026-10-02T07:41:02.949097+00:00",
+      "qualification": "A5 lightens bank painting but retains large brown/lavender exterior glow; complete source3.8 rejected. No normalization or runtime binding."
+    }
+  ],
+  "technical_derivatives": [
+    {
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_01/whole_canvas_1024.png",
+      "sha256": "d944238ef2fd32fcf76da2c874c929b5af045d197e8f3d4678e735f84caee6f8",
+      "source_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_01/native_generated.png",
+      "source_sha256": "6dd4207ebe976b3e5db429051c81f06a1f644191be94f86f789766e2988fe05d",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "method": "ONE_UNIFORM_COMPLETE_CANVAS_LANCZOS_SCALE_1254_TO1024_RGBA",
+      "pixel_repair": false,
+      "alpha_cleanup": false,
+      "source_score": 4.6,
+      "direct_review": true,
+      "runtime_bound": false,
+      "qualification": "Exact complete native1024 derivative directly inspected after uniform whole-canvas conversion; source4.6 only. No sampled network/port/owner approval."
+    },
+    {
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_01/whole_canvas_1024.png",
+      "sha256": "77789423cd81570df1d30c9d5407d043d6377021d4a973b8c4573850a2fcb3dd",
+      "source_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_01/native_generated.png",
+      "source_sha256": "86eac09710c17cbf298068ae6fe9480a49571bd9a776f4a2fac13b79ffff926b",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "method": "ONE_UNIFORM_COMPLETE_CANVAS_LANCZOS_SCALE_1254_TO1024_RGBA",
+      "pixel_repair": false,
+      "alpha_cleanup": false,
+      "source_score": 4.6,
+      "direct_review": true,
+      "runtime_bound": false,
+      "qualification": "Exact complete native1024 derivative directly inspected after uniform whole-canvas conversion; source4.6 only. No sampled network/port/owner approval."
+    },
+    {
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_02/whole_canvas_1024.png",
+      "sha256": "4e1cdf25d017e20d67823be2aff29610a02c6284483e96c047a6ca158f544c26",
+      "source_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_02/native_generated.png",
+      "source_sha256": "9235d3650468cc1068a1943e0c481fbcc66f90038f98de3af7d883d7cea34e7f",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "method": "UNIFORM_COMPLETE_CANVAS1254_TO1024_RGBA_LANCZOS",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/FFmpeg/8.1.2/bin/ffmpeg.exe",
+        "-hide_banner",
+        "-loglevel",
+        "warning",
+        "-i",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_river_junctions_v1_20261001\\wet_attempt_02\\native_generated.png",
+        "-vf",
+        "scale=1024:1024:flags=lanczos",
+        "-frames:v",
+        "1",
+        "-pix_fmt",
+        "rgba",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_river_junctions_v1_20261001\\wet_attempt_02\\whole_canvas_1024.png"
+      ],
+      "pixel_repair": false,
+      "alpha_cleanup": false,
+      "direct_review": true,
+      "source_score": 4.6,
+      "runtime_bound": false,
+      "reviewed_utc": "2026-10-02T07:24:38.986306+00:00",
+      "qualification": "Complete1024 RGBA derivative directly inspected, full contours and broad painted surface retained. Whole uniform transform only, no alpha cleanup. Source4.6; V6 wet detail4.5 provisional, dry loop4.4 below floor."
+    },
+    {
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/straight_attempt_02/whole_canvas_1024.png",
+      "sha256": "3631a77a46b75838be0979e96d32fe972923051d5cdea15615a3a63e5695f1b1",
+      "source_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/straight_attempt_02/native_generated.png",
+      "source_sha256": "77d996ebb8df367871868c5c09f6aee82976dccc05bc3cee84cbc8e5c050590f",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "method": "UNIFORM_COMPLETE_CANVAS1254_TO1024_RGBA_LANCZOS",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/FFmpeg/8.1.2/bin/ffmpeg.exe",
+        "-hide_banner",
+        "-loglevel",
+        "warning",
+        "-i",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_river_junctions_v1_20261001\\straight_attempt_02\\native_generated.png",
+        "-vf",
+        "scale=1024:1024:flags=lanczos",
+        "-frames:v",
+        "1",
+        "-pix_fmt",
+        "rgba",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_river_junctions_v1_20261001\\straight_attempt_02\\whole_canvas_1024.png"
+      ],
+      "pixel_repair": false,
+      "alpha_cleanup": false,
+      "direct_review": true,
+      "source_score": 4.6,
+      "runtime_bound": false,
+      "reviewed_utc": "2026-10-02T07:24:38.986306+00:00",
+      "qualification": "Complete1024 RGBA derivative directly inspected, full contours and broad painted surface retained. Whole uniform transform only, no alpha cleanup. Source4.6; V6 wet detail4.5 provisional, dry loop4.4 below floor."
+    },
+    {
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_02/whole_canvas_1024.png",
+      "sha256": "583609303022d6aed39be963f74b8c5a9d5464ec8b5b8e1352dc5296606aed0b",
+      "source_path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_02/native_generated.png",
+      "source_sha256": "05e1f9625dd7f4eedb4a71117345db2185bedc01af213b93dc1ef74f6472557a",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "method": "UNIFORM_COMPLETE_CANVAS1254_TO1024_RGBA_LANCZOS",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/FFmpeg/8.1.2/bin/ffmpeg.exe",
+        "-hide_banner",
+        "-loglevel",
+        "warning",
+        "-i",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_river_junctions_v1_20261001\\dry_attempt_02\\native_generated.png",
+        "-vf",
+        "scale=1024:1024:flags=lanczos",
+        "-frames:v",
+        "1",
+        "-pix_fmt",
+        "rgba",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_river_junctions_v1_20261001\\dry_attempt_02\\whole_canvas_1024.png"
+      ],
+      "pixel_repair": false,
+      "alpha_cleanup": false,
+      "direct_review": true,
+      "source_score": 4.4,
+      "runtime_bound": false,
+      "reviewed_utc": "2026-10-02T07:33:07.899332+00:00",
+      "qualification": "Exact complete1024 derivative directly reviewed, retains generated red fringe pixels and fails4.4. Uniform whole-canvas transform only; no alpha cleanup."
+    }
+  ],
+  "components": [
+    {
+      "id": "GEO-RIVER-JUNCTION-WET-A01-ENDCAP_RIGHT",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_01/native_generated.png",
+      "sha256": "6dd4207ebe976b3e5db429051c81f06a1f644191be94f86f789766e2988fe05d",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        53,
+        121,
+        556,
+        420
+      ],
+      "expected_ports": [
+        "RIGHT"
+      ],
+      "observed_ports": [
+        "RIGHT"
+      ],
+      "source_score": 4.6,
+      "material_score": 4.6,
+      "source_geometry_score": 4.6,
+      "runtime_bound": false,
+      "evaluation": "One right open port; round left end/bowl has intact exterior banks. Water reaches the right plane, with no internal ring. Broad matte ochre/cream, lavender shade and plum contour match the selected source family. Exact runtime port calibration/sampling/join widths remain pending.",
+      "qualification": "Fresh complete native generated atlas and each4 objects directly inspected. Source-only4.6; not actual mounted/joined/network/action/device/child/owner acceptance."
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-WET-A01-ELBOW_UP_RIGHT",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_01/native_generated.png",
+      "sha256": "6dd4207ebe976b3e5db429051c81f06a1f644191be94f86f789766e2988fe05d",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        756,
+        61,
+        447,
+        483
+      ],
+      "expected_ports": [
+        "UP",
+        "RIGHT"
+      ],
+      "observed_ports": [
+        "UP",
+        "RIGHT"
+      ],
+      "source_score": 4.6,
+      "material_score": 4.6,
+      "source_geometry_score": 4.6,
+      "runtime_bound": false,
+      "evaluation": "Two open ports and one continuously aqua rounded bend. Exterior earth banks follow the outside elbow without crossing the water. Broad matte ochre/cream, lavender shade and plum contour match the selected source family. Exact runtime port calibration/sampling/join widths remain pending.",
+      "qualification": "Fresh complete native generated atlas and each4 objects directly inspected. Source-only4.6; not actual mounted/joined/network/action/device/child/owner acceptance."
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-WET-A01-TEE_LEFT_RIGHT_UP",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_01/native_generated.png",
+      "sha256": "6dd4207ebe976b3e5db429051c81f06a1f644191be94f86f789766e2988fe05d",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        48,
+        688,
+        542,
+        423
+      ],
+      "expected_ports": [
+        "LEFT",
+        "RIGHT",
+        "UP"
+      ],
+      "observed_ports": [
+        "LEFT",
+        "RIGHT",
+        "UP"
+      ],
+      "source_score": 4.6,
+      "material_score": 4.6,
+      "source_geometry_score": 4.6,
+      "runtime_bound": false,
+      "evaluation": "Three broad open arms share one clear aqua centre; lower side closes with exterior earth bank. Broad matte ochre/cream, lavender shade and plum contour match the selected source family. Exact runtime port calibration/sampling/join widths remain pending.",
+      "qualification": "Fresh complete native generated atlas and each4 objects directly inspected. Source-only4.6; not actual mounted/joined/network/action/device/child/owner acceptance."
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-WET-A01-CROSS_ALL",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_01/native_generated.png",
+      "sha256": "6dd4207ebe976b3e5db429051c81f06a1f644191be94f86f789766e2988fe05d",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        687,
+        654,
+        508,
+        517
+      ],
+      "expected_ports": [
+        "UP",
+        "RIGHT",
+        "DOWN",
+        "LEFT"
+      ],
+      "observed_ports": [
+        "UP",
+        "RIGHT",
+        "DOWN",
+        "LEFT"
+      ],
+      "source_score": 4.6,
+      "material_score": 4.6,
+      "source_geometry_score": 4.6,
+      "runtime_bound": false,
+      "evaluation": "All four open arms share one clear interior with exterior corner banks only. No rail or circular wall divides the middle. Broad matte ochre/cream, lavender shade and plum contour match the selected source family. Exact runtime port calibration/sampling/join widths remain pending.",
+      "qualification": "Fresh complete native generated atlas and each4 objects directly inspected. Source-only4.6; not actual mounted/joined/network/action/device/child/owner acceptance."
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A01-ENDCAP_RIGHT",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_01/native_generated.png",
+      "sha256": "86eac09710c17cbf298068ae6fe9480a49571bd9a776f4a2fac13b79ffff926b",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        53,
+        119,
+        556,
+        423
+      ],
+      "expected_ports": [
+        "RIGHT"
+      ],
+      "observed_ports": [
+        "RIGHT"
+      ],
+      "source_score": 4.6,
+      "material_score": 4.6,
+      "source_geometry_score": 4.6,
+      "runtime_bound": false,
+      "evaluation": "The same declared RIGHT port topology remains open and the shared centre is clear dry ochre/lavender loam, with no aqua water or water glints. Broad matte cream/ochre banks and plum contour match the wet counterpart. Source-only4.6; actual switching/ports/joined dry networks remain pending.",
+      "qualification": "Matching dry edit complete native and all4 shapes directly inspected from fresh generated output. Exact whole original retained; no source pixel/alpha cleanup. Shape comparison is measured separately, not presumed pixel equality."
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A01-ELBOW_UP_RIGHT",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_01/native_generated.png",
+      "sha256": "86eac09710c17cbf298068ae6fe9480a49571bd9a776f4a2fac13b79ffff926b",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        756,
+        60,
+        448,
+        485
+      ],
+      "expected_ports": [
+        "UP",
+        "RIGHT"
+      ],
+      "observed_ports": [
+        "UP",
+        "RIGHT"
+      ],
+      "source_score": 4.6,
+      "material_score": 4.6,
+      "source_geometry_score": 4.6,
+      "runtime_bound": false,
+      "evaluation": "The same declared UP,RIGHT port topology remains open and the shared centre is clear dry ochre/lavender loam, with no aqua water or water glints. Broad matte cream/ochre banks and plum contour match the wet counterpart. Source-only4.6; actual switching/ports/joined dry networks remain pending.",
+      "qualification": "Matching dry edit complete native and all4 shapes directly inspected from fresh generated output. Exact whole original retained; no source pixel/alpha cleanup. Shape comparison is measured separately, not presumed pixel equality."
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A01-TEE_LEFT_RIGHT_UP",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_01/native_generated.png",
+      "sha256": "86eac09710c17cbf298068ae6fe9480a49571bd9a776f4a2fac13b79ffff926b",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        47,
+        688,
+        544,
+        424
+      ],
+      "expected_ports": [
+        "LEFT",
+        "RIGHT",
+        "UP"
+      ],
+      "observed_ports": [
+        "LEFT",
+        "RIGHT",
+        "UP"
+      ],
+      "source_score": 4.6,
+      "material_score": 4.6,
+      "source_geometry_score": 4.6,
+      "runtime_bound": false,
+      "evaluation": "The same declared LEFT,RIGHT,UP port topology remains open and the shared centre is clear dry ochre/lavender loam, with no aqua water or water glints. Broad matte cream/ochre banks and plum contour match the wet counterpart. Source-only4.6; actual switching/ports/joined dry networks remain pending.",
+      "qualification": "Matching dry edit complete native and all4 shapes directly inspected from fresh generated output. Exact whole original retained; no source pixel/alpha cleanup. Shape comparison is measured separately, not presumed pixel equality."
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A01-CROSS_ALL",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_01/native_generated.png",
+      "sha256": "86eac09710c17cbf298068ae6fe9480a49571bd9a776f4a2fac13b79ffff926b",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        686,
+        653,
+        511,
+        519
+      ],
+      "expected_ports": [
+        "UP",
+        "RIGHT",
+        "DOWN",
+        "LEFT"
+      ],
+      "observed_ports": [
+        "UP",
+        "RIGHT",
+        "DOWN",
+        "LEFT"
+      ],
+      "source_score": 4.6,
+      "material_score": 4.6,
+      "source_geometry_score": 4.6,
+      "runtime_bound": false,
+      "evaluation": "The same declared UP,RIGHT,DOWN,LEFT port topology remains open and the shared centre is clear dry ochre/lavender loam, with no aqua water or water glints. Broad matte cream/ochre banks and plum contour match the wet counterpart. Source-only4.6; actual switching/ports/joined dry networks remain pending.",
+      "qualification": "Matching dry edit complete native and all4 shapes directly inspected from fresh generated output. Exact whole original retained; no source pixel/alpha cleanup. Shape comparison is measured separately, not presumed pixel equality."
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-WET-A02-ENDCAP",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_02/native_generated.png",
+      "sha256": "9235d3650468cc1068a1943e0c481fbcc66f90038f98de3af7d883d7cea34e7f",
+      "region": [
+        53,
+        119,
+        556,
+        423
+      ],
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_score": 4.6,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "Individually inspectable endcap retains rounded ochre banks, plum outlines and continuous aqua interior. Bright white glints removed; calm broad painted water remains raster storybook material. All closed contours and open ports visible in complete native atlas; source4.6 only, actual repeated-port values and fit still pending.",
+      "qualification": "Each of four objects directly inspected in complete generated atlas. Region is a review window annotation only, not new delivery pixels. No production/assembled-network/full-action acceptance.",
+      "reviewed_utc": "2026-10-02T07:19:22.735674+00:00"
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-WET-A02-ELBOW",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_02/native_generated.png",
+      "sha256": "9235d3650468cc1068a1943e0c481fbcc66f90038f98de3af7d883d7cea34e7f",
+      "region": [
+        756,
+        60,
+        448,
+        485
+      ],
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_score": 4.6,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "Individually inspectable elbow retains rounded ochre banks, plum outlines and continuous aqua interior. Bright white glints removed; calm broad painted water remains raster storybook material. All closed contours and open ports visible in complete native atlas; source4.6 only, actual repeated-port values and fit still pending.",
+      "qualification": "Each of four objects directly inspected in complete generated atlas. Region is a review window annotation only, not new delivery pixels. No production/assembled-network/full-action acceptance.",
+      "reviewed_utc": "2026-10-02T07:19:22.735674+00:00"
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-WET-A02-TEE",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_02/native_generated.png",
+      "sha256": "9235d3650468cc1068a1943e0c481fbcc66f90038f98de3af7d883d7cea34e7f",
+      "region": [
+        47,
+        688,
+        544,
+        424
+      ],
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_score": 4.6,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "Individually inspectable tee retains rounded ochre banks, plum outlines and continuous aqua interior. Bright white glints removed; calm broad painted water remains raster storybook material. All closed contours and open ports visible in complete native atlas; source4.6 only, actual repeated-port values and fit still pending.",
+      "qualification": "Each of four objects directly inspected in complete generated atlas. Region is a review window annotation only, not new delivery pixels. No production/assembled-network/full-action acceptance.",
+      "reviewed_utc": "2026-10-02T07:19:22.735674+00:00"
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-WET-A02-CROSS",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/wet_attempt_02/native_generated.png",
+      "sha256": "9235d3650468cc1068a1943e0c481fbcc66f90038f98de3af7d883d7cea34e7f",
+      "region": [
+        686,
+        653,
+        511,
+        519
+      ],
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_score": 4.6,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "Individually inspectable cross retains rounded ochre banks, plum outlines and continuous aqua interior. Bright white glints removed; calm broad painted water remains raster storybook material. All closed contours and open ports visible in complete native atlas; source4.6 only, actual repeated-port values and fit still pending.",
+      "qualification": "Each of four objects directly inspected in complete generated atlas. Region is a review window annotation only, not new delivery pixels. No production/assembled-network/full-action acceptance.",
+      "reviewed_utc": "2026-10-02T07:19:22.735674+00:00"
+    },
+    {
+      "id": "GEO-RIVER-STRAIGHT-A02-DRY_UNUSED",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/straight_attempt_02/native_generated.png",
+      "sha256": "77d996ebb8df367871868c5c09f6aee82976dccc05bc3cee84cbc8e5c050590f",
+      "region": [
+        32,
+        309,
+        1196,
+        302
+      ],
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_score": 4.6,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "Individually visible dry_unused open horizontal channel retains complete ochre banks/plum contour and an open centre at both ports. Wet member has calm broad aqua pigment bands without white glints; dry member remains an unused edit by-product and does not replace the preserved original dry strip. Source4.6 only; actual joins pending.",
+      "qualification": "Each of two separate objects directly inspected in complete generated atlas; review window only, not new pixels. No production/network/full-action acceptance.",
+      "reviewed_utc": "2026-10-02T07:21:23.175949+00:00"
+    },
+    {
+      "id": "GEO-RIVER-STRAIGHT-A02-WET",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/straight_attempt_02/native_generated.png",
+      "sha256": "77d996ebb8df367871868c5c09f6aee82976dccc05bc3cee84cbc8e5c050590f",
+      "region": [
+        31,
+        734,
+        1197,
+        303
+      ],
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_score": 4.6,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "Individually visible wet open horizontal channel retains complete ochre banks/plum contour and an open centre at both ports. Wet member has calm broad aqua pigment bands without white glints; dry member remains an unused edit by-product and does not replace the preserved original dry strip. Source4.6 only; actual joins pending.",
+      "qualification": "Each of two separate objects directly inspected in complete generated atlas; review window only, not new pixels. No production/network/full-action acceptance.",
+      "reviewed_utc": "2026-10-02T07:21:23.175949+00:00"
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A02-ENDCAP",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_02/native_generated.png",
+      "sha256": "05e1f9625dd7f4eedb4a71117345db2185bedc01af213b93dc1ef74f6472557a",
+      "region": [
+        53,
+        119,
+        556,
+        423
+      ],
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_score": 4.4,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "This endcap has a calm golden recessed floor and intact rounded ochre/plum painted banks. Generated red fringe pixels remain visible at open port silhouettes; complete source4.4 fails clean-edge quality. The V7 trimmed study portion reaches joined4.5 provisional; this does not erase the complete-source defect.",
+      "qualification": "Direct complete-source inspection. Source pixels preserved, no alpha cleanup. Initial4.6 retained as history; generated edge correction required.",
+      "reviewed_utc": "2026-10-02T07:33:07.899332+00:00"
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A02-ELBOW",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_02/native_generated.png",
+      "sha256": "05e1f9625dd7f4eedb4a71117345db2185bedc01af213b93dc1ef74f6472557a",
+      "region": [
+        756,
+        60,
+        448,
+        485
+      ],
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_score": 4.4,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "This elbow has a calm golden recessed floor and intact rounded ochre/plum painted banks. Generated red fringe pixels remain visible at open port silhouettes; complete source4.4 fails clean-edge quality. The V7 trimmed study portion reaches joined4.5 provisional; this does not erase the complete-source defect.",
+      "qualification": "Direct complete-source inspection. Source pixels preserved, no alpha cleanup. Initial4.6 retained as history; generated edge correction required.",
+      "reviewed_utc": "2026-10-02T07:33:07.899332+00:00"
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A02-TEE",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_02/native_generated.png",
+      "sha256": "05e1f9625dd7f4eedb4a71117345db2185bedc01af213b93dc1ef74f6472557a",
+      "region": [
+        47,
+        688,
+        544,
+        424
+      ],
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_score": 4.4,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "This tee has a calm golden recessed floor and intact rounded ochre/plum painted banks. Generated red fringe pixels remain visible at open port silhouettes; complete source4.4 fails clean-edge quality. The V7 trimmed study portion reaches joined4.5 provisional; this does not erase the complete-source defect.",
+      "qualification": "Direct complete-source inspection. Source pixels preserved, no alpha cleanup. Initial4.6 retained as history; generated edge correction required.",
+      "reviewed_utc": "2026-10-02T07:33:07.899332+00:00"
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A02-CROSS",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_02/native_generated.png",
+      "sha256": "05e1f9625dd7f4eedb4a71117345db2185bedc01af213b93dc1ef74f6472557a",
+      "region": [
+        686,
+        653,
+        511,
+        519
+      ],
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_score": 4.4,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "This cross has a calm golden recessed floor and intact rounded ochre/plum painted banks. Generated red fringe pixels remain visible at open port silhouettes; complete source4.4 fails clean-edge quality. The V7 trimmed study portion reaches joined4.5 provisional; this does not erase the complete-source defect.",
+      "qualification": "Direct complete-source inspection. Source pixels preserved, no alpha cleanup. Initial4.6 retained as history; generated edge correction required.",
+      "reviewed_utc": "2026-10-02T07:33:07.899332+00:00"
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A03-ENDCAP",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_03/native_generated.png",
+      "sha256": "8650fd930f3c3911cb6e56c8991fd998fa78a01c1e0a3273f8a313849ef8b694",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        53,
+        119,
+        556,
+        423
+      ],
+      "source_score": 4.4,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "Calm golden floor and rounded painted bank identity retained; targeted correction still leaves conspicuous red/orange fringe at open port edges. Complete endcap remains source4.4 rejected; no normalization or mounted acceptance.",
+      "qualification": "Exact generated native preserved; each complete component directly inspected; no pixel cleanup.",
+      "reviewed_utc": "2026-10-02T07:35:22.353036+00:00"
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A03-ELBOW",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_03/native_generated.png",
+      "sha256": "8650fd930f3c3911cb6e56c8991fd998fa78a01c1e0a3273f8a313849ef8b694",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        756,
+        60,
+        448,
+        485
+      ],
+      "source_score": 4.4,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "Calm golden floor and rounded painted bank identity retained; targeted correction still leaves conspicuous red/orange fringe at open port edges. Complete elbow remains source4.4 rejected; no normalization or mounted acceptance.",
+      "qualification": "Exact generated native preserved; each complete component directly inspected; no pixel cleanup.",
+      "reviewed_utc": "2026-10-02T07:35:22.353036+00:00"
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A03-TEE",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_03/native_generated.png",
+      "sha256": "8650fd930f3c3911cb6e56c8991fd998fa78a01c1e0a3273f8a313849ef8b694",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        47,
+        688,
+        544,
+        424
+      ],
+      "source_score": 4.4,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "Calm golden floor and rounded painted bank identity retained; targeted correction still leaves conspicuous red/orange fringe at open port edges. Complete tee remains source4.4 rejected; no normalization or mounted acceptance.",
+      "qualification": "Exact generated native preserved; each complete component directly inspected; no pixel cleanup.",
+      "reviewed_utc": "2026-10-02T07:35:22.353036+00:00"
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A03-CROSS",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_03/native_generated.png",
+      "sha256": "8650fd930f3c3911cb6e56c8991fd998fa78a01c1e0a3273f8a313849ef8b694",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        686,
+        653,
+        511,
+        519
+      ],
+      "source_score": 4.4,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "Calm golden floor and rounded painted bank identity retained; targeted correction still leaves conspicuous red/orange fringe at open port edges. Complete cross remains source4.4 rejected; no normalization or mounted acceptance.",
+      "qualification": "Exact generated native preserved; each complete component directly inspected; no pixel cleanup.",
+      "reviewed_utc": "2026-10-02T07:35:22.353036+00:00"
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A04-ENDCAP",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_04/native_generated.png",
+      "sha256": "81b7406b61c0585e4d058c75b7fbac13e2e79895ba550a37a8bf9719cddd385a",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region": [
+        163,
+        43,
+        502,
+        433
+      ],
+      "source_score": 3.8,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "Fresh endcap has readable open topology and broad golden/plum painting, but a large authored brown/lavender exterior glow remains around it. Complete source3.8 is rejected for exterior contamination; material4.4 is warmer/darker than selected family and repeat-fit unreviewed.",
+      "qualification": "Exact fresh output and every component directly reviewed. No pixel/background cleanup or mounted pass.",
+      "reviewed_utc": "2026-10-02T07:38:30.680348+00:00"
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A04-ELBOW",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_04/native_generated.png",
+      "sha256": "81b7406b61c0585e4d058c75b7fbac13e2e79895ba550a37a8bf9719cddd385a",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region": [
+        920,
+        28,
+        468,
+        433
+      ],
+      "source_score": 3.8,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "Fresh elbow has readable open topology and broad golden/plum painting, but a large authored brown/lavender exterior glow remains around it. Complete source3.8 is rejected for exterior contamination; material4.4 is warmer/darker than selected family and repeat-fit unreviewed.",
+      "qualification": "Exact fresh output and every component directly reviewed. No pixel/background cleanup or mounted pass.",
+      "reviewed_utc": "2026-10-02T07:38:30.680348+00:00"
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A04-TEE",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_04/native_generated.png",
+      "sha256": "81b7406b61c0585e4d058c75b7fbac13e2e79895ba550a37a8bf9719cddd385a",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region": [
+        120,
+        515,
+        588,
+        450
+      ],
+      "source_score": 3.8,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "Fresh tee has readable open topology and broad golden/plum painting, but a large authored brown/lavender exterior glow remains around it. Complete source3.8 is rejected for exterior contamination; material4.4 is warmer/darker than selected family and repeat-fit unreviewed.",
+      "qualification": "Exact fresh output and every component directly reviewed. No pixel/background cleanup or mounted pass.",
+      "reviewed_utc": "2026-10-02T07:38:30.680348+00:00"
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A04-CROSS",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_04/native_generated.png",
+      "sha256": "81b7406b61c0585e4d058c75b7fbac13e2e79895ba550a37a8bf9719cddd385a",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region": [
+        903,
+        505,
+        488,
+        464
+      ],
+      "source_score": 3.8,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "Fresh cross has readable open topology and broad golden/plum painting, but a large authored brown/lavender exterior glow remains around it. Complete source3.8 is rejected for exterior contamination; material4.4 is warmer/darker than selected family and repeat-fit unreviewed.",
+      "qualification": "Exact fresh output and every component directly reviewed. No pixel/background cleanup or mounted pass.",
+      "reviewed_utc": "2026-10-02T07:38:30.680348+00:00"
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A05-ENDCAP",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_05/native_generated.png",
+      "sha256": "dc3762b469b8544cf5982a84f6fac3643bdd7c8f7bba142353e09d28fae43774",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region": [
+        163,
+        43,
+        502,
+        433
+      ],
+      "source_score": 3.8,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "The raised banks now have brighter cream/gold value bands, material4.5 provisional. However, broad brown/lavender glow still surrounds the solid object; complete component3.8 is rejected. Actual repeat-fit remains unreviewed. No manual pixel cleanup or runtime binding.",
+      "qualification": "Exact fresh output and every component directly reviewed. No pixel/background cleanup or mounted pass.",
+      "reviewed_utc": "2026-10-02T07:41:02.949097+00:00"
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A05-ELBOW",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_05/native_generated.png",
+      "sha256": "dc3762b469b8544cf5982a84f6fac3643bdd7c8f7bba142353e09d28fae43774",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region": [
+        920,
+        28,
+        468,
+        433
+      ],
+      "source_score": 3.8,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "The raised banks now have brighter cream/gold value bands, material4.5 provisional. However, broad brown/lavender glow still surrounds the solid object; complete component3.8 is rejected. Actual repeat-fit remains unreviewed. No manual pixel cleanup or runtime binding.",
+      "qualification": "Exact fresh output and every component directly reviewed. No pixel/background cleanup or mounted pass.",
+      "reviewed_utc": "2026-10-02T07:41:02.949097+00:00"
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A05-TEE",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_05/native_generated.png",
+      "sha256": "dc3762b469b8544cf5982a84f6fac3643bdd7c8f7bba142353e09d28fae43774",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region": [
+        120,
+        515,
+        588,
+        450
+      ],
+      "source_score": 3.8,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "The raised banks now have brighter cream/gold value bands, material4.5 provisional. However, broad brown/lavender glow still surrounds the solid object; complete component3.8 is rejected. Actual repeat-fit remains unreviewed. No manual pixel cleanup or runtime binding.",
+      "qualification": "Exact fresh output and every component directly reviewed. No pixel/background cleanup or mounted pass.",
+      "reviewed_utc": "2026-10-02T07:41:02.949097+00:00"
+    },
+    {
+      "id": "GEO-RIVER-JUNCTION-DRY-A05-CROSS",
+      "path": "assets_src/imagegen/geologist_river_junctions_v1_20261001/dry_attempt_05/native_generated.png",
+      "sha256": "dc3762b469b8544cf5982a84f6fac3643bdd7c8f7bba142353e09d28fae43774",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "region": [
+        903,
+        505,
+        488,
+        464
+      ],
+      "source_score": 3.8,
+      "direct_review": true,
+      "runtime_bound": false,
+      "mounted_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null,
+      "evaluation": "The raised banks now have brighter cream/gold value bands, material4.5 provisional. However, broad brown/lavender glow still surrounds the solid object; complete component3.8 is rejected. Actual repeat-fit remains unreviewed. No manual pixel cleanup or runtime binding.",
+      "qualification": "Exact fresh output and every component directly reviewed. No pixel/background cleanup or mounted pass.",
+      "reviewed_utc": "2026-10-02T07:41:02.949097+00:00"
+    }
+  ],
+  "prior_reviews": [
+    "assets_src/imagegen/geologist_river_junctions_v1_20261001/REVIEW_V1.json"
+  ],
+  "latest_refinement": {
+    "report": "audit/job_river_join_study_v1_20261001/index_v7.html",
+    "note": "All162 isolated native study stills directly reviewed. Latest V7 joined dry/wet detail4.5 provisional; painted bed4.6. A2/A3 dry whole-source red fringes4.4 rejected and preserved. No production/actor/full-room/timed-action/device/child/owner/global acceptance."
+  },
+  "qualification": "Every native original and listed derivative directly reviewed; every component individually scored and illustrated. Current source opinions retain exact hashes and rejected edge attempts. Join-study sampling does not pass whole-source edges or full game context. Originals preserved; uniform complete-canvas transforms only; no alpha or pixel repair."
+}

@@ -1,0 +1,60 @@
+{
+  "atlases": [
+    {
+      "path": "assets_src/imagegen/geologist_geode_coherent_states_v1_20261002/attempt_08/whole_canvas_2048x1024.png",
+      "sha256": "e47a731414210ef70c0b5fffce2828922a15611c6093c244811ee0a283534503",
+      "source_path": "assets_src/imagegen/geologist_geode_coherent_states_v1_20261002/attempt_08/native.png",
+      "source_sha256": "e7a56402517ceb80347f4424906a423d4afb637b17cb97d227f6e4cc7e1ef964",
+      "source_dimensions": [
+        1774,
+        887
+      ],
+      "dimensions": [
+        2048,
+        1024
+      ],
+      "method": "Uniform complete-canvas ffmpeg Lanczos scale;2:1 aspect/generated alpha retained. No alpha cleanup or component pixel edits. Non-runtime POT atlas.",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/FFmpeg/8.1.2/bin/ffmpeg.exe",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-i",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_geode_coherent_states_v1_20261002\\attempt_08\\native.png",
+        "-vf",
+        "scale=2048:1024:flags=lanczos",
+        "-frames:v",
+        "1",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_geode_coherent_states_v1_20261002\\attempt_08\\whole_canvas_2048x1024.png"
+      ]
+    },
+    {
+      "path": "assets_src/imagegen/geologist_geode_coherent_states_v1_20261002/attempt_10/whole_canvas_2048x1024.png",
+      "sha256": "8de208a66af043e68c8ab9a4fb3e05eb5703b48777ad955b2b045a9f91fa8f26",
+      "source_path": "assets_src/imagegen/geologist_geode_coherent_states_v1_20261002/attempt_10/native.png",
+      "source_sha256": "069720d220d726fa307ec473572d6513795089dedc00d0c550483b822e90e5e6",
+      "source_dimensions": [
+        1774,
+        887
+      ],
+      "dimensions": [
+        2048,
+        1024
+      ],
+      "method": "Uniform complete-canvas ffmpeg Lanczos scale;2:1 aspect/generated alpha retained. No alpha cleanup or component pixel edits. Non-runtime POT atlas.",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/FFmpeg/8.1.2/bin/ffmpeg.exe",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-i",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_geode_coherent_states_v1_20261002\\attempt_10\\native.png",
+        "-vf",
+        "scale=2048:1024:flags=lanczos",
+        "-frames:v",
+        "1",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_geode_coherent_states_v1_20261002\\attempt_10\\whole_canvas_2048x1024.png"
+      ]
+    }
+  ]
+}

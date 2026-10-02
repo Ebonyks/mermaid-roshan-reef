@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "command": [
+    "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "-m",
+    "gdtoolkit.parser",
+    "audit/job_geode_coherent_pilot_v1_20261002/study_surface.gd",
+    "audit/job_geode_coherent_pilot_v1_20261002/capture.gd"
+  ],
+  "process_exit": 0,
+  "started_utc": "2026-10-02T08:40:45.892486+00:00",
+  "finished_utc": "2026-10-02T08:40:46.571438+00:00",
+  "elapsed_seconds": 0.6789570999681018,
+  "blocking_diagnostics": [],
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "qualification": "Scoped machine evidence; no visual, physical device, child, owner or full-suite acceptance."
+}
