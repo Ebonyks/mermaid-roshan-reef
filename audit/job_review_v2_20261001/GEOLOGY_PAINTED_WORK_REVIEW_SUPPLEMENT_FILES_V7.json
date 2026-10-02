@@ -1,0 +1,1521 @@
+{
+  "schema": "reef.immutable-review-supplement.v1",
+  "base_revision": "e1b431f49258eef1d293b11a732353f0a3aa12e9",
+  "prior_closed_map": "audit/job_review_v2_20261001/GEOLOGY_RUNTIME_REVIEW_SUPPLEMENT_FILES_V6.json",
+  "prior_closed_map_sha256": "957c2099da653141d0642021d8bd2d098c23897a3e794de49063503322c02aeb",
+  "required_files": 377,
+  "required_payload_bytes": 35464114,
+  "payload_sha256": "a29cef866f455213066ce5380bd6cf3f0383fcf5df46db79d2ddba123033d974",
+  "payload_hash_formula": "SHA256 UTF8 sorted path TAB bytes TAB SHA256 LF",
+  "files": {
+    "ASSET_LICENSES.md": [
+      8777325,
+      "0846dcc7ac7c9fba3e7dd4fee3838e1c1dae63c74ef0ee42cc183b1b04049509"
+    ],
+    "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png": [
+      888577,
+      "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e"
+    ],
+    "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png.import": [
+      975,
+      "0657e2601f7b8167176ea78b038c306577f5fb669c2c3ebc5156a3d87cfca830"
+    ],
+    "assets/opera/worlds/geology/painted_work_v1_20261001/fossil_soil.png": [
+      1077131,
+      "ba13d389db6547c756e1ff8a6606421e4697705733e9e1ec58dfa19e5d8b05dd"
+    ],
+    "assets/opera/worlds/geology/painted_work_v1_20261001/fossil_soil.png.import": [
+      989,
+      "d3236ded656cdc5d76368f92579875b2762135fcffc8ed92428ec83dd06786d4"
+    ],
+    "assets/opera/worlds/geology/painted_work_v1_20261001/grain.png": [
+      359616,
+      "f5e1275a2027554eb7e6bf073d62517e3d0d3461f525b68a8b75ad09da07fd2c"
+    ],
+    "assets/opera/worlds/geology/painted_work_v1_20261001/grain.png.import": [
+      972,
+      "fa80624d5d6ea8f3077ffff97cd051cab0f022d537d0d2a0ced7cfd8b3d60a5b"
+    ],
+    "assets/opera/worlds/geology/painted_work_v1_20261001/layered_rock.png": [
+      898606,
+      "0f8cbccc5ac64279a69ed83a4ad631fc8b4c0d4b18260616ca89dc295950f985"
+    ],
+    "assets/opera/worlds/geology/painted_work_v1_20261001/layered_rock.png.import": [
+      993,
+      "f6daa89d19b382f17291d2b450f7423554c433b2c197d38486dabbe6b4460eb6"
+    ],
+    "assets/opera/worlds/geology/painted_work_v1_20261001/mineral.png": [
+      675045,
+      "b35ccc29b0adb02006828e6f4c55e6240ddec2e9b0fb1e3130132c05fb479b47"
+    ],
+    "assets/opera/worlds/geology/painted_work_v1_20261001/mineral.png.import": [
+      978,
+      "b4b46b22bdc02bb18def609134f7463427b1c9b16a9a36c03bcc6a83d1d8b723"
+    ],
+    "assets/opera/worlds/geology/painted_work_v1_20261001/pan.png": [
+      554545,
+      "700062113b36450983a871324847fc61fcf7c8f4225dbf489022e97152936803"
+    ],
+    "assets/opera/worlds/geology/painted_work_v1_20261001/pan.png.import": [
+      966,
+      "1390bbc744c9fdb80897c042ccab23666e617734ad6fbe2c73293fed4af5e553"
+    ],
+    "assets/opera/worlds/geology/painted_work_v1_20261001/work_slab.png": [
+      474297,
+      "592365e4fd9fec19fc002dc3b08fcddcbb9b40405ba21597bf518a5be1b67f80"
+    ],
+    "assets/opera/worlds/geology/painted_work_v1_20261001/work_slab.png.import": [
+      983,
+      "2b5f328d64625e751727e400dae068c8d36b8b56d766abba7f8ff78ac876c51e"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/GENERATED_NATIVE_REGISTER_V7.json": [
+      7281,
+      "8120bec920c5f134f11f261e3e7c21a28b700b741ab9d620dc50d9a3f5b55f26"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/REVIEW_V8.json": [
+      59243,
+      "01ea2dc6b8aff64e289a41b59d04738962347f323e5e942e52acfd82c1403194"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_01/PROMPT.txt": [
+      1204,
+      "cba2cd0982d8660465eb68f878746221855abb929600fef3b7c1266af979aabe"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_01/PROVENANCE_PENDING.json": [
+      625,
+      "e7658cd9984e8af4549124e8ca7147131ed7ab169a9e7b4672c568026ba07b20"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_01/REVIEW.json": [
+      1105,
+      "bafa9d0407748e6272b495c6ea40968b3fe7871df85137abf4bf664db92e9f80"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_01/native_generated.png": [
+      1010765,
+      "5c53b3df8faccdd83afefea34ef39f0a26e7a4bb5dcb1533ef9930b56d0a074d"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_02/PROMPT.txt": [
+      987,
+      "f55ee41c4f93d4f554dc9086e9418b6d7e8475d3a2798184a6e3361149f17bc2"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_02/PROVENANCE_PENDING.json": [
+      326,
+      "4a54b9fedc0bd46b116d5bbeaae30e0090f77ee824df870136db5f1018e217c3"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_02/REVIEW.json": [
+      2201,
+      "d3851225e0ce3869f1f1004ede2d8ac4e7d3d8613d43645f0a70ba6333249ece"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_02/native_generated.png": [
+      1495682,
+      "c66e5b5b8c49e56907a2773e178fd561321e688a17869e49cd8e95eb007cfa54"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_02/whole_canvas_1024.png": [
+      1077131,
+      "ba13d389db6547c756e1ff8a6606421e4697705733e9e1ec58dfa19e5d8b05dd"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html": [
+      17923,
+      "c4b76b1245479e042ca8e89035ea95c4b0788fdbf5d0eef752f2c9d2ad14825e"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/.gdignore": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/GENERATION_ATTEMPT_02_PENDING.json": [
+      794,
+      "b15b0f363cb590851cd52a00a8c0bede7b9298f0acd6af3c10c016d11d91cc4b"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/GENERATION_PENDING.json": [
+      874,
+      "4de7757c35ab2939ef96614311e8e837dbe90f082ae3182b1f0e981c0bbd1b00"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/LIBRARY_LINK_QA.json": [
+      4428,
+      "f6f20c110707f26a1aa3ccc10abf4435283f246e6aaa5fe9f6223fd470ad0891"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/LIBRARY_RENDER_QA.json": [
+      1608,
+      "689c9356ca531bb1780709d544578ae1fee619cb2c01911195c71b118f19d76a"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/PROMPT_ATTEMPT_01.txt": [
+      2402,
+      "9463b627bb83e99d12df9182270b01317b8efc7c444f618c7c967adeca441cd0"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/PROMPT_ATTEMPT_02.txt": [
+      2271,
+      "c4a8af1ab76cc0f30cc7aeea6d5a6913e7df47d849c16ce2be809bbe145b1440"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/REUSE_INVENTORY.json": [
+      2214,
+      "9488af4e8c74246d29e9b8a97cb2c55818effdc9876b35d35aff87b06662db94"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/REVIEW.json": [
+      11741,
+      "940a54738fcf6416e61b692cca2907f4b7e393e8e33470cca6e4afa492758d62"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/TECHNICAL_DERIVATIVES.json": [
+      1939,
+      "26b8550eab12d98d50876e5a903d6dc253084358e579f9c38c5611a2374f4856"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/PROVENANCE.json": [
+      1480,
+      "6e6aaa260d2e208e95c3babd7a70845a2b4e1b3413dfc7bda3b67809852be068"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/REVIEW.json": [
+      6035,
+      "685add5f125b160d99e925f54940cc86ee32ae234fc97217ea4b181f6c085b77"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png": [
+      1442426,
+      "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/normalization.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/normalization.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/whole_canvas_1024.png": [
+      1075386,
+      "3812eb737c75c4a208fc5eb859b37c1612a0ff949f41e7a834314a06eb09e117"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/PROVENANCE.json": [
+      1405,
+      "6107e1f55b03455643498c280b9194550fd4e4d8f3163a576d6c8a9a21526f52"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/REVIEW.json": [
+      2643,
+      "3cc94bfaf8d50212ac3cdec0cce61d7404cfe68899d304f5584bd436478da38b"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/native_generated.png": [
+      1173456,
+      "8890c70609f171321182242584e0a1eb3cc50b4f07e7b8754d252715bd80d254"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/normalization.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/normalization.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/whole_canvas_1024.png": [
+      878895,
+      "d2d9f36cdfb2d529a9dff4d632faff17b3219e14eae4771c1069846f3a1586c8"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/correct_river_region_views_v189.py": [
+      2657,
+      "f592b7ce845ab1306f56baf40e74913680fb4923319ec5f85db53b83c4a6752f"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/finalize_river_source_v187.py": [
+      15706,
+      "0ee1c68598b1c874ae487781fb88508a4eab1319e885ec17f730b6bdd8360d07"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/index.html": [
+      16969,
+      "e2240dc2c80759bef9c3957bc63370bf5d66e3ecaccf9a4e50e5c95afa903f16"
+    ],
+    "assets_src/imagegen/geologist_river_components_v1_20261001/prepare_river_source_gap_v184.py": [
+      6735,
+      "f2e05bc2b8bdd3b89921223bd764a52b930dcf3404ce3a57f216ed7f4a13000e"
+    ],
+    "audit/MASTER_AUDIT_2026-08-09.md": [
+      324219,
+      "792096b6a041ee07263bf9051ca13088e0a178bc075f0c003f2ff73cd1c4fcdc"
+    ],
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md": [
+      203988,
+      "dc63542eb6e6ef175d165eab10ca61fac1b1747e3a839e7f6739efabf52ccab2"
+    ],
+    "audit/job_artwork_refinement_live/ALL_ITEMS.json": [
+      3616472,
+      "7de2f76e8efc767569482ae6edef35982f22c2561c76eb9e42936df38db817b9"
+    ],
+    "audit/job_artwork_refinement_live/STATUS.json": [
+      23119,
+      "5c2a294eea164b129b50087f130d33483b4fc1c924ffc93f1ff981fff3c7c7ac"
+    ],
+    "audit/job_artwork_refinement_live/index.html": [
+      17908,
+      "ab301a27c324915139fbd549fae8942b597abfb251fc606842ace54f77759949"
+    ],
+    "audit/job_artwork_refinement_live/review_tools/build_current_job_item_register_v21.py": [
+      45897,
+      "5a92a53ec330c697a4707dcaeab3d552c98d2af3d8d536fbd3618fea4591e5fb"
+    ],
+    "audit/job_artwork_refinement_live/review_tools/build_current_job_item_register_v22.py": [
+      48142,
+      "19eb68af4f7f594ccf77915715635b419a2365afadc7dd93e503fd234b35b92f"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/.gdignore": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/ARTWORK_ITEMS.json": [
+      26864,
+      "3ebb7a9d01beaaf7a366a5bff60182d710fbd05a20a982a69cfb446645a2e508"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/LIBRARY_LINK_QA.json": [
+      632,
+      "53232ccca7a206b6316187236dfb4bd7a0cb4521ce1306e895a2ff782bfbf716"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/LIBRARY_RENDER_QA.json": [
+      1579,
+      "7aee093449e9a43536179aa71092afd183ad22b7859644652edb60659b2fd321"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/PROVENANCE.json": [
+      5871,
+      "d31037b4fa690a64b6bdf0231d303ba52afb4d11151eb00d3f53a9f6e2203b7a"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/REVIEW.json": [
+      235174,
+      "aa07b561f6db2e87d78cca705f9450c4d20e4610bfe9d387b2a3d10f11b0bd9c"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/SOIL_SOURCE_REVIEW.json": [
+      2484,
+      "b09fede6b531e986ddd5f1b41afd734474d578247860893fdf25cc7d9606e0e6"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/SOURCE_BEFORE.json": [
+      845,
+      "275cab773447797504a80786fe3700c168d0bcce4f2bceaada16afe567b13fda"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/CAPTURE_1280.json": [
+      21927,
+      "7d9db114501683d7714643c4a1246d139fe9fdad0923530ac27ed54a7b00efad"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/CAPTURE_1600.json": [
+      21926,
+      "2c6508a8f7aff4cac8cf3abd0eb6ec4a9a2493966fe7714b441ee9c597a5862d"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1280_fossil_brushed.webp": [
+      41618,
+      "b7078ee3e9f97d12610d5960f94d0676b96980558ce92c07b4ee545ecb2eb9d9"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1280_fossil_earned_completion.webp": [
+      40678,
+      "c88fee969dc41909c1013d5ce6155b7c5ec611d2118d549b4c38fa4132f3ba68"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1280_fossil_invitation.webp": [
+      33110,
+      "e9ed6552227bc274922fe5f72e05020a6e323cc10aa403588648171395129d16"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1280_fossil_task_open.webp": [
+      31152,
+      "b173d2b1938aa6984000d0e889817b587b96981a32268a4a4fd99e2b61871e70"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1280_geode_early_crack.webp": [
+      44688,
+      "6b50555af886d780ab7e150e54ddf28a5c90e4aa27c4cfb6141bb0da30fbcd14"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1280_geode_earned_completion.webp": [
+      48800,
+      "70fb474785252f5616b3c34dc3c0b521bc69cb20d9646bca2d75bea5cb84c119"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1280_geode_five_seams_ready.webp": [
+      39214,
+      "bd776ff98e5c8f22f8e347fd9dc48b973fda0d9ff02e0cc5e7b6953d2145c741"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1280_geode_full_interior_before_award.webp": [
+      49388,
+      "dfbebf9384164819bfaab342f80b6c4104efc76f6a667fa0e57e99abd1032887"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1280_geode_invitation.webp": [
+      32900,
+      "4141fb4a2fa5766a2ec0572665b7b6ce2fb22c9f2b15cb53650761ffe7c03124"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1280_geode_middle_open.webp": [
+      49442,
+      "bd3fcd3cabfaef861007d714496999181a45b9f7d1f543cf58fc2747ad2af688"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1280_geode_task_open.webp": [
+      40552,
+      "94384504030b9008ccd98c650fa2bc7e8e3ebf23c173905213b821f901cdd316"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1280_pan_earned_completion.webp": [
+      43886,
+      "6b9c542a4f9e130839a8ee00efa61ab3a9375873971db3c8200d924829288583"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1280_pan_invitation.webp": [
+      33092,
+      "f58f65bdbaf065b1796acd384ecceff7d50d33b22300f5021c6449e57bc6a72f"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1280_pan_partial_pan.webp": [
+      43540,
+      "b5d37268fa262113de8c9481f79274ff7d6cc086ed8eecb311e7b4b853bfc3be"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1280_pan_task_open.webp": [
+      44420,
+      "cfd50dc90bd208a461ff47143925bdcbf0e001014a47d6b324cb8f824a2c5d7e"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1280_river_earned_completion.webp": [
+      30478,
+      "3e022570296191c261da803d15376493cf21fdaac1210d295203cf2ff3e03f8e"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1280_river_invitation.webp": [
+      33638,
+      "ef9e5a673a824ac73c4d39eff0d5bda08fd40647818af52e75b602dee84aaa0c"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1280_river_task_open.webp": [
+      22748,
+      "5e4edfe3e73ab7ef76c8540a0c9231d5c8d3550cb02b7fde9417cd24ef966e83"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1600_fossil_brushed.webp": [
+      42426,
+      "a8f658f6edfb23330fd09c9b79809e01a371fc81e3b8fd9b1d598c983fdec0ba"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1600_fossil_earned_completion.webp": [
+      41948,
+      "02fd86ce95dbed81ceeed30f77ab4ab8264d0f533af33b393db345ae5ff8640b"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1600_fossil_invitation.webp": [
+      34070,
+      "75c5d9eb050da092bc1635205783b81083b42164fe22e1b9754b0854f75998a3"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1600_fossil_task_open.webp": [
+      32208,
+      "bd5aa56004283447098cab0008d5c6bbc1c7f8c681bee7727ce60ab3686c7e22"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1600_geode_early_crack.webp": [
+      45424,
+      "df340cc579ad9bc1ad786173a1402b5fc2c2616f1a467b73d3ef26997df25533"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1600_geode_earned_completion.webp": [
+      49294,
+      "2263619da397203ee4e8cc859656529196bff69dcd21d58571ca27b3cb337170"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1600_geode_five_seams_ready.webp": [
+      40074,
+      "b18512c12a2bb6b9e861c6578feac7b648e97f2013f10eaffd824d11eae1460e"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1600_geode_full_interior_before_award.webp": [
+      49830,
+      "d795d78dca5ed7834611f9b4a1b97ffc1dc783a9173d7e316a7c21602959af09"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1600_geode_invitation.webp": [
+      33762,
+      "db193a7c81a7cb83e33c315f02be502e2b50dd3647480c361752f34b99621aba"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1600_geode_middle_open.webp": [
+      49886,
+      "2c523d75894336f61bba4ffc04d7bfce2d4889349586af407167794c2eaa5a38"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1600_geode_task_open.webp": [
+      41132,
+      "43e430c2cba69cc457cf01066a4821e3d422cbc04d71ffa6c611103bc15bc1a5"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1600_pan_earned_completion.webp": [
+      45158,
+      "22d43ef03eb579a66f5be13e1c95c2ac75b663ac4ba49a23d0e38e908eb088f0"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1600_pan_invitation.webp": [
+      33946,
+      "6c18e05e7187380856e0dc37658d6dd35855c7325a0ce62f4bfa79b1ce8cbb67"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1600_pan_partial_pan.webp": [
+      44438,
+      "3caef22e520f4482c3d3a180dcea0b27a08e076f05819b03c6325f06dca625e5"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1600_pan_task_open.webp": [
+      45638,
+      "cfee79c17e7f3ac55524642f906acd94038a01220140e080d181e04a9aa8b82a"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1600_river_earned_completion.webp": [
+      31164,
+      "0e515e29a69297da7fd6fa4f3f124a70f900d9a0cd87f93a577611b05b9ce033"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1600_river_invitation.webp": [
+      34480,
+      "c0aa46f8fe4fe3ea76b1daa4514cf4ca83c745ab8807b77d9309551ad9e25f5c"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_01/native_views/geologist_1600_river_task_open.webp": [
+      23878,
+      "be5f8e4abac0b769bfd991541fea6f592a5185da3090c29eda25f20f5d5e2f2c"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/CAPTURE_1280.json": [
+      27932,
+      "bbac73619c549ea47148aaba0adc9f114e9a4f726334f0df7ea701d477b7c3fe"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/CAPTURE_1600.json": [
+      27932,
+      "d1b7f77ba72046fa0b1fb06281cf3ac8ba96931e2199f737a454f6bbaaa2469c"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_fossil_brushed.webp": [
+      40546,
+      "f1fecca748a12db4b9ff767f1aefa24a87b021feba0982484832e44a97b81afa"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_fossil_earned_completion.webp": [
+      40114,
+      "2f4dd0e92beada80dc9ffc5240e65ce8ebd9bf0539fd04a2918b66a34769fe34"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_fossil_invitation.webp": [
+      34280,
+      "fa4e27eab1eb93b79ff6c44832246df1759eda626163d67417fcfd55dd9b454c"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_fossil_one_piece.webp": [
+      39498,
+      "759874daa61564840a076bc76474667bb83f57ccefe58fdf47c27a4c59f60945"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_fossil_partial_brush.webp": [
+      33778,
+      "e5b80c9493440a6a81785d8348c4cecefe66d32f66a2317699ceb79c99d95c99"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_fossil_task_open.webp": [
+      30452,
+      "5d6eb8c734a3827823d57d923997b0f88e8b3bfa00b94dce0f803489898a03c3"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_fossil_two_pieces.webp": [
+      39816,
+      "6827e99b97cc14ef79c5fae190227b8267e68db3e88114fd815500304f007a29"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_geode_early_crack.webp": [
+      44286,
+      "2f7af2d1d62525c5440c2c20562d4a3712d8d5287407cba4c61c8bee90a86fb4"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_geode_earned_completion.webp": [
+      48832,
+      "010878490c3745fa315f9a9213e1a33836efedebff15820488503272c6151cff"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_geode_five_seams_ready.webp": [
+      39532,
+      "f2d25d46034902e7e9563edaf47ae2e506374c4464c998f44ee58e22c36bb971"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_geode_full_interior_before_award.webp": [
+      49416,
+      "a5a5947be73797cda322f8355d3dfa23e91d823cfcf6fdc41982add59a503c66"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_geode_invitation.webp": [
+      32754,
+      "e2649038927f79e103d40ecd5488362be4b6c23df7a02c5c54527228408730b0"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_geode_middle_open.webp": [
+      49412,
+      "c0a69c45a92fcc6235744487cfdd49c8fcb107b36fd951d21c84bd391ef45a97"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_geode_task_open.webp": [
+      40366,
+      "38592fc5e4fb1c4de2ba145436b6510f36c90087967af83d0b46cd9932306b27"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_pan_earned_completion.webp": [
+      43798,
+      "c34746221aeced2c72eab4c91d7373f166f900e9623f5b9a0077f1f247cb85e3"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_pan_invitation.webp": [
+      33406,
+      "0c09828a883e6597c5dc498bb9424e04a445366d6d3c7d718b5ea5dd85ca8719"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_pan_pan_left.webp": [
+      43966,
+      "25cadb8747cffe53fedb71e65b3cb8927e337d9d9497f441e7fa51382621becd"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_pan_pan_right.webp": [
+      43740,
+      "251ecf1d5a614567be73683f74c1f7410fb248f305d7a532156d1546e1df84d2"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_pan_partial_pan.webp": [
+      43564,
+      "3b17f462e854997a648de31f3bd197dd6036561b1d5b6931822d1d4b8d69f969"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_pan_task_open.webp": [
+      44124,
+      "863b2da896923434ae3e66feb5247eaf29450162298793ca53f0a39447c6463e"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_river_earned_completion.webp": [
+      30534,
+      "4fc9dec34ca8a516c456b092a24d15269cc021ab1d936370fd6f2287680f6e83"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_river_invitation.webp": [
+      33656,
+      "4448daec0514358086a2134fe2013d702bbbfbac896b4a2915ad338b8d521db2"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1280_river_task_open.webp": [
+      22808,
+      "d9c211a7ccbf383152f6a806f24aec22c37d12e2a59f4027a87ede7824c5e177"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_fossil_brushed.webp": [
+      41300,
+      "600b73bb917a9b3cbdc6ca0a5b85d21856a616313fbf5f591011e018c2032ce7"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_fossil_earned_completion.webp": [
+      40950,
+      "b63b8656c1857e2b3474ad690d7af9e8845a8a6b7cf154b0617577736027dfe2"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_fossil_invitation.webp": [
+      34958,
+      "909d4198c6cecd18b4dba8fbe1e6f4c0b039d35beb8e15eca4c73268a96d1773"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_fossil_one_piece.webp": [
+      40562,
+      "d22e91000901b3587147dcc1bb49e2ce31461e96da516d957e5c844d7b1cd64a"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_fossil_partial_brush.webp": [
+      34540,
+      "5cb65fde09298457cbc9f1f2b9330b5fe338a06e0f75f8c816dad0f70bfe5126"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_fossil_task_open.webp": [
+      31260,
+      "e23a26e5a63234f97f3dea5e37c8d3cb629057bb4de8dc4e5dc5ddf8180a2f7a"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_fossil_two_pieces.webp": [
+      40594,
+      "d3f99802532b50329ada2dbec645dc961cee003827668778e87bdc92acda750b"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_geode_early_crack.webp": [
+      45396,
+      "64b70a2ece3de461621c9048c3972da40e81ca2464dba702cfeeeb5172ee07ab"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_geode_earned_completion.webp": [
+      49228,
+      "368b4b97a39d4348cc213a2bc95172e55645092aeaf3afd01a6b4785d32a93e6"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_geode_five_seams_ready.webp": [
+      40052,
+      "360e435149c3ba298f3540bdefcb8ac989e82a04c1a64c6a769d9ed726f5112e"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_geode_full_interior_before_award.webp": [
+      49820,
+      "a1c590f519b89569381c78e342b5b1e1b40d8f828f376a6bf155aaf76b465d49"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_geode_invitation.webp": [
+      33762,
+      "8d7fbba65702e9e04b1ff8052e2bb93ebeb7942c64d511f3f5c1e55c7c3054c0"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_geode_middle_open.webp": [
+      49890,
+      "54c52d68b1ffa7d3f1ff1b4ec920241806edb82f21b31275274f23c3756b78b2"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_geode_task_open.webp": [
+      41020,
+      "a2edbf61034b2ff5a94050191b9020a4605cfc897a6114dfe1e4a61df9843423"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_pan_earned_completion.webp": [
+      45222,
+      "cfe65e988b6762b8f1c2d1c829a6cca3ee427275a86132ffafde095227e00275"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_pan_invitation.webp": [
+      34306,
+      "48a55e74a3f3e034096ed255ca1f48569f8363a27d10de8e29109912c15d46a8"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_pan_pan_left.webp": [
+      44776,
+      "fb0271b9b02a6042dff21eb6481758100caed4c64a6c1c820e12beeb838f6d63"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_pan_pan_right.webp": [
+      44664,
+      "61986b40f35f654f31137b457d6ec504ed325305830e12d27936e7936407d7fc"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_pan_partial_pan.webp": [
+      44532,
+      "aa555546631d251253f63d502983d517bcf9e92238861e4c1af9beb2b67feb8a"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_pan_task_open.webp": [
+      45578,
+      "440fe80abfeb7741d4491981de3d9b9ecbf1ff028455b7b1e1662aa5082b8cb7"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_river_earned_completion.webp": [
+      31170,
+      "268c399c63e38496fe8a5e5a07e909af87ad08bbf3ff5b430d12b72a20361ee1"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_river_invitation.webp": [
+      34468,
+      "198e943f92de47fdd51862ab84ddbc0b38b029005388b851b45e9c4df509ffec"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_02/native_views/geologist_1600_river_task_open.webp": [
+      24056,
+      "c27dd3b776f260833b22c1b630346ed0837f5710d12a76d50ce66ae363294b03"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/CAPTURE_1280.json": [
+      27934,
+      "493febcfc852d5a59b2844fd081170cd0d90acc72fcf746224bf8f9504a7a192"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/CAPTURE_1600.json": [
+      27931,
+      "bc5c1edde34d0900e4da0aaf8affee2bb684098ff5b59f18d4087e7880d13dbb"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_fossil_brushed.webp": [
+      40866,
+      "d780b65fd92c5855d9603a13a58633573e827c523faf284bcb910bd30d3a0e32"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_fossil_earned_completion.webp": [
+      40128,
+      "42b45b962763fe75fecee37bc90baf1500762db19a9ade1424c0bf2c6e8ec358"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_fossil_invitation.webp": [
+      34266,
+      "e81f1f68dc7436dc6492ed7174953e40746d965474a418e006a02a6aec97a1de"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_fossil_one_piece.webp": [
+      39542,
+      "2df3f7f9d41382adf621d04f889719b14875a58af32a084b423c8c531727c0e5"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_fossil_partial_brush.webp": [
+      43370,
+      "21f8fa37e9070116cb757bff318305d9d810f3d610c9f1a98d21c10965e934e1"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_fossil_task_open.webp": [
+      42808,
+      "e7ea14ab63716f31d4b1cc26f1168064f5809b956a2820e1b6ec375f2f1b02d8"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_fossil_two_pieces.webp": [
+      40196,
+      "48db4ea6f82057f938d9ccd855198d552dcc363ab274f682f11ce37828af5fc7"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_geode_early_crack.webp": [
+      44302,
+      "c93198b46dad1a63c8122b09b9d3b7e0865e9c3071cfe4c9fd623604c4e2ca12"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_geode_earned_completion.webp": [
+      48902,
+      "90834c7354045b3cdcc3c333df6bf17b96c68e44477f0a026ad67a4724f77001"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_geode_five_seams_ready.webp": [
+      39482,
+      "c54cae09a5de190400b432061e2db695d9d86830b4ec6ef3838f14e043d2c981"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_geode_full_interior_before_award.webp": [
+      49400,
+      "ca7951bc4590c0ac5c530d2d71e96e79c3d9ddd6a6baf8332c811e6e076f8bca"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_geode_invitation.webp": [
+      32852,
+      "caffa7ff2d8c88a4c0c541fc7dc6a1885ca32c4183923d9057b2518a321d0810"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_geode_middle_open.webp": [
+      49370,
+      "9481684f7740adf7b5004ae3bbd571d6f293f4304e9234543f240596332ecacb"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_geode_task_open.webp": [
+      40348,
+      "0fea19c73bfb16591331c710bdc7e31cc97e39e318a707f42cd564e773f61a73"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_pan_earned_completion.webp": [
+      43926,
+      "765f8f3f5944b4f7e8eb3384f87fb25d2069f76cb232f8aef51a2f302bd3e38c"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_pan_invitation.webp": [
+      33530,
+      "7c9c592e854ee79c0030be09c1266b89d55e96a4a727e490b5473dbaa98bab46"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_pan_pan_left.webp": [
+      44020,
+      "6e67f26cbe28f8a4c92374b189c6285c8ff0e2568c2fe222eec4a3678641b389"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_pan_pan_right.webp": [
+      44068,
+      "e39398022dbb2e5aabca01cbd4d3977f441d4f28014804fdf6fb4e7c1ea800cd"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_pan_partial_pan.webp": [
+      43576,
+      "172a2bdf14ba8d9e5153c7d256ac848e95706f6796dc65cc939b9265ef212809"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_pan_task_open.webp": [
+      44420,
+      "a11b1dc1e7a76ec44eef272046b7ab888f434c69cbcacc30a8a3b4365bf6e455"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_river_earned_completion.webp": [
+      30530,
+      "d180046a3b068291a2473f95a213ca01fad7a9f1dbb3cc3656714301f41f6581"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_river_invitation.webp": [
+      33654,
+      "236f42a9fde28c1dd096c9793ebdf96df544f85fb029cfd6a9f7710d39d0ef86"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1280_river_task_open.webp": [
+      22808,
+      "ccc6616ce0a7c5404efae84736158ee1bc469de2ff151eeae2c39cbee6d718c0"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_fossil_brushed.webp": [
+      41732,
+      "ee7901a172f32d41629081641d939e57b37443a8cfe52e19af46087a62e41f2f"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_fossil_earned_completion.webp": [
+      40822,
+      "38aa0e593ae7d5d18230166405eecd38164fa40ee3a0659025ec295de82eb2ee"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_fossil_invitation.webp": [
+      35022,
+      "25ee03bc0006750e4017d7c95dd83f002db0f01ee282a9dd8cbd16ca2aa17724"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_fossil_one_piece.webp": [
+      40610,
+      "095d3cb68ab2ddb303fb58f20756a8d8733772b6dc07b10b879ca537039826e7"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_fossil_partial_brush.webp": [
+      44542,
+      "ae47f6a7c7db1c06947facb668968cea6bf982bb6feac68b2d3ad28a7f1f562e"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_fossil_task_open.webp": [
+      44024,
+      "01ca6492c3465d5dd0447e57a638730892486c8b1a11d8d289a681f3f4af070c"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_fossil_two_pieces.webp": [
+      40724,
+      "ec1e2e4bf56816b71c6d385c727564ef43eeba215fffe2731f8c474ece5c14d6"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_geode_early_crack.webp": [
+      45446,
+      "1cb319a86ef155e4df68d10c9c83de2dfe3a4a77a902ae2862d0a1d7bfd42730"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_geode_earned_completion.webp": [
+      49200,
+      "faec932426a3a6fe4abff76da6b5d08e394af56abe1c80f7be91aef8e34be16b"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_geode_five_seams_ready.webp": [
+      40056,
+      "e5cbd540dabb56c5418888dd9bea2d1721af2c9442d240940f8e685cef3c8663"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_geode_full_interior_before_award.webp": [
+      49824,
+      "6227bd15dda7b8262eb824e85ef7a7298b1a3a8ea00ed00b766b0339dacabd2a"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_geode_invitation.webp": [
+      33780,
+      "e946e3e733c74e69bcca0cc6bace809ad1c2a00ec3d200e36a089bf615b6a0ef"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_geode_middle_open.webp": [
+      49900,
+      "19410cf9180d32cde0dff21d45efe14d5884978651d56f6fe00230becd954b9e"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_geode_task_open.webp": [
+      41024,
+      "85cd5069040971dcb78d0b50b8ced4ddb17dff8d809287fe45dd4b3262f117b0"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_pan_earned_completion.webp": [
+      44832,
+      "a63f183ed6e75f652609a314f7fd70fce538781d4a0ff8d88348b3f2bc6f1637"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_pan_invitation.webp": [
+      34294,
+      "a76570d4d3d6a19ffdee53ba1aae05cf87051bfae5ba235086cdb546a8f61a3c"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_pan_pan_left.webp": [
+      44866,
+      "be1678d43a1f1ffe8d285fe092e22a993dc27de8e03dc8afe4d63c1c0653d5bd"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_pan_pan_right.webp": [
+      44744,
+      "ea7ade2328a22cc3342435c7d3fbb969c2a6899480cad9b67ab9db0cb72dc1b2"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_pan_partial_pan.webp": [
+      44438,
+      "37354c42b4700e20277eea9b10c4f4bc546d0d5340ae5be8156d5dd088b3ce04"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_pan_task_open.webp": [
+      45560,
+      "5e5b47f7465853f24435c2883b58a014fa9496f9df00222119eddff4578a8d8c"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_river_earned_completion.webp": [
+      31158,
+      "9cc855a3428e4fb0a8fe5f86dd8f5362db96a2744dd7ecdd29ad28f9d8de6ce8"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_river_invitation.webp": [
+      34528,
+      "93a7c4b24b208eee49026b924b96f083dba6042d40451e0c0bfe5147679e4736"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_03/native_views/geologist_1600_river_task_open.webp": [
+      23870,
+      "7e8c17817e7a79af2c148307615ef87f70f0a59acf0cc65f584e975803442cd8"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/CAPTURE_1280.json": [
+      27934,
+      "c2ed1aa2d57cf78e5913e7dad1f6623858465f1290ec809b4df7fd68b279bc70"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/CAPTURE_1600.json": [
+      27934,
+      "cda2a178a841eb3caa04d488b2c5acafa9d960104abc58e92956cf9530db97f0"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_fossil_brushed.webp": [
+      40552,
+      "b1740dab8624471bdf24637a7a66404b66d5e2f3d66ef461b8d13b9f08dc7afb"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_fossil_earned_completion.webp": [
+      40392,
+      "0ea7b5c965336c37f9e46dbb6f8e952b3908ee6f998e95f4993fbf82bfb88294"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_fossil_invitation.webp": [
+      34170,
+      "f1694678dd2aa42af14e4c9ce32e28bd70f4b660b60e1302c4606353a9f5fa41"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_fossil_one_piece.webp": [
+      39492,
+      "51401fb0d09941a03a4cb89ba86f27291020d887a2b634bad6a83a88a620df98"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_fossil_partial_brush.webp": [
+      43302,
+      "051c42ce64671fcd6a37334991da4042e28061d3ee285ad9bbc416a47db59d3d"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_fossil_task_open.webp": [
+      42748,
+      "02c5842a998d61e162dd2b6a2369668617b48bf8c4aebe37f1d9e3b02ec36224"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_fossil_two_pieces.webp": [
+      39756,
+      "407357742d6d74c014587ede0bba45be77c37aeff665dc54f9530c9ce4f40caf"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_geode_early_crack.webp": [
+      44378,
+      "432ab2f17b8e7e58d0672d28f788a48591770bf8061a27f636899bb78589d3f9"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_geode_earned_completion.webp": [
+      48856,
+      "39ed34d776664f21c25899a37225fb3166f2d568baa3e11e8f9ce9cc01513971"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_geode_five_seams_ready.webp": [
+      39532,
+      "3198984d54791f8b1b2a26f6faa6ccb94774e11e655f9398a78dd19291f7cf32"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_geode_full_interior_before_award.webp": [
+      49376,
+      "dc29ed4840877485653c05694967b3e85ce68c49fd953b36c88f128770fe53df"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_geode_invitation.webp": [
+      33004,
+      "10034d8ed56765b0676d3a325637893a7c6a31a88a65fab731ef6069f9a7f166"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_geode_middle_open.webp": [
+      49464,
+      "dbb37e3e521f93f9713f31a9a6553a2b560b18e4b549a30f57bf171d3c1a43af"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_geode_task_open.webp": [
+      40372,
+      "7a0e027a017090f0d1bb59a898b407214b547ed85c8adaca3bfcfe56c6f14648"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_pan_earned_completion.webp": [
+      43824,
+      "8f3b0482b8ca1c41c0b68e2669c774ecc3ce3922837cb52b4c4aa959cf0f1ca9"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_pan_invitation.webp": [
+      33442,
+      "ccc57b60a9ee64b6431185397f364765ee7d39c70fd779a7a89818b6134a7345"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_pan_pan_left.webp": [
+      43952,
+      "cd4a74125e6082637866ba0a3dc731c4dc932db59d808a55e73c111f1597c597"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_pan_pan_right.webp": [
+      43740,
+      "abe911b778856a9064425b912cc00815bcd663f9adc203113a942bc32d22da3e"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_pan_partial_pan.webp": [
+      43586,
+      "7739f9fb9ba686f689aa696617e509f134065417a242de3b1f9d07cffcf6305a"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_pan_task_open.webp": [
+      44058,
+      "1c71d6033e89135cd0101177ea5a3963cb71ab8aa3defbe545d2abbd6c5cc04a"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_river_earned_completion.webp": [
+      30470,
+      "8e9d5e9c005f079779da5dffc141f99ae94ac24ca7047c971dc54b81080a79dc"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_river_invitation.webp": [
+      33854,
+      "65f6c7c3057e9df4430eb80f2a25c1af3261e71109de5a3c75993792b060e058"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_river_task_open.webp": [
+      22734,
+      "7a696da6117fcc51deba7a53093e0ed38f4d8de9474c9a32d43ef2d4b1fa10e1"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_fossil_brushed.webp": [
+      41312,
+      "d4541085d98ef1d8439abd6ff5939ca047e2f9e518cafff9731501534727ca4e"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_fossil_earned_completion.webp": [
+      41022,
+      "3405450a992bc5d65929d9cc30c7f7bee38d9cd8213d67439d457c99c80ea8b8"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_fossil_invitation.webp": [
+      35132,
+      "4ad383af282bbc8c2844caa6909c1280dbf6bd9f827bc4d7853862caf1966922"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_fossil_one_piece.webp": [
+      40612,
+      "0e279d18e36cd03e87814d09c25b4f65787a5c4b5542445c332bb0d7a1a143da"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_fossil_partial_brush.webp": [
+      44080,
+      "420c52e6408883e581480fd8ee148c9de01114b4dc1b4a9b71d1ef90c62c1964"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_fossil_task_open.webp": [
+      43858,
+      "7b9a7cdbf1d8842216ee75c1c668406c31bc84b16d3805509f60ca56f467faa0"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_fossil_two_pieces.webp": [
+      40604,
+      "a67c8d7674d1bc7e44e657aef17a2f2147d6414c52eb13e6199fba0c69470b7d"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_geode_early_crack.webp": [
+      45396,
+      "64b70a2ece3de461621c9048c3972da40e81ca2464dba702cfeeeb5172ee07ab"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_geode_earned_completion.webp": [
+      49194,
+      "1ffd3d3ba92f51ded601d488399ca5a7c6bdf62ff781b5ad7370cdd9571964c4"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_geode_five_seams_ready.webp": [
+      40052,
+      "360e435149c3ba298f3540bdefcb8ac989e82a04c1a64c6a769d9ed726f5112e"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_geode_full_interior_before_award.webp": [
+      49820,
+      "a1c590f519b89569381c78e342b5b1e1b40d8f828f376a6bf155aaf76b465d49"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_geode_invitation.webp": [
+      33972,
+      "be86a97b7d53f6f5e5913c651372faecbee056ada93d9c22e4c0a66f59e6964d"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_geode_middle_open.webp": [
+      49898,
+      "eb977e512c8c37fc89b5962fc501c7abbcc24f4acd63d59313aaa94edd00c191"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_geode_task_open.webp": [
+      41020,
+      "a2edbf61034b2ff5a94050191b9020a4605cfc897a6114dfe1e4a61df9843423"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_pan_earned_completion.webp": [
+      45222,
+      "cfe65e988b6762b8f1c2d1c829a6cca3ee427275a86132ffafde095227e00275"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_pan_invitation.webp": [
+      34292,
+      "be74f613ea2a6f6fc0cf44267126c8a6a84e5490f40aba346b1f0d8e5fc7a3c6"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_pan_pan_left.webp": [
+      44776,
+      "fb0271b9b02a6042dff21eb6481758100caed4c64a6c1c820e12beeb838f6d63"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_pan_pan_right.webp": [
+      44634,
+      "7b7b1d85b71621d457847e3490e47fa37fa81b8a1e616073e7ef32fae76f0923"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_pan_partial_pan.webp": [
+      44438,
+      "03d39ced84580c050eb0b27953a8b02e5bf28b546b620de1d9ef3d6e904c2300"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_pan_task_open.webp": [
+      45210,
+      "0b315151433957e0f7345c44c7484aacb376687a5bba94b2e83beeedb4e2d6d1"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_river_earned_completion.webp": [
+      31188,
+      "1dc0a6794ebca5e7cb1f91298a80cafcbe8908e5e962b353cb477f92f37484c8"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_river_invitation.webp": [
+      34780,
+      "774f9fecf02fdfa0fcab56dde5db14f7ed58da72d4b2d2c0808b0e2f496b1abd"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1600_river_task_open.webp": [
+      23946,
+      "2b713bf7ce1cda7d7d398511c6c412455f3ddd1029ca32721c95d0ad89f93542"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/capture_geology_painted_work.gd": [
+      10576,
+      "d58efd665e99fd171628c1e46f64749738da96fb648258b321deda9a449f77f8"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/full_ci_v1/ENGINE_DIAGNOSTICS.json": [
+      11906,
+      "d478a657d3fa27f3c0e169df280ff03900eb329f634c70e9e412274701af886a"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/full_ci_v1/RECEIPT.json": [
+      100312,
+      "29aa9d7ae665feba0257499835aee237606fcc399712856aadb21ecf6ccbc9f2"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/full_ci_v1/SOURCE_BEFORE.json": [
+      59620,
+      "46089a3e67e87736c0f74117b6ce9990306dd21b7f0887d74fddfc0ef61c8020"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/full_ci_v1/process.exit": [
+      2,
+      "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/full_ci_v1/stderr.log": [
+      1571,
+      "3d558478d5f6c18f0418b5b8ffac279a571fdd8be6b3ff625b1f9f2070530f85"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/full_ci_v1/stdout.log": [
+      434667,
+      "846d37a1e624b346629fe89518505361696fade8c2bba1719b363580dbf94c5f"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/full_ci_v1/wrapper.sh": [
+      526,
+      "3a69e545b099641581ce82cf98adc2663fc71158031b9ea40e2cfb14ab6bcec4"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/geode_runtime_remote_verified_h/geode_runtime_publish_v164_COMMIT_MESSAGE.txt": [
+      1079,
+      "3eaf02c254e272255dc4bc47fad1916db7a39296bd56a2bdcf4009d4340482d6"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/geode_runtime_remote_verified_h/geode_runtime_publish_v164_RECEIPT.json": [
+      809,
+      "e5965f22cbe88fa6cbec147136dd17ded0eddc862af306796776472c61247884"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/geode_runtime_remote_verified_h/geode_runtime_publish_v164_push.stderr.log": [
+      118,
+      "9c47f64b02e24960050aec8cbfd4e9eeea695ace0a32081ace4d2935b9e70fc9"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/geode_runtime_remote_verified_h/geode_runtime_publish_v164_push.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/geode_runtime_remote_verified_h/geode_runtime_remote_v164_RESULT.json": [
+      1356,
+      "ef07ec074de2ddaa0f4c80a736596664f7979d556d46839c4d2764c337765288"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/geode_runtime_remote_verified_h/geode_runtime_remote_v164_VERIFICATION_JOURNAL.jsonl": [
+      97055,
+      "7d3b551f534e4428d35dc6594cc94f746ffdf6d5ad1ccad7db82ff3a21193ea1"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/index.html": [
+      122496,
+      "28bf5881bc3597eacada8e6e259dfdd48e9f9412d59e3583bdf5db56a6ae8c14"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/review_tools/build_geology_work_review_v178.py": [
+      31564,
+      "a03c774d6772b9607b112d1729f830fa431e6e5b027b182d9a136ec3c8cb0d2a"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/review_tools/executed_publish_geology_work_v183.py": [
+      8098,
+      "0ee72e3e021546e85d36dfc74cc6f763588025175165014cb4fa394e82c46dc1"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/review_tools/extend_geology_register_v179.py": [
+      8237,
+      "fb6ef8472133e2d54b345bb854d622ba4c77e97d0687e648c65d8cd992d1d914"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/review_tools/install_geology_painted_work_v172.py": [
+      14400,
+      "d458df84a1c1347e8e3f0b45d6a116e3a74f2e73f65d3b9e92ecf59755cdc148"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/review_tools/install_geology_soil_v176.py": [
+      6147,
+      "be57f771647c8f86ba44cc6494aab8521e9aded20ac94807f8dea3a2b3e45746"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/review_tools/prepare_geology_checkpoint_v190.py": [
+      3443,
+      "6765d088884d25948be62b30d66d3ea14fb3f6dae9c0edc35a3541c904c6c3b1"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/review_tools/prepare_geology_publication_v181.py": [
+      3393,
+      "fd5f53977a2a439aff0ddd01acda1198183317cf3bc7835ef9125ec4e3af884d"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/review_tools/prepare_geology_soil_generation_v175.py": [
+      2968,
+      "472855268306bb09e4460b2102f6548d47ee6fadef5733f8f3e1dc93ce01fb02"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/review_tools/prepare_geology_work_full_ci_v177.py": [
+      2073,
+      "9b8685498766c35a7494461020ca6ad9eeaed81011b31369ca536cb24fd8c3ea"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/review_tools/refine_geology_library_v180.py": [
+      6641,
+      "064602adbd81a3fba1e9c576230c0712d46dbe23c20437048f88ef02a284977d"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/review_tools/refine_geology_work_layout_v174.py": [
+      3226,
+      "07db7811e271d7a99f31c5c0d5c0782b476e6ba6477fcc192ff5810a252c5e18"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/review_tools/resume_geology_seal_v192.py": [
+      3801,
+      "973ad285d4d41c5d526d6a95a5f488d966a7ca07e95cf13d7e5c94ce2aa28b3e"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/review_tools/run_geology_work_full_ci_v177.py": [
+      8093,
+      "334451f66702f37d89269b418ebdce5d412def6abe95657274d40cf9422ae485"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/review_tools/run_geology_work_gates_v173.py": [
+      4775,
+      "43b35114ddf90d67da9d5078a97e019ac29c90f020cf23afbaecc60bab816e3e"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/review_tools/seal_geology_reviews_v188.py": [
+      5400,
+      "4e4f94341a79c4b8fd56e910f4471d5b5eacacaaf00a1f81bdfc5dee60453c4f"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/review_tools/seal_geology_work_v191.py": [
+      5472,
+      "586bcb42d6d3f819bc028eed8564fd629b7b1c8bc10b150cbe973f93fbbdbc91"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/2dv1.receipt.json": [
+      673,
+      "d3f88f4ec778c93e064ffb5dd1faf6b32905011575702999c5ee08248c9ddf93"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/2dv1.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/2dv1.stdout.log": [
+      411,
+      "cd9caf9b33d75e4bef2367ab3eaf08685a07073d3e472062c1110bd000d4e731"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/analyzer.receipt.json": [
+      862,
+      "c987f31832f03aef47bd4f763592a3e59e062ef3ce723d3acdb54de136a5625c"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/analyzer.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/analyzer.stdout.log": [
+      73,
+      "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/analyzerv2.receipt.json": [
+      862,
+      "a502863f2f226eb138713850dd771736e89005e5c3bade2debf1c2451af591a0"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/analyzerv2.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/analyzerv2.stdout.log": [
+      73,
+      "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/analyzerv3.receipt.json": [
+      862,
+      "9d5b802c50ed82fcb0550b21b68bf72b4eb9f6d95237d62757762129d65ce09a"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/analyzerv3.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/analyzerv3.stdout.log": [
+      73,
+      "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/analyzerv4.receipt.json": [
+      862,
+      "661e3ae5ad19bc3d6ced51dc592df42736ec7d2d336b4631fe78257f717f350c"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/analyzerv4.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/analyzerv4.stdout.log": [
+      73,
+      "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/authorityv1.receipt.json": [
+      659,
+      "f16d10d5b69cf9210d52dd1573188879b6564b39bc5ee6cb57f5779f6d365dc2"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/authorityv1.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/authorityv1.stdout.log": [
+      76,
+      "daf2ff12cd755a5a7ba996a38be40de1059de875c784015db7edb195f6a845ef"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/authorityv2.receipt.json": [
+      659,
+      "a8341667088dca5716f21d05b3430079a4563f5e2f9be7bdf048df3a517647a7"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/authorityv2.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/authorityv2.stdout.log": [
+      76,
+      "daf2ff12cd755a5a7ba996a38be40de1059de875c784015db7edb195f6a845ef"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1280.receipt.json": [
+      890,
+      "b9c3d5a017c28e6e3ea9531df2bf237df5f4b74e80892449f79ae5e4f9616287"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1280.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1280.stdout.log": [
+      1572,
+      "ed9fa34508a079907f870fab36a2dfa049e18b4c8b346021763e666642fc00fc"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1280v2.receipt.json": [
+      891,
+      "fff48a783bb779a4d9a6b96b85d9c8a7945879b27428a191fef69945de7cab63"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1280v2.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1280v2.stdout.log": [
+      1967,
+      "cd6ab262f8aa6fc1096c4c0782f5aa0a42702c9a4af8b09a5aafa19790118378"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1280v3.receipt.json": [
+      891,
+      "eb655f83d1f112f7c3dd03217b56b019d49c79d94e2ba614af4450ba319879c1"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1280v3.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1280v3.stdout.log": [
+      1967,
+      "cd6ab262f8aa6fc1096c4c0782f5aa0a42702c9a4af8b09a5aafa19790118378"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1280v4.receipt.json": [
+      892,
+      "ed8baf9f21c7fa41154b20d981d90435b7d38bdf0905b5d7749ff33395d0bd5d"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1280v4.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1280v4.stdout.log": [
+      1967,
+      "cd6ab262f8aa6fc1096c4c0782f5aa0a42702c9a4af8b09a5aafa19790118378"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1600.receipt.json": [
+      892,
+      "1b36abd048d1742ba06f37ae9503883d3848c3914fe14febfc45f544c6794f33"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1600.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1600.stdout.log": [
+      1572,
+      "699a994a65f6a3d7590082914087c0368ea33c3e2baed26ad6478bed9f56929d"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1600v2.receipt.json": [
+      891,
+      "940f47c298bfa1a246abc2654668daa556ab0fa589aa2481dcd12ffe7671b226"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1600v2.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1600v2.stdout.log": [
+      1967,
+      "82b453773bd5d6bd471973b31792e3de7c3347142a436acdcf62438472525209"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1600v3.receipt.json": [
+      891,
+      "4084fd619c22f9bf96197ab6684d0a1ab379efbf5e42d558a7feafe1a45ee550"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1600v3.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1600v3.stdout.log": [
+      1967,
+      "82b453773bd5d6bd471973b31792e3de7c3347142a436acdcf62438472525209"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1600v4.receipt.json": [
+      890,
+      "6283260ec679e4abdfcf98b46ed244181121511026dd991df36978c9e7f74784"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1600v4.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/capture1600v4.stdout.log": [
+      1967,
+      "82b453773bd5d6bd471973b31792e3de7c3347142a436acdcf62438472525209"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/developmentv1.receipt.json": [
+      678,
+      "2e9fb38eee28520a9bbc24642f9fc196d88ad74b66b5738e83a93654d4ad56e8"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/developmentv1.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/developmentv1.stdout.log": [
+      78,
+      "08daa656ace8a1e216ee593a2d73f8646413ab6d59dd0ccab983ee8d2d70b4ad"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/developmentv2.receipt.json": [
+      678,
+      "ba73451ce95c549f4192685dedfb96b1f2a7243d9c0ff1590af5758f986ad6ba"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/developmentv2.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/developmentv2.stdout.log": [
+      78,
+      "08daa656ace8a1e216ee593a2d73f8646413ab6d59dd0ccab983ee8d2d70b4ad"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/import.receipt.json": [
+      761,
+      "bfe5b52cdf94326bb34a93921541378c4bd655b6de0081889f96d09879a4b816"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/import.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/import.stdout.log": [
+      3287,
+      "a093dbc5eecb5df0d14cd5cca290aea371fd9b72ee5c9a9be4b1ec39cca4daf1"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/importv3.receipt.json": [
+      761,
+      "7d6b662eaf8491765029a6335670fd3758d5d667be3cb749ddb7e1b3d188e0cb"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/importv3.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/importv3.stdout.log": [
+      1944,
+      "02e39313179dfd336ef34326a0acf0382a6ea3b26d9c48fadbc267d1d47437e4"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/inference.receipt.json": [
+      894,
+      "de5e187cbd3bc604946f407861a384a4d49fe8fc1645369ea6f1339892a9a0b5"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/inference.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/inference.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/inferencev2.receipt.json": [
+      894,
+      "0ef583f48a54499ad56bc637d24be3a98ac50344c98b956c1d92067293dc7fa6"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/inferencev2.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/inferencev2.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/inferencev3.receipt.json": [
+      893,
+      "a522fd561f3d6afc3fcbef425d39be557cf8d7fe975c9df258e6c463275232f2"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/inferencev3.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/inferencev3.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/inferencev4.receipt.json": [
+      893,
+      "99dd6d802ad4b5187f10422c18a437b8599fcea98f839b8641fe0e982c2d38c2"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/inferencev4.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/inferencev4.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/inferencev5.receipt.json": [
+      894,
+      "774cb3fb07624802020bc9827398d42bf0d45184113c5f3af6cc8a7bda70ab4f"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/inferencev5.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/inferencev5.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/parser.receipt.json": [
+      896,
+      "b4893debb3343dd8f6d7216e259fa3a70021004d20dae002310a8021ba9fa73c"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/parser.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/parser.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/parserv2.receipt.json": [
+      896,
+      "5d1248ee5265b9c62c7e1fb624d49c824406c6303009a8d311faaa332f6bbdfb"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/parserv2.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/parserv2.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/parserv3.receipt.json": [
+      895,
+      "b530cd0e28b9f5caf2243574d630fe6e3dedd3d549d48c9f710ce7c47dd51b72"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/parserv3.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/parserv3.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/parserv4.receipt.json": [
+      896,
+      "bcb14afa4529366f9c1a4f556b5b54eacac7a9059a0281e0f2c8650032fd64c4"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/parserv4.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/parserv4.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/parserv5.receipt.json": [
+      895,
+      "fcffd3adc89a612d4eca0a1b0a8f950f51491c231c0ad0d98f5ec4104318b411"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/parserv5.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geology_painted_work_v1_20261001/runtime_gate/parserv5.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_review_v2_20261001/review_tools/build_current_job_item_register_v21.py": [
+      45897,
+      "5a92a53ec330c697a4707dcaeab3d552c98d2af3d8d536fbd3618fea4591e5fb"
+    ],
+    "audit/job_review_v2_20261001/review_tools/build_current_job_item_register_v22.py": [
+      48142,
+      "19eb68af4f7f594ccf77915715635b419a2365afadc7dd93e503fd234b35b92f"
+    ],
+    "design/05_DOC_LEDGER.md": [
+      199766,
+      "671f42dd57aed25e71af7f2c5ac118566374abdc5ddff87bf9e1df8bfcacd909"
+    ],
+    "design/audit_impacts/job-geology-painted-work-20261001.json": [
+      53181,
+      "2007794df77a26546dde17e0e64c5d69cfbf9aadc10b91e71d749a663041c7d5"
+    ],
+    "design/audit_impacts/job-geology-river-painted-source-20261001.json": [
+      7650,
+      "f63f904422e828dd1ad2921665d0dcef8aaa39206f385c678c8a89a792daa979"
+    ],
+    "scripts/opera_career_world_2d.gd": [
+      235177,
+      "4219eb4379f773a2057385ce5b79b2102a4c111e0ca7d25ae9aabd1d9d15a63b"
+    ],
+    "scripts/opera_geology_surface.gd": [
+      36212,
+      "2332eedd731bf94fc23ddc7d0ca943ad7473fa918f69bcd29a5fc957cd212e56"
+    ],
+    "scripts/opera_hotspot_catalog.gd": [
+      26982,
+      "e798828995c686441a28e4c2f29e5360e527334a6a1a127fd4edc325e208c2f0"
+    ],
+    "scripts/opera_world_hotspot_2d.gd": [
+      14771,
+      "0ca474153df4904cce011b9cf99e1ea31b066d61ba08d8637d573cae7cbc84f0"
+    ]
+  },
+  "qualification": "Additive exact canonical Git-blob map for seven painted-work runtime sources, all46 current/174 archived native views, two soil generations, six river components/two originals/two complete derivatives and V22 individual register1596. Current unmodified officialGodot4.7.2 local full suite82/82;349 literal hashes unchanged;53 raw diagnostics preserved. Source/mounted/action/context scores remain separately qualified. River components are unbound. Prior immutable map chain retains baseline dependency evidence; this supplement never rewrites old receipts or grants full timed/training/story/device/child/owner/all-job/integration/release acceptance."
+}

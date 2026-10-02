@@ -131,10 +131,10 @@ const SPECS: Dictionary = {
 		"ENCORE": {"path": "res://assets/opera/worlds/props/goal_popstar.png", "motion": "rock", "size": Vector2(142, 142), "presentation": "painted"},
 	},
 	"geologist": {
-		"RIVER": {"path": "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg", "motion": "pulse", "size": Vector2(128, 128), "presentation": "painted"},
-		"FOSSIL": {"path": "res://assets/opera/worlds/hotspots/geologist_fossil.svg", "motion": "rock", "size": Vector2(132, 132), "presentation": "painted"},
-		"PAN": {"path": "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg", "motion": "bounce", "size": Vector2(112, 112), "presentation": "overlay"},
-		"GEODE": {"path": "res://assets/opera/worlds/props/goal_geologist.svg", "motion": "pulse", "size": Vector2(150, 150), "presentation": "painted"},
+		"RIVER": {"path": "res://assets/opera/worlds/geology/painted_work_v1_20261001/layered_rock.png", "region": Rect2(120, 188, 800, 674), "motion": "pulse", "size": Vector2(142, 119.635), "offset": Vector2(60, -70), "presentation": "overlay"},
+		"FOSSIL": {"path": "res://assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png", "region": Rect2(115, 171, 802, 674), "motion": "rock", "size": Vector2(142, 119.33665835411472), "offset": Vector2(80, -90), "presentation": "overlay"},
+		"PAN": {"path": "res://assets/opera/worlds/geology/painted_work_v1_20261001/pan.png", "region": Rect2(44, 75, 936, 455), "motion": "rock", "size": Vector2(180, 87.5), "offset": Vector2(70, -90), "presentation": "overlay"},
+		"GEODE": {"path": "res://assets/opera/worlds/geology/painted_geode_v1_20261001/closed.png", "region": Rect2(192, 213, 645, 602), "motion": "pulse", "size": Vector2(142, 132.53333333333333), "offset": Vector2(-40, -70), "presentation": "overlay"},
 	},
 }
 
@@ -191,9 +191,11 @@ const ASSET_META: Dictionary = {
 	"res://assets/opera/worlds/props/goal_popstar.png": {"dimensions": Vector2i(512, 512), "role": "object"},
 	"res://assets/opera/worlds/widgets/widget_track_popstar_mover.png": {"dimensions": Vector2i(256, 256), "role": "effect"},
 	"res://assets/opera/worlds/widgets/widget_crank_popstar_mover.png": {"dimensions": Vector2i(256, 256), "role": "object_group"},
-	"res://assets/opera/worlds/hotspots/geologist_layered_rock.svg": {"dimensions": Vector2i(256, 256), "role": "object"},
-	"res://assets/opera/worlds/hotspots/geologist_fossil.svg": {"dimensions": Vector2i(256, 256), "role": "object"},
-	"res://assets/opera/worlds/props/goal_geologist.svg": {"dimensions": Vector2i(256, 256), "role": "object_group"},
+	"res://assets/opera/worlds/geology/painted_work_v1_20261001/layered_rock.png": {"dimensions": Vector2i(1024, 1024), "role": "object"},
+	"res://assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png": {"dimensions": Vector2i(1024, 1024), "role": "object"},
+	"res://assets/opera/worlds/geology/painted_work_v1_20261001/pan.png": {"dimensions": Vector2i(1024, 585), "role": "object"},
+	"res://assets/opera/worlds/geology/painted_geode_v1_20261001/closed.png": {"dimensions": Vector2i(1024, 1024), "role": "object"},
+
 }
 
 
@@ -303,7 +305,12 @@ static func _validate_entry(career: String, phase_name: String,
 		var meta: Dictionary = ASSET_META[path] as Dictionary
 		var dimensions: Vector2i = meta.get("dimensions", Vector2i.ZERO) as Vector2i
 		if dimensions.y > 0 and bool(meta.get("aspect_locked", true)):
-			var source_aspect := float(dimensions.x) / float(dimensions.y)
+			var region: Rect2 = entry.get("region", Rect2()) as Rect2
+			if region.has_area() and (region.position.x < 0.0 or region.position.y < 0.0 \
+					or region.end.x > dimensions.x or region.end.y > dimensions.y):
+				errors.append("%s samples outside source canvas: %s" % [label, region])
+			var source_size := region.size if region.has_area() else Vector2(dimensions)
+			var source_aspect := source_size.x / source_size.y
 			var visual_aspect := visual_size.x / visual_size.y
 			if absf(source_aspect - visual_aspect) > source_aspect * 0.025:
 				errors.append("%s distorts source aspect: %s -> %s" % [
@@ -320,7 +327,9 @@ static func _allowed_runtime_path(path: String) -> bool:
 	return path.begins_with("res://assets/opera/worlds/widgets/") \
 		or path.begins_with("res://assets/opera/worlds/hotspots/") \
 		or path.begins_with("res://assets/opera/worlds/props/goal_") \
-		or path.begins_with("res://assets/opera/worlds/nursery/baby_")
+		or path.begins_with("res://assets/opera/worlds/nursery/baby_") \
+		or path.begins_with("res://assets/opera/worlds/geology/painted_work_v1_20261001/") \
+		or path == "res://assets/opera/worlds/geology/painted_geode_v1_20261001/closed.png"
 
 
 static func _validate_asset(path: String) -> PackedStringArray:

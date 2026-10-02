@@ -23,6 +23,7 @@ var source_path := ""
 var motion := "breathe"
 var presentation := "overlay"
 var object_texture: Texture2D = null
+var source_region := Rect2()
 var object_size := Vector2(124.0, 124.0)
 var visual_offset := Vector2.ZERO
 var hit_size := MIN_TOUCH
@@ -99,7 +100,7 @@ func _build_touch_button() -> void:
 
 func configure_object(texture_path: String, animation_kind: String,
 		visual_size: Vector2, presentation_kind := "overlay",
-		display_offset := Vector2.ZERO) -> void:
+		display_offset := Vector2.ZERO, authored_region := Rect2()) -> void:
 	source_path = texture_path
 	motion = animation_kind if not animation_kind.is_empty() else "breathe"
 	presentation = _valid_presentation(presentation_kind)
@@ -107,6 +108,13 @@ func configure_object(texture_path: String, animation_kind: String,
 	visual_offset = display_offset
 	object_texture = load(texture_path) as Texture2D \
 		if not texture_path.is_empty() and ResourceLoader.exists(texture_path) else null
+	source_region = authored_region
+	if object_texture != null and source_region.has_area():
+		var atlas := AtlasTexture.new()
+		atlas.atlas = object_texture
+		atlas.region = source_region
+		object_texture = atlas
+	set_meta("source_region", source_region)
 	_reframe_to_stage()
 	set_meta("source_path", source_path)
 	set_meta("motion", motion)
@@ -411,6 +419,7 @@ func animation_state() -> Dictionary:
 		"station_index": station_index,
 		"station_id": station_id,
 		"source_path": source_path,
+		"source_region": source_region,
 		"motion": motion,
 		"presentation": presentation,
 		"visual_offset": visual_offset,

@@ -1,18 +1,18 @@
 {
   "schema": "reef.known-job-item-register.v1",
-  "created_utc": "2026-10-02T05:06:11.992206+00:00",
-  "baseline": "d13a28287ef6916fb9c910de9c07d110ced315c2",
-  "scope": "Union of two existing discovery inventories, 328 individually catalogued pose cells, 38 runtime prop regions and 11 source-object regions, plus named reversible replacement sources. Shared dependency candidates may fall outside jobs. This is a known-item register, not proof of exhaustive actual use or all-game acceptance.",
+  "created_utc": "2026-10-02T06:25:00.717327+00:00",
+  "baseline": "e1b431f49258eef1d293b11a732353f0a3aa12e9",
+  "scope": "Union of two existing discovery inventories, 328 individually catalogued pose cells, 38 runtime prop regions and 20 source-object regions, plus named reversible replacement sources. Shared dependency candidates may fall outside jobs. This is a known-item register, not proof of exhaustive actual use or all-game acceptance.",
   "counts": {
-    "unique_source_files": 1196,
+    "unique_source_files": 1210,
     "individual_pose_cells": 328,
     "additional_runtime_prop_regions": 38,
-    "individual_source_object_regions": 11,
-    "registered_items": 1573,
-    "exact_earlier_bytes": 1568,
+    "individual_source_object_regions": 20,
+    "registered_items": 1596,
+    "exact_earlier_bytes": 1591,
     "changed_bytes": 5,
     "unavailable_checkout": 0,
-    "inclusive_current_source_priorities": 579,
+    "inclusive_current_source_priorities": 584,
     "unreviewed_current_source": 388
   },
   "items": [
@@ -68294,7 +68294,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -68305,7 +68305,7 @@
       "runtime_binding_state": "SELECTED_SOURCE_BOUND_IN_RUNTIME_CANDIDATE",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "a4132fbdbcf8a05a32b681d4c1595ca22c470a9910013ccff47264d134b846f3",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68332,7 +68332,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -68340,10 +68340,10 @@
       "source_qualification": "Direct generated-native and every available neutral white/aqua display inspected. Source-only drafting opinion; not mounted/action/device/child/owner acceptance.",
       "preview_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/crystal_reward/attempt_01/native.png",
       "native_reference_observations": [],
-      "runtime_binding_state": "SELECTED_SOURCE_ONLY_UNBOUND",
+      "runtime_binding_state": "SELECTED_ORIGINAL_WITH_BOUND_DERIVATIVE",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "af4f70a8b6b14a266b685a500bc840977ac9884bf9a6f922fe918f25bf5b4ef4",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68370,7 +68370,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -68381,7 +68381,7 @@
       "runtime_binding_state": "SELECTED_SOURCE_BOUND_IN_RUNTIME_CANDIDATE",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "f94f34db58196b86f3f99310cca389f4bacdf69ea889c885680f50dd7f94c147",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68408,7 +68408,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -68419,7 +68419,7 @@
       "runtime_binding_state": "REJECTED_UNBOUND_SOURCE",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "bd5c1399aa4b8573fbd36778a0f964e759b0dd866aaf1b204186d6067c47e47c",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68446,7 +68446,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -68454,10 +68454,10 @@
       "source_qualification": "Direct generated-native and every available neutral white/aqua display inspected. Source-only drafting opinion; not mounted/action/device/child/owner acceptance.",
       "preview_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil/attempt_02/native.png",
       "native_reference_observations": [],
-      "runtime_binding_state": "SELECTED_SOURCE_ONLY_UNBOUND",
+      "runtime_binding_state": "SELECTED_ORIGINAL_WITH_BOUND_DERIVATIVE",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "2ccf249527c919e2bc16de916f91bfb5d790f4404611df3397948e3ec713860c",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68467,6 +68467,82 @@
       "current_mounted_score": null,
       "current_complete_action_score": null,
       "image_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil/attempt_02/native.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-PAINT-FOSSIL-SOIL-01",
+      "aliases": [],
+      "kind": "source",
+      "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_01/native_generated.png",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "earlier_sha256": "5c53b3df8faccdd83afefea34ef39f0a26e7a4bb5dcb1533ef9930b56d0a074d",
+      "historical_source_score": 4.5,
+      "evaluation": "Broad warm painted soil material with clustered perimeter pebbles. Too shallow to cover the fossil at required height; cover geometry4.0, never bound.",
+      "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
+      "families": [
+        "Geologist painted rebuild",
+        "ImageGen source/technical review with exact binding status"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
+      ],
+      "source_qualification": "Direct native-only review. No neutral preview exists for these two new sources; generation tool native output retained without pixel edits.",
+      "preview_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_01/native_generated.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "REJECTED_FOR_COVER_GEOMETRY",
+      "latest_refinement": {
+        "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+      },
+      "current_checkout_sha256": "5c53b3df8faccdd83afefea34ef39f0a26e7a4bb5dcb1533ef9930b56d0a074d",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.5,
+      "priority": true,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_01/native_generated.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-PAINT-FOSSIL-SOIL-02",
+      "aliases": [],
+      "kind": "source",
+      "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_02/native_generated.png",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "earlier_sha256": "c66e5b5b8c49e56907a2773e178fd561321e688a17869e49cd8e95eb007cfa54",
+      "historical_source_score": 4.6,
+      "evaluation": "Broad warm painted soil material with clustered perimeter pebbles. Deeper opaque patch meets the concealment geometry; material4.6, current straight clearing edge3.9 remains open.",
+      "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
+      "families": [
+        "Geologist painted rebuild",
+        "ImageGen source/technical review with exact binding status"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
+      ],
+      "source_qualification": "Direct native-only review. No neutral preview exists for these two new sources; generation tool native output retained without pixel edits.",
+      "preview_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_02/native_generated.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "SELECTED_ORIGINAL_WITH_BOUND_DERIVATIVE",
+      "latest_refinement": {
+        "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+      },
+      "current_checkout_sha256": "c66e5b5b8c49e56907a2773e178fd561321e688a17869e49cd8e95eb007cfa54",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_02/native_generated.png",
       "image_scope": "Earlier source/cell preview; current byte status is separate"
     },
     {
@@ -68484,7 +68560,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -68495,7 +68571,7 @@
       "runtime_binding_state": "REFERENCE_ONLY_NATIVE_RESOLUTION_FAILED",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "ebc2ea1ab64173dd678ec43bbc0a0daedc4e1548b26dc6d096038bad0ea3f545",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68522,7 +68598,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -68530,10 +68606,10 @@
       "source_qualification": "Direct generated-native and every available neutral white/aqua display inspected. Source-only drafting opinion; not mounted/action/device/child/owner acceptance.",
       "preview_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/layered_rock/attempt_01/native.png",
       "native_reference_observations": [],
-      "runtime_binding_state": "SELECTED_SOURCE_ONLY_UNBOUND",
+      "runtime_binding_state": "SELECTED_ORIGINAL_WITH_BOUND_DERIVATIVE",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "263e088cf0714232bd8e43901c3c831682f06d12fb9c1c5436c4c81b963ed858",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68560,7 +68636,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -68571,7 +68647,7 @@
       "runtime_binding_state": "SELECTED_SOURCE_BOUND_IN_RUNTIME_CANDIDATE",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "7628c21e432d9b66f69bb7caf77ab7db926d65c00906edf5614972d7253f4adc",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68598,7 +68674,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -68609,7 +68685,7 @@
       "runtime_binding_state": "OWNER_REJECTED_EMPTY_INTERIOR",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "latest_source_score": 3.0,
       "latest_source_sha256": "3830fceb98600491706da5d7cf25c897809b0b3ff4687f519af82089148f1612",
@@ -68639,7 +68715,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -68650,7 +68726,7 @@
       "runtime_binding_state": "SELECTED_SOURCE_BOUND_IN_RUNTIME_CANDIDATE",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "1191313bc32098ef4c1acede1c2bf547448b6a57a32905e7324e87bc092d87d8",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68677,7 +68753,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -68685,10 +68761,10 @@
       "source_qualification": "Source-only unbound drafting opinion; no complete-action/device/child/owner acceptance.",
       "preview_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/pan_grain/attempt_01/native.png",
       "native_reference_observations": [],
-      "runtime_binding_state": "SELECTED_SOURCE_ONLY_UNBOUND",
+      "runtime_binding_state": "SELECTED_ORIGINAL_WITH_BOUND_DERIVATIVE",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "6dbe2b4e2a6a7f99554c8f7c7203536e7ee7a1cbcdf39abfe4c63558a16a8a57",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68715,7 +68791,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -68726,7 +68802,7 @@
       "runtime_binding_state": "SELECTED_STATIC_SOURCE_ONLY_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "cec1c974c5796c309695e9ac55155d5712dd493edc300f7618e95ebfb4bc1a59",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68753,7 +68829,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -68764,7 +68840,7 @@
       "runtime_binding_state": "TECHNICAL_DERIVATIVE_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "ead12c03986968f7dc34630ed1eda8e589caa9631e774f13af686f496ff1aad3",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68791,18 +68867,18 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
       ],
-      "source_qualification": "Technical derivative only, no independent mounted/action score. Full native original retained; no crop, mask, recolor, separate layer or alpha cleanup.",
+      "source_qualification": "Technical derivative only, no independent mounted/action score. Full native original retained; no crop, mask, recolor, separate layer or alpha cleanup. Exact derivative is now bound at the new reversible runtime path;46 current native states reviewed. Full scene/action acceptance remains open.",
       "preview_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/crystal_reward/attempt_01/whole_canvas_1024.png",
       "native_reference_observations": [],
-      "runtime_binding_state": "TECHNICAL_DERIVATIVE_UNBOUND",
+      "runtime_binding_state": "SELECTED_RUNTIME_TOPIC_CANDIDATE",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "b35ccc29b0adb02006828e6f4c55e6240ddec2e9b0fb1e3130132c05fb479b47",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68829,7 +68905,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -68840,7 +68916,7 @@
       "runtime_binding_state": "SELECTED_STATIC_TECHNICAL_DERIVATIVE_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "82f92afb844daea7ae077e118951226df1def34d9398059d9321bd7488246832",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68867,18 +68943,18 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
       ],
-      "source_qualification": "Technical derivative only, no independent mounted/action score. Full native original retained; no crop, mask, recolor, separate layer or alpha cleanup.",
+      "source_qualification": "Technical derivative only, no independent mounted/action score. Full native original retained; no crop, mask, recolor, separate layer or alpha cleanup. Exact derivative is now bound at the new reversible runtime path;46 current native states reviewed. Full scene/action acceptance remains open.",
       "preview_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil/attempt_02/whole_canvas_1024.png",
       "native_reference_observations": [],
-      "runtime_binding_state": "TECHNICAL_DERIVATIVE_UNBOUND",
+      "runtime_binding_state": "SELECTED_RUNTIME_TOPIC_CANDIDATE",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68888,6 +68964,44 @@
       "current_mounted_score": null,
       "current_complete_action_score": null,
       "image_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil/attempt_02/whole_canvas_1024.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-PAINT-TECH-FOSSIL_SOIL",
+      "aliases": [],
+      "kind": "source",
+      "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_02/whole_canvas_1024.png",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "ba13d389db6547c756e1ff8a6606421e4697705733e9e1ec58dfa19e5d8b05dd",
+      "historical_source_score": 4.6,
+      "evaluation": "Deep opaque ochre patch with grouped perimeter pebbles, cream values and lavender edge shadows fully conceals the fossil initially. The straight clearing edge3.9 is a separate rendering issue.",
+      "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
+      "families": [
+        "Geologist painted rebuild",
+        "ImageGen source/technical review with exact binding status"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
+      ],
+      "source_qualification": "One uniform whole-canvas technical transform only; native original preserved. Direct derivative/material review separate from clearing/contact acceptance. Exact derivative is now bound at the new reversible runtime path;46 current native states reviewed. Full scene/action acceptance remains open.",
+      "preview_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_02/whole_canvas_1024.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "SELECTED_RUNTIME_TOPIC_CANDIDATE",
+      "latest_refinement": {
+        "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+      },
+      "current_checkout_sha256": "ba13d389db6547c756e1ff8a6606421e4697705733e9e1ec58dfa19e5d8b05dd",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_02/whole_canvas_1024.png",
       "image_scope": "Earlier source/cell preview; current byte status is separate"
     },
     {
@@ -68905,18 +69019,18 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
       ],
-      "source_qualification": "Technical derivative only, no independent mounted/action score. Full native original retained; no crop, mask, recolor, separate layer or alpha cleanup.",
+      "source_qualification": "Technical derivative only, no independent mounted/action score. Full native original retained; no crop, mask, recolor, separate layer or alpha cleanup. Exact derivative is now bound at the new reversible runtime path;46 current native states reviewed. Full scene/action acceptance remains open.",
       "preview_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/layered_rock/attempt_01/whole_canvas_1024.png",
       "native_reference_observations": [],
-      "runtime_binding_state": "TECHNICAL_DERIVATIVE_UNBOUND",
+      "runtime_binding_state": "SELECTED_RUNTIME_TOPIC_CANDIDATE",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "0f8cbccc5ac64279a69ed83a4ad631fc8b4c0d4b18260616ca89dc295950f985",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68943,7 +69057,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -68954,7 +69068,7 @@
       "runtime_binding_state": "SELECTED_STATIC_TECHNICAL_DERIVATIVE_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "f196c510e71b4e2753757bb1660d8ca3d259dbedcbcb5d0510a526c127225725",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68981,7 +69095,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -68992,7 +69106,7 @@
       "runtime_binding_state": "OWNER_REJECTED_EMPTY_INTERIOR",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "latest_source_score": 3.0,
       "latest_source_sha256": "96fdafe99881e521c68b63879cfa5c2f2e4c8e7501f757403c49ac4eb07f07ef",
@@ -69022,7 +69136,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -69033,7 +69147,7 @@
       "runtime_binding_state": "TECHNICAL_DERIVATIVE_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "f9b095c066af3674b00470d426941609488cfa090022660763eca8ef2ada4fc5",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -69060,7 +69174,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -69071,7 +69185,7 @@
       "runtime_binding_state": "SELECTED_STATIC_TECHNICAL_DERIVATIVE_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "0f1e510793e7de2fe00b94ecc1ad96658843cae3e9a2e4aed6c9c064b8269a06",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -69098,18 +69212,18 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
       ],
-      "source_qualification": "Directly inspected complete-canvas technical derivative4.6; no production binding or complete action pass.",
+      "source_qualification": "Directly inspected complete-canvas technical derivative4.6; no production binding or complete action pass. Exact derivative is now bound at the new reversible runtime path;46 current native states reviewed. Full scene/action acceptance remains open.",
       "preview_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/pan_grain/attempt_01/whole_canvas_1024.png",
       "native_reference_observations": [],
-      "runtime_binding_state": "SELECTED_TECHNICAL_REVIEW_DERIVATIVE_UNBOUND",
+      "runtime_binding_state": "SELECTED_RUNTIME_TOPIC_CANDIDATE",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "f5e1275a2027554eb7e6bf073d62517e3d0d3461f525b68a8b75ad09da07fd2c",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -69136,7 +69250,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -69147,7 +69261,7 @@
       "runtime_binding_state": "TECHNICAL_DERIVATIVE_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "c55bb8c325496abcfb84db91be39c5a7cc761086cf784d669a8589bda1ece71a",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -69174,18 +69288,18 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
       ],
-      "source_qualification": "Uniform complete-canvas derivative only. No crop, mask, alpha cleanup, recolor or repainted pixels; native retained. Source/mounted/action review independent.",
+      "source_qualification": "Uniform complete-canvas derivative only. No crop, mask, alpha cleanup, recolor or repainted pixels; native retained. Source/mounted/action review independent. Exact derivative is now bound at the new reversible runtime path;46 current native states reviewed. Full scene/action acceptance remains open.",
       "preview_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/washing_pan/attempt_02/whole_canvas_1024.png",
       "native_reference_observations": [],
-      "runtime_binding_state": "TECHNICAL_DERIVATIVE_UNBOUND",
+      "runtime_binding_state": "SELECTED_RUNTIME_TOPIC_CANDIDATE",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "700062113b36450983a871324847fc61fcf7c8f4225dbf489022e97152936803",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -69212,18 +69326,18 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
       ],
-      "source_qualification": "Technical derivative only, no independent mounted/action score. Full native original retained; no crop, mask, recolor, separate layer or alpha cleanup.",
+      "source_qualification": "Technical derivative only, no independent mounted/action score. Full native original retained; no crop, mask, recolor, separate layer or alpha cleanup. Exact derivative is now bound at the new reversible runtime path;46 current native states reviewed. Full scene/action acceptance remains open.",
       "preview_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/work_surface/attempt_04/whole_canvas_1024.png",
       "native_reference_observations": [],
-      "runtime_binding_state": "TECHNICAL_DERIVATIVE_UNBOUND",
+      "runtime_binding_state": "SELECTED_RUNTIME_TOPIC_CANDIDATE",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "592365e4fd9fec19fc002dc3b08fcddcbb9b40405ba21597bf518a5be1b67f80",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -69250,7 +69364,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -69261,7 +69375,7 @@
       "runtime_binding_state": "SOURCE_FLOOR_UNBOUND_PRIORITY",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "b49a89102df90c53e9f519a4409963b8548a323f9588586e27eee718ad184874",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -69288,7 +69402,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -69296,10 +69410,10 @@
       "source_qualification": "Direct generated native, both white/aqua alpha displays and1024x585 uniform whole-canvas derivative inspected. Source-only agent drafting score; no runtime replacement or complete-action/device/child/owner acceptance.",
       "preview_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/washing_pan/attempt_02/native.png",
       "native_reference_observations": [],
-      "runtime_binding_state": "SELECTED_SOURCE_ONLY_MOUNT_GEOMETRY_PENDING",
+      "runtime_binding_state": "SELECTED_ORIGINAL_WITH_BOUND_DERIVATIVE",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "676297877ff5c7e3766e73150ba728616b1acc03ade4dec7a7d697111b5bb295",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -69326,7 +69440,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -69337,7 +69451,7 @@
       "runtime_binding_state": "EARLIER_UNSELECTED_SOURCE",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "e45a2e5e99cb51a51f364ebb7e29107645adab2a10a7b1fa26cf721f2b22602d",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -69364,7 +69478,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -69375,7 +69489,7 @@
       "runtime_binding_state": "EARLIER_SOURCE_FLOOR_UNSELECTED",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "090ae565058777f0eaf3ccea59961aeb1cebed187da4129d72d75f52715c8010",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -69402,7 +69516,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -69413,7 +69527,7 @@
       "runtime_binding_state": "EARLIER_SOURCE_FLOOR_UNSELECTED",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "e0d81225d290b4fea0f7a254eb132383df884e395eea645ebbeef70d4ab218ac",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -69440,7 +69554,7 @@
       "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
       "families": [
         "Geologist painted rebuild",
-        "Unbound ImageGen source/technical review"
+        "ImageGen source/technical review with exact binding status"
       ],
       "original_reports": [
         "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
@@ -69448,10 +69562,10 @@
       "source_qualification": "Direct generated-native and every available neutral white/aqua display inspected. Source-only drafting opinion; not mounted/action/device/child/owner acceptance.",
       "preview_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/work_surface/attempt_04/native.png",
       "native_reference_observations": [],
-      "runtime_binding_state": "SELECTED_SOURCE_ONLY_UNBOUND",
+      "runtime_binding_state": "SELECTED_ORIGINAL_WITH_BOUND_DERIVATIVE",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;20 generated originals,34 existing neutral displays and14 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "ebc95cfab2e0169ce08f93fe2c0679c74cee57237f9ac4c7e1933c27906e5b3a",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -69461,6 +69575,158 @@
       "current_mounted_score": null,
       "current_complete_action_score": null,
       "image_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/work_surface/attempt_04/native.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-RIVER-WHOLE-01",
+      "aliases": [],
+      "kind": "source",
+      "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "earlier_sha256": "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1",
+      "historical_source_score": 4.4,
+      "evaluation": "Complete painted river sheet directly reviewed. First sheet4.4 contains two source4.6 nodes and two rejected closed connectors4.0; second sheet4.6 has two open channels. Complete canvas retained; no network/runtime acceptance.",
+      "refinement": "Mount and inspect arbitrary straight/corner/branch joins and actual dry/wet consequences before accepting the river game.",
+      "families": [
+        "Geologist river",
+        "Unbound painted source study"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/geologist_river_components_v1_20261001/index.html"
+      ],
+      "source_qualification": "Every2 complete native originals,2 uniformly scaled complete derivatives and6 source component regions directly inspected. CSS region windows are read-only views of whole images, not generated/cropped derivative files. Four selected components meet source4.6; joined networks, literal work contact, transitions, room, ordinary route/training/story and external acceptance remain pending.",
+      "preview_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "UNBOUND_SOURCE_STUDY",
+      "latest_refinement": {
+        "report": "assets_src/imagegen/geologist_river_components_v1_20261001/index.html",
+        "note": "Every native original and complete derivative directly reviewed; four selected components4.6, two sealed-ended channels rejected4.0."
+      },
+      "current_checkout_sha256": "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.4,
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "priority": true,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-RIVER-WHOLE-02",
+      "aliases": [],
+      "kind": "source",
+      "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/native_generated.png",
+      "earlier_sha256": "8890c70609f171321182242584e0a1eb3cc50b4f07e7b8754d252715bd80d254",
+      "historical_source_score": 4.6,
+      "evaluation": "Complete painted river sheet directly reviewed. First sheet4.4 contains two source4.6 nodes and two rejected closed connectors4.0; second sheet4.6 has two open channels. Complete canvas retained; no network/runtime acceptance.",
+      "refinement": "Mount and inspect arbitrary straight/corner/branch joins and actual dry/wet consequences before accepting the river game.",
+      "families": [
+        "Geologist river",
+        "Unbound painted source study"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/geologist_river_components_v1_20261001/index.html"
+      ],
+      "source_qualification": "Every2 complete native originals,2 uniformly scaled complete derivatives and6 source component regions directly inspected. CSS region windows are read-only views of whole images, not generated/cropped derivative files. Four selected components meet source4.6; joined networks, literal work contact, transitions, room, ordinary route/training/story and external acceptance remain pending.",
+      "preview_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/native_generated.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "UNBOUND_SOURCE_STUDY",
+      "latest_refinement": {
+        "report": "assets_src/imagegen/geologist_river_components_v1_20261001/index.html",
+        "note": "Every native original and complete derivative directly reviewed; four selected components4.6, two sealed-ended channels rejected4.0."
+      },
+      "current_checkout_sha256": "8890c70609f171321182242584e0a1eb3cc50b4f07e7b8754d252715bd80d254",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/native_generated.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-RIVER-WHOLE-03",
+      "aliases": [],
+      "kind": "source",
+      "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/whole_canvas_1024.png",
+      "earlier_sha256": "3812eb737c75c4a208fc5eb859b37c1612a0ff949f41e7a834314a06eb09e117",
+      "historical_source_score": 4.4,
+      "evaluation": "Complete painted river sheet directly reviewed. First sheet4.4 contains two source4.6 nodes and two rejected closed connectors4.0; second sheet4.6 has two open channels. Complete canvas retained; no network/runtime acceptance.",
+      "refinement": "Mount and inspect arbitrary straight/corner/branch joins and actual dry/wet consequences before accepting the river game.",
+      "families": [
+        "Geologist river",
+        "Unbound painted source study"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/geologist_river_components_v1_20261001/index.html"
+      ],
+      "source_qualification": "Every2 complete native originals,2 uniformly scaled complete derivatives and6 source component regions directly inspected. CSS region windows are read-only views of whole images, not generated/cropped derivative files. Four selected components meet source4.6; joined networks, literal work contact, transitions, room, ordinary route/training/story and external acceptance remain pending.",
+      "preview_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/whole_canvas_1024.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "UNBOUND_SOURCE_STUDY",
+      "latest_refinement": {
+        "report": "assets_src/imagegen/geologist_river_components_v1_20261001/index.html",
+        "note": "Every native original and complete derivative directly reviewed; four selected components4.6, two sealed-ended channels rejected4.0."
+      },
+      "current_checkout_sha256": "3812eb737c75c4a208fc5eb859b37c1612a0ff949f41e7a834314a06eb09e117",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.4,
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "priority": true,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/whole_canvas_1024.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-RIVER-WHOLE-04",
+      "aliases": [],
+      "kind": "source",
+      "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/whole_canvas_1024.png",
+      "earlier_sha256": "d2d9f36cdfb2d529a9dff4d632faff17b3219e14eae4771c1069846f3a1586c8",
+      "historical_source_score": 4.6,
+      "evaluation": "Complete painted river sheet directly reviewed. First sheet4.4 contains two source4.6 nodes and two rejected closed connectors4.0; second sheet4.6 has two open channels. Complete canvas retained; no network/runtime acceptance.",
+      "refinement": "Mount and inspect arbitrary straight/corner/branch joins and actual dry/wet consequences before accepting the river game.",
+      "families": [
+        "Geologist river",
+        "Unbound painted source study"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/geologist_river_components_v1_20261001/index.html"
+      ],
+      "source_qualification": "Every2 complete native originals,2 uniformly scaled complete derivatives and6 source component regions directly inspected. CSS region windows are read-only views of whole images, not generated/cropped derivative files. Four selected components meet source4.6; joined networks, literal work contact, transitions, room, ordinary route/training/story and external acceptance remain pending.",
+      "preview_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/whole_canvas_1024.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "UNBOUND_SOURCE_STUDY",
+      "latest_refinement": {
+        "report": "assets_src/imagegen/geologist_river_components_v1_20261001/index.html",
+        "note": "Every native original and complete derivative directly reviewed; four selected components4.6, two sealed-ended channels rejected4.0."
+      },
+      "current_checkout_sha256": "d2d9f36cdfb2d529a9dff4d632faff17b3219e14eae4771c1069846f3a1586c8",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/whole_canvas_1024.png",
       "image_scope": "Earlier source/cell preview; current byte status is separate"
     },
     {
@@ -69621,6 +69887,440 @@
       "current_mounted_score": null,
       "current_complete_action_score": null,
       "image_path": "assets/opera/worlds/geology/painted_geode_v1_20261001/open_embedded.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-WORK-FOSSIL",
+      "aliases": [],
+      "kind": "source",
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+      "historical_source_score": 4.6,
+      "latest_source_score": 4.6,
+      "latest_source_sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+      "evaluation": "One bold warm spiral inside a broad lavender matrix. The intact painting and its exact three thirds preserve the source aspect and contour.",
+      "refinement": "Painted material4.6 does not pass room2.8/contact2.7/clearing3.9, articulated pan3.8 or provisional fossil/geode progression4.5.",
+      "families": [
+        "Geologist painted production candidate"
+      ],
+      "original_reports": [
+        "audit/job_geology_painted_work_v1_20261001/index.html"
+      ],
+      "source_qualification": "Direct native still review in actual Mobile-rendered desktop career progression. Material, composition, contact and sampled state progression are separate drafting opinions. No complete timed action, physical device, child, owner, cinematic or whole-game acceptance.",
+      "preview_path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "BOUND_TOPIC_RUNTIME_CANDIDATE",
+      "latest_refinement": {
+        "report": "audit/job_geology_painted_work_v1_20261001/index.html",
+        "note": "All46 current ordinary-input native stills directly inspected; static material and complete action scores remain separate.",
+        "evidence": {
+          "id": "GEO-WORK-FOSSIL",
+          "kind": "source",
+          "path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+          "sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+          "source_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil/attempt_02/whole_canvas_1024.png",
+          "source_dimensions": [
+            1024,
+            1024
+          ],
+          "region": [
+            115,
+            171,
+            802,
+            674
+          ],
+          "source_finish": 4.6,
+          "mounted_object_finish": 4.6,
+          "complete_action_score": null,
+          "owner_acceptance": null,
+          "evaluation": "One bold warm spiral inside a broad lavender matrix. The intact painting and its exact three thirds preserve the source aspect and contour.",
+          "qualification": "Direct native still review in actual Mobile-rendered desktop career progression. Material, composition, contact and sampled state progression are separate drafting opinions. No complete timed action, physical device, child, owner, cinematic or whole-game acceptance."
+        }
+      },
+      "current_checkout_sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-WORK-FOSSIL_SOIL",
+      "aliases": [],
+      "kind": "source",
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil_soil.png",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "ba13d389db6547c756e1ff8a6606421e4697705733e9e1ec58dfa19e5d8b05dd",
+      "historical_source_score": 4.6,
+      "latest_source_score": 4.6,
+      "latest_source_sha256": "ba13d389db6547c756e1ff8a6606421e4697705733e9e1ec58dfa19e5d8b05dd",
+      "evaluation": "Deep opaque ochre patch with grouped perimeter pebbles, cream values and lavender edge shadows fully conceals the fossil initially. The straight clearing edge3.9 is a separate rendering issue.",
+      "refinement": "Painted material4.6 does not pass room2.8/contact2.7/clearing3.9, articulated pan3.8 or provisional fossil/geode progression4.5.",
+      "families": [
+        "Geologist painted production candidate"
+      ],
+      "original_reports": [
+        "audit/job_geology_painted_work_v1_20261001/index.html"
+      ],
+      "source_qualification": "Direct native still review in actual Mobile-rendered desktop career progression. Material, composition, contact and sampled state progression are separate drafting opinions. No complete timed action, physical device, child, owner, cinematic or whole-game acceptance.",
+      "preview_path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil_soil.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "BOUND_TOPIC_RUNTIME_CANDIDATE",
+      "latest_refinement": {
+        "report": "audit/job_geology_painted_work_v1_20261001/index.html",
+        "note": "All46 current ordinary-input native stills directly inspected; static material and complete action scores remain separate.",
+        "evidence": {
+          "id": "GEO-WORK-FOSSIL_SOIL",
+          "kind": "source",
+          "path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil_soil.png",
+          "sha256": "ba13d389db6547c756e1ff8a6606421e4697705733e9e1ec58dfa19e5d8b05dd",
+          "source_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_02/whole_canvas_1024.png",
+          "source_dimensions": [
+            1024,
+            1024
+          ],
+          "region": [
+            72,
+            171,
+            881,
+            684
+          ],
+          "source_finish": 4.6,
+          "mounted_object_finish": 4.6,
+          "complete_action_score": null,
+          "owner_acceptance": null,
+          "evaluation": "Deep opaque ochre patch with grouped perimeter pebbles, cream values and lavender edge shadows fully conceals the fossil initially. The straight clearing edge3.9 is a separate rendering issue.",
+          "qualification": "Direct native still review in actual Mobile-rendered desktop career progression. Material, composition, contact and sampled state progression are separate drafting opinions. No complete timed action, physical device, child, owner, cinematic or whole-game acceptance."
+        }
+      },
+      "current_checkout_sha256": "ba13d389db6547c756e1ff8a6606421e4697705733e9e1ec58dfa19e5d8b05dd",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil_soil.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-WORK-GRAIN",
+      "aliases": [],
+      "kind": "source",
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/grain.png",
+      "source_dimensions": [
+        1024,
+        683
+      ],
+      "earlier_sha256": "f5e1275a2027554eb7e6bf073d62517e3d0d3461f525b68a8b75ad09da07fd2c",
+      "historical_source_score": 4.6,
+      "latest_source_score": 4.6,
+      "latest_source_sha256": "f5e1275a2027554eb7e6bf073d62517e3d0d3461f525b68a8b75ad09da07fd2c",
+      "evaluation": "Rounded ochre pebble with grouped cream highlight and lavender shadow. Twenty repeated instances share one source image and remain in the sampled initial basin.",
+      "refinement": "Painted material4.6 does not pass room2.8/contact2.7/clearing3.9, articulated pan3.8 or provisional fossil/geode progression4.5.",
+      "families": [
+        "Geologist painted production candidate"
+      ],
+      "original_reports": [
+        "audit/job_geology_painted_work_v1_20261001/index.html"
+      ],
+      "source_qualification": "Direct native still review in actual Mobile-rendered desktop career progression. Material, composition, contact and sampled state progression are separate drafting opinions. No complete timed action, physical device, child, owner, cinematic or whole-game acceptance.",
+      "preview_path": "assets/opera/worlds/geology/painted_work_v1_20261001/grain.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "BOUND_TOPIC_RUNTIME_CANDIDATE",
+      "latest_refinement": {
+        "report": "audit/job_geology_painted_work_v1_20261001/index.html",
+        "note": "All46 current ordinary-input native stills directly inspected; static material and complete action scores remain separate.",
+        "evidence": {
+          "id": "GEO-WORK-GRAIN",
+          "kind": "source",
+          "path": "assets/opera/worlds/geology/painted_work_v1_20261001/grain.png",
+          "sha256": "f5e1275a2027554eb7e6bf073d62517e3d0d3461f525b68a8b75ad09da07fd2c",
+          "source_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/pan_grain/attempt_01/whole_canvas_1024.png",
+          "source_dimensions": [
+            1024,
+            683
+          ],
+          "region": [
+            228,
+            120,
+            569,
+            439
+          ],
+          "source_finish": 4.6,
+          "mounted_object_finish": 4.6,
+          "complete_action_score": null,
+          "owner_acceptance": null,
+          "evaluation": "Rounded ochre pebble with grouped cream highlight and lavender shadow. Twenty repeated instances share one source image and remain in the sampled initial basin.",
+          "qualification": "Direct native still review in actual Mobile-rendered desktop career progression. Material, composition, contact and sampled state progression are separate drafting opinions. No complete timed action, physical device, child, owner, cinematic or whole-game acceptance."
+        }
+      },
+      "current_checkout_sha256": "f5e1275a2027554eb7e6bf073d62517e3d0d3461f525b68a8b75ad09da07fd2c",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets/opera/worlds/geology/painted_work_v1_20261001/grain.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-WORK-LAYERED_ROCK",
+      "aliases": [],
+      "kind": "source",
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/layered_rock.png",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "0f8cbccc5ac64279a69ed83a4ad631fc8b4c0d4b18260616ca89dc295950f985",
+      "historical_source_score": 4.6,
+      "latest_source_score": 4.6,
+      "latest_source_sha256": "0f8cbccc5ac64279a69ed83a4ad631fc8b4c0d4b18260616ca89dc295950f985",
+      "evaluation": "Three broad painted strata and rounded dark contour retain geology teaching readability. River-invitation task semantics4.3 remain separate.",
+      "refinement": "Painted material4.6 does not pass room2.8/contact2.7/clearing3.9, articulated pan3.8 or provisional fossil/geode progression4.5.",
+      "families": [
+        "Geologist painted production candidate"
+      ],
+      "original_reports": [
+        "audit/job_geology_painted_work_v1_20261001/index.html"
+      ],
+      "source_qualification": "Direct native still review in actual Mobile-rendered desktop career progression. Material, composition, contact and sampled state progression are separate drafting opinions. No complete timed action, physical device, child, owner, cinematic or whole-game acceptance.",
+      "preview_path": "assets/opera/worlds/geology/painted_work_v1_20261001/layered_rock.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "BOUND_TOPIC_RUNTIME_CANDIDATE",
+      "latest_refinement": {
+        "report": "audit/job_geology_painted_work_v1_20261001/index.html",
+        "note": "All46 current ordinary-input native stills directly inspected; static material and complete action scores remain separate.",
+        "evidence": {
+          "id": "GEO-WORK-LAYERED_ROCK",
+          "kind": "source",
+          "path": "assets/opera/worlds/geology/painted_work_v1_20261001/layered_rock.png",
+          "sha256": "0f8cbccc5ac64279a69ed83a4ad631fc8b4c0d4b18260616ca89dc295950f985",
+          "source_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/layered_rock/attempt_01/whole_canvas_1024.png",
+          "source_dimensions": [
+            1024,
+            1024
+          ],
+          "region": [
+            120,
+            188,
+            800,
+            674
+          ],
+          "source_finish": 4.6,
+          "mounted_object_finish": 4.6,
+          "complete_action_score": null,
+          "owner_acceptance": null,
+          "evaluation": "Three broad painted strata and rounded dark contour retain geology teaching readability. River-invitation task semantics4.3 remain separate.",
+          "qualification": "Direct native still review in actual Mobile-rendered desktop career progression. Material, composition, contact and sampled state progression are separate drafting opinions. No complete timed action, physical device, child, owner, cinematic or whole-game acceptance."
+        }
+      },
+      "current_checkout_sha256": "0f8cbccc5ac64279a69ed83a4ad631fc8b4c0d4b18260616ca89dc295950f985",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets/opera/worlds/geology/painted_work_v1_20261001/layered_rock.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-WORK-MINERAL",
+      "aliases": [],
+      "kind": "source",
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/mineral.png",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "b35ccc29b0adb02006828e6f4c55e6240ddec2e9b0fb1e3130132c05fb479b47",
+      "historical_source_score": 4.6,
+      "latest_source_score": 4.6,
+      "latest_source_sha256": "b35ccc29b0adb02006828e6f4c55e6240ddec2e9b0fb1e3130132c05fb479b47",
+      "evaluation": "One readable cyan/lilac cluster with calm broad facets. Three pan instances reuse it; it is never the geode interior or a geode loot drop.",
+      "refinement": "Painted material4.6 does not pass room2.8/contact2.7/clearing3.9, articulated pan3.8 or provisional fossil/geode progression4.5.",
+      "families": [
+        "Geologist painted production candidate"
+      ],
+      "original_reports": [
+        "audit/job_geology_painted_work_v1_20261001/index.html"
+      ],
+      "source_qualification": "Direct native still review in actual Mobile-rendered desktop career progression. Material, composition, contact and sampled state progression are separate drafting opinions. No complete timed action, physical device, child, owner, cinematic or whole-game acceptance.",
+      "preview_path": "assets/opera/worlds/geology/painted_work_v1_20261001/mineral.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "BOUND_TOPIC_RUNTIME_CANDIDATE",
+      "latest_refinement": {
+        "report": "audit/job_geology_painted_work_v1_20261001/index.html",
+        "note": "All46 current ordinary-input native stills directly inspected; static material and complete action scores remain separate.",
+        "evidence": {
+          "id": "GEO-WORK-MINERAL",
+          "kind": "source",
+          "path": "assets/opera/worlds/geology/painted_work_v1_20261001/mineral.png",
+          "sha256": "b35ccc29b0adb02006828e6f4c55e6240ddec2e9b0fb1e3130132c05fb479b47",
+          "source_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/crystal_reward/attempt_01/whole_canvas_1024.png",
+          "source_dimensions": [
+            1024,
+            1024
+          ],
+          "region": [
+            231,
+            130,
+            569,
+            767
+          ],
+          "source_finish": 4.6,
+          "mounted_object_finish": 4.6,
+          "complete_action_score": null,
+          "owner_acceptance": null,
+          "evaluation": "One readable cyan/lilac cluster with calm broad facets. Three pan instances reuse it; it is never the geode interior or a geode loot drop.",
+          "qualification": "Direct native still review in actual Mobile-rendered desktop career progression. Material, composition, contact and sampled state progression are separate drafting opinions. No complete timed action, physical device, child, owner, cinematic or whole-game acceptance."
+        }
+      },
+      "current_checkout_sha256": "b35ccc29b0adb02006828e6f4c55e6240ddec2e9b0fb1e3130132c05fb479b47",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets/opera/worlds/geology/painted_work_v1_20261001/mineral.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-WORK-PAN",
+      "aliases": [],
+      "kind": "source",
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/pan.png",
+      "source_dimensions": [
+        1024,
+        585
+      ],
+      "earlier_sha256": "700062113b36450983a871324847fc61fcf7c8f4225dbf489022e97152936803",
+      "historical_source_score": 4.6,
+      "latest_source_score": 4.6,
+      "latest_source_sha256": "700062113b36450983a871324847fc61fcf7c8f4225dbf489022e97152936803",
+      "evaluation": "Broad lavender rim, quiet aqua water and one shallow rounded basin. The whole contour is preserved at every sampled side position.",
+      "refinement": "Painted material4.6 does not pass room2.8/contact2.7/clearing3.9, articulated pan3.8 or provisional fossil/geode progression4.5.",
+      "families": [
+        "Geologist painted production candidate"
+      ],
+      "original_reports": [
+        "audit/job_geology_painted_work_v1_20261001/index.html"
+      ],
+      "source_qualification": "Direct native still review in actual Mobile-rendered desktop career progression. Material, composition, contact and sampled state progression are separate drafting opinions. No complete timed action, physical device, child, owner, cinematic or whole-game acceptance.",
+      "preview_path": "assets/opera/worlds/geology/painted_work_v1_20261001/pan.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "BOUND_TOPIC_RUNTIME_CANDIDATE",
+      "latest_refinement": {
+        "report": "audit/job_geology_painted_work_v1_20261001/index.html",
+        "note": "All46 current ordinary-input native stills directly inspected; static material and complete action scores remain separate.",
+        "evidence": {
+          "id": "GEO-WORK-PAN",
+          "kind": "source",
+          "path": "assets/opera/worlds/geology/painted_work_v1_20261001/pan.png",
+          "sha256": "700062113b36450983a871324847fc61fcf7c8f4225dbf489022e97152936803",
+          "source_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/washing_pan/attempt_02/whole_canvas_1024.png",
+          "source_dimensions": [
+            1024,
+            585
+          ],
+          "region": [
+            44,
+            75,
+            936,
+            455
+          ],
+          "source_finish": 4.6,
+          "mounted_object_finish": 4.6,
+          "complete_action_score": null,
+          "owner_acceptance": null,
+          "evaluation": "Broad lavender rim, quiet aqua water and one shallow rounded basin. The whole contour is preserved at every sampled side position.",
+          "qualification": "Direct native still review in actual Mobile-rendered desktop career progression. Material, composition, contact and sampled state progression are separate drafting opinions. No complete timed action, physical device, child, owner, cinematic or whole-game acceptance."
+        }
+      },
+      "current_checkout_sha256": "700062113b36450983a871324847fc61fcf7c8f4225dbf489022e97152936803",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets/opera/worlds/geology/painted_work_v1_20261001/pan.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-WORK-WORK_SLAB",
+      "aliases": [],
+      "kind": "source",
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/work_slab.png",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "592365e4fd9fec19fc002dc3b08fcddcbb9b40405ba21597bf518a5be1b67f80",
+      "historical_source_score": 4.6,
+      "latest_source_score": 4.6,
+      "latest_source_sha256": "592365e4fd9fec19fc002dc3b08fcddcbb9b40405ba21597bf518a5be1b67f80",
+      "evaluation": "Cream stone plane and broad lavender front edge unite the work material. It stays within the canvas; fossil loose-piece front-face placement remains provisional4.5.",
+      "refinement": "Painted material4.6 does not pass room2.8/contact2.7/clearing3.9, articulated pan3.8 or provisional fossil/geode progression4.5.",
+      "families": [
+        "Geologist painted production candidate"
+      ],
+      "original_reports": [
+        "audit/job_geology_painted_work_v1_20261001/index.html"
+      ],
+      "source_qualification": "Direct native still review in actual Mobile-rendered desktop career progression. Material, composition, contact and sampled state progression are separate drafting opinions. No complete timed action, physical device, child, owner, cinematic or whole-game acceptance.",
+      "preview_path": "assets/opera/worlds/geology/painted_work_v1_20261001/work_slab.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "BOUND_TOPIC_RUNTIME_CANDIDATE",
+      "latest_refinement": {
+        "report": "audit/job_geology_painted_work_v1_20261001/index.html",
+        "note": "All46 current ordinary-input native stills directly inspected; static material and complete action scores remain separate.",
+        "evidence": {
+          "id": "GEO-WORK-WORK_SLAB",
+          "kind": "source",
+          "path": "assets/opera/worlds/geology/painted_work_v1_20261001/work_slab.png",
+          "sha256": "592365e4fd9fec19fc002dc3b08fcddcbb9b40405ba21597bf518a5be1b67f80",
+          "source_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/work_surface/attempt_04/whole_canvas_1024.png",
+          "source_dimensions": [
+            1024,
+            1024
+          ],
+          "region": [
+            68,
+            332,
+            889,
+            369
+          ],
+          "source_finish": 4.6,
+          "mounted_object_finish": 4.6,
+          "complete_action_score": null,
+          "owner_acceptance": null,
+          "evaluation": "Cream stone plane and broad lavender front edge unite the work material. It stays within the canvas; fossil loose-piece front-face placement remains provisional4.5.",
+          "qualification": "Direct native still review in actual Mobile-rendered desktop career progression. Material, composition, contact and sampled state progression are separate drafting opinions. No complete timed action, physical device, child, owner, cinematic or whole-game acceptance."
+        }
+      },
+      "current_checkout_sha256": "592365e4fd9fec19fc002dc3b08fcddcbb9b40405ba21597bf518a5be1b67f80",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets/opera/worlds/geology/painted_work_v1_20261001/work_slab.png",
       "image_scope": "Earlier source/cell preview; current byte status is separate"
     },
     {
@@ -70867,8 +71567,648 @@
       "current_complete_action_score": null,
       "image_path": "assets/opera/worlds/geology/painted_geode_v1_20261001/open_embedded.png",
       "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-RIVER-A01-DRY_CHANNEL",
+      "aliases": [],
+      "kind": "source object region",
+      "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "region": [
+        24,
+        832,
+        598,
+        237
+      ],
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "earlier_sha256": "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1",
+      "historical_source_score": 4.0,
+      "evaluation": "Broad cream/ochre banks and lavender shade match the existing painted family. Complete closed capsule looks like a trough. End caps block the intended through-channel; preserve its material4.6 but reject connector geometry4.0.",
+      "refinement": "Rejected closed connector geometry4.0 is preserved. Selected source4.6 does not pass actual joined network, working contact or complete action.",
+      "families": [
+        "Geologist river",
+        "Individual unbound painted component"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/geologist_river_components_v1_20261001/index.html#GEO-RIVER-A01-DRY_CHANNEL"
+      ],
+      "source_qualification": "Direct native sheet and each of four visible complete components inspected. Source-only; no native in-game mounting, continuous network, task/contact/timing or owner acceptance.",
+      "preview_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "REJECTED_SEALED_END_CONNECTOR",
+      "latest_refinement": {
+        "report": "assets_src/imagegen/geologist_river_components_v1_20261001/index.html#GEO-RIVER-A01-DRY_CHANNEL",
+        "note": "Source/material/open-port opinions separate from pending mount/action/network.",
+        "evidence": {
+          "id": "GEO-RIVER-A01-DRY_CHANNEL",
+          "name": "dry_channel",
+          "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+          "sha256": "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1",
+          "source_dimensions": [
+            1254,
+            1254
+          ],
+          "region": [
+            24,
+            832,
+            598,
+            237
+          ],
+          "source_material_score": 4.6,
+          "source_score": 4.0,
+          "connector_geometry_score": 4.0,
+          "status": "REJECTED_SEALED_END_CONNECTOR",
+          "evaluation": "Broad cream/ochre banks and lavender shade match the existing painted family. Complete closed capsule looks like a trough. End caps block the intended through-channel; preserve its material4.6 but reject connector geometry4.0.",
+          "qualification": "Direct native sheet and each of four visible complete components inspected. Source-only; no native in-game mounting, continuous network, task/contact/timing or owner acceptance.",
+          "earlier_region_annotation": [
+            24,
+            627,
+            598,
+            442
+          ],
+          "region_annotation_correction": "Initial half-height quadrant at627 cut the nodes and included their tails in channel windows. Corrected from complete native directly inspected after browser card review; top/bottom separation uses790 in the transparent gap. No image pixel edited."
+        }
+      },
+      "current_checkout_sha256": "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.0,
+      "priority": true,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-RIVER-A01-DRY_NODE",
+      "aliases": [],
+      "kind": "source object region",
+      "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "region": [
+        44,
+        167,
+        560,
+        547
+      ],
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "earlier_sha256": "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1",
+      "historical_source_score": 4.6,
+      "evaluation": "Broad cream/ochre banks and lavender shade match the existing painted family. Calm circular dry earth or aqua water is a readable excavation node; its physical network mounting remains pending.",
+      "refinement": "Rejected closed connector geometry4.0 is preserved. Selected source4.6 does not pass actual joined network, working contact or complete action.",
+      "families": [
+        "Geologist river",
+        "Individual unbound painted component"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/geologist_river_components_v1_20261001/index.html#GEO-RIVER-A01-DRY_NODE"
+      ],
+      "source_qualification": "Direct native sheet and each of four visible complete components inspected. Source-only; no native in-game mounting, continuous network, task/contact/timing or owner acceptance.",
+      "preview_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "SELECTED_UNBOUND_NODE_SOURCE",
+      "latest_refinement": {
+        "report": "assets_src/imagegen/geologist_river_components_v1_20261001/index.html#GEO-RIVER-A01-DRY_NODE",
+        "note": "Source/material/open-port opinions separate from pending mount/action/network.",
+        "evidence": {
+          "id": "GEO-RIVER-A01-DRY_NODE",
+          "name": "dry_node",
+          "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+          "sha256": "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1",
+          "source_dimensions": [
+            1254,
+            1254
+          ],
+          "region": [
+            44,
+            167,
+            560,
+            547
+          ],
+          "source_material_score": 4.6,
+          "source_score": 4.6,
+          "connector_geometry_score": null,
+          "status": "SELECTED_UNBOUND_NODE_SOURCE",
+          "evaluation": "Broad cream/ochre banks and lavender shade match the existing painted family. Calm circular dry earth or aqua water is a readable excavation node; its physical network mounting remains pending.",
+          "qualification": "Direct native sheet and each of four visible complete components inspected. Source-only; no native in-game mounting, continuous network, task/contact/timing or owner acceptance.",
+          "earlier_region_annotation": [
+            44,
+            167,
+            560,
+            460
+          ],
+          "region_annotation_correction": "Initial half-height quadrant at627 cut the nodes and included their tails in channel windows. Corrected from complete native directly inspected after browser card review; top/bottom separation uses790 in the transparent gap. No image pixel edited."
+        }
+      },
+      "current_checkout_sha256": "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-RIVER-A01-WET_CHANNEL",
+      "aliases": [],
+      "kind": "source object region",
+      "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "region": [
+        634,
+        832,
+        600,
+        237
+      ],
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "earlier_sha256": "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1",
+      "historical_source_score": 4.0,
+      "evaluation": "Broad cream/ochre banks and lavender shade match the existing painted family. Complete closed capsule looks like a trough. End caps block the intended through-channel; preserve its material4.6 but reject connector geometry4.0.",
+      "refinement": "Rejected closed connector geometry4.0 is preserved. Selected source4.6 does not pass actual joined network, working contact or complete action.",
+      "families": [
+        "Geologist river",
+        "Individual unbound painted component"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/geologist_river_components_v1_20261001/index.html#GEO-RIVER-A01-WET_CHANNEL"
+      ],
+      "source_qualification": "Direct native sheet and each of four visible complete components inspected. Source-only; no native in-game mounting, continuous network, task/contact/timing or owner acceptance.",
+      "preview_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "REJECTED_SEALED_END_CONNECTOR",
+      "latest_refinement": {
+        "report": "assets_src/imagegen/geologist_river_components_v1_20261001/index.html#GEO-RIVER-A01-WET_CHANNEL",
+        "note": "Source/material/open-port opinions separate from pending mount/action/network.",
+        "evidence": {
+          "id": "GEO-RIVER-A01-WET_CHANNEL",
+          "name": "wet_channel",
+          "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+          "sha256": "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1",
+          "source_dimensions": [
+            1254,
+            1254
+          ],
+          "region": [
+            634,
+            832,
+            600,
+            237
+          ],
+          "source_material_score": 4.6,
+          "source_score": 4.0,
+          "connector_geometry_score": 4.0,
+          "status": "REJECTED_SEALED_END_CONNECTOR",
+          "evaluation": "Broad cream/ochre banks and lavender shade match the existing painted family. Complete closed capsule looks like a trough. End caps block the intended through-channel; preserve its material4.6 but reject connector geometry4.0.",
+          "qualification": "Direct native sheet and each of four visible complete components inspected. Source-only; no native in-game mounting, continuous network, task/contact/timing or owner acceptance.",
+          "earlier_region_annotation": [
+            634,
+            627,
+            600,
+            442
+          ],
+          "region_annotation_correction": "Initial half-height quadrant at627 cut the nodes and included their tails in channel windows. Corrected from complete native directly inspected after browser card review; top/bottom separation uses790 in the transparent gap. No image pixel edited."
+        }
+      },
+      "current_checkout_sha256": "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.0,
+      "priority": true,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-RIVER-A01-WET_NODE",
+      "aliases": [],
+      "kind": "source object region",
+      "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "region": [
+        655,
+        167,
+        560,
+        547
+      ],
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "earlier_sha256": "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1",
+      "historical_source_score": 4.6,
+      "evaluation": "Broad cream/ochre banks and lavender shade match the existing painted family. Calm circular dry earth or aqua water is a readable excavation node; its physical network mounting remains pending.",
+      "refinement": "Rejected closed connector geometry4.0 is preserved. Selected source4.6 does not pass actual joined network, working contact or complete action.",
+      "families": [
+        "Geologist river",
+        "Individual unbound painted component"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/geologist_river_components_v1_20261001/index.html#GEO-RIVER-A01-WET_NODE"
+      ],
+      "source_qualification": "Direct native sheet and each of four visible complete components inspected. Source-only; no native in-game mounting, continuous network, task/contact/timing or owner acceptance.",
+      "preview_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "SELECTED_UNBOUND_NODE_SOURCE",
+      "latest_refinement": {
+        "report": "assets_src/imagegen/geologist_river_components_v1_20261001/index.html#GEO-RIVER-A01-WET_NODE",
+        "note": "Source/material/open-port opinions separate from pending mount/action/network.",
+        "evidence": {
+          "id": "GEO-RIVER-A01-WET_NODE",
+          "name": "wet_node",
+          "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+          "sha256": "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1",
+          "source_dimensions": [
+            1254,
+            1254
+          ],
+          "region": [
+            655,
+            167,
+            560,
+            547
+          ],
+          "source_material_score": 4.6,
+          "source_score": 4.6,
+          "connector_geometry_score": null,
+          "status": "SELECTED_UNBOUND_NODE_SOURCE",
+          "evaluation": "Broad cream/ochre banks and lavender shade match the existing painted family. Calm circular dry earth or aqua water is a readable excavation node; its physical network mounting remains pending.",
+          "qualification": "Direct native sheet and each of four visible complete components inspected. Source-only; no native in-game mounting, continuous network, task/contact/timing or owner acceptance.",
+          "earlier_region_annotation": [
+            655,
+            167,
+            560,
+            460
+          ],
+          "region_annotation_correction": "Initial half-height quadrant at627 cut the nodes and included their tails in channel windows. Corrected from complete native directly inspected after browser card review; top/bottom separation uses790 in the transparent gap. No image pixel edited."
+        }
+      },
+      "current_checkout_sha256": "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-RIVER-A02-DRY_CHANNEL_OPEN",
+      "aliases": [],
+      "kind": "source object region",
+      "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/native_generated.png",
+      "region": [
+        38,
+        310,
+        1180,
+        300
+      ],
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "earlier_sha256": "8890c70609f171321182242584e0a1eb3cc50b4f07e7b8754d252715bd80d254",
+      "historical_source_score": 4.6,
+      "evaluation": "The cream/ochre banks stay only along the two long sides. The calm painted earth/water corridor reaches both short ends with no cross-wall or capsule cap. Broad lavender depth and plum contour match the selected circular nodes. Actual joins and dry/wet transitions remain pending.",
+      "refinement": "Rejected closed connector geometry4.0 is preserved. Selected source4.6 does not pass actual joined network, working contact or complete action.",
+      "families": [
+        "Geologist river",
+        "Individual unbound painted component"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/geologist_river_components_v1_20261001/index.html#GEO-RIVER-A02-DRY_CHANNEL_OPEN"
+      ],
+      "source_qualification": "Direct generated native and each of two complete channel strips reviewed. Source/open-port geometry4.6 only; no mounted network/action/device/child/owner acceptance.",
+      "preview_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/native_generated.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "SELECTED_UNBOUND_OPEN_CHANNEL_SOURCE",
+      "latest_refinement": {
+        "report": "assets_src/imagegen/geologist_river_components_v1_20261001/index.html#GEO-RIVER-A02-DRY_CHANNEL_OPEN",
+        "note": "Source/material/open-port opinions separate from pending mount/action/network.",
+        "evidence": {
+          "id": "GEO-RIVER-A02-DRY_CHANNEL_OPEN",
+          "name": "dry_channel_open",
+          "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/native_generated.png",
+          "sha256": "8890c70609f171321182242584e0a1eb3cc50b4f07e7b8754d252715bd80d254",
+          "source_dimensions": [
+            1254,
+            1254
+          ],
+          "region": [
+            38,
+            310,
+            1180,
+            300
+          ],
+          "source_material_score": 4.6,
+          "source_score": 4.6,
+          "connector_geometry_score": 4.6,
+          "status": "SELECTED_UNBOUND_OPEN_CHANNEL_SOURCE",
+          "evaluation": "The cream/ochre banks stay only along the two long sides. The calm painted earth/water corridor reaches both short ends with no cross-wall or capsule cap. Broad lavender depth and plum contour match the selected circular nodes. Actual joins and dry/wet transitions remain pending.",
+          "qualification": "Direct generated native and each of two complete channel strips reviewed. Source/open-port geometry4.6 only; no mounted network/action/device/child/owner acceptance."
+        }
+      },
+      "current_checkout_sha256": "8890c70609f171321182242584e0a1eb3cc50b4f07e7b8754d252715bd80d254",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/native_generated.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-RIVER-A02-WET_CHANNEL_OPEN",
+      "aliases": [],
+      "kind": "source object region",
+      "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/native_generated.png",
+      "region": [
+        37,
+        734,
+        1181,
+        302
+      ],
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "earlier_sha256": "8890c70609f171321182242584e0a1eb3cc50b4f07e7b8754d252715bd80d254",
+      "historical_source_score": 4.6,
+      "evaluation": "The cream/ochre banks stay only along the two long sides. The calm painted earth/water corridor reaches both short ends with no cross-wall or capsule cap. Broad lavender depth and plum contour match the selected circular nodes. Actual joins and dry/wet transitions remain pending.",
+      "refinement": "Rejected closed connector geometry4.0 is preserved. Selected source4.6 does not pass actual joined network, working contact or complete action.",
+      "families": [
+        "Geologist river",
+        "Individual unbound painted component"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/geologist_river_components_v1_20261001/index.html#GEO-RIVER-A02-WET_CHANNEL_OPEN"
+      ],
+      "source_qualification": "Direct generated native and each of two complete channel strips reviewed. Source/open-port geometry4.6 only; no mounted network/action/device/child/owner acceptance.",
+      "preview_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/native_generated.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "SELECTED_UNBOUND_OPEN_CHANNEL_SOURCE",
+      "latest_refinement": {
+        "report": "assets_src/imagegen/geologist_river_components_v1_20261001/index.html#GEO-RIVER-A02-WET_CHANNEL_OPEN",
+        "note": "Source/material/open-port opinions separate from pending mount/action/network.",
+        "evidence": {
+          "id": "GEO-RIVER-A02-WET_CHANNEL_OPEN",
+          "name": "wet_channel_open",
+          "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/native_generated.png",
+          "sha256": "8890c70609f171321182242584e0a1eb3cc50b4f07e7b8754d252715bd80d254",
+          "source_dimensions": [
+            1254,
+            1254
+          ],
+          "region": [
+            37,
+            734,
+            1181,
+            302
+          ],
+          "source_material_score": 4.6,
+          "source_score": 4.6,
+          "connector_geometry_score": 4.6,
+          "status": "SELECTED_UNBOUND_OPEN_CHANNEL_SOURCE",
+          "evaluation": "The cream/ochre banks stay only along the two long sides. The calm painted earth/water corridor reaches both short ends with no cross-wall or capsule cap. Broad lavender depth and plum contour match the selected circular nodes. Actual joins and dry/wet transitions remain pending.",
+          "qualification": "Direct generated native and each of two complete channel strips reviewed. Source/open-port geometry4.6 only; no mounted network/action/device/child/owner acceptance."
+        }
+      },
+      "current_checkout_sha256": "8890c70609f171321182242584e0a1eb3cc50b4f07e7b8754d252715bd80d254",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/native_generated.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-WORK-FOSSIL-PART-1",
+      "aliases": [],
+      "kind": "source object region",
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+      "region": [
+        115.0,
+        171,
+        267.3333333333333,
+        674
+      ],
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+      "historical_source_score": 4.6,
+      "evaluation": "Conserved vertical third1 of the same fossil painting; no independent regeneration or extra source file. Painted material4.6, straight partition/support4.5 provisional. Exactly rejoins the original spiral.",
+      "refinement": "Three conserved source thirds rejoin exactly; straight partition/support4.5 provisional remains an inclusive priority.",
+      "families": [
+        "Geologist fossil assembly"
+      ],
+      "original_reports": [
+        "audit/job_geology_painted_work_v1_20261001/index.html"
+      ],
+      "source_qualification": "Direct native still review in actual Mobile-rendered desktop career progression. Material, composition, contact and sampled state progression are separate drafting opinions. No complete timed action, physical device, child, owner, cinematic or whole-game acceptance.",
+      "preview_path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "BOUND_TOPIC_RUNTIME_REGION",
+      "latest_refinement": {
+        "report": "audit/job_geology_painted_work_v1_20261001/index.html",
+        "note": "Current sampled painting4.6, partition/support4.5 provisional; no separate regenerated source image or complete action approval.",
+        "evidence": {
+          "id": "GEO-WORK-FOSSIL-PART-1",
+          "kind": "source object region",
+          "path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+          "sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+          "source_dimensions": [
+            1024,
+            1024
+          ],
+          "region": [
+            115.0,
+            171,
+            267.3333333333333,
+            674
+          ],
+          "review_annotation_source_rect": [
+            115.0,
+            171,
+            267.3333333333333,
+            674
+          ],
+          "source_finish": 4.6,
+          "mounted_object_finish": 4.6,
+          "partition_and_support_score": 4.5,
+          "complete_action_score": null,
+          "evaluation": "Conserved vertical third1 of the same fossil painting; no independent regeneration or extra source file. Painted material4.6, straight partition/support4.5 provisional. Exactly rejoins the original spiral.",
+          "qualification": "Direct native still review in actual Mobile-rendered desktop career progression. Material, composition, contact and sampled state progression are separate drafting opinions. No complete timed action, physical device, child, owner, cinematic or whole-game acceptance.",
+          "owner_acceptance": null
+        }
+      },
+      "current_checkout_sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-WORK-FOSSIL-PART-2",
+      "aliases": [],
+      "kind": "source object region",
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+      "region": [
+        382.3333333333333,
+        171,
+        267.3333333333333,
+        674
+      ],
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+      "historical_source_score": 4.6,
+      "evaluation": "Conserved vertical third2 of the same fossil painting; no independent regeneration or extra source file. Painted material4.6, straight partition/support4.5 provisional. Exactly rejoins the original spiral.",
+      "refinement": "Three conserved source thirds rejoin exactly; straight partition/support4.5 provisional remains an inclusive priority.",
+      "families": [
+        "Geologist fossil assembly"
+      ],
+      "original_reports": [
+        "audit/job_geology_painted_work_v1_20261001/index.html"
+      ],
+      "source_qualification": "Direct native still review in actual Mobile-rendered desktop career progression. Material, composition, contact and sampled state progression are separate drafting opinions. No complete timed action, physical device, child, owner, cinematic or whole-game acceptance.",
+      "preview_path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "BOUND_TOPIC_RUNTIME_REGION",
+      "latest_refinement": {
+        "report": "audit/job_geology_painted_work_v1_20261001/index.html",
+        "note": "Current sampled painting4.6, partition/support4.5 provisional; no separate regenerated source image or complete action approval.",
+        "evidence": {
+          "id": "GEO-WORK-FOSSIL-PART-2",
+          "kind": "source object region",
+          "path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+          "sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+          "source_dimensions": [
+            1024,
+            1024
+          ],
+          "region": [
+            382.3333333333333,
+            171,
+            267.3333333333333,
+            674
+          ],
+          "review_annotation_source_rect": [
+            382.3333333333333,
+            171,
+            267.3333333333333,
+            674
+          ],
+          "source_finish": 4.6,
+          "mounted_object_finish": 4.6,
+          "partition_and_support_score": 4.5,
+          "complete_action_score": null,
+          "evaluation": "Conserved vertical third2 of the same fossil painting; no independent regeneration or extra source file. Painted material4.6, straight partition/support4.5 provisional. Exactly rejoins the original spiral.",
+          "qualification": "Direct native still review in actual Mobile-rendered desktop career progression. Material, composition, contact and sampled state progression are separate drafting opinions. No complete timed action, physical device, child, owner, cinematic or whole-game acceptance.",
+          "owner_acceptance": null
+        }
+      },
+      "current_checkout_sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-WORK-FOSSIL-PART-3",
+      "aliases": [],
+      "kind": "source object region",
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+      "region": [
+        649.6666666666666,
+        171,
+        267.3333333333333,
+        674
+      ],
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "earlier_sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+      "historical_source_score": 4.6,
+      "evaluation": "Conserved vertical third3 of the same fossil painting; no independent regeneration or extra source file. Painted material4.6, straight partition/support4.5 provisional. Exactly rejoins the original spiral.",
+      "refinement": "Three conserved source thirds rejoin exactly; straight partition/support4.5 provisional remains an inclusive priority.",
+      "families": [
+        "Geologist fossil assembly"
+      ],
+      "original_reports": [
+        "audit/job_geology_painted_work_v1_20261001/index.html"
+      ],
+      "source_qualification": "Direct native still review in actual Mobile-rendered desktop career progression. Material, composition, contact and sampled state progression are separate drafting opinions. No complete timed action, physical device, child, owner, cinematic or whole-game acceptance.",
+      "preview_path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "BOUND_TOPIC_RUNTIME_REGION",
+      "latest_refinement": {
+        "report": "audit/job_geology_painted_work_v1_20261001/index.html",
+        "note": "Current sampled painting4.6, partition/support4.5 provisional; no separate regenerated source image or complete action approval.",
+        "evidence": {
+          "id": "GEO-WORK-FOSSIL-PART-3",
+          "kind": "source object region",
+          "path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+          "sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+          "source_dimensions": [
+            1024,
+            1024
+          ],
+          "region": [
+            649.6666666666666,
+            171,
+            267.3333333333333,
+            674
+          ],
+          "review_annotation_source_rect": [
+            649.6666666666666,
+            171,
+            267.3333333333333,
+            674
+          ],
+          "source_finish": 4.6,
+          "mounted_object_finish": 4.6,
+          "partition_and_support_score": 4.5,
+          "complete_action_score": null,
+          "evaluation": "Conserved vertical third3 of the same fossil painting; no independent regeneration or extra source file. Painted material4.6, straight partition/support4.5 provisional. Exactly rejoins the original spiral.",
+          "qualification": "Direct native still review in actual Mobile-rendered desktop career progression. Material, composition, contact and sampled state progression are separate drafting opinions. No complete timed action, physical device, child, owner, cinematic or whole-game acceptance.",
+          "owner_acceptance": null
+        }
+      },
+      "current_checkout_sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
     }
   ],
-  "refresh_command": "python -X utf8 -B audit/job_artwork_refinement_live/review_tools/build_current_job_item_register_v20.py",
+  "refresh_command": "python -X utf8 -B audit/job_artwork_refinement_live/review_tools/build_current_job_item_register_v22.py",
   "qualification": "Only exact literal checkout hashes retain earlier source-only drafting opinions. Changed or absent sources keep their earlier opinions visible but have no current score. Visible-tree references do not establish visible pixels or played actions. Inclusive<=4.5 priorities remain distinct from selected4.6 replacement studies. Protected originals are preserved. All mounted/action scores remain unassigned here; specific current reports supply qualified evidence."
 }

@@ -1951,7 +1951,7 @@ func _refresh_hotspots() -> void:
 			var visual_size: Vector2 = spec.get("size", Vector2(124, 124)) as Vector2
 			var visual_offset: Vector2 = spec.get("offset", Vector2.ZERO) as Vector2
 			hotspot.configure_object(texture_path, motion_name, visual_size,
-				presentation_name, visual_offset)
+				presentation_name, visual_offset, spec.get("region", Rect2()) as Rect2)
 			hotspot.set_meta("phase_name", phase_name)
 			hotspot.set_meta("approach_pos",
 				station_list[index].get("approach_pos", station_list[index]["pos"]))

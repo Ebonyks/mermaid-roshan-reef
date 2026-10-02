@@ -1,0 +1,45 @@
+{
+  "status": "SOURCE_DIRECT_REVIEW_MOUNTED_PENDING",
+  "attempt": 2,
+  "source_score": 4.6,
+  "material_score": 4.6,
+  "cover_geometry_score": null,
+  "owner_acceptance": null,
+  "native_dimensions": [
+    1254,
+    1254
+  ],
+  "native_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_02/native_generated.png",
+  "native_sha256": "c66e5b5b8c49e56907a2773e178fd561321e688a17869e49cd8e95eb007cfa54",
+  "derivative_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil_soil/attempt_02/whole_canvas_1024.png",
+  "derivative_sha256": "ba13d389db6547c756e1ff8a6606421e4697705733e9e1ec58dfa19e5d8b05dd",
+  "runtime_path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil_soil.png",
+  "atlas_region": [
+    72,
+    171,
+    881,
+    684
+  ],
+  "generation_method": "OpenAI built-in image_gen, fresh complete transparent source",
+  "prompt_sha256": "f55ee41c4f93d4f554dc9086e9418b6d7e8475d3a2798184a6e3361149f17bc2",
+  "production_transform": "One whole-canvas uniform Lanczos resize to1024x1024 PNG only. Native RGBA retained. No mask, alpha cleanup, subject warp, relighting or compositing. Atlas sampling measured from alpha>4 bounding box; insignificant outer alpha specks remain in source bytes.",
+  "normalization_command": [
+    "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/FFmpeg/8.1.2/bin/ffmpeg.exe",
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-i",
+    "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-ef428440-18a6-45e0-913b-c538b83752ee.png",
+    "-vf",
+    "scale=1024:1024:flags=lanczos",
+    "-frames:v",
+    "1",
+    "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\imagegen\\geologist_painted_rebuild_v1_20261001\\fossil_soil\\attempt_02\\whole_canvas_1024.png"
+  ],
+  "review": "Hand-painted ochre/cream broad bands and lavender edge shadows match the source family. Few corner stone clusters frame a calm opaque central soil bed. Deeper footprint meets the concealment role in principle; fit and40-cell continuous sampling require actual native engine evidence. Never infer runtime/pass from source finish.",
+  "mounted_cover_material_score": 4.6,
+  "initial_concealment_score": 4.6,
+  "partial_clearing_boundary_score": 3.9,
+  "complete_action_score": null,
+  "current_evidence": "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_fossil_partial_brush.webp"
+}

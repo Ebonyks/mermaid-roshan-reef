@@ -1,0 +1,244 @@
+{
+  "schema": "reef.individual-river-source-review.v1",
+  "reviewed_utc": "2026-10-02T06:21:53.057824+00:00",
+  "status": "FOUR_SELECTED4_6_SOURCE_COMPONENTS_UNBOUND_TWO_SEALED4_0_REJECTED",
+  "native_originals": [
+    {
+      "native_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "native_sha256": "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "source_score": 4.4
+    },
+    {
+      "native_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/native_generated.png",
+      "native_sha256": "8890c70609f171321182242584e0a1eb3cc50b4f07e7b8754d252715bd80d254",
+      "native_dimensions": [
+        1254,
+        1254
+      ],
+      "source_score": 4.6
+    }
+  ],
+  "technical_derivatives": [
+    {
+      "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/whole_canvas_1024.png",
+      "sha256": "3812eb737c75c4a208fc5eb859b37c1612a0ff949f41e7a834314a06eb09e117",
+      "source_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "source_sha256": "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "method": "ONE_UNIFORM_COMPLETE_CANVAS_LANCZOS_SCALE_1254_TO1024_RGBA",
+      "pixel_repair": false,
+      "alpha_cleanup": false,
+      "source_score": 4.4,
+      "direct_review": true,
+      "runtime_bound": false,
+      "qualification": "Direct whole native1024 derivative review; first sheet4.4 contains rejected sealed channels4.0. Selected nodes/open strips4.6 source only. No runtime/network/action approval."
+    },
+    {
+      "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/whole_canvas_1024.png",
+      "sha256": "d2d9f36cdfb2d529a9dff4d632faff17b3219e14eae4771c1069846f3a1586c8",
+      "source_path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/native_generated.png",
+      "source_sha256": "8890c70609f171321182242584e0a1eb3cc50b4f07e7b8754d252715bd80d254",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "method": "ONE_UNIFORM_COMPLETE_CANVAS_LANCZOS_SCALE_1254_TO1024_RGBA",
+      "pixel_repair": false,
+      "alpha_cleanup": false,
+      "source_score": 4.6,
+      "direct_review": true,
+      "runtime_bound": false,
+      "qualification": "Direct whole native1024 derivative review; first sheet4.4 contains rejected sealed channels4.0. Selected nodes/open strips4.6 source only. No runtime/network/action approval."
+    }
+  ],
+  "components": [
+    {
+      "id": "GEO-RIVER-A01-DRY_NODE",
+      "name": "dry_node",
+      "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "sha256": "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        44,
+        167,
+        560,
+        547
+      ],
+      "source_material_score": 4.6,
+      "source_score": 4.6,
+      "connector_geometry_score": null,
+      "status": "SELECTED_UNBOUND_NODE_SOURCE",
+      "evaluation": "Broad cream/ochre banks and lavender shade match the existing painted family. Calm circular dry earth or aqua water is a readable excavation node; its physical network mounting remains pending.",
+      "qualification": "Direct native sheet and each of four visible complete components inspected. Source-only; no native in-game mounting, continuous network, task/contact/timing or owner acceptance.",
+      "earlier_region_annotation": [
+        44,
+        167,
+        560,
+        460
+      ],
+      "region_annotation_correction": "Initial half-height quadrant at627 cut the nodes and included their tails in channel windows. Corrected from complete native directly inspected after browser card review; top/bottom separation uses790 in the transparent gap. No image pixel edited."
+    },
+    {
+      "id": "GEO-RIVER-A01-WET_NODE",
+      "name": "wet_node",
+      "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "sha256": "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        655,
+        167,
+        560,
+        547
+      ],
+      "source_material_score": 4.6,
+      "source_score": 4.6,
+      "connector_geometry_score": null,
+      "status": "SELECTED_UNBOUND_NODE_SOURCE",
+      "evaluation": "Broad cream/ochre banks and lavender shade match the existing painted family. Calm circular dry earth or aqua water is a readable excavation node; its physical network mounting remains pending.",
+      "qualification": "Direct native sheet and each of four visible complete components inspected. Source-only; no native in-game mounting, continuous network, task/contact/timing or owner acceptance.",
+      "earlier_region_annotation": [
+        655,
+        167,
+        560,
+        460
+      ],
+      "region_annotation_correction": "Initial half-height quadrant at627 cut the nodes and included their tails in channel windows. Corrected from complete native directly inspected after browser card review; top/bottom separation uses790 in the transparent gap. No image pixel edited."
+    },
+    {
+      "id": "GEO-RIVER-A01-DRY_CHANNEL",
+      "name": "dry_channel",
+      "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "sha256": "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        24,
+        832,
+        598,
+        237
+      ],
+      "source_material_score": 4.6,
+      "source_score": 4.0,
+      "connector_geometry_score": 4.0,
+      "status": "REJECTED_SEALED_END_CONNECTOR",
+      "evaluation": "Broad cream/ochre banks and lavender shade match the existing painted family. Complete closed capsule looks like a trough. End caps block the intended through-channel; preserve its material4.6 but reject connector geometry4.0.",
+      "qualification": "Direct native sheet and each of four visible complete components inspected. Source-only; no native in-game mounting, continuous network, task/contact/timing or owner acceptance.",
+      "earlier_region_annotation": [
+        24,
+        627,
+        598,
+        442
+      ],
+      "region_annotation_correction": "Initial half-height quadrant at627 cut the nodes and included their tails in channel windows. Corrected from complete native directly inspected after browser card review; top/bottom separation uses790 in the transparent gap. No image pixel edited."
+    },
+    {
+      "id": "GEO-RIVER-A01-WET_CHANNEL",
+      "name": "wet_channel",
+      "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_01/native_generated.png",
+      "sha256": "8c4d9149a992aea2777dcbb5e50d974fd70e111f1cd544204e3be0729a2c09e1",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        634,
+        832,
+        600,
+        237
+      ],
+      "source_material_score": 4.6,
+      "source_score": 4.0,
+      "connector_geometry_score": 4.0,
+      "status": "REJECTED_SEALED_END_CONNECTOR",
+      "evaluation": "Broad cream/ochre banks and lavender shade match the existing painted family. Complete closed capsule looks like a trough. End caps block the intended through-channel; preserve its material4.6 but reject connector geometry4.0.",
+      "qualification": "Direct native sheet and each of four visible complete components inspected. Source-only; no native in-game mounting, continuous network, task/contact/timing or owner acceptance.",
+      "earlier_region_annotation": [
+        634,
+        627,
+        600,
+        442
+      ],
+      "region_annotation_correction": "Initial half-height quadrant at627 cut the nodes and included their tails in channel windows. Corrected from complete native directly inspected after browser card review; top/bottom separation uses790 in the transparent gap. No image pixel edited."
+    },
+    {
+      "id": "GEO-RIVER-A02-DRY_CHANNEL_OPEN",
+      "name": "dry_channel_open",
+      "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/native_generated.png",
+      "sha256": "8890c70609f171321182242584e0a1eb3cc50b4f07e7b8754d252715bd80d254",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        38,
+        310,
+        1180,
+        300
+      ],
+      "source_material_score": 4.6,
+      "source_score": 4.6,
+      "connector_geometry_score": 4.6,
+      "status": "SELECTED_UNBOUND_OPEN_CHANNEL_SOURCE",
+      "evaluation": "The cream/ochre banks stay only along the two long sides. The calm painted earth/water corridor reaches both short ends with no cross-wall or capsule cap. Broad lavender depth and plum contour match the selected circular nodes. Actual joins and dry/wet transitions remain pending.",
+      "qualification": "Direct generated native and each of two complete channel strips reviewed. Source/open-port geometry4.6 only; no mounted network/action/device/child/owner acceptance."
+    },
+    {
+      "id": "GEO-RIVER-A02-WET_CHANNEL_OPEN",
+      "name": "wet_channel_open",
+      "path": "assets_src/imagegen/geologist_river_components_v1_20261001/attempt_02/native_generated.png",
+      "sha256": "8890c70609f171321182242584e0a1eb3cc50b4f07e7b8754d252715bd80d254",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "region": [
+        37,
+        734,
+        1181,
+        302
+      ],
+      "source_material_score": 4.6,
+      "source_score": 4.6,
+      "connector_geometry_score": 4.6,
+      "status": "SELECTED_UNBOUND_OPEN_CHANNEL_SOURCE",
+      "evaluation": "The cream/ochre banks stay only along the two long sides. The calm painted earth/water corridor reaches both short ends with no cross-wall or capsule cap. Broad lavender depth and plum contour match the selected circular nodes. Actual joins and dry/wet transitions remain pending.",
+      "qualification": "Direct generated native and each of two complete channel strips reviewed. Source/open-port geometry4.6 only; no mounted network/action/device/child/owner acceptance."
+    }
+  ],
+  "selected_component_ids": [
+    "GEO-RIVER-A01-DRY_NODE",
+    "GEO-RIVER-A01-WET_NODE",
+    "GEO-RIVER-A02-DRY_CHANNEL_OPEN",
+    "GEO-RIVER-A02-WET_CHANNEL_OPEN"
+  ],
+  "rejected_component_ids": [
+    "GEO-RIVER-A01-DRY_CHANNEL",
+    "GEO-RIVER-A01-WET_CHANNEL"
+  ],
+  "current_game_source_scores": {
+    "dry_grid": 3.5,
+    "connected_water_path": 3.8
+  },
+  "current_game_mechanics": "Nine columns by five rows. Any source-connected excavation path is valid; isolated cleared cells stay dry. Component generation has not changed these mechanics or bindings.",
+  "runtime_bound": false,
+  "mounted_network_score": null,
+  "complete_action_score": null,
+  "device_child_owner_acceptance": null,
+  "qualification": "Every2 complete native originals,2 uniformly scaled complete derivatives and6 source component regions directly inspected. CSS region windows are read-only views of whole images, not generated/cropped derivative files. Four selected components meet source4.6; joined networks, literal work contact, transitions, room, ordinary route/training/story and external acceptance remain pending.",
+  "region_annotation_correction": "Four first-attempt read-only windows corrected after browser inspection exposed node truncation. Original native pixels and source scores retained; complete nodes/closed channels directly re-inspected."
+}

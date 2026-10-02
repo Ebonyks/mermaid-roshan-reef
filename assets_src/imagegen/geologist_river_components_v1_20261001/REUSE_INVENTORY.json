@@ -1,0 +1,42 @@
+{
+  "checked_utc": "2026-10-02T06:10:18.834715+00:00",
+  "named_gap": "Actual river dry grid3.5 and wet line/circle channels3.8 lack painted excavation components.",
+  "current_native_evidence": "audit/job_geology_painted_work_v1_20261001/attempt_04/native_views/geologist_1280_river_earned_completion.webp",
+  "mechanics": "9x5 cells; any source-connected excavated path can reach the target. Isolated excavations remain dry. No fixed four-connection requirement.",
+  "scoped_named_search": [
+    "assets/opera",
+    "assets_src/concepts",
+    "assets_src/imagegen"
+  ],
+  "named_search_result": [
+    {
+      "path": "assets_src/imagegen/combat_tutorial_2026-08-01/training_grotto_backdrop_native.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "suitability": "Full room reference, no isolated excavated channel; undersize as native2048x2048 background."
+    }
+  ],
+  "reviewed_reuse": [
+    {
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/pan.png",
+      "sha256": "700062113b36450983a871324847fc61fcf7c8f4225dbf489022e97152936803",
+      "material_score": 4.6,
+      "limitation": "Useful painted palette/material reference. None supplies top-down circular excavation and straight open channel silhouettes."
+    },
+    {
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/work_slab.png",
+      "sha256": "592365e4fd9fec19fc002dc3b08fcddcbb9b40405ba21597bf518a5be1b67f80",
+      "material_score": 4.6,
+      "limitation": "Useful painted palette/material reference. None supplies top-down circular excavation and straight open channel silhouettes."
+    },
+    {
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil_soil.png",
+      "sha256": "ba13d389db6547c756e1ff8a6606421e4697705733e9e1ec58dfa19e5d8b05dd",
+      "material_score": 4.6,
+      "limitation": "Useful painted palette/material reference. None supplies top-down circular excavation and straight open channel silhouettes."
+    }
+  ],
+  "generation_limit": "One bounded four-prop source sheet first; retry only individually failed components. Preserve native files and every opinion. No room/background/character redesign, no runtime binding or motion acceptance."
+}

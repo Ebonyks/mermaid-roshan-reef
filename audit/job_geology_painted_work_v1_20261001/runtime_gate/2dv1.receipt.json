@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "command": [
+    "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "tools/audit_game_2d.py",
+    "--regression-gate"
+  ],
+  "process_exit": 0,
+  "started_utc": "2026-10-02T05:54:58.009533+00:00",
+  "finished_utc": "2026-10-02T05:55:51.010377+00:00",
+  "elapsed_seconds": 52.99971200001892,
+  "blocking_diagnostics": [],
+  "stdout_sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "qualification": "Scoped machine evidence; no visual, physical device, child, owner or full-suite acceptance."
+}

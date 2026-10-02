@@ -20,13 +20,15 @@ const RIVER_PATH: Array[Vector2i] = [
 	Vector2i(5, 3), Vector2i(6, 3), Vector2i(6, 2), Vector2i(7, 2),
 	Vector2i(8, 2),
 ]
-const FOSSIL_RECT := Rect2(500.0, 165.0, 560.0, 300.0)
-const FOSSIL_TARGET_RECT := Rect2(610.0, 205.0, 390.0, 234.0)
+const FOSSIL_SOIL_WIDTH := 300.0 * 881.0 / 684.0
+const FOSSIL_RECT := Rect2(780.0 - FOSSIL_SOIL_WIDTH * 0.5, 215.0, FOSSIL_SOIL_WIDTH, 300.0)
+const FOSSIL_ART_WIDTH := 234.0 * 802.0 / 674.0
+const FOSSIL_TARGET_RECT := Rect2(805.0 - FOSSIL_ART_WIDTH * 0.5, 205.0, FOSSIL_ART_WIDTH, 234.0)
 const FOSSIL_GRID_COLS := 8
 const FOSSIL_GRID_ROWS := 5
 const FOSSIL_REQUIRED_CELLS := 26
 const FOSSIL_BRUSH_RADIUS := 44.0
-const FOSSIL_PIECE_SIZE := Vector2(130.0, 234.0)
+const FOSSIL_PIECE_SIZE := Vector2(FOSSIL_ART_WIDTH / 3.0, 234.0)
 const PAN_RECT := Rect2(520.0, 220.0, 520.0, 320.0)
 const PAN_REQUIRED_REVERSALS := 9
 const PAN_RUN_DISTANCE := 46.0
@@ -37,15 +39,16 @@ const GEODE_SEAM_SPOTS: Array[Vector2] = [
 	Vector2(766.0, 216.0), Vector2(735.0, 278.0), Vector2(778.0, 340.0),
 	Vector2(744.0, 401.0), Vector2(770.0, 466.0),
 ]
-## Painted geode states reuse reviewed transparent source art. Other geology
-## surfaces retain their independently tracked artwork and contact priorities.
-const FOSSIL_PATH := "res://assets/opera/worlds/hotspots/geologist_fossil.svg"
+## Painted geology props share reviewed source art and measured alpha regions.
+## River drawing, room composition and actor contact retain their own priorities.
+const WORK_ART := "res://assets/opera/worlds/geology/painted_work_v1_20261001/"
+const FOSSIL_PATH := WORK_ART + "fossil.png"
 const GEODE_ART := "res://assets/opera/worlds/geology/painted_geode_v1_20261001/"
 const GEODE_PATH := GEODE_ART + "closed.png"
-const ROCK_PATH := "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg"
+const ROCK_PATH := WORK_ART + "layered_rock.png"
 const BRUSH_PATH := "res://assets/castle/day_one_art_studio/magic_cleaning_brush.png"
-const PAN_PATH := ""
-const CRYSTALS_PATH := "res://assets/opera/worlds/props/goal_geologist.svg"
+const PAN_PATH := WORK_ART + "pan.png"
+const CRYSTALS_PATH := WORK_ART + "mineral.png"
 
 var fossil_texture: Texture2D = null
 var geode_texture: Texture2D = null
@@ -57,6 +60,9 @@ var rock_texture: Texture2D = null
 var brush_texture: Texture2D = null
 var pan_texture: Texture2D = null
 var crystals_texture: Texture2D = null
+var _work_slab_texture: Texture2D = null
+var _pan_grain_texture: Texture2D = null
+var _fossil_soil_texture: Texture2D = null
 
 var touch_owner := -1
 var river_wet: Array[bool] = []
@@ -157,7 +163,7 @@ func river_path_point(index: int) -> Vector2:
 
 
 func fossil_piece_home(index: int) -> Vector2:
-	return Vector2(500.0 + float(clampi(index, 0, 2)) * 245.0, 560.0)
+	return Vector2(500.0 + float(clampi(index, 0, 2)) * 245.0, 450.0)
 
 
 func fossil_piece_target(index: int) -> Vector2:
@@ -249,7 +255,7 @@ func restart_demo() -> void:
 
 
 func _load_textures() -> void:
-	fossil_texture = _optional_texture(FOSSIL_PATH)
+	fossil_texture = _geode_atlas(FOSSIL_PATH, Rect2(115, 171, 802, 674))
 	geode_texture = _geode_atlas(GEODE_PATH, Rect2(192, 213, 645, 602))
 	_geode_crack_texture = _geode_atlas(GEODE_ART + "early_crack.png",
 		Rect2(77, 85, 870, 741))
@@ -259,10 +265,13 @@ func _load_textures() -> void:
 		Rect2(53, 91, 448, 501))
 	_geode_open_right_texture = _geode_atlas(GEODE_ART + "open_embedded.png",
 		Rect2(524, 91, 448, 500))
-	rock_texture = _optional_texture(ROCK_PATH)
+	rock_texture = _geode_atlas(ROCK_PATH, Rect2(120, 188, 800, 674))
 	brush_texture = _optional_texture(BRUSH_PATH)
-	pan_texture = _optional_texture(PAN_PATH)
-	crystals_texture = _optional_texture(CRYSTALS_PATH)
+	pan_texture = _geode_atlas(PAN_PATH, Rect2(44, 75, 936, 455))
+	crystals_texture = _geode_atlas(CRYSTALS_PATH, Rect2(231, 130, 569, 767))
+	_work_slab_texture = _geode_atlas(WORK_ART + "work_slab.png", Rect2(68, 332, 889, 369))
+	_pan_grain_texture = _geode_atlas(WORK_ART + "grain.png", Rect2(228, 120, 569, 439))
+	_fossil_soil_texture = _geode_atlas(WORK_ART + "fossil_soil.png", Rect2(72, 171, 881, 684))
 
 
 func _optional_texture(path: String) -> Texture2D:
@@ -709,9 +718,12 @@ func _draw_fossil() -> void:
 			for column in range(FOSSIL_GRID_COLS):
 				var index := row * FOSSIL_GRID_COLS + column
 				if not fossil_cleared[index]:
-					draw_rect(Rect2(FOSSIL_RECT.position \
-						+ Vector2(column, row) * cell_size,
-						cell_size + Vector2.ONE), Color("#c99159"), true)
+					if _fossil_soil_texture != null:
+						var source_cell := _fossil_soil_texture.get_size() \
+							/ Vector2(FOSSIL_GRID_COLS, FOSSIL_GRID_ROWS)
+						draw_texture_rect_region(_fossil_soil_texture,
+							Rect2(FOSSIL_RECT.position + Vector2(column, row) * cell_size,
+								cell_size), Rect2(Vector2(column, row) * source_cell, source_cell))
 		if held:
 			_draw_brush(pointer_pos)
 		return
@@ -727,7 +739,11 @@ func _draw_fossil() -> void:
 
 func _draw_fossil_whole(rect: Rect2, tint: Color) -> void:
 	if fossil_texture != null:
-		draw_texture_rect(fossil_texture, rect, false, tint)
+		var scale_factor := minf(rect.size.x / fossil_texture.get_width(),
+			rect.size.y / fossil_texture.get_height())
+		var fit_size := fossil_texture.get_size() * scale_factor
+		draw_texture_rect(fossil_texture, Rect2(rect.get_center() - fit_size * 0.5,
+			fit_size), false, tint)
 	else:
 		draw_arc(rect.get_center(), minf(rect.size.x, rect.size.y) * 0.38,
 			0.0, TAU * 1.8, 54, Color("#f5ddaa", tint.a), 30.0, true)
@@ -783,44 +799,41 @@ func _draw_brush(at: Vector2) -> void:
 
 
 func _draw_pan() -> void:
-	var rect := Rect2(PAN_RECT.position + Vector2(pan_visual_x, 0.0),
-		PAN_RECT.size)
-	var center := rect.get_center() + Vector2(0.0, 22.0)
-	if pan_texture != null:
-		draw_texture_rect(pan_texture, rect, false)
-	else:
-		_draw_ellipse(center + Vector2(0.0, 13.0),
-			Vector2(rect.size.x * 0.44, rect.size.y * 0.30), Color("#392958"),
-			Color("#392958"), 0.0)
-		_draw_ellipse(center, Vector2(rect.size.x * 0.44, rect.size.y * 0.28),
-			Color("#c99159"), Color("#392958"), 12.0)
-		_draw_ellipse(center, Vector2(rect.size.x * 0.36, rect.size.y * 0.20),
-			Color("#65d8e5"), Color("#75506a"), 7.0)
-		_draw_ellipse(center - Vector2(0.0, 7.0),
-			Vector2(rect.size.x * 0.30, rect.size.y * 0.13),
-			Color(0.56, 0.93, 0.93, 0.54), Color(0.32, 0.74, 0.78, 0.68), 4.0)
-		for wave in range(3):
-			var wave_center := center + Vector2(-92.0 + float(wave) * 86.0, -8.0)
-			draw_arc(wave_center, 26.0 + float(wave) * 3.0, 0.2, 2.7,
-				18, Color(0.94, 1.0, 0.93, 0.48), 4.0, true)
+	if pan_texture == null or _pan_grain_texture == null or crystals_texture == null:
+		return
+	var ratio := pan_texture.get_width() / float(pan_texture.get_height())
+	var fit_size := Vector2(PAN_RECT.size.x, PAN_RECT.size.x / ratio)
+	var rect := Rect2(PAN_RECT.get_center() + Vector2(pan_visual_x, 0.0)
+		- fit_size * 0.5, fit_size)
+	draw_texture_rect(pan_texture, rect, false)
+	var water_center := rect.position + fit_size * Vector2(0.50, 0.44)
 	var grain_count := maxi(3, 20 - floori(pan_wash * 17.0))
 	for index in range(grain_count):
 		var angle := float(index) * 2.399
-		var radius := 28.0 + float(index % 5) * 18.0
-		var grain_pos := center + Vector2(cos(angle) * radius * 1.35,
-			sin(angle) * radius * 0.48)
-		grain_pos.x += pan_visual_x * 0.12 + sin(float(index) + pan_visual_x * 0.02) * 6.0
-		draw_circle(grain_pos, 6.0, Color("#d5a761"))
+		var radial := sqrt((float(index) + 0.5) / float(grain_count))
+		var grain_pos := water_center \
+			+ Vector2(cos(angle) * 122.0, sin(angle) * 31.0) * radial
+		grain_pos.x += pan_visual_x * 0.12 \
+			+ sin(float(index) + pan_visual_x * 0.02) * 6.0
+		var grain_size := Vector2(15.0 * _pan_grain_texture.get_width()
+			/ float(_pan_grain_texture.get_height()), 15.0)
+		draw_texture_rect(_pan_grain_texture,
+			Rect2(grain_pos - grain_size * 0.5, grain_size), false)
 	for index in range(pan_minerals):
-		var mineral_center := center + Vector2(-82.0 + float(index) * 82.0, 34.0)
-		_draw_mineral(mineral_center, 23.0,
-			Color.from_hsv(0.47 + float(index) * 0.12, 0.40, 1.0))
+		var mineral_size := Vector2(68.0 * crystals_texture.get_width()
+			/ float(crystals_texture.get_height()), 68.0)
+		var base := water_center + Vector2(-82.0 + float(index) * 82.0, 20.0)
+		_draw_ellipse(base + Vector2(0.0, -2.0), Vector2(24.0, 6.0),
+			Color(0.22, 0.60, 0.65, 0.35), Color(0.57, 0.89, 0.88, 0.72), 2.0)
+		draw_texture_rect(crystals_texture,
+			Rect2(base - Vector2(mineral_size.x * 0.5, mineral_size.y),
+				mineral_size), false)
 
 
 func _geode_atlas(path: String, region: Rect2) -> Texture2D:
 	var texture := _optional_texture(path)
 	if texture == null:
-		push_error("Missing painted geode state: " + path)
+		push_error("Missing painted geology source: " + path)
 		return null
 	var atlas := AtlasTexture.new()
 	atlas.atlas = texture
@@ -864,6 +877,15 @@ func _draw_geode() -> void:
 	draw_texture_rect(_geode_open_right_texture, _geode_right_rect(), false)
 
 func _draw_work_surface() -> void:
+	# River excavation retains its diagram until a matching material is reviewed.
+	if mode != "geology_river" and _work_slab_texture != null:
+		var slab_width := 900.0 if mode == "geology_fossil" else 860.0
+		var slab_center := Vector2(760.0, 400.0)
+		var slab_size := Vector2(slab_width, slab_width
+			* _work_slab_texture.get_height() / float(_work_slab_texture.get_width()))
+		draw_texture_rect(_work_slab_texture,
+			Rect2(slab_center - slab_size * 0.5, slab_size), false)
+		return
 	var surface := Rect2(330.0, 130.0, 860.0, 560.0)
 	_draw_rounded_rect(Rect2(surface.position + Vector2(0.0, 14.0),
 		surface.size), 34.0,
