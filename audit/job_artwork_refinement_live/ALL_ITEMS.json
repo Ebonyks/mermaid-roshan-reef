@@ -1,15 +1,15 @@
 {
   "schema": "reef.known-job-item-register.v1",
-  "created_utc": "2026-10-02T03:18:04.457515+00:00",
-  "baseline": "dea7425a1e09752bd5102fc445bd2f84b96c0010",
+  "created_utc": "2026-10-02T03:42:30.102413+00:00",
+  "baseline": "edbf2a60e4a73ca149ee53b7f8d01990afd32198",
   "scope": "Union of two existing discovery inventories, 328 individually catalogued pose cells, 38 runtime prop regions and 5 source-object regions, plus named reversible replacement sources. Shared dependency candidates may fall outside jobs. This is a known-item register, not proof of exhaustive actual use or all-game acceptance.",
   "counts": {
-    "unique_source_files": 1188,
+    "unique_source_files": 1192,
     "individual_pose_cells": 328,
     "additional_runtime_prop_regions": 38,
     "individual_source_object_regions": 5,
-    "registered_items": 1559,
-    "exact_earlier_bytes": 1554,
+    "registered_items": 1563,
+    "exact_earlier_bytes": 1558,
     "changed_bytes": 5,
     "unavailable_checkout": 0,
     "inclusive_current_source_priorities": 579,
@@ -68305,7 +68305,7 @@
       "runtime_binding_state": "SELECTED_SOURCE_ONLY_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "a4132fbdbcf8a05a32b681d4c1595ca22c470a9910013ccff47264d134b846f3",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68343,7 +68343,7 @@
       "runtime_binding_state": "SELECTED_SOURCE_ONLY_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "af4f70a8b6b14a266b685a500bc840977ac9884bf9a6f922fe918f25bf5b4ef4",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68353,6 +68353,44 @@
       "current_mounted_score": null,
       "current_complete_action_score": null,
       "image_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/crystal_reward/attempt_01/native.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-PAINT-EARLY-CRACK-01",
+      "aliases": [],
+      "kind": "source",
+      "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/early_crack/attempt_01/native.png",
+      "source_dimensions": [
+        1315,
+        1196
+      ],
+      "earlier_sha256": "f94f34db58196b86f3f99310cca389f4bacdf69ea889c885680f50dd7f94c147",
+      "historical_source_score": 4.6,
+      "evaluation": "Compact lavender shell remains recognizable while a narrow cream-rimmed seam reveals only occluded cyan/lilac tips. Outer volume dominates; four visible tip portions do not mean the two hidden crystals were lost. Broad plum contours and lavender/aqua paint match the closed/full endpoints4.6. Width/height1.175 after alpha-footprint selection, versus closed1.074: opening silhouette grows rather than immediately exposing both full faces. True RGBA is clean on white/aqua; low-alpha trace specks are not baked background. Exact mounted continuity remains independent.",
+      "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
+      "families": [
+        "Geologist painted rebuild",
+        "Unbound ImageGen source/technical review"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
+      ],
+      "source_qualification": "Native, white/aqua display and uniform derivative directly inspected; source-only drafting score. Occluded crystals are not independently visible/accepted. Static native state comparisons and actual timed action/context/device/child/owner remain separate.",
+      "preview_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/early_crack/attempt_01/native.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "SELECTED_STATIC_SOURCE_ONLY_UNBOUND",
+      "latest_refinement": {
+        "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+      },
+      "current_checkout_sha256": "f94f34db58196b86f3f99310cca389f4bacdf69ea889c885680f50dd7f94c147",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/early_crack/attempt_01/native.png",
       "image_scope": "Earlier source/cell preview; current byte status is separate"
     },
     {
@@ -68381,7 +68419,7 @@
       "runtime_binding_state": "REJECTED_UNBOUND_SOURCE",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "bd5c1399aa4b8573fbd36778a0f964e759b0dd866aaf1b204186d6067c47e47c",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68419,7 +68457,7 @@
       "runtime_binding_state": "SELECTED_SOURCE_ONLY_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "2ccf249527c919e2bc16de916f91bfb5d790f4404611df3397948e3ec713860c",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68457,7 +68495,7 @@
       "runtime_binding_state": "REFERENCE_ONLY_NATIVE_RESOLUTION_FAILED",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "ebc2ea1ab64173dd678ec43bbc0a0daedc4e1548b26dc6d096038bad0ea3f545",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68495,7 +68533,7 @@
       "runtime_binding_state": "SELECTED_SOURCE_ONLY_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "263e088cf0714232bd8e43901c3c831682f06d12fb9c1c5436c4c81b963ed858",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68505,6 +68543,44 @@
       "current_mounted_score": null,
       "current_complete_action_score": null,
       "image_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/layered_rock/attempt_01/native.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-PAINT-MIDDLE-OPEN-01",
+      "aliases": [],
+      "kind": "source",
+      "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/middle_open/attempt_01/native.png",
+      "source_dimensions": [
+        1507,
+        1044
+      ],
+      "earlier_sha256": "7628c21e432d9b66f69bb7caf77ab7db926d65c00906edf5614972d7253f4adc",
+      "historical_source_score": 4.6,
+      "evaluation": "Both concave interiors are partly turned toward the viewer, leaving a substantial lavender outer side visible. Three joined crystals in each half retain the endpoint colour/order: tall cyan/lilac/small cyan left, tall lilac/medium cyan/small cyan right. No loose reward sprite, fall or loot semantics. Matte broad painted values and thick cream rim remain4.6. Alpha-footprint aspect1.485 is between the first-crack1.175 and full pair; native full sculpture is preserved. Static source score is not full opening/hand contact approval.",
+      "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
+      "families": [
+        "Geologist painted rebuild",
+        "Unbound ImageGen source/technical review"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
+      ],
+      "source_qualification": "Native, white/aqua display and uniform derivative directly inspected; source-only drafting score. Occluded crystals are not independently visible/accepted. Static native state comparisons and actual timed action/context/device/child/owner remain separate.",
+      "preview_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/middle_open/attempt_01/native.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "SELECTED_STATIC_SOURCE_ONLY_UNBOUND",
+      "latest_refinement": {
+        "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+      },
+      "current_checkout_sha256": "7628c21e432d9b66f69bb7caf77ab7db926d65c00906edf5614972d7253f4adc",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/middle_open/attempt_01/native.png",
       "image_scope": "Earlier source/cell preview; current byte status is separate"
     },
     {
@@ -68533,7 +68609,7 @@
       "runtime_binding_state": "OWNER_REJECTED_EMPTY_INTERIOR",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "latest_source_score": 3.0,
       "latest_source_sha256": "3830fceb98600491706da5d7cf25c897809b0b3ff4687f519af82089148f1612",
@@ -68574,7 +68650,7 @@
       "runtime_binding_state": "SELECTED_SOURCE_ONLY_EMBEDDED_INTERIOR",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "1191313bc32098ef4c1acede1c2bf547448b6a57a32905e7324e87bc092d87d8",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68612,7 +68688,7 @@
       "runtime_binding_state": "SELECTED_SOURCE_ONLY_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "6dbe2b4e2a6a7f99554c8f7c7203536e7ee7a1cbcdf39abfe4c63558a16a8a57",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68650,7 +68726,7 @@
       "runtime_binding_state": "SELECTED_STATIC_SOURCE_ONLY_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "cec1c974c5796c309695e9ac55155d5712dd493edc300f7618e95ebfb4bc1a59",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68688,7 +68764,7 @@
       "runtime_binding_state": "TECHNICAL_DERIVATIVE_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "ead12c03986968f7dc34630ed1eda8e589caa9631e774f13af686f496ff1aad3",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68726,7 +68802,7 @@
       "runtime_binding_state": "TECHNICAL_DERIVATIVE_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "b35ccc29b0adb02006828e6f4c55e6240ddec2e9b0fb1e3130132c05fb479b47",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68736,6 +68812,44 @@
       "current_mounted_score": null,
       "current_complete_action_score": null,
       "image_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/crystal_reward/attempt_01/whole_canvas_1024.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-PAINT-TECH-EARLY_CRACK",
+      "aliases": [],
+      "kind": "source",
+      "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/early_crack/attempt_01/whole_canvas_1024.png",
+      "source_dimensions": [
+        1024,
+        931
+      ],
+      "earlier_sha256": "82f92afb844daea7ae077e118951226df1def34d9398059d9321bd7488246832",
+      "historical_source_score": 4.6,
+      "evaluation": "Complete authored intermediate opening pose and alpha preserved, directly inspected4.6; native mounted and complete action evidence are separate.",
+      "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
+      "families": [
+        "Geologist painted rebuild",
+        "Unbound ImageGen source/technical review"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
+      ],
+      "source_qualification": "Native, white/aqua display and uniform derivative directly inspected; source-only drafting score. Occluded crystals are not independently visible/accepted. Static native state comparisons and actual timed action/context/device/child/owner remain separate.",
+      "preview_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/early_crack/attempt_01/whole_canvas_1024.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "SELECTED_STATIC_TECHNICAL_DERIVATIVE_UNBOUND",
+      "latest_refinement": {
+        "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+      },
+      "current_checkout_sha256": "82f92afb844daea7ae077e118951226df1def34d9398059d9321bd7488246832",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/early_crack/attempt_01/whole_canvas_1024.png",
       "image_scope": "Earlier source/cell preview; current byte status is separate"
     },
     {
@@ -68764,7 +68878,7 @@
       "runtime_binding_state": "TECHNICAL_DERIVATIVE_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68802,7 +68916,7 @@
       "runtime_binding_state": "TECHNICAL_DERIVATIVE_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "0f8cbccc5ac64279a69ed83a4ad631fc8b4c0d4b18260616ca89dc295950f985",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68812,6 +68926,44 @@
       "current_mounted_score": null,
       "current_complete_action_score": null,
       "image_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/layered_rock/attempt_01/whole_canvas_1024.png",
+      "image_scope": "Earlier source/cell preview; current byte status is separate"
+    },
+    {
+      "id": "GEO-PAINT-TECH-MIDDLE_OPEN",
+      "aliases": [],
+      "kind": "source",
+      "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/middle_open/attempt_01/whole_canvas_1024.png",
+      "source_dimensions": [
+        1024,
+        709
+      ],
+      "earlier_sha256": "f196c510e71b4e2753757bb1660d8ca3d259dbedcbcb5d0510a526c127225725",
+      "historical_source_score": 4.6,
+      "evaluation": "Complete authored intermediate opening pose and alpha preserved, directly inspected4.6; native mounted and complete action evidence are separate.",
+      "refinement": "Named painted source only. Actual invitation/work drawing, material scale, fossil assembly, panning containment, geode reveal, complete route and owner acceptance remain separate.",
+      "families": [
+        "Geologist painted rebuild",
+        "Unbound ImageGen source/technical review"
+      ],
+      "original_reports": [
+        "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html"
+      ],
+      "source_qualification": "Native, white/aqua display and uniform derivative directly inspected; source-only drafting score. Occluded crystals are not independently visible/accepted. Static native state comparisons and actual timed action/context/device/child/owner remain separate.",
+      "preview_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/middle_open/attempt_01/whole_canvas_1024.png",
+      "native_reference_observations": [],
+      "runtime_binding_state": "SELECTED_STATIC_TECHNICAL_DERIVATIVE_UNBOUND",
+      "latest_refinement": {
+        "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+      },
+      "current_checkout_sha256": "f196c510e71b4e2753757bb1660d8ca3d259dbedcbcb5d0510a526c127225725",
+      "current_byte_status": "EXACT_EARLIER_BYTES",
+      "current_source_score": 4.6,
+      "priority": false,
+      "protected_original": false,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "image_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/middle_open/attempt_01/whole_canvas_1024.png",
       "image_scope": "Earlier source/cell preview; current byte status is separate"
     },
     {
@@ -68840,7 +68992,7 @@
       "runtime_binding_state": "OWNER_REJECTED_EMPTY_INTERIOR",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "latest_source_score": 3.0,
       "latest_source_sha256": "96fdafe99881e521c68b63879cfa5c2f2e4c8e7501f757403c49ac4eb07f07ef",
@@ -68881,7 +69033,7 @@
       "runtime_binding_state": "TECHNICAL_DERIVATIVE_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "f9b095c066af3674b00470d426941609488cfa090022660763eca8ef2ada4fc5",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68919,7 +69071,7 @@
       "runtime_binding_state": "SELECTED_STATIC_TECHNICAL_DERIVATIVE_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "0f1e510793e7de2fe00b94ecc1ad96658843cae3e9a2e4aed6c9c064b8269a06",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68957,7 +69109,7 @@
       "runtime_binding_state": "SELECTED_TECHNICAL_REVIEW_DERIVATIVE_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "f5e1275a2027554eb7e6bf073d62517e3d0d3461f525b68a8b75ad09da07fd2c",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -68995,7 +69147,7 @@
       "runtime_binding_state": "TECHNICAL_DERIVATIVE_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "c55bb8c325496abcfb84db91be39c5a7cc761086cf784d669a8589bda1ece71a",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -69033,7 +69185,7 @@
       "runtime_binding_state": "TECHNICAL_DERIVATIVE_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "700062113b36450983a871324847fc61fcf7c8f4225dbf489022e97152936803",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -69071,7 +69223,7 @@
       "runtime_binding_state": "TECHNICAL_DERIVATIVE_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "592365e4fd9fec19fc002dc3b08fcddcbb9b40405ba21597bf518a5be1b67f80",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -69109,7 +69261,7 @@
       "runtime_binding_state": "SOURCE_FLOOR_UNBOUND_PRIORITY",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "b49a89102df90c53e9f519a4409963b8548a323f9588586e27eee718ad184874",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -69147,7 +69299,7 @@
       "runtime_binding_state": "SELECTED_SOURCE_ONLY_MOUNT_GEOMETRY_PENDING",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "676297877ff5c7e3766e73150ba728616b1acc03ade4dec7a7d697111b5bb295",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -69185,7 +69337,7 @@
       "runtime_binding_state": "EARLIER_UNSELECTED_SOURCE",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "e45a2e5e99cb51a51f364ebb7e29107645adab2a10a7b1fa26cf721f2b22602d",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -69223,7 +69375,7 @@
       "runtime_binding_state": "EARLIER_SOURCE_FLOOR_UNSELECTED",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "090ae565058777f0eaf3ccea59961aeb1cebed187da4129d72d75f52715c8010",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -69261,7 +69413,7 @@
       "runtime_binding_state": "EARLIER_SOURCE_FLOOR_UNSELECTED",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "e0d81225d290b4fea0f7a254eb132383df884e395eea645ebbeef70d4ab218ac",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -69299,7 +69451,7 @@
       "runtime_binding_state": "SELECTED_SOURCE_ONLY_UNBOUND",
       "latest_refinement": {
         "report": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html",
-        "note": "Owner rejected flat geology vectors;16 generated originals,30 neutral displays and11 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
+        "note": "Owner rejected flat geology vectors;18 generated originals,34 neutral displays and13 technical derivatives directly inspected. Native room remains undersize reference-only. Source floor does not grant in-game acceptance."
       },
       "current_checkout_sha256": "ebc95cfab2e0169ce08f93fe2c0679c74cee57237f9ac4c7e1933c27906e5b3a",
       "current_byte_status": "EXACT_EARLIER_BYTES",
@@ -70311,6 +70463,6 @@
       "image_scope": "Earlier source/cell preview; current byte status is separate"
     }
   ],
-  "refresh_command": "python -X utf8 -B audit/job_artwork_refinement_live/review_tools/build_current_job_item_register_v17.py",
+  "refresh_command": "python -X utf8 -B audit/job_artwork_refinement_live/review_tools/build_current_job_item_register_v18.py",
   "qualification": "Only exact literal checkout hashes retain earlier source-only drafting opinions. Changed or absent sources keep their earlier opinions visible but have no current score. Visible-tree references do not establish visible pixels or played actions. Inclusive<=4.5 priorities remain distinct from selected4.6 replacement studies. Protected originals are preserved. All mounted/action scores remain unassigned here; specific current reports supply qualified evidence."
 }

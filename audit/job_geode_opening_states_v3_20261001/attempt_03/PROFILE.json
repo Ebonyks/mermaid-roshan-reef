@@ -1,0 +1,20 @@
+{
+  "status": "FOUR_AUTHORED_STATIC_GEODE_STATES_REVIEW_ONLY",
+  "expected_views": 10,
+  "baseline": "edbf2a60e4a73ca149ee53b7f8d01990afd32198",
+  "states": [
+    "existing_closed",
+    "new_early_crack",
+    "new_middle_open",
+    "existing_fully_open_embedded_halves"
+  ],
+  "selection": {
+    "closed": "pull0",
+    "early_crack": "0<pull<40",
+    "middle_open": "40<=pull<90",
+    "fully_open": "90<=pull<=120"
+  },
+  "changes": "Only full endpoint whole-card centreY+15px:350h intermediate/320h full states share bottom515. Source native pixels, ratios and inherited input/progress are unchanged. No extra crystal drawing or loot. Invitation/contact/action gaps remain separate.",
+  "qualification": "Static native state/semantic inspection, not naturally timed articulated opening/actor/full ordinary route/device/child/owner acceptance.",
+  "previous_attempt": "audit/job_geode_opening_states_v3_20261001/attempt_02/REVIEW.json"
+}

@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\day2_geologist_pan_motion_v3_20261001\\inputs\\geologist_pan_full_source.png",
+  "source_sha256": "a1af00679ef2924a0217bc926b9a8bcfcabdd7ef7707a2c52d075bcb096ac875",
+  "source_dimensions": [
+    896,
+    512
+  ],
+  "prompt": "She actively washes the pan by rocking it from side to side. Both hands grip the rim. She lowers the LEFT side while raising the RIGHT side, then reverses and lowers the RIGHT side while raising the LEFT. Repeat this clear rocking once, then settle back into the starting level pose. Her elbows and wrists bend to move the rigid pan; her head, torso and curled mermaid tail stay quiet. Water swishes inside without spilling. Preserve this exact painted child, outfit, full fin and pan design. Fixed camera and plain aqua background. No extra objects or body movement. Sound: silence.\n",
+  "prompt_sha256": "1228a26b6c2abae0c4c4a80a28dae1da3a132dcb205305bee6876b18b0532e50",
+  "preset": "quick",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "seed": 2026100134,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/GGUF_MODEL_RECEIPT.json",
+  "workflow_sha256": "57b35f2b397c76f9773a0f1b6ac9f26dff0b83f0105a96de309d0edf57293134",
+  "started_at_utc": "20261002T035641Z",
+  "prompt_id": "e561c146-5128-4755-97a0-427676febf26",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_geologist_pan_v3_20261001_20261002T035641Z_6becc1_00002_.webm",
+      "sha256": "1b33100be10c2fad62d86a1a95ef7ed00e4342c7ef128cad8ff4343dcc90e9a0",
+      "bytes": 874594
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_geologist_pan_v3_20261001_20261002T035641Z_6becc1_00002_.mp4",
+      "sha256": "93bc9cea24f78b602924fcf1ffde210197a6960c5a925bc9ef70769abeefa04a",
+      "bytes": 610445,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 165.91,
+  "completed_at_utc": "2026-10-02T03:59:27.731869+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance"
+}

@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\day2_geologist_pan_motion_v1_20261001\\inputs\\geologist_pan_full_source.png",
+  "source_sha256": "a1af00679ef2924a0217bc926b9a8bcfcabdd7ef7707a2c52d075bcb096ac875",
+  "source_dimensions": [
+    896,
+    512
+  ],
+  "prompt": "One static camera shot of this exact painted storybook mermaid child holding this exact shallow lavender pan. The background stays the same plain pale aqua field. She wants to wash the pan gently. At0.0-0.25s she looks into the water and holds both rim grips steady. At0.25-0.75s her attached forearms and elbows gently tilt the pan a little toward her left; both hands stay visibly gripping the same rim places. At0.75-1.25s she gently tilts the pan the other way, with small articulated elbow/wrist motion and mild water-surface movement contained inside. At1.25-1.70s the pan and hands settle back to the starting neutral held position. Her head, cap, face, hair, costume, curled mermaid tail and complete rainbow fin remain still and recognizable. The body does not slide or bounce as one sticker. Keep the vessel rigid, broad, shallow and the same size; fingers stay attached and never pass through the wall. No extra grains, crystals, people, limbs, tools, legs, glitter or scene; no pan detachment, spill, realistic texture, camera motion or zoom. Preserve the exact2D painted illustration style and colours. Sound: silence.\n",
+  "prompt_sha256": "69a4481dbe5602d3994c1ff814830444cb39839cb0a7b1027416764ee66423bf",
+  "preset": "quick",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "seed": 2026100134,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/GGUF_MODEL_RECEIPT.json",
+  "workflow_sha256": "8b55fa254a322ed1775c20b967d6e69d308572933096d860ecc6c0b74022f566",
+  "started_at_utc": "20261002T032640Z",
+  "prompt_id": "ea9b8561-227e-4edd-9e8a-caf40fa18ab8",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_geologist_pan_v1_20261001_20261002T032640Z_89e6f4_00002_.webm",
+      "sha256": "834cca45b7bb4b9544abed4c9019f929e32841c113f8ccb09beb9ea544706c24",
+      "bytes": 827413
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_geologist_pan_v1_20261001_20261002T032640Z_89e6f4_00002_.mp4",
+      "sha256": "0bafd10237ca271b39805a50f28970c574536f8e8cc9982cbd1cf3c1f2cbb2de",
+      "bytes": 528765,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 175.94,
+  "completed_at_utc": "2026-10-02T03:29:36.305271+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance"
+}

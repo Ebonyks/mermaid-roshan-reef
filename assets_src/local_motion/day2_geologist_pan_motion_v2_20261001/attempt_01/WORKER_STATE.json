@@ -1,0 +1,63 @@
+{
+  "status": "MACHINE_RENDER_PASS_VISUAL_AUDIT_PENDING",
+  "manifest_sha256": "b43c2c74402c5c3fc6c9f228a6cfa4ed29a2864da3828933f51523cb8f04f558",
+  "worker_sha256": "07e9245b9a58978d94bf369efb9ec96424b547110d1be64e72217f486ca0520b",
+  "created_utc": "2026-10-02T03:48:06.235668+00:00",
+  "pid": 66492,
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "runtime_integration": false,
+  "owner_approval": null,
+  "job_name": "d2m_geologist_pan_v2_20261001",
+  "checked_utc": "2026-10-02T03:52:36.391915+00:00",
+  "benchmark_receipt": "H:\\MermaidReefTools\\LocalVideo\\jobs\\d2m_b1q_d2a0495_20261001T025152Z_58a0e1\\RENDER_RECEIPT.json",
+  "existing_prompt_ids": [],
+  "command": [
+    "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/ComfyUI/0.34.0/ComfyUI_windows_portable/python_embeded/python.exe",
+    "-s",
+    "-B",
+    "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\day2_geologist_pan_motion_v2_20261001\\workflows\\render_gguf.py",
+    "--preset",
+    "quick",
+    "--image",
+    "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\day2_geologist_pan_motion_v2_20261001\\inputs\\geologist_pan_full_source.png",
+    "--prompt-file",
+    "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\day2_geologist_pan_motion_v2_20261001\\prompts\\geologist_pan_full_source.txt",
+    "--name",
+    "d2m_geologist_pan_v2_20261001",
+    "--seed",
+    "2026100134"
+  ],
+  "owned_child_pid": 49932,
+  "native_prompt_id": "cf792631-caab-4102-ace3-d6145796f0eb",
+  "receipt_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\d2m_geologist_pan_v2_20261001_20261002T034936Z_6cbbfe\\RENDER_RECEIPT.json",
+  "process_exit": 0,
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_geologist_pan_v2_20261001_20261002T034936Z_6cbbfe_00002_.webm",
+      "sha256": "ce1558a05ecf4678de77d54d6a8cb6d7546903bcf2af3b9807eb5fc39e0ec27e",
+      "bytes": 874082
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_geologist_pan_v2_20261001_20261002T034936Z_6cbbfe_00002_.mp4",
+      "sha256": "add98e247399b1f7f1d2e33c45daba709976fea009a8bb81147a4b0b8da60262",
+      "bytes": 573979,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "completed_utc": "2026-10-02T03:52:36.391902+00:00"
+}

@@ -1,0 +1,1481 @@
+{
+  "schema": "reef.immutable-review-supplement.v1",
+  "base_revision": "edbf2a60e4a73ca149ee53b7f8d01990afd32198",
+  "prior_closed_map": "audit/job_review_v2_20261001/GEOLOGY_PAN_CONTACT_SUPPLEMENT_FILES_V4.json",
+  "prior_closed_map_sha256": "9721591c65061d639bc8e0882086ad0552cb9e8be573fa4fba9332aeb53fcd37",
+  "required_files": 367,
+  "required_payload_bytes": 70248139,
+  "payload_sha256": "4187e8ca81862d2608d58353d1ad02ab94ef2dbf499e559ec19e9c4d0436b6a7",
+  "payload_hash_formula": "SHA256 UTF8 sorted path TAB bytes TAB SHA256 LF",
+  "files": {
+    "ASSET_LICENSES.md": [
+      8647375,
+      "cc861ae92bfc9dcadaaf9f711d3e337d92652a1309eebc24bcb70d1a7618761a"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/GENERATED_NATIVE_REGISTER_V6.json": [
+      6556,
+      "8f54f24e7dbdff3ee55d7c726f821a79a7cde2df9c03921e84908682eaff4f62"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/REVIEW_V6.json": [
+      46435,
+      "750a1f058c9cb355fa2dd29789100fd8cbf46ea01ba8894855feac09ccad99b2"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/index.html": [
+      15756,
+      "f4ad810fb2f5f630fa28dc9748c2bfbf28e0b3ac63b28c4999168775b27e0ee6"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/early_crack/attempt_01/GENERATION_RECORD.json": [
+      3354,
+      "a6b81455c625fab1b4489adabda05610d3d0a181b105680b53101122c220bc01"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/early_crack/attempt_01/PLAN.json": [
+      1883,
+      "9a666be8fcfe812d112587db5b41d4cdf9211a404b1702dc8216a1732c2b1821"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/early_crack/attempt_01/PROMPT.txt": [
+      2615,
+      "3aaa945ecc35c543b17d16a2a91bea7535622cffc088e80f87d3bbb03274617b"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/early_crack/attempt_01/SOURCE_REVIEW.json": [
+      1752,
+      "f71c0c498ee9aedb0712020d7d1fb732fbd604c42f7e3e72236f3586999543d5"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/early_crack/attempt_01/audit_aqua.png": [
+      1353108,
+      "3d8110be13da3f60bff600db5b455094774cee46da120cccf52eafcb67c05b42"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/early_crack/attempt_01/audit_white.png": [
+      1357175,
+      "32bb94236cd8ab8571aa13aa4c0df0146b1fd11d2623fb82332574f939953e37"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/early_crack/attempt_01/executed_prepare_geode_opening_states_v135.py": [
+      6653,
+      "5ecdf4534215460f4d8aa6d031a55e64c4cbffe7dbf8752126813d6544ca0278"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/early_crack/attempt_01/executed_preserve_geode_opening_states_v137.py": [
+      2935,
+      "d1d7cec48ae2cfd5a7b3f7009e500207ba50bf7acd7e0ddb748c33d8480267c4"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/early_crack/attempt_01/native.png": [
+      1561704,
+      "f94f34db58196b86f3f99310cca389f4bacdf69ea889c885680f50dd7f94c147"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/early_crack/attempt_01/whole_canvas_1024.json": [
+      747,
+      "269f31841aedf60d260402a7d935198ee24518fff3557f437833bfac7666d986"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/early_crack/attempt_01/whole_canvas_1024.png": [
+      1018152,
+      "82f92afb844daea7ae077e118951226df1def34d9398059d9321bd7488246832"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/middle_open/attempt_01/GENERATION_RECORD.json": [
+      3282,
+      "08bdb79fe00fe1e1fd96be1c6b894b6b6aeba173e8705c47d54e1701a5b1300d"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/middle_open/attempt_01/PLAN.json": [
+      1814,
+      "f1025bddab15414dde1856bb0cf8bee3fddb3cf58db41618bcc15a91bffcad26"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/middle_open/attempt_01/PROMPT.txt": [
+      2546,
+      "31e8d25aec65b77dddfcfd3085d9ec993043b91530a61195048c016889e675bd"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/middle_open/attempt_01/SOURCE_REVIEW.json": [
+      1718,
+      "18fe6f7b88587f3540eaea5ddc0cd9bed97ab853c0fae64ac796d1dda737c066"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/middle_open/attempt_01/audit_aqua.png": [
+      1422826,
+      "48b8200a860dd19ef09dbd8e217604172b00bb54ecf09a647010a77899cd835e"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/middle_open/attempt_01/audit_white.png": [
+      1426250,
+      "9a8c21cbc18b7c6940b18f1b24eea75a0f059cb79c1e53196f1c42892fa1e66c"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/middle_open/attempt_01/executed_prepare_geode_opening_states_v135.py": [
+      6653,
+      "5ecdf4534215460f4d8aa6d031a55e64c4cbffe7dbf8752126813d6544ca0278"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/middle_open/attempt_01/executed_preserve_geode_opening_states_v137.py": [
+      2935,
+      "d1d7cec48ae2cfd5a7b3f7009e500207ba50bf7acd7e0ddb748c33d8480267c4"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/middle_open/attempt_01/native.png": [
+      1663270,
+      "7628c21e432d9b66f69bb7caf77ab7db926d65c00906edf5614972d7253f4adc"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/middle_open/attempt_01/whole_canvas_1024.json": [
+      747,
+      "f57ff4f5ba7a2cbff2869133342f5462135c46eff0e745bac80ac06f30056dab"
+    ],
+    "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/middle_open/attempt_01/whole_canvas_1024.png": [
+      828344,
+      "f196c510e71b4e2753757bb1660d8ca3d259dbedcbcb5d0510a526c127225725"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/.gdignore": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/MANIFEST.json": [
+      5824,
+      "d1bc32c093601b167a3b13e594627ec1b47e52e2764f9bd3bc07c8913ae96b6d"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/PROFILE.json": [
+      2916,
+      "5468c3808c4a77e94b5af897f2b6b19a99d64c66003360ea75c3899853d24b57"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/READ_ONLY_ADMISSION_CHECK.json": [
+      1727,
+      "085afbd9f08b2e37f1e1b008da2f9b43416191a84a589976c422fafad2036912"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/CLI.stdout_stderr.log": [
+      507,
+      "25e9e7e056ac83536d91cb8864ee7ba1d3d5e1803a9525caf4861ee94b24dfb7"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/COMFY_HISTORY.json": [
+      5978,
+      "6c79d46abeb4df1eea8d2a8a65ab69cb6507175b5782b3d36699b2f4812512c4"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/FRAME_CATALOG.json": [
+      42006,
+      "a3fa9b230b8ad9a0e260e757863e94176f448d5bdc383f1deca84addf8433110"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/MANIFEST_AT_SUBMISSION.json": [
+      5671,
+      "6c53f3434036a5134483aed7d712e156102b196fab1a77a666925cc84d95a95b"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/RENDER_RECEIPT.json": [
+      3147,
+      "e330d48fb8386d96060d8f247c49d5099756852c33a834828453ac0fdc3380dc"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/REVIEW.json": [
+      40725,
+      "1947ffc535183c2fc2b1549d7de717dd0136688f3bee41114fe4ff8ceb151175"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/WORKER_STATE.json": [
+      2755,
+      "16bfb19288b10adab02797f03d7e6773ebe15235e4245fe7eacd8d61b7bdf875"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/decode.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/decode.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/executed_archive_geologist_motion_v140.py": [
+      4548,
+      "92708cd812ca9c8b237de760552a98f9dcc14063c66e2dafaddb116d978713df"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/index.html": [
+      23989,
+      "e6c81914e1617afaffe0b5d49727b089cd771bdfd00fa2f92536fa483bf02cd4"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0001.png": [
+      303559,
+      "5c039b39f55b5e2797cfe2e575e6fd398fe95f83cd3941e12cbcb9f934d9591a"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0002.png": [
+      301123,
+      "06cb344277467d92e34f4789881d84681da7cdc80c10d033b7c735aa48f0787a"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0003.png": [
+      303056,
+      "d38ba1e7ce3e9d46f5e8b1f7cf7610164117c0845108824832cfff5a43086647"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0004.png": [
+      305278,
+      "4495a3540fd97928c8477c1b815e23492ecf9e131efc92c7e1bf143d4822b4d9"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0005.png": [
+      307691,
+      "f7e3b36492fe3b6693a9c7add2704451a5bea4e3d9563d27e162f995c7143467"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0006.png": [
+      305670,
+      "25a29ced72ad89df246d2bda5f361ea8053db675745808ff00b93e06b4f0aa27"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0007.png": [
+      306325,
+      "31a81f0d0fffaecb9350f4cd3b50683b1804a3eebbd518dc1c90762f3d909805"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0008.png": [
+      305788,
+      "011017f8b13c4c4977d8b8f318752de2a12a97185541771e851b675f7371cd55"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0009.png": [
+      310066,
+      "d14c4a0f830dac375f9c0e9dc962bf4d3b605eaa0ca9ef67efa00bff7e640cc1"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0010.png": [
+      306875,
+      "10f8e22764f067b09c035e1071213b9432591075e924e7a114732971f5d92b0a"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0011.png": [
+      308227,
+      "083173897802dfac05f7c8fa28fc00d56aa7b680a65abb00cd0f82ca9045b9db"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0012.png": [
+      308130,
+      "91e52e06c117cd72353cf06a8c36e3daafb0b07471dedbb72e20ee62ff3a4445"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0013.png": [
+      308425,
+      "f9c1bb24442863b59265735e1d055dc77d34fed47c397763029703b4aaf18b54"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0014.png": [
+      304529,
+      "cc68d834684dfbd1d8c85f5fd56c60642ee21f5d16ce3cad3c14a049bd723918"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0015.png": [
+      304265,
+      "6e9a8f23039b18a90dbd06d6c7aa18f7eafbca80713eeae146430e0c3a0449c2"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0016.png": [
+      304510,
+      "9231bd2511fe4d97517af7b45f2a6c949d3c3e56c075f9eef86f493e8ab1b7a1"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0017.png": [
+      309697,
+      "e238aed3ae31d5d7bbf3bc7ed1c8dc22158443bf526c75cd9d230df7db592b5d"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0018.png": [
+      305948,
+      "a5f44f689c690d74998863545365ad6f51d7048d3296d81ddb435f73e301e0cd"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0019.png": [
+      305404,
+      "c540487ce447ae48fccce1bafdb885c81fc19225edc53bff8b21b96a4cc1e09d"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0020.png": [
+      305980,
+      "30f5e7e96322742dfd8640f9ca19970bcee307506b4f83a8a9ca51359b5db5d7"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0021.png": [
+      309705,
+      "0543e538ee524f497bf552dff97fc6d0c2033ff74136f421cc391133718238d7"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0022.png": [
+      305416,
+      "fb6710a4603cef3a0a952648c62eea03a5a39d68305bc412bcd0c56982be95ca"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0023.png": [
+      305754,
+      "ecd737433c9ce873c86bd28180e1ed6677b73713eb72f7fc97bf30655d4edef0"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0024.png": [
+      306175,
+      "4a97513afc1d4ee0a9aef9c4084ff8ee31222d9b220b2db85bd6ef0a970d0e92"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0025.png": [
+      310868,
+      "60281da7dccf54f2e739274d83fb92d3f228ba5f060218e05d70b2ce3407c0df"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0026.png": [
+      307425,
+      "5cf9ab1cba01f897e47322cd0a755a364e29c245c5a63a681ac60d7fc9557aec"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0027.png": [
+      304886,
+      "11885e1bd1c034be1c5af60e66b5d0f422f9500fca4ca5850717d3514a0488c1"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0028.png": [
+      304823,
+      "58394133e9755346d21dabe147dd913d0c0a8d61f04af0ccf31e343e78405c40"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0029.png": [
+      307492,
+      "c138b8fcfbd8d3a21390a35fdbd311a45739e70fd87427289664a63355ccd4ad"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0030.png": [
+      303321,
+      "4a823ea10430db39b13962997b6fa65e8986209efb8387635ede8d247396bdeb"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0031.png": [
+      303142,
+      "3019825f168eafd1948f310039125ffd0064222aaa76b7369de50b49fe30c803"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0032.png": [
+      302847,
+      "3bbb5ce19545547bbcb96c703f1d6867e76d602732b9e6359186bfaa35bd5cbb"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0033.png": [
+      307034,
+      "c7df60342356d039d8d8edc6421f7d36d856a05ad42a0df9509b9185c4c2f6ec"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0034.png": [
+      299840,
+      "cf521ab084cc513556b751f67a99dfb3348db5059bf81cdd03c78b29ab0e7015"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0035.png": [
+      297426,
+      "c741ad6285122a9ca60f5be4497f29073ed8ab7fe6127007f20e043b7e023f30"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0036.png": [
+      297630,
+      "7f70fe0712da526995f86c50694244d625a4f82293b4f01c131f3223f2f82257"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0037.png": [
+      301346,
+      "af5f00ab88fffc5ee057eb28674734a39abe61bb73e5012a2e921a66a251407a"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0038.png": [
+      298266,
+      "cb17a081afff43e75772ea96860edd4c7ac09a53425f2c9f60fc8856a4b6ed12"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0039.png": [
+      299512,
+      "2a21df5348e3cb976a22847465ed2d7efe41230ab79ee6f477ded99c92492d27"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0040.png": [
+      299526,
+      "c3c32628302c7445cfb484067ca4b5cc3f2adec6c9836663ac489fd23c15a532"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_frames/0041.png": [
+      304539,
+      "63c57bb42b365005508abf3892edcfdbf251319d532dcc87fb10eea750fa21b1"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_output.mp4": [
+      528765,
+      "0bafd10237ca271b39805a50f28970c574536f8e8cc9982cbd1cf3c1f2cbb2de"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/native_output.webm": [
+      827413,
+      "834cca45b7bb4b9544abed4c9019f929e32841c113f8ccb09beb9ea544706c24"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/workflow.api.json": [
+      3785,
+      "331d09d551e3995a9063ec02ca8b63641d2b926b99b08c19f2f32e6d5c309f9c"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/executed_prepare_geologist_comfy_pan_v134.py": [
+      12267,
+      "ad855bd5cc5f07b592187eee167f21848169459ad220f4c6ccbf8a787d71d0c1"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/executed_review_retry_v142.py": [
+      13498,
+      "92ea2c9d7aa04f6c62d067a8ef549cf8059352f3572375065c1d499f3c8aaa0c"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/index.html": [
+      1246,
+      "51afe96138374566839950a9bc2a33bca57cf25fc321dc8b7b0653ce93e94b57"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/inputs/geologist_pan_full_source.png": [
+      308688,
+      "a1af00679ef2924a0217bc926b9a8bcfcabdd7ef7707a2c52d075bcb096ac875"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/prompts/geologist_pan_full_source.txt": [
+      1132,
+      "69a4481dbe5602d3994c1ff814830444cb39839cb0a7b1027416764ee66423bf"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/run_geologist_comfy_pan_v134.py": [
+      6049,
+      "e4f6351d5eac73f21aa82bdc861009c2957eb789a53e65196a5be84f02dbec6a"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/workflows/GGUF_MODEL_RECEIPT.json": [
+      1252,
+      "fde14643c89327680113aba044916dd918bda2349c35062b60fcd170de9c2886"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/workflows/GGUF_TOKENIZER_DEPENDENCIES.json": [
+      54,
+      "d6ff56810ee45e2f620cbcfa87315f12903c60322c95de5f4926fc26d724b9b3"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/workflows/MODEL_RECEIPT.json": [
+      1477,
+      "310340e6cc7afae73e3514163958ae9ae7f09382cb3384af419f97a97aa88e4e"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/workflows/SOURCE_RECEIPT.json": [
+      793,
+      "d8b5a092023360404711074c817fdd30e42eed3490c3286150d6243f8f2a1f7f"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/workflows/prepare_workflows.py": [
+      7270,
+      "df22ac655ae82145b07910251eb22ccb03c6261b44ae0851f1c05d104fab5ed4"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/workflows/render_gguf.py": [
+      830,
+      "68f0f69e390531a04e267fd6e591f7d17d3a9959871e694058e3c4f225affa41"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/workflows/render_local_current.py": [
+      8667,
+      "5fdc5dd78637673c3bbcf8603e5bf78c2cd46d0dbbfd4fce05e4960ea898749d"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/.gdignore": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/COMPARABILITY.json": [
+      929,
+      "effecbea6fae890b87133c992bb61ddde6cb8f729dcfe9f4e50217d7f0c942a4"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/MANIFEST.json": [
+      5900,
+      "0cd7097211bfdccc6b30edc223d6d20378b67282ac75670bd291d5800deb083f"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/PROFILE.json": [
+      3180,
+      "dec351364fad8a32c85c1789ee1bffbb50cd3023f47970359a48c1f46c426304"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/CLI.stdout_stderr.log": [
+      506,
+      "12cceaa1c88c47d85bd379949825ed455a5d34b218595f2cabbfca472f144e7d"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/COMFY_HISTORY.json": [
+      5930,
+      "d5028cb8fea7649c56d34c66976a31f5330294976b45bc1e26863d639f666eff"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/FRAME_CATALOG.json": [
+      43009,
+      "d1f668c577ebfeea49e365b82caf42ca1786d9c26c5d7f6555146a2a610ee886"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/MANIFEST_AT_SUBMISSION.json": [
+      5801,
+      "b43c2c74402c5c3fc6c9f228a6cfa4ed29a2864da3828933f51523cb8f04f558"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/RENDER_RECEIPT.json": [
+      3098,
+      "b32810f7b006a80974f04d4542ef0fca4287813ba1f5ba3cbd007000743a1083"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/REVIEW.json": [
+      41690,
+      "c46a6a9f4cf393597e359a728726709dc2add774431ae4dbb888a206fa466b37"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/WORKER_STATE.json": [
+      2755,
+      "f58aaa48546df7680b144774b6a04ff58451fa06360f9db6e10294e44441c6bb"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/decode.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/decode.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/executed_archive_pan_retry_v145.py": [
+      4687,
+      "5a3cc097757516c70c88d6c2e499b1356f9579745a8efcfd1e5b26e8e6b796d8"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/executed_record_review_v146.py": [
+      11140,
+      "ea4c47081f0351429a3b72a69ec3b5ef49f53136a7916e03892a0f85309753ba"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/index.html": [
+      24519,
+      "b48e6c2570f1b1cae4388b08f7a9397ed534b1996a4938a4a458128aa41f3701"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0001.png": [
+      303559,
+      "5c039b39f55b5e2797cfe2e575e6fd398fe95f83cd3941e12cbcb9f934d9591a"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0002.png": [
+      302551,
+      "ae35cf391b672cb1a83980068e574f7628db6de3ac269e4642e2b06bb60e4fde"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0003.png": [
+      305136,
+      "98607f0ab5a02ff9be723fd2cdc73133b3d3dc20e0c194ed8f25a11aaa95fb50"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0004.png": [
+      306759,
+      "7609aa26d22291e1da57c65ce19794bdff9593f59484fdc676d00495a64cf6a2"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0005.png": [
+      310798,
+      "df7f9d32064e654f6bdbd2582cdfbf0ba73077779b1bbe049edc7eccdb96894e"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0006.png": [
+      307828,
+      "cddbca202bc2ac17a2b8b17ff0f212c37d18303b37a5c1100b7f8192f4b134b5"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0007.png": [
+      308211,
+      "f4d09e3d012de8666ce3bbd12717e8767588b9ecd04597fe381098e0b5208403"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0008.png": [
+      309413,
+      "5c5a9cf024691325af1bbbca7a0c2470017580ab9c41a237574c317a91028a3a"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0009.png": [
+      314877,
+      "295c1d4a0fcc6e66c5c6a45e5bd7a53f17d75f05b394b9d60dfee609b7959dd0"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0010.png": [
+      311453,
+      "d3ab4fcf12bfabbb4186367f39dae8b1009f77df551a9bc3855ff3e32673b938"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0011.png": [
+      312847,
+      "a6a19b2100b6592c82b4902ddf15b479ac0c180b99327d0fc215f4f8232a0889"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0012.png": [
+      310702,
+      "e9d92498c18e0c217598c0063957943f3e5548f73894d91c341b7519733a4b9d"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0013.png": [
+      311783,
+      "67836d4b72915136bcfb26885ca763ac3d6606d1b9c07917c5b18379648e7294"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0014.png": [
+      308708,
+      "9e9f11437d7e9fa6ea9a5e4acb7aa8df45994c144e3dfa23dcb0e28d451f3c9c"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0015.png": [
+      308468,
+      "09c4663a32202303b1e4ce2b464980bc37f7bbf06f840ad9185d2dabdcd4dfd3"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0016.png": [
+      308965,
+      "66cbed67b975cb895de5fdedea007b30bbc3ec49a520c4b0067bf9ba80a8758d"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0017.png": [
+      318446,
+      "8c15fc4edbb590fe9462556af67fa2d1756fee15cfdc3a59da1b09e20d7d1a89"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0018.png": [
+      313007,
+      "b50f2d52e789a57766021a3f31b3dc804834dbf6c2bffa34eb95cb6fd5d75ec6"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0019.png": [
+      308344,
+      "d09300c36e9df9ab44eec382143a6f1fd45e3c9d1ccf43af958d9ba035a91b50"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0020.png": [
+      308545,
+      "a622cdd3aace871194840fce06f266fe4eb8af5d285b4efd50b9011f279d7f10"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0021.png": [
+      316821,
+      "a8f70fd64b587245be869c71cd63d70877ab5bae4708498c41504d3a1ec92691"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0022.png": [
+      308647,
+      "171ea97544cb1beb8297c8ea289c7b5d0180219cb9ad7db48d8337efb4ad44ff"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0023.png": [
+      307320,
+      "fd3d270a54479144e03b9534233757af86d627fd702bfebfae25708cbbde4c3f"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0024.png": [
+      307857,
+      "8800ca3d85086610b9455b72aed10843fcb95b6a04bdce513ef4a07406d680c6"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0025.png": [
+      315391,
+      "7df7f565365e0c24aed712cbd6029ce8718e6328a13bcf067eae31738daa0e64"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0026.png": [
+      306757,
+      "01be4b17e2d51e8fd374678b56fb2bc514c939cb6c1bca3e6fb21c5d23ae3991"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0027.png": [
+      306062,
+      "5ea5a153f731aa01931b941b5954d9231eefce4d659afbc0e12475a832c2e4a5"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0028.png": [
+      306910,
+      "249af69f1942f0a8cf1bc00664422c062ef91427b23a7edf4bec9e3d4c65d461"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0029.png": [
+      308190,
+      "a337d1e863e1691be43d2c9be582220b4a83f79c08a30c65168c123455b6e435"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0030.png": [
+      302457,
+      "9baf07c3a1ddc0ca5686a710b20b15b570bbaae769240c9f5619765c8190409e"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0031.png": [
+      303782,
+      "5f06ec3d39437a563451279a3f135a771bbf20c3925761f40619a391ea5265b9"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0032.png": [
+      302317,
+      "eca0c68a90e54b07be69b77f17cb8af3ea8c80918cb47ee80f04ec08202f3c03"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0033.png": [
+      306463,
+      "2ca95611b94e4443ed5c3c4637ac3da0d4a84404fbcda331c1a1af00f2c68d0e"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0034.png": [
+      300300,
+      "cd03026f9878b13b07fdeff02373291ca82d5cdfb0aa1b312063f727d61a0612"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0035.png": [
+      297877,
+      "1cf120166aa4eec75377d81fd7298efa95ff172bff4c2eda846030bf322c3b2c"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0036.png": [
+      298774,
+      "a3db63fdf99266b7ee0cc3767bc6a36612a6752d9c11519a223ab369311cfb9c"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0037.png": [
+      302738,
+      "7c0041b35b68bf985af0a565a1f65b507b94742412bf0cfc84c7f9a95c36a1a3"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0038.png": [
+      301949,
+      "e0a66e89608d45a4aba554da20cf53c5b1b5f9e0c778fd5ee5042ec6b940704a"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0039.png": [
+      304330,
+      "e50a5f7abfcd9262862575428b78e4eb0f372de1d36590c943e3f720ce56a729"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0040.png": [
+      306655,
+      "713a74bdd2b6217dedcbb7694d21623e9c25a1a56db4d28ea416d3ac58a10e4d"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_frames/0041.png": [
+      313354,
+      "2b170081ef754e454529d1b470a8d448004703b9f3f54c9139c9cc46bdf105a7"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_output.mp4": [
+      573979,
+      "add98e247399b1f7f1d2e33c45daba709976fea009a8bb81147a4b0b8da60262"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/native_output.webm": [
+      874082,
+      "ce1558a05ecf4678de77d54d6a8cb6d7546903bcf2af3b9807eb5fc39e0ec27e"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/attempt_01/workflow.api.json": [
+      3737,
+      "9d1c5323df5f6a7b4a4ed0e021ddabc2b3749154f46ad1059b24d81c46d9eb43"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/executed_prepare_retry_v142.py": [
+      13498,
+      "92ea2c9d7aa04f6c62d067a8ef549cf8059352f3572375065c1d499f3c8aaa0c"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/index.html": [
+      811,
+      "f79fccad7ef6b746ba23b832852d77c6c177733fcce5dffd49a0e0ac2c98420f"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/inputs/geologist_pan_full_source.png": [
+      308688,
+      "a1af00679ef2924a0217bc926b9a8bcfcabdd7ef7707a2c52d075bcb096ac875"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/prompts/geologist_pan_full_source.txt": [
+      1084,
+      "54943a9d9956ed0fac19d1afdd7b6d791b170268e2ec9f08e0447a9f5354c506"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/run_geologist_comfy_pan_v142.py": [
+      6049,
+      "07e9245b9a58978d94bf369efb9ec96424b547110d1be64e72217f486ca0520b"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/workflows/GGUF_MODEL_RECEIPT.json": [
+      1252,
+      "fde14643c89327680113aba044916dd918bda2349c35062b60fcd170de9c2886"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/workflows/GGUF_TOKENIZER_DEPENDENCIES.json": [
+      54,
+      "d6ff56810ee45e2f620cbcfa87315f12903c60322c95de5f4926fc26d724b9b3"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/workflows/MODEL_RECEIPT.json": [
+      1477,
+      "310340e6cc7afae73e3514163958ae9ae7f09382cb3384af419f97a97aa88e4e"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/workflows/SOURCE_RECEIPT.json": [
+      793,
+      "d8b5a092023360404711074c817fdd30e42eed3490c3286150d6243f8f2a1f7f"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/workflows/prepare_workflows.py": [
+      7270,
+      "df22ac655ae82145b07910251eb22ccb03c6261b44ae0851f1c05d104fab5ed4"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/workflows/render_gguf.py": [
+      830,
+      "68f0f69e390531a04e267fd6e591f7d17d3a9959871e694058e3c4f225affa41"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v2_20261001/workflows/render_local_current.py": [
+      8667,
+      "5fdc5dd78637673c3bbcf8603e5bf78c2cd46d0dbbfd4fce05e4960ea898749d"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/.gdignore": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/COMPARABILITY.json": [
+      895,
+      "f4f61303b0d5b7f3d8c3aac1f25d6c936459974ca0e93e58d3405225df372a3b"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/MANIFEST.json": [
+      5966,
+      "5bd00778d531b1dbcdb7e24fdf5d2e1728d2f3d3c2c8db8ae9015990ce666aa7"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/PROFILE.json": [
+      3107,
+      "5ddf244701e363f742bc5869c81d9975e355ebb7fa24994cc124099aa75ea12d"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/CLI.stdout_stderr.log": [
+      507,
+      "1bab70699f5212206db6633da5bb0d493760cd28939a69388c76bc4146c01587"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/COMFY_HISTORY.json": [
+      5431,
+      "bf3b49cb1859a37d90d89d48a3095ad08f45e50db6dbaa86b522b1d437bd172d"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/FRAME_CATALOG.json": [
+      46429,
+      "6be51bd087de40346b37f2093779ca8e48b0bfceb4714888526f6745da2099e4"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/MANIFEST_AT_SUBMISSION.json": [
+      5811,
+      "648b549e13d68674c3c6162be3b478198551f39d383374718fa17ab327ff88d8"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/RENDER_RECEIPT.json": [
+      2599,
+      "3b43009de19bcd5a6a036959b799a8340d524b572bf898a127b2f9acfdc839f3"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/REVIEW.json": [
+      45372,
+      "694dd70302111a86398f7b64f34f0eb2d8675420c2ece6fd099e3b2c513c3b18"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/WORKER_STATE.json": [
+      2755,
+      "4d3442d1fa7267da863995fd0dbdea304580cd242613d74301a5c4ca3882eed3"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/decode.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/decode.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/executed_archive_pan_retry_v150.py": [
+      4687,
+      "bf84169be4e6752ece0fb65dd33376be63e58f725dfd3482c526e3dc95340905"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/executed_record_review_v151.py": [
+      8246,
+      "d74aedcc1a55870a370907b6a79b7bf4e7564d6d5f5eb0bc689d38a313e679e3"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/index.html": [
+      27706,
+      "88273c6dd1a31846bebd5b9c07be389829615418395a169dccb462c96ed45191"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0001.png": [
+      303559,
+      "5c039b39f55b5e2797cfe2e575e6fd398fe95f83cd3941e12cbcb9f934d9591a"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0002.png": [
+      298383,
+      "1228f01b68930643049c564e46a38bdc8fa65dfbf8091e8fa2f15758e4df3a8c"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0003.png": [
+      302715,
+      "e94c3ee9901bf70d45ed64daa33cac5953d8af73b0b879dc20ec68cfd7cbd17c"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0004.png": [
+      304314,
+      "64d17cbb1d0b2c5c22f91e2fbbd2e84aba5c7770944c062b734f7ad935485ef1"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0005.png": [
+      307820,
+      "5c5a5ef48d1e7d1bc6e6f62cf4eeab4e03e0feac5bdb37c89960f328be33eaf2"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0006.png": [
+      303337,
+      "e012dd01c648e793fa37bc8913c240df8cf6a56ee2a91091f3fa6dda22b45342"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0007.png": [
+      306078,
+      "a16c7bf21bfa56a9550046d6ed5c5e8aacc17e49956a6ef3066f4070cf584ea3"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0008.png": [
+      304598,
+      "05db99b7b3960f1b564d7117478a538c1561b64442d92f39bb30fced3429fcb4"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0009.png": [
+      316642,
+      "6f727e747c6097e9b43dae66f58553c22f14435cd45a833ac5f012c75898198f"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0010.png": [
+      307885,
+      "ea4622d157c8ce1ed3aab09bc70fd07dbebeb7baa495468d4402172619acc691"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0011.png": [
+      314388,
+      "27a4b99aa10fd5d7527536f98174f2361f4ca2ed6803543d3c77d5930b5a0046"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0012.png": [
+      312145,
+      "6c5aea44060894a36501db3d739b93d3e2965830f0317523d62257f3447a8e9a"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0013.png": [
+      312249,
+      "f589d5d950f34e0692ffb825b1babd9cbd2fcfa9a851d91498d0af68d676dcd6"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0014.png": [
+      306931,
+      "099ebe5814cd096563741d827973e83164b08309ccd915dd633e0f002ba64c8b"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0015.png": [
+      304649,
+      "f89ebcb5a4815cce2c35228f240742cb2825c4ccd1560a46972e366eeafd7f7e"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0016.png": [
+      304286,
+      "d8bc4f22afbf2746da138f7bef10b4b6a2363529a73041ef8f049982ee9f5a57"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0017.png": [
+      312963,
+      "c9bdfb6b9faf8c289243610f4b42d685f65ed04d18fc9ad8717f2944d86f2a68"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0018.png": [
+      307567,
+      "ebfaa684b3126b097a8abfeac13386dfc893705724aa6b42de199672d35b7b16"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0019.png": [
+      307213,
+      "e3e13428b362103211eca135a0e0650bce1a35ec4366adafa39f2514197454a8"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0020.png": [
+      307320,
+      "d87e1606b984ac25ec81d860f08950d733198687033f12a7efc94a0cdc0e300e"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0021.png": [
+      314354,
+      "a6c42dd80b3199bdc6eaed43e42e2497916d06f351fee5e8db5b44b486ee1bb7"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0022.png": [
+      309638,
+      "af5cb022cfc6fc3b3781f51962ea6790004af70e1feb716d62050759fc066dce"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0023.png": [
+      309745,
+      "1c8fc3684ac602a4ef65f278636f88937db83c84dcbd18f6dca2d2e5de29741d"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0024.png": [
+      309287,
+      "b7a29ac1dba6e0a11aadaa01dddc1b988437fef3ea388ebb3d806c219ce7746d"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0025.png": [
+      314044,
+      "2239c168ca8ff659d95155c275092fafadca23507933f7dd25945662ce720d1d"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0026.png": [
+      311140,
+      "658171a531731ad303b5c737f9b7d92f8a68defba3e493857163ced87977d930"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0027.png": [
+      308514,
+      "7115ca6ff230a89b291b7a0bc0f6181c7ce8a84268c8a6f6f8c12363a7067507"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0028.png": [
+      307758,
+      "003160a793dfbd5b4c9d2616d8df7e4e9eed9552857e675e8cffc6ccf5571608"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0029.png": [
+      310391,
+      "573837c01ef95b111ee1d9363520ea8b924b48d12584303da51992f948006711"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0030.png": [
+      307718,
+      "0eb4cc581c184d605a5e6f3fe80d8358ad67f3d2404649b2ce8034e58e795966"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0031.png": [
+      312190,
+      "0c269248bbfd83747174265599b04b474ee5aab06990f70f1994cc7fbcc7d728"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0032.png": [
+      308384,
+      "948e774212eba87f4e0d11d0781494aab8a46a0bd970dbe44886f350e2a5194e"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0033.png": [
+      313891,
+      "55c062dddc414e34ad3abeda306c12320b492235b1868012bd93f102a207c5bd"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0034.png": [
+      310116,
+      "d06a8e1889589ba83ebb6339e9d94055856715be41ae39d7433ccbd7d564820c"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0035.png": [
+      303373,
+      "63dba703b48c982d53480010875ff712299c3285310c15ca8a10fe63ae03e5cf"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0036.png": [
+      304873,
+      "f27e4aa09985de783a825ee5b08417169a67f8f22acf4a3bb2f54fade1c13f78"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0037.png": [
+      309795,
+      "5d3a5d1c45ea6d72117e28cb71ea13a34df8a7c2f54b482b9d357c9b6ecbe699"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0038.png": [
+      307941,
+      "c209946da817e5800e44692b11fea1cfc64f05b76457a3087fd384d262000eba"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0039.png": [
+      310527,
+      "15c765ea35d41916ce679aa278e4a449733e7cf6695fa5a05591aeaa17b4900e"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0040.png": [
+      308134,
+      "b0d5fee00ef52b090f13e26714768fea87b9cae9b56d5260462d62ce3fdb5f79"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_frames/0041.png": [
+      317579,
+      "49a2ca9f7e120da85b14998e174bfb4011156f8214cda37b832a9a7d7384c8b2"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_output.mp4": [
+      610445,
+      "93bc9cea24f78b602924fcf1ffde210197a6960c5a925bc9ef70769abeefa04a"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/native_output.webm": [
+      874594,
+      "1b33100be10c2fad62d86a1a95ef7ed00e4342c7ef128cad8ff4343dcc90e9a0"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/attempt_01/workflow.api.json": [
+      3237,
+      "5f7d49b666a2054356d23c77936074d7ef6cba153528556687001850aa92c622"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/executed_prepare_retry_v146.py": [
+      11140,
+      "ea4c47081f0351429a3b72a69ec3b5ef49f53136a7916e03892a0f85309753ba"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/index.html": [
+      1128,
+      "8db044bca5522d81437acb91e40d9ebb86864b3090b9d652d3909e96e5cec398"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/inputs/geologist_pan_full_source.png": [
+      308688,
+      "a1af00679ef2924a0217bc926b9a8bcfcabdd7ef7707a2c52d075bcb096ac875"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/prompts/geologist_pan_full_source.txt": [
+      584,
+      "1228a26b6c2abae0c4c4a80a28dae1da3a132dcb205305bee6876b18b0532e50"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/run_geologist_comfy_pan_v146.py": [
+      6049,
+      "68146817c8b1a08f54ec1b021d4237bedebcc0985277cef59ab74077ad307cc6"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/workflows/GGUF_MODEL_RECEIPT.json": [
+      1252,
+      "fde14643c89327680113aba044916dd918bda2349c35062b60fcd170de9c2886"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/workflows/GGUF_TOKENIZER_DEPENDENCIES.json": [
+      54,
+      "d6ff56810ee45e2f620cbcfa87315f12903c60322c95de5f4926fc26d724b9b3"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/workflows/MODEL_RECEIPT.json": [
+      1477,
+      "310340e6cc7afae73e3514163958ae9ae7f09382cb3384af419f97a97aa88e4e"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/workflows/SOURCE_RECEIPT.json": [
+      793,
+      "d8b5a092023360404711074c817fdd30e42eed3490c3286150d6243f8f2a1f7f"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/workflows/prepare_workflows.py": [
+      7270,
+      "df22ac655ae82145b07910251eb22ccb03c6261b44ae0851f1c05d104fab5ed4"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/workflows/render_gguf.py": [
+      830,
+      "68f0f69e390531a04e267fd6e591f7d17d3a9959871e694058e3c4f225affa41"
+    ],
+    "assets_src/local_motion/day2_geologist_pan_motion_v3_20261001/workflows/render_local_current.py": [
+      8667,
+      "5fdc5dd78637673c3bbcf8603e5bf78c2cd46d0dbbfd4fce05e4960ea898749d"
+    ],
+    "audit/MASTER_AUDIT_2026-08-09.md": [
+      321060,
+      "2f0febd92a5c8cb32fee495ebbd6edfb7d92e8d204790d324c7e087ed7858681"
+    ],
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md": [
+      201590,
+      "c1be0d4ac421c48aee7e85dfe5cf03aba75d1d3823146f92116ce19e349b0274"
+    ],
+    "audit/job_artwork_refinement_live/ALL_ITEMS.json": [
+      3516702,
+      "0dcf152b91b8afe3405e19995341fe8e83356d0d673bd30f28738ab688d5c71e"
+    ],
+    "audit/job_artwork_refinement_live/STATUS.json": [
+      23118,
+      "e8e8e31807723c2fe40d8537c929bbcd835747595bcbdcacd9e9e51d41b8a924"
+    ],
+    "audit/job_artwork_refinement_live/index.html": [
+      15787,
+      "3377f30777b5d7622159f32446d6e4ddcab51c2c4667e79bd489ecaec9cd03c3"
+    ],
+    "audit/job_artwork_refinement_live/review_tools/build_current_job_item_register_v18.py": [
+      41250,
+      "ca10d484bb35be926c29cdd827339b46bde8192ea08a27a7e164541acd8ca894"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/.gdignore": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/FAILURE_DIAGNOSIS.json": [
+      580,
+      "a59e79c2fa70a5b2b84c96a6964d34447ea73ea01b66e8b6401037760cffaa29"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/PROCESS_RECEIPT.json": [
+      2796,
+      "1fc690327e4797b393ae023eebc8811a4027e8e3352a616209eb65fa12f5dbc8"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/PROFILE.json": [
+      913,
+      "07fabb39dab60929c5f46703ca0eb6aa682ff03c56ef2b1e67f042107e62d868"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/SOURCE_BEFORE.json": [
+      34188,
+      "e4917c432f534cc1a872a26517e36687da8531d6a054f4dc6be48884eac8e604"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/analyzer.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/analyzer.stdout.log": [
+      73,
+      "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/.gdignore": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/PROCESS_RECEIPT.json": [
+      2997,
+      "10f81c6a7fad974483ee2907d52e93d56e8c1bef31a9a1457686e51809e39a14"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/PROFILE.json": [
+      913,
+      "07fabb39dab60929c5f46703ca0eb6aa682ff03c56ef2b1e67f042107e62d868"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/REVIEW.json": [
+      28377,
+      "897124370c3385dff1ae93c8e2494c027047be4df59d39860f0d6912b6f74f4b"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/SOURCE_BEFORE.json": [
+      34188,
+      "e4917c432f534cc1a872a26517e36687da8531d6a054f4dc6be48884eac8e604"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/analyzer.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/analyzer.stdout.log": [
+      73,
+      "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/capture.gd": [
+      19488,
+      "a861e53411e70e03755410181f59f67bc04cae4836b4b9f3b3ce30fcc729029b"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/executed_retry_geode_opening_v139.py": [
+      4558,
+      "d98e08693a51fa390737653a01a937a80fe81d37236d42f54356f396593238ce"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/inference.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/inference.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/native.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/native.stdout.log": [
+      334,
+      "a91f3d285b8b00740fe7fcc2c43721c95d253822ee235c23b099729c01d7d85e"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/native_views/CAPTURE_RECEIPT.json": [
+      13301,
+      "3e8a4ed074602d5b6265ae67b4d4855f28b6dbfd6d07f50b165120f57bbf5db3"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/native_views/geologist_1280_geode_early_crack_rooted_glimpse_painted_staging.webp": [
+      82816,
+      "4cb04163ce2cb2a7de8bb146a50d8512a22dd5dbbc6cc3d9225be4f1ded49c47"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/native_views/geologist_1280_geode_fully_open_embedded_interior_painted_staging.webp": [
+      88126,
+      "8b909d44b3949ae18ecee30b146dd81564083e519bd110692844d9eb244732ad"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/native_views/geologist_1280_geode_invitation_painted_staging.webp": [
+      77876,
+      "95aeb0d91c23b04c9796ef748a5c9bb6cbc7c1b1c089a674d265d9d7c31cbbd5"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/native_views/geologist_1280_geode_opened_task_painted_staging.webp": [
+      78000,
+      "0b1e6d0cc78b4c2f10f894a355117e3bc352f32e50231d342ef66f1791fb4564"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/native_views/geologist_1280_geode_partial_open_crystal_contact_painted_staging.webp": [
+      88616,
+      "19656c971cf94a55ce81fdbe06dd483389cff8d91cdf069d296dbd63280e69e7"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/native_views/geologist_1600_geode_early_crack_rooted_glimpse_painted_staging.webp": [
+      83518,
+      "8f2911db4bbe384bdcb2714c891ad12214bf94d1921f4634d2e97a27c01b35bb"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/native_views/geologist_1600_geode_fully_open_embedded_interior_painted_staging.webp": [
+      87736,
+      "0d9fe9454eed05d45799bdffef3153dfa8721249b23e8b182a2834df5c708023"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/native_views/geologist_1600_geode_invitation_painted_staging.webp": [
+      78878,
+      "3ae9fc786b0aaabcca34401f1bae296e3664300b57189c9ee1dfc5a52d241b9b"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/native_views/geologist_1600_geode_opened_task_painted_staging.webp": [
+      78812,
+      "4354c3dc8195be6debab5dafea13741079ac5f46952c68386479df0810730f66"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/native_views/geologist_1600_geode_partial_open_crystal_contact_painted_staging.webp": [
+      88394,
+      "a54358bfad5f30a72c12b720bd8b4c5724dde765db24d02fb1f926b6db3e95ef"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/parser.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/parser.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/study_surface.gd": [
+      2004,
+      "997c724ebf8b812010328cf4567609528d273189e9c5607666b219de5e64d751"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/.gdignore": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/PROCESS_RECEIPT.json": [
+      2942,
+      "05b73dcdc3368c9bf2ce031b6086794cd10026fd5d242a8641267120ce3f64d5"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/PROFILE.json": [
+      938,
+      "b565b4df91afdbdb6f38b9f0bfacff9e4f4ba84d3e8c043c53f3eef605142bde"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/REVIEW.json": [
+      28220,
+      "29db926951e8a233596586c03d1a582788ddd6dbc9ee18befaa1b9701c430731"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/SOURCE_BEFORE.json": [
+      34188,
+      "e4917c432f534cc1a872a26517e36687da8531d6a054f4dc6be48884eac8e604"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/analyzer.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/analyzer.stdout.log": [
+      73,
+      "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/capture.gd": [
+      19493,
+      "577857e2641e9c1b3042ffe96794ddee1024549204be05b9e4225a175ae88e3d"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/executed_correct_base_v143.py": [
+      4873,
+      "dcfbe73102f2302c7d6c853af4e516ff62af7b58c82b5bfa4d8b9149e85ebf29"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/executed_record_base_review_v144.py": [
+      8871,
+      "bf5716148148006eed50da98895400f6d8ac63477c39d082474a2dc1332ea1c2"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/index.html": [
+      8013,
+      "c689bacea6d3bca5c53b4ea6fccc236883dcf226a51a29fb997fac61d750c705"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/inference.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/inference.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/native.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/native.stdout.log": [
+      334,
+      "a91f3d285b8b00740fe7fcc2c43721c95d253822ee235c23b099729c01d7d85e"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/native_views/CAPTURE_RECEIPT.json": [
+      13301,
+      "c073c3e4a35b830b790c162e6d067f9a8e5f9afac3ae7147da9f48c06955d651"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/native_views/geologist_1280_geode_early_crack_rooted_glimpse_painted_staging.webp": [
+      82840,
+      "76cf713e27756dcd743c2d680d2d4e878aec1d5b62641fdde2798fc5291d9ef9"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/native_views/geologist_1280_geode_fully_open_embedded_interior_painted_staging.webp": [
+      87922,
+      "e2cb018cf9e3ed2830e068facc2e0e369c305446e4d5a91a4ee3e2a8f06210f0"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/native_views/geologist_1280_geode_invitation_painted_staging.webp": [
+      77606,
+      "504b84fd02c1de81f6a32967c7e2fac599a7e6355bdb1d5a70262b2c0be1cc3e"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/native_views/geologist_1280_geode_opened_task_painted_staging.webp": [
+      77954,
+      "9779efc82ebd305c55b0484dc0bf885e9999152c65d9a76460594a307a01f2d8"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/native_views/geologist_1280_geode_partial_open_crystal_contact_painted_staging.webp": [
+      88600,
+      "7138be5495ab7c5eedbd9aef586e7e34c42466a8face7d60209d669fa62436c8"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/native_views/geologist_1600_geode_early_crack_rooted_glimpse_painted_staging.webp": [
+      83524,
+      "0a5115c9517e6053b198ef1b3b6bb8a6ee57810beb63c54329901710efbd10a4"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/native_views/geologist_1600_geode_fully_open_embedded_interior_painted_staging.webp": [
+      87626,
+      "37f546beecf16322be9cdd915f5df47d12ad768a7ba4eaac5b1421b44b0348a2"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/native_views/geologist_1600_geode_invitation_painted_staging.webp": [
+      78842,
+      "4315de7b89c5b0ad294a3ebb844d3342a24cc92e188da680820281910c69f1c3"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/native_views/geologist_1600_geode_opened_task_painted_staging.webp": [
+      78822,
+      "0b2c350b5dbb8449ce5c664a295d56fbafaeb77f59e6bf2795301953d2e6928a"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/native_views/geologist_1600_geode_partial_open_crystal_contact_painted_staging.webp": [
+      88394,
+      "a9804fdc6ceac4a5ecdf71537c3f2daa292f98d6e3cc5314fb0835c4a11774ed"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/parser.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/parser.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/study_surface.gd": [
+      2116,
+      "07977782d5edd757a2311e7a7967549469c2567310e6aaee660ea57eeaeb8a10"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/capture.gd": [
+      19483,
+      "850ee0e6d25ba874338945f282907ff846472107b6b744b8af20a3af0543085f"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/executed_capture_geode_opening_v138.py": [
+      7840,
+      "370296e8ba7ad0457a02f5a082f03c1291c18410f1e7955f4433d4325fad2176"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/executed_record_geode_opening_v141.py": [
+      17326,
+      "2f043d8f2058a0605975e92f3f3d5a97db1a7f7740996be2beb08f4cdc424ecc"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/index.html": [
+      12501,
+      "b868d475b2c1460f2116e71f3bc34ba08a79f33d7927c49f7b0f7b05a2328808"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/inference.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/inference.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/native.stderr.log": [
+      322,
+      "bf8f434b2353489e56014f54ede6f6b96bb119c0eba6aeabbe9c8c2017514ce1"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/native.stdout.log": [
+      262,
+      "442efb1f2f7710de83392cc1465c397fa481aa323e68b295075b106671263661"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/parser.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/parser.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_geode_opening_states_v3_20261001/study_surface.gd": [
+      2004,
+      "997c724ebf8b812010328cf4567609528d273189e9c5607666b219de5e64d751"
+    ],
+    "audit/job_review_v2_20261001/GEOLOGY_CONTEXT_PRIORITIES_V5.json": [
+      34355,
+      "24395e496ffc90d3564faae6611f43a49d8af3a05ec91b10c5f7ac8531568491"
+    ],
+    "audit/job_review_v2_20261001/GEOLOGY_CONTINUATION_REPORT_V5.html": [
+      54381,
+      "dd8f78930ae80050a0799c04868478bec7c328c9e84ad656e654851dee266a6f"
+    ],
+    "audit/job_review_v2_20261001/index.html": [
+      17356,
+      "29c904c434d50ede350843c47f23130583bfa27868498702420d4c181201d36b"
+    ],
+    "audit/job_review_v2_20261001/opening_motion_final_gates_v1/2d_regression.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_review_v2_20261001/opening_motion_final_gates_v1/2d_regression.stdout.log": [
+      411,
+      "cd9caf9b33d75e4bef2367ab3eaf08685a07073d3e472062c1110bd000d4e731"
+    ],
+    "audit/job_review_v2_20261001/opening_motion_final_gates_v1/BOUNDARY.json": [
+      641,
+      "c3da27caf7c602ccdc67f30754cf242086e8c165bfe53d890812806ddf602eb0"
+    ],
+    "audit/job_review_v2_20261001/opening_motion_final_gates_v1/HOSTED_RUN_SNAPSHOT.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_review_v2_20261001/opening_motion_final_gates_v1/HOSTED_RUN_SNAPSHOT.stdout.json": [
+      6021,
+      "284b696daab683b8ecf75c10b2a0d2b2e04ea6dd99946e13655e4bf3ae1c7825"
+    ],
+    "audit/job_review_v2_20261001/opening_motion_final_gates_v1/HOSTED_RUN_SNAPSHOT_RECEIPT.json": [
+      413,
+      "bd89bafc29faeeddf2d731dbc3c1d790967b6eb28813b16ac31852e0ad480f79"
+    ],
+    "audit/job_review_v2_20261001/opening_motion_final_gates_v1/RECEIPT.json": [
+      5929,
+      "6aa17026c89e50b5be03ab699a23f7c8f05858fdf7ec7b01b84ff1eca5400c24"
+    ],
+    "audit/job_review_v2_20261001/opening_motion_final_gates_v1/authority.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_review_v2_20261001/opening_motion_final_gates_v1/authority.stdout.log": [
+      76,
+      "daf2ff12cd755a5a7ba996a38be40de1059de875c784015db7edb195f6a845ef"
+    ],
+    "audit/job_review_v2_20261001/opening_motion_final_gates_v1/contract_tests.stderr.log": [
+      152,
+      "fc071ed9924aa0cfd0e6cd84edfe892bafa494d0f946cc34fc80eba747ffd09f"
+    ],
+    "audit/job_review_v2_20261001/opening_motion_final_gates_v1/contract_tests.stdout.log": [
+      19,
+      "15f835a73c2395f8a2438b946e8d477ca264944d0e38c9e92786f1fe90eb3da3"
+    ],
+    "audit/job_review_v2_20261001/opening_motion_final_gates_v1/development.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_review_v2_20261001/opening_motion_final_gates_v1/development.stdout.log": [
+      78,
+      "08daa656ace8a1e216ee593a2d73f8646413ab6d59dd0ccab983ee8d2d70b4ad"
+    ],
+    "audit/job_review_v2_20261001/opening_motion_final_gates_v1/executed_seal_opening_motion_v147.py": [
+      10467,
+      "1abd231a193f09a726674db1e8afdfd3a4c42d1026f07647f6ae33962265ee54"
+    ],
+    "audit/job_review_v2_20261001/opening_motion_final_gates_v1/import.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_review_v2_20261001/opening_motion_final_gates_v1/import.stdout.log": [
+      1017,
+      "f15ffd4c558b01611d562c8c257508942bdc2dc542124f423ae2a592a46edfa6"
+    ],
+    "audit/job_review_v2_20261001/opening_motion_final_gates_v1/inference.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_review_v2_20261001/opening_motion_final_gates_v1/inference.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_review_v2_20261001/opening_motion_final_gates_v1/parser.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_review_v2_20261001/opening_motion_final_gates_v1/parser.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_review_v2_20261001/pan_contact_remote_verified_v4/pan_contact_publish_v133_COMMIT_MESSAGE.txt": [
+      760,
+      "ba51a9c341e76d9e0bc2e4fad9e77d929708137f41f86504e5aa9e72e7991657"
+    ],
+    "audit/job_review_v2_20261001/pan_contact_remote_verified_v4/pan_contact_publish_v133_RECEIPT.json": [
+      779,
+      "628f67479029036542f43987926025a7db8a68ce30e65b1a676e1258ebbd4b2c"
+    ],
+    "audit/job_review_v2_20261001/pan_contact_remote_verified_v4/pan_contact_publish_v133_authority.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_review_v2_20261001/pan_contact_remote_verified_v4/pan_contact_publish_v133_authority.stdout.log": [
+      76,
+      "daf2ff12cd755a5a7ba996a38be40de1059de875c784015db7edb195f6a845ef"
+    ],
+    "audit/job_review_v2_20261001/pan_contact_remote_verified_v4/pan_contact_publish_v133_commit.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_review_v2_20261001/pan_contact_remote_verified_v4/pan_contact_publish_v133_commit.stdout.log": [
+      27755,
+      "a0d5bd6e990073ecbad2314560323699efd59ab5fd2a4e2fcc493c566b64ddc1"
+    ],
+    "audit/job_review_v2_20261001/pan_contact_remote_verified_v4/pan_contact_publish_v133_development.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_review_v2_20261001/pan_contact_remote_verified_v4/pan_contact_publish_v133_development.stdout.log": [
+      78,
+      "08daa656ace8a1e216ee593a2d73f8646413ab6d59dd0ccab983ee8d2d70b4ad"
+    ],
+    "audit/job_review_v2_20261001/pan_contact_remote_verified_v4/pan_contact_publish_v133_executed_publish_pan_contact_v133.py": [
+      6798,
+      "6428dea4a144d7b988bcb0bf467b4be7dd1188e91e25378e20f508e20b5d67ac"
+    ],
+    "audit/job_review_v2_20261001/pan_contact_remote_verified_v4/pan_contact_publish_v133_fetch.stderr.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_review_v2_20261001/pan_contact_remote_verified_v4/pan_contact_publish_v133_fetch.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_review_v2_20261001/pan_contact_remote_verified_v4/pan_contact_publish_v133_push.stderr.log": [
+      118,
+      "7d2b4656afb22a785c0b3e21501f2c8905c53cf5f9155d0c5f4af16d645beb3b"
+    ],
+    "audit/job_review_v2_20261001/pan_contact_remote_verified_v4/pan_contact_publish_v133_push.stdout.log": [
+      0,
+      "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    ],
+    "audit/job_review_v2_20261001/pan_contact_remote_verified_v4/pan_contact_remote_v133_RESULT.json": [
+      1320,
+      "55eb557a93a9fe4d16ccfaf97020e83c0a88cc53e5870e561b607bb62c76d8d2"
+    ],
+    "audit/job_review_v2_20261001/pan_contact_remote_verified_v4/pan_contact_remote_v133_VERIFICATION_JOURNAL.jsonl": [
+      113556,
+      "4d1918985640d2032aae0fc22b52b4dd008dab78272e26c35ea0acf4aa9a061b"
+    ],
+    "audit/job_review_v2_20261001/review_tools/build_current_job_item_register_v18.py": [
+      41075,
+      "384e30bbac2783d8f9216a96471745f5ee08aa3595a5ed1f802fb7dc82a4221b"
+    ],
+    "audit/job_review_v2_20261001/review_tools/build_geology_context_report_v149.py": [
+      12320,
+      "180e068c81e2a6c9594c8bf8aa66f5e31fcda62885f93b967a416f3a856843c5"
+    ],
+    "design/05_DOC_LEDGER.md": [
+      197512,
+      "e64018aeb6c4fa23f1df7aa53d0097f5e1d7445f6f3ae3592448290ea09722c6"
+    ],
+    "design/audit_impacts/job-geode-opening-continuity-20261001.json": [
+      29974,
+      "1c3595d6ea29522aa6be52dc9657adc690cd112db7c99ccd964c5349033ba324"
+    ],
+    "design/audit_impacts/job-geologist-panning-local-motion-20261001.json": [
+      28283,
+      "6cb3c7678ed764d8089cb20e24f4701b5c13f1264e7894ea76bf52a28488537a"
+    ],
+    "design/audit_impacts/job-geology-opening-motion-review-checkpoint-20261001.json": [
+      54929,
+      "51f65b6c3145260afc7ae4d902a80b5d0c15c40398a3236c97ba33a16da7b694"
+    ],
+    "design/audit_impacts/job-review-separate-v2-20261001.json": [
+      521196,
+      "cfef0cc1e94bad6b281a69fbf033d86b8b67cfb68ac2bad4a3d71732bba97da0"
+    ]
+  },
+  "qualification": "Canonical Git blob map for the new reversible geode opening/local motion review supplement. Every previous map immutable; no production binding, complete motion/route/device/child/owner or release acceptance."
+}

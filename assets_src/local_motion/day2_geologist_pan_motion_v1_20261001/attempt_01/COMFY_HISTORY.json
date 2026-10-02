@@ -1,0 +1,223 @@
+{
+  "prompt": [
+    8,
+    "ea9b8561-227e-4edd-9e8a-caf40fa18ab8",
+    {
+      "0": {
+        "class_type": "SaveLatent",
+        "inputs": {
+          "samples": [
+            "9",
+            0
+          ],
+          "filename_prefix": "local_reference/d2m_geologist_pan_v1_20261001_20261002T032640Z_89e6f4"
+        }
+      },
+      "1": {
+        "class_type": "UnetLoaderGGUFAdvanced",
+        "inputs": {
+          "unet_name": "Wan2.2-TI2V-5B-Q4_K_S.gguf",
+          "dequant_dtype": "bfloat16",
+          "patch_dtype": "bfloat16",
+          "patch_on_device": true
+        }
+      },
+      "2": {
+        "class_type": "CLIPLoaderGGUF",
+        "inputs": {
+          "clip_name": "umt5-xxl-encoder-Q4_K_S.gguf",
+          "type": "wan"
+        }
+      },
+      "3": {
+        "class_type": "VAELoader",
+        "inputs": {
+          "vae_name": "wan2.2_vae.safetensors"
+        }
+      },
+      "4": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "source_a1af00679ef2924a.png"
+        }
+      },
+      "5": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "2",
+            0
+          ],
+          "text": "One static camera shot of this exact painted storybook mermaid child holding this exact shallow lavender pan. The background stays the same plain pale aqua field. She wants to wash the pan gently. At0.0-0.25s she looks into the water and holds both rim grips steady. At0.25-0.75s her attached forearms and elbows gently tilt the pan a little toward her left; both hands stay visibly gripping the same rim places. At0.75-1.25s she gently tilts the pan the other way, with small articulated elbow/wrist motion and mild water-surface movement contained inside. At1.25-1.70s the pan and hands settle back to the starting neutral held position. Her head, cap, face, hair, costume, curled mermaid tail and complete rainbow fin remain still and recognizable. The body does not slide or bounce as one sticker. Keep the vessel rigid, broad, shallow and the same size; fingers stay attached and never pass through the wall. No extra grains, crystals, people, limbs, tools, legs, glitter or scene; no pan detachment, spill, realistic texture, camera motion or zoom. Preserve the exact2D painted illustration style and colours. Sound: silence.\n"
+        }
+      },
+      "6": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "2",
+            0
+          ],
+          "text": "camera movement, zoom, pan, cut, photorealism, 3D shading, new objects, changing architecture, moving shoreline, moving roots, flicker, color pumping, warped shapes, subtitles, text, watermark"
+        }
+      },
+      "7": {
+        "class_type": "ModelSamplingSD3",
+        "inputs": {
+          "model": [
+            "1",
+            0
+          ],
+          "shift": 8.0
+        }
+      },
+      "8": {
+        "class_type": "Wan22ImageToVideoLatent",
+        "inputs": {
+          "vae": [
+            "3",
+            0
+          ],
+          "width": 896,
+          "height": 512,
+          "length": 41,
+          "batch_size": 1,
+          "start_image": [
+            "4",
+            0
+          ]
+        }
+      },
+      "9": {
+        "class_type": "KSampler",
+        "inputs": {
+          "model": [
+            "7",
+            0
+          ],
+          "positive": [
+            "5",
+            0
+          ],
+          "negative": [
+            "6",
+            0
+          ],
+          "latent_image": [
+            "8",
+            0
+          ],
+          "seed": 2026100134,
+          "steps": 24,
+          "cfg": 5.0,
+          "sampler_name": "uni_pc",
+          "scheduler": "simple",
+          "denoise": 1.0
+        }
+      },
+      "10": {
+        "class_type": "VAEDecodeTiled",
+        "inputs": {
+          "samples": [
+            "9",
+            0
+          ],
+          "vae": [
+            "3",
+            0
+          ],
+          "tile_size": 256,
+          "overlap": 64,
+          "temporal_size": 4096,
+          "temporal_overlap": 8
+        }
+      },
+      "11": {
+        "class_type": "SaveWEBM",
+        "inputs": {
+          "images": [
+            "10",
+            0
+          ],
+          "filename_prefix": "local_reference/d2m_geologist_pan_v1_20261001_20261002T032640Z_89e6f4",
+          "codec": "vp9",
+          "fps": 24.0,
+          "crf": 18.0
+        }
+      }
+    },
+    {
+      "client_id": "d2m_geologist_pan_v1_20261001_20261002T032640Z_89e6f4",
+      "create_time": 1790911600362
+    },
+    [
+      "0",
+      "11"
+    ]
+  ],
+  "outputs": {
+    "0": {
+      "latents": [
+        {
+          "filename": "d2m_geologist_pan_v1_20261001_20261002T032640Z_89e6f4_00001_.latent",
+          "subfolder": "local_reference",
+          "type": "output"
+        }
+      ]
+    },
+    "11": {
+      "images": [
+        {
+          "filename": "d2m_geologist_pan_v1_20261001_20261002T032640Z_89e6f4_00002_.webm",
+          "subfolder": "local_reference",
+          "type": "output"
+        }
+      ],
+      "animated": [
+        true
+      ]
+    }
+  },
+  "status": {
+    "status_str": "success",
+    "completed": true,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "ea9b8561-227e-4edd-9e8a-caf40fa18ab8",
+          "timestamp": 1790911600366
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [],
+          "prompt_id": "ea9b8561-227e-4edd-9e8a-caf40fa18ab8",
+          "timestamp": 1790911600382
+        }
+      ],
+      [
+        "execution_success",
+        {
+          "prompt_id": "ea9b8561-227e-4edd-9e8a-caf40fa18ab8",
+          "timestamp": 1790911772426
+        }
+      ]
+    ]
+  },
+  "meta": {
+    "0": {
+      "node_id": "0",
+      "display_node": "0",
+      "parent_node": null,
+      "real_node_id": "0"
+    },
+    "11": {
+      "node_id": "11",
+      "display_node": "11",
+      "parent_node": null,
+      "real_node_id": "11"
+    }
+  }
+}

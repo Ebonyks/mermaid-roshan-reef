@@ -1,0 +1,58 @@
+{
+  "checked_utc": "2026-10-02T03:21:30.609474+00:00",
+  "queue": {
+    "status": "REACHABLE",
+    "running": [],
+    "pending": []
+  },
+  "bindings": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\prepare_workflows.py",
+      "exists": true,
+      "check": true,
+      "matches": true
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\render_local.py",
+      "exists": true,
+      "check": true,
+      "matches": true
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\MODEL_RECEIPT.json",
+      "exists": true,
+      "check": true,
+      "matches": true
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\workflows\\SOURCE_RECEIPT.json",
+      "exists": true,
+      "check": true,
+      "matches": true
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\GGUF_MODEL_RECEIPT.json",
+      "exists": true,
+      "check": false,
+      "matches": true
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\GGUF_TOKENIZER_DEPENDENCIES.json",
+      "exists": true,
+      "check": false,
+      "matches": true
+    },
+    {
+      "path": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\day2_doctor_wash_rub_study_v1_20261001\\workflows\\render_gguf.py",
+      "exists": true,
+      "check": true,
+      "matches": true
+    }
+  ],
+  "matching_benchmarks": [
+    "H:\\MermaidReefTools\\LocalVideo\\jobs\\d2m_b1q_d2a0495_20261001T025152Z_58a0e1\\RENDER_RECEIPT.json",
+    "H:\\MermaidReefTools\\LocalVideo\\jobs\\d2m_b1q_d2a0446_20261001T024641Z_db3b36\\RENDER_RECEIPT.json",
+    "H:\\MermaidReefTools\\LocalVideo\\jobs\\d2m_b1q_d2a0394_20261001T012638Z_000605\\RENDER_RECEIPT.json"
+  ],
+  "mutation": false
+}

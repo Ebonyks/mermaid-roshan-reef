@@ -1,0 +1,80 @@
+{
+  "status": "PREPARED_PROMPT_ONLY_ROLL_RETRY_REFERENCE",
+  "baseline": "edbf2a60e4a73ca149ee53b7f8d01990afd32198",
+  "created_utc": "2026-10-02T03:24:53.467266+00:00",
+  "intention": "Roshan gently washes the pan by rocking it with connected wrists/elbows while both hands maintain their rim grips.",
+  "personality": "Existing Roshan Ribbon Glide attentive-work register; calm purposeful action and settle, no new canon or anatomy.",
+  "event": "Prospective geologist PAN gesture response study only; no input/progress/reward implementation.",
+  "phases": {
+    "ready": [
+      0,
+      0.2
+    ],
+    "left_roll": [
+      0.2,
+      0.65
+    ],
+    "right_roll": [
+      0.65,
+      1.15
+    ],
+    "neutral_settle": [
+      1.15,
+      1.67
+    ]
+  },
+  "anchors": {
+    "fixed": "Head/face/cap/hair/costume/torso/curled tail/full fin and neutral field",
+    "allowed": "Small articulated elbow/wrist travel and rigid-pan tilt; water remains inside. Both hands keep exact rim contact.",
+    "native_hand_landmarks": [
+      [
+        783,
+        649
+      ],
+      [
+        1110,
+        550
+      ]
+    ],
+    "native_water_center": [
+      1090,
+      689
+    ]
+  },
+  "source": {
+    "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/panning_contact/attempt_01/native.png",
+    "sha256": "cec1c974c5796c309695e9ac55155d5712dd493edc300f7618e95ebfb4bc1a59",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "source_score": 4.6,
+    "static_hand_rim_score": 4.6,
+    "owner_accepted": false
+  },
+  "normalization": {
+    "operation": "Uniform whole-canvas768x512 RGBA normalization centered64,0 on896x512 neutral aqua RGB model input. Complete source and all native pixels retained; no cropping, masking, repair, isolated limb movement or new scene. Reference-only technical preparation.",
+    "input_path": "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/inputs/geologist_pan_full_source.png",
+    "input_sha256": "a1af00679ef2924a0217bc926b9a8bcfcabdd7ef7707a2c52d075bcb096ac875",
+    "scaled_dimensions": [
+      768,
+      512
+    ],
+    "position": [
+      64,
+      0
+    ],
+    "background_rgba": [
+      223,
+      244,
+      244,
+      255
+    ]
+  },
+  "loop_contract": "Compare entry/left/right/settle and every41 native frame. No looping or return is accepted before direct review.",
+  "interruptions": "No shipping clip, navigation, lifecycle, saved effect or reward is implemented; actual game remains unchanged.",
+  "acceptance_criteria": "Every frame preserves character identity and topology; fingers maintain rim contact; vessel stays rigid and water contained; visible local articulated movement, stable torso/tail and clear neutral return. Full job pickup/travel/placement/routes/device/child/owner/cinematic acceptance remain separate.",
+  "qualification": "LOCAL_MOTION_REFERENCE_ONLY. Useful motion study cannot supply runtime/cinematic delivery pixels by relabeling.",
+  "previous_motion_review": "assets_src/local_motion/day2_geologist_pan_motion_v1_20261001/attempt_01/REVIEW.json",
+  "single_changed_factor": "Prompt action direction/clear return only; source/input/model/workflow/seed/settings identical."
+}

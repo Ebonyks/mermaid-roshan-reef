@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\day2_geologist_pan_motion_v2_20261001\\inputs\\geologist_pan_full_source.png",
+  "source_sha256": "a1af00679ef2924a0217bc926b9a8bcfcabdd7ef7707a2c52d075bcb096ac875",
+  "source_dimensions": [
+    896,
+    512
+  ],
+  "prompt": "Fixed camera. This exact painted mermaid gently rocks the rigid pan LEFT, RIGHT, then LEVEL, while both hands keep their rim grips. At0.0-0.20s hold the starting pose. At0.20-0.65s roll the pan around its front-to-back centre axis: LEFT rim drops about20pixels, RIGHT rim rises about20pixels, approximately8degrees. Attached elbows and wrists articulate locally to keep both grips. At0.65-1.15s reverse clearly: LEFT rim rises about20pixels, RIGHT rim drops about20pixels, approximately8degrees the opposite way. At1.15-1.67s return the pan and BOTH hands exactly to their starting positions and hold level. Water moves mildly but stays completely inside the pan. Keep the pan size and rigid wall shape unchanged. Her head, face, cap, hair, costume, torso, curled tail and full rainbow fin stay still. Same plain pale aqua background and exact2D storybook paint. No fore-aft flattening, lowering the bowl, whole-body slide, detached hands, spilled water, white streaks outside the vessel, extra objects, extra limbs, legs, realistic textures, zoom or camera movement. Sound: silence.\n",
+  "prompt_sha256": "54943a9d9956ed0fac19d1afdd7b6d791b170268e2ec9f08e0447a9f5354c506",
+  "preset": "quick",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "seed": 2026100134,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/GGUF_MODEL_RECEIPT.json",
+  "workflow_sha256": "5a616bd7381bd0f561865fe8091abeaef92732dbf2dfbb215ec0e66a29679099",
+  "started_at_utc": "20261002T034936Z",
+  "prompt_id": "cf792631-caab-4102-ace3-d6145796f0eb",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_geologist_pan_v2_20261001_20261002T034936Z_6cbbfe_00002_.webm",
+      "sha256": "ce1558a05ecf4678de77d54d6a8cb6d7546903bcf2af3b9807eb5fc39e0ec27e",
+      "bytes": 874082
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\d2m_geologist_pan_v2_20261001_20261002T034936Z_6cbbfe_00002_.mp4",
+      "sha256": "add98e247399b1f7f1d2e33c45daba709976fea009a8bb81147a4b0b8da60262",
+      "bytes": 573979,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 170.7,
+  "completed_at_utc": "2026-10-02T03:52:27.634556+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance"
+}

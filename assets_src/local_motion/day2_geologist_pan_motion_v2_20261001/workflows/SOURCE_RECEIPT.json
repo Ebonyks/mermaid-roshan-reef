@@ -1,0 +1,35 @@
+{
+  "source": "https://comfyanonymous.github.io/ComfyUI_examples/wan22/image_to_video_wan22_5B.json",
+  "sha256": "2b1784c9d6ecf03462651d6e8ded7b5cc5e18047e9eb5e2a885fb6c89c5ac515",
+  "derived_presets": {
+    "quick": {
+      "width": 512,
+      "height": 288,
+      "frames": 33,
+      "steps": 12,
+      "weight_dtype": "fp8_e4m3fn"
+    },
+    "study": {
+      "width": 640,
+      "height": 352,
+      "frames": 49,
+      "steps": 20,
+      "weight_dtype": "fp8_e4m3fn"
+    },
+    "detail": {
+      "width": 960,
+      "height": 544,
+      "frames": 81,
+      "steps": 30,
+      "weight_dtype": "default"
+    },
+    "smoke": {
+      "width": 256,
+      "height": 160,
+      "frames": 5,
+      "steps": 2,
+      "weight_dtype": "default"
+    }
+  },
+  "status": "LOCAL_MOTION_REFERENCE_ONLY"
+}

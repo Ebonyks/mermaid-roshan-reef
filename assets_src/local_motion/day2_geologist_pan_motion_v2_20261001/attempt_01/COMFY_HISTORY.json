@@ -1,0 +1,223 @@
+{
+  "prompt": [
+    9,
+    "cf792631-caab-4102-ace3-d6145796f0eb",
+    {
+      "0": {
+        "class_type": "SaveLatent",
+        "inputs": {
+          "samples": [
+            "9",
+            0
+          ],
+          "filename_prefix": "local_reference/d2m_geologist_pan_v2_20261001_20261002T034936Z_6cbbfe"
+        }
+      },
+      "1": {
+        "class_type": "UnetLoaderGGUFAdvanced",
+        "inputs": {
+          "unet_name": "Wan2.2-TI2V-5B-Q4_K_S.gguf",
+          "dequant_dtype": "bfloat16",
+          "patch_dtype": "bfloat16",
+          "patch_on_device": true
+        }
+      },
+      "2": {
+        "class_type": "CLIPLoaderGGUF",
+        "inputs": {
+          "clip_name": "umt5-xxl-encoder-Q4_K_S.gguf",
+          "type": "wan"
+        }
+      },
+      "3": {
+        "class_type": "VAELoader",
+        "inputs": {
+          "vae_name": "wan2.2_vae.safetensors"
+        }
+      },
+      "4": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "source_a1af00679ef2924a.png"
+        }
+      },
+      "5": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "2",
+            0
+          ],
+          "text": "Fixed camera. This exact painted mermaid gently rocks the rigid pan LEFT, RIGHT, then LEVEL, while both hands keep their rim grips. At0.0-0.20s hold the starting pose. At0.20-0.65s roll the pan around its front-to-back centre axis: LEFT rim drops about20pixels, RIGHT rim rises about20pixels, approximately8degrees. Attached elbows and wrists articulate locally to keep both grips. At0.65-1.15s reverse clearly: LEFT rim rises about20pixels, RIGHT rim drops about20pixels, approximately8degrees the opposite way. At1.15-1.67s return the pan and BOTH hands exactly to their starting positions and hold level. Water moves mildly but stays completely inside the pan. Keep the pan size and rigid wall shape unchanged. Her head, face, cap, hair, costume, torso, curled tail and full rainbow fin stay still. Same plain pale aqua background and exact2D storybook paint. No fore-aft flattening, lowering the bowl, whole-body slide, detached hands, spilled water, white streaks outside the vessel, extra objects, extra limbs, legs, realistic textures, zoom or camera movement. Sound: silence.\n"
+        }
+      },
+      "6": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "2",
+            0
+          ],
+          "text": "camera movement, zoom, pan, cut, photorealism, 3D shading, new objects, changing architecture, moving shoreline, moving roots, flicker, color pumping, warped shapes, subtitles, text, watermark"
+        }
+      },
+      "7": {
+        "class_type": "ModelSamplingSD3",
+        "inputs": {
+          "model": [
+            "1",
+            0
+          ],
+          "shift": 8.0
+        }
+      },
+      "8": {
+        "class_type": "Wan22ImageToVideoLatent",
+        "inputs": {
+          "vae": [
+            "3",
+            0
+          ],
+          "width": 896,
+          "height": 512,
+          "length": 41,
+          "batch_size": 1,
+          "start_image": [
+            "4",
+            0
+          ]
+        }
+      },
+      "9": {
+        "class_type": "KSampler",
+        "inputs": {
+          "model": [
+            "7",
+            0
+          ],
+          "positive": [
+            "5",
+            0
+          ],
+          "negative": [
+            "6",
+            0
+          ],
+          "latent_image": [
+            "8",
+            0
+          ],
+          "seed": 2026100134,
+          "steps": 24,
+          "cfg": 5.0,
+          "sampler_name": "uni_pc",
+          "scheduler": "simple",
+          "denoise": 1.0
+        }
+      },
+      "10": {
+        "class_type": "VAEDecodeTiled",
+        "inputs": {
+          "samples": [
+            "9",
+            0
+          ],
+          "vae": [
+            "3",
+            0
+          ],
+          "tile_size": 256,
+          "overlap": 64,
+          "temporal_size": 4096,
+          "temporal_overlap": 8
+        }
+      },
+      "11": {
+        "class_type": "SaveWEBM",
+        "inputs": {
+          "images": [
+            "10",
+            0
+          ],
+          "filename_prefix": "local_reference/d2m_geologist_pan_v2_20261001_20261002T034936Z_6cbbfe",
+          "codec": "vp9",
+          "fps": 24.0,
+          "crf": 18.0
+        }
+      }
+    },
+    {
+      "client_id": "d2m_geologist_pan_v2_20261001_20261002T034936Z_6cbbfe",
+      "create_time": 1790912976927
+    },
+    [
+      "0",
+      "11"
+    ]
+  ],
+  "outputs": {
+    "0": {
+      "latents": [
+        {
+          "filename": "d2m_geologist_pan_v2_20261001_20261002T034936Z_6cbbfe_00001_.latent",
+          "subfolder": "local_reference",
+          "type": "output"
+        }
+      ]
+    },
+    "11": {
+      "images": [
+        {
+          "filename": "d2m_geologist_pan_v2_20261001_20261002T034936Z_6cbbfe_00002_.webm",
+          "subfolder": "local_reference",
+          "type": "output"
+        }
+      ],
+      "animated": [
+        true
+      ]
+    }
+  },
+  "status": {
+    "status_str": "success",
+    "completed": true,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "cf792631-caab-4102-ace3-d6145796f0eb",
+          "timestamp": 1790912976928
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [],
+          "prompt_id": "cf792631-caab-4102-ace3-d6145796f0eb",
+          "timestamp": 1790912976933
+        }
+      ],
+      [
+        "execution_success",
+        {
+          "prompt_id": "cf792631-caab-4102-ace3-d6145796f0eb",
+          "timestamp": 1790913145260
+        }
+      ]
+    ]
+  },
+  "meta": {
+    "0": {
+      "node_id": "0",
+      "display_node": "0",
+      "parent_node": null,
+      "real_node_id": "0"
+    },
+    "11": {
+      "node_id": "11",
+      "display_node": "11",
+      "parent_node": null,
+      "real_node_id": "11"
+    }
+  }
+}

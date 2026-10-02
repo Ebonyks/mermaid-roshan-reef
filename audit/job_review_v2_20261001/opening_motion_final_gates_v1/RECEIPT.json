@@ -1,0 +1,141 @@
+{
+  "status": "PASS_REVIEW_SUPPLEMENT_MACHINE_GATES",
+  "checked_utc": "2026-10-02T04:07:28.457243+00:00",
+  "processes": [
+    {
+      "name": "parser",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "audit/job_geode_opening_states_v3_20261001/attempt_02/capture.gd",
+        "audit/job_geode_opening_states_v3_20261001/attempt_02/study_surface.gd",
+        "audit/job_geode_opening_states_v3_20261001/attempt_03/capture.gd",
+        "audit/job_geode_opening_states_v3_20261001/attempt_03/study_surface.gd",
+        "audit/job_geode_opening_states_v3_20261001/capture.gd",
+        "audit/job_geode_opening_states_v3_20261001/study_surface.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 0.8102262000320479,
+      "stdout": "audit/job_review_v2_20261001/opening_motion_final_gates_v1/parser.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/opening_motion_final_gates_v1/parser.stderr.log"
+    },
+    {
+      "name": "inference",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "audit/job_geode_opening_states_v3_20261001/attempt_02/capture.gd",
+        "audit/job_geode_opening_states_v3_20261001/attempt_02/study_surface.gd",
+        "audit/job_geode_opening_states_v3_20261001/attempt_03/capture.gd",
+        "audit/job_geode_opening_states_v3_20261001/attempt_03/study_surface.gd",
+        "audit/job_geode_opening_states_v3_20261001/capture.gd",
+        "audit/job_geode_opening_states_v3_20261001/study_surface.gd"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 0.10795079998206347,
+      "stdout": "audit/job_review_v2_20261001/opening_motion_final_gates_v1/inference.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/opening_motion_final_gates_v1/inference.stderr.log"
+    },
+    {
+      "name": "import",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef",
+        "--import"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 12.093675800017081,
+      "stdout": "audit/job_review_v2_20261001/opening_motion_final_gates_v1/import.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/opening_motion_final_gates_v1/import.stderr.log"
+    },
+    {
+      "name": "contract_tests",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "unittest",
+        "tools.tests.test_audit_document_authority",
+        "tools.tests.test_audit_development"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 11.510914200043771,
+      "stdout": "audit/job_review_v2_20261001/opening_motion_final_gates_v1/contract_tests.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/opening_motion_final_gates_v1/contract_tests.stderr.log"
+    },
+    {
+      "name": "2d_regression",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_game_2d.py",
+        "--regression-gate"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 176.93443739996292,
+      "stdout": "audit/job_review_v2_20261001/opening_motion_final_gates_v1/2d_regression.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/opening_motion_final_gates_v1/2d_regression.stderr.log"
+    },
+    {
+      "name": "authority",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 7.601878000015859,
+      "stdout": "audit/job_review_v2_20261001/opening_motion_final_gates_v1/authority.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/opening_motion_final_gates_v1/authority.stderr.log"
+    },
+    {
+      "name": "development",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "process_exit": 0,
+      "timed_out": false,
+      "seconds": 6.009805000037886,
+      "stdout": "audit/job_review_v2_20261001/opening_motion_final_gates_v1/development.stdout.log",
+      "stderr": "audit/job_review_v2_20261001/opening_motion_final_gates_v1/development.stderr.log"
+    }
+  ],
+  "review_gd_files": [
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/capture.gd",
+    "audit/job_geode_opening_states_v3_20261001/attempt_02/study_surface.gd",
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/capture.gd",
+    "audit/job_geode_opening_states_v3_20261001/attempt_03/study_surface.gd",
+    "audit/job_geode_opening_states_v3_20261001/capture.gd",
+    "audit/job_geode_opening_states_v3_20261001/study_surface.gd"
+  ],
+  "source325_unchanged": true,
+  "strict_2d_status": "UNSATISFIED; regression-only pass is not strict zero debt",
+  "qualification": "Original325-source82/82 full suite and hostedD validation carry forward only byte-identical production sources. New6 disposable geode scripts plus local motion Python syntax and official import/contract/authority/development/2D regression gates are checked. Every312 selected native comparison and current reference frame reviews are individually qualified; no full ordinary route/device/child/owner/goal acceptance."
+}
