@@ -47,6 +47,8 @@ Later matching clean/water review (2026-10-01): the [complete clean-reaching sou
 
 ## 0. Planning entry
 
+QA portability continuation (2026-10-02): [lossless short-path package and hosted failure evidence](job_qa_portable_v1_20261002/index.html) preserves all428 generated process/cache/log files, every original byte/path/hash, local originals and immutable P/O revisions. Hosted O gameplay probes passed; Windows area-music checkout failed with Filename too long before its test. No workflow/security/source/art/score changes. All783 current literal source bytes unchanged; local82/82 remains scoped machine evidence. Fresh corrected hosted/remote verification is pending; no integration/release or visual/owner acceptance. [Impact](../design/audit_impacts/job-qa-portability-20261002.json).
+
 Current Geologist recheck (2026-10-02): [fresh actual Library route/earned return and Opera elevator entry](job_geode_current_recheck_v1_20261002/index.html) directly reviews58 selected canvases/318 consecutive opening-celebration-return frames,37 boards/24 native details; all783 literal current sources unchanged.27 opinions retain opening/mounting4.5/rooted material4.6 and23 inclusive priorities including flat room2.8/contact2.7/clearing3.9/pan3.8. V35 registry1778 entries preserves V34.1 and binds current opinions to the new complete boundary. Old mounted Geologist report is historical. Other complete timed tasks, device/child/owner/all-job acceptance and finding lifecycles remain open. [Impact](../design/audit_impacts/job-geode-current-recheck-20261002.json).
 
 
@@ -179,6 +181,8 @@ active-fact checks; do not hand-copy its counts into planning rules.
 
 <!-- AUDIT_TASK_INDEX_START -->
 ### Development task index
+
+QA portability continuation (2026-10-02): [lossless short-path package and hosted failure evidence](job_qa_portable_v1_20261002/index.html) preserves all428 generated process/cache/log files, every original byte/path/hash, local originals and immutable P/O revisions. Hosted O gameplay probes passed; Windows area-music checkout failed with Filename too long before its test. No workflow/security/source/art/score changes. All783 current literal source bytes unchanged; local82/82 remains scoped machine evidence. Fresh corrected hosted/remote verification is pending; no integration/release or visual/owner acceptance. [Impact](../design/audit_impacts/job-qa-portability-20261002.json).
 
 Current Geologist recheck (2026-10-02): [fresh actual Library route/earned return and Opera elevator entry](job_geode_current_recheck_v1_20261002/index.html) directly reviews58 selected canvases/318 consecutive opening-celebration-return frames,37 boards/24 native details; all783 literal current sources unchanged.27 opinions retain opening/mounting4.5/rooted material4.6 and23 inclusive priorities including flat room2.8/contact2.7/clearing3.9/pan3.8. V35 registry1778 entries preserves V34.1 and binds current opinions to the new complete boundary. Old mounted Geologist report is historical. Other complete timed tasks, device/child/owner/all-job acceptance and finding lifecycles remain open. [Impact](../design/audit_impacts/job-geode-current-recheck-20261002.json).
 

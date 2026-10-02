@@ -1,0 +1,32 @@
+{
+  "status": "PLANNED_BEFORE_ARCHIVE_CHANGE",
+  "baseline": "9cd42f3acfe80c424aa4ca28288c3331b4340f0a",
+  "checked_utc": "2026-10-02T23:55:58.051495+00:00",
+  "scope": "Reversible packaging repair for Windows checkout of already-published job QA. Preserve every original byte/path/hash in a lossless short-member ZIP, historical commits and physical local originals. Untrack only these 428 isolated Godot process/cache/log files. Do not change production art, source, workflows, security settings, engine, scores, protected originals or owner decisions.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-06",
+    "DL-QA-07"
+  ],
+  "findings": [],
+  "no_findings_reason": "The concrete hosted Windows checkout failure is new QA evidence packaging portability, not a new game visual defect. Preserve MA-VIS-006, MA-PLAY-004 and MA-OPERA-012 lifecycle states; no visual closure claimed.",
+  "required_evidence": [
+    "Exact completed O hosted job status and checkout fatal lines",
+    "All 428 archive members roundtrip byte/SHA matched to P Git blobs",
+    "All current783 production boundary members literal unchanged",
+    "Current index Windows absolute-path length inventory",
+    "Document authority/development gates",
+    "Exact immutable anonymous remote payload verification",
+    "Fresh hosted suite at corrected revision; no integration while red"
+  ]
+}
