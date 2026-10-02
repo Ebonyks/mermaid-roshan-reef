@@ -1,0 +1,79 @@
+{
+  "id": "job-geode-remote-verification-receipt-20261002",
+  "scope": "Publish the completed immutable supported-geode checkpoint M anonymous byte-verification receipt and complete lossless journal to the established GitHub review destination; link it from canonical planning/ledger. No artwork, runtime, probe, source/test or lifecycle change.",
+  "baseline": "9df7340c9821c905bc618347ff95dcb498f3d058",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-QA-03"
+  ],
+  "findings": [],
+  "no_findings_reason": "Publication evidence for the existing qualified review; no defect or finding lifecycle repaired or changed.",
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/FILES_V12.json",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/IMPACT_PRE_RETRY.original.json",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/PLAN.json",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/PLAN_PRE_RETRY.original.json",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/RESULT.json",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/SOURCE_RECHECK_V341.json",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/VERIFICATION_JOURNAL.jsonl.gz",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/gates/authority.receipt.json",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/gates/authority.stderr.log",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/gates/authority.stdout.log",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/gates/authorityv2.receipt.json",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/gates/authorityv2.stderr.log",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/gates/authorityv2.stdout.log",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/gates/development.receipt.json",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/gates/development.stderr.log",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/gates/development.stdout.log",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/gates/developmentv2.receipt.json",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/gates/developmentv2.stderr.log",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/gates/developmentv2.stdout.log",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/index.html",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/publish_geode_receipt_retry_v341.py",
+    "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/publish_geode_remote_receipt_v340.py",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/job-geode-remote-verification-receipt-20261002.json"
+  ],
+  "validation": [
+    {
+      "command": "Exact immutable checkpoint M anonymous TLS GET and SHA-256 of every manifest/payload/reference file",
+      "result": "PASS",
+      "evidence": "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/RESULT.json"
+    },
+    {
+      "command": "Verify every 377 frozen local source hash and canonical Git source hash remains identical to checkpoint M",
+      "result": "PASS",
+      "evidence": "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/PLAN.json"
+    },
+    {
+      "command": "Original document-authority gate",
+      "result": "PASS",
+      "evidence": "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/gates/authority.receipt.json"
+    },
+    {
+      "command": "Original development-coverage gate",
+      "result": "FAIL",
+      "evidence": "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/gates/development.receipt.json"
+    },
+    {
+      "command": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe -X utf8 -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/gates/authorityv2.receipt.json"
+    },
+    {
+      "command": "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe -X utf8 -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "audit/job_review_v2_20261001/supported_geode_remote_verified_v12/gates/developmentv2.receipt.json"
+    }
+  ],
+  "outstanding": [
+    "No new runtime or art acceptance; full all-job audit/refinement and device/child/owner acceptance remain open. Hosted CI status is separate."
+  ],
+  "acceptance_gaps": "Publication evidence only; no new visual, runtime, phone, child, owner or full all-job acceptance. Hosted CI remains separate. All 377 current production/test sources remain unchanged."
+}

@@ -1,0 +1,11 @@
+{
+  "status": "FAIL_PRESERVED",
+  "wrapper_process_exit": 1,
+  "underlying_process_exit": null,
+  "diagnostics": [
+    "Impact record missing required acceptance_gaps string"
+  ],
+  "stdout_sha256": "fa5dd8371afffa39d3e24e0c3fee96e0caaf3e4019a7716edf387da04482ce4a",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "qualification": "Original wrapper stopped on the nonzero audit-development result; its exact underlying exit number was not persisted. Raw result and original deficient impact record are preserved. No runtime or artwork failure."
+}

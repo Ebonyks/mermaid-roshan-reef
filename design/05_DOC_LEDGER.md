@@ -1034,3 +1034,5 @@ Kept as-is; noted so a future edit updates every copy.
 | `assets_src/imagegen/geologist_geode_contact_v1_20261002/index.html` | 🟣 | `CANDIDATE`; two preserved native static contact sources. A1 rejected whole pose4.3/scale4.1/far reach4.3; A2 material/identity/rooted semantics4.6, contact/whole static pose4.5 provisional. Both are unbound and confer no complete animation, live-work improvement, device/child/owner or all-job acceptance. Existing live contact2.7 remains. |
 
 | `audit/job_artwork_refinement_live/ALL_ITEMS_V32.original.json` | ⚪ | `HISTORICAL_SUPPORTING`; exact prior 1727-entry register before the two new unbound contact sources. |
+
+| `audit/job_review_v2_20261001/supported_geode_remote_verified_v12/index.html` | 🔵 | `SUPPORTING_CURRENT`; immutable checkpoint 9df7340c remote verification: all 6,366 declared payload/reference/manifest files anonymously match exact bytes/SHA-256 at 2026-10-02 14:06:44–14:09:46 UTC. Lossless full journal and receipt preserve the checks. All 377 production/test sources unchanged; publication proof grants no visual, owner, integration or release acceptance. |

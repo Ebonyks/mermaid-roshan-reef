@@ -1,0 +1,18 @@
+{
+  "status": "VERIFIED_REVIEW_RECEIPT_PREPARED_FOR_DURABLE_PUBLICATION",
+  "review_revision": "9df7340c9821c905bc618347ff95dcb498f3d058",
+  "review_manifest_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/9df7340c9821c905bc618347ff95dcb498f3d058/audit/job_review_v2_20261001/GEOLOGY_SUPPORTED_GEODE_SUPPLEMENT_FILES_V11.json",
+  "review_manifest_sha256": "a2ff19e382983ff211947c2802aee9759cbbfb4250474d9f9e01766c5aea0ccd",
+  "review_payload_sha256": "328a65bf3c085c7ad978b87a2fef3a9b6feacea707b43037c86baa3c849f6a3e",
+  "receipt_native_sha256": "78f24cfa846c395a2f525de35d8594c14d722bc00d2eb6bbca2221f47cd175a3",
+  "journal_uncompressed_sha256": "8355e8ed1c4d02b645f32be3424db995d9657a333c93f239a3dfac7709d73833",
+  "journal_lines": 6366,
+  "journal_method": "Lossless gzip, deterministic mtime 0; literal HTTP verification journal bytes retained on decompression.",
+  "qualification": "Publication-only sidecar for the already verified immutable review revision. All 377 literal local and canonical Git production/test sources remain unchanged. No new runtime/image edit, fresh motion review, finding closure, owner acceptance, integration or release.",
+  "document_gate_retry": {
+    "reason": "Required acceptance_gaps string absent from first sidecar impact record",
+    "original_impact": "IMPACT_PRE_RETRY.original.json",
+    "failed_receipt": "gates/development.receipt.json",
+    "qualification": "Documentation metadata correction only; no new application defect, lifecycle or source change."
+  }
+}
