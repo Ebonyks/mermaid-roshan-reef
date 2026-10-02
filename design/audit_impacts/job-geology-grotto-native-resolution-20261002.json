@@ -1,0 +1,76 @@
+{
+  "id": "job-geology-grotto-native-resolution-20261002",
+  "scope": "Inventory and named native-resolution replacement gap for currently procedural geology room, preserve all references and attempts outside runtime.",
+  "baseline": "c6f03791aee93f1443d423dd50334804e37313fb",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-LAY-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-MED-01",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-06"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004",
+    "MA-OPERA-012"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/imagegen/geologist_grotto_native2k_v1_20261002/BROWSER_QA.json",
+    "assets_src/imagegen/geologist_grotto_native2k_v1_20261002/BROWSER_QA_V1.json",
+    "assets_src/imagegen/geologist_grotto_native2k_v1_20261002/LAYOUT_CORRECTION_V271.json",
+    "assets_src/imagegen/geologist_grotto_native2k_v1_20261002/PLAN.json",
+    "assets_src/imagegen/geologist_grotto_native2k_v1_20261002/attempt_01/GENERATION.json",
+    "assets_src/imagegen/geologist_grotto_native2k_v1_20261002/attempt_01/PROMPT.txt",
+    "assets_src/imagegen/geologist_grotto_native2k_v1_20261002/attempt_01/REVIEW.json",
+    "assets_src/imagegen/geologist_grotto_native2k_v1_20261002/attempt_01/native.png",
+    "assets_src/imagegen/geologist_grotto_native2k_v1_20261002/index.html",
+    "assets_src/imagegen/geologist_grotto_native2k_v1_20261002/index_LAYOUT_BEFORE_V271.html",
+    "assets_src/imagegen/geologist_grotto_native2k_v1_20261002/prepare_grotto_native_resolution_v265.py",
+    "assets_src/imagegen/geologist_grotto_native2k_v1_20261002/record_grotto_resolution_attempt_v266.py"
+  ],
+  "validation": [
+    {
+      "command": "Existing relevant source inventory and literal native dimensions",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/geologist_grotto_native2k_v1_20261002/PLAN.json; all3 relevant existing room/stage1672x941."
+    },
+    {
+      "command": "Requested native2048-square built-in generation",
+      "result": "FAIL",
+      "evidence": "assets_src/imagegen/geologist_grotto_native2k_v1_20261002/attempt_01/GENERATION.json; returned1254x1254, no native2K claim."
+    },
+    {
+      "command": "Direct complete returned image and9 source/component reviews",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/geologist_grotto_native2k_v1_20261002/attempt_01/REVIEW.json; whole source4.5/ceiling4.4, reference-only."
+    },
+    {
+      "command": "Read-only browser artwork loading/layout",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/geologist_grotto_native2k_v1_20261002/BROWSER_QA.json; all4 illustrations load; no creative acceptance inference."
+    },
+    {
+      "command": "Fresh browser DOM and screenshot after CSS repair",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/geologist_grotto_native2k_v1_20261002/BROWSER_QA.json; 4/4 loaded, bounded layout; dark caption labels readable where applicable."
+    }
+  ],
+  "acceptance_gaps": "Native resolution failed; image remains outside runtime. Live room2.8/contact2.7, actual sequence/device/child/owner, all-job and finding acceptance remain open."
+}

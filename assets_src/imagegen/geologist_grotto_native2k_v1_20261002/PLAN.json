@@ -1,0 +1,88 @@
+{
+  "status": "REFERENCE_ONLY_NATIVE_RESOLUTION_FAILED",
+  "created_utc": "2026-10-02T10:02:57.738021+00:00",
+  "baseline": "c6f03791aee93f1443d423dd50334804e37313fb",
+  "scope": "Replace specifically weak live procedural geology room2.8 with a genuinely native2048-square painting meeting the existing per-screen raster rule. Inventory suitable existing references first; source identity/palette reusable but native coverage insufficient.",
+  "rules": [
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-LAY-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004",
+    "MA-OPERA-012"
+  ],
+  "inventory": [
+    {
+      "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/grotto/attempt_01/native.png",
+      "sha256": "ebc2ea1ab64173dd678ec43bbc0a0daedc4e1548b26dc6d096038bad0ea3f545",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "reuse_assessment": "Painted reference exists, but1672x941 native does not meet2048x2048 per-screen coverage. Padding/upscaling cannot create native coverage. Finale stage is also a different setting, not a substitute geology room."
+    },
+    {
+      "path": "assets_src/geologist_rebuild_2026-09-05/geology_grotto_candidate.png",
+      "sha256": "e60684278d33e43a51eea3534b99aa8c70e90b2ef3f11004f4d04154273fbd4b",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "reuse_assessment": "Painted reference exists, but1672x941 native does not meet2048x2048 per-screen coverage. Padding/upscaling cannot create native coverage. Finale stage is also a different setting, not a substitute geology room."
+    },
+    {
+      "path": "assets_src/imagegen/opera_codex_2026-08-02/native/opera_stage_finale_master_native.png",
+      "sha256": "c46b1aeb6ea15b10e26f0de87973068f359d39f0ac870501ad1d2a4b00ab5fc9",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "reuse_assessment": "Painted reference exists, but1672x941 native does not meet2048x2048 per-screen coverage. Padding/upscaling cannot create native coverage. Finale stage is also a different setting, not a substitute geology room."
+    }
+  ],
+  "generation_method": "Built-in image_gen, one reference bound for game-room appearance, no protected book art.",
+  "references": [
+    {
+      "role": "room appearance/identity only",
+      "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/grotto/attempt_01/native.png",
+      "sha256": "ebc2ea1ab64173dd678ec43bbc0a0daedc4e1548b26dc6d096038bad0ea3f545",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "reuse_assessment": "Painted reference exists, but1672x941 native does not meet2048x2048 per-screen coverage. Padding/upscaling cannot create native coverage. Finale stage is also a different setting, not a substitute geology room."
+    }
+  ],
+  "prompt_sha256": "b814fc7bdda0bbe6507e44401d33670aab1ae16218ee88de19f4c8e3e7ad3e1d",
+  "required_native_dimensions": [
+    2048,
+    2048
+  ],
+  "required_evidence": [
+    "Native returned dimensions; never padding/upscale as native coverage.",
+    "Direct full image and individual environment-object/style/layout review at source.",
+    "If native coverage passes and artwork>=4.5, preserve whole native and derive non-overlapping runtime cards separately with provenance.",
+    "Subsequent actual runtime input/completion/return, Mobile/Speedy and device/child/owner review."
+  ],
+  "qualification": "No generation/style/dimension pass presumed. Current frozen368 production remains unchanged. Missing native coverage keeps an otherwise good image reference-only. No all-job, owner, lifecycle, integration or release acceptance.",
+  "returned_native_dimensions": [
+    1254,
+    1254
+  ],
+  "next_action": "Preserve this attempt; do not repeat an identical prompt or label an upscale2K native. A later genuine native/tile solution must meet2048-square coverage and object continuity before binding."
+}

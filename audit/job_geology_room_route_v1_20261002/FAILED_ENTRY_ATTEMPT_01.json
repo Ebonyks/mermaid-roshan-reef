@@ -1,0 +1,28 @@
+{
+  "status": "FAILED_ENTRY_FIXTURE_NO_ROUTE_PASS",
+  "recorded_utc": "2026-10-02T09:31:36.704123+00:00",
+  "fixture": "audit/job_geology_room_route_v1_20261002/capture.gd",
+  "sha256": "59d7bb9d4117d3229329673d2493683d7be763b6dad2341f388c42df27597d14",
+  "receipt": "audit/job_geology_room_route_v1_20261002/runtime_gate/capture1280v1.receipt.json",
+  "own_process_stopped": {
+    "pid": 21444,
+    "parent_pid": 36636,
+    "executable": "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+    "reason": "Assertion-stopped coroutine; only exact route-capture process killed after Cim executable/arguments verification."
+  },
+  "cause": "Entry fixture omitted normal g.t initialization used by the trusted room probe and touched the job while its entrance fade could still block input. These fixture mistakes do not establish production defects.",
+  "preserved_images": [
+    {
+      "path": "audit/job_geology_room_route_v1_20261002/attempt_01/native_views/geologist_1280_normal_library_card.webp",
+      "sha256": "fd579213ab258769adabb65ed7c119f4bce18e947ef3d068853236d8d98481e4",
+      "direct_review": false,
+      "score": null
+    },
+    {
+      "path": "audit/job_geology_room_route_v1_20261002/attempt_01/native_views/geologist_1280_phase0_invitation.webp",
+      "sha256": "8c722cf422a97d803d74679c93492b499d97ce792854cc4b073cb710d3b4aa4e",
+      "direct_review": false,
+      "score": null
+    }
+  ]
+}

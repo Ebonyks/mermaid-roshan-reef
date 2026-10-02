@@ -1,0 +1,10 @@
+{
+  "status": "CORRECTED_BROWSER_RECHECK_PASS",
+  "recorded_utc": "2026-10-02T10:30:04.133070+00:00",
+  "reason": "Earlier prose spacing pass also reached CSS raw text, inserting spaces into hexadecimal colors and h1 selector. Images loaded but caption backgrounds disappeared; dark-panel labels had poor contrast. Preserve earlier page/QA; repair only CSS declarations and exact source labels, without changing artwork or scores.",
+  "before": "index_LAYOUT_BEFORE_V271.html",
+  "after": "index.html",
+  "css_before": "body{font:17px/1.6 system-ui;margin:0;background:#edf 3f 7;color:#253449}main{max-width:1100px;padding:24px;margin:auto}h 1{font-size:30px}article{background:white;border:1px solid #a 8b 5cc;border-radius:18px;padding:20px;margin:18px 0}.compare{display:flex;align-items:center;justify-content:space-around;gap:20px;padding:28px;border-radius:15px;min-height:115px}figure{margin:0;display:flex;flex-direction:column;align-items:center}figcaption{background:#f 6f 9ff;color:#253449;padding:2px 12px;border-radius:10px;margin-top:12px}.crop{position:relative;overflow:hidden;flex-shrink:0}.crop img{position:absolute;max-width:none}a{color:#354bac}p{max-width:85ch}.qualification{background:#fff 2cf;padding:15px;border-radius:10px}",
+  "css_after": "body{font:17px/1.6 system-ui;margin:0;background:#edf3f7;color:#253449}main{max-width:1100px;padding:24px;margin:auto}h1{font-size:30px}article{background:white;border:1px solid #a8b5cc;border-radius:18px;padding:20px;margin:18px 0}.compare{display:flex;align-items:center;justify-content:space-around;gap:20px;padding:28px;border-radius:15px;min-height:115px}figure{margin:0;display:flex;flex-direction:column;align-items:center}figcaption{background:#f6f9ff;color:#253449;padding:2px 12px;border-radius:10px;margin-top:12px}.crop{position:relative;overflow:hidden;flex-shrink:0}.crop img{position:absolute;max-width:none}a{color:#354bac}p{max-width:85ch}.qualification{background:#fff2cf;padding:15px;border-radius:10px}",
+  "browser_recheck": "BROWSER_QA.json"
+}

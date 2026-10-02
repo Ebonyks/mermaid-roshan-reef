@@ -1,0 +1,19 @@
+from pathlib import Path
+import datetime, hashlib, json, re, shutil
+
+b=Path('C:/Users/Peter/.codex/worktrees/job-art-review-v2-20261001/mermaid-roshan-reef');f=b/'assets_src/reuse/geology_geode_emblems_v1_20261002'
+read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'))
+def write(p,d):p.write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
+rows=[]
+for width in [50,80,175,220]:
+ rows.append(dict(id=f'GEO-EMBLEM-EXISTING-{width}',width=width,role='Existing vector source preview',score=2.9,actual_route_score=2.9 if width in [50,220] else None,evaluation='The solid dark triangular base and two flat candy-colored shards remain a schematic symbol. The lack of stone cavities and painted material breaks continuity with the real rooted-crystal geode. Current shipping crest/goal defects are independently documented; optional widths are source studies only.',direct_review=True,owner_acceptance=None))
+ rows.append(dict(id=f'GEO-EMBLEM-REUSE-{width}',width=width,role='Same authored open-geode isolated reuse preview',score=4.5 if width==50 else 4.6,actual_route_score=None,evaluation=('At literal50px, both lavender stone halves and two turquoise/purple interiors remain distinguishable. The painted shell contour stays clear on the pale card palette. Fine crystal facets necessarily reduce at this size; this is a provisional4.5 isolated icon opinion, requiring actual card/actor and device review.' if width==50 else f'At literal{width}px, the two stone cavities, cream inner rim, broad painted lavender/aqua bands and embedded cyan/purple crystals read clearly without a detached loot object. The authored alpha and original aspect remain intact. Isolated reuse material/style4.6; this does not score the surrounding room, normal celebration, touch or complete route.'),direct_review=True,owner_acceptance=None))
+for row in rows:row['evaluation']=re.sub(r'(?<=[a-z])(?=\d)',' ',row['evaluation'])
+write(f/'REVIEW.json',dict(status='ALL8_ISOLATED_REUSE_PRESENTATIONS_REVIEWED_NOT_MOUNTED',reviewed_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),individual_items=rows,source_pixel_edit=False,new_generation=False,qualification='Browser exact-size isolated previews, all8 presentations inspected. Existing actual defects2.9 remain until later binding. Isolated50px reuse4.5 provisional, other sizes4.6; no actual runtime/complete-action/device/child/owner acceptance.',browser_qa=dict(url='http://127.0.0.1:8880/assets_src/reuse/geology_geode_emblems_v1_20261002/index.html',viewport_width=1280,document_width=1265,images=8,complete_images=8,broken_images=0,crop_windows=[50,80,175,220],authored_source_natural_size=[2048,1024])) )
+p=f/'index.html';s=p.read_text(encoding='utf-8');pending='<p>Object/source readability review pending. This browser comparison does not contain the game actors, touch, completion or return.</p>';assert s.count(pending)==4
+for width in [50,80,175,220]:
+ chosen=next(x for x in rows if x['id']==f'GEO-EMBLEM-REUSE-{width}');s=s.replace(pending,'<p><strong>Existing2.9/5 · isolated painted reuse'+str(chosen['score'])+'/5.</strong> '+chosen['evaluation']+'</p>',1)
+s=''.join(re.sub(r'(?<=[a-z])(?=\d)',' ',x) if i%2==0 else x for i,x in enumerate(re.split(r'(<[^>]*>)',s)));p.write_text(s,encoding='utf-8',newline='\n')
+shutil.copyfile(__file__,f/Path(__file__).name)
+ip=b/'design/audit_impacts/job-geology-geode-emblem-reuse-20261002.json';d=read(ip);d['files']=sorted(set(d['files'])|{q.relative_to(b).as_posix() for q in f.rglob('*') if q.is_file()});d['validation'].append(dict(command='Direct exact-size browser review all8 presentations',result='PASS',evidence=f.relative_to(b).as_posix()+'/REVIEW.json; isolated50px reuse4.5, other sizes4.6, actual mounted/action/device/owner scores remain pending.'));write(ip,d)
+print('Recorded8 individual isolated opinions; no frozen production edit.',flush=True)

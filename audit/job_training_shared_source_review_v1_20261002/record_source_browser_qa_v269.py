@@ -1,0 +1,15 @@
+from pathlib import Path
+import datetime, json, re, shutil
+
+b=Path('C:/Users/Peter/.codex/worktrees/job-art-review-v2-20261001/mermaid-roshan-reef')
+read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'))
+def write(p,d):p.write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
+families=[('audit/job_training_shared_source_review_v1_20261002',3,'job-training-shared-source-review-20261002.json'),('assets_src/imagegen/geologist_grotto_native2k_v1_20261002',4,'job-geology-grotto-native-resolution-20261002.json'),('assets_src/reuse/geology_geode_emblems_v1_20261002',8,'job-geology-geode-emblem-reuse-20261002.json')]
+for rel,count,impact in families:
+ f=b/rel;s=(f/'index.html').read_text(encoding='utf-8');s=''.join(re.sub(r'(?<=[a-z])(?=\d)',' ',x) if i%2==0 else x for i,x in enumerate(re.split(r'(<[^>]*>)',s)));(f/'index.html').write_text(s,encoding='utf-8',newline='\n')
+ write(f/'BROWSER_QA.json',dict(status='PASS_IMAGES_LOADED_LAYOUT_BOUNDED',recorded_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),url='http://127.0.0.1:8880/'+rel+'/index.html',images=count,complete_images=count,broken_images=0,viewport_width=1280,document_width=1265,qualification='Observed read-only DOM and screenshot/source views; loading/layout is separate from creative/runtime/device/owner acceptance. Prose spacing was normalized after observation. Exact generation prompt/native bytes preserved.'))
+ ip=b/'design/audit_impacts'/impact;d=read(ip);d['files']=sorted(set(d['files'])|{p.relative_to(b).as_posix() for p in f.rglob('*') if p.is_file()});d['validation'].append(dict(command='Read-only browser artwork loading/layout',result='PASS',evidence=rel+'/BROWSER_QA.json; all'+str(count)+' illustrations load; no creative acceptance inference.'));write(ip,d)
+f=b/'audit/job_training_shared_source_review_v1_20261002';shutil.copyfile(__file__,f/Path(__file__).name)
+write(f/'REGISTER_BROWSER_QA_V30.json',dict(status='PASS_SCOPED_NEW_SOURCE_ROWS',recorded_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),url='http://127.0.0.1:8880/audit/job_artwork_refinement_live/all_items.html',search='assets/castle/training/',selected_lane='All known items',visible_rows=['D1V2-0048','D1V2-0049','D1V2-0050','D2A-0002'],images=4,complete_images=4,broken_images=0,displayed_counts=dict(unique_sources=1245,registered_items=1722,inclusive_priorities=676,unassigned_sources=385),qualification='Three newly reviewed source rows show4.6; unchanged ghost-hand row4.6 separately visible. Scoped register display/loading only, not exhaustive live binding or all-item acceptance.'))
+ip=b/'design/audit_impacts/job-training-shared-source-review-20261002.json';d=read(ip);d['files']=sorted(set(d['files'])|{p.relative_to(b).as_posix() for p in f.rglob('*') if p.is_file()});d['validation'].append(dict(command='Scoped register V30 browser display',result='PASS',evidence=f.relative_to(b).as_posix()+'/REGISTER_BROWSER_QA_V30.json;4/4 loaded,3 new source opinions,1722/676/385 shown.'));write(ip,d)
+print('Source reports browser QA3/3,4/4,8/8; scoped register4/4. No production edit.',flush=True)

@@ -1,0 +1,255 @@
+{
+  "status": "PASS59_EXISTING_METHODS_LITERAL_UNCHANGED",
+  "checked_utc": "2026-10-02T09:20:51.944745+00:00",
+  "baseline": "c6f03791aee93f1443d423dd50334804e37313fb",
+  "script_before_sha256": "8b769f283c9c24b8fe3bed3d4901be8affd6b8f490543992ad52420792470b29",
+  "script_after_sha256": "441b24fcbd4752d6ec5bf8febfa7c79255311a813b56afb798aa19de77247666",
+  "unchanged_methods": [
+    {
+      "method": "configure",
+      "sha256": "8025e538fd448a64c47f40a547eee1eeb75cc4212f7a8c25eb24247f9a64b870"
+    },
+    {
+      "method": "stage_name",
+      "sha256": "b92ba5181bb0334b491305b2f73e39b0bf0cf3825619812e7ac8d120c7e877bd"
+    },
+    {
+      "method": "progress",
+      "sha256": "dd501fb32a423dae9a33abeec332f0fedb8f327a2cfbf87a52c47c897d412085"
+    },
+    {
+      "method": "river_path_point",
+      "sha256": "22025307f2dfae6304653d6555b669f1f639645625af7008e8a8d780b9e9c197"
+    },
+    {
+      "method": "fossil_piece_home",
+      "sha256": "0072fceca97eab1dccbcc7e1b970bce476650669b5b3a070b64722ccbcac166f"
+    },
+    {
+      "method": "fossil_piece_target",
+      "sha256": "5a2f987d3067698b6c5b37496e4117ffe292250360a8cfd8ed9c2a2610efa718"
+    },
+    {
+      "method": "geode_seam_spot",
+      "sha256": "a62c9ef8adaf814c5c34777bd8dec12a981842d805f6f01a3760ba9f3870277d"
+    },
+    {
+      "method": "geode_half_center",
+      "sha256": "3a8e384104a9c41eae1214678273a7121004a1caf120e0a889bc038e52d3936e"
+    },
+    {
+      "method": "progress_snapshot",
+      "sha256": "8f952fc9c2e93ba475e02646c45e87fcd5aa22b8f32602092821d3745d1b44fc"
+    },
+    {
+      "method": "restore_progress",
+      "sha256": "49593daf0dd4e435b6794bba76bb8383a28e86d64a2dd859ae1ccf08b16a0d16"
+    },
+    {
+      "method": "cancel_input",
+      "sha256": "e06e2e97a4f251ada7d048f39664dc419c1407f3b151e5e58fba4b33d5119f30"
+    },
+    {
+      "method": "restart_demo",
+      "sha256": "84fd4a4214df096dd0342062762df5370b93d77ef4f2368008cba10130f31845"
+    },
+    {
+      "method": "_optional_texture",
+      "sha256": "1542ff3547b84683e94cea9e643dbfcdefebd7a624065d38dea0bb7d2e1fbc53"
+    },
+    {
+      "method": "_input_blocked",
+      "sha256": "810f51619ddc7207d339f760b251ef7f0df6029bccd07f0a14896dc4600fb479"
+    },
+    {
+      "method": "_press",
+      "sha256": "52806d29e823b71be953c38064d50e607c02b1ecefdf3190f79636c521c910d2"
+    },
+    {
+      "method": "_drag",
+      "sha256": "da0c1d9298b6bde149ce93ac514e3b0b07cde0f054150f149314edc26ad1cd7e"
+    },
+    {
+      "method": "_release",
+      "sha256": "2b04929db560aeae42f1b2c586b5106c77527d81eabfeedac39ae47914f98fed"
+    },
+    {
+      "method": "_gui_input",
+      "sha256": "ca02b8aaaddd8c56f5808f2bb31d815431fc56938e6f111dc6b98b0cbc39e64f"
+    },
+    {
+      "method": "_notification",
+      "sha256": "4dd40a2e0fe6b9e54b0fe484d289ca4ff9f672d09e25e5e7707e744a2a242334"
+    },
+    {
+      "method": "_process",
+      "sha256": "17da91709a3c7d46c49d02faa2cc4ca533a91c9a2c33033262c4acada956ff25"
+    },
+    {
+      "method": "_river_stroke",
+      "sha256": "22226da3c92e8e5a83b35f16df2d1b74e6135ff65bcd07d5b1136fa3c9fe2880"
+    },
+    {
+      "method": "river_path_cell_center",
+      "sha256": "a23f600db0a7dc75b459e18b675566754c482f9b224b5e82c2084a57e346c5c0"
+    },
+    {
+      "method": "_river_connected",
+      "sha256": "7d1f4afe5bff7d9fa615104ebd88cdebcc64c20d4d9b73b452271487cc6ed7f6"
+    },
+    {
+      "method": "_fossil_brush",
+      "sha256": "b248c7784ff50b25788d8f1e8225d2c148ce3a26735093801359a1cd5d406613"
+    },
+    {
+      "method": "_piece_at",
+      "sha256": "30b10d175a62189059e422d38baa1b36c43705271adfa1bd11e0f133c59bad0e"
+    },
+    {
+      "method": "_pan_drag",
+      "sha256": "edd1b57c91ce7a75eb061f889e05f9079559f6d356216e4a3d96ffc432699fdc"
+    },
+    {
+      "method": "_geode_drag",
+      "sha256": "e6d1214354785b3c71ea75324a111208dadd6f1f7ef306a214ce0e4a43cf719e"
+    },
+    {
+      "method": "_seam_at",
+      "sha256": "28fca8596ffeec05971f2ff68051b5206cf525e5916444d73947c45e9dceb66d"
+    },
+    {
+      "method": "_note_material_change",
+      "sha256": "0ce7b3cef860ac9349a574f310ebcae1afaa78b25ee645e1602809fe8c9aad78"
+    },
+    {
+      "method": "_complete_mode",
+      "sha256": "aeaa129005779df0decdf221c8fd0c63463e0d305b6813bf9ecff65af2e10efd"
+    },
+    {
+      "method": "_emit_checkpoint",
+      "sha256": "64bce35ad1c8b692efac660e83c0c47e37379614fd032c6adbd7c5055f32c1d6"
+    },
+    {
+      "method": "_wet_path_count",
+      "sha256": "dbc84ea1ac36f309c0e8df6056fa6fb4f3484f10851161cf9ea0913eef3d58c7"
+    },
+    {
+      "method": "_cleared_count",
+      "sha256": "41d9e362389afe7ed08f21712a71657ff1691f749740e8714a7eb0932415b9b9"
+    },
+    {
+      "method": "_snapped_count",
+      "sha256": "a55a8a841a142381fef1b6a264cc5a2bd2ad4eaa4ac680ddd00891d61b4b61e7"
+    },
+    {
+      "method": "_seam_count",
+      "sha256": "bfe7c9160b467a3b5aa48643623156aa4201eeb339acc51b9411f0125d66d236"
+    },
+    {
+      "method": "_true_indices",
+      "sha256": "56cb67a81cd3f3f831e7ef176b84cf012fabf08b41694bf6846675c4b20e17b9"
+    },
+    {
+      "method": "_restore_true_indices",
+      "sha256": "927be83bb0768e1258dd813bbb0f85660e228cd5ea2902b9cc25d8a0eff0238e"
+    },
+    {
+      "method": "_restore_bools",
+      "sha256": "b90b20381d827eab792a7fef4d2a45d010dabe64a0185cdbd41db41c1d0f8f82"
+    },
+    {
+      "method": "_is_number",
+      "sha256": "fddbc55c22cfa29116057ebbbff692aadea5e50b65cfa141d21c351ef7bead97"
+    },
+    {
+      "method": "_draw",
+      "sha256": "01f4c6503f30dd2318456641f2b68aa632c121642c75c8eb9981fdcaf3ca6ae8"
+    },
+    {
+      "method": "_river_region",
+      "sha256": "c4e40336502f8758953fa026c48942fedeb934372a372fa2acbb2bc9784f6344"
+    },
+    {
+      "method": "_draw_river_circle_art",
+      "sha256": "b9b0f3884bdf2621b4f3d322adf2dadeb1534afc6614af665f47c4790007106d"
+    },
+    {
+      "method": "_river_neighbor_mask",
+      "sha256": "a4373d9e1d92f80df77ea211a2cc7911b6c1b925bba8485059f036d138f642b8"
+    },
+    {
+      "method": "_draw_river_field",
+      "sha256": "06586000e96b2313802077a85af6c445fcf3f2599edd591aec5ca5562529fa98"
+    },
+    {
+      "method": "_draw_river",
+      "sha256": "bb5ee65e672b93603969aab996013a172cd52624ad862ed1ccfa47b51d8ec4f8"
+    },
+    {
+      "method": "_river_flow_indices",
+      "sha256": "9f8e0a89b5915519f4e6a98b23449e9d27ed0a8e9f310812f47402cbead33762"
+    },
+    {
+      "method": "_draw_fossil",
+      "sha256": "fac64577fa9096d7ba2ab1420c001c7881f26ae848fb2be4a859f372972b557f"
+    },
+    {
+      "method": "_draw_fossil_whole",
+      "sha256": "7a574b0d169e6630c2d88e646a27a0d4d52489bd2bae0f6c0bf46e2d0903e6f1"
+    },
+    {
+      "method": "_draw_fossil_piece",
+      "sha256": "ed98c6643ea53f63d4808c590f8e26948c337803d27848ea5613796c6c0b1c0c"
+    },
+    {
+      "method": "_draw_brush",
+      "sha256": "1d1c0d1cf556a6505f51443ed9dfd9f573fbfbb6c7534387316fb4e0a1414a19"
+    },
+    {
+      "method": "_draw_pan",
+      "sha256": "9f33d1d1188d23b7b8b95b630f3776dc35b580a581ea15432502e15e6f38c686"
+    },
+    {
+      "method": "_geode_atlas",
+      "sha256": "fba75318b7d497865f6bb255dbe43632cffb36cf1a9cfc115ddf682eeeebc718"
+    },
+    {
+      "method": "_draw_work_surface",
+      "sha256": "7867f24d5ca199ab5c42b48b1a00518ed5a5aac8854c1a7233579487e125ebb5"
+    },
+    {
+      "method": "_draw_rounded_rect",
+      "sha256": "d7375d93fd258997e18fc72e438928cc45715140f6d468626d401fff95d09930"
+    },
+    {
+      "method": "_draw_ellipse",
+      "sha256": "e59c849ac881976b704cc55084453efb865a80f5c70c68ee829d86929b71b6ba"
+    },
+    {
+      "method": "_draw_mineral",
+      "sha256": "035c6fdf4169003213ce9f2f5e1db532c26910d64d6678e3f336f7f611dff818"
+    },
+    {
+      "method": "_geode_half_points",
+      "sha256": "34eb31f263c7490c1f18668146ccd4101d6944f5886c84e6a89b5b7820dc495c"
+    },
+    {
+      "method": "_draw_crystal_gallery",
+      "sha256": "bc3ae12a1d474dbcd041ad729c927c73fe7c3e8013c6245685dfb74aa7c491e4"
+    },
+    {
+      "method": "_demo_finger_pose",
+      "sha256": "0273d831a3e19764f01d055527351d5801a3d706503406e432c111b61124c4a4"
+    }
+  ],
+  "changed_existing_methods": [
+    "_draw_geode",
+    "_geode_pair_rect",
+    "_geode_right_rect",
+    "_load_textures"
+  ],
+  "new_methods": [
+    "_geode_state_index"
+  ],
+  "qualification": "Art loading, geode draw, fixed display geometry and matching right-half hit bounds only. Existing touch/progress/save/demo/reward/river/fossil/pan methods remain literal unchanged; ordinary input and full-suite evidence separately required. Initial60-method proof belongs to the preserved failed mount."
+}

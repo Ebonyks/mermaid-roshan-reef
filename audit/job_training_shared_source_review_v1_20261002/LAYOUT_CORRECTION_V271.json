@@ -1,0 +1,10 @@
+{
+  "status": "CORRECTED_BROWSER_RECHECK_PASS",
+  "recorded_utc": "2026-10-02T10:30:04.166097+00:00",
+  "reason": "Earlier prose spacing pass also reached CSS raw text, inserting spaces into hexadecimal colors and h1 selector. Images loaded but caption backgrounds disappeared; dark-panel labels had poor contrast. Preserve earlier page/QA; repair only CSS declarations and exact source labels, without changing artwork or scores.",
+  "before": "index_LAYOUT_BEFORE_V271.html",
+  "after": "index.html",
+  "css_before": "body{margin:0;background:#edf 3f 8;color:#26354c;font:17px/1.6 system-ui}main{max-width:1150px;margin:auto;padding:24px}article{background:white;border:1px solid #b 7c 4d 6;border-radius:16px;padding:20px;margin:20px 0}figure{margin:0;background:#e 3edf 6;border-radius:12px}img{display:block;max-width:100%;height:auto;max-height:650px;margin:auto}figcaption{overflow-wrap:anywhere;padding:10px}a{color:#41499b}",
+  "css_after": "body{margin:0;background:#edf3f8;color:#26354c;font:17px/1.6 system-ui}main{max-width:1150px;margin:auto;padding:24px}article{background:white;border:1px solid #b7c4d6;border-radius:16px;padding:20px;margin:20px 0}figure{margin:0;background:#e3edf6;border-radius:12px}img{display:block;max-width:100%;height:auto;max-height:650px;margin:auto}figcaption{overflow-wrap:anywhere;padding:10px}a{color:#41499b}",
+  "browser_recheck": "BROWSER_QA.json"
+}

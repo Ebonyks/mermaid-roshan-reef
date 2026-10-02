@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "command": [
+    "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "tools/lint_inference.py",
+    "scripts/opera_geology_surface.gd",
+    "audit/job_geology_room_route_v1_20261002/capture_v2.gd"
+  ],
+  "process_exit": 0,
+  "started_utc": "2026-10-02T09:31:54.461159+00:00",
+  "finished_utc": "2026-10-02T09:31:54.577959+00:00",
+  "elapsed_seconds": 0.1168156000203453,
+  "blocking_diagnostics": [],
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "qualification": "Scoped machine evidence; no visual, physical device, child, owner or full-suite acceptance."
+}

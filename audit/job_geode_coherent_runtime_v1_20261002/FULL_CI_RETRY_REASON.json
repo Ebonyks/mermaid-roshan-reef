@@ -1,0 +1,15 @@
+{
+  "status": "FAILED_SUITE_PRESERVED_NEW_RUN_REQUIRED",
+  "recorded_utc": "2026-10-02T09:55:13.277610+00:00",
+  "failed_receipt": "full_ci_v2/RECEIPT.json",
+  "failed_probe": "probe_passive",
+  "process_exit": 127,
+  "completed_probe_count": 82,
+  "successful_probes": 81,
+  "source_count": 368,
+  "source_unchanged": true,
+  "observation": "Godot booted and reported two completed 60-second passive legs, then exited 127 before its final verdict. No error or native crash cause is established in the retained streams or bounded Windows Application log query. Exit 127 is a failure, never a pass.",
+  "new_run": "full_ci_v3/RECEIPT.json",
+  "method": "Repeat the unchanged official full suite on identical frozen sources. No simultaneous display capture or independent Godot test is scheduled during this retry. No probe, engine, save contract, timeout or production behavior is changed.",
+  "qualification": "A successful retry will remain separate from the failed run; no suppressed failure or invented root cause. Creative, device, child and owner acceptance remain outstanding."
+}

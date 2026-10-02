@@ -1,0 +1,155 @@
+{
+  "status": "THREE_EXISTING_SOURCES_AND11_SOURCE_COMPONENTS_REVIEWED",
+  "reviewed_utc": "2026-10-02T10:11:22.369019+00:00",
+  "baseline": "c6f03791aee93f1443d423dd50334804e37313fb",
+  "sources": [
+    {
+      "id": "D1V2-0048",
+      "path": "assets/castle/training/training_grotto_backdrop.png",
+      "sha256": "0bf0a0218b8733323d5a0fdbf4740c30117081a1976b0e904248186669f25009",
+      "score": 4.6,
+      "evaluation": "The broad cool aqua central opening and lavender/cream rock pillars frame a clear play area. Sparse floor bands remain high-key and the shell forms are rounded, with restrained navy/plum contour. The baked wand rack is a decorative corner feature, not a scored interactive target. Source style4.6; the2048x1024 runtime file is a whole-canvas resized derivative, so its dimensions do not prove native2048-square coverage. Actual Mobile training presentation and 3D migration remain separate.",
+      "binding_trace": "CombatTutorial TRAINING_BACKDROP_PATH and _add_training_backdrop; reads this picture through a TextureRect. This is CombatTutorial background art, not Geologist Opera training.",
+      "direct_review": true,
+      "runtime_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "D1V2-0049",
+      "path": "assets/castle/training/verb_chip_hold.png",
+      "sha256": "75f649ef6352670a5881e1792d7082ffc696ee30a5e89cf07b54eb289da07ed1",
+      "score": 4.6,
+      "evaluation": "The simple rounded lavender chip has a clean dark-purple border, broad painted value bands and a warm yellow-to-pink partial ring. Its large grouped marks read as a compact interface cue. This symbolic UI function can use restrained graphic simplification without replacing an illustrated room or character. The still does not by itself demonstrate sustained touch; hold timing/hand/voice require actual encounter review.",
+      "binding_trace": "EncounterGestureGuide2D.HOLD_CHIP_PATH, _ready and _draw;82px noninteractive cue when mode==hold.",
+      "direct_review": true,
+      "runtime_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "D1V2-0050",
+      "path": "assets/castle/training/verb_chip_tap.png",
+      "sha256": "375a002f998abd97c3fe1333ea30199d223e91e3269a9dfc01b269b71e74092e",
+      "score": 4.6,
+      "evaluation": "A single large cream star within the warm pink round chip has a clear purple outer contour and calm highlights. Its silhouette is readable as a small interface symbol and fits the pastel toy-playset palette. The static star does not by itself teach a tap; the actual pointer motion and verbal cue are separate evidence.",
+      "binding_trace": "EncounterGestureGuide2D.TAP_CHIP_PATH, _ready and _draw;82px noninteractive cue for non-hold modes.",
+      "direct_review": true,
+      "runtime_score": null,
+      "complete_action_score": null,
+      "owner_acceptance": null
+    }
+  ],
+  "individual_components": [
+    {
+      "id": "TRAINING-COMP-01",
+      "label": "Left shell pillar",
+      "score": 4.6,
+      "evaluation": "Broad lavender stone, cream shell capital and rounded base remain clear against the aqua center.",
+      "direct_review": true,
+      "runtime_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "TRAINING-COMP-02",
+      "label": "Right shell pillar",
+      "score": 4.6,
+      "evaluation": "The matching cream/lavender support preserves rounded stone and leaves the center unobstructed.",
+      "direct_review": true,
+      "runtime_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "TRAINING-COMP-03",
+      "label": "Left purple hanging pennant",
+      "score": 4.6,
+      "evaluation": "One broad cool purple leaf-like form provides sparse framing, without high-contrast texture.",
+      "direct_review": true,
+      "runtime_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "TRAINING-COMP-04",
+      "label": "Left green hanging pennant",
+      "score": 4.6,
+      "evaluation": "The restrained green/aqua hanging form remains subordinate to the clear training area.",
+      "direct_review": true,
+      "runtime_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "TRAINING-COMP-05",
+      "label": "Right green hanging pennant",
+      "score": 4.6,
+      "evaluation": "The broad leaf banner and simple diagonal painted bands repeat the room palette calmly.",
+      "direct_review": true,
+      "runtime_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "TRAINING-COMP-06",
+      "label": "Right purple hanging pennant",
+      "score": 4.6,
+      "evaluation": "The short purple companion banner frames the right pillar without filling the center.",
+      "direct_review": true,
+      "runtime_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "TRAINING-COMP-07",
+      "label": "Pink wand in corner rack",
+      "score": 4.5,
+      "evaluation": "The pink ring-ended wand is decorative baked scenery with a small visible loop. The source reaches the floor provisionally; do not infer target readability from an enlarged source.",
+      "direct_review": true,
+      "runtime_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "TRAINING-COMP-08",
+      "label": "Lavender wand in corner rack",
+      "score": 4.5,
+      "evaluation": "The separate lavender loop and warm handle fit the surrounding palette. It remains one baked decorative object and has no individual interactive evidence.",
+      "direct_review": true,
+      "runtime_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "TRAINING-COMP-09",
+      "label": "Aqua wand in corner rack",
+      "score": 4.5,
+      "evaluation": "The cyan loop-ended wand provides a third simple color distinction. Corner rack detail should stay subordinate to the active encounter, which is unreviewed here.",
+      "direct_review": true,
+      "runtime_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "TRAINING-COMP-10",
+      "label": "Open central training field",
+      "score": 4.6,
+      "evaluation": "A broad light aqua value field gives clear potential figure-ground separation. No new target or job mechanic is inferred from this still.",
+      "direct_review": true,
+      "runtime_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "TRAINING-COMP-11",
+      "label": "Pale lavender floor",
+      "score": 4.6,
+      "evaluation": "Calm broad floor bands provide simple support and avoid dense repeated detail in the play area.",
+      "direct_review": true,
+      "runtime_score": null,
+      "owner_acceptance": null
+    }
+  ],
+  "source_scripts": [
+    {
+      "path": "scripts/combat_tutorial.gd",
+      "sha256": "9f8caf5ca2e3245285d080d879ddee40a5147403cdc419b122318a45f8a953fe"
+    },
+    {
+      "path": "scripts/encounter_gesture_guide_2d.gd",
+      "sha256": "18bf9b3e416e833f1f1430b73d6621cc42b79525fe7dd43ec9f420219fd33fe7"
+    }
+  ],
+  "qualification": "Direct existing-source review and literal binding trace; no game rendering/capture performed. Shared cues and CombatTutorial background are dependencies, not an invented Geologist lesson. All source/actual-action/device/child/owner/strict2D acceptance remains separate. No original edited or art generated."
+}

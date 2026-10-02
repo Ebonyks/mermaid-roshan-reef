@@ -1,0 +1,30 @@
+{
+  "reason": "Own full-suite interrupted for directly observed50px inherited geode mounting drift; source not changed during run",
+  "checked_utc": "2026-10-02T09:08:30.5485612Z",
+  "processes": [
+    {
+      "ProcessId": 67524,
+      "ParentProcessId": 75212,
+      "ExecutablePath": "C:\\Users\\Peter\\AppData\\Local\\Python\\bin\\python.exe",
+      "CommandLine": "\"C:\\Users\\Peter\\AppData\\Local\\Python\\bin\\python.exe\" -X utf8 -B audit/job_geode_coherent_runtime_v1_20261002/review_tools/run_coherent_geode_full_ci_v245.py --run"
+    },
+    {
+      "ProcessId": 75496,
+      "ParentProcessId": 67524,
+      "ExecutablePath": "C:\\Program Files\\Git\\bin\\bash.exe",
+      "CommandLine": "\"C:/Program Files/Git/bin/bash.exe\" C:/Users/Peter/.codex/worktrees/job-art-review-v2-20261001/mermaid-roshan-reef/audit/job_geode_coherent_runtime_v1_20261002/full_ci_v1/wrapper.sh"
+    },
+    {
+      "ProcessId": 68344,
+      "ParentProcessId": 75496,
+      "ExecutablePath": "C:\\WINDOWS\\system32\\conhost.exe",
+      "CommandLine": "\\??\\C:\\WINDOWS\\system32\\conhost.exe 0x4"
+    },
+    {
+      "ProcessId": 41528,
+      "ParentProcessId": 75496,
+      "ExecutablePath": "C:\\Program Files\\Git\\bin\\..\\usr\\bin\\bash.exe",
+      "CommandLine": "\"C:\\Program Files\\Git\\bin\\..\\usr\\bin\\bash.exe\" C:/Users/Peter/.codex/worktrees/job-art-review-v2-20261001/mermaid-roshan-reef/audit/job_geode_coherent_runtime_v1_20261002/full_ci_v1/wrapper.sh"
+    }
+  ]
+}

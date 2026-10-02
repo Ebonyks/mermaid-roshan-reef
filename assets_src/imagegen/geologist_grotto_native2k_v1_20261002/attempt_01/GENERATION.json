@@ -1,0 +1,37 @@
+{
+  "method": "built-in image_gen",
+  "attempt": 1,
+  "recorded_utc": "2026-10-02T10:08:49.366146+00:00",
+  "prompt_path": "assets_src/imagegen/geologist_grotto_native2k_v1_20261002/attempt_01/PROMPT.txt",
+  "prompt_sha256": "b814fc7bdda0bbe6507e44401d33670aab1ae16218ee88de19f4c8e3e7ad3e1d",
+  "references": [
+    {
+      "role": "room appearance/identity only",
+      "path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/grotto/attempt_01/native.png",
+      "sha256": "ebc2ea1ab64173dd678ec43bbc0a0daedc4e1548b26dc6d096038bad0ea3f545",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "reuse_assessment": "Painted reference exists, but1672x941 native does not meet2048x2048 per-screen coverage. Padding/upscaling cannot create native coverage. Finale stage is also a different setting, not a substitute geology room."
+    }
+  ],
+  "transparent_background_requested": false,
+  "native_source_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-b1940b10-49b9-41ca-bb20-a48b6a796d31.png",
+  "native_path": "assets_src/imagegen/geologist_grotto_native2k_v1_20261002/attempt_01/native.png",
+  "native_sha256": "b808a8649db3047e0876a8d44d5e7bb7a51d43489e2beb5a9ae353bde1e69a47",
+  "native_dimensions": [
+    1254,
+    1254
+  ],
+  "native_mode": "RGB",
+  "native_preserved_bytes": true,
+  "output_hint": "Built-in tool returned exec-b1940b10-49b9-41ca-bb20-a48b6a796d31.png and displayed the generated image inline.",
+  "required_dimensions": [
+    2048,
+    2048
+  ],
+  "native_resolution_gate": "FAIL",
+  "acceptance": "REFERENCE_ONLY_NATIVE_RESOLUTION_FAILED",
+  "qualification": "Prompt requested genuine2048-square or larger; returned1254-square. No upscale, padding, slicing or binding is presented as resolution satisfaction. No root cause or tool maximum is inferred from one result."
+}

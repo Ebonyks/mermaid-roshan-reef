@@ -1,0 +1,8 @@
+{
+  "status": "PRESERVED_PREPARATION_TIMING_FAILURE_NO_STAGING",
+  "recorded_utc": "2026-10-02T10:34:24.066473+00:00",
+  "action": "seal_geology_checkpoint_k_v258.py",
+  "reason": "Sealer started while prior preparation still ran its 2D gate; 2dv1.receipt.json did not exist yet. It stopped before copy, staging or map construction. Empty staging-output directory preserved; retry uses distinct v274 output only after prep exits0.",
+  "production_changed": false,
+  "index_changed": false
+}
