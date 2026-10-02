@@ -1,0 +1,22 @@
+{
+  "status": "UNCHANGED_CREST_CONTRACT_REVALIDATED_FULL_SUITE2_PASS",
+  "failure": {
+    "suite": "full_ci_v1/RECEIPT.json",
+    "probe": "probe_opera_2d",
+    "failed_assertions": [
+      "library route uses its exact diegetic entrances and approved art",
+      "nine room route sets cover all fifteen live sparse slots once"
+    ],
+    "probe_sha256": "440ca7095d1800bbc641e05ff727ad47f403a2ad253f398fb570a86af6f598f0"
+  },
+  "fix": "assets/opera/worlds/ui/crests/geode_open_painted_v1_20261002.tres",
+  "original_goal_metadata": "assets/opera/worlds/geology/coherent_geode_v1_20261002/open_geode.tres",
+  "source_sha256": "e47a731414210ef70c0b5fffce2828922a15611c6093c244811ee0a283534503",
+  "same_metadata_bytes": true,
+  "qualification": "Keep the unchanged existing /ui/crests/ family assertion. No probe edits, relaxed art gates, atlas pixel edits, region/size changes, input/progress/save/reward changes. Earlier failed run and earlier captures remain preserved. New metadata copy shares one cached atlas.",
+  "checked_utc": "2026-10-02T12:22:50.679718+00:00",
+  "current_full_suite": "full_ci_v2/RECEIPT.json",
+  "current_probe_unchanged": true,
+  "current_frozen_source_count": 373,
+  "current_probe_count": 82
+}

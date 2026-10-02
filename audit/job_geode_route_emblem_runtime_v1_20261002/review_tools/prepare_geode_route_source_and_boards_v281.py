@@ -1,0 +1,15 @@
+from pathlib import Path
+import datetime,hashlib,json,shutil,subprocess
+b=Path('C:/Users/Peter/.codex/worktrees/job-art-review-v2-20261001/mermaid-roshan-reef');f=b/'audit/job_geode_route_emblem_runtime_v1_20261002';read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'))
+def write(p,d):p.write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+assert read(f/'runtime_gate/contractv2.receipt.json')['status']=='PASS'
+paths={x['path'] for x in read(b/'audit/job_geode_coherent_runtime_v1_20261002/full_ci_v3/SOURCE_BEFORE.json')['source_files']}
+paths.update(['scripts/castle_career_routes.gd','scripts/opera_career_world_2d.gd','scripts/opera_hotspot_catalog.gd','assets/opera/worlds/geology/coherent_geode_v1_20261002/open_geode.tres'])
+paths.update((f/name).relative_to(b).as_posix() for name in ['capture.gd','resource_contract.gd','resource_contract_v1.gd'])
+assert not (f/'SOURCE_CURRENT_BEFORE_CAPTURES.json').exists();write(f/'SOURCE_CURRENT_BEFORE_CAPTURES.json',dict(status='CURRENT_LITERAL_BOUNDARY_CAPTURE_AND_FUTURE_CI_PENDING',created_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),baseline=subprocess.check_output(['git','rev-parse','HEAD'],cwd=b,text=True).strip(),source_files=[dict(path=p,sha256=sha(b/p),bytes=(b/p).stat().st_size) for p in sorted(paths)],qualification='Current revised crest/goal/invitation sources plus inherited selected production/capture boundary and new read-only review fixtures. Older K82/82 receipt covers its prior368 byte hashes, not these changes. Current full CI and actual mounted review pending.'))
+old=b/'audit/job_geology_room_route_v1_20261002/review_tools/prepare_geology_room_boards_v254.py';s=old.read_text();s=s.replace("f=b/'audit/job_geology_room_route_v1_20261002'","f=b/'audit/job_geode_route_emblem_runtime_v1_20261002'").replace("snap=read(b/'audit/job_geode_coherent_runtime_v1_20261002/full_ci_v2/SOURCE_BEFORE.json')['source_files'];assert len(snap)==368", "snap=read(f/'SOURCE_CURRENT_BEFORE_CAPTURES.json')['source_files'];assert len(snap)=="+str(len(paths))).replace('capture{width}v2','capture{width}v1').replace('attempt_02','attempt_01').replace('capture_v2.gd','capture.gd').replace('job-geology-room-route-review-20261002.json','job-geode-route-emblem-runtime-20261002.json').replace('FullCI2 covers its368 frozen sources only; this extra review fixture is separate.','Fresh current full CI remains pending; previousK receipt applies only to its prior368 source boundary.')
+s=s.replace("snap=read(f/'SOURCE_CURRENT", "snap=read(f/'SOURCE_CURRENT")
+p=f/'review_tools/prepare_geode_route_boards_v282.py';p.write_text(s,encoding='utf-8',newline='\n');compile(s,str(p),'exec');shutil.copyfile(__file__,f/'review_tools'/Path(__file__).name)
+ip=b/'design/audit_impacts/job-geode-route-emblem-runtime-20261002.json';d=read(ip);d['files']=sorted(set(d['files'])|{p.relative_to(b).as_posix() for p in f.rglob('*') if p.is_file()});write(ip,d)
+print(json.dumps(dict(current_selected_source_files=len(paths),actual_capture_pending=True,previous_checkpoint_not_inherited=True)),flush=True)

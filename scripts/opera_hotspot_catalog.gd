@@ -134,7 +134,7 @@ const SPECS: Dictionary = {
 		"RIVER": {"path": "res://assets/opera/worlds/geology/painted_work_v1_20261001/layered_rock.png", "region": Rect2(120, 188, 800, 674), "motion": "pulse", "size": Vector2(142, 119.635), "offset": Vector2(60, -70), "presentation": "overlay"},
 		"FOSSIL": {"path": "res://assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png", "region": Rect2(115, 171, 802, 674), "motion": "rock", "size": Vector2(142, 119.33665835411472), "offset": Vector2(80, -90), "presentation": "overlay"},
 		"PAN": {"path": "res://assets/opera/worlds/geology/painted_work_v1_20261001/pan.png", "region": Rect2(44, 75, 936, 455), "motion": "rock", "size": Vector2(180, 87.5), "offset": Vector2(70, -90), "presentation": "overlay"},
-		"GEODE": {"path": "res://assets/opera/worlds/geology/painted_geode_v1_20261001/closed.png", "region": Rect2(192, 213, 645, 602), "motion": "pulse", "size": Vector2(142, 132.53333333333333), "offset": Vector2(-40, -70), "presentation": "overlay"},
+		"GEODE": {"path": "res://assets/opera/worlds/geology/coherent_geode_v1_20261002/opening_six_states.png", "region": Rect2(96.974069898534, 68.11273957159, 473.325817361894, 421.375422773393), "motion": "pulse", "size": Vector2(142, 126.41463414634133), "offset": Vector2(-40, -70), "presentation": "overlay"},
 	},
 }
 
@@ -194,7 +194,7 @@ const ASSET_META: Dictionary = {
 	"res://assets/opera/worlds/geology/painted_work_v1_20261001/layered_rock.png": {"dimensions": Vector2i(1024, 1024), "role": "object"},
 	"res://assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png": {"dimensions": Vector2i(1024, 1024), "role": "object"},
 	"res://assets/opera/worlds/geology/painted_work_v1_20261001/pan.png": {"dimensions": Vector2i(1024, 585), "role": "object"},
-	"res://assets/opera/worlds/geology/painted_geode_v1_20261001/closed.png": {"dimensions": Vector2i(1024, 1024), "role": "object"},
+	"res://assets/opera/worlds/geology/coherent_geode_v1_20261002/opening_six_states.png": {"dimensions": Vector2i(2048, 1024), "role": "object"},
 
 }
 
@@ -329,7 +329,7 @@ static func _allowed_runtime_path(path: String) -> bool:
 		or path.begins_with("res://assets/opera/worlds/props/goal_") \
 		or path.begins_with("res://assets/opera/worlds/nursery/baby_") \
 		or path.begins_with("res://assets/opera/worlds/geology/painted_work_v1_20261001/") \
-		or path == "res://assets/opera/worlds/geology/painted_geode_v1_20261001/closed.png"
+		or path == "res://assets/opera/worlds/geology/coherent_geode_v1_20261002/opening_six_states.png"
 
 
 static func _validate_asset(path: String) -> PackedStringArray:

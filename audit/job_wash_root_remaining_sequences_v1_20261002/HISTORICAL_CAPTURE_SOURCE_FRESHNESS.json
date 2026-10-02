@@ -1,0 +1,39 @@
+{
+  "status": "DATED_CAPTURE_SOURCE_BOUNDARY_COMPARED",
+  "checked_utc": "2026-10-02T12:13:07.614712+00:00",
+  "source_count": 475,
+  "matched": 470,
+  "changed_or_unavailable": [
+    {
+      "path": "scripts/castle_career_routes.gd",
+      "capture_sha256": "c5de38d8126c96aae9e999780113edafff05601a22934443e67053edcd8e18d8",
+      "current_sha256": "3b0ccd30cf5db7a85b29e82469ad1a9101918f91ab48dac37b3bda9ddf80c090",
+      "match": false
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "capture_sha256": "f58088a214bffb8ceb68a01c771e20241a32d987ac180b4be51be236247922ae",
+      "current_sha256": "bdb08fe380e78c96918c96796f99942904f8fffea60f69860e04b039645ccdf1",
+      "match": false
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "capture_sha256": "14226227f7a961511057318173737ec7340b2fc80fdb644e5670f5bd399989a6",
+      "current_sha256": "441b24fcbd4752d6ec5bf8febfa7c79255311a813b56afb798aa19de77247666",
+      "match": false
+    },
+    {
+      "path": "scripts/opera_hotspot_catalog.gd",
+      "capture_sha256": "ad76445088eaaaa223f9374b2e7a098370350da7ebc5c419584453ff1da2ee5b",
+      "current_sha256": "0027a534982c81056766c06097262cbc48ef78b2c2a3e1c6a1dab4a5f383e449",
+      "match": false
+    },
+    {
+      "path": "scripts/opera_world_hotspot_2d.gd",
+      "capture_sha256": "da30f871435aefb79dc0d8b69d7267dc5fdb999d8959edaaef98d53976aa9d41",
+      "current_sha256": "0ca474153df4904cce011b9cf99e1ea31b066d61ba08d8637d573cae7cbc84f0",
+      "match": false
+    }
+  ],
+  "qualification": "These October 1 native images remain dated evidence. Current source differences cannot be assumed irrelevant to these jobs; this review does not create a current capture or current runtime acceptance."
+}

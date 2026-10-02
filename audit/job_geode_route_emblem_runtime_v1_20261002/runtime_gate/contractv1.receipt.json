@@ -1,0 +1,21 @@
+{
+  "status": "FAIL_PRESERVED",
+  "command": [
+    "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef",
+    "--script",
+    "audit/job_geode_route_emblem_runtime_v1_20261002/resource_contract.gd"
+  ],
+  "process_exit": 4294967295,
+  "started_utc": "2026-10-02T10:41:39.320802+00:00",
+  "finished_utc": "2026-10-02T10:43:39.234473+00:00",
+  "elapsed_seconds": 119.91108480002731,
+  "blocking_diagnostics": [
+    "SCRIPT ERROR: Assertion failed: [\"unused asset metadata: res://assets/opera/worlds/geology/painted_geode_v1_20261001/closed.png\"]"
+  ],
+  "stdout_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+  "stderr_sha256": "936ed45a281c9b25e9dc675d73ff6646371410930a610bff898f2eddc9e4418b",
+  "qualification": "Scoped machine evidence; no visual, physical device, child, owner or full-suite acceptance."
+}

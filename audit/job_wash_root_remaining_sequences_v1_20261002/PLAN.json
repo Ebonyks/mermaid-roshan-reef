@@ -1,0 +1,198 @@
+{
+  "status": "ALL1818_DATED_NATIVE_FRAMES_REVIEWED_ACTION_REMAINS_WEAK",
+  "baseline": "c8f88df058434f1fd1b6d7fade712677003c641a",
+  "created_utc": "2026-10-02T11:57:04.336030+00:00",
+  "scope": "Extend the complete real-frame washing audit to all seven remaining preserved Opera training and birthday catalog cases at 1280/1600 widths. No new engine capture or runtime change. Every dated native frame is inspected separately from current-source acceptance.",
+  "cases": [
+    {
+      "accepted_frame": 183,
+      "advanced_frame": 250,
+      "first_record": 256,
+      "frame_count": 263,
+      "hotspot_viewport_point": [
+        308.531219482422,
+        396.0
+      ],
+      "id": "opera_training_nursery_1280",
+      "opened_frame": 64,
+      "passive_start_ok": true,
+      "phase_names": [
+        "WASH HANDS",
+        "CATCH BABIES",
+        "FEED",
+        "BURP",
+        "BEDTIME"
+      ],
+      "stars_unchanged": true,
+      "status": "PASS_ROUTE_INPUT_PROCESS",
+      "using_chapter_two_phases": false,
+      "wash_viewport_point": [
+        1048.0,
+        408.400024414063
+      ]
+    },
+    {
+      "accepted_frame": 176,
+      "advanced_frame": 242,
+      "first_record": 519,
+      "frame_count": 255,
+      "hotspot_viewport_point": [
+        336.312316894531,
+        217.298614501953
+      ],
+      "id": "birthday_story_catalog_doctor_1280",
+      "opened_frame": 51,
+      "passive_start_ok": true,
+      "phase_names": [
+        "WASH",
+        "FIND",
+        "X-RAY",
+        "CAST"
+      ],
+      "stars_unchanged": true,
+      "status": "PASS_ROUTE_INPUT_PROCESS",
+      "using_chapter_two_phases": true,
+      "wash_viewport_point": [
+        1048.0,
+        350.799987792969
+      ]
+    },
+    {
+      "accepted_frame": 183,
+      "advanced_frame": 249,
+      "first_record": 774,
+      "frame_count": 262,
+      "hotspot_viewport_point": [
+        308.531219482422,
+        396.0
+      ],
+      "id": "birthday_story_catalog_nursery_1280",
+      "opened_frame": 64,
+      "passive_start_ok": true,
+      "phase_names": [
+        "WASH HANDS",
+        "CATCH BABIES",
+        "FEED",
+        "BURP",
+        "BEDTIME"
+      ],
+      "stars_unchanged": true,
+      "status": "PASS_ROUTE_INPUT_PROCESS",
+      "using_chapter_two_phases": true,
+      "wash_viewport_point": [
+        1048.0,
+        408.400024414063
+      ]
+    },
+    {
+      "accepted_frame": 176,
+      "advanced_frame": 243,
+      "first_record": 1036,
+      "frame_count": 256,
+      "hotspot_viewport_point": [
+        496.312316894531,
+        217.298614501953
+      ],
+      "id": "opera_training_doctor_1600",
+      "opened_frame": 51,
+      "passive_start_ok": true,
+      "phase_names": [
+        "WASH",
+        "FIND",
+        "X-RAY",
+        "CAST",
+        "BANDAGE"
+      ],
+      "stars_unchanged": true,
+      "status": "PASS_ROUTE_INPUT_PROCESS",
+      "using_chapter_two_phases": false,
+      "wash_viewport_point": [
+        1208.0,
+        350.799987792969
+      ]
+    },
+    {
+      "accepted_frame": 183,
+      "advanced_frame": 250,
+      "first_record": 1292,
+      "frame_count": 263,
+      "hotspot_viewport_point": [
+        468.531219482422,
+        396.0
+      ],
+      "id": "opera_training_nursery_1600",
+      "opened_frame": 64,
+      "passive_start_ok": true,
+      "phase_names": [
+        "WASH HANDS",
+        "CATCH BABIES",
+        "FEED",
+        "BURP",
+        "BEDTIME"
+      ],
+      "stars_unchanged": true,
+      "status": "PASS_ROUTE_INPUT_PROCESS",
+      "using_chapter_two_phases": false,
+      "wash_viewport_point": [
+        1208.0,
+        408.400024414063
+      ]
+    },
+    {
+      "accepted_frame": 176,
+      "advanced_frame": 243,
+      "first_record": 1555,
+      "frame_count": 256,
+      "hotspot_viewport_point": [
+        496.312316894531,
+        217.298614501953
+      ],
+      "id": "birthday_story_catalog_doctor_1600",
+      "opened_frame": 51,
+      "passive_start_ok": true,
+      "phase_names": [
+        "WASH",
+        "FIND",
+        "X-RAY",
+        "CAST"
+      ],
+      "stars_unchanged": true,
+      "status": "PASS_ROUTE_INPUT_PROCESS",
+      "using_chapter_two_phases": true,
+      "wash_viewport_point": [
+        1208.0,
+        350.799987792969
+      ]
+    },
+    {
+      "accepted_frame": 183,
+      "advanced_frame": 250,
+      "first_record": 1811,
+      "frame_count": 263,
+      "hotspot_viewport_point": [
+        468.531219482422,
+        396.0
+      ],
+      "id": "birthday_story_catalog_nursery_1600",
+      "opened_frame": 64,
+      "passive_start_ok": true,
+      "phase_names": [
+        "WASH HANDS",
+        "CATCH BABIES",
+        "FEED",
+        "BURP",
+        "BEDTIME"
+      ],
+      "stars_unchanged": true,
+      "status": "PASS_ROUTE_INPUT_PROCESS",
+      "using_chapter_two_phases": true,
+      "wash_viewport_point": [
+        1208.0,
+        408.400024414063
+      ]
+    }
+  ],
+  "qualification": "October 1 fixture initializes training or birthday story catalog state and then uses actual hotspot/held touch actions. It is not a natural MainMenu story launch or a newly rendered current game. Current source-boundary comparison remains dated evidence, not a visual pass.",
+  "review": "REVIEW.json",
+  "reviewed_utc": "2026-10-02T12:13:07.614712+00:00"
+}

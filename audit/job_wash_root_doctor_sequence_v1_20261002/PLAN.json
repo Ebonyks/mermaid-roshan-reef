@@ -1,0 +1,35 @@
+{
+  "status": "EVERY256_PRESERVED_FRAMES_DIRECT_REVIEW_COMPLETE_WEAK_ACTION",
+  "baseline": "c8f88df058434f1fd1b6d7fade712677003c641a",
+  "scope": "Review every256 consecutive native frames of the preserved2026-10-01 input-driven Doctor Opera training root WASH route, rather than only four selected views. No new capture or production/asset changes; new boards use whole-frame display normalization only. Other seven captured cases remain independently unreviewed.",
+  "case": {
+    "accepted_frame": 176,
+    "advanced_frame": 243,
+    "first_record": 0,
+    "frame_count": 256,
+    "hotspot_viewport_point": [
+      336.312316894531,
+      217.298614501953
+    ],
+    "id": "opera_training_doctor_1280",
+    "opened_frame": 51,
+    "passive_start_ok": true,
+    "phase_names": [
+      "WASH",
+      "FIND",
+      "X-RAY",
+      "CAST",
+      "BANDAGE"
+    ],
+    "stars_unchanged": true,
+    "status": "PASS_ROUTE_INPUT_PROCESS",
+    "using_chapter_two_phases": false,
+    "wash_viewport_point": [
+      1048.0,
+      350.799987792969
+    ]
+  },
+  "source_capture_profile": "audit/day_two_wash_complete_action_v1_20261001/root_route_attempt_03/PROFILE.json",
+  "qualification": "Existing route fixture opens the real hotspot and uses a held wash action, but initializes training/birthday catalog state; not an ordinary MainMenu story launch, not current candidate/device/full-action acceptance.",
+  "review": "REVIEW.json"
+}

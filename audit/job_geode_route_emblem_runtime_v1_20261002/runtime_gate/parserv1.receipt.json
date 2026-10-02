@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "command": [
+    "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "-m",
+    "gdtoolkit.parser",
+    "scripts/castle_career_routes.gd",
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_hotspot_catalog.gd",
+    "audit/job_geode_route_emblem_runtime_v1_20261002/capture.gd"
+  ],
+  "process_exit": 0,
+  "started_utc": "2026-10-02T10:38:53.601180+00:00",
+  "finished_utc": "2026-10-02T10:38:55.200391+00:00",
+  "elapsed_seconds": 1.5991939000086859,
+  "blocking_diagnostics": [],
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "qualification": "Scoped machine evidence; no visual, physical device, child, owner or full-suite acceptance."
+}

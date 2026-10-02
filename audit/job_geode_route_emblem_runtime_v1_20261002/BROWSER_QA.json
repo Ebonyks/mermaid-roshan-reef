@@ -1,0 +1,53 @@
+{
+  "status": "PASS_CURRENT_REPORT_AND_FOUR_USE_REGISTER",
+  "checked_utc": "2026-10-02T11:12:18.722454+00:00",
+  "url": "http://127.0.0.1:8880/audit/job_geode_route_emblem_runtime_v1_20261002/index.html",
+  "viewport": [
+    1280,
+    720
+  ],
+  "document_width": 1265,
+  "caption_text_color": "rgb(37, 52, 73)",
+  "caption_background": "rgb(246, 249, 255)",
+  "priority_control": {
+    "checked": true,
+    "visible_context_opinions": 16,
+    "hidden_above_threshold": 3
+  },
+  "celebration_images": {
+    "loaded": true,
+    "native_sizes": [
+      [
+        1280,
+        720
+      ],
+      [
+        1600,
+        720
+      ]
+    ]
+  },
+  "register": {
+    "query": "GEO-USE-",
+    "lane": "All known items",
+    "matching_items": 4,
+    "registered_items": 1726,
+    "source_priorities": 676,
+    "unassigned_sources": 385
+  },
+  "screenshots": [
+    {
+      "path": "audit/job_geode_route_emblem_runtime_v1_20261002/geode_route_report_header_v289.png",
+      "sha256": "de5357586a036f1ab26243e4851ad74fe807fc81db819039843bc545d5e3b557"
+    },
+    {
+      "path": "audit/job_geode_route_emblem_runtime_v1_20261002/geode_route_report_celebration_v289.png",
+      "sha256": "8dd8b312dad5e3585958125c9f7eccc846d417b169b837ce06709af6d08538e2"
+    },
+    {
+      "path": "audit/job_geode_route_emblem_runtime_v1_20261002/geode_current_use_register_v289.png",
+      "sha256": "584b0663622042e14e4bf29b5c0f6d1f2f78628f801eddd8de2c8006aef7c8fb"
+    }
+  ],
+  "qualification": "Actual browser rendering and controls checked after intrinsic image extents were added. Initial actions navigated to a menu image; adding reserved extents resolved the observed behavior on retest. This supports the layout explanation but does not independently prove a browser internals root cause. No artwork/source changes or creative/device acceptance."
+}

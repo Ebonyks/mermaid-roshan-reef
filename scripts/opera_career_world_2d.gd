@@ -459,7 +459,7 @@ const GOAL_PROPS := {
 	"racer": "goal_racer",
 	"popstar": "goal_popstar",
 	"nursery": "goal_nursery",
-	"geologist": "goal_geologist.svg",
+	"geologist": "../geology/coherent_geode_v1_20261002/open_geode.tres",
 }
 var m: ReefMain
 var config: Dictionary = {}

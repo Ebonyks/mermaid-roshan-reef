@@ -45,7 +45,7 @@ const CAREER_CREST_FILES := {
 	"racer": "opera_crest_racer.png",
 	"popstar": "opera_crest_singer.png",
 	"nursery": "goal_nursery.png",
-	"geologist": "opera_crest_geologist.svg",
+	"geologist": "geode_open_painted_v1_20261002.tres",
 	"teacher": "res://assets/opera/worlds/actors/roshan_teacher.png",
 }
 

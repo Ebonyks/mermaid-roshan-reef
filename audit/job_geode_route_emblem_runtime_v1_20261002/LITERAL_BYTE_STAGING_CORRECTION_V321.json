@@ -1,0 +1,17 @@
+{
+  "status": "PASS_EXACT_LITERAL_STAGED_STREAMS_AND_FAMILIES",
+  "checked_utc": "2026-10-02T12:32:34.648555+00:00",
+  "earlier_unpublished_staging_failure": {
+    "path": "audit/job_geode_route_emblem_runtime_v1_20261002/full_ci_v1/ENGINE_DIAGNOSTICS.json",
+    "literal_bytes": 12180,
+    "literal_sha256": "a72fecc961b8362162824f0c28c4c0886fc175e1872338f02902a52e5961a595",
+    "staged_bytes": 11909,
+    "staged_sha256": "9133d4ee24b199058dfcf353087c6472319229e4055b960d8f7b67cc749ef7d4"
+  },
+  "cause": "Git add retained stat-clean already-staged normalized text after adding byte-preservation attributes. Explicit exact-scope renormalization is required for those new review files.",
+  "qualification": "No raw working evidence was altered or published in the failed staging attempt. Existing closed maps and unrelated files are outside the correction scope.",
+  "verified_utc": "2026-10-02T12:32:54.083183+00:00",
+  "current_full_ci_source_count": 373,
+  "current_full_ci_source_unchanged": true,
+  "method": "Exact scoped git add --renormalize after -text attribute declarations, followed by literal working/staged byte comparison of every file in the three new evidence families."
+}

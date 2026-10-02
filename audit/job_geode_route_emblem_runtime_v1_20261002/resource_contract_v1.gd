@@ -1,0 +1,25 @@
+extends SceneTree
+## Read-only actual loader/catalog validation for the atlas reuse.
+func _initialize() -> void:
+	var errors: PackedStringArray = OperaHotspotCatalog.validate_specs()
+	assert(errors.is_empty(), str(errors))
+	var source: Texture2D = load("res://assets/opera/worlds/geology/coherent_geode_v1_20261002/opening_six_states.png") as Texture2D
+	var direct: AtlasTexture = load("res://assets/opera/worlds/geology/coherent_geode_v1_20261002/open_geode.tres") as AtlasTexture
+	var relative: AtlasTexture = load("res://assets/opera/worlds/props/../geology/coherent_geode_v1_20261002/open_geode.tres") as AtlasTexture
+	assert(source != null and direct != null and relative != null)
+	assert(direct.atlas == source and relative.atlas == source)
+	assert(direct.region == relative.region)
+	assert(source.get_size() == Vector2(2048, 1024))
+	assert(source.get_image().get_format() == Image.FORMAT_RGBA8)
+	var spec: Dictionary = OperaHotspotCatalog.spec("geologist", "GEODE")
+	assert(String(spec.path) == source.resource_path)
+	var size: Vector2 = spec.size as Vector2
+	var region: Rect2 = spec.region as Rect2
+	assert(absf(size.x / size.y - region.size.x / region.size.y) < 0.001)
+	var result: Dictionary = {"status":"PASS_UNRELAXED_CATALOG_AND_SHARED_ATLAS_CACHE", "catalog_errors":errors, "source_path":source.resource_path, "source_size":[source.get_width(),source.get_height()], "source_format":"RGBA8", "nominal_decoded_bytes":8388608, "shared_source_rid":source.get_rid().get_id(), "direct_atlas_rid":direct.atlas.get_rid().get_id(), "goal_relative_atlas_rid":relative.atlas.get_rid().get_id(), "same_cached_texture":direct.atlas == source and relative.atlas == source, "direct_and_goal_region":str(direct.region), "closed_invitation_region":str(region), "invitation_size":str(size), "qualification":"Actual Godot4.7.2 headless ResourceLoader identity and existing whole catalog alpha/dimension/aspect/role checks. Nominal RGBA8 bytes are not physical device VRAM/fps or complete mounted acceptance."}
+	var file := FileAccess.open("res://audit/job_geode_route_emblem_runtime_v1_20261002/RESOURCE_CONTRACT.json", FileAccess.WRITE)
+	assert(file != null)
+	file.store_string(JSON.stringify(result, "\t") + "\n")
+	file.close()
+	print("GEODE_RESOURCE_CONTRACT|PASS|shared atlas 8MiB|catalog unchanged gates")
+	quit(0)

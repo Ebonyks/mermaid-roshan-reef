@@ -1,0 +1,72 @@
+{
+  "status": "PASS_CANONICAL_AND_ISOLATED_INJECTED_STALE_DATA",
+  "checked_utc": "2026-10-02T11:40:57.052369+00:00",
+  "canonical": {
+    "result": "4 matching items · showing 1–4",
+    "summary": "1245 unique source files + 328 pose cells + 49 runtime prop regions + 104 source object regions = 1726 individually addressable entries. 676 known source/cell/region priorities (547 unique source files); 3 additional current geode mounted priorities; 385 source file reviews required. Opinions dated 2026-10-02T11:06:43.490015+00:00; source boundary checked 2026-10-02T11:34:44.156957+00:00.",
+    "uses": [
+      {
+        "claim": "EXACT_EARLIER_BYTES · Earlier source opinion: 4.5/5 · Mounted: 4.5/5 · Object sequence: unassigned · Complete action: unassigned.",
+        "current": "Current source/cell artwork: 4.5/5 · source or mounted priority",
+        "id": "GEO-USE-INVITATION",
+        "imagesLoaded": true
+      },
+      {
+        "claim": "EXACT_EARLIER_BYTES · Earlier source opinion: 4.5/5 · Mounted: 4.5/5 · Object sequence: unassigned · Complete action: unassigned.",
+        "current": "Current source/cell artwork: 4.5/5 · source or mounted priority",
+        "id": "GEO-USE-LIBRARY",
+        "imagesLoaded": true
+      },
+      {
+        "claim": "EXACT_EARLIER_BYTES · Earlier source opinion: 4.6/5 · Mounted: 4.2/5 · Object sequence: unassigned · Complete action: unassigned.",
+        "current": "Current source/cell artwork: 4.6/5 · source or mounted priority",
+        "id": "GEO-USE-CELEBRATION",
+        "imagesLoaded": true
+      },
+      {
+        "claim": "EXACT_EARLIER_BYTES · Earlier source opinion: 4.6/5 · Mounted: 4.6/5 · Object sequence: unassigned · Complete action: unassigned.",
+        "current": "Current source/cell artwork: 4.6/5",
+        "id": "GEO-USE-DEV-MENU",
+        "imagesLoaded": true
+      }
+    ]
+  },
+  "negative": {
+    "heading": "QA-only injected stale-source negative control",
+    "result": "4 matching items · showing 1–4",
+    "summary": "1245 unique source files + 328 pose cells + 49 runtime prop regions + 104 source object regions = 1726 individually addressable entries. 676 known source/cell/region priorities (547 unique source files); 0 additional current geode mounted priorities; 385 source file reviews required. Opinions dated 2026-10-02T11:06:43.490015+00:00; source boundary checked 2026-10-02T11:34:44.156957+00:00.",
+    "uses": [
+      {
+        "claim": "MOUNTED_CONTEXT_CHANGED_REVIEW_REQUIRED · Earlier source opinion: 4.5/5 · Mounted: unassigned · Object sequence: unassigned · Complete action: unassigned.",
+        "current": "Current source/cell artwork: 4.5/5 · source or mounted priority",
+        "id": "GEO-USE-INVITATION",
+        "recordedLabel": true
+      },
+      {
+        "claim": "MOUNTED_CONTEXT_CHANGED_REVIEW_REQUIRED · Earlier source opinion: 4.6/5 · Mounted: unassigned · Object sequence: unassigned · Complete action: unassigned.",
+        "current": "Current source/cell artwork: 4.6/5",
+        "id": "GEO-USE-CELEBRATION",
+        "recordedLabel": true
+      },
+      {
+        "claim": "MOUNTED_CONTEXT_CHANGED_REVIEW_REQUIRED · Earlier source opinion: 4.6/5 · Mounted: unassigned · Object sequence: unassigned · Complete action: unassigned.",
+        "current": "Current source/cell artwork: 4.6/5",
+        "id": "GEO-USE-DEV-MENU",
+        "recordedLabel": true
+      },
+      {
+        "claim": "CHANGED_SINCE_REGISTER_REFRESH_REVIEW_REQUIRED · Earlier source opinion: 4.5/5 · Mounted: unassigned · Object sequence: unassigned · Complete action: unassigned.",
+        "current": "Current source/cell artwork: review required",
+        "id": "GEO-USE-LIBRARY",
+        "recordedLabel": true
+      }
+    ]
+  },
+  "changed_filter": {
+    "ids": [
+      "GEO-USE-LIBRARY"
+    ],
+    "result": "1 matching items · showing 1–1"
+  },
+  "qualification": "Browser UI verification, not current gameplay or visual acceptance. Negative data fixture is isolated under ignored tmp and never changes runtime source bytes or the saved register opinions. Canonical1726 source hashes and372 captured boundary hashes matched at the recorded check; source changes after it require another refresh. Counts676 include known source files, pose cells and regions;547 are unique source-file priorities. Three extra mounted geode priorities are counted separately."
+}
