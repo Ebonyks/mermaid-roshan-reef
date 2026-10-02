@@ -1,0 +1,91 @@
+{
+  "status": "EXACT_COPIED_PAINTED_GEODE_SOURCES_WITH_CURRENT_NATIVE_REVIEW",
+  "items": [
+    {
+      "path": "assets/opera/worlds/geology/painted_geode_v1_20261001/closed.png",
+      "sha256": "ead12c03986968f7dc34630ed1eda8e589caa9631e774f13af686f496ff1aad3",
+      "source_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/closed_geode/attempt_01/whole_canvas_1024.png",
+      "source_sha256": "ead12c03986968f7dc34630ed1eda8e589caa9631e774f13af686f496ff1aad3",
+      "modifications": "None; exact existing whole-canvas technical derivative bytes copied. Godot AtlasTexture display regions do not alter source pixels.",
+      "source_review_score": 4.6,
+      "runtime_score": null,
+      "owner_acceptance": null,
+      "sampled_mounted_object_finish": 4.6,
+      "qualification": "Exact intact source state appears in reviewed current production captures. Object finish4.6; full timed action, room/contact, device/child/owner acceptance remain separate and incomplete."
+    },
+    {
+      "path": "assets/opera/worlds/geology/painted_geode_v1_20261001/early_crack.png",
+      "sha256": "82f92afb844daea7ae077e118951226df1def34d9398059d9321bd7488246832",
+      "source_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/early_crack/attempt_01/whole_canvas_1024.png",
+      "source_sha256": "82f92afb844daea7ae077e118951226df1def34d9398059d9321bd7488246832",
+      "modifications": "None; exact existing whole-canvas technical derivative bytes copied. Godot AtlasTexture display regions do not alter source pixels.",
+      "source_review_score": 4.6,
+      "runtime_score": null,
+      "owner_acceptance": null,
+      "sampled_mounted_object_finish": 4.6,
+      "qualification": "Exact intact source state appears in reviewed current production captures. Object finish4.6; full timed action, room/contact, device/child/owner acceptance remain separate and incomplete."
+    },
+    {
+      "path": "assets/opera/worlds/geology/painted_geode_v1_20261001/middle_open.png",
+      "sha256": "f196c510e71b4e2753757bb1660d8ca3d259dbedcbcb5d0510a526c127225725",
+      "source_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/opening_geode/middle_open/attempt_01/whole_canvas_1024.png",
+      "source_sha256": "f196c510e71b4e2753757bb1660d8ca3d259dbedcbcb5d0510a526c127225725",
+      "modifications": "None; exact existing whole-canvas technical derivative bytes copied. Godot AtlasTexture display regions do not alter source pixels.",
+      "source_review_score": 4.6,
+      "runtime_score": null,
+      "owner_acceptance": null,
+      "sampled_mounted_object_finish": 4.6,
+      "qualification": "Exact intact source state appears in reviewed current production captures. Object finish4.6; full timed action, room/contact, device/child/owner acceptance remain separate and incomplete."
+    },
+    {
+      "path": "assets/opera/worlds/geology/painted_geode_v1_20261001/open_embedded.png",
+      "sha256": "f9b095c066af3674b00470d426941609488cfa090022660763eca8ef2ada4fc5",
+      "source_path": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/open_geode/attempt_02/whole_canvas_1024.png",
+      "source_sha256": "f9b095c066af3674b00470d426941609488cfa090022660763eca8ef2ada4fc5",
+      "modifications": "None; exact existing whole-canvas technical derivative bytes copied. Godot AtlasTexture display regions do not alter source pixels.",
+      "source_review_score": 4.6,
+      "runtime_score": null,
+      "owner_acceptance": null,
+      "sampled_mounted_object_finish": 4.6,
+      "qualification": "Exact intact source state appears in reviewed current production captures. Object finish4.6; full timed action, room/contact, device/child/owner acceptance remain separate and incomplete."
+    }
+  ],
+  "generation_method": "Prior built-in ImageGen; no new generation or pixel repair for this placement/binding change.",
+  "native_sources_preserved": true,
+  "excluded": "open_geode/attempt_01 and crystal_reward are not geode reveal pixels.",
+  "regions": {
+    "closed": [
+      192,
+      213,
+      645,
+      602
+    ],
+    "early_crack": [
+      77,
+      85,
+      870,
+      741
+    ],
+    "middle_open": [
+      99,
+      70,
+      845,
+      569
+    ],
+    "open_left": [
+      53,
+      91,
+      448,
+      501
+    ],
+    "open_right": [
+      524,
+      91,
+      448,
+      500
+    ]
+  },
+  "acceptance": "No owner/runtime acceptance carried from source scores.",
+  "current_native_review": "audit/job_geode_runtime_v1_20261001/REVIEW.json",
+  "current_native_views_directly_reviewed": 36
+}

@@ -1,0 +1,77 @@
+{
+  "status": "PASS_SCOPED_PRODUCTION_REVIEW_MACHINE_GATES",
+  "checked_utc": "2026-10-02T05:14:59.411450+00:00",
+  "processes": [
+    {
+      "name": "parser",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/opera_geology_surface.gd",
+        "scripts/opera_career_world_2d.gd",
+        "tools/capture_geode_runtime_route.gd"
+      ],
+      "process_exit": 0,
+      "elapsed_seconds": 1.68825869995635,
+      "stdout": "audit/job_geode_runtime_v1_20261001/final_gates_v1/parser.stdout.log",
+      "stderr": "audit/job_geode_runtime_v1_20261001/final_gates_v1/parser.stderr.log"
+    },
+    {
+      "name": "inference",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/opera_geology_surface.gd",
+        "scripts/opera_career_world_2d.gd",
+        "tools/capture_geode_runtime_route.gd"
+      ],
+      "process_exit": 0,
+      "elapsed_seconds": 0.13530680001713336,
+      "stdout": "audit/job_geode_runtime_v1_20261001/final_gates_v1/inference.stdout.log",
+      "stderr": "audit/job_geode_runtime_v1_20261001/final_gates_v1/inference.stderr.log"
+    },
+    {
+      "name": "authority",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "process_exit": 0,
+      "elapsed_seconds": 7.53475549997529,
+      "stdout": "audit/job_geode_runtime_v1_20261001/final_gates_v1/authority.stdout.log",
+      "stderr": "audit/job_geode_runtime_v1_20261001/final_gates_v1/authority.stderr.log"
+    },
+    {
+      "name": "development",
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "process_exit": 0,
+      "elapsed_seconds": 5.754746399994474,
+      "stdout": "audit/job_geode_runtime_v1_20261001/final_gates_v1/development.stdout.log",
+      "stderr": "audit/job_geode_runtime_v1_20261001/final_gates_v1/development.stderr.log"
+    }
+  ],
+  "full_ci": "audit/job_geode_runtime_v1_20261001/full_ci_v2/RECEIPT.json",
+  "source_files": 334,
+  "source_unchanged": true,
+  "probe_count": 82,
+  "raw_full_ci_diagnostics": 55,
+  "qualification": "Actual work-branch geode binding and geologist celebration repair; all36 current native views individually reviewed. Engine diagnostics are retained unfiltered. Scoped machine results do not close room/contact/flat siblings, full timed action, castle/story entry, strict2D, device/child/owner/final all-job acceptance or authorize integration/release."
+}

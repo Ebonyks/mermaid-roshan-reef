@@ -37,10 +37,11 @@ const GEODE_SEAM_SPOTS: Array[Vector2] = [
 	Vector2(766.0, 216.0), Vector2(735.0, 278.0), Vector2(778.0, 340.0),
 	Vector2(744.0, 401.0), Vector2(770.0, 466.0),
 ]
-## Approved vectors remain runtime authority until the new raster candidates
-## pass alpha/native-resolution review. Never load rejected checkerboard art.
+## Painted geode states reuse reviewed transparent source art. Other geology
+## surfaces retain their independently tracked artwork and contact priorities.
 const FOSSIL_PATH := "res://assets/opera/worlds/hotspots/geologist_fossil.svg"
-const GEODE_PATH := ""
+const GEODE_ART := "res://assets/opera/worlds/geology/painted_geode_v1_20261001/"
+const GEODE_PATH := GEODE_ART + "closed.png"
 const ROCK_PATH := "res://assets/opera/worlds/hotspots/geologist_layered_rock.svg"
 const BRUSH_PATH := "res://assets/castle/day_one_art_studio/magic_cleaning_brush.png"
 const PAN_PATH := ""
@@ -48,6 +49,10 @@ const CRYSTALS_PATH := "res://assets/opera/worlds/props/goal_geologist.svg"
 
 var fossil_texture: Texture2D = null
 var geode_texture: Texture2D = null
+var _geode_crack_texture: Texture2D = null
+var _geode_middle_texture: Texture2D = null
+var _geode_open_left_texture: Texture2D = null
+var _geode_open_right_texture: Texture2D = null
 var rock_texture: Texture2D = null
 var brush_texture: Texture2D = null
 var pan_texture: Texture2D = null
@@ -166,8 +171,7 @@ func geode_seam_spot(index: int) -> Vector2:
 
 
 func geode_half_center() -> Vector2:
-	return Vector2(GEODE_RECT.get_center().x + GEODE_RECT.size.x * 0.25 + geode_pull,
-		GEODE_RECT.get_center().y)
+	return _geode_right_rect().get_center()
 
 
 func progress_snapshot() -> Dictionary:
@@ -246,7 +250,15 @@ func restart_demo() -> void:
 
 func _load_textures() -> void:
 	fossil_texture = _optional_texture(FOSSIL_PATH)
-	geode_texture = _optional_texture(GEODE_PATH)
+	geode_texture = _geode_atlas(GEODE_PATH, Rect2(192, 213, 645, 602))
+	_geode_crack_texture = _geode_atlas(GEODE_ART + "early_crack.png",
+		Rect2(77, 85, 870, 741))
+	_geode_middle_texture = _geode_atlas(GEODE_ART + "middle_open.png",
+		Rect2(99, 70, 845, 569))
+	_geode_open_left_texture = _geode_atlas(GEODE_ART + "open_embedded.png",
+		Rect2(53, 91, 448, 501))
+	_geode_open_right_texture = _geode_atlas(GEODE_ART + "open_embedded.png",
+		Rect2(524, 91, 448, 500))
 	rock_texture = _optional_texture(ROCK_PATH)
 	brush_texture = _optional_texture(BRUSH_PATH)
 	pan_texture = _optional_texture(PAN_PATH)
@@ -521,6 +533,17 @@ func _seam_at(at: Vector2) -> int:
 
 
 func _geode_right_rect() -> Rect2:
+	if geode_pull >= 90.0 and _geode_open_right_texture != null:
+		var width := 320.0 * _geode_open_right_texture.get_width() \
+			/ float(_geode_open_right_texture.get_height())
+		return Rect2(Vector2(GEODE_RECT.get_center().x + geode_pull, 195.0),
+			Vector2(width, 320.0))
+	if geode_pull > 0.0:
+		var texture := _geode_crack_texture if geode_pull < 40.0 else _geode_middle_texture
+		if texture != null:
+			var pair := _geode_pair_rect(texture, 350.0)
+			return Rect2(Vector2(pair.get_center().x, pair.position.y),
+				Vector2(pair.size.x * 0.5, pair.size.y))
 	return Rect2(Vector2(GEODE_RECT.get_center().x + geode_pull,
 		GEODE_RECT.position.y), Vector2(GEODE_RECT.size.x * 0.5, GEODE_RECT.size.y))
 
@@ -794,45 +817,51 @@ func _draw_pan() -> void:
 			Color.from_hsv(0.47 + float(index) * 0.12, 0.40, 1.0))
 
 
-func _draw_geode() -> void:
-	var center := GEODE_RECT.get_center()
-	var seam_x := center.x
-	var opened := geode_pull > 0.0
-	if opened:
-		_draw_ellipse(center + Vector2(geode_pull * 0.5, 0.0),
-			Vector2(36.0 + geode_pull * 0.32, 122.0), Color("#291f48"),
-			Color("#392958"), 8.0)
-		if crystals_texture != null:
-			draw_texture_rect(crystals_texture,
-				Rect2(center + Vector2(geode_pull * 0.5 - 78.0, -84.0),
-					Vector2(156.0, 168.0)), false)
-		else:
-			_draw_crystal_gallery(center + Vector2(geode_pull * 0.5, 18.0))
-	var left_half := _geode_half_points(seam_x, center.y, -1.0, 0.0)
-	var right_half := _geode_half_points(seam_x + geode_pull, center.y, 1.0, 0.0)
-	draw_colored_polygon(left_half, Color("#65506e"))
-	draw_colored_polygon(right_half, Color("#755c7d"))
-	var left_outline := left_half.duplicate()
-	left_outline.append(left_half[0])
-	draw_polyline(left_outline, Color("#392958"), 12.0, true)
-	var right_outline := right_half.duplicate()
-	right_outline.append(right_half[0])
-	draw_polyline(right_outline, Color("#392958"), 12.0, true)
-	if not opened:
-		draw_line(Vector2(seam_x, center.y - 130.0),
-			Vector2(seam_x, center.y + 130.0), Color("#392958"), 9.0, true)
-	for index in range(GEODE_SEAM_SPOTS.size()):
-		var done := geode_seams[index]
-		if opened:
-			continue
-		var spot := GEODE_SEAM_SPOTS[index] + Vector2(geode_pull * 0.5, 0.0) \
-			if opened and index >= 2 else GEODE_SEAM_SPOTS[index]
-		draw_circle(spot, 22.0,
-			Color("#ffe69a") if not done else Color("#8ce6dd"))
-		if not done:
-			draw_arc(spot, 32.0, 0.0, TAU, 24,
-				Color(1.0, 0.89, 0.42, 0.56), 5.0, true)
+func _geode_atlas(path: String, region: Rect2) -> Texture2D:
+	var texture := _optional_texture(path)
+	if texture == null:
+		push_error("Missing painted geode state: " + path)
+		return null
+	var atlas := AtlasTexture.new()
+	atlas.atlas = texture
+	atlas.region = region
+	return atlas
 
+
+func _geode_pair_rect(texture: Texture2D, height: float) -> Rect2:
+	var size := Vector2(height * texture.get_width() / float(texture.get_height()), height)
+	var center := Vector2(GEODE_RECT.get_center().x + geode_pull * 0.5,
+		GEODE_RECT.end.y - height * 0.5)
+	return Rect2(center - size * 0.5, size)
+
+
+func _draw_geode() -> void:
+	if geode_texture == null:
+		return
+	if geode_pull <= 0.0:
+		draw_texture_rect(geode_texture, _geode_pair_rect(geode_texture, 350.0), false)
+		for index: int in range(GEODE_SEAM_SPOTS.size()):
+			var done := geode_seams[index]
+			draw_circle(GEODE_SEAM_SPOTS[index], 15.0,
+				Color("#8ce6dd") if done else Color("#ffe69a"))
+			if not done:
+				draw_arc(GEODE_SEAM_SPOTS[index], 25.0, 0.0, TAU, 24,
+					Color(1.0, 0.89, 0.42, 0.56), 4.0, true)
+		return
+	if geode_pull < 90.0:
+		var texture := _geode_crack_texture if geode_pull < 40.0 else _geode_middle_texture
+		if texture != null:
+			draw_texture_rect(texture, _geode_pair_rect(texture, 350.0), false)
+		return
+	# Each exposed crystal is painted into its own cavity. No loose reward layer.
+	if _geode_open_left_texture == null or _geode_open_right_texture == null:
+		return
+	var left_width := 320.0 * _geode_open_left_texture.get_width() \
+		/ float(_geode_open_left_texture.get_height())
+	draw_texture_rect(_geode_open_left_texture,
+		Rect2(Vector2(GEODE_RECT.get_center().x - left_width, 195.0),
+			Vector2(left_width, 320.0)), false)
+	draw_texture_rect(_geode_open_right_texture, _geode_right_rect(), false)
 
 func _draw_work_surface() -> void:
 	var surface := Rect2(330.0, 130.0, 860.0, 560.0)

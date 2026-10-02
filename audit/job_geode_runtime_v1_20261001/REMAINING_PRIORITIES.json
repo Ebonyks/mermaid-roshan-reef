@@ -1,0 +1,141 @@
+{
+  "status": "OPEN_INDIVIDUAL_GEOGRAPHICS_PRIORITIES",
+  "checked_utc": "2026-10-02T05:00:05.947206+00:00",
+  "priorities": [
+    {
+      "id": "GEO-PRIORITY-ROOM",
+      "item": "Actual geology room",
+      "score": 2.8,
+      "capture": "attempt_03/native_views/geologist_1280_geode_invitation.webp",
+      "source": null,
+      "reason": "Dark flat bands and generic cave mural remain in the actual room. Existing grotto drafts do not meet native2048×2048 per-screen coverage; a visually attractive undersize image cannot establish runtime readiness.",
+      "required": "Inventory reusable approved native masters; preserve the approved composition, meet native coverage and tile seams, and inspect all four ordinary invitations/work contexts.",
+      "capture_sha256": "20dc3e7a47089ece637c2bac0741c9f05ea70d9f47fdc7d6a278ef247b86f12b",
+      "current_binding": "Actual production topic candidate capture"
+    },
+    {
+      "id": "GEO-PRIORITY-INVITATIONS",
+      "item": "Four actual work invitations",
+      "score_range": [
+        2.9,
+        3.4
+      ],
+      "capture": "attempt_03/native_views/geologist_1280_pan_invitation.webp",
+      "source": null,
+      "reason": "PAN currently invites with a layered rock, FOSSIL with a minimal table, RIVER with an abstract halo, and GEODE with flat mural crystals. These are individually recorded in REVIEW.json, not approved by the new geode source.",
+      "required": "Show the actual task object and a stable support/arrival mark; preserve intentional touch and spoken/pointer instruction.",
+      "capture_sha256": "c7fb6efe5ab1b608ad3a63606ab6d33fffd292b59e2a43e563d58a749abc6144",
+      "current_binding": "Actual production topic candidate capture"
+    },
+    {
+      "id": "GEO-PRIORITY-WORK-FIELD",
+      "item": "Current ochre work panel",
+      "score": 4.0,
+      "capture": "attempt_03/native_views/geologist_1280_geode_earned_completion.webp",
+      "source": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/work_surface/attempt_04/whole_canvas_1024.png",
+      "candidate_source_score": 4.6,
+      "reason": "The current large uniform rounded panel has little painted stone material. The separately reviewed stone slab is available but is not bound here; it must retain its native aspect and support every actual brush/piece/pan/geode state.",
+      "required": "Reuse the preserved painted slab without stretching it or allowing objects, homes, cues or gestures to float beyond its support.",
+      "capture_sha256": "48130c1dd32c98e4c5c4ba3df371509ef4e3cd64a5b433960b406f30f4099c95",
+      "current_binding": "Actual production topic candidate capture",
+      "candidate_sha256": "592365e4fd9fec19fc002dc3b08fcddcbb9b40405ba21597bf518a5be1b67f80",
+      "candidate_dimensions": [
+        1024,
+        1024
+      ],
+      "candidate_binding": "UNBOUND_SOURCE_ONLY"
+    },
+    {
+      "id": "GEO-PRIORITY-FOSSIL",
+      "item": "Active fossil and three assembly pieces",
+      "score": 3.8,
+      "assembly_score": 3.9,
+      "capture": "attempt_03/native_views/geologist_1280_fossil_brushed.webp",
+      "source": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/fossil/attempt_02/whole_canvas_1024.png",
+      "candidate_source_score": 4.6,
+      "reason": "The live fossil and its conserved thirds remain flat SVG pixels. A complete painted fossil source is ready for a binding review; its more compact source ratio cannot be stretched into the old wide frame. The three pieces must reconstruct that same raster image.",
+      "required": "Preserve source proportions and one consistent source region across full fossil, faint target, three pieces and invitation. Check actual brushing, dragging, snapping and saved re-entry at both widths.",
+      "capture_sha256": "8f8110fc179f275202e8456c6ea691cc732fe7a8ff92366f520ae78d0d96df40",
+      "current_binding": "Actual production topic candidate capture",
+      "candidate_sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+      "candidate_dimensions": [
+        1024,
+        1024
+      ],
+      "candidate_binding": "UNBOUND_SOURCE_ONLY"
+    },
+    {
+      "id": "GEO-PRIORITY-FOSSIL-COVER",
+      "item": "Fossil dirt cover",
+      "score": 3.2,
+      "capture": "attempt_03/native_views/geologist_1280_fossil_task_open.webp",
+      "source": null,
+      "reason": "The entire fossil is hidden by a uniform brown rectangle. Its flat cover is a distinct material problem; the unseen fossil gets no visible grade at this state.",
+      "required": "Find a reusable painted soil material or generate only this missing material. Preserve actual brush clearing and transparent-reveal continuity.",
+      "capture_sha256": "b804058a290a40026776de857dda4069e50f8c12a5fefff34974323e15e11e11",
+      "current_binding": "Actual production topic candidate capture"
+    },
+    {
+      "id": "GEO-PRIORITY-PAN",
+      "item": "Live pan, grains and recovered minerals",
+      "score": 4.0,
+      "grain_score": 3.8,
+      "mineral_score": 3.4,
+      "capture": "attempt_03/native_views/geologist_1280_pan_partial_pan.webp",
+      "source": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/washing_pan/attempt_02/whole_canvas_1024.png",
+      "candidate_source_score": 4.6,
+      "reason": "The live pan still consists of procedural ellipses; grains are discs and recovered minerals are flat polygons. Painted pan/grain/mineral sources were separately reviewed. The new geode reveal does not replace these objects.",
+      "required": "Bind intact painted sources at their own runtime paths, maintain pan/water geometry, and audit washing progression and mineral waterline at every earned stage.",
+      "capture_sha256": "7b41af30134df43ba5770edbc18cae0459f1d525890461c03a6c9d7f6f688d84",
+      "current_binding": "Actual production topic candidate capture",
+      "candidate_sha256": "700062113b36450983a871324847fc61fcf7c8f4225dbf489022e97152936803",
+      "candidate_dimensions": [
+        1024,
+        585
+      ],
+      "candidate_binding": "UNBOUND_SOURCE_ONLY"
+    },
+    {
+      "id": "GEO-PRIORITY-RIVER",
+      "item": "Live excavated river",
+      "score": 3.8,
+      "capture": "attempt_03/native_views/geologist_1280_river_earned_completion.webp",
+      "source": null,
+      "reason": "Connected aqua rectangles and repeated circular nodes read like a diagram. They correctly track the intentional excavation, but lack the current painted terrain/water material language.",
+      "required": "Keep the existing connected-path behavior while replacing the material presentation and depicting digging at the actual point of contact.",
+      "capture_sha256": "87aea1f99ecb8439a5b0e24bb5de9cb7e3d58c766e521647c5fca80ca28d6346",
+      "current_binding": "Actual production topic candidate capture"
+    },
+    {
+      "id": "GEO-PRIORITY-CONTACT",
+      "item": "Roshan working away from all four objects",
+      "score": 2.7,
+      "capture": "attempt_03/native_views/geologist_1280_geode_middle_open.webp",
+      "source": "assets_src/imagegen/geologist_painted_rebuild_v1_20261001/panning_contact/attempt_01/whole_canvas_1024.png",
+      "candidate_source_score": 4.6,
+      "reason": "The current work animation crawls on the floor away from the active material. A connected static pan grip was reviewed separately; all three local video references remain below the full-action floor. A static grip image cannot establish travel, pickup, alternating rocking, release or return.",
+      "required": "Bind an appropriate working pose and prove meaningful hand/tool/object contact throughout each real action; inspect complete timed routes rather than grading selected poses as motion.",
+      "capture_sha256": "8307e54e91bb3f1cc43b921b71cc4339406a3c632c45d8696139948b81bf60ce",
+      "current_binding": "Actual production topic candidate capture",
+      "candidate_sha256": "0f1e510793e7de2fe00b94ecc1ad96658843cae3e9a2e4aed6c9c064b8269a06",
+      "candidate_dimensions": [
+        1024,
+        683
+      ],
+      "candidate_binding": "UNBOUND_SOURCE_ONLY"
+    },
+    {
+      "id": "GEO-PRIORITY-OPENING-SEQUENCE",
+      "item": "Geode opening transitions",
+      "score": 4.5,
+      "score_scope": "Selected static/base progression only; complete timed action unassigned",
+      "capture": "attempt_03/native_views/geologist_1280_geode_middle_open.webp",
+      "capture_sha256": "8307e54e91bb3f1cc43b921b71cc4339406a3c632c45d8696139948b81bf60ce",
+      "source": null,
+      "reason": "The sampled closed/crack/oblique/full states preserve rooted crystals and the common base, but selected still images do not establish every intervening frame or complete child-driven timing. The4.5 provisional minimum remains an inclusive refinement priority.",
+      "required": "Review the complete ordinary timed opening, especially state changes near40/90 logical pull and release/re-entry. Refine only an actually weak intermediate state or interaction; preserve the passing source states and never substitute loose crystals.",
+      "current_binding": "Actual production topic candidate captures; source4.6 and sampled progression4.5 are separate."
+    }
+  ],
+  "qualification": "Current native image review and reused source inventory. Not an implementation completion, score average, generation acceptance or final all-job report."
+}

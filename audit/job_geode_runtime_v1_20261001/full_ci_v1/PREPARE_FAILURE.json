@@ -1,0 +1,9 @@
+{
+  "status": "FAILED_PREPARATION_SUITE_NOT_STARTED",
+  "command": "run_geode_full_ci_v1.py --prepare",
+  "process_exit": 1,
+  "error": "FileNotFoundError: tools/capture_geode_runtime_route.gd.uid",
+  "cause": "tools/.gdignore prevents automatic UID creation; source snapshot must include actual files, not invent a sidecar.",
+  "suite_started": false,
+  "qualification": "This is a preparation failure, not a passing or failed trusted82-probe run."
+}

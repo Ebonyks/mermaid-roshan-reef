@@ -1,0 +1,29 @@
+{
+  "status": "PASS_OBSERVED_REPORT_LAYOUT",
+  "checked_utc": "2026-10-02T04:51:05.920880+00:00",
+  "url": "http://127.0.0.1:8880/audit/job_geode_runtime_v1_20261001/index.html?revision=production-v3",
+  "report_sha256": "668e2e3fac43683e6a7b3eaa465b73f754989a84acdb674ce5472d03b6cb948f",
+  "checks": [
+    {
+      "check": "exact HTTP bytes for report/current JSON/final native view/open source",
+      "result": "PASS"
+    },
+    {
+      "check": "browser DOM exposes all36 scored current views, four source items, six embedded components via JSON and preserved archive disclosures",
+      "result": "PASS"
+    },
+    {
+      "check": "phone-size preview control responds",
+      "result": "PASS"
+    },
+    {
+      "check": "current browser viewport1265px content width1265px after long-identifier wrap repair",
+      "result": "PASS"
+    },
+    {
+      "check": "visible loaded artwork broken-image count0",
+      "result": "PASS"
+    }
+  ],
+  "qualification": "Browser report usability and selected loaded images only; no artwork, touch-device or owner acceptance. Full local suite was still running at this check."
+}

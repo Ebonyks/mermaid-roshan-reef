@@ -1802,6 +1802,9 @@ func _stage_room_finale_partner() -> void:
 	if career_id == "geologist" and task_open:
 		player_actor.position = Vector2(30, 422)
 		player_actor.scale = Vector2.ONE
+		# Completion must celebrate at the visible task rest, not the old
+		# wander position behind the opaque full-canvas work surface.
+		_capture_actor_rest("player", player_actor)
 		rival_actor.position = Vector2(78, 218)
 		rival_actor.size = Vector2(176, 176)
 		rival_actor.scale = Vector2.ONE
@@ -2314,6 +2317,11 @@ func _finish_player_glide() -> void:
 
 func _play_roshan_animation(animation: String) -> void:
 	if player_animator == null or not is_instance_valid(player_animator):
+		return
+	if career_id == "geologist" and animation == "cheer" and phase_index >= 3:
+		# Celebrate the rooted interior with the existing clapping pose. The
+		# sample-in-hand first cheer cell would imply another extracted crystal.
+		player_animator.show_pose("cheer", 1)
 		return
 	if player_animator.current_animation != animation:
 		player_animator.play(animation)
