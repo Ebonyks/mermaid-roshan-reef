@@ -1,0 +1,21 @@
+{
+  "status": "ACTUAL_PRIOR_EXACT_HEAD_HOSTED_SNAPSHOT",
+  "checked_utc": "2026-10-03T13:29:52.048503+00:00",
+  "command": [
+    "C:/Program Files/GitHub CLI/gh.exe",
+    "run",
+    "view",
+    "37124629454",
+    "--repo",
+    "Ebonyks/mermaid-roshan-reef",
+    "--json",
+    "databaseId,status,conclusion,headSha,url,jobs"
+  ],
+  "exit_code": 0,
+  "revision": "296b2adc8cf4e9b3adbc27a5b5d281471893f6bf",
+  "run_id": 37124629454,
+  "run_status": "in_progress",
+  "run_conclusion": "",
+  "raw_sha256": "e79462c386658c2f272a8ef43ee98e1e395dbd282d772d26769ea61d910e8da8",
+  "qualification": "Observed exact-head status only;pending stays pending,no predicted green/integration/creative acceptance."
+}

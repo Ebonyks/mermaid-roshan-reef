@@ -1,11 +1,11 @@
 {
   "schema": "reef.current-review-boundary-refresh.v1",
   "status": "CURRENT_CANDY_MATCH_OLDER_GEODE_NURSERY_WITHHELD",
-  "checked_utc": "2026-10-03T12:42:36.317260+00:00",
-  "working_head": "b6501351a854cc0133b17a74d557ce1c4d14b5af",
-  "registry_items": 2152,
-  "unique_registered_paths": 1337,
-  "registered_source_matches": 2152,
+  "checked_utc": "2026-10-03T13:29:55.603283+00:00",
+  "working_head": "296b2adc8cf4e9b3adbc27a5b5d281471893f6bf",
+  "registry_items": 2160,
+  "unique_registered_paths": 1345,
+  "registered_source_matches": 2160,
   "source_changed_or_unavailable": [],
   "geode_review": "audit/job_geode_current_recheck_v1_20261002/DIRECT_REVIEW.json",
   "geode_capture_source_count": 783,
@@ -16531,6 +16531,70 @@
       "binding_match": null
     },
     {
+      "id": "CANDY-MIDTURN-01",
+      "path": "assets_src/imagegen/candy_wrap_transition_keys_v1_20261003/midturn_attempt01/native.png",
+      "observed_sha256": "692770fa2b3087d2e3451908f0607ff829cca9207e7f4578bbe6bc299a04441e",
+      "registered_sha256": "692770fa2b3087d2e3451908f0607ff829cca9207e7f4578bbe6bc299a04441e",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-MIDTURN-02",
+      "path": "assets_src/imagegen/candy_wrap_transition_keys_v1_20261003/midturn_attempt02/native.png",
+      "observed_sha256": "4ecee2387fd096a718600d301e5c4a5abd16e09b8dca4ccd83a64da04a18269f",
+      "registered_sha256": "4ecee2387fd096a718600d301e5c4a5abd16e09b8dca4ccd83a64da04a18269f",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-MIDTURN-03",
+      "path": "assets_src/imagegen/candy_wrap_transition_keys_v1_20261003/midturn_attempt03/native.png",
+      "observed_sha256": "ba9fe0773c86b055c173f8c4d981c46a14f7aa669807717bc92d21c833487644",
+      "registered_sha256": "ba9fe0773c86b055c173f8c4d981c46a14f7aa669807717bc92d21c833487644",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-MIDTURN-04",
+      "path": "assets_src/imagegen/candy_wrap_transition_keys_v1_20261003/midturn_attempt04/native.png",
+      "observed_sha256": "0c573ad0e4d5e849b8ec5209f308a913d9399bb1d2b7d60542da9288a349617a",
+      "registered_sha256": "0c573ad0e4d5e849b8ec5209f308a913d9399bb1d2b7d60542da9288a349617a",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-EARLY-RELEASE-01",
+      "path": "assets_src/imagegen/candy_wrap_transition_keys_v1_20261003/release_attempt01/native.png",
+      "observed_sha256": "b777ede6ee3b9a558e4dd7ef5bdd9e5d6866e4bd7f396b6d5c6218e65d6bec51",
+      "registered_sha256": "b777ede6ee3b9a558e4dd7ef5bdd9e5d6866e4bd7f396b6d5c6218e65d6bec51",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-EARLY-RELEASE-02",
+      "path": "assets_src/imagegen/candy_wrap_transition_keys_v1_20261003/release_attempt02/native.png",
+      "observed_sha256": "831f6096b5fa3d92e03bc394d170cac938452cdd789e3befc820372a90a1edd4",
+      "registered_sha256": "831f6096b5fa3d92e03bc394d170cac938452cdd789e3befc820372a90a1edd4",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-EARLY-RELEASE-03",
+      "path": "assets_src/imagegen/candy_wrap_transition_keys_v1_20261003/release_attempt03/native.png",
+      "observed_sha256": "9d08d7a641e06aec3c20f1b1b97332793f5371f68bd159d08c14afe8e21d0290",
+      "registered_sha256": "9d08d7a641e06aec3c20f1b1b97332793f5371f68bd159d08c14afe8e21d0290",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-EARLY-RELEASE-04",
+      "path": "assets_src/imagegen/candy_wrap_transition_keys_v1_20261003/release_attempt04/native.png",
+      "observed_sha256": "71ca74126afe50da319a52b2444451bc748d3a8224d65e091f03f7fa471ca86a",
+      "registered_sha256": "71ca74126afe50da319a52b2444451bc748d3a8224d65e091f03f7fa471ca86a",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
       "id": "D2X-0040-CELL-00",
       "path": "assets/flats/castle/interactions_v2/library_magic_book_sheet.png",
       "observed_sha256": "1d6710b704f3e124f2ea7c9765575a1fee1184f14b485829380b56696bf6f1b1",
@@ -17250,7 +17314,7 @@
   "candy_capture_source_count": 783,
   "candy_changed_sources": [],
   "candy_review": "audit/job_candy_workflow_current_v1_20261003/DIRECT_REVIEW_CURRENT_A3.json",
-  "registry_root_sha256": "d8d01a052dda747b41937dc47f1b434dc21be7c89a86fa2843afac6a2e705768",
+  "registry_root_sha256": "8f927d7c721d6313a6f6fb881ca241bfd0207bcc9ef24f0bec55b44b3b694ed5",
   "registry_parts": [
     {
       "path": "ATLAS_STATE_ITEMS_V51.json",

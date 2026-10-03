@@ -1,0 +1,47 @@
+{
+  "status": "READ_ONLY_NEXT_MATCHING_INVENTORY_NOT_NEW_AUDIT_OR_RUNTIME_ACCEPTANCE",
+  "revision": "296b2adc8cf4e9b3adbc27a5b5d281471893f6bf",
+  "sources": [
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "501cec2f90a16ed66dd10fabacc04d1285061a682cf39ad0ad0481c2e2661131",
+      "dimensions": null
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "sha256": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66",
+      "dimensions": null
+    },
+    {
+      "path": "assets/opera/worlds/actors/roshan_candymaker.png",
+      "sha256": "6c933ee8695e12ec2156615025f135d3c778ddd281b526c07c991f2b829b4ce5",
+      "dimensions": [
+        512,
+        512
+      ]
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png",
+      "sha256": "b858c07f52d4f67679a39dd039afc7123199646442c067368425f8f46deec179",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_candymaker_mover.png",
+      "sha256": "4e77bdc100f28a4a4639190c9be820ed9b05f6361d7ebf16fb250dbde92b585f",
+      "dimensions": [
+        256,
+        256
+      ]
+    }
+  ],
+  "selection_facts": [
+    "World constructs roshan_candymaker.png as fallback at line1213,then attaches OperaRoshanActor at1226-1229.",
+    "Animator selects1024x1024 roshan_candymaker_sheet_a.png when valid;work row2 uses256x256 cells0-3.",
+    "Fallback portrait alone is not the displayed animation or proof of hand/prop contact.",
+    "Existing actual CANDY-USE-019 documents remote whisk work keys during WRAP;gold replacement remains unbound."
+  ],
+  "qualification": "Ignored next-task inventory only,not part of the already sealed V27 publication. No new source opinion,graph change or game mutation."
+}

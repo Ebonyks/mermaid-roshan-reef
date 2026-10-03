@@ -1,0 +1,28 @@
+{
+  "status": "READY_NAMED_CORRECTION_NOT_GENERATED",
+  "attempt": 2,
+  "method": "BUILTIN_IMAGEGEN_COMPLETE_FLATTENED_SOURCE",
+  "references": [
+    {
+      "role": "grip",
+      "path": "assets_src/imagegen/candy_neck_grip_pose_v1_20261003/attempt04/native.png",
+      "sha256": "f1ff6a5f1d46d7e1bb7a53af02da82355ba603514349edec817a6bf73dafda1c",
+      "bytes": 2231103,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "acceptance": "SOURCE_STILL_PROVISIONAL_ONLY"
+    }
+  ],
+  "prompt_path": "assets_src/imagegen/candy_wrap_transition_keys_v1_20261003/midturn_attempt02/PROMPT.txt",
+  "prompt_sha256": "7b95b7674bce6d10f195bc36baf1623c9e47468293bf1b95f9d47de20d0fe69a",
+  "previous_rejected_review": "assets_src/imagegen/candy_wrap_transition_keys_v1_20261003/midturn_attempt01/DIRECT_REVIEW.json",
+  "source_score": null,
+  "mounted_score": null,
+  "sequence_score": null,
+  "action_score": null,
+  "owner_acceptance": null,
+  "qualification": "Complete same-scene source still only,not temporal motion/runtime/cinematic delivery."
+}

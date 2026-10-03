@@ -1,0 +1,107 @@
+{
+  "checked_utc": "2026-10-03T13:15:33.318260+00:00",
+  "baseline": "296b2adc8cf4e9b3adbc27a5b5d281471893f6bf",
+  "sources": [
+    {
+      "role": "fold",
+      "path": "assets_src/imagegen/candy_wrap_scene_context_v1_20261003/attempt02/native.png",
+      "sha256": "b126a8ab0f1c0d1e720588335beb3bdb6f1e2b4153ff1e2deeacaf5443d2ec62",
+      "bytes": 2323232,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "acceptance": "SOURCE_STILL_PROVISIONAL_ONLY"
+    },
+    {
+      "role": "cover",
+      "path": "assets_src/imagegen/candy_cover_pose_v1_20261003/attempt01/native.png",
+      "sha256": "9e1f2cbcbe0bfc6e0f7a2cebd8c3c50e1e09dfb3f6156e7798ce0a9b3e22a87d",
+      "bytes": 2243621,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "acceptance": "SOURCE_STILL_PROVISIONAL_ONLY"
+    },
+    {
+      "role": "grip",
+      "path": "assets_src/imagegen/candy_neck_grip_pose_v1_20261003/attempt04/native.png",
+      "sha256": "f1ff6a5f1d46d7e1bb7a53af02da82355ba603514349edec817a6bf73dafda1c",
+      "bytes": 2231103,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "acceptance": "SOURCE_STILL_PROVISIONAL_ONLY"
+    },
+    {
+      "role": "twisted",
+      "path": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/twist_attempt05/native.png",
+      "sha256": "33a0c2a7d4ef4550ec537ed65257fde7f06b53694ab8bad6315b9d91ffc8b38e",
+      "bytes": 2205286,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "acceptance": "SOURCE_STILL_PROVISIONAL_ONLY"
+    },
+    {
+      "role": "rest",
+      "path": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/release_attempt05/native.png",
+      "sha256": "a7b842cd59cba9f6e023ec535c8188a41d7c7b18f176c4f62db399939a2c8ccb",
+      "bytes": 2230187,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "acceptance": "SOURCE_STILL_PROVISIONAL_ONLY"
+    },
+    {
+      "role": "current_atlas",
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png",
+      "sha256": "b858c07f52d4f67679a39dd039afc7123199646442c067368425f8f46deec179",
+      "bytes": 958648,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "acceptance": "ACTUAL_BOUND_SOURCE_NO_ACTION_ACCEPTANCE"
+    },
+    {
+      "role": "current_widget",
+      "path": "assets/opera/worlds/widgets/widget_crank_candymaker_mover.png",
+      "sha256": "4e77bdc100f28a4a4639190c9be820ed9b05f6361d7ebf16fb250dbde92b585f",
+      "bytes": 72499,
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "acceptance": "ACTUAL_BOUND_SOURCE_NO_ACTION_ACCEPTANCE"
+    }
+  ],
+  "prior_component_reviews": [
+    {
+      "path": "assets_src/local_motion/candy_twist_release_components_v1_20261003/release_a1/attempt01/DIRECT_REVIEW.json",
+      "sha256": "bb82c827eff44088417c155847f8bb877f7b6e98eb984ccd5e5492cc0a713191"
+    },
+    {
+      "path": "assets_src/local_motion/candy_twist_release_components_v1_20261003/twist_a1/attempt01/DIRECT_REVIEW.json",
+      "sha256": "cd41f938278e37e45160073af7048ceb77234e79616a49d404070e404d7cd0f6"
+    }
+  ],
+  "reuse": "Reuse clean full-scene grip, finished twist and rest sources as identity/layout/material inputs. Existing endpoints are held stills;41-frame twist has no readable wrist roll/paper winding and41-frame release loses thumb/cuff ownership. No reusable accepted middle-turn or early clean release state is established.",
+  "current_game": "Valid1024x1024 Candy atlas selects work row2 at7fps; all four work poses hold a whisk away from the current256px turquoise shell-badged widget. Gold family remains proposed replacement; no runtime binding or score transfer.",
+  "named_gaps": [
+    "A readable half-turn maintaining both neck grips, opposite wrist orientations and continuous thin gold paper.",
+    "Early simultaneous release: the whole thumb leaves with its own mitten and cuff, while supported candy, twisted necks and fans remain fixed."
+  ],
+  "no_redesign": "Keep the existing character/costume/room/prop family; no new identities or protected originals."
+}

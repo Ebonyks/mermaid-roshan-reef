@@ -1114,3 +1114,6 @@ Kept as-is; noted so a future edit updates every copy.
 
 | `assets_src/local_motion/candy_twist_release_components_v1_20261003/index.html` | 🟢 | `SUPPORTING_CURRENT`; two reference components,82 native frames/24 named component opinions. Release1.7/twist2.2 rejected;source endpoints4.5/current WRAP2.8 stay separate. Full causal action,actual jobs/Opera training/device/child/owner open. |
 | `assets_src/local_motion/candy_twist_release_components_v1_20261003/previous_v53/ALL_ITEMS.json` | ⚪ | `HISTORICAL_SUPPORTING`; literal V53 root before review-resource update;2064 item dictionaries and88-item part unchanged. Earlier HTML preserved before current-first layout. |
+
+| `assets_src/imagegen/candy_wrap_transition_keys_v1_20261003/index.html` | 🟢 | `SUPPORTING_CURRENT`;eight complete transition sources/88 component and6 static-neighbor opinions. Early-releaseA4 source4.5 provisional,midturn best4.2 rejected. Prior motion/current game and broad acceptance remain separate. |
+| `assets_src/imagegen/candy_wrap_transition_keys_v1_20261003/previous_v54/ALL_ITEMS.json` | ⚪ | `HISTORICAL_SUPPORTING`;literal V54 root before eight source additions;all2064 prior item dictionaries and88-item part preserved. |

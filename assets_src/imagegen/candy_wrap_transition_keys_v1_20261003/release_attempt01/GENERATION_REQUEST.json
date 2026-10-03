@@ -1,0 +1,39 @@
+{
+  "status": "READY_NAMED_GAP_ONLY_NOT_GENERATED",
+  "attempt": 1,
+  "method": "BUILTIN_IMAGEGEN_COMPLETE_FLATTENED_SOURCE",
+  "references": [
+    {
+      "role": "twisted",
+      "path": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/twist_attempt05/native.png",
+      "sha256": "33a0c2a7d4ef4550ec537ed65257fde7f06b53694ab8bad6315b9d91ffc8b38e",
+      "bytes": 2205286,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "acceptance": "SOURCE_STILL_PROVISIONAL_ONLY"
+    },
+    {
+      "role": "rest",
+      "path": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/release_attempt05/native.png",
+      "sha256": "a7b842cd59cba9f6e023ec535c8188a41d7c7b18f176c4f62db399939a2c8ccb",
+      "bytes": 2230187,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "acceptance": "SOURCE_STILL_PROVISIONAL_ONLY"
+    }
+  ],
+  "prompt_path": "assets_src/imagegen/candy_wrap_transition_keys_v1_20261003/release_attempt01/PROMPT.txt",
+  "prompt_sha256": "8f8229cdfdb3ef2a2b51d0148149151a4398d305b6648022592a32366151c88a",
+  "source_score": null,
+  "mounted_score": null,
+  "sequence_score": null,
+  "action_score": null,
+  "owner_acceptance": null,
+  "qualification": "A source pose does not establish temporal motion or current-game fit. Not cinematic review delivery or runtime pixels."
+}

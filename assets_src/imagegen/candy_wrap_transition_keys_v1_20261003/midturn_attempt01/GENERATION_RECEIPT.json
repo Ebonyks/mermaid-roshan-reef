@@ -1,0 +1,49 @@
+{
+  "status": "GENERATED_DIRECT_REVIEW_PENDING",
+  "attempt": 1,
+  "method": "BUILTIN_IMAGEGEN_COMPLETE_FLATTENED_SOURCE",
+  "references": [
+    {
+      "role": "grip",
+      "path": "assets_src/imagegen/candy_neck_grip_pose_v1_20261003/attempt04/native.png",
+      "sha256": "f1ff6a5f1d46d7e1bb7a53af02da82355ba603514349edec817a6bf73dafda1c",
+      "bytes": 2231103,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "acceptance": "SOURCE_STILL_PROVISIONAL_ONLY"
+    },
+    {
+      "role": "twisted",
+      "path": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/twist_attempt05/native.png",
+      "sha256": "33a0c2a7d4ef4550ec537ed65257fde7f06b53694ab8bad6315b9d91ffc8b38e",
+      "bytes": 2205286,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "acceptance": "SOURCE_STILL_PROVISIONAL_ONLY"
+    }
+  ],
+  "prompt_path": "assets_src/imagegen/candy_wrap_transition_keys_v1_20261003/midturn_attempt01/PROMPT.txt",
+  "prompt_sha256": "ac97a5d8d6168706b4e23953c37ee830901f06e900e82b069e4d948cd12378dd",
+  "source_score": null,
+  "mounted_score": null,
+  "sequence_score": null,
+  "action_score": null,
+  "owner_acceptance": null,
+  "qualification": "A source pose does not establish temporal motion or current-game fit. Not cinematic review delivery or runtime pixels.",
+  "native_path": "assets_src/imagegen/candy_wrap_transition_keys_v1_20261003/midturn_attempt01/native.png",
+  "native_sha256": "692770fa2b3087d2e3451908f0607ff829cca9207e7f4578bbe6bc299a04441e",
+  "native_dimensions": [
+    1672,
+    941
+  ],
+  "native_bytes": 2236635,
+  "original_generated_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-78804991-99a3-40fb-99b0-114180caae36.png",
+  "saved_utc": "2026-10-03T13:16:54.864190+00:00",
+  "modifications": "None:exact native full-frame bytes copied."
+}

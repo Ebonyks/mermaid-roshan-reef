@@ -1,0 +1,38 @@
+{
+  "status": "GENERATED_DIRECT_REVIEW_PENDING",
+  "attempt": 2,
+  "method": "BUILTIN_IMAGEGEN_COMPLETE_FLATTENED_SOURCE",
+  "references": [
+    {
+      "role": "grip",
+      "path": "assets_src/imagegen/candy_neck_grip_pose_v1_20261003/attempt04/native.png",
+      "sha256": "f1ff6a5f1d46d7e1bb7a53af02da82355ba603514349edec817a6bf73dafda1c",
+      "bytes": 2231103,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "acceptance": "SOURCE_STILL_PROVISIONAL_ONLY"
+    }
+  ],
+  "prompt_path": "assets_src/imagegen/candy_wrap_transition_keys_v1_20261003/midturn_attempt02/PROMPT.txt",
+  "prompt_sha256": "7b95b7674bce6d10f195bc36baf1623c9e47468293bf1b95f9d47de20d0fe69a",
+  "previous_rejected_review": "assets_src/imagegen/candy_wrap_transition_keys_v1_20261003/midturn_attempt01/DIRECT_REVIEW.json",
+  "source_score": null,
+  "mounted_score": null,
+  "sequence_score": null,
+  "action_score": null,
+  "owner_acceptance": null,
+  "qualification": "Complete same-scene source still only,not temporal motion/runtime/cinematic delivery.",
+  "native_path": "assets_src/imagegen/candy_wrap_transition_keys_v1_20261003/midturn_attempt02/native.png",
+  "native_sha256": "4ecee2387fd096a718600d301e5c4a5abd16e09b8dca4ccd83a64da04a18269f",
+  "native_dimensions": [
+    1672,
+    941
+  ],
+  "native_bytes": 2218303,
+  "original_generated_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-6b88e8a9-b778-40d3-9ae6-254ca3e748c9.png",
+  "saved_utc": "2026-10-03T13:21:49.999407+00:00",
+  "modifications": "None:exact complete native bytes copied."
+}
