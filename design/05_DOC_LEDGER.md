@@ -1078,7 +1078,7 @@ Kept as-is; noted so a future edit updates every copy.
 
 | `audit/job_candy_workflow_current_v1_20261003/DIRECT_REVIEW_CURRENT_A3.json` | 🟢 | `SUPPORTING_CURRENT`;626 complete current circle canvases/64 selected views/48 individual use opinions after one-file station-binding repair. WRAP2.8/GLAZE2.6; birthday canon/layout priorities open. |
 | `audit/job_candy_wrap_contact_runtime_v1_20261003/DIRECT_REVIEW_A5.json` | 🟢 | `SUPPORTING_CURRENT`; unbound contact study412 canvases/32 views/13 individual opinions;whole4.1 rejected. Source endpoints4.5–4.6 do not pass acting. |
-| `assets_src/imagegen/candy_wrap_contact_v1_20261003/COMPLETE_SOURCE_REVIEW.json` | 🟢 | `SUPPORTING_CURRENT`;all10 preserved original sources/40 individual authored states reviewed. A7 static4.5; A8/A9/A10 bridges4.1/4.1/4.2 rejected; no production binding. |
+| `assets_src/imagegen/candy_wrap_contact_v1_20261003/COMPLETE_SOURCE_REVIEW.json` | 🟢 | `SUPPORTING_CURRENT`;all13 preserved original sources/43 individual authored states reviewed. A11 alternate far-start4.5/requested near4.0; A12 grip4.3 rejected; A13 partial fold4.5/exact coverage4.2. Earlier bridges remain rejected; no production binding. |
 | `assets_src/imagegen/candy_wrap_states_v1_20261003/index.html` | 🟢 | `SUPPORTING_CURRENT`;all3 wrapper natives/12 individual states; default-quarter and center failures preserved, source-only. |
 | `audit/job_artwork_refinement_live/ALL_ITEMS_V42.original.json` | ⚪ | `HISTORICAL_SUPPORTING`; exact1821-entry pre-Candy register, candidate history and scores preserved. |
 
@@ -1087,3 +1087,6 @@ Kept as-is; noted so a future edit updates every copy.
 | `audit/job_shared_entrance_sources_v1_20261003/index.html` | 🟢 | `SUPPORTING_CURRENT`;18 existing native sources/104 authored prop cells individually inspected,122 drafting opinions.17 source/99 cell priorities; no source pixel or runtime change, no current mounted/action/owner acceptance. |
 | `audit/job_shared_entrance_sources_v1_20261003/DIRECT_NATIVE_REVIEW.json` | 🟢 | `SUPPORTING_CURRENT`; exact hashes/regions/current manifests, individual grades and reuse/refinement guidance. Two historical ownership hash mismatches retained; they do not authorize current ownership acceptance. |
 | `audit/job_artwork_refinement_live/ALL_ITEMS_V44.original.json` | ⚪ | `HISTORICAL_SUPPORTING`; exact1934-entry register before18 newly assigned source opinions and104 authored prop cell entries. |
+
+| `assets_src/local_motion/candy_wrap_continuity_v1_20261003/index.html` | 🟢 | `SUPPORTING_CURRENT`; all82 local reference native canvases/14 boards/six details/20 component opinions. A1 complete wrap2.4 and A2 far-fold1.8 rejected.13 contact originals/43 source states reviewed; source/action lanes separate, no runtime or owner acceptance. |
+| `audit/job_artwork_refinement_live/ALL_ITEMS_V45.original.json` | ⚪ | `HISTORICAL_SUPPORTING`; exact2038-entry register before three additional single whole contact sources and three complete pose regions. |

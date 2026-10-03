@@ -1,0 +1,10 @@
+{
+  "source_path": "assets_src/local_motion/candy_wrap_continuity_v1_20261003/review_tools/queue_candy_wrap_a1_v544.py",
+  "source_sha256": "9a4dbf03db2c60a63187b0a4959e1b5237e14534cf53b77e8e75c616c4c0ee31",
+  "changes": {
+    "PACKET = ROOT / \"assets_src/local_motion/candy_wrap_continuity_v1_20261003\"": "PACKET = ROOT / \"assets_src/local_motion/candy_wrap_continuity_v1_20261003/comparison_a2\"",
+    "CANDY-WRAP-A1": "CANDY-FOLD-A2",
+    "build/candy_local_wrap_a1_active_20261003": "build/candy_local_fold_a2_active_20261003"
+  },
+  "qualification": "Identifiers/packet/state only; admission and installed CLI unchanged."
+}

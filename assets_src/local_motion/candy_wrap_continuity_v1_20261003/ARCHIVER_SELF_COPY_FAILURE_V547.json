@@ -1,0 +1,14 @@
+{
+  "status": "INITIAL_ARCHIVE_HELPER_FAILED_AFTER_COMPLETE_NATIVE_ARCHIVE",
+  "observed_process_exit": 1,
+  "error_type": "shutil.SameFileError",
+  "operation": "Unnecessary self-copy while directly launching the saved packet helper",
+  "native_render_status": "PASS",
+  "preserved_native_frames": 41,
+  "preserved_native_boards": 7,
+  "index_written_before_failure": true,
+  "recovery": "Independently verify existing receipts,41 frame/7 board hashes and complete index. Do not rerun generator or decoder. Guard same resolved helper path and finish coverage here.",
+  "prior_helper": "assets_src/local_motion/candy_wrap_continuity_v1_20261003/review_tools/archive_candy_wrap_a1_v546_before_self_copy_fix.py",
+  "fixed_helper": "assets_src/local_motion/candy_wrap_continuity_v1_20261003/review_tools/archive_candy_wrap_a1_v546.py",
+  "qualification": "Helper failure retained; this is not a failed model render or an artistic pass."
+}

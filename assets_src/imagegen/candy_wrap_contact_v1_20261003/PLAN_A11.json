@@ -1,0 +1,35 @@
+{
+  "status": "PLANNED_BEFORE_BUILTIN_IMAGEGEN",
+  "created_utc": "2026-10-03T07:14:13.755375+00:00",
+  "attempt": 11,
+  "baseline": "79f20126e01454132fe245fb3b8a03e700b9ca31",
+  "gap": "All41 local A1 frames fail wrapping; existing corner grips guide lifting/flapping. No reviewed source provides a near-long-edge mitten grip with the opposite mitten bracing the same sweet for a visible folding transition.",
+  "reuse_inventory": [
+    {
+      "path": "assets_src/local_motion/candy_wrap_continuity_v1_20261003/source_frames/CANDY-WRAP-OPEN-A7.png",
+      "sha256": "80895c8e5365d009ff5ab1a1258a418beb88c88b9ea091bb9cdb28e3219f4bf3",
+      "role": "Exact complete authored A7 opening cell, preserved edit target; no new scene."
+    },
+    {
+      "path": "assets_src/local_motion/candy_wrap_continuity_v1_20261003/attempt01/DIRECT_REVIEW.json",
+      "role": "All41 reference frames rejected2.4, complete wrap remains open."
+    },
+    {
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/COMPLETE_SOURCE_REVIEW.json",
+      "role": "Ten prior sources and40 state opinions, including rejected A9/A10 bridge grips; originals preserved."
+    }
+  ],
+  "prompt": "Use case: precise-object-edit. Asset type: one transparent complete Candy Maker working pose for the existing polished painted2D game. Input image is the exact existing A7 opening cell, edit target and identity/style authority.\nChange only the hand contact, necessary connected forearm bends and downward eyeline to prepare a truthful long-edge paper fold. Her left-on-screen coral quilted mitten grasps the middle-left portion of the NEAR long gold paper edge, the edge closest to the viewer, just left of the red sweet. Lift that near edge slightly toward the sweet. Her right-on-screen mitten gently braces the far-right side of the SAME sweet and paper against the SAME lavender tabletop. Two connected oven mittens, no bare fingers. Both mittens must contact the actual paper/sweet, not its two distant outer corners. The red oval remains clearly visible between the mittens and exactly the same size and location as the reference. This is the preparation for the first fold, not a finished wrapper.\nPreserve this same single character, canvas proportions, forward camera, complete hair/rainbow ribbon and teal hat, face proportions, teal waistcoat/gold buttons, white puff sleeves, table outline/support and golden sheet material. Keep the original red oval center near normalized(.493,.834) and its width/height near(.182,.078); preserve tabletop and head anchors. Only the local mitten/contact/forearm/eyeline change is requested. Do not redraw the design, increase candy size, add tied necks or finished gold fans, add another pose, add extra anatomy/tail, crop anything, create a background, shadow halo, labels or grid. Genuine transparent background. Return ONE complete polished matte-to-satin storybook raster pose, not a pose sheet or vector diagram.\n",
+  "prompt_sha256": "0fdfdfa5810f8505928e786dd87ef7f0dc4afd09720c91c47eabb84a4ac3f843",
+  "method": "builtin_imagegen_precise_object_edit",
+  "transparent_background": true,
+  "runtime_binding": false,
+  "native_preservation_required": true,
+  "required_review": [
+    "Both mittens contact intended near edge and opposite sweet support",
+    "Original sweet size/position and table/head anchors conserved in normalized coordinates",
+    "Identity/style/anatomy/opacity preserved",
+    "Local fold test separate from full wrapping/runtime/owner acceptance"
+  ],
+  "owner_acceptance": null
+}

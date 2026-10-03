@@ -1,0 +1,19 @@
+{
+  "status": "PASS_PARSER_AND_TYPED_INFERENCE",
+  "observed_utc": "2026-10-03T07:08:12.697790+00:00",
+  "script": "assets_src/local_motion/candy_wrap_continuity_v1_20261003/review_tools/extract_complete_open_cell.gd",
+  "script_sha256": "55f7b6a1b437e76189ab3e4f5e5432dd7e3d2969408ab28225da6d31ca61757b",
+  "commands": [
+    {
+      "command": "python -X utf8 -B -m gdtoolkit.parser assets_src/local_motion/candy_wrap_continuity_v1_20261003/review_tools/extract_complete_open_cell.gd",
+      "process_exit": 0,
+      "tool_output": ""
+    },
+    {
+      "command": "python -X utf8 -B tools/lint_inference.py assets_src/local_motion/candy_wrap_continuity_v1_20261003/review_tools/extract_complete_open_cell.gd",
+      "process_exit": 0,
+      "tool_output": ""
+    }
+  ],
+  "engine_compile": "Official4.7.2 actual extraction process exit0 in EXTRACTION stdout/stderr logs. No whole-suite rerun or error-free-log claim."
+}

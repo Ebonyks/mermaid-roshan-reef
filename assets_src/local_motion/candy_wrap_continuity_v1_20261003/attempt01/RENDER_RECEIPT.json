@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\candy_wrap_continuity_v1_20261003\\inputs\\CANDY-WRAP-A1.png",
+  "source_sha256": "4b8fd84809920b0fcb40e3278c41e8a4f9a8be8f92ed4491dc5cd36bf3e68246",
+  "source_dimensions": [
+    896,
+    512
+  ],
+  "prompt": "Roshan wraps the one red oval sweet in the existing golden paper on her lavender table. Her two coral quilted oven mittens do the work continuously, with both forearms connected. She looks down at the sweet. The sweet stays on the table at the same position and retains exactly its original width and height under the wrapper.\n0.0-0.55s: both mittens fold the two long golden paper edges over the red sweet, enclosing it in that same sheet. 0.55-0.90s: the mittens visibly slide inwards along the attached paper to pinch the two narrow necks immediately beside the oval; loose flared ends remain outside the grips, untwisted. 0.90-1.35s: the wrists roll in opposite directions once, tightening the paper pleats at those two necks. 1.35-1.70s: both mittens release outwards and rest beside the finished golden sweet, still supported at its original place. Do the sequence once; no loop or reversal.\nKeep the painted face, hair, rainbow ribbon, teal hat/waistcoat, white sleeves and lavender table stable. Locked camera and plain pale mat. Preserve the navy/plum contours and soft painted storybook material. No extra hands, fingers, limbs, tails, new objects, ties, text, effects or background scene. Do not make the oval bigger, grip the outer fans, pre-twist the necks, dissolve the sweet, teleport the paper or wobble the table.\nSound: silence.\n",
+  "prompt_sha256": "2668150401933198523fabb7b829ad1e913fbcdeec88bef195e17595f14e6757",
+  "preset": "quick",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "seed": 2026100301,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/GGUF_MODEL_RECEIPT.json",
+  "workflow_sha256": "cc304360a5d0cf29582cfe4d24541bee927dc30bc2acd6ecc6f5053e03cea40e",
+  "started_at_utc": "20261003T070639Z",
+  "prompt_id": "51e05f7b-0295-4784-b1ab-b67240e4adc5",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\candy_wrap_a1_20261003_20261003T070639Z_50d019_00002_.webm",
+      "sha256": "9407f709809b301298f5585e6114af2c90dddba686f18b8330670c5d858f1a96",
+      "bytes": 732067
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\candy_wrap_a1_20261003_20261003T070639Z_50d019_00002_.mp4",
+      "sha256": "ac82f476ea44e6155dc14e8c90cece715648be290dc00375c781ae4a81147def",
+      "bytes": 511582,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 191.64,
+  "completed_at_utc": "2026-10-03T07:09:50.940253+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance"
+}

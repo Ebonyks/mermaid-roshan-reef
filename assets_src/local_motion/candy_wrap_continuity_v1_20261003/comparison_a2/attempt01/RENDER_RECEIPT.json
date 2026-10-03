@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\candy_wrap_continuity_v1_20261003\\comparison_a2\\inputs\\CANDY-FOLD-A2.png",
+  "source_sha256": "015fb7744ee205a1dd6486b26eccbdd0e3f6bcd7d42c050b1bb1b47ea0e89173",
+  "source_dimensions": [
+    896,
+    512
+  ],
+  "prompt": "Roshan folds the FAR long golden-paper edge over the same red oval sweet. Her screen-left coral oven mitten already grips that raised edge between her body and the sweet: it brings the edge forwards and down, across the sweet. Her screen-right mitten stays beside the sweet to brace it on the lavender table. Show the paper bend continuously around the oval; by the end the red sweet is covered by that gold flap. The near paper edge still rests on the table. One deliberate fold only.\nKeep the sweet exactly the same size and place. Keep two quilted mittens connected to her arms, and keep the painted face, hat, hair/rainbow ribbon, sleeves, waistcoat and table stable. Eyes attend to the contact. Locked camera and pale mat. No corner flapping, tied necks, twists, release, growth, disappearance, new fingers/objects, glow, text or background.\nSound: silence.\n",
+  "prompt_sha256": "9ac1d1594f049151452afc20c54f5fa2559bde9a78ff88768b38de90b4d43d45",
+  "preset": "quick",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "seed": 2026100301,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/GGUF_MODEL_RECEIPT.json",
+  "workflow_sha256": "10218eebc97882b0651e009c714dbac405fcc2b8c207722c9f31cc17640500e0",
+  "started_at_utc": "20261003T072233Z",
+  "prompt_id": "84cc1a94-ea0e-4901-a21c-21cc0fa839ac",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\candy_far_fold_a2_20261003_20261003T072233Z_d8ebd8_00002_.webm",
+      "sha256": "657124be35df6e53a049c0711181c23fffc1d367f1ddde185ae563907f82d56c",
+      "bytes": 628742
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\candy_far_fold_a2_20261003_20261003T072233Z_d8ebd8_00002_.mp4",
+      "sha256": "eca7fe06ddf1c80ed45e764a96db25b273d6386ed30fcffccdf0bdf9d5f96fad",
+      "bytes": 423988,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 181.15,
+  "completed_at_utc": "2026-10-03T07:25:34.819928+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance"
+}

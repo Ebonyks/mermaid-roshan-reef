@@ -6,6 +6,8 @@ the [master audit](../MASTER_AUDIT_2026-08-09.md#development-task-index).
 This branch organizes animation work by character, beginning with Roshan.
 It does not create findings, close existing ones, or declare game-wide satisfaction.
 
+Candy local wrapping continuation (2026-10-03): [every82 native Comfy reference canvas,14 original-size boards,six native details and20 component opinions](../../assets_src/local_motion/candy_wrap_continuity_v1_20261003/index.html) directly reviewed. A1 full wrapping2.4 and A2 far-edge fold1.8 are rejected; the paper never covers the sweet. Three additional complete ImageGen poses are preserved: A11 alternate far-start4.5 (requested near role4.0 failed), A12 grip4.3 rejected, A13 partial fold4.5 provisional (exact coverage4.2 failed). All13 contact natives/43 authored states reviewed; no production binding. V46 register2044 entries/894 source-cell-region priorities/605 unique source priorities/359 pending source reviews; Candy current48 priorities/783 unchanged production members. Older Geologist/Nursery mounted claims remain withheld. Full wrapping, remaining job coverage, device/child/owner and complete report acceptance remain open; finding lifecycles, integration and release unchanged.
+
 ## Start an animation task here
 
 1. Read the [canonical motion rules](../../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#9-motion-acting-feedback-and-rewards)

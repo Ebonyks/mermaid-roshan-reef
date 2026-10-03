@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "exit": 0,
+  "command": [
+    "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "-m",
+    "unittest",
+    "tools.tests.test_audit_document_authority",
+    "tools.tests.test_audit_development"
+  ],
+  "elapsed_seconds": 16.603308400022797,
+  "finished_utc": "2026-10-03T07:44:49.525757+00:00",
+  "qualification": "Machine structural/regression evidence only; exact raw streams preserved, no visual or strict-zero 2D acceptance."
+}

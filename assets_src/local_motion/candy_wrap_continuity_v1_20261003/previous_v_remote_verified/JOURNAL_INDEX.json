@@ -1,0 +1,106 @@
+{
+  "status": "LOSSLESS_COMPLETE_REMOTE_JOURNAL",
+  "revision": "79f20126e01454132fe245fb3b8a03e700b9ca31",
+  "rows": 23323,
+  "bytes": 10225996,
+  "sha256": "49bc58434e30d6e7516d9aed246dd577cd516d89dcabbb2e326a2eb0c1ca64bc",
+  "reassembly": "Concatenate shard bytes in listed order; no row rewritten.",
+  "shards": [
+    {
+      "path": "JOURNAL_001.jsonl",
+      "bytes": 899943,
+      "sha256": "68c001966b1f6c5e714133664d372b5b58363c1c9f832a553ee81a208cf709b1",
+      "rows": 2075,
+      "first_row": 1,
+      "last_row": 2075
+    },
+    {
+      "path": "JOURNAL_002.jsonl",
+      "bytes": 899700,
+      "sha256": "f352cdb3b7d818976c87600597f74bea3c62a8d99187046d9c3237816eeee747",
+      "rows": 2137,
+      "first_row": 2076,
+      "last_row": 4212
+    },
+    {
+      "path": "JOURNAL_003.jsonl",
+      "bytes": 899857,
+      "sha256": "830d440bdb091f40d4037ca448284d854560dff18e5a92397bd39a603f563a18",
+      "rows": 2173,
+      "first_row": 4213,
+      "last_row": 6385
+    },
+    {
+      "path": "JOURNAL_004.jsonl",
+      "bytes": 899968,
+      "sha256": "2ae03c8dbca7aab3e4042fe0d3005ae1e90f4f02c245a68b1aac56c5e4480b17",
+      "rows": 1958,
+      "first_row": 6386,
+      "last_row": 8343
+    },
+    {
+      "path": "JOURNAL_005.jsonl",
+      "bytes": 899902,
+      "sha256": "5b10d858dd7b9feed57b946c8cc13f62f74a6ea33b99361c867645811f74be66",
+      "rows": 2072,
+      "first_row": 8344,
+      "last_row": 10415
+    },
+    {
+      "path": "JOURNAL_006.jsonl",
+      "bytes": 899810,
+      "sha256": "23d36aee0be1cbee23f2f1932f791801ac0e3f0d542d5f3ffd18f0f2d1089010",
+      "rows": 2087,
+      "first_row": 10416,
+      "last_row": 12502
+    },
+    {
+      "path": "JOURNAL_007.jsonl",
+      "bytes": 899921,
+      "sha256": "9358acc41db741b75e14c31454798340d011305f03a0278ec2c3482aba545040",
+      "rows": 2054,
+      "first_row": 12503,
+      "last_row": 14556
+    },
+    {
+      "path": "JOURNAL_008.jsonl",
+      "bytes": 899797,
+      "sha256": "617c728391cd54ccb5bb9ab03f20bdb23395f149d479e54d46c1aa6d1773ea7d",
+      "rows": 1988,
+      "first_row": 14557,
+      "last_row": 16544
+    },
+    {
+      "path": "JOURNAL_009.jsonl",
+      "bytes": 899877,
+      "sha256": "5a3e65e45b24d997c807d8c146f9d5234b5e3a17bda4c9fab7006f8a9c90e855",
+      "rows": 1958,
+      "first_row": 16545,
+      "last_row": 18502
+    },
+    {
+      "path": "JOURNAL_010.jsonl",
+      "bytes": 899647,
+      "sha256": "5023bec1dcd1d056eed3858115ba97744e4e7c439e8d69b3ea4284286ef51ad4",
+      "rows": 1959,
+      "first_row": 18503,
+      "last_row": 20461
+    },
+    {
+      "path": "JOURNAL_011.jsonl",
+      "bytes": 899685,
+      "sha256": "51ab0a3bf3c83403a6b9fccf92300f28e6ba0cc7d4e15269d9444ed5ab6da2b6",
+      "rows": 2042,
+      "first_row": 20462,
+      "last_row": 22503
+    },
+    {
+      "path": "JOURNAL_012.jsonl",
+      "bytes": 327889,
+      "sha256": "f39aa43853b20d0fcc4cc204d173886d0732307a648158fc7014a6eb9aa8c0c4",
+      "rows": 820,
+      "first_row": 22504,
+      "last_row": 23323
+    }
+  ]
+}

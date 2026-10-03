@@ -1,5 +1,5 @@
 {
-  "reviewed_utc": "2026-10-03T05:56:25.188068+00:00",
+  "reviewed_utc": "2026-10-03T07:38:58.734694+00:00",
   "sources": [
     {
       "attempt": 1,
@@ -1554,7 +1554,313 @@
       ],
       "production_binding": false,
       "owner_acceptance": null
+    },
+    {
+      "attempt": 11,
+      "source": {
+        "attempt": 11,
+        "method": "builtin_imagegen_precise_object_edit",
+        "native_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt11/native.png",
+        "source_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-9a15e06a-04e8-46d8-838f-b2d2e693acb4.png",
+        "sha256": "884af7e93b6a19bd15f59f81a88e94368ca513955f3eda93141bbad4b38ddbe6",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "reference_path": "assets_src/local_motion/candy_wrap_continuity_v1_20261003/source_frames/CANDY-WRAP-OPEN-A7.png",
+        "reference_sha256": "80895c8e5365d009ff5ab1a1258a418beb88c88b9ea091bb9cdb28e3219f4bf3",
+        "prompt_sha256": "0fdfdfa5810f8505928e786dd87ef7f0dc4afd09720c91c47eabb84a4ac3f843",
+        "prompt": "Use case: precise-object-edit. Asset type: one transparent complete Candy Maker working pose for the existing polished painted2D game. Input image is the exact existing A7 opening cell, edit target and identity/style authority.\nChange only the hand contact, necessary connected forearm bends and downward eyeline to prepare a truthful long-edge paper fold. Her left-on-screen coral quilted mitten grasps the middle-left portion of the NEAR long gold paper edge, the edge closest to the viewer, just left of the red sweet. Lift that near edge slightly toward the sweet. Her right-on-screen mitten gently braces the far-right side of the SAME sweet and paper against the SAME lavender tabletop. Two connected oven mittens, no bare fingers. Both mittens must contact the actual paper/sweet, not its two distant outer corners. The red oval remains clearly visible between the mittens and exactly the same size and location as the reference. This is the preparation for the first fold, not a finished wrapper.\nPreserve this same single character, canvas proportions, forward camera, complete hair/rainbow ribbon and teal hat, face proportions, teal waistcoat/gold buttons, white puff sleeves, table outline/support and golden sheet material. Keep the original red oval center near normalized(.493,.834) and its width/height near(.182,.078); preserve tabletop and head anchors. Only the local mitten/contact/forearm/eyeline change is requested. Do not redraw the design, increase candy size, add tied necks or finished gold fans, add another pose, add extra anatomy/tail, crop anything, create a background, shadow halo, labels or grid. Genuine transparent background. Return ONE complete polished matte-to-satin storybook raster pose, not a pose sheet or vector diagram.\n",
+        "regions": [
+          [
+            0,
+            0,
+            1254,
+            1254
+          ]
+        ],
+        "grid": [
+          1,
+          1
+        ],
+        "native_preserved": true,
+        "runtime_ready": false,
+        "runtime_bound": false,
+        "owner_acceptance": null,
+        "qualification": "One complete pose, not four quarters. Native1254-square source is outside runtime. It supplies a far-edge fold grip rather than the requested near-edge grip; alternate use is independently reviewed, no unseen motion pass."
+      },
+      "whole_source_score": 4.5,
+      "source_review": {
+        "status": "ALTERNATE_FAR_EDGE_FOLD_SOURCE_DRAFT_4_5_NEAR_EDGE_ROLE_REJECTED",
+        "reviewed_utc": "2026-10-03T07:19:36.875226+00:00",
+        "direct_native_review": true,
+        "native_sha256": "884af7e93b6a19bd15f59f81a88e94368ca513955f3eda93141bbad4b38ddbe6",
+        "whole_source_score": 4.5,
+        "requested_near_edge_role_score": 4.0,
+        "production_binding": false,
+        "owner_acceptance": null,
+        "opinions": [
+          {
+            "item": "Connected mitten support",
+            "score": 4.5,
+            "evaluation": "Two quilted mittens remain attached to white-sleeved forearms. Screen-right mitten braces the same red sweet and paper; screen-left lifts one edge without detached hands."
+          },
+          {
+            "item": "Far long-edge folding grip",
+            "score": 4.5,
+            "evaluation": "Raised flap originates on the far long edge beside the left half of the sweet. This can prepare a far-edge fold, provided the actual transition carries that edge over the sweet."
+          },
+          {
+            "item": "Requested near long-edge grip",
+            "score": 4.0,
+            "evaluation": "Generator did not place the screen-left grip on the near edge closest to the viewer. The original requested near-edge role is not accepted. Do not relabel it as that pose."
+          },
+          {
+            "item": "Golden paper and sweet material",
+            "score": 4.5,
+            "evaluation": "The same red oval, gold creases, plum contours and lavender table remain readable. Source proportions are visually close; no measured cross-source anchor tolerance pass is claimed."
+          },
+          {
+            "item": "Identity and work attention",
+            "score": 4.5,
+            "evaluation": "Hat, brown hair/rainbow ribbon, face, waistcoat/gold buttons and sleeves remain recognizable. Eye direction is lower toward the work; static concentration only."
+          },
+          {
+            "item": "Alternate far-fold source",
+            "score": 4.5,
+            "evaluation": "Useful provisional source for the same physical wrapping workflow using the far long edge first. It is not the originally requested near-edge pose, a temporal bridge, a full wrap or in-game approval."
+          }
+        ],
+        "qualification": "Original near-edge request remains failed4.0. Far-edge-first folding achieves the same wrapping purpose without a new design or invented mechanic; reuse this existing returned art for a separately declared far-fold component test. Source4.5 remains an inclusive priority and grants no action/runtime/owner pass."
+      },
+      "state_opinions": [
+        {
+          "state": "Whole far-edge grip",
+          "region": [
+            0,
+            0,
+            1254,
+            1254
+          ],
+          "score": 4.5,
+          "scope": "One complete authored pose, not four quarter states; static source only."
+        }
+      ],
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "attempt": 12,
+      "source": {
+        "attempt": 12,
+        "method": "builtin_imagegen_precise_object_edit",
+        "native_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt12/native.png",
+        "source_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-8e4fa07f-deb9-46e9-85c1-d0507b93616e.png",
+        "sha256": "42ccdf0ba19bd39924b9a8a20c83f9e77d807d6b4204fc43a19560d36b7ca5a8",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "reference_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt11/native.png",
+        "reference_sha256": "884af7e93b6a19bd15f59f81a88e94368ca513955f3eda93141bbad4b38ddbe6",
+        "prompt": "Use case: precise-object-edit. Asset type: ONE transparent painted 2D Candy Maker working pose; a physical far-edge paper fold, not a motion clip or pose sheet.\nIMAGE_1 is the complete edit target. Keep the exact child face, hair/rainbow ribbon, cap, costume, head position, lavender tabletop outline, camera and sweet center/size. Keep the gold paper attached as one continuous sheet.\nChange ONLY the local paper fold, left-on-screen mitten position and its connected forearm bend. The left-on-screen coral quilted mitten has now carried its held FAR gold-paper edge forward and downward across the SAME red oval. That gold flap curves over the far rim and lies across the upper TWO THIRDS of the red sweet; only a narrow red crescent on its near/front third remains visible. The left mitten still visibly pinches the FREE EDGE of that flap, immediately above the remaining red crescent, near the sweet center. This mitten has advanced toward the viewer and toward the sweet; do not leave it at the old outer-left corner. The right-on-screen mitten remains in its original supporting position beside the right of the sweet, firmly connected to its sleeve. The near/front long edge remains spread flat on the table, ready for the next fold.\nThis is one meaningful halfway fold: no finished tube, no necks, no twisted fans, no extra sweet, no floating glove. Preserve exactly two quilted coral mittens, broad painted gold creases, plum outlines and lavender shading. The flap must physically cover the SAME red oval without moving or enlarging it. Do not keep the whole sweet exposed. Preserve genuine transparent background and complete original silhouette, no labels or background. Return the complete single pose.\n",
+        "prompt_sha256": "bf3017b9ff7ae8ca2debd3d4551a58669093870e1194ab6e76f142d167b38831",
+        "regions": [
+          [
+            0,
+            0,
+            1254,
+            1254
+          ]
+        ],
+        "grid": [
+          1,
+          1
+        ],
+        "native_preserved": true,
+        "runtime_ready": false,
+        "runtime_bound": false,
+        "owner_acceptance": null,
+        "qualification": "Exact single whole pose preserved. Paper now partly covers the sweet, but left mitten holds the high/rear flap point rather than its lower free edge. No motion/runtime pass."
+      },
+      "whole_source_score": 4.3,
+      "source_review": {
+        "status": "PARTIAL_FOLD_VISIBLE_REQUIRED_FREE_EDGE_GRIP_REJECTED",
+        "reviewed_utc": "2026-10-03T07:35:27.809272+00:00",
+        "direct_native_review": true,
+        "native_sha256": "42ccdf0ba19bd39924b9a8a20c83f9e77d807d6b4204fc43a19560d36b7ca5a8",
+        "whole_source_score": 4.3,
+        "production_binding": false,
+        "owner_acceptance": null,
+        "opinions": [
+          {
+            "item": "Same gold-paper partial fold",
+            "score": 4.5,
+            "evaluation": "One attached gold flap now lies diagonally over the upper sweet. Material remains recognizable; a larger red crescent than requested remains."
+          },
+          {
+            "item": "Required free-edge grip",
+            "score": 3.9,
+            "evaluation": "Left mitten advances inward but still holds the high/rear corner of the raised triangular flap. Its thumb/palm do not pinch the lower free edge across the sweet."
+          },
+          {
+            "item": "Connected arms",
+            "score": 4.5,
+            "evaluation": "Both quilted mittens remain connected through sleeves; no extra hands."
+          },
+          {
+            "item": "Supported same sweet",
+            "score": 4.5,
+            "evaluation": "Red oval remains on the same gold sheet/table with visually similar center/scale; no measured anchor tolerance pass."
+          },
+          {
+            "item": "Identity and material",
+            "score": 4.5,
+            "evaluation": "Recognizable costume, hair, face and broad painted gold/lavender material retained."
+          },
+          {
+            "item": "Requested two-thirds cover",
+            "score": 4.2,
+            "evaluation": "The gold flap partly covers the upper sweet but leaves a broad red crescent; exact prescribed coverage not met."
+          },
+          {
+            "item": "Whole required source role",
+            "score": 4.3,
+            "evaluation": "Reject this exact required free-edge grip role. Preserve the useful partial paper state, but repair the mitten grasp before another motion study."
+          }
+        ],
+        "qualification": "Complete generated native directly inspected. Whole source4.3 remains weak. Native is unbound/NPOT and not a temporal frame or current-game pass."
+      },
+      "state_opinions": [
+        {
+          "state": "Whole partial fold",
+          "region": [
+            0,
+            0,
+            1254,
+            1254
+          ],
+          "score": 4.3,
+          "scope": "One complete authored pose, not four quarter states; static source only."
+        }
+      ],
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "attempt": 13,
+      "source": {
+        "attempt": 13,
+        "method": "builtin_imagegen_precise_object_edit",
+        "native_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt13/native.png",
+        "source_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-bc62f7f4-0e06-487e-8dc2-9d7b65e3bd71.png",
+        "sha256": "50d498cb1ccb858792606347941e98b40f10188ad517c9039411c73cc22d1b04",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "reference_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt12/native.png",
+        "reference_sha256": "42ccdf0ba19bd39924b9a8a20c83f9e77d807d6b4204fc43a19560d36b7ca5a8",
+        "prompt": "Use case: precise-object-edit. ONE transparent complete painted 2D Candy Maker pose. IMAGE_1 is the exact edit target.\nCorrect ONLY the LEFT-ON-SCREEN coral oven mitten, its continuously connected forearm bend, and the local gold flap necessary for a real grasp. Currently this mitten holds the high/rear flap corner. Move this mitten DOWN and slightly RIGHT, directly over the red sweet. Its palm presses the left quarter of the covering gold flap, and its single mitten THUMB visibly curls UNDER the LOWER FREE EDGE of that flap, immediately above the remaining red crescent. The gold lower free edge is visibly pinched between thumb and palm at the sweet's left-of-center point. Show this real over-and-under grasp, not a mitten touching the rear triangular peak. Lower the raised peak so the gold flap lies snugly across the upper two thirds of the same oval, leaving a narrow red crescent at the near/front edge. The same paper stays continuously attached to the sheet beneath the sweet.\nKeep exactly the same red sweet center/size, right-on-screen bracing mitten and forearm, table, complete head/hair/rainbow/cap, body/costume, camera, painted materials and transparent backdrop. Two mittened hands only; no bare fingers, no detached arm. No completed wrapper necks, no twist, no extra candy, no text or background. Return the entire same single pose. A useful free-edge grip is the sole correction.\n",
+        "prompt_sha256": "3241b49a5f24c692d31a62b5a4d2d3f464ef267e7d2af3e376ca489a90631608",
+        "regions": [
+          [
+            0,
+            0,
+            1254,
+            1254
+          ]
+        ],
+        "grid": [
+          1,
+          1
+        ],
+        "native_preserved": true,
+        "runtime_ready": false,
+        "runtime_bound": false,
+        "owner_acceptance": null,
+        "qualification": "Exact single whole pose preserved; useful partial-fold clamp source, not the complete wrapping action. No runtime/anchor-tolerance/motion pass."
+      },
+      "whole_source_score": 4.5,
+      "source_review": {
+        "status": "PARTIAL_FOLD_SOURCE_4_5_PROVISIONAL_EXACT_COVERAGE_ROLE_4_2",
+        "reviewed_utc": "2026-10-03T07:38:58.695968+00:00",
+        "direct_native_review": true,
+        "native_sha256": "50d498cb1ccb858792606347941e98b40f10188ad517c9039411c73cc22d1b04",
+        "whole_source_score": 4.5,
+        "requested_exact_coverage_score": 4.2,
+        "production_binding": false,
+        "owner_acceptance": null,
+        "opinions": [
+          {
+            "item": "Partial fold and lower mitten clamp",
+            "score": 4.5,
+            "evaluation": "Left palm now reaches the lower flap edge over the sweet; its thumb lobe opposes the palm on the flap. The lowered gold flap reads as a useful partial fold rather than the A12 rear-point hold. Static draft only."
+          },
+          {
+            "item": "Connected hands",
+            "score": 4.5,
+            "evaluation": "Two quilted mitten contours connect through bent sleeves; the left hand is advanced toward the sweet and the right retains support."
+          },
+          {
+            "item": "Same supported sweet",
+            "score": 4.5,
+            "evaluation": "The same red oval remains beneath the flap on the same worktop; no measured inter-source anchor tolerance is claimed."
+          },
+          {
+            "item": "Golden paper material",
+            "score": 4.5,
+            "evaluation": "Single attached crinkled gold sheet and plum contour agree with the specific wrapper. Free flap edge stays readable above the remaining red crescent."
+          },
+          {
+            "item": "Exact requested two-thirds coverage",
+            "score": 4.2,
+            "evaluation": "A broad red crescent remains. This is a partial-fold source, not an exact two-thirds-covered or fully closed state."
+          },
+          {
+            "item": "Identity and style",
+            "score": 4.5,
+            "evaluation": "Same child face, cap, rainbow hair, waistcoat and lavender table remain recognizable in the painted 2D family."
+          },
+          {
+            "item": "Whole partial-fold source",
+            "score": 4.5,
+            "evaluation": "Provisional floor for one partial fold pose. Stronger useful clamp than A12; it cannot pass a continuous fold, neck pinch, opposing twist, release, in-game use or owner acceptance."
+          }
+        ],
+        "qualification": "Complete original native directly inspected. Useful partial-fold pose reaches source-only drafting floor4.5 and remains an inclusive priority. Exact requested coverage4.2 is not met. No source-to-motion/runtime/owner acceptance transfer."
+      },
+      "state_opinions": [
+        {
+          "state": "Whole partial fold",
+          "region": [
+            0,
+            0,
+            1254,
+            1254
+          ],
+          "score": 4.5,
+          "scope": "One complete authored pose, not four quarter states; static source only."
+        }
+      ],
+      "production_binding": false,
+      "owner_acceptance": null
     }
   ],
-  "qualification": "All ten exact native sources and forty individual states directly inspected. A7 selected endpoints4.5–4.6; actual A5 complete wrapping4.1 rejected. Bridges A8/A9/A10 whole4.1/4.1/4.2 remain unbound. Static source opinions never establish full motion, runtime integration, device, child or owner acceptance."
+  "qualification": "All13 complete contact natives and43 authored state regions directly reviewed. A11 near-role4.0 fails; alternate far-start4.5 provisional. A12 required free-edge role3.9/whole4.3 fails. A13 partial fold4.5 provisional, exact coverage4.2 fails. All old source/bridge/motion failures preserved. Local A1 whole2.4/A2 far-fold1.8 rejected; current in-game WRAP2.8 unchanged."
 }

@@ -1,0 +1,1560 @@
+{
+  "reviewed_utc": "2026-10-03T05:56:25.188068+00:00",
+  "sources": [
+    {
+      "attempt": 1,
+      "source": {
+        "method": "builtin_imagegen_reference_generation",
+        "native_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt01/native.png",
+        "sha256": "a70f8ad960af911a07e20b0aac8dca699bfedeaaac0b25f9c2da49297231dcd3",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "regions": [
+          {
+            "index": 0,
+            "region": [
+              0,
+              0,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              36,
+              46,
+              586,
+              618
+            ]
+          },
+          {
+            "index": 1,
+            "region": [
+              627,
+              0,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              35,
+              52,
+              575,
+              617
+            ]
+          },
+          {
+            "index": 2,
+            "region": [
+              0,
+              627,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              47,
+              32,
+              592,
+              586
+            ]
+          },
+          {
+            "index": 3,
+            "region": [
+              627,
+              627,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              25,
+              34,
+              576,
+              586
+            ]
+          }
+        ],
+        "prompt_sha256": "72520c9f1c538c88d7ca700cb3222f2a7717437e4298048334813f24d96f1594",
+        "references": [
+          {
+            "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png",
+            "sha256": "b858c07f52d4f67679a39dd039afc7123199646442c067368425f8f46deec179"
+          },
+          {
+            "path": "assets_src/imagegen/candy_wrap_states_v1_20261003/attempt03/native.png",
+            "sha256": "3405805bece0f3954c949b05f013247d1c80146ecc31949bc3a370c0f7657c2d"
+          }
+        ],
+        "native_preserved": true,
+        "runtime_bound": false,
+        "runtime_ready": false,
+        "status": "REJECTED_CONTACT_NECK_GRIP_BELOW_FLOOR",
+        "owner_acceptance": null
+      },
+      "whole_source_score": 4.2,
+      "source_review": {
+        "direct_native_review": true,
+        "reviewer": "Codex visual drafting review",
+        "reviewed_utc": "2026-10-03T04:36:15.451814+00:00",
+        "source_sha256": "a70f8ad960af911a07e20b0aac8dca699bfedeaaac0b25f9c2da49297231dcd3",
+        "opinions": [
+          {
+            "item": "identity/costume and painted medium",
+            "score": 4.5,
+            "evaluation": "Brown-eyed child, rainbow hair, aqua baker cap/vest and coral quilted two mittens agree with inspected career atlas. Broad painted highlights and lavender table support agree with golden paper. Waist-up task close-up is a new candidate, not an accepted travel/room pose."
+          },
+          {
+            "item": "open paper contact",
+            "score": 4.5,
+            "evaluation": "Two connected forearms and mittens touch the sheet edges; one exposed coral sweet rests on the supported paper."
+          },
+          {
+            "item": "long edge folding contact",
+            "score": 4.5,
+            "evaluation": "Two mittens press the folded sheet around the belly; recognizable long flaps remain attached and sweet remains visible at either side."
+          },
+          {
+            "item": "pinch-neck contact",
+            "score": 4.2,
+            "evaluation": "Both mittens grip the wide outer fans. The narrow necks at the candy-body edges are visibly untouched; those grasps cannot credibly pinch the necks."
+          },
+          {
+            "item": "end twist contact",
+            "score": 4.2,
+            "evaluation": "Creased necks appear, but hands remain on the fans rather than twisting at the narrow necks. A changed prop still does not prove the specified useful motion."
+          },
+          {
+            "item": "complete wrapping source-key sequence",
+            "score": 4.2,
+            "evaluation": "Better connected actor/eyes/support and matching golden material. Pinch/twist mechanics remain wrong and four source keys are not continuous animation. Preserve failure and retry the named lower-row hand contact before runtime study."
+          }
+        ],
+        "whole_action_score": null,
+        "device_acceptance": null,
+        "child_acceptance": null,
+        "owner_acceptance": null,
+        "runtime_bound": false
+      },
+      "state_opinions": [
+        {
+          "state": "open sheet",
+          "region": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "long-edge fold",
+          "region": [
+            627,
+            0,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "neck pinch",
+          "region": [
+            0,
+            627,
+            627,
+            627
+          ],
+          "score": 4.2,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "opposite wrist twist",
+          "region": [
+            627,
+            627,
+            627,
+            627
+          ],
+          "score": 4.2,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        }
+      ],
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "attempt": 2,
+      "source": {
+        "method": "builtin_imagegen_targeted_contact_edit",
+        "native_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt02/native.png",
+        "sha256": "0626b6a4fda3f3f7a526b126a10811015c95a98d3f14e3b3655f50d37a6cca12",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "regions": [
+          {
+            "index": 0,
+            "region": [
+              0,
+              0,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              36,
+              46,
+              587,
+              620
+            ]
+          },
+          {
+            "index": 1,
+            "region": [
+              627,
+              0,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              35,
+              52,
+              574,
+              618
+            ]
+          },
+          {
+            "index": 2,
+            "region": [
+              0,
+              627,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              47,
+              32,
+              598,
+              587
+            ]
+          },
+          {
+            "index": 3,
+            "region": [
+              627,
+              627,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              28,
+              34,
+              577,
+              586
+            ]
+          }
+        ],
+        "prompt_sha256": "0931c05a887114ba78c67cea71a841490460930c234ca6a1ed83c32f2f71fdec",
+        "reference_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt01/native.png",
+        "reference_sha256": "a70f8ad960af911a07e20b0aac8dca699bfedeaaac0b25f9c2da49297231dcd3",
+        "native_preserved": true,
+        "runtime_bound": false,
+        "runtime_ready": false,
+        "status": "PINCH_IMPROVED_OPPOSITE_WRIST_ROLL_STILL_MISSING",
+        "owner_acceptance": null
+      },
+      "whole_source_score": 4.1,
+      "source_review": {
+        "direct_native_review": true,
+        "reviewer": "Codex visual drafting review",
+        "reviewed_utc": "2026-10-03T04:39:31.502901+00:00",
+        "source_sha256": "0626b6a4fda3f3f7a526b126a10811015c95a98d3f14e3b3655f50d37a6cca12",
+        "opinions": [
+          {
+            "item": "identity/costume and painted medium",
+            "score": 4.5,
+            "evaluation": "Child identity, aqua/peach costume, quilted coral two mittens and painted golden paper conserved through targeted edit."
+          },
+          {
+            "item": "open paper contact",
+            "score": 4.5,
+            "evaluation": "Two mittens grasp sheet edges, supported exposed candy retained."
+          },
+          {
+            "item": "long edge folding contact",
+            "score": 4.5,
+            "evaluation": "Both mittens press attached flaps over belly; paper remains material rather than detached arrows."
+          },
+          {
+            "item": "pinch-neck contact",
+            "score": 4.5,
+            "evaluation": "Both mitten thumb lobes now oppose palms at the narrow necks. Wide fans extend freely outward. Fixes specific A1 grip error."
+          },
+          {
+            "item": "opposite wrist twist",
+            "score": 4.1,
+            "evaluation": "The last two hand poses remain nearly the same: neck contact is clearer, but the final wrists do not visibly roll in opposite directions. Cannot infer twist motion from the extra neck creases."
+          },
+          {
+            "item": "complete wrapping source-key sequence",
+            "score": 4.1,
+            "evaluation": "Four source poses explain open/fold/pinch and retain matching paper. The same lower poses omit the visible twist, and covered belly/fan spread grows. Not temporal in-betweens or a passed runtime sequence."
+          }
+        ],
+        "whole_action_score": null,
+        "runtime_bound": false,
+        "device_acceptance": null,
+        "child_acceptance": null,
+        "owner_acceptance": null
+      },
+      "state_opinions": [
+        {
+          "state": "open sheet",
+          "region": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "long-edge fold",
+          "region": [
+            627,
+            0,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "neck pinch",
+          "region": [
+            0,
+            627,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "opposite wrist twist",
+          "region": [
+            627,
+            627,
+            627,
+            627
+          ],
+          "score": 4.1,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        }
+      ],
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "attempt": 3,
+      "source": {
+        "method": "builtin_imagegen_targeted_contact_edit",
+        "sha256": "44f56faf36de05945af71284de03353ceb790eb3b33f67ce9f411ced556e17f8",
+        "native_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt03/native.png",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "regions": [
+          {
+            "index": 0,
+            "region": [
+              0,
+              0,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              36,
+              46,
+              589,
+              621
+            ]
+          },
+          {
+            "index": 1,
+            "region": [
+              627,
+              0,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              33,
+              52,
+              575,
+              619
+            ]
+          },
+          {
+            "index": 2,
+            "region": [
+              0,
+              627,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              45,
+              32,
+              599,
+              588
+            ]
+          },
+          {
+            "index": 3,
+            "region": [
+              627,
+              627,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              27,
+              34,
+              579,
+              588
+            ]
+          }
+        ],
+        "prompt_sha256": "792e6dcb5f994276b98e16ff0f7975180bf9303a5373049fdf8d1065b3ce49a0",
+        "reference_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt02/native.png",
+        "reference_sha256": "0626b6a4fda3f3f7a526b126a10811015c95a98d3f14e3b3655f50d37a6cca12",
+        "native_preserved": true,
+        "runtime_bound": false,
+        "runtime_ready": false,
+        "status": "STATIC_POSE_CONTACT_PROVISIONAL_RUNTIME_ACTION_UNREVIEWED",
+        "owner_acceptance": null
+      },
+      "whole_source_score": 4.2,
+      "source_review": {
+        "direct_native_review": true,
+        "reviewed_utc": "2026-10-03T04:43:18.487464+00:00",
+        "reviewer": "Codex visual drafting review",
+        "source_sha256": "44f56faf36de05945af71284de03353ceb790eb3b33f67ce9f411ced556e17f8",
+        "opinions": [
+          {
+            "item": "identity/costume/painted material",
+            "score": 4.5,
+            "evaluation": "Child identity/costume and coral quilted two mittens conserved, broad painted gold paper agrees with commissioned wrapper. Two continuously connected arms, no whisk."
+          },
+          {
+            "item": "open paper contact",
+            "score": 4.5,
+            "evaluation": "Two mittens grasp the long edges, one exposed coral sweet supported on the same sheet."
+          },
+          {
+            "item": "long edge folding contact",
+            "score": 4.5,
+            "evaluation": "Both mittens press attached long flaps over belly; material fold is explicit."
+          },
+          {
+            "item": "pinch-neck contact",
+            "score": 4.5,
+            "evaluation": "Thumb lobes oppose palms at both narrow necks; paper fans extend freely outside grips."
+          },
+          {
+            "item": "opposite wrist-roll static meaning",
+            "score": 4.5,
+            "evaluation": "Final left thumb rolls upward, right mitten rotates to a distinct downward grasp. Neck pinches remain connected to paper, unlike A1 fan grasps/A2 repeated neutral wrists. This score covers visible endpoint meaning, not motion."
+          },
+          {
+            "item": "fixed cell sequence continuity",
+            "score": 4.2,
+            "evaluation": "Four source keys still differ in candy center, face and table placement. Not chronological in-betweens. Exact runtime sampling and transitions need independent review; no whole-action pass or interpolation to hide missing motion."
+          }
+        ],
+        "whole_action_score": null,
+        "device_acceptance": null,
+        "child_acceptance": null,
+        "owner_acceptance": null,
+        "runtime_bound": false
+      },
+      "state_opinions": [
+        {
+          "state": "open sheet",
+          "region": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "long-edge fold",
+          "region": [
+            627,
+            0,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "neck pinch",
+          "region": [
+            0,
+            627,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "opposite wrist twist",
+          "region": [
+            627,
+            627,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        }
+      ],
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "attempt": 4,
+      "source": {
+        "method": "builtin_imagegen_targeted_fixed_object_continuity_edit",
+        "native_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt04/native.png",
+        "source_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-f5e9065c-2bed-4df3-981d-26f4d72f1d90.png",
+        "sha256": "38320ef203ab67cdcfbc9c4dfde9d502842421be05f0d721e5c8155df2b61159",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "regions": [
+          {
+            "index": 0,
+            "region": [
+              0,
+              0,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              35,
+              46,
+              589,
+              621
+            ]
+          },
+          {
+            "index": 1,
+            "region": [
+              627,
+              0,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              32,
+              50,
+              574,
+              619
+            ]
+          },
+          {
+            "index": 2,
+            "region": [
+              0,
+              627,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              45,
+              30,
+              601,
+              587
+            ]
+          },
+          {
+            "index": 3,
+            "region": [
+              627,
+              627,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              26,
+              32,
+              581,
+              588
+            ]
+          }
+        ],
+        "prompt_sha256": "393ecd7e63d568f6549b2186795e92d2080cb564249e3e7e01645031857c421b",
+        "reference_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt03/native.png",
+        "reference_sha256": "44f56faf36de05945af71284de03353ceb790eb3b33f67ce9f411ced556e17f8",
+        "runtime_bound": false,
+        "runtime_ready": false,
+        "native_preserved": true,
+        "owner_acceptance": null
+      },
+      "whole_source_score": 4.1,
+      "source_review": {
+        "reviewer": "Codex visual drafting review",
+        "direct_native_review": true,
+        "reviewed_utc": "2026-10-03T04:59:21.133796+00:00",
+        "source_sha256": "38320ef203ab67cdcfbc9c4dfde9d502842421be05f0d721e5c8155df2b61159",
+        "status": "REJECTED_CONTINUITY_EDIT_DID_NOT_CORRECT_THE_GAP",
+        "opinions": [
+          {
+            "item": "identity/material and individual hand endpoints",
+            "score": 4.5,
+            "evaluation": "A3 identity, material and meaningful two-mitten endpoint contact conserved."
+          },
+          {
+            "item": "fixed subject continuity",
+            "score": 4.1,
+            "evaluation": "Requested registration repair did not fix local candy/table displacement between top and bottom. Final wrapper belly still materially larger than the exposed sweet; no new runtime test can cure this source mismatch."
+          }
+        ],
+        "whole_action_score": null,
+        "runtime_bound": false,
+        "owner_acceptance": null
+      },
+      "state_opinions": [
+        {
+          "state": "open sheet",
+          "region": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "long-edge fold",
+          "region": [
+            627,
+            0,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "neck pinch",
+          "region": [
+            0,
+            627,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "opposite wrist twist",
+          "region": [
+            627,
+            627,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        }
+      ],
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "attempt": 5,
+      "source": {
+        "method": "builtin_imagegen_new_matched_contact_sheet",
+        "native_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt05/native.png",
+        "source_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-96918c4d-0783-4cd0-a7b6-7ae82a9967cb.png",
+        "sha256": "81e328decc41012dc234d970af82c6084540cb7b1bbc822c8a0117351164c745",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "regions": [
+          {
+            "index": 0,
+            "region": [
+              0,
+              0,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              36,
+              36,
+              597,
+              617
+            ]
+          },
+          {
+            "index": 1,
+            "region": [
+              627,
+              0,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              29,
+              40,
+              580,
+              617
+            ]
+          },
+          {
+            "index": 2,
+            "region": [
+              0,
+              627,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              43,
+              21,
+              599,
+              589
+            ]
+          },
+          {
+            "index": 3,
+            "region": [
+              627,
+              627,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              27,
+              22,
+              580,
+              590
+            ]
+          }
+        ],
+        "prompt_sha256": "4932be51af9d4e757d1a6c3552530e583b2b8aed5a1c2b1563ce223b9be1b235",
+        "references": [
+          {
+            "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png",
+            "role": "identity/costume",
+            "sha256": "b858c07f52d4f67679a39dd039afc7123199646442c067368425f8f46deec179"
+          },
+          {
+            "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt04/native.png",
+            "role": "material and endpoint hand semantics; alignment rejected",
+            "sha256": "38320ef203ab67cdcfbc9c4dfde9d502842421be05f0d721e5c8155df2b61159"
+          }
+        ],
+        "runtime_bound": false,
+        "runtime_ready": false,
+        "native_preserved": true,
+        "owner_acceptance": null
+      },
+      "whole_source_score": 4.1,
+      "source_review": {
+        "reviewer": "Codex visual drafting review",
+        "direct_native_review": true,
+        "reviewed_utc": "2026-10-03T05:03:06.751135+00:00",
+        "source_sha256": "81e328decc41012dc234d970af82c6084540cb7b1bbc822c8a0117351164c745",
+        "status": "REJECTED_FIXED_CANDY_GEOMETRY",
+        "opinions": [
+          {
+            "item": "identity/material/open/fold/pinch endpoints",
+            "score": 4.5,
+            "evaluation": "Two connected arms/coral quilted mittens and painted paper/costume retained."
+          },
+          {
+            "item": "opposite wrist-roll endpoint",
+            "score": 4.6,
+            "evaluation": "Left palm visibly turns up and right palm down while each thumb keeps its neck pinched; opposite directions now clearer. This endpoint opinion does not approve animation."
+          },
+          {
+            "item": "fixed candy/table continuity",
+            "score": 4.1,
+            "evaluation": "Sweet belly still grows from exposed oval to lower wrapped states and jumps upward relative to the table. Source body/table registration remains imperfect. No actual whole-action retest or runtime binding."
+          }
+        ],
+        "whole_action_score": null,
+        "runtime_bound": false,
+        "owner_acceptance": null
+      },
+      "state_opinions": [
+        {
+          "state": "open sheet",
+          "region": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "long-edge fold",
+          "region": [
+            627,
+            0,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "neck pinch",
+          "region": [
+            0,
+            627,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "opposite wrist twist",
+          "region": [
+            627,
+            627,
+            627,
+            627
+          ],
+          "score": 4.6,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        }
+      ],
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "attempt": 6,
+      "source": {
+        "method": "builtin_imagegen_targeted_lower_contact_geometry_edit",
+        "native_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt06/native.png",
+        "source_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-a9b330cc-8ee6-4369-b100-1363151fd2e0.png",
+        "sha256": "785093ef3b9a11c867e17ef8d0e8c640d701d5ae1827da98b26d24329e58dac3",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "regions": [
+          {
+            "index": 0,
+            "region": [
+              0,
+              0,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              37,
+              36,
+              597,
+              617
+            ]
+          },
+          {
+            "index": 1,
+            "region": [
+              627,
+              0,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              29,
+              39,
+              580,
+              617
+            ]
+          },
+          {
+            "index": 2,
+            "region": [
+              0,
+              627,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              44,
+              20,
+              599,
+              589
+            ]
+          },
+          {
+            "index": 3,
+            "region": [
+              627,
+              627,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              27,
+              21,
+              580,
+              590
+            ]
+          }
+        ],
+        "prompt_sha256": "5df94c18d771f856680b570e2d6346dd268f78dadec33d7d7aad12927888fd86",
+        "reference_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt05/native.png",
+        "reference_sha256": "81e328decc41012dc234d970af82c6084540cb7b1bbc822c8a0117351164c745",
+        "runtime_bound": false,
+        "runtime_ready": false,
+        "native_preserved": true,
+        "owner_acceptance": null
+      },
+      "whole_source_score": 4.3,
+      "source_review": {
+        "reviewer": "Codex visual drafting review",
+        "direct_native_review": true,
+        "reviewed_utc": "2026-10-03T05:05:36.583507+00:00",
+        "source_sha256": "785093ef3b9a11c867e17ef8d0e8c640d701d5ae1827da98b26d24329e58dac3",
+        "status": "CANDY_SIZE_CORRECTED_FIXED_TABLE_CONTINUITY_STILL_WEAK",
+        "opinions": [
+          {
+            "item": "identity/material/open/fold/pinch endpoints",
+            "score": 4.5,
+            "evaluation": "Two connected arms/mittens and conserved costume/material."
+          },
+          {
+            "item": "opposite wrist-roll endpoint",
+            "score": 4.6,
+            "evaluation": "Both necks still pinched with opposite palm directions."
+          },
+          {
+            "item": "physical sweet size across states",
+            "score": 4.5,
+            "evaluation": "Lower wrapped belly now approximately agrees with exposed oval, correcting A5 material enlargement. This is a native source opinion, not runtime acceptance."
+          },
+          {
+            "item": "fixed table/candy continuity",
+            "score": 4.3,
+            "evaluation": "Lower tabletops and candy still sit too high in their fixed cells. Head stays at roughly the original height, exposing shorter work-body/table spacing. No whole-action or production pass."
+          }
+        ],
+        "whole_action_score": null,
+        "runtime_bound": false,
+        "owner_acceptance": null
+      },
+      "state_opinions": [
+        {
+          "state": "open sheet",
+          "region": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "long-edge fold",
+          "region": [
+            627,
+            0,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "neck pinch",
+          "region": [
+            0,
+            627,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "opposite wrist twist",
+          "region": [
+            627,
+            627,
+            627,
+            627
+          ],
+          "score": 4.6,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        }
+      ],
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "attempt": 7,
+      "source": {
+        "method": "builtin_imagegen_targeted_lower_table_contact_height_edit",
+        "native_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt07/native.png",
+        "source_original": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-4da24a97-caf4-4b2c-8d52-e13cfdefb347.png",
+        "sha256": "7207d74c283e6c45c61e0d453ab5c476027611065f84ce75750407875816f467",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "regions": [
+          {
+            "index": 0,
+            "region": [
+              0,
+              0,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              37,
+              35,
+              597,
+              617
+            ]
+          },
+          {
+            "index": 1,
+            "region": [
+              627,
+              0,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              30,
+              39,
+              580,
+              617
+            ]
+          },
+          {
+            "index": 2,
+            "region": [
+              0,
+              627,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              41,
+              20,
+              597,
+              608
+            ]
+          },
+          {
+            "index": 3,
+            "region": [
+              627,
+              627,
+              627,
+              627
+            ],
+            "alpha128_bounds": [
+              26,
+              21,
+              580,
+              608
+            ]
+          }
+        ],
+        "prompt_sha256": "f6f9afc3085b8c5de324aa20755864b00e05a41691f16406df1cca028599279c",
+        "reference_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt06/native.png",
+        "reference_sha256": "785093ef3b9a11c867e17ef8d0e8c640d701d5ae1827da98b26d24329e58dac3",
+        "runtime_bound": false,
+        "runtime_ready": false,
+        "native_preserved": true,
+        "owner_acceptance": null
+      },
+      "whole_source_score": 4.5,
+      "source_review": {
+        "reviewer": "Codex visual drafting review",
+        "direct_native_review": true,
+        "reviewed_utc": "2026-10-03T05:10:17.679115+00:00",
+        "source_sha256": "7207d74c283e6c45c61e0d453ab5c476027611065f84ce75750407875816f467",
+        "status": "STATIC_CONTACT_PROVISIONAL_ACTUAL_ACTION_RETEST_REQUIRED",
+        "opinions": [
+          {
+            "item": "identity/material/open/fold/pinch endpoints",
+            "score": 4.5,
+            "evaluation": "Same connected two arms/coral mittens/costume and painted paper."
+          },
+          {
+            "item": "opposite wrist-roll endpoint",
+            "score": 4.6,
+            "evaluation": "Neck grips remain attached and left/right wrists turn visibly in opposite directions."
+          },
+          {
+            "item": "physical candy size",
+            "score": 4.5,
+            "evaluation": "Wrapped belly stays near exposed oval scale after A6 correction."
+          },
+          {
+            "item": "source table/contact continuity",
+            "score": 4.5,
+            "evaluation": "Lower contacts/table now lowered together relative to unchanged heads, substantially reducing A6 jump. Minor residual cell-relative variation requires actual neighboring-frame inspection; static provisional score does not accept continuous action."
+          }
+        ],
+        "whole_action_score": null,
+        "runtime_bound": false,
+        "owner_acceptance": null
+      },
+      "state_opinions": [
+        {
+          "state": "open sheet",
+          "region": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "long-edge fold",
+          "region": [
+            627,
+            0,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "neck pinch",
+          "region": [
+            0,
+            627,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        },
+        {
+          "state": "opposite wrist twist",
+          "region": [
+            627,
+            627,
+            627,
+            627
+          ],
+          "score": 4.6,
+          "scope": "Native static hand-and-paper state only; motion/mounted/device/owner separate."
+        }
+      ],
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "attempt": 8,
+      "source": {
+        "native_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt08/native.png",
+        "sha256": "63815c9b4a5778af05c308c292cb5b77b13f70500710ca53547518271c8d12b9",
+        "generated_original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-58bc5fb8-b379-45f7-8327-ef2e474b930f.png",
+        "generated_original_sha256": "63815c9b4a5778af05c308c292cb5b77b13f70500710ca53547518271c8d12b9",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "prompt_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/PROMPT_A8.txt",
+        "prompt_sha256": "1727e50718d25fa1393f7150290ad17113a5797c2719966e5c49f2557238d6bb",
+        "attempt": 8,
+        "generation_method": "builtin_image_gen",
+        "reference": {
+          "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt07/native.png",
+          "sha256": "7207d74c283e6c45c61e0d453ab5c476027611065f84ce75750407875816f467",
+          "role": "identity/material/support/continuity reference; direct native inspected"
+        },
+        "modifications": "None; exact generated native RGBA preserved",
+        "production_binding": false,
+        "owner_acceptance": null
+      },
+      "whole_source_score": 4.1,
+      "source_review": {
+        "status": "REJECTED_BRIDGE_CONTINUITY",
+        "reviewed_utc": "2026-10-03T05:36:42.007516+00:00",
+        "direct_native_review": true,
+        "opinions": [
+          {
+            "item": "Half edge fold",
+            "score": 4.5,
+            "evaluation": "Mittens support a partly folded continuous gold sheet, retaining an exposed central sweet. Static contact only."
+          },
+          {
+            "item": "Slide to necks",
+            "score": 4.1,
+            "evaluation": "Paper necks are already tightly twisted; this skips the intended untwisted sliding/contact bridge and reverses chronology when followed by A7 pinch."
+          },
+          {
+            "item": "Half opposing roll",
+            "score": 4.4,
+            "evaluation": "Opposing grip is understandable, but belly enlarges and sits higher than A7; the action continuity gap remains."
+          },
+          {
+            "item": "Relaxed settle",
+            "score": 4.2,
+            "evaluation": "Mittens still clasp the finished necks; requested release/relaxation is absent. Belly remains oversized."
+          },
+          {
+            "item": "Whole bridge source",
+            "score": 4.1,
+            "evaluation": "Partial fold improves, but premature twists, sweet size/height drift and absent relaxed settle reject the bridge sheet. Preserve exact native and do not bind it."
+          }
+        ],
+        "production_binding": false,
+        "owner_acceptance": null,
+        "qualification": "Directly inspected generated native; static source/individual states only. No actual use, complete action, technical import, device or owner acceptance."
+      },
+      "state_opinions": [
+        {
+          "state": "Half edge fold",
+          "region": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Missing authored bridge-state candidate; static/source only, rejected complete sheet."
+        },
+        {
+          "state": "Slide to necks",
+          "region": [
+            627,
+            0,
+            627,
+            627
+          ],
+          "score": 4.1,
+          "scope": "Missing authored bridge-state candidate; static/source only, rejected complete sheet."
+        },
+        {
+          "state": "Half opposing roll",
+          "region": [
+            0,
+            627,
+            627,
+            627
+          ],
+          "score": 4.4,
+          "scope": "Missing authored bridge-state candidate; static/source only, rejected complete sheet."
+        },
+        {
+          "state": "Relaxed settle",
+          "region": [
+            627,
+            627,
+            627,
+            627
+          ],
+          "score": 4.2,
+          "scope": "Missing authored bridge-state candidate; static/source only, rejected complete sheet."
+        }
+      ],
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "attempt": 9,
+      "source": {
+        "native_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt09/native.png",
+        "sha256": "8eedbe7b8caebe89259a8e33c17291ed924c548e2c53d23f66d0e9cea669ad07",
+        "generated_original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-9a6b3dbd-b00c-4a15-8dac-32360e999dfb.png",
+        "generated_original_sha256": "8eedbe7b8caebe89259a8e33c17291ed924c548e2c53d23f66d0e9cea669ad07",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "prompt_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/PROMPT_A9.txt",
+        "prompt_sha256": "2744dfae7796fb77f3a08567703fd940bc442b544834218ebc20e6142f9cc1f9",
+        "attempt": 9,
+        "generation_method": "builtin_image_gen",
+        "reference": {
+          "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt07/native.png",
+          "sha256": "7207d74c283e6c45c61e0d453ab5c476027611065f84ce75750407875816f467",
+          "role": "identity/material/support continuity; direct native inspected"
+        },
+        "modifications": "None; exact native RGBA preserved",
+        "production_binding": false,
+        "owner_acceptance": null
+      },
+      "whole_source_score": 4.1,
+      "source_review": {
+        "status": "REJECTED_BRIDGE_CONTINUITY",
+        "reviewed_utc": "2026-10-03T05:52:26.552005+00:00",
+        "direct_native_review": true,
+        "opinions": [
+          {
+            "item": "Half edge fold",
+            "score": 4.5,
+            "evaluation": "Mittens support one partly folded gold sheet around the exposed sweet. Static contact only."
+          },
+          {
+            "item": "Slide to untwisted necks",
+            "score": 4.1,
+            "evaluation": "Raised ring-like bands still close the necks before the intended pinch and twist; the central sweet becomes much wider and taller. Chronology and conserved candy size fail."
+          },
+          {
+            "item": "First opposing wrist roll",
+            "score": 4.3,
+            "evaluation": "Two hands stay connected and contact the wrapper, but the belly remains enlarged and the neck is already tightly coiled. This is not the missing small initial roll."
+          },
+          {
+            "item": "Released settle",
+            "score": 4.5,
+            "evaluation": "Both mittens visibly release and rest outside attached fans; the wrapped sweet has readable narrow twisted necks. Static endpoint only."
+          },
+          {
+            "item": "Whole bridge source",
+            "score": 4.1,
+            "evaluation": "Release is improved. Premature closure and candy-size/support drift reject the complete bridge sheet. Do not bind it or transfer endpoint scores to full action."
+          }
+        ],
+        "production_binding": false,
+        "owner_acceptance": null,
+        "qualification": "Every native state directly inspected; exact generation source preserved. Static source review does not establish current gameplay, complete motion, technical import, device, child or owner acceptance."
+      },
+      "state_opinions": [
+        {
+          "state": "Half edge fold",
+          "region": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Authored bridge state; static/source only, rejected complete sheet."
+        },
+        {
+          "state": "Slide to untwisted necks",
+          "region": [
+            627,
+            0,
+            627,
+            627
+          ],
+          "score": 4.1,
+          "scope": "Authored bridge state; static/source only, rejected complete sheet."
+        },
+        {
+          "state": "First opposing wrist roll",
+          "region": [
+            0,
+            627,
+            627,
+            627
+          ],
+          "score": 4.3,
+          "scope": "Authored bridge state; static/source only, rejected complete sheet."
+        },
+        {
+          "state": "Released settle",
+          "region": [
+            627,
+            627,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Authored bridge state; static/source only, rejected complete sheet."
+        }
+      ],
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "attempt": 10,
+      "source": {
+        "native_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt10/native.png",
+        "sha256": "60a6df848d14041a01df87be31ad06c97533fed05509decde09b008708695b39",
+        "generated_original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-c982b9bc-6a1d-4168-9e67-d895e1a73635.png",
+        "generated_original_sha256": "60a6df848d14041a01df87be31ad06c97533fed05509decde09b008708695b39",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "prompt_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/PROMPT_A10.txt",
+        "prompt_sha256": "dc3310568945e64bb9fb40025ad65d79a3b1827e83fe64eb666a2d90727d1fcf",
+        "attempt": 10,
+        "generation_method": "builtin_image_gen_precise_edit",
+        "reference": {
+          "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt09/native.png",
+          "sha256": "8eedbe7b8caebe89259a8e33c17291ed924c548e2c53d23f66d0e9cea669ad07",
+          "role": "edit target; directly inspected generated native"
+        },
+        "modifications": "No post-generation pixel edits; exact native RGBA preserved. Generator instructed to repair only top-right paper/contact; invariance is not assumed from the instruction.",
+        "production_binding": false,
+        "owner_acceptance": null
+      },
+      "whole_source_score": 4.2,
+      "source_review": {
+        "status": "REJECTED_BRIDGE_CONTINUITY",
+        "reviewed_utc": "2026-10-03T05:56:25.149551+00:00",
+        "direct_native_review": true,
+        "opinions": [
+          {
+            "item": "Half edge fold",
+            "score": 4.5,
+            "evaluation": "One continuous gold sheet partly encloses the red sweet; two mittens contact the lifted edges. Static source state only."
+          },
+          {
+            "item": "Slide to untwisted necks",
+            "score": 4.4,
+            "evaluation": "Premature gold rings are removed, so the necks now read as untwisted attached pleats. Mittens still hold the broad fans outside the narrow necks; the enclosed belly remains taller than the original sweet. The missing sliding grip is not yet accepted."
+          },
+          {
+            "item": "First opposing wrist roll",
+            "score": 4.3,
+            "evaluation": "Connected arms are sound, but the early-roll state still has an oversized belly and already tight coiled necks inherited from the edit target. It remains a rejected intermediate."
+          },
+          {
+            "item": "Released settle",
+            "score": 4.5,
+            "evaluation": "Both mittens rest clear of the attached fans; the finished gold sweet remains supported on the table. Useful static endpoint, not a full-action pass."
+          },
+          {
+            "item": "Whole bridge source",
+            "score": 4.2,
+            "evaluation": "Untwisted pleats and release improve wrapper semantics. Missing slide contact, candy-size drift and an already finished half-roll still reject complete bridge continuity. Actual A5 motion remains4.1; no new binding."
+          }
+        ],
+        "production_binding": false,
+        "owner_acceptance": null,
+        "qualification": "All four native source states directly inspected. No actual use, complete action, runtime-ready texture, device, child or owner acceptance is transferred."
+      },
+      "state_opinions": [
+        {
+          "state": "Half edge fold",
+          "region": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Authored bridge state; static/source only, rejected complete sheet."
+        },
+        {
+          "state": "Slide to untwisted necks",
+          "region": [
+            627,
+            0,
+            627,
+            627
+          ],
+          "score": 4.4,
+          "scope": "Authored bridge state; static/source only, rejected complete sheet."
+        },
+        {
+          "state": "First opposing wrist roll",
+          "region": [
+            0,
+            627,
+            627,
+            627
+          ],
+          "score": 4.3,
+          "scope": "Authored bridge state; static/source only, rejected complete sheet."
+        },
+        {
+          "state": "Released settle",
+          "region": [
+            627,
+            627,
+            627,
+            627
+          ],
+          "score": 4.5,
+          "scope": "Authored bridge state; static/source only, rejected complete sheet."
+        }
+      ],
+      "production_binding": false,
+      "owner_acceptance": null
+    }
+  ],
+  "qualification": "All ten exact native sources and forty individual states directly inspected. A7 selected endpoints4.5–4.6; actual A5 complete wrapping4.1 rejected. Bridges A8/A9/A10 whole4.1/4.1/4.2 remain unbound. Static source opinions never establish full motion, runtime integration, device, child or owner acceptance."
+}

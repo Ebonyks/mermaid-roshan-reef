@@ -1,0 +1,62 @@
+{
+  "status": "PLANNED_BEFORE_MODEL_INPUT_OR_DISPATCH",
+  "created_utc": "2026-10-03T07:19:36.877941+00:00",
+  "baseline": "79f20126e01454132fe245fb3b8a03e700b9ca31",
+  "scope": "One local far-long-edge folding component test using the exact returned A11 source. Original near-edge source request remains rejected; alternate far-edge grip4.5 is a provisional source-only role. Simplify the failed four-action take to one visible fold for readable motion, preserving complete wrap/neck/twist/release requirements as still open. No production binding, saved/input/reward change or cinematic delivery.",
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004"
+  ],
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-MED-01",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-QA-01",
+    "DL-QA-03",
+    "DL-QA-06",
+    "DL-QA-07",
+    "DL-MOT-02",
+    "DL-MOT-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-03"
+  ],
+  "inventory": [
+    {
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt11/native.png",
+      "sha256": "884af7e93b6a19bd15f59f81a88e94368ca513955f3eda93141bbad4b38ddbe6",
+      "role": "Existing returned A11 alternate far-edge folding grip, source-only4.5; near-role4.0 rejected."
+    },
+    {
+      "path": "assets_src/local_motion/candy_wrap_continuity_v1_20261003/attempt01/DIRECT_REVIEW.json",
+      "role": "All41 A1 frames whole2.4 rejected; corners lift but red sweet never enclosed."
+    }
+  ],
+  "gap": "A1 preserves open corner grips instead of folding. Test only actual far-long-edge closure over the same supported sweet, with right mitten bracing it. This substep does not redefine success for the complete wrapping action.",
+  "predeclared_review": {
+    "milestone": "Far long edge visibly travels over the red oval; the opposite mitten maintains support; no instant replacement or paper/sweet growth.",
+    "identity": "Head/torso/hat/face/hair/costume/table steady, two connected mittens, no new anatomy.",
+    "continuity": "Inspect all41 native frames and actual edge path, not only the ending.",
+    "whole_wrap": "Neck slide, counter-roll, honest release and current-game fitting remain separately required."
+  }
+}
