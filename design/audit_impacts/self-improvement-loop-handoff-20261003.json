@@ -62,8 +62,8 @@
     },
     {
       "command": "Anonymous fetch of the handoff manifest and every listed file from raw.githubusercontent.com at the pushed commit",
-      "result": "PENDING",
-      "evidence": "Recorded in the receipt commit that follows the publication commit."
+      "result": "PASS",
+      "evidence": "Published at commit f927eb262889b5bc50bda09b5c1f6a67b2c3b340 on branch claude/self-improvement-loop-20261003 (https://github.com/Ebonyks/mermaid-roshan-reef/tree/f927eb262889b5bc50bda09b5c1f6a67b2c3b340/docs/handoffs/codex_self_improvement_loop_2026-10-03). Anonymous HTTPS fetch from raw.githubusercontent.com with no token at 2026-10-03T16:12:30Z: MANIFEST.json HTTP 200, 3,078 bytes, SHA-256 4798b1c7dbcb94086bd7ab8da5e39038ba1156ea6a4c2a0e035dfba9d4240813, revision 1, 11 of 11 files match; the master audit, finding register, ledger, this record and the manifest at the same commit are byte-identical to the committed blobs."
     },
     {
       "command": "GitHub Probe Suite at the branch head",
