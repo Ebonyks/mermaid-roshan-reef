@@ -7,6 +7,7 @@ extends Control
 ## gesture, so a quiet screen can never win by waiting.
 
 signal cleanup_step_completed(step: int, cleanup_id: String)
+signal fixture_scrubbed(fixture: String, from: Vector2, to: Vector2)
 signal tub_drain_visual_started
 signal finale_started
 signal cleanup_completed
@@ -623,7 +624,10 @@ func _consume_gesture(at: Vector2) -> bool:
 				_motion_since_last_tick = true
 				_motion_idle_seconds = 0.0
 				moved = true
+			var previous_tool: Vector2 = _sponge.position
 			_update_tool_from_gesture(at)
+			if moved:
+				fixture_scrubbed.emit("Sink", previous_tool, _sponge.position)
 		_last_angle = angle
 		_last_point = at
 		if _sink_arc >= SINK_ARC_REQUIRED \
@@ -645,7 +649,9 @@ func _consume_gesture(at: Vector2) -> bool:
 			_tub_direction = direction
 			_last_tub_x = at.x
 			_last_point = at
+			var previous_tool: Vector2 = _sponge.position
 			_update_tool_from_gesture(at)
+			fixture_scrubbed.emit("Tub", previous_tool, _sponge.position)
 		if _tub_distance >= TUB_DISTANCE_REQUIRED \
 				and _tub_reversals >= TUB_REVERSALS_REQUIRED \
 				and _valid_motion_seconds >= TUB_MIN_GESTURE_SECONDS:
