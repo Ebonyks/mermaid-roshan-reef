@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "command": [
+    "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "tools/audit_game_2d.py",
+    "--regression-gate"
+  ],
+  "process_exit": 0,
+  "started_utc": "2026-10-03T02:23:20.125638+00:00",
+  "finished_utc": "2026-10-03T02:24:38.426291+00:00",
+  "elapsed_seconds": 78.2989455999923,
+  "stdout_sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "qualification": "Fresh unchanged existing regression gate after JSON-only formatting repair. Failed v1 retained; no strict-zero2D/graphics/action/owner acceptance."
+}

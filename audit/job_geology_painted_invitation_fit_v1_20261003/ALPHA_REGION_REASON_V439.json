@@ -1,0 +1,25 @@
+{
+  "created_utc": "2026-10-03T01:44:32.396226+00:00",
+  "source_sha256": "6d91458161f5d234354293c1836fe26b07306377916cd18ec59e785fd76a5cbb",
+  "alpha_ge1_bounds": [
+    17,
+    21,
+    1238,
+    1150
+  ],
+  "alpha_ge2_bounds": [
+    18,
+    388,
+    1237,
+    923
+  ],
+  "addressed_rect": [
+    8,
+    378,
+    1239,
+    555
+  ],
+  "reason": "All alpha>=2 tray/shadow pixels plus10pixel border. Remote alpha1-only haze above/below actual subject is outside this source window; pixels inside window are wholly unchanged. No alpha masking, painting, compositing, repair or generated-source modification. Static gameplay atlas window only; not cinematic delivery.",
+  "source_pixel_changes": false,
+  "current_production_binding": false
+}

@@ -1,0 +1,821 @@
+{
+	"events": [
+		{
+			"event": "NON_RUNTIME_COUNTERFACTUAL_BACKDROP_SUBSTITUTION",
+			"production_binding": false
+		},
+		{
+			"event": "actual_library_picture_card_entry",
+			"slot": 16
+		},
+		{
+			"event": "viewport_invitation_arrival_open",
+			"phase_index": 0,
+			"task_open": true
+		},
+		{
+			"event": "intentional_completed",
+			"phase_index": 0,
+			"progress": 1.0
+		},
+		{
+			"event": "viewport_invitation_arrival_open",
+			"phase_index": 1,
+			"task_open": true
+		},
+		{
+			"event": "intentional_completed",
+			"phase_index": 1,
+			"progress": 1.0
+		},
+		{
+			"event": "viewport_invitation_arrival_open",
+			"phase_index": 2,
+			"task_open": true
+		},
+		{
+			"event": "intentional_completed",
+			"phase_index": 2,
+			"progress": 1.0
+		},
+		{
+			"event": "viewport_invitation_arrival_open",
+			"phase_index": 3,
+			"task_open": true
+		},
+		{
+			"event": "passive_open_no_progress",
+			"phase_index": 3
+		},
+		{
+			"event": "intentional_completed",
+			"phase_index": 3,
+			"progress": 1.0
+		},
+		{
+			"event": "actual_earned_completion_library_return",
+			"stars": 65536
+		}
+	],
+	"motion_frames": [],
+	"qualification": "Isolated main/Castle entry fixture and save home; actual Library card/elevator touch, normal phase inputs, production OperaAct callback and earned room return. No forced phases/results/callback patches or source replacement. Geologist has no separate ChapterTwo story set or two-act stage rollout. Not device/child/owner acceptance. Non-runtime backdrop substituted for static prop fit only. No production source changed, no full action or current room acceptance.",
+	"status": "COUNTERFACTUAL_PAINTED_PROPS_SELECTED_VIEWS_REVIEW_PENDING",
+	"views": [
+		{
+			"act_active": false,
+			"direct_review": false,
+			"game": "level2",
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_normal_library_card.webp",
+			"room": "library",
+			"scores": {},
+			"sha256": "a81695a4c14d6e5cea25fee44e932bc865274a666dbe40d18d05f88d0691faca",
+			"state": "normal_library_card",
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase0_invitation.webp",
+			"phase_index": 0,
+			"scores": {},
+			"sha256": "1ebacad86aa0a4a14d420efe63ab2a250e277dc1f7e9aa1fcde5e5bfb455fed4",
+			"state": "invitation",
+			"surface": {
+				"complete": false,
+				"mode": "geology_river",
+				"stage": "RIVER",
+				"version": 1,
+				"wet": []
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase0_task_open.webp",
+			"phase_index": 0,
+			"scores": {},
+			"sha256": "01f68bae98b65354d2e6807703fa4c506b1887bbbd49921b44067d3c03a95e94",
+			"state": "task_open",
+			"surface": {
+				"complete": false,
+				"mode": "geology_river",
+				"stage": "RIVER",
+				"version": 1,
+				"wet": []
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase0_earned_completion.webp",
+			"phase_index": 0,
+			"scores": {},
+			"sha256": "ef173e2787ae77819eb7628d85797b1a80e9c58fef2a63af5cb552ad6ceb046a",
+			"state": "earned_completion",
+			"surface": {
+				"complete": true,
+				"mode": "geology_river",
+				"stage": "RIVER",
+				"version": 1,
+				"wet": [
+					11,
+					12,
+					13,
+					18,
+					19,
+					20,
+					22,
+					24,
+					25,
+					26,
+					31,
+					32,
+					33
+				]
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase1_invitation.webp",
+			"phase_index": 1,
+			"scores": {},
+			"sha256": "14b0870bb9f7a925a86c70185491dea009d38c52ed81bfdababea80406dbd50d",
+			"state": "invitation",
+			"surface": {
+				"cleared": [],
+				"complete": false,
+				"fossil_stage": 0,
+				"mode": "geology_fossil",
+				"snapped": [
+					false,
+					false,
+					false
+				],
+				"stage": "FOSSIL_BRUSH",
+				"version": 1
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase1_task_open.webp",
+			"phase_index": 1,
+			"scores": {},
+			"sha256": "09665194cb0c4c503a863a85dcdc92c40a9edca9fd25460857b8331fdf39d758",
+			"state": "task_open",
+			"surface": {
+				"cleared": [],
+				"complete": false,
+				"fossil_stage": 0,
+				"mode": "geology_fossil",
+				"snapped": [
+					false,
+					false,
+					false
+				],
+				"stage": "FOSSIL_BRUSH",
+				"version": 1
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase1_partial_brush.webp",
+			"phase_index": 1,
+			"scores": {},
+			"sha256": "e2b95f81970ba532a953fb5b9aa243abfb59eb7f9b93ef3063dd1c312e7b7c83",
+			"state": "partial_brush",
+			"surface": {
+				"cleared": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7
+				],
+				"complete": false,
+				"fossil_stage": 0,
+				"mode": "geology_fossil",
+				"snapped": [
+					false,
+					false,
+					false
+				],
+				"stage": "FOSSIL_BRUSH",
+				"version": 1
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase1_brushed.webp",
+			"phase_index": 1,
+			"scores": {},
+			"sha256": "892ecba51bbb21c56a18e3afab0d07f85ece6ded02c78ccb50fa99471818cc1f",
+			"state": "brushed",
+			"surface": {
+				"cleared": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10,
+					11,
+					12,
+					13,
+					18,
+					19,
+					20,
+					21,
+					22,
+					23,
+					24,
+					25,
+					26,
+					27,
+					28,
+					29
+				],
+				"complete": false,
+				"fossil_stage": 1,
+				"mode": "geology_fossil",
+				"snapped": [
+					false,
+					false,
+					false
+				],
+				"stage": "FOSSIL_ASSEMBLE",
+				"version": 1
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase1_one_piece.webp",
+			"phase_index": 1,
+			"scores": {},
+			"sha256": "e6eb0caae84ffd3c908e2a81f80b06d298038d663a7ee5469babfbd4fd16900e",
+			"state": "one_piece",
+			"surface": {
+				"cleared": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10,
+					11,
+					12,
+					13,
+					18,
+					19,
+					20,
+					21,
+					22,
+					23,
+					24,
+					25,
+					26,
+					27,
+					28,
+					29
+				],
+				"complete": false,
+				"fossil_stage": 1,
+				"mode": "geology_fossil",
+				"snapped": [
+					true,
+					false,
+					false
+				],
+				"stage": "FOSSIL_ASSEMBLE",
+				"version": 1
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase1_two_pieces.webp",
+			"phase_index": 1,
+			"scores": {},
+			"sha256": "794e71ade1772a8240d22e9fa5cb836c24cd0132eb6e119cc60d9b3bf6b58e03",
+			"state": "two_pieces",
+			"surface": {
+				"cleared": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10,
+					11,
+					12,
+					13,
+					18,
+					19,
+					20,
+					21,
+					22,
+					23,
+					24,
+					25,
+					26,
+					27,
+					28,
+					29
+				],
+				"complete": false,
+				"fossil_stage": 1,
+				"mode": "geology_fossil",
+				"snapped": [
+					true,
+					true,
+					false
+				],
+				"stage": "FOSSIL_ASSEMBLE",
+				"version": 1
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase1_earned_completion.webp",
+			"phase_index": 1,
+			"scores": {},
+			"sha256": "0aa09b4ce6bc49d73d6646e9f42acdf083bcbc9b55d513e85a755b34a93de92d",
+			"state": "earned_completion",
+			"surface": {
+				"cleared": [
+					0,
+					1,
+					2,
+					3,
+					4,
+					5,
+					6,
+					7,
+					8,
+					9,
+					10,
+					11,
+					12,
+					13,
+					18,
+					19,
+					20,
+					21,
+					22,
+					23,
+					24,
+					25,
+					26,
+					27,
+					28,
+					29
+				],
+				"complete": true,
+				"fossil_stage": 1,
+				"mode": "geology_fossil",
+				"snapped": [
+					true,
+					true,
+					true
+				],
+				"stage": "FOSSIL_ASSEMBLE",
+				"version": 1
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase2_invitation.webp",
+			"phase_index": 2,
+			"scores": {},
+			"sha256": "2b68fec12d70efec6178b685f0e050b9cb0198ff52b68cca69356c618415f924",
+			"state": "invitation",
+			"surface": {
+				"complete": false,
+				"minerals": 0,
+				"mode": "geology_pan",
+				"reversals": 0,
+				"stage": "PAN",
+				"version": 1,
+				"wash": 0.0
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase2_task_open.webp",
+			"phase_index": 2,
+			"scores": {},
+			"sha256": "78b03fc06a8e807131f2b2fbd9b29e3f5e4dbad5efbf128def97c49f0dd07840",
+			"state": "task_open",
+			"surface": {
+				"complete": false,
+				"minerals": 0,
+				"mode": "geology_pan",
+				"reversals": 0,
+				"stage": "PAN",
+				"version": 1,
+				"wash": 0.0
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase2_pan_right.webp",
+			"phase_index": 2,
+			"scores": {},
+			"sha256": "b8f424786f1c4e571159f1bb9641e16ba81a320d55cf0db7dde2eaf153da8837",
+			"state": "pan_right",
+			"surface": {
+				"complete": false,
+				"minerals": 0,
+				"mode": "geology_pan",
+				"reversals": 0,
+				"stage": "PAN",
+				"version": 1,
+				"wash": 0.0
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase2_pan_left.webp",
+			"phase_index": 2,
+			"scores": {},
+			"sha256": "8bdf7a1677762376984d042c313c417e9bfdf79eecd3dee49eb9a6155fb2fa6e",
+			"state": "pan_left",
+			"surface": {
+				"complete": false,
+				"minerals": 0,
+				"mode": "geology_pan",
+				"reversals": 1,
+				"stage": "PAN",
+				"version": 1,
+				"wash": 0.111111111111111
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase2_partial_pan.webp",
+			"phase_index": 2,
+			"scores": {},
+			"sha256": "b2319230ef6ff5c9bcf8ba20c54a198999b74379458828e01b90ee292901a39b",
+			"state": "partial_pan",
+			"surface": {
+				"complete": false,
+				"minerals": 1,
+				"mode": "geology_pan",
+				"reversals": 3,
+				"stage": "PAN",
+				"version": 1,
+				"wash": 0.333333333333333
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase2_earned_completion.webp",
+			"phase_index": 2,
+			"scores": {},
+			"sha256": "64b5d49d0e67330eba7dbb1316e85c8ed7aaadd207ac88f2acca942756f1d559",
+			"state": "earned_completion",
+			"surface": {
+				"complete": true,
+				"minerals": 3,
+				"mode": "geology_pan",
+				"reversals": 9,
+				"stage": "PAN",
+				"version": 1,
+				"wash": 1.0
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase3_invitation.webp",
+			"phase_index": 3,
+			"scores": {},
+			"sha256": "cc540b48322680a7db8e4e25c201ac08ab56a8aeaa07b42ef347f8e93b3efbe6",
+			"state": "invitation",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					false,
+					false,
+					false,
+					false,
+					false
+				],
+				"stage": "GEODE_SEAM",
+				"version": 1
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase3_task_open.webp",
+			"phase_index": 3,
+			"scores": {},
+			"sha256": "132ef235d09202200128b81cf869905060fbc7b089e21457de1695936cce5800",
+			"state": "task_open",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					false,
+					false,
+					false,
+					false,
+					false
+				],
+				"stage": "GEODE_SEAM",
+				"version": 1
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase3_five_seams_ready.webp",
+			"phase_index": 3,
+			"scores": {},
+			"sha256": "b1e7eb24bc7f8c4736554b8bf75d82eb6df94956863012b171d15adc698577e2",
+			"state": "five_seams_ready",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 0.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase3_early_crack.webp",
+			"phase_index": 3,
+			"scores": {},
+			"sha256": "c37545f4557eca5ed07401b5333d7c1b65a363ad2c0eed9dfb6e26d9d2cc962a",
+			"state": "early_crack",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 25.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase3_middle_open.webp",
+			"phase_index": 3,
+			"scores": {},
+			"sha256": "bb970e54cea7e94338583515912200cd512c19494884198579eb0c5280522e0a",
+			"state": "middle_open",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 65.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase3_full_interior_before_award.webp",
+			"phase_index": 3,
+			"scores": {},
+			"sha256": "7da14e80f6809895b5ee29f88876800ca26695b74d384bd55f517efd2da11fb8",
+			"state": "full_interior_before_award",
+			"surface": {
+				"complete": false,
+				"mode": "geology_geode",
+				"pull": 95.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"direct_review": false,
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_phase3_earned_completion.webp",
+			"phase_index": 3,
+			"scores": {},
+			"sha256": "5e5a33cc4a0759bfb5bf9db39420b776e4b2d01a1e473ec9f0242ca7d9f87828",
+			"state": "earned_completion",
+			"surface": {
+				"complete": true,
+				"mode": "geology_geode",
+				"pull": 120.0,
+				"seams": [
+					true,
+					true,
+					true,
+					true,
+					true
+				],
+				"stage": "GEODE_OPEN",
+				"version": 1
+			},
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"act_active": false,
+			"direct_review": false,
+			"game": "level2",
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_actual_earned_library_return.webp",
+			"room": "library",
+			"scores": {},
+			"sha256": "506e3ba394f934896d4eddc5d034fbc214fc295d79a3dcf8ecfee896ed3e44f9",
+			"state": "actual_earned_library_return",
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"act_active": false,
+			"direct_review": false,
+			"game": "level2",
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_actual_opera_venue.webp",
+			"room": "opera_hall",
+			"scores": {},
+			"sha256": "8386527b7f3bb2a824eb4554a275b6280e2a184a6f8097d2a839b30f8e28b0af",
+			"state": "actual_opera_venue",
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"act_active": false,
+			"direct_review": false,
+			"game": "level2",
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_actual_elevator_menu.webp",
+			"room": "opera_hall",
+			"scores": {},
+			"sha256": "e1affc2767d8cff861b8793b3520cf31b7b5ac452ed449c864d8f6dfb116ecb4",
+			"state": "actual_elevator_menu",
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"act_active": true,
+			"direct_review": false,
+			"game": "opera",
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_actual_dev_geologist_entry.webp",
+			"room": "opera_hall",
+			"scores": {},
+			"sha256": "5fcbc5f17c095d4d01b8d16a7ed9e9823f9a572067f98a89b62bd7114b966e30",
+			"state": "actual_dev_geologist_entry",
+			"viewport": [
+				1600,
+				720
+			]
+		},
+		{
+			"act_active": false,
+			"direct_review": false,
+			"game": "level2",
+			"path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/native_views/geologist_1600_actual_dev_back_menu.webp",
+			"room": "opera_hall",
+			"scores": {},
+			"sha256": "a41f7fe1b6057ea4a1421ff008e733402d4e7727802933700659bd870a2a3e52",
+			"state": "actual_dev_back_menu",
+			"viewport": [
+				1600,
+				720
+			]
+		}
+	],
+	"width": 1600
+}

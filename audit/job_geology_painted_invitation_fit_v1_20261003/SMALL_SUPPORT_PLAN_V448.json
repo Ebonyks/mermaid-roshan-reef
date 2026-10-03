@@ -1,0 +1,42 @@
+{
+  "status": "PLANNED_NO_PREDICTED_PASS",
+  "created_utc": "2026-10-03T02:11:43.609854+00:00",
+  "prior_review": "DIRECT_REVIEW_ATTEMPT02.json",
+  "preserved_fixture_sources": [
+    {
+      "path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt02/fixture_originals/capture.gd.original",
+      "sha256": "375128d31f1c30ba970003aa3b6a933d6e41ed2c93963d8fe70c25ad2b431d3f",
+      "role": "Exact A2 reviewed lower-lane non-runtime fixture source"
+    },
+    {
+      "path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt02/fixture_originals/painted_prop_backdrop.gd.original",
+      "sha256": "fd45467043b17fa695c881e4482e7fdcae3ec0874b136c294c453cbb9f0694d0",
+      "role": "Exact A2 reviewed lower-lane non-runtime fixture source"
+    }
+  ],
+  "new_support_rects": [
+    [
+      535,
+      603,
+      140,
+      58.110236220472444
+    ],
+    [
+      680,
+      603,
+      140,
+      58.110236220472444
+    ],
+    [
+      825,
+      603,
+      140,
+      58.110236220472444
+    ]
+  ],
+  "unchanged_tray_base_y": 625,
+  "reason": "A2 tray support scale3.8: one430×178.5 slab overwhelms three110px trays. Reuse the same approved slab three times at140×58.1, preserving aspect and original pixels. Each tray rests on one small stone support. Keep lower clearance and source identity.",
+  "production_changes": false,
+  "whole_action_acceptance": false,
+  "owner_acceptance": null
+}

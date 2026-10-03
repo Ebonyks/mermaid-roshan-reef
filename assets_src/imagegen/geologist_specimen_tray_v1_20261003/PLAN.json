@@ -1,0 +1,97 @@
+{
+  "status": "PREPARED_BEFORE_GENERATION",
+  "baseline": "1652a9bb33af0d11a594b5996df66d2266c02d39",
+  "created_utc": "2026-10-03T01:36:39.175186+00:00",
+  "named_gap": "Three actual Geologist invitation trays remain flat outlined rectangles scored2.9. Need a hollow painted specimen-container source; no suitable isolated existing tray established by inventory.",
+  "inventory": [
+    {
+      "path": "assets/galaxy/tray_nano_wood_tray_1.png",
+      "sha256": "894943f12f30417ae4acc6b6f53558c7fa7b647f649a69d63e25d4a713ee488e",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "role": "Potential tray reuse by filename",
+      "reuse_assessment": "Direct native inspection shows a full-canvas repeating wooden plank texture, not an isolated hollow tray; unsuitable for specimen containment.",
+      "transmitted_to_imagegen": false
+    },
+    {
+      "path": "assets/galaxy/tray_plate_oval_001.png",
+      "sha256": "eba4c31150db3d5f134e51bd6d3120d78bc21ea83a460f97b0b7a4a98159a2d8",
+      "dimensions": [
+        256,
+        1
+      ],
+      "mode": "RGB",
+      "role": "Potential tray reuse by filename",
+      "reuse_assessment": "Direct native inspection shows a tiny horizontal colour/edge strip, not a complete inspectable tray; unsuitable for this role.",
+      "transmitted_to_imagegen": false
+    },
+    {
+      "path": "assets_src/concepts/cc0_ocean_replacements_2026-07-22/regen_08_serving_tray.png",
+      "sha256": "a13e723251c4f8c00cd5ebf41e49430e7edde167f4ffcc3cfee6817a807b21ec",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "role": "Existing serving-tray reference",
+      "reuse_assessment": "Direct native inspection: several complete serving views painted onto opaque cream sheet, fine near-vector lines and narrow low contrast rims; no transparent isolated rounded rectangular specimen tray matching the current painted geology props. Preserve source, do not substitute it as accepted specimen art.",
+      "transmitted_to_imagegen": false
+    },
+    {
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/mineral.png",
+      "sha256": "b35ccc29b0adb02006828e6f4c55e6240ddec2e9b0fb1e3130132c05fb479b47",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "role": "Reusable approved-review painted geology material",
+      "reuse_assessment": "Direct native reinspection supports reuse of the same aqua/lavender crystal cluster; do not regenerate it merely for novelty. Keep its existing attributed review and current action limits.",
+      "transmitted_to_imagegen": false
+    },
+    {
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+      "sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "role": "Reusable approved-review painted geology material",
+      "reuse_assessment": "Direct native reinspection supports reuse of the same cream ammonite in lavender stone; do not regenerate it merely for novelty. Keep its existing attributed review and clearing/contact limits.",
+      "transmitted_to_imagegen": false
+    },
+    {
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/work_slab.png",
+      "sha256": "592365e4fd9fec19fc002dc3b08fcddcbb9b40405ba21597bf518a5be1b67f80",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "role": "Reusable reviewed painted support",
+      "reuse_assessment": "Existing production support retained; complete mounted room and specimen clearance still need review.",
+      "transmitted_to_imagegen": false
+    }
+  ],
+  "prompt_path": "assets_src/imagegen/geologist_specimen_tray_v1_20261003/PROMPT.txt",
+  "prompt_sha256": "22554f9a2e77cbd8320336b8beebea29e4f55c28afd88d25057ff33eead0a1f4",
+  "generation_method": "OpenAI built-in ImageGen, new text-only transparent generation",
+  "reference_uploads": [],
+  "references_uploaded": false,
+  "production_binding": false,
+  "owner_acceptance": null,
+  "minimum_source_floor": 4.5,
+  "inclusive_refinement_priority": 4.5,
+  "required_review": [
+    "Hollow continuous rim and contained floor",
+    "Consistent painted geology palette/style",
+    "Simple complete silhouette and transparent alpha",
+    "Three-quarter resting perspective",
+    "Readability at110pixel width",
+    "Every original preserved; no score transferred to current room or hand action"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "status": "FAIL_PRESERVED",
+  "command": [
+    "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "tools/audit_game_2d.py",
+    "--regression-gate"
+  ],
+  "process_exit": 1,
+  "started_utc": "2026-10-03T02:19:43.120806+00:00",
+  "finished_utc": "2026-10-03T02:21:04.712387+00:00",
+  "elapsed_seconds": 81.58982400002424,
+  "stdout_sha256": "87558606762e3730a6421f0ab0146677c2ad51f31dc7b8dfda9257fa8251ca91",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "qualification": "Existing unchanged machine gate. No current graphics/action, strict-zero2D, device/child/owner/finding/integration/release acceptance transfer."
+}

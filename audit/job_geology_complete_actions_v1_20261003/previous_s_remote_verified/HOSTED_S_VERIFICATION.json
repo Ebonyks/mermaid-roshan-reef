@@ -1,0 +1,30 @@
+{
+  "status": "EXACT_S_HOSTED_SUCCESS",
+  "checked_utc": "2026-10-03T02:14:44.385765+00:00",
+  "head_sha": "1652a9bb33af0d11a594b5996df66d2266c02d39",
+  "run_id": 37086150331,
+  "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/37086150331",
+  "jobs": [
+    {
+      "name": "probes",
+      "conclusion": "success",
+      "completed_at": "2026-10-03T02:12:15Z"
+    },
+    {
+      "name": "area-music-provenance",
+      "conclusion": "success",
+      "completed_at": "2026-10-03T01:36:35Z"
+    }
+  ],
+  "raw_files": [
+    {
+      "path": "audit/job_geology_complete_actions_v1_20261003/previous_s_remote_verified/HOSTED_S_FINAL.json",
+      "sha256": "a13731a52eea4795a2aed4b5a5678819b126514ff18ed29ca047a52320305635"
+    },
+    {
+      "path": "audit/job_geology_complete_actions_v1_20261003/previous_s_remote_verified/HOSTED_S_JOBS_FINAL.json",
+      "sha256": "60c06c700cd1e50983002b36a0f663ff4b8e7af5f5c6b0f0b9bc14f7c9da523a"
+    }
+  ],
+  "qualification": "Hosted exact S machine checks only. Current783 production bytes unchanged. Complete-action and source/placement/owner/device/child/finding acceptance remain separate. No dev integration or release."
+}

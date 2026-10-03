@@ -1,0 +1,15 @@
+from pathlib import Path
+import json,datetime,hashlib,shutil,subprocess,sys
+R=Path('C:/Users/Peter/.codex/worktrees/job-art-review-v2-20261001/mermaid-roshan-reef');F=R/'audit/job_geology_complete_actions_v1_20261003';P=R/'audit/job_geology_painted_invitation_fit_v1_20261003';T=R/'assets_src/imagegen/geologist_specimen_tray_v1_20261003';L=R/'audit/job_artwork_refinement_live'
+MAP='audit/job_review_v2_20261001/GEOLOGY_COMPLETE_ACTION_AND_TRAY_SUPPLEMENT_FILES_V17.json';BASE='1652a9bb33af0d11a594b5996df66d2266c02d39'
+def read(p):return json.loads(p.read_text(encoding='utf-8-sig'))
+def write(p,d):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
+p=P/'index.html';s=p.read_text();needle='<h2>A3: three small painted supports</h2>';assert s.count(needle)==1;s=s.replace(needle,'<h2 id="latest-a3">A3: three small painted supports</h2>');s=s.replace('</header>','<p><a href="#latest-a3">Latest A3 layout and all individual scores</a> · <a href="../job_geology_complete_actions_v1_20261003/index.html">Actual complete fossil and panning actions</a></p><figure><a href="attempt03/native_views/geologist_1280_phase2_invitation.webp"><img src="attempt03/native_views/geologist_1280_phase2_invitation.webp" alt="Latest selected A3 Library invitation; exact native full canvas, unbound"></a><figcaption>Latest A3 selected invitation: individual painted props/supports/clearance 4.5/5 provisional. Whole room 4.2/5, current runtime unchanged.</figcaption></figure></header>',1);p.write_text(s,encoding='utf-8',newline='\n')
+for p in [F/'index.html',P/'index.html',T/'index.html']:
+ s=p.read_text()
+ for a,b in [('Every884','Every 884'),('every884','every 884'),('all884','all 884'),('all58','all 58'),('All58','All 58'),('Every58','Every 58'),('Every783','Every 783'),('all783','all 783'),('All783','All 783'),('at1280/1600','at 1280/1600'),('on85','on 85'),('and58','and 58'),('plus34','plus 34'),('85 ordered','85 ordered'),('Fossil3.2','Fossil 3.2'),('pan3.4','pan 3.4'),('hands2.7','hands 2.7'),('room2.8','room 2.8'),('contact2.7','contact 2.7'),('source4.6','source 4.6'),('Every consecutive','Every consecutive')]:s=s.replace(a,b)
+ p.write_text(s,encoding='utf-8',newline='\n')
+ip=R/'design/audit_impacts/job-geology-complete-action-register-20261003.json';d=read(ip);d['files']=sorted(set(d['files'])|{MAP,(F/'review_tools'/Path(__file__).name).relative_to(R).as_posix(),(F/'review_tools/publish_geology_checkpoint_t_v455.py').relative_to(R).as_posix(),(F/'review_tools/seal_geology_checkpoint_t_v456.py').relative_to(R).as_posix(),(F/'SCOPED_PUBLICATION_BOUNDARY_T.json').relative_to(R).as_posix(),(F/'INDEX_PATH_LENGTH_CHECK_T.json').relative_to(R).as_posix()});write(ip,d)
+write(R/MAP,dict(status='PENDING_EXACT_SCOPED_T_SEAL',base_revision=BASE,qualification='Placeholder only, no closed file map or publication claimed.'))
+shutil.copyfile(Path(__file__),F/'review_tools'/Path(__file__).name)
+print('T_REVIEW_ENTRY_LATEST_A3_NATIVE_VISIBLE|CLOSED_MAP_PREPARATION_ONLY|OWNER_PENDING')

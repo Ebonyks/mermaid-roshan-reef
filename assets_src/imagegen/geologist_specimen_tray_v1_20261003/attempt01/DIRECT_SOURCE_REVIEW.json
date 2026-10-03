@@ -1,0 +1,51 @@
+{
+  "status": "NATIVE_DIRECTLY_REVIEWED_PROVISIONAL_SOURCE4_6_MOUNT_PENDING",
+  "reviewed_utc": "2026-10-03T01:43:12.692566+00:00",
+  "native_sha256": "6d91458161f5d234354293c1836fe26b07306377916cd18ec59e785fd76a5cbb",
+  "review_method": "Direct complete native generated image inspection, with read-only alpha/dimension measurements; no source resizing, painting, recolouring or synthesis.",
+  "opinions": [
+    {
+      "id": "TRAY-S01",
+      "item": "Complete empty tray source",
+      "score": 4.6,
+      "evaluation": "One coherent shallow hollow tray with continuous rounded cream/plum rim, visible aqua floor, lavender front face and modest grounded shadow. Broad painted grain and value bands match the existing geology mineral/fossil material family. Native silhouette is complete and isolated; a source opinion, not a room or action pass."
+    },
+    {
+      "id": "TRAY-S02",
+      "item": "Hollow interior and continuous rim",
+      "score": 4.6,
+      "evaluation": "Back wall, inside floor, rounded corner joins and low front wall form one readable container. No false second tray, handles, specimens, lid or floating ornament."
+    },
+    {
+      "id": "TRAY-S03",
+      "item": "Painted material and style",
+      "score": 4.6,
+      "evaluation": "Aqua/lavender/cream planes show soft hand-painted texture and restrained light; plum outer contour is broad enough for the playset. No glossy photoreal or mesh lighting."
+    },
+    {
+      "id": "TRAY-S04",
+      "item": "Full silhouette and alpha",
+      "score": 4.5,
+      "evaluation": "Native RGBA contains real transparent margins and a soft contact shadow. Fine blue/purple edge pixels remain visible at the far contour at native size; small mounted scale still requires direct review. The inclusive4.5 priority rule is retained."
+    },
+    {
+      "id": "TRAY-S05",
+      "item": "Resting perspective and proportions",
+      "score": 4.6,
+      "evaluation": "Slightly elevated three-quarter view clearly exposes the floor; about twice-wide body and low front rim read as a shallow specimen container. Complete base/shadow communicates support without a painted tabletop."
+    },
+    {
+      "id": "TRAY-S06",
+      "item": "110pixel mounted readability",
+      "score": 4.5,
+      "evaluation": "At110px, both widths retain an empty aqua floor, cream rim and shallow lavender wall. Fine outline detail simplifies. A1 placement fails actor clearance independently; this does not pass actual current mounting.",
+      "priority": true,
+      "evidence": "audit/job_geology_painted_invitation_fit_v1_20261003/DIRECT_REVIEW_ATTEMPT01.json",
+      "owner_acceptance": null
+    }
+  ],
+  "runtime_binding": false,
+  "current_trays_score": 2.9,
+  "owner_acceptance": null,
+  "small_scale_counterfactual_review": "audit/job_geology_painted_invitation_fit_v1_20261003/DIRECT_REVIEW_ATTEMPT01.json"
+}

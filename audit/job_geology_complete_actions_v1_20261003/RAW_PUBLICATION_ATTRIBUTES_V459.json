@@ -1,0 +1,18 @@
+{
+  "status": "EXACT_NEW_REVIEW_PATHS_PRESERVE_LITERAL_BYTES",
+  "checked_utc": "2026-10-03T02:31:28.531964+00:00",
+  "prior_attributes_sha256": "d7ae57fc0051c2388ddb413890099e86957768471b356c86f29110360dc2f759",
+  "current_attributes_sha256": "ec70358e8840f9c5fd02a0048006b4aa651519e566b3702d354f80c90cd743cd",
+  "new_patterns": [
+    "audit/job_geology_complete_actions_v1_20261003/**",
+    "audit/job_geology_painted_invitation_fit_v1_20261003/**",
+    "assets_src/imagegen/geologist_specimen_tray_v1_20261003/**",
+    "audit/job_artwork_refinement_live/registry_format_history_v40/**",
+    "audit/job_artwork_refinement_live/ALL_ITEMS_V39.original.json",
+    "audit/job_artwork_refinement_live/all_items_V39.original.html",
+    "audit/job_artwork_refinement_live/BOUNDARY_V39.original.json"
+  ],
+  "reason": "Initial scoped staged-byte verification caught CRLF-to-LF conversion in authority.stdout.log. Retain all literal diagnostic/native/source-history hashes via same existing -text review packet pattern. No original/source pixel changes or CI/security/gate weakening. Restage only exact scoped files with attributes respected.",
+  "production_source_change": false,
+  "owner_acceptance": null
+}

@@ -1,0 +1,122 @@
+{
+  "status": "LAYOUT_REJECTED_ACTOR_OCCLUSION",
+  "reviewed_utc": "2026-10-03T01:59:05.144446+00:00",
+  "selected_views": 58,
+  "boards": 10,
+  "native_details": 8,
+  "whole_fit_score": 3.5,
+  "individual_objects": [
+    {
+      "id": "FIT-A1-TRAY-LEFT",
+      "label": "Left tray material/silhouette at110px",
+      "score": 4.5,
+      "priority": true,
+      "evaluation": "The aqua hollow floor, lavender wall and continuous cream rim read as one painted tray. Edge detail simplifies but silhouette remains clear.",
+      "refinement": "Keep source; move prop below actor travel before binding.",
+      "owner_acceptance": null,
+      "lane": "nonruntime_counterfactual_fit"
+    },
+    {
+      "id": "FIT-A1-TRAY-MIDDLE",
+      "label": "Middle tray material/silhouette at110px",
+      "score": 4.5,
+      "priority": true,
+      "evaluation": "The same exact source stays distinct from its neighbors; Roshan later overlaps its upper rim in the pan invitation.",
+      "refinement": "Material floor only; actor-clearance relationship fails separately.",
+      "owner_acceptance": null,
+      "lane": "nonruntime_counterfactual_fit"
+    },
+    {
+      "id": "FIT-A1-TRAY-RIGHT",
+      "label": "Right tray material/silhouette at110px",
+      "score": 4.5,
+      "priority": true,
+      "evaluation": "The third reuse remains complete and clearly separated, without a second painted background copy.",
+      "refinement": "Retain conserved source; verify continuous travel and phone size before binding.",
+      "owner_acceptance": null,
+      "lane": "nonruntime_counterfactual_fit"
+    },
+    {
+      "id": "FIT-A1-FOSSIL",
+      "label": "Reused invitation fossil material at105px",
+      "score": 4.5,
+      "priority": true,
+      "evaluation": "The intact golden spiral and lavender stone remain legible on a pale painted slab. Roshan obscures it in the fossil invitation.",
+      "refinement": "Keep source; repair its reserved position.",
+      "owner_acceptance": null,
+      "lane": "nonruntime_counterfactual_fit"
+    },
+    {
+      "id": "FIT-A1-SUPPORT",
+      "label": "Two reused stone supports",
+      "score": 4.5,
+      "priority": true,
+      "evaluation": "The same approved stone painting keeps coherent pale/lavender material and complete contour. The long slab is unnecessarily large behind small trays.",
+      "refinement": "Reduce slab and place its contents consistently while preserving aspect and travel clearance.",
+      "owner_acceptance": null,
+      "lane": "nonruntime_counterfactual_fit"
+    },
+    {
+      "id": "FIT-A1-MINERAL",
+      "label": "Reused crystal display beside rival",
+      "score": 4.5,
+      "priority": true,
+      "evaluation": "The cyan/lavender cluster is readable and clears the rival at selected invitations. It replaces the flat polygon crystal/ring drawing.",
+      "refinement": "Keep the good exact source and review whole approach, work hide and reappearance.",
+      "owner_acceptance": null,
+      "lane": "nonruntime_counterfactual_fit"
+    },
+    {
+      "id": "FIT-A1-DUPLICATION",
+      "label": "Single ownership of replacement props",
+      "score": 4.6,
+      "priority": false,
+      "evaluation": "Named old flat fossil/tray/crystal drawings are absent from this substituted Library backdrop; one shared source provides each named prop.",
+      "refinement": "Retain exclusive drawing ownership. Developer second entry remains actual unchanged production and is labeled separately.",
+      "owner_acceptance": null,
+      "lane": "nonruntime_counterfactual_fit"
+    },
+    {
+      "id": "FIT-A1-CLEARANCE",
+      "label": "Roshan/prop travel clearance",
+      "score": 3.5,
+      "priority": true,
+      "evaluation": "Atboth widths Roshan overlaps the fossil in phase1 and the trays in phases2/3. Higher quality sources cannot pass this positional relationship.",
+      "refinement": "Reserve a lower foreground prop lane outside her invitation travel/standing silhouettes; recapture all four invitations.",
+      "owner_acceptance": null,
+      "lane": "nonruntime_counterfactual_fit"
+    },
+    {
+      "id": "FIT-A1-WORK-HIDE",
+      "label": "Selected working-state prop hiding",
+      "score": 4.5,
+      "priority": true,
+      "evaluation": "The candidate invitation props hide when the real work surface opens, preserving one primary task surface. Only selected states, not intervening motion, are covered here.",
+      "refinement": "Review continuous reveal/approach/closing before actual production binding.",
+      "owner_acceptance": null,
+      "lane": "nonruntime_counterfactual_fit"
+    },
+    {
+      "id": "FIT-A1-ROOM",
+      "label": "Existing room wall/floor/spotlights",
+      "score": 2.8,
+      "priority": true,
+      "evaluation": "Wide hard polylines and flat angled spotlights remain literal. Painted objects improve contrast but do not make the room a finished storybook space.",
+      "refinement": "Find or generate a compliant native-coverage room master after inventory; no upsampled coverage claim.",
+      "owner_acceptance": null,
+      "lane": "nonruntime_counterfactual_fit"
+    },
+    {
+      "id": "FIT-A1-WHOLE",
+      "label": "Whole invitation placement trial",
+      "score": 3.5,
+      "priority": true,
+      "evaluation": "Good painted props are undermined by actor occlusion and the retained flat room. This is a failed layout trial with provisional individual material floors.",
+      "refinement": "Preserve A1 and recapture reserved lower placement; do not bind or transfer scores to current production.",
+      "owner_acceptance": null,
+      "lane": "nonruntime_counterfactual_fit"
+    }
+  ],
+  "qualification": "Explicit non-runtime Library backdrop substitution only. No actual production source/code changes.8 invitation details inspected at native width plus all58 selected canvases on10boards. No intervening motion, runtime/device/child/owner or all-job acceptance. Actual Opera developer second entry uses unchanged flat production backdrop and is not candidate evidence. All783 production source hashes unchanged.",
+  "owner_acceptance": null
+}

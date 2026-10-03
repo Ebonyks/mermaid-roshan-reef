@@ -1,0 +1,42 @@
+{
+  "status": "IDENTICAL_COMPLETE_STRUCTURED_REGISTER_COMPACTED",
+  "checked_utc": "2026-10-03T02:23:20.095501+00:00",
+  "prior_bytes": 4210333,
+  "prior_literal_sha256": "adea0a6917a0fb6940058ca603ee4133b6ce69ab3ddca721dca4d717ae61a0d3",
+  "current_bytes": 3478663,
+  "current_literal_sha256": "56a252f37b46a23bfba63c233716e63807115ff3d7be26e2f7e1f765b66e5d24",
+  "registered_items": 1821,
+  "structured_objects_equal": true,
+  "existing_scan_limit_bytes": 4194304,
+  "scan_limit_changed": false,
+  "source_or_score_change": false,
+  "failed_gate": "audit/job_geology_complete_actions_v1_20261003/gates/game2d.receipt.json",
+  "prior_exact_reconstruction": [
+    {
+      "path": "audit/job_artwork_refinement_live/registry_format_history_v40/ALL_ITEMS_V40.over_budget.part01.txt",
+      "bytes": 900000,
+      "sha256": "d481942b6757e753b6b07b3ce1855d627dcd625615ae1bfabc37e5c69f2b691a"
+    },
+    {
+      "path": "audit/job_artwork_refinement_live/registry_format_history_v40/ALL_ITEMS_V40.over_budget.part02.txt",
+      "bytes": 900000,
+      "sha256": "4f9e38f9cf05d6e769fd67bb78d98ac255bfd64288ce919a3208394839856460"
+    },
+    {
+      "path": "audit/job_artwork_refinement_live/registry_format_history_v40/ALL_ITEMS_V40.over_budget.part03.txt",
+      "bytes": 900000,
+      "sha256": "317069482dbf3c550f4540756b0877067bb19fca843bc6833fbe5fa3fe4b6de0"
+    },
+    {
+      "path": "audit/job_artwork_refinement_live/registry_format_history_v40/ALL_ITEMS_V40.over_budget.part04.txt",
+      "bytes": 900000,
+      "sha256": "5b8f200c09058c1ef5d84c4b8196f09bc04b77518576cb26bfcf1aaad13b9514"
+    },
+    {
+      "path": "audit/job_artwork_refinement_live/registry_format_history_v40/ALL_ITEMS_V40.over_budget.part05.txt",
+      "bytes": 610333,
+      "sha256": "c1a6aeda1f9319aaa409a3fbe64db83ab9a2115fbbddc22401a5e18c2316010b"
+    }
+  ],
+  "qualification": "Only JSON whitespace outside strings changes. Every field, opinion, date, number, source hash and image remains equal. Concatenate listed prior shard bytes in order for exact over-budget preformat bytes. Complete failed gate retained; no detector/manifest/security/gate weakening or 3D addition."
+}

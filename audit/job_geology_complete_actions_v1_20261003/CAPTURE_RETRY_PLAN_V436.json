@@ -1,0 +1,19 @@
+{
+  "status": "PREPARED_BEFORE_RETRY",
+  "created_utc": "2026-10-03T01:40:04.643171+00:00",
+  "failed_receipt": "runtime_gate/capture1280.receipt.json",
+  "failed_fixture": "capture_attempt01.gd.original",
+  "failed_fixture_sha256": "4c244fda9b43e277da66d394a8d8c6c43433fa99229c2b10b9cfa6230276fd7e",
+  "cause": "Readback-delayed PAN sequence advances to phase3 before the inherited end-of-work assertion examines the reused/reset surface. Failed run contains449 native frames and remains a failed whole-capture result, despite eventual return. No green process/printed route token overrides the SCRIPT ERROR.",
+  "repair": "Non-runtime capture only: listen once to the real production gesture completion event; strictly require exact requested mode, amount1, quality1, correct phase, actual pending flag and complete snapshot at that event. Stop further synthetic drag segments after observing that event. Preserve actual phase advancement; do not force phase, patch callbacks, hold timers, input owners, production or probes. Label a selected post-advance canvas honestly rather than calling it the previous phase earned-completion image.",
+  "changed_fixture_sha256": "20c0f5a0f4479a447ede7b9804c6ad74a9229865b51e89ea1ef359289cf8692b",
+  "new_output": "attempt02",
+  "production_edits": false,
+  "blocking_capture_checks_unchanged": [
+    "Process exit0",
+    "No SCRIPT ERROR/Parse Error/Compile Error/Assertion failed/Failed loading resource",
+    "Every783 exact production hash unchanged",
+    "All four intentional completions, actual earned Library return and Opera elevator/Back events"
+  ],
+  "visual_acceptance": null
+}

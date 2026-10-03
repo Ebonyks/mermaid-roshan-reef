@@ -1,0 +1,78 @@
+{
+  "id": "job-geology-specimen-tray-20261003",
+  "baseline": "1652a9bb33af0d11a594b5996df66d2266c02d39",
+  "scope": "Bounded fresh text-only painted empty specimen-tray candidate for the three named flat Geologist invitation tray drawings scored2.9. Inventory existing tray sources first; preserve all original assets, prior accepted painted geology props and failed candidates. Use built-in ImageGen without uploading any existing image or changing protected artwork. Save exact native alpha, prompt and generation provenance; directly audit silhouette/material/alpha/perspective/readability before any reuse study or binding. One reusable shared tray source, no mass redesign, no current runtime/contact/action acceptance, no cinematic delivery or finding closure.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-MED-01",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-LAY-07",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-INT-04",
+    "DL-INT-06",
+    "DL-INT-12",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-06"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004",
+    "MA-OPERA-012"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/imagegen/geologist_specimen_tray_v1_20261003/PLAN.json",
+    "assets_src/imagegen/geologist_specimen_tray_v1_20261003/PROMPT.txt",
+    "assets_src/imagegen/geologist_specimen_tray_v1_20261003/attempt01/DIRECT_SOURCE_REVIEW.json",
+    "assets_src/imagegen/geologist_specimen_tray_v1_20261003/attempt01/GENERATION.json",
+    "assets_src/imagegen/geologist_specimen_tray_v1_20261003/attempt01/native.png",
+    "assets_src/imagegen/geologist_specimen_tray_v1_20261003/index.html",
+    "assets_src/imagegen/geologist_specimen_tray_v1_20261003/review_tools/archive_geology_tray_and_prepare_fit_v438.py",
+    "assets_src/imagegen/geologist_specimen_tray_v1_20261003/review_tools/prepare_geology_specimen_tray_v435.py",
+    "assets_src/imagegen/geologist_specimen_tray_v1_20261003/review_tools/record_geology_reviews_v442.py"
+  ],
+  "validation": [
+    {
+      "command": "Individual native ImageGen specimen-tray review and in-context reuse study",
+      "result": "PENDING",
+      "evidence": "assets_src/imagegen/geologist_specimen_tray_v1_20261003/PLAN.json"
+    },
+    {
+      "command": "Codex direct complete ordered board and native-detail review V442",
+      "result": "PASS",
+      "evidence": "Direct visual review completed; quality failures retained in assets_src/imagegen/geologist_specimen_tray_v1_20261003/attempt01/DIRECT_SOURCE_REVIEW.json"
+    },
+    {
+      "command": "Codex direct complete ordered board and native-detail review V442",
+      "result": "PASS",
+      "evidence": "Direct visual review completed; quality failures retained in assets_src/imagegen/geologist_specimen_tray_v1_20261003/attempt01/DIRECT_SOURCE_REVIEW.json"
+    }
+  ],
+  "acceptance_gaps": "Generated source must be directly reviewed; source style score alone cannot grant mounted whole-room/contact/action/device/child/owner acceptance. Production bytes remain unchanged until a separately planned reversible binding passes applicable gates."
+}

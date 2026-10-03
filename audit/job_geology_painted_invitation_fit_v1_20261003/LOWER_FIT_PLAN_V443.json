@@ -1,0 +1,53 @@
+{
+  "status": "PLANNED_NO_PREDICTED_PASS",
+  "created_utc": "2026-10-03T01:59:13.734779+00:00",
+  "failed_trial": "DIRECT_REVIEW_ATTEMPT01.json",
+  "preserved_fixture_sources": [
+    {
+      "path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/fixture_originals/capture.gd.original",
+      "sha256": "048fd119bf96fb6c7a754acb00618e66fe681305a0e14e64fbdb44ad0039ed7e",
+      "role": "Exact failedA1 non-runtime fixture source"
+    },
+    {
+      "path": "audit/job_geology_painted_invitation_fit_v1_20261003/attempt01/fixture_originals/painted_prop_backdrop.gd.original",
+      "sha256": "28c33e070da79927ac31328c349d01b54112de218eb9fcfe5b8133b6ab630394",
+      "role": "Exact failedA1 non-runtime fixture source"
+    }
+  ],
+  "new_rects": {
+    "fossil_slab": [
+      355,
+      580,
+      180,
+      74.71316085489313
+    ],
+    "fossil": [
+      383,
+      543,
+      105,
+      88.24189526184539
+    ],
+    "tray_slab": [
+      530,
+      510,
+      430,
+      178.4814398200225
+    ],
+    "tray_base_y": 625,
+    "mineral": [
+      1090,
+      545,
+      96.44067796610169,
+      130
+    ]
+  },
+  "reason": "A1 later invitations put Roshan over the fossil and trays. Move whole conserved props/supports into reserved lower foreground without moving actors or changing input, pacing, work/completion or source images.",
+  "production_changes": false,
+  "whole_action_acceptance": false,
+  "owner_acceptance": null,
+  "helper_preflight_correction": {
+    "observed_utc": "2026-10-03T01:59:48.263730+00:00",
+    "failure": "Generated runner omitted ip variable; NameError before first command. Empty runtime output directory verified; no engine capture had begun. Added exact impact path and resumed runner, without preparing again or replacing any capture.",
+    "production_changes": false
+  }
+}
