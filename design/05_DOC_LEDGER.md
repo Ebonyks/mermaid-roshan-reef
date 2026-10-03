@@ -882,6 +882,21 @@ Kept as-is; noted so a future edit updates every copy.
 | Doc | | Note |
 |---|---|---|
 | `docs/handoffs/codex_roshan_art_repairs_2026-09-30/README.md` | 🟣 | `PROPOSED / CANDIDATE` owner-commissioned Codex handoff prepared by Claude (written specification; no game change, no images) at dev `b65c21fd`: delete the retired backpack art outright (D-01, owner decision) and repair Roshan frame defects inside each image's own design (R-01 to R-11: Geologist fins, Pop Star ribbon, Magician baked effects, Astronaut hair, Farmer and Candy Maker flicker, a base-world tail flip, Racer halo, Nursery scale, checks). Tracked by `MA-ROSHAN-005`. Grants no acceptance. |
+
+## Sky Lagoon motion references (2026-09-30)
+
+| Doc | | Note |
+|---|---|---|
 | `assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/README.md` | 🟣 | `OWNER_REJECTED_AS_ANIMATION_REPLACEMENT / MOTION_REFERENCE_ONLY`; owner rejected source transformations and the swing lateral axis. Archive includes a new unaccepted eight-pose swing direction trial plus the historical source studies and rejected Wan takes. Spatial resampling/articulation is explicit; no fresh hand-painted frame redraw, AI motion-set, runtime, cinematic, device, child, owner or finding acceptance. Remote delivery depends on its immutable verification receipt. |
 | `assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/README.md` | 🟣 | `CANDIDATE / MOTION_REFERENCE_ONLY`; owner-requested ten moderate-resolution object samples, native generated pose sheets, Aseprite cleanup/masters and a layered Sky Lagoon context study. Source pixels/provenance preserved; six-key polish and owner/runtime/device/child/cinematic acceptance remain open. Exact remote byte verification is separate. |
 | `assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/README.md` | 🟣 | `AGENT_REVIEWED_REFERENCE_CANDIDATE`; two correction/review passes on ten object studies and a layered Sky Lagoon sample. Preserved sources, 72 states, attached ropes and stationary berries. No runtime, owner, device, child, cinematic or finding acceptance. |
+
+## Self-improvement loop handoff (2026-10-03)
+
+| Doc | | Note |
+|---|---|---|
+| `docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md` | 🟣 | `PROPOSED / CANDIDATE` owner-requested Codex handoff prepared by Claude (analysis, written specification, templates, seeds and a read-only measurement tool; no game change, no images) at dev `f2140465`: the loop study, keep, find, plan, prompt, build, check, learn; work packages LP0–LP11 (cycle home, study runner, strengths register, lesson fields, decision-register intake, living roadmap, prompt catalogue and recipes, monthly verification sweep, master-audit refinements, loop health, owner-gated cadence); a build order across all outstanding handoffs; owner questions Q1–Q8. Tracked by `MA-DOC-009`. Grants no acceptance. |
+| `docs/handoffs/codex_self_improvement_loop_2026-10-03/LOOP_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT` owner-requested audit at dev `f2140465` (V1 static, read-only sweeps and measurement): the parts of the loop exist but it does not turn; twelve feedback loops with what breaks each; two advisory sensors that fail silently (`MA-CI-008`); strengths, weaknesses, roadmap, prompts and learning. Counts are dated measurements, not live status. |
+| `docs/handoffs/codex_self_improvement_loop_2026-10-03/CYCLE_0_STUDY_REPORT.md` | 🔵 | `SUPPORTING_CURRENT` worked example of the cycle report at dev `f2140465`, written by hand with existing tools: changes since 2026-09-30, strengths and weaknesses observed, loop health baseline, roadmap delta, five ready-to-say prompts, five owner questions and the lessons this cycle wrote back. |
+| `docs/handoffs/codex_self_improvement_loop_2026-10-03/templates/STUDY_REPORT_V1.md` | 🟣 | `PROPOSED / CANDIDATE` template: one short report per loop cycle with numbers from the study runner. |
+| `docs/handoffs/codex_self_improvement_loop_2026-10-03/templates/PROMPT_RECIPE_V1.md` | 🟣 | `PROPOSED / CANDIDATE` template: how one short owner prompt expands into a complete plan (intent, read-first references, expansion with variety rules, owner touchpoints, build and check, learn). |
