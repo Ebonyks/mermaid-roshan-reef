@@ -1,0 +1,63 @@
+{
+  "status": "A2_PROVISIONAL_STATIC_FLOOR45_A1_REJECTED_UNBOUND",
+  "baseline": "72a15c1c49456e37d81c733b8dd6ef4cdc736a45",
+  "created_utc": "2026-10-03T00:07:30.464851+00:00",
+  "scope": "One fresh text-only built-in ImageGen Nursery palm-rubbing/attention source candidate, applying owner request for fresh generation and simplified 2D style. No existing reference image is transmitted, no edit of the blocked palm02 target is attempted, no existing or protected artwork changes. New candidate and every failure preserved separately; no runtime binding or score inherited.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-MED-01",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-QA-01",
+    "DL-QA-03",
+    "DL-QA-06"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004"
+  ],
+  "gap": "Current Nursery attention3.8 and A1 motion attention3.1 remain weak: forward gaze ignores the washing action. The earlier exact palm02 reference-edit upload remains pending separate explicit permission; no such upload or edit occurs here. A new independently generated source may improve attention and simplified anatomy but must independently earn style/identity/contact review.",
+  "inventory": [
+    {
+      "path": "assets_src/imagegen/nursery_wash_connected_v1_20261002/rub_palm_attempt02/native.png",
+      "sha256": "f1bba9ce219d152ce3997167473cfb0c770ca5ceed84549a3f9b657c82d6793c",
+      "reuse_assessment": "Existing static-source floor4.5, already preserved and reused by local A1/A2. Head/eyes look forward; current attention remains3.8. Not supplied to image generator."
+    },
+    {
+      "path": "assets_src/local_motion/nursery_connected_scrub_v1_20261002/attempt01/DIRECT_REVIEW.json",
+      "sha256": "05f4a04d38e08c413f73bc659f091a6fccadd0da3a20e53b1573b3d587c988b3",
+      "reuse_assessment": "Every41 frame reviewed; failed clasp/action3.6/attention3.1. Reference motion cannot repair still gaze source."
+    }
+  ],
+  "generation_method": "Built-in image_gen, fresh new generation from text only; omit referenced_image_paths and num_last_images_to_include; transparent_background true",
+  "reference_images": [],
+  "reference_upload_block_preserved": true,
+  "required_evidence": [
+    "Native transparent RGBA image preserved separately and exact SHA/dimensions/provenance",
+    "Direct native and whole-canvas neutral QA review of style, face/costume/tail identity, anatomy/contact, gaze, basin/faucet/support, clipping/alpha and practical scale",
+    "No automatic source acceptance at returned dimensions or successful generation",
+    "Subsequent ordinary runtime/action/device/child/owner gates remain open; any local animation study uses separately approved developed local workflow"
+  ],
+  "prompt_sha256": "0420a1d90c174fa480e5f09ef5e68b187189036e6e8e978480ef1e6d5dca29e8",
+  "attempt01_review": "attempt01/SOURCE_REVIEW.json",
+  "attempt02_review": "attempt02/SOURCE_REVIEW.json"
+}

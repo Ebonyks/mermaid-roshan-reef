@@ -1,0 +1,89 @@
+{
+  "id": "job-nursery-fresh-attention-20261002",
+  "scope": "One fresh text-only built-in ImageGen Nursery palm-rubbing/attention source candidate, applying owner request for fresh generation and simplified 2D style. No existing reference image is transmitted, no edit of the blocked palm02 target is attempted, no existing or protected artwork changes. New candidate and every failure preserved separately; no runtime binding or score inherited.",
+  "baseline": "72a15c1c49456e37d81c733b8dd6ef4cdc736a45",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-MED-01",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-QA-01",
+    "DL-QA-03",
+    "DL-QA-06"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004"
+  ],
+  "files": [
+    ".gitattributes",
+    "ASSET_LICENSES.md",
+    "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/.gdignore",
+    "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/BROWSER_REVIEW_V411.json",
+    "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/BROWSER_SOURCE_REVIEW_V411.png",
+    "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/PLAN.json",
+    "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/PLAN.original_before_a1_review.json",
+    "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/PROMPT.txt",
+    "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/attempt01/GENERATION.json",
+    "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/attempt01/SOURCE_REVIEW.json",
+    "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/attempt01/native.png",
+    "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/attempt02/GENERATION.json",
+    "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/attempt02/PLAN.json",
+    "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/attempt02/PROMPT.txt",
+    "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/attempt02/SOURCE_REVIEW.json",
+    "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/attempt02/native.png",
+    "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/index.html",
+    "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/review_tools/prepare_fresh_nursery_attention_v404.py",
+    "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/review_tools/record_nursery_fresh_and_a2_v409.py",
+    "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/review_tools/repair_library_metadata_v414.py",
+    "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/review_tools/review_fresh_nursery_attention_a1_v405.py",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/job_artwork_refinement_live/ALL_ITEMS.json",
+    "audit/job_artwork_refinement_live/CURRENT_BOUNDARY_REFRESH.json",
+    "audit/job_artwork_refinement_live/all_items.html",
+    "audit/job_artwork_refinement_live/history_v35_before_fresh_nursery/ALL_ITEMS.json.original",
+    "audit/job_artwork_refinement_live/history_v35_before_fresh_nursery/CURRENT_BOUNDARY_REFRESH.json.original",
+    "audit/job_artwork_refinement_live/history_v35_before_fresh_nursery/all_items.html.original",
+    "audit/job_artwork_refinement_live/history_v36_before_metadata/ALL_ITEMS.json.original",
+    "audit/job_artwork_refinement_live/history_v36_before_metadata/all_items.html.original",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "Direct whole native fresh A1/source-family comparison",
+      "result": "FAIL",
+      "evidence": "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/attempt01/SOURCE_REVIEW.json;11 individual opinions; source4.1 continuity failure preserved."
+    },
+    {
+      "command": "Direct native source/component and local A2 full41-frame review",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/index.html; source selection and failed action remain separate."
+    },
+    {
+      "command": "Fresh text-only native A2 directly inspected, all11 individual component reviews",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/attempt02/SOURCE_REVIEW.json; provisional unbound still4.5 only"
+    }
+  ],
+  "acceptance_gaps": "Both new source originals and all22 opinions preserved. A1 rejected4.1; A2 unbound static4.5/gaze-style4.6/palm4.5. Whole-canvas padding, coherent transitions, actual mounting/action/ordinary route, target-device, child, owner and complete all-job acceptance remain open. Blocked original reference upload has not occurred; no authority transfer from new still to current game."
+}

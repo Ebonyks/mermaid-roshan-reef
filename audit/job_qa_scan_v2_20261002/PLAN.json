@@ -1,0 +1,33 @@
+{
+  "status": "PLANNED_BEFORE_SCANABILITY_REPAIR",
+  "baseline": "72a15c1c49456e37d81c733b8dd6ef4cdc736a45",
+  "created_utc": "2026-10-03T00:20:46.465062+00:00",
+  "scope": "Repair scanability of current job QA evidence after exact hosted Q2D gate failure: replace oversized ZIP by428 byte-identical short flat cache/log files, and split oversized remote JSONL journals on line boundaries into individually inspectable <=1MB chunks. Preserve every original byte/path/hash, old physical originals, all historical published maps/revisions/failures and current783 production source bytes. No validator, manifest ceiling, workflow, security, production art/code, score or owner-policy changes.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-06",
+    "DL-QA-07"
+  ],
+  "findings": [],
+  "no_findings_reason": "QA packaging alone exceeded unchanged model audit bounded scan caps; this is not a new game visual defect and does not close existing findings.",
+  "required_evidence": [
+    "Exact Q hosted Windows success and model-audit failure",
+    "All428 short flat files match preserved ZIP/P original hashes",
+    "Each journal parses all rows and concatenates to exact original byte/hash; chunks <=1MB",
+    "All783 current source bytes unchanged",
+    "Fresh staged unchanged tools/audit_game_2d.py --regression-gate; no ceiling expansion",
+    "Document authority/development and exact immutable anonymous remote checks",
+    "Fresh hosted suite; no integration while red"
+  ]
+}

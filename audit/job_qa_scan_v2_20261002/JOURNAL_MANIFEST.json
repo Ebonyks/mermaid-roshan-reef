@@ -1,0 +1,169 @@
+{
+  "status": "PASS_ALL3_BYTE_EXACT_JOURNAL_RECONSTRUCTIONS",
+  "max_chunk_bytes": 1000000,
+  "journals": [
+    {
+      "lane": "o",
+      "original_path": "audit/job_nursery_wash_connected_v1_20261002/remote_verified_v1/VERIFICATION_JOURNAL.jsonl",
+      "original_bytes": 6787394,
+      "original_sha256": "a4704948ec107f9ebd7d93599286a5bf60296f5f435de70cc8cbac2503caa4af",
+      "rows": 15118,
+      "chunks": [
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/o_000.jsonl",
+          "bytes": 999677,
+          "sha256": "732eb8d292b1b16c47413dfec212e29ee505b2434bfa226961a6eff19c84fda5",
+          "rows": 2153
+        },
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/o_001.jsonl",
+          "bytes": 999681,
+          "sha256": "f17858443da68d2fd168b1a58a8e69d42157aeec5f2b319806e5ed4549c21e02",
+          "rows": 2166
+        },
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/o_002.jsonl",
+          "bytes": 999811,
+          "sha256": "d892a5ecee585b716a26e673c6523828aa3f9650004483723217b97a080d3e29",
+          "rows": 2152
+        },
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/o_003.jsonl",
+          "bytes": 999875,
+          "sha256": "49a4fdd6fe496c0413535543599d19603a1ba341423a89744f336f6605637317",
+          "rows": 2181
+        },
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/o_004.jsonl",
+          "bytes": 999958,
+          "sha256": "f5d544295881f6262647f085b7f2987c520a32d20016af32f3b4caa6d19f0953",
+          "rows": 2375
+        },
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/o_005.jsonl",
+          "bytes": 999911,
+          "sha256": "7e744ed37ce503357c6488ce73b299151e3a3266f92b76ccc7d4f3d3dedd90a7",
+          "rows": 2217
+        },
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/o_006.jsonl",
+          "bytes": 788481,
+          "sha256": "75e6b1d12920e9e4bb46c87e7449ec9ceadac3a48781abfcda6c7689f4e1b9f0",
+          "rows": 1874
+        }
+      ],
+      "concatenation": "Literal concatenation of chunks in listed order reconstructs every original byte and newline; no JSON rewriting, row omission or compression."
+    },
+    {
+      "lane": "p",
+      "original_path": "audit/job_qa_portable_v1_20261002/previous_p_remote_verified/VERIFICATION_JOURNAL.jsonl",
+      "original_bytes": 7006909,
+      "original_sha256": "957093fdf13afbbed7265a93021e1cb66e63d1f960da7fe1c3b2c278b8a789df",
+      "rows": 15630,
+      "chunks": [
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/p_000.jsonl",
+          "bytes": 999876,
+          "sha256": "8637c73923af4b367c9f96eeb501faa43db9436d39154194c2dad34bad6dd16a",
+          "rows": 2437
+        },
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/p_001.jsonl",
+          "bytes": 999702,
+          "sha256": "e19de5de9e5e2fb5e8a995e1d42e9200d10152960a8742106b62e6d6091b313e",
+          "rows": 2173
+        },
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/p_002.jsonl",
+          "bytes": 999931,
+          "sha256": "346b928067879921f36baf29c342110dada9825825a4cc85391aba45687907ad",
+          "rows": 2297
+        },
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/p_003.jsonl",
+          "bytes": 999677,
+          "sha256": "86e3d54857a4944fd8dbee2316f8e677d66eca9902a1b68657c27397401adcf6",
+          "rows": 2116
+        },
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/p_004.jsonl",
+          "bytes": 999934,
+          "sha256": "fb27cb2dd4ba056d2de2f5636f12ff94ac9a49f89a2a6da5d7456530fae8b143",
+          "rows": 2161
+        },
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/p_005.jsonl",
+          "bytes": 999868,
+          "sha256": "207256f47d192ad22a8b8c3ade3fa9bbef1a4b803d3b3efdea25b7f20217aa73",
+          "rows": 2148
+        },
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/p_006.jsonl",
+          "bytes": 999791,
+          "sha256": "223cb4fc8a3b5cbf1e2e3036829b7cb09278877760beb6b3778fec7cc5213872",
+          "rows": 2276
+        },
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/p_007.jsonl",
+          "bytes": 8130,
+          "sha256": "08d7e4710d2c76ad42d672e50a9bf377fec27b3bd69139777f7a877cfc4ce73a",
+          "rows": 22
+        }
+      ],
+      "concatenation": "Literal concatenation of chunks in listed order reconstructs every original byte and newline; no JSON rewriting, row omission or compression."
+    },
+    {
+      "lane": "q",
+      "original_path": "tmp/portable_job_qa_q_remote_v400/VERIFICATION_JOURNAL.jsonl",
+      "original_bytes": 6754112,
+      "original_sha256": "3336285cb5841d824d9b592726c5e5072b9be8ac0fbeea1c1cf2ceb354205c11",
+      "rows": 15223,
+      "chunks": [
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/q_000.jsonl",
+          "bytes": 999998,
+          "sha256": "94a1ec9763efd58c8ca7177b9cd278b14a20c12f219c5419f3a648dd34f76d1e",
+          "rows": 2396
+        },
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/q_001.jsonl",
+          "bytes": 999596,
+          "sha256": "f6cb3bfe28d145486d9e1b9a5f166de6305e71ee716e8040e816fc85279ab0f4",
+          "rows": 2215
+        },
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/q_002.jsonl",
+          "bytes": 999934,
+          "sha256": "ffc1c395a6113f799ed27ea326fabb532c5965d64d8e42e7541fbb8d35b8ae4e",
+          "rows": 2297
+        },
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/q_003.jsonl",
+          "bytes": 999783,
+          "sha256": "790957b9c68a589280b4e3ca6fa42f01c4a43615815a3e55df20be161847d977",
+          "rows": 2210
+        },
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/q_004.jsonl",
+          "bytes": 999892,
+          "sha256": "132a11e2a73759a5409f4df4ac77946c73d64a6a024b8a2601cec09be0c2ea8d",
+          "rows": 2175
+        },
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/q_005.jsonl",
+          "bytes": 999620,
+          "sha256": "0a43850ad828f92064bed9930983870dbcab5b79f7b3fada916b0edc63d1b271",
+          "rows": 2170
+        },
+        {
+          "path": "audit/job_qa_scan_v2_20261002/journals/q_006.jsonl",
+          "bytes": 755289,
+          "sha256": "8910f3ae9d53302743166d92b4962a03c2ed71bd9f1fe3320fe776557e56655c",
+          "rows": 1760
+        }
+      ],
+      "concatenation": "Literal concatenation of chunks in listed order reconstructs every original byte and newline; no JSON rewriting, row omission or compression."
+    }
+  ],
+  "qualification": "All rows individually parse and are available in bounded scanable JSONL chunks. Original large journals physically preserved and previous tracked originals immutable on Q."
+}

@@ -1,0 +1,10 @@
+{
+  "source_path": "audit/job_nursery_wash_connected_v1_20261002/review_tools/queue_nursery_motion_v367.py",
+  "source_sha256": "da21d9c320a45ce60fa2cfdeb2b0249daf495d314822d600bb24a1bdad5bfb4d",
+  "changes": {
+    "nursery_connected_scrub_v1_20261002": "nursery_connected_scrub_v2_20261002",
+    "NUR-SCRUB-A1": "NUR-SCRUB-A2",
+    "build/nursery_local_scrub_active_20261002": "build/nursery_local_scrub_a2_active_20261002"
+  },
+  "qualification": "Only packet path, one job ID and isolated state directory changed. Existing renderer CLI and installed workflow are unchanged."
+}
