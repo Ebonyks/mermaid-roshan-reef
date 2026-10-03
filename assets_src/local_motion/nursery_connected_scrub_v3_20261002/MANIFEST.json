@@ -1,0 +1,141 @@
+{
+  "schema": "reef.local-nursery-motion-study.v1",
+  "id": "nursery-connected-scrub-v3-20261002",
+  "created_utc": "2026-10-03T00:42:19.946398+00:00",
+  "baseline": "ea9f4e00a2af67fc6f81e16a2102754892a18cfd",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "owner_approval": null,
+  "runtime_integration": false,
+  "authorization": "Owner directed local animations through the developed ComfyUI workflow, with continuing iterative graphics and true-action review. This bounded study addresses current washing action 3.9 and attention 3.8; no new service/model/install or cinematic/game delivery method.",
+  "intention": "Use the fresh naturally attentive source for the same two short reciprocal low palm-rubbing strokes and return. Source change only; down gaze is already present.",
+  "profile": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+  "register": "Everyday attentive helping; quiet body/tail and purposeful hand effort.",
+  "source_path": "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/attempt02/native.png",
+  "source_sha256": "19782bdf6092388bd23cd29306559d6afbbf5986e449369057b72279e31187a2",
+  "source_dimensions": [
+    1230,
+    1278
+  ],
+  "source_status": "STATIC_SOURCE_DRAFT_4.5_OWNER_UNASSIGNED",
+  "source_review": "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/attempt02/SOURCE_REVIEW.json",
+  "input_path": "inputs/NUR-SCRUB-A3.png",
+  "input_sha256": "8e63ad445719eeee4b61cc46b587ca58622735d8437e788847176f4dce42e7ca",
+  "input_transform": "Entire1230x1278 RGBA canvas normalized431x448 preserving ratio to nearest pixel, over the same flat dfedf1 mat centered232,32 on896x512 RGB. No source pixel edit/crop/isolated-subject transform. Native preserved. Technical model input only, not runtime/delivery art.",
+  "prompt_path": "prompts/NUR-SCRUB-A3.txt",
+  "prompt_sha256": "e83fc5e681aec9c818bdd83e5355a2ae62576da05bda3a8d8447d0f24045274e",
+  "queue_name": "nursery_scrub_a3_20261002",
+  "seed": 2026100201,
+  "renderer": {
+    "server": "http://127.0.0.1:8190",
+    "root": "H:/MermaidReefTools/LocalVideo",
+    "python": "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/ComfyUI/0.34.0/ComfyUI_windows_portable/python_embeded/python.exe",
+    "entrypoint": "workflows/render_gguf.py",
+    "preset": "quick",
+    "settings": {
+      "width": 896,
+      "height": 512,
+      "frames": 41,
+      "steps": 24,
+      "weight_dtype": "GGUF_Q4_K_S"
+    },
+    "fps": 24,
+    "bindings": [
+      {
+        "installed_path": "H:\\MermaidReefTools\\LocalVideo\\prepare_workflows.py",
+        "packet_path": "workflows/prepare_workflows.py",
+        "sha256": "df22ac655ae82145b07910251eb22ccb03c6261b44ae0851f1c05d104fab5ed4",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "df22ac655ae82145b07910251eb22ccb03c6261b44ae0851f1c05d104fab5ed4"
+      },
+      {
+        "installed_path": "H:\\MermaidReefTools\\LocalVideo\\render_local.py",
+        "packet_path": "workflows/render_local_current.py",
+        "sha256": "a5bb0fe29bdff88b3cc0dd6dd80e8173b2cee8cdb1362a9ac27e02e706bf0976",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "a5bb0fe29bdff88b3cc0dd6dd80e8173b2cee8cdb1362a9ac27e02e706bf0976"
+      },
+      {
+        "installed_path": "H:\\MermaidReefTools\\LocalVideo\\MODEL_RECEIPT.json",
+        "packet_path": "workflows/MODEL_RECEIPT.json",
+        "sha256": "371b8893b497a52ca50148f77ccf0c29ce1a4511c953d04c32669ba1a3f57f01",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "371b8893b497a52ca50148f77ccf0c29ce1a4511c953d04c32669ba1a3f57f01"
+      },
+      {
+        "installed_path": "H:\\MermaidReefTools\\LocalVideo\\workflows\\SOURCE_RECEIPT.json",
+        "packet_path": "workflows/SOURCE_RECEIPT.json",
+        "sha256": "edd0897186da0b8850240602bc9da10a977e5c97cd5a51fa69cdf177c171984b",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "edd0897186da0b8850240602bc9da10a977e5c97cd5a51fa69cdf177c171984b"
+      },
+      {
+        "installed_path": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\day2_batch1_20260930\\workflows\\GGUF_MODEL_RECEIPT.json",
+        "packet_path": "workflows/GGUF_MODEL_RECEIPT.json",
+        "sha256": "4d811ec8a04a34959d4272fe2cdc6e6c829ab64462f82a3323db8109132f59da",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "4d811ec8a04a34959d4272fe2cdc6e6c829ab64462f82a3323db8109132f59da"
+      },
+      {
+        "installed_path": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\day2_batch1_20260930\\workflows\\GGUF_TOKENIZER_DEPENDENCIES.json",
+        "packet_path": "workflows/GGUF_TOKENIZER_DEPENDENCIES.json",
+        "sha256": "32d546ae9b7d007a63c12fb030b132d62383f3d868b262d609a8cbef404a3ef8",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "32d546ae9b7d007a63c12fb030b132d62383f3d868b262d609a8cbef404a3ef8"
+      },
+      {
+        "installed_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets_src\\local_motion\\day2_batch1_20260930\\workflows\\render_gguf.py",
+        "packet_path": "workflows/render_gguf.py",
+        "sha256": "68f0f69e390531a04e267fd6e591f7d17d3a9959871e694058e3c4f225affa41",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "68f0f69e390531a04e267fd6e591f7d17d3a9959871e694058e3c4f225affa41"
+      }
+    ],
+    "admission": "One FIFO study; native queue plus90-second quiet idle, duplicate submission protection and same-settings successful graph benchmark required. Existing developed CLI unmodified. No cancellation/restart/download/install."
+  },
+  "clip_contract": {
+    "entry": "Fresh low joined palms and down gaze; faucet off, no claimed current-game entry.",
+    "exit": "Same down gaze/low contact, no seamless-loop claim.",
+    "duration_seconds": 1.7083333333333333,
+    "timeline": "Keeping her hands touching low above the basin, Roshan gently slides her near palm left and right across her far cupped palm twice, then rests in the starting contact pose. Tiny horizontal rubbing strokes; fingers slide over the palm, elbows stay low, wrists remain connected. Hands never rise or clasp.\nLocked camera. Keep her head, body, hair, costume, rainbow tail, basin, faucet, pedestal, soft painted outlines and neutral background still. Faucet stays off. No clapping, prayer pose, hand lift, new object, soap trail to the faucet, text or reward effects.\nSound: silence.\n",
+    "anchors": "Fresh source normalized approximate control targets: palm contact(0.67,0.53), spout(0.80,0.49), basin lip(0.76,0.56), support base(0.76,0.95). Source-only inspection targets, not measured socket/motion acceptance.",
+    "direction": "Existing three-quarter work view only.",
+    "events": "No gameplay/input/save/reward/effect/sound owner changes; reference-only.",
+    "interruptions": "No runtime playback. Local renderer failure stops this attempt; existing jobs never cancelled.",
+    "required_review": "Every41 native whole canvas: two reciprocal sliding strokes across opposite cupped palm, continuously joined arms, down gaze, off tap, contained lather, stable hair/costume/rainbow tail/fixture/support and entry-exit. No progress award or accepted runtime/cinematic motion from rendering success."
+  },
+  "status": "BOUND_INPUT_READY_FOR_QUIET_IDLE_DISPATCH",
+  "visual_review": null,
+  "complete_action_score": null,
+  "input_visual_review": {
+    "reviewed_utc": "2026-10-02T22:20:11.133654+00:00",
+    "reviewer": "Root direct native visual inspection",
+    "result": "Complete native source identity retained by technical normalization: full head/hair, both joined wrists/palms, rainbow tail, basin/faucet/pedestal visible; neutral mat does not repair the artwork.",
+    "source_score_transfer": false
+  },
+  "jobs": [
+    {
+      "source_path": "assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/attempt02/native.png",
+      "source_sha256": "19782bdf6092388bd23cd29306559d6afbbf5986e449369057b72279e31187a2",
+      "input_path": "inputs/NUR-SCRUB-A3.png",
+      "input_sha256": "8e63ad445719eeee4b61cc46b587ca58622735d8437e788847176f4dce42e7ca",
+      "prompt_path": "prompts/NUR-SCRUB-A3.txt",
+      "prompt_sha256": "e83fc5e681aec9c818bdd83e5355a2ae62576da05bda3a8d8447d0f24045274e",
+      "queue_name": "nursery_scrub_a3_20261002",
+      "seed": 2026100201,
+      "owner_approval": null,
+      "id": "NUR-SCRUB-A3",
+      "name": "Fresh attentive source reciprocal scrub comparison",
+      "source_style_status": "STATIC_SOURCE_DRAFT_4.5_OWNER_UNASSIGNED",
+      "source_dimensions": [
+        1230,
+        1278
+      ]
+    }
+  ],
+  "comparison": {
+    "prior_manifest": "assets_src/local_motion/nursery_connected_scrub_v2_20261002/MANIFEST.json",
+    "prior_review": "assets_src/local_motion/nursery_connected_scrub_v2_20261002/attempt01/DIRECT_REVIEW.json",
+    "changed": "Fresh text-only A2 source and necessary same-family whole-canvas technical input. No crop or subject pixel repair.",
+    "preserved": "Exact rub prompt bytes, seed2026100201, settings896x512/41frames/24steps, developed installed workflow/model bytes. All previous originals, native outputs, scores and failures unchanged."
+  }
+}

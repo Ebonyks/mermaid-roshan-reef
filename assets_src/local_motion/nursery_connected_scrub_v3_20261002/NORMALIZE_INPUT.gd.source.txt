@@ -1,0 +1,16 @@
+extends SceneTree
+
+func _initialize() -> void:
+	var source: Image = Image.load_from_file("res://assets_src/imagegen/nursery_scrub_attention_fresh_v1_20261002/attempt02/native.png")
+	if source == null or source.get_size() != Vector2i(1230, 1278):
+		quit(2)
+		return
+	source.convert(Image.FORMAT_RGBA8)
+	source.resize(431, 448, Image.INTERPOLATE_LANCZOS)
+	var mat: Image = Image.create(896, 512, false, Image.FORMAT_RGBA8)
+	mat.fill(Color("dfedf1"))
+	mat.blend_rect(source, Rect2i(0, 0, 431, 448), Vector2i(232, 32))
+	mat.convert(Image.FORMAT_RGB8)
+	var error: Error = mat.save_png("res://assets_src/local_motion/nursery_connected_scrub_v3_20261002/inputs/NUR-SCRUB-A3.png")
+	print("NUR_A3_INPUT|", error, "|whole-canvas431x448 centered896x512 RGB mat")
+	quit(error)

@@ -1,0 +1,24 @@
+{
+  "status": "PASS_PROMPT_ONLY_COMPARISON_READY",
+  "prior_manifest": "assets_src/local_motion/nursery_connected_scrub_v3_20261002/MANIFEST.json",
+  "source_identical": true,
+  "source_sha256": "19782bdf6092388bd23cd29306559d6afbbf5986e449369057b72279e31187a2",
+  "input_identical": true,
+  "input_sha256": "8e63ad445719eeee4b61cc46b587ca58622735d8437e788847176f4dce42e7ca",
+  "seed_identical": true,
+  "seed": 2026100201,
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "workflow_bindings_identical": true,
+  "prior_prompt_sha256": "e83fc5e681aec9c818bdd83e5355a2ae62576da05bda3a8d8447d0f24045274e",
+  "new_prompt_sha256": "619e8fffd83334a6009cc2e9321e36fa319b994c8145754937ba6254fc46bc9c",
+  "reference_uploaded": false,
+  "runtime_integration": false,
+  "current_game_action_score": 3.9,
+  "qualification": "Changed prompt only; no motion opinion before complete review."
+}

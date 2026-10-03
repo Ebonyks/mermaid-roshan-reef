@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\nursery_connected_scrub_v3_20261002\\inputs\\NUR-SCRUB-A3.png",
+  "source_sha256": "8e63ad445719eeee4b61cc46b587ca58622735d8437e788847176f4dce42e7ca",
+  "source_dimensions": [
+    896,
+    512
+  ],
+  "prompt": "Keeping her hands touching low above the basin, Roshan gently slides her near palm left and right across her far cupped palm twice, then rests in the starting contact pose. Tiny horizontal rubbing strokes; fingers slide over the palm, elbows stay low, wrists remain connected. Hands never rise or clasp.\nLocked camera. Keep her head, body, hair, costume, rainbow tail, basin, faucet, pedestal, soft painted outlines and neutral background still. Faucet stays off. No clapping, prayer pose, hand lift, new object, soap trail to the faucet, text or reward effects.\nSound: silence.\n",
+  "prompt_sha256": "e83fc5e681aec9c818bdd83e5355a2ae62576da05bda3a8d8447d0f24045274e",
+  "preset": "quick",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "seed": 2026100201,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/GGUF_MODEL_RECEIPT.json",
+  "workflow_sha256": "2b465180e27eabcdb725c4cd8523825862ea133800c249cd6e8d3c13d14d682e",
+  "started_at_utc": "20261003T004402Z",
+  "prompt_id": "d9b8b018-4fbf-4b2d-a04e-8fd76947a940",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\nursery_scrub_a3_20261002_20261003T004402Z_5dcac8_00002_.webm",
+      "sha256": "4168adb6435ee855fa0a0de04760ea4f6ace3cfc11c6106fd9a0e62d7b76ff59",
+      "bytes": 352689
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\nursery_scrub_a3_20261002_20261003T004402Z_5dcac8_00002_.mp4",
+      "sha256": "626da0cb866d97ae0bd50b8983597d985e74b428e39936b0e536c3aef10ed8a3",
+      "bytes": 295384,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 175.68,
+  "completed_at_utc": "2026-10-03T00:46:58.401233+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance"
+}

@@ -1,0 +1,53 @@
+{
+  "queue_id": "nursery-connected-scrub-v3-20261002",
+  "manifest_sha256": "a4d81042b49e8534bf19b1042a528aa4e402627546ba57e57b6ec3c2e0b45050",
+  "created_at_utc": "2026-10-03T00:42:31+00:00",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "jobs": [
+    {
+      "id": "NUR-SCRUB-A3",
+      "name": "nursery_scrub_a3_20261002",
+      "status": "MACHINE_RENDER_PASS_PENDING_VISUAL_REVIEW",
+      "child_pid": 55392,
+      "started_at_utc": "2026-10-03T00:44:02+00:00",
+      "receipt_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\nursery_scrub_a3_20261002_20261003T004402Z_5dcac8\\RENDER_RECEIPT.json",
+      "native_prompt_id": "d9b8b018-4fbf-4b2d-a04e-8fd76947a940",
+      "finished_at_utc": "2026-10-03T00:47:02+00:00",
+      "outputs": [
+        {
+          "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\nursery_scrub_a3_20261002_20261003T004402Z_5dcac8_00002_.webm",
+          "sha256": "4168adb6435ee855fa0a0de04760ea4f6ace3cfc11c6106fd9a0e62d7b76ff59",
+          "bytes": 352689
+        },
+        {
+          "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\nursery_scrub_a3_20261002_20261003T004402Z_5dcac8_00002_.mp4",
+          "sha256": "626da0cb866d97ae0bd50b8983597d985e74b428e39936b0e536c3aef10ed8a3",
+          "bytes": 295384,
+          "media": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 896,
+                "height": 512,
+                "r_frame_rate": "24/1",
+                "nb_read_frames": "41"
+              }
+            ],
+            "format": {
+              "duration": "1.708333"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "worker_pid": 74440,
+  "worker_started_at_utc": "2026-10-03T00:42:31+00:00",
+  "matching_benchmark_receipt": "H:\\MermaidReefTools\\LocalVideo\\jobs\\d2m_b1q_d2a0495_20261001T025152Z_58a0e1\\RENDER_RECEIPT.json",
+  "calibration_first_study": false,
+  "status": "ALL_MACHINE_RENDERS_DONE_VISUAL_REVIEW_PENDING",
+  "observed_at_utc": "2026-10-03T00:47:02+00:00",
+  "existing_prompt_ids": []
+}

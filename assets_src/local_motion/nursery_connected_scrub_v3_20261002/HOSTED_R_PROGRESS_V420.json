@@ -1,0 +1,272 @@
+{
+  "conclusion": "",
+  "headSha": "ea9f4e00a2af67fc6f81e16a2102754892a18cfd",
+  "jobs": [
+    {
+      "completedAt": "0001-01-01T00:00:00Z",
+      "conclusion": "",
+      "databaseId": 111087798549,
+      "name": "probes",
+      "startedAt": "2026-10-03T00:41:54Z",
+      "status": "in_progress",
+      "steps": [
+        {
+          "completedAt": "2026-10-03T00:41:56Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-03T00:41:55Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-03T00:48:32Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+          "number": 2,
+          "startedAt": "2026-10-03T00:41:56Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-03T00:48:34Z",
+          "conclusion": "success",
+          "name": "Download Godot (checksum-verified)",
+          "number": 3,
+          "startedAt": "2026-10-03T00:48:32Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-03T00:50:49Z",
+          "conclusion": "success",
+          "name": "Static gates (parse + Variant-inference lint)",
+          "number": 4,
+          "startedAt": "2026-10-03T00:48:34Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-03T00:53:02Z",
+          "conclusion": "success",
+          "name": "Import (deadlock-guarded)",
+          "number": 5,
+          "startedAt": "2026-10-03T00:50:49Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Compile-check every script (real analyzer, catches what parse-only cannot)",
+          "number": 6,
+          "startedAt": "2026-10-03T00:53:02Z",
+          "status": "in_progress"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Run trusted probes",
+          "number": 7,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Boot gate (real viewport — the area the phone opens in)",
+          "number": 8,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Dust boss balance playtest (advisory)",
+          "number": 9,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Opera balance playtest (advisory)",
+          "number": 10,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Publish opera art manifest (advisory)",
+          "number": 11,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Upload opera art manifest",
+          "number": 12,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Capture first-world visual review",
+          "number": 13,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Upload first-world visual review",
+          "number": 14,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Capture Sky Lagoon visual review",
+          "number": 15,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Upload Sky Lagoon visual review",
+          "number": 16,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Capture northern-world visual review",
+          "number": 17,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Upload northern-world visual review",
+          "number": 18,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Capture dust-boss arena review",
+          "number": 19,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Upload dust-boss arena review",
+          "number": 20,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Capture pearl-castle visual review",
+          "number": 21,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Upload pearl-castle visual review",
+          "number": 22,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        },
+        {
+          "completedAt": "0001-01-01T00:00:00Z",
+          "conclusion": "",
+          "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+          "number": 44,
+          "startedAt": "0001-01-01T00:00:00Z",
+          "status": "pending"
+        }
+      ],
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/37083138864/job/111087798549"
+    },
+    {
+      "completedAt": "2026-10-03T00:49:54Z",
+      "conclusion": "success",
+      "databaseId": 111087798708,
+      "name": "area-music-provenance",
+      "startedAt": "2026-10-03T00:41:54Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-03T00:41:56Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-03T00:41:55Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-03T00:47:25Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+          "number": 2,
+          "startedAt": "2026-10-03T00:41:56Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-03T00:48:47Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+          "number": 3,
+          "startedAt": "2026-10-03T00:47:25Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-03T00:49:48Z",
+          "conclusion": "success",
+          "name": "Verify deterministic area-music delivery",
+          "number": 4,
+          "startedAt": "2026-10-03T00:48:47Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-03T00:49:49Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97",
+          "number": 7,
+          "startedAt": "2026-10-03T00:49:49Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-03T00:49:51Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5",
+          "number": 8,
+          "startedAt": "2026-10-03T00:49:49Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-03T00:49:52Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 9,
+          "startedAt": "2026-10-03T00:49:51Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/37083138864/job/111087798708"
+    }
+  ],
+  "status": "in_progress",
+  "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/37083138864",
+  "captured_utc": "2026-10-03T00:53:23.839770+00:00",
+  "qualification": "Actual exact R snapshot; in-progress jobs and pending steps are not final success."
+}

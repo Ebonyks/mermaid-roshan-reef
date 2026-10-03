@@ -1,0 +1,117 @@
+{
+  "status": "EXPLICIT_DUNGEON_EMBER_TABLE_REFERENCES_RECORDED",
+  "checked_utc": "2026-10-03T01:09:28.299549+00:00",
+  "members": [
+    {
+      "script": "scripts/dungeon_art.gd",
+      "sha256": "16998ece30cc0115c83ceb2f47bf7da23a8e27507a65aaa248f34bfacd765128",
+      "matches": [
+        {
+          "line": 63,
+          "text": "\t\"CrystalPedestal\": \"res://assets/art35/cards/style3/crystal_facet_crystal_facet.png\",",
+          "source_ids": [
+            "D1V2-0008"
+          ]
+        },
+        {
+          "line": 65,
+          "text": "\t\"Glow\": \"res://assets/art35/cards/mg/star_star.png\",",
+          "source_ids": [
+            "D1V2-0006"
+          ]
+        },
+        {
+          "line": 69,
+          "text": "\t\"Beak\": \"res://assets/art35/cards/mg/carrot_carrot.png\",",
+          "source_ids": [
+            "D1V2-0001"
+          ]
+        },
+        {
+          "line": 70,
+          "text": "\t\"Spark\": \"res://assets/art35/cards/mg/star_star.png\",",
+          "source_ids": [
+            "D1V2-0006"
+          ]
+        },
+        {
+          "line": 72,
+          "text": "\t\"Diamond\": \"res://assets/art35/cards/style3/crystal_facet_crystal_facet.png\",",
+          "source_ids": [
+            "D1V2-0008"
+          ]
+        },
+        {
+          "line": 74,
+          "text": "\t\"Triangle\": \"res://assets/art35/cards/mg/k_pine_k_pine.png\",",
+          "source_ids": [
+            "D1V2-0002"
+          ]
+        },
+        {
+          "line": 75,
+          "text": "\t\"Ice\": \"res://assets/art35/cards/mg/snowman_snowman.png\",",
+          "source_ids": [
+            "D1V2-0004"
+          ]
+        },
+        {
+          "line": 76,
+          "text": "\t\"Flame\": \"res://assets/art35/cards/mg/sun_sun.png\",",
+          "source_ids": [
+            "D1V2-0007"
+          ]
+        },
+        {
+          "line": 79,
+          "text": "\t\"Question\": \"res://assets/art35/cards/mg/sprout_sprout.png\",",
+          "source_ids": [
+            "D1V2-0005"
+          ]
+        }
+      ]
+    },
+    {
+      "script": "scripts/ember_fortress.gd",
+      "sha256": "3430d09bf5372bfe41cf4e0e9f23adad64efd0b800ca1205d86127f2b5942105",
+      "matches": [
+        {
+          "line": 63,
+          "text": "\t\"crystal\": \"res://assets/art35/cards/style3/crystal_facet_crystal_facet.png\",",
+          "source_ids": [
+            "D1V2-0008"
+          ]
+        },
+        {
+          "line": 65,
+          "text": "\t\"tower\": \"res://assets/art35/cards/mg/k_pine_k_pine.png\",",
+          "source_ids": [
+            "D1V2-0002"
+          ]
+        },
+        {
+          "line": 67,
+          "text": "\t\"gate_veil\": \"res://assets/art35/cards/mg/sun_sun.png\",",
+          "source_ids": [
+            "D1V2-0007"
+          ]
+        },
+        {
+          "line": 70,
+          "text": "\t\"beacon\": \"res://assets/art35/cards/mg/star_star.png\",",
+          "source_ids": [
+            "D1V2-0006"
+          ]
+        },
+        {
+          "line": 77,
+          "text": "\t\"home_ring\": \"res://assets/art35/cards/mg/rainbow_swatch_rainbow_swatch.png\",",
+          "source_ids": [
+            "D1V2-0003"
+          ]
+        }
+      ]
+    }
+  ],
+  "qualification": "All eight exact paths have explicit references in dungeon/Ember rendering tables. This static trace does not establish actual job use, exclude dynamic/shared use, or accept measured 3D migration debt. No non-job source regeneration or runtime replacement is performed. Source opinions stay separate."
+}

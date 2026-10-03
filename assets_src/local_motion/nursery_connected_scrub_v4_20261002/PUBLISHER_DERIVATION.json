@@ -1,0 +1,16 @@
+{
+  "source_path": "tmp/publish_scannable_job_review_r_v415.py",
+  "source_sha256": "ec8ae9df24fe5c28b19975ca69787316b860d9c603e3b596a5191a34b40cde3d",
+  "target_path": "assets_src/local_motion/nursery_connected_scrub_v4_20261002/review_tools/publish_nursery_review_s_v432.py",
+  "target_sha256": "76ac1f7b43e76ec13fa400ab2fe8fc48bbcd5ea86358301e2cff360a6217b30c",
+  "changes": {
+    "scannable_job_review_r_publish_v415": "nursery_review_s_publish_v432",
+    "scannable_job_review_r_remote_v415": "nursery_review_s_remote_v432",
+    "scannable_job_review_r_sealed_v412.json": "nursery_review_s_sealed_v428.json",
+    "EXACT_SCOPED_SCANNABLE_R_BLOBS_SEALED": "EXACT_SCOPED_MOTION_SOURCE_S_BLOBS_SEALED",
+    "R/'audit/job_qa_scan_v2_20261002/gates'": "R/'assets_src/local_motion/nursery_connected_scrub_v4_20261002/gates'",
+    "R/'assets_src/local_motion/nursery_connected_scrub_v2_20261002/REVIEW_STATUS.json'": "R/'assets_src/local_motion/nursery_connected_scrub_v4_20261002/REVIEW_STATUS.json'",
+    "PUBLISHED_SCANNABLE_TOPIC_REVISION": "PUBLISHED_NURSERY_SOURCE_TOPIC_REVISION"
+  },
+  "additional_changes": "New checkpoint commit description, exact-parent R completion wait before push, current S gate/manifest/status bindings. Strict staged blob validation, frozen783 literal sources, unchanged fresh postcommit gates, approved topic-only push and normal-TLS anonymous complete byte verification remain."
+}

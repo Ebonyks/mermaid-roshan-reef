@@ -1,0 +1,223 @@
+{
+  "prompt": [
+    14,
+    "fb7702c4-d995-4306-92d8-f4317ad17ab9",
+    {
+      "0": {
+        "class_type": "SaveLatent",
+        "inputs": {
+          "samples": [
+            "9",
+            0
+          ],
+          "filename_prefix": "local_reference/nursery_scrub_a4_20261002_20261003T010056Z_87cf8e"
+        }
+      },
+      "1": {
+        "class_type": "UnetLoaderGGUFAdvanced",
+        "inputs": {
+          "unet_name": "Wan2.2-TI2V-5B-Q4_K_S.gguf",
+          "dequant_dtype": "bfloat16",
+          "patch_dtype": "bfloat16",
+          "patch_on_device": true
+        }
+      },
+      "2": {
+        "class_type": "CLIPLoaderGGUF",
+        "inputs": {
+          "clip_name": "umt5-xxl-encoder-Q4_K_S.gguf",
+          "type": "wan"
+        }
+      },
+      "3": {
+        "class_type": "VAELoader",
+        "inputs": {
+          "vae_name": "wan2.2_vae.safetensors"
+        }
+      },
+      "4": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "source_8e63ad445719eeee.png"
+        }
+      },
+      "5": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "2",
+            0
+          ],
+          "text": "Roshan rubs her soapy palms together low over the bowl, looking directly at them. The lower palm remains open and cupped while the upper palm visibly slides along it, forwards and backwards twice. Each stroke travels two finger widths. Her wrists remain joined to her arms, and her low elbows bend naturally to perform the rubbing.\n0.0-0.4s: upper palm slides forwards across the lower palm. 0.4-0.8s: slides backwards. 0.8-1.2s: forwards again. 1.2-1.7s: backwards again, settling in the original low palm contact. The hands keep touching; fingers remain open, never clasping or clapping.\nLocked camera and steady head, torso, costume, rainbow tail, basin and pedestal. Preserve the soft painted storybook artwork. Faucet stays completely off. Tiny existing lather stays only between the palms. No raised hands, white arches or trails, hair movement, running water, new objects, text or reward effects.\nSound: silence.\n"
+        }
+      },
+      "6": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "2",
+            0
+          ],
+          "text": "camera movement, zoom, pan, cut, photorealism, 3D shading, new objects, changing architecture, moving shoreline, moving roots, flicker, color pumping, warped shapes, subtitles, text, watermark"
+        }
+      },
+      "7": {
+        "class_type": "ModelSamplingSD3",
+        "inputs": {
+          "model": [
+            "1",
+            0
+          ],
+          "shift": 8.0
+        }
+      },
+      "8": {
+        "class_type": "Wan22ImageToVideoLatent",
+        "inputs": {
+          "vae": [
+            "3",
+            0
+          ],
+          "width": 896,
+          "height": 512,
+          "length": 41,
+          "batch_size": 1,
+          "start_image": [
+            "4",
+            0
+          ]
+        }
+      },
+      "9": {
+        "class_type": "KSampler",
+        "inputs": {
+          "model": [
+            "7",
+            0
+          ],
+          "positive": [
+            "5",
+            0
+          ],
+          "negative": [
+            "6",
+            0
+          ],
+          "latent_image": [
+            "8",
+            0
+          ],
+          "seed": 2026100201,
+          "steps": 24,
+          "cfg": 5.0,
+          "sampler_name": "uni_pc",
+          "scheduler": "simple",
+          "denoise": 1.0
+        }
+      },
+      "10": {
+        "class_type": "VAEDecodeTiled",
+        "inputs": {
+          "samples": [
+            "9",
+            0
+          ],
+          "vae": [
+            "3",
+            0
+          ],
+          "tile_size": 256,
+          "overlap": 64,
+          "temporal_size": 4096,
+          "temporal_overlap": 8
+        }
+      },
+      "11": {
+        "class_type": "SaveWEBM",
+        "inputs": {
+          "images": [
+            "10",
+            0
+          ],
+          "filename_prefix": "local_reference/nursery_scrub_a4_20261002_20261003T010056Z_87cf8e",
+          "codec": "vp9",
+          "fps": 24.0,
+          "crf": 18.0
+        }
+      }
+    },
+    {
+      "client_id": "nursery_scrub_a4_20261002_20261003T010056Z_87cf8e",
+      "create_time": 1790989256937
+    },
+    [
+      "0",
+      "11"
+    ]
+  ],
+  "outputs": {
+    "0": {
+      "latents": [
+        {
+          "filename": "nursery_scrub_a4_20261002_20261003T010056Z_87cf8e_00001_.latent",
+          "subfolder": "local_reference",
+          "type": "output"
+        }
+      ]
+    },
+    "11": {
+      "images": [
+        {
+          "filename": "nursery_scrub_a4_20261002_20261003T010056Z_87cf8e_00002_.webm",
+          "subfolder": "local_reference",
+          "type": "output"
+        }
+      ],
+      "animated": [
+        true
+      ]
+    }
+  },
+  "status": {
+    "status_str": "success",
+    "completed": true,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "fb7702c4-d995-4306-92d8-f4317ad17ab9",
+          "timestamp": 1790989256938
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [],
+          "prompt_id": "fb7702c4-d995-4306-92d8-f4317ad17ab9",
+          "timestamp": 1790989256941
+        }
+      ],
+      [
+        "execution_success",
+        {
+          "prompt_id": "fb7702c4-d995-4306-92d8-f4317ad17ab9",
+          "timestamp": 1790989419634
+        }
+      ]
+    ]
+  },
+  "meta": {
+    "0": {
+      "node_id": "0",
+      "display_node": "0",
+      "parent_node": null,
+      "real_node_id": "0"
+    },
+    "11": {
+      "node_id": "11",
+      "display_node": "11",
+      "parent_node": null,
+      "real_node_id": "11"
+    }
+  }
+}

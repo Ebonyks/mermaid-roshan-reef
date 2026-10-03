@@ -1,0 +1,70 @@
+{
+  "id": "job-unassigned-source-eight-20261002",
+  "scope": "Direct individual first-pass source review of eight previously unreviewed Day One discovery candidate graphics. Record native appearance, child readability, medium/style fit and named refinement gaps with literal hashes. Discovery dependency does not prove job use or mounted/action quality. No source modification, protected-original change, generation or runtime binding.",
+  "baseline": "ea9f4e00a2af67fc6f81e16a2102754892a18cfd",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-QA-01",
+    "DL-QA-03",
+    "DL-QA-06",
+    "DL-QA-07"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/day_one_unassigned_sources_v3_20261002/.gdignore",
+    "audit/day_one_unassigned_sources_v3_20261002/BROWSER_REVIEW_V427.json",
+    "audit/day_one_unassigned_sources_v3_20261002/BROWSER_REVIEW_V427.png",
+    "audit/day_one_unassigned_sources_v3_20261002/DECLARED_SOURCE_ROLE_LIMITS.json",
+    "audit/day_one_unassigned_sources_v3_20261002/DIRECT_REVIEW.json",
+    "audit/day_one_unassigned_sources_v3_20261002/PLAN.json",
+    "audit/day_one_unassigned_sources_v3_20261002/STATIC_CONSUMER_REFERENCES.json",
+    "audit/day_one_unassigned_sources_v3_20261002/index.html",
+    "audit/day_one_unassigned_sources_v3_20261002/review_tools/prepare_unassigned_source_review_v423.py",
+    "audit/day_one_unassigned_sources_v3_20261002/review_tools/preserve_library_and_role_limits_v430.py",
+    "audit/day_one_unassigned_sources_v3_20261002/review_tools/record_eight_source_reviews_v424.py",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/job_artwork_refinement_live/ALL_ITEMS.json",
+    "audit/job_artwork_refinement_live/CURRENT_BOUNDARY_REFRESH.json",
+    "audit/job_artwork_refinement_live/all_items.html",
+    "audit/job_artwork_refinement_live/history_v37_before_eight_source_reviews/ALL_ITEMS.json.original",
+    "audit/job_artwork_refinement_live/history_v37_before_eight_source_reviews/CURRENT_BOUNDARY_REFRESH.json.original",
+    "audit/job_artwork_refinement_live/history_v37_before_eight_source_reviews/all_items.html.original",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "Eight full-native original individual direct visual reviews",
+      "result": "PASS",
+      "evidence": "audit/day_one_unassigned_sources_v3_20261002/DIRECT_REVIEW.json; source-only opinions, six below4.5 preserved"
+    },
+    {
+      "command": "Actual temporary browser review: complete native artwork loading",
+      "result": "PASS",
+      "evidence": "audit/day_one_unassigned_sources_v3_20261002/BROWSER_REVIEW_V427.json; no deliverable/handoff status mark, pending explicit browser approval untouched."
+    },
+    {
+      "command": "Refreshed actual browser register and literal consumer-role qualification",
+      "result": "PASS",
+      "evidence": "assets_src/local_motion/nursery_connected_scrub_v4_20261002/BROWSER_LIBRARY_V429.json; audit/day_one_unassigned_sources_v3_20261002/DECLARED_SOURCE_ROLE_LIMITS.json"
+    }
+  ],
+  "acceptance_gaps": "All8 original sources reviewed; six below4.5/seven inclusive priorities. No source modified.377 source reviews remain. Conservative discovery candidate use, mounting, action sequencing, target-device, child, owner and all-job completion remain open. No finding lifecycle closure."
+}

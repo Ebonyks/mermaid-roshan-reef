@@ -1,0 +1,56 @@
+{
+  "status": "PASS_ALL15802_ROWS_BYTE_EXACT_BOUNDED_JOURNAL",
+  "revision": "ea9f4e00a2af67fc6f81e16a2102754892a18cfd",
+  "original_bytes": 6982680,
+  "original_sha256": "d17f70825ffd52a3afc4a979f56b9d55c1f9e4d26d4b4bb41a089732c2e5a479",
+  "original_rows": 15802,
+  "max_chunk_bytes": 1000000,
+  "chunks": [
+    {
+      "path": "assets_src/local_motion/nursery_connected_scrub_v3_20261002/previous_r_remote_verified/journal_000.jsonl",
+      "bytes": 999779,
+      "sha256": "1a729eb626445cf2a6c21b0a517de1c8c532362baf61f301d12c170a12ab70e8",
+      "rows": 2485
+    },
+    {
+      "path": "assets_src/local_motion/nursery_connected_scrub_v3_20261002/previous_r_remote_verified/journal_001.jsonl",
+      "bytes": 999932,
+      "sha256": "dda64ab48cb4c882f20eb107c93ab6cd0a7ebb112dea1628d7c4cc0af54abfea",
+      "rows": 2174
+    },
+    {
+      "path": "assets_src/local_motion/nursery_connected_scrub_v3_20261002/previous_r_remote_verified/journal_002.jsonl",
+      "bytes": 999602,
+      "sha256": "833949c1388b93d2b4536ed6e9a10bd11dd07d156907b0557992b397ae598aa4",
+      "rows": 2301
+    },
+    {
+      "path": "assets_src/local_motion/nursery_connected_scrub_v3_20261002/previous_r_remote_verified/journal_003.jsonl",
+      "bytes": 999816,
+      "sha256": "ab2c105d4fec1a5939c45bcff92754efaeabefd0299f18cb86829bb3c9c60912",
+      "rows": 2231
+    },
+    {
+      "path": "assets_src/local_motion/nursery_connected_scrub_v3_20261002/previous_r_remote_verified/journal_004.jsonl",
+      "bytes": 999799,
+      "sha256": "73ceef2992fb6fabc74f927a427922e1292ea8c70eb2d9f3159967274faf91fd",
+      "rows": 2179
+    },
+    {
+      "path": "assets_src/local_motion/nursery_connected_scrub_v3_20261002/previous_r_remote_verified/journal_005.jsonl",
+      "bytes": 999914,
+      "sha256": "f3d1f656d987799a1c5742f9794768bee11cc69d2578979ad0133c1553bbd61b",
+      "rows": 2178
+    },
+    {
+      "path": "assets_src/local_motion/nursery_connected_scrub_v3_20261002/previous_r_remote_verified/journal_006.jsonl",
+      "bytes": 983838,
+      "sha256": "f681858366367e8e097747d75c047055aece3fbefeb8808cee4771d11cf0108a",
+      "rows": 2254
+    }
+  ],
+  "access_mode": "Anonymous GET, normal TLS certificate verification, no Authorization header",
+  "started_utc": "2026-10-03T00:41:50.443578+00:00",
+  "finished_utc": "2026-10-03T00:48:44.265850+00:00",
+  "qualification": "All exact current R positive/unchanged files and manifest fetched anonymously with normal TLS; every byte/SHA matches. Journal sharding preserves all literal bytes and rows. Source/action/device/child/owner/integration/release acceptance remains separate."
+}

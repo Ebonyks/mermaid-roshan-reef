@@ -1,0 +1,152 @@
+{
+  "status": "PLANNED_BEFORE_SOURCE_OPINIONS",
+  "created_utc": "2026-10-03T01:00:50.243982+00:00",
+  "baseline": "ea9f4e00a2af67fc6f81e16a2102754892a18cfd",
+  "scope": "Direct individual first-pass source review of eight previously unreviewed Day One discovery candidate graphics. Record native appearance, child readability, medium/style fit and named refinement gaps with literal hashes. Discovery dependency does not prove job use or mounted/action quality. No source modification, protected-original change, generation or runtime binding.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-QA-01",
+    "DL-QA-03",
+    "DL-QA-06",
+    "DL-QA-07"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "inventory": [
+    {
+      "id": "D1V2-0001",
+      "path": "assets/art35/cards/mg/carrot_carrot.png",
+      "sha256": "b4c35bee6de1a161f6891396a3b903d22893f772919bbbfe5832e5256e834a8f",
+      "dimensions": [
+        128,
+        128
+      ],
+      "current_source_score": null,
+      "provenance": [
+        "audit/day_one_job_art_census_v2_20261001/index.html"
+      ],
+      "protected_original": false
+    },
+    {
+      "id": "D1V2-0002",
+      "path": "assets/art35/cards/mg/k_pine_k_pine.png",
+      "sha256": "f8803924685bb10c33a72e2e8c597f5c2a304a564f644777f00cfcf4f1682e1f",
+      "dimensions": [
+        512,
+        512
+      ],
+      "current_source_score": null,
+      "provenance": [
+        "audit/day_one_job_art_census_v2_20261001/index.html"
+      ],
+      "protected_original": false
+    },
+    {
+      "id": "D1V2-0003",
+      "path": "assets/art35/cards/mg/rainbow_swatch_rainbow_swatch.png",
+      "sha256": "72e92630be4a3ccc98ff8ce5fe0954225c1ff50548ae453963b123b998f6422a",
+      "dimensions": [
+        512,
+        512
+      ],
+      "current_source_score": null,
+      "provenance": [
+        "audit/day_one_job_art_census_v2_20261001/index.html"
+      ],
+      "protected_original": false
+    },
+    {
+      "id": "D1V2-0004",
+      "path": "assets/art35/cards/mg/snowman_snowman.png",
+      "sha256": "38353438e8545c50947cab4b08960c412d49cc4f5b976fd452af72e0db132b31",
+      "dimensions": [
+        256,
+        512
+      ],
+      "current_source_score": null,
+      "provenance": [
+        "audit/day_one_job_art_census_v2_20261001/index.html"
+      ],
+      "protected_original": false
+    },
+    {
+      "id": "D1V2-0005",
+      "path": "assets/art35/cards/mg/sprout_sprout.png",
+      "sha256": "d7542d8d812a28ddce435c8acf3a103df85e5af59178ad05c9bdb5fef1ed0926",
+      "dimensions": [
+        512,
+        512
+      ],
+      "current_source_score": null,
+      "provenance": [
+        "audit/day_one_job_art_census_v2_20261001/index.html"
+      ],
+      "protected_original": false
+    },
+    {
+      "id": "D1V2-0006",
+      "path": "assets/art35/cards/mg/star_star.png",
+      "sha256": "3a8dce7bc1721fd1c6b97b0f8148c1f9a9b176d8a5a28c5855cb3501a74fdcf7",
+      "dimensions": [
+        1024,
+        512
+      ],
+      "current_source_score": null,
+      "provenance": [
+        "audit/day_one_job_art_census_v2_20261001/index.html"
+      ],
+      "protected_original": false
+    },
+    {
+      "id": "D1V2-0007",
+      "path": "assets/art35/cards/mg/sun_sun.png",
+      "sha256": "0c588fccbeff26aeefb3f5cc335cc26089d5a62b4b8d3e47ad9be307edba731b",
+      "dimensions": [
+        512,
+        1024
+      ],
+      "current_source_score": null,
+      "provenance": [
+        "audit/day_one_job_art_census_v2_20261001/index.html"
+      ],
+      "protected_original": false
+    },
+    {
+      "id": "D1V2-0008",
+      "path": "assets/art35/cards/style3/crystal_facet_crystal_facet.png",
+      "sha256": "376794caef8458803d3720fcc4707418f695f542bd339cb00e2e8313c9df0100",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "current_source_score": null,
+      "provenance": [
+        "audit/day_one_job_art_census_v2_20261001/index.html"
+      ],
+      "protected_original": false
+    }
+  ],
+  "required_evidence": [
+    "All eight full native originals directly inspected individually",
+    "Per-source written score/evaluation/refinement and original literal hash",
+    "Illustrated individual source page and exact live-register history before updates",
+    "Discovery/source/mounted/action/device/child/owner claims separated",
+    "All783 actual production source bytes unchanged",
+    "Required authority/coverage/2D gates and immutable remote bytes"
+  ]
+}
