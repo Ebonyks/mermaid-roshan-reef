@@ -1111,3 +1111,6 @@ Kept as-is; noted so a future edit updates every copy.
 
 | `assets_src/imagegen/candy_twist_release_pose_v1_20261003/index.html` | 🟢 | `SUPPORTING_CURRENT`; ten complete preserved endpoint candidates/123 individual source opinions. TwistA5/releaseA5 source4.5 provisional;room4.4. Previous local motion1.8 rejected,no new motion/current game2.8/owner acceptance. |
 | `assets_src/imagegen/candy_twist_release_pose_v1_20261003/previous_v52/ALL_ITEMS.json` | ⚪ | `HISTORICAL_SUPPORTING`; exact bounded V52 root before ten new endpoint sources;88-item literal part unchanged. |
+
+| `assets_src/local_motion/candy_twist_release_components_v1_20261003/index.html` | 🟢 | `SUPPORTING_CURRENT`; two reference components,82 native frames/24 named component opinions. Release1.7/twist2.2 rejected;source endpoints4.5/current WRAP2.8 stay separate. Full causal action,actual jobs/Opera training/device/child/owner open. |
+| `assets_src/local_motion/candy_twist_release_components_v1_20261003/previous_v53/ALL_ITEMS.json` | ⚪ | `HISTORICAL_SUPPORTING`; literal V53 root before review-resource update;2064 item dictionaries and88-item part unchanged. Earlier HTML preserved before current-first layout. |

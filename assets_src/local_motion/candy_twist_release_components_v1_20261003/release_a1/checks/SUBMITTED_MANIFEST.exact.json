@@ -1,0 +1,137 @@
+{
+  "schema": "reef.local-candy-motion-study.v1",
+  "id": "candy_supported_release_a1_20261003",
+  "created_utc": "2026-10-03T12:21:36.139467+00:00",
+  "baseline": "b6501351a854cc0133b17a74d557ce1c4d14b5af",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "owner_approval": null,
+  "runtime_integration": false,
+  "authorization": "Existing owner instruction to queue local animations through the developed Comfy workflow and iteratively audit job actions;no new model/install,graph modification,external generation or game/cinematic binding.",
+  "intention": "Roshan loosens both short-neck grips and withdraws her own two mittens,leaving the same already-twisted gold-covered sweet fully supported and unchanged on the table.",
+  "profile": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+  "register": "Compact concentrating Ribbon Glide work;quiet useful hands and supported prop,no decorative flourish.",
+  "source_status": "STATIC_SOURCE_DRAFT_4.5_OWNER_UNASSIGNED",
+  "source_review": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/twist_attempt05/DIRECT_REVIEW.json",
+  "source_dimensions": [
+    1672,
+    941
+  ],
+  "input_transform": "Entire1672x941 scene normalized to896x504 plus4px black top/bottom on896x512;no crop,isolated subject change or repair. Twist reuses the exact prior normalized input bytes.",
+  "renderer": {
+    "server": "http://127.0.0.1:8190",
+    "root": "H:/MermaidReefTools/LocalVideo",
+    "python": "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/ComfyUI/0.34.0/ComfyUI_windows_portable/python_embeded/python.exe",
+    "entrypoint": "workflows/render_gguf.py",
+    "preset": "quick",
+    "settings": {
+      "width": 896,
+      "height": 512,
+      "frames": 41,
+      "steps": 24,
+      "weight_dtype": "GGUF_Q4_K_S"
+    },
+    "fps": 24,
+    "bindings": [
+      {
+        "installed_path": "H:\\MermaidReefTools\\LocalVideo\\prepare_workflows.py",
+        "packet_path": "workflows/prepare_workflows.py",
+        "sha256": "df22ac655ae82145b07910251eb22ccb03c6261b44ae0851f1c05d104fab5ed4",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "df22ac655ae82145b07910251eb22ccb03c6261b44ae0851f1c05d104fab5ed4"
+      },
+      {
+        "installed_path": "H:\\MermaidReefTools\\LocalVideo\\render_local.py",
+        "packet_path": "workflows/render_local_current.py",
+        "sha256": "a5bb0fe29bdff88b3cc0dd6dd80e8173b2cee8cdb1362a9ac27e02e706bf0976",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "a5bb0fe29bdff88b3cc0dd6dd80e8173b2cee8cdb1362a9ac27e02e706bf0976"
+      },
+      {
+        "installed_path": "H:\\MermaidReefTools\\LocalVideo\\MODEL_RECEIPT.json",
+        "packet_path": "workflows/MODEL_RECEIPT.json",
+        "sha256": "371b8893b497a52ca50148f77ccf0c29ce1a4511c953d04c32669ba1a3f57f01",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "371b8893b497a52ca50148f77ccf0c29ce1a4511c953d04c32669ba1a3f57f01"
+      },
+      {
+        "installed_path": "H:\\MermaidReefTools\\LocalVideo\\workflows\\SOURCE_RECEIPT.json",
+        "packet_path": "workflows/SOURCE_RECEIPT.json",
+        "sha256": "edd0897186da0b8850240602bc9da10a977e5c97cd5a51fa69cdf177c171984b",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "edd0897186da0b8850240602bc9da10a977e5c97cd5a51fa69cdf177c171984b"
+      },
+      {
+        "installed_path": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\day2_batch1_20260930\\workflows\\GGUF_MODEL_RECEIPT.json",
+        "packet_path": "workflows/GGUF_MODEL_RECEIPT.json",
+        "sha256": "4d811ec8a04a34959d4272fe2cdc6e6c829ab64462f82a3323db8109132f59da",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "4d811ec8a04a34959d4272fe2cdc6e6c829ab64462f82a3323db8109132f59da"
+      },
+      {
+        "installed_path": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\day2_batch1_20260930\\workflows\\GGUF_TOKENIZER_DEPENDENCIES.json",
+        "packet_path": "workflows/GGUF_TOKENIZER_DEPENDENCIES.json",
+        "sha256": "32d546ae9b7d007a63c12fb030b132d62383f3d868b262d609a8cbef404a3ef8",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "32d546ae9b7d007a63c12fb030b132d62383f3d868b262d609a8cbef404a3ef8"
+      },
+      {
+        "installed_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets_src\\local_motion\\day2_batch1_20260930\\workflows\\render_gguf.py",
+        "packet_path": "workflows/render_gguf.py",
+        "sha256": "68f0f69e390531a04e267fd6e591f7d17d3a9959871e694058e3c4f225affa41",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "68f0f69e390531a04e267fd6e591f7d17d3a9959871e694058e3c4f225affa41"
+      }
+    ],
+    "admission": "One FIFO study; native queue plus90-second quiet idle, duplicate submission protection and same-settings successful graph benchmark required. Existing developed CLI unmodified. No cancellation/restart/download/install."
+  },
+  "jobs": [
+    {
+      "id": "CANDY-RELEASE-A1",
+      "name": "Specific gold-wrapper release component",
+      "source_path": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/twist_attempt05/native.png",
+      "source_sha256": "33a0c2a7d4ef4550ec537ed65257fde7f06b53694ab8bad6315b9d91ffc8b38e",
+      "input_path": "inputs/CANDY-RELEASE-A1.png",
+      "input_sha256": "dcd3b7ebd082e5392f85bf06ac9262335627dc7efe33729e00b1c008ae6f1929",
+      "prompt_path": "prompts/CANDY-RELEASE-A1.txt",
+      "prompt_sha256": "e0fd6a7aa607d89921b03667c928898f4dcdc4605a011fa3fa2240132af80f91",
+      "queue_name": "candy_supported_release_a1_20261003",
+      "seed": 2026100311,
+      "owner_approval": null
+    }
+  ],
+  "clip_contract": {
+    "entry": "Provisional4.5 twist endpoint:two cuff-owned mitten grips on short opposite twisted gold-paper necks.",
+    "exit": "Both gloves disengage and settle clear of the same stable fully covered sweet,short twists and broad outward fans.",
+    "duration_seconds": 1.7083333333333333,
+    "timeline": "0–0.25s: hold the exact starting pose,with both existing coral mitten hands gripping the two short twisted gold-paper necks beside the same covered low oval sweet. 0.25–1.2s: BOTH mittens gently loosen their neck pinches and move slightly upward and outward away from the gold paper,remaining joined to their original teal cuffs and cream sleeves. The picture-left hand moves left;the picture-right hand moves right. Each hand releases the neck before withdrawing. 1.2–1.7s: the hands settle quietly just behind/outside their own gold fans,with a visible purple tabletop gap from every paper edge.\nThe ONE gold-covered oval,both short opposite paper twists,and both broad gold fans remain completely stationary and supported on the purple table throughout. Do not twist again,move a fan,carry any paper,shrink the wrapper,uncover red or attach gold to cuffs. Preserve the same girl,face,head,hair,costume,painted gold material,scene,framing and camera. Exactly TWO rounded sleeve-attached mittens with one thumb each. Small purposeful release,then a quiet rest. No bare fingers,extra hand,ghost arm,glove stretch,rope collar,new object,body drift,zoom,glow,blur or sparkle.\nSound: silence.\n",
+    "source_endpoint_qc_reference": {
+      "path": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/release_attempt05/native.png",
+      "sha256": "a7b842cd59cba9f6e023ec535c8188a41d7c7b18f176c4f62db399939a2c8ccb",
+      "role": "human_endpoint_QC_only_not_graph_conditioned",
+      "bound_to_graph": false
+    },
+    "geometry": "Full-image normalized coordinates;x right,y down. Source-centre covered oval approximately(0.52,0.80),short necks approximatelyx0.44/0.60,y0.80. Both hands must retain their original cuff ownership;table support and task centre/size compared in normalized coordinates.",
+    "translation": "No stage or camera movement. This is a contextual reference only;actual navigation/touch coordinates/action anchors remain production-owned and unmodified.",
+    "events": "No gameplay events or rewards. Hand grip/release and paper response are visual review semantics only.",
+    "interruptions": "Reference worker never awards progress;actual game pause/back/retarget/save interruptions remain unverified and unchanged.",
+    "required_review": "All41 decoded native canvases/individual pose opinions,owned cuffs/mittens,each contact or release,opposed wrist action where applicable,short gold-paper response,continuous body-neck-fan topology,stable covered oval/table support,scene identity/style and quiet exit. Source endpoint4.5 does not transfer to motion/current gameplay."
+  },
+  "status": "EXACT_SOURCE_INPUT_PROMPT_SEVEN_BINDINGS_DIRECTLY_REVIEWED_ADMISSION_CHECK_PENDING",
+  "visual_review": null,
+  "complete_action_score": null,
+  "intended_component_only": true,
+  "source_path": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/twist_attempt05/native.png",
+  "source_sha256": "33a0c2a7d4ef4550ec537ed65257fde7f06b53694ab8bad6315b9d91ffc8b38e",
+  "input_path": "inputs/CANDY-RELEASE-A1.png",
+  "input_sha256": "dcd3b7ebd082e5392f85bf06ac9262335627dc7efe33729e00b1c008ae6f1929",
+  "prompt_path": "prompts/CANDY-RELEASE-A1.txt",
+  "prompt_sha256": "e0fd6a7aa607d89921b03667c928898f4dcdc4605a011fa3fa2240132af80f91",
+  "queue_name": "candy_supported_release_a1_20261003",
+  "seed": 2026100311,
+  "input_visual_review": {
+    "status": "DIRECT_COMPLETE_NORMALIZED_INPUT_REVIEWED",
+    "evidence": "assets_src/local_motion/candy_twist_release_components_v1_20261003/release_a1/INPUT_DIRECT_REVIEW.json",
+    "input_sha256": "dcd3b7ebd082e5392f85bf06ac9262335627dc7efe33729e00b1c008ae6f1929",
+    "source_score_transfer": false
+  }
+}

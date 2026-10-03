@@ -1,0 +1,55 @@
+{
+  "status": "PLANNED_NOT_DISPATCHED",
+  "stage": "release",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-INT-04",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004"
+  ],
+  "source_and_target": [
+    {
+      "role": "graph_start_image",
+      "path": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/twist_attempt05/native.png",
+      "sha256": "33a0c2a7d4ef4550ec537ed65257fde7f06b53694ab8bad6315b9d91ffc8b38e"
+    },
+    {
+      "role": "QC_endpoint_only",
+      "path": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/release_attempt05/native.png",
+      "sha256": "a7b842cd59cba9f6e023ec535c8188a41d7c7b18f176c4f62db399939a2c8ccb"
+    }
+  ],
+  "quiet_idle_seconds": 90,
+  "workflow_bindings": 7,
+  "required_before_dispatch": "Direct full normalized-input review,guarded packet admission and literal pre-dispatch manifest preservation.",
+  "required_after_render": "All41 decoded native canvases/individual pose opinions,owned cuffs/mittens,each contact or release,opposed wrist action where applicable,short gold-paper response,continuous body-neck-fan topology,stable covered oval/table support,scene identity/style and quiet exit. Source endpoint4.5 does not transfer to motion/current gameplay.",
+  "runtime_integration": false,
+  "owner_approval": null
+}

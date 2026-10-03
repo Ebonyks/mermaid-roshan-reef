@@ -1,0 +1,53 @@
+{
+  "queue_id": "candy_supported_release_a1_20261003",
+  "manifest_sha256": "77c597ab8c16c0a5fb6f0548b083254f0abf8f100c76433e13bf518f944c1a09",
+  "created_at_utc": "2026-10-03T12:23:09+00:00",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "jobs": [
+    {
+      "id": "CANDY-RELEASE-A1",
+      "name": "candy_supported_release_a1_20261003",
+      "status": "MACHINE_RENDER_PASS_PENDING_VISUAL_REVIEW",
+      "child_pid": 40340,
+      "started_at_utc": "2026-10-03T12:24:39+00:00",
+      "receipt_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\candy_supported_release_a1_20261003_20261003T122439Z_fa01f8\\RENDER_RECEIPT.json",
+      "native_prompt_id": "c77767ec-bff9-4e77-a93d-3534868b6e72",
+      "finished_at_utc": "2026-10-03T12:27:49+00:00",
+      "outputs": [
+        {
+          "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\candy_supported_release_a1_20261003_20261003T122439Z_fa01f8_00002_.webm",
+          "sha256": "9e643aac89bef4bfa7eefa48e6ebd60cdfe5cc86bb323c16eae3cdafbf244fd9",
+          "bytes": 1353978
+        },
+        {
+          "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\candy_supported_release_a1_20261003_20261003T122439Z_fa01f8_00002_.mp4",
+          "sha256": "3db7b11289a8eb370616857a515af4dbd8650abdcdccde79466fecd12cddfd61",
+          "bytes": 986588,
+          "media": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 896,
+                "height": 512,
+                "r_frame_rate": "24/1",
+                "nb_read_frames": "41"
+              }
+            ],
+            "format": {
+              "duration": "1.708333"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "worker_pid": 44188,
+  "worker_started_at_utc": "2026-10-03T12:23:09+00:00",
+  "matching_benchmark_receipt": "H:\\MermaidReefTools\\LocalVideo\\jobs\\d2m_b1q_d2a0495_20261001T025152Z_58a0e1\\RENDER_RECEIPT.json",
+  "calibration_first_study": false,
+  "status": "ALL_MACHINE_RENDERS_DONE_VISUAL_REVIEW_PENDING",
+  "observed_at_utc": "2026-10-03T12:27:49+00:00",
+  "existing_prompt_ids": []
+}

@@ -1,0 +1,53 @@
+{
+  "queue_id": "candy_opposed_wrist_twist_a1_20261003",
+  "manifest_sha256": "745c0b5823256ebad5650923605d7fa0f6b958ea5f07a264caf2b21d8735e775",
+  "created_at_utc": "2026-10-03T12:31:17+00:00",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "jobs": [
+    {
+      "id": "CANDY-TWIST-A1",
+      "name": "candy_opposed_wrist_twist_a1_20261003",
+      "status": "MACHINE_RENDER_PASS_PENDING_VISUAL_REVIEW",
+      "child_pid": 60112,
+      "started_at_utc": "2026-10-03T12:32:47+00:00",
+      "receipt_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\candy_opposed_wrist_twist_a1_20261003_20261003T123248Z_a13dab\\RENDER_RECEIPT.json",
+      "native_prompt_id": "b5c2f6c2-b7cb-4cc7-9ff8-2ef0096562ff",
+      "finished_at_utc": "2026-10-03T12:35:58+00:00",
+      "outputs": [
+        {
+          "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\candy_opposed_wrist_twist_a1_20261003_20261003T123248Z_a13dab_00002_.webm",
+          "sha256": "49634ebafeed3e6d2b11d3488cdb4b93ba18b0acb263509ae53ace4ff5d97702",
+          "bytes": 1192658
+        },
+        {
+          "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\candy_opposed_wrist_twist_a1_20261003_20261003T123248Z_a13dab_00002_.mp4",
+          "sha256": "aee5f7e11435b072cf617140a8dc09b3c02dcd734a36a4b2e32beb1c4a4b7fd5",
+          "bytes": 972518,
+          "media": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 896,
+                "height": 512,
+                "r_frame_rate": "24/1",
+                "nb_read_frames": "41"
+              }
+            ],
+            "format": {
+              "duration": "1.708333"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "worker_pid": 76960,
+  "worker_started_at_utc": "2026-10-03T12:31:17+00:00",
+  "matching_benchmark_receipt": "H:\\MermaidReefTools\\LocalVideo\\jobs\\d2m_b1q_d2a0495_20261001T025152Z_58a0e1\\RENDER_RECEIPT.json",
+  "calibration_first_study": false,
+  "status": "ALL_MACHINE_RENDERS_DONE_VISUAL_REVIEW_PENDING",
+  "observed_at_utc": "2026-10-03T12:35:58+00:00",
+  "existing_prompt_ids": []
+}

@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "command": [
+    "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "tools/audit_game_2d.py",
+    "--regression-gate"
+  ],
+  "working_head": "b6501351a854cc0133b17a74d557ce1c4d14b5af",
+  "exit_code": 0,
+  "started_utc": "2026-10-03T12:49:15.985498+00:00",
+  "finished_utc": "2026-10-03T12:52:09.814632+00:00",
+  "stdout_sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "review_source_snapshot": "assets_src/local_motion/candy_twist_release_components_v1_20261003/gates_v1/CANDIDATE_COMPONENT_SOURCE_V647.json",
+  "snapshot_sha256": "0c2fcba90d2bda5a80e6f24134703e02b69483af37023f659e0dc4cf747214d8",
+  "qualification": "Exact actual process result/raw streams on expanded review working tree. Structural/no-regression evidence only; strict zero-2D, visual/action/owner acceptance independent."
+}

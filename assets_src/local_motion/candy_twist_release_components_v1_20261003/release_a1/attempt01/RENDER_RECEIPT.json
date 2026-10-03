@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\candy_twist_release_components_v1_20261003\\release_a1\\inputs\\CANDY-RELEASE-A1.png",
+  "source_sha256": "dcd3b7ebd082e5392f85bf06ac9262335627dc7efe33729e00b1c008ae6f1929",
+  "source_dimensions": [
+    896,
+    512
+  ],
+  "prompt": "0\u20130.25s: hold the exact starting pose,with both existing coral mitten hands gripping the two short twisted gold-paper necks beside the same covered low oval sweet. 0.25\u20131.2s: BOTH mittens gently loosen their neck pinches and move slightly upward and outward away from the gold paper,remaining joined to their original teal cuffs and cream sleeves. The picture-left hand moves left;the picture-right hand moves right. Each hand releases the neck before withdrawing. 1.2\u20131.7s: the hands settle quietly just behind/outside their own gold fans,with a visible purple tabletop gap from every paper edge.\nThe ONE gold-covered oval,both short opposite paper twists,and both broad gold fans remain completely stationary and supported on the purple table throughout. Do not twist again,move a fan,carry any paper,shrink the wrapper,uncover red or attach gold to cuffs. Preserve the same girl,face,head,hair,costume,painted gold material,scene,framing and camera. Exactly TWO rounded sleeve-attached mittens with one thumb each. Small purposeful release,then a quiet rest. No bare fingers,extra hand,ghost arm,glove stretch,rope collar,new object,body drift,zoom,glow,blur or sparkle.\nSound: silence.\n",
+  "prompt_sha256": "e0fd6a7aa607d89921b03667c928898f4dcdc4605a011fa3fa2240132af80f91",
+  "preset": "quick",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "seed": 2026100311,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/GGUF_MODEL_RECEIPT.json",
+  "workflow_sha256": "a3829664061f40bb3a40e9030a7122b9dbc2cc108c9be9a572366cc856591c28",
+  "started_at_utc": "20261003T122439Z",
+  "prompt_id": "c77767ec-bff9-4e77-a93d-3534868b6e72",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\candy_supported_release_a1_20261003_20261003T122439Z_fa01f8_00002_.webm",
+      "sha256": "9e643aac89bef4bfa7eefa48e6ebd60cdfe5cc86bb323c16eae3cdafbf244fd9",
+      "bytes": 1353978
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\candy_supported_release_a1_20261003_20261003T122439Z_fa01f8_00002_.mp4",
+      "sha256": "3db7b11289a8eb370616857a515af4dbd8650abdcdccde79466fecd12cddfd61",
+      "bytes": 986588,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 186.53,
+  "completed_at_utc": "2026-10-03T12:27:46.436232+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance"
+}

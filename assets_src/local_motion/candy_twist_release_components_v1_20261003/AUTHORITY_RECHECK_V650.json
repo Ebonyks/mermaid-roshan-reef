@@ -1,0 +1,101 @@
+{
+  "status": "EXACT_APPLICABLE_AUTHORITY_REFERENCES_RECHECKED_FOR_REVIEW",
+  "checked_utc": "2026-10-03T12:48:46.970340+00:00",
+  "members": [
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "bytes": 380343,
+      "sha256": "a0c687312de1a5d9fef2a71db0f703362e3f8a6dc4f248207a9766e2f71f0725"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "bytes": 103458,
+      "sha256": "44e33965040e55de846448286322df7c8afbc545d3377cdda49b558917518805"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "bytes": 237638,
+      "sha256": "b6c62c841bb8b54c160abb6d1ba010b5167f479f85d877ca8fbce80c68fe759c"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "bytes": 228575,
+      "sha256": "35775fd13a969dfc80a183571643c446b3c02632b4beb7ffd4dc74b18afc8c60"
+    },
+    {
+      "path": "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+      "bytes": 6559,
+      "sha256": "18b6f477b41241b509afda6a7cf76932c9af08be70f321ee2d744db424fe2b30"
+    },
+    {
+      "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+      "bytes": 21826,
+      "sha256": "8dd11b4b9c394cbb9d304c9f5d5eb71770ea106a278e87b26aba8004d62e8d94"
+    },
+    {
+      "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+      "bytes": 15689,
+      "sha256": "79df746086e417f240de5f271f85b00d78d310324becb0130862439a6478f3f6"
+    }
+  ],
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-INT-04",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07"
+  ],
+  "related_findings": [
+    "## MA-VIS-006",
+    "## MA-PLAY-004"
+  ],
+  "review_excerpts": [
+    {
+      "rule": "DL-VIS-07",
+      "text": "d across every atlas frame.\n\n`DL-VIS-07` — A visual score of 5/5 requires owner acceptance in runtime\ncontext. Source prestige, successful generation, a clean isolated render, or a\ngreen technical gate cannot grant 5/5 by itself.\n\n`DL-VIS-08` — A global average across source files is not evidence that a\nrendered gameplay state has a palette or figure/ground defect when it equally\nweights mutually exclusive states, decorative files, or art absent from that\nframe and ignores compositing, HUD, viewport, and device presentation. Do not\nrecolor or regenerate approved art merely to satisfy that metric. First measure\nthe true state-local Canvas composite and review it in runtime and on device.\n\n`DL-VIS-09` — When an accepted frame-animated 2D counterpart exists for a\ngameplay "
+    },
+    {
+      "rule": "DL-INT-03",
+      "text": "ed progress remains intact.\n\n`DL-INT-03` — Authored object animation uses 4–12 coherent states where that\ncontract applies, a stable pivot, fixed ownership, and a clear return or resting\nstate. Runtime MUST NOT interpolate a broken identity or synthesize missing\ncontact frames.\n\n`DL-INT-04` — Touch coordinates, visual sockets, collision/selection regions,\nand authored object positions MUST share one coordinate transform at every\nsupported aspect ratio.\n\n`DL-INT-05` — A child can repair a wrong plan. Puzzle pieces are conserved,\nliftable or resettable, and cannot duplicate, disappear, or make a round\nunrecoverable.\n\n`DL-INT-06` — A demonstration may show a verb but MUST NOT collect, score,\ndamage, solve, or cross the final completion threshold.\n\n`DL-INT-07` — The current"
+    },
+    {
+      "rule": "DL-MOT-11",
+      "text": " superseded anatomy/medium.\n\n`DL-MOT-11` — Choose acting from the character's intention and the true event:\nattention → purposeful action → visible contact/consequence → settle. Each\nprofile distinguishes an everyday register from emotional accents; generic\nidle wobble or identical timing across characters is not personality coverage.\nActing MUST preserve responsive input, clear objectives and stable support.\n\n`DL-MOT-12` — Each implemented action MUST have a versioned clip contract with\nsource/pose coverage, timing, pivots and relevant hand/prop anchors, directional\nbehavior, contact/effect markers, loop/exit behavior and interruption rules.\nNavigation owns arrival; gameplay validates targets, action identity and saved\neffects; animation reports presentation events. A "
+    },
+    {
+      "rule": "DL-MOT-13",
+      "text": "ON_PRODUCTION_PROTOCOL.md).\n\n`DL-MOT-13` — Establish a character's movement through a comparable style study\nand a representative contextual action/contact study before claiming it is\nvisually accepted. Record exact candidates and review outcomes in the\n[animation audit branch](../audit/animation/README.md). Direction documentation,\nauthored art, runtime checks, visual/device/child/owner acceptance and external\ncinematic delivery remain separate claims. Routine authorized iteration needs\nno additional planning checkpoint; missing evidence blocks only its dependent\nacceptance. Cinematic delivery and review-delivery candidates retain every\nfull-frame requirement in section 11. Separately labeled motion/editorial\nreferences cannot supply delivery pixels or acquire acceptan"
+    },
+    {
+      "rule": "DL-QA-03",
+      "text": "stic, not closure evidence.\n\n`DL-QA-03` — Runtime capture proves composition, cutoff, coordinate alignment,\nanimation, hierarchy, and visible feedback at supported aspect ratios only when\nits provenance and state transition are bound to the audited build. An image or\nfacts file detached from that runtime may guide review but cannot prove it.\n\n`DL-QA-04` — Target-device evidence proves frame pacing, latency, thermal/memory\nbehavior, touch geometry, audio audibility, and the phone-size squint test.\n\n`DL-QA-05` — Observed child evidence proves comprehension, discoverability,\ncomfort, agency, session length, and absence of adult verbal instruction.\n\n`DL-QA-06` — Owner review decides identity, style, narrative intent, protected\nart treatment, and whether a deliberate excepti"
+    },
+    {
+      "rule": "DL-QA-07",
+      "text": "te exception is acceptable.\n\n`DL-QA-07` — `SKIP`, `MANUAL`, missing capture, absent device evidence, or a\nwaiver is never silently converted into PASS. State the gap and its owner.\n\n`DL-QA-08` — A waiver names the exact rule and scope, reason, owner, date,\nexpiry/review trigger, and residual child risk. A global “known issue” is not a\nwaiver.\n\n`DL-QA-09` — The game-wide true-2D contract is satisfied only when\n`tools/audit_game_2d.py --strict` reports an exact manifest with no findings and\nzero in every reported category: `model_files`, `model_scan_coverage_files`,\n`active_export_model_files`, `model_import_sidecars`,\n`active_untracked_model_import_sidecars`, `model_archive_files`,\n`production_3d_files`, `probe_3d_files`, `scene_3d_files`,\n`configuration_3d_files`, and `"
+    }
+  ],
+  "qualification": "Read authority remains binding. No rule/finding lifecycle or release threshold changes. Source/structure/action/device/child/owner evidence stay separate."
+}
