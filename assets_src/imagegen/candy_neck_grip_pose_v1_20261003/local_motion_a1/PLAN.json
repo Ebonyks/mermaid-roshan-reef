@@ -1,0 +1,38 @@
+{
+  "status": "SOURCE_A4_GRIP4_5_NEW_NAMED_NECK_TWIST_RELEASE_GAP",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-INT-02",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-QA-03",
+    "DL-QA-07"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004"
+  ],
+  "source_review": "assets_src/imagegen/candy_neck_grip_pose_v1_20261003/attempt04/DIRECT_REVIEW.json",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "quiet_idle_seconds": 90,
+  "workflow_bindings": 7,
+  "existing_failures_preserved": "All6 whole/fold motion studies remain rejected; this is a new component from a new source pose, not a claim that those failures passed.",
+  "required_before_dispatch": "Directly inspect complete normalized input, bind source/prompt/seven installed hashes, validate guarded worker.",
+  "required_after_render": "All41 native canvases, both owned cuffs/mittens, bilateral maintained grip, opposite rotations, paper response, conserved covered oval/support, both releases, painted wrapper/character continuity. Component motion cannot accept complete wrapping/current game.",
+  "runtime_integration": false,
+  "owner_approval": null
+}

@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\imagegen\\candy_neck_grip_pose_v1_20261003\\local_motion_a1\\inputs\\CANDY-NECK-A1.png",
+  "source_sha256": "94166bfbc0635d790ed44ebd1fd5102cfdafbf841315442ba7443994704f0f42",
+  "source_dimensions": [
+    896,
+    512
+  ],
+  "prompt": "0\u20130.3s: keep both original coral mitten hands gripping the two short untwisted gold-paper necks beside the same small covered oval on the lavender table. 0.3\u20131.2s: both wrists turn gently in opposite directions, twisting only those gold-paper necks closed. The left wrist rolls away and the right wrist rolls toward the viewer; both remain attached to their original teal cuffs and cream sleeves. The same small central oval stays supported and fixed on the table; both loose fan ends turn with their own necks. 1.2\u20131.7s: both mittens loosen their grips and settle just outside the two finished twists, revealing one stable wrapped sweet resting on the table.\nKeep exactly the same girl, two attached mittens, one sweet and one continuous gold wrapper. Preserve painted gold paper, soft open fans, character, scene, camera and table. Small purposeful hand work followed by a quiet settle. No extra hands/fingers/arms, neck rings or strings, unwrapping, growing candy, disappearing wrapper, ghost cuffs, character drift, camera movement or sparkle.\nSound: silence.\n",
+  "prompt_sha256": "1f703a985b7c3f3a91dd3967cb9801d5ab94358f30e7e5b1d0b5419165dcbc73",
+  "preset": "quick",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "seed": 2026100301,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/GGUF_MODEL_RECEIPT.json",
+  "workflow_sha256": "3ab079d19b5ae961aed857449b98b71b59a93dc08294e4a545b4ace5ea5f9948",
+  "started_at_utc": "20261003T110741Z",
+  "prompt_id": "62baa30f-bb3c-4f37-ac38-536b87b18de8",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\candy_neck_twist_a1_20261003_20261003T110741Z_ece477_00002_.webm",
+      "sha256": "5f8e1efe33d5dca078ae828b3853f45c34beecc685aca14476f408a382370c30",
+      "bytes": 1525786
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\candy_neck_twist_a1_20261003_20261003T110741Z_ece477_00002_.mp4",
+      "sha256": "20885fc1941e972a2fdefdc1b0fce5b8cb7eb15e087b2318d0a9b45b49694139",
+      "bytes": 1033915,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 191.13,
+  "completed_at_utc": "2026-10-03T11:10:52.210376+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance"
+}

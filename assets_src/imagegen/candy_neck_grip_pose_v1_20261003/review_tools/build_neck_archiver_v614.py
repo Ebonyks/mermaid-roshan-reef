@@ -1,0 +1,8 @@
+from pathlib import Path
+import json,shutil
+B=Path('C:/Users/Peter/.codex/worktrees/job-art-review-v2-20261001/mermaid-roshan-reef');N=B/'assets_src/imagegen/candy_neck_grip_pose_v1_20261003';M=N/'local_motion_a1'
+old=(B/'assets_src/local_motion/candy_wrap_continuity_v1_20261003/comparison_a6/review_tools/archive_candy_context_fold_a6_v580.py').read_text(encoding='utf-8')
+old=old.replace('assets_src/local_motion/candy_wrap_continuity_v1_20261003/comparison_a6','assets_src/imagegen/candy_neck_grip_pose_v1_20261003/local_motion_a1').replace('build/candy_local_fold_a6_active_20261003','build/candy_specific_neck_a1_active_20261003').replace('CANDY-FOLD-A6','CANDY-NECK-A1').replace('CANDY CONTEXT DOWNWARD FOLD A6','CANDY SPECIFIC GOLD NECK TWIST/RELEASE A1').replace('job-candy-painted-context-source-20261003.json','job-candy-neck-grip-pose-20261003.json').replace('Developed local quiet-idle FIFO Candy prompt-only downward far-fold A6','Developed local quiet-idle FIFO specific gold-neck opposing twist/release A1').replace('CANDY_A6_NATIVE_ARCHIVED','CANDY_NECK_A1_NATIVE_ARCHIVED')
+p=M/'review_tools/archive_neck_motion_v614.py';assert not p.exists();p.write_bytes(old.encode());shutil.copyfile(__file__,N/'review_tools'/Path(__file__).name)
+ip=B/'design/audit_impacts/job-candy-neck-grip-pose-20261003.json';d=json.loads(ip.read_text());d['files']=sorted(set(d['files'])|{p.relative_to(B).as_posix() for p in N.rglob('*') if p.is_file()});t=ip.with_name(ip.name+'.v614_next');t.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n');t.replace(ip)
+print('EXACT_NATIVE_ARCHIVER_DERIVED_NO_RENDERER_CHANGE',flush=True)

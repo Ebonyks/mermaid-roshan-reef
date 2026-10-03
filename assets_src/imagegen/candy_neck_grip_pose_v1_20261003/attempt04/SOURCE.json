@@ -1,0 +1,26 @@
+{
+  "attempt": 4,
+  "generation_method": "built_in_imagegen_precise_object_edit",
+  "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-9965f05a-31f1-4030-939d-fbd993f55195.png",
+  "native_path": "assets_src/imagegen/candy_neck_grip_pose_v1_20261003/attempt04/native.png",
+  "native_sha256": "f1ff6a5f1d46d7e1bb7a53af02da82355ba603514349edec817a6bf73dafda1c",
+  "dimensions": [
+    1672,
+    941
+  ],
+  "mode": "RGB",
+  "native_preserved": true,
+  "references": [
+    {
+      "path": "assets_src/imagegen/candy_neck_grip_pose_v1_20261003/attempt03/native.png",
+      "sha256": "dd9786ae43f1e719aa8575f35456b4206aa5a979bf413b64e549622251115808",
+      "role": "edit_target_exact_owned_grips_and_untwisted_stage_neck_material_only_failed"
+    }
+  ],
+  "exact_sent_prompt": "Use case: precise-object-edit\nImage 1 is the complete existing painted Candy Maker scene and edit target. Keep the whole scene and BOTH achieved mitten thumb-and-palm pinches in exactly the same place. Keep one small gold covered oval sweet supported at its table centre, the exact two attached mitten hands, cuffs, sleeves, character and factory framing. Correct ONLY the paper surface of the two short UNTWISTED NECKS.\nThe current four horizontal gold ridges look like separate hard pipes or mechanical bars. Redraw them as ONE THIN FLEXIBLE CONTINUOUS GOLD PAPER SHEET gently gathered into shallow open lengthwise folds between each thumb and palm. Use soft irregular narrow satin-gold fold valleys and broad gentle painted highlights, with no dark internal outlines dividing rods. The paper continues smoothly from the oval's surface THROUGH each neck pinch and into the existing loose outer fan. The neck's outer contour softly converges under pressure, with modest natural paper wrinkles; keep the short unsealed gathered necks, not tubes, rings, collars, cord, corrugated hose or tied cuffs. Do not rotate the paper diagonally, cross/braid folds or add a twist. The loose fans remain open and all red stays hidden. No separate flat mat or extra object. Every fold belongs to the same crinkled gold wrapper material as the belly and fans. Preserve both correct neck grips, table support, small scale and all other pixels as closely as possible. No extra hands/fingers, vector art, realism, text, crop or camera move. Return one entire landscape painting of the pre-twist gather.",
+  "prompt_sha256": "cabacff15f6559d2e8aaf88207d399e83a2d3225409f054c1a9440351a9ef58d",
+  "prompt_file_path": "assets_src/imagegen/candy_neck_grip_pose_v1_20261003/attempt04/SENT_PROMPT.txt",
+  "runtime_ready": false,
+  "runtime_bound": false,
+  "owner_acceptance": null
+}

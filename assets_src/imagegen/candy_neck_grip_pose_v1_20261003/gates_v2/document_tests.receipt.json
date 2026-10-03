@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "command": [
+    "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "-m",
+    "unittest",
+    "tools.tests.test_audit_document_authority",
+    "tools.tests.test_audit_development"
+  ],
+  "working_head": "876169d77d45f5fd2b5956eeda4f1e6da9926f19",
+  "exit_code": 0,
+  "started_utc": "2026-10-03T11:18:42.537576+00:00",
+  "finished_utc": "2026-10-03T11:18:58.525867+00:00",
+  "stdout_sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+  "stderr_sha256": "cf008abb945b477526482eaa98e1d964a5c497a60b54c94c937f7dfd896b7041",
+  "review_source_snapshot": "assets_src/imagegen/candy_neck_grip_pose_v1_20261003/gates_v2/CANDIDATE_NECK_SOURCE_V617.json",
+  "snapshot_sha256": "16d6ca1a0542ac405cf804467629cd7ef0ad70a513233acb3595b8790d5138a0",
+  "qualification": "Exact actual process result/raw streams on expanded review working tree. Structural/no-regression evidence only; strict zero-2D, visual/action/owner acceptance independent."
+}

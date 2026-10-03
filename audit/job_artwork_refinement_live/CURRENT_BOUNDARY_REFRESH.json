@@ -1,11 +1,11 @@
 {
   "schema": "reef.current-review-boundary-refresh.v1",
   "status": "CURRENT_CANDY_MATCH_OLDER_GEODE_NURSERY_WITHHELD",
-  "checked_utc": "2026-10-03T10:31:01.702398+00:00",
-  "working_head": "c7817974fb23913c1d764c718a70a5932cacb883",
-  "registry_items": 2138,
-  "unique_registered_paths": 1323,
-  "registered_source_matches": 2138,
+  "checked_utc": "2026-10-03T11:15:19.350712+00:00",
+  "working_head": "876169d77d45f5fd2b5956eeda4f1e6da9926f19",
+  "registry_items": 2142,
+  "unique_registered_paths": 1327,
+  "registered_source_matches": 2142,
   "source_changed_or_unavailable": [],
   "geode_review": "audit/job_geode_current_recheck_v1_20261002/DIRECT_REVIEW.json",
   "geode_capture_source_count": 783,
@@ -16419,6 +16419,38 @@
       "binding_match": null
     },
     {
+      "id": "CANDY-NECK-SOURCE-01",
+      "path": "assets_src/imagegen/candy_neck_grip_pose_v1_20261003/attempt01/native.png",
+      "observed_sha256": "64e7a1bff617fbb01964d00314c4d989787684b49fb7b549b9c12343efc15de1",
+      "registered_sha256": "64e7a1bff617fbb01964d00314c4d989787684b49fb7b549b9c12343efc15de1",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-NECK-SOURCE-02",
+      "path": "assets_src/imagegen/candy_neck_grip_pose_v1_20261003/attempt02/native.png",
+      "observed_sha256": "0a73b08be60fac0a5e65d0af11eb4f6554f4931eb0c1b6f24752f212bee7b354",
+      "registered_sha256": "0a73b08be60fac0a5e65d0af11eb4f6554f4931eb0c1b6f24752f212bee7b354",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-NECK-SOURCE-03",
+      "path": "assets_src/imagegen/candy_neck_grip_pose_v1_20261003/attempt03/native.png",
+      "observed_sha256": "dd9786ae43f1e719aa8575f35456b4206aa5a979bf413b64e549622251115808",
+      "registered_sha256": "dd9786ae43f1e719aa8575f35456b4206aa5a979bf413b64e549622251115808",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-NECK-SOURCE-04",
+      "path": "assets_src/imagegen/candy_neck_grip_pose_v1_20261003/attempt04/native.png",
+      "observed_sha256": "f1ff6a5f1d46d7e1bb7a53af02da82355ba603514349edec817a6bf73dafda1c",
+      "registered_sha256": "f1ff6a5f1d46d7e1bb7a53af02da82355ba603514349edec817a6bf73dafda1c",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
       "id": "D2X-0040-CELL-00",
       "path": "assets/flats/castle/interactions_v2/library_magic_book_sheet.png",
       "observed_sha256": "1d6710b704f3e124f2ea7c9765575a1fee1184f14b485829380b56696bf6f1b1",
@@ -17138,7 +17170,7 @@
   "candy_capture_source_count": 783,
   "candy_changed_sources": [],
   "candy_review": "audit/job_candy_workflow_current_v1_20261003/DIRECT_REVIEW_CURRENT_A3.json",
-  "registry_root_sha256": "e43ade3634015453e59041dd8e7a5730f363dbc9cf86be59ca3c16c8556394da",
+  "registry_root_sha256": "f8f92c8e825be8d55fb027b8553b8722f263c300c7fd883eec47ac79fce08b06",
   "registry_parts": [
     {
       "path": "ATLAS_STATE_ITEMS_V51.json",

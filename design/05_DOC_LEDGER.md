@@ -1103,3 +1103,8 @@ Kept as-is; noted so a future edit updates every copy.
 
 | `assets_src/imagegen/candy_cover_pose_v1_20261003/index.html` | 🟢 | `SUPPORTING_CURRENT`; one targeted complete gold-cover/pressing native and10 individual source opinions. Cover endpoint4.6,whole still4.5 provisional,inherited room4.4; all six local motion failures/current WRAP2.8 remain separate. No game/action/device/child/owner acceptance. |
 | `audit/job_artwork_refinement_live/ALL_ITEMS_V49.original.json` | ⚪ | `HISTORICAL_SUPPORTING`; exact2049-entry register before one targeted covering-and-pressing source. |
+
+| `assets_src/imagegen/candy_neck_grip_pose_v1_20261003/index.html` | 🟢 | `SUPPORTING_CURRENT`; four complete preserved gold-wrapper grip natives/44 source opinions. A4 both grips and untwisted flexible paper4.5 provisional;room4.4. Local neck motion reference1.8 rejected,41 frames/10 opinions;whole wrapping/current game2.8/owner acceptance open. |
+| `assets_src/imagegen/candy_neck_grip_pose_v1_20261003/previous_v51/ALL_ITEMS.json` | ⚪ | `HISTORICAL_SUPPORTING`; exact bounded V51 root before four new grip sources,its88-item part unchanged. |
+
+| `assets_src/imagegen/candy_neck_grip_pose_v1_20261003/local_motion_a1/index.html` | 🟢 | `SUPPORTING_CURRENT`;41 complete native decoded reference canvases/10 component opinions,whole neck-twist/release1.8 rejected. Gold fans detach into cuffs;static grip4.5/current game2.8 remain separate. No production/cinematic/owner acceptance. |
