@@ -1,0 +1,40 @@
+{
+  "status": "A1_ATLAS_USE_REJECTED_REGENERATE",
+  "direct_native_review": true,
+  "native_sha256": "734f39130ceb2ec53a438d6e418f532834b8363428d82e187bd720bc890d0c9e",
+  "opinions": [
+    {
+      "item": "open candy and paper",
+      "score": 4.5,
+      "evaluation": "Coral sweet has broad painted body and an authored plum contour; wax-paper creases read clearly. Isolated source appearance only, not mounted action."
+    },
+    {
+      "item": "folded paper",
+      "score": 4.5,
+      "evaluation": "Two broad overlapping folds visibly cover the same coral body while the ends stay continuous with the paper. Isolated appearance only."
+    },
+    {
+      "item": "covered body/open ends",
+      "score": 4.5,
+      "evaluation": "Painted gold paper completely conceals the sweet, with continuous pinched necks and open fans. Source silhouette reads as wrapping rather than loose triangles."
+    },
+    {
+      "item": "twisted ends",
+      "score": 4.6,
+      "evaluation": "Both end necks carry diagonal twist creases and remain attached to the wrapper. This is a legible static endpoint, not motion/contact acceptance."
+    },
+    {
+      "item": "atlas isolation/alignment",
+      "score": 3.8,
+      "evaluation": "The two upper subjects touch/cross the central vertical boundary at alpha128, so627-square cells clip or include their neighbours. Upper visible centroids are about93\u2013103 native pixels lower within their cells than the lower subjects. Do not bind this atlas or repair those generated pixels; regenerate with proper gutters and consistent centers."
+    },
+    {
+      "item": "complete usable atlas",
+      "score": 3.8,
+      "evaluation": "The four attractive stills cannot be treated as accepted runtime state art while isolation/alignment fails. No automatic quality promotion from individual style scores."
+    }
+  ],
+  "owner_acceptance": null,
+  "runtime_bound": false,
+  "technical": "1254-square native exceeds1024 and is not POT; whole-canvas technical normalization would follow source acceptance, which is currently withheld."
+}

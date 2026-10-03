@@ -1,0 +1,92 @@
+{
+  "method": "builtin_imagegen_reference_generation",
+  "native_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt01/native.png",
+  "sha256": "a70f8ad960af911a07e20b0aac8dca699bfedeaaac0b25f9c2da49297231dcd3",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "regions": [
+    {
+      "index": 0,
+      "region": [
+        0,
+        0,
+        627,
+        627
+      ],
+      "alpha128_bounds": [
+        36,
+        46,
+        586,
+        618
+      ]
+    },
+    {
+      "index": 1,
+      "region": [
+        627,
+        0,
+        627,
+        627
+      ],
+      "alpha128_bounds": [
+        35,
+        52,
+        575,
+        617
+      ]
+    },
+    {
+      "index": 2,
+      "region": [
+        0,
+        627,
+        627,
+        627
+      ],
+      "alpha128_bounds": [
+        47,
+        32,
+        592,
+        586
+      ]
+    },
+    {
+      "index": 3,
+      "region": [
+        627,
+        627,
+        627,
+        627
+      ],
+      "alpha128_bounds": [
+        25,
+        34,
+        576,
+        586
+      ]
+    }
+  ],
+  "prompt_sha256": "72520c9f1c538c88d7ca700cb3222f2a7717437e4298048334813f24d96f1594",
+  "references": [
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png",
+      "sha256": "b858c07f52d4f67679a39dd039afc7123199646442c067368425f8f46deec179"
+    },
+    {
+      "path": "assets_src/imagegen/candy_wrap_states_v1_20261003/attempt03/native.png",
+      "sha256": "3405805bece0f3954c949b05f013247d1c80146ecc31949bc3a370c0f7657c2d"
+    }
+  ],
+  "native_preserved": true,
+  "runtime_bound": false,
+  "runtime_ready": false,
+  "status": "REJECTED_CONTACT_NECK_GRIP_BELOW_FLOOR",
+  "owner_acceptance": null
+}

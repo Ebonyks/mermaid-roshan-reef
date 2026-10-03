@@ -1,0 +1,28 @@
+{
+  "target": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt03/native.png",
+  "target_sha256": "44f56faf36de05945af71284de03353ceb790eb3b33f67ce9f411ced556e17f8",
+  "target_directly_viewed": true,
+  "prompt_sha256": "393ecd7e63d568f6549b2186795e92d2080cb564249e3e7e01645031857c421b",
+  "specific_gap": "Actual consecutive source transitions move candy/table/face; source continuity4.2 and actual transition4.0. No existing accepted contact sheet supports this exact paper.",
+  "method": "builtin_imagegen_targeted_fixed_object_continuity_edit",
+  "attempt": 4,
+  "runtime_binding": false,
+  "predicted_score": null,
+  "owner_acceptance": null,
+  "related_findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004",
+    "MA-OPERA-012"
+  ],
+  "rule_ids": [
+    "DL-MOT-01",
+    "DL-MOT-02",
+    "DL-MOT-03",
+    "DL-MOT-07",
+    "DL-VIS-06",
+    "DL-ASSET-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07"
+  ]
+}

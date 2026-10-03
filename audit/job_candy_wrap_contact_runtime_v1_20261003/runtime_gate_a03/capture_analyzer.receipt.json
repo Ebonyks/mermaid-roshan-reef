@@ -1,0 +1,23 @@
+{
+  "status": "FAIL_PRESERVED",
+  "command": [
+    "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+    "--headless",
+    "--path",
+    "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef",
+    "--check-only",
+    "--script",
+    "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\audit\\job_candy_wrap_contact_runtime_v1_20261003\\capture.gd"
+  ],
+  "started_utc": "2026-10-03T05:10:35.588906+00:00",
+  "finished_utc": "2026-10-03T05:10:37.443755+00:00",
+  "elapsed_seconds": 1.8548083999776281,
+  "process_exit": 1,
+  "blocking_diagnostics": [
+    "SCRIPT ERROR: Parse Error: Cannot infer the type of \"radius\" variable because the value doesn't have a set type."
+  ],
+  "all783_declared_source_hashes_unchanged": true,
+  "qualification": "Explicit non-runtime drawing/contact substitution; original input/geometry/state and earned callbacks. Machine result never implies source/whole action/device/child/owner acceptance.",
+  "stdout_sha256": "83cf0b082206af2aa236c83064fbcfa76be1e00a4aa3558574b2f65965d9481c",
+  "stderr_sha256": "fa240b9073c026d3cfc5710030d57578660b6f60c1c544de85494df3a8b169ef"
+}

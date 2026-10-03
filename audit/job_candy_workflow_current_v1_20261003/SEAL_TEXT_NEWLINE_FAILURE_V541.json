@@ -1,0 +1,7 @@
+{
+  "status": "PRESERVED_SHELL_SOURCE_NEWLINE_GUARD_FAILURE",
+  "error": "AssertionError: scripts/ci.sh",
+  "diagnosis": "CURRENT_INDEX_NEWLINE_DIAGNOSIS_V541.json independently verifies every543 current staged source member.346 differ only by exact whole-text CRLF-to-LF; the sole additional suffix is the unchanged scripts/ci.sh.",
+  "correction": "Allow only that exact existing shell source path in the text-only bridge guard. UTF8 decode and exact whole-file CRLF-to-LF equality remain mandatory. No trusted shell script, validator, production code or source bitmap was edited.",
+  "effect": "Builder stopped before closed-map seal, commit and push. Prior helper and failure retained."
+}

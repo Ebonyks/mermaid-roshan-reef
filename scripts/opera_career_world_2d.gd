@@ -410,7 +410,11 @@ const PHASE_STATIONS := {
 	"chef": {"MIX": "mixing_bowl", "STIR": "mixing_bowl", "BAKE": "hearth_oven", "FROST": "grand_cake_stage", "TOP": "grand_cake_stage"},
 	"detective": {"SEARCH": "magnifier_tower", "CASE BOARD": "evidence_shelves", "CROWN": "treasure_dais"},
 	"ballerina": {"PEARL MIRROR": "trifold_mirror", "RIBBON TRAIL": "wave_tuffets", "GRAND TWIRL": "rose_finale_stage"},
-	"candymaker": {"SYRUP": "gumball_vat", "SORT": "taffy_press", "WRAP": "candy_bag_cottage", "SHARE": "candy_cart"},
+	"candymaker": {
+		"SYRUP": "gumball_vat", "SORT": "taffy_press", "WRAP": "candy_bag_cottage", "SHARE": "candy_cart",
+		"COAT STRAWBERRIES": "gumball_vat", "SORT STRAWBERRIES": "taffy_press",
+		"GLAZE STRAWBERRIES": "candy_bag_cottage", "PLACE ON CAKE": "candy_cart",
+	},
 	"doctor": {"WASH": "stethoscope_clinic", "FIND": "starfish_triage", "X-RAY": "exam_booth", "CAST": "exam_booth", "BANDAGE": "recovery_bed"},
 	"farmer": {"PLANT": "seed_beds", "TOSS": "hay_bales", "HERD": "barn_doors", "PICNIC": "blossom_arch"},
 	"boxer": {"GLOVE GUIDE": "glove_wall_shelf", "JAB PRACTICE": "purple_sparring_mat", "SOFT GUARD": "teal_heavy_bag", "TITLE IMP": "shell_pavilion_stage", "BELT": "shell_pavilion_stage"},
@@ -1950,6 +1954,10 @@ func _refresh_hotspots() -> void:
 	if aliases.has(phase_name):
 		invitation_name = String(aliases[phase_name])
 	var spec: Dictionary = HotspotCatalog.spec(career_id, invitation_name)
+	if _is_chapter2_candymaker_scene():
+		# Story ingredients retain their identity; the freeplay candy bag/wrapper
+		# cannot invite a strawberry-glazing or cake-placement activity.
+		spec = _chapter2_candy_hotspot_spec(phase_name)
 	for index in range(station_nodes.size()):
 		var hotspot := station_nodes[index] as OperaWorldHotspot2D
 		var is_current := index == armed_station and not task_open \
@@ -1966,6 +1974,19 @@ func _refresh_hotspots() -> void:
 			hotspot.set_meta("approach_pos",
 				station_list[index].get("approach_pos", station_list[index]["pos"]))
 		hotspot.set_armed(is_current)
+
+
+func _chapter2_candy_hotspot_spec(phase_name: String) -> Dictionary:
+	var berry_path := "res://assets/chapter2/birthday/sky_lagoon_strawberry_single.png"
+	match phase_name:
+		"COAT STRAWBERRIES":
+			return HotspotCatalog.spec("candymaker", "SYRUP")
+		"SORT STRAWBERRIES", "PLACE ON CAKE":
+			return {"path": berry_path, "motion": "bounce", "size": Vector2(104, 104), "presentation": "overlay"}
+		"GLAZE STRAWBERRIES":
+			return {"path": "res://assets/chapter2/birthday/chapter2_candied_strawberries_tray.png",
+				"motion": "pulse", "size": Vector2(144, 144), "presentation": "overlay"}
+	return {}
 
 
 func _clear_hotspot_intent() -> void:

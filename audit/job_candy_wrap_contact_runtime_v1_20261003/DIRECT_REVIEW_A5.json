@@ -1,0 +1,643 @@
+{
+  "status": "ALL_ACTUAL_CONTACT_CANVASES_REVIEWED_WHOLE_ACTION_REJECTED",
+  "reviewed_utc": "2026-10-03T05:36:42.007516+00:00",
+  "reviewer": "Codex drafting visual review",
+  "source": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt07/native.png",
+  "source_sha256": "7207d74c283e6c45c61e0d453ab5c476027611065f84ce75750407875816f467",
+  "coverage": {
+    "consecutive_canvases": 412,
+    "phase2_canvases": 410,
+    "phase3_endpoints": 2,
+    "selected_views": 32,
+    "ordered_boards": 42,
+    "original_native_details": 22
+  },
+  "opinions": [
+    {
+      "id": "CANDY-CONTACT-A5-01",
+      "item": "Open sheet contact",
+      "score": 4.5,
+      "evaluation": "Both connected mittens contact the actual gold sheet at table level. Complete source proportions are preserved at the real dock size.",
+      "evidence": [
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0009.webp",
+          "sha256": "bd1dbabe71326c2f8454f406f6bf3cd5a506b19086701545764009ffea3268f8",
+          "native_size": [
+            1280,
+            720
+          ],
+          "index": 9
+        },
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0009.webp",
+          "sha256": "0c781094dcc34679a18c6fa845b0b4ff4fc97c0e4e4a9c6a0659ecbe162cfcdd",
+          "native_size": [
+            1600,
+            720
+          ],
+          "index": 9
+        }
+      ],
+      "priority": true,
+      "scope": "Unbound actual-input drawing/contact study; never current production acceptance",
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "id": "CANDY-CONTACT-A5-02",
+      "item": "Folded long edges",
+      "score": 4.5,
+      "evaluation": "Golden paper wraps the belly and hands contact the lifted edges. This is a good static endpoint; the incoming movement is separately rejected.",
+      "evidence": [
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0081.webp",
+          "sha256": "32d3dceb8e59ea6e1603ec5aa9e5caebac55846c243328136c0382dd4d3c7552",
+          "native_size": [
+            1280,
+            720
+          ],
+          "index": 81
+        },
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0081.webp",
+          "sha256": "25039fd420dcde024eff3aab9b869cdc6fe78af84588f80300cd3a57cccd06ea",
+          "native_size": [
+            1600,
+            720
+          ],
+          "index": 81
+        }
+      ],
+      "priority": true,
+      "scope": "Unbound actual-input drawing/contact study; never current production acceptance",
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "id": "CANDY-CONTACT-A5-03",
+      "item": "Narrow neck pinch",
+      "score": 4.5,
+      "evaluation": "Both mittens grip narrow connected necks instead of outer fans. Belly remains on the table. Static endpoint only.",
+      "evidence": [
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0137.webp",
+          "sha256": "b91dcb4971b7a745abb25316d772dff023471c2535262a7f806c3dac49fee233",
+          "native_size": [
+            1280,
+            720
+          ],
+          "index": 137
+        },
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0137.webp",
+          "sha256": "4d3a4777be884f20fcb93fdb3d94af088dd5fbee0c5b0eca9cc825966032c33a",
+          "native_size": [
+            1600,
+            720
+          ],
+          "index": 137
+        }
+      ],
+      "priority": true,
+      "scope": "Unbound actual-input drawing/contact study; never current production acceptance",
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "id": "CANDY-CONTACT-A5-04",
+      "item": "Opposing wrist twist",
+      "score": 4.6,
+      "evaluation": "Wrist poses oppose visibly while both necks stay attached to the gold fans and central belly. Individual endpoint/material opinion.",
+      "evidence": [
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0169.webp",
+          "sha256": "be2e7936b3478552d759d9ebb24defbb506a4e1e5ce822450734d2419a1a6d50",
+          "native_size": [
+            1280,
+            720
+          ],
+          "index": 169
+        },
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0169.webp",
+          "sha256": "2f3e6017dc82c833511c00ebc43c81d43d7a6976feb821e4acbe68b1fa0e328f",
+          "native_size": [
+            1600,
+            720
+          ],
+          "index": 169
+        }
+      ],
+      "priority": false,
+      "scope": "Unbound actual-input drawing/contact study; never current production acceptance",
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "id": "CANDY-CONTACT-A5-05",
+      "item": "Wrapper material match",
+      "score": 4.5,
+      "evaluation": "Same golden creases, scalloped fans, navy/plum contours and broad painted highlights as the candidate wrapper. Source match does not establish full motion.",
+      "evidence": [
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0169.webp",
+          "sha256": "be2e7936b3478552d759d9ebb24defbb506a4e1e5ce822450734d2419a1a6d50",
+          "native_size": [
+            1280,
+            720
+          ],
+          "index": 169
+        },
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0169.webp",
+          "sha256": "2f3e6017dc82c833511c00ebc43c81d43d7a6976feb821e4acbe68b1fa0e328f",
+          "native_size": [
+            1600,
+            720
+          ],
+          "index": 169
+        }
+      ],
+      "priority": true,
+      "scope": "Unbound actual-input drawing/contact study; never current production acceptance",
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "id": "CANDY-CONTACT-A5-06",
+      "item": "Connected arms and anatomy",
+      "score": 4.5,
+      "evaluation": "Exactly two sleeves/forearms connect mittens to the torso throughout the four keys. No detached hand substitute.",
+      "evidence": [
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0137.webp",
+          "sha256": "b91dcb4971b7a745abb25316d772dff023471c2535262a7f806c3dac49fee233",
+          "native_size": [
+            1280,
+            720
+          ],
+          "index": 137
+        },
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0137.webp",
+          "sha256": "4d3a4777be884f20fcb93fdb3d94af088dd5fbee0c5b0eca9cc825966032c33a",
+          "native_size": [
+            1600,
+            720
+          ],
+          "index": 137
+        }
+      ],
+      "priority": true,
+      "scope": "Unbound actual-input drawing/contact study; never current production acceptance",
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "id": "CANDY-CONTACT-A5-07",
+      "item": "Table and sweet support continuity",
+      "score": 4.2,
+      "evaluation": "Top-to-bottom row change moves tabletop and sweet upward by a few pixels. The same target rectangle cannot correct inconsistent authored anchors.",
+      "evidence": [
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0137.webp",
+          "sha256": "b91dcb4971b7a745abb25316d772dff023471c2535262a7f806c3dac49fee233",
+          "native_size": [
+            1280,
+            720
+          ],
+          "index": 137
+        },
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0137.webp",
+          "sha256": "4d3a4777be884f20fcb93fdb3d94af088dd5fbee0c5b0eca9cc825966032c33a",
+          "native_size": [
+            1600,
+            720
+          ],
+          "index": 137
+        }
+      ],
+      "priority": true,
+      "scope": "Unbound actual-input drawing/contact study; never current production acceptance",
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "id": "CANDY-CONTACT-A5-08",
+      "item": "Head and torso continuity",
+      "score": 4.1,
+      "evaluation": "Head/costume changes at key81 and137 are abrupt even though the source region and draw rectangle are fixed. These are pose keys, not temporal in-betweens.",
+      "evidence": [
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0081.webp",
+          "sha256": "32d3dceb8e59ea6e1603ec5aa9e5caebac55846c243328136c0382dd4d3c7552",
+          "native_size": [
+            1280,
+            720
+          ],
+          "index": 81
+        },
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0081.webp",
+          "sha256": "25039fd420dcde024eff3aab9b869cdc6fe78af84588f80300cd3a57cccd06ea",
+          "native_size": [
+            1600,
+            720
+          ],
+          "index": 81
+        }
+      ],
+      "priority": true,
+      "scope": "Unbound actual-input drawing/contact study; never current production acceptance",
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "id": "CANDY-CONTACT-A5-09",
+      "item": "Whole fold/pinch/twist causality",
+      "score": 4.2,
+      "evaluation": "Paper finally becomes an enclosed sweet, but three instant jumps omit the actual fold and sliding grip. All input-driven canvases are inspected; four endpoints alone do not pass acting.",
+      "evidence": [
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0137.webp",
+          "sha256": "b91dcb4971b7a745abb25316d772dff023471c2535262a7f806c3dac49fee233",
+          "native_size": [
+            1280,
+            720
+          ],
+          "index": 137
+        },
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0137.webp",
+          "sha256": "4d3a4777be884f20fcb93fdb3d94af088dd5fbee0c5b0eca9cc825966032c33a",
+          "native_size": [
+            1600,
+            720
+          ],
+          "index": 137
+        }
+      ],
+      "priority": true,
+      "scope": "Unbound actual-input drawing/contact study; never current production acceptance",
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "id": "CANDY-CONTACT-A5-10",
+      "item": "Visible-paper touch cue",
+      "score": 4.0,
+      "evaluation": "Hub/circle now sits by paper and hands instead of face. Large inherited lens persists, and the demo marker can cover the sweet or extend below the tabletop.",
+      "evidence": [
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0009.webp",
+          "sha256": "bd1dbabe71326c2f8454f406f6bf3cd5a506b19086701545764009ffea3268f8",
+          "native_size": [
+            1280,
+            720
+          ],
+          "index": 9
+        },
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0009.webp",
+          "sha256": "0c781094dcc34679a18c6fa845b0b4ff4fc97c0e4e4a9c6a0659ecbe162cfcdd",
+          "native_size": [
+            1600,
+            720
+          ],
+          "index": 9
+        }
+      ],
+      "priority": true,
+      "scope": "Unbound actual-input drawing/contact study; never current production acceptance",
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "id": "CANDY-CONTACT-A5-11",
+      "item": "Opening opacity and ownership",
+      "score": 4.0,
+      "evaluation": "First connected work frame8 is translucent at both sizes, then opaque at9. Native details show no simultaneous full-tail duplicate here; previous A2 duplicate remains historical. Initial transparency remains weak.",
+      "evidence": [
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0008.webp",
+          "sha256": "30742d5e6b8a8df8a3a7f97f634f3ae14fb2f7452dc9eaa5891b6abf1913c6f4",
+          "native_size": [
+            1280,
+            720
+          ],
+          "index": 8
+        },
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0008.webp",
+          "sha256": "b3c27069103b4c808e706659adafa103ec406fa6d1abded3be81a7e94c59ae34",
+          "native_size": [
+            1600,
+            720
+          ],
+          "index": 8
+        }
+      ],
+      "priority": true,
+      "scope": "Unbound actual-input drawing/contact study; never current production acceptance",
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "id": "CANDY-CONTACT-A5-12",
+      "item": "Exit and next invitation ownership",
+      "score": 3.6,
+      "evaluation": "Final recorded phase3 endpoint briefly has neither worker drawing nor room actor, while later selected invitation restores Roshan. A good later still does not accept the exact exit transition.",
+      "evidence": [
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0206.webp",
+          "sha256": "afdc981a61052f4f65b400c7a494fb04af37dd03d9fa9473375124454d622bfe",
+          "native_size": [
+            1280,
+            720
+          ],
+          "index": 206
+        },
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0204.webp",
+          "sha256": "076a9afa93a3f8a590fdda54b8cd7cc68ec2c978d1a6a8dd18ee4b2615d91a12",
+          "native_size": [
+            1600,
+            720
+          ],
+          "index": 204
+        }
+      ],
+      "priority": true,
+      "scope": "Unbound actual-input drawing/contact study; never current production acceptance",
+      "production_binding": false,
+      "owner_acceptance": null
+    },
+    {
+      "id": "CANDY-CONTACT-A5-13",
+      "item": "Whole actual wrapper action",
+      "score": 4.1,
+      "evaluation": "Matching connected contact is substantially improved from current production2.8, but pose/support snaps, initial translucency and a missing actor on exit remain below4.5. Candidate remains unbound.",
+      "evidence": [
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0169.webp",
+          "sha256": "be2e7936b3478552d759d9ebb24defbb506a4e1e5ce822450734d2419a1a6d50",
+          "native_size": [
+            1280,
+            720
+          ],
+          "index": 169
+        },
+        {
+          "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0169.webp",
+          "sha256": "2f3e6017dc82c833511c00ebc43c81d43d7a6976feb821e4acbe68b1fa0e328f",
+          "native_size": [
+            1600,
+            720
+          ],
+          "index": 169
+        }
+      ],
+      "priority": true,
+      "scope": "Unbound actual-input drawing/contact study; never current production acceptance",
+      "production_binding": false,
+      "owner_acceptance": null
+    }
+  ],
+  "direct_native_details": [
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0008.webp",
+      "sha256": "30742d5e6b8a8df8a3a7f97f634f3ae14fb2f7452dc9eaa5891b6abf1913c6f4",
+      "direct_original_native_review": true,
+      "native_size": [
+        1280,
+        720
+      ],
+      "index": 8
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0009.webp",
+      "sha256": "bd1dbabe71326c2f8454f406f6bf3cd5a506b19086701545764009ffea3268f8",
+      "direct_original_native_review": true,
+      "native_size": [
+        1280,
+        720
+      ],
+      "index": 9
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0080.webp",
+      "sha256": "f409a91802a10fc9993fa34e8bcead4a39dd0ddd8808b7c445c87facfd27265e",
+      "direct_original_native_review": true,
+      "native_size": [
+        1280,
+        720
+      ],
+      "index": 80
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0081.webp",
+      "sha256": "32d3dceb8e59ea6e1603ec5aa9e5caebac55846c243328136c0382dd4d3c7552",
+      "direct_original_native_review": true,
+      "native_size": [
+        1280,
+        720
+      ],
+      "index": 81
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0136.webp",
+      "sha256": "efb54345c8896ba53fd40ca21b81d7c2c535e025658739f242494d2a51b1bd0c",
+      "direct_original_native_review": true,
+      "native_size": [
+        1280,
+        720
+      ],
+      "index": 136
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0137.webp",
+      "sha256": "b91dcb4971b7a745abb25316d772dff023471c2535262a7f806c3dac49fee233",
+      "direct_original_native_review": true,
+      "native_size": [
+        1280,
+        720
+      ],
+      "index": 137
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0168.webp",
+      "sha256": "b5cc4efa20b9c27ede4f25035c56342e7a782c28be604d15cc6114d1cc3230fc",
+      "direct_original_native_review": true,
+      "native_size": [
+        1280,
+        720
+      ],
+      "index": 168
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0169.webp",
+      "sha256": "be2e7936b3478552d759d9ebb24defbb506a4e1e5ce822450734d2419a1a6d50",
+      "direct_original_native_review": true,
+      "native_size": [
+        1280,
+        720
+      ],
+      "index": 169
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_views/training_1280_08_phase2_task_open.webp",
+      "sha256": "2ae7846bed052b2d13a982825ae98e55db1bd111fd3af81e4e1ffd27d34f9458",
+      "direct_original_native_review": true,
+      "native_size": [
+        1280,
+        720
+      ],
+      "tag": "phase2_task_open"
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_views/training_1280_11_phase2_earned_completion.webp",
+      "sha256": "663206fb9540de56a95b4d99cbb09330ad2139052ada0df42eb36a11db76460d",
+      "direct_original_native_review": true,
+      "native_size": [
+        1280,
+        720
+      ],
+      "tag": "phase2_earned_completion"
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_views/training_1280_12_phase3_invitation.webp",
+      "sha256": "62804bd91a05ad3fb9ee0e0196c41f9aefd5b644af18e1e489606e6616cf69b0",
+      "direct_original_native_review": true,
+      "native_size": [
+        1280,
+        720
+      ],
+      "tag": "phase3_invitation"
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0008.webp",
+      "sha256": "b3c27069103b4c808e706659adafa103ec406fa6d1abded3be81a7e94c59ae34",
+      "direct_original_native_review": true,
+      "native_size": [
+        1600,
+        720
+      ],
+      "index": 8
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0009.webp",
+      "sha256": "0c781094dcc34679a18c6fa845b0b4ff4fc97c0e4e4a9c6a0659ecbe162cfcdd",
+      "direct_original_native_review": true,
+      "native_size": [
+        1600,
+        720
+      ],
+      "index": 9
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0080.webp",
+      "sha256": "da70d5f568ed96eccc5f987937b01b1bd280677f54d5b248eef35cbc8202ae38",
+      "direct_original_native_review": true,
+      "native_size": [
+        1600,
+        720
+      ],
+      "index": 80
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0081.webp",
+      "sha256": "25039fd420dcde024eff3aab9b869cdc6fe78af84588f80300cd3a57cccd06ea",
+      "direct_original_native_review": true,
+      "native_size": [
+        1600,
+        720
+      ],
+      "index": 81
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0136.webp",
+      "sha256": "3695a35b2856dc0f5d5f35d9bb7018a7033de1387232d6aa691b030437d11604",
+      "direct_original_native_review": true,
+      "native_size": [
+        1600,
+        720
+      ],
+      "index": 136
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0137.webp",
+      "sha256": "4d3a4777be884f20fcb93fdb3d94af088dd5fbee0c5b0eca9cc825966032c33a",
+      "direct_original_native_review": true,
+      "native_size": [
+        1600,
+        720
+      ],
+      "index": 137
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0168.webp",
+      "sha256": "32454c828d19f1bb3fc75da613640c9e840427bd31e77b7a65a76b5d975214dc",
+      "direct_original_native_review": true,
+      "native_size": [
+        1600,
+        720
+      ],
+      "index": 168
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1600_0169.webp",
+      "sha256": "2f3e6017dc82c833511c00ebc43c81d43d7a6976feb821e4acbe68b1fa0e328f",
+      "direct_original_native_review": true,
+      "native_size": [
+        1600,
+        720
+      ],
+      "index": 169
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_views/training_1600_08_phase2_task_open.webp",
+      "sha256": "2c2bad03f8f5cc60792a22c838aaddd78ad36d9375e647788643718b7b6ca9f3",
+      "direct_original_native_review": true,
+      "native_size": [
+        1600,
+        720
+      ],
+      "tag": "phase2_task_open"
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_views/training_1600_11_phase2_earned_completion.webp",
+      "sha256": "8d55f72633082df4f6a71c6c09887752a18998fb00b01012fc9400fe7fccd693",
+      "direct_original_native_review": true,
+      "native_size": [
+        1600,
+        720
+      ],
+      "tag": "phase2_earned_completion"
+    },
+    {
+      "path": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_views/training_1600_12_phase3_invitation.webp",
+      "sha256": "132df8dc7ae999cae07ea9dfecd8ff66e3bc53b05cb7281a4ea8d3f83a226cf9",
+      "direct_original_native_review": true,
+      "native_size": [
+        1600,
+        720
+      ],
+      "tag": "phase3_invitation"
+    }
+  ],
+  "machine_status": "Eight focused parser/inference/official4.7.2 analyzer/capture checks pass; idle, stationary/repeated taps, release and resumed circle verified. Exact native1280/1600 sizes asserted.",
+  "qualification": "Unbound surface drawing substitute plus explicitly declared hub at visible paper, smaller .16 circle above inherited .13 dead zone and presentation-only room actor visibility. Original209 inherited properties/signals, completion/goal/reward/save remain inherited. Raw generic receipt phrase original input/geometry is qualified here: pivot/radius deliberately differ. Four authored static keys are not temporal in-betweens. Current game/new birthday route repair remain separate. Readback/desktop Mobile is not natural timing or target-device evidence.",
+  "binding_changed": false,
+  "all783_frozen_sources_unchanged_during_capture": true,
+  "missing_evidence": [
+    "Accepted full contact motion and interruptions",
+    "Natural timing",
+    "Target phone",
+    "Child",
+    "Owner",
+    "All-job comprehensive approval"
+  ],
+  "owner_acceptance": null,
+  "finding_lifecycles_changed": false
+}

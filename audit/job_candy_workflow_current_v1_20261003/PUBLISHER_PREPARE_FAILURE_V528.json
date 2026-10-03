@@ -1,0 +1,12 @@
+{
+  "status": "PREPARE_METADATA_WRITE_FAILED_PRESERVED",
+  "checked_utc": "2026-10-03T06:07:43.298258+00:00",
+  "action": "Compile and copy publisher, then append exact publisher path to existing Candy impact",
+  "failure": "Windows OSError Errno22 Invalid argument opening existing impact for write",
+  "existing_impact_bytes": 300219,
+  "existing_impact_sha256": "ce0391f1b27292eded7fe759ff14da8031a2f55bba46b1c2115862bcf759cc20",
+  "existing_impact_json_valid": true,
+  "publisher_source_copied": true,
+  "commit_or_push_performed": false,
+  "correction": "Write a new sibling file, verify JSON round trip and replace the intended impact only. Preserve original source bytes before correction."
+}

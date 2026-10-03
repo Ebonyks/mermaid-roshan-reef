@@ -1,0 +1,133 @@
+{
+  "id": "CANDY_WRAP_CONTACT_A3_STUDY_V1",
+  "lane": "interactive gameplay non-runtime counterfactual",
+  "baseline": "c5977ebb29bb2011b20fc149ad350290f045045c",
+  "movement_profile": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+  "intent": "Roshan concentrates on one supported sweet, folds its golden paper, pinches both attached necks, counter-rolls the ends and inspects the result.",
+  "register": "Ribbon Glide quiet useful work",
+  "scene": "Actual Kitchen career act3, training current four phases; story GLAZE is a different berry action and must not bind wrapping artwork.",
+  "sources": [
+    {
+      "method": "builtin_imagegen_targeted_contact_edit",
+      "sha256": "44f56faf36de05945af71284de03353ceb790eb3b33f67ce9f411ced556e17f8",
+      "native_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt03/native.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "regions": [
+        {
+          "index": 0,
+          "region": [
+            0,
+            0,
+            627,
+            627
+          ],
+          "alpha128_bounds": [
+            36,
+            46,
+            589,
+            621
+          ]
+        },
+        {
+          "index": 1,
+          "region": [
+            627,
+            0,
+            627,
+            627
+          ],
+          "alpha128_bounds": [
+            33,
+            52,
+            575,
+            619
+          ]
+        },
+        {
+          "index": 2,
+          "region": [
+            0,
+            627,
+            627,
+            627
+          ],
+          "alpha128_bounds": [
+            45,
+            32,
+            599,
+            588
+          ]
+        },
+        {
+          "index": 3,
+          "region": [
+            627,
+            627,
+            627,
+            627
+          ],
+          "alpha128_bounds": [
+            27,
+            34,
+            579,
+            588
+          ]
+        }
+      ],
+      "prompt_sha256": "792e6dcb5f994276b98e16ff0f7975180bf9303a5373049fdf8d1065b3ce49a0",
+      "reference_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt02/native.png",
+      "reference_sha256": "0626b6a4fda3f3f7a526b126a10811015c95a98d3f14e3b3655f50d37a6cca12",
+      "native_preserved": true,
+      "runtime_bound": false,
+      "runtime_ready": false,
+      "status": "STATIC_POSE_CONTACT_PROVISIONAL_RUNTIME_ACTION_UNREVIEWED",
+      "owner_acceptance": null
+    }
+  ],
+  "entry": "Actual picture card/approach/arrival, original full-tail room actor and saved state; substitute only source rendering; hide room actor at phase2 task-open because connected close-up owns Roshan.",
+  "exit": "Original room actor restored at following phase; ordinary input-earned completion and Kitchen callback; no new rewards or save keys.",
+  "geometry": {
+    "unit": "logical surface pixels on1280x720, same416x292 normal activity dock",
+    "atlas_cell": [
+      627,
+      627
+    ],
+    "draw_side": "0.96*min(surface.size.x,surface.size.y)",
+    "draw_pivot": "surface.size*0.5",
+    "source_keys": [
+      "open",
+      "fold",
+      "pinch",
+      "counter_roll"
+    ],
+    "candy_anchors_unresolved": "Raw fixed-cell sampler deliberately exposes native center/table drift; no per-key subject pixel manipulation.",
+    "original_circle_pivot": "Inherited _crank_action_rect().get_center; fixed. Any mismatch blocks quality acceptance."
+  },
+  "timeline": {
+    "phase_goal": 1.8,
+    "progress_key_boundaries": [
+      0,
+      0.22,
+      0.54,
+      0.82
+    ],
+    "policy": "Key selection from true inherited widget_fill. No timer advancement, looping, blending or claim that four pose keys cover continuous motion."
+  },
+  "translation": "Original navigation/approach owner; cosmetic study only, no actor crossing furniture.",
+  "events": "Inherited finger0 circular gesture→world progress→earned callback owns awards, at most once. Source key reaching3 grants nothing.",
+  "interruptions": "Inherited touch ownership/release/pause/back/teardown; no new delayed jobs. Explicit runtime interruption/re-entry tests pending, no acceptance claim.",
+  "readability": "Actual1280/1600 native full canvases plus original details required; no enlarged capture can pass the small dock on its own.",
+  "verification": "Parser/inference/official4.7.2analyzer, full inherited circle sequence both widths and all4 earned return, exact source/region assertions, direct full-frame review; device/child/owner remain separate.",
+  "predicted_score": null,
+  "owner_acceptance": null,
+  "current_review": "DIRECT_REVIEW_A2.json",
+  "status": "REJECTED_WHOLE_ACTION_3_8_CUE_2_4_CONTINUITY_4_0"
+}

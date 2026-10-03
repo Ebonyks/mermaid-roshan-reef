@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "exit": 0,
+  "command": [
+    "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "tools/audit_game_2d.py",
+    "--regression-gate"
+  ],
+  "elapsed_seconds": 77.70312950003427,
+  "finished_utc": "2026-10-03T06:29:56.353687+00:00",
+  "qualification": "Machine structural/regression evidence only; exact raw streams preserved, no visual or strict-zero 2D acceptance."
+}

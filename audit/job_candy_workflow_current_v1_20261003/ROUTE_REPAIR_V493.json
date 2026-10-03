@@ -1,0 +1,19 @@
+{
+  "status": "FOUR_STORY_STATIONS_REPAIRED_CAPTURE_PENDING",
+  "recorded_utc": "2026-10-03T04:16:56.794732+00:00",
+  "baseline": "c5977ebb29bb2011b20fc149ad350290f045045c",
+  "production_original": "attempt02/fixture_originals/production_world.gd.original",
+  "changes": [
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "baseline_sha256": "36de131d46713f08171b200aa9bd81f2de7645c43866e2adbb259827c3cd5703",
+      "capture_sha256": "501cec2f90a16ed66dd10fabacc04d1285061a682cf39ad0ad0481c2e2661131"
+    }
+  ],
+  "diagnostics": [
+    "entry_diagnostic/ENTRY_1280.json",
+    "entry_diagnostic/ENTRY_1600.json"
+  ],
+  "scope": "Four name-to-landmark bindings and exact story ingredient invitations only. All original freeplay keys retained. Input, goals, saves, progress, story order, masks, callback and art bytes unchanged. Not a graphics-quality pass.",
+  "owner_acceptance": null
+}

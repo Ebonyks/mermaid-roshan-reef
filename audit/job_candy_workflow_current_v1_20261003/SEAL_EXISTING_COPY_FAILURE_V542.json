@@ -1,0 +1,8 @@
+{
+  "status": "PRESERVED_EXISTING_TARGET_COPY_FAILURE",
+  "error": "OSError [Errno22] Invalid argument copying the prepared sealer to its existing review_tools path",
+  "source_sha256": "2e425b286bc892ad5b905b051ec66c0074aca371eb42cbd2f31afa7c4e08dd2c",
+  "target_sha256": "2e425b286bc892ad5b905b051ec66c0074aca371eb42cbd2f31afa7c4e08dd2c",
+  "identical": true,
+  "correction": "Run the already identical saved review_tools helper directly. Its self-copy branch is unnecessary when the calling path is the target. No source or validator modification; no sealed map, commit or push yet."
+}

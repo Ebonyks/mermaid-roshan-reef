@@ -1,0 +1,825 @@
+{
+  "baseline": "c5977ebb29bb2011b20fc149ad350290f045045c",
+  "created_utc": "2026-10-03T04:02:37.766038+00:00",
+  "rules": [
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-INT-04",
+    "DL-INT-06",
+    "DL-INT-12",
+    "DL-LAY-07",
+    "DL-MED-01",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-06",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004",
+    "MA-OPERA-012"
+  ],
+  "scope": "Expand current action audit to Candy Maker: all4 normal/freeplay phases and all4 story phases reached through actual Kitchen card/input. Complete wrapping and glaze circle action at both1280/1600, selected canvases for remaining phases. Prior Farmer/Chef story completion is an explicitly isolated restored-save fixture. No production edits or inferred broader story acceptance.",
+  "named_gap": "User asks truthful visible physical action, including candy actually being wrapped. Current training crank replaces the old duplicated backdrop mover with flat candy/end polygons; story uses a distinct five-strawberry glaze action and transparent legacy input surface. Neither code nor a source score proves wrapping/glazing/contact visually.",
+  "reuse_inventory": [
+    {
+      "path": "assets/chapter2/birthday/chapter2_candied_strawberries_tray.png",
+      "sha256": "67caf1c52179a25407344905bdd5d83936721bdcfdc3b5bd274cf18663136839",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/chapter2/birthday/chapter2_chef_frosted_rainbow_cake.png",
+      "sha256": "6937204494c98147552cb463b65c11104ffc43c85d9ca7bc907865601f2efc46",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/chapter2/birthday/chapter2_grand_five_strawberry_cake.png",
+      "sha256": "91dbeb1f9c634eebac04cd61f29318a3f4da6c2486fcab1182cdbf93668cad59",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/chapter2/birthday/sky_lagoon_strawberry_single.png",
+      "sha256": "3bef406012e9a5ec90e18d3709b361f0ad0f9926f0961e05aac67e3e0c454c5f",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png",
+      "sha256": "b858c07f52d4f67679a39dd039afc7123199646442c067368425f8f46deec179",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_candymaker.png",
+      "sha256": "c76f9ded2e13b236282e063133ff2f9af667cc9588ab81e409dd85a67acd618f",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_candymaker_bopped.png",
+      "sha256": "c5091363e53b2b24b56bc4d30815ca46be3f418bd5655d9ee06109b8288a0e4d",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_candymaker_bow.png",
+      "sha256": "1d95927b0f947ea19b971ae85a77109ad644d6cc741f1cabe178c9c6bde3b1c7",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_candymaker_charge.png",
+      "sha256": "a35e2ed00054326a2a975142c1a5f3f9d4a22e363755cbe1f5ebffe6328b2f22",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_candymaker_flee.png",
+      "sha256": "db811eb6f63090a451677d5ff3c864af30ca9e669605f1f49bb9e1128b0e53af",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_candymaker_guard.png",
+      "sha256": "1448727af3105a196ba0e52e4e61fc2056597499e912648dcc25243f9980416d",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_candymaker_hop_a.png",
+      "sha256": "5f9cc788e4cbc1de93e59a5db561190c3b5da17776260f7479e241493d1711b9",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_candymaker_hop_b.png",
+      "sha256": "835ef43e9de0e4759b06c104664af1b24865205fecf40d167b47d23bc810ca78",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_candymaker_recover.png",
+      "sha256": "d29cc80a250322bbfb7c79510eb79b14c1b3994aecaf1c02a0c343e57aab838c",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_candymaker_slash.png",
+      "sha256": "b834f5a9120f609532af2b9fc629c6fae63a67b0bfed77d280f8e20f3a05485b",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_candymaker_stagger.png",
+      "sha256": "fed6f40cb90f685ef414f2711e1a3af211be460bcc72d90a9731e59e9721240d",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_candymaker_taunt.png",
+      "sha256": "607eff2c83f6f48926b05787fa918207d147df3de400b25540e4003a276d4ff8",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_candymaker_windup.png",
+      "sha256": "fbf01d38810d99f2a18222f558a69f22de66b37791dad2d2fe37803cf58e34bc",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/actors/roshan_candymaker.png",
+      "sha256": "6c933ee8695e12ec2156615025f135d3c778ddd281b526c07c991f2b829b4ce5",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/stage_candymaker_c0r0.png",
+      "sha256": "994e9311841c21ebbfbbd2defcf97cfa9982a5b14726032c4176ae97d586b040",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/stage_candymaker_c0r1.png",
+      "sha256": "fde2e660380b323a75628e15756334dd6345a9b7dbe8830f5aa7b4d54bdc3bcc",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/stage_candymaker_c1r0.png",
+      "sha256": "44eb1e36ac758dcd135cfd6de84f7f992209f67a02c9b81e189051b6471fb8bf",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/stage_candymaker_c1r1.png",
+      "sha256": "501ff6b6b089ef9ad809443c1cb57e0e7a1fc7446f5c1352d6991f4e5d343125",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_candymaker.png",
+      "sha256": "19ac984638fea33e0f0cb649b7d51b1364f13c36f0e5c5dd4e883dc283ef5d48",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_candymaker_c0r0.png",
+      "sha256": "c3bf6be20a34de6070ac763c640f19f39ce13ee40bc580d737a79490caab4d86",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_candymaker_c0r1.png",
+      "sha256": "8ea70a93e5703ff7f3a07a5ec5c1812c1e1bb16805c2f83e3a889e4e44e85483",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_candymaker_c1r0.png",
+      "sha256": "4b573a1689e3c21cd920f727d6139e5cae4acdabb02960db70eaa313cd798106",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_candymaker_c1r1.png",
+      "sha256": "167626be69d208d4080ba0cb302278a20d39d74505b2fcc56923f3c7a0a8bc2c",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_candymaker.png",
+      "sha256": "91bb2f1d37fdfbba62ab5a77898a517980a5b652ed89f655fe8492dd75b3666a",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_candymaker.png",
+      "sha256": "555234adf644fb4b28f52173dd116b438ce3a9fcebf2bf194a88f3b77220893e",
+      "dimensions": [
+        1024,
+        608
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_candymaker_mover.png",
+      "sha256": "4e77bdc100f28a4a4639190c9be820ed9b05f6361d7ebf16fb250dbde92b585f",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_candymaker_progress.png",
+      "sha256": "abf4e89876709e9093157eab4fdaadc30713f475deabb409d9d6958a5d3480f1",
+      "dimensions": [
+        1024,
+        608
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_lanes_candymaker.png",
+      "sha256": "4dd684c76c806ea5a6b2f462fce5d5770a8f81702c2ba61e0af148da75cd2bec",
+      "dimensions": [
+        1024,
+        608
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_lanes_candymaker_lit.png",
+      "sha256": "26639d304ef61822515f1884babdc1e1710c177778e93c003ef5598bb9d4c244",
+      "dimensions": [
+        768,
+        256
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pour_candymaker.png",
+      "sha256": "61edcafc22daf96ef520bff323af96e4201a6495ec2616cd8205d07da605f4bf",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pour_candymaker_fill.png",
+      "sha256": "e4f974c8c8a285fd0c17922060d9bec8e4a2f83a9cfc4e69e1af378037eafa89",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pour_candymaker_mover.png",
+      "sha256": "0a89ed399b46856e1fc70dd8da51b0541301866a36b0a8867ca82c5b0e8edb9e",
+      "dimensions": [
+        512,
+        256
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_pour_candymaker_mover_empty.png",
+      "sha256": "3d67f08d00dc521c8c9ad3abe47d7bfdafc7c36f81c56386317887e299f21062",
+      "dimensions": [
+        512,
+        256
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_candymaker.png",
+      "sha256": "bcf00f8b6b2e7893e4d998d9ae1db518800b606e30bd9e8c6ad12c0827e51210",
+      "dimensions": [
+        1024,
+        608
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_candymaker_mark.png",
+      "sha256": "83eb2d6df59ca684fe4f909392cba364838417b74a02c2ae8ee716ea037207b2",
+      "dimensions": [
+        128,
+        128
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_candymaker_mover.png",
+      "sha256": "b8c18e292f5b0265679b1c0eb4cbf43f7625024fb49497d8d05019471ab87d2f",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_candymaker_piece_0.png",
+      "sha256": "6265a6fa3bba2a55b29764dff19556dd11f631218b9081507575d46ef10cc60d",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_candymaker_piece_1.png",
+      "sha256": "baeaaf52b3d8dcae643888e4a3665d3f555df80514bafa3988ae1f1365b90cbb",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_candymaker_piece_2.png",
+      "sha256": "f65229623f611d59cf4b5fb180e976e7956c065a66ae622bc6996d2a77dfa63e",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_track_candymaker.png",
+      "sha256": "4d320296f1de6d0ee19230c10e75ebed83402579fd40286e474f746d1c54c013",
+      "dimensions": [
+        1024,
+        608
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_track_candymaker_mover.png",
+      "sha256": "f206c7e2c4a42ee4ce1be83e696ab55c68db4f16de1470dc4115ab1f491202e4",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    }
+  ],
+  "existing_register_items": [
+    {
+      "id": "D2F-0049",
+      "kind": "pose cell",
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png"
+    },
+    {
+      "id": "D2F-0050",
+      "kind": "pose cell",
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png"
+    },
+    {
+      "id": "D2F-0051",
+      "kind": "pose cell",
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png"
+    },
+    {
+      "id": "D2F-0052",
+      "kind": "pose cell",
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png"
+    },
+    {
+      "id": "D2F-0053",
+      "kind": "pose cell",
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png"
+    },
+    {
+      "id": "D2F-0054",
+      "kind": "pose cell",
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png"
+    },
+    {
+      "id": "D2F-0055",
+      "kind": "pose cell",
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png"
+    },
+    {
+      "id": "D2F-0056",
+      "kind": "pose cell",
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png"
+    },
+    {
+      "id": "D2F-0057",
+      "kind": "pose cell",
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png"
+    },
+    {
+      "id": "D2F-0058",
+      "kind": "pose cell",
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png"
+    },
+    {
+      "id": "D2F-0059",
+      "kind": "pose cell",
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png"
+    },
+    {
+      "id": "D2F-0060",
+      "kind": "pose cell",
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png"
+    },
+    {
+      "id": "D2F-0061",
+      "kind": "pose cell",
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png"
+    },
+    {
+      "id": "D2F-0062",
+      "kind": "pose cell",
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png"
+    },
+    {
+      "id": "D2F-0063",
+      "kind": "pose cell",
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png"
+    },
+    {
+      "id": "D2F-0064",
+      "kind": "pose cell",
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png"
+    },
+    {
+      "id": "D2A-0066",
+      "kind": "source",
+      "path": "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png"
+    },
+    {
+      "id": "D2A-0140",
+      "kind": "source",
+      "path": "assets/opera/worlds/actors/rival_candymaker.png"
+    },
+    {
+      "id": "D2A-0141",
+      "kind": "source",
+      "path": "assets/opera/worlds/actors/rival_candymaker_bopped.png"
+    },
+    {
+      "id": "D2A-0142",
+      "kind": "source",
+      "path": "assets/opera/worlds/actors/rival_candymaker_bow.png"
+    },
+    {
+      "id": "D2A-0143",
+      "kind": "source",
+      "path": "assets/opera/worlds/actors/rival_candymaker_charge.png"
+    },
+    {
+      "id": "D2A-0144",
+      "kind": "source",
+      "path": "assets/opera/worlds/actors/rival_candymaker_flee.png"
+    },
+    {
+      "id": "D2A-0145",
+      "kind": "source",
+      "path": "assets/opera/worlds/actors/rival_candymaker_guard.png"
+    },
+    {
+      "id": "D2A-0146",
+      "kind": "source",
+      "path": "assets/opera/worlds/actors/rival_candymaker_hop_a.png"
+    },
+    {
+      "id": "D2A-0147",
+      "kind": "source",
+      "path": "assets/opera/worlds/actors/rival_candymaker_hop_b.png"
+    },
+    {
+      "id": "D2A-0148",
+      "kind": "source",
+      "path": "assets/opera/worlds/actors/rival_candymaker_recover.png"
+    },
+    {
+      "id": "D2A-0149",
+      "kind": "source",
+      "path": "assets/opera/worlds/actors/rival_candymaker_slash.png"
+    },
+    {
+      "id": "D2A-0150",
+      "kind": "source",
+      "path": "assets/opera/worlds/actors/rival_candymaker_stagger.png"
+    },
+    {
+      "id": "D2A-0151",
+      "kind": "source",
+      "path": "assets/opera/worlds/actors/rival_candymaker_taunt.png"
+    },
+    {
+      "id": "D2A-0152",
+      "kind": "source",
+      "path": "assets/opera/worlds/actors/rival_candymaker_windup.png"
+    },
+    {
+      "id": "D2A-0260",
+      "kind": "source",
+      "path": "assets/opera/worlds/actors/roshan_candymaker.png"
+    },
+    {
+      "id": "D2A-0283",
+      "kind": "source",
+      "path": "assets/opera/worlds/backdrops/stage_candymaker_c0r0.png"
+    },
+    {
+      "id": "D2A-0284",
+      "kind": "source",
+      "path": "assets/opera/worlds/backdrops/stage_candymaker_c0r1.png"
+    },
+    {
+      "id": "D2A-0285",
+      "kind": "source",
+      "path": "assets/opera/worlds/backdrops/stage_candymaker_c1r0.png"
+    },
+    {
+      "id": "D2A-0286",
+      "kind": "source",
+      "path": "assets/opera/worlds/backdrops/stage_candymaker_c1r1.png"
+    },
+    {
+      "id": "D2A-0338",
+      "kind": "source",
+      "path": "assets/opera/worlds/backdrops/world_candymaker.png"
+    },
+    {
+      "id": "D2A-0339",
+      "kind": "source",
+      "path": "assets/opera/worlds/backdrops/world_candymaker_c0r0.png"
+    },
+    {
+      "id": "D2A-0340",
+      "kind": "source",
+      "path": "assets/opera/worlds/backdrops/world_candymaker_c0r1.png"
+    },
+    {
+      "id": "D2A-0341",
+      "kind": "source",
+      "path": "assets/opera/worlds/backdrops/world_candymaker_c1r0.png"
+    },
+    {
+      "id": "D2A-0342",
+      "kind": "source",
+      "path": "assets/opera/worlds/backdrops/world_candymaker_c1r1.png"
+    },
+    {
+      "id": "D2A-0404",
+      "kind": "source",
+      "path": "assets/opera/worlds/props/goal_candymaker.png"
+    },
+    {
+      "id": "D2A-0472",
+      "kind": "source",
+      "path": "assets/opera/worlds/widgets/widget_crank_candymaker.png"
+    },
+    {
+      "id": "D2A-0473",
+      "kind": "source",
+      "path": "assets/opera/worlds/widgets/widget_crank_candymaker_mover.png"
+    },
+    {
+      "id": "D2A-0474",
+      "kind": "source",
+      "path": "assets/opera/worlds/widgets/widget_crank_candymaker_progress.png"
+    },
+    {
+      "id": "D2A-0511",
+      "kind": "source",
+      "path": "assets/opera/worlds/widgets/widget_lanes_candymaker.png"
+    },
+    {
+      "id": "D2A-0512",
+      "kind": "source",
+      "path": "assets/opera/worlds/widgets/widget_lanes_candymaker_lit.png"
+    },
+    {
+      "id": "D2A-0532",
+      "kind": "source",
+      "path": "assets/opera/worlds/widgets/widget_pour_candymaker.png"
+    },
+    {
+      "id": "D2A-0533",
+      "kind": "source",
+      "path": "assets/opera/worlds/widgets/widget_pour_candymaker_fill.png"
+    },
+    {
+      "id": "D2A-0534",
+      "kind": "source",
+      "path": "assets/opera/worlds/widgets/widget_pour_candymaker_mover.png"
+    },
+    {
+      "id": "D2A-0535",
+      "kind": "source",
+      "path": "assets/opera/worlds/widgets/widget_pour_candymaker_mover_empty.png"
+    },
+    {
+      "id": "D2A-0565",
+      "kind": "source",
+      "path": "assets/opera/worlds/widgets/widget_target_candymaker.png"
+    },
+    {
+      "id": "D2A-0566",
+      "kind": "source",
+      "path": "assets/opera/worlds/widgets/widget_target_candymaker_mark.png"
+    },
+    {
+      "id": "D2A-0567",
+      "kind": "source",
+      "path": "assets/opera/worlds/widgets/widget_target_candymaker_mover.png"
+    },
+    {
+      "id": "D2A-0568",
+      "kind": "source",
+      "path": "assets/opera/worlds/widgets/widget_target_candymaker_piece_0.png"
+    },
+    {
+      "id": "D2A-0569",
+      "kind": "source",
+      "path": "assets/opera/worlds/widgets/widget_target_candymaker_piece_1.png"
+    },
+    {
+      "id": "D2A-0570",
+      "kind": "source",
+      "path": "assets/opera/worlds/widgets/widget_target_candymaker_piece_2.png"
+    },
+    {
+      "id": "D2A-0608",
+      "kind": "source",
+      "path": "assets/opera/worlds/widgets/widget_track_candymaker.png"
+    },
+    {
+      "id": "D2A-0609",
+      "kind": "source",
+      "path": "assets/opera/worlds/widgets/widget_track_candymaker_mover.png"
+    }
+  ],
+  "route_sources": {
+    "scripts/castle_career_routes.gd": "3b0ccd30cf5db7a85b29e82469ad1a9101918f91ab48dac37b3bda9ddf80c090",
+    "scripts/opera_house.gd": "09a70ca5f9abd836f66a2327e62553b8d603f9318845c404d7d3527fee953910",
+    "scripts/opera_career_world_2d.gd": "36de131d46713f08171b200aa9bd81f2de7645c43866e2adbb259827c3cd5703",
+    "scripts/opera_gesture_surface.gd": "c28a885f68f2b16c66fcdaa5c4243ce9695a44d4ce015e56832ca392114cbedb",
+    "scripts/chapter_two_director.gd": "789ee737eec9477c8b1d6a89b60b6747accc14a6568b2dfa924fa3e5fca42d8d",
+    "scripts/chapter_two_career_scene_adapter.gd": "ffdcd602711a6acc42a5c6352ad8cbb701316f94c21233356fb56071f85ad40a",
+    "scripts/opera_performance_plan.gd": "25517580638edcc8f63375ec6b14fd0de89287ed08af00111fec1d467cce6da3"
+  },
+  "production_method": "Unmodified actual runtime review capture; no image generation or substitution.",
+  "required_evidence": [
+    "Fresh parser/inference/officialGodot4.7.2 analyzer",
+    "Four actual-input captures, explicit prerequisite fixture, all phases earned and normal Kitchen returns",
+    "Every original circle sequence canvas ordered/directly reviewed; source details, individual scores and complete-action/contact opinions kept separate",
+    "All783 production source hashes unchanged; current registry counts remain source vs action distinct",
+    "Document authority/impact coverage/existing applicable gates; exact scoped GitHub publication and complete anonymous byte verification"
+  ],
+  "owner_acceptance": null,
+  "predicted_score": null,
+  "correction": "The failed A1 fixture incorrectly expected the obsolete six-phase LEGACY table. The current PHASES table contains4 Candy Maker phases, with circle/WRAP at2. Actual entry correctly loaded4, and the assertion stopped before any phase was opened/worked. Original fixture, raw logs and the captured Kitchen card are preserved. A2 uses the current4-phase table; both lanes circle at2. No production change or game failure is inferred."
+}

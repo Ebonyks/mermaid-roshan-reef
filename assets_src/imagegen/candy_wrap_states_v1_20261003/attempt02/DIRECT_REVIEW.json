@@ -1,0 +1,44 @@
+{
+  "status": "A2_MATERIALS_REUSABLE_FIXED_CELL_ALIGNMENT_BELOW_FLOOR",
+  "direct_native_review": true,
+  "native_sha256": "c2c274815bfb0339e66282fafd7e27ac2a4d8efab5922d1e907c4ec23c437d83",
+  "opinions": [
+    {
+      "item": "open candy and paper",
+      "score": 4.6,
+      "evaluation": "Clear coral sweet on a warm-gold painted sheet. Creases and plum contour integrate much better with the game materials than the flat live oval."
+    },
+    {
+      "item": "folded paper",
+      "score": 4.5,
+      "evaluation": "Visible paper overlaps cover the belly, with small coral ends still exposed; broad folds explain coverage. The body and folded sheet retain the same pastel material identity."
+    },
+    {
+      "item": "covered body/open ends",
+      "score": 4.5,
+      "evaluation": "Connected fans and necks make the wrapper continuous with the concealed body. Static source appearance only."
+    },
+    {
+      "item": "twisted ends",
+      "score": 4.6,
+      "evaluation": "Two attached fans terminate in clear spiral neck creases; no extra loose gold triangles. Strong static endpoint."
+    },
+    {
+      "item": "atlas isolation",
+      "score": 4.5,
+      "evaluation": "All four alpha128 subject bounds stay inside their cells with visible gutters. Low-alpha edge residues are retained and still require in-context alpha review."
+    },
+    {
+      "item": "fixed-cell alignment",
+      "score": 4.2,
+      "evaluation": "Both top subjects center at local y349.5; lower subjects at298/297. A fixed627-square region would jump about52 native pixels on coverage, and left/right x centers differ about25. Do not present aligned runtime action as proven. Use a fresh one-row generation to remove this layout defect."
+    },
+    {
+      "item": "complete fixed-cell atlas",
+      "score": 4.2,
+      "evaluation": "Material appearance passes provisionally; fixed-cell state changes remain below floor. No runtime or action binding."
+    }
+  ],
+  "runtime_bound": false,
+  "owner_acceptance": null
+}

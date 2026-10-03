@@ -1,0 +1,5044 @@
+{
+  "status": "PLANNED_NATIVE_SOURCE_AND_AUTHORED_CELL_REVIEW",
+  "created_utc": "2026-10-03T06:19:46.031960+00:00",
+  "baseline": "c5977ebb29bb2011b20fc149ad350290f045045c",
+  "source_files": [
+    {
+      "id": "D2X-0001",
+      "path": "assets/flats/castle/interactions_v2/kitchen_sink_sheet.png",
+      "sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
+      "bytes": 376480,
+      "dimensions": [
+        1024,
+        512
+      ],
+      "mode": "RGBA",
+      "cells": [
+        {
+          "index": 0,
+          "region": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            9,
+            115,
+            248,
+            250
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 1,
+          "region": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            9,
+            115,
+            249,
+            250
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 2,
+          "region": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            10,
+            114,
+            249,
+            250
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 3,
+          "region": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            10,
+            114,
+            249,
+            250
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 4,
+          "region": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            10,
+            115,
+            249,
+            250
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 5,
+          "region": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            10,
+            115,
+            250,
+            250
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 6,
+          "region": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            10,
+            115,
+            249,
+            250
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 7,
+          "region": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            11,
+            115,
+            250,
+            250
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        }
+      ],
+      "current_source_contract": {
+        "path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+        "sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+        "binding": {
+          "id": "kitchen_sink",
+          "room": "kitchen",
+          "item_id": "sink",
+          "instances": [
+            "sink"
+          ],
+          "semantic_action": "turn_faucet_and_run_water",
+          "render_mode": "generated_full_object_states",
+          "frame_count": 8,
+          "hframes": 4,
+          "vframes": 2,
+          "sound": "assets/audio/castle/faucet_water.ogg",
+          "close_sound": "",
+          "sound_frame": 0,
+          "pitch": 1.0,
+          "close_pitch": 1.0,
+          "frame_duration_seconds": 0.15,
+          "fixed_pivot": true,
+          "root_transform_animation": false,
+          "secondary_root_physics": false,
+          "normalized_use_review": "codex_visual_review_accepted_2026-08-01",
+          "sheet": "assets/flats/castle/interactions_v2/kitchen_sink_sheet.png",
+          "sheet_sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
+          "raw_chroma_master": "assets_src/imagegen/castle_object_animations_v2/wet_rooms/kitchen_sink_sheet_chroma.png",
+          "raw_chroma_master_sha256": "ca1ab8df06e3ac5246016de2eddfe239afd3d4f4ab19505d39b786fd485bebd9",
+          "design_reference": "assets/flats/castle/rooms/room_kitchen_item_sink.png",
+          "design_reference_sha256": "bba1e6e2244451e45011be505d12e0db189b358f6de3ac0e3bf0e26b61e7b89e",
+          "placement_reference": "assets/flats/castle/interactions/kitchen_sink_atlas.png",
+          "placement_reference_sha256": "282bfff845d8b2f3e666202241465d36ba3cc3e0a45195c648b04735d2d92dc4",
+          "placement_geometry_role": "v1_runtime_rest_cell",
+          "grid": [
+            4,
+            2
+          ],
+          "authored_frame_count": 8,
+          "timeline_sequence": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "timeline_frame_count": 9,
+          "cell_size": [
+            256,
+            256
+          ],
+          "frame_bboxes": [
+            [
+              9,
+              115,
+              248,
+              250
+            ],
+            [
+              9,
+              115,
+              249,
+              250
+            ],
+            [
+              10,
+              114,
+              249,
+              250
+            ],
+            [
+              10,
+              114,
+              249,
+              250
+            ],
+            [
+              10,
+              115,
+              249,
+              250
+            ],
+            [
+              10,
+              115,
+              250,
+              250
+            ],
+            [
+              10,
+              115,
+              249,
+              250
+            ],
+            [
+              11,
+              115,
+              250,
+              250
+            ]
+          ],
+          "frame_sha256": [
+            "516325481f969b41b9be1558ddb354074e74b8f27f90002b09d358b6fce1fd24",
+            "5a38e5263e9077496033457e29a5aa18cbf9523b211d7e89c680e9934681b4f4",
+            "7c2a728ca0bc1005301b5e527c8ed829dbce9ac8817c09f9c664788a84f50e95",
+            "57ba7dc3e0c39b82cd489823ab9549807dbf93a7d88c3d721eabf9db4d7bd230",
+            "c529f5fa3638194cab2edb38f558532be65d2350e98dacec9299100b2ddc5859",
+            "be9d276f148bbc0b18be6f713ee13e50a1c459705331a9767685aeeae5e7be20",
+            "046efaa1d698d45143cefd526afbc70c03dbeac14b1f26e4edbb6779e7107f03",
+            "d5c8154ad784cce2a6029a4a01eb9af817632d864bc1bd94b532deebd679d289"
+          ],
+          "unique_frame_count": 8,
+          "placement_size": [
+            201,
+            124
+          ],
+          "placement_bbox": [
+            15,
+            7,
+            180,
+            101
+          ],
+          "alignment_frame": 0,
+          "anchor_mode": "bottom_center",
+          "runtime_scale": 0.69333011,
+          "runtime_center_offset": [
+            97.5,
+            16.413726
+          ],
+          "hall_center_offset": [
+            -3.0,
+            -45.586274
+          ],
+          "rest_frame": 0,
+          "transparent_pixels": 369021,
+          "partial_alpha_pixels": 18046,
+          "opaque_pixels": 137221,
+          "total_pixels": 524288,
+          "transparent_border": true,
+          "normalization": {
+            "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
+            "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+            "uniform_scale": 0.953125,
+            "padding_pixels": 6,
+            "anchor_spread_pixels": [
+              0.5,
+              0.0
+            ],
+            "alpha_matte_recovered": true,
+            "alpha_recovery": "5x5 interior opacity plus 1.35x soft-edge alpha",
+            "rgb_subject_repainted": false,
+            "whole_object_translation_only": true,
+            "whole_sheet_uniform_scale_only": true,
+            "repainted_pixels": false
+          },
+          "physics_mode": "none",
+          "physics_pivot": [
+            0.5,
+            0.5
+          ],
+          "water_layers": [
+            {
+              "role": "stream",
+              "shape": "polygon",
+              "stream": true,
+              "points": [
+                [
+                  0.61,
+                  0.315
+                ],
+                [
+                  0.645,
+                  0.32
+                ],
+                [
+                  0.57,
+                  0.6
+                ],
+                [
+                  0.53,
+                  0.6
+                ]
+              ],
+              "z_offset": 0.01,
+              "render_priority": 2
+            },
+            {
+              "role": "basin",
+              "shape": "ellipse",
+              "center": [
+                0.515,
+                0.6
+              ],
+              "radius": [
+                0.235,
+                0.06
+              ],
+              "z_offset": 0.009,
+              "flow_start": 0.12,
+              "render_priority": 1
+            }
+          ],
+          "primary_animation_is_overlay": false,
+          "generated_hidden_surfaces": false,
+          "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/wet_rooms/provenance.json",
+          "provenance_manifest_sha256": "2acf5fd0cde3610f1af4ca9bac29a8bbecacdcb354ad2ea8138370d22a77f515"
+        },
+        "exact_native_hash_match": true
+      },
+      "historical_ownership_binding": {
+        "asset_id": "kitchen_sink",
+        "frame_count": 8,
+        "grid": [
+          4,
+          2
+        ],
+        "instance": "sink",
+        "pack": "v2_base",
+        "position": [
+          62.0,
+          176.0
+        ],
+        "runtime_center_offset": [
+          97.5,
+          16.413726
+        ],
+        "runtime_scale": 0.69333011,
+        "sheet": "assets/flats/castle/interactions_v2/kitchen_sink_sheet.png",
+        "sheet_sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
+        "union": {
+          "bbox": [
+            77,
+            183,
+            244,
+            277
+          ],
+          "owned_pixels": 8974,
+          "raw_pixel_sha256": "914409d2949f34b872572276fdef88f11fd28d53bc44b2d54fc893fbda234f55"
+        }
+      },
+      "source_review_status": "PENDING",
+      "source_score": null,
+      "source_scope": "Whole existing native source and each exact authored cell; no mounted-use or complete-action acceptance."
+    },
+    {
+      "id": "D2X-0002",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_1_sheet.png",
+      "sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
+      "bytes": 250515,
+      "dimensions": [
+        1024,
+        512
+      ],
+      "mode": "RGBA",
+      "cells": [
+        {
+          "index": 0,
+          "region": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            68,
+            6,
+            189,
+            206
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 1,
+          "region": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            80,
+            6,
+            203,
+            205
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 2,
+          "region": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            58,
+            6,
+            205,
+            197
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 3,
+          "region": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            74,
+            6,
+            178,
+            210
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 4,
+          "region": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            64,
+            6,
+            190,
+            201
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 5,
+          "region": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            62,
+            6,
+            182,
+            206
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 6,
+          "region": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            62,
+            6,
+            194,
+            196
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 7,
+          "region": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            63,
+            6,
+            188,
+            203
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        }
+      ],
+      "current_source_contract": {
+        "path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+        "sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+        "binding": {
+          "id": "kitchen_pan_1",
+          "room": "kitchen",
+          "item_id": "pan_1",
+          "instances": [
+            "pan_1"
+          ],
+          "semantic_action": "swing_pan_on_hook",
+          "render_mode": "generated_full_object_states",
+          "frame_count": 8,
+          "hframes": 4,
+          "vframes": 2,
+          "sound": "assets/audio/castle/pan_clang.ogg",
+          "close_sound": "",
+          "sound_frame": 0,
+          "pitch": 1.0,
+          "close_pitch": 1.0,
+          "frame_duration_seconds": 0.115,
+          "fixed_pivot": true,
+          "root_transform_animation": true,
+          "secondary_root_physics": true,
+          "normalized_use_review": "codex_visual_review_accepted_2026-08-01",
+          "sheet": "assets/flats/castle/interactions_v2/kitchen_pan_1_sheet.png",
+          "sheet_sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
+          "raw_chroma_master": "assets_src/imagegen/castle_object_animations_v2/kitchen_pans/kitchen_pan_1_sheet_chroma.png",
+          "raw_chroma_master_sha256": "8273354ce50b05c263719a36b5e6cad11e122fc4cdddeb79b9174b5d8e33bade",
+          "design_reference": "assets/flats/castle/rooms/room_kitchen_item_pan_1.png",
+          "design_reference_sha256": "19f5a340485c9d29ef5a99cf8e2926ba021d4b5e652baea7e5adee0c043f9914",
+          "placement_reference": "assets/flats/castle/interactions/kitchen_pan_1_atlas.png",
+          "placement_reference_sha256": "5872fc12071852a41a80aa2dad45474c7ae4d16df10e4786bcc6170d3582e671",
+          "placement_geometry_role": "v1_runtime_rest_cell",
+          "grid": [
+            4,
+            2
+          ],
+          "authored_frame_count": 8,
+          "timeline_sequence": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            5,
+            3,
+            1,
+            0
+          ],
+          "timeline_frame_count": 12,
+          "cell_size": [
+            256,
+            256
+          ],
+          "frame_bboxes": [
+            [
+              68,
+              6,
+              189,
+              206
+            ],
+            [
+              80,
+              6,
+              203,
+              205
+            ],
+            [
+              58,
+              6,
+              205,
+              197
+            ],
+            [
+              74,
+              6,
+              178,
+              210
+            ],
+            [
+              64,
+              6,
+              190,
+              201
+            ],
+            [
+              62,
+              6,
+              182,
+              206
+            ],
+            [
+              62,
+              6,
+              194,
+              196
+            ],
+            [
+              63,
+              6,
+              188,
+              203
+            ]
+          ],
+          "frame_sha256": [
+            "e4806043319c596690fe1dd4a096b062e868f765e2dc585d50696fad546cb874",
+            "8999b2018b7c65c7b0f7bd067c0d52feab1621ceb9f91903e3a7b62c2f49bd8b",
+            "a63358393564e153ddc13b934a35b5938cdc1e1ba8481def4c957954dfca6845",
+            "f462fdba649b63d265648f3a64a5b7060cf0ce2b27eae3b8d8c2eb0b9407046e",
+            "beb764364b9b8c28c8a07cf10b823daf5dd562c135551103d24fa95386e032d5",
+            "08912cea222b241ad1754c68db90a8cc30cb6c9c4a6e585e99fd7e1fae46895a",
+            "2816fd717f5fcfbf1b6d46e81136d1d7a01731a4ef6f6b7574dfc21fc93aa2e8",
+            "c40dfa1401652c5f2ac94219e5073dad7b60d96fee5432a7121e17ea19b9af93"
+          ],
+          "unique_frame_count": 8,
+          "placement_size": [
+            41,
+            83
+          ],
+          "placement_bbox": [
+            3,
+            13,
+            40,
+            68
+          ],
+          "alignment_frame": 0,
+          "anchor_mode": "top_center",
+          "runtime_scale": 0.28998433,
+          "runtime_center_offset": [
+            21.5,
+            48.378088
+          ],
+          "hall_center_offset": [
+            1.0,
+            6.878088
+          ],
+          "rest_frame": 0,
+          "transparent_pixels": 413622,
+          "partial_alpha_pixels": 3209,
+          "opaque_pixels": 107457,
+          "total_pixels": 524288,
+          "transparent_border": true,
+          "normalization": {
+            "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
+            "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+            "uniform_scale": 1.0,
+            "padding_pixels": 6,
+            "anchor_spread_pixels": [
+              1.0,
+              0.0
+            ],
+            "alpha_matte_recovered": true,
+            "alpha_recovery": "5x5 interior opacity plus 1.35x soft-edge alpha",
+            "rgb_subject_repainted": false,
+            "whole_object_translation_only": true,
+            "whole_sheet_uniform_scale_only": true,
+            "repainted_pixels": false
+          },
+          "physics_mode": "hinge_z",
+          "physics_pivot": [
+            0.5,
+            0.04
+          ],
+          "water_layers": [],
+          "primary_animation_is_overlay": false,
+          "generated_hidden_surfaces": false,
+          "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/kitchen_pans/provenance.json",
+          "provenance_manifest_sha256": "b5695206558886fce52a67fd52f24a4fc8a033452dc68df9c7d28d2210fa0f64"
+        },
+        "exact_native_hash_match": true
+      },
+      "historical_ownership_binding": {
+        "asset_id": "kitchen_pan_1",
+        "frame_count": 8,
+        "grid": [
+          4,
+          2
+        ],
+        "instance": "pan_1",
+        "pack": "v2_base",
+        "position": [
+          300.0,
+          132.0
+        ],
+        "runtime_center_offset": [
+          21.5,
+          48.378088
+        ],
+        "runtime_scale": 0.28998433,
+        "sheet": "assets/flats/castle/interactions_v2/kitchen_pan_1_sheet.png",
+        "sheet_sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
+        "union": {
+          "bbox": [
+            301,
+            145,
+            344,
+            204
+          ],
+          "owned_pixels": 1484,
+          "raw_pixel_sha256": "fe15cd766759c8865a0fb63c94271cdd1711d383afff0eb5e76f6a9e457b046a"
+        }
+      },
+      "source_review_status": "PENDING",
+      "source_score": null,
+      "source_scope": "Whole existing native source and each exact authored cell; no mounted-use or complete-action acceptance."
+    },
+    {
+      "id": "D2X-0003",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_2_sheet.png",
+      "sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
+      "bytes": 233560,
+      "dimensions": [
+        1024,
+        512
+      ],
+      "mode": "RGBA",
+      "cells": [
+        {
+          "index": 0,
+          "region": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            72,
+            6,
+            184,
+            217
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 1,
+          "region": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            72,
+            6,
+            187,
+            212
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 2,
+          "region": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            72,
+            6,
+            190,
+            218
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 3,
+          "region": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            69,
+            6,
+            174,
+            225
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 4,
+          "region": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            79,
+            6,
+            167,
+            222
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 5,
+          "region": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            74,
+            6,
+            183,
+            218
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 6,
+          "region": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            71,
+            6,
+            190,
+            214
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 7,
+          "region": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            71,
+            6,
+            183,
+            218
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        }
+      ],
+      "current_source_contract": {
+        "path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+        "sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+        "binding": {
+          "id": "kitchen_pan_2",
+          "room": "kitchen",
+          "item_id": "pan_2",
+          "instances": [
+            "pan_2"
+          ],
+          "semantic_action": "swing_pan_on_hook",
+          "render_mode": "generated_full_object_states",
+          "frame_count": 8,
+          "hframes": 4,
+          "vframes": 2,
+          "sound": "assets/audio/castle/pan_clang.ogg",
+          "close_sound": "",
+          "sound_frame": 0,
+          "pitch": 1.0,
+          "close_pitch": 1.0,
+          "frame_duration_seconds": 0.115,
+          "fixed_pivot": true,
+          "root_transform_animation": true,
+          "secondary_root_physics": true,
+          "normalized_use_review": "codex_visual_review_accepted_2026-08-01",
+          "sheet": "assets/flats/castle/interactions_v2/kitchen_pan_2_sheet.png",
+          "sheet_sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
+          "raw_chroma_master": "assets_src/imagegen/castle_object_animations_v2/kitchen_pans/kitchen_pan_2_sheet_chroma.png",
+          "raw_chroma_master_sha256": "b5dfe85fa584525c16de65a440b9843a7c17ef3a9efb1236ad66795ff02b70cd",
+          "design_reference": "assets/flats/castle/rooms/room_kitchen_item_pan_2.png",
+          "design_reference_sha256": "3c3483f12ebdc42abe24a1fb5b832207f88e839f027004342acb2d27920cbf90",
+          "placement_reference": "assets/flats/castle/interactions/kitchen_pan_2_atlas.png",
+          "placement_reference_sha256": "573ff89a49240188a8931bdd96bf2880e3b0368c6c425b3011061818dfd1bb80",
+          "placement_geometry_role": "v1_runtime_rest_cell",
+          "grid": [
+            4,
+            2
+          ],
+          "authored_frame_count": 8,
+          "timeline_sequence": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            5,
+            3,
+            1,
+            0
+          ],
+          "timeline_frame_count": 12,
+          "cell_size": [
+            256,
+            256
+          ],
+          "frame_bboxes": [
+            [
+              72,
+              6,
+              184,
+              217
+            ],
+            [
+              72,
+              6,
+              187,
+              212
+            ],
+            [
+              72,
+              6,
+              190,
+              218
+            ],
+            [
+              69,
+              6,
+              174,
+              225
+            ],
+            [
+              79,
+              6,
+              167,
+              222
+            ],
+            [
+              74,
+              6,
+              183,
+              218
+            ],
+            [
+              71,
+              6,
+              190,
+              214
+            ],
+            [
+              71,
+              6,
+              183,
+              218
+            ]
+          ],
+          "frame_sha256": [
+            "cd72cde61c84a7196ee1711e6673fd3f3e4cd4dd7d961b20b3c43c53326ac708",
+            "2ab40001e790cb7558a95235340aa08fc0a02d4af6c09abd0359be0556c1c141",
+            "67e3648828bc451465299d8f180ea9617bc4431922f78c0c8a158628bfde8ae2",
+            "8d117342fc9fbb8f2d7d980fcbbde2f78fc05861bf790a2ffd5b8c02df5a9efe",
+            "0d648283d52fcac9e9c3a48a6742e20142b9b68ca60ed998c8909ef97a30cbd8",
+            "1d7866a467709a032174882f1b9c7058dabbba843ba71e7c6f903291f2cec689",
+            "ea626a987a9494d014053be1f7b4558f08ccc89474d2c70eedb57dad2d9b3cfd",
+            "9787b1341e32a36b82815a2be2594d7b262914f6c3415fddc94e8df3f1a365ca"
+          ],
+          "unique_frame_count": 8,
+          "placement_size": [
+            45,
+            83
+          ],
+          "placement_bbox": [
+            4,
+            4,
+            44,
+            70
+          ],
+          "alignment_frame": 0,
+          "anchor_mode": "top_center",
+          "runtime_scale": 0.33423485,
+          "runtime_center_offset": [
+            24.0,
+            44.776651
+          ],
+          "hall_center_offset": [
+            1.5,
+            3.276651
+          ],
+          "rest_frame": 0,
+          "transparent_pixels": 429689,
+          "partial_alpha_pixels": 3193,
+          "opaque_pixels": 91406,
+          "total_pixels": 524288,
+          "transparent_border": true,
+          "normalization": {
+            "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
+            "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+            "uniform_scale": 1.0,
+            "padding_pixels": 6,
+            "anchor_spread_pixels": [
+              0.5,
+              0.0
+            ],
+            "alpha_matte_recovered": true,
+            "alpha_recovery": "5x5 interior opacity plus 1.35x soft-edge alpha",
+            "rgb_subject_repainted": false,
+            "whole_object_translation_only": true,
+            "whole_sheet_uniform_scale_only": true,
+            "repainted_pixels": false
+          },
+          "physics_mode": "hinge_z",
+          "physics_pivot": [
+            0.5,
+            0.04
+          ],
+          "water_layers": [],
+          "primary_animation_is_overlay": false,
+          "generated_hidden_surfaces": false,
+          "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/kitchen_pans/provenance.json",
+          "provenance_manifest_sha256": "b5695206558886fce52a67fd52f24a4fc8a033452dc68df9c7d28d2210fa0f64"
+        },
+        "exact_native_hash_match": true
+      },
+      "historical_ownership_binding": {
+        "asset_id": "kitchen_pan_2",
+        "frame_count": 8,
+        "grid": [
+          4,
+          2
+        ],
+        "instance": "pan_2",
+        "pack": "v2_base",
+        "position": [
+          337.0,
+          132.0
+        ],
+        "runtime_center_offset": [
+          24.0,
+          44.776651
+        ],
+        "runtime_scale": 0.33423485,
+        "sheet": "assets/flats/castle/interactions_v2/kitchen_pan_2_sheet.png",
+        "sheet_sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
+        "union": {
+          "bbox": [
+            341,
+            136,
+            382,
+            209
+          ],
+          "owned_pixels": 1510,
+          "raw_pixel_sha256": "b6633b34ddbb349613b9060b20202d90ab5c90552090e6ebbc9fc9fdae650186"
+        }
+      },
+      "source_review_status": "PENDING",
+      "source_score": null,
+      "source_scope": "Whole existing native source and each exact authored cell; no mounted-use or complete-action acceptance."
+    },
+    {
+      "id": "D2X-0004",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_3_sheet.png",
+      "sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
+      "bytes": 376553,
+      "dimensions": [
+        1024,
+        512
+      ],
+      "mode": "RGBA",
+      "cells": [
+        {
+          "index": 0,
+          "region": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            47,
+            6,
+            213,
+            217
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 1,
+          "region": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            46,
+            6,
+            211,
+            217
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 2,
+          "region": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            46,
+            6,
+            213,
+            217
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 3,
+          "region": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            47,
+            6,
+            213,
+            217
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 4,
+          "region": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            47,
+            6,
+            213,
+            217
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 5,
+          "region": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            46,
+            6,
+            212,
+            217
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 6,
+          "region": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            46,
+            6,
+            213,
+            217
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 7,
+          "region": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            47,
+            6,
+            213,
+            217
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        }
+      ],
+      "current_source_contract": {
+        "path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+        "sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+        "binding": {
+          "id": "kitchen_pan_3",
+          "room": "kitchen",
+          "item_id": "pan_3",
+          "instances": [
+            "pan_3"
+          ],
+          "semantic_action": "swing_pan_on_hook",
+          "render_mode": "generated_full_object_states",
+          "frame_count": 8,
+          "hframes": 4,
+          "vframes": 2,
+          "sound": "assets/audio/castle/pan_clang.ogg",
+          "close_sound": "",
+          "sound_frame": 0,
+          "pitch": 1.0,
+          "close_pitch": 1.0,
+          "frame_duration_seconds": 0.115,
+          "fixed_pivot": true,
+          "root_transform_animation": true,
+          "secondary_root_physics": true,
+          "normalized_use_review": "codex_visual_review_accepted_2026-08-01",
+          "sheet": "assets/flats/castle/interactions_v2/kitchen_pan_3_sheet.png",
+          "sheet_sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
+          "raw_chroma_master": "assets_src/imagegen/castle_object_animations_v2/kitchen_pans/kitchen_pan_3_sheet_chroma.png",
+          "raw_chroma_master_sha256": "0f2554f2d185dc8512919bf893a33489c44ec5e859d43ed3de9e5ce6d657665b",
+          "design_reference": "assets/flats/castle/rooms/room_kitchen_item_pan_3.png",
+          "design_reference_sha256": "80ec47cc303a05833f585589f3a1ebdeec0627c4e3270fb5d5f3f622af46e2a8",
+          "placement_reference": "assets/flats/castle/interactions/kitchen_pan_3_atlas.png",
+          "placement_reference_sha256": "02b4be34a0cabd30eccd160148bd4781b8f03aa749a4005b1c6d06e27581ad9a",
+          "placement_geometry_role": "v1_runtime_rest_cell",
+          "grid": [
+            4,
+            2
+          ],
+          "authored_frame_count": 8,
+          "timeline_sequence": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            5,
+            3,
+            1,
+            0
+          ],
+          "timeline_frame_count": 12,
+          "cell_size": [
+            256,
+            256
+          ],
+          "frame_bboxes": [
+            [
+              47,
+              6,
+              213,
+              217
+            ],
+            [
+              46,
+              6,
+              211,
+              217
+            ],
+            [
+              46,
+              6,
+              213,
+              217
+            ],
+            [
+              47,
+              6,
+              213,
+              217
+            ],
+            [
+              47,
+              6,
+              213,
+              217
+            ],
+            [
+              46,
+              6,
+              212,
+              217
+            ],
+            [
+              46,
+              6,
+              213,
+              217
+            ],
+            [
+              47,
+              6,
+              213,
+              217
+            ]
+          ],
+          "frame_sha256": [
+            "1a82503445128eecf30a16cdf2bb0ccbdb0eba619fc34aa0ddb565b3ca58e7be",
+            "ba421165ea250fb1f1e99ff30be992b0bdacaeec45c32668ac295ba22a21a0c0",
+            "edd5b37f33165ec58dceaf6198fa63c88b920ff731456ac3fdf76aa0c799f375",
+            "124068ef0a12864bc6ac210b2d5af7bcd9f4fedd843910c618792c18c37e09d0",
+            "e281456fd28cb63b7784deabc17d278d24129584c39f3d7a74081105dc07ae77",
+            "07936a37f5b915a1429bac2f7663a638c8c987f5d014ec82b00e8d353558c1ba",
+            "f5e288a6d4c80614c395e69e090a913d1578dc248a55dd8a589ed0ccfbca1c79",
+            "9933c2b136f6268468313e35aeb696d72539b97a6ede9444eb0376e9febb420b"
+          ],
+          "unique_frame_count": 8,
+          "placement_size": [
+            45,
+            83
+          ],
+          "placement_bbox": [
+            4,
+            5,
+            44,
+            69
+          ],
+          "alignment_frame": 0,
+          "anchor_mode": "top_center",
+          "runtime_scale": 0.27034896,
+          "runtime_center_offset": [
+            24.0,
+            37.982574
+          ],
+          "hall_center_offset": [
+            1.5,
+            -3.517426
+          ],
+          "rest_frame": 0,
+          "transparent_pixels": 341947,
+          "partial_alpha_pixels": 3474,
+          "opaque_pixels": 178867,
+          "total_pixels": 524288,
+          "transparent_border": true,
+          "normalization": {
+            "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
+            "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+            "uniform_scale": 1.0,
+            "padding_pixels": 6,
+            "anchor_spread_pixels": [
+              0.5,
+              0.0
+            ],
+            "alpha_matte_recovered": true,
+            "alpha_recovery": "5x5 interior opacity plus 1.35x soft-edge alpha",
+            "rgb_subject_repainted": false,
+            "whole_object_translation_only": true,
+            "whole_sheet_uniform_scale_only": true,
+            "repainted_pixels": false
+          },
+          "physics_mode": "hinge_z",
+          "physics_pivot": [
+            0.5,
+            0.04
+          ],
+          "water_layers": [],
+          "primary_animation_is_overlay": false,
+          "generated_hidden_surfaces": false,
+          "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/kitchen_pans/provenance.json",
+          "provenance_manifest_sha256": "b5695206558886fce52a67fd52f24a4fc8a033452dc68df9c7d28d2210fa0f64"
+        },
+        "exact_native_hash_match": true
+      },
+      "historical_ownership_binding": {
+        "asset_id": "kitchen_pan_3",
+        "frame_count": 8,
+        "grid": [
+          4,
+          2
+        ],
+        "instance": "pan_3",
+        "pack": "v2_base",
+        "position": [
+          379.0,
+          132.0
+        ],
+        "runtime_center_offset": [
+          24.0,
+          37.982574
+        ],
+        "runtime_scale": 0.27034896,
+        "sheet": "assets/flats/castle/interactions_v2/kitchen_pan_3_sheet.png",
+        "sheet_sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
+        "union": {
+          "bbox": [
+            381,
+            137,
+            426,
+            194
+          ],
+          "owned_pixels": 1679,
+          "raw_pixel_sha256": "7ff832cd591b915e56d34b566b9f6bd88c1a1d17649334e357ff1d3ba091a6aa"
+        }
+      },
+      "source_review_status": "PENDING",
+      "source_score": null,
+      "source_scope": "Whole existing native source and each exact authored cell; no mounted-use or complete-action acceptance."
+    },
+    {
+      "id": "D2X-0005",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_4_sheet.png",
+      "sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
+      "bytes": 143077,
+      "dimensions": [
+        1024,
+        512
+      ],
+      "mode": "RGBA",
+      "cells": [
+        {
+          "index": 0,
+          "region": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            94,
+            6,
+            163,
+            232
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 1,
+          "region": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            100,
+            6,
+            163,
+            234
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 2,
+          "region": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            94,
+            6,
+            169,
+            232
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 3,
+          "region": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            100,
+            6,
+            169,
+            230
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 4,
+          "region": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            98,
+            6,
+            146,
+            226
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 5,
+          "region": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            92,
+            6,
+            150,
+            226
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 6,
+          "region": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            92,
+            6,
+            157,
+            225
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 7,
+          "region": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            98,
+            6,
+            164,
+            226
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        }
+      ],
+      "current_source_contract": {
+        "path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+        "sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+        "binding": {
+          "id": "kitchen_pan_4",
+          "room": "kitchen",
+          "item_id": "pan_4",
+          "instances": [
+            "pan_4"
+          ],
+          "semantic_action": "swing_pan_on_hook",
+          "render_mode": "generated_full_object_states",
+          "frame_count": 8,
+          "hframes": 4,
+          "vframes": 2,
+          "sound": "assets/audio/castle/pan_clang.ogg",
+          "close_sound": "",
+          "sound_frame": 0,
+          "pitch": 1.0,
+          "close_pitch": 1.0,
+          "frame_duration_seconds": 0.115,
+          "fixed_pivot": true,
+          "root_transform_animation": true,
+          "secondary_root_physics": true,
+          "normalized_use_review": "codex_visual_review_accepted_2026-08-01",
+          "sheet": "assets/flats/castle/interactions_v2/kitchen_pan_4_sheet.png",
+          "sheet_sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
+          "raw_chroma_master": "assets_src/imagegen/castle_object_animations_v2/kitchen_pans/kitchen_pan_4_sheet_chroma.png",
+          "raw_chroma_master_sha256": "c5a7573323c7f8b37a797fe179c8309c02422d1dfe208d7a3f482464680063e4",
+          "design_reference": "assets/flats/castle/rooms/room_kitchen_item_pan_4.png",
+          "design_reference_sha256": "55dde8889763975219cb39322e77c264665b89957ed672ff79d9cd35547776c9",
+          "placement_reference": "assets/flats/castle/interactions/kitchen_pan_4_atlas.png",
+          "placement_reference_sha256": "93e79682b3ea164890319bfb1b032539f050bc33b740883e66b1214c725d7595",
+          "placement_geometry_role": "v1_runtime_rest_cell",
+          "grid": [
+            4,
+            2
+          ],
+          "authored_frame_count": 8,
+          "timeline_sequence": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            5,
+            3,
+            1,
+            0
+          ],
+          "timeline_frame_count": 12,
+          "cell_size": [
+            256,
+            256
+          ],
+          "frame_bboxes": [
+            [
+              94,
+              6,
+              163,
+              232
+            ],
+            [
+              100,
+              6,
+              163,
+              234
+            ],
+            [
+              94,
+              6,
+              169,
+              232
+            ],
+            [
+              100,
+              6,
+              169,
+              230
+            ],
+            [
+              98,
+              6,
+              146,
+              226
+            ],
+            [
+              92,
+              6,
+              150,
+              226
+            ],
+            [
+              92,
+              6,
+              157,
+              225
+            ],
+            [
+              98,
+              6,
+              164,
+              226
+            ]
+          ],
+          "frame_sha256": [
+            "3881045deda8aff195286dda04cd12c5872596e7d15a2e65962b77b0c2bfe421",
+            "ff2c806275cf6d5178b27d9cb5dd9839dd98ca1229b47b42e88f8331a1d11a3c",
+            "6d9d3674c0ab359e2e8498256b565362de7f598d3abf3cfe1257db410f9fb9e4",
+            "f22d88e539829b52632a84f36ac5d5ba5e980d8b41c0ca0479dba54cade57ad4",
+            "78c5724ae5a8a111600bd178c654a2cac4debe49fb12bd0cdb6d2f3ba604247f",
+            "0401e07092dd144d711cf7026dd98327e2b603eb842fc05eb353722692e8248d",
+            "fe1026ade443d721457e2f6c0c126fb73ccd6aaa63eb8c29b2245b804ba41876",
+            "7aafb992417f4c9f7b0a2eddfe5174322d49c774b16f8e12badfb82c2ade3ad6"
+          ],
+          "unique_frame_count": 8,
+          "placement_size": [
+            31,
+            83
+          ],
+          "placement_bbox": [
+            6,
+            6,
+            25,
+            68
+          ],
+          "alignment_frame": 0,
+          "anchor_mode": "top_center",
+          "runtime_scale": 0.27484882,
+          "runtime_center_offset": [
+            15.5,
+            39.531556
+          ],
+          "hall_center_offset": [
+            0.0,
+            -1.968444
+          ],
+          "rest_frame": 0,
+          "transparent_pixels": 472881,
+          "partial_alpha_pixels": 2952,
+          "opaque_pixels": 48455,
+          "total_pixels": 524288,
+          "transparent_border": true,
+          "normalization": {
+            "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
+            "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+            "uniform_scale": 1.0,
+            "padding_pixels": 6,
+            "anchor_spread_pixels": [
+              1.0,
+              0.0
+            ],
+            "alpha_matte_recovered": true,
+            "alpha_recovery": "5x5 interior opacity plus 1.35x soft-edge alpha",
+            "rgb_subject_repainted": false,
+            "whole_object_translation_only": true,
+            "whole_sheet_uniform_scale_only": true,
+            "repainted_pixels": false
+          },
+          "physics_mode": "hinge_z",
+          "physics_pivot": [
+            0.5,
+            0.04
+          ],
+          "water_layers": [],
+          "primary_animation_is_overlay": false,
+          "generated_hidden_surfaces": false,
+          "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/kitchen_pans/provenance.json",
+          "provenance_manifest_sha256": "b5695206558886fce52a67fd52f24a4fc8a033452dc68df9c7d28d2210fa0f64"
+        },
+        "exact_native_hash_match": true
+      },
+      "historical_ownership_binding": {
+        "asset_id": "kitchen_pan_4",
+        "frame_count": 8,
+        "grid": [
+          4,
+          2
+        ],
+        "instance": "pan_4",
+        "pack": "v2_base",
+        "position": [
+          418.0,
+          132.0
+        ],
+        "runtime_center_offset": [
+          15.5,
+          39.531556
+        ],
+        "runtime_scale": 0.27484882,
+        "sheet": "assets/flats/castle/interactions_v2/kitchen_pan_4_sheet.png",
+        "sheet_sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
+        "union": {
+          "bbox": [
+            424,
+            138,
+            445,
+            201
+          ],
+          "owned_pixels": 747,
+          "raw_pixel_sha256": "dbaf5b37e8d0a0934bf8db5d28370c052f0d6ff1ae0a78769391432a1bfdb1af"
+        }
+      },
+      "source_review_status": "PENDING",
+      "source_score": null,
+      "source_scope": "Whole existing native source and each exact authored cell; no mounted-use or complete-action acceptance."
+    },
+    {
+      "id": "D2X-0006",
+      "path": "assets/flats/castle/interactions_v2/kitchen_oven_sheet.png",
+      "sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
+      "bytes": 389544,
+      "dimensions": [
+        1024,
+        512
+      ],
+      "mode": "RGBA",
+      "cells": [
+        {
+          "index": 0,
+          "region": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            27,
+            6,
+            241,
+            128
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 1,
+          "region": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            27,
+            6,
+            240,
+            128
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 2,
+          "region": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            29,
+            6,
+            247,
+            127
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 3,
+          "region": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            28,
+            6,
+            250,
+            127
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 4,
+          "region": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            28,
+            6,
+            246,
+            133
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 5,
+          "region": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            28,
+            6,
+            248,
+            128
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 6,
+          "region": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            28,
+            6,
+            239,
+            128
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 7,
+          "region": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            29,
+            6,
+            239,
+            127
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        }
+      ],
+      "current_source_contract": {
+        "path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+        "sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+        "binding": {
+          "id": "kitchen_oven",
+          "room": "kitchen",
+          "item_id": "oven",
+          "instances": [
+            "oven"
+          ],
+          "semantic_action": "open_oven_door_and_warm_fire",
+          "render_mode": "generated_full_object_states",
+          "frame_count": 8,
+          "hframes": 4,
+          "vframes": 2,
+          "sound": "assets/audio/castle/oven_door.ogg",
+          "close_sound": "",
+          "sound_frame": 0,
+          "pitch": 1.0,
+          "close_pitch": 1.0,
+          "frame_duration_seconds": 0.1625,
+          "fixed_pivot": true,
+          "root_transform_animation": false,
+          "secondary_root_physics": false,
+          "normalized_use_review": "codex_visual_review_accepted_2026-08-01",
+          "sheet": "assets/flats/castle/interactions_v2/kitchen_oven_sheet.png",
+          "sheet_sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
+          "raw_chroma_master": "assets_src/imagegen/castle_object_animations_v2/wet_rooms/kitchen_oven_sheet_chroma.png",
+          "raw_chroma_master_sha256": "d73ba63124c3ef1b90fb98fbb424a081b3ee37b61c96dd34aa722ad011986d5f",
+          "design_reference": "assets/flats/castle/rooms/room_kitchen_item_oven.png",
+          "design_reference_sha256": "519fb694752a25121dfeaade574f2ba300372fed61252ba35f9fc927172fcab0",
+          "placement_reference": "assets/flats/castle/interactions/kitchen_oven_atlas.png",
+          "placement_reference_sha256": "80e099aa808a7b22b42d06f17bc5e131c3f9e146f5e8007d751cd99697e045f6",
+          "placement_geometry_role": "v1_runtime_rest_cell",
+          "grid": [
+            4,
+            2
+          ],
+          "authored_frame_count": 8,
+          "timeline_sequence": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "timeline_frame_count": 9,
+          "cell_size": [
+            256,
+            256
+          ],
+          "frame_bboxes": [
+            [
+              27,
+              6,
+              241,
+              128
+            ],
+            [
+              27,
+              6,
+              240,
+              128
+            ],
+            [
+              29,
+              6,
+              247,
+              127
+            ],
+            [
+              28,
+              6,
+              250,
+              127
+            ],
+            [
+              28,
+              6,
+              246,
+              133
+            ],
+            [
+              28,
+              6,
+              248,
+              128
+            ],
+            [
+              28,
+              6,
+              239,
+              128
+            ],
+            [
+              29,
+              6,
+              239,
+              127
+            ]
+          ],
+          "frame_sha256": [
+            "a29b605acbd4a26fd433d5be079dfc87e22b947458f4ee8fd93206f40f91d294",
+            "f5b270a0fafd69b77c7736973fb3c79c5a6093552c5d19cbee81e084e551895d",
+            "f6aceddc37df3e5ffbf89b47bcf79c0270f52a9aa5b2487368a5c6116da859e0",
+            "3ae2665192be057d65dc3dfac872d23e4a8a798ee4a00f00c68c3fe056486e21",
+            "78b395b6d78e7c986c6d2723ef582cc5768563cc97f70678cc5bdca6e14525c5",
+            "b12195f3ed42346433a4939730e9abe6c857393bdcc6e2ac682959adecbeec46",
+            "721fd1b17905cb4ff2c90fa36db952139de704a08a1557c818f4038bbefea8bd",
+            "c1e395c47429f79e9c24517fcf88eccc5590a3e6edd672f4b8c94e6f12f5ef1f"
+          ],
+          "unique_frame_count": 8,
+          "placement_size": [
+            202,
+            112
+          ],
+          "placement_bbox": [
+            6,
+            26,
+            200,
+            110
+          ],
+          "alignment_frame": 0,
+          "anchor_mode": "top_center",
+          "runtime_scale": 0.79004841,
+          "runtime_center_offset": [
+            103.0,
+            122.385907
+          ],
+          "hall_center_offset": [
+            2.0,
+            66.385907
+          ],
+          "rest_frame": 0,
+          "transparent_pixels": 343331,
+          "partial_alpha_pixels": 13484,
+          "opaque_pixels": 167473,
+          "total_pixels": 524288,
+          "transparent_border": true,
+          "normalization": {
+            "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
+            "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+            "uniform_scale": 0.9348659,
+            "padding_pixels": 6,
+            "anchor_spread_pixels": [
+              1.0,
+              0.0
+            ],
+            "alpha_matte_recovered": true,
+            "alpha_recovery": "5x5 interior opacity plus 1.35x soft-edge alpha",
+            "rgb_subject_repainted": false,
+            "whole_object_translation_only": true,
+            "whole_sheet_uniform_scale_only": true,
+            "repainted_pixels": false
+          },
+          "physics_mode": "none",
+          "physics_pivot": [
+            0.5,
+            0.5
+          ],
+          "water_layers": [],
+          "primary_animation_is_overlay": false,
+          "generated_hidden_surfaces": true,
+          "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/wet_rooms/provenance.json",
+          "provenance_manifest_sha256": "2acf5fd0cde3610f1af4ca9bac29a8bbecacdcb354ad2ea8138370d22a77f515"
+        },
+        "exact_native_hash_match": true
+      },
+      "historical_ownership_binding": {
+        "asset_id": "kitchen_oven",
+        "frame_count": 8,
+        "grid": [
+          4,
+          2
+        ],
+        "instance": "oven",
+        "pack": "v2_base",
+        "position": [
+          289.0,
+          244.0
+        ],
+        "runtime_center_offset": [
+          103.0,
+          122.385907
+        ],
+        "runtime_scale": 0.79004841,
+        "sheet": "assets/flats/castle/interactions_v2/kitchen_oven_sheet.png",
+        "sheet_sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
+        "union": {
+          "bbox": [
+            312,
+            270,
+            488,
+            370
+          ],
+          "owned_pixels": 15043,
+          "raw_pixel_sha256": "326fa43d372f7b55ab7dc2919a16ad81dd56432ec2af833da0c4cfddb5174440"
+        }
+      },
+      "source_review_status": "PENDING",
+      "source_score": null,
+      "source_scope": "Whole existing native source and each exact authored cell; no mounted-use or complete-action acceptance."
+    },
+    {
+      "id": "D2X-0007",
+      "path": "assets/flats/castle/interactions_v4/sheets/kitchen_fridge_sheet.png",
+      "sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+      "bytes": 533792,
+      "dimensions": [
+        960,
+        816
+      ],
+      "mode": "RGBA",
+      "cells": [
+        {
+          "index": 0,
+          "region": [
+            0,
+            0,
+            320,
+            272
+          ],
+          "alpha_bbox": [
+            93,
+            8,
+            226,
+            264
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 1,
+          "region": [
+            320,
+            0,
+            320,
+            272
+          ],
+          "alpha_bbox": [
+            90,
+            8,
+            230,
+            267
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 2,
+          "region": [
+            640,
+            0,
+            320,
+            272
+          ],
+          "alpha_bbox": [
+            90,
+            7,
+            234,
+            267
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 3,
+          "region": [
+            0,
+            272,
+            320,
+            272
+          ],
+          "alpha_bbox": [
+            90,
+            4,
+            299,
+            267
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 4,
+          "region": [
+            320,
+            272,
+            320,
+            272
+          ],
+          "alpha_bbox": [
+            90,
+            4,
+            286,
+            267
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 5,
+          "region": [
+            640,
+            272,
+            320,
+            272
+          ],
+          "alpha_bbox": [
+            90,
+            7,
+            234,
+            267
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 6,
+          "region": [
+            0,
+            544,
+            320,
+            272
+          ],
+          "alpha_bbox": [
+            90,
+            7,
+            230,
+            267
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 7,
+          "region": [
+            320,
+            544,
+            320,
+            272
+          ],
+          "alpha_bbox": [
+            90,
+            8,
+            226,
+            266
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        }
+      ],
+      "current_source_contract": {
+        "path": "assets/flats/castle/interactions_v4/castle_interactions_v4.json",
+        "sha256": "21118917c51009ca57528d6a09b354aeb9a5d49dc21667bd7403d6fb79611cf8",
+        "binding": {
+          "anchor_mode": "bottom_left",
+          "animation_behavior": {
+            "action": "unlatch_and_open_fridge_door",
+            "generic_transform_fallback": false,
+            "mode": "authored_object_states",
+            "secondary_physics": false
+          },
+          "authored_frame_count": 8,
+          "cell_size": [
+            320,
+            272
+          ],
+          "close_sound": "assets/audio/castle/fridge_close.ogg",
+          "delivery_status": "runtime_ready_source_owned_states",
+          "fixed_pivot": true,
+          "fixed_root_bbox_metrics": {
+            "maximum_height_ratio_to_rest": 1.007812,
+            "maximum_visible_size": [
+              204,
+              258
+            ],
+            "maximum_width_ratio_to_rest": 1.533835,
+            "minimum_visible_size": [
+              131,
+              254
+            ],
+            "rest_visible_size": [
+              133,
+              256
+            ]
+          },
+          "fluid_engine": "none",
+          "frame0_exact_rest_card": true,
+          "frame_bboxes": [
+            [
+              93,
+              8,
+              226,
+              264
+            ],
+            [
+              93,
+              10,
+              227,
+              264
+            ],
+            [
+              93,
+              9,
+              232,
+              264
+            ],
+            [
+              93,
+              6,
+              297,
+              264
+            ],
+            [
+              93,
+              7,
+              284,
+              264
+            ],
+            [
+              93,
+              9,
+              232,
+              264
+            ],
+            [
+              93,
+              9,
+              227,
+              264
+            ],
+            [
+              93,
+              10,
+              224,
+              264
+            ]
+          ],
+          "frame_count": 8,
+          "frame_duration_seconds": 0.145,
+          "frame_sha256": [
+            "8ab03a3cca5406570433aa4b12cf68ad19f40c9b8fdda3357c624f932fa23614",
+            "b9a983946cb783b5b9731221fdb3e947f236bc731934ea7922f2c85cc1d6c02b",
+            "11b88f859a1a5d2c8b994034fee861931a6d50e9dcb89ee5a55a491fb429515e",
+            "89681c4b0d0ca1d23e0d7323f866c995a144cb45288734bc9cfd691dd06d0ccf",
+            "b3bdec9e2d69f9b0a023cd1dd11546d11f25b4ea0e3bf8573378580b2a59bcb9",
+            "db0a4f259ad3a5cb8022f3bf6cbd358cf9124e1081fc34ac593d36af8591fcdd",
+            "b9be38616450b6cac060ce3ffe9e5586337b1627b0b1364b32a51dc32ca225d8",
+            "5b5a381c24a2e92e8f7dfe5ff5862171de3bde7cc5613da5090ff07233b28cb6"
+          ],
+          "grid": [
+            3,
+            3
+          ],
+          "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_kitchen_background.png",
+          "hotspot_offset": [
+            0.0,
+            0.0
+          ],
+          "hotspot_size": [
+            133.0,
+            256.0
+          ],
+          "id": "kitchen_fridge",
+          "instances": [
+            "fridge"
+          ],
+          "mask_path": "assets_src/castle/interactions_v4/masks/kitchen_fridge_existing_mask.png",
+          "name": "Fridge",
+          "normalization": {
+            "canonical_component_canvas": [
+              512,
+              512
+            ],
+            "component_selection": "four_largest_per_row_sorted_left_to_right",
+            "edge_rgb_decontamination": "nearest_eroded_foreground_core",
+            "fixed_source_base_registration": [
+              16,
+              496
+            ],
+            "generated_edge_cleanup": {
+              "disconnected_alpha_components_removed": true,
+              "method": "nearest_solid_object_core_rgb_on_translucent_generated_edges",
+              "pale_visible_edge_pixels_replaced_by_frame": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "solid_alpha_threshold": 224,
+              "translucent_edge_pixels_by_frame": [
+                0,
+                1866,
+                1698,
+                2109,
+                2065,
+                1693,
+                1852,
+                1813
+              ],
+              "visible_alpha_component_count_by_frame": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            "matte_core_erosion_pixels": 1,
+            "matte_feather_radius_pixels": 0.8,
+            "matte_method": "edge_connected_neutral_components_in_two_source_rows",
+            "method": "normalized_generated_fridge_states_fixed_base",
+            "neutral_max_channel_spread": 18,
+            "neutral_minimum_rgb": 232,
+            "pale_matte_edge_audit": {
+              "edge_band_pixels": 2,
+              "maximum_channel_spread": 18,
+              "minimum_rgb": 232,
+              "status": "passed",
+              "visible_pale_matte_pixels_by_frame": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            "per_frame_scale": false,
+            "per_frame_warp": false,
+            "root_transform_animation": false,
+            "source_cell_canvas": [
+              512,
+              512
+            ],
+            "source_component_bboxes": [
+              [
+                50,
+                29,
+                294,
+                492
+              ],
+              [
+                400,
+                29,
+                645,
+                492
+              ],
+              [
+                769,
+                29,
+                1022,
+                494
+              ],
+              [
+                1125,
+                28,
+                1496,
+                498
+              ],
+              [
+                41,
+                531,
+                389,
+                1000
+              ],
+              [
+                471,
+                532,
+                724,
+                997
+              ],
+              [
+                830,
+                531,
+                1075,
+                996
+              ],
+              [
+                1192,
+                531,
+                1430,
+                994
+              ]
+            ],
+            "source_component_pixels": [
+              105944,
+              106771,
+              109768,
+              159069,
+              149096,
+              110218,
+              106860,
+              103533
+            ],
+            "source_frame_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "source_grid_role": "layout_only_components_may_cross_nominal_cells",
+            "source_path": "assets_src/imagegen/castle_object_animations_v4/kitchen/kitchen_fridge_sheet_checkerboard.png",
+            "source_pivot": [
+              16.0,
+              496.0
+            ],
+            "source_sha256": "dca550b5c4f952c9bd865dfb04acf0f476b15fa8db3583413bf2b24d7234a9bb",
+            "target_pivot": [
+              93.0,
+              264.0
+            ],
+            "uniform_scale": 0.54893617,
+            "uniform_translation": [
+              84,
+              -8
+            ]
+          },
+          "ownership_continuity": [
+            "frame0_exact_source_derived_fridge_only_card",
+            "generated_states_preserve_mint_shell_peach_badge_gold_hardware",
+            "generated_hidden_food_interior_only_visible_after_door_opens",
+            "pale_checkerboard_matte_removed_and_audited",
+            "fixed_cabinet_base_with_attached_door_motion_only"
+          ],
+          "pack": "v4_native",
+          "physics_mode": "none",
+          "placement_position": [
+            636,
+            86
+          ],
+          "placement_size": [
+            133,
+            256
+          ],
+          "primary_animation_is_overlay": false,
+          "render_mode": "generated_full_object_states",
+          "rest_card_cell_origin": [
+            88,
+            6
+          ],
+          "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/kitchen_fridge_rest.png",
+          "rest_card_registration_bbox": [
+            5,
+            2,
+            138,
+            258
+          ],
+          "rest_frame": 0,
+          "rest_registration_bbox_in_cell": [
+            93,
+            8,
+            226,
+            264
+          ],
+          "rest_visible_bbox_in_cell": [
+            93,
+            8,
+            226,
+            264
+          ],
+          "room": "kitchen",
+          "root_transform_animation": false,
+          "runtime_center_offset": [
+            67.0,
+            128.0
+          ],
+          "runtime_interaction_key": "kitchen:fridge",
+          "runtime_scale": 1.0,
+          "secondary_root_physics": false,
+          "semantic_action": "unlatch_and_open_fridge_door",
+          "sheet": "assets/flats/castle/interactions_v4/sheets/kitchen_fridge_sheet.png",
+          "sheet_dimensions": [
+            960,
+            816
+          ],
+          "sheet_sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+          "sound": "assets/audio/castle/fridge_open.ogg",
+          "sound_frame": 1,
+          "source_alpha_cleanup": {
+            "cleaned_card_path": "assets/flats/castle/interactions_v4/rest_cards/kitchen_fridge_rest.png",
+            "cleaned_card_sha256": "5685ca9dfa53ef2c1f935fd08fdb4808f567cee7aaa90d4de19544255e31dc7f",
+            "method": "fridge_only_source_pixels_v1",
+            "minimum_retained_alpha": 16,
+            "minimum_retained_component_pixels": 8,
+            "neighboring_cabinet_exclusion_xyxy": [
+              133,
+              164,
+              140,
+              197
+            ],
+            "purple_wall_rule": "red>=green+8 and blue>=green+8",
+            "removed_visible_pixels": 240,
+            "retained_visible_pixels": 31755,
+            "rgb_repainted": false,
+            "source_card_path": "assets/flats/castle/rooms/room_kitchen_item_fridge.png",
+            "source_card_sha256": "5e0dd8203510685e128d693758a0b26c06d8b7a2d47e52a1d500fd7fdf4d9c8e"
+          },
+          "source_ownership": {
+            "background_healed": true,
+            "background_method": "generated_complete_clean_frame_MA_VIS_007",
+            "duplicate_pixels_removed": true,
+            "healed_background_sha256": "b58bd03a394717ebff381d76e4cb7d03410a463b7b30d2a58065be5a4df8c065",
+            "mask_sha256": "3976fd2b8f8d9b8e89f7b68fa0666e6ad5c3e8c496de7aacacce95be690e3a4f",
+            "passed": true,
+            "prior_ownership_manifest": "FABLE_CASTLE_DEPTH_MANIFEST_2026-07-26.json",
+            "prior_ownership_verified": true,
+            "production_rehealed": true,
+            "rest_card_sha256": "5685ca9dfa53ef2c1f935fd08fdb4808f567cee7aaa90d4de19544255e31dc7f",
+            "source_rect": [
+              636,
+              86,
+              133,
+              256
+            ],
+            "source_room_plate_sha256": "ee2f05ce1eff483060ace90aee729a561b3ddf471d25d5a5c75eb9b9ba948104",
+            "verified": true
+          },
+          "source_rect": [
+            636,
+            86,
+            133,
+            256
+          ],
+          "source_room_plate_path": "assets/flats/castle/rooms/room_kitchen.png",
+          "timeline_frame_count": 9,
+          "timeline_sequence": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            0
+          ],
+          "unique_frame_count": 8,
+          "v4_override_of": {
+            "asset_id": "kitchen_fridge",
+            "pack": "v2_base"
+          },
+          "visual_review": {
+            "fixed_root_verified": true,
+            "identity_continuity": "accepted",
+            "normalized_use_verified": true,
+            "notes": "Accepted source-owned override: frame zero keeps exact approved teal fridge RGB while discarding only audited wall/cabinet alpha from the legacy card. Generated frames preserve its mint shell, peach shell badge, gold handle and hinges while opening the attached door to reveal a coherent food interior; the cabinet stays registered at one fixed base pivot.",
+            "reviewer": "Codex source-ownership and contact-sheet audit 2026-08-04",
+            "status": "accepted"
+          }
+        },
+        "exact_native_hash_match": true
+      },
+      "historical_ownership_binding": {
+        "asset_id": "kitchen_fridge",
+        "frame_count": 8,
+        "grid": [
+          3,
+          3
+        ],
+        "instance": "fridge",
+        "pack": "v4_native",
+        "position": [
+          636,
+          86
+        ],
+        "runtime_center_offset": [
+          67.0,
+          128.0
+        ],
+        "runtime_scale": 1.0,
+        "sheet": "assets/flats/castle/interactions_v4/sheets/kitchen_fridge_sheet.png",
+        "sheet_sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+        "union": {
+          "bbox": [
+            636,
+            85,
+            839,
+            342
+          ],
+          "owned_pixels": 48848,
+          "raw_pixel_sha256": "b12a3ef6849046047024b30e5565603b95cbbf4aee123035e46f15f871b1b1ee"
+        }
+      },
+      "source_review_status": "PENDING",
+      "source_score": null,
+      "source_scope": "Whole existing native source and each exact authored cell; no mounted-use or complete-action acceptance."
+    },
+    {
+      "id": "D2X-0010",
+      "path": "assets/flats/castle/rooms/room_kitchen_front_left.png",
+      "sha256": "34801ba8733b3a193f1b2096ecbaae80ed7cf9adcb0c256078ab772fced1d1c0",
+      "bytes": 87840,
+      "dimensions": [
+        286,
+        222
+      ],
+      "mode": "RGBA",
+      "cells": [],
+      "current_source_contract": null,
+      "historical_ownership_binding": null,
+      "source_review_status": "PENDING",
+      "source_score": null,
+      "source_scope": "Whole existing native source and each exact authored cell; no mounted-use or complete-action acceptance."
+    },
+    {
+      "id": "D2X-0011",
+      "path": "assets/flats/castle/rooms/room_kitchen_front_right.png",
+      "sha256": "838a5bfa86a1e6d9b5b659faae2098b99df3be3fcc415bc620f6bcb10d7183fa",
+      "bytes": 80830,
+      "dimensions": [
+        374,
+        252
+      ],
+      "mode": "RGBA",
+      "cells": [],
+      "current_source_contract": null,
+      "historical_ownership_binding": null,
+      "source_review_status": "PENDING",
+      "source_score": null,
+      "source_scope": "Whole existing native source and each exact authored cell; no mounted-use or complete-action acceptance."
+    },
+    {
+      "id": "D2X-0024",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_curtains_sheet.png",
+      "sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+      "bytes": 745673,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "cells": [
+        {
+          "index": 0,
+          "region": [
+            0,
+            0,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            13,
+            6,
+            241,
+            260
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 1,
+          "region": [
+            256,
+            0,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            8,
+            6,
+            245,
+            260
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 2,
+          "region": [
+            512,
+            0,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            12,
+            6,
+            249,
+            261
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 3,
+          "region": [
+            768,
+            0,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            16,
+            6,
+            243,
+            263
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 4,
+          "region": [
+            0,
+            512,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            12,
+            6,
+            241,
+            280
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 5,
+          "region": [
+            256,
+            512,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            9,
+            6,
+            243,
+            280
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 6,
+          "region": [
+            512,
+            512,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            13,
+            6,
+            243,
+            281
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 7,
+          "region": [
+            768,
+            512,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            17,
+            6,
+            243,
+            281
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        }
+      ],
+      "current_source_contract": {
+        "path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+        "sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+        "binding": {
+          "id": "opera_hall_curtains",
+          "room": "opera_hall",
+          "item_id": "curtains",
+          "instances": [
+            "curtains"
+          ],
+          "semantic_action": "open_stage_curtains",
+          "render_mode": "generated_full_object_states",
+          "frame_count": 8,
+          "hframes": 4,
+          "vframes": 2,
+          "sound": "assets/audio/castle/curtain_swish.ogg",
+          "close_sound": "",
+          "sound_frame": 0,
+          "pitch": 1.0,
+          "close_pitch": 1.0,
+          "frame_duration_seconds": 0.125,
+          "fixed_pivot": true,
+          "root_transform_animation": false,
+          "secondary_root_physics": false,
+          "normalized_use_review": "codex_visual_review_accepted_2026-08-01",
+          "sheet": "assets/flats/castle/interactions_v2/opera_hall_curtains_sheet.png",
+          "sheet_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+          "raw_chroma_master": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/opera_hall_curtains_sheet_chroma.png",
+          "raw_chroma_master_sha256": "c7b4160ff21a80fd50ae689553c396f0ad0587ca7d9c700a76e315c6b7b20d86",
+          "design_reference": "assets/flats/castle/rooms/room_opera_hall_item_curtains.png",
+          "design_reference_sha256": "daa15d58a9a366bbcc37cd5ad9fed74f9e673aa2573367252569a23edce4318e",
+          "placement_reference": "assets/flats/castle/interactions/opera_hall_curtains_atlas.png",
+          "placement_reference_sha256": "c4294f0e4880e6928c43d4f00db8886e51b0589659f43c80c842ff1f80f68c8f",
+          "placement_geometry_role": "v1_runtime_rest_cell",
+          "grid": [
+            4,
+            2
+          ],
+          "authored_frame_count": 8,
+          "timeline_sequence": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          "timeline_frame_count": 9,
+          "cell_size": [
+            256,
+            512
+          ],
+          "frame_bboxes": [
+            [
+              13,
+              6,
+              241,
+              260
+            ],
+            [
+              8,
+              6,
+              245,
+              260
+            ],
+            [
+              12,
+              6,
+              249,
+              261
+            ],
+            [
+              16,
+              6,
+              243,
+              263
+            ],
+            [
+              12,
+              6,
+              241,
+              280
+            ],
+            [
+              9,
+              6,
+              243,
+              280
+            ],
+            [
+              13,
+              6,
+              243,
+              281
+            ],
+            [
+              17,
+              6,
+              243,
+              281
+            ]
+          ],
+          "frame_sha256": [
+            "18f98786c959b2289f72ae11a04ce372f48b6e0ccd71fd4fa4c380320dd2c210",
+            "2f465d7dfc0ee4c63b2c5a0a7e27d01ccb84e8dfe7f79346466fafdf38db9dc9",
+            "5c6872ac5f500583552c8f22aed171714c28da438f6f39af309e8c3b69578ad8",
+            "8b1890e46a69cbbd5005d4221cba8e7aa9fa5e00ddeec0bc584286978a5eae05",
+            "84f28a1e814a2b52748ec88ab45cbe3a980de6d818b24738a092764659d53144",
+            "2104ee38d7efaeba243fe98164efcdb300df9cf520ae6fda72f859ab3f2515f7",
+            "4716f7473805ed3612170a13ac33940961b9d3b9616568f9b1ee7d7003b9564d",
+            "152b5d9f2f3a842ffb76ac9d5290c66b621000c509302d8363e7ed5d5b8a9411"
+          ],
+          "unique_frame_count": 8,
+          "placement_size": [
+            196,
+            209
+          ],
+          "placement_bbox": [
+            12,
+            10,
+            182,
+            187
+          ],
+          "alignment_frame": 0,
+          "anchor_mode": "top_center",
+          "runtime_scale": 0.72081997,
+          "runtime_center_offset": [
+            97.0,
+            190.204993
+          ],
+          "hall_center_offset": [
+            -1.0,
+            85.704993
+          ],
+          "rest_frame": 0,
+          "transparent_pixels": 639149,
+          "partial_alpha_pixels": 22972,
+          "opaque_pixels": 386455,
+          "total_pixels": 1048576,
+          "transparent_border": true,
+          "normalization": {
+            "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
+            "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+            "uniform_scale": 0.92424242,
+            "padding_pixels": 6,
+            "anchor_spread_pixels": [
+              1.0,
+              0.0
+            ],
+            "alpha_matte_recovered": true,
+            "alpha_recovery": "5x5 interior opacity plus 1.35x soft-edge alpha",
+            "rgb_subject_repainted": false,
+            "whole_object_translation_only": true,
+            "whole_sheet_uniform_scale_only": true,
+            "repainted_pixels": false
+          },
+          "physics_mode": "none",
+          "physics_pivot": [
+            0.5,
+            0.5
+          ],
+          "water_layers": [],
+          "primary_animation_is_overlay": false,
+          "generated_hidden_surfaces": false,
+          "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/provenance.json",
+          "provenance_manifest_sha256": "81b63cb7d98283b4b6a35bfdbd3d12a2a6f82f1cc84d952ee61eba7632e6ba7e"
+        },
+        "exact_native_hash_match": true
+      },
+      "historical_ownership_binding": {
+        "asset_id": "opera_hall_curtains",
+        "frame_count": 8,
+        "grid": [
+          4,
+          2
+        ],
+        "instance": "curtains",
+        "pack": "v2_base",
+        "position": [
+          414.0,
+          100.0
+        ],
+        "runtime_center_offset": [
+          97.0,
+          190.204993
+        ],
+        "runtime_scale": 0.72081997,
+        "sheet": "assets/flats/castle/interactions_v2/opera_hall_curtains_sheet.png",
+        "sheet_sha256": "51673baecdf196fd3e301630ae04c035f8d1ce1c6dde8c93ea72492c7cbe07d7",
+        "union": {
+          "bbox": [
+            425,
+            110,
+            599,
+            308
+          ],
+          "owned_pixels": 27147,
+          "raw_pixel_sha256": "825ad75ab667780e8e573a20186e96254f579847b708926e18d79b897b8ff946"
+        }
+      },
+      "source_review_status": "PENDING",
+      "source_score": null,
+      "source_scope": "Whole existing native source and each exact authored cell; no mounted-use or complete-action acceptance."
+    },
+    {
+      "id": "D2X-0025",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_chandelier_sheet.png",
+      "sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
+      "bytes": 436100,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "cells": [
+        {
+          "index": 0,
+          "region": [
+            0,
+            0,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            14,
+            6,
+            240,
+            170
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 1,
+          "region": [
+            256,
+            0,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            16,
+            6,
+            243,
+            169
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 2,
+          "region": [
+            512,
+            0,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            17,
+            6,
+            238,
+            165
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 3,
+          "region": [
+            768,
+            0,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            17,
+            6,
+            239,
+            169
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 4,
+          "region": [
+            0,
+            512,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            18,
+            6,
+            240,
+            169
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 5,
+          "region": [
+            256,
+            512,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            16,
+            6,
+            238,
+            169
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 6,
+          "region": [
+            512,
+            512,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            17,
+            6,
+            239,
+            168
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 7,
+          "region": [
+            768,
+            512,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            17,
+            6,
+            239,
+            168
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        }
+      ],
+      "current_source_contract": {
+        "path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+        "sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+        "binding": {
+          "id": "opera_hall_chandelier",
+          "room": "opera_hall",
+          "item_id": "chandelier",
+          "instances": [
+            "chandelier"
+          ],
+          "semantic_action": "chandelier_light_chase",
+          "render_mode": "generated_full_object_states",
+          "frame_count": 8,
+          "hframes": 4,
+          "vframes": 2,
+          "sound": "assets/audio/castle/light_switch.ogg",
+          "close_sound": "",
+          "sound_frame": 0,
+          "pitch": 1.0,
+          "close_pitch": 1.0,
+          "frame_duration_seconds": 0.1025,
+          "fixed_pivot": true,
+          "root_transform_animation": true,
+          "secondary_root_physics": true,
+          "normalized_use_review": "codex_visual_review_accepted_2026-08-01",
+          "sheet": "assets/flats/castle/interactions_v2/opera_hall_chandelier_sheet.png",
+          "sheet_sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
+          "raw_chroma_master": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/opera_hall_chandelier_sheet_chroma.png",
+          "raw_chroma_master_sha256": "7b1fce7e8910e8d5c0fe47858ca4fee29f68593ada85d9c2bffa2b20f408e08e",
+          "design_reference": "assets/flats/castle/rooms/room_opera_hall_item_chandelier.png",
+          "design_reference_sha256": "3ce68ccc0154509bbddce7b1c42abc70d39bc00e3cc7a735e31e1f1a39dbacaa",
+          "placement_reference": "assets/flats/castle/interactions/opera_hall_chandelier_atlas.png",
+          "placement_reference_sha256": "fd268f035be2dea6b92caae6c8a93252fb9a7145ef46686f9f8313c0b3bc7b89",
+          "placement_geometry_role": "v1_runtime_rest_cell",
+          "grid": [
+            4,
+            2
+          ],
+          "authored_frame_count": 8,
+          "timeline_sequence": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            5,
+            3,
+            1,
+            0
+          ],
+          "timeline_frame_count": 12,
+          "cell_size": [
+            256,
+            512
+          ],
+          "frame_bboxes": [
+            [
+              14,
+              6,
+              240,
+              170
+            ],
+            [
+              16,
+              6,
+              243,
+              169
+            ],
+            [
+              17,
+              6,
+              238,
+              165
+            ],
+            [
+              17,
+              6,
+              239,
+              169
+            ],
+            [
+              18,
+              6,
+              240,
+              169
+            ],
+            [
+              16,
+              6,
+              238,
+              169
+            ],
+            [
+              17,
+              6,
+              239,
+              168
+            ],
+            [
+              17,
+              6,
+              239,
+              168
+            ]
+          ],
+          "frame_sha256": [
+            "8148f6b1291a83666ce1638ceab35ded1e311e6c803eb3d010b1b2ef2371ee6d",
+            "f1574c74344dfb3b09ad3fb090242aa2681f0fa75993e93427b24a9141d0b009",
+            "cc5f8bb35aa0cc5dd806fe8beea794f758edce3f0275df6bdf89911052590cf8",
+            "27357c1d4b777e20fe8defae511225b379e1757970364bdbf3d2075afa8ca13a",
+            "ae425a2c9750c4b1d08cf6a4670dd47a5e606d577ef339d60976070f28f08bc9",
+            "8ba66d8e6f8165e5b0e6f2f9db7dfbf9d7a54e87dbc4aa629b7cef65de6cd08a",
+            "f8310463dcb46a6345fd51a5e1363ecee254eb337f2db5e25646792ba9623b80",
+            "c9275d5483474048a28a4bcbbb70bbfc822e1cf7546e1b2e9c8faff9ed6b790f"
+          ],
+          "unique_frame_count": 8,
+          "placement_size": [
+            190,
+            126
+          ],
+          "placement_bbox": [
+            23,
+            5,
+            165,
+            89
+          ],
+          "alignment_frame": 0,
+          "anchor_mode": "top_center",
+          "runtime_scale": 0.56729332,
+          "runtime_center_offset": [
+            94.0,
+            146.823331
+          ],
+          "hall_center_offset": [
+            -1.0,
+            83.823331
+          ],
+          "rest_frame": 0,
+          "transparent_pixels": 854429,
+          "partial_alpha_pixels": 8292,
+          "opaque_pixels": 185855,
+          "total_pixels": 1048576,
+          "transparent_border": true,
+          "normalization": {
+            "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
+            "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+            "uniform_scale": 1.0,
+            "padding_pixels": 6,
+            "anchor_spread_pixels": [
+              1.0,
+              0.0
+            ],
+            "alpha_matte_recovered": true,
+            "alpha_recovery": "5x5 interior opacity plus 1.35x soft-edge alpha",
+            "rgb_subject_repainted": false,
+            "whole_object_translation_only": true,
+            "whole_sheet_uniform_scale_only": true,
+            "repainted_pixels": false
+          },
+          "physics_mode": "hinge_z",
+          "physics_pivot": [
+            0.5,
+            0.02
+          ],
+          "water_layers": [],
+          "primary_animation_is_overlay": false,
+          "generated_hidden_surfaces": false,
+          "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/provenance.json",
+          "provenance_manifest_sha256": "81b63cb7d98283b4b6a35bfdbd3d12a2a6f82f1cc84d952ee61eba7632e6ba7e"
+        },
+        "exact_native_hash_match": true
+      },
+      "historical_ownership_binding": {
+        "asset_id": "opera_hall_chandelier",
+        "frame_count": 8,
+        "grid": [
+          4,
+          2
+        ],
+        "instance": "chandelier",
+        "pack": "v2_base",
+        "position": [
+          418.0,
+          0.0
+        ],
+        "runtime_center_offset": [
+          94.0,
+          146.823331
+        ],
+        "runtime_scale": 0.56729332,
+        "sheet": "assets/flats/castle/interactions_v2/opera_hall_chandelier_sheet.png",
+        "sheet_sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
+        "union": {
+          "bbox": [
+            448,
+            5,
+            577,
+            98
+          ],
+          "owned_pixels": 8489,
+          "raw_pixel_sha256": "bd8277019b247f61c7e16ecfcf18f3a6ad05b8b63640e87e57d5598c5bf84937"
+        }
+      },
+      "source_review_status": "PENDING",
+      "source_score": null,
+      "source_scope": "Whole existing native source and each exact authored cell; no mounted-use or complete-action acceptance."
+    },
+    {
+      "id": "D2X-0026",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_stage_star_sheet.png",
+      "sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
+      "bytes": 348995,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "cells": [
+        {
+          "index": 0,
+          "region": [
+            0,
+            0,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            18,
+            158,
+            239,
+            353
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 1,
+          "region": [
+            256,
+            0,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            17,
+            158,
+            239,
+            353
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 2,
+          "region": [
+            512,
+            0,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            18,
+            158,
+            239,
+            353
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 3,
+          "region": [
+            768,
+            0,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            18,
+            158,
+            239,
+            353
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 4,
+          "region": [
+            0,
+            512,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            18,
+            158,
+            239,
+            353
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 5,
+          "region": [
+            256,
+            512,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            17,
+            158,
+            239,
+            353
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 6,
+          "region": [
+            512,
+            512,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            18,
+            158,
+            239,
+            353
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 7,
+          "region": [
+            768,
+            512,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            18,
+            158,
+            239,
+            353
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        }
+      ],
+      "current_source_contract": {
+        "path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+        "sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+        "binding": {
+          "id": "opera_hall_stage_star",
+          "room": "opera_hall",
+          "item_id": "stage_star",
+          "instances": [
+            "stage_star"
+          ],
+          "semantic_action": "marquee_star_light_chase",
+          "render_mode": "generated_full_object_states",
+          "frame_count": 8,
+          "hframes": 4,
+          "vframes": 2,
+          "sound": "assets/audio/castle/light_switch.ogg",
+          "close_sound": "",
+          "sound_frame": 0,
+          "pitch": 1.0,
+          "close_pitch": 1.0,
+          "frame_duration_seconds": 0.1025,
+          "fixed_pivot": true,
+          "root_transform_animation": false,
+          "secondary_root_physics": false,
+          "normalized_use_review": "codex_visual_review_accepted_2026-08-01",
+          "sheet": "assets/flats/castle/interactions_v2/opera_hall_stage_star_sheet.png",
+          "sheet_sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
+          "raw_chroma_master": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/opera_hall_stage_star_sheet_chroma.png",
+          "raw_chroma_master_sha256": "49a656cb90c2547d081cc28919913ff073e94f73be42437ded02e03a277b7b90",
+          "design_reference": "assets/flats/castle/rooms/room_opera_hall_item_stage_star.png",
+          "design_reference_sha256": "bd58a67d535a294c41a4b9c13a6d7bbd1e9c3063b8d01301a2fa834e94b7c3d5",
+          "placement_reference": "assets/flats/castle/interactions/opera_hall_stage_star_atlas.png",
+          "placement_reference_sha256": "ef698fee887425e350bea9f2b649c7b3a67a70995befbc10ab2e167f378d4424",
+          "placement_geometry_role": "v1_runtime_rest_cell",
+          "grid": [
+            4,
+            2
+          ],
+          "authored_frame_count": 8,
+          "timeline_sequence": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            5,
+            3,
+            1,
+            0
+          ],
+          "timeline_frame_count": 12,
+          "cell_size": [
+            256,
+            512
+          ],
+          "frame_bboxes": [
+            [
+              18,
+              158,
+              239,
+              353
+            ],
+            [
+              17,
+              158,
+              239,
+              353
+            ],
+            [
+              18,
+              158,
+              239,
+              353
+            ],
+            [
+              18,
+              158,
+              239,
+              353
+            ],
+            [
+              18,
+              158,
+              239,
+              353
+            ],
+            [
+              17,
+              158,
+              239,
+              353
+            ],
+            [
+              18,
+              158,
+              239,
+              353
+            ],
+            [
+              18,
+              158,
+              239,
+              353
+            ]
+          ],
+          "frame_sha256": [
+            "ffb816f39dc41046d2e3ba139cc1e2d91391cfbe0e6102bf483b1a1ce1df3d30",
+            "c3d08020a5f6749b522c1191407229de385e701f53ac129fc8889a3e38403a93",
+            "7b7f7d39f654ab1a43d99a338f1a2575b8d60c6fdcfee4135cf03a2486d72ea5",
+            "644ae6989e704c0c73199c952d8266a594e81b498b764b17f9d0d0b67ad83bc9",
+            "4ee1a92bdba7cfcfaec44bee19206c9a1c9b2db1a97606c33eec908415cf14a5",
+            "2686aac73e89b11cdea78a9877ab739df984bf13fde7b85c8bd37e86d75ec9c0",
+            "b19914a4c93e51524caca0f6aaa31e4fa57033c092696a7b1d86c073601c5054",
+            "ce8053e64df722d1f50fd277e9ef75cb6114685c76e9e595221b1c7ba0a14d25"
+          ],
+          "unique_frame_count": 8,
+          "placement_size": [
+            44,
+            45
+          ],
+          "placement_bbox": [
+            1,
+            4,
+            43,
+            44
+          ],
+          "alignment_frame": 0,
+          "anchor_mode": "center",
+          "runtime_scale": 0.19744275,
+          "runtime_center_offset": [
+            22.0,
+            24.0
+          ],
+          "hall_center_offset": [
+            0.0,
+            1.5
+          ],
+          "rest_frame": 0,
+          "transparent_pixels": 869211,
+          "partial_alpha_pixels": 6476,
+          "opaque_pixels": 172889,
+          "total_pixels": 1048576,
+          "transparent_border": true,
+          "normalization": {
+            "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
+            "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+            "uniform_scale": 1.0,
+            "padding_pixels": 6,
+            "anchor_spread_pixels": [
+              0.5,
+              0.0
+            ],
+            "alpha_matte_recovered": true,
+            "alpha_recovery": "5x5 interior opacity plus 1.35x soft-edge alpha",
+            "rgb_subject_repainted": false,
+            "whole_object_translation_only": true,
+            "whole_sheet_uniform_scale_only": true,
+            "repainted_pixels": false
+          },
+          "physics_mode": "none",
+          "physics_pivot": [
+            0.5,
+            0.5
+          ],
+          "water_layers": [],
+          "primary_animation_is_overlay": false,
+          "generated_hidden_surfaces": false,
+          "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/provenance.json",
+          "provenance_manifest_sha256": "81b63cb7d98283b4b6a35bfdbd3d12a2a6f82f1cc84d952ee61eba7632e6ba7e"
+        },
+        "exact_native_hash_match": true
+      },
+      "historical_ownership_binding": {
+        "asset_id": "opera_hall_stage_star",
+        "frame_count": 8,
+        "grid": [
+          4,
+          2
+        ],
+        "instance": "stage_star",
+        "pack": "v2_base",
+        "position": [
+          490.0,
+          309.0
+        ],
+        "runtime_center_offset": [
+          22.0,
+          24.0
+        ],
+        "runtime_scale": 0.19744275,
+        "sheet": "assets/flats/castle/interactions_v2/opera_hall_stage_star_sheet.png",
+        "sheet_sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
+        "union": {
+          "bbox": [
+            490,
+            314,
+            534,
+            352
+          ],
+          "owned_pixels": 867,
+          "raw_pixel_sha256": "60e551c94114681828ce3f8207b05cf06ba252fb4d152ce05f9c0a23a067013b"
+        }
+      },
+      "source_review_status": "PENDING",
+      "source_score": null,
+      "source_scope": "Whole existing native source and each exact authored cell; no mounted-use or complete-action acceptance."
+    },
+    {
+      "id": "D2X-0027",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_footlights_sheet.png",
+      "sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+      "bytes": 218576,
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "cells": [
+        {
+          "index": 0,
+          "region": [
+            0,
+            0,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            15,
+            453,
+            240,
+            506
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 1,
+          "region": [
+            256,
+            0,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            24,
+            417,
+            230,
+            506
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 2,
+          "region": [
+            512,
+            0,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            24,
+            441,
+            235,
+            507
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 3,
+          "region": [
+            768,
+            0,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            22,
+            443,
+            235,
+            506
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 4,
+          "region": [
+            0,
+            512,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            13,
+            440,
+            242,
+            506
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 5,
+          "region": [
+            256,
+            512,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            11,
+            440,
+            242,
+            506
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 6,
+          "region": [
+            512,
+            512,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            13,
+            436,
+            239,
+            506
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 7,
+          "region": [
+            768,
+            512,
+            256,
+            512
+          ],
+          "alpha_bbox": [
+            12,
+            436,
+            244,
+            506
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        }
+      ],
+      "current_source_contract": {
+        "path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+        "sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+        "binding": {
+          "id": "opera_hall_footlights",
+          "room": "opera_hall",
+          "item_id": "footlights",
+          "instances": [
+            "footlights"
+          ],
+          "semantic_action": "stage_footlight_chase",
+          "render_mode": "generated_full_object_states",
+          "frame_count": 8,
+          "hframes": 4,
+          "vframes": 2,
+          "sound": "assets/audio/castle/light_switch.ogg",
+          "close_sound": "",
+          "sound_frame": 0,
+          "pitch": 1.0,
+          "close_pitch": 1.0,
+          "frame_duration_seconds": 0.1025,
+          "fixed_pivot": true,
+          "root_transform_animation": false,
+          "secondary_root_physics": false,
+          "normalized_use_review": "codex_visual_review_accepted_2026-08-01",
+          "sheet": "assets/flats/castle/interactions_v2/opera_hall_footlights_sheet.png",
+          "sheet_sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+          "raw_chroma_master": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/opera_hall_footlights_sheet_chroma.png",
+          "raw_chroma_master_sha256": "94fa47e825f7bb17e0dd29ff0a15b01ba929992864d17f8fa0eab63c47fefafa",
+          "design_reference": "assets/flats/castle/rooms/room_opera_hall_item_footlights.png",
+          "design_reference_sha256": "ce753b9fcc76345d34b21c6916af3c729d880336b4b2055b526186bc6797815c",
+          "placement_reference": "assets/flats/castle/interactions/opera_hall_footlights_atlas.png",
+          "placement_reference_sha256": "578a6917abb9571810f0ffd1cb0c61b5398066845ef71465c928b3399763711d",
+          "placement_geometry_role": "v1_runtime_rest_cell",
+          "grid": [
+            4,
+            2
+          ],
+          "authored_frame_count": 8,
+          "timeline_sequence": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            5,
+            3,
+            1,
+            0
+          ],
+          "timeline_frame_count": 12,
+          "cell_size": [
+            256,
+            512
+          ],
+          "frame_bboxes": [
+            [
+              15,
+              453,
+              240,
+              506
+            ],
+            [
+              26,
+              417,
+              230,
+              506
+            ],
+            [
+              24,
+              441,
+              233,
+              506
+            ],
+            [
+              22,
+              443,
+              235,
+              506
+            ],
+            [
+              13,
+              440,
+              242,
+              506
+            ],
+            [
+              13,
+              440,
+              242,
+              506
+            ],
+            [
+              15,
+              436,
+              239,
+              506
+            ],
+            [
+              12,
+              436,
+              244,
+              506
+            ]
+          ],
+          "frame_sha256": [
+            "501cab9d5d8bc044de17f8dc4b7f610ba5f50601e6c797357455634125cf8b8d",
+            "4cec6df42a0598df9f7844c7d2c3be0edbb6e002cd896374fadbe25bf0ebd099",
+            "0ba54ea8adb9a33bb89d22d21d41e1e398fa7c3ea74543f4e6c5d84133831134",
+            "97cb0cf74fb77442369df645e73cb4c60d0fc513417f13206c0e130d10e291c2",
+            "1d266b5897f478aec30633e8d62610629a680b44d42b80b403033780b947aaf6",
+            "8ed6e363578961f13460959cf269a428a02d9a8f04ae0f83a7761f6207fd563c",
+            "767cdf642acc46d42bd7ac19934139f7f50ec86adbadc55748f06384d3c87313",
+            "31284ba99590b8f3295861f297c9afdece00dfa1128cc647dcd4e7500ad8233b"
+          ],
+          "unique_frame_count": 8,
+          "placement_size": [
+            196,
+            44
+          ],
+          "placement_bbox": [
+            13,
+            1,
+            181,
+            23
+          ],
+          "alignment_frame": 0,
+          "anchor_mode": "bottom_center",
+          "runtime_scale": 0.55671995,
+          "runtime_center_offset": [
+            97.0,
+            -116.179988
+          ],
+          "hall_center_offset": [
+            -1.0,
+            -138.179988
+          ],
+          "rest_frame": 0,
+          "transparent_pixels": 947313,
+          "partial_alpha_pixels": 13019,
+          "opaque_pixels": 88244,
+          "total_pixels": 1048576,
+          "transparent_border": true,
+          "normalization": {
+            "report": "assets/flats/castle/interactions_v2/castle_interactions_v2_normalization.json",
+            "report_sha256": "a11803a92e9599786dfefc3c2efecb3eecddc83b45673b0df3c9d20dd9a48966",
+            "uniform_scale": 0.953125,
+            "padding_pixels": 6,
+            "anchor_spread_pixels": [
+              1.0,
+              0.0
+            ],
+            "alpha_matte_recovered": true,
+            "alpha_recovery": "5x5 interior opacity plus 1.35x soft-edge alpha",
+            "rgb_subject_repainted": false,
+            "whole_object_translation_only": true,
+            "whole_sheet_uniform_scale_only": true,
+            "repainted_pixels": false
+          },
+          "physics_mode": "none",
+          "physics_pivot": [
+            0.5,
+            0.5
+          ],
+          "water_layers": [],
+          "primary_animation_is_overlay": false,
+          "generated_hidden_surfaces": false,
+          "provenance_manifest": "assets_src/imagegen/castle_object_animations_v2/dry_rooms/provenance.json",
+          "provenance_manifest_sha256": "81b63cb7d98283b4b6a35bfdbd3d12a2a6f82f1cc84d952ee61eba7632e6ba7e"
+        },
+        "exact_native_hash_match": true
+      },
+      "historical_ownership_binding": {
+        "asset_id": "opera_hall_footlights",
+        "frame_count": 8,
+        "grid": [
+          4,
+          2
+        ],
+        "instance": "footlights",
+        "pack": "v2_base",
+        "position": [
+          414.0,
+          286.0
+        ],
+        "runtime_center_offset": [
+          97.0,
+          -116.179988
+        ],
+        "runtime_scale": 0.55671995,
+        "sheet": "assets/flats/castle/interactions_v2/opera_hall_footlights_sheet.png",
+        "sheet_sha256": "532dfb72c881f273da3c670256fc5c27b2e4a39c3c2da4279d7508701fd51336",
+        "union": {
+          "bbox": [
+            443,
+            260,
+            579,
+            309
+          ],
+          "owned_pixels": 5041,
+          "raw_pixel_sha256": "3fc1af6e1a60800c629baf3ba26e2271e6faedc97355de18c24ec2a782489102"
+        }
+      },
+      "source_review_status": "PENDING",
+      "source_score": null,
+      "source_scope": "Whole existing native source and each exact authored cell; no mounted-use or complete-action acceptance."
+    },
+    {
+      "id": "D2X-0028",
+      "path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_left_sheet.png",
+      "sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+      "bytes": 19280,
+      "dimensions": [
+        1024,
+        512
+      ],
+      "mode": "RGBA",
+      "cells": [
+        {
+          "index": 0,
+          "region": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            114,
+            109,
+            142,
+            146
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 1,
+          "region": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            114,
+            109,
+            142,
+            146
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 2,
+          "region": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            114,
+            109,
+            142,
+            146
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 3,
+          "region": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            114,
+            109,
+            142,
+            146
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 4,
+          "region": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            114,
+            109,
+            142,
+            146
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 5,
+          "region": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            114,
+            109,
+            142,
+            146
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 6,
+          "region": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            114,
+            109,
+            142,
+            146
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 7,
+          "region": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            114,
+            109,
+            142,
+            146
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        }
+      ],
+      "current_source_contract": {
+        "path": "assets/flats/castle/interactions_v4/castle_interactions_v4.json",
+        "sha256": "21118917c51009ca57528d6a09b354aeb9a5d49dc21667bd7403d6fb79611cf8",
+        "binding": {
+          "anchor_mode": "center",
+          "animation_behavior": {
+            "action": "brighten_left_pearl_sconce_in_color_chase",
+            "generic_transform_fallback": false,
+            "mode": "authored_object_states",
+            "secondary_physics": false
+          },
+          "authored_frame_count": 8,
+          "cell_size": [
+            256,
+            256
+          ],
+          "delivery_status": "runtime_ready_source_owned_states",
+          "fixed_pivot": true,
+          "fixed_root_bbox_metrics": {
+            "maximum_height_ratio_to_rest": 1.0,
+            "maximum_visible_size": [
+              28,
+              37
+            ],
+            "maximum_width_ratio_to_rest": 1.0,
+            "minimum_visible_size": [
+              28,
+              37
+            ],
+            "rest_visible_size": [
+              28,
+              37
+            ]
+          },
+          "fluid_engine": "none",
+          "frame0_exact_rest_card": true,
+          "frame_bboxes": [
+            [
+              114,
+              109,
+              142,
+              146
+            ],
+            [
+              114,
+              109,
+              142,
+              146
+            ],
+            [
+              114,
+              109,
+              142,
+              146
+            ],
+            [
+              114,
+              109,
+              142,
+              146
+            ],
+            [
+              114,
+              109,
+              142,
+              146
+            ],
+            [
+              114,
+              109,
+              142,
+              146
+            ],
+            [
+              114,
+              109,
+              142,
+              146
+            ],
+            [
+              114,
+              109,
+              142,
+              146
+            ]
+          ],
+          "frame_count": 8,
+          "frame_duration_seconds": 0.12,
+          "frame_sha256": [
+            "1c24cf7ff71386852b576d086f30857623996ee496a0f85aeed56ee08f4792cf",
+            "f79c257cac7abbf682719ecd0d451546ebc6548a25f1f145ba1afff9f5b08be2",
+            "ce7475e7e129e221520def565b8681f84e4da48c269aae7e77c00d16d0d21158",
+            "ecacec599e9db617effad2c221d4911e13849742f20e6abdc7728833bd34ec09",
+            "c37c8a84feca951da5859d1f084b693c5612910c1b9034de2fb3ed701f667e3d",
+            "7489a6920820659a302a6ea5a5e12e80ac3aa2450bd4e5c18f20228106cdec09",
+            "f89697c2dcfac7842ec7788446edce8eb5bc9bf2be026931dc3a9eb1df70f1f5",
+            "36fe86c83f6239af56f0cbb428e24623de57b57e2f9a2d27d610f5e662f91afe"
+          ],
+          "grid": [
+            4,
+            2
+          ],
+          "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_opera_hall_background.png",
+          "hotspot_offset": [
+            -42.0,
+            -37.5
+          ],
+          "hotspot_size": [
+            112.0,
+            112.0
+          ],
+          "id": "opera_hall_pearl_sconce_left",
+          "instances": [
+            "pearl_sconce_left"
+          ],
+          "mask_path": "assets_src/castle/interactions_v4/masks/opera_hall_pearl_sconce_left_mask.png",
+          "name": "Pearl Sconce Left",
+          "normalization": {
+            "method": "source_owned_pearl_color_chase",
+            "per_frame_warp": false,
+            "root_transform_animation": false
+          },
+          "pack": "v4_native",
+          "physics_mode": "none",
+          "placement_position": [
+            283,
+            180
+          ],
+          "placement_size": [
+            28,
+            37
+          ],
+          "primary_animation_is_overlay": false,
+          "render_mode": "generated_full_object_states",
+          "rest_card_cell_origin": [
+            114,
+            109
+          ],
+          "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/opera_hall_pearl_sconce_left_rest.png",
+          "rest_card_registration_bbox": [
+            0,
+            0,
+            28,
+            37
+          ],
+          "rest_frame": 0,
+          "rest_registration_bbox_in_cell": [
+            114,
+            109,
+            142,
+            146
+          ],
+          "rest_visible_bbox_in_cell": [
+            114,
+            109,
+            142,
+            146
+          ],
+          "room": "opera_hall",
+          "root_transform_animation": false,
+          "runtime_center_offset": [
+            14.0,
+            19.0
+          ],
+          "runtime_scale": 1.0,
+          "secondary_root_physics": false,
+          "semantic_action": "brighten_left_pearl_sconce_in_color_chase",
+          "sheet": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_left_sheet.png",
+          "sheet_dimensions": [
+            1024,
+            512
+          ],
+          "sheet_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+          "sound": "assets/audio/castle/light_switch.ogg",
+          "sound_frame": 1,
+          "source_ownership": {
+            "background_healed": true,
+            "background_method": "generated_complete_clean_frame_MA_VIS_007",
+            "duplicate_pixels_removed": true,
+            "healed_background_sha256": "ebd074ac85a1b7d479eada4f49e0000690a9e96576a8ae1370525fe68e08116f",
+            "mask_sha256": "499a743644211dede52ecaf4620c22a4059e7e637cad85a259ca3a531aad6066",
+            "passed": true,
+            "production_rehealed": true,
+            "rest_card_sha256": "4376c2c27788b89c8396056cdc138a9d5c124baa27cb377de0950fa7dc89edc5",
+            "source_rect": [
+              283,
+              180,
+              28,
+              37
+            ],
+            "source_room_plate_sha256": "5878289852a911c50714aecddce1e9e63702425f3376e92205315e19a52c20cf",
+            "verified": true
+          },
+          "source_rect": [
+            283,
+            180,
+            28,
+            37
+          ],
+          "source_room_plate_path": "assets/flats/castle/rooms/room_opera_hall.png",
+          "timeline_frame_count": 9,
+          "timeline_sequence": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            0
+          ],
+          "unique_frame_count": 8,
+          "visual_review": {
+            "fixed_root_verified": true,
+            "identity_continuity": "accepted",
+            "normalized_use_verified": true,
+            "notes": "Accepted: complete object identity remains coherent across all authored states with an exact source-owned rest frame and fixed root pivot.",
+            "reviewer": "Codex source-ownership and contact-sheet audit 2026-08-04",
+            "status": "accepted"
+          }
+        },
+        "exact_native_hash_match": true
+      },
+      "historical_ownership_binding": {
+        "asset_id": "opera_hall_pearl_sconce_left",
+        "frame_count": 8,
+        "grid": [
+          4,
+          2
+        ],
+        "instance": "pearl_sconce_left",
+        "pack": "v4_native",
+        "position": [
+          283,
+          180
+        ],
+        "runtime_center_offset": [
+          14.0,
+          19.0
+        ],
+        "runtime_scale": 1.0,
+        "sheet": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_left_sheet.png",
+        "sheet_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+        "union": {
+          "bbox": [
+            284,
+            181,
+            310,
+            216
+          ],
+          "owned_pixels": 542,
+          "raw_pixel_sha256": "3f5e4ec0bd52d3581518d0dcb93567d3a6868037b8807ee6794e8a638cc2a334"
+        }
+      },
+      "source_review_status": "PENDING",
+      "source_score": null,
+      "source_scope": "Whole existing native source and each exact authored cell; no mounted-use or complete-action acceptance."
+    },
+    {
+      "id": "D2X-0029",
+      "path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_right_sheet.png",
+      "sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+      "bytes": 19630,
+      "dimensions": [
+        1024,
+        512
+      ],
+      "mode": "RGBA",
+      "cells": [
+        {
+          "index": 0,
+          "region": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            114,
+            109,
+            142,
+            146
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 1,
+          "region": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            114,
+            109,
+            142,
+            146
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 2,
+          "region": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            114,
+            109,
+            142,
+            146
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 3,
+          "region": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            114,
+            109,
+            142,
+            146
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 4,
+          "region": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            114,
+            109,
+            142,
+            146
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 5,
+          "region": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            114,
+            109,
+            142,
+            146
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 6,
+          "region": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            114,
+            109,
+            142,
+            146
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        },
+        {
+          "index": 7,
+          "region": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "alpha_bbox": [
+            114,
+            109,
+            142,
+            146
+          ],
+          "status": "DIRECT_REVIEW_PENDING"
+        }
+      ],
+      "current_source_contract": {
+        "path": "assets/flats/castle/interactions_v4/castle_interactions_v4.json",
+        "sha256": "21118917c51009ca57528d6a09b354aeb9a5d49dc21667bd7403d6fb79611cf8",
+        "binding": {
+          "anchor_mode": "center",
+          "animation_behavior": {
+            "action": "brighten_right_pearl_sconce_in_color_chase",
+            "generic_transform_fallback": false,
+            "mode": "authored_object_states",
+            "secondary_physics": false
+          },
+          "authored_frame_count": 8,
+          "cell_size": [
+            256,
+            256
+          ],
+          "delivery_status": "runtime_ready_source_owned_states",
+          "fixed_pivot": true,
+          "fixed_root_bbox_metrics": {
+            "maximum_height_ratio_to_rest": 1.0,
+            "maximum_visible_size": [
+              28,
+              37
+            ],
+            "maximum_width_ratio_to_rest": 1.0,
+            "minimum_visible_size": [
+              28,
+              37
+            ],
+            "rest_visible_size": [
+              28,
+              37
+            ]
+          },
+          "fluid_engine": "none",
+          "frame0_exact_rest_card": true,
+          "frame_bboxes": [
+            [
+              114,
+              109,
+              142,
+              146
+            ],
+            [
+              114,
+              109,
+              142,
+              146
+            ],
+            [
+              114,
+              109,
+              142,
+              146
+            ],
+            [
+              114,
+              109,
+              142,
+              146
+            ],
+            [
+              114,
+              109,
+              142,
+              146
+            ],
+            [
+              114,
+              109,
+              142,
+              146
+            ],
+            [
+              114,
+              109,
+              142,
+              146
+            ],
+            [
+              114,
+              109,
+              142,
+              146
+            ]
+          ],
+          "frame_count": 8,
+          "frame_duration_seconds": 0.12,
+          "frame_sha256": [
+            "9d980bff94dafb0136336dc2f5af37183db920a2b775acf6c8603e7ab82c3e51",
+            "4b0272d38b2aeecb4922660ab855aca37cfa14f384480ee45aca2cf39a5bed08",
+            "d131c04fcd633fcb108b4f66697ba8a3eb6af7ceeacd3b317970c19c94fa0156",
+            "7ad2653d2810b77e61e2efffec9c5df738950191a5fd99b46ae2d42aee3ac1ed",
+            "a0f2611385da7e6ee46d5d9a06b220ab8d29b66383b61dc1e1bf983da3a2b937",
+            "7d538fb284a4a26ce788b0edb360acd84aea77fbfcedb2ec135aa3433ba13224",
+            "6a02cf80f5a41514d5e08e5ad90e68ec4ba4084d6fabd449c43c7e3c812d9a36",
+            "c5d805e83808864cfe808be0df82659193396e9b8e45c38eef9620f3946868a2"
+          ],
+          "grid": [
+            4,
+            2
+          ],
+          "healed_background_path": "assets/flats/castle/interactions_v4/backgrounds/room_opera_hall_background.png",
+          "hotspot_offset": [
+            -42.0,
+            -37.5
+          ],
+          "hotspot_size": [
+            112.0,
+            112.0
+          ],
+          "id": "opera_hall_pearl_sconce_right",
+          "instances": [
+            "pearl_sconce_right"
+          ],
+          "mask_path": "assets_src/castle/interactions_v4/masks/opera_hall_pearl_sconce_right_mask.png",
+          "name": "Pearl Sconce Right",
+          "normalization": {
+            "method": "source_owned_pearl_color_chase",
+            "per_frame_warp": false,
+            "root_transform_animation": false
+          },
+          "pack": "v4_native",
+          "physics_mode": "none",
+          "placement_position": [
+            713,
+            180
+          ],
+          "placement_size": [
+            28,
+            37
+          ],
+          "primary_animation_is_overlay": false,
+          "render_mode": "generated_full_object_states",
+          "rest_card_cell_origin": [
+            114,
+            109
+          ],
+          "rest_card_path": "assets/flats/castle/interactions_v4/rest_cards/opera_hall_pearl_sconce_right_rest.png",
+          "rest_card_registration_bbox": [
+            0,
+            0,
+            28,
+            37
+          ],
+          "rest_frame": 0,
+          "rest_registration_bbox_in_cell": [
+            114,
+            109,
+            142,
+            146
+          ],
+          "rest_visible_bbox_in_cell": [
+            114,
+            109,
+            142,
+            146
+          ],
+          "room": "opera_hall",
+          "root_transform_animation": false,
+          "runtime_center_offset": [
+            14.0,
+            19.0
+          ],
+          "runtime_scale": 1.0,
+          "secondary_root_physics": false,
+          "semantic_action": "brighten_right_pearl_sconce_in_color_chase",
+          "sheet": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_right_sheet.png",
+          "sheet_dimensions": [
+            1024,
+            512
+          ],
+          "sheet_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+          "sound": "assets/audio/castle/light_switch.ogg",
+          "sound_frame": 1,
+          "source_ownership": {
+            "background_healed": true,
+            "background_method": "generated_complete_clean_frame_MA_VIS_007",
+            "duplicate_pixels_removed": true,
+            "healed_background_sha256": "ebd074ac85a1b7d479eada4f49e0000690a9e96576a8ae1370525fe68e08116f",
+            "mask_sha256": "45f1ac4ac6e764a68d51cc627d60481f6365082e2a32e8588487ee90ce3a71e9",
+            "passed": true,
+            "production_rehealed": true,
+            "rest_card_sha256": "b8dce6759ee5004a8507363ce70607885db5897a94aaa12662c8e3894e0c2f03",
+            "source_rect": [
+              713,
+              180,
+              28,
+              37
+            ],
+            "source_room_plate_sha256": "5878289852a911c50714aecddce1e9e63702425f3376e92205315e19a52c20cf",
+            "verified": true
+          },
+          "source_rect": [
+            713,
+            180,
+            28,
+            37
+          ],
+          "source_room_plate_path": "assets/flats/castle/rooms/room_opera_hall.png",
+          "timeline_frame_count": 9,
+          "timeline_sequence": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            0
+          ],
+          "unique_frame_count": 8,
+          "visual_review": {
+            "fixed_root_verified": true,
+            "identity_continuity": "accepted",
+            "normalized_use_verified": true,
+            "notes": "Accepted: complete object identity remains coherent across all authored states with an exact source-owned rest frame and fixed root pivot.",
+            "reviewer": "Codex source-ownership and contact-sheet audit 2026-08-04",
+            "status": "accepted"
+          }
+        },
+        "exact_native_hash_match": true
+      },
+      "historical_ownership_binding": {
+        "asset_id": "opera_hall_pearl_sconce_right",
+        "frame_count": 8,
+        "grid": [
+          4,
+          2
+        ],
+        "instance": "pearl_sconce_right",
+        "pack": "v4_native",
+        "position": [
+          713,
+          180
+        ],
+        "runtime_center_offset": [
+          14.0,
+          19.0
+        ],
+        "runtime_scale": 1.0,
+        "sheet": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_right_sheet.png",
+        "sheet_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+        "union": {
+          "bbox": [
+            714,
+            181,
+            740,
+            216
+          ],
+          "owned_pixels": 549,
+          "raw_pixel_sha256": "3a7b6cdeab6050e35d4a9f9e4bd2c26faac2676460f966a8ad74b2cd71fc3ff3"
+        }
+      },
+      "source_review_status": "PENDING",
+      "source_score": null,
+      "source_scope": "Whole existing native source and each exact authored cell; no mounted-use or complete-action acceptance."
+    },
+    {
+      "id": "D2X-0030",
+      "path": "assets/flats/castle/rooms/room_opera_hall_front_left.png",
+      "sha256": "ab63cdf1faf7ccb82a7af7a39928d8fea613d087ab6a38fc85187d765e7177c7",
+      "bytes": 110332,
+      "dimensions": [
+        274,
+        324
+      ],
+      "mode": "RGBA",
+      "cells": [],
+      "current_source_contract": null,
+      "historical_ownership_binding": null,
+      "source_review_status": "PENDING",
+      "source_score": null,
+      "source_scope": "Whole existing native source and each exact authored cell; no mounted-use or complete-action acceptance."
+    },
+    {
+      "id": "D2X-0031",
+      "path": "assets/flats/castle/rooms/room_opera_hall_front_right.png",
+      "sha256": "2606a8de371ac70a3573c99fd5cd328b9492ad58a461cbf74bb2ee8c390cbc1d",
+      "bytes": 107650,
+      "dimensions": [
+        274,
+        324
+      ],
+      "mode": "RGBA",
+      "cells": [],
+      "current_source_contract": null,
+      "historical_ownership_binding": null,
+      "source_review_status": "PENDING",
+      "source_score": null,
+      "source_scope": "Whole existing native source and each exact authored cell; no mounted-use or complete-action acceptance."
+    },
+    {
+      "id": "D2X-0140",
+      "path": "assets/flats/castle/main_hall_redraw_2026-08-03/signs/sign_kitchen.png",
+      "sha256": "7f05f4b227ca10281af798f1ec632c7a662be15797abfc7c5cb15e2682b5d8dd",
+      "bytes": 24281,
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "cells": [],
+      "current_source_contract": null,
+      "historical_ownership_binding": null,
+      "source_review_status": "PENDING",
+      "source_score": null,
+      "source_scope": "Whole existing native source and each exact authored cell; no mounted-use or complete-action acceptance."
+    }
+  ],
+  "source_count": 18,
+  "authored_cells": 104,
+  "current_contracts": [
+    {
+      "path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+      "sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/castle_interactions_v4.json",
+      "sha256": "21118917c51009ca57528d6a09b354aeb9a5d49dc21667bd7403d6fb79611cf8"
+    }
+  ],
+  "historical_ownership_reference": {
+    "path": "assets_src/castle/room_backgrounds_2k/castle_live_alpha_baseline_repair.json",
+    "sha256": "b0db7c21ffdd0286cfd90b30afaad50699f60055e1ee2ca8b4cabbe697070318",
+    "stale_hashes": [
+      {
+        "path": "assets/flats/castle/interactions_v2/opera_hall_curtains_sheet.png",
+        "older_hash": "51673baecdf196fd3e301630ae04c035f8d1ce1c6dde8c93ea72492c7cbe07d7",
+        "current_hash": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+        "current_manifest": "assets/flats/castle/interactions_v2/castle_interactions_v2.json"
+      },
+      {
+        "path": "assets/flats/castle/interactions_v2/opera_hall_footlights_sheet.png",
+        "older_hash": "532dfb72c881f273da3c670256fc5c27b2e4a39c3c2da4279d7508701fd51336",
+        "current_hash": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+        "current_manifest": "assets/flats/castle/interactions_v2/castle_interactions_v2.json"
+      }
+    ]
+  },
+  "production_change": false,
+  "qualification": "18 known existing Kitchen/Opera entrance natives, all 104 authored cells and original row sequences must be directly inspected before grading. Current manifests give exact native hashes and grids. No pixel edits, generation or production change; source grades never transfer to rendered contact, ordinary routes, device/child/owner or true2D game-wide acceptance."
+}

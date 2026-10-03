@@ -1,0 +1,45 @@
+extends "res://scripts/opera_gesture_surface.gd"
+## NON_RUNTIME_WRAPPER_CONTACT_STUDY. Native complete source keys; no interpolation,
+## pixel repairs, runtime asset binding or claim of temporal in-betweens.
+const CONTACT_NATIVE := "res://assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt07/native.png"
+var contact_texture: Texture2D
+var last_source_region := Rect2()
+var last_source_key := -1
+var last_draw_rect := Rect2()
+
+func _draw_candymaker_crank(progress: float) -> void:
+	if contact_texture == null:
+		var image := Image.new()
+		assert(image.load(CONTACT_NATIVE) == OK)
+		assert(image.get_size() == Vector2i(1254, 1254))
+		contact_texture = ImageTexture.create_from_image(image)
+	var key := 0 if progress < 0.22 else (1 if progress < 0.54 else (2 if progress < 0.82 else 3))
+	var side := minf(size.x, size.y) * 0.96
+	var target := Rect2(size * 0.5 - Vector2.ONE * side * 0.5, Vector2.ONE * side)
+	var source := Rect2(Vector2(float(key % 2) * 627.0, float(key >> 1) * 627.0), Vector2(627, 627))
+	assert(source.position.x >= 0 and source.position.y >= 0 and source.end.x <= 1254 and source.end.y <= 1254)
+	last_source_key = key
+	last_source_region = source
+	last_draw_rect = target
+	draw_texture_rect_region(contact_texture, target, source)
+
+func _contact_draw_rect() -> Rect2:
+	var side := minf(size.x, size.y) * 0.96
+	return Rect2(size * 0.5 - Vector2.ONE * side * 0.5, Vector2.ONE * side)
+
+func _circle_pivot() -> Vector2:
+	if visual_context == "crank_candymaker" and mode == "circle":
+		var rect := _contact_draw_rect()
+		return rect.position + rect.size * Vector2(0.5, 0.83)
+	return super._circle_pivot()
+
+func _contact_circle_radius() -> float:
+	# Above unchanged inherited 0.13 dead zone; follows visible neck contacts.
+	return minf(size.x, size.y) * 0.16
+
+func _demo_finger_pose() -> Dictionary:
+	if visual_context == "crank_candymaker" and mode == "circle":
+		var cycle := fmod(demo_t, 2.4)
+		var at := _circle_pivot() + Vector2.from_angle(-2.7 + cycle * 2.0) * _contact_circle_radius()
+		return {"at": at, "pressing": true}
+	return super._demo_finger_pose()

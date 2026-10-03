@@ -1,0 +1,63 @@
+{
+  "utc": "2026-10-03T05:18:11.750288+00:00",
+  "measurements": [
+    {
+      "folder": "audit/job_candy_workflow_current_v1_20261003/attempt03",
+      "native_dimensions": [
+        {
+          "size": [
+            1280,
+            720
+          ],
+          "count": 344
+        },
+        {
+          "size": [
+            1600,
+            720
+          ],
+          "count": 346
+        }
+      ]
+    },
+    {
+      "folder": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt02",
+      "native_dimensions": [
+        {
+          "size": [
+            1280,
+            720
+          ],
+          "count": 168
+        },
+        {
+          "size": [
+            1600,
+            720
+          ],
+          "count": 167
+        }
+      ]
+    },
+    {
+      "folder": "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt04",
+      "native_dimensions": [
+        {
+          "size": [
+            1280,
+            720
+          ],
+          "count": 5
+        },
+        {
+          "size": [
+            1920,
+            1080
+          ],
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "qualification": "Literal native dimensions measured after A04 sort failure. Requested width fields alone do not prove actual window size. Project default mode2 is maximized; next fixture explicitly windowed then asserts native size."
+}

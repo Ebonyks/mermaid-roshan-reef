@@ -1,0 +1,20 @@
+{
+  "status": "PRESERVED_SOURCE_HASH_ASSERTION_FAILURE",
+  "error": "AssertionError at prior binding['sheet_sha256']==current source hash",
+  "effect": "Preparation stopped before plan, grades or impact. Only empty review folders and .gdignore existed. No source art or canonical metadata changed.",
+  "diagnosis": [
+    {
+      "path": "assets/flats/castle/interactions_v2/opera_hall_curtains_sheet.png",
+      "older_hash": "51673baecdf196fd3e301630ae04c035f8d1ce1c6dde8c93ea72492c7cbe07d7",
+      "current_hash": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+      "current_manifest": "assets/flats/castle/interactions_v2/castle_interactions_v2.json"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/opera_hall_footlights_sheet.png",
+      "older_hash": "532dfb72c881f273da3c670256fc5c27b2e4a39c3c2da4279d7508701fd51336",
+      "current_hash": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+      "current_manifest": "assets/flats/castle/interactions_v2/castle_interactions_v2.json"
+    }
+  ],
+  "correction": "Current V2/V4 manifests independently match all 13 current atlas natives and their grids. Older alpha-ownership hashes remain historical and unchanged; they are not used as current source evidence."
+}

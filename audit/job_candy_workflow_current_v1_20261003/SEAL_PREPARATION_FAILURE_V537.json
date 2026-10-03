@@ -1,0 +1,7 @@
+{
+  "status": "PRESERVED_MISSING_PREPARED_HISTORY_PATH_FAILURE",
+  "error": "AssertionError: audit/job_candy_workflow_current_v1_20261003/PUBLICATION_SOURCE_NEWLINE_BRIDGE_V527.json",
+  "effect": "Expanded sealer stopped while validating scope file existence, before staging its expanded payload or creating the final closed map/seal. No commit, push, production or original artwork change.",
+  "cause": "The previous --prepare impact included three intended V527 evidence paths but the earlier sealer was never run after the audit grew.",
+  "correction": "Preserve all three planned paths as explicit NOT_RUN_PREPARED_PLAN_SUPERSEDED history receipts. They do not inherit PASS. Fresh V537 actual checks remain blocking."
+}

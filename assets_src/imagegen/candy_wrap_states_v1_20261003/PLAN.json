@@ -1,0 +1,102 @@
+{
+  "baseline": "c5977ebb29bb2011b20fc149ad350290f045045c",
+  "created_utc": "2026-10-03T04:16:56.798001+00:00",
+  "rules": [
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-INT-04",
+    "DL-INT-06",
+    "DL-INT-12",
+    "DL-LAY-07",
+    "DL-MED-01",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-06",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004",
+    "MA-OPERA-012"
+  ],
+  "named_gap": "Direct native current wrapping shows unchanged flat oval, detached rotating gold polygons and no paper coverage. Existing crank and mover have a whole decorative swirl, baked guide/line and only one already-wrapped state; candy bag is a different object. None supplies the required open/fold/cover/twist causal paper states.",
+  "reuse_inventory": [
+    {
+      "path": "assets/opera/worlds/props/goal_candymaker.png",
+      "sha256": "91bb2f1d37fdfbba62ab5a77898a517980a5b652ed89f655fe8492dd75b3666a",
+      "dimensions": [
+        512,
+        512
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_candymaker.png",
+      "sha256": "555234adf644fb4b28f52173dd116b438ce3a9fcebf2bf194a88f3b77220893e",
+      "dimensions": [
+        1024,
+        608
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_candymaker_mover.png",
+      "sha256": "4e77bdc100f28a4a4639190c9be820ed9b05f6361d7ebf16fb250dbde92b585f",
+      "dimensions": [
+        256,
+        256
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_candymaker_progress.png",
+      "sha256": "abf4e89876709e9093157eab4fdaadc30713f475deabb409d9d6958a5d3480f1",
+      "dimensions": [
+        1024,
+        608
+      ],
+      "role": "Existing source/pose/room/prop/widget inventory; current use resolved separately from capture.",
+      "provenance": "Existing ASSET_LICENSES.md row, unchanged."
+    }
+  ],
+  "input_reference_images": [],
+  "generation": "Fresh text-only built-in imagegen; no protected or blocked reference upload. Transparent 2x2 gameplay state atlas. This is static authored gameplay source, not cinematic delivery or accepted motion.",
+  "prompt_sha256": "dd04e89ed83baaffc484e28062898214108fe54d85b707f44c8d7b7df4ebea08",
+  "required_evidence": "Complete native raster/alpha, each individual state, inter-state material continuity, bounded source scores and technical dimensions; any source candidate >=4.5 stays unbound until full actual action/contact/display review. Preserve every rejected attempt.",
+  "predicted_score": null,
+  "owner_acceptance": null,
+  "attempt02_reason": "A1 isolated material4.5\u20134.6, but atlas isolation/alignment3.8 rejected. Fresh text-only A2 changes positioning/gutters only; no predicted pass.",
+  "attempt02_prompt_sha256": "2e74a2cb71ac012c78fb1c0614688238f1d8b0aa3dd7f74bd9d3fe89a9c03129",
+  "attempt03_reason": "A2 separated painted states4.5\u20134.6, but fixed-cell alignment4.2. Fresh text-only single-row layout retains causal paper specification and avoids top/bottom-row vertical mismatch; no predicted pass.",
+  "attempt03_prompt_sha256": "97ccc1926336a4f89f0eb69c85c281384008f1a315712a63abbd75481e89ad89"
+}

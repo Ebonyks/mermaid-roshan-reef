@@ -1,0 +1,89 @@
+{
+  "baseline": "c5977ebb29bb2011b20fc149ad350290f045045c",
+  "created_utc": "2026-10-03T03:36:26.439474+00:00",
+  "rules": [
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-INT-04",
+    "DL-INT-06",
+    "DL-INT-12",
+    "DL-LAY-07",
+    "DL-MED-01",
+    "DL-MOT-01",
+    "DL-MOT-03",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-06",
+    "DL-SAVE-01",
+    "DL-SAVE-02",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-08"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004",
+    "MA-OPERA-012"
+  ],
+  "named_gap": "Current whole fossil3.2; fracture A2 whole3.6. Last brush threshold replaces an intact-looking fossil with three pieces at distant homes (transition3.2).",
+  "reuse_inventory": [
+    {
+      "path": "assets/opera/worlds/geology/painted_work_v1_20261001/fossil.png",
+      "sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+      "status": "Existing painted material4.5, unchanged; three complementary A2 pieces4.5 provisional."
+    },
+    {
+      "path": "audit/job_geology_painted_fracture_trial_v1_20261003/painted_fracture_surface.gd",
+      "sha256": "7b2bbbf19bd8f6df44b6e2e1295e64273d52eef26ca7a661a4a01ec6200e2aa2",
+      "status": "Reuse exact reviewed A2 texture partitions and exposed-edge/snap suppression."
+    },
+    {
+      "path": "scripts/opera_geology_surface.gd",
+      "sha256": "441b24fcbd4752d6ec5bf8febfa7c79255311a813b56afb798aa19de77247666",
+      "status": "Inherited one-finger input,40-cell/26-clear threshold, targets, progress, JSON restore, completion; current production byte unchanged."
+    }
+  ],
+  "change": "Non-runtime subclass changes only fossil piece home placement and stage0 underlying drawing. Show already-broken pieces at the same home positions before/after soil clearing, with original painted soil/brush drawing over them. Do not invent a fracture after uncovering or move the pieces automatically. Keep inherited target/snap/input/save/completion behavior; home placement is explicitly changed, not labeled draw-only.",
+  "homes": [
+    [
+      639,
+      400
+    ],
+    [
+      780,
+      400
+    ],
+    [
+      921,
+      400
+    ]
+  ],
+  "hit_width_including_unchanged_24px_margin": 140.81305637982194,
+  "home_center_spacing": 141,
+  "minimum_horizontal_hit_gap": 0.18694362017805588,
+  "required_evidence": "Fresh parser/inference/officialGodot4.7.2 analyzers and actual Library all4 phases/earned return/elevator replay/Back at both widths. Every input/wait fossil frame and selected native canvas directly reviewed, item opinions, stage-threshold pairs, original783 hashes. Source/material/geometry does not predict a visual/action pass.",
+  "known_unrepaired": "Coarse brush-cell edges and remaining dirt threshold disappearance, ghost-target overlap, remote working hands2.7, room2.8, generic completion. No predicted score or whole-action acceptance.",
+  "production_binding": false,
+  "owner_acceptance": null
+}

@@ -1,16 +1,22 @@
 {
   "schema": "reef.current-review-boundary-refresh.v1",
-  "status": "CURRENT_CAPTURE_BOUNDARIES_MATCH",
-  "checked_utc": "2026-10-03T02:10:07.696391+00:00",
-  "working_head": "1652a9bb33af0d11a594b5996df66d2266c02d39",
-  "registry_items": 1821,
-  "unique_registered_paths": 1281,
-  "registered_source_matches": 1821,
+  "status": "CURRENT_CANDY_MATCH_OLDER_GEODE_NURSERY_WITHHELD",
+  "checked_utc": "2026-10-03T06:31:48.858338+00:00",
+  "working_head": "c5977ebb29bb2011b20fc149ad350290f045045c",
+  "registry_items": 2038,
+  "unique_registered_paths": 1314,
+  "registered_source_matches": 2038,
   "source_changed_or_unavailable": [],
   "geode_review": "audit/job_geode_current_recheck_v1_20261002/DIRECT_REVIEW.json",
   "geode_capture_source_count": 783,
-  "geode_capture_boundary_match": true,
-  "geode_changed_sources": [],
+  "geode_capture_boundary_match": false,
+  "geode_changed_sources": [
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "recorded_sha256": "36de131d46713f08171b200aa9bd81f2de7645c43866e2adbb259827c3cd5703",
+      "observed_sha256": "501cec2f90a16ed66dd10fabacc04d1285061a682cf39ad0ad0481c2e2661131"
+    }
+  ],
   "items": [
     {
       "id": "D2F-0001",
@@ -13810,7 +13816,7 @@
       "observed_sha256": "e47a731414210ef70c0b5fffce2828922a15611c6093c244811ee0a283534503",
       "registered_sha256": "e47a731414210ef70c0b5fffce2828922a15611c6093c244811ee0a283534503",
       "source_match": true,
-      "binding_match": true
+      "binding_match": false
     },
     {
       "id": "GEO-USE-DEV-MENU",
@@ -14579,11 +14585,1757 @@
       "registered_sha256": "6d91458161f5d234354293c1836fe26b07306377916cd18ec59e785fd76a5cbb",
       "source_match": true,
       "binding_match": null
+    },
+    {
+      "id": "CANDY-M-SOURCE-01",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt01/native.png",
+      "observed_sha256": "a70f8ad960af911a07e20b0aac8dca699bfedeaaac0b25f9c2da49297231dcd3",
+      "registered_sha256": "a70f8ad960af911a07e20b0aac8dca699bfedeaaac0b25f9c2da49297231dcd3",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A01-STATE-1",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt01/native.png",
+      "observed_sha256": "a70f8ad960af911a07e20b0aac8dca699bfedeaaac0b25f9c2da49297231dcd3",
+      "registered_sha256": "a70f8ad960af911a07e20b0aac8dca699bfedeaaac0b25f9c2da49297231dcd3",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A01-STATE-2",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt01/native.png",
+      "observed_sha256": "a70f8ad960af911a07e20b0aac8dca699bfedeaaac0b25f9c2da49297231dcd3",
+      "registered_sha256": "a70f8ad960af911a07e20b0aac8dca699bfedeaaac0b25f9c2da49297231dcd3",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A01-STATE-3",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt01/native.png",
+      "observed_sha256": "a70f8ad960af911a07e20b0aac8dca699bfedeaaac0b25f9c2da49297231dcd3",
+      "registered_sha256": "a70f8ad960af911a07e20b0aac8dca699bfedeaaac0b25f9c2da49297231dcd3",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A01-STATE-4",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt01/native.png",
+      "observed_sha256": "a70f8ad960af911a07e20b0aac8dca699bfedeaaac0b25f9c2da49297231dcd3",
+      "registered_sha256": "a70f8ad960af911a07e20b0aac8dca699bfedeaaac0b25f9c2da49297231dcd3",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-SOURCE-02",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt02/native.png",
+      "observed_sha256": "0626b6a4fda3f3f7a526b126a10811015c95a98d3f14e3b3655f50d37a6cca12",
+      "registered_sha256": "0626b6a4fda3f3f7a526b126a10811015c95a98d3f14e3b3655f50d37a6cca12",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A02-STATE-1",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt02/native.png",
+      "observed_sha256": "0626b6a4fda3f3f7a526b126a10811015c95a98d3f14e3b3655f50d37a6cca12",
+      "registered_sha256": "0626b6a4fda3f3f7a526b126a10811015c95a98d3f14e3b3655f50d37a6cca12",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A02-STATE-2",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt02/native.png",
+      "observed_sha256": "0626b6a4fda3f3f7a526b126a10811015c95a98d3f14e3b3655f50d37a6cca12",
+      "registered_sha256": "0626b6a4fda3f3f7a526b126a10811015c95a98d3f14e3b3655f50d37a6cca12",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A02-STATE-3",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt02/native.png",
+      "observed_sha256": "0626b6a4fda3f3f7a526b126a10811015c95a98d3f14e3b3655f50d37a6cca12",
+      "registered_sha256": "0626b6a4fda3f3f7a526b126a10811015c95a98d3f14e3b3655f50d37a6cca12",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A02-STATE-4",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt02/native.png",
+      "observed_sha256": "0626b6a4fda3f3f7a526b126a10811015c95a98d3f14e3b3655f50d37a6cca12",
+      "registered_sha256": "0626b6a4fda3f3f7a526b126a10811015c95a98d3f14e3b3655f50d37a6cca12",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-SOURCE-03",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt03/native.png",
+      "observed_sha256": "44f56faf36de05945af71284de03353ceb790eb3b33f67ce9f411ced556e17f8",
+      "registered_sha256": "44f56faf36de05945af71284de03353ceb790eb3b33f67ce9f411ced556e17f8",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A03-STATE-1",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt03/native.png",
+      "observed_sha256": "44f56faf36de05945af71284de03353ceb790eb3b33f67ce9f411ced556e17f8",
+      "registered_sha256": "44f56faf36de05945af71284de03353ceb790eb3b33f67ce9f411ced556e17f8",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A03-STATE-2",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt03/native.png",
+      "observed_sha256": "44f56faf36de05945af71284de03353ceb790eb3b33f67ce9f411ced556e17f8",
+      "registered_sha256": "44f56faf36de05945af71284de03353ceb790eb3b33f67ce9f411ced556e17f8",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A03-STATE-3",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt03/native.png",
+      "observed_sha256": "44f56faf36de05945af71284de03353ceb790eb3b33f67ce9f411ced556e17f8",
+      "registered_sha256": "44f56faf36de05945af71284de03353ceb790eb3b33f67ce9f411ced556e17f8",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A03-STATE-4",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt03/native.png",
+      "observed_sha256": "44f56faf36de05945af71284de03353ceb790eb3b33f67ce9f411ced556e17f8",
+      "registered_sha256": "44f56faf36de05945af71284de03353ceb790eb3b33f67ce9f411ced556e17f8",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-SOURCE-04",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt04/native.png",
+      "observed_sha256": "38320ef203ab67cdcfbc9c4dfde9d502842421be05f0d721e5c8155df2b61159",
+      "registered_sha256": "38320ef203ab67cdcfbc9c4dfde9d502842421be05f0d721e5c8155df2b61159",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A04-STATE-1",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt04/native.png",
+      "observed_sha256": "38320ef203ab67cdcfbc9c4dfde9d502842421be05f0d721e5c8155df2b61159",
+      "registered_sha256": "38320ef203ab67cdcfbc9c4dfde9d502842421be05f0d721e5c8155df2b61159",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A04-STATE-2",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt04/native.png",
+      "observed_sha256": "38320ef203ab67cdcfbc9c4dfde9d502842421be05f0d721e5c8155df2b61159",
+      "registered_sha256": "38320ef203ab67cdcfbc9c4dfde9d502842421be05f0d721e5c8155df2b61159",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A04-STATE-3",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt04/native.png",
+      "observed_sha256": "38320ef203ab67cdcfbc9c4dfde9d502842421be05f0d721e5c8155df2b61159",
+      "registered_sha256": "38320ef203ab67cdcfbc9c4dfde9d502842421be05f0d721e5c8155df2b61159",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A04-STATE-4",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt04/native.png",
+      "observed_sha256": "38320ef203ab67cdcfbc9c4dfde9d502842421be05f0d721e5c8155df2b61159",
+      "registered_sha256": "38320ef203ab67cdcfbc9c4dfde9d502842421be05f0d721e5c8155df2b61159",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-SOURCE-05",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt05/native.png",
+      "observed_sha256": "81e328decc41012dc234d970af82c6084540cb7b1bbc822c8a0117351164c745",
+      "registered_sha256": "81e328decc41012dc234d970af82c6084540cb7b1bbc822c8a0117351164c745",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A05-STATE-1",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt05/native.png",
+      "observed_sha256": "81e328decc41012dc234d970af82c6084540cb7b1bbc822c8a0117351164c745",
+      "registered_sha256": "81e328decc41012dc234d970af82c6084540cb7b1bbc822c8a0117351164c745",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A05-STATE-2",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt05/native.png",
+      "observed_sha256": "81e328decc41012dc234d970af82c6084540cb7b1bbc822c8a0117351164c745",
+      "registered_sha256": "81e328decc41012dc234d970af82c6084540cb7b1bbc822c8a0117351164c745",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A05-STATE-3",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt05/native.png",
+      "observed_sha256": "81e328decc41012dc234d970af82c6084540cb7b1bbc822c8a0117351164c745",
+      "registered_sha256": "81e328decc41012dc234d970af82c6084540cb7b1bbc822c8a0117351164c745",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A05-STATE-4",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt05/native.png",
+      "observed_sha256": "81e328decc41012dc234d970af82c6084540cb7b1bbc822c8a0117351164c745",
+      "registered_sha256": "81e328decc41012dc234d970af82c6084540cb7b1bbc822c8a0117351164c745",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-SOURCE-06",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt06/native.png",
+      "observed_sha256": "785093ef3b9a11c867e17ef8d0e8c640d701d5ae1827da98b26d24329e58dac3",
+      "registered_sha256": "785093ef3b9a11c867e17ef8d0e8c640d701d5ae1827da98b26d24329e58dac3",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A06-STATE-1",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt06/native.png",
+      "observed_sha256": "785093ef3b9a11c867e17ef8d0e8c640d701d5ae1827da98b26d24329e58dac3",
+      "registered_sha256": "785093ef3b9a11c867e17ef8d0e8c640d701d5ae1827da98b26d24329e58dac3",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A06-STATE-2",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt06/native.png",
+      "observed_sha256": "785093ef3b9a11c867e17ef8d0e8c640d701d5ae1827da98b26d24329e58dac3",
+      "registered_sha256": "785093ef3b9a11c867e17ef8d0e8c640d701d5ae1827da98b26d24329e58dac3",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A06-STATE-3",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt06/native.png",
+      "observed_sha256": "785093ef3b9a11c867e17ef8d0e8c640d701d5ae1827da98b26d24329e58dac3",
+      "registered_sha256": "785093ef3b9a11c867e17ef8d0e8c640d701d5ae1827da98b26d24329e58dac3",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A06-STATE-4",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt06/native.png",
+      "observed_sha256": "785093ef3b9a11c867e17ef8d0e8c640d701d5ae1827da98b26d24329e58dac3",
+      "registered_sha256": "785093ef3b9a11c867e17ef8d0e8c640d701d5ae1827da98b26d24329e58dac3",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-SOURCE-07",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt07/native.png",
+      "observed_sha256": "7207d74c283e6c45c61e0d453ab5c476027611065f84ce75750407875816f467",
+      "registered_sha256": "7207d74c283e6c45c61e0d453ab5c476027611065f84ce75750407875816f467",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A07-STATE-1",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt07/native.png",
+      "observed_sha256": "7207d74c283e6c45c61e0d453ab5c476027611065f84ce75750407875816f467",
+      "registered_sha256": "7207d74c283e6c45c61e0d453ab5c476027611065f84ce75750407875816f467",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A07-STATE-2",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt07/native.png",
+      "observed_sha256": "7207d74c283e6c45c61e0d453ab5c476027611065f84ce75750407875816f467",
+      "registered_sha256": "7207d74c283e6c45c61e0d453ab5c476027611065f84ce75750407875816f467",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A07-STATE-3",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt07/native.png",
+      "observed_sha256": "7207d74c283e6c45c61e0d453ab5c476027611065f84ce75750407875816f467",
+      "registered_sha256": "7207d74c283e6c45c61e0d453ab5c476027611065f84ce75750407875816f467",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A07-STATE-4",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt07/native.png",
+      "observed_sha256": "7207d74c283e6c45c61e0d453ab5c476027611065f84ce75750407875816f467",
+      "registered_sha256": "7207d74c283e6c45c61e0d453ab5c476027611065f84ce75750407875816f467",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-SOURCE-08",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt08/native.png",
+      "observed_sha256": "63815c9b4a5778af05c308c292cb5b77b13f70500710ca53547518271c8d12b9",
+      "registered_sha256": "63815c9b4a5778af05c308c292cb5b77b13f70500710ca53547518271c8d12b9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A08-STATE-1",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt08/native.png",
+      "observed_sha256": "63815c9b4a5778af05c308c292cb5b77b13f70500710ca53547518271c8d12b9",
+      "registered_sha256": "63815c9b4a5778af05c308c292cb5b77b13f70500710ca53547518271c8d12b9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A08-STATE-2",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt08/native.png",
+      "observed_sha256": "63815c9b4a5778af05c308c292cb5b77b13f70500710ca53547518271c8d12b9",
+      "registered_sha256": "63815c9b4a5778af05c308c292cb5b77b13f70500710ca53547518271c8d12b9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A08-STATE-3",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt08/native.png",
+      "observed_sha256": "63815c9b4a5778af05c308c292cb5b77b13f70500710ca53547518271c8d12b9",
+      "registered_sha256": "63815c9b4a5778af05c308c292cb5b77b13f70500710ca53547518271c8d12b9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A08-STATE-4",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt08/native.png",
+      "observed_sha256": "63815c9b4a5778af05c308c292cb5b77b13f70500710ca53547518271c8d12b9",
+      "registered_sha256": "63815c9b4a5778af05c308c292cb5b77b13f70500710ca53547518271c8d12b9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-N-SOURCE-01",
+      "path": "assets_src/imagegen/candy_wrap_states_v1_20261003/attempt01/native.png",
+      "observed_sha256": "734f39130ceb2ec53a438d6e418f532834b8363428d82e187bd720bc890d0c9e",
+      "registered_sha256": "734f39130ceb2ec53a438d6e418f532834b8363428d82e187bd720bc890d0c9e",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-N-A01-STATE-1",
+      "path": "assets_src/imagegen/candy_wrap_states_v1_20261003/attempt01/native.png",
+      "observed_sha256": "734f39130ceb2ec53a438d6e418f532834b8363428d82e187bd720bc890d0c9e",
+      "registered_sha256": "734f39130ceb2ec53a438d6e418f532834b8363428d82e187bd720bc890d0c9e",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-N-A01-STATE-2",
+      "path": "assets_src/imagegen/candy_wrap_states_v1_20261003/attempt01/native.png",
+      "observed_sha256": "734f39130ceb2ec53a438d6e418f532834b8363428d82e187bd720bc890d0c9e",
+      "registered_sha256": "734f39130ceb2ec53a438d6e418f532834b8363428d82e187bd720bc890d0c9e",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-N-A01-STATE-3",
+      "path": "assets_src/imagegen/candy_wrap_states_v1_20261003/attempt01/native.png",
+      "observed_sha256": "734f39130ceb2ec53a438d6e418f532834b8363428d82e187bd720bc890d0c9e",
+      "registered_sha256": "734f39130ceb2ec53a438d6e418f532834b8363428d82e187bd720bc890d0c9e",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-N-A01-STATE-4",
+      "path": "assets_src/imagegen/candy_wrap_states_v1_20261003/attempt01/native.png",
+      "observed_sha256": "734f39130ceb2ec53a438d6e418f532834b8363428d82e187bd720bc890d0c9e",
+      "registered_sha256": "734f39130ceb2ec53a438d6e418f532834b8363428d82e187bd720bc890d0c9e",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-N-SOURCE-02",
+      "path": "assets_src/imagegen/candy_wrap_states_v1_20261003/attempt02/native.png",
+      "observed_sha256": "c2c274815bfb0339e66282fafd7e27ac2a4d8efab5922d1e907c4ec23c437d83",
+      "registered_sha256": "c2c274815bfb0339e66282fafd7e27ac2a4d8efab5922d1e907c4ec23c437d83",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-N-A02-STATE-1",
+      "path": "assets_src/imagegen/candy_wrap_states_v1_20261003/attempt02/native.png",
+      "observed_sha256": "c2c274815bfb0339e66282fafd7e27ac2a4d8efab5922d1e907c4ec23c437d83",
+      "registered_sha256": "c2c274815bfb0339e66282fafd7e27ac2a4d8efab5922d1e907c4ec23c437d83",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-N-A02-STATE-2",
+      "path": "assets_src/imagegen/candy_wrap_states_v1_20261003/attempt02/native.png",
+      "observed_sha256": "c2c274815bfb0339e66282fafd7e27ac2a4d8efab5922d1e907c4ec23c437d83",
+      "registered_sha256": "c2c274815bfb0339e66282fafd7e27ac2a4d8efab5922d1e907c4ec23c437d83",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-N-A02-STATE-3",
+      "path": "assets_src/imagegen/candy_wrap_states_v1_20261003/attempt02/native.png",
+      "observed_sha256": "c2c274815bfb0339e66282fafd7e27ac2a4d8efab5922d1e907c4ec23c437d83",
+      "registered_sha256": "c2c274815bfb0339e66282fafd7e27ac2a4d8efab5922d1e907c4ec23c437d83",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-N-A02-STATE-4",
+      "path": "assets_src/imagegen/candy_wrap_states_v1_20261003/attempt02/native.png",
+      "observed_sha256": "c2c274815bfb0339e66282fafd7e27ac2a4d8efab5922d1e907c4ec23c437d83",
+      "registered_sha256": "c2c274815bfb0339e66282fafd7e27ac2a4d8efab5922d1e907c4ec23c437d83",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-N-SOURCE-03",
+      "path": "assets_src/imagegen/candy_wrap_states_v1_20261003/attempt03/native.png",
+      "observed_sha256": "3405805bece0f3954c949b05f013247d1c80146ecc31949bc3a370c0f7657c2d",
+      "registered_sha256": "3405805bece0f3954c949b05f013247d1c80146ecc31949bc3a370c0f7657c2d",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-N-A03-STATE-1",
+      "path": "assets_src/imagegen/candy_wrap_states_v1_20261003/attempt03/native.png",
+      "observed_sha256": "3405805bece0f3954c949b05f013247d1c80146ecc31949bc3a370c0f7657c2d",
+      "registered_sha256": "3405805bece0f3954c949b05f013247d1c80146ecc31949bc3a370c0f7657c2d",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-N-A03-STATE-2",
+      "path": "assets_src/imagegen/candy_wrap_states_v1_20261003/attempt03/native.png",
+      "observed_sha256": "3405805bece0f3954c949b05f013247d1c80146ecc31949bc3a370c0f7657c2d",
+      "registered_sha256": "3405805bece0f3954c949b05f013247d1c80146ecc31949bc3a370c0f7657c2d",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-N-A03-STATE-3",
+      "path": "assets_src/imagegen/candy_wrap_states_v1_20261003/attempt03/native.png",
+      "observed_sha256": "3405805bece0f3954c949b05f013247d1c80146ecc31949bc3a370c0f7657c2d",
+      "registered_sha256": "3405805bece0f3954c949b05f013247d1c80146ecc31949bc3a370c0f7657c2d",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-N-A03-STATE-4",
+      "path": "assets_src/imagegen/candy_wrap_states_v1_20261003/attempt03/native.png",
+      "observed_sha256": "3405805bece0f3954c949b05f013247d1c80146ecc31949bc3a370c0f7657c2d",
+      "registered_sha256": "3405805bece0f3954c949b05f013247d1c80146ecc31949bc3a370c0f7657c2d",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-USE-001",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_08_phase2_task_open.webp",
+      "observed_sha256": "b9e1ae5a20560f13d2b3d36c14c9268655088b8f94593af7a522a5a1b86c23ba",
+      "registered_sha256": "b9e1ae5a20560f13d2b3d36c14c9268655088b8f94593af7a522a5a1b86c23ba",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-002",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_08_phase2_task_open.webp",
+      "observed_sha256": "b9e1ae5a20560f13d2b3d36c14c9268655088b8f94593af7a522a5a1b86c23ba",
+      "registered_sha256": "b9e1ae5a20560f13d2b3d36c14c9268655088b8f94593af7a522a5a1b86c23ba",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-003",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_08_phase2_task_open.webp",
+      "observed_sha256": "b9e1ae5a20560f13d2b3d36c14c9268655088b8f94593af7a522a5a1b86c23ba",
+      "registered_sha256": "b9e1ae5a20560f13d2b3d36c14c9268655088b8f94593af7a522a5a1b86c23ba",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-004",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_11_phase2_earned_completion.webp",
+      "observed_sha256": "c2d5a741796dbb299f465279c4d1419700c47245d62f1f9a53c1c1424a88ac20",
+      "registered_sha256": "c2d5a741796dbb299f465279c4d1419700c47245d62f1f9a53c1c1424a88ac20",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-005",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_03_phase0_earned_completion.webp",
+      "observed_sha256": "e926be39ad0d1f3466d427ccf30cbd8a304ff931353f5f0d165a327223be1d9f",
+      "registered_sha256": "e926be39ad0d1f3466d427ccf30cbd8a304ff931353f5f0d165a327223be1d9f",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-006",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_02_phase0_task_open.webp",
+      "observed_sha256": "11500a31764de1cbd0091d27b8dc6ffde0d71ac40975ee6a79cf19777659a3a7",
+      "registered_sha256": "11500a31764de1cbd0091d27b8dc6ffde0d71ac40975ee6a79cf19777659a3a7",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-007",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_02_phase0_task_open.webp",
+      "observed_sha256": "11500a31764de1cbd0091d27b8dc6ffde0d71ac40975ee6a79cf19777659a3a7",
+      "registered_sha256": "11500a31764de1cbd0091d27b8dc6ffde0d71ac40975ee6a79cf19777659a3a7",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-008",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_02_phase0_task_open.webp",
+      "observed_sha256": "11500a31764de1cbd0091d27b8dc6ffde0d71ac40975ee6a79cf19777659a3a7",
+      "registered_sha256": "11500a31764de1cbd0091d27b8dc6ffde0d71ac40975ee6a79cf19777659a3a7",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-009",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_05_phase1_task_open.webp",
+      "observed_sha256": "e1f26a5ab7ba63369de04d37b725792e2ffdb481a5cf7b53b113ca9df49cd943",
+      "registered_sha256": "e1f26a5ab7ba63369de04d37b725792e2ffdb481a5cf7b53b113ca9df49cd943",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-010",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_05_phase1_task_open.webp",
+      "observed_sha256": "e1f26a5ab7ba63369de04d37b725792e2ffdb481a5cf7b53b113ca9df49cd943",
+      "registered_sha256": "e1f26a5ab7ba63369de04d37b725792e2ffdb481a5cf7b53b113ca9df49cd943",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-011",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_05_phase1_task_open.webp",
+      "observed_sha256": "e1f26a5ab7ba63369de04d37b725792e2ffdb481a5cf7b53b113ca9df49cd943",
+      "registered_sha256": "e1f26a5ab7ba63369de04d37b725792e2ffdb481a5cf7b53b113ca9df49cd943",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-012",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_05_phase1_task_open.webp",
+      "observed_sha256": "e1f26a5ab7ba63369de04d37b725792e2ffdb481a5cf7b53b113ca9df49cd943",
+      "registered_sha256": "e1f26a5ab7ba63369de04d37b725792e2ffdb481a5cf7b53b113ca9df49cd943",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-013",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_05_phase1_task_open.webp",
+      "observed_sha256": "e1f26a5ab7ba63369de04d37b725792e2ffdb481a5cf7b53b113ca9df49cd943",
+      "registered_sha256": "e1f26a5ab7ba63369de04d37b725792e2ffdb481a5cf7b53b113ca9df49cd943",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-014",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_11_phase2_earned_completion.webp",
+      "observed_sha256": "c2d5a741796dbb299f465279c4d1419700c47245d62f1f9a53c1c1424a88ac20",
+      "registered_sha256": "c2d5a741796dbb299f465279c4d1419700c47245d62f1f9a53c1c1424a88ac20",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-015",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_09_phase2_circle_step16.webp",
+      "observed_sha256": "31dcccc343704ce43a77d1175a797cc6d65ce31088f5019d608daad21e050bda",
+      "registered_sha256": "31dcccc343704ce43a77d1175a797cc6d65ce31088f5019d608daad21e050bda",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-016",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_10_phase2_circle_step32.webp",
+      "observed_sha256": "48735b42d278508e827afa45a7a97bd5ad308b0e0c275e2c690078ec6cdc2052",
+      "registered_sha256": "48735b42d278508e827afa45a7a97bd5ad308b0e0c275e2c690078ec6cdc2052",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-017",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_11_phase2_earned_completion.webp",
+      "observed_sha256": "c2d5a741796dbb299f465279c4d1419700c47245d62f1f9a53c1c1424a88ac20",
+      "registered_sha256": "c2d5a741796dbb299f465279c4d1419700c47245d62f1f9a53c1c1424a88ac20",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-018",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_08_phase2_task_open.webp",
+      "observed_sha256": "b9e1ae5a20560f13d2b3d36c14c9268655088b8f94593af7a522a5a1b86c23ba",
+      "registered_sha256": "b9e1ae5a20560f13d2b3d36c14c9268655088b8f94593af7a522a5a1b86c23ba",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-019",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_08_phase2_task_open.webp",
+      "observed_sha256": "b9e1ae5a20560f13d2b3d36c14c9268655088b8f94593af7a522a5a1b86c23ba",
+      "registered_sha256": "b9e1ae5a20560f13d2b3d36c14c9268655088b8f94593af7a522a5a1b86c23ba",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-020",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_11_phase2_earned_completion.webp",
+      "observed_sha256": "c2d5a741796dbb299f465279c4d1419700c47245d62f1f9a53c1c1424a88ac20",
+      "registered_sha256": "c2d5a741796dbb299f465279c4d1419700c47245d62f1f9a53c1c1424a88ac20",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-021",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_12_phase3_invitation.webp",
+      "observed_sha256": "e1fab714942febdabed70faf7a2d7f3fe598410d249b77cf2478193e5649d409",
+      "registered_sha256": "e1fab714942febdabed70faf7a2d7f3fe598410d249b77cf2478193e5649d409",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-022",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_13_phase3_task_open.webp",
+      "observed_sha256": "2469332cbd7cd7fadf604b843baa441e532eeec23f58aa4a6a3da04add13d515",
+      "registered_sha256": "2469332cbd7cd7fadf604b843baa441e532eeec23f58aa4a6a3da04add13d515",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-023",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_13_phase3_task_open.webp",
+      "observed_sha256": "2469332cbd7cd7fadf604b843baa441e532eeec23f58aa4a6a3da04add13d515",
+      "registered_sha256": "2469332cbd7cd7fadf604b843baa441e532eeec23f58aa4a6a3da04add13d515",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-024",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_13_phase3_task_open.webp",
+      "observed_sha256": "2469332cbd7cd7fadf604b843baa441e532eeec23f58aa4a6a3da04add13d515",
+      "registered_sha256": "2469332cbd7cd7fadf604b843baa441e532eeec23f58aa4a6a3da04add13d515",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-025",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_14_phase3_earned_completion.webp",
+      "observed_sha256": "0d05590dc0494835687acb785c9e5702ddd9fe07382ea134256337b0029193a7",
+      "registered_sha256": "0d05590dc0494835687acb785c9e5702ddd9fe07382ea134256337b0029193a7",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-026",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/training_1280_15_actual_earned_kitchen_return.webp",
+      "observed_sha256": "a3412fa044571b9a8dc1107ef5ac11653174e9263eec0b85584f5801e596585a",
+      "registered_sha256": "a3412fa044571b9a8dc1107ef5ac11653174e9263eec0b85584f5801e596585a",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-027",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_01_phase0_invitation.webp",
+      "observed_sha256": "229b7df12c6a1adbe678c1b4a1414afc5ce2b77ed66ca1463e6e2d6d83701663",
+      "registered_sha256": "229b7df12c6a1adbe678c1b4a1414afc5ce2b77ed66ca1463e6e2d6d83701663",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-028",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_02_phase0_task_open.webp",
+      "observed_sha256": "a51ae389fa5f18310f9df827f2b047f7020109dcb8570a9de014f181f3efb4b3",
+      "registered_sha256": "a51ae389fa5f18310f9df827f2b047f7020109dcb8570a9de014f181f3efb4b3",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-029",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_02_phase0_task_open.webp",
+      "observed_sha256": "a51ae389fa5f18310f9df827f2b047f7020109dcb8570a9de014f181f3efb4b3",
+      "registered_sha256": "a51ae389fa5f18310f9df827f2b047f7020109dcb8570a9de014f181f3efb4b3",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-030",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_02_phase0_task_open.webp",
+      "observed_sha256": "a51ae389fa5f18310f9df827f2b047f7020109dcb8570a9de014f181f3efb4b3",
+      "registered_sha256": "a51ae389fa5f18310f9df827f2b047f7020109dcb8570a9de014f181f3efb4b3",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-031",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_02_phase0_task_open.webp",
+      "observed_sha256": "a51ae389fa5f18310f9df827f2b047f7020109dcb8570a9de014f181f3efb4b3",
+      "registered_sha256": "a51ae389fa5f18310f9df827f2b047f7020109dcb8570a9de014f181f3efb4b3",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-032",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_05_phase1_task_open.webp",
+      "observed_sha256": "9bb59a6c0f15139419f98f05c69300513c5360d6a099eba58400691addc14ba6",
+      "registered_sha256": "9bb59a6c0f15139419f98f05c69300513c5360d6a099eba58400691addc14ba6",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-033",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_05_phase1_task_open.webp",
+      "observed_sha256": "9bb59a6c0f15139419f98f05c69300513c5360d6a099eba58400691addc14ba6",
+      "registered_sha256": "9bb59a6c0f15139419f98f05c69300513c5360d6a099eba58400691addc14ba6",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-034",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_05_phase1_task_open.webp",
+      "observed_sha256": "9bb59a6c0f15139419f98f05c69300513c5360d6a099eba58400691addc14ba6",
+      "registered_sha256": "9bb59a6c0f15139419f98f05c69300513c5360d6a099eba58400691addc14ba6",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-035",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_05_phase1_task_open.webp",
+      "observed_sha256": "9bb59a6c0f15139419f98f05c69300513c5360d6a099eba58400691addc14ba6",
+      "registered_sha256": "9bb59a6c0f15139419f98f05c69300513c5360d6a099eba58400691addc14ba6",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-036",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_08_phase2_task_open.webp",
+      "observed_sha256": "0f44b120be1e49ce74808ac06c40a9c7866cf79e33c23be69ffe48ae8e3ae13a",
+      "registered_sha256": "0f44b120be1e49ce74808ac06c40a9c7866cf79e33c23be69ffe48ae8e3ae13a",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-037",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_08_phase2_task_open.webp",
+      "observed_sha256": "0f44b120be1e49ce74808ac06c40a9c7866cf79e33c23be69ffe48ae8e3ae13a",
+      "registered_sha256": "0f44b120be1e49ce74808ac06c40a9c7866cf79e33c23be69ffe48ae8e3ae13a",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-038",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_09_phase2_circle_step16.webp",
+      "observed_sha256": "05738f5c2b6a45e13bc54413ef897fc6b00b654b6d77b51accc1cd5c7f58f03e",
+      "registered_sha256": "05738f5c2b6a45e13bc54413ef897fc6b00b654b6d77b51accc1cd5c7f58f03e",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-039",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_11_phase2_earned_completion.webp",
+      "observed_sha256": "495dac9b7ff8322e711188b7ba428818ca3a1585889fe45b8bc6271e1d712583",
+      "registered_sha256": "495dac9b7ff8322e711188b7ba428818ca3a1585889fe45b8bc6271e1d712583",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-040",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_08_phase2_task_open.webp",
+      "observed_sha256": "0f44b120be1e49ce74808ac06c40a9c7866cf79e33c23be69ffe48ae8e3ae13a",
+      "registered_sha256": "0f44b120be1e49ce74808ac06c40a9c7866cf79e33c23be69ffe48ae8e3ae13a",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-041",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_11_phase2_earned_completion.webp",
+      "observed_sha256": "495dac9b7ff8322e711188b7ba428818ca3a1585889fe45b8bc6271e1d712583",
+      "registered_sha256": "495dac9b7ff8322e711188b7ba428818ca3a1585889fe45b8bc6271e1d712583",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-042",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_11_phase2_earned_completion.webp",
+      "observed_sha256": "495dac9b7ff8322e711188b7ba428818ca3a1585889fe45b8bc6271e1d712583",
+      "registered_sha256": "495dac9b7ff8322e711188b7ba428818ca3a1585889fe45b8bc6271e1d712583",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-043",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_13_phase3_task_open.webp",
+      "observed_sha256": "4a9fa9ff8cf395f6319f0f3034a22796df70525a06692cf129744c35cf42e984",
+      "registered_sha256": "4a9fa9ff8cf395f6319f0f3034a22796df70525a06692cf129744c35cf42e984",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-044",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_14_phase3_earned_completion.webp",
+      "observed_sha256": "b7c5419f4622c571a8348387f7a1bc1b6b51981fe70d205da08d6365aa3d48cb",
+      "registered_sha256": "b7c5419f4622c571a8348387f7a1bc1b6b51981fe70d205da08d6365aa3d48cb",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-045",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_14_phase3_earned_completion.webp",
+      "observed_sha256": "b7c5419f4622c571a8348387f7a1bc1b6b51981fe70d205da08d6365aa3d48cb",
+      "registered_sha256": "b7c5419f4622c571a8348387f7a1bc1b6b51981fe70d205da08d6365aa3d48cb",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-046",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_14_phase3_earned_completion.webp",
+      "observed_sha256": "b7c5419f4622c571a8348387f7a1bc1b6b51981fe70d205da08d6365aa3d48cb",
+      "registered_sha256": "b7c5419f4622c571a8348387f7a1bc1b6b51981fe70d205da08d6365aa3d48cb",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-047",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_14_phase3_earned_completion.webp",
+      "observed_sha256": "b7c5419f4622c571a8348387f7a1bc1b6b51981fe70d205da08d6365aa3d48cb",
+      "registered_sha256": "b7c5419f4622c571a8348387f7a1bc1b6b51981fe70d205da08d6365aa3d48cb",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-USE-048",
+      "path": "audit/job_candy_workflow_current_v1_20261003/attempt03/native_views/story_1280_15_actual_earned_kitchen_return.webp",
+      "observed_sha256": "5fecb00f0aca507644480f5fca42ef69d4b336222b16857a385681693b3bd651",
+      "registered_sha256": "5fecb00f0aca507644480f5fca42ef69d4b336222b16857a385681693b3bd651",
+      "source_match": true,
+      "binding_match": true
+    },
+    {
+      "id": "CANDY-M-SOURCE-09",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt09/native.png",
+      "observed_sha256": "8eedbe7b8caebe89259a8e33c17291ed924c548e2c53d23f66d0e9cea669ad07",
+      "registered_sha256": "8eedbe7b8caebe89259a8e33c17291ed924c548e2c53d23f66d0e9cea669ad07",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A09-STATE-1",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt09/native.png",
+      "observed_sha256": "8eedbe7b8caebe89259a8e33c17291ed924c548e2c53d23f66d0e9cea669ad07",
+      "registered_sha256": "8eedbe7b8caebe89259a8e33c17291ed924c548e2c53d23f66d0e9cea669ad07",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A09-STATE-2",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt09/native.png",
+      "observed_sha256": "8eedbe7b8caebe89259a8e33c17291ed924c548e2c53d23f66d0e9cea669ad07",
+      "registered_sha256": "8eedbe7b8caebe89259a8e33c17291ed924c548e2c53d23f66d0e9cea669ad07",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A09-STATE-3",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt09/native.png",
+      "observed_sha256": "8eedbe7b8caebe89259a8e33c17291ed924c548e2c53d23f66d0e9cea669ad07",
+      "registered_sha256": "8eedbe7b8caebe89259a8e33c17291ed924c548e2c53d23f66d0e9cea669ad07",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A09-STATE-4",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt09/native.png",
+      "observed_sha256": "8eedbe7b8caebe89259a8e33c17291ed924c548e2c53d23f66d0e9cea669ad07",
+      "registered_sha256": "8eedbe7b8caebe89259a8e33c17291ed924c548e2c53d23f66d0e9cea669ad07",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-SOURCE-10",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt10/native.png",
+      "observed_sha256": "60a6df848d14041a01df87be31ad06c97533fed05509decde09b008708695b39",
+      "registered_sha256": "60a6df848d14041a01df87be31ad06c97533fed05509decde09b008708695b39",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A10-STATE-1",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt10/native.png",
+      "observed_sha256": "60a6df848d14041a01df87be31ad06c97533fed05509decde09b008708695b39",
+      "registered_sha256": "60a6df848d14041a01df87be31ad06c97533fed05509decde09b008708695b39",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A10-STATE-2",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt10/native.png",
+      "observed_sha256": "60a6df848d14041a01df87be31ad06c97533fed05509decde09b008708695b39",
+      "registered_sha256": "60a6df848d14041a01df87be31ad06c97533fed05509decde09b008708695b39",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A10-STATE-3",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt10/native.png",
+      "observed_sha256": "60a6df848d14041a01df87be31ad06c97533fed05509decde09b008708695b39",
+      "registered_sha256": "60a6df848d14041a01df87be31ad06c97533fed05509decde09b008708695b39",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-M-A10-STATE-4",
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt10/native.png",
+      "observed_sha256": "60a6df848d14041a01df87be31ad06c97533fed05509decde09b008708695b39",
+      "registered_sha256": "60a6df848d14041a01df87be31ad06c97533fed05509decde09b008708695b39",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0001-CELL-00",
+      "path": "assets/flats/castle/interactions_v2/kitchen_sink_sheet.png",
+      "observed_sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
+      "registered_sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0001-CELL-01",
+      "path": "assets/flats/castle/interactions_v2/kitchen_sink_sheet.png",
+      "observed_sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
+      "registered_sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0001-CELL-02",
+      "path": "assets/flats/castle/interactions_v2/kitchen_sink_sheet.png",
+      "observed_sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
+      "registered_sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0001-CELL-03",
+      "path": "assets/flats/castle/interactions_v2/kitchen_sink_sheet.png",
+      "observed_sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
+      "registered_sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0001-CELL-04",
+      "path": "assets/flats/castle/interactions_v2/kitchen_sink_sheet.png",
+      "observed_sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
+      "registered_sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0001-CELL-05",
+      "path": "assets/flats/castle/interactions_v2/kitchen_sink_sheet.png",
+      "observed_sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
+      "registered_sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0001-CELL-06",
+      "path": "assets/flats/castle/interactions_v2/kitchen_sink_sheet.png",
+      "observed_sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
+      "registered_sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0001-CELL-07",
+      "path": "assets/flats/castle/interactions_v2/kitchen_sink_sheet.png",
+      "observed_sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
+      "registered_sha256": "a4eaf36f7c30fae17aa10fd650865b5e3f1cd54320b2c3552d74c7885e35e6ff",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0002-CELL-00",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_1_sheet.png",
+      "observed_sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
+      "registered_sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0002-CELL-01",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_1_sheet.png",
+      "observed_sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
+      "registered_sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0002-CELL-02",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_1_sheet.png",
+      "observed_sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
+      "registered_sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0002-CELL-03",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_1_sheet.png",
+      "observed_sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
+      "registered_sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0002-CELL-04",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_1_sheet.png",
+      "observed_sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
+      "registered_sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0002-CELL-05",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_1_sheet.png",
+      "observed_sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
+      "registered_sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0002-CELL-06",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_1_sheet.png",
+      "observed_sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
+      "registered_sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0002-CELL-07",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_1_sheet.png",
+      "observed_sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
+      "registered_sha256": "3c8f996633ee87c6f48e2366c054a421ca61e3ca849e4d06e6cfd2f0ca21cd95",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0003-CELL-00",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_2_sheet.png",
+      "observed_sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
+      "registered_sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0003-CELL-01",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_2_sheet.png",
+      "observed_sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
+      "registered_sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0003-CELL-02",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_2_sheet.png",
+      "observed_sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
+      "registered_sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0003-CELL-03",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_2_sheet.png",
+      "observed_sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
+      "registered_sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0003-CELL-04",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_2_sheet.png",
+      "observed_sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
+      "registered_sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0003-CELL-05",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_2_sheet.png",
+      "observed_sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
+      "registered_sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0003-CELL-06",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_2_sheet.png",
+      "observed_sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
+      "registered_sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0003-CELL-07",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_2_sheet.png",
+      "observed_sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
+      "registered_sha256": "5088dad9ae84eba8b2c502ceff56abd14b6a8d36418a4711fbc7dc4749c8c1f8",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0004-CELL-00",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_3_sheet.png",
+      "observed_sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
+      "registered_sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0004-CELL-01",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_3_sheet.png",
+      "observed_sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
+      "registered_sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0004-CELL-02",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_3_sheet.png",
+      "observed_sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
+      "registered_sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0004-CELL-03",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_3_sheet.png",
+      "observed_sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
+      "registered_sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0004-CELL-04",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_3_sheet.png",
+      "observed_sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
+      "registered_sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0004-CELL-05",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_3_sheet.png",
+      "observed_sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
+      "registered_sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0004-CELL-06",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_3_sheet.png",
+      "observed_sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
+      "registered_sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0004-CELL-07",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_3_sheet.png",
+      "observed_sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
+      "registered_sha256": "74c0e7424bfbf90f795fbd46b7956775d51e2034072a0473d008d7eea3b9721a",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0005-CELL-00",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_4_sheet.png",
+      "observed_sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
+      "registered_sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0005-CELL-01",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_4_sheet.png",
+      "observed_sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
+      "registered_sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0005-CELL-02",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_4_sheet.png",
+      "observed_sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
+      "registered_sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0005-CELL-03",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_4_sheet.png",
+      "observed_sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
+      "registered_sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0005-CELL-04",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_4_sheet.png",
+      "observed_sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
+      "registered_sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0005-CELL-05",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_4_sheet.png",
+      "observed_sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
+      "registered_sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0005-CELL-06",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_4_sheet.png",
+      "observed_sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
+      "registered_sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0005-CELL-07",
+      "path": "assets/flats/castle/interactions_v2/kitchen_pan_4_sheet.png",
+      "observed_sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
+      "registered_sha256": "41f17a268bce7eaa70aa19464fa8e67b07d7a09243a6f7bc32deba89e80e85a2",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0006-CELL-00",
+      "path": "assets/flats/castle/interactions_v2/kitchen_oven_sheet.png",
+      "observed_sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
+      "registered_sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0006-CELL-01",
+      "path": "assets/flats/castle/interactions_v2/kitchen_oven_sheet.png",
+      "observed_sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
+      "registered_sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0006-CELL-02",
+      "path": "assets/flats/castle/interactions_v2/kitchen_oven_sheet.png",
+      "observed_sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
+      "registered_sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0006-CELL-03",
+      "path": "assets/flats/castle/interactions_v2/kitchen_oven_sheet.png",
+      "observed_sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
+      "registered_sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0006-CELL-04",
+      "path": "assets/flats/castle/interactions_v2/kitchen_oven_sheet.png",
+      "observed_sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
+      "registered_sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0006-CELL-05",
+      "path": "assets/flats/castle/interactions_v2/kitchen_oven_sheet.png",
+      "observed_sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
+      "registered_sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0006-CELL-06",
+      "path": "assets/flats/castle/interactions_v2/kitchen_oven_sheet.png",
+      "observed_sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
+      "registered_sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0006-CELL-07",
+      "path": "assets/flats/castle/interactions_v2/kitchen_oven_sheet.png",
+      "observed_sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
+      "registered_sha256": "2a5b4103adfd3076690f1867a9491cef41cef84c3ae508ae174bfdc2a0e66dd9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0007-CELL-00",
+      "path": "assets/flats/castle/interactions_v4/sheets/kitchen_fridge_sheet.png",
+      "observed_sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+      "registered_sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0007-CELL-01",
+      "path": "assets/flats/castle/interactions_v4/sheets/kitchen_fridge_sheet.png",
+      "observed_sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+      "registered_sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0007-CELL-02",
+      "path": "assets/flats/castle/interactions_v4/sheets/kitchen_fridge_sheet.png",
+      "observed_sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+      "registered_sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0007-CELL-03",
+      "path": "assets/flats/castle/interactions_v4/sheets/kitchen_fridge_sheet.png",
+      "observed_sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+      "registered_sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0007-CELL-04",
+      "path": "assets/flats/castle/interactions_v4/sheets/kitchen_fridge_sheet.png",
+      "observed_sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+      "registered_sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0007-CELL-05",
+      "path": "assets/flats/castle/interactions_v4/sheets/kitchen_fridge_sheet.png",
+      "observed_sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+      "registered_sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0007-CELL-06",
+      "path": "assets/flats/castle/interactions_v4/sheets/kitchen_fridge_sheet.png",
+      "observed_sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+      "registered_sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0007-CELL-07",
+      "path": "assets/flats/castle/interactions_v4/sheets/kitchen_fridge_sheet.png",
+      "observed_sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+      "registered_sha256": "94638eb9dbe5328dc48685fa65d5f25c7cec4307c6f192fc29fdf0defcc6e451",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0024-CELL-00",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_curtains_sheet.png",
+      "observed_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+      "registered_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0024-CELL-01",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_curtains_sheet.png",
+      "observed_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+      "registered_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0024-CELL-02",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_curtains_sheet.png",
+      "observed_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+      "registered_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0024-CELL-03",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_curtains_sheet.png",
+      "observed_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+      "registered_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0024-CELL-04",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_curtains_sheet.png",
+      "observed_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+      "registered_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0024-CELL-05",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_curtains_sheet.png",
+      "observed_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+      "registered_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0024-CELL-06",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_curtains_sheet.png",
+      "observed_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+      "registered_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0024-CELL-07",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_curtains_sheet.png",
+      "observed_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+      "registered_sha256": "320be4a41135d84aba6ceee474f2a10f59db74872b37cfe68ec0f44a0c65c63c",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0025-CELL-00",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_chandelier_sheet.png",
+      "observed_sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
+      "registered_sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0025-CELL-01",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_chandelier_sheet.png",
+      "observed_sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
+      "registered_sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0025-CELL-02",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_chandelier_sheet.png",
+      "observed_sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
+      "registered_sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0025-CELL-03",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_chandelier_sheet.png",
+      "observed_sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
+      "registered_sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0025-CELL-04",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_chandelier_sheet.png",
+      "observed_sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
+      "registered_sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0025-CELL-05",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_chandelier_sheet.png",
+      "observed_sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
+      "registered_sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0025-CELL-06",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_chandelier_sheet.png",
+      "observed_sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
+      "registered_sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0025-CELL-07",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_chandelier_sheet.png",
+      "observed_sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
+      "registered_sha256": "38b6620d345e81d504c6920d2d8023ac74a009a6c3b519fe2811432880a39039",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0026-CELL-00",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_stage_star_sheet.png",
+      "observed_sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
+      "registered_sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0026-CELL-01",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_stage_star_sheet.png",
+      "observed_sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
+      "registered_sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0026-CELL-02",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_stage_star_sheet.png",
+      "observed_sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
+      "registered_sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0026-CELL-03",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_stage_star_sheet.png",
+      "observed_sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
+      "registered_sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0026-CELL-04",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_stage_star_sheet.png",
+      "observed_sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
+      "registered_sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0026-CELL-05",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_stage_star_sheet.png",
+      "observed_sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
+      "registered_sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0026-CELL-06",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_stage_star_sheet.png",
+      "observed_sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
+      "registered_sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0026-CELL-07",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_stage_star_sheet.png",
+      "observed_sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
+      "registered_sha256": "70e56a65be9f2a02e2efba36971ea97a6c3c4ee4836bf3a19fc89074eafd42b9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0027-CELL-00",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_footlights_sheet.png",
+      "observed_sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+      "registered_sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0027-CELL-01",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_footlights_sheet.png",
+      "observed_sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+      "registered_sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0027-CELL-02",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_footlights_sheet.png",
+      "observed_sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+      "registered_sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0027-CELL-03",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_footlights_sheet.png",
+      "observed_sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+      "registered_sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0027-CELL-04",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_footlights_sheet.png",
+      "observed_sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+      "registered_sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0027-CELL-05",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_footlights_sheet.png",
+      "observed_sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+      "registered_sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0027-CELL-06",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_footlights_sheet.png",
+      "observed_sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+      "registered_sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0027-CELL-07",
+      "path": "assets/flats/castle/interactions_v2/opera_hall_footlights_sheet.png",
+      "observed_sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+      "registered_sha256": "699e608b3f33f183a1e73feef52ab70aa92abbf997da30ac7ddc7169aee485f9",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0028-CELL-00",
+      "path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_left_sheet.png",
+      "observed_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+      "registered_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0028-CELL-01",
+      "path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_left_sheet.png",
+      "observed_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+      "registered_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0028-CELL-02",
+      "path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_left_sheet.png",
+      "observed_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+      "registered_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0028-CELL-03",
+      "path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_left_sheet.png",
+      "observed_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+      "registered_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0028-CELL-04",
+      "path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_left_sheet.png",
+      "observed_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+      "registered_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0028-CELL-05",
+      "path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_left_sheet.png",
+      "observed_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+      "registered_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0028-CELL-06",
+      "path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_left_sheet.png",
+      "observed_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+      "registered_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0028-CELL-07",
+      "path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_left_sheet.png",
+      "observed_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+      "registered_sha256": "e8c73093bcdc361ae92d37b116388d1502cbd5d23b9c3886daec82c0e4a6a149",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0029-CELL-00",
+      "path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_right_sheet.png",
+      "observed_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+      "registered_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0029-CELL-01",
+      "path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_right_sheet.png",
+      "observed_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+      "registered_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0029-CELL-02",
+      "path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_right_sheet.png",
+      "observed_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+      "registered_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0029-CELL-03",
+      "path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_right_sheet.png",
+      "observed_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+      "registered_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0029-CELL-04",
+      "path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_right_sheet.png",
+      "observed_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+      "registered_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0029-CELL-05",
+      "path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_right_sheet.png",
+      "observed_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+      "registered_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0029-CELL-06",
+      "path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_right_sheet.png",
+      "observed_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+      "registered_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "D2X-0029-CELL-07",
+      "path": "assets/flats/castle/interactions_v4/sheets/opera_hall_pearl_sconce_right_sheet.png",
+      "observed_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+      "registered_sha256": "2af91d024deee21895882b1b66beaaedbd051d1b69327b9d171f4ac55660a46f",
+      "source_match": true,
+      "binding_match": null
     }
   ],
-  "qualification": "Refresh reads known literal sources and recorded binding hashes only. It does not generate art, change opinions, play the game or grant visual/owner acceptance. Changed sources withhold their current opinions in the register display; prior opinions remain in the saved register/history. Any changed member of the recorded geode capture source boundary requires a current rerender before its mounted claims can be displayed as current. All eight dated Doctor/Nursery capture cases remain explicitly historical, not rescued by this refresh. Current Nursery v3 room/caller captures are separately source-bound; old Doctor/birthday/full-career/device evidence is not promoted by a hash refresh.",
-  "nursery_capture_boundary_match": true,
+  "qualification": "Refresh reads known literal sources and recorded binding hashes only. It does not generate art, change opinions, play the game or grant visual/owner acceptance. Changed sources withhold their current opinions in the register display; prior opinions remain in the saved register/history. Any changed member of the recorded geode capture source boundary requires a current rerender before its mounted claims can be displayed as current. All eight dated Doctor/Nursery capture cases remain explicitly historical, not rescued by this refresh. Current Nursery v3 room/caller captures are separately source-bound; old Doctor/birthday/full-career/device evidence is not promoted by a hash refresh. Candy production review has its own frozen783-source boundary after the one-file station repair; older Geologist/Nursery mounted claims are withheld, not rescored.",
+  "nursery_capture_boundary_match": false,
   "nursery_capture_source_count": 783,
-  "nursery_changed_sources": [],
-  "nursery_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json"
+  "nursery_changed_sources": [
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "recorded_sha256": "36de131d46713f08171b200aa9bd81f2de7645c43866e2adbb259827c3cd5703",
+      "observed_sha256": "501cec2f90a16ed66dd10fabacc04d1285061a682cf39ad0ad0481c2e2661131"
+    }
+  ],
+  "nursery_review": "audit/job_nursery_wash_connected_v1_20261002/DIRECT_REVIEW_CURRENT_V3.json",
+  "candy_capture_boundary_match": true,
+  "candy_capture_source_count": 783,
+  "candy_changed_sources": [],
+  "candy_review": "audit/job_candy_workflow_current_v1_20261003/DIRECT_REVIEW_CURRENT_A3.json"
 }

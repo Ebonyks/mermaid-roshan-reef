@@ -1,0 +1,8 @@
+{
+  "status": "CHECKPOINT_BUILDER_ORDER_CORRECTED",
+  "second_error": "AssertionError: audit/job_candy_workflow_current_v1_20261003/PUBLICATION_SOURCE_NEWLINE_BRIDGE_V537.json",
+  "cause": "Builder tried to require its own staged-source newline bridge before generating that bridge from the staged source blobs.",
+  "correction": "Only the builder-generated bridge is deferred from initial input-file validation and staging. It is generated from all783 frozen tested source members, independently staged, included in the final scope/map and checked byte-for-byte before sealing. Every real input and final output check remains blocking.",
+  "original_helper": "audit/job_candy_workflow_current_v1_20261003/review_tools/seal_candy_checkpoint_v537_before_bridge_order_fix.py",
+  "effect": "Both attempts stopped before final payload sealing, commit or push. No trusted validator, production source or artwork changed."
+}

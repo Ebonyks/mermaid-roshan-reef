@@ -1,0 +1,123 @@
+{
+  "id": "job-shared-entrance-source-review-20261003",
+  "scope": "Directly review 18 existing shared Kitchen/Opera entrance natives and individually score 104 authored prop cells. Reuse exact original pixels and current hash-matching V2/V4 manifests; retain two stale hashes in historical ownership metadata. No new art, source alteration, binding or production change. Extend the illustrated library, preserve prior register and rejected drafts, and keep source and complete-action acceptance separate.",
+  "baseline": "c5977ebb29bb2011b20fc149ad350290f045045c",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-03",
+    "DL-MOT-01",
+    "DL-MOT-02",
+    "DL-MOT-03",
+    "DL-MOT-07",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-05",
+    "DL-ASSET-06"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004",
+    "MA-OPERA-012"
+  ],
+  "files": [
+    ".gitattributes",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "audit/job_artwork_refinement_live/ALL_ITEMS.json",
+    "audit/job_artwork_refinement_live/ALL_ITEMS_V44.original.json",
+    "audit/job_artwork_refinement_live/BOUNDARY_V44.original.json",
+    "audit/job_artwork_refinement_live/CURRENT_BOUNDARY_REFRESH.json",
+    "audit/job_artwork_refinement_live/all_items.html",
+    "audit/job_artwork_refinement_live/all_items_V44.original.html",
+    "audit/job_artwork_refinement_live/index.html",
+    "audit/job_artwork_refinement_live/review_tools/refresh_current_job_review_v45.py",
+    "audit/job_shared_entrance_sources_v1_20261003/.gdignore",
+    "audit/job_shared_entrance_sources_v1_20261003/BROWSER_QA_V536_INITIAL.json",
+    "audit/job_shared_entrance_sources_v1_20261003/BROWSER_QA_V537.json",
+    "audit/job_shared_entrance_sources_v1_20261003/DIRECT_NATIVE_REVIEW.json",
+    "audit/job_shared_entrance_sources_v1_20261003/NATIVE_CSS_PREVIEW_REFINEMENT_V536.json",
+    "audit/job_shared_entrance_sources_v1_20261003/PLAN_AND_SOURCE_BOUNDARY.json",
+    "audit/job_shared_entrance_sources_v1_20261003/PREPARATION_FAILURE_V530.json",
+    "audit/job_shared_entrance_sources_v1_20261003/REGISTER_STATUS_METADATA_RECHECK_V537.json",
+    "audit/job_shared_entrance_sources_v1_20261003/SOURCE_INSPECTOR.html",
+    "audit/job_shared_entrance_sources_v1_20261003/SharedEntranceReportV536.png",
+    "audit/job_shared_entrance_sources_v1_20261003/SharedFootlightCellsV533.png",
+    "audit/job_shared_entrance_sources_v1_20261003/SharedLibraryCellsV537.png",
+    "audit/job_shared_entrance_sources_v1_20261003/SharedSconceLeftCellsV533.png",
+    "audit/job_shared_entrance_sources_v1_20261003/SharedSconceRightCellsV533.png",
+    "audit/job_shared_entrance_sources_v1_20261003/gates_v1/authority.receipt.json",
+    "audit/job_shared_entrance_sources_v1_20261003/gates_v1/authority.stderr.log",
+    "audit/job_shared_entrance_sources_v1_20261003/gates_v1/authority.stdout.log",
+    "audit/job_shared_entrance_sources_v1_20261003/gates_v1/development.receipt.json",
+    "audit/job_shared_entrance_sources_v1_20261003/gates_v1/development.stderr.log",
+    "audit/job_shared_entrance_sources_v1_20261003/gates_v1/development.stdout.log",
+    "audit/job_shared_entrance_sources_v1_20261003/gates_v1/document_tests.receipt.json",
+    "audit/job_shared_entrance_sources_v1_20261003/gates_v1/document_tests.stderr.log",
+    "audit/job_shared_entrance_sources_v1_20261003/gates_v1/document_tests.stdout.log",
+    "audit/job_shared_entrance_sources_v1_20261003/gates_v1/game2d.receipt.json",
+    "audit/job_shared_entrance_sources_v1_20261003/gates_v1/game2d.stderr.log",
+    "audit/job_shared_entrance_sources_v1_20261003/gates_v1/game2d.stdout.log",
+    "audit/job_shared_entrance_sources_v1_20261003/index.html",
+    "audit/job_shared_entrance_sources_v1_20261003/review_tools/build_shared_entry_inspector_v532.py",
+    "audit/job_shared_entrance_sources_v1_20261003/review_tools/prepare_shared_entry_source_review_v530.py",
+    "audit/job_shared_entrance_sources_v1_20261003/review_tools/prepare_shared_entry_source_review_v531.py",
+    "audit/job_shared_entrance_sources_v1_20261003/review_tools/refine_shared_source_previews_v536.py",
+    "audit/job_shared_entrance_sources_v1_20261003/review_tools/review_shared_entry_sources_v534.py",
+    "audit/job_shared_entrance_sources_v1_20261003/review_tools/run_shared_report_gates_v535.py",
+    "design/05_DOC_LEDGER.md"
+  ],
+  "validation": [
+    {
+      "command": "Direct native-sheet inspection18/18 plus individually reviewed104 authored cells; enlarged native-source CSS details for16 sconce states and8 footlight states",
+      "result": "PASS",
+      "evidence": "audit/job_shared_entrance_sources_v1_20261003/DIRECT_NATIVE_REVIEW.json; all122 opinions, exact hashes/regions and three native-source inspection screenshots. Source-only drafting review, not game capture."
+    },
+    {
+      "command": "python -B audit/job_artwork_refinement_live/review_tools/refresh_current_job_review_v45.py",
+      "result": "PASS",
+      "evidence": "audit/job_artwork_refinement_live/CURRENT_BOUNDARY_REFRESH.json:2038/2038 exact item source hashes match; Candy783 current source boundary matches. Older Geologist/Nursery source-bound mounted claims remain withheld."
+    },
+    {
+      "command": "Current document authority and development coverage gates after source-review additions",
+      "result": "PASS",
+      "evidence": "audit/job_shared_entrance_sources_v1_20261003/gates_v1: authority, development,52 document tests and2D NO_REGRESSION pass. Original validators unchanged; before final small preview/UI metadata additions. Exact final precommit gates remain required."
+    },
+    {
+      "command": "C:/Users/Peter/AppData/Local/Python/bin/python.exe -X utf8 -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "audit/job_shared_entrance_sources_v1_20261003/gates_v1/authority.receipt.json"
+    },
+    {
+      "command": "C:/Users/Peter/AppData/Local/Python/bin/python.exe -X utf8 -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "audit/job_shared_entrance_sources_v1_20261003/gates_v1/development.receipt.json"
+    },
+    {
+      "command": "C:/Users/Peter/AppData/Local/Python/bin/python.exe -X utf8 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "audit/job_shared_entrance_sources_v1_20261003/gates_v1/document_tests.receipt.json"
+    },
+    {
+      "command": "C:/Users/Peter/AppData/Local/Python/bin/python.exe -X utf8 -B tools/audit_game_2d.py --regression-gate",
+      "result": "PASS",
+      "evidence": "audit/job_shared_entrance_sources_v1_20261003/gates_v1/game2d.receipt.json"
+    },
+    {
+      "command": "Temporary in-app browser report/image decode, search and preview geometry inspection",
+      "result": "PASS",
+      "evidence": "audit/job_shared_entrance_sources_v1_20261003/BROWSER_QA_V537.json;18 source sections/104 cell sections/122 images,8 matching native footlight library entries, enlarged previews and exact2038/888/602/359 counts. Source report only."
+    }
+  ],
+  "acceptance_gaps": "No new current room capture, complete action/input/audio/lifecycle timeline, ordinary route, target-device, child, owner or game-wide true2D acceptance. All weak items remain priorities, not replacement authorization for unaffected approved art. The separate Candy current source repair and full suite are distinct evidence; no finding lifecycle change."
+}

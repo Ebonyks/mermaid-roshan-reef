@@ -1,0 +1,12 @@
+{
+  "status": "A1_INCORRECT_PHASE_COUNT_ASSERTION_PRESERVED_A2_CORRECTED",
+  "recorded_utc": "2026-10-03T04:06:27.471121+00:00",
+  "failed_receipt": "runtime_gate_a1/training_1280.receipt.json",
+  "original_fixture": "attempt01/fixture_originals/capture.gd.original",
+  "original_fixture_sha256": "4c94b2e22a04dcd54e1033c0862f7546a20de8cbfa8f614d100e83ea1dfc0f61",
+  "corrected_fixture_sha256": "8c573a0a48ee36295d0cc776d1709a6d418d7b03a7aa1d02f14b8bb792093213",
+  "cause": "The failed A1 fixture incorrectly expected the obsolete six-phase LEGACY table. The current PHASES table contains4 Candy Maker phases, with circle/WRAP at2. Actual entry correctly loaded4, and the assertion stopped before any phase was opened/worked. Original fixture, raw logs and the captured Kitchen card are preserved. A2 uses the current4-phase table; both lanes circle at2. No production change or game failure is inferred.",
+  "raw_failure_preserved": true,
+  "production_edits": 0,
+  "owner_acceptance": null
+}

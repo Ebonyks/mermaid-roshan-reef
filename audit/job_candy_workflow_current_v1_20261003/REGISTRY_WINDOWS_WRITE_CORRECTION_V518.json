@@ -1,0 +1,7 @@
+{
+  "checked_utc": "2026-10-03T05:41:51.062232+00:00",
+  "failure": "Windows open(mode=w) returned errno22 for existing registry; prior3511104 bytes remain exact V42",
+  "prior_sha256": "f6097738eb5578f6a9e117eff41aa0726c31fc82a7fbbb8dc433ce98a6d03188",
+  "repair": "Write separately named candidate, verify complete structured equality and unchanged4MiB ceiling, then replace only the intended registry; exact V42 copy retained.",
+  "source_or_score_waiver": false
+}
