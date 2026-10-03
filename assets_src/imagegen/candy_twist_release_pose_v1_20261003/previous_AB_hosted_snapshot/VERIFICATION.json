@@ -1,0 +1,33 @@
+{
+  "status": "ACTUAL_PRIOR_EXACT_HEAD_HOSTED_SNAPSHOT",
+  "checked_utc": "2026-10-03T12:01:27.163733+00:00",
+  "command": [
+    "C:/Program Files/GitHub CLI/gh.exe",
+    "run",
+    "view",
+    "37119657543",
+    "--repo",
+    "Ebonyks/mermaid-roshan-reef",
+    "--json",
+    "databaseId,headSha,status,conclusion,url,jobs"
+  ],
+  "exit_code": 0,
+  "revision": "930614f3e8ab0d89177409ba92a2dd28dc228d54",
+  "run_id": 37119657543,
+  "run_status": "in_progress",
+  "run_conclusion": "",
+  "jobs": [
+    {
+      "name": "area-music-provenance",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "probes",
+      "status": "in_progress",
+      "conclusion": ""
+    }
+  ],
+  "raw_sha256": "e9d1cd8ce3af653947e79a93aa6100225444b3c332a7effbc4a5c228bbda0770",
+  "qualification": "Observed status only;pending remains pending. Never predicts new revision hosted or visual/action/owner acceptance."
+}

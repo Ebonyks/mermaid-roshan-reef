@@ -1,11 +1,11 @@
 {
   "schema": "reef.current-review-boundary-refresh.v1",
   "status": "CURRENT_CANDY_MATCH_OLDER_GEODE_NURSERY_WITHHELD",
-  "checked_utc": "2026-10-03T11:15:19.350712+00:00",
-  "working_head": "876169d77d45f5fd2b5956eeda4f1e6da9926f19",
-  "registry_items": 2142,
-  "unique_registered_paths": 1327,
-  "registered_source_matches": 2142,
+  "checked_utc": "2026-10-03T11:58:05.095142+00:00",
+  "working_head": "930614f3e8ab0d89177409ba92a2dd28dc228d54",
+  "registry_items": 2152,
+  "unique_registered_paths": 1337,
+  "registered_source_matches": 2152,
   "source_changed_or_unavailable": [],
   "geode_review": "audit/job_geode_current_recheck_v1_20261002/DIRECT_REVIEW.json",
   "geode_capture_source_count": 783,
@@ -16451,6 +16451,86 @@
       "binding_match": null
     },
     {
+      "id": "CANDY-TWIST-ENDPOINT-01",
+      "path": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/twist_attempt01/native.png",
+      "observed_sha256": "963de5baf9d138933db01ef554ecf6d9cbc602f6fc37396962ebad122e450c6d",
+      "registered_sha256": "963de5baf9d138933db01ef554ecf6d9cbc602f6fc37396962ebad122e450c6d",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-TWIST-ENDPOINT-02",
+      "path": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/twist_attempt02/native.png",
+      "observed_sha256": "c3a7b4cc71c8630cc0fe1772b92af3702a3b9858234e01610408eae2094db076",
+      "registered_sha256": "c3a7b4cc71c8630cc0fe1772b92af3702a3b9858234e01610408eae2094db076",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-TWIST-ENDPOINT-03",
+      "path": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/twist_attempt03/native.png",
+      "observed_sha256": "e8de1c0c141259a2fa4e3962cdcefcf6147cc01dc09070587b05805d6d8de947",
+      "registered_sha256": "e8de1c0c141259a2fa4e3962cdcefcf6147cc01dc09070587b05805d6d8de947",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-TWIST-ENDPOINT-04",
+      "path": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/twist_attempt04/native.png",
+      "observed_sha256": "ff2e719b8c32585baf0890e255eaca77df89d42770965d774b0286338fc49110",
+      "registered_sha256": "ff2e719b8c32585baf0890e255eaca77df89d42770965d774b0286338fc49110",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-TWIST-ENDPOINT-05",
+      "path": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/twist_attempt05/native.png",
+      "observed_sha256": "33a0c2a7d4ef4550ec537ed65257fde7f06b53694ab8bad6315b9d91ffc8b38e",
+      "registered_sha256": "33a0c2a7d4ef4550ec537ed65257fde7f06b53694ab8bad6315b9d91ffc8b38e",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-RELEASE-ENDPOINT-01",
+      "path": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/release_attempt01/native.png",
+      "observed_sha256": "4e9f50533a91699f020491df1fcd48e36bc42f4a6dbda6e045e8886b1629cd09",
+      "registered_sha256": "4e9f50533a91699f020491df1fcd48e36bc42f4a6dbda6e045e8886b1629cd09",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-RELEASE-ENDPOINT-02",
+      "path": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/release_attempt02/native.png",
+      "observed_sha256": "ce067a51ffc267adf119f02eea16684a61e66d30ebc06c767f7b25e335e222d1",
+      "registered_sha256": "ce067a51ffc267adf119f02eea16684a61e66d30ebc06c767f7b25e335e222d1",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-RELEASE-ENDPOINT-03",
+      "path": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/release_attempt03/native.png",
+      "observed_sha256": "366f741f933546d0d88e6ac773d9e91f66b4442baea0165605aa9b3ba1697193",
+      "registered_sha256": "366f741f933546d0d88e6ac773d9e91f66b4442baea0165605aa9b3ba1697193",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-RELEASE-ENDPOINT-04",
+      "path": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/release_attempt04/native.png",
+      "observed_sha256": "d0f31421fa6e3a9d20ed63d67fb2c7ba09fcaa1d2274824ef02a1192a4e34961",
+      "registered_sha256": "d0f31421fa6e3a9d20ed63d67fb2c7ba09fcaa1d2274824ef02a1192a4e34961",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-RELEASE-ENDPOINT-05",
+      "path": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/release_attempt05/native.png",
+      "observed_sha256": "a7b842cd59cba9f6e023ec535c8188a41d7c7b18f176c4f62db399939a2c8ccb",
+      "registered_sha256": "a7b842cd59cba9f6e023ec535c8188a41d7c7b18f176c4f62db399939a2c8ccb",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
       "id": "D2X-0040-CELL-00",
       "path": "assets/flats/castle/interactions_v2/library_magic_book_sheet.png",
       "observed_sha256": "1d6710b704f3e124f2ea7c9765575a1fee1184f14b485829380b56696bf6f1b1",
@@ -17170,7 +17250,7 @@
   "candy_capture_source_count": 783,
   "candy_changed_sources": [],
   "candy_review": "audit/job_candy_workflow_current_v1_20261003/DIRECT_REVIEW_CURRENT_A3.json",
-  "registry_root_sha256": "f8f92c8e825be8d55fb027b8553b8722f263c300c7fd883eec47ac79fce08b06",
+  "registry_root_sha256": "f527b1296e0babe34481f32ca5f257601a255580afe1e7bc39215ba5bafe5294",
   "registry_parts": [
     {
       "path": "ATLAS_STATE_ITEMS_V51.json",

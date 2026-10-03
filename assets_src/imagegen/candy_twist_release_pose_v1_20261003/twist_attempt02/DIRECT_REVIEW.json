@@ -1,0 +1,74 @@
+{
+  "reviewed_utc": "2026-10-03T11:45:12.185842+00:00",
+  "review_method": "direct_complete_native_original_imagegen_output_compared_with_exact_preceding_source",
+  "native_sha256": "c3a7b4cc71c8630cc0fe1772b92af3702a3b9858234e01610408eae2094db076",
+  "status": "REJECTED_OPPOSITE_WRIST_ORIENTATION_STILL_AMBIGUOUS",
+  "components": [
+    {
+      "id": "exactly_two_owned_mittens",
+      "score": 4.6,
+      "evaluation": "Both existing mitten hands remain joined to their own cuffs and sleeves."
+    },
+    {
+      "id": "left_neck_contact",
+      "score": 4.5,
+      "evaluation": "The left short neck remains pinched with the fan outside the hand."
+    },
+    {
+      "id": "right_neck_contact",
+      "score": 4.5,
+      "evaluation": "The right short neck remains held beside the covered oval."
+    },
+    {
+      "id": "opposite_wrist_pose_change",
+      "score": 3.6,
+      "evaluation": "The left mitten narrows and extends downward, but both visible quilted backs and upper inner thumb lobes still resemble the stationary grip. The prescribed below-neck left thumb is not clearly shown."
+    },
+    {
+      "id": "short_twisted_neck_material",
+      "score": 4.4,
+      "evaluation": "The same compact rolled gold folds remain; their opposite winding is still subtle and neatly tubular."
+    },
+    {
+      "id": "single_continuous_gold_wrapper",
+      "score": 4.5,
+      "evaluation": "Body, necks and outward fans remain a continuous sheet without extra bands or mat."
+    },
+    {
+      "id": "outward_fan_ownership",
+      "score": 4.5,
+      "evaluation": "Both loose fans belong to their necks, outside the grips and away from the cuffs."
+    },
+    {
+      "id": "opaque_supported_small_oval",
+      "score": 4.5,
+      "evaluation": "The single opaque low gold oval remains supported at the same table position."
+    },
+    {
+      "id": "character_table_registration",
+      "score": 4.5,
+      "evaluation": "Character identity, clothing, room and table stay coherent."
+    },
+    {
+      "id": "painted_gold_material",
+      "score": 4.5,
+      "evaluation": "The gold wrapper preserves painted value bands and restrained crinkles."
+    },
+    {
+      "id": "inherited_room_graphics",
+      "score": 4.4,
+      "evaluation": "The unchanged detailed room remains a separate source priority."
+    },
+    {
+      "id": "whole_twist_endpoint",
+      "score": 4.2,
+      "evaluation": "This still improves the left contour but has not earned the required opposite wrist pose."
+    }
+  ],
+  "source_pose_score": 4.2,
+  "motion_score": null,
+  "current_game_wrap_score": 2.8,
+  "runtime_bound": false,
+  "owner_acceptance": null,
+  "required_revision": "Show a clearly palm-up left mitten under its neck and palm-down right mitten over its neck. Do not award opposite wrist motion from tiny contour differences."
+}

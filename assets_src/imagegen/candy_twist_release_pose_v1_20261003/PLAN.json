@@ -1,0 +1,170 @@
+{
+  "status": "TWIST_AND_RELEASE_ENDPOINT_SOURCES4_5_FULL_TRAJECTORY_RUNTIME_AND_OWNER_OPEN",
+  "baseline": "930614f3e8ab0d89177409ba92a2dd28dc228d54",
+  "planned_utc": "2026-10-03T11:42:13.135513+00:00",
+  "prior_turn_classification": "PROGRESS:four complete neck-grip candidates/44 opinions and all41 native motion frames/10 component opinions published. Exact AB remote publication24487/24487 PASS. Grip4.5; motion1.8 rejected; actual WRAP2.8 unchanged.",
+  "scope": "Reversible ImageGen rebuilding of the missing opposing-wrist double-twist and supported two-hand release endpoints in the same specific gold-paper scene. Preserve every native and failed opinion. No production binding, Comfy dispatch, runtime score or owner acceptance from a still.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-INT-04",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004"
+  ],
+  "profile": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+  "protocol": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+  "intention": "Roshan concentrates on the same supported covered sweet, twists its two short gold-paper necks with opposite wrist rolls, then disengages both mittens and settles beside it.",
+  "emotional_register": "Quiet concentrating Ribbon Glide work, no celebration or bounce.",
+  "reuse_inventory": [
+    {
+      "path": "assets_src/imagegen/candy_neck_grip_pose_v1_20261003/attempt04/native.png",
+      "sha256": "f1ff6a5f1d46d7e1bb7a53af02da82355ba603514349edec817a6bf73dafda1c",
+      "reuse_evaluation": "Same-scene untwisted two-neck grip4.5. Reuse exact identity, gold-paper material, small covered sweet, fans and table. Not an opposite-wrist twist or release."
+    },
+    {
+      "path": "assets_src/imagegen/candy_cover_pose_v1_20261003/attempt01/native.png",
+      "sha256": "9e1f2cbcbe0bfc6e0f7a2cebd8c3c50e1e09dfb3f6156e7798ce0a9b3e22a87d",
+      "reuse_evaluation": "Exact prior cover/press pose4.5; preserves preceding workflow but has no neck twists or release."
+    },
+    {
+      "path": "assets_src/imagegen/candy_wrap_scene_context_v1_20261003/attempt02/native.png",
+      "sha256": "b126a8ab0f1c0d1e720588335beb3bdb6f1e2b4153ff1e2deeacaf5443d2ec62",
+      "reuse_evaluation": "Earlier same-scene partial fold4.5; visible red crescent is correct only before coverage."
+    },
+    {
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt07/native.png",
+      "sha256": "7207d74c283e6c45c61e0d453ab5c476027611065f84ce75750407875816f467",
+      "reuse_evaluation": "Older static contact atlas has already closed neck rings before twisting and different scene registration. Cannot supply honest exact-scene twist or release."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_candymaker_mover.png",
+      "sha256": "4e77bdc100f28a4a4639190c9be820ed9b05f6361d7ebf16fb250dbde92b585f",
+      "reuse_evaluation": "Current mounted turquoise decorative sweet differs from proposed gold-paper replacement; no transfer of source scores to the actual game."
+    }
+  ],
+  "references": [
+    {
+      "path": "assets_src/imagegen/candy_neck_grip_pose_v1_20261003/attempt04/native.png",
+      "sha256": "f1ff6a5f1d46d7e1bb7a53af02da82355ba603514349edec817a6bf73dafda1c",
+      "role": "exact_full_scene_untwisted_grip_identity_gold_material_support_and_registration"
+    }
+  ],
+  "generation_gap": "No exact same-scene opposite wrist twist or released endpoint exists. The developed local motion study1.8 loses fan ownership and contact without completing the twist or release. Old pre-tied contact atlas cannot replace causal workflow.",
+  "prior_motion_review": "assets_src/imagegen/candy_neck_grip_pose_v1_20261003/local_motion_a1/REVIEW_STATUS.json",
+  "prior_motion_review_sha256": "e44f1b2379c1b79ae5267c52ceac8e7ccca436cb4683ec21745c67baa48e4e00",
+  "generation_method": "built_in_imagegen_precise_object_edit",
+  "required_evidence": [
+    "Full native RGB dimensions/hash and exact prompt/reference hashes for each attempt",
+    "Direct individual opinions for two owned mittens, BOTH short neck contacts, differing opposite wrist orientations relative to preceding grip, continuous single gold paper, each fan ownership, opaque small oval/support, scene/identity/material, and release only when actually shown",
+    "Refine named defects; retain every rejected native; source floor4.5 is provisional and inclusive4.5 priorities remain in the library",
+    "No new local motion until both endpoint sources pass the source bar; a motion study must preserve exact submitted manifest and expose all native frames/component opinions",
+    "Full partial fold to cover to gather to opposite twists to supported release chronology remains required in actual game and Opera training, not granted by two endpoint stills",
+    "Current bounded known-item library, source-bound browser proofs, applicable gates, lossless prior exact-head remote receipts and topic-branch publication"
+  ],
+  "attempts": [
+    {
+      "stage": "twist",
+      "attempt": 1,
+      "source_pose_score": 4.1,
+      "status": "REJECTED_OPPOSITE_WRIST_ORIENTATION",
+      "review": "twist_attempt01/DIRECT_REVIEW.json"
+    },
+    {
+      "stage": "twist",
+      "attempt": 2,
+      "source_pose_score": 4.2,
+      "status": "REJECTED_OPPOSITE_WRIST_ORIENTATION_STILL_AMBIGUOUS",
+      "review": "twist_attempt02/DIRECT_REVIEW.json"
+    },
+    {
+      "stage": "twist",
+      "attempt": 3,
+      "source_pose_score": 4.4,
+      "status": "REJECTED_RIGHT_WRIST_ROLL_TOO_SMALL",
+      "review": "twist_attempt03/DIRECT_REVIEW.json"
+    },
+    {
+      "stage": "twist",
+      "attempt": 4,
+      "source_pose_score": 3.9,
+      "status": "REJECTED_WRONG_HAND_CHANGED_LEFT_EXTRA_LOBE_RIGHT_UNCHANGED",
+      "review": "twist_attempt04/DIRECT_REVIEW.json"
+    },
+    {
+      "stage": "twist",
+      "attempt": 5,
+      "source_pose_score": 4.5,
+      "status": "PROVISIONAL_TWIST_ENDPOINT_SOURCE4_5_NOT_MOTION_OR_RUNTIME",
+      "review": "twist_attempt05/DIRECT_REVIEW.json"
+    },
+    {
+      "stage": "release",
+      "attempt": 1,
+      "source_pose_score": 4.2,
+      "status": "REJECTED_RELEASE_RIGHT_FAN_SHRINKS_NECKS_BECOME_UNIFORM_ROPE_LOOPS",
+      "review": "release_attempt01/DIRECT_REVIEW.json"
+    },
+    {
+      "stage": "release",
+      "attempt": 2,
+      "source_pose_score": 4.3,
+      "status": "REJECTED_RELEASE_FAN_EXTENT_STILL_DRIFTS_PAPER_NECKS_TOO_REGULAR",
+      "review": "release_attempt02/DIRECT_REVIEW.json"
+    },
+    {
+      "stage": "release",
+      "attempt": 3,
+      "source_pose_score": 4.3,
+      "status": "REJECTED_RELEASE_REGULAR_ROPE_COLLARS_AND_RAISED_DISPLAY_POSE",
+      "review": "release_attempt03/DIRECT_REVIEW.json"
+    },
+    {
+      "stage": "release",
+      "attempt": 4,
+      "source_pose_score": 4.4,
+      "status": "REJECTED_RELEASE_GLOVES_TOUCH_UPPER_FAN_EDGES",
+      "review": "release_attempt04/DIRECT_REVIEW.json"
+    },
+    {
+      "stage": "release",
+      "attempt": 5,
+      "source_pose_score": 4.5,
+      "status": "PROVISIONAL_RELEASE_ENDPOINT_SOURCE4_5_NOT_MOTION_OR_RUNTIME",
+      "review": "release_attempt05/DIRECT_REVIEW.json"
+    }
+  ],
+  "twist_source_score": 4.5,
+  "release_source_score": 4.5,
+  "motion_score": null,
+  "current_game_wrap_score": 2.8,
+  "runtime_bound": false,
+  "owner_acceptance": null,
+  "twist_source": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/twist_attempt05/native.png",
+  "release_source": "assets_src/imagegen/candy_twist_release_pose_v1_20261003/release_attempt05/native.png"
+}

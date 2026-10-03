@@ -1,0 +1,74 @@
+{
+  "reviewed_utc": "2026-10-03T11:47:50.879678+00:00",
+  "review_method": "direct_complete_native_original_imagegen_output_compared_with_exact_preceding_source",
+  "native_sha256": "ff2e719b8c32585baf0890e255eaca77df89d42770965d774b0286338fc49110",
+  "status": "REJECTED_WRONG_HAND_CHANGED_LEFT_EXTRA_LOBE_RIGHT_UNCHANGED",
+  "components": [
+    {
+      "id": "exactly_two_owned_mittens",
+      "score": 3.6,
+      "evaluation": "Two sleeve connections remain, but the left glove now presents an upper inner thumb, main rounded tip and extra lower coral lobe beneath the neck. Its single-thumb topology is unclear."
+    },
+    {
+      "id": "left_neck_contact",
+      "score": 4.0,
+      "evaluation": "The left contact has been changed unnecessarily and the extra underside lobe makes the pinch hard to parse."
+    },
+    {
+      "id": "right_neck_contact",
+      "score": 4.5,
+      "evaluation": "The right neck stays held by the original right mitten."
+    },
+    {
+      "id": "opposite_wrist_pose_change",
+      "score": 3.5,
+      "evaluation": "The requested right-wrist roll was not performed; the left hand changed instead."
+    },
+    {
+      "id": "short_twisted_neck_material",
+      "score": 4.3,
+      "evaluation": "The left folds have become mostly vertical wrapped ridges; opposite winding is less clear than A3."
+    },
+    {
+      "id": "single_continuous_gold_wrapper",
+      "score": 4.5,
+      "evaluation": "The gold body, necks and fans remain one continuous object."
+    },
+    {
+      "id": "outward_fan_ownership",
+      "score": 4.5,
+      "evaluation": "Both fans remain outside their own necks without cuff attachment."
+    },
+    {
+      "id": "opaque_supported_small_oval",
+      "score": 4.5,
+      "evaluation": "The same covered low oval remains table-supported."
+    },
+    {
+      "id": "character_table_registration",
+      "score": 4.5,
+      "evaluation": "Scene and character identity remain stable."
+    },
+    {
+      "id": "painted_gold_material",
+      "score": 4.5,
+      "evaluation": "The painted gold family is retained."
+    },
+    {
+      "id": "inherited_room_graphics",
+      "score": 4.4,
+      "evaluation": "The unchanged room remains a separate graphics priority."
+    },
+    {
+      "id": "whole_twist_endpoint",
+      "score": 3.9,
+      "evaluation": "The correction edited the wrong hand and weakened the previously readable left-hand topology."
+    }
+  ],
+  "source_pose_score": 3.9,
+  "motion_score": null,
+  "current_game_wrap_score": 2.8,
+  "runtime_bound": false,
+  "owner_acceptance": null,
+  "required_revision": "Restore the prior accepted left contact and change only the glove on the viewer-right side of the image under the rainbow hair. The prior instruction changed the wrong hand and added a confusing third coral lobe."
+}

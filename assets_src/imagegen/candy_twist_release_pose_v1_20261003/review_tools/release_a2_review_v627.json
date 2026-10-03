@@ -1,0 +1,30 @@
+{
+ "attempt_directory":"release_attempt02",
+ "generated_original":"C:/Users/Peter/.codex/generated_images/01a0f309-110a-7602-af22-f30d657bd017/exec-d6ad5571-c515-4d71-8e89-d0bab2d1a51c.png",
+ "stage":"release","attempt":2,"score":4.3,
+ "status":"REJECTED_RELEASE_FAN_EXTENT_STILL_DRIFTS_PAPER_NECKS_TOO_REGULAR",
+ "plan_status":"RELEASE_A2_SOURCE4_3_A3_TWO_REFERENCE_CONTINUITY_REPAIR_PLANNED",
+ "required_revision":"Use the exact provisional twist endpoint as the whole-scene/wrapper target, and the achieved released hands as a pose reference only. Restore actual original fan dimensions and flexible paper necks rather than approximating coordinates.",
+ "reviews":[
+ ["exactly_two_owned_mittens",4.6,"The two withdrawn gloves remain sleeve-owned with one thumb each."],
+ ["left_disengaged_contact",4.5,"The left glove remains clear of its short neck and fan."],
+ ["right_disengaged_contact",4.5,"The right glove remains clear of the wrapper above its outer fan."],
+ ["supported_released_rest",4.5,"The covered sweet stays supported on the tabletop after release."],
+ ["short_twisted_neck_material",4.2,"Some diagonal winding improves on the right, but the left still reads as uniform gold rope loops and the pair does not clearly preserve the preceding opposite fold directions."],
+ ["single_continuous_gold_wrapper",4.4,"The gold surfaces stay connected, with the neck material still too collar-like."],
+ ["fan_geometry_continuity",4.2,"The right fan broadens somewhat but its outer tip and spread still fall short of the preceding endpoint. The right paper end remains a different size after release."],
+ ["opaque_supported_small_oval",4.5,"The single covered centre remains in place with comparable low oval volume."],
+ ["character_table_registration",4.5,"Character, room and table remain stable."],
+ ["painted_gold_material",4.4,"Most gold surfaces match; the necks remain too regular and rope-like."],
+ ["inherited_room_graphics",4.4,"The inherited room is still separately weak."],
+ ["whole_released_endpoint",4.3,"The released hands work, but wrapper conservation/material continuity is not yet at the requested source floor."]
+ ],
+ "next":{
+ "directory":"release_attempt03",
+ "reference_path":"assets_src/imagegen/candy_twist_release_pose_v1_20261003/twist_attempt05/native.png",
+ "reference_role":"primary_edit_target_exact_twist_scene_and_same_wrapper_body_necks_fan_geometry",
+ "second_reference_role":"released_owned_hand_poses_only_no_authority_for_changed_wrapper_geometry",
+ "status":"EXACT_TWIST_WRAPPER_TARGET_WITH_RELEASE_HAND_POSE_REFERENCE_PLANNED",
+ "prompt":"Use case: precise-object-edit\nIMAGE 1 is the PRIMARY EDIT TARGET and has authority for the ENTIRE exact Candy Maker scene and the EXACT gold wrapper. IMAGE 2 supplies ONLY the already successful two released mitten hand poses; do NOT use its altered paper geometry.\nReturn the whole IMAGE 1 painting with its same face, hair, cap, outfit, sleeves, room, table, camera, and the SAME one low gold-covered oval sweet. Keep Image 1's gold body, top seam, both short opposite paper twists and especially BOTH loose gold fans at their exact existing size, outline and table positions. The right fan must retain Image 1's full broad spread and its original rightmost tip, not the shorter fan in Image 2. Release does not shrink, move, replace or change either fan. Reveal only the small neck sections previously occluded by hands, continuing Image 1's thin flexible gold-paper folds and opposite winding. Do not add regular rope collar loops, strings, rings, bands or knots; these necks are crumpled twisted sections of the same paper sheet.\nWithdraw Image 1's two existing coral mittens to the quiet naturally bent released positions shown in IMAGE 2: left glove upward/outward behind the left fan, right glove upward/outward behind the right fan, each still joined to its own teal cuff and cream sleeve. Both hands are visibly DISENGAGED from every part of the gold paper, with a small clear gap. Keep exactly two rounded mittens, one thumb each, no bare fingers or extra limbs. Neither hand carries a fan or pulls paper away. The full wrapper remains unobstructed, low and supported on the same table after both hands let go.\nPreserve Image 1's original painted storybook identity, gold value bands, restrained crinkles and clean contours. One covered sweet, no red, mat, props, camera move, crop, text, blur, glow, 3D, skin realism or vector replacement. Return one whole landscape painting of that SAME Image 1 wrapper and the released owned hands."
+ }
+}

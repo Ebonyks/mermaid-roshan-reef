@@ -1,0 +1,89 @@
+{
+  "status": "TWO_ENDPOINT_SOURCES4_5_PROVISIONAL_FULL_ACTION_OPEN",
+  "reviewed_utc": "2026-10-03T11:58:01.986052+00:00",
+  "native_sources": 10,
+  "individual_source_opinions": 123,
+  "rejected_sources": 8,
+  "twist_source_score": 4.5,
+  "release_source_score": 4.5,
+  "inherited_room_score": 4.4,
+  "prior_motion_reference_component_score": 1.8,
+  "new_motion_dispatched": false,
+  "motion_score": null,
+  "current_game_wrap_score": 2.8,
+  "runtime_bound": false,
+  "owner_acceptance": null,
+  "attempts": [
+    {
+      "stage": "twist",
+      "attempt": 1,
+      "folder": "twist_attempt01",
+      "source_score": 4.1,
+      "status": "REJECTED_OPPOSITE_WRIST_ROLL_NOT_SHOWN"
+    },
+    {
+      "stage": "twist",
+      "attempt": 2,
+      "folder": "twist_attempt02",
+      "source_score": 4.2,
+      "status": "REJECTED_OPPOSITE_WRIST_ORIENTATION_STILL_AMBIGUOUS"
+    },
+    {
+      "stage": "twist",
+      "attempt": 3,
+      "folder": "twist_attempt03",
+      "source_score": 4.4,
+      "status": "REJECTED_RIGHT_WRIST_ROLL_TOO_SMALL"
+    },
+    {
+      "stage": "twist",
+      "attempt": 4,
+      "folder": "twist_attempt04",
+      "source_score": 3.9,
+      "status": "REJECTED_WRONG_HAND_CHANGED_LEFT_EXTRA_LOBE_RIGHT_UNCHANGED"
+    },
+    {
+      "stage": "twist",
+      "attempt": 5,
+      "folder": "twist_attempt05",
+      "source_score": 4.5,
+      "status": "PROVISIONAL_TWIST_ENDPOINT_SOURCE4_5_NOT_MOTION_OR_RUNTIME"
+    },
+    {
+      "stage": "release",
+      "attempt": 1,
+      "folder": "release_attempt01",
+      "source_score": 4.2,
+      "status": "REJECTED_RELEASE_RIGHT_FAN_SHRINKS_NECKS_BECOME_UNIFORM_ROPE_LOOPS"
+    },
+    {
+      "stage": "release",
+      "attempt": 2,
+      "folder": "release_attempt02",
+      "source_score": 4.3,
+      "status": "REJECTED_RELEASE_FAN_EXTENT_STILL_DRIFTS_PAPER_NECKS_TOO_REGULAR"
+    },
+    {
+      "stage": "release",
+      "attempt": 3,
+      "folder": "release_attempt03",
+      "source_score": 4.3,
+      "status": "REJECTED_RELEASE_REGULAR_ROPE_COLLARS_AND_RAISED_DISPLAY_POSE"
+    },
+    {
+      "stage": "release",
+      "attempt": 4,
+      "folder": "release_attempt04",
+      "source_score": 4.4,
+      "status": "REJECTED_RELEASE_GLOVES_TOUCH_UPPER_FAN_EDGES"
+    },
+    {
+      "stage": "release",
+      "attempt": 5,
+      "folder": "release_attempt05",
+      "source_score": 4.5,
+      "status": "PROVISIONAL_RELEASE_ENDPOINT_SOURCE4_5_NOT_MOTION_OR_RUNTIME"
+    }
+  ],
+  "qualification": "Source endpoint opinions only;all inclusive4.5 priorities retained. Source endpoints cannot satisfy contact/motion/actual job/training/device/child/owner/comprehensive all-jobs acceptance."
+}

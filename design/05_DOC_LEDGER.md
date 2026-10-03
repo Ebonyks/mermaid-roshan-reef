@@ -1108,3 +1108,6 @@ Kept as-is; noted so a future edit updates every copy.
 | `assets_src/imagegen/candy_neck_grip_pose_v1_20261003/previous_v51/ALL_ITEMS.json` | ⚪ | `HISTORICAL_SUPPORTING`; exact bounded V51 root before four new grip sources,its88-item part unchanged. |
 
 | `assets_src/imagegen/candy_neck_grip_pose_v1_20261003/local_motion_a1/index.html` | 🟢 | `SUPPORTING_CURRENT`;41 complete native decoded reference canvases/10 component opinions,whole neck-twist/release1.8 rejected. Gold fans detach into cuffs;static grip4.5/current game2.8 remain separate. No production/cinematic/owner acceptance. |
+
+| `assets_src/imagegen/candy_twist_release_pose_v1_20261003/index.html` | 🟢 | `SUPPORTING_CURRENT`; ten complete preserved endpoint candidates/123 individual source opinions. TwistA5/releaseA5 source4.5 provisional;room4.4. Previous local motion1.8 rejected,no new motion/current game2.8/owner acceptance. |
+| `assets_src/imagegen/candy_twist_release_pose_v1_20261003/previous_v52/ALL_ITEMS.json` | ⚪ | `HISTORICAL_SUPPORTING`; exact bounded V52 root before ten new endpoint sources;88-item literal part unchanged. |
