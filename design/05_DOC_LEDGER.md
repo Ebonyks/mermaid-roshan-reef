@@ -900,3 +900,41 @@ Kept as-is; noted so a future edit updates every copy.
 | `docs/handoffs/codex_self_improvement_loop_2026-10-03/CYCLE_0_STUDY_REPORT.md` | 🔵 | `SUPPORTING_CURRENT` worked example of the cycle report at dev `f2140465`, written by hand with existing tools: changes since 2026-09-30, strengths and weaknesses observed, loop health baseline, roadmap delta, five ready-to-say prompts, five owner questions and the lessons this cycle wrote back. |
 | `docs/handoffs/codex_self_improvement_loop_2026-10-03/templates/STUDY_REPORT_V1.md` | 🟣 | `PROPOSED / CANDIDATE` template: one short report per loop cycle with numbers from the study runner. |
 | `docs/handoffs/codex_self_improvement_loop_2026-10-03/templates/PROMPT_RECIPE_V1.md` | 🟣 | `PROPOSED / CANDIDATE` template: how one short owner prompt expands into a complete plan (intent, read-first references, expansion with variety rules, owner touchpoints, build and check, learn). |
+
+## Self-improvement loop implementation — 2026-10-03
+
+| Doc | | Note |
+|---|---|---|
+| `audit/cycles/2026-10-03/CURRENT_SURFACES.md` | 🔵 | `SUPPORTING_CURRENT`; commissioned study-loop intake/runbook or generated evidence/planning view; no automatic rule/finding transition, schedule, telemetry or product acceptance. |
+| `audit/cycles/2026-10-03/DEVICE_SESSION.md` | 🔵 | `SUPPORTING_CURRENT`; commissioned study-loop intake/runbook or generated evidence/planning view; no automatic rule/finding transition, schedule, telemetry or product acceptance. |
+| `audit/cycles/2026-10-03/GENERATED_CHANGE_HISTORY.md` | 🔵 | `SUPPORTING_CURRENT`; commissioned study-loop intake/runbook or generated evidence/planning view; no automatic rule/finding transition, schedule, telemetry or product acceptance. |
+| `audit/cycles/2026-10-03/IMPLEMENTATION.md` | 🔵 | `SUPPORTING_CURRENT`; commissioned study-loop intake/runbook or generated evidence/planning view; no automatic rule/finding transition, schedule, telemetry or product acceptance. |
+| `audit/cycles/2026-10-03/OWNER_REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; commissioned study-loop intake/runbook or generated evidence/planning view; no automatic rule/finding transition, schedule, telemetry or product acceptance. |
+| `audit/cycles/2026-10-03/ROADMAP.md` | 🔵 | `SUPPORTING_CURRENT`; commissioned study-loop intake/runbook or generated evidence/planning view; no automatic rule/finding transition, schedule, telemetry or product acceptance. |
+| `audit/cycles/2026-10-03/STUDY_REPORT.md` | 🔵 | `SUPPORTING_CURRENT`; commissioned study-loop intake/runbook or generated evidence/planning view; no automatic rule/finding transition, schedule, telemetry or product acceptance. |
+| `audit/cycles/2026-10-03/VERIFICATION_SWEEP.md` | 🔵 | `SUPPORTING_CURRENT`; commissioned study-loop intake/runbook or generated evidence/planning view; no automatic rule/finding transition, schedule, telemetry or product acceptance. |
+| `audit/cycles/2026-10-03-baseline/PLANNING_HISTORY.md` | ⚪ | `HISTORICAL_EVIDENCE`; verbatim dated planning/repair evidence at loop intake; relocation of links does not renew its old acceptance. |
+| `audit/cycles/2026-10-03-baseline/REPAIR_ORDER_HISTORY.md` | ⚪ | `HISTORICAL_EVIDENCE`; verbatim dated planning/repair evidence at loop intake; relocation of links does not renew its old acceptance. |
+| `audit/cycles/README.md` | 🔵 | `SUPPORTING_CURRENT`; commissioned study-loop intake/runbook or generated evidence/planning view; no automatic rule/finding transition, schedule, telemetry or product acceptance. |
+| `audit/ROADMAP.md` | 🔵 | `SUPPORTING_CURRENT`; commissioned study-loop intake/runbook or generated evidence/planning view; no automatic rule/finding transition, schedule, telemetry or product acceptance. |
+| `design/reference/OWNER_DECISIONS.md` | 🔵 | `SUPPORTING_CURRENT`; generated view of evidence-backed owner answers and separately labelled operating defaults. Original decision dates/sources and scope control; defaults are not owner answers. |
+| `design/reference/recipes/add_job.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
+| `design/reference/recipes/art.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
+| `design/reference/recipes/character_animation.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
+| `design/reference/recipes/companion.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
+| `design/reference/recipes/event.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
+| `design/reference/recipes/new_chapter.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
+| `design/reference/recipes/polish.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
+| `design/reference/recipes/publish_handoff.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
+| `design/reference/recipes/release.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
+| `design/reference/recipes/repair.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
+| `design/reference/recipes/retire.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
+| `design/reference/recipes/room_activity.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
+| `design/reference/recipes/story_clip.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
+| `design/reference/recipes/study.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
+| `design/reference/recipes/voice_lines.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
+| `design/reference/STRENGTHS.md` | 🔵 | `SUPPORTING_CURRENT`; generated source-hash-bound strengths; candidate evidence and narrowly accepted owner constraints remain distinct from visual/exemplar/product acceptance. |
+| `design/templates/PROMPT_RECIPE_V1.md` | 🔵 | `SUPPORTING_CURRENT`; operational loop template from the commissioned handoff; numbers must derive from study.json and actual acceptance evidence remains required. |
+| `design/templates/STUDY_REPORT_V1.md` | 🔵 | `SUPPORTING_CURRENT`; operational loop template from the commissioned handoff; numbers must derive from study.json and actual acceptance evidence remains required. |
+
+Latest stable Godot reverified 2026-10-03 at the owner’s request: 4.7.2-stable, as listed by the official download page. Active Opera capture validators and default local CI selection now use tools/godot_baseline.json; historical engine evidence retains its recorded versions.

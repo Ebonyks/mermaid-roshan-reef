@@ -106,6 +106,11 @@ Runtime/editor baseline: exactly Godot 4.7.2-stable (owner decision
 2026-08-29). The `project.godot` feature tag is `"4.7"` because Godot records
 the engine series there; it does not lower the required patch baseline. Do not
 validate releases with Godot 4.4 or a 4.7 development build.
+Latest stable reverified 2026-10-03 at the owner's request against the
+[official download](https://godotengine.org/download/windows/): 4.7.2-stable.
+Use `python -B tools/resolve_godot.py` or `tools/run_godot.ps1` to select
+the exact approved build; local CI uses this resolver. An older executable
+on PATH is not a valid default. Historical audit versions remain evidence.
 
 ## Final medium (owner decision 2026-08-09): true 2D game-wide
 

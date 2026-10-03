@@ -175,9 +175,10 @@ turn, and `MA-CI-008`, for advisory sensors that fail silently.
 | fix | Stage J of `docs/handoffs/codex_master_audit_refinement_2026-09-30/README.md` (revision 3): a maintained job-game playbook, a machine-checked job catalogue, a takeover kit and a cold-start dry run. Until then the interim recipe is section 4 of the audit. |
 | surrounding_tests | Catalogue checker against the code registries with injected faults (unregistered act, wrong star bit, job without a trusted probe); existence check of every file, symbol, command and gate the playbook names; document-authority and audit-development gates; dry-run checklist in section 10 of the audit. |
 | acceptance | The task-index route resolves to the playbook; every playbook reference exists at its head; the catalogue checker runs in the existing document gate and fails on the injected faults; the takeover kit corrects or lists every stale claim in audit sections 8 and 9; a cold-start dry run passes the section 10 checklist and the owner accepts it (V7). |
-| closure | Open as of 2026-09-30; no playbook, catalogue, checker, takeover kit or dry run exists. |
+| closure | Open. As of 2026-10-03, loop LP7 supplies a routed planning recipe and source-bound bakery cold-start planning dry run at `audit/cycles/2026-10-03/COLD_START_BAKERY_TEST.json`. A complete maintained takeover playbook, runtime job-catalogue checker, full stale-claim takeover kit and owner V7 acceptance remain absent; planning PASS is not job implementation or product acceptance. |
 | relationships | Related to `MA-DOC-002` (document inventory), `MA-CI-004` and `MA-CI-005` (probe and passive coverage), `MA-CODE-001` (the Mode Platform growth path is absent) and `MA-OPERA-012` (castle-room career routes). |
-| history | 2026-09-30: created from the job-game takeover audit at dev `5d9668a9`; P2 under section 2.3 with owner priority critical; interim recipe published in audit section 4. |
+| history | 2026-09-30: created from the job-game takeover audit at dev `5d9668a9`; P2 under section 2.3 with owner priority critical; interim recipe published in audit section 4. 2026-10-03: LP7 adds `design/reference/recipes/add_job.md`, source-bound `tools/plan_prompt.py` and a fresh-agent bakery planning dry run. The test exposed and repaired missing baking/retrieval and finale indexing; native coverage remains a dependency. Evidence is limited to planning; lifecycle stays `CONFIRMED_OPEN`, with complete checker/kit and owner acceptance still open. |
+
 
 ## MA-DOC-007
 
@@ -235,7 +236,7 @@ turn, and `MA-CI-008`, for advisory sensors that fail silently.
 | domain / zone | Audit process and documentation / the master audit, finding register, change records, chapter reference library and every handoff |
 | source | Owner request 2026-10-03 and `docs/handoffs/codex_self_improvement_loop_2026-10-03/LOOP_AUDIT.md` (three read-only sweeps, direct reads of the master audit, and the handoff's loop-health measurement at dev `f2140465`). |
 | severity | P2 |
-| lifecycle | `CONFIRMED_OPEN` |
+| lifecycle | `IN_PROGRESS` |
 | verification | V1 static plus a read-only measurement (`tools/measure_loop_health.py` in the handoff). |
 | reproduction | At dev `f2140465`, `python -B docs/handoffs/codex_self_improvement_loop_2026-10-03/tools/measure_loop_health.py --today 2026-10-03` reports 38 of 59 open findings with no history entry for 30 days, 12 `FIXED_PENDING_VERIFICATION` records (six last touched on 2026-08-13), 4 of 77 impact records recording a lesson, change-history rows 56 in August, 11 in September and none in October, and all five tracked handoffs `NOT_STARTED`. The planning table's reference-library promotion row has never run, so no exemplar is promoted; section 12 has 1 of 23 boxes ticked; the section 1 scorecards were last edited on 2026-08-12 and 2026-08-13. |
 | child_impact | Indirect but cumulative: each new room, job or animation starts from scratch, owner corrections repeat and past lessons are relearned, so content arrives slower and less consistent; fixed defects the child may still meet stay unverified. |
@@ -244,9 +245,9 @@ turn, and `MA-CI-008`, for advisory sensors that fail silently.
 | fix | Work packages LP0–LP11 of `docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md`, in its section 4 build order with the earlier handoffs. |
 | surrounding_tests | Document-authority and audit-development gates; study-runner unit tests with fixtures and a failing stress case; impact-record schema tests for the new optional fields; roadmap generator tests; the cold-start "add a bakery job" recipe test. |
 | acceptance | Handoff AC-1 to AC-10: two complete cycles with reports generated from `study.json`; a strengths register with evidence; lessons in at least half of change records, each with a write-back target; a generated roadmap; the cold-start test passes; the twelve unverified fixes each list their missing evidence and the first sweep is scheduled; generated change history and current scorecards; loop health improves on three measures; the owner reviews the second cycle report. |
-| closure | Open as of 2026-10-03; the loop audit, templates, seeds, measurement tool and cycle 0 report exist, and no work package has run. |
+| closure | In progress as of 2026-10-03; implementation and local evidence exist in audit/cycles/2026-10-03, but the named missing acceptance gates prevent closure. Historical evidence is retained above. |
 | relationships | Related to `MA-DOC-006` (the job recipe), `MA-DOC-007` (stale documents the loop reads), `MA-DOC-008` (art exemplars and review cards), `MA-CI-008` (sensors the study reads) and `MA-CHILD-001` (no child evidence). |
-| history | 2026-10-03: created from the self-improvement loop audit at dev `f2140465`; P2 under section 2.3; handoff published with LP0–LP11 and a cycle 0 report. |
+| history | 2026-10-03: created from the self-improvement loop audit at dev `f2140465`; P2 under section 2.3; handoff published with LP0–LP11 and a cycle 0 report. 2026-10-03 (implementation): LP0-LP10 infrastructure implemented: study collector, source-bound strengths, decision intake, lesson validation, prompt catalogue and bakery dry run, roadmap/history/current surfaces and verification requests. Two real owner-answer/build/check/learn cycles, booked owner/device sweep and second-cycle owner acceptance remain missing. No closure inferred. Evidence: audit/cycles/2026-10-03/IMPLEMENTATION.md and design/audit_impacts/self-improvement-loop-implementation-20261003.json. |
 
 ## MA-VIS-002
 
@@ -1362,7 +1363,7 @@ turn, and `MA-CI-008`, for advisory sensors that fail silently.
 | domain / zone | Test fidelity / advisory steps of `.github/workflows/probes.yml`; `scripts/probe_opera_2d_balance.gd`; the Sky Lagoon and pearl-castle review captures |
 | source | Self-improvement loop audit 2026-10-03 (`docs/handoffs/codex_self_improvement_loop_2026-10-03/LOOP_AUDIT.md` section 4): log and artifact read of Probe Suite run `37100729058` at dev `f2140465`, with sampled `dev` runs since 2026-09-02. |
 | severity | P2 |
-| lifecycle | `CONFIRMED_OPEN` |
+| lifecycle | `IN_PROGRESS` |
 | verification | V1: workflow, probe source, CI log and artifact list read; no rerun. |
 | reproduction | In run `37100729058` (success, head `f2140465`) every Opera balance line reports `verdict=capped` at the 300-second `TIME_CAP` for all 15 careers (`scripts/probe_opera_2d_balance.gd` lines 11 and 58–59), and the probe header still says it drives "thirteen" acts (line 4); the Sky Lagoon capture ends `LAGOONSHOT\|RESULT\|FAIL`; the pearl-castle upload finds no files. These steps are `continue-on-error` (`.github/workflows/probes.yml` lines 269–418), so the run is green and keeps four of its six artifacts, one of them a capture of the retired Reef. The dust-boss step's comment describes a 45–120 second fun band, but the probe checks only that the boss can be won. |
 | child_impact | Indirect: pacing too long or too short for a four-year-old goes unnoticed, and Sky Lagoon and pearl-castle regressions get no review images, while the green run suggests both are watched. |
@@ -1371,9 +1372,9 @@ turn, and `MA-CI-008`, for advisory sensors that fail silently.
 | fix | Rescale or raise the Opera pacing cap so each career reports a time, and correct the act count; make each advisory step print one result line that the study runner reads (handoff LP2), so a capped, failed or empty advisory result is reported each cycle without failing the build; repair or retire the Sky Lagoon, pearl-castle and retired-Reef captures; check the dust-boss fun band or remove its description. |
 | surrounding_tests | The Opera balance run reports a finite time per career for at least one simulated child; each capture step produces its artifact or a reported reason; the study runner flags an injected `RESULT\|FAIL` line. |
 | acceptance | A green Probe Suite run whose advisory results are all measured or explicitly reported as not measured, listed in the cycle report (`DL-QA-07`). |
-| closure | Open as of 2026-10-03; nothing changed. |
+| closure | In progress as of 2026-10-03; implementation and local evidence exist in audit/cycles/2026-10-03, but the named missing acceptance gates prevent closure. Historical evidence is retained above. |
 | relationships | Read by the study runner of `MA-DOC-009`; related to `MA-CI-003` (probe classification) and `MA-CI-007` (probe infrastructure). |
-| history | 2026-10-03: confirmed by CI log, artifact list, workflow and probe source read at dev `f2140465`; opened `CONFIRMED_OPEN`. |
+| history | 2026-10-03: confirmed by CI log, artifact list, workflow and probe source read at dev `f2140465`; opened `CONFIRMED_OPEN`. 2026-10-03 (implementation): Sensor repair implemented: source-bound latest-stable engine checks, current Sky launch API, separate Castle Canvas capture, persona checkpoint isolation and approach/tick policies, and explicit capped/unsupported outcomes. Local 4.7.2 Mobile Castle13/13 and Sky20/20 captures pass with unchanged normal saves; full specialized pacing and exact-head remote advisory collection remain outstanding. Evidence: audit/cycles/2026-10-03/IMPLEMENTATION.md and design/audit_impacts/self-improvement-loop-implementation-20261003.json. |
 
 ## MA-TYPE-001
 

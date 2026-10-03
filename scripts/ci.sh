@@ -2,7 +2,6 @@
 # Full local gate: fresh import + every trusted probe.  Probe user data is
 # isolated so one bot cannot make the next bot pass by pre-winning content.
 set -uo pipefail
-GODOT="${GODOT:-godot}"
 cd "$(dirname "$0")/.."
 # Windows-local parity (2026-08-04): on Windows the Python default text codec
 # is cp1252, so every tool below that reads a UTF-8 source file or prints an
@@ -10,6 +9,8 @@ cd "$(dirname "$0")/.."
 # probes. Linux CI already defaults to UTF-8, so this is a no-op there.
 export PYTHONIOENCODING="utf-8"
 export PYTHONUTF8=1
+GODOT="$(python3 tools/resolve_godot.py)" \
+	|| { echo "APPROVED GODOT RUNTIME UNAVAILABLE"; exit 1; }
 # Keep the editor, templates, CI downloads, feature tag and release authority
 # on one checksum-pinned official patch before any other gate runs.
 python3 -m unittest tools.tests.test_audit_godot_baseline \
@@ -68,6 +69,14 @@ python3 tools/audit_document_authority.py --stress \
 	|| { echo "DOCUMENT AUTHORITY SELF-TEST FAIL"; exit 1; }
 python3 -m unittest tools.tests.test_audit_development \
 	|| { echo "AUDIT DEVELOPMENT CONTRACT TEST FAIL"; exit 1; }
+python3 -m unittest \
+	tools.tests.test_record_owner_decision \
+	tools.tests.test_run_advisory_sensor \
+	tools.tests.test_study_game \
+	tools.tests.test_build_study_roadmap \
+	tools.tests.test_plan_prompt \
+	tools.tests.test_resolve_godot \
+	|| { echo "SELF-IMPROVEMENT LOOP CONTRACT TEST FAIL"; exit 1; }
 python3 tools/audit_development.py --base auto \
 	|| { echo "AUDIT DEVELOPMENT COVERAGE FAIL"; exit 1; }
 python3 tools/audit_document_authority.py \

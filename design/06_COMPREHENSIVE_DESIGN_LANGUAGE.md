@@ -1406,8 +1406,9 @@ falsifiable footing every other dimension already has. They restate the
 binding extraction/refactor contract as audit criteria; they do not weaken
 it. This rule set is a framework, not a ceiling: an auditor who finds a
 material code defect outside these rules records it anyway, and a defect
-class that recurs earns its own rule here in the same commit as the audit
-that justified it._
+class is counted in every study cycle. Three occurrences in one cycle
+propose a rule or executable check with reproductions and evidence; review
+and the authority contract determine promotion, never the loop itself._
 
 `DL-CODE-01` — `scripts/main.gd` is a coordinator, and its line count MUST
 fall monotonically toward the standing target below 2,500 lines. A change
