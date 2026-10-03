@@ -1,0 +1,2115 @@
+{
+  "status": "88_EXACT_NATIVE_QA_CROPS_NO_ARTWORK_MODIFICATION",
+  "baseline": "c7817974fb23913c1d764c718a70a5932cacb883",
+  "created_utc": "2026-10-03T10:18:37.093905+00:00",
+  "atlases": [
+    {
+      "id": "D2X-0040",
+      "source_path": "assets/flats/castle/interactions_v2/library_magic_book_sheet.png",
+      "source_sha256": "1d6710b704f3e124f2ea7c9765575a1fee1184f14b485829380b56696bf6f1b1",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 4.0,
+      "manifest_path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+      "manifest_sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+      "asset_id": "library_magic_book",
+      "semantic_action": "open_book_and_turn_pages",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        256,
+        512
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        5,
+        3,
+        1,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.095,
+      "cells": [
+        {
+          "id": "D2X-0040-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0040/state_00.png",
+          "qa_bytes": 59476,
+          "qa_sha256": "3109fe6e2d1941b20b20bc1077e445a8fac61b2b6e65bf19f776a74d2e38210c",
+          "decoded_pixel_sha256": "1101bf1474fbcb78052b2f43947fcf802c0cadf358d18e706d3631085b4e7a5f",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0040-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            256,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0040/state_01.png",
+          "qa_bytes": 69323,
+          "qa_sha256": "e8111ecfa13f34c351607e8dce84bddb84a01fc2971faf9b2ae5ecc8298875b7",
+          "decoded_pixel_sha256": "dd5d7c5217f376db235703ad94d1721f0833ffd0096700a27a35a2dfcf04e007",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0040-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            512,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0040/state_02.png",
+          "qa_bytes": 70175,
+          "qa_sha256": "53e2ff633e10e609db54a137fcc11fe91b4b2c940ec2bdf1e5c7a9466dfae22e",
+          "decoded_pixel_sha256": "9105c4c32862679e8a59b12fc62425871240ddb2d14428fc5a0686df16a7c487",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0040-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            768,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0040/state_03.png",
+          "qa_bytes": 65940,
+          "qa_sha256": "f930abf868eca31887c7092d656b134873ff2b8c6f95145172447854aa613fc6",
+          "decoded_pixel_sha256": "b63511f1c1265d30b0d72793e39ec298b8fc1012f6aa40b4de41b5e8803f8543",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0040-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0040/state_04.png",
+          "qa_bytes": 64155,
+          "qa_sha256": "9956b96a305a0e8e03b327db4a6f0044e87d53ae6286f1df9dd8cb06fa7acd12",
+          "decoded_pixel_sha256": "fd38cb93cb605dca4f2117afb2a81accfe6043b2620791d938ebbc083f6ab077",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0040-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            256,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0040/state_05.png",
+          "qa_bytes": 63194,
+          "qa_sha256": "96b105a84cccb3f6f831de05f70abd1985223580b22862b2b5c43888177a3e08",
+          "decoded_pixel_sha256": "b740d201836706cfedcbe09fdf35e7b2c139dc4b625900293346cd71591c4260",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0040-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            512,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0040/state_06.png",
+          "qa_bytes": 59797,
+          "qa_sha256": "c22482153f992bf6d8b7ea590e13da6204cfc0b28b15888d947d371eb9ae0397",
+          "decoded_pixel_sha256": "45c2a39427f23d45c6d444bed5d980b7ec7326015d338815cce5519329b74686",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0040-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            768,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0040/state_07.png",
+          "qa_bytes": 62033,
+          "qa_sha256": "3c34f1eb8546a0a828e33070d3d359552cb75ca6e8c97b02a6a7298fed84cc68",
+          "decoded_pixel_sha256": "21445d96d580a4acc9569ce9c372f9b4642c563932b33169079b25594317e104",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        }
+      ]
+    },
+    {
+      "id": "D2X-0041",
+      "source_path": "assets/flats/castle/interactions_v2/library_pearl_table_sheet.png",
+      "source_sha256": "bd1ddc7018c7c7352849cd56278196f9dcaad755c5cef268a8572b42663cbf0d",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 3.9,
+      "manifest_path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+      "manifest_sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+      "asset_id": "library_pearl_table",
+      "semantic_action": "wake_reading_pearl",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        256,
+        512
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        5,
+        3,
+        1,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.1025,
+      "cells": [
+        {
+          "id": "D2X-0041-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0041/state_00.png",
+          "qa_bytes": 52173,
+          "qa_sha256": "87bd4a63b36dcfb781946b6d9751c3e49660c90db9545fca2ea561c5dc590952",
+          "decoded_pixel_sha256": "d2e0c8799756ad31bada69308ec436464bc5e7c40dd559f619e76fe0dbe5d7e0",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0041-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            256,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0041/state_01.png",
+          "qa_bytes": 49016,
+          "qa_sha256": "39d6ea72af662c5e3e98c742e919044e798a29ec975fd0cfdf69aec1dd7f590c",
+          "decoded_pixel_sha256": "b4024ab5c1d645011a4725409964712928e614537234fb7c014f53a6a370a48f",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0041-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            512,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0041/state_02.png",
+          "qa_bytes": 48609,
+          "qa_sha256": "8e75157b97b2514e68e6707eb6709c610ee027eac64cf5aef06c4f5b92befab6",
+          "decoded_pixel_sha256": "39d27afdfa0eece1aacde64a0101c5139cde225cceab3e5f9aaa984576f111fd",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0041-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            768,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0041/state_03.png",
+          "qa_bytes": 46500,
+          "qa_sha256": "58fef86740e4cbca7fb706985753446990be1c51639d460b1076d2d41c161c19",
+          "decoded_pixel_sha256": "3b12312fff38a092bbf7d8e3d54128ad324b7f30affeb97646ae4dd53a3d7f3b",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0041-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0041/state_04.png",
+          "qa_bytes": 49651,
+          "qa_sha256": "41f23c830bbdf39dffee9af9012e1fdcb5d82fa8e7bc8edb1494f62fed0e5d73",
+          "decoded_pixel_sha256": "d7683435b22c68b2106a0ed88640a00bdd162b9392f1e38fb57aa507f5de2fd4",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0041-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            256,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0041/state_05.png",
+          "qa_bytes": 50948,
+          "qa_sha256": "80a4271706c7577a2dcfd8e88c2c0b4867c3a3e189c0b0e378856b9a6bf271d1",
+          "decoded_pixel_sha256": "6564eddfc95445bc1f1480071f8f523a633b5478751e857467fa17db601b22f1",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0041-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            512,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0041/state_06.png",
+          "qa_bytes": 52525,
+          "qa_sha256": "89ca96bf0ceda0ff7cf598349df32059044dbea4b8b6c211e7407161341769fa",
+          "decoded_pixel_sha256": "b8e97a486c7419988d56f5fdb480b459bb0af84aa08ad9266868af1420e8eafc",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0041-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            768,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0041/state_07.png",
+          "qa_bytes": 51779,
+          "qa_sha256": "5d0cb4c5c451cd528c71a346ae537a7919a0dd5f989448d4bad1aa7d140387fb",
+          "decoded_pixel_sha256": "59a79e43ec7fef9ca50e084330b192c86e669acc22124f9f1747320e1cb54c21",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        }
+      ]
+    },
+    {
+      "id": "D2X-0042",
+      "source_path": "assets/flats/castle/interactions_v2/library_pearl_lamp_sheet.png",
+      "source_sha256": "6d39470c8e87cdef4555f2b7907bafb629590152c557f547f2a2a6bf2c446cab",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 3.6,
+      "manifest_path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+      "manifest_sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+      "asset_id": "library_pearl_lamp",
+      "semantic_action": "toggle_pearl_lamp",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        256,
+        512
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        5,
+        3,
+        1,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.1025,
+      "cells": [
+        {
+          "id": "D2X-0042-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0042/state_00.png",
+          "qa_bytes": 60599,
+          "qa_sha256": "8a95aaf6ddcf8ab070def0512ba9910e617969b6b1f4c207ffa192dd3836dfee",
+          "decoded_pixel_sha256": "c744cbd18e5dd14dcf2422961561d040dccd0e819adf792ef2ad36c19c0274e5",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0042-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            256,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0042/state_01.png",
+          "qa_bytes": 55381,
+          "qa_sha256": "b1cdddc5729b92df44ccbfb4534fc515209b3dadb786416e76cef003757d4b84",
+          "decoded_pixel_sha256": "c0e6f839e1507b5582a2fcbf887bf434c2028cf5def6785d2c9c1a613dca8594",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0042-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            512,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0042/state_02.png",
+          "qa_bytes": 51782,
+          "qa_sha256": "fd8f0d160a34bb06b26cc4255f340f81645544f8289141647c91c2f19e2e6fe9",
+          "decoded_pixel_sha256": "76d542a600fbb8d932b85f476864ad0b17295e155701c4b4b3905ffa2411150a",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0042-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            768,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0042/state_03.png",
+          "qa_bytes": 50541,
+          "qa_sha256": "4b4dfc0e67072e3b9c8ce142dc8cdd956102bdb0ccec2bf04919f5cb0f3b9c38",
+          "decoded_pixel_sha256": "1f149455b096e7e105ce4a79782ff302bcad521e27d2e25fccff62b93cef0f6b",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0042-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0042/state_04.png",
+          "qa_bytes": 51925,
+          "qa_sha256": "7100dca7e65095d57460bacf10562929cdc3eebb5e195375556efa41f9db99c8",
+          "decoded_pixel_sha256": "3b487b9c744781916ea9225f261d7655195618197d8a2429e005d8c69fe349a5",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0042-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            256,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0042/state_05.png",
+          "qa_bytes": 54500,
+          "qa_sha256": "3189bed1e1af46354f777b5380dc23d49b01d14ca1c3f6a0a5b634973fbca8b9",
+          "decoded_pixel_sha256": "ecfde3521c67af0e0c4edab4f0db17bfe97aa9866aec9853cb7ecca19f3f1528",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0042-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            512,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0042/state_06.png",
+          "qa_bytes": 54397,
+          "qa_sha256": "5561e09171b1b8bfbbd828ee51674557310e4f47622d5dce6318e8e1a19329e3",
+          "decoded_pixel_sha256": "3b0a0008e9ee304ae2d3209477c2d7a7a1853fa31ae5fab9ab7d7e413f147a1d",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0042-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            768,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0042/state_07.png",
+          "qa_bytes": 57703,
+          "qa_sha256": "9d7f4fc210837c252c3490aabc3dce64d125c37656fa4bd32efb7a4eadfc468e",
+          "decoded_pixel_sha256": "60c2a6894d5abd9adb152f1ee44fe999ac2be66034908f49054acca731005ab9",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        }
+      ]
+    },
+    {
+      "id": "D2X-0043",
+      "source_path": "assets/flats/castle/interactions_v2/library_book_stack_sheet.png",
+      "source_sha256": "ae9ca243c13e8552770c427ce644bb1832f2b904f4cf24d80bf535b2220813e5",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 3.6,
+      "manifest_path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+      "manifest_sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+      "asset_id": "library_book_stack",
+      "semantic_action": "open_top_book_and_turn_pages",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        256,
+        512
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        5,
+        3,
+        1,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.095,
+      "cells": [
+        {
+          "id": "D2X-0043-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0043/state_00.png",
+          "qa_bytes": 110271,
+          "qa_sha256": "3e7d9dca73118a54b51ddc463d86f49704493fd8247b162decebf8a727b32ac6",
+          "decoded_pixel_sha256": "055e23e13e5f8aaf070dfc350bbad3e38b73e06f14b93089a7c11aa875f4a5bc",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0043-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            256,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0043/state_01.png",
+          "qa_bytes": 108789,
+          "qa_sha256": "8c389ac5ac10dd3a07a7b7545fd0e7dd0268e06a03206e499bffadc316f1b571",
+          "decoded_pixel_sha256": "dd4b18abed679c7b3357dfe80c73e864c9e16ef820875894491b7a8fe5e3ac54",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0043-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            512,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0043/state_02.png",
+          "qa_bytes": 107618,
+          "qa_sha256": "51118277e470da75a6fbaf8f042fd5b2f1667999f67a4b89b1bf54b0e10662a5",
+          "decoded_pixel_sha256": "8038fec0fc604487e27eab7e93bf9276d3576feeb31b6f6025cb4b95679dced3",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0043-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            768,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0043/state_03.png",
+          "qa_bytes": 118109,
+          "qa_sha256": "e9b3715c83480fda0c9a9b9f46319bd658db1d75009726ea600fd59bc9e61fcf",
+          "decoded_pixel_sha256": "da995dc6a32dd03c6887beb9f54be1b2ff1ff1d013f924be612b7618afeb236c",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0043-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0043/state_04.png",
+          "qa_bytes": 107521,
+          "qa_sha256": "f440018a1027f02ca100288a453d91b73fae6e4e2737d7ec6a1b4ccdb095d4c0",
+          "decoded_pixel_sha256": "27d8462ae79c8b2d2b7a4ce2212affe383268b2d283ba5816d92b749c0d1b546",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0043-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            256,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0043/state_05.png",
+          "qa_bytes": 103285,
+          "qa_sha256": "7406b7cb7b4908ba03a50dfc4b3db188347c3eef8cf976e9165e7630fa41fee8",
+          "decoded_pixel_sha256": "beb89bf8783723a2b79e7a77f7cce384ebf44fe717a0b7755dd9e50a5f8be522",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0043-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            512,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0043/state_06.png",
+          "qa_bytes": 102964,
+          "qa_sha256": "c9f8673c7f22bd98064515e07441dd1cac552d575dc3dc3c953b60f26c5498be",
+          "decoded_pixel_sha256": "0215ddd79b6442e2b3c1ba00e83de4e078dadcedb0e2e91047b80858454ec272",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0043-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            768,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0043/state_07.png",
+          "qa_bytes": 102361,
+          "qa_sha256": "93ebad2d339d40b6c321f07b69d3ce5209dbfca0f6242d8c0c73281be36a80e1",
+          "decoded_pixel_sha256": "22bb7bd1d3149aa4d95726e4e8ad39088c063ffa28397d7b448c7d96bc389333",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA"
+        }
+      ]
+    },
+    {
+      "id": "D2X-0044",
+      "source_path": "assets/flats/castle/interactions_v4/sheets/library_pearl_lamp_right_sheet.png",
+      "source_sha256": "6d58a6d9ebe496bacee4c8e0124a98712c03d8cb42f9b7744a30b3f0d708d30b",
+      "source_dimensions": [
+        1024,
+        512
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 3.9,
+      "manifest_path": "assets/flats/castle/interactions_v4/castle_interactions_v4.json",
+      "manifest_sha256": "21118917c51009ca57528d6a09b354aeb9a5d49dc21667bd7403d6fb79611cf8",
+      "asset_id": "library_pearl_lamp_right",
+      "semantic_action": "wake_right_pearl_lamp_with_glow",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        256,
+        256
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.12,
+      "cells": [
+        {
+          "id": "D2X-0044-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0044/state_00.png",
+          "qa_bytes": 14929,
+          "qa_sha256": "2e48cc775b9cf126968050bc24229f931bd8a15595918fe244c7b68a6a9189fc",
+          "decoded_pixel_sha256": "7df52a153beea77faa25d72ff7d74e1d5a32befd507e859bbe0884934c4e0266",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0044-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0044/state_01.png",
+          "qa_bytes": 14956,
+          "qa_sha256": "557911ef02fb17d85285ff218abd0475586166270b129d6c44c1747282475f09",
+          "decoded_pixel_sha256": "cb4ea175570003d6db4f3fbdd32a3ef9b9e371aa4ec0818f0ae8cbcd50de3c8e",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0044-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0044/state_02.png",
+          "qa_bytes": 14420,
+          "qa_sha256": "ee3a49bd1e91dfb1a6d383293a917bf0a7bc730417c5229599fde161f0d46140",
+          "decoded_pixel_sha256": "894b7a87f3ecce00a9af756adc5403fe3c0e1d6985ec8f4b2d2e875682c52753",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0044-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0044/state_03.png",
+          "qa_bytes": 13840,
+          "qa_sha256": "7095082f52ac41a205365a2f8788c7cc7744295d9f785ece6f748b4855bdfd53",
+          "decoded_pixel_sha256": "ef8d9476a3e232a1a30beee4f9b37a9820a272b1c9ea6a439e6f48297af3790b",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0044-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0044/state_04.png",
+          "qa_bytes": 13721,
+          "qa_sha256": "89dfe17c74bf42625dc0d9a49555976242f79cca34ff2c0dc2aeafbbf26c2744",
+          "decoded_pixel_sha256": "d334cbc4ea22c09381d370eec8111f4af7fd8e384040164fdaeb8d44f28aa5e5",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0044-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0044/state_05.png",
+          "qa_bytes": 13791,
+          "qa_sha256": "9bbe2084e842b0d263cc545162c9fa9f1a2af3aaf6b66d861c99790ad227786d",
+          "decoded_pixel_sha256": "106b8709b3c8827be4a2ab37ff7d3c2d75dcbd1e4099f8140a78fc13b2e96094",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0044-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0044/state_06.png",
+          "qa_bytes": 14265,
+          "qa_sha256": "3a9ddf25376b794e6115ea795b9a8f354136dcc73932db355777aee863c402b0",
+          "decoded_pixel_sha256": "f81f3b8fd78c7707987985d2c44a36e974a74c9720b7e96b2912ea2c98537670",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0044-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0044/state_07.png",
+          "qa_bytes": 14960,
+          "qa_sha256": "ced52db7955eedd8f8393b804a7300098db855ff7aa2efb9ce9b7a2afee68d2c",
+          "decoded_pixel_sha256": "5e20e17d2f251af8e91d7be98b7d332ad1bbfbdb87b5d8134e6ab0abdf9345bb",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        }
+      ]
+    },
+    {
+      "id": "D2X-0045",
+      "source_path": "assets/flats/castle/interactions_v4/sheets/library_ceiling_chandelier_sheet.png",
+      "source_sha256": "09419955a5fbc087af145e60a3e7a3e5f36bf8949b65ceb8b6319489457b4f30",
+      "source_dimensions": [
+        1024,
+        512
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 4.0,
+      "manifest_path": "assets/flats/castle/interactions_v4/castle_interactions_v4.json",
+      "manifest_sha256": "21118917c51009ca57528d6a09b354aeb9a5d49dc21667bd7403d6fb79611cf8",
+      "asset_id": "library_ceiling_chandelier",
+      "semantic_action": "chase_chandelier_pearl_lights",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        256,
+        256
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.12,
+      "cells": [
+        {
+          "id": "D2X-0045-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0045/state_00.png",
+          "qa_bytes": 11215,
+          "qa_sha256": "05862f460635ec12d18a067014d17202425b2e08ae4f1eb4747af38ad2c1cce6",
+          "decoded_pixel_sha256": "f37976e4a010aa0b797cde95068e23bda5db3dfa6a4bc8f537aeab98139820d5",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0045-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0045/state_01.png",
+          "qa_bytes": 11220,
+          "qa_sha256": "b3a4e26845a164e36015cccbbca2f56e2ca80ab525663761faaf64dda44bf179",
+          "decoded_pixel_sha256": "5d053e86907ef81d59fc8707429f161293632fd488d8708d97f6cca1986fc33e",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0045-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0045/state_02.png",
+          "qa_bytes": 10950,
+          "qa_sha256": "b4fcd63c3417f18f83ed7805ffbb1873f7f366b7975919a4c6639e1eabfe19e7",
+          "decoded_pixel_sha256": "a00b04f088887bf3800d59500ad08243eaa41fce3bd4b89c467021954e2e11d5",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0045-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0045/state_03.png",
+          "qa_bytes": 10959,
+          "qa_sha256": "2aed67bc9f1d94843538b39e35454a309321e394ff3771b3aa891370842466ee",
+          "decoded_pixel_sha256": "0b3ae12ab83e90dd03dc52ca9c20a41c209d8eb6818eec29afa8c4b53548e59f",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0045-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0045/state_04.png",
+          "qa_bytes": 10929,
+          "qa_sha256": "a3a6c75365b812964a71ea3ad2297959dd31afa6c5ccdc0e8486ec21dd3f417e",
+          "decoded_pixel_sha256": "6ba993635fd7507ac9b3d3b72916ab2e6e07636b1b64be564ca34b0c1cd53e83",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0045-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0045/state_05.png",
+          "qa_bytes": 10984,
+          "qa_sha256": "913ff9e2832cd2c16f5eae5919eba0a3bf955065023ad3025ff30cd722d19d09",
+          "decoded_pixel_sha256": "94066d8e964b2cac15f7728c0fee7c82cfc173c905dceae08461024142666631",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0045-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0045/state_06.png",
+          "qa_bytes": 10922,
+          "qa_sha256": "56f4a3afc1ab0885d7faa9cd38611fd0a22871d74475d616a6bb40d94c0b664c",
+          "decoded_pixel_sha256": "3514c53f7ca24424660bfcf66362ef0a58f54bf1602d6c82a432c6d520445937",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0045-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0045/state_07.png",
+          "qa_bytes": 11219,
+          "qa_sha256": "87cefa86f3a0617d38baa0435e5a6f0b016fefd94831e835dad610b170cf4428",
+          "decoded_pixel_sha256": "4762fe05ef30a56336003b48d071b902c717fd1f317627828dc363bfb951dfe4",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        }
+      ]
+    },
+    {
+      "id": "D2X-0064",
+      "source_path": "assets/flats/castle/interactions_v2/playroom_stuffie_nook_sheet.png",
+      "source_sha256": "bc8dde1a1cffcfd061f01f83d9c2549f3f7bca7d978e4df18ee651a8bee94574",
+      "source_dimensions": [
+        1024,
+        586
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 3.8,
+      "manifest_path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+      "manifest_sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+      "asset_id": "playroom_stuffie_nook",
+      "semantic_action": "stuffie_friends_wave",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        256,
+        293
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        5,
+        3,
+        1,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.1375,
+      "cells": [
+        {
+          "id": "D2X-0064-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            256,
+            293
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0064/state_00.png",
+          "qa_bytes": 86371,
+          "qa_sha256": "d561115fffe6e181bc083488e2bd0a7076b742e77be3fbcde19bbd36a87b0f71",
+          "decoded_pixel_sha256": "e6a5866c23b0cb5108d3aa997524cf05346fbebc167978e8891b3ac33d681e51",
+          "dimensions": [
+            256,
+            293
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0064-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            256,
+            0,
+            256,
+            293
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0064/state_01.png",
+          "qa_bytes": 86513,
+          "qa_sha256": "11adb0e5b3fb75cfcfb543d10c5cb3473c502653b27b5ee0b324f56c8cf54e52",
+          "decoded_pixel_sha256": "a2ab8989ff7c3e7f7c5dc2ce41cf2adc9817325862e4c6ab76907c91b84db49b",
+          "dimensions": [
+            256,
+            293
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0064-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            512,
+            0,
+            256,
+            293
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0064/state_02.png",
+          "qa_bytes": 86815,
+          "qa_sha256": "d0da957358b4ff22e1b2c6639b11fa7c74ea3148f0dc0ba60f9a4fe661409681",
+          "decoded_pixel_sha256": "b1102f94943f39d11257e7d56158b88581d606ff76a739a1b56d49be83a0cc74",
+          "dimensions": [
+            256,
+            293
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0064-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            768,
+            0,
+            256,
+            293
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0064/state_03.png",
+          "qa_bytes": 86534,
+          "qa_sha256": "57b56d58f03383962f6da93f3d7d0f98a042c9282cfd6b5c527685807e2bffb0",
+          "decoded_pixel_sha256": "4b216d9731aa519d50ba8144beb57161db2a7a4996a91822bef7ff11feead9de",
+          "dimensions": [
+            256,
+            293
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0064-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            293,
+            256,
+            293
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0064/state_04.png",
+          "qa_bytes": 87302,
+          "qa_sha256": "9663d2b5431ccdad11acf977e8f6a5f75f4cf500df5a84e6793475d5514376e5",
+          "decoded_pixel_sha256": "254eda9e952a549c88bac6257c1d159bfdec11ea0f45d40f0de2f6352f048373",
+          "dimensions": [
+            256,
+            293
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0064-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            256,
+            293,
+            256,
+            293
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0064/state_05.png",
+          "qa_bytes": 86852,
+          "qa_sha256": "43115298df1b8f2effc07cc8d87d7c13efcb8cc4d9d4e4a906c76733f2043844",
+          "decoded_pixel_sha256": "f187b959722f5adc1aeceb12adf59ae5d6fc73d2161917b1dc388a5583c8b9a4",
+          "dimensions": [
+            256,
+            293
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0064-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            512,
+            293,
+            256,
+            293
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0064/state_06.png",
+          "qa_bytes": 86584,
+          "qa_sha256": "d49f31874bf344c9d03691877b82628824386e0bdb60df985d60aa1386842e1a",
+          "decoded_pixel_sha256": "ef16174e8093248905b190fe2cbeca84a9731d5f6495865dd3295700d11d8568",
+          "dimensions": [
+            256,
+            293
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0064-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            768,
+            293,
+            256,
+            293
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0064/state_07.png",
+          "qa_bytes": 86803,
+          "qa_sha256": "cdffd3ccc62a6606e1096a6cb6384868f8ef2d974199a167e71811ab26e436f8",
+          "decoded_pixel_sha256": "91cb8c666b1fc4d8606be3540e7228be64b0b3ea0a4f9def583c8598076190af",
+          "dimensions": [
+            256,
+            293
+          ],
+          "mode": "RGBA"
+        }
+      ]
+    },
+    {
+      "id": "D2X-0065",
+      "source_path": "assets/flats/castle/interactions_v2/playroom_stacking_toy_sheet.png",
+      "source_sha256": "30acc6f771d26039045310cac40dad36ccf660b9b3110cfaa1238f01d5a49e85",
+      "source_dimensions": [
+        976,
+        1004
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 3.0,
+      "manifest_path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+      "manifest_sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+      "asset_id": "playroom_stacking_toy",
+      "semantic_action": "lift_and_restack_rings",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        244,
+        502
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        5,
+        3,
+        1,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.1375,
+      "cells": [
+        {
+          "id": "D2X-0065-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            244,
+            502
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0065/state_00.png",
+          "qa_bytes": 68702,
+          "qa_sha256": "279ad8988fb1c49587c120ff0a3f1cc811c959b501bdcfaab04efc2e6fc54d7b",
+          "decoded_pixel_sha256": "63a141b0cc019f44baed75cad01d5d272de3e796c5d48217051359d88ba12f23",
+          "dimensions": [
+            244,
+            502
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0065-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            244,
+            0,
+            244,
+            502
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0065/state_01.png",
+          "qa_bytes": 72214,
+          "qa_sha256": "e6cb0f291c8eb52f8b50a20da604019b6b347bf8d0fc37614832827439114efd",
+          "decoded_pixel_sha256": "94b10b6559f0d54b733c696ee0bf9016bad53cdadc8191ac3a2eb52257f8682a",
+          "dimensions": [
+            244,
+            502
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0065-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            488,
+            0,
+            244,
+            502
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0065/state_02.png",
+          "qa_bytes": 80483,
+          "qa_sha256": "f84a0d5848a655d3e76ee5843e563b6d81d9eb9ab8b7024473e19fadcfcafc9a",
+          "decoded_pixel_sha256": "90a7dd654b978748d72ab3e3648827a4753e148eb89ab05e456c61f3afa9ef3d",
+          "dimensions": [
+            244,
+            502
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0065-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            732,
+            0,
+            244,
+            502
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0065/state_03.png",
+          "qa_bytes": 80831,
+          "qa_sha256": "68951f7604900c3a101b4a53aee810ed220fbe1cc14a5a1f0e54eea64463ecdd",
+          "decoded_pixel_sha256": "8b3525ff017172c44bf707925d699ab70e189fcd1e2660c648e7aa0f800022cb",
+          "dimensions": [
+            244,
+            502
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0065-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            502,
+            244,
+            502
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0065/state_04.png",
+          "qa_bytes": 78530,
+          "qa_sha256": "7ae6ccde972d245d1b7d0033c97019c5afe178fa1fc4a873c9864d47a9a87fda",
+          "decoded_pixel_sha256": "4e3b655662c1c288f7bf7ad98739a25d5105646b1bae1a9fa7e5dfd397a9d292",
+          "dimensions": [
+            244,
+            502
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0065-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            244,
+            502,
+            244,
+            502
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0065/state_05.png",
+          "qa_bytes": 75626,
+          "qa_sha256": "e32d477308452fc4b21547fdb6e5fedb76b895d8402559807b25f0ff01e91dac",
+          "decoded_pixel_sha256": "6bbc47036df78960845bb4cba7d05c1fcc9db83071729af2f4774ae25987a92f",
+          "dimensions": [
+            244,
+            502
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0065-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            488,
+            502,
+            244,
+            502
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0065/state_06.png",
+          "qa_bytes": 72263,
+          "qa_sha256": "d120917a1f08dbab045200d57c2177c698b23b5421a3a287c8b3487767f1d977",
+          "decoded_pixel_sha256": "4393a7fa5452111adcc312dda4a8e13872453c89313fa9983bd782df288c3ce2",
+          "dimensions": [
+            244,
+            502
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0065-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            732,
+            502,
+            244,
+            502
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0065/state_07.png",
+          "qa_bytes": 67051,
+          "qa_sha256": "0b6ca48254622ee2753950694e464296842f3f082c63591188c747a5822f2158",
+          "decoded_pixel_sha256": "c0d8a1f49ea69760c24c0342573ddd5cffd6ab9526121b26703508909009fb11",
+          "dimensions": [
+            244,
+            502
+          ],
+          "mode": "RGBA"
+        }
+      ]
+    },
+    {
+      "id": "D2X-0066",
+      "source_path": "assets/flats/castle/interactions_v2/playroom_blocks_sheet.png",
+      "source_sha256": "434b2a37678a51d319dc0ecfc9dcb2e5aee0a2753230004796716fa32e595106",
+      "source_dimensions": [
+        1024,
+        778
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 4.3,
+      "manifest_path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+      "manifest_sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+      "asset_id": "playroom_blocks",
+      "semantic_action": "topple_and_restack_blocks",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        256,
+        389
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        5,
+        3,
+        1,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.1375,
+      "cells": [
+        {
+          "id": "D2X-0066-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            256,
+            389
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0066/state_00.png",
+          "qa_bytes": 45475,
+          "qa_sha256": "b1ce55179f1cf6b334250ddf114a0885e8d99722515f769567408a0d69a1e70f",
+          "decoded_pixel_sha256": "49b8c8b93478f2620650fdbb8ff7dd874bbc5e12f032234ea4a64e77e268019f",
+          "dimensions": [
+            256,
+            389
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0066-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            256,
+            0,
+            256,
+            389
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0066/state_01.png",
+          "qa_bytes": 46427,
+          "qa_sha256": "4861788c658d7c36bde2b3a4c34764f75446ca0604b0045ddac65f7af4797074",
+          "decoded_pixel_sha256": "6d910e268c29ae8d00a094fa58ae3ccfdd0d08d3cd883c841582fb5d95207dfd",
+          "dimensions": [
+            256,
+            389
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0066-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            512,
+            0,
+            256,
+            389
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0066/state_02.png",
+          "qa_bytes": 45985,
+          "qa_sha256": "691d40388a2f99bfea4fc13e5de943f6f30c23303081c1a9e08d61279a735f62",
+          "decoded_pixel_sha256": "6b6eecd961a976f33f3f134e0693255c59f8a2a6963fd225471f1bca66a91593",
+          "dimensions": [
+            256,
+            389
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0066-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            768,
+            0,
+            256,
+            389
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0066/state_03.png",
+          "qa_bytes": 51512,
+          "qa_sha256": "1823942c043a559ebfe40581c85ccd422e28d4bd4b95b4895734b51085d2fd32",
+          "decoded_pixel_sha256": "6d62faae97cc022b2ab391635e576da435908b67f5e7e4a328e87dcc6ef1d5b7",
+          "dimensions": [
+            256,
+            389
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0066-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            389,
+            256,
+            389
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0066/state_04.png",
+          "qa_bytes": 33526,
+          "qa_sha256": "e3543bcb0ee0cf0b2460f399251db568d3e936ffb7ce1b22fc7a3df9f0e8a536",
+          "decoded_pixel_sha256": "72820481ab68adc70ccd7322a356a2795c968f94d73831899a465e0ee2074ad9",
+          "dimensions": [
+            256,
+            389
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0066-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            256,
+            389,
+            256,
+            389
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0066/state_05.png",
+          "qa_bytes": 39626,
+          "qa_sha256": "b7279c66b6152e275d6e2a83a1d8ef86f50428d44250aa42c0a2e365f448ec49",
+          "decoded_pixel_sha256": "981357f54d001485c9b1509cc18326c04dd39d251ea4ccfa25577db24dcd3910",
+          "dimensions": [
+            256,
+            389
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0066-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            512,
+            389,
+            256,
+            389
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0066/state_06.png",
+          "qa_bytes": 38775,
+          "qa_sha256": "d4e89502e8dca44ce441d3b9268faf86c385fd772153aaf499cc4838b6c5bd14",
+          "decoded_pixel_sha256": "39cfff067e678b2a266d6933adfe2c4e390710f319be74931e8a7b2d8cf73be6",
+          "dimensions": [
+            256,
+            389
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0066-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            768,
+            389,
+            256,
+            389
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0066/state_07.png",
+          "qa_bytes": 39587,
+          "qa_sha256": "e4e80f86aa64d4adf7667cdd81746b4b3143b2b627eec70c5dd8276a635c2491",
+          "decoded_pixel_sha256": "39a04385ecdfd8a2d747705849348e16edd5652911083fe71bad534e5a09c87c",
+          "dimensions": [
+            256,
+            389
+          ],
+          "mode": "RGBA"
+        }
+      ]
+    },
+    {
+      "id": "D2X-0067",
+      "source_path": "assets/flats/castle/interactions_v2/playroom_play_tent_sheet.png",
+      "source_sha256": "75c3135758dc001d330dc93819a17c7d670d32739c555eb84e7ed53904f6706a",
+      "source_dimensions": [
+        1024,
+        698
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 4.2,
+      "manifest_path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+      "manifest_sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+      "asset_id": "playroom_play_tent",
+      "semantic_action": "open_and_close_tent_flap",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        256,
+        349
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.125,
+      "cells": [
+        {
+          "id": "D2X-0067-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            256,
+            349
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0067/state_00.png",
+          "qa_bytes": 90366,
+          "qa_sha256": "8dd542562e78e614bcfafa3a6f3159f25c14f7ccc51c9e752a8db0c7f9a482ff",
+          "decoded_pixel_sha256": "20fed3c1865ae740a3bb596b17c0ae8edab3ebd5d0f1e95fb9fcc5cccfa027e4",
+          "dimensions": [
+            256,
+            349
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0067-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            256,
+            0,
+            256,
+            349
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0067/state_01.png",
+          "qa_bytes": 88961,
+          "qa_sha256": "4ccd3fa3fc9210450c3c9557ac72d6eccd5c92faf71892354b44484fa2de0895",
+          "decoded_pixel_sha256": "102985614b46b0e2282cb4253cfac383d6553d57758382c2129f0204358a2bb0",
+          "dimensions": [
+            256,
+            349
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0067-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            512,
+            0,
+            256,
+            349
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0067/state_02.png",
+          "qa_bytes": 81477,
+          "qa_sha256": "d311dd8edc714eb79d7f52601d611bd70c7db54071b3e083455eb235b6208270",
+          "decoded_pixel_sha256": "3c8a65d951e91880b3029fdd837e101eb28e5d704c7608629d826ee686dcf0d3",
+          "dimensions": [
+            256,
+            349
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0067-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            768,
+            0,
+            256,
+            349
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0067/state_03.png",
+          "qa_bytes": 77317,
+          "qa_sha256": "c4c5a16a7de4abdedee977fe468ea8ee007be70a9fbdf682d19002ad80c161f6",
+          "decoded_pixel_sha256": "a847af0219926d3cd03f54fc44ff87ae7661306054865a8fd11302542352752e",
+          "dimensions": [
+            256,
+            349
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0067-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            349,
+            256,
+            349
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0067/state_04.png",
+          "qa_bytes": 85421,
+          "qa_sha256": "4c5111e5d9ff219331b07d38a85f6d1ea2531090f8ef65ac5000bac6047c2a2b",
+          "decoded_pixel_sha256": "932494f573dca510dbcb04a4bd041c15d667426d2068caa61c191ecaf4231899",
+          "dimensions": [
+            256,
+            349
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0067-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            256,
+            349,
+            256,
+            349
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0067/state_05.png",
+          "qa_bytes": 89055,
+          "qa_sha256": "491fe4c4cfda7020376a33211849024156c23c0f1cbb9e51a6bc035300ce2fcc",
+          "decoded_pixel_sha256": "6f3250aae5109c9d1fd8013c28946b41711f00e00a4d393bf21c9b48e44343b9",
+          "dimensions": [
+            256,
+            349
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0067-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            512,
+            349,
+            256,
+            349
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0067/state_06.png",
+          "qa_bytes": 90458,
+          "qa_sha256": "7606654c01334f46d9cb04588312adb646d1e10fadc947c69eede66f6894398c",
+          "decoded_pixel_sha256": "344b61cfe4da78e4d24e46bb61b2cb9fa87e7d90af3e089a2db08beeb4278fa7",
+          "dimensions": [
+            256,
+            349
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0067-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            768,
+            349,
+            256,
+            349
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0067/state_07.png",
+          "qa_bytes": 90387,
+          "qa_sha256": "e3a6debb1aac173275e85d3752129f954db9ed9453cf1274671d40601c57775d",
+          "decoded_pixel_sha256": "7b8308fd677995b8c02bdc8ef255f7593e9723febb5242893ca5079d2f37a91a",
+          "dimensions": [
+            256,
+            349
+          ],
+          "mode": "RGBA"
+        }
+      ]
+    },
+    {
+      "id": "D2X-0070",
+      "source_path": "assets/flats/castle/interactions_v4/sheets/playroom_shelf_sailboat_sheet.png",
+      "source_sha256": "759a5da53c1dc3ed494951a37803616e9ac2986e6d040486abc7873551575975",
+      "source_dimensions": [
+        1024,
+        512
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 3.8,
+      "manifest_path": "assets/flats/castle/interactions_v4/castle_interactions_v4.json",
+      "manifest_sha256": "21118917c51009ca57528d6a09b354aeb9a5d49dc21667bd7403d6fb79611cf8",
+      "asset_id": "playroom_shelf_sailboat",
+      "semantic_action": "unfurl_sail_and_rock_boat",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        256,
+        256
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.13,
+      "cells": [
+        {
+          "id": "D2X-0070-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0070/state_00.png",
+          "qa_bytes": 4586,
+          "qa_sha256": "47b875dea042f51f3aebbe1cef299345f9f4a964f5af14a929859eebc6667592",
+          "decoded_pixel_sha256": "7cd40d6de55f59d98bb5ed4eed563ecbfd70f8a145d478c2d9a6e8c982319c69",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0070-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0070/state_01.png",
+          "qa_bytes": 5164,
+          "qa_sha256": "6dd4e7cea1d56ea1d9d6fe096e1c22f2dcdf20ee83a01b22a62d4335755e5ae4",
+          "decoded_pixel_sha256": "f585367c7e7b867e1520d1580a68d828ca931c0abc714398159dcfc8e11a33f0",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0070-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0070/state_02.png",
+          "qa_bytes": 4795,
+          "qa_sha256": "56bde6f9570a7713c7555446a519fbb59b72e109f7c1d30b2d0c30783d806ca6",
+          "decoded_pixel_sha256": "bf07ad80439c964ee7e79d7f6cad7ee49541796eabcc231c4263bce14afd1ebb",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0070-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0070/state_03.png",
+          "qa_bytes": 4441,
+          "qa_sha256": "894ece6393c50f14ca290e108318abd65480cf7630a3176daa807b43a006889f",
+          "decoded_pixel_sha256": "03248c3345cbe5df70f0b66336e2954b6ab60ae3ee9cdfddf9a88304e8d380ef",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0070-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0070/state_04.png",
+          "qa_bytes": 4525,
+          "qa_sha256": "ce068767c142c5dfa82a9c111e184efbb6812dd92b181bed7e10966815aca096",
+          "decoded_pixel_sha256": "b9bee73997907f463c53fb90cfe3ab5d30bb5da674b05407af4b4816503f4c2e",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0070-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0070/state_05.png",
+          "qa_bytes": 5214,
+          "qa_sha256": "6d69bd7f977eaea3a61f08af9b9c2aaca67f194764877a4b0e276f86e6948015",
+          "decoded_pixel_sha256": "109eac0e630c80b39d4ecc1ca873b76b1e15d19d926236a67b95ab1d03b32366",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0070-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0070/state_06.png",
+          "qa_bytes": 5202,
+          "qa_sha256": "f42dfb5ac6afb9c993e986ada4c029af891aa78d231155807a9a06c34a45de48",
+          "decoded_pixel_sha256": "c3cdc331a8473dc99c2dba79ba52c62496eeed3218570479b98ccc705a46be3d",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        },
+        {
+          "id": "D2X-0070-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0070/state_07.png",
+          "qa_bytes": 5837,
+          "qa_sha256": "e78807c7c206db1223c0576c028d7f7afda85cc02823cf471a70153702f37516",
+          "decoded_pixel_sha256": "90098356c991f7f5d95b00b7f8b52e7fd9e53867d3ca9c00e1fcefeec43f9780",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA"
+        }
+      ]
+    }
+  ],
+  "native_source_files": 11,
+  "native_cells": 88,
+  "no_resampling": true,
+  "no_source_modification": true,
+  "visual_review_complete": true,
+  "runtime_changed": false,
+  "owner_acceptance": null,
+  "individual_cell_review": "audit/job_shared_atlas_state_review_v1_20261003/DIRECT_CELL_REVIEW.json"
+}

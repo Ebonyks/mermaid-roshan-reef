@@ -1,0 +1,26 @@
+{
+  "status": "PASS_LITERAL_ROOT_PART_ALL2138_HASHES_9_REGISTER_TESTS",
+  "checked_utc": "2026-10-03T10:36:31.667283+00:00",
+  "root_bytes": 4080602,
+  "root_sha256": "e43ade3634015453e59041dd8e7a5730f363dbc9cf86be59ca3c16c8556394da",
+  "part": {
+    "path": "ATLAS_STATE_ITEMS_V51.json",
+    "bytes": 236473,
+    "sha256": "7d39a5c8d7d6348688e7cafa3684e208b6cab429c13b5a1ba793db5c676614b7",
+    "items": 88
+  },
+  "base_items": 2050,
+  "additional_cells": 88,
+  "assembled_items": 2138,
+  "primary_sources": 1286,
+  "source_object_regions": 373,
+  "inclusive_source_cell_region_priorities": 1041,
+  "unreviewed_primary_sources": 294,
+  "scanner_ceiling_bytes": 4194304,
+  "runtime_changed": false,
+  "qualification": "Root/part literal SHA,size,count,unique IDs and all2138 source/binding refresh entries verified. Python tests reject missing/tampered/duplicate/path escape/over-ceiling/count errors. Browser independently loads and hashes the additional part; no timed/game/device/child/owner acceptance.",
+  "source_matches": 2138,
+  "existing2050_records_identical": true,
+  "register_negative_and_positive_tests": 9,
+  "browser_loaded_assembled_entries": 2138
+}

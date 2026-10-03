@@ -1,0 +1,106 @@
+{
+  "status": "ALL88_SHARED_NATIVE_STATES_PREPARED_FOR_INDIVIDUAL_REVIEW",
+  "baseline": "c7817974fb23913c1d764c718a70a5932cacb883",
+  "planned_utc": "2026-10-03T10:18:35.850270+00:00",
+  "scope": "Complete all11 omitted Library/Playroom atlases and88 authored cells. Compare fixed object/material/palette/count/support and declared key-order semantics. Preserve unchanged native pixels as individual QA crops; no artwork replacement or production mutation.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-07",
+    "DL-INT-02",
+    "DL-MOT-11",
+    "DL-QA-03",
+    "DL-QA-07"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "relationship_to_MA_PLAY_004": "Logical workflow/continuity contributes to the wider owner audit; no Roshan-owned job action or MA-PLAY-004 repair/closure is claimed by this shared-object source review.",
+  "sources": [
+    {
+      "id": "D2X-0040",
+      "path": "assets/flats/castle/interactions_v2/library_magic_book_sheet.png",
+      "sha256": "1d6710b704f3e124f2ea7c9765575a1fee1184f14b485829380b56696bf6f1b1",
+      "existing_whole_source_score": 4.0
+    },
+    {
+      "id": "D2X-0041",
+      "path": "assets/flats/castle/interactions_v2/library_pearl_table_sheet.png",
+      "sha256": "bd1ddc7018c7c7352849cd56278196f9dcaad755c5cef268a8572b42663cbf0d",
+      "existing_whole_source_score": 3.9
+    },
+    {
+      "id": "D2X-0042",
+      "path": "assets/flats/castle/interactions_v2/library_pearl_lamp_sheet.png",
+      "sha256": "6d39470c8e87cdef4555f2b7907bafb629590152c557f547f2a2a6bf2c446cab",
+      "existing_whole_source_score": 3.6
+    },
+    {
+      "id": "D2X-0043",
+      "path": "assets/flats/castle/interactions_v2/library_book_stack_sheet.png",
+      "sha256": "ae9ca243c13e8552770c427ce644bb1832f2b904f4cf24d80bf535b2220813e5",
+      "existing_whole_source_score": 3.6
+    },
+    {
+      "id": "D2X-0044",
+      "path": "assets/flats/castle/interactions_v4/sheets/library_pearl_lamp_right_sheet.png",
+      "sha256": "6d58a6d9ebe496bacee4c8e0124a98712c03d8cb42f9b7744a30b3f0d708d30b",
+      "existing_whole_source_score": 3.9
+    },
+    {
+      "id": "D2X-0045",
+      "path": "assets/flats/castle/interactions_v4/sheets/library_ceiling_chandelier_sheet.png",
+      "sha256": "09419955a5fbc087af145e60a3e7a3e5f36bf8949b65ceb8b6319489457b4f30",
+      "existing_whole_source_score": 4.0
+    },
+    {
+      "id": "D2X-0064",
+      "path": "assets/flats/castle/interactions_v2/playroom_stuffie_nook_sheet.png",
+      "sha256": "bc8dde1a1cffcfd061f01f83d9c2549f3f7bca7d978e4df18ee651a8bee94574",
+      "existing_whole_source_score": 3.8
+    },
+    {
+      "id": "D2X-0065",
+      "path": "assets/flats/castle/interactions_v2/playroom_stacking_toy_sheet.png",
+      "sha256": "30acc6f771d26039045310cac40dad36ccf660b9b3110cfaa1238f01d5a49e85",
+      "existing_whole_source_score": 3.0
+    },
+    {
+      "id": "D2X-0066",
+      "path": "assets/flats/castle/interactions_v2/playroom_blocks_sheet.png",
+      "sha256": "434b2a37678a51d319dc0ecfc9dcb2e5aee0a2753230004796716fa32e595106",
+      "existing_whole_source_score": 4.3
+    },
+    {
+      "id": "D2X-0067",
+      "path": "assets/flats/castle/interactions_v2/playroom_play_tent_sheet.png",
+      "sha256": "75c3135758dc001d330dc93819a17c7d670d32739c555eb84e7ed53904f6706a",
+      "existing_whole_source_score": 4.2
+    },
+    {
+      "id": "D2X-0070",
+      "path": "assets/flats/castle/interactions_v4/sheets/playroom_shelf_sailboat_sheet.png",
+      "sha256": "759a5da53c1dc3ed494951a37803616e9ac2986e6d040486abc7873551575975",
+      "existing_whole_source_score": 3.8
+    }
+  ],
+  "required_evidence": [
+    "Every88 native source cell directly inspected and individually scored, all objects/relationships relevant to count,identity,material and action meaning",
+    "Literal manifest geometry and source hashes, decoded crop pixel hashes, no resampling or source modification",
+    "Illustrated original-source/all-cell review, individual written opinions and separate key-order player without actual-game/motion acceptance",
+    "Current known-item hash refresh and all783 production bytes unchanged",
+    "Bounded register parts with fail-closed hash/size/count/ID checks; retain existing4MiB scan ceiling",
+    "Fresh authority/development/document tests/no-regression gates and exact topic publication"
+  ],
+  "runtime_changed": false,
+  "owner_acceptance": null
+}

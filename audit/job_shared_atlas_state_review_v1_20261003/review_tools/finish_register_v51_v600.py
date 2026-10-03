@@ -1,0 +1,19 @@
+from pathlib import Path
+import datetime,hashlib,json,shutil
+B=Path('C:/Users/Peter/.codex/worktrees/job-art-review-v2-20261001/mermaid-roshan-reef');ROOT=Path('C:/Users/Peter/Documents/mermaid-roshan-reef');L=B/'audit/job_artwork_refinement_live';S=B/'audit/job_shared_atlas_state_review_v1_20261003'
+read=lambda p:json.loads(p.read_text(encoding='utf-8-sig'));sha=lambda raw:hashlib.sha256(raw).hexdigest();now=lambda:datetime.datetime.now(datetime.timezone.utc).isoformat()
+def write(p,d):textwrite(p,json.dumps(d,ensure_ascii=False,indent=2)+'\n')
+def textwrite(p,text):
+ n=p.with_name(p.name+'.v600_next');n.write_bytes(text.encode());n.replace(p)
+r=read(L/'ALL_ITEMS.json');assert r['display_revision']=='V51' and r['counts']['registered_items']==2138 and len(r['items'])==2050
+assert r['item_shards'][0]['sha256']==sha((L/'ATLAS_STATE_ITEMS_V51.json').read_bytes())
+ledger=B/'design/05_DOC_LEDGER.md';lines=ledger.read_text(encoding='utf-8').splitlines();hits=[i for i,x in enumerate(lines) if x.startswith('| `audit/job_artwork_refinement_live/all_items.html`')];assert len(hits)==1
+lines[hits[0]]='| `audit/job_artwork_refinement_live/all_items.html` | 🟣 | `CANDIDATE`; V51 known2138 entries/1286 primary source files/328 pose cells/151 runtime state-use-action records/373 source-object regions. [All88 new individual shared-prop states and33 source relationships](../audit/job_shared_atlas_state_review_v1_20261003/index.html) directly inspected;1041 inclusive source-cell-region priorities/664 unique source priorities/294 primary source opinions pending. Root plus literal hash/size/count-verified part jointly required; existing4MiB ceiling retained. Current Candy has48 mounted/action priorities; older Geologist/Nursery current mounted claims stay withheld after their context changed. Exact V50 bytes and dated opinions retained. Refresh is not new visual/action/device/child/owner/finding approval. |'
+textwrite(ledger,'\n'.join(lines)+'\n')
+finding=B/'audit/findings/ACTIVE_FINDINGS_2026-08-13.md';f=finding.read_text(encoding='utf-8');start=f.index('## MA-VIS-006');end=f.find('\n## ',start+1);assert end>start
+addition='\nScoped source evidence (2026-10-03): [all88 Library/Playroom atlas cells and33 source relationships](../job_shared_atlas_state_review_v1_20261003/index.html) now have individual native inspections. V51 known2138 entries/1041 inclusive source-cell-region priorities;294 primary source opinions remain unassigned. Source-only evidence, all783 production members unchanged. This does not repair or close `MA-VIS-006`; complete mounted/game/training/device/child/owner acceptance stays open. [Impact](../../design/audit_impacts/job-shared-atlas-state-review-20261003.json).\n'
+assert 'all88 Library/Playroom atlas cells and33' not in f;textwrite(finding,f[:end]+addition+f[end:])
+for source in [ROOT/'tmp/extend_register_v51_v599.py',Path(__file__)]:shutil.copyfile(source,S/'review_tools'/source.name)
+write(S/'REGISTER_PART_CHECK.json',dict(status='V51_BOUND_PART_WRITTEN_REFRESH_AND_NEGATIVE_TESTS_PENDING',checked_utc=now(),root_bytes=(L/'ALL_ITEMS.json').stat().st_size,root_sha256=sha((L/'ALL_ITEMS.json').read_bytes()),part=r['item_shards'][0],base_items=2050,additional_cells=88,assembled_items=2138,primary_sources=1286,source_object_regions=373,inclusive_source_cell_region_priorities=1041,unreviewed_primary_sources=294,scanner_ceiling_bytes=4194304,runtime_changed=False,qualification='Literal root and part verification, meaningful missing/tampered/duplicate/path/ceiling/count negative tests and browser QA still required.'))
+ip=B/'design/audit_impacts/job-shared-atlas-state-review-20261003.json';impact=read(ip);impact['files']=sorted(set(impact['files']+[p.relative_to(B).as_posix() for p in S.rglob('*') if p.is_file()]));write(ip,impact)
+print('V51_AUTHORITY_ROUTES_UPDATED',r['counts']['registered_items'],(L/'ALL_ITEMS.json').stat().st_size,r['item_shards'][0],flush=True)

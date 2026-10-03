@@ -1,0 +1,3406 @@
+{
+  "schema": "reef.shared-atlas-cell-review.v1",
+  "status": "ALL88_NATIVE_CELLS_INDIVIDUALLY_REVIEWED",
+  "reviewed_utc": "2026-10-03T10:26:52.422104+00:00",
+  "baseline": "c7817974fb23913c1d764c718a70a5932cacb883",
+  "native_source_files": 11,
+  "individual_source_cells": 88,
+  "inclusive_cell_priorities": 88,
+  "below_floor_cells": 88,
+  "relationship_opinions": 33,
+  "atlases": [
+    {
+      "id": "D2X-0040",
+      "source_path": "assets/flats/castle/interactions_v2/library_magic_book_sheet.png",
+      "source_sha256": "1d6710b704f3e124f2ea7c9765575a1fee1184f14b485829380b56696bf6f1b1",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 4.0,
+      "manifest_path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+      "manifest_sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+      "asset_id": "library_magic_book",
+      "semantic_action": "open_book_and_turn_pages",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        256,
+        512
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        5,
+        3,
+        1,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.095,
+      "cells": [
+        {
+          "id": "D2X-0040-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0040/state_00.png",
+          "qa_bytes": 59476,
+          "qa_sha256": "3109fe6e2d1941b20b20bc1077e445a8fac61b2b6e65bf19f776a74d2e38210c",
+          "decoded_pixel_sha256": "1101bf1474fbcb78052b2f43947fcf802c0cadf358d18e706d3631085b4e7a5f",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0040",
+          "source_path": "assets/flats/castle/interactions_v2/library_magic_book_sheet.png",
+          "source_sha256": "1d6710b704f3e124f2ea7c9765575a1fee1184f14b485829380b56696bf6f1b1",
+          "source_cell_score": 4.0,
+          "evaluation": "Closed book: the shell cover, gold corners and pearl support give it a coherent storybook identity. Mottled grey-lavender washes and thin grey contours weaken the large, calm painted forms required for the game. Preserve this cover design rather than inventing a new book.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0040-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            256,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0040/state_01.png",
+          "qa_bytes": 69323,
+          "qa_sha256": "e8111ecfa13f34c351607e8dce84bddb84a01fc2971faf9b2ae5ecc8298875b7",
+          "decoded_pixel_sha256": "dd5d7c5217f376db235703ad94d1721f0833ffd0096700a27a35a2dfcf04e007",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0040",
+          "source_path": "assets/flats/castle/interactions_v2/library_magic_book_sheet.png",
+          "source_sha256": "1d6710b704f3e124f2ea7c9765575a1fee1184f14b485829380b56696bf6f1b1",
+          "source_cell_score": 4.1,
+          "evaluation": "First opening: the cover lifts from the left spine and reveals a cream page block. The hinge is readable and the shell/pearl support stays present. The pale contour and busy cover wash still need stronger painted grouping.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0040-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            512,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0040/state_02.png",
+          "qa_bytes": 70175,
+          "qa_sha256": "53e2ff633e10e609db54a137fcc11fe91b4b2c940ec2bdf1e5c7a9466dfae22e",
+          "decoded_pixel_sha256": "9105c4c32862679e8a59b12fc62425871240ddb2d14428fc5a0686df16a7c487",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0040",
+          "source_path": "assets/flats/castle/interactions_v2/library_magic_book_sheet.png",
+          "source_sha256": "1d6710b704f3e124f2ea7c9765575a1fee1184f14b485829380b56696bf6f1b1",
+          "source_cell_score": 4.1,
+          "evaluation": "Raised cover: narrowing perspective makes the lifted cover understandable, with the broad cream pages exposed. The spine remains identifiable, but the book's extent changes and the desaturated grey marks remain weak. This is a source pose, not a verified opening trajectory.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0040-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            768,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0040/state_03.png",
+          "qa_bytes": 65940,
+          "qa_sha256": "f930abf868eca31887c7092d656b134873ff2b8c6f95145172447854aa613fc6",
+          "decoded_pixel_sha256": "b63511f1c1265d30b0d72793e39ec298b8fc1012f6aa40b4de41b5e8803f8543",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0040",
+          "source_path": "assets/flats/castle/interactions_v2/library_magic_book_sheet.png",
+          "source_sha256": "1d6710b704f3e124f2ea7c9765575a1fee1184f14b485829380b56696bf6f1b1",
+          "source_cell_score": 4.2,
+          "evaluation": "First page-turn pose: a broad cream leaf curves upward from the spread. The shell-and-pearl support remains identifiable. The open book changes width and angle relative to the cover-lift keys; strengthen the conserved page block and plum/brown contour.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0040-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0040/state_04.png",
+          "qa_bytes": 64155,
+          "qa_sha256": "9956b96a305a0e8e03b327db4a6f0044e87d53ae6286f1df9dd8cb06fa7acd12",
+          "decoded_pixel_sha256": "fd38cb93cb605dca4f2117afb2a81accfe6043b2620791d938ebbc083f6ab077",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0040",
+          "source_path": "assets/flats/castle/interactions_v2/library_magic_book_sheet.png",
+          "source_sha256": "1d6710b704f3e124f2ea7c9765575a1fee1184f14b485829380b56696bf6f1b1",
+          "source_cell_score": 4.2,
+          "evaluation": "Turning leaf arcs left: the curved sheet reads more clearly than a detached page would, and it remains rooted in the spine. Broad cream shapes are useful. The underlying spread and washed contours still need a consistent authored silhouette.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0040-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            256,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0040/state_05.png",
+          "qa_bytes": 63194,
+          "qa_sha256": "96b105a84cccb3f6f831de05f70abd1985223580b22862b2b5c43888177a3e08",
+          "decoded_pixel_sha256": "b740d201836706cfedcbe09fdf35e7b2c139dc4b625900293346cd71591c4260",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0040",
+          "source_path": "assets/flats/castle/interactions_v2/library_magic_book_sheet.png",
+          "source_sha256": "1d6710b704f3e124f2ea7c9765575a1fee1184f14b485829380b56696bf6f1b1",
+          "source_cell_score": 4.1,
+          "evaluation": "Settling spread: the raised left leaf has nearly returned to the open pages. The support remains intact, but the page block's diagonal extent differs from the neighboring spread. Improve stable proportions and broad painted shadows before motion acceptance.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0040-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            512,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0040/state_06.png",
+          "qa_bytes": 59797,
+          "qa_sha256": "c22482153f992bf6d8b7ea590e13da6204cfc0b28b15888d947d371eb9ae0397",
+          "decoded_pixel_sha256": "45c2a39427f23d45c6d444bed5d980b7ec7326015d338815cce5519329b74686",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0040",
+          "source_path": "assets/flats/castle/interactions_v2/library_magic_book_sheet.png",
+          "source_sha256": "1d6710b704f3e124f2ea7c9765575a1fee1184f14b485829380b56696bf6f1b1",
+          "source_cell_score": 4.2,
+          "evaluation": "Open spread: two plain cream page masses read clearly around the central fold. It is calmer than the patterned cover. The width and centre differ across the open keys, and thin grey contours remain below the game's strong painted-outline standard.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0040-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            768,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0040/state_07.png",
+          "qa_bytes": 62033,
+          "qa_sha256": "3c34f1eb8546a0a828e33070d3d359552cb75ca6e8c97b02a6a7298fed84cc68",
+          "decoded_pixel_sha256": "21445d96d580a4acc9569ce9c372f9b4642c563932b33169079b25594317e104",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0040",
+          "source_path": "assets/flats/castle/interactions_v2/library_magic_book_sheet.png",
+          "source_sha256": "1d6710b704f3e124f2ea7c9765575a1fee1184f14b485829380b56696bf6f1b1",
+          "source_cell_score": 4.2,
+          "evaluation": "Marked open spread: a pink shell appears on the right page as a readable magical payoff. The support is retained. The mark is an intentional new content state, not evidence of object loss, but the pale edges and varying spread geometry remain refinement priorities.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        }
+      ],
+      "relationships": [
+        {
+          "score": 4.3,
+          "item": "Hinged cover and attached page",
+          "evaluation": "The cover lift and curved leaves remain rooted at a recognizable spine. Preserve that causal geometry during refinement; no detached page substitute."
+        },
+        {
+          "score": 3.9,
+          "item": "Page block proportions",
+          "evaluation": "The spread changes width, angle and centre between opening and turn poses. Individually drawn leaves need one conserved underlying book."
+        },
+        {
+          "score": 3.8,
+          "item": "Declared closing order",
+          "evaluation": "The manifest returns 7→5→3→1→0 after the opening keys. These widely separated shapes omit intermediate keys on return; the complete played opening/turn/closing remains unscored."
+        }
+      ],
+      "full_timed_motion_score": null,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "D2X-0041",
+      "source_path": "assets/flats/castle/interactions_v2/library_pearl_table_sheet.png",
+      "source_sha256": "bd1ddc7018c7c7352849cd56278196f9dcaad755c5cef268a8572b42663cbf0d",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 3.9,
+      "manifest_path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+      "manifest_sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+      "asset_id": "library_pearl_table",
+      "semantic_action": "wake_reading_pearl",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        256,
+        512
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        5,
+        3,
+        1,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.1025,
+      "cells": [
+        {
+          "id": "D2X-0041-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0041/state_00.png",
+          "qa_bytes": 52173,
+          "qa_sha256": "87bd4a63b36dcfb781946b6d9751c3e49660c90db9545fca2ea561c5dc590952",
+          "decoded_pixel_sha256": "d2e0c8799756ad31bada69308ec436464bc5e7c40dd559f619e76fe0dbe5d7e0",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0041",
+          "source_path": "assets/flats/castle/interactions_v2/library_pearl_table_sheet.png",
+          "source_sha256": "bd1ddc7018c7c7352849cd56278196f9dcaad755c5cef268a8572b42663cbf0d",
+          "source_cell_score": 3.9,
+          "evaluation": "Open reading pearl: the pearl sits inside an upright shell on a cream scalloped table. The silhouette and warm tabletop are readable. Fine grey outlines, flat cream top and muted shell pedestal need broader painted value bands.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0041-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            256,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0041/state_01.png",
+          "qa_bytes": 49016,
+          "qa_sha256": "39d6ea72af662c5e3e98c742e919044e798a29ec975fd0cfdf69aec1dd7f590c",
+          "decoded_pixel_sha256": "b4024ab5c1d645011a4725409964712928e614537234fb7c014f53a6a370a48f",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0041",
+          "source_path": "assets/flats/castle/interactions_v2/library_pearl_table_sheet.png",
+          "source_sha256": "bd1ddc7018c7c7352849cd56278196f9dcaad755c5cef268a8572b42663cbf0d",
+          "source_cell_score": 3.9,
+          "evaluation": "Lowered shell lid: the pearl is partly occluded as the lid closes. The table and pedestal retain their design. The shell shrinks in footprint relative to the fully open pose; retain one hinge/base geometry and improve the pale outlines.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0041-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            512,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0041/state_02.png",
+          "qa_bytes": 48609,
+          "qa_sha256": "8e75157b97b2514e68e6707eb6709c610ee027eac64cf5aef06c4f5b92befab6",
+          "decoded_pixel_sha256": "39d27afdfa0eece1aacde64a0101c5139cde225cceab3e5f9aaa984576f111fd",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0041",
+          "source_path": "assets/flats/castle/interactions_v2/library_pearl_table_sheet.png",
+          "source_sha256": "bd1ddc7018c7c7352849cd56278196f9dcaad755c5cef268a8572b42663cbf0d",
+          "source_cell_score": 3.8,
+          "evaluation": "Nearly closed shell: a dark mouth remains between the halves and the pearl is hidden. Correct occlusion is possible here, so absence does not prove a lost pearl. The lower shell changes to a deeper bowl shape and the grey mouth dominates a small target.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0041-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            768,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0041/state_03.png",
+          "qa_bytes": 46500,
+          "qa_sha256": "58fef86740e4cbca7fb706985753446990be1c51639d460b1076d2d41c161c19",
+          "decoded_pixel_sha256": "3b12312fff38a092bbf7d8e3d54128ad324b7f30affeb97646ae4dd53a3d7f3b",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0041",
+          "source_path": "assets/flats/castle/interactions_v2/library_pearl_table_sheet.png",
+          "source_sha256": "bd1ddc7018c7c7352849cd56278196f9dcaad755c5cef268a8572b42663cbf0d",
+          "source_cell_score": 4.0,
+          "evaluation": "Closed shell: the scalloped dome and fixed cream tabletop clearly describe closure. The pearl is appropriately hidden behind the shell. The object is readable, but its thin grey perimeter and uniformly light table still need the painted game language.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0041-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0041/state_04.png",
+          "qa_bytes": 49651,
+          "qa_sha256": "41f23c830bbdf39dffee9af9012e1fdcb5d82fa8e7bc8edb1494f62fed0e5d73",
+          "decoded_pixel_sha256": "d7683435b22c68b2106a0ed88640a00bdd162b9392f1e38fb57aa507f5de2fd4",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0041",
+          "source_path": "assets/flats/castle/interactions_v2/library_pearl_table_sheet.png",
+          "source_sha256": "bd1ddc7018c7c7352849cd56278196f9dcaad755c5cef268a8572b42663cbf0d",
+          "source_cell_score": 3.9,
+          "evaluation": "Reopening shell: the pearl reappears in the dark gap. The support stays recognizable. The bottom half is more bowl-like than the initial petal spread; conserve the lower shell while articulating only the lid.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0041-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            256,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0041/state_05.png",
+          "qa_bytes": 50948,
+          "qa_sha256": "80a4271706c7577a2dcfd8e88c2c0b4867c3a3e189c0b0e378856b9a6bf271d1",
+          "decoded_pixel_sha256": "6564eddfc95445bc1f1480071f8f523a633b5478751e857467fa17db601b22f1",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0041",
+          "source_path": "assets/flats/castle/interactions_v2/library_pearl_table_sheet.png",
+          "source_sha256": "bd1ddc7018c7c7352849cd56278196f9dcaad755c5cef268a8572b42663cbf0d",
+          "source_cell_score": 3.9,
+          "evaluation": "Raised lid: the pearl sits in front of the dark inner shell, with the table still fixed. It is a useful opening state, although the shell footprint and lid angle change unevenly and the neutral grey interior is visually heavy.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0041-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            512,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0041/state_06.png",
+          "qa_bytes": 52525,
+          "qa_sha256": "89ca96bf0ceda0ff7cf598349df32059044dbea4b8b6c211e7407161341769fa",
+          "decoded_pixel_sha256": "b8e97a486c7419988d56f5fdb480b459bb0af84aa08ad9266868af1420e8eafc",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0041",
+          "source_path": "assets/flats/castle/interactions_v2/library_pearl_table_sheet.png",
+          "source_sha256": "bd1ddc7018c7c7352849cd56278196f9dcaad755c5cef268a8572b42663cbf0d",
+          "source_cell_score": 4.0,
+          "evaluation": "Open endpoint: the pearl, lid and petal base are readable together. The cream table and shell pedestal are retained. Restore strong plum/brown contours and broader aqua/lavender shading; an isolated endpoint cannot pass a reading interaction.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0041-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            768,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0041/state_07.png",
+          "qa_bytes": 51779,
+          "qa_sha256": "5d0cb4c5c451cd528c71a346ae537a7919a0dd5f989448d4bad1aa7d140387fb",
+          "decoded_pixel_sha256": "59a79e43ec7fef9ca50e084330b192c86e669acc22124f9f1747320e1cb54c21",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0041",
+          "source_path": "assets/flats/castle/interactions_v2/library_pearl_table_sheet.png",
+          "source_sha256": "bd1ddc7018c7c7352849cd56278196f9dcaad755c5cef268a8572b42663cbf0d",
+          "source_cell_score": 4.0,
+          "evaluation": "Bright open pearl: the pearl is visibly brighter within the same open shell and table. The payoff is restrained, but the small pale source detail and fine outlines remain weak. Verify target emphasis and contrast in the mounted room separately.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        }
+      ],
+      "relationships": [
+        {
+          "score": 4.5,
+          "item": "Table support",
+          "evaluation": "The scalloped table and pedestal remain broadly fixed across all eight poses. This is source consistency, not a runtime support/contact pass."
+        },
+        {
+          "score": 3.8,
+          "item": "Lower shell identity",
+          "evaluation": "The lower half alternates between a petal spread and a deeper bowl. Keep the original shell construction through closure and reopening."
+        },
+        {
+          "score": 4.2,
+          "item": "Pearl occlusion",
+          "evaluation": "The pearl is hidden while the lid closes and reappears when it opens. Do not label the closed state a disappearance; mounted lighting and action timing are still unreviewed."
+        }
+      ],
+      "full_timed_motion_score": null,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "D2X-0042",
+      "source_path": "assets/flats/castle/interactions_v2/library_pearl_lamp_sheet.png",
+      "source_sha256": "6d39470c8e87cdef4555f2b7907bafb629590152c557f547f2a2a6bf2c446cab",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 3.6,
+      "manifest_path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+      "manifest_sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+      "asset_id": "library_pearl_lamp",
+      "semantic_action": "toggle_pearl_lamp",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        256,
+        512
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        5,
+        3,
+        1,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.1025,
+      "cells": [
+        {
+          "id": "D2X-0042-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0042/state_00.png",
+          "qa_bytes": 60599,
+          "qa_sha256": "8a95aaf6ddcf8ab070def0512ba9910e617969b6b1f4c207ffa192dd3836dfee",
+          "decoded_pixel_sha256": "c744cbd18e5dd14dcf2422961561d040dccd0e819adf792ef2ad36c19c0274e5",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0042",
+          "source_path": "assets/flats/castle/interactions_v2/library_pearl_lamp_sheet.png",
+          "source_sha256": "6d39470c8e87cdef4555f2b7907bafb629590152c557f547f2a2a6bf2c446cab",
+          "source_cell_score": 3.6,
+          "evaluation": "Raised pearl: one large warm pearl sits in a fan-shaped grey shell. Its central silhouette is clear, but neutral grey facets, thin pale edging and pink highlights miss the game's warm painted pearl material and coloured shadows.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0042-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            256,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0042/state_01.png",
+          "qa_bytes": 55381,
+          "qa_sha256": "b1cdddc5729b92df44ccbfb4534fc515209b3dadb786416e76cef003757d4b84",
+          "decoded_pixel_sha256": "c0e6f839e1507b5582a2fcbf887bf434c2028cf5def6785d2c9c1a613dca8594",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0042",
+          "source_path": "assets/flats/castle/interactions_v2/library_pearl_lamp_sheet.png",
+          "source_sha256": "6d39470c8e87cdef4555f2b7907bafb629590152c557f547f2a2a6bf2c446cab",
+          "source_cell_score": 3.5,
+          "evaluation": "Lowering pearl: more of the pearl is hidden behind the front rim. The stationary open shell helps locate it, but the descending object loses size/visibility and the grey fan remains the dominant mass. Improve clear lamp-state feedback.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0042-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            512,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0042/state_02.png",
+          "qa_bytes": 51782,
+          "qa_sha256": "fd8f0d160a34bb06b26cc4255f340f81645544f8289141647c91c2f19e2e6fe9",
+          "decoded_pixel_sha256": "76d542a600fbb8d932b85f476864ad0b17295e155701c4b4b3905ffa2411150a",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0042",
+          "source_path": "assets/flats/castle/interactions_v2/library_pearl_lamp_sheet.png",
+          "source_sha256": "6d39470c8e87cdef4555f2b7907bafb629590152c557f547f2a2a6bf2c446cab",
+          "source_cell_score": 3.4,
+          "evaluation": "Low pearl sliver: only a shallow yellow segment is visible above the rim. This can be occlusion rather than disappearance. The source does not communicate an obvious lamp switch, and neutral grey facets still overwhelm the tiny luminous target.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0042-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            768,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0042/state_03.png",
+          "qa_bytes": 50541,
+          "qa_sha256": "4b4dfc0e67072e3b9c8ce142dc8cdd956102bdb0ccec2bf04919f5cb0f3b9c38",
+          "decoded_pixel_sha256": "1f149455b096e7e105ce4a79782ff302bcad521e27d2e25fccff62b93cef0f6b",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0042",
+          "source_path": "assets/flats/castle/interactions_v2/library_pearl_lamp_sheet.png",
+          "source_sha256": "6d39470c8e87cdef4555f2b7907bafb629590152c557f547f2a2a6bf2c446cab",
+          "source_cell_score": 3.4,
+          "evaluation": "Pearl hidden behind the rim: the open fan remains unchanged and the target is no longer visible. The isolated image cannot establish where the pearl is stored or whether the child receives an off-state cue. Preserve its identity and make the intended lamp consequence readable.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0042-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0042/state_04.png",
+          "qa_bytes": 51925,
+          "qa_sha256": "7100dca7e65095d57460bacf10562929cdc3eebb5e195375556efa41f9db99c8",
+          "decoded_pixel_sha256": "3b487b9c744781916ea9225f261d7655195618197d8a2429e005d8c69fe349a5",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0042",
+          "source_path": "assets/flats/castle/interactions_v2/library_pearl_lamp_sheet.png",
+          "source_sha256": "6d39470c8e87cdef4555f2b7907bafb629590152c557f547f2a2a6bf2c446cab",
+          "source_cell_score": 3.4,
+          "evaluation": "Returning pearl segment: the yellow sliver reappears while the shell stays open. The same occlusion boundary is useful, but an almost empty grey shell remains weak feedback for a lamp. A brighter pearl does not remedy the shell material.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0042-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            256,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0042/state_05.png",
+          "qa_bytes": 54500,
+          "qa_sha256": "3189bed1e1af46354f777b5380dc23d49b01d14ca1c3f6a0a5b634973fbca8b9",
+          "decoded_pixel_sha256": "ecfde3521c67af0e0c4edab4f0db17bfe97aa9866aec9853cb7ecca19f3f1528",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0042",
+          "source_path": "assets/flats/castle/interactions_v2/library_pearl_lamp_sheet.png",
+          "source_sha256": "6d39470c8e87cdef4555f2b7907bafb629590152c557f547f2a2a6bf2c446cab",
+          "source_cell_score": 3.5,
+          "evaluation": "Pearl rises into view: its circular warm face is readable again. The front rim correctly overlaps its lower edge. The source still relies on neutral grey shading and weak pink trim instead of broad aqua/lavender painted bands.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0042-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            512,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0042/state_06.png",
+          "qa_bytes": 54397,
+          "qa_sha256": "5561e09171b1b8bfbbd828ee51674557310e4f47622d5dce6318e8e1a19329e3",
+          "decoded_pixel_sha256": "3b0a0008e9ee304ae2d3209477c2d7a7a1853fa31ae5fab9ab7d7e413f147a1d",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0042",
+          "source_path": "assets/flats/castle/interactions_v2/library_pearl_lamp_sheet.png",
+          "source_sha256": "6d39470c8e87cdef4555f2b7907bafb629590152c557f547f2a2a6bf2c446cab",
+          "source_cell_score": 3.6,
+          "evaluation": "Raised return: the pearl is mostly visible and remains centred in the shell. The silhouette is readable. Its return proportions need comparison to the first pose, and the flat grey fan material remains below the art threshold.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0042-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            768,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0042/state_07.png",
+          "qa_bytes": 57703,
+          "qa_sha256": "9d7f4fc210837c252c3490aabc3dce64d125c37656fa4bd32efb7a4eadfc468e",
+          "decoded_pixel_sha256": "60c2a6894d5abd9adb152f1ee44fe999ac2be66034908f49054acca731005ab9",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0042",
+          "source_path": "assets/flats/castle/interactions_v2/library_pearl_lamp_sheet.png",
+          "source_sha256": "6d39470c8e87cdef4555f2b7907bafb629590152c557f547f2a2a6bf2c446cab",
+          "source_cell_score": 3.5,
+          "evaluation": "Glow endpoint: yellow brightens the pearl and a pink fan-like glow appears behind it. The jagged pink patch does not read as a clean restrained light bloom, while the neutral shell remains grey. Refine the illumination as well as the underlying source.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        }
+      ],
+      "relationships": [
+        {
+          "score": 4.3,
+          "item": "Rim occlusion",
+          "evaluation": "The rim can hide the descending pearl; frames with a hidden pearl alone do not prove deletion. A complete toggle still needs its causal cue and supported return."
+        },
+        {
+          "score": 3.2,
+          "item": "Lamp-state readability",
+          "evaluation": "The source keys mostly lower and raise the pearl rather than clearly communicate switching a lamp. Only the last key has a strong pink patch; actual input, lighting and mounted timing remain unscored."
+        },
+        {
+          "score": 3.5,
+          "item": "Painted light material",
+          "evaluation": "Neutral grey shell facets and a jagged final glow remain visually inconsistent with broad painted coloured shadows."
+        }
+      ],
+      "full_timed_motion_score": null,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "D2X-0043",
+      "source_path": "assets/flats/castle/interactions_v2/library_book_stack_sheet.png",
+      "source_sha256": "ae9ca243c13e8552770c427ce644bb1832f2b904f4cf24d80bf535b2220813e5",
+      "source_dimensions": [
+        1024,
+        1024
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 3.6,
+      "manifest_path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+      "manifest_sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+      "asset_id": "library_book_stack",
+      "semantic_action": "open_top_book_and_turn_pages",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        256,
+        512
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        5,
+        3,
+        1,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.095,
+      "cells": [
+        {
+          "id": "D2X-0043-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0043/state_00.png",
+          "qa_bytes": 110271,
+          "qa_sha256": "3e7d9dca73118a54b51ddc463d86f49704493fd8247b162decebf8a727b32ac6",
+          "decoded_pixel_sha256": "055e23e13e5f8aaf070dfc350bbad3e38b73e06f14b93089a7c11aa875f4a5bc",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0043",
+          "source_path": "assets/flats/castle/interactions_v2/library_book_stack_sheet.png",
+          "source_sha256": "ae9ca243c13e8552770c427ce644bb1832f2b904f4cf24d80bf535b2220813e5",
+          "source_cell_score": 3.6,
+          "evaluation": "Closed stack: coloured books, a side pearl and cream page edges identify a library prop. Numerous fine parallel page marks and muted planar fills feel flatter than the game's painted props. The right stack reaches the cell boundary and needs an intentional crop/mounting review.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0043-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            256,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0043/state_01.png",
+          "qa_bytes": 108789,
+          "qa_sha256": "8c389ac5ac10dd3a07a7b7545fd0e7dd0268e06a03206e499bffadc316f1b571",
+          "decoded_pixel_sha256": "dd4b18abed679c7b3357dfe80c73e864c9e16ef820875894491b7a8fe5e3ac54",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0043",
+          "source_path": "assets/flats/castle/interactions_v2/library_book_stack_sheet.png",
+          "source_sha256": "ae9ca243c13e8552770c427ce644bb1832f2b904f4cf24d80bf535b2220813e5",
+          "source_cell_score": 3.5,
+          "evaluation": "Shifted closed top book: the top volume has moved right while lower books and the pearl remain. No page opening is visible yet. The displaced footprint weakens a stable spine/support relationship, and thin grey contours remain a priority.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0043-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            512,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0043/state_02.png",
+          "qa_bytes": 107618,
+          "qa_sha256": "51118277e470da75a6fbaf8f042fd5b2f1667999f67a4b89b1bf54b0e10662a5",
+          "decoded_pixel_sha256": "8038fec0fc604487e27eab7e93bf9276d3576feeb31b6f6025cb4b95679dced3",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0043",
+          "source_path": "assets/flats/castle/interactions_v2/library_book_stack_sheet.png",
+          "source_sha256": "ae9ca243c13e8552770c427ce644bb1832f2b904f4cf24d80bf535b2220813e5",
+          "source_cell_score": 3.5,
+          "evaluation": "Closed preparation pose: the top cover still appears shut after its lateral shift. The lower stack is recognizable. Keep a fixed hinge and support for the next opening; dense page-edge lines and the uneven backing silhouette remain weak.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0043-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            768,
+            0,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0043/state_03.png",
+          "qa_bytes": 118109,
+          "qa_sha256": "e9b3715c83480fda0c9a9b9f46319bd658db1d75009726ea600fd59bc9e61fcf",
+          "decoded_pixel_sha256": "da995dc6a32dd03c6887beb9f54be1b2ff1ff1d013f924be612b7618afeb236c",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0043",
+          "source_path": "assets/flats/castle/interactions_v2/library_book_stack_sheet.png",
+          "source_sha256": "ae9ca243c13e8552770c427ce644bb1832f2b904f4cf24d80bf535b2220813e5",
+          "source_cell_score": 3.5,
+          "evaluation": "Raised top cover: the cream pages and hinged brown lid make the opening readable. Small disconnected edge fragments appear beside the left stack, while the underlying stack boundary changes. Clean those source edges without changing the book identities.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0043-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0043/state_04.png",
+          "qa_bytes": 107521,
+          "qa_sha256": "f440018a1027f02ca100288a453d91b73fae6e4e2737d7ec6a1b4ccdb095d4c0",
+          "decoded_pixel_sha256": "27d8462ae79c8b2d2b7a4ce2212affe383268b2d283ba5816d92b749c0d1b546",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0043",
+          "source_path": "assets/flats/castle/interactions_v2/library_book_stack_sheet.png",
+          "source_sha256": "ae9ca243c13e8552770c427ce644bb1832f2b904f4cf24d80bf535b2220813e5",
+          "source_cell_score": 3.4,
+          "evaluation": "Single turning leaf: one cream sheet curls up from the top volume, but the previously raised brown lid is no longer clearly shown upright. Preserve a continuous cover/page construction and a settling spread. The neighboring keys do not establish a smooth completed turn.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0043-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            256,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0043/state_05.png",
+          "qa_bytes": 103285,
+          "qa_sha256": "7406b7cb7b4908ba03a50dfc4b3db188347c3eef8cf976e9165e7630fa41fee8",
+          "decoded_pixel_sha256": "beb89bf8783723a2b79e7a77f7cce384ebf44fe717a0b7755dd9e50a5f8be522",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0043",
+          "source_path": "assets/flats/castle/interactions_v2/library_book_stack_sheet.png",
+          "source_sha256": "ae9ca243c13e8552770c427ce644bb1832f2b904f4cf24d80bf535b2220813e5",
+          "source_cell_score": 3.5,
+          "evaluation": "Closed return: the top book is shut immediately after the curled-leaf pose. The source provides no intermediate open spread here, and the top volume has shifted again. Keep page-turn completion and closure as distinct conserved states.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0043-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            512,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0043/state_06.png",
+          "qa_bytes": 102964,
+          "qa_sha256": "c9f8673c7f22bd98064515e07441dd1cac552d575dc3dc3c953b60f26c5498be",
+          "decoded_pixel_sha256": "0215ddd79b6442e2b3c1ba00e83de4e078dadcedb0e2e91047b80858454ec272",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0043",
+          "source_path": "assets/flats/castle/interactions_v2/library_book_stack_sheet.png",
+          "source_sha256": "ae9ca243c13e8552770c427ce644bb1832f2b904f4cf24d80bf535b2220813e5",
+          "source_cell_score": 3.5,
+          "evaluation": "Settled closed stack: the volumes and pearl remain recognizable. The top book's placement differs from the original rest, with muted rectangular surfaces and dense page lines. Refine the source material and stabilize the rest silhouette.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0043-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            768,
+            512,
+            256,
+            512
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0043/state_07.png",
+          "qa_bytes": 102361,
+          "qa_sha256": "93ebad2d339d40b6c321f07b69d3ce5209dbfca0f6242d8c0c73281be36a80e1",
+          "decoded_pixel_sha256": "22bb7bd1d3149aa4d95726e4e8ad39088c063ffa28397d7b448c7d96bc389333",
+          "dimensions": [
+            256,
+            512
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0043",
+          "source_path": "assets/flats/castle/interactions_v2/library_book_stack_sheet.png",
+          "source_sha256": "ae9ca243c13e8552770c427ce644bb1832f2b904f4cf24d80bf535b2220813e5",
+          "source_cell_score": 3.5,
+          "evaluation": "Last closed stack: the same basic book identities remain, but the final closed placement does not resolve the earlier top-book slide. The right-edge crop and irregular backing require in-context review. A closed still cannot pass the complete page-turn action.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        }
+      ],
+      "relationships": [
+        {
+          "score": 3.0,
+          "item": "Turn to closed return",
+          "evaluation": "Keys 3/4 show a lifted cover/leaf, followed immediately by a closed book at 5. The source keys omit a convincing settled spread before closure."
+        },
+        {
+          "score": 3.4,
+          "item": "Conserved stack and boundaries",
+          "evaluation": "The top volume slides, backing edges vary and tiny left-edge fragments occur in the open pose. Preserve lower-book support and intentional whole-prop boundaries."
+        },
+        {
+          "score": 3.2,
+          "item": "Declared return order",
+          "evaluation": "After closed 5/6/7, the declared tail returns through 5 then open 3 then closed 1/0. This revisits opening on the return; actual played timing and meaning remain unscored."
+        }
+      ],
+      "full_timed_motion_score": null,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "D2X-0044",
+      "source_path": "assets/flats/castle/interactions_v4/sheets/library_pearl_lamp_right_sheet.png",
+      "source_sha256": "6d58a6d9ebe496bacee4c8e0124a98712c03d8cb42f9b7744a30b3f0d708d30b",
+      "source_dimensions": [
+        1024,
+        512
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 3.9,
+      "manifest_path": "assets/flats/castle/interactions_v4/castle_interactions_v4.json",
+      "manifest_sha256": "21118917c51009ca57528d6a09b354aeb9a5d49dc21667bd7403d6fb79611cf8",
+      "asset_id": "library_pearl_lamp_right",
+      "semantic_action": "wake_right_pearl_lamp_with_glow",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        256,
+        256
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.12,
+      "cells": [
+        {
+          "id": "D2X-0044-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0044/state_00.png",
+          "qa_bytes": 14929,
+          "qa_sha256": "2e48cc775b9cf126968050bc24229f931bd8a15595918fe244c7b68a6a9189fc",
+          "decoded_pixel_sha256": "7df52a153beea77faa25d72ff7d74e1d5a32befd507e859bbe0884934c4e0266",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0044",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/library_pearl_lamp_right_sheet.png",
+          "source_sha256": "6d58a6d9ebe496bacee4c8e0124a98712c03d8cb42f9b7744a30b3f0d708d30b",
+          "source_cell_score": 3.9,
+          "evaluation": "Rest lamp: a small pearl in a lavender shell sits on a gold lip. The right-side lilac block, cyan edge and dark cutout gaps interrupt the clean silhouette. The readable artwork occupies only a small part of the 256-square cell; phone presentation needs separate review.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0044-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0044/state_01.png",
+          "qa_bytes": 14956,
+          "qa_sha256": "557911ef02fb17d85285ff218abd0475586166270b129d6c44c1747282475f09",
+          "decoded_pixel_sha256": "cb4ea175570003d6db4f3fbdd32a3ef9b9e371aa4ec0818f0ae8cbcd50de3c8e",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0044",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/library_pearl_lamp_right_sheet.png",
+          "source_sha256": "6d58a6d9ebe496bacee4c8e0124a98712c03d8cb42f9b7744a30b3f0d708d30b",
+          "source_cell_score": 3.9,
+          "evaluation": "First brightening: the pearl becomes lighter without changing the shell pose. Geometry is conserved, but the cyan left edge, dark holes and right-side block remain. Refine the extraction/outline and painted shading before adding more glow.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0044-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0044/state_02.png",
+          "qa_bytes": 14420,
+          "qa_sha256": "ee3a49bd1e91dfb1a6d383293a917bf0a7bc730417c5229599fde161f0d46140",
+          "decoded_pixel_sha256": "894b7a87f3ecce00a9af756adc5403fe3c0e1d6985ec8f4b2d2e875682c52753",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0044",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/library_pearl_lamp_right_sheet.png",
+          "source_sha256": "6d58a6d9ebe496bacee4c8e0124a98712c03d8cb42f9b7744a30b3f0d708d30b",
+          "source_cell_score": 3.8,
+          "evaluation": "White pearl: the illuminated centre is conspicuous against lavender, but its light blends into the surrounding shell. The small native silhouette still has rough gaps and a squared right backing. Preserve a readable sphere under the light.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0044-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0044/state_03.png",
+          "qa_bytes": 13840,
+          "qa_sha256": "7095082f52ac41a205365a2f8788c7cc7744295d9f785ece6f748b4855bdfd53",
+          "decoded_pixel_sha256": "ef8d9476a3e232a1a30beee4f9b37a9820a272b1c9ea6a439e6f48297af3790b",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0044",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/library_pearl_lamp_right_sheet.png",
+          "source_sha256": "6d58a6d9ebe496bacee4c8e0124a98712c03d8cb42f9b7744a30b3f0d708d30b",
+          "source_cell_score": 3.6,
+          "evaluation": "Strong pink-white glow: the lower shell and pearl wash toward white. It loses useful separation between the pearl, lip and shell. The right-side block and dark gaps are unchanged, so brighter pixels do not improve the underlying contour.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0044-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0044/state_04.png",
+          "qa_bytes": 13721,
+          "qa_sha256": "89dfe17c74bf42625dc0d9a49555976242f79cca34ff2c0dc2aeafbbf26c2744",
+          "decoded_pixel_sha256": "d334cbc4ea22c09381d370eec8111f4af7fd8e384040164fdaeb8d44f28aa5e5",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0044",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/library_pearl_lamp_right_sheet.png",
+          "source_sha256": "6d58a6d9ebe496bacee4c8e0124a98712c03d8cb42f9b7744a30b3f0d708d30b",
+          "source_cell_score": 3.6,
+          "evaluation": "Brightest warm lip: the gold base is over-bright and nearly cream, while the pearl is similarly pale. The illumination compresses material distinctions. Keep broad coloured shadows and a visible gold lip through the lit state.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0044-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0044/state_05.png",
+          "qa_bytes": 13791,
+          "qa_sha256": "9bbe2084e842b0d263cc545162c9fa9f1a2af3aaf6b66d861c99790ad227786d",
+          "decoded_pixel_sha256": "106b8709b3c8827be4a2ab37ff7d3c2d75dcbd1e4099f8140a78fc13b2e96094",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0044",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/library_pearl_lamp_right_sheet.png",
+          "source_sha256": "6d58a6d9ebe496bacee4c8e0124a98712c03d8cb42f9b7744a30b3f0d708d30b",
+          "source_cell_score": 3.8,
+          "evaluation": "Cooler lit return: the lavender shell is clearer again, with a bright pearl. Fixed geometry is useful, but the cyan edge and backing fragment remain source defects. Verify the mounted light consequence separately.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0044-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0044/state_06.png",
+          "qa_bytes": 14265,
+          "qa_sha256": "3a9ddf25376b794e6115ea795b9a8f354136dcc73932db355777aee863c402b0",
+          "decoded_pixel_sha256": "f81f3b8fd78c7707987985d2c44a36e974a74c9720b7e96b2912ea2c98537670",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0044",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/library_pearl_lamp_right_sheet.png",
+          "source_sha256": "6d58a6d9ebe496bacee4c8e0124a98712c03d8cb42f9b7744a30b3f0d708d30b",
+          "source_cell_score": 3.8,
+          "evaluation": "Pink lit return: the central pearl is still white and the surrounding shell pinker. Shape conservation is stronger than its material clarity. Restore pearl/shell separation and clean the small silhouette before motion approval.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0044-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0044/state_07.png",
+          "qa_bytes": 14960,
+          "qa_sha256": "ced52db7955eedd8f8393b804a7300098db855ff7aa2efb9ce9b7a2afee68d2c",
+          "decoded_pixel_sha256": "5e20e17d2f251af8e91d7be98b7d332ad1bbfbdb87b5d8134e6ab0abdf9345bb",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0044",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/library_pearl_lamp_right_sheet.png",
+          "source_sha256": "6d58a6d9ebe496bacee4c8e0124a98712c03d8cb42f9b7744a30b3f0d708d30b",
+          "source_cell_score": 3.9,
+          "evaluation": "Rest return: the warmer pearl and lavender shell recover the initial palette. The contour defects and small native detail remain. Source return consistency does not grant current game/training lighting or owner acceptance.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        }
+      ],
+      "relationships": [
+        {
+          "score": 4.5,
+          "item": "Fixed lamp geometry",
+          "evaluation": "All eight keys preserve the shell, support and pearl position; changing illumination does not visibly add another pearl."
+        },
+        {
+          "score": 3.7,
+          "item": "Illuminated material separation",
+          "evaluation": "The strongest keys wash the pearl and gold lip into similar light values. Keep the sphere, shell and gold base individually readable."
+        },
+        {
+          "score": 3.8,
+          "item": "Silhouette cleanup",
+          "evaluation": "Cyan edging, dark gaps and a squared lilac backing persist in every source state. They need source correction and mounted verification, not another glow pass."
+        }
+      ],
+      "full_timed_motion_score": null,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "D2X-0045",
+      "source_path": "assets/flats/castle/interactions_v4/sheets/library_ceiling_chandelier_sheet.png",
+      "source_sha256": "09419955a5fbc087af145e60a3e7a3e5f36bf8949b65ceb8b6319489457b4f30",
+      "source_dimensions": [
+        1024,
+        512
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 4.0,
+      "manifest_path": "assets/flats/castle/interactions_v4/castle_interactions_v4.json",
+      "manifest_sha256": "21118917c51009ca57528d6a09b354aeb9a5d49dc21667bd7403d6fb79611cf8",
+      "asset_id": "library_ceiling_chandelier",
+      "semantic_action": "chase_chandelier_pearl_lights",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        256,
+        256
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.12,
+      "cells": [
+        {
+          "id": "D2X-0045-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0045/state_00.png",
+          "qa_bytes": 11215,
+          "qa_sha256": "05862f460635ec12d18a067014d17202425b2e08ae4f1eb4747af38ad2c1cce6",
+          "decoded_pixel_sha256": "f37976e4a010aa0b797cde95068e23bda5db3dfa6a4bc8f537aeab98139820d5",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0045",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/library_ceiling_chandelier_sheet.png",
+          "source_sha256": "09419955a5fbc087af145e60a3e7a3e5f36bf8949b65ceb8b6319489457b4f30",
+          "source_cell_score": 4.0,
+          "evaluation": "Rest chandelier: a rounded plum ring and small warm/cool pearls suggest a friendly fixture. The fine cream ornaments and tiny source lights remain hard to distinguish. Clean edges and simplify clusters for the required child-readable scale.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0045-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0045/state_01.png",
+          "qa_bytes": 11220,
+          "qa_sha256": "b3a4e26845a164e36015cccbbca2f56e2ca80ab525663761faaf64dda44bf179",
+          "decoded_pixel_sha256": "5d053e86907ef81d59fc8707429f161293632fd488d8708d97f6cca1986fc33e",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0045",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/library_ceiling_chandelier_sheet.png",
+          "source_sha256": "09419955a5fbc087af145e60a3e7a3e5f36bf8949b65ceb8b6319489457b4f30",
+          "source_cell_score": 4.0,
+          "evaluation": "First light change: the central cool pearl brightens while the ring remains fixed. The conserved fixture is useful, but the effect is subtle among tiny cream details. This source key does not prove a clear moving light chase in the room.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0045-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0045/state_02.png",
+          "qa_bytes": 10950,
+          "qa_sha256": "b4fcd63c3417f18f83ed7805ffbb1873f7f366b7975919a4c6639e1eabfe19e7",
+          "decoded_pixel_sha256": "a00b04f088887bf3800d59500ad08243eaa41fce3bd4b89c467021954e2e11d5",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0045",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/library_ceiling_chandelier_sheet.png",
+          "source_sha256": "09419955a5fbc087af145e60a3e7a3e5f36bf8949b65ceb8b6319489457b4f30",
+          "source_cell_score": 3.9,
+          "evaluation": "Bright centre: the pearl cluster becomes pale and partly white. The ring shape stays intact, but several small ornaments merge with the light. Preserve the source silhouette and distinguish the intended active pearl.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0045-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0045/state_03.png",
+          "qa_bytes": 10959,
+          "qa_sha256": "2aed67bc9f1d94843538b39e35454a309321e394ff3771b3aa891370842466ee",
+          "decoded_pixel_sha256": "0b3ae12ab83e90dd03dc52ca9c20a41c209d8eb6818eec29afa8c4b53548e59f",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0045",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/library_ceiling_chandelier_sheet.png",
+          "source_sha256": "09419955a5fbc087af145e60a3e7a3e5f36bf8949b65ceb8b6319489457b4f30",
+          "source_cell_score": 3.9,
+          "evaluation": "Pink-white centre: warm light gathers near the lower centre while the plum ring is retained. The native cluster is very small and washed out. Group the highlights into a clear active region rather than many similarly pale marks.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0045-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0045/state_04.png",
+          "qa_bytes": 10929,
+          "qa_sha256": "a3a6c75365b812964a71ea3ad2297959dd31afa6c5ccdc0e8486ec21dd3f417e",
+          "decoded_pixel_sha256": "6ba993635fd7507ac9b3d3b72916ab2e6e07636b1b64be564ca34b0c1cd53e83",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0045",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/library_ceiling_chandelier_sheet.png",
+          "source_sha256": "09419955a5fbc087af145e60a3e7a3e5f36bf8949b65ceb8b6319489457b4f30",
+          "source_cell_score": 3.9,
+          "evaluation": "Warm ring emphasis: the ring's right-side cream details brighten while the central pearls remain light. This may be a chase key, but its native-scale path is subtle. The illustration still needs cleaner, broader ornament and illumination grouping.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0045-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0045/state_05.png",
+          "qa_bytes": 10984,
+          "qa_sha256": "913ff9e2832cd2c16f5eae5919eba0a3bf955065023ad3025ff30cd722d19d09",
+          "decoded_pixel_sha256": "94066d8e964b2cac15f7728c0fee7c82cfc173c905dceae08461024142666631",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0045",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/library_ceiling_chandelier_sheet.png",
+          "source_sha256": "09419955a5fbc087af145e60a3e7a3e5f36bf8949b65ceb8b6319489457b4f30",
+          "source_cell_score": 3.9,
+          "evaluation": "Cool central return: an aqua accent is visible in the central cluster. The fixture is conserved. Tiny cream decorations remain visually busy, and a light-colour change alone cannot establish the complete chase action.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0045-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0045/state_06.png",
+          "qa_bytes": 10922,
+          "qa_sha256": "56f4a3afc1ab0885d7faa9cd38611fd0a22871d74475d616a6bb40d94c0b664c",
+          "decoded_pixel_sha256": "3514c53f7ca24424660bfcf66362ef0a58f54bf1602d6c82a432c6d520445937",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0045",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/library_ceiling_chandelier_sheet.png",
+          "source_sha256": "09419955a5fbc087af145e60a3e7a3e5f36bf8949b65ceb8b6319489457b4f30",
+          "source_cell_score": 3.9,
+          "evaluation": "Second bright centre: the central cluster returns to near-white. The ring and suspension remain identifiable, but the payoff merges small pearl shapes. Improve active-light separation and test the actual mounted size.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0045-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0045/state_07.png",
+          "qa_bytes": 11219,
+          "qa_sha256": "87cefa86f3a0617d38baa0435e5a6f0b016fefd94831e835dad610b170cf4428",
+          "decoded_pixel_sha256": "4762fe05ef30a56336003b48d071b902c717fd1f317627828dc363bfb951dfe4",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0045",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/library_ceiling_chandelier_sheet.png",
+          "source_sha256": "09419955a5fbc087af145e60a3e7a3e5f36bf8949b65ceb8b6319489457b4f30",
+          "source_cell_score": 4.0,
+          "evaluation": "Rest return: the plum ring and warm/cool central pearls return to a calmer palette. The source maintains its overall fixture identity. Fine pale details and tiny light changes keep it at an inclusive refinement priority.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        }
+      ],
+      "relationships": [
+        {
+          "score": 4.5,
+          "item": "Fixture conservation",
+          "evaluation": "The rounded ring and hanging support retain their broad geometry across the eight states. This does not verify mounting or actual animation."
+        },
+        {
+          "score": 3.7,
+          "item": "Native light-chase clarity",
+          "evaluation": "At the native 256-square inspection scale, the active lights are tiny and colour changes subtle. The literal key order is recorded, but complete timed chase and room emphasis are unscored."
+        }
+      ],
+      "full_timed_motion_score": null,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "D2X-0064",
+      "source_path": "assets/flats/castle/interactions_v2/playroom_stuffie_nook_sheet.png",
+      "source_sha256": "bc8dde1a1cffcfd061f01f83d9c2549f3f7bca7d978e4df18ee651a8bee94574",
+      "source_dimensions": [
+        1024,
+        586
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 3.8,
+      "manifest_path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+      "manifest_sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+      "asset_id": "playroom_stuffie_nook",
+      "semantic_action": "stuffie_friends_wave",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        256,
+        293
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        5,
+        3,
+        1,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.1375,
+      "cells": [
+        {
+          "id": "D2X-0064-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            256,
+            293
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0064/state_00.png",
+          "qa_bytes": 86371,
+          "qa_sha256": "d561115fffe6e181bc083488e2bd0a7076b742e77be3fbcde19bbd36a87b0f71",
+          "decoded_pixel_sha256": "e6a5866c23b0cb5108d3aa997524cf05346fbebc167978e8891b3ac33d681e51",
+          "dimensions": [
+            256,
+            293
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0064",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_stuffie_nook_sheet.png",
+          "source_sha256": "bc8dde1a1cffcfd061f01f83d9c2549f3f7bca7d978e4df18ee651a8bee94574",
+          "source_cell_score": 3.8,
+          "evaluation": "Stuffie rest: a warm shell nook contains a crowded group of pastel plush toys. Rounded forms are friendly, but fine grey outlines and many small faces reduce distinct identities and action focus. Keep the existing toy designs during refinement.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0064-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            256,
+            0,
+            256,
+            293
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0064/state_01.png",
+          "qa_bytes": 86513,
+          "qa_sha256": "11adb0e5b3fb75cfcfb543d10c5cb3473c502653b27b5ee0b324f56c8cf54e52",
+          "decoded_pixel_sha256": "a2ab8989ff7c3e7f7c5dc2ce41cf2adc9817325862e4c6ab76907c91b84db49b",
+          "dimensions": [
+            256,
+            293
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0064",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_stuffie_nook_sheet.png",
+          "source_sha256": "bc8dde1a1cffcfd061f01f83d9c2549f3f7bca7d978e4df18ee651a8bee94574",
+          "source_cell_score": 3.8,
+          "evaluation": "Early wave: the central pink toy has a small changed paw/face pose while the nook stays fixed. The movement is difficult to separate from adjacent toy contours. Make one clearly owned raised paw readable without adding or redesigning a friend.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0064-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            512,
+            0,
+            256,
+            293
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0064/state_02.png",
+          "qa_bytes": 86815,
+          "qa_sha256": "d0da957358b4ff22e1b2c6639b11fa7c74ea3148f0dc0ba60f9a4fe661409681",
+          "decoded_pixel_sha256": "b1102f94943f39d11257e7d56158b88581d606ff76a739a1b56d49be83a0cc74",
+          "dimensions": [
+            256,
+            293
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0064",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_stuffie_nook_sheet.png",
+          "source_sha256": "bc8dde1a1cffcfd061f01f83d9c2549f3f7bca7d978e4df18ee651a8bee94574",
+          "source_cell_score": 3.5,
+          "evaluation": "Raised projections: tall shapes appear above the left yellow and central grey toys. Their relation to the existing ears and arms is ambiguous at native scale. Preserve each head silhouette and draw the waving paw separately from the crown.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0064-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            768,
+            0,
+            256,
+            293
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0064/state_03.png",
+          "qa_bytes": 86534,
+          "qa_sha256": "57b56d58f03383962f6da93f3d7d0f98a042c9282cfd6b5c527685807e2bffb0",
+          "decoded_pixel_sha256": "4b216d9731aa519d50ba8144beb57161db2a7a4996a91822bef7ff11feead9de",
+          "dimensions": [
+            256,
+            293
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0064",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_stuffie_nook_sheet.png",
+          "source_sha256": "bc8dde1a1cffcfd061f01f83d9c2549f3f7bca7d978e4df18ee651a8bee94574",
+          "source_cell_score": 3.6,
+          "evaluation": "Changed central head outline: the grey toy has two visible crown projections and a darker face while the pink paw overlaps beside it. The crowd remains friendly, but ownership of the wave and conserved head design are unclear.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0064-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            293,
+            256,
+            293
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0064/state_04.png",
+          "qa_bytes": 87302,
+          "qa_sha256": "9663d2b5431ccdad11acf977e8f6a5f75f4cf500df5a84e6793475d5514376e5",
+          "decoded_pixel_sha256": "254eda9e952a549c88bac6257c1d159bfdec11ea0f45d40f0de2f6352f048373",
+          "dimensions": [
+            256,
+            293
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0064",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_stuffie_nook_sheet.png",
+          "source_sha256": "bc8dde1a1cffcfd061f01f83d9c2549f3f7bca7d978e4df18ee651a8bee94574",
+          "source_cell_score": 3.4,
+          "evaluation": "Longest grey crown projections: the central toy now has two long rounded forms above its head. They read like changed ears as readily as raised arms. A wave must preserve the toy's identity and show an attached paw/arm with clear ownership.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0064-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            256,
+            293,
+            256,
+            293
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0064/state_05.png",
+          "qa_bytes": 86852,
+          "qa_sha256": "43115298df1b8f2effc07cc8d87d7c13efcb8cc4d9d4e4a906c76733f2043844",
+          "decoded_pixel_sha256": "f187b959722f5adc1aeceb12adf59ae5d6fc73d2161917b1dc388a5583c8b9a4",
+          "dimensions": [
+            256,
+            293
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0064",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_stuffie_nook_sheet.png",
+          "source_sha256": "bc8dde1a1cffcfd061f01f83d9c2549f3f7bca7d978e4df18ee651a8bee94574",
+          "source_cell_score": 3.6,
+          "evaluation": "Right-side raised shape: a cream form rises across the right toys and partly overlaps the grey friend's face. The original cloud-like grey crown returns. Separate the waving limb from neighboring faces and maintain one head design across states.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0064-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            512,
+            293,
+            256,
+            293
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0064/state_06.png",
+          "qa_bytes": 86584,
+          "qa_sha256": "d49f31874bf344c9d03691877b82628824386e0bdb60df985d60aa1386842e1a",
+          "decoded_pixel_sha256": "ef16174e8093248905b190fe2cbeca84a9731d5f6495865dd3295700d11d8568",
+          "dimensions": [
+            256,
+            293
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0064",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_stuffie_nook_sheet.png",
+          "source_sha256": "bc8dde1a1cffcfd061f01f83d9c2549f3f7bca7d978e4df18ee651a8bee94574",
+          "source_cell_score": 3.7,
+          "evaluation": "Lower settled group: the toys remain crowded and the central silhouette is closer to rest. Small shifts in the front row and pale fine contours still weaken individuality. Retain clear support and consistent face/ear shapes on return.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0064-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            768,
+            293,
+            256,
+            293
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0064/state_07.png",
+          "qa_bytes": 86803,
+          "qa_sha256": "cdffd3ccc62a6606e1096a6cb6384868f8ef2d974199a167e71811ab26e436f8",
+          "decoded_pixel_sha256": "91cb8c666b1fc4d8606be3540e7228be64b0b3ea0a4f9def583c8598076190af",
+          "dimensions": [
+            256,
+            293
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0064",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_stuffie_nook_sheet.png",
+          "source_sha256": "bc8dde1a1cffcfd061f01f83d9c2549f3f7bca7d978e4df18ee651a8bee94574",
+          "source_cell_score": 3.8,
+          "evaluation": "Rest return: the shell nook and broad pastel toy grouping recover a familiar rest. Crowded tiny faces and neutral outlines remain weak. Source resemblance at return cannot accept the complete friends-wave action.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        }
+      ],
+      "relationships": [
+        {
+          "score": 3.1,
+          "item": "Head versus waving limb",
+          "evaluation": "The central grey toy gains crown projections of several shapes. Their anatomical role is ambiguous; preserve its authored ears/head and make a visibly attached paw the moving part."
+        },
+        {
+          "score": 3.2,
+          "item": "Wave ownership among friends",
+          "evaluation": "Raised pink/cream shapes overlap nearby faces and small silhouettes. Clarify which friend moves and where that arm attaches. A dense source group cannot prove a readable child-facing wave."
+        },
+        {
+          "score": 4.3,
+          "item": "Nook support",
+          "evaluation": "The shell seat and rim remain broadly fixed while toys change pose. Mounted support and actual friend count/occluded identities need their own current-use review."
+        }
+      ],
+      "full_timed_motion_score": null,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "D2X-0065",
+      "source_path": "assets/flats/castle/interactions_v2/playroom_stacking_toy_sheet.png",
+      "source_sha256": "30acc6f771d26039045310cac40dad36ccf660b9b3110cfaa1238f01d5a49e85",
+      "source_dimensions": [
+        976,
+        1004
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 3.0,
+      "manifest_path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+      "manifest_sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+      "asset_id": "playroom_stacking_toy",
+      "semantic_action": "lift_and_restack_rings",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        244,
+        502
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        5,
+        3,
+        1,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.1375,
+      "cells": [
+        {
+          "id": "D2X-0065-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            244,
+            502
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0065/state_00.png",
+          "qa_bytes": 68702,
+          "qa_sha256": "279ad8988fb1c49587c120ff0a3f1cc811c959b501bdcfaab04efc2e6fc54d7b",
+          "decoded_pixel_sha256": "63a141b0cc019f44baed75cad01d5d272de3e796c5d48217051359d88ba12f23",
+          "dimensions": [
+            244,
+            502
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0065",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_stacking_toy_sheet.png",
+          "source_sha256": "30acc6f771d26039045310cac40dad36ccf660b9b3110cfaa1238f01d5a49e85",
+          "source_cell_score": 3.0,
+          "evaluation": "Rest: seven stacked rings and the front pearl are readable, but near-uniform pastel fills, grey contours and the pointed charcoal peg fail the broad painted toy material language. Preserve the seven-ring count and gold-shell/pearl design in any repair.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0065-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            244,
+            0,
+            244,
+            502
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0065/state_01.png",
+          "qa_bytes": 72214,
+          "qa_sha256": "e6cb0f291c8eb52f8b50a20da604019b6b347bf8d0fc37614832827439114efd",
+          "decoded_pixel_sha256": "94b10b6559f0d54b733c696ee0bf9016bad53cdadc8191ac3a2eb52257f8682a",
+          "dimensions": [
+            244,
+            502
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0065",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_stacking_toy_sheet.png",
+          "source_sha256": "30acc6f771d26039045310cac40dad36ccf660b9b3110cfaa1238f01d5a49e85",
+          "source_cell_score": 2.7,
+          "evaluation": "First lift duplicates the grey top ring: one grey ring floats above the peg while the complete original seven-ring stack still includes its grey top ring. Eight visible rings contradict the seven-ring rest. Flat material remains weak.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0065-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            488,
+            0,
+            244,
+            502
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0065/state_02.png",
+          "qa_bytes": 80483,
+          "qa_sha256": "f84a0d5848a655d3e76ee5843e563b6d81d9eb9ab8b7024473e19fadcfcafc9a",
+          "decoded_pixel_sha256": "90a7dd654b978748d72ab3e3648827a4753e148eb89ab05e456c61f3afa9ef3d",
+          "dimensions": [
+            244,
+            502
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0065",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_stacking_toy_sheet.png",
+          "source_sha256": "30acc6f771d26039045310cac40dad36ccf660b9b3110cfaa1238f01d5a49e85",
+          "source_cell_score": 2.8,
+          "evaluation": "Two lifted rings are readable above the fixed peg, but the lower lifted ring is mint-green rather than the cyan ring directly below grey at rest; the remaining upper stack also changes warm bands. Preserve each ring identity, count and order across the source keys.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0065-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            732,
+            0,
+            244,
+            502
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0065/state_03.png",
+          "qa_bytes": 80831,
+          "qa_sha256": "68951f7604900c3a101b4a53aee810ed220fbe1cc14a5a1f0e54eea64463ecdd",
+          "decoded_pixel_sha256": "8b3525ff017172c44bf707925d699ab70e189fcd1e2660c648e7aa0f800022cb",
+          "dimensions": [
+            244,
+            502
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0065",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_stacking_toy_sheet.png",
+          "source_sha256": "30acc6f771d26039045310cac40dad36ccf660b9b3110cfaa1238f01d5a49e85",
+          "source_cell_score": 2.8,
+          "evaluation": "The two separated lifted rings remain clear with stable support, but retain the mint-versus-cyan identity mismatch and flat colour bands. This higher pose proves a source state only; no whole lift/return motion score.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0065-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            502,
+            244,
+            502
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0065/state_04.png",
+          "qa_bytes": 78530,
+          "qa_sha256": "7ae6ccde972d245d1b7d0033c97019c5afe178fa1fc4a873c9864d47a9a87fda",
+          "decoded_pixel_sha256": "4e3b655662c1c288f7bf7ad98739a25d5105646b1bae1a9fa7e5dfd397a9d292",
+          "dimensions": [
+            244,
+            502
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0065",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_stacking_toy_sheet.png",
+          "source_sha256": "30acc6f771d26039045310cac40dad36ccf660b9b3110cfaa1238f01d5a49e85",
+          "source_cell_score": 2.8,
+          "evaluation": "The upper two rings move into close vertical contact above the peg. Their grey/mint identities retain the colour mismatch with rest, and grey is substantially close to or overlaps the lower ring. Stable base does not cure source material or conserved identity.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0065-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            244,
+            502,
+            244,
+            502
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0065/state_05.png",
+          "qa_bytes": 75626,
+          "qa_sha256": "e32d477308452fc4b21547fdb6e5fedb76b895d8402559807b25f0ff01e91dac",
+          "decoded_pixel_sha256": "6bbc47036df78960845bb4cba7d05c1fcc9db83071729af2f4774ae25987a92f",
+          "dimensions": [
+            244,
+            502
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0065",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_stacking_toy_sheet.png",
+          "source_sha256": "30acc6f771d26039045310cac40dad36ccf660b9b3110cfaa1238f01d5a49e85",
+          "source_cell_score": 2.9,
+          "evaluation": "Mint ring now surrounds the peg, with grey still suspended above. Hole-to-peg placement reads as a return step, but the lifted mint still disagrees with the cyan original. The front pearl is not visible here and may be occluded; the final unobstructed state must resolve its identity.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0065-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            488,
+            502,
+            244,
+            502
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0065/state_06.png",
+          "qa_bytes": 72263,
+          "qa_sha256": "d120917a1f08dbab045200d57c2177c698b23b5421a3a287c8b3487767f1d977",
+          "decoded_pixel_sha256": "4393a7fa5452111adcc312dda4a8e13872453c89313fa9983bd782df288c3ce2",
+          "dimensions": [
+            244,
+            502
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0065",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_stacking_toy_sheet.png",
+          "source_sha256": "30acc6f771d26039045310cac40dad36ccf660b9b3110cfaa1238f01d5a49e85",
+          "source_cell_score": 2.9,
+          "evaluation": "Both returning rings surround the peg and the descending action is readable. Mint remains different from the cyan ring of the original stack. The unshown pearl may still be occluded by the returning rings; avoid calling this alone a disappearance.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0065-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            732,
+            502,
+            244,
+            502
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0065/state_07.png",
+          "qa_bytes": 67051,
+          "qa_sha256": "0b6ca48254622ee2753950694e464296842f3f082c63591188c747a5822f2158",
+          "decoded_pixel_sha256": "c0d8a1f49ea69760c24c0342573ddd5cffd6ab9526121b26703508909009fb11",
+          "dimensions": [
+            244,
+            502
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0065",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_stacking_toy_sheet.png",
+          "source_sha256": "30acc6f771d26039045310cac40dad36ccf660b9b3110cfaa1238f01d5a49e85",
+          "source_cell_score": 2.7,
+          "evaluation": "Restacked endpoint returns the cyan colour below grey, so the moving mint ring changes identity on settling. The exposed upper front of the peg no longer shows the gold pearl visible at rest. The loop cannot receive a conservation pass, and the flat material remains below floor.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        }
+      ],
+      "relationships": [
+        {
+          "item": "Rest to first lift ring conservation",
+          "score": 2.5,
+          "evaluation": "First lift adds a floating grey ring while the original complete stack remains. Repair the exact source transition rather than hiding it through timing."
+        },
+        {
+          "item": "Cyan to mint to cyan moving-ring identity",
+          "score": 2.7,
+          "evaluation": "The second moving ring changes colour across rest, lift and restacked states. Keep one authored ring design through every pose."
+        },
+        {
+          "item": "Pearl identity at final rest",
+          "score": 2.7,
+          "evaluation": "The last unobstructed peg lacks the original front pearl. Mid-span occlusion alone is inconclusive; the rest/settled comparison exposes the missing design detail."
+        },
+        {
+          "item": "Base support and pivot source consistency",
+          "score": 4.5,
+          "evaluation": "All8 native cells share the same bottom support height and broadly stable base silhouette. Existing declared1px horizontal anchor spread is separate metadata; source geometry cannot accept actual runtime playback."
+        }
+      ],
+      "full_timed_motion_score": null,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "D2X-0066",
+      "source_path": "assets/flats/castle/interactions_v2/playroom_blocks_sheet.png",
+      "source_sha256": "434b2a37678a51d319dc0ecfc9dcb2e5aee0a2753230004796716fa32e595106",
+      "source_dimensions": [
+        1024,
+        778
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 4.3,
+      "manifest_path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+      "manifest_sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+      "asset_id": "playroom_blocks",
+      "semantic_action": "topple_and_restack_blocks",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        256,
+        389
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        5,
+        3,
+        1,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.1375,
+      "cells": [
+        {
+          "id": "D2X-0066-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            256,
+            389
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0066/state_00.png",
+          "qa_bytes": 45475,
+          "qa_sha256": "b1ce55179f1cf6b334250ddf114a0885e8d99722515f769567408a0d69a1e70f",
+          "decoded_pixel_sha256": "49b8c8b93478f2620650fdbb8ff7dd874bbc5e12f032234ea4a64e77e268019f",
+          "dimensions": [
+            256,
+            389
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0066",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_blocks_sheet.png",
+          "source_sha256": "434b2a37678a51d319dc0ecfc9dcb2e5aee0a2753230004796716fa32e595106",
+          "source_cell_score": 4.3,
+          "evaluation": "Stacked rest: three rounded painted blocks have distinct coral-shell, mint-star and lavender-shell identities. Broad colour masses work well. Thin grey contours and the soft surface treatment still need stronger painted value grouping at phone scale.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0066-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            256,
+            0,
+            256,
+            389
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0066/state_01.png",
+          "qa_bytes": 46427,
+          "qa_sha256": "4861788c658d7c36bde2b3a4c34764f75446ca0604b0045ddac65f7af4797074",
+          "decoded_pixel_sha256": "6d910e268c29ae8d00a094fa58ae3ccfdd0d08d3cd883c841582fb5d95207dfd",
+          "dimensions": [
+            256,
+            389
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0066",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_blocks_sheet.png",
+          "source_sha256": "434b2a37678a51d319dc0ecfc9dcb2e5aee0a2753230004796716fa32e595106",
+          "source_cell_score": 4.3,
+          "evaluation": "Top block tips: the mint-star cube rotates above the two supported base blocks. All three symbols and colours remain conserved. It is a clear source pose, but its support and topple trajectory need actual playback review.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0066-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            512,
+            0,
+            256,
+            389
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0066/state_02.png",
+          "qa_bytes": 45985,
+          "qa_sha256": "691d40388a2f99bfea4fc13e5de943f6f30c23303081c1a9e08d61279a735f62",
+          "decoded_pixel_sha256": "6b6eecd961a976f33f3f134e0693255c59f8a2a6963fd225471f1bca66a91593",
+          "dimensions": [
+            256,
+            389
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0066",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_blocks_sheet.png",
+          "source_sha256": "434b2a37678a51d319dc0ecfc9dcb2e5aee0a2753230004796716fa32e595106",
+          "source_cell_score": 4.2,
+          "evaluation": "Topple begins: the mint cube leans between the other blocks as lavender tips outward. Three distinct identities remain visible. Contact overlaps are dense and soft contours reduce separation; refine the causal edge-to-edge relationship.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0066-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            768,
+            0,
+            256,
+            389
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0066/state_03.png",
+          "qa_bytes": 51512,
+          "qa_sha256": "1823942c043a559ebfe40581c85ccd422e28d4bd4b95b4895734b51085d2fd32",
+          "decoded_pixel_sha256": "6d62faae97cc022b2ab391635e576da435908b67f5e7e4a328e87dcc6ef1d5b7",
+          "dimensions": [
+            256,
+            389
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0066",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_blocks_sheet.png",
+          "source_sha256": "434b2a37678a51d319dc0ecfc9dcb2e5aee0a2753230004796716fa32e595106",
+          "source_cell_score": 4.2,
+          "evaluation": "Separated falling blocks: all three cubes and their symbols are visible in tilted poses. Their identity is conserved. This airborne source key alone cannot establish gravity, collision, support or a restacking action.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0066-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            389,
+            256,
+            389
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0066/state_04.png",
+          "qa_bytes": 33526,
+          "qa_sha256": "e3543bcb0ee0cf0b2460f399251db568d3e936ffb7ce1b22fc7a3df9f0e8a536",
+          "decoded_pixel_sha256": "72820481ab68adc70ccd7322a356a2795c968f94d73831899a465e0ee2074ad9",
+          "dimensions": [
+            256,
+            389
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0066",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_blocks_sheet.png",
+          "source_sha256": "434b2a37678a51d319dc0ecfc9dcb2e5aee0a2753230004796716fa32e595106",
+          "source_cell_score": 4.0,
+          "evaluation": "Floor row: three front-facing blocks sit side by side. Their painted symbols are conserved, but visible block sizes/depths are smaller and flatter than the stacked rest. Keep physical block dimensions stable across orientation changes.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0066-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            256,
+            389,
+            256,
+            389
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0066/state_05.png",
+          "qa_bytes": 39626,
+          "qa_sha256": "b7279c66b6152e275d6e2a83a1d8ef86f50428d44250aa42c0a2e365f448ec49",
+          "decoded_pixel_sha256": "981357f54d001485c9b1509cc18326c04dd39d251ea4ccfa25577db24dcd3910",
+          "dimensions": [
+            256,
+            389
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0066",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_blocks_sheet.png",
+          "source_sha256": "434b2a37678a51d319dc0ecfc9dcb2e5aee0a2753230004796716fa32e595106",
+          "source_cell_score": 4.1,
+          "evaluation": "Restack preparation: the mint block is behind the two tilted warm blocks. The identities remain intact, but contact and lift ownership are not established by this isolated pose. Avoid using a magical return to imply a child-owned physical restack.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0066-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            512,
+            389,
+            256,
+            389
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0066/state_06.png",
+          "qa_bytes": 38775,
+          "qa_sha256": "d4e89502e8dca44ce441d3b9268faf86c385fd772153aaf499cc4838b6c5bd14",
+          "decoded_pixel_sha256": "39cfff067e678b2a266d6933adfe2c4e390710f319be74931e8a7b2d8cf73be6",
+          "dimensions": [
+            256,
+            389
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0066",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_blocks_sheet.png",
+          "source_sha256": "434b2a37678a51d319dc0ecfc9dcb2e5aee0a2753230004796716fa32e595106",
+          "source_cell_score": 4.2,
+          "evaluation": "Hovering top return: the mint-star block is upright above a visible gap over the base pair. It is a useful distinct return pose. Verify its settling contact in the actual sequence; preserve scale and improve outlines.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0066-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            768,
+            389,
+            256,
+            389
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0066/state_07.png",
+          "qa_bytes": 39587,
+          "qa_sha256": "e4e80f86aa64d4adf7667cdd81746b4b3143b2b627eec70c5dd8276a635c2491",
+          "decoded_pixel_sha256": "39a04385ecdfd8a2d747705849348e16edd5652911083fe71bad534e5a09c87c",
+          "dimensions": [
+            256,
+            389
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0066",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_blocks_sheet.png",
+          "source_sha256": "434b2a37678a51d319dc0ecfc9dcb2e5aee0a2753230004796716fa32e595106",
+          "source_cell_score": 4.3,
+          "evaluation": "Restacked endpoint: the mint-star block again sits on the coral and lavender pair. All three designs are conserved. The broad painted forms are promising, but soft thin contours and the prior row-size change keep this source at an inclusive priority.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        }
+      ],
+      "relationships": [
+        {
+          "score": 4.6,
+          "item": "Three block identities",
+          "evaluation": "All eight keys retain exactly the three visible coloured blocks and their distinct symbols. This bounded source conservation opinion does not accept their motion or runtime use."
+        },
+        {
+          "score": 4.0,
+          "item": "Conserved dimensions",
+          "evaluation": "The floor-row key presents noticeably smaller/flatter blocks than stacked rest. Maintain physical block sizes while changing orientation."
+        },
+        {
+          "score": 3.8,
+          "item": "Restack and declared tail",
+          "evaluation": "The mint block hovers before settling. After key7, the manifest revisits 5/3/1 before0, introducing a second rearrangement. Actual input ownership, contact and timed return remain unscored."
+        }
+      ],
+      "full_timed_motion_score": null,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "D2X-0067",
+      "source_path": "assets/flats/castle/interactions_v2/playroom_play_tent_sheet.png",
+      "source_sha256": "75c3135758dc001d330dc93819a17c7d670d32739c555eb84e7ed53904f6706a",
+      "source_dimensions": [
+        1024,
+        698
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 4.2,
+      "manifest_path": "assets/flats/castle/interactions_v2/castle_interactions_v2.json",
+      "manifest_sha256": "211fd9b610a3fb343533a613e1b607579076332e52d59ebf68dc521418d571de",
+      "asset_id": "playroom_play_tent",
+      "semantic_action": "open_and_close_tent_flap",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        256,
+        349
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.125,
+      "cells": [
+        {
+          "id": "D2X-0067-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            256,
+            349
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0067/state_00.png",
+          "qa_bytes": 90366,
+          "qa_sha256": "8dd542562e78e614bcfafa3a6f3159f25c14f7ccc51c9e752a8db0c7f9a482ff",
+          "decoded_pixel_sha256": "20fed3c1865ae740a3bb596b17c0ae8edab3ebd5d0f1e95fb9fcc5cccfa027e4",
+          "dimensions": [
+            256,
+            349
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0067",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_play_tent_sheet.png",
+          "source_sha256": "75c3135758dc001d330dc93819a17c7d670d32739c555eb84e7ed53904f6706a",
+          "source_cell_score": 4.3,
+          "evaluation": "Open tent: broad navy cloth, warm gold poles and a shell finial frame the visible plush toys. The one opening is child-readable and the floor mat supports it. Cloth bands are still restrained/flat; mounted contrast and target emphasis remain separate.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0067-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            256,
+            0,
+            256,
+            349
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0067/state_01.png",
+          "qa_bytes": 88961,
+          "qa_sha256": "4ccd3fa3fc9210450c3c9557ac72d6eccd5c92faf71892354b44484fa2de0895",
+          "decoded_pixel_sha256": "102985614b46b0e2282cb4253cfac383d6553d57758382c2129f0204358a2bb0",
+          "dimensions": [
+            256,
+            349
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0067",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_play_tent_sheet.png",
+          "source_sha256": "75c3135758dc001d330dc93819a17c7d670d32739c555eb84e7ed53904f6706a",
+          "source_cell_score": 4.3,
+          "evaluation": "Closing flaps: the attached panels narrow the opening and correctly occlude the outer toys. Their head identities remain readable where exposed. The fixed finial, poles and mat help preserve support; refine cloth folds rather than moving the friends.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0067-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            512,
+            0,
+            256,
+            349
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0067/state_02.png",
+          "qa_bytes": 81477,
+          "qa_sha256": "d311dd8edc714eb79d7f52601d611bd70c7db54071b3e083455eb235b6208270",
+          "decoded_pixel_sha256": "3c8a65d951e91880b3029fdd837e101eb28e5d704c7608629d826ee686dcf0d3",
+          "dimensions": [
+            256,
+            349
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0067",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_play_tent_sheet.png",
+          "source_sha256": "75c3135758dc001d330dc93819a17c7d670d32739c555eb84e7ed53904f6706a",
+          "source_cell_score": 4.3,
+          "evaluation": "Narrow opening: the two panels nearly meet and only a slim central slice of the toys remains. This is correct occlusion, not proof of vanished toys. Keep a clear centre seam and painted fabric thickness at the mounted size.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0067-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            768,
+            0,
+            256,
+            349
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0067/state_03.png",
+          "qa_bytes": 77317,
+          "qa_sha256": "c4c5a16a7de4abdedee977fe468ea8ee007be70a9fbdf682d19002ad80c161f6",
+          "decoded_pixel_sha256": "a847af0219926d3cd03f54fc44ff87ae7661306054865a8fd11302542352752e",
+          "dimensions": [
+            256,
+            349
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0067",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_play_tent_sheet.png",
+          "source_sha256": "75c3135758dc001d330dc93819a17c7d670d32739c555eb84e7ed53904f6706a",
+          "source_cell_score": 4.3,
+          "evaluation": "Closed tent: a single gold-edged central seam completes the closure. The toys are hidden behind attached fabric, while poles, finial and mat retain their design. Full action timing and child feedback are still unscored.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0067-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            349,
+            256,
+            349
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0067/state_04.png",
+          "qa_bytes": 85421,
+          "qa_sha256": "4c5111e5d9ff219331b07d38a85f6d1ea2531090f8ef65ac5000bac6047c2a2b",
+          "decoded_pixel_sha256": "932494f573dca510dbcb04a4bd041c15d667426d2068caa61c191ecaf4231899",
+          "dimensions": [
+            256,
+            349
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0067",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_play_tent_sheet.png",
+          "source_sha256": "75c3135758dc001d330dc93819a17c7d670d32739c555eb84e7ed53904f6706a",
+          "source_cell_score": 4.2,
+          "evaluation": "Small reopening: the centre gap reveals the same cream/mint toys behind the cloth. The attached flap and fixed support are coherent. In the declared order this is followed by the closed key again, so its intended turnaround needs review.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0067-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            256,
+            349,
+            256,
+            349
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0067/state_05.png",
+          "qa_bytes": 89055,
+          "qa_sha256": "491fe4c4cfda7020376a33211849024156c23c0f1cbb9e51a6bc035300ce2fcc",
+          "decoded_pixel_sha256": "6f3250aae5109c9d1fd8013c28946b41711f00e00a4d393bf21c9b48e44343b9",
+          "dimensions": [
+            256,
+            349
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0067",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_play_tent_sheet.png",
+          "source_sha256": "75c3135758dc001d330dc93819a17c7d670d32739c555eb84e7ed53904f6706a",
+          "source_cell_score": 4.1,
+          "evaluation": "Curved reopening flap: a wider gap reveals the toys, but the left inner panel bows into a bulb-like curve rather than a simple cloth fold. This authored key is absent from the literal manifest timeline; do not imply it currently plays.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": false,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0067-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            512,
+            349,
+            256,
+            349
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0067/state_06.png",
+          "qa_bytes": 90458,
+          "qa_sha256": "7606654c01334f46d9cb04588312adb646d1e10fadc947c69eede66f6894398c",
+          "decoded_pixel_sha256": "344b61cfe4da78e4d24e46bb61b2cb9fa87e7d90af3e089a2db08beeb4278fa7",
+          "dimensions": [
+            256,
+            349
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0067",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_play_tent_sheet.png",
+          "source_sha256": "75c3135758dc001d330dc93819a17c7d670d32739c555eb84e7ed53904f6706a",
+          "source_cell_score": 4.3,
+          "evaluation": "Fully open return: the navy panels again expose the original toy group and supported mat. The broad silhouette is clear. This authored return key is absent from the literal manifest timeline, so it is a source-only opinion.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": false,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0067-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            768,
+            349,
+            256,
+            349
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0067/state_07.png",
+          "qa_bytes": 90387,
+          "qa_sha256": "e3a6debb1aac173275e85d3752129f954db9ed9453cf1274671d40601c57775d",
+          "decoded_pixel_sha256": "7b8308fd677995b8c02bdc8ef255f7593e9723febb5242893ca5079d2f37a91a",
+          "dimensions": [
+            256,
+            349
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0067",
+          "source_path": "assets/flats/castle/interactions_v2/playroom_play_tent_sheet.png",
+          "source_sha256": "75c3135758dc001d330dc93819a17c7d670d32739c555eb84e7ed53904f6706a",
+          "source_cell_score": 4.3,
+          "evaluation": "Open settling endpoint: the initial broad tent opening and toy group are retained. It is a useful source endpoint with fixed support. The manifest does not reference this cell; no actual current return or complete-action pass follows from it.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": false,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        }
+      ],
+      "relationships": [
+        {
+          "score": 4.6,
+          "item": "Toy occlusion behind attached fabric",
+          "evaluation": "Closing panels hide the toys without visibly substituting their design. Reopening exposes the same group; preserve that supported occlusion logic."
+        },
+        {
+          "score": 4.6,
+          "item": "Tent support",
+          "evaluation": "Finial, poles and floor mat remain broadly fixed while the centre panels change shape. This is source-level conservation only."
+        },
+        {
+          "score": 3.4,
+          "item": "Declared turnaround and unused poses",
+          "evaluation": "Literal order is 0,1,2,3,4,3,2,1,0. It briefly opens at4 then closes at3, and omits authored5/6/7. Record all eight source opinions while keeping this manifest fact distinct from actual timed/game acceptance."
+        }
+      ],
+      "full_timed_motion_score": null,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "owner_acceptance": null
+    },
+    {
+      "id": "D2X-0070",
+      "source_path": "assets/flats/castle/interactions_v4/sheets/playroom_shelf_sailboat_sheet.png",
+      "source_sha256": "759a5da53c1dc3ed494951a37803616e9ac2986e6d040486abc7873551575975",
+      "source_dimensions": [
+        1024,
+        512
+      ],
+      "source_mode": "RGBA",
+      "existing_whole_source_score": 3.8,
+      "manifest_path": "assets/flats/castle/interactions_v4/castle_interactions_v4.json",
+      "manifest_sha256": "21118917c51009ca57528d6a09b354aeb9a5d49dc21667bd7403d6fb79611cf8",
+      "asset_id": "playroom_shelf_sailboat",
+      "semantic_action": "unfurl_sail_and_rock_boat",
+      "grid": [
+        4,
+        2
+      ],
+      "cell_size": [
+        256,
+        256
+      ],
+      "declared_key_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0
+      ],
+      "declared_frame_duration_seconds": 0.13,
+      "cells": [
+        {
+          "id": "D2X-0070-CELL-00",
+          "frame_index": 0,
+          "source_region": [
+            0,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0070/state_00.png",
+          "qa_bytes": 4586,
+          "qa_sha256": "47b875dea042f51f3aebbe1cef299345f9f4a964f5af14a929859eebc6667592",
+          "decoded_pixel_sha256": "7cd40d6de55f59d98bb5ed4eed563ecbfd70f8a145d478c2d9a6e8c982319c69",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0070",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/playroom_shelf_sailboat_sheet.png",
+          "source_sha256": "759a5da53c1dc3ed494951a37803616e9ac2986e6d040486abc7873551575975",
+          "source_cell_score": 3.7,
+          "evaluation": "First boat: a tiny pink/gold sailboat has a slanted triangular sail and flat strip-like hull. The artwork occupies only about fifty pixels of the 256-square source cell. Its hull and mast design differ from the later rounded-bowl boat; retain one toy identity.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0070-CELL-01",
+          "frame_index": 1,
+          "source_region": [
+            256,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0070/state_01.png",
+          "qa_bytes": 5164,
+          "qa_sha256": "6dd4e7cea1d56ea1d9d6fe096e1c22f2dcdf20ee83a01b22a62d4335755e5ae4",
+          "decoded_pixel_sha256": "f585367c7e7b867e1520d1580a68d828ca931c0abc714398159dcfc8e11a33f0",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0070",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/playroom_shelf_sailboat_sheet.png",
+          "source_sha256": "759a5da53c1dc3ed494951a37803616e9ac2986e6d040486abc7873551575975",
+          "source_cell_score": 3.8,
+          "evaluation": "Raised-mast boat: a rounded pink bowl-like hull supports an upright mast, flag and partial cream sail. The silhouette is readable but very small. This substantially changes the first key's flat hull/mast proportions; clean outlines and conserve the original design.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0070-CELL-02",
+          "frame_index": 2,
+          "source_region": [
+            512,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0070/state_02.png",
+          "qa_bytes": 4795,
+          "qa_sha256": "56bde6f9570a7713c7555446a519fbb59b72e109f7c1d30b2d0c30783d806ca6",
+          "decoded_pixel_sha256": "bf07ad80439c964ee7e79d7f6cad7ee49541796eabcc231c4263bce14afd1ebb",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0070",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/playroom_shelf_sailboat_sheet.png",
+          "source_sha256": "759a5da53c1dc3ed494951a37803616e9ac2986e6d040486abc7873551575975",
+          "source_cell_score": 3.7,
+          "evaluation": "Narrowing sail: the cream triangle becomes slimmer beside the upright mast and rounded hull. The basic later boat identity remains. The fine rigging and tiny flag are difficult to distinguish; simplify painted clusters without changing the construction.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0070-CELL-03",
+          "frame_index": 3,
+          "source_region": [
+            768,
+            0,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0070/state_03.png",
+          "qa_bytes": 4441,
+          "qa_sha256": "894ece6393c50f14ca290e108318abd65480cf7630a3176daa807b43a006889f",
+          "decoded_pixel_sha256": "03248c3345cbe5df70f0b66336e2954b6ab60ae3ee9cdfddf9a88304e8d380ef",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0070",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/playroom_shelf_sailboat_sheet.png",
+          "source_sha256": "759a5da53c1dc3ed494951a37803616e9ac2986e6d040486abc7873551575975",
+          "source_cell_score": 3.7,
+          "evaluation": "Nearly furled sail: the narrow cream strip stays attached to the mast, with the pink hull below. Ownership is clearer than a detached sail. The small native detail and fine edges remain weak, and rocking support requires actual playback.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0070-CELL-04",
+          "frame_index": 4,
+          "source_region": [
+            0,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0070/state_04.png",
+          "qa_bytes": 4525,
+          "qa_sha256": "ce068767c142c5dfa82a9c111e184efbb6812dd92b181bed7e10966815aca096",
+          "decoded_pixel_sha256": "b9bee73997907f463c53fb90cfe3ab5d30bb5da674b05407af4b4816503f4c2e",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0070",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/playroom_shelf_sailboat_sheet.png",
+          "source_sha256": "759a5da53c1dc3ed494951a37803616e9ac2986e6d040486abc7873551575975",
+          "source_cell_score": 3.7,
+          "evaluation": "Furled state: little cream sail remains beside the mast and flag. The rounded hull is retained. The action consequence is subtle at native scale; keep a broad readable furled bundle and verify the mounted interaction separately.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0070-CELL-05",
+          "frame_index": 5,
+          "source_region": [
+            256,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0070/state_05.png",
+          "qa_bytes": 5214,
+          "qa_sha256": "6d69bd7f977eaea3a61f08af9b9c2aaca67f194764877a4b0e276f86e6948015",
+          "decoded_pixel_sha256": "109eac0e630c80b39d4ecc1ca873b76b1e15d19d926236a67b95ab1d03b32366",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0070",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/playroom_shelf_sailboat_sheet.png",
+          "source_sha256": "759a5da53c1dc3ed494951a37803616e9ac2986e6d040486abc7873551575975",
+          "source_cell_score": 3.8,
+          "evaluation": "Partial unfurl: a cream triangular sail opens again beside the mast. The attached edge is useful and the later hull remains stable. Tiny fine rigging and the original-key identity mismatch still need refinement.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0070-CELL-06",
+          "frame_index": 6,
+          "source_region": [
+            512,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0070/state_06.png",
+          "qa_bytes": 5202,
+          "qa_sha256": "f42dfb5ac6afb9c993e986ada4c029af891aa78d231155807a9a06c34a45de48",
+          "decoded_pixel_sha256": "c3cdc331a8473dc99c2dba79ba52c62496eeed3218570479b98ccc705a46be3d",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0070",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/playroom_shelf_sailboat_sheet.png",
+          "source_sha256": "759a5da53c1dc3ed494951a37803616e9ac2986e6d040486abc7873551575975",
+          "source_cell_score": 3.8,
+          "evaluation": "Larger sail return: the cream triangle is more visible and remains rooted at the mast. The rounded pink hull is identifiable. Preserve that design across the loop seam and improve the tiny source material/outline clarity.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        },
+        {
+          "id": "D2X-0070-CELL-07",
+          "frame_index": 7,
+          "source_region": [
+            768,
+            256,
+            256,
+            256
+          ],
+          "qa_path": "audit/job_shared_atlas_state_review_v1_20261003/native_cells/D2X-0070/state_07.png",
+          "qa_bytes": 5837,
+          "qa_sha256": "e78807c7c206db1223c0576c028d7f7afda85cc02823cf471a70153702f37516",
+          "decoded_pixel_sha256": "90098356c991f7f5d95b00b7f8b52e7fd9e53867d3ca9c00e1fcefeec43f9780",
+          "dimensions": [
+            256,
+            256
+          ],
+          "mode": "RGBA",
+          "parent_source_id": "D2X-0070",
+          "source_path": "assets/flats/castle/interactions_v4/sheets/playroom_shelf_sailboat_sheet.png",
+          "source_sha256": "759a5da53c1dc3ed494951a37803616e9ac2986e6d040486abc7873551575975",
+          "source_cell_score": 3.9,
+          "evaluation": "Full sail endpoint: a broad cream triangle is clearest here, above the rounded pink hull. The final design does not match the first key's flatter hull and different rig proportions. Closing the declared loop to0 needs one conserved toy, not a disguised reset.",
+          "direct_native_cell_review": true,
+          "review_method": "Eight separate original-size native PNG crops viewed directly; no contact-sheet-only or inherited whole-source grading.",
+          "referenced_in_declared_timeline": true,
+          "priority": true,
+          "current_mounted_score": null,
+          "current_complete_action_score": null,
+          "owner_acceptance": null
+        }
+      ],
+      "relationships": [
+        {
+          "score": 3.0,
+          "item": "First versus final boat identity",
+          "evaluation": "Key0 has a flatter strip-like hull and different mast/sail proportions; keys1–7 use a rounded bowl hull. The declared7→0 seam changes the toy design."
+        },
+        {
+          "score": 4.1,
+          "item": "Attached furl/unfurl source states",
+          "evaluation": "The later cream sail narrows and opens beside the same upright mast. The attachment is useful, but small source detail, rocking/support and complete timed action remain unscored."
+        },
+        {
+          "score": 3.6,
+          "item": "Native child readability",
+          "evaluation": "The boat occupies only a small part of each 256-square cell. Its fine rigging and flag need mounted-size review before a child-readable interaction can pass."
+        }
+      ],
+      "full_timed_motion_score": null,
+      "current_mounted_score": null,
+      "current_complete_action_score": null,
+      "owner_acceptance": null
+    }
+  ],
+  "no_source_modification": true,
+  "no_resampling": true,
+  "runtime_changed": false,
+  "full_timed_motion_score": null,
+  "owner_acceptance": null,
+  "qualification": "Every authored source cell has its own drafting opinion. Declared manifest order and static relationships are distinct from complete timed playback/current mounted gameplay/training/device/child/owner acceptance. The eight tent cells are reviewed even though its literal manifest omits 5/6/7. Scores at or below4.5 remain inclusive priorities."
+}

@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "command": [
+    "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "-m",
+    "unittest",
+    "tools.tests.test_audit_document_authority",
+    "tools.tests.test_audit_development"
+  ],
+  "exit_code": 0,
+  "started_utc": "2026-10-03T10:32:05.640589+00:00",
+  "finished_utc": "2026-10-03T10:32:22.622824+00:00",
+  "working_head": "c7817974fb23913c1d764c718a70a5932cacb883",
+  "stdout_sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+  "stderr_sha256": "b4a0acd8a859604802139e71c21011aae0116253d7e10e42eaf75039eea8a9fe",
+  "qualification": "Machine structural/regression evidence only. No new source/native art/motion/runtime/device/child/owner acceptance. Strict2D satisfaction remains separate from no-regression."
+}
