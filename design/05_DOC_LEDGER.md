@@ -1100,3 +1100,6 @@ Kept as-is; noted so a future edit updates every copy.
 
 | `assets_src/imagegen/candy_wrap_scene_context_v1_20261003/index.html` | 🟢 | `SUPPORTING_CURRENT`; two complete painted scene natives/16 source opinions preserve clutter4.2 rejection and clean4.5 partial-fold starting still, background4.4. A5 every41 native frames/10 components rejected3.1; A6 every41 native frames/10 components rejected2.6 for absent complete cover/release and late cuff/sweet distortion. No game/cinematic/device/child/owner acceptance. |
 | `audit/job_artwork_refinement_live/ALL_ITEMS_V48.original.json` | ⚪ | `HISTORICAL_SUPPORTING`; exact2047-entry register before two new complete painted Candy context source opinions. |
+
+| `assets_src/imagegen/candy_cover_pose_v1_20261003/index.html` | 🟢 | `SUPPORTING_CURRENT`; one targeted complete gold-cover/pressing native and10 individual source opinions. Cover endpoint4.6,whole still4.5 provisional,inherited room4.4; all six local motion failures/current WRAP2.8 remain separate. No game/action/device/child/owner acceptance. |
+| `audit/job_artwork_refinement_live/ALL_ITEMS_V49.original.json` | ⚪ | `HISTORICAL_SUPPORTING`; exact2049-entry register before one targeted covering-and-pressing source. |

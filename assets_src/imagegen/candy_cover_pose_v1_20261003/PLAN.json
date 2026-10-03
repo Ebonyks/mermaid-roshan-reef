@@ -1,0 +1,53 @@
+{
+  "status": "SPECIFIC_COVER_POSE_PLANNED_NO_OUTPUT_YET",
+  "planned_utc": "2026-10-03T09:48:03.563220+00:00",
+  "baseline": "a77521a4f43b831b67fbf3b88f18fd1c5d51707a",
+  "scope": "One targeted complete-cover-and-press pose derived from clean painted context; preserve originals, no production binding or additional Comfy retry before direct still review.",
+  "profile": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+  "references": [
+    {
+      "path": "assets_src/imagegen/candy_wrap_scene_context_v1_20261003/attempt02/native.png",
+      "sha256": "b126a8ab0f1c0d1e720588335beb3bdb6f1e2b4153ff1e2deeacaf5443d2ec62",
+      "role": "edit_target_exact_full_scene_identity_and_partial_gold_fold"
+    }
+  ],
+  "reuse_inventory": [
+    {
+      "path": "assets_src/imagegen/candy_wrap_scene_context_v1_20261003/attempt02/native.png",
+      "sha256": "b126a8ab0f1c0d1e720588335beb3bdb6f1e2b4153ff1e2deeacaf5443d2ec62",
+      "reuse_evaluation": "Reuse exact clean contextual painting, provisional starting still4.5; only partial cover. Whole current motion fails."
+    },
+    {
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt03/native.png",
+      "sha256": "44f56faf36de05945af71284de03353ceb790eb3b33f67ce9f411ced556e17f8",
+      "reuse_evaluation": "Earlier4-key source has gold contact endpoints4.5 but face/table/sweet registration continuity4.2; its fold key still exposes red ends. Not the exact clean contextual complete cover."
+    },
+    {
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt04/native.png",
+      "sha256": "38320ef203ab67cdcfbc9c4dfde9d502842421be05f0d721e5c8155df2b61159",
+      "reuse_evaluation": "Earlier registration edit failed4.1 and changes wrapper belly size. Not reusable for this exact endpoint."
+    },
+    {
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt13/native.png",
+      "sha256": "50d498cb1ccb858792606347941e98b40f10188ad517c9039411c73cc22d1b04",
+      "reuse_evaluation": "Existing isolated partial-fold source4.5; coverage4.2, different whole scene context."
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_candymaker_mover.png",
+      "sha256": "4e77bdc100f28a4a4639190c9be820ed9b05f6361d7ebf16fb250dbde92b585f",
+      "reuse_evaluation": "Existing decorative prewrapped candy lacks supported sheet/fold/contact states; established current workflow review2.8 retained."
+    }
+  ],
+  "prompt": "Use case: precise-object-edit\nImage 1 is the complete existing painted Candy Maker scene. Make exactly one targeted action-pose change: complete the far-edge fold over the SAME red oval sweet. Return the ENTIRE same 16:9 landscape painting.\nPreserve the exact character face, eyes, brown hair, rainbow ribbon, hat, costume, sleeve-to-arm connections, two coral quilted oven mittens, camera, character size, lavender worktop and candy-factory background. Keep exactly TWO hands, each belonging to her original visible forearm. Preserve ONE original red sweet in its exact position and size, on the same single gold sheet. No extra character, hand, bare finger, sweet, table prop or decoration.\nChange only the already partially folded gold flap and the two existing mitten contact poses. The far gold flap now bends physically down and forward over the rounded top of the supported sweet. Its free edge reaches the near/front lower side of that sweet, completely hiding ALL red of the sweet under the opaque same gold paper. It conforms gently to the original small oval volume; it is not a new giant lump, bag, tube, disconnected ribbon or flat curtain. The rest of the original sheet remains attached and spread on the table around that SAME covered sweet, with its free side ends still open for the later neck pinches and opposite twists. Do not finish those later twists yet.\nHer original screen-left mitten presses the left-center of this just-laid-down flap onto the rounded covered sweet; her original screen-right mitten braces and presses its right edge. The two contacts visibly belong to the same physical fold. Show only the existing rounded mitten palms/thumbs; do not grow fingers or add floating hands. Keep the head and body fixed; preserve the original small supported sweet location and tabletop registration.\nKeep the same painted 2D storybook material, plum outlines, broad satin gold value bands and restrained paper creases. No photorealism, realistic 3D, vector placeholder, UI, text, sparkle, glowing substitute, cropping, collage or new scene. This is one complete covering-and-pressing key pose, not a motion sequence and not final acceptance.",
+  "prompt_sha256": "9713ef47367260d88be246334f4a25359dfd7653989ef4d0cf4c7cee01735a78",
+  "generation_method": "built_in_imagegen_precise_object_edit",
+  "required_evidence": [
+    "native dimensions/mode/hash/exact prompt and reference hashes",
+    "Direct full image and same-source comparison: exactly two attached mittens, one conserved supported sweet, continuous gold sheet, complete opaque cover and pressing contact",
+    "Individual source/style/contact/material/registration opinions; no transfer to whole motion or runtime score",
+    "Preserve failed candidate and iterate only its named defect; neck pinch/opposite twist/release and actual game/training/device/child/owner remain independently open"
+  ],
+  "current_game_wrap_score": 2.8,
+  "runtime_bound": false,
+  "owner_acceptance": null
+}

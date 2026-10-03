@@ -1,0 +1,32 @@
+{
+  "status": "EXACT_X_HOSTED_RUN_TERMINAL_SUCCESS",
+  "checked_utc": "2026-10-03T09:54:59.519435+00:00",
+  "command": [
+    "C:/Program Files/GitHub CLI/gh.exe",
+    "run",
+    "view",
+    "37111673023",
+    "--repo",
+    "Ebonyks/mermaid-roshan-reef",
+    "--json",
+    "databaseId,headSha,status,conclusion,url,jobs"
+  ],
+  "exit_code": 0,
+  "revision": "2b109a233c14050567aaa84dc975119b2e18a77e",
+  "run_id": 37111673023,
+  "url": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/37111673023",
+  "raw_sha256": "1db04862a979a92977276cefdcd5267a37ba0a8b02a703872458831ffe67b537",
+  "jobs": [
+    {
+      "name": "area-music-provenance",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "probes",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "qualification": "Actual hosted API terminal run/job conclusions only, no warning-free subprocess claim. Prior pending snapshot remains history. This does not grant new Y/Z hosted PASS, visual/action/device/child/owner/all-job/integration/release acceptance or strict zero2D debt."
+}

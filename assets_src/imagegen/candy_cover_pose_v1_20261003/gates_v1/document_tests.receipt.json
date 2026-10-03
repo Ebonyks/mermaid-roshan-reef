@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "command": [
+    "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "-m",
+    "unittest",
+    "tools.tests.test_audit_document_authority",
+    "tools.tests.test_audit_development"
+  ],
+  "working_head": "a77521a4f43b831b67fbf3b88f18fd1c5d51707a",
+  "exit_code": 0,
+  "started_utc": "2026-10-03T09:55:13.295024+00:00",
+  "finished_utc": "2026-10-03T09:55:30.937123+00:00",
+  "stdout_sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+  "stderr_sha256": "c615224249fee1971bcb64efde0fce9f4fd0500526e14cfab40aa7a8b6efc084",
+  "review_source_snapshot": "assets_src/imagegen/candy_cover_pose_v1_20261003/gates_v1/CANDIDATE_COVER_SOURCE_V593.json",
+  "snapshot_sha256": "6a6798c8cd951e48ed2a2b55e4291c56314205ffe9248ff5c1a2506cb6b646b4",
+  "qualification": "Exact actual process result/raw streams on expanded review working tree. Structural/no-regression evidence only; strict zero-2D, visual/action/owner acceptance independent."
+}

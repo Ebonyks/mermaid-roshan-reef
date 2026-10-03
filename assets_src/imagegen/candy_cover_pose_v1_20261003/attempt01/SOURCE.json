@@ -1,0 +1,26 @@
+{
+  "attempt": 1,
+  "generation_method": "built_in_imagegen_precise_object_edit",
+  "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-b09282cc-9709-4ba1-ba96-c01f3e9c6873.png",
+  "native_path": "assets_src/imagegen/candy_cover_pose_v1_20261003/attempt01/native.png",
+  "native_sha256": "9e1f2cbcbe0bfc6e0f7a2cebd8c3c50e1e09dfb3f6156e7798ce0a9b3e22a87d",
+  "dimensions": [
+    1672,
+    941
+  ],
+  "mode": "RGB",
+  "native_preserved": true,
+  "reference": {
+    "path": "assets_src/imagegen/candy_wrap_scene_context_v1_20261003/attempt02/native.png",
+    "sha256": "b126a8ab0f1c0d1e720588335beb3bdb6f1e2b4153ff1e2deeacaf5443d2ec62",
+    "role": "edit_target_exact_full_scene_identity_and_partial_gold_fold"
+  },
+  "exact_sent_prompt": "Use case: precise-object-edit\nImage 1 is the complete existing painted Candy Maker scene. Make exactly one targeted action-pose change: complete the far-edge fold over the SAME red oval sweet. Return the ENTIRE same 16:9 landscape painting.\nPreserve the exact character face, eyes, brown hair, rainbow ribbon, hat, costume, sleeve-to-arm connections, two coral quilted oven mittens, camera, character size, lavender worktop and candy-factory background. Keep exactly TWO hands, each belonging to her original visible forearm. Preserve ONE original red sweet in its exact position and size, on the same single gold sheet. No extra character, hand, bare finger, sweet, table prop or decoration.\nChange only the already partially folded gold flap and the two existing mitten contact poses. The far gold flap now bends physically down and forward over the rounded top of the supported sweet. Its free edge reaches the near/front lower side of that sweet, completely hiding ALL red of the sweet under the opaque same gold paper. It conforms gently to the original small oval volume; it is not a new giant lump, bag, tube, disconnected ribbon or flat curtain. The rest of the original sheet remains attached and spread on the table around that SAME covered sweet, with its free side ends still open for the later neck pinches and opposite twists. Do not finish those later twists yet.\nHer original screen-left mitten presses the left-center of this just-laid-down flap onto the rounded covered sweet; her original screen-right mitten braces and presses its right edge. The two contacts visibly belong to the same physical fold. Show only the existing rounded mitten palms/thumbs; do not grow fingers or add floating hands. Keep the head and body fixed; preserve the original small supported sweet location and tabletop registration.\nKeep the same painted 2D storybook material, plum outlines, broad satin gold value bands and restrained paper creases. No photorealism, realistic 3D, vector placeholder, UI, text, sparkle, glowing substitute, cropping, collage or new scene. This is one complete covering-and-pressing key pose, not a motion sequence and not final acceptance.",
+  "prompt_sha256": "9868823d0c33afb28a9a632e226a5f63e1999fbcd6a6535ff28f9e2aba67ea4c",
+  "prompt_file_path": "assets_src/imagegen/candy_cover_pose_v1_20261003/SENT_PROMPT.txt",
+  "pre_generation_prompt_file_sha256": "9713ef47367260d88be246334f4a25359dfd7653989ef4d0cf4c7cee01735a78",
+  "prompt_newline_qualification": "Pre-generation PROMPT.txt retains its final LF. The actual built-in call used trimEnd; SENT_PROMPT.txt preserves the exact sent string without that LF. Both hashes are separate; no source pixels changed.",
+  "runtime_ready": false,
+  "runtime_bound": false,
+  "owner_acceptance": null
+}
