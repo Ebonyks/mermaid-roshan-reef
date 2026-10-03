@@ -8,11 +8,14 @@ animation rather than a sequence of independently attractive images.
 
 It is the companion to `CINEMATIC_DIRECTION_AND_INTENT_PROTOCOL.md`.
 
-Owner decision 2026-07-29: cinematic repair uses complete frame-by-frame Codex
-image regeneration. Tweening, interpolation, sprites, composited cutouts, and
-other temporal production shortcuts are not repair techniques. A disposable
-composite may serve only as a position-only input reference to the image
-generator. `AGENTS.md` is authoritative if older wording conflicts.
+Owner revision 2026-10-03 supersedes compulsory independent still regeneration
+and categorical 2D method bans. Use suitable declared workflows in
+[AGENTS.md](../AGENTS.md#animation-production-owner-decision-2026-10-03) and the
+[production protocol](../design/animation/ANIMATION_PRODUCTION_PROTOCOL.md).
+Prefer Aseprite for sprite cleanup, registration, timing and export where useful.
+Identity/topology, actual action/contact, provenance, production-profile scene
+checks and device/child/owner acceptance remain binding. Historical rejections
+and the Day One selected-cut source/edit restrictions remain in force.
 
 - The **Cinematic Direction and Intent Protocol** decides what a scene should
   mean, feel like, show, and hold.
@@ -300,7 +303,7 @@ The OGV pipeline remains responsible for:
 
 After artistic acceptance, production may apply one whole-canvas resolution,
 padding, pixel-format, and encoding transform to each complete flattened
-generated frame. Preserve each native generation and hash, audit motion in
+frame. Preserve native outputs, edited masters and hashes; audit motion in
 normalized coordinates first, and never use production normalization to
 isolate, move, resize, mask, warp, or repair a subject.
 
@@ -309,9 +312,9 @@ it is viable:
 
 - use an identical accepted frame only for stillness explicitly required by
   the direction brief, and declare the hold and its purpose in the manifest;
-- use individually accepted complete generated frames for every changed frame
-  in camera movement, turns, contacts, close acting, and gestures; and
-- never use a hold, lower cadence, or derived inbetween to conceal missing
+- review every changed frame and affected transition in camera movement, turns,
+  contacts, close acting and gestures under the declared 2D/video workflow; and
+- never use a hold, lower cadence or derived in-between to conceal missing
   motion or temporal instability.
 
 ## Repair protocol
@@ -324,8 +327,10 @@ it is viable:
 4. Lock approved boundary frames, camera, background, object IDs, masks, depth
    ordering, valid character landmarks, and the exact target frame index.
 5. Regenerate each failed frame as one complete flattened image in the approved
-   Codex storybook generation style. Do not repair delivery frames by moving,
-   blending, warping, rigging, keying, or compositing layers.
+   storybook appearance when independent still regeneration is the selected
+   method. Otherwise repair the coherent action window through Aseprite/2D/video
+   workflow, preserving source mapping, edits and hashes. No method may conceal
+   missing action or alter identity/topology.
 6. If object placement is uncertain, a disposable sprite/chroma composite may
    be supplied to the generator as `POSITION_GUIDE_ONLY`. It controls only
    normalized subject position. It supplies no final pixels or appearance and
@@ -334,8 +339,9 @@ it is viable:
    background may not be embedded in the guide.
 7. Re-run frame, triplet, action-window, scene, character-passport, and
    neighboring-transition gates affected by the repair.
-8. Escalate after two failed automated repair attempts. Repeated failure usually
-   means the key pose, layout, model sheet, or direction is wrong.
+8. Stop the backend after two nonviable automated takes or the job/task cap.
+   Diagnose the key pose, layout, identity input, direction or method; switch
+   only within the remaining declared budget, rather than repeating blindly.
 
 No repair may silently alter already accepted neighboring frames.
 
@@ -347,10 +353,11 @@ The implementation must support:
 - scene/shot boundary detection and reviewer overrides;
 - versioned Scene Direction Brief and rhythm-contract input;
 - per-frame landmark, mask, object-ID, camera, and contact annotations;
-- hashes for each full-frame candidate, prompt, accepted neighbors, and any
-  position-only guide;
-- blocking detection of forbidden temporal derivation methods and guide-pixel
-  reuse;
+- native/master/derivative hashes, prompts/settings, workflow/provider versions,
+  request IDs, source mapping, edits/timing and position-only guides;
+- per-index/accepted-neighbor provenance for a selected independent-still method;
+- blocking review of undeclared derivation, missing action, identity/topology
+  failure and guide-pixel reuse;
 - candidate and guide subject masks used only to measure normalized position,
   never to impose the guide's design or silhouette;
 - pair/triplet/action-window temporal comparisons;
@@ -363,7 +370,11 @@ The implementation must support:
 The initial implementation is `tools/audit_cinematic.py`. It is deliberately
 strict: a scene cannot pass without human scores, a character passport, and a
 per-frame track for every declared character. Expand it incrementally, without
-allowing automation to replace artistic review.
+allowing automation to replace artistic review. Its production `--manifest`
+lane checks scene/character/contact/track and geometry, not the full derivation
+sidecar or external acceptance. Keep those reviews and receipts separate.
+`--frame-regeneration-manifest` is an additional strict gate only for a selected
+independent-still method; it must not be faked for other workflows.
 
 ## Release decision
 

@@ -1,6 +1,9 @@
 # Character animation production protocol
 
-Status: current production protocol under `DL-MOT-10` through `DL-MOT-13`.
+Status: current production protocol under `DL-MOT-10` through `DL-MOT-16`.
+Owner revision 2026-10-03 permits final animation workflows with identity,
+motion, provenance and device checks and prefers Aseprite as the bridge.
+Compulsory independent still generation is superseded; historical rejects remain.
 Commission: 2026-09-11, richer Roshan movement direction and project integration.
 This defines how to brief, build and review animation. It accepts no new clip,
 asset, runtime behavior, cinematic delivery, device result or release.
@@ -34,7 +37,7 @@ additional character; unknown canon stays unknown until sourced or explicitly de
 | Lane | Construction and evidence |
 |---|---|
 | Interactive gameplay | Authored approved 2D frames/states on Canvas with explicit anchors and draw order. Navigation moves the actor through the stage; accepted authored states explain propulsion and acting. Observe the production input, contact and save owners. |
-| Authored cinematic delivery | Complete flattened generated frames under `DL-CIN-01` through `DL-CIN-12` and the full [AGENTS cinematic contract](../../AGENTS.md). Every changed action frame independently passes the required full-frame evidence. |
+| Authored cinematic delivery | Suitable declared 2D/video workflow under revised `DL-CIN-01` through `DL-CIN-12` and the [AGENTS contract](../../AGENTS.md#animation-production-owner-decision-2026-10-03). Flattened footage requires exact provenance, production-profile scene/temporal/human gates and device/child/owner acceptance. |
 | Motion or editorial study | Label reference-only; record method and source. A useful study never becomes runtime art or accepted cinematic pixels by relabeling or encoding it. |
 
 Gameplay translation, gentle idle motion and effects remain subject to the
@@ -43,13 +46,27 @@ character animation; blending frames cannot repair missing contact or identity.
 Use `Node2D`, `Sprite2D`, `Control` and related Canvas nodes. Existing spatial
 staging is measured migration debt; no model, rig or 3D fallback is introduced.
 
-Cinematic action/review delivery forbids tweening, morphing, optical flow,
-interpolation, cross-dissolve, sprite/cutout animation, rig animation, procedural
-warping, static-layer/camera translation and duplicates concealing missing action.
-Intentional holds need a declared span and narrative purpose. Production-only
-whole-canvas normalization follows acceptance and preserves native generation hashes.
-Position guides remain neutral-field, `POSITION_GUIDE_ONLY`, non-delivery evidence
-under the complete binding exception; no guide pixels enter a delivered frame.
+Choose a method using the [dated workflow comparison](WORKFLOW_OPTIONS_2026-10-03.md)
+and complete the [job card](../templates/ANIMATION_JOB_CARD_V1.md). ImageGen fills
+specific art gaps, not an automatic animation-frame batch. Declared 2D
+articulation/compositing/interpolation is eligible when it preserves identity
+and performs the actual action. Holds/duplicates/static-sticker motion cannot
+hide missing acting or contact. Historical owner rejections remain in force.
+
+Prefer an editable RGBA Aseprite master for sprite isolation, matte/detail
+cleanup, stable pivots/sockets, transitions, timing/tags and lossless atlas/JSON
+export. Keep sources and cleaned layers separate; preserve painted appearance,
+custom metadata and all master/export hashes. A video editor handles long
+footage/audio; Aseprite may bridge bounded repair windows. Review every affected
+transition, source-to-output mapping and actual engine sampling. Native outputs
+and all edit/retiming/interpolation declarations remain in the derivation log.
+
+Pilot one action before a batch. Set attempt, wall/cleanup-time and monetary/task
+caps; default two generated takes per brief/backend. Stop after two nonviable
+takes or the task cap, diagnose and change method/input. Rejects/cleanup count
+in total cost/minutes per accepted second. Use only an already-authorized funded
+budget for paid jobs; no routine new planning approval is introduced.
+Position-only guides retain their neutral-field and excluded-pixel contract.
 
 ## Inventory and bind sources
 
@@ -161,8 +178,9 @@ be averaged away by beauty, smoothness, a high style score or machine success:
   object penetration or ownership changing without a readable transfer.
 - Delayed touch response, unreachable approach, duplicate/passive reward, stale
   callback, lost progress, broken pause/re-entry or a trapped navigation state.
-- Forbidden cinematic method, missing native/provenance/frame-neighbor evidence,
-  guide-pixel reuse or unreviewed identity/topology/style.
+- Undeclared derivation, missing native/provenance/transition evidence, guide-
+  pixel reuse or unreviewed identity/topology/style/motion. The independent-still
+  lane also retains its strict per-index/accepted-neighbor records.
 - Runtime occlusion hiding the action/target, unsupported aspect behavior, or a
   measured device frame-time/performance failure against applicable project gates.
 
@@ -193,10 +211,22 @@ Fix the smallest cause, rerun its neighboring transitions and affected lifecycle
 checks, then rerun required surrounding gates. Never weaken a tolerance to promote
 a failed candidate; a justified contract revision retains the earlier failure.
 
-For cinematic regeneration, add every field required by `DL-CIN-11` and run
-`tools/audit_cinematic.py`; this protocol's clip summary cannot replace frame records.
-An external job also needs the complete GitHub-hosted archive packet and the
-[AGENTS-required V1 shot card](../templates/IMAGINE_SHOT_CARD_V1.md). Consult the
+For final footage retain the `DL-CIN-11` job-card derivation sidecar and run:
+
+```text
+python -B tools/audit_cinematic.py VIDEO --manifest QUALITY.json --profile production --report REPORT.json
+```
+
+Its existing scene/character/contact/track validator does not enforce every
+workflow hash, edit declaration or external acceptance: review these separately
+and retain exact receipts. No machine PASS alone is `DELIVERY_ACCEPTED`. A
+chosen independent-still method also retains per-index records and runs
+`--frame-regeneration-manifest`; keep that strict validator without mislabeling
+video/2D output or weakening its method requirements.
+An external job also needs the complete GitHub-hosted archive packet. A Grok job
+uses the [required V1 shot card](../templates/IMAGINE_SHOT_CARD_V1.md); another
+backend receives only supported bound inputs and the animation job sidecar.
+Consult the
 [current handoff formula](../GROK_MASTER_HANDOFF_FORMULA_2026-08-30.md) only within
 that higher-precedence contract. Keep `ARCHIVE_COMPLETE`, `GENERATION_READY` and
 `DELIVERY_ACCEPTED` independent. This document alone grants none of those claims.
