@@ -1,0 +1,27 @@
+{
+  "status": "SEVEN_RING_FRESH_LAYOUT_WORDS_WITH_ONLY_MATERIAL_REFERENCE_PLANNED",
+  "planned_utc": "2026-10-03T08:39:37.402467+00:00",
+  "attempt": 3,
+  "changed_variable": "Remove six-ring candidate as edit target; specify existing seven-ring object in words with count/color/diameter boundaries. Only the approved existing pouf supplies painted material style.",
+  "prior_failed_sources": [
+    {
+      "path": "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/attempt01/native.png",
+      "sha256": "412daf35519c617de685c6a528c3806a142baf24abefde781b03837d27872e8e",
+      "whole_source_score": 4.1,
+      "actual_ring_count": 6
+    },
+    {
+      "path": "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/attempt02/native.png",
+      "sha256": "4e89e46b7ee465b2e0074d68c0590e28387546ce2a1e972259cc77410825780f",
+      "whole_source_score": 4.1,
+      "actual_ring_count": 6
+    }
+  ],
+  "reference_path": "assets/flats/castle/dream_house/cloud_pouf.png",
+  "reference_sha256": "97396cb1d90c5633b65034bce658e005cf1036c68c6c57717808e4526fce386a",
+  "prompt": "Paint ONE complete seven-ring stacking toy for a polished 2D children’s storybook game, isolated on a truly transparent background. Exactly SEVEN separate thick rounded donut rings are assembled on one central plum peg. Count the seven distinct curved front bands from the base upward:\n1 bottom: coral-pink, widest.\n2: pale peach, visibly its own ring above the coral.\n3: apricot-orange, visibly its own ring above peach and below yellow.\n4: butter-yellow.\n5: mint-green.\n6: powder-aqua.\n7 top: pale lavender-grey, smallest.\nThere are THREE separate warm rings BELOW the yellow ring: coral, peach and apricot. The apricot band must not merge with peach or yellow. Each of the seven has its own clean plum contour and broad curved painted front face. All seven touch and decrease in diameter upward around the SAME peg; their diameter proportions from bottom to top are approximately100%,88%,76%,64%,52%,40%,28%. No ring is floating, absent or duplicated.\nThe gently tapered exposed plum peg ends in a safe rounded cap and carries one small pale-gold scallop-shell decoration. Below the seven rings is a low oval deep-plum pedestal with a gold top rim and one gold scallop-shell badge at its front. The pedestal and rim are not an eighth ring.\nUse the supplied painted aqua/plum pouf ONLY for broad hand-painted satin light/midtone/lavender-shadow bands and rounded storybook finish. No cushion panels, beads or pouf design. Toy front three-quarter view, centered, complete top/base, generous transparent padding. Soft handmade rounded forms, clean plum contours, child-readable large bands, restrained highlights. Raster storybook painting, not flat vector, not photographed plastic or realistic3D.\nReturn one whole assembled toy only. No numbers/labels/text, no hands/characters/room/floor/shadow, no atlas or panels. Preserve seven-ring assembly, shell-base identity and the specified pastel color order.",
+  "prompt_sha256": "b65c984245fc52eff41dbbb535048dfe7cb0907ffd1d77a9e11ebc70c1e8e86b",
+  "required_ring_count": 7,
+  "runtime_bound": false,
+  "owner_acceptance": null
+}

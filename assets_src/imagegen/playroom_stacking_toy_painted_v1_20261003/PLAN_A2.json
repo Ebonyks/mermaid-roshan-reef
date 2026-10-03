@@ -1,0 +1,14 @@
+{
+  "status": "TARGETED_MISSING_APRICOT_RING_REPAIR_PLANNED",
+  "planned_utc": "2026-10-03T08:37:46.581678+00:00",
+  "attempt": 2,
+  "source_path": "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/attempt01/native.png",
+  "source_sha256": "412daf35519c617de685c6a528c3806a142baf24abefde781b03837d27872e8e",
+  "source_rejection": "Only six of required seven rings; whole source4.1",
+  "prompt": "Use case: precise-object-edit\nImage1 is the complete painted stacking-toy candidate to repair. Preserve its painted storybook style, plum peg with rounded cap and gold shell, all existing six rings, gold-rimmed plum base, front shell badge, three-quarter view, clean contours and true alpha background.\nIt has ONLY SIX rings. Insert ONE missing rounded APRICOT-ORANGE donut ring between the peach ring and the butter-yellow ring. The final whole toy must have EXACTLY SEVEN clearly separate rings, from bottom to top: coral-pink, peach, apricot-orange, butter-yellow, mint-green, powder-aqua, pale lavender-grey. Count them individually before returning. The apricot ring is a full distinct ring, with a visible curved front band, central peg hole and its own plum boundary; it is not a painted stripe on peach or yellow. All seven decrease in diameter toward the top and rest on one another around the same peg.\nReturn one complete whole toy centered with generous transparent padding, not an atlas or crop. Let the stack accommodate the added ring naturally while preserving the same design. No additional ring, extra badge, hands, room, text, panel borders, vector-flat fills, realistic3D render or detached shadow. This is the assembled rest state only.",
+  "prompt_sha256": "6812e4bc79691816b0ec20d31ceef9b0e671ff0dcfc613dbcde0f55efcee6540",
+  "required_ring_count": 7,
+  "originals_preserved": true,
+  "runtime_bound": false,
+  "owner_acceptance": null
+}

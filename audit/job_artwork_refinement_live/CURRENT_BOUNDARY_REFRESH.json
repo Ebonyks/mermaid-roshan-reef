@@ -1,11 +1,11 @@
 {
   "schema": "reef.current-review-boundary-refresh.v1",
   "status": "CURRENT_CANDY_MATCH_OLDER_GEODE_NURSERY_WITHHELD",
-  "checked_utc": "2026-10-03T07:39:09.889916+00:00",
-  "working_head": "79f20126e01454132fe245fb3b8a03e700b9ca31",
-  "registry_items": 2044,
-  "unique_registered_paths": 1317,
-  "registered_source_matches": 2044,
+  "checked_utc": "2026-10-03T08:42:26.795322+00:00",
+  "working_head": "ae3880df4244139a4f681034b530a5ee2c68895d",
+  "registry_items": 2047,
+  "unique_registered_paths": 1320,
+  "registered_source_matches": 2047,
   "source_changed_or_unavailable": [],
   "geode_review": "audit/job_geode_current_recheck_v1_20261002/DIRECT_REVIEW.json",
   "geode_capture_source_count": 783,
@@ -16367,6 +16367,30 @@
       "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt13/native.png",
       "observed_sha256": "50d498cb1ccb858792606347941e98b40f10188ad517c9039411c73cc22d1b04",
       "registered_sha256": "50d498cb1ccb858792606347941e98b40f10188ad517c9039411c73cc22d1b04",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "PLAY-STACK-SOURCE-01",
+      "path": "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/attempt01/native.png",
+      "observed_sha256": "412daf35519c617de685c6a528c3806a142baf24abefde781b03837d27872e8e",
+      "registered_sha256": "412daf35519c617de685c6a528c3806a142baf24abefde781b03837d27872e8e",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "PLAY-STACK-SOURCE-02",
+      "path": "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/attempt02/native.png",
+      "observed_sha256": "4e89e46b7ee465b2e0074d68c0590e28387546ce2a1e972259cc77410825780f",
+      "registered_sha256": "4e89e46b7ee465b2e0074d68c0590e28387546ce2a1e972259cc77410825780f",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "PLAY-STACK-SOURCE-03",
+      "path": "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/attempt03/native.png",
+      "observed_sha256": "8b3f3c925ec01a959d7f8f4fd796910cab976876d1782a81f707b4ae3c21cac4",
+      "registered_sha256": "8b3f3c925ec01a959d7f8f4fd796910cab976876d1782a81f707b4ae3c21cac4",
       "source_match": true,
       "binding_match": null
     }

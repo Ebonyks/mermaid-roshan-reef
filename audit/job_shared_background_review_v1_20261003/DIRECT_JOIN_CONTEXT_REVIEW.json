@@ -1,0 +1,139 @@
+{
+  "status": "ALL6_NONRESAMPLED_SOURCE_CONTEXTS_DIRECTLY_REVIEWED",
+  "reviewed_utc": "2026-10-03T08:34:18.277272+00:00",
+  "contexts": [
+    {
+      "name": "KITCHEN",
+      "path": "audit/job_shared_background_review_v1_20261003/KITCHEN_UNCHANGED_NATIVE_QA_JOIN.png",
+      "sha256": "84cb819fbbeab05ceeecffa19d9821e5077eb5f74f2c6669767dc3623add9f07",
+      "dimensions": [
+        4096,
+        2304
+      ],
+      "source_count": 12,
+      "scope": "Complete12-tile source family",
+      "direct_join_context_review": true,
+      "source_context_score": 4.5,
+      "evaluation": "The unchanged12 tiles form a continuous painted4096x2304 room without an obvious missing or broken tile join. Rounded aqua cabinetry and lavender masonry fit the world. The bright lamps and dense right-side counter/shelf cluster compete for attention. Baked oven/card ownership and actual figure layering require live room evidence."
+    },
+    {
+      "name": "OPERA",
+      "path": "audit/job_shared_background_review_v1_20261003/OPERA_UNCHANGED_NATIVE_QA_JOIN.png",
+      "sha256": "21c33685913d290d8a887f11f6d3a0a4faf8b938f1137cd1e1d9c395cf3a1f77",
+      "dimensions": [
+        3640,
+        2048
+      ],
+      "sources": [
+        "D2X-0032",
+        "D2X-0033",
+        "D2X-0034",
+        "D2X-0035",
+        "D2X-0036",
+        "D2X-0037",
+        "D2X-0038",
+        "D2X-0039"
+      ],
+      "scope": "Complete current source tile family",
+      "qa_only": true,
+      "resampled": false,
+      "production_pixels": false,
+      "direct_join_context_review": true,
+      "source_context_score": 4.1,
+      "evaluation": "The complete8-tile painted3640x2048 stage joins coherently across columns, doorways and drapery. The balcony fascia on both outer sides contains conspicuous ragged pale cleanup patches. Whole source-context floor fails; live training/job staging and actor occlusion are separate."
+    },
+    {
+      "name": "PLAYROOM",
+      "path": "audit/job_shared_background_review_v1_20261003/PLAYROOM_UNCHANGED_NATIVE_QA_JOIN.png",
+      "sha256": "0e6073b167bffb7f17558a09f52e1bee94b406ad6e8191e4372716e604202901",
+      "dimensions": [
+        3640,
+        2048
+      ],
+      "sources": [
+        "D2X-0074",
+        "D2X-0075",
+        "D2X-0076",
+        "D2X-0077",
+        "D2X-0078",
+        "D2X-0079",
+        "D2X-0080",
+        "D2X-0081"
+      ],
+      "scope": "Complete current source tile family",
+      "qa_only": true,
+      "resampled": false,
+      "production_pixels": false,
+      "direct_join_context_review": true,
+      "source_context_score": 4.3,
+      "evaluation": "The complete8-tile3640x2048 room has coherent doors and balcony geometry. Fine balusters/lights and dense repeating pink floor pavers occupy large areas, weakening broad painted bands and task hierarchy. No actor/contact or touch-context claim."
+    },
+    {
+      "name": "DINING",
+      "path": "audit/job_shared_background_review_v1_20261003/DINING_UNCHANGED_NATIVE_QA_JOIN.png",
+      "sha256": "6cb4dfe7d780802ee52a417accf55be806efa1020d6550fd8d837543e4f422a0",
+      "dimensions": [
+        2048,
+        1152
+      ],
+      "sources": [
+        "D2X-0112",
+        "D2X-0113",
+        "D2X-0114",
+        "D2X-0115"
+      ],
+      "scope": "Complete current source tile family",
+      "qa_only": true,
+      "resampled": false,
+      "production_pixels": false,
+      "direct_join_context_review": true,
+      "source_context_score": 2.5,
+      "evaluation": "The joined2048x1152 artwork exposes the mismatch: uniform plum ceiling, flat cream columns and cyan arch sit against painted masonry, while a heavy navy perspective grid crosses a second differently aligned square-floor pattern. Preserve the established room staging in a targeted painted repair; do not invent a new scene."
+    },
+    {
+      "name": "MOVIE",
+      "path": "audit/job_shared_background_review_v1_20261003/MOVIE_UNCHANGED_NATIVE_QA_JOIN.png",
+      "sha256": "2894348bdc99f06f32b714f210edfb5577c31bd9cf8b511404666f52ea7dd863",
+      "dimensions": [
+        2048,
+        1152
+      ],
+      "sources": [
+        "D2X-0121",
+        "D2X-0122",
+        "D2X-0123",
+        "D2X-0124"
+      ],
+      "scope": "Complete current source tile family",
+      "qa_only": true,
+      "resampled": false,
+      "production_pixels": false,
+      "direct_join_context_review": true,
+      "source_context_score": 2.4,
+      "evaluation": "The joined2048x1152 room repeats the flat ceiling/column construction and giant perspective grid. Saturated red floor and tiny repeated yellow polygons compete with the intended calm painted room and stronger reusable cloud seating/screen-frame props. Source-context priority; live screen/content ownership remains separate."
+    },
+    {
+      "name": "HALL_PARTIAL_C0_C1",
+      "path": "audit/job_shared_background_review_v1_20261003/HALL_PARTIAL_C0_C1_UNCHANGED_NATIVE_QA_JOIN.png",
+      "sha256": "ec49e6c90084397797ae0948d007c3ceb92d7c49dd01b6aaef8ce6172ad14962",
+      "dimensions": [
+        1820,
+        2048
+      ],
+      "sources": [
+        "D2X-0125",
+        "D2X-0126",
+        "D2X-0130",
+        "D2X-0131"
+      ],
+      "scope": "Only columns0-1; not the whole7280x2048 hall",
+      "qa_only": true,
+      "resampled": false,
+      "production_pixels": false,
+      "direct_join_context_review": true,
+      "source_context_score": 4.3,
+      "evaluation": "Only two columns of the7280x2048 hall are shown. Cream/gold shell architecture is coherent; fine repeated wall/floor motifs and glossy reflections reduce broad-band calm. The four tile join appears continuous in this limited span. This is not a whole-hall or runtime review."
+    }
+  ],
+  "qualification": "Existing unmodified image tiles were joined at literal offsets solely for QA. No production/background repair pixels, native source coverage or mounted-game acceptance are created. Hall scope is partial only."
+}

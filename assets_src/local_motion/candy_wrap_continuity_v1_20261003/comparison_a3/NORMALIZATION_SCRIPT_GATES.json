@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-10-03T08:06:20.288383+00:00",
+  "script_sha256": "61f6ddea7deec9f7665f8de93ef8455350a0119ea4c3541b1e1b5f4d2a1776a4",
+  "commands": [
+    {
+      "label": "parser",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\candy_wrap_continuity_v1_20261003\\comparison_a3\\review_tools\\normalize_complete_fold_source.gd"
+      ],
+      "exit": 0,
+      "status": "PASS"
+    },
+    {
+      "label": "inference",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "tools/lint_inference.py",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\candy_wrap_continuity_v1_20261003\\comparison_a3\\review_tools\\normalize_complete_fold_source.gd"
+      ],
+      "exit": 0,
+      "status": "PASS"
+    }
+  ],
+  "qualification": "Exact source helper syntax/inference and actual official4.7.2 execution only; no visual/owner acceptance."
+}

@@ -1,0 +1,95 @@
+{
+  "status": "PASS_LOSSLESS_ALL23578_ANONYMOUS_BYTE_ROWS",
+  "revision": "ae3880df4244139a4f681034b530a5ee2c68895d",
+  "original_bytes": 10336894,
+  "original_sha256": "51387fe2df147bf8b1ddd7dd2e2a8737091273a6bfb261932e97e6f7a984137a",
+  "rows": 23578,
+  "max_shard_bytes": 900000,
+  "parts": [
+    {
+      "path": "JOURNAL_PART_001.jsonl",
+      "bytes": 899688,
+      "sha256": "4e2a1544c3f926cbebd8e77cbcb064fe18feb6acb57168db1e1a2e8ce4dcd0ab",
+      "first_line": 0,
+      "line_count": 2191
+    },
+    {
+      "path": "JOURNAL_PART_002.jsonl",
+      "bytes": 899752,
+      "sha256": "e835e1d826c88f8b752e008247f6993db749a536b959650f39f534869a92cf59",
+      "first_line": 2191,
+      "line_count": 2072
+    },
+    {
+      "path": "JOURNAL_PART_003.jsonl",
+      "bytes": 899956,
+      "sha256": "5e0ff64020ad39aa4a975331ce91d9fb89a53039acb8cf58f387a9975fa43d2b",
+      "first_line": 4263,
+      "line_count": 2019
+    },
+    {
+      "path": "JOURNAL_PART_004.jsonl",
+      "bytes": 899873,
+      "sha256": "e1cca873cd4aacfbb9403dcd191e3ed9f070b3ca77260af8f099b3e3abf5de4b",
+      "first_line": 6282,
+      "line_count": 2070
+    },
+    {
+      "path": "JOURNAL_PART_005.jsonl",
+      "bytes": 899870,
+      "sha256": "b61a56bfc5dd9cba45681f95712b7f14361576f96dabf69cbcf0878df034cf4d",
+      "first_line": 8352,
+      "line_count": 2070
+    },
+    {
+      "path": "JOURNAL_PART_006.jsonl",
+      "bytes": 899591,
+      "sha256": "8de14361ac40d08a853be04f31e7e5a82ddfd2cdbc37ab2a6e429841abf6e76b",
+      "first_line": 10422,
+      "line_count": 2077
+    },
+    {
+      "path": "JOURNAL_PART_007.jsonl",
+      "bytes": 899678,
+      "sha256": "89273cdd16fae99a96ee9013b4be64943574fd02ddeed3a3f3db585cf470012e",
+      "first_line": 12499,
+      "line_count": 2055
+    },
+    {
+      "path": "JOURNAL_PART_008.jsonl",
+      "bytes": 899873,
+      "sha256": "4196ff859a340ca5d9dd251de3a4d1bee6a1ee45aea453d5e19f1a9492d01470",
+      "first_line": 14554,
+      "line_count": 1996
+    },
+    {
+      "path": "JOURNAL_PART_009.jsonl",
+      "bytes": 899599,
+      "sha256": "ed12c2fdaf5ca771796442669c7002f1c15c6fc2712fbcb274776bc4d8096977",
+      "first_line": 16550,
+      "line_count": 1960
+    },
+    {
+      "path": "JOURNAL_PART_010.jsonl",
+      "bytes": 899749,
+      "sha256": "d1f3837a540ef5d96e6faa465589be5f418ee0b05187a7df5f2877162fdf49dd",
+      "first_line": 18510,
+      "line_count": 1958
+    },
+    {
+      "path": "JOURNAL_PART_011.jsonl",
+      "bytes": 899915,
+      "sha256": "02baf7dbeba3502684fb572f87f74fcd40ad52d01d427ba36d225448978f06fe",
+      "first_line": 20468,
+      "line_count": 2004
+    },
+    {
+      "path": "JOURNAL_PART_012.jsonl",
+      "bytes": 439350,
+      "sha256": "3b655cb2fe49c185161055ffe698a3911797d45434a7086bc8363e95611ad732",
+      "first_line": 22472,
+      "line_count": 1106
+    }
+  ],
+  "qualification": "Concatenate listed shard bytes in listed order to reconstruct the complete original journal; no row omissions or summaries."
+}

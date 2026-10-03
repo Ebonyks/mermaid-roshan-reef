@@ -1,0 +1,78 @@
+{
+  "id": "job-playroom-painted-stacking-toy-20261003",
+  "scope": "Reversibly regenerate only the named D2X-0065 flat-material stacking-toy assembled source after all relevant existing sources were inventoried. Preserve seven-ring geometry and established shell-base palette; soften the exposed sharp peg. All originals and current runtime preserved.",
+  "baseline": "ae3880df4244139a4f681034b530a5ee2c68895d",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-07",
+    "DL-MED-01",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-03",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-QA-03",
+    "DL-QA-07"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004"
+  ],
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/COMPLETE_SOURCE_REVIEW.json",
+    "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/PLAN.json",
+    "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/PLAN_A2.json",
+    "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/PLAN_A3.json",
+    "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/attempt01/DIRECT_REVIEW.json",
+    "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/attempt01/SOURCE.json",
+    "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/attempt01/native.png",
+    "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/attempt02/DIRECT_REVIEW.json",
+    "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/attempt02/SOURCE.json",
+    "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/attempt02/native.png",
+    "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/attempt03/DIRECT_REVIEW.json",
+    "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/attempt03/SOURCE.json",
+    "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/attempt03/native.png",
+    "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/index.html",
+    "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/review_tools/archive_stacker_a1_prepare_a2_v567.py",
+    "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/review_tools/archive_stacker_a2_prepare_a3_v568.py",
+    "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/review_tools/finish_stacker_and_library_v569.py",
+    "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/review_tools/prepare_painted_stacker_v566.py"
+  ],
+  "validation": [
+    {
+      "command": "Inventory and directly inspect all six relevant existing source/style candidates",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/PLAN.json; exact dimensions/hashes/reuse gap."
+    },
+    {
+      "command": "Builtin ImageGen whole assembled source and direct review",
+      "result": "FAIL",
+      "evidence": "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/attempt01/DIRECT_REVIEW.json; A1 has6 rings, whole4.1. Painted quality does not accept wrong topology."
+    },
+    {
+      "command": "Targeted A2 missing-apricot-ring whole-source repair",
+      "result": "FAIL",
+      "evidence": "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/attempt02/DIRECT_REVIEW.json; A2 still6 rings, whole4.1."
+    },
+    {
+      "command": "A3 existing seven-ring layout in words, approved material-only reference",
+      "result": "PASS",
+      "evidence": "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/attempt03/DIRECT_REVIEW.json; seven distinct rings and assembled source4.5 provisional. Exact failed A1/A2 preserved; no motion/runtime pass."
+    }
+  ],
+  "acceptance_gaps": "Selected A3 assembled still4.5 is an inclusive priority, not an eight-state/action/game fit pass. Current whole source3.0 remains unchanged. Phone-size edge hierarchy, ring-through-peg contact/loop, runtime conversion, job/training/device/child/owner/comprehensive report acceptance remain open."
+}

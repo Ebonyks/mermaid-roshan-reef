@@ -1,0 +1,27 @@
+{
+  "status": "FRESH_EXPANDED_REVIEW_GATES_PLANNED",
+  "planned_utc": "2026-10-03T08:49:20.669669+00:00",
+  "baseline": "ae3880df4244139a4f681034b530a5ee2c68895d",
+  "scope": "Expanded A3/A4 motion/source/context/library/painted toy review artifacts, no production source delta.",
+  "commands": [
+    [
+      "tools/audit_document_authority.py"
+    ],
+    [
+      "tools/audit_development.py",
+      "--base",
+      "auto"
+    ],
+    [
+      "-m",
+      "unittest",
+      "tools.tests.test_audit_document_authority",
+      "tools.tests.test_audit_development"
+    ],
+    [
+      "tools/audit_game_2d.py",
+      "--regression-gate"
+    ]
+  ],
+  "qualification": "Structural and no-regression checks only. No full visual, strict zero-debt, new production or owner acceptance."
+}

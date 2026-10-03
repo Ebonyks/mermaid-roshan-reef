@@ -1,0 +1,223 @@
+{
+  "prompt": [
+    17,
+    "12e898d0-3dd7-40a8-a6fa-4ddc8efc8464",
+    {
+      "0": {
+        "class_type": "SaveLatent",
+        "inputs": {
+          "samples": [
+            "9",
+            0
+          ],
+          "filename_prefix": "local_reference/candy_far_fold_a3_20261003_20261003T080807Z_c7eb44"
+        }
+      },
+      "1": {
+        "class_type": "UnetLoaderGGUFAdvanced",
+        "inputs": {
+          "unet_name": "Wan2.2-TI2V-5B-Q4_K_S.gguf",
+          "dequant_dtype": "bfloat16",
+          "patch_dtype": "bfloat16",
+          "patch_on_device": true
+        }
+      },
+      "2": {
+        "class_type": "CLIPLoaderGGUF",
+        "inputs": {
+          "clip_name": "umt5-xxl-encoder-Q4_K_S.gguf",
+          "type": "wan"
+        }
+      },
+      "3": {
+        "class_type": "VAELoader",
+        "inputs": {
+          "vae_name": "wan2.2_vae.safetensors"
+        }
+      },
+      "4": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "source_6cdc8d7cc26f33f9.png"
+        }
+      },
+      "5": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "2",
+            0
+          ],
+          "text": "Roshan finishes folding the attached gold flap across the remaining red crescent of the same sweet. Her screen-left coral oven mitten already clamps the flap directly over the sweet. From0.0-1.1s that mitten carries the lower free gold edge down and forwards over the red crescent, pressing the gold paper snugly around the supported oval. The paper moves with that grasp, not by itself. By1.1s the sweet is covered by this flap. From1.1-1.7s the left mitten opens its grasp and lifts just clear of the finished fold; the paper stays folded. The screen-right mitten continues gently bracing the same sweet throughout. The front remainder of the original gold sheet stays on the lavender table. One continuous useful fold and small release.\nLocked front camera. Preserve the same sweet underneath the paper, same size and location, same two connected quilted mittens, painted child/costume and lavender table. No waving or outer-corner lifting. No necks or end twists yet, no new wrapper/candy, no moving table, no extra anatomy, glow, text or scenery. The red surface becomes occluded by the attached paper; the object is still physically supported underneath it.\nSound: silence.\n"
+        }
+      },
+      "6": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "2",
+            0
+          ],
+          "text": "camera movement, zoom, pan, cut, photorealism, 3D shading, new objects, changing architecture, moving shoreline, moving roots, flicker, color pumping, warped shapes, subtitles, text, watermark"
+        }
+      },
+      "7": {
+        "class_type": "ModelSamplingSD3",
+        "inputs": {
+          "model": [
+            "1",
+            0
+          ],
+          "shift": 8.0
+        }
+      },
+      "8": {
+        "class_type": "Wan22ImageToVideoLatent",
+        "inputs": {
+          "vae": [
+            "3",
+            0
+          ],
+          "width": 896,
+          "height": 512,
+          "length": 41,
+          "batch_size": 1,
+          "start_image": [
+            "4",
+            0
+          ]
+        }
+      },
+      "9": {
+        "class_type": "KSampler",
+        "inputs": {
+          "model": [
+            "7",
+            0
+          ],
+          "positive": [
+            "5",
+            0
+          ],
+          "negative": [
+            "6",
+            0
+          ],
+          "latent_image": [
+            "8",
+            0
+          ],
+          "seed": 2026100301,
+          "steps": 24,
+          "cfg": 5.0,
+          "sampler_name": "uni_pc",
+          "scheduler": "simple",
+          "denoise": 1.0
+        }
+      },
+      "10": {
+        "class_type": "VAEDecodeTiled",
+        "inputs": {
+          "samples": [
+            "9",
+            0
+          ],
+          "vae": [
+            "3",
+            0
+          ],
+          "tile_size": 256,
+          "overlap": 64,
+          "temporal_size": 4096,
+          "temporal_overlap": 8
+        }
+      },
+      "11": {
+        "class_type": "SaveWEBM",
+        "inputs": {
+          "images": [
+            "10",
+            0
+          ],
+          "filename_prefix": "local_reference/candy_far_fold_a3_20261003_20261003T080807Z_c7eb44",
+          "codec": "vp9",
+          "fps": 24.0,
+          "crf": 18.0
+        }
+      }
+    },
+    {
+      "client_id": "candy_far_fold_a3_20261003_20261003T080807Z_c7eb44",
+      "create_time": 1791014887984
+    },
+    [
+      "0",
+      "11"
+    ]
+  ],
+  "outputs": {
+    "0": {
+      "latents": [
+        {
+          "filename": "candy_far_fold_a3_20261003_20261003T080807Z_c7eb44_00001_.latent",
+          "subfolder": "local_reference",
+          "type": "output"
+        }
+      ]
+    },
+    "11": {
+      "images": [
+        {
+          "filename": "candy_far_fold_a3_20261003_20261003T080807Z_c7eb44_00002_.webm",
+          "subfolder": "local_reference",
+          "type": "output"
+        }
+      ],
+      "animated": [
+        true
+      ]
+    }
+  },
+  "status": {
+    "status_str": "success",
+    "completed": true,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "12e898d0-3dd7-40a8-a6fa-4ddc8efc8464",
+          "timestamp": 1791014887985
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [],
+          "prompt_id": "12e898d0-3dd7-40a8-a6fa-4ddc8efc8464",
+          "timestamp": 1791014887997
+        }
+      ],
+      [
+        "execution_success",
+        {
+          "prompt_id": "12e898d0-3dd7-40a8-a6fa-4ddc8efc8464",
+          "timestamp": 1791015072051
+        }
+      ]
+    ]
+  },
+  "meta": {
+    "0": {
+      "node_id": "0",
+      "display_node": "0",
+      "parent_node": null,
+      "real_node_id": "0"
+    },
+    "11": {
+      "node_id": "11",
+      "display_node": "11",
+      "parent_node": null,
+      "real_node_id": "11"
+    }
+  }
+}

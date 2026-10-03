@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "command": [
+    "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "-m",
+    "unittest",
+    "tools.tests.test_audit_document_authority",
+    "tools.tests.test_audit_development"
+  ],
+  "working_head": "ae3880df4244139a4f681034b530a5ee2c68895d",
+  "exit_code": 0,
+  "started_utc": "2026-10-03T08:50:10.885778+00:00",
+  "finished_utc": "2026-10-03T08:50:26.966602+00:00",
+  "stdout_sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+  "stderr_sha256": "4548dca45631aee9f9fd35e2d8318d071d601b50c33dc04bb366c76e6e20f7d7",
+  "review_source_snapshot": "assets_src/local_motion/candy_wrap_continuity_v1_20261003/gates_v2/CANDIDATE_REVIEW_SOURCE_V571.json",
+  "snapshot_sha256": "c25a328e2b4209483aa25c93d20d2fc1b9429070362e5d6140b7552d915db3f0",
+  "qualification": "Exact actual process result/raw streams on expanded review working tree. Structural/no-regression evidence only; strict zero-2D, visual/action/owner acceptance independent."
+}

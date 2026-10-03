@@ -1,0 +1,148 @@
+{
+  "schema": "reef.local-candy-motion-study.v1",
+  "id": "candy-far-fold-a4-20261003",
+  "created_utc": "2026-10-03T08:13:33.741813+00:00",
+  "baseline": "ae3880df4244139a4f681034b530a5ee2c68895d",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "owner_approval": null,
+  "runtime_integration": false,
+  "authorization": "Owner directed developed local ComfyUI animations and iterative job/action artwork review; one bounded local study, no external upload/new model/install/runtime or cinematic delivery.",
+  "intention": "Prompt-only attempt to make Roshan herself perform the existing attached far-flap fold and small release, eliminating added foreground hands.",
+  "profile": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+  "register": "Ribbon Glide quiet concentrating hand work; still support, one useful action and settle.",
+  "source_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt13/native.png",
+  "source_sha256": "50d498cb1ccb858792606347941e98b40f10188ad517c9039411c73cc22d1b04",
+  "source_dimensions": [
+    1254,
+    1254
+  ],
+  "source_status": "STATIC_SOURCE_DRAFT_4.5_OWNER_UNASSIGNED",
+  "source_review": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt13/DIRECT_REVIEW.json",
+  "input_path": "inputs/CANDY-FOLD-A4.png",
+  "input_sha256": "6cdc8d7cc26f33f9edc29a8958d88d1a792e8c4d360c0ccba549940b0b562f6a",
+  "input_transform": "Whole new1254x1254 source uniformly448x448 on same896x512 neutral RGB mat. No crop/subject repair. Preserved original native.",
+  "prompt_path": "prompts/CANDY-FOLD-A4.txt",
+  "prompt_sha256": "32de54dd13fdc75d2e7819579171c25edadbea81432fecceab670070f73e8aba",
+  "queue_name": "candy_far_fold_a4_20261003",
+  "seed": 2026100301,
+  "renderer": {
+    "server": "http://127.0.0.1:8190",
+    "root": "H:/MermaidReefTools/LocalVideo",
+    "python": "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/ComfyUI/0.34.0/ComfyUI_windows_portable/python_embeded/python.exe",
+    "entrypoint": "workflows/render_gguf.py",
+    "preset": "quick",
+    "settings": {
+      "width": 896,
+      "height": 512,
+      "frames": 41,
+      "steps": 24,
+      "weight_dtype": "GGUF_Q4_K_S"
+    },
+    "fps": 24,
+    "bindings": [
+      {
+        "installed_path": "H:\\MermaidReefTools\\LocalVideo\\prepare_workflows.py",
+        "packet_path": "workflows/prepare_workflows.py",
+        "sha256": "df22ac655ae82145b07910251eb22ccb03c6261b44ae0851f1c05d104fab5ed4",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "df22ac655ae82145b07910251eb22ccb03c6261b44ae0851f1c05d104fab5ed4"
+      },
+      {
+        "installed_path": "H:\\MermaidReefTools\\LocalVideo\\render_local.py",
+        "packet_path": "workflows/render_local_current.py",
+        "sha256": "a5bb0fe29bdff88b3cc0dd6dd80e8173b2cee8cdb1362a9ac27e02e706bf0976",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "a5bb0fe29bdff88b3cc0dd6dd80e8173b2cee8cdb1362a9ac27e02e706bf0976"
+      },
+      {
+        "installed_path": "H:\\MermaidReefTools\\LocalVideo\\MODEL_RECEIPT.json",
+        "packet_path": "workflows/MODEL_RECEIPT.json",
+        "sha256": "371b8893b497a52ca50148f77ccf0c29ce1a4511c953d04c32669ba1a3f57f01",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "371b8893b497a52ca50148f77ccf0c29ce1a4511c953d04c32669ba1a3f57f01"
+      },
+      {
+        "installed_path": "H:\\MermaidReefTools\\LocalVideo\\workflows\\SOURCE_RECEIPT.json",
+        "packet_path": "workflows/SOURCE_RECEIPT.json",
+        "sha256": "edd0897186da0b8850240602bc9da10a977e5c97cd5a51fa69cdf177c171984b",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "edd0897186da0b8850240602bc9da10a977e5c97cd5a51fa69cdf177c171984b"
+      },
+      {
+        "installed_path": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\day2_batch1_20260930\\workflows\\GGUF_MODEL_RECEIPT.json",
+        "packet_path": "workflows/GGUF_MODEL_RECEIPT.json",
+        "sha256": "4d811ec8a04a34959d4272fe2cdc6e6c829ab64462f82a3323db8109132f59da",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "4d811ec8a04a34959d4272fe2cdc6e6c829ab64462f82a3323db8109132f59da"
+      },
+      {
+        "installed_path": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\day2_batch1_20260930\\workflows\\GGUF_TOKENIZER_DEPENDENCIES.json",
+        "packet_path": "workflows/GGUF_TOKENIZER_DEPENDENCIES.json",
+        "sha256": "32d546ae9b7d007a63c12fb030b132d62383f3d868b262d609a8cbef404a3ef8",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "32d546ae9b7d007a63c12fb030b132d62383f3d868b262d609a8cbef404a3ef8"
+      },
+      {
+        "installed_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets_src\\local_motion\\day2_batch1_20260930\\workflows\\render_gguf.py",
+        "packet_path": "workflows/render_gguf.py",
+        "sha256": "68f0f69e390531a04e267fd6e591f7d17d3a9959871e694058e3c4f225affa41",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "68f0f69e390531a04e267fd6e591f7d17d3a9959871e694058e3c4f225affa41"
+      }
+    ],
+    "admission": "One FIFO study; native queue plus90-second quiet idle, duplicate submission protection and same-settings successful graph benchmark required. Existing developed CLI unmodified. No cancellation/restart/download/install."
+  },
+  "clip_contract": {
+    "entry": "A11 alternate far-edge grip with screen-right mitten bracing the same sweet; no actual game entry proof.",
+    "exit": "Far flap closes continuously over original red oval; near edge still rests. Neck/twist/release are not attempted and remain required for full wrap.",
+    "duration_seconds": 1.7083333333333333,
+    "timeline": "Roshan folds the FAR long golden-paper edge over the same red oval sweet. Her screen-left coral oven mitten already grips that raised edge between her body and the sweet: it brings the edge forwards and down, across the sweet. Her screen-right mitten stays beside the sweet to brace it on the lavender table. Show the paper bend continuously around the oval; by the end the red sweet is covered by that gold flap. The near paper edge still rests on the table. One deliberate fold only.\nKeep the sweet exactly the same size and place. Keep two quilted mittens connected to her arms, and keep the painted face, hat, hair/rainbow ribbon, sleeves, waistcoat and table stable. Eyes attend to the contact. Locked camera and pale mat. No corner flapping, tied necks, twists, release, growth, disappearance, new fingers/objects, glow, text or background.\nSound: silence.\n",
+    "anchors": {
+      "unit": "1254x1254 complete source normalized coordinates",
+      "sweet_center_approx": [
+        0.503,
+        0.821
+      ],
+      "sweet_size_approx": [
+        0.185,
+        0.09
+      ],
+      "qualification": "Visual inspection targets only; no measured motion tolerance pass."
+    },
+    "direction": "Forward table work view.",
+    "events": "Reference-only; inherited gameplay owners unchanged.",
+    "interruptions": "No runtime playback; one guarded local renderer job, no duplicate/cancel/restart.",
+    "required_review": "All41 full native canvases, far-edge origin/continuous bend/cover, steady sweet and support, connected mittens/style/identity. Component score cannot pass full wrapping/current game."
+  },
+  "status": "BOUND_FAR_FOLD_INPUT_REVIEWED_READY_FOR_QUIET_IDLE_DISPATCH",
+  "visual_review": null,
+  "complete_action_score": null,
+  "jobs": [
+    {
+      "id": "CANDY-FOLD-A4",
+      "name": "Far long-edge fold component",
+      "source_path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt13/native.png",
+      "source_sha256": "50d498cb1ccb858792606347941e98b40f10188ad517c9039411c73cc22d1b04",
+      "input_path": "inputs/CANDY-FOLD-A4.png",
+      "input_sha256": "6cdc8d7cc26f33f9edc29a8958d88d1a792e8c4d360c0ccba549940b0b562f6a",
+      "prompt_path": "prompts/CANDY-FOLD-A4.txt",
+      "prompt_sha256": "32de54dd13fdc75d2e7819579171c25edadbea81432fecceab670070f73e8aba",
+      "queue_name": "candy_far_fold_a4_20261003",
+      "seed": 2026100301,
+      "owner_approval": null
+    }
+  ],
+  "comparison": "Only the positive action prompt changes from rejected A3. Exact source/input, seed, settings, installed workflow/model and intended far-fold closure/release component are identical. Original full wrapping success criteria stay unchanged.",
+  "source_region": [
+    0,
+    0,
+    1254,
+    1254
+  ],
+  "input_visual_review": {
+    "status": "DIRECT_COMPLETE_NATIVE_A2_INPUT_REVIEWED",
+    "evidence": "assets_src/local_motion/candy_wrap_continuity_v1_20261003/comparison_a2/INPUT_DIRECT_REVIEW.json",
+    "source_score_transfer": false
+  },
+  "intended_component_only": true
+}

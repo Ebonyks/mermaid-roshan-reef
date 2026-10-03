@@ -1088,5 +1088,12 @@ Kept as-is; noted so a future edit updates every copy.
 | `audit/job_shared_entrance_sources_v1_20261003/DIRECT_NATIVE_REVIEW.json` | 🟢 | `SUPPORTING_CURRENT`; exact hashes/regions/current manifests, individual grades and reuse/refinement guidance. Two historical ownership hash mismatches retained; they do not authorize current ownership acceptance. |
 | `audit/job_artwork_refinement_live/ALL_ITEMS_V44.original.json` | ⚪ | `HISTORICAL_SUPPORTING`; exact1934-entry register before18 newly assigned source opinions and104 authored prop cell entries. |
 
-| `assets_src/local_motion/candy_wrap_continuity_v1_20261003/index.html` | 🟢 | `SUPPORTING_CURRENT`; all82 local reference native canvases/14 boards/six details/20 component opinions. A1 complete wrap2.4 and A2 far-fold1.8 rejected.13 contact originals/43 source states reviewed; source/action lanes separate, no runtime or owner acceptance. |
+| `assets_src/local_motion/candy_wrap_continuity_v1_20261003/index.html` | 🟢 | `SUPPORTING_CURRENT`; all164 local reference native canvases/28 boards/12 details/40 component opinions. A1 complete wrap2.4/A2 far-fold1.8/A3 far-fold1.5/A4 far-fold0.8 rejected.13 contact originals/43 source states reviewed; source/action lanes separate, no runtime or owner acceptance. |
 | `audit/job_artwork_refinement_live/ALL_ITEMS_V45.original.json` | ⚪ | `HISTORICAL_SUPPORTING`; exact2038-entry register before three additional single whole contact sources and three complete pose regions. |
+
+| `audit/job_shared_background_review_v1_20261003/index.html` | 🟢 | `SUPPORTING_CURRENT`; all65 previously omitted native shared sources/six literal joined contexts reviewed;53 inclusive source priorities/37 below4.5. Whole-atlas opinions do not accept every cell/action. No production or owner acceptance. |
+| `audit/job_shared_background_review_v1_20261003/DIRECT_SOURCE_REVIEW.json` | 🟢 | `SUPPORTING_CURRENT`; exact65 existing source IDs/hashes/individual scores and refinement guidance; current mounting/action/owner opinions unassigned. |
+| `audit/job_artwork_refinement_live/ALL_ITEMS_V46.original.json` | ⚪ | `HISTORICAL_SUPPORTING`; exact2044-entry register before65 existing shared source entries received direct individual opinions. |
+
+| `assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/index.html` | 🟢 | `SUPPORTING_CURRENT`; six-source reuse inventory/three preserved whole native candidates/21 component opinions. A1/A2 six-ring4.1 rejected; A3 seven-ring assembled4.5 provisional only, no runtime/action/owner acceptance. |
+| `audit/job_artwork_refinement_live/ALL_ITEMS_V47.original.json` | ⚪ | `HISTORICAL_SUPPORTING`; exact2044-entry register after65 existing omitted source opinions and before three new whole assembled stacking-toy candidates. |

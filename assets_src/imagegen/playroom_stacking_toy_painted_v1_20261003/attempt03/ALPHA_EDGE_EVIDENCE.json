@@ -1,0 +1,44 @@
+{
+  "status": "OPAQUE_OBJECT_OUTLINE_COMPLETE_TINY_ALPHA1_EDGE_TRACES_RETAINED",
+  "checked_utc": "2026-10-03T08:49:20.663773+00:00",
+  "native_sha256": "8b3f3c925ec01a959d7f8f4fd796910cab976876d1782a81f707b4ae3c21cac4",
+  "native_dimensions": [
+    1199,
+    1312
+  ],
+  "literal_alpha_bbox": [
+    0,
+    26,
+    1185,
+    1312
+  ],
+  "alpha128_bbox": [
+    113,
+    29,
+    1083,
+    1268
+  ],
+  "edge_samples": {
+    "left": {
+      "nonzero_pixels": 2,
+      "pixels_at_least128": 0,
+      "maximum": 1
+    },
+    "right": {
+      "nonzero_pixels": 0,
+      "pixels_at_least128": 0,
+      "maximum": 0
+    },
+    "top": {
+      "nonzero_pixels": 0,
+      "pixels_at_least128": 0,
+      "maximum": 0
+    },
+    "bottom": {
+      "nonzero_pixels": 43,
+      "pixels_at_least128": 0,
+      "maximum": 1
+    }
+  },
+  "qualification": "Only alpha1 traces touch left/bottom; no alpha>=128 object pixels meet canvas edge. Complete native remains untouched. This distinguishes almost-transparent edge noise from a clipped opaque base; provide whole-canvas padding in later technical conversion, and inspect phone-size mounted contours independently."
+}

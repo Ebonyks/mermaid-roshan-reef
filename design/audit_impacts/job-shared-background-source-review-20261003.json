@@ -1,0 +1,64 @@
+{
+  "id": "job-shared-background-source-review-20261003",
+  "scope": "Audit all remaining65 shared Day Two primary-source omissions, starting with all12 Kitchen room tiles; preserve individual source IDs, hashes, exact source opinions, joined composition/seam evidence and later actual use/action qualification. No production art mutation or speculative redraw.",
+  "baseline": "ae3880df4244139a4f681034b530a5ee2c68895d",
+  "rules": [
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-LAY-01",
+    "DL-LAY-03",
+    "DL-LAY-05",
+    "DL-LAY-06",
+    "DL-LAY-07",
+    "DL-LAY-08",
+    "DL-QA-03",
+    "DL-QA-07",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-03",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-07"
+  ],
+  "findings": [
+    "MA-VIS-006"
+  ],
+  "files": [
+    "audit/job_shared_background_review_v1_20261003/ADDITIONAL_QA_JOINS.json",
+    "audit/job_shared_background_review_v1_20261003/DINING_UNCHANGED_NATIVE_QA_JOIN.png",
+    "audit/job_shared_background_review_v1_20261003/DIRECT_SOURCE_REVIEW.json",
+    "audit/job_shared_background_review_v1_20261003/HALL_PARTIAL_C0_C1_UNCHANGED_NATIVE_QA_JOIN.png",
+    "audit/job_shared_background_review_v1_20261003/KITCHEN_QA_JOIN.json",
+    "audit/job_shared_background_review_v1_20261003/KITCHEN_UNCHANGED_NATIVE_QA_JOIN.png",
+    "audit/job_shared_background_review_v1_20261003/MOVIE_UNCHANGED_NATIVE_QA_JOIN.png",
+    "audit/job_shared_background_review_v1_20261003/OPERA_UNCHANGED_NATIVE_QA_JOIN.png",
+    "audit/job_shared_background_review_v1_20261003/PENDING_DAY_TWO_SHARED_SOURCES.json",
+    "audit/job_shared_background_review_v1_20261003/PLAN.json",
+    "audit/job_shared_background_review_v1_20261003/PLAYROOM_UNCHANGED_NATIVE_QA_JOIN.png",
+    "audit/job_shared_background_review_v1_20261003/review_tools/prepare_shared_tiles_v563.py",
+    "audit/job_shared_background_review_v1_20261003/review_tools/write_shared_reviews_v564.py"
+  ],
+  "validation": [
+    {
+      "command": "Literal65-item remaining Day Two source inventory and full Kitchen QA reconstruction",
+      "result": "PASS",
+      "evidence": "PENDING_DAY_TWO_SHARED_SOURCES.json and KITCHEN_QA_JOIN.json; no scores assigned before inspection."
+    },
+    {
+      "command": "Every65 complete original native shared source directly inspected with one written score/refinement/hash each",
+      "result": "PASS",
+      "evidence": "DIRECT_SOURCE_REVIEW.json; source review coverage only, weak opinions remain failures. Extra contextual joins separately pending."
+    }
+  ],
+  "acceptance_gaps": "Source-only review; runtime use/contact/layers, per-screen native source coverage, ordinary story/training/device/child/owner/all-job acceptance and existing finding lifecycle remain open. No production art or protected originals changed."
+}

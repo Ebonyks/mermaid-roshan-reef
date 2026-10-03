@@ -1,0 +1,109 @@
+{
+  "status": "ONE_NAMED_FLAT_STACKING_TOY_GAP_REGENERATION_PLANNED",
+  "planned_utc": "2026-10-03T08:36:14.265875+00:00",
+  "baseline": "ae3880df4244139a4f681034b530a5ee2c68895d",
+  "source_item": "D2X-0065",
+  "current_whole_source_score": 3.0,
+  "scope": "Only complete assembled rest-state painted replacement; preserve seven rings/base/shell design and original source/atlases. No new room scene or runtime replacement.",
+  "reuse_inventory": [
+    {
+      "path": "assets/flats/castle/rooms/room_playroom_item_stacking_toy.png",
+      "sha256": "afc488f0e44d9a33ac065e968ead7a8dfcae5ac594ba12f17063c6f467282b87",
+      "dimensions": [
+        132,
+        157
+      ],
+      "mode": "RGBA",
+      "direct_original_review": true,
+      "source_score": 3.0,
+      "evaluation": "Existing tiny room crop has flat toy bands and surrounding background fragments; not a clean reusable painted source.",
+      "reusable_for_requested_whole_stacker": false,
+      "role": "existing_reuse_inventory"
+    },
+    {
+      "path": "assets/flats/castle/interactions/playroom_stacking_toy_atlas.png",
+      "sha256": "4f5548cf8d325b457f4a70edad81880f662336bb749d8211b35c0bef4ae563e8",
+      "dimensions": [
+        528,
+        314
+      ],
+      "mode": "RGBA",
+      "direct_original_review": true,
+      "source_score": 1.8,
+      "evaluation": "Legacy atlas carries large upper background remnants and missing horizontal object bands; unsuitable reuse.",
+      "reusable_for_requested_whole_stacker": false,
+      "role": "existing_reuse_inventory"
+    },
+    {
+      "path": "assets/flats/castle/interactions_v2/playroom_stacking_toy_sheet.png",
+      "sha256": "30acc6f771d26039045310cac40dad36ccf660b9b3110cfaa1238f01d5a49e85",
+      "dimensions": [
+        976,
+        1004
+      ],
+      "mode": "RGBA",
+      "direct_original_review": true,
+      "source_score": 3.0,
+      "evaluation": "Current eight-state atlas preserves seven rings and shell base but has flat uniform fills and a sharp dark peg.",
+      "reusable_for_requested_whole_stacker": false,
+      "role": "existing_reuse_inventory"
+    },
+    {
+      "path": "assets_src/imagegen/castle_object_animations_v2/play_craft_pool/playroom_stacking_toy_sheet_chroma.png",
+      "sha256": "23510b20460a3280914bf35db2feb63a61e9b06d8af86393d7305f87bdd7d9f5",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "direct_original_review": true,
+      "source_score": 3.0,
+      "evaluation": "Original magenta source contains the same flat design and pointed peg; transparent derivation cannot fix its painted-material gap.",
+      "reusable_for_requested_whole_stacker": false,
+      "role": "existing_reuse_inventory"
+    },
+    {
+      "path": "assets_src/blender/qa_pearl_castle_kit/pearl_rainbow_stacker.png",
+      "sha256": "5ec6591aa2d7677459f4f5fea353e4e7f101a622317dabcbe874685f47b3b2a7",
+      "dimensions": [
+        780,
+        660
+      ],
+      "mode": "RGBA",
+      "direct_original_review": true,
+      "source_score": 2.5,
+      "evaluation": "Legacy model-render concept is a different design/material and superseded3D lane; not a runtime/model fallback.",
+      "reusable_for_requested_whole_stacker": false,
+      "role": "existing_reuse_inventory"
+    },
+    {
+      "path": "assets/flats/castle/dream_house/cloud_pouf.png",
+      "sha256": "97396cb1d90c5633b65034bce658e005cf1036c68c6c57717808e4526fce386a",
+      "dimensions": [
+        221,
+        170
+      ],
+      "mode": "RGBA",
+      "direct_original_review": true,
+      "source_score": 4.6,
+      "evaluation": "Already-reviewed painted aqua/plum pouf supplies broad painted material bands and rounded contour only; no pouf design enters the toy.",
+      "reusable_for_requested_whole_stacker": true,
+      "role": "material_style_only"
+    }
+  ],
+  "generated_gap": "Existing reusable sources cannot supply painted broad value bands, clean contours and rounded exposed peg without redraw. Current material-style reference is reusable but is a different prop.",
+  "prompt": "Use case: style-transfer / illustration-story\nAsset type: one whole assembled interactive stacking-toy source, transparent RGBA, for the Mermaid Roshan polished 2D storybook game.\nImage1 is the current eight-state stacking-toy sheet. Use only its FIRST TOP-LEFT toy as the exact object design/layout authority. Return ONE whole assembled toy, not an atlas. Image2 is material/style reference only: its rounded painted aqua/plum forms and broad satin value bands. Do not add pouf cushions, bead strings or upholstery to the toy.\nRedraw the toy as a polished painted 2D raster illustration. Preserve the low oval deep-plum base with golden top rim and single small golden scallop-shell badge at its front. Preserve exactly SEVEN stacked rounded donut rings, decreasing in diameter from bottom to top: coral-pink, peach, apricot, pale butter yellow, mint green, powder aqua, pale lavender-grey. All seven have one central hole around the same peg. The peg is plum and gently tapered; soften its exposed tip into a small rounded toy cap, no sharp spike. Keep the small pale-gold shell decoration on the exposed lower peg.\nComplete toy centered, mild elevated front three-quarter view matching Image1, clearly visible full base and top, 10 percent transparent padding on every side. All rings rest on one another; no floating rings or missing/duplicated ring. Broad hand-painted light/midtone/lavender-shadow bands, restrained highlights, clean plum contours, matte-to-satin painted toy finish. Friendly oversized child-readable forms. Match the game’s painted storybook props rather than flat vector fills, realistic 3D plastic, photography, PBR, grainy texture, white sticker rims or thin scratchy outlines.\nTrue transparent background; no room, floor, detached cast shadow, hands, characters, text, labels, panel borders, atlas cells or additional object. Preserve the original object identity and seven-ring physical assembly. This is only its assembled rest state, not an animation or accepted runtime asset.",
+  "prompt_sha256": "4f707cf8e8b277a11306356d94c9d2ce820965b7bab1af6693a4a2136236b375",
+  "reference_paths": [
+    "assets/flats/castle/interactions_v2/playroom_stacking_toy_sheet.png",
+    "assets/flats/castle/dream_house/cloud_pouf.png"
+  ],
+  "required_evidence": [
+    "Complete returned native/alpha/dimensions/hash preserved",
+    "Individual whole-source and topology/material/style evaluations",
+    "Regenerate named failed feature if below4.5",
+    "Independent eight-state sequence/runtime/game/device/child/owner acceptance remains open"
+  ],
+  "runtime_bound": false,
+  "owner_acceptance": null
+}

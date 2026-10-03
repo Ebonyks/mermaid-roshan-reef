@@ -1,0 +1,32 @@
+{
+  "attempt": 1,
+  "method": "builtin_imagegen_style_transfer",
+  "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-7e0ea5a4-87fe-4e15-b853-5972e96bf3c9.png",
+  "native_path": "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/attempt01/native.png",
+  "sha256": "412daf35519c617de685c6a528c3806a142baf24abefde781b03837d27872e8e",
+  "dimensions": [
+    1236,
+    1272
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "prompt": "Use case: style-transfer / illustration-story\nAsset type: one whole assembled interactive stacking-toy source, transparent RGBA, for the Mermaid Roshan polished 2D storybook game.\nImage1 is the current eight-state stacking-toy sheet. Use only its FIRST TOP-LEFT toy as the exact object design/layout authority. Return ONE whole assembled toy, not an atlas. Image2 is material/style reference only: its rounded painted aqua/plum forms and broad satin value bands. Do not add pouf cushions, bead strings or upholstery to the toy.\nRedraw the toy as a polished painted 2D raster illustration. Preserve the low oval deep-plum base with golden top rim and single small golden scallop-shell badge at its front. Preserve exactly SEVEN stacked rounded donut rings, decreasing in diameter from bottom to top: coral-pink, peach, apricot, pale butter yellow, mint green, powder aqua, pale lavender-grey. All seven have one central hole around the same peg. The peg is plum and gently tapered; soften its exposed tip into a small rounded toy cap, no sharp spike. Keep the small pale-gold shell decoration on the exposed lower peg.\nComplete toy centered, mild elevated front three-quarter view matching Image1, clearly visible full base and top, 10 percent transparent padding on every side. All rings rest on one another; no floating rings or missing/duplicated ring. Broad hand-painted light/midtone/lavender-shadow bands, restrained highlights, clean plum contours, matte-to-satin painted toy finish. Friendly oversized child-readable forms. Match the game’s painted storybook props rather than flat vector fills, realistic 3D plastic, photography, PBR, grainy texture, white sticker rims or thin scratchy outlines.\nTrue transparent background; no room, floor, detached cast shadow, hands, characters, text, labels, panel borders, atlas cells or additional object. Preserve the original object identity and seven-ring physical assembly. This is only its assembled rest state, not an animation or accepted runtime asset.",
+  "prompt_sha256": "4f707cf8e8b277a11306356d94c9d2ce820965b7bab1af6693a4a2136236b375",
+  "references": [
+    {
+      "path": "assets/flats/castle/interactions_v2/playroom_stacking_toy_sheet.png",
+      "sha256": "30acc6f771d26039045310cac40dad36ccf660b9b3110cfaa1238f01d5a49e85"
+    },
+    {
+      "path": "assets/flats/castle/dream_house/cloud_pouf.png",
+      "sha256": "97396cb1d90c5633b65034bce658e005cf1036c68c6c57717808e4526fce386a"
+    }
+  ],
+  "native_preserved": true,
+  "runtime_ready": false,
+  "runtime_bound": false,
+  "owner_acceptance": null
+}
