@@ -1,0 +1,44 @@
+extends OperaGeologySurface
+## NON_RUNTIME_COUNTERFACTUAL: original fossil pixels, complementary fracture
+## partitions only. All inherited mechanics, saves, touch and input unchanged.
+const FRACTURE_A := [Vector2(0.333333333333, 0.0), Vector2(0.31, 0.13),
+	Vector2(0.365, 0.27), Vector2(0.315, 0.40), Vector2(0.35, 0.54),
+	Vector2(0.29, 0.69), Vector2(0.355, 0.84), Vector2(0.333333333333, 1.0)]
+const FRACTURE_B := [Vector2(0.666666666667, 0.0), Vector2(0.705, 0.15),
+	Vector2(0.64, 0.28), Vector2(0.69, 0.43), Vector2(0.63, 0.58),
+	Vector2(0.70, 0.73), Vector2(0.645, 0.87), Vector2(0.666666666667, 1.0)]
+
+func piece_partition(index: int) -> PackedVector2Array:
+	var polygon := PackedVector2Array()
+	if index == 0:
+		polygon.append(Vector2.ZERO)
+		for point: Vector2 in FRACTURE_A:
+			polygon.append(point)
+		polygon.append(Vector2(0.0, 1.0))
+	elif index == 1:
+		for point: Vector2 in FRACTURE_A:
+			polygon.append(point)
+		for i: int in range(FRACTURE_B.size() - 1, -1, -1):
+			polygon.append(FRACTURE_B[i])
+	else:
+		for point: Vector2 in FRACTURE_B:
+			polygon.append(point)
+		polygon.append(Vector2.ONE)
+		polygon.append(Vector2(1.0, 0.0))
+	return polygon
+
+func _draw_fossil_piece(index: int, rect: Rect2) -> void:
+	var atlas := fossil_texture as AtlasTexture
+	if atlas == null or atlas.atlas == null:
+		super._draw_fossil_piece(index, rect)
+		return
+	var points := PackedVector2Array()
+	var uvs := PackedVector2Array()
+	var colors := PackedColorArray()
+	var full_size := Vector2(rect.size.x * 3.0, rect.size.y)
+	var offset := Vector2(float(index) / 3.0, 0.0)
+	for point: Vector2 in piece_partition(index):
+		points.append(rect.position + (point - offset) * full_size)
+		uvs.append((atlas.region.position + point * atlas.region.size) / atlas.atlas.get_size())
+		colors.append(Color.WHITE)
+	draw_polygon(points, colors, uvs, atlas.atlas)

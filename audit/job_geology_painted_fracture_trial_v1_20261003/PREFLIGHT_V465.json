@@ -1,0 +1,9 @@
+{
+  "status": "RUNNER_LAUNCH_ERROR_PRESERVED_AND_CORRECTED_BEFORE_CAPTURE",
+  "error_type": "shutil.SameFileError",
+  "cause": "Launching the preserved canonical runner in review_tools made its archive-copy source equal its destination. This happened before Godot gates/captures started.",
+  "correction": "Copied the exact runner to the intended primary staging tmp path and launched from there. No renderer or production change; both fresh captures and all six checks passed.",
+  "successful_runner": "review_tools/run_geology_fracture_trial_v465.py",
+  "evidence": "runtime_gate_a2/",
+  "qualification": "Helper launch error, not a game/analyzer/capture failure. Raw later gates remain authoritative."
+}

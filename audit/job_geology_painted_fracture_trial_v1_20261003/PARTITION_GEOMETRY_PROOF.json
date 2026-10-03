@@ -1,0 +1,84 @@
+{
+  "source_sha256": "22c9fecd42db41e0f138749ff2468b2f76a8ca1ef6b305ab4afbcfe785d8a96e",
+  "piece_areas": [
+    0.3312583333333333,
+    0.33694999999999997,
+    0.33179166666666665
+  ],
+  "sum_area": 1.0,
+  "shared_y_monotonic_boundaries": [
+    [
+      [
+        0.3333333333333333,
+        0
+      ],
+      [
+        0.31,
+        0.13
+      ],
+      [
+        0.365,
+        0.27
+      ],
+      [
+        0.315,
+        0.4
+      ],
+      [
+        0.35,
+        0.54
+      ],
+      [
+        0.29,
+        0.69
+      ],
+      [
+        0.355,
+        0.84
+      ],
+      [
+        0.3333333333333333,
+        1
+      ]
+    ],
+    [
+      [
+        0.6666666666666666,
+        0
+      ],
+      [
+        0.705,
+        0.15
+      ],
+      [
+        0.64,
+        0.28
+      ],
+      [
+        0.69,
+        0.43
+      ],
+      [
+        0.63,
+        0.58
+      ],
+      [
+        0.7,
+        0.73
+      ],
+      [
+        0.645,
+        0.87
+      ],
+      [
+        0.6666666666666666,
+        1
+      ]
+    ]
+  ],
+  "union_entire_original_atlas": true,
+  "no_interior_overlap": "Two separated y-monotonic boundaries; adjacent pieces share identical boundary coordinates.",
+  "maximum_internal_excursion": 0.043333333333333335,
+  "pick_margin_unchanged_pixels": 24,
+  "qualification": "Geometry/UV conservation proof only, never a visual score or acceptance."
+}
