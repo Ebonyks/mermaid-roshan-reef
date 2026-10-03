@@ -59,6 +59,11 @@ On 2026-09-30 the owner-requested Roshan appearance analysis appends one V1
 record, `MA-ROSHAN-005`, for frame defects in approved Roshan atlases and career
 cards, and the owner commissioned the repair handoff the same day.
 
+On 2026-10-03 the self-improvement loop audit
+(`docs/handoffs/codex_self_improvement_loop_2026-10-03/LOOP_AUDIT.md`)
+appends two V1 records: `MA-DOC-009`, for an improvement loop that does not
+turn, and `MA-CI-008`, for advisory sensors that fail silently.
+
 ## MA-2D-002
 
 | Field | Value |
@@ -219,6 +224,29 @@ cards, and the owner commissioned the repair handoff the same day.
 | closure | Open as of 2026-09-30; the audit, draft reference, templates, seeds and measurement tool exist, and no work package has run. |
 | relationships | Related to `MA-DOC-006` (new jobs need art cards), `MA-DOC-007` (stale and contradictory documents; reference R06), and `MA-VIS-003` and `MA-VIS-004` (source-average palette metrics stay under `DL-VIS-08`). |
 | history | 2026-09-30: created from the visual design language audit at dev `b65c21fd`; P2 under section 2.3; handoff published with VL0–VL9. 2026-09-30 (later): owner decisions recorded (atlases are the primary identity authority; the tail is iridescent and both renderings are correct); handoff revision 2 adds a frame-by-frame appearance analysis of every runtime Roshan image (`ROSHAN_APPEARANCE_ANALYSIS.md`); lifecycle unchanged. 2026-09-30 (later): the owner answered Q12–Q16 (no light-state protocol yet; the older career and playground design is kept; tiara outside career costume; prepare the repair handoff; delete the retired backpack art outright); handoff revision 3 records them, and the repairs and deletion are specified in `docs/handoffs/codex_roshan_art_repairs_2026-09-30/` (tracked by `MA-ROSHAN-005`); lifecycle unchanged. |
+
+## MA-DOC-009
+
+| Field | Value |
+|---|---|
+| id | `MA-DOC-009` |
+| title | The improvement loop does not turn: the game is not studied on a cadence, its strengths are not kept as references, new weaknesses and stuck fixes are not surfaced, and simple prompts have no recipes that expand them into nuanced content. |
+| rule_ids | `DL-AUTH-02`, `DL-AUTH-05`, `DL-AUTH-06`, `DL-AUTH-07`, `DL-PLAN-05`, `DL-PLAN-06`, `DL-QA-05`, `DL-QA-06`, `DL-QA-07` |
+| domain / zone | Audit process and documentation / the master audit, finding register, change records, chapter reference library and every handoff |
+| source | Owner request 2026-10-03 and `docs/handoffs/codex_self_improvement_loop_2026-10-03/LOOP_AUDIT.md` (three read-only sweeps, direct reads of the master audit, and the handoff's loop-health measurement at dev `f2140465`). |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1 static plus a read-only measurement (`tools/measure_loop_health.py` in the handoff). |
+| reproduction | At dev `f2140465`, `python -B docs/handoffs/codex_self_improvement_loop_2026-10-03/tools/measure_loop_health.py --today 2026-10-03` reports 38 of 59 open findings with no history entry for 30 days, 12 `FIXED_PENDING_VERIFICATION` records (six last touched on 2026-08-13), 4 of 77 impact records recording a lesson, change-history rows 56 in August, 11 in September and none in October, and all five tracked handoffs `NOT_STARTED`. The planning table's reference-library promotion row has never run, so no exemplar is promoted; section 12 has 1 of 23 boxes ticked; the section 1 scorecards were last edited on 2026-08-12 and 2026-08-13. |
+| child_impact | Indirect but cumulative: each new room, job or animation starts from scratch, owner corrections repeat and past lessons are relearned, so content arrives slower and less consistent; fixed defects the child may still meet stay unverified. |
+| evidence | `LOOP_AUDIT.md` sections 1–8 and `data/loop_health_2026-10-03.json`, `data/loop_inventory.json` in the handoff; master audit sections 1, 12, 13 and 14; `design/09_CHAPTER_DEVELOPMENT_GUIDE.md`; `design/10_CHAPTER_REFERENCE_LIBRARY.md`. |
+| owner_decision | 2026-10-03: the owner asks for a self-improving loop that studies the game, keeps its positive qualities as references, finds new weaknesses and gives a roadmap for nuanced content from simple prompts, and for an analysis of the feedback loops in the master audit. Severity P2 under section 2.3. Cadence, automation, candidate strengths and a parent note are open with defaults (handoff section 6, Q1–Q8). |
+| fix | Work packages LP0–LP11 of `docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md`, in its section 4 build order with the earlier handoffs. |
+| surrounding_tests | Document-authority and audit-development gates; study-runner unit tests with fixtures and a failing stress case; impact-record schema tests for the new optional fields; roadmap generator tests; the cold-start "add a bakery job" recipe test. |
+| acceptance | Handoff AC-1 to AC-10: two complete cycles with reports generated from `study.json`; a strengths register with evidence; lessons in at least half of change records, each with a write-back target; a generated roadmap; the cold-start test passes; the twelve unverified fixes each list their missing evidence and the first sweep is scheduled; generated change history and current scorecards; loop health improves on three measures; the owner reviews the second cycle report. |
+| closure | Open as of 2026-10-03; the loop audit, templates, seeds, measurement tool and cycle 0 report exist, and no work package has run. |
+| relationships | Related to `MA-DOC-006` (the job recipe), `MA-DOC-007` (stale documents the loop reads), `MA-DOC-008` (art exemplars and review cards), `MA-CI-008` (sensors the study reads) and `MA-CHILD-001` (no child evidence). |
+| history | 2026-10-03: created from the self-improvement loop audit at dev `f2140465`; P2 under section 2.3; handoff published with LP0–LP11 and a cycle 0 report. |
 
 ## MA-VIS-002
 
@@ -1323,6 +1351,29 @@ cards, and the owner commissioned the repair handoff the same day.
 | closure | Open as of 2026-08-26; no shared harness exists. |
 | relationships | Decomposed from `MA-CODE-002`; classification context `MA-CI-003`; roster context `MA-CI-004`. |
 | history | 2026-08-26: counted at `9a1754c1`; opened `CONFIRMED_OPEN`. |
+
+## MA-CI-008
+
+| Field | Value |
+|---|---|
+| id | `MA-CI-008` |
+| title | Advisory sensors in the Probe Suite fail silently: the Opera pacing run measures nothing, two review captures fail or upload nothing, and the dust-boss run's described fun band is not checked, while every run stays green. |
+| rule_ids | `DL-QA-02`, `DL-QA-03`, `DL-QA-07` |
+| domain / zone | Test fidelity / advisory steps of `.github/workflows/probes.yml`; `scripts/probe_opera_2d_balance.gd`; the Sky Lagoon and pearl-castle review captures |
+| source | Self-improvement loop audit 2026-10-03 (`docs/handoffs/codex_self_improvement_loop_2026-10-03/LOOP_AUDIT.md` section 4): log and artifact read of Probe Suite run `37100729058` at dev `f2140465`, with sampled `dev` runs since 2026-09-02. |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1: workflow, probe source, CI log and artifact list read; no rerun. |
+| reproduction | In run `37100729058` (success, head `f2140465`) every Opera balance line reports `verdict=capped` at the 300-second `TIME_CAP` for all 15 careers (`scripts/probe_opera_2d_balance.gd` lines 11 and 58–59), and the probe header still says it drives "thirteen" acts (line 4); the Sky Lagoon capture ends `LAGOONSHOT\|RESULT\|FAIL`; the pearl-castle upload finds no files. These steps are `continue-on-error` (`.github/workflows/probes.yml` lines 269–418), so the run is green and keeps four of its six artifacts, one of them a capture of the retired Reef. The dust-boss step's comment describes a 45–120 second fun band, but the probe checks only that the boss can be won. |
+| child_impact | Indirect: pacing too long or too short for a four-year-old goes unnoticed, and Sky Lagoon and pearl-castle regressions get no review images, while the green run suggests both are watched. |
+| evidence | Probe Suite run `37100729058` log and artifact list; `scripts/probe_opera_2d_balance.gd:4`, `:11`, `:58-59`; `.github/workflows/probes.yml:269-418`; `scripts/probe_dust_boss_balance.gd`. |
+| owner_decision | Not required for the probe-side repair. `.github/workflows/probes.yml` is a high-risk file under `CLAUDE.md`; changing it needs an explicit owner task, which the prompt "fix the silent sensors" would be. |
+| fix | Rescale or raise the Opera pacing cap so each career reports a time, and correct the act count; make each advisory step print one result line that the study runner reads (handoff LP2), so a capped, failed or empty advisory result is reported each cycle without failing the build; repair or retire the Sky Lagoon, pearl-castle and retired-Reef captures; check the dust-boss fun band or remove its description. |
+| surrounding_tests | The Opera balance run reports a finite time per career for at least one simulated child; each capture step produces its artifact or a reported reason; the study runner flags an injected `RESULT\|FAIL` line. |
+| acceptance | A green Probe Suite run whose advisory results are all measured or explicitly reported as not measured, listed in the cycle report (`DL-QA-07`). |
+| closure | Open as of 2026-10-03; nothing changed. |
+| relationships | Read by the study runner of `MA-DOC-009`; related to `MA-CI-003` (probe classification) and `MA-CI-007` (probe infrastructure). |
+| history | 2026-10-03: confirmed by CI log, artifact list, workflow and probe source read at dev `f2140465`; opened `CONFIRMED_OPEN`. |
 
 ## MA-TYPE-001
 

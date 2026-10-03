@@ -1,0 +1,164 @@
+{
+ "schema": "prompt_intents_seed/1",
+ "measured_at_head": "f2140465b0d97575cf1855b1d0422a2c4be6110f",
+ "note": "says lists example owner phrasings; recipe_today points at what exists now; none means a recipe must be written (LP7)",
+ "intents": [
+  {
+   "id": "INT-STUDY",
+   "says": [
+    "study the game",
+    "how is the game doing",
+    "what changed"
+   ],
+   "minimum_input": "none, or an area",
+   "expands_to": "one study report from the sensors (templates/STUDY_REPORT_V1.md)",
+   "recipe_today": "none (this handoff)",
+   "owner_touchpoints": "answer up to five numbered questions"
+  },
+  {
+   "id": "INT-ADD-JOB",
+   "says": [
+    "add a bakery job",
+    "new job: baker"
+   ],
+   "minimum_input": "the job",
+   "expands_to": "a job card: premise, thematic room (no forced fit), three or four distinct verbs in a Teach / Play / Twist / Bow act, a truthful visible change per beat, an imp contest (DL-INT-14), costume over the base-world identity (ID-ROSHAN), exact voice lines, a music score entry, the next save bit with the four clamps raised, probes",
+   "recipe_today": "audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md section 4 (interim); Job Platform record when built",
+   "owner_touchpoints": "premise and room (one question); costume board"
+  },
+  {
+   "id": "INT-ROOM-ACTIVITY",
+   "says": [
+    "a rainy-day activity in the castle",
+    "something to do in the library"
+   ],
+   "minimum_input": "the room, optionally a theme",
+   "expands_to": "an activity card: one guided target, highlight that follows the painted object, four to twelve authored states, the exact voice line and pointer, help ladder, persistent result",
+   "recipe_today": "none (nearest example scripts/comfy_games.gd)",
+   "owner_touchpoints": "none inside an approved room; premise if it adds a permanent feature"
+  },
+  {
+   "id": "INT-COMPANION",
+   "says": [
+    "add a new stuffie friend",
+    "let the bunny follow Roshan"
+   ],
+   "minimum_input": "who",
+   "expands_to": "an identity sheet, a movement profile, the follower pattern, voice and save keys",
+   "recipe_today": "none (STUFFIE_COMPANIONS.md recipe is 3D-era)",
+   "owner_touchpoints": "new recurring characters need owner approval"
+  },
+  {
+   "id": "INT-EVENT",
+   "says": [
+    "a birthday surprise",
+    "a snowy day in the castle"
+   ],
+   "minimum_input": "the occasion",
+   "expands_to": "reused rooms and art with an additive, time-limited layer and its own save key",
+   "recipe_today": "none",
+   "owner_touchpoints": "premise"
+  },
+  {
+   "id": "INT-VOICE-LINES",
+   "says": [
+    "Roshan should say ..."
+   ],
+   "minimum_input": "the moment",
+   "expands_to": "exact line keys, speaker, engine, quality gate, routing; protected recordings never altered",
+   "recipe_today": "assets/audio/voices/VOICE_MANIFEST.md (requires the Parler pipeline for new provisional lines; the Teacher, the Chapter 2 lawn and the fairy prototype used the legacy Kokoro path)",
+   "owner_touchpoints": "none; protected family recordings are never altered or imitated"
+  },
+  {
+   "id": "INT-ART",
+   "says": [
+    "make a new prop for the kitchen"
+   ],
+   "minimum_input": "the object and where it goes",
+   "expands_to": "an art style card with bound exemplars, then an art review card",
+   "recipe_today": "docs/handoffs/codex_visual_design_language_2026-09-30/templates/ (draft)",
+   "owner_touchpoints": "before-and-after board"
+  },
+  {
+   "id": "INT-ANIMATION",
+   "says": [
+    "make Roshan do a cartwheel"
+   ],
+   "minimum_input": "the action",
+   "expands_to": "a clip contract from the movement profile",
+   "recipe_today": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+   "owner_touchpoints": "key-pose review"
+  },
+  {
+   "id": "INT-STORY-CLIP",
+   "says": [
+    "a story clip when the pool is clean"
+   ],
+   "minimum_input": "the moment",
+   "expands_to": "one shot card with two to four bound images",
+   "recipe_today": "design/templates/IMAGINE_SHOT_CARD_V1.md",
+   "owner_touchpoints": "first-frame approval"
+  },
+  {
+   "id": "INT-NEW-CHAPTER",
+   "says": [
+    "a new chapter in the north"
+   ],
+   "minimum_input": "the premise",
+   "expands_to": "a chapter brief",
+   "recipe_today": "design/09_CHAPTER_DEVELOPMENT_GUIDE.md",
+   "owner_touchpoints": "premise and boundaries (DL-PLAN-01)"
+  },
+  {
+   "id": "INT-REPAIR",
+   "says": [
+    "fix the Geologist fins"
+   ],
+   "minimum_input": "the defect",
+   "expands_to": "a repair under master audit section 9, with a finding",
+   "recipe_today": "master audit section 9",
+   "owner_touchpoints": "visual acceptance for art"
+  },
+  {
+   "id": "INT-POLISH",
+   "says": [
+    "make the movie lounge nicer"
+   ],
+   "minimum_input": "the area",
+   "expands_to": "a focused study of the area, then repair and art cards",
+   "recipe_today": "none",
+   "owner_touchpoints": "before-and-after board"
+  },
+  {
+   "id": "INT-RETIRE",
+   "says": [
+    "delete the old backpack art"
+   ],
+   "minimum_input": "what",
+   "expands_to": "a deletion inventory: files, live references, licences, history note",
+   "recipe_today": "docs/handoffs/codex_roshan_art_repairs_2026-09-30/data/deletion_inventory.json (worked example)",
+   "owner_touchpoints": "the decision itself"
+  },
+  {
+   "id": "INT-PUBLISH-HANDOFF",
+   "says": [
+    "upload it to git as a codex handoff"
+   ],
+   "minimum_input": "the work",
+   "expands_to": "a packet with manifest, gates, push, anonymous verification and one link",
+   "recipe_today": "CLAUDE.md external handoff rules (practice since 2026-09-16)",
+   "owner_touchpoints": "none"
+  },
+  {
+   "id": "INT-RELEASE",
+   "says": [
+    "ship it",
+    "push to master"
+   ],
+   "minimum_input": "none",
+   "expands_to": "the promote workflow, monitored to completion, with both APK links",
+   "recipe_today": "CLAUDE.md git workflow (owner shorthand 2026-08-01)",
+   "owner_touchpoints": "none"
+  }
+ ]
+}
