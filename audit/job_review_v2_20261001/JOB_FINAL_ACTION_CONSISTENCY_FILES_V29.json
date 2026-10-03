@@ -1,0 +1,546 @@
+{
+  "schema": "reef.immutable-scoped-owner-direction.v1",
+  "baseline": "6c5c1bd4a0951964a08043e72ae6472d2d402a9e",
+  "scope": "Owner-selected shared Roshan final-action and native-resolution production brief;115 source-derived plan rows. This revision changes no runtime art/source or score. All-game completion remains open.",
+  "required_payload_files": 68,
+  "required_unchanged_scope_references": 26,
+  "required_files_excluding_manifest": 94,
+  "files": {
+    ".gitattributes": {
+      "bytes": 14900,
+      "sha256": "764cb047ef95c83a2bc95405febf62c6902ffe6c64cf4bc4c9aa19dca80f60d2",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "ASSET_LICENSES.md": {
+      "bytes": 9984416,
+      "sha256": "7c6e817de8079ad310beeb68040012a648fc576f13b569988b6f1675acfae3d9",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/MASTER_AUDIT_2026-08-09.md": {
+      "bytes": 383634,
+      "sha256": "23a77bf63a182f344e52f6926ceb1a726cb085cb2aa54423abc93f13589d993c",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/animation/README.md": {
+      "bytes": 16462,
+      "sha256": "f8584511c45b550714c4449ad93df34227da367a35ad75663a897dabece91b5b",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_artwork_refinement_live/index.html": {
+      "bytes": 31141,
+      "sha256": "73ec60076af296db107bf667ad63de7e7d22f838aa1cd24876e19e8077c56629",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/AUTHORITY_REVIEW.json": {
+      "bytes": 1774,
+      "sha256": "8ae3a257fc86bee7517119bb07a31f72c5af79d4ec737dc9426e0e2378178c45",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/AUTHORITY_START.json": {
+      "bytes": 365851,
+      "sha256": "66c8fdfd54db118c06b20edd710accc5a6be9f4543ee2ee7a14ee074dc484757",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/BROWSER_LIBRARY_VERIFY.json": {
+      "bytes": 1002,
+      "sha256": "264207f710bdf0753dfbe07c4806dcfb25920e7d76b4d9c0904c3a45ab208e06",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/BUILD_RECEIPT.json": {
+      "bytes": 629,
+      "sha256": "e41805242e90264d4273a7b558b38bbc5f7a36f28467232fc2a36f51e5aae9ad",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/CURRENT_LAYOUT_AND_COMPLETION_TRACE.json": {
+      "bytes": 25450,
+      "sha256": "c571b95f8238fac4bf6fe4dacbb37c9d0187495556f0f4af5afa068ee3609626",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/ILLUSTRATION_REFERENCES.json": {
+      "bytes": 1997,
+      "sha256": "7ae501b5e9d1ad3ead448ef02019ae389c3ca6c8f111ae1924fd8ef96c2b23ed",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/OWNER_DIRECTION.json": {
+      "bytes": 392,
+      "sha256": "16f734a1bb110d2c09ae462d2ec9361127881bab6b552c98133dffb9c220ee02",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/PHASE_COVERAGE.json": {
+      "bytes": 88582,
+      "sha256": "891c52b2723177975f23fd868f0b299593f010275fb0318dc0f71f61bc026698",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/PRESENTATION_CONTRACT.json": {
+      "bytes": 6979,
+      "sha256": "53786f7f3be53850a5862cc38b50717139c9324a089818a710f2f4a0a1cf4e2e",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/PRODUCTION_BOUNDARY.json": {
+      "bytes": 119400,
+      "sha256": "beb3e05388acea9ac9710af0218ff6dc1ba9a12c7f4f8bb5bf49eb00daf627cc",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/REGISTER_BOUNDARY_AFTER.json": {
+      "bytes": 466,
+      "sha256": "2cffcfc6826a729132dac794a231071e1997f9381ffaa085af73af544041e333",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/REGISTER_BOUNDARY_BEFORE.json": {
+      "bytes": 520,
+      "sha256": "0551321ff16d80a0d27539538027b289ccbe920ef941a2c31dc356b192ed39a2",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/RESOLUTION_REUSE_INVENTORY.json": {
+      "bytes": 6380,
+      "sha256": "4115e7826ffe7576d99bc935769dc689f2497aa48591f71b37bf13e8313d7277",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/SHARED_FORMAT_LIBRARY_V686.jpg": {
+      "bytes": 117413,
+      "sha256": "8242607d8301e6313a971598b007dbd8b56ccb259e9d67fb8667935602fe0142",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/SHARED_LIBRARY_OBSERVATION_V687.json": {
+      "bytes": 1599,
+      "sha256": "9fae1b844daae16788b852eba00177c843afc509ebb17e8bf0cf3cd877a1bdf6",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/STRUCTURAL_VERIFY.json": {
+      "bytes": 602,
+      "sha256": "5c46b896db8e71a7bb7e1b4116995ca1f77e33a8a5141ebebabd88ee28eccfec",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/CANDIDATE_SOURCE.json": {
+      "bytes": 9502,
+      "sha256": "f292a2b5c9f60db0f37769797a9e1db0c05da2ed763760fc7675db582a9e9c7f",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/authority.receipt.json": {
+      "bytes": 927,
+      "sha256": "854a208072e9d6d00166b8928727b07a2c7fe27ef866b4045e6ac2f1c596d89b",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/authority.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/authority.stdout.log": {
+      "bytes": 78,
+      "sha256": "6d2231b20e73aff13efec87e9f54f54afc044cc21b8fc1897f20735ff6cfa25d",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/development.receipt.json": {
+      "bytes": 946,
+      "sha256": "cb96094aa23bd8a59486892980f3a2a0b8bc0bed84097dd764e13614eade0c69",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/development.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/development.stdout.log": {
+      "bytes": 80,
+      "sha256": "eba7f90a93404e051add4a9e0c0c6724a16bc1ed1a6ae644c3813f149d90ded4",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/document_tests.receipt.json": {
+      "bytes": 1003,
+      "sha256": "b144612b1a030dac84b5084bcadd3689bdd1bd64c583b3fc548f05f16fce0696",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/document_tests.stderr.log": {
+      "bytes": 157,
+      "sha256": "0ee0c83a7fb57116c757f7ff5b3e4c30f779606e9a79681e0abc61b6c49fde4c",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/document_tests.stdout.log": {
+      "bytes": 20,
+      "sha256": "f6dae08cdab672a16e9630b84cfc9cfbb91c9ce905958c736a197b38d21dcf29",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/game2d.receipt.json": {
+      "bytes": 941,
+      "sha256": "99dc056dc8758bc303fe14aea57ac8741e6c4b8a2352e8184b9ad7813e3f9b09",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/game2d.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/game2d.stdout.log": {
+      "bytes": 414,
+      "sha256": "763e51b38ed1cefc7a506b7148b9d6822c3a647d2fb45e1b64c8f22cb194e0ac",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/register_parts.receipt.json": {
+      "bytes": 967,
+      "sha256": "848a1c88dc788b94f149cb8532c7d852b2baa2d37684b4ee4367031478cafa0f",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/register_parts.stderr.log": {
+      "bytes": 1171,
+      "sha256": "e1e4a2bf3a44404855da7d9f2bbd12058dfa6b9baeb4e70a07c886c3995b7025",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/register_parts.stdout.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/index.html": {
+      "bytes": 37871,
+      "sha256": "4233783a619363a576037551c9a118b5f9596330114a8a7116c39cc016292a50",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/HOSTED_RUN.json": {
+      "bytes": 5949,
+      "sha256": "f976fc37436131c000b684ba5a0072e3db214853458c003a08e730d155403c8c",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/HOSTED_RUN.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/HOSTED_STATUS_OBSERVED.json": {
+      "bytes": 344,
+      "sha256": "9f8bb72aa6b42e489efe1efe47388b1b5bbebbefa5876b8d16ad8a4b944cb28b",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/INITIAL_PUBLICATION_RECEIPT.json": {
+      "bytes": 566,
+      "sha256": "4df3322eb56579927ab8f3c82ec11beb0cca637847284aceb1e985168a7d8d92",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_000.jsonl": {
+      "bytes": 849744,
+      "sha256": "68f57dece4de614b6b39f5ed354654ed2e745ee66e370933201f0109e71d85c8",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_001.jsonl": {
+      "bytes": 849893,
+      "sha256": "5a946a711539229e583e13366430f8b6c148e07f69197ae33dcc82887e5a81da",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_002.jsonl": {
+      "bytes": 849727,
+      "sha256": "0f7dc92eef18b0a6d2563524db9ad7ef5e6c6013acd717eb8a3bbd5a6f5c4386",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_003.jsonl": {
+      "bytes": 849945,
+      "sha256": "6268bdd4259e143bbda960b6ba46b482f873c97375cc521638541e6d1b6bda7f",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_004.jsonl": {
+      "bytes": 849645,
+      "sha256": "a931cc39c7f4a6d0ec4fd303f458deb899a52a2d1ad5c6d6dac6de552cb23106",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_005.jsonl": {
+      "bytes": 849924,
+      "sha256": "cde55ab5208253ee210d2e837110483a31bcbc0f96402850eec2d5c02b3a78d2",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_006.jsonl": {
+      "bytes": 849791,
+      "sha256": "925aaf0c7d9bd560af2a2a62b85f174a551d8246789e8847a36370da9a9e9610",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_007.jsonl": {
+      "bytes": 849861,
+      "sha256": "b328dcb367f04e9268e7a18578870a5e8ab0d168770f3fecadff638066336800",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_008.jsonl": {
+      "bytes": 849969,
+      "sha256": "1a8931b496dbfd2fbabc3580146e4d6e1380b02d699548d9768e9242f756ea80",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_009.jsonl": {
+      "bytes": 849775,
+      "sha256": "66fc01c8bfb99923d322f613b9710cb4baef726c5fc91088e97d371498762854",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_010.jsonl": {
+      "bytes": 849636,
+      "sha256": "049d52c11de90236997292790693f1a35c065408eeac1f60d1155bf4d927068d",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_011.jsonl": {
+      "bytes": 849868,
+      "sha256": "dcd731aa426a568bae1798f1500bd9bfaeb5c1596380459d63eed9342888e00e",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_012.jsonl": {
+      "bytes": 746424,
+      "sha256": "50c905c39b81a52973c4ab874d142c6a0afb0aa7b33c2c4d69074276ffd621e6",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_SHARDS.json": {
+      "bytes": 3524,
+      "sha256": "28a1081f9229675df6bf2baab576cc336f6f3e42946d201efcb26d88448354ad",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/RESULT.json": {
+      "bytes": 1589,
+      "sha256": "e89cd70b78dfa3532d8ea757005653c11b06771a24f67ef8d03cc6d75d1e065b",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/previous_library_index.html": {
+      "bytes": 30728,
+      "sha256": "1496147ab0effd48a83048615de1358c45cc2d6e200e41b0d5e6831651364f2b",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/review_tools/build_job_consistency_v681.py": {
+      "bytes": 37380,
+      "sha256": "5e05219ebdd32e4775c2e6706bfa2624904f1eca38143babab64af1768d5cb0e",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/review_tools/job_consistency_scope_v680.py": {
+      "bytes": 4562,
+      "sha256": "fb087a86233ab860f2e8751f09cb5e073a8e6d82f86dc1cd13e7e02cb4b1eb7d",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/review_tools/prepare_consistency_gates_v683.py": {
+      "bytes": 5473,
+      "sha256": "5af52e34748beb35df4b0cdf0ea26164f96a82a1a3249dfb99d1bb8fc8fc13b5",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/review_tools/publish_consistency_v684.py": {
+      "bytes": 11530,
+      "sha256": "903bb7076789c43242731ed3918e49173b67e0b6a46528035a9c60aaa095c49b",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/review_tools/run_consistency_gate_v683.py": {
+      "bytes": 2001,
+      "sha256": "cb8082859c94a80af2b42e1211a929157cf43627e11f8a67523fecdc41ce3201",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "audit/job_final_action_consistency_v1_20261003/review_tools/seal_library_proof_v688.py": {
+      "bytes": 3393,
+      "sha256": "5b48f87a2d8cb34cfe1c1ffada20519b2f18e60a111d3526740e640f6a53a2c7",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "design/05_DOC_LEDGER.md": {
+      "bytes": 229556,
+      "sha256": "56d16f2021a422227ffd3dbf2de4ef644b72ec717c8479b893a3a2aaa908d14f",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md": {
+      "bytes": 102479,
+      "sha256": "b132fd53a4de572a50b8e4396a13e7d74161a79b876ace93d395fd5de1134cca",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "design/animation/JOB_FINAL_ACTION_PRESENTATION_V1.json": {
+      "bytes": 6979,
+      "sha256": "53786f7f3be53850a5862cc38b50717139c9324a089818a710f2f4a0a1cf4e2e",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "design/audit_impacts/job-final-action-consistency-20261003.json": {
+      "bytes": 9650,
+      "sha256": "8b7ffa8a2b0529bbfce1b11523ac3a41628f9c464b312d455e71af14f9d664a8",
+      "role": "CHANGED_REVIEW_PAYLOAD"
+    },
+    "assets/opera/worlds/actors/animation/roshan_candymaker_sheet_a.png": {
+      "bytes": 958648,
+      "sha256": "b858c07f52d4f67679a39dd039afc7123199646442c067368425f8f46deec179",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "b858c07f52d4f67679a39dd039afc7123199646442c067368425f8f46deec179",
+      "publication_bridge": "LITERAL_MATCH"
+    },
+    "assets/opera/worlds/backdrops/world_candymaker.png": {
+      "bytes": 1246257,
+      "sha256": "19ac984638fea33e0f0cb649b7d51b1364f13c36f0e5c5dd4e883dc283ef5d48",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "19ac984638fea33e0f0cb649b7d51b1364f13c36f0e5c5dd4e883dc283ef5d48",
+      "publication_bridge": "LITERAL_MATCH"
+    },
+    "assets/opera/worlds/backdrops/world_candymaker_c0r0.png": {
+      "bytes": 753340,
+      "sha256": "c3bf6be20a34de6070ac763c640f19f39ce13ee40bc580d737a79490caab4d86",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "c3bf6be20a34de6070ac763c640f19f39ce13ee40bc580d737a79490caab4d86",
+      "publication_bridge": "LITERAL_MATCH"
+    },
+    "assets/opera/worlds/backdrops/world_candymaker_c0r1.png": {
+      "bytes": 856731,
+      "sha256": "8ea70a93e5703ff7f3a07a5ec5c1812c1e1bb16805c2f83e3a889e4e44e85483",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "8ea70a93e5703ff7f3a07a5ec5c1812c1e1bb16805c2f83e3a889e4e44e85483",
+      "publication_bridge": "LITERAL_MATCH"
+    },
+    "assets/opera/worlds/backdrops/world_candymaker_c1r0.png": {
+      "bytes": 724503,
+      "sha256": "4b573a1689e3c21cd920f727d6139e5cae4acdabb02960db70eaa313cd798106",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "4b573a1689e3c21cd920f727d6139e5cae4acdabb02960db70eaa313cd798106",
+      "publication_bridge": "LITERAL_MATCH"
+    },
+    "assets/opera/worlds/backdrops/world_candymaker_c1r1.png": {
+      "bytes": 833853,
+      "sha256": "167626be69d208d4080ba0cb302278a20d39d74505b2fcc56923f3c7a0a8bc2c",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "167626be69d208d4080ba0cb302278a20d39d74505b2fcc56923f3c7a0a8bc2c",
+      "publication_bridge": "LITERAL_MATCH"
+    },
+    "assets/opera/worlds/widgets/widget_crank_candymaker_mover.png": {
+      "bytes": 72499,
+      "sha256": "4e77bdc100f28a4a4639190c9be820ed9b05f6361d7ebf16fb250dbde92b585f",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "4e77bdc100f28a4a4639190c9be820ed9b05f6361d7ebf16fb250dbde92b585f",
+      "publication_bridge": "LITERAL_MATCH"
+    },
+    "assets_src/imagegen/candy_twist_release_pose_v1_20261003/twist_attempt05/native.png": {
+      "bytes": 2205286,
+      "sha256": "33a0c2a7d4ef4550ec537ed65257fde7f06b53694ab8bad6315b9d91ffc8b38e",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "33a0c2a7d4ef4550ec537ed65257fde7f06b53694ab8bad6315b9d91ffc8b38e",
+      "publication_bridge": "LITERAL_MATCH"
+    },
+    "assets_src/imagegen/candy_wrap_scene_context_v1_20261003/attempt02/native.png": {
+      "bytes": 2323232,
+      "sha256": "b126a8ab0f1c0d1e720588335beb3bdb6f1e2b4153ff1e2deeacaf5443d2ec62",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "b126a8ab0f1c0d1e720588335beb3bdb6f1e2b4153ff1e2deeacaf5443d2ec62",
+      "publication_bridge": "LITERAL_MATCH"
+    },
+    "assets_src/imagegen/candy_wrap_transition_keys_v1_20261003/release_attempt04/native.png": {
+      "bytes": 2239501,
+      "sha256": "71ca74126afe50da319a52b2444451bc748d3a8224d65e091f03f7fa471ca86a",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "71ca74126afe50da319a52b2444451bc748d3a8224d65e091f03f7fa471ca86a",
+      "publication_bridge": "LITERAL_MATCH"
+    },
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md": {
+      "bytes": 238637,
+      "sha256": "d375a5b70d021ceaaadd0b461f323c3b2c8905400eaa1784cf7155cf0dcba2ac",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "d375a5b70d021ceaaadd0b461f323c3b2c8905400eaa1784cf7155cf0dcba2ac",
+      "publication_bridge": "LITERAL_MATCH"
+    },
+    "audit/job_artwork_refinement_live/ALL_ITEMS.json": {
+      "bytes": 4125030,
+      "sha256": "8f927d7c721d6313a6f6fb881ca241bfd0207bcc9ef24f0bec55b44b3b694ed5",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "8f927d7c721d6313a6f6fb881ca241bfd0207bcc9ef24f0bec55b44b3b694ed5",
+      "publication_bridge": "LITERAL_MATCH"
+    },
+    "audit/job_artwork_refinement_live/ATLAS_STATE_ITEMS_V51.json": {
+      "bytes": 236473,
+      "sha256": "7d39a5c8d7d6348688e7cafa3684e208b6cab429c13b5a1ba793db5c676614b7",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "7d39a5c8d7d6348688e7cafa3684e208b6cab429c13b5a1ba793db5c676614b7",
+      "publication_bridge": "LITERAL_MATCH"
+    },
+    "audit/job_artwork_refinement_live/CURRENT_BOUNDARY_REFRESH.json": {
+      "bytes": 796030,
+      "sha256": "405f5582899fb5c56efc4787ef26a6b04cc46dc5fbe63388ba1cc28063a04e45",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "405f5582899fb5c56efc4787ef26a6b04cc46dc5fbe63388ba1cc28063a04e45",
+      "publication_bridge": "LITERAL_MATCH"
+    },
+    "audit/job_candy_wrap_contact_runtime_v1_20261003/attempt05/native_frames/training_1280_0081.webp": {
+      "bytes": 108828,
+      "sha256": "32d3dceb8e59ea6e1603ec5aa9e5caebac55846c243328136c0382dd4d3c7552",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "32d3dceb8e59ea6e1603ec5aa9e5caebac55846c243328136c0382dd4d3c7552",
+      "publication_bridge": "LITERAL_MATCH"
+    },
+    "audit/job_review_v2_20261001/CANDY_TRANSITION_KEY_FILES_V28.json": {
+      "bytes": 24889,
+      "sha256": "57a8dc8cdc8343fd0b924354aa27a31028ac5157b94acfbc8f765c44e4ae1fa7",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "57a8dc8cdc8343fd0b924354aa27a31028ac5157b94acfbc8f765c44e4ae1fa7",
+      "publication_bridge": "LITERAL_MATCH"
+    },
+    "design/AUDIT_DEVELOPMENT_CONTRACT.md": {
+      "bytes": 6444,
+      "sha256": "bd3932fe2916c8223234a70694d22e80d96cc198eb9d31484254490edfef6f57",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "18b6f477b41241b509afda6a7cf76932c9af08be70f321ee2d744db424fe2b30",
+      "publication_bridge": "WHOLE_TEXT_CRLF_TO_LF_ONLY"
+    },
+    "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md": {
+      "bytes": 15481,
+      "sha256": "6b15debd817d3e135e253bc1207dce8bab15ffc18e3c603f97f2f1d9d57f65d6",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "79df746086e417f240de5f271f85b00d78d310324becb0130862439a6478f3f6",
+      "publication_bridge": "WHOLE_TEXT_CRLF_TO_LF_ONLY"
+    },
+    "project.godot": {
+      "bytes": 1725,
+      "sha256": "59b81dd5b6d51eb4109631addf362673a91fe69b49470071906e6109b10e2f8b",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "2587e8f6cbd52d437f6a08198d26a80465ee0e86868bc9f03526134f0cd6e770",
+      "publication_bridge": "WHOLE_TEXT_CRLF_TO_LF_ONLY"
+    },
+    "scripts/chapter_two_career_scene_adapter.gd": {
+      "bytes": 15546,
+      "sha256": "7397beeabc10e20ea3cdf38f2918d672711ac06dedb539d536a4eb1c1c656e2f",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "ffdcd602711a6acc42a5c6352ad8cbb701316f94c21233356fb56071f85ad40a",
+      "publication_bridge": "WHOLE_TEXT_CRLF_TO_LF_ONLY"
+    },
+    "scripts/comfy_games.gd": {
+      "bytes": 25249,
+      "sha256": "86fcfaa206b2e09323c1e0102747be080b9aa86cc42caa59f9dd66d9778f506c",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "977b231aa5ff43c75608683339aa8fae7e414f7e2fdf77ce570633f6ef82a22c",
+      "publication_bridge": "WHOLE_TEXT_CRLF_TO_LF_ONLY"
+    },
+    "scripts/opera_career_world_2d.gd": {
+      "bytes": 237804,
+      "sha256": "501cec2f90a16ed66dd10fabacc04d1285061a682cf39ad0ad0481c2e2661131",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "501cec2f90a16ed66dd10fabacc04d1285061a682cf39ad0ad0481c2e2661131",
+      "publication_bridge": "LITERAL_MATCH"
+    },
+    "scripts/opera_gesture_surface.gd": {
+      "bytes": 240107,
+      "sha256": "0ee425162bf4c1f6c34a7201be236ba31a3b537d0ea22ea35b60d069aae1a0d6",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "c28a885f68f2b16c66fcdaa5c4243ce9695a44d4ce015e56832ca392114cbedb",
+      "publication_bridge": "WHOLE_TEXT_CRLF_TO_LF_ONLY"
+    },
+    "scripts/opera_performance_plan.gd": {
+      "bytes": 1533,
+      "sha256": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "25517580638edcc8f63375ec6b14fd0de89287ed08af00111fec1d467cce6da3",
+      "publication_bridge": "WHOLE_TEXT_CRLF_TO_LF_ONLY"
+    },
+    "scripts/opera_roshan_actor.gd": {
+      "bytes": 6876,
+      "sha256": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66",
+      "publication_bridge": "WHOLE_TEXT_CRLF_TO_LF_ONLY"
+    },
+    "scripts/opera_world_backdrop_2d.gd": {
+      "bytes": 26041,
+      "sha256": "d2ca04dc34975ca10e50de5aaaddbd504c435c027c0e88d2f151f74f39ee7dcb",
+      "role": "REQUIRED_UNCHANGED_SCOPE_REFERENCE",
+      "local_literal_sha256": "d2ca04dc34975ca10e50de5aaaddbd504c435c027c0e88d2f151f74f39ee7dcb",
+      "publication_bridge": "LITERAL_MATCH"
+    }
+  },
+  "payload_sha256": "43846f78e5554467b1b463eb54281a99250edf4e75d752da7f998624cec33a3d",
+  "payload_hash_formula": "SHA256 UTF8 sorted path TAB bytes TAB SHA256 LF",
+  "separately_closed_prior_library": {
+    "revision": "6c5c1bd4a0951964a08043e72ae6472d2d402a9e",
+    "manifest_url": "https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/6c5c1bd4a0951964a08043e72ae6472d2d402a9e/audit/job_review_v2_20261001/CANDY_TRANSITION_KEY_FILES_V28.json",
+    "map_sha256": "57a8dc8cdc8343fd0b924354aa27a31028ac5157b94acfbc8f765c44e4ae1fa7",
+    "files_verified": 24975,
+    "receipt": "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/RESULT.json",
+    "lossless_all_file_journal": "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_SHARDS.json",
+    "qualification": "Existing comprehensive source library and history remain a separately verified BASE artifact. This scoped brief is not a replacement for the broader audit or permission to omit it."
+  },
+  "browser_review": "PENDING_LOCAL_PREVIEW_PERMISSION",
+  "runtime_changed": false,
+  "owner_product_acceptance": null
+}

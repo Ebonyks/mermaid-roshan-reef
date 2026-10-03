@@ -1,0 +1,554 @@
+{
+  "baseline": "6c5c1bd4a0951964a08043e72ae6472d2d402a9e",
+  "observations": [
+    {
+      "name": "Common task pose",
+      "path": "scripts/opera_career_world_2d.gd",
+      "source_sha256": "501cec2f90a16ed66dd10fabacc04d1285061a682cf39ad0ad0481c2e2661131",
+      "start_line": 2367,
+      "end_line": 2383,
+      "text": "func _play_roshan_task_pose(phase: Dictionary) -> void:\n\tif String(phase.get(\"mode\", \"\")) == \"talk\":\n\t\t_play_roshan_animation(\"idle\")\n\t\treturn\n\tvar reviewed: Dictionary = REVIEWED_WORK_POSES.get(career_id, {})\n\tvar phase_name := String(phase.get(\"name\", \"\"))\n\tvar hall_poses: Dictionary = REVIEWED_HALL_POSES.get(career_id, {})\n\tif two_act_enabled and hall_poses.has(phase_name) and is_instance_valid(player_animator):\n\t\tvar pose: Array = hall_poses[phase_name]\n\t\tplayer_animator.show_pose(String(pose[0]), int(pose[1]))\n\t\treturn\n\tif reviewed.has(phase_name) and is_instance_valid(player_animator):\n\t\tplayer_animator.show_pose(\"work\", int(reviewed[phase_name]))\n\t\treturn\n\t_play_roshan_animation(\"work\")\n\n",
+      "interpretation": "Most ordinary work falls back to the shared work row; a work loop does not prove the task-specific final contact.",
+      "qualification": "Static caller trace; no new runtime acceptance"
+    },
+    {
+      "name": "Activity layout",
+      "path": "scripts/opera_career_world_2d.gd",
+      "source_sha256": "501cec2f90a16ed66dd10fabacc04d1285061a682cf39ad0ad0481c2e2661131",
+      "start_line": 2817,
+      "end_line": 2920,
+      "text": "func _apply_panel_layout(phase: Dictionary) -> void:\n\tif action_panel == null:\n\t\treturn\n\tvar mode := String(phase.get(\"mode\", \"tap\"))\n\tif career_id in [\"teacher\", \"geologist\"]:\n\t\tif career_id == \"geologist\":\n\t\t\tif backdrop_node != null:\n\t\t\t\tbackdrop_node.set_meta(\"geology_work_open\", true)\n\t\t\t\tbackdrop_node.queue_redraw()\n\t\taction_panel.visible = true\n\t\taction_panel.position = Vector2.ZERO\n\t\taction_panel.size = StagePaths.SCREEN\n\t\tsurface.position = Vector2.ZERO\n\t\tsurface.size = StagePaths.SCREEN\n\t\tphase_fill.visible = false\n\t\tplayer_bar.visible = false\n\t\trival_bar.visible = false\n\t\t_stage_room_finale_partner()\n\t\taction_panel.queue_redraw()\n\t\treturn\n\tif mode == \"kart_race\":\n\t\taction_panel.visible = true\n\t\taction_panel.position = Vector2.ZERO\n\t\taction_panel.size = StagePaths.SCREEN\n\t\tsurface.position = Vector2.ZERO\n\t\tsurface.size = StagePaths.SCREEN\n\t\tphase_fill.visible = false\n\t\tbackdrop_node.racer_driving = true\n\t\tbackdrop_node.queue_redraw()\n\t\t_set_finale_visible(true)\n\t\taction_panel.queue_redraw()\n\t\treturn\n\tif _is_nursery_wash_phase():\n\t\t# A full connected body keeps the hands at readable phone scale.\n\t\t# No framed clipboard or generic dark focus under this painting.\n\t\taction_panel.visible = true\n\t\taction_panel.position = Vector2(320, 24)\n\t\taction_panel.size = Vector2(660, 660)\n\t\tsurface.position = Vector2.ZERO\n\t\tsurface.size = action_panel.size\n\t\tphase_fill.visible = false\n\t\taction_panel.queue_redraw()\n\t\treturn\n\tif career_id == \"boxer\":\n\t\t# Both glove fingers share the frozen 1280x720 Opera coordinate space.\n\t\t# The transparent host preserves the approved 2K training/stage painting.\n\t\taction_panel.visible = true\n\t\taction_panel.position = Vector2.ZERO\n\t\taction_panel.size = StagePaths.SCREEN\n\t\tsurface.position = Vector2.ZERO\n\t\tsurface.size = StagePaths.SCREEN\n\telif career_id == \"ballerina\":\n\t\t# Roshan owns the left third of the proscenium; the entire remaining\n\t\t# two-thirds are a touch canvas. This is roughly six times the area of\n\t\t# the retired 392x232 card and keeps every target clear of her silhouette.\n\t\taction_panel.visible = true\n\t\taction_panel.position = Vector2(382, 20)\n\t\taction_panel.size = Vector2(874, 680)\n\t\tsurface.position = Vector2(10, 10)\n\t\tsurface.size = Vector2(854, 660)\n\tif career_id in [\"boxer\", \"ballerina\"]:\n\t\tphase_fill.visible = false\n\t\tif career_id == \"ballerina\":\n\t\t\t_stage_player_clear_of_activity()\n\t\taction_panel.queue_redraw()\n\t\treturn\n\tif mode == \"bop\" or mode == \"lens\" or mode == \"talk\":\n\t\t# stage-wide beats play on the painting itself — no card at all\n\t\taction_panel.visible = false\n\t\treturn\n\taction_panel.visible = true\n\tif mode == \"pipe\":\n\t\t# The pipe board remains large, but the ornate outer card is gone.\n\t\taction_panel.size = Vector2(736, 608)\n\t\tvar left_pipe := Rect2(Vector2(24, 36), action_panel.size)\n\t\tvar right_pipe := Rect2(Vector2(520, 36), action_panel.size)\n\t\taction_panel.position = _safer_panel_rect(left_pipe, right_pipe).position\n\t\t# The board occupies most of the phone canvas. Once Roshan has physically\n\t\t# reached the coolant fixture, give her a nearby route-side watching mark\n\t\t# opposite the board so neither her tail nor hands sit underneath it.\n\t\t_stage_player_clear_of_activity()\n\t\tsurface.position = Vector2(12, 12)\n\t\tsurface.size = Vector2(712, 560)\n\t\taction_panel.queue_redraw()\n\t\treturn\n\taction_panel.position = _card_position_near_station()\n\taction_panel.size = Vector2(416, 292)\n\tsurface.position = Vector2(12, 12)\n\tsurface.size = Vector2(392, 232)\n\tif mode == \"catch\" and nursery_catch != null:\n\t\t# Leave room for palm contact and five independent cushion resting slots.\n\t\taction_panel.size = Vector2(496, 418)\n\t\tvar left_catch := Rect2(Vector2(24, 24), action_panel.size)\n\t\tvar right_catch := Rect2(Vector2(760, 24), action_panel.size)\n\t\taction_panel.position = left_catch.position if nursery_catch.care != null \\\n\t\t\telse _safer_panel_rect(left_catch, right_catch).position\n\t\tsurface.size = Vector2(472, 346)\n\t\tnursery_catch.position = surface.position\n\t\tnursery_catch.size = surface.size\n\t\tif nursery_catch.care == null:\n\t\t\t_stage_player_clear_of_activity()\n\t\t# The care focus replaces the route actor during this task. Moving the\n\t\t# hidden route actor for its panel would overwrite her room rest and can\n\t\t# put her back over the next feeding object when normal navigation returns.",
+      "interpretation": "Mixed full-stage, specialist-focus and 392x232 card layouts are literal current source facts.",
+      "qualification": "Static caller trace; no new runtime acceptance"
+    },
+    {
+      "name": "Progress completion",
+      "path": "scripts/opera_career_world_2d.gd",
+      "source_sha256": "501cec2f90a16ed66dd10fabacc04d1285061a682cf39ad0ad0481c2e2661131",
+      "start_line": 3592,
+      "end_line": 3666,
+      "text": "\t\t\t_spawn_stage_captain()\n\t\t# the captain can never be mashed past: his two bops are reserved.\n\t\t# (probe pumps arrive with amount 100 and skip the reserve)\n\t\tif amount < 5.0 and (captain_pending or _live_captain_hp() > 0):\n\t\t\tvar reserve := 2.0 if captain_pending else float(_live_captain_hp())\n\t\t\tphase_progress = minf(phase_progress, goal - reserve)\n\tif phase_progress >= goal:\n\t\t# hold the finished picture and celebrate it — the completion state\n\t\t# used to exist for ~0.18s before the next phase wiped it, so the\n\t\t# child never saw the thing she had just made\n\t\tsurface.accept_completion()\n\t\t_play_roshan_animation(\"cheer\")\n\t\t# The authored syrup-at-the-brim picture is already the reward. The\n\t\t# shared boxer impact puff covered its mold with an unrelated abstract\n\t\t# blob, so this one picture holds cleanly while Roshan still cheers.\n\t\tif action_panel != null and surface != null \\\n\t\t\t\tand not _uses_authored_completion_picture(mode):\n\t\t\t_bop_burst_at(action_panel.position + surface.position + surface.size * 0.5, false)\n\t\tphase_complete_t = 2.2\n\t\tphase_advance_pending = true\n\t\t_performance_checkpoint(true)\n\t\tif career_id == \"teacher\":\n\t\t\t_checkpoint_teacher(true)\n\t\tif career_id == \"geologist\":\n\t\t\t_checkpoint_geology(true)\n\n\nfunc _uses_authored_completion_picture(mode: String) -> bool:\n\t# Clean palms are the washing result. A boxing impact puff obscures them.\n\tif _is_nursery_wash_phase():\n\t\treturn true\n\tif career_id in [\"teacher\", \"geologist\"] \\\n\t\t\tor (career_id == \"racer\" and mode == \"kart_race\"):\n\t\treturn true\n\treturn career_id == \"candymaker\" and mode == \"pourt\" \\\n\t\tand surface != null and surface.visual_context == \"pour_candymaker\"\n\n\nfunc _advance_completed_phase() -> void:\n\tif not phase_advance_pending:\n\t\treturn\n\tphase_advance_pending = false\n\tphase_complete_t = 0.0\n\tvar completed_final_cake_phase := _is_chapter2_cake_scene() \\\n\t\tand phase_index == phases.size() - 1\n\t_adapter_hook(\"phase_completed\", scene_snapshot())\n\t_refresh_chapter2_story_props()\n\tphase_index += 1\n\tif two_act_enabled:\n\t\tphase_progress = 0.0\n\t_performance_checkpoint(true)\n\tif completed_final_cake_phase:\n\t\t# Persist first, refresh the actual story prop, then leave that completed\n\t\t# cake on screen long enough for the child to see what she made. The\n\t\t# ordinary completion hold above shows the pre-persist activity picture.\n\t\tchapter2_final_result_hold_t = CHAPTER2_FINAL_RESULT_HOLD_SECONDS\n\t\tchapter2_final_result_hold_pending = true\n\t\ttask_open = false\n\t\tcompetition.pause()\n\t\tset_meta(\"chapter2_final_result_hold_active\", true)\n\t\tset_meta(\"chapter2_final_result_hold_seconds\",\n\t\t\tCHAPTER2_FINAL_RESULT_HOLD_SECONDS)\n\t\treturn\n\t# no forced gap here: the wander window IS the breath between tasks —\n\t# the world stays hers until she walks up to the next lit station\n\t_arm_phase()\n\n\nfunc _finish_chapter2_final_result_hold() -> void:\n\tchapter2_final_result_hold_pending = false\n\tchapter2_final_result_hold_t = 0.0\n\tset_meta(\"chapter2_final_result_hold_active\", false)\n\t_arm_phase()\n\n",
+      "interpretation": "Progress threshold accepts completion, cheers and holds before advancing. This is not proof of a visible final physical verb.",
+      "qualification": "Static caller trace; no new runtime acceptance"
+    },
+    {
+      "name": "project.godot",
+      "path": "project.godot",
+      "source_sha256": "2587e8f6cbd52d437f6a08198d26a80465ee0e86868bc9f03526134f0cd6e770",
+      "matches": [
+        {
+          "line": 40,
+          "text": "window/size/viewport_width=1280"
+        },
+        {
+          "line": 41,
+          "text": "window/size/viewport_height=720"
+        },
+        {
+          "line": 42,
+          "text": "window/size/mode=2"
+        },
+        {
+          "line": 43,
+          "text": "window/size/window_width_override=1920"
+        },
+        {
+          "line": 44,
+          "text": "window/size/window_height_override=1080"
+        },
+        {
+          "line": 45,
+          "text": "window/stretch/mode=\"canvas_items\""
+        },
+        {
+          "line": 46,
+          "text": "window/stretch/aspect=\"expand\""
+        }
+      ],
+      "qualification": "Source fact only; selected texture/current route must be captured"
+    },
+    {
+      "name": "scripts/opera_world_backdrop_2d.gd",
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "source_sha256": "d2ca04dc34975ca10e50de5aaaddbd504c435c027c0e88d2f151f74f39ee7dcb",
+      "matches": [
+        {
+          "line": 6,
+          "text": "## meet the project's 2048px-per-playable-screen raster rule. These lightweight"
+        },
+        {
+          "line": 89,
+          "text": "\tvar path := \"res://assets/opera/worlds/backdrops/world_%s.png\" % id"
+        },
+        {
+          "line": 184,
+          "text": "\t# The authored 16:9 playfield occupies y=448..1600 of the 2048-square"
+        },
+        {
+          "line": 189,
+          "text": "\t\t\tvar source_y := 448.0 if row == 0 else 0.0"
+        },
+        {
+          "line": 190,
+          "text": "\t\t\tvar source := Rect2(0.0, source_y, 1024.0, 576.0)"
+        },
+        {
+          "line": 197,
+          "text": "\t# Coordinates come from the promotion manifest's 1672x941 source master."
+        },
+        {
+          "line": 198,
+          "text": "\tvar native_rect := Rect2(188, 553, 1672, 941)"
+        }
+      ],
+      "qualification": "Source fact only; selected texture/current route must be captured"
+    },
+    {
+      "name": "scripts/opera_gesture_surface.gd",
+      "path": "scripts/opera_gesture_surface.gd",
+      "source_sha256": "c28a885f68f2b16c66fcdaa5c4243ce9695a44d4ce015e56832ca392114cbedb",
+      "matches": [
+        {
+          "line": 121,
+          "text": "## Tilt-pour (chef POUR / candymaker SYRUP): grab the pitcher and it TILTS;"
+        },
+        {
+          "line": 289,
+          "text": "\t\"target_candymaker\": [Vector2(0.22, 0.34), Vector2(0.50, 0.31), Vector2(0.78, 0.34),"
+        },
+        {
+          "line": 419,
+          "text": "\t\t\t\tvisual_context = \"lanes_candymaker\""
+        },
+        {
+          "line": 775,
+          "text": "\t\t\tif visual_context == \"pour_candymaker\":"
+        },
+        {
+          "line": 986,
+          "text": "\t\t\t\tif not _is_candymaker_pour():"
+        },
+        {
+          "line": 2204,
+          "text": "\t\t\"crank_chef\", \"crank_ballerina\", \"crank_candymaker\","
+        },
+        {
+          "line": 2222,
+          "text": "\t\t\"crank_candymaker\":"
+        },
+        {
+          "line": 2241,
+          "text": "\t\t\"crank_candymaker\":"
+        },
+        {
+          "line": 2307,
+          "text": "func _draw_candymaker_crank(progress: float) -> void:"
+        },
+        {
+          "line": 2465,
+          "text": "\t\t\"crank_candymaker\":"
+        },
+        {
+          "line": 2466,
+          "text": "\t\t\t_draw_candymaker_crank(progress)"
+        },
+        {
+          "line": 2925,
+          "text": "func _candymaker_recipient_rect(index: int) -> Rect2:"
+        },
+        {
+          "line": 2932,
+          "text": "func _draw_candymaker_recipients() -> void:"
+        },
+        {
+          "line": 2967,
+          "text": "\t\t\"target_candymaker\":"
+        },
+        {
+          "line": 3001,
+          "text": "\tif visual_context == \"target_candymaker\":"
+        },
+        {
+          "line": 3002,
+          "text": "\t\t_draw_candymaker_recipients()"
+        },
+        {
+          "line": 4221,
+          "text": "\tif _is_candymaker_pour() and pour_demo_hand_texture != null:"
+        },
+        {
+          "line": 5946,
+          "text": "func _is_candymaker_pour() -> bool:"
+        },
+        {
+          "line": 5947,
+          "text": "\treturn mode == \"pourt\" and visual_context == \"pour_candymaker\""
+        },
+        {
+          "line": 5951,
+          "text": "\tif _is_candymaker_pour():"
+        },
+        {
+          "line": 5964,
+          "text": "\tif _is_candymaker_pour():"
+        },
+        {
+          "line": 5970,
+          "text": "\tif _is_candymaker_pour():"
+        },
+        {
+          "line": 5976,
+          "text": "\t\tvar local_spout := _candymaker_spout_local_anchor(pitcher)"
+        },
+        {
+          "line": 5977,
+          "text": "\t\tvar local_ink := _candymaker_ladle_local_ink_rect(pitcher)"
+        },
+        {
+          "line": 6008,
+          "text": "\tif _is_candymaker_pour():"
+        },
+        {
+          "line": 6019,
+          "text": "\tvar hit := _pour_pitcher_rect().grow(18.0 if _is_candymaker_pour() else 0.0)"
+        },
+        {
+          "line": 6020,
+          "text": "\treturn hit.intersection(Rect2(Vector2.ZERO, size)) if _is_candymaker_pour() else hit"
+        },
+        {
+          "line": 6027,
+          "text": "func _candymaker_spout_local_anchor(pitcher: Rect2) -> Vector2:"
+        },
+        {
+          "line": 6031,
+          "text": "func _candymaker_ladle_local_ink_rect(pitcher: Rect2) -> Rect2:"
+        },
+        {
+          "line": 6037,
+          "text": "func _candymaker_ladle_ink_bounds() -> Rect2:"
+        },
+        {
+          "line": 6039,
+          "text": "\tvar local_ink := _candymaker_ladle_local_ink_rect(pitcher)"
+        },
+        {
+          "line": 6057,
+          "text": "\tif _is_candymaker_pour():"
+        },
+        {
+          "line": 6060,
+          "text": "\t\tvar local_anchor := _candymaker_spout_local_anchor(pitcher)"
+        },
+        {
+          "line": 6069,
+          "text": "\tif _is_candymaker_pour():"
+        },
+        {
+          "line": 6078,
+          "text": "\treturn pour_tilt > 0.36 and (pour_hold or not _is_candymaker_pour())"
+        },
+        {
+          "line": 6081,
+          "text": "func _candymaker_full_ladle_alpha() -> float:"
+        },
+        {
+          "line": 6104,
+          "text": "\t\tif _is_candymaker_pour():"
+        },
+        {
+          "line": 6110,
+          "text": "\t\t\tif _is_candymaker_pour():"
+        },
+        {
+          "line": 6119,
+          "text": "\t\t\tvar drain_scale := 1.2 if _is_candymaker_pour() else 1.0"
+        },
+        {
+          "line": 6136,
+          "text": "func _draw_candymaker_pour_stream() -> void:"
+        },
+        {
+          "line": 6143,
+          "text": "\t\t\tif _is_candymaker_pour() else 1.0"
+        },
+        {
+          "line": 6163,
+          "text": "\tif _is_candymaker_pour():"
+        },
+        {
+          "line": 6179,
+          "text": "\t\t_draw_candymaker_pour_stream()"
+        },
+        {
+          "line": 6183,
+          "text": "\t\t# refactor; none of candymaker's authored scene pixels leak into this path."
+        },
+        {
+          "line": 6192,
+          "text": "\t# The generic pourer or candymaker ladle rotates with the child's hold."
+        },
+        {
+          "line": 6196,
+          "text": "\tif _is_candymaker_pour() and pour_empty_mover_texture != null:"
+        },
+        {
+          "line": 6202,
+          "text": "\t\tif widget_mover != null and _candymaker_full_ladle_alpha() > 0.0:"
+        },
+        {
+          "line": 6204,
+          "text": "\t\t\t\tfalse, Color(1.0, 1.0, 1.0, _candymaker_full_ladle_alpha()))"
+        },
+        {
+          "line": 6214,
+          "text": "\tif not _is_candymaker_pour():"
+        }
+      ],
+      "qualification": "Source fact only; selected texture/current route must be captured"
+    },
+    {
+      "name": "scripts/opera_roshan_actor.gd",
+      "path": "scripts/opera_roshan_actor.gd",
+      "source_sha256": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66",
+      "matches": [
+        {
+          "line": 8,
+          "text": "const ATLAS_SIZE := Vector2i(1024, 1024)"
+        },
+        {
+          "line": 9,
+          "text": "const CELL_SIZE := Vector2(256.0, 256.0)"
+        },
+        {
+          "line": 14,
+          "text": "\t\"work\": 2,"
+        },
+        {
+          "line": 20,
+          "text": "\t\"work\": 7.0,"
+        },
+        {
+          "line": 26,
+          "text": "\t\"work\": 1,"
+        },
+        {
+          "line": 33,
+          "text": "\t\"geologist\": {\"idle\": 3, \"travel\": 1, \"work\": 0},"
+        },
+        {
+          "line": 34,
+          "text": "\t\"teacher\": {\"idle\": 0, \"travel\": 0, \"work\": 0},"
+        }
+      ],
+      "qualification": "Source fact only; selected texture/current route must be captured"
+    },
+    {
+      "name": "scripts/comfy_games.gd",
+      "path": "scripts/comfy_games.gd",
+      "source_sha256": "977b231aa5ff43c75608683339aa8fae7e414f7e2fdf77ce570633f6ef82a22c",
+      "matches": [
+        {
+          "line": 140,
+          "text": "\tvar hunt_completed_value: Variant = hunt_raw.get(\"completed\", false)"
+        },
+        {
+          "line": 143,
+          "text": "\tvar hunt_completed: bool = complete_from_finds or (bool(hunt_completed_value) \\"
+        },
+        {
+          "line": 144,
+          "text": "\t\tif typeof(hunt_completed_value) == TYPE_BOOL else false)"
+        },
+        {
+          "line": 164,
+          "text": "\tvar pot_value: Variant = dinner_raw.get(\"pot_stirred\", false)"
+        },
+        {
+          "line": 165,
+          "text": "\tvar pot_stirred: bool = bool(pot_value) \\"
+        },
+        {
+          "line": 167,
+          "text": "\tvar dinner_completed_value: Variant = dinner_raw.get(\"completed\", false)"
+        },
+        {
+          "line": 168,
+          "text": "\tvar dinner_completed: bool = (all_ingredients_added and pot_stirred) \\"
+        },
+        {
+          "line": 169,
+          "text": "\t\tor (bool(dinner_completed_value) \\"
+        },
+        {
+          "line": 170,
+          "text": "\t\tif typeof(dinner_completed_value) == TYPE_BOOL else false)"
+        },
+        {
+          "line": 178,
+          "text": "\tvar movie_completed_value: Variant = movie_raw.get(\"completed\", false)"
+        },
+        {
+          "line": 179,
+          "text": "\tvar movie_completed: bool = scenes_watched >= MOVIE_SCENE_COUNT \\"
+        },
+        {
+          "line": 180,
+          "text": "\t\tor (bool(movie_completed_value) \\"
+        },
+        {
+          "line": 181,
+          "text": "\t\tif typeof(movie_completed_value) == TYPE_BOOL else false)"
+        },
+        {
+          "line": 198,
+          "text": "\tvar bedtime_completed_value: Variant = bedtime_raw.get(\"completed\", false)"
+        },
+        {
+          "line": 199,
+          "text": "\tvar bedtime_completed: bool = all_tucked_in \\"
+        },
+        {
+          "line": 200,
+          "text": "\t\tor (bool(bedtime_completed_value) \\"
+        },
+        {
+          "line": 201,
+          "text": "\t\tif typeof(bedtime_completed_value) == TYPE_BOOL else false)"
+        },
+        {
+          "line": 204,
+          "text": "\tvar quest_completed_value: Variant = quest_raw.get(\"completed\", false)"
+        },
+        {
+          "line": 205,
+          "text": "\tvar quest_accepted: bool = hunt_accepted or hunt_completed \\"
+        },
+        {
+          "line": 208,
+          "text": "\tvar quest_completed: bool = bedtime_completed \\"
+        },
+        {
+          "line": 209,
+          "text": "\t\tor (bool(quest_completed_value) \\"
+        },
+        {
+          "line": 210,
+          "text": "\t\tif typeof(quest_completed_value) == TYPE_BOOL else false)"
+        },
+        {
+          "line": 215,
+          "text": "\tvar reward_unlocked: bool = quest_completed \\"
+        },
+        {
+          "line": 223,
+          "text": "\t\t\t\"completed\": hunt_completed,"
+        },
+        {
+          "line": 229,
+          "text": "\t\t\t\t\"pot_stirred\": pot_stirred,"
+        },
+        {
+          "line": 230,
+          "text": "\t\t\t\t\"completed\": dinner_completed,"
+        },
+        {
+          "line": 234,
+          "text": "\t\t\t\t\"completed\": movie_completed,"
+        },
+        {
+          "line": 238,
+          "text": "\t\t\t\t\"completed\": bedtime_completed,"
+        },
+        {
+          "line": 240,
+          "text": "\t\t\t\"completed\": quest_completed,"
+        },
+        {
+          "line": 309,
+          "text": "\tif not bool(hunt.get(\"completed\", false)):"
+        },
+        {
+          "line": 313,
+          "text": "\tif bool(quest.get(\"completed\", false)):"
+        },
+        {
+          "line": 317,
+          "text": "\tif not bool(dinner.get(\"completed\", false)):"
+        },
+        {
+          "line": 324,
+          "text": "\tif not bool(movie.get(\"completed\", false)):"
+        },
+        {
+          "line": 331,
+          "text": "\tif not bool(bedtime.get(\"completed\", false)):"
+        },
+        {
+          "line": 387,
+          "text": "\t\tload(\"res://assets/flats/castle/rooms/room_kitchen_item_soup_pot.png\") \\"
+        },
+        {
+          "line": 390,
+          "text": "\tpot.pressed.connect(_stir_dinner)"
+        },
+        {
+          "line": 503,
+          "text": "\thunt[\"completed\"] = complete"
+        },
+        {
+          "line": 540,
+          "text": "func _stir_dinner() -> void:"
+        },
+        {
+          "line": 544,
+          "text": "\tif bool(dinner.get(\"completed\", false)) or not _all_dinner_ingredients(ingredients):"
+        },
+        {
+          "line": 546,
+          "text": "\tdinner[\"pot_stirred\"] = true"
+        },
+        {
+          "line": 547,
+          "text": "\tdinner[\"completed\"] = true"
+        },
+        {
+          "line": 562,
+          "text": "\tif not bool(dinner.get(\"completed\", false)) or bool(movie.get(\"completed\", false)):"
+        },
+        {
+          "line": 567,
+          "text": "\tmovie[\"completed\"] = scenes_watched >= MOVIE_SCENE_COUNT"
+        },
+        {
+          "line": 587,
+          "text": "\tif not bool(movie.get(\"completed\", false)) or bool(tucked_in.get(family_id, false)):"
+        },
+        {
+          "line": 592,
+          "text": "\tbedtime[\"completed\"] = complete"
+        },
+        {
+          "line": 596,
+          "text": "\t\tquest[\"completed\"] = true"
+        }
+      ],
+      "qualification": "Source fact only; selected texture/current route must be captured"
+    }
+  ],
+  "window_distinction": "project.godot mode=2 is separate from the audit fixture forcing a fixed-size window; the 392x232 activity card is a separate in-game layout choice. A browser page also constrains displayed screenshots.",
+  "card_inner_pixels": [
+    392,
+    232
+  ],
+  "outer_card_pixels": [
+    416,
+    292
+  ],
+  "observed_wrapping_drawing_pixels": [
+    222.72,
+    222.72
+  ],
+  "card_share_of_1280x720": 0.09868055555555555,
+  "runtime_changed": false
+}

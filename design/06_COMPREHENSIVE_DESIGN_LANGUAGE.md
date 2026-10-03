@@ -568,6 +568,8 @@ scrub, pickup, or rescue must be readable. One tap may request travel and action
 the child must not need a second finger, precise dragging, or reading. Interrupted
 travel/action must not complete later; already saved progress remains intact.
 
+Owner-selected job presentation direction (2026-10-03): Roshan herself visibly performs the last meaningful task action in the shared work sequence, then settles and leaves the earned result readable before celebration or the next step. Apply the same grammar across actual job days and Opera training without taking the child’s choices/gestures away or awarding progress from a clip ending. Use the [versioned final-action contract](animation/JOB_FINAL_ACTION_PRESENTATION_V1.json) for stage-size framing, native-resolution requirements and specialist/lifecycle boundaries. The direction does not accept any current asset, motion or runtime repair.
+
 `DL-INT-03` — Authored object animation uses 4–12 coherent states where that
 contract applies, a stable pivot, fixed ownership, and a clear return or resting
 state. Runtime MUST NOT interpolate a broken identity or synthesize missing

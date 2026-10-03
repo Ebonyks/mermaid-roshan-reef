@@ -1,0 +1,114 @@
+{
+  "schema": "reef.job-final-action-presentation.v1",
+  "status": "OWNER_SELECTED_DIRECTION_RUNTIME_ROLLOUT_PENDING",
+  "baseline": "6c5c1bd4a0951964a08043e72ae6472d2d402a9e",
+  "owner_direction": {
+    "date": "2026-10-03",
+    "exact_choice": "Use the same final-action sequence everywhere, with Roshan visibly finishing each task (recommended).",
+    "scope": "All Roshan-owned job tasks and substeps across actual job days and Opera training/freeplay",
+    "qualification": "Direction accepted; existing artwork, motion, runtime, device and comprehensive report acceptance are not implied."
+  },
+  "intent": "The child directs the work. Roshan herself visibly performs the last meaningful action on the same object, releases or settles safely, and leaves a readable result before celebration or the next task.",
+  "sequence": [
+    {
+      "beat": "request",
+      "requirement": "A valid touch gives prompt visible response and preserves the child’s selected answer/plan."
+    },
+    {
+      "beat": "arrive",
+      "requirement": "Roshan reaches the actual target through current navigation. No remote progress."
+    },
+    {
+      "beat": "work",
+      "requirement": "The child’s existing gesture drives the relevant operation; hand/tool makes local visible contact."
+    },
+    {
+      "beat": "finish",
+      "requirement": "Roshan visibly finishes the exact task verb. Do not replace work with a cheer or auto-solve a choice."
+    },
+    {
+      "beat": "settle",
+      "requirement": "Same hands, cuffs, prop, support, costume and room persist; release into a clear stable state."
+    },
+    {
+      "beat": "show_result",
+      "requirement": "The actual earned object/state stays visible and consistent with the saved consequence."
+    },
+    {
+      "beat": "celebrate_or_next",
+      "requirement": "Celebrate only after the real finish is legible; retain existing specialist/voice/return ownership."
+    }
+  ],
+  "presentation": {
+    "direction": "Shared stage-size work presentation; migrate the legacy small activity-card format",
+    "qualifier": "This is the scoped layout plan. Runtime layout is not yet changed.",
+    "camera": "Keep the room and actor scale/identity continuous within each job. Any closer work framing uses the same transition grammar in training and story, not a nested unrelated mini-scene.",
+    "composition": "Full 1280x720 base Canvas stage with supported expanded aspects; give hands and target enough screen area for phone readability. Keep Back/voice cues reachable and result visible.",
+    "actor_ownership": "Only one live Roshan presentation at a time. Transfer between route actor and work presentation coherently; no duplicate tail, disappearance or costume substitution.",
+    "reuse": "Use approved source families and the same career-specific props/costume/room. Candy gold-paper study is a pilot family, not a different art medium for every job."
+  },
+  "resolution": {
+    "background_native_minimum_per_playable_screen": [
+      2048,
+      2048
+    ],
+    "multi_screen_rule": "Native coverage is measured per playable screen; preserve panorama composition and use non-overlapping 1024 cards after source acceptance.",
+    "runtime_texture_rule": "At most 1024 longest side or power of two; POT only for VRAM compression. Preserve original masters.",
+    "character_prop_rule": "Choose native pose/prop density for actual largest draw size; no unreviewed enlargement to conceal missing detail. Individual cutout sources need not meet a background dimension requirement.",
+    "review_key_gap": "Current 1672x941 full scene keys do not satisfy native 2048x2048 background coverage.",
+    "required_receipt": "Original dimensions, exact source hash, master provenance, output/tile hashes and measured display scale; padded/upscaled tile dimensions are insufficient."
+  },
+  "specialist_constraints": [
+    "Ballerina held poses/one-shot curtain call remain under DL-MOT-09; common format does not create a looping work animation.",
+    "Teacher: child chooses/counts/combines; Roshan visibly confirms or places the chosen result without solving for the child.",
+    "Geode: Roshan opens a supported geode with crystals remaining embedded inside both halves; no loot drop.",
+    "Nursery: preserve Faron’s role, baby conservation, continuous support and safe resting states.",
+    "ChapterTwo cake: keep Farmer→Chef→Candy Maker dependencies and correct fruit counts/tiers; park the rocket unlaunched where specified.",
+    "Boxer/Racer and other specialists retain their current input and action owners; stage-wide presentation alone is not final-contact acceptance.",
+    "Existing Day One owner-selected story clips retain their separate scoped authority; no new movie inserted to replace the child’s action."
+  ],
+  "lifecycle": {
+    "owner": "Existing gameplay state owner",
+    "progress": "Validate current intentional request, actual target/contact and required work; a timer, final pose or clip end alone cannot award progress.",
+    "interrupt_before_commit": "Cancel unfinished work on retarget, exit, pause/focus policy and teardown; clear touch/callback ownership.",
+    "interrupt_after_commit": "Keep earned progress, place the prop safely and suppress duplicate rewards on restore.",
+    "save": "Add compatible defaults only; never remove save keys or infer completion from animation timestamps."
+  },
+  "quality": {
+    "source_floor": 4.5,
+    "inclusive_priority_threshold": 4.5,
+    "hard_gaps": [
+      "Identity/topology/contact or object-conservation failure",
+      "Wrong final verb or missing final action",
+      "Unproven native background resolution",
+      "Unreadable hand/target scale or cropped anatomy",
+      "Interrupted action earning progress",
+      "Missing ordinary runtime route or device/child/owner evidence"
+    ],
+    "score_lanes": [
+      "native source",
+      "mounted image",
+      "object sequence",
+      "complete meaningful action",
+      "runtime route",
+      "device",
+      "child",
+      "owner"
+    ],
+    "acceptance": "Score each relevant item/lane separately. Source 4.5 does not transfer to motion or runtime; priorities at exactly 4.5 remain included."
+  },
+  "implementation": {
+    "runtime_changed": false,
+    "selected_motion": null,
+    "common_timing": null,
+    "geometry": null,
+    "qualification": "No measured runtime timing/sockets are fabricated. Coverage rows are planning entries, not accepted action bindings."
+  },
+  "references": {
+    "phase_coverage": "audit/job_final_action_consistency_v1_20261003/PHASE_COVERAGE.json",
+    "current_layout_trace": "audit/job_final_action_consistency_v1_20261003/CURRENT_LAYOUT_AND_COMPLETION_TRACE.json",
+    "resolution_inventory": "audit/job_final_action_consistency_v1_20261003/RESOLUTION_REUSE_INVENTORY.json",
+    "production_protocol": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+    "impact": "design/audit_impacts/job-final-action-consistency-20261003.json"
+  }
+}

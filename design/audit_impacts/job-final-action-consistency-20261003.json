@@ -1,0 +1,165 @@
+{
+  "id": "job-final-action-consistency-20261003",
+  "scope": "Owner-selected consistent Roshan final-action presentation across all jobs and Opera training. Versioned operational brief, source-derived phase coverage and full-stage layout comparison. No gameplay or art replacement in this planning revision.",
+  "baseline": "6c5c1bd4a0951964a08043e72ae6472d2d402a9e",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-03",
+    "DL-VIS-04",
+    "DL-VIS-05",
+    "DL-VIS-06",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-INT-04",
+    "DL-MOT-09",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004"
+  ],
+  "files": [
+    ".gitattributes",
+    "ASSET_LICENSES.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/animation/README.md",
+    "audit/job_artwork_refinement_live/index.html",
+    "audit/job_final_action_consistency_v1_20261003/AUTHORITY_REVIEW.json",
+    "audit/job_final_action_consistency_v1_20261003/AUTHORITY_START.json",
+    "audit/job_final_action_consistency_v1_20261003/BROWSER_LIBRARY_VERIFY.json",
+    "audit/job_final_action_consistency_v1_20261003/BUILD_RECEIPT.json",
+    "audit/job_final_action_consistency_v1_20261003/CURRENT_LAYOUT_AND_COMPLETION_TRACE.json",
+    "audit/job_final_action_consistency_v1_20261003/ILLUSTRATION_REFERENCES.json",
+    "audit/job_final_action_consistency_v1_20261003/OWNER_DIRECTION.json",
+    "audit/job_final_action_consistency_v1_20261003/PHASE_COVERAGE.json",
+    "audit/job_final_action_consistency_v1_20261003/PRESENTATION_CONTRACT.json",
+    "audit/job_final_action_consistency_v1_20261003/PRODUCTION_BOUNDARY.json",
+    "audit/job_final_action_consistency_v1_20261003/REGISTER_BOUNDARY_AFTER.json",
+    "audit/job_final_action_consistency_v1_20261003/REGISTER_BOUNDARY_BEFORE.json",
+    "audit/job_final_action_consistency_v1_20261003/RESOLUTION_REUSE_INVENTORY.json",
+    "audit/job_final_action_consistency_v1_20261003/SHARED_FORMAT_LIBRARY_V686.jpg",
+    "audit/job_final_action_consistency_v1_20261003/SHARED_LIBRARY_OBSERVATION_V687.json",
+    "audit/job_final_action_consistency_v1_20261003/STRUCTURAL_VERIFY.json",
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/CANDIDATE_SOURCE.json",
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/authority.receipt.json",
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/authority.stderr.log",
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/authority.stdout.log",
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/development.receipt.json",
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/development.stderr.log",
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/development.stdout.log",
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/document_tests.receipt.json",
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/document_tests.stderr.log",
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/document_tests.stdout.log",
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/game2d.receipt.json",
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/game2d.stderr.log",
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/game2d.stdout.log",
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/register_parts.receipt.json",
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/register_parts.stderr.log",
+    "audit/job_final_action_consistency_v1_20261003/gates_v1/register_parts.stdout.log",
+    "audit/job_final_action_consistency_v1_20261003/index.html",
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/HOSTED_RUN.json",
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/HOSTED_RUN.stderr.log",
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/HOSTED_STATUS_OBSERVED.json",
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/INITIAL_PUBLICATION_RECEIPT.json",
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_000.jsonl",
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_001.jsonl",
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_002.jsonl",
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_003.jsonl",
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_004.jsonl",
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_005.jsonl",
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_006.jsonl",
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_007.jsonl",
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_008.jsonl",
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_009.jsonl",
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_010.jsonl",
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_011.jsonl",
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_012.jsonl",
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/JOURNAL_SHARDS.json",
+    "audit/job_final_action_consistency_v1_20261003/previous_AE_remote_verified/RESULT.json",
+    "audit/job_final_action_consistency_v1_20261003/previous_library_index.html",
+    "audit/job_final_action_consistency_v1_20261003/review_tools/build_job_consistency_v681.py",
+    "audit/job_final_action_consistency_v1_20261003/review_tools/job_consistency_scope_v680.py",
+    "audit/job_final_action_consistency_v1_20261003/review_tools/prepare_consistency_gates_v683.py",
+    "audit/job_final_action_consistency_v1_20261003/review_tools/publish_consistency_v684.py",
+    "audit/job_final_action_consistency_v1_20261003/review_tools/run_consistency_gate_v683.py",
+    "audit/job_final_action_consistency_v1_20261003/review_tools/seal_library_proof_v688.py",
+    "audit/job_review_v2_20261001/JOB_FINAL_ACTION_CONSISTENCY_FILES_V29.json",
+    "design/05_DOC_LEDGER.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/animation/JOB_FINAL_ACTION_PRESENTATION_V1.json"
+  ],
+  "validation": [
+    {
+      "command": "Authority and caller review at task start",
+      "result": "PASS",
+      "evidence": "audit/job_final_action_consistency_v1_20261003/AUTHORITY_START.json"
+    },
+    {
+      "command": "Literal phase reader and previous complete publication journal archive",
+      "result": "PASS",
+      "evidence": "audit/job_final_action_consistency_v1_20261003/BUILD_RECEIPT.json"
+    },
+    {
+      "command": "Source-derived consistency/resolution/boundary/link checks",
+      "result": "PASS",
+      "evidence": "audit/job_final_action_consistency_v1_20261003/STRUCTURAL_VERIFY.json"
+    },
+    {
+      "command": "Actual browser review of new report",
+      "result": "PENDING",
+      "evidence": "Local preview path addition rejected by automatic approval review; file: browser protocol blocked. No workaround or permission bypass."
+    },
+    {
+      "command": "Five exact-source structural/document/register/no-regression gates",
+      "result": "PASS",
+      "evidence": "audit/job_final_action_consistency_v1_20261003/gates_v1;52 document tests,6/6 stress,9 register tests;strict2D remains UNSATISFIED."
+    },
+    {
+      "command": "Five exact-source structural/document/register/no-regression gates",
+      "result": "PASS",
+      "evidence": "audit/job_final_action_consistency_v1_20261003/gates_v1;52 document tests,6/6 stress,9 register tests;strict2D remains UNSATISFIED."
+    },
+    {
+      "command": "Five exact-source structural/document/register/no-regression gates",
+      "result": "PASS",
+      "evidence": "audit/job_final_action_consistency_v1_20261003/gates_v1;52 document tests,6/6 stress,9 register tests;strict2D remains UNSATISFIED."
+    },
+    {
+      "command": "Five exact-source structural/document/register/no-regression gates",
+      "result": "PASS",
+      "evidence": "audit/job_final_action_consistency_v1_20261003/gates_v1;52 document tests,6/6 stress,9 register tests;strict2D remains UNSATISFIED."
+    },
+    {
+      "command": "Five exact-source structural/document/register/no-regression gates",
+      "result": "PASS",
+      "evidence": "audit/job_final_action_consistency_v1_20261003/gates_v1;52 document tests,6/6 stress,9 register tests;strict2D remains UNSATISFIED."
+    },
+    {
+      "command": "Actual existing current-library banner and register browser review",
+      "result": "PASS",
+      "evidence": "audit/job_final_action_consistency_v1_20261003/BROWSER_LIBRARY_VERIFY.json"
+    },
+    {
+      "command": "Five exact-source structural/document/register/no-regression gates",
+      "result": "PASS",
+      "evidence": "audit/job_final_action_consistency_v1_20261003/gates_v1;52 document tests,6/6 stress,9 register tests;strict2D remains UNSATISFIED."
+    }
+  ],
+  "acceptance_gaps": "Shared runtime migration, exact authored actions, all individual artwork refinements, complete ordinary job/training routes, device/child/owner and comprehensive report approval remain open. Owner chose direction, not product acceptance."
+}
