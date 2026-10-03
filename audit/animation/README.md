@@ -1,5 +1,7 @@
 # Character animation — master audit branch
 
+Candy context continuation (2026-10-03): [two complete painted scene sources and16 individual opinions](../../assets_src/imagegen/candy_wrap_scene_context_v1_20261003/index.html) preserve A1 clutter rejection4.2 and clean A2 starting still4.5 provisional, background4.4. [Every246 A1-A6 local native frames/42 original-size boards/20 native details/60 component opinions](../../assets_src/local_motion/candy_wrap_continuity_v1_20261003/index.html) directly reviewed; A5 owned hands4.5 improve separately but the flap lifts away, whole far-fold3.1 rejected. A6 prompt-only downward covering comparison keeps the exact source/input/seed/settings/developed workflow; every41 native frames reviewed, whole2.6 rejected for absent complete cover/release and late cuff/sweet distortion. V49 known2049 entries/1285 primary sources/952 source-cell-region priorities/663 unique source priorities/294 unreviewed primary sources. Exact X all23846 anonymous remote bytes verified; exact X hosted status remains separately recorded. Current game WRAP2.8/all783 production members unchanged. Full wrapper/source-cell/use/action/device/child/owner/all-job/comprehensive report, finding lifecycle, integration and release remain open.
+
 Owner commission: 2026-09-09 initial direction request, expanded and integrated
 2026-09-11. Status: `SUPPORTING_CURRENT` production coverage register under
 the [master audit](../MASTER_AUDIT_2026-08-09.md#development-task-index).

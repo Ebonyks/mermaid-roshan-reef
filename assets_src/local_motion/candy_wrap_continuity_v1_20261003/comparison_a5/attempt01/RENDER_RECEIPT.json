@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\candy_wrap_continuity_v1_20261003\\comparison_a5\\inputs\\CANDY-FOLD-A5.png",
+  "source_sha256": "0c820a450a139760e68820ef907c00a6714b4174bede7fa98fdf195879cb1b50",
+  "source_dimensions": [
+    896,
+    512
+  ],
+  "prompt": "Roshan herself folds the golden paper over the red sweet on her table. Her existing right arm, at the left side of the image, bends downward and carries the paper across the remaining red crescent until it is covered. Her other existing mitten braces the sweet. Then she slightly loosens that grasp, leaving the gold folded. Only the girl's two existing arms perform this small useful action, both wrists continuously attached to her sleeves. Keep her size, table and camera fixed. No other person, foreground arm, extra hand, new sweet or new paper.\nSound: silence.\n",
+  "prompt_sha256": "32de54dd13fdc75d2e7819579171c25edadbea81432fecceab670070f73e8aba",
+  "preset": "quick",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "seed": 2026100301,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/GGUF_MODEL_RECEIPT.json",
+  "workflow_sha256": "e37b2e2f57e970fa025a025642cd6c0fff4d1cae8b425fe67e7d99303c7ee0da",
+  "started_at_utc": "20261003T091747Z",
+  "prompt_id": "1f587795-016b-4aef-b049-3c7e3750896f",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\candy_context_fold_a5_20261003_20261003T091747Z_79034b_00002_.webm",
+      "sha256": "9b559dea54ca762f4567b81828ad21c2303fe9bf4194841918cd1c0205b88de6",
+      "bytes": 1701303
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\candy_context_fold_a5_20261003_20261003T091747Z_79034b_00002_.mp4",
+      "sha256": "2c0b2fb95b85f33f1f5ba6fd9abd3273228b20a44d9dcbc30f1e63c89c1115bc",
+      "bytes": 1194536,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 186.06,
+  "completed_at_utc": "2026-10-03T09:20:53.683241+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance"
+}

@@ -1,0 +1,53 @@
+{
+  "queue_id": "candy-context-fold-a6-20261003",
+  "manifest_sha256": "5c0cec79db84e7fcdd3c709af38287044913e595ad03d3e10a5f18f2408f27c6",
+  "created_at_utc": "2026-10-03T09:24:48+00:00",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "jobs": [
+    {
+      "id": "CANDY-FOLD-A6",
+      "name": "candy_context_fold_a6_20261003",
+      "status": "MACHINE_RENDER_PASS_PENDING_VISUAL_REVIEW",
+      "child_pid": 66728,
+      "started_at_utc": "2026-10-03T09:26:18+00:00",
+      "receipt_path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\candy_context_fold_a6_20261003_20261003T092619Z_05a9d5\\RENDER_RECEIPT.json",
+      "native_prompt_id": "f279064f-e4dc-4a01-a1b8-b6f09fda2584",
+      "finished_at_utc": "2026-10-03T09:29:29+00:00",
+      "outputs": [
+        {
+          "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\candy_context_fold_a6_20261003_20261003T092619Z_05a9d5_00002_.webm",
+          "sha256": "f4a15a345a38049489c0e301e9adf619517e425b648bacbf0b32a8cde6ed09fc",
+          "bytes": 1784298
+        },
+        {
+          "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\candy_context_fold_a6_20261003_20261003T092619Z_05a9d5_00002_.mp4",
+          "sha256": "f24d09d00733b698557ecd1ef9f51720ca02b60445148d6d0d8ece3041056cd1",
+          "bytes": 1171836,
+          "media": {
+            "programs": [],
+            "stream_groups": [],
+            "streams": [
+              {
+                "codec_name": "h264",
+                "width": 896,
+                "height": 512,
+                "r_frame_rate": "24/1",
+                "nb_read_frames": "41"
+              }
+            ],
+            "format": {
+              "duration": "1.708333"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "worker_pid": 75348,
+  "worker_started_at_utc": "2026-10-03T09:24:48+00:00",
+  "matching_benchmark_receipt": "H:\\MermaidReefTools\\LocalVideo\\jobs\\d2m_b1q_d2a0495_20261001T025152Z_58a0e1\\RENDER_RECEIPT.json",
+  "calibration_first_study": false,
+  "status": "ALL_MACHINE_RENDERS_DONE_VISUAL_REVIEW_PENDING",
+  "observed_at_utc": "2026-10-03T09:29:29+00:00",
+  "existing_prompt_ids": []
+}

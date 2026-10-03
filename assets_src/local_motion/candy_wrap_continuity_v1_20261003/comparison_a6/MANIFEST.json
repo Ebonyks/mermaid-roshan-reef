@@ -1,0 +1,149 @@
+{
+  "schema": "reef.local-candy-motion-study.v1",
+  "id": "candy-context-fold-a6-20261003",
+  "created_utc": "2026-10-03T09:24:12.384855+00:00",
+  "baseline": "2b109a233c14050567aaa84dc975119b2e18a77e",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "owner_approval": null,
+  "runtime_integration": false,
+  "authorization": "Owner directed developed local ComfyUI animations and iterative job/action artwork review; one bounded local study, no external upload/new model/install/runtime or cinematic delivery.",
+  "intention": "Prompt-only direction repair after A5 wrongly lifts the flap back: existing long edge moves toward bottom of image, covers red, presses once and slightly releases.",
+  "profile": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+  "register": "Ribbon Glide quiet concentrating hand work; still support, one useful action and settle.",
+  "source_path": "assets_src/imagegen/candy_wrap_scene_context_v1_20261003/attempt02/native.png",
+  "source_sha256": "b126a8ab0f1c0d1e720588335beb3bdb6f1e2b4153ff1e2deeacaf5443d2ec62",
+  "source_dimensions": [
+    1672,
+    941
+  ],
+  "source_status": "STATIC_SOURCE_DRAFT_4.5_OWNER_UNASSIGNED",
+  "source_review": "assets_src/imagegen/candy_wrap_scene_context_v1_20261003/attempt02/DIRECT_REVIEW.json",
+  "input_path": "inputs/CANDY-FOLD-A6.png",
+  "input_sha256": "0c820a450a139760e68820ef907c00a6714b4174bede7fa98fdf195879cb1b50",
+  "input_transform": "Whole1672x941 complete scene contained896x504 on896x512 RGB, black4px top/bottom, no crop or subject repair.",
+  "prompt_path": "prompts/CANDY-FOLD-A6.txt",
+  "prompt_sha256": "deb4b4941774c6a81c7ed598f7697b924b8b50e2b79f76e3ca43564f9552b31f",
+  "queue_name": "candy_context_fold_a6_20261003",
+  "seed": 2026100301,
+  "renderer": {
+    "server": "http://127.0.0.1:8190",
+    "root": "H:/MermaidReefTools/LocalVideo",
+    "python": "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/ComfyUI/0.34.0/ComfyUI_windows_portable/python_embeded/python.exe",
+    "entrypoint": "workflows/render_gguf.py",
+    "preset": "quick",
+    "settings": {
+      "width": 896,
+      "height": 512,
+      "frames": 41,
+      "steps": 24,
+      "weight_dtype": "GGUF_Q4_K_S"
+    },
+    "fps": 24,
+    "bindings": [
+      {
+        "installed_path": "H:\\MermaidReefTools\\LocalVideo\\prepare_workflows.py",
+        "packet_path": "workflows/prepare_workflows.py",
+        "sha256": "df22ac655ae82145b07910251eb22ccb03c6261b44ae0851f1c05d104fab5ed4",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "df22ac655ae82145b07910251eb22ccb03c6261b44ae0851f1c05d104fab5ed4"
+      },
+      {
+        "installed_path": "H:\\MermaidReefTools\\LocalVideo\\render_local.py",
+        "packet_path": "workflows/render_local_current.py",
+        "sha256": "a5bb0fe29bdff88b3cc0dd6dd80e8173b2cee8cdb1362a9ac27e02e706bf0976",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "a5bb0fe29bdff88b3cc0dd6dd80e8173b2cee8cdb1362a9ac27e02e706bf0976"
+      },
+      {
+        "installed_path": "H:\\MermaidReefTools\\LocalVideo\\MODEL_RECEIPT.json",
+        "packet_path": "workflows/MODEL_RECEIPT.json",
+        "sha256": "371b8893b497a52ca50148f77ccf0c29ce1a4511c953d04c32669ba1a3f57f01",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "371b8893b497a52ca50148f77ccf0c29ce1a4511c953d04c32669ba1a3f57f01"
+      },
+      {
+        "installed_path": "H:\\MermaidReefTools\\LocalVideo\\workflows\\SOURCE_RECEIPT.json",
+        "packet_path": "workflows/SOURCE_RECEIPT.json",
+        "sha256": "edd0897186da0b8850240602bc9da10a977e5c97cd5a51fa69cdf177c171984b",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "edd0897186da0b8850240602bc9da10a977e5c97cd5a51fa69cdf177c171984b"
+      },
+      {
+        "installed_path": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\day2_batch1_20260930\\workflows\\GGUF_MODEL_RECEIPT.json",
+        "packet_path": "workflows/GGUF_MODEL_RECEIPT.json",
+        "sha256": "4d811ec8a04a34959d4272fe2cdc6e6c829ab64462f82a3323db8109132f59da",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "4d811ec8a04a34959d4272fe2cdc6e6c829ab64462f82a3323db8109132f59da"
+      },
+      {
+        "installed_path": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\day2_batch1_20260930\\workflows\\GGUF_TOKENIZER_DEPENDENCIES.json",
+        "packet_path": "workflows/GGUF_TOKENIZER_DEPENDENCIES.json",
+        "sha256": "32d546ae9b7d007a63c12fb030b132d62383f3d868b262d609a8cbef404a3ef8",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "32d546ae9b7d007a63c12fb030b132d62383f3d868b262d609a8cbef404a3ef8"
+      },
+      {
+        "installed_path": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\tmp\\day2_graphics_audit_20260930\\assets_src\\local_motion\\day2_batch1_20260930\\workflows\\render_gguf.py",
+        "packet_path": "workflows/render_gguf.py",
+        "sha256": "68f0f69e390531a04e267fd6e591f7d17d3a9959871e694058e3c4f225affa41",
+        "check_installed_bytes": true,
+        "historical_binding_sha256": "68f0f69e390531a04e267fd6e591f7d17d3a9959871e694058e3c4f225affa41"
+      }
+    ],
+    "admission": "One FIFO study; native queue plus90-second quiet idle, duplicate submission protection and same-settings successful graph benchmark required. Existing developed CLI unmodified. No cancellation/restart/download/install."
+  },
+  "clip_contract": {
+    "entry": "A2 complete painted scene: exactly two owned coral mittens connected to sleeves, screen-left mitten already gripping raised gold flap, screen-right bracing the same supported red sweet. This is an unbound starting scene; ordinary game entry unproved.",
+    "exit": "Same gold flap laid flat toward viewer over all visible red, pressed once, hands slightly released beside the covered sweet. The original whole wrapper still requires neck pinches/opposing twists and complete two-ended release.",
+    "duration_seconds": 1.7083333333333333,
+    "timeline": "0–1.3s: Roshan lowers the golden-paper flap toward the viewer and lays it FLAT over the red sweet. The long edge already held by her two coral mittens moves steadily toward the BOTTOM of the picture, crossing the red surface until all red is hidden under the same gold paper. Her wrists stay joined to her own sleeves. The sweet stays on the lavender table; the sheet under it stays in place. 1.3–1.7s: she presses the completed fold once, loosens both grips and rests her mittens beside the covered sweet.\nKeep exactly this girl, her two mitten hands, one sweet and one sheet. Keep the painted character, room, table and camera stable. Show one downward covering fold with a quiet finish. No lifting the flap back toward her body, rolled strip, extra hands, changed sweet, new paper, tied necks, twists or glow.\nSound: silence.\n",
+    "anchors": {
+      "unit": "1672x941 complete source normalized coordinates",
+      "sweet_center_approx": [
+        0.502,
+        0.821
+      ],
+      "sweet_size_approx": [
+        0.115,
+        0.065
+      ],
+      "qualification": "Direct visual targets only, not measured motion tolerance evidence."
+    },
+    "direction": "Forward table work view in complete established painted Candy room context.",
+    "events": "Reference only; gameplay owners and result callbacks unchanged.",
+    "interruptions": "No runtime playback; one guarded local renderer job, no duplicate/cancel/restart.",
+    "required_review": "Every41 full native canvases, exactly two continuously attached owned arms/mittens, same supported sweet, continuous attached gold-paper bend/cover/release, identity/style/attention. Component floor cannot accept full wrapping or current game."
+  },
+  "status": "BOUND_UNCHANGED_CONTEXT_INPUT_REVIEWED_CHECK_PENDING",
+  "visual_review": null,
+  "complete_action_score": null,
+  "jobs": [
+    {
+      "id": "CANDY-FOLD-A6",
+      "name": "Prompt-only downward covering far-fold component",
+      "source_path": "assets_src/imagegen/candy_wrap_scene_context_v1_20261003/attempt02/native.png",
+      "source_sha256": "b126a8ab0f1c0d1e720588335beb3bdb6f1e2b4153ff1e2deeacaf5443d2ec62",
+      "input_path": "inputs/CANDY-FOLD-A6.png",
+      "input_sha256": "0c820a450a139760e68820ef907c00a6714b4174bede7fa98fdf195879cb1b50",
+      "prompt_path": "prompts/CANDY-FOLD-A6.txt",
+      "prompt_sha256": "deb4b4941774c6a81c7ed598f7697b924b8b50e2b79f76e3ca43564f9552b31f",
+      "queue_name": "candy_context_fold_a6_20261003",
+      "seed": 2026100301,
+      "owner_approval": null
+    }
+  ],
+  "comparison": "Only the action prompt changes from A5. Exact complete-scene source, normalized input, seed2026100301, admitted settings and seven installed workflow bindings are unchanged. All prior failures and original complete-wrap criteria remain unchanged.",
+  "source_region": [
+    0,
+    0,
+    1672,
+    941
+  ],
+  "input_visual_review": {
+    "status": "EXACT_UNCHANGED_A5_INPUT_BYTES_DIRECTLY_REVIEWED",
+    "evidence": "assets_src/local_motion/candy_wrap_continuity_v1_20261003/comparison_a5/INPUT_DIRECT_REVIEW.json",
+    "input_sha256": "0c820a450a139760e68820ef907c00a6714b4174bede7fa98fdf195879cb1b50",
+    "source_score_transfer": false
+  },
+  "intended_component_only": true
+}

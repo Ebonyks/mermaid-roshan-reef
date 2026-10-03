@@ -1,0 +1,83 @@
+{
+  "status": "NEW_COMPLETE_PAINTED_CONTEXT_SOURCE_PLANNED_REFERENCE_ONLY",
+  "planned_utc": "2026-10-03T09:06:14.353403+00:00",
+  "baseline": "2b109a233c14050567aaa84dc975119b2e18a77e",
+  "profile": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+  "scope": "One whole ImageGen scene source for a materially different context-framing experiment after A3/A4 extra-hand failures. Preserve established character/mitten/sweet/gold-paper identity; no game or cinematic delivery.",
+  "reuse_inventory": [
+    {
+      "path": "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt13/native.png",
+      "sha256": "50d498cb1ccb858792606347941e98b40f10188ad517c9039411c73cc22d1b04",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "role": "existing_partial_fold_identity_and_specific_wrapper",
+      "source_score": 4.5,
+      "evaluation": "Complete partial-fold source, two connected coral mittens and one supported red oval under attached golden paper. No motion pass.",
+      "direct_existing_source_review": true
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_candymaker.png",
+      "sha256": "19ac984638fea33e0f0cb649b7d51b1364f13c36f0e5c5dd4e883dc283ef5d48",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "role": "existing_candy_room_appearance_context",
+      "source_score": 4.2,
+      "evaluation": "Current painted candy factory; visually busy at source. Reuse scene identity as context reference, not a new background source acceptance.",
+      "direct_existing_source_review": true
+    },
+    {
+      "path": "assets/flats/castle/interactions_v4/background_tiles/room_kitchen_background_r0_c1.png",
+      "sha256": "059e9d72f1329fe1259479d4c068a64fcd9d6afc109502f50779c99abcbac827",
+      "dimensions": [
+        1024,
+        768
+      ],
+      "role": "alternative_shared_room_style",
+      "source_score": 4.6,
+      "evaluation": "Calm painted Kitchen tile; does not by itself depict the complete Candy backdrop or hands. Not bound to this generation.",
+      "direct_existing_source_review": true
+    },
+    {
+      "path": "assets_src/local_motion/candy_wrap_continuity_v1_20261003/comparison_a4/inputs/CANDY-FOLD-A4.png",
+      "sha256": "6cdc8d7cc26f33f9edc29a8958d88d1a792e8c4d360c0ccba549940b0b562f6a",
+      "dimensions": [
+        896,
+        512
+      ],
+      "role": "previous_failed_neutral_field_input",
+      "source_score": null,
+      "evaluation": "Same neutral-field whole pose causes external-hand/body-distortion failure; preserve, do not reuse as the new context target.",
+      "direct_existing_source_review": true
+    }
+  ],
+  "references": [
+    "assets_src/imagegen/candy_wrap_contact_v1_20261003/attempt13/native.png",
+    "assets/opera/worlds/backdrops/world_candymaker.png"
+  ],
+  "prompt": "Use case: compositing / illustration-story\nCreate ONE new complete flattened painted2D storybook scene, landscape16:9, for a local hand-action reference study. Image1 is the exact established Candy Maker character, costume, two coral quilted oven mittens, lavender worktop, red oval sweet and attached crinkled GOLD PAPER design. Image2 is the existing candy-factory room appearance. Preserve their identity and painted style; this is a clean scene with no game HUD.\nPlace the same complete waist-up Roshan naturally behind the same broad lavender worktop, large and clearly visible in the foreground of the existing pastel candy factory. Her whole head, hat, brown hair/rainbow ribbon, face, sleeves and BOTH arms/hands must be visible. Exactly two coral oven mittens, both continuously connected to her own bent forearms; no other person, external hand or bare human fingers. Her eyes attend to the gold flap and supported sweet.\nPreserve the useful PARTIAL-FOLD starting action: one red oval sweet rests at the center of the same gold sheet on the worktop. The gold far flap is attached to that same underlying sheet and already lies across the upper part of the sweet, leaving a clear red crescent at the front. Her screen-left mitten visibly grasps the free lower edge of this attached flap between its palm and thumb, directly over the sweet. Her screen-right mitten braces the near/right side of the sweet and paper on the table. The gold flap is NOT yet fully closed; do not tie necks or twist ends yet. Show the paper, hand contact and remaining red crescent clearly at useful large foreground scale.\nUse the existing room’s painted pastel aqua, lavender and coral architecture behind her, with its established rounded machines/shell trim. Keep distant details quieter than her face/hands/one working sweet. Her table sits naturally in this room; no neutral white field, poster, page, frame or artist drawing the character. Locked ordinary three-quarter table-work view, not a camera looking at a printed illustration. Broad painted satin value bands, clean plum contours, rounded child-readable shapes, restrained gold paper creases; no photorealism, realistic3D, PBR noise, vector-flat placeholders or white sticker rim.\nReturn the entire landscape scene with full character head/arms/worktop and generous clear margins. No labels/text/UI, no additional foreground sweet, duplicate arm/glove, magic particle effect or detached prop. This is one new complete starting still, not animation or runtime/owner acceptance.",
+  "prompt_sha256": "b72dbb4a8883abf4e83152862a4a311a17f016f883b3cb28a5965b7c01f71fa2",
+  "prior_failures": [
+    {
+      "path": "assets_src/local_motion/candy_wrap_continuity_v1_20261003/comparison_a3/attempt01/DIRECT_REVIEW.json",
+      "component_score": 1.5
+    },
+    {
+      "path": "assets_src/local_motion/candy_wrap_continuity_v1_20261003/comparison_a4/attempt01/DIRECT_REVIEW.json",
+      "component_score": 0.8
+    }
+  ],
+  "inference": "The neutral-field pose may be read as an illustration manipulated by outside hands. Causal interpretation is unproven.",
+  "comparison_limits": "Full-frame regeneration changes background context and can change source geometry/framing. This is an observational source-context comparison, not an isolated-variable pixel experiment or proof of causality.",
+  "required_evidence": [
+    "Whole returned native/alpha-or-RGB/dimensions/hash and exact prompt/reference provenance",
+    "Direct scene identity/exact-two-owned-mittens/grasp/attached paper/sweet support/style audit",
+    "Only then admit one quiet-idle developed local reference render at the same validated896x512/41frames/24fps/24steps/seed settings",
+    "All41 native frames/components reviewed independently; no static-score transfer or final cinematic delivery"
+  ],
+  "runtime_bound": false,
+  "owner_acceptance": null
+}

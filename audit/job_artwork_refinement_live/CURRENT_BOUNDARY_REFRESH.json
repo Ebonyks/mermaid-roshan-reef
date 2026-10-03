@@ -1,11 +1,11 @@
 {
   "schema": "reef.current-review-boundary-refresh.v1",
   "status": "CURRENT_CANDY_MATCH_OLDER_GEODE_NURSERY_WITHHELD",
-  "checked_utc": "2026-10-03T08:42:26.795322+00:00",
-  "working_head": "ae3880df4244139a4f681034b530a5ee2c68895d",
-  "registry_items": 2047,
-  "unique_registered_paths": 1320,
-  "registered_source_matches": 2047,
+  "checked_utc": "2026-10-03T09:33:10.650414+00:00",
+  "working_head": "2b109a233c14050567aaa84dc975119b2e18a77e",
+  "registry_items": 2049,
+  "unique_registered_paths": 1322,
+  "registered_source_matches": 2049,
   "source_changed_or_unavailable": [],
   "geode_review": "audit/job_geode_current_recheck_v1_20261002/DIRECT_REVIEW.json",
   "geode_capture_source_count": 783,
@@ -16391,6 +16391,22 @@
       "path": "assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/attempt03/native.png",
       "observed_sha256": "8b3f3c925ec01a959d7f8f4fd796910cab976876d1782a81f707b4ae3c21cac4",
       "registered_sha256": "8b3f3c925ec01a959d7f8f4fd796910cab976876d1782a81f707b4ae3c21cac4",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-CONTEXT-SOURCE-01",
+      "path": "assets_src/imagegen/candy_wrap_scene_context_v1_20261003/attempt01/native.png",
+      "observed_sha256": "3680de66895f315edc89b569534e3a94bf9d3c66b9ef2b79aa028ee5c5c425f5",
+      "registered_sha256": "3680de66895f315edc89b569534e3a94bf9d3c66b9ef2b79aa028ee5c5c425f5",
+      "source_match": true,
+      "binding_match": null
+    },
+    {
+      "id": "CANDY-CONTEXT-SOURCE-02",
+      "path": "assets_src/imagegen/candy_wrap_scene_context_v1_20261003/attempt02/native.png",
+      "observed_sha256": "b126a8ab0f1c0d1e720588335beb3bdb6f1e2b4153ff1e2deeacaf5443d2ec62",
+      "registered_sha256": "b126a8ab0f1c0d1e720588335beb3bdb6f1e2b4153ff1e2deeacaf5443d2ec62",
       "source_match": true,
       "binding_match": null
     }

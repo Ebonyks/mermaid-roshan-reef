@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\candy_wrap_continuity_v1_20261003\\comparison_a6\\inputs\\CANDY-FOLD-A6.png",
+  "source_sha256": "0c820a450a139760e68820ef907c00a6714b4174bede7fa98fdf195879cb1b50",
+  "source_dimensions": [
+    896,
+    512
+  ],
+  "prompt": "0\u20131.3s: Roshan lowers the golden-paper flap toward the viewer and lays it FLAT over the red sweet. The long edge already held by her two coral mittens moves steadily toward the BOTTOM of the picture, crossing the red surface until all red is hidden under the same gold paper. Her wrists stay joined to her own sleeves. The sweet stays on the lavender table; the sheet under it stays in place. 1.3\u20131.7s: she presses the completed fold once, loosens both grips and rests her mittens beside the covered sweet.\nKeep exactly this girl, her two mitten hands, one sweet and one sheet. Keep the painted character, room, table and camera stable. Show one downward covering fold with a quiet finish. No lifting the flap back toward her body, rolled strip, extra hands, changed sweet, new paper, tied necks, twists or glow.\nSound: silence.\n",
+  "prompt_sha256": "deb4b4941774c6a81c7ed598f7697b924b8b50e2b79f76e3ca43564f9552b31f",
+  "preset": "quick",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "steps": 24,
+    "weight_dtype": "GGUF_Q4_K_S"
+  },
+  "seed": 2026100301,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/GGUF_MODEL_RECEIPT.json",
+  "workflow_sha256": "5a7f2ccd68274c25b5d12848a8213a7a208624d6b85fc19b1b33eef986d45b9c",
+  "started_at_utc": "20261003T092619Z",
+  "prompt_id": "f279064f-e4dc-4a01-a1b8-b6f09fda2584",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\candy_context_fold_a6_20261003_20261003T092619Z_05a9d5_00002_.webm",
+      "sha256": "f4a15a345a38049489c0e301e9adf619517e425b648bacbf0b32a8cde6ed09fc",
+      "bytes": 1784298
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\candy_context_fold_a6_20261003_20261003T092619Z_05a9d5_00002_.mp4",
+      "sha256": "f24d09d00733b698557ecd1ef9f51720ca02b60445148d6d0d8ece3041056cd1",
+      "bytes": 1171836,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ],
+        "format": {
+          "duration": "1.708333"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 181.3,
+  "completed_at_utc": "2026-10-03T09:29:20.856255+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance"
+}

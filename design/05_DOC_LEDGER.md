@@ -1097,3 +1097,6 @@ Kept as-is; noted so a future edit updates every copy.
 
 | `assets_src/imagegen/playroom_stacking_toy_painted_v1_20261003/index.html` | 🟢 | `SUPPORTING_CURRENT`; six-source reuse inventory/three preserved whole native candidates/21 component opinions. A1/A2 six-ring4.1 rejected; A3 seven-ring assembled4.5 provisional only, no runtime/action/owner acceptance. |
 | `audit/job_artwork_refinement_live/ALL_ITEMS_V47.original.json` | ⚪ | `HISTORICAL_SUPPORTING`; exact2044-entry register after65 existing omitted source opinions and before three new whole assembled stacking-toy candidates. |
+
+| `assets_src/imagegen/candy_wrap_scene_context_v1_20261003/index.html` | 🟢 | `SUPPORTING_CURRENT`; two complete painted scene natives/16 source opinions preserve clutter4.2 rejection and clean4.5 partial-fold starting still, background4.4. A5 every41 native frames/10 components rejected3.1; A6 every41 native frames/10 components rejected2.6 for absent complete cover/release and late cuff/sweet distortion. No game/cinematic/device/child/owner acceptance. |
+| `audit/job_artwork_refinement_live/ALL_ITEMS_V48.original.json` | ⚪ | `HISTORICAL_SUPPORTING`; exact2047-entry register before two new complete painted Candy context source opinions. |

@@ -1,0 +1,25 @@
+{
+  "attempt": 2,
+  "method": "builtin_imagegen_targeted_foreground_removal_complete_scene",
+  "original_path": "C:\\Users\\Peter\\.codex\\generated_images\\01a0f309-110a-7602-af22-f30d657bd017\\exec-d272eb29-5146-44ea-899c-0bc06e621053.png",
+  "native_path": "assets_src/imagegen/candy_wrap_scene_context_v1_20261003/attempt02/native.png",
+  "sha256": "b126a8ab0f1c0d1e720588335beb3bdb6f1e2b4153ff1e2deeacaf5443d2ec62",
+  "dimensions": [
+    1672,
+    941
+  ],
+  "mode": "RGB",
+  "prompt": "Use case: precise-object-edit\nImage1 is the full painted Candy Maker scene to repair. Preserve Roshan’s entire exact face/hat/hair/rainbow/costume/body, her TWO connected coral oven mittens and forearms, their current gold-flap grasp, the single central red sweet and attached gold paper, the lavender tabletop, camera and the existing candy-factory background.\nRemove ONLY the unwanted foreground side props: the large cropped glass candy jar and the bowl of red sweets at lower left; the bowl of colorful sweets at lower right; and the cropped utensil pot with its spatulas at the right edge. Replace each removed foreground area with the natural continuation of the SAME lavender table surface and its painted front edge. Keep the room painting behind this table exactly coherent; do not insert new decorations or objects.\nThe clean foreground now contains ONLY the two owned mitten hands, ONE central red sweet, ONE attached golden-paper sheet/flap and the existing lavender worktop. Preserve the partial-fold starting state with the red crescent still visible; do not finish the wrapper, tie necks, twist ends or change the hands. Do not add another sweet, jar, bowl, tool, hand, finger, character, sparkle, text or HUD.\nReturn the ENTIRE same complete flattened landscape16:9 scene with painted2D storybook materials and clean contours. No crop, cutout, blank/neutral field, poster frame, photorealistic3D or new scene. The only repair is removing the competing foreground additions.",
+  "prompt_sha256": "f63c53667e1daefb7ed64523433819f79ba17a9ac41fd632a293923ff6f7f03a",
+  "references": [
+    {
+      "path": "assets_src/imagegen/candy_wrap_scene_context_v1_20261003/attempt01/native.png",
+      "sha256": "3680de66895f315edc89b569534e3a94bf9d3c66b9ef2b79aa028ee5c5c425f5"
+    }
+  ],
+  "native_preserved": true,
+  "runtime_ready": false,
+  "runtime_bound": false,
+  "owner_acceptance": null,
+  "qualification": "Complete generated scene source preserved unchanged. A starting-source opinion does not accept motion, game fit, a new background or a cinematic frame."
+}

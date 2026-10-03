@@ -1,0 +1,16 @@
+{
+  "status": "ACTUAL_HELPER_SELF_COPY_FAILURE_PRESERVED",
+  "observed_utc": "2026-10-03T09:27:24.585175+00:00",
+  "command": [
+    "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+    "-X",
+    "utf8",
+    "-B",
+    "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\candy_wrap_continuity_v1_20261003\\review_tools\\build_candy_local_review_v582.py"
+  ],
+  "actual_exit_code": 1,
+  "preserved_failed_helper": "assets_src/local_motion/candy_wrap_continuity_v1_20261003/review_tools/build_candy_local_review_v582.failed_original.py",
+  "preserved_failed_helper_sha256": "e0ac702afec355fba91e87c0e79921b41c1deab310f43c2f26189b5a77dfefa6",
+  "observed_error": "shutil.SameFileError: helper path and its archive destination are the same file.",
+  "qualification": "The illustrated205-frame page and asset license additions were written before this helper-only failure. No renderer rerun or game/artwork change. Original wrapper task remains failed."
+}

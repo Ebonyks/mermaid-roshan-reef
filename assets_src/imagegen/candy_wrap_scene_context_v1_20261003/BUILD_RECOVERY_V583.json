@@ -1,0 +1,39 @@
+{
+  "status": "HELPER_SELF_COPY_FIXED_REPORT_AND_BOUNDARY_REBUILT",
+  "checked_utc": "2026-10-03T09:27:30.985315+00:00",
+  "actual_processes": [
+    {
+      "label": "gallery",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\assets_src\\local_motion\\candy_wrap_continuity_v1_20261003\\review_tools\\build_candy_local_review_v582.py"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-03T09:27:24.600885+00:00",
+      "finished_utc": "2026-10-03T09:27:25.788754+00:00",
+      "status": "PASS",
+      "stdout_sha256": "61d6e07f814e0aa949169064b7082b24435682531649948edbab56fe8ac1efc7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "boundary",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-X",
+        "utf8",
+        "-B",
+        "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\audit\\job_artwork_refinement_live\\review_tools\\refresh_current_job_review_v49.py"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-10-03T09:27:25.797543+00:00",
+      "finished_utc": "2026-10-03T09:27:30.931490+00:00",
+      "status": "PASS",
+      "stdout_sha256": "bd7427bb4b34cb0d903832def0ef7a52cadcc3c79ba64648db3641c512526cbe",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "qualification": "Recovery of review publication helper only. Both complete originals and existing native motion frames unchanged; no new action/game/owner acceptance."
+}
