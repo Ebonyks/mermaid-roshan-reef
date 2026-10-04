@@ -199,7 +199,7 @@ The Pool's gaps to a gold star are specific:
 - C10: helper completion and a trivial idle leg;
 - C12: device, child and owner acceptance.
 
-The [proposed five-star implementation](POOL_FIVE_STAR.md) addresses each of them in Claude's code, with the art and voice generation handed to Codex. It raises the Pool to 4/5 (22 of 24 points); only the phone, child and owner checks remain.
+The [proposed five-star implementation](POOL_FIVE_STAR.md) addresses each of them in Claude's code, with the art and voice generation handed to Codex. It raised the Pool to 4/5 (22 of 24 points). The refined overdraw criteria of 2026-10-04 then measured overdraw from shared room layers on its screen ([`MA-VIS-008`](../../../audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-008)), which holds it at 3/5 until Codex GS5.
 
 ## 9. Recommended order
 

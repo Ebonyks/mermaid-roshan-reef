@@ -298,6 +298,168 @@ class FixtureTests(unittest.TestCase):
         self.assertEqual("ERROR", gold_star.summary(self.root)["status"])
 
 
+CLEAN_STATE = {
+    "gpu": {"mean": 1.6, "p50": 2, "p95": 3, "max": 4, "share_ge4": 0.02},
+    "gpu_translucent": {"mean": 0.1, "p50": 0, "p95": 1, "max": 2},
+    "gpu_peak": 5, "duplicates": [], "broad_overlays": [], "code_drawing": [], "code_drawing_hidden": [],
+    "wasted_layers": [], "roshan_covered_share": 0.02,
+}
+CLEAN_EFFECTS = {"transient": [{"name": "Ring", "seconds": 0.3, "screen_share": 0.002, "over_roshan_share": 0.0}],
+                 "lingering_translucent": []}
+
+
+class OverdrawTests(unittest.TestCase):
+    """Overdraw is measured, never assumed: unmeasured, stale or code-drawn screens cannot reach 4/5."""
+
+    def setUp(self):
+        self.directory = tempfile.TemporaryDirectory()
+        self.repo = FixtureRepo(Path(self.directory.name))
+        self.root = self.repo.root
+        (self.root / "scripts/games/wash.gd").write_text("extends Node2D\nfunc _draw() -> void:\n\tdraw_rect(Rect2(), Color())\n",
+                                                         encoding="utf-8")
+        self.repo.rubric["coverage"]["not_games"].append({"path": "scripts/games/wash.gd", "reason": "shared layer"})
+        self.repo.rubric["core"] = list(gold_star.DEFAULT_CORE)
+        self.repo.rubric["overdraw"] = {
+            "states_not_budgeted": ["entry_transition"],
+            "budgets": {"mean_layers": 2.5, "share_ge4": 0.10, "max_layers": 8, "peak_layers": 32, "translucent_p50": 0,
+                        "effect_seconds": 1.0, "effect_over_roshan": 0.25},
+            "checks": [{"id": check, "title": f"Check {check}", "means": "means", "method": "method"}
+                       for check in gold_star.OD_CHECKS],
+            "code_drawing": [{"path": "scripts/games/wash.gd", "role": "wash", "allowed": False,
+                              "draws": "A full-screen wash.", "reason": "Muddies the art."}],
+        }
+        gold_star.bind_anchors(self.root, self.repo.rubric["overdraw"]["code_drawing"])
+        self.repo.catalogue["games"][0]["overdraw_review"] = {
+            "OD1": {"result": "pass", "evidence": "No painted copy under any live object."},
+            "OD2": {"result": "pass", "evidence": "No look-alike beside the action."}}
+        self.repo.save()
+
+    def tearDown(self):
+        self.directory.cleanup()
+
+    def measure(self, state: dict | None = None, effects: dict | None = None, extra_states: dict | None = None) -> None:
+        states = {"play": copy.deepcopy(state or CLEAN_STATE)}
+        states.update(extra_states or {})
+        inputs = {"scripts/games/alpha.gd": gold_star.anchor_hash(self.root, {"path": "scripts/games/alpha.gd"})}
+        gold_star.write_json(self.root / gold_star.OVERDRAW, {
+            "schema": "overdraw_measurements/1", "head": "a" * 40,
+            "games": {"alpha": {"inputs": inputs, "states": states,
+                                "effects": {"act": copy.deepcopy(effects or CLEAN_EFFECTS)}}}})
+
+    def alpha(self) -> dict:
+        catalogue, rubric = gold_star.read_json(self.root, gold_star.CATALOGUE), gold_star.read_json(self.root, gold_star.RUBRIC)
+        self.assertEqual([], gold_star.validate(self.root, catalogue, rubric))
+        return next(row for row in gold_star.evaluate(self.root, catalogue, rubric) if row["id"] == "alpha")
+
+    def test_unmeasured_game_caps_c7_and_cannot_be_strong(self):
+        row = self.alpha()
+        # The look-alike review (OD2) needs no measurement; every machine check does.
+        self.assertEqual("pass", row["overdraw"]["OD2"]["result"])
+        self.assertEqual({"not_measured"}, {entry["result"] for check, entry in row["overdraw"].items() if check != "OD2"})
+        self.assertEqual((1, 3), (row["scores"]["C7"], row["rating"]))
+        self.assertIn("overdraw checks not all passed", row["rating_reason"])
+
+    def test_a_clean_reviewed_measurement_passes_and_allows_four(self):
+        self.measure(extra_states={"entry_transition": dict(CLEAN_STATE, gpu={"mean": 6.4, "share_ge4": 0.97, "max": 10})})
+        row = self.alpha()
+        self.assertEqual({"pass"}, {entry["result"] for entry in row["overdraw"].values()}, row["overdraw"])
+        self.assertEqual((2, 4), (row["scores"]["C7"], row["rating"]))
+
+    def test_each_kind_of_overdraw_is_named(self):
+        state = copy.deepcopy(CLEAN_STATE)
+        state["duplicates"] = [{"image": "basket.png", "names": ["Basket", "RescueBasket"], "overlap": 1.0}]
+        state["code_drawing"] = ["scripts/games/wash.gd"]
+        state["gpu_translucent"]["p50"] = 1
+        state["gpu"].update({"mean": 3.4, "share_ge4": 0.3})
+        state["wasted_layers"] = [{"name": "LetterboxFill", "screen_share": 1.0, "hidden_share": 0.98}]
+        slow = {"transient": [{"name": "Puff", "seconds": 1.5, "screen_share": 0.01, "over_roshan_share": 0.6}],
+                "lingering_translucent": [{"name": "Glow", "screen_share": 0.05, "translucent_share": 0.9}]}
+        self.measure(state, slow)
+        results = self.alpha()["overdraw"]
+        self.assertIn("Basket and RescueBasket", results["OD1"]["detail"])
+        self.assertIn("A full-screen wash", results["OD3"]["detail"])
+        self.assertIn("Puff", results["OD4"]["detail"])
+        self.assertIn("Glow", results["OD4"]["detail"])
+        self.assertIn("half the screen", results["OD5"]["detail"])
+        self.assertIn("LetterboxFill", results["OD6"]["detail"])
+        self.assertEqual({"fail"}, {results[check]["result"] for check in ("OD1", "OD3", "OD4", "OD5", "OD6")})
+
+    def test_unclassified_drawing_is_not_measured_and_a_peak_fails(self):
+        state = copy.deepcopy(CLEAN_STATE)
+        state["code_drawing"] = ["scripts/games/beta.gd"]
+        state["gpu_peak"] = 255
+        self.measure(state)
+        results = self.alpha()["overdraw"]
+        self.assertEqual("not_measured", results["OD3"]["result"])
+        self.assertIn("beta.gd", results["OD3"]["detail"])
+        self.assertIn("peak 255", results["OD6"]["detail"])
+
+    def test_changed_game_file_makes_the_measurement_stale(self):
+        self.measure()
+        (self.root / "scripts/games/alpha.gd").write_text(GAME_A + "\n# edited\n", encoding="utf-8")
+        results = self.alpha()["overdraw"]
+        self.assertEqual({"not_measured"}, {entry["result"] for check, entry in results.items() if check != "OD2"})
+        self.assertIn("stale", results["OD5"]["detail"])
+
+    def test_classification_must_stay_current_and_only_child_marks_may_be_allowed(self):
+        self.repo.rubric["overdraw"]["code_drawing"][0]["allowed"] = True
+        self.repo.save()
+        errors = gold_star.validate(self.root, *self.load())
+        self.assertTrue(any("only the child's own marks" in error for error in errors), errors)
+        (self.root / "scripts/games/wash.gd").write_text("extends Node2D\n", encoding="utf-8")
+        self.assertEqual(["scripts/games/wash.gd"], gold_star.stale_drawing(self.root, gold_star.read_json(self.root, gold_star.RUBRIC)))
+
+    def test_core_criteria_must_be_met_for_four(self):
+        scores = {**{key: 2 for key in gold_star.ASSESSED}, "C11": 2, "C12": 0}
+        self.assertEqual(4, gold_star.derive_rating(scores, core=gold_star.DEFAULT_CORE)[0])
+        scores["C5"] = 1
+        rating, reason = gold_star.derive_rating(scores, core=gold_star.DEFAULT_CORE)
+        self.assertEqual(3, rating)
+        self.assertIn("core C5", reason)
+
+    def test_the_guide_ends_with_an_ordered_list(self):
+        catalogue, rubric = self.load()
+        result = gold_star.compare(gold_star.evaluate(self.root, catalogue, rubric), rubric, "alpha")
+        text = gold_star.render_compare(result).rstrip().splitlines()
+        self.assertIn("## To reach 4/5", text)
+        self.assertTrue(text[-1].split(".")[0].isdigit(), text[-1])
+        self.assertTrue(any("Measure overdraw" in step for step in result["to_four"]), result["to_four"])
+
+    def load(self) -> tuple[dict, dict]:
+        return gold_star.read_json(self.root, gold_star.CATALOGUE), gold_star.read_json(self.root, gold_star.RUBRIC)
+
+
+class MeasureOverdrawTests(unittest.TestCase):
+    def test_log_lines_become_compact_states_and_effects(self):
+        from tools import measure_overdraw
+        state = {"game": "alpha", "state": "play", "gpu_layers": {"mean": 2.0}, "gpu_translucent_layers": {"p50": 0},
+                 "gpu_peak_layers": 6, "duplicates": [], "broad_overlays": [], "full_width_alpha_layers": [],
+                 "custom_draw": {"items": [{"script": "res://scripts/a.gd", "shapes": True},
+                                           {"script": "res://scripts/b.gd", "shapes": True}]},
+                 "listing": [{"kind": "custom", "script": "b.gd", "cells": 100, "hidden": 100, "name": "B"},
+                             {"kind": "vector", "name": "Fill", "cells": 9216, "hidden": 9000},
+                             {"kind": "custom", "script": "a.gd", "cells": 0, "hidden": 0, "name": "A"}],
+                 "roshan": {"covered_share": 0.1}, "items": 3}
+        effects = {"game": "alpha", "state": "act", "transient": [
+            {"name": "GuideHand", "last": 1.5}, {"name": "Ring", "last": 0.3, "max_screen_share": 0.01, "over_roshan_share": 0.0}],
+            "persistent": [{"name": "Glow", "max_screen_share": 0.05, "translucent_share": 0.8, "image": "res://glow.png"}]}
+        log = "noise\nOVERDRAW|STATE|" + json.dumps(state) + "\nOVERDRAW|EFFECTS|" + json.dumps(effects) + "\nOVERDRAW|DONE|{}\n"
+        parsed = measure_overdraw.parse_log(log)
+        compact = measure_overdraw.compact_state(parsed["states"][0])
+        self.assertEqual(["scripts/a.gd"], compact["code_drawing"])
+        self.assertEqual(["scripts/b.gd"], compact["code_drawing_hidden"])
+        self.assertEqual(["Fill"], [layer["name"] for layer in compact["wasted_layers"]])
+        self.assertEqual(6, compact["gpu_peak"])
+        summary = measure_overdraw.compact_effects(parsed["effects"][0])
+        self.assertEqual(["Ring"], [item["name"] for item in summary["transient"]])
+        self.assertEqual(["Glow"], [item["name"] for item in summary["lingering_translucent"]])
+
+    def test_engine_class_names_are_withheld_from_design_json(self):
+        from tools import measure_overdraw
+        self.assertNotIn("Node", measure_overdraw.safe("A " + "Node" + "3D root"))
+        self.assertEqual("Basket", measure_overdraw.safe("Basket"))
+
+
 class LiveCatalogueTests(unittest.TestCase):
     def test_repository_catalogue_and_rubric_validate(self):
         catalogue = gold_star.read_json(ROOT, gold_star.CATALOGUE)

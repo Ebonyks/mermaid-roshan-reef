@@ -1,0 +1,3643 @@
+{
+ "schema": "overdraw_measurements/1",
+ "status": "SUPPORTING_CURRENT",
+ "note": "Machine measurement only, never acceptance. Layer counts come from a real Mobile-renderer frame read into memory and reduced to numbers; nothing is saved or shown as an image. Node fields come from the live Canvas tree. Code-drawing scripts are judged by the classification in gold_star.json.",
+ "measured_at": "2026-10-04T15:22:36Z",
+ "head": "f07c1a4820fb5222289802ad712db677b56400bc",
+ "godot": "4.7.2.stable.official.ed1daf0bf",
+ "selftest": {
+  "result": "PASS",
+  "gpu": {
+   "frame": [
+    2560,
+    1369
+   ],
+   "max": 6,
+   "mean": 6.0,
+   "p50": 6,
+   "p95": 6,
+   "share_ge3": 1.0,
+   "share_ge4": 1.0,
+   "share_ge6": 1.0
+  },
+  "gpu_translucent": {
+   "frame": [
+    2560,
+    1369
+   ],
+   "max": 1,
+   "mean": 1.0,
+   "p50": 1,
+   "p95": 1,
+   "share_ge3": 0.0,
+   "share_ge4": 0.0,
+   "share_ge6": 0.0
+  }
+ },
+ "games": {
+  "astronaut": {
+   "states": {
+    "world": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.02,
+      "p50": 2,
+      "p95": 2,
+      "share_ge3": 0.033,
+      "share_ge4": 0.011,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.02,
+      "p50": 0,
+      "p95": 0,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    },
+    "task_open": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 8,
+      "mean": 2.26,
+      "p50": 2,
+      "p95": 4,
+      "share_ge3": 0.21,
+      "share_ge4": 0.057,
+      "share_ge6": 0.007
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.19,
+      "p50": 0,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 8,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_gesture_surface.gd",
+      "scripts/opera_world_backdrop_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    },
+    "after_phase": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 7,
+      "mean": 2.35,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.351,
+      "share_ge4": 0.024,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 4,
+      "mean": 0.36,
+      "p50": 0,
+      "p95": 1,
+      "share_ge3": 0.001,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 7,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.03,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    }
+   },
+   "effects": {
+    "phase_done": {
+     "transient": [
+      {
+       "name": "@TextureRect@551",
+       "seconds": 0.3,
+       "screen_share": 0.009,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@552",
+       "seconds": 0.3,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@553",
+       "seconds": 0.3,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@554",
+       "seconds": 0.3,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@555",
+       "seconds": 0.3,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@556",
+       "seconds": 0.3,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@557",
+       "seconds": 0.3,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      }
+     ],
+     "lingering_translucent": [],
+     "sampled_seconds": 2.0
+    }
+   },
+   "inputs": {
+    "scripts/chapter_two_career_scene_adapter.gd": "7397beeabc10e20ea3cdf38f2918d672711ac06dedb539d536a4eb1c1c656e2f",
+    "scripts/living_world_canvas.gd": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+    "scripts/opera_career_world_2d.gd": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+    "scripts/opera_gesture_surface.gd": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
+    "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+    "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+    "scripts/probe_overdraw.gd": "6102ecaebe2c5b5db8facddc3926360e7859039fed1b0f74f1f7db815e1ad5c7",
+    "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
+   }
+  },
+  "ballerina": {
+   "states": {
+    "world": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 9,
+      "mean": 2.09,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.064,
+      "share_ge4": 0.029,
+      "share_ge6": 0.006
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 5,
+      "mean": 0.08,
+      "p50": 0,
+      "p95": 0,
+      "share_ge3": 0.008,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 9,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.04,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_performance_overlay.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 10
+    },
+    "task_open": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 12,
+      "mean": 2.81,
+      "p50": 2,
+      "p95": 6,
+      "share_ge3": 0.445,
+      "share_ge4": 0.144,
+      "share_ge6": 0.068
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 5,
+      "mean": 0.48,
+      "p50": 0,
+      "p95": 1,
+      "share_ge3": 0.027,
+      "share_ge4": 0.003,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 13,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_ballet_surface.gd",
+      "scripts/opera_performance_overlay.gd",
+      "scripts/opera_world_backdrop_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 10
+    },
+    "after_phase": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 9,
+      "mean": 2.08,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.061,
+      "share_ge4": 0.029,
+      "share_ge6": 0.006
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 5,
+      "mean": 0.08,
+      "p50": 0,
+      "p95": 0,
+      "share_ge3": 0.008,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 11,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_ballet_surface.gd",
+      "scripts/opera_performance_overlay.gd",
+      "scripts/opera_world_backdrop_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 10
+    }
+   },
+   "effects": {
+    "phase_done": {
+     "transient": [],
+     "lingering_translucent": [],
+     "sampled_seconds": 2.0
+    }
+   },
+   "inputs": {
+    "scripts/chapter_two_career_scene_adapter.gd": "7397beeabc10e20ea3cdf38f2918d672711ac06dedb539d536a4eb1c1c656e2f",
+    "scripts/living_world_canvas.gd": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+    "scripts/opera_ballet_surface.gd": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b",
+    "scripts/opera_career_world_2d.gd": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+    "scripts/opera_performance_overlay.gd": "16c7a17ed901750764481e7077ac2e60d4cf5bfc1a3b41970066e4a633545ddb",
+    "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+    "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+    "scripts/probe_overdraw.gd": "6102ecaebe2c5b5db8facddc3926360e7859039fed1b0f74f1f7db815e1ad5c7",
+    "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
+   }
+  },
+  "boxer": {
+   "states": {
+    "world": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.03,
+      "p50": 2,
+      "p95": 2,
+      "share_ge3": 0.038,
+      "share_ge4": 0.012,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.02,
+      "p50": 0,
+      "p95": 0,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.03,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    },
+    "task_open": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 12,
+      "mean": 2.23,
+      "p50": 2,
+      "p95": 4,
+      "share_ge3": 0.113,
+      "share_ge4": 0.07,
+      "share_ge6": 0.015
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 0.44,
+      "p50": 0,
+      "p95": 1,
+      "share_ge3": 0.011,
+      "share_ge4": 0.004,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 12,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.01,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.01,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_boxing_surface.gd",
+      "scripts/opera_world_backdrop_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 8
+    },
+    "after_phase": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 12,
+      "mean": 2.57,
+      "p50": 2,
+      "p95": 4,
+      "share_ge3": 0.431,
+      "share_ge4": 0.084,
+      "share_ge6": 0.019
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 0.46,
+      "p50": 0,
+      "p95": 1,
+      "share_ge3": 0.009,
+      "share_ge4": 0.003,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 14,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.01,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.01,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_boxing_surface.gd",
+      "scripts/opera_world_backdrop_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 8
+    }
+   },
+   "effects": {
+    "phase_done": {
+     "transient": [],
+     "lingering_translucent": [],
+     "sampled_seconds": 2.0
+    }
+   },
+   "inputs": {
+    "scripts/living_world_canvas.gd": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+    "scripts/opera_boxing_surface.gd": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170",
+    "scripts/opera_career_world_2d.gd": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+    "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+    "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+    "scripts/probe_overdraw.gd": "6102ecaebe2c5b5db8facddc3926360e7859039fed1b0f74f1f7db815e1ad5c7",
+    "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
+   }
+  },
+  "candymaker": {
+   "states": {
+    "world": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.02,
+      "p50": 2,
+      "p95": 2,
+      "share_ge3": 0.037,
+      "share_ge4": 0.01,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.02,
+      "p50": 0,
+      "p95": 0,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    },
+    "task_open": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.13,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.137,
+      "share_ge4": 0.016,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.02,
+      "p50": 0,
+      "p95": 0,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_gesture_surface.gd",
+      "scripts/opera_world_backdrop_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    },
+    "after_phase": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.36,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.355,
+      "share_ge4": 0.029,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.36,
+      "p50": 0,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    }
+   },
+   "effects": {
+    "phase_done": {
+     "transient": [],
+     "lingering_translucent": [],
+     "sampled_seconds": 2.0
+    }
+   },
+   "inputs": {
+    "scripts/chapter_two_career_scene_adapter.gd": "7397beeabc10e20ea3cdf38f2918d672711ac06dedb539d536a4eb1c1c656e2f",
+    "scripts/living_world_canvas.gd": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+    "scripts/opera_career_world_2d.gd": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+    "scripts/opera_gesture_surface.gd": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
+    "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+    "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+    "scripts/probe_overdraw.gd": "6102ecaebe2c5b5db8facddc3926360e7859039fed1b0f74f1f7db815e1ad5c7",
+    "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
+   }
+  },
+  "chef": {
+   "states": {
+    "world": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.02,
+      "p50": 2,
+      "p95": 2,
+      "share_ge3": 0.036,
+      "share_ge4": 0.01,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.02,
+      "p50": 0,
+      "p95": 0,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    },
+    "task_open": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.05,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.06,
+      "share_ge4": 0.015,
+      "share_ge6": 0.001
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.35,
+      "p50": 0,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 7,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_gesture_surface.gd",
+      "scripts/opera_world_backdrop_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    },
+    "after_phase": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.35,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.362,
+      "share_ge4": 0.012,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 4,
+      "mean": 0.35,
+      "p50": 0,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    }
+   },
+   "effects": {
+    "phase_done": {
+     "transient": [
+      {
+       "name": "@TextureRect@398",
+       "seconds": 0.3,
+       "screen_share": 0.01,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@399",
+       "seconds": 0.3,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@400",
+       "seconds": 0.3,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@401",
+       "seconds": 0.3,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@402",
+       "seconds": 0.3,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@403",
+       "seconds": 0.3,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@404",
+       "seconds": 0.3,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      }
+     ],
+     "lingering_translucent": [],
+     "sampled_seconds": 2.0
+    }
+   },
+   "inputs": {
+    "scripts/chapter_two_career_scene_adapter.gd": "7397beeabc10e20ea3cdf38f2918d672711ac06dedb539d536a4eb1c1c656e2f",
+    "scripts/living_world_canvas.gd": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+    "scripts/opera_career_world_2d.gd": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+    "scripts/opera_gesture_surface.gd": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
+    "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+    "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+    "scripts/probe_overdraw.gd": "6102ecaebe2c5b5db8facddc3926360e7859039fed1b0f74f1f7db815e1ad5c7",
+    "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
+   }
+  },
+  "day_one_pool": {
+   "states": {
+    "entry_transition": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 10,
+      "mean": 6.36,
+      "p50": 6,
+      "p95": 8,
+      "share_ge3": 0.974,
+      "share_ge4": 0.974,
+      "share_ge6": 0.973
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 5,
+      "mean": 1.36,
+      "p50": 1,
+      "p95": 3,
+      "share_ge3": 0.108,
+      "share_ge4": 0.019,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 10,
+     "node_depth": {
+      "max": 7,
+      "mean": 4.11,
+      "p50": 4,
+      "p95": 5,
+      "share_ge3": 0.978,
+      "share_ge4": 0.977,
+      "share_ge6": 0.011
+     },
+     "hidden_share": 0.8,
+     "duplicates": [
+      {
+       "image": "res://assets/castle/day_one_pool/activities/cleanup_basket.png",
+       "names": [
+        "CleanupBasket",
+        "RescueCleanupBasket"
+       ],
+       "overlap": 1.0
+      }
+     ],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/arena/day_one_castle_dressing.gd",
+      "scripts/games/day_one_dust_bunny_swimmer.gd"
+     ],
+     "code_drawing_hidden": [
+      "scripts/living_world_canvas.gd"
+     ],
+     "wasted_layers": [
+      {
+       "name": "LivingWorldCanvas",
+       "kind": "custom",
+       "source": "living_world_canvas.gd",
+       "screen_share": 1.0,
+       "hidden_share": 1.0
+      },
+      {
+       "name": "CastleLetterboxBackdrop",
+       "kind": "vector",
+       "source": "",
+       "screen_share": 1.0,
+       "hidden_share": 1.0
+      },
+      {
+       "name": "CastleRoomTransitionCover",
+       "kind": "vector",
+       "source": "",
+       "screen_share": 0.98,
+       "hidden_share": 1.0
+      }
+     ],
+     "roshan_covered_share": 1.0,
+     "items": 46
+    },
+    "start": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 7,
+      "mean": 3.43,
+      "p50": 3,
+      "p95": 5,
+      "share_ge3": 0.975,
+      "share_ge4": 0.308,
+      "share_ge6": 0.027
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 5,
+      "mean": 1.37,
+      "p50": 1,
+      "p95": 3,
+      "share_ge3": 0.109,
+      "share_ge4": 0.02,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 7,
+     "node_depth": {
+      "max": 5,
+      "mean": 2.18,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.181,
+      "share_ge4": 0.017,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.34,
+     "duplicates": [
+      {
+       "image": "res://assets/castle/day_one_pool/activities/cleanup_basket.png",
+       "names": [
+        "CleanupBasket",
+        "RescueCleanupBasket"
+       ],
+       "overlap": 1.0
+      }
+     ],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/arena/day_one_castle_dressing.gd",
+      "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "scripts/living_world_canvas.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [
+      {
+       "name": "CastleLetterboxBackdrop",
+       "kind": "vector",
+       "source": "",
+       "screen_share": 1.0,
+       "hidden_share": 0.98
+      }
+     ],
+     "roshan_covered_share": 0.07,
+     "items": 46
+    },
+    "skimmer_contact": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 7,
+      "mean": 3.21,
+      "p50": 3,
+      "p95": 4,
+      "share_ge3": 0.975,
+      "share_ge4": 0.214,
+      "share_ge6": 0.004
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 5,
+      "mean": 1.36,
+      "p50": 1,
+      "p95": 3,
+      "share_ge3": 0.108,
+      "share_ge4": 0.019,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 7,
+     "node_depth": {
+      "max": 5,
+      "mean": 2.17,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.18,
+      "share_ge4": 0.016,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.34,
+     "duplicates": [
+      {
+       "image": "res://assets/castle/day_one_pool/activities/cleanup_basket.png",
+       "names": [
+        "CleanupBasket",
+        "RescueCleanupBasket"
+       ],
+       "overlap": 1.0
+      }
+     ],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/arena/day_one_castle_dressing.gd",
+      "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "scripts/living_world_canvas.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [
+      {
+       "name": "CastleLetterboxBackdrop",
+       "kind": "vector",
+       "source": "",
+       "screen_share": 1.0,
+       "hidden_share": 0.98
+      }
+     ],
+     "roshan_covered_share": 0.03,
+     "items": 45
+    },
+    "waterfall_start": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 7,
+      "mean": 3.43,
+      "p50": 3,
+      "p95": 5,
+      "share_ge3": 0.974,
+      "share_ge4": 0.303,
+      "share_ge6": 0.021
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 5,
+      "mean": 1.35,
+      "p50": 1,
+      "p95": 3,
+      "share_ge3": 0.121,
+      "share_ge4": 0.008,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 7,
+     "node_depth": {
+      "max": 5,
+      "mean": 2.19,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.158,
+      "share_ge4": 0.036,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.34,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/arena/day_one_castle_dressing.gd",
+      "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "scripts/living_world_canvas.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [
+      {
+       "name": "CastleLetterboxBackdrop",
+       "kind": "vector",
+       "source": "",
+       "screen_share": 1.0,
+       "hidden_share": 0.98
+      }
+     ],
+     "roshan_covered_share": 0.0,
+     "items": 39
+    },
+    "waterfall_stroke": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 9,
+      "mean": 3.21,
+      "p50": 3,
+      "p95": 4,
+      "share_ge3": 0.974,
+      "share_ge4": 0.197,
+      "share_ge6": 0.014
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 1.14,
+      "p50": 1,
+      "p95": 2,
+      "share_ge3": 0.011,
+      "share_ge4": 0.001,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 9,
+     "node_depth": {
+      "max": 7,
+      "mean": 2.18,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.143,
+      "share_ge4": 0.032,
+      "share_ge6": 0.007
+     },
+     "hidden_share": 0.35,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/arena/day_one_castle_dressing.gd",
+      "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "scripts/living_world_canvas.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [
+      {
+       "name": "CastleLetterboxBackdrop",
+       "kind": "vector",
+       "source": "",
+       "screen_share": 1.0,
+       "hidden_share": 0.98
+      }
+     ],
+     "roshan_covered_share": 0.05,
+     "items": 40
+    },
+    "seahorse_start": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 7,
+      "mean": 3.42,
+      "p50": 3,
+      "p95": 5,
+      "share_ge3": 0.975,
+      "share_ge4": 0.299,
+      "share_ge6": 0.018
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 5,
+      "mean": 1.33,
+      "p50": 1,
+      "p95": 3,
+      "share_ge3": 0.117,
+      "share_ge4": 0.008,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 7,
+     "node_depth": {
+      "max": 6,
+      "mean": 2.16,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.162,
+      "share_ge4": 0.021,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.35,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/arena/day_one_castle_dressing.gd",
+      "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "scripts/living_world_canvas.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [
+      {
+       "name": "CastleLetterboxBackdrop",
+       "kind": "vector",
+       "source": "",
+       "screen_share": 1.0,
+       "hidden_share": 0.98
+      }
+     ],
+     "roshan_covered_share": 0.0,
+     "items": 36
+    },
+    "seahorse_tug": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 7,
+      "mean": 3.41,
+      "p50": 3,
+      "p95": 5,
+      "share_ge3": 0.974,
+      "share_ge4": 0.305,
+      "share_ge6": 0.011
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 5,
+      "mean": 1.33,
+      "p50": 1,
+      "p95": 3,
+      "share_ge3": 0.116,
+      "share_ge4": 0.006,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 7,
+     "node_depth": {
+      "max": 5,
+      "mean": 2.16,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.179,
+      "share_ge4": 0.007,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.35,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/arena/day_one_castle_dressing.gd",
+      "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "scripts/living_world_canvas.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [
+      {
+       "name": "CastleLetterboxBackdrop",
+       "kind": "vector",
+       "source": "",
+       "screen_share": 1.0,
+       "hidden_share": 0.98
+      }
+     ],
+     "roshan_covered_share": 0.0,
+     "items": 38
+    },
+    "finale": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 8,
+      "mean": 4.41,
+      "p50": 4,
+      "p95": 6,
+      "share_ge3": 0.974,
+      "share_ge4": 0.974,
+      "share_ge6": 0.148
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 5,
+      "mean": 1.31,
+      "p50": 1,
+      "p95": 3,
+      "share_ge3": 0.115,
+      "share_ge4": 0.006,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 255,
+     "node_depth": {
+      "max": 5,
+      "mean": 2.12,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.141,
+      "share_ge4": 0.002,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.35,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/arena/day_one_castle_dressing.gd",
+      "scripts/games/day_one_dust_bunny_swimmer.gd",
+      "scripts/living_world_canvas.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [
+      {
+       "name": "CastleLetterboxBackdrop",
+       "kind": "vector",
+       "source": "",
+       "screen_share": 1.0,
+       "hidden_share": 0.98
+      }
+     ],
+     "roshan_covered_share": 0.0,
+     "items": 40
+    }
+   },
+   "effects": {
+    "skimmer_catch": {
+     "transient": [],
+     "lingering_translucent": [],
+     "sampled_seconds": 2.0
+    },
+    "waterfall_lane_clear": {
+     "transient": [
+      {
+       "name": "LaneClearRing0",
+       "seconds": 0.6,
+       "screen_share": 0.002,
+       "over_roshan_share": 0.02
+      }
+     ],
+     "lingering_translucent": [],
+     "sampled_seconds": 2.0
+    },
+    "seahorse_tug_effects": {
+     "transient": [],
+     "lingering_translucent": [],
+     "sampled_seconds": 2.0
+    }
+   },
+   "inputs": {
+    "scripts/arena/day_one_castle_dressing.gd": "5cd4b7f5933e532446f2dd05a85829644e4a9a734ce687065016f0bb18bd79b6",
+    "scripts/day_one_contact_action_2d.gd": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac",
+    "scripts/games/day_one_dust_bunny_swimmer.gd": "1f508b69f4e40ad7ccdca9234b5510b889841e1fe6a12f3b217d0c682dca6340",
+    "scripts/games/day_one_pool_cleanup.gd": "be9e78b4cd9d5c251747c1e97b96bd8928175ee3d58ba3a01718dd45ab6b9341",
+    "scripts/games/pool_seahorse_rescue_activity.gd": "1db4f79e269e101a45b0fb5984afa6f396c044a135f2bae8d9ee059a2b898eca",
+    "scripts/games/pool_skimmer_activity.gd": "c52a610ee36d9e4c004d8a2bfe01ad8185ed57e9a6a14d73e233b8b1431eac7b",
+    "scripts/games/pool_waterfall_activity.gd": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da",
+    "scripts/living_world_canvas.gd": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+    "scripts/probe_overdraw.gd": "6102ecaebe2c5b5db8facddc3926360e7859039fed1b0f74f1f7db815e1ad5c7",
+    "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
+   }
+  },
+  "detective": {
+   "states": {
+    "world": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.02,
+      "p50": 2,
+      "p95": 2,
+      "share_ge3": 0.036,
+      "share_ge4": 0.01,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.02,
+      "p50": 0,
+      "p95": 0,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    },
+    "task_open": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.48,
+      "p50": 2,
+      "p95": 4,
+      "share_ge3": 0.429,
+      "share_ge4": 0.079,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.04,
+      "p50": 0,
+      "p95": 0,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.1,
+      "p50": 1,
+      "p95": 2,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.07,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 8
+    },
+    "after_phase": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.35,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.343,
+      "share_ge4": 0.031,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 4,
+      "mean": 0.35,
+      "p50": 0,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    }
+   },
+   "effects": {
+    "phase_done": {
+     "transient": [
+      {
+       "name": "@TextureRect@416",
+       "seconds": 0.1,
+       "screen_share": 0.002,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@417",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@418",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@419",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@420",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@421",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@422",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      }
+     ],
+     "lingering_translucent": [],
+     "sampled_seconds": 2.0
+    }
+   },
+   "inputs": {
+    "scripts/chapter_two_career_scene_adapter.gd": "7397beeabc10e20ea3cdf38f2918d672711ac06dedb539d536a4eb1c1c656e2f",
+    "scripts/living_world_canvas.gd": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+    "scripts/opera_career_world_2d.gd": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+    "scripts/opera_competition.gd": "2449c21807e83f9c5d0f5994b37663b9e5ae4f56aa418690151eac081d03ec57",
+    "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+    "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+    "scripts/probe_overdraw.gd": "6102ecaebe2c5b5db8facddc3926360e7859039fed1b0f74f1f7db815e1ad5c7",
+    "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
+   }
+  },
+  "doctor": {
+   "states": {
+    "world": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.03,
+      "p50": 2,
+      "p95": 2,
+      "share_ge3": 0.042,
+      "share_ge4": 0.011,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.03,
+      "p50": 0,
+      "p95": 0,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    },
+    "task_open": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 7,
+      "mean": 2.05,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.052,
+      "share_ge4": 0.02,
+      "share_ge6": 0.001
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.03,
+      "p50": 0,
+      "p95": 0,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 8,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_gesture_surface.gd",
+      "scripts/opera_world_backdrop_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    },
+    "after_phase": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.35,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.345,
+      "share_ge4": 0.032,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.35,
+      "p50": 0,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    }
+   },
+   "effects": {
+    "phase_done": {
+     "transient": [
+      {
+       "name": "@TextureRect@458",
+       "seconds": 0.3,
+       "screen_share": 0.01,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@459",
+       "seconds": 0.3,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@460",
+       "seconds": 0.3,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@461",
+       "seconds": 0.3,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@462",
+       "seconds": 0.3,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@463",
+       "seconds": 0.3,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@464",
+       "seconds": 0.3,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      }
+     ],
+     "lingering_translucent": [],
+     "sampled_seconds": 2.0
+    }
+   },
+   "inputs": {
+    "scripts/chapter_two_career_scene_adapter.gd": "7397beeabc10e20ea3cdf38f2918d672711ac06dedb539d536a4eb1c1c656e2f",
+    "scripts/living_world_canvas.gd": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+    "scripts/opera_career_world_2d.gd": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+    "scripts/opera_gesture_surface.gd": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
+    "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+    "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+    "scripts/probe_overdraw.gd": "6102ecaebe2c5b5db8facddc3926360e7859039fed1b0f74f1f7db815e1ad5c7",
+    "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
+   }
+  },
+  "farmer": {
+   "states": {
+    "world": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.02,
+      "p50": 2,
+      "p95": 2,
+      "share_ge3": 0.033,
+      "share_ge4": 0.01,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.02,
+      "p50": 0,
+      "p95": 0,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    },
+    "task_open": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 8,
+      "mean": 2.48,
+      "p50": 2,
+      "p95": 4,
+      "share_ge3": 0.389,
+      "share_ge4": 0.066,
+      "share_ge6": 0.008
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.42,
+      "p50": 0,
+      "p95": 1,
+      "share_ge3": 0.003,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 8,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_gesture_surface.gd",
+      "scripts/opera_world_backdrop_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    },
+    "after_phase": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.03,
+      "p50": 2,
+      "p95": 2,
+      "share_ge3": 0.043,
+      "share_ge4": 0.011,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.03,
+      "p50": 0,
+      "p95": 0,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    }
+   },
+   "effects": {
+    "phase_done": {
+     "transient": [
+      {
+       "name": "@TextureRect@476",
+       "seconds": 0.1,
+       "screen_share": 0.002,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@477",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@478",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@479",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@480",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@481",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@482",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      }
+     ],
+     "lingering_translucent": [],
+     "sampled_seconds": 2.0
+    }
+   },
+   "inputs": {
+    "scripts/chapter_two_career_scene_adapter.gd": "7397beeabc10e20ea3cdf38f2918d672711ac06dedb539d536a4eb1c1c656e2f",
+    "scripts/living_world_canvas.gd": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+    "scripts/opera_career_world_2d.gd": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+    "scripts/opera_gesture_surface.gd": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
+    "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+    "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+    "scripts/probe_overdraw.gd": "6102ecaebe2c5b5db8facddc3926360e7859039fed1b0f74f1f7db815e1ad5c7",
+    "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
+   }
+  },
+  "geologist": {
+   "states": {
+    "world": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 7,
+      "mean": 2.98,
+      "p50": 3,
+      "p95": 5,
+      "share_ge3": 0.722,
+      "share_ge4": 0.227,
+      "share_ge6": 0.007
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.03,
+      "p50": 0,
+      "p95": 0,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 9,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.05,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.04,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 10
+    },
+    "task_open": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 13,
+      "mean": 5.75,
+      "p50": 5,
+      "p95": 10,
+      "share_ge3": 0.786,
+      "share_ge4": 0.612,
+      "share_ge6": 0.479
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 1.86,
+      "p50": 1,
+      "p95": 4,
+      "share_ge3": 0.435,
+      "share_ge4": 0.4,
+      "share_ge6": 0.001
+     },
+     "gpu_peak": 14,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.04,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.03,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_geology_surface.gd",
+      "scripts/opera_world_backdrop_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 10
+    },
+    "after_phase": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 8,
+      "mean": 3.32,
+      "p50": 3,
+      "p95": 5,
+      "share_ge3": 0.822,
+      "share_ge4": 0.362,
+      "share_ge6": 0.031
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.36,
+      "p50": 0,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 8,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.05,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.04,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 10
+    }
+   },
+   "effects": {
+    "phase_done": {
+     "transient": [],
+     "lingering_translucent": [],
+     "sampled_seconds": 2.0
+    }
+   },
+   "inputs": {
+    "scripts/living_world_canvas.gd": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+    "scripts/opera_career_world_2d.gd": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+    "scripts/opera_geology_surface.gd": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+    "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+    "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+    "scripts/probe_overdraw.gd": "6102ecaebe2c5b5db8facddc3926360e7859039fed1b0f74f1f7db815e1ad5c7",
+    "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
+   }
+  },
+  "magician": {
+   "states": {
+    "world": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 7,
+      "mean": 2.19,
+      "p50": 2,
+      "p95": 4,
+      "share_ge3": 0.118,
+      "share_ge4": 0.079,
+      "share_ge6": 0.003
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 4,
+      "mean": 0.17,
+      "p50": 0,
+      "p95": 2,
+      "share_ge3": 0.007,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 7,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_performance_overlay.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 10
+    },
+    "task_open": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 7,
+      "mean": 2.26,
+      "p50": 2,
+      "p95": 4,
+      "share_ge3": 0.171,
+      "share_ge4": 0.094,
+      "share_ge6": 0.003
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 4,
+      "mean": 0.24,
+      "p50": 0,
+      "p95": 2,
+      "share_ge3": 0.007,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 7,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_gesture_surface.gd",
+      "scripts/opera_performance_overlay.gd",
+      "scripts/opera_world_backdrop_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 10
+    },
+    "after_phase": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 7,
+      "mean": 2.53,
+      "p50": 2,
+      "p95": 4,
+      "share_ge3": 0.434,
+      "share_ge4": 0.1,
+      "share_ge6": 0.003
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 4,
+      "mean": 0.51,
+      "p50": 0,
+      "p95": 2,
+      "share_ge3": 0.008,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 7,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_performance_overlay.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 10
+    }
+   },
+   "effects": {
+    "phase_done": {
+     "transient": [
+      {
+       "name": "@TextureRect@512",
+       "seconds": 0.1,
+       "screen_share": 0.002,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@513",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@514",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@515",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@516",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@517",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@518",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      }
+     ],
+     "lingering_translucent": [],
+     "sampled_seconds": 2.0
+    }
+   },
+   "inputs": {
+    "scripts/living_world_canvas.gd": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+    "scripts/opera_career_world_2d.gd": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+    "scripts/opera_gesture_surface.gd": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
+    "scripts/opera_performance_overlay.gd": "16c7a17ed901750764481e7077ac2e60d4cf5bfc1a3b41970066e4a633545ddb",
+    "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+    "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+    "scripts/probe_overdraw.gd": "6102ecaebe2c5b5db8facddc3926360e7859039fed1b0f74f1f7db815e1ad5c7",
+    "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
+   }
+  },
+  "nursery": {
+   "states": {
+    "world": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.03,
+      "p50": 2,
+      "p95": 2,
+      "share_ge3": 0.046,
+      "share_ge4": 0.014,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.03,
+      "p50": 0,
+      "p95": 0,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.04,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.03,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 10
+    },
+    "task_open": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.03,
+      "p50": 2,
+      "p95": 2,
+      "share_ge3": 0.042,
+      "share_ge4": 0.011,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.02,
+      "p50": 0,
+      "p95": 0,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.04,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.03,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_gesture_surface.gd",
+      "scripts/opera_world_backdrop_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 10
+    },
+    "after_phase": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.36,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.37,
+      "share_ge4": 0.017,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.36,
+      "p50": 0,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.04,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.03,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 10
+    }
+   },
+   "effects": {
+    "phase_done": {
+     "transient": [
+      {
+       "name": "@TextureRect@609",
+       "seconds": 0.1,
+       "screen_share": 0.002,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@610",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@611",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@612",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@613",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@614",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@615",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      }
+     ],
+     "lingering_translucent": [],
+     "sampled_seconds": 2.0
+    }
+   },
+   "inputs": {
+    "scripts/living_world_canvas.gd": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+    "scripts/opera_career_world_2d.gd": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+    "scripts/opera_gesture_surface.gd": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
+    "scripts/opera_nursery_catch.gd": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431",
+    "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+    "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+    "scripts/probe_overdraw.gd": "6102ecaebe2c5b5db8facddc3926360e7859039fed1b0f74f1f7db815e1ad5c7",
+    "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
+   }
+  },
+  "painter": {
+   "states": {
+    "world": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.02,
+      "p50": 2,
+      "p95": 2,
+      "share_ge3": 0.033,
+      "share_ge4": 0.01,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.02,
+      "p50": 0,
+      "p95": 0,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    },
+    "task_open": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 9,
+      "mean": 2.45,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.372,
+      "share_ge4": 0.047,
+      "share_ge6": 0.019
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.36,
+      "p50": 0,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 9,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_gesture_surface.gd",
+      "scripts/opera_world_backdrop_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    },
+    "after_phase": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.35,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.365,
+      "share_ge4": 0.011,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.03,
+      "p50": 0,
+      "p95": 0,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    }
+   },
+   "effects": {
+    "phase_done": {
+     "transient": [
+      {
+       "name": "@TextureRect@531",
+       "seconds": 0.1,
+       "screen_share": 0.002,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@532",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@533",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@534",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@535",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@536",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@537",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      }
+     ],
+     "lingering_translucent": [],
+     "sampled_seconds": 2.0
+    }
+   },
+   "inputs": {
+    "scripts/chapter_two_career_scene_adapter.gd": "7397beeabc10e20ea3cdf38f2918d672711ac06dedb539d536a4eb1c1c656e2f",
+    "scripts/living_world_canvas.gd": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+    "scripts/opera_career_world_2d.gd": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+    "scripts/opera_gesture_surface.gd": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
+    "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+    "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+    "scripts/probe_overdraw.gd": "6102ecaebe2c5b5db8facddc3926360e7859039fed1b0f74f1f7db815e1ad5c7",
+    "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
+   }
+  },
+  "popstar": {
+   "states": {
+    "world": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 7,
+      "mean": 2.19,
+      "p50": 2,
+      "p95": 4,
+      "share_ge3": 0.118,
+      "share_ge4": 0.077,
+      "share_ge6": 0.003
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 4,
+      "mean": 0.17,
+      "p50": 0,
+      "p95": 2,
+      "share_ge3": 0.007,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 7,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_performance_overlay.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 10
+    },
+    "task_open": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 8,
+      "mean": 2.55,
+      "p50": 2,
+      "p95": 4,
+      "share_ge3": 0.45,
+      "share_ge4": 0.102,
+      "share_ge6": 0.004
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 4,
+      "mean": 0.54,
+      "p50": 0,
+      "p95": 2,
+      "share_ge3": 0.011,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 8,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_gesture_surface.gd",
+      "scripts/opera_performance_overlay.gd",
+      "scripts/opera_world_backdrop_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 10
+    },
+    "after_phase": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 7,
+      "mean": 2.2,
+      "p50": 2,
+      "p95": 4,
+      "share_ge3": 0.132,
+      "share_ge4": 0.078,
+      "share_ge6": 0.003
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 4,
+      "mean": 0.19,
+      "p50": 0,
+      "p95": 2,
+      "share_ge3": 0.007,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 7,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_performance_overlay.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 10
+    }
+   },
+   "effects": {
+    "phase_done": {
+     "transient": [
+      {
+       "name": "@TextureRect@591",
+       "seconds": 0.1,
+       "screen_share": 0.002,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@592",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@593",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@594",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@595",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@596",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@597",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      }
+     ],
+     "lingering_translucent": [],
+     "sampled_seconds": 2.0
+    }
+   },
+   "inputs": {
+    "scripts/chapter_two_career_scene_adapter.gd": "7397beeabc10e20ea3cdf38f2918d672711ac06dedb539d536a4eb1c1c656e2f",
+    "scripts/living_world_canvas.gd": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+    "scripts/opera_career_world_2d.gd": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+    "scripts/opera_gesture_surface.gd": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
+    "scripts/opera_mastery.gd": "1a5c6f89f2cd0effea2b22e85a29c3dcfcebb0298fb6d582b81a9bb427518bf3",
+    "scripts/opera_performance_overlay.gd": "16c7a17ed901750764481e7077ac2e60d4cf5bfc1a3b41970066e4a633545ddb",
+    "scripts/opera_performance_plan.gd": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366",
+    "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+    "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+    "scripts/probe_overdraw.gd": "6102ecaebe2c5b5db8facddc3926360e7859039fed1b0f74f1f7db815e1ad5c7",
+    "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
+   }
+  },
+  "racer": {
+   "states": {
+    "world": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.02,
+      "p50": 2,
+      "p95": 2,
+      "share_ge3": 0.039,
+      "share_ge4": 0.011,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.03,
+      "p50": 0,
+      "p95": 0,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    },
+    "task_open": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.05,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.06,
+      "share_ge4": 0.013,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.03,
+      "p50": 0,
+      "p95": 0,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 7,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_racer_surface.gd",
+      "scripts/opera_world_backdrop_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    },
+    "after_phase": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.35,
+      "p50": 2,
+      "p95": 3,
+      "share_ge3": 0.363,
+      "share_ge4": 0.015,
+      "share_ge6": 0.0
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.35,
+      "p50": 0,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 9
+    }
+   },
+   "effects": {
+    "phase_done": {
+     "transient": [
+      {
+       "name": "@TextureRect@570",
+       "seconds": 0.1,
+       "screen_share": 0.002,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@571",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@572",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@573",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@574",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@575",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      },
+      {
+       "name": "@ColorRect@576",
+       "seconds": 0.1,
+       "screen_share": 0.0,
+       "over_roshan_share": 0.0
+      }
+     ],
+     "lingering_translucent": [],
+     "sampled_seconds": 2.0
+    }
+   },
+   "inputs": {
+    "scripts/kart_driving.gd": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8",
+    "scripts/living_world_canvas.gd": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+    "scripts/opera_career_world_2d.gd": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+    "scripts/opera_racer_surface.gd": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+    "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+    "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+    "scripts/probe_overdraw.gd": "6102ecaebe2c5b5db8facddc3926360e7859039fed1b0f74f1f7db815e1ad5c7",
+    "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
+   }
+  },
+  "teacher": {
+   "states": {
+    "world": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.23,
+      "p50": 2,
+      "p95": 4,
+      "share_ge3": 0.16,
+      "share_ge4": 0.084,
+      "share_ge6": 0.004
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.15,
+      "p50": 0,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 10
+    },
+    "task_open": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 8,
+      "mean": 3.53,
+      "p50": 4,
+      "p95": 6,
+      "share_ge3": 0.663,
+      "share_ge4": 0.602,
+      "share_ge6": 0.109
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.79,
+      "p50": 1,
+      "p95": 2,
+      "share_ge3": 0.002,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 8,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.04,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.02,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_teacher_surface.gd",
+      "scripts/opera_world_backdrop_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 10
+    },
+    "after_phase": {
+     "gpu": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 6,
+      "mean": 2.23,
+      "p50": 2,
+      "p95": 4,
+      "share_ge3": 0.154,
+      "share_ge4": 0.089,
+      "share_ge6": 0.004
+     },
+     "gpu_translucent": {
+      "frame": [
+       2560,
+       1369
+      ],
+      "max": 3,
+      "mean": 0.15,
+      "p50": 0,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "gpu_peak": 6,
+     "node_depth": {
+      "max": 2,
+      "mean": 1.03,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
+      "share_ge6": 0.0
+     },
+     "hidden_share": 0.03,
+     "duplicates": [],
+     "broad_overlays": [],
+     "full_width_alpha_layers": 0,
+     "code_drawing": [
+      "scripts/living_world_canvas.gd",
+      "scripts/opera_world_backdrop_2d.gd",
+      "scripts/opera_world_hotspot_2d.gd"
+     ],
+     "code_drawing_hidden": [],
+     "wasted_layers": [],
+     "roshan_covered_share": 0.0,
+     "items": 10
+    }
+   },
+   "effects": {
+    "phase_done": {
+     "transient": [],
+     "lingering_translucent": [],
+     "sampled_seconds": 2.0
+    }
+   },
+   "inputs": {
+    "scripts/living_world_canvas.gd": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+    "scripts/opera_career_world_2d.gd": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+    "scripts/opera_teacher_surface.gd": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
+    "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+    "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+    "scripts/probe_overdraw.gd": "6102ecaebe2c5b5db8facddc3926360e7859039fed1b0f74f1f7db815e1ad5c7",
+    "scripts/teacher_lesson_plan.gd": "d82e5b7a817335b4da2d0d7b55706a5cde1ff1954c2b33d8ba34d891dac5778e",
+    "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
+   }
+  }
+ }
+}
