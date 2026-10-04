@@ -4,7 +4,7 @@ Status: `SUPPORTING_CURRENT` planning recipe. It routes current authority; it gr
 
 Intent: `INT-STORY-CLIP`. Example: a story clip when the pool is clean. Minimum input: the moment.
 
-Default: Owner-selected Day One clips retain exact source-specific straight cuts. Other new or replacement footage follows the exact currently authorized production lane after owner/repository authority reconciliation; this recipe grants no method permission or delivery acceptance.
+Default: Owner-selected Day One clips retain exact source-specific straight cuts. For other authorized new or replacement cinematic scenes, the 2026-10-03 owner direction defaults to API video workflows, with Aseprite for bounded repair windows where useful, under the [production protocol](../../animation/ANIMATION_PRODUCTION_PROTOCOL.md) and [animation job card](../../templates/ANIMATION_JOB_CARD_V1.md); this recipe grants no method permission or delivery acceptance.
 
 ## Read first
 
@@ -16,6 +16,8 @@ Default: Owner-selected Day One clips retain exact source-specific straight cuts
 - `design/AUDIT_DEVELOPMENT_CONTRACT.md`
 - `design/reference/strengths.json`
 - `design/templates/IMAGINE_SHOT_CARD_V1.md`
+- `design/templates/ANIMATION_JOB_CARD_V1.md`
+- `design/animation/ANIMATION_PRODUCTION_PROTOCOL.md`
 - `scripts/day_one_story_clips.gd`
 - `AGENTS.md`
 
@@ -62,4 +64,5 @@ Claude writes specifications, audits and study reports; Codex builds code and ev
 - 2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.
 - 2026-10-03: Production-lane wording routes exact current owner/repository authority and records reconciliation gaps; no method permission or performance acceptance is inferred.
 - 2026-10-03: Review fixes (Claude): Roshan identity anchor named for bound images.
+- 2026-10-03: Route new cinematic work to the owner-preferred API lane and the current method/budget/derivation job card; preserve selected-cut restrictions.
 - No completed served prompt or runtime/owner acceptance is claimed.

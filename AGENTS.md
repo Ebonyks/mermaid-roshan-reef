@@ -144,80 +144,98 @@ can meet the need efficiently.
 
 ## ABSOLUTE CINEMATIC RULE (owner decision 2026-07-29): FULL-FRAME IMAGE REGENERATION
 
-Authored cinematic delivery frames MUST be complete, flattened images produced
-in the current approved Codex image-generation style. The quality problem is
-the frame audit and regeneration process. It must never be worked around by
-substituting a different animation or production technique. This rule
-supersedes the art-reuse budget above for defective cinematic frames and
-supersedes any cinematic document or tool that recommends temporal shortcuts.
+Historical heading retained for existing links. Compulsory per-frame still
+production and categorical method bans are superseded for new authorized
+animation by the owner decision below. Historical evidence and prior rejected
+performances retain their scope; this does not accept old pixels.
 
-- Repair subject drift frame by frame. Keep an existing frame only when that
-  exact frame passes the audit. Regenerate every failed frame at its exact
-  timeline index as a complete image, using accepted adjacent frames, the
-  direction brief, character/object references, and required continuity data.
-- Final or review-delivery frames MUST NOT be made by tweening, morphing,
-  optical-flow or motion interpolation, cross-dissolving, sprite/cutout
-  animation, chroma-key compositing, skeletal or rig animation, procedural
-  warping, translating a static layer or camera, or duplicating a frame to
-  conceal missing action. These are rejected production shortcuts even if
-  their transition metrics appear smooth.
-- An intentional hold is allowed only when the direction brief calls for
-  stillness. The manifest must identify the held span and its narrative
-  purpose. A hold may not replace motion, acting, contact, or camera action.
-- Every changed frame in an action span must therefore be an individually
-  accepted full-frame generation. A generated frame may use the immediately
-  preceding and following accepted full frames as visual references, but it
-  may not be synthesized by blending their pixels.
-- Production-only resolution normalization, padding, pixel-format conversion,
-  and encoding are allowed after acceptance only when the same whole-canvas
-  transform is applied to the complete flattened generated frame. Preserve
-  the native generated frame and hash in provenance. Normalization may not
-  isolate, translate, warp, mask, resize, or otherwise repair a subject or
-  compensate for failed motion; motion is audited in normalized coordinates
-  before the production transform.
-- The required final medium is the established polished 2D storybook image
-  generation seen in the current cinematic work. Do not switch to 3D,
-  sprites, vector animation, procedural animation, or another visual medium
-  to make the sequence easier to produce.
+## ANIMATION PRODUCTION (owner decision 2026-10-03)
+
+Default to local workflows for character design/animation and object animation,
+using approved identity sources and Aseprite cleanup where practical. Use APIs
+for cinematic scenes (the owner's CGI-scene lane), retaining the approved 2D
+storybook medium. Record a justified exception when a bounded local trial fails
+or another method already meets the brief more efficiently; paid work still
+needs the existing funded task budget. No on-device AI inference is added.
+
+The owner authorizes final footage and sprite loops from suitable animation
+workflows with identity, motion, provenance and device checks, and requests
+Aseprite as the bridge when possible. Keep the approved polished 2D storybook
+appearance and true Canvas gameplay. ImageGen need not generate each changed
+frame separately. Follow `DL-MOT-14` through `DL-MOT-16`, `DL-CIN-01` through `DL-CIN-16`,
+and the [production protocol](design/animation/ANIMATION_PRODUCTION_PROTOCOL.md).
+
+- Inventory approved sources first. Choose existing authored states,
+  Aseprite/keyed 2D, image-to-video, guided video-to-video or a bounded combination.
+  ImageGen supplies named missing views/keys/local repairs. No new 3D assets,
+  model/rig fallback or identity redesign is authorized.
+- Method eligibility does not accept a performance. Static-sticker wobble cannot
+  replace authored character acting; lateral swing motion cannot replace the
+  required fore-and-aft changing surfaces/occlusion. Old owner-rejected studies
+  stay rejected. Identity/topology/style, correct action/support/contact, fixed
+  fixtures and readable settle/endpoints are hard requirements.
+- Prefer an editable RGBA Aseprite master for sprite isolation, matte/detail
+  cleanup, stable pivots/sockets, timing/in-betweens/tags and lossless atlas/JSON
+  export. Preserve painted contours and antialiasing; do not convert to pixel
+  art. A video editor handles long scenes/audio; Aseprite may bridge local
+  repair windows without ingesting a whole large movie.
+- Declared 2D cutout/keyed animation, compositing, local deformation, tweening,
+  retiming and interpolation may produce final candidates. They cannot conceal
+  missing action, fake contact or change anatomy/identity. Review every affected
+  transition and loop seam at full speed and frame-step. Declared authored
+  key/frame durations and cadence (including animation on twos) are allowed
+  when the complete action remains readable. Narrative holds record their
+  purpose; padding/duplicate frames cannot fill required acting or motion.
+- Complete one [job card](design/templates/ANIMATION_JOB_CARD_V1.md) per action:
+  sources, verb, fixed/moving parts, geometry, entry/exit, tolerances, method,
+  attempts, wall/cleanup-time limits and monetary/task cap. Default two generated
+  takes per brief/backend. Stop after two nonviable takes or the task cap,
+  diagnose and change input/method; no silent frame-by-frame ImageGen campaign.
+  Task caps do not reset by switching backends or splitting an action into
+  per-frame briefs. Record reported usage when exposed, otherwise call counts;
+  account for rejects and cleanup minutes. Paid jobs require an existing
+  authorized funded budget; method permission does not supply one.
+- Preserve native sources/outputs and editable masters separately from exports.
+  Record hashes, source acceptance scope/license, model/workflow or provider
+  revision, prompt/settings/seed when exposed, request ID, attempts/time/cost,
+  frame mapping, all edits/retiming/interpolation and final hashes. Hidden hosted
+  revisions stay explicit limits. Protect originals and family voice authority.
+- Final footage runs production-profile `tools/audit_cinematic.py --manifest`.
+  This machine scene/character/contact/track/geometry gate is one evidence lane;
+  derivation provenance and exact human identity/topology/style/motion review,
+  actual device playback/performance, child and owner gates remain separately
+  blocking. Gameplay uses its existing atlas/engine/lifecycle gates. Do not
+  invent scores, lower review floors or call an animatic-profile pass final.
+- Cinematic export remains complete flattened 1280×720 landscape, square pixels,
+  zero rotation metadata and 16:9 display. Declare native-to-delivery mapping
+  and encoding; validate both source and final output. Source-specific book,
+  Day One selected-cut, canon, save, security, GitHub delivery and release rules
+  retain their scopes.
 
 ### Position-guide exception
 
-A disposable sprite/chroma-key composite MAY be created only to show the image
-generator where an object belongs in a target frame.
+Disposable generator guides remain `POSITION_GUIDE_ONLY`: flat chroma footprint
+and coordinate marks on a neutral field, no scene/background/appearance pixels.
+They communicate position/bounds/scale/orientation only, never design or style.
+Record path/hash, `role: "position_only"` and `used_as_delivery_pixels: false`.
+No guide pixel enters delivery; guides stay in ignored review/build paths and
+cannot count as accepted art. Prior guide failures remain evidence; every mode
+must earn measured acceptance. Approved source appearance images are separate
+role-bound inputs, not position guides.
 
-- The guide communicates only normalized object position, bounding box, scale,
-  and orientation. It has no authority over design, anatomy, topology, style,
-  lighting, texture, shading, background, or final pixels.
-- A generator-facing guide must place its flat chroma footprint and coordinate
-  marks on a neutral field. Never include a scene plate, accepted background,
-  texture, or other appearance-bearing pixels in the guide.
-- A neutral-field coordinate/crosshair guide with no subject footprint may be
-  tested, but it is not presumed superior. The 2026-07-29 opening-plane trial
-  overshot materially; every guide mode must earn acceptance from measured
-  full-frame candidates.
-- A neutral-field bounding-box guide is also experimental, not an approved
-  substitute for measured control. The 2026-07-29 opening-plane trial produced
-  one nearer result followed by material scale growth, stalls, reversals, and
-  overshoots. Never relax audit gates to make a guide mode appear successful.
-- The prompt must label the guide `POSITION_GUIDE_ONLY` and explicitly state
-  that all appearance comes from the approved image/style references.
-- No pixel from the guide may be copied, composited, keyed, traced, or otherwise
-  inserted into a delivered frame. The generator must return a new complete
-  frame, and that full frame must pass audit.
-- Guides stay under an ignored review/build path, never under runtime
-  `assets/`, and never count as production art or an accepted keyframe.
-- The frame-regeneration manifest must record the guide's path and hash,
-  `role: "position_only"`, and `used_as_delivery_pixels: false`.
+### Mandatory animation evidence
 
-### Mandatory frame-regeneration evidence
+Each final candidate has the job-card derivation record and exact human,
+runtime and device evidence. Missing provenance, identity/topology drift,
+unreviewed motion/contact/transitions, broken seams or guide-pixel reuse fails.
+A smooth metric or successful encode cannot override these failures.
 
-Every regenerated frame must record its timeline index, full-frame candidate
-path and hash, accepted neighboring reference paths and hashes, prompt hash,
-attempt number, generation method, declared action/hold state, subject geometry,
-position-guide metadata when used, and human identity/topology/style review.
-`tools/audit_cinematic.py` is the blocking validator. Missing provenance,
-forbidden methods, guide-pixel reuse, unreviewed identity, position drift, or a
-failed neighboring-frame comparison is a hard failure.
+A deliberately chosen independent full-frame ImageGen method retains the
+existing per-index candidate/accepted-neighbor/prompt hashes, attempts,
+action/hold state, geometry, guide and human-review records and also runs
+`tools/audit_cinematic.py --frame-regeneration-manifest`. Keep that strict
+method validator intact for its lane; do not fabricate still-generation records
+for video/2D animation or rewrite historical provenance to change its method.
 
 ### Mandatory external-animation visual packet
 
@@ -233,9 +251,10 @@ Store the packet under a versioned, non-runtime
 and record every packet file's source path, role, dimensions, SHA-256,
 license/provenance, modification status, and either a deterministic sorted
 packet-payload SHA-256 or a literal archive SHA-256.
-References and boards are continuity inputs only, never delivery pixels or
-accepted keyframes; every full-frame cinematic, human-review, and device gate
-above remains blocking.
+Packet inclusion grants no pixel/keyframe acceptance. Approved source art may
+be reused by a declared 2D workflow with derivative provenance; boards and
+gameplay captures do not become generation pixels. Every applicable cinematic,
+human-review and device gate above remains blocking.
 
 Before declaring the handoff complete, commit and push the entire packet to
 GitHub on a durable project branch or accepted integration commit, verify that
@@ -265,18 +284,18 @@ in text. Never ask one generation to make a multi-shot movie; generate shots
 separately and assemble them in edit. Keep hashes, licensing, audit prose, and
 policy language in the archive sidecar, never in the pasted generation prompt.
 
-Grok/Imagine image-to-video output is motion/editorial reference only unless
-the binding full-frame cinematic evidence above independently proves every
-delivered changed frame. Generator readiness therefore never relaxes the
-full-frame delivery rule. The one scoped exception is the owner-directed Day
-One story clips below (`DL-CIN-16`).
+Grok/Imagine and other video backends may produce final candidates under the
+2026-10-03 workflow; readiness never accepts delivery. Prior references/rejects
+retain their scope until exact new review evidence establishes acceptance.
+The selected Day One clips below retain their source-specific contract (`DL-CIN-16`).
 
 ## DAY ONE STORY CLIPS BETWEEN SCENES (owner decision 2026-09-23)
 
 The owner directs Day One to play story clips spliced from the owner-selected
-2026-09-20 Day One cut between gameplay scenes. This is the one scoped
-exception to the full-frame cinematic rule above (`DL-CIN-16`): these clips
-ship without per-frame regeneration or `DELIVERY_ACCEPTED` evidence.
+2026-09-20 Day One cut between gameplay scenes. This separate source-specific
+contract (`DL-CIN-16`) retains its exact straight-cut restrictions and permits
+shipping without `DELIVERY_ACCEPTED` evidence. The 2026-10-03 method revision
+does not authorize altering or regenerating these selected clips.
 
 - Source: `DAY_ONE_SELECTED_CUT.mp4` from `export/movie_selected_cut_20260920`
   (2:21.417, 3,394 frames at 24 fps; its SHA-256 is recorded in the clip
@@ -302,8 +321,8 @@ ship without per-frame regeneration or `DELIVERY_ACCEPTED` evidence.
   cut's notes, define these clips. Their status is
   `OWNER_DIRECTED_RUNTIME_CLIP`, not `DELIVERY_ACCEPTED`. The exception does not
   extend to other chapters, new footage or replacement shots, which follow the
-  full-frame rule unless the owner extends it in writing. Device, child and
-  release gates are unchanged.
+  current animation workflow rule unless the owner directs otherwise. Device,
+  child and release gates are unchanged.
 
 ## Layout
 - scenes/main.tscn → scripts/main.gd (8,465 lines at the synchronized

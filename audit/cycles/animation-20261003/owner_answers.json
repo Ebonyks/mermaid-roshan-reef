@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ODR-ANIMATION-METHODS-20261003",
+    "date": "2026-10-03",
+    "subject": "Animation production methods",
+    "decision": "Allow final animation workflows with identity, motion, provenance and device checks; replace compulsory individually generated still frames for new authorized production.",
+    "source": "design/animation/WORKFLOW_OPTIONS_2026-10-03.md#owner-directed-production-split",
+    "authority": "recorded_owner",
+    "question": "Final animation workflows",
+    "checks": [],
+    "checkable": false,
+    "cycle": "animation-20261003"
+  },
+  {
+    "id": "ODR-ANIMATION-ASEPRITE-20261003",
+    "date": "2026-10-03",
+    "subject": "Animation cleanup",
+    "decision": "Use Aseprite as the bridge when possible to clean results, preserving approved polished 2D identity.",
+    "source": "design/animation/WORKFLOW_OPTIONS_2026-10-03.md#owner-directed-production-split",
+    "authority": "recorded_owner",
+    "question": "Aseprite bridge",
+    "checks": [],
+    "checkable": false,
+    "cycle": "animation-20261003"
+  },
+  {
+    "id": "ODR-ANIMATION-LOCAL-CLOUD-20261003",
+    "date": "2026-10-03",
+    "subject": "Animation production routing",
+    "decision": "Default local setup for character design/animation and objects, with APIs for cinematic scenes. This preference does not commission character redesign, a 3D medium change, paid jobs or installation of every candidate.",
+    "source": "design/animation/WORKFLOW_OPTIONS_2026-10-03.md#owner-directed-production-split",
+    "authority": "recorded_owner",
+    "question": "Local versus API",
+    "checks": [],
+    "checkable": false,
+    "cycle": "animation-20261003"
+  }
+]
