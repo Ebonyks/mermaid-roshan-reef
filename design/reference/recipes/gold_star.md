@@ -28,7 +28,7 @@ Pattern references are the hash-bound seed entries in the strengths register and
 ## Expand
 
 1. Run `python -B tools/gold_star.py --check` and then `--compare GAME` (or `--rank`) at the current head. A stale assessment is re-assessed before any change is planned from it.
-2. Claude writes the specification: one bounded change per open criterion, the reference pattern to copy (file and function from the rubric), the visible result the child gets, and the probe assertion that proves it. Owner verdicts, protected assets and Roshan's identity anchor (roshan_base.png, never roshan_sprite.png) stay binding.
+2. Claude writes the specification: one bounded change per open criterion, the reference pattern to copy (file and function from the rubric), the visible result the child gets, and the probe assertion that proves it. Owner verdicts, protected assets and Roshan's identity anchor (roshan_base.png, never roshan_sprite.png) stay binding. Reuse approved guide and effect art before asking for new art: the Day One ghost hand, soap bubbles and clean ring replaced every code-drawn shape in the Mermaid Pool.
 3. Codex implements it and adds or extends the trusted probe: real input through every step, a zero-input leg and a teardown check. Any image, board or capture is Codex's.
 4. Claude re-assesses only the criteria whose code changed, updates the scores and notes in design/reference/games.json, runs `--rebind GAME` and `--render`, and records the before and after scores in the impact record. Device, child and owner lanes stay at 0 until their evidence is recorded.
 
@@ -61,4 +61,5 @@ Claude writes specifications, audits and study reports; Codex builds code and ev
 ## Revision and served prompts
 
 - 2026-10-03: V1 (Claude) with the gold-star scorecard and tool, on the owner's request for a game-wide audit and a gold star tool for development.
+- 2026-10-03: Lesson from the Mermaid Pool five-star proposal (Claude): reuse approved guide and effect art first.
 - No completed served prompt or runtime/owner acceptance is claimed.

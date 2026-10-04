@@ -199,11 +199,11 @@ The Pool's gaps to a gold star are specific:
 - C10: helper completion and a trivial idle leg;
 - C12: device, child and owner acceptance.
 
-The proposed five-star implementation follows in the next commit of this change, with the art generation handed to Codex.
+The [proposed five-star implementation](POOL_FIVE_STAR.md) addresses each of them in Claude's code, with the art and voice generation handed to Codex. It raises the Pool to 4/5 (22 of 24 points); only the phone, child and owner checks remain.
 
 ## 9. Recommended order
 
-1. **Repair `MA-PLAY-005` first.** It returns Chapter 2, the lawn finale, all fifteen careers and the Galaxy route to the child. The fix and its probe are specified in [the finding](../../../audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-play-005).
+1. **Repair `MA-PLAY-005` first.** It returns Chapter 2, the lawn finale, all fifteen careers and the Galaxy route to the child. The fix and its probe are specified in [the finding](../../../audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-play-005) and in the [Codex handoff](README.md#gs0-repair-the-p0-chapter-2-story-careers-cannot-start-ma-play-005).
 2. **Finish the Mermaid Pool five-star proposal** and record a phone session, a child session and the owner's verdict, so the game has its first real gold star.
 3. **Owner decision for the dormant Canvas games:** give Dolls, Seek, Melody and the fish slide a castle-room home, or retire them. They are strong and cheap to restore.
 4. **Repair `MA-OPERA-013`,** and give the shared gesture surface per-finger ownership (pattern GS-10).

@@ -1,0 +1,128 @@
+{
+ "schema": "codex_handoff_manifest/1",
+ "handoff": "codex_gold_star_2026-10-03",
+ "revision": 1,
+ "revision_note": "First publication: audit, gold-star scorecard and tool, Pool five-star proposal, GS0-GS4.",
+ "status": "PROPOSED / CANDIDATE",
+ "prepared_by": "Claude (audit, tool, records and the Pool's code on the owner's explicit request; no images)",
+ "recipient": "Codex",
+ "evidence_baseline": "dev 87f992680c0b6a690bf45b1950275579c45e15ab",
+ "tracking_findings": [
+  "MA-PLAY-005",
+  "MA-OPERA-013",
+  "MA-PLAY-004",
+  "MA-DOC-009"
+ ],
+ "entry": "README.md",
+ "file_count": 4,
+ "total_bytes": 38227,
+ "files": [
+  {
+   "path": ".gdignore",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "role": "keeps Godot from importing this folder"
+  },
+  {
+   "path": "README.md",
+   "bytes": 6904,
+   "sha256": "af89cb4f626cac77370ec216d9b75e6ca76b74a3cd674fac4b78d38aa71bb8bd",
+   "role": "Codex handoff entry point: GS0-GS4 and four owner questions"
+  },
+  {
+   "path": "AUDIT.md",
+   "bytes": 20354,
+   "sha256": "9502687ae2b0b10d6ae298909038d9c652a221938a3ffe2ab7c9f9aaf254b338",
+   "role": "game-wide audit at dev 87f99268: strongest and weakest games, reachability, new findings, the reference choice"
+  },
+  {
+   "path": "POOL_FIVE_STAR.md",
+   "bytes": 10969,
+   "sha256": "3484ce5af6a4e82161b1c4937449f94490e203d0f1ac1d9fa3db524d6b2df20c",
+   "role": "Mermaid Pool five-star proposal (Claude's code), verification, human checks, art and voice handoff GS2"
+  }
+ ],
+ "references": [
+  {
+   "path": "design/reference/GOLD_STAR.md",
+   "bytes": 17112,
+   "sha256": "01c62737d296f078160063ac32ad0eaf044eb5876aea3c7c54ff444b9855d25b"
+  },
+  {
+   "path": "design/reference/games.json",
+   "bytes": 143577,
+   "sha256": "1e4718b26a6122c6a5d393144c7daa2f20cc36c5d69f334aeb744eb9e13e3036"
+  },
+  {
+   "path": "design/reference/gold_star.json",
+   "bytes": 21985,
+   "sha256": "5303369b10abc785418332d00b2a2aaffaeb93068e7241e6f112cb8e2cb37aed"
+  },
+  {
+   "path": "design/reference/recipes/gold_star.md",
+   "bytes": 5456,
+   "sha256": "11ff796fb6d40f62324cf0feae02e39728619e1597ae6755315c19d509df6562"
+  },
+  {
+   "path": "tools/gold_star.py",
+   "bytes": 34800,
+   "sha256": "2b3b10cc1ba94bdc8879c30c4f26ffe768a0e411b5c6047dd0d25224323a97f8"
+  },
+  {
+   "path": "scripts/games/day_one_pool_cleanup.gd",
+   "bytes": 31358,
+   "sha256": "be9e78b4cd9d5c251747c1e97b96bd8928175ee3d58ba3a01718dd45ab6b9341"
+  },
+  {
+   "path": "scripts/games/pool_skimmer_activity.gd",
+   "bytes": 21705,
+   "sha256": "c52a610ee36d9e4c004d8a2bfe01ad8185ed57e9a6a14d73e233b8b1431eac7b"
+  },
+  {
+   "path": "scripts/games/pool_waterfall_activity.gd",
+   "bytes": 20079,
+   "sha256": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da"
+  },
+  {
+   "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+   "bytes": 22076,
+   "sha256": "1db4f79e269e101a45b0fb5984afa6f396c044a135f2bae8d9ee059a2b898eca"
+  },
+  {
+   "path": "scripts/day_one_contact_action_2d.gd",
+   "bytes": 4954,
+   "sha256": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac"
+  },
+  {
+   "path": "scripts/probe_day_one_pool_cleanup.gd",
+   "bytes": 34225,
+   "sha256": "09ff0613e1c2d78d144de685e7db9f94978eaf15e97bd825990bef9e471cc424"
+  },
+  {
+   "path": "assets/castle/training/ghost_hand.png",
+   "bytes": 123283,
+   "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9"
+  },
+  {
+   "path": "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
+   "bytes": 233301,
+   "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08"
+  },
+  {
+   "path": "assets/castle/dirty_cleanup_2d/effects/fx_clean_ring.png",
+   "bytes": 138297,
+   "sha256": "f3472eaadd8cffc08d4ea9e0dcf8d4455b5a5e4eea16eb4721a0d945c7cbac62"
+  },
+  {
+   "path": "assets/characters/roshan_25d/roshan_base.png",
+   "bytes": 50051,
+   "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+  },
+  {
+   "path": "assets/characters/roshan_25d/roshan_directional.png",
+   "bytes": 396741,
+   "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a"
+  }
+ ],
+ "non_delivery": "No art, voice, capture or board is delivered; GS2 asks Codex to build them. No acceptance is granted."
+}

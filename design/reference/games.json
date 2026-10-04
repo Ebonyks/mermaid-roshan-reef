@@ -41,48 +41,48 @@
      "note": "No 3D in any pool file; mounted under the Canvas castle room."
     },
     "C3": {
-     "score": 1,
-     "note": "Exact cue per part, but skimmer lines follow item index (all say leaf), the seahorse has no pointer, pointers are emoji glyphs, and idle never re-speaks."
+     "score": 2,
+     "note": "An exact line per part: the skimmer names the leaf only for the leaf and otherwise uses object-neutral lines; the approved ghost hand points at the next piece, demonstrates the stroke on the next waterfall lane and taps the seahorse's trash; a quiet child hears the activity's other exact line, then its hint, twice at most. The voices are synthetic placeholders awaiting owner listening."
     },
     "C4": {
      "score": 2,
-     "note": "Fixture-sized hit regions (skimmer catch 118 px radius, seahorse region grown 55%); one touch owns each gesture."
+     "note": "Fixture-sized hit regions (skimmer catch radius 118 px, the whole waterfall plus a margin, the seahorse region grown 55%); one touch owns each gesture and another finger cannot pull for the owner."
     },
     "C5": {
-     "score": 1,
-     "note": "No fail state, waiting earns nothing; but the seahorse is eight identical taps and taps during Roshan's work are dropped."
+     "score": 2,
+     "note": "No fail state and thirty quiet seconds earn nothing; a deliberate waterfall stroke beats taps and a seahorse pull is worth two taps; taps during Roshan's work wait their turn instead of vanishing; focus loss drops unearned queued work."
     },
     "C6": {
      "score": 2,
-     "note": "Roshan travels to each part, her hand must be within 24 px, and credit waits for 0.42 s of contact (DayOneContactAction2D); the skimmer net is hand-anchored on measured art. The pool part of MA-PLAY-004 is implemented; its device, child and owner review is pending."
+     "note": "Roshan travels to each part and her hand works there for 0.42 s before credit (DayOneContactAction2D); the skimmer net is hand-anchored on measured art; a touch on another waterfall lane retargets the unearned approach; the dirt wipes away from the top where the child strokes."
     },
     "C7": {
-     "score": 1,
-     "note": "Authored dirty waterfall and trash over the real clean fixture; wash rectangles, chevrons, ripples and sparkles are code-drawn or text glyphs, and the dingy room tint also tints Roshan."
+     "score": 2,
+     "note": "Approved art only: the authored dirty waterfall over the real clean fixture, and the approved ghost hand, soap bubbles and clean ring replace every code-drawn wash, chevron, arc, dot and emoji glyph; Roshan keeps her approved colours under the dingy room tint. Her work is shown with the approved directional cutout and tool, not authored action frames (Codex art handoff GS2)."
     },
     "C8": {
-     "score": 1,
-     "note": "Pieces fly to the basket and lanes fade; but the skimmer's spoken line can name the wrong object and dropped taps give no response."
+     "score": 2,
+     "note": "Every touch answers at once (queued taps pop bubbles, a retargeted lane moves Roshan); pieces fly to the basket with a clean ring; no spoken line names the wrong object; Rumi's reveal is earned by finishing."
     },
     "C9": {
      "score": 2,
-     "note": "Every change saves the lane or item mask; a restored complete mask completes once; focus loss cancels."
+     "note": "Every change saves the lane mask, item mask or tug count; a restored finish completes once; stop and focus loss cancel held input and queued tugs; teardown restores the room tint and Roshan's colours."
     },
     "C10": {
-     "score": 1,
-     "note": "probe_day_one_pool_cleanup drives real touches (far touch, second finger, cancel, re-entry), but waterfall completion uses probe_clear_next_lane, the idle leg lasts 0.12 s and voice is checked by source grep."
+     "score": 2,
+     "note": "probe_day_one_pool_cleanup (132 checks) completes all three activities with real touches, strokes, taps and pulls, with thirty-second zero-input, retarget, queue, second-finger, focus-loss and teardown legs; two mutation tests show the new checks fail when the behaviour regresses."
     }
    },
    "strengths": [
     "Travel, contact, then credit (DayOneContactAction2D)",
     "Hand-anchored tool measured on the art",
-    "Save on every change; restored completion emits once"
+    "Save on every change; restored completion emits once",
+    "Truthful spoken lines and idle re-prompts",
+    "Approved guide and effect art only"
    ],
    "defects": [
-    "Skimmer voice tied to item index, not the picked object",
-    "Seahorse says tap fast while taps during work are dropped",
-    "Emoji glyph pointers and code-drawn effects",
-    "Room tint darkens Roshan"
+    "Roshan's work uses one directional cutout, not authored action frames (Codex art GS2)",
+    "Voices are synthetic placeholders awaiting owner listening"
    ],
    "acceptance": {
     "device": null,
@@ -92,25 +92,30 @@
    "evidence": [
     {
      "path": "scripts/games/day_one_pool_cleanup.gd",
-     "sha256": "06cc9c0f276cfeac16aba85f7e93c443532c87d218428e48810cb422968175f0"
+     "sha256": "be9e78b4cd9d5c251747c1e97b96bd8928175ee3d58ba3a01718dd45ab6b9341"
     },
     {
      "path": "scripts/games/pool_skimmer_activity.gd",
-     "sha256": "b753090c65b6cfc2483cb66c47b99b46310caa2a7e7efec131216f704abd13c8"
+     "sha256": "c52a610ee36d9e4c004d8a2bfe01ad8185ed57e9a6a14d73e233b8b1431eac7b"
     },
     {
      "path": "scripts/games/pool_waterfall_activity.gd",
-     "sha256": "1374edc17af0fa536230a41e43f2fc2454f48e42eb2ad55b871e978d549687e4"
+     "sha256": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da"
     },
     {
      "path": "scripts/games/pool_seahorse_rescue_activity.gd",
-     "sha256": "72279c1b2ea982c1f9212a56e35b5aa1b08fdb119e80e01f5562852a71236bb8"
+     "sha256": "1db4f79e269e101a45b0fb5984afa6f396c044a135f2bae8d9ee059a2b898eca"
     },
     {
      "path": "scripts/day_one_contact_action_2d.gd",
-     "sha256": "0dcbb203d7ec179fa3347f6fca0aa62895bf650b64e2f12d6c1440e970716778"
+     "sha256": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac"
     }
-   ]
+   ],
+   "reassessed": {
+    "on": "2026-10-03",
+    "after": "639847f7",
+    "reason": "Five-star implementation by Claude (docs/handoffs/codex_gold_star_2026-10-03/POOL_FIVE_STAR.md); the baseline at 87f99268 was 3/5, 17/24 (AUDIT.md section 4)."
+   }
   },
   {
    "id": "day_one_bathroom",

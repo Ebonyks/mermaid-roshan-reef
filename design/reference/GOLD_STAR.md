@@ -6,17 +6,12 @@ Scores are evidence for development choices, not acceptance. A machine signal ne
 
 ## Reference model
 
-**Mermaid Pool cleanup (Day One)** (`day_one_pool`), rating 3/5, 17/24 points. The strongest true-2D game a child can reach today (Grand Puff scores more points but its fight is built on 3D nodes, so it cannot be a template) and the clearest model of the owner's 2026-09-06 job rule: Roshan travels to each part, her hand makes contact, and only then does the authored dirt clear; every part has its own line; every change saves; real-touch probes guard it. It contains the strongest single activity in the game (the waterfall), and its gaps are specific and fixable, so it is the first candidate for a full gold star and the template for room jobs and job games.
+**Mermaid Pool cleanup (Day One)** (`day_one_pool`), rating 4/5, 22/24 points. The strongest true-2D game a child can reach today (Grand Puff scores more points but its fight is built on 3D nodes, so it cannot be a template) and the clearest model of the owner's 2026-09-06 job rule: Roshan travels to each part, her hand makes contact, and only then does the authored dirt clear; every part has its own line; every change saves; real-touch probes guard it. It contains the strongest single activity in the game (the waterfall), and its gaps are specific and fixable, so it is the first candidate for a full gold star and the template for room jobs and job games.
 
-Status: CANDIDATE_REFERENCE: not yet a gold star. Device, child and owner acceptance are not recorded, and its listed gaps remain.
+Status: CANDIDATE_REFERENCE: after the five-star implementation every machine-assessed criterion meets the gold star (4/5, 22/24); it becomes the first gold star only when a phone session, an observed child session and the owner's acceptance are recorded.
 
 What still separates it from a gold star:
 
-- C3 Non-reader objectives (1/2): Exact cue per part, but skimmer lines follow item index (all say leaf), the seahorse has no pointer, pointers are emoji glyphs, and idle never re-speaks.
-- C5 Kind no-fail and real agency (1/2): No fail state, waiting earns nothing; but the seahorse is eight identical taps and taps during Roshan's work are dropped.
-- C7 Authored art and identity (1/2): Authored dirty waterfall and trash over the real clean fixture; wash rectangles, chevrons, ripples and sparkles are code-drawn or text glyphs, and the dingy room tint also tints Roshan.
-- C8 Feedback and earned reward (1/2): Pieces fly to the basket and lanes fade; but the skimmer's spoken line can name the wrong object and dropped taps give no response.
-- C10 Machine verification (1/2): probe_day_one_pool_cleanup drives real touches (far touch, second finger, cancel, re-entry), but waterfall completion uses probe_clear_next_lane, the idle leg lasts 0.12 s and voice is checked by source grep.
 - C12 Device, child and owner acceptance (0/2): No device, child or owner acceptance recorded
 
 Patterns to copy:
@@ -24,11 +19,15 @@ Patterns to copy:
 - **GS-01 Travel, contact, then credit** (C6): Request travel to the real work point, follow Roshan's hand, and award progress only after the hand has been in contact for the work time; cancel on stop and focus loss. `scripts/day_one_contact_action_2d.gd`, `scripts/games/pool_waterfall_activity.gd::_update_touch`
 - **GS-02 A hand-anchored tool measured on the art** (C6): Attach the tool to Roshan's measured hand socket and register its working point from pixel coordinates in the tool art, so contact means the tool, not the finger. `scripts/games/pool_skimmer_activity.gd::_advance_cleaning`, `scripts/games/pool_skimmer_activity.gd::_hand_grip_error`, `scripts/games/pool_skimmer_activity.gd::_sync_net_position`
 - **GS-03 Save every change; a restored finish completes once** (C9): Persist the part mask on every change and rebuild from it on entry; a fully restored mask emits completion exactly once. `scripts/games/day_one_pool_cleanup.gd::_on_waterfall_progress`, `scripts/games/day_one_pool_cleanup.gd::_apply_restored_progress`, `scripts/games/pool_waterfall_activity.gd::_emit_completed_once`
-- **GS-04 One exact line per part and a pointer at the live part** (C3): Speak the current part's own instruction when it becomes active and point at that part, not at a screen corner. `scripts/games/day_one_pool_cleanup.gd::_announce_current_activity`, `scripts/games/pool_waterfall_activity.gd::_draw_lane_hint`
+- **GS-04 One exact line per part and an approved hand at the live part** (C3): Speak the current part's own instruction when it becomes active, and let the approved guide hand demonstrate the real verb on that part, not at a screen corner. `scripts/games/day_one_pool_cleanup.gd::_announce_current_activity`, `scripts/games/pool_waterfall_activity.gd::_update_guide_hand`, `scripts/games/pool_seahorse_rescue_activity.gd::_update_guide_hand`
 - **GS-05 The fixture is the hit region; one touch owns the gesture** (C4): Make the whole visible fixture (plus a margin) the touch target and keep the first touch as the owner until release or cancel. `scripts/games/pool_waterfall_activity.gd::_gui_input`, `scripts/games/pool_waterfall_activity.gd::_lane_at`
 - **GS-06 A deliberate stroke beats repeated taps** (C5): Let a purposeful drag finish a part in one motion while taps make small capped progress, so careful play is fastest and mashing never is. `scripts/games/pool_waterfall_activity.gd::_end_touch`, `scripts/games/pool_waterfall_activity.gd::TAP_ASSIST`
-- **GS-07 Authored dirt over the real clean fixture** (C7): Lay the authored dirty state over the untouched clean fixture and reveal it part by part, so the finished room is the approved art. `scripts/games/pool_waterfall_activity.gd::_build_dirty_slices`, `scripts/games/pool_waterfall_activity.gd::_start_lane_reveal`
+- **GS-07 Authored dirt over the real clean fixture** (C7): Lay the authored dirty state over the untouched clean fixture and wipe it away where the child works, so progress is shown by the art itself and the finished room is the approved art. `scripts/games/pool_waterfall_activity.gd::_build_dirty_slices`, `scripts/games/pool_waterfall_activity.gd::_apply_lane_crop`, `scripts/games/pool_waterfall_activity.gd::_start_lane_reveal`
 - **GS-08 Real-touch probe with far-touch, second-finger and cancel legs** (C10): Drive the activity with pushed touch events, prove a far touch earns nothing, a second finger cannot steal the gesture, cancel clears it and re-entry restores it. `scripts/probe_day_one_pool_cleanup.gd::_probe_roshan_contact`, `scripts/probe_day_one_pool_cleanup.gd::_probe_seahorse_input_contract`, `scripts/probe_day_one_pool_cleanup.gd::_probe_contact_action`
+- **GS-15 Taps that arrive mid-work wait their turn** (C5): When the child taps while Roshan is already working, queue a bounded number of further actions and answer each tap at once; every queued action still needs its own contact time, and cancellation drops the unearned queue. `scripts/games/pool_seahorse_rescue_activity.gd::_register_tap`, `scripts/games/pool_seahorse_rescue_activity.gd::_finish_tug`
+- **GS-16 A quiet child hears the exact line again, twice at most** (C3): After a quiet stretch, replay the activity's own exact lines (the other line first, then the hint) under a fresh voice session, at most twice per activity, while the guide hand keeps pointing; quiet time never earns progress. `scripts/games/day_one_pool_cleanup.gd::_process`, `scripts/games/day_one_pool_cleanup.gd::IDLE_REPROMPT_LINES`
+- **GS-17 Keep the character's colours under a room tint** (C7): When a room is tinted to look dirty, give each of the character's cutouts inside the tinted tree the exact inverse, and fade both together, so the place changes but her identity colours do not. `scripts/games/day_one_pool_cleanup.gd::_set_tint_ratio`
+- **GS-18 A spoken line must be true of what just happened** (C8): Choose each feedback line from what the child actually did (the object picked, the count reached), prefer an exact per-object take when it exists, and stay silent rather than name the wrong thing. `scripts/games/day_one_pool_cleanup.gd::skimmer_pickup_line`
 - **GS-09 End-to-end real-touch driver through the world** (C10): Complete the whole job from the room object to the reward with real touch events, including a multi-touch leg, inside a trusted probe. From Boxer. `scripts/probe_opera_2d.gd::_drive_boxer_phase`
 - **GS-10 Per-finger ownership with a focus-loss cancel** (C4): Track each touch index, ignore a second finger while one owns the action, and cancel held input on focus loss and close. From Boxer. `scripts/opera_boxing_surface.gd::_handle_press`, `scripts/opera_boxing_surface.gd::_handle_release`, `scripts/opera_boxing_surface.gd::_notification`
 - **GS-11 Required lines refuse a generic fallback** (C3): List each required objective key and refuse the generic cheer when its recording is missing, so a missing line shows up as a gap instead of a yay. From Pearl Castle rooms. `scripts/audio_director.gd::DAY_ONE_REQUIRED_EVENTS`, `scripts/audio_director.gd::_say`
@@ -40,12 +39,12 @@ Patterns to copy:
 
 | Rank | Game | Family | Rating | Points | C1 | C2 | C3 | C4 | C5 | C6 | C7 | C8 | C9 | C10 | C11 | C12 | 3D debt | Open defects |
 |---:|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| 1 | Grand Puff in the Dusty Attic (Day One boss) | day_one | 3 | 19 | 2 | 0 | 2 | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 2 | 0 | 98 | none |
-| 2 | Castle banner maker | system | 3 | 18 | 2 | 2 | 1 | 2 | 1 | 2 | 1 | 2 | 2 | 1 | 2 | 0 | 0 | none |
-| 3 | Royal Bedroom wardrobe | system | 3 | 18 | 2 | 2 | 1 | 2 | 2 | 1 | 1 | 2 | 2 | 1 | 2 | 0 | 0 | none |
-| 4 | Pearl Castle rooms | world | 3 | 18 | 2 | 2 | 2 | 2 | 2 | 2 | 1 | 2 | 1 | 1 | 1 | 0 | 0 | MA-SAVE-001 |
-| 5 | Comfy castle games (Day Two) | minigame | 3 | 17 | 2 | 2 | 1 | 2 | 2 | 1 | 1 | 1 | 2 | 1 | 2 | 0 | 0 | none |
-| 6 | Mermaid Pool cleanup (Day One) | day_one | 3 | 17 | 2 | 2 | 1 | 2 | 1 | 2 | 1 | 1 | 2 | 1 | 2 | 0 | 0 | none |
+| 1 | Mermaid Pool cleanup (Day One) | day_one | 4 | 22 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 0 | 0 | none |
+| 2 | Grand Puff in the Dusty Attic (Day One boss) | day_one | 3 | 19 | 2 | 0 | 2 | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 2 | 0 | 98 | none |
+| 3 | Castle banner maker | system | 3 | 18 | 2 | 2 | 1 | 2 | 1 | 2 | 1 | 2 | 2 | 1 | 2 | 0 | 0 | none |
+| 4 | Royal Bedroom wardrobe | system | 3 | 18 | 2 | 2 | 1 | 2 | 2 | 1 | 1 | 2 | 2 | 1 | 2 | 0 | 0 | none |
+| 5 | Pearl Castle rooms | world | 3 | 18 | 2 | 2 | 2 | 2 | 2 | 2 | 1 | 2 | 1 | 1 | 1 | 0 | 0 | MA-SAVE-001 |
+| 6 | Comfy castle games (Day Two) | minigame | 3 | 17 | 2 | 2 | 1 | 2 | 2 | 1 | 1 | 1 | 2 | 1 | 2 | 0 | 0 | none |
 | 7 | Free Baby Eagle (Day One) | day_one | 3 | 17 | 2 | 2 | 1 | 2 | 2 | 1 | 2 | 2 | 2 | 1 | 0 | 0 | 0 | MA-PLAY-004 |
 | 8 | Royal Hall sparring class | action | 3 | 16 | 2 | 0 | 1 | 2 | 2 | 1 | 1 | 1 | 2 | 2 | 2 | 0 | 124 | none |
 | 9 | Craft Room tidy (Day One) | day_one | 3 | 16 | 2 | 2 | 1 | 2 | 1 | 2 | 1 | 1 | 1 | 1 | 2 | 0 | 0 | none |

@@ -26,6 +26,20 @@ const BUBBLE_LIFETIME := 1.35
 # beside it; the broad toddler tap envelope remains independent below.
 const SEAHORSE_MOUTH_ANCHOR := Vector2(394.0 / 936.0 - 0.5, 322.0 / 1024.0 - 0.5)
 const PROP_NOZZLE_ANCHOR := Vector2(0.488, 0.184)
+# Approved Day One guide and effect art; replaces code-drawn rings and dots.
+const GUIDE_HAND_PATH := "res://assets/castle/training/ghost_hand.png"
+const BUBBLES_PATH := "res://assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png"
+const CLEAR_RING_PATH := "res://assets/castle/dirty_cleanup_2d/effects/fx_clean_ring.png"
+const GUIDE_HAND_SIZE := 62.0
+# Measured fingertip of the 512px ghost hand, relative to its centre.
+const GUIDE_FINGERTIP := Vector2(-38.5, 191.0)
+const GUIDE_IDLE_SECONDS := 2.0
+# A deliberate pull away from the mouth earns a second tug in the same gesture,
+# so purposeful pulling finishes in half the presses of tapping (DL-AGE-05).
+const PULL_DISTANCE := 48.0
+# Taps while Roshan is already tugging wait their turn instead of vanishing.
+const MAX_QUEUED_TUGS := 3
+const BEAD_SIZE := 18.0
 
 var fixture_center := Vector2.ZERO
 var fixture_size := Vector2.ZERO
@@ -60,7 +74,14 @@ var _tap_pulse := Vector2.ZERO
 var _tap_pulse_time := 0.0
 var _completion_tween: Tween = null
 var _tug_tween: Tween = null
-var _bubbles: Array[Dictionary] = []
+var _queued_tugs := 0
+var _touch_start := Vector2.ZERO
+var _pulled_this_touch := false
+var _idle_time := 0.0
+var _guide_hand: Sprite2D = null
+var _bubbles_texture: Texture2D = null
+var _clear_ring_texture: Texture2D = null
+var _bead_sprites: Array[Sprite2D] = []
 
 
 func _ready() -> void:
@@ -92,15 +113,25 @@ func setup(new_fixture_center: Vector2, new_fixture_size: Vector2,
 	_tug_strength = 0.0
 	_tap_pulse = fixture_center
 	_tap_pulse_time = 0.0
-	_bubbles.clear()
+	_queued_tugs = 0
+	_pulled_this_touch = false
+	_idle_time = 0.0
 	_seahorse_texture = load(SEAHORSE_TEXTURE_PATH) as Texture2D
 	_mouth_trash_texture = load(MOUTH_TRASH_TEXTURE_PATH) as Texture2D
 	_basket_texture = load(BASKET_TEXTURE_PATH) as Texture2D
+	_bubbles_texture = load(BUBBLES_PATH) as Texture2D
+	_clear_ring_texture = load(CLEAR_RING_PATH) as Texture2D
 	_build_activity_art()
 	if _completed:
 		_hide_rescued_art()
+	_update_beads()
 	_queue_progress_signal()
 	queue_redraw()
+
+
+## The temporary Roshan cutout used while she tugs, if any.
+func identity_sprite() -> Sprite2D:
+	return _contact_action.identity_sprite() if _contact_action != null else null
 
 
 func bind_room_actor(actor: Sprite2D, shadow: Sprite2D, skin: String) -> void:
@@ -111,6 +142,7 @@ func bind_room_actor(actor: Sprite2D, shadow: Sprite2D, skin: String) -> void:
 
 func start() -> void:
 	_active = true
+	_idle_time = 0.0
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	set_process(true)
 	if _completed:
@@ -130,16 +162,21 @@ func stop() -> void:
 		_set_tug_rotation(0.0)
 	_stop_completion_tween()
 	_completion_started = false
+	_update_guide_hand()
 	set_process(false)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	queue_redraw()
 
 
 func cancel_touch(cancel_work: bool = true) -> void:
-	if cancel_work and _contact_action != null:
-		_contact_action.cancel()
+	if cancel_work:
+		# Unearned queued tugs belong to the interrupted work; none is paid later.
+		_queued_tugs = 0
+		if _contact_action != null:
+			_contact_action.cancel()
 	_touch_active = false
 	_touch_id = -1
+	_pulled_this_touch = false
 
 
 func probe_tap() -> bool:
@@ -181,15 +218,24 @@ func audit_snapshot() -> Dictionary:
 		"seahorse_texture_loaded": _seahorse_texture != null,
 		"mouth_trash_texture_loaded": _mouth_trash_texture != null,
 		"basket_texture_loaded": _basket_texture != null,
+		"queued_tugs": _queued_tugs,
+		"pull_distance": PULL_DISTANCE,
+		"guide_hand_visible": _guide_hand != null and is_instance_valid(_guide_hand)
+			and _guide_hand.visible,
+		"guide_hand_authored": _guide_hand != null and is_instance_valid(_guide_hand)
+			and _guide_hand.texture != null
+			and _guide_hand.texture.resource_path == GUIDE_HAND_PATH,
+		"authored_progress_beads": _bead_sprites.size() == TAP_TOTAL,
+		"code_drawn_effects": false,
 	}
 
 
 func _process(delta: float) -> void:
 	_activity_time += maxf(delta, 0.0)
+	_idle_time += maxf(delta, 0.0)
 	_tap_pulse_time = maxf(_tap_pulse_time - maxf(delta, 0.0), 0.0)
 	_tug_strength = move_toward(_tug_strength, 0.0, maxf(delta, 0.0) * 1.6)
-	_prune_bubbles(delta)
-	queue_redraw()
+	_update_guide_hand()
 
 
 func _gui_input(event: InputEvent) -> void:
@@ -202,12 +248,16 @@ func _gui_input(event: InputEvent) -> void:
 				cancel_touch()
 		elif touch.pressed:
 			if not _touch_active:
-				_touch_active = true
-				_touch_id = touch.index
-				_register_tap(touch.position)
+				_begin_press(touch.index, touch.position)
 		else:
 			if _touch_active and touch.index == _touch_id:
 				cancel_touch(false)
+		accept_event()
+		return
+	if event is InputEventScreenDrag:
+		var drag := event as InputEventScreenDrag
+		if _touch_active and drag.index == _touch_id:
+			_check_pull(drag.position)
 		accept_event()
 		return
 	if event is InputEventMouseButton:
@@ -216,13 +266,32 @@ func _gui_input(event: InputEvent) -> void:
 			return
 		if button.pressed:
 			if not _touch_active:
-				_touch_active = true
-				_touch_id = 0
-				_register_tap(button.position)
+				_begin_press(0, button.position)
 		else:
 			if _touch_active and _touch_id == 0:
 				cancel_touch(false)
 		accept_event()
+		return
+	if event is InputEventMouseMotion and _touch_active and _touch_id == 0:
+		_check_pull((event as InputEventMouseMotion).position)
+		accept_event()
+
+
+func _begin_press(touch_id: int, point: Vector2) -> void:
+	_touch_active = true
+	_touch_id = touch_id
+	_touch_start = point
+	_pulled_this_touch = false
+	_register_tap(point)
+
+
+func _check_pull(point: Vector2) -> void:
+	# One pull per press: dragging the trash away from the mouth is the strong,
+	# purposeful version of the tug and counts once more.
+	if _pulled_this_touch or point.distance_to(_touch_start) < PULL_DISTANCE:
+		return
+	_pulled_this_touch = true
+	_register_tap(_touch_start)
 
 
 func _register_tap(point: Vector2) -> void:
@@ -232,7 +301,15 @@ func _register_tap(point: Vector2) -> void:
 	# activity owns a full-screen Control. Off-target taps preserve progress.
 	if not _tap_region.has_point(point):
 		return
+	_idle_time = 0.0
 	if _contact_action != null and _contact_action.available():
+		if _contact_action.active:
+			# Roshan is already on her way or tugging: this tap waits its turn and
+			# answers at once, so a quick child never loses a tap.
+			_queued_tugs = mini(_queued_tugs + 1,
+				mini(MAX_QUEUED_TUGS, maxi(TAP_TOTAL - _taps - 1, 0)))
+			_add_bubbles(_prop_rest_position, 0.4)
+			return
 		_contact_action.request(_prop_rest_position, Callable(self, "_finish_tug"))
 		return
 	_finish_tug()
@@ -250,11 +327,20 @@ func _finish_tug() -> void:
 	_taps = mini(_taps + 1, TAP_TOTAL)
 	_tap_pulse = _prop_rest_position
 	_tap_pulse_time = 0.32
+	_idle_time = 0.0
 	_add_bubbles(_prop_rest_position, _tug_strength)
 	_update_tug_visual()
+	_update_beads()
 	progress_changed.emit(_taps)
 	if _taps >= TAP_TOTAL:
+		_queued_tugs = 0
 		_start_completion_flight()
+	elif _queued_tugs > 0 and _contact_action != null and _contact_action.available() \
+			and not _contact_action.active:
+		# Each waiting tap is its own tug: Roshan's hand stays on the trash and
+		# does the full local work again before the next one is paid.
+		_queued_tugs -= 1
+		_contact_action.request(_prop_rest_position, Callable(self, "_finish_tug"))
 	queue_redraw()
 
 
@@ -330,6 +416,8 @@ func _finish_completion() -> void:
 	if _seahorse != null and is_instance_valid(_seahorse):
 		_seahorse.visible = false
 	_spawn_rescue_bubbles()
+	_pop_clear_ring(_prop_rest_position)
+	_update_guide_hand()
 	_emit_completed_once()
 	queue_redraw()
 
@@ -393,12 +481,84 @@ func _build_activity_art() -> void:
 	_feedback_layer.z_index = 20
 	add_child(_feedback_layer)
 
+	# Progress reads as eight approved soap bubbles under the seahorse.
+	_bead_sprites.clear()
+	if _bubbles_texture != null:
+		var bead_start := fixture_center + Vector2(-84.0, fixture_size.y * 0.48)
+		for index in range(TAP_TOTAL):
+			var bead := Sprite2D.new()
+			bead.name = "TugProgressBubble%d" % index
+			bead.texture = _bubbles_texture
+			bead.position = bead_start + Vector2(float(index) * 24.0, 0.0)
+			bead.z_index = 7
+			add_child(bead)
+			_bead_sprites.append(bead)
+
+	var guide_texture := load(GUIDE_HAND_PATH) as Texture2D
+	if guide_texture != null:
+		_guide_hand = Sprite2D.new()
+		_guide_hand.name = "SeahorseTugGuideHand"
+		_guide_hand.texture = guide_texture
+		_guide_hand.scale = Vector2.ONE * GUIDE_HAND_SIZE / maxf(guide_texture.get_width(), 1.0)
+		_guide_hand.z_index = 520
+		_guide_hand.visible = false
+		add_child(_guide_hand)
+
 
 func _hide_rescued_art() -> void:
 	if _seahorse != null and is_instance_valid(_seahorse):
 		_seahorse.visible = false
 	if _mouth_trash != null and is_instance_valid(_mouth_trash):
 		_mouth_trash.visible = false
+	for bead: Sprite2D in _bead_sprites:
+		if bead != null and is_instance_valid(bead):
+			bead.visible = false
+
+
+func _update_beads() -> void:
+	if _bubbles_texture == null:
+		return
+	var full := BEAD_SIZE / maxf(_bubbles_texture.get_width(), 1.0)
+	for index in range(_bead_sprites.size()):
+		var bead := _bead_sprites[index]
+		if bead == null or not is_instance_valid(bead):
+			continue
+		var filled := index < _taps
+		bead.scale = Vector2.ONE * full * (1.0 if filled else 0.72)
+		bead.modulate = Color(1.0, 1.0, 1.0, 1.0 if filled else 0.32)
+
+
+func _update_guide_hand() -> void:
+	if _guide_hand == null or not is_instance_valid(_guide_hand):
+		return
+	var working := _contact_action != null and _contact_action.active
+	var demonstrating := _active and not _completed and not _completion_started \
+		and not working and not _touch_active and _idle_time >= GUIDE_IDLE_SECONDS
+	_guide_hand.visible = demonstrating
+	if not demonstrating:
+		return
+	# A small tap-tap bob right on the trash in the mouth: the live target.
+	var bob := absf(sin(_activity_time * 3.4)) * -14.0
+	var fingertip := _prop_rest_position + Vector2(0.0, -10.0 + bob)
+	_guide_hand.position = fingertip - GUIDE_FINGERTIP * _guide_hand.scale
+
+
+func _pop_clear_ring(center: Vector2) -> void:
+	if _clear_ring_texture == null or _feedback_layer == null \
+			or not is_instance_valid(_feedback_layer):
+		return
+	var ring := Sprite2D.new()
+	ring.name = "SeahorseFreeRing"
+	ring.texture = _clear_ring_texture
+	ring.position = center
+	var base := Vector2.ONE * 150.0 / maxf(_clear_ring_texture.get_width(), 1.0)
+	ring.scale = base * 0.5
+	_feedback_layer.add_child(ring)
+	var tween := ring.create_tween().set_parallel(true)
+	tween.tween_property(ring, "scale", base, 0.45).set_trans(Tween.TRANS_BACK) \
+		.set_ease(Tween.EASE_OUT)
+	tween.tween_property(ring, "modulate:a", 0.0, 0.32).set_delay(0.34)
+	tween.chain().tween_callback(ring.queue_free)
 
 
 func _resolve_basket_position() -> Vector2:
@@ -417,37 +577,32 @@ func _fit_scale(texture: Texture2D, max_size: Vector2) -> Vector2:
 
 
 func _add_bubbles(center: Vector2, strength: float) -> void:
-	var count := 4 if strength < 0.72 else 7
+	# Approved soap-bubble clusters drift up and fade; each owns its own tween.
+	if _bubbles_texture == null or _feedback_layer == null \
+			or not is_instance_valid(_feedback_layer):
+		return
+	var count := 2 if strength < 0.72 else 4
 	for index in range(count):
 		var angle := TAU * float(index) / float(count) - 0.45
-		_bubbles.append({
-			"position": center + Vector2(cos(angle), sin(angle)) * (12.0 + index * 3.0),
-			"velocity": Vector2(cos(angle) * (13.0 + strength * 14.0),
-				-28.0 - strength * 24.0 - index * 2.0),
-			"radius": 5.0 + fmod(float(index), 3.0) * 2.0,
-			"age": 0.0,
-			"life": BUBBLE_LIFETIME - float(index % 3) * 0.12,
-		})
+		var bubble := Sprite2D.new()
+		bubble.name = "TugBubble"
+		bubble.texture = _bubbles_texture
+		var size_px := 16.0 + fmod(float(index), 3.0) * 6.0 + strength * 6.0
+		bubble.scale = Vector2.ONE * size_px / maxf(_bubbles_texture.get_width(), 1.0)
+		bubble.position = center + Vector2(cos(angle), sin(angle)) * (12.0 + index * 3.0)
+		_feedback_layer.add_child(bubble)
+		var life := BUBBLE_LIFETIME - float(index % 3) * 0.12
+		var drift := Vector2(cos(angle) * (13.0 + strength * 14.0),
+			-28.0 - strength * 24.0 - index * 2.0) * life
+		var tween := bubble.create_tween().set_parallel(true)
+		tween.tween_property(bubble, "position", bubble.position + drift, life)
+		tween.tween_property(bubble, "modulate:a", 0.0, life).set_ease(Tween.EASE_IN)
+		tween.chain().tween_callback(bubble.queue_free)
 
 
 func _spawn_rescue_bubbles() -> void:
 	_add_bubbles(_prop_rest_position, 1.0)
 	_add_bubbles(_basket_position, 1.0)
-
-
-func _prune_bubbles(delta: float) -> void:
-	if _bubbles.is_empty():
-		return
-	var live: Array[Dictionary] = []
-	for bubble: Dictionary in _bubbles:
-		var age := float(bubble.get("age", 0.0)) + maxf(delta, 0.0)
-		if age >= float(bubble.get("life", BUBBLE_LIFETIME)):
-			continue
-		bubble["age"] = age
-		bubble["position"] = (bubble["position"] as Vector2) \
-			+ (bubble["velocity"] as Vector2) * maxf(delta, 0.0)
-		live.append(bubble)
-	_bubbles = live
 
 
 func _queue_progress_signal() -> void:
@@ -467,42 +622,5 @@ func _clear_owned_children() -> void:
 	_mouth_trash = null
 	_basket = null
 	_feedback_layer = null
-
-
-func _draw() -> void:
-	if fixture_size.x <= 1.0 or fixture_size.y <= 1.0:
-		return
-	var progress := float(_taps) / float(TAP_TOTAL)
-	var pulse := 1.0 + sin(_activity_time * 3.1) * 0.06
-	# A flattened water-contact ripple keeps the plug grounded without exposing
-	# the much larger invisible tap target.
-	draw_set_transform(
-		_prop_rest_position + Vector2(0.0, 18.0), 0.0, Vector2(1.0, 0.30))
-	draw_arc(Vector2.ZERO,
-		maxf(fixture_size.x, fixture_size.y) * 0.16 * pulse,
-		0.10, PI - 0.10, 22, Color(0.64, 0.91, 0.86, 0.24), 2.5, true)
-	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-	# Small bubbles communicate monotonic progress without forming a modal HUD.
-	var bead_start := fixture_center + Vector2(-84.0, fixture_size.y * 0.48)
-	for index in range(TAP_TOTAL):
-		var filled := index < _taps
-		var bead_color := Color(0.96, 0.86, 0.44, 0.78) if filled \
-			else Color(0.75, 0.92, 0.90, 0.20)
-		draw_circle(bead_start + Vector2(float(index) * 24.0, 0.0),
-			6.0 + (1.5 if filled else 0.0), bead_color)
-		if not filled:
-			draw_arc(bead_start + Vector2(float(index) * 24.0, 0.0), 9.0,
-				0.0, TAU, 16, Color(0.86, 1.0, 0.96, 0.18), 1.5, true)
-	if _tap_pulse_time > 0.0:
-		var pulse_fraction := 1.0 - _tap_pulse_time / 0.32
-		draw_arc(_tap_pulse, 28.0 + pulse_fraction * 48.0, 0.0, TAU, 28,
-			Color(1.0, 0.88, 0.35, (1.0 - pulse_fraction) * 0.72), 5.0, true)
-	for bubble: Dictionary in _bubbles:
-		var age := float(bubble.get("age", 0.0))
-		var life := maxf(float(bubble.get("life", BUBBLE_LIFETIME)), 0.01)
-		var alpha := clampf(1.0 - age / life, 0.0, 1.0)
-		draw_circle(bubble["position"] as Vector2,
-			float(bubble.get("radius", 6.0)), Color(0.82, 1.0, 0.98, alpha * 0.78))
-		draw_arc(bubble["position"] as Vector2,
-			float(bubble.get("radius", 6.0)), 0.0, TAU, 16,
-			Color(1.0, 1.0, 0.90, alpha * 0.72), 2.0, true)
+	_guide_hand = null
+	_bead_sprites.clear()

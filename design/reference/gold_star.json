@@ -184,7 +184,7 @@
   "game": "day_one_pool",
   "chosen": "2026-10-03",
   "why": "The strongest true-2D game a child can reach today (Grand Puff scores more points but its fight is built on 3D nodes, so it cannot be a template) and the clearest model of the owner's 2026-09-06 job rule: Roshan travels to each part, her hand makes contact, and only then does the authored dirt clear; every part has its own line; every change saves; real-touch probes guard it. It contains the strongest single activity in the game (the waterfall), and its gaps are specific and fixable, so it is the first candidate for a full gold star and the template for room jobs and job games.",
-  "status": "CANDIDATE_REFERENCE: not yet a gold star. Device, child and owner acceptance are not recorded, and its listed gaps remain.",
+  "status": "CANDIDATE_REFERENCE: after the five-star implementation every machine-assessed criterion meets the gold star (4/5, 22/24); it becomes the first gold star only when a phone session, an observed child session and the owner's acceptance are recorded.",
   "patterns_reviewed_head": "87f992680c0b6a690bf45b1950275579c45e15ab"
  },
  "patterns": [
@@ -197,12 +197,12 @@
    "anchors": [
     {
      "path": "scripts/day_one_contact_action_2d.gd",
-     "sha256": "0dcbb203d7ec179fa3347f6fca0aa62895bf650b64e2f12d6c1440e970716778"
+     "sha256": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac"
     },
     {
      "path": "scripts/games/pool_waterfall_activity.gd",
      "func": "_update_touch",
-     "sha256": "4a1e9617aad1a19ff521f1778b5f1eaebab6a99546be796cb06cf0e5a18123b5"
+     "sha256": "ebc67a9ae29fc1e662e2f1559062119d2ffc657a09e6f2f92fa682977c900b00"
     }
    ]
   },
@@ -240,7 +240,7 @@
     {
      "path": "scripts/games/day_one_pool_cleanup.gd",
      "func": "_on_waterfall_progress",
-     "sha256": "e52dc026d3df4f98c373926c778979b7b9433421dd9501bea461a6fdca00b4dc"
+     "sha256": "ebee10c5d21b589ed08ef8a1281bc4c77adf8f1a4ddfe2d66f44c32502c670df"
     },
     {
      "path": "scripts/games/day_one_pool_cleanup.gd",
@@ -258,8 +258,8 @@
    "id": "GS-04",
    "criterion": "C3",
    "game": "day_one_pool",
-   "title": "One exact line per part and a pointer at the live part",
-   "copy": "Speak the current part's own instruction when it becomes active and point at that part, not at a screen corner.",
+   "title": "One exact line per part and an approved hand at the live part",
+   "copy": "Speak the current part's own instruction when it becomes active, and let the approved guide hand demonstrate the real verb on that part, not at a screen corner.",
    "anchors": [
     {
      "path": "scripts/games/day_one_pool_cleanup.gd",
@@ -268,8 +268,13 @@
     },
     {
      "path": "scripts/games/pool_waterfall_activity.gd",
-     "func": "_draw_lane_hint",
-     "sha256": "a2a32978a057ebd3f0cbcafcb60c807c2a84827b397457e4d324b7352d1cf59b"
+     "func": "_update_guide_hand",
+     "sha256": "c1182f744ea011720ee4fc38028f75a6ec557058f4d26baec3449b545c166b54"
+    },
+    {
+     "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+     "func": "_update_guide_hand",
+     "sha256": "70ec8cecdbd86affe76a0dec1c4cbb4c01fac818a42f144258eee704364ccd40"
     }
    ]
   },
@@ -302,7 +307,7 @@
     {
      "path": "scripts/games/pool_waterfall_activity.gd",
      "func": "_end_touch",
-     "sha256": "54ce418e9089ff2380ff457cbf8db4a8afd9b85f4ca4528f9fce2e1ae203440a"
+     "sha256": "1195f8c5038ccead83621ac5f577a5b9d776092cce94de71c5d24fad01f75d23"
     },
     {
      "path": "scripts/games/pool_waterfall_activity.gd",
@@ -316,12 +321,17 @@
    "criterion": "C7",
    "game": "day_one_pool",
    "title": "Authored dirt over the real clean fixture",
-   "copy": "Lay the authored dirty state over the untouched clean fixture and reveal it part by part, so the finished room is the approved art.",
+   "copy": "Lay the authored dirty state over the untouched clean fixture and wipe it away where the child works, so progress is shown by the art itself and the finished room is the approved art.",
    "anchors": [
     {
      "path": "scripts/games/pool_waterfall_activity.gd",
      "func": "_build_dirty_slices",
      "sha256": "f1927de627f21d9e95d2d8589862bcd2ac21f6920e2b4f17e051f2d6f4f939d0"
+    },
+    {
+     "path": "scripts/games/pool_waterfall_activity.gd",
+     "func": "_apply_lane_crop",
+     "sha256": "4d88d721213f261ed28db26941e92d32d69413b94b6c592dd818e01f812bdb7e"
     },
     {
      "path": "scripts/games/pool_waterfall_activity.gd",
@@ -345,12 +355,78 @@
     {
      "path": "scripts/probe_day_one_pool_cleanup.gd",
      "func": "_probe_seahorse_input_contract",
-     "sha256": "cb8e71bf56546fc374c3f1f1d6ffdba27823a7eb0285c5ba585ff0101538b2af"
+     "sha256": "7a6ca80d46fc37f91e7a745c5f4dff2c6599f0fa6ff506ec4d43a6ddbcec6d6f"
     },
     {
      "path": "scripts/probe_day_one_pool_cleanup.gd",
      "func": "_probe_contact_action",
-     "sha256": "c7f19627243bc347c26204198f1a9b384acda799f25c06386bce90ad1efdf961"
+     "sha256": "8420b4a2fa6fe2eff47fd9feb3120e9fa92abf1d6f5e9692c2e43a34d30a85b9"
+    }
+   ]
+  },
+  {
+   "id": "GS-15",
+   "criterion": "C5",
+   "game": "day_one_pool",
+   "title": "Taps that arrive mid-work wait their turn",
+   "copy": "When the child taps while Roshan is already working, queue a bounded number of further actions and answer each tap at once; every queued action still needs its own contact time, and cancellation drops the unearned queue.",
+   "anchors": [
+    {
+     "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+     "func": "_register_tap",
+     "sha256": "1d73801e744ba418c7a752ec068ab2c770cdaf0165e8461bd7f0e7f43ffe6f77"
+    },
+    {
+     "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+     "func": "_finish_tug",
+     "sha256": "bedb5f14c140c2ea4db2b3dd77fffb8bd015c5f6f8f7a1c83abf863c7867b826"
+    }
+   ]
+  },
+  {
+   "id": "GS-16",
+   "criterion": "C3",
+   "game": "day_one_pool",
+   "title": "A quiet child hears the exact line again, twice at most",
+   "copy": "After a quiet stretch, replay the activity's own exact lines (the other line first, then the hint) under a fresh voice session, at most twice per activity, while the guide hand keeps pointing; quiet time never earns progress.",
+   "anchors": [
+    {
+     "path": "scripts/games/day_one_pool_cleanup.gd",
+     "func": "_process",
+     "sha256": "f6c18e9a1df5968a3c1419c2f72ff7fde5a32fb88a21010e715ba92c9fdf571b"
+    },
+    {
+     "path": "scripts/games/day_one_pool_cleanup.gd",
+     "const": "IDLE_REPROMPT_LINES",
+     "sha256": "cd567f999e2de32d07049c548443b50981e36e15c234350db72505c300a04d71"
+    }
+   ]
+  },
+  {
+   "id": "GS-17",
+   "criterion": "C7",
+   "game": "day_one_pool",
+   "title": "Keep the character's colours under a room tint",
+   "copy": "When a room is tinted to look dirty, give each of the character's cutouts inside the tinted tree the exact inverse, and fade both together, so the place changes but her identity colours do not.",
+   "anchors": [
+    {
+     "path": "scripts/games/day_one_pool_cleanup.gd",
+     "func": "_set_tint_ratio",
+     "sha256": "813fd8e9b5117baf6345ea74c2d05111264d73260c6373a7f444996a7bfddcc1"
+    }
+   ]
+  },
+  {
+   "id": "GS-18",
+   "criterion": "C8",
+   "game": "day_one_pool",
+   "title": "A spoken line must be true of what just happened",
+   "copy": "Choose each feedback line from what the child actually did (the object picked, the count reached), prefer an exact per-object take when it exists, and stay silent rather than name the wrong thing.",
+   "anchors": [
+    {
+     "path": "scripts/games/day_one_pool_cleanup.gd",
+     "func": "skimmer_pickup_line",
+     "sha256": "cdf2d045904c4409d5774c22070926cb997c0e316ac7ac16d2dd05ecbfadcedb"
     }
    ]
   },
