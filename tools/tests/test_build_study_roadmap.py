@@ -302,5 +302,33 @@ class LoopRepairTests(unittest.TestCase):
         self.assertEqual("2026-10-03", roadmap.cycle_date("2026-10-03b").isoformat())
 
 
+class RaiseLaneTests(unittest.TestCase):
+    """The gold-star scorecard feeds a Raise lane: broken catalogue, stale scores, the reference, the weakest."""
+
+    gold = {"status": "STALE", "errors": [], "stale": ["fetch"],
+            "reference": {"game": "day_one_pool", "name": "Mermaid Pool cleanup", "rating": 3, "gaps": ["C3", "C12"]},
+            "weakest": [{"id": "reef", "name": "Reef", "rating": 1, "points": 2}, {"id": "kart", "name": "Kart", "rating": 1, "points": 11}]}
+
+    def test_order_and_every_prompt_routes_to_the_gold_star_recipe(self):
+        from tools import plan_prompt
+        catalogue = plan_prompt.load_catalogue(ROOT)
+        rows = roadmap.raise_items({"gold_star": self.gold})
+        self.assertEqual(["GOLD-STAR-STALE-fetch", "GOLD-STAR-REFERENCE", "GOLD-STAR-RAISE-reef", "GOLD-STAR-RAISE-kart"],
+                         [row["id"] for row in rows])
+        for row in rows:
+            self.assertEqual("REC-GOLD-STAR", row["recipe"])
+            self.assertEqual("INT-GOLD-STAR", plan_prompt.infer_intent(row["prompt"], catalogue)["id"], row["prompt"])
+        broken = roadmap.raise_items({"gold_star": {"status": "ERROR", "errors": ["games.json: bad"]}})
+        self.assertEqual("GOLD-STAR-CHECK", broken[0]["id"])
+
+    def test_lane_renders_only_when_the_scorecard_exists(self):
+        study = {"cycle": "2026-10-03", "head": "a" * 40, "ci": {"status": "MEASURED", "advisory_steps": []}, "sensors": {}}
+        without = roadmap.build_outputs(ROOT, {**study, "gold_star": {"status": "ABSENT"}})["ROADMAP.md"]
+        self.assertNotIn("## Raise", without)
+        with_lane = roadmap.build_outputs(ROOT, {**study, "gold_star": self.gold})["ROADMAP.md"]
+        self.assertIn("## Raise — 4", with_lane)
+        self.assertIn("Bring Mermaid Pool cleanup up to the gold star", with_lane)
+
+
 if __name__ == "__main__":
     unittest.main()

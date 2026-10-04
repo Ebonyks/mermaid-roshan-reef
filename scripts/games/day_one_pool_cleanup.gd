@@ -50,6 +50,36 @@ const WATERFALL_CUE_IDS: Array[String] = [
 	"day1_pool_waterfall_lane_left", "day1_pool_waterfall_lane_center",
 	"day1_pool_waterfall_lane_right",
 ]
+# The floating pieces in atlas order (floating_trash_atlas.png, 3 x 2 cells).
+const SKIMMER_ITEM_NAMES: Array[String] = [
+	"wrapper", "cup", "lid", "leaf", "ribbon", "sponge",
+]
+const SKIMMER_LEAF_INDEX := 3
+# Object-neutral pickup lines chosen by how many pieces are out, as indexes into
+# the two tables above. The leaf line plays only for the leaf, so no spoken line
+# can name the wrong object (DL-SND-01, DL-MOT-04).
+const SKIMMER_COUNT_LINE: Dictionary = {1: 3, 3: 2, 5: 4}
+# Exact per-object takes may be added to the catalogue later; they win when READY.
+const SKIMMER_ITEM_CUE_PREFIX := "day1_pool_skimmer_item_"
+const IDLE_REPROMPT_SECONDS := 8.0
+const MAX_IDLE_REPROMPTS := 2
+# A quiet child hears the activity's other exact line, then its hint again.
+const IDLE_REPROMPT_LINES: Dictionary = {
+	"pool_surface": [
+		["day1_pool_skimmer_clean", "Scoop every floaty bit with the net!"],
+		["day1_pool_skimmer_hint", "Sweep the skimmer through every piece of trash!"],
+	],
+	"waterfall": [
+		["day1_pool_waterfall_clean", "The rainbow waterfall is stuck! Pull the trash down!"],
+		["day1_pool_waterfall_hint", "Pull the trash down from the clogged rainbow waterfall!"],
+	],
+	"seahorse": [
+		["day1_pool_seahorse_clean", "Oh no, seahorse! I'll tug the trash out!"],
+		["day1_pool_seahorse_hint", "Tap fast to pull the trash off the seahorse!"],
+	],
+}
+# Approved Day One effect art for Rumi's reveal; replaces a text glyph.
+const REVEAL_RING_PATH := "res://assets/castle/dirty_cleanup_2d/effects/fx_clean_ring.png"
 
 var m: ReefMain
 var skimmer_activity: PoolSkimmerActivity = null
@@ -70,6 +100,12 @@ var _interaction_layer_visibility: Array[Dictionary] = []
 var _announced_skimmer_mask: int = 0
 var _announced_waterfall_mask: int = 0
 var _announced_seahorse_milestone: int = 0
+var _last_skimmer_line: String = ""
+var _idle_seconds: float = 0.0
+var _idle_reprompts: int = 0
+var _reprompt_log: Array[String] = []
+var _tint_ratio: float = 0.0
+var _counter_tinted: Array[Sprite2D] = []
 
 
 func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
@@ -103,6 +139,7 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 func teardown() -> void:
 	_stop_activities()
 	_restore_interaction_layers()
+	_clear_identity_counter_tint()
 	if _lighting_target != null and is_instance_valid(_lighting_target):
 		_lighting_target.modulate = _lighting_target_rest_modulate
 	if _clean_waterfall != null and is_instance_valid(_clean_waterfall):
@@ -182,7 +219,71 @@ func audit_snapshot() -> Dictionary:
 			else {},
 		"canvas_only": true,
 		"no_fail": true,
+		"last_skimmer_line": _last_skimmer_line,
+		"idle_reprompts": _reprompt_log.duplicate(),
+		"idle_seconds": _idle_seconds,
+		"tint_ratio": _tint_ratio,
+		"identity_color_preserved": identity_color_preserved(),
 	}
+
+
+## The truthful line for one pickup: an exact per-object take when its recording
+## is READY, the leaf line only for the leaf, then object-neutral lines by count.
+## An empty result means the pickup is answered by sound and sight only.
+static func skimmer_pickup_line(item_index: int, collected_count: int) -> Dictionary:
+	if item_index >= 0 and item_index < SKIMMER_ITEM_NAMES.size():
+		var item_cue: String = SKIMMER_ITEM_CUE_PREFIX + SKIMMER_ITEM_NAMES[item_index]
+		var row: Dictionary = DayOneContextualVoiceCatalog.row(item_cue)
+		if String(row.get("status", "")) == "READY":
+			return {"cue_id": item_cue, "caption": String(row.get("caption", ""))}
+	if item_index == SKIMMER_LEAF_INDEX:
+		return {"cue_id": SKIMMER_CUE_IDS[0], "caption": SKIMMER_PICKUP_CAPTIONS[0]}
+	if SKIMMER_COUNT_LINE.has(collected_count):
+		var line_index: int = int(SKIMMER_COUNT_LINE[collected_count])
+		return {"cue_id": SKIMMER_CUE_IDS[line_index],
+			"caption": SKIMMER_PICKUP_CAPTIONS[line_index]}
+	return {}
+
+
+## True when every Roshan cutout inside the dingy room shows her own colours.
+func identity_color_preserved() -> bool:
+	var factor: Color = _tint_factor(_tint_ratio)
+	for sprite: Sprite2D in _identity_sprites():
+		if not _is_tinted(sprite):
+			continue
+		var shown := Color(factor.r * sprite.self_modulate.r,
+			factor.g * sprite.self_modulate.g, factor.b * sprite.self_modulate.b)
+		if absf(shown.r - 1.0) > 0.01 or absf(shown.g - 1.0) > 0.01 \
+				or absf(shown.b - 1.0) > 0.01:
+			return false
+	return true
+
+
+func _process(delta: float) -> void:
+	# A quiet child hears the current activity's exact line again (twice at
+	# most); the guide hands keep pointing in the meantime. Never during a
+	# completion, the finale, or before the controller is live.
+	if m == null or _busy or _finale_started or _phase >= ACTIVITY_IDS.size():
+		return
+	_idle_seconds += maxf(delta, 0.0)
+	if _idle_seconds < IDLE_REPROMPT_SECONDS or _idle_reprompts >= MAX_IDLE_REPROMPTS:
+		return
+	_idle_seconds = 0.0
+	var lines: Array = IDLE_REPROMPT_LINES.get(ACTIVITY_IDS[_phase], []) as Array
+	if lines.is_empty():
+		return
+	var line: Array = lines[_idle_reprompts % lines.size()] as Array
+	_idle_reprompts += 1
+	_reprompt_log.append(String(line[0]))
+	# A fresh session id lets the exact take play again for this quiet moment.
+	_say_context(String(line[0]), String(line[1]),
+		"%s_idle_%d" % [_context_visit_id(), _reprompt_log.size()])
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch or event is InputEventScreenDrag \
+			or event is InputEventMouseButton:
+		_idle_seconds = 0.0
 
 
 func probe_complete_current_activity() -> bool:
@@ -335,12 +436,16 @@ func _stop_activities() -> void:
 func _on_skimmer_progress(mask: int) -> void:
 	if m == null:
 		return
+	_idle_seconds = 0.0
 	var newly_collected: int = mask & ~_announced_skimmer_mask
+	var collected_count: int = _count_bits(mask, 0x3F)
 	for index: int in range(SKIMMER_PICKUP_CAPTIONS.size()):
 		if (newly_collected & (1 << index)) != 0:
-			_say_context(SKIMMER_CUE_IDS[index],
-				SKIMMER_PICKUP_CAPTIONS[index],
-				"day_one")
+			var line: Dictionary = skimmer_pickup_line(index, collected_count)
+			_last_skimmer_line = String(line.get("cue_id", ""))
+			if not line.is_empty():
+				_say_context(String(line["cue_id"]), String(line["caption"]),
+					"day_one")
 	_announced_skimmer_mask = mask
 	m.day_one_record_pool_activity_progress(
 		mask, m.day_one_pool_waterfall_mask, m.day_one_pool_seahorse_tugs)
@@ -361,6 +466,7 @@ func _on_skimmer_completed() -> void:
 func _on_waterfall_progress(mask: int) -> void:
 	if m == null:
 		return
+	_idle_seconds = 0.0
 	var newly_cleared: int = mask & ~_announced_waterfall_mask
 	for lane: int in range(WATERFALL_LANE_CAPTIONS.size()):
 		if (newly_cleared & (1 << lane)) != 0:
@@ -387,6 +493,7 @@ func _on_waterfall_completed() -> void:
 func _on_seahorse_progress(taps: int) -> void:
 	if m == null:
 		return
+	_idle_seconds = 0.0
 	if taps >= 1 and _announced_seahorse_milestone < 1:
 		_announced_seahorse_milestone = 1
 		_say_context("day1_pool_seahorse_early", "A little tug! Keep going!",
@@ -421,6 +528,8 @@ func _commit_activity(legacy_step: int, activity_id: String) -> void:
 		_busy = false
 		return
 	_phase += 1
+	_idle_seconds = 0.0
+	_idle_reprompts = 0
 	m.day_one_record_pool_cleanup_step(legacy_step)
 	cleanup_step_completed.emit(legacy_step, activity_id)
 	# Completion is a save boundary, not another debounce event. The child can
@@ -510,8 +619,55 @@ func _update_dingy_lighting() -> void:
 			+ _count_bits(m.day_one_pool_waterfall_mask, 0x07) \
 			+ clampi(m.day_one_pool_seahorse_tugs, 0, 8)
 	var remaining_ratio: float = 1.0 - float(completed_actions) / 17.0
-	_lighting_target.modulate = _lighting_target_rest_modulate * Color.WHITE.lerp(
-		DINGY_ROOM_TINT, clampf(remaining_ratio, 0.0, 1.0))
+	_set_tint_ratio(clampf(remaining_ratio, 0.0, 1.0))
+
+
+func _tint_factor(ratio: float) -> Color:
+	return Color.WHITE.lerp(DINGY_ROOM_TINT, clampf(ratio, 0.0, 1.0))
+
+
+func _set_tint_ratio(ratio: float) -> void:
+	# The room reads dingy, but Roshan keeps her approved colours: each of her
+	# cutouts inside the tinted tree carries the exact inverse (DL-MED-05).
+	_tint_ratio = clampf(ratio, 0.0, 1.0)
+	if _lighting_target == null or not is_instance_valid(_lighting_target):
+		return
+	var factor: Color = _tint_factor(_tint_ratio)
+	_lighting_target.modulate = _lighting_target_rest_modulate * factor
+	var counter := Color(1.0 / maxf(factor.r, 0.01), 1.0 / maxf(factor.g, 0.01),
+		1.0 / maxf(factor.b, 0.01), 1.0)
+	for sprite: Sprite2D in _identity_sprites():
+		if not _is_tinted(sprite):
+			continue
+		sprite.self_modulate = Color(counter.r, counter.g, counter.b, sprite.self_modulate.a)
+		if not _counter_tinted.has(sprite):
+			_counter_tinted.append(sprite)
+
+
+func _identity_sprites() -> Array[Sprite2D]:
+	var sprites: Array[Sprite2D] = []
+	if m != null and m.castle_room_player_sprite != null \
+			and is_instance_valid(m.castle_room_player_sprite):
+		sprites.append(m.castle_room_player_sprite)
+	for activity: Variant in [skimmer_activity, waterfall_activity, seahorse_activity]:
+		if activity == null or not is_instance_valid(activity):
+			continue
+		var sprite: Sprite2D = (activity as Object).call("identity_sprite") as Sprite2D
+		if sprite != null and is_instance_valid(sprite):
+			sprites.append(sprite)
+	return sprites
+
+
+func _is_tinted(sprite: Sprite2D) -> bool:
+	return _lighting_target != null and is_instance_valid(_lighting_target) \
+		and (sprite == _lighting_target or _lighting_target.is_ancestor_of(sprite))
+
+
+func _clear_identity_counter_tint() -> void:
+	for sprite: Sprite2D in _counter_tinted:
+		if sprite != null and is_instance_valid(sprite):
+			sprite.self_modulate = Color(1.0, 1.0, 1.0, sprite.self_modulate.a)
+	_counter_tinted.clear()
 
 
 func _count_bits(value: int, mask: int) -> int:
@@ -533,9 +689,9 @@ func _begin_finale() -> void:
 	if _swimming_bunny != null and is_instance_valid(_swimming_bunny):
 		_swimming_bunny.fade_out(0.32)
 	if _lighting_target != null and is_instance_valid(_lighting_target):
-		var light_tween: Tween = _lighting_target.create_tween()
-		light_tween.tween_property(
-			_lighting_target, "modulate", _lighting_target_rest_modulate, 0.85)
+		# Fade the room and Roshan's counter-tint together, so she never flashes.
+		var light_tween: Tween = create_tween()
+		light_tween.tween_method(_set_tint_ratio, _tint_ratio, 0.0, 0.85)
 	finale_started.emit()
 	var rooms: CastleRooms25D = m._castle_rooms_ref() if m != null else null
 	if rooms != null:
@@ -617,21 +773,21 @@ func _on_rumi_animation_finished() -> void:
 
 
 func _spawn_reveal_ripple() -> void:
-	var ripple := Label.new()
+	# The approved clean ring, flattened onto the water where Rumi rises; no
+	# font-dependent glyph.
+	var texture: Texture2D = load(REVEAL_RING_PATH) as Texture2D
+	if texture == null:
+		return
+	var ripple := Sprite2D.new()
 	ripple.name = "RumiRiseRipple"
-	ripple.text = "○"
-	ripple.position = Vector2(490.0, 470.0)
-	ripple.size = Vector2(300.0, 110.0)
-	ripple.pivot_offset = ripple.size * 0.5
-	ripple.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	ripple.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	ripple.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	ripple.texture = texture
+	ripple.position = Vector2(640.0, 525.0)
 	ripple.z_index = 17
-	ripple.scale = Vector2(0.45, 0.20)
-	StorybookUI.style_label(ripple, 92, Color(0.54, 0.96, 1.0), 5)
+	var base: float = 300.0 / maxf(texture.get_width(), 1.0)
+	ripple.scale = Vector2(base * 0.22, base * 0.08)
 	add_child(ripple)
 	var ripple_tween: Tween = ripple.create_tween().set_parallel(true)
-	ripple_tween.tween_property(ripple, "scale", Vector2(2.1, 0.56), 1.0)
+	ripple_tween.tween_property(ripple, "scale", Vector2(base, base * 0.34), 1.0)
 	ripple_tween.tween_property(ripple, "modulate:a", 0.0, 1.0)
 	ripple_tween.chain().tween_callback(ripple.queue_free)
 

@@ -81,7 +81,20 @@ func _run_probe() -> void:
 		bool(initial.get("canvas_only", false))
 		and bool(initial.get("no_fail", false))
 		and bool(initial.get("dingy_lighting", false)))
+	_check("dingy room keeps Roshan's approved colours",
+		float(initial.get("tint_ratio", 0.0)) > 0.9
+		and bool(initial.get("identity_color_preserved", false))
+		and cleanup.skimmer_activity.identity_sprite().self_modulate.r > 1.2)
+	_check("pool guides and effects use approved art, not code shapes or glyphs",
+		bool((initial.get("skimmer", {}) as Dictionary).get("demo_pointer_authored", false))
+		and bool((initial.get("waterfall", {}) as Dictionary).get("guide_hand_authored", false))
+		and bool((initial.get("seahorse", {}) as Dictionary).get("guide_hand_authored", false))
+		and bool((initial.get("seahorse", {}) as Dictionary).get("authored_progress_beads", false))
+		and not bool((initial.get("skimmer", {}) as Dictionary).get("code_drawn_effects", true))
+		and not bool((initial.get("seahorse", {}) as Dictionary).get("code_drawn_effects", true))
+		and not bool((initial.get("waterfall", {}) as Dictionary).get("code_drawn_guides", true)))
 	_probe_contextual_voice_wiring()
+	_probe_truthful_skimmer_lines()
 	_probe_roshan_contact(host)
 	var swimmer: Dictionary = initial.get("swimming_bunny", {}) as Dictionary
 	_check("exact pool bunny cast keeps one land and one swimmer",
@@ -144,9 +157,35 @@ func _run_probe() -> void:
 	_check("passive demo never advances",
 		int(main.day_one_pool_skimmer_mask) == 0
 		and int((passive.get("skimmer", {}) as Dictionary).get("progress_mask", -1)) == 0)
+	# A quiet child: thirty seconds of zero input earn nothing, and the exact
+	# lines come back twice at most (the other line first, then the hint).
+	for _second: int in range(30):
+		cleanup._process(1.0)
+		cleanup.skimmer_activity._process(1.0)
+	var quiet: Dictionary = cleanup.audit_snapshot()
+	_check("thirty quiet seconds re-prompt twice and award nothing",
+		quiet.get("idle_reprompts", []) == ["day1_pool_skimmer_clean", "day1_pool_skimmer_hint"]
+		and int(main.day_one_pool_skimmer_mask) == 0
+		and bool((quiet.get("skimmer", {}) as Dictionary).get("demo_pointer_visible", false)))
 
-	_check("skimmer activity accepts six real collections",
-		cleanup.probe_complete_current_activity())
+	# Six real touches: each one travels, scoops and lands in the basket.
+	var skimmer: PoolSkimmerActivity = cleanup.skimmer_activity
+	for piece: int in range(PoolSkimmerActivity.TRASH_COUNT):
+		var press := InputEventScreenTouch.new()
+		press.index = 0
+		press.pressed = true
+		press.position = skimmer._trash_contact_position(piece)
+		skimmer._gui_input(press)
+		press.pressed = false
+		skimmer._gui_input(press)
+		for _tick: int in range(240):
+			skimmer._process(1.0 / 60.0)
+			if (int(main.day_one_pool_skimmer_mask) & (1 << piece)) != 0:
+				break
+	_check("skimmer activity accepts six real touch collections",
+		int(main.day_one_pool_skimmer_mask) == 0x3F)
+	_check("the last pickup line never names the wrong object",
+		String(cleanup.audit_snapshot().get("last_skimmer_line", "x")) == "")
 	await create_timer(0.72).timeout
 	var after_pool: Dictionary = cleanup.audit_snapshot()
 	_check("skimmer completion persists and unlocks waterfall",
@@ -165,8 +204,42 @@ func _run_probe() -> void:
 		clean_waterfall.visible and not flowing_water.visible
 		and bool(after_pool.get("animated_water_hidden", false)))
 
-	_check("waterfall activity clears three independent lanes",
-		cleanup.probe_complete_current_activity())
+	# A quiet second brings the approved guide hand down the next lane.
+	var waterfall_activity: PoolWaterfallActivity = cleanup.waterfall_activity
+	for _quarter: int in range(4):
+		waterfall_activity._process(0.25)
+	_check("quiet waterfall shows the authored stroke guide on the next lane",
+		bool(waterfall_activity.audit_snapshot().get("guide_hand_visible", false)))
+	# Three real downward strokes, one per lane, through the real input path.
+	var lane_width: float = waterfall_activity.fixture_size.x / 3.0
+	for lane: int in range(3):
+		var x: float = waterfall_activity._fixture_rect.position.x + lane_width * (float(lane) + 0.5)
+		var top := Vector2(x, waterfall_activity._fixture_rect.position.y + 8.0)
+		var bottom := Vector2(x, waterfall_activity._fixture_rect.end.y - 4.0)
+		var stroke := InputEventScreenTouch.new()
+		stroke.index = 0
+		stroke.pressed = true
+		stroke.position = top
+		waterfall_activity._gui_input(stroke)
+		if lane == 0:
+			_check("a touch hides the guide hand",
+				not bool(waterfall_activity.audit_snapshot().get("guide_hand_visible", true)))
+		var drag := InputEventScreenDrag.new()
+		drag.index = 0
+		drag.position = top.lerp(bottom, 0.5)
+		waterfall_activity._gui_input(drag)
+		if lane == 0:
+			var partial: Sprite2D = waterfall_activity._slice_nodes[0]
+			_check("a half stroke wipes the authored dirt away from the top",
+				partial.region_rect.position.y > 1.0 and partial.offset.y > 0.5
+				and int(main.day_one_pool_waterfall_mask) == 0)
+		drag.position = bottom
+		waterfall_activity._gui_input(drag)
+		stroke.pressed = false
+		stroke.position = bottom
+		waterfall_activity._gui_input(stroke)
+	_check("waterfall activity clears three lanes with real strokes",
+		int(main.day_one_pool_waterfall_mask) == 0x07)
 	await create_timer(0.56).timeout
 	var after_waterfall: Dictionary = cleanup.audit_snapshot()
 	_check("waterfall completion persists and unlocks seahorse",
@@ -180,15 +253,45 @@ func _run_probe() -> void:
 	_check("rainbow animation still waits for rescue finale",
 		clean_waterfall.visible and not flowing_water.visible)
 
-	_check("one seahorse tap advances monotonically",
-		cleanup.seahorse_activity.probe_tap())
+	var seahorse_activity: PoolSeahorseRescueActivity = cleanup.seahorse_activity
+	var tug := InputEventScreenTouch.new()
+	tug.index = 0
+	tug.position = seahorse_activity.fixture_center
+	tug.pressed = true
+	seahorse_activity._gui_input(tug)
+	tug.pressed = false
+	seahorse_activity._gui_input(tug)
+	_check("one real seahorse tap advances monotonically",
+		seahorse_activity._taps == 1)
 	await process_frame
 	_check("partial tug saves without premature finale",
 		main.day_one_pool_seahorse_tugs == 1
 		and main.day_one_pool_cleanup_step == 2
 		and not bool(cleanup.audit_snapshot().get("finale_started", false)))
-	_check("remaining rapid taps start causal extraction",
-		cleanup.probe_complete_current_activity())
+	# Three deliberate pulls (two tugs each) and one tap finish the rescue: a
+	# purposeful pull is twice a tap, so pulling is the fastest way through.
+	for _pull: int in range(3):
+		tug.pressed = true
+		tug.position = seahorse_activity.fixture_center
+		seahorse_activity._gui_input(tug)
+		var pull := InputEventScreenDrag.new()
+		pull.index = 0
+		pull.position = seahorse_activity.fixture_center + Vector2(-70.0, 30.0)
+		seahorse_activity._gui_input(pull)
+		pull.position += Vector2(-60.0, 10.0)
+		seahorse_activity._gui_input(pull)
+		tug.pressed = false
+		tug.position = pull.position
+		seahorse_activity._gui_input(tug)
+	_check("each real pull is worth two tugs, never more",
+		seahorse_activity._taps == 7)
+	tug.pressed = true
+	tug.position = seahorse_activity.fixture_center
+	seahorse_activity._gui_input(tug)
+	tug.pressed = false
+	seahorse_activity._gui_input(tug)
+	_check("remaining real tap starts causal extraction",
+		seahorse_activity._taps == 8 and seahorse_activity._completion_started)
 	await create_timer(0.82).timeout
 	var final_snapshot: Dictionary = cleanup.audit_snapshot()
 	_check("seahorse extraction completes legacy step four",
@@ -478,7 +581,58 @@ func _probe_seahorse_input_contract(host: Control) -> void:
 		_check("eight deliberate seahorse taps start one rescue %s" % bounds,
 			activity._taps == 8 and activity._completion_started)
 		activity.stop()
+	activity.setup(Vector2(921.875, 245.625), Vector2(208.75, 241.25))
+	activity.start()
+	var press := InputEventScreenTouch.new()
+	press.index = 0
+	press.pressed = true
+	press.position = activity.fixture_center
+	activity._gui_input(press)
+	var short_drag := InputEventScreenDrag.new()
+	short_drag.index = 0
+	short_drag.position = activity.fixture_center + Vector2(-20.0, 0.0)
+	activity._gui_input(short_drag)
+	_check("a small wobble is still one tug", activity._taps == 1)
+	var other_finger := InputEventScreenDrag.new()
+	other_finger.index = 1
+	other_finger.position = activity.fixture_center + Vector2(-200.0, 0.0)
+	activity._gui_input(other_finger)
+	_check("another finger's drag cannot pull for the owner", activity._taps == 1)
+	short_drag.position = activity.fixture_center + Vector2(-80.0, 20.0)
+	activity._gui_input(short_drag)
+	short_drag.position = activity.fixture_center + Vector2(-160.0, 40.0)
+	activity._gui_input(short_drag)
+	_check("one deliberate pull adds exactly one more tug per press", activity._taps == 2)
+	press.pressed = false
+	activity._gui_input(press)
+	activity.stop()
 	activity.free()
+
+
+func _probe_truthful_skimmer_lines() -> void:
+	# Every spoken pickup line must be true of the piece just scooped: only the
+	# leaf may hear a leaf line, whatever order the child chooses.
+	var leaf_lines_only_for_leaf := true
+	var voiced: int = 0
+	for item: int in range(PoolSkimmerActivity.TRASH_COUNT):
+		for count: int in range(1, PoolSkimmerActivity.TRASH_COUNT + 1):
+			var line: Dictionary = DayOnePoolCleanup.skimmer_pickup_line(item, count)
+			if line.is_empty():
+				continue
+			voiced += 1
+			var caption: String = String(line.get("caption", "")).to_lower()
+			if caption.contains("leaf") and item != DayOnePoolCleanup.SKIMMER_LEAF_INDEX:
+				leaf_lines_only_for_leaf = false
+			var row: Dictionary = DayOneContextualVoiceCatalog.row(String(line.get("cue_id", "")))
+			if String(row.get("status", "")) != "READY" \
+					or String(row.get("caption", "")) != String(line.get("caption", "")):
+				leaf_lines_only_for_leaf = false
+	_check("pickup lines are exact recordings and never name the wrong object",
+		leaf_lines_only_for_leaf and voiced > 0)
+	_check("scooping the sponge first sounds object-neutral",
+		String(DayOnePoolCleanup.skimmer_pickup_line(5, 1).get("cue_id", "")) == "day1_pool_skimmer_04")
+	_check("scooping the leaf names the leaf",
+		String(DayOnePoolCleanup.skimmer_pickup_line(3, 4).get("cue_id", "")) == "day1_pool_skimmer_01")
 
 
 func _probe_contact_action(host: Control) -> void:
@@ -511,6 +665,22 @@ func _probe_contact_action(host: Control) -> void:
 	for index: int in range(80):
 		seahorse._contact_action._process(0.05)
 	_check("seahorse earns one tug after real contact", seahorse._taps == 1 and actor.visible)
+	for _quick: int in range(3):
+		seahorse._register_tap(seahorse.fixture_center)
+	_check("quick taps during Roshan's tug wait their turn instead of vanishing",
+		seahorse._taps == 1 and int(seahorse.audit_snapshot().get("queued_tugs", -1)) == 2)
+	for index: int in range(80):
+		seahorse._contact_action._process(0.05)
+	_check("every waiting tap becomes its own contact tug",
+		seahorse._taps == 4 and int(seahorse.audit_snapshot().get("queued_tugs", -1)) == 0
+		and actor.visible)
+	seahorse._register_tap(seahorse.fixture_center)
+	seahorse._register_tap(seahorse.fixture_center)
+	seahorse.cancel_touch()
+	for index: int in range(80):
+		seahorse._contact_action._process(0.05)
+	_check("focus loss drops waiting taps with the unearned work",
+		seahorse._taps == 4 and int(seahorse.audit_snapshot().get("queued_tugs", -1)) == 0)
 	seahorse.stop()
 	seahorse.free()
 	actor.position = Vector2(80.0, 600.0)
@@ -522,17 +692,29 @@ func _probe_contact_action(host: Control) -> void:
 	waterfall.start()
 	waterfall._begin_touch(waterfall.fixture_center, 4)
 	waterfall._end_touch(waterfall.fixture_center, 4)
-	waterfall._begin_touch(waterfall.fixture_center + Vector2(70.0, 0.0), 5)
-	_check("waterfall tap waits for contact and rejects a second job", waterfall._lane_progress[1] == 0.0 and not waterfall._touch_active)
+	var retarget_point: Vector2 = waterfall.fixture_center + Vector2(70.0, 0.0)
+	waterfall._begin_touch(retarget_point, 5)
+	_check("a touch on another lane retargets the unearned approach instead of vanishing",
+		waterfall._lane_progress[1] == 0.0 and waterfall._touch_active
+		and waterfall._touch_lane == 2 and waterfall._contact_action.active
+		and int(waterfall.audit_snapshot().get("pending_lane", -1)) == 2)
+	waterfall._end_touch(retarget_point, 5)
 	waterfall._contact_action.notification(Node.NOTIFICATION_APPLICATION_FOCUS_OUT)
 	waterfall._contact_action._process(10.0)
-	_check("canceled waterfall work earns no progress", waterfall._lane_progress[1] == 0.0 and actor.visible)
+	_check("canceled waterfall work earns no progress",
+		waterfall._lane_progress[1] == 0.0 and waterfall._lane_progress[2] == 0.0 and actor.visible)
 	waterfall._begin_touch(waterfall.fixture_center, 4)
 	waterfall._end_touch(waterfall.fixture_center, 4)
 	for index: int in range(80):
+		if index == 30:
+			# Tapping the lane Roshan is already working never restarts her work.
+			waterfall._begin_touch(waterfall.fixture_center, 6)
+			waterfall._end_touch(waterfall.fixture_center, 6)
 		waterfall._contact_action._process(0.05)
 		waterfall._process(0.05)
-	_check("waterfall earns one local scrub after arrival", is_equal_approx(waterfall._lane_progress[1], waterfall.TAP_ASSIST) and not waterfall._scrubber.visible and actor.visible)
+	_check("waterfall earns one local scrub after arrival, even with a same-lane re-tap",
+		is_equal_approx(waterfall._lane_progress[1], waterfall.TAP_ASSIST)
+		and not waterfall._scrubber.visible and actor.visible)
 	var stroke_start: Vector2 = waterfall.fixture_center - Vector2(waterfall.fixture_size.x / 3.0, 96.0)
 	var stroke_end: Vector2 = stroke_start + Vector2(0.0, waterfall.fixture_size.y)
 	waterfall._begin_touch(stroke_start, 7)

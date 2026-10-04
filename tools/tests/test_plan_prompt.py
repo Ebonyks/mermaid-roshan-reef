@@ -23,8 +23,14 @@ class PromptTests(unittest.TestCase):
         catalogue = plan_prompt.load_catalogue(ROOT)
         self.assertEqual([], plan_prompt.validate_catalogue(ROOT, catalogue))
         seed = json.loads((ROOT / "docs/handoffs/codex_self_improvement_loop_2026-10-03/data/prompt_intents_seed.json").read_text(encoding="utf-8"))
-        self.assertEqual({item["id"] for item in seed["intents"]}, {item["id"] for item in catalogue["intents"]})
-        self.assertEqual(15, len(catalogue["intents"]))
+        seed_ids = {item["id"] for item in seed["intents"]}
+        live = {item["id"]: item for item in catalogue["intents"]}
+        # The catalogue grows from lessons and owner requests; the seed may never shrink out of it.
+        self.assertLessEqual(seed_ids, set(live))
+        self.assertGreaterEqual(len(live), 15)
+        for identifier in set(live) - seed_ids:
+            self.assertTrue(live[identifier].get("revision_history"), identifier)
+            self.assertTrue((ROOT / live[identifier]["recipe"]["path"]).is_file(), identifier)
 
     def test_recipes_are_rendered_from_the_catalogue(self):
         catalogue = plan_prompt.load_catalogue(ROOT)

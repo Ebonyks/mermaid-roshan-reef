@@ -78,7 +78,12 @@ python3 -m unittest \
 	tools.tests.test_build_study_roadmap \
 	tools.tests.test_plan_prompt \
 	tools.tests.test_resolve_godot \
+	tools.tests.test_gold_star \
 	|| { echo "SELF-IMPROVEMENT LOOP CONTRACT TEST FAIL"; exit 1; }
+# Every game file must be catalogued and assessed against the gold-star rubric;
+# stale scores are reported (the study re-assesses them), never silently kept.
+python3 tools/gold_star.py --check \
+	|| { echo "GOLD STAR CATALOGUE FAIL"; exit 1; }
 python3 tools/audit_development.py --base auto \
 	|| { echo "AUDIT DEVELOPMENT COVERAGE FAIL"; exit 1; }
 python3 tools/audit_document_authority.py \
