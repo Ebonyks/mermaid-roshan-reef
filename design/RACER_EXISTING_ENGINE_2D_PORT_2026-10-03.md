@@ -1,5 +1,10 @@
 # Existing Racer engine: Canvas conversion candidate
 
+Visual proposal superseded by owner direction on 2026-10-03: use the
+[connected chase-view rally](RACER_WORLD_RALLY_2026-10-03.md). This document and
+its machine evidence preserve the first port's historical scope; they do not
+claim acceptance of its rejected flat presentation.
+
 The owner prioritizes conversion of the already developed `KartGame`/`KartDriving` engine over other racing implementations. Baseline: `30d82725661044de63b682f5b13ba8f19101892b`, isolated branch `codex/racer-existing-engine-2d-20261003`.
 
 ## Implementation

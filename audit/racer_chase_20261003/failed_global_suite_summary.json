@@ -1,0 +1,13 @@
+{
+  "result": "FAIL",
+  "trusted_probes_attempted": 82,
+  "failed_lines": [
+    "DUSTBOSS|damage_recovery floor press immediately moves Roshan: FAIL",
+    "PROBE probe_dust_boss process exit: 1",
+    "TUTORIAL|a full charge fells the imp and opens the graduation wave: FAIL",
+    "TUTORIAL|the class has no partner-bubble overlay lesson: FAIL",
+    "PROBE probe_dust_boss_balance process exit: 127"
+  ],
+  "source_unchanged": true,
+  "limits": "Never a passing full suite. Isolated reruns do not erase this failed checkpoint."
+}

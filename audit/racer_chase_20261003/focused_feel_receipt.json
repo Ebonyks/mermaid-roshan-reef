@@ -1,0 +1,60 @@
+{
+  "result": "PASS",
+  "runtime": "4.7.2.stable.official.ed1daf0bf",
+  "command": "godot --headless --path . -s scripts/probe_kart_feel.gd -- --touch hybrid",
+  "trusted_probe_unchanged": true,
+  "source": [
+    {
+      "path": "scripts/kart.gd",
+      "sha256_bytes": "efee775dbde38cf2bceb49f4699e8a8cb50ed5b79ffe64ce0ab7a8ddbfbad26b",
+      "sha256_lf": "73ee5586102008376afda81cd81eb76559336974ec25de56f7d01e975e7009e4"
+    },
+    {
+      "path": "scripts/kart_canvas_2d.gd",
+      "sha256_bytes": "e2fc7d4651553d7b459a683d4429cd7c2122e5ae8a3716ebd13b44cd0b7130a9",
+      "sha256_lf": "e2fc7d4651553d7b459a683d4429cd7c2122e5ae8a3716ebd13b44cd0b7130a9"
+    },
+    {
+      "path": "scripts/kart_course_worlds.gd",
+      "sha256_bytes": "4aab47241800ba1703d3c3b0c007947d04d7a75b7f00ec112e2eaa3bd0e9d77a",
+      "sha256_lf": "4aab47241800ba1703d3c3b0c007947d04d7a75b7f00ec112e2eaa3bd0e9d77a"
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "sha256_bytes": "66fa1dfe73fb7693dc9bc11d0054c2d70d4927b44d856ccf2f43109893aeccaa",
+      "sha256_lf": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8"
+    },
+    {
+      "path": "scripts/probe_kart_canvas_2d.gd",
+      "sha256_bytes": "72d9be844557fa9b594cf58c100572668c1d2c93ae5f0d32c608262e0b9954a1",
+      "sha256_lf": "72d9be844557fa9b594cf58c100572668c1d2c93ae5f0d32c608262e0b9954a1"
+    },
+    {
+      "path": "assets/kart/chase/anchors.json",
+      "sha256_bytes": "48c0bb0188e4385f809a2b10818d3481c59fe8f3554886cce834b8a5aba77b43",
+      "sha256_lf": "38441c903bbc66933d6d152c27c3216c5ba882042f928fb1fadad04595c0ef16"
+    }
+  ],
+  "stdout": "logs/final_feel.stdout.log",
+  "stderr": "logs/final_feel.stderr.log",
+  "stderr_empty": true,
+  "metrics": [
+    "FEEL|save_isolation=redirected",
+    "FEEL|t_none=59.01 t_outside=62.02 t_inside=58.91 t_drift=55.49",
+    "FEEL|line_advantage=3.11 (outside-inside, target >= 0.8)",
+    "FEEL|drift_gain=3.52 (none-drift, target >= 0.8) tier_max=3 uptime=26.7",
+    "FEEL|zoom_range=0.279 (target >= 0.12)",
+    "FEEL|strip_charge_1s=30hz:0.780 60hz:0.780",
+    "FEEL|air_forward_alignment=1.000 (target >= 0.85)",
+    "FEEL|touch_countdown_rocket=0.90 (target >= 0.8)",
+    "FEEL|pause_bank=memory:2 disk:2 repeat:2",
+    "FEEL|save_generation_recovery=true generation:4",
+    "FEEL|second_place_commit=place:2 memory:true/true disk:true/true before_podium:true",
+    "FEEL|full_pack_race=done game=''",
+    "FEEL|zero_input_reward=none",
+    "FEEL|quit_restore=ok",
+    "FEEL|quit_pearl_delta=memory:3 disk:3 (target 3, no placement bonus)"
+  ],
+  "time_utc": "2026-10-04T03:55:29.646633+00:00",
+  "limits": "Focused local machine gate; full suite and external acceptance remain separate"
+}

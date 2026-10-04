@@ -2,6 +2,7 @@ extends Node2D
 class_name KartGame
 
 const CanvasPresenter := preload("res://scripts/kart_canvas_2d.gd")
+const CourseWorlds := preload("res://scripts/kart_course_worlds.gd")
 const Driving := preload("res://scripts/kart_driving.gd")
 # ============================================================================
 # RACE ENGINE — Rainbow Road racer (N64-inspired) and a reusable arcade-racing
@@ -266,6 +267,12 @@ var _paint_prev := -1
 # Presentation is Canvas-only. Height is a scalar road/contact measurement,
 # retained from the original course; it is never a spatial scene or model.
 var _canvas: Control
+var _canvas_steer := 0.0
+var _canvas_fire := false
+var _canvas_held := false
+var _touch_input_before := true
+var _touch_unhandled_before := true
+var _touch_owned := false
 var _height_lut: PackedFloat32Array = []
 var _kap: PackedFloat32Array = []
 var _hazards_live: Array = []
@@ -387,8 +394,10 @@ func _build_lut() -> void:
 		var u: float = float(i) / float(SAMPLES)
 		var p := _spline_u(u)
 		_lut.append(p)
-		_height_lut.append(_terrain_y(p.x, p.y) + 1.4 if _ground_mode() == "terrain" else _height_u(u))
-	if _ground_mode() == "terrain":
+		# Castle aisles and Lagoon paths are level; ramps still own authored jumps.
+		# Custom courses can retain their explicit height/terrain contract.
+		_height_lut.append(0.0 if _world_route() else (_terrain_y(p.x, p.y) + 1.4 if _ground_mode() == "terrain" else _height_u(u)))
+	if _ground_mode() == "terrain" and not _world_route():
 		var raw := _height_lut.duplicate()
 		for i in range(SAMPLES + 1):
 			var acc := 0.0
@@ -494,7 +503,22 @@ func _advance(k: Dictionary, delta: float) -> void:
 	# what makes the racing line REAL (before this, lat was cosmetic and the
 	# lap time of any line was identical). Invisible, no reading required,
 	# physically truthful. Capped so the sharpest bend gives ~18 %.
-	Driving.advance(k, _curv_at(float(k["s"])), delta)
+	var before: float = float(k["s"])
+	Driving.advance(k, _curv_at(before), delta)
+	if k.has("spur_start"):
+		var start: float = float(k["spur_start"])
+		var end: float = float(k["spur_end"])
+		var from: Vector2 = k["spur_from"]
+		var to: Vector2 = k["spur_to"]
+		var ratio: float = (end - start) / maxf(1.0, from.distance_to(to))
+		k["s"] = minf(end, before + (float(k["s"]) - before) * maxf(1.0, ratio))
+		k["lat"] = clampf(float(k["lat"]), float(k["spur_lat"]) - 5.0, float(k["spur_lat"]) + 5.0)
+		if float(k["s"]) >= end:
+			# The chord's endpoint and the normal road must share the same contact.
+			# Steering along the spur cannot become a sideways teleport at its exit.
+			k["lat"] = float(k["spur_exit_lat"])
+			k["latv"] = 0.0
+			k.erase("spur_start")
 
 func _kart_frame(s: float, lat: float) -> Array:
 	return _track_frame(_eff(s), lat, _rev)
@@ -516,6 +540,13 @@ func _burst(point: Vector2, color: Color) -> void:
 
 func start(main: Node, finish_cb: Callable, reversed_track: bool = false) -> void:
 	_main = main
+	if _main != null and "touch_ui" in _main and _main.touch_ui != null:
+		_touch_input_before = _main.touch_ui.is_processing_input()
+		_touch_unhandled_before = _main.touch_ui.is_processing_unhandled_input()
+		_main.touch_ui._clear_touch_state()
+		_main.touch_ui.set_process_input(false)
+		_main.touch_ui.set_process_unhandled_input(false)
+		_touch_owned = true
 	if _main.has_method("_navigation_push"):
 		_main.call("_navigation_push", "kart_race", self,
 			Callable(self, "_quit_race"))
@@ -549,6 +580,8 @@ func start(main: Node, finish_cb: Callable, reversed_track: bool = false) -> voi
 	_sel_t = 0.0
 
 func _notification(what: int) -> void:
+	if what in [NOTIFICATION_PAUSED, NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_APPLICATION_FOCUS_OUT] and _canvas != null:
+		_canvas.call("clear_touch")
 	# Android normally sends a pause notification before the process can be
 	# evicted. Bank the pearls already collected at that point; the incremental
 	# payout helper will add only the remainder and finish bonus if play resumes.
@@ -561,7 +594,7 @@ func _sky_defaults() -> Array:
 	return [Color(0.02, 0.01, 0.06), Color(0.10, 0.04, 0.20)]
 
 func _build_shortcut() -> void:
-	var frame := _frame_at(SHORTCUT_FROM_U * _len, _rhalf() * 0.78)
+	var frame := _frame_at(_shortcut_from_u() * _len, _rhalf() * 0.78)
 	set_meta("gate_pos", frame[0])
 	set_meta("gate_height", frame[4])
 
@@ -600,6 +633,8 @@ func _check_ramps() -> void:
 					_flash_big("WHEEE!")
 
 func _hazard_table() -> Array:
+	if _world_route() and not cfg.has("hazards"):
+		return CourseWorlds.HAZARDS
 	return _cv("hazards", HAZARDS_OCEAN if _theme() == "ocean" else HAZARDS_RAINBOW)
 
 func _build_hazards() -> void:
@@ -760,6 +795,7 @@ func _build_pearls() -> void:
 		for j in range(int(row["n"])):
 			var pearl := Node2D.new()
 			var s: float = s0 + float(j) * 6.0
+			pearl.set_meta("course_s", s)
 			_set_contact(pearl, _frame_at(s, float(row["lat"])), 2.0)
 			add_child(pearl)
 			_pearls_live.append({"node": pearl, "got": false})
@@ -842,7 +878,7 @@ func _build_select() -> void:
 	_lbl_hint.text = "" if _minimal() else ("slide a finger to choose • TAP to GO!" if _touch_device() else "LEFT/RIGHT to choose • SPACE or A to GO!")
 	_set_guide_mode("steer")
 	if _main != null and _main.has_method("_say"):
-		_main._say("roshan", "intro4", 10.0)
+		_main._say("roshan", "op_racer_steer", 1.0)
 
 func _build_select_controls() -> void:
 	if _hud_root == null:
@@ -982,7 +1018,7 @@ func _tick_select(delta: float) -> void:
 		_clock = 3.999
 		_lbl_big.text = ""
 		_lbl_hint.text = "" if _minimal() else ("drag left/right to steer  •  TAP = TURBO when the bar is full!" if _touch_device() else "steer with LEFT/RIGHT  •  SPACE or A = TURBO!")
-		_meter_bg.visible = true
+		_meter_bg.visible = false
 		_set_guide_mode("action")
 		# put the whole pack ON the grid right now (nodes used to sit at the
 		# world origin until the first race frame — the countdown showed an
@@ -1001,10 +1037,14 @@ func _fire_just() -> bool:
 	if not just and _main != null and "touch_ui" in _main and _main.touch_ui != null:
 		if _main.touch_ui.has_method("consume_action_just"):
 			just = bool(_main.touch_ui.consume_action_just())
+	just = just or _canvas_fire
+	_canvas_fire = false
 	return just
 
 func _steer_input() -> float:
-	var steer := 0.0
+	var steer := _canvas_steer
+	if _canvas_held:
+		_touch_t = 3.0
 	if Input.is_physical_key_pressed(KEY_LEFT) or Input.is_physical_key_pressed(KEY_A):
 		steer -= 1.0
 	if Input.is_physical_key_pressed(KEY_RIGHT) or Input.is_physical_key_pressed(KEY_D):
@@ -1056,7 +1096,7 @@ func _process(delta: float) -> void:
 			_lbl_big.text = ""
 			# ROCKET START: already on the controls the instant GO fires —
 			# teachable purely by feel, no reading required
-			var hot: bool = _rocket_armed or absf(_steer_input()) > 0.05 or Input.is_physical_key_pressed(KEY_SPACE) or Input.is_physical_key_pressed(KEY_ENTER) or joy_pressed(JOY_BUTTON_A) or joy_pressed(JOY_BUTTON_B)
+			var hot: bool = _canvas_held or _rocket_armed or absf(_steer_input()) > 0.05 or Input.is_physical_key_pressed(KEY_SPACE) or Input.is_physical_key_pressed(KEY_ENTER) or joy_pressed(JOY_BUTTON_A) or joy_pressed(JOY_BUTTON_B)
 			if _main != null and "touch_ui" in _main and _main.touch_ui != null and (_main.touch_ui.stick_vec as Vector2).length() > 0.1:
 				hot = true
 			if hot and _pl != null:
@@ -1078,7 +1118,7 @@ func _process(delta: float) -> void:
 	var steer := _steer_input()
 	var braking := _brake_input()
 	var fired := _fire_just()
-	var acted_now: bool = absf(steer) > 0.05 or braking or fired
+	var acted_now: bool = _canvas_held or absf(steer) > 0.05 or braking or fired
 	if acted_now and not _player_acted:
 		_player_acted = true
 		# Pearls swept up by auto-cruise become earned only when Roshan performs
@@ -1241,6 +1281,20 @@ func _apply_lat(k: Dictionary, new_lat: float) -> void:
 
 func _place_kart(k: Dictionary, delta: float) -> void:
 	var fr := _kart_frame(float(k["s"]), float(k["lat"]))
+	if k.has("spur_start"):
+		var q: float = clampf((float(k["s"]) - float(k["spur_start"])) / (float(k["spur_end"]) - float(k["spur_start"])), 0.0, 1.0)
+		var from: Vector2 = k["spur_from"]
+		var to: Vector2 = k["spur_to"]
+		var forward: Vector2 = (to - from).normalized()
+		fr[0] = from.lerp(to, q) + Vector2(-forward.y, forward.x) * (float(k["lat"]) - float(k["spur_lat"])) * sin(q * PI)
+		fr[1] = forward
+		fr[2] = Vector2(-forward.y, forward.x)
+		var exit_frame := _kart_frame(float(k["spur_end"]), float(k["spur_exit_lat"]))
+		# Ease into the exit banking as well as its position; the normal contact
+		# includes the existing 1.2-unit chassis lift along the road's up axis.
+		fr[3] = (exit_frame[3] as Vector2) * q
+		fr[4] = 0.0
+		fr[5] = lerpf(1.0, float(exit_frame[5]), q)
 	var pos: Vector2 = fr[0]
 	var fwd: Vector2 = fr[1]
 	var node: Node2D = k["node"]
@@ -1323,11 +1377,8 @@ func _drift_cancel(k: Dictionary) -> void:
 		k["drift_tier_seen"] = 0
 
 func _flash_big(txt: String) -> void:
-	if _minimal():
-		return
-	if _lbl_big != null and _state == "race":
-		_lbl_big.text = txt
-		_flash_t = 1.1
+	if _canvas != null:
+		_canvas.call("feedback", txt)
 
 func _speedy() -> bool:
 	return _main != null and "quality" in _main and String(_main.quality) == "speedy"
@@ -1434,7 +1485,15 @@ func _check_shortcut() -> void:
 	if _point_distance(pn, gate, float(get_meta("gate_height")) + 1.2) < 7.0:
 		_shortcut_used_lap = lap
 		var base: float = float(lap) * _len
-		_pl["s"] = base + SHORTCUT_TO_U * _len
+		if _world_route():
+			_pl["spur_start"] = float(_pl["s"])
+			_pl["spur_end"] = base + _shortcut_to_u() * _len
+			_pl["spur_from"] = pn.position
+			_pl["spur_to"] = _frame_at(_shortcut_to_u() * _len, _rhalf() * 0.78)[0]
+			_pl["spur_lat"] = float(_pl["lat"])
+			_pl["spur_exit_lat"] = _rhalf() * 0.78
+		else:
+			_pl["s"] = base + SHORTCUT_TO_U * _len
 		_pl["boost_t"] = maxf(float(_pl["boost_t"]), 0.9)
 		if _canvas != null:
 			_burst(pn.position, Color(0.5, 1.0, 0.8))
@@ -1554,47 +1613,13 @@ func _mk_label(parent: Control, pos: Vector2, size: int, col: Color = Color.WHIT
 	return l
 
 func _set_guide_mode(mode: String) -> void:
-	if _guide_mode == mode:
-		return
 	_guide_mode = mode
-	if _guide_pointer == null:
-		return
-	_guide_pointer.visible = mode != ""
-	_guide_pointer.scale = Vector2.ONE
-	_guide_pointer.rotation = 0.0
-	if mode == "action":
-		if not _touch_device():
-			# Desktop/gamepad has no bottom-right touch bubble to point at.
-			_guide_pointer.visible = false
-			return
-		# Points directly into touch_ui's bottom-right action bubble.
-		_guide_pointer.text = "➜"
-		_guide_pointer.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
-		_guide_pointer.offset_left = -300.0
-		_guide_pointer.offset_top = -190.0
-		_guide_pointer.offset_right = -190.0
-		_guide_pointer.offset_bottom = -90.0
-	elif mode == "steer":
-		_guide_pointer.text = "↔"
-		_guide_pointer.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
-		_guide_pointer.offset_left = -92.0
-		_guide_pointer.offset_top = -180.0
-		_guide_pointer.offset_right = 92.0
-		_guide_pointer.offset_bottom = -80.0
+	# Canvas demonstrates within the actual steering band and Turbo button.
+	if _guide_pointer != null:
+		_guide_pointer.visible = false
 
-func _tick_guide(delta: float) -> void:
-	if _guide_pointer == null or not _guide_pointer.visible:
-		return
-	_guide_t += delta
-	_guide_pointer.pivot_offset = _guide_pointer.size * 0.5
-	if _guide_mode == "action":
-		var pulse: float = 1.0 + sin(_guide_t * 5.0) * 0.13
-		_guide_pointer.scale = Vector2.ONE * pulse
-	else:
-		var slide: float = sin(_guide_t * 2.7) * 44.0
-		_guide_pointer.offset_left = -92.0 + slide
-		_guide_pointer.offset_right = 92.0 + slide
-		_guide_pointer.rotation = sin(_guide_t * 2.7) * 0.05
+func _tick_guide(_delta: float) -> void:
+	pass
 
 func _build_hud() -> void:
 	_hud = CanvasLayer.new()
@@ -1650,6 +1675,8 @@ func _build_hud() -> void:
 	_meter_fill.position = Vector2(3, 3)
 	_meter_fill.size = Vector2(0, 24)
 	_meter_bg.add_child(_meter_fill)
+	for label in [_lbl_lap, _lbl_place, _lbl_pearls, _lbl_big, _lbl_hint]:
+		(label as Label).visible = false
 
 func _quit_race() -> void:
 	if _state == "podium" or _state == "done":
@@ -1719,6 +1746,7 @@ func _update_hud() -> void:
 	_lbl_place.text = "%d%s" % [place, suffix]
 	_lbl_pearls.text = "◉ %d pearls" % _pearls_got
 	var m: float = float(_pl["meter"])
+	_meter_bg.visible = false
 	_meter_fill.size = Vector2(354.0 * m, 24)
 	var rdy: bool = m >= 0.5 and float(_pl["boost_t"]) <= 0.0
 	_meter_fill.color = (Color(1.0, 0.85, 0.2) if rdy else Color(0.3, 0.95, 1.0))
@@ -1775,6 +1803,7 @@ func _show_finish_result() -> void:
 		_lbl_big.add_theme_font_size_override("font_size", 54)
 
 func _teardown(place: int) -> void:
+	_restore_touch()
 	if _main != null and _main.has_method("_navigation_remove"):
 		_main.call("_navigation_remove", "kart_race")
 	# Covers explicit quit and any direct teardown caller. Both helpers are
@@ -1786,6 +1815,27 @@ func _teardown(place: int) -> void:
 	if _finish_cb.is_valid():
 		_finish_cb.call(place)
 	queue_free()
+
+func _restore_touch() -> void:
+	if not _touch_owned:
+		return
+	_touch_owned = false
+	if _main != null and is_instance_valid(_main) and "touch_ui" in _main and is_instance_valid(_main.touch_ui):
+		_main.touch_ui._clear_touch_state()
+		_main.touch_ui.set_process_input(_touch_input_before)
+		_main.touch_ui.set_process_unhandled_input(_touch_unhandled_before)
+
+func _exit_tree() -> void:
+	_restore_touch()
+
+func _world_route() -> bool:
+	return bool(_cv("world_route", not cfg.has("ctrl") and not cfg.has("ctrl_height")))
+
+func _shortcut_from_u() -> float:
+	return 0.55 if _world_route() else SHORTCUT_FROM_U
+
+func _shortcut_to_u() -> float:
+	return 0.61 if _world_route() else SHORTCUT_TO_U
 
 
 func _sync_hud_stage() -> void:

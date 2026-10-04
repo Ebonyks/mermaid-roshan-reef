@@ -1,0 +1,116 @@
+{
+  "schema": "racer.terminal-review.v1",
+  "reviewed_utc": "2026-10-04T05:45:51.717076+00:00",
+  "matrix_source": {
+    "path": "C:\\Users\\Peter\\.codex\\worktrees\\job-art-review-v2-20261001\\mermaid-roshan-reef\\audit\\job_geologist_rebuild_v2_20261003\\source_review_parallel_v2\\final_actor_terminal_gap_supplement_v1\\MATRIX.json",
+    "sha256": "c4fde855ca688e1ecf17dbf31825e8707e81f5d6a6d56b3724eb10334e9e8e5e",
+    "role": "Verified declarations and source anchors; not a runtime or acceptance grade"
+  },
+  "racer_declaration": {
+    "career": "racer",
+    "matrix_reference": "audit/job_native_resolution_inventory_v1_20261003/actual_phase_coverage_matrix_v1_20261003/racer.json",
+    "ordinary_terminal_and_enabled_stage_catalog": [
+      {
+        "existing_id": "OPERA-racer-02",
+        "context": "BASE_OPERA_PHASE",
+        "name": "RACE",
+        "mode": "kart_race",
+        "natural_birthday_selected": null,
+        "current_literal_lines": [
+          {
+            "source": "scripts/opera_career_world_2d.gd",
+            "line": 334,
+            "text": "{\"name\": \"RACE\", \"mode\": \"kart_race\", \"widget\": \"\", \"goal\": 2.0, \"vo\": \"op_racer_steer\", \"voice\": \"Swipe to steer through the coral gates!\"},"
+          }
+        ],
+        "planning_not_runtime_acceptance": true
+      }
+    ],
+    "chapter2_initial_tutorial": "DISABLED INITIAL_TUTORIAL_ACTS=[]; configured tutorial fixture firstphase differs from full terminal and is not natural enabled route",
+    "freeplay_two_act_enabled": false,
+    "first_phase_tutorial_declaration": "OPERA-racer-00",
+    "birthday_route_literals": [],
+    "actual_job_day_status": "UNAVAILABLE_OR_UNBOUND_NO_EXACT_DAY_RUN_IN_THIS_PACKET",
+    "terminal_actor_contact_gap": "RACE specialist drives kart; actor body may be hidden by driving feedback. Need visible Roshan driving/finish/park or intentional stop, conserved kart and settled endpoint; no complete driving/return review found in matrix.",
+    "existing_report_links": [
+      "audit/job_game_refinement_20261003/racer/PLAN.json",
+      "audit/job_artwork_refinement_live/index.html"
+    ],
+    "existing_terminal_partial_image_review_refs": [],
+    "exact_actor_source": "Current career-approved actor atlas via existing animator + _play_roshan_task_pose2367; special surface and pose may override. No new mounting/appearance proof.",
+    "support_conservation_settle_transition": "UNVERIFIED as a whole final action; inspect source-specific contacts described above, earned settle and natural actor return.",
+    "numeric_grade": null,
+    "owner_or_runtime_acceptance": null
+  },
+  "actual_full_engine_entry": {
+    "path": "scripts/main.gd",
+    "line": 2033,
+    "sha256_lf": "7b6877b2d4741a2e47021fca7b1d7a55ce1ed334371135c12a7865dbf52ae7b7",
+    "expression": "func _start_kart_game_now("
+  },
+  "actual_full_engine_return": {
+    "path": "scripts/main.gd",
+    "line": 2081,
+    "sha256_lf": "7b6877b2d4741a2e47021fca7b1d7a55ce1ed334371135c12a7865dbf52ae7b7",
+    "expression": "func _end_kart_game("
+  },
+  "contained_career_surface": {
+    "path": "scripts/opera_racer_surface.gd",
+    "line": 1,
+    "sha256_lf": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+    "expression": "class_name OperaRacerSurface"
+  },
+  "contained_career_mode": {
+    "path": "scripts/opera_career_world_2d.gd",
+    "line": 333,
+    "sha256_lf": "f905d5471ca4da15a05934bdb6d037e479692fdf6532fac90fbe98f3283e69f9",
+    "expression": "\"name\": \"RACE\", \"mode\": \"kart_race\""
+  },
+  "current_probe_entry": {
+    "path": "scripts/probe_kart_canvas_2d.gd",
+    "line": 31,
+    "sha256_lf": "72d9be844557fa9b594cf58c100572668c1d2c93ae5f0d32c608262e0b9954a1",
+    "expression": "main._start_kart_game_now(false, \"float\")"
+  },
+  "current_probe_finish_staging": {
+    "path": "scripts/probe_kart_canvas_2d.gd",
+    "line": 209,
+    "sha256_lf": "72d9be844557fa9b594cf58c100572668c1d2c93ae5f0d32c608262e0b9954a1",
+    "expression": "race._player_acted = true"
+  },
+  "criteria": [
+    {
+      "criterion": "Visible Roshan driving",
+      "implementation": "Authored seated rear chase poses on all three rides; measured tire contacts and unchanged identity references",
+      "machine_evidence": [
+        "captures/pose_kart_straight.png",
+        "captures/pose_kart_left.png",
+        "captures/pose_kart_right.png",
+        "captures/pose_kart_boost.png"
+      ],
+      "acceptance": "PENDING; rear framing does not independently prove visible hand/wheel contact or full acting"
+    },
+    {
+      "criterion": "Conserved kart across finish",
+      "implementation": "The same player dictionary, vehicle and pose family remain through podium",
+      "machine_evidence": [
+        "captures/03_finish_approach.png",
+        "captures/04_finish_crossing.png",
+        "captures/05_result_settle.png"
+      ],
+      "acceptance": "PENDING; diagnostic finish explicitly stages lap distance and participation, not a natural playthrough"
+    },
+    {
+      "criterion": "Intentional stop, parked endpoint and return",
+      "implementation": "Existing Back/teardown and main return callbacks retained; trusted feel checks real banking and interruption behavior",
+      "machine_evidence": [
+        "focused_feel_receipt.json",
+        "logs/final_feel.stdout.log"
+      ],
+      "acceptance": "COVERAGE_GAP; a natural Movie Lounge career finish/park/return and authored settled actor endpoint are not reviewed"
+    }
+  ],
+  "scope": "Current fuller KartGame candidate only. The matrix describes the older contained Opera Racer. Their evidence and save/reward lifecycles must not be conflated.",
+  "next_bounded_work": "Review the actual Movie Lounge TUNE/TO THE LINE/RACE caller and preserve its career star, exact room return and imp rematch rules before integrating the fuller engine. Shared career adoption remains coordinator-owned.",
+  "acceptance": "No new score, cinematic acceptance, device/child/owner acceptance, finding closure or release authority."
+}
