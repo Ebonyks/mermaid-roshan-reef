@@ -1,0 +1,92 @@
+{
+  "schema": "racer.direction-review.v1",
+  "decision": "Use the fuller developed KartGame as the gameplay foundation, with the rebuilt true-Canvas chase presentation.",
+  "source": "source_snapshot.json",
+  "source_hashes": [
+    {
+      "path": "scripts/kart.gd",
+      "sha256_bytes": "efee775dbde38cf2bceb49f4699e8a8cb50ed5b79ffe64ce0ab7a8ddbfbad26b",
+      "sha256_lf": "73ee5586102008376afda81cd81eb76559336974ec25de56f7d01e975e7009e4"
+    },
+    {
+      "path": "scripts/kart_canvas_2d.gd",
+      "sha256_bytes": "e2fc7d4651553d7b459a683d4429cd7c2122e5ae8a3716ebd13b44cd0b7130a9",
+      "sha256_lf": "e2fc7d4651553d7b459a683d4429cd7c2122e5ae8a3716ebd13b44cd0b7130a9"
+    },
+    {
+      "path": "scripts/kart_course_worlds.gd",
+      "sha256_bytes": "4aab47241800ba1703d3c3b0c007947d04d7a75b7f00ec112e2eaa3bd0e9d77a",
+      "sha256_lf": "4aab47241800ba1703d3c3b0c007947d04d7a75b7f00ec112e2eaa3bd0e9d77a"
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "sha256_bytes": "66fa1dfe73fb7693dc9bc11d0054c2d70d4927b44d856ccf2f43109893aeccaa",
+      "sha256_lf": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8"
+    },
+    {
+      "path": "scripts/probe_kart_canvas_2d.gd",
+      "sha256_bytes": "72d9be844557fa9b594cf58c100572668c1d2c93ae5f0d32c608262e0b9954a1",
+      "sha256_lf": "72d9be844557fa9b594cf58c100572668c1d2c93ae5f0d32c608262e0b9954a1"
+    },
+    {
+      "path": "assets/kart/chase/anchors.json",
+      "sha256_bytes": "48c0bb0188e4385f809a2b10818d3481c59fe8f3554886cce834b8a5aba77b43",
+      "sha256_lf": "38441c903bbc66933d6d152c27c3216c5ba882042f928fb1fadad04595c0ef16"
+    }
+  ],
+  "comparison": "assessment.receipt.json is the sealed earlier comparison. Its visual shortcomings describe the first flat port, not this chase rebuild.",
+  "criteria": [
+    {
+      "criterion": "Player agency and variety",
+      "finding": "Full eight-racer pack, ride selection, drift/turbo, pickups, ramps, shortcuts and reverse remain; trusted feel simulations reward deliberate driving.",
+      "evidence": [
+        "logs/final_feel.stdout.log",
+        "focused_feel_receipt.json"
+      ],
+      "limits": "Simulated playability; child enjoyment remains unobserved."
+    },
+    {
+      "criterion": "One-finger discoverability",
+      "finding": "Visible picture steering band and separate optional Turbo touch replace the flat port hidden controls; centered deliberate holding counts as participation.",
+      "evidence": [
+        "captures/01c_tablet_picture_targets.png",
+        "logs/final_native.stdout.log"
+      ],
+      "limits": "Real GUI touch is exercised on desktop; physical-device ergonomics and comprehension remain pending."
+    },
+    {
+      "criterion": "Readable environment route",
+      "finding": "Eleven sectors follow existing Movie Lounge/Gallery/Hall/Pool ancestry and Castle/Sky Lagoon bridge links, using aspect-preserved approved room artwork.",
+      "evidence": [
+        "index.html",
+        "captures/route_07_castle_bridge_home.png"
+      ],
+      "limits": "Diagnostic staged route; Hall native-resolution gap remains open."
+    },
+    {
+      "criterion": "Truthful acting and contact",
+      "finding": "Authored seated keys, measured rear tire pivots, vehicle-specific rival seat sockets and separate jump shadows improve grounding.",
+      "evidence": [
+        "asset_geometry_receipt.json",
+        "terminal_actor_review.json"
+      ],
+      "limits": "Hand/wheel contact, intermediate acting, finish/park/return and owner identity approval remain open."
+    },
+    {
+      "criterion": "Progress safety",
+      "finding": "Trusted checks cover pause banking, save generation recovery, completion before podium, repeated callbacks and no-input economy/progression.",
+      "evidence": [
+        "focused_feel_receipt.json"
+      ],
+      "limits": "Back intentionally banks collected pearls; unattended positive finish presentation is not claimed absent."
+    }
+  ],
+  "remaining_work_order": [
+    "Complete required full-suite verification and topic publication.",
+    "Coordinate bounded Movie Lounge career adoption with the existing owner of the shared career shell.",
+    "Review natural driving, finish/intentional stop, conserved vehicle and settled actor return before claiming terminal-action acceptance.",
+    "Complete authoritative fresh-runtime, Lenovo M11, child and owner review."
+  ],
+  "current_acceptance": "Candidate only; no owner/child/device/master-audit satisfaction.",
+  "reviewed_utc": "2026-10-04T05:49:47.376243+00:00"
+}

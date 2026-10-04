@@ -1,0 +1,2552 @@
+{
+  "baseline": "30d82725661044de63b682f5b13ba8f19101892b",
+  "sources": [
+    {
+      "path": "scripts/kart.gd",
+      "sha256": "8b05203b2a1f3f7538e31b7924f93d34e9ab35f672c41ed43cfb7d4dbc4f9bb2",
+      "git_clean_blob": "0e1a31fb3c8ca753a57e2e0cdc5014633e5b7101",
+      "functions": [
+        {
+          "name": "_touch_device",
+          "line": 285
+        },
+        {
+          "name": "action_label",
+          "line": 288
+        },
+        {
+          "name": "joy_axis",
+          "line": 296
+        },
+        {
+          "name": "joy_pressed",
+          "line": 304
+        },
+        {
+          "name": "configure",
+          "line": 310
+        },
+        {
+          "name": "_cv",
+          "line": 313
+        },
+        {
+          "name": "_minimal",
+          "line": 316
+        },
+        {
+          "name": "_laps",
+          "line": 321
+        },
+        {
+          "name": "_theme",
+          "line": 324
+        },
+        {
+          "name": "_ground_mode",
+          "line": 327
+        },
+        {
+          "name": "_terrain_y",
+          "line": 332
+        },
+        {
+          "name": "_rhalf",
+          "line": 337
+        },
+        {
+          "name": "_catmull",
+          "line": 340
+        },
+        {
+          "name": "_ctrl_pts",
+          "line": 345
+        },
+        {
+          "name": "_origin",
+          "line": 351
+        },
+        {
+          "name": "_ctrl_heights",
+          "line": 354
+        },
+        {
+          "name": "_height_u",
+          "line": 358
+        },
+        {
+          "name": "_spline_u",
+          "line": 370
+        },
+        {
+          "name": "_build_lut",
+          "line": 383
+        },
+        {
+          "name": "_height_at",
+          "line": 416
+        },
+        {
+          "name": "_tangent_metric",
+          "line": 423
+        },
+        {
+          "name": "_pos_at",
+          "line": 429
+        },
+        {
+          "name": "_tangent_at",
+          "line": 439
+        },
+        {
+          "name": "_width_at",
+          "line": 447
+        },
+        {
+          "name": "_bank_at",
+          "line": 451
+        },
+        {
+          "name": "_frame_at",
+          "line": 456
+        },
+        {
+          "name": "_track_frame",
+          "line": 459
+        },
+        {
+          "name": "_eff",
+          "line": 476
+        },
+        {
+          "name": "_curv_at",
+          "line": 480
+        },
+        {
+          "name": "_advance",
+          "line": 491
+        },
+        {
+          "name": "_kart_frame",
+          "line": 499
+        },
+        {
+          "name": "_set_contact",
+          "line": 502
+        },
+        {
+          "name": "_point_distance",
+          "line": 506
+        },
+        {
+          "name": "_contact_distance",
+          "line": 510
+        },
+        {
+          "name": "_burst",
+          "line": 513
+        },
+        {
+          "name": "start",
+          "line": 517
+        },
+        {
+          "name": "_notification",
+          "line": 551
+        },
+        {
+          "name": "_sky_defaults",
+          "line": 558
+        },
+        {
+          "name": "_build_shortcut",
+          "line": 563
+        },
+        {
+          "name": "_build_strips",
+          "line": 568
+        },
+        {
+          "name": "_build_pickups",
+          "line": 575
+        },
+        {
+          "name": "_build_ramps",
+          "line": 584
+        },
+        {
+          "name": "_check_ramps",
+          "line": 591
+        },
+        {
+          "name": "_hazard_table",
+          "line": 602
+        },
+        {
+          "name": "_build_hazards",
+          "line": 605
+        },
+        {
+          "name": "_hazard_bonk",
+          "line": 623
+        },
+        {
+          "name": "_tick_hazards",
+          "line": 642
+        },
+        {
+          "name": "_build_pearls",
+          "line": 756
+        },
+        {
+          "name": "_vehicle_body",
+          "line": 767
+        },
+        {
+          "name": "_apply_paint",
+          "line": 776
+        },
+        {
+          "name": "_vehicles_table",
+          "line": 779
+        },
+        {
+          "name": "_vehicle_keys",
+          "line": 782
+        },
+        {
+          "name": "_veh",
+          "line": 798
+        },
+        {
+          "name": "_build_karts",
+          "line": 801
+        },
+        {
+          "name": "_build_select",
+          "line": 832
+        },
+        {
+          "name": "_build_select_controls",
+          "line": 847
+        },
+        {
+          "name": "_choose_ride_by_touch",
+          "line": 876
+        },
+        {
+          "name": "_choose_paint_by_touch",
+          "line": 883
+        },
+        {
+          "name": "_paint_choice_fill",
+          "line": 890
+        },
+        {
+          "name": "_refresh_select_controls",
+          "line": 897
+        },
+        {
+          "name": "_sel_move",
+          "line": 917
+        },
+        {
+          "name": "_build_paint_row",
+          "line": 938
+        },
+        {
+          "name": "_tick_select",
+          "line": 942
+        },
+        {
+          "name": "_fire_just",
+          "line": 997
+        },
+        {
+          "name": "_steer_input",
+          "line": 1006
+        },
+        {
+          "name": "_brake_input",
+          "line": 1027
+        },
+        {
+          "name": "_process",
+          "line": 1036
+        },
+        {
+          "name": "_update_player",
+          "line": 1112
+        },
+        {
+          "name": "_update_ai",
+          "line": 1164
+        },
+        {
+          "name": "_apply_lat",
+          "line": 1225
+        },
+        {
+          "name": "_place_kart",
+          "line": 1242
+        },
+        {
+          "name": "_charge",
+          "line": 1295
+        },
+        {
+          "name": "_drift_tier",
+          "line": 1299
+        },
+        {
+          "name": "_drift_spray",
+          "line": 1302
+        },
+        {
+          "name": "_drift_release",
+          "line": 1305
+        },
+        {
+          "name": "_drift_cancel",
+          "line": 1316
+        },
+        {
+          "name": "_flash_big",
+          "line": 1325
+        },
+        {
+          "name": "_speedy",
+          "line": 1332
+        },
+        {
+          "name": "_draft_ahead",
+          "line": 1335
+        },
+        {
+          "name": "_check_strips",
+          "line": 1344
+        },
+        {
+          "name": "_check_pickups",
+          "line": 1354
+        },
+        {
+          "name": "_check_pearls",
+          "line": 1407
+        },
+        {
+          "name": "_check_shortcut",
+          "line": 1426
+        },
+        {
+          "name": "_resolve_collisions",
+          "line": 1442
+        },
+        {
+          "name": "_chime",
+          "line": 1502
+        },
+        {
+          "name": "_build_engine",
+          "line": 1507
+        },
+        {
+          "name": "_tick_engine",
+          "line": 1521
+        },
+        {
+          "name": "_update_camera",
+          "line": 1540
+        },
+        {
+          "name": "_mk_label",
+          "line": 1546
+        },
+        {
+          "name": "_set_guide_mode",
+          "line": 1556
+        },
+        {
+          "name": "_tick_guide",
+          "line": 1585
+        },
+        {
+          "name": "_build_hud",
+          "line": 1599
+        },
+        {
+          "name": "_quit_race",
+          "line": 1654
+        },
+        {
+          "name": "_placement",
+          "line": 1662
+        },
+        {
+          "name": "_placement_bonus",
+          "line": 1671
+        },
+        {
+          "name": "_commit_payout",
+          "line": 1680
+        },
+        {
+          "name": "_commit_completion",
+          "line": 1705
+        },
+        {
+          "name": "_update_hud",
+          "line": 1712
+        },
+        {
+          "name": "_finish",
+          "line": 1739
+        },
+        {
+          "name": "_show_finish_result",
+          "line": 1771
+        },
+        {
+          "name": "_teardown",
+          "line": 1777
+        },
+        {
+          "name": "_sync_hud_stage",
+          "line": 1791
+        }
+      ],
+      "git_content_sha256": "8b05203b2a1f3f7538e31b7924f93d34e9ab35f672c41ed43cfb7d4dbc4f9bb2"
+    },
+    {
+      "path": "scripts/kart_canvas_2d.gd",
+      "sha256": "e0926ca26a0545c0c4d141011d8604da8069dcb3f8d1ee73ab67a2693f6231ad",
+      "git_clean_blob": "a1e4b83cfd593313fdfc906b3f337b53b9a3ac06",
+      "functions": [
+        {
+          "name": "setup",
+          "line": 24
+        },
+        {
+          "name": "follow",
+          "line": 52
+        },
+        {
+          "name": "burst",
+          "line": 66
+        },
+        {
+          "name": "_process",
+          "line": 72
+        },
+        {
+          "name": "_screen",
+          "line": 82
+        },
+        {
+          "name": "_mapped",
+          "line": 86
+        },
+        {
+          "name": "_draw",
+          "line": 92
+        },
+        {
+          "name": "_draw_course",
+          "line": 131
+        },
+        {
+          "name": "_draw_track_objects",
+          "line": 156
+        },
+        {
+          "name": "_draw_hazard",
+          "line": 196
+        },
+        {
+          "name": "_draw_racer",
+          "line": 235
+        },
+        {
+          "name": "_draw_driver",
+          "line": 264
+        },
+        {
+          "name": "_draw_vehicle",
+          "line": 284
+        },
+        {
+          "name": "_panel",
+          "line": 313
+        },
+        {
+          "name": "_draw_choices",
+          "line": 325
+        },
+        {
+          "name": "_draw_podium",
+          "line": 339
+        },
+        {
+          "name": "_draw_minimap",
+          "line": 357
+        },
+        {
+          "name": "_glyph",
+          "line": 367
+        }
+      ],
+      "git_content_sha256": "aa78b808227b7621854c27695738a2be62fceed3cfe98d96d74d5e9cd97cb880"
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "sha256": "66fa1dfe73fb7693dc9bc11d0054c2d70d4927b44d856ccf2f43109893aeccaa",
+      "git_clean_blob": "8254b87112069604ddb94dce729605ddfb0bf335",
+      "functions": [],
+      "git_content_sha256": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8"
+    },
+    {
+      "path": "scripts/main.gd",
+      "sha256": "bcb6a0999082e63c3bd67738fb34141b803c8a115442ed0103157cb1b7069471",
+      "git_clean_blob": "c2d636ec66f16543341fa5fe92602304f22a2796",
+      "functions": [
+        {
+          "name": "_sticker_def",
+          "line": 509
+        },
+        {
+          "name": "award_sticker",
+          "line": 515
+        },
+        {
+          "name": "_show_sticker_reward",
+          "line": 527
+        },
+        {
+          "name": "_sticker_toast",
+          "line": 536
+        },
+        {
+          "name": "_check_superstar",
+          "line": 556
+        },
+        {
+          "name": "_begin_100_celebration",
+          "line": 570
+        },
+        {
+          "name": "_refresh_joy_mapped",
+          "line": 822
+        },
+        {
+          "name": "_input",
+          "line": 828
+        },
+        {
+          "name": "joy_axis",
+          "line": 915
+        },
+        {
+          "name": "joy_pressed",
+          "line": 932
+        },
+        {
+          "name": "_district_ref",
+          "line": 987
+        },
+        {
+          "name": "_living_world_ref",
+          "line": 992
+        },
+        {
+          "name": "_fx_water_ref",
+          "line": 997
+        },
+        {
+          "name": "fx_splash",
+          "line": 1002
+        },
+        {
+          "name": "_ready",
+          "line": 1008
+        },
+        {
+          "name": "_warm_shaders",
+          "line": 1088
+        },
+        {
+          "name": "_start_menu_ref",
+          "line": 1150
+        },
+        {
+          "name": "_build_start_menu",
+          "line": 1155
+        },
+        {
+          "name": "_intro_ref",
+          "line": 1158
+        },
+        {
+          "name": "_build_intro",
+          "line": 1163
+        },
+        {
+          "name": "_intro_next",
+          "line": 1166
+        },
+        {
+          "name": "_skip_intro",
+          "line": 1169
+        },
+        {
+          "name": "_unhandled_input",
+          "line": 1172
+        },
+        {
+          "name": "_apply_time_of_day",
+          "line": 1187
+        },
+        {
+          "name": "_set_night",
+          "line": 1229
+        },
+        {
+          "name": "_build_night_ocean",
+          "line": 1242
+        },
+        {
+          "name": "_grade",
+          "line": 1315
+        },
+        {
+          "name": "_apply_scene_grade",
+          "line": 1321
+        },
+        {
+          "name": "_refresh_scene_grade",
+          "line": 1415
+        },
+        {
+          "name": "_wind_waker_bloom",
+          "line": 1424
+        },
+        {
+          "name": "_speedy_glow_clamp",
+          "line": 1449
+        },
+        {
+          "name": "_world_glow_target",
+          "line": 1458
+        },
+        {
+          "name": "_build_environment",
+          "line": 1464
+        },
+        {
+          "name": "_toon_water_mat",
+          "line": 1513
+        },
+        {
+          "name": "_halo",
+          "line": 1532
+        },
+        {
+          "name": "_fairy_light",
+          "line": 1557
+        },
+        {
+          "name": "_accumulate_aabb",
+          "line": 1581
+        },
+        {
+          "name": "_local_aabbs",
+          "line": 1590
+        },
+        {
+          "name": "_fit_prop",
+          "line": 1598
+        },
+        {
+          "name": "_register_solid",
+          "line": 1617
+        },
+        {
+          "name": "_wall_solid",
+          "line": 1635
+        },
+        {
+          "name": "_cyl_solid",
+          "line": 1647
+        },
+        {
+          "name": "_rainbow_mat",
+          "line": 1657
+        },
+        {
+          "name": "_aq_mat",
+          "line": 1681
+        },
+        {
+          "name": "_paint_aq",
+          "line": 1733
+        },
+        {
+          "name": "_aq",
+          "line": 1739
+        },
+        {
+          "name": "_place_aq",
+          "line": 1778
+        },
+        {
+          "name": "_find_anim",
+          "line": 1808
+        },
+        {
+          "name": "_play_clip",
+          "line": 1817
+        },
+        {
+          "name": "_rig_turtle",
+          "line": 1842
+        },
+        {
+          "name": "_turtle_idle",
+          "line": 1936
+        },
+        {
+          "name": "_set_sway",
+          "line": 1958
+        },
+        {
+          "name": "_aquatic_patrol_height",
+          "line": 1973
+        },
+        {
+          "name": "_build_friends",
+          "line": 1981
+        },
+        {
+          "name": "_kart_gateway",
+          "line": 1994
+        },
+        {
+          "name": "_start_kart_game",
+          "line": 2020
+        },
+        {
+          "name": "_capture_lagoon_trip_return",
+          "line": 2023
+        },
+        {
+          "name": "_start_kart_game_now",
+          "line": 2033
+        },
+        {
+          "name": "_kart_completion_committed",
+          "line": 2056
+        },
+        {
+          "name": "_restore_kart_music",
+          "line": 2074
+        },
+        {
+          "name": "_end_kart_game",
+          "line": 2081
+        },
+        {
+          "name": "_start_galaxy",
+          "line": 2143
+        },
+        {
+          "name": "_chapter_three_fairy_reveal_authorized",
+          "line": 2147
+        },
+        {
+          "name": "_maybe_reveal_fairy_conservatory",
+          "line": 2154
+        },
+        {
+          "name": "_start_fairy_conservatory_handoff",
+          "line": 2167
+        },
+        {
+          "name": "_start_fairy_conservatory_handoff_now",
+          "line": 2170
+        },
+        {
+          "name": "_capture_fairy_conservatory_return_context",
+          "line": 2208
+        },
+        {
+          "name": "_start_galaxy_from_fairy_conservatory",
+          "line": 2246
+        },
+        {
+          "name": "_end_fairy_conservatory_handoff",
+          "line": 2256
+        },
+        {
+          "name": "_restore_fairy_conservatory_return_context",
+          "line": 2276
+        },
+        {
+          "name": "_start_galaxy_now",
+          "line": 2312
+        },
+        {
+          "name": "_end_galaxy",
+          "line": 2337
+        },
+        {
+          "name": "_restore_level2_after_trip",
+          "line": 2396
+        },
+        {
+          "name": "_start_combat",
+          "line": 2411
+        },
+        {
+          "name": "_end_combat",
+          "line": 2431
+        },
+        {
+          "name": "_start_stuffie_battle",
+          "line": 2465
+        },
+        {
+          "name": "_end_stuffie_battle",
+          "line": 2492
+        },
+        {
+          "name": "_start_dungeon",
+          "line": 2527
+        },
+        {
+          "name": "_start_dungeon_now",
+          "line": 2530
+        },
+        {
+          "name": "_end_dungeon",
+          "line": 2545
+        },
+        {
+          "name": "_ember_open",
+          "line": 2563
+        },
+        {
+          "name": "_start_ember",
+          "line": 2569
+        },
+        {
+          "name": "_end_ember",
+          "line": 2593
+        },
+        {
+          "name": "_start_ember_dungeon",
+          "line": 2621
+        },
+        {
+          "name": "_end_ember_dungeon",
+          "line": 2638
+        },
+        {
+          "name": "_start_opera",
+          "line": 2651
+        },
+        {
+          "name": "_start_opera_from_room",
+          "line": 2674
+        },
+        {
+          "name": "_start_chapter2_plot_opera",
+          "line": 2708
+        },
+        {
+          "name": "_start_opera_now",
+          "line": 2730
+        },
+        {
+          "name": "_end_opera",
+          "line": 2796
+        },
+        {
+          "name": "_restore_opera_route_state",
+          "line": 2825
+        },
+        {
+          "name": "_apply_cel_shading",
+          "line": 2847
+        },
+        {
+          "name": "_cel_replace",
+          "line": 2870
+        },
+        {
+          "name": "_all_meshes",
+          "line": 2895
+        },
+        {
+          "name": "_build_player",
+          "line": 2906
+        },
+        {
+          "name": "_build_hud",
+          "line": 2916
+        },
+        {
+          "name": "_build_obj_card",
+          "line": 2958
+        },
+        {
+          "name": "_set_objective",
+          "line": 2989
+        },
+        {
+          "name": "_build_fade_cover",
+          "line": 3016
+        },
+        {
+          "name": "_fade_cut",
+          "line": 3029
+        },
+        {
+          "name": "_mk_label",
+          "line": 3050
+        },
+        {
+          "name": "_pips",
+          "line": 3060
+        },
+        {
+          "name": "_update_hud",
+          "line": 3064
+        },
+        {
+          "name": "_flash_speaker_icon",
+          "line": 3097
+        },
+        {
+          "name": "_mic_ref",
+          "line": 3128
+        },
+        {
+          "name": "_audio_ref",
+          "line": 3133
+        },
+        {
+          "name": "_say",
+          "line": 3138
+        },
+        {
+          "name": "say_day_one_context",
+          "line": 3143
+        },
+        {
+          "name": "reset_day_one_context",
+          "line": 3150
+        },
+        {
+          "name": "_play_companion_chirp",
+          "line": 3154
+        },
+        {
+          "name": "_play_success_yay",
+          "line": 3157
+        },
+        {
+          "name": "_speaker_key",
+          "line": 3160
+        },
+        {
+          "name": "show_msg",
+          "line": 3163
+        },
+        {
+          "name": "_sync_castle_voice_caption",
+          "line": 3168
+        },
+        {
+          "name": "say_sequence",
+          "line": 3188
+        },
+        {
+          "name": "skip_dialogue",
+          "line": 3191
+        },
+        {
+          "name": "clear_dialogue",
+          "line": 3194
+        },
+        {
+          "name": "_fanfare",
+          "line": 3197
+        },
+        {
+          "name": "_set_ambience",
+          "line": 3200
+        },
+        {
+          "name": "_tick_ambience_duck",
+          "line": 3203
+        },
+        {
+          "name": "_ui_tap",
+          "line": 3206
+        },
+        {
+          "name": "_hook_button_taps",
+          "line": 3209
+        },
+        {
+          "name": "_play_music",
+          "line": 3212
+        },
+        {
+          "name": "_apply_quality",
+          "line": 3215
+        },
+        {
+          "name": "_set_vis_range",
+          "line": 3257
+        },
+        {
+          "name": "_collection_ref",
+          "line": 3270
+        },
+        {
+          "name": "_companion_ref",
+          "line": 3279
+        },
+        {
+          "name": "_medal_ref",
+          "line": 3288
+        },
+        {
+          "name": "_load_save",
+          "line": 3293
+        },
+        {
+          "name": "_write_save",
+          "line": 3298
+        },
+        {
+          "name": "_start_new_game",
+          "line": 3311
+        },
+        {
+          "name": "_launch_from_start_menu",
+          "line": 3316
+        },
+        {
+          "name": "_prepare_start_menu_launch",
+          "line": 3335
+        },
+        {
+          "name": "day_one_castle_room_for_current",
+          "line": 3345
+        },
+        {
+          "name": "_queue_save",
+          "line": 3361
+        },
+        {
+          "name": "_melody_input_context_lost",
+          "line": 3371
+        },
+        {
+          "name": "_melody_input_context_blocks_input",
+          "line": 3375
+        },
+        {
+          "name": "_lose_melody_input_context",
+          "line": 3383
+        },
+        {
+          "name": "_restore_melody_input_context",
+          "line": 3396
+        },
+        {
+          "name": "_slide_canvas_fish_route_active",
+          "line": 3409
+        },
+        {
+          "name": "_slide_canvas_return_guard_active",
+          "line": 3415
+        },
+        {
+          "name": "_slide_canvas_return_fade_is_clear",
+          "line": 3419
+        },
+        {
+          "name": "_slide_canvas_return_guard_snapshot",
+          "line": 3424
+        },
+        {
+          "name": "_slide_canvas_return_physical_event",
+          "line": 3437
+        },
+        {
+          "name": "_slide_canvas_return_source_token",
+          "line": 3444
+        },
+        {
+          "name": "_observe_slide_canvas_return_source",
+          "line": 3491
+        },
+        {
+          "name": "_arm_slide_canvas_return_guard",
+          "line": 3546
+        },
+        {
+          "name": "_slide_canvas_return_sources_neutral",
+          "line": 3558
+        },
+        {
+          "name": "_finish_slide_canvas_return_guard",
+          "line": 3584
+        },
+        {
+          "name": "_tick_slide_canvas_return_guard",
+          "line": 3621
+        },
+        {
+          "name": "active_viewport_camera",
+          "line": 3641
+        },
+        {
+          "name": "_slide_canvas_input_context_lost",
+          "line": 3647
+        },
+        {
+          "name": "_slide_canvas_poll_restore_waiting",
+          "line": 3651
+        },
+        {
+          "name": "_record_slide_canvas_poll_level",
+          "line": 3656
+        },
+        {
+          "name": "_slide_canvas_input_context_blocks_input",
+          "line": 3668
+        },
+        {
+          "name": "_lose_slide_canvas_input_context",
+          "line": 3676
+        },
+        {
+          "name": "_restore_slide_canvas_input_context",
+          "line": 3701
+        },
+        {
+          "name": "_notification",
+          "line": 3716
+        },
+        {
+          "name": "_navigation_ref",
+          "line": 3756
+        },
+        {
+          "name": "_navigation_set_root",
+          "line": 3761
+        },
+        {
+          "name": "_navigation_push",
+          "line": 3764
+        },
+        {
+          "name": "_navigation_remove",
+          "line": 3768
+        },
+        {
+          "name": "_pause_ref",
+          "line": 3771
+        },
+        {
+          "name": "_build_pause",
+          "line": 3776
+        },
+        {
+          "name": "toggle_pause",
+          "line": 3779
+        },
+        {
+          "name": "_sync_pause_surface_layer",
+          "line": 3785
+        },
+        {
+          "name": "_init_touch_experiment",
+          "line": 3802
+        },
+        {
+          "name": "_interaction_ref",
+          "line": 3825
+        },
+        {
+          "name": "_tap_move_ref",
+          "line": 3830
+        },
+        {
+          "name": "touch_uses_explicit_interactions",
+          "line": 3835
+        },
+        {
+          "name": "_set_touch_mode",
+          "line": 3838
+        },
+        {
+          "name": "_touch_mode_label",
+          "line": 3854
+        },
+        {
+          "name": "_world_tap_gated",
+          "line": 3859
+        },
+        {
+          "name": "_melody_input_gated",
+          "line": 3871
+        },
+        {
+          "name": "_melody_overlay_owns_input",
+          "line": 3881
+        },
+        {
+          "name": "_melody_source_token",
+          "line": 3890
+        },
+        {
+          "name": "_melody_source_press",
+          "line": 3918
+        },
+        {
+          "name": "_melody_source_release",
+          "line": 3930
+        },
+        {
+          "name": "_track_melody_source_state",
+          "line": 3941
+        },
+        {
+          "name": "_retire_paused_melody_release",
+          "line": 3953
+        },
+        {
+          "name": "_retire_touch_ui_consumed_entry_release",
+          "line": 3968
+        },
+        {
+          "name": "_forget_melody_pad_device",
+          "line": 3984
+        },
+        {
+          "name": "_release_melody_source_event",
+          "line": 3996
+        },
+        {
+          "name": "_release_melody_input_under_overlay",
+          "line": 4014
+        },
+        {
+          "name": "_melody_pause_zone_hit",
+          "line": 4024
+        },
+        {
+          "name": "_route_melody_input",
+          "line": 4030
+        },
+        {
+          "name": "_slide_canvas_input_gated",
+          "line": 4155
+        },
+        {
+          "name": "_slide_canvas_overlay_owns_input",
+          "line": 4167
+        },
+        {
+          "name": "_slide_canvas_source_token",
+          "line": 4176
+        },
+        {
+          "name": "_slide_canvas_source_press",
+          "line": 4211
+        },
+        {
+          "name": "_slide_canvas_source_release",
+          "line": 4226
+        },
+        {
+          "name": "_track_slide_canvas_source_state",
+          "line": 4240
+        },
+        {
+          "name": "_retire_paused_slide_canvas_release",
+          "line": 4252
+        },
+        {
+          "name": "_retire_paused_slide_canvas_restore_boundary",
+          "line": 4265
+        },
+        {
+          "name": "_forget_slide_canvas_pad_device",
+          "line": 4282
+        },
+        {
+          "name": "_release_slide_canvas_source_event",
+          "line": 4302
+        },
+        {
+          "name": "_release_slide_canvas_input_under_overlay",
+          "line": 4319
+        },
+        {
+          "name": "_slide_canvas_pause_zone_hit",
+          "line": 4330
+        },
+        {
+          "name": "_route_slide_canvas_input",
+          "line": 4337
+        },
+        {
+          "name": "_on_world_press",
+          "line": 4479
+        },
+        {
+          "name": "_on_world_press_release",
+          "line": 4514
+        },
+        {
+          "name": "_live_hit_engines",
+          "line": 4531
+        },
+        {
+          "name": "_on_world_press_drag",
+          "line": 4542
+        },
+        {
+          "name": "_on_world_press_cancel",
+          "line": 4562
+        },
+        {
+          "name": "_on_world_drag_end",
+          "line": 4576
+        },
+        {
+          "name": "_on_touch_world",
+          "line": 4597
+        },
+        {
+          "name": "_combat_arena_ref",
+          "line": 4658
+        },
+        {
+          "name": "_on_touch_manual_move",
+          "line": 4665
+        },
+        {
+          "name": "_cancel_lagoon_navigation",
+          "line": 4676
+        },
+        {
+          "name": "_set_world_controls_enabled",
+          "line": 4680
+        },
+        {
+          "name": "_prepare_touch_transition",
+          "line": 4696
+        },
+        {
+          "name": "_finish_touch_transition",
+          "line": 4704
+        },
+        {
+          "name": "_touch_interaction_ready",
+          "line": 4709
+        },
+        {
+          "name": "touch_auto_direction",
+          "line": 4712
+        },
+        {
+          "name": "touch_auto_vertical",
+          "line": 4718
+        },
+        {
+          "name": "_touch_add_item",
+          "line": 4724
+        },
+        {
+          "name": "_populate_touch_interactables",
+          "line": 4742
+        },
+        {
+          "name": "_populate_courtyard_touch_interactables",
+          "line": 4762
+        },
+        {
+          "name": "_activate_touch_interactable",
+          "line": 4813
+        },
+        {
+          "name": "_touch_open_picture",
+          "line": 4853
+        },
+        {
+          "name": "_leave_current_activity",
+          "line": 4863
+        },
+        {
+          "name": "_open_dance_demo",
+          "line": 4873
+        },
+        {
+          "name": "_game_obj",
+          "line": 4883
+        },
+        {
+          "name": "_tick_fetch",
+          "line": 4888
+        },
+        {
+          "name": "_tick_dolls",
+          "line": 4891
+        },
+        {
+          "name": "_tick_brawl",
+          "line": 4894
+        },
+        {
+          "name": "_seek_hide",
+          "line": 4897
+        },
+        {
+          "name": "_tick_course",
+          "line": 4900
+        },
+        {
+          "name": "_tick_shop",
+          "line": 4903
+        },
+        {
+          "name": "_shop_buy",
+          "line": 4906
+        },
+        {
+          "name": "_tank_buy",
+          "line": 4909
+        },
+        {
+          "name": "_check_shopper",
+          "line": 4912
+        },
+        {
+          "name": "_tick_melody",
+          "line": 4915
+        },
+        {
+          "name": "_tick_fairyshoot",
+          "line": 4918
+        },
+        {
+          "name": "_near_ground",
+          "line": 4921
+        },
+        {
+          "name": "_skin_def",
+          "line": 4924
+        },
+        {
+          "name": "_apply_skin",
+          "line": 4930
+        },
+        {
+          "name": "_enter_level2",
+          "line": 4940
+        },
+        {
+          "name": "_enter_level2_now",
+          "line": 4946
+        },
+        {
+          "name": "_enter_northern_kingdom",
+          "line": 5012
+        },
+        {
+          "name": "_enter_northern_kingdom_now",
+          "line": 5015
+        },
+        {
+          "name": "_up_mat",
+          "line": 5048
+        },
+        {
+          "name": "_castle_mat",
+          "line": 5066
+        },
+        {
+          "name": "_register_castle_light",
+          "line": 5115
+        },
+        {
+          "name": "_sync_castle_lights",
+          "line": 5126
+        },
+        {
+          "name": "_l2_box",
+          "line": 5139
+        },
+        {
+          "name": "_lagoon_ref",
+          "line": 5162
+        },
+        {
+          "name": "_lagoon_promenade_ref",
+          "line": 5167
+        },
+        {
+          "name": "_northern_ref",
+          "line": 5177
+        },
+        {
+          "name": "northern_walk_h",
+          "line": 5182
+        },
+        {
+          "name": "_tick_northern",
+          "line": 5185
+        },
+        {
+          "name": "_train_ref",
+          "line": 5192
+        },
+        {
+          "name": "_build_pearl_castle",
+          "line": 5197
+        },
+        {
+          "name": "_build_lagoon_terrain",
+          "line": 5200
+        },
+        {
+          "name": "_build_lagoon_night",
+          "line": 5203
+        },
+        {
+          "name": "_build_fairy_pond",
+          "line": 5206
+        },
+        {
+          "name": "_tick_level2",
+          "line": 5209
+        },
+        {
+          "name": "_l2_tower",
+          "line": 5216
+        },
+        {
+          "name": "_seg_dist",
+          "line": 5219
+        },
+        {
+          "name": "_lagoon_river_dip",
+          "line": 5222
+        },
+        {
+          "name": "_lagoon_moat_dip",
+          "line": 5225
+        },
+        {
+          "name": "_lagoon_bump",
+          "line": 5228
+        },
+        {
+          "name": "_lagoon_local",
+          "line": 5231
+        },
+        {
+          "name": "_terr_v",
+          "line": 5234
+        },
+        {
+          "name": "_wind_sway",
+          "line": 5241
+        },
+        {
+          "name": "_nature",
+          "line": 5253
+        },
+        {
+          "name": "_toon_tile",
+          "line": 5271
+        },
+        {
+          "name": "_toy_anim",
+          "line": 5304
+        },
+        {
+          "name": "_kit",
+          "line": 5343
+        },
+        {
+          "name": "_gen2_creature_rigged",
+          "line": 5360
+        },
+        {
+          "name": "_gen2_creature",
+          "line": 5364
+        },
+        {
+          "name": "_attach_penguin_beak",
+          "line": 5428
+        },
+        {
+          "name": "_gen2_seagrass",
+          "line": 5456
+        },
+        {
+          "name": "_gen2_outline_mat",
+          "line": 5462
+        },
+        {
+          "name": "_gen2_prop",
+          "line": 5471
+        },
+        {
+          "name": "_pastel",
+          "line": 5495
+        },
+        {
+          "name": "_toonify",
+          "line": 5504
+        },
+        {
+          "name": "lagoon_h",
+          "line": 5559
+        },
+        {
+          "name": "lagoon_walk_h",
+          "line": 5562
+        },
+        {
+          "name": "water_surface_y",
+          "line": 5577
+        },
+        {
+          "name": "_pics_ref",
+          "line": 5601
+        },
+        {
+          "name": "_mg2d_open",
+          "line": 5604
+        },
+        {
+          "name": "_mg2d_close",
+          "line": 5607
+        },
+        {
+          "name": "_mg_tick_snow_chase",
+          "line": 5610
+        },
+        {
+          "name": "_mg2d_win",
+          "line": 5613
+        },
+        {
+          "name": "_mg_snow_ball_size",
+          "line": 5616
+        },
+        {
+          "name": "_mg_snow_ball_done",
+          "line": 5619
+        },
+        {
+          "name": "_tick_mg2d",
+          "line": 5624
+        },
+        {
+          "name": "_open_castle_door",
+          "line": 5741
+        },
+        {
+          "name": "_tick_cutscene",
+          "line": 5768
+        },
+        {
+          "name": "_enter_castle_interior",
+          "line": 5784
+        },
+        {
+          "name": "_enter_castle_interior_now",
+          "line": 5787
+        },
+        {
+          "name": "_glass_window",
+          "line": 5836
+        },
+        {
+          "name": "_hang_portrait",
+          "line": 5857
+        },
+        {
+          "name": "light_rig",
+          "line": 5904
+        },
+        {
+          "name": "_day_one_ref",
+          "line": 5919
+        },
+        {
+          "name": "_comfy_games_ref",
+          "line": 5926
+        },
+        {
+          "name": "comfy_games_refresh_castle_room",
+          "line": 5932
+        },
+        {
+          "name": "comfy_games_clear_castle_room",
+          "line": 5936
+        },
+        {
+          "name": "_chapter_two_ref",
+          "line": 5941
+        },
+        {
+          "name": "_chapter_two_sync_room_plot",
+          "line": 5948
+        },
+        {
+          "name": "chapter2_is_active",
+          "line": 5965
+        },
+        {
+          "name": "chapter2_initial_tutorial_act_indices",
+          "line": 5969
+        },
+        {
+          "name": "chapter2_is_opera_tutorial_phase",
+          "line": 5973
+        },
+        {
+          "name": "chapter2_can_start_opera_act",
+          "line": 5977
+        },
+        {
+          "name": "chapter2_opera_route_matches",
+          "line": 5982
+        },
+        {
+          "name": "chapter2_show_freeplay_career_routes",
+          "line": 5994
+        },
+        {
+          "name": "_chapter_two_live_castle_room",
+          "line": 5998
+        },
+        {
+          "name": "chapter2_activate_room_plot",
+          "line": 6007
+        },
+        {
+          "name": "_start_chapter2_lawn",
+          "line": 6036
+        },
+        {
+          "name": "_end_chapter2_lawn",
+          "line": 6066
+        },
+        {
+          "name": "chapter2_record_party_contribution",
+          "line": 6082
+        },
+        {
+          "name": "chapter2_on_opera_phase_completed",
+          "line": 6091
+        },
+        {
+          "name": "chapter2_on_opera_phase_snapshot",
+          "line": 6100
+        },
+        {
+          "name": "chapter2_record_strawberry_pick",
+          "line": 6109
+        },
+        {
+          "name": "chapter2_record_cake_piece",
+          "line": 6116
+        },
+        {
+          "name": "chapter2_party_is_ready",
+          "line": 6123
+        },
+        {
+          "name": "chapter2_next_party_act",
+          "line": 6127
+        },
+        {
+          "name": "chapter2_start_main_hall_party",
+          "line": 6131
+        },
+        {
+          "name": "chapter2_trigger_ember_king_crash",
+          "line": 6135
+        },
+        {
+          "name": "chapter2_on_opera_completed",
+          "line": 6139
+        },
+        {
+          "name": "_attack_customizer_ref",
+          "line": 6153
+        },
+        {
+          "name": "_open_attack_customizer",
+          "line": 6169
+        },
+        {
+          "name": "_close_attack_customizer",
+          "line": 6177
+        },
+        {
+          "name": "set_attack_profile",
+          "line": 6183
+        },
+        {
+          "name": "_open_day_one_art_studio",
+          "line": 6197
+        },
+        {
+          "name": "_close_day_one_art_studio",
+          "line": 6211
+        },
+        {
+          "name": "day_one_is_active",
+          "line": 6217
+        },
+        {
+          "name": "day_one_jobs_locked",
+          "line": 6220
+        },
+        {
+          "name": "day_one_opera_enabled",
+          "line": 6223
+        },
+        {
+          "name": "day_one_boss_door_ready",
+          "line": 6226
+        },
+        {
+          "name": "day_one_complete_boss_and_begin_day_two",
+          "line": 6232
+        },
+        {
+          "name": "_show_day_two_transition",
+          "line": 6249
+        },
+        {
+          "name": "_on_day_two_transition_finished",
+          "line": 6275
+        },
+        {
+          "name": "day_one_castle_room_is_clean",
+          "line": 6284
+        },
+        {
+          "name": "day_one_can_enter_castle_room",
+          "line": 6290
+        },
+        {
+          "name": "day_one_try_enter_castle_room",
+          "line": 6299
+        },
+        {
+          "name": "day_one_activate_castle_room",
+          "line": 6307
+        },
+        {
+          "name": "day_one_record_bathroom_cleanup_step",
+          "line": 6370
+        },
+        {
+          "name": "day_one_record_bathroom_supply_step",
+          "line": 6377
+        },
+        {
+          "name": "day_one_record_bathroom_toilet_cleaned",
+          "line": 6387
+        },
+        {
+          "name": "day_one_record_bathroom_tub_drained",
+          "line": 6394
+        },
+        {
+          "name": "day_one_authorize_bathroom_tools",
+          "line": 6404
+        },
+        {
+          "name": "day_one_complete_bathroom_scene",
+          "line": 6416
+        },
+        {
+          "name": "day_one_record_art_cleanup",
+          "line": 6441
+        },
+        {
+          "name": "day_one_complete_art_customization",
+          "line": 6450
+        },
+        {
+          "name": "day_one_complete_art_scene",
+          "line": 6459
+        },
+        {
+          "name": "day_one_record_pool_cleanup_step",
+          "line": 6473
+        },
+        {
+          "name": "day_one_record_pool_activity_progress",
+          "line": 6481
+        },
+        {
+          "name": "day_one_complete_pool_scene",
+          "line": 6497
+        },
+        {
+          "name": "day_one_complete_stuffie_rescue",
+          "line": 6516
+        },
+        {
+          "name": "_day_one_begin_arrival",
+          "line": 6529
+        },
+        {
+          "name": "_day_one_discover_dirty_castle",
+          "line": 6533
+        },
+        {
+          "name": "_day_one_attach_castle_dressing",
+          "line": 6540
+        },
+        {
+          "name": "_day_one_sync_castle_dressing",
+          "line": 6551
+        },
+        {
+          "name": "_sync_day_one_bathroom_cleanup",
+          "line": 6578
+        },
+        {
+          "name": "_clear_day_one_bathroom_cleanup",
+          "line": 6632
+        },
+        {
+          "name": "_on_day_one_bathroom_cleanup_step",
+          "line": 6639
+        },
+        {
+          "name": "_on_day_one_bathroom_supply_hunt_completed",
+          "line": 6644
+        },
+        {
+          "name": "_on_day_one_bathroom_finale_started",
+          "line": 6653
+        },
+        {
+          "name": "_on_day_one_bathroom_cleanup_completed",
+          "line": 6662
+        },
+        {
+          "name": "_sync_day_one_art_studio",
+          "line": 6669
+        },
+        {
+          "name": "_day_one_clear_castle_dressing",
+          "line": 6680
+        },
+        {
+          "name": "_clear_day_one_bathroom_movie_handoff",
+          "line": 6695
+        },
+        {
+          "name": "_start_day_one_bathroom_movie_handoff",
+          "line": 6704
+        },
+        {
+          "name": "_day_one_bathroom_entry_movie_blocks_cleanup",
+          "line": 6728
+        },
+        {
+          "name": "_show_day_one_pool_route",
+          "line": 6773
+        },
+        {
+          "name": "_show_day_one_room_handoff",
+          "line": 6788
+        },
+        {
+          "name": "_sync_day_one_pool_route",
+          "line": 6809
+        },
+        {
+          "name": "_day_one_bathroom_movie_is_playing",
+          "line": 6879
+        },
+        {
+          "name": "_day_one_bathroom_navigation_controls",
+          "line": 6887
+        },
+        {
+          "name": "_suspend_day_one_bathroom_controls",
+          "line": 6902
+        },
+        {
+          "name": "_restore_day_one_bathroom_controls",
+          "line": 6926
+        },
+        {
+          "name": "_clear_day_one_pool_route",
+          "line": 6945
+        },
+        {
+          "name": "_day_one_arm_boss_door",
+          "line": 6949
+        },
+        {
+          "name": "_day_one_trigger_boss",
+          "line": 6957
+        },
+        {
+          "name": "_on_day_one_hook_event",
+          "line": 6960
+        },
+        {
+          "name": "_day_one_play_story_clip",
+          "line": 7016
+        },
+        {
+          "name": "_day_one_drain_story_clips",
+          "line": 7061
+        },
+        {
+          "name": "_day_one_cancel_story_clips",
+          "line": 7082
+        },
+        {
+          "name": "_day_one_play_story_clip_for_room",
+          "line": 7100
+        },
+        {
+          "name": "_day_one_suspend_boss_for_lifecycle",
+          "line": 7113
+        },
+        {
+          "name": "_return_day_one_boss_to_castle",
+          "line": 7128
+        },
+        {
+          "name": "_on_chapter_two_hook_event",
+          "line": 7141
+        },
+        {
+          "name": "_chapter_two_say",
+          "line": 7223
+        },
+        {
+          "name": "_chapter_two_guide_next_party_piece",
+          "line": 7229
+        },
+        {
+          "name": "_chapter_two_announce_start",
+          "line": 7239
+        },
+        {
+          "name": "_rainbow_friend_ref",
+          "line": 7243
+        },
+        {
+          "name": "_castle_rooms_ref",
+          "line": 7248
+        },
+        {
+          "name": "_fairy_conservatory_door_ref",
+          "line": 7253
+        },
+        {
+          "name": "_castle_career_routes_ref",
+          "line": 7259
+        },
+        {
+          "name": "_castle_room_music_track",
+          "line": 7264
+        },
+        {
+          "name": "_sync_castle_room_music",
+          "line": 7269
+        },
+        {
+          "name": "_tick_castle_rooms",
+          "line": 7280
+        },
+        {
+          "name": "_seg_box",
+          "line": 7295
+        },
+        {
+          "name": "_tick_wall_fade",
+          "line": 7318
+        },
+        {
+          "name": "_l2_start_slide",
+          "line": 7345
+        },
+        {
+          "name": "_return_to_courtyard",
+          "line": 7391
+        },
+        {
+          "name": "_layer_fx",
+          "line": 7404
+        },
+        {
+          "name": "_make_creature_node",
+          "line": 7442
+        },
+        {
+          "name": "_start_gen2_rainbow",
+          "line": 7493
+        },
+        {
+          "name": "_loop_paint_rainbow",
+          "line": 7508
+        },
+        {
+          "name": "_set_paint_colour",
+          "line": 7515
+        },
+        {
+          "name": "_creature_spawned",
+          "line": 7518
+        },
+        {
+          "name": "_animate_billboard_creature",
+          "line": 7523
+        },
+        {
+          "name": "_craft_ref",
+          "line": 7557
+        },
+        {
+          "name": "_open_craft_studio",
+          "line": 7562
+        },
+        {
+          "name": "_craft_done",
+          "line": 7565
+        },
+        {
+          "name": "_close_craft",
+          "line": 7568
+        },
+        {
+          "name": "_castle_logo_ref",
+          "line": 7574
+        },
+        {
+          "name": "_open_castle_logo",
+          "line": 7579
+        },
+        {
+          "name": "_finish_castle_logo",
+          "line": 7582
+        },
+        {
+          "name": "_close_castle_logo",
+          "line": 7585
+        },
+        {
+          "name": "_wardrobe_ref",
+          "line": 7592
+        },
+        {
+          "name": "_open_wardrobe",
+          "line": 7597
+        },
+        {
+          "name": "_wardrobe_done",
+          "line": 7600
+        },
+        {
+          "name": "_close_wardrobe",
+          "line": 7603
+        },
+        {
+          "name": "_open_stickers",
+          "line": 7606
+        },
+        {
+          "name": "_close_stickers",
+          "line": 7609
+        },
+        {
+          "name": "_exit_level2",
+          "line": 7612
+        },
+        {
+          "name": "_enter_ocean_kingdom",
+          "line": 7618
+        },
+        {
+          "name": "_exit_level2_now",
+          "line": 7622
+        },
+        {
+          "name": "_day_one_reorient_after_exit_now",
+          "line": 7647
+        },
+        {
+          "name": "_finish_level2",
+          "line": 7666
+        },
+        {
+          "name": "_do_finish_level2",
+          "line": 7669
+        },
+        {
+          "name": "_beans_go",
+          "line": 7679
+        },
+        {
+          "name": "_beans_bubbles",
+          "line": 7689
+        },
+        {
+          "name": "_tick_beans",
+          "line": 7721
+        },
+        {
+          "name": "_sparkle_burst",
+          "line": 7735
+        },
+        {
+          "name": "_clear_game",
+          "line": 7763
+        },
+        {
+          "name": "_tick_contact_shadow",
+          "line": 7859
+        },
+        {
+          "name": "_reward",
+          "line": 7905
+        },
+        {
+          "name": "_celebrate_pose",
+          "line": 7912
+        },
+        {
+          "name": "_greet_heart",
+          "line": 7942
+        },
+        {
+          "name": "_spawn_shooting_star",
+          "line": 7962
+        },
+        {
+          "name": "_end_game",
+          "line": 7984
+        },
+        {
+          "name": "_game_ball",
+          "line": 8033
+        },
+        {
+          "name": "_ball_panel_mat",
+          "line": 8057
+        },
+        {
+          "name": "_soft_mat",
+          "line": 8084
+        },
+        {
+          "name": "_check_star",
+          "line": 8092
+        },
+        {
+          "name": "_course_box",
+          "line": 8099
+        },
+        {
+          "name": "_build_chain_curtain",
+          "line": 8111
+        },
+        {
+          "name": "_add_check",
+          "line": 8131
+        },
+        {
+          "name": "_tick_chains",
+          "line": 8135
+        },
+        {
+          "name": "_start_game",
+          "line": 8160
+        },
+        {
+          "name": "_start_game_now",
+          "line": 8163
+        },
+        {
+          "name": "_ice_mat",
+          "line": 8243
+        },
+        {
+          "name": "_tick_game",
+          "line": 8260
+        },
+        {
+          "name": "skin_sprite_path",
+          "line": 8290
+        },
+        {
+          "name": "_overlay_root_for_cursor",
+          "line": 8313
+        },
+        {
+          "name": "_tick_pad_cursor",
+          "line": 8332
+        },
+        {
+          "name": "_neutralize_slide_canvas_overlay_poll",
+          "line": 8385
+        },
+        {
+          "name": "_tick_overlay_pads",
+          "line": 8419
+        },
+        {
+          "name": "_process",
+          "line": 8461
+        },
+        {
+          "name": "_physlab_spawn",
+          "line": 8706
+        },
+        {
+          "name": "_physlab_clear",
+          "line": 8725
+        },
+        {
+          "name": "_physlab_standees",
+          "line": 8731
+        },
+        {
+          "name": "_physics_process",
+          "line": 8758
+        },
+        {
+          "name": "_jolt_barrel",
+          "line": 8789
+        },
+        {
+          "name": "_jolt_ball",
+          "line": 8807
+        },
+        {
+          "name": "_jolt_static_box",
+          "line": 8831
+        },
+        {
+          "name": "_sway_grass_mat",
+          "line": 8845
+        },
+        {
+          "name": "_cross_blade",
+          "line": 8902
+        },
+        {
+          "name": "_glow_tip_mat",
+          "line": 8920
+        },
+        {
+          "name": "on_player_jump",
+          "line": 8941
+        },
+        {
+          "name": "on_player_wet_change",
+          "line": 8952
+        },
+        {
+          "name": "on_player_hop_land",
+          "line": 8963
+        },
+        {
+          "name": "_arena_floor",
+          "line": 8981
+        },
+        {
+          "name": "_enter_arena",
+          "line": 9005
+        },
+        {
+          "name": "_leave_arena",
+          "line": 9106
+        },
+        {
+          "name": "_leave_arena_now",
+          "line": 9111
+        },
+        {
+          "name": "_btn_pressed",
+          "line": 9120
+        },
+        {
+          "name": "_anemone_mesh",
+          "line": 9134
+        }
+      ],
+      "git_content_sha256": "7b6877b2d4741a2e47021fca7b1d7a55ce1ed334371135c12a7865dbf52ae7b7"
+    },
+    {
+      "path": "scripts/medal_system.gd",
+      "sha256": "b75e3da4a65a5828c7677e61e36e8f0d46171989b0fdd20101d7e428f1b164b4",
+      "git_clean_blob": "368c58545abf20d60d362d4182a6ff31afbaa7bf",
+      "functions": [
+        {
+          "name": "_init",
+          "line": 65
+        },
+        {
+          "name": "evaluate",
+          "line": 70
+        },
+        {
+          "name": "award_stats",
+          "line": 99
+        },
+        {
+          "name": "award_from_end_game",
+          "line": 119
+        },
+        {
+          "name": "award_from_mg2d",
+          "line": 149
+        },
+        {
+          "name": "counts",
+          "line": 157
+        },
+        {
+          "name": "hud_suffix",
+          "line": 165
+        },
+        {
+          "name": "refresh_friend_glyphs",
+          "line": 174
+        },
+        {
+          "name": "_celebrate",
+          "line": 192
+        },
+        {
+          "name": "_star_row",
+          "line": 282
+        },
+        {
+          "name": "_retire_celebration",
+          "line": 288
+        }
+      ],
+      "git_content_sha256": "6de1cabca2fc0e5c68bcad0a198489546c4ea2ab4da1b496236ff819526233ee"
+    },
+    {
+      "path": "scripts/probe_kart_feel.gd",
+      "sha256": "e204c0002d3e78bc7b66f27b25033b2cc80697019b9a17a41520980dd1a7e85b",
+      "git_clean_blob": "3dcebd5b0812d8641428aa99661d4ac21fb865e2",
+      "functions": [
+        {
+          "name": "_init",
+          "line": 27
+        },
+        {
+          "name": "_begin_save_isolation",
+          "line": 139
+        },
+        {
+          "name": "_end_save_isolation",
+          "line": 162
+        },
+        {
+          "name": "_remove_save_artifacts",
+          "line": 175
+        },
+        {
+          "name": "_read_saved_state",
+          "line": 181
+        },
+        {
+          "name": "_engine_regression_checks",
+          "line": 191
+        },
+        {
+          "name": "_pause_persistence_check",
+          "line": 253
+        },
+        {
+          "name": "_generation_recovery_check",
+          "line": 284
+        },
+        {
+          "name": "_second_place_completion_check",
+          "line": 314
+        },
+        {
+          "name": "_force_race_start",
+          "line": 352
+        },
+        {
+          "name": "_steer_for",
+          "line": 363
+        },
+        {
+          "name": "_solo_run",
+          "line": 382
+        },
+        {
+          "name": "_on_race_done",
+          "line": 419
+        }
+      ],
+      "git_content_sha256": "1143661194844fdf439ba4de35fc839aecc56a82ade8d393c67f76a9d10fd697"
+    },
+    {
+      "path": "scripts/probe_kart_canvas_2d.gd",
+      "sha256": "04f50ce42f5c822c78d0b5814d9cc4b3556bc4943d9d172c4725a794e0f8be18",
+      "git_clean_blob": "64d5e16d650e0638ff96d7ba3b238d94317bb3a8",
+      "functions": [
+        {
+          "name": "check",
+          "line": 10
+        },
+        {
+          "name": "_init",
+          "line": 15
+        },
+        {
+          "name": "run",
+          "line": 20
+        },
+        {
+          "name": "no_spatial",
+          "line": 168
+        },
+        {
+          "name": "screenshot",
+          "line": 176
+        },
+        {
+          "name": "choose_picture_by_touch",
+          "line": 185
+        }
+      ],
+      "git_content_sha256": "04f50ce42f5c822c78d0b5814d9cc4b3556bc4943d9d172c4725a794e0f8be18"
+    }
+  ]
+}

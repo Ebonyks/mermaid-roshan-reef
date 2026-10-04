@@ -1,0 +1,12 @@
+{
+  "result": "FAIL",
+  "trusted_probes_attempted": 82,
+  "failed_lines": [
+    "PROBE probe_throne process exit: 127",
+    "PROBE probe_touch_adversary process exit: 127",
+    "PROBE probe_ui_system process exit: 127",
+    "PROBE probe_opera process exit: 127"
+  ],
+  "source_unchanged": true,
+  "limits": "Separate retained console repeat. Never a full-suite pass; direct engine comparison does not establish root cause."
+}

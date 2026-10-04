@@ -1,0 +1,63 @@
+{
+  "schema": "racer.reconciliation.v1",
+  "integration_parent": "ecb68651c67e66501eeab2c719b152d8982023c2",
+  "integration_ci": "https://github.com/Ebonyks/mermaid-roshan-reef/actions/runs/37182875181",
+  "source_commit": "892fc87ed9c94534e078fa5aac6fa58b7587785a",
+  "source": [
+    {
+      "path": "scripts/kart.gd",
+      "sha256_bytes": "efee775dbde38cf2bceb49f4699e8a8cb50ed5b79ffe64ce0ab7a8ddbfbad26b",
+      "sha256_lf": "73ee5586102008376afda81cd81eb76559336974ec25de56f7d01e975e7009e4"
+    },
+    {
+      "path": "scripts/kart_canvas_2d.gd",
+      "sha256_bytes": "e2fc7d4651553d7b459a683d4429cd7c2122e5ae8a3716ebd13b44cd0b7130a9",
+      "sha256_lf": "e2fc7d4651553d7b459a683d4429cd7c2122e5ae8a3716ebd13b44cd0b7130a9"
+    },
+    {
+      "path": "scripts/kart_course_worlds.gd",
+      "sha256_bytes": "4aab47241800ba1703d3c3b0c007947d04d7a75b7f00ec112e2eaa3bd0e9d77a",
+      "sha256_lf": "4aab47241800ba1703d3c3b0c007947d04d7a75b7f00ec112e2eaa3bd0e9d77a"
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "sha256_bytes": "66fa1dfe73fb7693dc9bc11d0054c2d70d4927b44d856ccf2f43109893aeccaa",
+      "sha256_lf": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8"
+    },
+    {
+      "path": "scripts/probe_kart_canvas_2d.gd",
+      "sha256_bytes": "72d9be844557fa9b594cf58c100572668c1d2c93ae5f0d32c608262e0b9954a1",
+      "sha256_lf": "72d9be844557fa9b594cf58c100572668c1d2c93ae5f0d32c608262e0b9954a1"
+    },
+    {
+      "path": "assets/kart/chase/anchors.json",
+      "sha256_bytes": "48c0bb0188e4385f809a2b10818d3481c59fe8f3554886cce834b8a5aba77b43",
+      "sha256_lf": "38441c903bbc66933d6d152c27c3216c5ba882042f928fb1fadad04595c0ef16"
+    }
+  ],
+  "runtime_source_unchanged": true,
+  "conflict": "Master audit document only. Current cycle navigation and the two scoped Racer entries preserved.",
+  "new_gate_contract_tests": {
+    "result": "PASS",
+    "tests": 149,
+    "elapsed_seconds": 133.551,
+    "exit_code": 0
+  },
+  "incoming_probe_checks": {
+    "parser": "PASS",
+    "inference": "PASS",
+    "exact_godot_analyzer": "PASS",
+    "probes": [
+      "probe_castle_shots_2d",
+      "probe_opera_2d_balance",
+      "probe_opera_art",
+      "probe_opera_balance",
+      "probe_sky_lagoon_art"
+    ]
+  },
+  "authority": "PASS; 653 inventory and ledger rows",
+  "coverage": "PASS against incoming integration parent",
+  "full_local_regression": "Prior 82-probe passing run binds unchanged production Racer source. Delta checks validate inherited tooling/probes. Latest reconciled topic full CI is pending; no current-head full pass is inferred.",
+  "acceptance": "No dev integration, release or external acceptance.",
+  "checked_utc": "2026-10-04T07:41:03.643027+00:00"
+}

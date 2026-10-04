@@ -1,7 +1,7 @@
 # Mermaid Roshan master-audit change and rollback ledger
 
 - **Ledger ID:** `MA-CHANGELOG-2026-08-10`
-- **Change-ID namespace:** historical planner records `CHG-001` through `CHG-031`, with scoped review addition `CHG-032` below; IDs are permanent and
+- **Change-ID namespace:** historical planner records `CHG-001` through `CHG-031`, with scoped review additions `CHG-032` and `CHG-033` below; IDs are permanent and
   are never reassigned or renumbered
 - **Audit lineage:** `codex/master-audit-20260809`
 - **Dedicated current audit branch:**
@@ -1980,3 +1980,13 @@ either being hidden.
 CHG-032 packaging correction: the first published large HTML exceeded the unchanged 4 MiB complete-text scan cap and failed run `36755706002` at `G2D101`. The same accepted-for-draft thumbnail pixels are now separate inspectable images; no migration-manifest, audit, runtime or original-art change is made. Exact packaging/source-link correction commit: `6757ea5e0c0bc4ddfbc1cd9615558df7b92ddec0`. Codex authorship replaces inaccurate human-authorship wording; human and owner acceptance remain outstanding.
 
 CHG-032 live refresh: incoming integration `08acb0ce529660e79de6784aa4124352798bc4cd` changes one inventoried Rumi sheet. Its old source review is preserved in history, native re-review retains 4.5/5 for remaining fringe/scale work, and associated birthday Popstar/seam notes are updated. Upstream source-pixel edits remain owned by the separate Rumi repair impact; this task authors no new source-art change. Exact live-refresh source commit: `17ce3c9bf14f9140bd25a08b63eda1a61811b7cc`.
+
+### Racer connected chase rally CHG-033
+
+- Date: 2026-10-03. Owner-directed rebuild of the fuller existing kart game after comparing it with the older contained Opera circuit. The owner rejected the first flat presentation and requested a logical Castle/room/Sky Lagoon route.
+- Exact preceding source: `4f7181450da4d12497592a963c64422a7bae981a`; original integration baseline: `30d82725661044de63b682f5b13ba8f19101892b`. Exact source commit: `892fc87ed9c94534e078fa5aac6fa58b7587785a`; later evidence-only bindings preserve those runtime/art bytes. Machine evidence binds the complete file hashes in `audit/racer_chase_20261003/source_snapshot.json` and the full-suite source receipt rather than inventing a commit.
+- Exact paths: `scripts/kart.gd`, `scripts/kart_canvas_2d.gd`, `scripts/kart_course_worlds.gd`, `scripts/probe_kart_canvas_2d.gd`; every runtime/source sprite, prompt/contact contract, capture/log/manifest and authority/license record enumerated in `design/audit_impacts/racer-chase-world-route-20261003.json`. `scripts/kart_driving.gd`, protected originals and the older Opera adapter remain byte-preserved relative to the named baseline.
+- Intended benefit: preserve full race mechanics while giving Roshan seated chase keys, visible one-finger controls, accurate tire pivots, connected Castle room ancestry, Pool crossing, physical Castle return, and a continuous steered Lagoon shortcut rejoin.
+- Plausible negative effects: chase perspective could obscure near hazards or room context; held steering keys could reveal anatomy/continuity changes; reused Hall resolution is below the native coverage target; touch ergonomics, camera comfort, transparency cost and background seams could fail on the M11. Native review captures are diagnostic and cannot close those external gates. The older Opera adapter still needs separate integration.
+- Dependencies/evidence: owner direction, existing room/bridge graph and approved reference hashes; unchanged shared driving core; deterministic sprite derivative/protected-source checks; exact Godot 4.7.2 parser/analyzer, touch/contact probes and full trusted suite; the published review packet records result lanes and failed/interrupted runs. The impact records current evidence status. No finding closure, dev integration or release is authorized by this record.
+- Rollback class: mixed runtime/art/input/save-sensitive manual review, with no planner emitter for CHG-033. Begin a clean `codex/rollback-chg-033` branch; inspect the exact source commit and paths, preserve historical review/native art, and audit save/touch/return behavior before choosing a bounded inverse. Do not restore retired spatial resources, protected originals, an older Opera lifecycle, or the rejected flat presentation as an accepted visual solution. Stop on conflicts; run current authority/coverage, focused Racer and complete exact-4.7.2 regression gates before publishing a rollback.

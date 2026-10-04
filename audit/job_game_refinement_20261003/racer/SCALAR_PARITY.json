@@ -1,0 +1,98 @@
+{
+  "baseline": "30d82725661044de63b682f5b13ba8f19101892b",
+  "kart_driving_unchanged_git_blob": true,
+  "kart_driving_baseline_blob": "8254b87112069604ddb94dce729605ddfb0bf335",
+  "methods": [
+    {
+      "method": "_update_ai",
+      "equal": true,
+      "original_normalized_sha256": "0449c408f0b3944d64cbf4d66a5ff671f945f13da786983adb2313d3eabfae4d",
+      "ported_sha256": "0449c408f0b3944d64cbf4d66a5ff671f945f13da786983adb2313d3eabfae4d"
+    },
+    {
+      "method": "_advance",
+      "equal": true,
+      "original_normalized_sha256": "79457ccfc84fe75b2533025b6487dce9bea1a295d68c6c3fe6270a61982c1550",
+      "ported_sha256": "79457ccfc84fe75b2533025b6487dce9bea1a295d68c6c3fe6270a61982c1550"
+    },
+    {
+      "method": "_apply_lat",
+      "equal": true,
+      "original_normalized_sha256": "26d7408eb98287e277fab372a16e84f79f153ffb63c3b60a0504369f5d92825d",
+      "ported_sha256": "26d7408eb98287e277fab372a16e84f79f153ffb63c3b60a0504369f5d92825d"
+    },
+    {
+      "method": "_charge",
+      "equal": true,
+      "original_normalized_sha256": "86a6c32e5f88c21a3f76c320ec6900c812a0213c92d6ef9b6bcac8f4c4e7aa8f",
+      "ported_sha256": "86a6c32e5f88c21a3f76c320ec6900c812a0213c92d6ef9b6bcac8f4c4e7aa8f"
+    },
+    {
+      "method": "_placement",
+      "equal": true,
+      "original_normalized_sha256": "8df0a10ddbb79f9a7f68928a7f61d7c07318034443f437ff8c1049637ff30748",
+      "ported_sha256": "8df0a10ddbb79f9a7f68928a7f61d7c07318034443f437ff8c1049637ff30748"
+    },
+    {
+      "method": "_placement_bonus",
+      "equal": true,
+      "original_normalized_sha256": "0886c4383ca83bc00754392702cf7fd6f84a6421a031940fc98d2450f856a212",
+      "ported_sha256": "0886c4383ca83bc00754392702cf7fd6f84a6421a031940fc98d2450f856a212"
+    },
+    {
+      "method": "_commit_payout",
+      "equal": true,
+      "original_normalized_sha256": "c54f5dc8feadaa22920829d0b06adaa7a07b4ecb7480748c0af9009a1e6207b8",
+      "ported_sha256": "c54f5dc8feadaa22920829d0b06adaa7a07b4ecb7480748c0af9009a1e6207b8"
+    },
+    {
+      "method": "_commit_completion",
+      "equal": true,
+      "original_normalized_sha256": "9ae7361595e5f5ce101d03c0a9ce8669cda2e0992deeae369837a741406f1a87",
+      "ported_sha256": "9ae7361595e5f5ce101d03c0a9ce8669cda2e0992deeae369837a741406f1a87"
+    },
+    {
+      "method": "_draft_ahead",
+      "equal": true,
+      "original_normalized_sha256": "1f40698d70173977ea3a5095a6d16ab5596f1ca1520b34f4b6555e9817586119",
+      "ported_sha256": "1f40698d70173977ea3a5095a6d16ab5596f1ca1520b34f4b6555e9817586119"
+    },
+    {
+      "method": "_vehicles_table",
+      "equal": true,
+      "original_normalized_sha256": "a4156455a6b7992c2ac00a6f2e9c02323485f23bff2198095578f0e4747b035b",
+      "ported_sha256": "a4156455a6b7992c2ac00a6f2e9c02323485f23bff2198095578f0e4747b035b"
+    },
+    {
+      "method": "_vehicle_keys",
+      "equal": true,
+      "original_normalized_sha256": "5844388e945f26956fd681b7b3fbeb03dc9480177e4f6c88300478e082e43b61",
+      "ported_sha256": "5844388e945f26956fd681b7b3fbeb03dc9480177e4f6c88300478e082e43b61"
+    },
+    {
+      "method": "_veh",
+      "equal": true,
+      "original_normalized_sha256": "984d1039ba265d5d01417dfd1f297ff166830ff8c16f5fa4b55d8e9561c10378",
+      "ported_sha256": "984d1039ba265d5d01417dfd1f297ff166830ff8c16f5fa4b55d8e9561c10378"
+    },
+    {
+      "method": "_steer_input",
+      "equal": true,
+      "original_normalized_sha256": "d99d910606de0cfe78e571437a634d9784df98ffa9456b7285fcf7ee362bfada",
+      "ported_sha256": "d99d910606de0cfe78e571437a634d9784df98ffa9456b7285fcf7ee362bfada"
+    },
+    {
+      "method": "_brake_input",
+      "equal": true,
+      "original_normalized_sha256": "ded1402a94d201a2fdcbecb493d391eaabae9a744cc283a5d7fa673fd16883a9",
+      "ported_sha256": "ded1402a94d201a2fdcbecb493d391eaabae9a744cc283a5d7fa673fd16883a9"
+    },
+    {
+      "method": "_fire_just",
+      "equal": true,
+      "original_normalized_sha256": "0d52728df69ca93de1b18062a33e53b7b9eeef120ab482bceb26b19b01e90fbe",
+      "ported_sha256": "0d52728df69ca93de1b18062a33e53b7b9eeef120ab482bceb26b19b01e90fbe"
+    }
+  ],
+  "geometry": "Original planar coordinates, scalar elevation, full metric arclength, bank/contact and signed curvature preserved; spatial presentation replaced."
+}

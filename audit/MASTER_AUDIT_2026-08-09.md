@@ -2,6 +2,8 @@
 
 ## 0. Planning entry
 
+Racer owner follow-up (2026-10-03): [connected chase rally](../design/RACER_WORLD_RALLY_2026-10-03.md) and [impact](../design/audit_impacts/racer-chase-world-route-20261003.json) supersede the first flat presentation. The route respects Movie Lounge/Family Gallery ancestry, Pool/Hall doors and the Castle bridge; the developed engine retains its mechanics and gains authored seated keys and live picture controls. Historical evidence remains preserved; older Opera integration and device/child/owner/global acceptance remain separate.
+
 
 Planning guidance updated 2026-10-03 against integration source `30d82725`.
 Dated updates moved to the [preserved cycle intake history](cycles/2026-10-03-baseline/PLANNING_HISTORY.md); current measurements, roadmap and prompts live in the [cycle home](cycles/README.md).
@@ -70,6 +72,8 @@ rules; sealed evidence below remains scoped to its recorded build. Follow the
 | Acceptance | [lifecycle and verification](#2-audit-state-taxonomy); [satisfaction gate](#12-master-audit-satisfaction-gate) | [evidence contract](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#16-acceptance-and-audit-contract); [finding fields](#10-required-finding-fields) |
 | Audit or reference document | [Staleness audit](../docs/handoffs/codex_reference_consolidation_2026-09-30/STALENESS_AUDIT.md); [`MA-DOC-007`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-007) | [Reference plan](../docs/handoffs/codex_reference_consolidation_2026-09-30/REFERENCE_PLAN.md); [consolidation handoff](../docs/handoffs/codex_reference_consolidation_2026-09-30/README.md); [document ledger](../design/05_DOC_LEDGER.md) |
 | Study the game or plan improvement | [Cycle home](cycles/README.md); [living roadmap](ROADMAP.md); [loop audit](../docs/handoffs/codex_self_improvement_loop_2026-10-03/LOOP_AUDIT.md); [`MA-DOC-009`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-009) | [Self-improvement loop handoff](../docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md); [cycle 0 study report](../docs/handoffs/codex_self_improvement_loop_2026-10-03/CYCLE_0_STUDY_REPORT.md); [study report template](../design/templates/STUDY_REPORT_V1.md); [prompt catalogue](../design/reference/prompt_intents.json); [owner decisions](../design/reference/OWNER_DECISIONS.md) |
+
+Scoped 2026-10-03 Racer conversion: [developed engine Canvas candidate](../design/RACER_EXISTING_ENGINE_2D_PORT_2026-10-03.md) and [impact/evidence](../design/audit_impacts/job-game-racer-refinement-20261003.json). The original full engine takes priority; source, machine and external acceptance remain separate. The owner-directed [connected rally rebuild](../design/RACER_WORLD_RALLY_2026-10-03.md) now owns the visual candidate; no historical acceptance is inferred.
 
 [Authority reconciliation](#3-authority-and-comprehensive-design-language-confirmation) · [Historical evidence](#4-evidence-at-the-integration-snapshot-and-named-historical-commits) · [Supporting repairs](#6-supporting-repair-evidence--not-canonical-finding-records) · [Superseded ideas](#7-superseded-dismissed-and-deferred-ideas) · [Expanded acceptance](#8-expanded-acceptance-notes-for-highest-priority-indexed-items) · [Audit tools](#11-audit-tool-and-documentation-control-work) · [Change history](#14-change-history)
 

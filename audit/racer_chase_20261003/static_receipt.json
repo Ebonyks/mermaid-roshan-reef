@@ -1,0 +1,174 @@
+{
+  "result": "PASS",
+  "source": [
+    {
+      "path": "scripts/kart.gd",
+      "sha256_lf": "73ee5586102008376afda81cd81eb76559336974ec25de56f7d01e975e7009e4"
+    },
+    {
+      "path": "scripts/kart_canvas_2d.gd",
+      "sha256_lf": "e2fc7d4651553d7b459a683d4429cd7c2122e5ae8a3716ebd13b44cd0b7130a9"
+    },
+    {
+      "path": "scripts/kart_course_worlds.gd",
+      "sha256_lf": "4aab47241800ba1703d3c3b0c007947d04d7a75b7f00ec112e2eaa3bd0e9d77a"
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "sha256_lf": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8"
+    },
+    {
+      "path": "scripts/probe_kart_canvas_2d.gd",
+      "sha256_lf": "72d9be844557fa9b594cf58c100572668c1d2c93ae5f0d32c608262e0b9954a1"
+    },
+    {
+      "path": "assets/kart/chase/anchors.json",
+      "sha256_lf": "38441c903bbc66933d6d152c27c3216c5ba882042f928fb1fadad04595c0ef16"
+    }
+  ],
+  "runtime_source_unchanged": true,
+  "checks": [
+    {
+      "name": "parser",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-B",
+        "-m",
+        "gdtoolkit.parser",
+        "scripts/kart.gd",
+        "scripts/kart_canvas_2d.gd",
+        "scripts/kart_course_worlds.gd",
+        "scripts/probe_kart_canvas_2d.gd",
+        "audit/racer_chase_20261003/package_smoke.gd"
+      ],
+      "exit_code": 0,
+      "runtime_errors": false,
+      "stdout": "logs/final_static_parser.stdout.log",
+      "stderr": "logs/final_static_parser.stderr.log"
+    },
+    {
+      "name": "inference",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-B",
+        "tools/lint_inference.py",
+        "scripts/kart.gd",
+        "scripts/kart_canvas_2d.gd",
+        "scripts/kart_course_worlds.gd",
+        "scripts/probe_kart_canvas_2d.gd",
+        "audit/racer_chase_20261003/package_smoke.gd"
+      ],
+      "exit_code": 0,
+      "runtime_errors": false,
+      "stdout": "logs/final_static_inference.stdout.log",
+      "stderr": "logs/final_static_inference.stderr.log"
+    },
+    {
+      "name": "analyzer_kart",
+      "command": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        ".",
+        "--check-only",
+        "-s",
+        "scripts/kart.gd"
+      ],
+      "exit_code": 0,
+      "runtime_errors": false,
+      "stdout": "logs/final_static_analyzer_kart.stdout.log",
+      "stderr": "logs/final_static_analyzer_kart.stderr.log"
+    },
+    {
+      "name": "analyzer_kart_canvas_2d",
+      "command": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        ".",
+        "--check-only",
+        "-s",
+        "scripts/kart_canvas_2d.gd"
+      ],
+      "exit_code": 0,
+      "runtime_errors": false,
+      "stdout": "logs/final_static_analyzer_kart_canvas_2d.stdout.log",
+      "stderr": "logs/final_static_analyzer_kart_canvas_2d.stderr.log"
+    },
+    {
+      "name": "analyzer_kart_course_worlds",
+      "command": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        ".",
+        "--check-only",
+        "-s",
+        "scripts/kart_course_worlds.gd"
+      ],
+      "exit_code": 0,
+      "runtime_errors": false,
+      "stdout": "logs/final_static_analyzer_kart_course_worlds.stdout.log",
+      "stderr": "logs/final_static_analyzer_kart_course_worlds.stderr.log"
+    },
+    {
+      "name": "analyzer_probe_kart_canvas_2d",
+      "command": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        ".",
+        "--check-only",
+        "-s",
+        "scripts/probe_kart_canvas_2d.gd"
+      ],
+      "exit_code": 0,
+      "runtime_errors": false,
+      "stdout": "logs/final_static_analyzer_probe_kart_canvas_2d.stdout.log",
+      "stderr": "logs/final_static_analyzer_probe_kart_canvas_2d.stderr.log"
+    },
+    {
+      "name": "analyzer_package_smoke",
+      "command": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        ".",
+        "--check-only",
+        "-s",
+        "audit/racer_chase_20261003/package_smoke.gd"
+      ],
+      "exit_code": 0,
+      "runtime_errors": false,
+      "stdout": "logs/final_static_analyzer_package_smoke.stdout.log",
+      "stderr": "logs/final_static_analyzer_package_smoke.stderr.log"
+    },
+    {
+      "name": "authority",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "runtime_errors": false,
+      "stdout": "logs/final_static_authority.stdout.log",
+      "stderr": "logs/final_static_authority.stderr.log"
+    },
+    {
+      "name": "development",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Python/bin/python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "runtime_errors": false,
+      "stdout": "logs/final_static_development.stdout.log",
+      "stderr": "logs/final_static_development.stderr.log"
+    }
+  ],
+  "time_utc": "2026-10-04T03:53:06.597294+00:00"
+}

@@ -1,0 +1,49 @@
+{
+  "baseline": "4f7181450da4d12497592a963c64422a7bae981a",
+  "purpose": "Interactive gameplay animation; no cinematic delivery",
+  "new_art_gaps": [
+    "Seated driver rear/turning poses with stable hand/cockpit contact",
+    "Coherent truck driving views; no existing accepted counterpart"
+  ],
+  "references": [
+    {
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_racer_sheet_a.png",
+      "sha256": "f62f881d42b439bde09a8bc7f6e0000125acd3e27aabf1fd39d90722ce75ca79"
+    },
+    {
+      "path": "assets/kart/canvas/kart_quarter.png",
+      "sha256": "97f6bce7f9c62a2b4db8c18617baa8d428a3c5faed5ee8e6a02ebc9ce0a3ecb4"
+    },
+    {
+      "path": "assets/kart/canvas/kart_rear.png",
+      "sha256": "91dbc94e4c2ab4bb8cdd71caa1fdebf5cffa53ca4dba5675269a1de23ce0c581"
+    },
+    {
+      "path": "assets/kart/canvas/moto_rear.png",
+      "sha256": "cb7f69eca09cc94414c10cf92ee20774f57f9c55e5f9e145a309e21bba181619"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_racer_kart.png",
+      "sha256": "59ea76d8be40b604cbf3691e9c9508287334ddf6cf0f81fea08c7f68fd22fe8c"
+    }
+  ],
+  "reuse": "Room background tiles, clean Sky Lagoon master/tiles, existing environment prop cards and original vehicle designs; protected source bytes preserved",
+  "environment_sources": [
+    "assets_src/castle/dream_house_rooms_2k/room_movie_lounge_background_master.png",
+    "assets_src/castle/dream_house_rooms_2k/room_family_gallery_background_master.png",
+    "assets_src/castle/room_backgrounds_2k/room_mermaid_pool_background_2k.png",
+    "assets_src/imagegen/castle_main_hall_redraw_2026-08-03/main_hall_production_master_7280x2048.png",
+    "assets_src/sky_lagoon/masters/sky_lagoon_panorama_master_v5_hd_3x1.png"
+  ],
+  "native_resolution_gap": "Hall production master is normalized from 1672x941 native sources. Reuse does not establish native 2K per-screen acceptance; source gap stays open.",
+  "route_authority": {
+    "rooms": "scripts/arena/castle_rooms_25d.gd ROOM_PARENTS/HALL_PORTALS",
+    "castle_gate": "scripts/arena/sky_lagoon_promenade.gd and scripts/arena/sky_lagoon_layout.json",
+    "new_runtime_graph": "scripts/kart_course_worlds.gd",
+    "no_invented_connections": true
+  }
+}

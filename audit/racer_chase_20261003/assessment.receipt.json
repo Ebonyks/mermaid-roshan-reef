@@ -1,0 +1,67 @@
+{
+  "assessment": "Keep the fuller developed kart mechanics as the gameplay foundation; rebuild presentation around a chase camera and authored 2D vehicle animation. Older Opera 2D race wins current artwork/control discoverability; new Canvas port wins mechanical breadth but loses current visual playability. Literal old spatial reversion currently supplies box fallback vehicles, not a finished earlier vehicle style.",
+  "runtime_change": "NONE; restoration paused at owner request",
+  "sources": [
+    {
+      "path": "scripts/kart.gd",
+      "git_clean_sha256": "8b05203b2a1f3f7538e31b7924f93d34e9ab35f672c41ed43cfb7d4dbc4f9bb2"
+    },
+    {
+      "path": "scripts/kart_canvas_2d.gd",
+      "git_clean_sha256": "aa78b808227b7621854c27695738a2be62fceed3cfe98d96d74d5e9cd97cb880"
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "git_clean_sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "git_clean_sha256": "f905d5471ca4da15a05934bdb6d037e479692fdf6532fac90fbe98f3283e69f9"
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "git_clean_sha256": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8"
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "git_clean_sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d"
+    }
+  ],
+  "source_revision": "4f7181450da4d12497592a963c64422a7bae981a",
+  "repo_revision": "4cb14febc2c5f0074d5ad8386ce66f19f940c84d",
+  "repo_source_parity": true,
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "Forward Mobile; desktop RTX 3060 Ti",
+  "policy_results": "repo_policy_results.json",
+  "real_touch_results": "new_touch_results.json",
+  "captures": [
+    {
+      "path": "tmp/racer_gameplay_study/new_driving.png",
+      "sha256": "b544a86fb4e38f1ccb257de24a5b37df742fdd8bbaa3e7b2bccbe24222e52bfa"
+    },
+    {
+      "path": "tmp/racer_gameplay_study/original_driving.png",
+      "sha256": "721348e269b66b90a37cb4b734ccb022174ad162c88f136703ad700ab9e63dbb"
+    },
+    {
+      "path": "tmp/racer_gameplay_study/original_ride_selection.png",
+      "sha256": "8a24cff19e3c993678cd8358d249cea4f6d0006f0c08c148694144b6cd960290"
+    },
+    {
+      "path": "tmp/racer_gameplay_study/repo_driving.png",
+      "sha256": "2a294ebeb1692fdf6f53e0285aad362952772c3091455737b6edc70fce0e86e9"
+    },
+    {
+      "path": "tmp/racer_gameplay_study/repo_ready.png",
+      "sha256": "ae3123d3a00dad27bf110c102ef4c35977137ea23d973ddfe3f9f310bb1ca244"
+    }
+  ],
+  "comparison_limits": [
+    "Deterministic controllers and desktop visual inspection; no child or target-device playtest",
+    "Legacy rendering was loaded from original committed source in a disposable harness on unchanged current resources",
+    "First harness called nonexistent _cancel; corrected to real cancel; failed log preserved",
+    "Three ObjectDB instances leaked during disposable-harness shutdown; not a trusted lifecycle regression result",
+    "No target-device FPS or sustained touch ergonomics claim"
+  ],
+  "time_utc": "2026-10-04T00:58:01.712236+00:00"
+}

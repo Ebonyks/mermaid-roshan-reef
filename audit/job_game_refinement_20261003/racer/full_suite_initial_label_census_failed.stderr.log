@@ -1,0 +1,19 @@
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.008s
+
+OK
+...F....s...............................
+======================================================================
+FAIL: test_current_repository_is_open_only_for_external_evidence (tests.test_audit_typography.TypographyAuditTests.test_current_repository_is_open_only_for_external_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\racer-existing-engine-2d\mermaid-roshan-reef\tests\test_audit_typography.py", line 901, in test_current_repository_is_open_only_for_external_evidence
+    self.assertEqual(report["label3d"]["current_total"], 36)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 32 != 36
+
+----------------------------------------------------------------------
+Ran 40 tests in 25.920s
+
+FAILED (failures=1, skipped=1)

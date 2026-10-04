@@ -1,0 +1,95 @@
+{
+  "schema": "racer.verification.v1",
+  "baseline": "4f7181450da4d12497592a963c64422a7bae981a",
+  "change_id": "CHG-033",
+  "source": "source_snapshot.json",
+  "implementation": "Connected Castle-room/Sky Lagoon rally, full existing engine, chase Canvas rendering, authored seated keys, visible touch ownership and continuous steered shortcut exit",
+  "checks": [
+    {
+      "lane": "source geometry/provenance/protected-originals",
+      "result": "PASS",
+      "evidence": [
+        "asset_geometry_receipt.json",
+        "protected_source_receipt.json"
+      ]
+    },
+    {
+      "lane": "focused native Mobile touch/feature/contact assertions",
+      "result": "PASS",
+      "evidence": [
+        "logs/final_native.stdout.log",
+        "logs/final_native.stderr.log"
+      ],
+      "limits": "Deterministic desktop staging; 36 unique current native frames at 1280x720/1280x800; real centered GUI touch advances the simulation and establishes participation; native stderr empty. Not authoritative visual acceptance."
+    },
+    {
+      "lane": "parser/inference/Godot analyzer/document authority/change coverage",
+      "result": "PASS",
+      "evidence": [
+        "static_receipt.json"
+      ],
+      "limits": "Re-run authority/change coverage on the final staged packet"
+    },
+    {
+      "lane": "complete trusted full game suite",
+      "result": "PASS",
+      "evidence": [
+        "logs/full_suite.receipt.json",
+        "logs/full_suite.source.json",
+        "logs/full_suite.stdout.log",
+        "logs/full_suite.stderr.log"
+      ],
+      "limits": "Full required local suite on frozen exact-4.7.2 source; advisory diagnostics retain their scope; no device/child/owner acceptance."
+    },
+    {
+      "lane": "authoritative fresh-runtime visual contract",
+      "result": "COVERAGE_GAP",
+      "evidence": "No Racer challenge/layer identity adapter and clean committed dependency closure"
+    },
+    {
+      "lane": "Lenovo M11 sustained 30fps, touch/audio",
+      "result": "PENDING",
+      "evidence": "No target-device session"
+    },
+    {
+      "lane": "child comprehension and owner visual/anatomy acceptance",
+      "result": "PENDING",
+      "evidence": "No child/owner acceptance session"
+    },
+    {
+      "lane": "isolated Windows resource pack and exact metadata inclusion",
+      "result": "PASS",
+      "evidence": [
+        "package_receipt.json",
+        "package_smoke.gd"
+      ],
+      "limits": "Not an APK, Android texture variant, physical device test or release"
+    }
+  ],
+  "open_gaps": [
+    "Reused Hall native source coverage below 2K per screen; normalized master is not native evidence",
+    "Intermediate steering acting and broad head turns; kart/motorcycle rear lamp design",
+    "Older contained Opera adapter has not been replaced/integrated",
+    "Global strict 2D/master satisfaction remains UNSATISFIED"
+  ],
+  "rejected_interim_evidence": [
+    "logs/features2.stdout.log: emulated mouse stole touch ownership; corrected",
+    "logs/feel.stderr.log: renderer attempted Nil player during fixture setup; guarded",
+    "logs/native.stderr.log: polygon triangulation at banked strip; split valid triangles",
+    "captures/interim_pool_stretched_floor.png: visibly stretched source floor; replaced with supported crossing",
+    "logs/interim_bank_contact.stdout.log: incorrect bank-contact transition exposed by exit probe; corrected",
+    "logs/interrupted_full_suite.receipt.json",
+    "logs/interrupted_metadata_suite.receipt.json",
+    "logs/interrupted_spur_view_suite.receipt.json",
+    "logs/interrupted_aspect_suite.receipt.json",
+    "logs/interim_live_touch_api.stderr.log: wrong test-only race update API; corrected to the actual _process entry; its ALL OK line cannot establish a pass",
+    "logs/interrupted_seating_suite.receipt.json",
+    "captures/interim_rival_seating.png: floating rival portraits; corrected vehicle-specific seat placement",
+    "logs/interrupted_reverse_objects_suite.receipt.json",
+    "logs/failed_strip_fixture_suite.receipt.json: physics-only strip missing visual coordinates; corrected renderer guard, trusted feel probe unchanged",
+    "failed_global_suite_summary.json and isolated_failure_reproduction.json: three non-Racer controls failed in the full run and passed unchanged isolated reruns; no deterministic fix or erased failure is claimed",
+    "failed_console_repeat_summary.json: all 82 attempted, four unrelated controls truncated with process exit 127; engine_invocation_comparison.json records unchanged direct-core controls and an unproved launcher hypothesis"
+  ],
+  "publication": "LOCAL_STAGING; remote receipt required after topic push",
+  "time_utc": "2026-10-04T07:28:56.917645+00:00"
+}

@@ -1,0 +1,1904 @@
+{
+  "schema": "racer.review-packet.v1",
+  "baseline": "4f7181450da4d12497592a963c64422a7bae981a",
+  "branch": "codex/racer-existing-engine-2d-20261003",
+  "runtime": "4.7.2.stable.official.ed1daf0bf",
+  "renderer": "Vulkan Forward Mobile, RTX 3060 Ti; not target device",
+  "source": "source_snapshot.json",
+  "generation_manifest": "assets_src/racer_chase_20261003/animation.json",
+  "prompts": "assets_src/racer_chase_20261003/prompts.json",
+  "route": [
+    "movie_lounge",
+    "family_gallery",
+    "main_hall",
+    "mermaid_pool",
+    "main_hall",
+    "castle_bridge",
+    "sky_lagoon",
+    "castle_bridge",
+    "main_hall",
+    "family_gallery",
+    "movie_lounge"
+  ],
+  "capture_command": "godot_console.exe --path . --rendering-method mobile --position=-32000,-32000 -s scripts/probe_kart_canvas_2d.gd -- --capture-racer --touch",
+  "capture_lane": "Native deterministic diagnostic only. No DL-QA-11 authoritative fresh-runtime PASS. No device, child or owner acceptance.",
+  "frames": [
+    {
+      "path": "audit/racer_chase_20261003/captures/01_ride_selection.png",
+      "sha256": "39e52f3942a85d39ff180c86a9e172cb5177c4693de177ff44a84bf1ef367829",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "01_ride_selection",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/01b_paint_selection.png",
+      "sha256": "9b5d43b00d60b87a9a3506f6b511bc7f0482fa497158ded9f0bbe4f6ecb684d6",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "01b_paint_selection",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/01c_tablet_picture_targets.png",
+      "sha256": "1cce555a2570d35fa922d568ace698e112bc03438964940b60353688a9b40410",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "state": "01c_tablet_picture_targets",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/02_ramp_apex.png",
+      "sha256": "0c95cfbf8425fecb2826255b7586c71de40fed97427c32673513375dc8e555a1",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "02_ramp_apex",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/02_shortcut_00.png",
+      "sha256": "dfe96377fdf76cccb9aeeeb7958e4208edf28764b2b93185120e907dc7f572ad",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "02_shortcut_00",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/02_shortcut_50.png",
+      "sha256": "0e2e9b061ceecfbba6d4bb5d3ebd5856ebb63964ab6ae8eef121d7d226744948",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "02_shortcut_50",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/02_shortcut_90.png",
+      "sha256": "c2e754009c25f2249d2227577709fde893919f2d62c74811ed21de98bffa3b64",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "02_shortcut_90",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/03_finish_approach.png",
+      "sha256": "5e36f0744ac898064b997edbe1841eac6d299a5327c765e2a4bfb4e2e259f484",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "03_finish_approach",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/04_finish_crossing.png",
+      "sha256": "ae18aa1c6331cacd2dcee5b44b6028eaebc6a9df89cea26c66756d5cf57ae47d",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "04_finish_crossing",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/05_result_settle.png",
+      "sha256": "575cda124ee33af5428226d2466455de183da7d451b5642b96226b65f048ca5e",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "05_result_settle",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/interim_pool_stretched_floor.png",
+      "sha256": "05e516447dc438b6e58a3950a4fce6a39e9c7d4e68b2a7ddd5dae84a7f45ff7c",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "interim_pool_stretched_floor",
+      "disposition": "REJECTED_INTERIM",
+      "source": "historical agent-rejected view; not final source",
+      "owner_acceptance": "NOT_SUBMITTED"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/interim_rival_seating.png",
+      "sha256": "e0ddf770ba307e30fff3fa4abaa3f446ec2a2545021a9d9a444bf95836f06d01",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "interim_rival_seating",
+      "disposition": "REJECTED_INTERIM",
+      "source": "historical agent-rejected view; not final source",
+      "owner_acceptance": "NOT_SUBMITTED"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_kart_boost.png",
+      "sha256": "891da7f0386b4c056a7d0710f44e16424bbdb5a6a258bfb54b394bcbde55beac",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "pose_kart_boost",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_kart_left.png",
+      "sha256": "ea66f5406ea4b790a4613a8e663762b3dcee3e833cc0f9953befda4e8bf3b0f9",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "pose_kart_left",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_kart_right.png",
+      "sha256": "5b864037162b70bbcb0a526dfe083611d5b4645c5fa54c0f739ac49a6e0d1d37",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "pose_kart_right",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_kart_straight.png",
+      "sha256": "687e08213afc401e23a1902ef4358dbd512afa561ab66f3f881a79ca93c2b19c",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "pose_kart_straight",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_moto_boost.png",
+      "sha256": "b8b96ae83259040611292d28f781bbb1ef7aad9fdb74979a643f459cfa2a4d45",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "pose_moto_boost",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_moto_left.png",
+      "sha256": "d4902a5f49274ce1f4e877172e8f458a1476589ba223986245d540aaf4d6a80c",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "pose_moto_left",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_moto_right.png",
+      "sha256": "df197e681ba3be16192e7c654a9fb3dd447191991bfe40ee25c399fb5caf6e9d",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "pose_moto_right",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_moto_straight.png",
+      "sha256": "f2c2ee78efad3dcffa0487d9ab4eaffeba11337ceb68720e9c27055f19d4cfb3",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "pose_moto_straight",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_truck_boost.png",
+      "sha256": "6a25169fc954e308b67d88adbd08f44f48b6837482ac804029ff47e94b3439ce",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "pose_truck_boost",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_truck_left.png",
+      "sha256": "afd334c35153eaa1381799cbf39c0f6e0449e7980370a2c59c2d114b5c1eebe0",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "pose_truck_left",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_truck_right.png",
+      "sha256": "df94afabb0683d50028502e26142a355c15d305dafb2615617461b83728df8ae",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "pose_truck_right",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_truck_straight.png",
+      "sha256": "ea1b87010fad76e1aa7ac8621b70f3538f80f25e7594d90bed88912189151158",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "pose_truck_straight",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_00_movie_lounge.png",
+      "sha256": "b9b1b914e90fcb2528f5c9f0cf55bde6e30d4688109382fc737040848a13e06b",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "route_00_movie_lounge",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_01_family_gallery_out.png",
+      "sha256": "ee615dae10a8d3f3cc022401b4a18b5a52a7e03429ac829459266b2fe73b72e4",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "route_01_family_gallery_out",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_02_main_hall_out.png",
+      "sha256": "b11d19e8b25b5229091cb94fbeab7f27df4b9f9096bf4df4baf3d5348921e8e1",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "route_02_main_hall_out",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_03_mermaid_pool.png",
+      "sha256": "66022e8f53f32e0910d8c6acaa446ead723243c14c97ea6bdaf18ad77dc9067a",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "route_03_mermaid_pool",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_04_main_hall_front.png",
+      "sha256": "66d84074fa21c4d10ff60cd74716b24650490444c8e0252eddffd6c1b85bbb60",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "route_04_main_hall_front",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_05_castle_bridge_out.png",
+      "sha256": "c8b4fde238b6880e9152b1d965569579415de44a118fac439a69906d9804869a",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "route_05_castle_bridge_out",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_06_sky_lagoon.png",
+      "sha256": "a5e80ef6bdbeb88b801831ddf6f7e50d055850acb7d085adb2e0eed1ca493141",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "route_06_sky_lagoon",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_07_castle_bridge_home.png",
+      "sha256": "469211aea73d5076fd49be7f2a003b5986a7ccc2f2f68e1bfaf892fbbf0f28b9",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "route_07_castle_bridge_home",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_08_main_hall_home.png",
+      "sha256": "97072aca1a7aadf48390dbdcadf3b4fce22e351098f30517e379b46366eb2e40",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "route_08_main_hall_home",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_09_family_gallery_home.png",
+      "sha256": "5d7588095083645e8c2850baf14ad5b8a90f9405062ff792e1f418eb63564baf",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "route_09_family_gallery_home",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_10_movie_lounge_finish.png",
+      "sha256": "4f02ff9bba0159c198a36b88aab064668d2fbb0d3d9416193af1e88da02548d4",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "state": "route_10_movie_lounge_finish",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/tablet_00_movie_lounge.png",
+      "sha256": "664e272600b8c059490ae38a948187ec6bc65367873cc9d4299ee02c7576ae6e",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "state": "tablet_00_movie_lounge",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/tablet_03_mermaid_pool.png",
+      "sha256": "230e72ab38a6bd251aa1c51b553bcd0fe14e92ff79fd9dad3093e9a8b2ce479a",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "state": "tablet_03_mermaid_pool",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/tablet_07_castle_bridge_home.png",
+      "sha256": "eebe11dfc269a49aeba1be33bb439e661803821e801d0f010a9e6b50730a9545",
+      "dimensions": [
+        1280,
+        800
+      ],
+      "state": "tablet_07_castle_bridge_home",
+      "disposition": "CURRENT_NATIVE_DIAGNOSTIC",
+      "source": "source_snapshot.json",
+      "owner_acceptance": "PENDING"
+    }
+  ],
+  "payload": [
+    {
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "hash_method": "exact_binary",
+      "bytes_local": 50051
+    },
+    {
+      "path": "assets/kart/canvas/kart_quarter.png",
+      "sha256": "97f6bce7f9c62a2b4db8c18617baa8d428a3c5faed5ee8e6a02ebc9ce0a3ecb4",
+      "hash_method": "exact_binary",
+      "bytes_local": 167303
+    },
+    {
+      "path": "assets/kart/canvas/kart_rear.png",
+      "sha256": "91dbc94e4c2ab4bb8cdd71caa1fdebf5cffa53ca4dba5675269a1de23ce0c581",
+      "hash_method": "exact_binary",
+      "bytes_local": 104644
+    },
+    {
+      "path": "assets/kart/canvas/moto_rear.png",
+      "sha256": "cb7f69eca09cc94414c10cf92ee20774f57f9c55e5f9e145a309e21bba181619",
+      "hash_method": "exact_binary",
+      "bytes_local": 110924
+    },
+    {
+      "path": "assets/kart/chase/anchors.json",
+      "sha256": "38441c903bbc66933d6d152c27c3216c5ba882042f928fb1fadad04595c0ef16",
+      "hash_method": "utf8_lf",
+      "bytes_local": 23234
+    },
+    {
+      "path": "assets/kart/chase/empty_kart.png",
+      "sha256": "35457c5cf602bffa666d6663f9fcbefb9be26bd2d0eca1c96cb5c2a6fbf9ac88",
+      "hash_method": "exact_binary",
+      "bytes_local": 807691
+    },
+    {
+      "path": "assets/kart/chase/empty_moto.png",
+      "sha256": "dfec5d6132bf3d81a086f451b4b1030aef435b9b44804ebe22ea7fce7d611bda",
+      "hash_method": "exact_binary",
+      "bytes_local": 731469
+    },
+    {
+      "path": "assets/kart/chase/empty_truck.png",
+      "sha256": "8fc3380295df50ac0c981a2b28f12d4b82236be7c79c7de9907ceb640eeda1fd",
+      "hash_method": "exact_binary",
+      "bytes_local": 749428
+    },
+    {
+      "path": "assets/kart/chase/kart_boost.png",
+      "sha256": "17ab19589d2296d1177e91535659a7fe04f34ffbbcd48402da019fd1137e1dd8",
+      "hash_method": "exact_binary",
+      "bytes_local": 372921
+    },
+    {
+      "path": "assets/kart/chase/kart_left.png",
+      "sha256": "733fd9c4e1fe1aef84bbf57161e0c225d3a5d4f3f6ebdc71af5e9f49a8df9ffc",
+      "hash_method": "exact_binary",
+      "bytes_local": 383454
+    },
+    {
+      "path": "assets/kart/chase/kart_right.png",
+      "sha256": "66fabc27fd8bda5d775d787a84b866d40dc1d9b9a9d121cb25e38eb66fd688e2",
+      "hash_method": "exact_binary",
+      "bytes_local": 385145
+    },
+    {
+      "path": "assets/kart/chase/kart_straight.png",
+      "sha256": "6a3107b79afd615b96b3777cd002b9d2e5814743dbfef718567d7e535693deee",
+      "hash_method": "exact_binary",
+      "bytes_local": 356016
+    },
+    {
+      "path": "assets/kart/chase/moto_boost.png",
+      "sha256": "254ba22c05114fa4772b9995614d6d355e37c2febedafc500d7d3616c0757b9f",
+      "hash_method": "exact_binary",
+      "bytes_local": 303054
+    },
+    {
+      "path": "assets/kart/chase/moto_left.png",
+      "sha256": "fc47ae7501bae43f23d6ee61cbb7102d6171201449e15ff2a7b3c33f2ee7dfb9",
+      "hash_method": "exact_binary",
+      "bytes_local": 345507
+    },
+    {
+      "path": "assets/kart/chase/moto_right.png",
+      "sha256": "ee6a448954e1fcbc6eec2f19557819a01fa1b9a52521019c267baa1f74b900e0",
+      "hash_method": "exact_binary",
+      "bytes_local": 340830
+    },
+    {
+      "path": "assets/kart/chase/moto_straight.png",
+      "sha256": "dd2abb4e3076a8e87e0a0c412c1dbf2ce1b34c573a7281bcfb513568808df6a0",
+      "hash_method": "exact_binary",
+      "bytes_local": 318905
+    },
+    {
+      "path": "assets/kart/chase/truck_boost.png",
+      "sha256": "9de77bf01dd9f1d67a251483984e30d50a3cb7c8a22cdd4322092635559ec9cb",
+      "hash_method": "exact_binary",
+      "bytes_local": 357511
+    },
+    {
+      "path": "assets/kart/chase/truck_left.png",
+      "sha256": "6253a929fe0effe1b4dd813e19e87127235b3ae5be2aaa1a21e3103e476920ff",
+      "hash_method": "exact_binary",
+      "bytes_local": 391513
+    },
+    {
+      "path": "assets/kart/chase/truck_right.png",
+      "sha256": "e9a95f5bf71804ebd3fef40ca59f5f672e9f29f314e5a2c36257156c3912922a",
+      "hash_method": "exact_binary",
+      "bytes_local": 372586
+    },
+    {
+      "path": "assets/kart/chase/truck_straight.png",
+      "sha256": "3e9d73e98848e690c7785c8b26f7a7959a766eb974f237af3df0975bfbfab247",
+      "hash_method": "exact_binary",
+      "bytes_local": 357877
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_racer_sheet_a.png",
+      "sha256": "f62f881d42b439bde09a8bc7f6e0000125acd3e27aabf1fd39d90722ce75ca79",
+      "hash_method": "exact_binary",
+      "bytes_local": 745475
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_racer_kart.png",
+      "sha256": "59ea76d8be40b604cbf3691e9c9508287334ddf6cf0f81fea08c7f68fd22fe8c",
+      "hash_method": "exact_binary",
+      "bytes_local": 165713
+    },
+    {
+      "path": "assets_src/racer_chase_20261003/animation.json",
+      "sha256": "38441c903bbc66933d6d152c27c3216c5ba882042f928fb1fadad04595c0ef16",
+      "hash_method": "utf8_lf",
+      "bytes_local": 23234
+    },
+    {
+      "path": "assets_src/racer_chase_20261003/empty_kart_native.png",
+      "sha256": "052527af7675df4962535193628db9b6eec510a2b8da2806cec3a606ad0d0d03",
+      "hash_method": "exact_binary",
+      "bytes_local": 1095299
+    },
+    {
+      "path": "assets_src/racer_chase_20261003/empty_moto_native.png",
+      "sha256": "081e999afdb06db078120cea033087715c9454338afd12466466867d83748994",
+      "hash_method": "exact_binary",
+      "bytes_local": 984790
+    },
+    {
+      "path": "assets_src/racer_chase_20261003/empty_truck_native.png",
+      "sha256": "7e6acc2283651995efbb89f95df905b1691d7d3bf0502e1c643ffe9c22a635d2",
+      "hash_method": "exact_binary",
+      "bytes_local": 1021573
+    },
+    {
+      "path": "assets_src/racer_chase_20261003/inventory.json",
+      "sha256": "14b81e60284b12a0d2fd38701e60dfc0155dde4362cad6d036164923e0d23158",
+      "hash_method": "utf8_lf",
+      "bytes_local": 2420
+    },
+    {
+      "path": "assets_src/racer_chase_20261003/kart_native.png",
+      "sha256": "c82e2efe75c2977208cfcd23eebe8bb175f8173551371889776d0fa2334f2479",
+      "hash_method": "exact_binary",
+      "bytes_local": 1481328
+    },
+    {
+      "path": "assets_src/racer_chase_20261003/moto_native.png",
+      "sha256": "c335b21734ccb5e70fe67dd2d2074186616b3013ee1064218c993cbcfb4a35c1",
+      "hash_method": "exact_binary",
+      "bytes_local": 1288214
+    },
+    {
+      "path": "assets_src/racer_chase_20261003/prompts.json",
+      "sha256": "1012f0c930061379bc1076152e039459eacf7648eb76172e77045090c27926e5",
+      "hash_method": "utf8_lf",
+      "bytes_local": 10030
+    },
+    {
+      "path": "assets_src/racer_chase_20261003/rejected_empty_halo.png",
+      "sha256": "5e6ee68d875776249a7a25b6540291ee218ae375af0491f0b547693c11e6c9ac",
+      "hash_method": "exact_binary",
+      "bytes_local": 1936484
+    },
+    {
+      "path": "assets_src/racer_chase_20261003/rejected_empty_halo_repair.png",
+      "sha256": "88bf3ae501c2c4c3e5d52a5afa2f2b9d287058affcb4ba4ac44d635622795f0a",
+      "hash_method": "exact_binary",
+      "bytes_local": 1929643
+    },
+    {
+      "path": "assets_src/racer_chase_20261003/truck_native.png",
+      "sha256": "e43db1e9e86696e5418d079f7decec4142924e4a01e7c91ef44dfa9de3ef6123",
+      "hash_method": "exact_binary",
+      "bytes_local": 1461453
+    },
+    {
+      "path": "audit/racer_chase_20261003/assessment.receipt.json",
+      "sha256": "d47832cb57c501f8543a3f469056befa5d422bf12684d68641a2d98ab2540d0c",
+      "hash_method": "utf8_lf",
+      "bytes_local": 3201
+    },
+    {
+      "path": "audit/racer_chase_20261003/asset_geometry_receipt.json",
+      "sha256": "96b95f2317e93f5dd9c92e0a54b3e9798848043e99b9d2bb5a56d1f7dc714412",
+      "hash_method": "utf8_lf",
+      "bytes_local": 4925
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/01_ride_selection.png",
+      "sha256": "39e52f3942a85d39ff180c86a9e172cb5177c4693de177ff44a84bf1ef367829",
+      "hash_method": "exact_binary",
+      "bytes_local": 571522
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/01b_paint_selection.png",
+      "sha256": "9b5d43b00d60b87a9a3506f6b511bc7f0482fa497158ded9f0bbe4f6ecb684d6",
+      "hash_method": "exact_binary",
+      "bytes_local": 568749
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/01c_tablet_picture_targets.png",
+      "sha256": "1cce555a2570d35fa922d568ace698e112bc03438964940b60353688a9b40410",
+      "hash_method": "exact_binary",
+      "bytes_local": 573620
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/02_ramp_apex.png",
+      "sha256": "0c95cfbf8425fecb2826255b7586c71de40fed97427c32673513375dc8e555a1",
+      "hash_method": "exact_binary",
+      "bytes_local": 1001076
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/02_shortcut_00.png",
+      "sha256": "dfe96377fdf76cccb9aeeeb7958e4208edf28764b2b93185120e907dc7f572ad",
+      "hash_method": "exact_binary",
+      "bytes_local": 963269
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/02_shortcut_50.png",
+      "sha256": "0e2e9b061ceecfbba6d4bb5d3ebd5856ebb63964ab6ae8eef121d7d226744948",
+      "hash_method": "exact_binary",
+      "bytes_local": 958813
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/02_shortcut_90.png",
+      "sha256": "c2e754009c25f2249d2227577709fde893919f2d62c74811ed21de98bffa3b64",
+      "hash_method": "exact_binary",
+      "bytes_local": 928392
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/03_finish_approach.png",
+      "sha256": "5e36f0744ac898064b997edbe1841eac6d299a5327c765e2a4bfb4e2e259f484",
+      "hash_method": "exact_binary",
+      "bytes_local": 501255
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/04_finish_crossing.png",
+      "sha256": "ae18aa1c6331cacd2dcee5b44b6028eaebc6a9df89cea26c66756d5cf57ae47d",
+      "hash_method": "exact_binary",
+      "bytes_local": 537166
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/05_result_settle.png",
+      "sha256": "575cda124ee33af5428226d2466455de183da7d451b5642b96226b65f048ca5e",
+      "hash_method": "exact_binary",
+      "bytes_local": 571298
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/interim_pool_stretched_floor.png",
+      "sha256": "05e516447dc438b6e58a3950a4fce6a39e9c7d4e68b2a7ddd5dae84a7f45ff7c",
+      "hash_method": "exact_binary",
+      "bytes_local": 1085694
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/interim_rival_seating.png",
+      "sha256": "e0ddf770ba307e30fff3fa4abaa3f446ec2a2545021a9d9a444bf95836f06d01",
+      "hash_method": "exact_binary",
+      "bytes_local": 1100584
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_kart_boost.png",
+      "sha256": "891da7f0386b4c056a7d0710f44e16424bbdb5a6a258bfb54b394bcbde55beac",
+      "hash_method": "exact_binary",
+      "bytes_local": 884003
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_kart_left.png",
+      "sha256": "ea66f5406ea4b790a4613a8e663762b3dcee3e833cc0f9953befda4e8bf3b0f9",
+      "hash_method": "exact_binary",
+      "bytes_local": 890124
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_kart_right.png",
+      "sha256": "5b864037162b70bbcb0a526dfe083611d5b4645c5fa54c0f739ac49a6e0d1d37",
+      "hash_method": "exact_binary",
+      "bytes_local": 888038
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_kart_straight.png",
+      "sha256": "687e08213afc401e23a1902ef4358dbd512afa561ab66f3f881a79ca93c2b19c",
+      "hash_method": "exact_binary",
+      "bytes_local": 883739
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_moto_boost.png",
+      "sha256": "b8b96ae83259040611292d28f781bbb1ef7aad9fdb74979a643f459cfa2a4d45",
+      "hash_method": "exact_binary",
+      "bytes_local": 881519
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_moto_left.png",
+      "sha256": "d4902a5f49274ce1f4e877172e8f458a1476589ba223986245d540aaf4d6a80c",
+      "hash_method": "exact_binary",
+      "bytes_local": 891884
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_moto_right.png",
+      "sha256": "df197e681ba3be16192e7c654a9fb3dd447191991bfe40ee25c399fb5caf6e9d",
+      "hash_method": "exact_binary",
+      "bytes_local": 895664
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_moto_straight.png",
+      "sha256": "f2c2ee78efad3dcffa0487d9ab4eaffeba11337ceb68720e9c27055f19d4cfb3",
+      "hash_method": "exact_binary",
+      "bytes_local": 886622
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_truck_boost.png",
+      "sha256": "6a25169fc954e308b67d88adbd08f44f48b6837482ac804029ff47e94b3439ce",
+      "hash_method": "exact_binary",
+      "bytes_local": 892985
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_truck_left.png",
+      "sha256": "afd334c35153eaa1381799cbf39c0f6e0449e7980370a2c59c2d114b5c1eebe0",
+      "hash_method": "exact_binary",
+      "bytes_local": 902715
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_truck_right.png",
+      "sha256": "df94afabb0683d50028502e26142a355c15d305dafb2615617461b83728df8ae",
+      "hash_method": "exact_binary",
+      "bytes_local": 899969
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/pose_truck_straight.png",
+      "sha256": "ea1b87010fad76e1aa7ac8621b70f3538f80f25e7594d90bed88912189151158",
+      "hash_method": "exact_binary",
+      "bytes_local": 894792
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_00_movie_lounge.png",
+      "sha256": "b9b1b914e90fcb2528f5c9f0cf55bde6e30d4688109382fc737040848a13e06b",
+      "hash_method": "exact_binary",
+      "bytes_local": 454327
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_01_family_gallery_out.png",
+      "sha256": "ee615dae10a8d3f3cc022401b4a18b5a52a7e03429ac829459266b2fe73b72e4",
+      "hash_method": "exact_binary",
+      "bytes_local": 330004
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_02_main_hall_out.png",
+      "sha256": "b11d19e8b25b5229091cb94fbeab7f27df4b9f9096bf4df4baf3d5348921e8e1",
+      "hash_method": "exact_binary",
+      "bytes_local": 1088200
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_03_mermaid_pool.png",
+      "sha256": "66022e8f53f32e0910d8c6acaa446ead723243c14c97ea6bdaf18ad77dc9067a",
+      "hash_method": "exact_binary",
+      "bytes_local": 1109340
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_04_main_hall_front.png",
+      "sha256": "66d84074fa21c4d10ff60cd74716b24650490444c8e0252eddffd6c1b85bbb60",
+      "hash_method": "exact_binary",
+      "bytes_local": 1135973
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_05_castle_bridge_out.png",
+      "sha256": "c8b4fde238b6880e9152b1d965569579415de44a118fac439a69906d9804869a",
+      "hash_method": "exact_binary",
+      "bytes_local": 1408599
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_06_sky_lagoon.png",
+      "sha256": "a5e80ef6bdbeb88b801831ddf6f7e50d055850acb7d085adb2e0eed1ca493141",
+      "hash_method": "exact_binary",
+      "bytes_local": 915497
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_07_castle_bridge_home.png",
+      "sha256": "469211aea73d5076fd49be7f2a003b5986a7ccc2f2f68e1bfaf892fbbf0f28b9",
+      "hash_method": "exact_binary",
+      "bytes_local": 1098464
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_08_main_hall_home.png",
+      "sha256": "97072aca1a7aadf48390dbdcadf3b4fce22e351098f30517e379b46366eb2e40",
+      "hash_method": "exact_binary",
+      "bytes_local": 1175332
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_09_family_gallery_home.png",
+      "sha256": "5d7588095083645e8c2850baf14ad5b8a90f9405062ff792e1f418eb63564baf",
+      "hash_method": "exact_binary",
+      "bytes_local": 279507
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/route_10_movie_lounge_finish.png",
+      "sha256": "4f02ff9bba0159c198a36b88aab064668d2fbb0d3d9416193af1e88da02548d4",
+      "hash_method": "exact_binary",
+      "bytes_local": 483660
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/tablet_00_movie_lounge.png",
+      "sha256": "664e272600b8c059490ae38a948187ec6bc65367873cc9d4299ee02c7576ae6e",
+      "hash_method": "exact_binary",
+      "bytes_local": 456354
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/tablet_03_mermaid_pool.png",
+      "sha256": "230e72ab38a6bd251aa1c51b553bcd0fe14e92ff79fd9dad3093e9a8b2ce479a",
+      "hash_method": "exact_binary",
+      "bytes_local": 1114025
+    },
+    {
+      "path": "audit/racer_chase_20261003/captures/tablet_07_castle_bridge_home.png",
+      "sha256": "eebe11dfc269a49aeba1be33bb439e661803821e801d0f010a9e6b50730a9545",
+      "hash_method": "exact_binary",
+      "bytes_local": 1163682
+    },
+    {
+      "path": "audit/racer_chase_20261003/comparison/new_driving.png",
+      "sha256": "b544a86fb4e38f1ccb257de24a5b37df742fdd8bbaa3e7b2bccbe24222e52bfa",
+      "hash_method": "exact_binary",
+      "bytes_local": 110839
+    },
+    {
+      "path": "audit/racer_chase_20261003/comparison/original_driving.png",
+      "sha256": "721348e269b66b90a37cb4b734ccb022174ad162c88f136703ad700ab9e63dbb",
+      "hash_method": "exact_binary",
+      "bytes_local": 261626
+    },
+    {
+      "path": "audit/racer_chase_20261003/comparison/original_ride_selection.png",
+      "sha256": "8a24cff19e3c993678cd8358d249cea4f6d0006f0c08c148694144b6cd960290",
+      "hash_method": "exact_binary",
+      "bytes_local": 309901
+    },
+    {
+      "path": "audit/racer_chase_20261003/comparison/repo_driving.png",
+      "sha256": "2a294ebeb1692fdf6f53e0285aad362952772c3091455737b6edc70fce0e86e9",
+      "hash_method": "exact_binary",
+      "bytes_local": 1562387
+    },
+    {
+      "path": "audit/racer_chase_20261003/comparison/repo_ready.png",
+      "sha256": "ae3123d3a00dad27bf110c102ef4c35977137ea23d973ddfe3f9f310bb1ca244",
+      "hash_method": "exact_binary",
+      "bytes_local": 1565647
+    },
+    {
+      "path": "audit/racer_chase_20261003/comparison_copy_receipt.json",
+      "sha256": "081b579401f3953e4fe281d46df8ffa54f58384d441b18f72da0fd4303904677",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1696
+    },
+    {
+      "path": "audit/racer_chase_20261003/current_direction_review.json",
+      "sha256": "d7095be70c8c1cdc77fd983a2f4de38d6334e10e93f2a8e3c0fb997a58b530ef",
+      "hash_method": "utf8_lf",
+      "bytes_local": 4622
+    },
+    {
+      "path": "audit/racer_chase_20261003/engine_invocation_comparison.json",
+      "sha256": "0f09bd45bc5a2dcc522e88590ff5d62f5eb71d9e64d2724b1f2777e510ff85f0",
+      "hash_method": "utf8_lf",
+      "bytes_local": 5193
+    },
+    {
+      "path": "audit/racer_chase_20261003/failed_console_repeat_summary.json",
+      "sha256": "d35165a67110e5eda393bc78b0911b531b52b5dece769a7da67229c6c37db1f1",
+      "hash_method": "utf8_lf",
+      "bytes_local": 438
+    },
+    {
+      "path": "audit/racer_chase_20261003/failed_global_suite_summary.json",
+      "sha256": "769a008ebe1dcb8787b576f47464cec4917938ce8488a914f11fd4b7cb52be24",
+      "hash_method": "utf8_lf",
+      "bytes_local": 542
+    },
+    {
+      "path": "audit/racer_chase_20261003/focused_feel_receipt.json",
+      "sha256": "7ca66644d1d5f37ecd5d627c6597b1fe5c2acba227a8a19a1374381921feed77",
+      "hash_method": "utf8_lf",
+      "bytes_local": 2773
+    },
+    {
+      "path": "audit/racer_chase_20261003/full_suite_alias_receipt.json",
+      "sha256": "e31f658ec049f2aa7dcf930baecf70062f18ed4ab5b91740ada079da33aba89d",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1298
+    },
+    {
+      "path": "audit/racer_chase_20261003/full_suite_summary.json",
+      "sha256": "9e1d52e9411de0f41ef8e031e30cc132f57ff61d16d85cfb2e362c8851944bff",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1621
+    },
+    {
+      "path": "audit/racer_chase_20261003/index.html",
+      "sha256": "ebf2ccb8cabccae18977fbdc8507913a7aa0074ff64d09b4803967320d93c745",
+      "hash_method": "utf8_lf",
+      "bytes_local": 5765
+    },
+    {
+      "path": "audit/racer_chase_20261003/isolated_failure_reproduction.json",
+      "sha256": "f3747be1634086708bd705d0b09010283e1a3f5f1591af58af1013fc2602c89b",
+      "hash_method": "utf8_lf",
+      "bytes_local": 4074
+    },
+    {
+      "path": "audit/racer_chase_20261003/log_normalization_receipt.json",
+      "sha256": "6f43f9ed0a718fbeea7ddeda1cb20a6a97e4891d04c75095ef867bed78cf560a",
+      "hash_method": "utf8_lf",
+      "bytes_local": 44440
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/core_full_suite.receipt.json",
+      "sha256": "b7cafb5e3f2f57fa1a011308eb7b428fd8e5b2a1b92d76440813f9fa89723fc8",
+      "hash_method": "utf8_lf",
+      "bytes_local": 638
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/core_full_suite.source.json",
+      "sha256": "2653866e125d433f3a55ea7c2f84917dd1daa5103fd197b545efda19f9e9738e",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1596
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/core_full_suite.stderr.log",
+      "sha256": "804f9f6475764a074d38a5a0ea22f8ffb692d769d097f35c3ef15b7a7cc51f4e",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1573
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/core_full_suite.stdout.log",
+      "sha256": "314e2aa4685a8a53cbb246179aa22825ef59af67cdcf8c1525b183fad02a98f0",
+      "hash_method": "utf8_lf",
+      "bytes_local": 432841
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/core_resolver.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/core_resolver.stdout.log",
+      "sha256": "fd124aefc243c705ce49df408d700ad8aaa216e67a77221a2b658ee1f3d67127",
+      "hash_method": "utf8_lf",
+      "bytes_local": 98
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/direct_core_probe_throne.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/direct_core_probe_throne.stdout.log",
+      "sha256": "86cf6b53d4a858c81a8c19b95650a6b3a443cf4e50a61d52e6752cd69c721a5f",
+      "hash_method": "utf8_lf",
+      "bytes_local": 2726
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/direct_core_probe_touch_adversary.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/direct_core_probe_touch_adversary.stdout.log",
+      "sha256": "69cd485bd1dba63bce3f3dae242640a89658d77bf7c1cf236ddb33095d2edf59",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1616
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/direct_core_probe_ui_system.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/direct_core_probe_ui_system.stdout.log",
+      "sha256": "2052e79691e3d32022a38b3ee635b69c6641f0af8d65b10c8c50cea7503bf152",
+      "hash_method": "utf8_lf",
+      "bytes_local": 14117
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/failed_console_repeat_suite.receipt.json",
+      "sha256": "704933258d06328f9268226ece0082ae6d6866ec84aecd8f7c06afe868683f7e",
+      "hash_method": "utf8_lf",
+      "bytes_local": 423
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/failed_console_repeat_suite.source.json",
+      "sha256": "a6a8de632008b5805909d710fae25316ac0d0feef092d24a483656c5a8438c32",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1464
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/failed_console_repeat_suite.stderr.log",
+      "sha256": "52f1b0ef47c825670c5e40824094b77bf587c4ed235197a994e629d63f6b0e5b",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1571
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/failed_console_repeat_suite.stdout.log",
+      "sha256": "d286d7f522be4f5e1836ca729e38bc056e83d1f948d1b613dc219adac434382c",
+      "hash_method": "utf8_lf",
+      "bytes_local": 421836
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/failed_global_suite.receipt.json",
+      "sha256": "a5b2843d07fa62f2c5fefbeb7fcf976a0d6bf571b55e1ee74b28b8b3dd1f97c2",
+      "hash_method": "utf8_lf",
+      "bytes_local": 423
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/failed_global_suite.source.json",
+      "sha256": "a6a8de632008b5805909d710fae25316ac0d0feef092d24a483656c5a8438c32",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1464
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/failed_global_suite.stderr.log",
+      "sha256": "044fa8356b609a5f6737b2b94232218ccdff00425e1af1647784ea5ef7d1d81e",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1572
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/failed_global_suite.stdout.log",
+      "sha256": "06502d06c45705dbd4601f77dbcbeb28b8e724819d220861d3dd5287257cbefc",
+      "hash_method": "utf8_lf",
+      "bytes_local": 432658
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/failed_strip_fixture_suite.receipt.json",
+      "sha256": "1c894813ad8203ea920cc00966aa1587a306674d529718f886c00cff00055be3",
+      "hash_method": "utf8_lf",
+      "bytes_local": 318
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/failed_strip_fixture_suite.source.json",
+      "sha256": "527303213519f583dd8205d6e86413850301d4dedab81f064b117dfeaae39a41",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1464
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/failed_strip_fixture_suite.stderr.log",
+      "sha256": "f678997e6678639b219d4172a9f31a3a21bd9f8f2141dd48f5eb6b819a760c87",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1571
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/failed_strip_fixture_suite.stdout.log",
+      "sha256": "74ca0f10524d1e6b8c9d57b22691650507c1207ab4a4046c07a6f15113ce43db",
+      "hash_method": "utf8_lf",
+      "bytes_local": 218836
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/features.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/features.stdout.log",
+      "sha256": "f81178f25a815122ddd6d4b320340fac44c9669f854ec0fa47683c6f22087777",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1398
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/features2.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/features2.stdout.log",
+      "sha256": "32d23dfaf872e33c7fdf539fefc65afb9797d096550c24337380f00672cfaf28",
+      "hash_method": "utf8_lf",
+      "bytes_local": 2433
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/features3.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/features3.stdout.log",
+      "sha256": "36aff25f9ff0f0095f37181bf9c4e1b433850800e8b2572f587ab5b3d564e902",
+      "hash_method": "utf8_lf",
+      "bytes_local": 2429
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/feel.stderr.log",
+      "sha256": "502f2014a6ae7244d062ff9284fd4ac647debcc5674d1ac530cc9a7f5ce14030",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1561
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/feel.stdout.log",
+      "sha256": "f7a39dbffd4b761087b7ff0d6db22c0c6402d0206d71a0b293c879b555a39cae",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1044
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_authority.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_authority.stdout.log",
+      "sha256": "89451794545de8af61539fc754f7ab2170177d46140ccff8d0be283e8c1d4c19",
+      "hash_method": "utf8_lf",
+      "bytes_local": 76
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_development.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_development.stdout.log",
+      "sha256": "0284488bbf033784c9eb6244e5155a3d3ae375f03f9c05e8da88cddedb234ebe",
+      "hash_method": "utf8_lf",
+      "bytes_local": 78
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_features.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_features.stdout.log",
+      "sha256": "e6a62f7e07f91626392a5402e43f4d4b594bb303bbe6a456daef727b05b25835",
+      "hash_method": "utf8_lf",
+      "bytes_local": 2591
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_feel.log",
+      "sha256": "da911386fc117f396d1761bf4b95706600bfc73e4a939e6362d02ff79f12d8e6",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1130
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_feel.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_feel.stdout.log",
+      "sha256": "617a7317f78a6f34de95a5223af41726f4d67a9db11f0e018e032cc4ff1bd2f1",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1044
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_import.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_import.stdout.log",
+      "sha256": "73fea45845f0c2152701970375e12aead812959bb6f1911b9a511366a1eb3044",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1418
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_inference.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_inference.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_native.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_native.stdout.log",
+      "sha256": "086dca9ded316aa695e284f30ca47c3a1543210f8ad0bf9ba21b352177c0b8bc",
+      "hash_method": "utf8_lf",
+      "bytes_local": 4626
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_parser.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_parser.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_static_analyzer_kart.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_static_analyzer_kart.stdout.log",
+      "sha256": "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e",
+      "hash_method": "utf8_lf",
+      "bytes_local": 73
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_static_analyzer_kart_canvas_2d.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_static_analyzer_kart_canvas_2d.stdout.log",
+      "sha256": "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e",
+      "hash_method": "utf8_lf",
+      "bytes_local": 73
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_static_analyzer_kart_course_worlds.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_static_analyzer_kart_course_worlds.stdout.log",
+      "sha256": "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e",
+      "hash_method": "utf8_lf",
+      "bytes_local": 73
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_static_analyzer_package_smoke.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_static_analyzer_package_smoke.stdout.log",
+      "sha256": "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e",
+      "hash_method": "utf8_lf",
+      "bytes_local": 73
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_static_analyzer_probe_kart_canvas_2d.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_static_analyzer_probe_kart_canvas_2d.stdout.log",
+      "sha256": "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e",
+      "hash_method": "utf8_lf",
+      "bytes_local": 73
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_static_authority.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_static_authority.stdout.log",
+      "sha256": "89451794545de8af61539fc754f7ab2170177d46140ccff8d0be283e8c1d4c19",
+      "hash_method": "utf8_lf",
+      "bytes_local": 76
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_static_development.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_static_development.stdout.log",
+      "sha256": "0284488bbf033784c9eb6244e5155a3d3ae375f03f9c05e8da88cddedb234ebe",
+      "hash_method": "utf8_lf",
+      "bytes_local": 78
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_static_inference.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_static_inference.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_static_parser.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/final_static_parser.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/full_suite.receipt.json",
+      "sha256": "b7cafb5e3f2f57fa1a011308eb7b428fd8e5b2a1b92d76440813f9fa89723fc8",
+      "hash_method": "utf8_lf",
+      "bytes_local": 638
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/full_suite.source.json",
+      "sha256": "2653866e125d433f3a55ea7c2f84917dd1daa5103fd197b545efda19f9e9738e",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1596
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/full_suite.stderr.log",
+      "sha256": "804f9f6475764a074d38a5a0ea22f8ffb692d769d097f35c3ef15b7a7cc51f4e",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1573
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/full_suite.stdout.log",
+      "sha256": "314e2aa4685a8a53cbb246179aa22825ef59af67cdcf8c1525b183fad02a98f0",
+      "hash_method": "utf8_lf",
+      "bytes_local": 432841
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/import.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/import.stdout.log",
+      "sha256": "914cc0d8a8af8cfad56e9cf50e4194509cdce74a04c0a59c682f313117b4b8e9",
+      "hash_method": "utf8_lf",
+      "bytes_local": 5041
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/inference.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/inference.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interim_bank_contact.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interim_bank_contact.stdout.log",
+      "sha256": "4270a9fafa902fe084ebdc97b3395026d47283e48a0e96c536ec085b637c189b",
+      "hash_method": "utf8_lf",
+      "bytes_local": 4175
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interim_live_touch_api.stderr.log",
+      "sha256": "12603380e3bff70751f2828197f48e0cb8ddbf6a021e1feababfecbdc66e5eca",
+      "hash_method": "utf8_lf",
+      "bytes_local": 289
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interim_live_touch_api.stdout.log",
+      "sha256": "d9ef0d10342925cfc6305d2f276ab5c90ee6118464e68b6dca22ffc6c9376cba",
+      "hash_method": "utf8_lf",
+      "bytes_local": 3568
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interim_native.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interim_native.stdout.log",
+      "sha256": "9d75c040dc8d442e2ba332329c2b8205ce2973ad37a5c2c3f50f1211e4a73494",
+      "hash_method": "utf8_lf",
+      "bytes_local": 4175
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interim_rival_seating.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interim_rival_seating.stdout.log",
+      "sha256": "296aa48abed4459abf70a0c76c703f093868d2d66c0ed3e2267206b3da42c8f0",
+      "hash_method": "utf8_lf",
+      "bytes_local": 4540
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_aspect_suite.receipt.json",
+      "sha256": "fdcb09051ae9ceda32aa3ba6b5e1881adb6d52acaabdd4eb738910b313df2e58",
+      "hash_method": "utf8_lf",
+      "bytes_local": 267
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_aspect_suite.source.json",
+      "sha256": "96448df28e576942b507afd35e5e17a769b7cc9c97de797654d57dbcd8fda272",
+      "hash_method": "utf8_lf",
+      "bytes_local": 600
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_aspect_suite.stderr.log",
+      "sha256": "122b4925eb1c8a840645203953f8ddd08a2641c30b301cee7c3073fd2f6dcf14",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1113
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_aspect_suite.stdout.log",
+      "sha256": "6ef5129179b6c0af52dbce05846dd59da20fc3d68fa6ea39fb62ce6755f9e0f4",
+      "hash_method": "utf8_lf",
+      "bytes_local": 40852
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_full_suite.receipt.json",
+      "sha256": "e53f2d31f0f623404ac6919226b542af80995f9299a9e9463fe084a52c217c54",
+      "hash_method": "utf8_lf",
+      "bytes_local": 219
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_full_suite.source.json",
+      "sha256": "9cdeb8e3e7dea1bdca8f3aeb8282ef9ab9f36f0a8b4687d68924b3983abe143a",
+      "hash_method": "utf8_lf",
+      "bytes_local": 608
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_full_suite.stderr.log",
+      "sha256": "6d3cb1875dbb011fd0e135932a908f8ea82ae5c8025df4c6231ad8a75fc1a0ab",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1113
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_full_suite.stdout.log",
+      "sha256": "00c8a9665553d6fa2c19819d3037d67a31ac99b14527a56621d3bfaa94ebce80",
+      "hash_method": "utf8_lf",
+      "bytes_local": 34161
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_metadata_suite.receipt.json",
+      "sha256": "6d511b43c338e5cb0329f80fbe4c45dde5acf135e8ddd7cb091034f0637cf7cc",
+      "hash_method": "utf8_lf",
+      "bytes_local": 255
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_metadata_suite.source.json",
+      "sha256": "841a384f72eaa2882660fa8d61cae95712b95282fa620d1d17a5f96769f74a89",
+      "hash_method": "utf8_lf",
+      "bytes_local": 608
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_metadata_suite.stderr.log",
+      "sha256": "a8b07019241350f5470083f5bf6c732536426051ce69c19238f4878449ec38b7",
+      "hash_method": "utf8_lf",
+      "bytes_local": 632
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_metadata_suite.stdout.log",
+      "sha256": "2dba2fe02860c6ac593afce615886e9d4a8baa5cc33a6fc820e0967f633bd59d",
+      "hash_method": "utf8_lf",
+      "bytes_local": 963
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_reverse_objects_suite.receipt.json",
+      "sha256": "cf44d547ec25bffe7255bfaef03f1accc8d74bd4510a74eb646ca5657c179a05",
+      "hash_method": "utf8_lf",
+      "bytes_local": 222
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_reverse_objects_suite.source.json",
+      "sha256": "dda5dc7036ee46e71e3b033fccd40930b34c675e85db82beb1b2cd32f7376c81",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1464
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_reverse_objects_suite.stderr.log",
+      "sha256": "cb2dcb4cd078eaf6402dbc2ceb8bc9bd04306322399a9d2bec70066bc3e138b3",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1113
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_reverse_objects_suite.stdout.log",
+      "sha256": "9a04b4a817fe34fd068a7d14c399c30d755644e485a5fab5af700ea5d869a482",
+      "hash_method": "utf8_lf",
+      "bytes_local": 20685
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_seating_suite.receipt.json",
+      "sha256": "d610ec4ff51882f8acab74313536d9ab1f1c817c37dc263d7f180bf0a412bd34",
+      "hash_method": "utf8_lf",
+      "bytes_local": 188
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_seating_suite.source.json",
+      "sha256": "39c2e32637456116aed8cb6f7c875c386c9e875f42999883f510b37ccf827d1f",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1464
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_seating_suite.stderr.log",
+      "sha256": "33116a9e34dfcb57fb0d1f311d1c4e1f892578ef7e4a951730dba6974eef4496",
+      "hash_method": "utf8_lf",
+      "bytes_local": 529
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_seating_suite.stdout.log",
+      "sha256": "d699ee0d55256124de3b6dc445758876b5aed805da8065759de1eb2b827c24fd",
+      "hash_method": "utf8_lf",
+      "bytes_local": 904
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_spur_view_suite.receipt.json",
+      "sha256": "18d4ff61cfb139f4e42b5bcecc193d57130273b53901075121dac48447846e52",
+      "hash_method": "utf8_lf",
+      "bytes_local": 263
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_spur_view_suite.source.json",
+      "sha256": "2335c58a9425dc1454a6131e50c77a1cda5e2a99afdaf443ecfdfb33f8fac0f8",
+      "hash_method": "utf8_lf",
+      "bytes_local": 600
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_spur_view_suite.stderr.log",
+      "sha256": "f9a4916e37c41d903aec0c164813c8cd03435dfd65960c142e9f75d20216584f",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1172
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/interrupted_spur_view_suite.stdout.log",
+      "sha256": "8e1a2b2727787242c559d6c2d0a85aea082170b4ac4a8b5b6e4ea02d5295e7f2",
+      "hash_method": "utf8_lf",
+      "bytes_local": 20718
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/isolated_probe_combat_tutorial.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/isolated_probe_combat_tutorial.stdout.log",
+      "sha256": "3b4832798c30cc78bce0463b3c63f07760051f78c147504edec563c33fc2deb2",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1400
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/isolated_probe_dust_boss.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/isolated_probe_dust_boss.stdout.log",
+      "sha256": "c82ac355f310d907854a85f5c1f28d5680a0d11f22ce287dedf2a9fec3fe958c",
+      "hash_method": "utf8_lf",
+      "bytes_local": 7297
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/isolated_probe_dust_boss_balance.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/isolated_probe_dust_boss_balance.stdout.log",
+      "sha256": "8e926f93f6783c33401f7f39534520d659450adbc2bbae0f5556b240e4992530",
+      "hash_method": "utf8_lf",
+      "bytes_local": 647
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/native.stderr.log",
+      "sha256": "5b655b1f0d788eb18887e19696cdab71f34dbedfff6c0ea52f36e0ade3a1aa08",
+      "hash_method": "utf8_lf",
+      "bytes_local": 240771
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/native.stdout.log",
+      "sha256": "9f52aa9958eed2daa7fc43ee3f570eb222980a80574e57c9c95a58ca382c32cf",
+      "hash_method": "utf8_lf",
+      "bytes_local": 582
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/native2.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/native2.stdout.log",
+      "sha256": "9f52aa9958eed2daa7fc43ee3f570eb222980a80574e57c9c95a58ca382c32cf",
+      "hash_method": "utf8_lf",
+      "bytes_local": 582
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/pack_0.stderr.log",
+      "sha256": "b7988197bad84216736cbefa17fbfbdd4822a65d8f27218f388dbcf2af8afb19",
+      "hash_method": "utf8_lf",
+      "bytes_local": 48
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/pack_0.stdout.log",
+      "sha256": "54f822ce4fcef11c9ad59603eb6bf7c30518bd03b05c0ad488bedcb921d81f9b",
+      "hash_method": "utf8_lf",
+      "bytes_local": 708084
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/pack_1.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/pack_1.stdout.log",
+      "sha256": "11bc493351437e9cd5aa6a3b47785a550988585a589663a2bd1894a697843600",
+      "hash_method": "utf8_lf",
+      "bytes_local": 192
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/parser.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/parser.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "hash_method": "utf8_lf",
+      "bytes_local": 0
+    },
+    {
+      "path": "audit/racer_chase_20261003/native_capture_receipt.json",
+      "sha256": "72ccfb24a83454a517b17b8dffcc4517d3f280c1d24d2421c057385684e7d233",
+      "hash_method": "utf8_lf",
+      "bytes_local": 8634
+    },
+    {
+      "path": "audit/racer_chase_20261003/new_touch_results.json",
+      "sha256": "983ee151e206541211f74c05405c067ab4f39392ef68e393fa087fd6e0411625",
+      "hash_method": "utf8_lf",
+      "bytes_local": 156
+    },
+    {
+      "path": "audit/racer_chase_20261003/package_receipt.json",
+      "sha256": "f8a877d48ec27f2da9d6e903a45c42e8966bc80ed069e7d4d9711746b7262cab",
+      "hash_method": "utf8_lf",
+      "bytes_local": 2023
+    },
+    {
+      "path": "audit/racer_chase_20261003/package_smoke.gd",
+      "sha256": "9bffdf722a8dabf73a734be307d4f16885225519d7f368624ff372f4d60383ef",
+      "hash_method": "utf8_lf",
+      "bytes_local": 945
+    },
+    {
+      "path": "audit/racer_chase_20261003/protected_source_receipt.json",
+      "sha256": "d085e57764552bc0a36f2d1b73d257182181a133f1bd86742a7207742b8c2fcd",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1783
+    },
+    {
+      "path": "audit/racer_chase_20261003/reconciliation_receipt.json",
+      "sha256": "ec4908c084789f871d6e9e182a5dcca23d476d078fa92e0f52f275066472c4c6",
+      "hash_method": "utf8_lf",
+      "bytes_local": 2771
+    },
+    {
+      "path": "audit/racer_chase_20261003/repo_policy_results.json",
+      "sha256": "7bd9d7dd4a97feac00aa5842cfb8b8e8dc38284a5655d7379d9d32ab3ad35c75",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1259
+    },
+    {
+      "path": "audit/racer_chase_20261003/source_binding.json",
+      "sha256": "4a290552000ef0a66f139aaabd2114853ad19929ca54140e35abe70a9e09dc75",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1919
+    },
+    {
+      "path": "audit/racer_chase_20261003/source_snapshot.json",
+      "sha256": "e2d6365eae9f1f59b35c2d10c5f040314bb81539751068002bb9b7eae9130fdb",
+      "hash_method": "utf8_lf",
+      "bytes_local": 1962
+    },
+    {
+      "path": "audit/racer_chase_20261003/static_receipt.json",
+      "sha256": "19cc4b97ea447ce28aaeb94e567ec40a46015f0763f1549575099c31acf74760",
+      "hash_method": "utf8_lf",
+      "bytes_local": 5640
+    },
+    {
+      "path": "audit/racer_chase_20261003/terminal_actor_review.json",
+      "sha256": "ddde23d3c56f236e28349f32a9be8625f701bbb9eb7f7b2110e09df3eb375361",
+      "hash_method": "utf8_lf",
+      "bytes_local": 6129
+    },
+    {
+      "path": "audit/racer_chase_20261003/verification.json",
+      "sha256": "e0b458c0ea27f314909da7dc63f1cfacee2d9b636eed22ec75645e056f3e79e2",
+      "hash_method": "utf8_lf",
+      "bytes_local": 4797
+    },
+    {
+      "path": "design/RACER_WORLD_RALLY_2026-10-03.md",
+      "sha256": "9cfd26008bad3b4d92f58f918ab98af52c01e1fcc5aa58c214bb9f32903cf3b6",
+      "hash_method": "utf8_lf",
+      "bytes_local": 6259
+    },
+    {
+      "path": "export_presets.cfg",
+      "sha256": "16a1d4fe1f3ab53f8b9cd6ad9c58bcb1239b04950f2638cc79e129916ee07d8d",
+      "hash_method": "utf8_lf",
+      "bytes_local": 5096
+    },
+    {
+      "path": "scripts/kart.gd",
+      "sha256": "73ee5586102008376afda81cd81eb76559336974ec25de56f7d01e975e7009e4",
+      "hash_method": "utf8_lf",
+      "bytes_local": 74294
+    },
+    {
+      "path": "scripts/kart_canvas_2d.gd",
+      "sha256": "e2fc7d4651553d7b459a683d4429cd7c2122e5ae8a3716ebd13b44cd0b7130a9",
+      "hash_method": "utf8_lf",
+      "bytes_local": 30154
+    },
+    {
+      "path": "scripts/kart_course_worlds.gd",
+      "sha256": "4aab47241800ba1703d3c3b0c007947d04d7a75b7f00ec112e2eaa3bd0e9d77a",
+      "hash_method": "utf8_lf",
+      "bytes_local": 3670
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "sha256": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8",
+      "hash_method": "utf8_lf",
+      "bytes_local": 5257
+    },
+    {
+      "path": "scripts/main.gd",
+      "sha256": "7b6877b2d4741a2e47021fca7b1d7a55ce1ed334371135c12a7865dbf52ae7b7",
+      "hash_method": "utf8_lf",
+      "bytes_local": 391043
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "f905d5471ca4da15a05934bdb6d037e479692fdf6532fac90fbe98f3283e69f9",
+      "hash_method": "utf8_lf",
+      "bytes_local": 238794
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+      "hash_method": "utf8_lf",
+      "bytes_local": 19229
+    },
+    {
+      "path": "scripts/probe_kart_canvas_2d.gd",
+      "sha256": "72d9be844557fa9b594cf58c100572668c1d2c93ae5f0d32c608262e0b9954a1",
+      "hash_method": "utf8_lf",
+      "bytes_local": 15430
+    },
+    {
+      "path": "scripts/probe_kart_feel.gd",
+      "sha256": "1143661194844fdf439ba4de35fc839aecc56a82ade8d393c67f76a9d10fd697",
+      "hash_method": "utf8_lf",
+      "bytes_local": 19620
+    },
+    {
+      "path": "scripts/touch_ui.gd",
+      "sha256": "a6f45679ff9738d6079078ba9cf5c623618a50a740e4fde2387385352029868d",
+      "hash_method": "utf8_lf",
+      "bytes_local": 40217
+    }
+  ],
+  "native_capture_receipt": "native_capture_receipt.json",
+  "generated_utc": "2026-10-04T07:28:56.893965+00:00",
+  "payload_sha256": "2f2828c07a6deab299e38e5f36f2a1d5f8c9f19d7cd1de6f754e246a94ea5bc1"
+}

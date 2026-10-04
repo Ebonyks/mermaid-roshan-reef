@@ -1,0 +1,678 @@
+{
+  "schema": "racer.authored-driving.v1",
+  "baseline": "4f7181450da4d12497592a963c64422a7bae981a",
+  "lane": "gameplay sprite poses; no cinematic claim",
+  "tool": "built-in image_gen.imagegen",
+  "sources": [
+    {
+      "path": "assets_src/racer_chase_20261003/kart_native.png",
+      "sha256": "c82e2efe75c2977208cfcd23eebe8bb175f8173551371889776d0fa2334f2479",
+      "size": [
+        1254,
+        1254
+      ],
+      "native_preserved": true,
+      "role": "generated gameplay pose sheet",
+      "prompt_key": "kart",
+      "prompt_sha256": "0b37c25fb1a4607fa452babbdf07027260aa28e97f899ef4e5628bc30ef4c6e7"
+    },
+    {
+      "path": "assets_src/racer_chase_20261003/moto_native.png",
+      "sha256": "c335b21734ccb5e70fe67dd2d2074186616b3013ee1064218c993cbcfb4a35c1",
+      "size": [
+        1254,
+        1254
+      ],
+      "native_preserved": true,
+      "role": "generated gameplay pose sheet",
+      "prompt_key": "moto",
+      "prompt_sha256": "65176f4bebc289aae233120e7ad776cc41da25477a7611dca0555db3b029b93a"
+    },
+    {
+      "path": "assets_src/racer_chase_20261003/truck_native.png",
+      "sha256": "e43db1e9e86696e5418d079f7decec4142924e4a01e7c91ef44dfa9de3ef6123",
+      "size": [
+        1254,
+        1254
+      ],
+      "native_preserved": true,
+      "role": "generated gameplay pose sheet",
+      "prompt_key": "truck",
+      "prompt_sha256": "727328368f9557b3d4671139eb4466b32764b7aed424e8dc21a1ed030e940377"
+    },
+    {
+      "path": "assets_src/racer_chase_20261003/empty_kart_native.png",
+      "sha256": "052527af7675df4962535193628db9b6eec510a2b8da2806cec3a606ad0d0d03",
+      "size": [
+        1254,
+        1254
+      ],
+      "native_preserved": true,
+      "role": "generated empty vehicle card",
+      "prompt_key": "empty_kart",
+      "prompt_sha256": "17d02db78542107825647a65e27d10b35744e978c5bac10e6b4aec53f59ee4d8"
+    },
+    {
+      "path": "assets_src/racer_chase_20261003/empty_moto_native.png",
+      "sha256": "081e999afdb06db078120cea033087715c9454338afd12466466867d83748994",
+      "size": [
+        1254,
+        1254
+      ],
+      "native_preserved": true,
+      "role": "generated empty vehicle card",
+      "prompt_key": "empty_moto",
+      "prompt_sha256": "f2a89bf9e77cc022d1ce9ed72f2b1780609eea39933b460314bf086b7ae89070"
+    },
+    {
+      "path": "assets_src/racer_chase_20261003/empty_truck_native.png",
+      "sha256": "7e6acc2283651995efbb89f95df905b1691d7d3bf0502e1c643ffe9c22a635d2",
+      "size": [
+        1254,
+        1254
+      ],
+      "native_preserved": true,
+      "role": "generated empty vehicle card",
+      "prompt_key": "empty_truck",
+      "prompt_sha256": "94546cf344f45a75d9164c600ec5e66494b080ed29cdeee6db776731092ad24f"
+    }
+  ],
+  "sprites": {
+    "kart_straight": {
+      "path": "assets/kart/chase/kart_straight.png",
+      "sha256": "6a3107b79afd615b96b3777cd002b9d2e5814743dbfef718567d7e535693deee",
+      "size": [
+        627,
+        627
+      ],
+      "bounds": [
+        85,
+        64,
+        585,
+        548
+      ],
+      "anchor": [
+        335.0,
+        546.5
+      ],
+      "solid_bounds_threshold": 32,
+      "derivation": "equal-cell lossless crop; whole-card <=1024 normalization only for empty source",
+      "source": "assets_src/racer_chase_20261003/kart_native.png",
+      "rear_tire_contacts": [
+        [
+          139,
+          547
+        ],
+        [
+          531,
+          546
+        ]
+      ],
+      "vehicle_width": 500,
+      "contact_method": "Agent-measured rear tire contact centers from native runtime key; alpha >32 row runs corroborate silhouette; turn keys use midpoint of both rear contacts. No pixel edits.",
+      "width_method": "Full vehicle silhouette span"
+    },
+    "kart_left": {
+      "path": "assets/kart/chase/kart_left.png",
+      "sha256": "733fd9c4e1fe1aef84bbf57161e0c225d3a5d4f3f6ebdc71af5e9f49a8df9ffc",
+      "size": [
+        627,
+        627
+      ],
+      "bounds": [
+        82,
+        72,
+        570,
+        562
+      ],
+      "anchor": [
+        350.0,
+        549.5
+      ],
+      "solid_bounds_threshold": 32,
+      "derivation": "equal-cell lossless crop; whole-card <=1024 normalization only for empty source",
+      "source": "assets_src/racer_chase_20261003/kart_native.png",
+      "rear_tire_contacts": [
+        [
+          185,
+          561
+        ],
+        [
+          515,
+          538
+        ]
+      ],
+      "vehicle_width": 488,
+      "contact_method": "Agent-measured rear tire contact centers from native runtime key; alpha >32 row runs corroborate silhouette; turn keys use midpoint of both rear contacts. No pixel edits.",
+      "width_method": "Full vehicle silhouette span"
+    },
+    "kart_right": {
+      "path": "assets/kart/chase/kart_right.png",
+      "sha256": "66fabc27fd8bda5d775d787a84b866d40dc1d9b9a9d121cb25e38eb66fd688e2",
+      "size": [
+        627,
+        627
+      ],
+      "bounds": [
+        56,
+        64,
+        560,
+        547
+      ],
+      "anchor": [
+        278.0,
+        534.0
+      ],
+      "solid_bounds_threshold": 32,
+      "derivation": "equal-cell lossless crop; whole-card <=1024 normalization only for empty source",
+      "source": "assets_src/racer_chase_20261003/kart_native.png",
+      "rear_tire_contacts": [
+        [
+          104,
+          522
+        ],
+        [
+          452,
+          546
+        ]
+      ],
+      "vehicle_width": 504,
+      "contact_method": "Agent-measured rear tire contact centers from native runtime key; alpha >32 row runs corroborate silhouette; turn keys use midpoint of both rear contacts. No pixel edits.",
+      "width_method": "Full vehicle silhouette span"
+    },
+    "kart_boost": {
+      "path": "assets/kart/chase/kart_boost.png",
+      "sha256": "17ab19589d2296d1177e91535659a7fe04f34ffbbcd48402da019fd1137e1dd8",
+      "size": [
+        627,
+        627
+      ],
+      "bounds": [
+        59,
+        57,
+        571,
+        532
+      ],
+      "anchor": [
+        315.0,
+        531.0
+      ],
+      "solid_bounds_threshold": 32,
+      "derivation": "equal-cell lossless crop; whole-card <=1024 normalization only for empty source",
+      "source": "assets_src/racer_chase_20261003/kart_native.png",
+      "rear_tire_contacts": [
+        [
+          114,
+          531
+        ],
+        [
+          516,
+          531
+        ]
+      ],
+      "vehicle_width": 512,
+      "contact_method": "Agent-measured rear tire contact centers from native runtime key; alpha >32 row runs corroborate silhouette; turn keys use midpoint of both rear contacts. No pixel edits.",
+      "width_method": "Full vehicle silhouette span"
+    },
+    "moto_straight": {
+      "path": "assets/kart/chase/moto_straight.png",
+      "sha256": "dd2abb4e3076a8e87e0a0c412c1dbf2ce1b34c573a7281bcfb513568808df6a0",
+      "size": [
+        627,
+        627
+      ],
+      "bounds": [
+        147,
+        61,
+        525,
+        622
+      ],
+      "anchor": [
+        310.5,
+        621.0
+      ],
+      "solid_bounds_threshold": 32,
+      "derivation": "equal-cell lossless crop; whole-card <=1024 normalization only for empty source",
+      "source": "assets_src/racer_chase_20261003/moto_native.png",
+      "rear_tire_contacts": [
+        [
+          310.5,
+          621
+        ]
+      ],
+      "vehicle_width": 327,
+      "contact_method": "Agent-measured rear tire contact centers from native runtime key; alpha >32 row runs corroborate silhouette; turn keys use midpoint of both rear contacts. No pixel edits.",
+      "width_method": "Vehicle body/handlebar span excluding side tail"
+    },
+    "moto_left": {
+      "path": "assets/kart/chase/moto_left.png",
+      "sha256": "fc47ae7501bae43f23d6ee61cbb7102d6171201449e15ff2a7b3c33f2ee7dfb9",
+      "size": [
+        627,
+        627
+      ],
+      "bounds": [
+        117,
+        72,
+        543,
+        624
+      ],
+      "anchor": [
+        329.5,
+        623.0
+      ],
+      "solid_bounds_threshold": 32,
+      "derivation": "equal-cell lossless crop; whole-card <=1024 normalization only for empty source",
+      "source": "assets_src/racer_chase_20261003/moto_native.png",
+      "rear_tire_contacts": [
+        [
+          329.5,
+          623
+        ]
+      ],
+      "vehicle_width": 328,
+      "contact_method": "Agent-measured rear tire contact centers from native runtime key; alpha >32 row runs corroborate silhouette; turn keys use midpoint of both rear contacts. No pixel edits.",
+      "width_method": "Vehicle body/handlebar span excluding side tail"
+    },
+    "moto_right": {
+      "path": "assets/kart/chase/moto_right.png",
+      "sha256": "ee6a448954e1fcbc6eec2f19557819a01fa1b9a52521019c267baa1f74b900e0",
+      "size": [
+        627,
+        627
+      ],
+      "bounds": [
+        131,
+        43,
+        539,
+        586
+      ],
+      "anchor": [
+        293.5,
+        585.0
+      ],
+      "solid_bounds_threshold": 32,
+      "derivation": "equal-cell lossless crop; whole-card <=1024 normalization only for empty source",
+      "source": "assets_src/racer_chase_20261003/moto_native.png",
+      "rear_tire_contacts": [
+        [
+          293.5,
+          585
+        ]
+      ],
+      "vehicle_width": 313,
+      "contact_method": "Agent-measured rear tire contact centers from native runtime key; alpha >32 row runs corroborate silhouette; turn keys use midpoint of both rear contacts. No pixel edits.",
+      "width_method": "Vehicle body/handlebar span excluding side tail"
+    },
+    "moto_boost": {
+      "path": "assets/kart/chase/moto_boost.png",
+      "sha256": "254ba22c05114fa4772b9995614d6d355e37c2febedafc500d7d3616c0757b9f",
+      "size": [
+        627,
+        627
+      ],
+      "bounds": [
+        133,
+        80,
+        542,
+        581
+      ],
+      "anchor": [
+        303.5,
+        580.0
+      ],
+      "solid_bounds_threshold": 32,
+      "derivation": "equal-cell lossless crop; whole-card <=1024 normalization only for empty source",
+      "source": "assets_src/racer_chase_20261003/moto_native.png",
+      "rear_tire_contacts": [
+        [
+          303.5,
+          580
+        ]
+      ],
+      "vehicle_width": 343,
+      "contact_method": "Agent-measured rear tire contact centers from native runtime key; alpha >32 row runs corroborate silhouette; turn keys use midpoint of both rear contacts. No pixel edits.",
+      "width_method": "Vehicle body/handlebar span excluding side tail"
+    },
+    "truck_straight": {
+      "path": "assets/kart/chase/truck_straight.png",
+      "sha256": "3e9d73e98848e690c7785c8b26f7a7959a766eb974f237af3df0975bfbfab247",
+      "size": [
+        627,
+        627
+      ],
+      "bounds": [
+        64,
+        62,
+        598,
+        596
+      ],
+      "anchor": [
+        330.25,
+        594.5
+      ],
+      "solid_bounds_threshold": 32,
+      "derivation": "equal-cell lossless crop; whole-card <=1024 normalization only for empty source",
+      "source": "assets_src/racer_chase_20261003/truck_native.png",
+      "rear_tire_contacts": [
+        [
+          136.5,
+          595
+        ],
+        [
+          524,
+          594
+        ]
+      ],
+      "vehicle_width": 534,
+      "contact_method": "Agent-measured rear tire contact centers from native runtime key; alpha >32 row runs corroborate silhouette; turn keys use midpoint of both rear contacts. No pixel edits.",
+      "width_method": "Full vehicle silhouette span"
+    },
+    "truck_left": {
+      "path": "assets/kart/chase/truck_left.png",
+      "sha256": "6253a929fe0effe1b4dd813e19e87127235b3ae5be2aaa1a21e3103e476920ff",
+      "size": [
+        627,
+        627
+      ],
+      "bounds": [
+        59,
+        71,
+        585,
+        609
+      ],
+      "anchor": [
+        348.0,
+        600.5
+      ],
+      "solid_bounds_threshold": 32,
+      "derivation": "equal-cell lossless crop; whole-card <=1024 normalization only for empty source",
+      "source": "assets_src/racer_chase_20261003/truck_native.png",
+      "rear_tire_contacts": [
+        [
+          182.5,
+          608
+        ],
+        [
+          513.5,
+          593
+        ]
+      ],
+      "vehicle_width": 526,
+      "contact_method": "Agent-measured rear tire contact centers from native runtime key; alpha >32 row runs corroborate silhouette; turn keys use midpoint of both rear contacts. No pixel edits.",
+      "width_method": "Full vehicle silhouette span"
+    },
+    "truck_right": {
+      "path": "assets/kart/chase/truck_right.png",
+      "sha256": "e9a95f5bf71804ebd3fef40ca59f5f672e9f29f314e5a2c36257156c3912922a",
+      "size": [
+        627,
+        627
+      ],
+      "bounds": [
+        50,
+        55,
+        577,
+        572
+      ],
+      "anchor": [
+        294.75,
+        565.0
+      ],
+      "solid_bounds_threshold": 32,
+      "derivation": "equal-cell lossless crop; whole-card <=1024 normalization only for empty source",
+      "source": "assets_src/racer_chase_20261003/truck_native.png",
+      "rear_tire_contacts": [
+        [
+          127,
+          559
+        ],
+        [
+          462.5,
+          571
+        ]
+      ],
+      "vehicle_width": 527,
+      "contact_method": "Agent-measured rear tire contact centers from native runtime key; alpha >32 row runs corroborate silhouette; turn keys use midpoint of both rear contacts. No pixel edits.",
+      "width_method": "Full vehicle silhouette span"
+    },
+    "truck_boost": {
+      "path": "assets/kart/chase/truck_boost.png",
+      "sha256": "9de77bf01dd9f1d67a251483984e30d50a3cb7c8a22cdd4322092635559ec9cb",
+      "size": [
+        627,
+        627
+      ],
+      "bounds": [
+        46,
+        53,
+        581,
+        563
+      ],
+      "anchor": [
+        313.0,
+        562.0
+      ],
+      "solid_bounds_threshold": 32,
+      "derivation": "equal-cell lossless crop; whole-card <=1024 normalization only for empty source",
+      "source": "assets_src/racer_chase_20261003/truck_native.png",
+      "rear_tire_contacts": [
+        [
+          118.5,
+          562
+        ],
+        [
+          507.5,
+          562
+        ]
+      ],
+      "vehicle_width": 535,
+      "contact_method": "Agent-measured rear tire contact centers from native runtime key; alpha >32 row runs corroborate silhouette; turn keys use midpoint of both rear contacts. No pixel edits.",
+      "width_method": "Full vehicle silhouette span"
+    },
+    "empty_kart": {
+      "path": "assets/kart/chase/empty_kart.png",
+      "sha256": "35457c5cf602bffa666d6663f9fcbefb9be26bd2d0eca1c96cb5c2a6fbf9ac88",
+      "size": [
+        1024,
+        1024
+      ],
+      "bounds": [
+        38,
+        173,
+        985,
+        877
+      ],
+      "anchor": [
+        511.75,
+        875.5
+      ],
+      "solid_bounds_threshold": 32,
+      "derivation": "equal-cell lossless crop; whole-card <=1024 normalization only for empty source",
+      "source": "assets_src/racer_chase_20261003/empty_kart_native.png",
+      "rear_tire_contacts": [
+        [
+          138,
+          876
+        ],
+        [
+          885.5,
+          875
+        ]
+      ],
+      "vehicle_width": 947,
+      "contact_method": "Agent-measured rear tire contact centers from native runtime key; alpha >32 row runs corroborate silhouette; turn keys use midpoint of both rear contacts. No pixel edits.",
+      "width_method": "Full vehicle silhouette span"
+    },
+    "empty_moto": {
+      "path": "assets/kart/chase/empty_moto.png",
+      "sha256": "dfec5d6132bf3d81a086f451b4b1030aef435b9b44804ebe22ea7fce7d611bda",
+      "size": [
+        1024,
+        1024
+      ],
+      "bounds": [
+        162,
+        104,
+        861,
+        968
+      ],
+      "anchor": [
+        510.5,
+        967.0
+      ],
+      "solid_bounds_threshold": 32,
+      "derivation": "equal-cell lossless crop; whole-card <=1024 normalization only for empty source",
+      "source": "assets_src/racer_chase_20261003/empty_moto_native.png",
+      "rear_tire_contacts": [
+        [
+          510.5,
+          967
+        ]
+      ],
+      "vehicle_width": 699,
+      "contact_method": "Agent-measured rear tire contact centers from native runtime key; alpha >32 row runs corroborate silhouette; turn keys use midpoint of both rear contacts. No pixel edits.",
+      "width_method": "Full vehicle silhouette span"
+    },
+    "empty_truck": {
+      "path": "assets/kart/chase/empty_truck.png",
+      "sha256": "8fc3380295df50ac0c981a2b28f12d4b82236be7c79c7de9907ceb640eeda1fd",
+      "size": [
+        1024,
+        1024
+      ],
+      "bounds": [
+        22,
+        177,
+        1002,
+        892
+      ],
+      "anchor": [
+        511.75,
+        891.0
+      ],
+      "solid_bounds_threshold": 32,
+      "derivation": "equal-cell lossless crop; whole-card <=1024 normalization only for empty source",
+      "source": "assets_src/racer_chase_20261003/empty_truck_native.png",
+      "rear_tire_contacts": [
+        [
+          159,
+          891
+        ],
+        [
+          864.5,
+          891
+        ]
+      ],
+      "vehicle_width": 980,
+      "contact_method": "Agent-measured rear tire contact centers from native runtime key; alpha >32 row runs corroborate silhouette; turn keys use midpoint of both rear contacts. No pixel edits.",
+      "width_method": "Full vehicle silhouette span"
+    }
+  },
+  "acceptance": "Agent inspected; owner/device/child acceptance pending",
+  "states": [
+    "straight",
+    "left",
+    "right",
+    "boost"
+  ],
+  "reference_height": 500,
+  "movement_profile": "Roshan curious toy racer; hands keep wheel/handlebar contact, seated tail, small purposeful look into turn; simulation owns translation/jump, authored pose owns steering/acceleration acting",
+  "clip_contract": {
+    "entry": "straight seated at measured tire contact anchor",
+    "turn": "threshold steer +/-0.25, key held while sustained, minimum .16s between key changes",
+    "boost": "straight forward-lean key while accelerating; turn retains priority",
+    "exit": "straight resting pose at the same wheel contact anchor",
+    "events": "No pose frame awards progress or emits economy events; KartGame alone owns rewards",
+    "interruptions": "pause/focus/back clear held input; simulation pauses without reward, release settles to straight",
+    "shadow": "ground contact owned separately from actor lift",
+    "study": "Four comparable authored chase keys per ride, inspected at native size and later in-context captures; no interpolated acting",
+    "gaps": "Head turns are broad; smooth intermediate steering poses and owner anatomy review remain pending"
+  },
+  "bound_references": {
+    "kart": [
+      {
+        "path": "assets/characters/roshan_25d/roshan_base.png",
+        "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+        "role": "identity/costume/vehicle reference; no reference pixel substitution"
+      },
+      {
+        "path": "assets/opera/worlds/actors/animation/roshan_racer_sheet_a.png",
+        "sha256": "f62f881d42b439bde09a8bc7f6e0000125acd3e27aabf1fd39d90722ce75ca79",
+        "role": "identity/costume/vehicle reference; no reference pixel substitution"
+      },
+      {
+        "path": "assets/kart/canvas/kart_quarter.png",
+        "sha256": "97f6bce7f9c62a2b4db8c18617baa8d428a3c5faed5ee8e6a02ebc9ce0a3ecb4",
+        "role": "identity/costume/vehicle reference; no reference pixel substitution"
+      }
+    ],
+    "moto": [
+      {
+        "path": "assets_src/racer_chase_20261003/kart_native.png",
+        "sha256": "c82e2efe75c2977208cfcd23eebe8bb175f8173551371889776d0fa2334f2479",
+        "role": "identity/costume/vehicle reference; no reference pixel substitution"
+      },
+      {
+        "path": "assets/kart/canvas/moto_rear.png",
+        "sha256": "cb7f69eca09cc94414c10cf92ee20774f57f9c55e5f9e145a309e21bba181619",
+        "role": "identity/costume/vehicle reference; no reference pixel substitution"
+      }
+    ],
+    "truck": [
+      {
+        "path": "assets_src/racer_chase_20261003/kart_native.png",
+        "sha256": "c82e2efe75c2977208cfcd23eebe8bb175f8173551371889776d0fa2334f2479",
+        "role": "identity/costume/vehicle reference; no reference pixel substitution"
+      },
+      {
+        "path": "assets_src/blender/qa_low_score_batch_01/monstertruck_story.png",
+        "sha256": "75bc02e43de56fc55bf2b86277cefa2cf2f547ce33176774df8912a0cea2f675",
+        "role": "identity/costume/vehicle reference; no reference pixel substitution"
+      }
+    ],
+    "empty_kart": [
+      {
+        "path": "assets_src/racer_chase_20261003/kart_native.png",
+        "sha256": "c82e2efe75c2977208cfcd23eebe8bb175f8173551371889776d0fa2334f2479",
+        "role": "identity/costume/vehicle reference; no reference pixel substitution"
+      }
+    ],
+    "empty_moto": [
+      {
+        "path": "assets_src/racer_chase_20261003/moto_native.png",
+        "sha256": "c335b21734ccb5e70fe67dd2d2074186616b3013ee1064218c993cbcfb4a35c1",
+        "role": "identity/costume/vehicle reference; no reference pixel substitution"
+      }
+    ],
+    "empty_truck": [
+      {
+        "path": "assets_src/racer_chase_20261003/truck_native.png",
+        "sha256": "e43db1e9e86696e5418d079f7decec4142924e4a01e7c91ef44dfa9de3ef6123",
+        "role": "identity/costume/vehicle reference; no reference pixel substitution"
+      }
+    ]
+  },
+  "rejections": [
+    {
+      "path": "assets_src/racer_chase_20261003/rejected_empty_halo.png",
+      "sha256": "5e6ee68d875776249a7a25b6540291ee218ae375af0491f0b547693c11e6c9ac",
+      "reason": "colored ambient halo outside vehicle silhouettes; not used by runtime",
+      "prompt_key": "empty_rejected",
+      "prompt_sha256": "2cb48c4559a0ba4cac8002ddb428dbdfbf3321043acd27e7b0aaa87f21385429"
+    },
+    {
+      "path": "assets_src/racer_chase_20261003/rejected_empty_halo_repair.png",
+      "sha256": "88bf3ae501c2c4c3e5d52a5afa2f2b9d287058affcb4ba4ac44d635622795f0a",
+      "reason": "colored ambient halo outside vehicle silhouettes; not used by runtime",
+      "prompt_key": "empty_halo_repair_rejected",
+      "prompt_sha256": "bf768c401057fe1e03b7a21623f628537b08732257e88750c77fc17fbc671893"
+    }
+  ],
+  "contact_review": {
+    "reviewer": "agent, not owner acceptance",
+    "hands": "Seated driver keeps hands at installed wheel/handlebar; tail tucked in kart/truck and at motorcycle side; no human legs",
+    "anchors": "Rear tire centers, not whole silhouette center. Turn keys use rear axle contact midpoint; motorcycle width excludes its side tail. Coordinates are measured agent review, pending owner acceptance.",
+    "gaps": "Broad three-quarter head turns and yellow rear lamp design on kart/motorcycle need owner identity/continuity review; smooth intermediate acting is not claimed."
+  }
+}

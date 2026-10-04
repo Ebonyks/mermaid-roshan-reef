@@ -1,0 +1,976 @@
+{
+  "created_utc": "2026-10-03T21:40:10.969019+00:00",
+  "handover": {
+    "path": "audit/job_candy_stage_work_v1_20261003/per_game_handover/racer.json",
+    "sha256": "67f726befa8eec764c2232a2d589193243ff39ad6f63a9957332e08dcc488487"
+  },
+  "sources": [
+    {
+      "path": "assets/opera/rivals/opera_rival_racer_portrait.png",
+      "sha256": "28754c4bb0f219c253e19a202e79d962375bb0660131622a6fc1d436d791a7dc",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        144,
+        100,
+        465,
+        408
+      ],
+      "alpha_subject_extent": [
+        321,
+        308
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/actors/animation/roshan_racer_sheet_a.png",
+      "sha256": "f62f881d42b439bde09a8bc7f6e0000125acd3e27aabf1fd39d90722ce75ca79",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        31,
+        16,
+        989,
+        1008
+      ],
+      "alpha_subject_extent": [
+        958,
+        992
+      ],
+      "review_status": "DIRECT_STATIC_INSPECTION_NO_NEW_SCORE",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_racer.png",
+      "sha256": "da75600112937ed4f6bb5f9433b4792316419047e8de10f9bfdb7076c65f360f",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        89,
+        19,
+        443,
+        504
+      ],
+      "alpha_subject_extent": [
+        354,
+        485
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_racer_bopped.png",
+      "sha256": "1f4cf365fe91f6e6782242b646377b851d9b728d4902fb0d8feac327b7539092",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        19,
+        47,
+        481,
+        457
+      ],
+      "alpha_subject_extent": [
+        462,
+        410
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_racer_bow.png",
+      "sha256": "776fb27b4290f98e1c4c127f4b3df7050df0a0aa8185e76454603e733d0361f6",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        44,
+        104,
+        464,
+        504
+      ],
+      "alpha_subject_extent": [
+        420,
+        400
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_racer_charge.png",
+      "sha256": "1f2759daa3cb81f22bed74685315189aaab851026b9810ad079e932ca52a9c4c",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        48,
+        37,
+        500,
+        457
+      ],
+      "alpha_subject_extent": [
+        452,
+        420
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_racer_flee.png",
+      "sha256": "32b062cd2e5ce61974a88eb38f62fd710babb136ebf74c8328049096157f60b8",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        85,
+        19,
+        443,
+        504
+      ],
+      "alpha_subject_extent": [
+        358,
+        485
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_racer_guard.png",
+      "sha256": "4d73ba4983acc3fed28a50ee16718b5a73d642008e41efd836bb7a39b1d6c271",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        140,
+        16,
+        424,
+        504
+      ],
+      "alpha_subject_extent": [
+        284,
+        488
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_racer_hop_a.png",
+      "sha256": "5268eaf968a7eaea29330ffafaf8a50101a5603213f257fc80642bc2a54c8948",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        63,
+        94,
+        491,
+        504
+      ],
+      "alpha_subject_extent": [
+        428,
+        410
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_racer_hop_b.png",
+      "sha256": "eefbfc137eb42bcffb2ebaa633ebedeb8711c08cc8cbeab20bfe3cbc5add9521",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        79,
+        27,
+        461,
+        457
+      ],
+      "alpha_subject_extent": [
+        382,
+        430
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_racer_recover.png",
+      "sha256": "b578b08e7cde7bd1fe452576fe6d7921a74cd936f4cdcc08754985933de76ede",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        108,
+        59,
+        455,
+        504
+      ],
+      "alpha_subject_extent": [
+        347,
+        445
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_racer_slash.png",
+      "sha256": "e011616983c8204e662dafc475a5bf88623184324a7da398f25655ac8a85888d",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        100,
+        19,
+        415,
+        504
+      ],
+      "alpha_subject_extent": [
+        315,
+        485
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_racer_stagger.png",
+      "sha256": "cac07a35dd200f355f1a2b2522385b3229523c472d99ed57411e999500668fda",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        18,
+        19,
+        464,
+        504
+      ],
+      "alpha_subject_extent": [
+        446,
+        485
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_racer_taunt.png",
+      "sha256": "19e83bb17d147feeabe970819da7c1f501406474c308e77276b658f419f61a1a",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        111,
+        19,
+        418,
+        504
+      ],
+      "alpha_subject_extent": [
+        307,
+        485
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/actors/rival_racer_windup.png",
+      "sha256": "91b3fbf0b95d568da2c3102d8edab73155a4490049d8e11d8f6667a8eee69d45",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        63,
+        94,
+        491,
+        504
+      ],
+      "alpha_subject_extent": [
+        428,
+        410
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/actors/roshan_racer.png",
+      "sha256": "b3e92a0f3204e2277e1fdd06988c9393288223fcfc98a9f4c8e033c8c517c6bc",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        75,
+        16,
+        437,
+        504
+      ],
+      "alpha_subject_extent": [
+        362,
+        488
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/stage_racer_c0r0.png",
+      "sha256": "5946bdb91c6a3d70fa333220eb26a19c6af85f87f179eccd868f7845cd09a714",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "alpha_subject_extent": [
+        1024,
+        1024
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/stage_racer_c0r1.png",
+      "sha256": "acedb9b5797d263b5d6fbfa68361bbecd562242f4b9bbfd241704eb3b956e3f0",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "alpha_subject_extent": [
+        1024,
+        1024
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/stage_racer_c1r0.png",
+      "sha256": "f462309608593159788cdf008cfefe42f4438b57c3304cc6a4a622595a75a1a8",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "alpha_subject_extent": [
+        1024,
+        1024
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/stage_racer_c1r1.png",
+      "sha256": "d66584c0a3ea8aa3c8c1cefce88a3c2d33e9a80d5405edcb670c2b53fe8bb9b5",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "alpha_subject_extent": [
+        1024,
+        1024
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_racer.png",
+      "sha256": "1ea63f73c362b38c53a644384a5a7d31472d0ae1b28a518e9d640246268a3b51",
+      "dimensions": [
+        1024,
+        576
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        0,
+        0,
+        1024,
+        576
+      ],
+      "alpha_subject_extent": [
+        1024,
+        576
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_racer_c0r0.png",
+      "sha256": "920b4df91bad73d288ff2cd39fe8cdccc2dfe8743bb64d65a691343b7630bf66",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "alpha_subject_extent": [
+        1024,
+        1024
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_racer_c0r1.png",
+      "sha256": "95fa81b0f29ebee87ae6d4121334a46cac4c2545eb3b37660f002462e9b29585",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "alpha_subject_extent": [
+        1024,
+        1024
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_racer_c1r0.png",
+      "sha256": "07e7ad658427ed5cac40f1668521b4c59c54fba8bb428edb5acd36db25fbf3b7",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "alpha_subject_extent": [
+        1024,
+        1024
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_racer_c1r1.png",
+      "sha256": "359b2bdd82519239ce7de69bb50d4555c6d1e15a50407bfd008210de32ab66d5",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "alpha_subject_extent": [
+        1024,
+        1024
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/props/goal_racer.png",
+      "sha256": "2fcce78018d2f43cecb15fdf7ea37ebd66004ba695cce2e42fdf4fa7602ebeb9",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        30,
+        16,
+        482,
+        504
+      ],
+      "alpha_subject_extent": [
+        452,
+        488
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/ui/crests/opera_crest_racer.png",
+      "sha256": "a4b7e5bb13e634cafb43bad25319fc1031991382313e52a07d3a10234a83214e",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        41,
+        23,
+        247,
+        223
+      ],
+      "alpha_subject_extent": [
+        206,
+        200
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_racer.png",
+      "sha256": "a96e898057e7c5114211dd9ad61bc0f7c4a726bcbeeec0d3e9d25a4e3e448347",
+      "dimensions": [
+        1024,
+        608
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        0,
+        0,
+        1024,
+        608
+      ],
+      "alpha_subject_extent": [
+        1024,
+        608
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_racer_kart.png",
+      "sha256": "59ea76d8be40b604cbf3691e9c9508287334ddf6cf0f81fea08c7f68fd22fe8c",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        12,
+        91,
+        486,
+        375
+      ],
+      "alpha_subject_extent": [
+        474,
+        284
+      ],
+      "review_status": "DIRECT_STATIC_INSPECTION_NO_NEW_SCORE",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_racer_mover.png",
+      "sha256": "871b67c9e69d63b743bc1f08db6f4a4ba53d00d8a478ac8a86e8a05ec4c4f99f",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        35,
+        37,
+        221,
+        219
+      ],
+      "alpha_subject_extent": [
+        186,
+        182
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_racer_progress.png",
+      "sha256": "ebf9f2125f2a3a9fffa7dbbee7e5fa9fd97e31d4ec03892b3c2a4bc2c3f5a8a4",
+      "dimensions": [
+        1024,
+        608
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        354,
+        146,
+        671,
+        463
+      ],
+      "alpha_subject_extent": [
+        317,
+        317
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_crank_racer_wheel.png",
+      "sha256": "3203d9bc5297fccfb3ee86fddab6c3a217de577943a063ef37404e5276c7e003",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        21,
+        21,
+        235,
+        235
+      ],
+      "alpha_subject_extent": [
+        214,
+        214
+      ],
+      "review_status": "DIRECT_STATIC_INSPECTION_NO_NEW_SCORE",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_gauge_racer.png",
+      "sha256": "21cb4e5ca4a9b91610b39938b8f76135db0fb978608a00aba4677a759c3dd56a",
+      "dimensions": [
+        1024,
+        608
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        0,
+        0,
+        1024,
+        608
+      ],
+      "alpha_subject_extent": [
+        1024,
+        608
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_gauge_racer_success.png",
+      "sha256": "2178e76e261786342ef0d937003a7775c26e56205eedf4097ba282e6f16aa3e7",
+      "dimensions": [
+        1024,
+        608
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        262,
+        100,
+        763,
+        601
+      ],
+      "alpha_subject_extent": [
+        501,
+        501
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_push_racer.png",
+      "sha256": "848906b6158462037a9a7cf7939b8e3665c84431e4ba14627d55afd9b76be9c2",
+      "dimensions": [
+        1024,
+        608
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        0,
+        0,
+        1024,
+        608
+      ],
+      "alpha_subject_extent": [
+        1024,
+        608
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_push_racer_mover.png",
+      "sha256": "9f364cb8b77cc61ed67ef490a19d45d10d8651265fe5e6f8a17c10c73f1c2bde",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        12,
+        24,
+        244,
+        232
+      ],
+      "alpha_subject_extent": [
+        232,
+        208
+      ],
+      "review_status": "DIRECT_STATIC_INSPECTION_NO_NEW_SCORE",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_racer.png",
+      "sha256": "12158e528ab9af3c7d742911ec8ab8c72a84997d63cf3695c7010f26ce99487e",
+      "dimensions": [
+        1024,
+        608
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        0,
+        0,
+        1024,
+        608
+      ],
+      "alpha_subject_extent": [
+        1024,
+        608
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_racer_mark.png",
+      "sha256": "23ee1cf497824aaa816f2a8e2d99a559ca0db5a9a7db21776cda0448939154dc",
+      "dimensions": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        7,
+        7,
+        121,
+        121
+      ],
+      "alpha_subject_extent": [
+        114,
+        114
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets/opera/worlds/widgets/widget_target_racer_mover.png",
+      "sha256": "cfedf4f934f3c6b1fac915e196a0f2f8bc473a8d1a57059f92ef635d24e01d06",
+      "dimensions": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        12,
+        18,
+        244,
+        238
+      ],
+      "alpha_subject_extent": [
+        232,
+        220
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets_src/concepts/opera_jobs_flat_2026-07-21/cards/opera_job_racecar_driver_gameplay_opera_kart_side.png",
+      "sha256": "c76ce471bf8b625dbd31b363a4a67fbf00cf25c9a399cfc3169f286cfa701f0a",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "mode": "RGB",
+      "alpha_bbox": [
+        0,
+        0,
+        1024,
+        1024
+      ],
+      "alpha_subject_extent": [
+        1024,
+        1024
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets_src/concepts/opera_regeneration_2026-08-01/cards/widget_crank_racer.png",
+      "sha256": "62332ec15a9994e5cc79abb212f7a3f93447d2ca08f94c24432ce8dd992ed8cf",
+      "dimensions": [
+        1024,
+        608
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        0,
+        0,
+        1024,
+        608
+      ],
+      "alpha_subject_extent": [
+        1024,
+        608
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets_src/imagegen/opera_borderless_pitstop_2026-08-10/racer_pitstop_kart_alpha_native.png",
+      "sha256": "dfb56ac964fe91feadbeddbefa76bea38924291b819ddc0fa070a130dcdb6e84",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        36,
+        229,
+        1185,
+        913
+      ],
+      "alpha_subject_extent": [
+        1149,
+        684
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets_src/imagegen/opera_codex_2026-08-02/native/stage_racer_native.png",
+      "sha256": "6d8fd7ce61a96962c3567aa59db0fef51ce8576fb0cd14fd87eb1a577ba9308f",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alpha_bbox": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "alpha_subject_extent": [
+        1672,
+        941
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets_src/imagegen/opera_codex_2026-08-02/native/world_racer_native.png",
+      "sha256": "d7a7cba283c0f06c7159949d63f1ca345ee4938c63374ec43bebc7c78e13deda",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alpha_bbox": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "alpha_subject_extent": [
+        1672,
+        941
+      ],
+      "review_status": "DIRECT_STATIC_INSPECTION_NO_NEW_SCORE",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets_src/imagegen/opera_roshan_animation_2026-08-09/roshan_racer_sheet_a_alpha_native.png",
+      "sha256": "81a2b59dffffdc175a7b2a50f87fdd9a258cd71d01689ad802534594559ab38d",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_bbox": [
+        22,
+        20,
+        1217,
+        1238
+      ],
+      "alpha_subject_extent": [
+        1195,
+        1218
+      ],
+      "review_status": "NOT_YET_DIRECTLY_REVIEWED",
+      "acceptance": "SOURCE_SCOPE_ONLY"
+    },
+    {
+      "path": "assets_src/concepts/cc0_ocean_replacements_2026-07-22/regen_02_03_vehicles.png",
+      "sha256": "6cea643834b3772d02594e2f424a716a9a602fac9f4894e293a8eaf69c7eb317",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "review_status": "DIRECT_STATIC_INSPECTION_NO_NEW_SCORE",
+      "acceptance": "NO_NEW_ACCEPTANCE"
+    },
+    {
+      "path": "assets_src/style_review_batch_04/final/022_monstertruck_atlas.png",
+      "sha256": "8e60c4c9053911f3caf25d834b30ea9a23e196d288c5e69fa6d78f58b2066d82",
+      "dimensions": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "review_status": "DIRECT_STATIC_INSPECTION_NO_NEW_SCORE",
+      "acceptance": "NO_NEW_ACCEPTANCE"
+    }
+  ]
+}

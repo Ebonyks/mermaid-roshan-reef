@@ -1,0 +1,96 @@
+{
+  "result": "PASS_ISOLATED_REPRODUCTION",
+  "runtime": "4.7.2.stable.official.ed1daf0bf",
+  "probes": [
+    {
+      "probe": "probe_dust_boss",
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 52.984,
+      "completed_utc": "2026-10-04T05:41:16.482829+00:00"
+    },
+    {
+      "probe": "probe_combat_tutorial",
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 11.95,
+      "completed_utc": "2026-10-04T05:41:28.440251+00:00"
+    },
+    {
+      "probe": "probe_dust_boss_balance",
+      "exit_code": 0,
+      "timed_out": false,
+      "elapsed_seconds": 227.956,
+      "completed_utc": "2026-10-04T05:45:16.403634+00:00"
+    }
+  ],
+  "source": [
+    {
+      "path": "scripts/main.gd",
+      "sha256_lf": "7b6877b2d4741a2e47021fca7b1d7a55ce1ed334371135c12a7865dbf52ae7b7"
+    },
+    {
+      "path": "scripts/games/dust_boss.gd",
+      "sha256_lf": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d"
+    },
+    {
+      "path": "scripts/combat_tutorial.gd",
+      "sha256_lf": "b0a77f8d93a369112acf032c9863a95dd822b8e0954382d2b8f9cbd880522e2b"
+    },
+    {
+      "path": "scripts/hit_engine.gd",
+      "sha256_lf": "9a9fc4df1598737937b7c37d2f68675ca4e257f8260cf72a0396a8dfea9a789c"
+    },
+    {
+      "path": "scripts/probe_dust_boss.gd",
+      "sha256_lf": "1a8640957f477ac4756e08b5fdfc37a1ef70608124c43229a2896e968461fee3"
+    },
+    {
+      "path": "scripts/probe_combat_tutorial.gd",
+      "sha256_lf": "9fd9b82f2accd761a22c77c69fbbb6aae99153665c1dd1f1729aada7751783e0"
+    },
+    {
+      "path": "scripts/probe_dust_boss_balance.gd",
+      "sha256_lf": "f4940fb4b5d6398e5d1fab94fdf92f4666c2302ff6c36f533312c6f3956be235"
+    }
+  ],
+  "logs": [
+    {
+      "path": "audit/racer_chase_20261003/logs/isolated_probe_dust_boss.stdout.log",
+      "original_bytes_sha256": "82f38563767cd2281954d8fdd08270757a51514000351daa842f0c5b7db5faa3",
+      "published_lf_sha256": "c82ac355f310d907854a85f5c1f28d5680a0d11f22ce287dedf2a9fec3fe958c",
+      "normalization": "CRLF to LF text only"
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/isolated_probe_dust_boss.stderr.log",
+      "original_bytes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_lf_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalization": "CRLF to LF text only"
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/isolated_probe_combat_tutorial.stdout.log",
+      "original_bytes_sha256": "232bcbca4e2dc5bfb4788737d4cbcb6f2b50315ca8f5320c68cf1542ac94207f",
+      "published_lf_sha256": "3b4832798c30cc78bce0463b3c63f07760051f78c147504edec563c33fc2deb2",
+      "normalization": "CRLF to LF text only"
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/isolated_probe_combat_tutorial.stderr.log",
+      "original_bytes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_lf_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalization": "CRLF to LF text only"
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/isolated_probe_dust_boss_balance.stdout.log",
+      "original_bytes_sha256": "416b9b3869b3a60c5c6fd7627a82e483017944d39444e2356950e60f1e0977e2",
+      "published_lf_sha256": "8e926f93f6783c33401f7f39534520d659450adbc2bbae0f5556b240e4992530",
+      "normalization": "CRLF to LF text only"
+    },
+    {
+      "path": "audit/racer_chase_20261003/logs/isolated_probe_dust_boss_balance.stderr.log",
+      "original_bytes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_lf_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalization": "CRLF to LF text only"
+    }
+  ],
+  "limits": "Failed full run retained in failed_global_suite_summary.json. These reruns do not grant a full-suite pass or prove a deterministic fix. Runtime and trusted probes were unchanged."
+}

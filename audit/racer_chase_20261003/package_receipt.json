@@ -1,0 +1,44 @@
+{
+  "result": "PASS",
+  "runtime": "4.7.2.stable.official.ed1daf0bf",
+  "export_presets_sha256_lf": "16a1d4fe1f3ab53f8b9cd6ad9c58bcb1239b04950f2638cc79e129916ee07d8d",
+  "both_presets_explicitly_include_metadata": true,
+  "isolated_pack_only_load": true,
+  "runtime_sprites_loaded": 15,
+  "anchors_sha256_bytes": "48c0bb0188e4385f809a2b10818d3481c59fe8f3554886cce834b8a5aba77b43",
+  "checks": [
+    {
+      "command": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\racer-existing-engine-2d\\mermaid-roshan-reef",
+        "--export-pack",
+        "Windows",
+        "C:\\Users\\Peter\\.codex\\worktrees\\racer-existing-engine-2d\\mermaid-roshan-reef\\tmp\\racer_chase\\racer-review.pck"
+      ],
+      "exit_code": 0,
+      "stdout": "logs/pack_0.stdout.log",
+      "stderr": "logs/pack_0.stderr.log"
+    },
+    {
+      "command": [
+        "C:/Users/Peter/Documents/mermaid-roshan-reef/tmp/godot-4.7.2/editor/Godot_v4.7.2-stable_win64_console.exe",
+        "--headless",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\racer-existing-engine-2d\\mermaid-roshan-reef\\tmp\\racer_chase\\pack-isolated",
+        "--main-pack",
+        "C:\\Users\\Peter\\.codex\\worktrees\\racer-existing-engine-2d\\mermaid-roshan-reef\\tmp\\racer_chase\\racer-review.pck",
+        "-s",
+        "C:\\Users\\Peter\\.codex\\worktrees\\racer-existing-engine-2d\\mermaid-roshan-reef\\tmp\\racer_chase\\check_export_pack.gd"
+      ],
+      "exit_code": 0,
+      "stdout": "logs/pack_1.stdout.log",
+      "stderr": "logs/pack_1.stderr.log"
+    }
+  ],
+  "pack_bytes": 691701868,
+  "elapsed_seconds": 95.492,
+  "time_utc": "2026-10-04T03:21:20.925004+00:00",
+  "limits": "Windows resource pack and shared explicit metadata inclusion only; not an APK, Android texture variant, device performance, child/owner acceptance or release"
+}

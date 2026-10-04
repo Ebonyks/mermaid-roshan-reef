@@ -1,0 +1,30 @@
+{
+  "result": "EXACT_ALIAS",
+  "files": [
+    {
+      "original": "core_full_suite.receipt.json",
+      "canonical_alias": "full_suite.receipt.json",
+      "sha256_bytes": "94b2295a3ce39ccc2bec0629828e20ded055eded38c4e847a04261a30182c9ee",
+      "transformation": "NONE; exact byte copy, not a new run"
+    },
+    {
+      "original": "core_full_suite.source.json",
+      "canonical_alias": "full_suite.source.json",
+      "sha256_bytes": "198a68aac3897098dcbd9c1431cc074162d6b6956e4d57549c442427433a98ab",
+      "transformation": "NONE; exact byte copy, not a new run"
+    },
+    {
+      "original": "core_full_suite.stdout.log",
+      "canonical_alias": "full_suite.stdout.log",
+      "sha256_bytes": "8964bc17841be59dc140418a09d587bdbd397819cc332bb4fbbe3d79e88ec954",
+      "transformation": "NONE; exact byte copy, not a new run"
+    },
+    {
+      "original": "core_full_suite.stderr.log",
+      "canonical_alias": "full_suite.stderr.log",
+      "sha256_bytes": "18d9dcc94b595aecf6f4786d69236a8fefd99c8e61461abe6aac0a4c314541cd",
+      "transformation": "NONE; exact byte copy, not a new run"
+    }
+  ],
+  "limits": "Original core_full_suite files remain preserved. Receipt source points to the original core source file; both aliases identify identical bytes."
+}

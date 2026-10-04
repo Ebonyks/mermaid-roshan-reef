@@ -96,13 +96,18 @@ func evaluate(id: String, stats: Dictionary) -> int:
 
 # ---------------------------------------------------------------- award flow
 
-func award_stats(id: String, stats: Dictionary) -> int:
+func award_stats(id: String, stats: Dictionary, visual_delay: float = 0.0) -> int:
 	# The single entry point every win path calls. Celebrates the tier earned
 	# THIS run; persists only upgrades so a slower replay never loses a medal.
 	var tier: int = evaluate(id, stats)
 	if tier <= 0:
 		return 0
-	_celebrate(tier, id, stats)
+	if visual_delay > 0.0:
+		var reward_tween := m.create_tween()
+		reward_tween.tween_interval(visual_delay)
+		reward_tween.tween_callback(_celebrate.bind(tier, id, stats.duplicate(true)))
+	else:
+		_celebrate(tier, id, stats)
 	var best: int = int(m.medals.get(id, 0))
 	if tier > best:
 		m.medals[id] = tier

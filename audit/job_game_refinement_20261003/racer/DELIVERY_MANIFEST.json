@@ -1,0 +1,812 @@
+{
+  "schema": "reef.racer.canvas-review-payload.v1",
+  "status": "MACHINE_VERIFIED_IMPLEMENTATION_CANDIDATE",
+  "repository": "https://github.com/Ebonyks/mermaid-roshan-reef",
+  "branch": "codex/racer-existing-engine-2d-20261003",
+  "baseline": "30d82725661044de63b682f5b13ba8f19101892b",
+  "entry": "audit/job_game_refinement_20261003/racer/port.html",
+  "verification": "audit/job_game_refinement_20261003/racer/PORT_VERIFICATION.json",
+  "created_utc": "2026-10-04T00:40:40.949952+00:00",
+  "scope": "Owned conversion changes and evidence, plus direct reused racing images and shared driving source. Complete game context is the repository tree. Original developed engine and all 17 features retained.",
+  "byte_basis": "Git clean content, including normalized text line endings; runtime filesystem hashes remain separately recorded in ENGINE_PORT_SOURCE_INDEX.json.",
+  "payload_rule": "SHA256 of sorted UTF-8 path TAB sha256 LF rows; this manifest excludes itself from its own payload.",
+  "payload_sha256": "c160ef50ed6f73f5884eb657a7d81a850a819f91ca755f1f69d1b3bc0acccd7b",
+  "required_files": [
+    {
+      "path": "ASSET_LICENSES.md",
+      "sha256": "58d988ea1007864bd55b0c25ef545cdb6fde6ae60835a3f42cee8d0778ecd4f1",
+      "bytes": 1879417,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "assets/book/baby_doll.png",
+      "sha256": "00bf49b8e76cec939b2c3908654b5bc25bee02d1907ca034d347f3ffaa386472",
+      "bytes": 279563,
+      "role": "unchanged direct source/reference"
+    },
+    {
+      "path": "assets/book/baby_doll2.png",
+      "sha256": "10d8153696b2bccc6b878e000862c42cfb4c5e23002b8975e2e83418878b4652",
+      "bytes": 378502,
+      "role": "unchanged direct source/reference"
+    },
+    {
+      "path": "assets/book/baby_doll3.png",
+      "sha256": "0617bf861b63ef92b396f979cb4894948ad9517157b5dd820001e0131fbe1a6a",
+      "bytes": 218358,
+      "role": "unchanged direct source/reference"
+    },
+    {
+      "path": "assets/book/doll_bunny.png",
+      "sha256": "445ae6349e552a20ca47d665a619a42453e59c69c15da315619b6d8dc2485b4a",
+      "bytes": 43383,
+      "role": "unchanged direct source/reference"
+    },
+    {
+      "path": "assets/book/doll_cat.png",
+      "sha256": "2f1a6732f16dc5847dc5b84ee6642e69487702878b70ecf440ba15e1927bb71c",
+      "bytes": 87164,
+      "role": "unchanged direct source/reference"
+    },
+    {
+      "path": "assets/characters/companions/baby_eagle.png",
+      "sha256": "7d6f10afbd8cd157436a05eaadab7eb4cc07c3a3d242ad2291111fc6b4f3ed2f",
+      "bytes": 139462,
+      "role": "unchanged direct source/reference"
+    },
+    {
+      "path": "assets/characters/friends/huluu.png",
+      "sha256": "4b6c0e4d1c4945cc1c3cb1594ad967aa6001e9bf24506e4574345088fd9a2dc9",
+      "bytes": 612525,
+      "role": "unchanged direct source/reference"
+    },
+    {
+      "path": "assets/characters/roshan_25d/roshan_base.png",
+      "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+      "bytes": 50051,
+      "role": "unchanged direct source/reference"
+    },
+    {
+      "path": "assets/kart/canvas/kart_front.png",
+      "sha256": "dad5805e320ef1b18eb4ca137220f3cd44d8a8e9bdc886ace90cc99c1009c9c2",
+      "bytes": 112280,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "assets/kart/canvas/kart_quarter.png",
+      "sha256": "97f6bce7f9c62a2b4db8c18617baa8d428a3c5faed5ee8e6a02ebc9ce0a3ecb4",
+      "bytes": 167303,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "assets/kart/canvas/kart_rear.png",
+      "sha256": "91dbc94e4c2ab4bb8cdd71caa1fdebf5cffa53ca4dba5675269a1de23ce0c581",
+      "bytes": 104644,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "assets/kart/canvas/kart_side.png",
+      "sha256": "d7104127c5baf03956b59f18aca1a0d1deb8357543ddd475d592fe32327c6b67",
+      "bytes": 152185,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "assets/kart/canvas/kart_top.png",
+      "sha256": "9bfd4a7bf00bfdf2640a169a8ffaa2747dc34bcfcd3cf59200102209eb842365",
+      "bytes": 165275,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "assets/kart/canvas/moto_front.png",
+      "sha256": "01f0bdabe96a2f24458edc360fcd2d5130fa442df453122377b1669bff6ffada",
+      "bytes": 113408,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "assets/kart/canvas/moto_quarter.png",
+      "sha256": "72bddf4ab257f2caa99c20ab6fe6040cfc58626fde55b0dc9ea63c10c23b5b85",
+      "bytes": 176842,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "assets/kart/canvas/moto_rear.png",
+      "sha256": "cb7f69eca09cc94414c10cf92ee20774f57f9c55e5f9e145a309e21bba181619",
+      "bytes": 110924,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "assets/kart/canvas/moto_side.png",
+      "sha256": "cb98820a28cf6fd9fc1b561418b9d02ed186e27e99c5c64bf4e510b52c5a0e3e",
+      "bytes": 216929,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "assets/kart/canvas/moto_top.png",
+      "sha256": "ebbc752a402670a4ea0c537d387c9d784a047f05b87a20dcc214c657ef82c243",
+      "bytes": 144379,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "assets_src/concepts/cc0_ocean_replacements_2026-07-22/regen_02_03_vehicles.png",
+      "sha256": "6cea643834b3772d02594e2f424a716a9a602fac9f4894e293a8eaf69c7eb317",
+      "bytes": 1827362,
+      "role": "unchanged direct source/reference"
+    },
+    {
+      "path": "assets_src/kart_canvas_2d_20261003/provenance.json",
+      "sha256": "2ba171b95517ed28492863bdb1995608cc79eae6e1cbdc94a59a2f60b94668ff",
+      "bytes": 8898,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "sha256": "5d48bd87bd55525037a527c7590a6bdc15c645aa97c35d8aae02034087963e51",
+      "bytes": 289475,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "sha256": "75b6387b6bc96411fae5f336c433e0bb0e7f983834d65c5290c008bc26924d90",
+      "bytes": 201178,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/ARTWORK_HANDOVER_SOURCE_INDEX.json",
+      "sha256": "def72b16bcfcf7becc5f21bbd07d5d0b11ece4b786364f9ee7444996e6abea2a",
+      "bytes": 95126,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/AUDIT_IMPACT_ORIGINAL_TOKEN.json",
+      "sha256": "e4eb47003c19a72588e1b7ecf4dfe3be2110dad75c06e736f6aacabdcbae5ef3",
+      "bytes": 10183,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/ENGINE_CONVERSION_CONTRACT.json",
+      "sha256": "7bff600a8aca3cee32711ca6da109cad6b97c9bff6d739aa41cf0a9c574a6688",
+      "bytes": 22962,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/ENGINE_PORT_SOURCE_INDEX.json",
+      "sha256": "854d32e5a067a1dad80f30c1f6bc61d4bfa2165aa74dd9f0d560798771c720cb",
+      "bytes": 54375,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/ENGINE_SOURCE_INDEX.json",
+      "sha256": "6edef9d0850b39728030e264d3e1f8faf0e9b0cd5eae5aed12dd3627bc5d108d",
+      "bytes": 94952,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/ORIGINAL_FEEL_PROBE.gd.txt",
+      "sha256": "d3e0ef31b9e092d1cb898f28099866685bfe21f0f6257d96537f57b51f33d0ed",
+      "bytes": 19156,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/ORIGINAL_KART_SOURCE.gd.txt",
+      "sha256": "69ca21f872c3d9e6e3af8eec5b19bebc4b4dfe1ef4e303298167efaf2af13275",
+      "bytes": 128569,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/PLAN.json",
+      "sha256": "e2c95f9a0eab01a061e763490e7979a1f7a8813299c7b16ee2b16ff09e29dd30",
+      "bytes": 5434,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/PORT_PLAN.json",
+      "sha256": "7f155bec3c9db3f3876e6850c949f459ec5ebfb359b3ce99229ab868381fb847",
+      "bytes": 25666,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/PORT_VERIFICATION.json",
+      "sha256": "d02a7f0161f88df0d954a966373e1b7581a10ea3db7a2bed57656589659b7f29",
+      "bytes": 5164,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/SCALAR_PARITY.json",
+      "sha256": "924b0b4ece90bd1c4a751a6ccccf5a61b1599b04391c8415c9a47cdeb5f81f86",
+      "bytes": 4253,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/SOURCE_INVENTORY.json",
+      "sha256": "10227f90b45b5e47306a3ff91e1b258159c11d8a25597c6eb2a44692f52161b2",
+      "bytes": 22992,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/VERIFICATION.json",
+      "sha256": "a8256c796611b0c2d4e22e357d4acb142d81a528fa1a2a35111675fe4cf49530",
+      "bytes": 10852,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/VERIFICATION_INITIAL_CROSS_CHECKOUT.json",
+      "sha256": "221e9bf61fe4671f605edfef10abb6b8f0c4bdb2d912702dbc9028a445c14be9",
+      "bytes": 4075,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/VERIFICATION_INITIAL_GIT_BLOB_COMPARISON.json",
+      "sha256": "65427f15b30842ffe2a8375144340b07601e669b6ac5ba5f356d81d2b90f1b7d",
+      "bytes": 7016,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/analyzer.receipt.json",
+      "sha256": "d7888f9238802f8e9275616edf65d96f19fe5f7d226443b37ba870cfc794a30f",
+      "bytes": 1747,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/analyzer_kart.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/analyzer_kart.stdout.log",
+      "sha256": "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e",
+      "bytes": 73,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/analyzer_kart_canvas_2d.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/analyzer_kart_canvas_2d.stdout.log",
+      "sha256": "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e",
+      "bytes": 73,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/analyzer_main.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/analyzer_main.stdout.log",
+      "sha256": "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e",
+      "bytes": 73,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/analyzer_medal_system.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/analyzer_medal_system.stdout.log",
+      "sha256": "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e",
+      "bytes": 73,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/analyzer_probe_kart_canvas_2d.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/analyzer_probe_kart_canvas_2d.stdout.log",
+      "sha256": "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e",
+      "bytes": 73,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/analyzer_probe_kart_feel.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/analyzer_probe_kart_feel.stdout.log",
+      "sha256": "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e",
+      "bytes": 73,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/art_check_initial_tuple_mismatch.log",
+      "sha256": "844dbc4d218668a12a8ff8f1e1a8859cb0fa4af1704665e02acb09991e577fc4",
+      "bytes": 22,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/authority.receipt.json",
+      "sha256": "6e71209f5c3c0f81e9a4d64aa331113fe71760cd3c2a49d8cd0addb93bac46f3",
+      "bytes": 598,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/authority.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/authority.stdout.log",
+      "sha256": "9986041656b907b156d489c60c53c2063b681a69396075b5d10689fdf76a448f",
+      "bytes": 76,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/authority_final.receipt.json",
+      "sha256": "261586a8c14f82301494a0c9d14da065a464baad2ff6350841cafee8b0512585",
+      "bytes": 204,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/authority_final.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/authority_final.stdout.log",
+      "sha256": "2f8730bb21edf53984863ca16ba515218e5d0e21b17deb5fb419f06ee07827df",
+      "bytes": 76,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/baseline_runtime/feel.receipt.json",
+      "sha256": "097649ec2c9bd85679bbc4cbc6b4a1e457cc3e3f1f0c59ea77a6d9da62eb0fbb",
+      "bytes": 617,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/baseline_runtime/feel.stderr.log",
+      "sha256": "ff572fc0249b58bee34f415572ca3c8e2b68128250fb4d79a293e91279050095",
+      "bytes": 131,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/baseline_runtime/feel.stdout.log",
+      "sha256": "7349f0ac52602af18c1b7a803eacdb3d7efe13b493b0b0307536520033904ed8",
+      "bytes": 1039,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/baseline_runtime/import.receipt.json",
+      "sha256": "b27a097fe375c9d3f5b3cfbbb5753fab37bc2a90dbcbba95b45c0a54ecfac16f",
+      "bytes": 589,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/baseline_runtime/import.stderr.log",
+      "sha256": "b7988197bad84216736cbefa17fbfbdd4822a65d8f27218f388dbcf2af8afb19",
+      "bytes": 48,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/baseline_runtime/import.stdout.log",
+      "sha256": "e7345529763ff7ae4eb1b4d503c97bca8e76d31a86cc1cfe597c7bea9aa2ff47",
+      "bytes": 573445,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/capture_mobile.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/capture_mobile.stdout.log",
+      "sha256": "4f598466d0be7b0b0814b2eac833a511c3e17b315bf578a8eae1a06d7328d436",
+      "bytes": 1914,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/capture_rejected_menu.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/capture_rejected_menu.stdout.log",
+      "sha256": "4dee7a19bf59bd360789b270472cabc1ab294af606ac88d156a65ed7ffabfe48",
+      "bytes": 1376,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/captures/01_ride_selection.png",
+      "sha256": "6747781ad8a50c91a40bd5f595cb910e374ef2362edc68beb794a32a3989a88e",
+      "bytes": 135254,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/captures/01b_paint_selection.png",
+      "sha256": "51e2cd24fd5d1d526349843f57117380cf203813e299a84892c382d8bfca7f44",
+      "bytes": 140626,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/captures/01c_tablet_picture_targets.png",
+      "sha256": "8b06f36e5c35f34695e48eff3be34357f5f59279e095437a044879cad0c61458",
+      "bytes": 136077,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/captures/02_ramp_apex.png",
+      "sha256": "2758423398f915fcab8115083b1cef2d32c30d31daaee00415e6df03849b4c34",
+      "bytes": 84687,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/captures/03_finish_approach.png",
+      "sha256": "b7376c5729ab4a1f550014835d62f38427b4d1f79e3100d7d83eb9c1f93d96c9",
+      "bytes": 114157,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/captures/04_finish_crossing.png",
+      "sha256": "5e7420aea283c8bdc0f290b916d2c2abc6c9ca8103a11625d5a88f9a9c8d6c94",
+      "bytes": 101311,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/captures/05_result_settle.png",
+      "sha256": "d78714737bdea29f4d7267903b531e0b90862facc757f2f5b5f15ccc7f3fdc5a",
+      "bytes": 113999,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/development.receipt.json",
+      "sha256": "73f18b13a57fe7e1b3af581dd6d83bbd5a7a7de619c0af70a5107a2648aad23c",
+      "bytes": 621,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/development.staged.receipt.json",
+      "sha256": "905dce1abed5e1e83dae2f33d2018525dc6b49affb350e2ba90438521050dd69",
+      "bytes": 626,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/development.staged.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/development.staged.stdout.log",
+      "sha256": "0284488bbf033784c9eb6244e5155a3d3ae375f03f9c05e8da88cddedb234ebe",
+      "bytes": 78,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/development.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/development.stdout.log",
+      "sha256": "0284488bbf033784c9eb6244e5155a3d3ae375f03f9c05e8da88cddedb234ebe",
+      "bytes": 78,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/development_final.receipt.json",
+      "sha256": "38c4dbae55da9552f75578edfe4f9d8c9d7a5f75f5341f6a36a54e8352d9ff32",
+      "bytes": 223,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/development_final.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/development_final.stdout.log",
+      "sha256": "0284488bbf033784c9eb6244e5155a3d3ae375f03f9c05e8da88cddedb234ebe",
+      "bytes": 78,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/development_schema_initial_failed.log",
+      "sha256": "b28bfcf8b9c1bdf5108c5ba0ed66ec44611eefad2385763ef69e870bf62b6ee7",
+      "bytes": 14086,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/feature_fixture_initial_failed.log",
+      "sha256": "9d53cc18836087485e8668c48ad4e4b25408ac86971d1a4312a30c2b2094fce1",
+      "bytes": 1107,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/features.receipt.json",
+      "sha256": "662c363d6f08ee601211ec166d383a83a5b1fc6e07d108e7ac72b409289ffc73",
+      "bytes": 440,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/features.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/features.stdout.log",
+      "sha256": "e07bfdc24913840878e86946c91d664d920e094eb3cb85629a50c425331b3fe1",
+      "bytes": 1330,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/feel_final.stdout.log",
+      "sha256": "e10b10de9d711ba114f95333aa363e65f9e23133a9efbb0a47e4550d34868e9f",
+      "bytes": 1106,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/full_suite.receipt.json",
+      "sha256": "cbe63f3b0bf3757862c6b3d30af67ca1351b839320502e8cf3b94a9b6b6b9330",
+      "bytes": 363,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/full_suite.stderr.log",
+      "sha256": "37787f315ecfd481c9f90d966dfce7b7ab249bec8c4a11702e28e84eb06efdfc",
+      "bytes": 1571,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/full_suite.stdout.log",
+      "sha256": "b5892aa8e51864b6b1c80fd222aadd88e8977572130c763bf99af298656bc432",
+      "bytes": 433836,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/full_suite_initial_label_census_failed.receipt.json",
+      "sha256": "5c3cc5c5091b1f2f1f7dafab5e45f3f91c4dffa21acae27a4e79e8c9ac3ab9a5",
+      "bytes": 360,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/full_suite_initial_label_census_failed.stderr.log",
+      "sha256": "a337e7c649d1facf915e1f1f399df8ae7dbe830da4e742e1e7b8d808d90aea56",
+      "bytes": 959,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/full_suite_initial_label_census_failed.stdout.log",
+      "sha256": "cb9153372c039838d326fa7522a8c7804ff42cb1eba50694574e4b3ad9956885",
+      "bytes": 89,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/game2d_final.receipt.json",
+      "sha256": "d5c53c8b5ed3b9ad6f87724b5f08fc494385cc5690439d2fb00dbc137d4f7563",
+      "bytes": 218,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/game2d_final.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/game2d_final.stdout.log",
+      "sha256": "a78fd9afeae23171776a8097fbececc90986314e044f52cbd8ead8aad3fc44fc",
+      "bytes": 411,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/game2d_initial_impact_token_failed.receipt.json",
+      "sha256": "aca20fde586da542415ed1505f109a602db04e48ed7ab23f393eae870382d5f9",
+      "bytes": 218,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/game2d_initial_impact_token_failed.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/game2d_initial_impact_token_failed.stdout.log",
+      "sha256": "ebe387d77664f4a8f5dd085213b8ecaf29dfdb6590855f163eb7482e6c5ce84a",
+      "bytes": 558,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/game2d_refresh.stdout.log",
+      "sha256": "5ad6853ba4d237d244060c71384d60b2952d2255e01d87f3c043cc6a4b06f7ad",
+      "bytes": 77,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/impact_description_classification.receipt.json",
+      "sha256": "a0e6c9de2639a7966e4a49c610418348d694133edf9b011761bc9756cc8d4f3f",
+      "bytes": 601,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/index.html",
+      "sha256": "f1f8b129411d9a8eafff56d099a9b208b4b40635b01169f1f1b710258385b8c2",
+      "bytes": 15043,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/port.html",
+      "sha256": "68063e921379ababc7165fc6c23ff8e58f3f7f07d2bab1c4301f9bb3664813fe",
+      "bytes": 2066,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/port_import.stdout.log",
+      "sha256": "d5bbf9e0332db156e947c61e9736d56b73a1379e8bc57ade661fd35f001bd1b2",
+      "bytes": 4001,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/port_runtime/feel.receipt.json",
+      "sha256": "56ea1afe317b77cac1786dfbac159d768a21d5d7fa12b09790c29fa7734912b8",
+      "bytes": 269,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/port_runtime/feel.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/port_runtime/feel.stdout.log",
+      "sha256": "3045d8bb02aa09b3f040d4c6e7a7e30941061e40c97819501a804b881cc98350",
+      "bytes": 1044,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/protected_final.receipt.json",
+      "sha256": "2abf2cf3bb3bd4e05525f0c34c42f13c2a76406e87a3cc1f5cd24585191a04b2",
+      "bytes": 282,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/static_0.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/static_0.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/static_1.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/static_1.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/static_2.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/static_2.stdout.log",
+      "sha256": "00fce4936cc7f95e42a6c1cf973a9505738dbceed26bc0496ea28b2ad4614358",
+      "bytes": 46,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "audit/job_game_refinement_20261003/racer/static_final.receipt.json",
+      "sha256": "a20f9e7e3f2496c730576cffef105dd043e63f748d56eabf39227d21c2ab35de",
+      "bytes": 3632,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "sha256": "703c7dc25201f8aab8bed2d2a3467aa104c798da6984064839623d3b0e282365",
+      "bytes": 176748,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "design/RACER_EXISTING_ENGINE_2D_PORT_2026-10-03.md",
+      "sha256": "b75641f3392223a92eae0daabe4be12b5dfdacf07d878bfb74752a7d4996fe9b",
+      "bytes": 4792,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "design/audit_impacts/job-game-racer-refinement-20261003.json",
+      "sha256": "81d455b4301a840f82445760cba0fcaba6e415e3166202d4a995b2185f85e5e1",
+      "bytes": 12175,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "scripts/kart.gd",
+      "sha256": "8b05203b2a1f3f7538e31b7924f93d34e9ab35f672c41ed43cfb7d4dbc4f9bb2",
+      "bytes": 69993,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "scripts/kart_canvas_2d.gd",
+      "sha256": "aa78b808227b7621854c27695738a2be62fceed3cfe98d96d74d5e9cd97cb880",
+      "bytes": 16908,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "sha256": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8",
+      "bytes": 5116,
+      "role": "unchanged direct source/reference"
+    },
+    {
+      "path": "scripts/main.gd",
+      "sha256": "7b6877b2d4741a2e47021fca7b1d7a55ce1ed334371135c12a7865dbf52ae7b7",
+      "bytes": 381882,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "scripts/medal_system.gd",
+      "sha256": "6de1cabca2fc0e5c68bcad0a198489546c4ea2ab4da1b496236ff819526233ee",
+      "bytes": 13117,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "scripts/probe_kart_canvas_2d.gd",
+      "sha256": "04f50ce42f5c822c78d0b5814d9cc4b3556bc4943d9d172c4725a794e0f8be18",
+      "bytes": 8009,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "scripts/probe_kart_feel.gd",
+      "sha256": "1143661194844fdf439ba4de35fc839aecc56a82ade8d393c67f76a9d10fd697",
+      "bytes": 19200,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "tests/test_audit_typography.py",
+      "sha256": "c63c981941f842fa89ec9dc9fb7a775092cb05d990a276e7bb2184746e1ce649",
+      "bytes": 48312,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "tools/game_2d_migration_manifest.json",
+      "sha256": "8361b12dd97a765b681aa719f988988d45047cce41efd3a292a0832faa32dc71",
+      "bytes": 343712,
+      "role": "candidate change/evidence"
+    },
+    {
+      "path": "tools/prepare_kart_canvas_art.py",
+      "sha256": "b72fb05864c0892227280042de7bc0f4598a2474b317c977e4c0e905867ad6be",
+      "bytes": 3260,
+      "role": "candidate change/evidence"
+    }
+  ],
+  "pending": [
+    "truck directional art",
+    "environment and cockpit/view polish",
+    "target device performance/touch",
+    "child",
+    "owner",
+    "separate Opera adapter integration",
+    "strict whole-game 2D satisfaction",
+    "dev/master/release integration"
+  ]
+}

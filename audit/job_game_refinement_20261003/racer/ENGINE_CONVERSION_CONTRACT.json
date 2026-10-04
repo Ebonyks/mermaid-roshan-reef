@@ -1,0 +1,557 @@
+{
+  "schema": "reef.racer.existing-engine-conversion.v1",
+  "status": "OWNER_PRIORITY_RECORDED_CONVERSION_PENDING",
+  "baseline": "30d82725661044de63b682f5b13ba8f19101892b",
+  "owner_priority": "Racer specifically has a problem. There's a racing game that's 3d and has already been developed in this game. Converting this engine to our racing engine, versus any others, is a priority",
+  "engine_authority": {
+    "path": "scripts/kart.gd",
+    "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c",
+    "current_medium": "Node3D",
+    "developed_engine_replaced": false
+  },
+  "shared_core": {
+    "path": "scripts/kart_driving.gd",
+    "sha256": "66fa1dfe73fb7693dc9bc11d0054c2d70d4927b44d856ccf2f43109893aeccaa"
+  },
+  "existing_canvas_presenter": {
+    "path": "scripts/opera_racer_surface.gd",
+    "sha256": "5c95c6e09338f6acf6fc5630a7c2e2f7c29e5f311a1def618de8c9595cc597e2",
+    "qualification": "Partial conversion of original handling; not full feature parity."
+  },
+  "decision": "The developed KartGame is the conversion source. Do not adopt or commission an alternative racing engine. Prioritize its conversion before cosmetic Racer replacements.",
+  "feature_assumption": "Retain complete engine feature set. A separately requested training subset must be configuration on that engine, with preserved in-world behavior.",
+  "features": [
+    {
+      "id": "RACER-ENGINE-01",
+      "feature": "Vehicle choice and handling",
+      "source_observation": "Full engine has motorcycle, kart and monster truck with distinct speed, steer, wall, mass, turbo and slip. Canvas Opera uses only KART_HANDLING.",
+      "source_refs": [
+        {
+          "name": "_vehicles_table",
+          "start": 1946,
+          "end": 1948,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_vehicle_keys",
+          "start": 1949,
+          "end": 1964,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_build_karts",
+          "start": 1968,
+          "end": 2000,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        }
+      ],
+      "current_port": "FULL_ENGINE_ONLY",
+      "conversion_requirement": "Retain all three handling tables and custom vehicle subset support; review proper drawable 2D art separately.",
+      "conversion_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "RACER-ENGINE-02",
+      "feature": "Paint choice",
+      "source_observation": "Full engine has eight paint choices; the Opera race has no paint selection.",
+      "source_refs": [
+        {
+          "name": "_build_paint_row",
+          "start": 2178,
+          "end": 2201,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_tick_select",
+          "start": 2202,
+          "end": 2286,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        }
+      ],
+      "current_port": "FULL_ENGINE_ONLY",
+      "conversion_requirement": "Preserve choice and selection transaction; painted character identity stays unchanged.",
+      "conversion_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "RACER-ENGINE-03",
+      "feature": "Courses and reverse",
+      "source_observation": "Full engine has independent ocean/rainbow control points, variable width, bank, terrain samples and a reverse-lap variant. Opera uses one painted circuit.",
+      "source_refs": [
+        {
+          "name": "_ctrl_pts",
+          "start": 338,
+          "end": 343,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_build_lut",
+          "start": 364,
+          "end": 399,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_eff",
+          "start": 436,
+          "end": 439,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_width_at",
+          "start": 418,
+          "end": 421,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_kart_frame",
+          "start": 459,
+          "end": 472,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        }
+      ],
+      "current_port": "PARTIAL_PORT",
+      "conversion_requirement": "Convert source geometry to 2D coordinates and preserve measured course length, bend sign, width and reverse semantics. Elevation cues need a truthful 2D treatment.",
+      "conversion_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "RACER-ENGINE-04",
+      "feature": "Auto-cruise and acceleration",
+      "source_observation": "Low-end launch pull and boost acceleration already share KartDriving.",
+      "source_refs": [
+        {
+          "name": "_update_player",
+          "start": 2418,
+          "end": 2469,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_advance",
+          "start": 451,
+          "end": 458,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        }
+      ],
+      "current_port": "SHARED_SCALAR_CORE",
+      "conversion_requirement": "Retain KartDriving; establish before/after race times for every vehicle and policy.",
+      "conversion_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "RACER-ENGINE-05",
+      "feature": "Steering, braking and touch",
+      "source_observation": "Full engine supports keys/gamepad/touch and braking; diagonal touch never brakes. Opera has a contained steering surface.",
+      "source_refs": [
+        {
+          "name": "_steer_input",
+          "start": 2296,
+          "end": 2316,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_brake_input",
+          "start": 2317,
+          "end": 2326,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_fire_just",
+          "start": 2287,
+          "end": 2295,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        }
+      ],
+      "current_port": "PARTIAL_PORT",
+      "conversion_requirement": "Retain meaningful input differences and one-finger completion. Keep transformed hit regions, cancel/focus ownership and optional second-finger Turbo.",
+      "conversion_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "RACER-ENGINE-06",
+      "feature": "Turbo and charge",
+      "source_observation": "The scalar turbo/charge logic is shared; presentation/event/pickup configuration differ.",
+      "source_refs": [
+        {
+          "name": "_charge",
+          "start": 2634,
+          "end": 2645,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_check_strips",
+          "start": 2722,
+          "end": 2731,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_update_player",
+          "start": 2418,
+          "end": 2469,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        }
+      ],
+      "current_port": "SHARED_SCALAR_CORE",
+      "conversion_requirement": "Preserve meter costs, vehicle multipliers, touch-assisted auto-fire and delta-scaled strips.",
+      "conversion_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "RACER-ENGINE-07",
+      "feature": "Drift tiers",
+      "source_observation": "Both presentations call KartDriving. The developed engine also owns tier spray, release feedback and cancel behavior.",
+      "source_refs": [
+        {
+          "name": "_drift_tier",
+          "start": 2646,
+          "end": 2648,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_drift_release",
+          "start": 2679,
+          "end": 2691,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_drift_cancel",
+          "start": 2692,
+          "end": 2702,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        }
+      ],
+      "current_port": "SHARED_SCALAR_CORE",
+      "conversion_requirement": "Keep silver/gold/rainbow thresholds, inside-line gain, release boost and wall/contact cancellation; use bounded Canvas effects.",
+      "conversion_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "RACER-ENGINE-08",
+      "feature": "Slipstream",
+      "source_observation": "Developed race rewards tucking behind a rival with speed and gradual Turbo charge.",
+      "source_refs": [
+        {
+          "name": "_draft_ahead",
+          "start": 2713,
+          "end": 2721,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_update_player",
+          "start": 2418,
+          "end": 2469,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        }
+      ],
+      "current_port": "FULL_ENGINE_ONLY",
+      "conversion_requirement": "Mechanically carry the exact thresholds and charge rate into the shared 2D simulation.",
+      "conversion_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "RACER-ENGINE-09",
+      "feature": "Pack AI",
+      "source_observation": "Original uses a roster, vehicle-adjusted speed, asymmetric catch-up, inside lines, overtake avoidance and bumper personalities. Opera uses a separately simplified single rival.",
+      "source_refs": [
+        {
+          "name": "_update_ai",
+          "start": 2470,
+          "end": 2534,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_build_karts",
+          "start": 1968,
+          "end": 2000,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        }
+      ],
+      "current_port": "PARTIAL_PORT",
+      "conversion_requirement": "Reuse the developed AI formulas; a training subset may change roster/configuration but must not become a second engine.",
+      "conversion_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "RACER-ENGINE-10",
+      "feature": "Mass-weighted bumps",
+      "source_observation": "Full engine conserves mass-weighted shoves, treats equal mass symmetrically, and protects Roshan\u2019s earned boost from rival bumps.",
+      "source_refs": [
+        {
+          "name": "_resolve_collisions",
+          "start": 2823,
+          "end": 2882,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_apply_lat",
+          "start": 2535,
+          "end": 2551,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        }
+      ],
+      "current_port": "FULL_ENGINE_ONLY",
+      "conversion_requirement": "Port exact formulas and thresholds to measured 2D contact geometry. Check both array orders and all vehicle pairings.",
+      "conversion_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "RACER-ENGINE-11",
+      "feature": "Shell, star, bubble and rainbow pickups",
+      "source_observation": "Full engine has four immediate effects, respawn cooldowns and a touch magnet; Opera uses pearl collection and zoom strips.",
+      "source_refs": [
+        {
+          "name": "_build_pickups",
+          "start": 1315,
+          "end": 1371,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_check_pickups",
+          "start": 2732,
+          "end": 2787,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        }
+      ],
+      "current_port": "FULL_ENGINE_ONLY",
+      "conversion_requirement": "Preserve visible immediate consequences, source tables and cooldown/magnet limits.",
+      "conversion_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "RACER-ENGINE-12",
+      "feature": "Ramps and landing",
+      "source_observation": "Full engine automatically launches a readable arc and pays a small zip at landing.",
+      "source_refs": [
+        {
+          "name": "_build_ramps",
+          "start": 1372,
+          "end": 1405,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_check_ramps",
+          "start": 1406,
+          "end": 1419,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_place_kart",
+          "start": 2552,
+          "end": 2633,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        }
+      ],
+      "current_port": "FULL_ENGINE_ONLY",
+      "conversion_requirement": "Keep launch/hang/landing state; separate stable 2D road contact from visible height and shadow without a spatial node.",
+      "conversion_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "RACER-ENGINE-13",
+      "feature": "Gentle hazards",
+      "source_observation": "Original ocean/rainbow hazards have distinct telegraphs, cooldowns, lateral shoves, slowdowns and free geyser jumps.",
+      "source_refs": [
+        {
+          "name": "_hazard_table",
+          "start": 1420,
+          "end": 1422,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_tick_hazards",
+          "start": 1658,
+          "end": 1774,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_hazard_bonk",
+          "start": 1639,
+          "end": 1657,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        }
+      ],
+      "current_port": "FULL_ENGINE_ONLY",
+      "conversion_requirement": "Preserve each consequence and warning; inventory existing 2D source coverage before any named art gap.",
+      "conversion_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "RACER-ENGINE-14",
+      "feature": "Shortcut",
+      "source_observation": "Forward course offers one shortcut per lap, a boost and no repeated reward; reverse route excludes it.",
+      "source_refs": [
+        {
+          "name": "_build_shortcut",
+          "start": 1263,
+          "end": 1283,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_check_shortcut",
+          "start": 2807,
+          "end": 2822,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        }
+      ],
+      "current_port": "FULL_ENGINE_ONLY",
+      "conversion_requirement": "Retain entry condition, destination, per-lap guard and reverse exclusion in the 2D course.",
+      "conversion_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "RACER-ENGINE-15",
+      "feature": "Pearl conservation and saves",
+      "source_observation": "Original banks collected pearls incrementally, retries failed persistence without double-add, and banks on pause/quit.",
+      "source_refs": [
+        {
+          "name": "_check_pearls",
+          "start": 2788,
+          "end": 2806,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_commit_payout",
+          "start": 3091,
+          "end": 3115,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_notification",
+          "start": 509,
+          "end": 517,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        }
+      ],
+      "current_port": "FULL_ENGINE_ONLY",
+      "conversion_requirement": "Keep all save keys, exact economy ownership and idempotence; never let animation or render completion award progress.",
+      "conversion_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "RACER-ENGINE-16",
+      "feature": "Finish, podium and return",
+      "source_observation": "Original accepts every placement after deliberate participation; commits sticker/Galaxy before a short podium; zero-input finishes award nothing. Opera owns its separate career result.",
+      "source_refs": [
+        {
+          "name": "_finish",
+          "start": 3151,
+          "end": 3210,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_commit_completion",
+          "start": 3116,
+          "end": 3122,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_teardown",
+          "start": 3211,
+          "end": 3230,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_quit_race",
+          "start": 3065,
+          "end": 3072,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        }
+      ],
+      "current_port": "PARTIAL_PORT",
+      "conversion_requirement": "Keep reward owner per caller, positive finish/return and no duplicate payouts. Apply the current owner-directed imp-rematch contract only in its specified Opera contest scope.",
+      "conversion_status": "NOT_IMPLEMENTED"
+    },
+    {
+      "id": "RACER-ENGINE-17",
+      "feature": "Speed and feedback",
+      "source_observation": "Original engine hum, speed-responsive chase camera, bounded drift feedback and near-field streaks make speed legible.",
+      "source_refs": [
+        {
+          "name": "_tick_engine",
+          "start": 2911,
+          "end": 2930,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        },
+        {
+          "name": "_update_camera",
+          "start": 2931,
+          "end": 2963,
+          "path": "scripts/kart.gd",
+          "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+        }
+      ],
+      "current_port": "PRESENTATION_CONVERSION",
+      "conversion_requirement": "Replace the 3D camera/effects with readable Canvas speed cues. Update only spatial-specific test assertions; retain mechanics floors and measure device costs.",
+      "conversion_status": "NOT_IMPLEMENTED"
+    }
+  ],
+  "implementation_slices": [
+    {
+      "order": 1,
+      "scope": "Freeze the original engine\u2019s tables, course samples and deterministic telemetry; mechanically extract remaining non-rendering mechanics alongside existing KartDriving.",
+      "checks": "Compare copied functions/formulas/constants to exact source; before/after vehicle, racing-line, drift, AI and collision telemetry."
+    },
+    {
+      "order": 2,
+      "scope": "Convert the original KartGame presentation/geometry to true Node2D/Canvas: tracks, vehicles, contact, ramps, hazards, choices, speed cues and podium.",
+      "checks": "No new 3D debt; exact shrinking inventory; real touch geometry, aspect expansion, no duplicate actor, source/alpha/native-density review."
+    },
+    {
+      "order": 3,
+      "scope": "Bind original-engine simulation to the existing contained Opera Racer presenter and retain TUNE \u2192 TO THE LINE \u2192 RACE; use scoped configurations for training/in-world variants.",
+      "checks": "Do not launch an external/spatial kart inside Opera. Movie Lounge/developer-training entry, exact voice ownership, passive/cancel/reentry/return/siblings."
+    },
+    {
+      "order": 4,
+      "scope": "Run full source/runtime gates and inspect complete actions on Mobile at 1280\u00d7720 and expanded aspect; obtain device/child/owner review.",
+      "checks": "Parser/inference/analyzer/import/full trusted probes, authority/development, regression inventory, current captures and save replay. No release is requested."
+    }
+  ],
+  "tests": {
+    "original_engine": "scripts/probe_kart_feel.gd",
+    "existing_canvas": "scripts/probe_opera_2d.gd",
+    "chapter_caller": "scripts/probe_chapter2.gd",
+    "full": "scripts/ci.sh",
+    "medium": "python -B tools/audit_game_2d.py --regression-gate",
+    "qualification": "These are existing applicable gates; none was run or weakened by this source-mapping report."
+  },
+  "blocking_gaps": [
+    "Original KartGame is still Node3D and its production conversion has not been implemented.",
+    "No current complete ordinary-route action captures or before/after engine telemetry in this packet.",
+    "The Racer painted background has only 1672\u00d7941 native coverage; 2048 containers/tiles do not repair this.",
+    "Monster-truck atlas is a UV/material texture, not a drawable vehicle. Other candidate vehicle views have provenance/acceptance limits.",
+    "Actual device, child and owner acceptance remains pending."
+  ],
+  "no_new_generation": true,
+  "production_changed": false,
+  "created_utc": "2026-10-03T21:49:52.993289+00:00"
+}

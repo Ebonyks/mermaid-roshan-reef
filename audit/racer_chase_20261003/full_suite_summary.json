@@ -1,0 +1,29 @@
+{
+  "result": "PASS",
+  "trusted_probes": 82,
+  "unique_probes": 82,
+  "all_process_exits_zero": true,
+  "hard_runtime_errors": false,
+  "full_suite_stdout_sha256_lf": "314e2aa4685a8a53cbb246179aa22825ef59af67cdcf8c1525b183fad02a98f0",
+  "race_feel_lines": [
+    "FEEL|save_isolation=redirected",
+    "FEEL|t_none=59.04 t_outside=62.23 t_inside=58.88 t_drift=55.51",
+    "FEEL|line_advantage=3.35 (outside-inside, target >= 0.8)",
+    "FEEL|drift_gain=3.53 (none-drift, target >= 0.8) tier_max=3 uptime=26.9",
+    "FEEL|zoom_range=0.280 (target >= 0.12)",
+    "FEEL|strip_charge_1s=30hz:0.780 60hz:0.780",
+    "FEEL|air_forward_alignment=1.000 (target >= 0.85)",
+    "FEEL|touch_countdown_rocket=0.90 (target >= 0.8)",
+    "FEEL|pause_bank=memory:2 disk:2 repeat:2",
+    "FEEL|save_generation_recovery=true generation:4",
+    "FEEL|second_place_commit=place:2 memory:true/true disk:true/true before_podium:true",
+    "FEEL|full_pack_race=done game=''",
+    "FEEL|zero_input_reward=none",
+    "FEEL|quit_restore=ok",
+    "FEEL|quit_pearl_delta=memory:3 disk:3 (target 3, no placement bonus)"
+  ],
+  "source": "logs/full_suite.source.json",
+  "receipt": "logs/full_suite.receipt.json",
+  "global_visual_audit": "VISUALAUDIT| STATE FAIL=15  REVIEW_OPEN=17  MANUAL_OPEN=2  COVERAGE_GAP=87  WAIVED=0  PASS=32  NOT_APPLICABLE=94  RESULT=UNSATISFIED",
+  "limits": "Required blocking local machine gate only. Existing nonblocking global visual report remains UNSATISFIED. Separate package receipt binds export settings. No fresh-runtime authoritative visual/device/child/owner/release acceptance."
+}
