@@ -25,8 +25,9 @@ RECIPE_STATUS = ("Status: `SUPPORTING_CURRENT` planning recipe. It routes curren
 RECIPE_RULES = ("Rules: `DL-AUTH-05` through `DL-AUTH-07`, `DL-PLAN-01` through `DL-PLAN-06`, and all affected child, "
                 "interaction, save, medium, motion/cinematic, audio and acceptance rules. Consult live canonical findings; "
                 "do not copy historical counts or superseded engine/3D directions.")
-RECIPE_PATTERNS = ("Pattern references are the hash-bound seed entries in the strengths register; no maintained PAT/EX "
-                   "catalogue or promoted exemplar is implied. Owner-decision defaults `ODR-LOOP-Q1`–`Q8` are operating "
+RECIPE_PATTERNS = ("Pattern references are the hash-bound seed entries in the strengths register and the gold-star "
+                   "reference patterns (`GS-*` in `design/reference/gold_star.json`, a candidate reference); no promoted "
+                   "PAT/EX exemplar is implied. Owner-decision defaults `ODR-LOOP-Q1`–`Q8` are operating "
                    "defaults, not answers. The recorded Roshan decisions `ODR-ROSHAN-IDENTITY`, `ODR-ROSHAN-IRIDESCENT`, "
                    "`ODR-ROSHAN-Q12`–`Q16` retain their exact scopes.")
 RECIPE_ROLES = ("Claude writes specifications, audits and study reports; Codex builds code and every image, board and capture. "

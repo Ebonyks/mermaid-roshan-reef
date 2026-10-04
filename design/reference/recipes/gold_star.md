@@ -1,10 +1,10 @@
-# REC-NEW-CHAPTER: New Chapter
+# REC-GOLD-STAR: Gold Star
 
 Status: `SUPPORTING_CURRENT` planning recipe. It routes current authority; it grants no content commission, generation budget, acceptance or release beyond the owner instruction and binding contract.
 
-Intent: `INT-NEW-CHAPTER`. Example: a new chapter in the north. Minimum input: the premise.
+Intent: `INT-GOLD-STAR`. Example: bring fetch up to the gold star. Minimum input: the game (none ranks every game).
 
-Default: Wrap the binding chapter guide and brief; reuse strategic families, preserve current causal canon and geography.
+Default: Raise one game at a time against the rubric in design/reference/gold_star.json, weakest criterion first, by copying the reference game's hash-bound patterns; scores change only when Claude re-assesses the changed code.
 
 ## Read first
 
@@ -14,31 +14,31 @@ Default: Wrap the binding chapter guide and brief; reuse strategic families, pre
 - `audit/findings/ACTIVE_FINDINGS_2026-08-13.md`
 - `design/05_DOC_LEDGER.md`
 - `design/AUDIT_DEVELOPMENT_CONTRACT.md`
+- `design/reference/GOLD_STAR.md`
+- `design/reference/gold_star.json`
+- `design/reference/games.json`
 - `design/reference/strengths.json`
-- `design/09_CHAPTER_DEVELOPMENT_GUIDE.md`
-- `design/templates/CHAPTER_BRIEF_V1.md`
-- `design/10_CHAPTER_REFERENCE_LIBRARY.md`
 
 Rules: `DL-AUTH-05` through `DL-AUTH-07`, `DL-PLAN-01` through `DL-PLAN-06`, and all affected child, interaction, save, medium, motion/cinematic, audio and acceptance rules. Consult live canonical findings; do not copy historical counts or superseded engine/3D directions.
 
-Bound strengths (accepted first; candidates explicitly remain candidates): `S-01` (accepted), `S-02` (candidate), `S-08` (candidate), `S-14` (candidate).
+Bound strengths (accepted first; candidates explicitly remain candidates): `S-01` (accepted), `S-02` (candidate), `S-03` (candidate), `S-11` (candidate), `S-12` (candidate).
 
 Pattern references are the hash-bound seed entries in the strengths register and the gold-star reference patterns (`GS-*` in `design/reference/gold_star.json`, a candidate reference); no promoted PAT/EX exemplar is implied. Owner-decision defaults `ODR-LOOP-Q1`–`Q8` are operating defaults, not answers. The recorded Roshan decisions `ODR-ROSHAN-IDENTITY`, `ODR-ROSHAN-IRIDESCENT`, `ODR-ROSHAN-Q12`–`Q16` retain their exact scopes.
 
 ## Expand
 
-1. Fill chapter brief with source-bound canon/identity/room/causal dependencies, child desire, pacing, touch, persistent consequences, return and save defaults.
-2. Inventory unused/reusable families and inspect consumers/quality/licences; choose existing implemented extension path, label missing platform services.
-3. Build one representative playable activity and evaluate positive/passive/repeat/save/re-entry contact/cues; expand autonomously inside approved scope.
-4. Collect source-bound visual/device/child/owner evidence and retro write-back to guide, references and sensors; a chapter template does not commission implementation.
+1. Run `python -B tools/gold_star.py --check` and then `--compare GAME` (or `--rank`) at the current head. A stale assessment is re-assessed before any change is planned from it.
+2. Claude writes the specification: one bounded change per open criterion, the reference pattern to copy (file and function from the rubric), the visible result the child gets, and the probe assertion that proves it. Owner verdicts, protected assets and Roshan's identity anchor (roshan_base.png, never roshan_sprite.png) stay binding.
+3. Codex implements it and adds or extends the trusted probe: real input through every step, a zero-input leg and a teardown check. Any image, board or capture is Codex's.
+4. Claude re-assesses only the criteria whose code changed, updates the scores and notes in design/reference/games.json, runs `--rebind GAME` and `--render`, and records the before and after scores in the impact record. Device, child and owner lanes stay at 0 until their evidence is recorded.
 
 ## Variety
 
-- Connect familiar verbs to a new coherent desire, consequence and emotional arc, not a checklist of old jobs.
+- Copy what the reference does for the open criterion, not its look or theme; each game keeps its own fiction, verbs and art family.
 
 ## Owner touchpoints
 
-1. Approve the chapter premise and boundaries? Default: wait for the owner's approval of the premise and boundaries; a scoped brief may be drafted meanwhile. Trigger: New chapter or major cast/plot change only; once approved implementation/expansion within scope is delegated.
+1. Does the raised game look and play right to you on the phone? Default: C12 stays at 0 and the game cannot reach 5/5 until the owner says yes. Trigger: Owner acceptance lane (DL-QA-06); asked once per raised game, not per step.
 
 ## Build and check
 
@@ -46,6 +46,7 @@ Claude writes specifications, audits and study reports; Codex builds code and ev
 
 - python -B tools/audit_document_authority.py
 - python -B tools/audit_development.py --base auto
+- python -B tools/gold_star.py --check --strict
 - Changed GDScript: python -m gdtoolkit.parser plus tools/lint_inference.py; exact Godot 4.7.2-stable import/full scripts/ci.sh and exact-head green branch CI before integration. No high-risk workflow edits without explicit task authority.
 - Evidence lanes: machine; Mobile 1280x720 and wide-phone visual; older Android phone and M11 device; private child observation; owner review. Missing lanes remain open.
 - Preserve original assets/book, assets/audio/voices and assets/characters/friends; license each new asset; true Canvas 2D, Mobile/Speedy, one finger, voice plus pointer, no punitive loss, no passive award, additive saves.
@@ -59,6 +60,5 @@ Claude writes specifications, audits and study reports; Codex builds code and ev
 
 ## Revision and served prompts
 
-- 2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.
-- 2026-10-03: Review fixes (Claude): the premise touchpoint waits for the owner (DL-PLAN-01).
+- 2026-10-03: V1 (Claude) with the gold-star scorecard and tool, on the owner's request for a game-wide audit and a gold star tool for development.
 - No completed served prompt or runtime/owner acceptance is claimed.

@@ -1,0 +1,5425 @@
+{
+ "schema": "game_catalogue/1",
+ "status": "SUPPORTING_CURRENT",
+ "author": "Claude",
+ "assessed": "2026-10-03",
+ "assessed_head": "87f992680c0b6a690bf45b1950275579c45e15ab",
+ "note": "Game-wide gold-star audit at dev 87f99268 (game code identical to e9915f44, whose CI run 37170079511 ran 81 trusted probes clean). Six read-only audit agents read each family's code; Claude verified the decisive claims in code and, for MA-PLAY-005, at runtime, then assigned C1-C10. C11 and C12 are computed. Notes cite functions; exact lines are in docs/handoffs/codex_gold_star_2026-10-03/AUDIT.md at the audited commit.",
+ "games": [
+  {
+   "id": "day_one_pool",
+   "name": "Mermaid Pool cleanup (Day One)",
+   "family": "day_one",
+   "state": "live",
+   "route": "Second Day One room: the golden hall door after the bathroom opens the pool, which mounts the cleanup controller (day_one_pool_cleanup.gd, castle_rooms_25d.gd room open).",
+   "sources": [
+    "scripts/games/day_one_pool_cleanup.gd",
+    "scripts/games/pool_skimmer_activity.gd",
+    "scripts/games/pool_waterfall_activity.gd",
+    "scripts/games/pool_seahorse_rescue_activity.gd",
+    "scripts/day_one_contact_action_2d.gd"
+   ],
+   "host": [
+    "scripts/day_one_director.gd",
+    "scripts/arena/castle_rooms_25d.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_day_one_pool_cleanup",
+    "probe_day_one_director",
+    "probe_day_one_integration",
+    "probe_day_one_voice"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 2,
+     "note": "Fresh-save Day One route; the director unlocks rooms in order."
+    },
+    "C2": {
+     "score": 2,
+     "note": "No 3D in any pool file; mounted under the Canvas castle room."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Exact cue per part, but skimmer lines follow item index (all say leaf), the seahorse has no pointer, pointers are emoji glyphs, and idle never re-speaks."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Fixture-sized hit regions (skimmer catch 118 px radius, seahorse region grown 55%); one touch owns each gesture."
+    },
+    "C5": {
+     "score": 1,
+     "note": "No fail state, waiting earns nothing; but the seahorse is eight identical taps and taps during Roshan's work are dropped."
+    },
+    "C6": {
+     "score": 2,
+     "note": "Roshan travels to each part, her hand must be within 24 px, and credit waits for 0.42 s of contact (DayOneContactAction2D); the skimmer net is hand-anchored on measured art. The pool part of MA-PLAY-004 is implemented; its device, child and owner review is pending."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Authored dirty waterfall and trash over the real clean fixture; wash rectangles, chevrons, ripples and sparkles are code-drawn or text glyphs, and the dingy room tint also tints Roshan."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Pieces fly to the basket and lanes fade; but the skimmer's spoken line can name the wrong object and dropped taps give no response."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Every change saves the lane or item mask; a restored complete mask completes once; focus loss cancels."
+    },
+    "C10": {
+     "score": 1,
+     "note": "probe_day_one_pool_cleanup drives real touches (far touch, second finger, cancel, re-entry), but waterfall completion uses probe_clear_next_lane, the idle leg lasts 0.12 s and voice is checked by source grep."
+    }
+   },
+   "strengths": [
+    "Travel, contact, then credit (DayOneContactAction2D)",
+    "Hand-anchored tool measured on the art",
+    "Save on every change; restored completion emits once"
+   ],
+   "defects": [
+    "Skimmer voice tied to item index, not the picked object",
+    "Seahorse says tap fast while taps during work are dropped",
+    "Emoji glyph pointers and code-drawn effects",
+    "Room tint darkens Roshan"
+   ],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/games/day_one_pool_cleanup.gd",
+     "sha256": "06cc9c0f276cfeac16aba85f7e93c443532c87d218428e48810cb422968175f0"
+    },
+    {
+     "path": "scripts/games/pool_skimmer_activity.gd",
+     "sha256": "b753090c65b6cfc2483cb66c47b99b46310caa2a7e7efec131216f704abd13c8"
+    },
+    {
+     "path": "scripts/games/pool_waterfall_activity.gd",
+     "sha256": "1374edc17af0fa536230a41e43f2fc2454f48e42eb2ad55b871e978d549687e4"
+    },
+    {
+     "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+     "sha256": "72279c1b2ea982c1f9212a56e35b5aa1b08fdb119e80e01f5562852a71236bb8"
+    },
+    {
+     "path": "scripts/day_one_contact_action_2d.gd",
+     "sha256": "0dcbb203d7ec179fa3347f6fca0aa62895bf650b64e2f12d6c1440e970716778"
+    }
+   ]
+  },
+  {
+   "id": "day_one_bathroom",
+   "name": "Bubble Bathroom cleanup (Day One)",
+   "family": "day_one",
+   "state": "live",
+   "route": "First Day One room: New Game, Sky Lagoon castle gate, golden door, arrival clip, then the cleanup mounts (main.gd day-one bathroom mount).",
+   "sources": [
+    "scripts/games/day_one_bathroom_cleanup.gd",
+    "scripts/games/day_one_bathroom_cleaning.gd",
+    "scripts/games/day_one_fixture_scrub.gd",
+    "scripts/games/day_one_bathroom_toilet.gd",
+    "scripts/games/day_one_dust_bunny_swimmer.gd",
+    "scripts/day_one_bathroom_movie_handoff.gd"
+   ],
+   "host": [
+    "scripts/day_one_director.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_day_one_bathroom_cleanup",
+    "probe_day_one_bathroom_bunny",
+    "probe_day_one_bathroom_movie_handoff",
+    "probe_bathroom_integration",
+    "probe_bathroom_props"
+   ],
+   "findings": [
+    "MA-PLAY-004"
+   ],
+   "scores": {
+    "C1": {
+     "score": 2,
+     "note": "The first room on a fresh save."
+    },
+    "C2": {
+     "score": 2,
+     "note": "No 3D; the scrub reveal is a canvas_item shader."
+    },
+    "C3": {
+     "score": 1,
+     "note": "First cue per step is exact with ghost hand, circle demo and arrows; idle re-prompts reuse a deduplicated cue and stay silent, and toilet re-prompt variants have no recording."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Basket 220x220, sink band radius 314 px, drain radius 282 px; one finger."
+    },
+    "C5": {
+     "score": 2,
+     "note": "Sink and tub need real circles or strokes over time; a still finger or waiting cannot win."
+    },
+    "C6": {
+     "score": 0,
+     "note": "Sponge and brush float under the finger while Roshan stays at one spot for the sink, drain and tub (fails the owner's 2026-09-06 job rule); only the toilet is walked to."
+    },
+    "C7": {
+     "score": 2,
+     "note": "Authored dirty, drained and clean room plates; clean fixtures cut from the approved clean room."
+    },
+    "C8": {
+     "score": 2,
+     "note": "Grime fades along the stroke and never claims early completion."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Steps saved and only increase; re-entry resumes; focus loss and pause clear touch."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Real drags in probe_day_one_bathroom_cleanup, but nothing checks that Roshan travels and voice is checked by source grep."
+    }
+   },
+   "strengths": [],
+   "defects": [
+    "Detached sponge and brush (MA-PLAY-004)",
+    "Silent idle re-prompts"
+   ],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/games/day_one_bathroom_cleanup.gd",
+     "sha256": "c13d7ecf1536dc682eaa29312c1aa8d45210985196608dfb830e26fa4b543a5e"
+    },
+    {
+     "path": "scripts/games/day_one_bathroom_cleaning.gd",
+     "sha256": "b6422a46d529b033dac36a14bba9b9695d2351f15ea6f850348380dc7be200b0"
+    },
+    {
+     "path": "scripts/games/day_one_fixture_scrub.gd",
+     "sha256": "b5aba569698ba641809a5bf216f4236443edca206f97a7e4d6010bd775389980"
+    },
+    {
+     "path": "scripts/games/day_one_bathroom_toilet.gd",
+     "sha256": "28413b931406d85afaaa45ab5e50133aa1df042d2aa29edb932096a0a752ed36"
+    },
+    {
+     "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
+     "sha256": "1f508b69f4e40ad7ccdca9234b5510b889841e1fe6a12f3b217d0c682dca6340"
+    },
+    {
+     "path": "scripts/day_one_bathroom_movie_handoff.gd",
+     "sha256": "975f3ee0800bcd6e7d6df2f485cd3dd4861fbee060eec9e85b911c9f2d30b3a9"
+    }
+   ]
+  },
+  {
+   "id": "day_one_playroom",
+   "name": "Free Baby Eagle (Day One)",
+   "family": "day_one",
+   "state": "live",
+   "route": "Third Day One room (Playroom); the rescue lives in castle_rooms_25d.gd.",
+   "sources": [
+    "scripts/arena/castle_rooms_25d.gd"
+   ],
+   "host": [],
+   "probes": [
+    "probe_stuffie",
+    "probe_day_one_director"
+   ],
+   "findings": [
+    "MA-PLAY-004"
+   ],
+   "scores": {
+    "C1": {
+     "score": 2,
+     "note": "Third room on the Day One route."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas castle room, no 3D."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Entry line, a cue per dust bunny and a finish line; the only pointer is a star on the eagle, not on the bunnies."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Tap the floor and Roshan walks; each bunny has a contact ellipse."
+    },
+    "C5": {
+     "score": 2,
+     "note": "No fail; standing still clears nothing."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Roshan walks into each bunny but makes no hand action."
+    },
+    "C7": {
+     "score": 2,
+     "note": "Correct canon (two dust bunnies); authored art."
+    },
+    "C8": {
+     "score": 2,
+     "note": "Bunnies pop with sound and effects."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Each freed bunny saves and restores; the stuffie picker reopens until a friend is adopted."
+    },
+    "C10": {
+     "score": 1,
+     "note": "probe_stuffie teleports Roshan instead of touch-walking."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/arena/castle_rooms_25d.gd",
+     "const": "PLAYROOM_RESCUE_ITEMS",
+     "sha256": "627a9a579fb6ad6097e9cc0825697856c2a5e55e2a9880e058064c2a9e6b138f"
+    },
+    {
+     "path": "scripts/arena/castle_rooms_25d.gd",
+     "func": "_check_dust_bunny_contacts",
+     "sha256": "1dc4312d454b0d4f1e22428b35ea538ae81e3275ace7f0af3ce46f79647bc798"
+    },
+    {
+     "path": "scripts/arena/castle_rooms_25d.gd",
+     "func": "_explode_dust_bunny",
+     "sha256": "58df378e2d39591eeece4f9320e42f9b4ea0c6497f5c37dc201084d71b2fc348"
+    },
+    {
+     "path": "scripts/arena/castle_rooms_25d.gd",
+     "func": "_add_playroom_rescue_pointer",
+     "sha256": "73fcd0a9e78e373fc62c4da8e33d901cfad63f09f512a73e362c0ba76a7a80d6"
+    },
+    {
+     "path": "scripts/arena/castle_rooms_25d.gd",
+     "func": "_check_playroom_rescue_complete",
+     "sha256": "937889f37ed1007bc81fe2bd58a9a09c702466f10cdf67c9c42e8e568a7a4082"
+    }
+   ]
+  },
+  {
+   "id": "day_one_craft_room",
+   "name": "Craft Room tidy (Day One)",
+   "family": "day_one",
+   "state": "live",
+   "route": "Fourth Day One room; the art studio activity (day_one_art_studio.gd).",
+   "sources": [
+    "scripts/day_one_art_studio.gd"
+   ],
+   "host": [
+    "scripts/attack_customizer.gd",
+    "scripts/day_one_director.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_day_one_art_attack_state"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 2,
+     "note": "Fourth room on the Day One route."
+    },
+    "C2": {
+     "score": 2,
+     "note": "No 3D."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Only the first target's hint is spoken; counter-clean lines arrive after the counter is clean; the pointer is an emoji glyph."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Targets 160x160, 187x137 and 387x197."
+    },
+    "C5": {
+     "score": 1,
+     "note": "Seven deliberate taps; the desk is gated by the director."
+    },
+    "C6": {
+     "score": 2,
+     "note": "Every tap sends Roshan to the item and needs 0.42 s of contact (DayOneContactAction2D)."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Authored supply and grime cards; glyph pointer and text-label effects."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Misleading completion lines; the floor line plays twice."
+    },
+    "C9": {
+     "score": 1,
+     "note": "Each action saves; suspected empty room after the first Back."
+    },
+    "C10": {
+     "score": 1,
+     "note": "probe_day_one_art_attack_state taps for real but has no Roshan, so travel falls back to instant credit."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/day_one_art_studio.gd",
+     "sha256": "8ebdbccbae4e1a4994a891ac9706bc5fb22dce4ac8e9a9c75dd02123fc9f621a"
+    }
+   ]
+  },
+  {
+   "id": "grand_puff",
+   "name": "Grand Puff in the Dusty Attic (Day One boss)",
+   "family": "day_one",
+   "state": "live",
+   "route": "All four rooms clean, the Royal Hall door glows, arrival clip, then the fight (main.gd boss start).",
+   "sources": [
+    "scripts/games/dust_boss.gd",
+    "scripts/games/dust_boss_patterns.gd",
+    "scripts/dust_bunny_boss_sprite.gd",
+    "scripts/boss_encounter_2d.gd",
+    "scripts/dust_boss_lesson_2d.gd",
+    "scripts/dust_boss_telegraph_2d.gd",
+    "scripts/boss_splash_2d.gd",
+    "scripts/games/octagon_stage.gd"
+   ],
+   "host": [
+    "scripts/encounter_profile_2d.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_dust_boss",
+    "probe_dust_boss_balance",
+    "probe_dust_bunny_boss"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 2,
+     "note": "Reached by finishing Day One."
+    },
+    "C2": {
+     "score": 0,
+     "note": "The fight's core is 3D: Camera3D, a Node3D root and a Sprite3D boss card; only overlays are 2D."
+    },
+    "C3": {
+     "score": 2,
+     "note": "Exact cues for moving, leaving the glowing shape, waiting for the star, dashing and tapping early, with floor warnings and a gold-star invitation."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Tap the floor to move; the boss hit area is generous; one finger."
+    },
+    "C5": {
+     "score": 2,
+     "note": "No lives; bumps only lower the medal; mercy waits but still needs a fresh tap on target; spam and idle cannot hurt him."
+    },
+    "C6": {
+     "score": 2,
+     "note": "The touch must land on the visible boss while the star is open."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Authored boss sheets and attic; Roshan is the approved atlas shown on a 3D sprite."
+    },
+    "C8": {
+     "score": 2,
+     "note": "Gold flash on the music beat; rewards only at the earned end."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Every earned checkpoint saves; interruptions pause; leaving re-arms the door."
+    },
+    "C10": {
+     "score": 2,
+     "note": "probe_dust_boss uses real world taps, negative legs and restart checkpoints; probe_dust_boss_balance runs a persona matrix."
+    }
+   },
+   "strengths": [],
+   "defects": [
+    "3D medium debt",
+    "Suspected canon risk: the companion hide list omits the boss mode, so a stuffie may follow Roshan into a fight she must face alone"
+   ],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/games/dust_boss.gd",
+     "sha256": "05f9174e05c0c00ee09cf21c8e70e251c3afbed8e35b9f9526e200de65869a0d"
+    },
+    {
+     "path": "scripts/games/dust_boss_patterns.gd",
+     "sha256": "530c25b906a3c88a336f1492517dc94b67fd7835b93aaac4afbcd437a727360c"
+    },
+    {
+     "path": "scripts/dust_bunny_boss_sprite.gd",
+     "sha256": "106bedcba3881d2b9c6d105947aa14e89a06b21caf8b59e078290cacaac93739"
+    },
+    {
+     "path": "scripts/boss_encounter_2d.gd",
+     "sha256": "371f260c9547f0665a41f290b2b1502c5ab22172b3d448f108d1b4e427bf9d55"
+    },
+    {
+     "path": "scripts/dust_boss_lesson_2d.gd",
+     "sha256": "7a445184e36eaaed6d29886ae2197c0f0deef10362706c233c889af8df42fbd4"
+    },
+    {
+     "path": "scripts/dust_boss_telegraph_2d.gd",
+     "sha256": "ce1713cadd0eae48ae42c86ee5367193fdf5cb490097dbf54a10ad94f72b2982"
+    },
+    {
+     "path": "scripts/boss_splash_2d.gd",
+     "sha256": "5ce5cf49ae82c414bbd1f3123ec770b91622b46a71d8f9ee67a41546c166fab2"
+    },
+    {
+     "path": "scripts/games/octagon_stage.gd",
+     "sha256": "828efb4077edc8a0e770ac74735298447d7d7cc4ac49ed5774276ce9811d3513"
+    }
+   ],
+   "august_rating": 3
+  },
+  {
+   "id": "chapter2_party",
+   "name": "Birthday party preparation (Chapter 2)",
+   "family": "chapter_two",
+   "state": "live",
+   "route": "Starts when Grand Puff is beaten; the Day Two card, then eight party jobs launched from castle-room cards.",
+   "sources": [
+    "scripts/chapter_two_director.gd",
+    "scripts/chapter_two_party_plan.gd",
+    "scripts/chapter_two_room_plot.gd",
+    "scripts/chapter_two_party_table_2d.gd",
+    "scripts/chapter_two_giant_cake_2d.gd",
+    "scripts/chapter_two_rainbow_candle_2d.gd",
+    "scripts/chapter_two_career_scene_adapter.gd",
+    "scripts/chapter_two_voice_catalog.gd",
+    "scripts/day_two_transition_2d.gd"
+   ],
+   "host": [
+    "scripts/main.gd",
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_house.gd"
+   ],
+   "probes": [
+    "probe_chapter2",
+    "probe_chapter2_farmer_resume",
+    "probe_alpha_milestone_save"
+   ],
+   "findings": [
+    "MA-PLAY-005"
+   ],
+   "scores": {
+    "C1": {
+     "score": 2,
+     "note": "The hub and its first job card are reachable after Day One."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas only."
+    },
+    "C3": {
+     "score": 0,
+     "note": "Route lines say tap the glowing door but no door is lit after Day One; the picture objective card sits on a hidden HUD; prompts use voiceless show_msg; the Day Two card names the wrong first rooms."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Large room cards and table targets."
+    },
+    "C5": {
+     "score": 2,
+     "note": "No fail state."
+    },
+    "C6": {
+     "score": 1,
+     "note": "The first party job launches into a broken scene (MA-PLAY-005)."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Authored cake and table art; about 200 lines of unused Ember staging."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Little spoken feedback between jobs."
+    },
+    "C9": {
+     "score": 1,
+     "note": "Save healing is causal, but the party can never complete (MA-PLAY-005)."
+    },
+    "C10": {
+     "score": 1,
+     "note": "probe_chapter2 checks director callbacks only; no trusted probe launches a story job through the real route."
+    }
+   },
+   "strengths": [],
+   "defects": [
+    "P0: story jobs cannot start or progress (MA-PLAY-005)",
+    "No lit door or spoken route to the next job"
+   ],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/chapter_two_director.gd",
+     "sha256": "eb3e820217b08b87cab8a8ea8758a8da16736fdbd57db896ab016af2173c69b5"
+    },
+    {
+     "path": "scripts/chapter_two_party_plan.gd",
+     "sha256": "50ffb004ac24a4827caed4e4899e999f7d37c7713c88eb3d1c778a766c54ec61"
+    },
+    {
+     "path": "scripts/chapter_two_room_plot.gd",
+     "sha256": "9eef1ece57be88ac9d01d85a5181ad1c258e6ff00f6b9a6cb3d7a86393d6e10d"
+    },
+    {
+     "path": "scripts/chapter_two_party_table_2d.gd",
+     "sha256": "761014dc77166dea11e4fa0e963cdb72c5aa2dea3e53b05f3540306950e89f87"
+    },
+    {
+     "path": "scripts/chapter_two_giant_cake_2d.gd",
+     "sha256": "f040e01beac2aa65933087bcca75153a8505ea7ce5aacb594a561201c407f757"
+    },
+    {
+     "path": "scripts/chapter_two_rainbow_candle_2d.gd",
+     "sha256": "12e1a75500e2cb4a535c075e3a32c54987a570f7d4bb5ffbdb64c3e35da3e62f"
+    },
+    {
+     "path": "scripts/chapter_two_career_scene_adapter.gd",
+     "sha256": "7397beeabc10e20ea3cdf38f2918d672711ac06dedb539d536a4eb1c1c656e2f"
+    },
+    {
+     "path": "scripts/chapter_two_voice_catalog.gd",
+     "sha256": "878cdebb43c777741d0462369f11da32369bb2efa08b5fae2adbfa64fbacfe96"
+    },
+    {
+     "path": "scripts/day_two_transition_2d.gd",
+     "sha256": "671548eb20ea115e9e21b0b019122c55cf39ab39760feec517a8504d9670026d"
+    }
+   ]
+  },
+  {
+   "id": "chapter2_lawn",
+   "name": "Birthday lawn and Ember King (Chapter 2 finale)",
+   "family": "chapter_two",
+   "state": "live",
+   "route": "Opens from the Main Hall table once all eight party pieces exist; blocked because the party cannot finish (MA-PLAY-005).",
+   "sources": [
+    "scripts/chapter_two_lawn_finale_2d.gd",
+    "scripts/chapter_two_ember_encounter.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_chapter2_lawn"
+   ],
+   "findings": [
+    "MA-PLAY-005"
+   ],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Unreachable from a fresh save while MA-PLAY-005 stands."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas only."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Exact line per story beat and a ghost hand; Continue taps and the King's speech are text only."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Continue button 180x106, under the 110 px minimum."
+    },
+    "C5": {
+     "score": 2,
+     "note": "Same no-death engine as Grand Puff with assists; no input cannot win."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Roshan walks to the rocket and presses it; a counter tap on the King gets no reaction."
+    },
+    "C7": {
+     "score": 2,
+     "note": "Code-drawn party hats over the protected friend portraits."
+    },
+    "C8": {
+     "score": 2,
+     "note": "Clear feedback on each beat."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Checkpoints and teardown are covered."
+    },
+    "C10": {
+     "score": 2,
+     "note": "probe_chapter2_lawn drives the finale with a passive check."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/chapter_two_lawn_finale_2d.gd",
+     "sha256": "8fd77250e26add871b56b3e9e3c0234ba9aee257ea857455c9c33ed062e9c812"
+    },
+    {
+     "path": "scripts/chapter_two_ember_encounter.gd",
+     "sha256": "964356fb569fc6fe8b8de90b4003284bc99cc58a4074b4cc2245a8be168b7a42"
+    }
+   ]
+  },
+  {
+   "id": "boxer",
+   "name": "Boxer",
+   "family": "opera_career",
+   "state": "live",
+   "route": "Castle-room picture card after Chapter 2 (castle_career_routes.gd); the owner's playtest elevator does not count.",
+   "sources": [
+    "scripts/opera_boxing_surface.gd"
+   ],
+   "host": [
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_gesture_surface.gd",
+    "scripts/opera_house.gd",
+    "scripts/opera_act.gd",
+    "scripts/castle_career_routes.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_opera",
+    "probe_opera_2d",
+    "probe_opera_gesture_quality"
+   ],
+   "findings": [
+    "MA-OPERA-009"
+   ],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Free-play card appears only after Chapter 2, which cannot finish (MA-PLAY-005)."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Zero 3D in the career and framework files; Canvas only."
+    },
+    "C3": {
+     "score": 2,
+     "note": "Five exact recordings; a ring shows the target and the demo travels the punch lane."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Per-finger ownership including a mouse sentinel; the nearest free glove answers; one finger can finish everything."
+    },
+    "C5": {
+     "score": 2,
+     "note": "Friendly hits are cosmetic, one punch per press, punches land only in the open window, idle lands nothing, integer progress."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Roshan walks to each station, then is hidden; targets float at fixed points rather than on the painted bags."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Authored imp, mitts and belt; code-drawn gloves; the full-screen bloom darkens the gym."
+    },
+    "C8": {
+     "score": 2,
+     "note": "Puff and pop at the impact point; the bell rings on alternate hits."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Touches cancel on focus loss and close; no mid-run resume."
+    },
+    "C10": {
+     "score": 2,
+     "note": "probe_opera_2d drives the whole job end to end with real touches, including multi-touch."
+    }
+   },
+   "strengths": [
+    "Per-finger ownership",
+    "Latch one punch per press",
+    "End-to-end real-touch probe driver"
+   ],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASES",
+     "key": "boxer",
+     "sha256": "68d50472c799cf16979121fe60aaf7f3f8a4bc2b7825c3b6f721411dbe917af6"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASE_STATIONS",
+     "key": "boxer",
+     "sha256": "6815457f9b551ce8c98c0889316b4d407236f162709e5e48ecb2e4298dfd4f8c"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "setup",
+     "sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_assign_stations",
+     "sha256": "789f6e841c1df3feedf615a62445f76b860355d2a76d5b348fda87137c7d5f08"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_draw_activity_focus",
+     "sha256": "33fa392e3893d6b8bcfb6f7a3ef6e188245f3e6dd30206aba5367f599801b877"
+    },
+    {
+     "path": "scripts/opera_boxing_surface.gd",
+     "sha256": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170"
+    }
+   ],
+   "august_rating": 4
+  },
+  {
+   "id": "teacher",
+   "name": "Teacher",
+   "family": "opera_career",
+   "state": "live",
+   "route": "Castle-room picture card after Chapter 2 (castle_career_routes.gd); the owner's playtest elevator does not count.",
+   "sources": [
+    "scripts/opera_teacher_surface.gd",
+    "scripts/teacher_lesson_plan.gd"
+   ],
+   "host": [
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_gesture_surface.gd",
+    "scripts/opera_house.gd",
+    "scripts/opera_act.gd",
+    "scripts/castle_career_routes.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_opera",
+    "probe_opera_2d",
+    "probe_save_recovery",
+    "probe_voice"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Free-play card appears only after Chapter 2, which cannot finish (MA-PLAY-005)."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Zero 3D in the career and framework files; Canvas only."
+    },
+    "C3": {
+     "score": 2,
+     "note": "Exact lines for the start, each lesson, every number and help; the next pearl pulses; a caption repeats every line for the adult."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Answer cards at least 174x170 and single-finger ownership, but pearls are 72 px, help is 80 px and a 38 px drift discards a tap."
+    },
+    "C5": {
+     "score": 2,
+     "note": "Wrong answers get spoken help; helped answers never raise difficulty; quiet time never answers."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Roshan walks to the desk, then the board fills the screen; the named learning buddy never appears."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Painted library background; code-drawn board, pearls and shapes."
+    },
+    "C8": {
+     "score": 2,
+     "note": "Every pearl touch speaks its number in order; the idle help line is queued then cleared, so never spoken."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Checkpoint per phase; restore awards only once; cleared after the win."
+    },
+    "C10": {
+     "score": 2,
+     "note": "Real touch, wrong finger, cancel, JSON restore and help-versus-mastery legs in probe_opera_2d."
+    }
+   },
+   "strengths": [
+    "Speaks every counted pearl",
+    "Help never inflates mastery",
+    "Per-phase checkpoint awarded once"
+   ],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASES",
+     "key": "teacher",
+     "sha256": "ff1b267c42408b09cb7ae6ca074add84c61065b1483bd7e197eb20fae29f9ab4"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASE_STATIONS",
+     "key": "teacher",
+     "sha256": "efee92a68827da1672664e2c0653c3bf2bbb6761067848b8fffa870a00f9b56e"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "setup",
+     "sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_assign_stations",
+     "sha256": "789f6e841c1df3feedf615a62445f76b860355d2a76d5b348fda87137c7d5f08"
+    },
+    {
+     "path": "scripts/opera_teacher_surface.gd",
+     "sha256": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed"
+    },
+    {
+     "path": "scripts/teacher_lesson_plan.gd",
+     "sha256": "d82e5b7a817335b4da2d0d7b55706a5cde1ff1954c2b33d8ba34d891dac5778e"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_tick_teacher_voice",
+     "sha256": "e47043031c9093ce0a9e903ef8317dc81e9cd2557fc00547328d765bae1f23ae"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_show_phase_prompt",
+     "sha256": "e5c512ab657000f0c835764cdbf308f7632533d007336ce4a98098adb042b23e"
+    }
+   ]
+  },
+  {
+   "id": "racer",
+   "name": "Racecar Driver",
+   "family": "opera_career",
+   "state": "live",
+   "route": "Castle-room picture card after Chapter 2 (castle_career_routes.gd); the owner's playtest elevator does not count.",
+   "sources": [
+    "scripts/opera_racer_surface.gd",
+    "scripts/kart_driving.gd"
+   ],
+   "host": [
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_gesture_surface.gd",
+    "scripts/opera_house.gd",
+    "scripts/opera_act.gd",
+    "scripts/castle_career_routes.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_opera",
+    "probe_opera_2d",
+    "probe_opera_gesture_quality"
+   ],
+   "findings": [
+    "MA-OPERA-006"
+   ],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Free-play card appears only after Chapter 2, which cannot finish (MA-PLAY-005)."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Zero 3D in the career and framework files; Canvas only."
+    },
+    "C3": {
+     "score": 2,
+     "note": "Exact recordings; the demo finger sits on the steering slider."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Steering bar 770x126 and turbo 120 px with touch ownership."
+    },
+    "C5": {
+     "score": 1,
+     "note": "Zero input never drives, but holding any touch completes both laps; steering only changes pearls and speed."
+    },
+    "C6": {
+     "score": 1,
+     "note": "TUNE installs the real wheel and RACE drives the painted circuit; TO THE LINE pushes toward a code-drawn arch."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Authored kart, wheel and driver; code-drawn steering chrome; bloom on two steps."
+    },
+    "C8": {
+     "score": 2,
+     "note": "Chimes on lap, pearl and turbo; no completion puff on the race."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Touches cancel on pause, focus loss and close; cancel and re-entry are probed."
+    },
+    "C10": {
+     "score": 2,
+     "note": "probe_opera_2d drives the finale through the real steering surface."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASES",
+     "key": "racer",
+     "sha256": "d085b0fa9cb92512d607474b875ff51c3cd64bf842799857efabbda218e957a0"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASE_STATIONS",
+     "key": "racer",
+     "sha256": "db8c475d301bdab389a44fd8d49fd8bce4a00ef7ab2f7432fdabb298ca43affd"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "setup",
+     "sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_assign_stations",
+     "sha256": "789f6e841c1df3feedf615a62445f76b860355d2a76d5b348fda87137c7d5f08"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_draw_activity_focus",
+     "sha256": "33fa392e3893d6b8bcfb6f7a3ef6e188245f3e6dd30206aba5367f599801b877"
+    },
+    {
+     "path": "scripts/opera_racer_surface.gd",
+     "sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba"
+    }
+   ],
+   "august_rating": 4
+  },
+  {
+   "id": "magician",
+   "name": "Magician",
+   "family": "opera_career",
+   "state": "live",
+   "route": "Castle-room picture card after Chapter 2 (castle_career_routes.gd); the owner's playtest elevator does not count.",
+   "sources": [
+    "scripts/opera_career_world_2d.gd"
+   ],
+   "host": [
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_gesture_surface.gd",
+    "scripts/opera_house.gd",
+    "scripts/opera_act.gd",
+    "scripts/castle_career_routes.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_opera",
+    "probe_opera_2d",
+    "probe_opera_gesture_quality"
+   ],
+   "findings": [
+    "MA-ACCESS-002"
+   ],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Free-play card appears only after Chapter 2, which cannot finish (MA-PLAY-005)."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Zero 3D in the career and framework files; Canvas only."
+    },
+    "C3": {
+     "score": 2,
+     "note": "Exact recordings for all five steps; the ghost demonstrates the wand; the shuffle glide shows where to look."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Wand hit about 132 px, but the practice cabinet handle is about 138x86 and the rope start is 76 px."
+    },
+    "C5": {
+     "score": 2,
+     "note": "Every step needs intent; tracking misses lower the medal."
+    },
+    "C6": {
+     "score": 2,
+     "note": "The hat travels over Lamb-a' and the doors open only with a downward pull."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Authored hat, wand, cabinet and portal; code-drawn rope knots."
+    },
+    "C8": {
+     "score": 2,
+     "note": "Medals come from stage telemetry."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Two-act checkpoints."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Surfaces covered by gesture-quality checks; medals and checkpoints only in untrusted probes."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASES",
+     "key": "magician",
+     "sha256": "6f37dcf13c7fd6071e815469ae9776e66c31005a1286094d1c08b20f73b470cb"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASE_STATIONS",
+     "key": "magician",
+     "sha256": "209093c0b453c4c610b78414906fedd14e21c60030b48cda6b78c4cf087c8cc7"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "setup",
+     "sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_assign_stations",
+     "sha256": "789f6e841c1df3feedf615a62445f76b860355d2a76d5b348fda87137c7d5f08"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_draw_magic_vanish_scene",
+     "sha256": "33669f53f4c498a81e6fe27709f690f2539bf2f1ea33d88b776ed864f1260f3a"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_cabinet_press",
+     "sha256": "62acfefb67ad3f7f3b64753a7f5f2cfd5aff9530839ea73a3b049a6a0a5b75da"
+    }
+   ],
+   "august_rating": 3
+  },
+  {
+   "id": "nursery",
+   "name": "Nursery Nurse",
+   "family": "opera_career",
+   "state": "live",
+   "route": "Castle-room picture card after Chapter 2 (castle_career_routes.gd); the owner's playtest elevator does not count.",
+   "sources": [
+    "scripts/opera_nursery_catch.gd"
+   ],
+   "host": [
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_gesture_surface.gd",
+    "scripts/opera_house.gd",
+    "scripts/opera_act.gd",
+    "scripts/castle_career_routes.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_opera",
+    "probe_opera_2d",
+    "probe_opera_nursery",
+    "probe_opera_gesture_quality"
+   ],
+   "findings": [
+    "MA-OPERA-003",
+    "MA-OPERA-006"
+   ],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Free-play card appears only after Chapter 2, which cannot finish (MA-PLAY-005)."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Zero 3D in the career and framework files; Canvas only."
+    },
+    "C3": {
+     "score": 2,
+     "note": "Exact Roshan filler lines and Faron family recordings; a catch arrow when the finger is off."
+    },
+    "C4": {
+     "score": 1,
+     "note": "The cradle steers from a touch anywhere, but the blanket grab is about 88x76 and there is no touch ownership."
+    },
+    "C5": {
+     "score": 2,
+     "note": "A catch needs a fresh touch; misses land safely; mercy after two misses; pats are paced."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Catching and tucking are truthful; BURP pays a tap anywhere; WASH draws a code basin beside the painted one."
+    },
+    "C7": {
+     "score": 2,
+     "note": "Authored babies, cradle and bottle; code-drawn cribs, blankets and meter; bloom."
+    },
+    "C8": {
+     "score": 2,
+     "note": "Actors bounce on a catch; cooperative curtain call."
+    },
+    "C9": {
+     "score": 1,
+     "note": "Catch stops on close; held WASH and FEED have no focus-loss cancel; no resume."
+    },
+    "C10": {
+     "score": 2,
+     "note": "probe_opera_nursery covers passive safety, mercy, burp pacing and bedtime."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASES",
+     "key": "nursery",
+     "sha256": "ffb29e7f78961102e534b63e439aacd1c15a302605b7c6fdf08f95a089ec347e"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASE_STATIONS",
+     "key": "nursery",
+     "sha256": "d814f8f053c813f82cc49ac7afa63bab0ea4db74dd7903b4aa620cdbff2d97ef"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "setup",
+     "sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_assign_stations",
+     "sha256": "789f6e841c1df3feedf615a62445f76b860355d2a76d5b348fda87137c7d5f08"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_draw_activity_focus",
+     "sha256": "33fa392e3893d6b8bcfb6f7a3ef6e188245f3e6dd30206aba5367f599801b877"
+    },
+    {
+     "path": "scripts/opera_nursery_catch.gd",
+     "sha256": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_draw_nursery_feed_scene",
+     "sha256": "e9537ddb9dfc7cad614d88d4897040b6b5c87bb1d024b16a2bddb84ea6320ee0"
+    }
+   ],
+   "august_rating": 4
+  },
+  {
+   "id": "popstar",
+   "name": "Pop Star",
+   "family": "opera_career",
+   "state": "live",
+   "route": "Castle-room picture card after Chapter 2 (castle_career_routes.gd); the owner's playtest elevator does not count.",
+   "sources": [
+    "scripts/opera_performance_plan.gd",
+    "scripts/opera_performance_overlay.gd"
+   ],
+   "host": [
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_gesture_surface.gd",
+    "scripts/opera_house.gd",
+    "scripts/opera_act.gd",
+    "scripts/castle_career_routes.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_opera",
+    "probe_opera_2d",
+    "probe_voice"
+   ],
+   "findings": [
+    "MA-PLAY-005",
+    "MA-OPERA-003"
+   ],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Free-play card appears only after Chapter 2, which cannot finish (MA-PLAY-005); the story run is broken too."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Zero 3D in the career and framework files; Canvas only."
+    },
+    "C3": {
+     "score": 2,
+     "note": "Exact lines; in RHYTHM the stars sing first, then a ring marks the next star."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Large stage surface, but generic gesture surface without touch ownership."
+    },
+    "C5": {
+     "score": 2,
+     "note": "Honest two-act show: bronze on completion, silver and gold from misses, help and time."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Stage phases open automatically; the rival can finish first without it being a fail."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Echo stars are code-drawn because their art is missing; the medal overlay is code-drawn with number labels."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Echo notes chime per star; other actions are silent and the win is a generic cheer."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Fine-grained checkpoints with validated restore and a flush on pause or focus loss."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Two-act structure checked; medal and performance probes are not trusted."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASES",
+     "key": "popstar",
+     "sha256": "dd9c01a466cf3db0ddc87eb5b3a8c5a47deb89f98e0e1b0657d0cba6abcbedb0"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASE_STATIONS",
+     "key": "popstar",
+     "sha256": "f871360a4a8893c473e759f72b06fc2121030f19fbf9ec889477f9e28244bc86"
+    },
+    {
+     "path": "scripts/chapter_two_career_scene_adapter.gd",
+     "const": "PHASE_SETS",
+     "key": "popstar",
+     "sha256": "66911a3c82636706faeed40534e9388fd0a3397ee3daa11c694ea9968def8c3b"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "setup",
+     "sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_assign_stations",
+     "sha256": "789f6e841c1df3feedf615a62445f76b860355d2a76d5b348fda87137c7d5f08"
+    },
+    {
+     "path": "scripts/opera_performance_plan.gd",
+     "sha256": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366"
+    },
+    {
+     "path": "scripts/opera_mastery.gd",
+     "func": "evaluate",
+     "sha256": "8e80436797efd6ab3c50a0b84f693b8f874951a425987e5f04005ac0af123843"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_echo_press",
+     "sha256": "8749a8d423d0a1dc61ceb2ddb7f5ac02443ed1230706eda5b9a1bfe85f45f153"
+    }
+   ],
+   "august_rating": 3
+  },
+  {
+   "id": "ballerina",
+   "name": "Ballerina",
+   "family": "opera_career",
+   "state": "live",
+   "route": "Castle-room picture card after Chapter 2 (castle_career_routes.gd); the owner's playtest elevator does not count.",
+   "sources": [
+    "scripts/opera_ballet_surface.gd"
+   ],
+   "host": [
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_gesture_surface.gd",
+    "scripts/opera_house.gd",
+    "scripts/opera_act.gd",
+    "scripts/castle_career_routes.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_opera",
+    "probe_opera_2d",
+    "probe_opera_gesture_quality"
+   ],
+   "findings": [
+    "MA-PLAY-005",
+    "MA-OPERA-005"
+   ],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Free-play card appears only after Chapter 2, which cannot finish (MA-PLAY-005); the story run is broken too."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Zero 3D in the career and framework files; Canvas only."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Free play: a watch demo then a your-turn line; the story run speaks its prompt with nothing to touch."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Pose portraits 180-220 px, ribbon resume 128 px, twirl ring 116 px."
+    },
+    "C5": {
+     "score": 1,
+     "note": "Free play is kind (banked progress, demo owns input, assists only enlarge); story goals of 6 and 2 can only ever pay 1, a dead end."
+    },
+    "C6": {
+     "score": 2,
+     "note": "One geometry for paint, demo and hits; Roshan's atlas pose follows each accepted move."
+    },
+    "C7": {
+     "score": 1,
+     "note": "No bloom; authored portraits and music box; code rainbow ribbon over a 58% navy corridor."
+    },
+    "C8": {
+     "score": 2,
+     "note": "Feedback rings; medals only from stage telemetry."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Validated checkpoints cleared on win; focus loss pauses the show."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Strong surface tests; the world completes via the probe gesture and the story run is never exercised."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASES",
+     "key": "ballerina",
+     "sha256": "f2d15de64ee2e4466ea42e6c0ba08ae781e5e90f2e74946b4e15178623fcbdbd"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASE_STATIONS",
+     "key": "ballerina",
+     "sha256": "0b4369ab9cd7ae798c38fe173a466a6e0d2d460703dbc377b1a9aff73293fdea"
+    },
+    {
+     "path": "scripts/chapter_two_career_scene_adapter.gd",
+     "const": "PHASE_SETS",
+     "key": "ballerina",
+     "sha256": "46914d35fb07741a26fa41ea840733deca214044002fa1b0114f7027b6a64a4e"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "setup",
+     "sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_assign_stations",
+     "sha256": "789f6e841c1df3feedf615a62445f76b860355d2a76d5b348fda87137c7d5f08"
+    },
+    {
+     "path": "scripts/opera_ballet_surface.gd",
+     "sha256": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b"
+    }
+   ],
+   "august_rating": 4
+  },
+  {
+   "id": "candymaker",
+   "name": "Candy Maker",
+   "family": "opera_career",
+   "state": "live",
+   "route": "Castle-room picture card after Chapter 2 (castle_career_routes.gd); the owner's playtest elevator does not count.",
+   "sources": [
+    "scripts/opera_career_world_2d.gd"
+   ],
+   "host": [
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_gesture_surface.gd",
+    "scripts/opera_house.gd",
+    "scripts/opera_act.gd",
+    "scripts/castle_career_routes.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_opera",
+    "probe_opera_2d",
+    "probe_opera_gesture_quality"
+   ],
+   "findings": [
+    "MA-PLAY-005"
+   ],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Free-play card appears only after Chapter 2, which cannot finish (MA-PLAY-005); the story run is broken too."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Zero 3D in the career and framework files; Canvas only."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Free play has exact recordings; story SORT asks for colours while every berry uses one texture."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Ladle about 224x130, but the moving candy grab is 84x84, bins about 102x79 and SHARE anchors 46 px."
+    },
+    "C5": {
+     "score": 1,
+     "note": "No passive progress and wrong bins return the piece; suspected SYRUP stall under frame jitter; story SORT is unsolvable."
+    },
+    "C6": {
+     "score": 1,
+     "note": "SYRUP is exemplary (spout from measured UVs, landing inside the mold); the story run's input surface is transparent beside a separate picture."
+    },
+    "C7": {
+     "score": 1,
+     "note": "SYRUP is a full authored scene; SORT, WRAP and SHARE are code shapes; bloom."
+    },
+    "C8": {
+     "score": 1,
+     "note": "SYRUP holds its brim picture with no puff; other steps get the puff."
+    },
+    "C9": {
+     "score": 1,
+     "note": "Same lifecycle as the framework; no mid-run resume."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Best pour coverage: a real SYRUP hold through the world at 30 and 60 fps plus spout geometry."
+    }
+   },
+   "strengths": [
+    "Art-registered pour with a geometry probe"
+   ],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASES",
+     "key": "candymaker",
+     "sha256": "73df0cfcb56c2add3fd42972ede8d8a5a1e7d3594c13e80b72df39aaa62b08d4"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASE_STATIONS",
+     "key": "candymaker",
+     "sha256": "bf635786d3f633b814d1ca7a1a19062376f37ed5a1be6844f3c09c9e8bb3b088"
+    },
+    {
+     "path": "scripts/chapter_two_career_scene_adapter.gd",
+     "const": "PHASE_SETS",
+     "key": "candymaker",
+     "sha256": "aa57714d5adcfb821efe375beeaaf1aa79cd59a2f2f6254aa221c19ddc3716a3"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "setup",
+     "sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_assign_stations",
+     "sha256": "789f6e841c1df3feedf615a62445f76b860355d2a76d5b348fda87137c7d5f08"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_draw_activity_focus",
+     "sha256": "33fa392e3893d6b8bcfb6f7a3ef6e188245f3e6dd30206aba5367f599801b877"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_candymaker_spout_local_anchor",
+     "sha256": "b5ed449439434df38d490e92626870a21c26ddcf78141e11366d293dccff7cc1"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_pour_spout_point",
+     "sha256": "1b5c5d427e923e7a771abd3271a81173767835dd3c2b64dc4e1f83eab53675bd"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_pour_landing_point",
+     "sha256": "fc846cddfde2365ffe63689c0113fc2fd2288e304861e991f6f05c96abf1707b"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_draw_candymaker_pour_stream",
+     "sha256": "d583881a2aa2416012e9300199c0318a66504c1ab74bcc174a4b0ab4f1792ed6"
+    }
+   ],
+   "august_rating": 4
+  },
+  {
+   "id": "chef",
+   "name": "Pastry Chef",
+   "family": "opera_career",
+   "state": "live",
+   "route": "Castle-room picture card after Chapter 2 (castle_career_routes.gd); the owner's playtest elevator does not count.",
+   "sources": [
+    "scripts/opera_career_world_2d.gd"
+   ],
+   "host": [
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_gesture_surface.gd",
+    "scripts/opera_house.gd",
+    "scripts/opera_act.gd",
+    "scripts/castle_career_routes.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_opera",
+    "probe_opera_2d",
+    "probe_opera_gesture_quality"
+   ],
+   "findings": [
+    "MA-PLAY-005",
+    "MA-OPERA-001"
+   ],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Free-play card appears only after Chapter 2, which cannot finish (MA-PLAY-005); the story run is broken too."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Zero 3D in the career and framework files; Canvas only."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Free play has exact recordings and landmark glows; story STACK has no armed object."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Pitcher 140x120 and oven handle 220x83, but the frosting start is 76x76 and topping anchors 46 px."
+    },
+    "C5": {
+     "score": 1,
+     "note": "No fail and a no-burn oven; suspected MIX and FROST float stall."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Backwards pour: the jug's spout faces left but it tilts clockwise and the stream leaves the handle side; steps play in a panel beside the painted kitchen."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Owner-rejected look: bloom plus code-drawn duplicate bowl, oven, cake and piping bag over the painted kitchen."
+    },
+    "C8": {
+     "score": 0,
+     "note": "Immediate feedback, muddied by the puff and bloom."
+    },
+    "C9": {
+     "score": 1,
+     "note": "Clean close and replay; no resume; no focus-loss release for the held pour."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Oven and frosting are covered; MIX is never poured with real input and nothing tests the stream direction."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": {
+     "result": "not_accepted",
+     "evidence": "ODR-CHEF-VERDICT-20261003"
+    }
+   },
+   "evidence": [
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASES",
+     "key": "chef",
+     "sha256": "86ed431b81b369f254f6efdfbb6aed9774de4ad1df8cfceccc12616dfac5b5ef"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASE_STATIONS",
+     "key": "chef",
+     "sha256": "0cfaf04b953decddac15c56c4b9dec9e2c3ff3e15d918ed2482ebce2bad997bc"
+    },
+    {
+     "path": "scripts/chapter_two_career_scene_adapter.gd",
+     "const": "PHASE_SETS",
+     "key": "chef",
+     "sha256": "9889fef3fa2d65fda315b8bb28804788a82ca70fd10412a6a2187be5d016b87b"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "setup",
+     "sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_assign_stations",
+     "sha256": "789f6e841c1df3feedf615a62445f76b860355d2a76d5b348fda87137c7d5f08"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_draw_activity_focus",
+     "sha256": "33fa392e3893d6b8bcfb6f7a3ef6e188245f3e6dd30206aba5367f599801b877"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_pour_pitcher_rotation",
+     "sha256": "08698c27f4c82f8529a63d095fee009f33cf3a3695639fca791146a65acb6792"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_draw_pour_scene",
+     "sha256": "e1cf7b0f5f814f86c94e09607c8ffb71ccf1ce7ffa765e0c112aa898ceba9ba1"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_draw_chef_crank",
+     "sha256": "193d36430ccb4261d48f7afcadde0db2d253176afd1222a7e9ff365b877f9e21"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_draw_oven",
+     "sha256": "a03e64b51c55e46adb1ac119477fa42d20912d3e91c6850f257555762aa20777"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_draw_trace_chef_subject",
+     "sha256": "755b642c6817e1043f8c304e2b7c11f11430bebbbb762fad42cb1ee4de89da4d"
+    }
+   ],
+   "august_rating": 4
+  },
+  {
+   "id": "detective",
+   "name": "Detective",
+   "family": "opera_career",
+   "state": "live",
+   "route": "Castle-room picture card after Chapter 2 (castle_career_routes.gd); the owner's playtest elevator does not count.",
+   "sources": [
+    "scripts/opera_career_world_2d.gd"
+   ],
+   "host": [
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_gesture_surface.gd",
+    "scripts/opera_house.gd",
+    "scripts/opera_act.gd",
+    "scripts/castle_career_routes.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_opera",
+    "probe_opera_2d",
+    "probe_opera_detective",
+    "probe_opera_gesture_quality"
+   ],
+   "findings": [
+    "MA-PLAY-005",
+    "MA-OPERA-002"
+   ],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Free-play card appears only after Chapter 2, which cannot finish (MA-PLAY-005); the story run is broken too."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Zero 3D in the career and framework files; Canvas only."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Free play has exact recordings, a ghost lens and a glisten; the retry line mentions a trap that no longer exists."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Lens works anywhere; clue token about 114 px; crown handle 162x90."
+    },
+    "C5": {
+     "score": 0,
+     "note": "A timed rival sends the child back to CASE BOARD with zero progress after about 40 s; story STORYBOOK BOARD pays any three taps on an invisible surface."
+    },
+    "C6": {
+     "score": 1,
+     "note": "The lens truly magnifies and captures clues; suspected duplicate painted chest."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Authored magnifier, board and chest; bloom; story run uses a StyleBox card."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Each find gets a burst, its line and a trail; the retry reveal flashes unrelated lanes."
+    },
+    "C9": {
+     "score": 1,
+     "note": "The rival clock keeps running on focus loss."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Real hotspot route and lens dwell in probe_opera_detective."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASES",
+     "key": "detective",
+     "sha256": "39979a127b0cceb9c77c025e5d1097f4eb9d7a24835f458b66bc276e3534be4b"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASE_STATIONS",
+     "key": "detective",
+     "sha256": "765e5db672dd5eefeb2f60232c01a46ed9146fd8979919869f3322f1aa4b35a4"
+    },
+    {
+     "path": "scripts/chapter_two_career_scene_adapter.gd",
+     "const": "PHASE_SETS",
+     "key": "detective",
+     "sha256": "30e33afe717f8fb7ec9be7064d7841bc9960ae1c4355b0fca4b134fc21d0d4ca"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "setup",
+     "sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_assign_stations",
+     "sha256": "789f6e841c1df3feedf615a62445f76b860355d2a76d5b348fda87137c7d5f08"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_draw_activity_focus",
+     "sha256": "33fa392e3893d6b8bcfb6f7a3ef6e188245f3e6dd30206aba5367f599801b877"
+    },
+    {
+     "path": "scripts/opera_competition.gd",
+     "sha256": "2449c21807e83f9c5d0f5994b37663b9e5ae4f56aa418690151eac081d03ec57"
+    }
+   ],
+   "august_rating": 2
+  },
+  {
+   "id": "farmer",
+   "name": "Farmer",
+   "family": "opera_career",
+   "state": "live",
+   "route": "Castle-room picture card after Chapter 2 (castle_career_routes.gd); the owner's playtest elevator does not count.",
+   "sources": [
+    "scripts/opera_career_world_2d.gd"
+   ],
+   "host": [
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_gesture_surface.gd",
+    "scripts/opera_house.gd",
+    "scripts/opera_act.gd",
+    "scripts/castle_career_routes.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_opera",
+    "probe_opera_2d",
+    "probe_chapter2_farmer_resume",
+    "probe_opera_gesture_quality"
+   ],
+   "findings": [
+    "MA-PLAY-005",
+    "MA-OPERA-006",
+    "MA-OPERA-007"
+   ],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Free-play card appears only after Chapter 2, which cannot finish (MA-PLAY-005); the story run is broken too."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Zero 3D in the career and framework files; Canvas only."
+    },
+    "C3": {
+     "score": 2,
+     "note": "Exact lines in free play and story; the next hole pulses, a pull-back arrow and arc guide, a ring on the next anchor."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Holes 84 px, seed about 92 px, vegetable about 86 px, snack spots 92 px; no touch ownership."
+    },
+    "C5": {
+     "score": 1,
+     "note": "A weak toss loops home without being used up; herding rejects the wrong direction; nothing rewards care."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Sprouts grow and the pig munches, but play happens on a panel with the completion puff."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Painted world; code-drawn soil bed, sprouts, barn gate and pig face; bloom."
+    },
+    "C8": {
+     "score": 1,
+     "note": "No action sounds; the puff covers results."
+    },
+    "C9": {
+     "score": 1,
+     "note": "No free-play checkpoint; Chapter 2 berries persist one at a time."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Herd push and toss drives; probe_chapter2_farmer_resume presses real berry buttons after opening the task directly."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASES",
+     "key": "farmer",
+     "sha256": "f1c8fa506e5fb5d858256428d27f739a5e2d89ab82fe38db70c06e5c46034396"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASE_STATIONS",
+     "key": "farmer",
+     "sha256": "772aa57309dc4bb5da1bc158cb375fc20959d0aec05a7bc2ad9093e5b69b7973"
+    },
+    {
+     "path": "scripts/chapter_two_career_scene_adapter.gd",
+     "const": "PHASE_SETS",
+     "key": "farmer",
+     "sha256": "0adb19918ada258cbe72dd72cb5b62772e4b84d3bcff41f050f2c3f2fd7f8311"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "setup",
+     "sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_assign_stations",
+     "sha256": "789f6e841c1df3feedf615a62445f76b860355d2a76d5b348fda87137c7d5f08"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_draw_activity_focus",
+     "sha256": "33fa392e3893d6b8bcfb6f7a3ef6e188245f3e6dd30206aba5367f599801b877"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_farm_release",
+     "sha256": "6bc39fd887eb70c267ace91707ca9b30cdded8835c3f4c2ec7ee400911fb66d9"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_draw_garden_plant",
+     "sha256": "9533c69ee9085da10ea13da6d3983bee163caf4d8f1f669e0197641e6bdc8973"
+    }
+   ],
+   "august_rating": 3
+  },
+  {
+   "id": "doctor",
+   "name": "Stuffie Doctor",
+   "family": "opera_career",
+   "state": "live",
+   "route": "Castle-room picture card after Chapter 2 (castle_career_routes.gd); the owner's playtest elevator does not count.",
+   "sources": [
+    "scripts/opera_career_world_2d.gd"
+   ],
+   "host": [
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_gesture_surface.gd",
+    "scripts/opera_house.gd",
+    "scripts/opera_act.gd",
+    "scripts/castle_career_routes.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_opera",
+    "probe_opera_2d",
+    "probe_opera_gesture_quality",
+    "probe_opera_diegetic_paths"
+   ],
+   "findings": [
+    "MA-OPERA-007"
+   ],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Free-play card appears only after Chapter 2, which cannot finish (MA-PLAY-005)."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Zero 3D in the career and framework files; Canvas only."
+    },
+    "C3": {
+     "score": 2,
+     "note": "All five lines exact; pulsing object, demo finger, lit lane, X-ray glow and trace corridor."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Room objects at least 112 px, but the X-ray stroke must pass within about 28 px; no touch ownership."
+    },
+    "C5": {
+     "score": 1,
+     "note": "No fail and safe when idle; FIND can be mashed; nothing rewards care."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Roshan walks to each station, then plays on a 416x292 panel beside it; the cast really grows, then the puff covers it."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Authored patient; code-drawn sink, hands, petal bed and confetti; bloom."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Silent; covered by the burst."
+    },
+    "C9": {
+     "score": 1,
+     "note": "No mid-job checkpoint."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Basin, X-ray and cast surfaces covered; completion via the probe gesture."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASES",
+     "key": "doctor",
+     "sha256": "19b081d7621a00e25174f1194244bf03fe7728e1be2410be9c0506ea285b3f23"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASE_STATIONS",
+     "key": "doctor",
+     "sha256": "36cea308c0ad554cc2bcd3ef9889750da7704f710259db4d57093b9105094cd0"
+    },
+    {
+     "path": "scripts/chapter_two_career_scene_adapter.gd",
+     "const": "PHASE_SETS",
+     "key": "doctor",
+     "sha256": "ebfde4f121d09dbee847a29fdd77857348ffa48b9ccf35770380d8aa5841bb6d"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "setup",
+     "sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_assign_stations",
+     "sha256": "789f6e841c1df3feedf615a62445f76b860355d2a76d5b348fda87137c7d5f08"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_draw_activity_focus",
+     "sha256": "33fa392e3893d6b8bcfb6f7a3ef6e188245f3e6dd30206aba5367f599801b877"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_xray_segment_hits",
+     "sha256": "ad49b06ea5319dc48232917aecf18540b7a55c5337aaf8486ef0a2974f4e94ae"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_draw_doctor_basin_subject",
+     "sha256": "87534d882e34836b527acdfe95f2c3a5f4942c727c9ee1901037328128fae94c"
+    }
+   ],
+   "august_rating": 3
+  },
+  {
+   "id": "painter",
+   "name": "Painter",
+   "family": "opera_career",
+   "state": "live",
+   "route": "Castle-room picture card after Chapter 2 (castle_career_routes.gd); the owner's playtest elevator does not count.",
+   "sources": [
+    "scripts/opera_career_world_2d.gd"
+   ],
+   "host": [
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_gesture_surface.gd",
+    "scripts/opera_house.gd",
+    "scripts/opera_act.gd",
+    "scripts/castle_career_routes.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_opera",
+    "probe_opera_2d"
+   ],
+   "findings": [
+    "MA-PLAY-005"
+   ],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Free-play card appears only after Chapter 2, which cannot finish (MA-PLAY-005); the story run is broken too."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Zero 3D in the career and framework files; Canvas only."
+    },
+    "C3": {
+     "score": 2,
+     "note": "Exact lines, demo finger, paint cover cells and a lit lane."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Generous canvas and lanes; no touch ownership."
+    },
+    "C5": {
+     "score": 1,
+     "note": "STAMPS is any five free taps so mashing equals play; GALLERY is one lane pick."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Revealing the authored sunrise is truthful; hanging is only a lane choice."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Authored painting and stamps; code-drawn cover and frame; bloom."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Silent; puff."
+    },
+    "C9": {
+     "score": 1,
+     "note": "No checkpoint."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Free-stamp check; paint reveal only route-checked."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASES",
+     "key": "painter",
+     "sha256": "72b72855778b1152c362f33bbd849d58ef2da16573afc7a59ceeeacf3b098bc3"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASE_STATIONS",
+     "key": "painter",
+     "sha256": "a32bd77738043ddf194487b36829ddf7b6a444a8ae926ea8ca2396f0b7d798ac"
+    },
+    {
+     "path": "scripts/chapter_two_career_scene_adapter.gd",
+     "const": "PHASE_SETS",
+     "key": "painter",
+     "sha256": "7bff5992b00542f479966b8eeb1402fba0e775809e41b8537b5de11ff6b254f6"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "setup",
+     "sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_assign_stations",
+     "sha256": "789f6e841c1df3feedf615a62445f76b860355d2a76d5b348fda87137c7d5f08"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_draw_activity_focus",
+     "sha256": "33fa392e3893d6b8bcfb6f7a3ef6e188245f3e6dd30206aba5367f599801b877"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_paint_mark_at",
+     "sha256": "c364edd506a8cd44ff343c80fde573da2162ab07ff1949a660086daf2bdb6b18"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_draw_paint_reveal",
+     "sha256": "04d58423ea10c8baeb66a879346298f0044d0bfaf2d84a3d87c82ee42a3025be"
+    }
+   ],
+   "august_rating": 3
+  },
+  {
+   "id": "astronaut",
+   "name": "Astronaut Engineer",
+   "family": "opera_career",
+   "state": "live",
+   "route": "Castle-room picture card after Chapter 2 (castle_career_routes.gd); the owner's playtest elevator does not count.",
+   "sources": [
+    "scripts/opera_career_world_2d.gd"
+   ],
+   "host": [
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_gesture_surface.gd",
+    "scripts/opera_house.gd",
+    "scripts/opera_act.gd",
+    "scripts/castle_career_routes.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_opera",
+    "probe_opera_2d",
+    "probe_opera_pipe",
+    "probe_opera_gesture_quality"
+   ],
+   "findings": [
+    "MA-PLAY-005",
+    "MA-OPERA-013",
+    "MA-OPERA-003"
+   ],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Free-play card appears only after Chapter 2, which cannot finish (MA-PLAY-005); the story run is broken too."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Zero 3D in the career and framework files; Canvas only."
+    },
+    "C3": {
+     "score": 2,
+     "note": "Exact lines; a demo hand carries the first tile; a twinkle after 8 s; LAUNCH promises a countdown that never comes."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Tray tiles 84 px and patch spots 92 px; no touch ownership."
+    },
+    "C5": {
+     "score": 0,
+     "note": "A second finger loses the carried tile and round one can never finish (MA-OPERA-013)."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Fuel visibly flows; panel and puff."
+    },
+    "C7": {
+     "score": 1,
+     "note": "The pipe board, tank and intake are code-drawn because their art files do not exist; napping imps are circles."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Silent apart from flow."
+    },
+    "C9": {
+     "score": 1,
+     "note": "The soft-lock; no checkpoint."
+    },
+    "C10": {
+     "score": 1,
+     "note": "probe_opera_pipe drives the real tray with one finger only."
+    }
+   },
+   "strengths": [
+    "Kind recovery: fuel waits and a wrong pipe returns itself"
+   ],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASES",
+     "key": "astronaut",
+     "sha256": "36f48019d38f7206bee32e7e57538a8453664676b4564016a95dd7ee9755ef1b"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASE_STATIONS",
+     "key": "astronaut",
+     "sha256": "b8f7226fece506ec6c210ad266420b3fbbca91941df524b7e4a23733a33f3da6"
+    },
+    {
+     "path": "scripts/chapter_two_career_scene_adapter.gd",
+     "const": "PHASE_SETS",
+     "key": "astronaut",
+     "sha256": "b00b515cf97500a32b193f7a9df4b7223ffb85b10510bf049ec06f4e9e99a6a1"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "setup",
+     "sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_assign_stations",
+     "sha256": "789f6e841c1df3feedf615a62445f76b860355d2a76d5b348fda87137c7d5f08"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_draw_activity_focus",
+     "sha256": "33fa392e3893d6b8bcfb6f7a3ef6e188245f3e6dd30206aba5367f599801b877"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "const": "PIPE_ROUNDS",
+     "sha256": "58229fd59ba51702f0e4392ec3fcccda4eee7dd9d21101eec28826a49d8879f2"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_pipe_press",
+     "sha256": "a11182472deed4b78d24331a2faf0fde4cd327035519173789d0502c8cdd847e"
+    },
+    {
+     "path": "scripts/opera_gesture_surface.gd",
+     "func": "_pipe_tick",
+     "sha256": "0f5e64f19404fdb6341997d8af85b2ba2415b9ffe677ef20c780e01bb2ae32e8"
+    }
+   ],
+   "august_rating": 3
+  },
+  {
+   "id": "geologist",
+   "name": "Geologist",
+   "family": "opera_career",
+   "state": "live",
+   "route": "Castle-room picture card after Chapter 2 (castle_career_routes.gd); the owner's playtest elevator does not count.",
+   "sources": [
+    "scripts/opera_geology_surface.gd"
+   ],
+   "host": [
+    "scripts/opera_career_world_2d.gd",
+    "scripts/opera_gesture_surface.gd",
+    "scripts/opera_house.gd",
+    "scripts/opera_act.gd",
+    "scripts/castle_career_routes.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_opera",
+    "probe_opera_2d",
+    "probe_save_recovery"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Free-play card appears only after Chapter 2, which cannot finish (MA-PLAY-005)."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Zero 3D in the career and framework files; Canvas only."
+    },
+    "C3": {
+     "score": 0,
+     "note": "RIVER, PAN and GEODE all say the same grotto line and FOSSIL reuses a bathroom line; no step has an exact cue."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Single-finger ownership with cancel; generous brush, seams and pieces."
+    },
+    "C5": {
+     "score": 1,
+     "note": "Safe when idle and no fail; wrong digging just stays dry with no explanation."
+    },
+    "C6": {
+     "score": 1,
+     "note": "The material changes under the finger, but a full-screen code-drawn workspace replaces the room."
+    },
+    "C7": {
+     "score": 0,
+     "note": "No painted art: the world, river, pan and geode are code-drawn and objects are tiny placeholder SVGs."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Immediate material change; no sound."
+    },
+    "C9": {
+     "score": 2,
+     "note": "JSON-safe checkpoint per phase and an award granted exactly once."
+    },
+    "C10": {
+     "score": 2,
+     "note": "Real touch for all four modes with idle, second-finger, cancel and malformed-restore legs."
+    }
+   },
+   "strengths": [
+    "Engineering template: ownership, checkpoint, award once, adversarial probe"
+   ],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASES",
+     "key": "geologist",
+     "sha256": "d15cbe278d47a452b7d8a139b050013df95db27b6dece00430dd84eea3c3372a"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "const": "PHASE_STATIONS",
+     "key": "geologist",
+     "sha256": "0f6155ffc76c881e502bc36aa99da07c5635b3791dc5157a2b391c4018e6abab"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "setup",
+     "sha256": "c9786df21c11e54f46aa84a6d7a7b377a018c3528d80eb35bce5e90f7930d7cf"
+    },
+    {
+     "path": "scripts/opera_career_world_2d.gd",
+     "func": "_assign_stations",
+     "sha256": "789f6e841c1df3feedf615a62445f76b860355d2a76d5b348fda87137c7d5f08"
+    },
+    {
+     "path": "scripts/opera_geology_surface.gd",
+     "sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be"
+    },
+    {
+     "path": "scripts/opera_world_backdrop_2d.gd",
+     "func": "_draw_geologist",
+     "sha256": "54d6bc11386f7b9ea1c8a88b277edfd75553f20ed48d8792ac38e26b20a0fce3"
+    }
+   ]
+  },
+  {
+   "id": "pic_snowman",
+   "name": "Snow Roller (picture game)",
+   "family": "picture_game",
+   "state": "dormant",
+   "route": "No route: the picture frames were only built by the retired 3D lagoon courtyard.",
+   "sources": [
+    "scripts/games/picture_games.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_mg2d"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "No route: the picture frames were only built by the retired 3D lagoon courtyard."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas only."
+    },
+    "C3": {
+     "score": 0,
+     "note": "Header text only; no spoken objective."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Draw circles to roll; the hint says spin the stick, which is off, and the assist needs a stick."
+    },
+    "C5": {
+     "score": 1,
+     "note": "Zero input never rolls; no assist reachable by touch."
+    },
+    "C6": {
+     "score": 2,
+     "note": "The ball grows with circling and the face lands on the head."
+    },
+    "C7": {
+     "score": 0,
+     "note": "Code-drawn snowballs and ground; static Roshan card."
+    },
+    "C8": {
+     "score": 2,
+     "note": "Chime every half-turn and a capped burst."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Navigation stack, guarded close, music restored."
+    },
+    "C10": {
+     "score": 1,
+     "note": "probe_mg2d opens it directly with a passive leg."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/games/picture_games.gd",
+     "func": "_mg_build_snowman",
+     "sha256": "8261949e10f418ae200c25865e02142337f5fff24fce33d3132331bfd395c51d"
+    },
+    {
+     "path": "scripts/games/picture_games.gd",
+     "func": "_mg_tick_snow_chase",
+     "sha256": "8d170ebadd1144601e1217c30548e5a055cbf5602f01a154791cc6de309c238d"
+    }
+   ],
+   "august_rating": 4
+  },
+  {
+   "id": "pic_garden",
+   "name": "Flower Garden (picture game)",
+   "family": "picture_game",
+   "state": "dormant",
+   "route": "No route: the picture frames were only built by the retired 3D lagoon courtyard.",
+   "sources": [
+    "scripts/games/picture_games.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_mg2d"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "No route: the picture frames were only built by the retired 3D lagoon courtyard."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas only."
+    },
+    "C3": {
+     "score": 0,
+     "note": "Header text only; no pointer."
+    },
+    "C4": {
+     "score": 2,
+     "note": "140x140 hit area around each seed."
+    },
+    "C5": {
+     "score": 1,
+     "note": "Mashing is the play and the medal is completion time."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Plants grow; Roshan and the can are decoration."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Authored plants; code-drawn pots."
+    },
+    "C8": {
+     "score": 2,
+     "note": "Growth burst every tap."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Shared clean lifecycle."
+    },
+    "C10": {
+     "score": 1,
+     "note": "probe_mg2d checks growth."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/games/picture_games.gd",
+     "func": "_mg_build_garden",
+     "sha256": "90f08d0712b316708f26389e396e14d7278469c6efcbc60e88d5fc0801e3972e"
+    },
+    {
+     "path": "scripts/games/picture_games.gd",
+     "func": "_mg_garden_tap",
+     "sha256": "da8d1582580328f32baf53094571a72151906b46b7d354330294e2d5b3b0de20"
+    }
+   ],
+   "august_rating": 4
+  },
+  {
+   "id": "pic_trampoline",
+   "name": "Trampoline (picture game)",
+   "family": "picture_game",
+   "state": "dormant",
+   "route": "No route: the picture frames were only built by the retired 3D lagoon courtyard.",
+   "sources": [
+    "scripts/games/picture_games.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_mg2d"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "No route: the picture frames were only built by the retired 3D lagoon courtyard."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas only."
+    },
+    "C3": {
+     "score": 0,
+     "note": "Header text only."
+    },
+    "C4": {
+     "score": 2,
+     "note": "400x140 target."
+    },
+    "C5": {
+     "score": 1,
+     "note": "Three taps win; the medal is time."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Roshan bounces but the trampoline never deforms."
+    },
+    "C7": {
+     "score": 0,
+     "note": "Code-drawn trampoline."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Only a bounce tween; taps after the win repeat the fanfare."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Shared clean lifecycle."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Signal-level presses."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/games/picture_games.gd",
+     "func": "_mg_build_trampoline",
+     "sha256": "0a68fa27f7aacd0ed2f56f2e4ffc9b3298465f6dc73d9dce0301b426d43b5964"
+    },
+    {
+     "path": "scripts/games/picture_games.gd",
+     "func": "_mg_tramp_tap",
+     "sha256": "dfebe53badad7fc3f9881b09eb2a59c23c5f63cfd5251c14fc106e699bdad110"
+    }
+   ],
+   "august_rating": 4
+  },
+  {
+   "id": "pic_xmas",
+   "name": "Christmas Tree (picture game)",
+   "family": "picture_game",
+   "state": "dormant",
+   "route": "No route: the picture frames were only built by the retired 3D lagoon courtyard.",
+   "sources": [
+    "scripts/games/picture_games.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_mg2d"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "No route: the picture frames were only built by the retired 3D lagoon courtyard."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas only."
+    },
+    "C3": {
+     "score": 0,
+     "note": "Header text only; the flower greys out until ready but there is no pointer."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Ornaments 110x110, flower 130x130."
+    },
+    "C5": {
+     "score": 1,
+     "note": "Mashing is the play; medal is time."
+    },
+    "C6": {
+     "score": 2,
+     "note": "Each ornament lands on the tree."
+    },
+    "C7": {
+     "score": 2,
+     "note": "Authored tree and ornaments."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Placing gives only a tap sound."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Shared clean lifecycle."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Signal-level presses."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/games/picture_games.gd",
+     "func": "_mg_build_xmas",
+     "sha256": "4877a8a5327936db78a8608113c943bbee6e21c2058665a23acb6a6a30775cdf"
+    },
+    {
+     "path": "scripts/games/picture_games.gd",
+     "func": "_mg_xmas_tap",
+     "sha256": "fe49da4b5f93b77f26f349da22ad815ded6408a9bf3d36c6abd181d3b57359a0"
+    }
+   ],
+   "august_rating": 4
+  },
+  {
+   "id": "pic_slide",
+   "name": "Slide launcher (picture game)",
+   "family": "picture_game",
+   "state": "dormant",
+   "route": "No route: the picture frames were only built by the retired 3D lagoon courtyard.",
+   "sources": [
+    "scripts/games/picture_games.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "No route: the picture frames were only built by the retired 3D lagoon courtyard."
+    },
+    "C2": {
+     "score": 0,
+     "note": "Redirects into the 3D play-place course."
+    },
+    "C3": {
+     "score": 0,
+     "note": "Not playable at this head"
+    },
+    "C4": {
+     "score": 0,
+     "note": "Not playable at this head"
+    },
+    "C5": {
+     "score": 0,
+     "note": "Not playable at this head"
+    },
+    "C6": {
+     "score": 0,
+     "note": "Not playable at this head"
+    },
+    "C7": {
+     "score": 0,
+     "note": "Not playable at this head"
+    },
+    "C8": {
+     "score": 0,
+     "note": "Not playable at this head"
+    },
+    "C9": {
+     "score": 0,
+     "note": "Not playable at this head"
+    },
+    "C10": {
+     "score": 0,
+     "note": "No trusted probe opens this kind."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/games/picture_games.gd",
+     "func": "_mg_build_slide",
+     "sha256": "5ca60ae76acca306c5d75b301c9d1ace5e4268b6f0f2421344deb4425fbc7652"
+    }
+   ],
+   "august_rating": 3
+  },
+  {
+   "id": "dolls",
+   "name": "Faron's Sleepy Dolls",
+   "family": "minigame",
+   "state": "dormant",
+   "route": "No route since the reef removal: the friend launchers are data only and _start_game has no caller for it.",
+   "sources": [
+    "scripts/games/dolls.gd"
+   ],
+   "host": [
+    "scripts/opera_nursery_catch.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_dolls",
+    "probe_passive"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "No route since the reef removal: the friend launchers are data only and _start_game has no caller for it."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas only."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Pulsing cradle focus; the start plays generic faron and records the gap; misses use the exact line."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Any press or drag steers the cradle."
+    },
+    "C5": {
+     "score": 2,
+     "note": "A catch needs input within 2 s; misses land safely; mercy after two misses."
+    },
+    "C6": {
+     "score": 2,
+     "note": "The cradle follows the finger and caught babies stay in it."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Approved nursery art; code-drawn sling and mat; static Roshan card."
+    },
+    "C8": {
+     "score": 2,
+     "note": "A catch shows in the cradle; the medal ranks misses."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Replace-on-build and synchronous close."
+    },
+    "C10": {
+     "score": 2,
+     "note": "probe_dolls: real push_input press, drag and release with passive, mercy, leave, replay and medal legs."
+    }
+   },
+   "strengths": [
+    "Live-input gate with escalating mercy that never auto-wins"
+   ],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/games/dolls.gd",
+     "sha256": "a3cf7ffd6f6a7bcf1072fa1a753e465f742190f46d9809830589a2242c77c7e0"
+    }
+   ],
+   "august_rating": 4
+  },
+  {
+   "id": "seek",
+   "name": "Hide and Seek with Evie and Lamb-a'",
+   "family": "minigame",
+   "state": "dormant",
+   "route": "No route since the reef removal: the friend launchers are data only and _start_game has no caller for it.",
+   "sources": [
+    "scripts/games/seek.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_seek",
+    "probe_passive"
+   ],
+   "findings": [
+    "MA-ACCESS-003"
+   ],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "No route since the reef removal: the friend launchers are data only and _start_game has no caller for it."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas only; probe asserts 2D APIs."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Wiggling tree, U-shaped focus and a peek; the start plays a generic Evie line."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Tree hit boxes 145-270 by 155-285 px."
+    },
+    "C5": {
+     "score": 1,
+     "note": "Help peeks at 8 s and 20 s; tapping every tree is as fast as looking."
+    },
+    "C6": {
+     "score": 2,
+     "note": "Lamb-a' is revealed from the tapped tree."
+    },
+    "C7": {
+     "score": 2,
+     "note": "Authored frame-state sheets for Evie, Lamb-a' and Roshan."
+    },
+    "C8": {
+     "score": 1,
+     "note": "The giggle is a pitched yay and the medal can be won by mashing."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Clean lifecycle."
+    },
+    "C10": {
+     "score": 2,
+     "note": "probe_seek: real taps, a 60 s passive leg, help, wrong taps and replay."
+    }
+   },
+   "strengths": [
+    "SeekAtlasActor frame-state animation"
+   ],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/games/seek.gd",
+     "sha256": "d559447c82c29a33ddb319ef191cf9542d55304f62cae649e39cb2f9d9079741"
+    }
+   ],
+   "august_rating": 4
+  },
+  {
+   "id": "melody",
+   "name": "Daddy's Rainbow Theater (melody)",
+   "family": "minigame",
+   "state": "dormant",
+   "route": "No route since the reef removal: the friend launchers are data only and _start_game has no caller for it.",
+   "sources": [
+    "scripts/games/melody.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_melody",
+    "probe_passive"
+   ],
+   "findings": [
+    "MA-PERF-003"
+   ],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "No route since the reef removal: the friend launchers are data only and _start_game has no caller for it."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas only; the hidden 3D world is suspended."
+    },
+    "C3": {
+     "score": 2,
+     "note": "Exact objective line and a pointer per note."
+    },
+    "C4": {
+     "score": 2,
+     "note": "120x120 notes; press must start and end in the green; one input source owns the press."
+    },
+    "C5": {
+     "score": 1,
+     "note": "No fail; mistimed taps get silence and there is no mercy."
+    },
+    "C6": {
+     "score": 1,
+     "note": "The note just disappears; Daddy and Roshan never react."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Authored backdrop and Daddy sticker; code-drawn theatre and notes."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Rising chime; silent misses; generic win."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Input ownership, release latch, pause and focus guards."
+    },
+    "C10": {
+     "score": 2,
+     "note": "probe_melody: 159 checks including real touch and a passive leg."
+    }
+   },
+   "strengths": [
+    "Input-context guards and audit_snapshot probe interface"
+   ],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/games/melody.gd",
+     "sha256": "a2477bc6fd21454c69480b290ccc13892e6938e4d1abf534051380dd84e5712e"
+    }
+   ],
+   "august_rating": 2
+  },
+  {
+   "id": "slide_fish",
+   "name": "Harper and Fiona fish slide",
+   "family": "minigame",
+   "state": "dormant",
+   "route": "No route since the reef removal: the friend launchers are data only and _start_game has no caller for it.",
+   "sources": [
+    "scripts/games/slide_race.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_audit",
+    "probe_passive"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "No route since the reef removal: the friend launchers are data only and _start_game has no caller for it."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas half of slide_race.gd."
+    },
+    "C3": {
+     "score": 2,
+     "note": "Exact hint and persistent left/right cues."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Touch either half of the screen; sources owned."
+    },
+    "C5": {
+     "score": 1,
+     "note": "One steer touch with zero fish still completes as a win."
+    },
+    "C6": {
+     "score": 2,
+     "note": "Roshan rides with authored frames; caught fish vanish."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Authored slide and fish; the protected friend portrait wobbles as a sticker."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Rewards a ride with no fish."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Clean lifecycle."
+    },
+    "C10": {
+     "score": 2,
+     "note": "probe_audit drives it with real input; probe_passive covers it."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/games/slide_race.gd",
+     "sha256": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f"
+    }
+   ],
+   "august_rating": 2
+  },
+  {
+   "id": "fetch",
+   "name": "Fetch with Chuck",
+   "family": "minigame",
+   "state": "dormant",
+   "route": "No route since the reef removal: the friend launchers are data only and _start_game has no caller for it.",
+   "sources": [
+    "scripts/games/fetch.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_fetch",
+    "probe_rank",
+    "probe_passive"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "No route since the reef removal: the friend launchers are data only and _start_game has no caller for it."
+    },
+    "C2": {
+     "score": 0,
+     "note": "3D primitives, particles and spheres."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Arrow cue; the Wacky lines resolve to generic Chuck."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Tap anywhere to throw."
+    },
+    "C5": {
+     "score": 2,
+     "note": "Each splash slows and widens the safe zone."
+    },
+    "C6": {
+     "score": 0,
+     "note": "Chuck is an empty node, so the ball flies to an invisible dog."
+    },
+    "C7": {
+     "score": 0,
+     "note": "Primitives only."
+    },
+    "C8": {
+     "score": 1,
+     "note": "The fetch payoff is invisible."
+    },
+    "C9": {
+     "score": 1,
+     "note": "No stage_close; relies on _clear_game."
+    },
+    "C10": {
+     "score": 1,
+     "note": "probe_fetch writes action_down and checks only the win."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/games/fetch.gd",
+     "sha256": "d1cd79931637e376cbdcff3fa88871f63d673c82987ec20fa2dffb150fb1b805"
+    }
+   ],
+   "august_rating": 2
+  },
+  {
+   "id": "shop",
+   "name": "Pearl Shop",
+   "family": "minigame",
+   "state": "dormant",
+   "route": "No route since the reef removal: the friend launchers are data only and _start_game has no caller for it.",
+   "sources": [
+    "scripts/games/shop.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_passive",
+    "probe_audit"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "No route since the reef removal: the friend launchers are data only and _start_game has no caller for it."
+    },
+    "C2": {
+     "score": 0,
+     "note": "3D lights, billboards and 3D price labels."
+    },
+    "C3": {
+     "score": 0,
+     "note": "Prices and exit are 3D text; generic voice."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Swim with the stick, then tap."
+    },
+    "C5": {
+     "score": 1,
+     "note": "A release latch prevents double buys; no confirmation before spending."
+    },
+    "C6": {
+     "score": 0,
+     "note": "Promises the animal lives in an ocean that was removed."
+    },
+    "C7": {
+     "score": 0,
+     "note": "Mostly primitives."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Minimal."
+    },
+    "C9": {
+     "score": 1,
+     "note": "Basic."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Direct calls in probe_passive and probe_audit."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/games/shop.gd",
+     "sha256": "62ce2b2bf2a8319b7f0e86a7856436b5072f662be1c0477d6d7a79b0e45f7585"
+    }
+   ],
+   "august_rating": 2
+  },
+  {
+   "id": "treasure",
+   "name": "Secret Treasure cave",
+   "family": "minigame",
+   "state": "dormant",
+   "route": "No route since the reef removal: the friend launchers are data only and _start_game has no caller for it.",
+   "sources": [
+    "scripts/games/treasure.gd"
+   ],
+   "host": [
+    "scripts/games/slide_race.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "No route since the reef removal: the friend launchers are data only and _start_game has no caller for it."
+    },
+    "C2": {
+     "score": 0,
+     "note": "3D course."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Stars and sparkles; generic voice."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Stick swim."
+    },
+    "C5": {
+     "score": 1,
+     "note": "A magnet may finish the course after one push."
+    },
+    "C6": {
+     "score": 0,
+     "note": "The chest is null; the treasure is another star."
+    },
+    "C7": {
+     "score": 0,
+     "note": "Primitives."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Minimal."
+    },
+    "C9": {
+     "score": 1,
+     "note": "Basic."
+    },
+    "C10": {
+     "score": 0,
+     "note": "No trusted probe launches it."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/games/treasure.gd",
+     "sha256": "f228a13ad65977517f3486e42be6e79fb20546d633d747e6353d859a6ec7540c"
+    }
+   ],
+   "august_rating": 2
+  },
+  {
+   "id": "slide_penguin",
+   "name": "Penguin chase",
+   "family": "minigame",
+   "state": "dormant",
+   "route": "No route since the reef removal: the friend launchers are data only and _start_game has no caller for it.",
+   "sources": [
+    "scripts/games/slide_race.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_passive",
+    "probe_audit"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "No route since the reef removal: the friend launchers are data only and _start_game has no caller for it."
+    },
+    "C2": {
+     "score": 0,
+     "note": "3D steering."
+    },
+    "C3": {
+     "score": 0,
+     "note": "The baby penguin node is null, so the target is invisible."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Stick-only steering."
+    },
+    "C5": {
+     "score": 1,
+     "note": "No catch is possible without beans from the unreachable shop; finishing still counts."
+    },
+    "C6": {
+     "score": 0,
+     "note": "Invisible target."
+    },
+    "C7": {
+     "score": 0,
+     "note": "Primitives."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Minimal."
+    },
+    "C9": {
+     "score": 1,
+     "note": "Basic."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Direct state writes in probe_passive."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/games/slide_race.gd",
+     "sha256": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f"
+    }
+   ],
+   "august_rating": 2
+  },
+  {
+   "id": "playplace",
+   "name": "Rainbow Slide play-place course",
+   "family": "minigame",
+   "state": "dormant",
+   "route": "Only through the retired slide picture frame.",
+   "sources": [
+    "scripts/games/slide_race.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_audit"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Only through the retired slide portrait."
+    },
+    "C2": {
+     "score": 0,
+     "note": "3D course with disco lights and spatial-shader arches."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Star pointers; generic voice."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Stick swim."
+    },
+    "C5": {
+     "score": 1,
+     "note": "A magnet may finish it after one push."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Generic stars rather than the play equipment."
+    },
+    "C7": {
+     "score": 0,
+     "note": "Primitives."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Minimal."
+    },
+    "C9": {
+     "score": 1,
+     "note": "Basic."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Build and teardown only."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/games/slide_race.gd",
+     "sha256": "2293c08bd2a056b2e5819f2406fc9ca42f5cc734e700552eab29642555f44b8f"
+    },
+    {
+     "path": "scripts/main.gd",
+     "func": "_l2_start_slide",
+     "sha256": "0f5e3ba3986d2d765d41414214ce9cc238cc4a608969bbd114068db2a9e8ad90"
+    }
+   ],
+   "august_rating": 2
+  },
+  {
+   "id": "dance",
+   "name": "Dance with Daddy (rhythm)",
+   "family": "minigame",
+   "state": "live",
+   "route": "Star rug in the 3D Galaxy, reached through the moonflower door that appears only after Chapter 2 or all Opera stars.",
+   "sources": [
+    "scripts/games/dance_engine.gd"
+   ],
+   "host": [
+    "scripts/galaxy.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_dance"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Route needs Chapter 2 (MA-PLAY-005) and a deep 3D stick-driven world."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas only, opened paused over the Galaxy."
+    },
+    "C3": {
+     "score": 2,
+     "note": "Exact objective line; falling arrows lead to the lanes."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Lane buttons about 232x148; single-note charts."
+    },
+    "C5": {
+     "score": 1,
+     "note": "Wrong or early taps never break the combo, so mashing all lanes hits everything."
+    },
+    "C6": {
+     "score": 1,
+     "note": "No character on screen; generic heart."
+    },
+    "C7": {
+     "score": 0,
+     "note": "Arrows are font glyphs and lanes are flat shapes."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Exact win line, but the medal can come from mashing."
+    },
+    "C9": {
+     "score": 1,
+     "note": "Voice players stay PROCESS_MODE_ALWAYS after it closes."
+    },
+    "C10": {
+     "score": 1,
+     "note": "probe_dance calls _press_lane directly."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/games/dance_engine.gd",
+     "sha256": "d8af408dbc2b8fe54a0b88b16e978b2bf9e6aab36e3a2eed3a15a1bdfe52511e"
+    }
+   ],
+   "august_rating": 4
+  },
+  {
+   "id": "fairy_pond",
+   "name": "Fairy Pond flight",
+   "family": "minigame",
+   "state": "live",
+   "route": "Galaxy fountain, after Chapter 2.",
+   "sources": [
+    "scripts/games/fairy.gd"
+   ],
+   "host": [
+    "scripts/galaxy.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_fairy_art",
+    "probe_passive"
+   ],
+   "findings": [
+    "MA-VIS-003",
+    "MA-VIS-004"
+   ],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Galaxy route needs Chapter 2 (MA-PLAY-005)."
+    },
+    "C2": {
+     "score": 0,
+     "note": "Sprite3D and Node3D with an overhead camera."
+    },
+    "C3": {
+     "score": 0,
+     "note": "Lines belong to other scenes and are cut off by a generic line."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Stick steering plus a shield tap."
+    },
+    "C5": {
+     "score": 1,
+     "note": "The pond scrolls and fires on its own; only a final acted gate stops a passive win."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Weak agency."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Authored fairy art as 3D billboards."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Basic."
+    },
+    "C9": {
+     "score": 1,
+     "note": "Basic."
+    },
+    "C10": {
+     "score": 1,
+     "note": "probe_passive forces the bloom; probe_fairy_art pins the 3D API."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/games/fairy.gd",
+     "sha256": "8bf4e48249c63441b4e3c89de0930ae14668b2cd8c1577189ff7b41f1b77d679"
+    }
+   ],
+   "august_rating": 3
+  },
+  {
+   "id": "comfy_games",
+   "name": "Comfy castle games (Day Two)",
+   "family": "minigame",
+   "state": "live",
+   "route": "Castle rooms once Day One is finished (comfy_games.gd hooks).",
+   "sources": [
+    "scripts/comfy_games.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_ui_system"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 2,
+     "note": "Reached in castle rooms after Day One."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas only."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Targets pulse; only the found-you lines are exact; instructions are generic or silent."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Targets 116x116 to 390x300."
+    },
+    "C5": {
+     "score": 2,
+     "note": "No fail and no idle progress."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Hidden friends are fully visible, ingredients vanish and stir is one tap."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Authored characters, static; reused movie frame."
+    },
+    "C8": {
+     "score": 1,
+     "note": "No tap sound; promises a mystery reward that does not exist."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Typed save normalisation and a save after every step."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Save unit tests and source-string checks only."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/comfy_games.gd",
+     "sha256": "86fcfaa206b2e09323c1e0102747be080b9aa86cc42caa59f9dd66d9778f506c"
+    }
+   ]
+  },
+  {
+   "id": "brawl",
+   "name": "Toy Castle brawler",
+   "family": "minigame",
+   "state": "dormant",
+   "route": "No route since the reef removal: the friend launchers are data only and _start_game has no caller for it.",
+   "sources": [
+    "scripts/games/brawl.gd",
+    "scripts/games/side_scroll.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_audit",
+    "probe_passive",
+    "probe_voice"
+   ],
+   "findings": [
+    "MA-TOUCH-002"
+   ],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "No route since the reef removal: the friend launchers are data only and _start_game has no caller for it."
+    },
+    "C2": {
+     "score": 0,
+     "note": "3D side-scroll engine and physics."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Reach ring; voice lines do not match the action."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Stick plus tap."
+    },
+    "C5": {
+     "score": 1,
+     "note": "A zero-input run cannot win; mashing in place may suffice."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Pops auto-target the nearest imp."
+    },
+    "C7": {
+     "score": 0,
+     "note": "Imps are dust-bunny cards; primitive castle."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Basic."
+    },
+    "C9": {
+     "score": 1,
+     "note": "Basic."
+    },
+    "C10": {
+     "score": 1,
+     "note": "probe_audit writes stick and action flags."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/games/brawl.gd",
+     "sha256": "0780ad5b708cde10bbf3a1a37a1c06f7210e8d04a44172633605760c22dac8d7"
+    },
+    {
+     "path": "scripts/games/side_scroll.gd",
+     "sha256": "e094f4efef2ee295ebad159e82e49ccd2bb8db26c38049c5f7135bd86114b0a7"
+    }
+   ],
+   "august_rating": 2
+  },
+  {
+   "id": "painter_studio",
+   "name": "Painter studio prototype",
+   "family": "minigame",
+   "state": "debug_only",
+   "route": "Only scenes/painter_prototype.tscn and its probes open it.",
+   "sources": [
+    "scripts/painter/painter_studio.gd",
+    "scripts/painter/painter_document.gd",
+    "scripts/painter/painter_template.gd",
+    "scripts/painter/vendor/painter_flood_fill.gd"
+   ],
+   "host": [],
+   "probes": [
+    "probe_mg2d"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Standalone prototype scene."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas only."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Text labels guide it."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Single-finger ownership."
+    },
+    "C5": {
+     "score": 2,
+     "note": "No fail; autosave."
+    },
+    "C6": {
+     "score": 2,
+     "note": "Painting changes the picture under the finger."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Templates are authored; text title."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Basic feedback."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Suspends on focus loss; autosave with backup; undo and redo."
+    },
+    "C10": {
+     "score": 2,
+     "note": "probe_mg2d covers a slice; probe_painter is not trusted."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/painter/painter_studio.gd",
+     "sha256": "19e5f6e21d116f17926b5ab666836db382dea8d0060b43e957460af7b637314a"
+    },
+    {
+     "path": "scripts/painter/painter_document.gd",
+     "sha256": "a08227e81e5100d1743d5707708eea6e2ff9f366129982280ec579b6490af4ff"
+    },
+    {
+     "path": "scripts/painter/painter_template.gd",
+     "sha256": "0f48f9885a2b1e1cb3ab3a0b828df8cf06bdcb8162f37e80e1b8fa258be2a746"
+    },
+    {
+     "path": "scripts/painter/vendor/painter_flood_fill.gd",
+     "sha256": "60a50de9b675751431ddd51e4cbea47b691d8c9f17b7ca0f69a9305740e5ae0c"
+    }
+   ]
+  },
+  {
+   "id": "fairy_restoration",
+   "name": "Faerie Garden restoration prototype",
+   "family": "minigame",
+   "state": "debug_only",
+   "route": "Standalone scenes/fairy_restoration_prototype.tscn; nothing in the game references it.",
+   "sources": [
+    "scripts/fairy_restoration_prototype.gd"
+   ],
+   "host": [],
+   "probes": [],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Standalone prototype scene."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas only."
+    },
+    "C3": {
+     "score": 2,
+     "note": "An exact line per phase and a bobbing pointer."
+    },
+    "C4": {
+     "score": 2,
+     "note": "One owner per finger; 136 px targets."
+    },
+    "C5": {
+     "score": 2,
+     "note": "Gestures never complete from time; saves cannot skip steps."
+    },
+    "C6": {
+     "score": 2,
+     "note": "Roshan walks to the spot and changes pose before progress."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Opera farmer and chef sheets; text labels."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Basic."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Suspends on focus loss; atomic save with backup."
+    },
+    "C10": {
+     "score": 0,
+     "note": "Its probe is not trusted."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/fairy_restoration_prototype.gd",
+     "sha256": "75a80350f45bb59b822d1084a05b8b0e7899d59df32a00c1e07d4ea8a9ec09fe"
+    }
+   ]
+  },
+  {
+   "id": "pearl_castle",
+   "name": "Pearl Castle rooms",
+   "family": "world",
+   "state": "live",
+   "route": "Sky Lagoon castle doorstep or door, then CastleRooms25D.open; Back walks room, parent room, courtyard.",
+   "sources": [
+    "scripts/arena/castle_rooms_25d.gd",
+    "scripts/arena/castle_fixture_rigs.gd",
+    "scripts/castle_door_language.gd",
+    "scripts/castle_door_cue.gd",
+    "scripts/stage_navigation_2d.gd"
+   ],
+   "host": [
+    "scripts/main.gd",
+    "scripts/navigation_controller.gd",
+    "scripts/arena/sky_lagoon.gd",
+    "scripts/arena/day_one_castle_dressing.gd"
+   ],
+   "probes": [
+    "probe_throne",
+    "probe_bathroom_integration",
+    "probe_interaction",
+    "probe_crown",
+    "probe_castle_door_language",
+    "probe_castle_pearl_art"
+   ],
+   "findings": [
+    "MA-SAVE-001",
+    "MA-OPERA-012"
+   ],
+   "scores": {
+    "C1": {
+     "score": 2,
+     "note": "Reached from the Sky Lagoon on every save."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas castle files; but its per-frame tick still runs through the old 3D lagoon code."
+    },
+    "C3": {
+     "score": 2,
+     "note": "Every castle objective has an exact recorded line and a live gold door cue."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Floor taps snap to authored lanes; prop and door targets at least 110 px; one finger owns one route."
+    },
+    "C5": {
+     "score": 2,
+     "note": "No timers or fail; a busy check stops mashing."
+    },
+    "C6": {
+     "score": 2,
+     "note": "Roshan walks to each prop's standing spot and the painted object itself animates."
+    },
+    "C7": {
+     "score": 1,
+     "note": "roshan_base anchor and approved panorama; the hall pans one flat layer and foreground cards always draw over Roshan."
+    },
+    "C8": {
+     "score": 2,
+     "note": "Each prop plays its own synced sound."
+    },
+    "C9": {
+     "score": 1,
+     "note": "Open, close, suspend and resume are thorough, but nothing handles focus loss and prop sound plays under pause."
+    },
+    "C10": {
+     "score": 1,
+     "note": "probe_throne sends real mouse events; no zero-input leg, no touch-screen prop taps, Day One off in most castle probes."
+    }
+   },
+   "strengths": [
+    "Walk to the object, then act",
+    "Required-voice list that refuses a generic fallback",
+    "Door-state vocabulary"
+   ],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/arena/castle_rooms_25d.gd",
+     "sha256": "6846b13f4ab854c7a8003ce33ea72b4b7be036f9a12e711c3b23f4dcd5b95aab"
+    },
+    {
+     "path": "scripts/castle_door_language.gd",
+     "sha256": "54d6cb97a34ffd0cd8ca8b916312d39c157856860db2fa2d1592f9b042ea3b5f"
+    },
+    {
+     "path": "scripts/stage_navigation_2d.gd",
+     "sha256": "36fb7f194b8ad710284b7c5f5e9ef797a0d3c3c56bdc040f8b98d25bc455d79b"
+    }
+   ],
+   "august_rating": 3
+  },
+  {
+   "id": "sky_lagoon",
+   "name": "Sky Lagoon promenade",
+   "family": "world",
+   "state": "live",
+   "route": "First world on a fresh save; start menu, then _enter_level2_now builds the Canvas promenade.",
+   "sources": [
+    "scripts/arena/sky_lagoon_promenade.gd",
+    "scripts/arena/sky_lagoon_layout.json"
+   ],
+   "host": [
+    "scripts/main.gd",
+    "scripts/arena/sky_lagoon.gd"
+   ],
+   "probes": [
+    "probe_l2",
+    "probe_l2_living_cards",
+    "probe_l2_reenter",
+    "probe_sky_lagoon_animals",
+    "probe_touch_stress"
+   ],
+   "findings": [
+    "MA-VIS-002",
+    "MA-VIS-003",
+    "MA-VIS-004",
+    "MA-ASSET-004"
+   ],
+   "scores": {
+    "C1": {
+     "score": 2,
+     "note": "The first world on every save."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas promenade with a Camera2D; no 3D in its files."
+    },
+    "C3": {
+     "score": 1,
+     "note": "The castle has a live pointer, but its voice key has no recording so a generic yay plays; after the castle the instruction is text."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Taps snap to the path; targets 110-128 px."
+    },
+    "C5": {
+     "score": 2,
+     "note": "No fail or timers."
+    },
+    "C6": {
+     "score": 1,
+     "note": "The second tap teleports Roshan onto a toy, and a double tap enters the castle without walking."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Approved painting, but Roshan uses a directional frame, playground poses are outside the family and parallax is nominal."
+    },
+    "C8": {
+     "score": 1,
+     "note": "No sound on any interaction."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Immediate teardown and one cancel path for every pending walk."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Many probes, but mostly direct calls with no zero-input or voice leg."
+    }
+   },
+   "strengths": [
+    "Master coordinate system",
+    "Layout file with hashed anchors",
+    "Single cancel path"
+   ],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/arena/sky_lagoon_promenade.gd",
+     "sha256": "3f7ec92af1472d65bf6aa15e4844b42a11a4a17660fe7073304f8005b0edc93a"
+    },
+    {
+     "path": "scripts/arena/sky_lagoon_layout.json",
+     "sha256": "446a5b98c267da8e9d9a8ab1cb06ae820e2334934e8e62bd805c4c1ff6b87fd5"
+    }
+   ],
+   "august_rating": 3
+  },
+  {
+   "id": "galaxy",
+   "name": "Butterfly World (Galaxy)",
+   "family": "world",
+   "state": "live",
+   "route": "Fairy door after Chapter 2, conservatory, then the Galaxy.",
+   "sources": [
+    "scripts/galaxy.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_galaxy_state"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Needs Chapter 2 (MA-PLAY-005)."
+    },
+    "C2": {
+     "score": 0,
+     "note": "A 3D sphere world."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Beacons; the goal is on-screen text and Rosalina uses generic clips."
+    },
+    "C4": {
+     "score": 0,
+     "note": "Stick tank controls plus jump; no tap to travel."
+    },
+    "C5": {
+     "score": 1,
+     "note": "Standing at a fruit tray pays a pearl every 9 s and the fountain 2 pearls every 20 s."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Roshan walks to each butterfly; no touch targets."
+    },
+    "C7": {
+     "score": 0,
+     "note": "Photo textures on a sphere; a swimming sprite on land."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Idle payouts reward standing still."
+    },
+    "C9": {
+     "score": 1,
+     "note": "Checkpoint per butterfly; no focus-loss handling."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Direct _win and start calls."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/galaxy.gd",
+     "sha256": "f35783f1c1cdbb1057b0232e94691819d61dbd2024f939e23d173af292785f65"
+    }
+   ],
+   "august_rating": 2
+  },
+  {
+   "id": "fairy_conservatory",
+   "name": "Moonflower door and Butterfly House",
+   "family": "world",
+   "state": "live",
+   "route": "Main Hall door after Chapter 2.",
+   "sources": [
+    "scripts/arena/fairy_conservatory_door_2d.gd",
+    "scripts/arena/fairy_conservatory_handoff_2d.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Needs Chapter 2 (MA-PLAY-005)."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas only."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Ghost-hand pointer; Rosalina's lines are generic and cut off in the same frame."
+    },
+    "C4": {
+     "score": 2,
+     "note": "112 px waypoints and a large house target."
+    },
+    "C5": {
+     "score": 2,
+     "note": "Progress only from explicit taps."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Roshan's card jumps between waypoints."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Partly authored."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Basic."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Teardown restores the return context."
+    },
+    "C10": {
+     "score": 0,
+     "note": "Its probes are not trusted."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/arena/fairy_conservatory_door_2d.gd",
+     "sha256": "ae6e1ad07979c97bd7c474c546a64a12ccd4c944719ec886fdd76f7fae165089"
+    },
+    {
+     "path": "scripts/arena/fairy_conservatory_handoff_2d.gd",
+     "sha256": "e0d08f6ef776016f26a7fe5d2f8e8656e2405f4d0a77674133d3b879fb6ac4f7"
+    }
+   ]
+  },
+  {
+   "id": "northern",
+   "name": "Northern kingdom",
+   "family": "world",
+   "state": "dormant",
+   "route": "Entries only in the retired courtyard phase.",
+   "sources": [
+    "scripts/arena/northern_kingdom.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_northern"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Entries only in the retired courtyard phase."
+    },
+    "C2": {
+     "score": 0,
+     "note": "535 3D tokens."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Sparkle trail; generic clips."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Tap to travel only through the 3D raycast helper."
+    },
+    "C5": {
+     "score": 2,
+     "note": "No fail."
+    },
+    "C6": {
+     "score": 1,
+     "note": "No interactions beyond the exit gate."
+    },
+    "C7": {
+     "score": 0,
+     "note": "Every prop is a tinted placeholder box."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Basic."
+    },
+    "C9": {
+     "score": 1,
+     "note": "Return gate only."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Direct calls plus one idle check."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/arena/northern_kingdom.gd",
+     "sha256": "513f2f4d726f3b7b05187d1ee78f12cbb745849f09da212f2ec0f10c0dfad97a"
+    }
+   ],
+   "august_rating": 2
+  },
+  {
+   "id": "ember",
+   "name": "Ember Fortress",
+   "family": "world",
+   "state": "dormant",
+   "route": "Only a rainbow-race flag set by dead code starts it.",
+   "sources": [
+    "scripts/ember_fortress.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_ember"
+   ],
+   "findings": [
+    "MA-PLAY-002"
+   ],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "No live route."
+    },
+    "C2": {
+     "score": 0,
+     "note": "214 3D tokens."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Text goals; the King uses Roshan's generic clip."
+    },
+    "C4": {
+     "score": 0,
+     "note": "Stick-only tank controls."
+    },
+    "C5": {
+     "score": 2,
+     "note": "Lava only makes Roshan hop."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Little to act on."
+    },
+    "C7": {
+     "score": 0,
+     "note": "Stand-in art (turtle photo, pine card, fan shell)."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Basic."
+    },
+    "C9": {
+     "score": 1,
+     "note": "Basic."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Faked race; the best no-input check in its family."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/ember_fortress.gd",
+     "sha256": "86b2f5e3100e904d5d0b29d88addf424660d10c8f35e3114bb4f5e455f67c3b2"
+    }
+   ],
+   "august_rating": 2
+  },
+  {
+   "id": "courtyard_train",
+   "name": "Courtyard and train",
+   "family": "world",
+   "state": "retired",
+   "route": "Built only inside the uncalled _build_pearl_castle.",
+   "sources": [
+    "scripts/arena/courtyard_train.gd"
+   ],
+   "host": [
+    "scripts/arena/sky_lagoon.gd"
+   ],
+   "probes": [],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Retired; replaced by the Sky Lagoon promenade."
+    },
+    "C2": {
+     "score": 0,
+     "note": "216 3D tokens."
+    },
+    "C3": {
+     "score": 0,
+     "note": "Not playable at this head"
+    },
+    "C4": {
+     "score": 0,
+     "note": "Not playable at this head"
+    },
+    "C5": {
+     "score": 0,
+     "note": "Not playable at this head"
+    },
+    "C6": {
+     "score": 0,
+     "note": "Not playable at this head"
+    },
+    "C7": {
+     "score": 0,
+     "note": "Not playable at this head"
+    },
+    "C8": {
+     "score": 0,
+     "note": "Not playable at this head"
+    },
+    "C9": {
+     "score": 0,
+     "note": "The retired class is still updated every castle frame."
+    },
+    "C10": {
+     "score": 0,
+     "note": "probe_train tests the promenade instead."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/arena/courtyard_train.gd",
+     "sha256": "329efa196bb5eb3c74cb4b44d0e4dfac6069071e6066daab206bca35a9abe364"
+    }
+   ],
+   "august_rating": 2
+  },
+  {
+   "id": "reef",
+   "name": "Reef and home ocean",
+   "family": "world",
+   "state": "retired",
+   "route": "Retired by the owner (2026-09-09, removed from the loop 2026-09-23).",
+   "sources": [
+    "scripts/reef_districts.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_reef_districts",
+    "probe_ocean_kingdoms"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Retired by owner decision."
+    },
+    "C2": {
+     "score": 0,
+     "note": "Spatial ocean."
+    },
+    "C3": {
+     "score": 0,
+     "note": "Not playable at this head"
+    },
+    "C4": {
+     "score": 0,
+     "note": "Not playable at this head"
+    },
+    "C5": {
+     "score": 0,
+     "note": "Not playable at this head"
+    },
+    "C6": {
+     "score": 0,
+     "note": "Not playable at this head"
+    },
+    "C7": {
+     "score": 0,
+     "note": "Not playable at this head"
+    },
+    "C8": {
+     "score": 0,
+     "note": "Not playable at this head"
+    },
+    "C9": {
+     "score": 0,
+     "note": "Not playable at this head"
+    },
+    "C10": {
+     "score": 0,
+     "note": "probe_ocean_kingdoms asserts it stays retired."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/reef_districts.gd",
+     "sha256": "79371c2799a0430107c91a43d4705f8a5bb7939d3d2b33c2df1e3cb608058d3b"
+    }
+   ],
+   "august_rating": 2
+  },
+  {
+   "id": "combat_tutorial",
+   "name": "Royal Hall sparring class",
+   "family": "action",
+   "state": "live",
+   "route": "After Grand Puff, the Royal Hall story door; the second visit starts the class (castle_rooms_25d.gd).",
+   "sources": [
+    "scripts/combat_tutorial.gd",
+    "scripts/hit_engine.gd",
+    "scripts/imp_ai.gd"
+   ],
+   "host": [
+    "scripts/arena/castle_rooms_25d.gd",
+    "scripts/attack_customizer.gd",
+    "scripts/partner_assist.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_combat_tutorial",
+    "probe_hit",
+    "probe_imp_ai"
+   ],
+   "findings": [
+    "MA-COMBAT-001"
+   ],
+   "scores": {
+    "C1": {
+     "score": 2,
+     "note": "Reached by touch through a lit story door."
+    },
+    "C2": {
+     "score": 0,
+     "note": "Node3D, Sprite3D and Camera3D with 3D spheres in the hit engine."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Every lesson instruction plays the generic talk line; a ghost hand anchored to the live imp demonstrates."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Tap the imp; holding fires by itself at full charge."
+    },
+    "C5": {
+     "score": 2,
+     "note": "The imp never attacks; nothing advances without input."
+    },
+    "C6": {
+     "score": 1,
+     "note": "The touched imp is hit, but the burst always appears at screen centre."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Authored backdrop and atlas Roshan on 3D sprites."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Immediate squash and chimes; misplaced burst."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Back route, restore on finish or cancel, focus loss drops a held charge."
+    },
+    "C10": {
+     "score": 2,
+     "note": "probe_combat_tutorial walks to and taps the real door with pushed input and has a no-input leg."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/combat_tutorial.gd",
+     "sha256": "b0a77f8d93a369112acf032c9863a95dd822b8e0954382d2b8f9cbd880522e2b"
+    },
+    {
+     "path": "scripts/hit_engine.gd",
+     "sha256": "9a9fc4df1598737937b7c37d2f68675ca4e257f8260cf72a0396a8dfea9a789c"
+    },
+    {
+     "path": "scripts/imp_ai.gd",
+     "sha256": "b07ba584b88dbaa9ed5712d28784dfa9192d1b03016589237c84a3ad5cda148e"
+    }
+   ],
+   "august_rating": 3
+  },
+  {
+   "id": "combat_arena",
+   "name": "Galaxy ice battle",
+   "family": "action",
+   "state": "live",
+   "route": "Only an invisible Galaxy trigger reached after Chapter 2.",
+   "sources": [
+    "scripts/combat_arena.gd"
+   ],
+   "host": [
+    "scripts/dungeon_art.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_combat",
+    "probe_partner"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Invisible trigger in a world that needs Chapter 2."
+    },
+    "C2": {
+     "score": 0,
+     "note": "126 3D tokens with lights and a camera."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Opening line does not explain the task; the HUD asks for an ICE control that does not exist."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Generous imp taps; dodging needs the stick."
+    },
+    "C5": {
+     "score": 2,
+     "note": "Kind bubble-shield bumps; minimum telegraph."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Burst at screen centre; the ICE prompt points at nothing."
+    },
+    "C7": {
+     "score": 0,
+     "note": "Stand-in cards throughout."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Immediate pops."
+    },
+    "C9": {
+     "score": 1,
+     "note": "Restores on finish; no Back route."
+    },
+    "C10": {
+     "score": 1,
+     "note": "probe_combat forces the win."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/combat_arena.gd",
+     "sha256": "f34cf66ef211c73628bbe21d767beff7f0b404107b7c57011b857df8a605880e"
+    }
+   ],
+   "august_rating": 3
+  },
+  {
+   "id": "dungeon",
+   "name": "Castle and Ember dungeons",
+   "family": "action",
+   "state": "dormant",
+   "route": "The dungeon starter has no caller.",
+   "sources": [
+    "scripts/dungeon_level.gd",
+    "scripts/dungeon_puzzle_room.gd",
+    "scripts/dungeon_art.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_dungeon"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "No live route."
+    },
+    "C2": {
+     "score": 0,
+     "note": "3D rooms, lights and camera."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Generic objective voice; exact help lines; gold arrow."
+    },
+    "C4": {
+     "score": 0,
+     "note": "Pads cannot be tapped; USE acts on the nearest pad by the invisible stick."
+    },
+    "C5": {
+     "score": 2,
+     "note": "Hints never solve; every room is a checkpoint."
+    },
+    "C6": {
+     "score": 0,
+     "note": "Stand-in pictures contradict the voice."
+    },
+    "C7": {
+     "score": 0,
+     "note": "Every prop is a stand-in card."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Chimes and text banners."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Scene restored and progress clamped."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Direct starts and forced wins."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/dungeon_level.gd",
+     "sha256": "2c5e69c04cab123a42810ecb99e943a4e3f5d362f754236177db3569d222f8ab"
+    },
+    {
+     "path": "scripts/dungeon_puzzle_room.gd",
+     "sha256": "e84bb155523b6b5146c22474244bcdfb813ab0d541fee616244a5476a807b1db"
+    },
+    {
+     "path": "scripts/dungeon_art.gd",
+     "sha256": "14d4d835962ebf2a389383376fbc42a55704a58642624bbb22b56afe1cd13941"
+    }
+   ],
+   "august_rating": 2
+  },
+  {
+   "id": "kart",
+   "name": "Rainbow and Ocean kart race",
+   "family": "action",
+   "state": "dormant",
+   "route": "Kart and portal exist only in the retired courtyard.",
+   "sources": [
+    "scripts/kart.gd"
+   ],
+   "host": [
+    "scripts/kart_driving.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_kart_feel"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "No live route."
+    },
+    "C2": {
+     "score": 0,
+     "note": "524 3D tokens with lights and spatial shaders."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Exact start line; steering and turbo taught by text."
+    },
+    "C4": {
+     "score": 1,
+     "note": "Tap anywhere is turbo; steering only from the lower-left drag zone."
+    },
+    "C5": {
+     "score": 2,
+     "note": "Drives itself; no input earns nothing."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Guides point at areas that do not respond."
+    },
+    "C7": {
+     "score": 0,
+     "note": "Every kart is a box."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Basic."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Best pearl banking and teardown in its family."
+    },
+    "C10": {
+     "score": 1,
+     "note": "probe_kart_feel writes the stick and force-starts."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/kart.gd",
+     "sha256": "69ca21f872c3d9e6e3af8eec5b19bebc4b4dfe1ef4e303298167efaf2af13275"
+    }
+   ],
+   "august_rating": 2
+  },
+  {
+   "id": "stuffie_battle",
+   "name": "Stuffie sparring ladder",
+   "family": "action",
+   "state": "dormant",
+   "route": "The battle starter has no production caller.",
+   "sources": [
+    "scripts/stuffie_battle.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_stuffie"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "No live route."
+    },
+    "C2": {
+     "score": 0,
+     "note": "3D arena, light and camera."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Generic talk and win lines under the stuffie's name."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Any single tap attacks or dodges."
+    },
+    "C5": {
+     "score": 1,
+     "note": "Cannot be lost, but mashing is the best strategy."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Where the child taps does not matter."
+    },
+    "C7": {
+     "score": 0,
+     "note": "Stand-in arena and imps."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Basic."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Back route; boo-boos kept."
+    },
+    "C10": {
+     "score": 1,
+     "note": "probe_stuffie calls everything directly."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/stuffie_battle.gd",
+     "sha256": "9fa3246eb07d249ac223a82df8cd6b68ca572e0b28e918f594c420a49f9384a4"
+    }
+   ],
+   "august_rating": 3
+  },
+  {
+   "id": "companion_care",
+   "name": "Stuffie adoption and care",
+   "family": "system",
+   "state": "live",
+   "route": "Adoption on the Day One path; care only through Menu, STUFFIE at the Sky Lagoon root.",
+   "sources": [
+    "scripts/companion.gd"
+   ],
+   "host": [
+    "scripts/main.gd",
+    "scripts/pause_menu.gd"
+   ],
+   "probes": [
+    "probe_stuffie",
+    "probe_passive"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 1,
+     "note": "Adoption is on the Day One path; care hides behind a menu that does nothing in the castle."
+    },
+    "C2": {
+     "score": 1,
+     "note": "Live sheets are 2D; the file carries dead 3D follower code."
+    },
+    "C3": {
+     "score": 1,
+     "note": "The adoption cue is exact; care prompts are generic or silent."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Care icons 126x132 and a 330x150 heart."
+    },
+    "C5": {
+     "score": 2,
+     "note": "Needs wait patiently; nothing decays."
+    },
+    "C6": {
+     "score": 1,
+     "note": "In the 2D sheet care only changes a label."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Approved companion art; emoji icons."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Basic."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Care saves before feedback."
+    },
+    "C10": {
+     "score": 1,
+     "note": "probe_stuffie teleports and calls handlers."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/companion.gd",
+     "sha256": "0f0104b9b20011a83fff9edd6e13e8794a6746003b619346bbeb12ccc0615860"
+    }
+   ],
+   "august_rating": 3
+  },
+  {
+   "id": "critters",
+   "name": "Critter Book collection",
+   "family": "system",
+   "state": "dormant",
+   "route": "The book opens, but critters only spawn in retired phases.",
+   "sources": [
+    "scripts/collection_system.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_collection"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "Critters never spawn in live play."
+    },
+    "C2": {
+     "score": 0,
+     "note": "3D emoji labels."
+    },
+    "C3": {
+     "score": 0,
+     "note": "Catch hint and line are silent."
+    },
+    "C4": {
+     "score": 0,
+     "note": "Catching needs steering and an action press a tap never produces."
+    },
+    "C5": {
+     "score": 2,
+     "note": "No fail."
+    },
+    "C6": {
+     "score": 1,
+     "note": "The nearest critter is caught, not the touched one."
+    },
+    "C7": {
+     "score": 0,
+     "note": "Emoji labels."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Basic."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Catches save immediately."
+    },
+    "C10": {
+     "score": 1,
+     "note": "probe_collection spawns the retired ocean directly."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/collection_system.gd",
+     "sha256": "876bb4901406034dfa6a3bf4d319383261e04a45fbedfe120d97c8eb2d24eb3a"
+    }
+   ],
+   "august_rating": 3
+  },
+  {
+   "id": "craft_studio",
+   "name": "Color-a-Friend craft studio",
+   "family": "system",
+   "state": "dormant",
+   "route": "Only probes open it.",
+   "sources": [
+    "scripts/craft_studio.gd"
+   ],
+   "host": [
+    "scripts/main.gd"
+   ],
+   "probes": [],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 0,
+     "note": "No live route."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas only."
+    },
+    "C3": {
+     "score": 0,
+     "note": "Nothing spoken on opening; buttons rely on words."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Buttons 112 px and larger."
+    },
+    "C5": {
+     "score": 2,
+     "note": "No fail."
+    },
+    "C6": {
+     "score": 1,
+     "note": "Promises the friend appears in the retired courtyard."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Tinted authored creature sheets."
+    },
+    "C8": {
+     "score": 1,
+     "note": "Basic."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Guarded close."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Layout-only probes."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/craft_studio.gd",
+     "sha256": "fd97af6efaeaf4b3949b94f921a71064b753c383d5adcf6e49395a487018de57"
+    }
+   ]
+  },
+  {
+   "id": "logo_studio",
+   "name": "Castle banner maker",
+   "family": "system",
+   "state": "live",
+   "route": "After Day One: Craft Room door, then tap the painted paint table; Roshan walks over first.",
+   "sources": [
+    "scripts/castle_logo_studio.gd"
+   ],
+   "host": [
+    "scripts/arena/castle_rooms_25d.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_interaction",
+    "probe_load"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 2,
+     "note": "Diegetic entry by touch after Day One."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas only."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Opening and finish lines are exact; the picture choice has a pointer but no voice and the finish button has neither."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Symbol buttons 158x150, swatches 112 px, finish 240x162."
+    },
+    "C5": {
+     "score": 1,
+     "note": "Back silently throws away the picks."
+    },
+    "C6": {
+     "score": 2,
+     "note": "The preview updates live and the result replaces the painted banners."
+    },
+    "C7": {
+     "score": 1,
+     "note": "Authored banner and motifs; emoji symbol buttons."
+    },
+    "C8": {
+     "score": 2,
+     "note": "Clear feedback."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Guards double-open; validated save keys with defaults."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Real table animation, then signal-level presses."
+    }
+   },
+   "strengths": [
+    "Diegetic entry and a lasting change to the world"
+   ],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/castle_logo_studio.gd",
+     "sha256": "5afe612eb11261818b760b0f04b6b6a995000a23b27e31aa228c0a04e63dc52a"
+    }
+   ]
+  },
+  {
+   "id": "wardrobe",
+   "name": "Royal Bedroom wardrobe",
+   "family": "system",
+   "state": "live",
+   "route": "After Day One: Dream House Wing, Royal Bedroom, tap the shell wardrobe.",
+   "sources": [
+    "scripts/wardrobe_ui.gd"
+   ],
+   "host": [
+    "scripts/arena/castle_rooms_25d.gd",
+    "scripts/main.gd"
+   ],
+   "probes": [
+    "probe_ui_system"
+   ],
+   "findings": [],
+   "scores": {
+    "C1": {
+     "score": 2,
+     "note": "Diegetic entry after Day One."
+    },
+    "C2": {
+     "score": 2,
+     "note": "Canvas UI; the twirl plays on the hidden 3D player."
+    },
+    "C3": {
+     "score": 1,
+     "note": "Generic opening line whose caption promises choices that do not exist; no pointer."
+    },
+    "C4": {
+     "score": 2,
+     "note": "Buttons 480x110 and 330x132."
+    },
+    "C5": {
+     "score": 2,
+     "note": "No fail."
+    },
+    "C6": {
+     "score": 1,
+     "note": "The twirl cannot be seen."
+    },
+    "C7": {
+     "score": 1,
+     "note": "The Huluu look turns Roshan into a protected friend portrait."
+    },
+    "C8": {
+     "score": 2,
+     "note": "Bounded sparkle, chime and cheer."
+    },
+    "C9": {
+     "score": 2,
+     "note": "Feedback tween stopped on close; the skin key has a default."
+    },
+    "C10": {
+     "score": 1,
+     "note": "Signal-level presses."
+    }
+   },
+   "strengths": [],
+   "defects": [],
+   "acceptance": {
+    "device": null,
+    "child": null,
+    "owner": null
+   },
+   "evidence": [
+    {
+     "path": "scripts/wardrobe_ui.gd",
+     "sha256": "eab02b46ac3d322f295c09c68847ccbecc776378ac4cc15835f4df4f16b215a6"
+    }
+   ]
+  }
+ ]
+}

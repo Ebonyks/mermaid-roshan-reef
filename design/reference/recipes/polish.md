@@ -22,7 +22,7 @@ Rules: `DL-AUTH-05` through `DL-AUTH-07`, `DL-PLAN-01` through `DL-PLAN-06`, and
 
 Bound strengths (accepted first; candidates explicitly remain candidates): `S-02` (candidate), `S-03` (candidate), `S-11` (candidate).
 
-Pattern references are the hash-bound seed entries in the strengths register; no maintained PAT/EX catalogue or promoted exemplar is implied. Owner-decision defaults `ODR-LOOP-Q1`–`Q8` are operating defaults, not answers. The recorded Roshan decisions `ODR-ROSHAN-IDENTITY`, `ODR-ROSHAN-IRIDESCENT`, `ODR-ROSHAN-Q12`–`Q16` retain their exact scopes.
+Pattern references are the hash-bound seed entries in the strengths register and the gold-star reference patterns (`GS-*` in `design/reference/gold_star.json`, a candidate reference); no promoted PAT/EX exemplar is implied. Owner-decision defaults `ODR-LOOP-Q1`–`Q8` are operating defaults, not answers. The recorded Roshan decisions `ODR-ROSHAN-IDENTITY`, `ODR-ROSHAN-IRIDESCENT`, `ODR-ROSHAN-Q12`–`Q16` retain their exact scopes.
 
 ## Expand
 

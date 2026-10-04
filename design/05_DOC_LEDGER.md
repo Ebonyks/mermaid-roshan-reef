@@ -923,6 +923,7 @@ Kept as-is; noted so a future edit updates every copy.
 | `design/reference/recipes/character_animation.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
 | `design/reference/recipes/companion.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
 | `design/reference/recipes/event.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
+| `design/reference/recipes/gold_star.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
 | `design/reference/recipes/new_chapter.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
 | `design/reference/recipes/polish.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
 | `design/reference/recipes/publish_handoff.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
@@ -933,6 +934,7 @@ Kept as-is; noted so a future edit updates every copy.
 | `design/reference/recipes/story_clip.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
 | `design/reference/recipes/study.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
 | `design/reference/recipes/voice_lines.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
+| `design/reference/GOLD_STAR.md` | 🔵 | `SUPPORTING_CURRENT`; generated gold-star scorecard and reference model from design/reference/games.json and gold_star.json (tools/gold_star.py --render): twelve DL-bound criteria, a deterministic 1-5 rating, hash-bound scores and reference patterns. Evidence for development choices, never visual, device, child or owner acceptance; C12 stays 0 until those results are recorded. |
 | `design/reference/STRENGTHS.md` | 🔵 | `SUPPORTING_CURRENT`; generated source-hash-bound strengths; candidate evidence and narrowly accepted owner constraints remain distinct from visual/exemplar/product acceptance. |
 | `design/templates/PROMPT_RECIPE_V1.md` | 🔵 | `SUPPORTING_CURRENT`; operational loop template from the commissioned handoff; numbers must derive from study.json and actual acceptance evidence remains required. |
 | `design/templates/STUDY_REPORT_V1.md` | 🔵 | `SUPPORTING_CURRENT`; operational loop template from the commissioned handoff; numbers must derive from study.json and actual acceptance evidence remains required. |
@@ -957,3 +959,9 @@ Latest stable Godot reverified 2026-10-03 at the owner’s request: 4.7.2-stable
 | `audit/cycles/2026-10-03b/VERIFICATION_SWEEP.md` | 🔵 | `SUPPORTING_CURRENT`; technical list of the twelve fixes awaiting verification with canonical wording. |
 | `audit/cycles/2026-10-03b/CURRENT_SURFACES.md` | 🔵 | `SUPPORTING_CURRENT`; machine evidence per shipping surface: last source change, trusted probes at the head, review captures, open findings. Not visual, device, child or owner acceptance. |
 | `audit/cycles/2026-10-03b/GENERATED_CHANGE_HISTORY.md` | 🔵 | `SUPPORTING_CURRENT`; impact records in date order with their declared validation; records stay authoritative. |
+
+## Gold-star audit and tool — 2026-10-03
+
+| Doc | | Note |
+|---|---|---|
+| `docs/handoffs/codex_gold_star_2026-10-03/AUDIT.md` | 🔵 | `SUPPORTING_CURRENT` owner-requested game-wide audit at dev `87f99268`: strongest and weakest games on the gold-star rubric, what a child can reach from a fresh save, new findings `MA-PLAY-005` (P0) and `MA-OPERA-013` (P1), and the choice of the Mermaid Pool as the reference model. Code reading plus one scratch runtime check; no device, child or owner acceptance. |

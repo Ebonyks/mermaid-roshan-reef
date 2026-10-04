@@ -437,6 +437,32 @@ def strengthen_items(study: dict, process: list[dict], stale: list[dict], candid
     return rows
 
 
+def raise_items(study: dict) -> list[dict]:
+    """Gold-star work: a broken catalogue, then stale scores, then the reference, then the weakest live games."""
+    gold = study.get("gold_star") or {}
+    rows = []
+    if gold.get("status") == "ERROR":
+        rows.append({"id": "GOLD-STAR-CHECK", "title": "The gold-star catalogue does not validate: " + "; ".join(gold.get("errors", [])[:2]),
+                     "prompt": "Re-assess the games against the gold star", "recipe": "REC-GOLD-STAR",
+                     "source": "python -B tools/gold_star.py --check; a new game file must be catalogued and assessed."})
+    for game in gold.get("stale", []):
+        rows.append({"id": f"GOLD-STAR-STALE-{game}", "title": f"{game}: the code its gold-star scores judged has changed.",
+                     "prompt": f"Re-assess {game} against the gold star", "recipe": "REC-GOLD-STAR",
+                     "source": "Hash-bound evidence changed; old scores do not transfer to new code."})
+    reference = gold.get("reference") or {}
+    if reference.get("game") and reference.get("gaps"):
+        name = reference.get("name") or reference["game"]
+        rows.append({"id": "GOLD-STAR-REFERENCE", "title": f"Reference {name} is {reference.get('rating')}/5; open criteria {', '.join(reference['gaps'])}.",
+                     "prompt": f"Bring {name} up to the gold star", "recipe": "REC-GOLD-STAR",
+                     "source": "The chosen reference is raised first; device, child and owner lanes need people, not code."})
+    for row in gold.get("weakest", [])[:3]:
+        name = row.get("name") or row["id"]
+        rows.append({"id": f"GOLD-STAR-RAISE-{row['id']}", "title": f"{name} is {row['rating']}/5 ({row['points']}/24 points).",
+                     "prompt": f"Bring {name} up to the gold star", "recipe": "REC-GOLD-STAR",
+                     "source": "Weakest live game on the scorecard; retiring it instead is an owner decision."})
+    return rows
+
+
 def render_lane(lines: list[str], heading: str, intro: str, items: list[dict], recipes: dict, root: Path, limit: int | None) -> None:
     lines += [f"## {heading} — {len(items)}", "", intro, ""]
     if not items:
@@ -518,6 +544,8 @@ def build_outputs(root: Path, study: dict, today: str | None = None) -> dict[str
     render_lane(lines, "Waiting", "Blocked by evidence or people outside the project.", lanes["Waiting"], recipes, root, None)
     render_lane(lines, "Parked", "Deferred with a recorded reason.", lanes["Parked"], recipes, root, None)
     render_lane(lines, "Strengthen", "How the project is built, checked and studied: process findings, sensors, handoffs and references.", strengthen, recipes, root, DISPLAY_LIMIT)
+    if (study.get("gold_star") or {}).get("status", "ABSENT") != "ABSENT" and "REC-GOLD-STAR" in recipes:
+        render_lane(lines, "Raise", "Bring games up to the gold star (`design/reference/GOLD_STAR.md`): the reference first, then the weakest live games. A score rises only after re-assessment of changed code.", raise_items(study), recipes, root, None)
     render_lane(lines, "Grow", "New content. Choosing one still needs the owner's premise for anything permanent.", grow, recipes, root, None)
     sweep = verification_sweep(records, date)
     checks = load_checks(root)
