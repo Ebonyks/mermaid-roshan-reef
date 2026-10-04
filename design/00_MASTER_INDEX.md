@@ -287,9 +287,11 @@ inert tombstones, raw legacy bits survive, the live completion mask is
 focused matrix plus full-local runtime `09e5e356` and probe-head `ff068db` gates
 are green, so `MA-OPERA-010`, `MA-OPERA-011`, and `MA-OPERA-012` are
 `FIXED_PENDING_VERIFICATION`, not closed.
-Owner decision 2026-09-30 adds `DL-INT-14` as a target contract: final-act imp
-contests that the imp can win, with an immediate contest-only restart, inverted
-for learning careers so that the child beats the imp by fixing his mistakes
+Owner decisions 2026-09-30 and 2026-10-04 add `DL-INT-14` as a target contract:
+final-act imp contests that the imp can win, with an immediate contest-only
+restart and a radical slowdown after two failures. The Teacher's contest inverts
+and cannot be lost, the Chef and Nursery defend against gross things and noisy
+imps, and the Geologist races for the same geode
 ([Codex handoff](../docs/handoffs/codex_opera_imp_contest_2026-09-30/README.md);
 implementation pending).
 The prior twenty-two 1280×720 Mobile captures (nine room routes plus thirteen careers)

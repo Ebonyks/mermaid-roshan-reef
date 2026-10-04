@@ -7,9 +7,9 @@
   "evidence_baseline": "dev 55032e88936b22723fd9af5282c61ba6696b3d43",
   "entry": "README.md",
   "file_count": 8,
-  "total_bytes": 329379,
+  "total_bytes": 363624,
   "hash_basis": "SHA-256 of the committed Git blob bytes (LF line endings), identical to what raw.githubusercontent.com serves",
-  "revision": "4 (2026-09-30): adds OD-D, silly questions and sillier imp lines; revision 3 (art-reuse and imp-contact corrections) was 86732a47, revision 2 (OD-C) was df01b7ce, revision 1 was 7ec82d46",
+  "revision": "5 (2026-10-04): adds OD-E: the Teacher game cannot be lost and is always silly, the Chef's YUCKY RECIPE, the Geologist's GEODE RACE, the Nursery's QUIET TIME, and a radical slowdown after two failures, aligned at the dev merge with the owner's 2026-10-03 animation-workflow policy for any new imp costume; revision 4 (OD-D) was 1fbcc9db, revision 3 (art-reuse and imp-contact corrections) was 86732a47, revision 2 (OD-C) was df01b7ce, revision 1 was 7ec82d46",
   "files": [
     {
       "path": ".gdignore",
@@ -19,44 +19,44 @@
     },
     {
       "path": "CONTEST_DESIGN.md",
-      "bytes": 74367,
-      "sha256": "cd6c88c049a3e34394dfb4750f94c81f39d6f9fd899424508130ac515332d679",
+      "bytes": 93873,
+      "sha256": "cd37d08cd3a6fbb85fe5222fe4c8b4336145d9fa8a8dc2b2b42c5bdcc05b113a",
       "role": "contest design and implementation specification"
     },
     {
       "path": "CURRENT_STATE_ANALYSIS.md",
-      "bytes": 16206,
-      "sha256": "6f1f269eb49af52b29b9a7ee8eaaeff4821c7ee821d74a204348d95ddb493415",
+      "bytes": 16518,
+      "sha256": "a66c48b773393565d2eb55ff6a050785b082b9d08fe066216d3deecac42c8d2d",
       "role": "current-state analysis with code anchors"
     },
     {
       "path": "README.md",
-      "bytes": 10892,
-      "sha256": "03f39abb68659eafe2261df1830fa2e159bc9b55a3089ffdb9371a46b7801a62",
+      "bytes": 13051,
+      "sha256": "0138c36bfddb6c24d7a7f088f2d6808322641bb301e4a1127f59cf4ea5ef5906",
       "role": "handoff entry point"
     },
     {
       "path": "data/contest_spec.json",
-      "bytes": 60339,
-      "sha256": "59ceab2e06ac3c1acaaae112edf21b62ca32b87c4713b5cb02262c4bc8c5fe57",
+      "bytes": 72997,
+      "sha256": "27f8eab1b71fd4dbec64d9972ce40ac5fa54ffa630ec0f34601695998e9b3778",
       "role": "machine-readable contest specification (hand-authored)"
     },
     {
       "path": "data/imp_art_inventory.json",
-      "bytes": 88968,
-      "sha256": "ed0d56757b44692ce958660dcda808e0c7f510e9507a8454c1dbfdbc6123c9fe",
+      "bytes": 89856,
+      "sha256": "1f7230d1d2220f16a1e43d6b1309ac5c05733e73dd011a2cb89ae62c7fecaf2b",
       "role": "generated imp art inventory (text)"
     },
     {
       "path": "data/imp_voice_inventory.json",
-      "bytes": 59748,
-      "sha256": "8420d7f58411cb7a9ab0cf0b1621dacf297805b086733a69c07de42dc74a331f",
+      "bytes": 59066,
+      "sha256": "6dd99fe303b1dc8c8adf242662145fbf11e36742f810e8e8fd1995bc1c5901c1",
       "role": "generated imp voice inventory and new-line list (text)"
     },
     {
       "path": "tools/build_packet_data.py",
-      "bytes": 18859,
-      "sha256": "7cfd956f1d499ce2ad6eb47c1c59d5e597bd59219242425c8a36818cb6d32bde",
+      "bytes": 18263,
+      "sha256": "4aa375375933295c42529ee8ca312800cb060ae2f081c2515fd07ed6654ee138",
       "role": "text-only generator and checker for the inventories and manifest"
     }
   ]

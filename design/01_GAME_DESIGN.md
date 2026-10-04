@@ -342,21 +342,25 @@ remain open.
 - **Competition is scoped, not assumed.** Where a career retains a rival or
   finale meter, it stays hidden until its declared finale and cannot create a
   loss. Friendly contact is harmless; zero input never earns progress.
-  Owner decision 2026-09-30 (`DL-INT-14`, target; implementation pending): the
-  imp enters when the final act begins, and the act ends in one job-skill
-  contest he can win. His win restarts that contest at once and costs nothing
-  earned. For the learning careers (the Teacher, and the Geologist pending
-  confirmation) the contest inverts: the imp teaches with deliberate mistakes
-  and she beats him by fixing them, with silly questions such as which smells
-  the worst. Until it ships, today's no-loss pacer
-  remains the runtime behaviour.
+  Owner decisions 2026-09-30 and 2026-10-04 (`DL-INT-14`, target;
+  implementation pending): the imp enters when the final act begins, and the
+  act ends in one job-skill contest he can win. His win restarts only that
+  contest at once and costs nothing earned; after two failures he slows down
+  radically. The Teacher's contest inverts and cannot be lost: the imp teaches
+  with silly mistakes, with silly questions such as which smells the worst, and
+  she fixes them. The Chef (by default) and Nursery contests are defense
+  contests against gross things and noisy imps. Until it ships, today's no-loss
+  pacer remains the runtime behaviour.
 - **Nursery Nurse (job 13) is cooperative,** not competitive: Nurse Faron is a
-  visible partner from the first beat, never framed as an opponent.
+  visible partner from the first beat, never framed as an opponent. Owner
+  decision 2026-10-04 (`DL-INT-14`, target) adds a final QUIET TIME contest in
+  which Roshan, with Faron still at her side, shushes noisy imps before they
+  wake the sleeping babies.
 - **Geologist is cooperative,** not competitive: Roshan follows rock layers,
   brushes a fossil, sorts six shape-and-colour specimens, and lights the final
   crystal gallery with a visible field-guide imp beside her. Owner decision
-  2026-09-30 (`DL-INT-14`, target, pending confirmation for this career) would
-  make its final act an inverted contest with that imp.
+  2026-10-04 (`DL-INT-14`, target) makes its final act a race with that imp to
+  open the same geode; he then appears only from that act.
 - Completing a performance yields Warm Cheers / Big Cheers / Standing Ovation
   by pace, accuracy and guided retries. Every completed career earns its star
   regardless.
