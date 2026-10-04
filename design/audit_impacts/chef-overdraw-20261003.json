@@ -84,6 +84,7 @@
     "audit/chef_overdraw_20261003/ACTIVE_CAPTURE_MANIFEST.json",
     "audit/chef_overdraw_20261003/CANDIDATE_SOURCE.json",
     "audit/chef_overdraw_20261003/CAPTURE_MANIFEST.json",
+    "audit/chef_overdraw_20261003/INTEGRATION_RECONCILIATION.json",
     "audit/chef_overdraw_20261003/ORIGINALS_UNCHANGED.json",
     "audit/chef_overdraw_20261003/PUBLICATION.json",
     "audit/chef_overdraw_20261003/RECEIPT.json",
@@ -123,6 +124,7 @@
     "audit/chef_overdraw_20261003/audit_direct_retry2.log",
     "audit/chef_overdraw_20261003/authority_final.log",
     "audit/chef_overdraw_20261003/authority_publication.log",
+    "audit/chef_overdraw_20261003/authority_reconciliation.log",
     "audit/chef_overdraw_20261003/baseline_1280/mask_00.png",
     "audit/chef_overdraw_20261003/baseline_1280/mask_01.png",
     "audit/chef_overdraw_20261003/baseline_1280/mask_03.png",
@@ -143,6 +145,7 @@
     "audit/chef_overdraw_20261003/capture.gd",
     "audit/chef_overdraw_20261003/development_final.log",
     "audit/chef_overdraw_20261003/development_publication.log",
+    "audit/chef_overdraw_20261003/development_reconciliation.log",
     "audit/chef_overdraw_20261003/fixed_1280/mask_00.png",
     "audit/chef_overdraw_20261003/fixed_1280/mask_01.png",
     "audit/chef_overdraw_20261003/fixed_1280/mask_03.png",
@@ -437,6 +440,16 @@
       "command": "Publication metadata document authority and change coverage",
       "result": "PASS",
       "evidence": "audit/chef_overdraw_20261003/authority_publication.log and development_publication.log; runtime/source8 unchanged from the full82 local pass."
+    },
+    {
+      "command": "Current Dev documentation reconciliation and unchanged-runtime source binding",
+      "result": "PASS",
+      "evidence": "audit/chef_overdraw_20261003/INTEGRATION_RECONCILIATION.json; incoming ecb68651c67e66501eeab2c719b152d8982023c2 changes23 documentation/policy files only; all8runtime sources and trusted82 roster exactly unchanged."
+    },
+    {
+      "command": "python3 -B tools/audit_document_authority.py and python3 -B tools/audit_development.py --base auto after Dev documentation reconciliation",
+      "result": "PASS",
+      "evidence": "audit/chef_overdraw_20261003/authority_reconciliation.log; audit/chef_overdraw_20261003/development_reconciliation.log; DOCAUTH ALL OK; AUDITDEV ALL OK at incoming Dev ecb68651. All8runtime sources and trusted82 roster unchanged."
     }
   ],
   "acceptance_gaps": "M11 GPU timing/memory/30fps and device/child/owner acceptance; native 2048x2048 per-screen background coverage remains unsatisfied. Final hand-held piping/attached hand contact and ordinary Chef TOP terminal acting remain open, as do whole-career reward/return/save-route acceptance and broader legacy job style/layout defects. Five-step Chapter Two input and desktop captures do not establish these claims.",
