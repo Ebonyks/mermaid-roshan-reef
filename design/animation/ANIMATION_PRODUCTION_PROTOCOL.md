@@ -77,6 +77,46 @@ in total cost/minutes per accepted second. Use only an already-authorized funded
 budget for paid jobs; no routine new planning approval is introduced.
 Position-only guides retain their neutral-field and excluded-pixel contract.
 
+## Preserve crisp contours and figure-wide continuity
+
+Owner corrections 2026-10-04: character performances must move as a coherent
+figure. Shoulder, torso, dress/bodice, hair and tail respond to the acting when
+appropriate. Root/pelvis, sockets and scene landmarks provide registration and
+contact references; they do not authorize freezing the rest of the body while
+only a limb animates. Preserve the source figure's changing silhouette,
+attachments, cloth/hair response and counterbalance throughout the action.
+Object motion likewise includes its relevant support and moving parts.
+
+Inspect decoded native frames before encoding to distinguish generated smear
+from matte spill and export artifacts. Small character/object footage must
+retain clear painted hands, fingers and prop edges. Review moving edges at the
+intended scale through the complete action. Deliberate motion blur must be
+specified in the direction brief and preserve readable acting/contact.
+
+For a video pilot, request sharply defined painted poses, short-exposure motion
+and continuous whole-figure anatomy. Bind globally registered original figure
+poses rather than compositing unrelated limbs onto a frozen plate. Stronger
+pose guidance is a timing experiment, not a guaranteed blur repair. The
+[registered wave study](../../assets_src/cinematics/ltx_registered_wave_20261004/README.md)
+retains both smeared native takes and the owner-rejected limb-only correction.
+That correction sharpened arm pixels but did not meet figure-wide continuity.
+A prompt revision generates a new candidate; it does not certify sharpness.
+
+After bounded retries, diagnose and change inputs/method without hiding prior
+costs. Authored 2D may be suitable when it performs the complete coordinated
+figure action; isolated limb replacement alone is insufficient for this wave.
+Local repaint/cleanup can repair a named region while its neighboring body,
+cloth, hair and transitions remain temporally coherent. Global sharpening
+cannot recover missing anatomy/contact. Do not start a still-generation campaign
+or repeated upscaling in place of this diagnosis.
+
+Keep full native outputs and editable masters. Declare spatial resampling,
+pose-source switches, replacements, cadence and holds. Review the complete
+figure before and after matte/detail repairs, including shoulder/wrist seams
+and neighboring transitions. Export lossless frames and reopen the master.
+Neither a crisp key nor a pixel-check PASS proves acting, a loop or device
+performance.
+
 ## Inventory and bind sources
 
 1. Find the current profile, exact scene, costume, prop and accepted source family.

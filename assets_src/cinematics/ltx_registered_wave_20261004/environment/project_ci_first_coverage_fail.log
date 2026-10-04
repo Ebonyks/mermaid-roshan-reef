@@ -1,0 +1,106 @@
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.234s
+
+OK
+GODOTBASELINE|ALL OK|4.7.2-stable|official.ed1daf0bf
+........s...............................
+----------------------------------------------------------------------
+Ran 40 tests in 35.183s
+
+OK (skipped=1)
+TYPOGRAPHY_AUDIT status=OPEN
+FONT assets=0 bindings=0 coverage=UNRESOLVED device=MISSING
+GLYPHS observed=133 unclassified=0 critical=124 critical_unresolved=124
+LABEL3D current=36 baseline=45 files=11 delta=-9
+LABEL3D_FILE  7 scripts/arena/sky_lagoon.gd
+LABEL3D_FILE  2 scripts/collection_system.gd
+LABEL3D_FILE  1 scripts/combat_arena.gd
+LABEL3D_FILE 11 scripts/companion.gd
+LABEL3D_FILE  1 scripts/dungeon_puzzle_room.gd
+LABEL3D_FILE  2 scripts/galaxy.gd
+LABEL3D_FILE  4 scripts/games/shop.gd
+LABEL3D_FILE  4 scripts/kart.gd
+LABEL3D_FILE  2 scripts/main.gd
+LABEL3D_FILE  1 scripts/reef_districts.gd
+LABEL3D_FILE  1 scripts/stuffie_battle.gd
+OPEN font authority, coverage, and/or device evidence remains unresolved
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.424s
+
+OK
+ROSHAN2D| stress: 8 falsification cases ALL OK
+ROSHAN2D| RESULT: ALL OK - active project is 2D Roshan only
+...........................................................................
+----------------------------------------------------------------------
+Ran 75 tests in 52.788s
+
+OK
+GAME2D| stress: 14 falsification/control assertions ALL OK
+GAME2D| stress: 14 falsification/control assertions ALL OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.131s
+
+OK
+naive 256px grid :      0 px of Roshan clipped,      0 px ghost
+shipped windows  :      0 px of Roshan clipped,      0 px ghost
+                   (0.00% -> 0.00% of her art lost)
+playground poses :     12 whole, single-silhouette 512px frames
+OK: every Roshan frame renders whole
+PROBE_PARITY|stress missing loop: OK
+PROBE_PARITY|stress duplicate probe: OK
+PROBE_PARITY|stress local/remote mismatch: OK
+PROBE_PARITY|stress missing probe file: OK
+PROBE_PARITY|stress missing separate invocation: OK
+PROBE_PARITY|stress missing parity gate: OK
+PROBE_PARITY|stress missing local music verifier: OK
+PROBE_PARITY|stress missing pinned music verifier: OK
+PROBE_PARITY|result: ALL OK
+.........................................
+----------------------------------------------------------------------
+Ran 41 tests in 0.441s
+
+OK
+DOCAUTH|STRESS|6/6
+DOCAUTH|STRESS|6/6
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 11.015s
+
+OK
+.........................................................................................................................
+----------------------------------------------------------------------
+Ran 121 tests in 40.097s
+
+OK
+GOLDSTAR|RENDER|design/reference/GOLD_STAR.md
+GOLDSTAR|RESULT|OK|2 games, 0 errors, 0 stale
+GOLDSTAR|STALE_PAGE|design/reference/GOLD_STAR.md|run --render
+GOLDSTAR|RESULT|OK|2 games, 0 errors, 0 stale
+GOLDSTAR|STALE_PAGE|design/reference/GOLD_STAR.md|run --render
+GOLDSTAR|RESULT|FAIL|2 games, 0 errors, 0 stale
+GOLDSTAR|STALE|astronaut|re-assess, then --rebind: scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus
+GOLDSTAR|STALE|ballerina|re-assess, then --rebind: scripts/opera_career_world_2d.gd::_assign_stations
+GOLDSTAR|STALE|boxer|re-assess, then --rebind: scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus
+GOLDSTAR|STALE|candymaker|re-assess, then --rebind: scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus, scripts/opera_gesture_surface.gd::_pour_spout_point, scripts/opera_gesture_surface.gd::_pour_landing_point
+GOLDSTAR|STALE|chapter2_party|re-assess, then --rebind: scripts/chapter_two_giant_cake_2d.gd
+GOLDSTAR|STALE|chef|re-assess, then --rebind: scripts/opera_career_world_2d.gd::PHASE_STATIONS[chef], scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus, scripts/opera_gesture_surface.gd::_pour_pitcher_rotation
+GOLDSTAR|STALE|detective|re-assess, then --rebind: scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus
+GOLDSTAR|STALE|doctor|re-assess, then --rebind: scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus
+GOLDSTAR|STALE|farmer|re-assess, then --rebind: scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus
+GOLDSTAR|STALE|geologist|re-assess, then --rebind: scripts/opera_career_world_2d.gd::_assign_stations
+GOLDSTAR|STALE|magician|re-assess, then --rebind: scripts/opera_career_world_2d.gd::_assign_stations
+GOLDSTAR|STALE|nursery|re-assess, then --rebind: scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus
+GOLDSTAR|STALE|painter|re-assess, then --rebind: scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus
+GOLDSTAR|STALE|popstar|re-assess, then --rebind: scripts/opera_career_world_2d.gd::_assign_stations
+GOLDSTAR|STALE|racer|re-assess, then --rebind: scripts/opera_career_world_2d.gd::_assign_stations, scripts/opera_career_world_2d.gd::_draw_activity_focus
+GOLDSTAR|STALE|teacher|re-assess, then --rebind: scripts/opera_career_world_2d.gd::_assign_stations
+GOLDSTAR|RESULT|OK|60 games, 0 errors, 16 stale
+AUDITDEV|BASE|f07c1a4820fb5222289802ad712db677b56400bc
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/cinematics/ltx_registered_wave_20261004/environment/project_ci.log
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/cinematics/ltx_registered_wave_20261004/results/finished_registered/reopen_verification.json
+AUDITDEV|FAIL|no changed audit-impact record covers assets_src/cinematics/ltx_registered_wave_20261004/scripts/reopen_wave.lua
+AUDITDEV|RESULT|3 ISSUE(S)
+AUDIT DEVELOPMENT COVERAGE FAIL

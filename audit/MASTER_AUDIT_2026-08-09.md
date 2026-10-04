@@ -25,6 +25,8 @@ Game-wide audit satisfaction remains **UNSATISFIED**.
 
 Scoped 2026-10-03 animation workflow revision: [local/API analysis](../design/animation/WORKFLOW_OPTIONS_2026-10-03.md), [protocol](../design/animation/ANIMATION_PRODUCTION_PROTOCOL.md) and [impact/evidence](../design/audit_impacts/animation-workflow-policy-20261003.json). Owner permits final animation with identity/motion/provenance/device checks, prefers Aseprite, and directs local character/object work with APIs for cinematic scenes. Compulsory per-frame still generation is superseded for new production. No prior reject or runtime/device repair is accepted; finding lifecycles and game-wide **UNSATISFIED** remain unchanged.
 
+Owner-commissioned [registered whole-figure wave study](../assets_src/cinematics/ltx_registered_wave_20261004/README.md) records local LTX-Video 2B native blur trials, the owner-rejected limb-only correction, waist/root-registered complete-figure inputs and full-frame Aseprite preservation. Shoulder/torso/dress/hair continuity is required; prompt-only blur repair did not meet the quality bar. Source-only evidence grants no runtime or production acceptance.
+
 ### Next bounded planning work
 
 | Deliverable | Prerequisite | Next evidence |

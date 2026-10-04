@@ -1,0 +1,61 @@
+{
+  "status": "REJECTED_CLEANUP_MASK",
+  "reason": "An overly narrow source-derived moving-region mask clipped the generated hand at some lowering frames. Broadened the mask to preserve the full native arm sweep. The native timing/sweep remains rejected against its brief; no acceptance tolerance changed.",
+  "old_polygon": [
+    [
+      365,
+      35
+    ],
+    [
+      430,
+      35
+    ],
+    [
+      454,
+      155
+    ],
+    [
+      454,
+      248
+    ],
+    [
+      431,
+      337
+    ],
+    [
+      381,
+      337
+    ],
+    [
+      300,
+      275
+    ],
+    [
+      300,
+      180
+    ],
+    [
+      365,
+      130
+    ]
+  ],
+  "replacement_polygon": [
+    [
+      240,
+      25
+    ],
+    [
+      455,
+      25
+    ],
+    [
+      455,
+      340
+    ],
+    [
+      240,
+      340
+    ]
+  ],
+  "frame_inspection": 21
+}

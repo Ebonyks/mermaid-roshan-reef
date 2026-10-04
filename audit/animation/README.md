@@ -99,3 +99,5 @@ Change/evidence: [2026-09-11 audit impact](../../design/audit_impacts/2026-09-11
   movement language, reusable character template and production protocol;
   integrated canonical motion rules and art/chapter/cinematic navigation.
   No motion study, runtime change, new art or acceptance is claimed.
+
+- 2026-10-04: owner commissioned the [registered Roshan wave sample](../../assets_src/cinematics/ltx_registered_wave_20261004/README.md) using existing artwork, local LTX-Video 2B and Aseprite. [Impact](../../design/audit_impacts/ltx-registered-wave-20261004.json) tracks source-only evidence: native hand blur persists, owner rejects fixed-body limb-only finishing, and the whole-figure root/prompt trial preserves coordinated body scope but fails motion sharpness; a final81-frame native take reduces the lowering smear while retaining transition-hand defects. No runtime, owner/device/child acceptance or finding closure.
