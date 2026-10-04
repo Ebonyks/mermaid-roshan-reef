@@ -1,0 +1,42 @@
+{
+  "schema": "roshan-video-capability-check-v1",
+  "pass": "take-03-reserved",
+  "session_video_tool": "imagine_image_to_video",
+  "model": "grok-imagine video via Grok Build",
+  "can_return_original_video": true,
+  "first_frame_plus_identity_supported": true,
+  "actual_mode": "image_to_video (animate the locked painted still). Not reference_to_video.",
+  "actual_attached_inputs": [
+    {
+      "role": "IMAGE_1",
+      "path": "openings/locked-front-right.png",
+      "sha256": "6b0918967e5b1703e4b04a67b27798b7a733a6ab79c44314ebcf6f12bf1be685",
+      "jobs": "RSW-01-06 take-03"
+    },
+    {
+      "role": "IMAGE_1",
+      "path": "openings/locked-right.png",
+      "sha256": "042c2e052ad6bdcead67731282c6e7a8059c788a75cbc8bc687a63b7848859b7",
+      "jobs": "RSW-07-08 take-03"
+    }
+  ],
+  "request_evidence": "Grok Build imagine_image_to_video returned original H.264 MP4 files (1280x720, 24fps, 10.04s) for RSW-01 through RSW-08 take-03. Files are on GitHub PR #10 under returns/videos/take-03/.",
+  "opening_approval_evidence": "Locked openings are 8-view painted cutouts composited onto navy RGB(17,37,54). No character redraw. Layout remains owner-confirmable; not prefilled as archive-accepted.",
+  "account_authorization_evidence": "Owner asked to complete a reserved casual set after take-01/02 read as emergency swimming. Packet cap of 10 was superseded for this pass.",
+  "unsupported_controls": [
+    "Requested 8.0s; native durations 6/10/15. Used 10s without stretching a 6s clip.",
+    "Silent audio cannot be suppressed; AAC stereo 128kb/s is present.",
+    "Locked camera is a prompt request, not a hard control.",
+    "Seed is not disclosed."
+  ],
+  "status": "CHECKED",
+  "pilot_video_path": "returns/videos/take-03/RSW-01_take-03.mp4",
+  "pilot_video_sha256": "027ff0112eab282e990fa15a4ea8ec1fa5ad101f189e350fb7d6935cca8c673d",
+  "normal_speed_review": "Identity holds. Energy is reserved versus take-01/02. t8 still eases camera-facing. Adequate reserved comparison set; not delivery.",
+  "continue_batch": true,
+  "binary_on_github": true,
+  "github": {
+    "branch": "codex/roshan-swim-combined-handoff-20260914",
+    "pr": "https://github.com/Ebonyks/mermaid-roshan-reef/pull/10"
+  }
+}

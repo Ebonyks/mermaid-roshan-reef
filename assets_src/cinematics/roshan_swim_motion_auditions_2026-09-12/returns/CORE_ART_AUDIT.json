@@ -1,0 +1,111 @@
+{
+  "schema": "roshan-core-art-audit-v1",
+  "handoff_id": "roshan_swim_motion_auditions_2026-09-12",
+  "pass": "take-03 reserved casual swim",
+  "created_at": "2026-09-14T04:20:00Z",
+  "verdict": "Take-03 did not lose Roshan. Take-01 did. Profile loop shots invented bracelets.",
+  "authority": {
+    "approved_front_sha256": "db2d2c13c2ccf9f0727934434adccdbf9d1d127943f743f436a48fff7c62ba3c",
+    "turnaround_front_right_sha256": "b818e9d8852dcde1043662f290cf3f19e8c7e1bd8be55395548e5f54ee875ad6",
+    "turnaround_right_sha256": "5f2eec477d00de4625c3dc501de71739fcb2e27ce3c76de6aac9dc464dcf5825",
+    "locked_front_right_sha256": "6b0918967e5b1703e4b04a67b27798b7a733a6ab79c44314ebcf6f12bf1be685",
+    "locked_right_sha256": "042c2e052ad6bdcead67731282c6e7a8059c788a75cbc8bc687a63b7848859b7"
+  },
+  "rows": [
+    {
+      "lock": "Face",
+      "authority": "Distinctive painted child, warm peach, brown eyes",
+      "take01": "LOST — generic Disney 3D",
+      "take02": "Holds",
+      "take03": "Holds",
+      "lost": false
+    },
+    {
+      "lock": "Hair",
+      "authority": "Loose dark brown curls + rainbow streak on anatomical left",
+      "take01": "LOST — dark bun, no rainbow",
+      "take02": "Holds",
+      "take03": "Holds; volume increases vs cutout, streak present, not a bun",
+      "lost": false
+    },
+    {
+      "lock": "Crown",
+      "authority": "Simple gold/bronze, one teal gem",
+      "take01": "LOST — ornate silver, many gems",
+      "take02": "Holds",
+      "take03": "Holds",
+      "lost": false
+    },
+    {
+      "lock": "Medium",
+      "authority": "Painted storybook, soft shading",
+      "take01": "LOST — Pixar 3D",
+      "take02": "Holds; late 3D light creep",
+      "take03": "Holds at t0; 3D volume/light creep by mid-take",
+      "lost": false
+    },
+    {
+      "lock": "Costume / tail",
+      "authority": "Pink bodice, lilac frills, pearlescent tail — no extra jewelry",
+      "take01": "LOST — similar colors on the wrong body",
+      "take02": "Holds",
+      "take03": "Body holds on 01–06. 07/08 invent gold bracelets",
+      "lost": false
+    },
+    {
+      "lock": "Field / extras",
+      "authority": "Quiet navy. No extra characters.",
+      "take01": "LOST — invented fish, seahorses",
+      "take02": "Navy; no extra fauna",
+      "take03": "Navy; no extra fauna in sampled frames",
+      "lost": false
+    },
+    {
+      "lock": "Energy",
+      "authority": "Casual travel, walking pace",
+      "take01": "Emergency / performance / flying arms",
+      "take02": "Camera-greeting, too much personality",
+      "take03": "Reserved cruise. Ends still present to camera on several shots.",
+      "lost": false
+    }
+  ],
+  "mutations": [
+    {
+      "id": "take-01-style-rewrite",
+      "shots": "RSW-01–08 take-01",
+      "severity": "lost",
+      "detail": "Wrong mermaid: bun, silver multi-gem crown, Pixar lighting, extra fauna."
+    },
+    {
+      "id": "take-03-bracelets",
+      "shots": "RSW-07, RSW-08 take-03",
+      "severity": "mutated",
+      "detail": "Invented gold bracelets. Face, crown, hair, bodice, tail still match. Discard jewelry."
+    },
+    {
+      "id": "take-03-volume-creep",
+      "shots": "RSW-01–08 take-03",
+      "severity": "drift",
+      "detail": "Hair volume and 3D lighting increase after t0. Character remains Roshan."
+    },
+    {
+      "id": "take-03-end-pose",
+      "shots": "RSW-01, RSW-03, RSW-06 take-03",
+      "severity": "motion",
+      "detail": "End pose eases camera-facing. Identity holds. Energy brief is not fully kept."
+    }
+  ],
+  "shortlist": [
+    { "sample_id": "RSW-03", "reason": "Soft glance without emergency reach; identity holds." },
+    { "sample_id": "RSW-05", "reason": "Patient idle, then a stroll. Reserved energy." },
+    { "sample_id": "RSW-01", "reason": "Quiet diagonal swim t2.5–t4; discard t8 camera-facing." },
+    { "sample_id": "RSW-04", "reason": "Shallow bank, no extra fauna." }
+  ],
+  "claims": {
+    "ARCHIVE_COMPLETE": true,
+    "GENERATION_READY": false,
+    "DELIVERY_ACCEPTED": false,
+    "CORE_ART_HELD_ON_TAKE03": true,
+    "CORE_ART_LOST_ON_TAKE01": true
+  }
+}
