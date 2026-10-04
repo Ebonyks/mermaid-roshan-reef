@@ -2177,6 +2177,8 @@ Regenerate after each study cycle. The [previous dated repair order](cycles/2026
 
 2026-10-03 implementation: [loop infrastructure and acceptance limits](cycles/2026-10-03/IMPLEMENTATION.md), [impact](../design/audit_impacts/self-improvement-loop-implementation-20261003.json). MA-DOC-009 and MA-CI-008 are IN_PROGRESS; no lifecycle closure.
 
+2026-10-03 review and repair: [loop review](../docs/handoffs/codex_loop_review_2026-10-03/REVIEW.md), [remaining Codex work](../docs/handoffs/codex_loop_review_2026-10-03/README.md), [impact](../design/audit_impacts/self-improvement-loop-review-20261003.json). The loop's tools, recipes and registers are repaired; MA-DOC-009 and MA-CI-008 stay IN_PROGRESS; no lifecycle closure.
+
 Current history is generated from impact records in stable date/ID order into each [cycle folder](cycles/README.md). The rows below are preserved historical narrative; a generated entry reports its recorded validation state and does not imply product acceptance.
 
 | Date | State | Change |

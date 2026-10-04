@@ -17,9 +17,10 @@ class StrengthsTests(unittest.TestCase):
     def setUp(self):
         self.document = json.loads((ROOT / "design/reference/strengths.json").read_text(encoding="utf-8"))
 
-    def test_all_seed_evidence_exists_and_is_hash_bound(self):
-        self.assertEqual([], roadmap.validate_strengths(ROOT, self.document))
-        self.assertEqual(15, len(self.document["strengths"]))
+    def test_all_seed_evidence_exists_and_is_structurally_valid(self):
+        # Live evidence files change often; drift is a study re-review item, never a build failure.
+        self.assertEqual([], roadmap.validate_strengths(ROOT, self.document, check_hashes=False))
+        self.assertGreaterEqual(len(self.document["strengths"]), 15)
         self.assertIn("unmerged", next(item for item in self.document["strengths"] if item["id"] == "S-15")["acceptance_scope"])
 
     def test_missing_and_changed_evidence_rejected(self):
@@ -111,12 +112,16 @@ class RoadmapTests(unittest.TestCase):
         for row in rows:
             self.assertEqual(records[row["id"]]["closure"], row["missing_evidence"])
         self.assertEqual(before, records)
+        sweep = roadmap.render_sweep(rows, "2026-10-03")
         owner = roadmap.render_sweep(rows, "2026-10-03", "owner")
         device = roadmap.render_sweep(rows, "2026-10-03", "device")
-        self.assertIn("no session is scheduled", owner)
+        self.assertIn("no session is scheduled", owner.lower())
         self.assertIn("not a booking", device)
-        self.assertIn("Lifecycle remains", owner)
+        self.assertIn("Lifecycle remains", sweep)
+        self.assertIn("lifecycle remains unchanged", owner)
         self.assertIn("../../findings/ACTIVE_FINDINGS_2026-08-13.md", owner)
+        self.assertNotEqual(sweep.split("\n", 1)[1], device.split("\n", 1)[1])
+        self.assertNotIn("441adf35", owner + device)
         # Verify navigation from the actual cycle document location.
         self.assertTrue((ROOT / "audit/cycles/2026-10-03" / "../../findings/ACTIVE_FINDINGS_2026-08-13.md").resolve().is_file())
 
@@ -126,11 +131,17 @@ class RoadmapTests(unittest.TestCase):
                  "sensors": {"capture": {"status": "FAIL", "reason": "No output"}},
                  "surfaces": [{"name": "Day One", "source": "scripts/day_one_director.gd"}, {"name": "Grand Puff"}]}
         output = roadmap.build_outputs(ROOT, study)
-        for lane in ("## Repair", "## Grow", "## Strengthen"):
+        for lane in ("## Repair", "## Verify", "## Decide", "## Waiting", "## Parked", "## Grow", "## Strengthen"):
             self.assertIn(lane, output["ROADMAP.md"])
+        lane = None
         for line in output["ROADMAP.md"].splitlines():
-            if line.startswith("| MA-") or line.startswith("| GROW-") or line.startswith("| SENSOR-") or line.startswith("| test-packet"):
-                self.assertIn("`REC-", line)
+            if line.startswith("## "):
+                lane = line[3:].split(" ", 1)[0]
+            elif line.startswith("| ") and not line.startswith("| Item") and not line.startswith("|---"):
+                if lane in {"Decide", "Waiting", "Parked"}:
+                    self.assertIn(roadmap.LANE_REASONS[lane], line)
+                else:
+                    self.assertIn("`REC-", line)
         self.assertIn("Scores are **not assessed**", output["CURRENT_SURFACES.md"])
         self.assertIn("Day One", output["CURRENT_SURFACES.md"])
         self.assertIn("Grand Puff", output["CURRENT_SURFACES.md"])
@@ -175,6 +186,111 @@ class RoadmapTests(unittest.TestCase):
             row = roadmap.impact_history(root)[0]
             self.assertEqual(original, row["scope"])
             self.assertEqual(before, source.read_bytes())
+
+
+class LoopRepairTests(unittest.TestCase):
+    """Repairs from the 2026-10-03 review of the loop implementation."""
+
+    def record(self, lifecycle="CONFIRMED_OPEN", severity="P2", title="A defect the child can meet", impact="Presentation"):
+        return {"title": title, "lifecycle": f"`{lifecycle}`", "severity": severity, "child_impact": impact,
+                "owner_decision": "None", "history": "2026-09-01: opened.", "closure": "Owner evidence missing.",
+                "acceptance": "Owner review.", "reproduction": "Play."}
+
+    def test_changed_evidence_is_reported_not_fatal(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            source = root / "source.md"
+            source.write_text("Original evidence\n", encoding="utf-8")
+            document = {"strengths": [{"id": "S-90", "tier": "candidate", "acceptance_scope": "fixture", "reuse": "fixture",
+                                       "evidence": [{"path": "source.md", "sha256": roadmap.sha256(source)}]}]}
+            source.write_text("Edited evidence\n", encoding="utf-8")
+            self.assertEqual([], roadmap.validate_strengths(root, document, check_hashes=False))
+            self.assertTrue(roadmap.validate_strengths(root, document))
+            stale = roadmap.stale_strength_evidence(root, document)
+            self.assertEqual(["S-90"], [row["id"] for row in stale])
+
+    def test_lanes_follow_lifecycle_and_severity_ranks_before_wording(self):
+        records = {
+            "MA-TEST-001": self.record(severity="P2", impact="Lost progress may trap the child."),
+            "MA-TEST-002": self.record(severity="P1"),
+            "MA-TEST-003": self.record(lifecycle="FIXED_PENDING_VERIFICATION"),
+            "MA-TEST-004": self.record(lifecycle="BLOCKED_EXTERNAL"),
+            "MA-TEST-005": self.record(lifecycle="OWNER_DECISION_REQUIRED"),
+            "MA-TEST-006": self.record(lifecycle="DEFERRED_WITH_REASON"),
+            "MA-DOC-901": self.record(),
+            "MA-TEST-007": self.record(lifecycle="REPORTED_UNCONFIRMED"),
+            "MA-TEST-008": self.record(lifecycle="IN_PROGRESS"),
+        }
+        ordered = roadmap.make_repair_items(records, dt.date(2026, 10, 3))
+        items = {item["id"]: item for item in ordered}
+        self.assertEqual("Verify", items["MA-TEST-003"]["lane"])
+        self.assertEqual("Waiting", items["MA-TEST-004"]["lane"])
+        self.assertEqual("Decide", items["MA-TEST-005"]["lane"])
+        self.assertEqual("Parked", items["MA-TEST-006"]["lane"])
+        self.assertEqual("Strengthen", items["MA-DOC-901"]["lane"])
+        for identifier in ("MA-TEST-004", "MA-TEST-005", "MA-TEST-006"):
+            self.assertNotIn("recipe", items[identifier])
+            self.assertTrue(items[identifier]["reason"])
+        self.assertTrue(items["MA-TEST-002"]["prompt"].startswith("Fix MA-TEST-002"))
+        self.assertTrue(items["MA-TEST-003"]["prompt"].startswith("Check the fix for MA-TEST-003"))
+        self.assertTrue(items["MA-TEST-007"]["prompt"].startswith("Confirm or dismiss"))
+        self.assertTrue(items["MA-TEST-008"]["prompt"].startswith("Finish"))
+        self.assertTrue(items["MA-TEST-005"]["prompt"].startswith("Decide"))
+        repair = [item["id"] for item in ordered if item["lane"] == "Repair"]
+        self.assertEqual("MA-TEST-002", repair[0])
+
+    def test_recorded_owner_priority_leads_its_lane(self):
+        records = {"MA-DOC-901": self.record(severity="P2"), "MA-DOC-902": self.record(severity="P1")}
+        priorities = {"MA-DOC-901": {"decision": "ODR-TEST", "reason": "owner priority ODR-TEST (2026-09-30)"}}
+        items = roadmap.make_repair_items(records, dt.date(2026, 10, 3), priorities=priorities)
+        self.assertEqual(["MA-DOC-901", "MA-DOC-902"], [item["id"] for item in items])
+        self.assertIn("owner priority", items[0]["owner_reason"])
+
+    def test_live_register_priority_reaches_the_roadmap(self):
+        priorities = roadmap.owner_priorities(ROOT)
+        self.assertIn("MA-DOC-006", priorities)
+        output = roadmap.build_outputs(ROOT, {"cycle_date": "2026-10-03", "ci": {"status": "MEASURED", "advisory_steps": []}})["ROADMAP.md"]
+        strengthen = output.split("## Strengthen", 1)[1]
+        first_row = next(line for line in strengthen.splitlines() if line.startswith("| ") and not line.startswith(("| Item", "|---")))
+        self.assertTrue(first_row.startswith("| MA-DOC-006"))
+
+    def test_roadmap_prompts_route_to_their_recipe(self):
+        from tools import plan_prompt
+        catalogue = plan_prompt.load_catalogue(ROOT)
+        by_recipe = {item["recipe"]["id"]: item["id"] for item in catalogue["intents"]}
+        study = {"cycle_date": "2026-10-03", "handoffs": [{"handoff": "test-packet", "status": "NOT_STARTED"}],
+                 "ci": {"status": "MEASURED", "advisory_steps": [{"name": "Capture fixture", "status": "FAILED", "reason": "renderer fallback"}]},
+                 "sensors": {"debt": {"status": "MEASURED", "summary": {"status": "UNSATISFIED"}}}}
+        records = roadmap.split_records((ROOT / roadmap.FINDINGS).read_text(encoding="utf-8"))
+        items = roadmap.make_repair_items(records, dt.date(2026, 10, 3))
+        rows = [item for item in items if item.get("recipe")]
+        rows += roadmap.strengthen_items(study, [], [], 1) + roadmap.grow_items(catalogue)
+        for item in rows:
+            with self.subTest(prompt=item["prompt"]):
+                self.assertEqual(by_recipe[item["recipe"]], plan_prompt.infer_intent(item["prompt"], catalogue)["id"])
+
+    def test_unmeasured_ci_and_retired_steps(self):
+        unmeasured = roadmap.strengthen_items({"ci": {"status": "UNAVAILABLE", "reason": "offline"}}, [], [], 0)
+        self.assertEqual("CI-UNMEASURED", unmeasured[0]["id"])
+        steps = [{"name": "Retired capture", "status": "NOT_MEASURED", "retired": True},
+                 {"name": "Broken capture", "status": "FAILED", "reason": "renderer fallback"}]
+        rows = roadmap.strengthen_items({"ci": {"status": "MEASURED", "advisory_steps": steps}}, [], [], 0)
+        ids = [row["id"] for row in rows]
+        self.assertIn("ADVISORY-Broken capture", ids)
+        self.assertNotIn("ADVISORY-Retired capture", ids)
+
+    def test_grow_lane_comes_from_the_catalogue(self):
+        from tools import plan_prompt
+        rows = roadmap.grow_items(plan_prompt.load_catalogue(ROOT))
+        self.assertEqual(["GROW-ADD-JOB", "GROW-ROOM-ACTIVITY", "GROW-COMPANION", "GROW-EVENT"], [row["id"] for row in rows])
+        self.assertIn("ODR-LOOP-Q8", rows[0]["source"])
+
+    def test_short_title_is_sayable(self):
+        title = "Castle interaction progress the child can see accumulates only in the unpersisted `m.g` scratch dictionary and is lost on app kill."
+        handle = roadmap.short_title(title)
+        self.assertLessEqual(len(handle), 91)
+        self.assertNotIn("`", handle)
+        self.assertEqual("2026-10-03", roadmap.cycle_date("2026-10-03b").isoformat())
 
 
 if __name__ == "__main__":

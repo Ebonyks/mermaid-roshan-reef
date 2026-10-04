@@ -332,7 +332,7 @@ ship without per-frame regeneration or `DELIVERY_ACCEPTED` evidence.
   mobile default; treat 30 fps and transparent-overdraw budget as hard limits.
 
 ## Build & test (headless, no display needed)
-GODOT=./Godot_v4.7.2-stable_linux.x86_64   # or `godot` on PATH
+GODOT=./Godot_v4.7.2-stable_linux.x86_64   # or GODOT="$(python3 tools/resolve_godot.py)"; an older PATH build is not valid
 1. Import (required after any asset change):
    $GODOT --headless --import .
    ⚠ KNOWN DEADLOCK: NPOT textures with compress/mode=2 hang the headless

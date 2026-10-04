@@ -62,6 +62,22 @@ class AdvisorySensorTests(unittest.TestCase):
 		for output in ("DUSTSHOT|INCOMPLETE|interrupted\nDUSTSHOT|DONE|folder", "NORTHSHOT|RESULT|HEADLESS SKIP"):
 			self.assertEqual("NOT_MEASURED", classify(output, 0, "", [])[0])
 
+	def test_verdict_before_a_hang_stands_but_failures_still_veto(self):
+		status, reason = classify("BALANCE|RESULT|PASS|measured=45", 124, "BALANCE|RESULT|", [])
+		self.assertEqual("MEASURED", status)
+		self.assertIn("hung after its verdict", reason)
+		self.assertEqual("FAILED", classify("BALANCE|case|FAIL\nBALANCE|RESULT|PASS", 124, "BALANCE|RESULT|", [])[0])
+		self.assertEqual("CAPPED", classify("BALANCE|ROSTER|acts=15", 124, "BALANCE|RESULT|", [])[0])
+
+	def test_declared_retirement_exits_cleanly(self):
+		import contextlib, io
+		from tools import run_advisory_sensor
+		with tempfile.TemporaryDirectory() as folder:
+			with contextlib.redirect_stdout(io.StringIO()) as output:
+				code = run_advisory_sensor.main(["--name", "retired-capture", "--report-dir", folder, "--not-measured", "Retired capture removed from live review"])
+			self.assertEqual(0, code)
+			self.assertIn("ADVISORY|retired-capture|RESULT|NOT_MEASURED|Retired", output.getvalue())
+
 	def test_old_outputs_do_not_count_as_current_capture(self):
 		with tempfile.TemporaryDirectory() as folder:
 			path = Path(folder) / "capture.png"

@@ -1,0 +1,173 @@
+{
+  "id": "self-improvement-loop-review-20261003",
+  "scope": "Owner request 2026-10-03: \"audit, evaluate, and improve\" commit 4cb14feb (Codex's implementation of the self-improvement loop handoff), then \"Refine and fix it.\" Review and evaluation in docs/handoffs/codex_loop_review_2026-10-03/REVIEW.md (LR-01 to LR-27, scorecards against LP0-LP11 and AC-1 to AC-10). Repairs to the loop's tooling and records: strength-evidence drift no longer fails CI (structure stays gated, drift becomes a re-review item); the study takes each advisory step's own wrapper verdict, ignores echoed script lines and the benign audio warning, reads the workflow as committed at the studied head, refuses uncommitted changes outside the cycle folder, reconciles PENDING CI entries by exact head, measures shipping surfaces from trusted probes, captures and findings, stores compact output without local paths, hashes text as committed, fails closed on health targets, measures lessons from the LP4 boundary and renders an owner-readable report from study.json plus a validated judgement file; the roadmap lanes findings by lifecycle and ranks recorded owner priority and severity first with prompts that route to recipes; the planner is generic (no stored job answer, derived save facts, candidate intents when a prompt matches none) and recipes are rendered from the catalogue (no-images rule restated, reserved decisions wait, DL-INT-14 imp contest, Parler voice pipeline, Roshan identity anchor, lifecycle check first in repair); the decision register is enforced append-only by a CI-run test and gains the owner's 2026-09-30 job-takeover priority from its two sources; plain owner and device pages come from design/reference/verification_checks.json; the advisory wrapper exits cleanly for declared retirements and honours a verdict printed before an engine hang; run_godot.ps1 passes Godot flags through; ci.sh exports GODOT; the build line in CLAUDE.md and AGENTS.md names the resolver; cycle files are unignored; one mojibake fixed. Finding histories of MA-DOC-009, MA-CI-008, MA-DOC-006 and MA-OPERA-001 appended; master-audit pointer and ledger rows added. Codex handoff docs/handoffs/codex_loop_review_2026-10-03/README.md (CR1-CR6) for the game, probe, capture and workflow items. No game script, scene, asset, image, save key, rule text or finding lifecycle changes.",
+  "baseline": "4cb14febc2c5f0074d5ad8386ce66f19f940c84d",
+  "rules": [
+    "DL-AUTH-02",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-PLAN-01",
+    "DL-PLAN-04",
+    "DL-PLAN-05",
+    "DL-PLAN-06",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07",
+    "DL-INT-14",
+    "DL-SND-05",
+    "DL-MOT-13",
+    "DL-VIS-07"
+  ],
+  "findings": [
+    "MA-DOC-009",
+    "MA-CI-008",
+    "MA-DOC-006",
+    "MA-OPERA-001"
+  ],
+  "files": [
+    ".gitignore",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/cycles/2026-10-03-baseline/owner_answers.json",
+    "audit/cycles/2026-10-03/IMPLEMENTATION.md",
+    "audit/cycles/README.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/audit_impacts/self-improvement-loop-review-20261003.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/reference/STRENGTHS.md",
+    "design/reference/owner_decisions.json",
+    "design/reference/prompt_intents.json",
+    "design/reference/recipes/add_job.md",
+    "design/reference/recipes/art.md",
+    "design/reference/recipes/character_animation.md",
+    "design/reference/recipes/companion.md",
+    "design/reference/recipes/event.md",
+    "design/reference/recipes/new_chapter.md",
+    "design/reference/recipes/polish.md",
+    "design/reference/recipes/publish_handoff.md",
+    "design/reference/recipes/release.md",
+    "design/reference/recipes/repair.md",
+    "design/reference/recipes/retire.md",
+    "design/reference/recipes/room_activity.md",
+    "design/reference/recipes/story_clip.md",
+    "design/reference/recipes/study.md",
+    "design/reference/recipes/voice_lines.md",
+    "design/reference/strengths.json",
+    "design/reference/verification_checks.json",
+    "docs/handoffs/codex_loop_review_2026-10-03/.gdignore",
+    "docs/handoffs/codex_loop_review_2026-10-03/MANIFEST.json",
+    "docs/handoffs/codex_loop_review_2026-10-03/README.md",
+    "docs/handoffs/codex_loop_review_2026-10-03/REVIEW.md",
+    "docs/handoffs/codex_loop_review_2026-10-03/data/study_rerun_4cb14feb_summary.json",
+    "scripts/ci.sh",
+    "tools/build_study_roadmap.py",
+    "tools/plan_prompt.py",
+    "tools/record_owner_decision.py",
+    "tools/run_advisory_sensor.py",
+    "tools/run_godot.ps1",
+    "tools/study_game.py",
+    "tools/tests/test_build_study_roadmap.py",
+    "tools/tests/test_plan_prompt.py",
+    "tools/tests/test_record_owner_decision.py",
+    "tools/tests/test_run_advisory_sensor.py",
+    "tools/tests/test_study_game.py"
+  ],
+  "validation": [
+    {
+      "command": "Read-only review of 4cb14feb: tools, CI and probes, generated content; gates and tests; read-only study rerun at 4cb14feb; Probe Suite runs 37161828730, 37159346388 and 37100729058; official Godot download page",
+      "result": "PASS",
+      "evidence": "REVIEW.md sections 1-6. At 4cb14feb: DOCAUTH 640/640 ALL OK, AUDITDEV ALL OK, 164 loop and governance tests OK; study rerun summary in docs/handoffs/codex_loop_review_2026-10-03/data/study_rerun_4cb14feb_summary.json (advisory steps, 2 of 38 PENDING entries resolved by the old collector, study.json 2.6 MB). Run 37161828730: wrapper verdicts MEASURED for dust-boss-balance, dust-boss-controls, opera-art-manifest, legacy-human-art and northern-review; FAILED for sky-lagoon-review, dust-boss-review and castle-review; CAPPED for opera-balance (measured=12 of 45). godotengine.org/download/windows lists 4.7.2, 18 August 2026. Not verified: the Chef first-step stall in Godot."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_study_game tools.tests.test_build_study_roadmap tools.tests.test_plan_prompt tools.tests.test_record_owner_decision tools.tests.test_run_advisory_sensor tools.tests.test_resolve_godot tools.tests.test_audit_development",
+      "result": "PASS",
+      "evidence": "148 tests OK in 55 s: test_study_game, test_build_study_roadmap, test_plan_prompt, test_record_owner_decision, test_run_advisory_sensor, test_resolve_godot, test_audit_development and test_audit_document_authority. New coverage: echoed CI lines and the audio warning, worst wrapper verdict, retirements, per-head reconciliation states, committed-head refusal, report length and raw-text limits, judgement validation and routing, compact output, line-ending-safe hashes, lifecycle lanes, owner priority, prompt routing for every roadmap item, unseen-job planner leakage, derived save facts, append-only register."
+    },
+    {
+      "command": "python -B tools/plan_prompt.py --check; python -B tools/record_owner_decision.py --check --base origin/dev; python -B tools/build_study_roadmap.py --check",
+      "result": "PASS",
+      "evidence": "PROMPTS: ALL OK (catalogue valid; all 15 recipes match their rendering); DECISIONS|RESULT|ALL OK with --base origin/dev (17 decisions, append-only); STRENGTHS: ALL OK after re-reviewing S-01, S-05, S-07 and S-14, whose AGENTS.md evidence changed only by this change's build-line edit. Under the old gate that edit would have failed the mandatory CI test (LR-01)."
+    },
+    {
+      "command": "PowerShell 5.1 argument binding: the old run_godot.ps1 param block against the new $args form, with a stub script",
+      "result": "PASS",
+      "evidence": "Old form: \"-d -v --headless -s scripts/probe_passive.gd\" arrived as \"--headless|-s|scripts/probe_passive.gd\" and \"-e\" failed as an ambiguous parameter; new form passed \"-d|-v|-e|--headless|-s|scripts/probe_passive.gd\"."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "DOCAUTH|INVENTORY=642|LEDGER=642|ACTIVE=61|RECORDS=64, RESULT ALL OK; --stress 6/6. Also run: tools/audit_game_2d.py --regression-gate NO_REGRESSION (migration debt still UNSATISFIED); tools/audit_imagine_handoff.py --all ALL OK. Not run by Claude: image-writing gates tools/audit_castle_card_alpha.py and tools/audit_fairy_art_v2.py; CI runs them."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "AUDITDEV|BASE|4cb14febc2c5f0074d5ad8386ce66f19f940c84d, RESULT ALL OK."
+    },
+    {
+      "command": "Anonymous fetch of the review packet manifest and every listed file from raw.githubusercontent.com at the pushed commit",
+      "result": "PENDING",
+      "evidence": "Recorded in the receipt commit that follows the publication commit."
+    },
+    {
+      "command": "GitHub Probe Suite at the branch head",
+      "result": "PENDING",
+      "evidence": "Required green before merging into dev; the study collector resolves this entry from the run at the commit that last changed this record."
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "A mandatory test that pins hashes of live documents turns routine edits into red builds; gate structure and report drift for re-review.",
+      "write_back": "tools/build_study_roadmap.py",
+      "recurrence_key": "live-hash-gate"
+    },
+    {
+      "lesson": "A cold-start test passes by construction when the tool stores the answer to its own test prompt; test on prompts the tool has never seen.",
+      "write_back": "tools/tests/test_plan_prompt.py",
+      "recurrence_key": "test-passes-by-construction"
+    },
+    {
+      "lesson": "CI logs echo each step's script; classify the step's own verdict line, never keywords anywhere in the log.",
+      "write_back": "tools/study_game.py",
+      "recurrence_key": "silent-sensor"
+    },
+    {
+      "lesson": "Moving a dated owner priority into history without a register entry silently drops it from planning.",
+      "write_back": "design/reference/owner_decisions.json",
+      "recurrence_key": "owner-decision-lost"
+    },
+    {
+      "lesson": "A generated machine draft is not the owner report; the judgement layer (strengths, prompts, questions) must be written for a parent.",
+      "write_back": "audit/cycles/README.md"
+    }
+  ],
+  "strengths_observed": [
+    {
+      "id": "S-10",
+      "evidence": "Each lesson above became a check or tool change in the same change: drift report, unseen-job tests, wrapper verdicts, register entry and append-only test, judgement validation."
+    }
+  ],
+  "references_used": [
+    {
+      "path": "docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md",
+      "purpose": "The commissioned loop, LP0-LP11 and AC-1 to AC-10"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "purpose": "DL-PLAN-01, DL-INT-14, DL-QA and DL-MOT rules applied to recipes, sensors and checks"
+    },
+    {
+      "path": "assets/audio/voices/VOICE_MANIFEST.md",
+      "purpose": "Parler pipeline for new provisional voice lines"
+    },
+    {
+      "path": "audit/cycles/2026-10-03-baseline/REPAIR_ORDER_HISTORY.md",
+      "purpose": "Source of the owner's 2026-09-30 job-takeover priority"
+    }
+  ],
+  "acceptance_gaps": "Tooling, recipes, registers and records repaired; no game file, probe capture, image, save key or lifecycle closure. MA-DOC-009 and MA-CI-008 stay IN_PROGRESS: two real owner-answer/build/check/learn cycles, a booked verification session, owner review of the second cycle and Codex packages CR1-CR6 (possible Chef first-step stall, CI captures on the fallback renderer, Opera pacing coverage, probe and workflow repairs, register corrections, fresh-agent cold start) remain. The 2026-10-03 cycle outputs stay as the historical infrastructure study; cycle 2026-10-03b follows in a separate commit once CI has run on this head. No visual, device, child or owner acceptance is claimed."
+}

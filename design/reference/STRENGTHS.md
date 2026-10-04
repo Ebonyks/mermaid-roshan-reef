@@ -1,6 +1,6 @@
 # Strengths register
 
-Status: `SUPPORTING_CURRENT`. Generated from [strengths.json](strengths.json); source hashes invalidate a candidate when its evidence changes. Each evidence row declares its hash mode: `git_canonical_lf` normalizes CRLF to LF for text sources; `raw` (also the default when omitted) hashes exact bytes. Binary evidence always retains exact-byte hashes.
+Status: `SUPPORTING_CURRENT`. Generated from [strengths.json](strengths.json); source hashes invalidate a candidate when its evidence changes. Each evidence row declares its hash mode: `git_canonical_lf` normalizes CRLF to LF for text sources; `raw` (also the default when omitted) hashes exact bytes. Binary evidence always retains exact-byte hashes. Changed evidence is reported by each study for re-review; it does not fail unrelated builds.
 
 Accepted entries preserve their exact owner/child scope. An accepted design constraint does not certify runtime performance, visual quality or child enjoyment. Candidate patterns may guide a recipe with their limits visible. Seed-only proposals remain proposals.
 
@@ -12,7 +12,7 @@ Reuse: Every recipe keeps it; a recipe step that could fail the child is rejecte
 
 Evidence:
 
-- [AGENTS.md](../../AGENTS.md) — owner_rule; SHA-256 `6bd3176c6227ac99902632a3932eca70a320a560909ba96665cdf427f111eea1`; hash mode `git_canonical_lf`. 2026-10-03 source re-review: latest-stable launcher note added; named child/source/Day One/follower constraints unchanged. Source scope only, no new performance acceptance.
+- [AGENTS.md](../../AGENTS.md) — owner_rule; SHA-256 `a01e058115bf3bed1949492f68c27058f70754a9e7e3bfeec392ef71a6c1c9e6`; hash mode `git_canonical_lf`. 2026-10-03 source re-review: latest-stable launcher note added; named child/source/Day One/follower constraints unchanged. Source scope only, no new performance acceptance. Re-reviewed 2026-10-03 after a one-line build-command edit to AGENTS.md; the bound rule text is unchanged.
 - [scripts/probe_passive.gd](../../scripts/probe_passive.gd) — probe_source; SHA-256 `e266e523af5c629f98ca8b52acfd931de7659b455a58634ccde6a917f3b50e97`; hash mode `git_canonical_lf`. Source evidence only; existence does not prove a current passing run.
 
 References:
@@ -80,7 +80,7 @@ Reuse: Day One only until the owner extends it
 
 Evidence:
 
-- [AGENTS.md](../../AGENTS.md) — owner_rule; SHA-256 `6bd3176c6227ac99902632a3932eca70a320a560909ba96665cdf427f111eea1`; hash mode `git_canonical_lf`. 2026-10-03 source re-review: latest-stable launcher note added; named child/source/Day One/follower constraints unchanged. Source scope only, no new performance acceptance.
+- [AGENTS.md](../../AGENTS.md) — owner_rule; SHA-256 `a01e058115bf3bed1949492f68c27058f70754a9e7e3bfeec392ef71a6c1c9e6`; hash mode `git_canonical_lf`. 2026-10-03 source re-review: latest-stable launcher note added; named child/source/Day One/follower constraints unchanged. Source scope only, no new performance acceptance. Re-reviewed 2026-10-03 after a one-line build-command edit to AGENTS.md; the bound rule text is unchanged.
 - [scripts/day_one_story_clips.gd](../../scripts/day_one_story_clips.gd) — file; SHA-256 `ca199cc8efe6c203717c2faca4541ee4a262ae7587627975a166e7e3f955c82a`; hash mode `git_canonical_lf`. Source evidence only; existence does not prove a current passing run.
 
 References:
@@ -114,7 +114,7 @@ Reuse: Protect original family recordings/book art; new synthetic cues use the c
 
 Evidence:
 
-- [AGENTS.md](../../AGENTS.md) — owner_rule; SHA-256 `6bd3176c6227ac99902632a3932eca70a320a560909ba96665cdf427f111eea1`; hash mode `git_canonical_lf`. 2026-10-03 source re-review: latest-stable launcher note added; named child/source/Day One/follower constraints unchanged. Source scope only, no new performance acceptance.
+- [AGENTS.md](../../AGENTS.md) — owner_rule; SHA-256 `a01e058115bf3bed1949492f68c27058f70754a9e7e3bfeec392ef71a6c1c9e6`; hash mode `git_canonical_lf`. 2026-10-03 source re-review: latest-stable launcher note added; named child/source/Day One/follower constraints unchanged. Source scope only, no new performance acceptance. Re-reviewed 2026-10-03 after a one-line build-command edit to AGENTS.md; the bound rule text is unchanged.
 - [assets/audio/voices/VOICE_MANIFEST.md](../../assets/audio/voices/VOICE_MANIFEST.md) — file; SHA-256 `9955f54a3228230ceb402616f69cbcd7c11005b092d23bd6d71f6a0e0db56c3b`; hash mode `git_canonical_lf`. Source evidence only; existence does not prove a current passing run.
 
 References:
@@ -232,7 +232,7 @@ Reuse: The companion recipe and the grow lane favour them
 Evidence:
 
 - [STUFFIE_COMPANIONS.md](../../STUFFIE_COMPANIONS.md) — file; SHA-256 `2bf2957d5bcba357764cb2321be10212e424150134fb5d6abd62efc803af5ec1`; hash mode `git_canonical_lf`. Source evidence only; existence does not prove a current passing run.
-- [AGENTS.md](../../AGENTS.md) — owner_rule; SHA-256 `6bd3176c6227ac99902632a3932eca70a320a560909ba96665cdf427f111eea1`; hash mode `git_canonical_lf`. 2026-10-03 source re-review: latest-stable launcher note added; named child/source/Day One/follower constraints unchanged. Source scope only, no new performance acceptance.
+- [AGENTS.md](../../AGENTS.md) — owner_rule; SHA-256 `a01e058115bf3bed1949492f68c27058f70754a9e7e3bfeec392ef71a6c1c9e6`; hash mode `git_canonical_lf`. 2026-10-03 source re-review: latest-stable launcher note added; named child/source/Day One/follower constraints unchanged. Source scope only, no new performance acceptance. Re-reviewed 2026-10-03 after a one-line build-command edit to AGENTS.md; the bound rule text is unchanged.
 
 References:
 

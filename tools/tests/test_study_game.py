@@ -76,7 +76,7 @@ jobs:
 """)
         for index in range(3):
             self.write(root, f"design/audit_impacts/example-{index}.json", {
-                "id": f"example-{index}", "scope": "An object-motion study",
+                "id": f"example-{index}", "scope": "An object-motion study", "rules": ["DL-MOT-13"],
                 "files": ["scripts/changed.gd", "assets_src/cinematics/object_motion_2026/swing.png"], "findings": ["MA-CI-001"],
                 "lessons": [{"lesson": "Keep sensor gaps visible", "write_back": "tools/study_game.py",
                              "recurrence_key": "silent-sensor"}],
@@ -189,6 +189,8 @@ jobs:
             path = root / ".github/workflows/probes.yml"
             original = path.read_text()
             path.write_text(original.replace("run: some sensor", "run: godot -s scripts/probe_opera_balance.gd -- --touch"))
+            self.git(root, "commit", "-qam", "workflow")
+            head = self.git(root, "rev-parse", "HEAD")
             jobs = [{"name": "probes", "steps": [
                 {"name": "Opera balance playtest (advisory)", "conclusion": "success", "started_at": "2026-10-03T17:30:33Z", "completed_at": "2026-10-03T17:30:38Z"},
                 {"name": "Publish opera art manifest (advisory)", "conclusion": "success", "started_at": "2026-10-03T17:30:38Z", "completed_at": "2026-10-03T17:30:40Z"}]}]
@@ -197,6 +199,9 @@ jobs:
             self.assertEqual("CAPPED", result["advisory_steps"][1]["status"])
             self.assertEqual({"registered_protocol": 1}, result["advisory_steps"][1]["log_attribution"])
             path.write_text(path.read_text().replace("run: some capture", "run: godot -s scripts/probe_opera_balance.gd"))
+            self.assertEqual("CAPPED", study.analyze_ci(root, head, {"run": {"head_sha": head}, "jobs": jobs, "log": line})["advisory_steps"][1]["status"])
+            self.git(root, "commit", "-qam", "workflow 2")
+            head = self.git(root, "rev-parse", "HEAD")
             result = study.analyze_ci(root, head, {"run": {"head_sha": head}, "jobs": jobs, "log": line})
             self.assertEqual("NOT_MEASURED", result["advisory_steps"][1]["status"])
             self.assertEqual([line], result["unattributed_result_lines"])
@@ -210,11 +215,15 @@ jobs:
             original = path.read_text()
             command = "run: python tools/run_advisory_sensor.py --name opera-balance --timeout 30 -- command"
             path.write_text(original.replace("run: some sensor", command))
+            self.git(root, "commit", "-qam", "workflow")
+            head = self.git(root, "rev-parse", "HEAD")
             line = "probes\tUNKNOWN STEP\t2026-10-03T17:30:38.0682736Z ADVISORY|opera-balance|RESULT|CAPPED|timeout"
             result = study.analyze_ci(root, head, {"run": {"head_sha": head}, "log": line})
             self.assertEqual("CAPPED", result["advisory_steps"][1]["status"])
             self.assertEqual({"wrapper_id": 1}, result["advisory_steps"][1]["log_attribution"])
             path.write_text(path.read_text().replace("run: some capture", command))
+            self.git(root, "commit", "-qam", "workflow 2")
+            head = self.git(root, "rev-parse", "HEAD")
             result = study.analyze_ci(root, head, {"run": {"head_sha": head}, "log": line})
             self.assertEqual("NOT_MEASURED", result["advisory_steps"][1]["status"])
             self.assertEqual([line], result["unattributed_result_lines"])
@@ -246,7 +255,7 @@ jobs:
             data["roadmap_observation"] = stale
             self.assertEqual("NEEDS_ATTENTION", next(row for row in study.health_targets(data) if row["id"] == "roadmap_current_cycle")["status"])
             self.write(root, "audit/ROADMAP.md", roadmap.build_outputs(root, data)["ROADMAP.md"])
-            data = study.collect(root, "2026-10-03", "2026-10-03", offline=True, skip_sensors=True)
+            data = study.collect(root, "2026-10-03", "2026-10-03", offline=True, skip_sensors=True, allow_dirty=True)
             self.assertTrue(data["roadmap_observation"]["current"])
             target = next(row for row in data["health_targets"] if row["id"] == "roadmap_current_cycle")
             self.assertEqual("ON_TARGET", target["status"])
@@ -254,9 +263,10 @@ jobs:
             self.assertFalse(study.roadmap_observation(root, {**data, "cycle_date": "2026-10-04"})["current"])
             self.assertFalse(study.roadmap_observation(root, {**data, "head": "f" * 40, "studied_head": "f" * 40})["current"])
             source.write_text("Changed candidate source")
-            invalid = study.roadmap_observation(root, data)
-            self.assertEqual("NOT_MEASURED", invalid["status"])
-            self.assertIn("evidence changed", invalid["reason"])
+            changed = study.roadmap_observation(root, data)
+            self.assertEqual("MEASURED", changed["status"])
+            self.assertFalse(changed["current"])
+            self.assertIn("STRENGTH-S-01", roadmap.build_outputs(root, data)["ROADMAP.md"])
             (root / "design/reference/strengths.json").unlink()
             self.assertEqual("NOT_MEASURED", study.roadmap_observation(root, data)["status"])
 
@@ -265,7 +275,7 @@ jobs:
             root = Path(directory)
             baseline = self.fixture(root)
             previous = self.write(root, "build/previous.json", {"cycle": "baseline", "head": baseline})
-            result = study.collect(root, "2026-10-03", "2026-10-03", previous, offline=True, skip_sensors=True)
+            result = study.collect(root, "2026-10-03", "2026-10-03", previous, offline=True, skip_sensors=True, allow_dirty=True)
             self.assertEqual("NOT_MEASURED", result["ci"]["status"])
             self.assertEqual(2, len(result["findings_changed_since_history"]))
             self.assertEqual(3, len(result["impacts"]["lessons"]))
@@ -426,8 +436,10 @@ jobs:
             root = Path(directory)
             self.fixture(root)
             previous = self.write(root, "build/previous.json", [])
-            with self.assertRaisesRegex(ValueError, "Previous observation"):
+            with self.assertRaisesRegex(ValueError, "Study a committed head"):
                 study.collect(root, "one", "2026-10-03", previous, offline=True, skip_sensors=True)
+            with self.assertRaisesRegex(ValueError, "Previous observation"):
+                study.collect(root, "one", "2026-10-03", previous, offline=True, skip_sensors=True, allow_dirty=True)
             saved = self.write(root, "build/saved.json", {"cycle": "one"})
             with contextlib.redirect_stderr(io.StringIO()) as output:
                 self.assertEqual(1, study.main(["--root", str(root), "--render", str(saved), "--output", "build/rendered"]))
@@ -461,6 +473,136 @@ jobs:
             self.assertEqual(malformed, saved.read_bytes())
             self.write(root, "audit/cycles/one/owner_answers.json", [{**answer, "cycle": "other"}])
             self.assertEqual("FAIL", study.cycle_evidence(root, "one")["status"])
+
+
+class StudyRepairTests(unittest.TestCase):
+    """Repairs from the 2026-10-03 review of the loop implementation."""
+
+    LOG = ("probes\tDust boss balance playtest (advisory)\t2026-10-04T00:05:00.1Z \x1b[36;1mpython3 tools/run_advisory_sensor.py --name dust --timeout 610 -- timeout 10m godot\x1b[0m\n"
+           "probes\tDust boss balance playtest (advisory)\t2026-10-04T00:05:01.1Z WARNING: All audio drivers failed, falling back to the dummy driver.\n"
+           "probes\tDust boss balance playtest (advisory)\t2026-10-04T00:07:56.2Z ADVISORY|dust|RESULT|MEASURED|measurement/output exists\n")
+
+    def test_echoed_script_and_benign_warnings_are_not_failures(self):
+        self.assertEqual("MEASURED", study.advisory_status(self.LOG, "success")[0])
+        self.assertTrue(study.is_noise("probes\tStep\t2026-10-04T00:05:00.1Z \x1b[36;1mtimeout 10m godot\x1b[0m"))
+        self.assertTrue(study.is_noise("probes\tStep\t2026-10-04T00:05:00.1Z WARNING: All audio drivers failed"))
+        self.assertFalse(study.is_noise("probes\tStep\t2026-10-04T00:05:00.1Z LAGOONSHOT|RESULT|FAIL"))
+
+    def test_worst_wrapper_verdict_wins_and_retirement_is_declared(self):
+        text = ("x\ty\t2026-10-04T00:00:00.1Z ADVISORY|one|RESULT|FAILED|exit 1\n"
+                "x\ty\t2026-10-04T00:00:01.1Z ADVISORY|two|RESULT|NOT_MEASURED|unsupported\n")
+        self.assertEqual("FAIL", study.advisory_status(text)[0])
+        retired = "x\ty\t2026-10-04T00:00:00.1Z ADVISORY|reef|RESULT|NOT_MEASURED|Retired Reef capture removed from live review"
+        self.assertEqual([("NOT_MEASURED", "reef", "Retired Reef capture removed from live review")], study.wrapper_results(retired))
+
+    def test_pending_entries_reconcile_by_exact_head(self):
+        pending = [{"record": "a.json", "command": "GitHub Probe Suite at the branch head", "last_changed_head": "a" * 40},
+                   {"record": "b.json", "command": "Probe Suite CI", "last_changed_head": "b" * 40},
+                   {"record": "c.json", "command": "Probe Suite CI", "last_changed_head": None},
+                   {"record": "d.json", "command": "Owner review", "last_changed_head": "d" * 40}]
+        runs = {"a" * 40: [{"id": 2, "status": "completed", "conclusion": "success"}, {"id": 1, "status": "completed", "conclusion": "cancelled"}],
+                "b" * 40: [{"id": 3, "status": "completed", "conclusion": "cancelled"}]}
+        study.reconcile_pending(pending, runs, [])
+        self.assertEqual(["RUN_FOUND", "CANCELLED_ONLY", "UNKNOWN_HEAD", "NOT_CI"], [row["ci_reconciliation"]["state"] for row in pending])
+        self.assertEqual(2, pending[0]["ci_reconciliation"]["run"]["id"])
+
+    def test_health_targets_fail_closed_without_findings(self):
+        data = {"loop_health": {"findings": {}}, "impacts": {"records": [], "owner_corrections": []}}
+        targets = {row["id"]: row for row in study.health_targets(data)}
+        self.assertEqual("NOT_MEASURED", targets["stale_open_fraction"]["status"])
+        self.assertEqual("NOT_MEASURED", targets["old_unverified_fixes"]["status"])
+        self.assertEqual("NOT_MEASURED", targets["repeated_owner_corrections"]["status"])
+
+    def test_text_sources_hash_the_same_on_every_platform(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            lf = root / "lf.gd"
+            crlf = root / "crlf.gd"
+            lf.write_bytes(b"extends Node\n")
+            crlf.write_bytes(b"extends Node\r\n")
+            self.assertEqual(study.content_sha256(lf), study.content_sha256(crlf))
+            image = root / "image.png"
+            image.write_bytes(b"\x89PNG\r\n")
+            self.assertEqual(hashlib.sha256(b"\x89PNG\r\n").hexdigest(), study.content_sha256(image))
+
+
+class StudyReportTests(unittest.TestCase):
+    # Reuse the repository fixture helpers without re-running the base tests.
+    write = StudyGameTests.write
+    git = StudyGameTests.git
+    fixture = StudyGameTests.fixture
+
+    def collected(self, root: Path) -> dict:
+        self.fixture(root)
+        return study.collect(root, "2026-10-03", "2026-10-03", offline=True, skip_sensors=True)
+
+    def test_dirty_tree_is_refused_but_cycle_outputs_are_allowed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.fixture(root)
+            self.write(root, "audit/cycles/2026-10-03/owner_answers.json", [])
+            data = study.collect(root, "2026-10-03", "2026-10-03", offline=True, skip_sensors=True,
+                                 output=root / "audit/cycles/2026-10-03")
+            self.assertEqual(["audit/cycles/2026-10-03/owner_answers.json"], data["working_tree"]["paths"])
+            self.write(root, "scripts/changed.gd", "extends Node\n# uncommitted\n")
+            with self.assertRaisesRegex(ValueError, "Study a committed head"):
+                study.collect(root, "2026-10-03", "2026-10-03", offline=True, skip_sensors=True, output=root / "audit/cycles/2026-10-03")
+            scratch = study.collect(root, "2026-10-03", "2026-10-03", offline=True, skip_sensors=True, allow_dirty=True)
+            self.assertIn("NOT REPRODUCIBLE", study.render_report(scratch))
+
+    def test_report_is_short_plain_and_free_of_raw_machine_text(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            data = self.collected(root)
+            data["ci"] = {"status": "MEASURED", "run": {"id": 1, "html_url": "https://example.invalid/1", "status": "completed", "conclusion": "success"},
+                          "advisory_steps": [{"name": "Capture Sky Lagoon visual review", "status": "FAIL", "reason": "sky: process exit 1", "retired": False},
+                                             {"name": "Capture first-world visual review", "status": "NOT_MEASURED", "reason": "reef: Retired Reef capture", "retired": True}],
+                          "unattributed_result_lines": ["\x1b[36;1mraw\x1b[0m"] * 40, "trusted_probes": {"ran": ["probe_a"], "failed": [], "hung_after_verdict": []}}
+            report = study.render_report(data)
+            self.assertLessEqual(len(report.splitlines()), 90)
+            self.assertLessEqual(len(report.split()), 1200)
+            self.assertNotIn("\x1b", report)
+            self.assertNotIn('{"lesson"', report)
+            self.assertNotRegex(report, r"0\.\d{6,}")
+            self.assertIn("1 retired", report)
+            self.assertIn("## 7. Questions for the owner", report)
+            self.assertIn("(generated candidate)", report)
+
+    def test_judgement_drives_prompts_and_questions(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            data = self.collected(root)
+            catalogue = json.loads((Path(__file__).resolve().parents[2] / "design/reference/prompt_intents.json").read_text(encoding="utf-8"))
+            self.write(root, "design/reference/prompt_intents.json", catalogue)
+            judgement = {"schema": "cycle_judgement/1", "cycle": "2026-10-03", "author": "Claude", "summary": "Short summary.",
+                         "strengths": [{"id": "S-02", "note": "Scrubbing changes the room where the child touches."}],
+                         "weaknesses": [{"item": "Captures fail on CI", "action": "Report the renderer fallback"}],
+                         "prompts": [{"say": "Study the game", "intent": "INT-STUDY", "why": "next cycle", "size": "small"}],
+                         "questions": [{"question": "May we keep the defaults?", "default": "yes"}]}
+            path = self.write(root, "audit/cycles/2026-10-03/judgement.json", judgement)
+            loaded = study.load_judgement(root, path, data)
+            report = study.render_report(data, loaded)
+            self.assertIn("written by Claude", report)
+            self.assertIn("**S-02**", report)
+            self.assertIn('"Study the game"', report)
+            self.assertNotIn("(generated candidate)", report)
+            for bad in ({"prompts": [{"say": "Study the game", "intent": "INT-REPAIR", "why": "x", "size": "small"}]},
+                        {"questions": [{"question": "No question mark", "default": "yes"}]},
+                        {"prompts": [{"say": "Study the game", "intent": "INT-STUDY", "why": "x", "size": "small"}] * 6},
+                        {"cycle": "other"}):
+                with self.subTest(bad=bad):
+                    self.write(root, "audit/cycles/2026-10-03/judgement.json", {**judgement, **bad})
+                    with self.assertRaises(ValueError):
+                        study.load_judgement(root, path, data)
+
+    def test_compact_study_drops_duplicates_and_raw_output(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            data = self.collected(root)
+            self.assertNotIn("impact_records", data)
+            self.assertTrue(all("files" not in row and "validation" not in row for row in data["impacts"]["records"]))
+            self.assertTrue(all(len(row.get("summary", "")) <= 300 for row in data["impacts"]["records"]))
+            self.assertIn("unmerged_count", data["branches"])
 
 
 if __name__ == "__main__":
