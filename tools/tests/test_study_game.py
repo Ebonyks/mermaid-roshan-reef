@@ -608,5 +608,34 @@ class StudyReportTests(unittest.TestCase):
             self.assertIn("unmerged_count", data["branches"])
 
 
+class GoldStarStudyTests(unittest.TestCase):
+    write = StudyGameTests.write
+    git = StudyGameTests.git
+    fixture = StudyGameTests.fixture
+
+    def test_report_names_the_reference_weakest_and_stale_games(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            self.fixture(root)
+            data = study.collect(root, "2026-10-03", "2026-10-03", offline=True, skip_sensors=True)
+            self.assertEqual("ABSENT", data["gold_star"]["status"])
+            self.assertNotIn("Gold-star reference", study.render_report(data))
+            data["gold_star"] = {"status": "STALE", "errors": [], "stale": ["fetch"],
+                                 "reference": {"game": "day_one_pool", "name": "Mermaid Pool cleanup", "rating": 3, "gaps": ["C3", "C12"]},
+                                 "strongest": [{"id": "grand_puff", "name": "Grand Puff", "rating": 3, "points": 19}],
+                                 "weakest": [{"id": "reef", "name": "Reef", "rating": 1, "points": 2}]}
+            report = study.render_report(data)
+            self.assertIn("Gold-star reference: **Mermaid Pool cleanup** (3/5; to reach gold: C3, C12)", report)
+            self.assertIn("Weakest live games on the gold-star scorecard: Reef (1/5)", report)
+            self.assertIn("1 gold-star assessments are stale", report)
+
+    def test_live_repository_summary_names_the_reference(self):
+        from tools import gold_star
+        summary = gold_star.summary(Path(__file__).resolve().parents[2])
+        self.assertIn(summary["status"], {"CURRENT", "STALE"})
+        self.assertEqual("day_one_pool", summary["reference"]["game"])
+        self.assertIn("C12", summary["reference"]["gaps"])
+
+
 if __name__ == "__main__":
     unittest.main()

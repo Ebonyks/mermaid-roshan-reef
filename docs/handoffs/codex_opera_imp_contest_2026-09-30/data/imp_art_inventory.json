@@ -6,9 +6,8 @@
   "totals": {
     "files": 178,
     "shown_today": 41,
-    "shown_after_specified_contests": 167,
-    "shown_with_nursery_option_b": 167,
-    "note": "shown_after_specified_contests counts files the shipping game would show once the specified contests ship (the twelve costumed careers, the Teacher and, pending confirmation, the Geologist on the detective family). The Teacher's interim imp is the plain mischief imp, so Nursery option B adds nothing further; if the recommended rival_teacher family replaces it, the mischief imp's 11 files are used only by Nursery option B."
+    "shown_after_specified_contests": 178,
+    "note": "shown_after_specified_contests counts files the shipping game would show once every specified contest ships: the twelve costumed careers, the Teacher on the plain mischief imp (interim), the Nursery wave on the plain mischief and captain imps, and the Geologist on the detective family (interim). If the recommended rival_teacher family replaces the Teacher's interim imp, the mischief imp's 11 files are still used by the Nursery."
   },
   "families": [
     {
@@ -41,7 +40,8 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "ready before the contest"
+            "ready before the contest",
+            "hazard telegraph"
           ]
         },
         {
@@ -71,7 +71,8 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "working (place)"
+            "working (place)",
+            "hazard toss or noise"
           ]
         },
         {
@@ -282,7 +283,8 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "working (place)"
+            "working (place)",
+            "flub [geologist]"
           ]
         },
         {
@@ -332,7 +334,8 @@
           "shown_today_evidence": null,
           "contest_roles": [
             "she overtakes him",
-            "defeat (1)"
+            "defeat (1)",
+            "flub [geologist]"
           ]
         },
         {
@@ -362,7 +365,8 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "defeat (2)"
+            "defeat (2)",
+            "flub [geologist]"
           ]
         },
         {
@@ -2542,7 +2546,7 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "rest between beats [nursery, owner option B]",
+            "rest between beats [nursery]",
             "rest between beats [teacher]"
           ]
         },
@@ -2558,7 +2562,9 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "ready before the contest [nursery, owner option B]",
+            "ready before the contest [nursery]",
+            "hazard telegraph [nursery]",
+            "flub [nursery]",
             "ready before the contest [teacher]"
           ]
         },
@@ -2574,7 +2580,7 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "working (reach) [nursery, owner option B]",
+            "working (reach) [nursery]",
             "working (reach) [teacher]"
           ]
         },
@@ -2590,7 +2596,8 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "working (place) [nursery, owner option B]",
+            "working (place) [nursery]",
+            "hazard toss or noise [nursery]",
             "working (place) [teacher]"
           ]
         },
@@ -2606,9 +2613,8 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "defeat (3) [nursery, owner option B]",
-            "after his flub [nursery, owner option B]",
-            "flub [nursery, owner option B]",
+            "defeat (3) [nursery]",
+            "after his flub [nursery]",
             "defeat (3) [teacher]",
             "after his flub [teacher]"
           ]
@@ -2625,8 +2631,8 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "worried near her finish [nursery, owner option B]",
-            "idle-pause freeze [nursery, owner option B]",
+            "worried near her finish [nursery]",
+            "idle-pause freeze [nursery]",
             "worried near her finish [teacher]",
             "idle-pause freeze [teacher]"
           ]
@@ -2643,9 +2649,8 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "she overtakes him [nursery, owner option B]",
-            "defeat (1) [nursery, owner option B]",
-            "flub [nursery, owner option B]",
+            "she overtakes him [nursery]",
+            "defeat (1) [nursery]",
             "she overtakes him [teacher]",
             "defeat (1) [teacher]"
           ]
@@ -2662,8 +2667,8 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "entrance run-in [nursery, owner option B]",
-            "entrance crouch [nursery, owner option B]",
+            "entrance run-in [nursery]",
+            "entrance crouch [nursery]",
             "entrance run-in [teacher]",
             "entrance crouch [teacher]"
           ]
@@ -2680,7 +2685,8 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "defeat (2) [nursery, owner option B]",
+            "defeat (2) [nursery]",
+            "flub [nursery]",
             "defeat (2) [teacher]"
           ]
         },
@@ -2696,7 +2702,7 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "curtain call [nursery, owner option B]",
+            "curtain call [nursery]",
             "curtain call [teacher]"
           ]
         },
@@ -2722,13 +2728,12 @@
           "shown_today": false,
           "shown_today_evidence": null,
           "contest_roles": [
-            "entrance jump [nursery, owner option B]",
-            "his win jump [nursery, owner option B]",
-            "challenge [nursery, owner option B]",
-            "ahead of her [nursery, owner option B]",
-            "his win beat [nursery, owner option B]",
-            "idle-pause freeze [nursery, owner option B]",
-            "flub [nursery, owner option B]",
+            "entrance jump [nursery]",
+            "his win jump [nursery]",
+            "challenge [nursery]",
+            "ahead of her [nursery]",
+            "his win beat [nursery]",
+            "idle-pause freeze [nursery]",
             "entrance jump [teacher]",
             "his win jump [teacher]",
             "challenge [teacher]",
@@ -2753,7 +2758,9 @@
           ],
           "shown_today": false,
           "shown_today_evidence": null,
-          "contest_roles": []
+          "contest_roles": [
+            "rest between beats [nursery]"
+          ]
         },
         {
           "state": "windup",
@@ -2766,7 +2773,11 @@
           ],
           "shown_today": false,
           "shown_today_evidence": null,
-          "contest_roles": []
+          "contest_roles": [
+            "ready before the contest [nursery]",
+            "hazard telegraph [nursery]",
+            "flub [nursery]"
+          ]
         },
         {
           "state": "charge",
@@ -2779,7 +2790,9 @@
           ],
           "shown_today": false,
           "shown_today_evidence": null,
-          "contest_roles": []
+          "contest_roles": [
+            "working (reach) [nursery]"
+          ]
         },
         {
           "state": "slash",
@@ -2792,7 +2805,10 @@
           ],
           "shown_today": false,
           "shown_today_evidence": null,
-          "contest_roles": []
+          "contest_roles": [
+            "working (place) [nursery]",
+            "hazard toss or noise [nursery]"
+          ]
         },
         {
           "state": "recover",
@@ -2805,7 +2821,10 @@
           ],
           "shown_today": false,
           "shown_today_evidence": null,
-          "contest_roles": []
+          "contest_roles": [
+            "defeat (3) [nursery]",
+            "after his flub [nursery]"
+          ]
         },
         {
           "state": "guard",
@@ -2818,7 +2837,10 @@
           ],
           "shown_today": false,
           "shown_today_evidence": null,
-          "contest_roles": []
+          "contest_roles": [
+            "worried near her finish [nursery]",
+            "idle-pause freeze [nursery]"
+          ]
         },
         {
           "state": "stagger",
@@ -2831,7 +2853,10 @@
           ],
           "shown_today": false,
           "shown_today_evidence": null,
-          "contest_roles": []
+          "contest_roles": [
+            "she overtakes him [nursery]",
+            "defeat (1) [nursery]"
+          ]
         },
         {
           "state": "flee",
@@ -2844,7 +2869,10 @@
           ],
           "shown_today": false,
           "shown_today_evidence": null,
-          "contest_roles": []
+          "contest_roles": [
+            "entrance run-in [nursery]",
+            "entrance crouch [nursery]"
+          ]
         },
         {
           "state": "bopped",
@@ -2857,7 +2885,10 @@
           ],
           "shown_today": false,
           "shown_today_evidence": null,
-          "contest_roles": []
+          "contest_roles": [
+            "defeat (2) [nursery]",
+            "flub [nursery]"
+          ]
         },
         {
           "state": "bow",
@@ -2870,7 +2901,9 @@
           ],
           "shown_today": false,
           "shown_today_evidence": null,
-          "contest_roles": []
+          "contest_roles": [
+            "curtain call [nursery]"
+          ]
         },
         {
           "state": "hop_a",
@@ -2893,7 +2926,14 @@
           ],
           "shown_today": false,
           "shown_today_evidence": null,
-          "contest_roles": []
+          "contest_roles": [
+            "entrance jump [nursery]",
+            "his win jump [nursery]",
+            "challenge [nursery]",
+            "ahead of her [nursery]",
+            "his win beat [nursery]",
+            "idle-pause freeze [nursery]"
+          ]
         }
       ]
     }

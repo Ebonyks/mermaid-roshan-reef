@@ -30,6 +30,11 @@ try:
 except ModuleNotFoundError:
     import build_study_roadmap as roadmap_tool
 
+try:
+    from tools import gold_star as gold_star_tool
+except ModuleNotFoundError:
+    import gold_star as gold_star_tool
+
 SCHEMA_VERSION = 1
 SAFE_ROOTS = {"scripts", "scenes", "design", "audit", "docs", "tools", "assets", "assets_src", ".github"}
 RESULT_RE = re.compile(r"(?:RESULT\s*\|\s*|result:\s*)(PASS|FAIL(?:ED)?|MEASURED|EMPTY|CAPPED|NOT_MEASURED|ALL OK|\d+ FAILED)", re.I)
@@ -1118,8 +1123,22 @@ def render_report(study: dict, judgement: dict | None = None) -> str:
         lines += [f"- **{row['id']}** ({row['tier']}) — {row['strength']}{' Evidence changed: re-review.' if row.get('evidence_changed') else ''}"
                   for row in register if row["tier"] == "accepted" or row.get("evidence_changed")][:6] or ["- No strengths register available."]
         lines += [f"- Observed in a change: **{row['value'].get('id')}** — {row['value'].get('evidence', '')}" for row in impacts["strengths_observed"] if isinstance(row["value"], dict)][:3]
+    gold = study.get("gold_star") or {}
+    reference = gold.get("reference") or {}
+    if reference.get("game"):
+        to_gold = ", ".join(reference.get("gaps", [])) or "nothing"
+        strongest = ", ".join(f"{row.get('name', row['id'])} ({row['rating']}/5)" for row in gold.get("strongest", [])[:3])
+        lines.append(f"- Gold-star reference: **{reference.get('name', reference['game'])}** ({reference.get('rating')}/5; to reach gold: {to_gold}). "
+                     f"Strongest live games: {strongest}. Scorecard: [GOLD_STAR.md](../../../design/reference/GOLD_STAR.md).")
     lines += ["", "## 3. Weaknesses", ""]
     lines += [f"- **{row['item']}** — {row['action']}" for row in judgement.get("weaknesses", [])]
+    if gold.get("weakest"):
+        weakest = ", ".join(f"{row.get('name', row['id'])} ({row['rating']}/5)" for row in gold["weakest"][:3])
+        lines.append(f"- Weakest live games on the gold-star scorecard: {weakest}; `python -B tools/gold_star.py --compare GAME` lists what each needs.")
+    if gold.get("stale"):
+        lines.append(f"- {len(gold['stale'])} gold-star assessments are stale because the code they judged changed: {', '.join(gold['stale'][:8])}{'…' if len(gold['stale']) > 8 else ''}.")
+    if gold.get("status") == "ERROR":
+        lines.append(f"- The gold-star check fails ({len(gold.get('errors', []))} errors), for example: {(gold.get('errors') or ['unreadable'])[0]}.")
     gaps = [row for row in study["ci"].get("advisory_steps", []) if row["status"] != "MEASURED" and not row.get("retired")]
     lines += [f"- Advisory check {row['name']}: {row['status'].lower().replace('_', ' ')} — {row['reason']}." for row in gaps[:8]]
     if len(gaps) > 8:
@@ -1353,6 +1372,7 @@ def collect(root: Path, cycle: str, as_of: str, previous: Path | None = None, of
     study["loop_health_delta"] = loop_delta(loop, prior)
     study["day_two_library"]["previous_observation_delta"] = library_comparison(study["day_two_library"], prior.get("day_two_library", {}))
     study["roadmap_observation"] = roadmap_observation(root, study)
+    study["gold_star"] = gold_star_tool.summary(root)
     try:
         study["roadmap"] = roadmap_tool.roadmap_summary(root, study)
     except (OSError, ValueError, KeyError) as error:
@@ -1423,6 +1443,7 @@ def main(argv: list[str] | None = None) -> int:
             raise ValueError("Saved study cycle identifier is unsafe")
         if args.refresh_roadmap:
             study["roadmap_observation"] = roadmap_observation(root, study)
+            study["gold_star"] = gold_star_tool.summary(root)
             # Lane counts and top items follow the roadmap actually generated from
             # the committed findings and decisions, not an earlier snapshot.
             try:

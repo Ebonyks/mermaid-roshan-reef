@@ -32,6 +32,13 @@ const NET_PIXEL := Vector2(780.0, 190.0)
 const SWIM_SPEED := 440.0
 const CONTACT_RADIUS := 24.0
 const SCOOP_SECONDS := 0.42
+# Approved Day One guide and effect art; replaces the emoji pointer and glyph sparkles.
+const GUIDE_HAND_PATH := "res://assets/castle/training/ghost_hand.png"
+const BUBBLES_PATH := "res://assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png"
+const CLEAR_RING_PATH := "res://assets/castle/dirty_cleanup_2d/effects/fx_clean_ring.png"
+const GUIDE_HAND_SIZE := 60.0
+# Measured fingertip of the 512px ghost hand, relative to its centre.
+const GUIDE_FINGERTIP := Vector2(-38.5, 191.0)
 const POOL_VISUAL_BOUNDS := Rect2(170.0, 220.0, 940.0, 250.0)
 const TRASH_POSITIONS: Array[Vector2] = [
 	Vector2(310.0, 316.0),
@@ -74,8 +81,10 @@ var _trash_base_positions: Array[Vector2] = []
 var _flight_tweens: Array[Tween] = []
 var _skimmer: Sprite2D = null
 var _basket: Sprite2D = null
-var _demo_pointer: Label = null
+var _demo_pointer: Sprite2D = null
 var _feedback_layer: Control = null
+var _bubbles_texture: Texture2D = null
+var _clear_ring_texture: Texture2D = null
 var _atlas: Texture2D = null
 var _cleaner: Node2D = null
 var _roshan: Sprite2D = null
@@ -195,7 +204,16 @@ func audit_snapshot() -> Dictionary:
 		"borderless_room_grown": true,
 		"demo_pointer_visible": _demo_pointer != null
 			and is_instance_valid(_demo_pointer) and _demo_pointer.visible,
+		"demo_pointer_authored": _demo_pointer != null
+			and is_instance_valid(_demo_pointer) and _demo_pointer.texture != null
+			and _demo_pointer.texture.resource_path == GUIDE_HAND_PATH,
+		"code_drawn_effects": false,
 	}
+
+
+## The approved Roshan cutout that holds the skimmer.
+func identity_sprite() -> Sprite2D:
+	return _roshan
 
 
 func _count_bits(value: int) -> int:
@@ -230,13 +248,12 @@ func _process(delta: float) -> void:
 			route_index = (route_index + 1) % TRASH_COUNT
 		var route_phase: float = fmod(_demo_time * 0.72, 1.0)
 		var route_position: Vector2 = _trash_contact_position(route_index)
-		_demo_pointer.position = route_position + Vector2(
-			90.0 + sin(_demo_time * 3.0) * 9.0,
-			-92.0 + cos(_demo_time * 2.4) * 7.0)
-		_demo_pointer.rotation = sin(_demo_time * 2.0) * 0.06
-		_demo_pointer.scale = Vector2.ONE * (0.96 + sin(_demo_time * 4.0) * 0.06)
-		# route_phase is intentionally used to make the pointer breathe along
-		# the current target; it never catches anything without live input.
+		# The approved guide hand taps down onto the live piece from above; it
+		# never catches anything without live input.
+		var fingertip: Vector2 = route_position + Vector2(0.0,
+			-30.0 - absf(sin(_demo_time * 3.2)) * 12.0)
+		_demo_pointer.position = fingertip - GUIDE_FINGERTIP * _demo_pointer.scale
+		_demo_pointer.rotation = sin(_demo_time * 2.0) * 0.04
 		_demo_pointer.modulate.a = 0.86 + route_phase * 0.12
 	for index: int in range(_trash_sprites.size()):
 		var piece: Sprite2D = _trash_sprites[index]
@@ -248,24 +265,8 @@ func _process(delta: float) -> void:
 		piece.position = _trash_base_positions[index] + Vector2(
 			sin(phase) * (3.0 + float(index % 2)), cos(phase * 0.83) * 2.4)
 		piece.rotation = TRASH_ROTATIONS[index] + sin(phase * 0.62) * 0.025
-	queue_redraw()
-
-
-func _draw() -> void:
-	# Only local water contact is drawn. The authored V4 pool remains the one
-	# visible surface; the generous catch radius stays entirely invisible.
-	for index: int in range(TRASH_COUNT):
-		if (_progress_mask & (1 << index)) != 0:
-			continue
-		var contact: Vector2 = _trash_contact_position(index) + Vector2(0.0, 16.0)
-		draw_set_transform(contact, 0.0, Vector2(1.0, 0.28))
-		draw_arc(Vector2.ZERO, 34.0 + sin(_demo_time * 1.6 + index) * 2.0,
-			0.15, PI - 0.15, 20, Color(0.74, 0.94, 0.90, 0.18), 2.0, true)
-	draw_set_transform(_skimmer_position + Vector2(0.0, 18.0),
-		0.0, Vector2(1.0, 0.24))
-	draw_arc(Vector2.ZERO, 54.0, 0.12, PI - 0.12, 24,
-		Color(0.78, 0.94, 0.91, 0.22), 2.5, true)
-	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	# The authored V4 pool is the one visible water surface: no code-drawn
+	# contact arcs. The generous catch radius stays entirely invisible.
 
 
 func _gui_input(event: InputEvent) -> void:
@@ -521,23 +522,17 @@ func _build_activity_art() -> void:
 	_cleaner.add_child(_skimmer)
 	_sync_net_position()
 
-	_demo_pointer = Label.new()
+	_demo_pointer = Sprite2D.new()
 	_demo_pointer.name = "SkimmerDemoPointer"
-	_demo_pointer.text = "☝"
-	_demo_pointer.position = Vector2(0.0, 0.0)
-	_demo_pointer.size = Vector2(82.0, 82.0)
-	_demo_pointer.pivot_offset = _demo_pointer.size * 0.5
-	_demo_pointer.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_demo_pointer.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	_demo_pointer.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_demo_pointer.z_index = 18
-	_demo_pointer.add_theme_font_size_override("font_size", 64)
-	_demo_pointer.add_theme_color_override("font_color", Color(1.0, 0.91, 0.40))
-	_demo_pointer.add_theme_color_override("font_shadow_color", Color(0.08, 0.20, 0.28, 0.78))
-	_demo_pointer.add_theme_constant_override("shadow_offset_x", 3)
-	_demo_pointer.add_theme_constant_override("shadow_offset_y", 4)
+	var guide_texture := load(GUIDE_HAND_PATH) as Texture2D
+	_demo_pointer.texture = guide_texture
+	if guide_texture != null:
+		_demo_pointer.scale = Vector2.ONE * GUIDE_HAND_SIZE / maxf(guide_texture.get_width(), 1.0)
+	_demo_pointer.z_index = 180 # Above the floating pieces and basket it points at.
 	_demo_pointer.visible = false
 	add_child(_demo_pointer)
+	_bubbles_texture = load(BUBBLES_PATH) as Texture2D
+	_clear_ring_texture = load(CLEAR_RING_PATH) as Texture2D
 
 	_feedback_layer = Control.new()
 	_feedback_layer.name = "SkimmerFeedback"
@@ -586,30 +581,40 @@ func _fit_sprite(sprite: Sprite2D, max_size: Vector2) -> void:
 
 
 func _spawn_catch_feedback(center: Vector2) -> void:
+	# Approved clean ring plus a few soap bubbles: the same authored feedback the
+	# bathroom uses, with no font-dependent glyphs.
 	if _feedback_layer == null or not is_instance_valid(_feedback_layer):
 		return
-	for index: int in range(7):
-		var sparkle := Label.new()
-		sparkle.text = "✦"
-		sparkle.size = Vector2(42.0, 42.0)
-		sparkle.pivot_offset = sparkle.size * 0.5
-		sparkle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		sparkle.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		sparkle.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		sparkle.add_theme_font_size_override("font_size", 30 + index * 3)
-		sparkle.add_theme_color_override("font_color", TRASH_TINTS[index % TRASH_TINTS.size()])
-		sparkle.add_theme_color_override("font_shadow_color", Color(0.06, 0.22, 0.28, 0.9))
-		sparkle.add_theme_constant_override("shadow_offset_x", 2)
-		sparkle.add_theme_constant_override("shadow_offset_y", 2)
-		var angle: float = TAU * float(index) / 7.0
-		var start: Vector2 = center + Vector2(cos(angle), sin(angle)) * 18.0
-		var finish: Vector2 = center + Vector2(cos(angle), sin(angle)) * (68.0 + index * 4.0)
-		sparkle.position = start - sparkle.size * 0.5
-		_feedback_layer.add_child(sparkle)
-		var sparkle_tween: Tween = sparkle.create_tween().set_parallel(true)
-		sparkle_tween.tween_property(sparkle, "position", finish - sparkle.size * 0.5, 0.42)
-		sparkle_tween.tween_property(sparkle, "modulate:a", 0.0, 0.42)
-		sparkle_tween.chain().tween_callback(sparkle.queue_free)
+	if _clear_ring_texture != null:
+		var ring := Sprite2D.new()
+		ring.name = "CatchCleanRing"
+		ring.texture = _clear_ring_texture
+		ring.position = center
+		var base := Vector2.ONE * 104.0 / maxf(_clear_ring_texture.get_width(), 1.0)
+		ring.scale = base * 0.45
+		_feedback_layer.add_child(ring)
+		var ring_tween: Tween = ring.create_tween().set_parallel(true)
+		ring_tween.tween_property(ring, "scale", base, 0.40).set_trans(Tween.TRANS_BACK) \
+			.set_ease(Tween.EASE_OUT)
+		ring_tween.tween_property(ring, "modulate:a", 0.0, 0.26).set_delay(0.28)
+		ring_tween.chain().tween_callback(ring.queue_free)
+	if _bubbles_texture == null:
+		return
+	for index: int in range(3):
+		var bubble := Sprite2D.new()
+		bubble.name = "CatchBubbles"
+		bubble.texture = _bubbles_texture
+		bubble.scale = Vector2.ONE * (22.0 + index * 6.0) / maxf(_bubbles_texture.get_width(), 1.0)
+		var angle: float = TAU * float(index) / 3.0 - 1.2
+		var start: Vector2 = center + Vector2(cos(angle), sin(angle)) * 14.0
+		var finish: Vector2 = center + Vector2(cos(angle), sin(angle)) * (54.0 + index * 6.0) \
+			+ Vector2(0.0, -18.0)
+		bubble.position = start
+		_feedback_layer.add_child(bubble)
+		var bubble_tween: Tween = bubble.create_tween().set_parallel(true)
+		bubble_tween.tween_property(bubble, "position", finish, 0.46)
+		bubble_tween.tween_property(bubble, "modulate:a", 0.0, 0.46).set_ease(Tween.EASE_IN)
+		bubble_tween.chain().tween_callback(bubble.queue_free)
 
 
 func _stop_flights() -> void:

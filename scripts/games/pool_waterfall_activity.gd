@@ -24,6 +24,15 @@ const TOOL_SIZE := 72.0
 const SCRUBBER_CONTACT_OFFSET := Vector2(22.0, 22.0)
 # Measured pink handle centre in the approved 1024px tool at TOOL_SIZE 72.
 const SCRUBBER_GRIP_OFFSET := Vector2(39.0, 38.0)
+# Approved Day One guide and effect art (also used by the bathroom); no code shapes.
+const GUIDE_HAND_PATH := "res://assets/castle/training/ghost_hand.png"
+const CLEAR_RING_PATH := "res://assets/castle/dirty_cleanup_2d/effects/fx_clean_ring.png"
+const GUIDE_HAND_SIZE := 58.0
+# Measured fingertip of the 512px ghost hand, relative to its centre.
+const GUIDE_FINGERTIP := Vector2(-38.5, 191.0)
+const GUIDE_IDLE_SECONDS := 0.6
+const GUIDE_STROKE_SECONDS := 1.4
+const GUIDE_REST_SECONDS := 0.5
 
 var fixture_center := Vector2.ZERO
 var fixture_size := Vector2.ZERO
@@ -46,8 +55,12 @@ var _touch_last := Vector2.ZERO
 var _touch_travel := 0.0
 var _hint_lane := 0
 var _pulse_time := 0.0
+var _idle_time := 0.0
+var _pending_lane := -1
 var _scrubber: Sprite2D = null
 var _wash_overlay: Control = null
+var _guide_hand: Sprite2D = null
+var _clear_ring_texture: Texture2D = null
 
 
 func _ready() -> void:
@@ -73,11 +86,20 @@ func setup(fixture_center: Vector2, fixture_size: Vector2,
 	_free_owned_nodes()
 	_dirty_texture = load(DIRTY_TEXTURE_PATH) as Texture2D
 	_scrubber_texture = load(SCRUBBER_TEXTURE_PATH) as Texture2D
+	_clear_ring_texture = load(CLEAR_RING_PATH) as Texture2D
+	_idle_time = 0.0
+	_pending_lane = -1
 	_build_dirty_slices()
 	_build_wash_overlay()
 	_build_scrubber()
+	_build_guide_hand()
 	_queue_progress_signal()
 	queue_redraw()
+
+
+## The temporary Roshan cutout used while she works here, if any.
+func identity_sprite() -> Sprite2D:
+	return _contact_action.identity_sprite() if _contact_action != null else null
 
 
 func bind_room_actor(actor: Sprite2D, shadow: Sprite2D, skin: String) -> void:
@@ -90,6 +112,7 @@ func start() -> void:
 	_active = true
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	_pulse_time = 0.0
+	_idle_time = 0.0
 	_hint_lane = _first_uncleared_lane()
 	set_process(true)
 	if _clear_mask == COMPLETE_MASK:
@@ -101,7 +124,9 @@ func stop() -> void:
 	if _contact_action != null:
 		_contact_action.cancel()
 	_active = false
+	_pending_lane = -1
 	_cancel_touch(false)
+	_update_guide_hand()
 	set_process(false)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	queue_redraw()
@@ -110,6 +135,7 @@ func stop() -> void:
 func cancel_touch() -> void:
 	if _contact_action != null:
 		_contact_action.cancel()
+	_pending_lane = -1
 	_cancel_touch(true)
 
 
@@ -149,6 +175,14 @@ func audit_snapshot() -> Dictionary:
 		"wash_feedback_above_grime": _wash_overlay != null
 			and is_instance_valid(_wash_overlay) and _wash_overlay.z_index > 2,
 		"animated_flow_stopped": true,
+		"guide_hand_visible": _guide_hand != null and is_instance_valid(_guide_hand)
+			and _guide_hand.visible,
+		"guide_hand_authored": _guide_hand != null and is_instance_valid(_guide_hand)
+			and _guide_hand.texture != null
+			and _guide_hand.texture.resource_path == GUIDE_HAND_PATH,
+		"pending_lane": _pending_lane,
+		"lane_reveal_from_top": true,
+		"code_drawn_guides": false,
 	}
 
 
@@ -156,10 +190,10 @@ func _process(delta: float) -> void:
 	if not _active:
 		return
 	_pulse_time += maxf(delta, 0.0)
+	_idle_time += maxf(delta, 0.0)
 	if _contact_action != null and _contact_action.active:
 		_show_scrubber(_contact_action.hand_point() - SCRUBBER_GRIP_OFFSET)
-	if _wash_overlay != null and is_instance_valid(_wash_overlay):
-		_wash_overlay.queue_redraw()
+	_update_guide_hand()
 
 
 func _gui_input(event: InputEvent) -> void:
@@ -194,22 +228,38 @@ func _gui_input(event: InputEvent) -> void:
 
 
 func _begin_touch(point: Vector2, touch_id: int) -> void:
-	if _touch_active or (_contact_action != null and _contact_action.active):
+	if _touch_active:
 		return
+	var lane := _lane_at(point)
+	var working := _contact_action != null and _contact_action.active
+	if working and lane < 0:
+		# A touch off the waterfall never interrupts work already under way.
+		return
+	if working and lane != _pending_lane:
+		# A different lane is a new plan: the unearned approach moves there and
+		# nothing is paid for the old lane (the skimmer's retarget contract).
+		_contact_action.cancel()
+		working = false
 	_touch_active = true
 	_touch_id = touch_id
-	_touch_lane = _lane_at(point)
+	_touch_lane = lane
 	_touch_start = point
 	_touch_last = point
 	_touch_travel = 0.0
+	_idle_time = 0.0
 	if _touch_lane >= 0:
 		_hint_lane = _touch_lane
 		_show_scrubber(point)
 		if _contact_action != null and _contact_action.available():
-			_contact_action.request(point + SCRUBBER_GRIP_OFFSET)
+			# Another touch on the lane Roshan is already working keeps her work;
+			# it never restarts the contact timer, so tapping cannot stall it.
+			if not working:
+				_contact_action.request(point + SCRUBBER_GRIP_OFFSET)
+			_pending_lane = _touch_lane
 	else:
 		_hint_lane = _first_uncleared_lane()
 		_hide_scrubber()
+	_update_guide_hand()
 	queue_redraw()
 
 
@@ -218,6 +268,7 @@ func _update_touch(point: Vector2, touch_id: int) -> void:
 		return
 	var delta := point - _touch_last
 	_touch_last = point
+	_idle_time = 0.0
 	if _touch_lane < 0:
 		queue_redraw()
 		return
@@ -245,6 +296,7 @@ func _update_touch(point: Vector2, touch_id: int) -> void:
 func _end_touch(point: Vector2, touch_id: int) -> void:
 	if not _touch_active or touch_id != _touch_id:
 		return
+	_idle_time = 0.0
 	if _touch_lane >= 0:
 		var moved_down := point.y - _touch_start.y
 		_touch_travel = maxf(_touch_travel, moved_down)
@@ -270,11 +322,13 @@ func _end_touch(point: Vector2, touch_id: int) -> void:
 
 
 func _finish_tap_lane(lane: int) -> void:
+	_pending_lane = -1
 	_advance_lane(lane, TAP_ASSIST)
 	_hide_scrubber()
 
 
 func _finish_drag_lane(lane: int, amount: float) -> void:
+	_pending_lane = -1
 	_advance_lane(lane, amount)
 	_hide_scrubber()
 
@@ -358,6 +412,9 @@ func _free_owned_nodes() -> void:
 	if _wash_overlay != null and is_instance_valid(_wash_overlay):
 		_wash_overlay.queue_free()
 	_wash_overlay = null
+	if _guide_hand != null and is_instance_valid(_guide_hand):
+		_guide_hand.queue_free()
+	_guide_hand = null
 
 
 func _show_scrubber(point: Vector2) -> void:
@@ -407,9 +464,13 @@ func _set_lane_progress(lane: int, value: float) -> void:
 	var before := _lane_progress[lane]
 	var after := clampf(maxf(before, value), 0.0, 1.0)
 	_lane_progress[lane] = after
+	_idle_time = 0.0
 	if after >= 1.0:
 		_clear_mask |= 1 << lane
 		_start_lane_reveal(lane)
+		_pop_clear_ring(lane)
+	else:
+		_apply_lane_crop(lane)
 	_hint_lane = _first_uncleared_lane()
 	if not is_equal_approx(before, after):
 		progress_changed.emit(_clear_mask)
@@ -457,53 +518,84 @@ func _queue_progress_signal() -> void:
 
 
 func _draw_wash_overlay() -> void:
-	if _wash_overlay == null or not is_instance_valid(_wash_overlay) \
-			or fixture_size.x <= 1.0 or fixture_size.y <= 1.0:
-		return
+	# Progress is shown by the authored dirt itself (_apply_lane_crop) and the
+	# next stroke by the approved guide hand; this layer draws no code shapes.
+	pass
+
+
+func _lane_rect(lane: int) -> Rect2:
 	var lane_width := fixture_size.x / float(LANE_COUNT)
-	for lane in range(LANE_COUNT):
-		var lane_rect := Rect2(
-			_fixture_rect.position + Vector2(lane_width * float(lane), 0.0),
-			Vector2(lane_width, fixture_size.y))
-		var complete := (_clear_mask & (1 << lane)) != 0
-		if not complete:
-			var progress := _lane_progress[lane]
-			var wash_rect := Rect2(
-				Vector2(lane_rect.position.x + 3.0,
-					lane_rect.end.y - fixture_size.y * progress),
-				Vector2(lane_rect.size.x - 6.0, fixture_size.y * progress))
-			if progress > 0.0:
-				_wash_overlay.draw_rect(
-					wash_rect, Color(0.50, 0.90, 0.82, 0.26), true)
-			var edge_alpha := 0.14 if lane != _hint_lane else 0.32
-			_wash_overlay.draw_line(lane_rect.position,
-				Vector2(lane_rect.position.x, lane_rect.end.y),
-				Color(0.70, 0.96, 1.0, edge_alpha), 2.0)
-			if lane == _hint_lane and _active:
-				_draw_lane_hint(lane_rect, _pulse_time)
-		if lane < LANE_COUNT - 1:
-			_wash_overlay.draw_line(
-				Vector2(lane_rect.end.x, lane_rect.position.y + 8.0),
-				Vector2(lane_rect.end.x, lane_rect.end.y - 8.0),
-				Color(0.46, 0.87, 0.92, 0.12), 2.0)
-	if _touch_active and _touch_lane >= 0:
-		_wash_overlay.draw_set_transform(_touch_last, 0.0, Vector2(1.0, 0.30))
-		_wash_overlay.draw_arc(Vector2.ZERO,
-			30.0 + sin(_pulse_time * 5.0) * 3.0, 0.10, PI - 0.10, 18,
-			Color(0.78, 0.96, 0.90, 0.26), 3.0, true)
-		_wash_overlay.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	return Rect2(_fixture_rect.position + Vector2(lane_width * float(lane), 0.0),
+		Vector2(lane_width, fixture_size.y))
 
 
-func _draw_lane_hint(lane_rect: Rect2, phase: float) -> void:
-	var pulse := 1.0 + sin(phase * 4.2) * 0.10
-	var x := lane_rect.get_center().x
-	var top := lane_rect.position.y + 34.0
-	var arrow_color := Color(1.0, 0.89, 0.34, 0.78)
-	_wash_overlay.draw_circle(Vector2(x, top), 8.0 * pulse, arrow_color)
-	for index in range(3):
-		var y := top + 27.0 + float(index) * minf(48.0, fixture_size.y * 0.16)
-		var width := 13.0 * pulse
-		_wash_overlay.draw_line(
-			Vector2(x - width, y), Vector2(x, y + 12.0), arrow_color, 4.0)
-		_wash_overlay.draw_line(
-			Vector2(x + width, y), Vector2(x, y + 12.0), arrow_color, 4.0)
+func _apply_lane_crop(lane: int) -> void:
+	# Wipe the authored dirty strip away from the top as the child strokes down,
+	# revealing the real clean fixture beneath (no tinted rectangle on top).
+	if lane < 0 or lane >= _slice_nodes.size() or _dirty_texture == null:
+		return
+	var sprite := _slice_nodes[lane]
+	if sprite == null or not is_instance_valid(sprite):
+		return
+	var source_size := _dirty_texture.get_size()
+	var source_lane_width := maxf(source_size.x / float(LANE_COUNT), 1.0)
+	var cleared := clampf(_lane_progress[lane], 0.0, 1.0) * source_size.y
+	var remaining := maxf(source_size.y - cleared, 1.0)
+	sprite.region_rect = Rect2(
+		Vector2(source_lane_width * float(lane), source_size.y - remaining),
+		Vector2(source_lane_width, remaining))
+	sprite.offset = Vector2(0.0, (source_size.y - remaining) * 0.5)
+
+
+func _build_guide_hand() -> void:
+	var texture := load(GUIDE_HAND_PATH) as Texture2D
+	if texture == null:
+		return
+	_guide_hand = Sprite2D.new()
+	_guide_hand.name = "WaterfallStrokeGuideHand"
+	_guide_hand.texture = texture
+	_guide_hand.scale = Vector2.ONE * GUIDE_HAND_SIZE / maxf(texture.get_width(), 1.0)
+	_guide_hand.z_index = 520 # Above the working cutout and tool while it demonstrates.
+	_guide_hand.visible = false
+	add_child(_guide_hand)
+
+
+func _update_guide_hand() -> void:
+	if _guide_hand == null or not is_instance_valid(_guide_hand):
+		return
+	var working := _contact_action != null and _contact_action.active
+	var lane := _hint_lane if _hint_lane >= 0 else _first_uncleared_lane()
+	var cycle := GUIDE_STROKE_SECONDS + GUIDE_REST_SECONDS
+	var phase := fmod(maxf(_idle_time - GUIDE_IDLE_SECONDS, 0.0), cycle)
+	var demonstrating := _active and not _touch_active and not working and lane >= 0 \
+		and _idle_time >= GUIDE_IDLE_SECONDS and phase <= GUIDE_STROKE_SECONDS
+	_guide_hand.visible = demonstrating
+	if not demonstrating:
+		return
+	# Demonstrate the real verb: one downward stroke down the next lane.
+	var t := clampf(phase / GUIDE_STROKE_SECONDS, 0.0, 1.0)
+	var eased := t * t * (3.0 - 2.0 * t)
+	var rect := _lane_rect(lane)
+	var fingertip := Vector2(rect.get_center().x,
+		lerpf(rect.position.y + rect.size.y * 0.12, rect.position.y + rect.size.y * 0.80, eased))
+	_guide_hand.position = fingertip - GUIDE_FINGERTIP * _guide_hand.scale
+	_guide_hand.modulate.a = clampf(minf(t, 1.0 - t) * 6.0, 0.0, 1.0)
+
+
+func _pop_clear_ring(lane: int) -> void:
+	if _clear_ring_texture == null or lane < 0 or lane >= LANE_COUNT:
+		return
+	var ring := Sprite2D.new()
+	ring.name = "LaneClearRing%d" % lane
+	ring.texture = _clear_ring_texture
+	ring.position = _lane_rect(lane).get_center()
+	var base := Vector2.ONE * minf(fixture_size.x / float(LANE_COUNT) * 1.6, 120.0) \
+		/ maxf(_clear_ring_texture.get_width(), 1.0)
+	ring.scale = base * 0.55
+	ring.z_index = 6
+	add_child(ring)
+	var tween := ring.create_tween().set_parallel(true)
+	tween.tween_property(ring, "scale", base, 0.42).set_trans(Tween.TRANS_BACK) \
+		.set_ease(Tween.EASE_OUT)
+	tween.tween_property(ring, "modulate:a", 0.0, 0.30).set_delay(0.30)
+	tween.chain().tween_callback(ring.queue_free)
