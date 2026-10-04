@@ -66,7 +66,7 @@ The ownership change also helps every other generic-surface career.
 
 See [POOL_FIVE_STAR.md section 5](POOL_FIVE_STAR.md#5-codex-handoff-gs2-art-and-voice-for-the-pool):
 
-- **GS2-A:** Roshan's scoop, scrub and tug strips. Four cells each, with measured hand sockets, from the `roshan_base` identity; pilot one strip first, with owner first-frame approval.
+- **GS2-A:** Roshan's scoop, scrub and tug actions under the owner's 2026-10-03 animation workflow: one job card per action, an editable Aseprite master with per-frame hand sockets, at least four drawn keys each, from the `roshan_base` identity. Pilot the scoop first; the owner reviews it before scrub and tug are made.
 - **GS2-B:** an optional water ripple.
 - **GS2-C:** six per-object skimmer lines through the Day One voice pipeline. The code already prefers them once their catalogue rows are READY.
 

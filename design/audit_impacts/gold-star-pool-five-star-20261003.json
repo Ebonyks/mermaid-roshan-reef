@@ -1,6 +1,6 @@
 {
   "id": "gold-star-pool-five-star-20261003",
-  "scope": "Owner-requested proposed five-star implementation of the gold-star reference game, the Day One Mermaid Pool, with the primary coding by Claude and the art and voice generation handed to Codex. Truthful skimmer pickup lines (the leaf line only for the leaf, object-neutral lines otherwise, exact per-object takes preferred when READY); the approved ghost hand points at the next piece, demonstrates the waterfall stroke and taps the seahorse trash; idle re-prompts replay the activity's exact lines twice at most; waterfall progress is the authored dirt wiped from the top, and a touch on another lane retargets the unearned approach; seahorse taps during work queue with full contact per tug and a deliberate pull counts twice; approved soap bubbles and clean rings replace every code-drawn arc, dot, wash and glyph; Roshan keeps her approved colours under the dingy room tint; the probe completes all three activities with real input and adds zero-input, queue, retarget, second-finger and teardown legs. The Pool is re-assessed from 3/5 (17/24) to 4/5 (22/24) on the gold-star scorecard; only device, child and owner acceptance remain. Codex handoff packet GS0-GS4 published with the audit.",
+  "scope": "Owner-requested proposed five-star implementation of the gold-star reference game, the Day One Mermaid Pool, with the primary coding by Claude and the art and voice generation handed to Codex. Truthful skimmer pickup lines (the leaf line only for the leaf, object-neutral lines otherwise, exact per-object takes preferred when READY); the approved ghost hand points at the next piece, demonstrates the waterfall stroke and taps the seahorse trash; idle re-prompts replay the activity's exact lines twice at most; waterfall progress is the authored dirt wiped from the top, and a touch on another lane retargets the unearned approach; seahorse taps during work queue with full contact per tug and a deliberate pull counts twice; approved soap bubbles and clean rings replace every code-drawn arc, dot, wash and glyph; Roshan keeps her approved colours under the dingy room tint; the probe completes all three activities with real input and adds zero-input, queue, retarget, second-finger and teardown legs. The Pool is re-assessed from 3/5 (17/24) to 4/5 (22/24) on the gold-star scorecard; only device, child and owner acceptance remain. Codex handoff packet GS0-GS4 published with the audit. Packet revision 2 brings the GS2-A action handoff under the owner's 2026-10-03 animation workflow decision merged from dev (DL-MOT-12, DL-MOT-14 to DL-MOT-16): one job card per action, an editable Aseprite master with per-frame hand sockets and lossless export, a clip contract and a scoop pilot.",
   "baseline": "639847f70982b431ae2e521539f8dc46419edb4b",
   "rules": [
     "DL-AUTH-05",
@@ -21,6 +21,10 @@
     "DL-MED-02",
     "DL-MED-05",
     "DL-MOT-04",
+    "DL-MOT-12",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16",
     "DL-SAVE-03",
     "DL-QA-02",
     "DL-QA-07",
@@ -80,9 +84,14 @@
       "evidence": "Local run before commit: gold star OK (60 games, 18 patterns, 0 stale), prompts ALL OK, DOCAUTH ALL OK, AUDITDEV ALL OK."
     },
     {
+      "command": "Anonymous remote verification of packet revision 1: HTTPS GET without credentials from raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/7bf4620540d380a2f1a57655210019126066ae94/ for MANIFEST.json and every listed file and reference",
+      "result": "PASS",
+      "evidence": "Checked 2026-10-04T06:47:54Z: manifest SHA-256 cf64f5810d5f5a90fe72d809523cfcce231e37d775457c0144434a796fe17994; 20 of 20 items matched their manifest bytes and SHA-256 (4 packet files, 16 references); the commit's tree page answered 200 anonymously."
+    },
+    {
       "command": "Probe Suite (graphics fork) on the pushed branch head",
       "result": "PENDING",
-      "evidence": "Recorded after the push in a follow-up update to this record."
+      "evidence": "Run 37183788471 on 7bf4620540d380a2f1a57655210019126066ae94 was superseded by the workflow's cancel-in-progress concurrency when the dev merge and packet revision 2 were pushed; the branch is merged into dev only after a green run on its exact head."
     },
     {
       "command": "Phone session, observed child session and owner verdict for the Mermaid Pool (POOL_FIVE_STAR.md section 4)",

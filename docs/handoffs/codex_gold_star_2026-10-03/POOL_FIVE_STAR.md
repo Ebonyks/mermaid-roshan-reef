@@ -74,29 +74,48 @@ Record each result with `tools/gold_star.py`: add it to the game's `acceptance` 
 
 ## 5. Codex handoff: GS2 art and voice for the Pool
 
-Claude writes; Codex builds every image, board and capture (CLAUDE.md, 2026-09-30). These items raise presentation beyond the machine bar; none is required for the 4/5 already reached. Follow the [production protocol](../../../design/animation/ANIMATION_PRODUCTION_PROTOCOL.md), and pilot one action before expanding.
+Claude writes; Codex builds every image, board and capture (CLAUDE.md, 2026-09-30). These items raise presentation beyond the machine bar; none is required for the 4/5 already reached.
 
 ### GS2-A. Roshan's three work actions (authored frames instead of one leaning cutout)
 
 Today Roshan works with one approved directional cell: `assets/characters/roshan_25d/roshan_directional.png`, region (256, 0, 256, 256), scale 0.95, facing right. Her hand socket is at cell pixel (174, 151), that is (46, 23) from the cell centre. The tool is attached there.
 
+- **Rules.** The owner's 2026-10-03 animation workflow decision applies: `AGENTS.md`, `DL-MOT-12`, `DL-MOT-14` to `DL-MOT-16` and the [production protocol](../../../design/animation/ANIMATION_PRODUCTION_PROTOCOL.md). Complete one [job card](../../../design/templates/ANIMATION_JOB_CARD_V1.md) per action, with its attempt, time and cost caps set before work starts.
+- **Method (`DL-MOT-14`, `DL-MOT-16`).**
+  - Use the default local character workflow: start from the approved directional cell and the base atlas, and author or key the action in 2D.
+  - Use ImageGen only for a named missing key or a local repair, never one job per frame.
+  - Default two generated takes per brief. After two nonviable takes, stop, diagnose and change the method or inputs.
+  - No paid job without an existing funded budget.
+- **Master and export (`DL-MOT-15`).**
+  - Keep one editable RGBA Aseprite master per action, tagged `scoop`, `scrub` or `tug`, with the hand socket as per-frame pivot data.
+  - Export losslessly to the strip below plus JSON: frame rects, durations and the socket for every frame.
+  - Show that the master and the export match, and that Godot samples the exported pixels unchanged.
+  - Keep the painted contours and antialiasing; no pixel-art conversion.
 - **Identity.** The authority is the base atlas `assets/characters/roshan_25d/roshan_base.png`:
   - never bind `roshan_sprite.png`;
   - she wears the tiara outside a career costume (`ODR-ROSHAN-Q14`);
   - her tail is iridescent, and lavender or rainbow are both correct (`ODR-ROSHAN-IRIDESCENT`);
   - continue the light state of the cell you extend (`ODR-ROSHAN-Q12`).
-- **Deliverable.** Three strips, each four 256x256 cells in one 1024x256 RGBA row, facing right, at the same scale and baseline as the directional cell:
-  1. Scoop (skimmer): reach forward with the net; dip; lift with drops; settle.
-  2. Scrub (waterfall): reach up; press; pull down; settle.
-  3. Tug (seahorse): grip; lean back; pull; settle.
-- **Hand socket.** In every cell the hand that holds the tool stays at a measured socket, listed in a JSON table (strip, cell, socket x, y). The code keeps the tool on the socket and plays the four cells across the 0.42-second contact, holding the last cell; a cancel returns to the rest cell.
+- **Clip contract (`DL-MOT-12`).** For each action:
+  - At least four distinct drawn keys within the 0.42-second contact. Declared durations and animation on twos are allowed if the whole action reads. The settle key is a declared hold, not padding.
+    1. Scoop (skimmer): reach forward with the net; dip; lift with drops; settle.
+    2. Scrub (waterfall): reach up; press; pull down; settle.
+    3. Tug (seahorse): grip; lean back; pull; settle.
+  - She faces right in every frame, at the same scale and baseline as the directional cell. The code never mirrors her.
+  - The tool hand stays on a measured socket in every frame, and the code moves the tool with it.
+  - While she swims to the target, the existing directional cell shows. The action plays only while her hand is in contact.
+  - A retarget restarts the action from its first key. Completion or a cancel hides the work cutout and restores her room cutout, so no exit frame is needed.
+  - The clip is presentation only. Progress stays with the contact gate and its 0.42-second work time, never with the clip ending.
+  - Default skin only. The fairy and huluu costumes keep their current single cutout.
+- **Deliverable.** Export each action as one 1024x256 RGBA strip of four 256x256 cells, or a power-of-two atlas if it has more keys, under `assets/castle/day_one_pool/activities/roshan_work/`. Put the JSON beside it, keep the Aseprite master with its provenance, and add rows in `ASSET_LICENSES.md`.
 - **Not allowed:**
   - a new outfit, extra limbs or a second tail;
   - painted-in tools (the tool stays a separate approved prop);
-  - text.
-- **Where.** Put the strips under `assets/castle/day_one_pool/activities/roshan_work/`, ≤1024 px and power of two. Add provenance rows in `ASSET_LICENSES.md`, plus a review board that Codex builds.
-- **Approval.** Owner first-frame approval comes before the other two strips.
-- **Wiring.** `DayOneContactAction2D` gains an optional strip: its `avatar` region advances with `work_time`. The skimmer's `RoshanHoldingSkimmer` cutout does the same. Probes assert the socket error stays below 1 px on every cell, as the existing grip checks do.
+  - text;
+  - static-sticker wobble in place of acting.
+- **Pilot first.** Make the scoop first. The owner reviews its frames at full speed and frame by frame, on a review board that Codex builds, before scrub and tug are made.
+- **Wiring.** `DayOneContactAction2D` gains an optional strip: its `avatar` region follows the JSON frames by `work_time`. The skimmer's `RoshanHoldingSkimmer` cutout does the same with its scoop time. Probes assert the socket error stays below 1 px on every frame, as the existing grip checks do.
+- **Acceptance.** Delivery grants none. The job card's identity, motion and export reviews come first, then the phone, child and owner checks in section 4.
 
 ### GS2-B. Water ripple for the floating pieces and Rumi's rise (optional)
 

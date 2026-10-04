@@ -1,12 +1,13 @@
 {
  "schema": "codex_handoff_manifest/1",
  "handoff": "codex_gold_star_2026-10-03",
- "revision": 1,
- "revision_note": "First publication: audit, gold-star scorecard and tool, Pool five-star proposal, GS0-GS4.",
+ "revision": 2,
+ "revision_note": "Revision 2: GS2-A brought under the owner's 2026-10-03 animation workflow decision (DL-MOT-12, DL-MOT-14 to DL-MOT-16): one job card per action, an Aseprite master with lossless export, a clip contract and a scoop pilot. Revision 1 (commit 7bf4620540d380a2f1a57655210019126066ae94) was published and verified anonymously first.",
  "status": "PROPOSED / CANDIDATE",
  "prepared_by": "Claude (audit, tool, records and the Pool's code on the owner's explicit request; no images)",
  "recipient": "Codex",
  "evidence_baseline": "dev 87f992680c0b6a690bf45b1950275579c45e15ab",
+ "rules_checked_at": "dev ecb68651c67e66501eeab2c719b152d8982023c2 (owner animation workflow decision 2026-10-03)",
  "tracking_findings": [
   "MA-PLAY-005",
   "MA-OPERA-013",
@@ -15,7 +16,7 @@
  ],
  "entry": "README.md",
  "file_count": 4,
- "total_bytes": 38227,
+ "total_bytes": 40450,
  "files": [
   {
    "path": ".gdignore",
@@ -25,8 +26,8 @@
   },
   {
    "path": "README.md",
-   "bytes": 6904,
-   "sha256": "af89cb4f626cac77370ec216d9b75e6ca76b74a3cd674fac4b78d38aa71bb8bd",
+   "bytes": 7040,
+   "sha256": "00546597614e780b1f33b1547daa3d7c3dbec4869f9fea13107a767522229721",
    "role": "Codex handoff entry point: GS0-GS4 and four owner questions"
   },
   {
@@ -37,8 +38,8 @@
   },
   {
    "path": "POOL_FIVE_STAR.md",
-   "bytes": 10969,
-   "sha256": "3484ce5af6a4e82161b1c4937449f94490e203d0f1ac1d9fa3db524d6b2df20c",
+   "bytes": 13056,
+   "sha256": "03a0f25fe240612b52d851f8fd155577a9f8037780a2d30064928e199b5c2cff",
    "role": "Mermaid Pool five-star proposal (Claude's code), verification, human checks, art and voice handoff GS2"
   }
  ],
@@ -122,6 +123,16 @@
    "path": "assets/characters/roshan_25d/roshan_directional.png",
    "bytes": 396741,
    "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a"
+  },
+  {
+   "path": "design/templates/ANIMATION_JOB_CARD_V1.md",
+   "bytes": 4903,
+   "sha256": "67a35e72c4844a2a4290829d02e709452494cf7fb823ef27aa95de9de10ba922"
+  },
+  {
+   "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+   "bytes": 18019,
+   "sha256": "0d7c0a4e8cf74434da04067c1eba3a38b2cbdf66f3eb2a094494f370fe6728ac"
   }
  ],
  "non_delivery": "No art, voice, capture or board is delivered; GS2 asks Codex to build them. No acceptance is granted."
