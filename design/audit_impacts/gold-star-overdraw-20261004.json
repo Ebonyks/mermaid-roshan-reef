@@ -83,9 +83,14 @@
       "evidence": "Local run on this change before commit: GOLDSTAR OK (60 games, 0 errors, 0 stale), PROMPTS ALL OK, GAME2D NO_REGRESSION, PROBE_PARITY ALL OK."
     },
     {
+      "command": "Anonymous remote verification of packet revision 4: HTTPS GET without credentials from raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/088f38987224beac95a19ce5edcd2595223c463d/ for MANIFEST.json and every listed file and reference",
+      "result": "PASS",
+      "evidence": "Checked 2026-10-04T15:39:27Z: manifest SHA-256 fc151a474e6bbfdc15745250353c25cab2c928a07cdf57ff4eda5740771c4c4e; 25 of 25 items matched their manifest bytes and SHA-256, including design/reference/overdraw.json, tools/measure_overdraw.py and scripts/probe_overdraw.gd; the commit's tree page answered 200 anonymously."
+    },
+    {
       "command": "Probe Suite (graphics fork) on the pushed branch head",
       "result": "PENDING",
-      "evidence": "Recorded after the push. The overdraw probe needs a display and is not a trusted CI probe; the remote workflow does not yet run the gold-star tests (GS3 waits for owner authority)."
+      "evidence": "The run on the first pushed commit is superseded by the workflow's cancel-in-progress concurrency; the branch is merged into dev only after a green run on its exact head, which carries this record."
     },
     {
       "command": "Phone frame time, owner review of the overdraw budgets (README question 6) and the dirty-room look (question 5)",
