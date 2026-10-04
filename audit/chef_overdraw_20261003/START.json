@@ -1,0 +1,98 @@
+{
+  "checked_utc": "2026-10-04T02:52:09.221536+00:00",
+  "baseline": "4cb14febc2c5f0074d5ad8386ce66f19f940c84d",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-LAY-01",
+    "DL-LAY-03",
+    "DL-LAY-05",
+    "DL-LAY-09",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-03",
+    "DL-READ-05",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-MED-01",
+    "DL-QA-03",
+    "DL-QA-06"
+  ],
+  "findings": [
+    "MA-OPERA-001",
+    "MA-VIS-006",
+    "MA-PLAY-004"
+  ],
+  "owner_observation": "There is a big issue of overdraw in this scene.",
+  "observed_defect": "Owner screenshot shows saved baked-six-tier trays in front of a separate finished cake painted into the Chef backdrop; unrelated painted rack cakes compete behind Roshan. GPU cost is not measured from this still.",
+  "scope": "Chef ChapterTwo cake-scene single ownership and supported saved-state presentation; targeted non-destructive backdrop cleanup. Preserve old sources and other careers, save/input/meaningful action requirements.",
+  "required_evidence": [
+    "Baseline and fixed actual Mobile screenshots at1280x720 and1600x720 across Chef cake-stage masks",
+    "Before/source/candidate/provenance hashes and rejected candidates",
+    "Correct and passive/teardown/save/sibling focused gates with exact official Godot4.7.2",
+    "GDScript parser/inference, import, full existing applicable gates and both master-audit gates",
+    "Source-only art review separate from runtime/device/child/owner acceptance"
+  ],
+  "source_hashes": [
+    {
+      "path": "assets_src/imagegen/opera_codex_2026-08-02/native/world_chef_native.png",
+      "sha256": "1b16695c003210b53aa8e245a4f133f5d6f8cee88be064d61b167b4e90098509"
+    },
+    {
+      "path": "assets/opera/worlds/backdrops/world_chef.png",
+      "sha256": "12e082bd808ef214863975dde40da6f557c3ad7e59470bae6ae81eb9d72bd83a"
+    },
+    {
+      "path": "assets/chapter2/birthday/chapter2_chef_baked_tiers_unstacked.png",
+      "sha256": "74b68d65ac3966cf1a2f9ad8aada8d17b8210342f32e2426ceab5b7164ba2cdd"
+    },
+    {
+      "path": "scripts/opera_world_backdrop_2d.gd",
+      "sha256": "1897f388cd04da9bc200b7b9ec03dea6e86d57e5eee7db6cef311a453f33a8ef"
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "5988db4a590fe8c471f4efa8e0344ff3e8035f67af942b79851fa8f2b55ceb68"
+    },
+    {
+      "path": "scripts/chapter_two_giant_cake_2d.gd",
+      "sha256": "548bd0ddfcca5eee6181599dc4c0e284c66706b81ea5ac344cd4d04436cbd008"
+    }
+  ],
+  "authority_read": [
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "sha256": "74b65625b9a49954d1d0526c939df7736fb643f2ccd9ef24480e16851c4a13e3"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "sha256": "d361087df5b30d7c60a7a0c55644cbe9217d74513c4dfbdf0ba10d67ac4aaf55"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "sha256": "092d0da49c70007e463670f7edc799086852df3d53db2ae910f7338f884eeea0"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "sha256": "f7b9eb572d753db835d2ff8e79b164fd91215afa9f5f1e60ed51e7da6b3f61d7"
+    },
+    {
+      "path": "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+      "sha256": "e2e97157a029efb6abfd123f9cf438f6dd5e777c6bcfac7ea4912aad64fcbd13"
+    }
+  ],
+  "owner_image_sha256": "16c922923421aa81cc8b034039a4d75635fc566ca8baf8c546171144950a1d3a",
+  "generation_gap": "No clean Chef backdrop found in the Chef source/master inventory; painted cake states cannot be removed by hiding a runtime node. Existing six-tier cake states will be reused unchanged.",
+  "image_job": {
+    "method": "Built-in imagegen precise-object-edit",
+    "prompt_path": "assets_src/imagegen/chef_overdraw_v1_20261003/PROMPT_A1.txt",
+    "prompt_sha256": "969ddae52c2de36c95e705124d37da01445f040dc731823330de88ce5d571973",
+    "max_takes": 2,
+    "no_external_paid_backend": true,
+    "prompt_encoding": "UTF-8, LF; logical request unchanged"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "method": "built-in image_gen edit",
+  "provider_output": "C:\\Users\\Peter\\.codex\\generated_images\\01a1026b-cab0-7e72-b539-a019ec9deb21\\exec-a0557be9-46b8-4fe1-b8fa-ac6bb678fab7.png",
+  "purpose": "No suitable empty shell bowl exists: old pour base has baked-in frame/whisk and fill is a flat vector rectangle. Existing approved filled bowl and spoon retained as identity source; only empty cavity variant commissioned.",
+  "source": {
+    "path": "assets/chapter2/birthday/chapter2_chef_batter_unstirred.png",
+    "sha256": "f259c77205dfeee8ad3fe5f9a316eb9e433d4cc6a685cfb1d8e44daacfd6aca9"
+  },
+  "prompt": {
+    "path": "assets_src/imagegen/chef_overdraw_v1_20261003/PROMPT_EMPTY_BOWL_A1.txt",
+    "sha256": "c328b1f7a055a55be6682231d71542a41cc03bfe9501a203e6556da7aaf88bd4"
+  },
+  "native": {
+    "path": "assets_src/imagegen/chef_overdraw_v1_20261003/chef_empty_shell_bowl_native.png",
+    "sha256": "c162c82017da4982e2ac5ac4f34bc4293b7ef7fa7135f02272e00485f49e02fd",
+    "size": [
+      1254,
+      1254
+    ]
+  },
+  "runtime": {
+    "path": "assets/chapter2/birthday/chef_empty_shell_bowl_v1.png",
+    "sha256": "2538ae452b0f681c2832f328a9d844cba482cd9829a9414d2d3c732ca533c129",
+    "size": [
+      1024,
+      1024
+    ],
+    "transform": "whole-canvas RGBA Lanczos normalization only; no subject edits"
+  },
+  "review": "Codex inspected transparent native: matching shell silhouette/cavity and separate spoon; owner/context/device/child acceptance pending.",
+  "runtime_import": {
+    "path": "assets/chapter2/birthday/chef_empty_shell_bowl_v1.png.import",
+    "sha256": "a50a8f0a92853234d230b4c420c14084e75ed01e6764df27e0abea3d91435abb",
+    "compression_mode": 2,
+    "mipmaps": false
+  },
+  "runtime_reveal": "The complete native shell is drawn once; only the cavity uses a bounded native-batter polygon reveal. No procedural food rectangle or full-canvas duplicate."
+}

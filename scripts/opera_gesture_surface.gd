@@ -23,6 +23,7 @@ var choice_count := 3
 var timing_position := 0.0
 var timing_zone := Vector2(0.30, 0.72)
 var held := false
+var active_touch_index := -1
 var pointer_pos := Vector2.ZERO
 var previous_pos := Vector2.ZERO
 var previous_angle := 0.0
@@ -463,6 +464,7 @@ func configure(next_mode: String, next_accent: Color, choice: int = 1, next_cont
 			if texture != null:
 				nursery_textures.append(texture)
 	held = false
+	active_touch_index = -1
 	have_angle = false
 	demo_active = true
 	demo_t = 0.0
@@ -1189,7 +1191,7 @@ func _drag(at: Vector2) -> void:
 	elif mode == "circle":
 		var center := _circle_pivot()
 		var radius := at.distance_to(center)
-		if radius > minf(size.x, size.y) * 0.13:
+		if radius > _circle_min_radius():
 			var angle := (at - center).angle()
 			if have_angle:
 				var change := wrapf(angle - previous_angle, -PI, PI)
@@ -1207,6 +1209,7 @@ func _drag(at: Vector2) -> void:
 
 func _release(at: Vector2) -> void:
 	held = false
+	active_touch_index = -1
 	pointer_pos = at
 	have_angle = false
 	long_push_engaged = false
@@ -1247,12 +1250,19 @@ func _gui_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		var touch := event as InputEventScreenTouch
 		if touch.pressed:
+			if held:
+				return
+			active_touch_index = touch.index
 			_press(touch.position)
-		else:
+		elif touch.index == active_touch_index:
 			_release(touch.position)
+		else:
+			return
 		accept_event()
 	elif event is InputEventScreenDrag:
 		var drag := event as InputEventScreenDrag
+		if not held or (active_touch_index >= 0 and drag.index != active_touch_index):
+			return
 		_drag(drag.position)
 		accept_event()
 	elif event is InputEventMouseButton and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT:
@@ -1739,15 +1749,23 @@ func _trace_rehint(at: Vector2) -> void:
 
 func _authored_trace_drag(at: Vector2) -> void:
 	if not trace_engaged or trace_journey >= 0.999:
+		previous_pos = at
 		return
 	var candidate := _trace_progress_for_point(at)
 	var journey_delta := candidate - trace_journey
 	var follows_corridor := _trace_segment_on_corridor(previous_pos, at)
 	# Ordered travel blocks reverse scrubbing and large chord shortcuts. The
 	# 18% cap still permits coarse preschool touch samples on the small phone.
-	if not follows_corridor or journey_delta <= 0.001 or journey_delta > 0.18:
+	if journey_delta <= 0.001:
+		# Fine samples and harmless jitter retain their live origin. Reverse
+		# travel still earns nothing, but does not repeatedly flash the demo.
+		if journey_delta < -0.015:
+			_trace_rehint(at)
+		previous_pos = at
+		return
+	if not follows_corridor or journey_delta > 0.18:
 		_trace_rehint(at)
-		previous_pos = _trace_demo_point(trace_journey)
+		previous_pos = at
 		return
 	demo_active = false
 	if trace_points.is_empty():
@@ -2053,6 +2071,10 @@ func _draw_magician_portal() -> void:
 
 func _is_racer_tune_context() -> bool:
 	return mode == "circle" and visual_context == "crank_racer"
+
+
+func _circle_min_radius() -> float:
+	return minf(size.x, size.y) * 0.13
 
 
 func _circle_pivot() -> Vector2:
@@ -4021,7 +4043,7 @@ func _demo_finger_pose() -> Dictionary:
 					at = blanket_start.lerp(blanket_end, blanket_travel)
 					pressing = cycle <= 1.78
 			elif _uses_authored_trace_context():
-				var trace_travel := clampf(cycle / 1.85, 0.0, 1.0)
+				var trace_travel := lerpf(trace_journey, 1.0, clampf(cycle / 1.85, 0.0, 1.0))
 				at = _trace_demo_point(trace_travel)
 				pressing = cycle <= 1.95
 			elif _uses_long_push_context():
@@ -5963,7 +5985,7 @@ func _pour_bowl_rect() -> Rect2:
 func _pour_home_x() -> float:
 	if _is_candymaker_pour():
 		return size.x * 0.26
-	return size.x * 0.34
+	return size.x * 0.68 if visual_context == "pour_chef" else size.x * 0.34
 
 
 func _pour_x_bounds() -> Vector2:
@@ -6021,7 +6043,7 @@ func _pour_pitcher_hit_rect() -> Rect2:
 
 
 func _pour_pitcher_rotation() -> float:
-	return pour_tilt * 1.05
+	return pour_tilt * (-1.05 if visual_context == "pour_chef" else 1.05)
 
 
 func _candymaker_spout_local_anchor(pitcher: Rect2) -> Vector2:
@@ -6059,6 +6081,9 @@ func _pour_spout_point() -> Vector2:
 		# rendered ladle so the stream remains attached throughout the tilt.
 		var local_anchor := _candymaker_spout_local_anchor(pitcher)
 		return pitcher.get_center() + local_anchor.rotated(_pour_pitcher_rotation())
+	if visual_context == "pour_chef":
+		var lip := (Vector2(0.086, 0.312) - Vector2.ONE * 0.5) * pitcher.size
+		return pitcher.get_center() + lip.rotated(_pour_pitcher_rotation())
 	return Vector2(pour_x + 52.0 + 26.0 * pour_tilt,
 		pitcher.position.y + 58.0 + 30.0 * pour_tilt)
 
@@ -6071,7 +6096,8 @@ func _pour_landing_point() -> Vector2:
 			bowl.position.x + bowl.size.x * 0.42)
 		return Vector2(clampf(landing_x, bowl.position.x + 18.0, bowl.end.x - 18.0),
 			bowl.position.y + bowl.size.y * 0.80)
-	return Vector2(spout.x + 10.0, bowl.position.y + 16.0)
+	return Vector2(spout.x - 10.0 if visual_context == "pour_chef" else spout.x + 10.0,
+		bowl.position.y + 16.0)
 
 
 func _pour_stream_active() -> bool:
@@ -6080,6 +6106,13 @@ func _pour_stream_active() -> bool:
 
 func _candymaker_full_ladle_alpha() -> float:
 	return clampf(pour_reserve / 0.30, 0.0, 1.0)
+
+
+func _pour_fill_delta(tilt_flow: float, delta: float) -> float:
+	if _is_candymaker_pour():
+		return tilt_flow * delta / CANDYMAKER_POUR_SECONDS
+	var reserve_flow := maxf(pour_reserve, 0.12) / 1.2
+	return tilt_flow * delta / 4.6 * reserve_flow
 
 
 func _pour_tick(delta: float) -> void:
@@ -6106,14 +6139,7 @@ func _pour_tick(delta: float) -> void:
 			on_target = bowl.has_point(landing) and spout.y < landing.y
 		if on_target and pour_level < 1.0:
 			var tilt_flow := (pour_tilt - 0.36) / 0.64
-			var fill := 0.0
-			if _is_candymaker_pour():
-				# Roughly 3.5 seconds including the visible tilt-in: short enough to
-				# read as responsive, long enough to see the shell fill.
-				fill = tilt_flow * delta / CANDYMAKER_POUR_SECONDS
-			else:
-				var reserve_flow := maxf(pour_reserve, 0.12) / 1.2
-				fill = tilt_flow * delta / 4.6 * reserve_flow
+			var fill := _pour_fill_delta(tilt_flow, delta)
 			var applied_fill := minf(fill, 1.0 - pour_level)
 			pour_level += applied_fill
 			var drain_scale := 1.2 if _is_candymaker_pour() else 1.0

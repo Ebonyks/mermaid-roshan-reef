@@ -201,6 +201,11 @@ func _process(delta: float) -> void:
 func _draw() -> void:
 	if not armed:
 		return
+	if bool(get_meta("kitchen_local_cue", false)):
+		# A small local cue leaves the actual bowl/cake/oven silhouette intact.
+		var at := object_center + Vector2(0.0, object_size.y * 0.44)
+		draw_circle(at, 5.0 + sin(elapsed * 3.0) * 1.5, Color("#ffe8a6"))
+		return
 	var opening_amount := clampf(opening_t / OPENING_SECONDS, 0.0, 1.0)
 	var focus_amount := 1.0 if focused or opening else 0.0
 	var pulse_speed := Affordance.pulse_speed(Affordance.INTERACTION, focus_amount > 0.5)

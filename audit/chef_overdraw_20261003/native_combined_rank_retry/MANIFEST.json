@@ -1,0 +1,81 @@
+{
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "runtime_source": {
+    "baseline": "4cb14febc2c5f0074d5ad8386ce66f19f940c84d",
+    "integration_parent": "87f992680c0b6a690bf45b1950275579c45e15ab",
+    "checked_utc": "2026-10-04T06:12:15.074752+00:00",
+    "files": [
+      {
+        "path": "scripts/opera_chef_surface.gd",
+        "sha256": "fe6cc1756d66df11a8c27906610d415b9739f21f8bae982e22611baf7e0a4dbb",
+        "filesystem_sha256": "ace593e104fa9c4a8b8bb540d835f47b0397b36a0cb71881d1614353bff62b45"
+      },
+      {
+        "path": "scripts/opera_gesture_surface.gd",
+        "sha256": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
+        "filesystem_sha256": "4e1d8be810d47bfad4d254557723cc92528a54831db6a53550e2b735bffb90e8"
+      },
+      {
+        "path": "scripts/opera_career_world_2d.gd",
+        "sha256": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+        "filesystem_sha256": "ad18754872862789cc36d36a2daac3d41d5d1e0ba5884dc579e9efb7f81fd649"
+      },
+      {
+        "path": "scripts/opera_stage_paths.gd",
+        "sha256": "63fc873b1b2bb3b7a4a10211c447a0812bba5bdd96131c1b1c72e1eadcf8419f",
+        "filesystem_sha256": "b69af8573cea9d573ecf6b245e99e1b6dc9359bf9f13f5b8d22c4b44a496d64b"
+      },
+      {
+        "path": "scripts/opera_world_hotspot_2d.gd",
+        "sha256": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+        "filesystem_sha256": "3544b48ee8e6f60edd54af26aff3fe3a4798fa0458ff69633fef38e4ec76955f"
+      },
+      {
+        "path": "scripts/chapter_two_giant_cake_2d.gd",
+        "sha256": "85dd504a6a2e76d17b398b9a3d0e65ba15a5a1d1e1cd73ebf6ee9da93cda2813",
+        "filesystem_sha256": "85dd504a6a2e76d17b398b9a3d0e65ba15a5a1d1e1cd73ebf6ee9da93cda2813"
+      },
+      {
+        "path": "scripts/opera_world_backdrop_2d.gd",
+        "sha256": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+        "filesystem_sha256": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4"
+      },
+      {
+        "path": "scripts/probe_chapter2_farmer_resume.gd",
+        "sha256": "906fbc9c29a8a463159ca2eb2e34cf4ce2f9798ffee6fa4da778727a3d4259ff",
+        "filesystem_sha256": "d9fc357f8abe14c0c395a8e08cb4d6dfcd353659efb0d9d92faf52fdd4778381"
+      }
+    ],
+    "claim": "Exact filesystem source used for final verification, pre-commit pending merge. Full suite result recorded separately.",
+    "hash_basis": "sha256 binds canonical UTF-8 LF source used by Git; filesystem_sha256 binds the actual pre-commit Windows source bytes used locally. Only CRLF-to-LF normalization separates them.",
+    "last_scope_correction": "Completion-frame review found missing baked result during oven hold. Added native rack rows after completion only; correction made while full CI was still in music/static checks, before analyzer/import/trusted probes. Changed surface parser/inference/analyzer rerun separately. No input/save semantics changed. Final stir-frame review also replaced a sliced half-ribbon/half-swirl with intact authored milestone pictures; whisk remains continuous feedback. Same changed-surface parser/inference/analyzer and both-width input capture rerun before any trusted full-suite engine probe. Active depth review then put Chef characters at foreground z1 so room-owned surface props cannot paint through celebration hands. Added one meaningful depth invariant to the existing trusted fixture; parser/inference/analyzer rerun. Full suite had not started its trusted engine probes."
+  },
+  "runner": "audit/chef_overdraw_20261003/native_probe_suite.py",
+  "expected_probe_count": 1,
+  "full_ci_probe_count": 82,
+  "rows": [
+    {
+      "probe": "probe_rank",
+      "command": [
+        "C:/Users/Peter/AppData/Local/Programs/MermaidReefTools/Godot/4.7.2/godot_console.exe",
+        "--headless",
+        "--verbose",
+        "--path",
+        "C:\\Users\\Peter\\.codex\\worktrees\\chef-overdraw-20261003\\mermaid-roshan-reef",
+        "-s",
+        "scripts/probe_rank.gd",
+        "--",
+        "--touch",
+        "--classic-touch-test"
+      ],
+      "exit_code": 0,
+      "hard_failure": false,
+      "seconds": 11.571,
+      "log": "audit/chef_overdraw_20261003/native_combined_rank_retry/probe_rank.log",
+      "sha256": "f96d213288a9761983f93adb70ee43333d3298d9282b6ee5ad1edd66a1f03cdb"
+    }
+  ],
+  "result": "ALL OK",
+  "method": "Native Windows subprocess waiting with separate process group/no console window and fresh per-probe save roots; same trusted scripts and touch modes as ci.sh, verbose diagnostics only. Static gates/import reference full_ci_final.log; no failed shell attempt is converted into a pass.",
+  "completed_utc": "2026-10-04T09:08:40.143380+00:00"
+}

@@ -41,3 +41,8 @@ assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/** -text whitespace=
 assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/** -text whitespace=cr-at-eol
 assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/** -text whitespace=cr-at-eol
 assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/verification/*.log whitespace=-blank-at-eof,cr-at-eol
+
+# Chef review/native-generation manifests bind literal packet bytes.
+# Runtime GDScript source hashes separately declare canonical UTF-8 LF.
+audit/chef_overdraw_20261003/** -text whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+assets_src/imagegen/chef_overdraw_v1_20261003/** -text whitespace=cr-at-eol
