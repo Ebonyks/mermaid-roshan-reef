@@ -98,7 +98,7 @@
     {
       "command": "Probe Suite (graphics fork) run 37184172269 on df99a3717aca39f06ed703a2d3ff677feefe13cf",
       "result": "FAIL",
-      "evidence": "The static gates passed; the import step's python3 tools/audit_game_2d.py --regression-gate reported G2D101 manifest drift for design/reference/games.json (Camera3D x2, Node3D x3, Sprite3D x3 in three C2 notes) and design/reference/gold_star.json (Vector3 x1 in the C2 definition). design/ JSON is live project data to that gate. No probe ran."
+      "evidence": "The static gates passed; the import step's python3 tools/audit_game_2d.py --regression-gate reported G2D101 manifest drift for design/reference/games.json (eight engine 3D class names in three C2 notes) and design/reference/gold_star.json (one engine 3D vector type name in the C2 definition). design/ JSON is live project data to that gate. No probe ran."
     },
     {
       "command": "Repair: reword the four notes; python -B tools/gold_star.py --render; then python -B tools/gold_star.py --check --strict, python -B tools/audit_game_2d.py --regression-gate and exact Godot 4.7.2-stable --check-only on the six changed scripts",
@@ -111,9 +111,14 @@
       "evidence": "Checked 2026-10-04T07:15:03Z: manifest SHA-256 d5d3f586c845400dbf7bca87bc1d3227ef30349b5b418c07e50b50aac061f8b5; 22 of 22 items matched their manifest bytes and SHA-256, including games.json 83a6bd161df7, gold_star.json 57838ee1e9e1 and tools/gold_star.py 04b37121448e; the commit's tree page answered 200 anonymously."
     },
     {
+      "command": "Probe Suite (graphics fork) run 37185244064 on a46e46a44ef79438e6677b38902cec022040bbad",
+      "result": "FAIL",
+      "evidence": "The same gate reported G2D101 for this impact record: its first repair evidence quoted the engine class names it described. The evidence now uses plain words, and python -B tools/audit_game_2d.py --regression-gate was run locally on the final tree before the next push. No probe ran."
+    },
+    {
       "command": "Probe Suite (graphics fork) on the pushed branch head",
       "result": "PENDING",
-      "evidence": "Runs 37183788471 (7bf46205) and the runs on 128723cb and 0cc01cbb were superseded by the workflow's cancel-in-progress concurrency; run 37184172269 (df99a371) failed as recorded above. The branch is merged into dev only after a green run on its exact head, which carries this record."
+      "evidence": "Runs 37183788471 (7bf46205) and the runs on 128723cb and 0cc01cbb were superseded by the workflow's cancel-in-progress concurrency; runs 37184172269 (df99a371) and 37185244064 (a46e46a4) failed as recorded above. The branch is merged into dev only after a green run on its exact head, which carries this record."
     },
     {
       "command": "Phone session, observed child session and owner verdict for the Mermaid Pool (POOL_FIVE_STAR.md section 4)",
@@ -138,7 +143,7 @@
       "recurrence_key": "tint-recolours-identity"
     },
     {
-      "lesson": "tools/audit_game_2d.py scans design/ JSON as live project data, so engine class names written in scorecard prose count as new 3D debt and fail the import step after a 50-minute wait; the local static gates never ran it because ci.sh runs it after the import.",
+      "lesson": "tools/audit_game_2d.py scans every JSON under design/ as live project data, impact records included, so engine class names written in prose count as new 3D debt and fail the import step after the static gates pass; it happened twice here, the second time in this record's own evidence. Run the 2D regression gate locally after the last JSON edit, not before it.",
       "write_back": "tools/gold_star.py",
       "recurrence_key": "engine-class-names-in-data-prose"
     }
