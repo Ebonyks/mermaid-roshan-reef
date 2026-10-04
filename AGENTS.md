@@ -182,8 +182,10 @@ and the [production protocol](design/animation/ANIMATION_PRODUCTION_PROTOCOL.md)
 - Declared 2D cutout/keyed animation, compositing, local deformation, tweening,
   retiming and interpolation may produce final candidates. They cannot conceal
   missing action, fake contact or change anatomy/identity. Review every affected
-  transition and loop seam at full speed and frame-step. Holds serve intended
-  rest only; duplicated frames cannot fill required acting or motion.
+  transition and loop seam at full speed and frame-step. Declared authored
+  key/frame durations and cadence (including animation on twos) are allowed
+  when the complete action remains readable. Narrative holds record their
+  purpose; padding/duplicate frames cannot fill required acting or motion.
 - Complete one [job card](design/templates/ANIMATION_JOB_CARD_V1.md) per action:
   sources, verb, fixed/moving parts, geometry, entry/exit, tolerances, method,
   attempts, wall/cleanup-time limits and monetary/task cap. Default two generated

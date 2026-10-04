@@ -56,7 +56,10 @@ Choose a method using the [dated workflow comparison](WORKFLOW_OPTIONS_2026-10-0
 and complete the [job card](../templates/ANIMATION_JOB_CARD_V1.md). ImageGen fills
 specific art gaps, not an automatic animation-frame batch. Declared 2D
 articulation/compositing/interpolation is eligible when it preserves identity
-and performs the actual action. Holds/duplicates/static-sticker motion cannot
+and performs the actual action. Declare authored key/frame durations and
+cadence; animation on twos may preserve a painted performance without adding
+synthetic in-betweens. Review the complete action and preserve frame mapping.
+Holds/duplicates/static-sticker motion cannot
 hide missing acting or contact. Historical owner rejections remain in force.
 
 Prefer an editable RGBA Aseprite master for sprite isolation, matte/detail

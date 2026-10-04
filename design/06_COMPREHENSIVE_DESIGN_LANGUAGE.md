@@ -960,7 +960,9 @@ identity/topology/style, visible action/support/contact, fixed fixtures and all
 affected transitions. No method may fake contact or use holds/duplicates to
 conceal missing motion/acting. Prior owner-rejected performances stay rejected.
 
-`DL-CIN-04` — Holds require a declared span and intended rest/narrative purpose.
+`DL-CIN-04` — Declared authored key/frame durations at a chosen cadence are
+allowed when the complete action remains readable; animation on twos is not
+missing-action padding. Narrative holds require a declared span and purpose.
 Review complete action spans, changing surfaces/occlusion, contact, endpoints
 and loop pose/velocity temporally. Pretty keys or a smooth interpolator alone
 are insufficient; no separate image-generation request per frame is required.
