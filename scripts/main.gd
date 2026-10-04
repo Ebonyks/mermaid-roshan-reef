@@ -512,11 +512,19 @@ func _sticker_def(id: String) -> Dictionary:
 			return d
 	return STICKER_DEFS[0]
 
-func award_sticker(id: String) -> void:
+func award_sticker(id: String, visual_delay: float = 0.0) -> void:
 	if bool(stickers.get(id, false)):
 		return
 	stickers[id] = true
 	_write_save()
+	if visual_delay > 0.0:
+		var reward_tween := create_tween()
+		reward_tween.tween_interval(visual_delay)
+		reward_tween.tween_callback(_show_sticker_reward.bind(id))
+	else:
+		_show_sticker_reward(id)
+
+func _show_sticker_reward(id: String) -> void:
 	var d := _sticker_def(id)
 	_sticker_toast("%s  New sticker:  %s!" % [String(d["emoji"]), String(d["label"])])
 	_fanfare()
@@ -2051,7 +2059,7 @@ func _kart_completion_committed(place: int) -> void:
 	if place <= 0 or kart_completion_committed:
 		return
 	kart_completion_committed = true
-	_medal_ref().award_stats("kart", {"place": place})
+	_medal_ref().award_stats("kart", {"place": place}, 0.75)
 	var unlocked_galaxy := false
 	if kart_ground == "float" and not galaxy_unlocked:
 		galaxy_unlocked = true
@@ -2059,7 +2067,7 @@ func _kart_completion_committed(place: int) -> void:
 	# Every completed race is a success for a preschooler. Set Galaxy first so
 	# award_sticker's immediate save commits both rewards in the same snapshot.
 	if not bool(stickers.get("racer", false)):
-		award_sticker("racer")
+		award_sticker("racer", 0.75)
 	elif unlocked_galaxy:
 		_write_save()
 

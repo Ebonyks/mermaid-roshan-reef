@@ -5,7 +5,7 @@ extends SceneTree
 #   A. assist floor   — a zero-input solo run still finishes neutrally (auto-cruise)
 #   B. racing line    — an inside-line policy beats an outside-line policy
 #   C. skill ceiling  — a drift policy reaches tier >= 2 and beats hands-off
-#   D. speed channel  — the camera FOV breathes with speed (range >= 8 deg)
+#   D. speed channel  — the Canvas view scale breathes with speed (zoom range >= 0.12)
 #   E. integration    — full-pack terrain race completes; the X quit restores the world
 #   F. determinism    — strip charge is delta-scaled; jumps keep the kart facing forward
 #   G. touch path     — the real touch action edge earns the countdown rocket start
@@ -47,7 +47,7 @@ func _init() -> void:
 	print("FEEL|t_none=%.2f t_outside=%.2f t_inside=%.2f t_drift=%.2f" % [t_none, float(outside["t"]), float(inside["t"]), float(drift["t"])])
 	print("FEEL|line_advantage=%.2f (outside-inside, target >= 0.8)" % line_adv)
 	print("FEEL|drift_gain=%.2f (none-drift, target >= 0.8) tier_max=%d uptime=%.1f" % [drift_gain, int(drift["tier_max"]), float(drift["drift_up"])])
-	print("FEEL|fov_range=%.1f (target >= 8)" % float(drift["fov_range"]))
+	print("FEEL|zoom_range=%.3f (target >= 0.12)" % float(drift["zoom_range"]))
 	var ok := true
 	if not bool(none["done"]):
 		print("FAIL|assist floor broken: zero-input run did not finish"); ok = false
@@ -57,8 +57,8 @@ func _init() -> void:
 		print("FAIL|drift tiers unreachable: tier_max %d < 2" % int(drift["tier_max"])); ok = false
 	if drift_gain < 0.3:
 		print("FAIL|drift has no payoff: drift_gain %.2f < 0.3" % drift_gain); ok = false
-	if float(drift["fov_range"]) < 8.0:
-		print("FAIL|fov does not breathe: range %.1f < 8" % float(drift["fov_range"])); ok = false
+	if float(drift["zoom_range"]) < 0.12:
+		print("FAIL|Canvas zoom does not breathe: range %.3f < 0.12" % float(drift["zoom_range"])); ok = false
 
 	# ---- F/G: deterministic interactions + real touch action path ----
 	var engine_checks: Dictionary = await _engine_regression_checks()
@@ -199,7 +199,7 @@ func _engine_regression_checks() -> Dictionary:
 	kg.set_process(false)
 	kg._state = "race"
 	var k: Dictionary = kg._pl
-	var kn: Node3D = k["node"]
+	var kn: Node2D = k["node"]
 
 	# Hold the kart on one strip for the same simulated second at 30 and 60 Hz.
 	kg._strip_data = [{"pos": kn.position, "len": 1.0}]
@@ -221,8 +221,8 @@ func _engine_regression_checks() -> Dictionary:
 	k["drift"] = false
 	k["air_t"] = float(kg.AIR_DUR) * 0.5
 	kg._place_kart(k, 0.0)
-	var expected_forward: Vector3 = kg._kart_frame(float(k["s"]), float(k["lat"]))[1]
-	var visual_forward: Vector3 = -kn.global_transform.basis.z.normalized()
+	var expected_forward: Vector2 = kg._kart_frame(float(k["s"]), float(k["lat"]))[1]
+	var visual_forward := Vector2.RIGHT.rotated(kn.rotation)
 	var air_align: float = visual_forward.dot(expected_forward.normalized())
 	var air_ok: bool = air_align >= 0.85
 	print("FEEL|air_forward_alignment=%.3f (target >= 0.85)" % air_align)
@@ -352,7 +352,7 @@ func _second_place_completion_check() -> bool:
 func _force_race_start(kg: Node) -> void:
 	# replicate the select-confirm path (probe skips the 2x8s pick screens)
 	for sn in kg._sel_nodes:
-		(sn["slot"] as Node3D).queue_free()
+		(sn["slot"] as Node2D).queue_free()
 	kg._sel_nodes.clear()
 	kg._paint_orbs.clear()
 	kg._build_karts("kart", {})
@@ -394,8 +394,8 @@ func _solo_run(policy: String) -> Dictionary:
 	var race_elapsed := 0.0
 	var drift_up := 0.0
 	var tier_max := 0
-	var fov_lo := 999.0
-	var fov_hi := 0.0
+	var zoom_lo := 999.0
+	var zoom_hi := 0.0
 	while _race_place == -99 and guard < 260.0:
 		guard += 1.0 / 60.0 * Engine.time_scale
 		if kg._state == "race":
@@ -406,15 +406,15 @@ func _solo_run(policy: String) -> Dictionary:
 			if bool(kg._pl.get("drift", false)):
 				drift_up += race_delta
 				tier_max = maxi(tier_max, kg._drift_tier(float(kg._pl["drift_t"])))
-			fov_lo = minf(fov_lo, kg._cam.fov)
-			fov_hi = maxf(fov_hi, kg._cam.fov)
+			zoom_lo = minf(zoom_lo, kg._canvas.speed_zoom)
+			zoom_hi = maxf(zoom_hi, kg._canvas.speed_zoom)
 		await process_frame
 	main.touch_ui.stick_vec = Vector2.ZERO
 	main.game = ""
 	main.player.visible = true
 	await process_frame
 	print("  run[%s]: t=%.2f done=%s drift_up=%.1f tier_max=%d" % [policy, race_elapsed, _race_place != -99, drift_up, tier_max])
-	return {"t": race_elapsed, "done": _race_place != -99, "drift_up": drift_up, "tier_max": tier_max, "fov_range": fov_hi - fov_lo}
+	return {"t": race_elapsed, "done": _race_place != -99, "drift_up": drift_up, "tier_max": tier_max, "zoom_range": zoom_hi - zoom_lo}
 
 func _on_race_done(place: int) -> void:
 	_race_place = place

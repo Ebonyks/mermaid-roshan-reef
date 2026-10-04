@@ -1,0 +1,122 @@
+{
+  "id": "job-game-racer-refinement-20261003",
+  "created_utc": "2026-10-03T21:40:10.969019+00:00",
+  "baseline": "30d82725661044de63b682f5b13ba8f19101892b",
+  "branch": "codex/racer-existing-engine-2d-20261003",
+  "scope": "Source-bound Racer review for the three live Canvas phases, native-resolution gaps, actual rendered source/caller truth, and finishing-action ownership. Existing source reuse study only until in-flight ownership is known; shared production, canonical documents, licensing and publication belong to the artwork coordinator.",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-VIS-01",
+    "DL-VIS-02",
+    "DL-VIS-06",
+    "DL-VIS-07",
+    "DL-VIS-09",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-03",
+    "DL-INT-04",
+    "DL-INT-10",
+    "DL-INT-12",
+    "DL-MOT-01",
+    "DL-MOT-02",
+    "DL-MOT-03",
+    "DL-MOT-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-PERF-01",
+    "DL-PERF-04",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-07"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004",
+    "MA-OPERA-010",
+    "MA-OPERA-012"
+  ],
+  "finding_claim": "Supporting evidence only; no new canonical defect or lifecycle/closure claim.",
+  "authorities": [
+    {
+      "path": "audit/MASTER_AUDIT_2026-08-09.md",
+      "sha256": "9330c2816d72e4d51cebd22ba679b9ea0e18e94547b2fc4213ad309b7c2fba27"
+    },
+    {
+      "path": "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+      "sha256": "44e33965040e55de846448286322df7c8afbc545d3377cdda49b558917518805"
+    },
+    {
+      "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+      "sha256": "bd25ec8a5bb715e33e01da8956c366c81773d5db97cf2b3f9fd2893c21b49c15"
+    },
+    {
+      "path": "design/05_DOC_LEDGER.md",
+      "sha256": "b1b5fa0e8dce6b671fc53770adc2362ef815938d55e491ddbb8282bfaea17521"
+    },
+    {
+      "path": "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+      "sha256": "18b6f477b41241b509afda6a7cf76932c9af08be70f321ee2d744db424fe2b30"
+    },
+    {
+      "path": "design/OPERA_RACER_ENGINE_INTEGRATION_2026-09-05.md",
+      "sha256": "3fba90a1204a65ee07b5eef0549a4a1f83c7642aad0107bdb82c5fd4fbd498ae"
+    }
+  ],
+  "allowed_paths": [
+    "audit/job_game_refinement_20261003/racer/",
+    "assets_src/imagegen/job_game_refinement_20261003/racer/",
+    "design/audit_impacts/job-game-racer-refinement-20261003.json"
+  ],
+  "required_evidence": [
+    "Exact input hashes and source license/provenance scope",
+    "Per-item native/source visual review with inherited scores distinguished from new opinions",
+    "Literal load/draw/caller trace with source hashes",
+    "Genuine native coverage versus padded tiles and subject sampling at draw scale",
+    "Roshan contact, correct wheel orientation/hub, finish/settle/return through real input when official Godot 4.7.2 is available",
+    "Authority/development gates; focused verification and exact production-boundary recheck",
+    "Runtime/device/child/owner acceptance kept pending independently"
+  ],
+  "animation_authority_limit": "Latest replacement AGENTS strict full-frame cinematic policy confirmed by router correction; no cinematic delivery authorized or produced in engine conversion.",
+  "scope_change": {
+    "date": "2026-10-03",
+    "owner_verbatim": "Racer specifically has a problem. There's a racing game that's 3d and has already been developed in this game. Converting this engine to our racing engine, versus any others, is a priority",
+    "implementation_priority": "Convert the developed KartGame engine to the shared true-2D racing engine. Do not choose another engine or spend this pass redesigning isolated Racer artwork. Preserve the existing feature set unless the owner selects a scoped training subset.",
+    "runtime_ownership": "Independent origin/dev worktree requested; do not mutate artwork-coordinator dirty production files. Mechanics extraction and 2D presentation must be source-bound to scripts/kart.gd, with tests preserving its established handling and save behavior.",
+    "required_checks": [
+      "Mechanical original-source extraction comparison",
+      "Parity of vehicle constants/AI/collisions/drift/turbo/items/hazards/ramps/shortcut/reverse/finish/save",
+      "Actual-input passive/cancel/reentry/return and exact Godot 4.7.2 Mobile",
+      "Full CI, shrink-only 2D inventory, source hashes and separate visual/device/child/owner gates"
+    ]
+  },
+  "artwork_handover_baseline": "cfcadc966bc2f3d9962243589d8a820c19ac2b0d",
+  "source_comparison": [
+    {
+      "path": "scripts/kart.gd",
+      "same_as_artwork_checkout": true,
+      "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c"
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "same_as_artwork_checkout": true,
+      "sha256": "66fa1dfe73fb7693dc9bc11d0054c2d70d4927b44d856ccf2f43109893aeccaa"
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "same_as_artwork_checkout": true,
+      "sha256": "5c95c6e09338f6acf6fc5630a7c2e2f7c29e5f311a1def618de8c9595cc597e2"
+    },
+    {
+      "path": "scripts/main.gd",
+      "same_as_artwork_checkout": true,
+      "sha256": "98d91a560426cfa4c52a70221a0311856429c031805d7d9dc990eefe2affe30e"
+    }
+  ],
+  "feature_assumption": "Retain full developed feature set for the engine. Training versus in-world configuration remains owner preference; no answer required for read-only source mapping."
+}

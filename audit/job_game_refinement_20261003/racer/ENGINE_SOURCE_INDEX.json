@@ -1,0 +1,4377 @@
+{
+  "created_utc": "2026-10-03T21:43:23.656156+00:00",
+  "qualification": "Static source trace; no runtime or device acceptance",
+  "files": [
+    {
+      "path": "scripts/kart.gd",
+      "sha256": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c",
+      "lines": 3230,
+      "functions": [
+        {
+          "name": "_touch_device",
+          "start": 277,
+          "end": 279
+        },
+        {
+          "name": "action_label",
+          "start": 280,
+          "end": 287
+        },
+        {
+          "name": "joy_axis",
+          "start": 288,
+          "end": 295
+        },
+        {
+          "name": "joy_pressed",
+          "start": 296,
+          "end": 301
+        },
+        {
+          "name": "configure",
+          "start": 302,
+          "end": 304
+        },
+        {
+          "name": "_cv",
+          "start": 305,
+          "end": 307
+        },
+        {
+          "name": "_minimal",
+          "start": 308,
+          "end": 312
+        },
+        {
+          "name": "_laps",
+          "start": 313,
+          "end": 315
+        },
+        {
+          "name": "_theme",
+          "start": 316,
+          "end": 318
+        },
+        {
+          "name": "_ground_mode",
+          "start": 319,
+          "end": 323
+        },
+        {
+          "name": "_terrain_y",
+          "start": 324,
+          "end": 328
+        },
+        {
+          "name": "_rhalf",
+          "start": 329,
+          "end": 332
+        },
+        {
+          "name": "_catmull",
+          "start": 333,
+          "end": 337
+        },
+        {
+          "name": "_ctrl_pts",
+          "start": 338,
+          "end": 343
+        },
+        {
+          "name": "_origin",
+          "start": 344,
+          "end": 348
+        },
+        {
+          "name": "_spline_u",
+          "start": 349,
+          "end": 363
+        },
+        {
+          "name": "_build_lut",
+          "start": 364,
+          "end": 399
+        },
+        {
+          "name": "_pos_at",
+          "start": 400,
+          "end": 409
+        },
+        {
+          "name": "_tangent_at",
+          "start": 410,
+          "end": 417
+        },
+        {
+          "name": "_width_at",
+          "start": 418,
+          "end": 421
+        },
+        {
+          "name": "_bank_at",
+          "start": 422,
+          "end": 426
+        },
+        {
+          "name": "_frame_at",
+          "start": 427,
+          "end": 435
+        },
+        {
+          "name": "_eff",
+          "start": 436,
+          "end": 439
+        },
+        {
+          "name": "_curv_at",
+          "start": 440,
+          "end": 450
+        },
+        {
+          "name": "_advance",
+          "start": 451,
+          "end": 458
+        },
+        {
+          "name": "_kart_frame",
+          "start": 459,
+          "end": 472
+        },
+        {
+          "name": "start",
+          "start": 473,
+          "end": 508
+        },
+        {
+          "name": "_notification",
+          "start": 509,
+          "end": 517
+        },
+        {
+          "name": "_clear_corridor",
+          "start": 518,
+          "end": 560
+        },
+        {
+          "name": "_sky_defaults",
+          "start": 561,
+          "end": 565
+        },
+        {
+          "name": "_build_sky",
+          "start": 566,
+          "end": 687
+        },
+        {
+          "name": "_bw_tint",
+          "start": 688,
+          "end": 705
+        },
+        {
+          "name": "_bw_place",
+          "start": 706,
+          "end": 714
+        },
+        {
+          "name": "_bw_fit",
+          "start": 715,
+          "end": 731
+        },
+        {
+          "name": "_build_butterfly_world",
+          "start": 732,
+          "end": 884
+        },
+        {
+          "name": "_tick_butterfly_world",
+          "start": 885,
+          "end": 917
+        },
+        {
+          "name": "_build_track",
+          "start": 918,
+          "end": 1068
+        },
+        {
+          "name": "_gen2_instance",
+          "start": 1069,
+          "end": 1071
+        },
+        {
+          "name": "_gen2_card",
+          "start": 1072,
+          "end": 1085
+        },
+        {
+          "name": "_gen2_grass_card",
+          "start": 1086,
+          "end": 1112
+        },
+        {
+          "name": "_play_first_anim",
+          "start": 1113,
+          "end": 1129
+        },
+        {
+          "name": "_build_ocean_props",
+          "start": 1130,
+          "end": 1194
+        },
+        {
+          "name": "_build_finish",
+          "start": 1195,
+          "end": 1262
+        },
+        {
+          "name": "_build_shortcut",
+          "start": 1263,
+          "end": 1283
+        },
+        {
+          "name": "_build_strips",
+          "start": 1284,
+          "end": 1314
+        },
+        {
+          "name": "_build_pickups",
+          "start": 1315,
+          "end": 1371
+        },
+        {
+          "name": "_build_ramps",
+          "start": 1372,
+          "end": 1405
+        },
+        {
+          "name": "_check_ramps",
+          "start": 1406,
+          "end": 1419
+        },
+        {
+          "name": "_hazard_table",
+          "start": 1420,
+          "end": 1422
+        },
+        {
+          "name": "_build_hazards",
+          "start": 1423,
+          "end": 1638
+        },
+        {
+          "name": "_hazard_bonk",
+          "start": 1639,
+          "end": 1657
+        },
+        {
+          "name": "_tick_hazards",
+          "start": 1658,
+          "end": 1774
+        },
+        {
+          "name": "_build_pearls",
+          "start": 1775,
+          "end": 1806
+        },
+        {
+          "name": "_rainbow_orb_mat",
+          "start": 1807,
+          "end": 1816
+        },
+        {
+          "name": "_apply_paint",
+          "start": 1817,
+          "end": 1862
+        },
+        {
+          "name": "_gather_aabbs",
+          "start": 1863,
+          "end": 1871
+        },
+        {
+          "name": "_fit_model",
+          "start": 1872,
+          "end": 1887
+        },
+        {
+          "name": "_vehicle_body",
+          "start": 1888,
+          "end": 1945
+        },
+        {
+          "name": "_vehicles_table",
+          "start": 1946,
+          "end": 1948
+        },
+        {
+          "name": "_vehicle_keys",
+          "start": 1949,
+          "end": 1964
+        },
+        {
+          "name": "_veh",
+          "start": 1965,
+          "end": 1967
+        },
+        {
+          "name": "_build_karts",
+          "start": 1968,
+          "end": 2000
+        },
+        {
+          "name": "_build_camera",
+          "start": 2001,
+          "end": 2032
+        },
+        {
+          "name": "_select_slot_pos",
+          "start": 2033,
+          "end": 2044
+        },
+        {
+          "name": "_build_select",
+          "start": 2045,
+          "end": 2087
+        },
+        {
+          "name": "_build_select_controls",
+          "start": 2088,
+          "end": 2117
+        },
+        {
+          "name": "_choose_ride_by_touch",
+          "start": 2118,
+          "end": 2124
+        },
+        {
+          "name": "_choose_paint_by_touch",
+          "start": 2125,
+          "end": 2131
+        },
+        {
+          "name": "_paint_choice_fill",
+          "start": 2132,
+          "end": 2138
+        },
+        {
+          "name": "_refresh_select_controls",
+          "start": 2139,
+          "end": 2156
+        },
+        {
+          "name": "_sel_move",
+          "start": 2157,
+          "end": 2177
+        },
+        {
+          "name": "_build_paint_row",
+          "start": 2178,
+          "end": 2201
+        },
+        {
+          "name": "_tick_select",
+          "start": 2202,
+          "end": 2286
+        },
+        {
+          "name": "_fire_just",
+          "start": 2287,
+          "end": 2295
+        },
+        {
+          "name": "_steer_input",
+          "start": 2296,
+          "end": 2316
+        },
+        {
+          "name": "_brake_input",
+          "start": 2317,
+          "end": 2326
+        },
+        {
+          "name": "_process",
+          "start": 2327,
+          "end": 2417
+        },
+        {
+          "name": "_update_player",
+          "start": 2418,
+          "end": 2469
+        },
+        {
+          "name": "_update_ai",
+          "start": 2470,
+          "end": 2534
+        },
+        {
+          "name": "_apply_lat",
+          "start": 2535,
+          "end": 2551
+        },
+        {
+          "name": "_place_kart",
+          "start": 2552,
+          "end": 2633
+        },
+        {
+          "name": "_charge",
+          "start": 2634,
+          "end": 2645
+        },
+        {
+          "name": "_drift_tier",
+          "start": 2646,
+          "end": 2648
+        },
+        {
+          "name": "_drift_spray",
+          "start": 2649,
+          "end": 2678
+        },
+        {
+          "name": "_drift_release",
+          "start": 2679,
+          "end": 2691
+        },
+        {
+          "name": "_drift_cancel",
+          "start": 2692,
+          "end": 2702
+        },
+        {
+          "name": "_flash_big",
+          "start": 2703,
+          "end": 2709
+        },
+        {
+          "name": "_speedy",
+          "start": 2710,
+          "end": 2712
+        },
+        {
+          "name": "_draft_ahead",
+          "start": 2713,
+          "end": 2721
+        },
+        {
+          "name": "_check_strips",
+          "start": 2722,
+          "end": 2731
+        },
+        {
+          "name": "_check_pickups",
+          "start": 2732,
+          "end": 2787
+        },
+        {
+          "name": "_check_pearls",
+          "start": 2788,
+          "end": 2806
+        },
+        {
+          "name": "_check_shortcut",
+          "start": 2807,
+          "end": 2822
+        },
+        {
+          "name": "_resolve_collisions",
+          "start": 2823,
+          "end": 2882
+        },
+        {
+          "name": "_chime",
+          "start": 2883,
+          "end": 2896
+        },
+        {
+          "name": "_build_engine",
+          "start": 2897,
+          "end": 2910
+        },
+        {
+          "name": "_tick_engine",
+          "start": 2911,
+          "end": 2930
+        },
+        {
+          "name": "_update_camera",
+          "start": 2931,
+          "end": 2963
+        },
+        {
+          "name": "_mk_label",
+          "start": 2964,
+          "end": 2973
+        },
+        {
+          "name": "_set_guide_mode",
+          "start": 2974,
+          "end": 3002
+        },
+        {
+          "name": "_tick_guide",
+          "start": 3003,
+          "end": 3016
+        },
+        {
+          "name": "_build_hud",
+          "start": 3017,
+          "end": 3064
+        },
+        {
+          "name": "_quit_race",
+          "start": 3065,
+          "end": 3072
+        },
+        {
+          "name": "_placement",
+          "start": 3073,
+          "end": 3081
+        },
+        {
+          "name": "_placement_bonus",
+          "start": 3082,
+          "end": 3090
+        },
+        {
+          "name": "_commit_payout",
+          "start": 3091,
+          "end": 3115
+        },
+        {
+          "name": "_commit_completion",
+          "start": 3116,
+          "end": 3122
+        },
+        {
+          "name": "_update_hud",
+          "start": 3123,
+          "end": 3150
+        },
+        {
+          "name": "_finish",
+          "start": 3151,
+          "end": 3210
+        },
+        {
+          "name": "_teardown",
+          "start": 3211,
+          "end": 3230
+        }
+      ]
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "sha256": "66fa1dfe73fb7693dc9bc11d0054c2d70d4927b44d856ccf2f43109893aeccaa",
+      "lines": 141,
+      "functions": []
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "sha256": "5c95c6e09338f6acf6fc5630a7c2e2f7c29e5f311a1def618de8c9595cc597e2",
+      "lines": 476,
+      "functions": [
+        {
+          "name": "configure",
+          "start": 64,
+          "end": 94
+        },
+        {
+          "name": "_new_kart",
+          "start": 95,
+          "end": 99
+        },
+        {
+          "name": "_build_route",
+          "start": 100,
+          "end": 113
+        },
+        {
+          "name": "road_point",
+          "start": 114,
+          "end": 121
+        },
+        {
+          "name": "road_curvature",
+          "start": 122,
+          "end": 128
+        },
+        {
+          "name": "_gui_input",
+          "start": 129,
+          "end": 171
+        },
+        {
+          "name": "_press",
+          "start": 172,
+          "end": 188
+        },
+        {
+          "name": "_drag",
+          "start": 189,
+          "end": 198
+        },
+        {
+          "name": "_release",
+          "start": 199,
+          "end": 208
+        },
+        {
+          "name": "_touch_race",
+          "start": 209,
+          "end": 218
+        },
+        {
+          "name": "cancel_race_touch",
+          "start": 219,
+          "end": 228
+        },
+        {
+          "name": "_notification",
+          "start": 229,
+          "end": 234
+        },
+        {
+          "name": "_process",
+          "start": 235,
+          "end": 266
+        },
+        {
+          "name": "_tick_driving",
+          "start": 267,
+          "end": 318
+        },
+        {
+          "name": "_tick_collectibles",
+          "start": 319,
+          "end": 339
+        },
+        {
+          "name": "_draw",
+          "start": 340,
+          "end": 372
+        },
+        {
+          "name": "_draw_car",
+          "start": 373,
+          "end": 418
+        },
+        {
+          "name": "_draw_race_controls",
+          "start": 419,
+          "end": 471
+        },
+        {
+          "name": "_demo_finger_pose",
+          "start": 472,
+          "end": 476
+        }
+      ]
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256": "5988db4a590fe8c471f4efa8e0344ff3e8035f67af942b79851fa8f2b55ceb68",
+      "lines": 5249,
+      "functions": [
+        {
+          "name": "_ballet_voice_length_seconds",
+          "start": 357,
+          "end": 376
+        },
+        {
+          "name": "ballet_voice_hold_seconds",
+          "start": 377,
+          "end": 648
+        },
+        {
+          "name": "setup",
+          "start": 649,
+          "end": 784
+        },
+        {
+          "name": "_adapter_hook",
+          "start": 785,
+          "end": 798
+        },
+        {
+          "name": "_valid_callback",
+          "start": 799,
+          "end": 802
+        },
+        {
+          "name": "scene_snapshot",
+          "start": 803,
+          "end": 842
+        },
+        {
+          "name": "_full_rect",
+          "start": 843,
+          "end": 846
+        },
+        {
+          "name": "_sync_root_scale",
+          "start": 847,
+          "end": 861
+        },
+        {
+          "name": "_is_chapter2_story_scene",
+          "start": 862,
+          "end": 865
+        },
+        {
+          "name": "_is_chapter2_cake_scene",
+          "start": 866,
+          "end": 869
+        },
+        {
+          "name": "_is_chapter2_candymaker_scene",
+          "start": 870,
+          "end": 873
+        },
+        {
+          "name": "_build_chapter2_story_props",
+          "start": 874,
+          "end": 937
+        },
+        {
+          "name": "_build_chapter2_strawberry_pickups",
+          "start": 938,
+          "end": 978
+        },
+        {
+          "name": "_is_chapter2_strawberry_pick_phase",
+          "start": 979,
+          "end": 986
+        },
+        {
+          "name": "_chapter2_strawberry_mask_count",
+          "start": 987,
+          "end": 997
+        },
+        {
+          "name": "_is_chapter2_detective_scene",
+          "start": 998,
+          "end": 1001
+        },
+        {
+          "name": "_is_chapter2_candle_reveal_phase",
+          "start": 1002,
+          "end": 1009
+        },
+        {
+          "name": "_refresh_chapter2_strawberry_pickups",
+          "start": 1010,
+          "end": 1030
+        },
+        {
+          "name": "_on_chapter2_strawberry_pick",
+          "start": 1031,
+          "end": 1060
+        },
+        {
+          "name": "_on_chapter2_candle_reveal",
+          "start": 1061,
+          "end": 1087
+        },
+        {
+          "name": "_refresh_chapter2_cake_scene",
+          "start": 1088,
+          "end": 1098
+        },
+        {
+          "name": "_refresh_chapter2_story_props",
+          "start": 1099,
+          "end": 1116
+        },
+        {
+          "name": "_label",
+          "start": 1117,
+          "end": 1129
+        },
+        {
+          "name": "_build_world",
+          "start": 1130,
+          "end": 1399
+        },
+        {
+          "name": "_build_chapter2_stuffie_cast",
+          "start": 1400,
+          "end": 1440
+        },
+        {
+          "name": "_is_tutorial_run",
+          "start": 1441,
+          "end": 1444
+        },
+        {
+          "name": "_is_dev_playtest",
+          "start": 1445,
+          "end": 1448
+        },
+        {
+          "name": "_animate_chapter2_guest",
+          "start": 1449,
+          "end": 1471
+        },
+        {
+          "name": "_mirror_chapter2_pose",
+          "start": 1472,
+          "end": 1491
+        },
+        {
+          "name": "_mirror_chapter2_beat",
+          "start": 1492,
+          "end": 1512
+        },
+        {
+          "name": "_chapter2_ensemble_bow",
+          "start": 1513,
+          "end": 1538
+        },
+        {
+          "name": "_configure_stage_paths",
+          "start": 1539,
+          "end": 1556
+        },
+        {
+          "name": "navigation_snapshot",
+          "start": 1557,
+          "end": 1562
+        },
+        {
+          "name": "_chapter2_stuffie_ballet_stations",
+          "start": 1563,
+          "end": 1596
+        },
+        {
+          "name": "_actor",
+          "start": 1597,
+          "end": 1605
+        },
+        {
+          "name": "_load_if_exists",
+          "start": 1606,
+          "end": 1609
+        },
+        {
+          "name": "_build_lens_zoom_surface",
+          "start": 1610,
+          "end": 1644
+        },
+        {
+          "name": "_sync_lens_zoom_surface",
+          "start": 1645,
+          "end": 1659
+        },
+        {
+          "name": "_place_on_stage",
+          "start": 1660,
+          "end": 1671
+        },
+        {
+          "name": "_capture_actor_rest",
+          "start": 1672,
+          "end": 1688
+        },
+        {
+          "name": "_apply_actor_rest",
+          "start": 1689,
+          "end": 1703
+        },
+        {
+          "name": "_restore_actor",
+          "start": 1704,
+          "end": 1711
+        },
+        {
+          "name": "_restore_stage_actors",
+          "start": 1712,
+          "end": 1717
+        },
+        {
+          "name": "_claim_actor_tween",
+          "start": 1718,
+          "end": 1726
+        },
+        {
+          "name": "_finish_actor_motion",
+          "start": 1727,
+          "end": 1731
+        },
+        {
+          "name": "_set_actor_arc",
+          "start": 1732,
+          "end": 1739
+        },
+        {
+          "name": "_set_glide_rotation",
+          "start": 1740,
+          "end": 1747
+        },
+        {
+          "name": "_set_actor_recoil",
+          "start": 1748,
+          "end": 1755
+        },
+        {
+          "name": "_actor_key",
+          "start": 1756,
+          "end": 1765
+        },
+        {
+          "name": "_anchor_goal_prop",
+          "start": 1766,
+          "end": 1792
+        },
+        {
+          "name": "_stage_room_finale_partner",
+          "start": 1793,
+          "end": 1858
+        },
+        {
+          "name": "_position_curtain_call_cast",
+          "start": 1859,
+          "end": 1878
+        },
+        {
+          "name": "_assign_stations",
+          "start": 1879,
+          "end": 1898
+        },
+        {
+          "name": "_station_index_for_id",
+          "start": 1899,
+          "end": 1905
+        },
+        {
+          "name": "_build_station_markers",
+          "start": 1906,
+          "end": 1922
+        },
+        {
+          "name": "_active_hotspot",
+          "start": 1923,
+          "end": 1928
+        },
+        {
+          "name": "_refresh_hotspots",
+          "start": 1929,
+          "end": 1955
+        },
+        {
+          "name": "_clear_hotspot_intent",
+          "start": 1956,
+          "end": 1964
+        },
+        {
+          "name": "_begin_wander_route",
+          "start": 1965,
+          "end": 1973
+        },
+        {
+          "name": "_on_hotspot_pressed",
+          "start": 1974,
+          "end": 2004
+        },
+        {
+          "name": "_on_hotspot_opening_finished",
+          "start": 2005,
+          "end": 2013
+        },
+        {
+          "name": "_draw_activity_focus",
+          "start": 2014,
+          "end": 2054
+        },
+        {
+          "name": "_draw_chapter2_candy_activity",
+          "start": 2055,
+          "end": 2078
+        },
+        {
+          "name": "_chapter2_candy_visible_action",
+          "start": 2079,
+          "end": 2091
+        },
+        {
+          "name": "_draw_chapter2_candy_coat",
+          "start": 2092,
+          "end": 2113
+        },
+        {
+          "name": "_draw_chapter2_candy_sort",
+          "start": 2114,
+          "end": 2141
+        },
+        {
+          "name": "_draw_chapter2_candy_glaze",
+          "start": 2142,
+          "end": 2158
+        },
+        {
+          "name": "_draw_chapter2_candy_place",
+          "start": 2159,
+          "end": 2183
+        },
+        {
+          "name": "_draw_chapter2_candy_berry",
+          "start": 2184,
+          "end": 2199
+        },
+        {
+          "name": "_draw_chapter2_detective_activity",
+          "start": 2200,
+          "end": 2215
+        },
+        {
+          "name": "_chapter2_style_box",
+          "start": 2216,
+          "end": 2224
+        },
+        {
+          "name": "_draw_task_card",
+          "start": 2225,
+          "end": 2262
+        },
+        {
+          "name": "_draw_station_marker",
+          "start": 2263,
+          "end": 2278
+        },
+        {
+          "name": "_glide_roshan_to",
+          "start": 2279,
+          "end": 2307
+        },
+        {
+          "name": "_finish_player_glide",
+          "start": 2308,
+          "end": 2312
+        },
+        {
+          "name": "_play_roshan_animation",
+          "start": 2313,
+          "end": 2319
+        },
+        {
+          "name": "_play_roshan_task_pose",
+          "start": 2320,
+          "end": 2336
+        },
+        {
+          "name": "_widget_template",
+          "start": 2337,
+          "end": 2395
+        },
+        {
+          "name": "_show_phase",
+          "start": 2396,
+          "end": 2402
+        },
+        {
+          "name": "_arm_phase",
+          "start": 2403,
+          "end": 2524
+        },
+        {
+          "name": "_bind_widget",
+          "start": 2525,
+          "end": 2588
+        },
+        {
+          "name": "_open_task",
+          "start": 2589,
+          "end": 2708
+        },
+        {
+          "name": "_activity_reveal_pivot",
+          "start": 2709,
+          "end": 2720
+        },
+        {
+          "name": "_repeat_phase_prompt",
+          "start": 2721,
+          "end": 2727
+        },
+        {
+          "name": "_show_phase_prompt",
+          "start": 2728,
+          "end": 2761
+        },
+        {
+          "name": "_apply_panel_layout",
+          "start": 2762,
+          "end": 2846
+        },
+        {
+          "name": "_card_position_near_station",
+          "start": 2847,
+          "end": 2860
+        },
+        {
+          "name": "_safer_panel_rect",
+          "start": 2861,
+          "end": 2886
+        },
+        {
+          "name": "_stage_player_clear_of_activity",
+          "start": 2887,
+          "end": 2952
+        },
+        {
+          "name": "_start_stage_combat",
+          "start": 2953,
+          "end": 2977
+        },
+        {
+          "name": "_spawn_stage_imp",
+          "start": 2978,
+          "end": 3008
+        },
+        {
+          "name": "_clear_stage_combat",
+          "start": 3009,
+          "end": 3024
+        },
+        {
+          "name": "_combat_remaining",
+          "start": 3025,
+          "end": 3032
+        },
+        {
+          "name": "_spawn_stage_captain",
+          "start": 3033,
+          "end": 3039
+        },
+        {
+          "name": "_combat_input",
+          "start": 3040,
+          "end": 3060
+        },
+        {
+          "name": "_combat_strike",
+          "start": 3061,
+          "end": 3095
+        },
+        {
+          "name": "_segment_distance",
+          "start": 3096,
+          "end": 3104
+        },
+        {
+          "name": "_hit_stage_imp",
+          "start": 3105,
+          "end": 3151
+        },
+        {
+          "name": "_imp_centre",
+          "start": 3152,
+          "end": 3158
+        },
+        {
+          "name": "_pop_imp_node",
+          "start": 3159,
+          "end": 3178
+        },
+        {
+          "name": "_register_bop",
+          "start": 3179,
+          "end": 3183
+        },
+        {
+          "name": "_finale_start",
+          "start": 3184,
+          "end": 3194
+        },
+        {
+          "name": "in_competition_finale",
+          "start": 3195,
+          "end": 3198
+        },
+        {
+          "name": "competition_progress",
+          "start": 3199,
+          "end": 3209
+        },
+        {
+          "name": "_set_finale_visible",
+          "start": 3210,
+          "end": 3248
+        },
+        {
+          "name": "_on_boxing_gesture",
+          "start": 3249,
+          "end": 3288
+        },
+        {
+          "name": "_repeat_ballet_instruction",
+          "start": 3289,
+          "end": 3301
+        },
+        {
+          "name": "_on_ballet_gesture",
+          "start": 3302,
+          "end": 3373
+        },
+        {
+          "name": "_racer_is_driving",
+          "start": 3374,
+          "end": 3378
+        },
+        {
+          "name": "_on_race_event",
+          "start": 3379,
+          "end": 3389
+        },
+        {
+          "name": "_on_gesture",
+          "start": 3390,
+          "end": 3541
+        },
+        {
+          "name": "_uses_authored_completion_picture",
+          "start": 3542,
+          "end": 3549
+        },
+        {
+          "name": "_advance_completed_phase",
+          "start": 3550,
+          "end": 3579
+        },
+        {
+          "name": "_finish_chapter2_final_result_hold",
+          "start": 3580,
+          "end": 3586
+        },
+        {
+          "name": "_live_captain_hp",
+          "start": 3587,
+          "end": 3593
+        },
+        {
+          "name": "_bop_burst_at",
+          "start": 3594,
+          "end": 3624
+        },
+        {
+          "name": "_on_nursery_baby_caught",
+          "start": 3625,
+          "end": 3651
+        },
+        {
+          "name": "_on_nursery_baby_missed",
+          "start": 3652,
+          "end": 3663
+        },
+        {
+          "name": "_bounce_actor",
+          "start": 3664,
+          "end": 3682
+        },
+        {
+          "name": "_set_rival_pose",
+          "start": 3683,
+          "end": 3692
+        },
+        {
+          "name": "progress",
+          "start": 3693,
+          "end": 3702
+        },
+        {
+          "name": "rival_step",
+          "start": 3703,
+          "end": 3709
+        },
+        {
+          "name": "begin_guided_retry",
+          "start": 3710,
+          "end": 3726
+        },
+        {
+          "name": "update_competition",
+          "start": 3727,
+          "end": 3733
+        },
+        {
+          "name": "celebrate",
+          "start": 3734,
+          "end": 3846
+        },
+        {
+          "name": "_tick_stage_combat",
+          "start": 3847,
+          "end": 3898
+        },
+        {
+          "name": "_hero_feet",
+          "start": 3899,
+          "end": 3906
+        },
+        {
+          "name": "_stage_feet_at_x",
+          "start": 3907,
+          "end": 3930
+        },
+        {
+          "name": "_apply_imp_pose",
+          "start": 3931,
+          "end": 4029
+        },
+        {
+          "name": "_imp_family",
+          "start": 4030,
+          "end": 4038
+        },
+        {
+          "name": "_prewarm_imp_textures",
+          "start": 4039,
+          "end": 4051
+        },
+        {
+          "name": "_imp_texture_resolution",
+          "start": 4052,
+          "end": 4074
+        },
+        {
+          "name": "_imp_texture",
+          "start": 4075,
+          "end": 4079
+        },
+        {
+          "name": "_state_texture",
+          "start": 4080,
+          "end": 4087
+        },
+        {
+          "name": "_handle_brain_events",
+          "start": 4088,
+          "end": 4126
+        },
+        {
+          "name": "_imp_contact",
+          "start": 4127,
+          "end": 4145
+        },
+        {
+          "name": "_tick_combat_marks",
+          "start": 4146,
+          "end": 4155
+        },
+        {
+          "name": "_draw_combat_fx",
+          "start": 4156,
+          "end": 4240
+        },
+        {
+          "name": "_start_lens_phase",
+          "start": 4241,
+          "end": 4285
+        },
+        {
+          "name": "_lens_input",
+          "start": 4286,
+          "end": 4301
+        },
+        {
+          "name": "_clamped_lens_position",
+          "start": 4302,
+          "end": 4312
+        },
+        {
+          "name": "_lens_graphic_rect",
+          "start": 4313,
+          "end": 4317
+        },
+        {
+          "name": "_set_lens_position",
+          "start": 4318,
+          "end": 4322
+        },
+        {
+          "name": "_move_lens_to",
+          "start": 4323,
+          "end": 4330
+        },
+        {
+          "name": "_try_lens_room_object",
+          "start": 4331,
+          "end": 4362
+        },
+        {
+          "name": "_next_unfound_lens_clue",
+          "start": 4363,
+          "end": 4369
+        },
+        {
+          "name": "_next_lens_story_target",
+          "start": 4370,
+          "end": 4383
+        },
+        {
+          "name": "_tick_lens",
+          "start": 4384,
+          "end": 4440
+        },
+        {
+          "name": "_draw_lens_layer",
+          "start": 4441,
+          "end": 4538
+        },
+        {
+          "name": "_process",
+          "start": 4539,
+          "end": 4654
+        },
+        {
+          "name": "close",
+          "start": 4655,
+          "end": 4693
+        },
+        {
+          "name": "_wander_input",
+          "start": 4694,
+          "end": 4765
+        },
+        {
+          "name": "_point_hits_active_hotspot",
+          "start": 4766,
+          "end": 4776
+        },
+        {
+          "name": "_is_chapter2_stuffie_scene",
+          "start": 4777,
+          "end": 4780
+        },
+        {
+          "name": "_chapter2_stuffie_route_to",
+          "start": 4781,
+          "end": 4792
+        },
+        {
+          "name": "_append_route_point",
+          "start": 4793,
+          "end": 4799
+        },
+        {
+          "name": "_wander_step",
+          "start": 4800,
+          "end": 4844
+        },
+        {
+          "name": "_finish_wander_route",
+          "start": 4845,
+          "end": 4871
+        },
+        {
+          "name": "_on_teacher_progress",
+          "start": 4872,
+          "end": 4879
+        },
+        {
+          "name": "_on_teacher_result",
+          "start": 4880,
+          "end": 4890
+        },
+        {
+          "name": "_teacher_learning_progress",
+          "start": 4891,
+          "end": 4896
+        },
+        {
+          "name": "_on_teacher_count",
+          "start": 4897,
+          "end": 4902
+        },
+        {
+          "name": "_queue_teacher_voice",
+          "start": 4903,
+          "end": 4909
+        },
+        {
+          "name": "_tick_teacher_voice",
+          "start": 4910,
+          "end": 4917
+        },
+        {
+          "name": "_checkpoint_teacher",
+          "start": 4918,
+          "end": 4930
+        },
+        {
+          "name": "_on_geology_progress_changed",
+          "start": 4931,
+          "end": 4938
+        },
+        {
+          "name": "_checkpoint_geology",
+          "start": 4939,
+          "end": 4953
+        },
+        {
+          "name": "_notification",
+          "start": 4954,
+          "end": 4964
+        },
+        {
+          "name": "_performance_on_stage",
+          "start": 4965,
+          "end": 4968
+        },
+        {
+          "name": "_performance_stage_layout",
+          "start": 4969,
+          "end": 5002
+        },
+        {
+          "name": "_performance_input",
+          "start": 5003,
+          "end": 5011
+        },
+        {
+          "name": "_performance_record_progress",
+          "start": 5012,
+          "end": 5023
+        },
+        {
+          "name": "_performance_note_help",
+          "start": 5024,
+          "end": 5032
+        },
+        {
+          "name": "_performance_tick",
+          "start": 5033,
+          "end": 5049
+        },
+        {
+          "name": "_performance_rival_work",
+          "start": 5050,
+          "end": 5072
+        },
+        {
+          "name": "performance_result_stats",
+          "start": 5073,
+          "end": 5079
+        },
+        {
+          "name": "_performance_current_snapshot",
+          "start": 5080,
+          "end": 5105
+        },
+        {
+          "name": "_performance_apply_current_restore",
+          "start": 5106,
+          "end": 5150
+        },
+        {
+          "name": "_performance_bank_current",
+          "start": 5151,
+          "end": 5160
+        },
+        {
+          "name": "_performance_checkpoint_echo_prefix",
+          "start": 5161,
+          "end": 5172
+        },
+        {
+          "name": "_performance_checkpoint",
+          "start": 5173,
+          "end": 5186
+        },
+        {
+          "name": "_performance_restore",
+          "start": 5187,
+          "end": 5249
+        }
+      ]
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "sha256": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66",
+      "lines": 248,
+      "functions": [
+        {
+          "name": "setup",
+          "start": 76,
+          "end": 115
+        },
+        {
+          "name": "play",
+          "start": 116,
+          "end": 146
+        },
+        {
+          "name": "show_pose",
+          "start": 147,
+          "end": 163
+        },
+        {
+          "name": "stop",
+          "start": 164,
+          "end": 173
+        },
+        {
+          "name": "animation_state",
+          "start": 174,
+          "end": 177
+        },
+        {
+          "name": "_process",
+          "start": 178,
+          "end": 208
+        },
+        {
+          "name": "_play_pose_cheer",
+          "start": 209,
+          "end": 224
+        },
+        {
+          "name": "_apply_frame",
+          "start": 225,
+          "end": 234
+        },
+        {
+          "name": "_restore_fallback",
+          "start": 235,
+          "end": 239
+        },
+        {
+          "name": "_has_target",
+          "start": 240,
+          "end": 243
+        },
+        {
+          "name": "_valid_career_key",
+          "start": 244,
+          "end": 248
+        }
+      ]
+    },
+    {
+      "path": "scripts/main.gd",
+      "sha256": "98d91a560426cfa4c52a70221a0311856429c031805d7d9dc990eefe2affe30e",
+      "lines": 9153,
+      "functions": [
+        {
+          "name": "_sticker_def",
+          "start": 509,
+          "end": 514
+        },
+        {
+          "name": "award_sticker",
+          "start": 515,
+          "end": 527
+        },
+        {
+          "name": "_sticker_toast",
+          "start": 528,
+          "end": 547
+        },
+        {
+          "name": "_check_superstar",
+          "start": 548,
+          "end": 561
+        },
+        {
+          "name": "_begin_100_celebration",
+          "start": 562,
+          "end": 813
+        },
+        {
+          "name": "_refresh_joy_mapped",
+          "start": 814,
+          "end": 819
+        },
+        {
+          "name": "_input",
+          "start": 820,
+          "end": 906
+        },
+        {
+          "name": "joy_axis",
+          "start": 907,
+          "end": 923
+        },
+        {
+          "name": "joy_pressed",
+          "start": 924,
+          "end": 978
+        },
+        {
+          "name": "_district_ref",
+          "start": 979,
+          "end": 983
+        },
+        {
+          "name": "_living_world_ref",
+          "start": 984,
+          "end": 988
+        },
+        {
+          "name": "_fx_water_ref",
+          "start": 989,
+          "end": 993
+        },
+        {
+          "name": "fx_splash",
+          "start": 994,
+          "end": 999
+        },
+        {
+          "name": "_ready",
+          "start": 1000,
+          "end": 1079
+        },
+        {
+          "name": "_warm_shaders",
+          "start": 1080,
+          "end": 1141
+        },
+        {
+          "name": "_start_menu_ref",
+          "start": 1142,
+          "end": 1146
+        },
+        {
+          "name": "_build_start_menu",
+          "start": 1147,
+          "end": 1149
+        },
+        {
+          "name": "_intro_ref",
+          "start": 1150,
+          "end": 1154
+        },
+        {
+          "name": "_build_intro",
+          "start": 1155,
+          "end": 1157
+        },
+        {
+          "name": "_intro_next",
+          "start": 1158,
+          "end": 1160
+        },
+        {
+          "name": "_skip_intro",
+          "start": 1161,
+          "end": 1163
+        },
+        {
+          "name": "_unhandled_input",
+          "start": 1164,
+          "end": 1178
+        },
+        {
+          "name": "_apply_time_of_day",
+          "start": 1179,
+          "end": 1220
+        },
+        {
+          "name": "_set_night",
+          "start": 1221,
+          "end": 1233
+        },
+        {
+          "name": "_build_night_ocean",
+          "start": 1234,
+          "end": 1306
+        },
+        {
+          "name": "_grade",
+          "start": 1307,
+          "end": 1312
+        },
+        {
+          "name": "_apply_scene_grade",
+          "start": 1313,
+          "end": 1406
+        },
+        {
+          "name": "_refresh_scene_grade",
+          "start": 1407,
+          "end": 1415
+        },
+        {
+          "name": "_wind_waker_bloom",
+          "start": 1416,
+          "end": 1440
+        },
+        {
+          "name": "_speedy_glow_clamp",
+          "start": 1441,
+          "end": 1449
+        },
+        {
+          "name": "_world_glow_target",
+          "start": 1450,
+          "end": 1455
+        },
+        {
+          "name": "_build_environment",
+          "start": 1456,
+          "end": 1504
+        },
+        {
+          "name": "_toon_water_mat",
+          "start": 1505,
+          "end": 1523
+        },
+        {
+          "name": "_halo",
+          "start": 1524,
+          "end": 1548
+        },
+        {
+          "name": "_fairy_light",
+          "start": 1549,
+          "end": 1572
+        },
+        {
+          "name": "_accumulate_aabb",
+          "start": 1573,
+          "end": 1581
+        },
+        {
+          "name": "_local_aabbs",
+          "start": 1582,
+          "end": 1589
+        },
+        {
+          "name": "_fit_prop",
+          "start": 1590,
+          "end": 1608
+        },
+        {
+          "name": "_register_solid",
+          "start": 1609,
+          "end": 1626
+        },
+        {
+          "name": "_wall_solid",
+          "start": 1627,
+          "end": 1638
+        },
+        {
+          "name": "_cyl_solid",
+          "start": 1639,
+          "end": 1648
+        },
+        {
+          "name": "_rainbow_mat",
+          "start": 1649,
+          "end": 1672
+        },
+        {
+          "name": "_aq_mat",
+          "start": 1673,
+          "end": 1724
+        },
+        {
+          "name": "_paint_aq",
+          "start": 1725,
+          "end": 1730
+        },
+        {
+          "name": "_aq",
+          "start": 1731,
+          "end": 1769
+        },
+        {
+          "name": "_place_aq",
+          "start": 1770,
+          "end": 1799
+        },
+        {
+          "name": "_find_anim",
+          "start": 1800,
+          "end": 1808
+        },
+        {
+          "name": "_play_clip",
+          "start": 1809,
+          "end": 1833
+        },
+        {
+          "name": "_rig_turtle",
+          "start": 1834,
+          "end": 1927
+        },
+        {
+          "name": "_turtle_idle",
+          "start": 1928,
+          "end": 1949
+        },
+        {
+          "name": "_set_sway",
+          "start": 1950,
+          "end": 1964
+        },
+        {
+          "name": "_aquatic_patrol_height",
+          "start": 1965,
+          "end": 1972
+        },
+        {
+          "name": "_build_friends",
+          "start": 1973,
+          "end": 1985
+        },
+        {
+          "name": "_kart_gateway",
+          "start": 1986,
+          "end": 2011
+        },
+        {
+          "name": "_start_kart_game",
+          "start": 2012,
+          "end": 2014
+        },
+        {
+          "name": "_capture_lagoon_trip_return",
+          "start": 2015,
+          "end": 2024
+        },
+        {
+          "name": "_start_kart_game_now",
+          "start": 2025,
+          "end": 2047
+        },
+        {
+          "name": "_kart_completion_committed",
+          "start": 2048,
+          "end": 2065
+        },
+        {
+          "name": "_restore_kart_music",
+          "start": 2066,
+          "end": 2072
+        },
+        {
+          "name": "_end_kart_game",
+          "start": 2073,
+          "end": 2134
+        },
+        {
+          "name": "_start_galaxy",
+          "start": 2135,
+          "end": 2138
+        },
+        {
+          "name": "_chapter_three_fairy_reveal_authorized",
+          "start": 2139,
+          "end": 2145
+        },
+        {
+          "name": "_maybe_reveal_fairy_conservatory",
+          "start": 2146,
+          "end": 2158
+        },
+        {
+          "name": "_start_fairy_conservatory_handoff",
+          "start": 2159,
+          "end": 2161
+        },
+        {
+          "name": "_start_fairy_conservatory_handoff_now",
+          "start": 2162,
+          "end": 2199
+        },
+        {
+          "name": "_capture_fairy_conservatory_return_context",
+          "start": 2200,
+          "end": 2237
+        },
+        {
+          "name": "_start_galaxy_from_fairy_conservatory",
+          "start": 2238,
+          "end": 2247
+        },
+        {
+          "name": "_end_fairy_conservatory_handoff",
+          "start": 2248,
+          "end": 2267
+        },
+        {
+          "name": "_restore_fairy_conservatory_return_context",
+          "start": 2268,
+          "end": 2303
+        },
+        {
+          "name": "_start_galaxy_now",
+          "start": 2304,
+          "end": 2328
+        },
+        {
+          "name": "_end_galaxy",
+          "start": 2329,
+          "end": 2387
+        },
+        {
+          "name": "_restore_level2_after_trip",
+          "start": 2388,
+          "end": 2402
+        },
+        {
+          "name": "_start_combat",
+          "start": 2403,
+          "end": 2422
+        },
+        {
+          "name": "_end_combat",
+          "start": 2423,
+          "end": 2456
+        },
+        {
+          "name": "_start_stuffie_battle",
+          "start": 2457,
+          "end": 2483
+        },
+        {
+          "name": "_end_stuffie_battle",
+          "start": 2484,
+          "end": 2518
+        },
+        {
+          "name": "_start_dungeon",
+          "start": 2519,
+          "end": 2521
+        },
+        {
+          "name": "_start_dungeon_now",
+          "start": 2522,
+          "end": 2536
+        },
+        {
+          "name": "_end_dungeon",
+          "start": 2537,
+          "end": 2554
+        },
+        {
+          "name": "_ember_open",
+          "start": 2555,
+          "end": 2560
+        },
+        {
+          "name": "_start_ember",
+          "start": 2561,
+          "end": 2584
+        },
+        {
+          "name": "_end_ember",
+          "start": 2585,
+          "end": 2612
+        },
+        {
+          "name": "_start_ember_dungeon",
+          "start": 2613,
+          "end": 2629
+        },
+        {
+          "name": "_end_ember_dungeon",
+          "start": 2630,
+          "end": 2642
+        },
+        {
+          "name": "_start_opera",
+          "start": 2643,
+          "end": 2665
+        },
+        {
+          "name": "_start_opera_from_room",
+          "start": 2666,
+          "end": 2699
+        },
+        {
+          "name": "_start_chapter2_plot_opera",
+          "start": 2700,
+          "end": 2721
+        },
+        {
+          "name": "_start_opera_now",
+          "start": 2722,
+          "end": 2787
+        },
+        {
+          "name": "_end_opera",
+          "start": 2788,
+          "end": 2816
+        },
+        {
+          "name": "_restore_opera_route_state",
+          "start": 2817,
+          "end": 2838
+        },
+        {
+          "name": "_apply_cel_shading",
+          "start": 2839,
+          "end": 2861
+        },
+        {
+          "name": "_cel_replace",
+          "start": 2862,
+          "end": 2886
+        },
+        {
+          "name": "_all_meshes",
+          "start": 2887,
+          "end": 2897
+        },
+        {
+          "name": "_build_player",
+          "start": 2898,
+          "end": 2907
+        },
+        {
+          "name": "_build_hud",
+          "start": 2908,
+          "end": 2949
+        },
+        {
+          "name": "_build_obj_card",
+          "start": 2950,
+          "end": 2980
+        },
+        {
+          "name": "_set_objective",
+          "start": 2981,
+          "end": 3007
+        },
+        {
+          "name": "_build_fade_cover",
+          "start": 3008,
+          "end": 3020
+        },
+        {
+          "name": "_fade_cut",
+          "start": 3021,
+          "end": 3041
+        },
+        {
+          "name": "_mk_label",
+          "start": 3042,
+          "end": 3051
+        },
+        {
+          "name": "_pips",
+          "start": 3052,
+          "end": 3055
+        },
+        {
+          "name": "_update_hud",
+          "start": 3056,
+          "end": 3088
+        },
+        {
+          "name": "_flash_speaker_icon",
+          "start": 3089,
+          "end": 3119
+        },
+        {
+          "name": "_mic_ref",
+          "start": 3120,
+          "end": 3124
+        },
+        {
+          "name": "_audio_ref",
+          "start": 3125,
+          "end": 3129
+        },
+        {
+          "name": "_say",
+          "start": 3130,
+          "end": 3134
+        },
+        {
+          "name": "say_day_one_context",
+          "start": 3135,
+          "end": 3141
+        },
+        {
+          "name": "reset_day_one_context",
+          "start": 3142,
+          "end": 3145
+        },
+        {
+          "name": "_play_companion_chirp",
+          "start": 3146,
+          "end": 3148
+        },
+        {
+          "name": "_play_success_yay",
+          "start": 3149,
+          "end": 3151
+        },
+        {
+          "name": "_speaker_key",
+          "start": 3152,
+          "end": 3154
+        },
+        {
+          "name": "show_msg",
+          "start": 3155,
+          "end": 3159
+        },
+        {
+          "name": "_sync_castle_voice_caption",
+          "start": 3160,
+          "end": 3179
+        },
+        {
+          "name": "say_sequence",
+          "start": 3180,
+          "end": 3182
+        },
+        {
+          "name": "skip_dialogue",
+          "start": 3183,
+          "end": 3185
+        },
+        {
+          "name": "clear_dialogue",
+          "start": 3186,
+          "end": 3188
+        },
+        {
+          "name": "_fanfare",
+          "start": 3189,
+          "end": 3191
+        },
+        {
+          "name": "_set_ambience",
+          "start": 3192,
+          "end": 3194
+        },
+        {
+          "name": "_tick_ambience_duck",
+          "start": 3195,
+          "end": 3197
+        },
+        {
+          "name": "_ui_tap",
+          "start": 3198,
+          "end": 3200
+        },
+        {
+          "name": "_hook_button_taps",
+          "start": 3201,
+          "end": 3203
+        },
+        {
+          "name": "_play_music",
+          "start": 3204,
+          "end": 3206
+        },
+        {
+          "name": "_apply_quality",
+          "start": 3207,
+          "end": 3248
+        },
+        {
+          "name": "_set_vis_range",
+          "start": 3249,
+          "end": 3261
+        },
+        {
+          "name": "_collection_ref",
+          "start": 3262,
+          "end": 3270
+        },
+        {
+          "name": "_companion_ref",
+          "start": 3271,
+          "end": 3279
+        },
+        {
+          "name": "_medal_ref",
+          "start": 3280,
+          "end": 3284
+        },
+        {
+          "name": "_load_save",
+          "start": 3285,
+          "end": 3289
+        },
+        {
+          "name": "_write_save",
+          "start": 3290,
+          "end": 3302
+        },
+        {
+          "name": "_start_new_game",
+          "start": 3303,
+          "end": 3307
+        },
+        {
+          "name": "_launch_from_start_menu",
+          "start": 3308,
+          "end": 3326
+        },
+        {
+          "name": "_prepare_start_menu_launch",
+          "start": 3327,
+          "end": 3336
+        },
+        {
+          "name": "day_one_castle_room_for_current",
+          "start": 3337,
+          "end": 3352
+        },
+        {
+          "name": "_queue_save",
+          "start": 3353,
+          "end": 3362
+        },
+        {
+          "name": "_melody_input_context_lost",
+          "start": 3363,
+          "end": 3366
+        },
+        {
+          "name": "_melody_input_context_blocks_input",
+          "start": 3367,
+          "end": 3374
+        },
+        {
+          "name": "_lose_melody_input_context",
+          "start": 3375,
+          "end": 3387
+        },
+        {
+          "name": "_restore_melody_input_context",
+          "start": 3388,
+          "end": 3400
+        },
+        {
+          "name": "_slide_canvas_fish_route_active",
+          "start": 3401,
+          "end": 3406
+        },
+        {
+          "name": "_slide_canvas_return_guard_active",
+          "start": 3407,
+          "end": 3410
+        },
+        {
+          "name": "_slide_canvas_return_fade_is_clear",
+          "start": 3411,
+          "end": 3415
+        },
+        {
+          "name": "_slide_canvas_return_guard_snapshot",
+          "start": 3416,
+          "end": 3428
+        },
+        {
+          "name": "_slide_canvas_return_physical_event",
+          "start": 3429,
+          "end": 3435
+        },
+        {
+          "name": "_slide_canvas_return_source_token",
+          "start": 3436,
+          "end": 3482
+        },
+        {
+          "name": "_observe_slide_canvas_return_source",
+          "start": 3483,
+          "end": 3537
+        },
+        {
+          "name": "_arm_slide_canvas_return_guard",
+          "start": 3538,
+          "end": 3549
+        },
+        {
+          "name": "_slide_canvas_return_sources_neutral",
+          "start": 3550,
+          "end": 3575
+        },
+        {
+          "name": "_finish_slide_canvas_return_guard",
+          "start": 3576,
+          "end": 3612
+        },
+        {
+          "name": "_tick_slide_canvas_return_guard",
+          "start": 3613,
+          "end": 3632
+        },
+        {
+          "name": "active_viewport_camera",
+          "start": 3633,
+          "end": 3638
+        },
+        {
+          "name": "_slide_canvas_input_context_lost",
+          "start": 3639,
+          "end": 3642
+        },
+        {
+          "name": "_slide_canvas_poll_restore_waiting",
+          "start": 3643,
+          "end": 3647
+        },
+        {
+          "name": "_record_slide_canvas_poll_level",
+          "start": 3648,
+          "end": 3659
+        },
+        {
+          "name": "_slide_canvas_input_context_blocks_input",
+          "start": 3660,
+          "end": 3667
+        },
+        {
+          "name": "_lose_slide_canvas_input_context",
+          "start": 3668,
+          "end": 3692
+        },
+        {
+          "name": "_restore_slide_canvas_input_context",
+          "start": 3693,
+          "end": 3707
+        },
+        {
+          "name": "_notification",
+          "start": 3708,
+          "end": 3747
+        },
+        {
+          "name": "_navigation_ref",
+          "start": 3748,
+          "end": 3752
+        },
+        {
+          "name": "_navigation_set_root",
+          "start": 3753,
+          "end": 3755
+        },
+        {
+          "name": "_navigation_push",
+          "start": 3756,
+          "end": 3759
+        },
+        {
+          "name": "_navigation_remove",
+          "start": 3760,
+          "end": 3762
+        },
+        {
+          "name": "_pause_ref",
+          "start": 3763,
+          "end": 3767
+        },
+        {
+          "name": "_build_pause",
+          "start": 3768,
+          "end": 3770
+        },
+        {
+          "name": "toggle_pause",
+          "start": 3771,
+          "end": 3776
+        },
+        {
+          "name": "_sync_pause_surface_layer",
+          "start": 3777,
+          "end": 3793
+        },
+        {
+          "name": "_init_touch_experiment",
+          "start": 3794,
+          "end": 3816
+        },
+        {
+          "name": "_interaction_ref",
+          "start": 3817,
+          "end": 3821
+        },
+        {
+          "name": "_tap_move_ref",
+          "start": 3822,
+          "end": 3826
+        },
+        {
+          "name": "touch_uses_explicit_interactions",
+          "start": 3827,
+          "end": 3829
+        },
+        {
+          "name": "_set_touch_mode",
+          "start": 3830,
+          "end": 3845
+        },
+        {
+          "name": "_touch_mode_label",
+          "start": 3846,
+          "end": 3850
+        },
+        {
+          "name": "_world_tap_gated",
+          "start": 3851,
+          "end": 3862
+        },
+        {
+          "name": "_melody_input_gated",
+          "start": 3863,
+          "end": 3872
+        },
+        {
+          "name": "_melody_overlay_owns_input",
+          "start": 3873,
+          "end": 3881
+        },
+        {
+          "name": "_melody_source_token",
+          "start": 3882,
+          "end": 3909
+        },
+        {
+          "name": "_melody_source_press",
+          "start": 3910,
+          "end": 3921
+        },
+        {
+          "name": "_melody_source_release",
+          "start": 3922,
+          "end": 3932
+        },
+        {
+          "name": "_track_melody_source_state",
+          "start": 3933,
+          "end": 3944
+        },
+        {
+          "name": "_retire_paused_melody_release",
+          "start": 3945,
+          "end": 3959
+        },
+        {
+          "name": "_retire_touch_ui_consumed_entry_release",
+          "start": 3960,
+          "end": 3975
+        },
+        {
+          "name": "_forget_melody_pad_device",
+          "start": 3976,
+          "end": 3987
+        },
+        {
+          "name": "_release_melody_source_event",
+          "start": 3988,
+          "end": 4005
+        },
+        {
+          "name": "_release_melody_input_under_overlay",
+          "start": 4006,
+          "end": 4015
+        },
+        {
+          "name": "_melody_pause_zone_hit",
+          "start": 4016,
+          "end": 4021
+        },
+        {
+          "name": "_route_melody_input",
+          "start": 4022,
+          "end": 4146
+        },
+        {
+          "name": "_slide_canvas_input_gated",
+          "start": 4147,
+          "end": 4158
+        },
+        {
+          "name": "_slide_canvas_overlay_owns_input",
+          "start": 4159,
+          "end": 4167
+        },
+        {
+          "name": "_slide_canvas_source_token",
+          "start": 4168,
+          "end": 4202
+        },
+        {
+          "name": "_slide_canvas_source_press",
+          "start": 4203,
+          "end": 4217
+        },
+        {
+          "name": "_slide_canvas_source_release",
+          "start": 4218,
+          "end": 4231
+        },
+        {
+          "name": "_track_slide_canvas_source_state",
+          "start": 4232,
+          "end": 4243
+        },
+        {
+          "name": "_retire_paused_slide_canvas_release",
+          "start": 4244,
+          "end": 4256
+        },
+        {
+          "name": "_retire_paused_slide_canvas_restore_boundary",
+          "start": 4257,
+          "end": 4273
+        },
+        {
+          "name": "_forget_slide_canvas_pad_device",
+          "start": 4274,
+          "end": 4293
+        },
+        {
+          "name": "_release_slide_canvas_source_event",
+          "start": 4294,
+          "end": 4310
+        },
+        {
+          "name": "_release_slide_canvas_input_under_overlay",
+          "start": 4311,
+          "end": 4321
+        },
+        {
+          "name": "_slide_canvas_pause_zone_hit",
+          "start": 4322,
+          "end": 4328
+        },
+        {
+          "name": "_route_slide_canvas_input",
+          "start": 4329,
+          "end": 4470
+        },
+        {
+          "name": "_on_world_press",
+          "start": 4471,
+          "end": 4505
+        },
+        {
+          "name": "_on_world_press_release",
+          "start": 4506,
+          "end": 4522
+        },
+        {
+          "name": "_live_hit_engines",
+          "start": 4523,
+          "end": 4533
+        },
+        {
+          "name": "_on_world_press_drag",
+          "start": 4534,
+          "end": 4553
+        },
+        {
+          "name": "_on_world_press_cancel",
+          "start": 4554,
+          "end": 4567
+        },
+        {
+          "name": "_on_world_drag_end",
+          "start": 4568,
+          "end": 4588
+        },
+        {
+          "name": "_on_touch_world",
+          "start": 4589,
+          "end": 4649
+        },
+        {
+          "name": "_combat_arena_ref",
+          "start": 4650,
+          "end": 4656
+        },
+        {
+          "name": "_on_touch_manual_move",
+          "start": 4657,
+          "end": 4667
+        },
+        {
+          "name": "_cancel_lagoon_navigation",
+          "start": 4668,
+          "end": 4671
+        },
+        {
+          "name": "_set_world_controls_enabled",
+          "start": 4672,
+          "end": 4687
+        },
+        {
+          "name": "_prepare_touch_transition",
+          "start": 4688,
+          "end": 4695
+        },
+        {
+          "name": "_finish_touch_transition",
+          "start": 4696,
+          "end": 4700
+        },
+        {
+          "name": "_touch_interaction_ready",
+          "start": 4701,
+          "end": 4703
+        },
+        {
+          "name": "touch_auto_direction",
+          "start": 4704,
+          "end": 4709
+        },
+        {
+          "name": "touch_auto_vertical",
+          "start": 4710,
+          "end": 4715
+        },
+        {
+          "name": "_touch_add_item",
+          "start": 4716,
+          "end": 4733
+        },
+        {
+          "name": "_populate_touch_interactables",
+          "start": 4734,
+          "end": 4753
+        },
+        {
+          "name": "_populate_courtyard_touch_interactables",
+          "start": 4754,
+          "end": 4804
+        },
+        {
+          "name": "_activate_touch_interactable",
+          "start": 4805,
+          "end": 4844
+        },
+        {
+          "name": "_touch_open_picture",
+          "start": 4845,
+          "end": 4854
+        },
+        {
+          "name": "_leave_current_activity",
+          "start": 4855,
+          "end": 4864
+        },
+        {
+          "name": "_open_dance_demo",
+          "start": 4865,
+          "end": 4874
+        },
+        {
+          "name": "_game_obj",
+          "start": 4875,
+          "end": 4879
+        },
+        {
+          "name": "_tick_fetch",
+          "start": 4880,
+          "end": 4882
+        },
+        {
+          "name": "_tick_dolls",
+          "start": 4883,
+          "end": 4885
+        },
+        {
+          "name": "_tick_brawl",
+          "start": 4886,
+          "end": 4888
+        },
+        {
+          "name": "_seek_hide",
+          "start": 4889,
+          "end": 4891
+        },
+        {
+          "name": "_tick_course",
+          "start": 4892,
+          "end": 4894
+        },
+        {
+          "name": "_tick_shop",
+          "start": 4895,
+          "end": 4897
+        },
+        {
+          "name": "_shop_buy",
+          "start": 4898,
+          "end": 4900
+        },
+        {
+          "name": "_tank_buy",
+          "start": 4901,
+          "end": 4903
+        },
+        {
+          "name": "_check_shopper",
+          "start": 4904,
+          "end": 4906
+        },
+        {
+          "name": "_tick_melody",
+          "start": 4907,
+          "end": 4909
+        },
+        {
+          "name": "_tick_fairyshoot",
+          "start": 4910,
+          "end": 4912
+        },
+        {
+          "name": "_near_ground",
+          "start": 4913,
+          "end": 4915
+        },
+        {
+          "name": "_skin_def",
+          "start": 4916,
+          "end": 4921
+        },
+        {
+          "name": "_apply_skin",
+          "start": 4922,
+          "end": 4931
+        },
+        {
+          "name": "_enter_level2",
+          "start": 4932,
+          "end": 4937
+        },
+        {
+          "name": "_enter_level2_now",
+          "start": 4938,
+          "end": 5003
+        },
+        {
+          "name": "_enter_northern_kingdom",
+          "start": 5004,
+          "end": 5006
+        },
+        {
+          "name": "_enter_northern_kingdom_now",
+          "start": 5007,
+          "end": 5039
+        },
+        {
+          "name": "_up_mat",
+          "start": 5040,
+          "end": 5057
+        },
+        {
+          "name": "_castle_mat",
+          "start": 5058,
+          "end": 5106
+        },
+        {
+          "name": "_register_castle_light",
+          "start": 5107,
+          "end": 5117
+        },
+        {
+          "name": "_sync_castle_lights",
+          "start": 5118,
+          "end": 5130
+        },
+        {
+          "name": "_l2_box",
+          "start": 5131,
+          "end": 5153
+        },
+        {
+          "name": "_lagoon_ref",
+          "start": 5154,
+          "end": 5158
+        },
+        {
+          "name": "_lagoon_promenade_ref",
+          "start": 5159,
+          "end": 5168
+        },
+        {
+          "name": "_northern_ref",
+          "start": 5169,
+          "end": 5173
+        },
+        {
+          "name": "northern_walk_h",
+          "start": 5174,
+          "end": 5176
+        },
+        {
+          "name": "_tick_northern",
+          "start": 5177,
+          "end": 5183
+        },
+        {
+          "name": "_train_ref",
+          "start": 5184,
+          "end": 5188
+        },
+        {
+          "name": "_build_pearl_castle",
+          "start": 5189,
+          "end": 5191
+        },
+        {
+          "name": "_build_lagoon_terrain",
+          "start": 5192,
+          "end": 5194
+        },
+        {
+          "name": "_build_lagoon_night",
+          "start": 5195,
+          "end": 5197
+        },
+        {
+          "name": "_build_fairy_pond",
+          "start": 5198,
+          "end": 5200
+        },
+        {
+          "name": "_tick_level2",
+          "start": 5201,
+          "end": 5207
+        },
+        {
+          "name": "_l2_tower",
+          "start": 5208,
+          "end": 5210
+        },
+        {
+          "name": "_seg_dist",
+          "start": 5211,
+          "end": 5213
+        },
+        {
+          "name": "_lagoon_river_dip",
+          "start": 5214,
+          "end": 5216
+        },
+        {
+          "name": "_lagoon_moat_dip",
+          "start": 5217,
+          "end": 5219
+        },
+        {
+          "name": "_lagoon_bump",
+          "start": 5220,
+          "end": 5222
+        },
+        {
+          "name": "_lagoon_local",
+          "start": 5223,
+          "end": 5225
+        },
+        {
+          "name": "_terr_v",
+          "start": 5226,
+          "end": 5232
+        },
+        {
+          "name": "_wind_sway",
+          "start": 5233,
+          "end": 5244
+        },
+        {
+          "name": "_nature",
+          "start": 5245,
+          "end": 5262
+        },
+        {
+          "name": "_toon_tile",
+          "start": 5263,
+          "end": 5295
+        },
+        {
+          "name": "_toy_anim",
+          "start": 5296,
+          "end": 5334
+        },
+        {
+          "name": "_kit",
+          "start": 5335,
+          "end": 5351
+        },
+        {
+          "name": "_gen2_creature_rigged",
+          "start": 5352,
+          "end": 5355
+        },
+        {
+          "name": "_gen2_creature",
+          "start": 5356,
+          "end": 5419
+        },
+        {
+          "name": "_attach_penguin_beak",
+          "start": 5420,
+          "end": 5447
+        },
+        {
+          "name": "_gen2_seagrass",
+          "start": 5448,
+          "end": 5453
+        },
+        {
+          "name": "_gen2_outline_mat",
+          "start": 5454,
+          "end": 5462
+        },
+        {
+          "name": "_gen2_prop",
+          "start": 5463,
+          "end": 5486
+        },
+        {
+          "name": "_pastel",
+          "start": 5487,
+          "end": 5495
+        },
+        {
+          "name": "_toonify",
+          "start": 5496,
+          "end": 5550
+        },
+        {
+          "name": "lagoon_h",
+          "start": 5551,
+          "end": 5553
+        },
+        {
+          "name": "lagoon_walk_h",
+          "start": 5554,
+          "end": 5568
+        },
+        {
+          "name": "water_surface_y",
+          "start": 5569,
+          "end": 5592
+        },
+        {
+          "name": "_pics_ref",
+          "start": 5593,
+          "end": 5595
+        },
+        {
+          "name": "_mg2d_open",
+          "start": 5596,
+          "end": 5598
+        },
+        {
+          "name": "_mg2d_close",
+          "start": 5599,
+          "end": 5601
+        },
+        {
+          "name": "_mg_tick_snow_chase",
+          "start": 5602,
+          "end": 5604
+        },
+        {
+          "name": "_mg2d_win",
+          "start": 5605,
+          "end": 5607
+        },
+        {
+          "name": "_mg_snow_ball_size",
+          "start": 5608,
+          "end": 5610
+        },
+        {
+          "name": "_mg_snow_ball_done",
+          "start": 5611,
+          "end": 5615
+        },
+        {
+          "name": "_tick_mg2d",
+          "start": 5616,
+          "end": 5732
+        },
+        {
+          "name": "_open_castle_door",
+          "start": 5733,
+          "end": 5759
+        },
+        {
+          "name": "_tick_cutscene",
+          "start": 5760,
+          "end": 5775
+        },
+        {
+          "name": "_enter_castle_interior",
+          "start": 5776,
+          "end": 5778
+        },
+        {
+          "name": "_enter_castle_interior_now",
+          "start": 5779,
+          "end": 5827
+        },
+        {
+          "name": "_glass_window",
+          "start": 5828,
+          "end": 5848
+        },
+        {
+          "name": "_hang_portrait",
+          "start": 5849,
+          "end": 5895
+        },
+        {
+          "name": "light_rig",
+          "start": 5896,
+          "end": 5910
+        },
+        {
+          "name": "_day_one_ref",
+          "start": 5911,
+          "end": 5917
+        },
+        {
+          "name": "_comfy_games_ref",
+          "start": 5918,
+          "end": 5923
+        },
+        {
+          "name": "comfy_games_refresh_castle_room",
+          "start": 5924,
+          "end": 5927
+        },
+        {
+          "name": "comfy_games_clear_castle_room",
+          "start": 5928,
+          "end": 5932
+        },
+        {
+          "name": "_chapter_two_ref",
+          "start": 5933,
+          "end": 5939
+        },
+        {
+          "name": "_chapter_two_sync_room_plot",
+          "start": 5940,
+          "end": 5956
+        },
+        {
+          "name": "chapter2_is_active",
+          "start": 5957,
+          "end": 5960
+        },
+        {
+          "name": "chapter2_initial_tutorial_act_indices",
+          "start": 5961,
+          "end": 5964
+        },
+        {
+          "name": "chapter2_is_opera_tutorial_phase",
+          "start": 5965,
+          "end": 5968
+        },
+        {
+          "name": "chapter2_can_start_opera_act",
+          "start": 5969,
+          "end": 5973
+        },
+        {
+          "name": "chapter2_opera_route_matches",
+          "start": 5974,
+          "end": 5985
+        },
+        {
+          "name": "chapter2_show_freeplay_career_routes",
+          "start": 5986,
+          "end": 5989
+        },
+        {
+          "name": "_chapter_two_live_castle_room",
+          "start": 5990,
+          "end": 5998
+        },
+        {
+          "name": "chapter2_activate_room_plot",
+          "start": 5999,
+          "end": 6027
+        },
+        {
+          "name": "_start_chapter2_lawn",
+          "start": 6028,
+          "end": 6057
+        },
+        {
+          "name": "_end_chapter2_lawn",
+          "start": 6058,
+          "end": 6073
+        },
+        {
+          "name": "chapter2_record_party_contribution",
+          "start": 6074,
+          "end": 6082
+        },
+        {
+          "name": "chapter2_on_opera_phase_completed",
+          "start": 6083,
+          "end": 6091
+        },
+        {
+          "name": "chapter2_on_opera_phase_snapshot",
+          "start": 6092,
+          "end": 6100
+        },
+        {
+          "name": "chapter2_record_strawberry_pick",
+          "start": 6101,
+          "end": 6107
+        },
+        {
+          "name": "chapter2_record_cake_piece",
+          "start": 6108,
+          "end": 6114
+        },
+        {
+          "name": "chapter2_party_is_ready",
+          "start": 6115,
+          "end": 6118
+        },
+        {
+          "name": "chapter2_next_party_act",
+          "start": 6119,
+          "end": 6122
+        },
+        {
+          "name": "chapter2_start_main_hall_party",
+          "start": 6123,
+          "end": 6126
+        },
+        {
+          "name": "chapter2_trigger_ember_king_crash",
+          "start": 6127,
+          "end": 6130
+        },
+        {
+          "name": "chapter2_on_opera_completed",
+          "start": 6131,
+          "end": 6144
+        },
+        {
+          "name": "_attack_customizer_ref",
+          "start": 6145,
+          "end": 6160
+        },
+        {
+          "name": "_open_attack_customizer",
+          "start": 6161,
+          "end": 6168
+        },
+        {
+          "name": "_close_attack_customizer",
+          "start": 6169,
+          "end": 6174
+        },
+        {
+          "name": "set_attack_profile",
+          "start": 6175,
+          "end": 6188
+        },
+        {
+          "name": "_open_day_one_art_studio",
+          "start": 6189,
+          "end": 6202
+        },
+        {
+          "name": "_close_day_one_art_studio",
+          "start": 6203,
+          "end": 6208
+        },
+        {
+          "name": "day_one_is_active",
+          "start": 6209,
+          "end": 6211
+        },
+        {
+          "name": "day_one_jobs_locked",
+          "start": 6212,
+          "end": 6214
+        },
+        {
+          "name": "day_one_opera_enabled",
+          "start": 6215,
+          "end": 6217
+        },
+        {
+          "name": "day_one_boss_door_ready",
+          "start": 6218,
+          "end": 6223
+        },
+        {
+          "name": "day_one_complete_boss_and_begin_day_two",
+          "start": 6224,
+          "end": 6240
+        },
+        {
+          "name": "_show_day_two_transition",
+          "start": 6241,
+          "end": 6266
+        },
+        {
+          "name": "_on_day_two_transition_finished",
+          "start": 6267,
+          "end": 6275
+        },
+        {
+          "name": "day_one_castle_room_is_clean",
+          "start": 6276,
+          "end": 6281
+        },
+        {
+          "name": "day_one_can_enter_castle_room",
+          "start": 6282,
+          "end": 6290
+        },
+        {
+          "name": "day_one_try_enter_castle_room",
+          "start": 6291,
+          "end": 6298
+        },
+        {
+          "name": "day_one_activate_castle_room",
+          "start": 6299,
+          "end": 6361
+        },
+        {
+          "name": "day_one_record_bathroom_cleanup_step",
+          "start": 6362,
+          "end": 6368
+        },
+        {
+          "name": "day_one_record_bathroom_supply_step",
+          "start": 6369,
+          "end": 6378
+        },
+        {
+          "name": "day_one_record_bathroom_toilet_cleaned",
+          "start": 6379,
+          "end": 6385
+        },
+        {
+          "name": "day_one_record_bathroom_tub_drained",
+          "start": 6386,
+          "end": 6395
+        },
+        {
+          "name": "day_one_authorize_bathroom_tools",
+          "start": 6396,
+          "end": 6407
+        },
+        {
+          "name": "day_one_complete_bathroom_scene",
+          "start": 6408,
+          "end": 6432
+        },
+        {
+          "name": "day_one_record_art_cleanup",
+          "start": 6433,
+          "end": 6441
+        },
+        {
+          "name": "day_one_complete_art_customization",
+          "start": 6442,
+          "end": 6450
+        },
+        {
+          "name": "day_one_complete_art_scene",
+          "start": 6451,
+          "end": 6464
+        },
+        {
+          "name": "day_one_record_pool_cleanup_step",
+          "start": 6465,
+          "end": 6472
+        },
+        {
+          "name": "day_one_record_pool_activity_progress",
+          "start": 6473,
+          "end": 6488
+        },
+        {
+          "name": "day_one_complete_pool_scene",
+          "start": 6489,
+          "end": 6507
+        },
+        {
+          "name": "day_one_complete_stuffie_rescue",
+          "start": 6508,
+          "end": 6520
+        },
+        {
+          "name": "_day_one_begin_arrival",
+          "start": 6521,
+          "end": 6524
+        },
+        {
+          "name": "_day_one_discover_dirty_castle",
+          "start": 6525,
+          "end": 6531
+        },
+        {
+          "name": "_day_one_attach_castle_dressing",
+          "start": 6532,
+          "end": 6542
+        },
+        {
+          "name": "_day_one_sync_castle_dressing",
+          "start": 6543,
+          "end": 6569
+        },
+        {
+          "name": "_sync_day_one_bathroom_cleanup",
+          "start": 6570,
+          "end": 6623
+        },
+        {
+          "name": "_clear_day_one_bathroom_cleanup",
+          "start": 6624,
+          "end": 6630
+        },
+        {
+          "name": "_on_day_one_bathroom_cleanup_step",
+          "start": 6631,
+          "end": 6635
+        },
+        {
+          "name": "_on_day_one_bathroom_supply_hunt_completed",
+          "start": 6636,
+          "end": 6644
+        },
+        {
+          "name": "_on_day_one_bathroom_finale_started",
+          "start": 6645,
+          "end": 6653
+        },
+        {
+          "name": "_on_day_one_bathroom_cleanup_completed",
+          "start": 6654,
+          "end": 6660
+        },
+        {
+          "name": "_sync_day_one_art_studio",
+          "start": 6661,
+          "end": 6671
+        },
+        {
+          "name": "_day_one_clear_castle_dressing",
+          "start": 6672,
+          "end": 6686
+        },
+        {
+          "name": "_clear_day_one_bathroom_movie_handoff",
+          "start": 6687,
+          "end": 6695
+        },
+        {
+          "name": "_start_day_one_bathroom_movie_handoff",
+          "start": 6696,
+          "end": 6719
+        },
+        {
+          "name": "_day_one_bathroom_entry_movie_blocks_cleanup",
+          "start": 6720,
+          "end": 6764
+        },
+        {
+          "name": "_show_day_one_pool_route",
+          "start": 6765,
+          "end": 6779
+        },
+        {
+          "name": "_show_day_one_room_handoff",
+          "start": 6780,
+          "end": 6800
+        },
+        {
+          "name": "_sync_day_one_pool_route",
+          "start": 6801,
+          "end": 6870
+        },
+        {
+          "name": "_day_one_bathroom_movie_is_playing",
+          "start": 6871,
+          "end": 6878
+        },
+        {
+          "name": "_day_one_bathroom_navigation_controls",
+          "start": 6879,
+          "end": 6893
+        },
+        {
+          "name": "_suspend_day_one_bathroom_controls",
+          "start": 6894,
+          "end": 6917
+        },
+        {
+          "name": "_restore_day_one_bathroom_controls",
+          "start": 6918,
+          "end": 6936
+        },
+        {
+          "name": "_clear_day_one_pool_route",
+          "start": 6937,
+          "end": 6940
+        },
+        {
+          "name": "_day_one_arm_boss_door",
+          "start": 6941,
+          "end": 6948
+        },
+        {
+          "name": "_day_one_trigger_boss",
+          "start": 6949,
+          "end": 6951
+        },
+        {
+          "name": "_on_day_one_hook_event",
+          "start": 6952,
+          "end": 7007
+        },
+        {
+          "name": "_day_one_play_story_clip",
+          "start": 7008,
+          "end": 7052
+        },
+        {
+          "name": "_day_one_drain_story_clips",
+          "start": 7053,
+          "end": 7073
+        },
+        {
+          "name": "_day_one_cancel_story_clips",
+          "start": 7074,
+          "end": 7091
+        },
+        {
+          "name": "_day_one_play_story_clip_for_room",
+          "start": 7092,
+          "end": 7104
+        },
+        {
+          "name": "_day_one_suspend_boss_for_lifecycle",
+          "start": 7105,
+          "end": 7119
+        },
+        {
+          "name": "_return_day_one_boss_to_castle",
+          "start": 7120,
+          "end": 7132
+        },
+        {
+          "name": "_on_chapter_two_hook_event",
+          "start": 7133,
+          "end": 7214
+        },
+        {
+          "name": "_chapter_two_say",
+          "start": 7215,
+          "end": 7220
+        },
+        {
+          "name": "_chapter_two_guide_next_party_piece",
+          "start": 7221,
+          "end": 7230
+        },
+        {
+          "name": "_chapter_two_announce_start",
+          "start": 7231,
+          "end": 7234
+        },
+        {
+          "name": "_rainbow_friend_ref",
+          "start": 7235,
+          "end": 7239
+        },
+        {
+          "name": "_castle_rooms_ref",
+          "start": 7240,
+          "end": 7244
+        },
+        {
+          "name": "_fairy_conservatory_door_ref",
+          "start": 7245,
+          "end": 7250
+        },
+        {
+          "name": "_castle_career_routes_ref",
+          "start": 7251,
+          "end": 7255
+        },
+        {
+          "name": "_castle_room_music_track",
+          "start": 7256,
+          "end": 7260
+        },
+        {
+          "name": "_sync_castle_room_music",
+          "start": 7261,
+          "end": 7271
+        },
+        {
+          "name": "_tick_castle_rooms",
+          "start": 7272,
+          "end": 7286
+        },
+        {
+          "name": "_seg_box",
+          "start": 7287,
+          "end": 7309
+        },
+        {
+          "name": "_tick_wall_fade",
+          "start": 7310,
+          "end": 7336
+        },
+        {
+          "name": "_l2_start_slide",
+          "start": 7337,
+          "end": 7382
+        },
+        {
+          "name": "_return_to_courtyard",
+          "start": 7383,
+          "end": 7395
+        },
+        {
+          "name": "_layer_fx",
+          "start": 7396,
+          "end": 7433
+        },
+        {
+          "name": "_make_creature_node",
+          "start": 7434,
+          "end": 7484
+        },
+        {
+          "name": "_start_gen2_rainbow",
+          "start": 7485,
+          "end": 7499
+        },
+        {
+          "name": "_loop_paint_rainbow",
+          "start": 7500,
+          "end": 7506
+        },
+        {
+          "name": "_set_paint_colour",
+          "start": 7507,
+          "end": 7509
+        },
+        {
+          "name": "_creature_spawned",
+          "start": 7510,
+          "end": 7514
+        },
+        {
+          "name": "_animate_billboard_creature",
+          "start": 7515,
+          "end": 7548
+        },
+        {
+          "name": "_craft_ref",
+          "start": 7549,
+          "end": 7553
+        },
+        {
+          "name": "_open_craft_studio",
+          "start": 7554,
+          "end": 7556
+        },
+        {
+          "name": "_craft_done",
+          "start": 7557,
+          "end": 7559
+        },
+        {
+          "name": "_close_craft",
+          "start": 7560,
+          "end": 7565
+        },
+        {
+          "name": "_castle_logo_ref",
+          "start": 7566,
+          "end": 7570
+        },
+        {
+          "name": "_open_castle_logo",
+          "start": 7571,
+          "end": 7573
+        },
+        {
+          "name": "_finish_castle_logo",
+          "start": 7574,
+          "end": 7576
+        },
+        {
+          "name": "_close_castle_logo",
+          "start": 7577,
+          "end": 7583
+        },
+        {
+          "name": "_wardrobe_ref",
+          "start": 7584,
+          "end": 7588
+        },
+        {
+          "name": "_open_wardrobe",
+          "start": 7589,
+          "end": 7591
+        },
+        {
+          "name": "_wardrobe_done",
+          "start": 7592,
+          "end": 7594
+        },
+        {
+          "name": "_close_wardrobe",
+          "start": 7595,
+          "end": 7597
+        },
+        {
+          "name": "_open_stickers",
+          "start": 7598,
+          "end": 7600
+        },
+        {
+          "name": "_close_stickers",
+          "start": 7601,
+          "end": 7603
+        },
+        {
+          "name": "_exit_level2",
+          "start": 7604,
+          "end": 7609
+        },
+        {
+          "name": "_enter_ocean_kingdom",
+          "start": 7610,
+          "end": 7613
+        },
+        {
+          "name": "_exit_level2_now",
+          "start": 7614,
+          "end": 7638
+        },
+        {
+          "name": "_day_one_reorient_after_exit_now",
+          "start": 7639,
+          "end": 7657
+        },
+        {
+          "name": "_finish_level2",
+          "start": 7658,
+          "end": 7660
+        },
+        {
+          "name": "_do_finish_level2",
+          "start": 7661,
+          "end": 7670
+        },
+        {
+          "name": "_beans_go",
+          "start": 7671,
+          "end": 7680
+        },
+        {
+          "name": "_beans_bubbles",
+          "start": 7681,
+          "end": 7712
+        },
+        {
+          "name": "_tick_beans",
+          "start": 7713,
+          "end": 7726
+        },
+        {
+          "name": "_sparkle_burst",
+          "start": 7727,
+          "end": 7754
+        },
+        {
+          "name": "_clear_game",
+          "start": 7755,
+          "end": 7850
+        },
+        {
+          "name": "_tick_contact_shadow",
+          "start": 7851,
+          "end": 7896
+        },
+        {
+          "name": "_reward",
+          "start": 7897,
+          "end": 7903
+        },
+        {
+          "name": "_celebrate_pose",
+          "start": 7904,
+          "end": 7933
+        },
+        {
+          "name": "_greet_heart",
+          "start": 7934,
+          "end": 7953
+        },
+        {
+          "name": "_spawn_shooting_star",
+          "start": 7954,
+          "end": 7975
+        },
+        {
+          "name": "_end_game",
+          "start": 7976,
+          "end": 8024
+        },
+        {
+          "name": "_game_ball",
+          "start": 8025,
+          "end": 8048
+        },
+        {
+          "name": "_ball_panel_mat",
+          "start": 8049,
+          "end": 8075
+        },
+        {
+          "name": "_soft_mat",
+          "start": 8076,
+          "end": 8083
+        },
+        {
+          "name": "_check_star",
+          "start": 8084,
+          "end": 8090
+        },
+        {
+          "name": "_course_box",
+          "start": 8091,
+          "end": 8102
+        },
+        {
+          "name": "_build_chain_curtain",
+          "start": 8103,
+          "end": 8122
+        },
+        {
+          "name": "_add_check",
+          "start": 8123,
+          "end": 8126
+        },
+        {
+          "name": "_tick_chains",
+          "start": 8127,
+          "end": 8151
+        },
+        {
+          "name": "_start_game",
+          "start": 8152,
+          "end": 8154
+        },
+        {
+          "name": "_start_game_now",
+          "start": 8155,
+          "end": 8234
+        },
+        {
+          "name": "_ice_mat",
+          "start": 8235,
+          "end": 8251
+        },
+        {
+          "name": "_tick_game",
+          "start": 8252,
+          "end": 8281
+        },
+        {
+          "name": "skin_sprite_path",
+          "start": 8282,
+          "end": 8304
+        },
+        {
+          "name": "_overlay_root_for_cursor",
+          "start": 8305,
+          "end": 8323
+        },
+        {
+          "name": "_tick_pad_cursor",
+          "start": 8324,
+          "end": 8376
+        },
+        {
+          "name": "_neutralize_slide_canvas_overlay_poll",
+          "start": 8377,
+          "end": 8410
+        },
+        {
+          "name": "_tick_overlay_pads",
+          "start": 8411,
+          "end": 8452
+        },
+        {
+          "name": "_process",
+          "start": 8453,
+          "end": 8697
+        },
+        {
+          "name": "_physlab_spawn",
+          "start": 8698,
+          "end": 8716
+        },
+        {
+          "name": "_physlab_clear",
+          "start": 8717,
+          "end": 8722
+        },
+        {
+          "name": "_physlab_standees",
+          "start": 8723,
+          "end": 8749
+        },
+        {
+          "name": "_physics_process",
+          "start": 8750,
+          "end": 8780
+        },
+        {
+          "name": "_jolt_barrel",
+          "start": 8781,
+          "end": 8798
+        },
+        {
+          "name": "_jolt_ball",
+          "start": 8799,
+          "end": 8822
+        },
+        {
+          "name": "_jolt_static_box",
+          "start": 8823,
+          "end": 8836
+        },
+        {
+          "name": "_sway_grass_mat",
+          "start": 8837,
+          "end": 8893
+        },
+        {
+          "name": "_cross_blade",
+          "start": 8894,
+          "end": 8911
+        },
+        {
+          "name": "_glow_tip_mat",
+          "start": 8912,
+          "end": 8932
+        },
+        {
+          "name": "on_player_jump",
+          "start": 8933,
+          "end": 8943
+        },
+        {
+          "name": "on_player_wet_change",
+          "start": 8944,
+          "end": 8954
+        },
+        {
+          "name": "on_player_hop_land",
+          "start": 8955,
+          "end": 8972
+        },
+        {
+          "name": "_arena_floor",
+          "start": 8973,
+          "end": 8996
+        },
+        {
+          "name": "_enter_arena",
+          "start": 8997,
+          "end": 9097
+        },
+        {
+          "name": "_leave_arena",
+          "start": 9098,
+          "end": 9102
+        },
+        {
+          "name": "_leave_arena_now",
+          "start": 9103,
+          "end": 9111
+        },
+        {
+          "name": "_btn_pressed",
+          "start": 9112,
+          "end": 9125
+        },
+        {
+          "name": "_anemone_mesh",
+          "start": 9126,
+          "end": 9153
+        }
+      ]
+    },
+    {
+      "path": "scripts/probe_kart_feel.gd",
+      "sha256": "4b784becd5542d7e74e7932803c01c0dbddc3f8ab8a7af4ada821350d3cbbb98",
+      "lines": 420,
+      "functions": [
+        {
+          "name": "_init",
+          "start": 27,
+          "end": 138
+        },
+        {
+          "name": "_begin_save_isolation",
+          "start": 139,
+          "end": 161
+        },
+        {
+          "name": "_end_save_isolation",
+          "start": 162,
+          "end": 174
+        },
+        {
+          "name": "_remove_save_artifacts",
+          "start": 175,
+          "end": 180
+        },
+        {
+          "name": "_read_saved_state",
+          "start": 181,
+          "end": 190
+        },
+        {
+          "name": "_engine_regression_checks",
+          "start": 191,
+          "end": 252
+        },
+        {
+          "name": "_pause_persistence_check",
+          "start": 253,
+          "end": 283
+        },
+        {
+          "name": "_generation_recovery_check",
+          "start": 284,
+          "end": 313
+        },
+        {
+          "name": "_second_place_completion_check",
+          "start": 314,
+          "end": 351
+        },
+        {
+          "name": "_force_race_start",
+          "start": 352,
+          "end": 362
+        },
+        {
+          "name": "_steer_for",
+          "start": 363,
+          "end": 381
+        },
+        {
+          "name": "_solo_run",
+          "start": 382,
+          "end": 418
+        },
+        {
+          "name": "_on_race_done",
+          "start": 419,
+          "end": 420
+        }
+      ]
+    },
+    {
+      "path": "scripts/probe_opera_2d.gd",
+      "sha256": "440ca7095d1800bbc641e05ff727ad47f403a2ad253f398fb570a86af6f598f0",
+      "lines": 3252,
+      "functions": [
+        {
+          "name": "_audit_shipping_hotspot_specs",
+          "start": 142,
+          "end": 163
+        },
+        {
+          "name": "_init",
+          "start": 164,
+          "end": 1373
+        },
+        {
+          "name": "_capture_diegetic_phase_rooms",
+          "start": 1374,
+          "end": 1416
+        },
+        {
+          "name": "_audit_navigation_pointer_release",
+          "start": 1417,
+          "end": 1484
+        },
+        {
+          "name": "_audit_diegetic_room_flow",
+          "start": 1485,
+          "end": 1683
+        },
+        {
+          "name": "_audit_phase_hotspot_rearming",
+          "start": 1684,
+          "end": 1778
+        },
+        {
+          "name": "_opera_hotspots",
+          "start": 1779,
+          "end": 1787
+        },
+        {
+          "name": "_armed_hotspots",
+          "start": 1788,
+          "end": 1795
+        },
+        {
+          "name": "_first_inactive_hotspot",
+          "start": 1796,
+          "end": 1803
+        },
+        {
+          "name": "_rect_inside",
+          "start": 1804,
+          "end": 1810
+        },
+        {
+          "name": "_teacher_owns_library_tiles",
+          "start": 1811,
+          "end": 1822
+        },
+        {
+          "name": "_actor_visual_rect",
+          "start": 1823,
+          "end": 1828
+        },
+        {
+          "name": "_actor_rest_rect",
+          "start": 1829,
+          "end": 1838
+        },
+        {
+          "name": "_roshan_idle_semantic_rect",
+          "start": 1839,
+          "end": 1848
+        },
+        {
+          "name": "_exercise_racer_finale",
+          "start": 1849,
+          "end": 1959
+        },
+        {
+          "name": "_exercise_racer_cancel_and_reentry",
+          "start": 1960,
+          "end": 2053
+        },
+        {
+          "name": "_drive_racer_turn",
+          "start": 2054,
+          "end": 2132
+        },
+        {
+          "name": "_racer_touch",
+          "start": 2133,
+          "end": 2141
+        },
+        {
+          "name": "_racer_drag",
+          "start": 2142,
+          "end": 2149
+        },
+        {
+          "name": "_exercise_racer_policy_comparison",
+          "start": 2150,
+          "end": 2189
+        },
+        {
+          "name": "_run_standalone_racer_policy",
+          "start": 2190,
+          "end": 2218
+        },
+        {
+          "name": "_career_config",
+          "start": 2219,
+          "end": 2225
+        },
+        {
+          "name": "_direct_child_instance_ids",
+          "start": 2226,
+          "end": 2233
+        },
+        {
+          "name": "_subtree_node_count",
+          "start": 2234,
+          "end": 2240
+        },
+        {
+          "name": "_has_spatial_descendants",
+          "start": 2241,
+          "end": 2246
+        },
+        {
+          "name": "_control_inside_stage",
+          "start": 2247,
+          "end": 2252
+        },
+        {
+          "name": "_teacher_touch",
+          "start": 2253,
+          "end": 2262
+        },
+        {
+          "name": "_teacher_tap",
+          "start": 2263,
+          "end": 2267
+        },
+        {
+          "name": "_record_teacher_award",
+          "start": 2268,
+          "end": 2271
+        },
+        {
+          "name": "_record_teacher_result",
+          "start": 2272,
+          "end": 2275
+        },
+        {
+          "name": "_teacher_progress_for",
+          "start": 2276,
+          "end": 2281
+        },
+        {
+          "name": "_exercise_teacher_model",
+          "start": 2282,
+          "end": 2354
+        },
+        {
+          "name": "_exercise_teacher_surface",
+          "start": 2355,
+          "end": 2495
+        },
+        {
+          "name": "_drive_teacher_surface",
+          "start": 2496,
+          "end": 2505
+        },
+        {
+          "name": "_drive_teacher_phase",
+          "start": 2506,
+          "end": 2528
+        },
+        {
+          "name": "_geology_touch",
+          "start": 2529,
+          "end": 2537
+        },
+        {
+          "name": "_geology_drag",
+          "start": 2538,
+          "end": 2545
+        },
+        {
+          "name": "_record_geology_award",
+          "start": 2546,
+          "end": 2549
+        },
+        {
+          "name": "_exercise_geology_surface",
+          "start": 2550,
+          "end": 2711
+        },
+        {
+          "name": "_drive_geology_surface",
+          "start": 2712,
+          "end": 2754
+        },
+        {
+          "name": "_drive_geologist_phase",
+          "start": 2755,
+          "end": 2767
+        },
+        {
+          "name": "_boxing_touch",
+          "start": 2768,
+          "end": 2776
+        },
+        {
+          "name": "_boxing_drag",
+          "start": 2777,
+          "end": 2784
+        },
+        {
+          "name": "_exercise_boxing_surface",
+          "start": 2785,
+          "end": 2914
+        },
+        {
+          "name": "_drive_boxer_phase",
+          "start": 2915,
+          "end": 2969
+        },
+        {
+          "name": "_finale_partner_present",
+          "start": 2970,
+          "end": 2989
+        },
+        {
+          "name": "_capture_viewport",
+          "start": 2990,
+          "end": 3005
+        },
+        {
+          "name": "_capture_control",
+          "start": 3006,
+          "end": 3028
+        },
+        {
+          "name": "_capture_rival_states",
+          "start": 3029,
+          "end": 3049
+        },
+        {
+          "name": "_capture_widget_states",
+          "start": 3050,
+          "end": 3113
+        },
+        {
+          "name": "_capture_candymaker_pour_states",
+          "start": 3114,
+          "end": 3158
+        },
+        {
+          "name": "_visible_card_count",
+          "start": 3159,
+          "end": 3166
+        },
+        {
+          "name": "_actor_matches_rest",
+          "start": 3167,
+          "end": 3176
+        },
+        {
+          "name": "_check",
+          "start": 3177,
+          "end": 3184
+        },
+        {
+          "name": "_check_reviewed_task_pose",
+          "start": 3185,
+          "end": 3215
+        },
+        {
+          "name": "_check_hall_task_pose",
+          "start": 3216,
+          "end": 3252
+        }
+      ]
+    }
+  ],
+  "source_checkout": "isolated origin/dev task checkout"
+}

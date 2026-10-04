@@ -772,6 +772,7 @@ Kept as-is; noted so a future edit updates every copy.
 | Document | State | Scope |
 | --- | --- | --- |
 | `design/GEOLOGIST_REBUILD_2026-09-05.md` | 🔵 | `SUPPORTING_CURRENT`; scoped Geologist research, mechanics implementation and diagnostic evidence; not release, final-art, device or child acceptance. |
+| `design/RACER_EXISTING_ENGINE_2D_PORT_2026-10-03.md` | 🔵 | `SUPPORTING_CURRENT`; existing developed engine Canvas conversion candidate and evidence boundaries; no dev/release/device/child/owner or game-wide closure authority. |
 | `design/OPERA_RACER_ENGINE_INTEGRATION_2026-09-05.md` | 🔵 | `SUPPORTING_CURRENT`; local Racer engine integration, diagnostic validation and visual evidence; not merged, released, device accepted, or master-audit closure. |
 
 ## Opera two-part performances — 2026-09-05

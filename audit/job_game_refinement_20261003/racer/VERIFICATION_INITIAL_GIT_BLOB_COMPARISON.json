@@ -1,0 +1,165 @@
+{
+  "status": "FAIL",
+  "checked_utc": "2026-10-03T21:51:41.567232+00:00",
+  "sources_match": true,
+  "source_records": 47,
+  "exact_function_refs_match": true,
+  "function_refs": 46,
+  "html_links_resolve": true,
+  "missing_links": [],
+  "production_boundary": [
+    {
+      "path": "scripts/kart.gd",
+      "baseline_commit": "30d82725661044de63b682f5b13ba8f19101892b",
+      "sha256_before": "69ca21f872c3d9e6e3af8eec5b19bebc4b4dfe1ef4e303298167efaf2af13275",
+      "sha256_after": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c",
+      "unchanged": false
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "baseline_commit": "30d82725661044de63b682f5b13ba8f19101892b",
+      "sha256_before": "a87c53f06301f79d45ef3b73877686103af70196a41e7df059399f39014cf5e8",
+      "sha256_after": "66fa1dfe73fb7693dc9bc11d0054c2d70d4927b44d856ccf2f43109893aeccaa",
+      "unchanged": false
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "baseline_commit": "30d82725661044de63b682f5b13ba8f19101892b",
+      "sha256_before": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+      "sha256_after": "5c95c6e09338f6acf6fc5630a7c2e2f7c29e5f311a1def618de8c9595cc597e2",
+      "unchanged": false
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "baseline_commit": "30d82725661044de63b682f5b13ba8f19101892b",
+      "sha256_before": "f905d5471ca4da15a05934bdb6d037e479692fdf6532fac90fbe98f3283e69f9",
+      "sha256_after": "5988db4a590fe8c471f4efa8e0344ff3e8035f67af942b79851fa8f2b55ceb68",
+      "unchanged": false
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "baseline_commit": "30d82725661044de63b682f5b13ba8f19101892b",
+      "sha256_before": "556301bbaeefcc55f7a5c28744170872e488563719aee54856ad4c65c4e9cb6d",
+      "sha256_after": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66",
+      "unchanged": false
+    },
+    {
+      "path": "scripts/main.gd",
+      "baseline_commit": "30d82725661044de63b682f5b13ba8f19101892b",
+      "sha256_before": "7048b66b560f1e712c764133c66e00d9ebb48621df7255bd2f6f32d746f17e83",
+      "sha256_after": "98d91a560426cfa4c52a70221a0311856429c031805d7d9dc990eefe2affe30e",
+      "unchanged": false
+    },
+    {
+      "path": "scripts/probe_kart_feel.gd",
+      "baseline_commit": "30d82725661044de63b682f5b13ba8f19101892b",
+      "sha256_before": "d3e0ef31b9e092d1cb898f28099866685bfe21f0f6257d96537f57b51f33d0ed",
+      "sha256_after": "4b784becd5542d7e74e7932803c01c0dbddc3f8ab8a7af4ada821350d3cbbb98",
+      "unchanged": false
+    },
+    {
+      "path": "scripts/probe_opera_2d.gd",
+      "baseline_commit": "30d82725661044de63b682f5b13ba8f19101892b",
+      "sha256_before": "2ad70501b0bc45faf5017f911825716f68ef30a0614e58daa8b93c1b082e50d8",
+      "sha256_after": "440ca7095d1800bbc641e05ff727ad47f403a2ad253f398fb570a86af6f598f0",
+      "unchanged": false
+    }
+  ],
+  "production_unchanged": false,
+  "gates": [
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_document_authority.py"
+      ],
+      "exit_code": 0,
+      "seconds": 15.37,
+      "checked_utc": "2026-10-03T21:50:43.784185+00:00",
+      "stdout": {
+        "path": "audit/job_game_refinement_20261003/racer/authority.stdout.log",
+        "sha256": "fc0ebd23902b6214aaae0149f4bbed880b98425be086f643acbfe659f19ebd34"
+      },
+      "stderr": {
+        "path": "audit/job_game_refinement_20261003/racer/authority.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "C:\\Users\\Peter\\AppData\\Local\\Python\\pythoncore-3.13-64\\python.exe",
+        "-B",
+        "tools/audit_development.py",
+        "--base",
+        "auto"
+      ],
+      "exit_code": 0,
+      "seconds": 2.942,
+      "checked_utc": "2026-10-03T21:50:46.735050+00:00",
+      "stdout": {
+        "path": "audit/job_game_refinement_20261003/racer/development.stdout.log",
+        "sha256": "fed7b0788391083d6a6d2fa92eea19ea8d1ced989624914687b84e527e5bf1d1"
+      },
+      "stderr": {
+        "path": "audit/job_game_refinement_20261003/racer/development.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "runtime_conversion": "NOT_IMPLEMENTED",
+  "runtime_device_child_owner": "PENDING",
+  "new_scores": false,
+  "publication": "PENDING_COORDINATED_INTEGRATION",
+  "qualification": "Structural/source verification only. No engine conversion, full-suite result or visual/game acceptance is inferred.",
+  "cross_checkout_comparison": [
+    {
+      "path": "scripts/kart.gd",
+      "sha256_before": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c",
+      "sha256_after": "fbc0af7eb4533cf86182672e1b2ef4f57e91a71286187c8756a6e1febb03f30c",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/kart_driving.gd",
+      "sha256_before": "66fa1dfe73fb7693dc9bc11d0054c2d70d4927b44d856ccf2f43109893aeccaa",
+      "sha256_after": "66fa1dfe73fb7693dc9bc11d0054c2d70d4927b44d856ccf2f43109893aeccaa",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/opera_racer_surface.gd",
+      "sha256_before": "5c95c6e09338f6acf6fc5630a7c2e2f7c29e5f311a1def618de8c9595cc597e2",
+      "sha256_after": "5c95c6e09338f6acf6fc5630a7c2e2f7c29e5f311a1def618de8c9595cc597e2",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/opera_career_world_2d.gd",
+      "sha256_before": "501cec2f90a16ed66dd10fabacc04d1285061a682cf39ad0ad0481c2e2661131",
+      "sha256_after": "5988db4a590fe8c471f4efa8e0344ff3e8035f67af942b79851fa8f2b55ceb68",
+      "unchanged": false
+    },
+    {
+      "path": "scripts/opera_roshan_actor.gd",
+      "sha256_before": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66",
+      "sha256_after": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/main.gd",
+      "sha256_before": "98d91a560426cfa4c52a70221a0311856429c031805d7d9dc990eefe2affe30e",
+      "sha256_after": "98d91a560426cfa4c52a70221a0311856429c031805d7d9dc990eefe2affe30e",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/probe_kart_feel.gd",
+      "sha256_before": "4b784becd5542d7e74e7932803c01c0dbddc3f8ab8a7af4ada821350d3cbbb98",
+      "sha256_after": "4b784becd5542d7e74e7932803c01c0dbddc3f8ab8a7af4ada821350d3cbbb98",
+      "unchanged": true
+    },
+    {
+      "path": "scripts/probe_opera_2d.gd",
+      "sha256_before": "440ca7095d1800bbc641e05ff727ad47f403a2ad253f398fb570a86af6f598f0",
+      "sha256_after": "440ca7095d1800bbc641e05ff727ad47f403a2ad253f398fb570a86af6f598f0",
+      "unchanged": true
+    }
+  ],
+  "cross_checkout_qualification": "Artwork handover world source includes coordinator-owned dirty changes and differs from this clean origin/dev checkout. Its historical source index is preserved. This difference is not a production change made by this task."
+}

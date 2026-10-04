@@ -1,0 +1,94 @@
+{
+  "stage": "IMPLEMENTED_CANDIDATE",
+  "baseline": "30d82725661044de63b682f5b13ba8f19101892b",
+  "engine_version": "4.7.2.stable.official.ed1daf0bf",
+  "source_index": "ENGINE_PORT_SOURCE_INDEX.json",
+  "implementation": "Original developed KartGame converted to Node2D/Canvas; all 17 features retained; partial Opera adapter is separately scoped and untouched.",
+  "mechanical_verification": {
+    "baseline_feel": "PASS: baseline_runtime/feel.receipt.json",
+    "ported_feel": "PASS: feel_final.stdout.log",
+    "focused_features": "PASS: features.receipt.json and features.stdout.log",
+    "shared_scalar_core": "unchanged, SCALAR_PARITY.json",
+    "static_parser_inference": "PASS: static_final.receipt.json; six scripts analyzed by exact 4.7.2",
+    "full_trusted_suite": "PASS: scripts/ci.sh exit 0; all 82 trusted probes exit 0; full_suite.receipt.json",
+    "authority_development": "PASS: authority_final.receipt.json and development_final.receipt.json",
+    "deterministic_source_art": "PASS: static_2.stdout.log; metadata and all ten source-isolated views reproduce",
+    "game_wide_2d": "NO_REGRESSION: game2d_final.receipt.json; production 52 to 51; strict satisfaction remains UNSATISFIED",
+    "trusted_probe_count": 82,
+    "suite_diagnostics": {
+      "visual_audit": "Existing advisory result remains UNSATISFIED: FAIL=15 REVIEW_OPEN=17 MANUAL_OPEN=2 COVERAGE_GAP=87; no closure claimed.",
+      "new_game_fixture": "Unchanged scripted New Game fixture emits current_scene-null on synthetic reload, then checks real restored entry and reports PASS; preserved in full log."
+    }
+  },
+  "visual_review": {
+    "renderer": "Vulkan Forward Mobile, NVIDIA RTX 3060 Ti; capture_mobile.stdout.log",
+    "dimensions": [
+      [
+        1280,
+        720
+      ],
+      [
+        1280,
+        800
+      ]
+    ],
+    "native_screen_touch": "PASS: pictured motorcycle selection and paint advance at both 16:9 and 16:10; canonical 1280x720 HUD targets scale and centre with Canvas.",
+    "frames": "captures/*.png",
+    "agent_review": "Candidate: native touch cards, occupied vehicle sizing, proportional drivers, ground shadow vs ramp arc, unobscured crossing and lower podium/result reviewed. Truck directional art, environment polish and cockpit/directional consistency remain unaccepted.",
+    "rejected_attempts": [
+      "headless display produced no frames and was terminated",
+      "initial native capture was covered by startup menu; rejected fixture, retained logs",
+      "initial feature fixture retained a wall-hop and failed apex exact-height; reset only fixture hop before testing isolated jump",
+      "Full suite first attempt rejected its stale current Label3D census; only current counts changed 36/11 to 32/10, sealed ceiling unchanged.",
+      "Art reproduction first rejected JSON tuple/list metadata mismatch; corrected deterministic checker only; source/derivative pixels unchanged.",
+      "Aspect capture exposed bottom HUD offsets at top edge; explicit anchored offsets repaired; final captures use the real paint-to-grid transition.",
+      "2D data scanner flagged an API name in impact scope prose. Original JSON, failed gate, consumer search and immutable-ceiling proof are preserved; only the prose description changed, audit logic/ceilings untouched."
+    ],
+    "captures": [
+      {
+        "path": "audit/job_game_refinement_20261003/racer/captures/01_ride_selection.png",
+        "sha256": "6747781ad8a50c91a40bd5f595cb910e374ef2362edc68beb794a32a3989a88e"
+      },
+      {
+        "path": "audit/job_game_refinement_20261003/racer/captures/01b_paint_selection.png",
+        "sha256": "51e2cd24fd5d1d526349843f57117380cf203813e299a84892c382d8bfca7f44"
+      },
+      {
+        "path": "audit/job_game_refinement_20261003/racer/captures/01c_tablet_picture_targets.png",
+        "sha256": "8b06f36e5c35f34695e48eff3be34357f5f59279e095437a044879cad0c61458"
+      },
+      {
+        "path": "audit/job_game_refinement_20261003/racer/captures/02_ramp_apex.png",
+        "sha256": "2758423398f915fcab8115083b1cef2d32c30d31daaee00415e6df03849b4c34"
+      },
+      {
+        "path": "audit/job_game_refinement_20261003/racer/captures/03_finish_approach.png",
+        "sha256": "b7376c5729ab4a1f550014835d62f38427b4d1f79e3100d7d83eb9c1f93d96c9"
+      },
+      {
+        "path": "audit/job_game_refinement_20261003/racer/captures/04_finish_crossing.png",
+        "sha256": "5e7420aea283c8bdc0f290b916d2c2abc6c9ca8103a11625d5a88f9a9c8d6c94"
+      },
+      {
+        "path": "audit/job_game_refinement_20261003/racer/captures/05_result_settle.png",
+        "sha256": "d78714737bdea29f4d7267903b531e0b90862facc757f2f5b5f15ccc7f3fdc5a"
+      }
+    ],
+    "current_label3d_census": {
+      "before_total": 36,
+      "after_total": 32,
+      "before_files": 11,
+      "after_files": 10,
+      "sealed_ratchet": "UNCHANGED"
+    }
+  },
+  "external_acceptance": {
+    "target_device": "PENDING",
+    "child": "PENDING",
+    "owner": "PENDING",
+    "final_art": "PENDING",
+    "game_wide_master_audit": "UNSATISFIED",
+    "dev_master_release": "NOT_REQUESTED"
+  },
+  "completed_machine_checks_utc": "2026-10-04T00:35:37.796818+00:00"
+}

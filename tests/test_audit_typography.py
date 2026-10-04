@@ -897,9 +897,10 @@ class TypographyAuditTests(unittest.TestCase):
     def test_current_repository_is_open_only_for_external_evidence(self) -> None:
         root = Path(__file__).resolve().parents[1]
         report = audit(root, root / "audit/typography_manifest.json")
-        # Removing the uncalled _sleep_z deletes one Label3D construction.
-        self.assertEqual(report["label3d"]["current_total"], 36)
-        self.assertEqual(report["label3d"]["production_file_count"], 11)
+        # Racer Canvas conversion removes four Label3D constructions and its
+        # production file from this census; the sealed ceiling stays unchanged.
+        self.assertEqual(report["label3d"]["current_total"], 32)
+        self.assertEqual(report["label3d"]["production_file_count"], 10)
         self.assertEqual(report["glyphs"]["unclassified"], [])
         self.assertEqual(report["font"]["coverage_status"], "UNRESOLVED")
         self.assertEqual(report["font"]["device_evidence_status"], "MISSING")

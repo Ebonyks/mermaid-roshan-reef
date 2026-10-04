@@ -2,8 +2,8 @@
   "schema_version": 4,
   "policy": "Known entries are migration debt, not waivers. Lists may only shrink.",
   "metadata": {
-    "inventory_head": "b65c21fd",
-    "inventory_date": "2026-09-30",
+    "inventory_head": "30d82725",
+    "inventory_date": "2026-10-03",
     "owner_contract": "The game is 2D; every tracked or active 3D resource belongs on an out-of-tree deprecated-resources branch.",
     "active_export_scope": "Active/export models and generated sidecars are prioritisation subsets; strict satisfaction requires zero repository or working-tree 3D debt.",
     "fingerprint_contract": "Every retained model binary, tracked model import sidecar, and model-bearing archive is locked by exact size and SHA-256.",
@@ -7579,7 +7579,7 @@
     "model_import_sidecars": 0,
     "active_untracked_model_import_sidecars": 0,
     "model_archive_files": 0,
-    "production_3d_files": 52,
+    "production_3d_files": 51,
     "probe_3d_files": 61,
     "scene_3d_files": 1,
     "configuration_3d_files": 1,
@@ -7990,36 +7990,6 @@
       "SpriteBase3D": 5,
       "Vector3": 2
     },
-    "scripts/kart.gd": {
-      "<lowercase-3d-marker>": 2,
-      "<spatial-shader>": 10,
-      "AABB": 3,
-      "BaseMaterial3D": 34,
-      "Basis": 6,
-      "BoxMesh": 7,
-      "CPUParticles3D": 11,
-      "Camera3D": 4,
-      "CylinderMesh": 3,
-      "DirectionalLight3D": 2,
-      "Environment": 4,
-      "Label3D": 8,
-      "Mesh": 2,
-      "MeshInstance3D": 37,
-      "Node3D": 75,
-      "OmniLight3D": 5,
-      "PackedVector3Array": 2,
-      "PlaneMesh": 3,
-      "PrismMesh": 1,
-      "QuadMesh": 2,
-      "SphereMesh": 13,
-      "Sprite3D": 5,
-      "StandardMaterial3D": 32,
-      "SurfaceTool": 2,
-      "TorusMesh": 2,
-      "Transform3D": 8,
-      "Vector3": 240,
-      "WorldEnvironment": 1
-    },
     "scripts/landmark_art.gd": {
       "<spatial-shader>": 1,
       "ArrayMesh": 1,
@@ -8306,8 +8276,7 @@
       "Vector3": 3
     },
     "scripts/probe_kart_feel.gd": {
-      "Node3D": 3,
-      "Vector3": 2
+      "Node3D": 1
     },
     "scripts/probe_kitchen_props.gd": {
       "Sprite3D": 1
