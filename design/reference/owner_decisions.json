@@ -1,0 +1,237 @@
+{
+  "schema": "owner_decisions/1",
+  "imported_at": "2026-10-03",
+  "decisions": [
+    {
+      "id": "ODR-ROSHAN-IDENTITY",
+      "date": "2026-09-30",
+      "subject": "Roshan identity and variance",
+      "decision": "Approved Roshan atlases are the primary identity authority; the book remains a likeness reference.",
+      "source": "docs/handoffs/codex_visual_design_language_2026-09-30/README.md#6-owner-questions",
+      "authority": "recorded_owner",
+      "question": "Q2",
+      "cycle": null,
+      "checks": [
+        "tools/tests/test_record_owner_decision.py"
+      ]
+    },
+    {
+      "id": "ODR-ROSHAN-IRIDESCENT",
+      "date": "2026-09-30",
+      "subject": "Roshan identity and variance",
+      "decision": "Roshan tail is iridescent; lavender and rainbow renderings are both correct.",
+      "source": "docs/handoffs/codex_visual_design_language_2026-09-30/README.md#6-owner-questions",
+      "authority": "recorded_owner",
+      "question": "Q1",
+      "cycle": null,
+      "checks": [
+        "tools/tests/test_record_owner_decision.py"
+      ]
+    },
+    {
+      "id": "ODR-ROSHAN-Q12",
+      "date": "2026-09-30",
+      "subject": "Roshan identity and variance",
+      "decision": "No scene-light state protocol is approved yet; new art continues and names the light state of its exemplar.",
+      "source": "docs/handoffs/codex_visual_design_language_2026-09-30/README.md#6-owner-questions",
+      "authority": "recorded_owner",
+      "question": "Q12",
+      "cycle": null,
+      "checks": [
+        "tools/tests/test_record_owner_decision.py"
+      ]
+    },
+    {
+      "id": "ODR-ROSHAN-Q13",
+      "date": "2026-09-30",
+      "subject": "Roshan identity and variance",
+      "decision": "Keep the older career and playground design; new art follows the base-world child.",
+      "source": "docs/handoffs/codex_visual_design_language_2026-09-30/README.md#6-owner-questions",
+      "authority": "recorded_owner",
+      "question": "Q13",
+      "cycle": null,
+      "checks": [
+        "tools/tests/test_record_owner_decision.py"
+      ]
+    },
+    {
+      "id": "ODR-ROSHAN-Q14",
+      "date": "2026-09-30",
+      "subject": "Roshan identity and variance",
+      "decision": "Roshan wears the tiara whenever she is outside a career costume.",
+      "source": "docs/handoffs/codex_visual_design_language_2026-09-30/README.md#6-owner-questions",
+      "authority": "recorded_owner",
+      "question": "Q14",
+      "cycle": null,
+      "checks": [
+        "tools/tests/test_record_owner_decision.py"
+      ]
+    },
+    {
+      "id": "ODR-ROSHAN-Q15",
+      "date": "2026-09-30",
+      "subject": "Roshan identity and variance",
+      "decision": "Prepare the named Roshan defect repair handoff; exact pixel/product acceptance remains separate.",
+      "source": "docs/handoffs/codex_visual_design_language_2026-09-30/README.md#6-owner-questions",
+      "authority": "recorded_owner",
+      "question": "Q15",
+      "cycle": null,
+      "checks": [
+        "tools/tests/test_record_owner_decision.py"
+      ]
+    },
+    {
+      "id": "ODR-ROSHAN-Q16",
+      "date": "2026-09-30",
+      "subject": "Roshan identity and variance",
+      "decision": "Delete the retired third-party backpack art outright as scoped by the repair handoff D-01.",
+      "source": "docs/handoffs/codex_visual_design_language_2026-09-30/README.md#6-owner-questions",
+      "authority": "recorded_owner",
+      "question": "Q16",
+      "cycle": null,
+      "checks": [
+        "tools/tests/test_record_owner_decision.py"
+      ]
+    },
+    {
+      "id": "ODR-LOOP-Q1",
+      "date": "2026-10-03",
+      "subject": "Loop operating default",
+      "decision": "Study after each batch merges into dev, at least monthly, and when asked to study the game.",
+      "source": "docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md#6-owner-questions-codex-proceeds-on-the-default-and-reports-it",
+      "authority": "operating_default",
+      "question": "Q1",
+      "cycle": null,
+      "checks": []
+    },
+    {
+      "id": "ODR-LOOP-Q2",
+      "date": "2026-10-03",
+      "subject": "Loop operating default",
+      "decision": "Claude studies, plans and writes recipes; Codex builds; the owner answers at most five questions per cycle.",
+      "source": "docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md#6-owner-questions-codex-proceeds-on-the-default-and-reports-it",
+      "authority": "operating_default",
+      "question": "Q2",
+      "cycle": null,
+      "checks": []
+    },
+    {
+      "id": "ODR-LOOP-Q3",
+      "date": "2026-10-03",
+      "subject": "Loop operating default",
+      "decision": "Run two manual cycles, then ask the owner before creating scheduled automation.",
+      "source": "docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md#6-owner-questions-codex-proceeds-on-the-default-and-reports-it",
+      "authority": "operating_default",
+      "question": "Q3",
+      "cycle": null,
+      "checks": []
+    },
+    {
+      "id": "ODR-LOOP-Q4",
+      "date": "2026-10-03",
+      "subject": "Loop operating default",
+      "decision": "Publish each cycle report to the established GitHub project destination.",
+      "source": "docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md#6-owner-questions-codex-proceeds-on-the-default-and-reports-it",
+      "authority": "operating_default",
+      "question": "Q4",
+      "cycle": null,
+      "checks": []
+    },
+    {
+      "id": "ODR-LOOP-Q5",
+      "date": "2026-10-03",
+      "subject": "Loop operating default",
+      "decision": "Use generated history and repair order, re-audit each cycle and count recurring defect classes; preserve sealed evidence.",
+      "source": "docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md#6-owner-questions-codex-proceeds-on-the-default-and-reports-it",
+      "authority": "operating_default",
+      "question": "Q5",
+      "cycle": null,
+      "checks": []
+    },
+    {
+      "id": "ODR-LOOP-Q6",
+      "date": "2026-10-03",
+      "subject": "Loop operating default",
+      "decision": "Recipes may bind candidate strengths with explicit candidate status; accepted strengths come first.",
+      "source": "docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md#6-owner-questions-codex-proceeds-on-the-default-and-reports-it",
+      "authority": "operating_default",
+      "question": "Q6",
+      "cycle": null,
+      "checks": []
+    },
+    {
+      "id": "ODR-LOOP-Q7",
+      "date": "2026-10-03",
+      "subject": "Loop operating default",
+      "decision": "Parent play-session notes are optional; no child-device telemetry.",
+      "source": "docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md#6-owner-questions-codex-proceeds-on-the-default-and-reports-it",
+      "authority": "operating_default",
+      "question": "Q7",
+      "cycle": null,
+      "checks": []
+    },
+    {
+      "id": "ODR-LOOP-Q8",
+      "date": "2026-10-03",
+      "subject": "Loop operating default",
+      "decision": "Prioritize jobs and room activities in the Grow lane, within approved content scope.",
+      "source": "docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md#6-owner-questions-codex-proceeds-on-the-default-and-reports-it",
+      "authority": "operating_default",
+      "question": "Q8",
+      "cycle": null,
+      "checks": []
+    },
+    {
+      "id": "ODR-GODOT-LATEST-STABLE-20261003",
+      "date": "2026-10-03",
+      "subject": "Project engine baseline",
+      "question": "Which engine baseline should this implementation use?",
+      "decision": "Update the project across the board to the latest stable Godot. Official latest-stable verification is recorded separately in the project baseline.",
+      "source": "audit/cycles/2026-10-03/IMPLEMENTATION.md#owner-engine-direction",
+      "authority": "recorded_owner",
+      "checks": [
+        "tools/audit_godot_baseline.py",
+        "tools/resolve_godot.py"
+      ],
+      "checkable": true,
+      "cycle": "2026-10-03"
+    },
+    {
+      "id": "ODR-PRIORITY-JOB-TAKEOVER",
+      "date": "2026-09-30",
+      "subject": "Development planning priority",
+      "question": "How important is job-game takeover readiness for planning?",
+      "decision": "Job-game takeover readiness (MA-DOC-006) is critical to the owner and comes first in development planning; it does not reorder the child-facing defect repairs.",
+      "source": "audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md",
+      "authority": "recorded_owner",
+      "checks": [
+        "tools/build_study_roadmap.py",
+        "tools/tests/test_build_study_roadmap.py"
+      ],
+      "checkable": true,
+      "applies_to": [
+        "MA-DOC-006"
+      ],
+      "priority": "first",
+      "recorded_text": "audit/cycles/2026-10-03-baseline/REPAIR_ORDER_HISTORY.md",
+      "note": "Owner, 2026-09-30: the purpose is to take over development of Mermaid Roshan, and including this in the audit is critical. Recorded the same day in master audit section 13 as 'critical to the owner and comes first in development planning'; that line moved to the baseline history on 2026-10-03 without a register entry, so the roadmap lost it. Entered 2026-10-03 by Claude from those two sources; no new owner answer is claimed.",
+      "cycle": "2026-10-03-baseline"
+    },
+    {
+      "id": "ODR-CHEF-VERDICT-20261003",
+      "date": "2026-10-03",
+      "subject": "Chef look and pour (owner acceptance, DL-QA-06)",
+      "question": "Does the Chef job look and pour right in the current build?",
+      "decision": "No. Owner, 2026-10-03: \"Chef pours backwards still\" and \"Chef still looks bad, lots of overdraw\". Chef's look and pour are not accepted.",
+      "source": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-001",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "applies_to": [
+        "MA-OPERA-001"
+      ],
+      "note": "The pour direction becomes checkable once Codex adds the CR0 probe assertion (stream starts at the rendered spout; spout lowest at full tilt); the look stays an owner judgement.",
+      "cycle": "2026-10-03b"
+    }
+  ]
+}

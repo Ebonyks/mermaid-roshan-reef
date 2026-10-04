@@ -1,0 +1,143 @@
+{
+  "0": {
+    "class_type": "SaveLatent",
+    "inputs": {
+      "samples": [
+        "9",
+        0
+      ],
+      "filename_prefix": "local_reference/sky_03_hydrangea_20261001T002305Z_e48e4d"
+    }
+  },
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "wan2.2_ti2v_5B_fp16.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "type": "wan",
+      "device": "default"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "wan2.2_vae.safetensors"
+    }
+  },
+  "4": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "source_4022f35e437b49fa.png"
+    }
+  },
+  "5": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "text": "One isolated illustrated object on a perfectly flat solid bright magenta background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The plant base stays fixed. The lavender flower head gently nods right then returns, followed by a small delayed leaf recovery. Keep the same stems, petals, leaf arrangement and colors. 1.1-1.4s: settle. Background remains solid magenta. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence."
+    }
+  },
+  "6": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "text": "camera movement, zoom, pan, cut, photorealism, 3D shading, new objects, changing architecture, moving shoreline, moving roots, flicker, color pumping, warped shapes, subtitles, text, watermark"
+    }
+  },
+  "7": {
+    "class_type": "ModelSamplingSD3",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "shift": 8.0
+    }
+  },
+  "8": {
+    "class_type": "Wan22ImageToVideoLatent",
+    "inputs": {
+      "vae": [
+        "3",
+        0
+      ],
+      "width": 512,
+      "height": 288,
+      "length": 33,
+      "batch_size": 1,
+      "start_image": [
+        "4",
+        0
+      ]
+    }
+  },
+  "9": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "7",
+        0
+      ],
+      "positive": [
+        "5",
+        0
+      ],
+      "negative": [
+        "6",
+        0
+      ],
+      "latent_image": [
+        "8",
+        0
+      ],
+      "seed": 20261003,
+      "steps": 20,
+      "cfg": 5.0,
+      "sampler_name": "uni_pc",
+      "scheduler": "simple",
+      "denoise": 1.0
+    }
+  },
+  "10": {
+    "class_type": "VAEDecodeTiled",
+    "inputs": {
+      "samples": [
+        "9",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "tile_size": 256,
+      "overlap": 64,
+      "temporal_size": 64,
+      "temporal_overlap": 8
+    }
+  },
+  "11": {
+    "class_type": "SaveWEBM",
+    "inputs": {
+      "images": [
+        "10",
+        0
+      ],
+      "filename_prefix": "local_reference/sky_03_hydrangea_20261001T002305Z_e48e4d",
+      "codec": "vp9",
+      "fps": 24.0,
+      "crf": 18.0
+    }
+  }
+}

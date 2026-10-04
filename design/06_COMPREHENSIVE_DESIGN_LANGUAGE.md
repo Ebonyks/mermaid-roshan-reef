@@ -651,6 +651,17 @@ gates, and has matching dev APK evidence from Android run `31763879294`.
 Route cards MUST preserve their large touch targets without obscuring Roshan's
 lower body/tail.
 
+Owner direction 2026-09-30 adds a scoped temporary developer exception to
+`DL-INT-12`: the Opera House's painted left elevator opens a playtest menu for
+every live world-triggered job. Each choice launches the same shipping Canvas
+activity as a fresh practice run, then returns to this menu. Practice does not
+change saved story progress, checkpoints, learning progress, stars, pearls,
+medals or mastery. Normal room ownership and return routes remain intact;
+retired boss slots remain unreachable. This request commissions neither the
+separate four-floor venue remake nor a job redesign. Device/child/owner
+acceptance and `MA-OPERA-012` remain open. See the
+[impact and evidence](audit_impacts/opera-job-playtest-20260930.json).
+
 `DL-INT-13` — Curtain Dragon, Shadow Phantom, and Midnight Maestro are cut from
 the reachable product. They MUST NOT appear as Opera cards, floor gates,
 required stars, finales, voices, music routes, or boss-runtime entries. Existing
@@ -1395,8 +1406,9 @@ falsifiable footing every other dimension already has. They restate the
 binding extraction/refactor contract as audit criteria; they do not weaken
 it. This rule set is a framework, not a ceiling: an auditor who finds a
 material code defect outside these rules records it anyway, and a defect
-class that recurs earns its own rule here in the same commit as the audit
-that justified it._
+class is counted in every study cycle. Three occurrences in one cycle
+propose a rule or executable check with reproductions and evidence; review
+and the authority contract determine promotion, never the loop itself._
 
 `DL-CODE-01` — `scripts/main.gd` is a coordinator, and its line count MUST
 fall monotonically toward the standing target below 2,500 lines. A change

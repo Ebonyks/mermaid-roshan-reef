@@ -1,0 +1,396 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+TUTORIAL|the first class readies the Royal Hall gate: OK
+TUTORIAL|the class gate is reached through real floor navigation: OK
+TUTORIAL|the sparring class starts from the real Royal Hall touch target: OK
+TUTORIAL|the Royal Hall door opens the sparring class: OK
+TUTORIAL|the grotto is a true Canvas backdrop: OK
+TUTORIAL|the reusable guide loads approved TAP and HOLD pictures: OK
+TUTORIAL|class begins at the TAP lesson: OK
+TUTORIAL|Roshan and the live imp remain in front of the Canvas grotto: OK
+TUTORIAL|caption_geometry|(320.0, 626.0)|(640.0, 82.0)
+TUTORIAL|the tutorial uses the compact scoped caption strip: OK
+TUTORIAL|tutorial never creates the retired JUMP medallion: OK
+TUTORIAL|nothing advances without her input: OK
+TUTORIAL|her first bop advances to COMBO: OK
+TUTORIAL|the 1-2-3 combo pops the imp into the CHARGE lesson: OK
+TUTORIAL|a fresh sparring imp waits: OK
+TUTORIAL|the prior combo does not hide the new hold demonstration: OK
+TUTORIAL|a full charge fells the imp and opens the graduation wave: OK
+TUTORIAL|the class has no partner-bubble overlay lesson: OK
+TUTORIAL|clearing the wave ends the class: OK
+TUTORIAL|the diploma persists: OK
+TUTORIAL|the global caption layout is restored: OK
+TUTORIAL|the castle hall comes back: OK
+TUTORIAL|the Royal Hall reseals after graduation: OK
+TUTORIAL|result: ALL OK
+
+WINDOWS_NATIVE|probe_combat_tutorial|exit=0|has_exited=True|fixed_fps=60
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+IMPAI|the crew actually acts instead of waiting to be tapped: OK
+IMPAI|no imp ever charges without telegraphing first: OK
+IMPAI|every telegraph is at least the readability floor: OK
+IMPAI|the crew never exceeds its simultaneous-attacker ceiling: OK
+IMPAI|landed bumps keep the crew-wide breathing gap: OK
+IMPAI|the crew plays its whole repertoire of poses: OK
+IMPAI|every pose it asks a renderer for is a declared pose: OK
+IMPAI|the brain only emits declared, harmless events: OK
+IMPAI|the brain never pops an imp by itself: OK
+IMPAI|an untouched crew grows bolder instead of stalling: OK
+IMPAI|a committed charge can be stepped out of: OK
+IMPAI|a charge never re-homes onto her once committed: OK
+IMPAI|a thinned crew loses its nerve and scampers: OK
+IMPAI|the captain rallies what is left of the crew: OK
+IMPAI|a thinned crew stops swarming: OK
+IMPAI|a rally is a beat, not a loop: OK
+IMPAI|a hit that does not pop leaves the imp reeling: OK
+IMPAI|a staggered captain comes up guarding: OK
+IMPAI|a guard always drops on its own clock: OK
+IMPAI|a popped imp leaves the fight for good: OK
+IMPAI|a QTE fight keeps attacking to itself: OK
+IMPAI|a QTE fight still gets crew spacing and showmanship: OK
+IMPAI|a long fight eases into full mercy: OK
+IMPAI|mercy makes it a one-at-a-time fight: OK
+IMPAI|mercy lengthens the telegraph, never shortens it: OK
+IMPAI|the readability floor survives a fully bold crew: OK
+IMPAI|the same fight replays exactly the same way: OK
+IMPAI|a different fight is a different fight: OK
+IMPAI|result: ALL OK
+
+WINDOWS_NATIVE|probe_imp_ai|exit=0|has_exited=True
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+MIC|nothing is castable before the spells are taught: OK
+MIC|teaching ICE banks five templates: OK
+MIC|teaching both spells completes enrollment: OK
+MIC|a spoken ICE is recognised (6/6): OK
+MIC|a spoken FIRE is recognised (6/6): OK
+MIC|a sloppier delivery of the same word still lands (8/8): OK
+MIC|the two spells are never confused for each other: OK
+MIC|room noise casts no spell (0/8 leaked): OK
+MIC|silence casts no spell: OK
+MIC|a blip too short to be a word casts no spell: OK
+MIC|an ambiguous sound stays silent instead of guessing (<silent>): OK
+MIC|templates are stored outside reef_save.json: OK
+MIC|a relaunch reloads the taught spells: OK
+MIC|a corrupt template file degrades to silence, not a crash: OK
+MIC|the toggle off refuses to arm the microphone: OK
+MIC|a disarmed microphone captures nothing: OK
+MIC|the toggle persists to the save document: OK
+MIC|the save document round-trips the toggle off: OK
+MIC|the ice arena builds with spoken spells enabled: OK
+MIC|no device means no spoken-spell promise is shown: OK
+MIC|spoken spells cannot win a battle passively: OK
+MIC|a stray word is dropped when the arena is not listening: OK
+MIC|a spoken ICE casts ice in the ice arena: OK
+MIC|a spoken FIRE is inert in the ice arena: OK
+MIC|leaving the arena closes the capture device: OK
+MIC|result: ALL OK
+WARNING: MicInput: user://mic_spells.json is unreadable; spells must be taught again
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _load_templates (res://scripts/mic_input.gd:538)
+       [1] classify (res://scripts/mic_input.gd:397)
+       [2] _finish_utterance (res://scripts/mic_input.gd:367)
+       [3] test_utterance (res://scripts/mic_input.gd:583)
+       [4] _persistence_case (res://scripts/probe_mic.gd:205)
+       [5] _init (res://scripts/probe_mic.gd:35)
+
+WINDOWS_NATIVE|probe_mic|exit=0|has_exited=True
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+STUFFIE|fresh save has no companion: OK
+STUFFIE|no den before a stuffie is chosen: OK
+STUFFIE|no want bubble before a stuffie is chosen: OK
+STUFFIE|castle caption leaves cleanup floor visible: OK
+STUFFIE|pending rescue has a visible foreground pointer: OK
+STUFFIE|Playroom starts with Baby Eagle and two pinning dust bunnies: OK
+STUFFIE|Playroom rescue uses proximity cards instead of flat hotspots: OK
+STUFFIE|Stuffie picker stays locked until Baby Eagle is rescued: OK
+STUFFIE|Standing at the room spawn does not clear either bunny: OK
+STUFFIE|One bunny cleared is not enough to finish the rescue: OK
+STUFFIE|Saved half-rescue restores without respawning the first bunny: OK
+STUFFIE|Roshan contact clears the second pinning bunny: OK
+STUFFIE|Second bunny frees Baby Eagle and opens the focused tutorial: OK
+STUFFIE|rescue picker uses the sole global Back path: OK
+STUFFIE|closing before confirmation leaves a safe castle state: OK
+STUFFIE|playroom re-entry reopens the unconfirmed adoption: OK
+STUFFIE|Eagle skips painting and cannot be recoloured by stale callbacks: OK
+STUFFIE|Rescued Baby Eagle becomes the first stuffie friend: OK
+STUFFIE|completed rescue cannot recreate its pointer: OK
+STUFFIE|confirmed friend has exactly one visible Canvas companion card: OK
+STUFFIE|castle companion card repositions without duplication: OK
+STUFFIE|confirmed friend identity persists safely: OK
+STUFFIE|Canvas wants wait without passive growth: OK
+STUFFIE|Canvas Menu care grows once without a world follower: OK
+STUFFIE|repeated Canvas care is affection only: OK
+STUFFIE|picker overlay builds: OK
+STUFFIE|mewsha chosen with painted body: OK
+STUFFIE|picker closed after choosing: OK
+STUFFIE|roster is data-driven: OK
+STUFFIE|Stuffie Studio builds six clear display cubbies: OK
+STUFFIE|Studio has separate upgrade table and active-friend chest: OK
+STUFFIE|Studio room is sprite-only with no legacy mesh furniture: OK
+STUFFIE|Lamb-a uses a 2D cutout instead of the retired GLB: OK
+STUFFIE|toy chest opens selection-only mode: OK
+STUFFIE|worktable opens one-friend color studio: OK
+STUFFIE|repainting preserves the active friend's care request: OK
+STUFFIE|follower spawned in the reef: OK
+STUFFIE|follower stays near Roshan: OK
+STUFFIE|retired reef den is never built: OK
+STUFFIE|care has no persistent HUD launcher: OK
+STUFFIE|Tamagotchi sheet uses global Back and five large care actions: OK
+STUFFIE|Tamagotchi sheet shows need, growth, and table repainting: OK
+STUFFIE|care menu action closes into a real care moment: OK
+STUFFIE|menu care grows the stuffie: OK
+STUFFIE|want bubble appears over the stuffie: OK
+STUFFIE|wants wait patiently and never self-fulfil: OK
+STUFFIE|care moment starts on tap: OK
+STUFFIE|tending a want grows the stuffie: OK
+STUFFIE|unit care context= phase=
+STUFFIE|care stages level the companion: OK
+STUFFIE|no Stuffie HUD launcher exists after adoption: OK
+STUFFIE|the Storybook care menu remains available: OK
+STUFFIE|unasked care is affection with no growth point: OK
+STUFFIE|the same menu tends an asked want remotely: OK
+STUFFIE|asked menu care grows the stuffie: OK
+STUFFIE|battle starts round 1 with two imps: OK
+STUFFIE|battle creature is the painted mewsha: OK
+STUFFIE|battle cannot win passively: OK
+STUFFIE|telegraph opens a button-free DODGE window: OK
+STUFFIE|missed dodge is a bump, never a fail: OK
+STUFFIE|the shared hold action dodges in the window: OK
+STUFFIE|bopped imps become friends: OK
+STUFFIE|all friends wins the round: OK
+STUFFIE|round win saves ladder progress and returns: OK
+STUFFIE|winning pays pearls: OK
+STUFFIE|save carries companion keys: OK
+STUFFIE|save roundtrips through recovery reader: OK
+STUFFIE|toy chest preselects the tapped stuffie: OK
+STUFFIE|companion swaps to Baby Eagle: OK
+STUFFIE|swapped follower respawns as the bird: OK
+STUFFIE|Lamb-a' starts locked: OK
+STUFFIE|ladder reaches the Lamb-a' capture round: OK
+STUFFIE|boss stuffie is befriended, never hurt: OK
+STUFFIE|Lamb-a' comes home to the Studio: OK
+STUFFIE|captured friend joins the picker: OK
+STUFFIE|Lamb-a' can be carried on missions: OK
+STUFFIE|zone change snaps the stuffie to her side: OK
+STUFFIE|follows into new levels and arena games by default: OK
+STUFFIE|hides only inside camera-owning engines: OK
+STUFFIE|care-loop battle starts: OK
+STUFFIE|bumps leave boo-boos, never end the battle: OK
+STUFFIE|boo-boos come home asking for hug + bath: OK
+STUFFIE|hug + bath heal every boo-boo: OK
+STUFFIE|leaving early keeps the boo-boo: OK
+STUFFIE|uncared boo-boos wait without removing the friend: OK
+STUFFIE|patient reminder stays voiced, kind, and picture-first: OK
+STUFFIE|retired resting flag saves healed without changing progress: OK
+STUFFIE|retired resting flag never blocks the stuffie battle: OK
+STUFFIE|waiting for care never blocks another battle: OK
+STUFFIE|patient care loses no progress: OK
+STUFFIE|result: ALL OK
+
+WINDOWS_NATIVE|probe_stuffie|exit=0|has_exited=True
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+DUNGEON|fresh save can enter before finding elemental encounters: OK
+DUNGEON|dungeon defines ten rooms: OK
+DUNGEON|dungeon mixes four battles with six puzzles: OK
+DUNGEON|progress HUD never blocks touch: OK
+DUNGEON|first room uses bounded combat scene: OK
+DUNGEON|combat arena uses visible dungeon card roles: OK
+DUNGEON|combat room cannot win passively: OK
+DUNGEON|puzzle gives Roshan spatial controls: OK
+DUNGEON|puzzle room stays inside mobile node budget: OK
+DUNGEON|puzzle uses modeled pedestals and shell door: OK
+DUNGEON|puzzle cannot win passively: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|choice 2 reachable by proximity: OK
+DUNGEON|choice 1 reachable by proximity: OK
+DUNGEON|puzzle solution physically opens door: OK
+DUNGEON|real puzzle clear saves checkpoint: OK
+DUNGEON|home icon returns safely: OK
+DUNGEON|next visit resumes at room three: OK
+DUNGEON|room 3 uses puzzle engine: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|choice 1 reachable by proximity: OK
+DUNGEON|choice 1 reachable by proximity: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|puzzle solution physically opens door: OK
+DUNGEON|room 4 uses combat engine: OK
+DUNGEON|second enemy room is the dust-bunny cleanup: OK
+DUNGEON|cleanup room has five animated dust bunnies: OK
+DUNGEON|live dust-bunny enemies are 2D sprite cards: OK
+DUNGEON|dust bunnies cannot clean themselves: OK
+DUNGEON|CLEAN button launches the recovered 2D soap bubbles: OK
+DUNGEON|clean hit starts the accepted poof animation: OK
+DUNGEON|clean poof removes only after its final sparkle: OK
+DUNGEON|room 5 uses puzzle engine: OK
+DUNGEON|choice 1 reachable by proximity: OK
+DUNGEON|choice 3 reachable by proximity: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|choice 2 reachable by proximity: OK
+DUNGEON|puzzle solution physically opens door: OK
+DUNGEON|room 6 uses puzzle engine: OK
+DUNGEON|shell targets face the central pearl: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|choice 2 reachable by proximity: OK
+DUNGEON|choice 2 reachable by proximity: OK
+DUNGEON|choice 2 reachable by proximity: OK
+DUNGEON|puzzle solution physically opens door: OK
+DUNGEON|room 7 uses combat engine: OK
+DUNGEON|room 8 uses puzzle engine: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|choice 1 reachable by proximity: OK
+DUNGEON|mismatched runes remain visible: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|choice 2 reachable by proximity: OK
+DUNGEON|choice 1 reachable by proximity: OK
+DUNGEON|choice 3 reachable by proximity: OK
+DUNGEON|puzzle solution physically opens door: OK
+DUNGEON|room 9 uses puzzle engine: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|choice 1 reachable by proximity: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|choice 0 reachable by proximity: OK
+DUNGEON|choice 1 reachable by proximity: OK
+DUNGEON|puzzle solution physically opens door: OK
+DUNGEON|room 10 uses combat engine: OK
+DUNGEON|final boss starts with ice shell phase: OK
+DUNGEON|final boss has a readable shell crown fallback: OK
+DUNGEON|fire cannot skip frozen-shell lesson: OK
+DUNGEON|movement earns the flashing-head counter: OK
+DUNGEON|cycle 1 changes action to fire: OK
+DUNGEON|cycle 1 returns to ice shell: OK
+DUNGEON|movement earns the flashing-head counter: OK
+DUNGEON|cycle 2 changes action to fire: OK
+DUNGEON|cycle 2 returns to ice shell: OK
+DUNGEON|movement earns the flashing-head counter: OK
+DUNGEON|cycle 3 changes action to fire: OK
+DUNGEON|cycle 3 returns to ice shell: OK
+DUNGEON|movement earns the flashing-head counter: OK
+DUNGEON|cycle 4 changes action to fire: OK
+DUNGEON|dual-element finale resolves: OK
+DUNGEON|combat materials are reused: OK
+DUNGEON|all ten checkpoints persist: OK
+DUNGEON|final room completes dungeon: OK
+DUNGEON|completion returns to castle: OK
+DUNGEON|result: ALL OK
+
+WINDOWS_NATIVE|probe_dungeon|exit=0|has_exited=True
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+EMBER|fresh save keeps the fortress hidden in normal play: OK
+EMBER|saving the Butterfly World reveals the fortress: OK
+EMBER|a visited fortress stays discovered: OK
+EMBER|dev mode keeps the fortress open: OK
+EMBER|hidden fortress builds no junction gate: OK
+EMBER|promenade retires the 3D junction gate: OK
+EMBER|finished ember-bound float race lands in the fortress: OK
+EMBER|junction destination resets after landing: OK
+EMBER|first landing marks the fortress discovered: OK
+EMBER|fortress wears its own dark scene grade: OK
+EMBER|ambient stays capped for the dark look: OK
+EMBER|five ember lanterns await: OK
+EMBER|the Great Gate starts shut: OK
+EMBER|planet uses the dedicated Ember shell: OK
+EMBER|lanterns retain their visible card and light fallback: OK
+EMBER|ash moon uses the visible card fallback: OK
+EMBER|geyser route keeps three animated card vents: OK
+EMBER|overworld uses dedicated Ember fallback art: OK
+EMBER|every Ember dungeon art role resolves through fallback: OK
+EMBER|Speedy disables the King and avatar detail lights: OK
+EMBER|no lantern lights without Roshan: OK
+EMBER|all five lanterns burn: OK
+EMBER|Speedy shows at most the nearest lantern light: OK
+EMBER|lantern checkpoints persist as hidden sticker keys: OK
+EMBER|five lanterns open the Great Gate: OK
+EMBER|fortress dungeon defines six rooms: OK
+EMBER|fortress mixes three battles with three puzzles: OK
+EMBER|open gate admits the dungeon: OK
+EMBER|fortress level pauses underneath: OK
+EMBER|sequencer runs the fortress room table: OK
+EMBER|fortress rooms receive the Ember-only art theme: OK
+EMBER|fortress combat cannot win passively: OK
+EMBER|puzzle solution physically opens door: OK
+EMBER|fortress checkpoints land in ember_progress: OK
+EMBER|castle dungeon progress stays untouched: OK
+EMBER|home icon returns to the fortress planet: OK
+EMBER|next visit resumes at fortress room three: OK
+EMBER|fortress room 3 uses puzzle engine: OK
+EMBER|puzzle solution physically opens door: OK
+EMBER|fortress room 4 uses combat engine: OK
+EMBER|fortress room 5 uses puzzle engine: OK
+EMBER|puzzle solution physically opens door: OK
+EMBER|fortress room 6 uses combat engine: OK
+EMBER|the Molten Throne opens with the ice shell phase: OK
+EMBER|movement earns the Molten Throne counter: OK
+EMBER|movement earns the Molten Throne counter: OK
+EMBER|movement earns the Molten Throne counter: OK
+EMBER|movement earns the Molten Throne counter: OK
+EMBER|dual-element throne resolves: OK
+EMBER|all six fortress checkpoints persist: OK
+EMBER|final room completes the fortress: OK
+EMBER|completion returns outside the Great Gate: OK
+EMBER|the Fortress Hero sticker is awarded: OK
+EMBER|the save carries the fortress keys: OK
+EMBER|castle dungeon still untouched after the finale: OK
+EMBER|home ring returns to the lagoon: OK
+EMBER|result: ALL OK
+WARNING: Ember planet kit missing; using the procedural safety fallback
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _build_planet (res://scripts/ember_fortress.gd:310)
+       [1] start (res://scripts/ember_fortress.gd:193)
+       [2] _start_ember (res://scripts/main.gd:2684)
+
+WINDOWS_NATIVE|probe_ember|exit=0|has_exited=True
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+OPERA|the real Castle picture stage is the only career entry surface: OK
+OPERA|Castle careers, ambient motion and phone pause stack visibly: OK
+OPERA|Opera keeps sixteen historical positions and appends Geologist and Teacher: OK
+OPERA|the fifteen playable positions keep legacy slots stable: OK
+OPERA|the three retired boss positions remain inert tombstones: OK
+OPERA|the nine owner-approved Castle route sets are exact: OK
+OPERA|Opera Hall contains exactly Ballerina, Pop Star and Magician: OK
+OPERA|Movie Lounge is Racer's one canonical Castle home: OK
+OPERA|there is no generic all-career lobby script: OK
+OPERA|all and only the fifteen live slots have one room route: OK
+OPERA|every live career and tombstone retains its original bit: OK
+OPERA|all fifteen careers keep unique Canvas identities: OK
+OPERA|save migration keeps legacy progress 0 exact: OK
+OPERA|save migration keeps legacy progress 15 exact: OK
+OPERA|save migration keeps legacy progress 16 exact: OK
+OPERA|save migration keeps retired bits only exact: OK
+OPERA|save migration keeps all live careers exact: OK
+OPERA|save migration keeps all live careers including Geologist exact: OK
+OPERA|save migration keeps all live careers including Teacher exact: OK
+OPERA|save migration keeps old all-bits completion exact: OK
+OPERA|save migration keeps overflow clamps to eighteen bits exact: OK
+OPERA|save migration keeps negative mask clamps safely exact: OK
+OPERA|kitchen exposes its exact room-owned career pictures: OK
+OPERA|kitchen route cards stay full-size, separated and clear Roshan: OK
+OPERA|opera_hall exposes its exact room-owned career pictures: OK
+OPERA|Opera Hall opens the recovered three-floor explorable venue: OK
+OPERA|library exposes its exact room-owned career pictures: OK
+OPERA|library route cards stay full-size, separated and clear Roshan: OK
+OPERA|craft_room exposes its exact room-owned career pictures: OK
+OPERA|craft_room route cards stay full-size, separated and clear Roshan: OK
+OPERA|playroom exposes its exact room-owned career pictures: OK
+OPERA|playroom route cards stay full-size, separated and clear Roshan: OK
+OPERA|bubble_bath exposes its exact room-owned career pictures: OK
+OPERA|bubble_bath route cards stay full-size, separated and clear Roshan: OK
+OPERA|mermaid_pool exposes its exact room-owned career pictures: OK
+OPERA|mermaid_pool route cards stay full-size, separated and clear Roshan: OK
+OPERA|dining_room exposes its exact room-owned career pictures: OK
+OPERA|dining_room route cards stay full-size, separated and clear Roshan: OK
+OPERA|movie_lounge exposes its exact room-owned career pictures: OK
+OPERA|movie_lounge route cards stay full-size, separated and clear Roshan: OK
+OPERA|the nine visible room sets contain every career exactly once: OK
+OPERA|the Opera stage star opens the recovered three-floor venue: OK
+OPERA|the recovered venue is not an all-career picker: OK
+
+WINDOWS_NATIVE|probe_opera|exit=-1|has_exited=True

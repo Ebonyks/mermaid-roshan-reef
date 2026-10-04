@@ -24,3 +24,20 @@ assets/audio/voices/filler_v1/GRAND_PUFF_COHORT_20260912.json -text whitespace=c
 
 # Literal external-reference packet hashes must survive Windows/Linux checkouts.
 assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/** -text whitespace=cr-at-eol
+
+# Native faerie review evidence binds literal bytes, including diagnostic spaces.
+assets_src/prototypes/fairy_restoration_2026-09-30/** -text whitespace=-blank-at-eol,cr-at-eol
+# New prototype code hashes bind the same UTF-8 LF source on Windows and Linux.
+scripts/fairy_restoration_prototype.gd text eol=lf
+scripts/probe_fairy_restoration.gd text eol=lf
+tools/build_fairy_restoration_voices.py text eol=lf
+# The audio-summary inventory hash binds the generator's canonical LF CSV bytes.
+audit/audio_quality_ledger_2026-08-24.csv text eol=lf
+
+# Preserve the literal hashes in the source-based Sky Lagoon reference archive.
+assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/** -text whitespace=cr-at-eol
+
+# Literal moderate-reference packet hashes survive every checkout.
+assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/** -text whitespace=cr-at-eol
+assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/** -text whitespace=cr-at-eol
+assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/verification/*.log whitespace=-blank-at-eof,cr-at-eol

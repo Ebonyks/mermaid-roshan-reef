@@ -1,0 +1,115 @@
+{
+  "mode": "built-in image_gen",
+  "native_sheets": [
+    1024,
+    1536
+  ],
+  "native_cell": [
+    512,
+    512
+  ],
+  "prompts": [
+    {
+      "id": "01_fir",
+      "prompt": "Use case: illustration-story. Asset type: six fresh hand-drawn animation pose references for a 2D game, to import into Aseprite. Input image: exact fir identity, silhouette family, colours and painted style reference only. Generate a PORTRAIT 1024 x 1536 transparent RGBA sprite sheet: exactly TWO columns and THREE rows of equal 512 x 512 cells. One complete fir per cell, centered x=256, rooted at y=460, with generous 45px safe margins and no clipped branches. Every cell uses the same fixed front camera, trunk/root position, scale, colours, branch count and soft painted lighting. Draw CRISP moderate-detail edges and clear navy/green contours; no blur, no glow or background. Six row-major poses: 1 neutral tree; 2 breeze flexes upper branch tips right; 3 rightward apex, needle fans turn and overlap differently; 4 returning through upright; 5 upper branches flex left; 6 left apex, then return to pose 1. Upper tip travel about 30px. The trunk and lower trunk/root region stay stationary. Independently redraw the bending branch and needle-clump forms, changing overlap and silhouette during the motion. This is real foliage acting, not six copies shifted, rotated, enlarged or warped as a whole. Match the approved existing toy storybook fir exactly; invent no ornaments, flowers or limbs. No text, labels, numbers, border, cast shadows or checkerboard pixels. Actual transparent background. All six individual trees must fit fully inside their own cells.",
+      "mode": "built-in image_gen",
+      "referenced_image_paths": [
+        "assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/objects/01_fir/identity_source.png"
+      ],
+      "transparent_background": true
+    },
+    [
+      {
+        "prompt": "Use case: precise-object-edit. Clean up this six-tree pose sheet for Aseprite. Preserve the exact SIX existing fir drawings, each drawing's branch pose, identity, anatomy, needle clumps, colours and lighting. Correct ONLY the sprite-sheet spacing and clipped root edges. Keep PORTRAIT 1024 x 1536 RGBA, TWO columns by THREE rows of 512px cells. Make each tree SMALLER within its cell: around 350px tall, maximum 370px, rooted at y=440 with at least 60px empty transparent space above and below. Leave very wide empty gutters between all sprites. Fit all six ENTIRE trees and their COMPLETE rounded roots inside their own cells; redraw only any missing tiny root/stone edge caused by the previous clipping. Do not add/delete needles or change motion poses. Remove any opaque matte or glow outside silhouettes; background is actual alpha transparency. No cell borders, text, numbers, labels or checkerboard. The goal is six completely contained sharp high-detail reference drawings with no clipped pixels and no neighbour contamination.",
+        "mode": "built-in image_gen",
+        "referenced_image_paths": [
+          "objects/01_fir/generated_native.png"
+        ],
+        "reason": "First four root drawings touch native cell borders; safe-padding repair."
+      }
+    ],
+    {
+      "id": "02_huckleberry",
+      "prompt": "Use case: illustration-story. Asset type: six newly drawn animation keys for this exact 2D storybook huckleberry bush, imported into Aseprite. Input image is the exact plant identity/colour/style reference. Make a PORTRAIT 1024 x 1536 transparent RGBA pose sheet, TWO columns by THREE rows, SIX equal 512px square cells, one complete low wide bush per cell. Each bush is 400px wide or less, centered on x=256 with base fixed at y=410; generous transparent margins on all sides. Match this exact low sprawling huckleberry plant, blue-green oval leaves, purple-blue berries and rosy stems. Camera, root/base location, scale, branch connections, berry count and lighting stay fixed. Six row-major phases: neutral; small rightward leaf flutter; rightward gust apex; upright return; leftward leaf flutter; leftward gust apex. Individually DRAW new leaf angles, turned leaf undersides, twig bends and leaf-over-leaf occlusion while keeping all leaves attached; visible local motion about 15-25 pixels. Change the leaf silhouettes meaningfully; do not slide, rotate, blur, scale or rubber-warp the whole bush. Preserve the same plant across poses, no growth, falling leaves, new flowers or random berries. High-detail CRISP painted edges and outlines at moderate resolution, no atmospheric blur, bloom, rim glow, matte or shadows outside the bush. Actual transparent background; no text, grid borders, numbers or checkerboard pixels. No clipped stems/leaves; every bush stays within its own cell.",
+      "mode": "built-in image_gen",
+      "referenced_image_paths": [
+        "objects/02_huckleberry/identity_source.png"
+      ],
+      "transparent_background": true
+    },
+    [
+      {
+        "prompt": "Use case: precise-object-edit. Clean up this six-huckleberry-bush animation sheet. Preserve each of the SIX exact existing drawings and its leaf/twig motion pose, same two clusters of three purple berries, same plant anatomy, palette and painted identity. Change ONLY layout padding and repair tiny clipped leaf tips. Keep PORTRAIT 1024 x 1536 RGBA, TWO columns x THREE rows of 512px cells. Fit each entire bush into a SMALL 370px-wide envelope, centered x=256 with base at y=410. Leave at least 60px completely empty transparent space to ALL cell edges and wide visible gutters. No leaf or twig touches/crosses a cell boundary. Redraw only the missing outer tips that were clipped in the previous sheet. Keep the six distinct existing leaf angles/branch curves, no redesign, extra foliage or changed berries. Crisp clean edges; true alpha transparency without glow, halos or opaque matte. No background, checkerboard, labels, numbers or borders. The purpose is six completely separated intact higher-detail samples for Aseprite, not another motion redesign.",
+        "mode": "built-in image_gen",
+        "referenced_image_paths": [
+          "objects/02_huckleberry/generated_native.png"
+        ],
+        "reason": "Two bush silhouettes touch cell edges; restore tips and add safe gutters."
+      }
+    ],
+    {
+      "id": "03_hydrangea",
+      "prompt": "Use case: illustration-story. Asset type: six fresh hydrangea animation drawings for Aseprite. Reference image locks the existing purple/lavender hydrangea, its one large open bloom head, one small bud cluster, broad leaves, stem and painted storybook style. Produce a PORTRAIT transparent RGBA sheet, 1024 x 1536: TWO columns x THREE rows of equal 512px square cells, one complete shrub per cell. Each plant must fit inside a 410px x 410px footprint with at least 45px empty transparent margin. Fixed root at cell x=256 y=460; constant camera, scale, palette and light. Six row-major poses: neutral; stems bend gently right; rightward nod apex; returning upright; stems bend left; leftward nod apex. Draw new flower-head inclination, visible petal faces and overlap and turning leaf undersides, with real new silhouette contours. Bloom tops move 20-30px while the lower stem/root stays fixed. Keep the exact one open flower head, one bud cluster and three prominent broad leaves, with the small supporting leaves kept in their original family; no extra blooms, detached flowers, seasonal growth or disappearing leaves. Independently draw these acting poses, do not just shift, rotate or rubber-warp a static shrub. Crisp moderate-resolution painted edges with clear purple outlines and restrained painterly detail. No blur, haze, glowing halos, cast shadows, matte, labels, numbers, borders or background pixels. True alpha transparency. Fully contained separate cells; no bloom or leaf may touch a cell edge.",
+      "mode": "built-in image_gen",
+      "referenced_image_paths": [
+        "objects/03_hydrangea/identity_source.png"
+      ],
+      "transparent_background": true
+    },
+    {
+      "id": "04_bellflower",
+      "prompt": "Use case: illustration-story. Six new animation pose drawings of the exact cream bellflower in the reference, for Aseprite. PORTRAIT 1024 x 1536 transparent RGBA sprite sheet: TWO columns by THREE rows of equal 512 x 512 cells. Draw six SMALL fully isolated plants with very wide empty transparent gutters. Each plant is only 360px tall, centered in its cell, bottom at y=436; minimum 65px clear space above, below and beside each complete plant. Reference locks three open cream bell blossoms, one unopened bud, curved attached green stems and the same broad green leaf rosette and painted identity. Constant front camera, scale, base position and lighting. Six row-major poses: neutral hanging bells; stems bend a little right with bells lagging left; right nod apex showing a little bell interior; upright returning with bells trailing right; stems lean left, bells lag right; left nod apex. Draw genuinely different stem curves, petal/inner-bell visibility and overlapping leaf contours; flower tip excursion 20px. The rosette base stays still. Keep all three bells and one bud connected; no growing/extra/detached flowers, disappearing leaves or whole-object rotating, scaling, sliding or rubber-warping. Crisp painted outlines and readable petal forms, moderate detail, no blur or glowing edge. Actual alpha transparency, no backdrop, shadows, matte, labels, numbers, cell borders or checkerboard pixels. Never touch or cross a cell edge; the wide transparent spacing is essential.",
+      "mode": "built-in image_gen",
+      "referenced_image_paths": [
+        "objects/04_bellflower/identity_source.png"
+      ],
+      "transparent_background": true
+    },
+    {
+      "id": "05_cloud",
+      "prompt": "Use case: illustration-story. Asset: six freshly drawn cloud-billowing animation poses matching this exact isolated long cyan-blue toy storybook cloud. Reference is identity, silhouette family and lighting. PORTRAIT 1024 x 1536 transparent RGBA sheet: TWO columns x THREE rows of six equal 512px square cells. Each cloud small and complete, 380px wide, centered in the cell, with broad empty transparent gutters. Fixed camera, center of mass and overall width/height envelope. Row-major cycle: 1 neutral rounded cloud; 2 left-top lobe gently swells while center lobe settles; 3 central upper lobe billows and left lobe folds behind; 4 right lobe swells; 5 central/lower folds recede; 6 cloud relaxes toward original. Draw new rounded lobe contours and overlapping folds in each pose, restrained 15-20px changes. No whole-cloud translation, scaling, rotation, elastic distortion or static image duplicates. Preserve the original cyan upper lobes, deeper lavender-blue lower lobes, softly painted storybook volume and clean silhouette. No new faces, ornaments, storms or rain. Crisp defined cloud edges, visible painted bands, no blur, bloom, glow or atmospherics. No text, numbers, borders, shadows, background or checkerboard pixels. Actual alpha transparency. Each complete cloud must have at least 55px clear padding to every cell boundary.",
+      "mode": "built-in image_gen",
+      "referenced_image_paths": [
+        "objects/05_cloud/identity_source.png"
+      ],
+      "transparent_background": true
+    },
+    {
+      "id": "06_smoke",
+      "prompt": "Use case: illustration-story. Six freshly drawn smoke-flow keys based on the exact slender lavender ribbon wisp in the reference, for Aseprite. PORTRAIT 1024 x 1536 transparent RGBA sheet: TWO columns by THREE rows, six equal 512px square cells. Each complete wisp is SMALL, only 350px tall and 100px wide, centered with its fixed emission point at x=256 y=440, leaving at least 60px empty margins. Keep pale lavender, purple rim and cream centre, the same painted flat 2D ribbon style. Fixed camera/light/emitter; no chimney or other object. Row-major six sequential phases of smoke continuously curling upward: low right curl forms; curl rises to middle; middle curl turns left and opens; left curl rises to top; top curl thins as a new lower right curl forms; top disperses and the lower curve returns toward the first shape. DRAW distinct connected ribbon contours, internal folds and gently tapering tips each frame so the smoke flows rather than rotating/translating a fixed S-image. Emission stem always touches the same fixed bottom point. No entire-image wobble, glow, blur, photoreal haze, black smoke, fire, falling bits or detaching rigid blobs. Crisp visible edges with restrained alpha only at taper tips. Actual transparent alpha, no backdrop, text, numbers, borders, shadows, checkerboard or halo. All six wisps isolated and completely inside their own cells.",
+      "mode": "built-in image_gen",
+      "referenced_image_paths": [
+        "objects/06_smoke/identity_source.png"
+      ],
+      "transparent_background": true
+    },
+    {
+      "id": "07_swing",
+      "prompt": "Use case: illustration-story. Fresh six-key perspective animation reference for this exact pink seashell swing SEAT. The supplied full swing image locks seat identity/style only. Draw ONLY THE DETACHED SEAT, with NO ropes, gold hooks, frame, posts or top beam. The seat keeps its scalloped shell backrest, curled armrests, one front pink shell-and-pearl ornament and the SAME two symmetric lavender scrolls. Do not redesign any ornament. PORTRAIT transparent RGBA 1024 x 1536 sheet, TWO columns x THREE rows, exactly six equal 512px square cells. One SMALL complete seat per cell, center x=256 y=270, width about 350px, height at most 330px, minimum 70px empty gutters. Fixed front camera looking slightly down, no lateral turn/yaw. Row-major six consecutive pendulum-cycle views: 1 lowest neutral travelling toward camera; 2 approaching near apex, front edge lifting so less cushion is visible; 3 NEAR apex, more lavender underside band visible, cushion foreshortened and backrest visually shorter; 4 lowest neutral travelling away; 5 approaching far apex, front edge lowers so more of the pink cushion surface is visible; 6 FAR apex, cushion surface broad, underside nearly hidden and backrest taller. The seat pitches about a LEFT-TO-RIGHT horizontal suspension axis toward/away from camera, never sways sideways. Freshly DRAW the changed perspective surfaces, overlaps, front/back edge inclination and rounded armrest foreshortening; do not rubber-warp or shift one static drawing. Same exact shell rib count, front pearl and scroll design, palette and lighting in all six. Crisp moderate-resolution edges, polished painted 2D storybook detail. No blur, glow, shadows, matte, background, text, numbers, borders or checkerboard pixels. True transparent alpha. No cropped seat edges or overlapping cells.",
+      "mode": "built-in image_gen",
+      "referenced_image_paths": [
+        "objects/07_swing/identity_source.png"
+      ],
+      "transparent_background": true
+    },
+    {
+      "id": "08_seesaw",
+      "prompt": "Use case: illustration-story. Six fresh seesaw animation pose drawings matching the exact mint-green seashell seesaw in the reference, for Aseprite. PORTRAIT 1024 x 1536 transparent RGBA sheet: TWO columns x THREE rows, six 512px square cells, a SMALL full seesaw in each with wide empty gutters. Keep two shell-backed seats, two aqua U handles, rounded green beam, ONE circular central axle and the triangular shell-decorated base. Same exact ornaments, colours, camera and lighting. Reference slightly elevated front/side view; camera never moves. Each seesaw fits a 400px x 310px envelope, with fixed axle at x=256 y=265 and base resting at y=365. Row-major phases: 1 level beam; 2 left seat rising/right falling about 12 degrees; 3 left-up right-down apex about 25 degrees; 4 level returning; 5 left falling/right rising 12 degrees; 6 left-down right-up apex 25 degrees. The beam articulates only around the central axle and stays touching it, base remains perfectly fixed. Independently DRAW each seat and handle's changed inclination, foreshortening and surface visibility; do not rotate/warp the entire seesaw or draw floating/separated parts. Keep both seats and both handles attached, same shell grooves and proportions, no rider, no new props. Crisp painted 2D toy storybook contours and moderate detail. No blur, glow, soft focus, shadows or backdrop. True alpha transparency, no labels, text, numbers, borders or checkerboard pixels. Every complete seesaw is safely inside its own cell with at least 50px padding.",
+      "mode": "built-in image_gen",
+      "referenced_image_paths": [
+        "objects/08_seesaw/identity_source.png"
+      ],
+      "transparent_background": true
+    },
+    {
+      "id": "09_gate",
+      "prompt": "Use case: illustration-story. Six fresh door-opening perspective drawings of this exact purple shell-decorated castle gate, for Aseprite. PORTRAIT transparent RGBA 1024 x 1536 sheet: TWO columns x THREE rows, six equal 512px square cells. In each cell draw a SMALL complete gateway, 350px tall at most, with wide empty transparent gutters at least 70px. Fixed front camera, gateway centered x=256 with threshold y=440. The purple pointed arch, masonry, side pillars, two small cyan windows, gold edging, crest shell, base plinth and lighting are the SAME and stationary in all six. Animate only the two red wooden door leaves, each attached to its OUTER vertical hinge, opening inward as a mirrored pair. Six row-major keys: closed; 10 degrees open; 25 degrees; 40 degrees; 60 degrees; 75 degrees fully open. Freshly DRAW the changing plank/panel foreshortening, visible door thickness, gold handles and the central gold shell ornament separating with its door halves. Keep the same left/right door ownership and exact hardware; no changing number of doors or floating ornaments. Do not rubber-warp or slide one flat door image, and do not deform or move the building. The visible aperture between open doors is TRUE TRANSPARENT ALPHA: no black fill, invented hall, light beam, character or room beyond. Crisp moderately detailed painted 2D toy storybook masonry and wood, clean defined edges. No blur, glow, cast shadows, matte, text, labels, numbers, grid borders or checkerboard pixels. Every complete gateway and open leaf fits fully inside its cell.",
+      "mode": "built-in image_gen",
+      "referenced_image_paths": [
+        "objects/09_gate/identity_source.png"
+      ],
+      "transparent_background": true
+    }
+  ],
+  "glass_method": "Reuse the higher-resolution owner portrait. Aseprite isolation and twelve light states; no generation."
+}

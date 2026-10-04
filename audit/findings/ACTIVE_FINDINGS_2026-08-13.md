@@ -40,6 +40,30 @@ harness, but those are partial implementation controls only;
 they do not alter the historical inventory source or grant runtime, font/glyph,
 device, child, human, or owner acceptance.
 
+On 2026-09-30 the job-game takeover audit
+(`audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md`) appends one V1 record,
+`MA-DOC-006`, for the missing job-game development script.
+
+On 2026-09-30 the staleness audit
+(`docs/handoffs/codex_reference_consolidation_2026-09-30/STALENESS_AUDIT.md`)
+appends one V1 record, `MA-DOC-007`, for stale and superseded facts presented
+as current and for outdated audits that outnumber reference documents.
+
+On 2026-09-30 the visual design language audit
+(`docs/handoffs/codex_visual_design_language_2026-09-30/VISUAL_LANGUAGE_AUDIT.md`)
+appends one V1 record, `MA-DOC-008`, for a visual language that is not one
+measurable, example-backed reference and for Roshan descriptions that match no
+approved image.
+
+On 2026-09-30 the owner-requested Roshan appearance analysis appends one V1
+record, `MA-ROSHAN-005`, for frame defects in approved Roshan atlases and career
+cards, and the owner commissioned the repair handoff the same day.
+
+On 2026-10-03 the self-improvement loop audit
+(`docs/handoffs/codex_self_improvement_loop_2026-10-03/LOOP_AUDIT.md`)
+appends two V1 records: `MA-DOC-009`, for an improvement loop that does not
+turn, and `MA-CI-008`, for advisory sensors that fail silently.
+
 ## MA-2D-002
 
 | Field | Value |
@@ -52,16 +76,16 @@ device, child, human, or owner acceptance.
 | severity | P1 |
 | lifecycle | `IN_PROGRESS` |
 | verification | V2/V3 partial: exact inventory and no-regression controls are green, while the strict zero-debt gate is unsatisfied. |
-| reproduction | At exact Sky source `51d0abc0`, run `python -B tools/audit_game_2d.py --strict` and inspect the active project/export inventory; this is a repository/runtime-structure check, so no device or aspect ratio can substitute for it. |
+| reproduction | Run `python -B tools/audit_game_2d.py --regression-gate` and `--strict` at the 2026-09-30 main cleanup candidate. The current inventory has zero model files, 52 production 3D files, 61 probe 3D files, one scene and one configuration; strict remains unsatisfied. Device/aspect evidence cannot substitute for this source inventory. |
 | child_impact | Mixed 2D/3D implementation keeps visual inconsistency, load cost, and older-device performance risk in the game used by this child. |
-| evidence | Master audit sections 1 and 5.1; `tools/audit_game_2d.py`; source `51d0abc0` records 509 model/export files, 157 tracked and 352 active-untracked sidecars, 65 production-3D files, 70 probe-3D files, one 3D scene, and one 3D configuration. Regression is exact `NO_REGRESSION`, all 14 stress controls pass, and strict remains `UNSATISFIED`. |
+| evidence | Master audit sections 1 and 5.1; `tools/audit_game_2d.py`; historical source `51d0abc0` records 509 model/export files, 157 tracked and 352 active-untracked sidecars, 65 production-3D files, 70 probe-3D files, one 3D scene, and one 3D configuration. Regression is exact `NO_REGRESSION`, all 14 stress controls pass, and strict remains `UNSATISFIED`. |
 | owner_decision | Owner decision 2026-08-09: the game-wide final authored and runtime medium is true 2D; relabeling spatial content does not satisfy it. |
 | fix | Continue shrink-only conversion or retirement of active 3D sources, preserving approved 2D art, save compatibility, and protected originals. |
 | surrounding_tests | GAME2D default, regression, strict, and stress; import/analyzer; relevant positive, passive, sibling, save/re-entry, teardown, and full trusted probes after each bounded conversion. |
 | acceptance | All eleven GAME2D categories are zero and strict, import, focused, surrounding, and full probes pass at the same candidate. |
 | closure | Open as of 2026-08-13; no zero-category result, strict pass, closure commit, device result, or acceptance date exists. |
 | relationships | Parent game-wide debt for resolved `MA-DOLLS-001` and `MA-SEEK-001`; overlaps active `MA-VIS-002`, `MA-VIS-006`, and `MA-CODE-002`; documentation premise fixed by `MA-DOC-001`. |
-| history | 2026-08-09: indexed from the full game-wide audit. 2026-08-12: Dolls, Seek, and bounded Opera sources reduced the baseline. 2026-08-13: true-Canvas Sky source `51d0abc0` reduces current production/probe 3D-file counts to 65/70 while the model count stays 509; lifecycle remains `IN_PROGRESS` because strict is unsatisfied. 2026-09-09: owner screenshot prompted bounded retirement of the advertised Reef route and legacy ocean exits; candidate/evidence in `design/audit_impacts/retired-reef-20260909.json`. Shared 3D inventory and full device/child traversal remain open; no lifecycle closure is claimed. 2026-09-09 follow-up: direct boss-to-Day-Two destination reproduction and repair are tracked in `design/audit_impacts/day-two-safe-return-20260909.json`; the prior route safeguard depended on normal menu launch. 2026-09-23: owner instruction removed the unreachable 3D reef world from boot and per-frame processing (terrain, water, flora, creatures, pearls, friend pillars, portals, the carry/flow/grotto satellites and the reef sparring den) while keeping save keys and the shared arena, player and camera infrastructure; GAME2D production/probe 3D-file counts shrink 56/64 to 52/61 with exact `NO_REGRESSION` and strict still `UNSATISFIED`; candidate/evidence in `design/audit_impacts/remove-3d-reef-20260923.json`. No lifecycle closure is claimed. |
+| history | 2026-08-09: indexed from the full game-wide audit. 2026-08-12: Dolls, Seek, and bounded Opera sources reduced the baseline. 2026-08-13: true-Canvas Sky source `51d0abc0` reduces current production/probe 3D-file counts to 65/70 while the model count stays 509; lifecycle remains `IN_PROGRESS` because strict is unsatisfied. 2026-09-09: owner screenshot prompted bounded retirement of the advertised Reef route and legacy ocean exits; candidate/evidence in `design/audit_impacts/retired-reef-20260909.json`. Shared 3D inventory and full device/child traversal remain open; no lifecycle closure is claimed. 2026-09-09 follow-up: direct boss-to-Day-Two destination reproduction and repair are tracked in `design/audit_impacts/day-two-safe-return-20260909.json`; the prior route safeguard depended on normal menu launch. 2026-09-23: owner instruction removed the unreachable 3D reef world from boot and per-frame processing (terrain, water, flora, creatures, pearls, friend pillars, portals, the carry/flow/grotto satellites and the reef sparring den) while keeping save keys and the shared arena, player and camera infrastructure; GAME2D production/probe 3D-file counts shrink 56/64 to 52/61 with exact `NO_REGRESSION` and strict still `UNSATISFIED`; candidate/evidence in `design/audit_impacts/remove-3d-reef-20260923.json`. No lifecycle closure is claimed. 2026-09-30: owner-requested dead-code cleanup at baseline `b65c21fd` reduces eleven main.gd API token counts, preserving the 52/61 production/probe file inventory, zero model inventory and immutable initial ceiling. Exact shrink-only manifest evidence is recorded in `design/audit_impacts/main-gd-dead-code-and-storage-plan-20260930.json`; full/strict acceptance remains separate and lifecycle stays IN_PROGRESS. |
 
 ## MA-DOC-002
 
@@ -131,6 +155,99 @@ device, child, human, or owner acceptance.
 | closure | Verified 2026-08-13 at exact `51887315`: official Godot 4.7.1 full local exits zero after 1,435.2 seconds/all 64, and remote run `31710377034` succeeds at the same SHA after executing the canonical-record gate, exact import/analyzer, and all 63 remote trusted probe headings. |
 | relationships | Depends on `MA-DOC-002`; complements external-source reconciliation `MA-DOC-003`; does not reopen terminal index items. |
 | history | 2026-08-09: gap identified. 2026-08-13: source `5ed0c754` adds 36 complete stable records and passes full local CI in 1,359.8 seconds/all 64; contiguous `7eb94595` hardens stale-claim enforcement and leaves the source checkpoint `FIXED_PENDING_VERIFICATION`. Later CHG-023 maintenance head `51887315` passes exact local and remote V3 gates, moving the item to `VERIFIED_FIXED` without changing the CHG-029 source boundary. |
+
+## MA-DOC-006
+
+| Field | Value |
+|---|---|
+| id | `MA-DOC-006` |
+| title | No current step-by-step script exists for building a new job game, so an agent cannot take over job-game development from the repository alone. |
+| rule_ids | `DL-AUTH-05`, `DL-AUTH-07`, `DL-PLAN-01`, `DL-PLAN-04`, `DL-PLAN-06`, `DL-INT-07`, `DL-SAVE-06`, `DL-CODE-10` |
+| domain / zone | Development process and documentation / every job game: Opera careers, the Opera House practice scene, Chapter 2 party jobs and Day One room jobs |
+| source | Owner request 2026-09-30 and `audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md` (static and Git-history audit at dev `5d9668a9`). |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1 static: document coverage and the history of recent job additions at dev `5d9668a9`. |
+| reproduction | At dev `5d9668a9`, open the master-audit task index and look for a route for a new job game: none exists, and the chapter route leads to a guide with no job recipe. Compare commit `f4a5de33` (Teacher, Geologist, Racer engine, two-act shows), which touched 155 files including 31 scripts, 17 voice clips, a music cue, the save mask and seven probes, none described as a procedure. Search the documents for the four `opera_stars` clamps in `scripts/save_state.gd`: no document mentions them. |
+| child_impact | Each new job re-derives registries, voice, music, art, save bits and probes from code, so jobs drift in verbs, help, exact voice and rewards, and a missed step ships a job the child cannot finish or hear. A career added at bit 18 without raising the four clamps would be clamped to 262143 on save, marking every live career complete and overwriting the retired raw bits. |
+| evidence | `audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md` sections 1, 3, 7 and 8; `scripts/save_state.gd:86`, `:198`, `:294`, `:619`, `:681`; `scripts/opera_house.gd:13-15`; `scripts/probe_opera.gd:91-93`; `scripts/probe_opera_2d.gd:159`, `:1343`, `:1345`; `tools/audit_opera_roshan_animation.py` `CAREERS` (13 of 15); the master-audit task index without a job route. |
+| owner_decision | 2026-09-30: the owner states that the purpose is for an agent to take over development of Mermaid Roshan, and that an audit ensuring the job-game script is included is critical. Severity stays P2 under section 2.3; the owner's priority is recorded here and in section 13. |
+| fix | Stage J of `docs/handoffs/codex_master_audit_refinement_2026-09-30/README.md` (revision 3): a maintained job-game playbook, a machine-checked job catalogue, a takeover kit and a cold-start dry run. Until then the interim recipe is section 4 of the audit. |
+| surrounding_tests | Catalogue checker against the code registries with injected faults (unregistered act, wrong star bit, job without a trusted probe); existence check of every file, symbol, command and gate the playbook names; document-authority and audit-development gates; dry-run checklist in section 10 of the audit. |
+| acceptance | The task-index route resolves to the playbook; every playbook reference exists at its head; the catalogue checker runs in the existing document gate and fails on the injected faults; the takeover kit corrects or lists every stale claim in audit sections 8 and 9; a cold-start dry run passes the section 10 checklist and the owner accepts it (V7). |
+| closure | Open. As of 2026-10-03 the planning recipe exists and the prompt planner is generic (tested on jobs it has never seen); the earlier bakery dry run at `audit/cycles/2026-10-03/COLD_START_BAKERY_TEST.json` passed because the planner stored the bakery answer. A maintained takeover playbook, runtime job-catalogue checker, full stale-claim takeover kit, a fresh-agent cold start on an unseen job and owner V7 acceptance remain absent; planning is not job implementation. |
+| relationships | Related to `MA-DOC-002` (document inventory), `MA-CI-004` and `MA-CI-005` (probe and passive coverage), `MA-CODE-001` (the Mode Platform growth path is absent) and `MA-OPERA-012` (castle-room career routes). |
+| history | 2026-09-30: created from the job-game takeover audit at dev `5d9668a9`; P2 under section 2.3 with owner priority critical; interim recipe published in audit section 4. 2026-10-03: LP7 adds `design/reference/recipes/add_job.md`, source-bound `tools/plan_prompt.py` and a fresh-agent bakery planning dry run. The test exposed and repaired missing baking/retrieval and finale indexing; native coverage remains a dependency. Evidence is limited to planning; lifecycle stays `CONFIRMED_OPEN`, with complete checker/kit and owner acceptance still open. 2026-10-03 (review, Claude): the planner's bakery card was stored, not derived, so other jobs received bakery steps; replaced by a generic job card with live save facts and no-leak tests. The owner's 2026-09-30 priority is now in the decision register (`ODR-PRIORITY-JOB-TAKEOVER`) and heads the roadmap's Strengthen lane. A fresh-agent cold start on an unseen job is Codex package CR6 in `docs/handoffs/codex_loop_review_2026-10-03/README.md`. Lifecycle unchanged. |
+
+
+## MA-DOC-007
+
+| Field | Value |
+|---|---|
+| id | `MA-DOC-007` |
+| title | The master audit and this register present stale and superseded facts as current, and outdated audits outnumber the reference documents a designer should use. |
+| rule_ids | `DL-AUTH-01`, `DL-AUTH-02`, `DL-AUTH-04`, `DL-AUTH-07`, `DL-PLAN-06` |
+| domain / zone | Development process and documentation / the master audit, this register, and the repository's audit, handoff and design documents |
+| source | Owner request 2026-09-30 and `docs/handoffs/codex_reference_consolidation_2026-09-30/STALENESS_AUDIT.md` (static and Git-history audit at dev `6fc2f48e`). |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1 static: element-by-element classification of the master audit, comparison of open findings with live tool output, and an inventory of 354 documents at dev `6fc2f48e`. |
+| reproduction | At dev `6fc2f48e`: `python -B tools/audit_game_2d.py` reports 0 model files and 52 production 3D files where master audit sections 1 and 4 and `MA-2D-002` state 509 and 65; `scripts/opera_house.gd` defines 15 live careers and mask `0x3BDEF` where the master audit states 13 careers and `0xBDEF`; the `MA-CODE-004` reproduction command reports 456 distinct keys against that record's 409; `ls *.md` at the repository root lists 196 files, of which the inventory keeps 16 as current. |
+| child_impact | Indirect: an agent following the master audit as written would redo finished work (the Detective crown painted out on 2026-08-29), restore the retired castle-room navigation rule `DL-INT-12`, or size a new career against 13 careers and the old mask. Contradictory documents let jobs drift in timing, help and rewards the child relies on. |
+| evidence | `docs/handoffs/codex_reference_consolidation_2026-09-30/STALENESS_AUDIT.md` sections 1–8; `data/master_audit_staleness_register.json` in that folder (65 elements: 19 current, 21 stale fact, 9 sealed evidence, 9 superseded decision, 6 duplicate, 1 obsolete process); `data/stale_findings.json` (24 findings and the register preamble); `REFERENCE_PLAN.md` section 3 (354 documents: 76 keep, 72 evidence, 85 absorb, 119 archive, 2 delete candidates). |
+| owner_decision | 2026-09-30: the owner asks for the stale elements of the master audit to be identified and for the many outdated audits to be streamlined and truncated into reference documents. Severity P2 under section 2.3. |
+| fix | Waves W0–W7 of `docs/handoffs/codex_reference_consolidation_2026-09-30/README.md`, coordinated with WP-1, WP-2, WP-3 and WP-10 of the master-audit refinement handoff. |
+| surrounding_tests | Document-authority and audit-development gates (no broken link after a move; no current-authority ledger row for an archived document); a verbatim-move check for sealed evidence; a grep for the ten misleading statements; a grep for commit hashes, run IDs and durations in references; the tools that read moved paths. |
+| acceptance | The master audit carries none of the ten misleading statements in STALENESS_AUDIT section 2 as present-tense claims; every element in the register has its disposition applied or a recorded reason; every finding in `data/stale_findings.json` has a dated re-verification entry and no history text is removed; the nine orphaned rules are in design 06 or have an owner question with their source kept; the 119 archive-now documents are archived with their file names and no broken link; each landed reference follows `REFERENCE_PLAN.md` section 1; the owner accepts the result (V7). |
+| closure | Open as of 2026-09-30; the staleness audit and the handoff exist, and no wave has run. |
+| relationships | Related to `MA-DOC-006` (the Opera reference must not duplicate the job-game playbook), `MA-DOC-002` (document inventory), and `MA-2D-002`, `MA-CI-003`, `MA-CODE-001`, `MA-CODE-004`, `MA-OPERA-011` and `MA-OPERA-012`, whose text is among the stale entries. |
+| history | 2026-09-30: created from the staleness audit at dev `6fc2f48e`; P2 under section 2.3; handoff published with waves W0–W7. |
+
+## MA-DOC-008
+
+| Field | Value |
+|---|---|
+| id | `MA-DOC-008` |
+| title | The visual design language is not articulated as one measurable, example-backed reference, and current documents describe Roshan in ways no approved image matches. |
+| rule_ids | `DL-VIS-01`, `DL-VIS-02`, `DL-VIS-03`, `DL-VIS-04`, `DL-VIS-05`, `DL-VIS-06`, `DL-VIS-08`, `DL-MED-02`, `DL-ASSET-01`, `DL-AUTH-04`, `DL-PLAN-06` |
+| domain / zone | Art direction and documentation / every new or changed picture: characters, rooms, props, effects and interface |
+| source | Owner request 2026-09-30 and `docs/handoffs/codex_visual_design_language_2026-09-30/VISUAL_LANGUAGE_AUDIT.md` (static review, direct inspection of approved images and read-only measurements at dev `b65c21fd`). |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1 static plus read-only source-file measurements; these are not state-local runtime evidence under `DL-VIS-08`. |
+| reproduction | At dev `b65c21fd`: the master-audit Art row links only design 06 sections 3–6 and 14, where one of ten `DL-VIS-*` rules gives numbers and none gives a colour value or names an image; `grep -n "lavender clothing" design/01_GAME_DESIGN.md design/02_ART_DIRECTION.md` finds Roshan anchors that match no approved image; the handoff's `measure_visual_profile.py identity` run over the runtime base-world and career atlases, with tail colours `#b9a1f2` and `#8e7adc`, finds them in 16–21% of every base-world atlas and 0.0–0.4% of thirteen career atlases; no registry of approved example images exists. |
+| child_impact | Roshan already appears with a lavender tail while exploring and a rainbow tail in careers; new art made from the written anchors would add a third look. Without measured tokens and example images, each new room, prop or character drifts in line, palette and finish, which a child reads as a different world. |
+| evidence | `VISUAL_LANGUAGE_AUDIT.md` sections 1–7 and the measurements under `data/` in that packet; `design/01_GAME_DESIGN.md:490`; `design/02_ART_DIRECTION.md:286-287`; `assets/ART_GENERATION_CONTRACT.md:46-47`; `scripts/storybook_ui.gd:8-23` and eight other `INK` definitions; `tools/gen2_batch.py:29`; `assets_src/characters/grand_puff_2026-09-13/IDENTITY_LOCK.json`. |
+| owner_decision | 2026-09-30: the owner asks whether the visual design language lets the game reference and learn from itself how to develop future art, and asks for a plan to refine it. Roshan's canonical variant and her identity authority were open (handoff section 6, Q1 and Q2); later the same day the owner settled both: the approved atlases are her primary identity authority, and her tail is iridescent, pink, purple and lavender scales that show rainbow colours depending on how light hits them, so both the base-world and career renderings are correct. The owner also asked for a more comprehensive analysis of the remaining appearance variance as part of the handoff. Severity P2 under section 2.3. |
+| fix | Work packages VL0–VL9 of `docs/handoffs/codex_visual_design_language_2026-09-30/README.md`, coordinated with refinement WP-4 to WP-6 and consolidation reference R06. |
+| surrounding_tests | Document-authority and audit-development gates; the registry check with injected faults (missing path, wrong hash, duplicate ID, family without exemplars); tool tests with a stress case; a grep for the retired Roshan wording; the cold-start art dry run. |
+| acceptance | The Art row reaches the reference in one link; tokens come from one data file; every recurring character has an identity sheet and Roshan's matches the owner's answer; every family has exemplars or a recorded gap; both cards are landed with worked examples; the registry check blocks in CI; the cold-start dry run passes and the owner accepts it (V7). |
+| closure | Open as of 2026-09-30; the audit, draft reference, templates, seeds and measurement tool exist, and no work package has run. |
+| relationships | Related to `MA-DOC-006` (new jobs need art cards), `MA-DOC-007` (stale and contradictory documents; reference R06), and `MA-VIS-003` and `MA-VIS-004` (source-average palette metrics stay under `DL-VIS-08`). |
+| history | 2026-09-30: created from the visual design language audit at dev `b65c21fd`; P2 under section 2.3; handoff published with VL0–VL9. 2026-09-30 (later): owner decisions recorded (atlases are the primary identity authority; the tail is iridescent and both renderings are correct); handoff revision 2 adds a frame-by-frame appearance analysis of every runtime Roshan image (`ROSHAN_APPEARANCE_ANALYSIS.md`); lifecycle unchanged. 2026-09-30 (later): the owner answered Q12–Q16 (no light-state protocol yet; the older career and playground design is kept; tiara outside career costume; prepare the repair handoff; delete the retired backpack art outright); handoff revision 3 records them, and the repairs and deletion are specified in `docs/handoffs/codex_roshan_art_repairs_2026-09-30/` (tracked by `MA-ROSHAN-005`); lifecycle unchanged. |
+
+## MA-DOC-009
+
+| Field | Value |
+|---|---|
+| id | `MA-DOC-009` |
+| title | The improvement loop does not turn: the game is not studied on a cadence, its strengths are not kept as references, new weaknesses and stuck fixes are not surfaced, and simple prompts have no recipes that expand them into nuanced content. |
+| rule_ids | `DL-AUTH-02`, `DL-AUTH-05`, `DL-AUTH-06`, `DL-AUTH-07`, `DL-PLAN-05`, `DL-PLAN-06`, `DL-QA-05`, `DL-QA-06`, `DL-QA-07` |
+| domain / zone | Audit process and documentation / the master audit, finding register, change records, chapter reference library and every handoff |
+| source | Owner request 2026-10-03 and `docs/handoffs/codex_self_improvement_loop_2026-10-03/LOOP_AUDIT.md` (three read-only sweeps, direct reads of the master audit, and the handoff's loop-health measurement at dev `f2140465`). |
+| severity | P2 |
+| lifecycle | `IN_PROGRESS` |
+| verification | V1 static plus a read-only measurement (`tools/measure_loop_health.py` in the handoff). |
+| reproduction | At dev `f2140465`, `python -B docs/handoffs/codex_self_improvement_loop_2026-10-03/tools/measure_loop_health.py --today 2026-10-03` reports 38 of 59 open findings with no history entry for 30 days, 12 `FIXED_PENDING_VERIFICATION` records (six last touched on 2026-08-13), 4 of 77 impact records recording a lesson, change-history rows 56 in August, 11 in September and none in October, and all five tracked handoffs `NOT_STARTED`. The planning table's reference-library promotion row has never run, so no exemplar is promoted; section 12 has 1 of 23 boxes ticked; the section 1 scorecards were last edited on 2026-08-12 and 2026-08-13. |
+| child_impact | Indirect but cumulative: each new room, job or animation starts from scratch, owner corrections repeat and past lessons are relearned, so content arrives slower and less consistent; fixed defects the child may still meet stay unverified. |
+| evidence | `LOOP_AUDIT.md` sections 1–8 and `data/loop_health_2026-10-03.json`, `data/loop_inventory.json` in the handoff; master audit sections 1, 12, 13 and 14; `design/09_CHAPTER_DEVELOPMENT_GUIDE.md`; `design/10_CHAPTER_REFERENCE_LIBRARY.md`. |
+| owner_decision | 2026-10-03: the owner asks for a self-improving loop that studies the game, keeps its positive qualities as references, finds new weaknesses and gives a roadmap for nuanced content from simple prompts, and for an analysis of the feedback loops in the master audit. Severity P2 under section 2.3. Cadence, automation, candidate strengths and a parent note are open with defaults (handoff section 6, Q1–Q8). |
+| fix | Work packages LP0–LP11 of `docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md`, in its section 4 build order with the earlier handoffs. |
+| surrounding_tests | Document-authority and audit-development gates; study-runner unit tests with fixtures and a failing stress case; impact-record schema tests for the new optional fields; roadmap generator tests; the cold-start "add a bakery job" recipe test. |
+| acceptance | Handoff AC-1 to AC-10: two complete cycles with reports generated from `study.json`; a strengths register with evidence; lessons in at least half of change records, each with a write-back target; a generated roadmap; the cold-start test passes; the twelve unverified fixes each list their missing evidence and the first sweep is scheduled; generated change history and current scorecards; loop health improves on three measures; the owner reviews the second cycle report. |
+| closure | In progress as of 2026-10-03; the loop's tools and records were reviewed and repaired (`docs/handoffs/codex_loop_review_2026-10-03/REVIEW.md`, LR-01 to LR-22) and cycle `2026-10-03b` asks the first owner questions. Two complete owner-answer/build/check/learn cycles, a booked verification session and owner review of the second cycle remain. |
+| relationships | Related to `MA-DOC-006` (the job recipe), `MA-DOC-007` (stale documents the loop reads), `MA-DOC-008` (art exemplars and review cards), `MA-CI-008` (sensors the study reads) and `MA-CHILD-001` (no child evidence). |
+| history | 2026-10-03: created from the self-improvement loop audit at dev `f2140465`; P2 under section 2.3; handoff published with LP0–LP11 and a cycle 0 report. 2026-10-03 (implementation): LP0-LP10 infrastructure implemented: study collector, source-bound strengths, decision intake, lesson validation, prompt catalogue and bakery dry run, roadmap/history/current surfaces and verification requests. Two real owner-answer/build/check/learn cycles, booked owner/device sweep and second-cycle owner acceptance remain missing. No closure inferred. Evidence: audit/cycles/2026-10-03/IMPLEMENTATION.md and design/audit_impacts/self-improvement-loop-implementation-20261003.json. 2026-10-03 (review and repair, Claude): the owner asked to audit, evaluate and improve the implementation at `4cb14feb`, then to refine and fix it. Review findings LR-01 to LR-27 are in `docs/handoffs/codex_loop_review_2026-10-03/REVIEW.md`. Fixed in the same change: an owner-readable report with Claude's validated judgement file, a roadmap laned by lifecycle and ranked by recorded owner priority and severity, a generic prompt planner with recipes rendered from the catalogue, committed-head studies with per-head CI reconciliation and compact output, plain owner and device pages, an append-only decision register and non-blocking strength drift. Codex packages CR1–CR6 remain. Lifecycle stays `IN_PROGRESS`. Evidence: `design/audit_impacts/self-improvement-loop-review-20261003.json`. |
 
 ## MA-VIS-002
 
@@ -268,7 +385,7 @@ device, child, human, or owner acceptance.
 | acceptance | Every required objective communicates the exact action without reading, with authorized identity, correct playback, device intelligibility, and observed child comprehension. |
 | closure | Blocked as of 2026-08-13; recordings/approved alternative, device/child evidence, commit, and closure date are missing. |
 | relationships | Includes specific unresolved cases `MA-ACCESS-002` and `MA-ACCESS-003`; audio mix evidence also relates to `MA-AUDIO-001`. |
-| history | 2026-08-09: blocked exact-voice coverage indexed. 2026-08-13: no authorization or substitute evidence supplied; lifecycle unchanged. 2026-09-06: the Family Evening dinner, movie and bedtime objectives were added with the generic `talk` acknowledgement rather than exact semantic instructions; no protected recording authorization or independently sufficient diegetic substitute exists, so the blocker now explicitly includes those routes. 2026-09-30: owner-approved Day One/Two alpha repair inventories existing semantic audio, binds truthful reused career recordings and a separately generated provisional synthetic cohort to missing Chapter Two phases and room routes, and prevents stale instructions across phase changes. Protected recordings remain unchanged; machine selection is distinct from target-device listening, child comprehension and owner acceptance. |
+| history | 2026-08-09: blocked exact-voice coverage indexed. 2026-08-13: no authorization or substitute evidence supplied; lifecycle unchanged. 2026-09-06: the Family Evening dinner, movie and bedtime objectives were added with the generic `talk` acknowledgement rather than exact semantic instructions; no protected recording authorization or independently sufficient diegetic substitute exists, so the blocker now explicitly includes those routes. 2026-09-30: owner-approved Day One/Two alpha repair inventories existing semantic audio, binds truthful reused career recordings and a separately generated provisional synthetic cohort to missing Chapter Two phases and room routes, and prevents stale instructions across phase changes. Protected recordings remain unchanged; machine selection is distinct from target-device listening, child comprehension and owner acceptance. 2026-09-30: faerie-prototype integration reproduces a stale required Chapter Two route masking the existing exact Opera Racer instruction (incoming CI b52fc32a, run 36776251500; direct three-assertion failing baseline at ba1608de). The scoped audio transition candidate restores exact activity priority while retaining generic-reaction guards and Day One required FIFO; evidence is in the faerie impact record. Full candidate CI and external listening/child/owner acceptance remain separate; lifecycle unchanged. |
 
 ## MA-ACCESS-002
 
@@ -344,23 +461,23 @@ device, child, human, or owner acceptance.
 | Field | Value |
 |---|---|
 | id | `MA-OPERA-001` |
-| title | Chef's repaired cooking sequence lacks accepted two-aspect, target-device, and owner art verification. |
+| title | Chef pours backwards and its steps stack flat code-drawn shapes over the painted kitchen; the owner does not accept its look (2026-10-03). |
 | rule_ids | `DL-INT-02`, `DL-READ-02`, `DL-QA-06`, `DL-QA-12` |
 | domain / zone | Art, interaction, and acceptance / Opera Chef and Castle Kitchen entry |
 | source | Chef source/runtime audit, deterministic art checks, and current valid configuration probes. |
 | severity | P1 |
-| lifecycle | `FIXED_PENDING_VERIFICATION` |
-| verification | V3 partial: accepted-source pitcher, stream/fill, mitt gate, cake, and toppings are implemented and probed; V4/V5/owner evidence is incomplete. |
-| reproduction | Launch Chef from its current Castle Kitchen route on runtime `09e5e356`; complete pour, mix, oven, and topping actions at 1280×720 and a second phone/tablet aspect. Target-device and owner-reviewed captures are missing. |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1 source and art measurement plus the owner's direct report (2026-10-03); runtime captures of the defect are not yet made. Earlier: V3 partial (pitcher, stream/fill, mitt gate, cake and toppings probed). |
+| reproduction | Play Chef's first step (MIX, mode `pourt`). The jug art `assets/opera/worlds/widgets/widget_pour_chef_mover.png` (256x256) has its spout at the far left (opaque tip x=22, rows 78-82; about UV 0.086, 0.312) and its handle at the far right (x=233). `scripts/opera_gesture_surface.gd` draws it unmirrored into a 140x120 rect, rotates it clockwise (`_pour_pitcher_rotation`, +1.05 rad at full tilt) and starts the stream right of centre (`_pour_spout_point`, x+52+26t): the jug tips over its handle with the spout up and the batter leaves the handle side. Every Chef step also draws a translucent dark bloom (`_draw_activity_focus` in `scripts/opera_career_world_2d.gd`, 416x292 panel) and code-native primitives over the painted kitchen (`assets/opera/worlds/backdrops/world_chef.png`, which already paints a mixing bowl with whisk, an oven, cake tiers and a finished cake): a flat ellipse bowl (MIX), a cream playfield rectangle and ellipse bowl drawn to cover a painted whisk (STIR, `_draw_chef_crank`), a brown rectangle oven (BAKE, `_draw_oven`) and an ellipse-and-rectangle cake (FROST, `_draw_trace_chef_subject`). |
 | child_impact | Cutoff, misleading object state, or poor touch alignment could make the cooking actions unclear despite green logic. |
 | evidence | Current Chef config and deterministic art/runtime probes; master audit section 5.1. The prior cutoff/fallback/wrong-object report is not a current premise. Accepted two-aspect captures, device evidence, and owner review are missing. |
-| owner_decision | The batter pitcher and current source-true cooking fiction are accepted; speculative invalid-config recovery in the sealed Castle Kitchen controller requires renewed owner visual approval. |
-| fix | Preserve the current implementation and collect acceptance evidence; repair only a reproduced bounded visual/device defect. Treat speculative Castle caller hardening separately under `MA-CODE-002`. |
+| owner_decision | The batter pitcher and current source-true cooking fiction are accepted; speculative invalid-config recovery in the sealed Castle Kitchen controller requires renewed owner visual approval. 2026-10-03: the owner reports "Chef pours backwards still" and "Chef still looks bad, lots of overdraw"; Chef's look and pour are not accepted (`ODR-CHEF-VERDICT-20261003`). |
+| fix | Codex package CR0 in `docs/handoffs/codex_loop_review_2026-10-03/README.md`: mirror the jug (or re-stage it) so its spout faces the bowl and anchor the stream to the measured spout transformed with the jug; finish the pour when the bowl is full; drop the dark bloom and the duplicate code-drawn bowl, playfield, oven and cake, and make the painted bowl, oven and cake the objects each step changes, using isolated cutouts of the existing approved art for changing states. Codex builds before-and-after boards; no new style and no redraw for novelty. |
 | surrounding_tests | Correct and wrong action; passive no-win; mitt gating; visual/touch alignment; sibling career route; voice; save/reward/replay; close/teardown/re-entry; two aspects and target device. |
-| acceptance | Two accepted aspects and target-device play show complete, legible, correctly aligned cooking states, followed by owner art acceptance. |
-| closure | Pending as of 2026-08-13; accepted aspect/device/owner evidence, final result, closure commit, and date are missing. |
+| acceptance | A probe proves the stream starts at the rendered spout and the spout is the lowest rim point at full tilt; the pour completes when the bowl is full and never while idle; each Chef step shows one copy of each object; then two-aspect and target-device play and the owner's acceptance in context. |
+| closure | Open as of 2026-10-03: reopened on the owner's report; nothing changed in the game yet. |
 | relationships | Invalid-config hardening is excluded and tracked by `MA-CODE-002`; release acceptance contributes to `MA-RELEASE-001`. |
-| history | 2026-08-09: old Chef defect indexed. 2026-08-12: current source-true sequence and valid config confirmed. 2026-08-13: remains `FIXED_PENDING_VERIFICATION`. |
+| history | 2026-08-09: old Chef defect indexed. 2026-08-12: current source-true sequence and valid config confirmed. 2026-08-13: remains `FIXED_PENDING_VERIFICATION`. 2026-10-03 (loop review, Claude): the advisory balance probe's three Chef personas stop at the first step with progress 5.000000 against a goal of 5.0; a Python model of the pour suggests the poured amount sums just below the goal once the bowl is full, while trusted probes finish the step with large test amounts. Unverified in Godot; Codex package CR1 in `docs/handoffs/codex_loop_review_2026-10-03/README.md`, and the device session asks the same check. Lifecycle unchanged. 2026-10-03 (owner report, recorded by Claude): the owner wrote "Chef pours backwards still" and "Chef still looks bad, lots of overdraw". Diagnosis from source and art: the jug art faces left while the code tilts it clockwise and pours from its right side; every step stacks a dark bloom and flat code-drawn duplicates of objects the kitchen backdrop already paints. Lifecycle `FIXED_PENDING_VERIFICATION` -> `CONFIRMED_OPEN` on owner evidence (DL-QA-06). Codex package CR0 in `docs/handoffs/codex_loop_review_2026-10-03/README.md`. Evidence: `design/audit_impacts/self-improvement-loop-review-20261003.json`. |
 
 ## MA-OPERA-002
 
@@ -498,7 +615,7 @@ device, child, human, or owner acceptance.
 | acceptance | A matching current APK and machine gates are green; route cards keep large targets without obscuring Roshan; phone/M11, child, owner, voice/listening, strict-2D, and authoritative visual gates pass. |
 | closure | Pending as of 2026-08-13; exact integrated machine runs and matching APK exist at `441adf35`. Phone/M11, child, owner, voice/listening, strict-2D, and accepted-visual evidence are missing, remote Sky renderer diagnostics remain failed, and P2 card composition is unresolved. |
 | relationships | Builds on `MA-OPERA-010` and `MA-OPERA-011`; visual capture gap `MA-OPERA-004`; release gate `MA-RELEASE-001`; rollback `CHG-027`. |
-| history | 2026-08-12: `09e5e356` implemented exact room routes and local evidence. 2026-08-13: `ff068db` repaired readiness sampling; e6 and `7391c53c` preserve predecessor machine/build history. Current integrated head `441adf35` preserves unchanged `51d0abc0` Opera behavior and adds local/topic/dev machine plus APK evidence; all external/visual gates remain open. 2026-08-26: owner commits `0277071f` and `9a1754c1` (2026-08-25) add `scripts/opera_house_venue_2d.gd`, a true-2D three-floor Opera House venue serving as the Opera Hall room interior that hosts only its three resident careers through invisible painted portal regions with no card grid or all-career menu; the no-central-lobby premise is preserved, the venue is recognized as the newest owner direction, and the lifecycle is unchanged pending the same external verification. |
+| history | 2026-08-12: `09e5e356` implemented exact room routes and local evidence. 2026-08-13: `ff068db` repaired readiness sampling; e6 and `7391c53c` preserve predecessor machine/build history. Current integrated head `441adf35` preserves unchanged `51d0abc0` Opera behavior and adds local/topic/dev machine plus APK evidence; all external/visual gates remain open. 2026-08-26: owner commits `0277071f` and `9a1754c1` (2026-08-25) add `scripts/opera_house_venue_2d.gd`, a true-2D three-floor Opera House venue serving as the Opera Hall room interior that hosts only its three resident careers through invisible painted portal regions with no card grid or all-career menu; the no-central-lobby premise is preserved, the venue is recognized as the newest owner direction, and the lifecycle is unchanged pending the same external verification. 2026-09-30: owner requests temporary left-elevator access to all live world-triggered jobs for playtesting. The scoped dev route uses fresh shipping Canvas runs with isolated saves/rewards and menu return; normal room routes and retired boss slots remain unchanged. See `design/audit_impacts/opera-job-playtest-20260930.json`. This exception is development access, not route/device/child/owner acceptance; lifecycle unchanged. |
 
 ## MA-PERF-001
 
@@ -683,6 +800,29 @@ device, child, human, or owner acceptance.
 | closure | Deferred as of 2026-08-13; no repair is authorized, and no closure commit/date is required unless new evidence reopens the item. |
 | relationships | Roshan clipping repairs are terminal elsewhere; device motivation would relate to `MA-PERF-001`; visual identity review relates to `MA-VIS-006`. |
 | history | 2026-08-09: repacking classified as optimization. 2026-08-13: current sampling remains green and lifecycle remains `DEFERRED_WITH_REASON`. |
+
+## MA-ROSHAN-005
+
+| Field | Value |
+|---|---|
+| id | `MA-ROSHAN-005` |
+| title | Approved Roshan atlases and career cards contain frame defects the child sees: missing fins, a ribbon that reads as a second tail, baked spell effects, hair through a sealed helmet, a light halo and frame-to-frame flicker. |
+| rule_ids | `DL-VIS-06`, `DL-MED-02`, `DL-MED-05`, `DL-MOT-01`, `DL-MOT-02`, `DL-MOT-08`, `DL-ASSET-01` |
+| domain / zone | Visual and assets / Roshan's Opera career atlases and portrait cards, and one base-world gesture atlas |
+| source | Owner-requested Roshan appearance analysis 2026-09-30 (`docs/handoffs/codex_visual_design_language_2026-09-30/ROSHAN_APPEARANCE_ANALYSIS.md`), image review by eye at dev `b65c21fd`. |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1 static: direct inspection of the committed images and their provenance, with runtime consumers traced in code; no runtime capture yet. |
+| reproduction | Open `assets/opera/worlds/actors/animation/roshan_geologist_sheet_a.png`: frames 0–1 (idle row) end the tail in a point with no fins, and `scripts/castle_career_routes.gd` draws idle frame 0 on the Geologist route card through `OperaRoshanActor.idle_frame`. Open `roshan_popstar_sheet_a.png` and `roshan_popstar.png` (drawn directly by `scripts/games/melody.gd`): a dark ribbon from the waist reads as a second tail. Every case, with frame rectangles and hashes, is in `docs/handoffs/codex_roshan_art_repairs_2026-09-30/data/repair_targets.json`. |
+| child_impact | The child sees Roshan without fins in the Geologist idle loop and on its castle card, with what looks like a second tail as the Pop Star and in Melody, with portals floating apart in the Magician's work animation and with hair passing through the Astronaut's helmet; flicker in the Farmer idle, the Candy Maker cheer and the exploring "look" gesture breaks continuity. |
+| evidence | Repair handoff `data/repair_targets.json` (18 targets with frames, hashes, consumers and pins); appearance analysis sections 5.2 to 5.4. |
+| owner_decision | 2026-09-30: the owner asked for the repair handoff ("prepare handoff") and kept the older career and playground design, so repairs stay inside each image's own design. |
+| fix | `docs/handoffs/codex_roshan_art_repairs_2026-09-30/README.md`, repairs R-01 to R-11. |
+| surrounding_tests | `tools/audit_opera_roshan_animation.py`, `tools/audit_roshan_2d.py` and `tools/audit_roshan_sprite_clipping.py` after recorded re-pinning; per-frame `cells` measurements within each sheet's range; pixel diffs confined to the repair regions; Mobile runtime captures where the child sees each case. |
+| acceptance | Every listed defect is absent in its frames, changes are confined to the repair regions, the tools pass after recorded re-pinning, and the owner accepts the before-and-after boards (V7). |
+| closure | Open as of 2026-09-30; the repair handoff is published and no repair is made. |
+| relationships | Related to `MA-DOC-008` (visual language and identity sheet), `MA-ROSHAN-002` (earlier playground clipping repair) and `MA-ROSHAN-003` (deferred atlas repacking). |
+| history | 2026-09-30: created from the owner-requested Roshan appearance analysis at dev `b65c21fd`; the owner commissioned the repair handoff the same day. |
 
 ## MA-PLAY-002
 
@@ -889,30 +1029,30 @@ device, child, human, or owner acceptance.
 | acceptance | Every ledger row has a final disposition; required voices pass exact semantics, identity, intelligibility, child comprehension, and teardown; all 42 new scores pass two-wrap/style review; the full mix passes mono, transitions, music-off, M11, older-phone, and performance review while machine evidence remains exact. |
 | closure | Pending as of 2026-08-13; human/device listening evidence, accepted result, closure commit, and date are missing. |
 | relationships | Exact objective voice gaps are `MA-ACCESS-001` through `003`; aggregate release gate is `MA-RELEASE-001`. |
-| history | 2026-08-12: deterministic 42/42 repair and remote Windows verification completed. 2026-08-13: exact-head Windows remains 42/42; lifecycle stays `FIXED_PENDING_VERIFICATION` for listening/device evidence. 2026-08-24: Luna-led 301-file baseline and 303-file final ledger extend the finding game-wide; six bounded repairs land without altering protected bytes, while subjective/device/child gates and documented candidates remain open. 2026-09-30: the Day One/Two alpha repair appends 23 independently selected synthetic Chapter Two phase/route/story cues, extends frozen-catalog authority validation, and refreshes the complete audio ledger. The cohort records exact semantic, pitch and signal checks plus preserved prior cohorts and 690 unchanged existing audio files. New speech remains provisional pending listening, child and owner acceptance. |
+| history | 2026-08-12: deterministic 42/42 repair and remote Windows verification completed. 2026-08-13: exact-head Windows remains 42/42; lifecycle stays `FIXED_PENDING_VERIFICATION` for listening/device evidence. 2026-08-24: Luna-led 301-file baseline and 303-file final ledger extend the finding game-wide; six bounded repairs land without altering protected bytes, while subjective/device/child gates and documented candidates remain open. 2026-09-30: the Day One/Two alpha repair appends 23 independently selected synthetic Chapter Two phase/route/story cues, extends frozen-catalog authority validation, and refreshes the complete audio ledger. The cohort records exact semantic, pitch and signal checks plus preserved prior cohorts and 690 unchanged existing audio files. New speech remains provisional pending listening, child and owner acceptance. The [objective handoff follow-up](../../design/audit_impacts/day-two-objective-handoff-20260930.json) records dev CI `36776251500` exposing a stale required voice that suppresses Racer speech on a fast runner; explicit phase ownership now clears obsolete dialogue and cooldown suppression, with a forced-overlap baseline. This bounded scheduling repair changes no audio bytes or acceptance lifecycle. |
 
 ## MA-CODE-001
 
 | Field | Value |
 |---|---|
 | id | `MA-CODE-001` |
-| title | `scripts/main.gd` is 10,499 lines at integration head `9a1754c1`, far above the extraction-only target below 2,500 lines, and the trend has reversed. |
+| title | `scripts/main.gd` remains 9,153 lines at the 2026-09-30 dead-code cleanup candidate, far above the standing target below 2,500. |
 | rule_ids | `DL-SAVE-03`, `DL-QA-01`, `DL-QA-02` |
 | domain / zone | Architecture and maintainability / `ReefMain` |
 | source | Static line-count and architecture audit at runtime commit `09e5e356`. |
 | severity | P2 |
 | lifecycle | `CONFIRMED_OPEN` |
 | verification | V1: exact line count and target are confirmed; remaining extraction boundaries are not completed. |
-| reproduction | At current source `51d0abc0`, count `scripts/main.gd` lines and inspect state ownership; it is 8,734 lines versus the documented extraction-only target below 2,500. Device/aspect are not applicable to the count. Historical runtime `09e5e356` was 8,647 lines. |
+| reproduction | At baseline `b65c21fdddd79f272a6854f241faa1441abe6616`, count `scripts/main.gd`: 9,817 lines/499 functions. The owner-requested cleanup candidate is 9,153 lines/476 functions; live orchestration still requires mechanical extraction. |
 | child_impact | Large coupled code raises regression risk for saves, touch, navigation, and activities when the child's game changes. |
 | evidence | `scripts/main.gd`; master audit sections 1.3, 4.7, and 5.2; satellite scripts exist, but HUD/environment/aquatic/galaxy/kart/level-2 glue remains. |
 | owner_decision | Refactor by mechanical extraction only: shared state stays on main, one bounded owner/tick per commit, and failed probes require revert rather than probe weakening. |
 | fix | Continue small behavior-preserving extractions into typed satellites until the target is met, with no opportunistic rewrite. |
 | surrounding_tests | Parser and inference lint; exact before/after focused probes; passive; save/load/recovery/re-entry; UI/touch; sibling systems; full trusted probes and exact CI for each extraction. |
 | acceptance | `main.gd` is below 2,500 lines through reviewed mechanical extractions, behavior/save contracts are unchanged, and all required gates remain green. |
-| closure | Open as of 2026-08-26; current line count is 10,499 and no complete extraction sequence, final gate result, closure commit, or date exists. |
+| closure | Remains `CONFIRMED_OPEN`: 9,153 candidate lines exceed the target. No whole-architecture closure is claimed. |
 | relationships | Coupled structural risks are `MA-CODE-002`; broad medium migration is `MA-2D-002`; release risk aggregates under `MA-RELEASE-001`; the 2026-08-26 round decomposes bounded sub-risks into `MA-CODE-003`, `MA-CODE-004`, `MA-PERF-002`, and `MA-SAVE-001`. |
-| history | 2026-07-18: extraction-only target documented. 2026-08-13: `09e5e356` measured 8,647 lines; `51d0abc0` measured 8,734; lifecycle `CONFIRMED_OPEN`. 2026-08-26: integration head `9a1754c1` measures 10,499 lines (+1,765 in thirteen days) with 480 functions — the Day One glue (about thirty `day_one_*` functions), start-menu routing, and venue delegation landed on main while `scripts/day_one_director.gd` exists as a 673-line satellite; the shrink trajectory is reversed and `DL-CODE-01` now names the criterion; lifecycle remains `CONFIRMED_OPEN`. 2026-09-23: the 3D reef removal deletes dead reef builders, ticks and state from `scripts/main.gd`, measured 11,915 lines/570 functions at `5920c673` and 9,803 lines/498 functions at the candidate (`design/audit_impacts/remove-3d-reef-20260923.json`); still far above the `DL-CODE-01` target, so lifecycle remains `CONFIRMED_OPEN`. |
+| history | 2026-07-18: extraction-only target documented. 2026-08-13: `09e5e356` measured 8,647 lines; `51d0abc0` measured 8,734; lifecycle `CONFIRMED_OPEN`. 2026-08-26: integration head `9a1754c1` measures 10,499 lines (+1,765 in thirteen days) with 480 functions — the Day One glue (about thirty `day_one_*` functions), start-menu routing, and venue delegation landed on main while `scripts/day_one_director.gd` exists as a 673-line satellite; the shrink trajectory is reversed and `DL-CODE-01` now names the criterion; lifecycle remains `CONFIRMED_OPEN`. 2026-09-23: the 3D reef removal deletes dead reef builders, ticks and state from `scripts/main.gd`, measured 11,915 lines/570 functions at `5920c673` and 9,803 lines/498 functions at the candidate (`design/audit_impacts/remove-3d-reef-20260923.json`); still far above the `DL-CODE-01` target, so lifecycle remains `CONFIRMED_OPEN`. 2026-09-30: baseline `b65c21fd` is 9,817 lines/499 functions; owner-requested removal of 23 unreachable helpers/sequences, dead branches and unused declarations yields 9,153 lines/476 functions (664 net lines removed), recorded in `design/audit_impacts/main-gd-dead-code-and-storage-plan-20260930.json`. Shared state and saves remain; lifecycle stays `CONFIRMED_OPEN`, with exact candidate gates pending. |
 
 ## MA-CODE-002
 
@@ -1039,18 +1179,18 @@ device, child, human, or owner acceptance.
 | domain / zone | Child-safety adjacent dead code / `scripts/main.gd` |
 | source | 2026-08-26 code-refinement round dead-code sweep at integration head `9a1754c1`. |
 | severity | P3 |
-| lifecycle | `CONFIRMED_OPEN` |
-| verification | V1: zero call sites confirmed by exact search. |
+| lifecycle | `VERIFIED_FIXED` |
+| verification | V3 scoped machine verification: removed symbols and non-win voice fallback are absent; every current caller passes true. Parser, inference lint, official 4.7.2 analyzer/import, static gates and all 82 trusted probes pass on LF source SHA-256 `7048b66b560f1e712c764133c66e00d9ebb48621df7255bd2f6f32d746f17e83`. |
 | reproduction | At `9a1754c1`, `scripts/main.gd:8143` defines `_fail_line()` returning in-character loss lines ("Aww... now Chuck is all wet!"); repo-wide search finds no caller, and no `_end_game(false` call exists, so the lose path of `_end_game(win: bool)` is also unreachable. |
 | child_impact | None today; the risk is a future wiring mistake resurrecting a loss message against the no-fail promise. |
-| evidence | `scripts/main.gd:8143` and caller search; `_end_game(false` returns zero hits. |
+| evidence | Historical `9a1754c1` caller evidence remains; candidate removal and current caller checks are recorded in `design/audit_impacts/main-gd-dead-code-and-storage-plan-20260930.json`. |
 | owner_decision | Not required: removing dead code that cannot ship a behavior change. |
 | fix | Delete `_fail_line()` and the dead lose branch; keep `_end_game`'s signature only if a caller needs it, otherwise simplify mechanically. |
 | surrounding_tests | Parser/lint/analyzer; full suite; passive probe unchanged. |
 | acceptance | The symbols are gone, the suite is green, and no probe output changes. |
-| closure | Open as of 2026-08-26; code present. |
+| closure | VERIFIED_FIXED on 2026-09-30 for this dead-code/no-loss-message defect only, bound to the exact source hash and complete local gate in the impact record. Topic CI/integration is still required by workflow; global visual/device/child/strict-2D/release claims remain open. |
 | relationships | Child-safety context is `DL-AGE-03` enforcement; grouped origin is `MA-CODE-002`. |
-| history | 2026-08-26: confirmed dead at `9a1754c1`; opened `CONFIRMED_OPEN`. |
+| history | 2026-08-26: confirmed dead at `9a1754c1`; opened `CONFIRMED_OPEN`. 2026-09-30: removed `_fail_line()` and the obsolete `"win" if win else vo` selection. Preserved `_end_game` signature, reward guards and Day One boss route; every current caller passes true. Evidence in `design/audit_impacts/main-gd-dead-code-and-storage-plan-20260930.json`; lifecycle first moved to `FIXED_PENDING_VERIFICATION`. The final source then passed the official 4.7.2 analyzer/import and complete applicable local gate, including passive/save/replay/boss-handoff probes; this bounded finding moves to `VERIFIED_FIXED`. Historical broader findings remain open. |
 
 ## MA-PERF-002
 
@@ -1213,6 +1353,29 @@ device, child, human, or owner acceptance.
 | relationships | Decomposed from `MA-CODE-002`; classification context `MA-CI-003`; roster context `MA-CI-004`. |
 | history | 2026-08-26: counted at `9a1754c1`; opened `CONFIRMED_OPEN`. |
 
+## MA-CI-008
+
+| Field | Value |
+|---|---|
+| id | `MA-CI-008` |
+| title | Advisory sensors in the Probe Suite fail silently: the Opera pacing run measures nothing, two review captures fail or upload nothing, and the dust-boss run's described fun band is not checked, while every run stays green. |
+| rule_ids | `DL-QA-02`, `DL-QA-03`, `DL-QA-07` |
+| domain / zone | Test fidelity / advisory steps of `.github/workflows/probes.yml`; `scripts/probe_opera_2d_balance.gd`; the Sky Lagoon and pearl-castle review captures |
+| source | Self-improvement loop audit 2026-10-03 (`docs/handoffs/codex_self_improvement_loop_2026-10-03/LOOP_AUDIT.md` section 4): log and artifact read of Probe Suite run `37100729058` at dev `f2140465`, with sampled `dev` runs since 2026-09-02. |
+| severity | P2 |
+| lifecycle | `IN_PROGRESS` |
+| verification | V1: workflow, probe source, CI log and artifact list read; no rerun. |
+| reproduction | In run `37100729058` (success, head `f2140465`) every Opera balance line reports `verdict=capped` at the 300-second `TIME_CAP` for all 15 careers (`scripts/probe_opera_2d_balance.gd` lines 11 and 58–59), and the probe header still says it drives "thirteen" acts (line 4); the Sky Lagoon capture ends `LAGOONSHOT\|RESULT\|FAIL`; the pearl-castle upload finds no files. These steps are `continue-on-error` (`.github/workflows/probes.yml` lines 269–418), so the run is green and keeps four of its six artifacts, one of them a capture of the retired Reef. The dust-boss step's comment describes a 45–120 second fun band, but the probe checks only that the boss can be won. |
+| child_impact | Indirect: pacing too long or too short for a four-year-old goes unnoticed, and Sky Lagoon and pearl-castle regressions get no review images, while the green run suggests both are watched. |
+| evidence | Probe Suite run `37100729058` log and artifact list; `scripts/probe_opera_2d_balance.gd:4`, `:11`, `:58-59`; `.github/workflows/probes.yml:269-418`; `scripts/probe_dust_boss_balance.gd`. |
+| owner_decision | Not required for the probe-side repair. `.github/workflows/probes.yml` is a high-risk file under `CLAUDE.md`; changing it needs an explicit owner task, which the prompt "fix the silent sensors" would be. |
+| fix | Rescale or raise the Opera pacing cap so each career reports a time, and correct the act count; make each advisory step print one result line that the study runner reads (handoff LP2), so a capped, failed or empty advisory result is reported each cycle without failing the build; repair or retire the Sky Lagoon, pearl-castle and retired-Reef captures; check the dust-boss fun band or remove its description. |
+| surrounding_tests | The Opera balance run reports a finite time per career for at least one simulated child; each capture step produces its artifact or a reported reason; the study runner flags an injected `RESULT\|FAIL` line. |
+| acceptance | A green Probe Suite run whose advisory results are all measured or explicitly reported as not measured, listed in the cycle report (`DL-QA-07`). |
+| closure | In progress as of 2026-10-03; every advisory step reports its own verdict and the study now reads it correctly, but the Sky Lagoon and Castle captures fail on the CI renderer, the dust-boss arena capture is incomplete and Opera pacing measures 4 of 15 careers (`docs/handoffs/codex_loop_review_2026-10-03/README.md`, CR2–CR4). |
+| relationships | Read by the study runner of `MA-DOC-009`; related to `MA-CI-003` (probe classification) and `MA-CI-007` (probe infrastructure). |
+| history | 2026-10-03: confirmed by CI log, artifact list, workflow and probe source read at dev `f2140465`; opened `CONFIRMED_OPEN`. 2026-10-03 (implementation): Sensor repair implemented: source-bound latest-stable engine checks, current Sky launch API, separate Castle Canvas capture, persona checkpoint isolation and approach/tick policies, and explicit capped/unsupported outcomes. Local 4.7.2 Mobile Castle13/13 and Sky20/20 captures pass with unchanged normal saves; full specialized pacing and exact-head remote advisory collection remain outstanding. Evidence: audit/cycles/2026-10-03/IMPLEMENTATION.md and design/audit_impacts/self-improvement-loop-implementation-20261003.json. 2026-10-03 (review, Claude): in run `37161828730` at `4cb14feb` the study labelled four advisory steps FAIL although their wrapper verdicts were MEASURED, because echoed script lines contain "timeout" and a benign audio warning contains "failed"; the study now takes the wrapper verdict and ignores both. Real gaps in that run: Sky Lagoon and Castle captures fail because the runner falls back to OpenGL while the probes require Mobile, the dust-boss arena capture is incomplete, and Opera pacing measured 12 of 45 runs. Codex packages CR2–CR4. Lifecycle stays `IN_PROGRESS`. Evidence: `design/audit_impacts/self-improvement-loop-review-20261003.json`. |
+
 ## MA-TYPE-001
 
 | Field | Value |
@@ -1333,23 +1496,23 @@ device, child, human, or owner acceptance.
 | Field | Value |
 |---|---|
 | id | `MA-TYPE-006` |
-| title | Forty-five `Label3D` constructors across thirteen production files keep child-visible typography in the rejected spatial medium. |
+| title | Thirty-six `Label3D` constructors across eleven production files remain at the 2026-09-30 cleanup candidate; child-visible spatial typography still requires true-2D migration. |
 | rule_ids | `DL-TYPE-10`, `DL-MED-01`, `DL-MED-04`, `DL-QA-09` |
 | domain / zone | True-2D migration / game-wide pointers, counters, bubbles, shop and activity labels |
-| source | 2026-08-30 exact `Label3D` census at historical `0ddbe656`, bounded child workstream of `MA-2D-002`; candidate remeasurement remains 45 across 13 files. |
+| source | 2026-08-30 historical `0ddbe656` census sealed 45 constructors across 13 production files. The 2026-09-30 candidate measures 36 across 11; its deleted `_sleep_z` construction was unreachable, and no live typography family is converted by this cleanup. |
 | severity | P1 |
 | lifecycle | `IN_PROGRESS` |
 | verification | V1 current census plus higher-level sealed GAME2D evidence only; no typography family is newly converted by this round. |
-| reproduction | Search non-probe GDScript for `Label3D.new(`: 45 matches in `arena/sky_lagoon.gd`, `collection_system.gd`, `combat_arena.gd`, `combat_tutorial.gd`, `companion.gd`, `dungeon_puzzle_room.gd`, `galaxy.gd`, `games/dust_boss.gd`, `games/shop.gd`, `kart.gd`, `main.gd`, `reef_districts.gd`, and `stuffie_battle.gd`; 39 assign `outline_size`. |
+| reproduction | Run `python -B tools/audit_typography.py --check`: candidate current total is 36 across eleven production files, including two in main.gd. The immutable historical baseline remains 45; full semantic/Canvas conversion is still required. |
 | child_impact | Spatial text can inherit camera/depth/scale/occlusion behavior inconsistent with the final Canvas interface, while removal without semantic migration can erase pointers or state cues. |
-| evidence | Exact paths above; `tools/audit_game_2d.py` and `MA-2D-002` own the broader strict-zero inventory; audit section 4.6. |
+| evidence | Historical census remains sealed; current source inventory and scoped deletion are recorded in `design/audit_impacts/main-gd-dead-code-and-storage-plan-20260930.json`. `tools/audit_game_2d.py` and `MA-2D-002` own the separate strict-zero inventory. |
 | owner_decision | Not required to remove measured 3D debt; visual/semantic changes during conversion require owner review. |
 | fix | Convert one gameplay family at a time to Canvas `Label`/authored icon ownership, preserving role, projected position, size, occlusion, voice/pointer/touch relationship and lifecycle; never add a spatial fallback. |
 | surrounding_tests | Before/after Mobile captures; focused activity and passive probes; pointer/touch/voice; pause/focus/teardown/re-entry; exact Label3D and GAME2D ratchets; full suite. |
 | acceptance | `Label3D.new` reaches zero without new spatial fallback, every migrated semantic remains visible and reachable in Canvas, strict GAME2D reaches its independent zero state, and device/child/owner gates pass. |
-| closure | In progress under the existing game-wide conversion; this documentation round changes no runtime and decrements no count. |
+| closure | Remains IN_PROGRESS: this cleanup removes one unreachable construction only; live spatial typography, font/device and strict-zero acceptance remain open. |
 | relationships | Bounded child workstream of `MA-2D-002`; role/font acceptance also depends on `MA-TYPE-001`, `002`, and `007`; its closure alone cannot close `MA-2D-002`. |
-| history | 2026-08-30: exact 45/13 baseline census reproduced at historical `0ddbe656`; committed implementation `828e169f` reconciled at `4e4e66b4` remains 45/13 and adds no Label3D conversion, so `IN_PROGRESS` is retained without claiming closure. |
+| history | 2026-08-30: exact 45/13 baseline census reproduced at historical `0ddbe656`; committed implementation `828e169f` reconciled at `4e4e66b4` remains 45/13 and adds no Label3D conversion, so `IN_PROGRESS` is retained without claiming closure. 2026-09-30: removal of the unreachable main._sleep_z reduces the current Label3D construction inventory from 37 to 36 across the same eleven production files; tests/test_audit_typography.py records that smaller exact count while the sealed 45-node baseline and ratchet controls remain unchanged. Scoped evidence: design/audit_impacts/main-gd-dead-code-and-storage-plan-20260930.json. Font/device and strict-zero acceptance remain unchanged. |
 
 ## MA-TYPE-007
 

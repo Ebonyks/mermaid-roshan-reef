@@ -498,6 +498,15 @@ func show_msg(who: String, txt: String, vo: String = "talk",
 		# arbitrary lobby/boss sentence. Never hide a supplied instruction just
 		# because that one generic clip exists.
 		var has_exact := vo != "talk" and _voice_path(speaker, vo, false) != ""
+		var event_suffix := vo.trim_prefix(speaker + "_")
+		var activity_objective := event_suffix.begins_with("op_") \
+			or event_suffix.begins_with("chapter2_")
+		# The entered activity supersedes its old Chapter Two route/phase cue.
+		# Day One required FIFO speech and generic reactions keep their rules.
+		if has_exact and activity_objective \
+				and _active_required_key.begins_with("roshan_chapter2_") \
+				and _active_required_key != speaker + "_" + event_suffix:
+			_stop_active_speech()
 		m.hud_msg.visible = false
 		if has_exact:
 			# The main HUD loop derives visibility from text every frame. Clear both

@@ -85,6 +85,11 @@ Runtime/editor baseline: exactly Godot 4.7.2-stable (owner decision
 2026-08-29). The `project.godot` feature tag is `"4.7"` because Godot records
 the engine series there; it does not lower the required patch baseline. Do not
 validate releases with Godot 4.4 or a 4.7 development build.
+Latest stable reverified 2026-10-03 at the owner's request against the
+[official download](https://godotengine.org/download/windows/): 4.7.2-stable.
+Use `python -B tools/resolve_godot.py` or `tools/run_godot.ps1` to select
+the exact approved build; local CI uses this resolver. An older executable
+on PATH is not a valid default. Historical audit versions remain evidence.
 
 ## FINAL MEDIUM (owner decision 2026-08-09): TRUE 2D GAME-WIDE
 
@@ -327,7 +332,7 @@ ship without per-frame regeneration or `DELIVERY_ACCEPTED` evidence.
   mobile default; treat 30 fps and transparent-overdraw budget as hard limits.
 
 ## Build & test (headless, no display needed)
-GODOT=./Godot_v4.7.2-stable_linux.x86_64   # or `godot` on PATH
+GODOT=./Godot_v4.7.2-stable_linux.x86_64   # or GODOT="$(python3 tools/resolve_godot.py)"; an older PATH build is not valid
 1. Import (required after any asset change):
    $GODOT --headless --import .
    ⚠ KNOWN DEADLOCK: NPOT textures with compress/mode=2 hang the headless

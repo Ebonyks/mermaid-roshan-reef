@@ -40,6 +40,13 @@ func _capture(name: String) -> void:
 
 
 func _run() -> void:
+	var isolated_root: String = OS.get_environment("DAY_ONE_BATHROOM_USERDATA_ROOT").replace("\\", "/").simplify_path()
+	var user_root: String = OS.get_user_data_dir().replace("\\", "/").simplify_path()
+	_check("capture uses an explicitly isolated save folder",
+		not isolated_root.is_empty() and user_root.begins_with(isolated_root + "/"), user_root)
+	if failures > 0:
+		quit(1)
+		return
 	_check("real Mobile viewport is available",
 		DisplayServer.get_name() != "headless", DisplayServer.get_name())
 	if failures > 0:
@@ -65,6 +72,12 @@ func _run() -> void:
 	else:
 		main._skip_intro()
 	await _frames(3)
+	# New Game resets the once-only movie save fields. This capture job reviews
+	# gameplay at an unfinished checkpoint after those story seams were seen.
+	main._day_one_cancel_story_clips()
+	main.day_one_story_clips_seen = {
+		"d1_intro": true, "d1_bath_arrival": true, "d1_bath_clean": true,
+	}
 	main._day_one_ref().restore_state({
 		"day_one_active": true,
 		"day_one_current_room": "bathroom",
@@ -81,12 +94,24 @@ func _run() -> void:
 	await _frames(18)
 	main._castle_rooms_ref().show_room("bubble_bath", false)
 	await _frames(8)
+	main._day_one_cancel_story_clips()
 	main._sync_day_one_bathroom_cleanup()
-	await _frames(5)
+	var entry_deadline: int = Time.get_ticks_msec() + 15000
+	while main._day_one_bathroom_cleanup == null and Time.get_ticks_msec() < entry_deadline:
+		await process_frame
+		main._sync_day_one_bathroom_cleanup()
+	# Let the staged travel caption expire through its ordinary runtime timer.
+	# Freezing main earlier would leave it covering the sink for every capture.
+	await create_timer(5.0).timeout
 	main.set_process(false)
 
 	var cleanup: DayOneBathroomCleanup = main._day_one_bathroom_cleanup
-	_check("fresh entry mounts dirty rescue", cleanup != null)
+	_check("unfinished bathroom mounts dirty rescue", cleanup != null,
+		"active=%s room=%s stage=%s pending=%s clean=%s clip=%s" % [main.day_one_is_active(),
+		main.castle_room_id, main.castle_room_stage != null,
+		main._day_one_bathroom_movie_handoff_pending,
+		main.day_one_castle_room_is_clean("bubble_bath"),
+		main._day_one_story_clip.movie_id if is_instance_valid(main._day_one_story_clip) else "none"])
 	if cleanup == null:
 		main.queue_free()
 		quit(1)
@@ -132,6 +157,23 @@ func _run() -> void:
 		bool(cleanup.cleaning_audit_snapshot().get(
 			"circle_demo_visible", false)))
 	await _capture("02_sink_circle_guide")
+	var cleaning: DayOneBathroomCleaning = cleanup._cleaning_stage
+	var touch := InputEventScreenTouch.new()
+	touch.index = 0
+	touch.pressed = true
+	touch.position = SINK_CENTER + Vector2(-20, 0)
+	cleaning._on_gesture_input(touch)
+	var drag := InputEventScreenDrag.new()
+	drag.index = 0
+	drag.position = SINK_CENTER + Vector2(30, -8)
+	cleaning._on_gesture_input(drag)
+	_check("sink touch reveals a local clean patch before completion",
+		bool(cleanup.day_one_bathroom_plate_snapshot().get("sink_scrub_marks", false))
+		and main.day_one_bathroom_cleanup_step == 0)
+	await _capture("02b_sink_touch_removes_dirt")
+	touch.pressed = false
+	touch.position = drag.position
+	cleaning._on_gesture_input(touch)
 
 	var sink_points: Array[Vector2] = []
 	for index: int in range(49):
@@ -169,6 +211,18 @@ func _run() -> void:
 			"back_and_forth_arrows_visible", false))
 		and bool(cleanup.cleaning_audit_snapshot().get("tub_drained", false)))
 	await _capture("07_tub_arrow_guide")
+	touch.pressed = true
+	touch.position = TUB_CENTER + Vector2(-100, 0)
+	cleaning._on_gesture_input(touch)
+	drag.position = TUB_CENTER + Vector2(20, 0)
+	cleaning._on_gesture_input(drag)
+	_check("tub touch reveals a local clean patch before completion",
+		bool(cleanup.day_one_bathroom_plate_snapshot().get("tub_scrub_marks", false))
+		and main.day_one_bathroom_cleanup_step == 1)
+	await _capture("07b_tub_touch_removes_dirt")
+	touch.pressed = false
+	touch.position = drag.position
+	cleaning._on_gesture_input(touch)
 
 	var tub_points: Array[Vector2] = [
 		TUB_CENTER + Vector2(-210.0, 0.0),
@@ -177,7 +231,6 @@ func _run() -> void:
 		TUB_CENTER + Vector2(210.0, 0.0),
 		TUB_CENTER + Vector2(-210.0, 0.0),
 	]
-	var cleaning: DayOneBathroomCleaning = cleanup._cleaning_stage
 	_check("three forgiving tub reversals complete",
 		cleaning != null and cleaning.probe_tub_strokes(tub_points, 0.75))
 	await _capture("08a_toilet_circle_prompt")

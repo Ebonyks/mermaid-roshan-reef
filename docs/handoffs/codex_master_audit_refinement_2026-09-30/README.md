@@ -9,8 +9,12 @@ designs? Design as codex handoff."*
 change). **To:** Codex (implementation). **Owner:** answers the questions in
 section 8 and accepts the result.
 
-**Status:** `PROPOSED / CANDIDATE`, revision 2 (wording corrections to
-revision 1 at `0bbf8b7c`). This packet recommends; it grants no
+**Status:** `PROPOSED / CANDIDATE`, revision 4 (2026-09-30): Stage J's job
+catalogue now follows the [Job Platform architecture](../codex_job_platform_architecture_2026-09-30/ARCHITECTURE.md).
+Revision 3 added Stage J —
+a job-game playbook, job catalogue checker, takeover kit and cold-start dry
+run — after the owner called takeover readiness critical. Revision 2 corrected
+wording in revision 1 (`0bbf8b7c`). This packet recommends; it grants no
 visual, device, child or owner acceptance and changes no finding lifecycle.
 Every package still follows `CLAUDE.md`, `AGENTS.md` and the master-audit
 development contract (`DL-AUTH-05`, `DL-AUTH-06`, `DL-AUTH-07`): impact
@@ -47,6 +51,12 @@ with this packet, they win until the owner changes them.
 | `MANIFEST.json` | SHA-256 of every file in this folder |
 
 Nothing here is loaded by the game; `.gdignore` keeps Godot from importing it.
+
+**Companion audit (revision 3):** [`audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md`](../../../audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md)
+answers whether the master audit can drive job-game development (it cannot
+yet), holds the interim job-game recipe, and defines the closure of
+[`MA-DOC-006`](../../../audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-006),
+the finding that tracks this work in the master audit.
 
 ---
 
@@ -106,8 +116,15 @@ mixed together, and to make the numbers generated instead of hand-copied:
    head, refresh the scorecards to the game that ships now (Day One, Grand Puff,
    Day Two, Chapter 3 route, the Opera House), and route new work through a
    one-page **design card** that cites canon, pattern and token IDs.
+8. **Make it a script for job games and a takeover kit (owner-critical,
+   2026-09-30).** A maintained job-game playbook routed from the task index, a
+   machine-checked catalogue of every job, a start-here takeover kit (roles,
+   operations loop, real backup status, environment), and a cold-start dry run
+   by a fresh agent. Today no route or recipe exists, and a naive next career
+   would corrupt star progress (the bit-18 clamp trap in the companion audit).
 
-**What Codex builds, in order.** Stage 0 re-measure and coordinate → Stage 1
+**What Codex builds, in order.** Stage 0 re-measure and coordinate → Stage J
+job-game playbook and takeover kit (owner-critical) → Stage 1
 make room (archive, live status) → Stage 2 build the reference (register,
 canon, patterns, tokens, engines, card) → Stage 3 rules and findings hygiene →
 Stage 4 guardrails in the existing gates → Stage 5 owner-gated extras. See
@@ -136,6 +153,7 @@ protected content, and every acceptance gate. No game runtime file changes.
 | R10 | Next-generation planning has to dig | *(sweep)* No filled chapter brief exists; the reference library was last reviewed at `775ceee1` (2026-09-05) and misses the lawn finale, boss engine, Teacher, Racer, Painter, Tree Book, Comfy Games and story clips. `DL-CODE-11`/`DL-CODE-12` describe a Mode Platform that has not started (`scripts/platform/` and `tools/audit_structure.py` are absent). The chapter probes run in neither trusted roster (0 matches in `scripts/ci.sh` and `.github/workflows/probes.yml`). The room list, the portrait-to-friend map and voice-key prefixes live only in code. Battle of the Bands (commissioned 2026-09-20) is not on `dev` | Each new chapter starts with a research project instead of a design |
 | R11 | Paperwork concentrates on narrative, not status | Since 2026-09-01: 153 non-merge commits on `dev`, 33 edited the master audit, 53 edited the ledger, 52 touched documentation only — yet 46 findings got no lifecycle entry. `DL-AUTH-05`..`07` are cited by 51 of 53 impact records as boilerplate, while 19 rules were never cited by any record or finding | Effort goes into re-telling evidence instead of keeping the reference true |
 | R12 | The gates hard-code the current layout | See Appendix E: four fixed paths, two anchors, eleven required task routes, the `## 5.`–`## 6.` window, sections 9 and 12, and a byte-identical contract mirrored in three files. Ordinary links are checked for file existence only, not anchors | A careless restructure breaks CI, or silently breaks inbound anchors across the repo |
+| R13 | Nothing lets an agent build a job game or take over | See the [companion audit](../../../audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md): no task-index route or recipe for a job game; adding a career touches about 25 files and six probes with hand-pinned counts; `opera_stars` is clamped to 18 bits in four places in `scripts/save_state.gd`, so a career at bit 18 would mark every career complete; two voice engines with no rule; the atlas gate covers 13 of 15 careers; every weekly backup run has failed; the images rule is missing from `AGENTS.md` | The owner's goal — an agent taking over development — cannot be met or tested |
 
 ---
 
@@ -192,6 +210,8 @@ protected content, and every acceptance gate. No game runtime file changes.
 | `design/reference/engines.json` | New | Reusable mechanic families and the game map |
 | `design/reference/owner_decisions.json` and `OWNER_DECISIONS.md` | New | Owner decision register and open questions |
 | `design/templates/DESIGN_CARD_V1.md`, `design/templates/CHAPTER_BRIEF_V2.md` | New | One-page card; brief V2 cites reference IDs (V1 stays) |
+| `design/12_JOB_GAME_PLAYBOOK.md`, `design/templates/JOB_CARD_V1.md` | New (Stage J) | The maintained job-game script and its one-page job card |
+| `content/jobs/<id>.json` and `_ledger.json` | New (Stage J, per the Job Platform architecture) | Catalogue of every job game, compiled to typed constants and checked against the code registries |
 | `tools/design_reference.py` and its tests | New | Render generated blocks, `--check` them, validate IDs, paths, hashes and token drift |
 | `tools/audit_live_status.py` and its tests | New | Generate `audit/status/LIVE_STATUS.json` and the live-status block |
 | `audit/archive/MASTER_AUDIT_2026-08-09_SEALED_EVIDENCE.md` | New | Verbatim home for moved evidence |
@@ -482,6 +502,78 @@ List open branches that edit the master audit, ledger or design 06 (at
 Bands work) and plan WP-1 for a quiet window. **Gate:** a short note in the
 first PR with the re-measured numbers and the branch list.
 
+### Stage J — job-game playbook and takeover kit (owner-critical; runs right after Stage 0)
+
+Owner direction 2026-09-30: the purpose of this work is for an agent to take
+over development of Mermaid Roshan, starting with future job games, and an
+audit ensuring that is included is critical. The audit is
+[`audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md`](../../../audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md);
+the tracking finding is
+[`MA-DOC-006`](../../../audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-006).
+Stage J closes that finding. It does not wait for Stages 1–5: the playbook
+cites today's documents and code first, then switches its citations to canon,
+pattern and token IDs as WP-4 to WP-6 land (WP-J5).
+
+**WP-J1 Job catalogue and checker.** Revision 4: build this catalogue as the
+content layer of the [Job Platform architecture](../codex_job_platform_architecture_2026-09-30/ARCHITECTURE.md)
+— one record per job in `content/jobs/<id>.json`, compiled by
+`tools/content_build.py` (its package JP0) — not as a documentation-only
+`design/reference/jobs.json`. One entry per job game that exists in code or is planned. Fields: `id`, name,
+extension path (Opera career row, venue scene, Day Two job, room job),
+owning room or venue, act index and star bit (or its own save key), surface
+script, phases and their verbs, imp-contest status (`DL-INT-14`), voice
+prefix and required voice keys, music cue, Roshan career atlas path and
+SHA-256, prop/backdrop art, driving probes and whether each is in both trusted
+rosters, design document, status (`LIVE`, `PRACTICE`, `PROTOTYPE`,
+`PLANNED`, `RETIRED`, `CUT`). Add a checker (inside the existing document
+gate, see WP-11) that compares the catalogue with the code registries the
+audit lists in its section 3 and fails when a live act, mask bit, room route,
+voice prefix, music cue or trusted probe is missing or disagrees. **Gate:**
+the checker passes at your head and fails on three injected faults (an
+unregistered act, a wrong star bit, a job with no trusted probe).
+
+**WP-J2 Job-game playbook.** Write `design/12_JOB_GAME_PLAYBOOK.md` from the
+interim recipe in the audit's section 4. Every step names its inputs, the
+exact files and symbols it changes, the gate that proves it, who does it
+(owner, Claude, Codex), and its stop points (owner approval of a new job's
+premise and room; image generation by Codex only; protected voices never
+altered). Include the job formula (acts, phases, one-finger verbs, help,
+rewards, imp contest), the four extension paths with when to use each, and a
+job design card template (`design/templates/JOB_CARD_V1.md`). Route it from
+the master-audit task index row "New job game" and from the planning entry.
+**Gate:** every file, symbol, command and tool named in the playbook exists at
+your head (checked by script); the task-index route resolves.
+
+**WP-J3 Takeover kit.** Add a "New developer: start here" section to the
+front door (design 11) or to the playbook if design 11 does not exist yet:
+reading order, glossary (Day One, Day Two, Chapter, career, job, act, phase,
+star bit), roles (owner, Claude, Codex, Grok; who may change the game, build
+images, release), the operations loop (branch, impact record, gates, CI,
+merge to `dev`, dev APK, promotion only on the owner's word), backups and
+their real status, security boundaries, environment setup and known machine
+hazards (disk space, shared checkout). Correct any operational claim the audit
+found stale. **Gate:** each linked command or file exists; each stale claim in
+the audit's sections 8 and 9 is corrected or listed as an open question.
+
+**WP-J4 Cold-start dry run.** Give a fresh agent session only the repository
+and a one-line job commission chosen by the owner (default: a practice-only
+job that changes no shipped behaviour, for example a second patient in the
+Tree Book or a Northern restaurant planning card). The agent produces a job
+card and a complete build plan using only the playbook and catalogue. A
+reviewer scores it against the audit's checklist (section 10). Record the
+result, every question the agent had to ask, and every step it could not find
+in the audit's history table, then fix the playbook. **Gate:** no
+undocumented step remains; the owner accepts the dry-run output.
+
+**WP-J5 Upgrade to reference IDs.** After WP-4 to WP-6 land, replace prose
+facts in the playbook and catalogue with canon, pattern and token IDs, and
+re-run the WP-J1 checker.
+
+**Closing `MA-DOC-006`:** move it to `FIXED_PENDING_VERIFICATION` when WP-J1
+to WP-J3 are merged green; to `VERIFIED_FIXED` only after the WP-J4 dry run
+passes and the owner accepts it. Record both transitions in the finding
+history and the master-audit index.
+
 ### Stage 1 — make room (documentation only, mechanical)
 
 **WP-1 Evidence archive.** Scope: the master audit sections in 5.1 marked
@@ -613,6 +705,10 @@ behaviour-identical.
 | AC-10 | No moved evidence was edited; every old anchor still resolves | WP-1 verification script |
 | AC-11 | `audit_document_authority.py` and `audit_development.py --base auto` ALL OK; unit tests green; CI green at the merged head | Logs |
 | AC-12 | No game runtime file changed in Stages 0–4; protected paths untouched | `git diff --stat` |
+| AC-13 | `design/12_JOB_GAME_PLAYBOOK.md` is routed from the task index and every file, symbol, command and gate it names exists at the merged head | WP-J2 existence check |
+| AC-14 | The job catalogue (`content/jobs/`) covers every job in code; its checker runs in the existing document gate and fails on the three injected faults | WP-J1 test log |
+| AC-15 | The takeover kit exists and every stale claim in sections 8 and 9 of the companion audit is corrected or listed as an open owner question | Review against the audit |
+| AC-16 | A cold-start dry run passes the companion audit's section 10 checklist, the owner accepts it, and `MA-DOC-006` moves to `VERIFIED_FIXED` | Dry-run record and finding history |
 
 The reference becomes `CANONICAL_CURRENT` only after the owner accepts it
 (`DL-QA-06`); until then it is 🟣 `PROPOSED / CANDIDATE`.
@@ -631,6 +727,10 @@ The reference becomes `CANONICAL_CURRENT` only after the owner accepts it
 | Q6 | Should "design reference checks green" join the satisfaction gate? | Advisory only for now |
 | Q7 | Run WP-12 (entry points)? | No, unless the owner names it |
 | Q8 | Runtime tokens (WP-13)? | Not in this handoff |
+| Q9 | Where the job-game playbook lives | `design/12_JOB_GAME_PLAYBOOK.md`, plus `design/templates/JOB_CARD_V1.md` and the job catalogue in `content/jobs/` |
+| Q10 | Who approves a new job | The owner approves each new permanent job's premise and room; practice or prototype jobs inside an approved scope are delegated (`DL-PLAN-01`) |
+| Q11 | Which synthetic voice speaks Roshan's new job lines | The engine of the Roshan layer the game prefers at runtime (Parler, per the audit sweep), recorded in the catalogue; protected family recordings are never altered |
+| Q12 | May Codex add the 2026-09-30 images rule and the real backup status to `AGENTS.md` (a high-risk file) | No, unless the owner names that change; the takeover kit states both meanwhile |
 
 ---
 

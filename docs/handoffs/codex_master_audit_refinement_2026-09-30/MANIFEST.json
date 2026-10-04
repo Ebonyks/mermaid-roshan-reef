@@ -4,10 +4,10 @@
  "status": "PROPOSED / CANDIDATE",
  "prepared_by": "Claude (analysis and recommendations only; no game changes)",
  "recipient": "Codex",
- "evidence_baseline": "dev 55032e88936b22723fd9af5282c61ba6696b3d43 (all measurements and sweeps)",
+ "evidence_baseline": "dev 55032e88936b22723fd9af5282c61ba6696b3d43 for the measurements; dev 5d9668a9a49f59f3224c2951bbbffb9e3b3a1145 for the Stage J job-game audit",
  "entry": "README.md",
  "file_count": 13,
- "total_bytes": 236440,
+ "total_bytes": 244867,
  "files": [
   {
    "path": ".gdignore",
@@ -17,8 +17,8 @@
   },
   {
    "path": "README.md",
-   "bytes": 61338,
-   "sha256": "037ea86f5a173eb155b941cf821f0d798b19243ad47118d66c48f7a61727132b",
+   "bytes": 69765,
+   "sha256": "ba848e824581ec47d38fbc3ec86e0b9c2d8c52c40b4b48b16d64d31ea7a955a5",
    "role": "handoff document (entry)"
   },
   {
@@ -89,5 +89,5 @@
   }
  ],
  "hash_basis": "SHA-256 of the committed Git blob bytes (LF line endings), identical to what raw.githubusercontent.com serves",
- "revision": "2 (2026-09-30): wording corrections in README.md (open-question sources, where the 2026-09-24 decision is recorded, the evidence-share sentence, one ledger-row description); revision 1 was 0bbf8b7c548efcc3dcfe14089aeac9e3e3025c47"
+ "revision": "4 (2026-09-30): Stage J WP-J1, AC-14 and Q9 point the job catalogue at the Job Platform architecture content layer (content/jobs, compiled by tools/content_build.py); revision 3 was 5da7bd53470821e4c5e292f87be897c416b29292"
 }

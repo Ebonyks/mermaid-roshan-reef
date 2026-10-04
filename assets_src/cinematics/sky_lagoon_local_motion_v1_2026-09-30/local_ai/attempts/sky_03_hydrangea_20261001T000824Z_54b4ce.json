@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+  "source": "C:\\Users\\Peter\\Documents\\mermaid-roshan-reef\\build\\local-sky-animation\\03_hydrangea\\input.png",
+  "source_sha256": "4022f35e437b49fa9607fe5291d82e4ab6eace3112d537750be7d0ecec46a35d",
+  "source_dimensions": [
+    512,
+    288
+  ],
+  "prompt": "One isolated illustrated object on a perfectly flat solid bright magenta background. Locked camera. Polished painted 2D storybook illustration. Preserve the exact object in the input image. 0-0.3s: rest. 0.3-1.1s: The plant base stays fixed. The lavender flower head gently nods right then returns, followed by a small delayed leaf recovery. Keep the same stems, petals, leaf arrangement and colors. 1.1-1.4s: settle. Background remains solid magenta. No zoom, no scene, no text, no shadow on the background, no style change. Sound: silence.",
+  "prompt_sha256": "68337bb89ff009926141bd70c1453bbcff9cfd34adc3978f0c2bcf8ecba4795a",
+  "preset": "quick",
+  "settings": {
+    "width": 512,
+    "height": 288,
+    "frames": 33,
+    "steps": 20,
+    "weight_dtype": "default"
+  },
+  "seed": 20261003,
+  "model_receipt": "H:/MermaidReefTools/LocalVideo/MODEL_RECEIPT.json",
+  "workflow_sha256": "3dee4a02f222b8fd4641f09af9d9f29d1d8dd11c26129901c85d722e191dd93c",
+  "started_at_utc": "20261001T000824Z",
+  "prompt_id": "72d2723a-110c-44f3-bae4-b82b48860c62",
+  "outputs": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\sky_03_hydrangea_20261001T000824Z_54b4ce_00001_.webm",
+      "sha256": "bb09ba5edd3afe3f27b498233eb789bd7a26ac3ef3fd07b54b52c52c93426f6d",
+      "bytes": 224184
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\output\\local_reference\\sky_03_hydrangea_20261001T000824Z_54b4ce_00001_.mp4",
+      "sha256": "d1269c768e4858165cdb6e25db292e653c83108330454b18880b1a033a82f91f",
+      "bytes": 207408,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 512,
+            "height": 288,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "33"
+          }
+        ],
+        "format": {
+          "duration": "1.375000"
+        }
+      }
+    }
+  ],
+  "elapsed_seconds": 80.66,
+  "completed_at_utc": "2026-10-01T00:09:45.266580+00:00",
+  "limitation": "Machine execution only; no cinematic, game, owner or device acceptance"
+}

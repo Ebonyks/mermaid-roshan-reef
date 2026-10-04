@@ -326,6 +326,7 @@ func _check(label: String, ok: bool, detail: String = "") -> void:
 
 
 func _probe_chapter_two_playback(main: ReefMain) -> void:
+	var prior_game: String = main.game
 	var cues: Array[String] = []
 	for entry: Dictionary in ChapterTwoPartyPlan.LIVE_CAREERS:
 		var career: String = String(entry["career"]).replace("_", "")
@@ -346,3 +347,25 @@ func _probe_chapter_two_playback(main: ReefMain) -> void:
 	_check("missing exact Day Two cue is silent without generic fallback",
 		main.voice_i == before_missing and _playing_pool_count(main) == 0)
 	main.clear_dialogue()
+	# Entering a career supersedes its old required route instruction. The
+	# exact existing activity recording must take the single speech channel.
+	main.game = "opera"
+	audio.chapter_two_prompt("chapter2_route_farmer")
+	var before_activity: int = main.voice_i
+	audio.show_msg("Roshan", "Turn the wrench in big circles!",
+		"op_racer_tune_up_stage", 0.0)
+	_check_exact_cue(main, "op_racer_tune_up_stage", before_activity)
+	_check("new Opera objective replaces required Day Two route without overlap",
+		_playing_pool_count(main) == 1 and audio._active_required_key.is_empty()
+		and audio._required_voice_queue.is_empty()
+		and main.hud_msg.text.is_empty() and not main.hud_msg.visible)
+	main.clear_dialogue()
+	audio.chapter_two_prompt("chapter2_route_farmer")
+	var before_generic: int = main.voice_i
+	for reaction: String in ["talk", "win", "pearl"]:
+		audio.show_msg("Roshan", "A generic reaction", reaction, 0.0)
+		_check("generic Opera %s cannot replace required Day Two instruction" % reaction,
+			main.voice_i == before_generic and _playing_pool_count(main) == 1
+			and audio._active_required_key == "roshan_chapter2_route_farmer")
+	main.clear_dialogue()
+	main.game = prior_game

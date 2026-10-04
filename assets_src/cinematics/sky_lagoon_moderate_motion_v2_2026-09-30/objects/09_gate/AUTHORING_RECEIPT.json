@@ -1,0 +1,107 @@
+{
+  "id": "09_gate",
+  "status": "REFERENCE_SAMPLE",
+  "frame_canvas": [
+    512,
+    512
+  ],
+  "unique_generated_pose_drawings": 6,
+  "authored_light_states": 0,
+  "method": "Fresh generated pose drawings; Aseprite alpha cleanup and anchor registration. No deformation of the old source supplies motion.",
+  "input": "generated_native.png",
+  "input_sha256": "15d9359660716af7917ebf8eeaa008168044c45bc02113872167a916d093244a",
+  "state_rgba_sha256": [
+    "57d2daf86e7ca72314e030cdbd8daf2411afbc054c54d650acfa3bbf0f668206",
+    "a4e3cb464287c9e3c258ed896e35bd559557f804ea7955b437e00ed80fec27f9",
+    "3af530788e1b3fa81d96a1db4bdc90994d3dcdaf735a460d36c2731f946f568e",
+    "057847a462cb7002435bca0c0dd255a8d4fc28aeafccedc67354e13a0bfbdcbe",
+    "c72dfb6af160ce145bf21419530c5d43c4982516e9744c11c21698caf5653892",
+    "a31ca48deff0d7532e23ea88609cb3217cc0a46e71b4681106bf617e7ad7eb8d"
+  ],
+  "pose_native_bounds": [
+    [
+      93,
+      19,
+      421,
+      462
+    ],
+    [
+      90,
+      19,
+      417,
+      462
+    ],
+    [
+      92,
+      19,
+      422,
+      458
+    ],
+    [
+      89,
+      19,
+      419,
+      458
+    ],
+    [
+      91,
+      18,
+      423,
+      455
+    ],
+    [
+      88,
+      18,
+      419,
+      456
+    ]
+  ],
+  "border_cap_repairs": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "fixed_bottom_y": null,
+  "fixed_base_rect": null,
+  "edge_cleanup": {
+    "alpha_cutoff": 192,
+    "opaque_contours": true,
+    "method": "Largest connected subject mask; Aseprite rejects stray semi-transparent border noise, nearest-neighbor native pose registration."
+  },
+  "loop_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    4,
+    3,
+    2,
+    1
+  ],
+  "duration_units_12fps": [
+    3,
+    2,
+    2,
+    2,
+    3,
+    4
+  ],
+  "limits": "Six-key acting examples remain coarse. AI detail/topology continuity and manual contacts require owner/production review. Not human hand drawing, accepted runtime art or full-frame cinematic delivery.",
+  "playback_duration_units_12fps": [
+    3,
+    2,
+    2,
+    2,
+    3,
+    4,
+    2,
+    2,
+    2,
+    2
+  ]
+}

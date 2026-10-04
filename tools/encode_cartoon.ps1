@@ -4,7 +4,7 @@ Encodes cartoon frames or an existing video into a Godot-ready OGV.
 
 .DESCRIPTION
 The output extension selects the primary format. Use .ogv for Ogg Theora
-playback in Godot 4.4, or .mp4 for an H.264 review copy. A frame directory is
+playback in the exact Godot 4.7.2-stable baseline, or .mp4 for an H.264 review copy. A frame directory is
 naturally sorted and defaults to 18 fps. Source files are never modified.
 
 .PARAMETER InputPath

@@ -1,0 +1,86 @@
+{
+  "id": "day-one-bathroom-touch-dirt-20261002",
+  "scope": "Owner request 2026-10-02: sink and bathtub dirt clears locally under the child's scrubbing action. Reuse existing dirty/drained and clean bathroom artwork through bounded Canvas reveal masks; retain the basket, drain, gesture, voice, toilet and saved completion contracts. No new art generation or protected-source edits. The existing visual probe also gains an explicit save-isolation guard after its default-folder staging error; current local save copies are preserved, and exact pre-test recovery is unresolved.",
+  "baseline": "c5e98477efe4fe3c36d6bffe68818d84c2d08325",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-AGE-01",
+    "DL-AGE-02",
+    "DL-AGE-04",
+    "DL-AGE-07",
+    "DL-MED-01",
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-04",
+    "DL-INT-06",
+    "DL-UI-04",
+    "DL-UI-05",
+    "DL-PERF-01",
+    "DL-PERF-03",
+    "DL-PERF-04",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-ASSET-01",
+    "DL-ASSET-03",
+    "DL-ASSET-06",
+    "DL-QA-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-07",
+    "DL-CODE-01",
+    "DL-CODE-02",
+    "DL-CODE-03",
+    "DL-SAVE-02"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PLAY-004"
+  ],
+  "files": [
+    "scripts/games/day_one_fixture_scrub.gd",
+    "scripts/games/day_one_bathroom_cleanup.gd",
+    "scripts/games/day_one_bathroom_cleaning.gd",
+    "scripts/probe_day_one_bathroom_cleanup.gd",
+    "scripts/probe_day_one_bathroom_shots.gd",
+    "audit/evidence/day-one-bathroom-touch-dirt-20261002/receipt.json"
+  ],
+  "validation": [
+    {
+      "command": "Baseline source/art inspection and focused partial-scrub negative control",
+      "result": "PASS",
+      "evidence": "At c5e98477, small grime sprites fade but baked fixture dirt is replaced only on step completion; a partial scrub has no clean-fixture reveal. Reused dirty/drained/clean textures are existing 1024x576 sources with provenance in assets_src/castle/day_one_bathroom_dirty/PROVENANCE.md. The MA-PLAY-004 embodied sink/tub action gap is related context and is not closed by this dirt-only change. tmp/bathroom-touch-dirt-20261002/baseline.log ends FAIL checks_failed=1: only the new partial-sink-removal assertion fails."
+    },
+    {
+      "command": "Changed-GDScript parser and inference lint; exact Godot 4.7.2 focused bathroom/passive/save probes",
+      "result": "PASS",
+      "evidence": "Changed GDScript parser/inference lint exit 0. Exact Godot 4.7.2 focused-final.log exits 0 with PASS/checks_failed=0: local sink/tub erasure, untouched dirt, stationary/demo/second-finger guards, focus cancellation, drain and saved re-entry, full fixture completion and toilet sibling. Full suite remains a separate blocking lane."
+    },
+    {
+      "command": "Exact Godot 4.7.2 Mobile bathroom runtime captures",
+      "result": "PASS",
+      "evidence": "audit/evidence/day-one-bathroom-touch-dirt-20261002/receipt.json binds eight native Windows source hashes plus their Git blob hashes, thirteen logs and fifteen 1280x720 Mobile captures under ignored tmp/bathroom-touch-dirt-20261002/mobile-isolated-final/. Capture probe exits0/PASS failures=0. Scoped agent image review confirms local grime erasure and fixture-bounded clean reveal. Story seams are marked seen at this staged checkpoint; no fresh-save, voice, physical-device, child or owner acceptance claim."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; exact Godot 4.7.2 static/import gates and all 82 trusted probes",
+      "result": "PASS",
+      "evidence": "Authority and change coverage pass. Initial full-ci.log fails the 2D gate on 29 ignored addons/godot_ai files outside the debt manifest; the untracked editor package is preserved intact under ignored environment-addon/godot_ai/. Exact import and unchanged 2D gate pass/NO_REGRESSION; game-wide satisfaction remains UNSATISFIED. First clean full suite passes all static/import gates and 81/82 probes, with Crown ending early/exit127. Second confirmation passes static/import gates again, then Passive ends early/exit127; that already-failed task-owned runner is stopped. Native subprocess godot_console.exe also interrupts Passive/exit4294967295. These failed transcripts remain preserved and their root cause is unconfirmed. Using the actual official godot.exe directly, all 82 original probes complete with exit0 and ALL OK in direct-engine-suite.log; identical scripts, modes, fresh saves, timeouts and failure rules are bound by the receipt's runner hash. No probe, gate or baseline is relaxed. Exact GitHub topic/dev checks are a separate integration requirement reported at delivery; this sealed local receipt makes no remote CI claim."
+    },
+    {
+      "command": "Capture save-isolation positive and negative controls",
+      "result": "PASS",
+      "evidence": "The capture test refuses to instantiate main without DAY_ONE_BATHROOM_USERDATA_ROOT matching OS.get_user_data_dir(). Safe run exits0; default-folder negative exits1 before game load. Desktop save and .bak hashes match preservation immediately after those isolated and negative runs. Direct trusted probes also write their saves into distinct task-owned APPDATA roots. The final desktop recovery observation is recorded separately; phone data was not accessed."
+    },
+    {
+      "command": "Desktop-save preservation and recovery review",
+      "result": "PENDING",
+      "evidence": "Initial pre-guard captures changed the default desktop save. Current-at-preservation and older snapshots remain under ignored save-recovery/. No exact pre-test backup is verified; user recovery input is requested. Final review finds newer differing default-desktop bytes while another Godot capture task is active, with attribution unconfirmed. That later state is separately preserved under post-validation-observed/. No unverified older state is restored. This recovery gap is not reported as a passing save-preservation result."
+    }
+  ],
+  "acceptance_gaps": "Target-device, child comprehension and owner visual acceptance remain outstanding. No cinematic frames are changed. MA-VIS-006 and MA-PLAY-004 retain their existing lifecycle and acceptance gaps; no game-wide master-audit satisfaction is claimed. Exact recovery of the desktop save altered by the initial capture harness is unverified; an older snapshot is not substituted without user direction."
+}

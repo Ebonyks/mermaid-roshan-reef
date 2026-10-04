@@ -1,0 +1,22 @@
+{
+  "id": "07_swing",
+  "mode": "built-in image_gen",
+  "near": {
+    "prompt": "Use case: illustration-story. Asset: six fresh animation pose drawings of the existing Sky Lagoon mermaid shell SWING SEAT ONLY, as a 2-column by 3-row contact sheet, portrait 1024x1536. Each cell exactly 512x512, ample transparent margins. Reference image is the approved complete swing: preserve its seat identity, materials, silhouette construction and pink/lavender paint. Omit the frame and ropes from output. Draw the SAME rigid seat in every view: seven rounded fan back panels, matching seven cushion sections, two rolled arms, ONE front central pink scallop with ONE pearl, exactly FOUR lavender front scrolls (two per side), two gold rope eyelets on the arms. No ornament additions/deletions; no redrawing into another chair. Fixed frontal camera looking slightly down. Fore/aft pendulum rotates about the horizontal suspension beam, never rolls sideways or yaws. Six closely spaced pitch views in reading order: neutral; 4 degrees toward camera; 8 degrees toward camera; 12 degrees toward camera; 8 degrees toward camera returning; 4 degrees toward camera returning. Toward-camera pitch reveals slightly more underside and less cushion; preserve rigid geometry and width. Subtle amplitude, no extreme flattened back, no changing chair size. Each pose newly drawn with changed visible surfaces, crisp contour and broad painted bands, polished existing 2D storybook style, no blur. Keep eyelets clearly visible and attached. True transparent alpha everywhere outside each seat, no shadow/backdrop/glow/checkerboard/text/grid. The last two returning drawings may add a restrained cushion compression of 1-2 pixels while all seven panels and ornaments remain intact. This is a reference pose sheet, not cinematic footage.",
+    "input": "identity_source.png",
+    "output": "near_native.png"
+  },
+  "far": {
+    "prompt": "Use case: illustration-story. Asset: companion six fresh SWING SEAT pose drawings, 2 columns x 3 rows, native 1024x1536, each cell512x512 with generous transparent margin. Image1 is the just-created seat sheet: exact identity/design/material/paint lock. Image2 is approved complete swing: construction and attachment reference only. Draw only the SAME detached shell seat, no frame/ropes. Seven fan back panels, seven cushion sections, two rolled arms, one front central pink scallop/one pearl, exactly four lavender scrolls two per side, TWO gold rope eyelets on top of arms, fixed counts and rigid geometry. Fixed frontal camera slightly above. These are six subtle but unmistakably different fore/aft PITCH views, swinging AWAY from camera about horizontal suspension beam: neutral; 4 degrees away; 8 degrees away; 12 degrees away; 8 degrees away returning; 4 degrees away returning. Away-camera pitch reveals progressively MORE seat cushion surface and foreshortens shell back vertically a little, no horizontal roll/yaw and no lateral swing. Constant rigid width; view changes physically, not chair design. Do not make a new scallop count or inflate seat. Cell one matches image1 cell one closely at rest. Fresh crisp drawings with clean broad painted bands and restrained highlights, no blur or new design. Each object fully in its cell, all exterior true transparent alpha, no purple glow, shadows, colored background, checkerboard, text or grid. Motion study only.",
+    "inputs": [
+      "near_native.png",
+      "identity_source.png"
+    ],
+    "output": "far_native.png"
+  },
+  "native_dimensions": [
+    1024,
+    1536
+  ],
+  "purpose": "Bounded topology and pitch-continuity correction; no final cinematic generation"
+}
