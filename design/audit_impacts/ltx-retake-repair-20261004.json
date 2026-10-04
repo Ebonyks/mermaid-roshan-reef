@@ -48,6 +48,8 @@
     "assets_src/cinematics/ltx_retake_repair_20261004/environment/project_ci.log",
     "assets_src/cinematics/ltx_retake_repair_20261004/environment/project_ci_initial_coverage_fail.json",
     "assets_src/cinematics/ltx_retake_repair_20261004/environment/project_ci_initial_coverage_fail.log",
+    "assets_src/cinematics/ltx_retake_repair_20261004/environment/reconciliation_gates.json",
+    "assets_src/cinematics/ltx_retake_repair_20261004/environment/reconciliation_gates.log",
     "assets_src/cinematics/ltx_retake_repair_20261004/environment/research_sources.json",
     "assets_src/cinematics/ltx_retake_repair_20261004/environment/retake_server_stats.json",
     "assets_src/cinematics/ltx_retake_repair_20261004/environment/retake_start_lowvram_stall.log",
@@ -541,6 +543,11 @@
       "command": "Git Bash scripts/ci.sh with approved Godot4.7.2",
       "result": "PASS",
       "evidence": "assets_src/cinematics/ltx_retake_repair_20261004/environment/project_ci.json and project_ci.log:full scripts/ci.sh exit0,82 trusted probes exit0, approvedGodot4.7.2; source baselinea4674e81 plus source-study/doc changes. No runtime production files changed."
+    },
+    {
+      "command": "Reconcile origin/dev metadata and new overdraw sensor; gold-star tests/check plus GDScript parser/inference and approvedGodot analyzer",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/ltx_retake_repair_20261004/environment/reconciliation_gates.json/log; parenta52f545f4c5e7cc720b0d1194b374801ece0e24e has no incoming production runtime/game-asset changes.82-probe fullsuite source preserved."
     }
   ],
   "acceptance_gaps": "All completed takes rejected/reference-only; corrected ImageGen guide owner identity/style review pending; full-speed temporal, device and child acceptance absent. No runtime/release/game-wide satisfaction claim. Literal preflight cap failure preserved.",

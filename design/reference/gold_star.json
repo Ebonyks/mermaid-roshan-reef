@@ -103,10 +103,15 @@
     "DL-LAY-05",
     "DL-READ-01",
     "DL-READ-03",
-    "DL-READ-05"
+    "DL-READ-05",
+    "DL-PERF-03",
+    "DL-LAY-03",
+    "DL-LAY-08",
+    "DL-READ-02",
+    "DL-VIS-03"
    ],
-   "meets": "Approved painted art staged as owned cards, one focal action, no code-drawn stand-ins or duplicate copies, no muddy overdraw; Roshan from the approved atlas family and always visible.",
-   "partial": "Mostly authored, with some code-drawn helpers, a stray duplicate, crowded hierarchy or a known atlas defect.",
+   "meets": "Approved painted art staged as owned cards, one focal action, Roshan from the approved atlas family, always visible and in her own colours; and every overdraw check OD1-OD6 passes on measured states.",
+   "partial": "Mostly authored and identity intact, but an overdraw check fails or has not been measured, or a known atlas defect remains.",
    "fails": "Placeholder shapes stand in for objects, duplicates sit over painted copies, or the owner has rejected the look.",
    "source": "assessed"
   },
@@ -179,12 +184,12 @@
    "source": "computed from recorded acceptance"
   }
  ],
- "rating_rule": "5 needs every criterion at 2, including recorded device, child and owner acceptance. 1 when a child cannot reach the game (C1 = 0). 2 when two or more of C2-C10 fail, or a game-specific P0 blocker is open. 3 when one of C2-C10 fails, a game-specific P0/P1 defect is open (C11 = 0), or more than two of C1-C10 are only partly met. Otherwise 4: no failed criterion, no open P0/P1 defect, at most two partial criteria, and only device, child and owner gates left.",
+ "rating_rule": "5 needs every criterion at 2, including recorded device, child and owner acceptance, and every overdraw check passed. 1 when a child cannot reach the game (C1 = 0). 2 when two or more of C2-C10 fail, or a game-specific P0 blocker is open. 3 when one of C2-C10 fails, a game-specific P0/P1 defect is open (C11 = 0), more than two of C1-C10 are only partly met, a core criterion (C1, C3, C4, C5, C6) is below 2, or an overdraw check fails or is unmeasured. Otherwise 4: core criteria met, overdraw checks passed, at most two partial criteria, and only device, child and owner gates left. C7 is capped at 1 until every overdraw check passes.",
  "reference": {
   "game": "day_one_pool",
   "chosen": "2026-10-03",
   "why": "The strongest true-2D game a child can reach today (Grand Puff scores more points but its fight is built on 3D nodes, so it cannot be a template) and the clearest model of the owner's 2026-09-06 job rule: Roshan travels to each part, her hand makes contact, and only then does the authored dirt clear; every part has its own line; every change saves; real-touch probes guard it. It contains the strongest single activity in the game (the waterfall), and its gaps are specific and fixable, so it is the first candidate for a full gold star and the template for room jobs and job games.",
-  "status": "CANDIDATE_REFERENCE: after the five-star implementation every machine-assessed criterion meets the gold star (4/5, 22/24); it becomes the first gold star only when a phone session, an observed child session and the owner's acceptance are recorded.",
+  "status": "CANDIDATE_REFERENCE: the Pool's own code meets every machine-assessed criterion and supplies most reference patterns, but the refined overdraw criteria (2026-10-04) measured overdraw on its screen: the shared castle dressing's code-drawn wash and grime over the room and Roshan, two identical cleanup baskets drawn over each other, a full-screen fill drawn hidden under the room tiles, and a 255-layer burst at Rumi's reveal (MA-VIS-008). It is 3/5 (19/24) until Codex GS5 fixes them; then only device, child and owner acceptance remain.",
   "patterns_reviewed_head": "87f992680c0b6a690bf45b1950275579c45e15ab"
  },
  "patterns": [
@@ -563,5 +568,169 @@
     "reason": "Probe helper for the painter prototype."
    }
   ]
- }
+ },
+ "overdraw": {
+  "status": "CANDIDATE_CRITERIA: refined 2026-10-04 at the owner's request; budgets are starting values the owner may change.",
+  "applies_to": "C7",
+  "data": "design/reference/overdraw.json",
+  "measured_by": "python -B tools/measure_overdraw.py (scripts/probe_overdraw.gd in a Mobile-renderer window; numbers only)",
+  "meaning": "Overdraw is anything drawn over approved art that duplicates, competes with or muddies it, and the GPU cost of layers drawn under other layers. The owner rejected Chef for it (2026-10-03: \"Chef still looks bad, lots of overdraw\").",
+  "states_not_budgeted": [
+   "entry_transition"
+  ],
+  "budgets": {
+   "mean_layers": 2.5,
+   "share_ge4": 0.1,
+   "max_layers": 8,
+   "peak_layers": 32,
+   "translucent_p50": 0,
+   "effect_seconds": 1.0,
+   "effect_over_roshan": 0.25,
+   "wasted_screen_share": 0.5,
+   "wasted_hidden_share": 0.9
+  },
+  "checks": [
+   {
+    "id": "OD1",
+    "title": "One copy of everything",
+    "means": "Every object and state is drawn once: no texture drawn twice over itself, no live object over a painted copy of itself, no old state left under a new one. The only allowed stack is a reveal (authored dirt over the clean fixture it uncovers).",
+    "method": "Machine: no duplicate texture pair (same source region, at least 30% overlap) in any measured state. Review: no live object over a painted copy in the backdrop (MA-VIS-007)."
+   },
+   {
+    "id": "OD2",
+    "title": "No look-alikes beside the action",
+    "means": "Painted objects that resemble the active object (the rack cakes behind Chef) are not near Roshan or the object being worked.",
+    "method": "Review at phone size with the HUD showing."
+   },
+   {
+    "id": "OD3",
+    "title": "No code-drawn shapes on screen",
+    "means": "Nothing on screen is drawn as code shapes over the art, except the child's own marks (paint strokes, traced trails) listed as allowed with a reason.",
+    "method": "Machine: every code-drawing script visible in a measured state must be classified allowed in this section's code_drawing list."
+   },
+   {
+    "id": "OD4",
+    "title": "Effects small and short",
+    "means": "Highlights, sparkles, bubbles and rings sit at the contact point, cover at most a quarter of Roshan, clear within a second and never stay over finished work.",
+    "method": "Machine: items that appear after an action are sampled for 2 s; transient ones must clear within effect_seconds and cover at most effect_over_roshan of her; no translucent item may linger. Guide hands are judged under C3."
+   },
+   {
+    "id": "OD5",
+    "title": "No broad translucent layers",
+    "means": "No full-screen spotlight, dimming, wash, vignette or glow. A room may look dingy only through a declared tint, with Roshan kept in her own colours.",
+    "method": "Machine: in every play state at least half the screen has no translucent layer (GPU translucent median 0), and no translucent layer covers half the screen."
+   },
+   {
+    "id": "OD6",
+    "title": "Fill budget and no wasted layers",
+    "means": "Few layers per pixel, and nothing drawn while hidden under opaque art.",
+    "method": "Machine: in every play state the GPU median frame has mean at most mean_layers, at least four layers on at most share_ge4 of the screen and max at most max_layers; no sampled frame exceeds peak_layers; no layer covering half the screen is drawn while 90% hidden."
+   }
+  ],
+  "code_drawing": [
+   {
+    "path": "scripts/arena/day_one_castle_dressing.gd",
+    "sha256": "5cd4b7f5933e532446f2dd05a85829644e4a9a734ce687065016f0bb18bd79b6",
+    "role": "wash",
+    "allowed": false,
+    "draws": "A full-screen dirt wash (12% purple-grey) over every dirty Day One room, plus edge grime bands (18%), drips and cracks, all drawn as code shapes above the room art, the fixtures and Roshan.",
+    "reason": "Code shapes stand in for, cover or wash over approved art; replace with approved art or remove (OD3)."
+   },
+   {
+    "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
+    "sha256": "1f508b69f4e40ad7ccdca9234b5510b889841e1fe6a12f3b217d0c682dca6340",
+    "role": "effect",
+    "allowed": false,
+    "draws": "Two ripple rings drawn as code arcs around the swimming dust bunny.",
+    "reason": "Code shapes stand in for, cover or wash over approved art; replace with approved art or remove (OD3)."
+   },
+   {
+    "path": "scripts/living_world_canvas.gd",
+    "sha256": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
+    "role": "ambient",
+    "allowed": false,
+    "draws": "Ambient bubble, sparkle, leaf and stem motifs drawn as code shapes (97 calls) at the screen edges; above every career, and above or below a castle room depending on the stage.",
+    "reason": "Code shapes stand in for, cover or wash over approved art; replace with approved art or remove (OD3)."
+   },
+   {
+    "path": "scripts/opera_world_backdrop_2d.gd",
+    "sha256": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
+    "role": "stand_in",
+    "allowed": false,
+    "draws": "Each career's painted backdrop, then career props drawn as code shapes (120 calls, for example _draw_nursery, _draw_doctor, _draw_chef) and stage spotlight polygons over it.",
+    "reason": "Code shapes stand in for, cover or wash over approved art; replace with approved art or remove (OD3)."
+   },
+   {
+    "path": "scripts/opera_world_hotspot_2d.gd",
+    "sha256": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
+    "role": "guide",
+    "allowed": false,
+    "draws": "A pulsing halo and sparkles drawn in code around every armed object, and a code-drawn object when the object is not painted.",
+    "reason": "Code shapes stand in for, cover or wash over approved art; replace with approved art or remove (OD3)."
+   },
+   {
+    "path": "scripts/opera_gesture_surface.gd",
+    "sha256": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
+    "role": "stand_in",
+    "allowed": false,
+    "draws": "The shared work surface of nine careers: 64 draw functions, with ovens, cabinets, candy, pipes, crowns and plants drawn as code shapes over the painted scene, plus code-drawn guides and effects.",
+    "reason": "Code shapes stand in for, cover or wash over approved art; replace with approved art or remove (OD3)."
+   },
+   {
+    "path": "scripts/opera_ballet_surface.gd",
+    "sha256": "76a648de7fd0d52eadf1974257bfaaf3f17bb6b73a0bd96029b35133c33cb70b",
+    "role": "stand_in",
+    "allowed": false,
+    "draws": "Ribbon and twirl games, a shell frame, a ghost finger and a completion halo drawn as code shapes.",
+    "reason": "Code shapes stand in for, cover or wash over approved art; replace with approved art or remove (OD3)."
+   },
+   {
+    "path": "scripts/opera_boxing_surface.gd",
+    "sha256": "321da2219887b07f3efcd142c3015bfcf027ef21a5eb1755e877dc2ff5a71170",
+    "role": "stand_in",
+    "allowed": false,
+    "draws": "Gloves (20 calls), counters, demo, progress lights, targets and lanes drawn as code shapes.",
+    "reason": "Code shapes stand in for, cover or wash over approved art; replace with approved art or remove (OD3)."
+   },
+   {
+    "path": "scripts/opera_geology_surface.gd",
+    "sha256": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
+    "role": "stand_in",
+    "allowed": false,
+    "draws": "River, rounded panels, brush, geode and minerals drawn as code shapes.",
+    "reason": "Code shapes stand in for, cover or wash over approved art; replace with approved art or remove (OD3)."
+   },
+   {
+    "path": "scripts/opera_racer_surface.gd",
+    "sha256": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
+    "role": "stand_in",
+    "allowed": false,
+    "draws": "Race controls and the car drawn as code shapes.",
+    "reason": "Code shapes stand in for, cover or wash over approved art; replace with approved art or remove (OD3)."
+   },
+   {
+    "path": "scripts/opera_teacher_surface.gd",
+    "sha256": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
+    "role": "stand_in",
+    "allowed": false,
+    "draws": "Counting objects, shapes, patterns, groups and the hint button drawn as code shapes, with no textures.",
+    "reason": "Code shapes stand in for, cover or wash over approved art; replace with approved art or remove (OD3)."
+   },
+   {
+    "path": "scripts/opera_performance_overlay.gd",
+    "sha256": "16c7a17ed901750764481e7077ac2e60d4cf5bfc1a3b41970066e4a633545ddb",
+    "role": "stand_in",
+    "allowed": false,
+    "draws": "Book, medal, curtain, progress bar and pearls drawn as code shapes over the stage.",
+    "reason": "Code shapes stand in for, cover or wash over approved art; replace with approved art or remove (OD3)."
+   }
+  ]
+ },
+ "core": [
+  "C1",
+  "C3",
+  "C4",
+  "C5",
+  "C6"
+ ]
 }

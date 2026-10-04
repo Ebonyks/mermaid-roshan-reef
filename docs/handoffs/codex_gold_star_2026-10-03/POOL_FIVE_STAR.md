@@ -2,7 +2,16 @@
 
 Status: `PROPOSED / CANDIDATE`. This is the owner-requested five-star proposal for the gold-star reference game. Claude did the primary coding. The art and voice generation it still needs is handed to Codex in [section 5](#5-codex-handoff-gs2-art-and-voice-for-the-pool).
 
-**Where it stands.** On the [gold-star scorecard](../../../design/reference/GOLD_STAR.md) the Pool moves from 3/5 (17 of 24 points) at dev `87f99268` to **4/5 (22 of 24)**. Every machine-assessed criterion now meets the gold star. A rating of 5 ("gold star") also needs three human results, none of them recorded yet:
+**Where it stands.** On the [gold-star scorecard](../../../design/reference/GOLD_STAR.md) this code moved the Pool from 3/5 (17 of 24 points) at dev `87f99268` to 4/5 (22 of 24).
+
+**Correction, 2026-10-04.** The owner asked for overdraw to be analysed specifically, and the refined criteria measure it on the real screen. The Pool's own code is clean, but its screen is not:
+
+- the shared castle dressing draws a 12% dirt wash, grime, drips and cracks in code over the room and over Roshan;
+- two identical cleanup baskets overlap;
+- a full-screen fill is drawn hidden under the room tiles;
+- Rumi's reveal briefly stacks 255 layers.
+
+So the Pool is **3/5 (19 of 24)** under the refined criteria until [GS5](README.md#gs5-fix-the-measured-overdraw-ma-vis-008) fixes those ([`MA-VIS-008`](../../../audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-008)). After that, a rating of 5 ("gold star") also needs three human results, none of them recorded yet:
 
 - a phone session;
 - an observed child session;
@@ -16,7 +25,7 @@ Nothing here claims that acceptance.
 |---|---|---|
 | C3 Non-reader objectives | Skimmer lines followed the item index and mostly said "leaf"; the seahorse had no pointer; pointers were emoji glyphs; nothing re-spoke when the child went quiet | The skimmer names the leaf only for the leaf and otherwise uses object-neutral lines (`DayOnePoolCleanup.skimmer_pickup_line`). The approved ghost hand points at the next piece, demonstrates one downward stroke on the next waterfall lane, and taps the seahorse's trash. After 8 quiet seconds the activity's other exact line plays, then its hint again, twice at most |
 | C5 No-fail and agency | The seahorse was eight identical taps, and taps made during Roshan's work were silently dropped | Taps during work wait their turn (up to three), each answered at once with bubbles and paid only after its own contact time. A deliberate pull is worth two taps, so pulling is the fastest way through. Focus loss drops the unearned queue. Thirty quiet seconds earn nothing |
-| C7 Art and identity | Code-drawn wash rectangles, chevrons, arcs, progress dots and bubbles; emoji pointer and "✦"/"○" glyph effects; the dingy room tint also darkened Roshan | Only approved art (below). Waterfall progress is the authored dirt itself, wiped away from the top where the child strokes. Roshan's cutouts carry the exact inverse of the room tint, so the room looks dirty but she keeps her approved colours |
+| C7 Art and identity | Code-drawn wash rectangles, chevrons, arcs, progress dots and bubbles; emoji pointer and "✦"/"○" glyph effects; the dingy room tint also darkened Roshan | Only approved art (below). Waterfall progress is the authored dirt itself, wiped away from the top where the child strokes. Roshan's cutouts carry the exact inverse of the room tint. Correction (2026-10-04): the shared castle dressing still draws a 12% wash over her in code, so her colours are muted until GS5 |
 | C8 Feedback | A wrong-object line could play; dropped taps got no response | Every touch answers at once, and no line names the wrong object |
 | C10 Verification | Waterfall and seahorse completion used probe helpers; the idle leg lasted 0.12 s; voice was checked by grepping source | All three activities are completed with real touch events, strokes, taps and pulls. There are thirty-second zero-input, retarget, queue, second-finger, focus-loss and teardown legs. Two mutation tests prove the new checks fail when the behaviour regresses |
 | C4, C6, C9 | Already met | Kept. In addition, a touch on another waterfall lane now retargets Roshan's unearned approach instead of vanishing, and a re-tap on the lane she is working never restarts her work |
@@ -74,7 +83,7 @@ Record each result with `tools/gold_star.py`: add it to the game's `acceptance` 
 
 ## 5. Codex handoff: GS2 art and voice for the Pool
 
-Claude writes; Codex builds every image, board and capture (CLAUDE.md, 2026-09-30). These items raise presentation beyond the machine bar; none is required for the 4/5 already reached.
+Claude writes; Codex builds every image, board and capture (CLAUDE.md, 2026-09-30). These items raise presentation beyond the machine bar. None is required for 4/5; the overdraw repairs in GS5 are.
 
 ### GS2-A. Roshan's three work actions (authored frames instead of one leaning cutout)
 
