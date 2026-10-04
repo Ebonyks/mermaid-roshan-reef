@@ -1162,7 +1162,7 @@ def render_report(study: dict, judgement: dict | None = None) -> str:
     roadmap = study.get("roadmap", {})
     if roadmap.get("counts"):
         order = ("Repair", "Verify", "Decide", "Waiting", "Parked", "Strengthen")
-        lines.append("Lanes: " + " · ".join(f"{lane} {roadmap['counts'][lane]}" for lane in order if lane in roadmap["counts"]) + ". Full plan: [ROADMAP.md](ROADMAP.md).")
+        lines.append("Findings by lane: " + " · ".join(f"{lane} {roadmap['counts'][lane]}" for lane in order if lane in roadmap["counts"]) + ". Full plan: [ROADMAP.md](ROADMAP.md).")
         for lane in ("Strengthen", "Repair"):
             for item in roadmap.get("top", {}).get(lane, [])[:2]:
                 lines.append(f"- {lane}: \"{item['prompt']}\"{' (owner priority)' if item.get('owner_priority') else ''}")
@@ -1423,6 +1423,12 @@ def main(argv: list[str] | None = None) -> int:
             raise ValueError("Saved study cycle identifier is unsafe")
         if args.refresh_roadmap:
             study["roadmap_observation"] = roadmap_observation(root, study)
+            # Lane counts and top items follow the roadmap actually generated from
+            # the committed findings and decisions, not an earlier snapshot.
+            try:
+                study["roadmap"] = roadmap_tool.roadmap_summary(root, study)
+            except (OSError, ValueError, KeyError) as error:
+                study["roadmap"] = {"status": "NOT_MEASURED", "reason": str(error)}
             study["health_targets"] = health_targets(study)
         judgement_path = args.judgement or (args.render.parent if args.render else output) / "judgement.json"
         judgement = load_judgement(root, judgement_path, study) if judgement_path.is_file() else None

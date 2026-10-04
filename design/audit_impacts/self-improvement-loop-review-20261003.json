@@ -1,6 +1,6 @@
 {
   "id": "self-improvement-loop-review-20261003",
-  "scope": "Owner request 2026-10-03: \"audit, evaluate, and improve\" commit 4cb14feb (Codex's implementation of the self-improvement loop handoff), then \"Refine and fix it.\" Review and evaluation in docs/handoffs/codex_loop_review_2026-10-03/REVIEW.md (LR-01 to LR-27, scorecards against LP0-LP11 and AC-1 to AC-10). Repairs to the loop's tooling and records: strength-evidence drift no longer fails CI (structure stays gated, drift becomes a re-review item); the study takes each advisory step's own wrapper verdict, ignores echoed script lines and the benign audio warning, reads the workflow as committed at the studied head, refuses uncommitted changes outside the cycle folder, reconciles PENDING CI entries by exact head, measures shipping surfaces from trusted probes, captures and findings, stores compact output without local paths, hashes text as committed, fails closed on health targets, measures lessons from the LP4 boundary and renders an owner-readable report from study.json plus a validated judgement file; the roadmap lanes findings by lifecycle and ranks recorded owner priority and severity first with prompts that route to recipes; the planner is generic (no stored job answer, derived save facts, candidate intents when a prompt matches none) and recipes are rendered from the catalogue (no-images rule restated, reserved decisions wait, DL-INT-14 imp contest, Parler voice pipeline, Roshan identity anchor, lifecycle check first in repair); the decision register is enforced append-only by a CI-run test and gains the owner's 2026-09-30 job-takeover priority from its two sources; plain owner and device pages come from design/reference/verification_checks.json; the advisory wrapper exits cleanly for declared retirements and honours a verdict printed before an engine hang; run_godot.ps1 passes Godot flags through; ci.sh exports GODOT; the build line in CLAUDE.md and AGENTS.md names the resolver; cycle files are unignored; one mojibake fixed. Finding histories of MA-DOC-009, MA-CI-008, MA-DOC-006 and MA-OPERA-001 appended; master-audit pointer and ledger rows added. Codex handoff docs/handoffs/codex_loop_review_2026-10-03/README.md (CR1-CR6) for the game, probe, capture and workflow items. No game script, scene, asset, image, save key, rule text or finding lifecycle changes.",
+  "scope": "Owner request 2026-10-03: \"audit, evaluate, and improve\" commit 4cb14feb (Codex's implementation of the self-improvement loop handoff), then \"Refine and fix it.\" Review and evaluation in docs/handoffs/codex_loop_review_2026-10-03/REVIEW.md (LR-01 to LR-27, scorecards against LP0-LP11 and AC-1 to AC-10). Repairs to the loop's tooling and records: strength-evidence drift no longer fails CI (structure stays gated, drift becomes a re-review item); the study takes each advisory step's own wrapper verdict, ignores echoed script lines and the benign audio warning, reads the workflow as committed at the studied head, refuses uncommitted changes outside the cycle folder, reconciles PENDING CI entries by exact head, measures shipping surfaces from trusted probes, captures and findings, stores compact output without local paths, hashes text as committed, fails closed on health targets, measures lessons from the LP4 boundary and renders an owner-readable report from study.json plus a validated judgement file; the roadmap lanes findings by lifecycle and ranks recorded owner priority and severity first with prompts that route to recipes; the planner is generic (no stored job answer, derived save facts, candidate intents when a prompt matches none) and recipes are rendered from the catalogue (no-images rule restated, reserved decisions wait, DL-INT-14 imp contest, Parler voice pipeline, Roshan identity anchor, lifecycle check first in repair); the decision register is enforced append-only by a CI-run test and gains the owner's 2026-09-30 job-takeover priority from its two sources; plain owner and device pages come from design/reference/verification_checks.json; the advisory wrapper exits cleanly for declared retirements and honours a verdict printed before an engine hang; run_godot.ps1 passes Godot flags through; ci.sh exports GODOT; the build line in CLAUDE.md and AGENTS.md names the resolver; cycle files are unignored; one mojibake fixed. Finding histories of MA-DOC-009, MA-CI-008, MA-DOC-006 and MA-OPERA-001 appended; master-audit pointer and ledger rows added. Codex handoff docs/handoffs/codex_loop_review_2026-10-03/README.md (CR1-CR6) for the game, probe, capture and workflow items. No game script, scene, asset, image, save key, rule text or finding lifecycle changes. Follow-up commit polished the report and roadmap from a dry run. A second commit adds the first reproducible study cycle, 2026-10-03b, at the repair head after its CI run: generated report, roadmap, owner page and phone session, plus Claude's judgement.json (strengths, weaknesses, five prompts, five questions); the 2026-10-03 infrastructure-study views become historical evidence in the ledger. The owner then reported \"Chef pours backwards still\" and \"Chef still looks bad, lots of overdraw\": recorded as ODR-CHEF-VERDICT-20261003; MA-OPERA-001 reopened (FIXED_PENDING_VERIFICATION -> CONFIRMED_OPEN) with the diagnosis (left-facing jug art tilted clockwise with the stream on its handle side; a dark bloom and flat code-drawn duplicates of the painted bowl, oven and cake on every step); Codex handoff revision 2 adds CR0 with the exact fix and checks; the roadmap ranks a fresh recorded owner report above age.",
   "baseline": "4cb14febc2c5f0074d5ad8386ce66f19f940c84d",
   "rules": [
     "DL-AUTH-02",
@@ -32,8 +32,19 @@
     "AGENTS.md",
     "CLAUDE.md",
     "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/ROADMAP.md",
     "audit/cycles/2026-10-03-baseline/owner_answers.json",
     "audit/cycles/2026-10-03/IMPLEMENTATION.md",
+    "audit/cycles/2026-10-03b/CURRENT_SURFACES.md",
+    "audit/cycles/2026-10-03b/DEVICE_SESSION.md",
+    "audit/cycles/2026-10-03b/GENERATED_CHANGE_HISTORY.md",
+    "audit/cycles/2026-10-03b/OWNER_REVIEW.md",
+    "audit/cycles/2026-10-03b/ROADMAP.md",
+    "audit/cycles/2026-10-03b/STUDY_REPORT.md",
+    "audit/cycles/2026-10-03b/VERIFICATION_SWEEP.md",
+    "audit/cycles/2026-10-03b/judgement.json",
+    "audit/cycles/2026-10-03b/owner_answers.json",
+    "audit/cycles/2026-10-03b/study.json",
     "audit/cycles/README.md",
     "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
     "design/05_DOC_LEDGER.md",
@@ -110,8 +121,18 @@
     },
     {
       "command": "Anonymous fetch of the review packet manifest and every listed file from raw.githubusercontent.com at the pushed commit",
-      "result": "PENDING",
-      "evidence": "Recorded in the receipt commit that follows the publication commit."
+      "result": "PASS",
+      "evidence": "Revision 1 published at commit 5374e89ccc2083b90cf07dc55a0acc6cbc4de3bc on branch claude/loop-implementation-audit-20261003 (https://github.com/Ebonyks/mermaid-roshan-reef/tree/5374e89ccc2083b90cf07dc55a0acc6cbc4de3bc/docs/handoffs/codex_loop_review_2026-10-03). Anonymous HTTPS fetch from raw.githubusercontent.com with no token at 2026-10-04T01:50:06Z: MANIFEST.json HTTP 200, 1,500 bytes, SHA-256 84d45a3e94ece71d8ac1c36c9ba2430927328108e1fd5411b1ab472b740fc800, revision 1, 4 of 4 files match; the master audit, finding register, ledger, impact record, manifest, study_game.py, build_study_roadmap.py, plan_prompt.py and verification_checks.json at that commit are byte-identical to the committed blobs. Revision 2 (CR0) is verified after its own push."
+    },
+    {
+      "command": "GitHub Probe Suite at the repair head e9915f44b8d7cf9085213a57c61ee6b1e7756a16",
+      "result": "PASS",
+      "evidence": "Probe Suite run 37170079511 at e9915f44: success; 81 trusted probes ran with no reported failure. The run at 5374e89c (37169181006) was cancelled by the next push; the run at 620df06c (37169579389) failed at Static gates because that follow-up commit did not touch this record (lesson recorded)."
+    },
+    {
+      "command": "python -B tools/study_game.py --cycle 2026-10-03b --as-of 2026-10-03 --previous audit/cycles/2026-10-03/study.json --timeout 300 (clean checkout of e9915f44), then build_study_roadmap.py and study_game.py --render --refresh-roadmap with Claude's judgement.json in this branch",
+      "result": "PASS",
+      "evidence": "Cycle 2026-10-03b at e9915f44 with CI run 37170079511: 16 advisory steps read as 11 measured, 3 failed (Sky Lagoon, dust-boss arena and pearl-castle captures on the CI renderer), 1 capped (Opera pacing), 1 retired (Reef); 81 trusted probes clean; 25 of 40 PENDING entries now have a finished exact-head run (was 2 of 38); study.json 284 KB (was 2.6 MB); report 91 lines with Claude's judgement (five prompts, five numbered questions). The roadmap and report summary were refreshed after the owner's Chef report reopened MA-OPERA-001."
     },
     {
       "command": "GitHub Probe Suite at the branch head",
@@ -175,5 +196,12 @@
       "purpose": "Source of the owner's 2026-09-30 job-takeover priority"
     }
   ],
-  "acceptance_gaps": "Tooling, recipes, registers and records repaired; no game file, probe capture, image, save key or lifecycle closure. MA-DOC-009 and MA-CI-008 stay IN_PROGRESS: two real owner-answer/build/check/learn cycles, a booked verification session, owner review of the second cycle and Codex packages CR1-CR6 (possible Chef first-step stall, CI captures on the fallback renderer, Opera pacing coverage, probe and workflow repairs, register corrections, fresh-agent cold start) remain. The 2026-10-03 cycle outputs stay as the historical infrastructure study; cycle 2026-10-03b follows in a separate commit once CI has run on this head. No visual, device, child or owner acceptance is claimed."
+  "acceptance_gaps": "Tooling, recipes, registers and records repaired; no game file, probe capture, image, save key or lifecycle closure. MA-DOC-009 and MA-CI-008 stay IN_PROGRESS: two real owner-answer/build/check/learn cycles, a booked verification session, owner review of the second cycle and Codex packages CR1-CR6 (possible Chef first-step stall, CI captures on the fallback renderer, Opera pacing coverage, probe and workflow repairs, register corrections, fresh-agent cold start) remain. The 2026-10-03 cycle outputs stay as the historical infrastructure study; cycle 2026-10-03b follows in a separate commit once CI has run on this head. No visual, device, child or owner acceptance is claimed. MA-OPERA-001 is reopened on the owner's report; no game file changes here, so Chef stays as the owner saw it until CR0 lands and the owner accepts it in context.",
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-CHEF-VERDICT-20261003",
+      "evidence": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-001",
+      "write_back": "MA-OPERA-001 reopened; Codex package CR0 in docs/handoffs/codex_loop_review_2026-10-03/README.md adds a stream-start probe so the pour direction is checked"
+    }
+  ]
 }

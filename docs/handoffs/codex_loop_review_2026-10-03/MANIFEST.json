@@ -1,8 +1,8 @@
 {
  "schema": "codex_handoff_manifest/1",
  "handoff": "codex_loop_review_2026-10-03",
- "revision": 1,
- "revision_note": "Initial publication with the repairs to the loop tooling and records.",
+ "revision": 2,
+ "revision_note": "Adds CR0 (the owner Chef verdict: backwards pour and overdraw) and LR-28; revision 1 was 5374e89c.",
  "status": "PROPOSED / CANDIDATE",
  "prepared_by": "Claude (audit, evaluation, repairs to loop tooling and records on the owner's request; no game change; no images)",
  "recipient": "Codex",
@@ -15,7 +15,7 @@
  ],
  "entry": "README.md",
  "file_count": 4,
- "total_bytes": 27911,
+ "total_bytes": 32196,
  "files": [
   {
    "path": ".gdignore",
@@ -25,14 +25,14 @@
   },
   {
    "path": "README.md",
-   "bytes": 6849,
-   "sha256": "b9604d024677989d941825ed09e48a7480c6e9dc43b3da2974a88bcbb20861f5",
+   "bytes": 10581,
+   "sha256": "81e1cd9f62b357bb52176b972f208668df789e5358ea44ff697ab36ac332863c",
    "role": "Codex handoff for what the review left: CR1-CR6"
   },
   {
    "path": "REVIEW.md",
-   "bytes": 14240,
-   "sha256": "ed3bde8eab23de4ad0f826456369145bd457edc605616e9ba337ad2974466ebb",
+   "bytes": 14793,
+   "sha256": "6ecb86c5c1bf41e9fcc0ec33d7daa85bb797b3eacf6ca1e050e0f58432a74650",
    "role": "audit, evaluation and repair record of commit 4cb14feb (LR-01 to LR-27)"
   },
   {

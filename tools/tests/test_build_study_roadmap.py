@@ -246,6 +246,15 @@ class LoopRepairTests(unittest.TestCase):
         self.assertEqual(["MA-DOC-901", "MA-DOC-902"], [item["id"] for item in items])
         self.assertIn("owner priority", items[0]["owner_reason"])
 
+    def test_owner_report_outranks_age_but_not_priority(self):
+        records = {"MA-TEST-010": {**self.record(severity="P1"), "history": "2026-10-03: reopened on owner report."},
+                   "MA-TEST-011": {**self.record(severity="P1"), "history": "2026-08-01: opened."},
+                   "MA-TEST-012": {**self.record(severity="P2"), "history": "2026-08-01: opened."}}
+        priorities = {"MA-TEST-010": {"rank": 1, "reason": "owner report ODR-X (2026-10-03)"},
+                      "MA-TEST-012": {"rank": 0, "reason": "owner priority ODR-Y (2026-09-30)"}}
+        ordered = [item["id"] for item in roadmap.make_repair_items(records, dt.date(2026, 10, 3), priorities=priorities)]
+        self.assertEqual(["MA-TEST-012", "MA-TEST-010", "MA-TEST-011"], ordered)
+
     def test_live_register_priority_reaches_the_roadmap(self):
         priorities = roadmap.owner_priorities(ROOT)
         self.assertIn("MA-DOC-006", priorities)

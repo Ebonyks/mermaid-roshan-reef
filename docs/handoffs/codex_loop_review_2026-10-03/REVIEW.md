@@ -117,6 +117,7 @@ reason only Codex can repair.
 | LR-25 | Medium | Opera pacing measures 12 of 45 runs (4 of 15 careers); 10 modes unsupported; a cancelled act counts as finished | `BALANCE\|RESULT\|CAPPED\|measured=12` | For Codex (CR3) |
 | LR-26 | Low | The dust-boss fun band is described as dropped, not checked; the controls run repeats work; captures hard-code engine patch 2; the legacy diagnostic still saves Reef shots | `probes.yml`, probes | For Codex (CR4) |
 | LR-27 | Low | Roshan decisions list a dummy test as their check; Q12 drops "no rule is enforced" | `owner_decisions.json` | Append correction entries (CR5); records are immutable |
+| LR-28 | High | The owner reported on 2026-10-03: "Chef pours backwards still" and "Chef still looks bad, lots of overdraw". The jug art faces left while the code tilts it clockwise and pours from its right side; every Chef step stacks a dark bloom and flat code-drawn duplicates of the painted bowl, oven and cake | `widget_pour_chef_mover.png` (spout at x=22 of 256); `_pour_spout_point`, `_draw_activity_focus`, `_draw_chef_crank`, `_draw_oven`, `_draw_trace_chef_subject` | `MA-OPERA-001` reopened; `ODR-CHEF-VERDICT-20261003`; Codex package CR0 |
 
 The committed `2026-10-03` report and roadmap stay as the historical record of
 the infrastructure study; the first reproducible cycle is `2026-10-03b`.

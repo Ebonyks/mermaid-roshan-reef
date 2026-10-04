@@ -48,6 +48,7 @@ The verification sweep groups missing evidence into one owner page and one devic
 
 | Cycle | State | Evidence |
 |---|---|---|
+| [2026-10-03b](2026-10-03b/STUDY_REPORT.md) | First reproducible cycle, at the repair head; Claude's judgement written; awaiting the owner's answers | [Roadmap](2026-10-03b/ROADMAP.md), [owner page](2026-10-03b/OWNER_REVIEW.md), [phone session](2026-10-03b/DEVICE_SESSION.md), [surfaces](2026-10-03b/CURRENT_SURFACES.md) |
 | [2026-10-03](2026-10-03/STUDY_REPORT.md) | Infrastructure study at `30d82725` plus uncommitted implementation changes, with CI from before the sensor repair; reviewed in the [loop review](../../docs/handoffs/codex_loop_review_2026-10-03/REVIEW.md) | [Roadmap](2026-10-03/ROADMAP.md), [verification sweep](2026-10-03/VERIFICATION_SWEEP.md), [implementation evidence](2026-10-03/IMPLEMENTATION.md) |
 | 2026-10-03 baseline | Intake measurement; historical handoff cycle zero; one historic owner priority entered on 2026-10-03 | [Loop health](2026-10-03-baseline/loop_health.json), [preserved planning updates](2026-10-03-baseline/PLANNING_HISTORY.md), [historical repair order](2026-10-03-baseline/REPAIR_ORDER_HISTORY.md), [owner answers](2026-10-03-baseline/owner_answers.json) |
 

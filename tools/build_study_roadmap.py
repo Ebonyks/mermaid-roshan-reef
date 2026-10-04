@@ -166,10 +166,11 @@ def rank_child_impact(fields: dict[str, str]) -> tuple[int, str]:
 
 
 def owner_priorities(root: Path) -> dict[str, dict]:
-    """Explicit recorded owner priorities from the decision register.
+    """Recorded owner direction from the decision register, by finding.
 
-    Only recorded_owner entries with priority "first" and applies_to finding IDs
-    count; operating defaults and prose never reorder work.
+    Rank 0: an entry with priority "first". Rank 1: any other recorded owner
+    decision or verdict that names the finding (for example a failed acceptance).
+    Operating defaults and prose never reorder work.
     """
     path = root / DECISIONS
     if not path.is_file():
@@ -181,12 +182,15 @@ def owner_priorities(root: Path) -> dict[str, dict]:
     result: dict[str, dict] = {}
     rows = data.get("decisions", []) if isinstance(data, dict) else []
     for row in rows:
-        if not isinstance(row, dict) or row.get("authority") != "recorded_owner" or row.get("priority") != "first":
+        if not isinstance(row, dict) or row.get("authority") != "recorded_owner":
             continue
+        first = row.get("priority") == "first"
         for finding in row.get("applies_to") or []:
-            if isinstance(finding, str):
-                result[finding] = {"decision": row.get("id"), "date": row.get("date"),
-                                   "reason": f"owner priority {row.get('id')} ({row.get('date')})"}
+            if not isinstance(finding, str) or (finding in result and result[finding]["rank"] <= (0 if first else 1)):
+                continue
+            label = "owner priority" if first else "owner report"
+            result[finding] = {"decision": row.get("id"), "date": row.get("date"), "rank": 0 if first else 1,
+                               "reason": f"{label} {row.get('id')} ({row.get('date')})"}
     return result
 
 
@@ -234,7 +238,7 @@ def make_repair_items(records: dict, today: dt.date, overrides: dict | None = No
         item = {"id": identifier, "title": fields.get("title", identifier), "lifecycle": lifecycle,
                 "severity": severity, "lane": lane, "prompt": item_prompt(identifier, lifecycle, fields.get("title", identifier)),
                 "child_rank": child_rank, "child_reason": child_reason,
-                "owner_rank": override.get("owner_priority", 0 if priority else 1),
+                "owner_rank": override.get("owner_priority", priority.get("rank", 0) if priority else 2),
                 "owner_reason": priority["reason"] if priority else "no recorded owner priority",
                 "depends_on": dependencies, "dependency_reason": "explicit study override" if dependencies else "No directed dependency supplied; relationships are context, not an inferred blocker.",
                 "age_days": age, "last_history": last, "source": f"{FINDINGS}#{identifier.lower()}"}
@@ -394,7 +398,7 @@ def advisory_gap(step: dict) -> bool:
 
 def strengthen_items(study: dict, process: list[dict], stale: list[dict], candidates: int) -> list[dict]:
     """Owner-priority process findings, then live sensor gaps, then the remaining work."""
-    rows = [item for item in process if item.get("owner_rank") == 0]
+    rows = [item for item in process if item.get("owner_rank", 2) < 2]
     ci = study.get("ci", {})
     if ci.get("status") not in {"MEASURED", "PARTIAL"}:
         rows.append({"id": "CI-UNMEASURED", "title": f"CI evidence for the studied head is {ci.get('status', 'NOT_MEASURED')}: {ci.get('reason', 'no exact-head run read')}.",
@@ -414,7 +418,7 @@ def strengthen_items(study: dict, process: list[dict], stale: list[dict], candid
             detail = f"{status}; measured summary {summary_status}" if summary_status else status
             rows.append({"id": f"SENSOR-{name}", "title": f"Sensor {name}: {detail}.", "prompt": f"Study the {name} sensor gap", "recipe": "REC-STUDY",
                          "source": str(sensor.get("reason") or "Measured summary reports open work; no passing evidence claimed.")})
-    rows += [item for item in process if item.get("owner_rank") != 0]
+    rows += [item for item in process if item.get("owner_rank", 2) >= 2]
     for item in study.get("handoffs") or study.get("loop_health", {}).get("handoffs", []):
         if item.get("status") not in {"NOT_STARTED", "PARTLY_BUILT"}:
             continue
@@ -509,7 +513,7 @@ def build_outputs(root: Path, study: dict, today: str | None = None) -> dict[str
     lines = [f"# Improvement roadmap — {cycle}", "", f"Status: `SUPPORTING_CURRENT / GENERATED_ADVISORY`. Studied head: `{study.get('studied_head') or study.get('head', 'not supplied')}`. Generated from canonical findings, the decision register, strengths and the study; never changes rules, findings, save state or images.", "",
              "Order inside each lane: recorded owner priority first, then severity (P0 to P3), then child-impact wording, then directed dependencies, then age since the last dated history entry. This is a planning aid, not an owner verdict or a quality score. Every \"Say\" line is ready to give to Claude or Codex as written.", ""]
     render_lane(lines, "Repair", "Child-facing defects that a change to the game can fix.", lanes["Repair"], recipes, root, DISPLAY_LIMIT)
-    render_lane(lines, "Verify", "Fixed, waiting for a phone, owner or child check. Batched into [OWNER_REVIEW.md](OWNER_REVIEW.md) and [DEVICE_SESSION.md](DEVICE_SESSION.md).", lanes["Verify"], recipes, root, None)
+    render_lane(lines, "Verify", "Fixed, waiting for a phone, owner or child check. Batched into the cycle folder's `OWNER_REVIEW.md` and `DEVICE_SESSION.md`.", lanes["Verify"], recipes, root, None)
     render_lane(lines, "Decide", "Waiting for an owner decision; each one is asked as a numbered question with a default.", lanes["Decide"], recipes, root, None)
     render_lane(lines, "Waiting", "Blocked by evidence or people outside the project.", lanes["Waiting"], recipes, root, None)
     render_lane(lines, "Parked", "Deferred with a recorded reason.", lanes["Parked"], recipes, root, None)
@@ -537,7 +541,8 @@ def roadmap_summary(root: Path, study: dict) -> dict:
     items = make_repair_items(records, cycle_date(cycle), study.get("roadmap_overrides"), owner_priorities(root))
     counts = {lane: sum(item["lane"] == lane for item in items) for lane in ("Repair", "Verify", "Decide", "Waiting", "Parked", "Strengthen")}
     top = {lane: [{"id": item["id"], "prompt": item["prompt"], "recipe": item.get("recipe"), "severity": item["severity"],
-                   "owner_priority": item["owner_rank"] == 0, "reason": item.get("reason")}
+                   "owner_priority": item["owner_rank"] == 0, "owner_report": item["owner_rank"] == 1,
+                   "reason": item.get("reason")}
                   for item in items if item["lane"] == lane][:3] for lane in ("Repair", "Verify", "Decide", "Strengthen")}
     return {"counts": counts, "top": top, "priorities": owner_priorities(root)}
 
