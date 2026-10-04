@@ -26,9 +26,11 @@ import sys
 from pathlib import Path
 
 try:
+    from tools.audit_game_2d import _token_counts as game_2d_token_counts
     from tools.audit_probe_parity import _loop_names
     from tools.build_study_roadmap import SEVERITY_RANK, TEXT_EVIDENCE_SUFFIXES, sha256, split_records
 except ModuleNotFoundError:
+    from audit_game_2d import _token_counts as game_2d_token_counts
     from audit_probe_parity import _loop_names
     from build_study_roadmap import SEVERITY_RANK, TEXT_EVIDENCE_SUFFIXES, sha256, split_records
 
@@ -431,6 +433,15 @@ def validate(root: Path, catalogue: dict, rubric: dict) -> list[str]:
             errors.append(f"{RUBRIC}: not_games entry needs an existing path and a reason: {entry.get('path')}")
     for path in uncovered_files(root, catalogue, rubric):
         errors.append(f"{path}: game file is not in the catalogue; catalogue and assess it, or list it under coverage.not_games with a reason")
+    # design/ JSON is live project data to tools/audit_game_2d.py, so an engine
+    # class name in a note would count as new 3D debt and fail the 2D gate.
+    for name in (CATALOGUE, RUBRIC):
+        path = root / name
+        words = game_2d_token_counts(path.read_text(encoding="utf-8")) if path.is_file() else {}
+        if words:
+            listed = ", ".join(f"{word} x{count}" for word, count in words.items())
+            errors.append(f"{name}: {listed} would count as 3D debt in tools/audit_game_2d.py; "
+                          "write plain words such as '3D nodes' instead of engine class names")
     return errors
 
 

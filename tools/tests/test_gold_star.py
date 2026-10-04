@@ -231,6 +231,16 @@ class FixtureTests(unittest.TestCase):
         for expected in ("MA-NOPE-001", "probe_missing", "cannot be assessed by hand", "DL-NOPE-01"):
             self.assertTrue(any(expected in error for error in errors), expected)
 
+    def test_engine_class_names_in_notes_fail_before_the_2d_gate(self):
+        self.repo.catalogue["games"][1]["scores"]["C2"]["note"] = "A Node3D root and a Camera3D."
+        self.repo.save()
+        errors = gold_star.validate(self.root, *self.load())
+        self.assertTrue(any(gold_star.CATALOGUE in error and "Node3D x1" in error and "Camera3D x1" in error
+                            for error in errors), errors)
+        self.repo.catalogue["games"][1]["scores"]["C2"]["note"] = "A 3D root node and a 3D camera."
+        self.repo.save()
+        self.assertEqual([], gold_star.validate(self.root, *self.load()))
+
     def test_acceptance_needs_real_evidence(self):
         self.repo.catalogue["games"][0]["acceptance"]["owner"] = {"result": "accepted", "evidence": "ODR-MISSING"}
         self.repo.catalogue["games"][0]["acceptance"]["child"] = {"result": "accepted", "evidence": "missing/session.md"}

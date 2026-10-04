@@ -1,6 +1,6 @@
 {
   "id": "gold-star-pool-five-star-20261003",
-  "scope": "Owner-requested proposed five-star implementation of the gold-star reference game, the Day One Mermaid Pool, with the primary coding by Claude and the art and voice generation handed to Codex. Truthful skimmer pickup lines (the leaf line only for the leaf, object-neutral lines otherwise, exact per-object takes preferred when READY); the approved ghost hand points at the next piece, demonstrates the waterfall stroke and taps the seahorse trash; idle re-prompts replay the activity's exact lines twice at most; waterfall progress is the authored dirt wiped from the top, and a touch on another lane retargets the unearned approach; seahorse taps during work queue with full contact per tug and a deliberate pull counts twice; approved soap bubbles and clean rings replace every code-drawn arc, dot, wash and glyph; Roshan keeps her approved colours under the dingy room tint; the probe completes all three activities with real input and adds zero-input, queue, retarget, second-finger and teardown legs. The Pool is re-assessed from 3/5 (17/24) to 4/5 (22/24) on the gold-star scorecard; only device, child and owner acceptance remain. Codex handoff packet GS0-GS4 published with the audit. Packet revision 2 brings the GS2-A action handoff under the owner's 2026-10-03 animation workflow decision merged from dev (DL-MOT-12, DL-MOT-14 to DL-MOT-16): one job card per action, an editable Aseprite master with per-frame hand sockets and lossless export, a clip contract and a scoop pilot.",
+  "scope": "Owner-requested proposed five-star implementation of the gold-star reference game, the Day One Mermaid Pool, with the primary coding by Claude and the art and voice generation handed to Codex. Truthful skimmer pickup lines (the leaf line only for the leaf, object-neutral lines otherwise, exact per-object takes preferred when READY); the approved ghost hand points at the next piece, demonstrates the waterfall stroke and taps the seahorse trash; idle re-prompts replay the activity's exact lines twice at most; waterfall progress is the authored dirt wiped from the top, and a touch on another lane retargets the unearned approach; seahorse taps during work queue with full contact per tug and a deliberate pull counts twice; approved soap bubbles and clean rings replace every code-drawn arc, dot, wash and glyph; Roshan keeps her approved colours under the dingy room tint; the probe completes all three activities with real input and adds zero-input, queue, retarget, second-finger and teardown legs. The Pool is re-assessed from 3/5 (17/24) to 4/5 (22/24) on the gold-star scorecard; only device, child and owner acceptance remain. Codex handoff packet GS0-GS4 published with the audit. Packet revision 2 brings the GS2-A action handoff under the owner's 2026-10-03 animation workflow decision merged from dev (DL-MOT-12, DL-MOT-14 to DL-MOT-16): one job card per action, an editable Aseprite master with per-frame hand sockets and lossless export, a clip contract and a scoop pilot. Packet revision 3 follows a red Probe Suite run: the scorecard prose named engine 3D classes, which the true-2D gate counts as new runtime debt in design/ JSON; the prose now uses plain words and tools/gold_star.py --check refuses class names before the gate is reached.",
   "baseline": "639847f70982b431ae2e521539f8dc46419edb4b",
   "rules": [
     "DL-AUTH-05",
@@ -55,7 +55,9 @@
     "scripts/games/pool_seahorse_rescue_activity.gd",
     "scripts/games/pool_skimmer_activity.gd",
     "scripts/games/pool_waterfall_activity.gd",
-    "scripts/probe_day_one_pool_cleanup.gd"
+    "scripts/probe_day_one_pool_cleanup.gd",
+    "tools/gold_star.py",
+    "tools/tests/test_gold_star.py"
   ],
   "validation": [
     {
@@ -94,9 +96,19 @@
       "evidence": "Checked 2026-10-04T06:53:39Z: manifest SHA-256 39fed8bd8f1500d1f5e3ecd0813f401625ac8acc78773d235edc710c27904d04; 22 of 22 items matched their manifest bytes and SHA-256 (4 packet files, 18 references, including README.md 00546597614e and POOL_FIVE_STAR.md 03a0f25fe240); the commit's tree page and the branch entry page answered 200 anonymously."
     },
     {
+      "command": "Probe Suite (graphics fork) run 37184172269 on df99a3717aca39f06ed703a2d3ff677feefe13cf",
+      "result": "FAIL",
+      "evidence": "The static gates passed; the import step's python3 tools/audit_game_2d.py --regression-gate reported G2D101 manifest drift for design/reference/games.json (Camera3D x2, Node3D x3, Sprite3D x3 in three C2 notes) and design/reference/gold_star.json (Vector3 x1 in the C2 definition). design/ JSON is live project data to that gate. No probe ran."
+    },
+    {
+      "command": "Repair: reword the four notes; python -B tools/gold_star.py --render; then python -B tools/gold_star.py --check --strict, python -B tools/audit_game_2d.py --regression-gate and exact Godot 4.7.2-stable --check-only on the six changed scripts",
+      "result": "PASS",
+      "evidence": "GOLDSTAR|RESULT|OK|60 games, 0 errors, 0 stale; GAME2D| RESULT| NO_REGRESSION; all six scripts compile. Before the rewording, the new gold_star.py guard reported the same four mentions as errors, and its fixture test covers both the error and the plain-words pass."
+    },
+    {
       "command": "Probe Suite (graphics fork) on the pushed branch head",
       "result": "PENDING",
-      "evidence": "Run 37183788471 on 7bf4620540d380a2f1a57655210019126066ae94 and the run on 128723cbf053173d13e24cdebaa22569bacd837b were superseded by the workflow's cancel-in-progress concurrency as later commits were pushed; the branch is merged into dev only after a green run on its exact head, which carries this record."
+      "evidence": "Runs 37183788471 (7bf46205) and the run on 128723cb were superseded by the workflow's cancel-in-progress concurrency; run 37184172269 (df99a371) failed as recorded above. The branch is merged into dev only after a green run on its exact head."
     },
     {
       "command": "Phone session, observed child session and owner verdict for the Mermaid Pool (POOL_FIVE_STAR.md section 4)",
@@ -119,6 +131,11 @@
       "lesson": "A room-wide tint on a shared parent also recolours the character; give her cutouts the exact inverse and fade both together.",
       "write_back": "design/reference/gold_star.json",
       "recurrence_key": "tint-recolours-identity"
+    },
+    {
+      "lesson": "tools/audit_game_2d.py scans design/ JSON as live project data, so engine class names written in scorecard prose count as new 3D debt and fail the import step after a 50-minute wait; the local static gates never ran it because ci.sh runs it after the import.",
+      "write_back": "tools/gold_star.py",
+      "recurrence_key": "engine-class-names-in-data-prose"
     }
   ],
   "strengths_observed": [

@@ -32,7 +32,7 @@
     "DL-LAY-01",
     "DL-QA-09"
    ],
-   "meets": "Its own runtime path is Canvas only (Node2D, Control, Sprite2D, TextureRect, Camera2D); no 3D node, mesh, light, spatial shader or Vector3 state.",
+   "meets": "Its own runtime path is Canvas only (Node2D, Control, Sprite2D, TextureRect, Camera2D); no 3D node, mesh, light, spatial shader or 3D vector state.",
    "partial": "Canvas gameplay that still depends on a 3D host, a 3D helper or a few spatial calls.",
    "fails": "The activity itself is built from 3D nodes, meshes or spatial movement.",
    "source": "assessed"

@@ -81,7 +81,7 @@ Not reachable as a live game: Snow Roller (picture game) (`dormant`); Flower Gar
 | Criterion | Rules | Gold star means |
 |---|---|---|
 | C1 Reachable in normal play | `DL-AGE-06`, `DL-UI-06`, `DL-AGE-01` | A child reaches it from a fresh save by touch through a picture route (room, door, card or character), with no debug menu, playtest launcher or reading, and leaving returns to where it began. |
-| C2 True 2D | `DL-MED-01`, `DL-MED-04`, `DL-LAY-01`, `DL-QA-09` | Its own runtime path is Canvas only (Node2D, Control, Sprite2D, TextureRect, Camera2D); no 3D node, mesh, light, spatial shader or Vector3 state. |
+| C2 True 2D | `DL-MED-01`, `DL-MED-04`, `DL-LAY-01`, `DL-QA-09` | Its own runtime path is Canvas only (Node2D, Control, Sprite2D, TextureRect, Camera2D); no 3D node, mesh, light, spatial shader or 3D vector state. |
 | C3 Non-reader objectives | `DL-AGE-01`, `DL-SND-01`, `DL-SND-13`, `DL-READ-06` | Every required step has an exact spoken cue and a live pointer or diegetic cue at the actionable object; nothing needs reading. |
 | C4 One-finger generous input | `DL-AGE-02`, `DL-UI-01`, `DL-UI-03`, `DL-UI-04` | One finger taps, holds or drags only where the fiction asks; targets are at least 110x110 base pixels or an equivalent hit region; one touch owns one route. |
 | C5 Kind no-fail and real agency | `DL-AGE-03`, `DL-AGE-04`, `DL-AGE-05`, `DL-AGE-08` | No loss, timeout or lost item; mistakes get kind feedback; zero input never wins; correct play beats mashing; help widens or demonstrates without making mashing best. |

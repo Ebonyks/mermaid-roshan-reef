@@ -1,11 +1,8 @@
 {
  "schema": "codex_handoff_manifest/1",
  "handoff": "codex_gold_star_2026-10-03",
- "revision": 2,
- "revision_note": "Revision 2: GS2-A brought under the owner's 2026-10-03 animation workflow decision (DL-MOT-12, DL-MOT-14 to DL-MOT-16): one job card per action, an Aseprite master with lossless export, a clip contract and a scoop pilot. Revision 1 (commit 7bf4620540d380a2f1a57655210019126066ae94) was published and verified anonymously first.",
- "status": "PROPOSED / CANDIDATE",
- "prepared_by": "Claude (audit, tool, records and the Pool's code on the owner's explicit request; no images)",
- "recipient": "Codex",
+ "revision": 3,
+ "revision_note": "Revision 3: the scorecard notes and rubric use plain words ('3D nodes') instead of engine class names, which the true-2D gate counted as new 3D debt (Probe Suite run 37184172269 on df99a371); tools/gold_star.py --check now refuses them. Reference hashes for games.json, gold_star.json, GOLD_STAR.md and tools/gold_star.py are updated; the packet documents are unchanged. Revisions 1 (7bf4620540d380a2f1a57655210019126066ae94) and 2 (128723cbf053173d13e24cdebaa22569bacd837b) were published and verified anonymously first.",
  "evidence_baseline": "dev 87f992680c0b6a690bf45b1950275579c45e15ab",
  "rules_checked_at": "dev ecb68651c67e66501eeab2c719b152d8982023c2 (owner animation workflow decision 2026-10-03)",
  "tracking_findings": [
@@ -46,18 +43,18 @@
  "references": [
   {
    "path": "design/reference/GOLD_STAR.md",
-   "bytes": 17112,
-   "sha256": "01c62737d296f078160063ac32ad0eaf044eb5876aea3c7c54ff444b9855d25b"
+   "bytes": 17114,
+   "sha256": "ee45fab9b639fa2a2a0e2948e6818c240c6528c6b8b41fb7a0129464fed4ca1b"
   },
   {
    "path": "design/reference/games.json",
-   "bytes": 143577,
-   "sha256": "1e4718b26a6122c6a5d393144c7daa2f20cc36c5d69f334aeb744eb9e13e3036"
+   "bytes": 143594,
+   "sha256": "83a6bd161df724e9a43cf430fb8716e10d0204d56beef10ec8a2ab24562922c5"
   },
   {
    "path": "design/reference/gold_star.json",
-   "bytes": 21985,
-   "sha256": "5303369b10abc785418332d00b2a2aaffaeb93068e7241e6f112cb8e2cb37aed"
+   "bytes": 21987,
+   "sha256": "57838ee1e9e14536836a4860af48906e281fbb16a7d35a4704c3548cb30f461d"
   },
   {
    "path": "design/reference/recipes/gold_star.md",
@@ -66,8 +63,8 @@
   },
   {
    "path": "tools/gold_star.py",
-   "bytes": 34800,
-   "sha256": "2b3b10cc1ba94bdc8879c30c4f26ffe768a0e411b5c6047dd0d25224323a97f8"
+   "bytes": 35554,
+   "sha256": "04b37121448e1413844eb3d054d1d74be1eac07a0458aaa0c53124f058aad94d"
   },
   {
    "path": "scripts/games/day_one_pool_cleanup.gd",
