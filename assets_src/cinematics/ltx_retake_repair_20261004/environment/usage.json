@@ -1,0 +1,49 @@
+{
+  "generated_take_requests": 4,
+  "completed_generated_takes": 3,
+  "failed_generated_takes": 1,
+  "diagnostic_submissions": 2,
+  "total_model_submissions": 6,
+  "imagegen_calls": 1,
+  "paid_api_usd": 0,
+  "download_bytes": 24185844102,
+  "generated_request_wall_seconds_including_failed_attempt": 1478.397,
+  "diagnostic_wall_seconds": 181.827,
+  "operator_minutes": "Not separately metered; includes Aseprite setup, source/motion inspection, QA and publication. No invented estimate.",
+  "accepted_production_seconds": 0,
+  "cost_per_accepted_second": "Undefined: no production-accepted seconds",
+  "prior_generated_takes": 4,
+  "aggregate_generated_take_requests_including_prior": 8,
+  "caps_exhausted": true,
+  "newer_success": {
+    "take": "ltx23_retake_lowmem",
+    "native_dimensions": [
+      448,
+      256
+    ],
+    "frames": 25,
+    "elapsed_seconds": 598.178,
+    "sampling_seconds": 45.92,
+    "sampling_seconds_source": "Server tqdm45s/8steps,5.74s per step; rounded timing, not an exact per-stage profiler",
+    "peak_total_card_mib": 7500,
+    "metrics_include_desktop": true,
+    "warm_repeat_time_measured": false
+  },
+  "local_preflight_failures": 3,
+  "all_attempts_including_local_preflight": 9,
+  "strict_submission_cap_audit": {
+    "result": "FAIL",
+    "declared_cap_including_failed_preflight": 6,
+    "actual_model_job_attempts_including_failed_client_preflight": 7,
+    "queued_model_requests": 6,
+    "failed_unsubmitted_model_client_preflight": 1,
+    "separate_server_setup_failures_or_diagnostic_aborts": 2,
+    "generation_take_cap_4": "PASS",
+    "imagegen_cap_1": "PASS",
+    "paid_api_cap_0": "PASS",
+    "explanation": "Six queued model jobs plus one recorded failed diagnostic-client readiness/preflight exceed literal six submission/preflight cap by one. Two local server startup/diagnostic aborts are additional setup work, not model submission attempts. No owner exception or cap reset; stop further model requests."
+  },
+  "failed_model_client_preflight": 1,
+  "local_server_setup_failures_or_diagnostic_aborts": 2,
+  "model_job_attempts_including_failed_client_preflight": 7
+}

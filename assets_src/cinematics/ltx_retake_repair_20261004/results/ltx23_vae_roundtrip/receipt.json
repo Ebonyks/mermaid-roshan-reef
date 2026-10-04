@@ -1,0 +1,95 @@
+{
+  "status": "EXECUTION_PASS",
+  "started_at_utc": "2026-10-04T18:18:11.034764+00:00",
+  "backend": "ltx23",
+  "diagnostic_only": true,
+  "source_window_inclusive": [
+    40,
+    64
+  ],
+  "native_frames_expected": 1,
+  "fps": 24,
+  "guide_strength": 1,
+  "seed": 20261004,
+  "workflow_sha256": "47ad377742fd0c1f89d1c0765475102957d99196ba7d916e59373298a079535b",
+  "native_outputs": [
+    {
+      "index": 0,
+      "path": "native_frames/0000.png",
+      "sha256": "a69815b05db986518abf4dd5a3c2c7e25f3cee62e2d59a76b69bc030b2f88c5b",
+      "bytes": 416613
+    }
+  ],
+  "resources": [
+    {
+      "elapsed_seconds": 0.199,
+      "gpu_used_mib_util_percent": "6126, 37"
+    },
+    {
+      "elapsed_seconds": 10.735,
+      "gpu_used_mib_util_percent": "4431, 30"
+    },
+    {
+      "elapsed_seconds": 22.415,
+      "gpu_used_mib_util_percent": "4445, 32"
+    },
+    {
+      "elapsed_seconds": 34.507,
+      "gpu_used_mib_util_percent": "4386, 36"
+    },
+    {
+      "elapsed_seconds": 45.686,
+      "gpu_used_mib_util_percent": "4393, 39"
+    },
+    {
+      "elapsed_seconds": 55.921,
+      "gpu_used_mib_util_percent": "4410, 82"
+    },
+    {
+      "elapsed_seconds": 66.317,
+      "gpu_used_mib_util_percent": "2487, 38"
+    },
+    {
+      "elapsed_seconds": 76.605,
+      "gpu_used_mib_util_percent": "4417, 85"
+    },
+    {
+      "elapsed_seconds": 87.039,
+      "gpu_used_mib_util_percent": "3465, 40"
+    },
+    {
+      "elapsed_seconds": 97.257,
+      "gpu_used_mib_util_percent": "6552, 38"
+    },
+    {
+      "elapsed_seconds": 108.176,
+      "gpu_used_mib_util_percent": "6559, 35"
+    },
+    {
+      "elapsed_seconds": 118.827,
+      "gpu_used_mib_util_percent": "6573, 30"
+    },
+    {
+      "elapsed_seconds": 130.01,
+      "gpu_used_mib_util_percent": "6569, 38"
+    },
+    {
+      "elapsed_seconds": 142.197,
+      "gpu_used_mib_util_percent": "6553, 34"
+    },
+    {
+      "elapsed_seconds": 154.071,
+      "gpu_used_mib_util_percent": "6557, 40"
+    },
+    {
+      "elapsed_seconds": 168.006,
+      "gpu_used_mib_util_percent": "7233, 26"
+    }
+  ],
+  "queue_ahead_prompt_ids": [],
+  "acceptance": "REFERENCE_ONLY",
+  "prompt_id": "3ef9560c-595f-4516-9232-c276b195270a",
+  "active_start_elapsed_seconds": 0.026420199894346297,
+  "elapsed_seconds": 171.495,
+  "completed_at_utc": "2026-10-04T18:21:02.546261+00:00"
+}

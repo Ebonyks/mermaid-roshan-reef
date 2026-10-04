@@ -27,6 +27,8 @@ Scoped 2026-10-03 animation workflow revision: [local/API analysis](../design/an
 
 Owner-commissioned [registered whole-figure wave study](../assets_src/cinematics/ltx_registered_wave_20261004/README.md) records local LTX-Video 2B native blur trials, the owner-rejected limb-only correction, waist/root-registered complete-figure inputs and full-frame Aseprite preservation. Shoulder/torso/dress/hair continuity is required; prompt-only blur repair did not meet the quality bar. Source-only evidence grants no runtime or production acceptance.
 
+Owner-prioritized [8 GB retake repair trial](../assets_src/cinematics/ltx_retake_repair_20261004/README.md) tests corrected complete-figure keys exported through Aseprite and temporal-span regeneration. Actual hardware execution, native artifacts, visual failures and caps are recorded separately; the trial grants no production, runtime, owner/device/child acceptance or finding closure.
+
 ### Next bounded planning work
 
 | Deliverable | Prerequisite | Next evidence |

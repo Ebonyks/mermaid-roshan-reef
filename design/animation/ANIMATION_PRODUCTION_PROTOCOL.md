@@ -285,3 +285,51 @@ analyzer, focused positive/negative/save/teardown and full trusted gates. Rechec
 authority and impact coverage before commit/push. Report implemented behavior,
 machine evidence and visual/device/child/owner acceptance separately in the
 [animation branch](../../audit/animation/README.md) and task impact record.
+
+### Iterative repair with Aseprite and temporal retakes
+
+Owner direction 2026-10-04: prioritize locally viable retake workflows and use
+Aseprite drawings to identify and correct frame defects. A completed hardware
+trial is required before describing a newer model as usable on the 8 GB card.
+A configured graph, successful download or vendor recommendation is not evidence
+of rendering speed, memory fit or acceptable animation.
+
+- Mark defects on native frames and group them into continuous temporal spans.
+  Distinguish torn/disconnected anatomy, ghost/smeared contours, matte/export
+  problems, identity drift and timing/contact errors. Include clean context on
+  both sides; expand the span when shoulder, clothing, hair or tail response
+  extends past the initially damaged hand/limb frames.
+- Prefer a few corrected complete-figure poses to an independent still job for
+  every frame. The default first repair experiment uses clean entry/exit poses,
+  one corrected intermediate pose and at most two generated candidates. Existing
+  task caps and prior rejected costs remain visible; changing a backend or
+  calling a render a retake does not reset them.
+- Store originals, corrected poses, timing/tags, defects and registration/contact
+  landmarks in an editable Aseprite master. Preserve painted contours and
+  antialiasing. Distinguish ImageGen/redraw pixels from Aseprite registration,
+  inspection and export; an import/roundtrip is not an automatic anatomy repair.
+  Landmarks constrain placement/contact while permitting figure-wide acting.
+- Feed corrected poses as declared keyframe guides, or use a temporal retake
+  mask that regenerates complete frames in the selected span. Spatial attention
+  masks and image-guide strength are influence controls, not promises that the
+  model will reproduce a pose or freeze outside pixels. Strongly conditioning
+  on bad source footage can retain its defects.
+- Preserve native retake outputs and exact source/global frame mapping. If a
+  model decodes the whole input again, verify reconstruction changes separately;
+  for a review splice, retain original complete frames outside the replacement
+  span and explicitly record the contiguous replacement. Never repair only a
+  limb against a frozen body or conceal a bad boundary with a dissolve.
+- Choose the retake window against the model's temporal VAE blocks and clean context, not only the visible defect indices. Retained source latents can contain failed neighboring motion. Prove mask behavior separately from decoded continuity; expand/replace contaminated context within the bounded brief when necessary.
+- For isolated character/object work, a measured whole-figure crop may reduce empty-canvas cost. Preserve all moving parts with a motion margin, apply one source crop to every frame/guide, retain full originals and record the transformed registration coordinates. Audit the complete figure; this is not permission for frozen-body limb repair. New dimensions require a hardware/quality check.
+- Cache unchanged conditioning/context only under exact model, VAE, source, prompt and dimension hashes. Preserve cold and warm timing separately. A completed low-resolution retake establishes hardware execution, not final-resolution quality or practical iteration speed.
+- Review both boundaries and the complete figure at full speed and frame-step.
+  Check velocity, identity/topology, contour clarity, body/clothing/hair response,
+  root/contact and settle timing. A clean guide, low pixel difference or successful
+  Aseprite export cannot accept the motion. Reject regressions and stop at the
+  cap; use the result to change inputs/method rather than starting a still-frame
+  generation campaign.
+
+The [bounded repair/8 GB retake study](../../assets_src/cinematics/ltx_retake_repair_20261004/README.md)
+records hardware execution and visual outcomes separately. It grants no runtime,
+owner, device, child or final cinematic acceptance.
+
