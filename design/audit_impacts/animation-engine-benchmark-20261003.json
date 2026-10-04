@@ -347,6 +347,7 @@
     "audit/animation/README.md",
     "audit/animation/benchmark_reconciliation_20261004/.gdignore",
     "audit/animation/benchmark_reconciliation_20261004/.gitattributes",
+    "audit/animation/benchmark_reconciliation_20261004/anonymous_verification.json",
     "audit/animation/benchmark_reconciliation_20261004/ci_timeout_proposal.diff",
     "audit/animation/benchmark_reconciliation_20261004/local_validation.json",
     "audit/animation/benchmark_reconciliation_20261004/original_full_ci.log",
@@ -379,7 +380,7 @@
     {
       "command": "Anonymous GitHub manifest, every payload, original bound-source and changed instruction/helper byte verification",
       "result": "PASS",
-      "evidence": "assets_src/cinematics/animation_engine_benchmark_20261003/remote_verification.json; 312 exact-revision files match at 9f00034d0a76374e9e2224f24e2a489bbb2fb408; worldwide Hunyuan pixels remain withheld."
+      "evidence": "assets_src/cinematics/animation_engine_benchmark_20261003/remote_verification.json; 312 exact-revision files match at 9f00034d0a76374e9e2224f24e2a489bbb2fb408; worldwide Hunyuan pixels remain withheld. Latest reconciliation/CI-proposal revision d57f0910cd79ca9887082a7bb1626095b1e8bfda also anonymously byte-verified, all 377 required files (205.93 MiB): audit/animation/benchmark_reconciliation_20261004/anonymous_verification.json."
     },
     {
       "command": "Exact published topic-head GitHub probe suite before dev integration",
