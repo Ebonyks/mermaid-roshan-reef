@@ -805,9 +805,36 @@ visually accepted. Record exact candidates and review outcomes in the
 authored art, runtime checks, visual/device/child/owner acceptance and external
 cinematic delivery remain separate claims. Routine authorized iteration needs
 no additional planning checkpoint; missing evidence blocks only its dependent
-acceptance. Cinematic delivery and review-delivery candidates retain every
-full-frame requirement in section 11. Separately labeled motion/editorial
-references cannot supply delivery pixels or acquire acceptance by relabeling.
+acceptance. Final and review cinematic candidates use the declared workflow
+in section 11; historical references/rejects keep their recorded scope. Method
+permission cannot accept an output by relabeling it.
+
+`DL-MOT-14` — Owner decision 2026-10-03: select suitable animation methods from
+approved sources, authored/keyed 2D, image-to-video, guided video-to-video and
+bounded combinations. ImageGen supplies named missing views/keys/local repairs,
+not an automatic job per motion frame. Preserve true Canvas and approved 2D
+identity; no static-sticker acting substitute or acceptance of prior rejects.
+Default local workflows for character design/animation and object animation,
+with APIs for cinematic scenes and Aseprite cleanup where practical. This
+changes production routing, not the approved 2D medium. A bounded exception
+records its reason and any already-authorized funded spending.
+
+`DL-MOT-15` — Prefer Aseprite as the sprite bridge where practical: editable
+RGBA masters, matte/detail cleanup, stable pivots/sockets, transitions/timing/tags
+and lossless atlas/metadata export. Preserve painted contours, source/derivative
+hashes and edits; prove master/export round-trip and actual engine sampling.
+Long footage/audio may use the video editor, with Aseprite for bounded windows.
+
+`DL-MOT-16` — Before production set attempt, wall/cleanup-time and monetary/task
+caps using the [job card](templates/ANIMATION_JOB_CARD_V1.md). Default two
+generated takes per brief/backend; stop after two nonviable takes or the task
+cap, diagnose and change method/inputs. Switching backends or splitting an
+action into per-frame briefs MUST NOT reset task caps. Record actual reported
+usage when exposed, otherwise call counts. Rejects and cleanup count. No silent
+still-frame campaign. Install only a selected, version-pinned local pilot in
+an isolated environment; paid work needs an existing authorized funded budget.
+Compare total cost and operator minutes
+per accepted second before expanding a batch.
 
 ---
 
@@ -916,78 +943,77 @@ rate improvement alone does not grant acceptance.
 
 ## 11. Cinematic exception
 
-`DL-CIN-01` — Authored cinematic delivery frames are complete flattened images
-in the current approved polished 2D storybook generation style. This complete
-contract incorporates the binding `AGENTS.md` cinematic rules; their only
-relaxation is the owner-scoped Day One story-clip exception `DL-CIN-16`, and a
-short summary elsewhere cannot narrow them. For a defective
-cinematic frame, full-frame regeneration supersedes the general art-reuse
-budget and cannot be avoided by substituting another production technique.
+`DL-CIN-01` — Owner decision 2026-10-03 allows final footage from suitable
+animation workflows with identity, motion, provenance and device checks.
+Compulsory independent still generation and categorical 2D method bans are
+superseded for new authorized production; approved polished 2D appearance,
+canon and acceptance gates remain. The complete `AGENTS.md` contract controls.
 
-`DL-CIN-02` — A failed action frame is regenerated at its exact timeline index.
-Keep an existing frame only when that exact frame passes. Each replacement uses
-the direction brief, continuity data, character/object references, and accepted
-adjacent full frames; neighboring pixels are never blended into delivery.
+`DL-CIN-02` — Repair the smallest coherent failing action/transition window
+from its diagnosed cause using Aseprite/authored 2D, temporal video repair or
+targeted still work. Preserve approved sources/accepted neighboring boundaries
+and record source mapping; do not regenerate unrelated art or conceal missing action.
 
-`DL-CIN-03` — Final or review delivery MUST NOT use tweening, morphing, optical
-flow or motion interpolation, cross-dissolve, sprite/cutout animation,
-chroma-key compositing, skeletal/rig animation, procedural warping, translating
-a static layer or camera, or duplicated frames to conceal missing action.
+`DL-CIN-03` — Declared 2D cutout/keyed animation, compositing, local deformation,
+tweening, retiming and interpolation may produce final candidates. Preserve
+identity/topology/style, visible action/support/contact, fixed fixtures and all
+affected transitions. No method may fake contact or use holds/duplicates to
+conceal missing motion/acting. Prior owner-rejected performances stay rejected.
 
-`DL-CIN-04` — An intentional hold is allowed only when the direction brief
-calls for stillness and the manifest records the held span and its narrative
-purpose. A hold cannot replace motion, acting, contact, or camera action. Every
-changed action-span frame is an individually generated and accepted full frame.
+`DL-CIN-04` — Declared authored key/frame durations at a chosen cadence are
+allowed when the complete action remains readable; animation on twos is not
+missing-action padding. Narrative holds require a declared span and purpose.
+Review complete action spans, changing surfaces/occlusion, contact, endpoints
+and loop pose/velocity temporally. Pretty keys or a smooth interpolator alone
+are insufficient; no separate image-generation request per frame is required.
 
-`DL-CIN-05` — After acceptance, production may normalize resolution, pad,
-convert pixel format, or encode only by applying the same whole-canvas transform
-to the complete flattened frame. Preserve the native generation and hash.
-Normalization cannot isolate, translate, warp, mask, resize, or otherwise repair
-a subject or compensate for failed motion; audit motion in normalized
-coordinates before the production transform.
+`DL-CIN-05` — Preserve native outputs and editable masters. Declare isolation,
+repaint, composites, registration, retiming/interpolation and encoding with
+parent/output hashes and source-frame mapping. Export flattened complete frames;
+review edited motion before/after whole-canvas normalization. Do not stretch a
+subject to conceal failed action or topology.
 
-`DL-CIN-06` — The final medium remains the established polished 2D storybook
-full-frame generation. Cinematics cannot switch to 3D, sprites, vector or
-procedural animation, or another medium to make production easier.
+`DL-CIN-06` — Final appearance remains the approved polished 2D storybook art.
+A suitable 2D method may preserve this appearance; no new 3D world/character,
+model/rig fallback or redesign is authorized. Apply `DL-MOT-14` through `DL-MOT-16`.
 
-`DL-CIN-07` — A disposable position guide is the sole sprite/chroma exception
-and may be created only to show the generator where an object belongs. It may
-communicate normalized position, bounding box, scale, and orientation. It has
-no authority over design, anatomy, topology, style, lighting, texture, shading,
-background, or final pixels.
+`DL-CIN-07` — Disposable position guides communicate normalized position,
+bounds/scale/orientation only, never design/anatomy/topology/style/lighting or
+final pixels. Approved source appearance images are separate role-bound inputs.
 
-`DL-CIN-08` — A generator-facing position guide places its flat chroma footprint
-and coordinate marks on a neutral field. It contains no scene plate, accepted
-background, texture, or appearance-bearing pixels. A neutral-field crosshair
-guide with no subject footprint is not presumed superior: the 2026-07-29
-opening-plane trial materially overshot. A neutral-field bounding-box guide is
-also experimental: one nearer result was followed by scale growth, stalls,
-reversals, and overshoots. Every guide mode must earn measured full-frame
-acceptance without relaxed gates.
+`DL-CIN-08` — Generator position guides use flat chroma footprints and coordinate
+marks on a neutral field with no scene/background/texture. Neither crosshair
+nor bounding-box mode is presumed effective. Preserve 2026-07-29 trial failures;
+each mode earns measured acceptance without relaxed gates.
 
-`DL-CIN-09` — Every guide prompt labels the input `POSITION_GUIDE_ONLY` and says
-all appearance comes from approved image/style references. No guide pixel may
-be copied, composited, keyed, traced, or inserted into delivery. The generator
-returns a new complete frame, and that full frame passes the normal audit.
+`DL-CIN-09` — Label every guide `POSITION_GUIDE_ONLY`; approved appearance is
+bound separately. No guide pixel is copied/composited/keyed/traced into delivery.
+The complete output passes its declared workflow's normal gates.
 
-`DL-CIN-10` — Guides stay under an ignored review/build path, never runtime
-`assets/`, and never count as production art or accepted keyframes. The manifest
-records guide path and hash, `role: "position_only"`, and
-`used_as_delivery_pixels: false`.
+`DL-CIN-10` — Guides remain in ignored review/build paths, never runtime assets
+or accepted keyframes. Record path/hash, `role: "position_only"` and
+`used_as_delivery_pixels: false` in the production sidecar.
 
-`DL-CIN-11` — Every regenerated-frame record includes timeline index, full-frame
-candidate path and hash, accepted neighboring reference paths and hashes,
-prompt hash, attempt number, generation method, declared action/hold state,
-subject geometry, any position-guide metadata, and human identity/topology/
-style review.
+`DL-CIN-11` — Every final candidate has the versioned
+[job-card derivation record](templates/ANIMATION_JOB_CARD_V1.md): baseline,
+source paths/hashes/acceptance scope/licenses, native outputs, workflow/model or
+provider/version/request ID, prompt/settings/seed when exposed, attempts/time/cost,
+editable master/derivative hashes, frame mapping/edits and human identity/topology/
+style/motion/contact review. Unavailable hosted-model details stay explicit limits.
+Independent still regeneration keeps its per-index candidate/accepted-neighbor/
+prompt/attempt, action/hold, geometry, guide and human-review evidence.
 
-`DL-CIN-12` — `tools/audit_cinematic.py` is blocking. Missing provenance,
-forbidden methods, guide-pixel reuse, unreviewed identity, position drift, or a
-failed neighboring-frame comparison is a hard failure. A smooth metric cannot
-override a failed frame. Production delivery is native 1280×720 landscape with
-square pixels, zero rotation metadata, and a 16:9 displayed canvas. Candidates
-and neighboring references have delivery orientation/aspect even when pixel
-dimensions match; equal-sized wrong-aspect inputs are invalid evidence.
+`DL-CIN-12` — Final footage runs production-profile `tools/audit_cinematic.py
+--manifest` for scene/character/contact/track and landscape geometry. Its PASS
+is machine evidence only; provenance and exact human, device, child/owner and
+release evidence remain independently blocking. Do not use an animatic profile
+or invented scores for final acceptance. A deliberately selected independent
+still method also runs `--frame-regeneration-manifest`; preserve that strict
+validator without fabricating still records for 2D/video animation. Delivery is
+complete flattened 1280×720 landscape, square pixels, zero rotation metadata and
+16:9 display; declare native-to-delivery mapping and verify both. Missing
+provenance, changed identity/topology, unreviewed transitions, guide-pixel reuse,
+drift, false contact or a broken seam is a hard failure regardless of scores.
 
 `DL-CIN-13` — An external animation handoff is incomplete without a
 self-contained, GitHub-hosted visual-reference packet under versioned non-runtime
@@ -998,9 +1024,10 @@ sheet covering every shot and beat. Prose, repository paths, prompts, or beat
 tables alone do not qualify. The packet records every file's source path, role,
 dimensions, SHA-256, license/provenance and modification status, plus either a
 deterministic sorted packet-payload SHA-256 or literal archive SHA-256. Packet
-art is continuity input only, never delivery
-pixels or accepted keyframes, and cannot bypass any full-frame, human, or
-device acceptance gate. Before completion, the entire packet is committed and
+art does not acquire delivery/keyframe acceptance from packet inclusion.
+Approved sources may be reused in the declared 2D workflow with derivative
+provenance; boards/captures are not generation pixels. No packet bypasses
+applicable cinematic, human or device gates. Before completion, the entire packet is committed and
 pushed to GitHub, the remote manifest and every referenced asset are verified,
 and the animation system receives immutable GitHub commit/tree links plus a
 direct manifest link. Local-only, unpushed, expiring, or merely upload-ready
@@ -1021,7 +1048,9 @@ remain binding; do not restore unpublished material or change visibility.
 The archive packet owns provenance, licensing, hashes, authority, runtime seams,
 boards, and delivery evidence. The generator packet owns one executable shot
 card per generation job using `design/templates/IMAGINE_SHOT_CARD_V1.md`.
-Each card binds only two to four approved images with explicit roles, covers one
+Each Grok card binds only two to four approved role-bound images; other
+backends receive only supported inputs and an
+[animation job sidecar](templates/ANIMATION_JOB_CARD_V1.md). Each job covers one
 shot, allows at most one camera move, and supplies a short action-first motion
 timeline, fixed elements, moving elements, end state, negatives, and `Sound:`
 line. Generated boards communicate shot order in text only; HUD/runtime captures
@@ -1033,23 +1062,23 @@ in edit. Archive metadata never crowds the pasted generator prompt.
 human/legal packet is complete; `GENERATION_READY` means every shot card,
 remote link, input binding and clean first frame is executable by the named
 generator; `DELIVERY_ACCEPTED` means the resulting movie independently passed
-the complete full-frame cinematic, human, and device gates. No score or status
-implies a later status. Grok/Imagine image-to-video output remains motion or
-editorial reference unless every delivered changed frame independently satisfies
-`DL-CIN-01` through `DL-CIN-12`, or it is an owner-directed Day One story clip
-under `DL-CIN-16`.
+the declared workflow provenance, production-profile cinematic, human and
+device/child/owner gates. No score/status implies a later claim. Video backends
+may supply final candidates under the 2026-10-03 rule; prior references/rejects
+keep their scope until exact new review establishes acceptance. Day One clips
+retain their separate source/status contract under `DL-CIN-16`.
 
 `DL-CIN-16` — Owner decision 2026-09-23: Day One plays story clips spliced from
 the owner-selected 2026-09-20 cut (`DAY_ONE_SELECTED_CUT.mp4`) between gameplay
-scenes, as the single scoped exception to `DL-CIN-01` through `DL-CIN-12` and
-`DL-CIN-15`. Clips are straight cuts at exact recorded source-frame boundaries
+scenes under a source-specific contract retaining its restrictions after the
+2026-10-03 method revision. Clips are straight cuts at exact recorded source-frame boundaries
 with whole-canvas scaling, runtime encoding and short audio fades only; no new
 frames, retiming, morphing, interpolation, dissolves, crops, warps or subject
 repair. They play only between scenes and never replace a child action. Each
 clip records source path and SHA-256, frame range, encoding and output SHA-256
 in a runtime manifest and `ASSET_LICENSES.md`. Status is
 `OWNER_DIRECTED_RUNTIME_CLIP`, never `DELIVERY_ACCEPTED`; other chapters, new
-footage and replacement shots still follow the full-frame rule. Canon: Grand
+footage and replacement shots follow the current workflow gates. Canon: Grand
 Puff is a friend trapped under dirt that made him grumpy and scary; Roshan
 faces him alone, the family joins only in the transformation clip after he is
 beaten, and the rainbow dust bunny then follows Roshan like Baby Eagle. The
@@ -1197,7 +1226,8 @@ These states prevent an old recommendation from silently becoming a new bug.
 | `OPERA_MINIGAME_QUALITY_AUDIT_2026-08-09.md`'s 52-phase count and old Ballerina/Boxer/kart sections | **SUPERSEDED in named scopes; remainder supporting** | Preserve non-conflicting prop provenance and repairs; current shipping authority is 13 careers/53 phases/27 modes plus the later specialist records |
 | `OPERA_QUALITY_OVERHAUL_2026-08-09.md`'s 52-phase/19-mode/single-`bop` snapshot and universal chronological-loop claim | **SUPERSEDED in named scopes; remainder supporting** | Preserve its 208-frame audit rationale and non-conflicting fixes; current Opera has no generic `bop`, and Ballerina follows the held-pose exception |
 | Music audit's temporary `race` cue for an Opera nested kart | **SUPERSEDED for current Racer** | Current Canvas Racer remains under its Opera career cue; the other 42-cue composition, delivery, and routing rules remain current |
-| Cinematic tween/morph/interpolation shortcuts, text-only or archive-only external handoffs, generator cards that bind boards/HUD captures, or portrait/rotated delivery | **DISMISSED_NOT_IN_PROJECT** | `DL-CIN-01` through `DL-CIN-15` |
+| Compulsory per-frame still generation and categorical 2D animation method bans from 2026-07-29 | **SUPERSEDED** for new authorized production by owner decision 2026-10-03 | `DL-MOT-14` through `DL-MOT-16`; revised `DL-CIN-01` through `DL-CIN-12`; historical rejects stay rejected |
+| Missing-action concealment, text-only or archive-only external handoffs, generator cards that bind boards/HUD captures, or portrait/rotated delivery | **DISMISSED_NOT_IN_PROJECT** | `DL-CIN-01` through `DL-CIN-15` |
 | Repack Roshan into a smaller runtime atlas during the migration audit | **DEFERRED_WITH_REASON** | It may be a later measured optimization; it is not required to prove true 2D and must not risk protected pixels or identity |
 | Add bone-driven or per-costume runtime costume layers to replace the current atlas | **DISMISSED_NOT_A_DEFECT** | The owner chose the approved 2D atlas family; absent costume layering is not a current bug |
 | Unadopted Chapter 2 plot, daily rhythm, naming, gifting, tending, decorating, and additional-minigame proposals | **DEFERRED_WITH_REASON** | Design proposals, not current defects; existing-game golden path, device evidence, and confirmed defects come first. This deferral excludes the adopted §10 room distribution and §§16–17 Opera-boss/Ember-antagonist rulings. |

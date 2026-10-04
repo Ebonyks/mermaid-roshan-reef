@@ -19,8 +19,14 @@ output_disposition: motion_reference_only
 
 `GENERATION_READY` is allowed only after every image binding below has been
 opened from GitHub and the first frame is an approved clean UI-free image.
-Image-to-video output remains motion reference under the project full-frame
-cinematic rule; this status never means delivery acceptance.
+Generated output starts as motion reference; readiness never means delivery
+acceptance. Under the owner's 2026-10-03 animation policy, a declared final
+image-to-video candidate can qualify after the production-profile cinematic
+audit, derivation/provenance review and human/device acceptance. Use the
+[animation job card](ANIMATION_JOB_CARD_V1.md) as its separate production
+sidecar. Individually regenerated still-frame evidence is required only when
+that production method is selected; never relabel a video as individual still
+generations. The source-specific Day One selected-cut restriction is unchanged.
 
 Store the machine-readable card as
 `assets_src/cinematics/<handoff_id>/shots/<shot_id>/SHOT_PACKET.json` and the
@@ -96,7 +102,9 @@ blocking_findings: <none or explicit list>
 
 Generation readiness checks input count, roles, clean first frame, URL access,
 one-shot scope, one camera move, executable timeline, end state, negatives, and
-sound. Delivery acceptance is a later independent full-frame/human/device audit.
+sound. Delivery acceptance is a later independent production-profile,
+provenance, human and device review under the current animation protocol. The
+structural gate below validates generator readiness, not final footage.
 
 Run the structural gate with:
 

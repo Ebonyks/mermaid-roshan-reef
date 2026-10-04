@@ -315,9 +315,13 @@ them, gives one gentle tail stroke, glides to a stop, and offers one relaxed
 wave; her tail settles while her attention stays on the friend.” This is a
 brief fragment, not an executable shot card or permission to invent a scene.
 
-The full-frame cinematic rules remain controlling, including complete generated
-changed frames, per-frame provenance and human review. Runtime atlas playback,
-tweening and procedural movement cannot supply cinematic delivery pixels.
+The owner's 2026-10-03 animation policy permits declared 2D/video workflows
+with identity, motion, provenance and device checks; Aseprite is the preferred
+cleanup bridge where practical. Use the [production protocol](ANIMATION_PRODUCTION_PROTOCOL.md)
+and [job card](../templates/ANIMATION_JOB_CARD_V1.md). Preserve this acting
+language, exact human review and source mapping across every repaired transition.
+Individually regenerated stills retain their strict per-frame evidence only
+when that method is selected. Runtime playback alone does not accept footage.
 External motion reference, archive completeness, generation readiness and
 delivery acceptance retain their separate claims. Follow the current
 [continuity protocol](../GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.md)

@@ -497,7 +497,7 @@
         "id": "REC-ANIMATION",
         "path": "design/reference/recipes/character_animation.md"
       },
-      "defaults": "Inventory approved authored sources first; determine the exact production lane from current owner instructions and reconciled repository policy. Keep polished storybook identity and true Canvas 2D gameplay. This recipe grants no method permission or performance acceptance.",
+      "defaults": "Inventory approved authored sources first. The recorded 2026-10-03 owner direction selects local character/object workflows, APIs for cinematic scenes, and Aseprite cleanup where practical; use [the production protocol](../../animation/ANIMATION_PRODUCTION_PROTOCOL.md) and [job card](../../templates/ANIMATION_JOB_CARD_V1.md). Keep polished storybook identity and true Canvas 2D gameplay. This recipe grants no method permission or performance acceptance.",
       "read_first": [
         "AGENTS.md",
         "audit/MASTER_AUDIT_2026-08-09.md",
@@ -508,7 +508,8 @@
         "design/reference/strengths.json",
         "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
         "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
-        "design/templates/CHARACTER_MOVEMENT_PROFILE_V1.md"
+        "design/templates/CHARACTER_MOVEMENT_PROFILE_V1.md",
+        "design/templates/ANIMATION_JOB_CARD_V1.md"
       ],
       "strengths": [
         "S-04",
@@ -516,7 +517,7 @@
       ],
       "expand": [
         "Before executing animation, compare the latest explicit owner direction with AGENTS, design rules and the production protocol. Repository policy may lag owner instructions; record and reconcile any actual authority conflict before dependent production. Do not infer permission from this recipe or treat a source as superseded merely because it is older.",
-        "Write one source-bound intention and movement/profile job card: sources and acceptance scopes, fixed/moving parts, geometry, entry/exit, contact/support, identity/topology/style, tolerances, selected authorized method, attempts, cleanup/wall-time limits and existing funded task budget. Missing current job-card templates remain an explicit source gap; the fields still need a reviewable record.",
+        "Write one source-bound intention and movement/profile job card: sources and acceptance scopes, fixed/moving parts, geometry, entry/exit, contact/support, identity/topology/style, tolerances, selected authorized method, attempts, cleanup/wall-time limits and existing funded task budget. Use the current [animation job card](../../templates/ANIMATION_JOB_CARD_V1.md); keep provider-specific executable prompts separate.",
         "Inventory approved authored states, keys, source masters and consumers first; reuse suitable art and record named missing views/contact/transitions before authorized gap generation. Preserve originals, keep separate editable masters and exports, and introduce no 3D assets/model or rig fallback. For Roshan the identity anchor is `roshan_base.png` or a base-world atlas; career art is a costume or pose reference only and `roshan_sprite.png` is never bound (it is retired, ODR-ROSHAN-Q16). The tail is iridescent; name the light state of the exemplar (ODR-ROSHAN-IRIDESCENT, ODR-ROSHAN-Q12).",
         "Declare the selected authorized production lane before making pixels. Gameplay uses true Canvas 2D with stable pivots/sockets, readable contact/support, timing and loop seams. Record native inputs/outputs, source hashes/licences, workflow/provider revision, request/prompt/settings/seed when exposed, attempts/time/cost, frame mapping and every edit/retiming/interpolation actually used; no method declaration accepts missing acting or identity drift.",
         "Run the exact validators required by the selected lane: gameplay atlas/anchor/engine/lifecycle/contact gates and production-profile cinematic manifest audit when applicable. Preserve strict full-frame per-index provenance and the frame-regeneration validator whenever that lane is selected or required; never fabricate still-generation records for another method or rewrite historical rejects. Review every affected transition/loop seam at full speed and frame-step, then obtain exact human identity/topology/style/motion, actual device, child and owner evidence. Missing evidence stays blocking; successful encoding or metrics do not grant acceptance."
@@ -548,9 +549,10 @@
       "revision_history": [
         "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.",
         "2026-10-03: Production-lane wording routes exact current owner/repository authority and records reconciliation gaps; no method permission or performance acceptance is inferred.",
-        "2026-10-03: Review fixes (Claude): Roshan identity anchor named."
+        "2026-10-03: Review fixes (Claude): Roshan identity anchor named.",
+        "2026-10-03: Owner-authorized local character/object and API cinematic routing, Aseprite bridge, and current animation job card replace the template gap; exact pixels and device acceptance remain pending."
       ],
-      "revision": 2
+      "revision": 3
     },
     {
       "id": "INT-STORY-CLIP",
@@ -565,7 +567,7 @@
         "id": "REC-STORY-CLIP",
         "path": "design/reference/recipes/story_clip.md"
       },
-      "defaults": "Owner-selected Day One clips retain exact source-specific straight cuts. Other new or replacement footage follows the exact currently authorized production lane after owner/repository authority reconciliation; this recipe grants no method permission or delivery acceptance.",
+      "defaults": "Owner-selected Day One clips retain exact source-specific straight cuts. For other authorized new or replacement cinematic scenes, the 2026-10-03 owner direction defaults to API video workflows, with Aseprite for bounded repair windows where useful, under the [production protocol](../../animation/ANIMATION_PRODUCTION_PROTOCOL.md) and [animation job card](../../templates/ANIMATION_JOB_CARD_V1.md); this recipe grants no method permission or delivery acceptance.",
       "read_first": [
         "AGENTS.md",
         "audit/MASTER_AUDIT_2026-08-09.md",
@@ -575,6 +577,8 @@
         "design/AUDIT_DEVELOPMENT_CONTRACT.md",
         "design/reference/strengths.json",
         "design/templates/IMAGINE_SHOT_CARD_V1.md",
+        "design/templates/ANIMATION_JOB_CARD_V1.md",
+        "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
         "scripts/day_one_story_clips.gd",
         "AGENTS.md"
       ],
@@ -615,9 +619,10 @@
       "revision_history": [
         "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.",
         "2026-10-03: Production-lane wording routes exact current owner/repository authority and records reconciliation gaps; no method permission or performance acceptance is inferred.",
-        "2026-10-03: Review fixes (Claude): Roshan identity anchor named for bound images."
+        "2026-10-03: Review fixes (Claude): Roshan identity anchor named for bound images.",
+        "2026-10-03: Route new cinematic work to the owner-preferred API lane and the current method/budget/derivation job card; preserve selected-cut restrictions."
       ],
-      "revision": 2
+      "revision": 3
     },
     {
       "id": "INT-NEW-CHAPTER",
