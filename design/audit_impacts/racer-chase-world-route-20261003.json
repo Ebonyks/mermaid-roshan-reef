@@ -307,6 +307,7 @@
     "audit/racer_chase_20261003/package_receipt.json",
     "audit/racer_chase_20261003/package_smoke.gd",
     "audit/racer_chase_20261003/protected_source_receipt.json",
+    "audit/racer_chase_20261003/remote_verification.json",
     "audit/racer_chase_20261003/repo_policy_results.json",
     "audit/racer_chase_20261003/source_binding.json",
     "audit/racer_chase_20261003/source_snapshot.json",
@@ -343,6 +344,11 @@
       "command": "Export Windows resource pack and load metadata/sprites in isolated pack-only root",
       "result": "PASS",
       "evidence": "audit/racer_chase_20261003/package_receipt.json, package_smoke.gd and logs/pack_*; both export presets explicitly include anchors.json; no APK/device/release claim"
+    },
+    {
+      "command": "Anonymous GitHub manifest and every payload fetch at exact immutable revision",
+      "result": "PASS",
+      "evidence": "audit/racer_chase_20261003/remote_verification.json; 235 files verified at 4e781cc0c545bee1b2729388fca5c6094ffbce2d; publication integrity only"
     }
   ],
   "acceptance_gaps": "Native Mobile captures are diagnostic agent review only; the authoritative fresh-runtime/challenge adapter remains a COVERAGE_GAP. Exact committed source is bound by audit/racer_chase_20261003/source_binding.json. Target-device sustained 30 fps/touch/audio, child comprehension/enjoyment and owner visual/anatomy/rear-lamp acceptance remain pending. Global master/strict-medium satisfaction remains UNSATISFIED. Older Opera full-engine integration is outside this candidate. Reused Hall native 2K coverage, natural finish/park/return acting and intermediate steering keys remain open."
