@@ -13,6 +13,8 @@
     Nursery's sleeping babies: two new defense contests;
   - the Geologist races the imp for the same geode;
   - only the contest restarts when he wins, and after two failures he slows down radically.
+  - Any optional new imp costume follows the owner's 2026-10-03 animation-workflow policy in
+    `AGENTS.md` (`DL-MOT-14` to `DL-MOT-16`), added when revision 5 was merged with `dev`.
 - **Revision 4** (`1fbcc9db`) added OD-D: silly questions such as "which smells the worst?"
   and sillier imp lines.
 - **Revision 3** (`86732a47`) folded in the Day Two art review's corrections: reuse only the

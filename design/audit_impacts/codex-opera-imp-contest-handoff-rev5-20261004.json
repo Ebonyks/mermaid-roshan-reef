@@ -1,7 +1,7 @@
 {
  "id": "codex-opera-imp-contest-handoff-rev5-20261004",
- "scope": "Owner request 2026-10-04: \"The imp teacher games can't be lost by design, and should always be silly. Imp maybe tries to mess up your recipes and put gross things in the food? Geologist should be competing for time with Roshan for the same goal. You should stop the imps from being too noisy when the babies are sleeping. Imp just restarts contest at end, after two failures, imp should radically slow down.\" Revision 5 of the written-only Codex handoff docs/handoffs/codex_opera_imp_contest_2026-09-30/ (no images): owner decision OD-E recorded with its quote. The Teacher's IMP'S LESSON cannot be lost (no imp points, no restart, her row only) and every round is silly: four rounds alternating the existing silly questions with silly versions of the lessons (a silly object in the pattern, the nose or sneeze count, the banana sum, the pizza-slice twin). A new defense archetype (contract rule C16, section 4.17): the Chef's YUCKY RECIPE (by default reading the recipe idea as the Chef's; built after the owner-requested Chef repair) and the Nursery's QUIET TIME on the plain mischief and captain imps with Faron kept as teammate, reusing the dormant bop code and existing gentle sounds. The Geologist's GEODE RACE replaces the revision 2-4 FIELD GUIDE MIX-UP: one geode, two diggers. Contest-only restart confirmed; the progressive rematch mercy is replaced by a radical slowdown after two failures. Updated spec, generator (two-family support, no option-B paths), inventories (178 of 178 imp pose files planned; 39 of 56 existing imp lines; 77 new lines), analysis, README, tests, work order (pilots Detective, Magician, Nursery) and acceptance. Canon: DL-INT-14 amended; design 01 competition, Nursery and Geologist pointers; master index note; ledger rows. The master-audit planning entry is not edited: the owner's 2026-10-03 restructure moved dated updates to the sealed cycle intake history. The owner-decision register is not edited: its intake is tied to study cycles, so OD-A to OD-E remain recorded in this packet for the next cycle. No game script, scene, asset, save key or runtime behaviour changes.",
- "baseline": "87f992680c0b6a690bf45b1950275579c45e15ab",
+ "scope": "Owner request 2026-10-04: \"The imp teacher games can't be lost by design, and should always be silly. Imp maybe tries to mess up your recipes and put gross things in the food? Geologist should be competing for time with Roshan for the same goal. You should stop the imps from being too noisy when the babies are sleeping. Imp just restarts contest at end, after two failures, imp should radically slow down.\" Revision 5 of the written-only Codex handoff docs/handoffs/codex_opera_imp_contest_2026-09-30/ (no images): owner decision OD-E recorded with its quote. The Teacher's IMP'S LESSON cannot be lost (no imp points, no restart, her row only) and every round is silly: four rounds alternating the existing silly questions with silly versions of the lessons (a silly object in the pattern, the nose or sneeze count, the banana sum, the pizza-slice twin). A new defense archetype (contract rule C16, section 4.17): the Chef's YUCKY RECIPE (by default reading the recipe idea as the Chef's; built after the owner-requested Chef repair) and the Nursery's QUIET TIME on the plain mischief and captain imps with Faron kept as teammate, reusing the dormant bop code and existing gentle sounds. The Geologist's GEODE RACE replaces the revision 2-4 FIELD GUIDE MIX-UP: one geode, two diggers. Contest-only restart confirmed; the progressive rematch mercy is replaced by a radical slowdown after two failures. Updated spec, generator (two-family support, no option-B paths), inventories (178 of 178 imp pose files planned; 39 of 56 existing imp lines; 77 new lines), analysis, README, tests, work order (pilots Detective, Magician, Nursery) and acceptance. Canon: DL-INT-14 amended; design 01 competition, Nursery and Geologist pointers; master index note; ledger rows. The master-audit planning entry is not edited: the owner's 2026-10-03 restructure moved dated updates to the sealed cycle intake history. The owner-decision register is not edited: its intake is tied to study cycles, so OD-A to OD-E remain recorded in this packet for the next cycle. At the dev merge (dev ecb68651, the owner's 2026-10-03 animation-workflow policy), the optional rival_teacher and rival_geologist costume instructions were aligned with that policy (AGENTS.md; DL-MOT-14 to DL-MOT-16; the production protocol and job card). No game script, scene, asset, save key or runtime behaviour changes.",
+ "baseline": "ecb68651c67e66501eeab2c719b152d8982023c2",
  "rules": [
   "DL-AUTH-05",
   "DL-AUTH-06",
@@ -16,6 +16,9 @@
   "DL-INT-06",
   "DL-INT-14",
   "DL-MOT-07",
+  "DL-MOT-14",
+  "DL-MOT-15",
+  "DL-MOT-16",
   "DL-SAVE-01",
   "DL-SND-01",
   "DL-SND-05",
@@ -48,27 +51,27 @@
   {
    "command": "python3 -B tools/audit_document_authority.py",
    "result": "PASS",
-   "evidence": "DOCAUTH|INVENTORY=649|LEDGER=649|ACTIVE=61|RECORDS=64; DOCAUTH|RESULT|ALL OK; --stress DOCAUTH|STRESS|6/6."
+   "evidence": "On the dev-merged tree: DOCAUTH|INVENTORY=651|LEDGER=651|ACTIVE=61|RECORDS=64; DOCAUTH|RESULT|ALL OK; --stress DOCAUTH|STRESS|6/6. (Before the merge: INVENTORY=649, ALL OK.)"
   },
   {
    "command": "python3 -B tools/audit_development.py --base auto",
    "result": "PASS",
-   "evidence": "AUDITDEV|BASE|87f992680c0b6a690bf45b1950275579c45e15ab; AUDITDEV|RESULT|ALL OK."
+   "evidence": "On the dev-merged tree: AUDITDEV|BASE|ecb68651c67e66501eeab2c719b152d8982023c2; AUDITDEV|RESULT|ALL OK. (Before the merge: base 87f992680c0b6a690bf45b1950275579c45e15ab, ALL OK.)"
   },
   {
    "command": "python3 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development tools.tests.test_record_owner_decision tools.tests.test_run_advisory_sensor tools.tests.test_study_game tools.tests.test_build_study_roadmap tools.tests.test_plan_prompt tools.tests.test_resolve_godot",
    "result": "PASS",
-   "evidence": "Ran 149 tests, OK (the static unit line CI runs: document authority, development audit, owner register, advisory sensor, study, roadmap, prompt planner and Godot resolver tests). tools/plan_prompt.py --check: PROMPTS: ALL OK."
+   "evidence": "Ran 149 tests, OK, before and after the dev merge (the static unit line CI runs: document authority, development audit, owner register, advisory sensor, study, roadmap, prompt planner and Godot resolver tests). tools/plan_prompt.py --check: PROMPTS: ALL OK."
   },
   {
    "command": "python3 -B docs/handoffs/codex_opera_imp_contest_2026-09-30/tools/build_packet_data.py --check",
    "result": "PASS",
-   "evidence": "PACKET_CHECK|OK|FILES=8 (revision 5 manifest); the inventories regenerate byte-identically and the folder contains no image."
+   "evidence": "PACKET_CHECK|OK|FILES=8 (revision 5 manifest after the policy alignment); the inventories regenerate byte-identically and the folder contains no image."
   },
   {
    "command": "python3 -B tools/record_owner_decision.py --check --base origin/dev",
    "result": "PASS",
-   "evidence": "DECISIONS|COUNT|18; DECISIONS|RESULT|ALL OK. The register and its generated view are unchanged by this revision."
+   "evidence": "DECISIONS|RESULT|ALL OK before and after the dev merge. The register and its generated view are unchanged by this revision."
   },
   {
    "command": "Humor-rule text check over every new line in data/imp_voice_inventory.json (name-calling or teasing aimed at the child)",
@@ -77,13 +80,13 @@
   },
   {
    "command": "Remote verification: unauthenticated fetch of MANIFEST.json and every listed file from raw.githubusercontent.com at the pushed commit, SHA-256 and byte comparison",
-   "result": "PASS",
-   "evidence": "Revision 674ac7c06f153942b509531f6f93ddefdc21cfe5 on ccr-1ef62322-breknu; checked 2026-10-04T05:48:14Z. MANIFEST.json fetched from https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/674ac7c06f153942b509531f6f93ddefdc21cfe5/docs/handoffs/codex_opera_imp_contest_2026-09-30/MANIFEST.json (SHA-256 4233d042628bef6e501830fba034ad2cbdb35b2e023b2dfd999f72572babe5a2, 2661 bytes, byte-identical to the committed file, revision 5); all 8 listed files at the same revision match their manifest SHA-256 and byte counts. Access mode: HTTPS GET with no Authorization header, through the session proxy; the repository is public."
+   "result": "PENDING",
+   "evidence": "Re-run after the dev merge and policy alignment. The first publication was verified at revision 674ac7c06f153942b509531f6f93ddefdc21cfe5 on ccr-1ef62322-breknu, checked 2026-10-04T05:48:14Z: MANIFEST.json (SHA-256 4233d042628bef6e501830fba034ad2cbdb35b2e023b2dfd999f72572babe5a2, 2661 bytes) and all 8 listed files matched, fetched over HTTPS with no Authorization header through the session proxy (public repository)."
   },
   {
    "command": "Exact Godot 4.7.2 probe suite (scripts/ci.sh) via .github/workflows/probes.yml on the pushed head",
    "result": "PENDING",
-   "evidence": "Documentation-only change; the suite runs as the gate before integration into dev."
+   "evidence": "Run 37180943854 passed on 3ed107500a9b37dec83767e9fb9a7d7cdb3223dd (2026-10-04T06:40:43Z, every step green). The merged and aligned head is probed again before integration into dev."
   }
  ],
  "references_used": [
@@ -118,6 +121,10 @@
   {
    "path": "assets/props/story/fruit_banana.png",
    "purpose": "existing banana named as a candidate for the shared silly icon set"
+  },
+  {
+   "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+   "purpose": "the owner's 2026-10-03 animation-workflow policy that any new imp costume family now follows (with design/templates/ANIMATION_JOB_CARD_V1.md)"
   }
  ],
  "owner_corrections": [

@@ -15,7 +15,8 @@
   - 5: owner decision OD-E: the Teacher's game cannot be lost and is always silly (§4.15,
     §6.13); defense contests for the Chef and the Nursery (§4.17, §6.1, §6.15); the
     Geologist races her for the same geode (§6.14); a radical slowdown after two failures
-    (§4.3, §4.4, §4.7).
+    (§4.3, §4.4, §4.7). Aligned at the `dev` merge with the owner's 2026-10-03
+    animation-workflow policy for any new imp costume (§4.16, §6.13).
 - **Prepared by:** Claude. Written specification only, with no images, per the CLAUDE.md
   rule "Codex handoffs: Claude writes, Codex builds images". Codex implements.
 - **Machine-readable twin:** [data/contest_spec.json](data/contest_spec.json). The prose and
@@ -534,7 +535,8 @@ object:
 - captures must show his hand or tool touching the object.
 
 **Optional art stays optional.** The Doctor's bandage overlay and the new teacher or
-geologist imp costumes are owner-dependent options, not generation orders.
+geologist imp costumes are owner-dependent options, not generation orders. Any new imp art
+follows the owner's 2026-10-03 animation-workflow policy (§6.13).
 
 **One shared silly icon set** supplies the Teacher's silly pictures, the Chef's gross things
 and the Nursery's noisy toys (§6.13). Codex checks existing approved art first
@@ -1122,7 +1124,13 @@ revision 1 to 4 topping race returns here instead.*
     - a cream cardigan with a coral bow tie;
     - a wooden pointer with a star tip as his held prop in every pose;
     - colours from the Teacher board: cream, navy outline, aqua and coral.
-  - **How Codex makes it:** through the existing costume-family process.
+  - **How Codex makes it:** under the owner's 2026-10-03 animation-workflow policy in
+    `AGENTS.md` (`DL-MOT-14` to `DL-MOT-16`, the
+    [production protocol](../../../design/animation/ANIMATION_PRODUCTION_PROTOCOL.md) and its
+    [job card](../../../design/templates/ANIMATION_JOB_CARD_V1.md)): set the attempt, time and
+    cost caps first, pilot the idle before the other states, prefer Aseprite for cleanup and
+    export where practical, and record provenance. Within that policy the existing
+    costume-family process applies:
     1. The owner approves the new idle.
     2. Codex generates Sheets A and B, with the identity locked to that idle, in the style of
        `assets_src/imagegen/imp_animation_states_2026-08-02/PROMPTS.md`.

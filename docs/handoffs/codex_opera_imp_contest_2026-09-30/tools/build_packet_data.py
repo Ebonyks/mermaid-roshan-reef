@@ -326,7 +326,7 @@ def build_manifest(spec: dict) -> dict:
         "file_count": len(entries),
         "total_bytes": total,
         "hash_basis": "SHA-256 of the committed Git blob bytes (LF line endings), identical to what raw.githubusercontent.com serves",
-        "revision": "5 (2026-10-04): adds OD-E: the Teacher game cannot be lost and is always silly, the Chef's YUCKY RECIPE, the Geologist's GEODE RACE, the Nursery's QUIET TIME, and a radical slowdown after two failures; revision 4 (OD-D) was 1fbcc9db, revision 3 (art-reuse and imp-contact corrections) was 86732a47, revision 2 (OD-C) was df01b7ce, revision 1 was 7ec82d46",
+        "revision": "5 (2026-10-04): adds OD-E: the Teacher game cannot be lost and is always silly, the Chef's YUCKY RECIPE, the Geologist's GEODE RACE, the Nursery's QUIET TIME, and a radical slowdown after two failures, aligned at the dev merge with the owner's 2026-10-03 animation-workflow policy for any new imp costume; revision 4 (OD-D) was 1fbcc9db, revision 3 (art-reuse and imp-contact corrections) was 86732a47, revision 2 (OD-C) was df01b7ce, revision 1 was 7ec82d46",
         "files": entries,
     }
 
