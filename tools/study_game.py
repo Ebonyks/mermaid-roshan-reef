@@ -322,8 +322,11 @@ def surface_evidence(root: Path, records: dict, ci: dict, strengths: dict, timeo
         probes = [probe for probe in ran if probe.startswith(prefixes)] if prefixes else []
         findings = collections.Counter()
         for fields, severity in open_rows:
-            text = " ".join(fields.get(key, "") for key in ("title", "domain / zone", "evidence", "reproduction"))
-            if source in text or any(re.search(rf"\b{re.escape(word)}\b", text, re.I) for word in words):
+            # Name and zone say what a finding is about; evidence text mentions many
+            # surfaces in passing, so only an exact source path counts there.
+            about = " ".join(fields.get(key, "") for key in ("title", "domain / zone"))
+            detail = " ".join(fields.get(key, "") for key in ("evidence", "reproduction"))
+            if source in about + detail or any(re.search(rf"\b{re.escape(word)}\b", about, re.I) for word in words):
                 findings[severity or "unrated"] += 1
         bound = sorted({s["id"] for s in strengths.get("strengths", []) for e in s.get("evidence", []) if e.get("path") == source})
         rows.append({"id": name, "source": source, "present": present,
@@ -341,7 +344,7 @@ def compact_records(records: list[dict]) -> list[dict]:
     rows = []
     for record in records:
         scope = str(record.get("scope") or "")
-        first = re.split(r"(?<=[.!?])\s", scope, 1)[0]
+        first = re.split(r"(?<=[.!?])\s", scope, maxsplit=1)[0]
         rows.append({"record": record["record"], "id": record.get("id"), "last_changed_head": record.get("last_changed_head"),
                      "findings": record.get("findings", []), "lessons": record.get("lessons", []),
                      "summary": first[:300]})
@@ -441,7 +444,7 @@ def motion_studies(root: Path, impacts: dict) -> list[dict]:
         kind = "object" if re.search(r"\bobject|swing|seesaw|ten.object", text, re.I) else "character"
         verdicts = [v for v in record.get("validation", []) if isinstance(v, dict) and re.search(r"owner|child|human", str(v.get("command", "")), re.I)]
         rows.append({"id": record["id"], "kind": kind, "record": record["record"],
-                     "summary": re.split(r"(?<=[.!?])\s", text, 1)[0][:300], "owner_verdicts": [
+                     "summary": re.split(r"(?<=[.!?])\s", text, maxsplit=1)[0][:300], "owner_verdicts": [
                          {"command": str(v.get("command", ""))[:200], "result": v.get("result")} for v in verdicts],
                      "verdict_scope": "Only the referenced candidate/action; missing review is not acceptance"})
     return rows
@@ -727,8 +730,13 @@ def runs_for_heads(root: Path, heads: list[str], timeout: float) -> dict:
     return {"status": "MEASURED", "runs": result}
 
 
-def reconcile_pending(pending: list[dict], runs_by_head: dict, dirty_paths: list[str]) -> None:
-    """Propose, never apply: a finished exact-head run for each PENDING CI entry."""
+def reconcile_pending(pending: list[dict], runs_by_head: dict, dirty_paths: list[str],
+                      looked_up: set | None = None) -> None:
+    """Propose, never apply: a finished exact-head run for each PENDING CI entry.
+
+    looked_up names the heads whose runs were actually queried; any other head
+    without runs is NOT_LOOKED_UP (offline or unavailable), never "no run".
+    """
     for row in pending:
         if not re.search(r"\bCI\b|Probe Suite", row.get("command", ""), re.I):
             row["ci_reconciliation"] = {"state": "NOT_CI", "action": "Not a CI entry; needs its own evidence"}
@@ -739,6 +747,9 @@ def reconcile_pending(pending: list[dict], runs_by_head: dict, dirty_paths: list
         head = row.get("last_changed_head")
         if not head:
             row["ci_reconciliation"] = {"state": "UNKNOWN_HEAD", "action": "Record history not found; review by hand"}
+            continue
+        if looked_up is not None and head not in looked_up and head not in runs_by_head:
+            row["ci_reconciliation"] = {"state": "NOT_LOOKED_UP", "action": "CI runs were not queried for this head (offline or unavailable)"}
             continue
         runs = [r for r in runs_by_head.get(head, []) if r.get("status") == "completed"]
         finished = [r for r in runs if r.get("conclusion") in {"success", "failure"}]
@@ -1094,7 +1105,9 @@ def render_report(study: dict, judgement: dict | None = None) -> str:
     lines += ci_line(study)
     lines += ["", "## 1. What changed since the last cycle", ""]
     changed = [r for r in impacts["records"] if r["record"] in study["changes"]["paths"]]
-    lines += [f"- `{r['id']}` — {r.get('summary') or 'no summary'}" for r in changed[:8]] or ["- No change records in this range."]
+    def clip(text: str, limit: int = 180) -> str:
+        return text if len(text) <= limit else text[:limit].rsplit(" ", 1)[0].rstrip(",;:") + "…"
+    lines += [f"- `{r['id']}` — {clip(r.get('summary') or 'no summary')}" for r in changed[:8]] or ["- No change records in this range."]
     if len(changed) > 8:
         lines.append(f"- And {len(changed) - 8} more change records (listed in study.json).")
     lines += ["", "## 2. Strengths", ""]
@@ -1123,7 +1136,7 @@ def render_report(study: dict, judgement: dict | None = None) -> str:
         lines.append(f"- {len(pending)} fixes wait for a phone, owner or child check ({target.get('old_unverified_fixes', {}).get('value')} for more than 30 days); see [DEVICE_SESSION.md](DEVICE_SESSION.md).")
     motion = study.get("motion_studies", [])
     if motion:
-        lines.append(f"- {len(motion)} motion studies are recorded; {sum(bool(r['owner_verdicts']) for r in motion)} carry an owner verdict.")
+        lines.append(f"- {len(motion)} motion studies are recorded; owner verdicts exist for {sum(bool(r['owner_verdicts']) for r in motion)} of them.")
     library = study.get("day_two_library", {})
     if library.get("changed_watched_sources"):
         lines.append(f"- Day Two library: {len(library['changed_watched_sources'])} watched sources changed since their review.")
@@ -1144,7 +1157,7 @@ def render_report(study: dict, judgement: dict | None = None) -> str:
     found = [r for r in impacts["pending"] if (r.get("ci_reconciliation") or {}).get("state") == "RUN_FOUND"]
     lines += ["", f"Change records: {len(impacts['records'])}. Validation entries still PENDING: {len(impacts['pending'])}, of which {len(found)} have a finished CI run at their record's head "
               f"({sum(r['ci_reconciliation']['run'].get('conclusion') == 'success' for r in found)} success) and are proposed for a record update in a later change; "
-              f"{reconciled.get('CANCELLED_ONLY', 0)} only cancelled, {reconciled.get('NO_RUN', 0)} no run, {reconciled.get('UNKNOWN_HEAD', 0) + reconciled.get('NOT_COLLECTED', 0)} not resolved. FAIL entries kept: {len(impacts['failed'])}."]
+              f"{reconciled.get('CANCELLED_ONLY', 0)} only cancelled, {reconciled.get('NO_RUN', 0)} no run, {reconciled.get('NOT_LOOKED_UP', 0)} not looked up, {reconciled.get('UNKNOWN_HEAD', 0) + reconciled.get('NOT_COLLECTED', 0)} not resolved, {reconciled.get('NOT_CI', 0)} not CI checks. FAIL entries kept: {len(impacts['failed'])}."]
     lines += ["", "## 5. Roadmap", ""]
     roadmap = study.get("roadmap", {})
     if roadmap.get("counts"):
@@ -1298,12 +1311,16 @@ def collect(root: Path, cycle: str, as_of: str, previous: Path | None = None, of
     runs_by_head: dict = {}
     for run in ci.get("recent_runs", []):
         runs_by_head.setdefault(run.get("head_sha", run.get("headSha")), []).append(run)
+    looked_up = set(runs_by_head)
     if ci_fixture:
         fixture_runs = json.loads(read_text(ci_fixture)).get("runs_by_head", {})
         runs_by_head.update(fixture_runs if isinstance(fixture_runs, dict) else {})
+        looked_up |= set(fixture_runs) if isinstance(fixture_runs, dict) else set()
     elif not offline and heads:
-        runs_by_head.update(runs_for_heads(root, heads, timeout).get("runs", {}))
-    reconcile_pending(impacts["pending"], runs_by_head, dirty_paths)
+        lookup = runs_for_heads(root, heads, timeout)
+        runs_by_head.update(lookup.get("runs", {}))
+        looked_up |= set(lookup.get("runs", {}))
+    reconcile_pending(impacts["pending"], runs_by_head, dirty_paths, looked_up)
     records = health.split_records(read_text(root / health.FINDINGS))
     status = live_status(root)
     try:

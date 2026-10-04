@@ -504,6 +504,9 @@ class StudyRepairTests(unittest.TestCase):
                 "b" * 40: [{"id": 3, "status": "completed", "conclusion": "cancelled"}]}
         study.reconcile_pending(pending, runs, [])
         self.assertEqual(["RUN_FOUND", "CANCELLED_ONLY", "UNKNOWN_HEAD", "NOT_CI"], [row["ci_reconciliation"]["state"] for row in pending])
+        offline = [{"record": "e.json", "command": "Probe Suite CI", "last_changed_head": "e" * 40}]
+        study.reconcile_pending(offline, {}, [], looked_up=set())
+        self.assertEqual("NOT_LOOKED_UP", offline[0]["ci_reconciliation"]["state"])
         self.assertEqual(2, pending[0]["ci_reconciliation"]["run"]["id"])
 
     def test_health_targets_fail_closed_without_findings(self):

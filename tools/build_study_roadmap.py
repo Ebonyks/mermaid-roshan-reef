@@ -455,7 +455,7 @@ def render_lane(lines: list[str], heading: str, intro: str, items: list[dict], r
             why = f"{item['owner_reason']}; {item['severity']} {item['lifecycle']}; {item['child_reason']}; {age}"
             if item.get("depends_on"):
                 why += f"; after {', '.join(item['depends_on'])}"
-            title = f"{item['id']}: {short_title(item['title'])}"
+            title = f"{item['id']} ({item['severity']})"
         else:
             why = item.get("source", "")
             title = f"{item['id']}: {item['title']}"
