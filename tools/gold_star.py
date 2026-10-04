@@ -43,6 +43,12 @@ DESIGN = "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md"
 DECISIONS = "design/reference/owner_decisions.json"
 MANIFEST = "tools/game_2d_migration_manifest.json"
 CI = "scripts/ci.sh"
+OVERDRAW = "design/reference/overdraw.json"
+OD_CHECKS = ("OD1", "OD2", "OD3", "OD4", "OD5", "OD6")
+OD_RESULTS = ("pass", "fail", "not_measured")
+OD_REVIEWED = ("OD1", "OD2")
+DRAWING_ROLES = ("wash", "ambient", "stand_in", "guide", "effect", "child_mark", "ui")
+DEFAULT_CORE = ("C1", "C3", "C4", "C5", "C6")
 
 ASSESSED = tuple(f"C{number}" for number in range(1, 11))
 COMPUTED = ("C11", "C12")
@@ -245,16 +251,137 @@ def compute_c12(game: dict, findings: dict[str, dict]) -> tuple[int, str]:
     return 0, "No device, child or owner acceptance recorded" + suffix
 
 
-def derive_rating(scores: dict[str, int], p0_open: bool = False) -> tuple[int, str]:
+def load_measurements(root: Path) -> dict:
+    path = root / OVERDRAW
+    if not path.is_file():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        raise GoldStarError(f"{OVERDRAW}: invalid JSON: {error}") from error
+
+
+def stale_inputs(root: Path, record: dict) -> list[str]:
+    """Files whose content changed since the overdraw measurement was taken."""
+    return sorted(path for path, digest in (record.get("inputs") or {}).items()
+                  if anchor_hash(root, {"path": path}) != digest)
+
+
+def stale_drawing(root: Path, rubric: dict) -> list[str]:
+    return [entry["path"] for entry in (rubric.get("overdraw") or {}).get("code_drawing", [])
+            if anchor_hash(root, {"path": entry.get("path", "")}) != entry.get("sha256")]
+
+
+def overdraw_results(root: Path, rubric: dict, measurements: dict, game: dict) -> dict[str, dict]:
+    """Derive OD1-OD6 for one game from measurements, the drawing classification and reviews.
+
+    A missing, stale or unclassified measurement is `not_measured`, never a pass.
+    """
+    spec = rubric.get("overdraw") or {}
+    budgets = spec.get("budgets") or {}
+    results = {check: {"result": "not_measured", "detail": "No overdraw measurement for this game."} for check in OD_CHECKS}
+    reviews = game.get("overdraw_review") or {}
+    record = (measurements.get("games") or {}).get(game.get("id"))
+    if record:
+        changed = stale_inputs(root, record)
+        if changed:
+            detail = "Measurement is stale; re-measure after: " + ", ".join(changed[:4])
+            results = {check: {"result": "not_measured", "detail": detail} for check in OD_CHECKS}
+            record = None
+    if record:
+        skip = set(spec.get("states_not_budgeted", []))
+        states = {name: state for name, state in (record.get("states") or {}).items() if name not in skip}
+        classified = {entry["path"]: entry for entry in spec.get("code_drawing", [])}
+        unreliable = set(stale_drawing(root, rubric))
+        duplicates = [f"{name}: {' and '.join(d.get('names', []))}" for name, state in states.items()
+                      for d in state.get("duplicates", [])]
+        results["OD1"] = ({"result": "fail", "detail": "Drawn twice over itself: " + "; ".join(duplicates[:4])} if duplicates
+                          else {"result": "not_measured", "detail": "No on-screen duplicate; the painted-copy review is still needed."})
+        drawn = sorted({path for state in states.values() for path in state.get("code_drawing", [])})
+        unknown = [path for path in drawn if path not in classified or path in unreliable]
+        refused = [path for path in drawn if path in classified and path not in unreliable and not classified[path].get("allowed")]
+        if refused:
+            results["OD3"] = {"result": "fail", "detail": "; ".join(
+                f"{path.split('/')[-1]}: {classified[path]['draws'].rstrip('.')}" for path in refused) + "."}
+        elif unknown:
+            results["OD3"] = {"result": "not_measured", "detail": "Classify what these scripts draw: " + ", ".join(unknown)}
+        else:
+            results["OD3"] = {"result": "pass", "detail": "No code-drawn shapes on screen outside allowed child marks."}
+        slow, covering, lingering = [], [], []
+        for name, effect in (record.get("effects") or {}).items():
+            for item in effect.get("transient", []):
+                if float(item.get("seconds") or 0.0) > float(budgets.get("effect_seconds", 1.0)):
+                    slow.append(f"{item['name']} ({name}, {item['seconds']} s)")
+                if float(item.get("over_roshan_share") or 0.0) > float(budgets.get("effect_over_roshan", 0.25)):
+                    covering.append(f"{item['name']} ({name})")
+            lingering += [f"{item['name']} ({name})" for item in effect.get("lingering_translucent", [])]
+        problems = ([f"slow: {', '.join(slow)}"] if slow else []) + ([f"over Roshan: {', '.join(covering)}"] if covering else []) \
+            + ([f"left over finished work: {', '.join(lingering)}"] if lingering else [])
+        results["OD4"] = ({"result": "fail", "detail": "; ".join(problems)} if problems
+                          else {"result": "pass", "detail": "Effects clear within the budget and stay off Roshan."}
+                          if record.get("effects") else {"result": "not_measured", "detail": "No action effects measured."})
+        has_gpu = bool(states) and all(state.get("gpu") for state in states.values())
+        washed = [name for name, state in states.items()
+                  if has_gpu and int(state["gpu_translucent"].get("p50", 0)) > int(budgets.get("translucent_p50", 0))]
+        washes = [f"a translucent layer lies under at least half the screen in {', '.join(washed)}"] if washed else []
+        washes += [f"{overlay['name']} covers {overlay.get('screen_share')} of the screen in {name}"
+                   for name, state in states.items() for overlay in state.get("broad_overlays", [])]
+        results["OD5"] = ({"result": "fail", "detail": sentence("; ".join(washes[:4]))} if washes
+                          else {"result": "pass", "detail": "No broad translucent layer."} if has_gpu
+                          else {"result": "not_measured", "detail": "No GPU layer count."})
+        heavy = []
+        for name, state in states.items():
+            gpu = state.get("gpu") or {}
+            over = [label for label, value, limit in (
+                ("mean", gpu.get("mean"), budgets.get("mean_layers", 2.5)),
+                ("4+ layers", gpu.get("share_ge4"), budgets.get("share_ge4", 0.10)),
+                ("max", gpu.get("max"), budgets.get("max_layers", 8)),
+                ("peak", state.get("gpu_peak"), budgets.get("peak_layers", 32)))
+                if value is not None and float(value) > float(limit)]
+            if over:
+                heavy.append((float(gpu.get("mean") or 0.0),
+                              f"{name} (mean {gpu.get('mean')} layers, {round(100 * float(gpu.get('share_ge4') or 0))}% with 4+, "
+                              f"max {gpu.get('max')}, peak {state.get('gpu_peak')})"))
+        wasted = sorted({layer["name"] for state in states.values() for layer in state.get("wasted_layers", [])})
+        problems = ([f"over budget in {len(heavy)} play state(s), worst {max(heavy)[1]}"] if heavy else []) \
+            + (["drawn while hidden under opaque art: " + ", ".join(wasted)] if wasted else [])
+        results["OD6"] = ({"result": "fail", "detail": sentence("; ".join(problems))} if problems
+                          else {"result": "pass", "detail": "Within the fill budget with no wasted layers."} if has_gpu
+                          else {"result": "not_measured", "detail": "No GPU layer count."})
+        results["OD2"] = {"result": "not_measured", "detail": "Look-alike review not recorded."}
+    # OD1 needs both the machine count and the painted-copy review; OD2 is review only.
+    for check in OD_REVIEWED:
+        review = reviews.get(check)
+        if not isinstance(review, dict) or results[check]["result"] == "fail":
+            continue
+        if review.get("result") == "fail":
+            results[check] = {"result": "fail", "detail": f"Review: {review.get('evidence')}"}
+        elif review.get("result") == "pass" and (check == "OD2" or record):
+            results[check] = {"result": "pass", "detail": f"Reviewed: {review.get('evidence')}"}
+    return results
+
+
+def sentence(text: str) -> str:
+    return (text[:1].upper() + text[1:]).rstrip(".") + "."
+
+
+def overdraw_ok(results: dict[str, dict]) -> bool:
+    return bool(results) and all(entry["result"] == "pass" for entry in results.values())
+
+
+def derive_rating(scores: dict[str, int], p0_open: bool = False, overdraw_passed: bool = True,
+                  core: tuple[str, ...] = ()) -> tuple[int, str]:
     """Turn twelve 0-2 scores into the master audit's 1-5 scale, deterministically.
 
     An open game-specific P0 blocker caps the rating at 2 (master audit 2.3:
-    a primary path is unavailable).
+    a primary path is unavailable). A 4 also needs every core criterion at 2
+    and every overdraw check passed (refined 2026-10-04).
     """
     assessed = [scores[key] for key in ASSESSED]
     zeros = [key for key in ASSESSED[1:] if scores[key] == 0]
     partial = [key for key in ASSESSED if scores[key] == 1]
-    if all(scores[key] == 2 for key in CRITERIA) and not p0_open:
+    short_core = [key for key in core if scores.get(key, 0) < 2]
+    if all(scores[key] == 2 for key in CRITERIA) and not p0_open and overdraw_passed:
         return 5, "Every criterion meets the gold star, including device, child and owner acceptance"
     if scores["C1"] == 0:
         return 1, "A child cannot reach it in normal play"
@@ -262,12 +389,16 @@ def derive_rating(scores: dict[str, int], p0_open: bool = False) -> tuple[int, s
         return 2, "Fails " + ", ".join(zeros) + ("; an open P0 blocker" if p0_open else "")
     if p0_open:
         return 2, "An open P0 blocker" + (f"; fails {zeros[0]}" if zeros else "")
-    if zeros or scores["C11"] == 0 or len(partial) > 2:
+    if zeros or scores["C11"] == 0 or len(partial) > 2 or short_core or not overdraw_passed:
         reasons = [f"fails {zeros[0]}"] if zeros else []
         if scores["C11"] == 0:
             reasons.append("an open P0/P1 defect")
         if len(partial) > 2:
             reasons.append(f"{len(partial)} criteria only partly met")
+        if short_core and not zeros:
+            reasons.append("core " + ", ".join(short_core) + " below the gold star")
+        if not overdraw_passed:
+            reasons.append("overdraw checks not all passed")
         return 3, "Workable: " + "; ".join(reasons)
     if min(assessed) >= 1:
         return 4, "Strong: what remains is " + (", ".join(partial) + " and " if partial else "") + "device, child and owner gates"
@@ -289,13 +420,20 @@ def evaluate(root: Path, catalogue: dict, rubric: dict) -> list[dict]:
     findings = finding_states(root)
     debt = debt_by_file(root)
     trusted = trusted_probes(root)
+    measurements = load_measurements(root) if rubric.get("overdraw") else {}
+    core = tuple(rubric.get("core") or ()) if rubric.get("overdraw") else ()
     rows = []
     for game in catalogue.get("games", []):
         scores, notes = game_scores(game, findings)
         p0_open = any(findings.get(identifier, {}).get("lifecycle") in DEFECT
                       and findings.get(identifier, {}).get("severity") == "P0"
                       for identifier in game.get("findings", []))
-        rating, reason = derive_rating(scores, p0_open)
+        overdraw = overdraw_results(root, rubric, measurements, game) if rubric.get("overdraw") else {}
+        passed = overdraw_ok(overdraw) if overdraw else True
+        if overdraw and not passed and scores["C7"] > 1:
+            scores["C7"] = 1
+            notes["C7"] += " Capped at 1: the overdraw checks are not all passed."
+        rating, reason = derive_rating(scores, p0_open, passed, core)
         stale = [anchor_label(anchor) for anchor in game.get("evidence", [])
                  if anchor_hash(root, anchor) != anchor.get("sha256")]
         open_defects = [identifier for identifier in game.get("findings", [])
@@ -307,7 +445,7 @@ def evaluate(root: Path, catalogue: dict, rubric: dict) -> list[dict]:
             "debt_3d": sum(debt.get(path, 0) for path in game.get("sources", [])),
             "probes": [probe for probe in game.get("probes", []) if probe in trusted],
             "untrusted_probes": [probe for probe in game.get("probes", []) if probe not in trusted],
-            "open_defects": open_defects, "stale_evidence": stale,
+            "open_defects": open_defects, "stale_evidence": stale, "overdraw": overdraw,
         })
     return rows
 
@@ -431,17 +569,63 @@ def validate(root: Path, catalogue: dict, rubric: dict) -> list[str]:
     for entry in (rubric.get("coverage") or {}).get("not_games", []):
         if not (root / str(entry.get("path"))).is_file() or not entry.get("reason"):
             errors.append(f"{RUBRIC}: not_games entry needs an existing path and a reason: {entry.get('path')}")
+    errors += validate_overdraw(root, catalogue, rubric)
     for path in uncovered_files(root, catalogue, rubric):
         errors.append(f"{path}: game file is not in the catalogue; catalogue and assess it, or list it under coverage.not_games with a reason")
     # design/ JSON is live project data to tools/audit_game_2d.py, so an engine
     # class name in a note would count as new 3D debt and fail the 2D gate.
-    for name in (CATALOGUE, RUBRIC):
+    for name in (CATALOGUE, RUBRIC, OVERDRAW):
         path = root / name
         words = game_2d_token_counts(path.read_text(encoding="utf-8")) if path.is_file() else {}
         if words:
             listed = ", ".join(f"{word} x{count}" for word, count in words.items())
             errors.append(f"{name}: {listed} would count as 3D debt in tools/audit_game_2d.py; "
                           "write plain words such as '3D nodes' instead of engine class names")
+    return errors
+
+
+def validate_overdraw(root: Path, catalogue: dict, rubric: dict) -> list[str]:
+    errors: list[str] = []
+    for game in catalogue.get("games", []):
+        for check, review in (game.get("overdraw_review") or {}).items():
+            if check not in OD_REVIEWED or not isinstance(review, dict) \
+                    or review.get("result") not in ("pass", "fail") or not review.get("evidence"):
+                errors.append(f"{CATALOGUE}: {game.get('id')}: overdraw_review {check} needs a result of pass or fail and evidence")
+    spec = rubric.get("overdraw")
+    if spec is None:
+        return errors
+    if tuple(check.get("id") for check in spec.get("checks", [])) != OD_CHECKS:
+        errors.append(f"{RUBRIC}: overdraw checks must be exactly {', '.join(OD_CHECKS)} in order")
+    for check in spec.get("checks", []):
+        if not (check.get("title") and check.get("means") and check.get("method")):
+            errors.append(f"{RUBRIC}: overdraw {check.get('id')} needs a title, what it means and how it is measured")
+    for key, value in (spec.get("budgets") or {}).items():
+        if isinstance(value, bool) or not isinstance(value, (int, float)) or value < 0:
+            errors.append(f"{RUBRIC}: overdraw budget {key} must be a non-negative number")
+    for entry in spec.get("code_drawing", []):
+        label = f"{RUBRIC}: code_drawing {entry.get('path')}"
+        if not (root / str(entry.get("path", ""))).is_file():
+            errors.append(f"{label}: file does not exist")
+        if entry.get("role") not in DRAWING_ROLES:
+            errors.append(f"{label}: role must be one of {', '.join(DRAWING_ROLES)}")
+        if not isinstance(entry.get("allowed"), bool) or not entry.get("draws"):
+            errors.append(f"{label}: needs allowed (true or false) and what it draws")
+        if entry.get("allowed") and entry.get("role") != "child_mark":
+            errors.append(f"{label}: only the child's own marks may be allowed")
+        if not re.fullmatch(r"[0-9a-f]{64}", str(entry.get("sha256", ""))):
+            errors.append(f"{label}: needs a sha256")
+    if any(key not in ASSESSED for key in rubric.get("core") or []):
+        errors.append(f"{RUBRIC}: core criteria must be assessed criteria (C1-C10)")
+    measurements = load_measurements(root)
+    if measurements:
+        if measurements.get("schema") != "overdraw_measurements/1":
+            errors.append(f"{OVERDRAW}: schema must be overdraw_measurements/1")
+        known = {game.get("id") for game in catalogue.get("games", [])}
+        for game_id, record in (measurements.get("games") or {}).items():
+            if game_id not in known:
+                errors.append(f"{OVERDRAW}: measured game is not in the catalogue: {game_id}")
+            if not record.get("inputs") or not record.get("states"):
+                errors.append(f"{OVERDRAW}: {game_id} needs hashed inputs and measured states")
     return errors
 
 
@@ -468,16 +652,67 @@ def compare(rows: list[dict], rubric: dict, game: str, reference: str | None = N
                      "reference_score": model["scores"][key] if model else None,
                      "patterns": [{"id": p["id"], "title": p["title"], "copy": p["copy"],
                                    "anchors": [anchor_label(a) for a in p.get("anchors", [])]} for p in patterns]})
+    overdraw = target.get("overdraw") or {}
     return {"game": game, "name": target["name"], "rating": target["rating"], "points": target["points"],
-            "reference": reference, "gaps": gaps,
+            "reference": reference, "gaps": gaps, "overdraw": overdraw,
+            "to_four": next_steps(target, rubric, gaps, overdraw) if target["rating"] < 4 else [],
+            "to_five": final_steps(target, gaps),
             "prompt": f"Bring {target['name']} up to the gold star" if gaps else f"{target['name']} meets every criterion"}
+
+
+def next_steps(row: dict, rubric: dict, gaps: list[dict], overdraw: dict) -> list[str]:
+    """The ordered work that lifts a game to 4/5 under the rating rule."""
+    core = tuple(rubric.get("core") or DEFAULT_CORE)
+    checks = {check["id"]: check for check in (rubric.get("overdraw") or {}).get("checks", [])}
+    by_key = {gap["criterion"]: gap for gap in gaps}
+
+    def hint(key: str) -> str:
+        names = [pattern["id"] for pattern in by_key[key]["patterns"]]
+        return f" Copy {', '.join(names)}." if names else ""
+
+    steps = []
+    if row["scores"]["C1"] < 2:
+        steps.append(f"Make it reachable from a fresh save by touch (C1, now {row['scores']['C1']}/2): {by_key['C1']['note']}")
+    if row["open_defects"]:
+        steps.append(f"Close its open defects first: {', '.join(row['open_defects'])} (C11).")
+    for key in core:
+        if key != "C1" and key in by_key:
+            steps.append(f"Raise core {key} {by_key[key]['title']} to 2 (now {by_key[key]['score']}/2): {by_key[key]['note']}{hint(key)}")
+    for check, entry in overdraw.items():
+        if entry["result"] == "fail":
+            steps.append(f"Fix overdraw {check} {checks.get(check, {}).get('title', '')}: {entry['detail']}")
+    open_checks = [check for check, entry in overdraw.items() if entry["result"] == "not_measured"]
+    unmeasured = [check for check in open_checks if check not in OD_REVIEWED or "No overdraw measurement" in overdraw[check]["detail"]
+                  or "stale" in overdraw[check]["detail"]]
+    unreviewed = [check for check in open_checks if check not in unmeasured]
+    if unmeasured:
+        steps.append(f"Measure overdraw ({', '.join(unmeasured)}): add the game's states to `scripts/probe_overdraw.gd` if needed, "
+                     "then run `python -B tools/measure_overdraw.py`.")
+    if unreviewed:
+        steps.append(f"Review overdraw ({', '.join(unreviewed)}) at phone size and record it in the game's `overdraw_review`: "
+                     + "; ".join({"OD1": "no live object over a painted copy of itself",
+                                  "OD2": "no painted look-alike beside the action"}[check] for check in unreviewed) + ".")
+    for key in ASSESSED:
+        if key not in core and key in by_key and by_key[key]["score"] == 0:
+            steps.append(f"Raise {key} {by_key[key]['title']} from 0: {by_key[key]['note']}{hint(key)}")
+    partial = [key for key in ASSESSED if key not in core and key in by_key and by_key[key]["score"] == 1]
+    if len(partial) > 2:
+        steps.append(f"Raise {len(partial) - 2} of these partly met criteria to 2: "
+                     + "; ".join(f"{key} {by_key[key]['title']}{hint(key)}" for key in partial))
+    return steps
+
+
+def final_steps(row: dict, gaps: list[dict]) -> list[str]:
+    remaining = [f"{gap['criterion']} {gap['title']}" for gap in gaps if gap["criterion"] != "C12"]
+    steps = [f"Fully meet the remaining criteria: {'; '.join(remaining)}."] if remaining else []
+    if row["scores"]["C12"] < 2:
+        steps.append("Record a phone session, an observed child session and the owner's verdict in the game's acceptance lanes (C12).")
+    return steps
 
 
 def render_compare(result: dict) -> str:
     lines = [f"# {result['name']} against the gold star", "",
              f"Rating {result['rating']}/5, {result['points']}/24 points. Reference: `{result['reference']}`.", ""]
-    if not result["gaps"]:
-        return "\n".join(lines + ["Every criterion meets the gold star.", ""])
     for gap in result["gaps"]:
         lines += [f"## {gap['criterion']} {gap['title']} — {gap['score']}/2 (reference {gap['reference_score']}/2)", "",
                   f"Rules: {', '.join(f'`{rule}`' for rule in gap['rules'])}.", "",
@@ -486,7 +721,16 @@ def render_compare(result: dict) -> str:
             lines += [f"- Copy {pattern['id']} {pattern['title']}: {pattern['copy']} ({'; '.join(pattern['anchors'])})"]
         if gap["patterns"]:
             lines.append("")
+    if result["overdraw"]:
+        lines += ["## Overdraw (C7)", ""]
+        lines += [f"- {check} {entry['result'].replace('_', ' ')}: {entry['detail']}" for check, entry in result["overdraw"].items()]
+        lines.append("")
     lines += [f"Planner prompt: \"{result['prompt']}\" (`python -B tools/plan_prompt.py \"{result['prompt']}\"`).", ""]
+    lines += ["## To reach 4/5", ""]
+    lines += [f"{index}. {step}" for index, step in enumerate(result["to_four"], start=1)] or ["Already 4/5 or better."]
+    lines += ["", "## Then for 5/5", ""]
+    lines += [f"{index}. {step}" for index, step in enumerate(result["to_five"], start=1)] or ["Every criterion meets the gold star."]
+    lines.append("")
     return "\n".join(lines)
 
 
@@ -534,6 +778,7 @@ def render_page(root: Path, catalogue: dict, rubric: dict, rows: list[dict]) -> 
     others = [row for row in rows if row["state"] != "live"]
     if others:
         lines += ["", "Not reachable as a live game: " + "; ".join(f"{row['name']} (`{row['state']}`)" for row in others) + "."]
+    lines += render_overdraw(root, rubric, rows)
     lines += ["", "## Rubric", "", "| Criterion | Rules | Gold star means |", "|---|---|---|"]
     for entry in rubric.get("criteria", []):
         rules = ", ".join(f"`{rule}`" for rule in entry.get("rules", []))
@@ -541,10 +786,55 @@ def render_page(root: Path, catalogue: dict, rubric: dict, rows: list[dict]) -> 
     lines += ["", "Rating rule: " + table_cell(rubric.get("rating_rule", "")), "",
               "## Using it", "",
               "- `python -B tools/gold_star.py --rank` lists the games, strongest first.",
-              "- `python -B tools/gold_star.py --compare GAME` prints what GAME needs to reach the gold star and which reference pattern to copy.",
+              "- `python -B tools/gold_star.py --compare GAME` prints what GAME needs to reach the gold star and which reference pattern to copy, "
+              "and ends with the ordered list of what lifts it to 4/5, then 5/5.",
+              "- `python -B tools/measure_overdraw.py` re-measures overdraw (needs a display; numbers only, never an image).",
               "- `python -B tools/gold_star.py --check` fails on schema errors, unknown rules or findings, unresolved evidence, and any new game file that is not catalogued; `--strict` also fails on stale assessments or a stale page.",
               "- After re-assessing a game, `python -B tools/gold_star.py --rebind GAME` records the hashes of the evidence that was judged.", ""]
     return "\n".join(lines)
+
+
+def render_overdraw(root: Path, rubric: dict, rows: list[dict]) -> list[str]:
+    spec = rubric.get("overdraw")
+    if not spec:
+        return []
+    measurements = load_measurements(root)
+    measured = (measurements.get("games") or {})
+    budgets = spec.get("budgets") or {}
+    skip = set(spec.get("states_not_budgeted", []))
+    lines = ["", "## Overdraw (C7)", "", table_cell(spec.get("meaning", "")), "",
+             f"Status: {spec.get('status', '')} Measured by {spec.get('measured_by', '')}"
+             + (f" at `{str(measurements.get('head', ''))[:12]}` on {measurements.get('measured_at', '')}, "
+                f"Godot {measurements.get('godot', '')}, self-test {(measurements.get('selftest') or {}).get('result', 'not run')}."
+                if measurements else "; no measurement recorded yet."), "",
+             f"Budgets per play state: mean layers at most {budgets.get('mean_layers')}, four or more layers on at most "
+             f"{budgets.get('share_ge4')} of the screen, max {budgets.get('max_layers')} (peak frame {budgets.get('peak_layers')}); "
+             f"effects clear within {budgets.get('effect_seconds')} s and cover at most {budgets.get('effect_over_roshan')} of Roshan.", "",
+             "| Check | Means | How it is measured |", "|---|---|---|"]
+    for check in spec.get("checks", []):
+        lines.append(f"| {check['id']} {table_cell(check['title'])} | {table_cell(check['means'])} | {table_cell(check['method'])} |")
+    lines += ["", "| Game | Rating | Busiest play state (mean, share with 4+ layers, max, peak) | " + " | ".join(OD_CHECKS) + " |",
+              "|---|---:|---|" + "---|" * len(OD_CHECKS)]
+    word = {"pass": "pass", "fail": "fail", "not_measured": "—"}
+    for row in ranked(rows):
+        record = measured.get(row["id"])
+        if not record:
+            continue
+        states = {name: state for name, state in record.get("states", {}).items() if name not in skip and state.get("gpu")}
+        busiest = max(states.items(), key=lambda item: float(item[1]["gpu"].get("mean", 0)), default=None)
+        numbers = (f"{busiest[0]}: {busiest[1]['gpu'].get('mean')}, {busiest[1]['gpu'].get('share_ge4')}, "
+                   f"{busiest[1]['gpu'].get('max')}, {busiest[1].get('gpu_peak')}") if busiest else "—"
+        results = " | ".join(word[row["overdraw"].get(check, {}).get("result", "not_measured")] for check in OD_CHECKS)
+        lines.append(f"| {table_cell(row['name'])} | {row['rating']} | {numbers} | {results} |")
+    unmeasured = [row["name"] for row in ranked(rows) if row["id"] not in measured]
+    if unmeasured:
+        lines += ["", f"Not yet measured ({len(unmeasured)} live games): " + "; ".join(unmeasured) + "."]
+    lines += ["", "Code-drawing scripts seen on screen:", "", "| Script | Role | What it draws | Allowed |", "|---|---|---|---|"]
+    stale = set(stale_drawing(root, rubric))
+    for entry in spec.get("code_drawing", []):
+        flag = " (changed since classified)" if entry["path"] in stale else ""
+        lines.append(f"| `{entry['path']}`{flag} | {entry['role']} | {table_cell(entry['draws'])} | {'yes' if entry['allowed'] else 'no'} |")
+    return lines
 
 
 def bind_anchors(root: Path, anchors: list[dict]) -> None:
@@ -608,6 +898,13 @@ def summary(root: Path) -> dict:
         "stale": sorted(row["id"] for row in rows if row["stale_evidence"]),
         "stale_patterns": stale_patterns(root, rubric),
         "ratings": {str(value): sum(row["rating"] == value for row in order) for value in range(5, 0, -1)},
+        "overdraw": {
+            "measured": sorted(row["id"] for row in rows if any(entry["result"] != "not_measured"
+                                                                 for entry in (row.get("overdraw") or {}).values())),
+            "passing": sorted(row["id"] for row in rows if row.get("overdraw") and overdraw_ok(row["overdraw"])),
+            "failing": {row["id"]: [check for check, entry in row["overdraw"].items() if entry["result"] == "fail"]
+                        for row in rows if any(entry["result"] == "fail" for entry in (row.get("overdraw") or {}).values())},
+        },
     }
 
 
@@ -666,9 +963,18 @@ def main(argv: list[str] | None = None) -> int:
             print(f"GOLDSTAR|STALE|{game}|re-assess, then --rebind: {', '.join(anchors)}")
         for pattern in patterns:
             print(f"GOLDSTAR|STALE_PATTERN|{pattern}")
+        drawing = stale_drawing(root, rubric)
+        for path in drawing:
+            print(f"GOLDSTAR|STALE_DRAWING|{path}|re-read what it draws, update the classification and its sha256")
+        measurements = load_measurements(root)
+        for game_id, record in sorted((measurements.get("games") or {}).items()):
+            changed = stale_inputs(root, record)
+            if changed:
+                # Fail-closed already: a stale measurement scores as not measured.
+                print(f"GOLDSTAR|STALE_OVERDRAW|{game_id}|re-measure: {', '.join(changed[:4])}")
         if page_stale:
             print(f"GOLDSTAR|STALE_PAGE|{PAGE}|run --render")
-        failed = bool(errors) or (args.strict and bool(stale or patterns or page_stale))
+        failed = bool(errors) or (args.strict and bool(stale or patterns or drawing or page_stale))
         print(f"GOLDSTAR|RESULT|{'FAIL' if failed else 'OK'}|{len(rows)} games, {len(errors)} errors, {len(stale)} stale")
         return 1 if failed else 0
     except GoldStarError as error:

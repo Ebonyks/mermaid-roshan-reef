@@ -341,6 +341,29 @@ turn, and `MA-CI-008`, for advisory sensors that fail silently.
 | relationships | Subordinate workstream of `MA-VIS-006`; enforces the unique-pixel ownership and per-card occlusion rules implicated by `MA-VIS-002`; includes the product repair already indexed as `MA-OPERA-002`; exact production visibility also depends on `MA-RELEASE-001`. |
 | history | 2026-08-29: repeated owner report reproduced. Root causes include an abandoned topic branch, removal of only one of two false foreground cards, two baked/blurred background footprints, regeneration tooling that could restore the defect, node-only probes, a runtime route allow-list that rejected the repaired route, and cwd-relative review tooling that could inspect stale branches or composite against an obsolete plate. Both bathroom footprints were repaired and exact 4.7.2 dirty/clean captures passed. Three parallel scrubs dispositioned the game, drove full-frame regeneration of seven Castle plates plus Opera Detective and Nursery, retired the incomplete duplicate tent-flap card, repaired the cupboard's incomplete rest frame, and independently reviewed all 96 retained V4 frames against exact worktree/runtime paths. The complete exact-4.7.2 local suite exits zero; lifecycle advances to `FIXED_PENDING_VERIFICATION` while exact `dev` and external acceptance remain open. |
 
+## MA-VIS-008
+
+| Field | Value |
+|---|---|
+| id | `MA-VIS-008` |
+| title | Child-facing screens carry measured overdraw: code-drawn washes, grime, halos, props and ambient motifs over the approved art, duplicate and hidden full-screen layers, and over-budget layer counts. |
+| rule_ids | `DL-PERF-03`, `DL-MED-02`, `DL-MED-05`, `DL-LAY-03`, `DL-LAY-08`, `DL-READ-01`, `DL-READ-02`, `DL-VIS-03`, `DL-MOT-04` |
+| domain / zone | Visual quality and mobile fill cost / Day One castle rooms (`scripts/arena/day_one_castle_dressing.gd`, `scripts/arena/castle_rooms_25d.gd`, `scripts/games/day_one_dust_bunny_swimmer.gd`) and the Opera career frame (`scripts/opera_world_backdrop_2d.gd`, `scripts/opera_world_hotspot_2d.gd`, `scripts/opera_gesture_surface.gd`, the specialist surfaces), plus `scripts/living_world_canvas.gd` |
+| source | 2026-10-04 overdraw analysis requested by the owner ("overdraw needs to be specifically analyzed, it is a big issue in the current games so far") after the Chef verdict `ODR-CHEF-VERDICT-20261003`; measured by Claude at dev `f07c1a48`. |
+| severity | P1 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V2: measured on the real routes with `scripts/probe_overdraw.gd` (exact Godot 4.7.2-stable, Mobile renderer, isolated save) after its self-test proved the GPU layer counts exact; numbers only, no image saved or shown. |
+| reproduction | `python -B tools/measure_overdraw.py`, then `python -B tools/gold_star.py --compare day_one_pool` (or any measured career). |
+| child_impact | In every dirty Day One room a 12% purple-grey wash, edge grime bands, drips and cracks are drawn in code over the room art and over Roshan, muddying her identity colours; Opera careers show code-drawn props, halos and ambient motifs over the painted scenes (the look the owner rejected in Chef). Heavy layer stacks risk stutter on the target phone (Geologist's task: mean 5.75 layers, 13 at most; the Pool's reveal: a 255-layer burst). |
+| evidence | `design/reference/overdraw.json` (measured 2026-10-04 at `f07c1a48`): Pool play states mean 3.2-3.4 layers per pixel with a translucent layer under at least half the screen, two identical cleanup baskets drawn over each other during the skimmer, a full-screen `CastleLetterboxBackdrop` fill drawn 98% hidden under the room tiles, and a 255-layer peak at Rumi's reveal; all 15 careers show code-drawing scripts on screen (backdrop props and spotlights, hotspot halos, work surfaces, living-world motifs); Geologist's task frame mean 5.75 (61% of the screen with four or more layers, max 13) and Teacher's 3.5. Scorecard detail: `design/reference/GOLD_STAR.md` (Overdraw). |
+| owner_decision | Not required for the measured defects; the owner states overdraw is a big issue and rejected Chef's look for it. Whether a dirty room may use any wash at all is asked as GS5 question Q5 in `docs/handoffs/codex_gold_star_2026-10-03/README.md`. |
+| fix | Codex package GS5 in `docs/handoffs/codex_gold_star_2026-10-03/README.md`: remove the castle dressing's code-drawn wash and grime (authored dirt only, or a declared tint with Roshan counter-tinted), draw one cleanup basket, crop or drop hidden full-screen fills, replace code-drawn props, halos, spotlights and ambient motifs with approved art, find and cap the reveal burst, and bring Geologist and Teacher inside the fill budget. |
+| surrounding_tests | `probe_day_one_pool_cleanup`, `probe_day_one_art_attack_state`, `probe_castle_pool_life_2d`, `probe_opera`, `probe_opera_2d`, `probe_opera_gesture_quality`, `probe_chapter2_farmer_resume`, plus `scripts/probe_overdraw.gd` (advisory, needs a display). |
+| acceptance | `tools/gold_star.py` reports OD1-OD6 passed on every measured state of each affected game, then the phone session shows no stutter and the owner accepts the look. |
+| closure | Open as of 2026-10-04 at `f07c1a48`. |
+| relationships | Generalises the Chef overdraw in `MA-OPERA-001`; the painted-copy review relates to `MA-VIS-007`; device frame-time proof stays with `MA-PERF-001`. |
+| history | 2026-10-04: measured by Claude at `f07c1a48` for the gold-star overdraw criteria; opened `CONFIRMED_OPEN` P1. |
+
 ## MA-PLAY-001
 
 | Field | Value |

@@ -1,19 +1,20 @@
 {
  "schema": "codex_handoff_manifest/1",
  "handoff": "codex_gold_star_2026-10-03",
- "revision": 3,
- "revision_note": "Revision 3: the scorecard notes and rubric use plain words ('3D nodes') instead of engine class names, which the true-2D gate counted as new 3D debt (Probe Suite run 37184172269 on df99a371); tools/gold_star.py --check now refuses them. Reference hashes for games.json, gold_star.json, GOLD_STAR.md and tools/gold_star.py are updated; the packet documents are unchanged. Revisions 1 (7bf4620540d380a2f1a57655210019126066ae94) and 2 (128723cbf053173d13e24cdebaa22569bacd837b) were published and verified anonymously first.",
+ "revision": 4,
+ "revision_note": "Revision 4 (2026-10-04): the owner asked for overdraw to be analysed specifically. The gold-star criteria gain overdraw checks OD1-OD6 under C7, measured on the real routes by tools/measure_overdraw.py (GPU layer counts, numbers only); README adds GS5 (MA-VIS-008) and owner questions 5-6; POOL_FIVE_STAR.md and AUDIT.md correct the Pool to 3/5 under the refined criteria. Revisions 1-3 were published and verified anonymously first.",
  "evidence_baseline": "dev 87f992680c0b6a690bf45b1950275579c45e15ab",
- "rules_checked_at": "dev ecb68651c67e66501eeab2c719b152d8982023c2 (owner animation workflow decision 2026-10-03)",
+ "rules_checked_at": "dev f07c1a4820fb5222289802ad712db677b56400bc (after Codex's Chef overdraw repair)",
  "tracking_findings": [
   "MA-PLAY-005",
   "MA-OPERA-013",
   "MA-PLAY-004",
+  "MA-VIS-008",
   "MA-DOC-009"
  ],
  "entry": "README.md",
  "file_count": 4,
- "total_bytes": 40450,
+ "total_bytes": 44807,
  "files": [
   {
    "path": ".gdignore",
@@ -23,48 +24,48 @@
   },
   {
    "path": "README.md",
-   "bytes": 7040,
-   "sha256": "00546597614e780b1f33b1547daa3d7c3dbec4869f9fea13107a767522229721",
+   "bytes": 10497,
+   "sha256": "dbed8b9765baae87e85287511e627d2a68db0e65814377902a186162c2914600",
    "role": "Codex handoff entry point: GS0-GS4 and four owner questions"
   },
   {
    "path": "AUDIT.md",
-   "bytes": 20354,
-   "sha256": "9502687ae2b0b10d6ae298909038d9c652a221938a3ffe2ab7c9f9aaf254b338",
+   "bytes": 20535,
+   "sha256": "160f298184d5072f7fe0ee0746a21a2216de9d80a216732018483f59639945b5",
    "role": "game-wide audit at dev 87f99268: strongest and weakest games, reachability, new findings, the reference choice"
   },
   {
    "path": "POOL_FIVE_STAR.md",
-   "bytes": 13056,
-   "sha256": "03a0f25fe240612b52d851f8fd155577a9f8037780a2d30064928e199b5c2cff",
+   "bytes": 13775,
+   "sha256": "99f045c82f352f54b1cfa6294194170824262ce47a529551a16a10b748e02a7f",
    "role": "Mermaid Pool five-star proposal (Claude's code), verification, human checks, art and voice handoff GS2"
   }
  ],
  "references": [
   {
    "path": "design/reference/GOLD_STAR.md",
-   "bytes": 17114,
-   "sha256": "ee45fab9b639fa2a2a0e2948e6818c240c6528c6b8b41fb7a0129464fed4ca1b"
+   "bytes": 26051,
+   "sha256": "044941beb09bdce608854ccfcc22fc4bb15ca97207ec6b80f35b811d081771f0"
   },
   {
    "path": "design/reference/games.json",
-   "bytes": 143594,
-   "sha256": "83a6bd161df724e9a43cf430fb8716e10d0204d56beef10ec8a2ab24562922c5"
+   "bytes": 146033,
+   "sha256": "cb5e358c13e11766d14074858a2ecbe018b98ab7c2fcdb7526cba1aa68d6558a"
   },
   {
    "path": "design/reference/gold_star.json",
-   "bytes": 21987,
-   "sha256": "57838ee1e9e14536836a4860af48906e281fbb16a7d35a4704c3548cb30f461d"
+   "bytes": 31350,
+   "sha256": "616cc663763d7eb00e400bf1b7c8b0d1e27d5b44359646baba17d54e476e762f"
   },
   {
    "path": "design/reference/recipes/gold_star.md",
-   "bytes": 5456,
-   "sha256": "11ff796fb6d40f62324cf0feae02e39728619e1597ae6755315c19d509df6562"
+   "bytes": 6123,
+   "sha256": "6a0b6250d83699a67fe0a71a9007c20b07066408bf83a448182c39f7329100d9"
   },
   {
    "path": "tools/gold_star.py",
-   "bytes": 35554,
-   "sha256": "04b37121448e1413844eb3d054d1d74be1eac07a0458aaa0c53124f058aad94d"
+   "bytes": 56075,
+   "sha256": "5a0121de444c6606b7454ba7bd5403a4153c4b4d448a055aa529dde5a24c9355"
   },
   {
    "path": "scripts/games/day_one_pool_cleanup.gd",
@@ -130,6 +131,21 @@
    "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
    "bytes": 18019,
    "sha256": "0d7c0a4e8cf74434da04067c1eba3a38b2cbdf66f3eb2a094494f370fe6728ac"
+  },
+  {
+   "path": "design/reference/overdraw.json",
+   "bytes": 85562,
+   "sha256": "2a6af4b818338b127221f821eef170c880df22e71deb774d1c913a694e72437b"
+  },
+  {
+   "path": "tools/measure_overdraw.py",
+   "bytes": 11760,
+   "sha256": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
+  },
+  {
+   "path": "scripts/probe_overdraw.gd",
+   "bytes": 39095,
+   "sha256": "6102ecaebe2c5b5db8facddc3926360e7859039fed1b0f74f1f7db815e1ad5c7"
   }
  ],
  "non_delivery": "No art, voice, capture or board is delivered; GS2 asks Codex to build them. No acceptance is granted."

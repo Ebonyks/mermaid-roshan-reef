@@ -91,12 +91,52 @@ The protected workflow `.github/workflows/probes.yml` does not. It is a high-ris
 - Then run `--rebind GAME` and `--render`.
 - Record phone, child and owner results in the game's `acceptance` lanes. Never raise C12 without that evidence.
 
+### GS5. Fix the measured overdraw ([`MA-VIS-008`](../../../audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-008))
+
+The owner asked on 2026-10-04 for overdraw to be analysed specifically. The gold-star criteria now include six overdraw checks (OD1-OD6 under C7), measured on the real routes by `tools/measure_overdraw.py`. The method is GPU layer counts plus the live Canvas tree, numbers only. The [scorecard](../../../design/reference/GOLD_STAR.md) lists every result. `python -B tools/gold_star.py --compare GAME` ends with the ordered list for each game.
+
+**What the measurement found** ([data](../../../design/reference/overdraw.json), dev `f07c1a48`):
+
+- **Every dirty Day One room.** `scripts/arena/day_one_castle_dressing.gd` draws, in code, above the room art, the fixtures and Roshan:
+  - a 12% purple-grey wash over the whole screen;
+  - grime bands along the four edges;
+  - drips and cracks.
+- **The Pool:**
+  - two identical cleanup baskets (`CleanupBasket`, `RescueCleanupBasket`) are drawn over each other during the skimmer;
+  - `CastleLetterboxBackdrop`, a full-screen fill, is drawn 98% hidden under the room tiles;
+  - Rumi's reveal briefly stacks 255 layers in one spot;
+  - the swimming dust bunny's ripples are code arcs;
+  - play states average 3.2-3.4 layers per pixel against a budget of 2.5.
+- **Every Opera career:**
+  - `opera_world_backdrop_2d.gd` draws props and stage spotlights in code over the painted backdrop;
+  - `opera_world_hotspot_2d.gd` draws halos and sparkles in code;
+  - the work surfaces draw objects as code shapes (`opera_gesture_surface.gd` for nine careers, plus the specialist surfaces);
+  - `living_world_canvas.gd` draws ambient motifs in code above the career.
+  - Codex's Chef repair already removed the room-sized focus lens.
+- **Over the fill budget:**
+  - Geologist's task: mean 5.75 layers, 61% of the screen with four or more, max 13.
+  - Teacher's task: mean 3.5.
+
+**Specification.**
+
+1. Remove the castle dressing's code-drawn wash, grime, drips and cracks. A dirty room reads through authored dirt art, or through a declared tint with Roshan counter-tinted (pattern GS-17), per the owner's answer to question 5.
+2. Draw one cleanup basket during the skimmer.
+3. Crop or drop full-screen fills that sit hidden under opaque art (`CastleLetterboxBackdrop`, and `OperaStageBleed` where the backdrop covers it).
+4. Find and cap the burst at Rumi's reveal (peak budget 32 layers).
+5. Replace the code-drawn props, halos, spotlights, ripples and ambient motifs with approved art, or remove them. Codex builds any new art from Claude's written description.
+6. Bring the Geologist and Teacher task frames inside the fill budget.
+7. After each repair, run `python -B tools/measure_overdraw.py` and have Claude re-score. Record the painted-copy (OD1) and look-alike (OD2) reviews in each game's `overdraw_review`.
+
+**Done when** OD1-OD6 pass for the game on the scorecard. Device frame time and the owner's look remain separate gates.
+
 ## Questions for the owner
 
 1. **Who takes GS0?** Default: Codex repairs `MA-PLAY-005` first, before any other work; Claude re-scores afterwards.
 2. **Dolls, Seek, Melody and the fish slide** are strong Canvas games with no way in since the reef was retired. Should each get a castle-room home, or be retired? Default: give Dolls and Seek a home first.
 3. **GS3 workflow lines.** May the two gold-star lines be added to the protected Probe Suite workflow? Default: yes, exactly the two lines above.
 4. **Opera Hall elevator.** It opens the "Job playtesting / DEV MODE" menu to any child who taps it. Should it stay until release, or be gated now? Default: keep it for your testing and gate it before the next release.
+5. **Dirty-room look.** May a dirty Day One room keep any wash at all (as a declared tint with Roshan kept in her colours), or must dirt be authored art only? Default: authored dirt only; the room tint stays, the code-drawn wash goes.
+6. **Overdraw budgets.** Are the starting budgets right (2.5 layers per pixel on average, at most 10% of the screen with four or more, max 8, peak 32)? Default: keep them until the phone session shows whether they predict stutter.
 
 ## Delivery
 

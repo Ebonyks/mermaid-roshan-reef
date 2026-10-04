@@ -6,12 +6,14 @@ Scores are evidence for development choices, not acceptance. A machine signal ne
 
 ## Reference model
 
-**Mermaid Pool cleanup (Day One)** (`day_one_pool`), rating 4/5, 22/24 points. The strongest true-2D game a child can reach today (Grand Puff scores more points but its fight is built on 3D nodes, so it cannot be a template) and the clearest model of the owner's 2026-09-06 job rule: Roshan travels to each part, her hand makes contact, and only then does the authored dirt clear; every part has its own line; every change saves; real-touch probes guard it. It contains the strongest single activity in the game (the waterfall), and its gaps are specific and fixable, so it is the first candidate for a full gold star and the template for room jobs and job games.
+**Mermaid Pool cleanup (Day One)** (`day_one_pool`), rating 3/5, 19/24 points. The strongest true-2D game a child can reach today (Grand Puff scores more points but its fight is built on 3D nodes, so it cannot be a template) and the clearest model of the owner's 2026-09-06 job rule: Roshan travels to each part, her hand makes contact, and only then does the authored dirt clear; every part has its own line; every change saves; real-touch probes guard it. It contains the strongest single activity in the game (the waterfall), and its gaps are specific and fixable, so it is the first candidate for a full gold star and the template for room jobs and job games.
 
-Status: CANDIDATE_REFERENCE: after the five-star implementation every machine-assessed criterion meets the gold star (4/5, 22/24); it becomes the first gold star only when a phone session, an observed child session and the owner's acceptance are recorded.
+Status: CANDIDATE_REFERENCE: the Pool's own code meets every machine-assessed criterion and supplies most reference patterns, but the refined overdraw criteria (2026-10-04) measured overdraw on its screen: the shared castle dressing's code-drawn wash and grime over the room and Roshan, two identical cleanup baskets drawn over each other, a full-screen fill drawn hidden under the room tiles, and a 255-layer burst at Rumi's reveal (MA-VIS-008). It is 3/5 (19/24) until Codex GS5 fixes them; then only device, child and owner acceptance remain.
 
 What still separates it from a gold star:
 
+- C7 Authored art and identity (1/2): Approved art only in the Pool's own code (ghost hand, soap bubbles, clean rings, authored dirt wiped from the top), and Roshan's cutouts counter the room tint. But the shared castle dressing draws a 12% full-screen dirt wash in code over the room and Roshan, with code-drawn grime, drips and cracks; two identical cleanup baskets overlap during the skimmer; and a full-screen letterbox fill is drawn hidden under the room tiles (overdraw OD1, OD3, OD5, OD6; MA-VIS-008). Her work uses one approved directional cutout, not authored action frames (Codex art handoff GS2).
+- C11 No open defect (0/2): MA-VIS-008 P1 CONFIRMED_OPEN
 - C12 Device, child and owner acceptance (0/2): No device, child or owner acceptance recorded
 
 Patterns to copy:
@@ -39,42 +41,97 @@ Patterns to copy:
 
 | Rank | Game | Family | Rating | Points | C1 | C2 | C3 | C4 | C5 | C6 | C7 | C8 | C9 | C10 | C11 | C12 | 3D debt | Open defects |
 |---:|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| 1 | Mermaid Pool cleanup (Day One) | day_one | 4 | 22 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 0 | 0 | none |
-| 2 | Grand Puff in the Dusty Attic (Day One boss) | day_one | 3 | 19 | 2 | 0 | 2 | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 2 | 0 | 98 | none |
+| 1 | Grand Puff in the Dusty Attic (Day One boss) | day_one | 3 | 19 | 2 | 0 | 2 | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 2 | 0 | 98 | none |
+| 2 | Mermaid Pool cleanup (Day One) | day_one | 3 | 19 | 2 | 2 | 2 | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 0 | 0 | 0 | MA-VIS-008 |
 | 3 | Castle banner maker | system | 3 | 18 | 2 | 2 | 1 | 2 | 1 | 2 | 1 | 2 | 2 | 1 | 2 | 0 | 0 | none |
 | 4 | Royal Bedroom wardrobe | system | 3 | 18 | 2 | 2 | 1 | 2 | 2 | 1 | 1 | 2 | 2 | 1 | 2 | 0 | 0 | none |
 | 5 | Pearl Castle rooms | world | 3 | 18 | 2 | 2 | 2 | 2 | 2 | 2 | 1 | 2 | 1 | 1 | 1 | 0 | 0 | MA-SAVE-001 |
 | 6 | Comfy castle games (Day Two) | minigame | 3 | 17 | 2 | 2 | 1 | 2 | 2 | 1 | 1 | 1 | 2 | 1 | 2 | 0 | 0 | none |
-| 7 | Free Baby Eagle (Day One) | day_one | 3 | 17 | 2 | 2 | 1 | 2 | 2 | 1 | 2 | 2 | 2 | 1 | 0 | 0 | 0 | MA-PLAY-004 |
-| 8 | Royal Hall sparring class | action | 3 | 16 | 2 | 0 | 1 | 2 | 2 | 1 | 1 | 1 | 2 | 2 | 2 | 0 | 124 | none |
-| 9 | Craft Room tidy (Day One) | day_one | 3 | 16 | 2 | 2 | 1 | 2 | 1 | 2 | 1 | 1 | 1 | 1 | 2 | 0 | 0 | none |
-| 10 | Bubble Bathroom cleanup (Day One) | day_one | 3 | 16 | 2 | 2 | 1 | 2 | 2 | 0 | 2 | 2 | 2 | 1 | 0 | 0 | 0 | MA-PLAY-004 |
-| 11 | Sky Lagoon promenade | world | 3 | 16 | 2 | 2 | 1 | 2 | 2 | 1 | 1 | 1 | 2 | 1 | 1 | 0 | 0 | MA-ASSET-004 |
-| 12 | Stuffie adoption and care | system | 3 | 15 | 1 | 1 | 1 | 2 | 2 | 1 | 1 | 1 | 2 | 1 | 2 | 0 | 135 | none |
+| 7 | Royal Hall sparring class | action | 3 | 16 | 2 | 0 | 1 | 2 | 2 | 1 | 1 | 1 | 2 | 2 | 2 | 0 | 124 | none |
+| 8 | Sky Lagoon promenade | world | 3 | 16 | 2 | 2 | 1 | 2 | 2 | 1 | 1 | 1 | 2 | 1 | 1 | 0 | 0 | MA-ASSET-004 |
+| 9 | Free Baby Eagle (Day One) | day_one | 3 | 16 | 2 | 2 | 1 | 2 | 2 | 1 | 1 | 2 | 2 | 1 | 0 | 0 | 0 | MA-PLAY-004, MA-VIS-008 |
+| 10 | Stuffie adoption and care | system | 3 | 15 | 1 | 1 | 1 | 2 | 2 | 1 | 1 | 1 | 2 | 1 | 2 | 0 | 135 | none |
+| 11 | Bubble Bathroom cleanup (Day One) | day_one | 3 | 15 | 2 | 2 | 1 | 2 | 2 | 0 | 1 | 2 | 2 | 1 | 0 | 0 | 0 | MA-PLAY-004, MA-VIS-008 |
+| 12 | Craft Room tidy (Day One) | day_one | 3 | 14 | 2 | 2 | 1 | 2 | 1 | 2 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | MA-VIS-008 |
 | 13 | Birthday party preparation (Chapter 2) | chapter_two | 2 | 13 | 2 | 2 | 0 | 2 | 2 | 1 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | MA-PLAY-005 |
-| 14 | Boxer | opera_career | 1 | 18 | 0 | 2 | 2 | 2 | 2 | 1 | 1 | 2 | 2 | 2 | 2 | 0 | 0 | none |
-| 15 | Teacher | opera_career | 1 | 17 | 0 | 2 | 2 | 1 | 2 | 1 | 1 | 2 | 2 | 2 | 2 | 0 | 0 | none |
-| 16 | Magician | opera_career | 1 | 16 | 0 | 2 | 2 | 1 | 2 | 2 | 1 | 2 | 2 | 1 | 1 | 0 | 0 | none |
-| 17 | Racecar Driver | opera_career | 1 | 16 | 0 | 2 | 2 | 2 | 1 | 1 | 1 | 2 | 2 | 2 | 1 | 0 | 0 | MA-OPERA-006 |
-| 18 | Nursery Nurse | opera_career | 1 | 16 | 0 | 2 | 2 | 1 | 2 | 1 | 2 | 2 | 1 | 2 | 1 | 0 | 0 | MA-OPERA-003, MA-OPERA-006 |
-| 19 | Birthday lawn and Ember King (Chapter 2 finale) | chapter_two | 1 | 15 | 0 | 2 | 1 | 1 | 2 | 1 | 2 | 2 | 2 | 2 | 0 | 0 | 0 | MA-PLAY-005 |
-| 20 | Moonflower door and Butterfly House | world | 1 | 14 | 0 | 2 | 1 | 2 | 2 | 1 | 1 | 1 | 2 | 0 | 2 | 0 | 0 | none |
-| 21 | Ballerina | opera_career | 1 | 14 | 0 | 2 | 1 | 2 | 1 | 2 | 1 | 2 | 2 | 1 | 0 | 0 | 0 | MA-PLAY-005 |
+| 14 | Boxer | opera_career | 1 | 16 | 0 | 2 | 2 | 2 | 2 | 1 | 1 | 2 | 2 | 2 | 0 | 0 | 0 | MA-VIS-008 |
+| 15 | Magician | opera_career | 1 | 15 | 0 | 2 | 2 | 1 | 2 | 2 | 1 | 2 | 2 | 1 | 0 | 0 | 0 | MA-VIS-008 |
+| 16 | Teacher | opera_career | 1 | 15 | 0 | 2 | 2 | 1 | 2 | 1 | 1 | 2 | 2 | 2 | 0 | 0 | 0 | MA-VIS-008 |
+| 17 | Racecar Driver | opera_career | 1 | 15 | 0 | 2 | 2 | 2 | 1 | 1 | 1 | 2 | 2 | 2 | 0 | 0 | 0 | MA-OPERA-006, MA-VIS-008 |
+| 18 | Moonflower door and Butterfly House | world | 1 | 14 | 0 | 2 | 1 | 2 | 2 | 1 | 1 | 1 | 2 | 0 | 2 | 0 | 0 | none |
+| 19 | Birthday lawn and Ember King (Chapter 2 finale) | chapter_two | 1 | 14 | 0 | 2 | 1 | 1 | 2 | 1 | 1 | 2 | 2 | 2 | 0 | 0 | 0 | MA-PLAY-005 |
+| 20 | Ballerina | opera_career | 1 | 14 | 0 | 2 | 1 | 2 | 1 | 2 | 1 | 2 | 2 | 1 | 0 | 0 | 0 | MA-PLAY-005, MA-VIS-008 |
+| 21 | Nursery Nurse | opera_career | 1 | 14 | 0 | 2 | 2 | 1 | 2 | 1 | 1 | 2 | 1 | 2 | 0 | 0 | 0 | MA-OPERA-003, MA-OPERA-006, MA-VIS-008 |
 | 22 | Dance with Daddy (rhythm) | minigame | 1 | 13 | 0 | 2 | 2 | 2 | 1 | 1 | 0 | 1 | 1 | 1 | 2 | 0 | 0 | none |
-| 23 | Geologist | opera_career | 1 | 13 | 0 | 2 | 0 | 2 | 1 | 1 | 0 | 1 | 2 | 2 | 2 | 0 | 0 | none |
-| 24 | Pop Star | opera_career | 1 | 13 | 0 | 2 | 2 | 1 | 2 | 1 | 1 | 1 | 2 | 1 | 0 | 0 | 0 | MA-PLAY-005, MA-OPERA-003 |
-| 25 | Stuffie Doctor | opera_career | 1 | 12 | 0 | 2 | 2 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 0 | none |
-| 26 | Painter | opera_career | 1 | 11 | 0 | 2 | 2 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | MA-PLAY-005 |
-| 27 | Farmer | opera_career | 1 | 11 | 0 | 2 | 2 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | MA-PLAY-005, MA-OPERA-006 |
+| 23 | Pop Star | opera_career | 1 | 13 | 0 | 2 | 2 | 1 | 2 | 1 | 1 | 1 | 2 | 1 | 0 | 0 | 0 | MA-PLAY-005, MA-OPERA-003, MA-VIS-008 |
+| 24 | Stuffie Doctor | opera_career | 1 | 11 | 0 | 2 | 2 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | MA-VIS-008 |
+| 25 | Geologist | opera_career | 1 | 11 | 0 | 2 | 0 | 2 | 1 | 1 | 0 | 1 | 2 | 2 | 0 | 0 | 0 | MA-VIS-008 |
+| 26 | Painter | opera_career | 1 | 11 | 0 | 2 | 2 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | MA-PLAY-005, MA-VIS-008 |
+| 27 | Farmer | opera_career | 1 | 11 | 0 | 2 | 2 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | MA-PLAY-005, MA-OPERA-006, MA-VIS-008 |
 | 28 | Galaxy ice battle | action | 1 | 10 | 0 | 0 | 1 | 1 | 2 | 1 | 0 | 1 | 1 | 1 | 2 | 0 | 126 | none |
-| 29 | Candy Maker | opera_career | 1 | 10 | 0 | 2 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | MA-PLAY-005 |
-| 30 | Astronaut Engineer | opera_career | 1 | 10 | 0 | 2 | 2 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | MA-PLAY-005, MA-OPERA-013, MA-OPERA-003 |
-| 31 | Pastry Chef | opera_career | 1 | 9 | 0 | 2 | 1 | 1 | 1 | 1 | 1 | 0 | 1 | 1 | 0 | 0 | 0 | MA-PLAY-005, MA-OPERA-001 |
-| 32 | Detective | opera_career | 1 | 9 | 0 | 2 | 1 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | MA-PLAY-005, MA-OPERA-002 |
+| 29 | Candy Maker | opera_career | 1 | 10 | 0 | 2 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | MA-PLAY-005, MA-VIS-008 |
+| 30 | Pastry Chef | opera_career | 1 | 10 | 0 | 2 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | MA-PLAY-005, MA-OPERA-001, MA-VIS-008 |
+| 31 | Astronaut Engineer | opera_career | 1 | 10 | 0 | 2 | 2 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | MA-PLAY-005, MA-OPERA-013, MA-OPERA-003, MA-VIS-008 |
+| 32 | Detective | opera_career | 1 | 9 | 0 | 2 | 1 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 0 | 0 | 0 | MA-PLAY-005, MA-OPERA-002, MA-VIS-008 |
 | 33 | Fairy Pond flight | minigame | 1 | 8 | 0 | 0 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 120 | none |
 | 34 | Butterfly World (Galaxy) | world | 1 | 8 | 0 | 0 | 1 | 0 | 1 | 1 | 0 | 1 | 1 | 1 | 2 | 0 | 367 | none |
 
 Not reachable as a live game: Snow Roller (picture game) (`dormant`); Flower Garden (picture game) (`dormant`); Trampoline (picture game) (`dormant`); Christmas Tree (picture game) (`dormant`); Slide launcher (picture game) (`dormant`); Faron's Sleepy Dolls (`dormant`); Hide and Seek with Evie and Lamb-a' (`dormant`); Daddy's Rainbow Theater (melody) (`dormant`); Harper and Fiona fish slide (`dormant`); Fetch with Chuck (`dormant`); Pearl Shop (`dormant`); Secret Treasure cave (`dormant`); Penguin chase (`dormant`); Rainbow Slide play-place course (`dormant`); Toy Castle brawler (`dormant`); Painter studio prototype (`debug_only`); Faerie Garden restoration prototype (`debug_only`); Northern kingdom (`dormant`); Ember Fortress (`dormant`); Courtyard and train (`retired`); Reef and home ocean (`retired`); Castle and Ember dungeons (`dormant`); Rainbow and Ocean kart race (`dormant`); Stuffie sparring ladder (`dormant`); Critter Book collection (`dormant`); Color-a-Friend craft studio (`dormant`).
+
+## Overdraw (C7)
+
+Overdraw is anything drawn over approved art that duplicates, competes with or muddies it, and the GPU cost of layers drawn under other layers. The owner rejected Chef for it (2026-10-03: "Chef still looks bad, lots of overdraw").
+
+Status: CANDIDATE_CRITERIA: refined 2026-10-04 at the owner's request; budgets are starting values the owner may change. Measured by python -B tools/measure_overdraw.py (scripts/probe_overdraw.gd in a Mobile-renderer window; numbers only) at `f07c1a4820fb` on 2026-10-04T15:22:36Z, Godot 4.7.2.stable.official.ed1daf0bf, self-test PASS.
+
+Budgets per play state: mean layers at most 2.5, four or more layers on at most 0.1 of the screen, max 8 (peak frame 32); effects clear within 1.0 s and cover at most 0.25 of Roshan.
+
+| Check | Means | How it is measured |
+|---|---|---|
+| OD1 One copy of everything | Every object and state is drawn once: no texture drawn twice over itself, no live object over a painted copy of itself, no old state left under a new one. The only allowed stack is a reveal (authored dirt over the clean fixture it uncovers). | Machine: no duplicate texture pair (same source region, at least 30% overlap) in any measured state. Review: no live object over a painted copy in the backdrop (MA-VIS-007). |
+| OD2 No look-alikes beside the action | Painted objects that resemble the active object (the rack cakes behind Chef) are not near Roshan or the object being worked. | Review at phone size with the HUD showing. |
+| OD3 No code-drawn shapes on screen | Nothing on screen is drawn as code shapes over the art, except the child's own marks (paint strokes, traced trails) listed as allowed with a reason. | Machine: every code-drawing script visible in a measured state must be classified allowed in this section's code_drawing list. |
+| OD4 Effects small and short | Highlights, sparkles, bubbles and rings sit at the contact point, cover at most a quarter of Roshan, clear within a second and never stay over finished work. | Machine: items that appear after an action are sampled for 2 s; transient ones must clear within effect_seconds and cover at most effect_over_roshan of her; no translucent item may linger. Guide hands are judged under C3. |
+| OD5 No broad translucent layers | No full-screen spotlight, dimming, wash, vignette or glow. A room may look dingy only through a declared tint, with Roshan kept in her own colours. | Machine: in every play state at least half the screen has no translucent layer (GPU translucent median 0), and no translucent layer covers half the screen. |
+| OD6 Fill budget and no wasted layers | Few layers per pixel, and nothing drawn while hidden under opaque art. | Machine: in every play state the GPU median frame has mean at most mean_layers, at least four layers on at most share_ge4 of the screen and max at most max_layers; no sampled frame exceeds peak_layers; no layer covering half the screen is drawn while 90% hidden. |
+
+| Game | Rating | Busiest play state (mean, share with 4+ layers, max, peak) | OD1 | OD2 | OD3 | OD4 | OD5 | OD6 |
+|---|---:|---|---|---|---|---|---|---|
+| Mermaid Pool cleanup (Day One) | 3 | finale: 4.41, 0.974, 8, 255 | fail | — | fail | pass | fail | fail |
+| Boxer | 1 | after_phase: 2.57, 0.084, 12, 14 | — | — | fail | pass | pass | fail |
+| Magician | 1 | after_phase: 2.53, 0.1, 7, 7 | — | — | fail | pass | pass | fail |
+| Teacher | 1 | task_open: 3.53, 0.602, 8, 8 | — | — | fail | pass | fail | fail |
+| Racecar Driver | 1 | after_phase: 2.35, 0.015, 6, 6 | — | — | fail | pass | pass | pass |
+| Ballerina | 1 | task_open: 2.81, 0.144, 12, 13 | — | — | fail | pass | pass | fail |
+| Nursery Nurse | 1 | after_phase: 2.36, 0.017, 6, 6 | — | — | fail | pass | pass | pass |
+| Pop Star | 1 | task_open: 2.55, 0.102, 8, 8 | — | — | fail | pass | pass | fail |
+| Stuffie Doctor | 1 | after_phase: 2.35, 0.032, 6, 6 | — | — | fail | pass | pass | pass |
+| Geologist | 1 | task_open: 5.75, 0.612, 13, 14 | — | — | fail | pass | fail | fail |
+| Painter | 1 | task_open: 2.45, 0.047, 9, 9 | — | — | fail | pass | pass | fail |
+| Farmer | 1 | task_open: 2.48, 0.066, 8, 8 | — | — | fail | pass | pass | pass |
+| Candy Maker | 1 | after_phase: 2.36, 0.029, 6, 6 | — | — | fail | pass | pass | pass |
+| Pastry Chef | 1 | after_phase: 2.35, 0.012, 6, 6 | — | — | fail | pass | pass | pass |
+| Astronaut Engineer | 1 | after_phase: 2.35, 0.024, 7, 7 | — | — | fail | pass | pass | pass |
+| Detective | 1 | task_open: 2.48, 0.079, 6, 6 | — | — | fail | pass | pass | pass |
+
+Not yet measured (18 live games): Grand Puff in the Dusty Attic (Day One boss); Castle banner maker; Royal Bedroom wardrobe; Pearl Castle rooms; Comfy castle games (Day Two); Royal Hall sparring class; Sky Lagoon promenade; Free Baby Eagle (Day One); Stuffie adoption and care; Bubble Bathroom cleanup (Day One); Craft Room tidy (Day One); Birthday party preparation (Chapter 2); Moonflower door and Butterfly House; Birthday lawn and Ember King (Chapter 2 finale); Dance with Daddy (rhythm); Galaxy ice battle; Fairy Pond flight; Butterfly World (Galaxy).
+
+Code-drawing scripts seen on screen:
+
+| Script | Role | What it draws | Allowed |
+|---|---|---|---|
+| `scripts/arena/day_one_castle_dressing.gd` | wash | A full-screen dirt wash (12% purple-grey) over every dirty Day One room, plus edge grime bands (18%), drips and cracks, all drawn as code shapes above the room art, the fixtures and Roshan. | no |
+| `scripts/games/day_one_dust_bunny_swimmer.gd` | effect | Two ripple rings drawn as code arcs around the swimming dust bunny. | no |
+| `scripts/living_world_canvas.gd` | ambient | Ambient bubble, sparkle, leaf and stem motifs drawn as code shapes (97 calls) at the screen edges; above every career, and above or below a castle room depending on the stage. | no |
+| `scripts/opera_world_backdrop_2d.gd` | stand_in | Each career's painted backdrop, then career props drawn as code shapes (120 calls, for example _draw_nursery, _draw_doctor, _draw_chef) and stage spotlight polygons over it. | no |
+| `scripts/opera_world_hotspot_2d.gd` | guide | A pulsing halo and sparkles drawn in code around every armed object, and a code-drawn object when the object is not painted. | no |
+| `scripts/opera_gesture_surface.gd` | stand_in | The shared work surface of nine careers: 64 draw functions, with ovens, cabinets, candy, pipes, crowns and plants drawn as code shapes over the painted scene, plus code-drawn guides and effects. | no |
+| `scripts/opera_ballet_surface.gd` | stand_in | Ribbon and twirl games, a shell frame, a ghost finger and a completion halo drawn as code shapes. | no |
+| `scripts/opera_boxing_surface.gd` | stand_in | Gloves (20 calls), counters, demo, progress lights, targets and lanes drawn as code shapes. | no |
+| `scripts/opera_geology_surface.gd` | stand_in | River, rounded panels, brush, geode and minerals drawn as code shapes. | no |
+| `scripts/opera_racer_surface.gd` | stand_in | Race controls and the car drawn as code shapes. | no |
+| `scripts/opera_teacher_surface.gd` | stand_in | Counting objects, shapes, patterns, groups and the hint button drawn as code shapes, with no textures. | no |
+| `scripts/opera_performance_overlay.gd` | stand_in | Book, medal, curtain, progress bar and pearls drawn as code shapes over the stage. | no |
 
 ## Rubric
 
@@ -86,18 +143,19 @@ Not reachable as a live game: Snow Roller (picture game) (`dormant`); Flower Gar
 | C4 One-finger generous input | `DL-AGE-02`, `DL-UI-01`, `DL-UI-03`, `DL-UI-04` | One finger taps, holds or drags only where the fiction asks; targets are at least 110x110 base pixels or an equivalent hit region; one touch owns one route. |
 | C5 Kind no-fail and real agency | `DL-AGE-03`, `DL-AGE-04`, `DL-AGE-05`, `DL-AGE-08` | No loss, timeout or lost item; mistakes get kind feedback; zero input never wins; correct play beats mashing; help widens or demonstrates without making mashing best. |
 | C6 Truthful action | `DL-INT-01`, `DL-INT-02`, `DL-INT-04` | Each touch belongs to the visible object, the object really changes (pours from its spout, opens, fills), and when Roshan works she goes to the place and acts there before progress counts. |
-| C7 Authored art and identity | `DL-MED-02`, `DL-MED-05`, `DL-MOT-01`, `DL-MOT-07`, `DL-LAY-05`, `DL-READ-01`, `DL-READ-03`, `DL-READ-05` | Approved painted art staged as owned cards, one focal action, no code-drawn stand-ins or duplicate copies, no muddy overdraw; Roshan from the approved atlas family and always visible. |
+| C7 Authored art and identity | `DL-MED-02`, `DL-MED-05`, `DL-MOT-01`, `DL-MOT-07`, `DL-LAY-05`, `DL-READ-01`, `DL-READ-03`, `DL-READ-05`, `DL-PERF-03`, `DL-LAY-03`, `DL-LAY-08`, `DL-READ-02`, `DL-VIS-03` | Approved painted art staged as owned cards, one focal action, Roshan from the approved atlas family, always visible and in her own colours; and every overdraw check OD1-OD6 passes on measured states. |
 | C8 Feedback and earned reward | `DL-AGE-07`, `DL-MOT-03`, `DL-MOT-04`, `DL-MOT-05`, `DL-SND-04` | A valid touch shows a response at once; sight and sound describe the same event; effects never hide the action; stars and medals come only from intentional or explicitly assisted correct play. |
 | C9 Lifecycle and save safety | `DL-AGE-06`, `DL-UI-05`, `DL-SAVE-01`, `DL-SAVE-03`, `DL-SAVE-04`, `DL-SND-08` | Start, finish, leave, re-enter, pause and focus loss are clean; held input is cancelled; timers, tweens and audio are owned and freed; save keys are only added; replay is idempotent; the room's music is restored. |
 | C10 Machine verification | `DL-QA-02`, `DL-QA-03`, `DL-CODE-10` | A trusted probe drives real input through every step, includes a zero-input negative leg and checks teardown. Review captures and device sessions are acceptance evidence under C12, not part of this score. |
 | C11 No open defect | `DL-QA-10` | No game-specific finding is open as a defect. |
 | C12 Device, child and owner acceptance | `DL-QA-04`, `DL-QA-05`, `DL-QA-06` | The target phone session, an observed child session and the owner's acceptance are all recorded for this game. |
 
-Rating rule: 5 needs every criterion at 2, including recorded device, child and owner acceptance. 1 when a child cannot reach the game (C1 = 0). 2 when two or more of C2-C10 fail, or a game-specific P0 blocker is open. 3 when one of C2-C10 fails, a game-specific P0/P1 defect is open (C11 = 0), or more than two of C1-C10 are only partly met. Otherwise 4: no failed criterion, no open P0/P1 defect, at most two partial criteria, and only device, child and owner gates left.
+Rating rule: 5 needs every criterion at 2, including recorded device, child and owner acceptance, and every overdraw check passed. 1 when a child cannot reach the game (C1 = 0). 2 when two or more of C2-C10 fail, or a game-specific P0 blocker is open. 3 when one of C2-C10 fails, a game-specific P0/P1 defect is open (C11 = 0), more than two of C1-C10 are only partly met, a core criterion (C1, C3, C4, C5, C6) is below 2, or an overdraw check fails or is unmeasured. Otherwise 4: core criteria met, overdraw checks passed, at most two partial criteria, and only device, child and owner gates left. C7 is capped at 1 until every overdraw check passes.
 
 ## Using it
 
 - `python -B tools/gold_star.py --rank` lists the games, strongest first.
-- `python -B tools/gold_star.py --compare GAME` prints what GAME needs to reach the gold star and which reference pattern to copy.
+- `python -B tools/gold_star.py --compare GAME` prints what GAME needs to reach the gold star and which reference pattern to copy, and ends with the ordered list of what lifts it to 4/5, then 5/5.
+- `python -B tools/measure_overdraw.py` re-measures overdraw (needs a display; numbers only, never an image).
 - `python -B tools/gold_star.py --check` fails on schema errors, unknown rules or findings, unresolved evidence, and any new game file that is not catalogued; `--strict` also fails on stale assessments or a stale page.
 - After re-assessing a game, `python -B tools/gold_star.py --rebind GAME` records the hashes of the evidence that was judged.
