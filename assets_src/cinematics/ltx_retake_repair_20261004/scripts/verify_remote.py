@@ -9,8 +9,13 @@ base='https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/'+rev+'/'
 man=json.loads((p/'manifest.json').read_text());prefix=p.relative_to(r).as_posix()+'/'
 paths=[prefix+'manifest.json']+[prefix+x['path'] for x in man['payload']]
 paths+=['assets/characters/roshan_25d/roshan_gesture_a.png','design/reference/OWNER_DECISIONS.md','assets_src/cinematics/ltx_registered_wave_20261004/manifest.json','ASSET_LICENSES.md','AGENTS.md','SECURITY.md','audit/MASTER_AUDIT_2026-08-09.md','audit/animation/README.md','audit/findings/ACTIVE_FINDINGS_2026-08-13.md','design/05_DOC_LEDGER.md','design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md','design/AUDIT_DEVELOPMENT_CONTRACT.md','design/animation/ANIMATION_PRODUCTION_PROTOCOL.md','design/animation/ROSHAN_MOVEMENT_LANGUAGE.md','design/animation/WORKFLOW_OPTIONS_2026-10-03.md','design/templates/ANIMATION_JOB_CARD_V1.md','design/audit_impacts/ltx-retake-repair-20261004.json']
+previous=p.parent/'ltx_registered_wave_20261004';previous_manifest=json.loads((previous/'manifest.json').read_text());previous_prefix=previous.relative_to(r).as_posix()+'/'
+# The renderer/assembly depends on the earlier base graph, native source timeline and Aseprite helper.
+# Verify the complete previous packet at this exact revision rather than trusting an older receipt.
+paths+=[previous_prefix+'manifest.json',previous_prefix+'remote_verification.json']+[previous_prefix+x['path'] for x in previous_manifest['payload']]
 paths=sorted(set(paths));rows=[];fail=[]
 expected_payload={prefix+x['path']:x['sha256'] for x in man['payload']}
+expected_payload.update({previous_prefix+x['path']:x['sha256'] for x in previous_manifest['payload']})
 def fetch(path):
  expected=expected_payload.get(path)
  if expected is None:
