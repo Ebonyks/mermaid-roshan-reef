@@ -64,5 +64,31 @@ class OwnerDecisionTests(unittest.TestCase):
 		self.assertIn("recorded_owner", text)
 
 
+class AppendOnlyTests(unittest.TestCase):
+	def test_changed_removed_and_reordered_decisions_are_rejected(self):
+		first = {"id": "ODR-A", "decision": "Keep it"}
+		second = {"id": "ODR-B", "decision": "Add it"}
+		before = {"decisions": [first, second]}
+		self.assertEqual([], intake.append_only_issues(before, {"decisions": [first, second, {"id": "ODR-C"}]}))
+		self.assertTrue(intake.append_only_issues(before, {"decisions": [first]}))
+		self.assertTrue(intake.append_only_issues(before, {"decisions": [first, {**second, "decision": "Rewritten"}]}))
+		self.assertTrue(intake.append_only_issues(before, {"decisions": [second, first]}))
+
+	def test_live_register_only_appends_since_the_comparison_base(self):
+		import json
+		import subprocess
+		from tools import audit_development
+		root = Path(__file__).resolve().parents[2]
+		try:
+			base = audit_development.resolve_base(root, "auto")
+		except (subprocess.CalledProcessError, OSError, ValueError, KeyError):
+			self.skipTest("No comparison base in this checkout")
+		before = intake.register_at(root, base)
+		if before is None:
+			self.skipTest("Register did not exist at the comparison base")
+		after = json.loads((root / intake.REGISTER).read_text(encoding="utf-8"))
+		self.assertEqual([], intake.append_only_issues(before, after))
+
+
 if __name__ == "__main__":
 	unittest.main()

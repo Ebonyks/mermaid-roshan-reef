@@ -51,6 +51,8 @@ func setup(id: String, variant: String = "") -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	set_meta("chapter2_scene_variant", scene_variant)
 	set_meta("chapter2_scene_specific_2d", not scene_variant.is_empty())
+	set_meta("chapter2_cake_pixels_owned_by_prop",
+		career_id == "chef" and scene_variant == "chapter2_chef_cake")
 	if career_id == "teacher":
 		painting = null
 		world_tiles.clear()
@@ -157,7 +159,9 @@ func _load_tile_set(kind: String) -> Array[Texture2D]:
 	for row in range(2):
 		for column in range(2):
 			var path: String
-			if career_id == "ballerina" and kind == "stage":
+			if career_id == "chef" and scene_variant == "chapter2_chef_cake" and kind == "world":
+				path = "res://assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c%dr%d.png" % [column, row]
+			elif career_id == "ballerina" and kind == "stage":
 				path = "res://assets/opera/worlds/stage/finale_stage_c%dr%d.png" % [column, row]
 			else:
 				path = "res://assets/opera/worlds/backdrops/%s_%s_c%dr%d.png" % [
@@ -206,6 +210,8 @@ func set_stage(on_stage: bool) -> void:
 
 
 func _process(delta: float) -> void:
+	if career_id == "chef" and scene_variant == "chapter2_chef_cake" and not stage_mode:
+		return
 	elapsed += delta
 	redraw_t += delta
 	if redraw_t >= 0.08:
@@ -235,7 +241,10 @@ func _draw() -> void:
 	var active_tiles: Array[Texture2D] = stage_tiles if stage_mode and stage_tiles.size() == 4 else world_tiles
 	if active_tiles.size() == 4:
 		_draw_tile_set(active_tiles)
-		_draw_spotlights(accent)
+		# The saved Chef room owns its painted light. Stage beams would add
+		# two broad alpha passes over the room and the persistent cake.
+		if stage_mode or not (career_id == "chef" and scene_variant == "chapter2_chef_cake"):
+			_draw_spotlights(accent)
 		return
 	if painting != null:
 		draw_texture_rect(painting, Rect2(Vector2.ZERO, size), false)

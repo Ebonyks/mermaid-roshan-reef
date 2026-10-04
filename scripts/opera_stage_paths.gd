@@ -239,8 +239,8 @@ const STATION_NAV: Dictionary = {
 			"spur": [[0.615, 0.565], [0.62, 0.59]],
 		},
 		"grand_cake_stage": {
-			"object": [0.86, 0.40], "visual_size": [150.0, 150.0],
-			"spur": [[0.7, 0.545], [0.72, 0.57]],
+			"object": [0.912, 0.34], "visual_size": [150.0, 190.0],
+			"spur": [[0.78, 0.565], [0.79, 0.565]],
 		},
 	},
 	"detective": {

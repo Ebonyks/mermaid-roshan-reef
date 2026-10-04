@@ -1,0 +1,161 @@
+WorkerThreadPool: 12 threads, 3 max low-priority.
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+Loading resource: res://default_bus_layout.tres remapped: res://default_bus_layout.tres
+Completed load for: 'res://default_bus_layout.tres' remapped 'res://default_bus_layout.tres' at thread -1
+CORE API HASH: 2004498165
+EDITOR API HASH: 1696660745
+Loading resource: res://scripts/probe_dust_bunny_boss.gd remapped: res://scripts/probe_dust_bunny_boss.gd
+Completed load for: 'res://scripts/probe_dust_bunny_boss.gd' remapped 'res://scripts/probe_dust_bunny_boss.gd' at thread -1
+SceneTreeFTI: traversal method DEFAULT
+BUNNYBOSS|five animation atlases import: OK 
+Loaded system CA certificates
+Loading resource: res://assets/sprites/dust_bunnies/boss/dust_bunny_boss_jump.png remapped: res://assets/sprites/dust_bunnies/boss/dust_bunny_boss_jump.png
+Loading resource: res://.godot/imported/dust_bunny_boss_jump.png-5a70ce392f3de367d588320f5fed864d.ctex remapped: res://.godot/imported/dust_bunny_boss_jump.png-5a70ce392f3de367d588320f5fed864d.ctex
+Completed load for: 'res://assets/sprites/dust_bunnies/boss/dust_bunny_boss_jump.png' remapped 'res://assets/sprites/dust_bunnies/boss/dust_bunny_boss_jump.png' at thread -1
+Loading resource: res://assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png remapped: res://assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png
+Loading resource: res://.godot/imported/dust_bunny_boss_laugh_vulnerable.png-f07424fdea1d8d89217d9f794b02177a.ctex remapped: res://.godot/imported/dust_bunny_boss_laugh_vulnerable.png-f07424fdea1d8d89217d9f794b02177a.ctex
+Completed load for: 'res://assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png' remapped 'res://assets/sprites/dust_bunnies/boss/dust_bunny_boss_laugh_vulnerable.png' at thread -1
+Loading resource: res://assets/sprites/dust_bunnies/boss/dust_bunny_boss_flinch.png remapped: res://assets/sprites/dust_bunnies/boss/dust_bunny_boss_flinch.png
+Loading resource: res://.godot/imported/dust_bunny_boss_flinch.png-7601c84d870d7898a79831814aea4805.ctex remapped: res://.godot/imported/dust_bunny_boss_flinch.png-7601c84d870d7898a79831814aea4805.ctex
+Completed load for: 'res://assets/sprites/dust_bunnies/boss/dust_bunny_boss_flinch.png' remapped 'res://assets/sprites/dust_bunnies/boss/dust_bunny_boss_flinch.png' at thread -1
+Loading resource: res://assets/sprites/dust_bunnies/boss/dust_bunny_boss_angry.png remapped: res://assets/sprites/dust_bunnies/boss/dust_bunny_boss_angry.png
+Loading resource: res://.godot/imported/dust_bunny_boss_angry.png-9bdc5ddd121659db049682733d2e6aac.ctex remapped: res://.godot/imported/dust_bunny_boss_angry.png-9bdc5ddd121659db049682733d2e6aac.ctex
+Completed load for: 'res://assets/sprites/dust_bunnies/boss/dust_bunny_boss_angry.png' remapped 'res://assets/sprites/dust_bunnies/boss/dust_bunny_boss_angry.png' at thread -1
+Loading resource: res://assets/sprites/dust_bunnies/boss/dust_bunny_boss_implode.png remapped: res://assets/sprites/dust_bunnies/boss/dust_bunny_boss_implode.png
+Loading resource: res://.godot/imported/dust_bunny_boss_implode.png-55e13977258f0ba855bae107760339e4.ctex remapped: res://.godot/imported/dust_bunny_boss_implode.png-55e13977258f0ba855bae107760339e4.ctex
+Completed load for: 'res://assets/sprites/dust_bunnies/boss/dust_bunny_boss_implode.png' remapped 'res://assets/sprites/dust_bunnies/boss/dust_bunny_boss_implode.png' at thread -1
+BUNNYBOSS|boss is one animated 2D card: OK 
+BUNNYBOSS|idle holds one authored frame: OK 
+BUNNYBOSS|jump has four frames: OK 
+BUNNYBOSS|jump is a one shot: OK 
+BUNNYBOSS|laugh_vulnerable has four frames: OK 
+BUNNYBOSS|laugh_vulnerable is a one shot: OK 
+BUNNYBOSS|angry has four frames: OK 
+BUNNYBOSS|angry is a one shot: OK 
+BUNNYBOSS|angry_jump_final has four frames: OK 
+BUNNYBOSS|angry_jump_final is a one shot: OK 
+BUNNYBOSS|implode has four frames: OK 
+BUNNYBOSS|implode is a one shot: OK 
+BUNNYBOSS|final angry jump reuses approved angry and jump frames: OK 
+BUNNYBOSS|flinch_1 has two distinct reaction frames: OK 
+BUNNYBOSS|flinch_1 is a one shot: OK 
+BUNNYBOSS|flinch_2 has two distinct reaction frames: OK 
+BUNNYBOSS|flinch_2 is a one shot: OK 
+BUNNYBOSS|flinch_3 has two distinct reaction frames: OK 
+BUNNYBOSS|flinch_3 is a one shot: OK 
+BUNNYBOSS|idle loops: OK 
+BUNNYBOSS|paint stays unshaded: OK 
+BUNNYBOSS|card faces camera: OK 
+BUNNYBOSS|card casts no shadow: OK 
+BUNNYBOSS|boss scale is larger than regular bunny: OK 
+BUNNYBOSS|boss groups registered: OK 
+BUNNYBOSS|health starts as three rounds of three taps: OK 
+BUNNYBOSS|normal-round dust-plume jump starts: OK 
+BUNNYBOSS|three tap sounds use one positional SFX player: OK 
+BUNNYBOSS|protected boss rejects taps: OK 
+BUNNYBOSS|laugh begins protected: OK 
+BUNNYBOSS|head flash opens a short three-tap window: OK 
+Loading resource: res://assets/audio/ui_tap.ogg remapped: res://assets/audio/ui_tap.ogg
+Loading resource: res://.godot/imported/ui_tap.ogg-69c2ac5ecadd43b76c4c4a8a3018f9bd.oggvorbisstr remapped: res://.godot/imported/ui_tap.ogg-69c2ac5ecadd43b76c4c4a8a3018f9bd.oggvorbisstr
+Completed load for: 'res://assets/audio/ui_tap.ogg' remapped 'res://assets/audio/ui_tap.ogg' at thread -1
+BUNNYBOSS|tap one has its own flinch and sound: OK 
+BUNNYBOSS|tap one returns to exposed laugh: OK 
+Loading resource: res://assets/audio/hop_boing.ogg remapped: res://assets/audio/hop_boing.ogg
+Loading resource: res://.godot/imported/hop_boing.ogg-23491bc7346e37a3c3a7e5718a1c6334.oggvorbisstr remapped: res://.godot/imported/hop_boing.ogg-23491bc7346e37a3c3a7e5718a1c6334.oggvorbisstr
+Completed load for: 'res://assets/audio/hop_boing.ogg' remapped 'res://assets/audio/hop_boing.ogg' at thread -1
+BUNNYBOSS|tap two has its own stronger flinch and sound: OK 
+BUNNYBOSS|tap two returns to exposed laugh: OK 
+Loading resource: res://assets/audio/chime.ogg remapped: res://assets/audio/chime.ogg
+Loading resource: res://.godot/imported/chime.ogg-ccbd9039a16fca2270295f3df3042e4a.oggvorbisstr remapped: res://.godot/imported/chime.ogg-ccbd9039a16fca2270295f3df3042e4a.oggvorbisstr
+Completed load for: 'res://assets/audio/chime.ogg' remapped 'res://assets/audio/chime.ogg' at thread -1
+BUNNYBOSS|tap three has its own final flinch and sound: OK 
+BUNNYBOSS|first three taps remove one of three health rounds: OK 
+BUNNYBOSS|first damage round recycles through normal anger: OK 
+Loading resource: res://assets/audio/ui_tap.ogg remapped: res://assets/audio/ui_tap.ogg
+Loading resource: res://.godot/imported/ui_tap.ogg-69c2ac5ecadd43b76c4c4a8a3018f9bd.oggvorbisstr remapped: res://.godot/imported/ui_tap.ogg-69c2ac5ecadd43b76c4c4a8a3018f9bd.oggvorbisstr
+Completed load for: 'res://assets/audio/ui_tap.ogg' remapped 'res://assets/audio/ui_tap.ogg' at thread -1
+BUNNYBOSS|second round tap 1 accepted: OK 
+Loading resource: res://assets/audio/hop_boing.ogg remapped: res://assets/audio/hop_boing.ogg
+Loading resource: res://.godot/imported/hop_boing.ogg-23491bc7346e37a3c3a7e5718a1c6334.oggvorbisstr remapped: res://.godot/imported/hop_boing.ogg-23491bc7346e37a3c3a7e5718a1c6334.oggvorbisstr
+Completed load for: 'res://assets/audio/hop_boing.ogg' remapped 'res://assets/audio/hop_boing.ogg' at thread -1
+BUNNYBOSS|second round tap 2 accepted: OK 
+Loading resource: res://assets/audio/chime.ogg remapped: res://assets/audio/chime.ogg
+Loading resource: res://.godot/imported/chime.ogg-ccbd9039a16fca2270295f3df3042e4a.oggvorbisstr remapped: res://.godot/imported/chime.ogg-ccbd9039a16fca2270295f3df3042e4a.oggvorbisstr
+Completed load for: 'res://assets/audio/chime.ogg' remapped 'res://assets/audio/chime.ogg' at thread -1
+BUNNYBOSS|second round tap 3 accepted: OK 
+BUNNYBOSS|second damage round starts the faster final round: OK 
+BUNNYBOSS|last round replaces anger with the powerful angry jump: OK 
+BUNNYBOSS|final-round tell and tap window are faster but fair: OK 
+Loading resource: res://assets/audio/ui_tap.ogg remapped: res://assets/audio/ui_tap.ogg
+Loading resource: res://.godot/imported/ui_tap.ogg-69c2ac5ecadd43b76c4c4a8a3018f9bd.oggvorbisstr remapped: res://.godot/imported/ui_tap.ogg-69c2ac5ecadd43b76c4c4a8a3018f9bd.oggvorbisstr
+Completed load for: 'res://assets/audio/ui_tap.ogg' remapped 'res://assets/audio/ui_tap.ogg' at thread -1
+BUNNYBOSS|missed final window resets through angry jump without damage: OK 
+BUNNYBOSS|final round tap 1 accepted: OK 
+Loading resource: res://assets/audio/hop_boing.ogg remapped: res://assets/audio/hop_boing.ogg
+Loading resource: res://.godot/imported/hop_boing.ogg-23491bc7346e37a3c3a7e5718a1c6334.oggvorbisstr remapped: res://.godot/imported/hop_boing.ogg-23491bc7346e37a3c3a7e5718a1c6334.oggvorbisstr
+Completed load for: 'res://assets/audio/hop_boing.ogg' remapped 'res://assets/audio/hop_boing.ogg' at thread -1
+BUNNYBOSS|final round tap 2 accepted: OK 
+Loading resource: res://assets/audio/chime.ogg remapped: res://assets/audio/chime.ogg
+Loading resource: res://.godot/imported/chime.ogg-ccbd9039a16fca2270295f3df3042e4a.oggvorbisstr remapped: res://.godot/imported/chime.ogg-ccbd9039a16fca2270295f3df3042e4a.oggvorbisstr
+Completed load for: 'res://assets/audio/chime.ogg' remapped 'res://assets/audio/chime.ogg' at thread -1
+BUNNYBOSS|final round tap 3 accepted: OK 
+BUNNYBOSS|three rounds of three end in the full-speed implosion: OK 
+BUNNYBOSS|final wisps remove the card: OK 
+BUNNYBOSS|boss art adds no mesh: OK 
+BUNNYBOSS|boss art adds no physics body: OK 
+BUNNYBOSS|counter cannot hit a shielded head: OK 
+BUNNYBOSS|counter opening remains generous in every phase: OK 
+Loading resource: res://assets/audio/ui_tap.ogg remapped: res://assets/audio/ui_tap.ogg
+Loading resource: res://.godot/imported/ui_tap.ogg-69c2ac5ecadd43b76c4c4a8a3018f9bd.oggvorbisstr remapped: res://.godot/imported/ui_tap.ogg-69c2ac5ecadd43b76c4c4a8a3018f9bd.oggvorbisstr
+Completed load for: 'res://assets/audio/ui_tap.ogg' remapped 'res://assets/audio/ui_tap.ogg' at thread -1
+BUNNYBOSS|one counter removes exactly one round: OK 
+BUNNYBOSS|counter closes immediately against duplicate input: OK 
+BUNNYBOSS|counter starts approved first flinch: OK 
+Loading resource: res://assets/audio/hop_boing.ogg remapped: res://assets/audio/hop_boing.ogg
+Loading resource: res://.godot/imported/hop_boing.ogg-23491bc7346e37a3c3a7e5718a1c6334.oggvorbisstr remapped: res://.godot/imported/hop_boing.ogg-23491bc7346e37a3c3a7e5718a1c6334.oggvorbisstr
+Completed load for: 'res://assets/audio/hop_boing.ogg' remapped 'res://assets/audio/hop_boing.ogg' at thread -1
+BUNNYBOSS|counter retains approved second flinch: OK 
+Loading resource: res://assets/audio/chime.ogg remapped: res://assets/audio/chime.ogg
+Loading resource: res://.godot/imported/chime.ogg-ccbd9039a16fca2270295f3df3042e4a.oggvorbisstr remapped: res://.godot/imported/chime.ogg-ccbd9039a16fca2270295f3df3042e4a.oggvorbisstr
+Completed load for: 'res://assets/audio/chime.ogg' remapped 'res://assets/audio/chime.ogg' at thread -1
+BUNNYBOSS|counter retains approved third flinch: OK 
+BUNNYBOSS|counter opening remains generous in every phase: OK 
+Loading resource: res://assets/audio/ui_tap.ogg remapped: res://assets/audio/ui_tap.ogg
+Loading resource: res://.godot/imported/ui_tap.ogg-69c2ac5ecadd43b76c4c4a8a3018f9bd.oggvorbisstr remapped: res://.godot/imported/ui_tap.ogg-69c2ac5ecadd43b76c4c4a8a3018f9bd.oggvorbisstr
+Completed load for: 'res://assets/audio/ui_tap.ogg' remapped 'res://assets/audio/ui_tap.ogg' at thread -1
+BUNNYBOSS|one counter removes exactly one round: OK 
+BUNNYBOSS|counter closes immediately against duplicate input: OK 
+BUNNYBOSS|counter starts approved first flinch: OK 
+Loading resource: res://assets/audio/hop_boing.ogg remapped: res://assets/audio/hop_boing.ogg
+Loading resource: res://.godot/imported/hop_boing.ogg-23491bc7346e37a3c3a7e5718a1c6334.oggvorbisstr remapped: res://.godot/imported/hop_boing.ogg-23491bc7346e37a3c3a7e5718a1c6334.oggvorbisstr
+Completed load for: 'res://assets/audio/hop_boing.ogg' remapped 'res://assets/audio/hop_boing.ogg' at thread -1
+BUNNYBOSS|counter retains approved second flinch: OK 
+Loading resource: res://assets/audio/chime.ogg remapped: res://assets/audio/chime.ogg
+Loading resource: res://.godot/imported/chime.ogg-ccbd9039a16fca2270295f3df3042e4a.oggvorbisstr remapped: res://.godot/imported/chime.ogg-ccbd9039a16fca2270295f3df3042e4a.oggvorbisstr
+Completed load for: 'res://assets/audio/chime.ogg' remapped 'res://assets/audio/chime.ogg' at thread -1
+BUNNYBOSS|counter retains approved third flinch: OK 
+BUNNYBOSS|counter opening remains generous in every phase: OK 
+Loading resource: res://assets/audio/ui_tap.ogg remapped: res://assets/audio/ui_tap.ogg
+Loading resource: res://.godot/imported/ui_tap.ogg-69c2ac5ecadd43b76c4c4a8a3018f9bd.oggvorbisstr remapped: res://.godot/imported/ui_tap.ogg-69c2ac5ecadd43b76c4c4a8a3018f9bd.oggvorbisstr
+Completed load for: 'res://assets/audio/ui_tap.ogg' remapped 'res://assets/audio/ui_tap.ogg' at thread -1
+BUNNYBOSS|one counter removes exactly one round: OK 
+BUNNYBOSS|counter closes immediately against duplicate input: OK 
+BUNNYBOSS|counter starts approved first flinch: OK 
+Loading resource: res://assets/audio/hop_boing.ogg remapped: res://assets/audio/hop_boing.ogg
+Loading resource: res://.godot/imported/hop_boing.ogg-23491bc7346e37a3c3a7e5718a1c6334.oggvorbisstr remapped: res://.godot/imported/hop_boing.ogg-23491bc7346e37a3c3a7e5718a1c6334.oggvorbisstr
+Completed load for: 'res://assets/audio/hop_boing.ogg' remapped 'res://assets/audio/hop_boing.ogg' at thread -1
+BUNNYBOSS|counter retains approved second flinch: OK 
+Loading resource: res://assets/audio/chime.ogg remapped: res://assets/audio/chime.ogg
+Loading resource: res://.godot/imported/chime.ogg-ccbd9039a16fca2270295f3df3042e4a.oggvorbisstr remapped: res://.godot/imported/chime.ogg-ccbd9039a16fca2270295f3df3042e4a.oggvorbisstr
+Completed load for: 'res://assets/audio/chime.ogg' remapped 'res://assets/audio/chime.ogg' at thread -1
+BUNNYBOSS|counter retains approved third flinch: OK 
+BUNNYBOSS|third counter ends in approved implosion: OK 
+BUNNYBOSS|result: ALL OK
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"

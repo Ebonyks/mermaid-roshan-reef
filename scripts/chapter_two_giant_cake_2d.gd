@@ -54,6 +54,19 @@ const STAGE_TEXTURE_PATHS := {
 	"frost_six_rainbow_tiers": FROSTED_RAINBOW_TEXTURE,
 }
 
+# Kitchen-only contacts, relative to the persistent prop at (790, 200).
+# Each region contains one complete authored tray row, including its shadow.
+# The source PNG and the party-table layout remain unchanged.
+const KITCHEN_TRAY_REGIONS: Array[Rect2] = [
+	Rect2(0, 128, 1024, 224), Rect2(0, 368, 1024, 240),
+	Rect2(0, 616, 1024, 304),
+]
+const KITCHEN_SHELF_CONTACTS: Array[Vector2] = [
+	Vector2(12, 64), Vector2(12, 109), Vector2(12, 152),
+]
+const KITCHEN_TRAY_ALPHA_BOTTOMS: Array[float] = [343.0, 603.0, 910.0]
+var kitchen_display_layout: bool = false
+var kitchen_tray_sprites: Array[Sprite2D] = []
 var festive: bool = false
 var strawberry_mask: int = 0
 var cake_piece_mask: int = 0
@@ -88,6 +101,48 @@ func setup() -> void:
 	_build_approved_art_nodes()
 	_sync_approved_sprite_visibility()
 	_sync_metadata()
+	queue_redraw()
+
+
+## The Chef room has three empty rack shelves and a separate presentation
+## platform. Reuse the same stage art on those supports, below the walking actor.
+func set_kitchen_display_layout(enabled: bool) -> void:
+	kitchen_display_layout = enabled
+	set_meta("kitchen_display_layout", enabled)
+	if enabled and kitchen_tray_sprites.is_empty():
+		for row in range(KITCHEN_TRAY_REGIONS.size()):
+			var tray := Sprite2D.new()
+			tray.name = "KitchenBakedTrayRow%d" % row
+			tray.region_enabled = true
+			tray.region_rect = KITCHEN_TRAY_REGIONS[row]
+			tray.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+			tray.visible = false
+			tray.set_meta("approved_asset_reuse", true)
+			add_child(tray)
+			kitchen_tray_sprites.append(tray)
+	if stage_art_sprite != null:
+		stage_art_sprite.z_index = 0 if enabled else 4
+	if final_cake_sprite != null:
+		final_cake_sprite.z_index = 0 if enabled else 4
+	if candied_tray_sprite != null:
+		candied_tray_sprite.z_index = 0 if enabled else 5
+	for berry_index in range(ingredient_strawberry_sprites.size()):
+		var berry := ingredient_strawberry_sprites[berry_index]
+		berry.z_index = 0 if enabled else 4 + berry_index % 2
+		if enabled:
+			berry.position = Vector2(218.0 + berry_index * 30.0,
+				110.9 - float(berry_index % 2) * 8.0)
+		else:
+			berry.position = Vector2(120.0 + berry_index * 30.0,
+				148.0 - float(berry_index % 2) * 16.0)
+	if not enabled:
+		if final_cake_sprite != null:
+			final_cake_sprite.position = Vector2(180.0, 84.0)
+			final_cake_sprite.scale = Vector2.ONE * 0.30
+		if candied_tray_sprite != null:
+			candied_tray_sprite.position = Vector2(180.0, 184.0)
+			candied_tray_sprite.scale = Vector2.ONE * 0.18
+	_sync_approved_sprite_visibility()
 	queue_redraw()
 
 
@@ -449,6 +504,11 @@ func _draw() -> void:
 	var ink := Color("#402b58")
 	if not has_visual_progress():
 		return
+	if kitchen_display_layout and (_has_visible_stage_art()
+			or (cake_piece_mask == 0 and farmer_strawberries_visible)):
+		# The platform supports the native ingredient sprites as well as the
+		# earned cake states. Do not add the generic tray/bowl underneath them.
+		return
 	_draw_ellipse_shape(Vector2(180.0, 207.0), Vector2(166.0, 11.0),
 		Color(0.14, 0.08, 0.24, 0.24))
 	# The approved complete cake is a single Sprite2D only for the final
@@ -697,6 +757,9 @@ func _build_approved_art_nodes() -> void:
 
 
 func _sync_approved_sprite_visibility() -> void:
+	for tray in kitchen_tray_sprites:
+		tray.visible = false
+		tray.texture = null
 	if stage_art_sprite != null:
 		stage_art_sprite.visible = false
 		if cake_placed_final:
@@ -705,6 +768,8 @@ func _sync_approved_sprite_visibility() -> void:
 	if final_cake_sprite != null:
 		if cake_placed_final:
 			_set_sprite_texture(final_cake_sprite, FINAL_CAKE_TEXTURE)
+		if kitchen_display_layout:
+			_place_on_kitchen_platform(final_cake_sprite, 985.0, 0.20)
 		final_cake_sprite.visible = cake_placed_final \
 			and final_cake_sprite.texture != null
 		if not final_cake_sprite.visible:
@@ -714,6 +779,9 @@ func _sync_approved_sprite_visibility() -> void:
 		if tray_visible:
 			_set_sprite_texture(candied_tray_sprite,
 				CANDIED_STRAWBERRY_TRAY_TEXTURE)
+		if kitchen_display_layout:
+			candied_tray_sprite.scale = Vector2.ONE * 0.12
+			candied_tray_sprite.position = Vector2(278.0, 142.96)
 		candied_tray_sprite.visible = tray_visible \
 			and candied_tray_sprite.texture != null
 		if not candied_tray_sprite.visible:
@@ -732,6 +800,8 @@ func _sync_approved_sprite_visibility() -> void:
 			stage_art_sprite.visible = not cake_placed_final
 			_configure_stage_sprite(stage_art_sprite, art_phase,
 				prepared_glossy_berries)
+			if kitchen_display_layout:
+				_configure_kitchen_stage_art(art_phase)
 	var ingredients_visible := farmer_strawberries_visible \
 		and cake_piece_mask == 0
 	for berry in ingredient_strawberry_sprites:
@@ -763,7 +833,41 @@ func _configure_stage_sprite(stage_sprite: Sprite2D, phase: String,
 		stage_sprite.scale = Vector2.ONE * 0.24
 
 
+func _configure_kitchen_stage_art(phase: String) -> void:
+	if phase == "bake_six_rainbow_tiers":
+		stage_art_sprite.visible = false
+		for row in range(kitchen_tray_sprites.size()):
+			var tray := kitchen_tray_sprites[row]
+			tray.texture = stage_art_sprite.texture
+			tray.scale = Vector2.ONE * 0.14
+			var region := KITCHEN_TRAY_REGIONS[row]
+			var bottom_offset := KITCHEN_TRAY_ALPHA_BOTTOMS[row] \
+				- region.position.y - region.size.y * 0.5
+			tray.position = KITCHEN_SHELF_CONTACTS[row] \
+				- Vector2(0.0, bottom_offset * tray.scale.y)
+			tray.visible = tray.texture != null
+	elif phase in ["mix_batter", "stir_batter"]:
+		# The shell bowl's own foot (y=909), rather than the loose spoon's
+		# lower alpha edge, rests on the cleared mixing plinth at (400,365).
+		stage_art_sprite.scale = Vector2.ONE * 0.20
+		stage_art_sprite.position = Vector2(-390.0, 165.0 - (909.0 - 512.0) * 0.20)
+	elif phase in ["stack_six_rainbow_tiers", "frost_six_rainbow_tiers"]:
+		# Both source canvases share the plate's alpha bottom at y=1013.
+		# At 0.20 scale it touches the pink presentation platform at (1068,337).
+		_place_on_kitchen_platform(stage_art_sprite, 1013.0, 0.20)
+
+
+func _place_on_kitchen_platform(sprite: Sprite2D, alpha_bottom: float,
+		art_scale: float) -> void:
+	sprite.scale = Vector2.ONE * art_scale
+	sprite.position = Vector2(278.0,
+		137.0 - (alpha_bottom - 512.0) * art_scale)
+
+
 func _has_visible_stage_art() -> bool:
+	for tray in kitchen_tray_sprites:
+		if tray.visible:
+			return true
 	if final_cake_sprite != null and final_cake_sprite.visible:
 		return true
 	return stage_art_sprite != null and stage_art_sprite.visible

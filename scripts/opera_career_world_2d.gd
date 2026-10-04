@@ -28,6 +28,7 @@ const PerformancePlan := preload("res://scripts/opera_performance_plan.gd")
 const Mastery := preload("res://scripts/opera_mastery.gd")
 const PerformanceOverlay := preload("res://scripts/opera_performance_overlay.gd")
 const GestureSurface := preload("res://scripts/opera_gesture_surface.gd")
+const ChefSurface := preload("res://scripts/opera_chef_surface.gd")
 const BoxingSurface := preload("res://scripts/opera_boxing_surface.gd")
 const RacerSurface := preload("res://scripts/opera_racer_surface.gd")
 const BalletSurface := preload("res://scripts/opera_ballet_surface.gd")
@@ -406,7 +407,7 @@ const FINALE_START := {
 ## object; their stage-wide play only starts after Roshan reaches it.
 const PHASE_STATIONS := {
 	"teacher": {"PATTERN": "lesson_desk", "COUNT": "lesson_desk", "ADD": "lesson_desk", "MATCH": "lesson_desk"},
-	"chef": {"MIX": "mixing_bowl", "STIR": "mixing_bowl", "BAKE": "hearth_oven", "FROST": "grand_cake_stage", "TOP": "grand_cake_stage"},
+	"chef": {"MIX": "mixing_bowl", "STIR": "mixing_bowl", "BAKE": "hearth_oven", "STACK": "grand_cake_stage", "FROST": "grand_cake_stage", "TOP": "grand_cake_stage"},
 	"detective": {"SEARCH": "magnifier_tower", "CASE BOARD": "evidence_shelves", "CROWN": "treasure_dais"},
 	"ballerina": {"PEARL MIRROR": "trifold_mirror", "RIBBON TRAIL": "wave_tuffets", "GRAND TWIRL": "rose_finale_stage"},
 	"candymaker": {"SYRUP": "gumball_vat", "SORT": "taffy_press", "WRAP": "candy_bag_cottage", "SHARE": "candy_cart"},
@@ -887,6 +888,9 @@ func _build_chapter2_story_props() -> void:
 		chapter2_cake_scene.setup()
 		chapter2_cake_scene.position = Vector2(790.0, 200.0)
 		chapter2_cake_scene.z_index = 4
+		if career_id == "chef":
+			chapter2_cake_scene.z_index = 0
+			chapter2_cake_scene.set_kitchen_display_layout(true)
 		chapter2_cake_scene.set_meta("scene_specific_art", true)
 		chapter2_cake_scene.set_meta("same_asset_as_party_table", true)
 		root.add_child(chapter2_cake_scene)
@@ -1091,7 +1095,7 @@ func _refresh_chapter2_cake_scene() -> void:
 	var strawberry_mask := int(m.chapter2_strawberry_mask) if m != null else 0
 	var cake_mask := int(m.chapter2_cake_piece_mask) if m != null else 0
 	chapter2_cake_scene.apply_milestone_masks(strawberry_mask, cake_mask)
-	chapter2_cake_scene.visible = true
+	chapter2_cake_scene.visible = not (surface is OperaChefSurface and task_open)
 	set_meta("chapter2_cake_state", chapter2_cake_scene.persistent_state())
 	set_meta("chapter2_cake_stage", chapter2_cake_scene.stage_id())
 
@@ -1266,7 +1270,14 @@ func _build_world() -> void:
 	action_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	action_panel.draw.connect(_draw_activity_focus)
 	root.add_child(action_panel)
-	if career_id == "boxer":
+	if career_id == "chef" and _is_chapter2_story_scene():
+		surface = ChefSurface.new() as OperaGestureSurface
+		# Room-owned food stays behind the foreground characters, including
+		# during celebration when their hands overlap the rack or cake.
+		player_actor.z_index = 1
+		if rival_actor != null:
+			rival_actor.z_index = 1
+	elif career_id == "boxer":
 		surface = BoxingSurface.new() as OperaGestureSurface
 	elif career_id == "ballerina":
 		surface = BalletSurface.new() as OperaGestureSurface
@@ -1883,7 +1894,11 @@ func _assign_stations() -> void:
 	station_for_phase = {}
 	if station_list.is_empty():
 		return
-	var preferred: Dictionary = PHASE_STATIONS.get(career_id, {}) as Dictionary
+	var preferred: Dictionary = (PHASE_STATIONS.get(career_id, {}) as Dictionary).duplicate()
+	if career_id == "chef" and _is_chapter2_story_scene():
+		preferred["MIX"] = "mixing_bowl"
+		preferred["STIR"] = "mixing_bowl"
+		preferred["STACK"] = "cake_tower"
 	for index in range(phases.size()):
 		var phase := phases[index] as Dictionary
 		var station_id := String(preferred.get(String(phase.get("name", "")), ""))
@@ -1907,6 +1922,8 @@ func _build_station_markers() -> void:
 	for index in range(station_list.size()):
 		var station: Dictionary = station_list[index]
 		var hotspot := WorldHotspot.new() as OperaWorldHotspot2D
+		if career_id == "chef" and _is_chapter2_story_scene():
+			hotspot.set_meta("kitchen_local_cue", true)
 		hotspot.name = "ActivityHotspot_%s" % String(station.get("id", index))
 		var object_pos: Vector2 = station.get(
 			"object_pos", (station.get("pos", Vector2(640, 480)) as Vector2)
@@ -2014,22 +2031,9 @@ func _on_hotspot_opening_finished(station_index: int) -> void:
 func _draw_activity_focus() -> void:
 	if career_id in ["teacher", "geologist"] or _racer_is_driving():
 		return
-	# No clipboard, easel, title ribbon, or reading chrome. The existing themed
-	# minigame art floats in a soft theatre-light bloom, with a tiny pearl trail
-	# carrying the only generic progress information.
-	# The three Hall performances already have local gesture cues and a status
-	# card. A room-sized dark lens masks the painted stage and performer contact.
-	if not two_act_enabled:
-		var centre := action_panel.size * Vector2(0.5, 0.48)
-		var radius := maxf(action_panel.size.x, action_panel.size.y) * 0.52
-		action_panel.draw_set_transform(centre, 0.0, Vector2(1.0, 0.62))
-		action_panel.draw_circle(Vector2.ZERO, radius,
-			Color(0.04, 0.08, 0.24, 0.32))
-		action_panel.draw_circle(Vector2.ZERO, radius * 0.88,
-			Color(0.18, 0.46, 0.92, 0.12))
-		action_panel.draw_arc(Vector2.ZERO, radius * 0.94, -PI * 0.84,
-			-PI * 0.16, 42, Color(0.44, 0.78, 1.0, 0.48), 5.0)
-		action_panel.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	# Local objects and their own cues provide focus; no room-sized alpha lens.
+	if surface is OperaChefSurface:
+		return
 	var custom_progress := clampf(float(phase_fill.value) / 100.0, 0.0, 1.0) \
 		if phase_fill != null else 0.0
 	if _is_chapter2_candymaker_scene():
@@ -2307,7 +2311,10 @@ func _glide_roshan_to(feet: Vector2, duration: float = 1.3) -> void:
 
 func _finish_player_glide() -> void:
 	_finish_actor_motion("player", player_actor)
-	_play_roshan_animation("idle")
+	if surface is OperaChefSurface and task_open and phase_index < phases.size():
+		_play_roshan_task_pose(phases[phase_index] as Dictionary)
+	else:
+		_play_roshan_animation("idle")
 
 
 func _play_roshan_animation(animation: String) -> void:
@@ -2318,6 +2325,11 @@ func _play_roshan_animation(animation: String) -> void:
 
 
 func _play_roshan_task_pose(phase: Dictionary) -> void:
+	if surface is OperaChefSurface and is_instance_valid(player_animator):
+		# The generic work strip already holds a second mixing bowl. The
+		# approved empty-hand presenting pose keeps one room-owned work object.
+		player_animator.show_pose("idle", 0)
+		return
 	if String(phase.get("mode", "")) == "talk":
 		_play_roshan_animation("idle")
 		return
@@ -2584,12 +2596,15 @@ func _bind_widget(phase: Dictionary, mode_name: String, accent: Color, armed := 
 	# while she is still wandering, the bound widget shows but its clocks
 	# (oven heat, pipe fuel, echo song) hold still until she arrives
 	surface.armed_only = armed
+	if surface is OperaChefSurface:
+		_refresh_chapter2_cake_scene()
 
 
 func _open_task() -> void:
 	if task_open or not active or phase_index >= phases.size():
 		return
 	task_entry_feet = wander_feet
+	_capture_actor_rest("player", player_actor)
 	task_entry_actor_size = player_actor.size if player_actor != null else Vector2.ZERO
 	task_open = true
 	wander_walking = false
@@ -2621,7 +2636,7 @@ func _open_task() -> void:
 	if phase_index >= _finale_start() or competition.is_cooperative():
 		_stage_room_finale_partner()
 	_adapter_hook("phase_opened", scene_snapshot())
-	if action_panel.visible:
+	if action_panel.visible and not surface is OperaChefSurface:
 		# The activity grows out of the room object Roshan just opened instead
 		# of appearing as an unrelated card at screen centre.
 		action_panel.pivot_offset = _activity_reveal_pivot()
@@ -2670,6 +2685,16 @@ func _open_task() -> void:
 		else:
 			nursery_catch.stop()
 	_bind_widget(phase, mode_name, accent)
+	if surface is OperaChefSurface:
+		var work_feet := Vector2(995, 405)
+		if mode_name in ["pourt", "circle"]:
+			work_feet = Vector2(550, 430)
+		elif mode_name == "oven":
+			work_feet = Vector2(715, 405)
+		elif mode_name == "tap":
+			work_feet = Vector2(875, 405)
+		_glide_roshan_to(work_feet, 0.28)
+		reveal_t = maxf(reveal_t, 0.30)
 	if career_id == "teacher":
 		_show_phase_prompt(phase)
 	if career_id == "magician" and mode_name == "choice":
@@ -2763,6 +2788,14 @@ func _apply_panel_layout(phase: Dictionary) -> void:
 	if action_panel == null:
 		return
 	var mode := String(phase.get("mode", "tap"))
+	if surface is OperaChefSurface:
+		action_panel.visible = true
+		action_panel.position = Vector2.ZERO
+		action_panel.size = StagePaths.SCREEN
+		surface.position = Vector2.ZERO
+		surface.size = StagePaths.SCREEN
+		phase_fill.visible = false
+		return
 	if career_id in ["teacher", "geologist"]:
 		if career_id == "geologist":
 			if backdrop_node != null:
@@ -3480,6 +3513,11 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 		# accumulation; no unrelated gesture can manufacture this distance.
 		phase_progress = minf(goal, float((surface as OperaRacerSurface).kart["s"])
 			/ RacerSurface.LAP_DISTANCE)
+	if mode == "pourt" and _kind == "pourt" and surface.pour_level >= 1.0:
+		phase_progress = goal
+	elif mode == "swipe" and _kind == "swipe" and surface._uses_authored_trace_context() \
+			and surface.trace_journey >= 1.0:
+		phase_progress = goal
 	var progress := clampf(phase_progress / goal, 0.0, 1.0)
 	_performance_record_progress(progress, _kind, quality)
 	phase_fill.value = progress * 100.0
@@ -3492,7 +3530,7 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 	surface.note_result(quality >= 0.5)
 	# one bounce per 0.22s: mashing used to restart the tween every frame and
 	# leave her drifting off her rest transform
-	if bounce_cool <= 0.0:
+	if bounce_cool <= 0.0 and not surface is OperaChefSurface:
 		bounce_cool = 0.22
 		_bounce_actor(player_actor, 14.0 if quality >= 0.5 else 7.0)
 	if mode == "choice":
@@ -3540,6 +3578,8 @@ func _on_gesture(_kind: String, amount: float, quality: float) -> void:
 
 
 func _uses_authored_completion_picture(mode: String) -> bool:
+	if surface is OperaChefSurface:
+		return true
 	if career_id in ["teacher", "geologist"] \
 			or (career_id == "racer" and mode == "kart_race"):
 		return true

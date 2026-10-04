@@ -1,0 +1,108 @@
+{
+  "baseline": "4cb14febc2c5f0074d5ad8386ce66f19f940c84d",
+  "source": {
+    "path": "assets_src/imagegen/opera_codex_2026-08-02/native/world_chef_native.png",
+    "sha256": "1b16695c003210b53aa8e245a4f133f5d6f8cee88be064d61b167b4e90098509",
+    "dimensions": [
+      1672,
+      941
+    ]
+  },
+  "edit_target_role": "Exact approved Chef backdrop; targeted cake removal and local healing",
+  "generation": {
+    "method": "Built-in imagegen precise-object-edit",
+    "attempt": 1,
+    "provider_output_filename": "exec-d6cfcb2e-d3d5-425a-a05a-21a9473ed051.png",
+    "prompt_path": "assets_src/imagegen/chef_overdraw_v1_20261003/PROMPT_A1.txt",
+    "prompt_sha256": "969ddae52c2de36c95e705124d37da01445f040dc731823330de88ce5d571973",
+    "model_seed_request_id": "not exposed by built-in tool",
+    "prompt_encoding": "UTF-8, LF; logical prompt unchanged from built-in request"
+  },
+  "review": {
+    "reviewer": "Codex visual review, 2026-10-03 America/Los_Angeles",
+    "result": "Selected for bounded runtime verification",
+    "observations": "Four painted gameplay cakes and the cloche cake removed; empty rack and pink platform preserved. Architecture, oven, bowl, bridge, framing and room identity retained. No character redesign or cinematic delivery claim.",
+    "owner_acceptance": "PENDING"
+  },
+  "normalization": "Existing native_master promotion: untouched native canvas centered at (188,553), blurred whole-canvas edge continuation and 24px perimeter feather; y448..1600 active crop; four nonoverlapping 1024 POT cards. No subject isolation, warp or translation in this preparation.",
+  "native_resolution_gap": "1672x941 generator output; padding is not native detail and does not satisfy DL-LAY-07. No resolution-satisfaction claim.",
+  "outputs": [
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/world_chef_clean_native.png",
+      "sha256": "8611985b5adfc49c7662b32cb92ec2789bf16691512c4e948ca78956e9dd546c",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/world_chef_clean_master.png",
+      "sha256": "f670e0d8cbab224e07ca04d02c8f6fdcc714ca09e49777c70d0384e487614814",
+      "dimensions": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/a1_tiles/world_chef_c0r0.png",
+      "sha256": "a3a7721ae5692a0c3cd8e781eadda45183b074ea6442b75ea2df87a56bae1630",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/a1_tiles/world_chef_c1r0.png",
+      "sha256": "22fbab5dbac915157f7331f73c8c82665d4e9a9a25960ddb0a4ded6629d3995a",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/a1_tiles/world_chef_c0r1.png",
+      "sha256": "0e327465c7b669c92998c9d5abf9b4554a45cd11caff709e3ec1f0c9cc6ba934",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets_src/imagegen/chef_overdraw_v1_20261003/a1_tiles/world_chef_c1r1.png",
+      "sha256": "f041166d2eac3307f7fbdc895b594628f18f0b101f02fe1a938b87ebcb455e63",
+      "dimensions": [
+        1024,
+        1024
+      ]
+    }
+  ],
+  "runtime_import": {
+    "compression_mode": 2,
+    "POT_dimensions": [
+      1024,
+      1024
+    ],
+    "mipmaps": false,
+    "reason": "Match original Chef world tiles; avoid the default lossless RGBA memory increase",
+    "settings": [
+      {
+        "path": "assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c0r0.png.import",
+        "sha256": "648013ef1a80fa637c8dfd1ff093c72f0b79519545b14842ab0a7981832fb446"
+      },
+      {
+        "path": "assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c0r1.png.import",
+        "sha256": "adeab9e9e7e8769939f7a839beccb97f4444ffb9326f09ad30532387831ba249"
+      },
+      {
+        "path": "assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c1r0.png.import",
+        "sha256": "3b1369d904022e5360cf34c2f48ee54b032165a2b66c79c19081a4a90756e577"
+      },
+      {
+        "path": "assets/opera/worlds/backdrops/chef_story_clean_v1/world_chef_c1r1.png.import",
+        "sha256": "779868d4c98ebae018a4c792bec9ba7335e1ad9e05070c70578779a5c6e6447b"
+      }
+    ],
+    "status": "Historical A1 configuration; same current tile paths now consume selected A2. A2 manifest owns current hashes."
+  },
+  "selection_status": "A1 historical intermediate; A2 selected for the final runtime. Native/master and exact tile outputs preserved."
+}

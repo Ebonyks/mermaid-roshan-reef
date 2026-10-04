@@ -1,9 +1,11 @@
-"""Cold-start coverage: the one-line bakery commission expands from repo facts."""
+"""Cold-start coverage: one-line prompts expand from repository facts, for any job."""
 from __future__ import annotations
 
+import contextlib
 import copy
+import io
 import json
-import struct
+import re
 import tempfile
 import unittest
 from pathlib import Path
@@ -12,6 +14,8 @@ from tools import plan_prompt
 from tools.build_study_roadmap import sha256
 
 ROOT = Path(__file__).resolve().parents[2]
+# Words that belong to one stored job; a plan for another job must not contain them.
+BAKERY_WORDS = ("bakery", "baker", "knead", "loaf", "flour", "oven", "dough")
 
 
 class PromptTests(unittest.TestCase):
@@ -22,131 +26,119 @@ class PromptTests(unittest.TestCase):
         self.assertEqual({item["id"] for item in seed["intents"]}, {item["id"] for item in catalogue["intents"]})
         self.assertEqual(15, len(catalogue["intents"]))
 
-    def test_bakery_plan_is_complete_without_chat_or_private_memory(self):
-        plan = plan_prompt.build_plan(ROOT, "add a bakery job")
-        self.assertEqual("INT-ADD-JOB", plan["intent"])
-        self.assertEqual("PLAN_ONLY", plan["status"])
-        self.assertEqual(2, len(plan["owner_touchpoints"]))
-        self.assertIn("permanent job", plan["owner_touchpoints"][0]["question"])
-        self.assertIn("costume", plan["owner_touchpoints"][1]["question"])
-        card = plan["job_card"]
-        self.assertEqual(["pour", "knead", "shape", "bake", "retrieve", "serve"], [beat["verb"] for beat in card["beats"]])
-        self.assertEqual(len(card["beats"]), len({beat["verb"] for beat in card["beats"]}))
-        for beat in card["beats"]:
-            for key in ("visible_change", "voice_key", "line", "pointer", "contact", "child_action", "requires", "result_state"):
-                self.assertTrue(beat[key])
-        text = json.dumps(plan)
-        for topic in ("opera_house.gd", "opera_competition.gd", "opera_hotspot_catalog.gd", "castle_career_routes.gd", "stage_inventory.json", "living_world_catalog.gd", "audio_director.gd", "audit_opera_roshan_animation", "EXPECTED_IDS", "REQUIRED_AREA_MUSIC", "passive", "tombstone", "retaining", "dev"):
-            if topic == "retaining":
+    def test_recipes_are_rendered_from_the_catalogue(self):
+        catalogue = plan_prompt.load_catalogue(ROOT)
+        self.assertEqual([], plan_prompt.recipe_drift(ROOT, catalogue))
+        for intent in catalogue["intents"]:
+            text = (ROOT / intent["recipe"]["path"]).read_text(encoding="utf-8")
+            self.assertNotIn("Existing session authorization takes precedence", text)
+            self.assertIn("Codex builds code and every image", text)
+
+    def test_job_plans_are_generic_and_complete(self):
+        for prompt, name in (("add a bakery job", "bakery"), ("add a pizza job", "pizza"),
+                             ("new job: vet", "vet"), ("plan a gardener career", "gardener")):
+            with self.subTest(prompt=prompt):
+                plan = plan_prompt.build_plan(ROOT, prompt)
+                self.assertEqual("INT-ADD-JOB", plan["intent"])
+                self.assertEqual("PLAN_ONLY", plan["status"])
+                card = plan["job_card"]
+                self.assertEqual(name, card["job"])
+                self.assertEqual("TO_DESIGN", card["status"])
+                self.assertNotIn("beats_designed", card)
+                self.assertEqual(plan_prompt.JOB_BEAT_FIELDS, card["beat_fields"])
+                text = json.dumps(plan)
+                for topic in ("opera_house.gd", "opera_competition.gd", "opera_hotspot_catalog.gd", "castle_career_routes.gd",
+                              "stage_inventory.json", "living_world_catalog.gd", "audio_director.gd", "audit_opera_roshan_animation",
+                              "EXPECTED_IDS", "REQUIRED_AREA_MUSIC", "passive", "tombstone", "dev", "Parler", "roshan_base.png"):
+                    self.assertIn(topic, text)
                 self.assertIn("preserve", text.lower())
-            else:
-                self.assertIn(topic, text)
-        self.assertTrue(all(item.get("default") and item.get("trigger") for item in plan["owner_touchpoints"]))
+                self.assertTrue(all(item.get("default") and item.get("trigger") for item in plan["owner_touchpoints"]))
+                self.assertTrue(all(item["default"].startswith("wait") for item in plan["owner_touchpoints"]))
 
-    def test_bakery_baking_and_retrieval_are_intentional_ordered_steps(self):
-        card = plan_prompt.build_plan(ROOT, "add a bakery job")["job_card"]
-        beats = card["beats"]
-        for previous, current in zip(beats, beats[1:]):
-            self.assertEqual(previous["result_state"], current["requires"])
-        bake, retrieve, serve = beats[3:]
-        self.assertEqual("shaped_raw_loaf", bake["requires"])
-        self.assertEqual("baked_loaf_in_oven", bake["result_state"])
-        self.assertIn("idle input pauses", bake["child_action"])
-        self.assertIn("no automatic retrieval", retrieve["child_action"])
-        self.assertIn("mitted hand", retrieve["contact"])
-        self.assertEqual("retrieved_baked_loaf", serve["requires"])
-        self.assertIn("Idle input cannot finish baking", card["state_rules"])
-        self.assertIn("demonstration never grants completion", card["state_rules"])
-        self.assertIn("cancels unfinished action", card["state_rules"])
-        mapping = card["phase_mapping"]
-        self.assertEqual(len(beats), mapping["phase_count"])
-        self.assertEqual(5, mapping["finale_start"])
-        finale = mapping["phases"][mapping["finale_start"]]
-        self.assertEqual("Bow", finale["act"])
-        self.assertEqual("serve", finale["verb"])
-        self.assertTrue(all(phase["act"] != "Bow" for phase in mapping["phases"][:mapping["finale_start"]]))
-        self.assertLess(mapping["finale_start"], mapping["phase_count"])
-        self.assertIn("zero-based first contest phase", mapping["finale_source"])
-        self.assertEqual(list(range(len(beats))), [phase["index"] for phase in mapping["phases"]])
-        self.assertEqual([beat["verb"] for beat in beats], [phase["verb"] for phase in mapping["phases"]])
-        self.assertIn("not four inherited phases", mapping["caveat"])
-        self.assertIn("5/5 only after owner acceptance", card["quality_gate"])
-        self.assertIn("pending", card["quality_gate"])
+    def test_unseen_jobs_carry_no_stored_answer(self):
+        for prompt in ("add a pizza job", "new job: vet", "add a florist job"):
+            with self.subTest(prompt=prompt):
+                text = json.dumps(plan_prompt.build_plan(ROOT, prompt)).lower()
+                for word in BAKERY_WORDS:
+                    self.assertIsNone(re.search(rf"{word}", text), word)
 
-    def test_bakery_background_inventory_preserves_native_readiness_gap(self):
-        inventory = plan_prompt.build_plan(ROOT, "add a bakery job")["job_card"]["background_readiness"]
-        self.assertEqual("NATIVE_COVERAGE_GAP", inventory["status"])
-        self.assertEqual([[1672, 941], [1672, 941]], [row["dimensions"] for row in inventory["native_sources"]])
-        self.assertEqual([4096, 2304], inventory["kitchen_delivery_master"]["dimensions"])
-        self.assertTrue(all(row["hash_matches_record"] for row in inventory["native_sources"]))
-        self.assertTrue(inventory["kitchen_delivery_master"]["hash_matches_record"])
-        self.assertIn("Lanczos", inventory["recorded_delivery_transform"])
-        self.assertIn("do not prove native authored coverage or runtime readiness", inventory["acceptance"])
-        self.assertIn("DL-LAY-07", inventory["acceptance"])
-        self.assertIn("No new art", inventory["acceptance"])
-        self.assertTrue(all((ROOT / path).is_file() for path in inventory["references"]))
+    def test_imp_contest_matches_the_rule(self):
+        card = plan_prompt.build_plan(ROOT, "add a vet job")["job_card"]
+        self.assertIn("at most 2 s", card["imp"])
+        self.assertIn("awaits owner confirmation", card["imp"])
+        self.assertIn("no idle win", card["imp"])
 
-    def test_bakery_background_inventory_flags_changed_source_provenance(self):
-        inventory = plan_prompt.bakery_background_inventory(ROOT)
-        with tempfile.TemporaryDirectory() as temp:
-            root = Path(temp)
-            measured = inventory["native_sources"] + [inventory["kitchen_delivery_master"]]
-            hashes = {}
-            for row in measured:
-                source = root / row["path"]
-                source.parent.mkdir(parents=True, exist_ok=True)
-                # Metadata-only PNG fixtures; they make no image-quality claim.
-                source.write_bytes(b"\x89PNG\r\n\x1a\n" + struct.pack(">I", 13) + b"IHDR"
-                                   + struct.pack(">II", *row["dimensions"]))
-                hashes[row["path"]] = sha256(source)
-            kitchen, chef, delivery = measured
-            kitchen_manifest, chef_manifest = inventory["references"][:2]
-            for relative, document in [
-                (kitchen_manifest, {"castle": [{"room": "kitchen", "source": kitchen["path"],
-                    "source_sha256": hashes[kitchen["path"]], "native_master": delivery["path"],
-                    "native_master_sha256": hashes[delivery["path"]], "normalization": "whole-canvas Lanczos"}]}),
-                (chef_manifest, {"accepted": [{"path": chef["path"], "sha256": hashes[chef["path"]]}]}),
-            ]:
-                target = root / relative
-                target.parent.mkdir(parents=True, exist_ok=True)
-                target.write_text(json.dumps(document), encoding="utf-8")
-            self.assertEqual("NATIVE_COVERAGE_GAP", plan_prompt.bakery_background_inventory(root)["status"])
-            source = root / chef["path"]
-            source.write_bytes(source.read_bytes() + b"changed source content")
-            changed = plan_prompt.bakery_background_inventory(root)
-            self.assertEqual("SOURCE_PROVENANCE_GAP", changed["status"])
-            self.assertFalse(changed["native_sources"][1]["hash_matches_record"])
+    def test_allocation_is_derived_live(self):
+        allocation = plan_prompt.build_plan(ROOT, "add a vet job")["save_allocation"]
+        self.assertGreater(len(allocation["namespace_clamp_lines"]), 0)
+        self.assertIn(str(allocation["next_bit"]), allocation["caveat"])
+        self.assertIn(str(allocation["proposed_namespace_bound"]), allocation["caveat"])
 
-    def test_bakery_allocates_live_mask_and_all_four_clamps(self):
-        # This named baseline fixture demonstrates the historic clamp trap
-        # without preventing the live game from adding a later career.
+    def test_allocates_live_mask_retired_bits_and_all_clamps(self):
+        # A named fixture of the historic layout; the live game may add careers later.
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             (root / "scripts").mkdir()
-            (root / "scripts/opera_house.gd").write_text('\n'.join(
-                f'{{"save_bit": {index}}},' for index in range(18)), encoding="utf-8")
+            rows = [('{"save_bit": %d, "retired": true},' % index) if index in (4, 9, 14) else ('{"save_bit": %d, "name": "x"},' % index)
+                    for index in range(18)]
+            (root / "scripts/opera_house.gd").write_text("\n".join(rows), encoding="utf-8")
             (root / "scripts/save_state.gd").write_text(
                 'const OPERA_ACTIVE_STAR_MASK := 0x3BDEF\nconst OPERA_ACTIVE_ACT_COUNT := 15\n'
                 + '\n'.join('opera_stars = clampi(opera_stars, 0, 262143)' for _ in range(4)), encoding="utf-8")
             allocation = plan_prompt.save_inventory(root)
-        self.assertEqual(18, allocation["next_bit"])
-        self.assertEqual("0x3bdef", allocation["current_active_mask"])
-        self.assertEqual("0x7bdef", allocation["proposed_active_mask"])
-        self.assertEqual(524287, allocation["proposed_namespace_bound"])
-        self.assertEqual(4, len(allocation["namespace_clamp_lines"]))
-        self.assertIn("retain every existing save key", allocation["caveat"])
-        self.assertIn("implementation head", allocation["caveat"])
-        self.assertIn("both shared normaliser clamp sites", allocation["caveat"])
-        self.assertIn("external merge through the shared normaliser", allocation["caveat"])
+            self.assertEqual(18, allocation["next_bit"])
+            self.assertEqual("0x3bdef", allocation["current_active_mask"])
+            self.assertEqual("0x7bdef", allocation["proposed_active_mask"])
+            self.assertEqual(524287, allocation["proposed_namespace_bound"])
+            self.assertEqual(4, len(allocation["namespace_clamp_lines"]))
+            self.assertEqual([4, 9, 14], allocation["retired_bits"])
+            for phrase in ("retain every existing save key", "implementation head", "both shared normaliser clamp sites",
+                           "external merge through the shared normaliser", "bit 18", "(4, 9, 14)"):
+                self.assertIn(phrase, allocation["caveat"])
+            # One more career moves every derived number; nothing stays at the old baseline.
+            (root / "scripts/opera_house.gd").write_text("\n".join(rows + ['{"save_bit": 18, "name": "y"},']), encoding="utf-8")
+            (root / "scripts/save_state.gd").write_text(
+                'const OPERA_ACTIVE_STAR_MASK := 0x7BDEF\nconst OPERA_ACTIVE_ACT_COUNT := 16\n'
+                + '\n'.join('opera_stars = clampi(opera_stars, 0, 524287)' for _ in range(4)), encoding="utf-8")
+            later = plan_prompt.save_inventory(root)
+            self.assertEqual(19, later["next_bit"])
+            self.assertIn("bit 19", later["caveat"])
+            self.assertNotIn("262143", later["caveat"])
+            # A clamp written as an expression must stop the plan, not yield an empty list.
+            (root / "scripts/save_state.gd").write_text(
+                'const OPERA_ACTIVE_STAR_MASK := 0x7BDEF\nconst OPERA_ACTIVE_ACT_COUNT := 16\nopera_stars = clampi(opera_stars, 0, (1 << 19) - 1)\n',
+                encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "clamp"):
+                plan_prompt.save_inventory(root)
 
-    def test_unknown_and_ambiguous_prompt_fail_closed(self):
+    def test_unknown_and_ambiguous_prompt_fail_closed_with_candidates(self):
         catalogue = plan_prompt.load_catalogue(ROOT)
-        with self.assertRaises(ValueError):
-            plan_prompt.infer_intent("something unspecified", catalogue)
-        with self.assertRaises(ValueError):
+        with self.assertRaises(plan_prompt.IntentError) as unknown:
+            plan_prompt.infer_intent("teach Roshan to juggle", catalogue)
+        self.assertEqual(3, len(unknown.exception.candidates))
+        with self.assertRaises(plan_prompt.IntentError) as ambiguous:
             plan_prompt.infer_intent("study and publish the handoff", catalogue)
+        self.assertEqual({"INT-STUDY", "INT-PUBLISH-HANDOFF"}, {row["intent"] for row in ambiguous.exception.candidates})
         plan = plan_prompt.build_plan(ROOT, "study and publish the handoff", "INT-PUBLISH-HANDOFF")
         self.assertEqual("REC-PUBLISH-HANDOFF", plan["recipe"]["id"])
+
+    def test_natural_prompts_route(self):
+        catalogue = plan_prompt.load_catalogue(ROOT)
+        for prompt, expected in (("what should we build next", "INT-STUDY"), ("study the game", "INT-STUDY"),
+                                 ("Fix MA-DOC-006: No current step-by-step script exists for building a new job game", "INT-REPAIR"),
+                                 ("Finish MA-DOC-009: The improvement loop does not turn", "INT-REPAIR"),
+                                 ("Check the fix for MA-VIS-002: Sky Lagoon", "INT-REPAIR"),
+                                 ("delete the old backpack art", "INT-RETIRE"), ("ship it", "INT-RELEASE")):
+            with self.subTest(prompt=prompt):
+                self.assertEqual(expected, plan_prompt.infer_intent(prompt, catalogue)["id"])
+
+    def test_cli_lists_candidates_instead_of_failing_silently(self):
+        output = io.StringIO()
+        with contextlib.redirect_stdout(output):
+            code = plan_prompt.main(["teach Roshan to juggle"])
+        self.assertEqual(2, code)
+        self.assertIn("PROMPT|NEEDS_INTENT", output.getvalue())
+        self.assertIn("say it like", output.getvalue())
 
     def test_missing_recipe_and_reference_rejected(self):
         catalogue = copy.deepcopy(plan_prompt.load_catalogue(ROOT))
@@ -156,6 +148,11 @@ class PromptTests(unittest.TestCase):
         self.assertTrue(any("missing recipe" in error for error in errors))
         self.assertTrue(any("missing reference" in error for error in errors))
 
+    def test_touchpoints_must_be_questions_with_defaults(self):
+        catalogue = copy.deepcopy(plan_prompt.load_catalogue(ROOT))
+        catalogue["intents"][1]["owner_touchpoints"][0]["question"] = "New permanent career approval"
+        self.assertTrue(any("question" in error for error in plan_prompt.validate_catalogue(ROOT, catalogue)))
+
     def test_strengths_are_bound_accepted_first_without_promoting_candidates(self):
         plan = plan_prompt.build_plan(ROOT, "add a bakery job")
         tiers = [item["tier"] for item in plan["strengths"]]
@@ -163,7 +160,7 @@ class PromptTests(unittest.TestCase):
         self.assertIn("candidate", tiers)
         self.assertIn("grants none", plan["acceptance"])
 
-    def test_direct_planner_rejects_changed_strength_source_before_binding(self):
+    def test_changed_strength_source_is_flagged_not_fatal(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             (root / "design/reference").mkdir(parents=True)
@@ -186,9 +183,11 @@ class PromptTests(unittest.TestCase):
             (root / plan_prompt.STRENGTHS).write_text(json.dumps({"strengths": [strength]}), encoding="utf-8")
             plan = plan_prompt.build_plan(root, "study the game")
             self.assertEqual("accepted", plan["strengths"][0]["tier"])
+            self.assertNotIn("evidence_changed", plan["strengths"][0])
             source.write_bytes(b"Different source; the previous scope no longer applies.\n")
-            with self.assertRaisesRegex(ValueError, "Strength evidence invalid:.*re-review"):
-                plan_prompt.build_plan(root, "study the game")
+            changed = plan_prompt.build_plan(root, "study the game")["strengths"][0]
+            self.assertTrue(changed["evidence_changed"])
+            self.assertIn("re-review", changed["scope"])
 
 
 if __name__ == "__main__":

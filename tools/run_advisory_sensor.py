@@ -17,18 +17,30 @@ from pathlib import Path
 TERMINAL_RE = re.compile(r"\|RESULT\|\s*(?:PASS|MEASURED|ALL OK)(?:\||\s*$)|\|result:\s*ALL OK\s*$|\|DONE(?:\||\s*$)", re.I)
 
 
+def has_verdict(output: str, expected: str) -> bool:
+	return bool(expected) and any(expected in line and TERMINAL_RE.search(line) for line in output.splitlines())
+
+
 def classify(output: str, exit_code: int, expected: str, missing: list[str]) -> tuple[str, str]:
+	hung = False
 	if exit_code in (124, -9):
-		return "CAPPED", "process timeout; no completed measurement"
+		if not has_verdict(output, expected):
+			return "CAPPED", "process timeout; no completed measurement"
+		# Same rule as the trusted probe loop: a printed verdict stands when the
+		# engine hangs at exit; failure lines below still veto it.
+		hung, exit_code = True, 0
+	status, reason = _classify(output, exit_code, expected, missing)
+	return status, (reason + "; engine hung after its verdict and was stopped") if hung else reason
+
+
+def _classify(output: str, exit_code: int, expected: str, missing: list[str]) -> tuple[str, str]:
 	if exit_code != 0 or re.search(r"SCRIPT ERROR|Parse Error|Compile Error|\|FAIL(?:ED)?(?:\||\s*$)|(?:RESULT\|FAIL)|result:\s*\d+\s+FAILED\b|SAVE_ERROR|ART_AUDIT\|saved[^\r\n]*\bERR\s+\d+\s*$|verdict=(?:fail|failed)", output, re.I | re.M):
 		return "FAILED", f"process exit {exit_code} or explicit failure"
 	if re.search(r"verdict=capped|RESULT\|CAPPED", output, re.I):
 		return "CAPPED", "at least one simulated run reached its cap"
 	if re.search(r"NOT_MEASURED|UNSUPPORTED|HEADLESS SKIP|\|INCOMPLETE(?:\||\s*$)", output, re.I | re.M):
 		return "NOT_MEASURED", "at least one required case is unsupported or unmeasured"
-	if not output.strip() or (expected and not any(
-		expected in line and TERMINAL_RE.search(line) for line in output.splitlines()
-	)):
+	if not output.strip() or (expected and not has_verdict(output, expected)):
 		return "EMPTY", "no expected completed verdict output"
 	if missing:
 		return "NOT_MEASURED", "missing required outputs: " + ", ".join(missing)
@@ -53,7 +65,7 @@ def stale_requirements(patterns: list[str], before: dict, after: dict) -> list[s
 		for name in glob.glob(pattern))]
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
 	parser = argparse.ArgumentParser(description=__doc__)
 	parser.add_argument("--name", required=True)
 	parser.add_argument("--report-dir", type=Path, default=Path("audit/advisory"))
@@ -62,7 +74,7 @@ def main() -> int:
 	parser.add_argument("--timeout", type=float, default=600)
 	parser.add_argument("--not-measured", help="Record an explicitly retired or unavailable sensor")
 	parser.add_argument("command", nargs=argparse.REMAINDER)
-	args = parser.parse_args()
+	args = parser.parse_args(argv)
 	if not re.fullmatch(r"[a-z0-9_-]+", args.name):
 		parser.error("name must be a safe lowercase ID")
 	command = args.command[1:] if args.command[:1] == ["--"] else args.command
@@ -92,7 +104,9 @@ def main() -> int:
 	(args.report_dir / (args.name + ".json")).write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
 	print(output, end="" if output.endswith("\n") else "\n")
 	print(f"ADVISORY|{args.name}|RESULT|{status}|{reason}")
-	return 0 if status == "MEASURED" else 1
+	# A declared retirement is a known state, not a failure; it must not raise a
+	# red annotation on every green run.
+	return 0 if status == "MEASURED" or args.not_measured else 1
 
 
 if __name__ == "__main__":

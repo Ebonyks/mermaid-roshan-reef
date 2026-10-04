@@ -195,6 +195,43 @@
       ],
       "checkable": true,
       "cycle": "2026-10-03"
+    },
+    {
+      "id": "ODR-PRIORITY-JOB-TAKEOVER",
+      "date": "2026-09-30",
+      "subject": "Development planning priority",
+      "question": "How important is job-game takeover readiness for planning?",
+      "decision": "Job-game takeover readiness (MA-DOC-006) is critical to the owner and comes first in development planning; it does not reorder the child-facing defect repairs.",
+      "source": "audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md",
+      "authority": "recorded_owner",
+      "checks": [
+        "tools/build_study_roadmap.py",
+        "tools/tests/test_build_study_roadmap.py"
+      ],
+      "checkable": true,
+      "applies_to": [
+        "MA-DOC-006"
+      ],
+      "priority": "first",
+      "recorded_text": "audit/cycles/2026-10-03-baseline/REPAIR_ORDER_HISTORY.md",
+      "note": "Owner, 2026-09-30: the purpose is to take over development of Mermaid Roshan, and including this in the audit is critical. Recorded the same day in master audit section 13 as 'critical to the owner and comes first in development planning'; that line moved to the baseline history on 2026-10-03 without a register entry, so the roadmap lost it. Entered 2026-10-03 by Claude from those two sources; no new owner answer is claimed.",
+      "cycle": "2026-10-03-baseline"
+    },
+    {
+      "id": "ODR-CHEF-VERDICT-20261003",
+      "date": "2026-10-03",
+      "subject": "Chef look and pour (owner acceptance, DL-QA-06)",
+      "question": "Does the Chef job look and pour right in the current build?",
+      "decision": "No. Owner, 2026-10-03: \"Chef pours backwards still\" and \"Chef still looks bad, lots of overdraw\". Chef's look and pour are not accepted.",
+      "source": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-opera-001",
+      "authority": "recorded_owner",
+      "checks": [],
+      "checkable": false,
+      "applies_to": [
+        "MA-OPERA-001"
+      ],
+      "note": "The pour direction becomes checkable once Codex adds the CR0 probe assertion (stream starts at the rendered spout; spout lowest at full tilt); the look stays an owner judgement.",
+      "cycle": "2026-10-03b"
     }
   ]
 }

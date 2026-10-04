@@ -1,0 +1,161 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+WARNING: Opera phase has no authored room object: farmer/GATHER STRAWBERRIES
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _assign_stations (res://scripts/opera_career_world_2d.gd:1905)
+       [1] _build_world (res://scripts/opera_career_world_2d.gd:1190)
+       [2] setup (res://scripts/opera_career_world_2d.gd:765)
+       [3] _init (res://scripts/probe_chapter2_farmer_resume.gd:43)
+WARNING: Opera phase has no authored room object: farmer/FILL BASKET
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _assign_stations (res://scripts/opera_career_world_2d.gd:1905)
+       [1] _build_world (res://scripts/opera_career_world_2d.gd:1190)
+       [2] setup (res://scripts/opera_career_world_2d.gd:765)
+       [3] _init (res://scripts/probe_chapter2_farmer_resume.gd:43)
+WARNING: Opera phase has no authored room object: farmer/DELIVER TO KITCHEN
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _assign_stations (res://scripts/opera_career_world_2d.gd:1905)
+       [1] _build_world (res://scripts/opera_career_world_2d.gd:1190)
+       [2] setup (res://scripts/opera_career_world_2d.gd:765)
+       [3] _init (res://scripts/probe_chapter2_farmer_resume.gd:43)
+CHAPTER2_FARMER_RESUME|real Farmer scene builds five independent pickup buttons: OK
+CHAPTER2_FARMER_RESUME|Farmer buttons use the approved single-berry resource: OK
+CHAPTER2_FARMER_RESUME|resume 1/5 derives scene progress from saved mask: OK
+CHAPTER2_FARMER_RESUME|resume 1/5 leaves only the next pickup enabled: OK
+CHAPTER2_FARMER_RESUME|resume 1/5 reaches exactly five through remaining real button presses: OK
+CHAPTER2_FARMER_RESUME|resume 1/5 ignores duplicate press without double credit: OK
+CHAPTER2_FARMER_RESUME|resume 2/5 derives scene progress from saved mask: OK
+CHAPTER2_FARMER_RESUME|resume 2/5 leaves only the next pickup enabled: OK
+CHAPTER2_FARMER_RESUME|resume 2/5 reaches exactly five through remaining real button presses: OK
+CHAPTER2_FARMER_RESUME|resume 2/5 ignores duplicate press without double credit: OK
+CHAPTER2_FARMER_RESUME|resume 3/5 derives scene progress from saved mask: OK
+CHAPTER2_FARMER_RESUME|resume 3/5 leaves only the next pickup enabled: OK
+CHAPTER2_FARMER_RESUME|resume 3/5 reaches exactly five through remaining real button presses: OK
+CHAPTER2_FARMER_RESUME|resume 3/5 ignores duplicate press without double credit: OK
+CHAPTER2_FARMER_RESUME|resume 4/5 derives scene progress from saved mask: OK
+CHAPTER2_FARMER_RESUME|resume 4/5 leaves only the next pickup enabled: OK
+CHAPTER2_FARMER_RESUME|resume 4/5 reaches exactly five through remaining real button presses: OK
+CHAPTER2_FARMER_RESUME|resume 4/5 ignores duplicate press without double credit: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 00 owns a healed, complete POT backdrop: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 00 has one physical cake state: OK
+CHAPTER2_FARMER_RESUME|Hidden rack rows release stale baked textures: OK
+CHAPTER2_FARMER_RESUME|Farmer handoff keeps five native berries on the kitchen platform: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 00 cannot advance without a child action: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 01 owns a healed, complete POT backdrop: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 01 has one physical cake state: OK
+CHAPTER2_FARMER_RESUME|Hidden rack rows release stale baked textures: OK
+CHAPTER2_FARMER_RESUME|Saved batter or cake contacts its own cleared physical support: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 01 cannot advance without a child action: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 03 owns a healed, complete POT backdrop: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 03 has one physical cake state: OK
+CHAPTER2_FARMER_RESUME|Hidden rack rows release stale baked textures: OK
+CHAPTER2_FARMER_RESUME|Saved batter or cake contacts its own cleared physical support: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 03 cannot advance without a child action: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 07 owns a healed, complete POT backdrop: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 07 has one physical cake state: OK
+CHAPTER2_FARMER_RESUME|Hidden rack rows release stale baked textures: OK
+CHAPTER2_FARMER_RESUME|Baked rows retain every authored edge and draw below Roshan: OK
+CHAPTER2_FARMER_RESUME|Baked transparent quads use under one quarter of the old area: OK
+CHAPTER2_FARMER_RESUME|Baked-to-stacked refresh releases every old rack texture: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 07 cannot advance without a child action: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 0f owns a healed, complete POT backdrop: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 0f has one physical cake state: OK
+CHAPTER2_FARMER_RESUME|Hidden rack rows release stale baked textures: OK
+CHAPTER2_FARMER_RESUME|Saved batter or cake contacts its own cleared physical support: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 0f cannot advance without a child action: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 1f owns a healed, complete POT backdrop: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 1f has one physical cake state: OK
+CHAPTER2_FARMER_RESUME|Hidden rack rows release stale baked textures: OK
+CHAPTER2_FARMER_RESUME|Saved batter or cake contacts its own cleared physical support: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 1f cannot advance without a child action: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 3f owns a healed, complete POT backdrop: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 3f has one physical cake state: OK
+CHAPTER2_FARMER_RESUME|Hidden rack rows release stale baked textures: OK
+CHAPTER2_FARMER_RESUME|Saved batter or cake contacts its own cleared physical support: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 3f cannot advance without a child action: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 7f owns a healed, complete POT backdrop: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 7f has one physical cake state: OK
+CHAPTER2_FARMER_RESUME|Hidden rack rows release stale baked textures: OK
+CHAPTER2_FARMER_RESUME|Saved batter or cake contacts its own cleared physical support: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 7f cannot advance without a child action: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 07 owns a healed, complete POT backdrop: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 07 has one physical cake state: OK
+CHAPTER2_FARMER_RESUME|Hidden rack rows release stale baked textures: OK
+CHAPTER2_FARMER_RESUME|Baked rows retain every authored edge and draw below Roshan: OK
+CHAPTER2_FARMER_RESUME|Baked transparent quads use under one quarter of the old area: OK
+CHAPTER2_FARMER_RESUME|Baked-to-stacked refresh releases every old rack texture: OK
+CHAPTER2_FARMER_RESUME|Chef saved mask 07 cannot advance without a child action: OK
+CHAPTER2_FARMER_RESUME|Chef phase 0 owns one room-coordinate surface: OK
+CHAPTER2_FARMER_RESUME|Chef phase 0 passive demo earns nothing: OK
+CHAPTER2_FARMER_RESUME|Chef pour lips, tilt and landing agree: OK
+CHAPTER2_FARMER_RESUME|Chef phase 0 physical endpoint completes the world: OK
+CHAPTER2_FARMER_RESUME|Chef phase 1 owns one room-coordinate surface: OK
+CHAPTER2_FARMER_RESUME|Chef phase 1 passive demo earns nothing: OK
+CHAPTER2_FARMER_RESUME|Chef phase 1 physical endpoint completes the world: OK
+CHAPTER2_FARMER_RESUME|Chef phase 2 owns one room-coordinate surface: OK
+CHAPTER2_FARMER_RESUME|Chef phase 2 passive demo earns nothing: OK
+CHAPTER2_FARMER_RESUME|Chef phase 2 physical endpoint completes the world: OK
+CHAPTER2_FARMER_RESUME|Chef phase 3 owns one room-coordinate surface: OK
+CHAPTER2_FARMER_RESUME|Chef phase 3 passive demo earns nothing: OK
+CHAPTER2_FARMER_RESUME|Moved Chef tray cannot pay again: OK
+CHAPTER2_FARMER_RESUME|Chef phase 3 physical endpoint completes the world: OK
+CHAPTER2_FARMER_RESUME|Chef phase 4 owns one room-coordinate surface: OK
+CHAPTER2_FARMER_RESUME|Chef phase 4 passive demo earns nothing: OK
+CHAPTER2_FARMER_RESUME|Chef phase 4 physical endpoint completes the world: OK
+CHAPTER2_FARMER_RESUME|chef owns a valid production-shaped phase callback: OK
+CHAPTER2_FARMER_RESUME|chef persists its final cake mask before closing: OK
+CHAPTER2_FARMER_RESUME|chef refreshes the committed cake picture before closing: OK
+CHAPTER2_FARMER_RESUME|chef starts a plot-owned result hold before closing: OK
+CHAPTER2_FARMER_RESUME|chef keeps the completed cake visible during the result hold: OK
+CHAPTER2_FARMER_RESUME|chef closes only after the committed cake has held on screen: OK
+WARNING: Opera phase has no authored room object: candymaker/COAT STRAWBERRIES
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _assign_stations (res://scripts/opera_career_world_2d.gd:1905)
+       [1] _build_world (res://scripts/opera_career_world_2d.gd:1190)
+       [2] setup (res://scripts/opera_career_world_2d.gd:765)
+       [3] _run_final_cake_hold_case (res://scripts/probe_chapter2_farmer_resume.gd:239)
+       [4] _init (res://scripts/probe_chapter2_farmer_resume.gd:69)
+       [5] _run_final_cake_hold_case (res://scripts/probe_chapter2_farmer_resume.gd:306)
+WARNING: Opera phase has no authored room object: candymaker/SORT STRAWBERRIES
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _assign_stations (res://scripts/opera_career_world_2d.gd:1905)
+       [1] _build_world (res://scripts/opera_career_world_2d.gd:1190)
+       [2] setup (res://scripts/opera_career_world_2d.gd:765)
+       [3] _run_final_cake_hold_case (res://scripts/probe_chapter2_farmer_resume.gd:239)
+       [4] _init (res://scripts/probe_chapter2_farmer_resume.gd:69)
+       [5] _run_final_cake_hold_case (res://scripts/probe_chapter2_farmer_resume.gd:306)
+WARNING: Opera phase has no authored room object: candymaker/GLAZE STRAWBERRIES
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _assign_stations (res://scripts/opera_career_world_2d.gd:1905)
+       [1] _build_world (res://scripts/opera_career_world_2d.gd:1190)
+       [2] setup (res://scripts/opera_career_world_2d.gd:765)
+       [3] _run_final_cake_hold_case (res://scripts/probe_chapter2_farmer_resume.gd:239)
+       [4] _init (res://scripts/probe_chapter2_farmer_resume.gd:69)
+       [5] _run_final_cake_hold_case (res://scripts/probe_chapter2_farmer_resume.gd:306)
+WARNING: Opera phase has no authored room object: candymaker/PLACE ON CAKE
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _assign_stations (res://scripts/opera_career_world_2d.gd:1905)
+       [1] _build_world (res://scripts/opera_career_world_2d.gd:1190)
+       [2] setup (res://scripts/opera_career_world_2d.gd:765)
+       [3] _run_final_cake_hold_case (res://scripts/probe_chapter2_farmer_resume.gd:239)
+       [4] _init (res://scripts/probe_chapter2_farmer_resume.gd:69)
+       [5] _run_final_cake_hold_case (res://scripts/probe_chapter2_farmer_resume.gd:306)
+CHAPTER2_FARMER_RESUME|candymaker owns a valid production-shaped phase callback: OK
+CHAPTER2_FARMER_RESUME|Candy Maker preserves the party cake layout: OK
+CHAPTER2_FARMER_RESUME|Candy Maker binds the approved single-strawberry art: OK
+CHAPTER2_FARMER_RESUME|Candy Maker renders four distinct input-causal berry actions: OK
+CHAPTER2_FARMER_RESUME|candymaker persists its final cake mask before closing: OK
+CHAPTER2_FARMER_RESUME|candymaker refreshes the committed cake picture before closing: OK
+CHAPTER2_FARMER_RESUME|candymaker starts a plot-owned result hold before closing: OK
+CHAPTER2_FARMER_RESUME|candymaker keeps the completed cake visible during the result hold: OK
+CHAPTER2_FARMER_RESUME|candymaker closes only after the committed cake has held on screen: OK
+CHAPTER2_FARMER_RESUME|Main Hall summary suppresses legacy corn, bag, crown and clue cards: OK
+CHAPTER2_FARMER_RESUME|Main Hall keeps one persistent cake authority and five berry tokens: OK
+CHAPTER2_FARMER_RESUME|RESULT: PASS failures=0

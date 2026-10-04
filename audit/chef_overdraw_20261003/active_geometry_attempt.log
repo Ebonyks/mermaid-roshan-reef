@@ -1,0 +1,55 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Vulkan 1.4.325 - Forward Mobile - Using Device #0: NVIDIA - NVIDIA GeForce RTX 3060 Ti
+
+SCRIPT ERROR: Parse Error: Assigned value for constant "BATTER_CAVITY" isn't a constant expression.
+   at: GDScript::reload (res://scripts/opera_chef_surface.gd:12)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "top" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/opera_chef_surface.gd:140)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/opera_career_world_2d.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/opera_act.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/arena/castle_rooms_25d.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/living_world.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/main.gd:0)
+ERROR: Failed to load script "res://scripts/main.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: OperaCareerWorld2D._build_world (res://scripts/opera_career_world_2d.gd:1274)
+   GDScript backtrace (most recent call first):
+       [0] _build_world (res://scripts/opera_career_world_2d.gd:1274)
+       [1] setup (res://scripts/opera_career_world_2d.gd:765)
+       [2] _run (res://audit/chef_overdraw_20261003/active_capture.gd:56)
+SCRIPT ERROR: Cannot call method 'set_meta' on a null value.
+   at: OperaCareerWorld2D._bind_widget (res://scripts/opera_career_world_2d.gd:2537)
+   GDScript backtrace (most recent call first):
+       [0] _bind_widget (res://scripts/opera_career_world_2d.gd:2537)
+       [1] _arm_phase (res://scripts/opera_career_world_2d.gd:2511)
+       [2] setup (res://scripts/opera_career_world_2d.gd:783)
+       [3] _run (res://audit/chef_overdraw_20261003/active_capture.gd:56)
+SCRIPT ERROR: Invalid call. Nonexistent function 'set_timing_position' in base 'Nil'.
+   at: OperaCareerWorld2D._process (res://scripts/opera_career_world_2d.gd:4652)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/opera_career_world_2d.gd:4652)
+CHEF_ACTIVE|PASS|phase 0 has a physical station
+SCRIPT ERROR: Invalid assignment of property or key 'position' with value of type 'Vector2' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D._apply_panel_layout (res://scripts/opera_career_world_2d.gd:2866)
+   GDScript backtrace (most recent call first):
+       [0] _apply_panel_layout (res://scripts/opera_career_world_2d.gd:2866)
+       [1] _open_task (res://scripts/opera_career_world_2d.gd:2626)
+       [2] _run (res://audit/chef_overdraw_20261003/active_capture.gd:70)
+SCRIPT ERROR: Invalid assignment of property or key 'visible' with value of type 'bool' on a base object of type 'Nil'.
+   at: OperaCareerWorld2D._open_task (res://scripts/opera_career_world_2d.gd:2656)
+   GDScript backtrace (most recent call first):
+       [0] _open_task (res://scripts/opera_career_world_2d.gd:2656)
+       [1] _run (res://audit/chef_overdraw_20261003/active_capture.gd:70)
+CHEF_ACTIVE|FAIL|phase 0 uses one native kitchen surface
+CHEF_ACTIVE|FAIL|phase 0 suppresses the duplicate persistent prop
+CHEF_ACTIVE|PASS|phase 0 has no broad activity alpha lens
+SCRIPT ERROR: Cannot call method 'set_process' on a null value.
+   at: _run (res://audit/chef_overdraw_20261003/active_capture.gd:80)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://audit/chef_overdraw_20261003/active_capture.gd:80)
