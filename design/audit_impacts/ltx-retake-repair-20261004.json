@@ -516,7 +516,8 @@
     "audit/MASTER_AUDIT_2026-08-09.md",
     "design/05_DOC_LEDGER.md",
     "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
-    "design/reference/OWNER_DECISIONS.md"
+    "design/reference/OWNER_DECISIONS.md",
+    "assets_src/cinematics/ltx_retake_repair_20261004/remote_verification.json"
   ],
   "validation": [
     {
@@ -548,6 +549,11 @@
       "command": "Reconcile origin/dev metadata and new overdraw sensor; gold-star tests/check plus GDScript parser/inference and approvedGodot analyzer",
       "result": "PASS",
       "evidence": "assets_src/cinematics/ltx_retake_repair_20261004/environment/reconciliation_gates.json/log; parenta52f545f4c5e7cc720b0d1194b374801ece0e24e has no incoming production runtime/game-asset changes.82-probe fullsuite source preserved."
+    },
+    {
+      "command": "Anonymous HTTPS immutable GitHub packet/dependency byte and SHA-256 verification",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/ltx_retake_repair_20261004/remote_verification.json; revision8e2d4eb2b367fa2935501ed28c53d003b9451180;1086 files,463577802 bytes, no authentication, all hashes match. ARCHIVE_COMPLETE only; generation and production acceptance unchanged."
     }
   ],
   "acceptance_gaps": "All completed takes rejected/reference-only; corrected ImageGen guide owner identity/style review pending; full-speed temporal, device and child acceptance absent. No runtime/release/game-wide satisfaction claim. Literal preflight cap failure preserved.",
