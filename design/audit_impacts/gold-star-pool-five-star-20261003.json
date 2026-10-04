@@ -89,9 +89,14 @@
       "evidence": "Checked 2026-10-04T06:47:54Z: manifest SHA-256 cf64f5810d5f5a90fe72d809523cfcce231e37d775457c0144434a796fe17994; 20 of 20 items matched their manifest bytes and SHA-256 (4 packet files, 16 references); the commit's tree page answered 200 anonymously."
     },
     {
+      "command": "Anonymous remote verification of packet revision 2: HTTPS GET without credentials from raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/128723cbf053173d13e24cdebaa22569bacd837b/ for MANIFEST.json and every listed file and reference",
+      "result": "PASS",
+      "evidence": "Checked 2026-10-04T06:53:39Z: manifest SHA-256 39fed8bd8f1500d1f5e3ecd0813f401625ac8acc78773d235edc710c27904d04; 22 of 22 items matched their manifest bytes and SHA-256 (4 packet files, 18 references, including README.md 00546597614e and POOL_FIVE_STAR.md 03a0f25fe240); the commit's tree page and the branch entry page answered 200 anonymously."
+    },
+    {
       "command": "Probe Suite (graphics fork) on the pushed branch head",
       "result": "PENDING",
-      "evidence": "Run 37183788471 on 7bf4620540d380a2f1a57655210019126066ae94 was superseded by the workflow's cancel-in-progress concurrency when the dev merge and packet revision 2 were pushed; the branch is merged into dev only after a green run on its exact head."
+      "evidence": "Run 37183788471 on 7bf4620540d380a2f1a57655210019126066ae94 and the run on 128723cbf053173d13e24cdebaa22569bacd837b were superseded by the workflow's cancel-in-progress concurrency as later commits were pushed; the branch is merged into dev only after a green run on its exact head, which carries this record."
     },
     {
       "command": "Phone session, observed child session and owner verdict for the Mermaid Pool (POOL_FIVE_STAR.md section 4)",
