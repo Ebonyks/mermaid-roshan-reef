@@ -1,0 +1,20 @@
+{
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "packages": {
+    "torch": "2.10.0+cu130",
+    "torchvision": "0.25.0+cu130",
+    "torchaudio": "2.10.0+cu130",
+    "mmgp": "3.8.2",
+    "comfy-kitchen": "0.2.35",
+    "transformers": "4.54.0",
+    "diffusers": "0.36.0"
+  },
+  "runner": "Wan2GP",
+  "runner_revision": "b8b18f8114e432eea8f3d7e853a51dd91fa99571",
+  "runner_version": "13.141",
+  "attention": "sdpa",
+  "profile": 5,
+  "hardware": "RTX 3060 Ti 8GB / Ryzen 5 3600 / 47.91GiB physical RAM",
+  "isolation": "Separate AnimationBench venv; existing Comfy stack retained. New LTX model/text links added; no existing checkpoints or project originals modified.",
+  "setup_cost_limit": "Downloads/install/import are separate from receipt elapsed_seconds. First SCAIL receipt includes model auxiliary download/preprocessing after submit. System shared with ongoing project validation and other applications; no exclusive GPU/RAM benchmark."
+}

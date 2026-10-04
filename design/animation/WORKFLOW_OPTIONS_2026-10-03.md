@@ -5,8 +5,10 @@ final animation workflows with identity, motion, provenance and device checks,
 and requests Aseprite as the bridge when possible. The binding rules are
 [design 06](../06_COMPREHENSIVE_DESIGN_LANGUAGE.md#11-cinematic-exception) and
 [AGENTS.md](../../AGENTS.md#animation-production-owner-decision-2026-10-03).
-This review submits no paid job, installs nothing, changes no runtime or artwork,
-and accepts no previous candidate. Prices are observations on 2026-10-03;
+The initial policy review submitted no paid job, installed nothing and accepted
+no candidate. The separately commissioned [execution packet](../../assets_src/cinematics/animation_engine_benchmark_20261003/README.md)
+now records installed local tools, same-content footage and Aseprite derivatives;
+these reference studies change no runtime and accept no previous candidate. Prices are observations on 2026-10-03;
 recheck exact endpoint, supported settings and billing before spending.
 
 ## Owner-directed production split
@@ -53,8 +55,10 @@ recheck before a large H3/14B download and avoid duplicate model libraries. VRAM
 changes with other work; do not terminate another client's renderer. System RAM
 helps offloading but does not provide the bandwidth of additional VRAM.
 
-The installed setup is ComfyUI with Wan 2.2 TI2V 5B, not the separate Wan2GP
-application. Recent existing receipts establish a newer baseline: Q4_K_S model
+At the initial inspection the installed setup was ComfyUI with Wan 2.2 TI2V
+5B. The follow-up benchmark installs Wan2GP 13.141 at pinned revision
+`b8b18f8114e432eea8f3d7e853a51dd91fa99571` in a separate Python 3.11 environment;
+the existing Comfy installation remains the baseline. Recent existing receipts establish a newer baseline: Q4_K_S model
 and text encoder, 896×512, 41 frames, 24 steps; nursery scrub A4 took 165.68 s
 and candy-neck twist A1 took 191.13 s. Both declare
 `LOCAL_MOTION_REFERENCE_ONLY`: execution PASS is not visual acceptance. The
@@ -140,8 +144,9 @@ cadence does not lower the game's 30-fps responsiveness target.
 
 ## Local models and runners for this PC
 
-These are candidates for isolated trials, not installed replacements or a
-quality ranking. No new model below has been benchmarked on this PC. “Fits”
+The table preserves the candidate rationale; the [execution packet](../../assets_src/cinematics/animation_engine_benchmark_20261003/README.md)
+owns actual installed/tested/unavailable states and comparisons. None is an
+accepted production replacement. “Fits”
 means a documented or plausible optimized execution path; it does not promise
 short turnaround or correct anatomy. Godot remains the runtime, ComfyUI/Wan2GP
 are inference runners, and Wan/LTX/Hunyuan/SCAIL/H3 are different motion models.
@@ -150,9 +155,9 @@ are inference runners, and Wan/LTX/Hunyuan/SCAIL/H3 are different motion models.
 |---|---|---|
 | [LTX-Video 2B 0.9.8 distilled](https://github.com/Lightricks/LTX-Video) | Best small-model pilot; infer feasibility from its published low-VRAM 2B design, then measure encoder/VAE peaks at bounded dimensions. This is the older LTXV line, distinct from LTX-2. | Fast short organic/object motion. It may lose painted detail or exact contacts; no guaranteed identity improvement. The official 0.9.8 multiscale [configuration](https://github.com/Lightricks/LTX-Video/blob/main/configs/ltxv-2b-0.9.8-distilled.yaml) has 7 first-pass and 3 second-pass timesteps, not a universal 8-step recipe. |
 | [SCAIL-2](https://github.com/zai-org/SCAIL-2), through a pinned low-memory runner | Conditional quantized/offloaded pilot; its 14B native example is not an 8 GB guarantee. [Wan2GP](https://github.com/deepbeepmeep/Wan2GP) supports it, but exact checkpoint/peak memory must pass locally. | Newer June 2026 character specialist: supplied driving video plus masks/reference identity, with end-to-end and pose-driven modes. Can test source-bound performance instead of prompt-only acting. Roshan's tail and contact choreography require matching driving material; generic human skeletons do not establish mermaid motion. |
-| [HunyuanVideo 1.5 480p I2V step-distilled](https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5), through Wan2GP | Tencent's native Linux recipe needs 14 GB even with offload. Tencent separately links Wan2GP's optimized path reporting as low as 6 GB. Use that path, not the native recipe, for an 8 GB trial. | Independent general motion alternative. Official distilled settings recommend 8 or 12 steps. Its 4090 speed result does not predict 3060 Ti turnaround or Roshan identity. |
-| [FreeVideo / VDN MiniMax H3](https://github.com/FlashML-org/FreeVideo) | Developers explicitly claim 8 GB VRAM + 16 GB RAM through streaming/offload; Windows launcher and ComfyUI plugin. Experimental pilot only; host/disk transfer can dominate latency. | Current experimental inference work using an 8-step VDN-H3 derivative. First/end images and reference input support make it worth testing for temporal control. On this Ampere GPU its FP8 storage can use BF16 computation; newer-card FP8 speed claims do not transfer. |
-| [FramePack](https://github.com/lllyasviel/FramePack) | Official Windows/RTX 30-series support and minimum 6 GB; substantial downloads. | Memory-feasible progressive video, but published author laptop timings are much slower than a 4090. Weak first choice for rapid short sprite trials; not evidence of a faster replacement. |
+| [HunyuanVideo 1.5 480p I2V step-distilled](https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5), through Wan2GP | Tencent's native Linux recipe needs 14 GB even with offload. Tencent separately links Wan2GP's optimized path reporting as low as 6 GB. Use that path, not the native recipe, for an 8 GB trial. | Independent general motion alternative. Official distilled settings recommend 8 or 12 steps. Local US testing and worldwide public footage are different: the [weight/output terms](https://huggingface.co/tencent/HunyuanVideo-1.5/blob/main/LICENSE) exclude EU/UK/South Korea use/display/distribution, so public posting is withheld pending a compliant route or separate grant. Its 4090 speed result does not predict 3060 Ti turnaround or Roshan identity. |
+| [FreeVideo / VDN MiniMax H3](https://github.com/FlashML-org/FreeVideo) | Developers explicitly claim 8 GB VRAM + 16 GB RAM through streaming/offload; Windows launcher and ComfyUI plugin. Host/disk transfer can dominate latency. The current H3 weight license excludes the United States, so this US workstation cannot run the candidate under that grant. | Current experimental inference work using an 8-step VDN-H3 derivative. First/end images and reference inputs are relevant capabilities, but the [H3 terms](https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE) block this local test; no download/run/footage is claimed. On this Ampere GPU its FP8 storage can use BF16 computation; newer-card FP8 speed claims do not transfer. |
+| [FramePack](https://github.com/lllyasviel/FramePack) | Official Windows/RTX 30-series support and minimum 6 GB VRAM. The pinned startup loads approximately 39.91 GiB of CPU component weights before overhead, exceeding available RAM in this active session; this is a preflight estimate, not measured peak usage. | Potentially feasible on a suitably idle host, but blocked in this active-session RAM preflight; base Hunyuan territorial output restrictions also prevent an unrestricted public-footage packet. Weak first choice for rapid short sprite trials; not evidence of a faster replacement. |
 | [LTX Desktop / current LTX 2.5](https://github.com/Lightricks/ltx-desktop) | Official Windows local mode requires at least 16 GB VRAM; below that the app uses API-only mode. Other community offload paths may fit, but are untested here. | Keep in the API cinematic lane. The newest model is not automatically the best local fit. |
 
 Wan2GP is the most useful optional multi-model runner for this comparison: it
@@ -182,9 +187,8 @@ review exports.
 Recommended sequence: keep the recent Wan GGUF take as the measured baseline;
 pilot LTX 2B on one organic object, then SCAIL-2 on one character action only
 when a suitable owned/approved driving clip exists. Hunyuan 1.5 is the next
-general-motion comparison when no driver exists. FreeVideo/H3 is a promising
-newer experimental comparison after those bounded tests, not a mandatory
-large download. Select only one new runner/model at a time. Exact identities,
+general-motion comparison when no driver exists. FreeVideo/H3 is excluded on this US workstation under its current terms;
+a separate applicable license would be necessary before acquisition/use. Select only one new runner/model at a time. Exact identities,
 geometry, contacts and Aseprite cleanup burden decide whether it stays.
 
 ## Local setup and measurements
@@ -278,9 +282,13 @@ failed the economical route. Keep rejected takes and their specific reason.
 
 ## Evidence and remaining work
 
-This research is source/receipt review, not a fresh animation benchmark or an
-Android speed diagnosis. No API quality, setup credentials, account-funded
-budget or new local completion is claimed. Use the
+The initial review was source/receipt research. The [same-content execution
+packet](../../assets_src/cinematics/animation_engine_benchmark_20261003/README.md)
+now owns native test footage, timings, failures, installed versions and exact
+publication evidence. Its controlled LTX wave demonstrates useful action/return
+improvement over first-frame-only generation while retaining source-key anchor
+limitations; it is a candidate, not an accepted loop. No API quality, configured
+credentials, funded budget or Android speed diagnosis is claimed. Use the
 [production protocol](ANIMATION_PRODUCTION_PROTOCOL.md) for final gate lanes,
 the [job card](../templates/ANIMATION_JOB_CARD_V1.md) for the production/derivation
 sidecar and the [impact record](../audit_impacts/animation-workflow-policy-20261003.json)

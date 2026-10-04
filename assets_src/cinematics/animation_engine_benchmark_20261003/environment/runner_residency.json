@@ -1,0 +1,10 @@
+{
+  "role": "Task-started Comfy service was idle; stop before switching to Wan2GP-only tests to avoid cached CPU model residency. Other applications left intact.",
+  "owned_pid": 102992,
+  "before_stop": {
+    "Id": 102992,
+    "WorkingSet64": 704040960,
+    "PrivateMemorySize64": 6034206720
+  },
+  "context": "Wan/LTX and both SCAIL takes retained the idle Comfy worker. Hunyuan starts after this task-owned worker is stopped; timing is an operational comparison, not an isolated same-residency benchmark."
+}

@@ -1,0 +1,219 @@
+{
+  "prompt": [
+    3,
+    "afd7de88-4c3e-4ed3-a808-021eb8619b23",
+    {
+      "1": {
+        "class_type": "CheckpointLoaderSimple",
+        "inputs": {
+          "ckpt_name": "ltxv-2b-0.9.8-distilled.safetensors"
+        }
+      },
+      "2": {
+        "class_type": "CLIPLoader",
+        "inputs": {
+          "clip_name": "t5xxl_fp8_e4m3fn.safetensors",
+          "type": "ltxv",
+          "device": "cpu"
+        }
+      },
+      "4": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "benchmark_d8b03f19ed60c759.png"
+        }
+      },
+      "5": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "2",
+            0
+          ],
+          "text": "Locked camera. Preserve the exact painted 2D source, contours, anatomy, palette and lighting. Neutral light-gray background stays fixed. One continuous shot. Roshan greets a friend with her right arm on the left side of the image. 0.0-0.4s: raise that hand from beside her tail toward shoulder height. 0.4-0.9s: raise the same open hand above her head. 0.9-1.3s: lower it to shoulder height. 1.3-1.7s: lower it beside her tail and settle. Only that connected arm performs the wave; head, torso, tail and other arm remain steady. No extra limbs, legs, fingers, camera move, hair animation, new objects, text or style change. After 1.7s remain in the settled pose. Sound: silence.\n"
+        }
+      },
+      "6": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "2",
+            0
+          ],
+          "text": "camera movement, anatomy drift, extra limbs, new objects, flicker, text, watermark"
+        }
+      },
+      "7": {
+        "class_type": "LTXVConditioning",
+        "inputs": {
+          "positive": [
+            "5",
+            0
+          ],
+          "negative": [
+            "6",
+            0
+          ],
+          "frame_rate": 24.0
+        }
+      },
+      "8": {
+        "class_type": "LTXVImgToVideo",
+        "inputs": {
+          "positive": [
+            "7",
+            0
+          ],
+          "negative": [
+            "7",
+            1
+          ],
+          "vae": [
+            "1",
+            2
+          ],
+          "image": [
+            "4",
+            0
+          ],
+          "width": 896,
+          "height": 512,
+          "length": 41,
+          "batch_size": 1,
+          "strength": 1.0
+        }
+      },
+      "12": {
+        "class_type": "KSamplerSelect",
+        "inputs": {
+          "sampler_name": "euler"
+        }
+      },
+      "13": {
+        "class_type": "ManualSigmas",
+        "inputs": {
+          "sigmas": "1,0.9937,0.9875,0.9812,0.9750,0.9094,0.7250,0"
+        }
+      },
+      "9": {
+        "class_type": "SamplerCustom",
+        "inputs": {
+          "model": [
+            "1",
+            0
+          ],
+          "add_noise": true,
+          "noise_seed": 20261003,
+          "cfg": 1.0,
+          "positive": [
+            "8",
+            0
+          ],
+          "negative": [
+            "8",
+            1
+          ],
+          "sampler": [
+            "12",
+            0
+          ],
+          "sigmas": [
+            "13",
+            0
+          ],
+          "latent_image": [
+            "8",
+            2
+          ]
+        }
+      },
+      "10": {
+        "class_type": "VAEDecodeTiled",
+        "inputs": {
+          "samples": [
+            "9",
+            0
+          ],
+          "vae": [
+            "1",
+            2
+          ],
+          "tile_size": 256,
+          "overlap": 64,
+          "temporal_size": 64,
+          "temporal_overlap": 8
+        }
+      },
+      "11": {
+        "class_type": "SaveWEBM",
+        "inputs": {
+          "images": [
+            "10",
+            0
+          ],
+          "filename_prefix": "local_reference/benchmark_20261003_ltx_2b_wave",
+          "codec": "vp9",
+          "fps": 24.0,
+          "crf": 18.0
+        }
+      }
+    },
+    {
+      "client_id": "benchmark_20261003",
+      "create_time": 1791097259432
+    },
+    [
+      "11"
+    ]
+  ],
+  "outputs": {
+    "11": {
+      "images": [
+        {
+          "filename": "benchmark_20261003_ltx_2b_wave_00001_.webm",
+          "subfolder": "local_reference",
+          "type": "output"
+        }
+      ],
+      "animated": [
+        true
+      ]
+    }
+  },
+  "status": {
+    "status_str": "success",
+    "completed": true,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "afd7de88-4c3e-4ed3-a808-021eb8619b23",
+          "timestamp": 1791097259433
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [],
+          "prompt_id": "afd7de88-4c3e-4ed3-a808-021eb8619b23",
+          "timestamp": 1791097259451
+        }
+      ],
+      [
+        "execution_success",
+        {
+          "prompt_id": "afd7de88-4c3e-4ed3-a808-021eb8619b23",
+          "timestamp": 1791097358708
+        }
+      ]
+    ]
+  },
+  "meta": {
+    "11": {
+      "node_id": "11",
+      "display_node": "11",
+      "parent_node": null,
+      "real_node_id": "11"
+    }
+  }
+}

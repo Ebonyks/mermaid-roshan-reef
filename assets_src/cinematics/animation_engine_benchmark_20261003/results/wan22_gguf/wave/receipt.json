@@ -1,0 +1,45 @@
+{
+  "status": "EXECUTION_PASS",
+  "acceptance": "REFERENCE_ONLY",
+  "engine": "Wan2.2 TI2V 5B Q4_K_S ComfyUI 0.34.0",
+  "source_sha256": "d8b03f19ed60c759bede3a760d713fe732994be22931173db7aacf3acc211f0c",
+  "prompt_sha256": "6b11c3a887091fb3c694505ab06f2edc4d190a71fefb1f770b5ce1a6514b8fb5",
+  "workflow_sha256": "a5b5a1c577d5a67ed5c2571a75e7bd7dc0b8dd0371d567de74724dcff6e03b63",
+  "started_at_utc": "2026-10-04T06:41:45.777878+00:00",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "fps": 24,
+    "steps": 24,
+    "seed": 20261003
+  },
+  "review": "PENDING",
+  "outputs": [
+    {
+      "path": "native.webm",
+      "sha256": "ae4fb72ab72bd9af7290d8ba4a025913d8355d4ad124f0ed638d74d74c2e963a",
+      "bytes": 251942
+    },
+    {
+      "path": "preview.mp4",
+      "sha256": "0313f4b3512c9446328d60b918e0fc725a99f93fe83f3e5f3319b14471e0a2c7",
+      "bytes": 175716,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ]
+      }
+    }
+  ],
+  "prompt_id": "b5c4fa29-c7dd-4840-a816-9693ee2131b9",
+  "elapsed_seconds": 372.545,
+  "completed_at_utc": "2026-10-04T06:47:58.331595+00:00"
+}

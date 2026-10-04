@@ -1,0 +1,23 @@
+{
+  "status": "REJECTED_ACTION_AND_GHOSTING",
+  "reviewer": "Codex all-41-frame diagnostic inspection",
+  "elapsed_seconds": 680.516,
+  "native": {
+    "width": 448,
+    "height": 256,
+    "frames": 41,
+    "fps": 24,
+    "steps": 20
+  },
+  "observations": [
+    "Mermaid tail remains recognizable, without the split-legged first-pass LTX failure.",
+    "The hand reaches shoulder level but does not visibly complete the required above-head apex or return to the starting rest pose by frame 40.",
+    "Faint displaced/ghost outlines appear around body and tail in later frames.",
+    "Guide source cells are unregistered, so source-body motion is a declared input limitation; this is not a clean test of already registered continuous motion.",
+    "Raw control mode and blue-person/black-background masks match the pinned runner documentation; generic 3D human-pose extraction was not used."
+  ],
+  "comparison_limits": "Half-resolution/20-step recovery is different from 896x512/40-step aborted run. Same first frame, action, owned driver/mask, seed and 41-frame native duration. No claim about a complete native 40-step quality result.",
+  "accepted_seconds": 0,
+  "owner_device_child_acceptance": "PENDING",
+  "evidence": "native_0.mp4, preview.mp4, all_frames.png, settings.json, receipt.json"
+}

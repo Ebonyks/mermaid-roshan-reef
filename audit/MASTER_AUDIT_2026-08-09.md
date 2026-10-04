@@ -24,6 +24,8 @@ Game-wide audit satisfaction remains **UNSATISFIED**.
 | What blocks what? | A missing cue, device session, or owner decision blocks its dependent work or acceptance claim. Continue independent authorized work. Shared regression/integration gates and strict-zero whole-game 2D satisfaction retain their scopes. |
 
 Scoped 2026-10-03 animation workflow revision: [local/API analysis](../design/animation/WORKFLOW_OPTIONS_2026-10-03.md), [protocol](../design/animation/ANIMATION_PRODUCTION_PROTOCOL.md) and [impact/evidence](../design/audit_impacts/animation-workflow-policy-20261003.json). Owner permits final animation with identity/motion/provenance/device checks, prefers Aseprite, and directs local character/object work with APIs for cinematic scenes. Compulsory per-frame still generation is superseded for new production. No prior reject or runtime/device repair is accepted; finding lifecycles and game-wide **UNSATISFIED** remain unchanged.
+Same-content local engine execution is tracked in the [benchmark packet](../assets_src/cinematics/animation_engine_benchmark_20261003/README.md) and [benchmark impact](../design/audit_impacts/animation-engine-benchmark-20261003.json). Native footage, resource/license blocks and Aseprite derivatives are reference evidence; they establish no runtime/device/child/owner acceptance or finding closure.
+
 
 ### Next bounded planning work
 

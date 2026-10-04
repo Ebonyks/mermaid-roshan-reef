@@ -1,0 +1,35 @@
+{
+  "engine": "hunyuan_1_5_480_i2v_step_distilled",
+  "status": "EXECUTION_PASS",
+  "lane": "REFERENCE_ONLY",
+  "review": "PROMISING_OBJECT_MOTION_NOT_ACCEPTED",
+  "started_at_utc": "2026-10-04T08:07:50.446417+00:00",
+  "source_sha256": "cd92c2a618a7ae5399f80042fd96b430fe59f25858356935a2750af66fbf3ad1",
+  "settings_sha256": "b46cc66abfee555b3df7e4259ee416aa4a7360d688d99c55165fd2f48ccc6bc2",
+  "runner_revision": "b8b18f8114e432eea8f3d7e853a51dd91fa99571",
+  "attention": "sdpa",
+  "profile": 5,
+  "resolution": "896x512",
+  "steps": 8,
+  "outputs": [
+    {
+      "sha256": "c8a5da5116dee3b95f3f0413e24e3115cc4a33f94fa718417111cdadb4bbde02",
+      "bytes": 943000,
+      "local_path": "native_0.mp4",
+      "publication": "WITHHELD_LICENSE",
+      "is_public_payload": false
+    }
+  ],
+  "elapsed_seconds": 398.032,
+  "completed_at_utc": "2026-10-04T08:14:28.506140+00:00",
+  "local_receipt_sha256": "ea8fbd38dcfa6e862cbb788f64060b20b0b9bd3e17b9aec1e09ed9fa940811ab",
+  "public_footage_status": "HANDOFF_BLOCKED_LICENSE",
+  "local_owner_footage": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\AnimationBench\\restricted_results\\hunyuan_15\\swing\\native_0.mp4",
+  "media_verification": {
+    "frames": 41,
+    "fps": "24/1",
+    "width": 896,
+    "height": 512,
+    "duration_seconds": 1.708333
+  }
+}

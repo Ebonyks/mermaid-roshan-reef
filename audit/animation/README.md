@@ -99,3 +99,13 @@ Change/evidence: [2026-09-11 audit impact](../../design/audit_impacts/2026-09-11
   movement language, reusable character template and production protocol;
   integrated canonical motion rules and art/chapter/cinematic navigation.
   No motion study, runtime change, new art or acceptance is claimed.
+
+## Same-content engine benchmark — 2026-10-03
+
+The owner commissioned actual local setup, identical-content tests, comparison and
+published footage. The [packet](../../assets_src/cinematics/animation_engine_benchmark_20261003/README.md)
+retains native outputs, action briefs, controlled-input differences, Aseprite
+masters/atlases, timing, troubleshooting and unavailable-engine evidence.
+The [impact](../../design/audit_impacts/animation-engine-benchmark-20261003.json)
+tracks machine and publication checks. All clips are reference-only; no runtime
+animation, contact, device/child/owner acceptance or finding closure is inferred.

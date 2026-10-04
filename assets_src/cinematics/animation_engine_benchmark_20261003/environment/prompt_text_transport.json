@@ -1,0 +1,23 @@
+{
+  "prompts": [
+    {
+      "path": "briefs/plant.txt",
+      "initial_windows_file_sha256": "f48d7267d86846993018fb1bf715cc33d758f0cfd6970813d0db376df8cabadc",
+      "submitted_lf_text_sha256": "00909b9bd0899e0be2323a2d65d20c6e01ace3b99881f2a8b0efb6208d32568a",
+      "change": "CRLF to LF only, matching read_text-normalized input supplied to every backend"
+    },
+    {
+      "path": "briefs/swing.txt",
+      "initial_windows_file_sha256": "f717f8a3c3e21da62c9f54272087d8fe31757f57a90ff75d8ff04f7fcb82ae0c",
+      "submitted_lf_text_sha256": "69db204e90250aa5d3908a5ad1ce0c0224e961e5bde4173fd0a508d294320383",
+      "change": "CRLF to LF only, matching read_text-normalized input supplied to every backend"
+    },
+    {
+      "path": "briefs/wave.txt",
+      "initial_windows_file_sha256": "39c88c3eb98d501ca23c25cfcb5df73f62f846a2dc6b4d45ab4727bd3f1df81b",
+      "submitted_lf_text_sha256": "6b11c3a887091fb3c694505ab06f2edc4d190a71fefb1f770b5ce1a6514b8fb5",
+      "change": "CRLF to LF only, matching read_text-normalized input supplied to every backend"
+    }
+  ],
+  "packet_git_attributes": "* -text preserves every payload byte, including exact original CI logs and settings receipts"
+}

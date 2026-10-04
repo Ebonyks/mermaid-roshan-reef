@@ -1,0 +1,26 @@
+{
+  "lane": "REFERENCE_ONLY",
+  "method": "Side-by-side native-time previews, engine labels, H264 CRF18 encode. No retiming, interpolation, repeats or added motion. 41 source indices at 24 fps retained in each side.",
+  "sources": [
+    "results/wan22_gguf/wave/preview.mp4",
+    "results/wan22_gguf/plant/preview.mp4",
+    "results/wan22_gguf/swing/preview.mp4",
+    "results/ltx_2b/wave/preview.mp4",
+    "results/ltx_2b/plant/preview.mp4",
+    "results/ltx_2b/swing/preview.mp4"
+  ],
+  "controlled_wave": {
+    "file": "wave_controlled.mp4",
+    "sources": [
+      {
+        "path": "results/ltx_2b/wave/preview.mp4",
+        "sha256": "b6e3aacfc07da34dec390c9eb5cb4f38cbf3f6997dceb4943f68841f5c31828f"
+      },
+      {
+        "path": "results/ltx_2b_guided/wave/preview.mp4",
+        "sha256": "064ac972172e7b0752a2d56a436a21119a2e445a3544c8bed57a9032a72dd5ec"
+      }
+    ],
+    "difference": "Same LTX2B seven-step first pass and source/action; second take includes owned pose keys at indices 7/17/27/36. Additional input declared."
+  }
+}

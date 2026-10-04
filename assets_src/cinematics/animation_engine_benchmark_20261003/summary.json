@@ -1,0 +1,162 @@
+{
+  "baseline": "ecb68651c67e66501eeab2c719b152d8982023c2",
+  "status": "LOCAL_COMPARISON_COMPLETE_PARTIAL_DELIVERY",
+  "character_pilot_choice": "Aseprite registered pose/socket keys → pose-guided LTX Video 2B/ComfyUI → Aseprite bridge",
+  "production_winner": null,
+  "accepted_seconds": 0,
+  "takes": [
+    {
+      "recipe": "hunyuan_15",
+      "case": "plant",
+      "execution": "EXECUTION_PASS",
+      "seconds": 400.422,
+      "review": "REVIEW_STABLE_IDENTITY_WRONG_OR_UNPROVEN_NOD",
+      "accepted_seconds": 0,
+      "receipt": "results/hunyuan_15/plant/receipt.json",
+      "footage": "WITHHELD_LICENSE"
+    },
+    {
+      "recipe": "hunyuan_15",
+      "case": "swing",
+      "execution": "EXECUTION_PASS",
+      "seconds": 398.032,
+      "review": "PROMISING_OBJECT_MOTION_NOT_ACCEPTED",
+      "accepted_seconds": 0,
+      "receipt": "results/hunyuan_15/swing/receipt.json",
+      "footage": "WITHHELD_LICENSE"
+    },
+    {
+      "recipe": "hunyuan_15",
+      "case": "wave",
+      "execution": "EXECUTION_PASS",
+      "seconds": 947.797,
+      "review": "REJECTED_ACTION_ENDPOINT",
+      "accepted_seconds": 0,
+      "receipt": "results/hunyuan_15/wave/receipt.json",
+      "footage": "WITHHELD_LICENSE"
+    },
+    {
+      "recipe": "ltx_2b",
+      "case": "plant",
+      "execution": "EXECUTION_PASS",
+      "seconds": 96.276,
+      "review": "REJECTED_ROOT_AND_IDENTITY",
+      "accepted_seconds": 0,
+      "receipt": "results/ltx_2b/plant/receipt.json",
+      "footage": "PUBLIC_PAYLOAD"
+    },
+    {
+      "recipe": "ltx_2b",
+      "case": "swing",
+      "execution": "EXECUTION_PASS",
+      "seconds": 110.768,
+      "review": "REVIEW_STATIC_OR_INSUFFICIENT_DEPTH_MOTION",
+      "accepted_seconds": 0,
+      "receipt": "results/ltx_2b/swing/receipt.json",
+      "footage": "PUBLIC_PAYLOAD"
+    },
+    {
+      "recipe": "ltx_2b",
+      "case": "wave",
+      "execution": "EXECUTION_PASS",
+      "seconds": 101.583,
+      "review": "REJECTED_ANATOMY_AND_ENDPOINT",
+      "accepted_seconds": 0,
+      "receipt": "results/ltx_2b/wave/receipt.json",
+      "footage": "PUBLIC_PAYLOAD"
+    },
+    {
+      "recipe": "ltx_2b_guided",
+      "case": "wave",
+      "execution": "EXECUTION_PASS",
+      "seconds": 96.721,
+      "review": "PROMISING_CONTROLLED_CANDIDATE_NOT_ACCEPTED",
+      "accepted_seconds": 0,
+      "receipt": "results/ltx_2b_guided/wave/receipt.json",
+      "footage": "PUBLIC_PAYLOAD"
+    },
+    {
+      "recipe": "scail2",
+      "case": "wave",
+      "execution": "CANCELLED_PROJECTED_TIME_CAP",
+      "seconds": 953.828,
+      "review": "NO_CLIP",
+      "accepted_seconds": 0,
+      "receipt": "results/scail2/wave/receipt.json",
+      "footage": "NO_CLIP"
+    },
+    {
+      "recipe": "scail2_lowres",
+      "case": "wave",
+      "execution": "EXECUTION_PASS",
+      "seconds": 680.516,
+      "review": "REJECTED_ACTION_AND_GHOSTING",
+      "accepted_seconds": 0,
+      "receipt": "results/scail2_lowres/wave/receipt.json",
+      "footage": "PUBLIC_PAYLOAD"
+    },
+    {
+      "recipe": "wan22_gguf",
+      "case": "plant",
+      "execution": "EXECUTION_PASS",
+      "seconds": 352.769,
+      "review": "REJECTED_IDENTITY_AND_ENDPOINT",
+      "accepted_seconds": 0,
+      "receipt": "results/wan22_gguf/plant/receipt.json",
+      "footage": "PUBLIC_PAYLOAD"
+    },
+    {
+      "recipe": "wan22_gguf",
+      "case": "swing",
+      "execution": "EXECUTION_PASS",
+      "seconds": 371.291,
+      "review": "REJECTED_FIXED_SUPPORT_AND_TOPOLOGY",
+      "accepted_seconds": 0,
+      "receipt": "results/wan22_gguf/swing/receipt.json",
+      "footage": "PUBLIC_PAYLOAD"
+    },
+    {
+      "recipe": "wan22_gguf",
+      "case": "wave",
+      "execution": "EXECUTION_PASS",
+      "seconds": 372.545,
+      "review": "REJECTED_ACTION_ENDPOINT",
+      "accepted_seconds": 0,
+      "receipt": "results/wan22_gguf/wave/receipt.json",
+      "footage": "PUBLIC_PAYLOAD"
+    }
+  ],
+  "public_native_takes": 8,
+  "private_hunyuan_native_takes": 3,
+  "aborted_takes": 1,
+  "total_generated_attempts": 12,
+  "timing": {
+    "wan_baseline_mean_seconds": 365.535,
+    "ltx_first_pass_mean_seconds": 102.876,
+    "operational_recipe_speed_ratio": 3.553,
+    "recorded_job_seconds_including_abort": 4882.548,
+    "limits": "Shared workstation; recipe steps differ. Job timers exclude runner init; first Hunyuan job includes auxiliary downloads. Not accepted-output throughput or total installation wall time."
+  },
+  "api": {
+    "submitted": 0,
+    "billed_usd": 0,
+    "funded_cap": null,
+    "auth": "NOT_CONFIGURED_AT_PRESENCE_CHECK"
+  },
+  "acceptance": {
+    "runtime": false,
+    "visual_owner": "PENDING",
+    "device": "PENDING",
+    "child": "PENDING",
+    "delivery_accepted": false
+  },
+  "remaining": [
+    "Hunyuan worldwide pixels HANDOFF_BLOCKED_LICENSE",
+    "H3 US exclusion",
+    "FramePack preflight deferred",
+    "LTX Desktop 16GB native unsupported",
+    "LightX2V runner untested",
+    "API budget/auth pending",
+    "No accepted anchor, topology, loop, matte or device result"
+  ]
+}

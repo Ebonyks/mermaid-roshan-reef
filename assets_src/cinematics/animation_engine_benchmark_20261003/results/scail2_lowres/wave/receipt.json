@@ -1,0 +1,42 @@
+{
+  "engine": "scail2_14B",
+  "status": "EXECUTION_PASS",
+  "lane": "REFERENCE_ONLY",
+  "review": "PENDING",
+  "started_at_utc": "2026-10-04T07:30:39.232650+00:00",
+  "source_sha256": "d8b03f19ed60c759bede3a760d713fe732994be22931173db7aacf3acc211f0c",
+  "settings_sha256": "d60cb4c992945f5add97f1857c3f7a3ac89c9acdb4b7827cba79bbbf425c2532",
+  "runner_revision": "b8b18f8114e432eea8f3d7e853a51dd91fa99571",
+  "attention": "sdpa",
+  "profile": 5,
+  "outputs": [
+    {
+      "path": "native_0.mp4",
+      "sha256": "46e2cdc418e1e0be86afd1ebc6233d74d3627e96ca0b9736ee061c0f44acda49",
+      "bytes": 338989
+    },
+    {
+      "path": "preview.mp4",
+      "sha256": "46e2cdc418e1e0be86afd1ebc6233d74d3627e96ca0b9736ee061c0f44acda49",
+      "bytes": 338989,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 448,
+            "height": 256,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ]
+      },
+      "modifications": "Byte-identical native MP4 copy for comparison; no re-encode."
+    }
+  ],
+  "elapsed_seconds": 680.516,
+  "completed_at_utc": "2026-10-04T07:41:59.780021+00:00",
+  "resolution": "448x256",
+  "steps": 20,
+  "comparison_limits": "Take 2, half native width/height and half step count vs aborted take. Same input/driver/mask/brief/seed/native duration. Source-key registration remains unresolved; not a first-frame-only baseline."
+}

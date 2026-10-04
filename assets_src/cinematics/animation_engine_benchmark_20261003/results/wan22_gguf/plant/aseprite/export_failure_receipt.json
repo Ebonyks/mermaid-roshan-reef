@@ -1,0 +1,61 @@
+{
+  "status": "FAILED_EXPORT_REPAIRED",
+  "cause": "Aseprite CLI --frame-range after the loaded input did not filter that input. Six sheets each contained the entire 41-frame sequence. No runtime or accepted footage used them.",
+  "invalid_exports": [
+    {
+      "path": "atlas_00.json",
+      "old_cells": 41,
+      "old_size": {
+        "w": 2048,
+        "h": 10752
+      },
+      "old_png_sha256": "dc96bc4a78ca136e689432892f69aaa3b55c2249d59ccd0ebb57703b07e9ce83"
+    },
+    {
+      "path": "atlas_01.json",
+      "old_cells": 41,
+      "old_size": {
+        "w": 2048,
+        "h": 10752
+      },
+      "old_png_sha256": "dc96bc4a78ca136e689432892f69aaa3b55c2249d59ccd0ebb57703b07e9ce83"
+    },
+    {
+      "path": "atlas_02.json",
+      "old_cells": 41,
+      "old_size": {
+        "w": 2048,
+        "h": 10752
+      },
+      "old_png_sha256": "dc96bc4a78ca136e689432892f69aaa3b55c2249d59ccd0ebb57703b07e9ce83"
+    },
+    {
+      "path": "atlas_03.json",
+      "old_cells": 41,
+      "old_size": {
+        "w": 2048,
+        "h": 10752
+      },
+      "old_png_sha256": "dc96bc4a78ca136e689432892f69aaa3b55c2249d59ccd0ebb57703b07e9ce83"
+    },
+    {
+      "path": "atlas_04.json",
+      "old_cells": 41,
+      "old_size": {
+        "w": 2048,
+        "h": 10752
+      },
+      "old_png_sha256": "dc96bc4a78ca136e689432892f69aaa3b55c2249d59ccd0ebb57703b07e9ce83"
+    },
+    {
+      "path": "atlas_05.json",
+      "old_cells": 41,
+      "old_size": {
+        "w": 2048,
+        "h": 10752
+      },
+      "old_png_sha256": "dc96bc4a78ca136e689432892f69aaa3b55c2249d59ccd0ebb57703b07e9ce83"
+    }
+  ],
+  "repair": "Aseprite Lua draws each exact cleaned frame once into explicit 2048x2048 pages; JSON carries global native frame indices. Pixel equality and total coverage verified."
+}

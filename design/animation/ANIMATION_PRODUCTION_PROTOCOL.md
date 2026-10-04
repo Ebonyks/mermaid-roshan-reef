@@ -77,6 +77,45 @@ in total cost/minutes per accepted second. Use only an already-authorized funded
 budget for paid jobs; no routine new planning approval is introduced.
 Position-only guides retain their neutral-field and excluded-pixel contract.
 
+## Preflight the controlled local workflow
+
+The [same-content workstation benchmark](../../assets_src/cinematics/animation_engine_benchmark_20261003/README.md)
+retains native failures and the controlled character take. Its reference studies
+accept no runtime loop. Use the following production order:
+
+1. In Aseprite, bind a real pivot and hand/tool sockets, register the owned pose
+   keys, and check the intended start/apex/return against the brief. Equal atlas
+   cells do not prove that the painted body stays at a fixed position. Resolve a
+   contradictory guide before generating; retain the unregistered source and
+   the declared registration transform.
+2. For a small character action, reuse those approved states first. If missing
+   transitions justify a local model pilot, supply owned pose/end-state control
+   when supported and preserve the tail/body identity. Declare the additional
+   control separately from a first-frame-only comparison. The tiny LTX 2B pilot
+   is a candidate for this step, not an accepted replacement for authored states.
+3. For an anchored object, keep its support/root/contact geometry in authored
+   fixed layers. Animate the intended moving part with proper painted view keys
+   or declared 2D articulation. A generative full-object take that grows a stalk,
+   changes a hook or misses the motion axis fails even if its texture is attractive.
+4. Bridge the candidate through an editable Aseprite master. Check matte edges,
+   visible detail and alpha, then verify that atlas pages preserve every native
+   index exactly once and reproduce the cleaned pixels. Decode the original native video directly before preview re-encoding, and
+   keep that video and raw layers. Reopen the master and verify its cleaned
+   visible pixels against the atlas; retain the exact source codec/hash. Technical packing success cannot accept failed acting.
+5. Check actual free RAM/VRAM, whole-job time and applicable weight/output terms
+   before an install or batch. Run one inference worker at a time; after its owned
+   queue is idle, release its cache or stop that task-started worker before
+   switching stacks. Do not stop another client's service. Record setup/download
+   costs separately. Stop a
+   projected over-cap render as a resource failure with its partial evidence;
+   do not report an extrapolation as a completed render. A lower-resolution
+   recovery is a distinct declared take and consumes the same backend cap.
+
+Rank viable output before sampling speed. When no take meets the hard gates,
+report zero accepted seconds and no production winner; minutes per accepted
+second is undefined. Select a bounded next workflow rather than inventing a
+quality score or restarting the attempt budget with another model name.
+
 ## Inventory and bind sources
 
 1. Find the current profile, exact scene, costume, prop and accepted source family.

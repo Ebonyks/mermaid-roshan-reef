@@ -1,0 +1,45 @@
+{
+  "status": "EXECUTION_PASS",
+  "acceptance": "REFERENCE_ONLY",
+  "engine": "ltx_2b_guided",
+  "source_sha256": "d8b03f19ed60c759bede3a760d713fe732994be22931173db7aacf3acc211f0c",
+  "prompt_sha256": "6b11c3a887091fb3c694505ab06f2edc4d190a71fefb1f770b5ce1a6514b8fb5",
+  "workflow_sha256": "6792d53bd4f79056181877b5a385263249d3e15d08359ecf3a3a6514bbb338d6",
+  "started_at_utc": "2026-10-04T07:25:47.822306+00:00",
+  "settings": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "fps": 24,
+    "steps": 7,
+    "seed": 20261003
+  },
+  "review": "PENDING",
+  "outputs": [
+    {
+      "path": "native.webm",
+      "sha256": "6fa34375b590e2c4a43b4528121a0597d85f04c00f7a915a36fcdeb1bb9fde65",
+      "bytes": 324417
+    },
+    {
+      "path": "preview.mp4",
+      "sha256": "064ac972172e7b0752a2d56a436a21119a2e445a3544c8bed57a9032a72dd5ec",
+      "bytes": 239684,
+      "media": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "width": 896,
+            "height": 512,
+            "r_frame_rate": "24/1",
+            "nb_read_frames": "41"
+          }
+        ]
+      }
+    }
+  ],
+  "prompt_id": "8c7be15a-5700-4e12-b8fb-3c89f943471f",
+  "elapsed_seconds": 96.721,
+  "completed_at_utc": "2026-10-04T07:27:24.545984+00:00"
+}

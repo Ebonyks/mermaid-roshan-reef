@@ -1,0 +1,37 @@
+{
+  "parts": [
+    {
+      "repo": "lllyasviel/FramePackI2V_HY",
+      "revision": "86cef4396041b6002c957852daac4c91aaa47c79",
+      "subfolder": "",
+      "weight_bytes": 25748781392
+    },
+    {
+      "repo": "hunyuanvideo-community/HunyuanVideo",
+      "revision": "e8c2aaa66fe3742a32c11a6766aecbf07c56e773",
+      "subfolder": "text_encoder",
+      "weight_bytes": 15010405376
+    },
+    {
+      "repo": "hunyuanvideo-community/HunyuanVideo",
+      "revision": "e8c2aaa66fe3742a32c11a6766aecbf07c56e773",
+      "subfolder": "text_encoder_2",
+      "weight_bytes": 246144152
+    },
+    {
+      "repo": "hunyuanvideo-community/HunyuanVideo",
+      "revision": "e8c2aaa66fe3742a32c11a6766aecbf07c56e773",
+      "subfolder": "vae",
+      "weight_bytes": 985943868
+    },
+    {
+      "repo": "lllyasviel/flux_redux_bfl",
+      "revision": "45b801affc54ff2af4e5daf1b282e0921901db87",
+      "subfolder": "image_encoder",
+      "weight_bytes": 856506120
+    }
+  ],
+  "native_cpu_weight_bytes": 42847780908,
+  "native_cpu_weight_gib": 39.91,
+  "basis": "Pinned official demo_gradio.py loads all five components into CPU before generation; not a measured peak-RAM claim."
+}

@@ -1,0 +1,7 @@
+Baseline: ecb68651c67e66501eeab2c719b152d8982023c2
+COMMAND: python -B tools/audit_document_authority.py
+DOCAUTH|INVENTORY=652|LEDGER=652|ACTIVE=61|RECORDS=64
+DOCAUTH|RESULT|ALL OK
+COMMAND: python -B tools/audit_development.py --base auto
+AUDITDEV|BASE|ecb68651c67e66501eeab2c719b152d8982023c2
+AUDITDEV|RESULT|ALL OK

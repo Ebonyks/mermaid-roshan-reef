@@ -1,0 +1,52 @@
+{
+  "lane": "REFERENCE_ONLY",
+  "source": "inputs/wave_driver.aseprite",
+  "rows": [
+    {
+      "key": 0,
+      "method": "Color-threshold crown-jewel diagnostic at y<110,x280..580; not an accepted gameplay socket.",
+      "pixel_count": 208,
+      "centroid_px": [
+        477.32,
+        71.2
+      ]
+    },
+    {
+      "key": 1,
+      "method": "Color-threshold crown-jewel diagnostic at y<110,x280..580; not an accepted gameplay socket.",
+      "pixel_count": 192,
+      "centroid_px": [
+        463.86,
+        78.15
+      ]
+    },
+    {
+      "key": 2,
+      "method": "Color-threshold crown-jewel diagnostic at y<110,x280..580; not an accepted gameplay socket.",
+      "pixel_count": 151,
+      "centroid_px": [
+        428.15,
+        73.64
+      ]
+    },
+    {
+      "key": 3,
+      "method": "Color-threshold crown-jewel diagnostic at y<110,x280..580; not an accepted gameplay socket.",
+      "pixel_count": 205,
+      "centroid_px": [
+        395.53,
+        74.93
+      ]
+    },
+    {
+      "key": 4,
+      "method": "Color-threshold crown-jewel diagnostic at y<110,x280..580; not an accepted gameplay socket.",
+      "pixel_count": 208,
+      "centroid_px": [
+        477.32,
+        71.2
+      ]
+    }
+  ],
+  "conclusion": "Raw atlas cells do not establish registered fixed-body guides. Bind and register an actual pivot/socket in Aseprite before future controlled generation. These color centroids diagnose source-key shifts; they are not full-frame acceptance or human contact evidence."
+}

@@ -1,0 +1,51 @@
+{
+  "id": "wave",
+  "revision": 1,
+  "baseline": "ecb68651c67e66501eeab2c719b152d8982023c2",
+  "lane": "REFERENCE_ONLY",
+  "source": "assets/characters/roshan_25d/roshan_gesture_a.png",
+  "source_sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+  "first_frame": "inputs/wave.png",
+  "first_frame_sha256": "d8b03f19ed60c759bede3a760d713fe732994be22931173db7aacf3acc211f0c",
+  "prompt": "briefs/wave.txt",
+  "prompt_sha256": "6b11c3a887091fb3c694505ab06f2edc4d190a71fefb1f770b5ce1a6514b8fb5",
+  "shared_action_seconds": [
+    0,
+    1.7
+  ],
+  "native_baseline": {
+    "width": 896,
+    "height": 512,
+    "frames": 41,
+    "fps": 24,
+    "steps": 24,
+    "seed": 20261003
+  },
+  "fixed_elements": "Camera and light-gray backdrop; torso/tail for wave, root for plant, support frame/hooks for swing.",
+  "source_acceptance": "Existing project identity art only. Prior source-warp object animation rejected; no rejected motion is accepted by reuse of its identity source.",
+  "reuse_gap": "Source has no complete generated action with demonstrated identity/axis/seam compliance. Existing wave keys additionally supply an owned driver/control baseline.",
+  "motion_tolerances": {
+    "fixed_anchor_max_px_at_896x512": 3,
+    "plant_flower_head_required_excursion_px": [
+      8,
+      32
+    ],
+    "wave_required_hand_excursion_px": [
+      45,
+      200
+    ],
+    "swing_required_axis": "Fore-and-aft pitch, changing visible surfaces; no lateral-only movement",
+    "identity_contact_topology": "Must remain visually intact across every transition; no averaging hard defects into a score"
+  },
+  "limits": {
+    "takes_per_backend": 2,
+    "initial_takes": 1,
+    "render_seconds": 1800,
+    "cleanup_seconds": 900,
+    "aggregate_task_record": "design/audit_impacts/animation-engine-benchmark-20261003.json",
+    "api_budget": "PENDING_OWNER_REPLY"
+  },
+  "review": "PENDING",
+  "runtime_device_child_owner_acceptance": "NOT_CLAIMED",
+  "interruptions_events": "Not applicable: offline footage, no game state or rewards."
+}

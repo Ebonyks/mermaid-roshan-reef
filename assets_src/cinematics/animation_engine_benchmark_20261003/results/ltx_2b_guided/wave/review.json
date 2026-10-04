@@ -1,0 +1,16 @@
+{
+  "status": "PROMISING_CONTROLLED_CANDIDATE_NOT_ACCEPTED",
+  "reviewer": "Codex all-41-frame diagnostic inspection",
+  "observations": [
+    "Same approved mermaid identity is broadly retained; no split-legged substitution from the first take.",
+    "Arm raises above head, lowers, and reaches the resting state before frame 40.",
+    "Head/body/other-arm position and shape vary during the wave; the fixed-element contract and 3 px anchor tolerance are not established.",
+    "Source pose keys themselves are not registered fixed-body references; the guide lane has an input limitation.",
+    "Early arm transitions and hand detail need full-speed/in-context human review; no accepted loop or device result claimed."
+  ],
+  "extra_controls": "Four owned source-pose guides at frame indices 7,17,27,36; same first frame, prompt, seed, 41 frames and 896x512. Seven-step first-pass pilot, not complete two-pass LTX recipe.",
+  "elapsed_seconds": 96.721,
+  "accepted_seconds": 0,
+  "owner_device_child_acceptance": "PENDING",
+  "evidence": "all_frames.png, native.webm, preview.mp4, environment/ltx_controlled_wave_bindings.json, environment/owned_wave_key_anchor_diagnostic.json"
+}

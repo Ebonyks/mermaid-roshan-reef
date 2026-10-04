@@ -1,0 +1,15 @@
+{
+  "engine": "framepack",
+  "status": "PREFLIGHT_BLOCKED_AVAILABLE_RAM_AND_PUBLICATION_LICENSE",
+  "reason": "Pinned demo stages model components on CPU. File inventory is 39.91 GiB before overhead versus 5.5–15.2 GiB observed available RAM. Weight storage is not a measured resident peak; no inference was attempted, and optimized loading could differ. Defer this study without closing unrelated applications. Base Hunyuan output terms also prevent verifying worldwide public GitHub distribution. Source only downloaded; no model/env/render.",
+  "source": "environment/framepack_base_license.txt",
+  "footage_produced": false,
+  "review": "Not a quality score or failed render",
+  "native_runner_commit": "97fe5dbe06ac1f337ece08935b1076a35eefeeb9",
+  "available_ram_gib_observed": [
+    5.5,
+    15.2
+  ],
+  "weight_inventory_not_peak_ram": true,
+  "native_cpu_weight_gib": 39.91
+}

@@ -1,0 +1,137 @@
+{
+  "status": "HASHES_MATCH_PINNED_PUBLIC_HF_METADATA",
+  "models": [
+    {
+      "path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\AnimationBench\\Wan2GP\\ckpts\\Wan2.1_VAE.safetensors",
+      "bytes": 507593157,
+      "sha256": "3ce0c02b9470532e7f63f3e2f8e83b0681fdeaa432e969c412482d2b3b78267b",
+      "remote_byte_matches": [
+        {
+          "repo": "DeepBeepMeep/Wan2.1",
+          "revision": "6e277385fc243685070fd73a21278adaaa914b6a",
+          "file": "Wan2.1_VAE.safetensors"
+        }
+      ],
+      "use": "SCAIL automatic reference segmentation / Wan text and VAE"
+    },
+    {
+      "path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\AnimationBench\\Wan2GP\\ckpts\\Wan2.1_VAE_upscale2x_imageonly_real_v1.safetensors",
+      "bytes": 507684560,
+      "sha256": "2413554bbec24215185662d009893cf4666b8e777efece2d895e03e1a6b63e06",
+      "remote_byte_matches": [
+        {
+          "repo": "DeepBeepMeep/Wan2.1",
+          "revision": "6e277385fc243685070fd73a21278adaaa914b6a",
+          "file": "Wan2.1_VAE_upscale2x_imageonly_real_v1.safetensors"
+        }
+      ],
+      "use": "SCAIL automatic reference segmentation / Wan text and VAE"
+    },
+    {
+      "path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\AnimationBench\\Wan2GP\\ckpts\\sam3\\sam3.1_multiplex_bf16.safetensors",
+      "bytes": 1746597176,
+      "sha256": "4e2cd82698b64b7d32349c8bbb4f43422e199cd1bfc9ca6b88bbef562af7e99e",
+      "remote_byte_matches": [
+        {
+          "repo": "DeepBeepMeep/Wan2.1",
+          "revision": "6e277385fc243685070fd73a21278adaaa914b6a",
+          "file": "sam3/sam3.1_multiplex_bf16.safetensors"
+        }
+      ],
+      "use": "SCAIL automatic reference segmentation / Wan text and VAE"
+    },
+    {
+      "path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\AnimationBench\\Wan2GP\\ckpts\\umt5-xxl\\models_t5_umt5-xxl-enc-quanto_int8.safetensors",
+      "bytes": 6733337738,
+      "sha256": "5e4961851c78838931990549810ed51c9036081b2ad80bf464c4e2603c5f922c",
+      "remote_byte_matches": [
+        {
+          "repo": "DeepBeepMeep/Wan2.1",
+          "revision": "6e277385fc243685070fd73a21278adaaa914b6a",
+          "file": "umt5-xxl/models_t5_umt5-xxl-enc-quanto_int8.safetensors"
+        }
+      ],
+      "use": "SCAIL automatic reference segmentation / Wan text and VAE"
+    },
+    {
+      "path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\AnimationBench\\Wan2GP\\ckpts\\Qwen2.5-VL-7B-Instruct\\Qwen2.5-VL-7B-Instruct_quanto_bf16_int8.safetensors",
+      "bytes": 9432992295,
+      "sha256": "18966ca6ba18261ec0465442580ad30510a758ecc0314871a0bbd30032716568",
+      "remote_byte_matches": [
+        {
+          "repo": "DeepBeepMeep/Qwen_image",
+          "revision": "75c70695c563a235a5d14e37f110d499b3ecbd1c",
+          "file": "Qwen2.5-VL-7B-Instruct/Qwen2.5-VL-7B-Instruct_quanto_bf16_int8.safetensors"
+        }
+      ],
+      "use": "Hunyuan queried/loaded auxiliary; presence does not establish every module ran"
+    },
+    {
+      "path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\AnimationBench\\Wan2GP\\ckpts\\qwen_vae.safetensors",
+      "bytes": 253806966,
+      "sha256": "0c8bc8b758c649abef9ea407b95408389a3b2f610d0d10fcb054fe171d0a8344",
+      "remote_byte_matches": [
+        {
+          "repo": "DeepBeepMeep/Qwen_image",
+          "revision": "75c70695c563a235a5d14e37f110d499b3ecbd1c",
+          "file": "qwen_vae.safetensors"
+        }
+      ],
+      "use": "Hunyuan queried/loaded auxiliary; presence does not establish every module ran"
+    },
+    {
+      "path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\AnimationBench\\Wan2GP\\ckpts\\hunyuan_video_1_5_VAE_fp32.safetensors",
+      "bytes": 5042560980,
+      "sha256": "2609ed7033c052fdf164afcac71e8a7c82afccdbb001d673444a72f194fbb918",
+      "remote_byte_matches": [
+        {
+          "repo": "DeepBeepMeep/HunyuanVideo1.5",
+          "revision": "dfb27d624272a9de325ee6a49f6a0337ef3fcfaa",
+          "file": "hunyuan_video_1_5_VAE_fp32.safetensors"
+        }
+      ],
+      "use": "Hunyuan queried/loaded auxiliary; presence does not establish every module ran"
+    },
+    {
+      "path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\AnimationBench\\Wan2GP\\ckpts\\Glyph-SDXL-v2\\byt5-small\\byt5_model.safetensors",
+      "bytes": 877273198,
+      "sha256": "7fb208af0f1497111418b4f254230639e49829a82413f3fc8fda2d24fa005273",
+      "remote_byte_matches": [
+        {
+          "repo": "DeepBeepMeep/HunyuanVideo1.5",
+          "revision": "dfb27d624272a9de325ee6a49f6a0337ef3fcfaa",
+          "file": "Glyph-SDXL-v2/byt5-small/byt5_model.safetensors"
+        }
+      ],
+      "use": "Hunyuan queried/loaded auxiliary; presence does not establish every module ran"
+    },
+    {
+      "path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\AnimationBench\\Wan2GP\\ckpts\\Glyph-SDXL-v2\\byt5-small\\model.safetensors",
+      "bytes": 1203095198,
+      "sha256": "effd42c558a0558b62c326e7f58b22f3b1499ca465246e45eb0f8e844f1f313e",
+      "remote_byte_matches": [
+        {
+          "repo": "DeepBeepMeep/HunyuanVideo1.5",
+          "revision": "dfb27d624272a9de325ee6a49f6a0337ef3fcfaa",
+          "file": "Glyph-SDXL-v2/byt5-small/model.safetensors"
+        }
+      ],
+      "use": "Hunyuan queried/loaded auxiliary; presence does not establish every module ran"
+    },
+    {
+      "path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\AnimationBench\\Wan2GP\\ckpts\\siglip_vision_model\\model.safetensors",
+      "bytes": 856506120,
+      "sha256": "d769e3a32a6a9bac72d4d93b989e44491f71b50f02bfa14cd9187758d4a68ff1",
+      "remote_byte_matches": [
+        {
+          "repo": "DeepBeepMeep/HunyuanVideo1.5",
+          "revision": "dfb27d624272a9de325ee6a49f6a0337ef3fcfaa",
+          "file": "siglip_vision_model/model.safetensors"
+        }
+      ],
+      "use": "Hunyuan queried/loaded auxiliary; presence does not establish every module ran"
+    }
+  ],
+  "sam_acknowledgement": "Meta SAM3.1 reference segmentation; SAM License, not Apache-2.0. See sam3_license.txt and sam3_license_acknowledgement.json.",
+  "note": "Checkpoint archives remain outside Git. Repository commits resolve at hash-check time; byte match establishes these exact files."
+}

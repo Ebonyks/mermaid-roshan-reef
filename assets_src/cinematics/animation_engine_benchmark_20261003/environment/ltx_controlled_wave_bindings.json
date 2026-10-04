@@ -1,0 +1,30 @@
+{
+  "lane": "REFERENCE_ONLY",
+  "comparison": "Take 2 of same LTX 2B wave brief, seed, resolution and duration. Additional owned pose controls declared; compare to SCAIL driver lane, not equal-input baseline. Same seven-step first pass; not complete official two-pass recipe.",
+  "bindings": [
+    {
+      "frame_index": 7,
+      "source": "inputs/wave_key_01.png",
+      "sha256": "0a975482aa3960f72296a8ddd1792982fe524c3b4c18c1f0d77d028099ec61b7",
+      "role": "Owned approved pose key; appearance-bearing control, not POSITION_GUIDE_ONLY"
+    },
+    {
+      "frame_index": 17,
+      "source": "inputs/wave_key_02.png",
+      "sha256": "1632a23bc90a4ef2162c37c02e75b0a73d5da106b7fdf67e1a7d7b662c1fc7af",
+      "role": "Owned approved pose key; appearance-bearing control, not POSITION_GUIDE_ONLY"
+    },
+    {
+      "frame_index": 27,
+      "source": "inputs/wave_key_03.png",
+      "sha256": "f38b199dedd7b2c2d55d600ec82c52fb03a97ff35ce2d87ab8b9741b2df3a7da",
+      "role": "Owned approved pose key; appearance-bearing control, not POSITION_GUIDE_ONLY"
+    },
+    {
+      "frame_index": 36,
+      "source": "inputs/wave_key_00.png",
+      "sha256": "d8b03f19ed60c759bede3a760d713fe732994be22931173db7aacf3acc211f0c",
+      "role": "Owned approved pose key; appearance-bearing control, not POSITION_GUIDE_ONLY"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "engine": "scail2_14B",
+  "status": "CANCELLED_PROJECTED_TIME_CAP",
+  "lane": "REFERENCE_ONLY",
+  "review": "PENDING",
+  "started_at_utc": "2026-10-04T07:09:42.606275+00:00",
+  "source_sha256": "d8b03f19ed60c759bede3a760d713fe732994be22931173db7aacf3acc211f0c",
+  "settings_sha256": "398df031f755338dbd911685bca41845be800fc500ada843ab296a44e348c468",
+  "runner_revision": "b8b18f8114e432eea8f3d7e853a51dd91fa99571",
+  "attention": "sdpa",
+  "profile": 5,
+  "outputs": [],
+  "elapsed_seconds": 953.828,
+  "completed_at_utc": "2026-10-04T07:25:36.434686+00:00",
+  "error": "First sampling step 202.01 s; displayed projected remainder 2:11:18 for 40-step 896x512 take. Stopped owned process because projection exceeds 1800 s cap. Not a completed quality test or measured full-render duration.",
+  "sampling_steps_completed": 1,
+  "sampling_steps_requested": 40,
+  "footage": "NONE"
+}
