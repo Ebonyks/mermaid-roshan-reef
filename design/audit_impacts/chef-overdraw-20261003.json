@@ -85,6 +85,7 @@
     "audit/chef_overdraw_20261003/CANDIDATE_SOURCE.json",
     "audit/chef_overdraw_20261003/CAPTURE_MANIFEST.json",
     "audit/chef_overdraw_20261003/ORIGINALS_UNCHANGED.json",
+    "audit/chef_overdraw_20261003/PUBLICATION.json",
     "audit/chef_overdraw_20261003/RECEIPT.json",
     "audit/chef_overdraw_20261003/REJECTED_LAYOUT_TRIAL.json",
     "audit/chef_overdraw_20261003/START.json",
@@ -121,6 +122,7 @@
     "audit/chef_overdraw_20261003/analyzer_surface_final.log",
     "audit/chef_overdraw_20261003/audit_direct_retry2.log",
     "audit/chef_overdraw_20261003/authority_final.log",
+    "audit/chef_overdraw_20261003/authority_publication.log",
     "audit/chef_overdraw_20261003/baseline_1280/mask_00.png",
     "audit/chef_overdraw_20261003/baseline_1280/mask_01.png",
     "audit/chef_overdraw_20261003/baseline_1280/mask_03.png",
@@ -140,6 +142,7 @@
     "audit/chef_overdraw_20261003/boss_retry.log",
     "audit/chef_overdraw_20261003/capture.gd",
     "audit/chef_overdraw_20261003/development_final.log",
+    "audit/chef_overdraw_20261003/development_publication.log",
     "audit/chef_overdraw_20261003/fixed_1280/mask_00.png",
     "audit/chef_overdraw_20261003/fixed_1280/mask_01.png",
     "audit/chef_overdraw_20261003/fixed_1280/mask_03.png",
@@ -424,6 +427,16 @@
       "command": "Unisolated native Windows full-game probe retry",
       "result": "FAIL",
       "evidence": "audit/chef_overdraw_20261003/native_suite/MANIFEST.json; native exit4294967295 during resource loading; diagnostic only, root cause unproven."
+    },
+    {
+      "command": "Authenticated Git remote branch/fetch and every task-covered blob comparison at exact32aee336",
+      "result": "PASS",
+      "evidence": "audit/chef_overdraw_20261003/PUBLICATION.json;247task/source/evidence blobs verified. Code/Markdown LF normalization explicitly separated from literal PNG/packet/log bytes. No recipient/creative acceptance claim."
+    },
+    {
+      "command": "Publication metadata document authority and change coverage",
+      "result": "PASS",
+      "evidence": "audit/chef_overdraw_20261003/authority_publication.log and development_publication.log; runtime/source8 unchanged from the full82 local pass."
     }
   ],
   "acceptance_gaps": "M11 GPU timing/memory/30fps and device/child/owner acceptance; native 2048x2048 per-screen background coverage remains unsatisfied. Final hand-held piping/attached hand contact and ordinary Chef TOP terminal acting remain open, as do whole-career reward/return/save-route acceptance and broader legacy job style/layout defects. Five-step Chapter Two input and desktop captures do not establish these claims.",
