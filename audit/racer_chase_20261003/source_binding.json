@@ -1,7 +1,7 @@
 {
+  "schema": "racer.source-binding.v1",
+  "source_commit": "892fc87ed9c94534e078fa5aac6fa58b7587785a",
   "baseline": "4f7181450da4d12497592a963c64422a7bae981a",
-  "git_head": "892fc87ed9c94534e078fa5aac6fa58b7587785a",
-  "status": "Committed source; verification receipts and captures bind exact frozen engine file hashes",
   "source": [
     {
       "path": "scripts/kart.gd",
@@ -34,7 +34,8 @@
       "sha256_lf": "38441c903bbc66933d6d152c27c3216c5ba882042f928fb1fadad04595c0ef16"
     }
   ],
-  "export_presets_sha256_lf": "16a1d4fe1f3ab53f8b9cd6ad9c58bcb1239b04950f2638cc79e129916ee07d8d",
-  "export_validation": "package_receipt.json independently binds both preset inclusions and isolated Windows pack loading",
-  "source_commit": "892fc87ed9c94534e078fa5aac6fa58b7587785a"
+  "full_suite_receipt": "logs/full_suite.receipt.json",
+  "full_suite_exit_code": 0,
+  "runtime_source_unchanged": true,
+  "limits": "This first commit owns runtime/art; later commits may update evidence metadata. Device/child/owner/fresh-runtime acceptance, dev integration and release remain open."
 }
