@@ -73,6 +73,19 @@ Use this shape, replacing all illustrative values with real evidence:
 - New Markdown still needs a document-ledger row. JSON impact records use the
   structured change gate and do not create Markdown-ledger entries.
 
+## Learning fields (optional, validated when present)
+
+Existing impact records remain valid. New records may add these arrays of objects; an empty array is valid and additional explanatory metadata is allowed:
+
+| Field | Required nonempty text in each entry |
+|---|---|
+| `lessons` | `lesson`, `write_back` (named rule, decision, recipe, sensor or reference target) |
+| `strengths_observed` | `id` (`S-*`), `evidence` |
+| `references_used` | `path`, `purpose` |
+| `owner_corrections` | `decision_id`, `evidence`, `write_back` |
+
+The study collects these fields, validation entries still PENDING or FAIL, and lessons whose target is missing. Optional `recurrence_key` groups lessons by defect class; at least three occurrences in one cycle propose a rule/check for review. A proposal never automatically changes authority. Owner corrections also enter the [decision register](reference/OWNER_DECISIONS.md); checkable corrections name their executable check, and artistic corrections remain human review requirements. Historical PENDING entries are not overwritten merely because later CI is green: the collector reports any exact-head completion separately.
+
 ## Run the gates
 
 ```text

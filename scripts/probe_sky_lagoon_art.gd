@@ -1352,11 +1352,13 @@ func _run() -> void:
 		var start_menu: Variant = main.call("_start_menu_ref") \
 			if main.has_method("_start_menu_ref") else null
 		if not (start_menu is Object) \
-				or not (start_menu as Object).has_method("_enter_game"):
+				or not (start_menu as Object).has_method("_dismiss_menu") \
+				or not main.has_method("_launch_from_start_menu"):
 			_fail("GLOBAL", "start_menu_launch", "visible launch menu has no entry seam")
 			abort_remaining = true
 		else:
-			(start_menu as Object).call("_enter_game")
+			(start_menu as Object).call("_dismiss_menu")
+			main.call("_launch_from_start_menu", false)
 			var launch_cleared := false
 			for _frame: int in range(60):
 				await process_frame
@@ -1439,7 +1441,7 @@ func _run() -> void:
 			str(_expected_png_names()), str(output_pngs)])
 	var version := Engine.get_version_info()
 	var exact_engine := int(version.get("major", 0)) == 4 \
-		and int(version.get("minor", 0)) == 7 and int(version.get("patch", 0)) == 1 \
+		and int(version.get("minor", 0)) == 7 and int(version.get("patch", 0)) == 2 \
 		and String(version.get("status", "")) == "stable" \
 		and String(version.get("build", "")) == "official"
 	var mobile_renderer := String(RenderingServer.get_current_rendering_method()) == "mobile"

@@ -1,0 +1,1008 @@
+{
+  "schema": "prompt_intents/1",
+  "status": "SUPPORTING_CURRENT",
+  "seed_head": "f2140465b0d97575cf1855b1d0422a2c4be6110f",
+  "intents": [
+    {
+      "id": "INT-STUDY",
+      "says": [
+        "study the game",
+        "how is the game doing",
+        "what changed"
+      ],
+      "minimum_input": "none, or an area",
+      "match_patterns": [
+        "\\b(?:study|how is the game doing|what changed|review the candidate strengths|what should we (?:build|do|make) next|what is next|what's next)\\b"
+      ],
+      "recipe": {
+        "id": "REC-STUDY",
+        "path": "design/reference/recipes/study.md"
+      },
+      "defaults": "Study current authorized repository sources, no child-device telemetry or images. Manual cadence until two complete cycles and explicit automation decision.",
+      "read_first": [
+        "AGENTS.md",
+        "audit/MASTER_AUDIT_2026-08-09.md",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+        "design/05_DOC_LEDGER.md",
+        "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+        "design/reference/strengths.json",
+        "audit/cycles/README.md",
+        "tools/study_game.py",
+        "tools/build_study_roadmap.py"
+      ],
+      "strengths": [
+        "S-09",
+        "S-10",
+        "S-11"
+      ],
+      "expand": [
+        "Run study_game on a committed head (it refuses uncommitted changes outside the cycle folder) and collect sensor status/commands/hash/output, exact-head CI advisory results, stale findings, surface evidence, strengths, lessons, handoffs and unmerged branch limits.",
+        "Generate roadmap, verification owner/device request pages, current surface evidence and impact history from study data; no finding or rule mutation.",
+        "Claude writes the cycle judgement in audit/cycles/<cycle>/judgement.json: a two-sentence summary, the strengths and weaknesses that matter, up to five ready-to-say prompts and up to five numbered owner questions with defaults. The report renders numbers from study.json and judgement from that file. Answers enter through the decision intake; unanswered questions stay pending.",
+        "Perform authorized selected work between cycles, run checks, write lessons back and publish cycle evidence to GitHub. Two report folders alone do not prove two complete loops."
+      ],
+      "variety_rules": [
+        "Inspect the surfaces that ship now and compare exact head/deltas instead of repeating August scores."
+      ],
+      "owner_touchpoints": [
+        {
+          "question": "Answer the cycle numbered questions?",
+          "default": "up to five questions with source-bound defaults; unreturned questions remain pending",
+          "trigger": "Optional cycle owner interface; defaults never become recorded answers"
+        },
+        {
+          "question": "Choose a time for the owner review/device batch?",
+          "default": "one grouped request in this cycle, no booking assumed",
+          "trigger": "Scheduling requires an actual owner time slot"
+        }
+      ],
+      "gates": [
+        "python -B tools/audit_document_authority.py",
+        "python -B tools/audit_development.py --base auto",
+        "Changed GDScript: python -m gdtoolkit.parser plus tools/lint_inference.py; exact Godot 4.7.2-stable import/full scripts/ci.sh and exact-head green branch CI before integration. No high-risk workflow edits without explicit task authority.",
+        "Evidence lanes: machine; Mobile 1280x720 and wide-phone visual; older Android phone and M11 device; private child observation; owner review. Missing lanes remain open.",
+        "Preserve original assets/book, assets/audio/voices and assets/characters/friends; license each new asset; true Canvas 2D, Mobile/Speedy, one finger, voice plus pointer, no punitive loss, no passive award, additive saves."
+      ],
+      "write_backs": [
+        "Add lessons with a named write_back target, references_used and strengths_observed to this task impact record.",
+        "Capture owner corrections as source-bound decision entries; never infer owner answers from defaults.",
+        "Update this recipe only from a concrete omission or accepted lesson, retaining revision history; propose a check/reference when a recurrence can be reproduced.",
+        "Publish source-bound evidence and report implementation, machine verification and outstanding visual/device/child/owner gates separately."
+      ],
+      "served_prompts": [],
+      "revision_history": [
+        "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.",
+        "2026-10-03: Review fixes (Claude): the study runs on committed heads; Claude writes the judgement file (prompts and numbered questions); owner and device pages are plain checklists."
+      ],
+      "revision": 2
+    },
+    {
+      "id": "INT-ADD-JOB",
+      "says": [
+        "add a bakery job",
+        "new job: vet"
+      ],
+      "minimum_input": "the job",
+      "match_patterns": [
+        "\\b(?:add|new|plan)\\b.*\\b(?:job|career)\\b"
+      ],
+      "recipe": {
+        "id": "REC-ADD-JOB",
+        "path": "design/reference/recipes/add_job.md"
+      },
+      "defaults": "Opera career row for a permanent job, through the live extension path at implementation head; an isolated venue scene only for an approved-scope prototype. Platform architecture is a proposal until its services exist. The thematic room is proposed from the castle rooms and confirmed by the owner.",
+      "read_first": [
+        "AGENTS.md",
+        "audit/MASTER_AUDIT_2026-08-09.md",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+        "design/05_DOC_LEDGER.md",
+        "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+        "design/reference/strengths.json",
+        "audit/JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md",
+        "docs/handoffs/codex_job_platform_architecture_2026-09-30/ARCHITECTURE.md",
+        "docs/handoffs/codex_opera_imp_contest_2026-09-30/CONTEST_DESIGN.md",
+        "docs/handoffs/codex_visual_design_language_2026-09-30/ROSHAN_APPEARANCE_ANALYSIS.md",
+        "scripts/opera_house.gd",
+        "scripts/save_state.gd",
+        "scripts/castle_career_routes.gd",
+        "assets/audio/voices/VOICE_MANIFEST.md",
+        "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+        "audit/minigame_art_quality_2026-09-05/opera_native_coverage_followup.md"
+      ],
+      "strengths": [
+        "S-01",
+        "S-02",
+        "S-03",
+        "S-12",
+        "S-13"
+      ],
+      "expand": [
+        "Write a job card from the job itself: a one-sentence premise, a proposed thematic castle room with the reason it fits (or the Opera freeplay venue), four to six beats grouped Teach / Play / Twist / Bow where every beat is a different verb with a visible, truthful change that stays, Roshan's travel and contact for each beat, the exact voice line and pointer for each objective, the help ladder, the reward and the imp's role. Every beat requires the previous beat's saved state and the child's one-finger action; idle input, a timer or a demonstration never finishes a beat or awards progress. Do not copy another job's verbs or payoff. The planner's job_card lists the fields; it stores no answer for any job.",
+        "Inspect live registries before editing: scripts/opera_house.gd ACTS/LIVE_ACT_INDICES/ACTIVE_STAR_MASK/ACTIVE_ACT_COUNT; opera_competition.gd CAREERS; opera_career_world_2d.gd PHASES/FINALE_START/PHASE_STATIONS/GOAL_PROPS; opera_mastery.gd CAREERS/RULES; opera_performance_overlay.gd CAREER_COLORS; opera_hotspot_catalog.gd EXPECTED_PHASES/SPECS/ASSET_META. Compute phase, finale, station, voice, hotspot, probe and checkpoint counts from the approved card and the live extension contract; Teach / Play / Twist / Bow groups beats and does not fix the phase count.",
+        "Allocate the next save bit from the live namespace, including retired (tombstone) bits; the planner's save_allocation section derives the next bit, both masks, the retired bits and every clamp site at the current head. Add new keys with defaults and keep every existing reef_save.json key.",
+        "Update every opera_stars clamp the planner lists (load, write and the shared normaliser), the range and both mask/count authorities, the per-job normaliser and checkpoint cleanup. Test the new bit's round trip, external merge through the shared normaliser, tombstones and reward persistence. Re-read the sites at implementation head.",
+        "Inventory reuse first: the chosen room's approved backgrounds and props, related careers' props, and the approved Roshan identity. For Roshan the identity anchor is `roshan_base.png` or a base-world atlas; career art is a costume or pose reference only and `roshan_sprite.png` is never bound (it is retired, ODR-ROSHAN-Q16). The tail is iridescent; name the light state of the exemplar (ODR-ROSHAN-IRIDESCENT, ODR-ROSHAN-Q12). Name each missing piece of art; Codex builds only those, with provenance, licence, atlas-gate and typography entries. Check native resolution at shipping scale before any replacement; no redraw for novelty and no 3D.",
+        "Voice: bind the exact line, speaker and key to each objective. New provisional lines use the Parler candidate, selector and master pipeline in assets/audio/voices/VOICE_MANIFEST.md; the legacy Kokoro path is not used for new lines. Route the folder and prefix in audio_director.gd and the audio quality category; never imitate or alter family recordings. Music: propose the job's score in assets_src/audio/music/area_music_scores.json and tools/build_area_music.py EXPECTED_IDS with the scripts/probe_audio.gd REQUIRED_AREA_MUSIC entry, or a justified byte-identical reuse.",
+        "Plan reachability and lifecycle: castle_career_routes.gd ROOM_ACT_INDICES and probe EXPECTED_ROOM_ACTS; opera_stage_paths.gd PATHS/STATION_NAV; stage_inventory.json; living_world_catalog.gd row/EXPECTED_STAGE_COUNT; backdrop PALETTES or compliant screen tiles. Keep Day One and the locked Chapter Two roster separate unless commissioned.",
+        "Extend trusted probe coverage and pin counts: probe_opera, probe_opera_2d, probe_opera_nursery, probe_living_world, probe_audio and gesture quality. Cover correct/wrong/passive/random/repeat/save/re-entry/back/focus loss, Roshan travel/contact and the contest rematch. Use existing rosters unless explicitly authorized to add high-risk CI entries.",
+        "Run the focused and full gates, audit_stage_pathfinding --check, audit_opera_roshan_animation and a voice-per-phase review. Codex builds the phase boards at two aspects; deliver them and the exact dev APK for human, device, child and owner review. 5/5 is a target that needs owner acceptance in context (DL-VIS-07), never an inferred score. Include impact, ledger and licence rows; merge only exact-head green work to dev; release only on the owner's shorthand through the promote workflow."
+      ],
+      "variety_rules": [
+        "Teach / Play / Twist / Bow groups the beats; live two-act specialist contracts keep their shape. Every beat is a different verb with a truthful, persistent change.",
+        "Combine a familiar verb with a new tool and a new visible payoff; compare against the last two jobs and do not repeat their payoff.",
+        "Competitive careers end in the DL-INT-14 imp contest: the imp stays hidden until the final act; one head-to-head contest uses a real skill of the job; the imp may win; his win plays a beat of at most 2 s and restarts the contest at once with nothing lost; he works only while the child plays; each rematch slows him or raises his target down to a floor. The contest-only restart scope still awaits owner confirmation. Learning careers invert the contest (one deliberate, silly mistake per round, never mean)."
+      ],
+      "owner_touchpoints": [
+        {
+          "question": "May this permanent job use this premise and thematic room?",
+          "default": "wait: nothing permanent is added until the owner answers; an approved-scope practice prototype may continue",
+          "trigger": "New permanent career (DL-PLAN-01: silence grants no reserved permission)"
+        },
+        {
+          "question": "Does the costume look right?",
+          "default": "wait for the owner's look at Codex's costume board; meanwhile reuse the approved Roshan identity (roshan_base.png anchor) with her iridescent tail",
+          "trigger": "Named visual acceptance for a new costume; a generation budget must already be authorized"
+        }
+      ],
+      "gates": [
+        "python -B tools/audit_document_authority.py",
+        "python -B tools/audit_development.py --base auto",
+        "Changed GDScript: python -m gdtoolkit.parser plus tools/lint_inference.py; exact Godot 4.7.2-stable import/full scripts/ci.sh and exact-head green branch CI before integration. No high-risk workflow edits without explicit task authority.",
+        "Evidence lanes: machine; Mobile 1280x720 and wide-phone visual; older Android phone and M11 device; private child observation; owner review. Missing lanes remain open.",
+        "Preserve original assets/book, assets/audio/voices and assets/characters/friends; license each new asset; true Canvas 2D, Mobile/Speedy, one finger, voice plus pointer, no punitive loss, no passive award, additive saves."
+      ],
+      "write_backs": [
+        "Add lessons with a named write_back target, references_used and strengths_observed to this task impact record.",
+        "Capture owner corrections as source-bound decision entries; never infer owner answers from defaults.",
+        "Update this recipe only from a concrete omission or accepted lesson, retaining revision history; propose a check/reference when a recurrence can be reproduced.",
+        "Publish source-bound evidence and report implementation, machine verification and outstanding visual/device/child/owner gates separately."
+      ],
+      "served_prompts": [],
+      "revision_history": [
+        "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.",
+        "2026-10-03: Cold-start review exposed missing child-controlled baking/retrieval, inherited phase counts, enlarged-background readiness and imprecise clamp labels. Added the ordered candidate chain, computed counts, source-bound gap and exact shared-normaliser descriptions.",
+        "2026-10-03: Review fixes (Claude): removed the stored bakery answer and baseline numbers; the planner derives save facts and gives a job card to design; reserved decisions wait for the owner; imp contest stated as DL-INT-14 says; Parler named for new voice lines."
+      ],
+      "revision": 2
+    },
+    {
+      "id": "INT-ROOM-ACTIVITY",
+      "says": [
+        "a rainy-day activity in the castle",
+        "something to do in the library"
+      ],
+      "minimum_input": "the room, optionally a theme",
+      "match_patterns": [
+        "\\b(?:activity|something to do)\\b.*\\b(?:castle|room|library|kitchen)\\b",
+        "\\brainy.day\\b.*\\bactivity\\b"
+      ],
+      "recipe": {
+        "id": "REC-ROOM-ACTIVITY",
+        "path": "design/reference/recipes/room_activity.md"
+      },
+      "defaults": "One guided painted target in the requested approved room; existing authored art/state family first. Permanent new premises remain reserved.",
+      "read_first": [
+        "AGENTS.md",
+        "audit/MASTER_AUDIT_2026-08-09.md",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+        "design/05_DOC_LEDGER.md",
+        "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+        "design/reference/strengths.json",
+        "scripts/comfy_games.gd",
+        "design/07_CASTLE_DOOR_LANGUAGE.md",
+        "audit/stage_pathfinding/STAGE_PATHFINDING_PROTOCOL.md"
+      ],
+      "strengths": [
+        "S-01",
+        "S-02",
+        "S-03",
+        "S-08"
+      ],
+      "expand": [
+        "Write an activity card: child intention, one target, truthful state transition, Roshan approach/contact, one exact voice line and visual pointer per objective.",
+        "Shortlist approved room props/states, record hashes/consumers/licences and gap; no duplicate painted copy behind an interactive card.",
+        "Define kind wrong-input feedback and re-say/show/widen/assist ladder without payouts; add persistent result keys/defaults, partial resume, one Back route and no repeat downgrade.",
+        "Build one Canvas activity in existing owner model, not a second engine. Probe positive/passive/wrong/repeat/save/return/focus loss and capture active/settled states."
+      ],
+      "variety_rules": [
+        "Change the activity verb/tool/payoff together instead of repainting the last target.",
+        "Four to twelve authored states where animation explains the real action; rest holds do not replace motion."
+      ],
+      "owner_touchpoints": [
+        {
+          "question": "May this new permanent activity use this premise in this room?",
+          "default": "wait: nothing permanent is added until the owner answers; a bounded prototype inside an already-approved room scope may continue",
+          "trigger": "New permanent activity premise (DL-PLAN-01: silence grants no reserved permission)"
+        }
+      ],
+      "gates": [
+        "python -B tools/audit_document_authority.py",
+        "python -B tools/audit_development.py --base auto",
+        "Changed GDScript: python -m gdtoolkit.parser plus tools/lint_inference.py; exact Godot 4.7.2-stable import/full scripts/ci.sh and exact-head green branch CI before integration. No high-risk workflow edits without explicit task authority.",
+        "Evidence lanes: machine; Mobile 1280x720 and wide-phone visual; older Android phone and M11 device; private child observation; owner review. Missing lanes remain open.",
+        "Preserve original assets/book, assets/audio/voices and assets/characters/friends; license each new asset; true Canvas 2D, Mobile/Speedy, one finger, voice plus pointer, no punitive loss, no passive award, additive saves."
+      ],
+      "write_backs": [
+        "Add lessons with a named write_back target, references_used and strengths_observed to this task impact record.",
+        "Capture owner corrections as source-bound decision entries; never infer owner answers from defaults.",
+        "Update this recipe only from a concrete omission or accepted lesson, retaining revision history; propose a check/reference when a recurrence can be reproduced.",
+        "Publish source-bound evidence and report implementation, machine verification and outstanding visual/device/child/owner gates separately."
+      ],
+      "served_prompts": [],
+      "revision_history": [
+        "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.",
+        "2026-10-03: Review fixes (Claude): the premise touchpoint waits for the owner instead of proceeding."
+      ],
+      "revision": 2
+    },
+    {
+      "id": "INT-COMPANION",
+      "says": [
+        "add a new stuffie friend",
+        "let the bunny follow Roshan"
+      ],
+      "minimum_input": "who",
+      "match_patterns": [
+        "\\b(?:stuffie|follow Roshan|new friend)\\b"
+      ],
+      "recipe": {
+        "id": "REC-COMPANION",
+        "path": "design/reference/recipes/companion.md"
+      },
+      "defaults": "Preserve approved recurring identity; no 3D-era follower copying.",
+      "read_first": [
+        "AGENTS.md",
+        "audit/MASTER_AUDIT_2026-08-09.md",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+        "design/05_DOC_LEDGER.md",
+        "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+        "design/reference/strengths.json",
+        "STUFFIE_COMPANIONS.md",
+        "design/templates/CHARACTER_MOVEMENT_PROFILE_V1.md"
+      ],
+      "strengths": [
+        "S-06",
+        "S-14"
+      ],
+      "expand": [
+        "Create source-bound identity/personality card and Canvas follower profile; avoid covering Roshan/targets, own side/return/resume and additive save keys. For Roshan the identity anchor is `roshan_base.png` or a base-world atlas; career art is a costume or pose reference only and `roshan_sprite.png` is never bound (it is retired, ODR-ROSHAN-Q16). The tail is iridescent; name the light state of the exemplar (ODR-ROSHAN-IRIDESCENT, ODR-ROSHAN-Q12).",
+        "Inspect current shared consumers, additive saves/lifecycle and exact source authority; plan missing evidence instead of inheriting unrelated acceptance."
+      ],
+      "variety_rules": [
+        "Preserve sourced canon/identity and picture-first meaningful action; add only the requested bounded change."
+      ],
+      "owner_touchpoints": [
+        {
+          "question": "May this new recurring character join the game?",
+          "default": "wait: nothing is added until the owner approves its identity sheet",
+          "trigger": "New recurring character (DL-PLAN-01)"
+        }
+      ],
+      "gates": [
+        "python -B tools/audit_document_authority.py",
+        "python -B tools/audit_development.py --base auto",
+        "Changed GDScript: python -m gdtoolkit.parser plus tools/lint_inference.py; exact Godot 4.7.2-stable import/full scripts/ci.sh and exact-head green branch CI before integration. No high-risk workflow edits without explicit task authority.",
+        "Evidence lanes: machine; Mobile 1280x720 and wide-phone visual; older Android phone and M11 device; private child observation; owner review. Missing lanes remain open.",
+        "Preserve original assets/book, assets/audio/voices and assets/characters/friends; license each new asset; true Canvas 2D, Mobile/Speedy, one finger, voice plus pointer, no punitive loss, no passive award, additive saves."
+      ],
+      "write_backs": [
+        "Add lessons with a named write_back target, references_used and strengths_observed to this task impact record.",
+        "Capture owner corrections as source-bound decision entries; never infer owner answers from defaults.",
+        "Update this recipe only from a concrete omission or accepted lesson, retaining revision history; propose a check/reference when a recurrence can be reproduced.",
+        "Publish source-bound evidence and report implementation, machine verification and outstanding visual/device/child/owner gates separately."
+      ],
+      "served_prompts": [],
+      "revision_history": [
+        "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.",
+        "2026-10-03: Review fixes (Claude): the touchpoint is a question that waits for the owner; Roshan identity anchor named."
+      ],
+      "revision": 2
+    },
+    {
+      "id": "INT-EVENT",
+      "says": [
+        "a birthday surprise",
+        "a snowy day in the castle"
+      ],
+      "minimum_input": "the occasion",
+      "match_patterns": [
+        "\\b(?:birthday surprise|snowy day|seasonal|weather event)\\b"
+      ],
+      "recipe": {
+        "id": "REC-EVENT",
+        "path": "design/reference/recipes/event.md"
+      },
+      "defaults": "Approved room/art with an additive optional event layer; no progress expiry.",
+      "read_first": [
+        "AGENTS.md",
+        "audit/MASTER_AUDIT_2026-08-09.md",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+        "design/05_DOC_LEDGER.md",
+        "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+        "design/reference/strengths.json",
+        "design/10_CHAPTER_REFERENCE_LIBRARY.md"
+      ],
+      "strengths": [
+        "S-08",
+        "S-14"
+      ],
+      "expand": [
+        "Write bounded occasion card with causal canon, distinct verbs, pictures/voice, optional event save key/default and disabled/expired state preserving earned results.",
+        "Inspect current shared consumers, additive saves/lifecycle and exact source authority; plan missing evidence instead of inheriting unrelated acceptance."
+      ],
+      "variety_rules": [
+        "Preserve sourced canon/identity and picture-first meaningful action; add only the requested bounded change."
+      ],
+      "owner_touchpoints": [
+        {
+          "question": "May this event's premise be added?",
+          "default": "wait: nothing permanent is added until the owner answers",
+          "trigger": "New permanent premise or major plot (DL-PLAN-01)"
+        }
+      ],
+      "gates": [
+        "python -B tools/audit_document_authority.py",
+        "python -B tools/audit_development.py --base auto",
+        "Changed GDScript: python -m gdtoolkit.parser plus tools/lint_inference.py; exact Godot 4.7.2-stable import/full scripts/ci.sh and exact-head green branch CI before integration. No high-risk workflow edits without explicit task authority.",
+        "Evidence lanes: machine; Mobile 1280x720 and wide-phone visual; older Android phone and M11 device; private child observation; owner review. Missing lanes remain open.",
+        "Preserve original assets/book, assets/audio/voices and assets/characters/friends; license each new asset; true Canvas 2D, Mobile/Speedy, one finger, voice plus pointer, no punitive loss, no passive award, additive saves."
+      ],
+      "write_backs": [
+        "Add lessons with a named write_back target, references_used and strengths_observed to this task impact record.",
+        "Capture owner corrections as source-bound decision entries; never infer owner answers from defaults.",
+        "Update this recipe only from a concrete omission or accepted lesson, retaining revision history; propose a check/reference when a recurrence can be reproduced.",
+        "Publish source-bound evidence and report implementation, machine verification and outstanding visual/device/child/owner gates separately."
+      ],
+      "served_prompts": [],
+      "revision_history": [
+        "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.",
+        "2026-10-03: Review fixes (Claude): the touchpoint is a question that waits for the owner."
+      ],
+      "revision": 2
+    },
+    {
+      "id": "INT-VOICE-LINES",
+      "says": [
+        "Roshan should say ..."
+      ],
+      "minimum_input": "the moment",
+      "match_patterns": [
+        "\\bRoshan should say\\b"
+      ],
+      "recipe": {
+        "id": "REC-VOICE-LINES",
+        "path": "design/reference/recipes/voice_lines.md"
+      },
+      "defaults": "Synthetic provisional voices through the Parler pipeline in VOICE_MANIFEST.md; exact semantic cue routing; family recordings are never altered or imitated.",
+      "read_first": [
+        "AGENTS.md",
+        "audit/MASTER_AUDIT_2026-08-09.md",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+        "design/05_DOC_LEDGER.md",
+        "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+        "design/reference/strengths.json",
+        "assets/audio/voices/VOICE_MANIFEST.md",
+        "tools/audit_audio_quality.py"
+      ],
+      "strengths": [
+        "S-07"
+      ],
+      "expand": [
+        "List the moment, key, speaker and exact line, then the route (folder/prefix), required-event ownership and overlap/ducking. New provisional lines use the Parler candidate, selector and master pipeline in assets/audio/voices/VOICE_MANIFEST.md; the legacy Kokoro path is not used for new lines. Hash the provenance and update the quality and voice ledgers.",
+        "Inspect current shared consumers, additive saves/lifecycle and exact source authority; plan missing evidence instead of inheriting unrelated acceptance."
+      ],
+      "variety_rules": [
+        "Preserve sourced canon/identity and picture-first meaningful action; add only the requested bounded change."
+      ],
+      "owner_touchpoints": [],
+      "gates": [
+        "python -B tools/audit_document_authority.py",
+        "python -B tools/audit_development.py --base auto",
+        "Changed GDScript: python -m gdtoolkit.parser plus tools/lint_inference.py; exact Godot 4.7.2-stable import/full scripts/ci.sh and exact-head green branch CI before integration. No high-risk workflow edits without explicit task authority.",
+        "Evidence lanes: machine; Mobile 1280x720 and wide-phone visual; older Android phone and M11 device; private child observation; owner review. Missing lanes remain open.",
+        "Preserve original assets/book, assets/audio/voices and assets/characters/friends; license each new asset; true Canvas 2D, Mobile/Speedy, one finger, voice plus pointer, no punitive loss, no passive award, additive saves."
+      ],
+      "write_backs": [
+        "Add lessons with a named write_back target, references_used and strengths_observed to this task impact record.",
+        "Capture owner corrections as source-bound decision entries; never infer owner answers from defaults.",
+        "Update this recipe only from a concrete omission or accepted lesson, retaining revision history; propose a check/reference when a recurrence can be reproduced.",
+        "Publish source-bound evidence and report implementation, machine verification and outstanding visual/device/child/owner gates separately."
+      ],
+      "served_prompts": [],
+      "revision_history": [
+        "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.",
+        "2026-10-03: Review fixes (Claude): names the Parler pipeline and rules out Kokoro for new lines."
+      ],
+      "revision": 2
+    },
+    {
+      "id": "INT-ART",
+      "says": [
+        "make a new prop for the kitchen"
+      ],
+      "minimum_input": "the object and where it goes",
+      "match_patterns": [
+        "\\bnew prop\\b"
+      ],
+      "recipe": {
+        "id": "REC-ART",
+        "path": "design/reference/recipes/art.md"
+      },
+      "defaults": "Reuse approved art first; source-bound named missing gap only.",
+      "read_first": [
+        "AGENTS.md",
+        "audit/MASTER_AUDIT_2026-08-09.md",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+        "design/05_DOC_LEDGER.md",
+        "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+        "design/reference/strengths.json",
+        "ART_STYLE_GUIDE.md",
+        "ASSET_LICENSES.md"
+      ],
+      "strengths": [
+        "S-06",
+        "S-08"
+      ],
+      "expand": [
+        "Inventory source masters and consumers, fill the art role/style/identity/size card, and have Codex create a separate lossless derivative or the named new asset with provenance and licence; review it in runtime at both aspects. For Roshan the identity anchor is `roshan_base.png` or a base-world atlas; career art is a costume or pose reference only and `roshan_sprite.png` is never bound (it is retired, ODR-ROSHAN-Q16). The tail is iridescent; name the light state of the exemplar (ODR-ROSHAN-IRIDESCENT, ODR-ROSHAN-Q12).",
+        "Inspect current shared consumers, additive saves/lifecycle and exact source authority; plan missing evidence instead of inheriting unrelated acceptance."
+      ],
+      "variety_rules": [
+        "Preserve sourced canon/identity and picture-first meaningful action; add only the requested bounded change."
+      ],
+      "owner_touchpoints": [
+        {
+          "question": "Does the new art look right in the game?",
+          "default": "keep the current art until the owner accepts Codex's in-game before-and-after board",
+          "trigger": "Named owner visual acceptance (DL-QA-06)"
+        }
+      ],
+      "gates": [
+        "python -B tools/audit_document_authority.py",
+        "python -B tools/audit_development.py --base auto",
+        "Changed GDScript: python -m gdtoolkit.parser plus tools/lint_inference.py; exact Godot 4.7.2-stable import/full scripts/ci.sh and exact-head green branch CI before integration. No high-risk workflow edits without explicit task authority.",
+        "Evidence lanes: machine; Mobile 1280x720 and wide-phone visual; older Android phone and M11 device; private child observation; owner review. Missing lanes remain open.",
+        "Preserve original assets/book, assets/audio/voices and assets/characters/friends; license each new asset; true Canvas 2D, Mobile/Speedy, one finger, voice plus pointer, no punitive loss, no passive award, additive saves."
+      ],
+      "write_backs": [
+        "Add lessons with a named write_back target, references_used and strengths_observed to this task impact record.",
+        "Capture owner corrections as source-bound decision entries; never infer owner answers from defaults.",
+        "Update this recipe only from a concrete omission or accepted lesson, retaining revision history; propose a check/reference when a recurrence can be reproduced.",
+        "Publish source-bound evidence and report implementation, machine verification and outstanding visual/device/child/owner gates separately."
+      ],
+      "served_prompts": [],
+      "revision_history": [
+        "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.",
+        "2026-10-03: Review fixes (Claude): Codex builds the art; Roshan identity anchor named; the touchpoint is a question."
+      ],
+      "revision": 2
+    },
+    {
+      "id": "INT-ANIMATION",
+      "says": [
+        "make Roshan do a cartwheel"
+      ],
+      "minimum_input": "the action",
+      "match_patterns": [
+        "\\b(?:cartwheel|animate|character animation)\\b"
+      ],
+      "recipe": {
+        "id": "REC-ANIMATION",
+        "path": "design/reference/recipes/character_animation.md"
+      },
+      "defaults": "Inventory approved authored sources first. The recorded 2026-10-03 owner direction selects local character/object workflows, APIs for cinematic scenes, and Aseprite cleanup where practical; use [the production protocol](../../animation/ANIMATION_PRODUCTION_PROTOCOL.md) and [job card](../../templates/ANIMATION_JOB_CARD_V1.md). Keep polished storybook identity and true Canvas 2D gameplay. This recipe grants no method permission or performance acceptance.",
+      "read_first": [
+        "AGENTS.md",
+        "audit/MASTER_AUDIT_2026-08-09.md",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+        "design/05_DOC_LEDGER.md",
+        "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+        "design/reference/strengths.json",
+        "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+        "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+        "design/templates/CHARACTER_MOVEMENT_PROFILE_V1.md",
+        "design/templates/ANIMATION_JOB_CARD_V1.md"
+      ],
+      "strengths": [
+        "S-04",
+        "S-06"
+      ],
+      "expand": [
+        "Before executing animation, compare the latest explicit owner direction with AGENTS, design rules and the production protocol. Repository policy may lag owner instructions; record and reconcile any actual authority conflict before dependent production. Do not infer permission from this recipe or treat a source as superseded merely because it is older.",
+        "Write one source-bound intention and movement/profile job card: sources and acceptance scopes, fixed/moving parts, geometry, entry/exit, contact/support, identity/topology/style, tolerances, selected authorized method, attempts, cleanup/wall-time limits and existing funded task budget. Use the current [animation job card](../../templates/ANIMATION_JOB_CARD_V1.md); keep provider-specific executable prompts separate.",
+        "Inventory approved authored states, keys, source masters and consumers first; reuse suitable art and record named missing views/contact/transitions before authorized gap generation. Preserve originals, keep separate editable masters and exports, and introduce no 3D assets/model or rig fallback. For Roshan the identity anchor is `roshan_base.png` or a base-world atlas; career art is a costume or pose reference only and `roshan_sprite.png` is never bound (it is retired, ODR-ROSHAN-Q16). The tail is iridescent; name the light state of the exemplar (ODR-ROSHAN-IRIDESCENT, ODR-ROSHAN-Q12).",
+        "Declare the selected authorized production lane before making pixels. Gameplay uses true Canvas 2D with stable pivots/sockets, readable contact/support, timing and loop seams. Record native inputs/outputs, source hashes/licences, workflow/provider revision, request/prompt/settings/seed when exposed, attempts/time/cost, frame mapping and every edit/retiming/interpolation actually used; no method declaration accepts missing acting or identity drift.",
+        "Run the exact validators required by the selected lane: gameplay atlas/anchor/engine/lifecycle/contact gates and production-profile cinematic manifest audit when applicable. Preserve strict full-frame per-index provenance and the frame-regeneration validator whenever that lane is selected or required; never fabricate still-generation records for another method or rewrite historical rejects. Review every affected transition/loop seam at full speed and frame-step, then obtain exact human identity/topology/style/motion, actual device, child and owner evidence. Missing evidence stays blocking; successful encoding or metrics do not grant acceptance."
+      ],
+      "variety_rules": [
+        "Character intention drives anticipation/action/contact/settle; a generic sticker wobble cannot replace acting."
+      ],
+      "owner_touchpoints": [
+        {
+          "question": "Review the key/contact poses and exact loop performance?",
+          "default": "preserve approved atlas identity and sourced acting profile",
+          "trigger": "Required human/owner identity or final-performance acceptance only"
+        }
+      ],
+      "gates": [
+        "python -B tools/audit_document_authority.py",
+        "python -B tools/audit_development.py --base auto",
+        "Changed GDScript: python -m gdtoolkit.parser plus tools/lint_inference.py; exact Godot 4.7.2-stable import/full scripts/ci.sh and exact-head green branch CI before integration. No high-risk workflow edits without explicit task authority.",
+        "Evidence lanes: machine; Mobile 1280x720 and wide-phone visual; older Android phone and M11 device; private child observation; owner review. Missing lanes remain open.",
+        "Preserve original assets/book, assets/audio/voices and assets/characters/friends; license each new asset; true Canvas 2D, Mobile/Speedy, one finger, voice plus pointer, no punitive loss, no passive award, additive saves."
+      ],
+      "write_backs": [
+        "Add lessons with a named write_back target, references_used and strengths_observed to this task impact record.",
+        "Capture owner corrections as source-bound decision entries; never infer owner answers from defaults.",
+        "Update this recipe only from a concrete omission or accepted lesson, retaining revision history; propose a check/reference when a recurrence can be reproduced.",
+        "Publish source-bound evidence and report implementation, machine verification and outstanding visual/device/child/owner gates separately."
+      ],
+      "served_prompts": [],
+      "revision_history": [
+        "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.",
+        "2026-10-03: Production-lane wording routes exact current owner/repository authority and records reconciliation gaps; no method permission or performance acceptance is inferred.",
+        "2026-10-03: Review fixes (Claude): Roshan identity anchor named.",
+        "2026-10-03: Owner-authorized local character/object and API cinematic routing, Aseprite bridge, and current animation job card replace the template gap; exact pixels and device acceptance remain pending."
+      ],
+      "revision": 3
+    },
+    {
+      "id": "INT-STORY-CLIP",
+      "says": [
+        "a story clip when the pool is clean"
+      ],
+      "minimum_input": "the moment",
+      "match_patterns": [
+        "\\bstory clip\\b"
+      ],
+      "recipe": {
+        "id": "REC-STORY-CLIP",
+        "path": "design/reference/recipes/story_clip.md"
+      },
+      "defaults": "Owner-selected Day One clips retain exact source-specific straight cuts. For other authorized new or replacement cinematic scenes, the 2026-10-03 owner direction defaults to API video workflows, with Aseprite for bounded repair windows where useful, under the [production protocol](../../animation/ANIMATION_PRODUCTION_PROTOCOL.md) and [animation job card](../../templates/ANIMATION_JOB_CARD_V1.md); this recipe grants no method permission or delivery acceptance.",
+      "read_first": [
+        "AGENTS.md",
+        "audit/MASTER_AUDIT_2026-08-09.md",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+        "design/05_DOC_LEDGER.md",
+        "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+        "design/reference/strengths.json",
+        "design/templates/IMAGINE_SHOT_CARD_V1.md",
+        "design/templates/ANIMATION_JOB_CARD_V1.md",
+        "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+        "scripts/day_one_story_clips.gd",
+        "AGENTS.md"
+      ],
+      "strengths": [
+        "S-05",
+        "S-06"
+      ],
+      "expand": [
+        "Classify selected-cut Day One versus new/replacement footage; bind source-specific canon, before/after gameplay seams, approved source ranges and exact current owner direction. Repository policy may lag owner instructions; record and reconcile any actual conflict before executing dependent animation. A recipe cannot supersede the binding contract.",
+        "For selected Day One clips preserve source hashes and exact frame boundaries, straight cuts only, allowed whole-canvas encoding/audio fades, runtime manifest/licences and story actions between scenes; status OWNER_DIRECTED_RUNTIME_CLIP, not DELIVERY_ACCEPTED. Do not regenerate, retime, repeat, interpolate, crop, warp or repair these owner-selected clips.",
+        "For an authorized Imagine job write the V1 shot card: one clip/shot, at most one camera move, 2-4 role-bound images IMAGE_1..IMAGE_4, short action-first timeline, fixed/moving/end state/negatives and final Sound: line. Record source acceptance scope and the action job-card method/budget/attempt limits, preserve native outputs and editable masters, and label readiness separately from any accepted pixels. For Roshan the identity anchor is `roshan_base.png` or a base-world atlas; career art is a costume or pose reference only and `roshan_sprite.png` is never bound (it is retired, ODR-ROSHAN-Q16). The tail is iridescent; name the light state of the exemplar (ODR-ROSHAN-IRIDESCENT, ODR-ROSHAN-Q12).",
+        "Publish and remotely verify the complete archive visual packet and tiny generator cards, then audit the selected authorized delivery lane. Preserve source/derivation/native-to-delivery provenance and exact machine scene/character/contact/track/geometry gates. Run the strict frame-regeneration validator whenever the full-frame lane is selected or required, without fabricating still records for other methods. Human identity/topology/style/motion, full-speed/frame-step transitions/seams, actual device, child and owner review remain separately blocking for new footage."
+      ],
+      "variety_rules": [
+        "Each short clip carries only the between-scene story moment; it never performs the child action."
+      ],
+      "owner_touchpoints": [
+        {
+          "question": "Approve the exact first frame/layout lock?",
+          "default": "existing approved room/identity/prop sources, no generated storyboard as pixels",
+          "trigger": "A generation job missing approved IMAGE_1 remains generation-blocked while its review packet is still published"
+        }
+      ],
+      "gates": [
+        "python -B tools/audit_document_authority.py",
+        "python -B tools/audit_development.py --base auto",
+        "Changed GDScript: python -m gdtoolkit.parser plus tools/lint_inference.py; exact Godot 4.7.2-stable import/full scripts/ci.sh and exact-head green branch CI before integration. No high-risk workflow edits without explicit task authority.",
+        "Evidence lanes: machine; Mobile 1280x720 and wide-phone visual; older Android phone and M11 device; private child observation; owner review. Missing lanes remain open.",
+        "Preserve original assets/book, assets/audio/voices and assets/characters/friends; license each new asset; true Canvas 2D, Mobile/Speedy, one finger, voice plus pointer, no punitive loss, no passive award, additive saves."
+      ],
+      "write_backs": [
+        "Add lessons with a named write_back target, references_used and strengths_observed to this task impact record.",
+        "Capture owner corrections as source-bound decision entries; never infer owner answers from defaults.",
+        "Update this recipe only from a concrete omission or accepted lesson, retaining revision history; propose a check/reference when a recurrence can be reproduced.",
+        "Publish source-bound evidence and report implementation, machine verification and outstanding visual/device/child/owner gates separately."
+      ],
+      "served_prompts": [],
+      "revision_history": [
+        "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.",
+        "2026-10-03: Production-lane wording routes exact current owner/repository authority and records reconciliation gaps; no method permission or performance acceptance is inferred.",
+        "2026-10-03: Review fixes (Claude): Roshan identity anchor named for bound images.",
+        "2026-10-03: Route new cinematic work to the owner-preferred API lane and the current method/budget/derivation job card; preserve selected-cut restrictions."
+      ],
+      "revision": 3
+    },
+    {
+      "id": "INT-NEW-CHAPTER",
+      "says": [
+        "a new chapter in the north"
+      ],
+      "minimum_input": "the premise",
+      "match_patterns": [
+        "\\bnew chapter\\b"
+      ],
+      "recipe": {
+        "id": "REC-NEW-CHAPTER",
+        "path": "design/reference/recipes/new_chapter.md"
+      },
+      "defaults": "Wrap the binding chapter guide and brief; reuse strategic families, preserve current causal canon and geography.",
+      "read_first": [
+        "AGENTS.md",
+        "audit/MASTER_AUDIT_2026-08-09.md",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+        "design/05_DOC_LEDGER.md",
+        "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+        "design/reference/strengths.json",
+        "design/09_CHAPTER_DEVELOPMENT_GUIDE.md",
+        "design/templates/CHAPTER_BRIEF_V1.md",
+        "design/10_CHAPTER_REFERENCE_LIBRARY.md"
+      ],
+      "strengths": [
+        "S-01",
+        "S-02",
+        "S-08",
+        "S-14"
+      ],
+      "expand": [
+        "Fill chapter brief with source-bound canon/identity/room/causal dependencies, child desire, pacing, touch, persistent consequences, return and save defaults.",
+        "Inventory unused/reusable families and inspect consumers/quality/licences; choose existing implemented extension path, label missing platform services.",
+        "Build one representative playable activity and evaluate positive/passive/repeat/save/re-entry contact/cues; expand autonomously inside approved scope.",
+        "Collect source-bound visual/device/child/owner evidence and retro write-back to guide, references and sensors; a chapter template does not commission implementation."
+      ],
+      "variety_rules": [
+        "Connect familiar verbs to a new coherent desire, consequence and emotional arc, not a checklist of old jobs."
+      ],
+      "owner_touchpoints": [
+        {
+          "question": "Approve the chapter premise and boundaries?",
+          "default": "wait for the owner's approval of the premise and boundaries; a scoped brief may be drafted meanwhile",
+          "trigger": "New chapter or major cast/plot change only; once approved implementation/expansion within scope is delegated"
+        }
+      ],
+      "gates": [
+        "python -B tools/audit_document_authority.py",
+        "python -B tools/audit_development.py --base auto",
+        "Changed GDScript: python -m gdtoolkit.parser plus tools/lint_inference.py; exact Godot 4.7.2-stable import/full scripts/ci.sh and exact-head green branch CI before integration. No high-risk workflow edits without explicit task authority.",
+        "Evidence lanes: machine; Mobile 1280x720 and wide-phone visual; older Android phone and M11 device; private child observation; owner review. Missing lanes remain open.",
+        "Preserve original assets/book, assets/audio/voices and assets/characters/friends; license each new asset; true Canvas 2D, Mobile/Speedy, one finger, voice plus pointer, no punitive loss, no passive award, additive saves."
+      ],
+      "write_backs": [
+        "Add lessons with a named write_back target, references_used and strengths_observed to this task impact record.",
+        "Capture owner corrections as source-bound decision entries; never infer owner answers from defaults.",
+        "Update this recipe only from a concrete omission or accepted lesson, retaining revision history; propose a check/reference when a recurrence can be reproduced.",
+        "Publish source-bound evidence and report implementation, machine verification and outstanding visual/device/child/owner gates separately."
+      ],
+      "served_prompts": [],
+      "revision_history": [
+        "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.",
+        "2026-10-03: Review fixes (Claude): the premise touchpoint waits for the owner (DL-PLAN-01)."
+      ],
+      "revision": 2
+    },
+    {
+      "id": "INT-REPAIR",
+      "says": [
+        "fix the Geologist fins"
+      ],
+      "minimum_input": "the defect",
+      "match_patterns": [
+        "^\\s*(?:fix|repair|finish|confirm or dismiss|check the fix for)\\b",
+        "^\\s*collect the missing verification evidence\\b"
+      ],
+      "recipe": {
+        "id": "REC-REPAIR",
+        "path": "design/reference/recipes/repair.md"
+      },
+      "defaults": "Smallest repair under master section 9; a verified reproduction determines scope. Evidence collection first for fixed-pending findings.",
+      "read_first": [
+        "AGENTS.md",
+        "audit/MASTER_AUDIT_2026-08-09.md",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+        "design/05_DOC_LEDGER.md",
+        "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+        "design/reference/strengths.json",
+        "audit/MASTER_AUDIT_2026-08-09.md",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md"
+      ],
+      "strengths": [
+        "S-01",
+        "S-10"
+      ],
+      "expand": [
+        "Check the finding's lifecycle first: BLOCKED_EXTERNAL needs its outside evidence, OWNER_DECISION_REQUIRED needs the owner's answer and DEFERRED_WITH_REASON stays parked; only open defects take a source change. Then read the canonical finding, original source/history, rule and current implementation, and reproduce at the exact baseline; do not fabricate a new defect for paperwork.",
+        "For FIXED_PENDING_VERIFICATION, extract missing closure evidence and collect exact build/device/visual/child/owner records; no new code change unless a concrete failure reproduces.",
+        "Implement minimal correction preserving save identities/protected art; mechanical refactors extract behavior, with unchanged probes.",
+        "Run target and surrounding/passive/save/re-entry probes, full gates and exact-head CI; preserve original history, advance lifecycle only with its actual required evidence."
+      ],
+      "variety_rules": [
+        "Do not redesign approved content while repairing a bounded defect."
+      ],
+      "owner_touchpoints": [
+        {
+          "question": "Accept this exact repaired art/runtime candidate?",
+          "default": "compare source-bound before/after states against named identity/quality criteria",
+          "trigger": "Only named visual/owner acceptance gates; routine repair implementation is authorized"
+        }
+      ],
+      "gates": [
+        "python -B tools/audit_document_authority.py",
+        "python -B tools/audit_development.py --base auto",
+        "Changed GDScript: python -m gdtoolkit.parser plus tools/lint_inference.py; exact Godot 4.7.2-stable import/full scripts/ci.sh and exact-head green branch CI before integration. No high-risk workflow edits without explicit task authority.",
+        "Evidence lanes: machine; Mobile 1280x720 and wide-phone visual; older Android phone and M11 device; private child observation; owner review. Missing lanes remain open.",
+        "Preserve original assets/book, assets/audio/voices and assets/characters/friends; license each new asset; true Canvas 2D, Mobile/Speedy, one finger, voice plus pointer, no punitive loss, no passive award, additive saves."
+      ],
+      "write_backs": [
+        "Add lessons with a named write_back target, references_used and strengths_observed to this task impact record.",
+        "Capture owner corrections as source-bound decision entries; never infer owner answers from defaults.",
+        "Update this recipe only from a concrete omission or accepted lesson, retaining revision history; propose a check/reference when a recurrence can be reproduced.",
+        "Publish source-bound evidence and report implementation, machine verification and outstanding visual/device/child/owner gates separately."
+      ],
+      "served_prompts": [],
+      "revision_history": [
+        "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.",
+        "2026-10-03: Review fixes (Claude): step 1 checks the lifecycle first; roadmap verbs (finish, confirm or dismiss, check the fix for) route here."
+      ],
+      "revision": 2
+    },
+    {
+      "id": "INT-POLISH",
+      "says": [
+        "make the movie lounge nicer"
+      ],
+      "minimum_input": "the area",
+      "match_patterns": [
+        "\\b(?:polish|nicer|improve the look)\\b"
+      ],
+      "recipe": {
+        "id": "REC-POLISH",
+        "path": "design/reference/recipes/polish.md"
+      },
+      "defaults": "One scoped area study and source-bound before/after board; reuse accepted art and repair only named quality gaps.",
+      "read_first": [
+        "AGENTS.md",
+        "audit/MASTER_AUDIT_2026-08-09.md",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+        "design/05_DOC_LEDGER.md",
+        "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+        "design/reference/strengths.json",
+        "design/10_CHAPTER_REFERENCE_LIBRARY.md",
+        "ART_SCORING_GOVERNANCE_2026-07-18.md"
+      ],
+      "strengths": [
+        "S-02",
+        "S-03",
+        "S-11"
+      ],
+      "expand": [
+        "Study the area from Codex's captures at two aspects; identify exact weakness candidates and current strengths with source hashes.",
+        "Choose one bounded repair or lawful derived variant; record why reuse does or does not satisfy it.",
+        "Preserve identity, picture-first cues, Mobile draw order/overdraw and no reading dependence; generate only named gaps with current authority.",
+        "Codex builds the before-and-after boards; run the relevant art, runtime and static gates and compare them. Device, child and owner results remain pending until supplied."
+      ],
+      "variety_rules": [
+        "Strengthen readability, contact or rhythm with one clear change rather than inventing a new style."
+      ],
+      "owner_touchpoints": [
+        {
+          "question": "Accept the exact before/after board?",
+          "default": "retain approved identity/composition and inspect the named local improvement",
+          "trigger": "Visual acceptance; no routine planning checkpoint"
+        }
+      ],
+      "gates": [
+        "python -B tools/audit_document_authority.py",
+        "python -B tools/audit_development.py --base auto",
+        "Changed GDScript: python -m gdtoolkit.parser plus tools/lint_inference.py; exact Godot 4.7.2-stable import/full scripts/ci.sh and exact-head green branch CI before integration. No high-risk workflow edits without explicit task authority.",
+        "Evidence lanes: machine; Mobile 1280x720 and wide-phone visual; older Android phone and M11 device; private child observation; owner review. Missing lanes remain open.",
+        "Preserve original assets/book, assets/audio/voices and assets/characters/friends; license each new asset; true Canvas 2D, Mobile/Speedy, one finger, voice plus pointer, no punitive loss, no passive award, additive saves."
+      ],
+      "write_backs": [
+        "Add lessons with a named write_back target, references_used and strengths_observed to this task impact record.",
+        "Capture owner corrections as source-bound decision entries; never infer owner answers from defaults.",
+        "Update this recipe only from a concrete omission or accepted lesson, retaining revision history; propose a check/reference when a recurrence can be reproduced.",
+        "Publish source-bound evidence and report implementation, machine verification and outstanding visual/device/child/owner gates separately."
+      ],
+      "served_prompts": [],
+      "revision_history": [
+        "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.",
+        "2026-10-03: Review fixes (Claude): Codex builds the captures and boards."
+      ],
+      "revision": 2
+    },
+    {
+      "id": "INT-RETIRE",
+      "says": [
+        "delete the old backpack art"
+      ],
+      "minimum_input": "what",
+      "match_patterns": [
+        "^\\s*(?:delete|retire|remove)\\b"
+      ],
+      "recipe": {
+        "id": "REC-RETIRE",
+        "path": "design/reference/recipes/retire.md"
+      },
+      "defaults": "Inventory references and preservation first; retirement does not delete progress or protected originals.",
+      "read_first": [
+        "AGENTS.md",
+        "audit/MASTER_AUDIT_2026-08-09.md",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+        "design/05_DOC_LEDGER.md",
+        "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+        "design/reference/strengths.json",
+        "docs/handoffs/codex_roshan_art_repairs_2026-09-30/data/deletion_inventory.json",
+        "ASSET_LICENSES.md"
+      ],
+      "strengths": [
+        "S-01",
+        "S-07"
+      ],
+      "expand": [
+        "Inventory files and dynamic/static consumers, licences, source hashes, history and owner-authorized scope; search misses are not proof of unused status.",
+        "Choose archive/reference preservation and dewire runtime first; keep save tombstones and all child-visible progress.",
+        "Delete only authorized unprotected files once consumer proof is complete; record every removed path in impact and update changed authority facts.",
+        "Run importer/full probes/hash/save/regression checks; preserve release boundaries and original history."
+      ],
+      "variety_rules": [
+        "Remove only the named retired scope; no mass cleanup of unrelated assets."
+      ],
+      "owner_touchpoints": [
+        {
+          "question": "Authorize the named destructive retirement?",
+          "default": "keep source/history evidence and only remove proved unused unprotected runtime files",
+          "trigger": "A vague cleanup request does not authorize protected-source destruction; exact named removal instruction already supplies authority"
+        }
+      ],
+      "gates": [
+        "python -B tools/audit_document_authority.py",
+        "python -B tools/audit_development.py --base auto",
+        "Changed GDScript: python -m gdtoolkit.parser plus tools/lint_inference.py; exact Godot 4.7.2-stable import/full scripts/ci.sh and exact-head green branch CI before integration. No high-risk workflow edits without explicit task authority.",
+        "Evidence lanes: machine; Mobile 1280x720 and wide-phone visual; older Android phone and M11 device; private child observation; owner review. Missing lanes remain open.",
+        "Preserve original assets/book, assets/audio/voices and assets/characters/friends; license each new asset; true Canvas 2D, Mobile/Speedy, one finger, voice plus pointer, no punitive loss, no passive award, additive saves."
+      ],
+      "write_backs": [
+        "Add lessons with a named write_back target, references_used and strengths_observed to this task impact record.",
+        "Capture owner corrections as source-bound decision entries; never infer owner answers from defaults.",
+        "Update this recipe only from a concrete omission or accepted lesson, retaining revision history; propose a check/reference when a recurrence can be reproduced.",
+        "Publish source-bound evidence and report implementation, machine verification and outstanding visual/device/child/owner gates separately."
+      ],
+      "served_prompts": [],
+      "revision_history": [
+        "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities."
+      ],
+      "revision": 2
+    },
+    {
+      "id": "INT-PUBLISH-HANDOFF",
+      "says": [
+        "upload it to git as a codex handoff"
+      ],
+      "minimum_input": "the work",
+      "match_patterns": [
+        "\\b(?:upload|publish|handoff|hand off)\\b"
+      ],
+      "recipe": {
+        "id": "REC-PUBLISH-HANDOFF",
+        "path": "design/reference/recipes/publish_handoff.md"
+      },
+      "defaults": "Established owner-authorized Ebonyks/mermaid-roshan-reef durable branch/path and intended recipient access mode.",
+      "read_first": [
+        "AGENTS.md",
+        "audit/MASTER_AUDIT_2026-08-09.md",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+        "design/05_DOC_LEDGER.md",
+        "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+        "design/reference/strengths.json",
+        "AGENTS.md",
+        "SECURITY.md"
+      ],
+      "strengths": [
+        "S-09",
+        "S-10"
+      ],
+      "expand": [
+        "Resolve destination, branch/path and recipient mode at start; if unresolved report HANDOFF_BLOCKED immediately. Protect originals/private data.",
+        "Build a self-contained versioned packet and a manifest with every required file hash and the exact request revision; external animation includes actual role-bound images and an inspectable board, built by Codex, not path lists alone.",
+        "Run packet/audit gates; automatically commit/push material revisions under existing handoff authorization. Label generation/owner-image blocks honestly; publish review requests while blocked.",
+        "Fetch manifest and every required file from the immutable remote revision, compare bytes/SHA-256, test intended recipient access (Codex authentication alone is insufficient). Supply entry/tree/direct-manifest links and receipt with revision/hashes/mode/time before claiming delivery or monitoring return.",
+        "Keep ARCHIVE_COMPLETE, GENERATION_READY, DELIVERY_ACCEPTED and integration/release acceptance distinct."
+      ],
+      "variety_rules": [
+        "One executable shot per animation job; archive detail stays in sidecar rather than pasted prompt."
+      ],
+      "owner_touchpoints": [],
+      "gates": [
+        "python -B tools/audit_document_authority.py",
+        "python -B tools/audit_development.py --base auto",
+        "Changed GDScript: python -m gdtoolkit.parser plus tools/lint_inference.py; exact Godot 4.7.2-stable import/full scripts/ci.sh and exact-head green branch CI before integration. No high-risk workflow edits without explicit task authority.",
+        "Evidence lanes: machine; Mobile 1280x720 and wide-phone visual; older Android phone and M11 device; private child observation; owner review. Missing lanes remain open.",
+        "Preserve original assets/book, assets/audio/voices and assets/characters/friends; license each new asset; true Canvas 2D, Mobile/Speedy, one finger, voice plus pointer, no punitive loss, no passive award, additive saves."
+      ],
+      "write_backs": [
+        "Add lessons with a named write_back target, references_used and strengths_observed to this task impact record.",
+        "Capture owner corrections as source-bound decision entries; never infer owner answers from defaults.",
+        "Update this recipe only from a concrete omission or accepted lesson, retaining revision history; propose a check/reference when a recurrence can be reproduced.",
+        "Publish source-bound evidence and report implementation, machine verification and outstanding visual/device/child/owner gates separately."
+      ],
+      "served_prompts": [],
+      "revision_history": [
+        "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.",
+        "2026-10-03: Review fixes (Claude): boards and images in a packet are built by Codex."
+      ],
+      "revision": 2
+    },
+    {
+      "id": "INT-RELEASE",
+      "says": [
+        "ship it",
+        "push to master"
+      ],
+      "minimum_input": "none",
+      "match_patterns": [
+        "^\\s*(?:ship it|push to master|release it)\\b"
+      ],
+      "recipe": {
+        "id": "REC-RELEASE",
+        "path": "design/reference/recipes/release.md"
+      },
+      "defaults": "Owner release shorthand already authorizes normal green integration and promote workflow, never raw master push.",
+      "read_first": [
+        "AGENTS.md",
+        "audit/MASTER_AUDIT_2026-08-09.md",
+        "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+        "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+        "design/05_DOC_LEDGER.md",
+        "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+        "design/reference/strengths.json",
+        "WORKFLOW_BRANCHING_2026-07-18.md",
+        "AGENTS.md"
+      ],
+      "strengths": [
+        "S-01"
+      ],
+      "expand": [
+        "Verify exact-head green branch/full gates, reconcile origin/dev and integrate, dispatch gh workflow run promote.yml --ref dev, monitor matching dev/master/APK promotion, report stable and dev APK URLs.",
+        "Inspect current shared consumers, additive saves/lifecycle and exact source authority; plan missing evidence instead of inheriting unrelated acceptance."
+      ],
+      "variety_rules": [
+        "Preserve sourced canon/identity and picture-first meaningful action; add only the requested bounded change."
+      ],
+      "owner_touchpoints": [],
+      "gates": [
+        "python -B tools/audit_document_authority.py",
+        "python -B tools/audit_development.py --base auto",
+        "Changed GDScript: python -m gdtoolkit.parser plus tools/lint_inference.py; exact Godot 4.7.2-stable import/full scripts/ci.sh and exact-head green branch CI before integration. No high-risk workflow edits without explicit task authority.",
+        "Evidence lanes: machine; Mobile 1280x720 and wide-phone visual; older Android phone and M11 device; private child observation; owner review. Missing lanes remain open.",
+        "Preserve original assets/book, assets/audio/voices and assets/characters/friends; license each new asset; true Canvas 2D, Mobile/Speedy, one finger, voice plus pointer, no punitive loss, no passive award, additive saves."
+      ],
+      "write_backs": [
+        "Add lessons with a named write_back target, references_used and strengths_observed to this task impact record.",
+        "Capture owner corrections as source-bound decision entries; never infer owner answers from defaults.",
+        "Update this recipe only from a concrete omission or accepted lesson, retaining revision history; propose a check/reference when a recurrence can be reproduced.",
+        "Publish source-bound evidence and report implementation, machine verification and outstanding visual/device/child/owner gates separately."
+      ],
+      "served_prompts": [],
+      "revision_history": [
+        "2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities."
+      ],
+      "revision": 2
+    }
+  ]
+}

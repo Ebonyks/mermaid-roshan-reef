@@ -4,26 +4,9 @@
 
 Racer owner follow-up (2026-10-03): [connected chase rally](../design/RACER_WORLD_RALLY_2026-10-03.md) and [impact](../design/audit_impacts/racer-chase-world-route-20261003.json) supersede the first flat presentation. The route respects Movie Lounge/Family Gallery ancestry, Pool/Hall doors and the Castle bridge; the developed engine retains its mechanics and gains authored seated keys and live picture controls. Historical evidence remains preserved; older Opera integration and device/child/owner/global acceptance remain separate.
 
-Racer existing-engine conversion candidate (2026-10-03): [Canvas port](../design/RACER_EXISTING_ENGINE_2D_PORT_2026-10-03.md) preserves the developed KartGame feature set rather than substituting the partial Opera racer. [Audit impact](../design/audit_impacts/job-game-racer-refinement-20261003.json) and [machine/capture receipt](job_game_refinement_20261003/racer/PORT_VERIFICATION.json) separate implementation, verification and pending external acceptance. The scoped production-3D file census shrinks 52→51; strict game-wide satisfaction remains UNSATISFIED.
 
-Sky Lagoon review iteration (2026-10-01): [corrected ten-object reference and scene](../assets_src/cinematics/sky_lagoon_review_v3_2026-10-01/README.md), [audit impact](../design/audit_impacts/sky-lagoon-review-v3-20261001.json). Two review/correction passes address swing topology/rope occlusion, berry drift, grounding and ambient rhythm. This is agent-reviewed reference evidence; no runtime, owner, device, child, cinematic or finding closure.
-
-Sky Lagoon moderate animation supplement (2026-09-30): [ten larger samples and layered context study](../assets_src/cinematics/sky_lagoon_moderate_motion_v2_2026-09-30/README.md), with [impact record](../design/audit_impacts/sky-lagoon-moderate-animation-20260930.json). Nine six-pose sheets and twelve reused-portrait light states supply 512px Aseprite references; source originals and prior rejected archive are preserved. No runtime, cinematic, owner, device, child or finding-closure acceptance.
-
-Sky Lagoon object-motion study (2026-09-30): [owner correction and unaccepted new swing pose trial](../assets_src/cinematics/sky_lagoon_local_motion_v1_2026-09-30/README.md). Owner rejected transformed source art as the requested animation replacement and the swing lateral axis. Fresh seat-pose trial targets fore-and-aft motion with fixed hooks; visual/contact/in-between gaps remain. No runtime/cinematic/owner/device/child acceptance or finding lifecycle changes.
-
-Arborist art recovery supplement (2026-09-29): [Tree Book handoff](../design/ARBORIST_TREE_BOOK_HANDOFF_2026-09-29.md) archives the previously uncommitted art independently of the obsolete prototype. Historical worktree findings below remain unchanged for runtime; no career implementation or finding closure is inferred.
-
-Arborist practice supplement (2026-09-30): [Opera House test](../design/OPERA_TREE_BOOK_TEST_2026-09-30.md) adds one optional patient with three four-choice decisions and intentional treatment. This scoped candidate does not close MA-PLAY-004 or integrate a new career or Day Two role.
-
-Day Two graphics first pass (2026-09-30): [illustrated review and refresh workflow](day2_art_library_2026-09-30/REPORT.md) inventories individual sources and evaluates career, Hall, birthday and Tree Book sequences. Draft scores and historical compositions guide refinement; current runtime/device/child/owner acceptance and all related finding lifecycles remain unchanged.
-
-Opera imp contest supplement (2026-09-30): the [Codex imp-contest handoff](../docs/handoffs/codex_opera_imp_contest_2026-09-30/README.md) records the owner decisions behind `DL-INT-14`. Each competitive career's imp stays hidden until the final act, which ends in one job-skill contest he can win, and his win restarts that contest at once. Revision 2 adds the inverted form for learning careers: the Teacher's imp teaches with deliberate mistakes and the child beats him by fixing them (the Geologist pending confirmation). Revision 4 leans into silly humor with questions such as which smells the worst. It is a written specification (target contract); it changes no runtime, closes no finding (including MA-OPERA-005, MA-OPERA-009 and MA-PLAY-004) and claims no acceptance.
-
-Roshan identity decision (2026-09-30): the owner makes the approved atlases her primary identity authority and describes her tail as iridescent, lavender-pink-purple or rainbow depending on the light, so the base-world and career renderings are both correct. The Roshan anchor sentences in design 01 and 02 (and in the older style guide, scoring governance and generation contract) are superseded. New Roshan art binds `roshan_base.png` or a base-world atlas as its identity anchor; the [appearance analysis](../docs/handoffs/codex_visual_design_language_2026-09-30/ROSHAN_APPEARANCE_ANALYSIS.md) lists the remaining variance for owner review ([`MA-DOC-008`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-008)).
-
-
-Planning guidance updated 2026-09-05 against integration source `775ceee1`.
+Planning guidance updated 2026-10-03 against integration source `30d82725`.
+Dated updates moved to the [preserved cycle intake history](cycles/2026-10-03-baseline/PLANNING_HISTORY.md); current measurements, roadmap and prompts live in the [cycle home](cycles/README.md).
 This is a document/selected-fact review, not a new whole-game runtime audit.
 The dated evidence below retains its original commit and acceptance limits;
 "current" claims in that sealed snapshot do not describe today's build.
@@ -32,7 +15,7 @@ Game-wide audit satisfaction remains **UNSATISFIED**.
 | Planning question | Current answer and authority |
 |---|---|
 | How should an agent develop a chapter? | Use the [chapter guide](../design/09_CHAPTER_DEVELOPMENT_GUIDE.md) and [brief](../design/templates/CHAPTER_BRIEF_V1.md). The owner approves premise/boundaries; the agent develops the playable result within them, without another routine planning/expansion checkpoint. |
-| How should an agent build a new job game? | No maintained script exists yet ([`MA-DOC-006`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-006)). Use the [interim job-game recipe](JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md#4-interim-job-game-recipe), reconstructed from the Teacher, Geologist and Tree Book builds, and verify every file, symbol and gate at your head; the next Opera career takes star bit 18 and must raise the four `opera_stars` clamps in `scripts/save_state.gd`. Stage J of the [refinement handoff](../docs/handoffs/codex_master_audit_refinement_2026-09-30/README.md) builds the maintained playbook, job catalogue checker, takeover kit and dry run. |
+| How should an agent build a new job game? | Use the current [planning recipe](../design/reference/recipes/add_job.md), [prompt planner](../tools/plan_prompt.py) and [interim build procedure](JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md#4-interim-job-game-recipe). The planner derives current save bits, masks and all clamp sites; recheck at the implementation head. The [fresh cold-start planning receipt](cycles/2026-10-03/COLD_START_BAKERY_TEST.json) grants no job commission or product acceptance. The complete maintained takeover playbook, runtime job-catalogue checker and takeover kit remain open under [`MA-DOC-006`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-006) and Stage J of the [refinement handoff](../docs/handoffs/codex_master_audit_refinement_2026-09-30/README.md). |
 | How much invention is delegated? | Owner decision 2026-09-05 permits minor characters/optional threads preserving canon and free reuse, modification, and combination of mechanics within child/save/medium rules. Major character/plot changes remain reserved. |
 | How should unused assets inform the plan? | Strategically shortlist existing families for story/play benefit, thematic fit, readiness, and integration cost. Suitable discoveries may shape activities within scope. Unused status alone is neither approval nor a reason for inclusion. |
 | Which chapter sources control? | [Chapter 2 spine](../design/CHAPTER2_EIGHT_CAREER_PRODUCTION_SPINE_2026-08-30.md), [cake progression](../design/CHAPTER2_CAKE_VISUAL_PROGRESSION_2026-08-31.md), and scoped [early Chapter 3 route](../design/FAIRY_CONSERVATORY_CHAPTER3_2026-08-30.md). |
@@ -41,6 +24,8 @@ Game-wide audit satisfaction remains **UNSATISFIED**.
 | What facts must be refreshed? | Engine pins in [godot_baseline.json](../tools/godot_baseline.json); global `OPERA_ACTIVE_STAR_MASK` in [SaveState](../scripts/save_state.gd); actual code/probe availability; scoped owner decisions in the ledger. Many present-tense counts and decisions in this audit and in open findings are stale ([`MA-DOC-007`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-007)); check the [staleness audit](../docs/handoffs/codex_reference_consolidation_2026-09-30/STALENESS_AUDIT.md) before relying on a number here, and take counts from the live tools. |
 | How should each character move? | The owner-commissioned [animation branch](animation/README.md) tracks individual personality and movement profiles, starting with [Roshan](../design/animation/ROSHAN_MOVEMENT_LANGUAGE.md). Use the [production protocol](../design/animation/ANIMATION_PRODUCTION_PROTOCOL.md); direction, implemented clips and acceptance are separate. |
 | What blocks what? | A missing cue, device session, or owner decision blocks its dependent work or acceptance claim. Continue independent authorized work. Shared regression/integration gates and strict-zero whole-game 2D satisfaction retain their scopes. |
+
+Scoped 2026-10-03 animation workflow revision: [local/API analysis](../design/animation/WORKFLOW_OPTIONS_2026-10-03.md), [protocol](../design/animation/ANIMATION_PRODUCTION_PROTOCOL.md) and [impact/evidence](../design/audit_impacts/animation-workflow-policy-20261003.json). Owner permits final animation with identity/motion/provenance/device checks, prefers Aseprite, and directs local character/object work with APIs for cinematic scenes. Compulsory per-frame still generation is superseded for new production. No prior reject or runtime/device repair is accepted; finding lifecycles and game-wide **UNSATISFIED** remain unchanged.
 
 ### Next bounded planning work
 
@@ -71,7 +56,7 @@ rules; sealed evidence below remains scoped to its recorded build. Follow the
 |---|---|---|
 | Every task | [Planning entry](#0-planning-entry); [authority and stable rule IDs](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#1-how-to-use-these-rules) | [Document ledger](../design/05_DOC_LEDGER.md); [impact record guide](../design/AUDIT_DEVELOPMENT_CONTRACT.md) |
 | New chapter | [planning and creative scope](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#20-chapter-planning-creative-delegation-and-strategic-reuse) | [Chapter guide](../design/09_CHAPTER_DEVELOPMENT_GUIDE.md); [brief](../design/templates/CHAPTER_BRIEF_V1.md); [reference library](../design/10_CHAPTER_REFERENCE_LIBRARY.md) |
-| New job game | [Interim job-game recipe](JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md#4-interim-job-game-recipe); [`MA-DOC-006`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-006) | [interaction and career rules](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#7-interactions-change-the-world-truthfully); [save rules](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#13-save-lifecycle-and-release-safety); [Codex refinement handoff, Stage J](../docs/handoffs/codex_master_audit_refinement_2026-09-30/README.md); [Job Platform architecture](../docs/handoffs/codex_job_platform_architecture_2026-09-30/ARCHITECTURE.md) |
+| New job game | [Current planning recipe](../design/reference/recipes/add_job.md); [prompt planner](../tools/plan_prompt.py); [interim build procedure](JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md#4-interim-job-game-recipe); [`MA-DOC-006`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-006) | [interaction and career rules](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#7-interactions-change-the-world-truthfully); [save rules](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#13-save-lifecycle-and-release-safety); [Codex refinement handoff, Stage J](../docs/handoffs/codex_master_audit_refinement_2026-09-30/README.md); [Job Platform architecture](../docs/handoffs/codex_job_platform_architecture_2026-09-30/ARCHITECTURE.md) |
 | Repair | [triage index](#5-triage-item-index--not-canonical-finding-records); [repair protocol](#9-individual-repair-and-regression-protocol) | [Canonical finding records](findings/ACTIVE_FINDINGS_2026-08-13.md); [repair order](#13-current-repair-order) |
 | Code | [architecture and refinement](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#18-code-architecture-and-refinement) | [interaction truth](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#7-interactions-change-the-world-truthfully); [regression protocol](#9-individual-repair-and-regression-protocol); [Job Platform architecture](../docs/handoffs/codex_job_platform_architecture_2026-09-30/ARCHITECTURE.md) |
 | Art | [visual promise](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#4-visual-promise); [composition](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#5-composition-and-child-readable-hierarchy); [Canvas construction](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#6-2d-canvas-living-card-world-construction) | [reuse and provenance](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#14-art-sourcing-reuse-and-provenance); [true 2D](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#3-final-medium-decision-a-2d-game); [visual language audit](../docs/handoffs/codex_visual_design_language_2026-09-30/VISUAL_LANGUAGE_AUDIT.md) and [refinement plan](../docs/handoffs/codex_visual_design_language_2026-09-30/README.md); [`MA-DOC-008`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-008) |
@@ -81,55 +66,21 @@ rules; sealed evidence below remains scoped to its recorded build. Follow the
 | Touch | [child constraints](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#2-the-child-is-the-primary-design-constraint); [touch and interface](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#8-touch-and-interface-grammar) | [feedback and rewards](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#9-motion-acting-feedback-and-rewards); [typography](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#19-font-typography-glyph-and-text-layout-contract) |
 | Audio | [voice and sound](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#10-voice-music-and-non-reader-communication) | [acceptance levels](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#16-acceptance-and-audit-contract); [Music audit](../MUSIC_AUDIT_2026-08-09.md) |
 | Animation | [character animation branch](animation/README.md); [motion and acting rules](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#9-motion-acting-feedback-and-rewards) | [Roshan movement language](../design/animation/ROSHAN_MOVEMENT_LANGUAGE.md); [production protocol](../design/animation/ANIMATION_PRODUCTION_PROTOCOL.md); [character profile template](../design/templates/CHARACTER_MOVEMENT_PROFILE_V1.md) |
-| Cinematic | [full-frame delivery and handoff](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#11-cinematic-exception) | [Binding cinematic rules](../AGENTS.md); [shot card](../design/templates/IMAGINE_SHOT_CARD_V1.md) |
+| Cinematic | [animation workflow delivery and handoff](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#11-cinematic-exception) | [Binding cinematic rules](../AGENTS.md#animation-production-owner-decision-2026-10-03); [production protocol](../design/animation/ANIMATION_PRODUCTION_PROTOCOL.md); [job sidecar](../design/templates/ANIMATION_JOB_CARD_V1.md); [Grok shot card](../design/templates/IMAGINE_SHOT_CARD_V1.md) |
 | Save | [save, lifecycle and release](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#13-save-lifecycle-and-release-safety) | [Release workflow rules](../WORKFLOW_BRANCHING_2026-07-18.md); [save/re-entry tests](#9-individual-repair-and-regression-protocol) |
 | Performance | [Mobile and asset budget](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#12-mobile-performance-and-asset-discipline) | [2D migration](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#3-final-medium-decision-a-2d-game); [device evidence](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#16-acceptance-and-audit-contract) |
 | Acceptance | [lifecycle and verification](#2-audit-state-taxonomy); [satisfaction gate](#12-master-audit-satisfaction-gate) | [evidence contract](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#16-acceptance-and-audit-contract); [finding fields](#10-required-finding-fields) |
 | Audit or reference document | [Staleness audit](../docs/handoffs/codex_reference_consolidation_2026-09-30/STALENESS_AUDIT.md); [`MA-DOC-007`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-007) | [Reference plan](../docs/handoffs/codex_reference_consolidation_2026-09-30/REFERENCE_PLAN.md); [consolidation handoff](../docs/handoffs/codex_reference_consolidation_2026-09-30/README.md); [document ledger](../design/05_DOC_LEDGER.md) |
-| Study the game or plan improvement | [Loop audit](../docs/handoffs/codex_self_improvement_loop_2026-10-03/LOOP_AUDIT.md); [`MA-DOC-009`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-009) | [Self-improvement loop handoff](../docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md); [cycle 0 study report](../docs/handoffs/codex_self_improvement_loop_2026-10-03/CYCLE_0_STUDY_REPORT.md); [study report template](../docs/handoffs/codex_self_improvement_loop_2026-10-03/templates/STUDY_REPORT_V1.md); [prompt recipe template](../docs/handoffs/codex_self_improvement_loop_2026-10-03/templates/PROMPT_RECIPE_V1.md) |
+| Study the game or plan improvement | [Cycle home](cycles/README.md); [living roadmap](ROADMAP.md); [loop audit](../docs/handoffs/codex_self_improvement_loop_2026-10-03/LOOP_AUDIT.md); [`MA-DOC-009`](findings/ACTIVE_FINDINGS_2026-08-13.md#ma-doc-009) | [Self-improvement loop handoff](../docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md); [cycle 0 study report](../docs/handoffs/codex_self_improvement_loop_2026-10-03/CYCLE_0_STUDY_REPORT.md); [study report template](../design/templates/STUDY_REPORT_V1.md); [prompt catalogue](../design/reference/prompt_intents.json); [owner decisions](../design/reference/OWNER_DECISIONS.md) |
 
 Scoped 2026-10-03 Racer conversion: [developed engine Canvas candidate](../design/RACER_EXISTING_ENGINE_2D_PORT_2026-10-03.md) and [impact/evidence](../design/audit_impacts/job-game-racer-refinement-20261003.json). The original full engine takes priority; source, machine and external acceptance remain separate. The owner-directed [connected rally rebuild](../design/RACER_WORLD_RALLY_2026-10-03.md) now owns the visual candidate; no historical acceptance is inferred.
-
-Scoped 2026-09-09 retired-Reef route repair: [impact and evidence](../design/audit_impacts/retired-reef-20260909.json). `MA-2D-002` and `MA-PLAY-001` remain open; removing these routes is not whole-game archival or device acceptance. Day Two follow-up: [explicit boss return evidence](../design/audit_impacts/day-two-safe-return-20260909.json) covers launch-independent destination ownership.
-
-Scoped 2026-09-23 3D reef removal: [impact and evidence](../design/audit_impacts/remove-3d-reef-20260923.json). The unreachable reef world no longer builds at boot or ticks per frame; `MA-2D-002` and `MA-CODE-001` remain open, and this is not whole-game archival, performance or device acceptance.
-
-Scoped 2026-09-23 Day One Continue soft-lock repair: [impact and evidence](../design/audit_impacts/day-one-continue-softlock-20260923.json). Continue now establishes the Canvas world before reopening a discovered castle; `MA-PLAY-001` remains open and no device acceptance is claimed.
-
-Scoped Day One toilet cleaning addition: [implementation and evidence](../design/audit_impacts/2026-09-09-day-one-toilet-clean.json). Adds a third intentional bathroom scrub with saved completion and local brush contact; device/child/owner acceptance and game-wide `MA-PLAY-004` remain open.
-
-Scoped Day One usability repairs (2026-09-12): [impact and evidence](../design/audit_impacts/day-one-usability-fixes-20260912.json) covers single-touch Back ownership, persistent truthful door highlights, art pointer/target separation, and automatic toilet approach before intentional scrubbing. These bounded repairs do not close game-wide route, embodied-job, touch-device, or child acceptance findings.
 
 [Authority reconciliation](#3-authority-and-comprehensive-design-language-confirmation) · [Historical evidence](#4-evidence-at-the-integration-snapshot-and-named-historical-commits) · [Supporting repairs](#6-supporting-repair-evidence--not-canonical-finding-records) · [Superseded ideas](#7-superseded-dismissed-and-deferred-ideas) · [Expanded acceptance](#8-expanded-acceptance-notes-for-highest-priority-indexed-items) · [Audit tools](#11-audit-tool-and-documentation-control-work) · [Change history](#14-change-history)
 
 [Executive verdict](#1-executive-verdict) · [Superseded design choices](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#15-explicitly-superseded-dismissed-and-deferred-ideas) · [Canonical finding schema](../design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md#17-finding-record-fields)
 Scoped Day One Grok Handoff 2: [footage audit](GROK_HANDOFF_2_FOOTAGE_AUDIT_2026-09-09.md), [protocol](../design/GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.md), and [impact](../design/audit_impacts/grok-handoff-2-20260909.json). External motion-reference repairs do not close live visual findings or delivery gates.
 
-Scoped Grok builder consolidation (2026-09-14): [single project database](../assets_src/cinematics/grok_builder_2026-09-14/README.md) and [impact](../design/audit_impacts/grok-builder-20260914.json). Character/location/event state and missing-shot planning are unified; MA-VIS-006 and all cinematic delivery gates remain open.
-
-Scoped Day One/Two alpha repair (2026-09-30): [impact and acceptance limits](../design/audit_impacts/day-one-two-alpha-20260930.json). Baseline `55032e88936b22723fd9af5282c61ba6696b3d43`; save, targeting, patient input-required assistance, Back, contact work and exact speech are bounded repairs. Current CI findings now distinguish repaired Day One coverage from remaining Chapter Two/game-wide acceptance. Overall `UNSATISFIED` remains unchanged.
-
-Scoped objective handoff follow-up (2026-09-30): [impact and failing baseline](../design/audit_impacts/day-two-objective-handoff-20260930.json) records the timing-dependent Racer speech suppression found by dev CI `36776251500`. The phase owns its replacement cue and clears obsolete speech/dialogue; forced overlap is now a blocking regression. Listening/device/child/owner and whole-game acceptance remain open.
-
-Scoped Opera developer access (2026-09-30): [impact and evidence](../design/audit_impacts/opera-job-playtest-20260930.json) records the owner's temporary left-elevator playtest menu. It launches all fifteen live world-triggered jobs fresh through the shipping Canvas engine, preserves child progression/rewards/checkpoints, and returns to the menu. Normal room routes and retired slots remain intact. This scoped exception to `DL-INT-12` changes no finding lifecycle; `MA-OPERA-012`, device/child/owner acceptance and overall `UNSATISFIED` remain open.
-
-Scoped main coordinator cleanup (2026-09-30): [impact and evidence](../design/audit_impacts/main-gd-dead-code-and-storage-plan-20260930.json) removes unreachable helpers/sequences, empty model paths and obsolete loss messages. `MA-CODE-001` remains open at 9,153 candidate lines; `MA-CODE-005` is `VERIFIED_FIXED` for scoped local machine evidence; topic CI/integration remains required. [Storage cleanup plan](storage_cleanup_plan_2026-09-30.json) distinguishes duplicated worktrees and rebuildable caches from protected art and hash-recorded evidence. The medium manifest records only removed API references; MA-2D-002 stays IN_PROGRESS. No bulk disk deletion or whole-game acceptance is claimed.
-
 <!-- AUDIT_TASK_INDEX_END -->
-
-Scoped faerie restoration prototype (2026-09-30): [commission, reuse shortlist and playable review](../design/FAIRY_RESTORATION_PROTOTYPE_2026-09-30.md), [impact](../design/audit_impacts/fairy-restoration-prototype-20260930.json). Isolated true-2D arborist/harvest/chef/picnic/flower-shooter loop for the faerie half of castle magic; production chapter saves/routes/rewards, second-world ending, device/child/owner acceptance and game-wide finding states remain unchanged. Integration also repairs the measured stale Chapter Two route/exact Opera voice transition (MA-ACCESS-001); no recording changes or accessibility closure are claimed.
-
-Owner handoff-publication correction (2026-09-16): [mandatory GitHub delivery](../AGENTS.md#external-handoffs-github-delivery-is-mandatory) and [change evidence](../design/audit_impacts/handoff-publication-memory-20260916.json). Publish and remotely verify each external handoff/QC revision before waiting for returns; local workspaces are staging only. This operational correction closes no cinematic or game-wide acceptance finding.
-
-Scoped standalone Painter engine prototype (2026-09-16): [candidate scope](../design/PAINTER_ENGINE_PROTOTYPE_2026-09-16.md) and [impact/evidence](../design/audit_impacts/painter-engine-prototype-20260916.json). Selective Pixelorama fill reuse preserves all existing graphics and career consumers. Device, child, owner and whole-game acceptance remain open; no finding lifecycle changes.
-
-Scoped Roshan motion-reference study (2026-09-12): [eight-sample Grok archive](../assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/README.md) and [impact](../design/audit_impacts/2026-09-12-roshan-grok-auditions.json) extend the character animation branch. Candidate selection, opening approval, archive publication and generated delivery remain separate; `MA-VIS-006` is not closed.
-
-Roshan handoff revision (2026-09-13): [video-first execution](../assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/README.md#video-first-revision--2026-09-13) and [impact](../design/audit_impacts/2026-09-13-roshan-grok-video-first.json) correct the reported still-board substitution and stale publication status. One actual image-conditioned video precedes the remaining auditions; no source-art, tool-capability or runtime acceptance is inferred.
-
-Scoped overnight-film repair (2026-09-12): [fresh rendered-frame audit](OVERNIGHT_RECUT_FRAME_AUDIT_2026-09-12.md) and [impact](../design/audit_impacts/overnight-recut-repairs-20260912.json). The owner requests recognizable big-bunny form, four-helper soapy scrubbing that hides it in bubbles, then the concept friend jumping while the old casing collapses and scatters into dust. Eighteen repair/conditional jobs include original-book Eagle identity and exact Daddy/attic locks. Generated candidates retain explicit missing human opening/delivery acceptance.
-
-Scoped visual repair evidence (2026-09-26): [repair plan](../design/VISUAL_REPAIR_PLAN_2026-09-26.md), [review receipt](visual_polish_2026-09-26/REVIEW.json), and [impact record](../design/audit_impacts/visual-polish-repairs-20260926.json) cover the bounded sprite/occlusion repairs. The [September 30 follow-up](../design/audit_impacts/rumi-transparency-20260930.json) addresses residual Rumi tails and craft-board alpha. MA-VIS-006 remains open; Opera native panels, target-device and owner acceptance remain outstanding.
 
 ## Sealed audit snapshot and subsequent round metadata
 
@@ -269,6 +220,8 @@ or owner visual acceptance.
 ---
 
 ## 1. Executive verdict
+
+The current shipping-surface scorecard is generated with each [study cycle](cycles/README.md) from measured evidence. It includes Day One, Grand Puff, Day Two and live careers; missing human scores remain unscored. Historical numeric ratings below retain their original build scope.
 
 The project has strong automated gameplay coverage, a coherent illustrated
 storybook identity, and many verified child-safety repairs. Mermaid Roshan's
@@ -1490,7 +1443,7 @@ Launching a minigame or animating an unattached tool does not satisfy this gate.
 | `MA-ACCESS-002` | P1 | `BLOCKED_EXTERNAL` | V1 | Lamba's current semantic role still maps to legacy “bunny-fish” recordings | Owner-approved re-record/re-render and exact-key/device listening evidence |
 | `MA-ACCESS-003` | P1 | `BLOCKED_EXTERNAL` | V1/V3 partial | Seek has an accurate visual wiggle/U-cue/peek and an available Evie hide-and-seek recording, but no exact protected Evie recording says “tap the wiggly tree” | Owner-authorized exact Evie objective recording plus queue, device-listening, and child-comprehension evidence; do not modify protected audio |
 | `MA-TOUCH-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 exact local automation | Source `51d0abc0` scopes Classic Sky taps, cancels Canvas travel/focus across manual input, pause, overlays, transitions, and focus loss, and passes real gear/resume plus 240-event stress; real-phone hold/drag/multitouch/focus-loss evidence is absent | Recorded target-phone pass |
-| `MA-OPERA-001` | P1 | `FIXED_PENDING_VERIFICATION` | V3 partial | Chef now uses the accepted batter pitcher, source-true stream/fill behavior, mitt-gated oven, achieved cake, and deterministic topping art; the old cutoff/fallback/wrong-object report is not a current code premise. Current Chef config is valid/probed; speculative invalid-config recovery in the sealed Castle Kitchen controller was deliberately excluded pending renewed owner visual approval | Accepted two-aspect/device/owner art review; any later Castle caller hardening proceeds separately under `MA-CODE-002` |
+| `MA-OPERA-001` | P1 | `CONFIRMED_OPEN` | V1 + owner report | Chef pours backwards (left-facing jug art tilted clockwise, stream from its handle side) and stacks a dark bloom and flat code-drawn duplicates of the painted bowl, oven and cake; the owner does not accept its look (2026-10-03) | Spout-led pour and stream-start probe, one copy of each object per step, two-aspect and device play, owner acceptance in context ([CR0](../docs/handoffs/codex_loop_review_2026-10-03/README.md)) |
 | `MA-OPERA-002` | P1 | `CONFIRMED_OPEN` | V4 partial | Detective's “missing” crown remains painted into the scene evidence | Healed owned source, narrative/capture verification |
 | `MA-OPERA-004` | P1 | `CONFIRMED_OPEN` | V1 | Opera capture harness has not produced accepted evidence for all careers | Repair harness; capture and human-review all careers/widgets/scuffles/stress states |
 | `MA-OPERA-009` | P1 | `FIXED_PENDING_VERIFICATION` | V3 partial | Boxer now has a full-stage five-phase two-glove specialist with optional multitouch, sequential one-finger completion, no health/loss, passive rejection, touch-owner cleanup, and stable existing save bit. A newer Boxer V2 document exists only on an unmerged docs branch and is not current runtime authority | Two-aspect and target-device touch/performance review, child comprehension, and owner visual acceptance; separately review the V2 proposal before any authority or implementation change |
@@ -1541,10 +1494,10 @@ following at one exact candidate:
 
 | ID | Severity | Lifecycle | Verification | Indexed issue / decision |
 |---|---|---|---|---|
-| `MA-DOC-006` | P2 | `CONFIRMED_OPEN` | V1 | No current step-by-step script exists for building a new job game, so an agent cannot take over job-game development from the repository alone; owner priority critical (2026-09-30). Closure needs a routed playbook, a job catalogue checker in the document gate, a takeover kit and a passed cold-start dry run ([audit](JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md)) |
+| `MA-DOC-006` | P2 | `CONFIRMED_OPEN` | V1 | Complete job-development takeover system remains open; owner priority critical (2026-09-30). The current planning recipe and source-bound bakery cold-start test are implemented. Closure still needs the maintained playbook, runtime job-catalogue checker in the document gate, full takeover kit and owner-accepted dry run ([audit](JOB_GAME_TAKEOVER_AUDIT_2026-09-30.md); [planning evidence](cycles/2026-10-03/COLD_START_BAKERY_TEST.json)) |
 | `MA-DOC-007` | P2 | `CONFIRMED_OPEN` | V1 | This audit and the finding register present stale and superseded facts as current (21 stale-fact and 9 superseded-decision elements here; 24 open findings plus the register preamble), and about 204 outdated documents sit beside the current ones. Closure needs the dispositions applied, dated re-verification of the listed findings, the orphaned rules saved, the outdated documents archived and the references built ([audit](../docs/handoffs/codex_reference_consolidation_2026-09-30/STALENESS_AUDIT.md)) |
 | `MA-DOC-008` | P2 | `CONFIRMED_OPEN` | V1 | The visual design language is scattered, mostly adjectives and not tied to approved images: one of ten `DL-VIS-*` rules has numbers, no governed document gives a colour value, no exemplar registry exists, and design 01 and 02 describe Roshan in ways no approved image matches. Closure needs one routed reference, identity sheets, exemplar and rejection registries, one style card and one review card, a blocking registry check and a passed cold-start art dry run ([audit](../docs/handoffs/codex_visual_design_language_2026-09-30/VISUAL_LANGUAGE_AUDIT.md)) |
-| `MA-DOC-009` | P2 | `CONFIRMED_OPEN` | V1 | The improvement loop does not turn: only the change-record gate is enforced; 38 of 59 open findings have no history entry for 30 days, 12 fixes are unverified, no exemplar has been promoted, 4 of 77 change records record a lesson, the scorecards and repair order date from August, and none of the five handoffs written on 2026-09-30 has started. Closure needs two complete study cycles, a strengths register, lesson fields with a collector, decision-register intake, a generated roadmap, a prompt catalogue with recipes, a monthly verification sweep and a passed cold-start recipe test ([loop audit](../docs/handoffs/codex_self_improvement_loop_2026-10-03/LOOP_AUDIT.md)) |
+| `MA-DOC-009` | P2 | `IN_PROGRESS` | V1 | The improvement loop does not turn: only the change-record gate is enforced; 38 of 59 open findings have no history entry for 30 days, 12 fixes are unverified, no exemplar has been promoted, 4 of 77 change records record a lesson, the scorecards and repair order date from August, and none of the five handoffs written on 2026-09-30 has started. Closure needs two complete study cycles, a strengths register, lesson fields with a collector, decision-register intake, a generated roadmap, a prompt catalogue with recipes, a monthly verification sweep and a passed cold-start recipe test ([loop audit](../docs/handoffs/codex_self_improvement_loop_2026-10-03/LOOP_AUDIT.md)) |
 | `MA-VIS-004` | P2 | `REPORTED_UNCONFIRMED` | V1; `COVERAGE_GAP` | Current source-average figure/ground values are Fairy 0.039 vs 0.040 and Lagoon about 0.004, but the metric does not measure the rendered local state and cannot confirm an art defect. Closure requires true state-local Canvas/HUD/viewport/device evidence, not recoloring approved art to satisfy the average |
 | `MA-ASSET-001` | P2 | `CONFIRMED_OPEN` | V1 | Current orphan PNG reports: Castle 9/15 at 2.1 MB, Galaxy 32/32 at 11.7 MB, Opera 453/548 at 166.5 MB, Lagoon 48/90 at 41.9 MB |
 | `MA-ASSET-004` | P2 | `CONFIRMED_OPEN` | V1 | Lagoon has 10/41 NPOT textures, about 11.6 MB uncompressed residency cost |
@@ -1575,7 +1528,7 @@ following at one exact candidate:
 | `MA-TOUCH-002` | P2 | `CONFIRMED_OPEN` | V1 | The side-scroll swim branch reads the emulated mouse without the reserved-zone guard, so a held UI medallion steers Roshan |
 | `MA-CI-006` | P2 | `CONFIRMED_OPEN` | V1 | Promotion accepts any green probe run for dev's SHA rather than the latest push run, and nothing pins the executed roster against the expected one |
 | `MA-CI-007` | P2 | `CONFIRMED_OPEN` | V1 | 38 probes carry private frame-wait helpers and duplicated boot scaffolding; wall-clock waits mix with scaled engine time, the flake class that already produced one red release-gate run |
-| `MA-CI-008` | P2 | `CONFIRMED_OPEN` | V1 | Advisory sensors fail silently in a green Probe Suite: the Opera pacing run caps all 15 careers at 300 seconds, so pacing is not measured; the Sky Lagoon review capture ends `FAIL` and the pearl-castle capture uploads nothing; the dust-boss run is described as checking a fun band it does not check |
+| `MA-CI-008` | P2 | `IN_PROGRESS` | V1 | Advisory sensors fail silently in a green Probe Suite: the Opera pacing run caps all 15 careers at 300 seconds, so pacing is not measured; the Sky Lagoon review capture ends `FAIL` and the pearl-castle capture uploads nothing; the dust-boss run is described as checking a fun band it does not check |
 
 ### 5.3 Resolved indexed items retained for anti-regression history
 
@@ -1986,8 +1939,10 @@ finding records; section 10 controls that designation.
 10. Capture runtime/device/child/owner evidence where the acceptance record
    requires it.
 11. Use `FIXED_PENDING_VERIFICATION` until every required level is present.
-12. When no active item remains, repeat inventory, audit, confirmation, triage,
-   repair verification, and re-audit from a clean build.
+12. At every study cycle, repeat inventory, audit, confirmation, triage and
+   repair verification, even while active findings remain. Re-audit the studied
+   head and retain missing evidence. The clean final second-pass satisfaction
+   gate in section 12 remains separate.
 
 No probe is patched to accept a behavior regression unless the behavior change
 is the explicit task. No generated-art or model deletion bypasses provenance,
@@ -2206,10 +2161,10 @@ the medium, visual, and evidence gates:
       structure ratchet (`DL-CODE-12`) is armed and blocking with budgets
       monotone and no waiver outstanding past expiry.
 
+Re-audit at every study cycle, including when active findings remain. This does not close the clean second-pass satisfaction gate. The study counts explicit recurring lesson/defect classes; three occurrences in one cycle propose a rule or executable check for review. Promotion follows the existing authority contract and never edits a rule automatically.
+
 These criteria are a framework, not a ceiling: a material defect outside
-them is still a finding, and a recurring off-list defect class earns a rule
-in `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` section 18 in the same
-commit as the audit that justified it.
+them remains a finding. Preserve its reproduction and evidence before promoting any proposed rule in design 06 section 18.
 
 Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 `REPAIRING`, not `SATISFIED`.**
@@ -2218,89 +2173,19 @@ Current result: **`IN_PROGRESS` / `UNSATISFIED`; the audit remains
 
 ## 13. Current repair order
 
-Owner priority (2026-09-30): development-process finding `MA-DOC-006` (no job-game script; takeover readiness) is critical to the owner and comes first in development planning. It does not reorder the child-facing defect repairs below.
+Use the generated [Repair, Grow and Strengthen roadmap](ROADMAP.md) for the latest studied head. Repairs follow section 9. Rank child impact first, then explicit owner priority, satisfied dependencies and age; a blocked acceptance lane does not prevent independent repairs. `MA-DOC-006` remains the owner's development-process priority. Each item has a one-line prompt and a recipe or an explicit reason it cannot be actionable yet.
 
-1. Preserve the now-verified document-control contract while authorizing every
-   later repair: exact CHG-023 maintenance head `51887315`, parent `7eb94595`,
-   passes official Godot 4.7.1 full local CI in 1,435.2 seconds/all 64 and
-   exact-head Probe Suite run `31710377034`. Keep the 316-path inventory, 316
-   unique ledger rows, 36 linked complete records, fail-closed tool/tests, and
-   local/remote CI wiring synchronized. `MA-DOC-002` and `MA-DOC-005` are
-   `VERIFIED_FIXED`; future drift regresses them. CHG-029 still owns only
-   sources `5ed0c754`/`7eb94595`, and later bookkeeping remains CHG-023.
-2. Preserve sealed true-Canvas source `51d0abc0`, exact parent `1b7d6bda`, and
-   its 19-path +3,318/-3,517 boundary. Its exact local source-byte suite passes
-   in 1,404.5 seconds/all 64; run-14 is 20/20 local Mobile/Speedy with manifest
-   hash `AEAC7C72…DE34` and visual-probe hash `B9EAF5E0…9C6C`. Preserve the
-   unknown `source_revision` truth and the historical `7391c53c` remote
-   `gl_compatibility` failure. Preserve exact `441adf35` local/topic/dev machine
-   evidence and Android `31763879294`; next obtain a requested-Mobile remote
-   Sky PASS/JSON. Neither artifact upload nor local review grants acceptance.
-3. Treat the Sky local product slice as implemented but still pending external
-   verification. Preserve its CanvasLayer/Node2D/Sprite2D/Camera2D ownership,
-   real parallax, master-coordinate touch/navigation, five readable animals,
-   repaired focus/grounding/contact, and route/return/re-entry behavior. Close
-   `MA-VIS-002` only after target-device and owner/accepted-visual evidence.
-   Continue one tested true-2D gameplay family from the exact
-   509-model/65-production-file inventory until every GAME2D category is zero;
-   archive exact resources before active deletion.
-4. Implement live fresh-runtime Canvas adapters for converted surfaces and then
-   Fairy; keep every missing or nonaccepted capture as a gap.
-5. Preserve the verified current Ballerina, Boxer, Candymaker, and 42-cue
-   machine evidence, predecessor exact-head run `31661887863`, the green runtime
-   `09e5e356` 1463.4-second full-local gate, and the probe-only `ff068db`
-   1379.3-second/64-probe full-local gate. Preserve red run `31678156887` as
-   readiness-failure history and preserve successful exact-head machine-
-   workflow run `31686380560` with its warning/internal-diagnostic limits.
-   Preserve historical exact `18b6150c` Probe Suite run `31693492735` and
-   matching Android run `31695675866`. Preserve the latest integrated-
-   predecessor e6 dev Probe Suite `31722047536` and exact-source package run
-   `31724927769` with APK SHA-256 `66d16de5…ca17c`; every predecessor APK is
-   machine/build evidence, not device or child acceptance. Finish external
-   verification of the focused `MA-OPERA-010`/`011`/`012` repair: keep
-   one Canvas lifecycle, no external
-   Opera kart/boss engine, raw-preserving save tombstones 4/9/14, and live mask
-   `0xBDEF`. Do not change the sealed Castle Kitchen caller without renewed
-   owner visual approval; its current Chef config is valid/probed. Preserve the
-   implemented exact Castle-room distribution, Movie Lounge Racer, deleted
-   all-career lobby, and exact-room returns. Move/restage the route cards so they
-   do not obscure Roshan's lower body/tail, repair remaining Opera capture and
-   exact-voice coverage, and split the stale grouped Opera art claims.
-   Confirm or dismiss palette risks only from current state-local evidence.
-6. Reconcile protected voice gaps, including Evie's exact Seek tap-tree cue,
-   through owner-authorized sources.
-7. Rebuild and prove the complete child-visible world graph.
-8. Classify all probes and remove only proved obsolete assets/code.
-9. Preserve the historical `a3d3bce1`, `ad36ee9f`, and `dacef140` evidence and
-   the 1437.1-second exact local gate at `f3b0de07`. Preserve failed run
-   `31648427712` as evidence of the CRLF/LF provenance defect, not as a pass;
-   replacement `31649113587` is green at exact `af4189a9`. Rerun local and
-   remote gates whenever runtime/static content changes and at the eventual
-   release candidate, then produce the accepted capture matrix, exercise the
-   matching APK,
-   target-device U0 pass, audio listening matrix, and child golden path.
-10. Repeat the master audit from `INVENTORYING`; satisfaction cannot come from
-    closing only the first list.
-11. Execute the 2026-08-26 code-refinement round: the comprehensive analysis,
-    goal set G1–G12, and implementation sequencing live in
-    `MASTER_AUDIT_2026-08-26.md` (this directory), with the Codex work
-    packages in `CODEX_MASTER_AUDIT_CODE_REFINEMENT_HANDOFF_2026-08-26.md`
-    at the repository root. Safety and gate hardening precede structural
-    refactors; every package is probe-gated under the section-9 protocol and
-    the new section-12 code-refinement conditions; findings
-    `MA-CI-004`, `MA-CI-005`, `MA-CI-006`, `MA-CI-007`, `MA-CODE-003`,
-    `MA-CODE-004`, `MA-CODE-005`, `MA-PERF-002`, `MA-PERF-003`,
-    `MA-SAVE-001`, `MA-AUDIO-002`, and `MA-TOUCH-002` are its scope, with
-    `MA-CODE-001` the binding constraint. The structural stage executes
-    through the Mode Platform remodel and migration plan M0–M6 in
-    `design/08_TARGET_ARCHITECTURE.md` (owner-requested 2026-08-26): the
-    remodel changes where growth lands (`DL-CODE-11`) and arms the
-    structure ratchet (`DL-CODE-12`) so the coordinator target is enforced
-    by CI rather than intention.
+Regenerate after each study cycle. The [previous dated repair order](cycles/2026-10-03-baseline/REPAIR_ORDER_HISTORY.md) is preserved as historical evidence.
 
 ---
 
 ## 14. Change history
+
+2026-10-03 implementation: [loop infrastructure and acceptance limits](cycles/2026-10-03/IMPLEMENTATION.md), [impact](../design/audit_impacts/self-improvement-loop-implementation-20261003.json). MA-DOC-009 and MA-CI-008 are IN_PROGRESS; no lifecycle closure.
+
+2026-10-03 review and repair: [loop review](../docs/handoffs/codex_loop_review_2026-10-03/REVIEW.md), [remaining Codex work](../docs/handoffs/codex_loop_review_2026-10-03/README.md), [impact](../design/audit_impacts/self-improvement-loop-review-20261003.json). The loop's tools, recipes and registers are repaired; MA-DOC-009 and MA-CI-008 stay IN_PROGRESS; no lifecycle closure.
+
+Current history is generated from impact records in stable date/ID order into each [cycle folder](cycles/README.md). The rows below are preserved historical narrative; a generated entry reports its recorded validation state and does not imply product acceptance.
 
 | Date | State | Change |
 |---|---|---|

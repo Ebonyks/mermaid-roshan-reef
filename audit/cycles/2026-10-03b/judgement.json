@@ -1,0 +1,100 @@
+{
+  "schema": "cycle_judgement/1",
+  "cycle": "2026-10-03b",
+  "author": "Claude",
+  "summary": "All 81 trusted probes ran clean at this head, and the advisory checks are read correctly for the first time. The problem you can see right now is Chef: it pours backwards and piles flat shapes over the painted kitchen. Your report reopened it after this study ran, and it now tops the roadmap. The loop finishes its first turn when you answer the five questions below.",
+  "strengths": [
+    {
+      "id": "S-01",
+      "note": "Nothing is lost and nothing is won by doing nothing: probe_passive and the other 80 trusted probes ran clean at this head."
+    },
+    {
+      "id": "S-02",
+      "note": "Touching the world changes it where the child touches: the Day One bathroom dirt now clears along the scrub path (2 October)."
+    },
+    {
+      "id": "S-07",
+      "note": "The family's own voices stay untouched; new lines must use the separate synthetic Parler voices."
+    },
+    {
+      "id": "S-10",
+      "note": "This cycle turned five lessons into checks the next change cannot skip, including the one behind the false CI failures."
+    }
+  ],
+  "weaknesses": [
+    {
+      "item": "Chef pours backwards and looks cluttered",
+      "action": "The jug picture faces left but the code tips it to the right, so it pours from the handle; every step also piles a dark oval and flat shapes on top of the painted bowl, oven and cake. Reopened as MA-OPERA-001; Codex package CR0 has the exact fix."
+    },
+    {
+      "item": "Chef's pour may also never finish",
+      "action": "Codex checks it with the same fix (CR1); the phone session asks you to look too."
+    },
+    {
+      "item": "Review screenshots fail on the CI computer",
+      "action": "The Sky Lagoon, castle and dust-boss arena captures fail because that computer cannot draw with the phone's renderer (CR2); fixing it changes the CI workflow, so it needs your yes."
+    },
+    {
+      "item": "Opera pacing is measured for 4 of 15 jobs",
+      "action": "Codex adds simulated play for the other ten kinds of activity (CR3)."
+    },
+    {
+      "item": "Fixes still wait for a phone check",
+      "action": "DEVICE_SESSION.md batches them into one 30-minute session; Chef left that list when your report reopened it."
+    }
+  ],
+  "prompts": [
+    {
+      "say": "Fix MA-OPERA-001: Chef pours backwards and its steps stack flat code-drawn shapes over the painted kitchen",
+      "intent": "INT-REPAIR",
+      "why": "your report today; top of the Repair lane; Codex package CR0",
+      "size": "medium"
+    },
+    {
+      "say": "Fix MA-DOC-006: No current step-by-step script exists for building a new job game",
+      "intent": "INT-REPAIR",
+      "why": "your recorded priority: job-game takeover comes first",
+      "size": "large"
+    },
+    {
+      "say": "Fix the CI review screenshots",
+      "intent": "INT-REPAIR",
+      "why": "three captures fail on every run (CR2); needs your yes for the workflow change",
+      "size": "small"
+    },
+    {
+      "say": "a rainy-day activity in the castle",
+      "intent": "INT-ROOM-ACTIVITY",
+      "why": "new content through the generic planner; you approve the premise first",
+      "size": "medium"
+    },
+    {
+      "say": "Study the game",
+      "intent": "INT-STUDY",
+      "why": "the next cycle, after these fixes reach dev",
+      "size": "small"
+    }
+  ],
+  "questions": [
+    {
+      "question": "When could you do the 30-minute phone check in DEVICE_SESSION.md?",
+      "default": "ask again next cycle; nothing is booked"
+    },
+    {
+      "question": "May Codex add a software graphics driver to the CI computer (a CI workflow change) so its screenshots use the phone's renderer?",
+      "default": "yes"
+    },
+    {
+      "question": "The dark spotlight oval behind Chef's steps also sits behind other jobs' activity cards. Remove it everywhere, not just in Chef?",
+      "default": "remove it in Chef first and show you before changing other jobs"
+    },
+    {
+      "question": "Which new content should grow first: a job, a castle room activity, a new stuffie friend or a seasonal event?",
+      "default": "a castle room activity"
+    },
+    {
+      "question": "Farmer and Doctor take place above water while the other jobs are underwater (MA-OPERA-007). Keep that difference?",
+      "default": "yes, keep it; no art changes"
+    }
+  ]
+}

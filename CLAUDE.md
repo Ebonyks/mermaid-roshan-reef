@@ -106,6 +106,11 @@ Runtime/editor baseline: exactly Godot 4.7.2-stable (owner decision
 2026-08-29). The `project.godot` feature tag is `"4.7"` because Godot records
 the engine series there; it does not lower the required patch baseline. Do not
 validate releases with Godot 4.4 or a 4.7 development build.
+Latest stable reverified 2026-10-03 at the owner's request against the
+[official download](https://godotengine.org/download/windows/): 4.7.2-stable.
+Use `python -B tools/resolve_godot.py` or `tools/run_godot.ps1` to select
+the exact approved build; local CI uses this resolver. An older executable
+on PATH is not a valid default. Historical audit versions remain evidence.
 
 ## Final medium (owner decision 2026-08-09): true 2D game-wide
 
@@ -134,9 +139,21 @@ Current cross-domain rules and audit state:
 `design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md` and
 `audit/MASTER_AUDIT_2026-08-09.md`.
 
-The complete full-frame cinematic rule in `AGENTS.md` remains binding; its only
-relaxation is the owner-scoped Day One story-clip exception below
-(`DL-CIN-16`). No summary here or elsewhere may narrow it further.
+Owner decision 2026-10-03 permits final footage and sprite loops from suitable
+animation workflows with identity, motion, provenance and device checks,
+superseding compulsory independent still generation. Prefer Aseprite as the
+editable sprite cleanup/timing/export bridge when practical; ImageGen fills
+named source gaps. Default local workflows for character design/animation and
+objects, with APIs for cinematic scenes in the approved 2D storybook medium.
+Record a bounded exception and its reason; preserve the funded task budget.
+Follow `AGENTS.md`, `DL-MOT-14` through `DL-MOT-16` and the
+[production protocol](design/animation/ANIMATION_PRODUCTION_PROTOCOL.md).
+Pilot one action before expansion; default two generated takes per brief/backend
+with task time/cost caps and a diagnosed method switch after failure. Switching
+backends or splitting one action into per-frame briefs does not reset task caps.
+No new 3D fallback, paid-job budget, historical output acceptance or release authority is
+granted. The Claude written-handoff role rule above remains binding. The Day One
+selected-source contract below retains its exact restrictions.
 
 External animation handoffs are incomplete unless they include the binding
 self-contained visual-reference packet required by `AGENTS.md`: actual
@@ -153,16 +170,17 @@ to four role-bound approved images, one shot, at most one camera move, an
 action-first timeline, end state, negatives, and `Sound:` line. Generated
 boards and HUD/runtime captures are never bound pixel inputs. Report
 `ARCHIVE_COMPLETE`, `GENERATION_READY`, and `DELIVERY_ACCEPTED` separately;
-Imagine video remains motion reference unless the full-frame rule independently
-accepts every changed delivery frame, except the `DL-CIN-16` Day One story
-clips below.
+Video may supply final candidates after exact workflow provenance, production-
+profile scene/contact/identity audit and human/device/child/owner gates.
+Generator readiness and machine success grant no later status. Historical
+reference/rejected outputs retain their recorded scope.
 
 ## Day One story clips between scenes (owner decision 2026-09-23)
 
 Day One plays story clips spliced from the owner-selected 2026-09-20 cut
-(`DAY_ONE_SELECTED_CUT.mp4`) between gameplay scenes. This is the one scoped
-exception to the full-frame cinematic rule (`DL-CIN-16`); the complete terms
-are in `AGENTS.md`.
+(`DAY_ONE_SELECTED_CUT.mp4`) between gameplay scenes under the separate
+source-specific contract `DL-CIN-16`; complete terms are in `AGENTS.md`. The
+2026-10-03 workflow revision does not authorize altering these selected clips.
 
 - Straight cuts at exact recorded frame boundaries only; no new frames,
   retiming, morphing, interpolation, dissolves, crops, warps or subject repair.
@@ -177,7 +195,7 @@ are in `AGENTS.md`.
 - Each clip is recorded in a runtime manifest (source path/SHA-256, frame
   range, encoding, output SHA-256) and `ASSET_LICENSES.md`. Status is
   `OWNER_DIRECTED_RUNTIME_CLIP`, not `DELIVERY_ACCEPTED`; other chapters, new
-  footage and replacement shots still follow the full-frame rule.
+  footage and replacement shots follow the current animation workflow gates.
 
 ## Layout
 - scenes/main.tscn → scripts/main.gd (8,465 lines at the synchronized
@@ -206,7 +224,7 @@ are in `AGENTS.md`.
 - disabled_addons/tessarakkt.oceanfft — DISABLED (dead code removed Phase 0)
 
 ## Build & test (headless, no display needed)
-GODOT=./Godot_v4.7.2-stable_linux.x86_64   # or `godot` on PATH
+GODOT=./Godot_v4.7.2-stable_linux.x86_64   # or GODOT="$(python3 tools/resolve_godot.py)"; an older PATH build is not valid
 1. Import (required after any asset change):
    $GODOT --headless --import .
    ⚠ KNOWN DEADLOCK: NPOT textures with compress/mode=2 hang the headless

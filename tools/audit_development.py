@@ -216,6 +216,29 @@ def record_issues(record: object, rules: set[str], findings: set[str]) -> list[s
 				issues.append("validation requires command, result, and evidence")
 			elif check["result"] not in {"PASS", "FAIL", "PENDING", "NOT_APPLICABLE"}:
 				issues.append("invalid validation result")
+	# Optional loop evidence is additive: historical records without it remain
+	# valid. A lesson must name a concrete destination instead of ending in a
+	# report that the next cycle cannot act on. These are structural checks,
+	# not proof that an owner decision, reference, or write-back is accepted.
+	optional_shapes = {
+		"lessons": ("lesson", "write_back"),
+		"strengths_observed": ("id", "evidence"),
+		"references_used": ("path", "purpose"),
+		"owner_corrections": ("decision_id", "evidence", "write_back"),
+	}
+	for field, required in optional_shapes.items():
+		if field not in record:
+			continue
+		values = record[field]
+		if not isinstance(values, list):
+			issues.append(f"{field} must be a list of objects")
+			continue
+		for index, value in enumerate(values):
+			if not isinstance(value, dict) or any(
+				not isinstance(value.get(key), str) or not value[key].strip()
+				for key in required
+			):
+				issues.append(f"{field}[{index}] requires nonempty " + ", ".join(required))
 	return issues
 
 
