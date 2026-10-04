@@ -80,8 +80,8 @@
   },
   {
    "command": "Remote verification: unauthenticated fetch of MANIFEST.json and every listed file from raw.githubusercontent.com at the pushed commit, SHA-256 and byte comparison",
-   "result": "PENDING",
-   "evidence": "Re-run after the dev merge and policy alignment. The first publication was verified at revision 674ac7c06f153942b509531f6f93ddefdc21cfe5 on ccr-1ef62322-breknu, checked 2026-10-04T05:48:14Z: MANIFEST.json (SHA-256 4233d042628bef6e501830fba034ad2cbdb35b2e023b2dfd999f72572babe5a2, 2661 bytes) and all 8 listed files matched, fetched over HTTPS with no Authorization header through the session proxy (public repository)."
+   "result": "PASS",
+   "evidence": "Revision 1230c9a75fddf259475394b154ef633038a5c8e8 on ccr-1ef62322-breknu (after the dev merge and policy alignment); checked 2026-10-04T06:59:54Z. MANIFEST.json fetched from https://raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/1230c9a75fddf259475394b154ef633038a5c8e8/docs/handoffs/codex_opera_imp_contest_2026-09-30/MANIFEST.json (SHA-256 6e331078ada6309de75764708105306d491dae3df8e6f0d8e353c46f93f30bfe, 2765 bytes, byte-identical to the committed file); all 8 listed files at the same revision match their manifest SHA-256 and byte counts. The first publication was verified the same way at 674ac7c06f153942b509531f6f93ddefdc21cfe5 (manifest 4233d042628bef6e501830fba034ad2cbdb35b2e023b2dfd999f72572babe5a2, checked 2026-10-04T05:48:14Z). Access mode: HTTPS GET with no Authorization header, through the session proxy; the repository is public."
   },
   {
    "command": "Exact Godot 4.7.2 probe suite (scripts/ci.sh) via .github/workflows/probes.yml on the pushed head",
