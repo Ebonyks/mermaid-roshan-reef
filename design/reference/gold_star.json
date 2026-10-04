@@ -1,0 +1,567 @@
+{
+ "schema": "gold_star/1",
+ "status": "SUPPORTING_CURRENT",
+ "author": "Claude",
+ "written": "2026-10-03",
+ "note": "Rubric and reference model for every child-facing game. Criteria come from the design-language rules; the rating rule is deterministic; patterns are hash-bound and go stale when their code changes. Scores and patterns are evidence for development choices, never acceptance.",
+ "scale": {
+  "0": "fails or absent",
+  "1": "partly meets",
+  "2": "meets"
+ },
+ "criteria": [
+  {
+   "id": "C1",
+   "title": "Reachable in normal play",
+   "rules": [
+    "DL-AGE-06",
+    "DL-UI-06",
+    "DL-AGE-01"
+   ],
+   "meets": "A child reaches it from a fresh save by touch through a picture route (room, door, card or character), with no debug menu, playtest launcher or reading, and leaving returns to where it began.",
+   "partial": "Reachable, but only after an undiscoverable or adult-only step, or with an unproven return.",
+   "fails": "Dormant, debug-only, launcher-only or unreachable.",
+   "source": "assessed"
+  },
+  {
+   "id": "C2",
+   "title": "True 2D",
+   "rules": [
+    "DL-MED-01",
+    "DL-MED-04",
+    "DL-LAY-01",
+    "DL-QA-09"
+   ],
+   "meets": "Its own runtime path is Canvas only (Node2D, Control, Sprite2D, TextureRect, Camera2D); no 3D node, mesh, light, spatial shader or 3D vector state.",
+   "partial": "Canvas gameplay that still depends on a 3D host, a 3D helper or a few spatial calls.",
+   "fails": "The activity itself is built from 3D nodes, meshes or spatial movement.",
+   "source": "assessed"
+  },
+  {
+   "id": "C3",
+   "title": "Non-reader objectives",
+   "rules": [
+    "DL-AGE-01",
+    "DL-SND-01",
+    "DL-SND-13",
+    "DL-READ-06"
+   ],
+   "meets": "Every required step has an exact spoken cue and a live pointer or diegetic cue at the actionable object; nothing needs reading.",
+   "partial": "Most steps are spoken and pointed; one or more use a generic cheer, a wrong noun, a missing recording or a stale pointer.",
+   "fails": "Objectives depend on text, or several steps have no exact voice or pointer.",
+   "source": "assessed"
+  },
+  {
+   "id": "C4",
+   "title": "One-finger generous input",
+   "rules": [
+    "DL-AGE-02",
+    "DL-UI-01",
+    "DL-UI-03",
+    "DL-UI-04"
+   ],
+   "meets": "One finger taps, holds or drags only where the fiction asks; targets are at least 110x110 base pixels or an equivalent hit region; one touch owns one route.",
+   "partial": "One-finger, but with a small target, a precise drag or a competing control.",
+   "fails": "Needs steering, the virtual stick, simultaneous controls or precision a four-year-old lacks.",
+   "source": "assessed"
+  },
+  {
+   "id": "C5",
+   "title": "Kind no-fail and real agency",
+   "rules": [
+    "DL-AGE-03",
+    "DL-AGE-04",
+    "DL-AGE-05",
+    "DL-AGE-08"
+   ],
+   "meets": "No loss, timeout or lost item; mistakes get kind feedback; zero input never wins; correct play beats mashing; help widens or demonstrates without making mashing best.",
+   "partial": "No loss, but a passive or mashing path is unguarded, or threat is not softened enough.",
+   "fails": "A fail state, a punitive timer, or a win without the child acting.",
+   "source": "assessed"
+  },
+  {
+   "id": "C6",
+   "title": "Truthful action",
+   "rules": [
+    "DL-INT-01",
+    "DL-INT-02",
+    "DL-INT-04"
+   ],
+   "meets": "Each touch belongs to the visible object, the object really changes (pours from its spout, opens, fills), and when Roshan works she goes to the place and acts there before progress counts.",
+   "partial": "Real state changes, but some steps act remotely, bounce generically, or disagree with the art.",
+   "fails": "Progress comes from a detached cursor, a generic sparkle, or motion that contradicts the art (for example pouring backwards).",
+   "source": "assessed"
+  },
+  {
+   "id": "C7",
+   "title": "Authored art and identity",
+   "rules": [
+    "DL-MED-02",
+    "DL-MED-05",
+    "DL-MOT-01",
+    "DL-MOT-07",
+    "DL-LAY-05",
+    "DL-READ-01",
+    "DL-READ-03",
+    "DL-READ-05"
+   ],
+   "meets": "Approved painted art staged as owned cards, one focal action, no code-drawn stand-ins or duplicate copies, no muddy overdraw; Roshan from the approved atlas family and always visible.",
+   "partial": "Mostly authored, with some code-drawn helpers, a stray duplicate, crowded hierarchy or a known atlas defect.",
+   "fails": "Placeholder shapes stand in for objects, duplicates sit over painted copies, or the owner has rejected the look.",
+   "source": "assessed"
+  },
+  {
+   "id": "C8",
+   "title": "Feedback and earned reward",
+   "rules": [
+    "DL-AGE-07",
+    "DL-MOT-03",
+    "DL-MOT-04",
+    "DL-MOT-05",
+    "DL-SND-04"
+   ],
+   "meets": "A valid touch shows a response at once; sight and sound describe the same event; effects never hide the action; stars and medals come only from intentional or explicitly assisted correct play.",
+   "partial": "Feedback exists but is late, mismatched, hidden by effects, or rewards are loosely tied to play.",
+   "fails": "Touches go unanswered, or rewards arrive without the child's action.",
+   "source": "assessed"
+  },
+  {
+   "id": "C9",
+   "title": "Lifecycle and save safety",
+   "rules": [
+    "DL-AGE-06",
+    "DL-UI-05",
+    "DL-SAVE-01",
+    "DL-SAVE-03",
+    "DL-SAVE-04",
+    "DL-SND-08"
+   ],
+   "meets": "Start, finish, leave, re-enter, pause and focus loss are clean; held input is cancelled; timers, tweens and audio are owned and freed; save keys are only added; replay is idempotent; the room's music is restored.",
+   "partial": "Works on the main path with a known leak, an unproven pause or re-entry, or shared state on the coordinator.",
+   "fails": "Progress can be lost, input sticks after leaving, or re-entry breaks.",
+   "source": "assessed"
+  },
+  {
+   "id": "C10",
+   "title": "Machine verification",
+   "rules": [
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-CODE-10"
+   ],
+   "meets": "A trusted probe drives real input through every step, includes a zero-input negative leg and checks teardown. Review captures and device sessions are acceptance evidence under C12, not part of this score.",
+   "partial": "A trusted probe covers the main path but writes state directly, lacks the passive leg, or skips teardown.",
+   "fails": "No trusted probe exercises it.",
+   "source": "assessed"
+  },
+  {
+   "id": "C11",
+   "title": "No open defect",
+   "rules": [
+    "DL-QA-10"
+   ],
+   "meets": "No game-specific finding is open as a defect.",
+   "partial": "Only P2/P3 defects, unconfirmed reports, owner decisions or external blocks remain.",
+   "fails": "A game-specific P0 or P1 defect is open.",
+   "source": "computed from the finding register"
+  },
+  {
+   "id": "C12",
+   "title": "Device, child and owner acceptance",
+   "rules": [
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06"
+   ],
+   "meets": "The target phone session, an observed child session and the owner's acceptance are all recorded for this game.",
+   "partial": "One or two of the three are recorded.",
+   "fails": "None is recorded, or one of them did not accept.",
+   "source": "computed from recorded acceptance"
+  }
+ ],
+ "rating_rule": "5 needs every criterion at 2, including recorded device, child and owner acceptance. 1 when a child cannot reach the game (C1 = 0). 2 when two or more of C2-C10 fail, or a game-specific P0 blocker is open. 3 when one of C2-C10 fails, a game-specific P0/P1 defect is open (C11 = 0), or more than two of C1-C10 are only partly met. Otherwise 4: no failed criterion, no open P0/P1 defect, at most two partial criteria, and only device, child and owner gates left.",
+ "reference": {
+  "game": "day_one_pool",
+  "chosen": "2026-10-03",
+  "why": "The strongest true-2D game a child can reach today (Grand Puff scores more points but its fight is built on 3D nodes, so it cannot be a template) and the clearest model of the owner's 2026-09-06 job rule: Roshan travels to each part, her hand makes contact, and only then does the authored dirt clear; every part has its own line; every change saves; real-touch probes guard it. It contains the strongest single activity in the game (the waterfall), and its gaps are specific and fixable, so it is the first candidate for a full gold star and the template for room jobs and job games.",
+  "status": "CANDIDATE_REFERENCE: after the five-star implementation every machine-assessed criterion meets the gold star (4/5, 22/24); it becomes the first gold star only when a phone session, an observed child session and the owner's acceptance are recorded.",
+  "patterns_reviewed_head": "87f992680c0b6a690bf45b1950275579c45e15ab"
+ },
+ "patterns": [
+  {
+   "id": "GS-01",
+   "criterion": "C6",
+   "game": "day_one_pool",
+   "title": "Travel, contact, then credit",
+   "copy": "Request travel to the real work point, follow Roshan's hand, and award progress only after the hand has been in contact for the work time; cancel on stop and focus loss.",
+   "anchors": [
+    {
+     "path": "scripts/day_one_contact_action_2d.gd",
+     "sha256": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac"
+    },
+    {
+     "path": "scripts/games/pool_waterfall_activity.gd",
+     "func": "_update_touch",
+     "sha256": "ebc67a9ae29fc1e662e2f1559062119d2ffc657a09e6f2f92fa682977c900b00"
+    }
+   ]
+  },
+  {
+   "id": "GS-02",
+   "criterion": "C6",
+   "game": "day_one_pool",
+   "title": "A hand-anchored tool measured on the art",
+   "copy": "Attach the tool to Roshan's measured hand socket and register its working point from pixel coordinates in the tool art, so contact means the tool, not the finger.",
+   "anchors": [
+    {
+     "path": "scripts/games/pool_skimmer_activity.gd",
+     "func": "_advance_cleaning",
+     "sha256": "27da52ee1b3fb96d8bb5f17cd0b7a266e1e3c44bb5c0cfb8ecbd9f1f8c5f482e"
+    },
+    {
+     "path": "scripts/games/pool_skimmer_activity.gd",
+     "func": "_hand_grip_error",
+     "sha256": "22eaf39311a398e83ea0a9d2c936a01ba86fc073eda983856c2539e9b65332fa"
+    },
+    {
+     "path": "scripts/games/pool_skimmer_activity.gd",
+     "func": "_sync_net_position",
+     "sha256": "8c0ca6d2a1788d84e6c081912e92958bbd22b573b1dcc8383500d1e5d615a3e2"
+    }
+   ]
+  },
+  {
+   "id": "GS-03",
+   "criterion": "C9",
+   "game": "day_one_pool",
+   "title": "Save every change; a restored finish completes once",
+   "copy": "Persist the part mask on every change and rebuild from it on entry; a fully restored mask emits completion exactly once.",
+   "anchors": [
+    {
+     "path": "scripts/games/day_one_pool_cleanup.gd",
+     "func": "_on_waterfall_progress",
+     "sha256": "ebee10c5d21b589ed08ef8a1281bc4c77adf8f1a4ddfe2d66f44c32502c670df"
+    },
+    {
+     "path": "scripts/games/day_one_pool_cleanup.gd",
+     "func": "_apply_restored_progress",
+     "sha256": "f86f31f294a09c927a886eb6a84cb9b48eaf08d47e138914b70e76b99031d936"
+    },
+    {
+     "path": "scripts/games/pool_waterfall_activity.gd",
+     "func": "_emit_completed_once",
+     "sha256": "c684e289da6b5b02db52d3128c3d00de335f9b41532161ad8ad6e7ed8d96888a"
+    }
+   ]
+  },
+  {
+   "id": "GS-04",
+   "criterion": "C3",
+   "game": "day_one_pool",
+   "title": "One exact line per part and an approved hand at the live part",
+   "copy": "Speak the current part's own instruction when it becomes active, and let the approved guide hand demonstrate the real verb on that part, not at a screen corner.",
+   "anchors": [
+    {
+     "path": "scripts/games/day_one_pool_cleanup.gd",
+     "func": "_announce_current_activity",
+     "sha256": "cb34f5141ac60c2f5f4e5c46897ef9fb3a612481fcdd7692935f9e3d5a3c5d2a"
+    },
+    {
+     "path": "scripts/games/pool_waterfall_activity.gd",
+     "func": "_update_guide_hand",
+     "sha256": "c1182f744ea011720ee4fc38028f75a6ec557058f4d26baec3449b545c166b54"
+    },
+    {
+     "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+     "func": "_update_guide_hand",
+     "sha256": "70ec8cecdbd86affe76a0dec1c4cbb4c01fac818a42f144258eee704364ccd40"
+    }
+   ]
+  },
+  {
+   "id": "GS-05",
+   "criterion": "C4",
+   "game": "day_one_pool",
+   "title": "The fixture is the hit region; one touch owns the gesture",
+   "copy": "Make the whole visible fixture (plus a margin) the touch target and keep the first touch as the owner until release or cancel.",
+   "anchors": [
+    {
+     "path": "scripts/games/pool_waterfall_activity.gd",
+     "func": "_gui_input",
+     "sha256": "fe64826c848812b4dbc3db3cd82685e2ea98210a47e3f09eb5a9d3b66833e838"
+    },
+    {
+     "path": "scripts/games/pool_waterfall_activity.gd",
+     "func": "_lane_at",
+     "sha256": "ba02d58c5f87b2cff0c0d2bcfee2d01d008428d2753ac957315364ca1b692eef"
+    }
+   ]
+  },
+  {
+   "id": "GS-06",
+   "criterion": "C5",
+   "game": "day_one_pool",
+   "title": "A deliberate stroke beats repeated taps",
+   "copy": "Let a purposeful drag finish a part in one motion while taps make small capped progress, so careful play is fastest and mashing never is.",
+   "anchors": [
+    {
+     "path": "scripts/games/pool_waterfall_activity.gd",
+     "func": "_end_touch",
+     "sha256": "1195f8c5038ccead83621ac5f577a5b9d776092cce94de71c5d24fad01f75d23"
+    },
+    {
+     "path": "scripts/games/pool_waterfall_activity.gd",
+     "const": "TAP_ASSIST",
+     "sha256": "f74ac2b20e5c100e20fa0e784bbf9dfc3a00ff53d1132e50ab8cea041532798a"
+    }
+   ]
+  },
+  {
+   "id": "GS-07",
+   "criterion": "C7",
+   "game": "day_one_pool",
+   "title": "Authored dirt over the real clean fixture",
+   "copy": "Lay the authored dirty state over the untouched clean fixture and wipe it away where the child works, so progress is shown by the art itself and the finished room is the approved art.",
+   "anchors": [
+    {
+     "path": "scripts/games/pool_waterfall_activity.gd",
+     "func": "_build_dirty_slices",
+     "sha256": "f1927de627f21d9e95d2d8589862bcd2ac21f6920e2b4f17e051f2d6f4f939d0"
+    },
+    {
+     "path": "scripts/games/pool_waterfall_activity.gd",
+     "func": "_apply_lane_crop",
+     "sha256": "4d88d721213f261ed28db26941e92d32d69413b94b6c592dd818e01f812bdb7e"
+    },
+    {
+     "path": "scripts/games/pool_waterfall_activity.gd",
+     "func": "_start_lane_reveal",
+     "sha256": "670c1c32df33609308c16a362095247f72d64dfd814ddf02c093e2883f8e0498"
+    }
+   ]
+  },
+  {
+   "id": "GS-08",
+   "criterion": "C10",
+   "game": "day_one_pool",
+   "title": "Real-touch probe with far-touch, second-finger and cancel legs",
+   "copy": "Drive the activity with pushed touch events, prove a far touch earns nothing, a second finger cannot steal the gesture, cancel clears it and re-entry restores it.",
+   "anchors": [
+    {
+     "path": "scripts/probe_day_one_pool_cleanup.gd",
+     "func": "_probe_roshan_contact",
+     "sha256": "79808a764e2861f270ce1a23c2dd08189a8f4275862479ebf9a9ae56fb771449"
+    },
+    {
+     "path": "scripts/probe_day_one_pool_cleanup.gd",
+     "func": "_probe_seahorse_input_contract",
+     "sha256": "7a6ca80d46fc37f91e7a745c5f4dff2c6599f0fa6ff506ec4d43a6ddbcec6d6f"
+    },
+    {
+     "path": "scripts/probe_day_one_pool_cleanup.gd",
+     "func": "_probe_contact_action",
+     "sha256": "8420b4a2fa6fe2eff47fd9feb3120e9fa92abf1d6f5e9692c2e43a34d30a85b9"
+    }
+   ]
+  },
+  {
+   "id": "GS-15",
+   "criterion": "C5",
+   "game": "day_one_pool",
+   "title": "Taps that arrive mid-work wait their turn",
+   "copy": "When the child taps while Roshan is already working, queue a bounded number of further actions and answer each tap at once; every queued action still needs its own contact time, and cancellation drops the unearned queue.",
+   "anchors": [
+    {
+     "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+     "func": "_register_tap",
+     "sha256": "1d73801e744ba418c7a752ec068ab2c770cdaf0165e8461bd7f0e7f43ffe6f77"
+    },
+    {
+     "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+     "func": "_finish_tug",
+     "sha256": "bedb5f14c140c2ea4db2b3dd77fffb8bd015c5f6f8f7a1c83abf863c7867b826"
+    }
+   ]
+  },
+  {
+   "id": "GS-16",
+   "criterion": "C3",
+   "game": "day_one_pool",
+   "title": "A quiet child hears the exact line again, twice at most",
+   "copy": "After a quiet stretch, replay the activity's own exact lines (the other line first, then the hint) under a fresh voice session, at most twice per activity, while the guide hand keeps pointing; quiet time never earns progress.",
+   "anchors": [
+    {
+     "path": "scripts/games/day_one_pool_cleanup.gd",
+     "func": "_process",
+     "sha256": "f6c18e9a1df5968a3c1419c2f72ff7fde5a32fb88a21010e715ba92c9fdf571b"
+    },
+    {
+     "path": "scripts/games/day_one_pool_cleanup.gd",
+     "const": "IDLE_REPROMPT_LINES",
+     "sha256": "cd567f999e2de32d07049c548443b50981e36e15c234350db72505c300a04d71"
+    }
+   ]
+  },
+  {
+   "id": "GS-17",
+   "criterion": "C7",
+   "game": "day_one_pool",
+   "title": "Keep the character's colours under a room tint",
+   "copy": "When a room is tinted to look dirty, give each of the character's cutouts inside the tinted tree the exact inverse, and fade both together, so the place changes but her identity colours do not.",
+   "anchors": [
+    {
+     "path": "scripts/games/day_one_pool_cleanup.gd",
+     "func": "_set_tint_ratio",
+     "sha256": "813fd8e9b5117baf6345ea74c2d05111264d73260c6373a7f444996a7bfddcc1"
+    }
+   ]
+  },
+  {
+   "id": "GS-18",
+   "criterion": "C8",
+   "game": "day_one_pool",
+   "title": "A spoken line must be true of what just happened",
+   "copy": "Choose each feedback line from what the child actually did (the object picked, the count reached), prefer an exact per-object take when it exists, and stay silent rather than name the wrong thing.",
+   "anchors": [
+    {
+     "path": "scripts/games/day_one_pool_cleanup.gd",
+     "func": "skimmer_pickup_line",
+     "sha256": "cdf2d045904c4409d5774c22070926cb997c0e316ac7ac16d2dd05ecbfadcedb"
+    }
+   ]
+  },
+  {
+   "id": "GS-09",
+   "criterion": "C10",
+   "game": "boxer",
+   "title": "End-to-end real-touch driver through the world",
+   "copy": "Complete the whole job from the room object to the reward with real touch events, including a multi-touch leg, inside a trusted probe.",
+   "anchors": [
+    {
+     "path": "scripts/probe_opera_2d.gd",
+     "func": "_drive_boxer_phase",
+     "sha256": "5d9d138f66cb080bec954c56626fc8462b0891eec8391d2c985b61e3e2781908"
+    }
+   ]
+  },
+  {
+   "id": "GS-10",
+   "criterion": "C4",
+   "game": "boxer",
+   "title": "Per-finger ownership with a focus-loss cancel",
+   "copy": "Track each touch index, ignore a second finger while one owns the action, and cancel held input on focus loss and close.",
+   "anchors": [
+    {
+     "path": "scripts/opera_boxing_surface.gd",
+     "func": "_handle_press",
+     "sha256": "f686c4a17ba2c3c77291a0866fff9faa1ac0d7e90346127c9a144e4bd85469cf"
+    },
+    {
+     "path": "scripts/opera_boxing_surface.gd",
+     "func": "_handle_release",
+     "sha256": "470baa975fd36e104b659f5c53dc6042d9c69a271f5bcb905fcc4ae6f600348f"
+    },
+    {
+     "path": "scripts/opera_boxing_surface.gd",
+     "func": "_notification",
+     "sha256": "9fb3a4c42462f9dfd6f6f825bea8d3eea1d08d3e0d5382115d299efebd171012"
+    }
+   ]
+  },
+  {
+   "id": "GS-11",
+   "criterion": "C3",
+   "game": "pearl_castle",
+   "title": "Required lines refuse a generic fallback",
+   "copy": "List each required objective key and refuse the generic cheer when its recording is missing, so a missing line shows up as a gap instead of a yay.",
+   "anchors": [
+    {
+     "path": "scripts/audio_director.gd",
+     "const": "DAY_ONE_REQUIRED_EVENTS",
+     "sha256": "b6f9168f3d091488481872b93b10c78c8ddd25195704b5de67f0bc753c187e9e"
+    },
+    {
+     "path": "scripts/audio_director.gd",
+     "func": "_say",
+     "sha256": "8c00ffa380ae8368cd715f9e40e9443de9ff4ea83cd7ebe0ba6ac145edc0aeb5"
+    }
+   ]
+  },
+  {
+   "id": "GS-12",
+   "criterion": "C9",
+   "game": "teacher",
+   "title": "A per-phase checkpoint that awards once",
+   "copy": "Checkpoint each finished phase as validated JSON, restore it only when the board reopens, and clear it after the win so a reward is never paid twice.",
+   "anchors": [
+    {
+     "path": "scripts/opera_teacher_surface.gd",
+     "func": "restore_progress",
+     "sha256": "55b8dee63336d42fae38354a2f891730e0426976072204c0127f73171747f77f"
+    }
+   ]
+  },
+  {
+   "id": "GS-13",
+   "criterion": "C8",
+   "game": "popstar",
+   "title": "Medals from honest play statistics",
+   "copy": "Compute bronze, silver and gold from misses, help and time measured during play, never from a timer or repeated taps.",
+   "anchors": [
+    {
+     "path": "scripts/opera_mastery.gd",
+     "func": "evaluate",
+     "sha256": "8e80436797efd6ab3c50a0b84f693b8f874951a425987e5f04005ac0af123843"
+    }
+   ]
+  },
+  {
+   "id": "GS-14",
+   "criterion": "C5",
+   "game": "dolls",
+   "title": "A live-input gate with mercy that never wins alone",
+   "copy": "Count a success only if the child touched within the last moment, and widen windows after misses without ever completing by itself.",
+   "anchors": [
+    {
+     "path": "scripts/opera_nursery_catch.gd",
+     "func": "_process",
+     "sha256": "a4ea1014760418d3fe6ad2fe0093c8073ecf9f7ed029d15ddf868c316944efe6"
+    },
+    {
+     "path": "scripts/opera_nursery_catch.gd",
+     "func": "_spawn_baby",
+     "sha256": "68bf57fc8925a980e8696c3672a454ad337ea2370a18ce9163aa84d243ee64be"
+    }
+   ]
+  }
+ ],
+ "coverage": {
+  "globs": [
+   "scripts/games/*.gd",
+   "scripts/opera_*_surface.gd",
+   "scripts/arena/*.gd",
+   "scripts/day_one_*.gd",
+   "scripts/chapter_two_*.gd",
+   "scripts/painter/*.gd",
+   "scripts/painter/vendor/*.gd"
+  ],
+  "not_games": [
+   {
+    "path": "scripts/day_one_story_clips.gd",
+    "reason": "Day One story clips play between scenes and never replace a child action (DL-CIN-16); assessed with the games they connect."
+   },
+   {
+    "path": "scripts/day_one_contextual_voice_catalog.gd",
+    "reason": "Voice data for the Day One games."
+   },
+   {
+    "path": "scripts/painter/painter_probe.gd",
+    "reason": "Probe helper for the painter prototype."
+   },
+   {
+    "path": "scripts/painter/painter_guided_probe.gd",
+    "reason": "Probe helper for the painter prototype."
+   }
+  ]
+ }
+}

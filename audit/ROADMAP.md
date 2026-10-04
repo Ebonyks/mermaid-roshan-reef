@@ -4,24 +4,24 @@ Status: `SUPPORTING_CURRENT / GENERATED_ADVISORY`. Studied head: `e9915f44b8d7cf
 
 Order inside each lane: recorded owner priority first, then severity (P0 to P3), then child-impact wording, then directed dependencies, then age since the last dated history entry. This is a planning aid, not an owner verdict or a quality score. Every "Say" line is ready to give to Claude or Codex as written.
 
-## Repair — 26
+## Repair — 28
 
 Child-facing defects that a change to the game can fix.
 
 | Item | Say | Recipe or reason | Why here |
 |---|---|---|---|
 | MA-OPERA-001 (P1) | Fix MA-OPERA-001: Chef pours backwards and its steps stack flat code-drawn shapes over the painted kitchen | `REC-REPAIR`: `design/reference/recipes/repair.md` | owner report ODR-CHEF-VERDICT-20261003 (2026-10-03); P1 CONFIRMED_OPEN; access/comprehension wording; 0 days since last entry |
+| MA-PLAY-005 (P0) | Fix MA-PLAY-005: Chapter 2's story careers cannot start or progress in normal play: setup rejects an empty… | `REC-REPAIR`: `design/reference/recipes/repair.md` | no recorded owner priority; P0 CONFIRMED_OPEN; play/agency wording; 0 days since last entry |
 | MA-PLAY-003 (P1) | Fix MA-PLAY-003: Logical travel geometry and arrival gating are not independently proven across the live… | `REC-REPAIR`: `design/reference/recipes/repair.md` | no recorded owner priority; P1 CONFIRMED_OPEN; progress/safety wording; 21 days since last entry |
 | MA-PLAY-001 (P1) | Fix MA-PLAY-001: No fresh-save child-visible route has proved entry, exit, and re-entry for every visible… | `REC-REPAIR`: `design/reference/recipes/repair.md` | no recorded owner priority; P1 CONFIRMED_OPEN; progress/safety wording; 10 days since last entry |
 | MA-OPERA-002 (P1) | Fix MA-OPERA-002: Detective's supposedly missing crown is still visibly painted into the scene source | `REC-REPAIR`: `design/reference/recipes/repair.md` | no recorded owner priority; P1 CONFIRMED_OPEN; access/comprehension wording; 51 days since last entry |
 | MA-OPERA-004 (P1) | Fix MA-OPERA-004: The Opera capture harness has not produced accepted evidence for every career, widget… | `REC-REPAIR`: `design/reference/recipes/repair.md` | no recorded owner priority; P1 CONFIRMED_OPEN; access/comprehension wording; 51 days since last entry |
 | MA-TYPE-003 (P1) | Fix MA-TYPE-003: Child-action and child-state copy has no enforced size/read-dependency role, with current… | `REC-REPAIR`: `design/reference/recipes/repair.md` | no recorded owner priority; P1 CONFIRMED_OPEN; access/comprehension wording; 34 days since last entry |
 | MA-TYPE-004 (P1) | Fix MA-TYPE-004: Critical navigation, category, habitat, care, career, lock, confirmation, progress, and… | `REC-REPAIR`: `design/reference/recipes/repair.md` | no recorded owner priority; P1 CONFIRMED_OPEN; access/comprehension wording; 27 days since last entry |
+| MA-OPERA-013 (P1) | Fix MA-OPERA-013: A second finger on the Astronaut pipe tray throws away the tile already being carried | `REC-REPAIR`: `design/reference/recipes/repair.md` | no recorded owner priority; P1 CONFIRMED_OPEN; access/comprehension wording; 0 days since last entry |
 | MA-PLAY-004 (P1) | Finish MA-PLAY-004: Roshan must travel to and visibly perform every job instead of operating a detached tool… | `REC-REPAIR`: `design/reference/recipes/repair.md` | no recorded owner priority; P1 IN_PROGRESS; play/agency wording; 3 days since last entry |
-| MA-VIS-003 (P1) | Confirm or dismiss MA-VIS-003: Source-average saturation flags for Fairy and Lagoon do not yet establish a… | `REC-REPAIR`: `design/reference/recipes/repair.md` | no recorded owner priority; P1 REPORTED_UNCONFIRMED; presentation/support wording; 51 days since last entry |
-| MA-TYPE-001 (P1) | Fix MA-TYPE-001: Child-facing text has no explicit project font, default-font Theme, deterministic… | `REC-REPAIR`: `design/reference/recipes/repair.md` | no recorded owner priority; P1 CONFIRMED_OPEN; presentation/support wording; 34 days since last entry |
 
-Also open, in order (16 more): `MA-2D-002`, `MA-TYPE-006`, `MA-VIS-006`, `MA-SAVE-001`, `MA-AUDIO-002`, `MA-TOUCH-002`, `MA-OPERA-003`, `MA-VIS-004`, `MA-PERF-003`, `MA-ASSET-001`, `MA-ASSET-004`, `MA-OPERA-006`, `MA-PERF-002`, `MA-TYPE-002`, `MA-TYPE-005`, `MA-ROSHAN-005`.
+Also open, in order (18 more): `MA-VIS-003`, `MA-TYPE-001`, `MA-2D-002`, `MA-TYPE-006`, `MA-VIS-006`, `MA-SAVE-001`, `MA-AUDIO-002`, `MA-TOUCH-002`, `MA-OPERA-003`, `MA-VIS-004`, `MA-PERF-003`, `MA-ASSET-001`, `MA-ASSET-004`, `MA-OPERA-006`, `MA-PERF-002`, `MA-TYPE-002`, `MA-TYPE-005`, `MA-ROSHAN-005`.
 
 ## Verify — 11
 

@@ -1,0 +1,11 @@
+--- a/.github/workflows/probes.yml
++++ b/.github/workflows/probes.yml
+@@ -50,7 +50,7 @@
+     # Green runs now take ~24 min (probes ~14 min + visual captures); at 30
+     # the slow-runner tail dies mid-capture and GitHub reports the timeout as
+     # "cancelled", which reads like a phantom cancel. Keep ~20 min headroom.
+-    timeout-minutes: 55
++    timeout-minutes: 90
+     steps:
+       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+         with:

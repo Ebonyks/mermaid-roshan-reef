@@ -4,10 +4,14 @@ extends Node2D
 ## ReefMain; a gesture earns its callback only after travel, hand contact and work.
 const ATLAS := preload("res://assets/characters/roshan_25d/roshan_directional.png")
 const SHADOW := preload("res://assets/flats/castle/rooms/room_actor_shadow.png")
+# Approved Day One soap-bubble cluster; marks local hand work without code shapes.
+const WORK_BUBBLES := preload("res://assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png")
+const WORK_BUBBLES_SIZE := 30.0
 var room_actor: Sprite2D
 var room_shadow: Sprite2D
 var avatar: Sprite2D
 var shadow: Sprite2D
+var work_bubbles: Sprite2D
 var hand_offset := Vector2(46.0, 23.0) * 0.95
 var target := Vector2.ZERO
 var active: bool = false
@@ -39,8 +43,22 @@ func bind(actor: Sprite2D, actor_shadow: Sprite2D, skin: String) -> void:
 	shadow.scale = Vector2(90.0, 22.0) * unit_scale / SHADOW.get_size()
 	add_child(shadow)
 	add_child(avatar)
+	work_bubbles = Sprite2D.new()
+	work_bubbles.name = "LocalWorkBubbles"
+	work_bubbles.texture = WORK_BUBBLES
+	work_bubbles.scale = Vector2.ONE * WORK_BUBBLES_SIZE * unit_scale \
+		/ maxf(WORK_BUBBLES.get_width(), 1.0)
+	work_bubbles.position = hand_offset
+	work_bubbles.visible = false
+	add_child(work_bubbles)
 	z_index = 500
 	visible = false
+
+
+## The temporary Roshan cutout, so an owner can keep her identity colours under
+## a room tint (DL-MED-05).
+func identity_sprite() -> Sprite2D:
+	return avatar
 
 func available() -> bool:
 	return is_instance_valid(room_actor) and avatar != null
@@ -81,10 +99,10 @@ func _process(delta: float) -> void:
 		return
 	position = position.move_toward(target - hand_offset, maxf(delta, 0.0) * 440.0 * unit_scale)
 	if not in_contact():
-		queue_redraw()
+		_show_work_bubbles(false)
 		return
-	queue_redraw()
 	work_time += maxf(delta, 0.0)
+	_show_work_bubbles(true)
 	if work_time >= 0.42 and done.is_valid():
 		var callback: Callable = done
 		cancel()
@@ -95,6 +113,7 @@ func cancel() -> void:
 		return
 	active = false
 	done = Callable()
+	_show_work_bubbles(false)
 	if is_instance_valid(room_actor):
 		room_actor.global_position = global_position
 		var foot: Vector2 = (room_actor.get_parent() as CanvasItem).get_global_transform().affine_inverse() * to_global(Vector2(0.0, 110.0) * unit_scale)
@@ -115,10 +134,12 @@ func _notification(what: int) -> void:
 		cancel()
 
 
-func _draw() -> void:
-	if in_contact():
-		# Sparse bubbles mark local hand work; they never advance the job.
-		for index: int in range(3):
-			var angle: float = work_time * 4.0 + float(index) * TAU / 3.0
-			draw_circle(hand_offset + Vector2.from_angle(angle) * 11.0 * unit_scale,
-				3.0 * unit_scale, Color(0.6, 0.95, 1.0, 0.75))
+func _show_work_bubbles(working: bool) -> void:
+	# Sparse authored bubbles mark local hand work; they never advance the job.
+	if work_bubbles == null:
+		return
+	work_bubbles.visible = working
+	if working:
+		work_bubbles.position = hand_offset + Vector2(0.0, -6.0 * unit_scale) \
+			+ Vector2.from_angle(work_time * 4.0) * 4.0 * unit_scale
+		work_bubbles.rotation = sin(work_time * 3.0) * 0.18

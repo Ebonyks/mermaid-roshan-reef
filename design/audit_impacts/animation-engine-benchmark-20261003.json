@@ -1,6 +1,6 @@
 {
   "id": "animation-engine-benchmark-20261003",
-  "scope": "Owner commission: install/test local candidates, replicate the same source/action across engines, evaluate and publish native footage plus Aseprite bridge outputs and troubleshooting evidence to Ebonyks/mermaid-roshan-reef on codex/animation-engine-benchmark-20261003. Reference-only studies; no runtime integration or release. API tests pending funded budget answer. Reconcile measured results and source-guide/anchor lessons into the existing production protocol, dated workflow study, animation index and master planning navigation; no new runtime acceptance or finding closure.",
+  "scope": "Owner commission: install/test local candidates, replicate the same source/action across engines, evaluate and publish native footage plus Aseprite bridge outputs and troubleshooting evidence to Ebonyks/mermaid-roshan-reef on codex/animation-engine-benchmark-20261003. Reference-only studies; no runtime integration or release. API tests pending funded budget answer. Reconcile measured results and source-guide/anchor lessons into the existing production protocol, dated workflow study, animation index and master planning navigation; no new runtime acceptance or finding closure. Reconcile incoming origin/dev 23231a56e5f70355605a86374660bed4b9f72abe, preserving the independent gold-star/pool/imp work and original EC benchmark baseline; rerun combined project gates before integration. Publish complete local reconciliation evidence and the exact remote CI deadline cancellation. Prepare a 55-to-90-minute deadline-only proposal; do not edit .github/workflows/probes.yml or integrate dev without the required explicit owner instruction and a green work-branch run.",
   "baseline": "ecb68651c67e66501eeab2c719b152d8982023c2",
   "rules": [
     "DL-AUTH-01",
@@ -345,6 +345,14 @@
     "assets_src/cinematics/animation_engine_benchmark_20261003/summary.json",
     "audit/MASTER_AUDIT_2026-08-09.md",
     "audit/animation/README.md",
+    "audit/animation/benchmark_reconciliation_20261004/.gdignore",
+    "audit/animation/benchmark_reconciliation_20261004/.gitattributes",
+    "audit/animation/benchmark_reconciliation_20261004/ci_timeout_proposal.diff",
+    "audit/animation/benchmark_reconciliation_20261004/local_validation.json",
+    "audit/animation/benchmark_reconciliation_20261004/original_full_ci.log",
+    "audit/animation/benchmark_reconciliation_20261004/probe_interaction.log",
+    "audit/animation/benchmark_reconciliation_20261004/probe_touch_router.log",
+    "audit/animation/benchmark_reconciliation_20261004/remote_ci.json",
     "design/05_DOC_LEDGER.md",
     "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
     "design/animation/WORKFLOW_OPTIONS_2026-10-03.md",
@@ -374,12 +382,17 @@
       "evidence": "assets_src/cinematics/animation_engine_benchmark_20261003/remote_verification.json; 312 exact-revision files match at 9f00034d0a76374e9e2224f24e2a489bbb2fb408; worldwide Hunyuan pixels remain withheld."
     },
     {
-      "command": "Exact final-topic-head GitHub probe suite before dev integration",
-      "result": "PENDING",
-      "evidence": "Publication-time record; exact run result/link will be reported after this metadata commit. No CI acceptance inferred from local retries or remote byte verification."
+      "command": "Exact published topic-head GitHub probe suite before dev integration",
+      "result": "FAIL",
+      "evidence": "audit/animation/benchmark_reconciliation_20261004/remote_ci.json; run 37189042662 at 5cb41d757dbd20f4fa7e9c45115160352b558cae completed all mandatory steps successfully but exceeded 55m during an advisory capture; overall CANCELLED, not green."
+    },
+    {
+      "command": "Full project CI on incoming-dev reconciliation plus unchanged native retries and exact existing failure patterns",
+      "result": "PASS",
+      "evidence": "audit/animation/benchmark_reconciliation_20261004/local_validation.json; 82/82. Original shell FAIL retained (probe_touch_router and probe_interaction exit127 before verdict); fresh native retries PASS. No probe/test/runtime implementation changed by this benchmark."
     }
   ],
-  "acceptance_gaps": "Zero accepted production seconds; no runtime, owner, child or device acceptance. All-engine delivery partial: Hunyuan output territory terms block worldwide pixels, H3 excludes US, FramePack preflight deferred, current LTX Desktop unsupported, LightX2V untested, paid APIs need auth/cap. No related finding closure.",
+  "acceptance_gaps": "Zero accepted production seconds; no runtime, owner, child or device acceptance. All-engine delivery partial: Hunyuan output territory terms block worldwide pixels, H3 excludes US, FramePack preflight deferred, current LTX Desktop unsupported, LightX2V untested, paid APIs need auth/cap. No related finding closure. Dev integration additionally blocked by CI deadline cancellation; .github/workflows edits require explicit owner instruction. Concrete deadline-only diff published for review; no gate removed.",
   "task_caps": {
     "maximum_generated_takes_per_brief_backend": 2,
     "initial_take_per_brief_backend": 1,
