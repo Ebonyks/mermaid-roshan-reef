@@ -114,6 +114,7 @@
     "assets_src/cinematics/animation_engine_benchmark_20261003/matrix.json",
     "assets_src/cinematics/animation_engine_benchmark_20261003/pack_bridge.lua",
     "assets_src/cinematics/animation_engine_benchmark_20261003/prepare_inputs.lua",
+    "assets_src/cinematics/animation_engine_benchmark_20261003/remote_verification.json",
     "assets_src/cinematics/animation_engine_benchmark_20261003/reopen_bridge.lua",
     "assets_src/cinematics/animation_engine_benchmark_20261003/results/framepack/eligibility.json",
     "assets_src/cinematics/animation_engine_benchmark_20261003/results/freevideo_h3/eligibility.json",
@@ -368,9 +369,14 @@
       "evidence": "assets_src/cinematics/animation_engine_benchmark_20261003/environment/authority_development.log; both gates ALL OK at baseline ecb68651c67e66501eeab2c719b152d8982023c2; rerun after staging."
     },
     {
-      "command": "Anonymous GitHub exact-revision payload byte verification and exact-head CI",
+      "command": "Anonymous GitHub manifest, every payload, original bound-source and changed instruction/helper byte verification",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/animation_engine_benchmark_20261003/remote_verification.json; 312 exact-revision files match at 9f00034d0a76374e9e2224f24e2a489bbb2fb408; worldwide Hunyuan pixels remain withheld."
+    },
+    {
+      "command": "Exact final-topic-head GitHub probe suite before dev integration",
       "result": "PENDING",
-      "evidence": "Publish and fetch manifest/every payload before claiming delivery. Later remote_verification.json records actual revision and CI."
+      "evidence": "Publication-time record; exact run result/link will be reported after this metadata commit. No CI acceptance inferred from local retries or remote byte verification."
     }
   ],
   "acceptance_gaps": "Zero accepted production seconds; no runtime, owner, child or device acceptance. All-engine delivery partial: Hunyuan output territory terms block worldwide pixels, H3 excludes US, FramePack preflight deferred, current LTX Desktop unsupported, LightX2V untested, paid APIs need auth/cap. No related finding closure.",
