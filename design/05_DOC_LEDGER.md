@@ -895,7 +895,7 @@ Kept as-is; noted so a future edit updates every copy.
 
 | Doc | | Note |
 |---|---|---|
-| `docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md` | 🟣 | `PROPOSED / CANDIDATE` owner-requested Codex handoff prepared by Claude (analysis, written specification, templates, seeds and a read-only measurement tool; no game change, no images) at dev `f2140465`: the loop study, keep, find, plan, prompt, build, check, learn; work packages LP0–LP11 (cycle home, study runner, strengths register, lesson fields, decision-register intake, living roadmap, prompt catalogue and recipes, monthly verification sweep, master-audit refinements, loop health, owner-gated cadence); a build order across all outstanding handoffs; owner questions Q1–Q8. Tracked by `MA-DOC-009`. Grants no acceptance. |
+| `docs/handoffs/codex_self_improvement_loop_2026-10-03/README.md` | 🟣 | `PROPOSED / CANDIDATE` owner-requested Codex handoff prepared by Claude (analysis, written specification, templates, seeds and a read-only measurement tool; no game change, no images) at dev `f2140465`: the loop study, keep, find, plan, prompt, build, check, learn; work packages LP0–LP11 (cycle home, study runner, strengths register, lesson fields, decision-register intake, living roadmap, prompt catalogue and recipes, monthly verification sweep, master-audit refinements, loop health, owner-gated cadence); a build order across all outstanding handoffs; owner questions Q1–Q8. Tracked by `MA-DOC-009`. Grants no acceptance. Implemented in part by Codex at `4cb14feb`; reviewed and repaired on 2026-10-03 (`docs/handoffs/codex_loop_review_2026-10-03/`). |
 | `docs/handoffs/codex_self_improvement_loop_2026-10-03/LOOP_AUDIT.md` | 🔵 | `SUPPORTING_CURRENT` owner-requested audit at dev `f2140465` (V1 static, read-only sweeps and measurement): the parts of the loop exist but it does not turn; twelve feedback loops with what breaks each; two advisory sensors that fail silently (`MA-CI-008`); strengths, weaknesses, roadmap, prompts and learning. Counts are dated measurements, not live status. |
 | `docs/handoffs/codex_self_improvement_loop_2026-10-03/CYCLE_0_STUDY_REPORT.md` | 🔵 | `SUPPORTING_CURRENT` worked example of the cycle report at dev `f2140465`, written by hand with existing tools: changes since 2026-09-30, strengths and weaknesses observed, loop health baseline, roadmap delta, five ready-to-say prompts, five owner questions and the lessons this cycle wrote back. |
 | `docs/handoffs/codex_self_improvement_loop_2026-10-03/templates/STUDY_REPORT_V1.md` | 🟣 | `PROPOSED / CANDIDATE` template: one short report per loop cycle with numbers from the study runner. |
@@ -905,18 +905,18 @@ Kept as-is; noted so a future edit updates every copy.
 
 | Doc | | Note |
 |---|---|---|
-| `audit/cycles/2026-10-03/CURRENT_SURFACES.md` | 🔵 | `SUPPORTING_CURRENT`; commissioned study-loop intake/runbook or generated evidence/planning view; no automatic rule/finding transition, schedule, telemetry or product acceptance. |
-| `audit/cycles/2026-10-03/DEVICE_SESSION.md` | 🔵 | `SUPPORTING_CURRENT`; commissioned study-loop intake/runbook or generated evidence/planning view; no automatic rule/finding transition, schedule, telemetry or product acceptance. |
-| `audit/cycles/2026-10-03/GENERATED_CHANGE_HISTORY.md` | 🔵 | `SUPPORTING_CURRENT`; commissioned study-loop intake/runbook or generated evidence/planning view; no automatic rule/finding transition, schedule, telemetry or product acceptance. |
-| `audit/cycles/2026-10-03/IMPLEMENTATION.md` | 🔵 | `SUPPORTING_CURRENT`; commissioned study-loop intake/runbook or generated evidence/planning view; no automatic rule/finding transition, schedule, telemetry or product acceptance. |
-| `audit/cycles/2026-10-03/OWNER_REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; commissioned study-loop intake/runbook or generated evidence/planning view; no automatic rule/finding transition, schedule, telemetry or product acceptance. |
-| `audit/cycles/2026-10-03/ROADMAP.md` | 🔵 | `SUPPORTING_CURRENT`; commissioned study-loop intake/runbook or generated evidence/planning view; no automatic rule/finding transition, schedule, telemetry or product acceptance. |
-| `audit/cycles/2026-10-03/STUDY_REPORT.md` | 🔵 | `SUPPORTING_CURRENT`; commissioned study-loop intake/runbook or generated evidence/planning view; no automatic rule/finding transition, schedule, telemetry or product acceptance. |
-| `audit/cycles/2026-10-03/VERIFICATION_SWEEP.md` | 🔵 | `SUPPORTING_CURRENT`; commissioned study-loop intake/runbook or generated evidence/planning view; no automatic rule/finding transition, schedule, telemetry or product acceptance. |
+| `audit/cycles/2026-10-03/CURRENT_SURFACES.md` | ⚪ | `HISTORICAL_EVIDENCE` (superseded for current use by cycle `2026-10-03b`); generated list of fourteen shipping surfaces at the 2026-10-03 infrastructure study (source presence only); later cycles add probes, captures and findings per surface. |
+| `audit/cycles/2026-10-03/DEVICE_SESSION.md` | ⚪ | `HISTORICAL_EVIDENCE` (superseded for current use by cycle `2026-10-03b`); generated at the infrastructure study; identical to the technical sweep and superseded for phone use by later cycles' plain device scripts. |
+| `audit/cycles/2026-10-03/GENERATED_CHANGE_HISTORY.md` | ⚪ | `HISTORICAL_EVIDENCE` (superseded for current use by cycle `2026-10-03b`); impact records in date order with their declared validation, generated at the infrastructure study; records stay authoritative. |
+| `audit/cycles/2026-10-03/IMPLEMENTATION.md` | 🔵 | `SUPPORTING_CURRENT`; Codex's implementation notes for LP0–LP11 at `4cb14feb` and the owner's 2026-10-03 latest-Godot direction; reviewed in the loop review. |
+| `audit/cycles/2026-10-03/OWNER_REVIEW.md` | ⚪ | `HISTORICAL_EVIDENCE` (superseded for current use by cycle `2026-10-03b`); generated owner page at the infrastructure study; copied developer steps (an older APK, Godot 4.7.1); superseded for owner use by later cycles' plain checklists. |
+| `audit/cycles/2026-10-03/ROADMAP.md` | ⚪ | `HISTORICAL_EVIDENCE` (superseded for current use by cycle `2026-10-03b`); the roadmap as generated at the infrastructure study (all open findings, one template prompt); kept as the record of that cycle; `audit/ROADMAP.md` is current. |
+| `audit/cycles/2026-10-03/STUDY_REPORT.md` | ⚪ | `HISTORICAL_EVIDENCE` (superseded for current use by cycle `2026-10-03b`); infrastructure study of `30d82725` plus uncommitted implementation changes, with CI from before the sensor repair; not reproducible from git; reviewed in the loop review. |
+| `audit/cycles/2026-10-03/VERIFICATION_SWEEP.md` | ⚪ | `HISTORICAL_EVIDENCE` (superseded for current use by cycle `2026-10-03b`); technical list of the twelve fixes awaiting verification with canonical wording, generated at the infrastructure study. |
 | `audit/cycles/2026-10-03-baseline/PLANNING_HISTORY.md` | ⚪ | `HISTORICAL_EVIDENCE`; verbatim dated planning/repair evidence at loop intake; relocation of links does not renew its old acceptance. |
 | `audit/cycles/2026-10-03-baseline/REPAIR_ORDER_HISTORY.md` | ⚪ | `HISTORICAL_EVIDENCE`; verbatim dated planning/repair evidence at loop intake; relocation of links does not renew its old acceptance. |
-| `audit/cycles/README.md` | 🔵 | `SUPPORTING_CURRENT`; commissioned study-loop intake/runbook or generated evidence/planning view; no automatic rule/finding transition, schedule, telemetry or product acceptance. |
-| `audit/ROADMAP.md` | 🔵 | `SUPPORTING_CURRENT`; commissioned study-loop intake/runbook or generated evidence/planning view; no automatic rule/finding transition, schedule, telemetry or product acceptance. |
+| `audit/cycles/README.md` | 🔵 | `SUPPORTING_CURRENT`; how to run a study cycle (committed heads, Claude's judgement file, recipes rendered from the catalogue, append-only decisions, plain verification pages) and the cycle index. |
+| `audit/ROADMAP.md` | 🔵 | `SUPPORTING_CURRENT`; the living roadmap, regenerated each cycle: lanes by lifecycle (Repair, Verify, Decide, Waiting, Parked, Strengthen, Grow), recorded owner priority and severity first, every line sayable as a prompt. |
 | `design/reference/OWNER_DECISIONS.md` | 🔵 | `SUPPORTING_CURRENT`; generated view of evidence-backed owner answers and separately labelled operating defaults. Original decision dates/sources and scope control; defaults are not owner answers. |
 | `design/reference/recipes/add_job.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
 | `design/reference/recipes/art.md` | 🔵 | `SUPPORTING_CURRENT`; source-bound prompt expansion and reserved owner touchpoints; a recipe grants no runtime, art, device, child, owner or release acceptance. |
@@ -938,3 +938,22 @@ Kept as-is; noted so a future edit updates every copy.
 | `design/templates/STUDY_REPORT_V1.md` | 🔵 | `SUPPORTING_CURRENT`; operational loop template from the commissioned handoff; numbers must derive from study.json and actual acceptance evidence remains required. |
 
 Latest stable Godot reverified 2026-10-03 at the owner’s request: 4.7.2-stable, as listed by the official download page. Active Opera capture validators and default local CI selection now use tools/godot_baseline.json; historical engine evidence retains its recorded versions.
+
+## Loop review and repair — 2026-10-03
+
+| Doc | | Note |
+|---|---|---|
+| `docs/handoffs/codex_loop_review_2026-10-03/REVIEW.md` | 🔵 | `SUPPORTING_CURRENT` owner-requested audit, evaluation and repair record of the loop implementation at `4cb14feb` (findings LR-01 to LR-27, scorecards against LP0–LP11 and AC-1 to AC-10, the owner's four asks before and after). Claude fixed LR-01 to LR-22 in the same change; no game file, image or lifecycle closure. |
+| `docs/handoffs/codex_loop_review_2026-10-03/README.md` | 🟣 | `PROPOSED / CANDIDATE` Codex handoff for what the review left: CR0 the owner's Chef verdict (backwards pour and overdraw; revision 2), CR1 a possible Chef first-step stall (reproduce first), CR2 CI captures on the fallback renderer, CR3 Opera pacing coverage, CR4 probe and workflow repairs, CR5 register corrections and a text-hygiene check, CR6 a fresh-agent cold start. Grants no acceptance. |
+
+## Study cycle 2026-10-03b
+
+| Doc | | Note |
+|---|---|---|
+| `audit/cycles/2026-10-03b/STUDY_REPORT.md` | 🔵 | `SUPPORTING_CURRENT`; owner report of the first reproducible cycle at the repair head: numbers from study.json, Claude's judgement from judgement.json (strengths, weaknesses, five prompts, numbered questions). Machine evidence only. |
+| `audit/cycles/2026-10-03b/ROADMAP.md` | 🔵 | `SUPPORTING_CURRENT`; roadmap as generated this cycle (lanes by lifecycle, owner priority and severity first); `audit/ROADMAP.md` holds the same render. |
+| `audit/cycles/2026-10-03b/OWNER_REVIEW.md` | 🔵 | `SUPPORTING_CURRENT`; plain owner checklist for the twelve fixes awaiting verification, from design/reference/verification_checks.json; no session booked. |
+| `audit/cycles/2026-10-03b/DEVICE_SESSION.md` | 🔵 | `SUPPORTING_CURRENT`; thirty-minute phone script for the same fixes (includes the possible Chef first-step stall check); no session booked. |
+| `audit/cycles/2026-10-03b/VERIFICATION_SWEEP.md` | 🔵 | `SUPPORTING_CURRENT`; technical list of the twelve fixes awaiting verification with canonical wording. |
+| `audit/cycles/2026-10-03b/CURRENT_SURFACES.md` | 🔵 | `SUPPORTING_CURRENT`; machine evidence per shipping surface: last source change, trusted probes at the head, review captures, open findings. Not visual, device, child or owner acceptance. |
+| `audit/cycles/2026-10-03b/GENERATED_CHANGE_HISTORY.md` | 🔵 | `SUPPORTING_CURRENT`; impact records in date order with their declared validation; records stay authoritative. |

@@ -211,7 +211,7 @@ are in `AGENTS.md`.
 - disabled_addons/tessarakkt.oceanfft — DISABLED (dead code removed Phase 0)
 
 ## Build & test (headless, no display needed)
-GODOT=./Godot_v4.7.2-stable_linux.x86_64   # or `godot` on PATH
+GODOT=./Godot_v4.7.2-stable_linux.x86_64   # or GODOT="$(python3 tools/resolve_godot.py)"; an older PATH build is not valid
 1. Import (required after any asset change):
    $GODOT --headless --import .
    ⚠ KNOWN DEADLOCK: NPOT textures with compress/mode=2 hang the headless

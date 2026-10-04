@@ -9,7 +9,7 @@ Source baseline: `30d82725661044de63b682f5b13ba8f19101892b`. Commission: immutab
 | LP2 | Bounded read-only sensors, exact-head CI/advisories, current counts, source-change flags, lessons, motion verdicts, library/loop deltas and branch inventory; report rendered from saved JSON | Device, child, visual and owner judgement remain separate |
 | LP3 | Hash-bound strengths and generated view; candidate versus scoped owner-accepted constraints | Promoted visual exemplars still require exact acceptance evidence |
 | LP4 | Optional lesson/reference/strength/correction shapes validated; collector exposes missing targets and unfinished checks | The half-of-records target needs subsequent changes, not rewritten old records |
-| LP5 | Recorded Roshan Q1/Q2/Q12â€“Q16 decisions, actual latest-Godot direction and separately labelled operating defaults; append-only cycle-answer intake | Actual future answers and checkable corrections must enter with source evidence |
+| LP5 | Recorded Roshan Q1/Q2/Q12–Q16 decisions, actual latest-Godot direction and separately labelled operating defaults; append-only cycle-answer intake | Actual future answers and checkable corrections must enter with source evidence |
 | LP6 | Generated Repair/Grow/Strengthen roadmap, prompts, recipe IDs and transparent ranking | Owner premise and acceptance gates stay with their recipes |
 | LP7 | Prompt catalogue, recipes and cold-start bakery planner reading live save allocation | A plan does not approve a permanent new job or art |
 | LP8 | Every pending-verification finding retains its missing-evidence wording in one owner page and one device-session request | Both sessions remain **UNSCHEDULED**; no device or child evidence supplied |

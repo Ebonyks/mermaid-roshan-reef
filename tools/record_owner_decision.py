@@ -6,6 +6,7 @@ import argparse
 import datetime as dt
 import json
 import re
+import subprocess
 from pathlib import Path
 
 REGISTER = Path("design/reference/owner_decisions.json")
@@ -72,6 +73,27 @@ def validate(root: Path, data: dict) -> list[str]:
 	return issues
 
 
+def append_only_issues(before: dict, after: dict) -> list[str]:
+	"""Recorded decisions never change or disappear; corrections append a new ID."""
+	old = [row for row in before.get("decisions", []) if isinstance(row, dict)]
+	new = [row for row in after.get("decisions", []) if isinstance(row, dict)]
+	current = {row.get("id"): row for row in new}
+	issues = [f"{row.get('id')}: removed from the register" for row in old if row.get("id") not in current]
+	issues += [f"{row.get('id')}: changed after it was recorded; append a correction with a new ID instead"
+	           for row in old if row.get("id") in current and current[row.get("id")] != row]
+	if not issues and [row.get("id") for row in new[:len(old)]] != [row.get("id") for row in old]:
+		issues.append("existing decisions must keep their order; append new ones at the end")
+	return issues
+
+
+def register_at(root: Path, revision: str) -> dict | None:
+	"""The register as committed at a revision, or None when it did not exist there."""
+	result = subprocess.run(["git", "show", f"{revision}:{REGISTER.as_posix()}"], cwd=root, capture_output=True, check=False)
+	if result.returncode != 0:
+		return None
+	return json.loads(result.stdout.decode("utf-8"))
+
+
 def append(root: Path, data: dict, answers: list[dict], cycle: str, answered_on: str) -> dict:
 	"""Intake supplied answers as immutable records; at most five per owner page."""
 	if not re.fullmatch(r"[A-Za-z0-9_-]+", cycle):
@@ -110,6 +132,7 @@ def main() -> int:
 	parser.add_argument("--cycle")
 	parser.add_argument("--answered-on", help="Owner session date YYYY-MM-DD, supplied explicitly")
 	parser.add_argument("--check", action="store_true", help="Validate register and generated view without writing")
+	parser.add_argument("--base", help="With --check: every decision committed at this revision must be unchanged")
 	args = parser.parse_args()
 	root = args.root.resolve()
 	try:
@@ -134,8 +157,12 @@ def main() -> int:
 			raise ValueError("; ".join(issues))
 		view = render(data)
 		if args.check:
-			if not (root / VIEW).is_file() or (root / VIEW).read_text(encoding="utf-8") != view:
+			if not (root / VIEW).is_file() or (root / VIEW).read_text(encoding="utf-8").replace("\r\n", "\n") != view:
 				raise ValueError("owner decision view is stale")
+			before = register_at(root, args.base) if args.base else None
+			drift = append_only_issues(before, data) if before else []
+			if drift:
+				raise ValueError("; ".join(drift))
 		else:
 			if args.answers:
 				cycle_path.parent.mkdir(parents=True, exist_ok=True)

@@ -11,6 +11,8 @@ export PYTHONIOENCODING="utf-8"
 export PYTHONUTF8=1
 GODOT="$(python3 tools/resolve_godot.py)" \
 	|| { echo "APPROVED GODOT RUNTIME UNAVAILABLE"; exit 1; }
+# Tools started below resolve the same build instead of an older PATH entry.
+export GODOT
 # Keep the editor, templates, CI downloads, feature tag and release authority
 # on one checksum-pinned official patch before any other gate runs.
 python3 -m unittest tools.tests.test_audit_godot_baseline \
