@@ -86,7 +86,7 @@
     {
       "command": "python -B -m unittest tools.tests.test_study_game tools.tests.test_build_study_roadmap tools.tests.test_plan_prompt tools.tests.test_record_owner_decision tools.tests.test_run_advisory_sensor tools.tests.test_resolve_godot tools.tests.test_audit_development",
       "result": "PASS",
-      "evidence": "148 tests OK in 55 s: test_study_game, test_build_study_roadmap, test_plan_prompt, test_record_owner_decision, test_run_advisory_sensor, test_resolve_godot, test_audit_development and test_audit_document_authority. New coverage: echoed CI lines and the audio warning, worst wrapper verdict, retirements, per-head reconciliation states, committed-head refusal, report length and raw-text limits, judgement validation and routing, compact output, line-ending-safe hashes, lifecycle lanes, owner priority, prompt routing for every roadmap item, unseen-job planner leakage, derived save facts, append-only register."
+      "evidence": "148 tests OK (rerun after the follow-up polish commit 620df06c: 148 OK in 50 s): test_study_game, test_build_study_roadmap, test_plan_prompt, test_record_owner_decision, test_run_advisory_sensor, test_resolve_godot, test_audit_development and test_audit_document_authority. New coverage: echoed CI lines and the audio warning, worst wrapper verdict, retirements, per-head reconciliation states, committed-head refusal, report length and raw-text limits, judgement validation and routing, compact output, line-ending-safe hashes, lifecycle lanes, owner priority, prompt routing for every roadmap item, unseen-job planner leakage, derived save facts, append-only register."
     },
     {
       "command": "python -B tools/plan_prompt.py --check; python -B tools/record_owner_decision.py --check --base origin/dev; python -B tools/build_study_roadmap.py --check",
@@ -143,6 +143,12 @@
     {
       "lesson": "A generated machine draft is not the owner report; the judgement layer (strengths, prompts, questions) must be written for a parent.",
       "write_back": "audit/cycles/README.md"
+    },
+    {
+      "lesson": "CI checks each push against the previous pushed SHA, so a follow-up commit must change the impact record inside that range; run audit_development.py --base <previous pushed SHA> before pushing, not only --base auto.",
+      "write_back": "design/AUDIT_DEVELOPMENT_CONTRACT.md",
+      "recurrence_key": "push-range-coverage",
+      "note": "The contract already states the CI range; follow-up commit 620df06c failed CI run 37169579389 at the static gate because it changed three tools without touching this record."
     }
   ],
   "strengths_observed": [
