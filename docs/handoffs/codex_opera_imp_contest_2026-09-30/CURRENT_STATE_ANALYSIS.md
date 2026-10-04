@@ -8,9 +8,10 @@
 
 This is the "before" picture for [CONTEST_DESIGN.md](CONTEST_DESIGN.md).
 
-**Revisions 2 to 4 (2026-09-30):** the owner's decision OD-C (a Teacher imp who teaches
-wrong things for the child to fix) absorbs H2. The imp-use numbers in §5 now include the
-Teacher's and Geologist's inverted contests and OD-D's silly questions.
+**Revisions 2 to 5 (2026-09-30 to 2026-10-04):** the owner's decision OD-C (a Teacher imp
+who teaches wrong things for the child to fix) absorbs H2. The imp-use numbers in §5 now
+include the Teacher's inverted contest, OD-D's silly questions, and OD-E's defense contests
+(Chef, Nursery) and Geologist race.
 
 ## 1. The formula
 
@@ -214,15 +215,16 @@ work or queues them.
 - `_prewarm_imp_textures` (`scripts/opera_career_world_2d.gd:4025`, called at `:1380`) loads
   the career family, the mischief imp and the captain: 13 + 11 + 11 = 35 textures.
 - They serve the dormant bop crew, which is used only by `LEGACY_PHASES`.
-- **Recommendation:** prewarm only the career family (13), plus the mischief imp where Nursery
-  option B ships. The contest needs every state of that one family, promptly.
+- **Recommendation:** prewarm only the career family (13); the Nursery prewarms its two plain
+  families (22) for QUIET TIME. The contest needs every state of those families, promptly.
 
 ### H8: canon counts disagree
 
 - `DL-INT-07` says 13 careers, 53 phases and 27 modes (`design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md:587`).
 - `design/01_GAME_DESIGN.md` and `design/00_MASTER_INDEX.md` say 14, 57 and 28.
 - The code has 15 live careers and 61 phases, or 70 with Hall practice copies.
-- The contests change the phase count again (+4 inserted phases).
+- The contests change the phase count again: six inserted phases (SPARKLE RACE, PAINT-OFF,
+  HAT DUEL, SING-OFF, IMP'S LESSON, QUIET TIME), two of them stage-only.
 - **Recommendation:** update all three counts together when the contests land. Record the
   count change with its routing, voice, passive, teardown, save, capture and document
   evidence, as `DL-INT-07` requires.
@@ -252,13 +254,13 @@ work or queues them.
 | each of 10 costumed world families | 13 | 3 (idle, taunt, bow) | 13 |
 | rival_boxer | 13 | 9 | 13 |
 | rival_racer | 13 | 2 (idle, bow) | 13 |
-| imp_mischief | 11 | 0 | 11 (the Teacher's interim imp; also Nursery option B) |
-| imp_captain | 11 | 0 | 0 |
-| **Total** | **178** | **41** | **167** |
+| imp_mischief | 11 | 0 | 11 (the Nursery wave and the Teacher's interim imp) |
+| imp_captain | 11 | 0 | 11 (the Nursery wave) |
+| **Total** | **178** | **41** | **178** |
 
 The Geologist's field guide already wears the detective costume, so it adds no files. If a
 `rival_teacher` family replaces the Teacher's interim imp, the mischief imp's 11 files are
-used only by Nursery option B.
+still used by the Nursery.
 
 Per-file evidence, hashes and planned roles are in
 [data/imp_art_inventory.json](data/imp_art_inventory.json).
@@ -267,16 +269,18 @@ Per-file evidence, hashes and planned roles are in
 
 - **Today:** 2 of 56 are routed (`op_detective_steal` at the Detective intro, and `op_retry`,
   which H1 retires).
-- **After the contests:** 36 would play, or 39 with Nursery option B. For each costumed
-  career, the arrive line becomes his entrance, the copy line his flub and the bop line his
+- **After the contests:** 39 would play. For each costumed career and for the Nursery's lead
+  imp, the arrive line becomes his entrance, the copy line his flub and the bop line his
   defeat. The Farmer swaps copy and bop; see `CONTEST_DESIGN.md` §6.6.
-- **New lines:** 67 are needed:
-  - 25 for the costumed careers and the shared win and "Again!" lines;
+- **New lines:** 77 are needed (61 imp, 16 Roshan):
+  - 26 for the costumed careers (including the Chef's toss line) and the shared win and
+    "Again!" lines;
   - 40 for the Teacher, 32 of them for the silly questions;
-  - 2 shared "fixed" and "tricked" lines.
+  - 2 shared "fixed" and "tricked" lines;
+  - 5 for the Geologist and 4 for the Nursery.
 
-  Add 9 more if the Geologist contest is confirmed, and 2 if Nursery option B is chosen.
-  Per-key detail is in [data/imp_voice_inventory.json](data/imp_voice_inventory.json).
+  The Racer's instruction reuses an existing clip. Per-key detail is in
+  [data/imp_voice_inventory.json](data/imp_voice_inventory.json).
 
 ## 6. What this means for the design
 
@@ -284,8 +288,9 @@ Per-file evidence, hashes and planned roles are in
   act), should do the job with his own hands, and should be able to win.
 - **Nothing lost when he wins.** An imp win must cost nothing earned (OD-B, contest-only
   restart).
-- **Use what exists.** Every beat can be told with poses and lines that already exist. Only
-  the challenge and instruction lines are new.
+- **Use what exists.** Most beats can be told with poses and lines that already exist. The
+  challenge and instruction lines, the Teacher's silly lines and a few Geologist and Nursery
+  lines are new.
 - **Reuse the seams.** `performance_rival_surface` already turns any gesture activity into
   the imp's mirror station, and `_stage_room_finale_partner` already finds him a clear place
   in every room.

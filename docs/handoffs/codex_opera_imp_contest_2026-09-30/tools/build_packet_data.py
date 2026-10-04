@@ -92,6 +92,13 @@ BASE_ROLES = {
     "bow": ["curtain call"],
 }
 
+# Extra pose roles in the defense contests (Chef and Nursery, OD-E).
+DEFENSE_ROLES = {
+    "windup": ["hazard telegraph"],
+    "slash": ["hazard toss or noise"],
+}
+PLAIN_IMPS = ("imp_mischief", "imp_captain")
+
 
 def sha256_bytes(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
@@ -136,40 +143,39 @@ def contest_poses(spec: dict) -> dict:
         contest = entry.get("contest")
         if not contest:
             continue
-        family = contest["imp"]["family"]
-        # Owner-decision careers count only where they would use an otherwise
-        # unused family (Nursery option B and the plain mischief imp).
-        option_b = entry["status"] == "owner_decision_required"
-        if option_b and family != "imp_mischief":
-            continue
-        substitutions = contest["imp"].get("pose_substitutions", {})
-        roles = result.setdefault(family, {})
-        # The plain mischief imp serves more than one career, so its roles name
-        # the career; Nursery's are marked as depending on owner option B.
-        tag = ""
-        if family == "imp_mischief":
-            tag = f" [{career}, owner option B]" if option_b else f" [{career}]"
-        for state, labels in BASE_ROLES.items():
-            state = substitutions.get(state, state)
-            if imp_pose_path(family, state) is None:
-                continue
-            for label in labels:
-                if label + tag not in roles.setdefault(state, []):
-                    roles[state].append(label + tag)
-        flub_poses = (contest.get("flub") or {}).get("poses", [])
-        for state, _seconds in flub_poses:
-            state = substitutions.get(state, state)
-            if imp_pose_path(family, state) is not None:
-                label = f"flub [{career}, owner option B]" if option_b else f"flub [{career}]"
-                if label not in roles.setdefault(state, []):
-                    roles[state].append(label)
+        imp = contest["imp"]
+        families = imp.get("families") or [imp["family"]]
+        substitutions = imp.get("pose_substitutions", {})
+        roles_for_state = {state: list(labels) for state, labels in BASE_ROLES.items()}
+        if contest.get("archetype") == "defense":
+            for state, labels in DEFENSE_ROLES.items():
+                roles_for_state[state] += labels
+        for family in families:
+            roles = result.setdefault(family, {})
+            # The plain imps serve more than one career (the Teacher's interim
+            # imp and the Nursery wave), so their roles name the career.
+            tag = f" [{career}]" if family in PLAIN_IMPS else ""
+            for state, labels in roles_for_state.items():
+                state = substitutions.get(state, state)
+                if imp_pose_path(family, state) is None:
+                    continue
+                for label in labels:
+                    if label + tag not in roles.setdefault(state, []):
+                        roles[state].append(label + tag)
+            flub_poses = (contest.get("flub") or {}).get("poses", [])
+            for state, _seconds in flub_poses:
+                state = substitutions.get(state, state)
+                if imp_pose_path(family, state) is not None:
+                    label = f"flub [{career}]"
+                    if label not in roles.setdefault(state, []):
+                        roles[state].append(label)
     return result
 
 
 def build_art_inventory(spec: dict) -> dict:
     planned = contest_poses(spec)
     families = []
-    total = shown_total = planned_total = option_b_total = 0
+    total = shown_total = planned_total = 0
     for family in FAMILIES:
         states = []
         for state in STATES:
@@ -181,9 +187,7 @@ def build_art_inventory(spec: dict) -> dict:
             roles = planned.get(family, {}).get(state, [])
             total += 1
             shown_total += 1 if shown else 0
-            specified = [role for role in roles if "owner option B" not in role]
-            planned_total += 1 if (shown or specified) else 0
-            option_b_total += 1 if (shown or roles) else 0
+            planned_total += 1 if (shown or roles) else 0
             states.append({
                 "state": state,
                 "path": path,
@@ -204,8 +208,7 @@ def build_art_inventory(spec: dict) -> dict:
             "files": total,
             "shown_today": shown_total,
             "shown_after_specified_contests": planned_total,
-            "shown_with_nursery_option_b": option_b_total,
-            "note": "shown_after_specified_contests counts files the shipping game would show once the specified contests ship (the twelve costumed careers, the Teacher and, pending confirmation, the Geologist on the detective family). The Teacher's interim imp is the plain mischief imp, so Nursery option B adds nothing further; if the recommended rival_teacher family replaces it, the mischief imp's 11 files are used only by Nursery option B.",
+            "note": "shown_after_specified_contests counts files the shipping game would show once every specified contest ships: the twelve costumed careers, the Teacher on the plain mischief imp (interim), the Nursery wave on the plain mischief and captain imps, and the Geologist on the detective family (interim). If the recommended rival_teacher family replaces the Teacher's interim imp, the mischief imp's 11 files are still used by the Nursery.",
         },
         "families": families,
     }
@@ -225,10 +228,9 @@ def build_voice_inventory(spec: dict) -> dict:
                   | {p.stem for p in (REPO / FILLER).glob("imp_op_*.ogg")})
     planned: dict = {}
     for career, entry in spec["careers"].items():
-        suffix = " (owner option B)" if entry["status"] == "owner_decision_required" else ""
         for role, key in entry.get("voice", {}).items():
             if isinstance(key, str) and key.startswith("op_"):
-                planned.setdefault("imp_" + key, []).append(f"{career} {role}{suffix}")
+                planned.setdefault("imp_" + key.split(" ", 1)[0], []).append(f"{career} {role}")
     lines = []
     for key in keys:
         legacy = REPO / VOICES / f"{key}.ogg"
@@ -251,13 +253,7 @@ def build_voice_inventory(spec: dict) -> dict:
             "planned_use": uses,
         })
     new_lines = []
-    pending_state = {
-        "owner_decision_required": "TO_GENERATE_IF_OPTION_B",
-        "specified_by_interpretation": "TO_GENERATE_IF_CONFIRMED",
-    }
     for career, entry in spec["careers"].items():
-        if entry.get("status") == "owner_decision_required" and career != "nursery":
-            continue
         voice = entry.get("voice", {})
         wanted = []
         for role, speaker in (("new_imp_challenge", "imp"), ("new_roshan_contest", "roshan")):
@@ -266,10 +262,7 @@ def build_voice_inventory(spec: dict) -> dict:
         wanted.extend((line["speaker"], line) for line in voice.get("new_lines", []))
         for speaker, line in wanted:
             path = f"{FILLER}/{speaker}_{line['key']}.ogg"
-            if (REPO / path).exists():
-                state = "EXISTS (reuse)"
-            else:
-                state = pending_state.get(entry.get("status"), "TO_GENERATE")
+            state = "EXISTS (reuse)" if (REPO / path).exists() else "TO_GENERATE"
             new_lines.append({"career": career, "speaker": speaker, "key": line["key"],
                               "file": path, "text": line["text"], "state": state})
     for line in spec["new_shared_voice"]:
@@ -287,15 +280,9 @@ def build_voice_inventory(spec: dict) -> dict:
             "imp_keys": len(lines),
             "routed_today": sum(1 for line in lines if line["routed_today"]),
             "planned_contest_use": sum(1 for line in lines if any(
-                not use.startswith("unchanged") and "owner option B" not in use
-                for use in line["planned_use"])),
-            "planned_with_nursery_option_b": sum(1 for line in lines if any(
                 not use.startswith("unchanged") for use in line["planned_use"])),
             "new_lines": sum(1 for line in new_lines if line["state"] == "TO_GENERATE"),
-            "new_lines_if_geologist_confirmed": sum(
-                1 for line in new_lines if line["state"] == "TO_GENERATE_IF_CONFIRMED"),
-            "new_lines_if_nursery_option_b": sum(
-                1 for line in new_lines if line["state"] == "TO_GENERATE_IF_OPTION_B"),
+            "new_lines_reused": sum(1 for line in new_lines if line["state"] == "EXISTS (reuse)"),
         },
         "imp_lines": lines,
         "new_lines": new_lines,
@@ -339,7 +326,7 @@ def build_manifest(spec: dict) -> dict:
         "file_count": len(entries),
         "total_bytes": total,
         "hash_basis": "SHA-256 of the committed Git blob bytes (LF line endings), identical to what raw.githubusercontent.com serves",
-        "revision": "4 (2026-09-30): adds OD-D, silly questions and sillier imp lines; revision 3 (art-reuse and imp-contact corrections) was 86732a47, revision 2 (OD-C) was df01b7ce, revision 1 was 7ec82d46",
+        "revision": "5 (2026-10-04): adds OD-E: the Teacher game cannot be lost and is always silly, the Chef's YUCKY RECIPE, the Geologist's GEODE RACE, the Nursery's QUIET TIME, and a radical slowdown after two failures; revision 4 (OD-D) was 1fbcc9db, revision 3 (art-reuse and imp-contact corrections) was 86732a47, revision 2 (OD-C) was df01b7ce, revision 1 was 7ec82d46",
         "files": entries,
     }
 

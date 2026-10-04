@@ -670,29 +670,32 @@ reuse does not justify runtime reachability. Future boss fights, if separately
 authorized, belong to narratively relevant Ember-aligned henchmen and MUST NOT
 reuse the retired Opera slots or silently rehabilitate these characters.
 
-`DL-INT-14` — Owner decision 2026-09-30; target contract, implementation
-pending. Each competitive Opera career's costumed imp stays hidden until the
-final act and enters when it begins. The final act ends in one head-to-head
-contest that uses a real skill of that job at the object Roshan reached. The
-imp MAY win. His win plays a beat of at most 2 s, then restarts the contest at
-once, with no fail screen, text, life or wait. Stars, pearls, stickers, saves
-and finished activities are kept; resetting the one attempt is the
-owner-directed rematch, not a punitive fail state under `DL-AGE-03`. He works
-only while the child plays, so zero input never wins or loses (`DL-AGE-04`).
-Each rematch slows him or raises his target, down to a floor. Progress is
+`DL-INT-14` — Owner decisions 2026-09-30 and 2026-10-04; target contract,
+implementation pending. Each competitive Opera career's costumed imp stays hidden
+until the final act and enters when it begins. The final act ends in one
+head-to-head contest that uses a real skill of that job at the object Roshan
+reached. The imp MAY win, except in the Teacher's contest. His win plays a beat
+of at most 2 s, then restarts only the contest at once, with no fail screen,
+text, life or wait. Stars, pearls, stickers, saves and finished activities are
+kept; resetting the one attempt is the owner-directed rematch, not a punitive
+fail state under `DL-AGE-03`. He works only while the child plays, so zero input
+never wins or loses (`DL-AGE-04`). The first restart keeps his pace; after two
+failures he slows down radically for the rest of that visit. Progress is
 wordless and every beat has an exact voice line. Chapter 2 story and tutorial
 runs opt out. For that contest only, this supersedes the no-race clause of
-`DL-INT-08` and the no-loss clause of `DL-INT-09`, and it adds a finish rule
-to the `DL-INT-10` race. For learning careers the contest inverts (owner decision
-2026-09-30): the imp teaches with one deliberate mistake per round, and the
-child beats him by finding each mistake and placing the right answer. He
-scores only when her first pick is wrong, there is no clock, and every round
-ends with the correct answer placed by her. This applies to the Teacher and,
-pending owner confirmation, the Geologist. The imp's lessons are deliberately
-silly and gross-funny, including questions such as which smells the worst
-(owner decision 2026-09-30), but never mean: the joke is on the imp or the
-thing, never on the child. The contest-only restart scope
-awaits owner confirmation. Phase counts in `DL-INT-07` and `DL-QA-12` change when
+`DL-INT-08` and the no-loss clause of `DL-INT-09`, and it adds a finish rule to
+the `DL-INT-10` race. The Teacher's contest inverts: the imp teaches with one
+silly mistake per round and the child fixes it by placing the right answer; it
+cannot be lost, has no clock, every round is silly, and every round ends with
+the correct answer placed by her. In the Nursery contest, and in the Chef
+contest under the handoff's default reading of the owner's recipe idea, she
+defends her work: noisy imps creep toward the sleeping babies or the imp tosses
+gross things onto her cake; every hazard is telegraphed and removed with one
+tap, and he wins only when three hazards count against her at once. The
+Geologist races the imp to open the same geode. The imp's lessons and hazards
+are deliberately silly and gross-funny, including questions such as which
+smells the worst, but never mean: the joke is on the imp or the thing, never on
+the child. Phase counts in `DL-INT-07` and `DL-QA-12` change when
 implementation lands. Specification:
 [Opera imp contests](../docs/handoffs/codex_opera_imp_contest_2026-09-30/CONTEST_DESIGN.md).
 

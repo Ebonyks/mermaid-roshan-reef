@@ -1,0 +1,137 @@
+{
+ "id": "codex-opera-imp-contest-handoff-rev5-20261004",
+ "scope": "Owner request 2026-10-04: \"The imp teacher games can't be lost by design, and should always be silly. Imp maybe tries to mess up your recipes and put gross things in the food? Geologist should be competing for time with Roshan for the same goal. You should stop the imps from being too noisy when the babies are sleeping. Imp just restarts contest at end, after two failures, imp should radically slow down.\" Revision 5 of the written-only Codex handoff docs/handoffs/codex_opera_imp_contest_2026-09-30/ (no images): owner decision OD-E recorded with its quote. The Teacher's IMP'S LESSON cannot be lost (no imp points, no restart, her row only) and every round is silly: four rounds alternating the existing silly questions with silly versions of the lessons (a silly object in the pattern, the nose or sneeze count, the banana sum, the pizza-slice twin). A new defense archetype (contract rule C16, section 4.17): the Chef's YUCKY RECIPE (by default reading the recipe idea as the Chef's; built after the owner-requested Chef repair) and the Nursery's QUIET TIME on the plain mischief and captain imps with Faron kept as teammate, reusing the dormant bop code and existing gentle sounds. The Geologist's GEODE RACE replaces the revision 2-4 FIELD GUIDE MIX-UP: one geode, two diggers. Contest-only restart confirmed; the progressive rematch mercy is replaced by a radical slowdown after two failures. Updated spec, generator (two-family support, no option-B paths), inventories (178 of 178 imp pose files planned; 39 of 56 existing imp lines; 77 new lines), analysis, README, tests, work order (pilots Detective, Magician, Nursery) and acceptance. Canon: DL-INT-14 amended; design 01 competition, Nursery and Geologist pointers; master index note; ledger rows. The master-audit planning entry is not edited: the owner's 2026-10-03 restructure moved dated updates to the sealed cycle intake history. The owner-decision register is not edited: its intake is tied to study cycles, so OD-A to OD-E remain recorded in this packet for the next cycle. No game script, scene, asset, save key or runtime behaviour changes.",
+ "baseline": "87f992680c0b6a690bf45b1950275579c45e15ab",
+ "rules": [
+  "DL-AUTH-05",
+  "DL-AUTH-06",
+  "DL-AUTH-07",
+  "DL-AGE-01",
+  "DL-AGE-02",
+  "DL-AGE-03",
+  "DL-AGE-04",
+  "DL-AGE-05",
+  "DL-AGE-06",
+  "DL-INT-02",
+  "DL-INT-06",
+  "DL-INT-14",
+  "DL-MOT-07",
+  "DL-SAVE-01",
+  "DL-SND-01",
+  "DL-SND-05",
+  "DL-SND-10",
+  "DL-SND-11",
+  "DL-SND-12",
+  "DL-SND-13",
+  "DL-SND-14",
+  "DL-PLAN-03",
+  "DL-PLAN-04"
+ ],
+ "findings": [],
+ "no_findings_reason": "Documentation-only design revision. The Chef contest depends on the open MA-OPERA-001 repair (ODR-CHEF-VERDICT-20261003) and is sequenced after it, but the finding's facts, scope and lifecycle are unchanged; the existing DL-INT-14 history notes on MA-OPERA-005 (twirl-off) and MA-OPERA-009 (title bout) remain accurate. No finding is repaired, changed or created.",
+ "files": [
+  "design/00_MASTER_INDEX.md",
+  "design/01_GAME_DESIGN.md",
+  "design/05_DOC_LEDGER.md",
+  "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+  "design/audit_impacts/codex-opera-imp-contest-handoff-rev5-20261004.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/CONTEST_DESIGN.md",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/CURRENT_STATE_ANALYSIS.md",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/MANIFEST.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/README.md",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/data/contest_spec.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/data/imp_art_inventory.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/data/imp_voice_inventory.json",
+  "docs/handoffs/codex_opera_imp_contest_2026-09-30/tools/build_packet_data.py"
+ ],
+ "validation": [
+  {
+   "command": "python3 -B tools/audit_document_authority.py",
+   "result": "PASS",
+   "evidence": "DOCAUTH|INVENTORY=649|LEDGER=649|ACTIVE=61|RECORDS=64; DOCAUTH|RESULT|ALL OK; --stress DOCAUTH|STRESS|6/6."
+  },
+  {
+   "command": "python3 -B tools/audit_development.py --base auto",
+   "result": "PASS",
+   "evidence": "AUDITDEV|BASE|87f992680c0b6a690bf45b1950275579c45e15ab; AUDITDEV|RESULT|ALL OK."
+  },
+  {
+   "command": "python3 -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development tools.tests.test_record_owner_decision tools.tests.test_run_advisory_sensor tools.tests.test_study_game tools.tests.test_build_study_roadmap tools.tests.test_plan_prompt tools.tests.test_resolve_godot",
+   "result": "PASS",
+   "evidence": "Ran 149 tests, OK (the static unit line CI runs: document authority, development audit, owner register, advisory sensor, study, roadmap, prompt planner and Godot resolver tests). tools/plan_prompt.py --check: PROMPTS: ALL OK."
+  },
+  {
+   "command": "python3 -B docs/handoffs/codex_opera_imp_contest_2026-09-30/tools/build_packet_data.py --check",
+   "result": "PASS",
+   "evidence": "PACKET_CHECK|OK|FILES=8 (revision 5 manifest); the inventories regenerate byte-identically and the folder contains no image."
+  },
+  {
+   "command": "python3 -B tools/record_owner_decision.py --check --base origin/dev",
+   "result": "PASS",
+   "evidence": "DECISIONS|COUNT|18; DECISIONS|RESULT|ALL OK. The register and its generated view are unchanged by this revision."
+  },
+  {
+   "command": "Humor-rule text check over every new line in data/imp_voice_inventory.json (name-calling or teasing aimed at the child)",
+   "result": "PASS",
+   "evidence": "No hits across 78 new-line entries (77 to generate, 1 reused clip); every imp line that addresses the child is a friendly challenge, a 'Tricked you!' gloat about a thing, or praise. The longest new line is 81 characters (op_chef_contest)."
+  },
+  {
+   "command": "Remote verification: unauthenticated fetch of MANIFEST.json and every listed file from raw.githubusercontent.com at the pushed commit, SHA-256 and byte comparison",
+   "result": "PENDING",
+   "evidence": "Recorded after the push in a follow-up commit."
+  },
+  {
+   "command": "Exact Godot 4.7.2 probe suite (scripts/ci.sh) via .github/workflows/probes.yml on the pushed head",
+   "result": "PENDING",
+   "evidence": "Documentation-only change; the suite runs as the gate before integration into dev."
+  }
+ ],
+ "references_used": [
+  {
+   "path": "scripts/opera_geology_surface.gd",
+   "purpose": "GEODE_RECT, GEODE_SEAM_SPOTS, GEODE_PULL_DISTANCE and _draw_geode geometry for the shared-geode race and the imp's chip marks"
+  },
+  {
+   "path": "scripts/opera_gesture_surface.gd",
+   "purpose": "the dormant bop mode (bop_targets, _bop_press, _draw_imp, bop demo) as the base for the Nursery's nursery_quiet mode; the nursery_bedtime crib scene"
+  },
+  {
+   "path": "scripts/teacher_lesson_plan.gd",
+   "purpose": "count and add distractors (_nearby_values), so the imp's silly count is one more or one fewer as the choices allow"
+  },
+  {
+   "path": "scripts/opera_competition.gd",
+   "purpose": "the Nursery, Teacher and Geologist cooperative entries and the team-finale branch that QUIET TIME changes"
+  },
+  {
+   "path": "design/reference/owner_decisions.json",
+   "purpose": "ODR-CHEF-VERDICT-20261003, which the Chef contest is sequenced after"
+  },
+  {
+   "path": "assets/audio/castle/duck_squeak.ogg",
+   "purpose": "existing synthesized duck squeak reused for the Nursery's squeaky rubber duck"
+  },
+  {
+   "path": "assets/flats/castle/rooms/room_bubble_bath_item_rubber_duck.png",
+   "purpose": "existing rubber duck cutout named as a candidate for the shared silly icon set (opened only to read existing art)"
+  },
+  {
+   "path": "assets/props/story/fruit_banana.png",
+   "purpose": "existing banana named as a candidate for the shared silly icon set"
+  }
+ ],
+ "owner_corrections": [
+  {
+   "decision_id": "OD-2026-10-04-E",
+   "evidence": "Owner message 2026-10-04 quoted in data/contest_spec.json owner_decisions and CONTEST_DESIGN.md section 1.",
+   "write_back": "Revision 2-4 interpretations replaced: the Teacher's imp points and restart (now cannot be lost), the alternating silly scope (now every round silly), the Geologist's inverted FIELD GUIDE MIX-UP (now GEODE RACE), Nursery options A-C (now QUIET TIME) and the progressive rematch mercy (now a radical slowdown after two failures); written back to contest_spec.json, CONTEST_DESIGN.md sections 1, 4, 6, 7 and 8, DL-INT-14 and design 01."
+  }
+ ],
+ "lessons": [
+  {
+   "lesson": "A loosely scoped owner phrase ('similar educational type games') was extended to a second career by interpretation, and the owner later redirected that career. Keep each interpretation explicit, with its default and the alternative, so a correction lands in one place.",
+   "write_back": "CONTEST_DESIGN.md section 1 states the one remaining interpretation (the recipe idea) with its default and alternative; section 8 lists the designs retired by revision 5."
+  }
+ ],
+ "acceptance_gaps": "Written handoff only. Owner confirmation of the recipe interpretation, the imp costumes and the silly icon style (the first five pictures); the Chef repair before YUCKY RECIPE; Codex implementation; the new defense, race and cannot-lose probe checks; captures; target-device play; an observed child session (does she win after the slowdown, does a wrong Teacher pick stay funny, can she see each Nursery imp coming, are the noises gentle); and owner acceptance are pending. No master-audit satisfaction, finding closure or release is claimed."
+}

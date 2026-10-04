@@ -7,11 +7,9 @@
   "totals": {
     "imp_keys": 56,
     "routed_today": 2,
-    "planned_contest_use": 36,
-    "planned_with_nursery_option_b": 39,
-    "new_lines": 67,
-    "new_lines_if_geologist_confirmed": 9,
-    "new_lines_if_nursery_option_b": 2
+    "planned_contest_use": 39,
+    "new_lines": 77,
+    "new_lines_reused": 1
   },
   "imp_lines": [
     {
@@ -605,7 +603,7 @@
       "routed_today": false,
       "routed_today_evidence": null,
       "planned_use": [
-        "nursery entrance (owner option B)"
+        "nursery entrance"
       ]
     },
     {
@@ -620,7 +618,7 @@
       "routed_today": false,
       "routed_today_evidence": null,
       "planned_use": [
-        "nursery defeat (owner option B)"
+        "nursery defeat"
       ]
     },
     {
@@ -635,7 +633,7 @@
       "routed_today": false,
       "routed_today_evidence": null,
       "planned_use": [
-        "nursery flub (owner option B)"
+        "nursery flub"
       ]
     },
     {
@@ -853,7 +851,7 @@
       "speaker": "imp",
       "key": "op_chef_challenge",
       "file": "assets/audio/voices/filler_v1/imp_op_chef_challenge.ogg",
-      "text": "Bake-off! Whoever tops their cake first wins!",
+      "text": "Your cake needs my special ingredients! Socks and worms! Hee hee!",
       "state": "TO_GENERATE"
     },
     {
@@ -861,7 +859,15 @@
       "speaker": "roshan",
       "key": "op_chef_contest",
       "file": "assets/audio/voices/filler_v1/roshan_op_chef_contest.ogg",
-      "text": "Put the toppings on my cake before the imp finishes his!",
+      "text": "The imp is putting yucky things on my cake! Tap them off and finish the toppings!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "chef",
+      "speaker": "imp",
+      "key": "op_chef_toss",
+      "file": "assets/audio/voices/filler_v1/imp_op_chef_toss.ogg",
+      "text": "Special delivery! Yum yum!",
       "state": "TO_GENERATE"
     },
     {
@@ -1045,32 +1051,48 @@
       "speaker": "imp",
       "key": "op_nursery_challenge",
       "file": "assets/audio/voices/filler_v1/imp_op_nursery_challenge.ogg",
-      "text": "Tuck-in race! Shh... I'll be quiet this time!",
-      "state": "TO_GENERATE_IF_OPTION_B"
+      "text": "Hee hee! Party time! Let's make some noise!",
+      "state": "TO_GENERATE"
     },
     {
       "career": "nursery",
       "speaker": "roshan",
       "key": "op_nursery_contest",
       "file": "assets/audio/voices/filler_v1/roshan_op_nursery_contest.ogg",
-      "text": "Tuck in every baby, slow and gentle!",
-      "state": "TO_GENERATE_IF_OPTION_B"
+      "text": "Shh! Tap the noisy imps before they wake the babies!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "nursery",
+      "speaker": "roshan",
+      "key": "op_nursery_shush",
+      "file": "assets/audio/voices/filler_v1/roshan_op_nursery_shush.ogg",
+      "text": "Shhh! Babies are sleeping!",
+      "state": "TO_GENERATE"
+    },
+    {
+      "career": "nursery",
+      "speaker": "imp",
+      "key": "op_nursery_imp_win",
+      "file": "assets/audio/voices/filler_v1/imp_op_nursery_imp_win.ogg",
+      "text": "Hee hee! Wake-up party! Again, again!",
+      "state": "TO_GENERATE"
     },
     {
       "career": "geologist",
       "speaker": "imp",
       "key": "op_geologist_challenge",
       "file": "assets/audio/voices/filler_v1/imp_op_geologist_challenge.ogg",
-      "text": "My turn to teach! Can you spot my silly mistakes?",
-      "state": "TO_GENERATE_IF_CONFIRMED"
+      "text": "That geode is mine! Race you to the crystals!",
+      "state": "TO_GENERATE"
     },
     {
       "career": "geologist",
       "speaker": "roshan",
       "key": "op_geologist_contest",
       "file": "assets/audio/voices/filler_v1/roshan_op_geologist_contest.ogg",
-      "text": "The imp is teaching it wrong! Tap his mistake to fix it!",
-      "state": "TO_GENERATE_IF_CONFIRMED"
+      "text": "Tap the cracks on your side, then pull it open before the imp does!",
+      "state": "TO_GENERATE"
     },
     {
       "career": "geologist",
@@ -1078,55 +1100,23 @@
       "key": "op_geologist_arrive",
       "file": "assets/audio/voices/filler_v1/imp_op_geologist_arrive.ogg",
       "text": "Hello! I'm the field guide! Rocks are my favourite snack!",
-      "state": "TO_GENERATE_IF_CONFIRMED"
+      "state": "TO_GENERATE"
     },
     {
       "career": "geologist",
       "speaker": "imp",
-      "key": "op_geologist_claim_fossil",
-      "file": "assets/audio/voices/filler_v1/imp_op_geologist_claim_fossil.ogg",
-      "text": "Look at my perfect fossil! It's a dinosaur's belly button!",
-      "state": "TO_GENERATE_IF_CONFIRMED"
-    },
-    {
-      "career": "geologist",
-      "speaker": "imp",
-      "key": "op_geologist_claim_rocks",
-      "file": "assets/audio/voices/filler_v1/imp_op_geologist_claim_rocks.ogg",
-      "text": "These rocks are all the same! Like three peas in a pod!",
-      "state": "TO_GENERATE_IF_CONFIRMED"
+      "key": "op_geologist_flub",
+      "file": "assets/audio/voices/filler_v1/imp_op_geologist_flub.ogg",
+      "text": "Ow! My toe! Who put a toe there?",
+      "state": "TO_GENERATE"
     },
     {
       "career": "geologist",
       "speaker": "imp",
       "key": "op_geologist_defeat",
       "file": "assets/audio/voices/filler_v1/imp_op_geologist_defeat.ogg",
-      "text": "You know more about rocks than me! My head must be a rock!",
-      "state": "TO_GENERATE_IF_CONFIRMED"
-    },
-    {
-      "career": "geologist",
-      "speaker": "imp",
-      "key": "op_geologist_silly_rock_claim",
-      "file": "assets/audio/voices/filler_v1/imp_op_geologist_silly_rock_claim.ogg",
-      "text": "These are all rocks! Crunchy crunchy!",
-      "state": "TO_GENERATE_IF_CONFIRMED"
-    },
-    {
-      "career": "geologist",
-      "speaker": "imp",
-      "key": "op_geologist_silly_rock_right",
-      "file": "assets/audio/voices/filler_v1/imp_op_geologist_silly_rock_right.ogg",
-      "text": "Ow, my teeth! That one's a real rock!",
-      "state": "TO_GENERATE_IF_CONFIRMED"
-    },
-    {
-      "career": "geologist",
-      "speaker": "imp",
-      "key": "op_geologist_silly_rock_tricked",
-      "file": "assets/audio/voices/filler_v1/imp_op_geologist_silly_rock_tricked.ogg",
-      "text": "Hee hee! Tricked you! That's a real rock!",
-      "state": "TO_GENERATE_IF_CONFIRMED"
+      "text": "Aww! Can I just look at the sparkly crystals?",
+      "state": "TO_GENERATE"
     },
     {
       "career": "teacher",
