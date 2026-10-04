@@ -106,9 +106,14 @@
       "evidence": "GOLDSTAR|RESULT|OK|60 games, 0 errors, 0 stale; GAME2D| RESULT| NO_REGRESSION; all six scripts compile. Before the rewording, the new gold_star.py guard reported the same four mentions as errors, and its fixture test covers both the error and the plain-words pass."
     },
     {
+      "command": "Anonymous remote verification of packet revision 3: HTTPS GET without credentials from raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/0cc01cbbfa9c06251549b06ccc5fe81eabb61297/ for MANIFEST.json and every listed file and reference",
+      "result": "PASS",
+      "evidence": "Checked 2026-10-04T07:15:03Z: manifest SHA-256 d5d3f586c845400dbf7bca87bc1d3227ef30349b5b418c07e50b50aac061f8b5; 22 of 22 items matched their manifest bytes and SHA-256, including games.json 83a6bd161df7, gold_star.json 57838ee1e9e1 and tools/gold_star.py 04b37121448e; the commit's tree page answered 200 anonymously."
+    },
+    {
       "command": "Probe Suite (graphics fork) on the pushed branch head",
       "result": "PENDING",
-      "evidence": "Runs 37183788471 (7bf46205) and the run on 128723cb were superseded by the workflow's cancel-in-progress concurrency; run 37184172269 (df99a371) failed as recorded above. The branch is merged into dev only after a green run on its exact head."
+      "evidence": "Runs 37183788471 (7bf46205) and the runs on 128723cb and 0cc01cbb were superseded by the workflow's cancel-in-progress concurrency; run 37184172269 (df99a371) failed as recorded above. The branch is merged into dev only after a green run on its exact head, which carries this record."
     },
     {
       "command": "Phone session, observed child session and owner verdict for the Mermaid Pool (POOL_FIVE_STAR.md section 4)",
