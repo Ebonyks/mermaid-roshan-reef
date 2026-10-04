@@ -1,0 +1,607 @@
+{
+  "schema": "animation-policy-local-validation-v1",
+  "observed_at_utc": "2026-10-04T05:28:36.925076+00:00",
+  "integration_baseline": "87f992680c0b6a690bf45b1950275579c45e15ab",
+  "engine": "4.7.2.stable.official.ed1daf0bf",
+  "method": "Existing blocking static/import gates plus every required probe, preserving scripts/ci.sh failure patterns and fresh user-data/native retries for pre-verdict Windows launch failures. No probe/runtime/tool/test changes.",
+  "original_shell_result": "FAIL: nonzero pre-verdict Windows launches retained; exact retries recorded separately.",
+  "original_log_path": "tmp/animation-full-ci.log",
+  "original_log_sha256": "183f14fd04bd008b5b6bd3a3bf8a1a5a92da8db8e5355975a91f3b0d01913bd9",
+  "expected_count": 82,
+  "passed_count": 82,
+  "probes": [
+    {
+      "probe": "probe_reef_districts",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_ocean_kingdoms",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_audit",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_passive",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_living_world",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_load",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_rank",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_save_recovery",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_galaxy_state",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_collection",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_mg2d",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_fetch",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_melody",
+      "original_returncode": 127,
+      "native_retry": {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "--path",
+          "C:\\Users\\Peter\\.codex\\worktrees\\animation-workflow-policy\\mermaid-roshan-reef",
+          "-s",
+          "scripts/probe_melody.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "returncode": 0,
+        "elapsed_seconds": 28.715,
+        "log_sha256": "03f4a83cc929204fd0d251b9a55880b48d329bcef6835b638c17838306d3c806",
+        "log_path": "C:\\Users\\Peter\\.codex\\worktrees\\animation-workflow-policy\\mermaid-roshan-reef\\tmp\\animation-probe-retries\\probe_melody\\probe.log"
+      },
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_dolls",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_seek",
+      "original_returncode": 127,
+      "native_retry": {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "--path",
+          "C:\\Users\\Peter\\.codex\\worktrees\\animation-workflow-policy\\mermaid-roshan-reef",
+          "-s",
+          "scripts/probe_seek.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "returncode": 0,
+        "elapsed_seconds": 8.568,
+        "log_sha256": "2f278cff61f24855709b2e5dfc0fcdab63dd035fcdc8113cb6ba44bd86ff6741",
+        "log_path": "C:\\Users\\Peter\\.codex\\worktrees\\animation-workflow-policy\\mermaid-roshan-reef\\tmp\\animation-probe-retries\\probe_seek\\probe.log"
+      },
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_audio",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_dance",
+      "original_returncode": 127,
+      "native_retry": {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "--path",
+          "C:\\Users\\Peter\\.codex\\worktrees\\animation-workflow-policy\\mermaid-roshan-reef",
+          "-s",
+          "scripts/probe_dance.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "returncode": 0,
+        "elapsed_seconds": 7.718,
+        "log_sha256": "e9d68243d211c408223d1196cf163535148aa1e6ee06258eef1fba2a6f60ad6e",
+        "log_path": "C:\\Users\\Peter\\.codex\\worktrees\\animation-workflow-policy\\mermaid-roshan-reef\\tmp\\animation-probe-retries\\probe_dance\\probe.log"
+      },
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_l2",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_l2_living_cards",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_sky_lagoon_animals",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_l2_reenter",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_crown",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_throne",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_northern",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_human_art_audit",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_train",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_verbs",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_skins",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_touch_router",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_touch_stress",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_interaction",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_touch_adversary",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_touch_look",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_ui_system",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_voice",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_day_one_voice",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_day_one_d8_revisits",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_day_one_handoffs",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_kart_feel",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_combat",
+      "original_returncode": 127,
+      "native_retry": {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "--path",
+          "C:\\Users\\Peter\\.codex\\worktrees\\animation-workflow-policy\\mermaid-roshan-reef",
+          "-s",
+          "scripts/probe_combat.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "returncode": 0,
+        "elapsed_seconds": 8.54,
+        "log_sha256": "67aec55ee70333770a4faecb2cfd06051dfd5f0c3522629f4a522650ae60e613",
+        "log_path": "C:\\Users\\Peter\\.codex\\worktrees\\animation-workflow-policy\\mermaid-roshan-reef\\tmp\\animation-probe-retries\\probe_combat\\probe.log"
+      },
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_dust_bunny",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_dust_bunny_boss",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_dust_boss",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_hit",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_partner",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_combat_tutorial",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_imp_ai",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_mic",
+      "original_returncode": 127,
+      "native_retry": {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "--path",
+          "C:\\Users\\Peter\\.codex\\worktrees\\animation-workflow-policy\\mermaid-roshan-reef",
+          "-s",
+          "scripts/probe_mic.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "returncode": 0,
+        "elapsed_seconds": 7.792,
+        "log_sha256": "4c186e6413f73aacf682d34e95d955e600da20b553d525b7b4d49cf7bdd8dd26",
+        "log_path": "C:\\Users\\Peter\\.codex\\worktrees\\animation-workflow-policy\\mermaid-roshan-reef\\tmp\\animation-probe-retries\\probe_mic\\probe.log",
+        "failure_pattern_hits": []
+      },
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_stuffie",
+      "original_returncode": 127,
+      "native_retry": {
+        "command": [
+          "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+          "--headless",
+          "--path",
+          "C:\\Users\\Peter\\.codex\\worktrees\\animation-workflow-policy\\mermaid-roshan-reef",
+          "-s",
+          "scripts/probe_stuffie.gd",
+          "--",
+          "--touch",
+          "--classic-touch-test"
+        ],
+        "returncode": 0,
+        "elapsed_seconds": 15.011,
+        "log_sha256": "ce98c5879cc8f528799c7c4a8bcfdb583da7c27f90f837794b913fc5691b7455",
+        "log_path": "C:\\Users\\Peter\\.codex\\worktrees\\animation-workflow-policy\\mermaid-roshan-reef\\tmp\\animation-probe-retries\\probe_stuffie\\probe.log",
+        "failure_pattern_hits": []
+      },
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_dungeon",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_ember",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_opera",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_opera_2d",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_opera_diegetic_paths",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_opera_detective",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_opera_pipe",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_opera_nursery",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_opera_gesture_quality",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_kitchen_props",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_bathroom_props",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_castle_door_language",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_bathroom_integration",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_day_one_bathroom_bunny",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_day_one_bathroom_cleanup",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_day_one_bathroom_movie_handoff",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_day_one_director",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_day_one_integration",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_day_one_pool_cleanup",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_day_one_art_attack_state",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_day_one_castle_dressing",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_day_one_story_clips",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_chapter2",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_chapter2_farmer_resume",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_chapter2_lawn",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_alpha_milestone_save",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_dust_boss_balance",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_start_menu_routing",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_start_menu_new_game",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_castle_pool_life_2d",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_castle_pearl_art",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_fairy_art",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    },
+    {
+      "probe": "probe_props",
+      "original_returncode": 0,
+      "native_retry": null,
+      "result": "PASS"
+    }
+  ],
+  "failures": [],
+  "advisory_visual_audit": "UNSATISFIED; no artwork, runtime, device, child or owner acceptance inferred.",
+  "ci_script_sha256": "91b77dfb44f11b421a9d4f3d51633151d7b2ab25c45649767ba31b2c3833bf31"
+}

@@ -1,0 +1,210 @@
+{
+  "id": "animation-workflow-policy-20261003",
+  "scope": "Owner-authorized animation policy revision: allow final animation with identity, motion, provenance and device checks; prefer Aseprite as the cleanup bridge; replace compulsory per-frame still generation with bounded method selection and iteration. Research local 8 GB GPU limitations and low-cost APIs. Documentation only: no new art, paid jobs, runtime changes or finding closure. Latest owner preference: local character design/animation and objects, APIs for cinematic scenes. Reconcile preserved draft with origin/dev 87f992680c0b6a690bf45b1950275579c45e15ab and the new source-bound recipe/decision register.",
+  "baseline": "f2140465b0d97575cf1855b1d0422a2c4be6110f",
+  "rules": [
+    "DL-AUTH-01",
+    "DL-AUTH-02",
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-MED-01",
+    "DL-MED-02",
+    "DL-MOT-01",
+    "DL-MOT-02",
+    "DL-MOT-07",
+    "DL-MOT-12",
+    "DL-MOT-13",
+    "DL-CIN-01",
+    "DL-CIN-02",
+    "DL-CIN-03",
+    "DL-CIN-04",
+    "DL-CIN-05",
+    "DL-CIN-06",
+    "DL-CIN-11",
+    "DL-CIN-12",
+    "DL-CIN-13",
+    "DL-CIN-14",
+    "DL-CIN-15",
+    "DL-CIN-16",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-PERF-01",
+    "DL-PERF-02",
+    "DL-PERF-04",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16",
+    "DL-CIN-07",
+    "DL-CIN-08",
+    "DL-CIN-09",
+    "DL-CIN-10",
+    "DL-MOT-10",
+    "DL-MOT-11"
+  ],
+  "findings": [
+    "MA-VIS-006",
+    "MA-PERF-001",
+    "MA-PLAY-004",
+    "MA-DOC-009"
+  ],
+  "files": [
+    "AGENTS.md",
+    "CLAUDE.md",
+    "design/06_COMPREHENSIVE_DESIGN_LANGUAGE.md",
+    "design/05_DOC_LEDGER.md",
+    "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+    "design/animation/WORKFLOW_OPTIONS_2026-10-03.md",
+    "design/templates/ANIMATION_JOB_CARD_V1.md",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/animation/README.md",
+    "design/GROK_MASTER_HANDOFF_FORMULA_2026-08-30.md",
+    "design/GROK_HANDOFF_2_CONTINUITY_PROTOCOL_2026-09-09.md",
+    "docs/CINEMATIC_DIRECTION_AND_INTENT_PROTOCOL.md",
+    "docs/TEMPORAL_ANIMATION_INTEGRITY_AND_QUALITY_GATE_PROTOCOL.md",
+    "design/reference/recipes/character_animation.md",
+    "design/reference/owner_decisions.json",
+    "design/reference/OWNER_DECISIONS.md",
+    "audit/cycles/animation-20261003/owner_answers.json",
+    "design/reference/recipes/story_clip.md",
+    "design/reference/prompt_intents.json",
+    "design/templates/IMAGINE_SHOT_CARD_V1.md",
+    "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+    "audit/cycles/animation-20261003/local_validation_receipt.json"
+  ],
+  "validation": [
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "Reconciled candidate, including active Roshan/Imagine method paragraphs: DOCAUTH INVENTORY=651, LEDGER=651, ACTIVE=61, RECORDS=64, ALL OK; tmp/animation-authority.log SHA-256 ef50cedcb218bed08171d82c3e5cbc31e9baa2090e3002aa21b03cc64c659509."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Reconciled candidate, including active Roshan/Imagine cards and source-bound recipes/decisions: base 87f992680c0b6a690bf45b1950275579c45e15ab, AUDITDEV ALL OK; tmp/animation-development.log SHA-256 53dbb9f29b213d204c6610d93eab645a54358847be72c94bec610de68a90a5bb."
+    },
+    {
+      "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development tools.tests.test_audit_cinematic tools.tests.test_record_owner_decision",
+      "result": "PASS",
+      "evidence": "Reconciled candidate: 76 existing tests in 25.729 seconds, OK; cinematic stress 6/6 PASS. Existing tests/tools unchanged. The separately revised Imagine card also passes all 8 test_audit_imagine_handoff tests in 2.059 seconds."
+    },
+    {
+      "command": "Exact-head GitHub Probe Suite",
+      "result": "PENDING",
+      "evidence": "Full existing validation must pass on the topic branch before integration into dev."
+    },
+    {
+      "command": "Owner authorization and source review",
+      "result": "PASS",
+      "evidence": "2026-10-03 chat: owner selected 'Allow final animation with identity, motion, provenance and device checks (Recommended)' and requested Aseprite as the bridge when possible. Read master planning/index, design 06, ledger, related findings and existing motion receipts at exact baseline. No prior rejected candidate is accepted by the policy revision."
+    },
+    {
+      "command": "Initial rebased scripts/ci.sh",
+      "result": "FAIL",
+      "evidence": "tmp/animation-full-ci.initial-recipe-failure.log; SHA-256 437ce9d4a799b88bc07618bc3c7095ba3bb0fcc3bd86f5aeaaaa049a9e15d463. Existing test_repository_catalog caught generated recipe/catalogue drift. Source catalogue repaired, recipes regenerated, all 14 planner tests PASS; full rerun required."
+    },
+    {
+      "command": "python -B tools/plan_prompt.py --check; python -B -m unittest tools.tests.test_plan_prompt",
+      "result": "PASS",
+      "evidence": "Repaired catalogue and both generated recipes: PROMPTS ALL OK, 14 tests in 1.665 seconds, exact tool transcript before the full rerun. No tool/test assertions changed."
+    },
+    {
+      "command": "bash scripts/ci.sh",
+      "result": "FAIL",
+      "evidence": "Reconciled candidate full local batch completed: all blocking static/contract/import gates passed, Godot 4.7.2-stable; six Windows launches exited 127 before test verdict. Original tmp/animation-full-ci.log SHA-256 183f14fd04bd008b5b6bd3a3bf8a1a5a92da8db8e5355975a91f3b0d01913bd9 retained. All six unchanged probes subsequently passed using the same approved executable, fresh profiles and native launch. Full probe-by-probe completion is recorded separately; no test/tool/runtime change or false batch PASS."
+    },
+    {
+      "command": "Required probe-by-probe completion",
+      "result": "PASS",
+      "evidence": "REQUIRED_PROBES 82/82 ALL OK. audit/cycles/animation-20261003/local_validation_receipt.json SHA-256 e0cbbd3e8950473fb0531669aea0b9b1fc33a755f0d39e6c0c2e1a3fd51057a4; six exact native retry commands, return codes and log hashes retained. Every required probe is checked with unchanged scripts/ci.sh failure patterns, including parser/runtime errors. Native retries: dance 7.718 s, melody 28.715 s, seek 8.568 s, combat 8.540 s, mic 7.792 s, stuffie 15.011 s. No device, visual or owner acceptance implied."
+    },
+    {
+      "command": "Decision register and generated recipe checks",
+      "result": "PASS",
+      "evidence": "python -B tools/record_owner_decision.py --check: 21, ALL OK; python -B tools/plan_prompt.py --check: PROMPTS ALL OK. Existing full loop contract suite: 95 tests, OK after catalogue repair. No tests/tools changed."
+    }
+  ],
+  "acceptance_gaps": "This change establishes production policy, not an accepted animation or performance repair. New controlled local/API comparison, Aseprite cleanup trials, exact-candidate visual/contact/loop review, runtime integration, Mobile/Speedy device measurements, child comprehension and owner acceptance remain outstanding. Listed findings keep their existing lifecycle/history. No paid generation or release promotion is authorized by this task.",
+  "integration_baseline": "87f992680c0b6a690bf45b1950275579c45e15ab",
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-ANIMATION-METHODS-20261003",
+      "evidence": "2026-10-03 owner chat, preserved in design/animation/WORKFLOW_OPTIONS_2026-10-03.md#owner-directed-production-split",
+      "write_back": "AGENTS.md, CLAUDE.md, DL-MOT-14, animation production protocol and character_animation recipe"
+    },
+    {
+      "decision_id": "ODR-ANIMATION-ASEPRITE-20261003",
+      "evidence": "2026-10-03 owner chat, preserved in design/animation/WORKFLOW_OPTIONS_2026-10-03.md#owner-directed-production-split",
+      "write_back": "AGENTS.md, CLAUDE.md, DL-MOT-14, animation production protocol and character_animation recipe"
+    },
+    {
+      "decision_id": "ODR-ANIMATION-LOCAL-CLOUD-20261003",
+      "evidence": "2026-10-03 owner chat, preserved in design/animation/WORKFLOW_OPTIONS_2026-10-03.md#owner-directed-production-split",
+      "write_back": "AGENTS.md, CLAUDE.md, DL-MOT-14, animation production protocol and character_animation recipe"
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "Count generation rejects and Aseprite cleanup in minutes/cost per accepted second; successful encoding and low VRAM fit do not establish usable motion.",
+      "write_back": "DL-MOT-16 and design/animation/WORKFLOW_OPTIONS_2026-10-03.md"
+    },
+    {
+      "lesson": "Production recipes are generated from prompt_intents.json; update the catalogue and regenerate both affected recipes so new plans inherit the recorded owner direction.",
+      "write_back": "design/reference/prompt_intents.json and its animation/story recipe revision history"
+    }
+  ],
+  "existing_local_receipts": [
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\nursery_scrub_a4_20261002_20261003T010056Z_87cf8e\\RENDER_RECEIPT.json",
+      "sha256": "a7c58a5456867a6127bfd93a56d4592317e6c867e857475da9ea4f8f32fafd29",
+      "status": "PASS",
+      "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+      "settings": {
+        "width": 896,
+        "height": 512,
+        "frames": 41,
+        "steps": 24,
+        "weight_dtype": "GGUF_Q4_K_S"
+      },
+      "elapsed_seconds": 165.68,
+      "output_hashes": [
+        {
+          "sha256": "e1922c623b2e61fc44929a532d8b461ac03ee2f30f72673e93f0928bcb93d83d",
+          "bytes": 377511
+        },
+        {
+          "sha256": "6995ea3c204a0539647cc0c2e09b0112b7eb9480c06246488e13b17460df48e5",
+          "bytes": 315896
+        }
+      ]
+    },
+    {
+      "path": "H:\\MermaidReefTools\\LocalVideo\\jobs\\candy_neck_twist_a1_20261003_20261003T110741Z_ece477\\RENDER_RECEIPT.json",
+      "sha256": "a1658fadfb8491f9563d0ba7fea60cb3e6d7d12f6b5aaa3a1829a6661414daac",
+      "status": "PASS",
+      "acceptance": "LOCAL_MOTION_REFERENCE_ONLY",
+      "settings": {
+        "width": 896,
+        "height": 512,
+        "frames": 41,
+        "steps": 24,
+        "weight_dtype": "GGUF_Q4_K_S"
+      },
+      "elapsed_seconds": 191.13,
+      "output_hashes": [
+        {
+          "sha256": "5f8e1efe33d5dca078ae828b3853f45c34beecc685aca14476f408a382370c30",
+          "bytes": 1525786
+        },
+        {
+          "sha256": "20885fc1941e972a2fdefdc1b0fce5b8cb7eb15e087b2318d0a9b45b49694139",
+          "bytes": 1033915
+        }
+      ]
+    }
+  ],
+  "finding_scope": {
+    "MA-DOC-009": "Related only to retaining actual owner corrections/lessons and writing them back to served animation/story recipes, matching its child-impact statement that owner corrections repeat. This is not a two-cycle loop repair, finding closure or changed canonical lifecycle/history."
+  }
+}

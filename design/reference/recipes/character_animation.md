@@ -4,7 +4,7 @@ Status: `SUPPORTING_CURRENT` planning recipe. It routes current authority; it gr
 
 Intent: `INT-ANIMATION`. Example: make Roshan do a cartwheel. Minimum input: the action.
 
-Default: Inventory approved authored sources first; determine the exact production lane from current owner instructions and reconciled repository policy. Keep polished storybook identity and true Canvas 2D gameplay. This recipe grants no method permission or performance acceptance.
+Default: Inventory approved authored sources first. The recorded 2026-10-03 owner direction selects local character/object workflows, APIs for cinematic scenes, and Aseprite cleanup where practical; use [the production protocol](../../animation/ANIMATION_PRODUCTION_PROTOCOL.md) and [job card](../../templates/ANIMATION_JOB_CARD_V1.md). Keep polished storybook identity and true Canvas 2D gameplay. This recipe grants no method permission or performance acceptance.
 
 ## Read first
 
@@ -18,6 +18,7 @@ Default: Inventory approved authored sources first; determine the exact producti
 - `design/animation/ANIMATION_PRODUCTION_PROTOCOL.md`
 - `design/animation/ROSHAN_MOVEMENT_LANGUAGE.md`
 - `design/templates/CHARACTER_MOVEMENT_PROFILE_V1.md`
+- `design/templates/ANIMATION_JOB_CARD_V1.md`
 
 Rules: `DL-AUTH-05` through `DL-AUTH-07`, `DL-PLAN-01` through `DL-PLAN-06`, and all affected child, interaction, save, medium, motion/cinematic, audio and acceptance rules. Consult live canonical findings; do not copy historical counts or superseded engine/3D directions.
 
@@ -28,7 +29,7 @@ Pattern references are the hash-bound seed entries in the strengths register; no
 ## Expand
 
 1. Before executing animation, compare the latest explicit owner direction with AGENTS, design rules and the production protocol. Repository policy may lag owner instructions; record and reconcile any actual authority conflict before dependent production. Do not infer permission from this recipe or treat a source as superseded merely because it is older.
-2. Write one source-bound intention and movement/profile job card: sources and acceptance scopes, fixed/moving parts, geometry, entry/exit, contact/support, identity/topology/style, tolerances, selected authorized method, attempts, cleanup/wall-time limits and existing funded task budget. Missing current job-card templates remain an explicit source gap; the fields still need a reviewable record.
+2. Write one source-bound intention and movement/profile job card: sources and acceptance scopes, fixed/moving parts, geometry, entry/exit, contact/support, identity/topology/style, tolerances, selected authorized method, attempts, cleanup/wall-time limits and existing funded task budget. Use the current [animation job card](../../templates/ANIMATION_JOB_CARD_V1.md); keep provider-specific executable prompts separate.
 3. Inventory approved authored states, keys, source masters and consumers first; reuse suitable art and record named missing views/contact/transitions before authorized gap generation. Preserve originals, keep separate editable masters and exports, and introduce no 3D assets/model or rig fallback. For Roshan the identity anchor is `roshan_base.png` or a base-world atlas; career art is a costume or pose reference only and `roshan_sprite.png` is never bound (it is retired, ODR-ROSHAN-Q16). The tail is iridescent; name the light state of the exemplar (ODR-ROSHAN-IRIDESCENT, ODR-ROSHAN-Q12).
 4. Declare the selected authorized production lane before making pixels. Gameplay uses true Canvas 2D with stable pivots/sockets, readable contact/support, timing and loop seams. Record native inputs/outputs, source hashes/licences, workflow/provider revision, request/prompt/settings/seed when exposed, attempts/time/cost, frame mapping and every edit/retiming/interpolation actually used; no method declaration accepts missing acting or identity drift.
 5. Run the exact validators required by the selected lane: gameplay atlas/anchor/engine/lifecycle/contact gates and production-profile cinematic manifest audit when applicable. Preserve strict full-frame per-index provenance and the frame-regeneration validator whenever that lane is selected or required; never fabricate still-generation records for another method or rewrite historical rejects. Review every affected transition/loop seam at full speed and frame-step, then obtain exact human identity/topology/style/motion, actual device, child and owner evidence. Missing evidence stays blocking; successful encoding or metrics do not grant acceptance.
@@ -63,4 +64,5 @@ Claude writes specifications, audits and study reports; Codex builds code and ev
 - 2026-10-03: V1 implemented from the self-improvement handoff and current repository authorities.
 - 2026-10-03: Production-lane wording routes exact current owner/repository authority and records reconciliation gaps; no method permission or performance acceptance is inferred.
 - 2026-10-03: Review fixes (Claude): Roshan identity anchor named.
+- 2026-10-03: Owner-authorized local character/object and API cinematic routing, Aseprite bridge, and current animation job card replace the template gap; exact pixels and device acceptance remain pending.
 - No completed served prompt or runtime/owner acceptance is claimed.
