@@ -1,0 +1,416 @@
+{
+  "prompt": [
+    6,
+    "0db1d463-b3b4-4ae6-aa91-0271977ed44e",
+    {
+      "1": {
+        "class_type": "CheckpointLoaderSimple",
+        "inputs": {
+          "ckpt_name": "ltxv-2b-0.9.8-distilled.safetensors"
+        }
+      },
+      "2": {
+        "class_type": "CLIPLoader",
+        "inputs": {
+          "clip_name": "t5xxl_fp8_e4m3fn.safetensors",
+          "type": "ltxv",
+          "device": "cpu"
+        }
+      },
+      "4": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "retake_trial_original_0040.png"
+        }
+      },
+      "5": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "2",
+            0
+          ],
+          "text": "Roshan, the same cheerful painted storybook mermaid, gently lowers her raised waving arm from above her head through the relaxed halfway pose to her side. One second, static camera, constant scale and pale-gray background. Her shoulder relaxes, torso and pink bodice subtly respond, rainbow ponytail and iridescent purple tail follow through naturally as one coherent figure. Her waist remains near the same position; it is a registration landmark, not a frozen body. Preserve her exact face, crown, pink bodice, rainbow hair, purple tail and rainbow fins. Crisp clean navy/purple contours and readable open fingers in every frame, short exposure, no motion blur, no smeared or doubled silhouettes, no tears, no disconnected hands, no extra limbs. End with both arms resting and the whole figure settled. Sound: none.\n"
+        }
+      },
+      "6": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "2",
+            0
+          ],
+          "text": "camera movement, anatomy drift, extra limbs, new objects, flicker, text, watermark"
+        }
+      },
+      "7": {
+        "class_type": "LTXVConditioning",
+        "inputs": {
+          "positive": [
+            "5",
+            0
+          ],
+          "negative": [
+            "6",
+            0
+          ],
+          "frame_rate": 24.0
+        }
+      },
+      "8": {
+        "class_type": "LTXVImgToVideo",
+        "inputs": {
+          "positive": [
+            "7",
+            0
+          ],
+          "negative": [
+            "7",
+            1
+          ],
+          "vae": [
+            "1",
+            2
+          ],
+          "image": [
+            "4",
+            0
+          ],
+          "width": 896,
+          "height": 512,
+          "length": 25,
+          "batch_size": 1,
+          "strength": 1.0
+        }
+      },
+      "12": {
+        "class_type": "KSamplerSelect",
+        "inputs": {
+          "sampler_name": "euler"
+        }
+      },
+      "13": {
+        "class_type": "ManualSigmas",
+        "inputs": {
+          "sigmas": "1,0.9937,0.9875,0.9812,0.9750,0.9094,0.7250,0"
+        }
+      },
+      "9": {
+        "class_type": "SamplerCustom",
+        "inputs": {
+          "model": [
+            "1",
+            0
+          ],
+          "add_noise": true,
+          "noise_seed": 20261004,
+          "cfg": 1.0,
+          "positive": [
+            "23",
+            0
+          ],
+          "negative": [
+            "23",
+            1
+          ],
+          "sampler": [
+            "12",
+            0
+          ],
+          "sigmas": [
+            "13",
+            0
+          ],
+          "latent_image": [
+            "23",
+            2
+          ]
+        }
+      },
+      "10": {
+        "class_type": "VAEDecodeTiled",
+        "inputs": {
+          "samples": [
+            "40",
+            2
+          ],
+          "vae": [
+            "1",
+            2
+          ],
+          "tile_size": 256,
+          "overlap": 64,
+          "temporal_size": 64,
+          "temporal_overlap": 8
+        }
+      },
+      "20": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "retake_trial_corrected_0048.png"
+        }
+      },
+      "21": {
+        "class_type": "LTXVAddGuide",
+        "inputs": {
+          "positive": [
+            "8",
+            0
+          ],
+          "negative": [
+            "8",
+            1
+          ],
+          "latent": [
+            "8",
+            2
+          ],
+          "vae": [
+            "1",
+            2
+          ],
+          "image": [
+            "20",
+            0
+          ],
+          "frame_idx": 8,
+          "strength": 1.0
+        }
+      },
+      "22": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "retake_trial_original_0064.png"
+        }
+      },
+      "23": {
+        "class_type": "LTXVAddGuide",
+        "inputs": {
+          "positive": [
+            "21",
+            0
+          ],
+          "negative": [
+            "21",
+            1
+          ],
+          "latent": [
+            "21",
+            2
+          ],
+          "vae": [
+            "1",
+            2
+          ],
+          "image": [
+            "22",
+            0
+          ],
+          "frame_idx": 24,
+          "strength": 1.0
+        }
+      },
+      "40": {
+        "class_type": "LTXVCropGuides",
+        "inputs": {
+          "positive": [
+            "23",
+            0
+          ],
+          "negative": [
+            "23",
+            1
+          ],
+          "latent": [
+            "9",
+            0
+          ]
+        }
+      },
+      "14": {
+        "class_type": "SaveImage",
+        "inputs": {
+          "images": [
+            "10",
+            0
+          ],
+          "filename_prefix": "local_reference/ltx_retake_repair_20261004_ltxv_guide_standard/frame"
+        }
+      }
+    },
+    {
+      "client_id": "ltx_retake_repair_20261004",
+      "create_time": 1791137018050
+    },
+    [
+      "14"
+    ]
+  ],
+  "outputs": {
+    "14": {
+      "images": [
+        {
+          "filename": "frame_00001_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00002_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00003_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00004_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00005_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00006_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00007_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00008_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00009_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00010_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00011_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00012_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00013_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00014_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00015_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00016_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00017_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00018_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00019_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00020_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00021_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00022_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00023_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00024_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        },
+        {
+          "filename": "frame_00025_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_guide_standard",
+          "type": "output"
+        }
+      ]
+    }
+  },
+  "status": {
+    "status_str": "success",
+    "completed": true,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "0db1d463-b3b4-4ae6-aa91-0271977ed44e",
+          "timestamp": 1791137018056
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [],
+          "prompt_id": "0db1d463-b3b4-4ae6-aa91-0271977ed44e",
+          "timestamp": 1791137018239
+        }
+      ],
+      [
+        "execution_success",
+        {
+          "prompt_id": "0db1d463-b3b4-4ae6-aa91-0271977ed44e",
+          "timestamp": 1791137187340
+        }
+      ]
+    ]
+  },
+  "meta": {
+    "14": {
+      "node_id": "14",
+      "display_node": "14",
+      "parent_node": null,
+      "real_node_id": "14"
+    }
+  }
+}

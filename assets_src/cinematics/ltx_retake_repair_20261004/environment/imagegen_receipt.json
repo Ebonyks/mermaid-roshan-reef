@@ -1,0 +1,39 @@
+{
+  "method": "Codex built-in imagegen edit",
+  "call_count": 1,
+  "request_id": "exec-981501d9-9b45-47c3-92fc-d7077349f065",
+  "prompt_path": "briefs/imagegen_actual_prompt.txt",
+  "prompt_sha256": "7074016f1038cbbbd217653faef1a0a1783979312667ed3514aae03e8984415f",
+  "other_prompt_file_role": "briefs/corrected_pose_prompt.txt is an earlier draft, not the executed prompt",
+  "reference_bindings": [
+    {
+      "role": "IMAGE_1",
+      "path": "inputs/original_0048.png",
+      "sha256": "04a15c771bb3b8e992d9680cc04431b10123f6a2eb94ab242aee2eaa9fae5e7d"
+    },
+    {
+      "role": "IMAGE_2",
+      "path": "inputs/approved_figure_key_03.png",
+      "sha256": "56e82575f9d8671a04060d5899cccf7c511d7208fc73f46bf3bd309ad6dcde14"
+    },
+    {
+      "role": "IMAGE_3",
+      "path": "inputs/original_0040.png",
+      "sha256": "7c2439470e58dbffc0295f88b02387d435e5327c8bf3aeb4b1d80770863f9055"
+    },
+    {
+      "role": "IMAGE_4",
+      "path": "inputs/original_0064.png",
+      "sha256": "7c2314411d303281c360495b1fb84bbba2036f85a2e783e7eb972a2508ed7440"
+    }
+  ],
+  "native_output": {
+    "path": "inputs/corrected_0048_native.png",
+    "sha256": "64bc7832135d3fb2e9bff16f8fb0bd1617ce533494f8608255f0b99c82becc84"
+  },
+  "normalization": "Aseprite SpriteSize bilinear, complete canvas 1659x948 -> 896x512; no part isolation",
+  "paid_api_usd": 0,
+  "account_usage_tokens": "Not exposed by built-in tool; one call counted",
+  "owner_identity_acceptance": "PENDING",
+  "hand_drawn_in_aseprite": false
+}

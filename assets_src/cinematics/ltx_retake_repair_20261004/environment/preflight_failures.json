@@ -1,0 +1,20 @@
+[
+  {
+    "stage": "isolated_server_start",
+    "result": "FAIL_BEFORE_PROMPT",
+    "cause": "ComfyUI requires user directory to exist.",
+    "repair": "Create scoped retake_user and retake_temp directories; preserve unrelated server."
+  },
+  {
+    "stage": "diagnostic_client_before_server_ready",
+    "result": "NO_PROMPT_SUBMITTED",
+    "cause": "Connection refused before server start validation.",
+    "repair": "Require ready system_stats before submission."
+  },
+  {
+    "stage": "isolated_server_diagnostic_restart",
+    "result": "ABORTED_BEFORE_READY_NO_MODEL_SUBMISSION",
+    "cause": "Slow Python import/startup was diagnostically stopped and restarted with traceback logging; later ready startup proves no model incompatibility.",
+    "repair": "Wait for ready system_stats; preserve diagnostic logs and owned-PID stop."
+  }
+]

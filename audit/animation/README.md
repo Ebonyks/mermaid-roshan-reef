@@ -91,6 +91,8 @@ Change/evidence: [2026-09-11 audit impact](../../design/audit_impacts/2026-09-11
 
 ## Branch history
 
+- 2026-10-04: owner prioritizes the [8 GB retake and whole-figure Aseprite repair trial](../../assets_src/cinematics/ltx_retake_repair_20261004/README.md). The [bounded protocol](../../design/animation/ANIMATION_PRODUCTION_PROTOCOL.md#iterative-repair-with-aseprite-and-temporal-retakes) preserves native frames, coherent body motion and separate hardware/quality acceptance; caps include failed attempts. No runtime finding is repaired.
+
 - 2026-10-03: owner permits final animation workflows with identity/motion/provenance/device checks and prefers Aseprite as the bridge. [Research](../../design/animation/WORKFLOW_OPTIONS_2026-10-03.md), [job card](../../design/templates/ANIMATION_JOB_CARD_V1.md) and [impact](../../design/audit_impacts/animation-workflow-policy-20261003.json) record 8 GB local limitations, API costs, method selection and bounded retries. Prior rejected/reference studies retain their scope; no runtime/device/child/owner acceptance or finding closure is claimed.
 
 - 2026-09-13: [video-first handoff revision](../../assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/README.md#video-first-revision--2026-09-13) requires actual image-to-video capability and attached source inputs, one returned/reviewed RSW-01 video before the larger batch, and no still-board substitute. Publication now has a committed hash-bound envelope, separate from opening approval and video acceptance. [Impact](../../design/audit_impacts/2026-09-13-roshan-grok-video-first.json). No art pixels changed, no videos generated, no finding closed.
@@ -99,3 +101,5 @@ Change/evidence: [2026-09-11 audit impact](../../design/audit_impacts/2026-09-11
   movement language, reusable character template and production protocol;
   integrated canonical motion rules and art/chapter/cinematic navigation.
   No motion study, runtime change, new art or acceptance is claimed.
+
+- 2026-10-04: owner commissioned the [registered Roshan wave sample](../../assets_src/cinematics/ltx_registered_wave_20261004/README.md) using existing artwork, local LTX-Video 2B and Aseprite. [Impact](../../design/audit_impacts/ltx-registered-wave-20261004.json) tracks source-only evidence: native hand blur persists, owner rejects fixed-body limb-only finishing, and the whole-figure root/prompt trial preserves coordinated body scope but fails motion sharpness; a final81-frame native take reduces the lowering smear while retaining transition-hand defects. No runtime, owner/device/child acceptance or finding closure.

@@ -1,0 +1,46 @@
+{
+  "reviewer": "Codex agent visual inspection; owner/human/device review not granted",
+  "checked_at_utc": "2026-10-04T18:49:41.148335+00:00",
+  "production_accepted_seconds": 0,
+  "takes": [
+    {
+      "take": "ltxv_guide_standard",
+      "execution": "PASS",
+      "quality": "REJECTED_REFERENCE_ONLY",
+      "evidence": [
+        "results/ltxv_guide_standard/contact.png",
+        "results/ltxv_guide_standard/window.mp4"
+      ],
+      "reason": "Detached/smeared hand during early lowering; guide pose and timing not reproduced reliably; insufficient coherent figure acting."
+    },
+    {
+      "take": "ltxv_guide_strong",
+      "execution": "PASS",
+      "quality": "REJECTED_REFERENCE_ONLY",
+      "evidence": [
+        "results/ltxv_guide_strong/contact.png",
+        "results/ltxv_guide_strong/window.mp4"
+      ],
+      "reason": "More connected forearm than standard guide, but fingers/hand still smeared and lowering occurs too early. Stronger attention is not a pose/time lock."
+    },
+    {
+      "take": "ltx23_retake_standard",
+      "execution": "FAILED_DIAGNOSTICALLY_INTERRUPTED",
+      "quality": "NO_COMPLETED_FOOTAGE",
+      "reason": "896x512 run stopped at669.775s with no completed sampling step. Model partially loaded inside8GB; practical full-size iteration not demonstrated."
+    },
+    {
+      "take": "ltx23_retake_lowmem",
+      "execution": "PASS",
+      "quality": "REJECTED_REFERENCE_ONLY",
+      "evidence": [
+        "results/ltx23_retake_lowmem/contact.png",
+        "results/ltx23_retake_lowmem/transition_defects.png",
+        "results/ltx23_retake_lowmem/latent_mask_verification.json"
+      ],
+      "reason": "448x256 temporal retake completes and preserves boundary latent blocks, with readable open-hand middle pose. Early jump byglobal42, plateau near42-49, and ghosted/duplicated raised arm at50-55 fail timing/topology. Lower native resolution also softens detail; upscaling is not a repair. Body/hair/tail vary rather than using a fixed-body overlay, but coherent figure-wide acting still fails."
+    }
+  ],
+  "inference_not_proven_cause": "Coarse temporal blocks, encoded defective source context and sparse guide timing are plausible contributors to transition ghosts. The check proves masked latent behavior, not the exact cause of ghosting. A broader clean-context window and stronger authored motion guide need a separate bounded trial.",
+  "acceptance_remaining": "Owner identity/style, full-speed temporal motion, transition/contact, device and child gates; no runtime/release acceptance."
+}

@@ -1,0 +1,27 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+PROPS|stage + arena shell build: OK
+PROPS|4 props spawn under the cap: OK
+PROPS|fleet settles on the stage floor via the solver: OK
+PROPS|arena walls keep the fleet on the promenade: OK
+PROPS|settled fleet stays put with nobody near: OK
+PROPS|settled fleet is asleep (perf contract): OK
+PROPS|contact push shoves the prop away: OK
+PROPS|stirred prop rides the solver tide: OK
+PROPS|tide fades and the fleet sleeps again: OK
+PROPS|sleeping sprite sways with the wave: OK
+PROPS|cosmetic tide never moves the body: OK
+PROPS|a breach-tier proc spawns splash + ripple cards: OK
+PROPS|the per-emitter cooldown holds: OK
+PROPS|the concurrent-card cap holds: OK
+PROPS|cards animate out and free themselves: OK
+PROPS|every shipped atlas matches the KINDS grid: OK
+PROPS|a card flipbooks the atlas art: OK
+PROPS|the foam waterline builds and tiles: OK
+PROPS|the waterline drifts with the water clock: OK
+PROPS|freed waterlines are pruned: OK
+PROPS|a prop crossing the waterline procs a splash: OK
+PROPS|fleet cap holds at PROPS_MAX: OK
+PROPS|teardown reclaims every body: OK
+PROPS|no orphan spawns after teardown: OK
+PROPS|result: ALL OK

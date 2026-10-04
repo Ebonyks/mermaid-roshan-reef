@@ -1,0 +1,117 @@
+{
+  "prompt": [
+    8,
+    "510ff698-d68d-4883-b188-8c3923c8a9a1",
+    {
+      "1": {
+        "class_type": "CheckpointLoaderSimple",
+        "inputs": {
+          "ckpt_name": "ltxv-2b-0.9.8-distilled.safetensors"
+        }
+      },
+      "20": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "retake_trial_corrected_0048.png"
+        }
+      },
+      "21": {
+        "class_type": "VAEEncode",
+        "inputs": {
+          "pixels": [
+            "20",
+            0
+          ],
+          "vae": [
+            "1",
+            2
+          ]
+        }
+      },
+      "10": {
+        "class_type": "VAEDecodeTiled",
+        "inputs": {
+          "samples": [
+            "21",
+            0
+          ],
+          "vae": [
+            "1",
+            2
+          ],
+          "tile_size": 256,
+          "overlap": 64,
+          "temporal_size": 64,
+          "temporal_overlap": 8
+        }
+      },
+      "14": {
+        "class_type": "SaveImage",
+        "inputs": {
+          "images": [
+            "10",
+            0
+          ],
+          "filename_prefix": "local_reference/ltx_retake_repair_20261004_ltxv_vae_roundtrip/frame"
+        }
+      }
+    },
+    {
+      "client_id": "ltx_retake_repair_20261004",
+      "create_time": 1791137279523
+    },
+    [
+      "14"
+    ]
+  ],
+  "outputs": {
+    "14": {
+      "images": [
+        {
+          "filename": "frame_00001_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltxv_vae_roundtrip",
+          "type": "output"
+        }
+      ]
+    }
+  },
+  "status": {
+    "status_str": "success",
+    "completed": true,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "510ff698-d68d-4883-b188-8c3923c8a9a1",
+          "timestamp": 1791137279527
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [
+            "1",
+            "20"
+          ],
+          "prompt_id": "510ff698-d68d-4883-b188-8c3923c8a9a1",
+          "timestamp": 1791137280565
+        }
+      ],
+      [
+        "execution_success",
+        {
+          "prompt_id": "510ff698-d68d-4883-b188-8c3923c8a9a1",
+          "timestamp": 1791137284547
+        }
+      ]
+    ]
+  },
+  "meta": {
+    "14": {
+      "node_id": "14",
+      "display_node": "14",
+      "parent_node": null,
+      "real_node_id": "14"
+    }
+  }
+}
