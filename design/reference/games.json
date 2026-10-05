@@ -22,7 +22,8 @@
    "host": [
     "scripts/day_one_director.gd",
     "scripts/arena/castle_rooms_25d.gd",
-    "scripts/main.gd"
+    "scripts/main.gd",
+    "scripts/day_one_flow.gd"
    ],
    "probes": [
     "probe_day_one_pool_cleanup",
@@ -136,7 +137,8 @@
    ],
    "host": [
     "scripts/day_one_director.gd",
-    "scripts/main.gd"
+    "scripts/main.gd",
+    "scripts/day_one_flow.gd"
    ],
    "probes": [
     "probe_day_one_bathroom_cleanup",
@@ -335,7 +337,8 @@
    "host": [
     "scripts/attack_customizer.gd",
     "scripts/day_one_director.gd",
-    "scripts/main.gd"
+    "scripts/main.gd",
+    "scripts/day_one_flow.gd"
    ],
    "probes": [
     "probe_day_one_art_attack_state"
@@ -417,7 +420,8 @@
    ],
    "host": [
     "scripts/encounter_profile_2d.gd",
-    "scripts/main.gd"
+    "scripts/main.gd",
+    "scripts/day_one_flow.gd"
    ],
    "probes": [
     "probe_dust_boss",
