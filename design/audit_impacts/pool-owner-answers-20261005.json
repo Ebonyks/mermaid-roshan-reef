@@ -94,18 +94,23 @@
     },
     {
       "command": "Full trusted roster (82 probes, isolated user data, ci.sh flags and failure patterns)",
-      "result": "PENDING",
-      "evidence": "Recorded in the follow-up commit with the remote Probe Suite run."
+      "result": "PASS",
+      "evidence": "82 of 82 PASS on 8cc85ae4 (the committed candidate), isolated user data, ci.sh failure and runtime-error patterns, touch-test modes as ci.sh."
     },
     {
       "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto; local copy of the CI static gates",
-      "result": "PENDING",
-      "evidence": "Run before commit; results recorded in the follow-up commit."
+      "result": "PASS",
+      "evidence": "DOCAUTH ALL OK (inventory 667, ledger 667); AUDITDEV ALL OK at base auto (476ceda1) and at the remote tip 0d04f18d that CI uses as its push base; the local copy of the CI static gates passes every step except four that need CI's environment. The 2D regression gate refuses a shallow clone (G2D403). Area music, the ui_tap re-encode and the CRLF audio ledger hashes are environment-bound. The castle frame-review check writes contact sheets, so it was replaced locally by the in-memory validation above. CI's static-gate step, which runs all of them, passed on 8cc85ae4."
     },
     {
-      "command": "Remote Probe Suite run and anonymous raw.githubusercontent.com verification of both packet manifests at the pushed commit",
+      "command": "Anonymous raw.githubusercontent.com fetch (no credentials) of both packet manifests and every listed file at 8cc85ae443048c39fbda24cc7147bb93ebda90b2",
+      "result": "PASS",
+      "evidence": "codex_pool_five_star_2026-10-04 revision 2: manifest sha256 1f9632461e46a12f2cd2555f751b09f400d29a556eb0b48c3c4f01ba436aa83e, 61 of 61 items match bytes and SHA-256 (checked 2026-10-05T06:17:59Z). codex_gold_star_2026-10-03 revision 6: manifest sha256 2d5fd263a7280160a2018153a78c24fbb636af3ed01a16c597038f1549f575eb, 25 of 25 items match (checked 2026-10-05T06:18:14Z). Later commits that change only this record leave every packet file unchanged."
+    },
+    {
+      "command": "Remote Probe Suite (graphics fork) run on the pushed branch head",
       "result": "PENDING",
-      "evidence": "Recorded in the follow-up commit."
+      "evidence": "The run on 8cc85ae4 (37270424725) passed its static gates, including the 2D regression gate and the castle frame-review check, before a newer push cancelled it under the workflow's cancel-in-progress rule. The run on the head that carries this record is reported in the session report."
     }
   ],
   "lessons": [
