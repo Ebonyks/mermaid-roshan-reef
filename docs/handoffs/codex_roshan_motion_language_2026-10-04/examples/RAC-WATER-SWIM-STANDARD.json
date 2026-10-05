@@ -1,0 +1,275 @@
+{
+ "schema": "reef.roshan-animation-card.v1",
+ "card_id": "RAC-WATER-SWIM-STANDARD",
+ "revision": 1,
+ "status": "DECIDED",
+ "phase": "A_test",
+ "scene": {
+  "id": "day_one_pool (first user); every water scene after the Phase B census",
+  "kind": "room",
+  "entry_points": [
+   "scripts/games/pool_skimmer_activity.gd:32 (SWIM_SPEED 440 px/s)",
+   "scripts/games/pool_skimmer_activity.gd:350 (still cutout moved toward the trash)"
+  ],
+  "context": "water",
+  "tempo_variant": "standard",
+  "costume": "base",
+  "other_characters": [],
+  "camera": "fixed",
+  "roshan_display_height_px": "cell drawn at 243.2 px (256 x 0.95, pool_skimmer_activity.gd:519); figure height TO_MEASURE",
+  "layer_and_contact": "Roshan node z 34 under the skimmer at z 35 (pool_skimmer_activity.gd:505-510); no floor contact in water"
+ },
+ "interaction": {
+  "id": "travel_to_target",
+  "trigger": "child selects a trash piece or drags the skimmer",
+  "intention": "Roshan notices the trash, swims to it with her tail and arrives ready to scoop",
+  "register": "ribbon_glide",
+  "states": [
+   "start",
+   "swim loop",
+   "stop"
+  ],
+  "current_presentation": "One still cutout (roshan_directional.png frame 1, front-left) slides at 440 px/s with no swim frames",
+  "problem": "A moving still picture; no approved right-facing side-view swim exists"
+ },
+ "decision": {
+  "value": "KEYS_THEN_GENERATE",
+  "reason": "No approved key shows Roshan swimming horizontally in side view; the base swim sheets are upright three-quarter views and the career travel rows are costumes facing left.",
+  "priority": {
+   "frequency": "every_session",
+   "story_weight": "required",
+   "defect": "stiffness"
+  },
+  "depends_on": [],
+  "used_by_scenes": [
+   "day_one_pool",
+   "OWNER_QUESTION: castle rooms (README Q7)",
+   "Phase B: every other water scene"
+  ]
+ },
+ "orientation": {
+  "authored_facing": "right",
+  "mirror_for_left": true,
+  "home_pose": {
+   "path": "PENDING: side-view glide key drawn in this card's keys step",
+   "cell": [
+    0,
+    0,
+    256,
+    256
+   ],
+   "sha256": "PENDING",
+   "fin_side": "left (trailing behind a right-facing swimmer)",
+   "ponytail_side": "left (streaming back)"
+  }
+ },
+ "performance": {
+  "phases": [
+   {
+    "name": "loop",
+    "start_s": 0.0,
+    "end_s": 1.125,
+    "description": "One stroke of 27 native frames at 24 fps (1.125 s, inside the 0.8-1.2 s core-loop target): the tail rises and falls through one connected hip-to-fin wave, the fin tip trails, arms scull near the chest, shoulders and bodice answer, the ponytail streams and settles. The 41-frame take holds one and a half strokes; the loop is cut from a clean full stroke."
+   }
+  ],
+  "loop": {
+   "kind": "loop",
+   "seam": "pose and velocity of body, arms, fin and curls match across the cut"
+  },
+  "follow_through": {
+   "ponytail": "trails the head and streams back",
+   "fin": "tip trails the tail root",
+   "sleeves": "settle each stroke"
+  },
+  "contact": {
+   "socket": "none",
+   "target": "none",
+   "window_s": [
+    0.0,
+    0.0
+   ]
+  },
+  "end_state": "Roshan glides in side view, ready to continue or stop"
+ },
+ "keys": [
+  {
+   "role": "home",
+   "source": "imagegen_missing",
+   "path": "PENDING",
+   "sha256": "PENDING",
+   "guide_frame_index": 0,
+   "missing_description": "Right-facing side-view glide: body horizontal, tail extended behind with fin up, arms relaxed near the chest; identity from roshan_base.png (brown wavy hair, tied rainbow ponytail, gold tiara with blue gem, pink ruffled top, lilac sleeves, iridescent lavender tail, rainbow fins)"
+  },
+  {
+   "role": "breakdown",
+   "source": "imagegen_missing",
+   "path": "PENDING",
+   "sha256": "PENDING",
+   "guide_frame_index": 13,
+   "missing_description": "Same swimmer at the opposite stroke extreme: tail and fin down, chest lifted slightly"
+  },
+  {
+   "role": "end",
+   "source": "existing",
+   "path": "the home key again at each stroke boundary",
+   "sha256": "PENDING",
+   "guide_frame_index": 27,
+   "missing_description": ""
+  }
+ ],
+ "props": [],
+ "generation": {
+  "route": "ltx_local",
+  "runner": "PENDING (README RM1 general runner; until then the per-study runner pattern in assets_src/cinematics/ltx_registered_wave_20261004/scripts/render_take.py)",
+  "model": "LTX-Video 2B 0.9.8 distilled (LTX 2.5 after its preflight passes)",
+  "recipe": "two_pass_multiscale: first pass, learned 2x latent upscale, AdaIN, refine",
+  "workflow": "PENDING",
+  "requested_canvas": [
+   832,
+   576
+  ],
+  "native_canvas": "TO_MEASURE (recipe flooring)",
+  "first_pass_steps": 7,
+  "refine_steps": 3,
+  "fps": 24,
+  "frames": 41,
+  "seed": 20261004,
+  "guides": [
+   {
+    "frame_index": 0,
+    "key_role": "home",
+    "strength": 1.0
+   },
+   {
+    "frame_index": 13,
+    "key_role": "breakdown",
+    "strength": 1.0
+   },
+   {
+    "frame_index": 27,
+    "key_role": "home",
+    "strength": 1.0
+   },
+   {
+    "frame_index": 40,
+    "key_role": "breakdown",
+    "strength": 1.0
+   }
+  ],
+  "registration_landmark": "waist and bodice tip on a fixed canvas (the wave study's method)",
+  "extraction_background": "PENDING: one flat colour tested with the cleanup path",
+  "prompt": "a cheerful young mermaid girl with brown wavy hair and a tied rainbow ponytail swims to the right in side view; one connected tail stroke from hip to fin, the fin tip trailing; arms sculling gently near her chest; shoulders, bodice and hair respond; crisp painted edges, no motion blur, no water effects.",
+  "negative": "Not relied on: the sampler ignores negatives at CFG 1; the prompt and locks carry the constraints (legs, second tail, split fin, extra arms, auburn hair, missing tiara, motion blur, water splashes, sparkles, camera movement)",
+  "caps": {
+   "takes_per_backend": 2,
+   "wall_minutes": 60,
+   "cleanup_minutes": 120,
+   "money": 0
+  }
+ },
+ "locks": {
+  "exact_cast": [
+   "roshan"
+  ],
+  "identity_anchor": "assets/characters/roshan_25d/roshan_base.png",
+  "identity_invariants": [
+   "brown wavy hair with a tied rainbow ponytail",
+   "small gold tiara with a blue gem",
+   "pink ruffled top with lilac sleeves",
+   "iridescent lavender tail with rainbow fins",
+   "round child face with large brown eyes"
+  ],
+  "anatomy_invariants": [
+   "one tail with one fin",
+   "two arms, no legs"
+  ],
+  "forbidden_changes": [
+   "second tail or split fin",
+   "hair colour drifting to auburn",
+   "older or slimmer face",
+   "added water or sparkle effects"
+  ],
+  "required_prompt_phrases": [
+   "brown wavy hair and a tied rainbow ponytail",
+   "swims to the right in side view",
+   "one connected tail stroke from hip to fin"
+  ],
+  "causal_chain": {
+   "trigger": "the tail strokes",
+   "visible_change": "her body glides forward",
+   "end_confirmation": "the loop seam returns to the home glide"
+  },
+  "continuity": {
+   "kind": "new_setup",
+   "previous_card_id": null,
+   "inherited_state": [
+    "right-facing side view"
+   ]
+  }
+ },
+ "aseprite": {
+  "master": "PENDING: assets_src/characters/roshan_anim/water_swim_standard/water_swim_standard.aseprite",
+  "layers": [
+   "native (hidden)",
+   "clean",
+   "keys (hidden)"
+  ],
+  "tags": [
+   {
+    "name": "swim_loop",
+    "from": 0,
+    "to": 26,
+    "direction": "forward",
+    "note": "a clean full stroke chosen in review"
+   }
+  ],
+  "pivot": "waist landmark",
+  "socket_tracks": [],
+  "export": {
+   "atlas": "PENDING",
+   "cell": [
+    256,
+    256
+   ],
+   "timing_json": "PENDING"
+  },
+  "round_trip": "reopen the master and compare exported pixels"
+ },
+ "runtime": {
+  "target": "scripts/games/pool_skimmer_activity.gd (travel), later every water scene",
+  "node": "Sprite2D",
+  "playback_fps": "TO_MEASURE: from review and the device budget",
+  "events": [],
+  "interruptions": "Arrival hands over to the clip that starts there (for example the skimmer scoop) at a matching phase",
+  "mirror": "flip the whole sprite for left",
+  "residency": "loaded with its scene only"
+ },
+ "review": {
+  "locks_checklist": [
+   "M1",
+   "M2",
+   "M3",
+   "M4",
+   "M5",
+   "M6",
+   "M7",
+   "M8",
+   "M9",
+   "M10"
+  ],
+  "machine": [
+   "fin and ponytail side constant (measure tool)",
+   "native-frame crispness review",
+   "pool probes and the full suite"
+  ],
+  "human": "owner at normal speed on the tablet, A/B against the sliding still",
+  "device": "frame time and memory on the target phone"
+ },
+ "evidence": {
+  "attempts": [],
+  "receipts": [],
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false
+ }
+}
