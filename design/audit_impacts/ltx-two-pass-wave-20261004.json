@@ -84,6 +84,7 @@
     "assets_src/cinematics/ltx_two_pass_wave_20261004/inputs/white_attention.png",
     "assets_src/cinematics/ltx_two_pass_wave_20261004/manifest.json",
     "assets_src/cinematics/ltx_two_pass_wave_20261004/README.md",
+    "assets_src/cinematics/ltx_two_pass_wave_20261004/remote_verification.json",
     "assets_src/cinematics/ltx_two_pass_wave_20261004/results/ltx23_chunked/history.json",
     "assets_src/cinematics/ltx_two_pass_wave_20261004/results/ltx23_chunked/input_bindings.json",
     "assets_src/cinematics/ltx_two_pass_wave_20261004/results/ltx23_chunked/memory_samples.json",
@@ -426,6 +427,11 @@
       "command": "python -B tools/audit_document_authority.py; python -B tools/audit_development.py --base auto",
       "result": "PASS",
       "evidence": "assets_src/cinematics/ltx_two_pass_wave_20261004/environment/project_gates.json and project_gates.log; initialmetadatafailures preserved separately."
+    },
+    {
+      "command": "python -X utf8 -u -B assets_src/cinematics/ltx_two_pass_wave_20261004/scripts/verify_remote.py 98942ab40ef843c5a0e5f592e2374042734152d7",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/ltx_two_pass_wave_20261004/remote_verification.json;399 anonymousHTTPS files,464664629bytes, exactimmutablepayload revision; receipt publication is a separate commit, not a payload selfhash."
     }
   ],
   "acceptance_gaps": "All completed footage remains REJECTED_REFERENCE_ONLY; native review fails shoulder anatomy and lowering timing.; No GPU NAG run or2.5 quality/retake benchmark. Official2.5 decoder/upscaler returned401GatedRepo anonymously; matching pack and isolated runner compatibility need validation.; Automatedcleanup walltime not fully metered; no fabricated cleanup-budget PASS.; Source-only task; no runtime, production, owner, child or device acceptance and no finding closure.",
