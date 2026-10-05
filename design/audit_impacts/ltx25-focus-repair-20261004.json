@@ -114,8 +114,13 @@
   "validation": [
     {
       "command": "Same-latent1-vs2 decoder ablation; fixed tiled VAE, schedule-only change",
-      "result": "EXECUTION_PASS_VISUAL_REJECT",
+      "result": "PASS",
       "evidence": "assets_src/cinematics/ltx25_focus_repair_20261004/receipt.json; decoder_1_proof.json; decoder_2_proof.json; native_review.json"
+    },
+    {
+      "command": "Native visual review of decoder2 indices14,22,40",
+      "result": "FAIL",
+      "evidence": "assets_src/cinematics/ltx25_focus_repair_20261004/native_review.json; rejected added grain, persistent blur/tearing/internal geometry. Execution PASS is separate."
     },
     {
       "command": "python -B assets_src/cinematics/ltx25_focus_repair_20261004/scripts/verify.py",
