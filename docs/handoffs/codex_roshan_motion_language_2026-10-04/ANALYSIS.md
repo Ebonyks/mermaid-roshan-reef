@@ -9,12 +9,22 @@ written)
 
 **From:** Claude (analysis and written specification only; no game change, no
 images). **To:** the owner, then Codex (every implementation and image) and,
-through Codex, Grok. **Status:** `PROPOSED / CANDIDATE`, revision 1.
+through Codex, Grok. **Status:** `PROPOSED / CANDIDATE`, revision 2.
 **Baseline:** `dev` `8a2f30cb0df44ece3b1172ed2dbcb9a55fc5d622`.
 **Handoff:** [README.md](README.md). **Finding:** `MA-ROSHAN-006` (P2).
 **Numbers:** [`data/motion_measurements.json`](data/motion_measurements.json),
 reproducible with [`tools/measure_roshan_motion.py`](tools/measure_roshan_motion.py)
 (reads committed atlases and scripts, writes numbers only).
+
+**Revision 2 (2026-10-04, owner answers):** the owner confirmed left/right
+orientation, rejected limited animation in favour of a rich, comprehensive
+set, chose a slower, more modest swim for the Sky Lagoon, named LTX run
+locally by a Codex script with Aseprite into the game as the production
+workflow (Grok packets are test documents), and set the goal: a template
+for all future Roshan animations. The answers are in the
+[README](README.md#owner-answers-2026-10-04); the template is
+[TEMPLATE.md](TEMPLATE.md). Sections 9–12 below are updated to match;
+sections 1–8 are the revision-1 evidence and still stand.
 
 Rules applied: `DL-MOT-01` to `DL-MOT-16`, `DL-CIN-01` to `DL-CIN-04`,
 `DL-CIN-16`, `DL-AGE-07`, `DL-MED-02`, `DL-INT-02`, `DL-INT-04`,
@@ -48,7 +58,8 @@ Rules applied: `DL-MOT-01` to `DL-MOT-16`, `DL-CIN-01` to `DL-CIN-04`,
    three-quarter breaststroke with an almost still tail; the career "travel"
    rows are a horizontal glide facing left; the Grok swim takes are a
    side-view, tail-driven swim facing right. The owner's last word on gameplay
-   swimming (2026-09-16, on an unmerged branch) is "left and right only".
+   swimming (2026-09-16, on an unmerged branch) is "left and right only",
+   which the owner confirmed on 2026-10-04.
 5. **Effort has gone into methods for one gesture.** The local LTX/Aseprite
    work has produced three study packets of the same wave and zero accepted
    seconds. The motions the child sees all the time — swim, turn, stop,
@@ -187,7 +198,8 @@ The Sky Lagoon declares `"medium": "land"` and shows a still left-profile
 card because "the former 16-frame swim cycle had no feet/ground contract and
 made the card visibly airborne" (`scripts/arena/sky_lagoon_promenade.gd:991`).
 The movement language forbids inventing hovering or legs without an owner
-decision, so this mode needs one (Q5).
+decision, so this mode needs one (Q5). Answered 2026-10-04: she still swims there, with a
+slower, more modest animation than in the sea.
 
 ## 6. The Grok handoffs: what they established
 
@@ -255,22 +267,29 @@ guides, prompts or retakes have not fixed that.
 ## 9. How Roshan should move: ten motion locks
 
 These extend the movement language with a checkable picture. Numbers are
-pilot starting points to tune with recorded evidence, as in v1.
+pilot starting points to tune with recorded evidence, as in v1. Revision 2
+updates M1, M5, M7 and M10 to the owner's answers; TEMPLATE.md section 6
+holds the current wording.
 
 | Lock | Rule | Evidence behind it | Check |
 |---|---|---|---|
-| M1 Views | Gameplay travel is side view only, drawn facing right and mirrored whole for left. Front and three-quarter views are for listening, gestures and work facing the child; back views only where a scene needs them. | Owner 2026-09-16; Grok swim strongest in side view; mirroring already used in the castle | Clip contract names its view and mirror rule |
+| M1 Orientation | Left and right only: sprites have no up or down orientation. Author facing right and mirror the whole sprite for left; moving up or down the screen keeps the current horizontal facing. | Owner 2026-09-16, confirmed 2026-10-04; Grok swim strongest in side view; mirroring already used in the castle | Clip card names its facing and mirror rule |
 | M2 Propulsion | The tail drives: one connected wave from hip to fin, fin root continuous, broad lobes, gentle membrane curve. Arms scull or balance near the chest; a two-arm sweep is never the propulsion. Shoulders, torso, bodice and hair answer each stroke. | v1 "travels with her tail"; owner FIN-01, BODY-01; owner 2026-10-04 whole-figure rule | Per-frame fin-tip and tail-root positions; no frame with both arms fully extended during cruise |
 | M3 Home pose and fin side | Each view has one home pose with a fixed fin side and ponytail side. Every clip in that view starts and ends within tolerance of its home pose. The fin changes side only through a drawn swish or turn. | Section 5.1; v1 fin rule | Tool's `fin_side` at clip entry and exit equals the home pose side |
-| M4 Follow-through | Ponytail and curls trail the head by one to two drawings and settle with a buoyant curl; the fin tip trails the tail root by one to two drawings; the tiara is rigid; sleeves settle within the action. The ponytail's ribbon arc is her signature on turns. | Owner HAIR-01; "Ribbon Glide" | Drawing-by-drawing review of head, ponytail tip and fin tip |
-| M5 Cadence | Painted limited animation: author at 8–12 drawings per second with declared holds. Slow stroke 0.8–1.2 s (about 8–12 drawings); dash 0.4–0.6 s (about 5–7). Gestures use keys plus one or two breakdowns with unequal holds. | Core-loop windows; `DL-CIN-04`; workflow 8–12 fps note | Timing chart in the job card; measured cycle length |
-| M6 Crisp contours | No motion blur, smear or cross-fade between drawings unless a brief declares it. Fast arcs get a breakdown drawing, not a blend. | Owner 2026-10-04 "less motion blur"; section 5.3 | No frame with two semi-transparent copies; native-frame review of hands |
-| M7 Listening idle | Idle holds the home pose with an authored two- or three-drawing breath (chest, hair, fin flutter) every 3–4 s. No whole-sprite rotation or squash. An authored glance at most after 12 s of no input. | v1 "idle is a listening state"; `DL-MOT-03` | Idle displacement at most about 1% of body height |
+| M4 Follow-through | Ponytail and curls trail the head and settle with a buoyant curl; the fin tip trails the tail root; the tiara is rigid; sleeves settle within the action. The ponytail's ribbon arc is her signature on turns. | Owner HAIR-01; "Ribbon Glide" | Frame-by-frame review of head, ponytail tip and fin tip |
+| M5 Rich motion | Full, smooth motion: keep the native generated frame sequence (24 fps in the current runner) and choose each clip's playback rate from review and the device budget. No limited-animation style and no frame-thinning to hide defects. | Owner 2026-10-04: "a rich, comprehensive set of animations"; core-loop stroke targets 0.8–1.2 s (slow) and 0.4–0.6 s (dash) | Measured stroke length; frame count kept from the native take |
+| M6 Crisp contours | No motion blur, smear or cross-fade between frames unless a brief declares it. A smeared frame is repaired (Aseprite repaint or a temporal retake window), not blended or removed. | Owner 2026-10-04 "less motion blur"; section 5.3 | No frame with two semi-transparent copies; native-frame review of hands |
+| M7 Listening idle | Idle is attentive and alive: authored breath, hair and fin motion on the home pose. No whole-sprite rotation or squash. Glances only when they do not compete with an instruction. | v1 "idle is a listening state"; `DL-MOT-03` | Idle displacement at most about 1% of body height |
 | M8 One action shape | Every action: notice → reach or travel → contact → finish → settle → show result → celebrate once. Work verbs have their own contact key with a measured hand socket. | Owner 2026-10-03 shared final-action sequence; `DL-MOT-03`, `DL-MOT-12`; `GS-01`, `GS-02` | Clip contract events; probe that progress waits for contact |
 | M9 Delight is rare | Playful Dolphin (two short pulses, one lift) only for a real discovery, greeting or earned success, once per event. | v1 registers; `DL-MOT-05` | No celebration on a timer or zero input |
-| M10 One Roshan everywhere | Cinematics, gameplay and careers share M1–M8. Career costumes change props and verbs, not the swim. Identity colours come from `roshan_base.png` (brown hair, tied rainbow ponytail, tiara). | Section 5.4; identity canon | Same swim grammar measured in base and career travel rows |
+| M10 One Roshan, context variants | Cinematics, gameplay and careers share M1–M8; tempo follows context. Water: standard swim. Sky Lagoon: swimming, slower and more modest travel. Castle rooms: owner question (README Q7). Career costumes change props and verbs, not the swim. Identity colours come from `roshan_base.png` (brown hair, tied rainbow ponytail, tiara). | Section 5.4; identity canon; owner 2026-10-04 Sky Lagoon answer | Same swim grammar in base and career travel; Sky Lagoon stroke measurably slower than the water swim |
 
 ## 10. The canonical clip set
+
+Revision 2: these fourteen clips are the seed backlog. The template's
+room-by-room pass (Phase B) extends them toward the rich, comprehensive set
+the owner asked for, and the Sky Lagoon row now follows the owner's answer
+(a slower, more modest swim, card `RAC-SKY-LAGOON-SWIM-GENTLE`).
 
 What the child needs, ordered by how often she sees it. "Source" means
 existing approved drawings that can serve as keys; "gap" is what must be
@@ -278,20 +297,20 @@ made.
 
 | # | Clip | View | Use | Existing source | Gap | Priority |
 |---|---|---|---|---|---|---|
-| 1 | Swim, slow (loop) | side | All travel | None in the base family; Grok A004/A005 and RSW-01/07 as reference | Whole cycle, 8–12 drawings | First |
-| 2 | Start and stop | side | Leaving and reaching a point | None | 2–3 drawings each, phase-compatible with 1 | First |
+| 1 | Swim, slow (loop) | side | All travel | None in the base family; Grok A004/A005 and RSW-01/07 as reference | Two side-view keys, then the whole cycle from LTX | First |
+| 2 | Start and stop | side | Leaving and reaching a point | None | Short clips joined to clip 1's phases | First |
 | 3 | Turn left/right | side → three-quarter → side | Reversal | Directional headings 6, 7, 0, 1, 2 as keys | 2 breakdowns; fin swish | First |
-| 4 | Listening idle | three-quarter | Waiting, voice lines | `roshan_base.png`, directional 0 | 2–3 breath drawings | First |
-| 5 | Work contact: scrub/wipe | three-quarter | Day One bath, craft, toilet | None (still frame plus bubbles today) | Contact key with socket, 2–3 stroke drawings | Second |
+| 4 | Listening idle | three-quarter | Waiting, voice lines | `roshan_base.png`, directional 0 | Authored breath, hair and fin motion | First |
+| 5 | Work contact: scrub/wipe | three-quarter | Day One bath, craft, toilet | None (still frame plus bubbles today) | Contact keys with a hand socket, then the stroke from LTX | Second |
 | 6 | Work contact: scoop/carry/place | three-quarter or side | Pool, eagle, deliveries | `gesture_d` row 1 (carry), `gesture_c` row 0 (collect) | Socket table; fin side per M3 | Second |
 | 7 | Notice/look | three-quarter | Attention before action | `gesture_b` row 0 (fin side already matches) | Repair RV-08 frame | Second |
 | 8 | Greet/wave | three-quarter | Friends | `gesture_a` row 0; LTX wave studies | Fin side; one breakdown per arc | Third |
 | 9 | Celebrate once | three-quarter | Earned success | `gesture_a` row 1 | Fin side | Third |
 | 10 | Bump/recover | three-quarter | Boss contact, retry | `gesture_c` row 1 | Fin side | Third |
-| 11 | Swim, dash (loop) | side | Fast travel | Grok A005/A006 as reference | 5–7 drawings | Third |
+| 11 | Swim, dash (loop) | side | Fast travel | Grok A005/A006 as reference | Whole cycle, 0.4–0.6 s per stroke | Third |
 | 12 | Point/reach | three-quarter | Boss counter, choices | `gesture_b` row 3 | Fin side | Third |
 | 13 | Sleep and rare idles | three-quarter | Night, long idle | `gesture_b` row 2, `gesture_c` rows 2–3 | Fin side | Later |
-| 14 | Land travel | side | Sky Lagoon | None | Owner decision first (Q5) | After Q5 |
+| 14 | Sky Lagoon travel | side | Sky Lagoon | Variant of clip 1 | Slower, more modest swim (owner 2026-10-04) | First, after clip 1 |
 
 Careers inherit 1–4 as costume overlays or costume-specific redraws later;
 until then their pose keys hold (section 11.3).
@@ -300,24 +319,27 @@ until then their pose keys hold (section 11.3).
 
 ### 11.1 Grok handoffs
 
+Revision 2: the owner calls Grok packets test documents to be digested for the
+workflow; production runs through LTX locally (TEMPLATE.md section 4).
+
 | ID | Refinement |
 |---|---|
 | G1 | Review what already exists before new spend: the 18 audition takes and 8 hero cuts (2026-09-22) and core-loop A005/A006 (2026-09-19), with the audition README's own protocol (neutral labels, normal speed, timestamps). Pick a timing spine for clip 1 and fragments for 2, 3 and 9. |
-| G2 | Use Grok for performances (entries, exits, turns, delight beats) and timing reference. Stop asking it for seamless short loops: the core-loop reviews found repeated takes give long strokes with about a second of upright settling. Build loops from selected drawings (A1). |
+| G2 | Use Grok tests for performances (entries, exits, turns, delight beats) and timing reference. Do not ask them for seamless short loops: the core-loop reviews found repeated takes give long strokes with about a second of upright settling. Loops are cut in Aseprite from a clean stretch of a local LTX take. |
 | G3 | Make future swim jobs extraction-ready: a flat background colour absent from Roshan's palette and tested with the cleanup path that produced the approved atlases, instead of navy. Pilot once before adopting. |
 | G4 | Bind `roshan_base.png` (or the directional side profile) as identity in every Roshan job and name brown hair, tied rainbow ponytail and tiara in the action-first prompt; add M2/M4 wording (connected fin root, curl follow-through, arms near chest) and "no water or sparkle effects". |
 | G5 | Every Roshan swim job states M1 (right-facing side view; the game mirrors for left). |
-| G6 | Settle which shot-card template binds new Grok jobs (Q3); `CLAUDE.md` names V1 while the ledger marks V2 binding for new ready jobs. |
+| G6 | Answered by the [shot-card audit](SHOT_CARD_AUDIT.md): V2 is the better template; `CLAUDE.md` and `AGENTS.md` change from V1 only on the owner's word (README Q8). |
 
 ### 11.2 Aseprite and local pipeline
 
 | ID | Refinement |
 |---|---|
-| A1 | Pick, don't keep. From a coherent take, select the drawings that give the M5 spacing (for example every second or third native frame), repair at most one or two locally, and discard smeared transition frames instead of cleaning all 41 or 81. Hold the result on twos or threes. Keep all native frames for provenance. |
-| A2 | Write the timing chart (keys, breakdowns, holds, drawings per second) in the job card before generating; guides come from the chart. |
+| A1 | Keep the full native sequence (rich motion, owner 2026-10-04) and repair smeared frames with an Aseprite repaint or a temporal retake window; never thin frames to hide smear. Keep every native frame for provenance. |
+| A2 | Write the timing (phases in seconds and guide frame indices) in the card before generating; guides come from it. |
 | A3 | Register every source to its home pose and check fin and ponytail side (M3) before generation, as the waist-landmark registration already does for position. |
 | A4 | Build a hand and socket reference per view (open hand, grip, pinch, two-hand hold, point, wave) from existing frames, used when Codex draws whole-figure contact keys, never as a limb pasted on a still body. |
-| A5 | Move the pilot from the wave to clip 1 (side-view slow swim): the child sees it all the time and the Grok evidence already exists. |
+| A5 | Move the pilot from the wave to the T1 water swim: the child sees travel all the time and the Grok test evidence already exists. |
 | A6 | Stop the wave line unless a new method is chosen; record it as the reference that showed hand smear. |
 
 ### 11.3 Runtime playback (Codex)
@@ -326,8 +348,8 @@ until then their pose keys hold (section 11.3).
 |---|---|
 | R1 | Stop the tail jumping on gestures: in gesture contexts use a home pose from the gesture family (fin right; for example `gesture_a` frame 0 or `gesture_c` row 2 frame 0) or add an authored two- or three-drawing fin swish between the directional home pose and the gesture. Choose after a side-by-side review; no mirroring trick. |
 | R2 | Replace the castle cross-fade with authored breakdowns once clip 1 exists; meanwhile measure its cost with the overdraw meter and show the owner the swim with and without it. |
-| R3 | Hold career pose keys instead of looping them, as Ballerina, Geologist and Teacher already do: one idle key with the shared breath, travel held with glide, work and cheer as one-shot sequences. |
-| R4 | Give gesture keys unequal, authored holds from their clip contracts instead of `len / 4`; drop the `twirl` mid-spin mirror swap. |
+| R3 | Moved to the Phase B census: each career's loops are judged there and replaced with rich clips. |
+| R4 | Remove the `twirl` mid-spin mirror swap now; authored holds wait for the rich gesture clips. |
 | R5 | Replace the whole-sprite rotation wobble and scale breath with the M7 authored breath when it exists. |
 | R6 | When clips 1–3 exist, make Day One jobs and the Sky Lagoon travel with them instead of sliding a still cutout. |
 
@@ -335,20 +357,20 @@ until then their pose keys hold (section 11.3).
 
 | ID | Refinement |
 |---|---|
-| D1 | After the owner confirms Q1 and Q2, record the two-view swim and the shared final-action sequence in the owner decision register with their branch commits as sources. |
-| D2 | Adopt sections 9 and 10 as revision 2 of the movement language once the owner answers Q1, Q2 and Q4. |
+| D1 | Record the owner's 2026-10-04 answers in the owner decision register (done in revision 2); record the shared final-action sequence after README Q2. |
+| D2 | Adopt the template's style rules as revision 2 of the movement language after the Phase A tests (README RM4). |
 | D3 | Add one clip contract per canonical clip (Grand Puff format) under `design/animation/`. |
 
 ## 12. Owner questions
 
-| # | Question | Default if unanswered |
-|---|---|---|
-| Q1 | Is "left and right only" (2026-09-16) still the standard for gameplay swimming? | Yes: side view, right-facing, mirrored for left |
-| Q2 | Does "the same final-action sequence everywhere" (2026-10-03) apply to Day One jobs as well as careers? | Yes |
-| Q3 | Which shot-card template binds new Grok jobs: V1 (`CLAUDE.md`) or V2 (ledger)? | Follow `CLAUDE.md` (V1) until reconciled |
-| Q4 | May gameplay animation be painted limited animation (8–12 drawings per second, holds, no cross-fades) rather than smooth video-rate motion? | Yes |
-| Q5 | How does Roshan travel on land in the Sky Lagoon: tail hops, a ride (shell, cloud, bubble), or keep the still card? | Keep the still card until decided |
-| Q6 | A concurrent, uncommitted Codex job card in the shared checkout says a later owner correction "restores the strict full-frame cinematic rule". Nothing committed shows it. Does the 2026-10-03 policy still apply? | The committed 2026-10-03 policy applies |
+Answered on 2026-10-04 (verbatim in the
+[README](README.md#owner-answers-2026-10-04)): Q1 yes, sprites need left and
+right only; Q3 audit V2 (done: [SHOT_CARD_AUDIT.md](SHOT_CARD_AUDIT.md)) and
+production runs through LTX locally by a Codex script with Aseprite into the
+game; Q4 no, make a rich, comprehensive set; Q5 swimming, slower and more
+modest; Q6 the uncommitted note is a work-in-progress rule. Q2 was unclear and
+is re-asked in plain words with two new questions in
+[README section 3](README.md#3-questions).
 
 ## 13. Evidence limits
 

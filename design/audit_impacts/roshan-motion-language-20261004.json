@@ -1,6 +1,6 @@
 {
  "id": "roshan-motion-language-20261004",
- "scope": "Owner request 2026-10-04: analyse the design language and artistic direction of Roshan's animations, decide how she should move and which animations make her consistent, and refine the Grok handoffs and Aseprite work. Claude wrote an analysis and a Codex handoff (docs/handoffs/codex_roshan_motion_language_2026-10-04/): runtime playback by location traced in code; fin side, ponytail side and frame-to-frame silhouette change measured from the committed atlases with a numbers-only tool; Grok and local-pipeline history with owner verdicts gathered from dev and five unmerged branches; ten proposed motion locks, a fourteen-clip canonical set, refinements for Grok, the local pipeline, runtime playback and governance, and owner questions Q1-Q6. New finding MA-ROSHAN-006 (P2) for runtime playback that shows key poses as broken motion. No game file, image, asset or other finding lifecycle changes.",
+ "scope": "Owner request 2026-10-04: analyse the design language and artistic direction of Roshan's animations, decide how she should move and which animations make her consistent, and refine the Grok handoffs and Aseprite work. Claude wrote an analysis and a Codex handoff (docs/handoffs/codex_roshan_motion_language_2026-10-04/): runtime playback by location traced in code; fin side, ponytail side and frame-to-frame silhouette change measured from the committed atlases with a numbers-only tool; Grok and local-pipeline history with owner verdicts gathered from dev and five unmerged branches; ten proposed motion locks, a fourteen-clip canonical set, refinements for Grok, the local pipeline, runtime playback and governance, and owner questions Q1-Q6. New finding MA-ROSHAN-006 (P2) for runtime playback that shows key poses as broken motion. No game file, image, asset or other finding lifecycle changes. Revision 2 (same day): the owner answered the questions (sprites need left/right orientation only; a rich, comprehensive animation set instead of limited animation, built through test animations, workflow and style, then every room and game, then polish; the Sky Lagoon keeps a slower, more modest swim; production through LTX locally by a Codex script with Aseprite into the game, Grok packets as test documents) and set the goal of a template for all future Roshan animations. Claude added TEMPLATE.md (scene analysis, per-interaction decision, routing, card, style rules M1-M10 revision 2, production and review, the room-by-room pass), a card schema, three worked cards built from code facts, and SHOT_CARD_AUDIT.md (V2 better than V1; neither covers sprites); revised README (packages RM0-RM6, questions Q2, Q7, Q8) and ANALYSIS sections 9-12; recorded five owner decisions with tools/record_owner_decision.py.",
  "baseline": "8a2f30cb0df44ece3b1172ed2dbcb9a55fc5d622",
  "rules": [
   "DL-AUTH-05",
@@ -23,7 +23,8 @@
   "DL-AGE-07",
   "DL-MED-02",
   "DL-INT-02",
-  "DL-INT-04"
+  "DL-INT-04",
+  "DL-LAY-05"
  ],
  "findings": [
   "MA-ROSHAN-006",
@@ -43,7 +44,16 @@
   "audit/MASTER_AUDIT_2026-08-09.md",
   "audit/animation/README.md",
   "design/05_DOC_LEDGER.md",
-  "docs/handoffs/codex_roshan_motion_language_2026-10-04/REMOTE_VERIFICATION.json"
+  "docs/handoffs/codex_roshan_motion_language_2026-10-04/REMOTE_VERIFICATION.json",
+  "docs/handoffs/codex_roshan_motion_language_2026-10-04/TEMPLATE.md",
+  "docs/handoffs/codex_roshan_motion_language_2026-10-04/SHOT_CARD_AUDIT.md",
+  "docs/handoffs/codex_roshan_motion_language_2026-10-04/templates/ROSHAN_ANIMATION_CARD_V1.json",
+  "docs/handoffs/codex_roshan_motion_language_2026-10-04/examples/RAC-WATER-SWIM-STANDARD.json",
+  "docs/handoffs/codex_roshan_motion_language_2026-10-04/examples/RAC-SKY-LAGOON-SWIM-GENTLE.json",
+  "docs/handoffs/codex_roshan_motion_language_2026-10-04/examples/RAC-POOL-SKIMMER-SCOOP.json",
+  "design/reference/owner_decisions.json",
+  "design/reference/OWNER_DECISIONS.md",
+  "audit/cycles/roshan-motion-20261004/owner_answers.json"
  ],
  "validation": [
   {
@@ -67,24 +77,34 @@
    "evidence": "Existing files opened for inspection; the two branch boards were byte-copied to the session scratchpad for viewing. No image was created or edited and no video frame was extracted."
   },
   {
+   "command": "python -B tools/record_owner_decision.py --answers <five 2026-10-04 answers> --cycle roshan-motion-20261004 --answered-on 2026-10-04; then --check --base origin/dev",
+   "result": "PASS",
+   "evidence": "DECISIONS|COUNT|26 and RESULT ALL OK for both runs; the five entries cite docs/handoffs/codex_roshan_motion_language_2026-10-04/README.md#owner-answers-2026-10-04, where the answers are quoted verbatim."
+  },
+  {
+   "command": "Revision 2 consistency review: card schema and three example cards parse as JSON; example facts re-read from scripts/games/pool_skimmer_activity.gd (constants 29-34, scoop 342-367, grip 374-378, cutout 507-520), scripts/arena/sky_lagoon_promenade.gd:991-997 and scripts/arena/sky_lagoon_layout.json; V1 and V2 templates and tools/audit_imagine_handoff.py:105-217 read for the audit",
+   "result": "PASS",
+   "evidence": "Example timings use 24 fps native frame counts (41 frames = 1.708 s; 27-frame stroke = 1.125 s; 40-frame phrase = 1.667 s); prop hash for assets/castle/day_one_pool/activities/pool_skimmer.png 308c8684...b9b3; V2 used by 47 Day One Handoff 2 shots, V1 by the Roshan auditions and three other packets."
+  },
+  {
    "command": "python -B tools/audit_document_authority.py",
    "result": "PASS",
-   "evidence": "Candidate before commit: DOCAUTH|INVENTORY=660|LEDGER=660|ACTIVE=65|RECORDS=68, RESULT ALL OK; unittest tools.tests.test_audit_document_authority and tools.tests.test_audit_development: 54 tests OK, DOCAUTH|STRESS|6/6."
+   "evidence": "Revision 2 candidate: DOCAUTH|INVENTORY=662|LEDGER=662|ACTIVE=65|RECORDS=68, RESULT ALL OK; unittest test_audit_document_authority, test_audit_development and test_record_owner_decision: 63 tests OK; DOCAUTH|STRESS|6/6. (Revision 1: INVENTORY=660, ALL OK, 54 tests OK.)"
   },
   {
    "command": "python -B tools/audit_development.py --base auto",
    "result": "PASS",
-   "evidence": "Candidate before commit: AUDITDEV|BASE|8a2f30cb0df44ece3b1172ed2dbcb9a55fc5d622, RESULT ALL OK."
+   "evidence": "Revision 2 candidate: AUDITDEV|BASE|8a2f30cb0df44ece3b1172ed2dbcb9a55fc5d622 ALL OK; --base c25f73a3fb03bea4f1be201c546c1db2b8f97bf9 (previous push) ALL OK."
   },
   {
    "command": "python -B tools/audit_game_2d.py --regression-gate",
    "result": "PASS",
-   "evidence": "Candidate before commit: NO_REGRESSION (exact shrinking baseline; migration debt remains UNSATISFIED). This record names no engine 3D classes."
+   "evidence": "Revision 2 candidate: NO_REGRESSION (exact shrinking baseline; migration debt remains UNSATISFIED). This record and the register name no engine 3D classes."
   },
   {
    "command": "Anonymous raw.githubusercontent.com fetch of every packet file at the pushed commit, compared by SHA-256 with MANIFEST.json",
    "result": "PASS",
-   "evidence": "Commit 7429f57d343797fb2479ceb2c7a327238d310e5e: 7 of 7 files (README, ANALYSIS, data, tool, MANIFEST, this impact record, the findings register) returned HTTP 200 anonymously and matched SHA-256 at 2026-10-05T00:35:33+00:00; receipt docs/handoffs/codex_roshan_motion_language_2026-10-04/REMOTE_VERIFICATION.json."
+   "evidence": "Commit 7429f57d343797fb2479ceb2c7a327238d310e5e: 7 of 7 files (README, ANALYSIS, data, tool, MANIFEST, this impact record, the findings register) returned HTTP 200 anonymously and matched SHA-256 at 2026-10-05T00:35:33+00:00; receipt docs/handoffs/codex_roshan_motion_language_2026-10-04/REMOTE_VERIFICATION.json. Revision 2 is verified separately; see REMOTE_VERIFICATION.json revision 2."
   },
   {
    "command": "Branch Probe Suite CI on the pushed head",
@@ -107,6 +127,11 @@
    "lesson": "Returned external takes and owner decisions left on unmerged branches were never reviewed or registered; search remote branches before commissioning new generation.",
    "write_back": "design/reference/recipes/character_animation.md",
    "recurrence_key": "stranded-returns-and-decisions"
+  },
+  {
+   "lesson": "Revision 1 proposed limited animation as the style; the owner wants a rich, comprehensive set. Settle the scope and richness goal before proposing any cadence or drawing-count cap.",
+   "write_back": "design/reference/recipes/character_animation.md",
+   "recurrence_key": "scope-before-cadence"
   }
  ],
  "strengths_observed": [
@@ -141,5 +166,32 @@
    "purpose": "Clip contract format for the canonical clip set"
   }
  ],
- "acceptance_gaps": "Analysis and written handoff only. The ten motion locks and the clip set are proposals until the owner answers Q1, Q2 and Q4. MA-ROSHAN-006 is confirmed from code and numbers only; runtime captures, owner review at normal speed on the tablet, device and child sessions remain open. No clip, art, runtime behaviour or other finding lifecycle changes."
+ "acceptance_gaps": "Analysis, template and written handoff only. The template becomes standing only after the Phase A test animations (RM3) and adoption (RM4). MA-ROSHAN-006 is confirmed from code and numbers only; runtime captures, owner review at normal speed on the tablet, device and child sessions remain open. Owner questions Q2 (final-action sequence for Day One jobs), Q7 (castle swim tempo) and Q8 (V2 wording in CLAUDE.md and AGENTS.md) are pending. No clip, art, runtime behaviour or other finding lifecycle changes.",
+ "owner_corrections": [
+  {
+   "decision_id": "ODR-ROSHAN-ANIMATION-SCOPE-20261004",
+   "evidence": "docs/handoffs/codex_roshan_motion_language_2026-10-04/README.md#owner-answers-2026-10-04",
+   "write_back": "docs/handoffs/codex_roshan_motion_language_2026-10-04/TEMPLATE.md (style rule M5 rich motion replaces limited animation)"
+  },
+  {
+   "decision_id": "ODR-ROSHAN-ORIENTATION-20261004",
+   "evidence": "docs/handoffs/codex_roshan_motion_language_2026-10-04/README.md#owner-answers-2026-10-04",
+   "write_back": "docs/handoffs/codex_roshan_motion_language_2026-10-04/TEMPLATE.md (style rule M1)"
+  },
+  {
+   "decision_id": "ODR-ROSHAN-SKY-SWIM-20261004",
+   "evidence": "docs/handoffs/codex_roshan_motion_language_2026-10-04/README.md#owner-answers-2026-10-04",
+   "write_back": "docs/handoffs/codex_roshan_motion_language_2026-10-04/examples/RAC-SKY-LAGOON-SWIM-GENTLE.json and TEMPLATE.md style rule M10"
+  },
+  {
+   "decision_id": "ODR-ROSHAN-ANIMATION-WORKFLOW-20261004",
+   "evidence": "docs/handoffs/codex_roshan_motion_language_2026-10-04/README.md#owner-answers-2026-10-04",
+   "write_back": "docs/handoffs/codex_roshan_motion_language_2026-10-04/TEMPLATE.md sections 1 and 4"
+  },
+  {
+   "decision_id": "ODR-ROSHAN-ANIMATION-TEMPLATE-20261004",
+   "evidence": "docs/handoffs/codex_roshan_motion_language_2026-10-04/README.md#owner-answers-2026-10-04",
+   "write_back": "docs/handoffs/codex_roshan_motion_language_2026-10-04/TEMPLATE.md"
+  }
+ ]
 }

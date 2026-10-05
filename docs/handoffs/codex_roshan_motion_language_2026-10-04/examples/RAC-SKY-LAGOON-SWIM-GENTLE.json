@@ -1,0 +1,268 @@
+{
+ "schema": "reef.roshan-animation-card.v1",
+ "card_id": "RAC-SKY-LAGOON-SWIM-GENTLE",
+ "revision": 1,
+ "status": "DECIDED",
+ "phase": "A_test",
+ "scene": {
+  "id": "sky_lagoon_promenade",
+  "kind": "route",
+  "entry_points": [
+   "scripts/arena/sky_lagoon_promenade.gd:991-997 (still route card and hop)",
+   "scripts/arena/sky_lagoon_layout.json roshan_route (medium land, directional frame 2, contact_anchor_pixel [60.5, 230.5], scale_master_per_pixel 1.4921875)"
+  ],
+  "context": "sky_lagoon",
+  "tempo_variant": "gentle",
+  "costume": "base",
+  "other_characters": [
+   "lagoon animals and friends on the route"
+  ],
+  "camera": "follow (promenade)",
+  "roshan_display_height_px": "TO_MEASURE (route scale 1.4921875 master pixels per source pixel)",
+  "layer_and_contact": "Today the card stands on its fin tip (contact_anchor_pixel) with a shadow contract; a swimming Roshan needs a hover height and a shadow under her instead"
+ },
+ "interaction": {
+  "id": "promenade_travel",
+  "trigger": "child taps a point or a target along the route",
+  "intention": "Roshan swims calmly along the lagoon path toward what the child chose",
+  "register": "ribbon_glide",
+  "states": [
+   "start",
+   "gentle swim loop",
+   "stop"
+  ],
+  "current_presentation": "One still left-profile cutout (directional frame 2) slides along the route with an occasional 26 px hop over 0.32 s",
+  "problem": "A sliding still picture; the code comment says the old swim cycle looked airborne, and the owner has now decided she swims here"
+ },
+ "decision": {
+  "value": "VARIANT",
+  "reason": "Owner 2026-10-04: 'Swimming still, different animation than in sea though, slower, more modest travel.' Generate from the water swim's registered keys at a gentler tempo with smaller tail amplitude.",
+  "priority": {
+   "frequency": "most_sessions",
+   "story_weight": "required",
+   "defect": "stiffness"
+  },
+  "depends_on": [
+   "RAC-WATER-SWIM-STANDARD"
+  ],
+  "used_by_scenes": [
+   "sky_lagoon_promenade"
+  ]
+ },
+ "orientation": {
+  "authored_facing": "right",
+  "mirror_for_left": true,
+  "home_pose": {
+   "path": "inherits the RAC-WATER-SWIM-STANDARD home key",
+   "cell": [
+    0,
+    0,
+    256,
+    256
+   ],
+   "sha256": "PENDING",
+   "fin_side": "left (trailing)",
+   "ponytail_side": "left (streaming back)"
+  }
+ },
+ "performance": {
+  "phases": [
+   {
+    "name": "loop",
+    "start_s": 0.0,
+    "end_s": 1.667,
+    "description": "One phrase of 40 native frames at 24 fps (1.67 s, inside the movement language's 1.6-2.0 s Ribbon Glide phrase): a small unhurried stroke in the first quarter, then a long glide with a slight float; arms quiet near the chest. The 81-frame take holds two phrases; review picks the cleaner one."
+   }
+  ],
+  "loop": {
+   "kind": "loop",
+   "seam": "pose and velocity match across the cut"
+  },
+  "follow_through": {
+   "ponytail": "drifts and settles slowly",
+   "fin": "soft trailing flutter",
+   "sleeves": "settle during the glide"
+  },
+  "contact": {
+   "socket": "none",
+   "target": "none",
+   "window_s": [
+    0.0,
+    0.0
+   ]
+  },
+  "end_state": "Roshan floats gently forward along the path"
+ },
+ "keys": [
+  {
+   "role": "home",
+   "source": "existing",
+   "path": "RAC-WATER-SWIM-STANDARD home key",
+   "sha256": "PENDING",
+   "guide_frame_index": 0,
+   "missing_description": ""
+  },
+  {
+   "role": "breakdown",
+   "source": "existing",
+   "path": "RAC-WATER-SWIM-STANDARD breakdown key, with the tail amplitude reduced in Aseprite if needed",
+   "sha256": "PENDING",
+   "guide_frame_index": 10,
+   "missing_description": ""
+  }
+ ],
+ "props": [],
+ "generation": {
+  "route": "ltx_local",
+  "runner": "PENDING (README RM1)",
+  "model": "LTX-Video 2B 0.9.8 distilled",
+  "workflow": "PENDING",
+  "width": 896,
+  "height": 512,
+  "fps": 24,
+  "frames": 81,
+  "seed": 20261004,
+  "steps": 7,
+  "guides": [
+   {
+    "frame_index": 0,
+    "key_role": "home",
+    "strength": 1.0
+   },
+   {
+    "frame_index": 10,
+    "key_role": "breakdown",
+    "strength": 1.0
+   },
+   {
+    "frame_index": 40,
+    "key_role": "home",
+    "strength": 1.0
+   },
+   {
+    "frame_index": 50,
+    "key_role": "breakdown",
+    "strength": 1.0
+   },
+   {
+    "frame_index": 80,
+    "key_role": "home",
+    "strength": 1.0
+   }
+  ],
+  "registration_landmark": "waist and bodice tip on a fixed canvas",
+  "extraction_background": "PENDING: same tested flat colour as the water swim",
+  "prompt": "a cheerful young mermaid girl with brown wavy hair and a tied rainbow ponytail swims slowly to the right in side view through the air; one small unhurried tail stroke from hip to fin, then a long gentle glide; arms quiet near her chest; crisp painted edges, no motion blur, no effects.",
+  "negative": "fast strokes, splashing, legs, second tail, auburn hair, missing tiara, motion blur, camera movement",
+  "caps": {
+   "takes_per_backend": 2,
+   "wall_minutes": 60,
+   "cleanup_minutes": 120,
+   "money": 0
+  }
+ },
+ "locks": {
+  "exact_cast": [
+   "roshan"
+  ],
+  "identity_anchor": "assets/characters/roshan_25d/roshan_base.png",
+  "identity_invariants": [
+   "brown wavy hair with a tied rainbow ponytail",
+   "small gold tiara with a blue gem",
+   "pink ruffled top with lilac sleeves",
+   "iridescent lavender tail with rainbow fins"
+  ],
+  "anatomy_invariants": [
+   "one tail with one fin",
+   "two arms, no legs"
+  ],
+  "forbidden_changes": [
+   "second tail or split fin",
+   "hair colour drifting to auburn",
+   "water or sparkle effects"
+  ],
+  "required_prompt_phrases": [
+   "brown wavy hair and a tied rainbow ponytail",
+   "swims slowly to the right in side view",
+   "long gentle glide"
+  ],
+  "causal_chain": {
+   "trigger": "a small tail stroke",
+   "visible_change": "a slow forward glide",
+   "end_confirmation": "the loop seam returns to the home glide"
+  },
+  "continuity": {
+   "kind": "new_setup",
+   "previous_card_id": "RAC-WATER-SWIM-STANDARD",
+   "inherited_state": [
+    "identity, orientation and keys of the water swim"
+   ]
+  }
+ },
+ "aseprite": {
+  "master": "PENDING: assets_src/characters/roshan_anim/sky_swim_gentle/sky_swim_gentle.aseprite",
+  "layers": [
+   "native (hidden)",
+   "clean",
+   "keys (hidden)"
+  ],
+  "tags": [
+   {
+    "name": "gentle_swim_loop",
+    "from": 0,
+    "to": 39,
+    "direction": "forward",
+    "note": "the phrase chosen in review"
+   }
+  ],
+  "pivot": "waist landmark",
+  "socket_tracks": [],
+  "export": {
+   "atlas": "PENDING",
+   "cell": [
+    256,
+    256
+   ],
+   "timing_json": "PENDING"
+  },
+  "round_trip": "reopen the master and compare exported pixels"
+ },
+ "runtime": {
+  "target": "scripts/arena/sky_lagoon_promenade.gd (_tick_roshan_animation, _configure_route_roshan_card)",
+  "node": "Sprite2D",
+  "playback_fps": "TO_MEASURE",
+  "events": [],
+  "interruptions": "Stopping settles into the home glide; hops are replaced or kept only if the owner wants them",
+  "mirror": "flip the whole sprite for left (the route already flips by travel direction)",
+  "residency": "loaded with the Sky Lagoon only"
+ },
+ "review": {
+  "locks_checklist": [
+   "M1",
+   "M2",
+   "M3",
+   "M4",
+   "M5",
+   "M6",
+   "M7",
+   "M8",
+   "M9",
+   "M10"
+  ],
+  "machine": [
+   "tempo slower than the water swim (measured stroke length)",
+   "fin and ponytail sides constant",
+   "promenade probes and the full suite",
+   "new hover height and shadow placement verified"
+  ],
+  "human": "owner at normal speed on the tablet, A/B against the sliding still",
+  "device": "frame time and memory on the target phone"
+ },
+ "evidence": {
+  "attempts": [],
+  "receipts": [],
+  "ARCHIVE_COMPLETE": false,
+  "GENERATION_READY": false,
+  "DELIVERY_ACCEPTED": false
+ }
+}
