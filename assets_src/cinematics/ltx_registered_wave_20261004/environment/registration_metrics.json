@@ -1,0 +1,65 @@
+{
+  "source_input_checks": {
+    "status": "READY_FOR_REFERENCE_STUDY",
+    "source_master_preserved": true,
+    "method": "Aseprite approved arm-isolation polygons and integer translations; fixed source body on top for hair/torso occlusion. No scaling/warping of isolated arms. Original atlas cell \u2192 shared 460px cell bilinear scale as prior baseline.",
+    "shifts_px": [
+      [
+        0,
+        0
+      ],
+      [
+        23,
+        -3
+      ],
+      [
+        50,
+        -9
+      ],
+      [
+        74,
+        -6
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "study_shoulder_px": [
+      437,
+      207
+    ],
+    "checks": [
+      {
+        "key": 0,
+        "fixed_plate_visible_rgba_equal": true,
+        "opaque_body_pixels_equal": true
+      },
+      {
+        "key": 1,
+        "fixed_plate_visible_rgba_equal": false,
+        "opaque_body_pixels_equal": true
+      },
+      {
+        "key": 2,
+        "fixed_plate_visible_rgba_equal": false,
+        "opaque_body_pixels_equal": true
+      },
+      {
+        "key": 3,
+        "fixed_plate_visible_rgba_equal": false,
+        "opaque_body_pixels_equal": true
+      },
+      {
+        "key": 4,
+        "fixed_plate_visible_rgba_equal": true,
+        "opaque_body_pixels_equal": true
+      }
+    ],
+    "first_key_vs_previous_rgba_equal": true,
+    "fixed_plate_pixel_sha256": "724cf3810bb9a4beeab9f9b99dfff50b1365de29aa31d6451f188f6acce5c5ac",
+    "limitations": "Polygon shoulder isolation is a derived study, with local seam/contour review still needed. Study joint is not accepted runtime socket. Endpoint equality does not establish velocity continuity."
+  },
+  "native_body_tracking": "Not measured; do not infer numeric drift reduction from diagnostic visual inspection.",
+  "fixed_body_output": "Verified by exact opaque source-pixel equality in finished/crisp receipts."
+}

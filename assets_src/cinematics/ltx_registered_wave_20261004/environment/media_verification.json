@@ -1,0 +1,29 @@
+[
+  {
+    "path": "comparison/native_vs_finished.mp4",
+    "left": "results/registered/preview.mp4",
+    "right": "results/finished_registered/preview.mp4",
+    "frames": 41,
+    "fps": 24,
+    "sha256": "5b0c7afeac5bc44ba744105de9e7b8d696ba2dec2520090386b9b7dd26ed7fe7",
+    "diagnostic_comparison": true
+  },
+  {
+    "path": "comparison/guide_strength_comparison.mp4",
+    "left": "results/registered/preview.mp4",
+    "right": "results/registered_strong/preview.mp4",
+    "frames": 41,
+    "fps": 24,
+    "sha256": "edc922587f915ba2dafcd492d9a54579d821106619e69b0cb77d3ac2d0d17e09",
+    "diagnostic_comparison": true
+  },
+  {
+    "path": "comparison/blur_correction.mp4",
+    "left": "results/finished_registered/preview.mp4",
+    "right": "results/crisp_authored/preview.mp4",
+    "frames": 41,
+    "fps": 24,
+    "sha256": "32f82d53ebadc122a12db157b03b68feb02053e747b1ae64c6fda965dcd18c30",
+    "diagnostic_comparison": true
+  }
+]

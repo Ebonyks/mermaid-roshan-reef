@@ -1,0 +1,114 @@
+{
+  "prompt": [
+    0,
+    "3ef9560c-595f-4516-9232-c276b195270a",
+    {
+      "3": {
+        "class_type": "VAELoader",
+        "inputs": {
+          "vae_name": "ltx-2.3-22b-distilled_video_vae.safetensors"
+        }
+      },
+      "20": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "retake_trial_corrected_0048.png"
+        }
+      },
+      "21": {
+        "class_type": "VAEEncode",
+        "inputs": {
+          "pixels": [
+            "20",
+            0
+          ],
+          "vae": [
+            "3",
+            0
+          ]
+        }
+      },
+      "10": {
+        "class_type": "VAEDecodeTiled",
+        "inputs": {
+          "samples": [
+            "21",
+            0
+          ],
+          "vae": [
+            "3",
+            0
+          ],
+          "tile_size": 256,
+          "overlap": 64,
+          "temporal_size": 64,
+          "temporal_overlap": 8
+        }
+      },
+      "14": {
+        "class_type": "SaveImage",
+        "inputs": {
+          "images": [
+            "10",
+            0
+          ],
+          "filename_prefix": "local_reference/ltx_retake_repair_20261004_ltx23_vae_roundtrip/frame"
+        }
+      }
+    },
+    {
+      "client_id": "ltx_retake_repair_20261004",
+      "create_time": 1791137891066
+    },
+    [
+      "14"
+    ]
+  ],
+  "outputs": {
+    "14": {
+      "images": [
+        {
+          "filename": "frame_00001_.png",
+          "subfolder": "local_reference\\ltx_retake_repair_20261004_ltx23_vae_roundtrip",
+          "type": "output"
+        }
+      ]
+    }
+  },
+  "status": {
+    "status_str": "success",
+    "completed": true,
+    "messages": [
+      [
+        "execution_start",
+        {
+          "prompt_id": "3ef9560c-595f-4516-9232-c276b195270a",
+          "timestamp": 1791137891070
+        }
+      ],
+      [
+        "execution_cached",
+        {
+          "nodes": [],
+          "prompt_id": "3ef9560c-595f-4516-9232-c276b195270a",
+          "timestamp": 1791137891070
+        }
+      ],
+      [
+        "execution_success",
+        {
+          "prompt_id": "3ef9560c-595f-4516-9232-c276b195270a",
+          "timestamp": 1791138052211
+        }
+      ]
+    ]
+  },
+  "meta": {
+    "14": {
+      "node_id": "14",
+      "display_node": "14",
+      "parent_node": null,
+      "real_node_id": "14"
+    }
+  }
+}

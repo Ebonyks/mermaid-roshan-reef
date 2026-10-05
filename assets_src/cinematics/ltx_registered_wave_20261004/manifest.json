@@ -1,0 +1,5847 @@
+{
+  "schema": "source-study-payload-v1",
+  "status": "REFERENCE_ONLY",
+  "baseline": "f07c1a4820fb5222289802ad712db677b56400bc",
+  "source": {
+    "path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+    "sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d"
+  },
+  "payload": [
+    {
+      "path": ".gdignore",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992",
+      "bytes": 9,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "briefs/earlier_limb_scope.json",
+      "sha256": "30e6aa61c236e944e80edd367df89b1cd96f9020daa9cb3c58fbe5fbf5ffe01e",
+      "bytes": 2327,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "briefs/figure_wide_crisp.txt",
+      "sha256": "2c70f73880a51c7d8ee0d645754fede677a8732b5a4fd50d46fed441b0f9a903",
+      "bytes": 1750,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "briefs/figure_wide_slow.txt",
+      "sha256": "83abf74297a6b1a02fb7b18f2eb4a92890dfd160dc959e4d5a7b823d61d334e6",
+      "bytes": 1813,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "briefs/job_card.json",
+      "sha256": "531308abee3fde5d64627cd1eaca435cc3ac3aa9f4181f6b85416d49cdf7f88f",
+      "bytes": 4271,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "briefs/wave.txt",
+      "sha256": "6b11c3a887091fb3c694505ab06f2edc4d190a71fefb1f770b5ce1a6514b8fb5",
+      "bytes": 679,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "comparison/blur_correction.mp4",
+      "sha256": "32f82d53ebadc122a12db157b03b68feb02053e747b1ae64c6fda965dcd18c30",
+      "bytes": 92609,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "comparison/guide_strength_comparison.mp4",
+      "sha256": "edc922587f915ba2dafcd492d9a54579d821106619e69b0cb77d3ac2d0d17e09",
+      "bytes": 166442,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "comparison/limb_only_vs_figure_wide.mp4",
+      "sha256": "b2abb2d76f7b2df1ac33c20c7cf6e1bf35e6b01347de34cae48d296609b8990c",
+      "bytes": 197692,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "comparison/native_duration_contact.png",
+      "sha256": "1ddb099a8a56c8062c75cc31625623ab808b3b0f410da4b0a08eace7a7defcf8",
+      "bytes": 1111569,
+      "dimensions": [
+        1900,
+        700
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "comparison/native_vs_finished.mp4",
+      "sha256": "5b0c7afeac5bc44ba744105de9e7b8d696ba2dec2520090386b9b7dd26ed7fe7",
+      "bytes": 123487,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "comparison/previous_unregistered_guided.mp4",
+      "sha256": "064ac972172e7b0752a2d56a436a21119a2e445a3544c8bed57a9032a72dd5ec",
+      "bytes": 239684,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "comparison/previous_vs_registered.mp4",
+      "sha256": "be9c29b3425be2599a31a671ecfe473d4cd4b8161509fcc274247ff9ae47ca0b",
+      "bytes": 310373,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/authored_arm_keys_review.png",
+      "sha256": "b8f5a2f1187be13298e07fe367185a20ad605ce53c176ab8ff543c3b339c89d1",
+      "bytes": 123867,
+      "dimensions": [
+        1120,
+        500
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/authority_development.log",
+      "sha256": "089be4e7838b6bc6fa62e176b7d454b78127b086d9c647148ccba40e823095c5",
+      "bytes": 255,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/base_workflow.api.json",
+      "sha256": "d677ff6c11f6460510af5f506a11022f126f0f9c2bf103d3cf81fe7f8ab36568",
+      "bytes": 2680,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/blur_native_comparison.png",
+      "sha256": "5043223042b6c019792a5a4c52be86984b09daab9590b27da53f6f40798ec55e",
+      "bytes": 1100623,
+      "dimensions": [
+        1900,
+        700
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/crisp_authored_review.png",
+      "sha256": "7839565fa61547269e318d2005c60a667a63a682f4f5a7484e6b1d8a18ca1360",
+      "bytes": 299904,
+      "dimensions": [
+        1960,
+        980
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/current_model_hashes.json",
+      "sha256": "a54b528358d3ea76e18c1473221ab4adc3c58c5f9f798e2f001f50f54a8a2701",
+      "bytes": 494,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/figure_keys_review.png",
+      "sha256": "660cc8d9b0f908427fe08ee6a13a0d57baaf744df76ae131486e3b4545788a9f",
+      "bytes": 366719,
+      "dimensions": [
+        1120,
+        500
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/figure_native_review.png",
+      "sha256": "152779aff26aa2d1aa93a82a72cd783864fe30ede2649213603dda71fd96d32d",
+      "bytes": 1876736,
+      "dimensions": [
+        2000,
+        980
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/figure_registration.json",
+      "sha256": "43a802d1b86c6cdbf519373c733472a2648cbaa60cb9169e9026456fae6259ef",
+      "bytes": 2160,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/figure_slow_native_review.png",
+      "sha256": "73fe66dfcbbfbe1bb39ae39cc983f69cdbefc8af3250da5060b9550721625e33",
+      "bytes": 1883568,
+      "dimensions": [
+        2000,
+        980
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/input_registration.json",
+      "sha256": "7d6f47eb6ebd79d617719d27324c3015f0f897cf3db1f1d0f98ba24e891ec1e7",
+      "bytes": 1560,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/media_verification.json",
+      "sha256": "5360ac4f3f99a889e638b1732746bdd96928f7a8cab75256dd774324dc7b99a4",
+      "bytes": 965,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/model_license.txt",
+      "sha256": "30eabbcc090dd3bd70cffaa14338142df82f348f7bd91b2f63f0c6099ccf50e0",
+      "bytes": 14536,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/model_receipt.json",
+      "sha256": "c7865c9582a8b21c70de37358e9cf8b97597f41e9eaf155c40986617ba8b92cd",
+      "bytes": 856,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/preflight_v1/cleanup_mask_review.json",
+      "sha256": "ac4b6029db6c6da7b484c2a2500e020e31c2b2323d51c68cfa31c612668bb5c3",
+      "bytes": 888,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/preflight_v1/clipped_hand_cleanup.mp4",
+      "sha256": "12d4c07e843b81fa401aef7202c4ab0fde2d69e4816209fa73ee4ee6a0942885",
+      "bytes": 44305,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/preflight_v1/clipped_hand_frame21.png",
+      "sha256": "21e15505f44f9c7a5a7ea09fa8b2fea98923f4ec7f86994dcec4c6b297a2ee1e",
+      "bytes": 152653,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/preflight_v1/crisp_mesh_wrist_fold.png",
+      "sha256": "8c4f997431ac395a968a2b25657af9f562f0ec093d55f899f44ab98ad6a0b680",
+      "bytes": 296083,
+      "dimensions": [
+        1960,
+        980
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/preflight_v1/figure_inputs_initial/figure_key_00.png",
+      "sha256": "d8b03f19ed60c759bede3a760d713fe732994be22931173db7aacf3acc211f0c",
+      "bytes": 137370,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/preflight_v1/figure_inputs_initial/figure_key_01.png",
+      "sha256": "327990cc5a260747409be794cb1f2fcf0f590376a917751bf9b95308ad12dfad",
+      "bytes": 140513,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/preflight_v1/figure_inputs_initial/figure_key_02.png",
+      "sha256": "7eb1745d8b6099c30d3752db482195dadefb7c20f79f433268bb2a800c6601db",
+      "bytes": 140148,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/preflight_v1/figure_inputs_initial/figure_key_03.png",
+      "sha256": "ba571844e60d4f993dfa9230ba343ad40f4f1e50d415a761775ba989f54a0319",
+      "bytes": 141739,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/preflight_v1/figure_inputs_initial/figure_keys.aseprite",
+      "sha256": "5d568b35edc212d58c1e0f2fcedc8b58a8d70855f4f7e700fed3750b78d2b52d",
+      "bytes": 891607,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/preflight_v1/figure_inputs_initial/figure_registration.json",
+      "sha256": "64be3cdc0fde2c8f63e9608cc0702f5bb6fb44d59ba31ec9ba0d428067b1a7d1",
+      "bytes": 1518,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/preflight_v1/figure_inputs_initial/figure_rgba_00.png",
+      "sha256": "c4248742eb96ab7f7d9e6c19dfd5bc487c4ea61ac6785b6487d78968515340ce",
+      "bytes": 157825,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/preflight_v1/figure_inputs_initial/figure_rgba_01.png",
+      "sha256": "a9df531e31ee2fd6858120544f99e416b152b6392c5cde457df696eb96f904ab",
+      "bytes": 159953,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/preflight_v1/figure_inputs_initial/figure_rgba_02.png",
+      "sha256": "76e741d5d5ddeecc819f94e3c35777d1b2365a87dfbda31f2230dddaaa696273",
+      "bytes": 161566,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/preflight_v1/figure_inputs_initial/figure_rgba_03.png",
+      "sha256": "ddb1fbe3a4c3a60ffddaf2f04bddcb3e999fa8425f237c83db054292cd870378",
+      "bytes": 163917,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/preflight_v1/raised_key_with_residual_arm.png",
+      "sha256": "c8a78d8224fc7452d22400646495df59f95701e2127f094a493d336e4d28098c",
+      "bytes": 137978,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/preflight_v1/receipt.json",
+      "sha256": "fbd08f04f33a5ea7468def29ed3ec258fc9cb0bd8a454f67775b807addffa3f1",
+      "bytes": 321,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/probe_props_native_retry.json",
+      "sha256": "1e99e522e72b5a40c9317067e5d40223a97db54154c9d3fdb4e3fa3408da709d",
+      "bytes": 2554,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/probe_props_native_retry.log",
+      "sha256": "c2b732eb8c197eb5004fec74f7df0fb71d031b4dff532a6de5e16c2564a3125c",
+      "bytes": 1228,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/probe_props_native_retry_marker_fail.json",
+      "sha256": "77876143413c9b1a82e137e743bcac7ee9d941288cea3b8673b7ad5f77b7bc84",
+      "bytes": 2262,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/project_ci.json",
+      "sha256": "9fcb8fe943776d94fd64c9986e843dca30db2aca0e1ba82636286d971d674615",
+      "bytes": 3467,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/project_ci.log",
+      "sha256": "92d8beab6d88e5f059ced479cffbcc34d3c6d7abe6ded7732d7f84032b9ba71f",
+      "bytes": 1031246,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/project_ci_first_coverage_fail.json",
+      "sha256": "33169cba149bcdaf5fba3d72ed2a9964db3f6356abf2c068a3845675ad9a7598",
+      "bytes": 264,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/project_ci_first_coverage_fail.log",
+      "sha256": "9ecf41b7795fd1265f638cbdaa2053ab185fb3c7393b6592354c7b07f88eee19",
+      "bytes": 6188,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/project_ci_full_attempt.json",
+      "sha256": "3d198703cc126a10595d0bdd8c8f7c2e7a50f1796761f2ce1b232b854e5d5a5f",
+      "bytes": 265,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/project_ci_full_attempt.log",
+      "sha256": "92d8beab6d88e5f059ced479cffbcc34d3c6d7abe6ded7732d7f84032b9ba71f",
+      "bytes": 1031246,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/registration_metrics.json",
+      "sha256": "11da0d291759e583bad4ed9197ad371b84bdcf8554042ab5422728a5e8cfe83d",
+      "bytes": 1929,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/sample_review.json",
+      "sha256": "09bd3b507ddba6a31d3899c309a94dbe635ca0cf225215e916a98fa69438e5c0",
+      "bytes": 6658,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/shoulder_closeup.png",
+      "sha256": "fb6002d9410c53fe73871162d0d677e0eb1dbe64ed7a864b99e86e40ad09f5ea",
+      "bytes": 154836,
+      "dimensions": [
+        340,
+        580
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/source_root_landmarks.png",
+      "sha256": "a8bfd60b37381af6dafb6a600887bcd28021cab5d0739176187346872bc8db98",
+      "bytes": 492849,
+      "dimensions": [
+        1520,
+        530
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "environment/waist_landmarks_review.png",
+      "sha256": "1b1eeef76004abe21fbb89874275582f1d065f327c757d5bd952c333d00b1969",
+      "bytes": 330446,
+      "dimensions": [
+        1600,
+        320
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/figure_key_00.png",
+      "sha256": "d8b03f19ed60c759bede3a760d713fe732994be22931173db7aacf3acc211f0c",
+      "bytes": 137370,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/figure_key_01.png",
+      "sha256": "4a4d045955cd67c9a3e33dc997317e2ff760903e5b58b6834559b8b1c312f20b",
+      "bytes": 140506,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/figure_key_02.png",
+      "sha256": "d12ccaa43de00e814445a896ac5b6c93dc6f91055ffa536807f64570567a0a28",
+      "bytes": 140131,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/figure_key_03.png",
+      "sha256": "56e82575f9d8671a04060d5899cccf7c511d7208fc73f46bf3bd309ad6dcde14",
+      "bytes": 141740,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/figure_keys.aseprite",
+      "sha256": "5b33a1c44a5ac759c7afca2f301d7afd1a258a6fcbf9fc5d354c0e6a27b70c69",
+      "bytes": 891607,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/figure_rgba_00.png",
+      "sha256": "c4248742eb96ab7f7d9e6c19dfd5bc487c4ea61ac6785b6487d78968515340ce",
+      "bytes": 157825,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/figure_rgba_01.png",
+      "sha256": "ef48416d0dc24d9698b52291ebf46aff6f608fd39ab57b707259f1a878fc3a48",
+      "bytes": 159967,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/figure_rgba_02.png",
+      "sha256": "02f99b7567c5b92cf1cc47094395407cacc3756536c7ea106a484821db62036d",
+      "bytes": 161546,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/figure_rgba_03.png",
+      "sha256": "5a75c9996f615c78fbc6ad445c08d90769fabf5bbb4e26c7f6821c7ddd682195",
+      "bytes": 163887,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/fixed_body_plate.png",
+      "sha256": "4417f0663c9f4333578171aabd4937110571edb2badebf3557cb094c04413ac9",
+      "bytes": 150279,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/registered_arm_00.png",
+      "sha256": "3afe3e106378a2db7800182bba10425c2b793ba9bef0a9a2659c9c5b77d18d2f",
+      "bytes": 11668,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/registered_arm_01.png",
+      "sha256": "8b206b377251e7c7f6e9d1ddc349ef530973fcebffcaf01a6b6237a9a4a2e266",
+      "bytes": 12868,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/registered_arm_02.png",
+      "sha256": "59952817ba46730ef25326a86d1e5bd0980fc32ab1a5ea2bf9688291af4f30d5",
+      "bytes": 18667,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/registered_arm_03.png",
+      "sha256": "9c688c9cb97d47eb82c88ae368c5ba96c29764e07189fda0c7f365176e67b3a4",
+      "bytes": 15241,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/registered_arm_04.png",
+      "sha256": "3afe3e106378a2db7800182bba10425c2b793ba9bef0a9a2659c9c5b77d18d2f",
+      "bytes": 11668,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/registered_key_00.png",
+      "sha256": "d8b03f19ed60c759bede3a760d713fe732994be22931173db7aacf3acc211f0c",
+      "bytes": 137370,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/registered_key_01.png",
+      "sha256": "569bbb743f5d2b493da2342b407a1686d0dc615b1c37a370265ce27796c105d8",
+      "bytes": 135874,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/registered_key_02.png",
+      "sha256": "b81fab70e885a95363255718203a0042388d712cb21a59ee375435ca498e2765",
+      "bytes": 137237,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/registered_key_03.png",
+      "sha256": "9a24e57d8bc8c9a419f79440af9b41655a323ee8c5b53f66cce116d1d88f86e1",
+      "bytes": 137939,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/registered_key_04.png",
+      "sha256": "d8b03f19ed60c759bede3a760d713fe732994be22931173db7aacf3acc211f0c",
+      "bytes": 137370,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/registered_keys.aseprite",
+      "sha256": "7f76e6ac46b4dc7fcdd0b97b3f88baf06fbcbb723e1e20425a22dbd946dcce1a",
+      "bytes": 2223652,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/registered_keys.gif",
+      "sha256": "d83264a68a51022341cd1f18c4c01bd97b5756b4c5b0629b6f3d0d53fe3a8f41",
+      "bytes": 56113,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/registered_rgba_00.png",
+      "sha256": "c4248742eb96ab7f7d9e6c19dfd5bc487c4ea61ac6785b6487d78968515340ce",
+      "bytes": 157825,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/registered_rgba_01.png",
+      "sha256": "017d3be918af685fc99477271d4527de9a317a88df1eecc2291536aeb2b84601",
+      "bytes": 154916,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/registered_rgba_02.png",
+      "sha256": "c83c4981cd0feeae18ec93ba7458df042c36c07799b12391dfa36dd169a5677f",
+      "bytes": 157947,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/registered_rgba_03.png",
+      "sha256": "1974e0234d54e0d6361a42e82d2ccfe2b4aca80553b18b842918d822e8dcf464",
+      "bytes": 158416,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/registered_rgba_04.png",
+      "sha256": "c4248742eb96ab7f7d9e6c19dfd5bc487c4ea61ac6785b6487d78968515340ce",
+      "bytes": 157825,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/source_rgba_00.png",
+      "sha256": "c4248742eb96ab7f7d9e6c19dfd5bc487c4ea61ac6785b6487d78968515340ce",
+      "bytes": 157825,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/source_rgba_01.png",
+      "sha256": "933abe7fde82ca6ba6e43252efe12f7edd06649962ef996345f10eeba12dbf2f",
+      "bytes": 159984,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/source_rgba_02.png",
+      "sha256": "160a7143b0d575cc58f92196d1a98ee7342d4a5182e7944efad3625d579adbd5",
+      "bytes": 161559,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "inputs/source_rgba_03.png",
+      "sha256": "34b45b912e2cd8eca88724fd20eefb9e1e660c92001d6561c965e7caca14e9c9",
+      "bytes": 163944,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "README.md",
+      "sha256": "99e8cc05ce39704e62f45c5f4c4bcd44f9422d49469277c50392971d0a2cdbed",
+      "bytes": 12016,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/all_frames.png",
+      "sha256": "df85c52959b31c77acf68e2047c6ddeba37626124441bb78a0a6bb75115eb263",
+      "bytes": 247680,
+      "dimensions": [
+        1204,
+        1356
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/cleanup_time.json",
+      "sha256": "4cefac8725ed90c6ba0461f46a8652a91e23577f37bc6a4b12ee68e4ec77b20f",
+      "bytes": 431,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frame_mapping.json",
+      "sha256": "689075c26642c5f4e6923f836c72f70f115238441ae9a901eb10a4b057d955cf",
+      "bytes": 10454,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0000.png",
+      "sha256": "c4248742eb96ab7f7d9e6c19dfd5bc487c4ea61ac6785b6487d78968515340ce",
+      "bytes": 157825,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0001.png",
+      "sha256": "2f4b71fe14ceb3aac96b617214f0b8a853bfa14f0898c92404d866dae19b752a",
+      "bytes": 157884,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0002.png",
+      "sha256": "dd3189b039424f3f1642feaee2f3a3ba2ca046b1114a375c2b5cf42300a5b6c7",
+      "bytes": 158156,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0003.png",
+      "sha256": "7f42b65711747c3e16c3e3dd0ca555b93510b6f6ccb9eddcdcc0da4781788d81",
+      "bytes": 157526,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0004.png",
+      "sha256": "1e0ca47e66a59b24c536ead9b4394805139db195bf48c0c92e49ec8930637ffa",
+      "bytes": 158193,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0005.png",
+      "sha256": "dd1c588ddc6b0baba997e12d54c77bddb2182809b91b472c96f1781b66773503",
+      "bytes": 157829,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0006.png",
+      "sha256": "973755779a76d275029893779ea95893a8f9d3ec5864a079401dcd881450cf3b",
+      "bytes": 156139,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0007.png",
+      "sha256": "017d3be918af685fc99477271d4527de9a317a88df1eecc2291536aeb2b84601",
+      "bytes": 154916,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0008.png",
+      "sha256": "bc2f8752eaef34d93803803aa922edff71e20a7c8ecfb0ebdc243cbfb6cb564e",
+      "bytes": 154656,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0009.png",
+      "sha256": "f9a63589e873277a4862732fa789509a2c34077c76d103035681544c666b4256",
+      "bytes": 155424,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0010.png",
+      "sha256": "424684e2f53d755488c18473908aa6ec0c44c6f384e9a9e64bebc43f51823960",
+      "bytes": 156568,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0011.png",
+      "sha256": "58743a481cc90f2e85babf6975d2770655126e80df4fc322c4fb31b848a87c85",
+      "bytes": 157486,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0012.png",
+      "sha256": "e1a82a3355f2fec3e02911239caf2ba4219d41506c9780f7e55ceedf138841f9",
+      "bytes": 160245,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0013.png",
+      "sha256": "8aa15f505a9e17d8d5b16c4a2c49385930f88bec4db72be883f202df32ae562f",
+      "bytes": 160036,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0014.png",
+      "sha256": "d9f092ab1dfef248f37278a69a4771022a60e4bf709e950e274d46a3749ce872",
+      "bytes": 158813,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0015.png",
+      "sha256": "020ac41c2e3fa536e04f914348b7812dd685a0ec768f65c40782cf999052a7f5",
+      "bytes": 157905,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0016.png",
+      "sha256": "673244f350d62f98797e405580ec01aac5c3e9a82c579c77599a752b66eb56f1",
+      "bytes": 157237,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0017.png",
+      "sha256": "c83c4981cd0feeae18ec93ba7458df042c36c07799b12391dfa36dd169a5677f",
+      "bytes": 157947,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0018.png",
+      "sha256": "ab2a1719b9f60ce22d3c90ea5777bfdef92f23104936a77ec8f02b7dc6e35beb",
+      "bytes": 157325,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0019.png",
+      "sha256": "987e57eb4a6cb53fb4d16c35302f3eab0f124d087d4c6cc07ca479f43f065056",
+      "bytes": 158379,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0020.png",
+      "sha256": "f9c4055859934a3e1d4687a24be50e3a88cc5c58b1b8bcea6e3445796d8dbd88",
+      "bytes": 159899,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0021.png",
+      "sha256": "a44e92e9578065aae5ac678a1e98c1f189d3279dcd9319d2965080f607e2520f",
+      "bytes": 161357,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0022.png",
+      "sha256": "b9f4d4f6aa03daa41b5d63abb3a73776c57490b6b297e7e2fce2276e16f79228",
+      "bytes": 159204,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0023.png",
+      "sha256": "97e70d43461f38a0d01699658f7ff6f17afdef5370cca3a7809165698afc3e0a",
+      "bytes": 159084,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0024.png",
+      "sha256": "0f41ed5fcb02a411dc4441e84ce3afcbf432a1510926b09c0d584f2b9026307d",
+      "bytes": 158788,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0025.png",
+      "sha256": "da4619e718150722a97e0898bbc99210655ec1fce85dae2ffa2823582369d15b",
+      "bytes": 158353,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0026.png",
+      "sha256": "b0149fa981d79d786386d99a72b1307d6e3c3be028172a4dfcdc9ee324158128",
+      "bytes": 158077,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0027.png",
+      "sha256": "1974e0234d54e0d6361a42e82d2ccfe2b4aca80553b18b842918d822e8dcf464",
+      "bytes": 158416,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0028.png",
+      "sha256": "adf5e9fd733010fa0c459254ae8b06cf9f650e2a9c2c242e2643fce94f607143",
+      "bytes": 158544,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0029.png",
+      "sha256": "c5defc6e6f4f25cc5ca905871d963c0bd5936aeb06b8fa822d6db588a1aadf33",
+      "bytes": 159272,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0030.png",
+      "sha256": "faf025b63690e370a6a8bd24238af75c7e76f5d25c415fcdf25d4161c4e246fe",
+      "bytes": 159536,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0031.png",
+      "sha256": "ef75020d3762b8b89de987e96392110fd5478cfda1710c84aa992ffbc91adc5b",
+      "bytes": 159396,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0032.png",
+      "sha256": "6c03733de76e631a0df67bdae7576857269a198bec483b14ce2c8eab3fdbc24d",
+      "bytes": 158073,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0033.png",
+      "sha256": "6aeccdb471af16d9cbe0b265e6f0e06b5189e8ede5626ac79026a8f95776eebc",
+      "bytes": 158462,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0034.png",
+      "sha256": "787fd369d585028b3f31d4689b1621764cccc59beef79df6fe34be2be0f4a4e4",
+      "bytes": 158267,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0035.png",
+      "sha256": "08fc6bbeaf871b379d6a5dd46521a2cdbeffd8ebf568225756f6a356f3a3019e",
+      "bytes": 157760,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0036.png",
+      "sha256": "c4248742eb96ab7f7d9e6c19dfd5bc487c4ea61ac6785b6487d78968515340ce",
+      "bytes": 157825,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0037.png",
+      "sha256": "c4248742eb96ab7f7d9e6c19dfd5bc487c4ea61ac6785b6487d78968515340ce",
+      "bytes": 157825,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0038.png",
+      "sha256": "c4248742eb96ab7f7d9e6c19dfd5bc487c4ea61ac6785b6487d78968515340ce",
+      "bytes": 157825,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0039.png",
+      "sha256": "c4248742eb96ab7f7d9e6c19dfd5bc487c4ea61ac6785b6487d78968515340ce",
+      "bytes": 157825,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/frames/0040.png",
+      "sha256": "c4248742eb96ab7f7d9e6c19dfd5bc487c4ea61ac6785b6487d78968515340ce",
+      "bytes": 157825,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/key_frames.png",
+      "sha256": "05d8f2ec5bc6cd5ae6353a927dfd5a640cc1701f9dacda9e5a7a20607d760a0d",
+      "bytes": 177485,
+      "dimensions": [
+        1400,
+        706
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/media_verification.json",
+      "sha256": "e9d3453faca50b6cba41d3146372bb532327eeed7dd9476ac3633814e5377bc9",
+      "bytes": 308,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/preview.mp4",
+      "sha256": "5a9328fc5e8f9bc668d572c2db4649bd7a0c8def9beb0fe97e10af5b0d36f228",
+      "bytes": 48090,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/verification.json",
+      "sha256": "2e211454c816fd77ebe50ec1a312d0723d24c70f1837fbf7c28c05aa51ba644b",
+      "bytes": 16474,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/crisp_authored/wave.aseprite",
+      "sha256": "5680c46507063f0d67d2aad6dfb319ed76ff837cb48586c902be5f39d5f73e0c",
+      "bytes": 23476923,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide/bindings.json",
+      "sha256": "e037e26dd7649efab4db4ff4621e31be5ec3dc6d197bc25df5e92202b4188e03",
+      "bytes": 1557,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide/history.json",
+      "sha256": "e1bb669259cc3d3c188b3ed3e41cae10da49515f85c539ea9bbc34625002867c",
+      "bytes": 10139,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide/receipt.json",
+      "sha256": "f4632eb920682d03a38c0650f9e9237815d4e176abae21de1ade85f295a09dc5",
+      "bytes": 1963,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide/workflow.api.json",
+      "sha256": "dadecbc38d6b1ff9e5b5b5c21a47547ecad3f9d2dc1fee7450883a4bd09db2cb",
+      "bytes": 7604,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_root/all_frames.png",
+      "sha256": "84915cc6dd0c0cde47e64d5a3f32e882c8f9a184ddaeb31551f9ae5b518af9f0",
+      "bytes": 1478372,
+      "dimensions": [
+        1204,
+        1356
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_root/bindings.json",
+      "sha256": "36e250094f0554b6e5fd6d4a322bca3002fe47891ce731eb3c868cf320fce04d",
+      "bytes": 1557,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_root/history.json",
+      "sha256": "f1e86c5d4f1e4c4ce114b612f12e8a6569a246b0b5eb5f77111e73992d86e02b",
+      "bytes": 18038,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_root/key_frames.png",
+      "sha256": "1bbd475c8903d8d43b171494ef28bb60952b4061c209e2d54a8510cdb58d4f8f",
+      "bytes": 1001898,
+      "dimensions": [
+        1400,
+        706
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_root/media_verification.json",
+      "sha256": "86cf9851c821fb8f2cecd28bf9e8fb3e42840e17e52e68c4aa300f15f8ef4afe",
+      "bytes": 308,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_root/native.webm",
+      "sha256": "d8201dd65add9c1ce47a33833118c9de9f5fdd468efeaee7a5c140f8a965715c",
+      "bytes": 191062,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0000.png",
+      "sha256": "fd20c54da3d3f090160f2bd902a6071e87057d317384133e2bab238321f837de",
+      "bytes": 338855,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0001.png",
+      "sha256": "14d32dea8f8be49feb01a64bd005832306d9b868b3bb271339bf10416ce11f4c",
+      "bytes": 333482,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0002.png",
+      "sha256": "dfc792de26d19dd9fac63bedeff77b3b486dd6fac05f8e7e1bec3147fe118f99",
+      "bytes": 339120,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0003.png",
+      "sha256": "9953e18cfdd8e3a92693999ff32145f7a7195cf46e23262120bacfce75284a64",
+      "bytes": 339135,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0004.png",
+      "sha256": "a80d4507f594672e5800bd7a90419dd6d14bf58f95cadd6a6935d0d68631aa02",
+      "bytes": 341641,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0005.png",
+      "sha256": "a03aca1db724c42df3dbd7110646d393e12680dbb2226d5e17c8fa7397c3bb74",
+      "bytes": 336849,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0006.png",
+      "sha256": "4ce2406ae81ec3f10e0e44f2e3e528d8c623d1d20ba4572901b999da2aaf0c2e",
+      "bytes": 337364,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0007.png",
+      "sha256": "82bacabd6f782757d7d5da4f72df3a31871707be1329369ba83dd3730c8624e0",
+      "bytes": 332933,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0008.png",
+      "sha256": "011d33c37972ea36e570487f228a6348b0652cfd730a6da362906382e6b3433d",
+      "bytes": 335095,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0009.png",
+      "sha256": "f095f3c430522e6a2410b39466e3050ee505717c5b28029444f7cac5a728bc1d",
+      "bytes": 332625,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0010.png",
+      "sha256": "5bcbc84bab1e7474da248cb059a1d4913d046312b5d743722851ab279f869b64",
+      "bytes": 336414,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0011.png",
+      "sha256": "e38106711ae1eb256b9bfb03fa16857ad8266209a61f814d6f42a5529c502d84",
+      "bytes": 335067,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0012.png",
+      "sha256": "5cf892893b204927e76ff8813c3c945ffa4b0f29f8929d11e9c711e37ff0910d",
+      "bytes": 336247,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0013.png",
+      "sha256": "1b73ef847f6d674d9c753cc396490e3acdfa84508d8c9cf4353dc79d73b36b5b",
+      "bytes": 335182,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0014.png",
+      "sha256": "e874cb39ee03ca9ac946e1e6f582ccca7b479b122b6f3d5206ebd75b1e2f17a8",
+      "bytes": 337833,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0015.png",
+      "sha256": "1aa0d3e0cf76028e6cc12188f7c0c96b4c590383ba134239a93d7700a5f74a86",
+      "bytes": 335494,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0016.png",
+      "sha256": "a5a42328b72333f74c3b80583f429f84cf6219caceff7aaaaafe08e5409328b2",
+      "bytes": 337938,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0017.png",
+      "sha256": "2cbb4cfd151299bad05aa187e52387f84afe4e44c2cede0b5ee8a9aac9c54605",
+      "bytes": 336150,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0018.png",
+      "sha256": "9c85209b26b08763b62b4349ea39385a83a1fc7e76b9e90b09912c943ce9b2da",
+      "bytes": 340630,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0019.png",
+      "sha256": "5aefad6eb39ed050d85744bd39fec31e6e4de5658ded5cefaf32139fc8da3530",
+      "bytes": 341363,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0020.png",
+      "sha256": "cb19b461342e9ab9e7df56ba62906303d460c0e5109eaae59cd5d697c38ff09f",
+      "bytes": 344693,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0021.png",
+      "sha256": "973624be48fe5049521dac47ee293b462d417e3ba2aba5f0efadb99c7d60e65e",
+      "bytes": 345194,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0022.png",
+      "sha256": "48d4990fb4822c44112ed9967ce04252d8b08d8f9aa9e50c9adb9651bc6fe0e1",
+      "bytes": 348238,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0023.png",
+      "sha256": "d54336a3c03bac24184d51362f25c979fd87cf7df60768974ab34277bfa5cdf2",
+      "bytes": 344914,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0024.png",
+      "sha256": "56ae734320d4ca9fe620ae0f473ccd0f496774ee079d0870450fe41c1719f159",
+      "bytes": 345225,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0025.png",
+      "sha256": "81c2aeb08571feb6a6fc48548b8e29855333c1585efa7abed9c623be5d94ca13",
+      "bytes": 341578,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0026.png",
+      "sha256": "fe564bcb503ea321c03c246d6820e973f142bc53ad0710ae99e08e0da2918c31",
+      "bytes": 341337,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0027.png",
+      "sha256": "3763c3025809ca549aa9ba3f5cda3b22a1af39721ab3639eae515b2e621f92ad",
+      "bytes": 338566,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0028.png",
+      "sha256": "ade67a656fb47069a40f20ec1527af1d1fe7fe1bfa870983185978d3df516d63",
+      "bytes": 338541,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0029.png",
+      "sha256": "e2bb039f5e2cdc84157ac64263b484f8d9802378f9a8c1085e2b4e57bddc7253",
+      "bytes": 336356,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0030.png",
+      "sha256": "617f33f22e6f42522d62a2286c97d4956c30f5f08729ff3cce11a9b9dc1d2b17",
+      "bytes": 337753,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0031.png",
+      "sha256": "33757bcfaacd62ef7be8b37d2c25df9be922fffa6cdb6ccf4ce1c7fe5f4dad3b",
+      "bytes": 336493,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0032.png",
+      "sha256": "806df8894197b1cc23b5fe0dac059ad6dc329e3e4764146c61f99bebbb33ce3b",
+      "bytes": 338084,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0033.png",
+      "sha256": "900da4cd468e7ea26857ff113c8cb02535967293f924ac1c7972faca3c16532a",
+      "bytes": 336097,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0034.png",
+      "sha256": "c31ca6fbb79b0beaddb303362bcbfb34114a4849ec949e08f2ced3aea74b0e63",
+      "bytes": 339236,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0035.png",
+      "sha256": "69ad146c102db6937728b36ad113a373c8a1ad1b8abc010d9c99695f978c419f",
+      "bytes": 339540,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0036.png",
+      "sha256": "433e4bbbd877f6211e3f07370e59f99d2bdf4c97b594d29adc5fb7adb5776524",
+      "bytes": 338248,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0037.png",
+      "sha256": "d5ca70ff144358232667fd82a2f1c99740a468c1ba575ab9b9d348c2f49f0b7a",
+      "bytes": 334058,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0038.png",
+      "sha256": "3ede1a31c3999937dc2877311c6aaae366f678a71a2d0fa5882c2fe3fcd0b494",
+      "bytes": 331492,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0039.png",
+      "sha256": "93d745e2b57e46e743c2d3ad08877c489216ac206968d450ca74c107ab5b7bf8",
+      "bytes": 327832,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/native_frames/0040.png",
+      "sha256": "49e3af42ca9943449b1e10169721cf869d90403f10e3ad36731c6e951a8c310a",
+      "bytes": 328413,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_root/preview.mp4",
+      "sha256": "c6363c41554d623878fbb25cc9e960c747f9ad00a5791248579c34706235f1a7",
+      "bytes": 156586,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_root/receipt.json",
+      "sha256": "b78754e29ee62f3ebaefa1d01c2b614c0252cbee1742901b62afa33ebd9f406d",
+      "bytes": 9883,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_root/verification.json",
+      "sha256": "599055e6cb6a33d997fe399a5cd3d14f9d3532b20bc93976e696d60b1a3184a1",
+      "bytes": 14895,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_root/wave_full_figure.aseprite",
+      "sha256": "ccf3984f7ed2b0a1dc7609af00902967588d5ff8ae35e43beb909cd87d2a35e1",
+      "bytes": 16056475,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_root/workflow.api.json",
+      "sha256": "94efcb9e1faad59cd9238caf3cc858536afde73c7a6df25c26fa4c3e82825809",
+      "bytes": 7614,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_slow/all_frames.png",
+      "sha256": "ed1d302d34b5f2ceb51bd3e70c63ed441d1d9e4e79157502f5f8578b841df6ed",
+      "bytes": 2881034,
+      "dimensions": [
+        1204,
+        2712
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_slow/bindings.json",
+      "sha256": "6c3c715d14569bb978f84b41befc1c1ec52b1644cd5df3ca9d6e2d1ccb2999aa",
+      "bytes": 1558,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_slow/history.json",
+      "sha256": "963361962e709d0a9e88f0557c3db983c98d4b2f2224aad5fc6d554a88988b14",
+      "bytes": 25462,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_slow/key_frames.png",
+      "sha256": "5fe108a9641c0f683c6f0c59e7a9403092b16523f2c8ffc242e409ad43efdab4",
+      "bytes": 1005022,
+      "dimensions": [
+        1400,
+        706
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_slow/media_verification.json",
+      "sha256": "3d2575a0af6c740fce5068e16f6af666461b47c0b9581bf6396900d1c7dca373",
+      "bytes": 308,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_slow/native.webm",
+      "sha256": "6a769ccb570141f0404124ea72644995902c17d72ad70147759ac02af65936c3",
+      "bytes": 273247,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0000.png",
+      "sha256": "cd40a96c8dc488e65eb9aa9c58f4058068750017c4ab95be428527c0b0153542",
+      "bytes": 337825,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0001.png",
+      "sha256": "6e686cd5b4f1a094e1754afb329d024ec519ab9e5baff9dc2767c3e8aa25e19f",
+      "bytes": 329628,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0002.png",
+      "sha256": "6eb40cf506beeb6ed8a9d76ae6a6efebb896c12c3898e65fc02a83c588c50b8d",
+      "bytes": 333324,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0003.png",
+      "sha256": "5a0b1b582c29c424597b48263764aa2e1fe8899c166e5aceed07e2cdba2c7295",
+      "bytes": 339174,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0004.png",
+      "sha256": "9a75bf358c8b71c459c95ba1bd9a92efb6c07eee47629f0891f830be4530e17d",
+      "bytes": 344976,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0005.png",
+      "sha256": "1ce8f09c814cdb3620ed4265ecc2e3a1f04245578be293693d2239af0fd3c0f6",
+      "bytes": 343550,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0006.png",
+      "sha256": "4ecb40559bb3eecb88ed727456b19be4801c64d08f93502c7984259bc0237c25",
+      "bytes": 344996,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0007.png",
+      "sha256": "898804201c7361defa84c2da239fb524b8d88755690128c37f963266abcc9f19",
+      "bytes": 342651,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0008.png",
+      "sha256": "4a9627a36bbc3c33930ece993b0f7b2ffa3c3021f9f830534df4365e7ae90234",
+      "bytes": 344720,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0009.png",
+      "sha256": "29730bc3f96ddca65dea721e2e1c14c1ce2abafab808d2b9afa6b0027782df62",
+      "bytes": 342087,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0010.png",
+      "sha256": "d70bb242dd45e1fa9a5c294f3f629248e1700a1d79c93b242ae1bfb211ecfd05",
+      "bytes": 345025,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0011.png",
+      "sha256": "5576e6c8b0cf84fcfed4343fe5cb5d3bfa84e889619ab80b65188c45b4cc94d9",
+      "bytes": 341915,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0012.png",
+      "sha256": "cfa3594ea2c0a3ee8a3247920726ee576775b6236498e692dc6d9073d8781bf6",
+      "bytes": 341677,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0013.png",
+      "sha256": "a39302e1ea1ca32c4a72988636f88c675f25384b253161f13f72be31f8fd435a",
+      "bytes": 339721,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0014.png",
+      "sha256": "f6bfbe3e0bf3f6e0ce645c2a758c9946f4277e35d1635250d3a24f07db074aca",
+      "bytes": 341195,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0015.png",
+      "sha256": "f814f8356e2028a57eb291b5a1a362e51c1f124b28f68ac0f6100645d2d97f1c",
+      "bytes": 338839,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0016.png",
+      "sha256": "f591c06b81b6b56029dec1f998a7125ac38f829004320dba73c3fc27b4d9aea3",
+      "bytes": 341018,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0017.png",
+      "sha256": "eb8984984f3f2175220b193ae26a0fb094fac69950b727b433c0cd630c3d0181",
+      "bytes": 339561,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0018.png",
+      "sha256": "e46051b5b15b263808f66142717b7b81b5331961fc952e572cbab88250dfc9f0",
+      "bytes": 342096,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0019.png",
+      "sha256": "619a1b73aac14f97f47ab07bd5ae8af552970f06918247d9759a98a13138bd00",
+      "bytes": 341378,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0020.png",
+      "sha256": "a767bf331455db68921dba810d2659fbc9932e1dc3af1555fb7971e0e63da29b",
+      "bytes": 342260,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0021.png",
+      "sha256": "24502da664a2b8e78fa479186391811642c8d129fa7d1c94b0153139f54f2b79",
+      "bytes": 341662,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0022.png",
+      "sha256": "0a0e35fcf412a3ec9e2b0268bfdf0223f6623f62e9aa7513c8ee8117a99682ca",
+      "bytes": 342473,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0023.png",
+      "sha256": "f3c06fb917e26de3c1db8d32d5e7022a39375b4b7add3627a98f875d63ea9110",
+      "bytes": 339814,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0024.png",
+      "sha256": "66eeffd9571f24a3c5199e03632b48db9a9cbea0140b8146a240684c203f32ed",
+      "bytes": 342001,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0025.png",
+      "sha256": "d258db2aaf186c3a989b8a12967fe6497417fa0e1eaeaed31ecf14a5c4303b81",
+      "bytes": 339545,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0026.png",
+      "sha256": "21b1a8faf568df806147b7d39159b2f6c00f8a22341fa08ceb8dc8843d883be4",
+      "bytes": 338730,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0027.png",
+      "sha256": "30da2271f4ed2343d8de6f331e8966dfbcc53dd75314ce9326ceafaf1c2378df",
+      "bytes": 337073,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0028.png",
+      "sha256": "a9f2470463b34fb2af970d9bc878417e03c2044bad8cc4721903b63067a2d77c",
+      "bytes": 340139,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0029.png",
+      "sha256": "f2aaacf438225eee1b42dbcb122282ae18325771af87aeb83fbbb77dfdf22db6",
+      "bytes": 338073,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0030.png",
+      "sha256": "9d719c9a7f995880d86979cec6e7a172ac09eacb6adfd1979f0fce509b6ae100",
+      "bytes": 339302,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0031.png",
+      "sha256": "362775c705fb5ec09a077c896e682354c456f16f4f69dc42c769b4ccd9dd9323",
+      "bytes": 335506,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0032.png",
+      "sha256": "c593e74a0b0523bbc74d52d2f75440c3fe71572a4767be44543cf6f31859b144",
+      "bytes": 337380,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0033.png",
+      "sha256": "c6f6283512bead092d73faec686354edff06615d4cb2fbb2d4c064cbad5c2d8e",
+      "bytes": 335341,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0034.png",
+      "sha256": "576a48b3e6e5ec59e2786a55abca48016200a383ff3845a441a2d7b04436011c",
+      "bytes": 335227,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0035.png",
+      "sha256": "0a9e8dcdfecf43de4f3c544cd0a5ec9ed802e9cc2a90e691f875abfcaa870e18",
+      "bytes": 333637,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0036.png",
+      "sha256": "40a9842e871b85198f52ad3ba0c16e96035fe68982304a59738f2381d1e12287",
+      "bytes": 337392,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0037.png",
+      "sha256": "2ea060416447791ea5edbc99611110d5d1c5c64fcd7949a4951116033f9cea6a",
+      "bytes": 337906,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0038.png",
+      "sha256": "3e244f5f5253412c44929a305857271ae3199be0d735b344fd9248f60ec36620",
+      "bytes": 340987,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0039.png",
+      "sha256": "7ecc595d5b6b7d34fb43a28aebb2416449126c82b846cd6ee43c9cb62bbe20db",
+      "bytes": 338593,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0040.png",
+      "sha256": "7c2439470e58dbffc0295f88b02387d435e5327c8bf3aeb4b1d80770863f9055",
+      "bytes": 340887,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0041.png",
+      "sha256": "a146ad81acaad1740006701c890ed2828e645f851247ae836d2809eebd296f1a",
+      "bytes": 339577,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0042.png",
+      "sha256": "0358e66eb23e93755f18c330530154c400949cd655971c7d3e7cdd00a8a7e637",
+      "bytes": 343126,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0043.png",
+      "sha256": "590b3248f16072695137c3cc7447385d0ade460336c3038f5751ba2352373f3c",
+      "bytes": 344838,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0044.png",
+      "sha256": "04ed8a783fc4c6d99f6905abfdc602a38349bda280e095a5ab3e64e2658ecd46",
+      "bytes": 346751,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0045.png",
+      "sha256": "15e7fd3c8ea38b4d4a5fbb7b52b8ce094bc3897776abe089d7c9e8922db9e9f4",
+      "bytes": 347942,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0046.png",
+      "sha256": "19d48f0dab16689b2d97bd5dad54c975833df36cbd030b2ce5213cf91872862e",
+      "bytes": 351058,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0047.png",
+      "sha256": "89b655bf1208ce2d17a4d080e8976ba4c88dc96245ff9559c462bc008f0c0645",
+      "bytes": 348263,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0048.png",
+      "sha256": "04a15c771bb3b8e992d9680cc04431b10123f6a2eb94ab242aee2eaa9fae5e7d",
+      "bytes": 346566,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0049.png",
+      "sha256": "3719728a38fcd994251a6d865a7dc58dde14eb53c5d0c374ce0e0c45863dcea1",
+      "bytes": 343432,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0050.png",
+      "sha256": "a9f5eea0b34481b9ce31bcab7564aa6adc4f3cb16c4a39e695ab882e50aba581",
+      "bytes": 343699,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0051.png",
+      "sha256": "29ceb9b2572e9219fc9b97bc923bc4bd3f5df1d727b6295d0f22819e5ff41997",
+      "bytes": 339625,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0052.png",
+      "sha256": "64304d7615628c533573480a32f6964aa2568c2908602fcb8bc8ba00a9372514",
+      "bytes": 334852,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0053.png",
+      "sha256": "de71d28d71e2d8671d483fe52fb06b04b69db5370cf18a14c8ff02a1a7234fd9",
+      "bytes": 328199,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0054.png",
+      "sha256": "3e5e4f621dd157a11106be8697d99745f092d0f29db1467b720502087f86c5d4",
+      "bytes": 327949,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0055.png",
+      "sha256": "745e68eb694ae66e7875f343417054e599da321deda80bc1585c503da22fd08d",
+      "bytes": 324613,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0056.png",
+      "sha256": "75854f4e2f9f39a33552004fce02f0653a47878188afc50dd2ea900726adce08",
+      "bytes": 329493,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0057.png",
+      "sha256": "d002fa1f8b19631f3bc0aa3144859c79ff92b73dadba8894a6f330d4ea6e97a8",
+      "bytes": 336685,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0058.png",
+      "sha256": "7dfe13f8d180003006f94f22cb84ed044f2c6b4d399e4f4988674850a447150b",
+      "bytes": 338422,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0059.png",
+      "sha256": "8f0a7e346670e24d9a4c39536f55d1de3a7e64bf9cd944177a4944b2f3ac8318",
+      "bytes": 333893,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0060.png",
+      "sha256": "43103948b312e34d8173f72d154a998098fe72aec2b24766988c4c65b1acc555",
+      "bytes": 331974,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0061.png",
+      "sha256": "49874640088a530c171238bc1f9a5355257a4c2a272d2ce8429dd3fc3649199d",
+      "bytes": 329631,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0062.png",
+      "sha256": "4ac4fc5f32dc43651f6275e07501c9d32f9243e4cf22cde271dc87db5f61fbf2",
+      "bytes": 333112,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0063.png",
+      "sha256": "a461b18038cd6f7223a14d5968e5bccd2f31457b79ed16b53cd825ed75245192",
+      "bytes": 330764,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0064.png",
+      "sha256": "7c2314411d303281c360495b1fb84bbba2036f85a2e783e7eb972a2508ed7440",
+      "bytes": 331827,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0065.png",
+      "sha256": "1435bdb366d362b6f122678098a26a96a3a9e5ff03a632640f5b55eb5f0daa12",
+      "bytes": 329094,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0066.png",
+      "sha256": "b2daa975b0882ce7d03f0a5a2b3de0f035dacd80912fec6ec8c22c05eba5b5a2",
+      "bytes": 333681,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0067.png",
+      "sha256": "10c7ccca92896a4751c25fc7cddf7c99a827768708cfa48bfa8be3932cb3764b",
+      "bytes": 333477,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0068.png",
+      "sha256": "e637b505f758b7f1f9af087b917944f0089604ad9a90df6a8a9f2522860cdcb7",
+      "bytes": 333359,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0069.png",
+      "sha256": "8ce9d7624983856d85f1c045fa5d66327e92f2c0b2e10d717b229e3780dc6337",
+      "bytes": 330017,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0070.png",
+      "sha256": "d918f3c3d84f8fdf9d8024dd96d092e97cddcc71d6aca359106d3061db98186d",
+      "bytes": 333806,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0071.png",
+      "sha256": "02db4a3004a5725481cf1b5ce8db6fc9384ca935963da7dddde28697c8a6eb47",
+      "bytes": 332559,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0072.png",
+      "sha256": "529dd802a85ca31686363fe755e02842bb583bcb8583d018c00e494cad49f628",
+      "bytes": 336728,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0073.png",
+      "sha256": "a9f7abd6bf714dfebb78c373857f0b88030703ec0f278f1484a7f2a14d780027",
+      "bytes": 334507,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0074.png",
+      "sha256": "2c021429018afd7e0a903b62f29959423f2e0e3a8a8dffd389e85d65b0195b74",
+      "bytes": 337741,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0075.png",
+      "sha256": "43730d339e0abfc31280ae39c9d94b08e24b062299155a4b041ac0945d28c0d3",
+      "bytes": 338033,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0076.png",
+      "sha256": "9a5d7149cf0016108c521042c5d22c1111de5c78262abcb4a7fbbdc6dabd51da",
+      "bytes": 339357,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0077.png",
+      "sha256": "83889a7a7f5951679f9c51bfccaad2750e959531150c51f45db34258f4b853ac",
+      "bytes": 336535,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0078.png",
+      "sha256": "32466e5f6d310a4a7cbe612793215ecff9f4cdde717591dc3090f45425cbada3",
+      "bytes": 335075,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0079.png",
+      "sha256": "f1d72a7ec77b2897e59af10c4a74aba36dc5cfb7b8dc8dff2715f93c50767a5e",
+      "bytes": 329085,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/native_frames/0080.png",
+      "sha256": "151078c406db5a379246a04d7dda0bbec9f18d952d78ac4a8b8c9e10ed67de6f",
+      "bytes": 329386,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/figure_wide_slow/preview.mp4",
+      "sha256": "df589156ee05d08b77e8419a8f6eceed2c62c3d2942230caf1c510ec31dff9d8",
+      "bytes": 253637,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_slow/receipt.json",
+      "sha256": "14d4a9adb127f8aa69549b1ab1cd86fdf5671539d7092f2561d2b486e8590f32",
+      "bytes": 17508,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_slow/verification.json",
+      "sha256": "38ae80ab942286a9c11bf0e111ef3a5a9660ff64517a821b2fe7b93b53d615ae",
+      "bytes": 28334,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_slow/wave_full_figure.aseprite",
+      "sha256": "1575398c1d0ca5b6d6b4291cd9fac58b4250d55e575ab7269a8f5fae23120ca5",
+      "bytes": 30532782,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/figure_wide_slow/workflow.api.json",
+      "sha256": "d705fc25a1e28fd33ffe99f383c829925049de46336252d6336da9ddeea04b0b",
+      "bytes": 7678,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/all_frames.png",
+      "sha256": "840fb89beb4938775c595c6b1868b2868cf257adce6b9a9b55006f592fc02e27",
+      "bytes": 278136,
+      "dimensions": [
+        1204,
+        1356
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/cleanup_time.json",
+      "sha256": "c6d3bbb84c83fa6f93f6e030673d75b013b92bf3a8fc502a124bbe269da528c9",
+      "bytes": 833,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0000.png",
+      "sha256": "c4248742eb96ab7f7d9e6c19dfd5bc487c4ea61ac6785b6487d78968515340ce",
+      "bytes": 157825,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0001.png",
+      "sha256": "74bbed60273c7fd608692893db273c426bd14b2e9eee38adbd7b0d74fac6daf6",
+      "bytes": 151187,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0002.png",
+      "sha256": "74ea396db6dbe9177b16faa14355b395da8b099df04982779735784e17574c16",
+      "bytes": 152730,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0003.png",
+      "sha256": "5860470d587d3400f45686090bd09ebb66fe000a8166d344b5de8659ce68b4df",
+      "bytes": 153168,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0004.png",
+      "sha256": "8f8380cc91fc9586a0feda002ea44969ce7eeabe697de43b590ba485159b7396",
+      "bytes": 153401,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0005.png",
+      "sha256": "1936f1c34fd3a3e35b34df05cc1d2773a5ab7e647e2415912ec96e42c40aca18",
+      "bytes": 153980,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0006.png",
+      "sha256": "d79b742d7b45f1f245b42e1f27c9f6e35b976ace7666a69444e27e9f840beafe",
+      "bytes": 154003,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0007.png",
+      "sha256": "2e5182c5b043a1421f3c0297df6945ff6c98d62282e3851097269bd55b4f4e00",
+      "bytes": 154023,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0008.png",
+      "sha256": "2d13df1fd7553bcf7963c282d7f78d2306ae9365a350da8df6794d400eba45b2",
+      "bytes": 154345,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0009.png",
+      "sha256": "e903bbcfa247a5845f01003c558624dfeff38cfe4bd5ca875b23f9c75710a629",
+      "bytes": 155729,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0010.png",
+      "sha256": "53e170f31e4fbf3f43ef60c5bb52e66833e15d580cdb0eb5fb0c6589cf53fb85",
+      "bytes": 155856,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0011.png",
+      "sha256": "de837c0a819bc231bc4fff86d7e64d5dbe32ebe240adb970921294e155bbff25",
+      "bytes": 155994,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0012.png",
+      "sha256": "54aa7106fc820f5e8c1b693fbaed77db8c393ba773d7d961f53e35729e80b39f",
+      "bytes": 155833,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0013.png",
+      "sha256": "2dd48f4aadebf83e2b86053201cfdebbbee8692cb759828ae0041d0da99fdb21",
+      "bytes": 155814,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0014.png",
+      "sha256": "61dfd960a45e6368ae541e676b7feb4120cd118f5400c60bc8c35c9dbe41dc85",
+      "bytes": 155733,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0015.png",
+      "sha256": "3f0deac4d726940d5f5eed3c2347522762fb92e73ef896612c7261f3b444f0d1",
+      "bytes": 155771,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0016.png",
+      "sha256": "4698fd38d54fbe9196b8f051144d1e4e5543ce1ca8aba1c8ed90a8dd4b819f1b",
+      "bytes": 155612,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0017.png",
+      "sha256": "a1726ba47ce7d96e6ef4e2ef942dd5365c8b9019ad2b9f14a6ddcce7a6896f73",
+      "bytes": 155639,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0018.png",
+      "sha256": "b0faca7b5856b35dd1d43a22a42e48b3ae641ae48a18a62868c7d2e3172ec19e",
+      "bytes": 155405,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0019.png",
+      "sha256": "a6a2786e144e8940dad3adc06f1d159510443569a86f3ff791bfc1c60b9c1165",
+      "bytes": 156013,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0020.png",
+      "sha256": "1494926e19edfe5ad854d2c45fed318991936dacc0e64f7c232a44db0bdbad65",
+      "bytes": 154543,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0021.png",
+      "sha256": "faff5db61e5c136f3270fcc57cfe9d3c139d64e4dccc08c303c06075c1227f91",
+      "bytes": 152670,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0022.png",
+      "sha256": "80fdf62569ae29f220cff642580848f6ac82073976a9d26fafc89f27a38179d5",
+      "bytes": 156482,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0023.png",
+      "sha256": "41f2135d1ec868e375a7391f762f968565223505ed7d3801db3fff39ed30e529",
+      "bytes": 155679,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0024.png",
+      "sha256": "d4c3f0bef3e993c32dc26be8446b15c295399f0b516041dd333b86ecd4b3d2e0",
+      "bytes": 155258,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0025.png",
+      "sha256": "5963849a83b48e96d8667917be01d89e5fba380e60c629119dba76cc5ca29993",
+      "bytes": 155499,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0026.png",
+      "sha256": "3a449d6e194a6c686e48e68f883597d774bfa1cbd9cfa08de604ed7a1f396b9c",
+      "bytes": 155994,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0027.png",
+      "sha256": "1f30fa39baa37214acc30bda867b395634c4abede4e0e9b3d1da3f04a3f00f85",
+      "bytes": 155954,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0028.png",
+      "sha256": "746ed3b6204a66fcd8197c9ce447b528df6c39851e2e9aad5bdf89c7a8bb5877",
+      "bytes": 155887,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0029.png",
+      "sha256": "b5f8657a903ce341a6863afc9b682035b4a6a6035a477a6e60d3d8077f9c266c",
+      "bytes": 155844,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0030.png",
+      "sha256": "eb5164b06e118419efe8f3d6664235b8c2d0bcf492adc1dbbe2976438858a7f0",
+      "bytes": 155728,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0031.png",
+      "sha256": "ac3d896adbc2582c8b766c12044f20728d4f043fd726526eeba355d3f95e7e55",
+      "bytes": 155736,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0032.png",
+      "sha256": "fa462bc70c10c0b0a1a5ac4bc4fa1eda1f32290d46d010ced8b2e233af29aece",
+      "bytes": 155741,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0033.png",
+      "sha256": "0ea49b9081d02a578ab2c35bdc365c9df5aa68b0f544456bc8934c7ef9a5a38f",
+      "bytes": 155669,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0034.png",
+      "sha256": "e905d6b656e75e15b850e2bf1d5e2fd39ff7c447bba63dbdbea6247825514d38",
+      "bytes": 155672,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0035.png",
+      "sha256": "25e038b20eb5dd86685fbb811af218446ce7855272dfdd695df1dbb3abb06059",
+      "bytes": 155653,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0036.png",
+      "sha256": "e67455cb3c83563dd4b4f6eef1b25a48de2e4b7f611ed72fd985ce713d99cb58",
+      "bytes": 155690,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0037.png",
+      "sha256": "47517df0091e545a7250b2c5287bf76f56e68b164b258b168fea6c634ba30fb0",
+      "bytes": 155697,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0038.png",
+      "sha256": "d7f51e82212bcdf56cd61ba30c98b017a57ee59455b12fab18a14bc00dd07fd7",
+      "bytes": 155719,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0039.png",
+      "sha256": "f020a5432bbfa7e5c24688977a27e89bc48257b6889d5f052de7f2fc328c837c",
+      "bytes": 155712,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/frames/0040.png",
+      "sha256": "c4248742eb96ab7f7d9e6c19dfd5bc487c4ea61ac6785b6487d78968515340ce",
+      "bytes": 157825,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/key_frames.png",
+      "sha256": "8bc52c5b8e6177f3f78ad981f3969bdb8274c90dd3221c8077d6bca6d994f331",
+      "bytes": 197535,
+      "dimensions": [
+        1400,
+        706
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/media_verification.json",
+      "sha256": "a09ca69e837f3c2e46c37642c5f14fa51befefa771aec0395710108473b6cbf2",
+      "bytes": 1263,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/pixel_checks.json",
+      "sha256": "9c1b24842ce50e85c373f976816531b9ebf0deb0bd25698359912a9806c8d6b4",
+      "bytes": 7625,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/preview.mp4",
+      "sha256": "dfb9f0894982c74626a7b38830aa79debcc0d985d3a5586ca7ca9aff16267ddc",
+      "bytes": 44548,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/reopen_verification.json",
+      "sha256": "0673f6295c5ed1d8bf1b687217b82758115d4cca9dc1e182cca12b65a02bedb7",
+      "bytes": 17957,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered/wave.aseprite",
+      "sha256": "5a88f18849d3d5ef199753eb6c260a8b7425ab00e3ded34322dc94e8ec8310b6",
+      "bytes": 31770024,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/all_frames.png",
+      "sha256": "9887ee313a33d7db13223dd57ec7da336c6fe220eada8d0e7140db019a613768",
+      "bytes": 271841,
+      "dimensions": [
+        1204,
+        1356
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/cleanup_time.json",
+      "sha256": "3b4bd09ac98da55ab5f042dff7709d3a265a5cc0f9a7ab52675a92a55e8c04ea",
+      "bytes": 164,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0000.png",
+      "sha256": "c4248742eb96ab7f7d9e6c19dfd5bc487c4ea61ac6785b6487d78968515340ce",
+      "bytes": 157825,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0001.png",
+      "sha256": "639225904e5b2da9ef12c58bbe75a5b887fc4801b1ede81c688bfbe15738801f",
+      "bytes": 150918,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0002.png",
+      "sha256": "ff0c1d145d72045267f79e80f8a183fca4dcb116f9e238bdb8812edb848811cb",
+      "bytes": 151858,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0003.png",
+      "sha256": "7ae5fb3c2c5bda74844481783c2440a0e61f2d7a61c101374b36cb78264dffa0",
+      "bytes": 151729,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0004.png",
+      "sha256": "fc5b29f017a4c096be4c3110e20b2b66eea1f970dbe58cc5124337acd007b9c9",
+      "bytes": 151650,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0005.png",
+      "sha256": "80e776bbd0cec07e2d636c9a6e6378e1fa0a63eecd2af0515cf45f8c3ec52d80",
+      "bytes": 151347,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0006.png",
+      "sha256": "58dba3bf52bfa6b5415fc1a672fbb45fe61cf014bfa0c29901738263062ba693",
+      "bytes": 151125,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0007.png",
+      "sha256": "8fb50ee10f0dfea88e83223f670b697013d60512936adb760c93c5d45c01fe90",
+      "bytes": 151429,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0008.png",
+      "sha256": "9444fe8e951b49eae3959147d9fe85e17476c85a13d0de0a7279d3566f4dce67",
+      "bytes": 152436,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0009.png",
+      "sha256": "15d276b6bd65213c164ae4ca527591c30c33722a18f3e1f7b263874eaaa182da",
+      "bytes": 154588,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0010.png",
+      "sha256": "556e2b4a9a2b103ed96b76b471c568530787d7a15ce6717cf587d4c823fb0c7e",
+      "bytes": 155741,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0011.png",
+      "sha256": "3b62b07240c5489dc410afb995343df51591e9620ce475986470c26285674b94",
+      "bytes": 156212,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0012.png",
+      "sha256": "f88f15421982bc1569d3dd062b6fa66b505fae762f34f599cae3e5cbf49b5a90",
+      "bytes": 155445,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0013.png",
+      "sha256": "65b2366a318235830a74bd0f6295ba12d9e33b48df665f31929b354e8b06e529",
+      "bytes": 154611,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0014.png",
+      "sha256": "697452c02ccf3740309b440af92c33806dd1ff8fb24e9bb566fa75e48507d2ea",
+      "bytes": 154443,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0015.png",
+      "sha256": "4dc35ca6f594ca2351afc6846f2aa95e40bc1db8e91f1e19485522efee5dbc8f",
+      "bytes": 154738,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0016.png",
+      "sha256": "15c7092b6dd3439d3e68c39d89484de5738f78d9b29d89ec7d535d264e10e20f",
+      "bytes": 155985,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0017.png",
+      "sha256": "fd51c6a7693e36462403be87ba20873a4a124b68f43bf9dfc62a42fc66e6df0d",
+      "bytes": 156751,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0018.png",
+      "sha256": "3da3c0bbec6f965260567f403fabbf11693391c6b269b25d7ca6f6db592c5887",
+      "bytes": 155700,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0019.png",
+      "sha256": "db35cd002e9ea9ec5a8ccd9083491fbdc9f5be8332f318c319c74e1fecc6480f",
+      "bytes": 155032,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0020.png",
+      "sha256": "b76370af0cfcaeaa6076146b6049d1e31847fcf1173fd2766f6b920299f49e74",
+      "bytes": 154922,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0021.png",
+      "sha256": "f2013f622f2127ce248de443a0e82d8efc284976a590aa43649e9bb928de243f",
+      "bytes": 153857,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0022.png",
+      "sha256": "2a3b27df1a90969c8c428253b59a51e3fbec177cba8bcfb172fe45425a8f847a",
+      "bytes": 154417,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0023.png",
+      "sha256": "9073d8b88142f606f3f0f6d43c571dcc8ccb6b08332fab85ee6597aeb9d5f46b",
+      "bytes": 154527,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0024.png",
+      "sha256": "1f2c18b52df5ab9154ec228fe2e4612e6ee67f5d82fb8344a5337ea69c8cbfd9",
+      "bytes": 154934,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0025.png",
+      "sha256": "fef64d2a9e8be639632ff820623ea17f6db865d85aa081a548e12491707abc6f",
+      "bytes": 155377,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0026.png",
+      "sha256": "69fdee0cf0009650fa87e6678ad819789925d0d06d32b132a684ea39623ec083",
+      "bytes": 155567,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0027.png",
+      "sha256": "3d91242a1512753f17fe7766a8972a437bf0d347ffd75ea1c00d8607e88e9bbe",
+      "bytes": 155409,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0028.png",
+      "sha256": "0283556b395e755432c74e9fe28abb3af1d11d628e84906fa531d8db538ba67e",
+      "bytes": 155760,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0029.png",
+      "sha256": "754059f9e0184db9cee75b1bc4aaf2f15b78fffa4ccaf0fe73ec18b5e6bf466a",
+      "bytes": 155716,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0030.png",
+      "sha256": "b6d1f75c8cf542726432564724a6e441add4ccdc4a7c94bcf2592621b6403b72",
+      "bytes": 155679,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0031.png",
+      "sha256": "b4c9284423ee9b2518da31c02422a507b579035c450250e846722cc028013c4f",
+      "bytes": 155731,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0032.png",
+      "sha256": "89820952663435cbf0e52885774f0837f72dc6685c6d263d8fe15b8891044bce",
+      "bytes": 155702,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0033.png",
+      "sha256": "722daa1d4812d1a937eecf302da29d873e99b258598fd87fcadb2438d43ba206",
+      "bytes": 155675,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0034.png",
+      "sha256": "25a07fa8a06cbe14e5b083dc5d98363127dd30cfcc8c2dd98e63a84c138b6438",
+      "bytes": 155688,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0035.png",
+      "sha256": "5c46289578512154a7bcfed09d32c8b7aa88c3463a7f933e1e7e4eec0eddb807",
+      "bytes": 155627,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0036.png",
+      "sha256": "dab6ed414ea235a9b81d56629ac1695ff10eb6285bf9632bd68db37bbf8afe28",
+      "bytes": 155620,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0037.png",
+      "sha256": "05520324e4a954402dfa5a3d9ea622f4b6601122d31c4225aa946c0c8e5b1418",
+      "bytes": 155657,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0038.png",
+      "sha256": "ed5bfe7842496553d045f81553b582d9dab45103600252704e0d86d80c139379",
+      "bytes": 155650,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0039.png",
+      "sha256": "33f6fd33d928623bc4e6828cab640acf72abc4c60375ff3ba4a66880e3b5a2fa",
+      "bytes": 155664,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/frames/0040.png",
+      "sha256": "c4248742eb96ab7f7d9e6c19dfd5bc487c4ea61ac6785b6487d78968515340ce",
+      "bytes": 157825,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/key_frames.png",
+      "sha256": "28134ffb6dcf689bb57fd4030306fa4b325ec029bd01752b594c5e2bc9e43ade",
+      "bytes": 193777,
+      "dimensions": [
+        1400,
+        706
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/media_verification.json",
+      "sha256": "c5a15dc88bfa3b6529f5db8fafd9cbc344dd7634ca5a5a61f83961d94a5af237",
+      "bytes": 1284,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/preview.mp4",
+      "sha256": "101cd46e6d77e6744e6383c80b02a081b7084bbd8bc84529b53228cf805492ff",
+      "bytes": 44641,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/reopen_verification.json",
+      "sha256": "6615fa5ecbcfc0231002fe4d388022d25e7c20a906d65aa9a50de6f4f0c2c254",
+      "bytes": 18230,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/finished_registered_strong/wave.aseprite",
+      "sha256": "dfb34883980bf99b8c74fb528ee26ae2fe350251a74d15dd5530c11652a2844e",
+      "bytes": 31463480,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0000.png",
+      "sha256": "77e2fc099fbc18673ca504e39b1f040940b5ffbafcbeba723f1171b5f2ce2a68",
+      "bytes": 132512,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0001.png",
+      "sha256": "bb72b5846123f946aad70cb22b54a3808f4aca957744b681a4e9ca3627f2f4ef",
+      "bytes": 128791,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0002.png",
+      "sha256": "64c6eb46d54112460f01caa6120b4f008f1c5bf558e799aee37226d19455b75f",
+      "bytes": 131390,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0003.png",
+      "sha256": "bad6f49a5f21e3428250218c55df2ee3407ae98312ac7f40ed688bab34e722e5",
+      "bytes": 131552,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0004.png",
+      "sha256": "24c7abda185d069ce4d39625347d86a592d014941cfc3c1996b840b0d75f7a92",
+      "bytes": 131816,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0005.png",
+      "sha256": "79b0721a1aad454f91d764e1606835a6be01edc36610aebbbf394952f3e3ec35",
+      "bytes": 132381,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0006.png",
+      "sha256": "4b1df4011219fee2e42137a5c61030072e933ef16fe2c5242e7df8fd50f52fea",
+      "bytes": 132372,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0007.png",
+      "sha256": "7f2acfbdcd8d35f04412d0a549a81ff4df2109a637bb7307c04041250deb1ebc",
+      "bytes": 132448,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0008.png",
+      "sha256": "a82695d94015034407d3b685bb012b08dde58e007432dc796fd65d016301bced",
+      "bytes": 132582,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0009.png",
+      "sha256": "ea6523b03d4b5ff8db0e712b86b6df2968203af474227855a77b2e04dad2958b",
+      "bytes": 133732,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0010.png",
+      "sha256": "bbc5ad0827f401496f44e4d22ddf792a4647477cb182da75aa193d9e098de453",
+      "bytes": 133969,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0011.png",
+      "sha256": "a964d378d5187d9bc4a54cc4b7341ced51f8ddf66e231b62be777cf0dc3548ff",
+      "bytes": 133921,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0012.png",
+      "sha256": "db327b0a11a06b27cc3f66c3c86928144bab500f8eedc09cf52418dded652e54",
+      "bytes": 133848,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0013.png",
+      "sha256": "567be8f5bfb23b5e0f311f5e04fc1fe064afbec911b7c617b8823c63c0e339ca",
+      "bytes": 133789,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0014.png",
+      "sha256": "3a0aca60a4a92f9d1cd92f49b32c8251aa780a78231343c0aab66ae62e0958d0",
+      "bytes": 133813,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0015.png",
+      "sha256": "f2a39977895c146178ed81b9b4223df839a6e3ccee0586f366b76be51aceda00",
+      "bytes": 133830,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0016.png",
+      "sha256": "7efe93efed3651db3a7f70b02ae125c5a87dc7f62f172eea2397fd2829593503",
+      "bytes": 133474,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0017.png",
+      "sha256": "50656e9ff6ec980f9412649b886a2a36f72955a9015cebd813f9ad92eb364d68",
+      "bytes": 133661,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0018.png",
+      "sha256": "7b8c92fe979c6abf2125f7d596ad16cd1fe7dda749a890c8a497f31d92fb4aa6",
+      "bytes": 133466,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0019.png",
+      "sha256": "91a94d4f7c42e4924e301b9e7fc6591894a05bd38fb430f1efbd6a006ef1ee83",
+      "bytes": 133778,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0020.png",
+      "sha256": "f338db852f63af77d7ae2fc62fb8b1c9cf213f4ca43a1842088b8a7c8b16f549",
+      "bytes": 132206,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0021.png",
+      "sha256": "c9fc7925d8a3559e1fd33b376f109d4c01077458ad1d7c09da97ba295b9ed4d0",
+      "bytes": 130127,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0022.png",
+      "sha256": "7e4e4cb6e2847ef28b21541f91c5ee2864ffc429a98ff8bf4adfac246b6692cf",
+      "bytes": 134163,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0023.png",
+      "sha256": "c3d77d2d931a7681cb8a8f9beb8664234dec6379aac6b6041d2b2e4f2ade3715",
+      "bytes": 133365,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0024.png",
+      "sha256": "860f924f1fb95d9778732dcb3b7c72207b8c67f4d31628f080ec348715370452",
+      "bytes": 132713,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0025.png",
+      "sha256": "dae830c8901db8edfaa622e579faa99144528237008459f36f62c023f5048ccc",
+      "bytes": 132817,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0026.png",
+      "sha256": "90c2332fabcb3405c5b1fc9259eda7789d86d5633ef425a94e458bdf6b9b952a",
+      "bytes": 133251,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0027.png",
+      "sha256": "ab7ed3a5dd8582d9eb1f0892ef264cb16db3946463c5f22209bbd3b605033e7b",
+      "bytes": 133370,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0028.png",
+      "sha256": "6aeedc39fefbdfab545aed378e02ec40aa41b7dca7caf0a0814e6150a6b5c8f8",
+      "bytes": 133121,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0029.png",
+      "sha256": "2f851f89aca523a8bad0ee18d48da29b23c913f8611bd16f3ce7f074bea6a59f",
+      "bytes": 133000,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0030.png",
+      "sha256": "3d801297b9e74cb0e36e19f989bf01904a4113f1478730dd17dcafe8954e015b",
+      "bytes": 133005,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0031.png",
+      "sha256": "d5fc50ef2cb0090159ed2de7c5654c4c1a91359b82a0f1576e6c4c29aaa5ab7e",
+      "bytes": 133142,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0032.png",
+      "sha256": "c8c2e16c5765f1b3d9246791b4817ee7af9f316f7913aa7978fc99ddda185c48",
+      "bytes": 133121,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0033.png",
+      "sha256": "8d33c8b11173d6049d7cab5fbe6d4800f603278cc02c2c237a7fbb7535e88750",
+      "bytes": 132826,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0034.png",
+      "sha256": "a4bf9a3185b2a52e3686577c8f21f4bce86759bd57327f9719ef9f153b8a970c",
+      "bytes": 132868,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0035.png",
+      "sha256": "55f6e37e0c33f560d5dc9772826aa046f262f6cf0e1509028b766f651efb9a15",
+      "bytes": 132836,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0036.png",
+      "sha256": "68a88ee8c12732d5750990b9ded4d0249eb3beb44705d1e0adeacd2d14eb43af",
+      "bytes": 132846,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0037.png",
+      "sha256": "289b2af15b20963da43993dd426a8493ba3a04c18913d8f874a92bf14348e867",
+      "bytes": 132733,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0038.png",
+      "sha256": "0b86fbd4160446667177a141477b09993af89411bcae424899eb3442e7e6fa18",
+      "bytes": 132612,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0039.png",
+      "sha256": "5c6f40db4fd218ae8d03bc34e5ec02ff9b8d7c9ca23f7917d902aed7edf85511",
+      "bytes": 132798,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/frames/0040.png",
+      "sha256": "52dcfc9c9a7c8d8a8676d3f6f335d2d832ba4db9ecbc1c9ca5ab93891e371aba",
+      "bytes": 132754,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered/preview.mp4",
+      "sha256": "92b503b4e72e149d43c3d7ecbfbed6051605d523f74ebadedc639342692bea79",
+      "bytes": 57389,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0000.png",
+      "sha256": "c7839d562cfc80fa9bc34a8e2ddccaa412b80e968883722577e194296bb49391",
+      "bytes": 132120,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0001.png",
+      "sha256": "314535a14262f869235647af63ecdb7c7b7a005bf035bbcb2701725bda989fba",
+      "bytes": 128971,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0002.png",
+      "sha256": "ba59d48b6e9022abe17c4635585d6629c2b0b2889728a438f60703d7cc7610fe",
+      "bytes": 129808,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0003.png",
+      "sha256": "ff1370aff7a5022433357c9b643af13fedfba55e33a0aee80bb41a567afbac33",
+      "bytes": 129485,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0004.png",
+      "sha256": "aeddbfa24d85fa25d185eb805fbd74e14bed00e1bfe1a96c823413a2bf3df43d",
+      "bytes": 129551,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0005.png",
+      "sha256": "cdae8cec2bc74db887ce0221edce083209542828986d27db3441eea3767ac28f",
+      "bytes": 129236,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0006.png",
+      "sha256": "7d700f9f85040641321c9876acac04eb62284199d4e1c229578dfd30623293fd",
+      "bytes": 128827,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0007.png",
+      "sha256": "a843e4a79e6938e62a40a7557f69c98d7d19a44eebf4d7daedfac0d64a88fdfc",
+      "bytes": 129175,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0008.png",
+      "sha256": "5608d8d9fa0f6c962a4f5589c7f31a7b92933dfabcfa0a8a6aa2e95fcab87c05",
+      "bytes": 130077,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0009.png",
+      "sha256": "76d4efe67e856c8e53477a29d455861c16cd605edb7f61ba600a4bb89a7d131d",
+      "bytes": 131983,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0010.png",
+      "sha256": "1388c207710589bb1944f6b1f7726a6409e7b39522819f86894e043ca8b3217a",
+      "bytes": 132961,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0011.png",
+      "sha256": "e2564d13cc49adc00a3bc0028023014213c99c8d73e7cd3710fee8a046c960cb",
+      "bytes": 133354,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0012.png",
+      "sha256": "0f2c40131e2cf1e50f62605683e164a37c6cb6ff53fc5a83a4ce544e3df09032",
+      "bytes": 132676,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0013.png",
+      "sha256": "586ebb1ff333882263cd27369da6da6f564d5f527e347b1899c9333a00b9ba3e",
+      "bytes": 131906,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0014.png",
+      "sha256": "fcec73fd4ba14d92f1aa36628542de0da6981be609d3d7d0e81cdb90092744b7",
+      "bytes": 131907,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0015.png",
+      "sha256": "9e7cd453cd19837ac0e8b80f0a9e19dc4dd75dc91d2b6c0bcb893f6855f329c9",
+      "bytes": 132265,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0016.png",
+      "sha256": "566ec8b4919afc7013a36a22b3e565fed63f62bfe73a6944c7a88bcfe836812b",
+      "bytes": 133490,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0017.png",
+      "sha256": "f9c87fb56dce282df97e1ac386571283fa9c2cd385270b03c49d61bdf8e3357c",
+      "bytes": 134279,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0018.png",
+      "sha256": "1436b9048dc17d96b1d4cbb195161dd9c4e21d685f2408dba69341c22eb41197",
+      "bytes": 133406,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0019.png",
+      "sha256": "743bfb600cc583f380610a2518579435306b436dfd2343e44ff8d22c556c1f03",
+      "bytes": 132336,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0020.png",
+      "sha256": "109b143822aa0c5345c499231149f253c6e713c0db6b01256350dc4b764a5e81",
+      "bytes": 131923,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0021.png",
+      "sha256": "7b09c91085bec5efc002d1b81060c80fc952770160597e619e833e5e5f065fea",
+      "bytes": 131157,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0022.png",
+      "sha256": "d4517cae2812243fa1ab85efc57476cffa2e2b77514b8fac6560aa9dd1a53fbd",
+      "bytes": 131840,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0023.png",
+      "sha256": "764d6d5b8fdba956887d4753c5bcef4beeb644db6d17ccc52461d07abb9ca7c1",
+      "bytes": 131713,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0024.png",
+      "sha256": "659cd80d71fcb61965c51db718debe5f4f396b0a02695fd54ae77b5a38f1bcb3",
+      "bytes": 132070,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0025.png",
+      "sha256": "1cee50c1f11a4960d51dcc1985721152c42f4908401000e22cbc53d3304c4cfd",
+      "bytes": 132347,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0026.png",
+      "sha256": "87614252d0d80a2ccca42ce60f7e473b3a06f9d05b1cbb0c56533fbdb049ccf7",
+      "bytes": 132608,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0027.png",
+      "sha256": "61c6e8b4860ce065c31aa9c65a8b9dc2472b560eb7fd132931d72679a7d98e4c",
+      "bytes": 132283,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0028.png",
+      "sha256": "212933e21ac201bc2ad7a78d80aa9cd74596730bf5ee60ada1b5b5de365b9ac2",
+      "bytes": 132596,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0029.png",
+      "sha256": "969820ef4a5803902d6ccb3f5c968b516862836088dd2b8277efe3f85021e72e",
+      "bytes": 132503,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0030.png",
+      "sha256": "42c60c4ed427d41d890359539a3807f6c45822005865b4c0505d44499d89f60d",
+      "bytes": 132483,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0031.png",
+      "sha256": "dcbd7760acda3e4ebc9568b739676ac5e7f33bbbc9a7b7ec6ad29dc738947ac2",
+      "bytes": 132463,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0032.png",
+      "sha256": "47dddeb969a468948cf04391275e3fb944309660c26c84f49d9eabc7afe35b25",
+      "bytes": 132476,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0033.png",
+      "sha256": "ad192399bc63bd64756b93e3654a3265e78807bb8f4e22f835e126052aa4379a",
+      "bytes": 132391,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0034.png",
+      "sha256": "10bb10080bff93c5a7c7817defae538e06236c7137e6552b0db7584a9ff1512b",
+      "bytes": 132498,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0035.png",
+      "sha256": "e2608ba202cdd744b8e38494e6ae7bf23f59418d13907d5c67f807b1026150ef",
+      "bytes": 132356,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0036.png",
+      "sha256": "de0b1c678e2af9262431a119f6d8701978073a896fd675ecf237bf1ea26790ee",
+      "bytes": 132370,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0037.png",
+      "sha256": "352df31a29dc7b7d792535b3cc9948b933f69646ff32efcbcef3a9dcd4976128",
+      "bytes": 132080,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0038.png",
+      "sha256": "efe94b6c46cd822be8c32f36903f674479674e4f5f83e4c5f4a3e3ebd78f9c4b",
+      "bytes": 132184,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0039.png",
+      "sha256": "a2342738dd9a129d0376bb2991896fa6dbbd083b57e3a95a2af6d23108af69eb",
+      "bytes": 132190,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/frames/0040.png",
+      "sha256": "b6517e3a75dcecfce2429d671f8d3adc6e706c6bb6a193a77e3ad514a8e03f43",
+      "bytes": 132209,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGBA",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/isolated_registered_strong/preview.mp4",
+      "sha256": "7554031cd551877b1ad5645b5e9b395c8ae080822911589baa2f4d06cb8ff324",
+      "bytes": 56852,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/registered/all_frames.png",
+      "sha256": "d85bd4433ab13c17cf470feb94ddfaa9ae03ae70f9eb5315487c58b5a5748836",
+      "bytes": 1389529,
+      "dimensions": [
+        1204,
+        1356
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/registered/bindings.json",
+      "sha256": "22fc2b9f3ab339f9718749fcf1d52309635d89048aa92a188325255fc890b52f",
+      "bytes": 1581,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/registered/history.json",
+      "sha256": "fceb6704288c10480bfb16030fdddd23fe4ee6b6fce4089b7a3de306e468ac24",
+      "bytes": 16692,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/registered/key_frames.png",
+      "sha256": "dd7ebe0c1aa70fa0e33a0bee860595a989bcb3753d9c301cf39f978065476592",
+      "bytes": 973768,
+      "dimensions": [
+        1400,
+        706
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/registered/native.webm",
+      "sha256": "d6f445e7c7993e20fa80a936a10210ace31ca507dff1518d05e4f50f28b652d5",
+      "bytes": 80782,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/registered/native_frames/0000.png",
+      "sha256": "2f4d0f49209ddfc5c2ce2aa8f6d10c217b9c243c66cf5bfafa4e73cac26d3026",
+      "bytes": 331619,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0001.png",
+      "sha256": "f3d59a6865bf1ce7447b20c486820b8f2ead8ae9b038355839cee34fc11780b2",
+      "bytes": 322604,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0002.png",
+      "sha256": "71102e7b031f8d4b7e33da2115485b72689c68cfbf8e87c08f3f2a9312295867",
+      "bytes": 323998,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0003.png",
+      "sha256": "996788a75edab68d3027b4eb6fe452ba4eba4e3845aec0b47eaaed764b5020b8",
+      "bytes": 325026,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0004.png",
+      "sha256": "fb950d430cf4bb189b78578e76582143ff12be21c35ef092b83dfd9f0fd1344b",
+      "bytes": 332805,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0005.png",
+      "sha256": "2e0185f0a7ecb83d3cc14a8c6e9b67f6f3198fcebe5444f1c84a1d5ce1aa4bbf",
+      "bytes": 332608,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0006.png",
+      "sha256": "f66ee20bc0f9b90b29cb8d75b455f30fc8b5b54629ea7e1ee63e3a21ed178d30",
+      "bytes": 334485,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0007.png",
+      "sha256": "9e908916b720e42e25423b2f9eaa875ccdfda42c4cffb227ae5bad294861678d",
+      "bytes": 332224,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0008.png",
+      "sha256": "a6d16296720d678fad220ac277301f69824b72202996c1e581a82dd37da6258e",
+      "bytes": 333618,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0009.png",
+      "sha256": "e94f5b91b1170fae0fcbaa3891449f9b455eb60c8f837f0161e4705e72c02dc7",
+      "bytes": 331818,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0010.png",
+      "sha256": "899b15eabdfa5e28167a19ff6d2b5cfe5671555510ed032fd6f0da728ff314b3",
+      "bytes": 334218,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0011.png",
+      "sha256": "4c9b0a209dc7485d4c782572b096161839f42ddd8a10e3b1f918b2ad885d976f",
+      "bytes": 331127,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0012.png",
+      "sha256": "bd35e59fb51038f9aed5dd5bd3c9fa5e55a978fccb9f7aa532cc96ada3dbc898",
+      "bytes": 332014,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0013.png",
+      "sha256": "7a96692625eb71ad34ac0c5cd8321fc890d47f72fef7b7ec4155bd82d520788b",
+      "bytes": 329437,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0014.png",
+      "sha256": "f7f759a822872b7ba4008be2dbd7d7365cbae38f8344372e637c166fb5f99d41",
+      "bytes": 331301,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0015.png",
+      "sha256": "a24d43179db1324f37dbaae910a1d1f556b0fec2de5fc92d75a80bce5d4ca78c",
+      "bytes": 329442,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0016.png",
+      "sha256": "3b4b78f29bbf0995e1ee879d953895eed62739cb697f17ee75d65ba16e038225",
+      "bytes": 330758,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0017.png",
+      "sha256": "4a5828bff20d4beba2143d2350f03d1a1ce1a1460bea39e016f14cb46114b4e5",
+      "bytes": 330113,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0018.png",
+      "sha256": "bea9cb5af0bf13882b0684bcb2582f5c081a3b7007adbeefdbe2f901dbd0ede5",
+      "bytes": 333813,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0019.png",
+      "sha256": "52bee80a04e8c328d9f31b06560279f919d778a23eac9e28c27be03e115b847d",
+      "bytes": 332484,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0020.png",
+      "sha256": "48d2211a267c4f3b3763c3a96b0f4652fee291a77a2ff75685eeaef4a4391ae5",
+      "bytes": 334055,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0021.png",
+      "sha256": "9713f7fe10d2d2f3da789f1209d11a86ddf4515bf73ba3bcff568db07c2d45d3",
+      "bytes": 331952,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0022.png",
+      "sha256": "133e2114965ffee74aad02b166872eb6a0efa948e97f459e482b73e83cca40da",
+      "bytes": 335570,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0023.png",
+      "sha256": "79f0a9ce08d53cca0d9be51bc8cf2a07fc7be32a330c0a3747ee8cdaecefb393",
+      "bytes": 334288,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0024.png",
+      "sha256": "186ed318acbdf39c02f8a90ed7567ea4d080ef0ff1119e4dd91261ca6df9d178",
+      "bytes": 336150,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0025.png",
+      "sha256": "f43688065786324b7e836533e4bbd0ed7dd2bcabc975970ec5932217ec40d588",
+      "bytes": 332627,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0026.png",
+      "sha256": "f5b26cf217e0ec04c4e09bd7e5bd756586f21416493daaeafa8a6ca38a2a0643",
+      "bytes": 335694,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0027.png",
+      "sha256": "ef9f00239f93aa17a978cad5092464bdd7f9881c414dbc05648459d1df7920db",
+      "bytes": 333154,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0028.png",
+      "sha256": "f005680835049cd189f1a4bdf20e0f87b426427e79caf8dbb54f4f1ebabd7ca2",
+      "bytes": 334764,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0029.png",
+      "sha256": "0fe725e0a03cb0a49e43b84789eb5e34979e32181a91899191cb3eb194356d28",
+      "bytes": 331274,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0030.png",
+      "sha256": "666611528059daf9ce88ab1899af5ad9db3309d1bcdb9c593e1c1cfdd642281c",
+      "bytes": 333949,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0031.png",
+      "sha256": "ce0b747a7793b7c646581b63fee03646f8dc1c9e5d82762e4a7cca25eb3b96e0",
+      "bytes": 332356,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0032.png",
+      "sha256": "faf32c1ec5bd422ca1f0a46aa080a3086375bdbadc97528447f96b8e8a1ac6f3",
+      "bytes": 333324,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0033.png",
+      "sha256": "12a0787510f74846cc1b1803000416f878441e7818c6df4af88b646e9c42d7a9",
+      "bytes": 331660,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0034.png",
+      "sha256": "82059435cf84748fdeac614bc30e228d65357c7ae8acb8bfa60e22c6afb30eb2",
+      "bytes": 334063,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0035.png",
+      "sha256": "bc1d9b45c9bbdaf61b96f4423d0a7c29d59c10fcdc13f8f55c26d4b59d7eaa6b",
+      "bytes": 334888,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0036.png",
+      "sha256": "e617a90956854043178b6f10629ed0d06ecdb713b3994ee7adc4d289cd76e38c",
+      "bytes": 333113,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0037.png",
+      "sha256": "ae689c6bdcde3aa8b940d2db9ccccc68fc5fb607bf2e1de760c030606465cbd8",
+      "bytes": 329159,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0038.png",
+      "sha256": "78b41421336422ea1bd28366606d897c4f5ba1f0c6e7178341f8768d9c7940eb",
+      "bytes": 326044,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0039.png",
+      "sha256": "ad5836724abde4f19937a07fc1c0fbacca2f56554a0e73ae5529aab44189a493",
+      "bytes": 321574,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/native_frames/0040.png",
+      "sha256": "75c1d0ec3dd3af25dd335af1c15939f44ecf266b7fbcbf1ba9e836ad7c86bef6",
+      "bytes": 323387,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered/preview.mp4",
+      "sha256": "94f40f18fc0efc8bff1e0fe245b71a8c701ddef3177221b059c5cc512bfdb911",
+      "bytes": 82604,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/registered/receipt.json",
+      "sha256": "7fc4f2cb1d29030a102f375798bc2ec103b54feb13d8954326dafe07042233e9",
+      "bytes": 9389,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/registered/workflow.api.json",
+      "sha256": "d6b7158ff8139c771fc497acca82934f94d12ad34f84e963cc57c9629d5eef17",
+      "bytes": 6520,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/registered_strong/all_frames.png",
+      "sha256": "94ca4a91ca1f9d9f690f1f90ea4b76d9b930bd5f94250a69d5b85edff8a8eeea",
+      "bytes": 1357551,
+      "dimensions": [
+        1204,
+        1356
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/registered_strong/bindings.json",
+      "sha256": "ae8408763f4e6ffc7236eec9638fea97869d0b2ecb07b6fa296f2069987fcbc8",
+      "bytes": 1581,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/registered_strong/history.json",
+      "sha256": "366a82088a10fa128a545f7b99b54fe0eb3672daaf9b2740606b89a277046610",
+      "bytes": 17000,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/registered_strong/key_frames.png",
+      "sha256": "0e3c00d9a7dd70f126803d8c6bdcf4276803f7d62ecedf0da170e25bd9a08e79",
+      "bytes": 962906,
+      "dimensions": [
+        1400,
+        706
+      ],
+      "mode": "RGB",
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/registered_strong/native.webm",
+      "sha256": "f19ed2108bd585e8804d351d00161d5dd614dccfea7777c518775649e9d8140f",
+      "bytes": 79487,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0000.png",
+      "sha256": "e1895d602b7c51c6c10b46221566591a029d446ccb1b1eadbfe3744a66b723b2",
+      "bytes": 336168,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0001.png",
+      "sha256": "7500fd28c27f5b8b3cd51ea9435aabac25cc3b7e639a8b802272e5ae4fe87967",
+      "bytes": 330565,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0002.png",
+      "sha256": "5a36e53f536b3c4bc1285002474b75677ced89927da30d2480d97906034b8d4b",
+      "bytes": 329783,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0003.png",
+      "sha256": "8bcce757d4913346d313da5f1ab59f95f3acbd1e63249a1e410b1eb0b073f2ac",
+      "bytes": 323410,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0004.png",
+      "sha256": "725b5823e9a8224793c4cf5ad91be3437ad72a9ffac47eab3fd09ad1b89269df",
+      "bytes": 321552,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0005.png",
+      "sha256": "7434c36647f7e1e4f4c29d91ea79f9f235dcf324f1480e07862304a4a0ba10e7",
+      "bytes": 318752,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0006.png",
+      "sha256": "9fb1be54175820e091def7321dad7f31d68f6762e6b7549dd55464b73e77f32b",
+      "bytes": 323772,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0007.png",
+      "sha256": "c08392a6bccad804c5f6a156d128fe283980bb885da510e3a8e74942bd2c41c3",
+      "bytes": 320655,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0008.png",
+      "sha256": "1e4e0f2bcf34c7d3b85b91eb3fbaccf4aa1f1d0b309f6cb61cb40a001df83d8a",
+      "bytes": 325277,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0009.png",
+      "sha256": "cdc84791ee2ff448e24cac588a5620e03c265a4835c9d6296606c98e5f4a00c8",
+      "bytes": 324364,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0010.png",
+      "sha256": "3b6aab0ca4fa4a27665d790003ee32e324f9e76c90c725ea3193c98d64cda9d3",
+      "bytes": 328010,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0011.png",
+      "sha256": "1d342de5f19b954555b428c623831fec8f2e534297326a2e9a3d144c6016dcb6",
+      "bytes": 326131,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0012.png",
+      "sha256": "26a0f7e5c73ea7a9da663cc62d4e3d4a6ef81e2e35b6341906de0a830968a5bb",
+      "bytes": 328634,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0013.png",
+      "sha256": "9653fab88aca332a8881cdd49cafac74aba028c4368b83e2671a2a986a6296d7",
+      "bytes": 325212,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0014.png",
+      "sha256": "ef5b79dd3df69cc716b1b40057374a50dcb03a2757d5770ecb0e55c4f3e2fd7b",
+      "bytes": 327905,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0015.png",
+      "sha256": "ba1783d43dbbf0194151ae77a699f09070165917b9c5f049d54103d8e75a9682",
+      "bytes": 324935,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0016.png",
+      "sha256": "2b1e780e4bd956a196e79979376e0d0a8c6f22876816eef04ad053362baf0d5f",
+      "bytes": 328321,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0017.png",
+      "sha256": "9fc4a78bf3d7588a2fc0aafa0335384af6855c031f94788432496ededc2f4327",
+      "bytes": 326286,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0018.png",
+      "sha256": "601af98290303bbf1c372af862f2bfdd7f036facd7c5476ec877ac65109a34bd",
+      "bytes": 328672,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0019.png",
+      "sha256": "a1afc0d36dfe2291f0007eb9b5a2a962515005af0acb1b188359674b0b36f366",
+      "bytes": 325911,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0020.png",
+      "sha256": "620bb1683f6e56d598300ee385b9dd785d1e69c9abc1f6e5d6eadd56e09c5561",
+      "bytes": 328597,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0021.png",
+      "sha256": "7285767e8fa8b872da6fedac211aa58741d99e46e26d0d4ff3d189a81868c18d",
+      "bytes": 327026,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0022.png",
+      "sha256": "ca5db0b9b0dd64ec6e24e827a85dadcf2e9706fad527fe579aba75dccb44a5d3",
+      "bytes": 330547,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0023.png",
+      "sha256": "1a49aed42d7df1c1de77ecf84e3d6cec9b49b7b9e38c0560df77d0347a207de6",
+      "bytes": 327191,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0024.png",
+      "sha256": "8e4ddbc5eb15a0db884e38d1eb770053a0b54a406e5dda97adfd1e18a67bbe13",
+      "bytes": 331322,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0025.png",
+      "sha256": "22eb301d8c2c8bf4194a2b771c6981d76ade3e959744a1c3c0bb02f887d06a3e",
+      "bytes": 327444,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0026.png",
+      "sha256": "b2dea85d231401dbad9dfabf3fb77ff97052b38840a24cb58be228c1908808b9",
+      "bytes": 329937,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0027.png",
+      "sha256": "54d28ff292c22128c54adcb177a10e7330fd2dc6646efd9277477286c638d8d1",
+      "bytes": 326355,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0028.png",
+      "sha256": "479441079311866732ae1c02ccf141fa0c64fce62cdbaa72fa4f28d6b3becb2d",
+      "bytes": 327579,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0029.png",
+      "sha256": "722a147c21a3e278523779232be35018582cf2c61770fc8e45b9f53212566270",
+      "bytes": 324115,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0030.png",
+      "sha256": "074b7e7a426bed0f7ec145623a4a8b06fdf31619c93a2db68c18282a8354ff70",
+      "bytes": 326603,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0031.png",
+      "sha256": "4c3dcff0443dae9765ca5ecfdb52857cef0cbe056ecc5ae653e591de112e2730",
+      "bytes": 322943,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0032.png",
+      "sha256": "1c76d645db045c7264123725512db2840a0013511a48053d26db55709698842b",
+      "bytes": 323726,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0033.png",
+      "sha256": "d0f3e8d63c17f9544b5399863c6a2c186096d5571d157a8ec0faae599e4f4e08",
+      "bytes": 319507,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0034.png",
+      "sha256": "e881ef9191f205748d817a9dcc74649249d8eff5ea77ce6cb6e50b745f07596b",
+      "bytes": 321443,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0035.png",
+      "sha256": "bb670f27e8479b8a882aee0f599ccebe7c2c07edf00bab6892e0cf78879adb18",
+      "bytes": 317977,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0036.png",
+      "sha256": "cda5802c98384c79866bce7d4164bdc075018f3f7ec59e7768f1443bcb5bb063",
+      "bytes": 319559,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0037.png",
+      "sha256": "e59675cc1780567f8d756b2c9291d725ba39680b6d88806c3f4a3402fd8756a0",
+      "bytes": 320418,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0038.png",
+      "sha256": "e40d347a7e47876f7b17df9fcd0a4ca3e94afa4528027f68afdcb70aace8ece6",
+      "bytes": 326733,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0039.png",
+      "sha256": "400938ddf6321c6b02ef94057716c9ddff221d417722749605d5c73fed6af02f",
+      "bytes": 326850,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/native_frames/0040.png",
+      "sha256": "febfe9d5aee6e2187058dd7f92cde2512cf2cb2ef25b62aa0b67a0505f53a4e2",
+      "bytes": 332740,
+      "dimensions": [
+        896,
+        512
+      ],
+      "mode": "RGB",
+      "role": "native_generated_frame"
+    },
+    {
+      "path": "results/registered_strong/pre_submission.json",
+      "sha256": "0112e9913b9601891d58a500c24216dbe1713916b2f4d747153a5cda757d64d1",
+      "bytes": 153,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/registered_strong/preview.mp4",
+      "sha256": "51163e91b14869488f5adf25ca6edefe47223bba960ed0ad9bb7c24a9c7c24f8",
+      "bytes": 87700,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/registered_strong/receipt.json",
+      "sha256": "e4bf069d01444038330cd69b48ece08b192f91c9e4ba457fe1a4f22334888245",
+      "bytes": 20872,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "results/registered_strong/workflow.api.json",
+      "sha256": "83ce9892b6dcda94c23e05ed9ddfeb4218704c164b883182ab51a73e22c7ef8a",
+      "bytes": 6534,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "scripts/crisp_wave.lua",
+      "sha256": "bc4786fdab9c39bac1db80801255a3a8e02e76f5396e114e61c44c6c584bb6c6",
+      "bytes": 5730,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "scripts/finish_figure.lua",
+      "sha256": "929c08f1262fd227f71285deebfd4f9a5260c5ef091f2055c0be790be5b4a302",
+      "bytes": 1368,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "scripts/finish_wave.lua",
+      "sha256": "1ce7a7774bc1b9bb3c9e9befcbb5a3c9d6ea688bd501a26a333c8a7dcec4e650",
+      "bytes": 2838,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "scripts/prepare_figure_keys.lua",
+      "sha256": "984ac0045137abb7dad127c998d829bf24b7421c3d7fbf1977e3e7e4cadeef6e",
+      "bytes": 1117,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "scripts/prepare_registered_keys.lua",
+      "sha256": "5a81d0d44d0f49d9cddf96f40c1003fb547259b5705389d705e1d3f8bb2d6ed0",
+      "bytes": 3354,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "scripts/refresh_packet.py",
+      "sha256": "03c8c44aa7af86a14987950e2c497a620921f3f373626328acde01dc33690cb0",
+      "bytes": 2985,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "scripts/render_take.py",
+      "sha256": "74fee1e647ba9f82a5c876c61ee5973f86cdb922c06b8d691d628ea0a7ce2681",
+      "bytes": 6757,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "scripts/reopen_wave.lua",
+      "sha256": "d112023391bce1880a7964dd085747d19f900cd21541fbc2d0353e8ce1cb042d",
+      "bytes": 410,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "scripts/verify_crisp.py",
+      "sha256": "5551e54a7c572bc2bc09ede1b361aabb74ffa5ab789c576fbee7425532ec7071",
+      "bytes": 3963,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "scripts/verify_figure.py",
+      "sha256": "2080b89a52043f6c246feeaa5460d5ad974861363262144dea9c768f77bf6ffc",
+      "bytes": 3974,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "scripts/verify_remote.py",
+      "sha256": "88fe33f48dff3f0e9a86bb1066aae7d8cff977ef815423ef9dd4a0fd52b5755c",
+      "bytes": 3828,
+      "role": "source_or_derivative_reference_study"
+    },
+    {
+      "path": "scripts/verify_sample.py",
+      "sha256": "9912984c63161516e383bfb616a61f2413225ae26a1e853d3b45099b41791bcf",
+      "bytes": 4931,
+      "role": "source_or_derivative_reference_study"
+    }
+  ],
+  "payload_sha256": "360bae0e72b856b6e4aa2989457e6010a460ca52b92fa30b33d630ccc796c8d5",
+  "acceptance": "No production/runtime/device/child/owner acceptance; see README/review receipts."
+}

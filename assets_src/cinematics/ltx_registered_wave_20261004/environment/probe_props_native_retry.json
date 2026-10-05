@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "exit_code": 0,
+  "timeout": false,
+  "elapsed_seconds": 11.0,
+  "command": [
+    "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+    "--headless",
+    "-s",
+    "scripts/probe_props.gd",
+    "--",
+    "--touch",
+    "--classic-touch-test"
+  ],
+  "engine_baseline": "4.7.2-stable",
+  "engine_path": "C:\\Users\\Peter\\AppData\\Local\\Programs\\MermaidReefTools\\Godot\\4.7.2\\godot_console.exe",
+  "save_isolated": true,
+  "source_sha256": "3096e78f8108439bdb730a9302d259fdd86ac7bbded032621fda82f0155c8b37",
+  "failure_regex_unchanged": "FAIL|FAILED|ISSUE|TIMEOUT|STUCK|DID NOT|MISSING|SCRIPT ERROR|Parse Error|Compile Error",
+  "runtime_regex_unchanged": "SCRIPT ERROR|Invalid assignment of property or key|The tweened property .* does not exist|ERROR:.*(Failed loading resource|Cannot open file|No loader found|Resource file not found)",
+  "log_sha256": "c2b732eb8c197eb5004fec74f7df0fb71d031b4dff532a6de5e16c2564a3125c",
+  "log": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nPROPS|stage + arena shell build: OK\nPROPS|4 props spawn under the cap: OK\nPROPS|fleet settles on the stage floor via the solver: OK\nPROPS|arena walls keep the fleet on the promenade: OK\nPROPS|settled fleet stays put with nobody near: OK\nPROPS|settled fleet is asleep (perf contract): OK\nPROPS|contact push shoves the prop away: OK\nPROPS|stirred prop rides the solver tide: OK\nPROPS|tide fades and the fleet sleeps again: OK\nPROPS|sleeping sprite sways with the wave: OK\nPROPS|cosmetic tide never moves the body: OK\nPROPS|a breach-tier proc spawns splash + ripple cards: OK\nPROPS|the per-emitter cooldown holds: OK\nPROPS|the concurrent-card cap holds: OK\nPROPS|cards animate out and free themselves: OK\nPROPS|every shipped atlas matches the KINDS grid: OK\nPROPS|a card flipbooks the atlas art: OK\nPROPS|the foam waterline builds and tiles: OK\nPROPS|the waterline drifts with the water clock: OK\nPROPS|freed waterlines are pruned: OK\nPROPS|a prop crossing the waterline procs a splash: OK\nPROPS|fleet cap holds at PROPS_MAX: OK\nPROPS|teardown reclaims every body: OK\nPROPS|no orphan spawns after teardown: OK\nPROPS|result: ALL OK\n",
+  "positive_verdict": "PROPS|result: ALL OK",
+  "verification_repair": "Original receipt expected PROPS|ALL OK; native game exited0 with actual PROPS|result: ALL OK. Corrected marker parsing without rerunning or changing the probe/gates. Earlier receipt retained as verification history."
+}
