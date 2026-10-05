@@ -6181,23 +6181,11 @@ func set_attack_profile(next_color: Color, next_effect: String) -> bool:
 
 
 func _open_day_one_art_studio() -> bool:
-	if castle_room_stage == null or castle_room_id != "craft_room" \
-			or not day_one_is_active() \
-			or _day_one_ref().is_room_completed("art"):
-		return false
-	if _day_one_art_studio != null and is_instance_valid(_day_one_art_studio):
-		_day_one_art_studio.refresh_from_state()
-		return true
-	_day_one_art_studio = DayOneArtStudioLogic.new() as DayOneArtStudio
-	castle_room_stage.add_child(_day_one_art_studio)
-	_day_one_art_studio.setup(self)
-	return true
+	return _day_one_flow_ref()._open_day_one_art_studio()
 
 
 func _close_day_one_art_studio() -> void:
-	if _day_one_art_studio != null and is_instance_valid(_day_one_art_studio):
-		_day_one_art_studio.teardown()
-	_day_one_art_studio = null
+	_day_one_flow_ref()._close_day_one_art_studio()
 
 
 func day_one_is_active() -> bool:
@@ -6422,48 +6410,13 @@ func _day_one_begin_arrival() -> void:
 		_day_one_ref().trigger_arrival_plane_media()
 
 func _day_one_discover_dirty_castle() -> void:
-	if not day_one_is_active():
-		return
-	_day_one_ref().discover_dirty_castle()
-	_day_one_attach_castle_dressing()
-	_day_one_arm_boss_door()
+	_day_one_flow_ref()._day_one_discover_dirty_castle()
 
 func _day_one_attach_castle_dressing() -> void:
-	if not day_one_is_active() or castle_room_stage == null:
-		return
-	if day_one_castle_dressing == null \
-			or not is_instance_valid(day_one_castle_dressing):
-		day_one_castle_dressing = DayOneCastleDressing.create_dressing(
-			castle_room_stage)
-		day_one_castle_dressing.name = "DayOneDirtyCastleDressing"
-		day_one_castle_dressing.z_index = 20
-	_day_one_sync_castle_dressing()
+	_day_one_flow_ref()._day_one_attach_castle_dressing()
 
 func _day_one_sync_castle_dressing() -> void:
-	if day_one_is_active() and castle_room_stage != null:
-		var logical_room: String = String(DAY_ONE_CASTLE_ROOM_IDS.get(castle_room_id, ""))
-		if logical_room != "":
-			_day_one_play_story_clip_for_room(logical_room, _day_one_ref())
-	_sync_day_one_art_studio()
-	if day_one_castle_dressing == null \
-			or not is_instance_valid(day_one_castle_dressing):
-		return
-	var director: DayOneDirector = _day_one_ref()
-	var room_dirty: Dictionary = {}
-	var door_unlocked: Dictionary = {}
-	for castle_room_value: Variant in DAY_ONE_CASTLE_ROOM_IDS.keys():
-		var castle_room: String = String(castle_room_value)
-		var logical_room: String = String(DAY_ONE_CASTLE_ROOM_IDS[castle_room])
-		room_dirty[castle_room] = not director.is_dust_bunny_cleaned(logical_room)
-		door_unlocked[castle_room] = director.can_enter_room(logical_room)
-	day_one_castle_dressing.update_dressing(0.0, {
-		"room_dirty": room_dirty,
-		"door_unlocked": door_unlocked,
-		"boss_back_door_active": director.boss_door_glow,
-		"visible_room_id": castle_room_id,
-	})
-	if _castle_rooms_25d != null and _castle_rooms_25d.is_open():
-		_castle_rooms_25d.refresh_door_states()
+	_day_one_flow_ref()._day_one_sync_castle_dressing()
 
 
 func _sync_day_one_bathroom_cleanup() -> void:
@@ -6521,10 +6474,7 @@ func _sync_day_one_bathroom_cleanup() -> void:
 
 
 func _clear_day_one_bathroom_cleanup() -> void:
-	if _day_one_bathroom_cleanup != null \
-			and is_instance_valid(_day_one_bathroom_cleanup):
-		_day_one_bathroom_cleanup.teardown()
-	_day_one_bathroom_cleanup = null
+	_day_one_flow_ref()._clear_day_one_bathroom_cleanup()
 
 
 func _on_day_one_bathroom_cleanup_step(step: int, cleanup_id: String) -> void:
@@ -6551,45 +6501,15 @@ func _on_day_one_bathroom_finale_started() -> void:
 
 
 func _on_day_one_bathroom_cleanup_completed() -> void:
-	if not day_one_complete_bathroom_scene():
-		return
-	_clear_day_one_bathroom_cleanup()
-	_day_one_sync_castle_dressing()
-
-
-func _sync_day_one_art_studio() -> void:
-	var should_show: bool = day_one_is_active() \
-		and castle_room_stage != null \
-		and castle_room_id == "craft_room" \
-		and not _day_one_ref().is_room_completed("art")
-	if should_show:
-		_open_day_one_art_studio()
-	else:
-		_close_day_one_art_studio()
+	_day_one_flow_ref()._on_day_one_bathroom_cleanup_completed()
 
 
 func _day_one_clear_castle_dressing() -> void:
-	_day_one_cancel_story_clips()
-	_clear_day_one_bathroom_cleanup()
-	_clear_day_one_bathroom_movie_handoff()
-	_day_one_bathroom_movie_handoff_pending = false
-	_day_one_bathroom_entry_movie_checked = false
-	_clear_day_one_pool_route()
-	_restore_day_one_bathroom_controls()
-	_close_day_one_art_studio()
-	if day_one_castle_dressing != null \
-			and is_instance_valid(day_one_castle_dressing):
-		day_one_castle_dressing.teardown()
-	day_one_castle_dressing = null
+	_day_one_flow_ref()._day_one_clear_castle_dressing()
 
 
 func _clear_day_one_bathroom_movie_handoff() -> void:
-	if _day_one_bathroom_movie_handoff != null \
-			and is_instance_valid(_day_one_bathroom_movie_handoff):
-		_day_one_bathroom_movie_handoff.stop()
-		_day_one_bathroom_movie_handoff.queue_free()
-	_day_one_bathroom_movie_handoff = null
-	_day_one_bathroom_movie_handoff_pending = false
+	_day_one_flow_ref()._clear_day_one_bathroom_movie_handoff()
 
 
 func _start_day_one_bathroom_movie_handoff() -> void:
@@ -6662,18 +6582,7 @@ func _day_one_bathroom_entry_movie_blocks_cleanup() -> bool:
 
 
 func _show_day_one_pool_route() -> void:
-	if not day_one_is_active() or castle_room_stage == null \
-			or not _day_one_ref().can_enter_room("pool"):
-		return
-	if _day_one_bathroom_movie_handoff_pending \
-			or _day_one_bathroom_movie_is_playing():
-		return
-	# Back returns to the hall, where the next unlocked painted door glows.
-	_restore_day_one_bathroom_controls()
-	if _day_one_room_handoff_target == "mermaid_pool" \
-			and _day_one_room_handoff_source == castle_room_id:
-		return
-	_show_day_one_room_handoff("mermaid_pool", "day_one_pool_ready")
+	_day_one_flow_ref()._show_day_one_pool_route()
 
 
 func _show_day_one_room_handoff(target_room: String,
@@ -6768,26 +6677,11 @@ func _sync_day_one_pool_route() -> void:
 
 
 func _day_one_bathroom_movie_is_playing() -> bool:
-	if _day_one_bathroom_movie_handoff == null \
-			or not is_instance_valid(_day_one_bathroom_movie_handoff):
-		return false
-	return bool(_day_one_bathroom_movie_handoff.audit_snapshot().get(
-		"player_active", false))
+	return _day_one_flow_ref()._day_one_bathroom_movie_is_playing()
 
 
 func _day_one_bathroom_navigation_controls() -> Array[Control]:
-	var controls: Array[Control] = []
-	var candidates: Array[Node] = [
-		castle_room_action_button,
-		castle_room_back_button,
-		castle_room_menu_panel,
-	]
-	for candidate: Node in candidates:
-		var control: Control = candidate as Control
-		if control != null and is_instance_valid(control) \
-				and not controls.has(control):
-			controls.append(control)
-	return controls
+	return _day_one_flow_ref()._day_one_bathroom_navigation_controls()
 
 
 func _suspend_day_one_bathroom_controls() -> void:
@@ -6815,22 +6709,7 @@ func _suspend_day_one_bathroom_controls() -> void:
 
 
 func _restore_day_one_bathroom_controls() -> void:
-	if not _day_one_bathroom_controls_suspended:
-		return
-	for state: Dictionary in _day_one_bathroom_control_state:
-		var control: Control = state.get("control") as Control
-		if control == null or not is_instance_valid(control):
-			continue
-		control.visible = bool(state.get("visible", true))
-		control.mouse_filter = int(state.get("mouse_filter",
-			Control.MOUSE_FILTER_STOP))
-		var button: BaseButton = control as BaseButton
-		if button != null:
-			button.disabled = bool(state.get("disabled", false))
-	_day_one_bathroom_control_state.clear()
-	_day_one_bathroom_controls_suspended = false
-	castle_room_menu_open = _day_one_bathroom_menu_was_open
-	_set_world_controls_enabled(true, "day_one_bathroom_lifecycle")
+	_day_one_flow_ref()._restore_day_one_bathroom_controls()
 
 
 func _clear_day_one_pool_route() -> void:
