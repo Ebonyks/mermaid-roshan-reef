@@ -149,6 +149,31 @@ the complete redraw/retake spans. Whole-figure registration can remove global
 size/position drift; it cannot repair torn anatomy, blur or internal stretching.
 Do not publish a corrected-loop claim while those defects or the loop seam fail.
 
+Separate **global registration** from **internal anatomy acceptance**. Apply a
+continuous uniform scale/translation to every frame with reliable corresponding
+anchors, including frames whose internal proportions fail. Preserve and tag those
+failures after correction. Never let an anatomy flag silently bypass registration
+and restore an uncorrected frame to the review sequence. Missing/ambiguous anchors
+require recorded native measurement review; do not fill them by copying a neighbor.
+
+Keep one common scale and stage contract across the complete clip, as in the
+[Grok master handoff formula](../GROK_MASTER_HANDOFF_FORMULA_2026-08-30.md).
+Opening-frame layout establishes scale before motion. Model keyframes and Aseprite
+slice metadata remain soft inputs unless an actual runtime constraint consumes them.
+Use subpixel scale and translation rather than coarse canvas-ratio scale steps;
+perform one whole-frame spatial resample from the preserved native frame. Same-frame
+bilinear sampling is a declared spatial transform, not temporal interpolation.
+Record a constant layout offset when required to protect visible boundary pixels;
+do not claim it reconstructs already cropped anatomy.
+
+Verify exported pixels, all timeline indices (including geometry failures), global
+root/scale residuals, clipping and internal proportions separately. A global fit does
+not prove a fixed head-to-torso ratio or a stable tail shape. Inspect head, shoulder,
+torso and tail landmarks in pose context before artwork acceptance. Source-loop
+errors remain failures; do not hide them with repeated frames, a partial-body warp
+or a tighter crop. The [zero-generation filter correction](../../assets_src/cinematics/ltx25_scale_filter_v2_20261004/README.md)
+retains the faulty v1 evidence and compares raw/v1/v2 footage at the same timeline.
+
 The [multi-anchor wave correction](../../assets_src/cinematics/ltx25_8gb_wave_20261004/README.md)
 retains the original inconsistent key, one named complete-figure redraw, native
 Aseprite registration measurements and a bounded follow-up. It is source evidence,
