@@ -8,6 +8,7 @@ more resources and continued testing.
 | LTX-specific NAG | Executed locally with actual negative attention; finger tearing remains. Optional, not default for this wave. |
 | Higher temporal density | 81 frames at 48 fps, same action duration/poses/seed. Mid-lowering key clearer, neighboring figure still smeared. |
 | Official Refine Details IC-LoRA | Best next bounded repair candidate: frame-aligned video detail reconstruction. Separate gate pending; quantized execution unproven. |
+| Official Deblur IC-LoRA | Trained for spatial defocus; its card explicitly excludes motion blur. Not downloaded or run for this defect. |
 | Full DFR | Official generated-keyframe plus spatial-detailing pipeline; extra compute/VRAM. Ordinary 8+3 is not full DFR. Not run. |
 | Community de-rope | Slow repeated inputs, regeneration, exact clock recovery. Alpha large LTX tests peak 59–60 GiB. No local or 8 GB execution claim. |
 | Decoder/export diagnosis | 2.5 diffusion decoder confirmed; single-image key fingers readable. Native moving PNGs already fail before MP4. No decoder-multistep test claimed. |
@@ -30,6 +31,10 @@ extra generated keys plus detailing IC-LoRA; optional temporal upscaler.
 8/16-frame holds respond to LTX's temporal compression in the pinned flat-clock
 experiments. Its large-memory recipe is not an 8 GB solution.
 
+The official [Deblur card](https://huggingface.co/Lightricks/LTX-2.5-22b-IC-LoRA-Deblur/blob/7d0cf41dcc6c93d763346e17f76d5f8d64d0e2ff/README.md) distinguishes defocus from motion blur.
+Its training lacks temporal blur, so the name does not establish a fix for
+our tearing or ghosted moving fingers.
+
 ## Prepared adapter test
 
 One candidate after access approval: use all 41 native base frames unchanged,
@@ -41,4 +46,4 @@ prove execution.
 
 Total generation cap 5 includes the earlier 3, one temporal-density take and at
 most one named official detail test. Gated download failures remain recorded.
-Existing 28 GB download/wall caps remain; base plus adapter 27,266,271,558bytes.
+Existing 28 GB download/wall caps remain; base plus adapter 27,266,271,558 bytes.

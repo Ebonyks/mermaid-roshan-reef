@@ -27,8 +27,8 @@
     },
     {
       "path": "briefs/BLUR_REPAIR_METHODS.md",
-      "sha256": "60ff5a3911a47e622f30a274f59802d2d8627d7077a27581a4ddd569f58d5dcd",
-      "bytes": 3260,
+      "sha256": "6703d1311f25e19c769dd193e46b9a8a5520927e5722e041335d5cd54698d490",
+      "bytes": 3706,
       "acceptance": "SOURCE_ONLY; rejected footage, owner/device/child acceptance absent",
       "role": "workflow_or_actual_evidence",
       "modification_status": "Source-side research, code or measured receipt; no pixel acceptance.",
@@ -1406,6 +1406,17 @@
       "path": "environment/comparison_verification.json",
       "sha256": "26ce6155dc2ff18c9a614a44eab32ef773ec59399a1ad8d82ba5e7b34b754691",
       "bytes": 343,
+      "acceptance": "SOURCE_ONLY; rejected footage, owner/device/child acceptance absent",
+      "role": "workflow_or_actual_evidence",
+      "modification_status": "Source-side research, code or measured receipt; no pixel acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan/Aseprite derivatives; prior named ImageGen key per previous source manifest; generated2.5 outputs under LTX-2.x community model terms. Weights not redistributed."
+    },
+    {
+      "path": "environment/deblur_scope_research.json",
+      "sha256": "dc0725de737bc2587860fd371ba8500ec42c7c545880503fd3c93863871716e7",
+      "bytes": 825,
       "acceptance": "SOURCE_ONLY; rejected footage, owner/device/child acceptance absent",
       "role": "workflow_or_actual_evidence",
       "modification_status": "Source-side research, code or measured receipt; no pixel acceptance.",
@@ -19984,7 +19995,7 @@
       "license_provenance": "Project-owned Roshan/Aseprite derivatives; prior named ImageGen key per previous source manifest; generated2.5 outputs under LTX-2.x community model terms. Weights not redistributed."
     }
   ],
-  "payload_sha256": "45ce0004ae95ceac3b9c603c2eb16a745fd09be1ef20c4e7238fb7d10bdc4315",
+  "payload_sha256": "13ad44efbf43522de4be442313f874b91d294c399011adedf90a07395aeb5c8f",
   "model_weights_redistributed": false,
   "accepted": false,
   "actual_model_jobs": 4,

@@ -1,0 +1,13 @@
+{
+  "checked_at_utc": "2026-10-05T02:05:06.065564+00:00",
+  "repository": "Lightricks/LTX-2.5-22b-IC-LoRA-Deblur",
+  "revision": "7d0cf41dcc6c93d763346e17f76d5f8d64d0e2ff",
+  "source": "https://huggingface.co/Lightricks/LTX-2.5-22b-IC-LoRA-Deblur/blob/7d0cf41dcc6c93d763346e17f76d5f8d64d0e2ff/README.md",
+  "classification": "Defocus restoration, not motion-smear repair",
+  "facts": [
+    "The official card excludes motion-blur removal: training contains no temporal/motion blur.",
+    "It recommends frame-aligned reference video and warns that severe missing information may be invented.",
+    "Not downloaded or executed; no access agreement accepted."
+  ],
+  "decision": "Do not substitute Deblur for the proposed Refine Details test of generated softness; neither establishes repaired finger topology."
+}

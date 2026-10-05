@@ -207,6 +207,10 @@ negative 'painting'. The [official guide](https://docs.ltx.io/open-source-model/
 does not guarantee restored identity or artifact removal. Full DFR is a separate
 generated-keyframe/detailing pipeline, not the ordinary three-step refine pass.
 
+The official [Deblur adapter](https://huggingface.co/Lightricks/LTX-2.5-22b-IC-LoRA-Deblur/blob/7d0cf41dcc6c93d763346e17f76d5f8d64d0e2ff/README.md) addresses spatial defocus
+and explicitly excludes motion-blur removal. Its name does not establish a
+solution to torn or ghosted moving fingers; it was not downloaded or tested.
+
 Community [de-rope](https://github.com/matlowai/ComfyUI-MAINodes/blob/generic-derope/DEROPE_ANY_MODEL.md)
 addresses compressed temporal context with slow held inputs, regeneration and
 exact frame recovery. The pinned author's d16/d8 experiments are alpha and

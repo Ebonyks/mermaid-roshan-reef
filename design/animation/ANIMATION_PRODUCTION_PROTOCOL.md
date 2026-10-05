@@ -148,6 +148,8 @@ IC-LoRA, and the complete DFR pipeline. They perform different work. Record the
 actual loaded decoder class and matched checkpoint; do not claim a quality
 feature is enabled merely from the model version. Consult the exact adapter's
 training bucket, guide contract, sampler and legal geometry before use.
+Match the degradation to the adapter: the official Deblur card excludes
+motion-blur removal because it was trained only for spatial defocus.
 Higher temporal sampling or slower planned motion can reduce travel per latent
 block, but require a bounded same-action test with exact source/output frame
 mapping. Dropping generated frames is declared cadence, not proof of anatomy.
