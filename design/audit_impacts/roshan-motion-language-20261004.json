@@ -42,7 +42,8 @@
   "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
   "audit/MASTER_AUDIT_2026-08-09.md",
   "audit/animation/README.md",
-  "design/05_DOC_LEDGER.md"
+  "design/05_DOC_LEDGER.md",
+  "docs/handoffs/codex_roshan_motion_language_2026-10-04/REMOTE_VERIFICATION.json"
  ],
  "validation": [
   {
@@ -82,8 +83,8 @@
   },
   {
    "command": "Anonymous raw.githubusercontent.com fetch of every packet file at the pushed commit, compared by SHA-256 with MANIFEST.json",
-   "result": "PENDING",
-   "evidence": "Required by the GitHub delivery rule before the handoff is called delivered."
+   "result": "PASS",
+   "evidence": "Commit 7429f57d343797fb2479ceb2c7a327238d310e5e: 7 of 7 files (README, ANALYSIS, data, tool, MANIFEST, this impact record, the findings register) returned HTTP 200 anonymously and matched SHA-256 at 2026-10-05T00:35:33+00:00; receipt docs/handoffs/codex_roshan_motion_language_2026-10-04/REMOTE_VERIFICATION.json."
   },
   {
    "command": "Branch Probe Suite CI on the pushed head",
