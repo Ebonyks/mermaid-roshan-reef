@@ -82,6 +82,7 @@
     "assets_src/cinematics/ltx25_scale_filter_v2_20261004/registered_review.aseprite",
     "assets_src/cinematics/ltx25_scale_filter_v2_20261004/registered_review.mp4",
     "assets_src/cinematics/ltx25_scale_filter_v2_20261004/registration_plan.json",
+    "assets_src/cinematics/ltx25_scale_filter_v2_20261004/remote_verification.json",
     "assets_src/cinematics/ltx25_scale_filter_v2_20261004/scripts/compare.lua",
     "assets_src/cinematics/ltx25_scale_filter_v2_20261004/scripts/feedback.py",
     "assets_src/cinematics/ltx25_scale_filter_v2_20261004/scripts/prepare.py",
@@ -132,8 +133,8 @@
     },
     {
       "command": "Anonymous immutable GitHub packet/source verification",
-      "result": "PENDING",
-      "evidence": "remote_verification.json will be written after actual push; no local-only delivery claim."
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/ltx25_scale_filter_v2_20261004/remote_verification.json: anonymous HTTPS at82e000875ec28b1b72d8b6cd4dd2214ecc0bbba6, 225files, 107770492bytes allSHA256PASS, checked2026-10-05T03:50:47.517747+00:00."
     },
     {
       "command": "Exact new-head project CI before dev integration",
