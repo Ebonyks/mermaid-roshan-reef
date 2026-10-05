@@ -50,8 +50,8 @@
     },
     {
       "command": "Anonymous immutable GitHub manifest/payload verification",
-      "result": "PENDING",
-      "evidence": "Separate remote_verification.json written after actual publication."
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/ltx25_8gb_wave_20261004/remote_verification.json: exact revision 037390ef5dcb1e2229224de02b0fb1e69269ebc9, anonymous HTTPS, 633 files, 491975421 bytes; all SHA-256 match; checked 2026-10-05T02:07:27.992055+00:00. Receipt published separately; no creative/device/child acceptance."
     },
     {
       "command": "python -B -m unittest tools.tests.test_audit_document_authority tools.tests.test_audit_development; native comparison and payload checks",
@@ -672,6 +672,7 @@
     "audit/animation/README.md",
     "design/05_DOC_LEDGER.md",
     "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
-    "design/animation/WORKFLOW_OPTIONS_2026-10-03.md"
+    "design/animation/WORKFLOW_OPTIONS_2026-10-03.md",
+    "assets_src/cinematics/ltx25_8gb_wave_20261004/remote_verification.json"
   ]
 }
