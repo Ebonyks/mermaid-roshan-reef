@@ -143,14 +143,14 @@
       "evidence": "Clean merge (8bb6b38d); audit_document_authority, audit_development --base auto, gold_star --check --strict, review_castle_interaction_frames_v4 check and tools.tests.test_gold_star all pass. The merged design/animation/ANIMATION_PRODUCTION_PROTOCOL.md changed a manifest reference hash, so both packet manifests were refreshed in the following commit."
     },
     {
-      "command": "Anonymous remote verification of both packets (MANIFEST.json and every listed file and reference) from raw.githubusercontent.com at the pushed commit",
-      "result": "PENDING",
-      "evidence": "Performed after push; receipt recorded in a follow-up commit."
+      "command": "Anonymous remote verification of both packets: HTTPS GET without credentials from raw.githubusercontent.com/Ebonyks/mermaid-roshan-reef/cbdf623ea299fe91a486022823b7c7826f2a34c8/ for each MANIFEST.json and every listed file and reference",
+      "result": "PASS",
+      "evidence": "Checked 2026-10-05T01:13:43Z. codex_pool_five_star_2026-10-04 revision 1: manifest SHA-256 ce91d7ec6e8013b74e3345b8c43c64d23bd494816e54a9d015c38997aff06337, 54 of 54 items matched bytes and SHA-256. codex_gold_star_2026-10-03 revision 5: manifest SHA-256 93a23b762a89d109499db1acd2c1c3b7b33549db1d2072dae719bde4e5ef799b, 25 of 25 items matched. The tree page for the new packet answered 200 anonymously. An earlier check at the merge head 8bb6b38d found one stale reference (the merged animation protocol) in each manifest; it was refreshed before this receipt."
     },
     {
       "command": "Probe Suite (graphics fork) on the pushed branch head",
       "result": "PENDING",
-      "evidence": "Not yet run."
+      "evidence": "Run 37250519543 on 8bb6b38d was cancelled by the workflow's cancel-in-progress concurrency; run 37250582977 on cbdf623e was superseded by this receipt commit. The branch is merged into dev only after a green run on its exact head, which carries this record."
     },
     {
       "command": "OD2 look-alike review from phone-size captures (Codex P1), phone frame time, observed child session, owner acceptance and listening, owner answers to QP-1 to QP-3",
