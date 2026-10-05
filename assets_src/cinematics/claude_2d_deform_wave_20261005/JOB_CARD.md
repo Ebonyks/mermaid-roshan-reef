@@ -2,6 +2,8 @@
 
 Template: [Animation job card V1](../../../design/templates/ANIMATION_JOB_CARD_V1.md).
 Reference-only study; no runtime, production, device, child or owner acceptance.
+**OWNER_REJECTED 2026-10-05:** "No arm moves as a single figure, the whole body moves at once,
+drawn as a whole frame." Superseded by [revision 2](../claude_whole_frame_wave_20261005/JOB_CARD.md).
 
 ## Brief and limits
 
