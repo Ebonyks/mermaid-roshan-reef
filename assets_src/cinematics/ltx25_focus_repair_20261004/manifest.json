@@ -1,0 +1,2113 @@
+{
+  "schema": "source-study-payload-v1",
+  "status": "REJECTED_REFERENCE_ONLY",
+  "baseline": "19d6de9fca64faf22086ca6c55315cd9eea96bd4",
+  "payload": [
+    {
+      "path": ".gitattributes",
+      "bytes": 32,
+      "sha256": "ee7a981cb09bc8c8674234e7c59d5bbcb921bae780e1e2bb9545960ef150bc22",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "audit_development.bootstrap_failure.log",
+      "bytes": 641,
+      "sha256": "3cb063fa9a028848a057d34d9b92b88a2980d6b98105e3cf750190acd3bbcc21",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "audit_development.log",
+      "bytes": 80,
+      "sha256": "d40235bafaec0660f80290b104844b6dfaa257eab700b2c2f2dce21c2e11a9fd",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "audit_document_authority.bootstrap_failure.log",
+      "bytes": 1072,
+      "sha256": "9758c9bdf5f2d1da4d82620221f38d0015e1d287eac37436d7246833ae058eed",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "audit_document_authority.log",
+      "bytes": 78,
+      "sha256": "97a2eaaa42b4696d653da285df50e071e148b51e7ea70bb9e768498eba5aaafc",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "corrective_job.json",
+      "bytes": 3800,
+      "sha256": "e45c87b4aa52f324435e156d12439372458b5f0bf77276bce9268455070a7046",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "decoder_1_proof.json",
+      "bytes": 545,
+      "sha256": "2f52124396c30bcc9854cb7970ad290afc0c7efb77483dee7eca2f1304b66b4f",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "decoder_1_vs_2.mp4",
+      "bytes": 2725472,
+      "sha256": "71419f1ac6be96aaaaf336d835b9ed65609ba7d8adb9fc3856ce62fae9fb63f0",
+      "role": "same_latent_same_timeline_comparison",
+      "modification_status": "Aseprite1:1 native default-left/experimental2-step-right columns; identical timeline; H264 CRF15 yuv420p preview; no temporal repair.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0000.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0001.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0002.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0003.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0004.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0005.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0006.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0007.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0008.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0009.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0010.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0011.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0012.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0013.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0014.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0015.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0016.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0017.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0018.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0019.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0020.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0021.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0022.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0023.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0024.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0025.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0026.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0027.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0028.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0029.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0030.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0031.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0032.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0033.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0034.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0035.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0036.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0037.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0038.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0039.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0040.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0000.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0001.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0002.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0003.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0004.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0005.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0006.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0007.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0008.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0009.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0010.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0011.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0012.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0013.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0014.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0015.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0016.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0017.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0018.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0019.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0020.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0021.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0022.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0023.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0024.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0025.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0026.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0027.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0028.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0029.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0030.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0031.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0032.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0033.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0034.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0035.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0036.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0037.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0038.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0039.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0040.png"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0000.png": "6c3b43767042af152b8a03141e1a41e176acdbe8c5b185b62bbcb8a6f4233140",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0001.png": "8d9f0d37fef92cf946a999d6350e3596c09af6d725e9ca1229361160e68b0a30",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0002.png": "b6ea04a2b21cec30370b0e360331912e831e789667c28842801d3a243f74e663",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0003.png": "6ded70f6120d0e3a8d9e72aa8ecc79e27b486b535d60f295e5aaac60ca8894a3",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0004.png": "4288ade75b34161511283ae972a6623a70f261f2ed21dca4a68c923577ac060a",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0005.png": "a24a4ae5bd4e2f77e462e900d8673476d76687f5c389113244556650b5a56add",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0006.png": "aad84f81f86da966aa8e5d810bed3860e9a189aae8b013f6ad3f4b9970e838e6",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0007.png": "4ab377d8fd4bf32105dda5ba03a49ac586c2ef04c8d45be47268e90a5a265299",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0008.png": "523b4cf4b8c69fbb98da3be63f16c1081b3c9b9370e1e3979ee3afa435bc808e",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0009.png": "368aeafa870f4bddf21dca59c6a49e9f3c9e8493fab52a465d6ecfedce0bac75",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0010.png": "653118b61a08b965ffb13f8b4ccdd821c47959b96f0ba63ca3e75466d2b34c92",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0011.png": "232a0437c3fc2bb5f6f026cea4b330ad21179efafda2e7825e9c371e6b1da5de",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0012.png": "9d962eb597a17e0d74c68bc82ae3de7f4eb510ba37a01ec8c381bd73ebcdb2c1",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0013.png": "e32677275eefa362586a33b046720bc0c0ed9225260e0790c1a0b91b54ca5ca6",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0014.png": "11a61099421ac8dc413b54b82147022ebedfa599a45185d48acc0d183ce6391c",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0015.png": "09fdca2078be706fa1a4629ec6f4e405ea26ae80cbf8d677c3966ef3d803134f",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0016.png": "d54b110609842bcb228159090fbca20491bc4d6a7add395f185c2e50c260c01e",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0017.png": "15ae47d6695794faef9d58ce3b7d40fcd131859db358e0b1c4c325a3fd29d60a",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0018.png": "655ba10eddfe603e1c2e4bdd7708ddd6cc207f39afd3ef243524c5160fb676f4",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0019.png": "7acfa20d10735fd49f477c59a2b9b5186e8a5bb919982b288af21f43b6c11c69",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0020.png": "47099005b7a6559d6c02d724214d43bf7a4d58e4099265e8af7b41591631eeac",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0021.png": "59b234982143b2829af9cef7018466b8e1a8877a5b46c74fd996c48c3e7a69ab",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0022.png": "0872c6f3d887616d4e8e291271226dd2ed5c277e44c705d1670f480bbf38282d",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0023.png": "f20dd2d7b80a10f8ed07a1ecae4e5391528712b407ba42749203452a0e03dcd5",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0024.png": "9a2ddba793be06930fbbfade9014f845651a631062bfa6f919a60625d8a58415",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0025.png": "ba623b054f2f5199d1405dc687bcaa84a67819fedf4d8e7f7721d463bc421c7b",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0026.png": "7c9fb7e8c78e3d2d5b6a3599af66e6c393b2a851815753a0761185675d47872e",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0027.png": "2f0cf4562e99af28b88a64d59f059b5dbd9e2f103ee59e9e41e6600e2fa69577",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0028.png": "e8ef2ef95aae983aff83e3c00eb896d132c6d362efb490563a27c71fbb5d94ad",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0029.png": "b356c8f11197815ef65715cbea6f81554c503ec2f72ecd4ca3b77cd3627bbbc4",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0030.png": "b9f835bca4baec22dbce47d32aba19bae5a83081ef1e0b9b6b8ff6f521136a3e",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0031.png": "bb24a05fb0dd8d40123005a6eb712c3bb6db48c1de0bb250e07a16873d1056b2",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0032.png": "a10017b1097b7aba52f04222461bb58aae2b7aa54e0baafae1d13c7a5013d04e",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0033.png": "6a3ca14354eaca95379046e4e6f5ff5a590ffaab1ce202a5cb29ce40de07edd1",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0034.png": "42f6a9609b9be16dd8207ee521d11fab9ec589f84590a9b621ac7a2a534717f9",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0035.png": "cdf8819366750c76cb6fd9510371b8214c5c8095c2f09b8bbc9e2b74cea639a1",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0036.png": "0371267d74ab7529c3070fdb080c5a750e8977430b74ef0b1351813e5517e76f",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0037.png": "77ce6ca12dc5b3e48792a64a4e418bbcdd3845aa9fd9a7048b1f645428ad6be2",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0038.png": "782c226cc8788c5afe1e7a5bbf3947d6c1878bc105125ea2468b586f8bc30c9b",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0039.png": "f294aff4df8ed6129286f064e633bc4b040373899c7ea3433b5f994619d3223f",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0040.png": "7fc2cb7700c7a71a914261b71f480a71beab3f921b86d48cb891fc099f969d3c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0000.png": "d784c4e396537b998daca85f9bc2c3c8123400a398dba5a296288ca8b76877bf",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0001.png": "930fb405bb88f81f8963729b1c46a4a0d070abf1308151c0a99f05ae92e7091b",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0002.png": "84625e06278c99a81fdd1a68b0d8e05e4ec7bdfb045dd2644d08ae5ae2a731c9",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0003.png": "ce37c3d4cb98aeddb53fa7cf494960740bd92ddb743c697171de99681fd3bb16",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0004.png": "0fd4a23d2369eba1723fc8e20c8670af4a078a74c0b6963fd20ce4f915c1398b",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0005.png": "f770af893c425a11e48b17f4c42a737aab154b362b6b59c3b90ba8dd3c37d1f3",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0006.png": "ae47d600b16c40f7ec85a8b3c3a367e800b0c6fbdde1ff8dcf02eea2749d12bb",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0007.png": "36fe80d81299711edd2f3361462aeeb8496716766d20d95a0d80c7105732d11d",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0008.png": "22033ba8b695ac4d44a244a6c9499bf360a3ca5a7fac90370ec191c36126d580",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0009.png": "4d0942f62e54110b8c0553cac4f95993459be758a8e8932d5de60087ed225506",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0010.png": "8cdcfe32603f32a6123448022b119461d7ea3755b18dc0eae1c17650e9cba70f",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0011.png": "2de6462333f3fa41bc9650d103ffd01ce8e365c775281565f9610d4133b7f2c6",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0012.png": "d768a93ed73ec39592cb5f92936ab808f4a19d87429377162e4975c4f43bfc08",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0013.png": "dec2dbaa28d4827d90c845c85064891c6ac279637b2e2a9ef95783625e193793",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0014.png": "150bde9432ddb4404f55fc38168d10775ee35cc177bf0645260c08289fc3f94b",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0015.png": "107d98dcd4c1abe794b1f23e0442e4bcfc348fac1ffe32b6a1f85f802d78abda",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0016.png": "5e3309bf8dd3e5642fba383c8821b3d0a3e9d38a71994ae6c8693f6fca5beba4",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0017.png": "31bf15a63fd6a908ce205bdf11959025b15da2f2708932223fbedf09b5ed3215",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0018.png": "327033b372f63c0c6facb5b773e5b2f98888e059df3760fbfc99441e6c5dcdde",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0019.png": "0baa145023429aeeac12b39ddf5a6f00967d4eda58369deb451a5cb99cdc2d7a",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0020.png": "4532973f6f949516ffc312f8cecc4ab885e4c5344f59ad08880e6e30b2376245",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0021.png": "7bab23e5d829346f45b314cc4ec13ec60a15f2219e6ab13ac2fe08183d9ba42c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0022.png": "1c59604208f64a47b7772089d40b0c839c03c62745acd00580931af9bca31b31",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0023.png": "486c216f49d3b328aacbf6f8108f76b27571933a32e794cf32388f7fb58e7cb5",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0024.png": "5026ceae96a2635fcd8c0fe4fffaff22e6f22233b76f5b9e9d226f571ebcf2ce",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0025.png": "090fb364dd6f86c224961577f63be13c3bb1c5cfa251cb4da84f1a2af2d9dc8e",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0026.png": "b02dc811fa9f6c886e11968702383584dd93cc86e20f605389c586a94dc103f7",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0027.png": "8ff92fa23cf58c24bcc53447fc0188557704fa5d686327b1003f3b806636447b",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0028.png": "fc9e02213db57a80489e51de978cc7b40cbf7cb72a3c476e51be2baba90fa201",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0029.png": "1968e0a0ca60e1304f25f0e4f84b70158a0c0a21c00b80c2bafa93d505ea8091",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0030.png": "194127b17a1b2e38fa35869d88adfd572dcd7d4a0aabc7e2142789ddbdc942be",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0031.png": "ebfbfc043640c8bcbd9607200e6c6df626785db6238e2dd73a69460473cbb334",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0032.png": "89fd8ea846ac62e136bd4fc9b489d494da7550c840f5f711833b149466e5d1de",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0033.png": "5d8cdcb17114888b6af1b5d589d85b13725ec67bb57f37778d5919731e7edb7f",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0034.png": "c76b218d7ddf83543e0ecd1ba61cb4cb995822967d4dd5550da8984eef80a2f1",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0035.png": "03d3905ca7739bd99fb1ae759162f033843c07614c92dc12ed855defa6496195",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0036.png": "a61ddaa420c3a5a845e221799ec35ca5d99b0f9e8b14930fd88c95cbefc638dd",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0037.png": "f0948ad3ff2f9f6bfcf8902ded337007303e6afcacf224ec394d3e6ca7bb98ab",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0038.png": "00a9657bb4a7382eda4e0d0e66fa1726311974f3e7fbb7326405b566496ed15a",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0039.png": "5760d9dacd6f59d4c3ddeee1acc28a6cdfffbf0b79e537f8e6936a558c14ed88",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0040.png": "35a174f4d05e18d29740e63f03a79240d649ea9b8afc538b731c1f72779e12c9"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        1152,
+        832
+      ],
+      "frames": 41,
+      "fps": "24/1"
+    },
+    {
+      "path": "decoder_2_frames/0000.png",
+      "bytes": 820249,
+      "sha256": "d784c4e396537b998daca85f9bc2c3c8123400a398dba5a296288ca8b76877bf",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0001.png",
+      "bytes": 819745,
+      "sha256": "930fb405bb88f81f8963729b1c46a4a0d070abf1308151c0a99f05ae92e7091b",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0002.png",
+      "bytes": 821228,
+      "sha256": "84625e06278c99a81fdd1a68b0d8e05e4ec7bdfb045dd2644d08ae5ae2a731c9",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0003.png",
+      "bytes": 819443,
+      "sha256": "ce37c3d4cb98aeddb53fa7cf494960740bd92ddb743c697171de99681fd3bb16",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0004.png",
+      "bytes": 822465,
+      "sha256": "0fd4a23d2369eba1723fc8e20c8670af4a078a74c0b6963fd20ce4f915c1398b",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0005.png",
+      "bytes": 823739,
+      "sha256": "f770af893c425a11e48b17f4c42a737aab154b362b6b59c3b90ba8dd3c37d1f3",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0006.png",
+      "bytes": 827287,
+      "sha256": "ae47d600b16c40f7ec85a8b3c3a367e800b0c6fbdde1ff8dcf02eea2749d12bb",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0007.png",
+      "bytes": 826887,
+      "sha256": "36fe80d81299711edd2f3361462aeeb8496716766d20d95a0d80c7105732d11d",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0008.png",
+      "bytes": 826388,
+      "sha256": "22033ba8b695ac4d44a244a6c9499bf360a3ca5a7fac90370ec191c36126d580",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0009.png",
+      "bytes": 822901,
+      "sha256": "4d0942f62e54110b8c0553cac4f95993459be758a8e8932d5de60087ed225506",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0010.png",
+      "bytes": 826844,
+      "sha256": "8cdcfe32603f32a6123448022b119461d7ea3755b18dc0eae1c17650e9cba70f",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0011.png",
+      "bytes": 825631,
+      "sha256": "2de6462333f3fa41bc9650d103ffd01ce8e365c775281565f9610d4133b7f2c6",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0012.png",
+      "bytes": 827510,
+      "sha256": "d768a93ed73ec39592cb5f92936ab808f4a19d87429377162e4975c4f43bfc08",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0013.png",
+      "bytes": 822471,
+      "sha256": "dec2dbaa28d4827d90c845c85064891c6ac279637b2e2a9ef95783625e193793",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0014.png",
+      "bytes": 827952,
+      "sha256": "150bde9432ddb4404f55fc38168d10775ee35cc177bf0645260c08289fc3f94b",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0015.png",
+      "bytes": 827054,
+      "sha256": "107d98dcd4c1abe794b1f23e0442e4bcfc348fac1ffe32b6a1f85f802d78abda",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0016.png",
+      "bytes": 829673,
+      "sha256": "5e3309bf8dd3e5642fba383c8821b3d0a3e9d38a71994ae6c8693f6fca5beba4",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0017.png",
+      "bytes": 827116,
+      "sha256": "31bf15a63fd6a908ce205bdf11959025b15da2f2708932223fbedf09b5ed3215",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0018.png",
+      "bytes": 832404,
+      "sha256": "327033b372f63c0c6facb5b773e5b2f98888e059df3760fbfc99441e6c5dcdde",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0019.png",
+      "bytes": 833623,
+      "sha256": "0baa145023429aeeac12b39ddf5a6f00967d4eda58369deb451a5cb99cdc2d7a",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0020.png",
+      "bytes": 840443,
+      "sha256": "4532973f6f949516ffc312f8cecc4ab885e4c5344f59ad08880e6e30b2376245",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0021.png",
+      "bytes": 844178,
+      "sha256": "7bab23e5d829346f45b314cc4ec13ec60a15f2219e6ab13ac2fe08183d9ba42c",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0022.png",
+      "bytes": 851030,
+      "sha256": "1c59604208f64a47b7772089d40b0c839c03c62745acd00580931af9bca31b31",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0023.png",
+      "bytes": 853558,
+      "sha256": "486c216f49d3b328aacbf6f8108f76b27571933a32e794cf32388f7fb58e7cb5",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0024.png",
+      "bytes": 854602,
+      "sha256": "5026ceae96a2635fcd8c0fe4fffaff22e6f22233b76f5b9e9d226f571ebcf2ce",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0025.png",
+      "bytes": 850735,
+      "sha256": "090fb364dd6f86c224961577f63be13c3bb1c5cfa251cb4da84f1a2af2d9dc8e",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0026.png",
+      "bytes": 856281,
+      "sha256": "b02dc811fa9f6c886e11968702383584dd93cc86e20f605389c586a94dc103f7",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0027.png",
+      "bytes": 855080,
+      "sha256": "8ff92fa23cf58c24bcc53447fc0188557704fa5d686327b1003f3b806636447b",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0028.png",
+      "bytes": 858646,
+      "sha256": "fc9e02213db57a80489e51de978cc7b40cbf7cb72a3c476e51be2baba90fa201",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0029.png",
+      "bytes": 859894,
+      "sha256": "1968e0a0ca60e1304f25f0e4f84b70158a0c0a21c00b80c2bafa93d505ea8091",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0030.png",
+      "bytes": 861278,
+      "sha256": "194127b17a1b2e38fa35869d88adfd572dcd7d4a0aabc7e2142789ddbdc942be",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0031.png",
+      "bytes": 859160,
+      "sha256": "ebfbfc043640c8bcbd9607200e6c6df626785db6238e2dd73a69460473cbb334",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0032.png",
+      "bytes": 858358,
+      "sha256": "89fd8ea846ac62e136bd4fc9b489d494da7550c840f5f711833b149466e5d1de",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0033.png",
+      "bytes": 849034,
+      "sha256": "5d8cdcb17114888b6af1b5d589d85b13725ec67bb57f37778d5919731e7edb7f",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0034.png",
+      "bytes": 846710,
+      "sha256": "c76b218d7ddf83543e0ecd1ba61cb4cb995822967d4dd5550da8984eef80a2f1",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0035.png",
+      "bytes": 835346,
+      "sha256": "03d3905ca7739bd99fb1ae759162f033843c07614c92dc12ed855defa6496195",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0036.png",
+      "bytes": 837635,
+      "sha256": "a61ddaa420c3a5a845e221799ec35ca5d99b0f9e8b14930fd88c95cbefc638dd",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0037.png",
+      "bytes": 831808,
+      "sha256": "f0948ad3ff2f9f6bfcf8902ded337007303e6afcacf224ec394d3e6ca7bb98ab",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0038.png",
+      "bytes": 839848,
+      "sha256": "00a9657bb4a7382eda4e0d0e66fa1726311974f3e7fbb7326405b566496ed15a",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0039.png",
+      "bytes": 836882,
+      "sha256": "5760d9dacd6f59d4c3ddeee1acc28a6cdfffbf0b79e537f8e6936a558c14ed88",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_frames/0040.png",
+      "bytes": 843409,
+      "sha256": "35a174f4d05e18d29740e63f03a79240d649ea9b8afc538b731c1f72779e12c9",
+      "role": "experimental_native_complete_frame",
+      "modification_status": "Same saved video latent decoded with experimental2-step matched diffusion VAE; no transformer resampling; rejected added grain and persistent defects.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_proof.json": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "decoder_2_proof.json",
+      "bytes": 553,
+      "sha256": "6f753a40ba3f732c99b31ddeb4e1ae6e337aa52b2a6c6b1b4785f2e8ef24a0ac",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "decoder_2_review.aseprite",
+      "bytes": 46345419,
+      "sha256": "45575cf5bc78920931c872156a77b5b89b0bb8c8c6a8ea7e1370db95cc275881",
+      "role": "editable_review_master",
+      "modification_status": "Complete41-frame native2-step decode at24fps; Aseprite lossless master or H264 CRF15 yuv420p viewing copy. Rejected/reference only.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0000.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0001.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0002.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0003.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0004.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0005.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0006.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0007.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0008.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0009.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0010.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0011.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0012.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0013.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0014.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0015.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0016.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0017.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0018.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0019.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0020.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0021.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0022.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0023.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0024.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0025.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0026.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0027.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0028.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0029.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0030.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0031.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0032.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0033.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0034.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0035.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0036.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0037.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0038.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0039.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0040.png"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0000.png": "d784c4e396537b998daca85f9bc2c3c8123400a398dba5a296288ca8b76877bf",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0001.png": "930fb405bb88f81f8963729b1c46a4a0d070abf1308151c0a99f05ae92e7091b",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0002.png": "84625e06278c99a81fdd1a68b0d8e05e4ec7bdfb045dd2644d08ae5ae2a731c9",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0003.png": "ce37c3d4cb98aeddb53fa7cf494960740bd92ddb743c697171de99681fd3bb16",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0004.png": "0fd4a23d2369eba1723fc8e20c8670af4a078a74c0b6963fd20ce4f915c1398b",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0005.png": "f770af893c425a11e48b17f4c42a737aab154b362b6b59c3b90ba8dd3c37d1f3",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0006.png": "ae47d600b16c40f7ec85a8b3c3a367e800b0c6fbdde1ff8dcf02eea2749d12bb",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0007.png": "36fe80d81299711edd2f3361462aeeb8496716766d20d95a0d80c7105732d11d",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0008.png": "22033ba8b695ac4d44a244a6c9499bf360a3ca5a7fac90370ec191c36126d580",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0009.png": "4d0942f62e54110b8c0553cac4f95993459be758a8e8932d5de60087ed225506",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0010.png": "8cdcfe32603f32a6123448022b119461d7ea3755b18dc0eae1c17650e9cba70f",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0011.png": "2de6462333f3fa41bc9650d103ffd01ce8e365c775281565f9610d4133b7f2c6",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0012.png": "d768a93ed73ec39592cb5f92936ab808f4a19d87429377162e4975c4f43bfc08",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0013.png": "dec2dbaa28d4827d90c845c85064891c6ac279637b2e2a9ef95783625e193793",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0014.png": "150bde9432ddb4404f55fc38168d10775ee35cc177bf0645260c08289fc3f94b",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0015.png": "107d98dcd4c1abe794b1f23e0442e4bcfc348fac1ffe32b6a1f85f802d78abda",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0016.png": "5e3309bf8dd3e5642fba383c8821b3d0a3e9d38a71994ae6c8693f6fca5beba4",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0017.png": "31bf15a63fd6a908ce205bdf11959025b15da2f2708932223fbedf09b5ed3215",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0018.png": "327033b372f63c0c6facb5b773e5b2f98888e059df3760fbfc99441e6c5dcdde",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0019.png": "0baa145023429aeeac12b39ddf5a6f00967d4eda58369deb451a5cb99cdc2d7a",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0020.png": "4532973f6f949516ffc312f8cecc4ab885e4c5344f59ad08880e6e30b2376245",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0021.png": "7bab23e5d829346f45b314cc4ec13ec60a15f2219e6ab13ac2fe08183d9ba42c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0022.png": "1c59604208f64a47b7772089d40b0c839c03c62745acd00580931af9bca31b31",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0023.png": "486c216f49d3b328aacbf6f8108f76b27571933a32e794cf32388f7fb58e7cb5",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0024.png": "5026ceae96a2635fcd8c0fe4fffaff22e6f22233b76f5b9e9d226f571ebcf2ce",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0025.png": "090fb364dd6f86c224961577f63be13c3bb1c5cfa251cb4da84f1a2af2d9dc8e",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0026.png": "b02dc811fa9f6c886e11968702383584dd93cc86e20f605389c586a94dc103f7",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0027.png": "8ff92fa23cf58c24bcc53447fc0188557704fa5d686327b1003f3b806636447b",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0028.png": "fc9e02213db57a80489e51de978cc7b40cbf7cb72a3c476e51be2baba90fa201",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0029.png": "1968e0a0ca60e1304f25f0e4f84b70158a0c0a21c00b80c2bafa93d505ea8091",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0030.png": "194127b17a1b2e38fa35869d88adfd572dcd7d4a0aabc7e2142789ddbdc942be",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0031.png": "ebfbfc043640c8bcbd9607200e6c6df626785db6238e2dd73a69460473cbb334",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0032.png": "89fd8ea846ac62e136bd4fc9b489d494da7550c840f5f711833b149466e5d1de",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0033.png": "5d8cdcb17114888b6af1b5d589d85b13725ec67bb57f37778d5919731e7edb7f",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0034.png": "c76b218d7ddf83543e0ecd1ba61cb4cb995822967d4dd5550da8984eef80a2f1",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0035.png": "03d3905ca7739bd99fb1ae759162f033843c07614c92dc12ed855defa6496195",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0036.png": "a61ddaa420c3a5a845e221799ec35ca5d99b0f9e8b14930fd88c95cbefc638dd",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0037.png": "f0948ad3ff2f9f6bfcf8902ded337007303e6afcacf224ec394d3e6ca7bb98ab",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0038.png": "00a9657bb4a7382eda4e0d0e66fa1726311974f3e7fbb7326405b566496ed15a",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0039.png": "5760d9dacd6f59d4c3ddeee1acc28a6cdfffbf0b79e537f8e6936a558c14ed88",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0040.png": "35a174f4d05e18d29740e63f03a79240d649ea9b8afc538b731c1f72779e12c9"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "frames": 41
+    },
+    {
+      "path": "decoder_2_review.mp4",
+      "bytes": 2154304,
+      "sha256": "87f06c63120816aaabeb34dc586861c6c045c499e3f284f268c8e52de69cf0ff",
+      "role": "encoded_review",
+      "modification_status": "Complete41-frame native2-step decode at24fps; Aseprite lossless master or H264 CRF15 yuv420p viewing copy. Rejected/reference only.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0000.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0001.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0002.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0003.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0004.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0005.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0006.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0007.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0008.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0009.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0010.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0011.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0012.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0013.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0014.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0015.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0016.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0017.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0018.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0019.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0020.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0021.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0022.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0023.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0024.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0025.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0026.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0027.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0028.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0029.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0030.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0031.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0032.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0033.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0034.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0035.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0036.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0037.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0038.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0039.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0040.png"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0000.png": "d784c4e396537b998daca85f9bc2c3c8123400a398dba5a296288ca8b76877bf",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0001.png": "930fb405bb88f81f8963729b1c46a4a0d070abf1308151c0a99f05ae92e7091b",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0002.png": "84625e06278c99a81fdd1a68b0d8e05e4ec7bdfb045dd2644d08ae5ae2a731c9",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0003.png": "ce37c3d4cb98aeddb53fa7cf494960740bd92ddb743c697171de99681fd3bb16",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0004.png": "0fd4a23d2369eba1723fc8e20c8670af4a078a74c0b6963fd20ce4f915c1398b",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0005.png": "f770af893c425a11e48b17f4c42a737aab154b362b6b59c3b90ba8dd3c37d1f3",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0006.png": "ae47d600b16c40f7ec85a8b3c3a367e800b0c6fbdde1ff8dcf02eea2749d12bb",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0007.png": "36fe80d81299711edd2f3361462aeeb8496716766d20d95a0d80c7105732d11d",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0008.png": "22033ba8b695ac4d44a244a6c9499bf360a3ca5a7fac90370ec191c36126d580",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0009.png": "4d0942f62e54110b8c0553cac4f95993459be758a8e8932d5de60087ed225506",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0010.png": "8cdcfe32603f32a6123448022b119461d7ea3755b18dc0eae1c17650e9cba70f",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0011.png": "2de6462333f3fa41bc9650d103ffd01ce8e365c775281565f9610d4133b7f2c6",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0012.png": "d768a93ed73ec39592cb5f92936ab808f4a19d87429377162e4975c4f43bfc08",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0013.png": "dec2dbaa28d4827d90c845c85064891c6ac279637b2e2a9ef95783625e193793",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0014.png": "150bde9432ddb4404f55fc38168d10775ee35cc177bf0645260c08289fc3f94b",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0015.png": "107d98dcd4c1abe794b1f23e0442e4bcfc348fac1ffe32b6a1f85f802d78abda",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0016.png": "5e3309bf8dd3e5642fba383c8821b3d0a3e9d38a71994ae6c8693f6fca5beba4",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0017.png": "31bf15a63fd6a908ce205bdf11959025b15da2f2708932223fbedf09b5ed3215",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0018.png": "327033b372f63c0c6facb5b773e5b2f98888e059df3760fbfc99441e6c5dcdde",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0019.png": "0baa145023429aeeac12b39ddf5a6f00967d4eda58369deb451a5cb99cdc2d7a",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0020.png": "4532973f6f949516ffc312f8cecc4ab885e4c5344f59ad08880e6e30b2376245",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0021.png": "7bab23e5d829346f45b314cc4ec13ec60a15f2219e6ab13ac2fe08183d9ba42c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0022.png": "1c59604208f64a47b7772089d40b0c839c03c62745acd00580931af9bca31b31",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0023.png": "486c216f49d3b328aacbf6f8108f76b27571933a32e794cf32388f7fb58e7cb5",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0024.png": "5026ceae96a2635fcd8c0fe4fffaff22e6f22233b76f5b9e9d226f571ebcf2ce",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0025.png": "090fb364dd6f86c224961577f63be13c3bb1c5cfa251cb4da84f1a2af2d9dc8e",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0026.png": "b02dc811fa9f6c886e11968702383584dd93cc86e20f605389c586a94dc103f7",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0027.png": "8ff92fa23cf58c24bcc53447fc0188557704fa5d686327b1003f3b806636447b",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0028.png": "fc9e02213db57a80489e51de978cc7b40cbf7cb72a3c476e51be2baba90fa201",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0029.png": "1968e0a0ca60e1304f25f0e4f84b70158a0c0a21c00b80c2bafa93d505ea8091",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0030.png": "194127b17a1b2e38fa35869d88adfd572dcd7d4a0aabc7e2142789ddbdc942be",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0031.png": "ebfbfc043640c8bcbd9607200e6c6df626785db6238e2dd73a69460473cbb334",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0032.png": "89fd8ea846ac62e136bd4fc9b489d494da7550c840f5f711833b149466e5d1de",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0033.png": "5d8cdcb17114888b6af1b5d589d85b13725ec67bb57f37778d5919731e7edb7f",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0034.png": "c76b218d7ddf83543e0ecd1ba61cb4cb995822967d4dd5550da8984eef80a2f1",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0035.png": "03d3905ca7739bd99fb1ae759162f033843c07614c92dc12ed855defa6496195",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0036.png": "a61ddaa420c3a5a845e221799ec35ca5d99b0f9e8b14930fd88c95cbefc638dd",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0037.png": "f0948ad3ff2f9f6bfcf8902ded337007303e6afcacf224ec394d3e6ca7bb98ab",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0038.png": "00a9657bb4a7382eda4e0d0e66fa1726311974f3e7fbb7326405b566496ed15a",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0039.png": "5760d9dacd6f59d4c3ddeee1acc28a6cdfffbf0b79e537f8e6936a558c14ed88",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0040.png": "35a174f4d05e18d29740e63f03a79240d649ea9b8afc538b731c1f72779e12c9"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed.",
+      "dimensions": [
+        576,
+        832
+      ],
+      "frames": 41,
+      "fps": "24/1"
+    },
+    {
+      "path": "focus_metrics.json",
+      "bytes": 72762,
+      "sha256": "fac20010d8e49dc5fb7b1852039c38c2cc8ec2ed368e7153323e53d448dd4382",
+      "role": "read_only_numeric_diagnostics",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0000.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0001.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0002.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0003.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0004.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0005.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0006.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0007.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0008.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0009.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0010.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0011.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0012.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0013.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0014.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0015.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0016.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0017.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0018.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0019.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0020.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0021.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0022.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0023.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0024.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0025.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0026.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0027.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0028.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0029.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0030.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0031.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0032.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0033.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0034.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0035.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0036.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0037.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0038.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0039.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0040.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0000.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0001.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0002.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0003.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0004.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0005.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0006.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0007.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0008.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0009.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0010.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0011.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0012.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0013.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0014.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0015.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0016.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0017.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0018.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0019.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0020.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0021.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0022.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0023.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0024.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0025.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0026.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0027.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0028.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0029.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0030.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0031.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0032.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0033.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0034.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0035.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0036.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0037.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0038.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0039.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0040.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0000.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0001.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0002.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0003.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0004.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0005.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0006.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0007.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0008.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0009.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0010.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0011.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0012.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0013.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0014.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0015.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0016.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0017.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0018.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0019.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0020.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0021.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0022.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0023.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0024.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0025.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0026.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0027.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0028.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0029.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0030.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0031.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0032.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0033.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0034.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0035.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0036.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0037.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0038.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0039.png",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0040.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/scale_continuity/registered_guides/guide_0000.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/scale_continuity/registered_guides/guide_0003.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/scale_continuity/registered_guides/guide_0007.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/scale_continuity/registered_guides/guide_0017.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/scale_continuity/registered_guides/guide_0022.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/scale_continuity/registered_guides/guide_0027.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/scale_continuity/registered_guides/guide_0036.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/scale_continuity/registered_guides/guide_0040.png"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0000.png": "6c3b43767042af152b8a03141e1a41e176acdbe8c5b185b62bbcb8a6f4233140",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0001.png": "8d9f0d37fef92cf946a999d6350e3596c09af6d725e9ca1229361160e68b0a30",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0002.png": "b6ea04a2b21cec30370b0e360331912e831e789667c28842801d3a243f74e663",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0003.png": "6ded70f6120d0e3a8d9e72aa8ecc79e27b486b535d60f295e5aaac60ca8894a3",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0004.png": "4288ade75b34161511283ae972a6623a70f261f2ed21dca4a68c923577ac060a",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0005.png": "a24a4ae5bd4e2f77e462e900d8673476d76687f5c389113244556650b5a56add",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0006.png": "aad84f81f86da966aa8e5d810bed3860e9a189aae8b013f6ad3f4b9970e838e6",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0007.png": "4ab377d8fd4bf32105dda5ba03a49ac586c2ef04c8d45be47268e90a5a265299",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0008.png": "523b4cf4b8c69fbb98da3be63f16c1081b3c9b9370e1e3979ee3afa435bc808e",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0009.png": "368aeafa870f4bddf21dca59c6a49e9f3c9e8493fab52a465d6ecfedce0bac75",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0010.png": "653118b61a08b965ffb13f8b4ccdd821c47959b96f0ba63ca3e75466d2b34c92",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0011.png": "232a0437c3fc2bb5f6f026cea4b330ad21179efafda2e7825e9c371e6b1da5de",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0012.png": "9d962eb597a17e0d74c68bc82ae3de7f4eb510ba37a01ec8c381bd73ebcdb2c1",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0013.png": "e32677275eefa362586a33b046720bc0c0ed9225260e0790c1a0b91b54ca5ca6",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0014.png": "11a61099421ac8dc413b54b82147022ebedfa599a45185d48acc0d183ce6391c",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0015.png": "09fdca2078be706fa1a4629ec6f4e405ea26ae80cbf8d677c3966ef3d803134f",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0016.png": "d54b110609842bcb228159090fbca20491bc4d6a7add395f185c2e50c260c01e",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0017.png": "15ae47d6695794faef9d58ce3b7d40fcd131859db358e0b1c4c325a3fd29d60a",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0018.png": "655ba10eddfe603e1c2e4bdd7708ddd6cc207f39afd3ef243524c5160fb676f4",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0019.png": "7acfa20d10735fd49f477c59a2b9b5186e8a5bb919982b288af21f43b6c11c69",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0020.png": "47099005b7a6559d6c02d724214d43bf7a4d58e4099265e8af7b41591631eeac",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0021.png": "59b234982143b2829af9cef7018466b8e1a8877a5b46c74fd996c48c3e7a69ab",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0022.png": "0872c6f3d887616d4e8e291271226dd2ed5c277e44c705d1670f480bbf38282d",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0023.png": "f20dd2d7b80a10f8ed07a1ecae4e5391528712b407ba42749203452a0e03dcd5",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0024.png": "9a2ddba793be06930fbbfade9014f845651a631062bfa6f919a60625d8a58415",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0025.png": "ba623b054f2f5199d1405dc687bcaa84a67819fedf4d8e7f7721d463bc421c7b",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0026.png": "7c9fb7e8c78e3d2d5b6a3599af66e6c393b2a851815753a0761185675d47872e",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0027.png": "2f0cf4562e99af28b88a64d59f059b5dbd9e2f103ee59e9e41e6600e2fa69577",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0028.png": "e8ef2ef95aae983aff83e3c00eb896d132c6d362efb490563a27c71fbb5d94ad",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0029.png": "b356c8f11197815ef65715cbea6f81554c503ec2f72ecd4ca3b77cd3627bbbc4",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0030.png": "b9f835bca4baec22dbce47d32aba19bae5a83081ef1e0b9b6b8ff6f521136a3e",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0031.png": "bb24a05fb0dd8d40123005a6eb712c3bb6db48c1de0bb250e07a16873d1056b2",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0032.png": "a10017b1097b7aba52f04222461bb58aae2b7aa54e0baafae1d13c7a5013d04e",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0033.png": "6a3ca14354eaca95379046e4e6f5ff5a590ffaab1ce202a5cb29ce40de07edd1",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0034.png": "42f6a9609b9be16dd8207ee521d11fab9ec589f84590a9b621ac7a2a534717f9",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0035.png": "cdf8819366750c76cb6fd9510371b8214c5c8095c2f09b8bbc9e2b74cea639a1",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0036.png": "0371267d74ab7529c3070fdb080c5a750e8977430b74ef0b1351813e5517e76f",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0037.png": "77ce6ca12dc5b3e48792a64a4e418bbcdd3845aa9fd9a7048b1f645428ad6be2",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0038.png": "782c226cc8788c5afe1e7a5bbf3947d6c1878bc105125ea2468b586f8bc30c9b",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0039.png": "f294aff4df8ed6129286f064e633bc4b040373899c7ea3433b5f994619d3223f",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0040.png": "7fc2cb7700c7a71a914261b71f480a71beab3f921b86d48cb891fc099f969d3c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0000.png": "d784c4e396537b998daca85f9bc2c3c8123400a398dba5a296288ca8b76877bf",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0001.png": "930fb405bb88f81f8963729b1c46a4a0d070abf1308151c0a99f05ae92e7091b",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0002.png": "84625e06278c99a81fdd1a68b0d8e05e4ec7bdfb045dd2644d08ae5ae2a731c9",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0003.png": "ce37c3d4cb98aeddb53fa7cf494960740bd92ddb743c697171de99681fd3bb16",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0004.png": "0fd4a23d2369eba1723fc8e20c8670af4a078a74c0b6963fd20ce4f915c1398b",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0005.png": "f770af893c425a11e48b17f4c42a737aab154b362b6b59c3b90ba8dd3c37d1f3",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0006.png": "ae47d600b16c40f7ec85a8b3c3a367e800b0c6fbdde1ff8dcf02eea2749d12bb",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0007.png": "36fe80d81299711edd2f3361462aeeb8496716766d20d95a0d80c7105732d11d",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0008.png": "22033ba8b695ac4d44a244a6c9499bf360a3ca5a7fac90370ec191c36126d580",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0009.png": "4d0942f62e54110b8c0553cac4f95993459be758a8e8932d5de60087ed225506",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0010.png": "8cdcfe32603f32a6123448022b119461d7ea3755b18dc0eae1c17650e9cba70f",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0011.png": "2de6462333f3fa41bc9650d103ffd01ce8e365c775281565f9610d4133b7f2c6",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0012.png": "d768a93ed73ec39592cb5f92936ab808f4a19d87429377162e4975c4f43bfc08",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0013.png": "dec2dbaa28d4827d90c845c85064891c6ac279637b2e2a9ef95783625e193793",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0014.png": "150bde9432ddb4404f55fc38168d10775ee35cc177bf0645260c08289fc3f94b",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0015.png": "107d98dcd4c1abe794b1f23e0442e4bcfc348fac1ffe32b6a1f85f802d78abda",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0016.png": "5e3309bf8dd3e5642fba383c8821b3d0a3e9d38a71994ae6c8693f6fca5beba4",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0017.png": "31bf15a63fd6a908ce205bdf11959025b15da2f2708932223fbedf09b5ed3215",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0018.png": "327033b372f63c0c6facb5b773e5b2f98888e059df3760fbfc99441e6c5dcdde",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0019.png": "0baa145023429aeeac12b39ddf5a6f00967d4eda58369deb451a5cb99cdc2d7a",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0020.png": "4532973f6f949516ffc312f8cecc4ab885e4c5344f59ad08880e6e30b2376245",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0021.png": "7bab23e5d829346f45b314cc4ec13ec60a15f2219e6ab13ac2fe08183d9ba42c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0022.png": "1c59604208f64a47b7772089d40b0c839c03c62745acd00580931af9bca31b31",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0023.png": "486c216f49d3b328aacbf6f8108f76b27571933a32e794cf32388f7fb58e7cb5",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0024.png": "5026ceae96a2635fcd8c0fe4fffaff22e6f22233b76f5b9e9d226f571ebcf2ce",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0025.png": "090fb364dd6f86c224961577f63be13c3bb1c5cfa251cb4da84f1a2af2d9dc8e",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0026.png": "b02dc811fa9f6c886e11968702383584dd93cc86e20f605389c586a94dc103f7",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0027.png": "8ff92fa23cf58c24bcc53447fc0188557704fa5d686327b1003f3b806636447b",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0028.png": "fc9e02213db57a80489e51de978cc7b40cbf7cb72a3c476e51be2baba90fa201",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0029.png": "1968e0a0ca60e1304f25f0e4f84b70158a0c0a21c00b80c2bafa93d505ea8091",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0030.png": "194127b17a1b2e38fa35869d88adfd572dcd7d4a0aabc7e2142789ddbdc942be",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0031.png": "ebfbfc043640c8bcbd9607200e6c6df626785db6238e2dd73a69460473cbb334",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0032.png": "89fd8ea846ac62e136bd4fc9b489d494da7550c840f5f711833b149466e5d1de",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0033.png": "5d8cdcb17114888b6af1b5d589d85b13725ec67bb57f37778d5919731e7edb7f",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0034.png": "c76b218d7ddf83543e0ecd1ba61cb4cb995822967d4dd5550da8984eef80a2f1",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0035.png": "03d3905ca7739bd99fb1ae759162f033843c07614c92dc12ed855defa6496195",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0036.png": "a61ddaa420c3a5a845e221799ec35ca5d99b0f9e8b14930fd88c95cbefc638dd",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0037.png": "f0948ad3ff2f9f6bfcf8902ded337007303e6afcacf224ec394d3e6ca7bb98ab",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0038.png": "00a9657bb4a7382eda4e0d0e66fa1726311974f3e7fbb7326405b566496ed15a",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0039.png": "5760d9dacd6f59d4c3ddeee1acc28a6cdfffbf0b79e537f8e6936a558c14ed88",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0040.png": "35a174f4d05e18d29740e63f03a79240d649ea9b8afc538b731c1f72779e12c9",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0000.png": "c47700df080d724e67831e02356cab2dd790067672a80135d0e1371e519913b3",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0001.png": "4eceff705e7f05416f08cd8feeec7f231cdef9bab39d19bec977fcbee669f8a8",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0002.png": "1ef9a33dd0c84583b7480c3d6c7b105d08428dd3d35e72a8ddc63223f6d561d6",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0003.png": "a119382e1c873ed09a47a305ad709d7a912bee0a5a06e7bef11b2b378699ccce",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0004.png": "0c207ab5bc2581487d51ba269e9240dff3f7309a163946db5cb238931a633cc2",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0005.png": "1cf18e75758b2ecd1aac9a48389b3f685cb6d8b7c32197aa25907c090c10c836",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0006.png": "59a50d8458d2c631d66fc26177ceb71f8fe90502b9f820ed730101d458aecc65",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0007.png": "fd7335f797d578efa3d6bba600e0afe940d73cffc9821799cbd05ad5f3873266",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0008.png": "8e15fbd865b76cc469ceea87f119b0aa8eb3fb95a9ec4694d1d971e6bfd2a2d7",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0009.png": "c6ef2fac5e8272730392fb601c6b79ec5425ad112d6103c55513487c1f21c5c2",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0010.png": "0ab8e6ecca20af40c16829abde2f8c9fb65cb5e2527a2d77ad0fa9c2b0f7d14c",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0011.png": "fe5b44a32347ea7cff27cbda2daa35d37bebd7a7f31cf698bd313ba8fa35dbef",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0012.png": "c52c05bb729a4af20775860c7e80a651828cfb94b72223134be98289da17eb92",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0013.png": "175f117ac89d909691811b708f3910ab984c4d93701f6fdfff3fa4406f4c8e53",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0014.png": "1cb4880456feba6e5cab2144fc32014ac04a3bbe5eb59f62b119898eee1e9984",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0015.png": "f85b6b47c4d558ad447b8a26b9a3d5c1a582ee166491c746dec7bb1679c6616d",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0016.png": "e86b054b4c959e694c4c6027ac6a59fad202db2f3a562688fe2db726af2f0851",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0017.png": "0964969a1612b8869c512c1ed7a844440993631546ccc72fcc8003b07487a74f",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0018.png": "07ea95188d78d528d3ba0e8ed85e625d3a09ba4ba7fb5f1b5da86995185b7c85",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0019.png": "1125b1952069ba0c3f273873eeec67fedfe0909ccf62fd034ec732215e6a31d0",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0020.png": "622d8dfdea1fc33107a34246015d53d3dfb55e28e01cc9716cf92521e2cf655e",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0021.png": "ba4501eb0d754990cb80610d26223d03d26a40a4c4cf195e39b48acf284835c6",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0022.png": "ca4bc23ac9bc115261150ca8d69c4c2046e6fb932504638237e7c4a31c2c0883",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0023.png": "83e1aafd60c3732bd790a78c6baed7aa18a52a323ada77406d79f21c8a0aa9a2",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0024.png": "f9498e063555bf51f877bd743c8144dd3abb8f750834230e814c172d50728f60",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0025.png": "1fa66cbdace191d9182e0958b09ddd2894c79f83fe5905d5ef624462b57231fe",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0026.png": "9d19d7bf79bd0137ed049135dd088c4efc2ee16e0cfbd4b0328012feb4875882",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0027.png": "7ea6c08f89efed98db25080890f4dc52ab17b42e83c993b489a9111870690646",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0028.png": "962574d4b90296a97a618b429fd39b68c21e18a84c749d68141c03adb7030da3",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0029.png": "67b85d08b93dc833285997c6b8bd8e04cfc2e291794a935e0adbaafb7d7ffb53",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0030.png": "19ebd29cf0dcb0d7f9d7a37599a2eda273bfd7ff46231fcadb21956f8c94d1b9",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0031.png": "f3ec675fbc67d6cbce67253b33ee02268555a76aa8207a7afce445c6c6086697",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0032.png": "102e800f130742794008d31907842d836f80b5855470a72d7cd1fca26771d4d2",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0033.png": "f0924fac9995823794861bb4dbe53120efdbd5d69c8acb19489de598948d6f2a",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0034.png": "ae4b9b4af7f0f14b1f008f0a85dc3b1961e7bd47bff64582977cca24cb881978",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0035.png": "d4d4918f6c66c14f53739db7dc9165611440c7551c1d5ba91d55a45e08f8f05e",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0036.png": "f611968bc334b9a70f5bee276fd4ef3e049b29d9521313f56cc27eaa71a13041",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0037.png": "94bde51db7e05871051941431b570741b33f9b965ff4699cefe1e794c0e400ba",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0038.png": "4a71ca256765cea5dc0639c3d3efddb5060e56aa0401379f1b635196e261be7a",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0039.png": "a79f1940fb4e2c9b8dd96bfa3a3d1ef7aeb83e027f1b3d5133540626ed14ad87",
+        "assets_src/cinematics/ltx25_scale_filter_v2_20261004/frames/0040.png": "3459a5b4adfaffea36cabc6d700f40f1cf2dfb0d2831b2278904fc8058aa9096",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/scale_continuity/registered_guides/guide_0000.png": "03ab0feab040d7d7b934159d050648b6747482bbda1ab52e1bdcaf09817e7244",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/scale_continuity/registered_guides/guide_0003.png": "03ab0feab040d7d7b934159d050648b6747482bbda1ab52e1bdcaf09817e7244",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/scale_continuity/registered_guides/guide_0007.png": "38ed515d21b9b45fbb1606dcfaef2b31b9ca71663dbdf592a53126f6f2355b8c",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/scale_continuity/registered_guides/guide_0017.png": "c93a6859d176f79e72a542e5720ee74876788cff30656201e61ac133cbde1461",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/scale_continuity/registered_guides/guide_0022.png": "21aabb27cf3cef2b8eded16bca51ed686eea02fdcd6ceddcaba5d523cf2601cf",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/scale_continuity/registered_guides/guide_0027.png": "6b3372fa17af620b7078c28bd77039138c6fa2c8b02a581a88363347ba6ddd6d",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/scale_continuity/registered_guides/guide_0036.png": "03ab0feab040d7d7b934159d050648b6747482bbda1ab52e1bdcaf09817e7244",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/scale_continuity/registered_guides/guide_0040.png": "03ab0feab040d7d7b934159d050648b6747482bbda1ab52e1bdcaf09817e7244"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "history.json",
+      "bytes": 15098,
+      "sha256": "7bcbcecf77ee3191aadf8f0810c8e8b727f60e93ff8e16acbb4cedea886261ce",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "local_gates.json",
+      "bytes": 1130,
+      "sha256": "d95307ecf90a0b581890ea3e5141cdae5a7fa3c0d4cd1c657b04fbc273574e45",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "memory_samples.json",
+      "bytes": 1066,
+      "sha256": "a738dab84893e077bd82bbbe4b5686d3dc889f5d51e294ce53c2e0abd3bd4099",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "method_preflight.json",
+      "bytes": 3147,
+      "sha256": "e987633848a42f03907a13ac5790e7c623cc268d8c74d829ffa3588b066b6cc5",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "native_review.json",
+      "bytes": 755,
+      "sha256": "d317fa2cb3c32ec533b6803735e744cc03e885802b870835fed1365325e998a4",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "queue_at_shutdown.json",
+      "bytes": 53,
+      "sha256": "1cf1762cdf9aad2ab78c562b50cc8f767928c8d2de30c0eb026538b21c34c129",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "README.md",
+      "bytes": 11316,
+      "sha256": "0f67e138235ff68dc7a9d28d45c7ad81c306a85fcd93c064f2a9ce74d2378ec8",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "receipt.json",
+      "bytes": 1273,
+      "sha256": "313128d756f55868aec5adde9aa35c3bcce74de68b0dc0fd0716a1dd0ab0ba1e",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_video.latent": "d3b953c9a566d6e6adc5035830bbd4a2eb881939f28e725f4249f9ee8c66507c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/workflow.api.json": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "record_owner_decision.log",
+      "bytes": 45,
+      "sha256": "3ea034c4b27171d1146f6c5c118bbc51eafe4ba5b7cd627b0fbd8e72591f6d3a",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "scripts/aseprite_review.lua",
+      "bytes": 940,
+      "sha256": "74803df7e94b0c26cd7987dbe5313d3d4bb530a2df4f324840e388aaba75d974",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "scripts/decoder_node.py",
+      "bytes": 2379,
+      "sha256": "5726240b20833e0d2bfb52b9f17ca08518a84822a8c5ae44eb4c3ca768ef6da5",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "scripts/measure_focus.py",
+      "bytes": 3160,
+      "sha256": "22ae577f69dccf5611da17f7e464894d5985e1e8ec3eeac9e9896e5f464961b3",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "scripts/refresh.py",
+      "bytes": 5541,
+      "sha256": "94e1536e2fb46ad8185e8ef1a0afec0dbde4aaa0fbeb8df609fbcf004f91fc4e",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "scripts/render_decoder.py",
+      "bytes": 5280,
+      "sha256": "f3cd74383da2e34296cae004e969229916534156c3d88483e2bb71aacf15bc74",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "scripts/roundtrip.lua",
+      "bytes": 419,
+      "sha256": "37dcc68578215e3c86945b9953bdd1a4ab26c91b2d2885061cef576b12ddf21f",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "scripts/verify.py",
+      "bytes": 3351,
+      "sha256": "9887650b9b84fe266c39220429b694f9444149cea93014592b14ec120f5bb4a9",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "scripts/verify_remote.py",
+      "bytes": 5422,
+      "sha256": "27a5450aec5a2dcf5a19e3a85e8ef8ae2c470856195f5fafd4cc89bcf74c1575",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "server.pid",
+      "bytes": 7,
+      "sha256": "afd3d8d6f86a5431ddbcd76c874ce34a08d7fd8533ddbe5c48dcf4c373447ee9",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "server_args.json",
+      "bytes": 727,
+      "sha256": "8c6b026e54f6d1ba14f8ea882d21518999bc1338184f8ab8a6e91a9e2970cfe5",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "server_stderr.log",
+      "bytes": 7019,
+      "sha256": "56d690746751959e4e5a036df7c09293f7af978689426169896ebcab3edea00d",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "server_stdout.log",
+      "bytes": 1051,
+      "sha256": "92d24badfe080c5ef60f99d1e3c1a264de20199e06979d439e279de934274664",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "verification.json",
+      "bytes": 9860,
+      "sha256": "0f49c04f21b292ef69cf0ede0602d2570f954d65afd88affb877e7057359d987",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0000.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0001.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0002.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0003.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0004.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0005.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0006.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0007.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0008.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0009.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0010.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0011.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0012.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0013.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0014.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0015.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0016.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0017.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0018.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0019.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0020.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0021.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0022.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0023.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0024.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0025.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0026.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0027.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0028.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0029.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0030.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0031.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0032.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0033.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0034.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0035.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0036.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0037.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0038.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0039.png",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0040.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0000.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0001.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0002.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0003.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0004.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0005.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0006.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0007.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0008.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0009.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0010.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0011.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0012.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0013.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0014.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0015.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0016.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0017.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0018.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0019.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0020.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0021.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0022.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0023.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0024.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0025.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0026.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0027.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0028.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0029.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0030.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0031.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0032.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0033.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0034.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0035.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0036.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0037.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0038.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0039.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0040.png",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_review.aseprite",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/receipt.json"
+      ],
+      "source_sha256": {
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0000.png": "6c3b43767042af152b8a03141e1a41e176acdbe8c5b185b62bbcb8a6f4233140",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0001.png": "8d9f0d37fef92cf946a999d6350e3596c09af6d725e9ca1229361160e68b0a30",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0002.png": "b6ea04a2b21cec30370b0e360331912e831e789667c28842801d3a243f74e663",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0003.png": "6ded70f6120d0e3a8d9e72aa8ecc79e27b486b535d60f295e5aaac60ca8894a3",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0004.png": "4288ade75b34161511283ae972a6623a70f261f2ed21dca4a68c923577ac060a",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0005.png": "a24a4ae5bd4e2f77e462e900d8673476d76687f5c389113244556650b5a56add",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0006.png": "aad84f81f86da966aa8e5d810bed3860e9a189aae8b013f6ad3f4b9970e838e6",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0007.png": "4ab377d8fd4bf32105dda5ba03a49ac586c2ef04c8d45be47268e90a5a265299",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0008.png": "523b4cf4b8c69fbb98da3be63f16c1081b3c9b9370e1e3979ee3afa435bc808e",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0009.png": "368aeafa870f4bddf21dca59c6a49e9f3c9e8493fab52a465d6ecfedce0bac75",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0010.png": "653118b61a08b965ffb13f8b4ccdd821c47959b96f0ba63ca3e75466d2b34c92",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0011.png": "232a0437c3fc2bb5f6f026cea4b330ad21179efafda2e7825e9c371e6b1da5de",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0012.png": "9d962eb597a17e0d74c68bc82ae3de7f4eb510ba37a01ec8c381bd73ebcdb2c1",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0013.png": "e32677275eefa362586a33b046720bc0c0ed9225260e0790c1a0b91b54ca5ca6",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0014.png": "11a61099421ac8dc413b54b82147022ebedfa599a45185d48acc0d183ce6391c",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0015.png": "09fdca2078be706fa1a4629ec6f4e405ea26ae80cbf8d677c3966ef3d803134f",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0016.png": "d54b110609842bcb228159090fbca20491bc4d6a7add395f185c2e50c260c01e",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0017.png": "15ae47d6695794faef9d58ce3b7d40fcd131859db358e0b1c4c325a3fd29d60a",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0018.png": "655ba10eddfe603e1c2e4bdd7708ddd6cc207f39afd3ef243524c5160fb676f4",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0019.png": "7acfa20d10735fd49f477c59a2b9b5186e8a5bb919982b288af21f43b6c11c69",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0020.png": "47099005b7a6559d6c02d724214d43bf7a4d58e4099265e8af7b41591631eeac",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0021.png": "59b234982143b2829af9cef7018466b8e1a8877a5b46c74fd996c48c3e7a69ab",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0022.png": "0872c6f3d887616d4e8e291271226dd2ed5c277e44c705d1670f480bbf38282d",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0023.png": "f20dd2d7b80a10f8ed07a1ecae4e5391528712b407ba42749203452a0e03dcd5",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0024.png": "9a2ddba793be06930fbbfade9014f845651a631062bfa6f919a60625d8a58415",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0025.png": "ba623b054f2f5199d1405dc687bcaa84a67819fedf4d8e7f7721d463bc421c7b",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0026.png": "7c9fb7e8c78e3d2d5b6a3599af66e6c393b2a851815753a0761185675d47872e",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0027.png": "2f0cf4562e99af28b88a64d59f059b5dbd9e2f103ee59e9e41e6600e2fa69577",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0028.png": "e8ef2ef95aae983aff83e3c00eb896d132c6d362efb490563a27c71fbb5d94ad",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0029.png": "b356c8f11197815ef65715cbea6f81554c503ec2f72ecd4ca3b77cd3627bbbc4",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0030.png": "b9f835bca4baec22dbce47d32aba19bae5a83081ef1e0b9b6b8ff6f521136a3e",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0031.png": "bb24a05fb0dd8d40123005a6eb712c3bb6db48c1de0bb250e07a16873d1056b2",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0032.png": "a10017b1097b7aba52f04222461bb58aae2b7aa54e0baafae1d13c7a5013d04e",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0033.png": "6a3ca14354eaca95379046e4e6f5ff5a590ffaab1ce202a5cb29ce40de07edd1",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0034.png": "42f6a9609b9be16dd8207ee521d11fab9ec589f84590a9b621ac7a2a534717f9",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0035.png": "cdf8819366750c76cb6fd9510371b8214c5c8095c2f09b8bbc9e2b74cea639a1",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0036.png": "0371267d74ab7529c3070fdb080c5a750e8977430b74ef0b1351813e5517e76f",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0037.png": "77ce6ca12dc5b3e48792a64a4e418bbcdd3845aa9fd9a7048b1f645428ad6be2",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0038.png": "782c226cc8788c5afe1e7a5bbf3947d6c1878bc105125ea2468b586f8bc30c9b",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0039.png": "f294aff4df8ed6129286f064e633bc4b040373899c7ea3433b5f994619d3223f",
+        "assets_src/cinematics/ltx25_8gb_wave_20261004/results/scale_registered/refined_frames/0040.png": "7fc2cb7700c7a71a914261b71f480a71beab3f921b86d48cb891fc099f969d3c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0000.png": "d784c4e396537b998daca85f9bc2c3c8123400a398dba5a296288ca8b76877bf",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0001.png": "930fb405bb88f81f8963729b1c46a4a0d070abf1308151c0a99f05ae92e7091b",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0002.png": "84625e06278c99a81fdd1a68b0d8e05e4ec7bdfb045dd2644d08ae5ae2a731c9",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0003.png": "ce37c3d4cb98aeddb53fa7cf494960740bd92ddb743c697171de99681fd3bb16",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0004.png": "0fd4a23d2369eba1723fc8e20c8670af4a078a74c0b6963fd20ce4f915c1398b",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0005.png": "f770af893c425a11e48b17f4c42a737aab154b362b6b59c3b90ba8dd3c37d1f3",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0006.png": "ae47d600b16c40f7ec85a8b3c3a367e800b0c6fbdde1ff8dcf02eea2749d12bb",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0007.png": "36fe80d81299711edd2f3361462aeeb8496716766d20d95a0d80c7105732d11d",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0008.png": "22033ba8b695ac4d44a244a6c9499bf360a3ca5a7fac90370ec191c36126d580",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0009.png": "4d0942f62e54110b8c0553cac4f95993459be758a8e8932d5de60087ed225506",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0010.png": "8cdcfe32603f32a6123448022b119461d7ea3755b18dc0eae1c17650e9cba70f",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0011.png": "2de6462333f3fa41bc9650d103ffd01ce8e365c775281565f9610d4133b7f2c6",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0012.png": "d768a93ed73ec39592cb5f92936ab808f4a19d87429377162e4975c4f43bfc08",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0013.png": "dec2dbaa28d4827d90c845c85064891c6ac279637b2e2a9ef95783625e193793",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0014.png": "150bde9432ddb4404f55fc38168d10775ee35cc177bf0645260c08289fc3f94b",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0015.png": "107d98dcd4c1abe794b1f23e0442e4bcfc348fac1ffe32b6a1f85f802d78abda",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0016.png": "5e3309bf8dd3e5642fba383c8821b3d0a3e9d38a71994ae6c8693f6fca5beba4",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0017.png": "31bf15a63fd6a908ce205bdf11959025b15da2f2708932223fbedf09b5ed3215",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0018.png": "327033b372f63c0c6facb5b773e5b2f98888e059df3760fbfc99441e6c5dcdde",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0019.png": "0baa145023429aeeac12b39ddf5a6f00967d4eda58369deb451a5cb99cdc2d7a",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0020.png": "4532973f6f949516ffc312f8cecc4ab885e4c5344f59ad08880e6e30b2376245",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0021.png": "7bab23e5d829346f45b314cc4ec13ec60a15f2219e6ab13ac2fe08183d9ba42c",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0022.png": "1c59604208f64a47b7772089d40b0c839c03c62745acd00580931af9bca31b31",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0023.png": "486c216f49d3b328aacbf6f8108f76b27571933a32e794cf32388f7fb58e7cb5",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0024.png": "5026ceae96a2635fcd8c0fe4fffaff22e6f22233b76f5b9e9d226f571ebcf2ce",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0025.png": "090fb364dd6f86c224961577f63be13c3bb1c5cfa251cb4da84f1a2af2d9dc8e",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0026.png": "b02dc811fa9f6c886e11968702383584dd93cc86e20f605389c586a94dc103f7",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0027.png": "8ff92fa23cf58c24bcc53447fc0188557704fa5d686327b1003f3b806636447b",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0028.png": "fc9e02213db57a80489e51de978cc7b40cbf7cb72a3c476e51be2baba90fa201",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0029.png": "1968e0a0ca60e1304f25f0e4f84b70158a0c0a21c00b80c2bafa93d505ea8091",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0030.png": "194127b17a1b2e38fa35869d88adfd572dcd7d4a0aabc7e2142789ddbdc942be",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0031.png": "ebfbfc043640c8bcbd9607200e6c6df626785db6238e2dd73a69460473cbb334",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0032.png": "89fd8ea846ac62e136bd4fc9b489d494da7550c840f5f711833b149466e5d1de",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0033.png": "5d8cdcb17114888b6af1b5d589d85b13725ec67bb57f37778d5919731e7edb7f",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0034.png": "c76b218d7ddf83543e0ecd1ba61cb4cb995822967d4dd5550da8984eef80a2f1",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0035.png": "03d3905ca7739bd99fb1ae759162f033843c07614c92dc12ed855defa6496195",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0036.png": "a61ddaa420c3a5a845e221799ec35ca5d99b0f9e8b14930fd88c95cbefc638dd",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0037.png": "f0948ad3ff2f9f6bfcf8902ded337007303e6afcacf224ec394d3e6ca7bb98ab",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0038.png": "00a9657bb4a7382eda4e0d0e66fa1726311974f3e7fbb7326405b566496ed15a",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0039.png": "5760d9dacd6f59d4c3ddeee1acc28a6cdfffbf0b79e537f8e6936a558c14ed88",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_frames/0040.png": "35a174f4d05e18d29740e63f03a79240d649ea9b8afc538b731c1f72779e12c9",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/decoder_2_review.aseprite": "45575cf5bc78920931c872156a77b5b89b0bb8c8c6a8ea7e1370db95cc275881",
+        "assets_src/cinematics/ltx25_focus_repair_20261004/receipt.json": "313128d756f55868aec5adde9aa35c3bcce74de68b0dc0fd0716a1dd0ab0ba1e"
+      },
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    },
+    {
+      "path": "workflow.api.json",
+      "bytes": 1051,
+      "sha256": "2175bc19921e7571e591932d873d29150d92e68e03f2123e918f339e46034f01",
+      "role": "recipe_or_measured_evidence",
+      "modification_status": "Source-only analysis, recipe or measured evidence; no runtime acceptance.",
+      "source_paths": [],
+      "source_sha256": {},
+      "license_provenance": "Project-owned Roshan source-study derivatives; inherited source attribution and LTX-2.x community model terms for generated footage; no model weights redistributed."
+    }
+  ],
+  "payload_sha256": "4510ed1cb051e9d806f605e7a395a1cd3430ea5d1e4001736c1f92528ad9d361",
+  "new_transformer_jobs": 0,
+  "new_imagegen_calls": 0,
+  "new_decoder_ablation_jobs": 1,
+  "model_weights_redistributed": false,
+  "accepted": false,
+  "previous_source_manifest": "assets_src/cinematics/ltx25_8gb_wave_20261004/manifest.json",
+  "prior_registration_manifest": "assets_src/cinematics/ltx25_scale_filter_v2_20261004/manifest.json",
+  "future_adapter_execution": "UNTESTED_ON_8GB",
+  "archive_complete_requires": "Actual anonymous remote receipt at exact published revision; not inferred from this manifest"
+}

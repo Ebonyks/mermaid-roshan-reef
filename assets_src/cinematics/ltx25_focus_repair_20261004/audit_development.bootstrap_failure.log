@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\animation-workflow-policy\mermaid-roshan-reef\tools\audit_development.py", line 19, in <module>
+    from tools import audit_document_authority as authority
+ModuleNotFoundError: No module named 'tools'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\animation-workflow-policy\mermaid-roshan-reef\tools\audit_development.py", line 21, in <module>
+    import audit_document_authority as authority
+ModuleNotFoundError: No module named 'audit_document_authority'

@@ -179,6 +179,42 @@ retains the original inconsistent key, one named complete-figure redraw, native
 Aseprite registration measurements and a bounded follow-up. It is source evidence,
 not an accepted runtime atlas or a grant of human/device/child acceptance.
 
+### Repair internal proportions and changing detail before acceptance
+
+Owner correction 2026-10-04: size changes remain visible after global registration,
+and the figure shifts in and out of focus. Regeneration through a different
+corrective workflow is allowed. A numerical root/global-scale pass does not
+override visible internal stretching or changing detail. Use pose-aware head,
+shoulder, torso/pelvis and tail-junction relationships across the complete figure;
+registration anchors must not freeze legitimate acting.
+
+Check native decoded PNGs before blaming Aseprite or encoding. Compare guide
+detail/style across the entire family; mixing enlarged low-resolution poses with
+a much sharper redraw can change the conditioning. Record this as a hypothesis
+unless a controlled experiment isolates its effect. Quiet-region edge metrics
+are diagnostic only: changing poses and added grain can raise them without
+recovering painted detail. Inspect both the figure and a quiet background region.
+
+Prefer coherent whole-figure structural video conditioning when sparse image
+keys leave proportion drift. Correct the geometry in Aseprite before deriving
+an outline/depth/pose control sequence; extracting controls from defective
+footage can reinforce its errors. Preserve all action indices and coordinated
+shoulder, torso/cloth, hair and tail response. Validate actual guide bindings,
+legal geometry, quantized adapter execution and memory before a full job.
+
+Treat temporal detail reconstruction as a separate step after geometry passes.
+An adapter trained to retain input geometry is not an anatomy repair guarantee.
+Use aligned sequence conditioning and consistent painted identity, then recheck
+every native frame and both boundaries. Independent still sharpening, per-limb
+repairs, tighter crops and held clean poses cannot accept a changing whole figure.
+
+Record actual decoder defaults and controlled changes. More decoder timesteps
+are not automatically more detail and are not equivalent to DFR or Refine Details.
+The [same-latent decoder comparison](../../assets_src/cinematics/ltx25_focus_repair_20261004/README.md)
+reproduces all default pixels, but rejects two-step decoding for added grain and
+persistent defects. Keep that rejected evidence and publisher default; no blur-off
+claim or adapter quality/8 GB acceptance follows from successful decoding.
+
 ## Verify the model recipe before judging a take
 
 The [2026-10-04 two-pass wave trial](../../assets_src/cinematics/ltx_two_pass_wave_20261004/README.md)
@@ -419,6 +455,11 @@ of rendering speed, memory fit or acceptable animation.
   one corrected intermediate pose and at most two generated candidates. Existing
   task caps and prior rejected costs remain visible; changing a backend or
   calling a render a retake does not reset them.
+- A new owner-authorized corrective brief may permit further generation through
+  a different method after an earlier cap. Record the new scope/limits and
+  cumulative prior costs before submission. Do not silently reset the old cap,
+  treat old limits as a permanent ban on the new commission, or infer unlimited
+  retries from permission to regenerate.
 - Store originals, corrected poses, timing/tags, defects and registration/contact
   landmarks in an editable Aseprite master. Preserve painted contours and
   antialiasing. Distinguish ImageGen/redraw pixels from Aseprite registration,
@@ -453,4 +494,3 @@ of rendering speed, memory fit or acceptable animation.
 The [bounded repair/8 GB retake study](../../assets_src/cinematics/ltx_retake_repair_20261004/README.md)
 records hardware execution and visual outcomes separately. It grants no runtime,
 owner, device, child or final cinematic acceptance.
-
