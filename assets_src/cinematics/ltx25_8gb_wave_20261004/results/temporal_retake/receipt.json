@@ -1,0 +1,45 @@
+{
+  "take": "temporal_retake",
+  "backend": "ltx25_w4a8",
+  "model_job": true,
+  "started_at_utc": "2026-10-05T01:25:17.832578+00:00",
+  "status": "EXECUTION_PASS",
+  "native_stage1": null,
+  "native_refined": [
+    576,
+    832
+  ],
+  "frames": 41,
+  "fps": 24,
+  "seed": 20261004,
+  "guides": [
+    0,
+    3,
+    7,
+    17,
+    22,
+    27,
+    36,
+    40
+  ],
+  "negative_conditioning_effective": false,
+  "steps": [
+    8
+  ],
+  "source_only": true,
+  "workflow_sha256": "346177a07eba31f129e0e26bc6f72260220dcdac9b767eb307ed1cf7e550c497",
+  "renderer_sha256": "fd7038b9464d9377059c1c9191ac2a65ec5acb5dac72fd3cbf0012618ef3ffb0",
+  "retake_temporal_mask": {
+    "first_latent": 3,
+    "last_latent": 4,
+    "nominal_pixel_frames": [
+      17,
+      32
+    ],
+    "spatial_scope": "complete canvas; all figure parts"
+  },
+  "prompt_id": "6b553d3e-c9d1-4a38-811e-e29469704c06",
+  "elapsed_seconds": 86.558,
+  "observed_total_card_peak_mib": 7197,
+  "memory_sampling_interval_seconds": 5
+}

@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-05T02:01:47.452807+00:00",
+  "payload_hashes_checked": 589,
+  "max_file_bytes_limit": 104857600,
+  "credential_pattern_check": "No hf_ credential-shaped strings in source/evidence text; no secrets read",
+  "python_source_ast": "PASS",
+  "mandatory_document_authority": "ALL OK",
+  "mandatory_development_coverage": "ALL OK",
+  "baseline": "abbffecbf27479e1349326f2c9685962e7964c55",
+  "contract_unit_tests": 54,
+  "contract_unit_tests_status": "PASS",
+  "contract_test_modules": [
+    "tools.tests.test_audit_document_authority",
+    "tools.tests.test_audit_development"
+  ],
+  "native_comparison": "environment/comparison_verification.json",
+  "full_exact_head_project_ci": "Pending GitHub run after publication; no runtime tree change"
+}

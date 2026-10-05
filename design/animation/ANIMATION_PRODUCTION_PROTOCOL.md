@@ -136,6 +136,26 @@ negative guidance, bind actual negative conditioning to a compatible dedicated
 implementation and retain evidence that its attention code executed. A generic
 NAG node whose hooks the model never calls supplies no such evidence.
 
+The [LTX-2.5 8 GB trial](../../assets_src/cinematics/ltx25_8gb_wave_20261004/README.md)
+proves the matched W4A8 stack, learned upscale and refinement execute locally.
+Its LTX-specific NAG hook executed 528 times on GPU, yet torn fingers remained.
+Keep NAG optional unless a controlled native comparison improves the actual
+defect. No documented blur-off switch was found in the inspected official
+guides or pinned core; guidance execution alone does not establish repair.
+
+Distinguish diffusion-VAE decoding, ordinary latent refinement, Refine Details
+IC-LoRA, and the complete DFR pipeline. They perform different work. Record the
+actual loaded decoder class and matched checkpoint; do not claim a quality
+feature is enabled merely from the model version. Consult the exact adapter's
+training bucket, guide contract, sampler and legal geometry before use.
+Match the degradation to the adapter: the official Deblur card excludes
+motion-blur removal because it was trained only for spatial defocus.
+Higher temporal sampling or slower planned motion can reduce travel per latent
+block, but require a bounded same-action test with exact source/output frame
+mapping. Dropping generated frames is declared cadence, not proof of anatomy.
+A temporal-dilation repair must recover the original clock, preserve complete
+figures and audit boundaries; a large community recipe is not an 8 GB preset.
+
 Timed image guides influence motion; they do not lock poses to exact frames.
 Inspect anticipation, the largest travel interval, every contact and the actual
 settle time. Refine may improve contours while retaining a first-pass timing
@@ -352,6 +372,12 @@ of rendering speed, memory fit or acceptable animation.
   for a review splice, retain original complete frames outside the replacement
   span and explicitly record the contiguous replacement. Never repair only a
   limb against a frozen body or conceal a bad boundary with a dissolve.
+- Test frozen latent context and decoded source pixels independently. In the
+  2.5 trial, four of six video latents were bit-exact outside the mask, but no
+  decoded frame was pixel-identical and outside-frame differences reached
+  53/255. Do not describe latent preservation as untouched final footage.
+  A whole-frame source splice is a separately declared operation with boundary
+  review; no splice was performed in that trial.
 - Choose the retake window against the model's temporal VAE blocks and clean context, not only the visible defect indices. Retained source latents can contain failed neighboring motion. Prove mask behavior separately from decoded continuity; expand/replace contaminated context within the bounded brief when necessary.
 - For isolated character/object work, a measured whole-figure crop may reduce empty-canvas cost. Preserve all moving parts with a motion margin, apply one source crop to every frame/guide, retain full originals and record the transformed registration coordinates. Audit the complete figure; this is not permission for frozen-body limb repair. New dimensions require a hardware/quality check.
 - Cache unchanged conditioning/context only under exact model, VAE, source, prompt and dimension hashes. Preserve cold and warm timing separately. A completed low-resolution retake establishes hardware execution, not final-resolution quality or practical iteration speed.
