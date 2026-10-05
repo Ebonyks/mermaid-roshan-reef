@@ -1,0 +1,174 @@
+{
+  "id": "claude-whole-frame-wave-20261005",
+  "scope": "Owner correction to the Roshan wave study: revision 1 (cut-out arm over another drawing's body, per-part delays) is marked OWNER_REJECTED and revision 2 draws every frame from one complete approved roshan_gesture_a.png key, deformed as one figure, with the whole body on one timing curve, one drawing change per beat, a one-layer Aseprite master and machine checks. The correction is recorded in the owner decision register and written back to the production protocol. Source-only reference study; no runtime change.",
+  "baseline": "e174a52dafb83e13df249ba040339554ca364ecf",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-ASSET-01",
+    "DL-ASSET-02",
+    "DL-ASSET-03",
+    "DL-ASSET-04",
+    "DL-ASSET-05",
+    "DL-ASSET-06",
+    "DL-MOT-10",
+    "DL-MOT-11",
+    "DL-MOT-13",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16"
+  ],
+  "findings": [],
+  "no_findings_reason": "Source-only animation-method study under assets_src plus documentation of an owner correction; runtime atlas, playback and topology are unchanged, so MA-ROSHAN-003, MA-ROSHAN-005 and MA-ROSHAN-006 lifecycles are unchanged.",
+  "files": [
+    "ASSET_LICENSES.md",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/JOB_CARD.md",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/README.md",
+    "assets_src/cinematics/claude_2d_deform_wave_20261005/manifest.json",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/.gdignore",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/.gitattributes",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/JOB_CARD.md",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/README.md",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/data/anchors.json",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/data/correspondences.json",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/data/frame_sources.json",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/data/roots.json",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/data/schedule.json",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0000.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0001.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0002.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0003.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0004.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0005.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0006.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0007.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0008.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0009.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0010.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0011.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0012.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0013.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0014.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0015.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0016.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0017.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0018.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0019.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0020.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0021.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0022.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0023.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0024.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0025.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0026.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0027.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0028.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0029.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0030.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0031.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0032.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0033.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0034.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0035.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0036.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0037.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0038.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0039.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/frames/native/0040.png",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/manifest.json",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/review/wave.gif",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/review/wave_native256_x3_nearest.mp4",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/review/wave_review.mp4",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/scripts/anchors.py",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/scripts/arm.py",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/scripts/aseprite_io.py",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/scripts/common.py",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/scripts/corr.py",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/scripts/manifest.py",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/scripts/masks.py",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/scripts/master.py",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/scripts/mls.py",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/scripts/paths.py",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/scripts/produce.py",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/scripts/render_whole.py",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/scripts/run_all.sh",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/scripts/schedule.py",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/scripts/track.py",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/scripts/verify.py",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/scripts/videos.py",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/verification.json",
+    "assets_src/cinematics/claude_whole_frame_wave_20261005/wave_master.aseprite",
+    "audit/animation/README.md",
+    "audit/cycles/roshan-wave-20261005/owner_answers.json",
+    "design/05_DOC_LEDGER.md",
+    "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+    "design/reference/OWNER_DECISIONS.md",
+    "design/reference/owner_decisions.json"
+  ],
+  "validation": [
+    {
+      "command": "sh assets_src/cinematics/claude_whole_frame_wave_20261005/scripts/run_all.sh (WAVE2D_WORK set to a scratch directory)",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/claude_whole_frame_wave_20261005/verification.json: 20 machine checks (atlas hash; 41x256 RGBA frames; rest frames 0-3/36-40 equal K0 verbatim; border clearance; one source drawing per frame and exactly 4 drawing changes; at most 21 same-frame gap pixels; 6 pixel-identical re-renders; root <=1 px (0.607); inter-anchor distances inside the drawings' range; one-layer Aseprite master equals the PNGs, 1708 ms via the project reader). A clean rebuild reproduced the reviewed frames in every visible pixel."
+    },
+    {
+      "command": "Agent review of the 768x768 review frames at the drawing changes (5/6, 12/13, 21/22, 31/32) and the overhead beat",
+      "result": "PASS",
+      "evidence": "Each frame reads as one drawing; README known limits list the largest bends (frames 4-6, 29-33, up to 147 deg), elbow kink at 12, ragged hair at 13, specks at 31-32 and the drawing changes. Agent review only; it cannot grant human or owner acceptance."
+    },
+    {
+      "command": "python -B tools/record_owner_decision.py --check --base origin/dev",
+      "result": "PASS",
+      "evidence": "ODR-ROSHAN-WHOLE-FRAME-20261005 appended; register ALL OK."
+    },
+    {
+      "command": "Open and re-save wave_master.aseprite in Aseprite",
+      "result": "PENDING",
+      "evidence": "No Aseprite binary in this cloud session; the file round-trips through scripts/aseprite_io.py only."
+    },
+    {
+      "command": "python -B tools/audit_document_authority.py",
+      "result": "PASS",
+      "evidence": "Run on the candidate before commit; see commit message."
+    },
+    {
+      "command": "python -B tools/audit_development.py --base auto",
+      "result": "PASS",
+      "evidence": "Run on the candidate before commit; see commit message."
+    },
+    {
+      "command": "Human identity/motion/seam review; runtime atlas sampling; device; child; owner",
+      "result": "PENDING",
+      "evidence": "Not available to the agent; required before production use."
+    }
+  ],
+  "acceptance_gaps": "REFERENCE_ONLY. Owner review of revision 2, human identity/motion/seam review, Aseprite open/save, runtime atlas packing and engine sampling (MA-ROSHAN-003), device playback and child review are outstanding. The named whole-figure arm-out key is not commissioned.",
+  "lessons": [
+    {
+      "lesson": "For Roshan, a limb animated as a separate cut-out over a body from another drawing, or with per-part delays, reads as a separate piece and is rejected; build each frame from one whole drawing with the whole body on one curve.",
+      "write_back": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md#preserve-crisp-contours-and-figure-wide-continuity"
+    },
+    {
+      "lesson": "With four keys, bending a single whole drawing needs up to 147 deg at the arm-out beats; name that one whole-figure key as the gap instead of more bending or a per-frame campaign.",
+      "write_back": "assets_src/cinematics/claude_whole_frame_wave_20261005/README.md#known-limits-agent-review-not-owner-review"
+    }
+  ],
+  "owner_corrections": [
+    {
+      "decision_id": "ODR-ROSHAN-WHOLE-FRAME-20261005",
+      "evidence": "Owner, 2026-10-05, on revision 1: \"No arm moves as a single figure, the whole body moves at once, drawn as a whole frame\". Revision 1 marked OWNER_REJECTED; revision 2 implements one whole drawing per frame.",
+      "write_back": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md#preserve-crisp-contours-and-figure-wide-continuity; design/reference/owner_decisions.json"
+    }
+  ],
+  "references_used": [
+    {
+      "path": "assets_src/cinematics/claude_2d_deform_wave_20261005/README.md",
+      "purpose": "Rejected revision 1: correspondences, roots and arm joints reused; its cut-out compositing is what the owner rejected."
+    },
+    {
+      "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+      "purpose": "Figure-wide continuity and crisp contour rules the revision follows."
+    }
+  ]
+}

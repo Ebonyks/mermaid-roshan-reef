@@ -1,6 +1,11 @@
 # Roshan wave: whole-figure 2D deformation (no generative model)
 
-Status: `REFERENCE_ONLY`, owner-commissioned 2026-10-05. Baseline `f73236759755fd220cc495cc48f9e822a3d65ced` (dev).
+> **OWNER_REJECTED 2026-10-05.** The owner's verdict: "No arm moves as a single figure, the
+> whole body moves at once, drawn as a whole frame." This revision moves a cut-out arm over a
+> body taken from another drawing and gives parts their own delays. It is kept as evidence only.
+> See [revision 2: whole-frame drawings](../claude_whole_frame_wave_20261005/README.md).
+
+Status: `REFERENCE_ONLY` / `OWNER_REJECTED`, owner-commissioned 2026-10-05. Baseline `f73236759755fd220cc495cc48f9e822a3d65ced` (dev).
 This packet makes no runtime change, accepts no production asset, and closes no finding.
 
 The owner reported that Codex was struggling with the animation and asked for the same

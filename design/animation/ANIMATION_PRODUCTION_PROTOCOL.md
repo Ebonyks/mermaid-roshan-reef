@@ -87,6 +87,15 @@ only a limb animates. Preserve the source figure's changing silhouette,
 attachments, cloth/hair response and counterbalance throughout the action.
 Object motion likewise includes its relevant support and moving parts.
 
+Owner correction 2026-10-05 (`ODR-ROSHAN-WHOLE-FRAME-20261005`): "No arm moves
+as a single figure, the whole body moves at once, drawn as a whole frame." A
+limb never moves as a separate cut-out over a body from another drawing, and
+parts do not run on their own delays. Each frame is one whole drawing of the
+figure; arm, shoulders, head, hair, torso and tail move together. The
+[rejected cut-out wave](../../assets_src/cinematics/claude_2d_deform_wave_20261005/README.md)
+and the [whole-frame revision](../../assets_src/cinematics/claude_whole_frame_wave_20261005/README.md)
+record the difference; neither is accepted output.
+
 Inspect decoded native frames before encoding to distinguish generated smear
 from matte spill and export artifacts. Small character/object footage must
 retain clear painted hands, fingers and prop edges. Review moving edges at the
