@@ -48,7 +48,7 @@ Reference-only study; no runtime, production, device, child or owner acceptance.
 | Evidence lane | Result |
 |---|---|
 | Human identity / topology / style | PENDING. Agent notes are in the README's known defects. |
-| Human motion / contact / seam | PENDING. Agent notes: shoulder seam, elbow fold, drawing changes at frames 5, 7, 32 and 33. |
+| Human motion / contact / seam | PENDING. Agent notes: shoulder seam, elbow fold, drawing changes at frames 5, 7, 12, 23, 32 and 33. |
 | Source / export machine | PASS: 21 checks in [`verification.json`](verification.json). |
 | Cinematic machine | NOT_APPLICABLE. This is a gameplay-sprite study, not cinematic footage. |
 | Gameplay machine | NOT_APPLICABLE until runtime integration (atlas packing, `MA-ROSHAN-003`). |

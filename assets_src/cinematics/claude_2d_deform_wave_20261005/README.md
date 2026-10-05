@@ -109,8 +109,8 @@ the sorted payload hash. These checks are machine checks only.
   hair, most visible around frames 12 and 22 at 3× zoom.
 - **Elbow fold.** The inner elbow is soft when the straight K2 arm is bent (frames 12–16)
   or the bent K1/K3 arm is straightened. Four keys cannot cover every elbow angle.
-- **Drawing changes.** The hand changes drawing at frames 7 (relaxed to open) and 33 (open
-  to relaxed). The body changes at frames 5 and 32, which changes the face (closed to open
+- **Drawing changes.** The arm changes drawing at frames 7 (relaxed to open hand), 12 and
+  23 (open to open) and 33 (open to relaxed). The body changes at frames 5 and 32, which changes the face (closed to open
   smile) and the tail sparkle pattern. These are deliberate drawing changes, but they may
   read as pops when stepping frame by frame.
 - **Straight-out arm.** The rise and lowering pass through a straight-out arm (frames 5–6
