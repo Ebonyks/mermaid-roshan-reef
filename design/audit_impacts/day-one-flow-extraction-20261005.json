@@ -1,0 +1,128 @@
+{
+ "id": "day-one-flow-extraction-20261005",
+ "scope": "Owner-requested mechanical extraction of Day One flow logic from scripts/main.gd into the new RefCounted satellite scripts/day_one_flow.gd (DayOneFlow), the 'safe way': logic only, every Day One field stays on ReefMain and is still saved through DayOneDirector; bodies move verbatim with only an m. receiver prefix (self -> m, ReefMain value constants -> ReefMain.NAME, preloaded script constants re-declared); every moved function reached from outside the satellite keeps a same-signature one-line forwarder on ReefMain, so other scripts, probes, Callable/call_deferred string dispatch and has_method checks are unchanged. Three commits move leaf room-entry/progress recorders first, then castle dressing/art studio/bathroom and pool route helpers, then the story-clip queue and boss/exit chain last. Functions whose source text trusted or voice-contract probes read in main.gd stay on main; no probe, tool or save key is edited. Benefits development: main.gd sheds 310 lines of Day One bodies toward the DL-CODE-01 target without any behavior change for the child.",
+ "baseline": "8a2f30cb0df44ece3b1172ed2dbcb9a55fc5d622",
+ "rules": [
+  "DL-AUTH-05",
+  "DL-AUTH-06",
+  "DL-AUTH-07",
+  "DL-CODE-01",
+  "DL-CODE-03",
+  "DL-CODE-06",
+  "DL-SAVE-01",
+  "DL-QA-02",
+  "DL-AGE-03"
+ ],
+ "findings": [
+  "MA-CODE-001"
+ ],
+ "files": [
+  "audit/MASTER_AUDIT_2026-08-09.md",
+  "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+  "design/03_TECHNICAL_ARCHITECTURE.md",
+  "design/reference/games.json",
+  "scripts/day_one_flow.gd",
+  "scripts/main.gd"
+ ],
+ "baseline_evidence": {
+  "main_lines": 9153,
+  "main_functions": 476,
+  "day_one_functions_on_main": 63
+ },
+ "candidate_metrics": {
+  "main_lines": 8843,
+  "main_functions": 475,
+  "net_main_lines_removed": 310,
+  "day_one_flow_lines": 480,
+  "moved_functions": 38,
+  "forwarders_kept_on_main": 36,
+  "moved_without_forwarder": [
+   "_sync_day_one_art_studio",
+   "_day_one_trigger_boss"
+  ]
+ },
+ "preserved_contracts": [
+  "No Day One field moved: DayOneFlow holds only its ReefMain reference; DayOneDirector serialize_state/restore_state and every reef_save.json key are unchanged.",
+  "Moved bodies are byte-identical apart from the receiver prefix; call order inside every function is unchanged, including the 2026-09-23 Continue world-before-castle ordering.",
+  "Every moved function reached from main, another script, a probe, a tool or a string (m.call, Callable(m, ...), call_deferred) keeps a same-signature forwarder on ReefMain.",
+  "Callables created inside moved bodies (the _day_one_trigger_boss entry passed to the Royal Hall seam) are created and consumed through the satellite, which ReefMain owns for its whole lifetime; _show_day_two_transition and its finished handler stay on main together.",
+  "Seventeen functions stay on main because probes read their source there: _day_one_ref, day_one_activate_castle_room, day_one_complete_bathroom_scene, day_one_complete_stuffie_rescue, _sync_day_one_bathroom_cleanup, _on_day_one_bathroom_supply_hunt_completed, _on_day_one_bathroom_finale_started, _start_day_one_bathroom_movie_handoff, _day_one_bathroom_entry_movie_blocks_cleanup, _suspend_day_one_bathroom_controls, _sync_day_one_pool_route, _show_day_one_room_handoff, _on_day_one_hook_event, _day_one_play_story_clip, _day_one_play_story_clip_for_room, _show_day_two_transition, _on_day_two_transition_finished.",
+  "Eight one-line functions stay on main because a forwarder would be as long as the body: say_day_one_context, reset_day_one_context, day_one_is_active, day_one_jobs_locked, day_one_opera_enabled, _day_one_begin_arrival, _on_day_one_bathroom_cleanup_step, _clear_day_one_pool_route.",
+  "No string literal that any probe, tool or test looks for in scripts/main.gd disappears (whole-repository literal sweep).",
+  "3D token inventory of scripts/main.gd is identical and the satellite has none, so tools/game_2d_migration_manifest.json is unchanged."
+ ],
+ "validation": [
+  {
+   "command": "python -B -m gdtoolkit.parser scripts/main.gd scripts/day_one_flow.gd (and full tree via ci.sh)",
+   "result": "PASS",
+   "evidence": "gdtoolkit 4.5.0 under Python 3.13.14; every intermediate state parsed."
+  },
+  {
+   "command": "python -B tools/lint_inference.py scripts/*.gd scripts/arena/*.gd scripts/games/*.gd",
+   "result": "PASS",
+   "evidence": "No ':=' Variant inference findings at each step."
+  },
+  {
+   "command": "Official Godot 4.7.2-stable (sha512 9aa00f7a...) --headless --import",
+   "result": "PASS",
+   "evidence": "No parse/compile/resource errors; DayOneFlow registered in the global class cache."
+  },
+  {
+   "command": "All 82 trusted probes from scripts/ci.sh, local isolated runner, before and after each of the three steps",
+   "result": "PASS",
+   "evidence": "Baseline dev 8a2f30cb 82/82; step 1, step 2 and final 82/82. Normalized transcripts match baseline except nondeterministic exit-time leak warnings that moved between unrelated probes (fetch, mg2d, combat, ocean_kingdoms, dance); each re-run clean two or three times."
+  },
+  {
+   "command": "python -B tools/gold_star.py --check",
+   "result": "PASS",
+   "evidence": "60 games, 0 errors, 0 stale; scripts/day_one_flow.gd is hosted by day_one_pool, day_one_bathroom, day_one_craft_room and grand_puff."
+  },
+  {
+   "command": "python -B tools/audit_development.py --base auto; python -B tools/audit_document_authority.py",
+   "result": "PASS",
+   "evidence": "AUDITDEV ALL OK against base 8a2f30cb; DOCAUTH ALL OK."
+  },
+  {
+   "command": "Remaining scripts/ci.sh static gates (typography, probe parity, visual stress, castle/opera/fairy art, story clips)",
+   "result": "PASS",
+   "evidence": "Same results as the untouched baseline run."
+  },
+  {
+   "command": "python -B tools/audit_game_2d.py --regression-gate",
+   "result": "NOT_APPLICABLE",
+   "evidence": "Local clone is shallow, which the gate refuses (G2D403) identically at baseline. The tool's own token counter reports identical 3D inventory for main.gd and none for the satellite; exact-head GitHub CI with full history is required."
+  },
+  {
+   "command": "tools/build_area_music.py --check; tools/build_audio_quality_replacements.py --check; tools/audit_audio_quality.py --check",
+   "result": "NOT_APPLICABLE",
+   "evidence": "Need the recorded Windows ffmpeg 8.1.2 toolchain; fail identically at the untouched baseline locally; no audio or script input they read changed. Exact-head GitHub CI is required."
+  },
+  {
+   "command": "Ungated source-contract checks: probe_day_one_bathroom_integration, probe_day_one_contextual_voice, tools.tests.test_audit_day_one_contextual_voices",
+   "result": "PASS",
+   "evidence": "Both probes pass. The unit test's two failures (catalog row count 117 != 114; boss dynamic-family anchor) reproduce identically at untouched dev 8a2f30cb and are pre-existing; its main.gd seam test passes."
+  },
+  {
+   "command": "Exact-head GitHub probes workflow",
+   "result": "PENDING",
+   "evidence": "Required after push before integration."
+  }
+ ],
+ "acceptance_gaps": "Code-only mechanical refactor with no intended child-facing change. Outstanding: exact-head GitHub CI; an on-device Continue check from a Day One save in each Day One room (bathroom, pool, playroom, craft room) and the boss door/return path on the android-dev build. Seventeen Day One functions remain on ReefMain because probes read their source text in main.gd; moving them requires an owner decision to retarget those source checks. MA-CODE-001 remains open above 2,500 lines.",
+ "lessons": [
+  {
+   "lesson": "Probes that read main.gd as source text (exact lines, call order, slices to end of file) pin Day One functions to main; a pure move would fail them or silently weaken them, so pinned functions stay until their checks are retargeted.",
+   "write_back": "MA-CODE-001 history; owner decision on retargeting source-text probe checks to scripts/day_one_flow.gd"
+  }
+ ],
+ "source_evidence": {
+  "main_lf_sha256": "0d68d2cebea773f16a1f669089fa1473d9f8b223826f833191a170c37dc6e4ab",
+  "day_one_flow_lf_sha256": "8472c1fb5f88e11ae3ea097baa9021b4a3416c0f73caec86ba25599c784e4a36",
+  "commits": [
+   "c3bf134b step 1: 16 room-entry/progress recorders",
+   "d068900c step 2: 14 castle dressing/art studio/route helpers",
+   "147411d6 step 3: 8 story-clip queue and boss/exit functions"
+  ],
+  "extraction_method": "Token-level mechanical move: bodies byte-identical except receiver prefix; verified by gdtoolkit round-trip, inference lint, whole-repository probe/tool literal sweep (no literal any probe/tool/test looks for in main.gd disappears) and identical audit_game_2d token counts for main.gd."
+ }
+}

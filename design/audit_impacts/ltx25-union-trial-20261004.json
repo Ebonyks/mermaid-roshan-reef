@@ -168,6 +168,9 @@
     "assets_src/cinematics/ltx25_union_trial_20261004/patch_application_summary.json",
     "assets_src/cinematics/ltx25_union_trial_20261004/prompt.txt",
     "assets_src/cinematics/ltx25_union_trial_20261004/queue_at_shutdown.json",
+    "assets_src/cinematics/ltx25_union_trial_20261004/reconciliation_authority.log",
+    "assets_src/cinematics/ltx25_union_trial_20261004/reconciliation_development.log",
+    "assets_src/cinematics/ltx25_union_trial_20261004/reconciliation_gates.json",
     "assets_src/cinematics/ltx25_union_trial_20261004/record_owner_decision.log",
     "assets_src/cinematics/ltx25_union_trial_20261004/remote_verification.json",
     "assets_src/cinematics/ltx25_union_trial_20261004/runtime_input_binding.json",
@@ -414,6 +417,11 @@
       "command": "Exact-head full regression CI before dev integration",
       "result": "PENDING",
       "evidence": "PR24 final work-branch head; no integration of unprobed/red work"
+    },
+    {
+      "command": "Reconciliation with origin/dev f73236759755fd220cc495cc48f9e822a3d65ced and required authority/development gates",
+      "result": "PASS",
+      "evidence": "assets_src/cinematics/ltx25_union_trial_20261004/reconciliation_gates.json"
     }
   ],
   "limits": {
