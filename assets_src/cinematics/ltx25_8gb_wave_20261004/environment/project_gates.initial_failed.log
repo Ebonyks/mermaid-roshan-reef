@@ -1,0 +1,32 @@
+COMMAND python -B tools/audit_document_authority.py
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\animation-workflow-policy\mermaid-roshan-reef\tools\audit_document_authority.py", line 783, in audit
+    from tools.audit_development import navigation_issues
+ModuleNotFoundError: No module named 'tools'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\animation-workflow-policy\mermaid-roshan-reef\tools\audit_document_authority.py", line 857, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "C:\Users\Peter\.codex\worktrees\animation-workflow-policy\mermaid-roshan-reef\tools\audit_document_authority.py", line 841, in main
+    issues, counts = audit(args.root.resolve())
+                     ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Peter\.codex\worktrees\animation-workflow-policy\mermaid-roshan-reef\tools\audit_document_authority.py", line 785, in audit
+    from audit_development import navigation_issues
+ModuleNotFoundError: No module named 'audit_development'
+
+COMMAND python -B tools/audit_development.py --base auto
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\animation-workflow-policy\mermaid-roshan-reef\tools\audit_development.py", line 19, in <module>
+    from tools import audit_document_authority as authority
+ModuleNotFoundError: No module named 'tools'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Peter\.codex\worktrees\animation-workflow-policy\mermaid-roshan-reef\tools\audit_development.py", line 21, in <module>
+    import audit_document_authority as authority
+ModuleNotFoundError: No module named 'audit_document_authority'
+

@@ -5,8 +5,9 @@ final animation workflows with identity, motion, provenance and device checks,
 and requests Aseprite as the bridge when possible. The binding rules are
 [design 06](../06_COMPREHENSIVE_DESIGN_LANGUAGE.md#11-cinematic-exception) and
 [AGENTS.md](../../AGENTS.md#animation-production-owner-decision-2026-10-03).
-This review submits no paid job, installs nothing, changes no runtime or artwork,
-and accepts no previous candidate. Prices are observations on 2026-10-03;
+The original review submitted no paid job or installation. Linked follow-up
+studies now include measured local pilots; their source footage is not accepted
+runtime artwork. Prices are observations on 2026-10-03;
 recheck exact endpoint, supported settings and billing before spending.
 
 ## Owner-directed production split
@@ -140,8 +141,9 @@ cadence does not lower the game's 30-fps responsiveness target.
 
 ## Local models and runners for this PC
 
-These are candidates for isolated trials, not installed replacements or a
-quality ranking. No new model below has been benchmarked on this PC. “Fits”
+The original shortlist was unmeasured. Later receipts, especially the
+[LTX-2.5 trial](../../assets_src/cinematics/ltx25_8gb_wave_20261004/README.md),
+supersede feasibility guesses for their exact configurations. “Fits”
 means a documented or plausible optimized execution path; it does not promise
 short turnaround or correct anatomy. Godot remains the runtime, ComfyUI/Wan2GP
 are inference runners, and Wan/LTX/Hunyuan/SCAIL/H3 are different motion models.
@@ -153,7 +155,8 @@ are inference runners, and Wan/LTX/Hunyuan/SCAIL/H3 are different motion models.
 | [HunyuanVideo 1.5 480p I2V step-distilled](https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5), through Wan2GP | Tencent's native Linux recipe needs 14 GB even with offload. Tencent separately links Wan2GP's optimized path reporting as low as 6 GB. Use that path, not the native recipe, for an 8 GB trial. | Independent general motion alternative. Official distilled settings recommend 8 or 12 steps. Its 4090 speed result does not predict 3060 Ti turnaround or Roshan identity. |
 | [FreeVideo / VDN MiniMax H3](https://github.com/FlashML-org/FreeVideo) | Developers explicitly claim 8 GB VRAM + 16 GB RAM through streaming/offload; Windows launcher and ComfyUI plugin. Experimental pilot only; host/disk transfer can dominate latency. | Current experimental inference work using an 8-step VDN-H3 derivative. First/end images and reference input support make it worth testing for temporal control. On this Ampere GPU its FP8 storage can use BF16 computation; newer-card FP8 speed claims do not transfer. |
 | [FramePack](https://github.com/lllyasviel/FramePack) | Official Windows/RTX 30-series support and minimum 6 GB; substantial downloads. | Memory-feasible progressive video, but published author laptop timings are much slower than a 4090. Weak first choice for rapid short sprite trials; not evidence of a faster replacement. |
-| [LTX Desktop / current LTX 2.5](https://github.com/Lightricks/ltx-desktop) | Official Windows local mode requires at least 16 GB VRAM; below that the app uses API-only mode. Other community offload paths may fit, but are untested here. | Keep in the API cinematic lane. The newest model is not automatically the best local fit. |
+| [LTX 2.5 distilled, isolated ComfyUI 0.34.3](../../assets_src/cinematics/ltx25_8gb_wave_20261004/README.md) | Matched W4A8 transformer/encoder, official BF16 diffusion VAE/upscaler/audio VAE, actual dynamic offload: 576x832/41 frames, two-pass base 158.608 s, retake 86.558 s, NAG 157.856 s; sampled card peaks 7381/7197/7568 MiB. | Preferred tested local motion pilot for this wave: reaches the lowering key better than 2B and finishes the eight-guide graph that stalled on 2.3. Finger tearing still fails; not a production-quality winner or an object benchmark. |
+| [LTX Desktop](https://github.com/Lightricks/ltx-desktop) | Its official Windows local-mode minimum remains a separate 16 GB requirement. | The standalone app limit does not establish the minimum of an optimized Comfy graph. |
 
 Wan2GP is the most useful optional multi-model runner for this comparison: it
 supports Windows/Ampere, low-memory offloading, quantization and selected
@@ -186,6 +189,32 @@ general-motion comparison when no driver exists. FreeVideo/H3 is a promising
 newer experimental comparison after those bounded tests, not a mandatory
 large download. Select only one new runner/model at a time. Exact identities,
 geometry, contacts and Aseprite cleanup burden decide whether it stays.
+
+## Blur repair follow-up
+
+The [measured wave packet](../../assets_src/cinematics/ltx25_8gb_wave_20261004/README.md)
+retains all completed native takes, temporal masks, active NAG proof and
+editable Aseprite masters. Installed 2.5 already uses the diffusion video VAE;
+its single-image encode/decode preserved readable fingers, while moving model
+frames tore them. This local check does not rule out temporal decoding effects.
+
+The official [Refine Details adapter](https://huggingface.co/Lightricks/LTX-2.5-22b-IC-LoRA-Refine-Details)
+is a more substantive candidate than another prompt: it rebuilds soft video
+detail with a frame-aligned clip guide. Its 1.31 GB checkpoint fits the existing
+28 GB download cap; quantized-stack fit and identity/anatomy still require a
+test. Use painted-style prompting, not the photoreal example's grain or
+negative 'painting'. The [official guide](https://docs.ltx.io/open-source-model/vfx-post-production/refine-and-restore)
+does not guarantee restored identity or artifact removal. Full DFR is a separate
+generated-keyframe/detailing pipeline, not the ordinary three-step refine pass.
+
+Community [de-rope](https://github.com/matlowai/ComfyUI-MAINodes/blob/generic-derope/DEROPE_ANY_MODEL.md)
+addresses compressed temporal context with slow held inputs, regeneration and
+exact frame recovery. The pinned author's d16/d8 experiments are alpha and
+report 59-60 GiB GPU peaks; do not copy that recipe onto this 8 GB card. A
+smaller same-action 48 fps trial now ran in 173.680 s at 7292 MiB sampled peak: one
+mid-lowering key is clearer but neighboring whole-figure smear remains. It is
+not an executed de-rope or a guaranteed blur fix. Aseprite remains the place
+to mark and correct complete-figure keys and inspect source-mapped repair spans.
 
 ## Local setup and measurements
 
