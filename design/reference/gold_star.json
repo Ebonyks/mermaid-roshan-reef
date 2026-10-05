@@ -189,8 +189,8 @@
   "game": "day_one_pool",
   "chosen": "2026-10-03",
   "why": "The strongest true-2D game a child can reach today (Grand Puff scores more points but its fight is built on 3D nodes, so it cannot be a template) and the clearest model of the owner's 2026-09-06 job rule: Roshan travels to each part, her hand makes contact, and only then does the authored dirt clear; every part has its own line; every change saves; real-touch probes guard it. It contains the strongest single activity in the game (the waterfall), and its gaps are specific and fixable, so it is the first candidate for a full gold star and the template for room jobs and job games.",
-  "status": "CANDIDATE_REFERENCE: the Pool's own code meets every machine-assessed criterion and supplies most reference patterns, but the refined overdraw criteria (2026-10-04) measured overdraw on its screen: the shared castle dressing's code-drawn wash and grime over the room and Roshan, two identical cleanup baskets drawn over each other, a full-screen fill drawn hidden under the room tiles, and a 255-layer burst at Rumi's reveal (MA-VIS-008). It is 3/5 (19/24) until Codex GS5 fixes them; then only device, child and owner acceptance remain.",
-  "patterns_reviewed_head": "87f992680c0b6a690bf45b1950275579c45e15ab"
+  "status": "CANDIDATE_REFERENCE: the Pool's own code meets every machine-assessed criterion and supplies most reference patterns. On 2026-10-04 Claude repaired the overdraw that shared room layers drew on its screen (MA-VIS-009, carved from MA-VIS-008, fixed pending verification): every play state now measures 1.18-1.41 mean layers with no duplicate, code drawing or translucent wash, and the reported 255-layer burst was a meter artifact, now corrected. It is 3/5 (21/24) until the OD2 look-alike review is recorded from Codex's phone-size captures (P1 in docs/handoffs/codex_pool_five_star_2026-10-04/README.md); then only device, child and owner acceptance remain.",
+  "patterns_reviewed_head": "a52f545f4c5e7cc720b0d1194b374801ece0e24e"
  },
  "patterns": [
   {
@@ -398,12 +398,12 @@
     {
      "path": "scripts/games/day_one_pool_cleanup.gd",
      "func": "_process",
-     "sha256": "f6c18e9a1df5968a3c1419c2f72ff7fde5a32fb88a21010e715ba92c9fdf571b"
+     "sha256": "86a5ecb0e72972457fe8399767ca5d7daacaf8a03751d8eb9896b17e177f1d8d"
     },
     {
      "path": "scripts/games/day_one_pool_cleanup.gd",
      "const": "IDLE_REPROMPT_LINES",
-     "sha256": "cd567f999e2de32d07049c548443b50981e36e15c234350db72505c300a04d71"
+     "sha256": "9088ee70009d04635baeda3a668142e377aa3c5d146ad5f166913748e88aa38a"
     }
    ]
   },
@@ -432,6 +432,77 @@
      "path": "scripts/games/day_one_pool_cleanup.gd",
      "func": "skimmer_pickup_line",
      "sha256": "cdf2d045904c4409d5774c22070926cb997c0e316ac7ac16d2dd05ecbfadcedb"
+    }
+   ]
+  },
+  {
+   "id": "GS-19",
+   "criterion": "C7",
+   "game": "day_one_pool",
+   "title": "A room that authors its dirt opts out of shared code-drawn dirt",
+   "copy": "When a room's activity shows the dirty state through authored art and a declared room tint (with the character counter-tinted, GS-17), list the room so the shared code-drawn wash, grime and cracks are hidden there; keep the shared layer's approved cutouts.",
+   "anchors": [
+    {
+     "path": "scripts/arena/day_one_castle_dressing.gd",
+     "const": "AUTHORED_DIRT_ROOMS",
+     "sha256": "6cf79f29b6137b98786a11b605440fcea4215ca79ed1b0234faa043f2d1b9ed2"
+    },
+    {
+     "path": "scripts/arena/day_one_castle_dressing.gd",
+     "func": "_refresh_grime",
+     "sha256": "d42776e9f4291deff57992f3b015adf653e64f600817945a10e032de92244c9b"
+    }
+   ]
+  },
+  {
+   "id": "GS-20",
+   "criterion": "C7",
+   "game": "day_one_pool",
+   "title": "A focused activity quiets shared ambient layers while it is mounted",
+   "copy": "Join the living-world quiet group while the activity owns the room's motion and guidance, so shared code-drawn ambience pauses above it and returns by itself when the activity is freed.",
+   "anchors": [
+    {
+     "path": "scripts/living_world.gd",
+     "func": "_suspended",
+     "sha256": "9b960c1fd7aa049fb07d880c616efecef4cc7565b810041783f1ce3545a0cbc9"
+    },
+    {
+     "path": "scripts/games/day_one_pool_cleanup.gd",
+     "func": "setup",
+     "sha256": "9ff5935b5267addc02fe26259351c45eb4fea09039c21a143017b29fd0d277e9"
+    }
+   ]
+  },
+  {
+   "id": "GS-21",
+   "criterion": "C8",
+   "game": "day_one_pool",
+   "title": "The reward beat plays out before the next scene takes the screen",
+   "copy": "Hold the completion that starts a story clip or handoff until the reward's authored acting and spoken line have played, with a minimum and a hard maximum, polled in the owner's process so teardown can never resume a freed coroutine.",
+   "anchors": [
+    {
+     "path": "scripts/games/day_one_pool_cleanup.gd",
+     "func": "_finish_rumi_reveal",
+     "sha256": "7a6f4f3b0797771237c9071a0c41a491b8b4e37d9d3a53424931ed02f1f2d0c0"
+    },
+    {
+     "path": "scripts/games/day_one_pool_cleanup.gd",
+     "func": "_advance_reveal_beat",
+     "sha256": "754d3e0b272b4a57ee833f150e2d86fb74b52fe747d6c833bf227eecabe097fa"
+    }
+   ]
+  },
+  {
+   "id": "GS-22",
+   "criterion": "C3",
+   "game": "pearl_castle",
+   "title": "An affordance marks only what can be touched now",
+   "copy": "Choose pulse or halo targets from hotspots that are visible in the tree, so an activity that suspends a hotspot layer is never undercut by an invitation the room cannot answer.",
+   "anchors": [
+    {
+     "path": "scripts/arena/castle_rooms_25d.gd",
+     "func": "_tick_item_affordances",
+     "sha256": "7625eb4d398027566a74aad76cd11a63d9ee1aa0986161004864d666e0972bcf"
     }
    ]
   },
@@ -573,10 +644,11 @@
   "status": "CANDIDATE_CRITERIA: refined 2026-10-04 at the owner's request; budgets are starting values the owner may change.",
   "applies_to": "C7",
   "data": "design/reference/overdraw.json",
-  "measured_by": "python -B tools/measure_overdraw.py (scripts/probe_overdraw.gd in a Mobile-renderer window; numbers only)",
+  "measured_by": "python -B tools/measure_overdraw.py (scripts/probe_overdraw.gd in a Mobile-renderer window; numbers only). Since 2026-10-04 an item spawned during the counted frames counts once like every other layer (it had drawn in its real colours and read as up to 255 layers), and a script-less layer that draws through a connected draw callback counts as code drawing; both are proven by the self-test.",
   "meaning": "Overdraw is anything drawn over approved art that duplicates, competes with or muddies it, and the GPU cost of layers drawn under other layers. The owner rejected Chef for it (2026-10-03: \"Chef still looks bad, lots of overdraw\").",
   "states_not_budgeted": [
-   "entry_transition"
+   "entry_transition",
+   "story_clip"
   ],
   "budgets": {
    "mean_layers": 2.5,
@@ -629,19 +701,11 @@
   ],
   "code_drawing": [
    {
-    "path": "scripts/arena/day_one_castle_dressing.gd",
-    "sha256": "5cd4b7f5933e532446f2dd05a85829644e4a9a734ce687065016f0bb18bd79b6",
+    "path": "scripts/arena/day_one_castle_grime.gd",
+    "sha256": "b354780fb5e3648eba9962b2996a49bbcb563314874d840b3e8603a39c2ee6f8",
     "role": "wash",
     "allowed": false,
-    "draws": "A full-screen dirt wash (12% purple-grey) over every dirty Day One room, plus edge grime bands (18%), drips and cracks, all drawn as code shapes above the room art, the fixtures and Roshan.",
-    "reason": "Code shapes stand in for, cover or wash over approved art; replace with approved art or remove (OD3)."
-   },
-   {
-    "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
-    "sha256": "1f508b69f4e40ad7ccdca9234b5510b889841e1fe6a12f3b217d0c682dca6340",
-    "role": "effect",
-    "allowed": false,
-    "draws": "Two ripple rings drawn as code arcs around the swimming dust bunny.",
+    "draws": "In every dirty Day One room that has no authored dirty state yet (all except DayOneCastleDressing.AUTHORED_DIRT_ROOMS, today the Mermaid Pool), a full-screen dirt wash (12% purple-grey), edge grime bands (18%), drips and cracks, all drawn as code shapes above the room art, the fixtures and Roshan. Split out of day_one_castle_dressing.gd on 2026-10-04 so a room with authored dirt hides it (MA-VIS-009).",
     "reason": "Code shapes stand in for, cover or wash over approved art; replace with approved art or remove (OD3)."
    },
    {
@@ -723,8 +787,17 @@
     "allowed": false,
     "draws": "Book, medal, curtain, progress bar and pearls drawn as code shapes over the stage.",
     "reason": "Code shapes stand in for, cover or wash over approved art; replace with approved art or remove (OD3)."
+   },
+   {
+    "path": "scripts/opera_career_world_2d.gd",
+    "sha256": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
+    "role": "guide",
+    "allowed": false,
+    "draws": "Through draw callbacks connected to script-less layers (visible to the meter since 2026-10-04): progress dots and the Chapter Two candy and detective activity marks on the action panel (_draw_activity_focus), combat telegraph arcs, bars and circles (_draw_combat_fx), and the detective lens's evidence trails, landmark crosses, pulses, hint rings and clue sparkles (_draw_lens_layer), all as code shapes over the career scene.",
+    "reason": "Code shapes stand in for, cover or wash over approved art; replace with approved art or remove (OD3)."
    }
-  ]
+  ],
+  "states_not_budgeted_note": "entry_transition is the room's cross-fade, which briefly draws both compositions. story_clip is an owner-directed Day One clip playing between scenes over the paused room (DL-CIN-16); it is measured and reported, not budgeted as a play state. The castle keeps rendering hidden under a full-screen clip, which the Pool five-star framework records as a follow-up."
  },
  "core": [
   "C1",

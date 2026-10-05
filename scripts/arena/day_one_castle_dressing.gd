@@ -2,12 +2,14 @@ class_name DayOneCastleDressing
 extends Node2D
 ## Day One's temporary castle dressing layer.
 ##
-## The layer is intentionally one low-overdraw procedural Node2D overlay plus
-## four approved Sprite2D cutouts. It sits above the castle cards and can be
-## mounted or removed without changing those cards. The marks are readable
-## first-day cues: grime at the exterior edge, a soft interior disrepair tint,
-## four gently moving dust bunnies, and room grime. CastleRooms25D owns the
-## unified four-state door cues so this dressing never creates a second glow.
+## The layer owns the approved Sprite2D dust-bunny cutouts and one child
+## DayOneCastleGrime node that draws the code-shaped disrepair marks: grime at
+## the exterior edge, a soft interior disrepair tint and room cracks. It sits
+## above the castle cards and can be mounted or removed without changing those
+## cards. A room listed in AUTHORED_DIRT_ROOMS shows its dirt through authored
+## art and a declared room tint instead, so the grime child is hidden there
+## (MA-VIS-009). CastleRooms25D owns the unified four-state door cues so this
+## dressing never creates a second glow.
 
 const ROOM_IDS: Array[String] = [
 	"bubble_bath", "mermaid_pool", "playroom", "craft_room",
@@ -35,9 +37,10 @@ const DUST_BUNNY_TEXTURES: Dictionary = {
 	"mermaid_pool": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
 	"craft_room": "res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_curl_ears.png",
 }
-const EXTERIOR_GRIME_COLOR := Color(0.19, 0.16, 0.29, 0.18)
-const INTERIOR_DIRT_COLOR := Color(0.22, 0.18, 0.32, 0.12)
-const CRACK_COLOR := Color(0.18, 0.14, 0.25, 0.38)
+# Rooms whose cleanup authors its own dirty state (dirty fixture art, a declared
+# room tint with Roshan counter-tinted, gold-star pattern GS-17) and therefore
+# draw no code-shaped wash, grime, drips or cracks over the room and Roshan.
+const AUTHORED_DIRT_ROOMS: Array[String] = ["mermaid_pool"]
 var _room_centers: Dictionary = {}
 var _door_rects: Dictionary = {}
 var _hall_door_rects: Dictionary = {}
@@ -49,6 +52,7 @@ var _visible_room_id := MAIN_HALL_ID
 var _dust_bunnies: Dictionary = {}
 var _elapsed := 0.0
 var _configured := false
+var _grime: DayOneCastleGrime = null
 
 
 static func create_dressing(parent: Node, config: Dictionary = {}) -> DayOneCastleDressing:
@@ -62,6 +66,7 @@ static func create_dressing(parent: Node, config: Dictionary = {}) -> DayOneCast
 func _ready() -> void:
 	if not _configured:
 		configure()
+	_ensure_grime()
 	_ensure_dust_bunnies()
 	set_process(true)
 
@@ -93,9 +98,10 @@ func configure(config: Dictionary = {}) -> void:
 	if _visible_room_id != MAIN_HALL_ID and not _room_centers.has(_visible_room_id):
 		_visible_room_id = MAIN_HALL_ID
 	_configured = true
+	_ensure_grime()
 	_ensure_dust_bunnies()
 	_refresh_dust_visibility()
-	queue_redraw()
+	_refresh_grime()
 
 
 func update_dressing(delta: float, state: Dictionary = {}) -> void:
@@ -117,7 +123,7 @@ func update_dressing(delta: float, state: Dictionary = {}) -> void:
 	if state.has("visible_room_id"):
 		set_visible_room(String(state["visible_room_id"]))
 	_refresh_dust_visibility()
-	queue_redraw()
+	_refresh_grime()
 
 
 func set_visible_room(room_id: String) -> void:
@@ -125,7 +131,7 @@ func set_visible_room(room_id: String) -> void:
 		return
 	_visible_room_id = room_id
 	_refresh_dust_visibility()
-	queue_redraw()
+	_refresh_grime()
 
 
 func visible_room_id() -> String:
@@ -137,14 +143,13 @@ func set_room_dirty(room_id: String, dirty: bool) -> void:
 		return
 	_room_dirty[room_id] = dirty
 	_refresh_dust_visibility()
-	queue_redraw()
+	_refresh_grime()
 
 
 func set_door_unlocked(door_id: String, unlocked: bool) -> void:
 	if not _door_unlocked.has(door_id):
 		return
 	_door_unlocked[door_id] = unlocked
-	queue_redraw()
 
 
 func set_room_door_rect(door_id: String, stage_rect: Rect2) -> void:
@@ -154,19 +159,16 @@ func set_room_door_rect(door_id: String, stage_rect: Rect2) -> void:
 		_hall_door_rects.erase(door_id)
 	else:
 		_hall_door_rects[door_id] = stage_rect
-	queue_redraw()
 
 
 func activate_boss_back_door(active: bool = true) -> void:
 	_boss_back_door_active = active
-	queue_redraw()
 
 
 func set_boss_back_door_rect(stage_rect: Rect2) -> void:
 	if stage_rect.size.x <= 0.0 or stage_rect.size.y <= 0.0:
 		return
 	_boss_back_door_rect = stage_rect
-	queue_redraw()
 
 
 func room_ids() -> Array[String]:
@@ -206,6 +208,10 @@ func audit_snapshot() -> Dictionary:
 		"door_visual_owner": "castle_rooms",
 		"independent_door_glows": false,
 		"procedural_canvas": true,
+		"procedural_grime_owner": "day_one_castle_grime",
+		"authored_dirt_rooms": AUTHORED_DIRT_ROOMS.duplicate(),
+		"procedural_grime_visible": _grime != null and is_instance_valid(_grime)
+			and _grime.visible,
 		"canvas_only": true,
 	}
 
@@ -271,40 +277,26 @@ func _refresh_dust_visibility() -> void:
 		bunny.visible = _visible_room_id == room_id and room_is_dirty(room_id)
 
 
-func _draw() -> void:
-	if not _configured:
+func room_owns_authored_dirt(room_id: String) -> bool:
+	return AUTHORED_DIRT_ROOMS.has(room_id)
+
+
+func _ensure_grime() -> void:
+	if _grime != null and is_instance_valid(_grime):
 		return
-	_draw_exterior_grime()
-	if _visible_room_id == MAIN_HALL_ID:
+	_grime = DayOneCastleGrime.new()
+	_grime.name = "DayOneCastleGrime"
+	add_child(_grime)
+
+
+func _refresh_grime() -> void:
+	if _grime == null or not is_instance_valid(_grime):
 		return
-	_draw_room_dressing(_visible_room_id)
-
-
-func _draw_exterior_grime() -> void:
-	# A low-alpha edge wash reads as grime without painting over the source art.
-	draw_rect(Rect2(0.0, 0.0, 1280.0, 26.0), EXTERIOR_GRIME_COLOR)
-	draw_rect(Rect2(0.0, 694.0, 1280.0, 26.0), EXTERIOR_GRIME_COLOR)
-	draw_rect(Rect2(0.0, 0.0, 22.0, 720.0), EXTERIOR_GRIME_COLOR)
-	draw_rect(Rect2(1258.0, 0.0, 22.0, 720.0), EXTERIOR_GRIME_COLOR)
-	for index: int in range(8):
-		var x: float = 46.0 + float(index) * 166.0
-		var drip_height: float = 8.0 + float(index % 3) * 5.0
-		draw_line(Vector2(x, 25.0), Vector2(x + 5.0, 25.0 + drip_height), EXTERIOR_GRIME_COLOR, 3.0)
-
-
-func _draw_room_dressing(room_id: String) -> void:
-	if not room_is_dirty(room_id):
-		return
-	var center: Vector2 = _room_centers[room_id]
-	# This rect is the current room viewport, not a stitched hall overview.
-	var room_rect := Rect2(Vector2.ZERO, Vector2(1280.0, 720.0))
-	draw_rect(room_rect, INTERIOR_DIRT_COLOR)
-	# Two short cracks keep the disrepair cue graphic and child-readable.
-	var crack_origin := center + Vector2(-76.0, -62.0)
-	draw_line(crack_origin, crack_origin + Vector2(17.0, 12.0), CRACK_COLOR, 3.0)
-	draw_line(crack_origin + Vector2(17.0, 12.0), crack_origin + Vector2(9.0, 29.0), CRACK_COLOR, 3.0)
-	var second_crack := center + Vector2(69.0, 35.0)
-	draw_line(second_crack, second_crack + Vector2(-13.0, 9.0), CRACK_COLOR, 3.0)
+	# The exterior edge grime belongs to the shared castle frame, so a room that
+	# authors its own dirt hides the whole code-drawn layer, not just its wash.
+	_grime.visible = _configured and not room_owns_authored_dirt(_visible_room_id)
+	var center: Vector2 = _room_centers.get(_visible_room_id, Vector2.ZERO) as Vector2
+	_grime.show_for(_visible_room_id, center, room_is_dirty(_visible_room_id))
 
 
 func _count_true(values: Dictionary) -> int:

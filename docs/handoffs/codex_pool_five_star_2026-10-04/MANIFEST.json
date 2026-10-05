@@ -1,0 +1,296 @@
+{
+ "schema": "codex_handoff_manifest/1",
+ "handoff": "codex_pool_five_star_2026-10-04",
+ "revision": 1,
+ "revision_note": "Revision 1 (2026-10-04): owner-requested Mermaid Pool five-star framework and Codex graphics, animation, voice and evidence packages P1-P8, after Claude's repair of the Pool's screen overdraw (MA-VIS-009) and two child-facing defects (MA-PLAY-006, MA-TOUCH-003).",
+ "evidence_baseline": "dev a52f545f4c5e7cc720b0d1194b374801ece0e24e",
+ "tracking_findings": [
+  "MA-VIS-009",
+  "MA-PLAY-006",
+  "MA-TOUCH-003",
+  "MA-VIS-008",
+  "MA-PLAY-004",
+  "MA-PERF-001"
+ ],
+ "entry": "README.md",
+ "file_count": 3,
+ "total_bytes": 39900,
+ "files": [
+  {
+   "path": ".gdignore",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "role": "keeps Godot from importing this folder"
+  },
+  {
+   "path": "README.md",
+   "bytes": 20636,
+   "sha256": "dbd77547593f7a0307ee2b1a76b855bffbdf1f9048862f302e2472f26fe47571",
+   "role": "Codex handoff entry point: packages P1-P8 and three owner questions"
+  },
+  {
+   "path": "FRAMEWORK.md",
+   "bytes": 19264,
+   "sha256": "be3a795b85d8dc57c8ce67c94f64e15682638a8792886cf63ea16379dcafc010",
+   "role": "Mermaid Pool five-star framework: definition, beats, changes, evidence, gaps, ordered path, acceptance sessions"
+  }
+ ],
+ "references": [
+  {
+   "path": "design/reference/GOLD_STAR.md",
+   "bytes": 28977,
+   "sha256": "ec3c1d52830f5ea1affe961cd50e8a817ed0cb83a8db704b5d5e236bca90a609"
+  },
+  {
+   "path": "design/reference/games.json",
+   "bytes": 150049,
+   "sha256": "6cfb120bec0f7fb0363b366531130526dacc88681c292a4d8f3f7dffa69ebb58"
+  },
+  {
+   "path": "design/reference/gold_star.json",
+   "bytes": 35587,
+   "sha256": "77007dd3e4f1f844ac58eacd7653d87e5330922407a4cfce46f66921a5d52ce2"
+  },
+  {
+   "path": "design/reference/overdraw.json",
+   "bytes": 85536,
+   "sha256": "3be59623e116cffdb9a0a9cd0b4d05118a0c52fc68018d709255317f4cc9ee4c"
+  },
+  {
+   "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+   "bytes": 232506,
+   "sha256": "26f863c70f1f4359b38aa163efa144d360c36fb8600480ff580b080bb5e8e09d"
+  },
+  {
+   "path": "design/templates/ANIMATION_JOB_CARD_V1.md",
+   "bytes": 4903,
+   "sha256": "67a35e72c4844a2a4290829d02e709452494cf7fb823ef27aa95de9de10ba922"
+  },
+  {
+   "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+   "bytes": 18019,
+   "sha256": "0d7c0a4e8cf74434da04067c1eba3a38b2cbdf66f3eb2a094494f370fe6728ac"
+  },
+  {
+   "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+   "bytes": 21832,
+   "sha256": "10120f401b9c2b4b28bc979e0c5435e428741eee1c00f6a99550c2fb3d839eab"
+  },
+  {
+   "path": "audit/DAY_ONE_POOL_NATURAL_INTEGRATION_SPEC_2026-08-23.md",
+   "bytes": 6035,
+   "sha256": "703c39b343cd95c280deadc23df7fffc1b882489ecfad2980ed30fe465f12405"
+  },
+  {
+   "path": "audit/LENOVO_TAB_M11_EMULATION_PROTOCOL_2026-08-30.md",
+   "bytes": 11221,
+   "sha256": "850b470832d3f914dd379860668a49cb8785da34b61d98398a8479c989ee5d58"
+  },
+  {
+   "path": "assets_src/cinematics/day_one_story_clips_2026-09-23/CLIP_MANIFEST.json",
+   "bytes": 10777,
+   "sha256": "c139f8bcf1b149ebea2efe54c5fe8b8e8337a25769dbfd729f5efa93e1924811"
+  },
+  {
+   "path": "assets/cinematics/day_one_story/story_clips.json",
+   "bytes": 1968,
+   "sha256": "a815d7c4c5f5813519c501b609dd51faa84b719303a1f04d3d39b7564655f835"
+  },
+  {
+   "path": "scripts/games/day_one_pool_cleanup.gd",
+   "bytes": 33963,
+   "sha256": "5081764794ea207173775fe953362a75fbc313f11ae89f7c68b94b87bd304d8d"
+  },
+  {
+   "path": "scripts/games/pool_skimmer_activity.gd",
+   "bytes": 22079,
+   "sha256": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce"
+  },
+  {
+   "path": "scripts/games/pool_waterfall_activity.gd",
+   "bytes": 20079,
+   "sha256": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da"
+  },
+  {
+   "path": "scripts/games/pool_seahorse_rescue_activity.gd",
+   "bytes": 22256,
+   "sha256": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0"
+  },
+  {
+   "path": "scripts/day_one_contact_action_2d.gd",
+   "bytes": 4954,
+   "sha256": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac"
+  },
+  {
+   "path": "scripts/games/day_one_dust_bunny_swimmer.gd",
+   "bytes": 9785,
+   "sha256": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3"
+  },
+  {
+   "path": "scripts/arena/day_one_castle_dressing.gd",
+   "bytes": 10369,
+   "sha256": "b2898e247748381c86c022c158da6220fb300a45545a1e47de59f9d432c8a8a5"
+  },
+  {
+   "path": "scripts/arena/day_one_castle_grime.gd",
+   "bytes": 2548,
+   "sha256": "b354780fb5e3648eba9962b2996a49bbcb563314874d840b3e8603a39c2ee6f8"
+  },
+  {
+   "path": "scripts/living_world.gd",
+   "bytes": 14317,
+   "sha256": "97c0e9dd7d6d660ec5b6386179233714c6772b06fe7b3b6dcd26262852c071fe"
+  },
+  {
+   "path": "scripts/probe_day_one_pool_cleanup.gd",
+   "bytes": 36045,
+   "sha256": "2ebc8518ef1a233eb4cbfa02fdef429e1527abf15e4a3aae1fe596b0eb4bef5b"
+  },
+  {
+   "path": "scripts/probe_overdraw.gd",
+   "bytes": 44025,
+   "sha256": "b5b9be4bcf168359e5477eb2878b4d505c18d3b9e2ae060e461c83698aaafe72"
+  },
+  {
+   "path": "tools/measure_overdraw.py",
+   "bytes": 11760,
+   "sha256": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
+  },
+  {
+   "path": "tools/gold_star.py",
+   "bytes": 56075,
+   "sha256": "5a0121de444c6606b7454ba7bd5403a4153c4b4d448a055aa529dde5a24c9355"
+  },
+  {
+   "path": "scripts/roshan_sprite_anchors.gd",
+   "bytes": 2361,
+   "sha256": "a4d1b54324bb8faa959ec88d82ccf728efeec9cdb4134fac761b119cfac731a5"
+  },
+  {
+   "path": "assets/characters/roshan_25d/roshan_base.png",
+   "bytes": 50051,
+   "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab"
+  },
+  {
+   "path": "assets/characters/roshan_25d/roshan_directional.png",
+   "bytes": 396741,
+   "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a"
+  },
+  {
+   "path": "assets/characters/roshan_25d/roshan_gesture_a.png",
+   "bytes": 890060,
+   "sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d"
+  },
+  {
+   "path": "assets/characters/roshan_25d/roshan_gesture_b.png",
+   "bytes": 913582,
+   "sha256": "59daf2a2efdbabba1a28bedfed5312805b4351627f0882704b11c4b6ca488ead"
+  },
+  {
+   "path": "assets/characters/roshan_25d/roshan_gesture_c.png",
+   "bytes": 861358,
+   "sha256": "43ebe0e42cd9db5cf612bfaa4acbc9f14a3ad99f49909535b5508707fad15a0e"
+  },
+  {
+   "path": "assets/characters/roshan_25d/roshan_gesture_d.png",
+   "bytes": 418819,
+   "sha256": "03cbc5931806ddc17675fb741f9dafcff66e8b16e08feb6795bda94aa1165abc"
+  },
+  {
+   "path": "assets/characters/roshan_25d/roshan_swim_front.png",
+   "bytes": 685193,
+   "sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01"
+  },
+  {
+   "path": "assets/characters/roshan_25d/roshan_swim_back.png",
+   "bytes": 660570,
+   "sha256": "4e76c3c269039cf05a6a8b58bbaf70273746f520006d0af68128f863bdb99337"
+  },
+  {
+   "path": "assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
+   "bytes": 301606,
+   "sha256": "9068a5f6c56e90d57ae9c3219096d6f12bba97a2f6c6ed09175c1bc63f59cb41"
+  },
+  {
+   "path": "assets/characters/rumi/rumi_eight_pose_runtime.png",
+   "bytes": 597242,
+   "sha256": "44120bbb2b1e60a9ec94e0cf3db7e46e33f564671af986bb42357b8bd59c14d5"
+  },
+  {
+   "path": "assets/castle/day_one_pool/activities/floating_trash_atlas.png",
+   "bytes": 1008282,
+   "sha256": "3e04bee28ffa4230e3af9d5e7d87bb9560a7462d7320b6ad8557f10fcecbcb33"
+  },
+  {
+   "path": "assets/castle/day_one_pool/activities/pool_skimmer.png",
+   "bytes": 902749,
+   "sha256": "308c86843ace9fb3d4a65a0c514d41b367d87ceabaf5f3d3676f54ce9be4b9b3"
+  },
+  {
+   "path": "assets/castle/day_one_pool/activities/cleanup_basket.png",
+   "bytes": 965816,
+   "sha256": "30b43ce7b1f2db7098281a399f64db13c26c30fb9fce60f478b5f0cecdfd2910"
+  },
+  {
+   "path": "assets/castle/day_one_pool/activities/seahorse_mouth_trash.png",
+   "bytes": 388008,
+   "sha256": "9c48ac1ca7be923fcb14902b3e2b62263f34d53e031f11002776bfc4322652f9"
+  },
+  {
+   "path": "assets/castle/day_one_pool/activities/seahorse_sick_clear_mouth.png",
+   "bytes": 1001587,
+   "sha256": "88aa2ce07e79144b13d8e699341404e7b15e79baed861169c9c17e196ddba941"
+  },
+  {
+   "path": "assets/castle/day_one_pool/activities/waterfall_clogged_original_match.png",
+   "bytes": 1200277,
+   "sha256": "d4da588daece3fa12b5f094b50f5c8b33eeae31fd0761f1eeedce882cf1b7507"
+  },
+  {
+   "path": "assets/castle/day_one_pool/activities/waterfall_scrubber.png",
+   "bytes": 462861,
+   "sha256": "1b29ff463263be093a7e1ac33eb74e4075d6a795dd515d120107f66953b2dc7a"
+  },
+  {
+   "path": "assets/castle/training/ghost_hand.png",
+   "bytes": 123283,
+   "sha256": "e484d14899d8137448128314536132dbd16f970cb1f0fabea006e9d51b5435b9"
+  },
+  {
+   "path": "assets/castle/dirty_cleanup_2d/effects/fx_soap_bubbles.png",
+   "bytes": 233301,
+   "sha256": "394d0fddb89237bf1e152060a31f585e71e37b54a46246bb1444c52454d15d08"
+  },
+  {
+   "path": "assets/castle/dirty_cleanup_2d/effects/fx_clean_ring.png",
+   "bytes": 138297,
+   "sha256": "f3472eaadd8cffc08d4ea9e0dcf8d4455b5a5e4eea16eb4721a0d945c7cbac62"
+  },
+  {
+   "path": "assets/sprites/fx_water/fx_water_ripple_ring_atlas.png",
+   "bytes": 160764,
+   "sha256": "5fbfa30a61fb0275274e7eef70a4d6df7f46a8cd9f7c209d2cd2305710a9700c"
+  },
+  {
+   "path": "assets/sprites/fx_water/fx_water_splash_small_atlas.png",
+   "bytes": 143324,
+   "sha256": "bdd9233b6b0afa22374777ae2aaf7fc52b907ae631f61c6f3a3d02dd1c03551f"
+  },
+  {
+   "path": "assets/sprites/fx_water/fx_water_splash_breach_atlas.png",
+   "bytes": 497395,
+   "sha256": "12ffe29bf3e9b0a1c48c72c56d05b3f09849ba4ee1669d1b485f7fdc020e2290"
+  },
+  {
+   "path": "assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png",
+   "bytes": 494857,
+   "sha256": "d788366485da7a19958c34278bd05a4a4977be39582a9134d3e63a394d601143"
+  },
+  {
+   "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c1.png",
+   "bytes": 1071031,
+   "sha256": "8285d08df8d57095992f4c2c2ae404f3b1220c0365662e7b04e657a583f97516"
+  }
+ ],
+ "non_delivery": "No art, animation, voice, capture or board is delivered; Codex builds them. Claude built no image. No acceptance, GENERATION_READY or DELIVERY_ACCEPTED is granted."
+}

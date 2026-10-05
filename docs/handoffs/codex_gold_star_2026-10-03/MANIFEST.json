@@ -1,8 +1,8 @@
 {
  "schema": "codex_handoff_manifest/1",
  "handoff": "codex_gold_star_2026-10-03",
- "revision": 4,
- "revision_note": "Revision 4 (2026-10-04): the owner asked for overdraw to be analysed specifically. The gold-star criteria gain overdraw checks OD1-OD6 under C7, measured on the real routes by tools/measure_overdraw.py (GPU layer counts, numbers only); README adds GS5 (MA-VIS-008) and owner questions 5-6; POOL_FIVE_STAR.md and AUDIT.md correct the Pool to 3/5 under the refined criteria. Revisions 1-3 were published and verified anonymously first.",
+ "revision": 5,
+ "revision_note": "Revision 5 (2026-10-04): README GS2 and GS5 and POOL_FIVE_STAR.md gain status notes. The Pool's GS5 items are done and carved out as MA-VIS-009, the 255-layer burst was a meter artifact, and GS2 continues in docs/handoffs/codex_pool_five_star_2026-10-04/. Reference hashes refreshed. Revision 4 (2026-10-04): the owner asked for overdraw to be analysed specifically. The gold-star criteria gain overdraw checks OD1-OD6 under C7, measured on the real routes by tools/measure_overdraw.py (GPU layer counts, numbers only); README adds GS5 (MA-VIS-008) and owner questions 5-6; POOL_FIVE_STAR.md and AUDIT.md correct the Pool to 3/5 under the refined criteria. Revisions 1-3 were published and verified anonymously first.",
  "evidence_baseline": "dev 87f992680c0b6a690bf45b1950275579c45e15ab",
  "rules_checked_at": "dev f07c1a4820fb5222289802ad712db677b56400bc (after Codex's Chef overdraw repair)",
  "tracking_findings": [
@@ -10,11 +10,12 @@
   "MA-OPERA-013",
   "MA-PLAY-004",
   "MA-VIS-008",
-  "MA-DOC-009"
+  "MA-DOC-009",
+  "MA-VIS-009"
  ],
  "entry": "README.md",
  "file_count": 4,
- "total_bytes": 44807,
+ "total_bytes": 46054,
  "files": [
   {
    "path": ".gdignore",
@@ -24,8 +25,8 @@
   },
   {
    "path": "README.md",
-   "bytes": 10497,
-   "sha256": "dbed8b9765baae87e85287511e627d2a68db0e65814377902a186162c2914600",
+   "bytes": 11298,
+   "sha256": "3790e05d1c9cedd25f4f4195f11218408e57a44ba7b3d72e55788b753537c96b",
    "role": "Codex handoff entry point: GS0-GS4 and four owner questions"
   },
   {
@@ -36,26 +37,26 @@
   },
   {
    "path": "POOL_FIVE_STAR.md",
-   "bytes": 13775,
-   "sha256": "99f045c82f352f54b1cfa6294194170824262ce47a529551a16a10b748e02a7f",
+   "bytes": 14221,
+   "sha256": "3ba13b7838b8127c4e31e428d3fc9d0f20b0837b5bbeede8560f27a2d84a1da1",
    "role": "Mermaid Pool five-star proposal (Claude's code), verification, human checks, art and voice handoff GS2"
   }
  ],
  "references": [
   {
    "path": "design/reference/GOLD_STAR.md",
-   "bytes": 26051,
-   "sha256": "044941beb09bdce608854ccfcc22fc4bb15ca97207ec6b80f35b811d081771f0"
+   "bytes": 28977,
+   "sha256": "ec3c1d52830f5ea1affe961cd50e8a817ed0cb83a8db704b5d5e236bca90a609"
   },
   {
    "path": "design/reference/games.json",
-   "bytes": 146033,
-   "sha256": "cb5e358c13e11766d14074858a2ecbe018b98ab7c2fcdb7526cba1aa68d6558a"
+   "bytes": 150049,
+   "sha256": "6cfb120bec0f7fb0363b366531130526dacc88681c292a4d8f3f7dffa69ebb58"
   },
   {
    "path": "design/reference/gold_star.json",
-   "bytes": 31350,
-   "sha256": "616cc663763d7eb00e400bf1b7c8b0d1e27d5b44359646baba17d54e476e762f"
+   "bytes": 35587,
+   "sha256": "77007dd3e4f1f844ac58eacd7653d87e5330922407a4cfce46f66921a5d52ce2"
   },
   {
    "path": "design/reference/recipes/gold_star.md",
@@ -69,13 +70,13 @@
   },
   {
    "path": "scripts/games/day_one_pool_cleanup.gd",
-   "bytes": 31358,
-   "sha256": "be9e78b4cd9d5c251747c1e97b96bd8928175ee3d58ba3a01718dd45ab6b9341"
+   "bytes": 33963,
+   "sha256": "5081764794ea207173775fe953362a75fbc313f11ae89f7c68b94b87bd304d8d"
   },
   {
    "path": "scripts/games/pool_skimmer_activity.gd",
-   "bytes": 21705,
-   "sha256": "c52a610ee36d9e4c004d8a2bfe01ad8185ed57e9a6a14d73e233b8b1431eac7b"
+   "bytes": 22079,
+   "sha256": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce"
   },
   {
    "path": "scripts/games/pool_waterfall_activity.gd",
@@ -84,8 +85,8 @@
   },
   {
    "path": "scripts/games/pool_seahorse_rescue_activity.gd",
-   "bytes": 22076,
-   "sha256": "1db4f79e269e101a45b0fb5984afa6f396c044a135f2bae8d9ee059a2b898eca"
+   "bytes": 22256,
+   "sha256": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0"
   },
   {
    "path": "scripts/day_one_contact_action_2d.gd",
@@ -94,8 +95,8 @@
   },
   {
    "path": "scripts/probe_day_one_pool_cleanup.gd",
-   "bytes": 34225,
-   "sha256": "09ff0613e1c2d78d144de685e7db9f94978eaf15e97bd825990bef9e471cc424"
+   "bytes": 36045,
+   "sha256": "2ebc8518ef1a233eb4cbfa02fdef429e1527abf15e4a3aae1fe596b0eb4bef5b"
   },
   {
    "path": "assets/castle/training/ghost_hand.png",
@@ -134,8 +135,8 @@
   },
   {
    "path": "design/reference/overdraw.json",
-   "bytes": 85562,
-   "sha256": "2a6af4b818338b127221f821eef170c880df22e71deb774d1c913a694e72437b"
+   "bytes": 85536,
+   "sha256": "3be59623e116cffdb9a0a9cd0b4d05118a0c52fc68018d709255317f4cc9ee4c"
   },
   {
    "path": "tools/measure_overdraw.py",
@@ -144,8 +145,8 @@
   },
   {
    "path": "scripts/probe_overdraw.gd",
-   "bytes": 39095,
-   "sha256": "6102ecaebe2c5b5db8facddc3926360e7859039fed1b0f74f1f7db815e1ad5c7"
+   "bytes": 44025,
+   "sha256": "b5b9be4bcf168359e5477eb2878b4d505c18d3b9e2ae060e461c83698aaafe72"
   }
  ],
  "non_delivery": "No art, voice, capture or board is delivered; GS2 asks Codex to build them. No acceptance is granted."

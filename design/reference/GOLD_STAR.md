@@ -6,15 +6,14 @@ Scores are evidence for development choices, not acceptance. A machine signal ne
 
 ## Reference model
 
-**Mermaid Pool cleanup (Day One)** (`day_one_pool`), rating 3/5, 19/24 points. The strongest true-2D game a child can reach today (Grand Puff scores more points but its fight is built on 3D nodes, so it cannot be a template) and the clearest model of the owner's 2026-09-06 job rule: Roshan travels to each part, her hand makes contact, and only then does the authored dirt clear; every part has its own line; every change saves; real-touch probes guard it. It contains the strongest single activity in the game (the waterfall), and its gaps are specific and fixable, so it is the first candidate for a full gold star and the template for room jobs and job games.
+**Mermaid Pool cleanup (Day One)** (`day_one_pool`), rating 3/5, 21/24 points. The strongest true-2D game a child can reach today (Grand Puff scores more points but its fight is built on 3D nodes, so it cannot be a template) and the clearest model of the owner's 2026-09-06 job rule: Roshan travels to each part, her hand makes contact, and only then does the authored dirt clear; every part has its own line; every change saves; real-touch probes guard it. It contains the strongest single activity in the game (the waterfall), and its gaps are specific and fixable, so it is the first candidate for a full gold star and the template for room jobs and job games.
 
-Status: CANDIDATE_REFERENCE: the Pool's own code meets every machine-assessed criterion and supplies most reference patterns, but the refined overdraw criteria (2026-10-04) measured overdraw on its screen: the shared castle dressing's code-drawn wash and grime over the room and Roshan, two identical cleanup baskets drawn over each other, a full-screen fill drawn hidden under the room tiles, and a 255-layer burst at Rumi's reveal (MA-VIS-008). It is 3/5 (19/24) until Codex GS5 fixes them; then only device, child and owner acceptance remain.
+Status: CANDIDATE_REFERENCE: the Pool's own code meets every machine-assessed criterion and supplies most reference patterns. On 2026-10-04 Claude repaired the overdraw that shared room layers drew on its screen (MA-VIS-009, carved from MA-VIS-008, fixed pending verification): every play state now measures 1.18-1.41 mean layers with no duplicate, code drawing or translucent wash, and the reported 255-layer burst was a meter artifact, now corrected. It is 3/5 (21/24) until the OD2 look-alike review is recorded from Codex's phone-size captures (P1 in docs/handoffs/codex_pool_five_star_2026-10-04/README.md); then only device, child and owner acceptance remain.
 
 What still separates it from a gold star:
 
-- C7 Authored art and identity (1/2): Approved art only in the Pool's own code (ghost hand, soap bubbles, clean rings, authored dirt wiped from the top), and Roshan's cutouts counter the room tint. But the shared castle dressing draws a 12% full-screen dirt wash in code over the room and Roshan, with code-drawn grime, drips and cracks; two identical cleanup baskets overlap during the skimmer; and a full-screen letterbox fill is drawn hidden under the room tiles (overdraw OD1, OD3, OD5, OD6; MA-VIS-008). Her work uses one approved directional cutout, not authored action frames (Codex art handoff GS2).
-- C11 No open defect (0/2): MA-VIS-008 P1 CONFIRMED_OPEN
-- C12 Device, child and owner acceptance (0/2): No device, child or owner acceptance recorded
+- C7 Authored art and identity (1/2): Approved art only, and since 2026-10-04 the shared room layers are clean on the Pool's screen too (MA-VIS-009): no code-drawn wash, grime, drips or cracks (the room is listed as authoring its own dirt, GS-19), one cleanup basket, ambient code motifs paused while the cleanup is mounted (GS-20), the swimmer grounded by the approved project-original ripple atlas instead of code arcs, no generic star burst over Rumi's rise, and the castle letterbox fill cropped to its bands. Measured on the real route (Mobile renderer, corrected meter): every play state 1.18-1.41 mean layers, at most 2.5% of the screen with four or more, max 6, peak 6, no duplicate, no code drawing, no translucent wash. Roshan keeps her colours under the declared room tint (GS-17). Scored 1 only because the OD2 look-alike review at phone size with the HUD is not recorded yet (capture: Codex P1); her work still uses one approved directional cutout, not authored action frames (Codex P2).
+- C12 Device, child and owner acceptance (0/2): No device, child or owner acceptance recorded; pending verification: MA-VIS-009, MA-PLAY-006, MA-TOUCH-003
 
 Patterns to copy:
 
@@ -30,6 +29,10 @@ Patterns to copy:
 - **GS-16 A quiet child hears the exact line again, twice at most** (C3): After a quiet stretch, replay the activity's own exact lines (the other line first, then the hint) under a fresh voice session, at most twice per activity, while the guide hand keeps pointing; quiet time never earns progress. `scripts/games/day_one_pool_cleanup.gd::_process`, `scripts/games/day_one_pool_cleanup.gd::IDLE_REPROMPT_LINES`
 - **GS-17 Keep the character's colours under a room tint** (C7): When a room is tinted to look dirty, give each of the character's cutouts inside the tinted tree the exact inverse, and fade both together, so the place changes but her identity colours do not. `scripts/games/day_one_pool_cleanup.gd::_set_tint_ratio`
 - **GS-18 A spoken line must be true of what just happened** (C8): Choose each feedback line from what the child actually did (the object picked, the count reached), prefer an exact per-object take when it exists, and stay silent rather than name the wrong thing. `scripts/games/day_one_pool_cleanup.gd::skimmer_pickup_line`
+- **GS-19 A room that authors its dirt opts out of shared code-drawn dirt** (C7): When a room's activity shows the dirty state through authored art and a declared room tint (with the character counter-tinted, GS-17), list the room so the shared code-drawn wash, grime and cracks are hidden there; keep the shared layer's approved cutouts. `scripts/arena/day_one_castle_dressing.gd::AUTHORED_DIRT_ROOMS`, `scripts/arena/day_one_castle_dressing.gd::_refresh_grime`
+- **GS-20 A focused activity quiets shared ambient layers while it is mounted** (C7): Join the living-world quiet group while the activity owns the room's motion and guidance, so shared code-drawn ambience pauses above it and returns by itself when the activity is freed. `scripts/living_world.gd::_suspended`, `scripts/games/day_one_pool_cleanup.gd::setup`
+- **GS-21 The reward beat plays out before the next scene takes the screen** (C8): Hold the completion that starts a story clip or handoff until the reward's authored acting and spoken line have played, with a minimum and a hard maximum, polled in the owner's process so teardown can never resume a freed coroutine. `scripts/games/day_one_pool_cleanup.gd::_finish_rumi_reveal`, `scripts/games/day_one_pool_cleanup.gd::_advance_reveal_beat`
+- **GS-22 An affordance marks only what can be touched now** (C3): Choose pulse or halo targets from hotspots that are visible in the tree, so an activity that suspends a hotspot layer is never undercut by an invitation the room cannot answer. From Pearl Castle rooms. `scripts/arena/castle_rooms_25d.gd::_tick_item_affordances`
 - **GS-09 End-to-end real-touch driver through the world** (C10): Complete the whole job from the room object to the reward with real touch events, including a multi-touch leg, inside a trusted probe. From Boxer. `scripts/probe_opera_2d.gd::_drive_boxer_phase`
 - **GS-10 Per-finger ownership with a focus-loss cancel** (C4): Track each touch index, ignore a second finger while one owns the action, and cancel held input on focus loss and close. From Boxer. `scripts/opera_boxing_surface.gd::_handle_press`, `scripts/opera_boxing_surface.gd::_handle_release`, `scripts/opera_boxing_surface.gd::_notification`
 - **GS-11 Required lines refuse a generic fallback** (C3): List each required objective key and refuse the generic cheer when its recording is missing, so a missing line shows up as a gap instead of a yay. From Pearl Castle rooms. `scripts/audio_director.gd::DAY_ONE_REQUIRED_EVENTS`, `scripts/audio_director.gd::_say`
@@ -41,8 +44,8 @@ Patterns to copy:
 
 | Rank | Game | Family | Rating | Points | C1 | C2 | C3 | C4 | C5 | C6 | C7 | C8 | C9 | C10 | C11 | C12 | 3D debt | Open defects |
 |---:|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| 1 | Grand Puff in the Dusty Attic (Day One boss) | day_one | 3 | 19 | 2 | 0 | 2 | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 2 | 0 | 98 | none |
-| 2 | Mermaid Pool cleanup (Day One) | day_one | 3 | 19 | 2 | 2 | 2 | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 0 | 0 | 0 | MA-VIS-008 |
+| 1 | Mermaid Pool cleanup (Day One) | day_one | 3 | 21 | 2 | 2 | 2 | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 2 | 0 | 0 | none |
+| 2 | Grand Puff in the Dusty Attic (Day One boss) | day_one | 3 | 19 | 2 | 0 | 2 | 2 | 2 | 2 | 1 | 2 | 2 | 2 | 2 | 0 | 98 | none |
 | 3 | Castle banner maker | system | 3 | 18 | 2 | 2 | 1 | 2 | 1 | 2 | 1 | 2 | 2 | 1 | 2 | 0 | 0 | none |
 | 4 | Royal Bedroom wardrobe | system | 3 | 18 | 2 | 2 | 1 | 2 | 2 | 1 | 1 | 2 | 2 | 1 | 2 | 0 | 0 | none |
 | 5 | Pearl Castle rooms | world | 3 | 18 | 2 | 2 | 2 | 2 | 2 | 2 | 1 | 2 | 1 | 1 | 1 | 0 | 0 | MA-SAVE-001 |
@@ -82,7 +85,7 @@ Not reachable as a live game: Snow Roller (picture game) (`dormant`); Flower Gar
 
 Overdraw is anything drawn over approved art that duplicates, competes with or muddies it, and the GPU cost of layers drawn under other layers. The owner rejected Chef for it (2026-10-03: "Chef still looks bad, lots of overdraw").
 
-Status: CANDIDATE_CRITERIA: refined 2026-10-04 at the owner's request; budgets are starting values the owner may change. Measured by python -B tools/measure_overdraw.py (scripts/probe_overdraw.gd in a Mobile-renderer window; numbers only) at `f07c1a4820fb` on 2026-10-04T15:22:36Z, Godot 4.7.2.stable.official.ed1daf0bf, self-test PASS.
+Status: CANDIDATE_CRITERIA: refined 2026-10-04 at the owner's request; budgets are starting values the owner may change. Measured by python -B tools/measure_overdraw.py (scripts/probe_overdraw.gd in a Mobile-renderer window; numbers only). Since 2026-10-04 an item spawned during the counted frames counts once like every other layer (it had drawn in its real colours and read as up to 255 layers), and a script-less layer that draws through a connected draw callback counts as code drawing; both are proven by the self-test. at `a52f545f4c5e` on 2026-10-05T00:12:47Z, Godot 4.7.2.stable.official.ed1daf0bf, self-test PASS.
 
 Budgets per play state: mean layers at most 2.5, four or more layers on at most 0.1 of the screen, max 8 (peak frame 32); effects clear within 1.0 s and cover at most 0.25 of Roshan.
 
@@ -97,22 +100,22 @@ Budgets per play state: mean layers at most 2.5, four or more layers on at most 
 
 | Game | Rating | Busiest play state (mean, share with 4+ layers, max, peak) | OD1 | OD2 | OD3 | OD4 | OD5 | OD6 |
 |---|---:|---|---|---|---|---|---|---|
-| Mermaid Pool cleanup (Day One) | 3 | finale: 4.41, 0.974, 8, 255 | fail | — | fail | pass | fail | fail |
-| Boxer | 1 | after_phase: 2.57, 0.084, 12, 14 | — | — | fail | pass | pass | fail |
-| Magician | 1 | after_phase: 2.53, 0.1, 7, 7 | — | — | fail | pass | pass | fail |
-| Teacher | 1 | task_open: 3.53, 0.602, 8, 8 | — | — | fail | pass | fail | fail |
-| Racecar Driver | 1 | after_phase: 2.35, 0.015, 6, 6 | — | — | fail | pass | pass | pass |
-| Ballerina | 1 | task_open: 2.81, 0.144, 12, 13 | — | — | fail | pass | pass | fail |
-| Nursery Nurse | 1 | after_phase: 2.36, 0.017, 6, 6 | — | — | fail | pass | pass | pass |
-| Pop Star | 1 | task_open: 2.55, 0.102, 8, 8 | — | — | fail | pass | pass | fail |
-| Stuffie Doctor | 1 | after_phase: 2.35, 0.032, 6, 6 | — | — | fail | pass | pass | pass |
-| Geologist | 1 | task_open: 5.75, 0.612, 13, 14 | — | — | fail | pass | fail | fail |
-| Painter | 1 | task_open: 2.45, 0.047, 9, 9 | — | — | fail | pass | pass | fail |
-| Farmer | 1 | task_open: 2.48, 0.066, 8, 8 | — | — | fail | pass | pass | pass |
-| Candy Maker | 1 | after_phase: 2.36, 0.029, 6, 6 | — | — | fail | pass | pass | pass |
-| Pastry Chef | 1 | after_phase: 2.35, 0.012, 6, 6 | — | — | fail | pass | pass | pass |
-| Astronaut Engineer | 1 | after_phase: 2.35, 0.024, 7, 7 | — | — | fail | pass | pass | pass |
-| Detective | 1 | task_open: 2.48, 0.079, 6, 6 | — | — | fail | pass | pass | pass |
+| Mermaid Pool cleanup (Day One) | 3 | waterfall_start: 1.41, 0.013, 5, 5 | pass | — | pass | pass | pass | pass |
+| Boxer | 1 | task_open: 2.58, 0.069, 12, 12 | — | — | fail | pass | pass | fail |
+| Magician | 1 | after_phase: 2.56, 0.102, 7, 7 | — | — | fail | pass | pass | fail |
+| Teacher | 1 | task_open: 3.57, 0.603, 8, 8 | — | — | fail | pass | fail | fail |
+| Racecar Driver | 1 | world: 2.38, 0.03, 6, 6 | — | — | fail | pass | pass | pass |
+| Ballerina | 1 | task_open: 2.83, 0.143, 10, 12 | — | — | fail | pass | pass | fail |
+| Nursery Nurse | 1 | world: 2.39, 0.044, 6, 6 | — | — | fail | pass | pass | pass |
+| Pop Star | 1 | task_open: 2.58, 0.103, 8, 8 | — | — | fail | pass | pass | fail |
+| Stuffie Doctor | 1 | task_open: 2.41, 0.046, 8, 8 | — | — | fail | pass | pass | pass |
+| Geologist | 1 | task_open: 6.11, 0.659, 14, 16 | — | — | fail | pass | fail | fail |
+| Painter | 1 | task_open: 2.48, 0.049, 9, 9 | — | — | fail | pass | pass | fail |
+| Farmer | 1 | task_open: 2.5, 0.069, 8, 8 | — | — | fail | pass | pass | pass |
+| Candy Maker | 1 | after_phase: 2.39, 0.032, 6, 6 | — | — | fail | pass | pass | pass |
+| Pastry Chef | 1 | task_open: 2.41, 0.035, 7, 7 | — | — | fail | pass | pass | pass |
+| Astronaut Engineer | 1 | world: 2.38, 0.026, 6, 6 | — | — | fail | pass | pass | fail |
+| Detective | 1 | world: 2.38, 0.028, 6, 6 | — | — | fail | pass | pass | pass |
 
 Not yet measured (18 live games): Grand Puff in the Dusty Attic (Day One boss); Castle banner maker; Royal Bedroom wardrobe; Pearl Castle rooms; Comfy castle games (Day Two); Royal Hall sparring class; Sky Lagoon promenade; Free Baby Eagle (Day One); Stuffie adoption and care; Bubble Bathroom cleanup (Day One); Craft Room tidy (Day One); Birthday party preparation (Chapter 2); Moonflower door and Butterfly House; Birthday lawn and Ember King (Chapter 2 finale); Dance with Daddy (rhythm); Galaxy ice battle; Fairy Pond flight; Butterfly World (Galaxy).
 
@@ -120,8 +123,7 @@ Code-drawing scripts seen on screen:
 
 | Script | Role | What it draws | Allowed |
 |---|---|---|---|
-| `scripts/arena/day_one_castle_dressing.gd` | wash | A full-screen dirt wash (12% purple-grey) over every dirty Day One room, plus edge grime bands (18%), drips and cracks, all drawn as code shapes above the room art, the fixtures and Roshan. | no |
-| `scripts/games/day_one_dust_bunny_swimmer.gd` | effect | Two ripple rings drawn as code arcs around the swimming dust bunny. | no |
+| `scripts/arena/day_one_castle_grime.gd` | wash | In every dirty Day One room that has no authored dirty state yet (all except DayOneCastleDressing.AUTHORED_DIRT_ROOMS, today the Mermaid Pool), a full-screen dirt wash (12% purple-grey), edge grime bands (18%), drips and cracks, all drawn as code shapes above the room art, the fixtures and Roshan. Split out of day_one_castle_dressing.gd on 2026-10-04 so a room with authored dirt hides it (MA-VIS-009). | no |
 | `scripts/living_world_canvas.gd` | ambient | Ambient bubble, sparkle, leaf and stem motifs drawn as code shapes (97 calls) at the screen edges; above every career, and above or below a castle room depending on the stage. | no |
 | `scripts/opera_world_backdrop_2d.gd` | stand_in | Each career's painted backdrop, then career props drawn as code shapes (120 calls, for example _draw_nursery, _draw_doctor, _draw_chef) and stage spotlight polygons over it. | no |
 | `scripts/opera_world_hotspot_2d.gd` | guide | A pulsing halo and sparkles drawn in code around every armed object, and a code-drawn object when the object is not painted. | no |
@@ -132,6 +134,7 @@ Code-drawing scripts seen on screen:
 | `scripts/opera_racer_surface.gd` | stand_in | Race controls and the car drawn as code shapes. | no |
 | `scripts/opera_teacher_surface.gd` | stand_in | Counting objects, shapes, patterns, groups and the hint button drawn as code shapes, with no textures. | no |
 | `scripts/opera_performance_overlay.gd` | stand_in | Book, medal, curtain, progress bar and pearls drawn as code shapes over the stage. | no |
+| `scripts/opera_career_world_2d.gd` | guide | Through draw callbacks connected to script-less layers (visible to the meter since 2026-10-04): progress dots and the Chapter Two candy and detective activity marks on the action panel (_draw_activity_focus), combat telegraph arcs, bars and circles (_draw_combat_fx), and the detective lens's evidence trails, landmark crosses, pulses, hint rings and clue sparkles (_draw_lens_layer), all as code shapes over the career scene. | no |
 
 ## Rubric
 

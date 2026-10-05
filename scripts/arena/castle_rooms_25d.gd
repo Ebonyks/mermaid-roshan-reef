@@ -1024,16 +1024,13 @@ func open(start_room: String = "main_hall") -> void:
 	# fitted stage may leave safe bands on wider/taller viewports; a quiet
 	# storybook violet keeps those bands congruent instead of exposing the
 	# renderer's attention-grabbing default gray.
-	var viewport_backdrop := ColorRect.new()
-	viewport_backdrop.name = "CastleLetterboxBackdrop"
-	viewport_backdrop.color = Color(0.055, 0.035, 0.105, 1.0)
-	viewport_backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	viewport_backdrop.z_index = -2000
-	viewport_backdrop.set_meta("castle_safe_frame_backdrop", true)
+	var viewport_backdrop := _new_letterbox_band("CastleLetterboxBackdrop")
 	root.add_child(viewport_backdrop)
-	viewport_backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	var far_backdrop := _new_letterbox_band("CastleLetterboxBackdropFar")
+	root.add_child(far_backdrop)
 	var viewport_size: Vector2 = m.get_viewport().get_visible_rect().size
 	m.castle_room_stage = StorybookUI.add_stage(root, viewport_size)
+	_fit_letterbox_bands(viewport_backdrop, far_backdrop, viewport_size)
 	_build_castle_voice_caption()
 	# StorybookUI stages default to MOUSE_FILTER_STOP, which is right for the
 	# menus and pickers that own the whole screen. Here the stage sits ON TOP
@@ -1399,6 +1396,46 @@ func _build_stage() -> void:
 	transition_cover.set_meta("covers_complete_room_composition", true)
 	stage.add_child(transition_cover)
 	transition_cover.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+
+func _new_letterbox_band(band_name: String) -> ColorRect:
+	var band := ColorRect.new()
+	band.name = band_name
+	band.color = Color(0.055, 0.035, 0.105, 1.0)
+	band.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	band.z_index = -2000
+	band.set_meta("castle_safe_frame_backdrop", true)
+	return band
+
+
+func _fit_letterbox_bands(near_band: ColorRect, far_band: ColorRect,
+		viewport_size: Vector2) -> void:
+	# Fill only the safe bands the fitted stage leaves. A full-screen fill under
+	# the opaque room tiles was an extra layer drawn on every hidden pixel
+	# (gold-star OD6, MA-VIS-009). Each band overlaps the stage edge by one
+	# pixel so a fractional stage scale never opens a hairline seam.
+	var stage_rect := Rect2(m.castle_room_stage.position,
+		StorybookUI.CANVAS_SIZE * m.castle_room_stage.scale)
+	var bands: Array[Rect2] = []
+	if stage_rect.position.x >= 0.5:
+		var near_width: float = ceilf(stage_rect.position.x) + 1.0
+		var far_start: float = floorf(stage_rect.end.x) - 1.0
+		bands = [Rect2(0.0, 0.0, near_width, viewport_size.y),
+			Rect2(far_start, 0.0, viewport_size.x - far_start, viewport_size.y)]
+	elif stage_rect.position.y >= 0.5:
+		var near_height: float = ceilf(stage_rect.position.y) + 1.0
+		var far_top: float = floorf(stage_rect.end.y) - 1.0
+		bands = [Rect2(0.0, 0.0, viewport_size.x, near_height),
+			Rect2(0.0, far_top, viewport_size.x, viewport_size.y - far_top)]
+	var targets: Array[ColorRect] = [near_band, far_band]
+	for index: int in range(targets.size()):
+		var band: ColorRect = targets[index]
+		band.visible = index < bands.size()
+		if band.visible:
+			band.position = bands[index].position
+			band.size = bands[index].size
+		else:
+			band.size = Vector2.ZERO
+
 
 func _build_hall_background_tiles() -> void:
 	m.castle_room_background_tiles.clear()
@@ -2193,8 +2230,10 @@ func _on_day_one_pool_cleanup_step(step: int, cleanup_id: String) -> void:
 
 
 func _on_day_one_pool_finale_started() -> void:
+	# The authored waterfall sequence and Rumi's rise ripple are the reveal; a
+	# generic star burst at the same spot drew nine copies of one star over it
+	# (OD1, MA-VIS-009), as the bathroom finale already avoids.
 	_activate_room_item("waterfall")
-	_burst("✦", Color(0.74, 0.94, 1.0))
 
 
 func _on_day_one_pool_reveal_completed() -> void:
@@ -5121,8 +5160,11 @@ func _tick_item_affordances(_delta: float) -> void:
 		var record: Dictionary = m.castle_room_item_sprites[item_id_value]
 		var sprite: Sprite2D = record.get("sprite") as Sprite2D
 		var hotspot: Button = record.get("hotspot") as Button
+		# Only a prop the child can touch right now earns the touring halo: an
+		# activity that suspends the hotspot layer (the Day One cleanups) must not
+		# be undercut by a pulse inviting taps that cannot answer (DL-READ-03).
 		if sprite != null and is_instance_valid(sprite) and sprite.visible \
-				and hotspot != null and hotspot.visible \
+				and hotspot != null and hotspot.is_visible_in_tree() \
 				and not bool(sprite.get_meta("busy", false)):
 			candidate_ids.append(item_id)
 	if candidate_ids.is_empty():

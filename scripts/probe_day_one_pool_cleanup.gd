@@ -93,6 +93,23 @@ func _run_probe() -> void:
 		and not bool((initial.get("skimmer", {}) as Dictionary).get("code_drawn_effects", true))
 		and not bool((initial.get("seahorse", {}) as Dictionary).get("code_drawn_effects", true))
 		and not bool((initial.get("waterfall", {}) as Dictionary).get("code_drawn_guides", true)))
+	# MA-VIS-009: one basket, no code-drawn ambience over the cleanup, and the
+	# swimmer grounded by approved ripple art rather than code arcs.
+	var room_basket: Sprite2D = cleanup.seahorse_activity.room_basket()
+	_check("the room shows one cleanup basket, at the skimmer's landing point",
+		bool(initial.get("one_room_basket", false))
+		and room_basket != null and room_basket.visible
+		and room_basket.position.is_equal_approx(PoolSkimmerActivity.BASKET_POSITION)
+		and not bool((initial.get("skimmer", {}) as Dictionary).get("basket_visible", true)))
+	_check("the cleanup quiets the code-drawn living-world layer while mounted",
+		bool(initial.get("living_world_quiet", false))
+		and cleanup.is_in_group(LivingWorldDirector.QUIET_GROUP))
+	var initial_swimmer: Dictionary = initial.get("swimming_bunny", {}) as Dictionary
+	_check("the swimmer's water contact is approved ripple art, not code arcs",
+		bool(initial_swimmer.get("ripple_authored", false))
+		and not bool(initial_swimmer.get("code_drawn_ripple", true))
+		and not FileAccess.get_file_as_string(
+			"res://scripts/games/day_one_dust_bunny_swimmer.gd").contains("func _draw("))
 	_probe_contextual_voice_wiring()
 	_probe_truthful_skimmer_lines()
 	_probe_roshan_contact(host)
@@ -304,6 +321,9 @@ func _run_probe() -> void:
 		and bool(final_snapshot.get("rumi_approved_identity", false))
 		and bool(final_snapshot.get("rumi_authored_animation", false))
 		and String(final_snapshot.get("rumi_animation", "")) == "swim")
+	_check("Rumi rises through the approved water ripple, not the cleaning ring",
+		String(final_snapshot.get("rise_ripple_asset", ""))
+			== DayOnePoolCleanup.RISE_RIPPLE_ATLAS_PATH)
 	cleanup.m = null
 	await create_timer(0.52).timeout
 	await create_timer(0.74).timeout
@@ -315,10 +335,19 @@ func _run_probe() -> void:
 		and float(finale_swimmer.get("opacity", 1.0)) <= 0.01)
 	_check("Rumi performs authored wave after rising",
 		String(wave_snapshot.get("rumi_animation", "")) == "wave")
+	var reveal_signals: Array[int] = [0]
+	cleanup.reveal_completed.connect(func() -> void: reveal_signals[0] += 1)
+	_check("the room completion waits for Rumi's wave and reply",
+		bool(wave_snapshot.get("reveal_beat_holding", false))
+		and not bool(wave_snapshot.get("reveal_completed", true)))
 	await create_timer(1.1).timeout
 	var idle_snapshot: Dictionary = cleanup.audit_snapshot()
 	_check("Rumi settles into authored idle",
 		String(idle_snapshot.get("rumi_animation", "")) == "idle")
+	_check("the reward beat ends in exactly one room completion",
+		bool(idle_snapshot.get("reveal_completed", false))
+		and not bool(idle_snapshot.get("reveal_beat_holding", true))
+		and reveal_signals[0] == 1)
 	cleanup.teardown()
 	await process_frame
 	_check("teardown frees cleanup", not is_instance_valid(cleanup))

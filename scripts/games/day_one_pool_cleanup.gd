@@ -78,8 +78,18 @@ const IDLE_REPROMPT_LINES: Dictionary = {
 		["day1_pool_seahorse_hint", "Tap fast to pull the trash off the seahorse!"],
 	],
 }
-# Approved Day One effect art for Rumi's reveal; replaces a text glyph.
-const REVEAL_RING_PATH := "res://assets/castle/dirty_cleanup_2d/effects/fx_clean_ring.png"
+# Rumi rises out of the water, so her reveal plays the approved project-original
+# ripple ring once (ASSET_LICENSES.md water-FX vocabulary, 2026-08-02) instead of
+# the "clean" success ring the cleanup activities use (DL-MOT-04).
+const RISE_RIPPLE_ATLAS_PATH := "res://assets/sprites/fx_water/fx_water_ripple_ring_atlas.png"
+const RISE_RIPPLE_GRID := Vector2i(4, 2)
+const RISE_RIPPLE_SECONDS := 0.96
+const RISE_RIPPLE_SCALE := 1.3
+# Rumi's reveal is the earned reward beat: her authored wave and reply play out
+# before the room completes, because completion starts the room-completion story
+# clip, which pauses the tree (freezing her line mid-word) and covers the room.
+const REVEAL_BEAT_MIN_SECONDS := 1.2
+const REVEAL_BEAT_MAX_SECONDS := 4.5
 
 var m: ReefMain
 var skimmer_activity: PoolSkimmerActivity = null
@@ -106,6 +116,10 @@ var _idle_reprompts: int = 0
 var _reprompt_log: Array[String] = []
 var _tint_ratio: float = 0.0
 var _counter_tinted: Array[Sprite2D] = []
+var _rise_ripple_asset: String = ""
+var _reveal_beat_active: bool = false
+var _reveal_beat_seconds: float = 0.0
+var _reveal_emitted: bool = false
 
 
 func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
@@ -122,6 +136,9 @@ func setup(main: ReefMain, announcements_enabled: bool = true) -> void:
 	# interleave with Roshan and the foreground instead of becoming screen UI.
 	if m.castle_room_world_root != null and get_parent() != m.castle_room_world_root:
 		reparent(m.castle_room_world_root)
+	# The cleanup supplies the room's motion and guidance while it is mounted, so
+	# the living-world layer's code-drawn ambient motifs pause above it (OD3).
+	add_to_group(LivingWorldDirector.QUIET_GROUP)
 	_capture_interaction_layers()
 	_capture_room_lighting()
 	_capture_clean_waterfall()
@@ -224,6 +241,13 @@ func audit_snapshot() -> Dictionary:
 		"idle_seconds": _idle_seconds,
 		"tint_ratio": _tint_ratio,
 		"identity_color_preserved": identity_color_preserved(),
+		"rise_ripple_asset": _rise_ripple_asset,
+		"reveal_beat_holding": _reveal_beat_active,
+		"reveal_completed": _reveal_emitted,
+		"one_room_basket": skimmer_activity != null and seahorse_activity != null
+			and not bool(skimmer_activity.audit_snapshot().get("basket_visible", true))
+			and seahorse_activity.room_basket() != null,
+		"living_world_quiet": is_in_group(LivingWorldDirector.QUIET_GROUP),
 	}
 
 
@@ -260,6 +284,9 @@ func identity_color_preserved() -> bool:
 
 
 func _process(delta: float) -> void:
+	if _reveal_beat_active:
+		_advance_reveal_beat(maxf(delta, 0.0))
+		return
 	# A quiet child hears the current activity's exact line again (twice at
 	# most); the guide hands keep pointing in the meantime. Never during a
 	# completion, the finale, or before the controller is live.
@@ -393,6 +420,12 @@ func _build_activities() -> void:
 	seahorse_activity.completed.connect(_on_seahorse_completed)
 	add_child(seahorse_activity)
 	seahorse_activity.bind_room_actor(m.castle_room_player_sprite, m.castle_room_player_shadow as Sprite2D, m.skin_id)
+	# The rescue's basket stays in the room through all three activities at the
+	# skimmer's landing point; show one basket, never two identical ones (OD1).
+	var room_basket: Sprite2D = seahorse_activity.room_basket()
+	if room_basket != null \
+			and room_basket.position.is_equal_approx(PoolSkimmerActivity.BASKET_POSITION):
+		skimmer_activity.set_basket_visible(false)
 
 
 func _build_swimming_dust_bunny() -> void:
@@ -773,23 +806,26 @@ func _on_rumi_animation_finished() -> void:
 
 
 func _spawn_reveal_ripple() -> void:
-	# The approved clean ring, flattened onto the water where Rumi rises; no
-	# font-dependent glyph.
-	var texture: Texture2D = load(REVEAL_RING_PATH) as Texture2D
+	# One approved ripple ring expands across the water where Rumi rises and
+	# fades with the atlas's own last cells; no font-dependent glyph.
+	var texture: Texture2D = load(RISE_RIPPLE_ATLAS_PATH) as Texture2D
 	if texture == null:
 		return
 	var ripple := Sprite2D.new()
 	ripple.name = "RumiRiseRipple"
 	ripple.texture = texture
+	ripple.hframes = RISE_RIPPLE_GRID.x
+	ripple.vframes = RISE_RIPPLE_GRID.y
+	ripple.frame = 0
 	ripple.position = Vector2(640.0, 525.0)
 	ripple.z_index = 17
-	var base: float = 300.0 / maxf(texture.get_width(), 1.0)
-	ripple.scale = Vector2(base * 0.22, base * 0.08)
+	ripple.scale = Vector2.ONE * RISE_RIPPLE_SCALE
 	add_child(ripple)
-	var ripple_tween: Tween = ripple.create_tween().set_parallel(true)
-	ripple_tween.tween_property(ripple, "scale", Vector2(base, base * 0.34), 1.0)
-	ripple_tween.tween_property(ripple, "modulate:a", 0.0, 1.0)
-	ripple_tween.chain().tween_callback(ripple.queue_free)
+	_rise_ripple_asset = texture.resource_path
+	var last_frame: int = RISE_RIPPLE_GRID.x * RISE_RIPPLE_GRID.y - 1
+	var ripple_tween: Tween = ripple.create_tween()
+	ripple_tween.tween_property(ripple, "frame", last_frame, RISE_RIPPLE_SECONDS)
+	ripple_tween.tween_callback(ripple.queue_free)
 
 
 func _finish_rumi_reveal() -> void:
@@ -812,7 +848,32 @@ func _finish_rumi_reveal() -> void:
 		_say_context("day1_pool_rumi_reply",
 			"We saved the pool and the seahorse! Hi, Rumi!",
 			"day_one")
+	# Hold the room completion until the wave and reply have played (bounded),
+	# so the story clip follows the reward beat instead of cutting into it.
+	_reveal_beat_seconds = 0.0
+	_reveal_beat_active = true
+
+
+func _advance_reveal_beat(delta: float) -> void:
+	_reveal_beat_seconds += delta
+	if _reveal_beat_seconds < REVEAL_BEAT_MIN_SECONDS:
+		return
+	if _reveal_beat_seconds < REVEAL_BEAT_MAX_SECONDS and _voice_lane_busy():
+		return
+	_reveal_beat_active = false
+	if _reveal_emitted:
+		return
+	_reveal_emitted = true
 	reveal_completed.emit()
+
+
+func _voice_lane_busy() -> bool:
+	if m == null:
+		return false
+	for player: AudioStreamPlayer in m.voice_pool:
+		if player != null and is_instance_valid(player) and player.playing:
+			return true
+	return false
 
 
 func _announce_progress_from_save() -> void:

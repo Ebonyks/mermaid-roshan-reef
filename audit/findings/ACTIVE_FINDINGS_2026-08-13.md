@@ -362,7 +362,30 @@ turn, and `MA-CI-008`, for advisory sensors that fail silently.
 | acceptance | `tools/gold_star.py` reports OD1-OD6 passed on every measured state of each affected game, then the phone session shows no stutter and the owner accepts the look. |
 | closure | Open as of 2026-10-04 at `f07c1a48`. |
 | relationships | Generalises the Chef overdraw in `MA-OPERA-001`; the painted-copy review relates to `MA-VIS-007`; device frame-time proof stays with `MA-PERF-001`. |
-| history | 2026-10-04: measured by Claude at `f07c1a48` for the gold-star overdraw criteria; opened `CONFIRMED_OPEN` P1. |
+| history | 2026-10-04: measured by Claude at `f07c1a48` for the gold-star overdraw criteria; opened `CONFIRMED_OPEN` P1. 2026-10-04 (later): the Pool's scope is carved out to `MA-VIS-009` (repaired, `FIXED_PENDING_VERIFICATION`); this record keeps the other dirty Day One rooms, the Opera careers and `living_world_canvas.gd`. Evidence correction: the "255-layer burst at the Pool's reveal" was a meter artifact, not a stack: an effect spawned during the counted frames drew in its real colours, so a white pixel read as 255 layers. `scripts/probe_overdraw.gd` now counts such a layer once (self-test leg proven falsifiable), and the corrected re-measurement replaces every peak in `design/reference/overdraw.json`. The meter also now sees code shapes drawn through a connected `draw` callback, which adds `opera_career_world_2d.gd` to the classified drawing scripts. Lifecycle unchanged. |
+
+## MA-VIS-009
+
+| Field | Value |
+|---|---|
+| id | `MA-VIS-009` |
+| title | The Mermaid Pool's screen carried measured overdraw from shared room layers: a code-drawn wash and grime over the room and Roshan, a second identical basket, ambient code motifs, code-drawn ripple arcs, a generic star burst over Rumi's rise and a full-screen fill hidden under the room tiles. |
+| rule_ids | `DL-PERF-03`, `DL-MED-02`, `DL-MED-05`, `DL-LAY-03`, `DL-READ-01`, `DL-READ-03`, `DL-VIS-03`, `DL-MOT-04` |
+| domain / zone | Visual quality and mobile fill cost / Day One Mermaid Pool cleanup in its real castle room (`scripts/arena/day_one_castle_dressing.gd`, `scripts/arena/castle_rooms_25d.gd`, `scripts/games/day_one_dust_bunny_swimmer.gd`, `scripts/living_world.gd`, `scripts/games/pool_skimmer_activity.gd`) |
+| source | Carved out of `MA-VIS-008` on 2026-10-04 so the reference game's repair can be verified on its own; the umbrella record keeps the other Day One rooms and the Opera careers. |
+| severity | P1 |
+| lifecycle | `FIXED_PENDING_VERIFICATION` |
+| verification | V2: re-measured on the real route with the corrected `scripts/probe_overdraw.gd` (exact Godot 4.7.2-stable, Mobile renderer on Vulkan, self-test PASS, numbers only); trusted probes extended and each new check shown to fail under a mutation of its repair. No phone, look-alike review or owner result yet. |
+| reproduction | At `a52f545f`: `python -B tools/measure_overdraw.py --groups pool` reports the Pool's play states at 3.2-3.5 mean GPU layers with a translucent layer under at least half the screen, `CleanupBasket` and `RescueCleanupBasket` drawn over each other, `day_one_castle_dressing.gd`, `day_one_dust_bunny_swimmer.gd` and `living_world_canvas.gd` drawing code shapes on screen, nine `star.png` motes duplicated at the finale and `CastleLetterboxBackdrop` drawn 98-100% hidden. |
+| child_impact | Roshan's identity colours were muddied by a 12% code-drawn wash the room's own counter-tint could not undo; two baskets, edge grime, ambient motifs and a star burst competed with the one job and Rumi's reveal; every pixel paid for hidden layers on the target phone. |
+| evidence | Before (baseline `a52f545f`, this environment): start 3.28, skimmer 3.50, waterfall 3.51/3.28, seahorse 3.49/3.49 mean layers, 22-33% of the screen with four or more, translucent median 1. After the repair (official `tools/measure_overdraw.py` run, 2026-10-05T00:12Z): 1.18-1.41 mean, at most 2.5% with four or more, max 6, peak 6, translucent median 0, no duplicate, no code drawing; Rumi's reveal measured at 1.40; the completion clip, recorded as a non-play state, 3.39 (design/reference/overdraw.json). Probe legs: `probe_day_one_pool_cleanup` (one basket, quiet ambience, approved ripples), `probe_day_one_castle_dressing` (no code grime in an authored-dirt room), `probe_castle_pool_life_2d` (no finale star burst, no swimmer code arcs), `probe_living_world` (quiet group). |
+| owner_decision | Not required for the repair: the Pool already shows its dirt through authored fixtures and a declared room tint with Roshan counter-tinted, which satisfies either answer to GS5 question 5. Whether other rooms keep any wash stays with that question. |
+| fix | `DayOneCastleDressing.AUTHORED_DIRT_ROOMS` hides the split-out `DayOneCastleGrime` layer in the Pool; the skimmer hands its pieces to the rescue's single basket; the cleanup joins `LivingWorldDirector.QUIET_GROUP`; the swimmer and Rumi's rise use the approved `fx_water_ripple_ring_atlas.png`; the Pool finale no longer adds the generic star burst; the castle letterbox fills only its bands. |
+| surrounding_tests | `probe_day_one_pool_cleanup`, `probe_day_one_castle_dressing`, `probe_castle_pool_life_2d`, `probe_living_world`, `probe_interaction`, `probe_day_one_bathroom_bunny`, `probe_day_one_bathroom_cleanup`, the full trusted roster, and `scripts/probe_overdraw.gd` (advisory, needs a display). |
+| acceptance | `tools/gold_star.py` reports OD1-OD6 passed for the Pool, including the OD2 look-alike review at phone size with the HUD (Codex capture P1 in `docs/handoffs/codex_pool_five_star_2026-10-04/README.md`), then a phone session shows no stutter and the owner accepts the look. |
+| closure | Fixed pending verification as of 2026-10-04 on the candidate built from `a52f545f`; the OD2 review, phone session and owner look are missing. |
+| relationships | Carved from `MA-VIS-008`; the five-star framework is `docs/handoffs/codex_pool_five_star_2026-10-04/FRAMEWORK.md`; device frame time stays with `MA-PERF-001`; the castle still renders hidden under full-screen story clips (framework follow-up F1). |
+| history | 2026-10-04: carved from `MA-VIS-008`, repaired by Claude on the candidate from `a52f545f`, re-measured with the corrected meter; `FIXED_PENDING_VERIFICATION`. |
 
 ## MA-PLAY-001
 
@@ -940,6 +963,29 @@ turn, and `MA-CI-008`, for advisory sensors that fail silently.
 | relationships | Blocks normal-play reachability of every Opera career, the lawn finale and the Galaxy and Fairy route; related to `MA-PLAY-001` (no fresh-save reachability proof) and `MA-CI-005` (completion coverage). |
 | history | 2026-10-03: found by the gold-star audit at `87f99268`; confirmed in code and at runtime; opened `CONFIRMED_OPEN` P0. |
 
+## MA-PLAY-006
+
+| Field | Value |
+|---|---|
+| id | `MA-PLAY-006` |
+| title | The Pool's room-completion story clip started the instant Rumi finished rising, covering her wave and pausing the tree mid-way through her reply line, which then resumed after the 17-second clip. |
+| rule_ids | `DL-CIN-16`, `DL-MOT-04`, `DL-AGE-07`, `DL-SND-04` |
+| domain / zone | Reward pacing and voice / Day One Mermaid Pool finale (`scripts/games/day_one_pool_cleanup.gd` `_finish_rumi_reveal`, `scripts/arena/castle_rooms_25d.gd` `_on_day_one_pool_reveal_completed`, `scripts/main.gd` `day_one_complete_pool_scene` and `_day_one_play_story_clip`) |
+| source | 2026-10-04 Pool five-star review by Claude while correcting the overdraw finale measurement, which had caught the clip instead of the reveal. |
+| severity | P2 |
+| lifecycle | `FIXED_PENDING_VERIFICATION` |
+| verification | V2: code path traced at `a52f545f`; the corrected overdraw route shows the clip covering the room right after the reveal; the hold is proven by two new `probe_day_one_pool_cleanup` checks that fail under a mutation restoring the immediate emit. No phone or owner listening result. |
+| reproduction | At `a52f545f`, finish the seahorse: `_finish_rumi_reveal` speaks `day1_pool_rumi_reply` and emits `reveal_completed` in the same frame; the castle completes the room, the director emits the cleanup event, `d1_pool_clean` (17 s) starts, pauses the tree and covers the screen. The voice players inherit the paused process mode, so the line freezes and finishes after the clip. |
+| child_impact | The earned reward beat is cut: the child sees Rumi rise for about a second, then a video, and hears the end of "Hi, Rumi!" seventeen seconds later out of context. |
+| evidence | `scripts/games/day_one_pool_cleanup.gd` (`_finish_rumi_reveal`, `_advance_reveal_beat`, `_voice_lane_busy`); clip timing in `assets/cinematics/day_one_story/story_clips.json`; clip content in `assets_src/cinematics/day_one_story_clips_2026-09-23/CLIP_MANIFEST.json` (`d1_pool_clean` keeps "waterfall restored, seahorse flows, Rumi rises and hugs Roshan"). |
+| owner_decision | The clip itself repeats Rumi's rise. Whether the room keeps its own rise before the clip, or the clip alone shows it, is owner question QP-1 in the Pool five-star framework; the default keeps both, now in sequence. |
+| fix | The room completion (and with it the clip and the next-door handoff) now waits until Rumi's wave and reply have played: at least 1.2 s, then until the voice lane is idle, at most 4.5 s, polled in the controller's own process so teardown cannot resume a freed coroutine. Progress was already saved, so the hold cannot lose it. |
+| surrounding_tests | `probe_day_one_pool_cleanup` (held beat, exactly one completion), `probe_day_one_story_clips`, `probe_day_one_integration`, `probe_day_one_director`, full trusted roster. |
+| acceptance | On the phone the child sees Rumi rise, wave and hears her whole reply before the clip, and the owner accepts the sequence (and answers QP-1). |
+| closure | Fixed pending verification as of 2026-10-04; phone and owner results missing. |
+| relationships | Reward beat of `MA-VIS-009`'s screen; clip policy `DL-CIN-16`; reference pattern GS-21. |
+| history | 2026-10-04: found and repaired by Claude on the candidate from `a52f545f`; `FIXED_PENDING_VERIFICATION`. |
+
 ## MA-COMBAT-001
 
 | Field | Value |
@@ -1376,6 +1422,29 @@ turn, and `MA-CI-008`, for advisory sensors that fail silently.
 | closure | Open as of 2026-08-26; guard absent on the swim branch. |
 | relationships | Sibling of the repaired `MA-TOUCH-001` surface. |
 | history | 2026-08-26: verified at `9a1754c1`; opened `CONFIRMED_OPEN`. |
+
+## MA-TOUCH-003
+
+| Field | Value |
+|---|---|
+| id | `MA-TOUCH-003` |
+| title | The castle's touring touch halo kept pulsing over room props whose hotspots a Day One cleanup had suspended, inviting taps that could not answer. |
+| rule_ids | `DL-READ-03`, `DL-UI-01`, `DL-AGE-01`, `DL-MOT-04` |
+| domain / zone | Touch affordance / `scripts/arena/castle_rooms_25d.gd` `_tick_item_affordances` while the Pool or bathroom cleanup suspends `castle_room_item_hotspot_layer` |
+| source | 2026-10-04 Pool five-star review: the overdraw meter showed `CastleTouchAffordance` over Roshan at the Pool's first state. |
+| severity | P2 |
+| lifecycle | `FIXED_PENDING_VERIFICATION` |
+| verification | V2: exact in source at `a52f545f` (the halo tested the hotspot's own `visible`, not its visibility in the tree); a new `probe_interaction` leg fails under a mutation restoring the old test. No phone or child result. |
+| reproduction | At `a52f545f`, enter the dirty Pool: the cleanup hides the item hotspot layer, yet every few seconds a translucent halo pulses on the flower float, star float or another prop, which no longer answers a tap. |
+| child_impact | A pulsing invitation beside the one live job pulls a non-reader's finger to a prop that does nothing, the opposite of one focal action. |
+| evidence | `_tick_item_affordances` candidate test; `DayOnePoolCleanup._capture_interaction_layers` and `DayOneBathroomCleanup._suspend_room_hotspots` hide the layer; overdraw state `start` listed `CastleTouchAffordance` covering 18% of Roshan. |
+| owner_decision | Not required: an affordance must mark only what the child can touch now. |
+| fix | Candidates require `hotspot.is_visible_in_tree()`, so a suspended hotspot layer silences the halo and restoring it resumes the tour. |
+| surrounding_tests | `probe_interaction` (silenced, then restored by the prop it chose), `probe_day_one_pool_cleanup`, `probe_day_one_bathroom_cleanup`, full trusted roster. |
+| acceptance | On the phone no halo appears during a Day One cleanup and the free-play tour still marks touchable props. |
+| closure | Fixed pending verification as of 2026-10-04; phone result missing. |
+| relationships | Supports `MA-VIS-009` (one focal action on the Pool screen); sibling touch routing records `MA-TOUCH-001`, `MA-TOUCH-002`; reference pattern GS-22. |
+| history | 2026-10-04: found and repaired by Claude on the candidate from `a52f545f`; `FIXED_PENDING_VERIFICATION`. |
 
 ## MA-CI-006
 

@@ -11,6 +11,8 @@ Status: `PROPOSED / CANDIDATE`. This is the owner-requested five-star proposal f
 - a full-screen fill is drawn hidden under the room tiles;
 - Rumi's reveal briefly stacks 255 layers.
 
+**Update, 2026-10-04 (later).** Claude repaired the Pool's screen overdraw (`MA-VIS-009`, carved from `MA-VIS-008`, fixed pending verification). The "255-layer burst" turned out to be a meter artifact. The Pool now waits only for the OD2 look-alike review and the human checks. The current plan is the [five-star framework](../codex_pool_five_star_2026-10-04/FRAMEWORK.md) and its [Codex packages](../codex_pool_five_star_2026-10-04/README.md).
+
 So the Pool is **3/5 (19 of 24)** under the refined criteria until [GS5](README.md#gs5-fix-the-measured-overdraw-ma-vis-008) fixes those ([`MA-VIS-008`](../../../audit/findings/ACTIVE_FINDINGS_2026-08-13.md#ma-vis-008)). After that, a rating of 5 ("gold star") also needs three human results, none of them recorded yet:
 
 - a phone session;

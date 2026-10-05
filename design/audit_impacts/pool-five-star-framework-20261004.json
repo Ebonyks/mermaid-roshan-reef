@@ -1,0 +1,219 @@
+{
+  "id": "pool-five-star-framework-20261004",
+  "scope": "Owner request: as part of the master audit, the Mermaid Pool (Day One) was chosen as the first area to refine to five-star standard; be comprehensive, provide a detailed framework for improvement, modify code where necessary and propose new Codex handoffs for graphics and animation. Claude repaired the overdraw that shared room layers drew on the Pool's screen (MA-VIS-009, carved from MA-VIS-008): the castle dressing's code-drawn wash, grime, drips and cracks move to a DayOneCastleGrime child hidden in rooms that author their own dirt (the Pool); one cleanup basket instead of two; the cleanup quiets the living-world layer's code motifs while mounted; the shared swimmer and Rumi's rise use the approved project-original water-ripple atlas instead of code arcs and the cleaning ring; the Pool finale drops the generic star burst; the castle letterbox fills only its bands. Two child-facing defects found in review are repaired: the room-completion clip cut into Rumi's reveal and froze her reply mid-line (MA-PLAY-006; completion now waits for the reward beat, 1.2-4.5 s), and the touring touch halo pulsed over props whose hotspots a cleanup had suspended (MA-TOUCH-003). The overdraw meter is corrected: a layer spawned during counting now counts once (the Pool's reported 255-layer burst was such a layer drawing in its real colours), connected draw callbacks count as code drawing, and Rumi's reveal is measured at real speed with the completion clip recorded as a non-play state; every game is re-measured. The Pool rises from 3/5 (19/24) to 3/5 (21/24) on the gold-star scorecard; only the OD2 look-alike review separates it from 4/5, then device, child and owner acceptance. New Codex packet docs/handoffs/codex_pool_five_star_2026-10-04/ (FRAMEWORK.md, README.md with packages P1-P8 for captures, Roshan's authored work actions, room-lit props, Rumi's rise, the swimmer, catch feedback, voice and device evidence); the earlier gold-star packet gains revision-5 status notes.",
+  "baseline": "a52f545f4c5e7cc720b0d1194b374801ece0e24e",
+  "rules": [
+    "DL-AUTH-05",
+    "DL-AUTH-06",
+    "DL-AUTH-07",
+    "DL-PERF-02",
+    "DL-PERF-03",
+    "DL-MED-02",
+    "DL-MED-05",
+    "DL-LAY-03",
+    "DL-READ-01",
+    "DL-READ-02",
+    "DL-READ-03",
+    "DL-VIS-03",
+    "DL-MOT-04",
+    "DL-MOT-12",
+    "DL-MOT-14",
+    "DL-MOT-15",
+    "DL-MOT-16",
+    "DL-CIN-16",
+    "DL-AGE-01",
+    "DL-AGE-05",
+    "DL-AGE-07",
+    "DL-UI-01",
+    "DL-SND-01",
+    "DL-SND-04",
+    "DL-SAVE-01",
+    "DL-ASSET-01",
+    "DL-QA-02",
+    "DL-QA-03",
+    "DL-QA-04",
+    "DL-QA-05",
+    "DL-QA-06",
+    "DL-QA-10",
+    "DL-CODE-06"
+  ],
+  "findings": [
+    "MA-VIS-009",
+    "MA-VIS-008",
+    "MA-PLAY-006",
+    "MA-TOUCH-003",
+    "MA-PLAY-004",
+    "MA-PERF-001"
+  ],
+  "files": [
+    "assets_src/castle/interactions_v4/castle_interaction_frame_approval_ledger.json",
+    "audit/MASTER_AUDIT_2026-08-09.md",
+    "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+    "design/05_DOC_LEDGER.md",
+    "design/reference/GOLD_STAR.md",
+    "design/reference/games.json",
+    "design/reference/gold_star.json",
+    "design/reference/overdraw.json",
+    "docs/handoffs/codex_gold_star_2026-10-03/MANIFEST.json",
+    "docs/handoffs/codex_gold_star_2026-10-03/POOL_FIVE_STAR.md",
+    "docs/handoffs/codex_gold_star_2026-10-03/README.md",
+    "docs/handoffs/codex_pool_five_star_2026-10-04/.gdignore",
+    "docs/handoffs/codex_pool_five_star_2026-10-04/FRAMEWORK.md",
+    "docs/handoffs/codex_pool_five_star_2026-10-04/MANIFEST.json",
+    "docs/handoffs/codex_pool_five_star_2026-10-04/README.md",
+    "scripts/arena/castle_rooms_25d.gd",
+    "scripts/arena/day_one_castle_dressing.gd",
+    "scripts/arena/day_one_castle_grime.gd",
+    "scripts/games/day_one_dust_bunny_swimmer.gd",
+    "scripts/games/day_one_pool_cleanup.gd",
+    "scripts/games/pool_seahorse_rescue_activity.gd",
+    "scripts/games/pool_skimmer_activity.gd",
+    "scripts/living_world.gd",
+    "scripts/probe_castle_pool_life_2d.gd",
+    "scripts/probe_day_one_castle_dressing.gd",
+    "scripts/probe_day_one_pool_cleanup.gd",
+    "scripts/probe_interaction.gd",
+    "scripts/probe_living_world.gd",
+    "scripts/probe_overdraw.gd"
+  ],
+  "validation": [
+    {
+      "command": "Godot 4.7.2-stable official binary for this session (Linux x86_64), checked against the release's SHA512-SUMS.txt",
+      "result": "PASS",
+      "evidence": "SHA-512 9aa00f7a...59ed54c65 matches the value pinned in .github/workflows/probes.yml; --version 4.7.2.stable.official.ed1daf0bf."
+    },
+    {
+      "command": "python -m gdtoolkit.parser (gdtoolkit 4.5.0) and python tools/lint_inference.py on every changed .gd file; godot --headless --check-only --script on each",
+      "result": "PASS",
+      "evidence": "No parse, inference or analyzer errors after a fresh headless import of the candidate."
+    },
+    {
+      "command": "Full trusted roster (82 probes from scripts/ci.sh), each with isolated user data and the ci.sh failure greps, exact Godot 4.7.2-stable headless",
+      "result": "PASS",
+      "evidence": "82 of 82 PASS in 18 min on the candidate; after the final one-constant change to the swimmer ripple size, probe_day_one_pool_cleanup, probe_day_one_bathroom_bunny, probe_day_one_bathroom_cleanup, probe_castle_pool_life_2d and probe_bathroom_integration re-run PASS."
+    },
+    {
+      "command": "Mutation tests of each new check (revert one repair, run its probe, restore)",
+      "result": "PASS",
+      "evidence": "Each mutation turned its probe red: skimmer basket left visible (one-basket check), quiet-group join removed (pool and living-world checks), halo visible test restored (probe_interaction), AUTHORED_DIRT_ROOMS emptied (dressing), star burst re-added (pool life), immediate reveal emit restored (two reward-beat checks), late-layer fix disabled (overdraw self-test)."
+    },
+    {
+      "command": "scripts/probe_overdraw.gd -- --group=selftest under Xvfb, Mobile renderer on Vulkan (Mesa llvmpipe)",
+      "result": "PASS",
+      "evidence": "Six full-screen layers count exactly 6 (translucent 1); a white opaque layer added during counting counts exactly 7 with peak 7; a connected draw callback is seen as code drawing. With the late-layer fix disabled the self-test fails."
+    },
+    {
+      "command": "Baseline measurement at a52f545f (same route, before any change) and attribution runs",
+      "result": "PASS",
+      "evidence": "Pool play states 3.28-3.51 mean layers, 22-33% with four or more, translucent median 1, duplicate baskets, three code-drawing scripts, hidden letterbox fill, false peak 155; per-channel attribution showed every high peak with equal R, G and B (real colours from a node spawned during counting) and the finale state measuring the completion clip on layer 28."
+    },
+    {
+      "command": "python -B tools/measure_overdraw.py (self-test, pool, opera) under Xvfb at 1920x1080",
+      "result": "PASS",
+      "evidence": "design/reference/overdraw.json written for 16 games at 2026-10-05T00:12:47Z: Pool play states 1.18-1.41 mean, at most 0.025 with four or more, max 6, peak 6, no duplicate, no code drawing, translucent median 0; story_clip 3.39 recorded and not budgeted; careers now also list opera_career_world_2d.gd (classified, not allowed)."
+    },
+    {
+      "command": "Letterbox band geometry in the real castle at three window shapes (scratch debug script, numbers printed only)",
+      "result": "PASS",
+      "evidence": "2560x1369 screen: 33 px pillars at x 0 and 1312; 1920x1200 (M11 16:10): 40 px bands top and bottom; 2600x2000: 132 px bands; each overlaps the stage by 1 px."
+    },
+    {
+      "command": "Source-art OD1 review of the eight V4 Pool background tiles",
+      "result": "PASS",
+      "evidence": "No tile paints a copy of the waterfall, seahorse, floats, trash, skimmer or basket under the live cards; recorded in games.json overdraw_review.OD1."
+    },
+    {
+      "command": "python3 tools/review_castle_interaction_frames_v4.py check (castle runtime-layout binding refresh)",
+      "result": "PASS",
+      "evidence": "Editing castle_rooms_25d.gd changed only the runtime-layout text hash: all 96 candidate frame_review_sha256 values and every occlusion_relation equal the reviewed ledger, and restoring the prior layout hash reproduces the prior payload b613a780... exactly; the ledger's candidate_payload_sha256 moves to 869c21be... with a pool_five_star_binding_revalidation record (owner acceptance pending), as earlier castle edits did."
+    },
+    {
+      "command": "python -B tools/gold_star.py --check --strict; --compare day_one_pool",
+      "result": "PASS",
+      "evidence": "60 games, 0 errors, 0 stale; the Pool is 3/5 (21/24) with OD1, OD3-OD6 passed and OD2 the only item before 4/5. Re-assessed and rebound: day_one_pool, pearl_castle, day_one_bathroom; patterns rebound with GS-19 to GS-22 added."
+    },
+    {
+      "command": "scripts/ci.sh static gates and fresh headless import (everything before the probe loop), exact Godot 4.7.2-stable, Python 3.11 container",
+      "result": "PASS",
+      "evidence": "All gates pass, including audit_document_authority, audit_development --base auto, gold_star --check, the Godot baseline, parse and lint, typography, Roshan 2D and sprite clipping, probe parity, visual and castle audits, the castle frame-review binding and the import. Four checks are environment-bound and verified only by CI. The area-music check needs the recorded Python 3.13.14, numpy 2.5.1, scipy 1.18.0 and ffmpeg 8.1.2. The ui_tap re-encode depends on the ffmpeg build. The audio ledger hashes a CRLF checkout file, and this Linux checkout is LF. The 2D debt-regression gate refuses a shallow clone. No changed file touches audio, and the added lines and new files contain zero 3D tokens by the gate's own counter."
+    },
+    {
+      "command": "Anonymous remote verification of both packets (MANIFEST.json and every listed file and reference) from raw.githubusercontent.com at the pushed commit",
+      "result": "PENDING",
+      "evidence": "Performed after push; receipt recorded in a follow-up commit."
+    },
+    {
+      "command": "Probe Suite (graphics fork) on the pushed branch head",
+      "result": "PENDING",
+      "evidence": "Not yet run."
+    },
+    {
+      "command": "OD2 look-alike review from phone-size captures (Codex P1), phone frame time, observed child session, owner acceptance and listening, owner answers to QP-1 to QP-3",
+      "result": "PENDING",
+      "evidence": "Not performed; Claude builds no captures and the layer counts are desktop software-renderer numbers, not phone frame time."
+    }
+  ],
+  "lessons": [
+    {
+      "lesson": "A GPU layer counter must also count nodes created during the counted frames: an effect spawned mid-count drew in its real colours and read as up to 255 layers, and a published finding quoted that artifact. A falsifiable self-test leg (a white layer added mid-count must read as one) now guards it.",
+      "write_back": "scripts/probe_overdraw.gd",
+      "recurrence_key": "overdraw-needs-gpu-count"
+    },
+    {
+      "lesson": "Measure the moment, not the clock: at the probe's 4x time scale the 1.15 s reveal had already handed the screen to a 17 s story clip, so the 'finale' measured the clip. A state worth budgeting is waited for by its own signal and measured at real speed.",
+      "write_back": "scripts/probe_overdraw.gd",
+      "recurrence_key": "measure-the-real-route"
+    },
+    {
+      "lesson": "A clean reference game still needs shared layers to have an opt-out contract. An authored-dirt list and a quiet group let the Pool's screen be clean without a game-wide redesign, and other rooms can join one at a time.",
+      "write_back": "design/reference/gold_star.json",
+      "recurrence_key": "shared-layers-on-screen"
+    },
+    {
+      "lesson": "A completion that starts a story clip pauses the tree, which freezes voice lines mid-word; the reward beat must finish (bounded) before the completion fires.",
+      "write_back": "design/reference/gold_star.json",
+      "recurrence_key": "reward-before-clip"
+    }
+  ],
+  "strengths_observed": [
+    {
+      "id": "S-11",
+      "evidence": "The hash-bound measurement and assessments went stale exactly where the change touched: every career measurement (probe changed), the Pool, Pearl Castle and Bathroom assessments, the GS-16 pattern anchors and two drawing classifications; each was re-measured, re-assessed or reclassified before rebinding."
+    },
+    {
+      "id": "S-05",
+      "evidence": "Holding the room completion until Rumi's reward beat ends keeps the d1_pool_clean clip between scenes instead of over one (MA-PLAY-006)."
+    },
+    {
+      "id": "S-09",
+      "evidence": "The framework and README end with three numbered owner questions (QP-1 to QP-3), each with a default."
+    }
+  ],
+  "references_used": [
+    {
+      "path": "docs/handoffs/codex_gold_star_2026-10-03/README.md",
+      "purpose": "GS2 and GS5, the Pool's open Codex work before this round"
+    },
+    {
+      "path": "audit/DAY_ONE_POOL_NATURAL_INTEGRATION_SPEC_2026-08-23.md",
+      "purpose": "Binding runtime treatment and the product-render diagnosis behind P3"
+    },
+    {
+      "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+      "purpose": "Concentrating register and the scoop/scrub verbs for P2"
+    },
+    {
+      "path": "design/templates/ANIMATION_JOB_CARD_V1.md",
+      "purpose": "Job-card fields for P2, P4 and P5"
+    },
+    {
+      "path": "assets_src/cinematics/day_one_story_clips_2026-09-23/CLIP_MANIFEST.json",
+      "purpose": "d1_pool_clean content (Rumi rises and hugs Roshan) behind MA-PLAY-006 and QP-1"
+    },
+    {
+      "path": "ASSET_LICENSES.md",
+      "purpose": "Provenance of the reused project-original water-FX atlases"
+    }
+  ],
+  "acceptance_gaps": "Machine and source-art evidence only. The OD2 look-alike review needs Codex's phone-size captures (P1). Phone frame time on the M11 and the older phone, an observed child session, owner acceptance and listening, and owner answers to QP-1 (Rumi rises twice), QP-2 (other rooms' code wash) and QP-3 (castle rendered under clips) remain. MA-VIS-009, MA-PLAY-006 and MA-TOUCH-003 stay FIXED_PENDING_VERIFICATION; MA-VIS-008 stays open for the other Day One rooms and the Opera careers. Layer counts come from a desktop software renderer, not phone frame time (MA-PERF-001)."
+}
