@@ -1,0 +1,30 @@
+{
+  "checked_at_utc": "2026-10-04T18:41:11.770642+00:00",
+  "gpu": "NVIDIA GeForce RTX 3060 Ti",
+  "vram_mib": 8192,
+  "cpu": "AMD Ryzen 5 3600",
+  "system_ram_gib": 47.91,
+  "driver": "591.86",
+  "torch": "2.13.0+cu130",
+  "python_portable": "3.13.14",
+  "aseprite": "1.3.18.4",
+  "ffmpeg": "8.1.2",
+  "comfyui_version": "0.34.0",
+  "comfyui_commit": "12d5279438bfefc058a269eae805ceab6047777f",
+  "gguf_plugin_version": "2.0.0 main-development package; no independent .git checkout; source hashes pin installed code",
+  "gguf_plugin_source_sha256": {
+    "__init__.py": "7ba473d8254a2867534565bb0b2ae194f1c55d5c2c00e30b6dbaf76be7d7a6b7",
+    "dequant.py": "215369438d96c372c09eb8701eec3c3b0348084c96dd3ea83872601ebed42017",
+    "loader.py": "ffff39d209ce22654e67378b80c6a3ca3d349cf8f00ec267085bd16e194730c2",
+    "nodes.py": "16be3b08b13de6279fc432addc628320019fcb24963cbc6b52b248de8f06316e",
+    "ops.py": "b927e24a7b00c181e9511900fb5afde45464793cf460e1d39a5e736ba093ce64"
+  },
+  "sampling_profiles": {
+    "8192": "2B normal VRAM; CPU FP16 text; GPU tiled VAE; reserve1.2 GiB; no SageAttention; two-pass 7+3.",
+    "8193": "2.3 LOW_VRAM; CPU FP16 text and FP32 VAE; BF16 transformer; reserve1.2 GiB; PyTorch attention; 512-token FF chunks; no upscaler."
+  },
+  "gpu_metrics_scope": "5-second sampled total card use; includes desktop/other processes; not an allocator peak. No other app was closed automatically.",
+  "software_evidence_parent": "assets_src/cinematics/ltx_retake_repair_20261004/environment/software_hardware.json",
+  "weights": "Existing Q4_K_S transformer and Gemma Q4_K_S; differs from the reported Q4_K_M/Q3_K_XL community recipe.",
+  "native_qa": "Original-resolution frames and 1:1 contacts; no resized QA thumbnails."
+}

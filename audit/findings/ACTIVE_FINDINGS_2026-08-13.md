@@ -64,6 +64,11 @@ On 2026-10-03 the self-improvement loop audit
 appends two V1 records: `MA-DOC-009`, for an improvement loop that does not
 turn, and `MA-CI-008`, for advisory sensors that fail silently.
 
+On 2026-10-04 the owner-requested Roshan motion analysis
+(`docs/handoffs/codex_roshan_motion_language_2026-10-04/ANALYSIS.md`) appends
+one V1 record, `MA-ROSHAN-006`, for runtime playback that shows Roshan's key
+poses as broken motion.
+
 ## MA-2D-002
 
 | Field | Value |
@@ -893,6 +898,29 @@ turn, and `MA-CI-008`, for advisory sensors that fail silently.
 | closure | Open as of 2026-09-30; the repair handoff is published and no repair is made. |
 | relationships | Related to `MA-DOC-008` (visual language and identity sheet), `MA-ROSHAN-002` (earlier playground clipping repair) and `MA-ROSHAN-003` (deferred atlas repacking). |
 | history | 2026-09-30: created from the owner-requested Roshan appearance analysis at dev `b65c21fd`; the owner commissioned the repair handoff the same day. |
+
+## MA-ROSHAN-006
+
+| Field | Value |
+|---|---|
+| id | `MA-ROSHAN-006` |
+| title | Roshan's runtime playback shows key poses as broken motion: nine of fourteen gesture rows start with her fin on the other side of her body, the castle swim cross-fades two copies of her, twelve careers loop unrelated pose keys at 4–8 frames per second, and Day One jobs and the Sky Lagoon slide one still cutout. |
+| rule_ids | `DL-MOT-01`, `DL-MOT-03`, `DL-MOT-07`, `DL-MOT-10`, `DL-MOT-12` |
+| domain / zone | Character motion / Mermaid Roshan's runtime playback: castle rooms, Day One jobs, the Grand Puff fight (legacy player), Opera careers and the Sky Lagoon |
+| source | Owner-requested Roshan motion analysis 2026-10-04 (`docs/handoffs/codex_roshan_motion_language_2026-10-04/ANALYSIS.md`): code reading and numbers-only atlas measurements at dev `8a2f30cb`. |
+| severity | P2 |
+| lifecycle | `CONFIRMED_OPEN` |
+| verification | V1 static: playback code traced and atlas frames measured with the handoff's `tools/measure_roshan_motion.py` (numbers only); no runtime capture or device run yet. |
+| reproduction | Run the handoff tool. `gesture_entry_fin_side` shows 9 of 14 gesture rows starting with the fin on the opposite side from directional frame 0 and from every swim frame under the legacy player's flip rule (`scripts/player.gd:406`, `:455-456`); the Grand Puff fight plays `boing`, `point` and `cheer` (`scripts/games/dust_boss.gd:465`, `:665`, `:1040`). `code.castle_swim_loop.crossfade` shows two copies drawn for 0.667 of each swim frame interval (`scripts/roshan_sprite_loop.gd:27`, `scripts/sprite_transition_2d.gd:179-184`). `career_atlases` shows 25 of 60 career rows with a neighbouring silhouette change of 40% or more while `scripts/opera_roshan_actor.gd:17-22` loops them at 4–8 fps. `scripts/day_one_contact_action_2d.gd:32`, `:100` and `scripts/arena/sky_lagoon_promenade.gd:991-997` move one still frame. |
+| child_impact | The child sees Roshan's tail jump across her body when she bumps, points or cheers in the Grand Puff fight, a ghosted double Roshan while she swims in the castle, career poses that snap four to eight times a second, and a still Roshan sliding to each Day One job and along the Sky Lagoon. Her motion reads as stiff and broken instead of the warm, tail-driven swimmer the movement language describes. |
+| evidence | Handoff `ANALYSIS.md` sections 4–5 and `data/motion_measurements.json` (fin and ponytail sides, neighbouring-frame silhouette change, playback constants), with the script and atlas SHA-256 values they were measured from. |
+| owner_decision | No owner decision covers these defects. The 2026-09-11 movement language and the 2026-10-04 crisp-contour and whole-figure corrections set the standard; the handoff's owner questions Q1–Q6 decide views, cadence and land travel. |
+| fix | `docs/handoffs/codex_roshan_motion_language_2026-10-04/README.md` revision 2: RM2 runtime repairs now (R1 keep the fin side in gesture contexts, R2 measure the cross-fade and show the owner, R4 remove the `twirl` mirror swap), then rich clips made with the Roshan animation template (`TEMPLATE.md`: LTX locally by a Codex script, Aseprite into the game) replace the cross-fade, the career pose loops and the sliding still cutouts in the Phase A tests and the Phase B room-by-room pass. |
+| surrounding_tests | The handoff measurement tool after each change; `tools/audit_roshan_2d.py`, `tools/audit_opera_roshan_animation.py` and `tools/audit_roshan_sprite_clipping.py`; boss, Opera, castle and Day One probes; `tools/measure_overdraw.py` for the cross-fade; Mobile captures at normal speed. |
+| acceptance | Gesture entry and exit keep the home pose's fin side; no career row loops unrelated pose keys; no runtime cross-fade or still-cutout travel remains where an authored clip exists; the owner reviews each change at normal speed on the tablet. |
+| closure | Open as of 2026-10-04; the handoff is published and no repair is made. |
+| relationships | Related to `MA-ROSHAN-005` (single-frame defects; its R-07 repairs one `gesture_b` frame, not the cross-sheet fin side), `MA-PLAY-004` (Roshan visibly performs each job), `MA-VIS-008` (overdraw; the cross-fade adds a layer), `MA-VIS-006` and `MA-DOC-008`. |
+| history | 2026-10-04: created from the owner-requested Roshan motion analysis at dev `8a2f30cb`; Codex handoff RM0–RM8 published the same day. 2026-10-04 (later): the owner answered the handoff's questions (left/right orientation, a rich and comprehensive animation set instead of limited animation, a slower Sky Lagoon swim, LTX locally through a Codex script with Aseprite as the production workflow) and asked for a template for all future Roshan animations; revision 2 replaces the clip-by-clip plan with that template and moves the career loops to the Phase B pass; lifecycle unchanged. |
 
 ## MA-PLAY-002
 

@@ -1,0 +1,1062 @@
+{
+ "schema": "reef.roshan-motion-measurements.v1",
+ "source_head": "8a2f30cb0df44ece3b1172ed2dbcb9a55fc5d622",
+ "numbers_only": true,
+ "base_world": {
+  "roshan_directional.png": {
+   "sha256": "2bcc6212dddaddedb5823ba095caff1cbecdb762d5bbdc76726d3d5b0e3ee85a",
+   "grid": [
+    4,
+    2
+   ],
+   "fin_side": [
+    [
+     -0.179,
+     -0.158,
+     -0.219,
+     -0.106
+    ],
+    [
+     0.136,
+     0.164,
+     0.164,
+     0.121
+    ]
+   ],
+   "fin_side_label": [
+    "L L L L",
+    "R R R R"
+   ],
+   "ponytail_side_label": [
+    "R R R L",
+    "L L L R"
+   ]
+  },
+  "roshan_swim_front.png": {
+   "sha256": "a62c8aee70f13d6c8d660652052e1170c516f355207df4c3488f952430cbde01",
+   "grid": [
+    4,
+    4
+   ],
+   "fin_side": [
+    [
+     -0.171,
+     -0.248,
+     -0.252,
+     -0.295
+    ],
+    [
+     -0.324,
+     -0.288,
+     -0.269,
+     -0.242
+    ],
+    [
+     -0.274,
+     -0.273,
+     -0.266,
+     -0.167
+    ],
+    [
+     -0.16,
+     -0.279,
+     -0.291,
+     -0.299
+    ]
+   ],
+   "fin_side_label": [
+    "L L L L",
+    "L L L L",
+    "L L L L",
+    "L L L L"
+   ],
+   "ponytail_side_label": [
+    "L L L L",
+    "L L L C",
+    "L L L L",
+    "L L L L"
+   ],
+   "cycle_change_raw": {
+    "n": 16,
+    "min": 13.3,
+    "median": 40.7,
+    "max": 74.1
+   },
+   "cycle_change_aligned": {
+    "n": 16,
+    "min": 7.0,
+    "median": 24.1,
+    "max": 51.4
+   }
+  },
+  "roshan_swim_back.png": {
+   "sha256": "4e76c3c269039cf05a6a8b58bbaf70273746f520006d0af68128f863bdb99337",
+   "grid": [
+    4,
+    4
+   ],
+   "fin_side": [
+    [
+     -0.196,
+     -0.228,
+     -0.287,
+     -0.303
+    ],
+    [
+     -0.31,
+     -0.36,
+     -0.315,
+     -0.333
+    ],
+    [
+     -0.255,
+     -0.257,
+     -0.257,
+     -0.262
+    ],
+    [
+     -0.25,
+     -0.284,
+     -0.292,
+     -0.295
+    ]
+   ],
+   "fin_side_label": [
+    "L L L L",
+    "L L L L",
+    "L L L L",
+    "L L L L"
+   ],
+   "ponytail_side_label": [
+    "C C C C",
+    "C C C C",
+    "C C C C",
+    "C C C C"
+   ],
+   "cycle_change_raw": {
+    "n": 16,
+    "min": 24.7,
+    "median": 41.1,
+    "max": 56.4
+   },
+   "cycle_change_aligned": {
+    "n": 16,
+    "min": 8.5,
+    "median": 24.2,
+    "max": 40.2
+   }
+  },
+  "roshan_gesture_a.png": {
+   "sha256": "e70139b23c9f84c0e8f0c1063145ca4e9e67ee32c57aa544bc08193326af9b9d",
+   "grid": [
+    4,
+    4
+   ],
+   "fin_side": [
+    [
+     0.096,
+     0.04,
+     0.071,
+     0.055
+    ],
+    [
+     0.061,
+     0.072,
+     0.067,
+     0.057
+    ],
+    [
+     0.055,
+     0.049,
+     0.045,
+     0.053
+    ],
+    [
+     0.082,
+     0.029,
+     -0.036,
+     0.082
+    ]
+   ],
+   "fin_side_label": [
+    "R C R C",
+    "R R R C",
+    "C C C C",
+    "R C C R"
+   ],
+   "ponytail_side_label": [
+    "R R R R",
+    "R R R R",
+    "R R R R",
+    "R R R R"
+   ],
+   "row_change_aligned": {
+    "n": 12,
+    "min": 5.0,
+    "median": 17.1,
+    "max": 45.1
+   }
+  },
+  "roshan_gesture_b.png": {
+   "sha256": "59daf2a2efdbabba1a28bedfed5312805b4351627f0882704b11c4b6ca488ead",
+   "grid": [
+    4,
+    4
+   ],
+   "fin_side": [
+    [
+     -0.145,
+     -0.123,
+     -0.007,
+     -0.145
+    ],
+    [
+     0.052,
+     0.03,
+     0.035,
+     0.02
+    ],
+    [
+     0.07,
+     0.075,
+     0.076,
+     0.099
+    ],
+    [
+     0.079,
+     0.064,
+     0.065,
+     0.048
+    ]
+   ],
+   "fin_side_label": [
+    "L L C L",
+    "C C C C",
+    "R R R R",
+    "R R R C"
+   ],
+   "ponytail_side_label": [
+    "R R R R",
+    "R R R R",
+    "R R R R",
+    "R R R R"
+   ],
+   "row_change_aligned": {
+    "n": 12,
+    "min": 6.9,
+    "median": 24.9,
+    "max": 54.2
+   }
+  },
+  "roshan_gesture_c.png": {
+   "sha256": "43ebe0e42cd9db5cf612bfaa4acbc9f14a3ad99f49909535b5508707fad15a0e",
+   "grid": [
+    4,
+    4
+   ],
+   "fin_side": [
+    [
+     0.077,
+     0.124,
+     0.071,
+     0.074
+    ],
+    [
+     0.079,
+     -0.033,
+     0.086,
+     0.083
+    ],
+    [
+     0.055,
+     0.031,
+     0.031,
+     0.067
+    ],
+    [
+     0.067,
+     0.07,
+     0.028,
+     0.002
+    ]
+   ],
+   "fin_side_label": [
+    "R R R R",
+    "R C R R",
+    "C C C R",
+    "R R C C"
+   ],
+   "ponytail_side_label": [
+    "R R R R",
+    "R R R R",
+    "R R R R",
+    "R R R R"
+   ],
+   "row_change_aligned": {
+    "n": 12,
+    "min": 13.2,
+    "median": 24.0,
+    "max": 45.6
+   }
+  },
+  "roshan_gesture_d.png": {
+   "sha256": "03cbc5931806ddc17675fb741f9dafcff66e8b16e08feb6795bda94aa1165abc",
+   "grid": [
+    4,
+    2
+   ],
+   "fin_side": [
+    [
+     0.083,
+     -0.112,
+     -0.278,
+     -0.091
+    ],
+    [
+     0.02,
+     0.031,
+     0.01,
+     -0.011
+    ]
+   ],
+   "fin_side_label": [
+    "R L L L",
+    "C C C C"
+   ],
+   "ponytail_side_label": [
+    "R R R R",
+    "R R R R"
+   ],
+   "row_change_aligned": {
+    "n": 6,
+    "min": 9.9,
+    "median": 55.5,
+    "max": 57.3
+   }
+  },
+  "roshan_play_a.png": {
+   "sha256": "31eb7efc2da0bfe33305f13097b59e959b2ed02637dc8d36116a47b3e2804a08",
+   "grid": [
+    4,
+    4
+   ],
+   "fin_side": [
+    [
+     -0.042,
+     -0.035,
+     0.223,
+     -0.01
+    ],
+    [
+     0.116,
+     0.045,
+     0.192,
+     0.095
+    ],
+    [
+     0.204,
+     0.238,
+     0.164,
+     0.175
+    ],
+    [
+     -0.022,
+     0.072,
+     -0.055,
+     0.042
+    ]
+   ],
+   "fin_side_label": [
+    "C C R C",
+    "R C R R",
+    "R R R R",
+    "C R C C"
+   ],
+   "ponytail_side_label": [
+    "R R R R",
+    "R R R R",
+    "R R R C",
+    "R R R R"
+   ],
+   "row_change_aligned": {
+    "n": 12,
+    "min": 12.6,
+    "median": 45.0,
+    "max": 52.5
+   }
+  },
+  "roshan_play_b.png": {
+   "sha256": "c72ba5279562b85f98d904a08e4d3e8953f11c698005b87d5b8068b790c27895",
+   "grid": [
+    4,
+    4
+   ],
+   "fin_side": [
+    [
+     0.095,
+     0.23,
+     0.243,
+     0.163
+    ],
+    [
+     -0.116,
+     -0.225,
+     -0.243,
+     -0.182
+    ],
+    [
+     -0.023,
+     -0.018,
+     -0.014,
+     -0.009
+    ],
+    [
+     -0.016,
+     0.107,
+     0.157,
+     -0.027
+    ]
+   ],
+   "fin_side_label": [
+    "R R R R",
+    "L L L L",
+    "C C C C",
+    "C R R C"
+   ],
+   "ponytail_side_label": [
+    "R R R R",
+    "L L L L",
+    "R R R R",
+    "R R R R"
+   ],
+   "row_change_aligned": {
+    "n": 12,
+    "min": 5.8,
+    "median": 40.1,
+    "max": 47.8
+   }
+  },
+  "roshan_base.png": {
+   "sha256": "69827625a8a795f1303c90a465454dd8529f10d5401c78911d00b90be8d1e1ab",
+   "grid": [
+    1,
+    1
+   ],
+   "fin_side": [
+    [
+     -0.179
+    ]
+   ],
+   "fin_side_label": [
+    "L"
+   ],
+   "ponytail_side_label": [
+    "R"
+   ]
+  }
+ },
+ "gesture_entry_fin_side": {
+  "wave": {
+   "gesture_first_frame_fin": 0.096,
+   "vs_idle_frame0_unflipped": "L->R",
+   "vs_idle_frame7_flipped": "R->L",
+   "vs_swim_same_flip": "L->R"
+  },
+  "cheer": {
+   "gesture_first_frame_fin": 0.061,
+   "vs_idle_frame0_unflipped": "L->R",
+   "vs_idle_frame7_flipped": "R->L",
+   "vs_swim_same_flip": "L->R"
+  },
+  "clap": {
+   "gesture_first_frame_fin": 0.055,
+   "vs_idle_frame0_unflipped": "L->C",
+   "vs_idle_frame7_flipped": "R->C",
+   "vs_swim_same_flip": "L->C"
+  },
+  "twirl": {
+   "gesture_first_frame_fin": 0.082,
+   "vs_idle_frame0_unflipped": "L->R",
+   "vs_idle_frame7_flipped": "R->L",
+   "vs_swim_same_flip": "L->R"
+  },
+  "look": {
+   "gesture_first_frame_fin": -0.145,
+   "vs_idle_frame0_unflipped": "L->L",
+   "vs_idle_frame7_flipped": "R->R",
+   "vs_swim_same_flip": "L->L"
+  },
+  "giggle": {
+   "gesture_first_frame_fin": 0.052,
+   "vs_idle_frame0_unflipped": "L->C",
+   "vs_idle_frame7_flipped": "R->C",
+   "vs_swim_same_flip": "L->C"
+  },
+  "sleep": {
+   "gesture_first_frame_fin": 0.07,
+   "vs_idle_frame0_unflipped": "L->R",
+   "vs_idle_frame7_flipped": "R->L",
+   "vs_swim_same_flip": "L->R"
+  },
+  "point": {
+   "gesture_first_frame_fin": 0.079,
+   "vs_idle_frame0_unflipped": "L->R",
+   "vs_idle_frame7_flipped": "R->L",
+   "vs_swim_same_flip": "L->R"
+  },
+  "collect": {
+   "gesture_first_frame_fin": 0.077,
+   "vs_idle_frame0_unflipped": "L->R",
+   "vs_idle_frame7_flipped": "R->L",
+   "vs_swim_same_flip": "L->R"
+  },
+  "boing": {
+   "gesture_first_frame_fin": 0.079,
+   "vs_idle_frame0_unflipped": "L->R",
+   "vs_idle_frame7_flipped": "R->L",
+   "vs_swim_same_flip": "L->R"
+  },
+  "hairtwirl": {
+   "gesture_first_frame_fin": 0.055,
+   "vs_idle_frame0_unflipped": "L->C",
+   "vs_idle_frame7_flipped": "R->C",
+   "vs_swim_same_flip": "L->C"
+  },
+  "hum": {
+   "gesture_first_frame_fin": 0.067,
+   "vs_idle_frame0_unflipped": "L->R",
+   "vs_idle_frame7_flipped": "R->L",
+   "vs_swim_same_flip": "L->R"
+  },
+  "flop": {
+   "gesture_first_frame_fin": 0.083,
+   "vs_idle_frame0_unflipped": "L->R",
+   "vs_idle_frame7_flipped": "R->L",
+   "vs_swim_same_flip": "L->R"
+  },
+  "carry": {
+   "gesture_first_frame_fin": 0.02,
+   "vs_idle_frame0_unflipped": "L->C",
+   "vs_idle_frame7_flipped": "R->C",
+   "vs_swim_same_flip": "L->C"
+  }
+ },
+ "career_atlases": {
+  "careers": {
+   "astronaut": {
+    "sha256": "ccfb8e7af3a033e31e05af40fa62dc23b676aec6204ba8810e8cf79cbfc4d6fa",
+    "adjacent_change_raw_with_wrap": {
+     "idle": [
+      11.4,
+      9.3,
+      13.6,
+      18.2
+     ],
+     "travel": [
+      31.8,
+      25.0,
+      39.9,
+      41.0
+     ],
+     "work": [
+      18.2,
+      26.9,
+      28.1,
+      24.2
+     ],
+     "cheer": [
+      6.1,
+      10.1,
+      19.7,
+      21.7
+     ]
+    }
+   },
+   "ballerina": {
+    "sha256": "c829784d4085e9cd9765cf0114a0f65bfe3f662ed8acc423223b726a0f003995",
+    "adjacent_change_raw_with_wrap": {
+     "idle": [
+      16.2,
+      49.4,
+      40.2,
+      18.4
+     ],
+     "travel": [
+      39.0,
+      20.1,
+      21.9,
+      39.7
+     ],
+     "work": [
+      45.3,
+      47.5,
+      45.0,
+      41.9
+     ],
+     "cheer": [
+      14.3,
+      41.4,
+      20.0,
+      43.0
+     ]
+    }
+   },
+   "boxer": {
+    "sha256": "dbda6f6edd01e48b74095915f338fe3f6eb690ccd5f0f314d50e6940bb33c7c9",
+    "adjacent_change_raw_with_wrap": {
+     "idle": [
+      20.3,
+      4.0,
+      1.4,
+      21.6
+     ],
+     "travel": [
+      11.5,
+      24.6,
+      0.9,
+      20.6
+     ],
+     "work": [
+      3.9,
+      63.9,
+      42.8,
+      47.0
+     ],
+     "cheer": [
+      17.9,
+      1.4,
+      27.0,
+      29.0
+     ]
+    }
+   },
+   "candymaker": {
+    "sha256": "b858c07f52d4f67679a39dd039afc7123199646442c067368425f8f46deec179",
+    "adjacent_change_raw_with_wrap": {
+     "idle": [
+      39.2,
+      27.3,
+      39.2,
+      28.7
+     ],
+     "travel": [
+      19.1,
+      36.2,
+      36.4,
+      21.8
+     ],
+     "work": [
+      21.5,
+      25.4,
+      33.0,
+      25.5
+     ],
+     "cheer": [
+      32.8,
+      37.5,
+      44.3,
+      63.4
+     ]
+    }
+   },
+   "chef": {
+    "sha256": "78c666d2e87cc1cdcd2cde311c20e75a83ca86dae1366fe4aa9cacbee3e30566",
+    "adjacent_change_raw_with_wrap": {
+     "idle": [
+      20.2,
+      33.0,
+      23.0,
+      22.3
+     ],
+     "travel": [
+      29.2,
+      39.0,
+      29.4,
+      47.5
+     ],
+     "work": [
+      12.7,
+      7.6,
+      13.4,
+      17.6
+     ],
+     "cheer": [
+      34.2,
+      29.4,
+      39.8,
+      25.8
+     ]
+    }
+   },
+   "detective": {
+    "sha256": "fb0a7d8b718d797484f1d0da22c330a7e01d0e0bb192f9296f3f288a30cf7e7c",
+    "adjacent_change_raw_with_wrap": {
+     "idle": [
+      26.5,
+      20.9,
+      29.0,
+      34.9
+     ],
+     "travel": [
+      29.8,
+      31.7,
+      31.6,
+      30.5
+     ],
+     "work": [
+      35.5,
+      29.3,
+      31.4,
+      32.4
+     ],
+     "cheer": [
+      18.1,
+      26.4,
+      28.0,
+      32.6
+     ]
+    }
+   },
+   "doctor": {
+    "sha256": "bfffbd5389d63f8c9337a132bb20e09abbd4d8fc8471ec406fba2d722106a50e",
+    "adjacent_change_raw_with_wrap": {
+     "idle": [
+      15.9,
+      25.7,
+      21.9,
+      18.3
+     ],
+     "travel": [
+      15.5,
+      17.5,
+      31.1,
+      31.1
+     ],
+     "work": [
+      24.1,
+      13.4,
+      18.5,
+      26.9
+     ],
+     "cheer": [
+      14.9,
+      20.7,
+      23.7,
+      15.4
+     ]
+    }
+   },
+   "farmer": {
+    "sha256": "f0c9947b093c489145945467af62e50ce748b56b344c55942b7532742bc64bc5",
+    "adjacent_change_raw_with_wrap": {
+     "idle": [
+      19.7,
+      21.3,
+      35.7,
+      41.1
+     ],
+     "travel": [
+      45.7,
+      35.8,
+      39.2,
+      55.8
+     ],
+     "work": [
+      38.4,
+      41.6,
+      29.7,
+      22.4
+     ],
+     "cheer": [
+      26.0,
+      20.9,
+      25.8,
+      31.0
+     ]
+    }
+   },
+   "geologist": {
+    "sha256": "1fd7080933fd49b27a9cbb2b20d9470e4fd654dec58db72e9aa9e081a6e24c37",
+    "adjacent_change_raw_with_wrap": {
+     "idle": [
+      20.4,
+      36.2,
+      23.2,
+      45.3
+     ],
+     "travel": [
+      37.8,
+      34.3,
+      47.0,
+      44.3
+     ],
+     "work": [
+      19.2,
+      24.2,
+      39.2,
+      38.0
+     ],
+     "cheer": [
+      32.6,
+      29.4,
+      25.8,
+      46.7
+     ]
+    }
+   },
+   "magician": {
+    "sha256": "768e6980fa8f4ca9cc3281a2fb1f23f0fcdeac8f2d524e6135b3be03eafc13cb",
+    "adjacent_change_raw_with_wrap": {
+     "idle": [
+      13.1,
+      24.2,
+      26.3,
+      19.2
+     ],
+     "travel": [
+      34.9,
+      32.5,
+      31.3,
+      23.4
+     ],
+     "work": [
+      33.1,
+      40.3,
+      35.7,
+      47.7
+     ],
+     "cheer": [
+      42.5,
+      37.1,
+      20.9,
+      31.5
+     ]
+    }
+   },
+   "nursery": {
+    "sha256": "9880fc9ac328b0112d8a7162c656b2a2d9471a4995dd11bd606607f12ca13a52",
+    "adjacent_change_raw_with_wrap": {
+     "idle": [
+      28.7,
+      40.2,
+      28.8,
+      40.7
+     ],
+     "travel": [
+      45.1,
+      50.2,
+      49.4,
+      48.7
+     ],
+     "work": [
+      43.1,
+      16.4,
+      25.0,
+      37.5
+     ],
+     "cheer": [
+      38.2,
+      38.7,
+      34.6,
+      41.5
+     ]
+    }
+   },
+   "painter": {
+    "sha256": "016dbac4a6c2342679410c19aa782d999557b92f4fc34f99f58d23dd714ea638",
+    "adjacent_change_raw_with_wrap": {
+     "idle": [
+      26.4,
+      23.2,
+      14.7,
+      11.9
+     ],
+     "travel": [
+      34.0,
+      33.1,
+      39.2,
+      30.6
+     ],
+     "work": [
+      22.2,
+      28.6,
+      33.8,
+      29.9
+     ],
+     "cheer": [
+      40.3,
+      33.3,
+      33.1,
+      40.3
+     ]
+    }
+   },
+   "popstar": {
+    "sha256": "0084e74b73042832f248c26f6688e484b7376ea6418caee09b2e4beeebfb0ee9",
+    "adjacent_change_raw_with_wrap": {
+     "idle": [
+      30.8,
+      19.0,
+      26.5,
+      18.7
+     ],
+     "travel": [
+      32.2,
+      43.2,
+      42.2,
+      27.5
+     ],
+     "work": [
+      28.4,
+      28.4,
+      26.5,
+      31.5
+     ],
+     "cheer": [
+      31.4,
+      30.8,
+      41.3,
+      40.8
+     ]
+    }
+   },
+   "racer": {
+    "sha256": "f62f881d42b439bde09a8bc7f6e0000125acd3e27aabf1fd39d90722ce75ca79",
+    "adjacent_change_raw_with_wrap": {
+     "idle": [
+      34.0,
+      20.8,
+      14.2,
+      18.8
+     ],
+     "travel": [
+      30.5,
+      43.7,
+      37.6,
+      51.9
+     ],
+     "work": [
+      21.3,
+      22.6,
+      38.0,
+      36.6
+     ],
+     "cheer": [
+      40.7,
+      52.5,
+      49.7,
+      25.5
+     ]
+    }
+   },
+   "teacher": {
+    "sha256": "2bddeebd6ca4fe0647e1f6deb670bfcab4d1183f36417e0a033e59c4788dd28c",
+    "adjacent_change_raw_with_wrap": {
+     "idle": [
+      20.4,
+      24.4,
+      23.8,
+      25.6
+     ],
+     "travel": [
+      13.2,
+      34.0,
+      23.5,
+      36.7
+     ],
+     "work": [
+      43.7,
+      28.4,
+      24.7,
+      28.8
+     ],
+     "cheer": [
+      4.1,
+      21.7,
+      17.2,
+      22.4
+     ]
+    }
+   }
+  },
+  "rows": 60,
+  "rows_max_raw_at_least_40": 25,
+  "rows_max_raw_at_least_25": 53,
+  "adjacent_change_aligned_all": {
+   "n": 240,
+   "min": 0.9,
+   "median": 24.5,
+   "max": 53.9
+  }
+ },
+ "code": {
+  "castle_swim_loop": {
+   "base_fps": 8.0,
+   "max_fps": 12.0,
+   "idle_breath_px": 1.8,
+   "crossfade_multiplier": 3.0,
+   "crossfade_cap_seconds": 0.1,
+   "crossfade": {
+    "base_fps": {
+     "fps": 8.0,
+     "blend_seconds": 0.0833,
+     "share_of_interval_with_two_copies": 0.667
+    },
+    "max_fps": {
+     "fps": 12.0,
+     "blend_seconds": 0.0556,
+     "share_of_interval_with_two_copies": 0.667
+    }
+   }
+  },
+  "castle_idle_rotation_tween": {
+   "radians": 0.012,
+   "seconds_per_half": 0.85
+  },
+  "player_gestures": {
+   "keys_per_gesture": 4.0,
+   "seconds_per_key": {
+    "boing": 0.2,
+    "cheer": 0.55,
+    "clap": 0.5,
+    "collect": 0.275,
+    "flop": 0.85,
+    "giggle": 0.375,
+    "hairtwirl": 0.75,
+    "hum": 0.85,
+    "look": 0.85,
+    "point": 0.5,
+    "sleep": 1.5,
+    "twirl": 0.475,
+    "wave": 0.65
+   },
+   "twirl_flips_mid_spin": true,
+   "idle_directional_unflipped": true,
+   "gesture_uses_view_flip": true
+  },
+  "opera_actor_fps": {
+   "idle": 4.0,
+   "travel": 8.0,
+   "work": 7.0,
+   "cheer": 6.0
+  },
+  "day_one_contact_action": {
+   "static_directional_frame": 1,
+   "move_px_per_second": 440.0,
+   "contact_seconds": 0.42
+  },
+  "sky_lagoon_route": {
+   "medium": "land",
+   "directional_frame": 2
+  }
+ },
+ "script_sha256": {
+  "scripts/player.gd": "24432e178bfb7146e8d7cd8532a202c5807698741f364939ed24a40cdea6d899",
+  "scripts/roshan_sprite_loop.gd": "019c2b0cb54d97fffe55d0f30d25e24eb206db509bd820a546f8b004091137a7",
+  "scripts/sprite_transition_2d.gd": "b2591c20ae4fe1ef95cb72e8854087f42556abd916c7b721e84c37bdf8cc2bff",
+  "scripts/opera_roshan_actor.gd": "7c0f334fd73b39685b5a1ef4e3e9214b974cbd90db3d291dc172ebc5b13a6b66",
+  "scripts/arena/castle_rooms_25d.gd": "95a7027d0b44b837b82a203da6a6c3794ee24f56c2d780af9aa4b042c9c232a2",
+  "scripts/day_one_contact_action_2d.gd": "2ff093343b5b9d744695f7ca3261a0be659b9498fd4f525d749a41e55aca89e2",
+  "scripts/arena/sky_lagoon_layout.json": "dad9fee76050d079b816ff2c415627fafa8611212842b8484658d6c564777b62"
+ }
+}
