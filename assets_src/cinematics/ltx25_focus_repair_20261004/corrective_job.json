@@ -22,6 +22,7 @@
   },
   "stage_2": {
     "method": "Refine Details temporal video-conditioned reconstruction only after geometry passes",
+    "budget_dependency": "Initial brief prioritizes Union; downloading both adapters exceeds1.3GiB. Record a later extension/new bounded brief before stage2. Short transformer preflights count toward the two-take cap.",
     "adapter_repository": "Lightricks/LTX-2.5-22b-IC-LoRA-Refine-Details",
     "adapter_revision": "4912c478b35dd96b6cdcc5f7c7ff9d72c2c57929",
     "adapter_sha256": "771a84f70e143af89867fc714ebbf7bd6edcaa4974c0360cba4a2d292a99f0e6",

@@ -149,6 +149,10 @@ public/gated status and Union hash/size. No weight files are redistributed.
 The new brief permits one saved-latent ablation, at most two transformer takes,
 zero ImageGen calls, at most 1.3 GiB of adapter downloads and 20 minutes per
 transformer take. A decoder success does not establish adapter VRAM fit.
+The two adapters together require about 1.83 GiB, exceeding this initial download
+cap. This brief prioritizes Union; a later detail pass needs a recorded budget
+extension/new bounded brief. A short transformer preflight counts as a take,
+so two takes do not silently authorize a short test plus both full stages.
 
 ## Evidence and acceptance
 
