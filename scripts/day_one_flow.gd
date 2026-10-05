@@ -59,6 +59,23 @@ func day_one_boss_door_ready() -> bool:
 		and not director.giant_dust_bunny_boss_triggered
 
 
+func day_one_complete_boss_and_begin_day_two() -> bool:
+	var director: DayOneDirector = m._day_one_ref()
+	# The real DustBoss win crosses one atomic story boundary. Record and emit
+	# the boss defeat first; its synchronous hook starts Chapter 2. Only then
+	# emit/present the newer Day Two bridge. Repeated win/end callbacks stop at
+	# the idempotent defeat gate and cannot duplicate either event or transition.
+	if not director.complete_giant_dust_bunny_boss():
+		return false
+	director.complete_day_one_after_boss()
+	# Persist the unlock before presentation. The normal end-game save follows
+	# in the same frame, but this first write protects both the boss boundary
+	# and Chapter 2 activation if the platform backgrounds during transition.
+	m._write_save()
+	m.call_deferred("_show_day_two_transition")
+	return true
+
+
 func day_one_castle_room_is_clean(castle_room: String) -> bool:
 	var logical_room: String = String(ReefMain.DAY_ONE_CASTLE_ROOM_IDS.get(
 		castle_room, ""))
@@ -215,7 +232,7 @@ func _day_one_discover_dirty_castle() -> void:
 		return
 	m._day_one_ref().discover_dirty_castle()
 	_day_one_attach_castle_dressing()
-	m._day_one_arm_boss_door()
+	_day_one_arm_boss_door()
 
 
 func _day_one_attach_castle_dressing() -> void:
@@ -283,7 +300,7 @@ func _sync_day_one_art_studio() -> void:
 
 
 func _day_one_clear_castle_dressing() -> void:
-	m._day_one_cancel_story_clips()
+	_day_one_cancel_story_clips()
 	_clear_day_one_bathroom_cleanup()
 	_clear_day_one_bathroom_movie_handoff()
 	m._day_one_bathroom_movie_handoff_pending = false
@@ -361,3 +378,103 @@ func _restore_day_one_bathroom_controls() -> void:
 	m._day_one_bathroom_controls_suspended = false
 	m.castle_room_menu_open = m._day_one_bathroom_menu_was_open
 	m._set_world_controls_enabled(true, "day_one_bathroom_lifecycle")
+
+
+func _day_one_arm_boss_door() -> void:
+	var director: DayOneDirector = m._day_one_ref()
+	if not m.day_one_is_active() or not director.boss_door_glow \
+			or director.giant_dust_bunny_boss_triggered:
+		return
+	m._castle_rooms_ref().arm_royal_hall_event(
+		"day_one_giant_dust_bunny", _day_one_trigger_boss)
+
+
+func _day_one_trigger_boss() -> void:
+	m._day_one_ref().trigger_giant_dust_bunny_boss()
+
+
+func _day_one_drain_story_clips() -> void:
+	if not m.is_inside_tree() or m.is_queued_for_deletion() \
+			or (m._day_one_story_clip != null and is_instance_valid(m._day_one_story_clip)):
+		return
+	if m.touch_ui != null:
+		m.touch_ui.consume_action()
+	while not m._day_one_story_clip_queue.is_empty():
+		var next_id: String = m._day_one_story_clip_queue.pop_front()
+		if m._day_one_play_story_clip(next_id):
+			return
+	if m._day_one_story_boss_start_pending:
+		m._day_one_story_boss_start_pending = false
+		if m.day_one_is_active() and m._day_one_ref().giant_dust_bunny_boss_triggered:
+			m._start_game(m.dust_boss_fr)
+	if m._day_one_story_boss_transition_pending:
+		m._day_one_story_boss_transition_pending = false
+		m._show_day_two_transition()
+	if m.castle_room_id == "bubble_bath" and m.castle_room_stage != null:
+		m._sync_day_one_bathroom_cleanup()
+
+
+func _day_one_cancel_story_clips() -> void:
+	m._day_one_story_clip_queue.clear()
+	if m._day_one_story_boss_start_pending and m.day_one_is_active():
+		# A room teardown during C11 must leave the boss door re-triggerable,
+		# never a triggered checkpoint with no active encounter behind it.
+		m._day_one_ref().giant_dust_bunny_boss_triggered = false
+		m.day_one_event_seen.erase(DayOneDirector.EVENT_GIANT_DUST_BUNNY_BOSS)
+		m._queue_save()
+	m._day_one_story_boss_start_pending = false
+	m._day_one_story_boss_transition_pending = false
+	var previous: DayOneStoryClips = m._day_one_story_clip
+	m._day_one_story_clip = null
+	if previous != null and is_instance_valid(previous):
+		# Release its pause synchronously before another scene acquires it. The
+		# detached callback cannot advance an abandoned room or boss route.
+		previous.skip()
+
+
+func _day_one_suspend_boss_for_lifecycle() -> void:
+	# Interruptions keep the live fight paused; only deliberate Leave tears it down.
+	if m._day_one_story_boss_start_pending:
+		_day_one_cancel_story_clips()
+		m._day_one_ref().giant_dust_bunny_boss_triggered = false
+		_return_day_one_boss_to_castle()
+		return
+	if m.game != "dustboss" or not m.day_one_is_active() \
+			or m._day_one_ref().giant_dust_bunny_boss_defeated:
+		return
+	if not m.get_tree().paused:
+		m._pause_ref().toggle_pause()
+	m._write_save()
+
+
+func _return_day_one_boss_to_castle() -> void:
+	if not m.day_one_is_active() \
+			or m._day_one_ref().giant_dust_bunny_boss_defeated:
+		return
+	# _enter_level2 establishes the Canvas world before the hall seam opens it.
+	# Keep this post-clear: rebuilding while the arena still owns g leaves stale
+	# DustBoss nodes and can make the first returned tap hit the old encounter.
+	m._enter_level2(true)
+	m._enter_castle_interior(true)
+	_day_one_arm_boss_door()
+	m._write_save()
+
+
+func _day_one_reorient_after_exit_now() -> void:
+	if not m.day_one_is_active():
+		return
+	var resume_room: String = day_one_castle_room_for_current()
+	if m.game == "":
+		# No world owns the castle, so resuming the room alone would leave the
+		# watchdog firing every frame. Rebuild the Canvas world once instead.
+		m._enter_level2_now(true)
+		m._enter_castle_interior_now()
+		if m._castle_rooms_ref().is_open():
+			m._castle_rooms_ref().show_room(resume_room, false)
+		return
+	if m._castle_rooms_ref().is_open():
+		m._castle_rooms_ref().resume(resume_room)
+	else:
+		m._enter_castle_interior_now()
+		if m._castle_rooms_ref().is_open():
+			m._castle_rooms_ref().show_room(resume_room, false)
