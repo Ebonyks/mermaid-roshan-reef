@@ -91,6 +91,8 @@ Change/evidence: [2026-09-11 audit impact](../../design/audit_impacts/2026-09-11
 
 ## Branch history
 
+- 2026-10-04: owner asked how Roshan should move and what to refine in the Grok and Aseprite work. The [motion analysis](../../docs/handoffs/codex_roshan_motion_language_2026-10-04/ANALYSIS.md) keeps the v1 acting language, proposes ten motion locks and a fourteen-clip canonical set (section 10 is the work queue's asset-to-action coverage review), records `MA-ROSHAN-006` and hands RM0–RM8 to Codex ([handoff](../../docs/handoffs/codex_roshan_motion_language_2026-10-04/README.md), [impact](../../design/audit_impacts/roshan-motion-language-20261004.json)). No clip, runtime, art or acceptance change.
+
 - 2026-10-04: owner prioritizes the [8 GB retake and whole-figure Aseprite repair trial](../../assets_src/cinematics/ltx_retake_repair_20261004/README.md). The [bounded protocol](../../design/animation/ANIMATION_PRODUCTION_PROTOCOL.md#iterative-repair-with-aseprite-and-temporal-retakes) preserves native frames, coherent body motion and separate hardware/quality acceptance; caps include failed attempts. No runtime finding is repaired.
 
 - 2026-10-03: owner permits final animation workflows with identity/motion/provenance/device checks and prefers Aseprite as the bridge. [Research](../../design/animation/WORKFLOW_OPTIONS_2026-10-03.md), [job card](../../design/templates/ANIMATION_JOB_CARD_V1.md) and [impact](../../design/audit_impacts/animation-workflow-policy-20261003.json) record 8 GB local limitations, API costs, method selection and bounded retries. Prior rejected/reference studies retain their scope; no runtime/device/child/owner acceptance or finding closure is claimed.

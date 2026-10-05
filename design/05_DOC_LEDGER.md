@@ -988,3 +988,10 @@ release/device/child/owner authority retain precedence.
 | `assets_src/cinematics/ltx_registered_wave_20261004/README.md` | 🔵 | `SOURCE_PACKAGE_EVIDENCE`; owner-commissioned whole-figure Roshan wave study, native LTX-Video 2B blur failures, owner-rejected limb-only correction, root-registered inputs and full-frame Aseprite/editable master/hash receipts. Reference only; no runtime, production/device/child/owner acceptance or finding closure. |
 
 | `assets_src/cinematics/ltx_retake_repair_20261004/README.md` | 🔵 | `SOURCE_PACKAGE_EVIDENCE`; owner-commissioned bounded whole-figure Aseprite/keyframe and quantized LTX-2.3 temporal-retake hardware study on RTX 3060 Ti 8 GB. Native outputs, rejected candidates and execution/visual limits remain explicit; no runtime, production, device, child or owner acceptance. |
+
+## Roshan motion language analysis and handoff (2026-10-04)
+
+| Doc | | Note |
+|---|---|---|
+| `docs/handoffs/codex_roshan_motion_language_2026-10-04/README.md` | 🟣 | `PROPOSED / CANDIDATE` owner-requested Codex handoff prepared by Claude (written specification; no game change, no images) at dev `8a2f30cb`: RM0 review the unreviewed Grok swim returns, RM1 record decisions and adopt the motion locks, RM2 runtime repairs with existing art (fin side in gesture contexts, held career keys, authored holds, cross-fade measurement), RM3–RM8 authored side-view swim, start/stop/turn, idle and work contact clips, gesture family, careers and land travel; Grok and local-pipeline refinements; owner questions Q1–Q6. Tracked by `MA-ROSHAN-006`. Grants no acceptance. |
+| `docs/handoffs/codex_roshan_motion_language_2026-10-04/ANALYSIS.md` | 🔵 | `SUPPORTING_CURRENT` owner-requested analysis of Roshan's motion at dev `8a2f30cb`: runtime playback by location, measured fin and ponytail sides and frame-to-frame change (numbers only), Grok and local-pipeline history with owner verdicts, ten proposed motion locks M1–M10 and a fourteen-clip canonical set. The locks are proposals until the owner answers Q1, Q2 and Q4; the 2026-09-11 movement language remains the binding acting direction. |

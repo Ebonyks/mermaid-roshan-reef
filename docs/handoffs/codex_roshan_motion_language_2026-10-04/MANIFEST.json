@@ -1,0 +1,38 @@
+{
+ "schema": "reef.claude-handoff-manifest.v1",
+ "handoff_id": "codex_roshan_motion_language_2026-10-04",
+ "revision": 1,
+ "status": "PROPOSED / CANDIDATE",
+ "baseline": "8a2f30cb0df44ece3b1172ed2dbcb9a55fc5d622",
+ "repository": "Ebonyks/mermaid-roshan-reef",
+ "branch": "claude/roshan-motion-language-20261004",
+ "recipient": "Codex (implementation and every image); the owner answers Q1-Q6",
+ "claims": {
+  "ARCHIVE_COMPLETE": "after anonymous remote verification of every file below",
+  "GENERATION_READY": "not applicable: no generation is requested",
+  "DELIVERY_ACCEPTED": false
+ },
+ "images_in_packet": 0,
+ "files": [
+  {
+   "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/README.md",
+   "bytes": 9870,
+   "sha256": "8685add07df395fbf0c49ba283b1f7db72067fb84615ae5e27475233f521a60a"
+  },
+  {
+   "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/ANALYSIS.md",
+   "bytes": 31040,
+   "sha256": "e09c759394e4deaede54b7cea14b9ee06c514225872790a9a768f4e2b21311a4"
+  },
+  {
+   "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/data/motion_measurements.json",
+   "bytes": 17379,
+   "sha256": "596259202680c2439ccb935d6984df90bd4c35a0cc383ddaf6baa6150311e41b"
+  },
+  {
+   "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/tools/measure_roshan_motion.py",
+   "bytes": 11979,
+   "sha256": "fce24922bbb7544d56266f1f8461a75e6edfe88bc9f67f9f441c797d0b9badde"
+  }
+ ]
+}

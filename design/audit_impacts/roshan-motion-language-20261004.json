@@ -1,0 +1,144 @@
+{
+ "id": "roshan-motion-language-20261004",
+ "scope": "Owner request 2026-10-04: analyse the design language and artistic direction of Roshan's animations, decide how she should move and which animations make her consistent, and refine the Grok handoffs and Aseprite work. Claude wrote an analysis and a Codex handoff (docs/handoffs/codex_roshan_motion_language_2026-10-04/): runtime playback by location traced in code; fin side, ponytail side and frame-to-frame silhouette change measured from the committed atlases with a numbers-only tool; Grok and local-pipeline history with owner verdicts gathered from dev and five unmerged branches; ten proposed motion locks, a fourteen-clip canonical set, refinements for Grok, the local pipeline, runtime playback and governance, and owner questions Q1-Q6. New finding MA-ROSHAN-006 (P2) for runtime playback that shows key poses as broken motion. No game file, image, asset or other finding lifecycle changes.",
+ "baseline": "8a2f30cb0df44ece3b1172ed2dbcb9a55fc5d622",
+ "rules": [
+  "DL-AUTH-05",
+  "DL-AUTH-06",
+  "DL-AUTH-07",
+  "DL-MOT-01",
+  "DL-MOT-03",
+  "DL-MOT-07",
+  "DL-MOT-09",
+  "DL-MOT-10",
+  "DL-MOT-11",
+  "DL-MOT-12",
+  "DL-MOT-13",
+  "DL-MOT-14",
+  "DL-MOT-15",
+  "DL-MOT-16",
+  "DL-CIN-03",
+  "DL-CIN-04",
+  "DL-CIN-16",
+  "DL-AGE-07",
+  "DL-MED-02",
+  "DL-INT-02",
+  "DL-INT-04"
+ ],
+ "findings": [
+  "MA-ROSHAN-006",
+  "MA-ROSHAN-005",
+  "MA-PLAY-004",
+  "MA-VIS-008",
+  "MA-VIS-006",
+  "MA-DOC-008"
+ ],
+ "files": [
+  "docs/handoffs/codex_roshan_motion_language_2026-10-04/README.md",
+  "docs/handoffs/codex_roshan_motion_language_2026-10-04/ANALYSIS.md",
+  "docs/handoffs/codex_roshan_motion_language_2026-10-04/MANIFEST.json",
+  "docs/handoffs/codex_roshan_motion_language_2026-10-04/data/motion_measurements.json",
+  "docs/handoffs/codex_roshan_motion_language_2026-10-04/tools/measure_roshan_motion.py",
+  "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
+  "audit/MASTER_AUDIT_2026-08-09.md",
+  "audit/animation/README.md",
+  "design/05_DOC_LEDGER.md"
+ ],
+ "validation": [
+  {
+   "command": "Read-only source review: design 06 sections 4-6, 9 and 11; AGENTS.md animation and Day One sections; ROSHAN_MOVEMENT_LANGUAGE.md, ANIMATION_PRODUCTION_PROTOCOL.md, WORKFLOW_OPTIONS_2026-10-03.md, the job card and profile template; the animation branch README; the atlas contract and 4x provenance; active findings; the owner decision register; the Day One selected-cut edit map; branches grok/roshan-4way-basic-swim-20260914 (056e668f), codex/roshan-swim-start-loop-stop-20260914 (2952d2d5), grok/day-one-cinema-takes-20260922 (138d3b1a), codex/job-art-review-v2-20261001 (cfcadc96) and codex/animation-engine-benchmark-20261003 (e2ebf8ff)",
+   "result": "PASS",
+   "evidence": "Cited by path and commit in ANALYSIS.md sections 2-8. No review record exists on any branch for the 18 audition takes and 8 hero cuts returned 2026-09-22 or for core-loop slow A005 and dash A006 returned 2026-09-19 (searched commit messages and the return manifest)."
+  },
+  {
+   "command": "Code reading of scripts/player.gd, scripts/roshan_sprite_loop.gd, scripts/sprite_transition_2d.gd, scripts/roshan_sprite_frames.gd, scripts/opera_roshan_actor.gd, scripts/day_one_contact_action_2d.gd, scripts/arena/castle_rooms_25d.gd, scripts/arena/sky_lagoon_promenade.gd and scripts/games/dust_boss.gd",
+   "result": "PASS",
+   "evidence": "Line citations in ANALYSIS.md section 4 and in MA-ROSHAN-006. The legacy player draws idle headings unflipped (player.gd:455-456) and gestures with the view flip (player.gd:406); the Grand Puff fight plays boing, point and cheer (dust_boss.gd:465, 665, 1040)."
+  },
+  {
+   "command": "python -B docs/handoffs/codex_roshan_motion_language_2026-10-04/tools/measure_roshan_motion.py --write",
+   "result": "PASS",
+   "evidence": "Numbers only, at source head 8a2f30cb with atlas and script SHA-256 values recorded in data/motion_measurements.json: 9 of 14 gesture rows start with the fin opposite directional frame 0 and every swim frame; castle cross-fade draws two copies for 0.667 of each swim frame interval at 8 and 12 fps; 25 of 60 career rows have a neighbouring silhouette change of 40% or more (53 of 60 at 25% or more); aligned change medians 24.1% (swim front), 24.2% (swim back) and 24.5% (240 career pairs). A second run without --write reproduces the file exactly apart from source_head."
+  },
+  {
+   "command": "Viewing existing images only: the nine base-world atlases, roshan_base.png, two career atlases, the LTX wave phase board (dev) and the Grok slow-swim A004 review board (codex/roshan-swim-start-loop-stop-20260914)",
+   "result": "PASS",
+   "evidence": "Existing files opened for inspection; the two branch boards were byte-copied to the session scratchpad for viewing. No image was created or edited and no video frame was extracted."
+  },
+  {
+   "command": "python -B tools/audit_document_authority.py",
+   "result": "PASS",
+   "evidence": "Candidate before commit: DOCAUTH|INVENTORY=660|LEDGER=660|ACTIVE=65|RECORDS=68, RESULT ALL OK; unittest tools.tests.test_audit_document_authority and tools.tests.test_audit_development: 54 tests OK, DOCAUTH|STRESS|6/6."
+  },
+  {
+   "command": "python -B tools/audit_development.py --base auto",
+   "result": "PASS",
+   "evidence": "Candidate before commit: AUDITDEV|BASE|8a2f30cb0df44ece3b1172ed2dbcb9a55fc5d622, RESULT ALL OK."
+  },
+  {
+   "command": "python -B tools/audit_game_2d.py --regression-gate",
+   "result": "PASS",
+   "evidence": "Candidate before commit: NO_REGRESSION (exact shrinking baseline; migration debt remains UNSATISFIED). This record names no engine 3D classes."
+  },
+  {
+   "command": "Anonymous raw.githubusercontent.com fetch of every packet file at the pushed commit, compared by SHA-256 with MANIFEST.json",
+   "result": "PENDING",
+   "evidence": "Required by the GitHub delivery rule before the handoff is called delivered."
+  },
+  {
+   "command": "Branch Probe Suite CI on the pushed head",
+   "result": "PENDING",
+   "evidence": "Required before merging into dev."
+  }
+ ],
+ "lessons": [
+  {
+   "lesson": "Roshan's motion direction was written as acting and process, without a picture of the motion (views, fin side, drawings per stroke, follow-through, blur policy); every owner verdict on Grok and local takes named one of those missing specifications.",
+   "write_back": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+   "recurrence_key": "motion-spec-missing"
+  },
+  {
+   "lesson": "Atlas rows generated as four keyframes are pose keys, not motion; each runtime player hid the gaps differently (cross-fade, 4-8 fps loops, equal-time slideshows, sliding still cutouts), and each trick failed a different motion rule. Measure neighbouring-frame change before playing a row as a loop.",
+   "write_back": "design/reference/recipes/character_animation.md",
+   "recurrence_key": "keys-presented-as-motion"
+  },
+  {
+   "lesson": "Returned external takes and owner decisions left on unmerged branches were never reviewed or registered; search remote branches before commissioning new generation.",
+   "write_back": "design/reference/recipes/character_animation.md",
+   "recurrence_key": "stranded-returns-and-decisions"
+  }
+ ],
+ "strengths_observed": [
+  {
+   "id": "S-04",
+   "evidence": "The 2026-09-11 movement language anticipated the owner's later verdicts (tail-driven travel, no mirrored paddling, quiet idle); this analysis keeps it as the acting layer and adds a visual motion layer."
+  },
+  {
+   "id": "S-06",
+   "evidence": "The Grand Puff identity lock and clip contract format are reused as the model for Roshan's home poses and per-clip contracts (RM1)."
+  }
+ ],
+ "references_used": [
+  {
+   "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
+   "purpose": "Binding acting direction the motion locks extend"
+  },
+  {
+   "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
+   "purpose": "Production lanes, contact and cancellation contract, crisp-contour and whole-figure owner corrections"
+  },
+  {
+   "path": "assets_src/cinematics/roshan_swim_motion_auditions_2026-09-12/README.md",
+   "purpose": "Audition definitions and the review protocol RM0 reuses"
+  },
+  {
+   "path": "assets_src/cinematics/ltx_registered_wave_20261004/README.md",
+   "purpose": "Local pipeline results and the 2026-10-04 owner corrections"
+  },
+  {
+   "path": "design/animation/grand_puff_encounter_clips_v1.json",
+   "purpose": "Clip contract format for the canonical clip set"
+  }
+ ],
+ "acceptance_gaps": "Analysis and written handoff only. The ten motion locks and the clip set are proposals until the owner answers Q1, Q2 and Q4. MA-ROSHAN-006 is confirmed from code and numbers only; runtime captures, owner review at normal speed on the tablet, device and child sessions remain open. No clip, art, runtime behaviour or other finding lifecycle changes."
+}
