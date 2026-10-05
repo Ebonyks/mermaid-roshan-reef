@@ -80,6 +80,8 @@ const BATHTUB_SWIMMER_START := Vector2(277.0, 255.0)
 const BLOCKED_DOOR_SFX_COOLDOWN_SECONDS := 1.2
 const BLOCKED_DOOR_SECOND_TAP_WINDOW_SECONDS := 6.0
 const RUMI_IDLE_POSITION := Vector2(650.0, 350.0)
+const RUMI_POSE_ATLAS := \
+	"res://assets/characters/rumi/rumi_eight_pose_runtime.png"
 const RUMI_IDLE_SCALE := 0.96
 const RUMI_TAP_HIT_RECT := Rect2(530.0, 230.0, 240.0, 240.0)
 const HALL_SIGN_Z := 0.68
@@ -2076,8 +2078,7 @@ func _sync_day_one_persistent_rumi() -> void:
 	if _day_one_persistent_rumi != null \
 			and is_instance_valid(_day_one_persistent_rumi):
 		return
-	var pose_atlas: Texture2D = load(
-		DAY_ONE_POOL_CLEANUP.RUMI_POSE_ATLAS) as Texture2D
+	var pose_atlas: Texture2D = load(RUMI_POSE_ATLAS) as Texture2D
 	if pose_atlas == null:
 		return
 	var frames := SpriteFrames.new()
@@ -2230,9 +2231,10 @@ func _on_day_one_pool_cleanup_step(step: int, cleanup_id: String) -> void:
 
 
 func _on_day_one_pool_finale_started() -> void:
-	# The authored waterfall sequence and Rumi's rise ripple are the reveal; a
-	# generic star burst at the same spot drew nine copies of one star over it
-	# (OD1, MA-VIS-009), as the bathroom finale already avoids.
+	# The authored waterfall and fountain sequences are the clean-pool reveal;
+	# Rumi rises once, in the room-completion story clip (owner QP-1). A generic
+	# star burst at the same spot drew nine copies of one star over it (OD1,
+	# MA-VIS-009), as the bathroom finale already avoids.
 	_activate_room_item("waterfall")
 
 

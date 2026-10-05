@@ -2,12 +2,14 @@
 
 Status: `PROPOSED / CANDIDATE`. Written by Claude. The owner asked for the Pool to be refined to five-star standard as the first area of the master audit, with code changed where necessary and new Codex handoffs for graphics and animation. Claude made the code repairs and wrote this; Codex builds every image, board, capture, animation and voice take (CLAUDE.md, owner decision 2026-09-30). Nothing here grants acceptance, `GENERATION_READY` or `DELIVERY_ACCEPTED`.
 
+> **Revision 2, 2026-10-05.** The owner answered QP-1 to QP-3 ([answers](#owner-answers-2026-10-05)). Rumi rises once, in the `d1_pool_clean` clip. Claude removed the in-room rise, so **P4 is withdrawn**. The castle no longer draws under story clips. P6 waits for the owner's answer to QP-2a, which may decide it. P1's capture list changes: the `finale` frame now shows the clean-pool beat without Rumi.
+
 | Start here | What it is |
 |---|---|
 | [FRAMEWORK.md](FRAMEWORK.md) | The Pool's five-star definition, beat-by-beat sequence, what this round changed and measured, the gap register and the ordered path to 4/5 and 5/5 |
 | [Gold-star scorecard](../../../design/reference/GOLD_STAR.md) | Live rating; `python -B tools/gold_star.py --compare day_one_pool` prints the ordered list |
 | [Earlier packet](../codex_gold_star_2026-10-03/README.md) | GS0-GS5. This packet carries GS2-A forward as P2, replaces GS2-B with reuse (done in code) and completes GS5's Pool items |
-| [Animation protocol](../../../design/animation/ANIMATION_PRODUCTION_PROTOCOL.md) and [job card](../../../design/templates/ANIMATION_JOB_CARD_V1.md) | Binding for P2, P4 and P5 |
+| [Animation protocol](../../../design/animation/ANIMATION_PRODUCTION_PROTOCOL.md) and [job card](../../../design/templates/ANIMATION_JOB_CARD_V1.md) | Binding for P2 and P5 (P4 is withdrawn) |
 
 ## Rules for every package
 
@@ -26,9 +28,9 @@ Status: `PROPOSED / CANDIDATE`. Written by Claude. The owner asked for the Pool 
 | **P1** | Phone-size review captures of every Pool state, for the OD2 look-alike review and the owner's look | The only machine-adjacent gate between the Pool and 4/5 | 4/5 |
 | **P2** | Roshan's scoop, scrub and tug as authored actions (scoop pilot first) | Turns a leaning cutout into acting; the strongest visible upgrade | Beyond the bar |
 | **P3** | Room-lit prop family: trash, skimmer, basket, mouth trash and scrubber without product-render glow | Removes the last style mismatch and the runtime tints that hide it | Beyond the bar |
-| **P4** | Rumi's rise out of the water (only if the owner keeps the in-room rise, QP-1) | The reward beat is the moment the child waits for | Owner QP-1 |
+| ~~P4~~ | Withdrawn in revision 2: the owner chose one rise (QP-1), and the clip owns it | — | — |
 | **P5** | Swimming dust bunny paddle loop, plus a review of the ripple's tint and opacity | Replaces one wobbling sticker with acting; checks Claude's numbers by eye | Beyond the bar |
-| **P6** | Water-true catch feedback review (splash, not soap) | Sight matches the event (`DL-MOT-04`) | Beyond the bar |
+| **P6** | Water-true catch feedback review (splash, not soap) | Sight matches the event (`DL-MOT-04`) | Beyond the bar; wait for owner QP-2a |
 | **P7** | Voice: per-object skimmer lines, a hint that names pulling, Rumi's line status | Every line is true and teaches the best verb | Beyond the bar |
 | **P8** | Device evidence session support | The 5/5 device lane | 5/5 |
 
@@ -46,8 +48,8 @@ Status: `PROPOSED / CANDIDATE`. Written by Claude. The owner asked for the Pool 
    - The seahorse with the tap guide showing.
    - A mid tug (`seahorse_tug`).
    - The extraction landing in the basket.
-   - Rumi mid-rise (`finale`).
-   - Rumi waving before the clip.
+   - The clean-pool beat (`finale`): light back, rainbow waterfall and healthy fountain, with no Rumi in the room.
+   - The first frame after `d1_pool_clean`, with the persistent Rumi in the pool.
 3. Make one contact sheet per shape, each frame scaled to the device's physical size at arm's length. One way is to reduce to the device's CSS width (about 800 px wide) for the squint test (`DL-READ-02`).
 4. Store under `audit/pool_five_star_20261004/` with a JSON sidecar. For each capture, record the state, build hash, window size, renderer and SHA-256. `/audit/*` is git-ignored by default, so add the folder with `git add -f`, as the Chef overdraw evidence was, and push it. A local-only capture is not a delivered review.
 
@@ -138,24 +140,9 @@ Each prop needs a room-lit variant so the runtime tints can go.
 - The Pool's overdraw remains in budget.
 - P1 captures show the props sitting in the room.
 
-### P4. Rumi's rise out of the water (wait for owner question QP-1)
+### P4. Withdrawn (owner QP-1, 2026-10-05)
 
-**Context.** After the seahorse is freed, the room shows its own reveal:
-- the authored waterfall sequence and the fountain return;
-- Rumi rises from the water at (640, 610) to (650, 350) over 1.15 s, through the approved ripple ring;
-- she waves, using two frames of `rumi_eight_pose_runtime.png`;
-- Roshan says "We saved the pool and the seahorse! Hi, Rumi!".
-
-Only then does the 17-second room-completion clip `d1_pool_clean` play. That clip also shows Rumi rising and hugging Roshan (`assets_src/cinematics/day_one_story_clips_2026-09-23/CLIP_MANIFEST.json`).
-
-**If the owner keeps the in-room rise** (the default):
-- Make a rise action from the approved Rumi package instead of a swim loop slid upward: emerge, break the surface, settle into the wave.
-  - `rumi_pool_idle_swim_atlas.png`, `9068a5f6…`
-  - `rumi_eight_pose_runtime.png`, `44120bbb…`
-- Pair it with one play of the approved breach splash `assets/sprites/fx_water/fx_water_splash_breach_atlas.png` (`12ffe29b…`) at the surface. Its sibling ripple atlas already plays under her.
-- Use the job card, pilot review and identity rules above. Keep Rumi's identity: enormous violet braid, pointed ears, navy sea-jacket, shell clasp, aqua-lavender tail, coral fins.
-
-**If the owner lets the clip own the rise,** Codex instead removes the in-room rise and keeps the wave beat: Rumi already at the surface, waving, for at most 2 s before the clip. Claude re-assesses C8 afterwards.
+The owner chose one rise: "No, only one." The `d1_pool_clean` clip is an owner-selected cut that cannot be altered (`DL-CIN-16`), and it shows Rumi rising and hugging Roshan. Claude therefore removed the room's own rise, ripple, wave and "Hi, Rumi!" greeting in code. The room's finale is now the clean-pool beat. After the clip, the persistent Rumi waits in the pool, using two idle frames of `rumi_eight_pose_runtime.png`, and the child can tap her for the greeting. Do not build a rise action or a breach splash for the room. `rumi_pool_idle_swim_atlas.png` is no longer used by the Pool at runtime; keep it, as approved art.
 
 ### P5. Swimming dust bunny: paddle loop and ripple review
 
@@ -171,6 +158,8 @@ Only then does the 17-second room-completion clip `d1_pool_clean` play. That cli
 ### P6. Water-true catch feedback (review first, then a small code change)
 
 **Today.** A scoop shows the Day One clean ring plus three soap bubbles. Soap belongs to scrubbing; a scoop lifts something out of water.
+
+**Wait for QP-2a.** If the owner chooses reading 3, soap and clean rings belong only to scrubbing a dirty object. This package then covers the seahorse tug too: Codex proposes pull feedback from approved art, with no soap.
 
 **Proposal.** At the catch point, play one cell sequence of the approved `assets/sprites/fx_water/fx_water_splash_small_atlas.png` (`bdd9233b…`, 4x2) for about 0.5 s at about 90 px. Keep the clean ring for the lane and seahorse completions.
 
@@ -197,12 +186,18 @@ Only then does the 17-second room-completion clip `d1_pool_clean` play. That cli
 
 The owner records the device lane in `games.json` only after a real session. An emulation run is evidence, not the device lane.
 
-## Owner questions (copied from the framework)
+## Owner answers (2026-10-05)
 
-1. **QP-1.** Rumi rises in the room, then again in the 17 s clip. Keep both, now in sequence (default), or let the clip own the rise?
-2. **QP-2.** May other Day One rooms drop the code-drawn wash the way the Pool now does, once each has authored dirt? This is GS5 question 5; the default is yes, room by room.
-3. **QP-3.** Should the castle stop drawing the room under a full-screen story clip? The default is yes; it is code-only and Claude or Codex can do it as follow-up F1.
+The owner answered in the session chat, replying to Claude's report; the full record is [framework section 11](FRAMEWORK.md#11-owner-answers-2026-10-05).
+
+| # | Question as asked | Owner answer (verbatim) |
+|---|---|---|
+| QP-1 | "Rumi rises twice: once in the room, then again in the 17-second video. Keep both, or drop one?" | "No, only one." |
+| QP-2 | "Should the other rooms lose their code-drawn dirt and wash the same way, as each gets its own painted dirt?" | "Only when dirty objects are specifically being cleaned, which is different from gathering dirt or freeing the seahorse." |
+| QP-3 | "Should the castle keep drawing underneath while a story video plays? That is what makes the video's layering high." | "No." |
+
+**Open: QP-2a.** Which reading of the QP-2 answer is right? Choose 1, 2 or 3 in [framework section 11](FRAMEWORK.md#11-owner-answers-2026-10-05). Claude's reading is 1: dirt shows only on the object being cleaned, and the shared code wash goes from every room.
 
 ## Delivery
 
-This packet is published on GitHub with a manifest and an anonymous fetch receipt. The links and hashes are in the session report and in the [impact record](../../../design/audit_impacts/pool-five-star-framework-20261004.json).
+This packet is published on GitHub with a manifest and an anonymous fetch receipt. The links and hashes are in the session report and in the impact records: [revision 1](../../../design/audit_impacts/pool-five-star-framework-20261004.json) and [revision 2](../../../design/audit_impacts/pool-owner-answers-20261005.json).

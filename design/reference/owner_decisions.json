@@ -328,6 +328,46 @@
       "question": "Goal statement, with Q6 on the uncommitted strict-rule note",
       "decision": "Goal: a template for developing all future Roshan animations from the game and its context; the handoff analyses each scene and Roshan's interactions, decides whether an animation should be generated and hands it to the appropriate model. The uncommitted strict-rule note is a work-in-progress rule; this process describes the workflow.",
       "cycle": "roshan-motion-20261004"
+    },
+    {
+      "id": "ODR-POOL-RUMI-ONE-RISE-20261005",
+      "date": "2026-10-05",
+      "authority": "recorded_owner",
+      "subject": "Mermaid Pool: Rumi's rise",
+      "question": "QP-1: Rumi rises twice: once in the room, then again in the 17-second video. Keep both, or drop one?",
+      "decision": "\"No, only one.\" Rumi rises once. The owner-selected d1_pool_clean clip, which cannot be altered (DL-CIN-16), keeps the rise; the room's own rise and greeting are removed.",
+      "source": "docs/handoffs/codex_pool_five_star_2026-10-04/FRAMEWORK.md#11-owner-answers-2026-10-05",
+      "checks": [
+        "scripts/probe_day_one_pool_cleanup.gd"
+      ],
+      "checkable": true,
+      "cycle": "pool-five-star-20261005"
+    },
+    {
+      "id": "ODR-POOL-DIRT-LOOK-20261005",
+      "date": "2026-10-05",
+      "authority": "recorded_owner",
+      "subject": "Day One dirty-room look",
+      "question": "QP-2: Should the other rooms lose their code-drawn dirt and wash the same way, as each gets its own painted dirt?",
+      "decision": "\"Only when dirty objects are specifically being cleaned, which is different from gathering dirt or freeing the seahorse.\" Which rooms and effects this changes waits for the owner's choice of reading (QP-2a); no room changed on it yet.",
+      "source": "docs/handoffs/codex_pool_five_star_2026-10-04/FRAMEWORK.md#11-owner-answers-2026-10-05",
+      "checks": [],
+      "checkable": false,
+      "cycle": "pool-five-star-20261005"
+    },
+    {
+      "id": "ODR-CASTLE-UNDER-CLIPS-20261005",
+      "date": "2026-10-05",
+      "authority": "recorded_owner",
+      "subject": "Castle under Day One story clips",
+      "question": "QP-3: Should the castle keep drawing underneath while a story video plays? That is what makes the video's layering high.",
+      "decision": "\"No.\" The castle and its voice caption stop drawing while a full-screen Day One story clip plays; the castle stays the open surface for game logic.",
+      "source": "docs/handoffs/codex_pool_five_star_2026-10-04/FRAMEWORK.md#11-owner-answers-2026-10-05",
+      "checks": [
+        "scripts/probe_day_one_story_clips.gd"
+      ],
+      "checkable": true,
+      "cycle": "pool-five-star-20261005"
     }
   ]
 }

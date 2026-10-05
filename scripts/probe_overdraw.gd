@@ -180,15 +180,16 @@ func _measure_pool() -> void:
 		_touch(seahorse, seahorse.fixture_center, true)
 		_touch(seahorse, seahorse.fixture_center, false)
 		await _wait(0.6)
-	# Rumi's reveal is measured while she rises, at real speed: on the probe's 4x
-	# clock the 1.15 s rise had already ended and the room-completion story clip
-	# covered the screen, so "finale" had measured the clip, not the reveal.
+	# The clean-pool reveal is measured during its reward beat, at real speed: on
+	# the probe's 4x clock the beat had already ended and the room-completion
+	# story clip covered the screen, so "finale" had measured the clip. Rumi
+	# rises once, in that clip (owner QP-1), so the room stages no Rumi here.
 	Engine.time_scale = 1.0
 	for _tick: int in range(600):
-		if cleanup._rumi != null and is_instance_valid(cleanup._rumi):
+		if bool(cleanup.audit_snapshot().get("finale_started", false)):
 			break
 		await process_frame
-	await _wait(0.25)
+	await _wait(0.6)
 	_emit("day_one_pool", "finale", await _snapshot_with_gpu())
 	# The room-completion clip plays between scenes over the room (DL-CIN-16). It
 	# is recorded, not budgeted as a play state (gold_star.json states_not_budgeted).

@@ -42,7 +42,7 @@ func _init() -> void:
 	var pool_finale_source: String = rooms_source.substr(pool_finale_start,
 		pool_finale_end - pool_finale_start) \
 		if pool_finale_start >= 0 and pool_finale_end > pool_finale_start else ""
-	_check("pool finale reveals Rumi without a duplicate generic star burst",
+	_check("pool finale reveals the clean pool without a duplicate generic star burst",
 		pool_finale_source.contains("_activate_room_item(\"waterfall\")")
 		and not pool_finale_source.contains("_burst("))
 	var swimmer_source: String = FileAccess.get_file_as_string(

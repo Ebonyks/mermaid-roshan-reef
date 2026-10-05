@@ -389,6 +389,8 @@ var _day_one_story_clip: DayOneStoryClips = null
 var _day_one_story_clip_queue: Array[String] = []
 var day_one_story_clips_seen: Dictionary = {}   # persisted: a story clip plays once per save
 var _day_one_story_clip_layer: CanvasLayer = null
+# The castle's own picture, hidden while a full-screen story clip covers it.
+var _day_one_story_clip_covered: Array[CanvasItem] = []
 var _day_one_story_boss_start_pending: bool = false
 var _day_one_story_boss_transition_pending: bool = false
 var _day_one_room_handoff_target := ""
@@ -7036,6 +7038,7 @@ func _day_one_play_story_clip(movie_id: String) -> bool:
 		return false
 	_navigation_push("day_one_story_clip", preview, Callable(preview, "skip"))
 	_day_one_story_clip = preview
+	_day_one_cover_castle_for_story_clip()
 	day_one_story_clips_seen[movie_id] = true
 	_queue_save()
 	if movie_id == "d1_bath_arrival":
@@ -7046,8 +7049,32 @@ func _day_one_play_story_clip(movie_id: String) -> bool:
 			_day_one_story_clip = null
 			# Defer to consume the skip tap before enabling the next game action.
 			call_deferred("_day_one_drain_story_clips")
+		if _day_one_story_clip == null or not is_instance_valid(_day_one_story_clip):
+			_day_one_uncover_castle_after_story_clip()
 		)
 	return true
+
+
+func _day_one_cover_castle_for_story_clip() -> void:
+	# A story clip covers the whole screen, so the castle and its voice caption
+	# stop drawing under it (owner answer QP-3, 2026-10-05). Only the layers'
+	# children hide: the castle layer's own visibility tells game logic that the
+	# castle is the surface.
+	for layer: CanvasLayer in [castle_room_layer, castle_voice_caption_layer]:
+		if layer == null or not is_instance_valid(layer):
+			continue
+		for child: Node in layer.get_children():
+			var item: CanvasItem = child as CanvasItem
+			if item != null and item.visible and not _day_one_story_clip_covered.has(item):
+				item.visible = false
+				_day_one_story_clip_covered.append(item)
+
+
+func _day_one_uncover_castle_after_story_clip() -> void:
+	for item: CanvasItem in _day_one_story_clip_covered:
+		if item != null and is_instance_valid(item):
+			item.visible = true
+	_day_one_story_clip_covered.clear()
 
 
 func _day_one_drain_story_clips() -> void:
@@ -7087,6 +7114,7 @@ func _day_one_cancel_story_clips() -> void:
 		# Release its pause synchronously before another scene acquires it. The
 		# detached callback cannot advance an abandoned room or boss route.
 		previous.skip()
+	_day_one_uncover_castle_after_story_clip()
 
 
 func _day_one_play_story_clip_for_room(room_id: String,

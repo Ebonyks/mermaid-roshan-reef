@@ -13,7 +13,6 @@ const RUNTIME_ASSETS: Array[String] = [
 	"res://assets/castle/day_one_pool/activities/waterfall_scrubber.png",
 	"res://assets/castle/day_one_pool/activities/seahorse_sick_clear_mouth.png",
 	"res://assets/castle/day_one_pool/activities/seahorse_mouth_trash.png",
-	"res://assets/characters/rumi/rumi_pool_idle_swim_atlas.png",
 	"res://assets/characters/rumi/rumi_eight_pose_runtime.png",
 	"res://assets/castle/dirty_cleanup_2d/critters/dust_bunnies/dust_bunny_swimming.png",
 ]
@@ -315,39 +314,38 @@ func _run_probe() -> void:
 		main.day_one_pool_seahorse_tugs == 8
 		and main.day_one_pool_cleanup_step == 4
 		and String(final_snapshot.get("current_activity", "")) == "complete")
-	_check("finale creates approved Rumi reveal",
+	_check("finale reveals the clean pool without staging Rumi in the room",
 		bool(final_snapshot.get("finale_started", false))
-		and bool(final_snapshot.get("rumi_present", false))
-		and bool(final_snapshot.get("rumi_approved_identity", false))
-		and bool(final_snapshot.get("rumi_authored_animation", false))
-		and String(final_snapshot.get("rumi_animation", "")) == "swim")
-	_check("Rumi rises through the approved water ripple, not the cleaning ring",
-		String(final_snapshot.get("rise_ripple_asset", ""))
-			== DayOnePoolCleanup.RISE_RIPPLE_ATLAS_PATH)
+		and not bool(final_snapshot.get("in_room_rumi_rise", true))
+		and _named_descendant_count(cleanup, "RumiVioletReveal") == 0
+		and _named_descendant_count(cleanup, "RumiRiseRipple") == 0)
+	_check("Rumi rises once, in the room-completion story clip (owner QP-1)",
+		String(final_snapshot.get("rumi_rise_owner", ""))
+			== DayOnePoolCleanup.RUMI_RISE_CLIP_ID
+		and DayOneStoryClips.clip_ids().has(DayOnePoolCleanup.RUMI_RISE_CLIP_ID))
 	cleanup.m = null
-	await create_timer(0.52).timeout
-	await create_timer(0.74).timeout
-	var wave_snapshot: Dictionary = cleanup.audit_snapshot()
-	var finale_swimmer: Dictionary = wave_snapshot.get(
+	var reveal_signals: Array[int] = [0]
+	cleanup.reveal_completed.connect(func() -> void: reveal_signals[0] += 1)
+	await create_timer(0.5).timeout
+	var beat_snapshot: Dictionary = cleanup.audit_snapshot()
+	_check("the room completion waits for the clean-pool reveal",
+		bool(beat_snapshot.get("reveal_beat_holding", false))
+		and not bool(beat_snapshot.get("reveal_completed", true))
+		and reveal_signals[0] == 0)
+	await create_timer(0.76).timeout
+	var finale_swimmer: Dictionary = cleanup.audit_snapshot().get(
 		"swimming_bunny", {}) as Dictionary
 	_check("ambient swimmer yields the finale focal point",
 		not bool(finale_swimmer.get("visible", true))
 		and float(finale_swimmer.get("opacity", 1.0)) <= 0.01)
-	_check("Rumi performs authored wave after rising",
-		String(wave_snapshot.get("rumi_animation", "")) == "wave")
-	var reveal_signals: Array[int] = [0]
-	cleanup.reveal_completed.connect(func() -> void: reveal_signals[0] += 1)
-	_check("the room completion waits for Rumi's wave and reply",
-		bool(wave_snapshot.get("reveal_beat_holding", false))
-		and not bool(wave_snapshot.get("reveal_completed", true)))
-	await create_timer(1.1).timeout
-	var idle_snapshot: Dictionary = cleanup.audit_snapshot()
-	_check("Rumi settles into authored idle",
-		String(idle_snapshot.get("rumi_animation", "")) == "idle")
+	await create_timer(1.64).timeout
+	var done_snapshot: Dictionary = cleanup.audit_snapshot()
 	_check("the reward beat ends in exactly one room completion",
-		bool(idle_snapshot.get("reveal_completed", false))
-		and not bool(idle_snapshot.get("reveal_beat_holding", true))
+		bool(done_snapshot.get("reveal_completed", false))
+		and not bool(done_snapshot.get("reveal_beat_holding", true))
 		and reveal_signals[0] == 1)
+	_check("no in-room Rumi appears before the clip",
+		_named_descendant_count(cleanup, "RumiVioletReveal") == 0)
 	cleanup.teardown()
 	await process_frame
 	_check("teardown frees cleanup", not is_instance_valid(cleanup))
@@ -492,11 +490,20 @@ func _probe_contextual_voice_wiring() -> void:
 		and source.contains("day1_pool_seahorse_middle")
 		and source.contains("day1_pool_seahorse_final")
 		and source.contains("day1_pool_seahorse_free")
-		and source.contains("day1_pool_complete")
-		and source.contains("day1_pool_rumi_reply"))
+		and source.contains("day1_pool_complete"))
+	_check("the finale greets no Rumi before the clip shows her rise",
+		not source.contains("day1_pool_rumi_reply")
+		and not source.contains("AnimatedSprite2D"))
 	_check("pool activity has no generic voice fallback",
 		not source.contains("m.show_msg")
 		and not source.contains("m._say"))
+
+
+func _named_descendant_count(root: Node, node_name: String) -> int:
+	var count: int = 1 if root.name == node_name else 0
+	for child: Node in root.get_children():
+		count += _named_descendant_count(child, node_name)
+	return count
 
 
 func _record_restored_completion(activity_id: String) -> void:

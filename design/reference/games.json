@@ -65,11 +65,11 @@
     },
     "C7": {
      "score": 1,
-     "note": "Approved art only, and since 2026-10-04 the shared room layers are clean on the Pool's screen too (MA-VIS-009): no code-drawn wash, grime, drips or cracks (the room is listed as authoring its own dirt, GS-19), one cleanup basket, ambient code motifs paused while the cleanup is mounted (GS-20), the swimmer grounded by the approved project-original ripple atlas instead of code arcs, no generic star burst over Rumi's rise, and the castle letterbox fill cropped to its bands. Measured on the real route (Mobile renderer, corrected meter): every play state 1.18-1.41 mean layers, at most 2.5% of the screen with four or more, max 6, peak 6, no duplicate, no code drawing, no translucent wash. Roshan keeps her colours under the declared room tint (GS-17). Scored 1 only because the OD2 look-alike review at phone size with the HUD is not recorded yet (capture: Codex P1); her work still uses one approved directional cutout, not authored action frames (Codex P2)."
+     "note": "Approved art only, and since 2026-10-04 the shared room layers are clean on the Pool's screen too (MA-VIS-009): no code-drawn wash, grime, drips or cracks (the room is listed as authoring its own dirt, GS-19), one cleanup basket, ambient code motifs paused while the cleanup is mounted (GS-20), the swimmer grounded by the approved project-original ripple atlas instead of code arcs, no generic star burst over the finale, and the castle letterbox fill cropped to its bands. Measured on the real route (Mobile renderer, corrected meter): every play state 1.16-1.41 mean layers, at most 2.5% of the screen with four or more, max 6, peak 6, no duplicate, no code drawing, no translucent wash. Since 2026-10-05 the castle and its voice caption stop drawing under the room's story clips (owner answer QP-3): d1_pool_clean measures 2.02 mean layers with three drawn items, down from 3.39 and 21. Roshan keeps her colours under the declared room tint (GS-17). Scored 1 only because the OD2 look-alike review at phone size with the HUD is not recorded yet (capture: Codex P1); her work still uses one approved directional cutout, not authored action frames (Codex P2)."
     },
     "C8": {
      "score": 2,
-     "note": "Every touch answers at once (queued taps pop bubbles, a retargeted lane moves Roshan); pieces fly into the one basket with a clean ring; no spoken line names the wrong object; Rumi's reveal is earned by finishing and now plays out (rise through an approved water ripple, wave and reply line, 1.2-4.5 s) before the room-completion clip takes the screen, so the clip no longer freezes her line mid-word (MA-PLAY-006, GS-21)."
+     "note": "Every touch answers at once (queued taps pop bubbles, a retargeted lane moves Roshan); pieces fly into the one basket with a clean ring; no spoken line names the wrong object; the clean-pool reveal is earned by finishing and plays out (light returns, rainbow waterfall, healthy fountain and the completion line; 2.4-5.6 s from the finale's start) before the room-completion clip takes the screen, so the clip no longer freezes a line mid-word (MA-PLAY-006, GS-21). Rumi rises once, in that clip (owner answer QP-1, 2026-10-05), and then waits in the pool as the persistent friend."
     },
     "C9": {
      "score": 2,
@@ -77,7 +77,7 @@
     },
     "C10": {
      "score": 2,
-     "note": "probe_day_one_pool_cleanup completes all three activities with real touches, strokes, taps and pulls, with thirty-second zero-input, retarget, queue, second-finger, focus-loss and teardown legs, and since 2026-10-04 checks one room basket, the quiet ambient group, approved ripple art and the held reward beat; probe_day_one_castle_dressing, probe_castle_pool_life_2d, probe_living_world and probe_interaction guard the shared layers. Each new check was shown to fail under a mutation of its repair."
+     "note": "probe_day_one_pool_cleanup completes all three activities with real touches, strokes, taps and pulls, with thirty-second zero-input, retarget, queue, second-finger, focus-loss and teardown legs, and since 2026-10-04 checks one room basket, the quiet ambient group, approved ripple art and the held reward beat, and since 2026-10-05 that the room stages no Rumi before the clip that owns her rise; probe_day_one_story_clips checks that the castle and its caption stop drawing under a clip and return after it; probe_day_one_castle_dressing, probe_castle_pool_life_2d, probe_living_world and probe_interaction guard the shared layers. Each new check was shown to fail under a mutation of its repair."
     }
    },
    "strengths": [
@@ -92,7 +92,6 @@
    "defects": [
     "Roshan's work uses one directional cutout, not authored action frames (Codex P2, carries GS2-A)",
     "Props keep product-render lighting and glow auras, toned down by runtime tints (Codex P3)",
-    "Rumi rises twice: in the room, then again in the 17 s room-completion clip (owner question QP-1)",
     "Voices are synthetic placeholders awaiting owner listening"
    ],
    "acceptance": {
@@ -103,7 +102,7 @@
    "evidence": [
     {
      "path": "scripts/games/day_one_pool_cleanup.gd",
-     "sha256": "5081764794ea207173775fe953362a75fbc313f11ae89f7c68b94b87bd304d8d"
+     "sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44"
     },
     {
      "path": "scripts/games/pool_skimmer_activity.gd",
@@ -143,11 +142,11 @@
     }
    ],
    "reassessed": {
-    "on": "2026-10-04",
-    "after": "a52f545f",
-    "reason": "Pool screen overdraw repair and five-star framework by Claude (docs/handoffs/codex_pool_five_star_2026-10-04/FRAMEWORK.md): MA-VIS-009 carved from MA-VIS-008 and fixed pending verification, the reveal-beat and halo defects (MA-PLAY-006, MA-TOUCH-003) fixed pending verification, the meter's late-layer and connected-draw blind spots corrected. C11 rises from 0 to 2; C7 stays 1 until the OD2 review."
+    "on": "2026-10-05",
+    "after": "356afeb9",
+    "reason": "Owner answers QP-1 and QP-3 applied by Claude (docs/handoffs/codex_pool_five_star_2026-10-04/FRAMEWORK.md section 11): Rumi rises once, in the d1_pool_clean clip, so the room's own rise, ripple, wave and greeting are removed and the clean-pool beat holds the completion; the castle and its voice caption stop drawing under story clips. Scores unchanged at 3/5 (21 of 24); the 'Rumi rises twice' defect is resolved. QP-2's scope awaits the owner (QP-2a)."
    },
-   "assessed_head": "a52f545f4c5e7cc720b0d1194b374801ece0e24e",
+   "assessed_head": "356afeb94bef803f3d1d2268adfed3f1405143b7",
    "overdraw_review": {
     "OD1": {
      "result": "pass",
@@ -4198,7 +4197,7 @@
    "evidence": [
     {
      "path": "scripts/arena/castle_rooms_25d.gd",
-     "sha256": "199b759d759f415e3e5a168d1ffb23abd897ce851eff64470952dc8037516828"
+     "sha256": "c0df908d401ff8a3e000135b83c20780e104d284b11c795945710a349b96fa9f"
     },
     {
      "path": "scripts/castle_door_language.gd",
@@ -4210,7 +4209,7 @@
     }
    ],
    "august_rating": 3,
-   "assessed_head": "a52f545f4c5e7cc720b0d1194b374801ece0e24e"
+   "assessed_head": "356afeb94bef803f3d1d2268adfed3f1405143b7"
   },
   {
    "id": "sky_lagoon",

@@ -12,7 +12,7 @@ Status: CANDIDATE_REFERENCE: the Pool's own code meets every machine-assessed cr
 
 What still separates it from a gold star:
 
-- C7 Authored art and identity (1/2): Approved art only, and since 2026-10-04 the shared room layers are clean on the Pool's screen too (MA-VIS-009): no code-drawn wash, grime, drips or cracks (the room is listed as authoring its own dirt, GS-19), one cleanup basket, ambient code motifs paused while the cleanup is mounted (GS-20), the swimmer grounded by the approved project-original ripple atlas instead of code arcs, no generic star burst over Rumi's rise, and the castle letterbox fill cropped to its bands. Measured on the real route (Mobile renderer, corrected meter): every play state 1.18-1.41 mean layers, at most 2.5% of the screen with four or more, max 6, peak 6, no duplicate, no code drawing, no translucent wash. Roshan keeps her colours under the declared room tint (GS-17). Scored 1 only because the OD2 look-alike review at phone size with the HUD is not recorded yet (capture: Codex P1); her work still uses one approved directional cutout, not authored action frames (Codex P2).
+- C7 Authored art and identity (1/2): Approved art only, and since 2026-10-04 the shared room layers are clean on the Pool's screen too (MA-VIS-009): no code-drawn wash, grime, drips or cracks (the room is listed as authoring its own dirt, GS-19), one cleanup basket, ambient code motifs paused while the cleanup is mounted (GS-20), the swimmer grounded by the approved project-original ripple atlas instead of code arcs, no generic star burst over the finale, and the castle letterbox fill cropped to its bands. Measured on the real route (Mobile renderer, corrected meter): every play state 1.16-1.41 mean layers, at most 2.5% of the screen with four or more, max 6, peak 6, no duplicate, no code drawing, no translucent wash. Since 2026-10-05 the castle and its voice caption stop drawing under the room's story clips (owner answer QP-3): d1_pool_clean measures 2.02 mean layers with three drawn items, down from 3.39 and 21. Roshan keeps her colours under the declared room tint (GS-17). Scored 1 only because the OD2 look-alike review at phone size with the HUD is not recorded yet (capture: Codex P1); her work still uses one approved directional cutout, not authored action frames (Codex P2).
 - C12 Device, child and owner acceptance (0/2): No device, child or owner acceptance recorded; pending verification: MA-VIS-009, MA-PLAY-006, MA-TOUCH-003
 
 Patterns to copy:
@@ -31,7 +31,7 @@ Patterns to copy:
 - **GS-18 A spoken line must be true of what just happened** (C8): Choose each feedback line from what the child actually did (the object picked, the count reached), prefer an exact per-object take when it exists, and stay silent rather than name the wrong thing. `scripts/games/day_one_pool_cleanup.gd::skimmer_pickup_line`
 - **GS-19 A room that authors its dirt opts out of shared code-drawn dirt** (C7): When a room's activity shows the dirty state through authored art and a declared room tint (with the character counter-tinted, GS-17), list the room so the shared code-drawn wash, grime and cracks are hidden there; keep the shared layer's approved cutouts. `scripts/arena/day_one_castle_dressing.gd::AUTHORED_DIRT_ROOMS`, `scripts/arena/day_one_castle_dressing.gd::_refresh_grime`
 - **GS-20 A focused activity quiets shared ambient layers while it is mounted** (C7): Join the living-world quiet group while the activity owns the room's motion and guidance, so shared code-drawn ambience pauses above it and returns by itself when the activity is freed. `scripts/living_world.gd::_suspended`, `scripts/games/day_one_pool_cleanup.gd::setup`
-- **GS-21 The reward beat plays out before the next scene takes the screen** (C8): Hold the completion that starts a story clip or handoff until the reward's authored acting and spoken line have played, with a minimum and a hard maximum, polled in the owner's process so teardown can never resume a freed coroutine. `scripts/games/day_one_pool_cleanup.gd::_finish_rumi_reveal`, `scripts/games/day_one_pool_cleanup.gd::_advance_reveal_beat`
+- **GS-21 The reward beat plays out before the next scene takes the screen** (C8): Hold the completion that starts a story clip or handoff until the reward's authored sequences and spoken line have played, with a minimum and a hard maximum, polled in the owner's process so teardown can never resume a freed coroutine. `scripts/games/day_one_pool_cleanup.gd::_begin_finale`, `scripts/games/day_one_pool_cleanup.gd::_advance_reveal_beat`
 - **GS-22 An affordance marks only what can be touched now** (C3): Choose pulse or halo targets from hotspots that are visible in the tree, so an activity that suspends a hotspot layer is never undercut by an invitation the room cannot answer. From Pearl Castle rooms. `scripts/arena/castle_rooms_25d.gd::_tick_item_affordances`
 - **GS-09 End-to-end real-touch driver through the world** (C10): Complete the whole job from the room object to the reward with real touch events, including a multi-touch leg, inside a trusted probe. From Boxer. `scripts/probe_opera_2d.gd::_drive_boxer_phase`
 - **GS-10 Per-finger ownership with a focus-loss cancel** (C4): Track each touch index, ignore a second finger while one owns the action, and cancel held input on focus loss and close. From Boxer. `scripts/opera_boxing_surface.gd::_handle_press`, `scripts/opera_boxing_surface.gd::_handle_release`, `scripts/opera_boxing_surface.gd::_notification`
@@ -85,7 +85,7 @@ Not reachable as a live game: Snow Roller (picture game) (`dormant`); Flower Gar
 
 Overdraw is anything drawn over approved art that duplicates, competes with or muddies it, and the GPU cost of layers drawn under other layers. The owner rejected Chef for it (2026-10-03: "Chef still looks bad, lots of overdraw").
 
-Status: CANDIDATE_CRITERIA: refined 2026-10-04 at the owner's request; budgets are starting values the owner may change. Measured by python -B tools/measure_overdraw.py (scripts/probe_overdraw.gd in a Mobile-renderer window; numbers only). Since 2026-10-04 an item spawned during the counted frames counts once like every other layer (it had drawn in its real colours and read as up to 255 layers), and a script-less layer that draws through a connected draw callback counts as code drawing; both are proven by the self-test. at `a52f545f4c5e` on 2026-10-05T00:12:47Z, Godot 4.7.2.stable.official.ed1daf0bf, self-test PASS.
+Status: CANDIDATE_CRITERIA: refined 2026-10-04 at the owner's request; budgets are starting values the owner may change. Measured by python -B tools/measure_overdraw.py (scripts/probe_overdraw.gd in a Mobile-renderer window; numbers only). Since 2026-10-04 an item spawned during the counted frames counts once like every other layer (it had drawn in its real colours and read as up to 255 layers), and a script-less layer that draws through a connected draw callback counts as code drawing; both are proven by the self-test. at `356afeb94bef` on 2026-10-05T05:53:09Z, Godot 4.7.2.stable.official.ed1daf0bf, self-test PASS.
 
 Budgets per play state: mean layers at most 2.5, four or more layers on at most 0.1 of the screen, max 8 (peak frame 32); effects clear within 1.0 s and cover at most 0.25 of Roshan.
 
@@ -100,22 +100,22 @@ Budgets per play state: mean layers at most 2.5, four or more layers on at most 
 
 | Game | Rating | Busiest play state (mean, share with 4+ layers, max, peak) | OD1 | OD2 | OD3 | OD4 | OD5 | OD6 |
 |---|---:|---|---|---|---|---|---|---|
-| Mermaid Pool cleanup (Day One) | 3 | waterfall_start: 1.41, 0.013, 5, 5 | pass | — | pass | pass | pass | pass |
-| Boxer | 1 | task_open: 2.58, 0.069, 12, 12 | — | — | fail | pass | pass | fail |
-| Magician | 1 | after_phase: 2.56, 0.102, 7, 7 | — | — | fail | pass | pass | fail |
+| Mermaid Pool cleanup (Day One) | 3 | waterfall_start: 1.41, 0.012, 5, 5 | pass | — | pass | pass | pass | pass |
+| Boxer | 1 | after_phase: 2.61, 0.089, 12, 14 | — | — | fail | pass | pass | fail |
+| Magician | 1 | task_open: 2.62, 0.134, 7, 8 | — | — | fail | pass | pass | fail |
 | Teacher | 1 | task_open: 3.57, 0.603, 8, 8 | — | — | fail | pass | fail | fail |
-| Racecar Driver | 1 | world: 2.38, 0.03, 6, 6 | — | — | fail | pass | pass | pass |
-| Ballerina | 1 | task_open: 2.83, 0.143, 10, 12 | — | — | fail | pass | pass | fail |
+| Racecar Driver | 1 | world: 2.38, 0.029, 6, 6 | — | — | fail | pass | pass | pass |
+| Ballerina | 1 | task_open: 2.51, 0.127, 11, 11 | — | — | fail | pass | pass | fail |
 | Nursery Nurse | 1 | world: 2.39, 0.044, 6, 6 | — | — | fail | pass | pass | pass |
 | Pop Star | 1 | task_open: 2.58, 0.103, 8, 8 | — | — | fail | pass | pass | fail |
 | Stuffie Doctor | 1 | task_open: 2.41, 0.046, 8, 8 | — | — | fail | pass | pass | pass |
-| Geologist | 1 | task_open: 6.11, 0.659, 14, 16 | — | — | fail | pass | fail | fail |
+| Geologist | 1 | task_open: 5.78, 0.613, 13, 16 | — | — | fail | pass | fail | fail |
 | Painter | 1 | task_open: 2.48, 0.049, 9, 9 | — | — | fail | pass | pass | fail |
-| Farmer | 1 | task_open: 2.5, 0.069, 8, 8 | — | — | fail | pass | pass | pass |
-| Candy Maker | 1 | after_phase: 2.39, 0.032, 6, 6 | — | — | fail | pass | pass | pass |
-| Pastry Chef | 1 | task_open: 2.41, 0.035, 7, 7 | — | — | fail | pass | pass | pass |
-| Astronaut Engineer | 1 | world: 2.38, 0.026, 6, 6 | — | — | fail | pass | pass | fail |
-| Detective | 1 | world: 2.38, 0.028, 6, 6 | — | — | fail | pass | pass | pass |
+| Farmer | 1 | task_open: 2.5, 0.068, 8, 8 | — | — | fail | pass | pass | pass |
+| Candy Maker | 1 | task_open: 2.49, 0.092, 7, 7 | — | — | fail | pass | pass | pass |
+| Pastry Chef | 1 | world: 2.38, 0.031, 6, 6 | — | — | fail | pass | pass | pass |
+| Astronaut Engineer | 1 | world: 2.38, 0.025, 6, 6 | — | — | fail | pass | pass | fail |
+| Detective | 1 | task_open: 2.51, 0.083, 7, 8 | — | — | fail | pass | pass | fail |
 
 Not yet measured (18 live games): Grand Puff in the Dusty Attic (Day One boss); Castle banner maker; Royal Bedroom wardrobe; Pearl Castle rooms; Comfy castle games (Day Two); Royal Hall sparring class; Sky Lagoon promenade; Free Baby Eagle (Day One); Stuffie adoption and care; Bubble Bathroom cleanup (Day One); Craft Room tidy (Day One); Birthday party preparation (Chapter 2); Moonflower door and Butterfly House; Birthday lawn and Ember King (Chapter 2 finale); Dance with Daddy (rhythm); Galaxy ice battle; Fairy Pond flight; Butterfly World (Galaxy).
 

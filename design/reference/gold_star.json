@@ -190,7 +190,7 @@
   "chosen": "2026-10-03",
   "why": "The strongest true-2D game a child can reach today (Grand Puff scores more points but its fight is built on 3D nodes, so it cannot be a template) and the clearest model of the owner's 2026-09-06 job rule: Roshan travels to each part, her hand makes contact, and only then does the authored dirt clear; every part has its own line; every change saves; real-touch probes guard it. It contains the strongest single activity in the game (the waterfall), and its gaps are specific and fixable, so it is the first candidate for a full gold star and the template for room jobs and job games.",
   "status": "CANDIDATE_REFERENCE: the Pool's own code meets every machine-assessed criterion and supplies most reference patterns. On 2026-10-04 Claude repaired the overdraw that shared room layers drew on its screen (MA-VIS-009, carved from MA-VIS-008, fixed pending verification): every play state now measures 1.18-1.41 mean layers with no duplicate, code drawing or translucent wash, and the reported 255-layer burst was a meter artifact, now corrected. It is 3/5 (21/24) until the OD2 look-alike review is recorded from Codex's phone-size captures (P1 in docs/handoffs/codex_pool_five_star_2026-10-04/README.md); then only device, child and owner acceptance remain.",
-  "patterns_reviewed_head": "a52f545f4c5e7cc720b0d1194b374801ece0e24e"
+  "patterns_reviewed_head": "356afeb94bef803f3d1d2268adfed3f1405143b7"
  },
  "patterns": [
   {
@@ -403,7 +403,7 @@
     {
      "path": "scripts/games/day_one_pool_cleanup.gd",
      "const": "IDLE_REPROMPT_LINES",
-     "sha256": "9088ee70009d04635baeda3a668142e377aa3c5d146ad5f166913748e88aa38a"
+     "sha256": "dddb0b59c11cbf0f1afba62ec8b0e2ab938ef2964309125dff0a641574dac16a"
     }
    ]
   },
@@ -478,12 +478,12 @@
    "criterion": "C8",
    "game": "day_one_pool",
    "title": "The reward beat plays out before the next scene takes the screen",
-   "copy": "Hold the completion that starts a story clip or handoff until the reward's authored acting and spoken line have played, with a minimum and a hard maximum, polled in the owner's process so teardown can never resume a freed coroutine.",
+   "copy": "Hold the completion that starts a story clip or handoff until the reward's authored sequences and spoken line have played, with a minimum and a hard maximum, polled in the owner's process so teardown can never resume a freed coroutine.",
    "anchors": [
     {
      "path": "scripts/games/day_one_pool_cleanup.gd",
-     "func": "_finish_rumi_reveal",
-     "sha256": "7a6f4f3b0797771237c9071a0c41a491b8b4e37d9d3a53424931ed02f1f2d0c0"
+     "func": "_begin_finale",
+     "sha256": "12892a7f5b8c1761aad726b88a5cdbe4642891f32996b87cb2f6ca6f5a1b45ef"
     },
     {
      "path": "scripts/games/day_one_pool_cleanup.gd",
@@ -797,7 +797,7 @@
     "reason": "Code shapes stand in for, cover or wash over approved art; replace with approved art or remove (OD3)."
    }
   ],
-  "states_not_budgeted_note": "entry_transition is the room's cross-fade, which briefly draws both compositions. story_clip is an owner-directed Day One clip playing between scenes over the paused room (DL-CIN-16); it is measured and reported, not budgeted as a play state. The castle keeps rendering hidden under a full-screen clip, which the Pool five-star framework records as a follow-up."
+  "states_not_budgeted_note": "entry_transition is the room's cross-fade, which briefly draws both compositions. story_clip is an owner-directed Day One clip playing between scenes over the paused room (DL-CIN-16); it is measured and reported, not budgeted as a play state. Since 2026-10-05 the castle and its voice caption stop drawing under a full-screen clip (owner answer QP-3, ODR-CASTLE-UNDER-CLIPS-20261005), so a clip state measures the clip's black backdrop, the video and the global Back control."
  },
  "core": [
   "C1",

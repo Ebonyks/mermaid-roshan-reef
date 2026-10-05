@@ -1,9 +1,9 @@
 {
  "schema": "codex_handoff_manifest/1",
  "handoff": "codex_pool_five_star_2026-10-04",
- "revision": 1,
- "revision_note": "Revision 1 (2026-10-04): owner-requested Mermaid Pool five-star framework and Codex graphics, animation, voice and evidence packages P1-P8, after Claude's repair of the Pool's screen overdraw (MA-VIS-009) and two child-facing defects (MA-PLAY-006, MA-TOUCH-003).",
- "evidence_baseline": "dev a52f545f4c5e7cc720b0d1194b374801ece0e24e",
+ "revision": 2,
+ "revision_note": "Revision 1 (2026-10-04): owner-requested Mermaid Pool five-star framework and Codex graphics, animation, voice and evidence packages P1-P8, after Claude's repair of the Pool's screen overdraw (MA-VIS-009) and two child-facing defects (MA-PLAY-006, MA-TOUCH-003). Revision 2 (2026-10-05): the owner's answers to QP-1 to QP-3 are recorded (FRAMEWORK.md section 11). Rumi rises once, in the d1_pool_clean clip, so Claude removed the in-room rise and P4 is withdrawn; the castle stops drawing under story clips (F1 closed). QP-2's scope is open as QP-2a, so P6 waits for it. P1's capture list follows the new finale.",
+ "evidence_baseline": "dev 476ceda1 merged at 356afeb94bef803f3d1d2268adfed3f1405143b7 (revision 1: dev a52f545f4c5e7cc720b0d1194b374801ece0e24e)",
  "tracking_findings": [
   "MA-VIS-009",
   "MA-PLAY-006",
@@ -14,7 +14,7 @@
  ],
  "entry": "README.md",
  "file_count": 3,
- "total_bytes": 39900,
+ "total_bytes": 46833,
  "files": [
   {
    "path": ".gdignore",
@@ -24,42 +24,42 @@
   },
   {
    "path": "README.md",
-   "bytes": 20636,
-   "sha256": "dbd77547593f7a0307ee2b1a76b855bffbdf1f9048862f302e2472f26fe47571",
+   "bytes": 21128,
+   "sha256": "0f314557a50083e017e2fd0ee5c0abaf3c073931d76e6806feb6e7f0723c08e4",
    "role": "Codex handoff entry point: packages P1-P8 and three owner questions"
   },
   {
    "path": "FRAMEWORK.md",
-   "bytes": 19264,
-   "sha256": "be3a795b85d8dc57c8ce67c94f64e15682638a8792886cf63ea16379dcafc010",
+   "bytes": 25705,
+   "sha256": "d17115a74e635a973de328c1632da4c8926132a002ce05a29d423549743e63da",
    "role": "Mermaid Pool five-star framework: definition, beats, changes, evidence, gaps, ordered path, acceptance sessions"
   }
  ],
  "references": [
   {
    "path": "design/reference/GOLD_STAR.md",
-   "bytes": 28977,
-   "sha256": "ec3c1d52830f5ea1affe961cd50e8a817ed0cb83a8db704b5d5e236bca90a609"
+   "bytes": 29172,
+   "sha256": "20028048661c0a1a59f59ea3013536a462a758d26b6068e49f106bf15d5a7230"
   },
   {
    "path": "design/reference/games.json",
-   "bytes": 150049,
-   "sha256": "6cfb120bec0f7fb0363b366531130526dacc88681c292a4d8f3f7dffa69ebb58"
+   "bytes": 150554,
+   "sha256": "bc144a4a257fc60cad31edeae407a370295c7d4198042b09af3800505d2238f8"
   },
   {
    "path": "design/reference/gold_star.json",
-   "bytes": 35587,
-   "sha256": "77007dd3e4f1f844ac58eacd7653d87e5330922407a4cfce46f66921a5d52ce2"
+   "bytes": 35698,
+   "sha256": "bdc01561b5439b86cbf87466fca2f958232a0b3a4425d75ccab7782d258510d6"
   },
   {
    "path": "design/reference/overdraw.json",
-   "bytes": 85536,
-   "sha256": "3be59623e116cffdb9a0a9cd0b4d05118a0c52fc68018d709255317f4cc9ee4c"
+   "bytes": 85539,
+   "sha256": "47f2bfd476c72f50ba5b422dd6f32d3df8aa714b95f800654e22010bdef14d1b"
   },
   {
    "path": "audit/findings/ACTIVE_FINDINGS_2026-08-13.md",
-   "bytes": 232506,
-   "sha256": "26f863c70f1f4359b38aa163efa144d360c36fb8600480ff580b080bb5e8e09d"
+   "bytes": 239793,
+   "sha256": "88fe220c966bd75f2f2bbff62776936da83e674de06bc7e835a0a8bfe6d29189"
   },
   {
    "path": "design/templates/ANIMATION_JOB_CARD_V1.md",
@@ -68,8 +68,8 @@
   },
   {
    "path": "design/animation/ANIMATION_PRODUCTION_PROTOCOL.md",
-   "bytes": 24479,
-   "sha256": "e597532da79220dd31c023809756886e9f1f75ab25ad709f7e83eda704b7adcf"
+   "bytes": 26593,
+   "sha256": "a8d9da857376f69a4e82e9e5ab3dfa5f3af6b9e6b0f50d1fc688c8d40f71dfac"
   },
   {
    "path": "design/animation/ROSHAN_MOVEMENT_LANGUAGE.md",
@@ -98,8 +98,8 @@
   },
   {
    "path": "scripts/games/day_one_pool_cleanup.gd",
-   "bytes": 33963,
-   "sha256": "5081764794ea207173775fe953362a75fbc313f11ae89f7c68b94b87bd304d8d"
+   "bytes": 28592,
+   "sha256": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44"
   },
   {
    "path": "scripts/games/pool_skimmer_activity.gd",
@@ -143,13 +143,13 @@
   },
   {
    "path": "scripts/probe_day_one_pool_cleanup.gd",
-   "bytes": 36045,
-   "sha256": "2ebc8518ef1a233eb4cbfa02fdef429e1527abf15e4a3aae1fe596b0eb4bef5b"
+   "bytes": 36294,
+   "sha256": "aaed2b33e445e0dfb314e27562f4026c274fa9bb12dec4e143f85bd2df4d5d4c"
   },
   {
    "path": "scripts/probe_overdraw.gd",
-   "bytes": 44025,
-   "sha256": "b5b9be4bcf168359e5477eb2878b4d505c18d3b9e2ae060e461c83698aaafe72"
+   "bytes": 44097,
+   "sha256": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433"
   },
   {
    "path": "tools/measure_overdraw.py",
@@ -290,6 +290,41 @@
    "path": "assets/flats/castle/interactions_v4/background_tiles/room_mermaid_pool_background_r0_c1.png",
    "bytes": 1071031,
    "sha256": "8285d08df8d57095992f4c2c2ae404f3b1220c0365662e7b04e657a583f97516"
+  },
+  {
+   "path": "design/reference/OWNER_DECISIONS.md",
+   "bytes": 13854,
+   "sha256": "5aa1a7c77c3a7c78e9be0869c79b55ce3edda5d047d893374932f1813e11b160"
+  },
+  {
+   "path": "design/reference/owner_decisions.json",
+   "bytes": 17476,
+   "sha256": "09f28bae12cbc2fe10980d6a978b4fabd11747c87ade40ee6c3d304644f8ceea"
+  },
+  {
+   "path": "audit/cycles/pool-five-star-20261005/owner_answers.json",
+   "bytes": 2145,
+   "sha256": "92ccea6948cd88880159126d9fc55ff618f20183f148c224e77aa598c7fdb64c"
+  },
+  {
+   "path": "scripts/main.gd",
+   "bytes": 382851,
+   "sha256": "cc975607cee628eb072e58b36886e322bbd72c067044a5a2030c9bfa1e93f3e4"
+  },
+  {
+   "path": "scripts/probe_day_one_story_clips.gd",
+   "bytes": 11399,
+   "sha256": "210e1637b7d14fcd942a2480814d0726c8a3008e5c19770dec127b042b4ba2e1"
+  },
+  {
+   "path": "scripts/day_one_story_clips.gd",
+   "bytes": 8389,
+   "sha256": "ca199cc8efe6c203717c2faca4541ee4a262ae7587627975a166e7e3f955c82a"
+  },
+  {
+   "path": "scripts/arena/castle_rooms_25d.gd",
+   "bytes": 242044,
+   "sha256": "c0df908d401ff8a3e000135b83c20780e104d284b11c795945710a349b96fa9f"
   }
  ],
  "non_delivery": "No art, animation, voice, capture or board is delivered; Codex builds them. Claude built no image. No acceptance, GENERATION_READY or DELIVERY_ACCEPTED is granted."

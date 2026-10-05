@@ -2,8 +2,9 @@ extends SceneTree
 ## Trusted contract for the Day One story clips (owner decision 2026-09-23,
 ## DL-CIN-16): manifest integrity, fail-open lookup, real OGV playback, the
 ## Back and double-tap skip routes, the story hook map, the transformation-then-epilogue
-## queue ahead of the Day Two card, save persistence, and Grand Puff staying
-## whole for the transformation clip instead of imploding.
+## queue ahead of the Day Two card, save persistence, Grand Puff staying
+## whole for the transformation clip instead of imploding, and the castle's
+## picture hidden under a playing clip (owner answer QP-3, 2026-10-05).
 
 const CLIPS := preload("res://scripts/day_one_story_clips.gd")
 const SKIP_CASES := preload("res://tools/tests/fixtures/story_movie_skip_cases.gd")
@@ -203,12 +204,59 @@ func _run_behavioral_checks() -> void:
 		and card_center.x < roshan.global_position.x
 		and String(friend_card.get_meta("source_asset_path", "")) \
 			== "res://assets/sprites/dust_bunnies/rainbow_friend.png")
+	await _probe_castle_hidden_under_clip(friend_main)
 	friend_main.queue_free()
 	await _frames(3)
 	_clean_save()
 	print("DAY_ONE_STORY_CLIPS|RESULT: ",
 		"PASS" if failures == 0 else "FAIL", " failures=", failures)
 	quit(1 if failures > 0 else 0)
+
+func _castle_picture_visible(main: ReefMain) -> bool:
+	for child: Node in main.castle_room_layer.get_children():
+		if child is CanvasItem and (child as CanvasItem).visible:
+			return true
+	return false
+
+
+func _castle_caption_visible(main: ReefMain) -> bool:
+	if main.castle_voice_caption_layer == null:
+		return false
+	for child: Node in main.castle_voice_caption_layer.get_children():
+		if child is CanvasItem and (child as CanvasItem).visible:
+			return true
+	return false
+
+
+func _probe_castle_hidden_under_clip(main: ReefMain) -> void:
+	CLIPS.headless_override = true
+	var castle_open: bool = main.castle_room_layer != null \
+		and is_instance_valid(main.castle_room_layer) and main.castle_room_layer.visible \
+		and _castle_picture_visible(main)
+	_check("the castle is the visible surface before a clip", castle_open)
+	var caption_before: bool = _castle_caption_visible(main)
+	_check("the castle's voice caption layer draws before a clip", caption_before)
+	_check("a clip over the open castle starts",
+		main._day_one_play_story_clip("d1_rainbow_route"))
+	_check("the castle stops drawing under the clip (owner QP-3)",
+		not _castle_picture_visible(main) and not _castle_caption_visible(main))
+	_check("the castle stays the open surface for game logic under the clip",
+		main.castle_room_layer.visible and main._castle_rooms_ref().is_open())
+	main._day_one_story_clip.skip()
+	await _frames(3)
+	_check("the castle draws again when the clip ends",
+		main._day_one_story_clip == null and _castle_picture_visible(main)
+		and _castle_caption_visible(main) == caption_before)
+	_check("a second clip over the castle starts", main._day_one_play_story_clip("d1_castle"))
+	_check("the castle is hidden again under the second clip",
+		not _castle_picture_visible(main))
+	main._day_one_cancel_story_clips()
+	await _frames(1)
+	_check("a cancelled clip restores the castle picture",
+		_castle_picture_visible(main) and main._day_one_story_clip_covered.is_empty()
+		and not paused)
+	CLIPS.headless_override = false
+
 
 func _rainbow_card(main: ReefMain) -> TextureRect:
 	if main._rainbow_friend == null:

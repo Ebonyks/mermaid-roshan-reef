@@ -2,8 +2,8 @@
  "schema": "overdraw_measurements/1",
  "status": "SUPPORTING_CURRENT",
  "note": "Machine measurement only, never acceptance. Layer counts come from a real Mobile-renderer frame read into memory and reduced to numbers; nothing is saved or shown as an image. Node fields come from the live Canvas tree. Code-drawing scripts are judged by the classification in gold_star.json.",
- "measured_at": "2026-10-05T00:12:47Z",
- "head": "a52f545f4c5e7cc720b0d1194b374801ece0e24e",
+ "measured_at": "2026-10-05T05:53:09Z",
+ "head": "356afeb94bef803f3d1d2268adfed3f1405143b7",
  "godot": "4.7.2.stable.official.ed1daf0bf",
  "selftest": {
   "result": "PASS",
@@ -48,7 +48,7 @@
       "p50": 2,
       "p95": 3,
       "share_ge3": 0.348,
-      "share_ge4": 0.026,
+      "share_ge4": 0.025,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
@@ -109,10 +109,10 @@
        1080
       ],
       "max": 3,
-      "mean": 0.52,
+      "mean": 0.19,
       "p50": 0,
-      "p95": 2,
-      "share_ge3": 0.003,
+      "p95": 1,
+      "share_ge3": 0.0,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
@@ -147,12 +147,12 @@
        1920,
        1080
       ],
-      "max": 6,
+      "max": 7,
       "mean": 2.38,
       "p50": 2,
       "p95": 3,
-      "share_ge3": 0.35,
-      "share_ge4": 0.025,
+      "share_ge3": 0.349,
+      "share_ge4": 0.026,
       "share_ge6": 0.001
      },
      "gpu_translucent": {
@@ -160,11 +160,11 @@
        1920,
        1080
       ],
-      "max": 3,
-      "mean": 0.03,
+      "max": 4,
+      "mean": 0.36,
       "p50": 0,
-      "p95": 0,
-      "share_ge3": 0.0,
+      "p95": 1,
+      "share_ge3": 0.001,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
@@ -251,7 +251,7 @@
     "scripts/opera_gesture_surface.gd": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
     "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
     "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
-    "scripts/probe_overdraw.gd": "b5b9be4bcf168359e5477eb2878b4d505c18d3b9e2ae060e461c83698aaafe72",
+    "scripts/probe_overdraw.gd": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433",
     "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
    }
   },
@@ -264,12 +264,12 @@
        1080
       ],
       "max": 8,
-      "mean": 2.12,
+      "mean": 2.45,
       "p50": 2,
       "p95": 3,
-      "share_ge3": 0.063,
-      "share_ge4": 0.029,
-      "share_ge6": 0.008
+      "share_ge3": 0.357,
+      "share_ge4": 0.047,
+      "share_ge6": 0.011
      },
      "gpu_translucent": {
       "frame": [
@@ -277,11 +277,11 @@
        1080
       ],
       "max": 5,
-      "mean": 0.08,
+      "mean": 0.41,
       "p50": 0,
-      "p95": 0,
-      "share_ge3": 0.009,
-      "share_ge4": 0.001,
+      "p95": 1,
+      "share_ge3": 0.024,
+      "share_ge4": 0.004,
       "share_ge6": 0.0
      },
      "gpu_peak": 8,
@@ -316,13 +316,13 @@
        1920,
        1080
       ],
-      "max": 10,
-      "mean": 2.83,
+      "max": 11,
+      "mean": 2.51,
       "p50": 2,
       "p95": 6,
-      "share_ge3": 0.442,
-      "share_ge4": 0.143,
-      "share_ge6": 0.069
+      "share_ge3": 0.174,
+      "share_ge4": 0.127,
+      "share_ge6": 0.061
      },
      "gpu_translucent": {
       "frame": [
@@ -330,14 +330,14 @@
        1080
       ],
       "max": 5,
-      "mean": 0.14,
+      "mean": 0.47,
       "p50": 0,
       "p95": 1,
-      "share_ge3": 0.009,
-      "share_ge4": 0.001,
+      "share_ge3": 0.024,
+      "share_ge4": 0.004,
       "share_ge6": 0.0
      },
-     "gpu_peak": 12,
+     "gpu_peak": 11,
      "node_depth": {
       "max": 2,
       "mean": 1.04,
@@ -383,11 +383,11 @@
        1080
       ],
       "max": 5,
-      "mean": 0.41,
+      "mean": 0.08,
       "p50": 0,
-      "p95": 1,
-      "share_ge3": 0.024,
-      "share_ge4": 0.004,
+      "p95": 0,
+      "share_ge3": 0.009,
+      "share_ge4": 0.001,
       "share_ge6": 0.0
      },
      "gpu_peak": 8,
@@ -432,7 +432,7 @@
     "scripts/opera_performance_overlay.gd": "16c7a17ed901750764481e7077ac2e60d4cf5bfc1a3b41970066e4a633545ddb",
     "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
     "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
-    "scripts/probe_overdraw.gd": "b5b9be4bcf168359e5477eb2878b4d505c18d3b9e2ae060e461c83698aaafe72",
+    "scripts/probe_overdraw.gd": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433",
     "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
    }
   },
@@ -448,8 +448,8 @@
       "mean": 2.38,
       "p50": 2,
       "p95": 3,
-      "share_ge3": 0.358,
-      "share_ge4": 0.021,
+      "share_ge3": 0.359,
+      "share_ge4": 0.022,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
@@ -458,9 +458,9 @@
        1080
       ],
       "max": 3,
-      "mean": 0.02,
+      "mean": 0.35,
       "p50": 0,
-      "p95": 0,
+      "p95": 1,
       "share_ge3": 0.0,
       "share_ge4": 0.0,
       "share_ge6": 0.0
@@ -497,27 +497,27 @@
        1080
       ],
       "max": 12,
-      "mean": 2.58,
+      "mean": 2.26,
       "p50": 2,
       "p95": 4,
-      "share_ge3": 0.421,
-      "share_ge4": 0.069,
-      "share_ge6": 0.021
+      "share_ge3": 0.114,
+      "share_ge4": 0.073,
+      "share_ge6": 0.017
      },
      "gpu_translucent": {
       "frame": [
        1920,
        1080
       ],
-      "max": 6,
-      "mean": 0.44,
+      "max": 7,
+      "mean": 0.11,
       "p50": 0,
       "p95": 1,
-      "share_ge3": 0.01,
-      "share_ge4": 0.004,
+      "share_ge3": 0.006,
+      "share_ge4": 0.002,
       "share_ge6": 0.0
      },
-     "gpu_peak": 12,
+     "gpu_peak": 14,
      "node_depth": {
       "max": 2,
       "mean": 1.01,
@@ -548,13 +548,13 @@
        1920,
        1080
       ],
-      "max": 13,
-      "mean": 2.31,
+      "max": 12,
+      "mean": 2.61,
       "p50": 2,
       "p95": 4,
-      "share_ge3": 0.132,
-      "share_ge4": 0.093,
-      "share_ge6": 0.015
+      "share_ge3": 0.431,
+      "share_ge4": 0.089,
+      "share_ge6": 0.023
      },
      "gpu_translucent": {
       "frame": [
@@ -565,11 +565,11 @@
       "mean": 0.48,
       "p50": 0,
       "p95": 1,
-      "share_ge3": 0.013,
+      "share_ge3": 0.01,
       "share_ge4": 0.004,
       "share_ge6": 0.0
      },
-     "gpu_peak": 13,
+     "gpu_peak": 14,
      "node_depth": {
       "max": 2,
       "mean": 1.01,
@@ -608,7 +608,7 @@
     "scripts/opera_career_world_2d.gd": "89c3280d15ed1a5e737910b69bd099aebff3b1834d0b255a7488f600703fdb7b",
     "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
     "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
-    "scripts/probe_overdraw.gd": "b5b9be4bcf168359e5477eb2878b4d505c18d3b9e2ae060e461c83698aaafe72",
+    "scripts/probe_overdraw.gd": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433",
     "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
    }
   },
@@ -634,7 +634,7 @@
        1080
       ],
       "max": 3,
-      "mean": 0.03,
+      "mean": 0.02,
       "p50": 0,
       "p95": 0,
       "share_ge3": 0.0,
@@ -672,13 +672,13 @@
        1920,
        1080
       ],
-      "max": 6,
-      "mean": 2.17,
+      "max": 7,
+      "mean": 2.49,
       "p50": 2,
-      "p95": 3,
-      "share_ge3": 0.143,
-      "share_ge4": 0.018,
-      "share_ge6": 0.0
+      "p95": 4,
+      "share_ge3": 0.388,
+      "share_ge4": 0.092,
+      "share_ge6": 0.005
      },
      "gpu_translucent": {
       "frame": [
@@ -686,10 +686,10 @@
        1080
       ],
       "max": 3,
-      "mean": 0.35,
+      "mean": 0.02,
       "p50": 0,
-      "p95": 1,
-      "share_ge3": 0.001,
+      "p95": 0,
+      "share_ge3": 0.0,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
@@ -725,11 +725,11 @@
        1080
       ],
       "max": 6,
-      "mean": 2.39,
+      "mean": 2.06,
       "p50": 2,
-      "p95": 3,
-      "share_ge3": 0.354,
-      "share_ge4": 0.032,
+      "p95": 2,
+      "share_ge3": 0.044,
+      "share_ge4": 0.012,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
@@ -785,7 +785,7 @@
     "scripts/opera_gesture_surface.gd": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
     "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
     "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
-    "scripts/probe_overdraw.gd": "b5b9be4bcf168359e5477eb2878b4d505c18d3b9e2ae060e461c83698aaafe72",
+    "scripts/probe_overdraw.gd": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433",
     "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
    }
   },
@@ -798,11 +798,11 @@
        1080
       ],
       "max": 6,
-      "mean": 2.05,
+      "mean": 2.38,
       "p50": 2,
-      "p95": 2,
-      "share_ge3": 0.035,
-      "share_ge4": 0.011,
+      "p95": 3,
+      "share_ge3": 0.344,
+      "share_ge4": 0.031,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
@@ -849,12 +849,12 @@
        1920,
        1080
       ],
-      "max": 7,
-      "mean": 2.41,
+      "max": 6,
+      "mean": 2.08,
       "p50": 2,
       "p95": 3,
-      "share_ge3": 0.369,
-      "share_ge4": 0.035,
+      "share_ge3": 0.062,
+      "share_ge4": 0.016,
       "share_ge6": 0.001
      },
      "gpu_translucent": {
@@ -863,14 +863,14 @@
        1080
       ],
       "max": 3,
-      "mean": 0.35,
+      "mean": 0.02,
       "p50": 0,
-      "p95": 1,
+      "p95": 0,
       "share_ge3": 0.0,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
-     "gpu_peak": 7,
+     "gpu_peak": 6,
      "node_depth": {
       "max": 2,
       "mean": 1.03,
@@ -902,11 +902,11 @@
        1080
       ],
       "max": 6,
-      "mean": 2.05,
+      "mean": 2.38,
       "p50": 2,
-      "p95": 2,
-      "share_ge3": 0.036,
-      "share_ge4": 0.011,
+      "p95": 3,
+      "share_ge3": 0.361,
+      "share_ge4": 0.014,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
@@ -914,10 +914,10 @@
        1920,
        1080
       ],
-      "max": 3,
-      "mean": 0.02,
+      "max": 4,
+      "mean": 0.35,
       "p50": 0,
-      "p95": 0,
+      "p95": 1,
       "share_ge3": 0.0,
       "share_ge4": 0.0,
       "share_ge6": 0.0
@@ -1005,7 +1005,7 @@
     "scripts/opera_gesture_surface.gd": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
     "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
     "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
-    "scripts/probe_overdraw.gd": "b5b9be4bcf168359e5477eb2878b4d505c18d3b9e2ae060e461c83698aaafe72",
+    "scripts/probe_overdraw.gd": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433",
     "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
    }
   },
@@ -1089,7 +1089,7 @@
        1080
       ],
       "max": 5,
-      "mean": 1.4,
+      "mean": 1.39,
       "p50": 1,
       "p95": 3,
       "share_ge3": 0.123,
@@ -1101,11 +1101,11 @@
        1920,
        1080
       ],
-      "max": 3,
-      "mean": 0.09,
+      "max": 4,
+      "mean": 0.3,
       "p50": 0,
-      "p95": 1,
-      "share_ge3": 0.0,
+      "p95": 2,
+      "share_ge3": 0.02,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
@@ -1140,7 +1140,7 @@
       "p50": 1,
       "p95": 3,
       "share_ge3": 0.12,
-      "share_ge4": 0.023,
+      "share_ge4": 0.024,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
@@ -1152,7 +1152,7 @@
       "mean": 0.3,
       "p50": 0,
       "p95": 2,
-      "share_ge3": 0.019,
+      "share_ge3": 0.02,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
@@ -1173,7 +1173,7 @@
      "code_drawing": [],
      "code_drawing_hidden": [],
      "wasted_layers": [],
-     "roshan_covered_share": 0.03,
+     "roshan_covered_share": 0.02,
      "items": 41
     },
     "waterfall_start": {
@@ -1186,8 +1186,8 @@
       "mean": 1.41,
       "p50": 1,
       "p95": 3,
-      "share_ge3": 0.133,
-      "share_ge4": 0.013,
+      "share_ge3": 0.134,
+      "share_ge4": 0.012,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
@@ -1205,7 +1205,7 @@
      },
      "gpu_peak": 5,
      "node_depth": {
-      "max": 3,
+      "max": 4,
       "mean": 1.17,
       "p50": 1,
       "p95": 2,
@@ -1242,7 +1242,7 @@
        1920,
        1080
       ],
-      "max": 3,
+      "max": 4,
       "mean": 0.08,
       "p50": 0,
       "p95": 1,
@@ -1267,7 +1267,7 @@
      "code_drawing": [],
      "code_drawing_hidden": [],
      "wasted_layers": [],
-     "roshan_covered_share": 0.06,
+     "roshan_covered_share": 0.05,
      "items": 37
     },
     "seahorse_start": {
@@ -1280,7 +1280,7 @@
       "mean": 1.39,
       "p50": 1,
       "p95": 3,
-      "share_ge3": 0.121,
+      "share_ge3": 0.12,
       "share_ge4": 0.011,
       "share_ge6": 0.0
      },
@@ -1324,11 +1324,11 @@
        1080
       ],
       "max": 5,
-      "mean": 1.39,
+      "mean": 1.16,
       "p50": 1,
-      "p95": 3,
-      "share_ge3": 0.113,
-      "share_ge4": 0.011,
+      "p95": 2,
+      "share_ge3": 0.015,
+      "share_ge4": 0.0,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
@@ -1337,10 +1337,10 @@
        1080
       ],
       "max": 3,
-      "mean": 0.28,
+      "mean": 0.06,
       "p50": 0,
-      "p95": 2,
-      "share_ge3": 0.007,
+      "p95": 1,
+      "share_ge3": 0.0,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
@@ -1362,7 +1362,7 @@
      "code_drawing_hidden": [],
      "wasted_layers": [],
      "roshan_covered_share": 0.0,
-     "items": 32
+     "items": 33
     },
     "finale": {
      "gpu": {
@@ -1371,11 +1371,11 @@
        1080
       ],
       "max": 5,
-      "mean": 1.4,
+      "mean": 1.37,
       "p50": 1,
       "p95": 3,
       "share_ge3": 0.112,
-      "share_ge4": 0.01,
+      "share_ge4": 0.008,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
@@ -1387,21 +1387,21 @@
       "mean": 0.25,
       "p50": 0,
       "p95": 2,
-      "share_ge3": 0.008,
+      "share_ge3": 0.006,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
      "gpu_peak": 5,
      "node_depth": {
-      "max": 5,
-      "mean": 1.2,
+      "max": 4,
+      "mean": 1.17,
       "p50": 1,
       "p95": 2,
-      "share_ge3": 0.026,
+      "share_ge3": 0.024,
       "share_ge4": 0.003,
       "share_ge6": 0.0
      },
-     "hidden_share": 0.14,
+     "hidden_share": 0.13,
      "duplicates": [],
      "broad_overlays": [],
      "full_width_alpha_layers": 0,
@@ -1409,7 +1409,7 @@
      "code_drawing_hidden": [],
      "wasted_layers": [],
      "roshan_covered_share": 0.0,
-     "items": 26
+     "items": 22
     },
     "story_clip": {
      "gpu": {
@@ -1417,13 +1417,13 @@
        1920,
        1080
       ],
-      "max": 7,
-      "mean": 3.39,
-      "p50": 3,
-      "p95": 5,
-      "share_ge3": 1.0,
-      "share_ge4": 0.265,
-      "share_ge6": 0.01
+      "max": 6,
+      "mean": 2.02,
+      "p50": 2,
+      "p95": 2,
+      "share_ge3": 0.013,
+      "share_ge4": 0.011,
+      "share_ge6": 0.0
      },
      "gpu_translucent": {
       "frame": [
@@ -1431,32 +1431,32 @@
        1080
       ],
       "max": 3,
-      "mean": 0.25,
+      "mean": 0.01,
       "p50": 0,
-      "p95": 2,
-      "share_ge3": 0.008,
+      "p95": 0,
+      "share_ge3": 0.0,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
-     "gpu_peak": 7,
+     "gpu_peak": 6,
      "node_depth": {
-      "max": 4,
-      "mean": 2.16,
-      "p50": 2,
-      "p95": 3,
-      "share_ge3": 0.148,
-      "share_ge4": 0.007,
+      "max": 2,
+      "mean": 1.01,
+      "p50": 1,
+      "p95": 1,
+      "share_ge3": 0.0,
+      "share_ge4": 0.0,
       "share_ge6": 0.0
      },
-     "hidden_share": 0.54,
+     "hidden_share": 0.01,
      "duplicates": [],
      "broad_overlays": [],
      "full_width_alpha_layers": 0,
      "code_drawing": [],
      "code_drawing_hidden": [],
      "wasted_layers": [],
-     "roshan_covered_share": 1.0,
-     "items": 21
+     "roshan_covered_share": 0.0,
+     "items": 3
     }
    },
    "effects": {
@@ -1471,7 +1471,7 @@
        "name": "LaneClearRing0",
        "seconds": 0.6,
        "screen_share": 0.001,
-       "over_roshan_share": 0.01
+       "over_roshan_share": 0.02
       }
      ],
      "lingering_translucent": [],
@@ -1487,13 +1487,13 @@
     "scripts/arena/day_one_castle_dressing.gd": "b2898e247748381c86c022c158da6220fb300a45545a1e47de59f9d432c8a8a5",
     "scripts/day_one_contact_action_2d.gd": "f85672d9a57a95689ddb302a3ca1da7f9b8de09027997e527790e230fb299dac",
     "scripts/games/day_one_dust_bunny_swimmer.gd": "2ff24ebee6b078f7d31fa53648e5c1b443f954760b3042d61ea0eb69f10e84c3",
-    "scripts/games/day_one_pool_cleanup.gd": "5081764794ea207173775fe953362a75fbc313f11ae89f7c68b94b87bd304d8d",
+    "scripts/games/day_one_pool_cleanup.gd": "b476ba553994c093cf32a6390f067e84c00b3fa26d2afca47d8a00df5fe91f44",
     "scripts/games/pool_seahorse_rescue_activity.gd": "60a5540c943dc760f4b83cca68b4a649074ceaa91bd23de3d4ef4a42302476b0",
     "scripts/games/pool_skimmer_activity.gd": "41894d67693bb6d8e7d2a544f677083dea12b43a7f8d4e2ac0e6511d79461bce",
     "scripts/games/pool_waterfall_activity.gd": "036e5cb7f64f9231e0f9781680cf005df4170f9e3055c5d353df7e6ddd4bf3da",
     "scripts/living_world.gd": "97c0e9dd7d6d660ec5b6386179233714c6772b06fe7b3b6dcd26262852c071fe",
     "scripts/living_world_canvas.gd": "f18a8324cd3eb43eac0dae0ae09efbbb86f6bd3af65e7e74e44d8c197f351e6e",
-    "scripts/probe_overdraw.gd": "b5b9be4bcf168359e5477eb2878b4d505c18d3b9e2ae060e461c83698aaafe72",
+    "scripts/probe_overdraw.gd": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433",
     "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
    }
   },
@@ -1510,7 +1510,7 @@
       "p50": 2,
       "p95": 3,
       "share_ge3": 0.347,
-      "share_ge4": 0.028,
+      "share_ge4": 0.026,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
@@ -1558,12 +1558,12 @@
        1080
       ],
       "max": 7,
-      "mean": 2.18,
+      "mean": 2.51,
       "p50": 2,
       "p95": 4,
-      "share_ge3": 0.118,
-      "share_ge4": 0.062,
-      "share_ge6": 0.0
+      "share_ge3": 0.425,
+      "share_ge4": 0.083,
+      "share_ge6": 0.001
      },
      "gpu_translucent": {
       "frame": [
@@ -1571,14 +1571,14 @@
        1080
       ],
       "max": 4,
-      "mean": 0.04,
+      "mean": 0.37,
       "p50": 0,
-      "p95": 0,
+      "p95": 1,
       "share_ge3": 0.0,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
-     "gpu_peak": 7,
+     "gpu_peak": 8,
      "node_depth": {
       "max": 2,
       "mean": 1.1,
@@ -1609,11 +1609,11 @@
        1080
       ],
       "max": 6,
-      "mean": 2.38,
+      "mean": 2.05,
       "p50": 2,
-      "p95": 3,
-      "share_ge3": 0.342,
-      "share_ge4": 0.032,
+      "p95": 2,
+      "share_ge3": 0.035,
+      "share_ge4": 0.011,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
@@ -1625,7 +1625,7 @@
       "mean": 0.35,
       "p50": 0,
       "p95": 1,
-      "share_ge3": 0.0,
+      "share_ge3": 0.001,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
@@ -1712,7 +1712,7 @@
     "scripts/opera_competition.gd": "2449c21807e83f9c5d0f5994b37663b9e5ae4f56aa418690151eac081d03ec57",
     "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
     "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
-    "scripts/probe_overdraw.gd": "b5b9be4bcf168359e5477eb2878b4d505c18d3b9e2ae060e461c83698aaafe72",
+    "scripts/probe_overdraw.gd": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433",
     "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
    }
   },
@@ -1725,10 +1725,10 @@
        1080
       ],
       "max": 6,
-      "mean": 2.39,
+      "mean": 2.38,
       "p50": 2,
       "p95": 3,
-      "share_ge3": 0.344,
+      "share_ge3": 0.345,
       "share_ge4": 0.037,
       "share_ge6": 0.0
      },
@@ -1737,7 +1737,7 @@
        1920,
        1080
       ],
-      "max": 4,
+      "max": 3,
       "mean": 0.03,
       "p50": 0,
       "p95": 0,
@@ -1789,11 +1789,11 @@
        1920,
        1080
       ],
-      "max": 3,
-      "mean": 0.03,
+      "max": 4,
+      "mean": 0.36,
       "p50": 0,
-      "p95": 0,
-      "share_ge3": 0.0,
+      "p95": 1,
+      "share_ge3": 0.002,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
@@ -1841,10 +1841,10 @@
        1920,
        1080
       ],
-      "max": 4,
-      "mean": 0.35,
+      "max": 3,
+      "mean": 0.02,
       "p50": 0,
-      "p95": 1,
+      "p95": 0,
       "share_ge3": 0.0,
       "share_ge4": 0.0,
       "share_ge6": 0.0
@@ -1932,7 +1932,7 @@
     "scripts/opera_gesture_surface.gd": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
     "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
     "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
-    "scripts/probe_overdraw.gd": "b5b9be4bcf168359e5477eb2878b4d505c18d3b9e2ae060e461c83698aaafe72",
+    "scripts/probe_overdraw.gd": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433",
     "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
    }
   },
@@ -1958,9 +1958,9 @@
        1080
       ],
       "max": 4,
-      "mean": 0.02,
+      "mean": 0.35,
       "p50": 0,
-      "p95": 0,
+      "p95": 1,
       "share_ge3": 0.0,
       "share_ge4": 0.0,
       "share_ge6": 0.0
@@ -2001,7 +2001,7 @@
       "p50": 2,
       "p95": 4,
       "share_ge3": 0.388,
-      "share_ge4": 0.069,
+      "share_ge4": 0.068,
       "share_ge6": 0.008
      },
      "gpu_translucent": {
@@ -2049,11 +2049,11 @@
        1080
       ],
       "max": 6,
-      "mean": 2.06,
+      "mean": 2.39,
       "p50": 2,
-      "p95": 2,
-      "share_ge3": 0.047,
-      "share_ge4": 0.012,
+      "p95": 3,
+      "share_ge3": 0.364,
+      "share_ge4": 0.02,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
@@ -2061,18 +2061,18 @@
        1920,
        1080
       ],
-      "max": 3,
-      "mean": 0.03,
+      "max": 4,
+      "mean": 0.36,
       "p50": 0,
-      "p95": 0,
-      "share_ge3": 0.0,
+      "p95": 1,
+      "share_ge3": 0.001,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
      "gpu_peak": 6,
      "node_depth": {
       "max": 2,
-      "mean": 1.04,
+      "mean": 1.03,
       "p50": 1,
       "p95": 1,
       "share_ge3": 0.0,
@@ -2152,7 +2152,7 @@
     "scripts/opera_gesture_surface.gd": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
     "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
     "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
-    "scripts/probe_overdraw.gd": "b5b9be4bcf168359e5477eb2878b4d505c18d3b9e2ae060e461c83698aaafe72",
+    "scripts/probe_overdraw.gd": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433",
     "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
    }
   },
@@ -2216,13 +2216,13 @@
        1920,
        1080
       ],
-      "max": 14,
-      "mean": 6.11,
+      "max": 13,
+      "mean": 5.78,
       "p50": 5,
-      "p95": 11,
-      "share_ge3": 0.878,
-      "share_ge4": 0.659,
-      "share_ge6": 0.486
+      "p95": 10,
+      "share_ge3": 0.805,
+      "share_ge4": 0.613,
+      "share_ge6": 0.476
      },
      "gpu_translucent": {
       "frame": [
@@ -2235,7 +2235,7 @@
       "p95": 5,
       "share_ge3": 0.444,
       "share_ge4": 0.407,
-      "share_ge6": 0.002
+      "share_ge6": 0.003
      },
      "gpu_peak": 16,
      "node_depth": {
@@ -2269,12 +2269,12 @@
        1080
       ],
       "max": 7,
-      "mean": 3.03,
+      "mean": 3.36,
       "p50": 3,
-      "p95": 4,
-      "share_ge3": 0.742,
-      "share_ge4": 0.229,
-      "share_ge6": 0.009
+      "p95": 5,
+      "share_ge3": 0.84,
+      "share_ge4": 0.366,
+      "share_ge6": 0.029
      },
      "gpu_translucent": {
       "frame": [
@@ -2282,7 +2282,7 @@
        1080
       ],
       "max": 3,
-      "mean": 0.36,
+      "mean": 0.35,
       "p50": 0,
       "p95": 1,
       "share_ge3": 0.0,
@@ -2328,7 +2328,7 @@
     "scripts/opera_geology_surface.gd": "da96f3b7c07b2ecac796cbe21410499c4439937a21d4096fd918a611e02ba8be",
     "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
     "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
-    "scripts/probe_overdraw.gd": "b5b9be4bcf168359e5477eb2878b4d505c18d3b9e2ae060e461c83698aaafe72",
+    "scripts/probe_overdraw.gd": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433",
     "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
    }
   },
@@ -2341,11 +2341,11 @@
        1080
       ],
       "max": 7,
-      "mean": 2.22,
+      "mean": 2.55,
       "p50": 2,
       "p95": 4,
-      "share_ge3": 0.119,
-      "share_ge4": 0.08,
+      "share_ge3": 0.423,
+      "share_ge4": 0.101,
       "share_ge6": 0.002
      },
      "gpu_translucent": {
@@ -2394,11 +2394,11 @@
        1080
       ],
       "max": 7,
-      "mean": 2.29,
+      "mean": 2.62,
       "p50": 2,
       "p95": 4,
-      "share_ge3": 0.172,
-      "share_ge4": 0.094,
+      "share_ge3": 0.45,
+      "share_ge4": 0.134,
       "share_ge6": 0.003
      },
      "gpu_translucent": {
@@ -2407,14 +2407,14 @@
        1080
       ],
       "max": 4,
-      "mean": 0.57,
+      "mean": 0.24,
       "p50": 0,
       "p95": 2,
-      "share_ge3": 0.013,
+      "share_ge3": 0.009,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
-     "gpu_peak": 7,
+     "gpu_peak": 8,
      "node_depth": {
       "max": 2,
       "mean": 1.03,
@@ -2450,8 +2450,8 @@
       "mean": 2.56,
       "p50": 2,
       "p95": 4,
-      "share_ge3": 0.432,
-      "share_ge4": 0.102,
+      "share_ge3": 0.433,
+      "share_ge4": 0.101,
       "share_ge6": 0.002
      },
      "gpu_translucent": {
@@ -2460,7 +2460,7 @@
        1080
       ],
       "max": 4,
-      "mean": 0.52,
+      "mean": 0.51,
       "p50": 0,
       "p95": 2,
       "share_ge3": 0.01,
@@ -2551,7 +2551,7 @@
     "scripts/opera_performance_overlay.gd": "16c7a17ed901750764481e7077ac2e60d4cf5bfc1a3b41970066e4a633545ddb",
     "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
     "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
-    "scripts/probe_overdraw.gd": "b5b9be4bcf168359e5477eb2878b4d505c18d3b9e2ae060e461c83698aaafe72",
+    "scripts/probe_overdraw.gd": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433",
     "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
    }
   },
@@ -2576,11 +2576,11 @@
        1920,
        1080
       ],
-      "max": 3,
-      "mean": 0.03,
+      "max": 4,
+      "mean": 0.36,
       "p50": 0,
-      "p95": 0,
-      "share_ge3": 0.0,
+      "p95": 1,
+      "share_ge3": 0.001,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
@@ -2616,12 +2616,12 @@
        1080
       ],
       "max": 6,
-      "mean": 2.06,
+      "mean": 2.39,
       "p50": 2,
-      "p95": 2,
-      "share_ge3": 0.042,
-      "share_ge4": 0.013,
-      "share_ge6": 0.0
+      "p95": 3,
+      "share_ge3": 0.361,
+      "share_ge4": 0.02,
+      "share_ge6": 0.001
      },
      "gpu_translucent": {
       "frame": [
@@ -2632,14 +2632,14 @@
       "mean": 0.35,
       "p50": 0,
       "p95": 1,
-      "share_ge3": 0.0,
+      "share_ge3": 0.001,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
      "gpu_peak": 6,
      "node_depth": {
       "max": 2,
-      "mean": 1.03,
+      "mean": 1.04,
       "p50": 1,
       "p95": 1,
       "share_ge3": 0.0,
@@ -2672,7 +2672,7 @@
       "p50": 2,
       "p95": 3,
       "share_ge3": 0.368,
-      "share_ge4": 0.018,
+      "share_ge4": 0.019,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
@@ -2681,9 +2681,9 @@
        1080
       ],
       "max": 3,
-      "mean": 0.36,
+      "mean": 0.03,
       "p50": 0,
-      "p95": 1,
+      "p95": 0,
       "share_ge3": 0.0,
       "share_ge4": 0.0,
       "share_ge6": 0.0
@@ -2771,7 +2771,7 @@
     "scripts/opera_nursery_catch.gd": "b997e83c4032be14f187260a6fda1a99bcb5f3b61a7e07adebf5a99479dda431",
     "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
     "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
-    "scripts/probe_overdraw.gd": "b5b9be4bcf168359e5477eb2878b4d505c18d3b9e2ae060e461c83698aaafe72",
+    "scripts/probe_overdraw.gd": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433",
     "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
    }
   },
@@ -2788,7 +2788,7 @@
       "p50": 2,
       "p95": 3,
       "share_ge3": 0.349,
-      "share_ge4": 0.025,
+      "share_ge4": 0.026,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
@@ -2839,7 +2839,7 @@
       "mean": 2.48,
       "p50": 2,
       "p95": 3,
-      "share_ge3": 0.37,
+      "share_ge3": 0.371,
       "share_ge4": 0.049,
       "share_ge6": 0.02
      },
@@ -2900,7 +2900,7 @@
        1920,
        1080
       ],
-      "max": 3,
+      "max": 4,
       "mean": 0.03,
       "p50": 0,
       "p95": 0,
@@ -2991,7 +2991,7 @@
     "scripts/opera_gesture_surface.gd": "458d3afb7e231f8f5da6e21c64f27b699e7bf66bc5e6eb43fd9e331eaad6b07b",
     "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
     "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
-    "scripts/probe_overdraw.gd": "b5b9be4bcf168359e5477eb2878b4d505c18d3b9e2ae060e461c83698aaafe72",
+    "scripts/probe_overdraw.gd": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433",
     "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
    }
   },
@@ -3008,7 +3008,7 @@
       "p50": 2,
       "p95": 4,
       "share_ge3": 0.43,
-      "share_ge4": 0.097,
+      "share_ge4": 0.096,
       "share_ge6": 0.002
      },
      "gpu_translucent": {
@@ -3074,7 +3074,7 @@
       "p50": 0,
       "p95": 2,
       "share_ge3": 0.013,
-      "share_ge4": 0.001,
+      "share_ge4": 0.0,
       "share_ge6": 0.0
      },
      "gpu_peak": 8,
@@ -3110,11 +3110,11 @@
        1080
       ],
       "max": 7,
-      "mean": 2.23,
+      "mean": 2.56,
       "p50": 2,
       "p95": 4,
-      "share_ge3": 0.132,
-      "share_ge4": 0.08,
+      "share_ge3": 0.441,
+      "share_ge4": 0.097,
       "share_ge6": 0.002
      },
      "gpu_translucent": {
@@ -3123,7 +3123,7 @@
        1080
       ],
       "max": 4,
-      "mean": 0.51,
+      "mean": 0.52,
       "p50": 0,
       "p95": 2,
       "share_ge3": 0.01,
@@ -3217,7 +3217,7 @@
     "scripts/opera_performance_plan.gd": "6b5ff197b0d88663af260217dc673a39d2d681e081b313c1c4b49c0a359d8366",
     "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
     "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
-    "scripts/probe_overdraw.gd": "b5b9be4bcf168359e5477eb2878b4d505c18d3b9e2ae060e461c83698aaafe72",
+    "scripts/probe_overdraw.gd": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433",
     "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
    }
   },
@@ -3233,8 +3233,8 @@
       "mean": 2.38,
       "p50": 2,
       "p95": 3,
-      "share_ge3": 0.349,
-      "share_ge4": 0.03,
+      "share_ge3": 0.35,
+      "share_ge4": 0.029,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
@@ -3285,7 +3285,7 @@
       "mean": 2.08,
       "p50": 2,
       "p95": 3,
-      "share_ge3": 0.063,
+      "share_ge3": 0.062,
       "share_ge4": 0.013,
       "share_ge6": 0.0
      },
@@ -3294,11 +3294,11 @@
        1920,
        1080
       ],
-      "max": 4,
+      "max": 3,
       "mean": 0.36,
       "p50": 0,
       "p95": 1,
-      "share_ge3": 0.001,
+      "share_ge3": 0.0,
       "share_ge4": 0.0,
       "share_ge6": 0.0
      },
@@ -3337,8 +3337,8 @@
       "mean": 2.38,
       "p50": 2,
       "p95": 3,
-      "share_ge3": 0.362,
-      "share_ge4": 0.016,
+      "share_ge3": 0.361,
+      "share_ge4": 0.017,
       "share_ge6": 0.0
      },
      "gpu_translucent": {
@@ -3346,7 +3346,7 @@
        1920,
        1080
       ],
-      "max": 3,
+      "max": 4,
       "mean": 0.36,
       "p50": 0,
       "p95": 1,
@@ -3437,7 +3437,7 @@
     "scripts/opera_racer_surface.gd": "09b292073f3d4fcfc2605a22bf79b039f00047787edf2d25dde37798b3db4cba",
     "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
     "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
-    "scripts/probe_overdraw.gd": "b5b9be4bcf168359e5477eb2878b4d505c18d3b9e2ae060e461c83698aaafe72",
+    "scripts/probe_overdraw.gd": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433",
     "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
    }
   },
@@ -3557,8 +3557,8 @@
       "mean": 2.26,
       "p50": 2,
       "p95": 4,
-      "share_ge3": 0.155,
-      "share_ge4": 0.09,
+      "share_ge3": 0.154,
+      "share_ge4": 0.089,
       "share_ge6": 0.004
      },
      "gpu_translucent": {
@@ -3613,7 +3613,7 @@
     "scripts/opera_teacher_surface.gd": "cab2eee9f0bf1297296fef0a8650df7794214cfcb58fc379e44954f6153ec2ed",
     "scripts/opera_world_backdrop_2d.gd": "49a927c8183ed253b82d9893849dbdaf4af27f5ece52392588b3b287cf4932b4",
     "scripts/opera_world_hotspot_2d.gd": "4f36f8f00a94c4d668a8283d5d6a5f3701206c83883e7f12bac6f2cde0993800",
-    "scripts/probe_overdraw.gd": "b5b9be4bcf168359e5477eb2878b4d505c18d3b9e2ae060e461c83698aaafe72",
+    "scripts/probe_overdraw.gd": "8caef0e79887efd4ee66bdff2a46eaa67fdf4bc392ce721a13cfd9e597490433",
     "scripts/teacher_lesson_plan.gd": "d82e5b7a817335b4da2d0d7b55706a5cde1ff1954c2b33d8ba34d891dac5778e",
     "tools/measure_overdraw.py": "134a4eae2b1588d40c2b13a706868503697a58ccc3a3376e8ba87461dcfcb553"
    }
