@@ -1,0 +1,73 @@
+{
+ "schema": "reef.claude-handoff-manifest.v1",
+ "handoff_id": "codex_roshan_motion_language_2026-10-04",
+ "revision": 3,
+ "status": "PROPOSED / CANDIDATE (revision 3: template aligned with the two-pass LTX study merged from dev abbffecb)",
+ "baseline": "8a2f30cb0df44ece3b1172ed2dbcb9a55fc5d622",
+ "repository": "Ebonyks/mermaid-roshan-reef",
+ "branch": "claude/roshan-motion-language-20261004",
+ "recipient": "Codex (implementation and every image); the owner answers Q1-Q6",
+ "claims": {
+  "ARCHIVE_COMPLETE": "after anonymous remote verification of every file below",
+  "GENERATION_READY": "not applicable: no generation is requested",
+  "DELIVERY_ACCEPTED": false
+ },
+ "images_in_packet": 0,
+ "files": [
+  {
+   "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/README.md",
+   "bytes": 11706,
+   "sha256": "3d8965fd2f420222a13c6277c06508cdc11cb7149fe1809ef6b6e4695cc298f4"
+  },
+  {
+   "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/TEMPLATE.md",
+   "bytes": 16111,
+   "sha256": "5a844e421e58806da0b1cee9f38db2bed1ebfcfebbd204de21409798b5171a40"
+  },
+  {
+   "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/SHOT_CARD_AUDIT.md",
+   "bytes": 5098,
+   "sha256": "7fb76d00693cf51573009b9a2247ae15e25bd67263182912bea5a0e899fc0ee5"
+  },
+  {
+   "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/ANALYSIS.md",
+   "bytes": 32414,
+   "sha256": "34d2e8c83c634c02b5d55a95fa8c47bd78051593ca088e895f3d4f24593c28bb"
+  },
+  {
+   "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/templates/ROSHAN_ANIMATION_CARD_V1.json",
+   "bytes": 7038,
+   "sha256": "c31d3bb403d712eb52e0ff596c03f8a54922e4a1e850ec914320b17e1704089a"
+  },
+  {
+   "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/examples/RAC-WATER-SWIM-STANDARD.json",
+   "bytes": 8470,
+   "sha256": "cec2b2d8943627f4ae2ba523f01b129948dac02d700e3a13948cb7821ffd83ce"
+  },
+  {
+   "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/examples/RAC-SKY-LAGOON-SWIM-GENTLE.json",
+   "bytes": 7711,
+   "sha256": "37a47e0edb87afb13c983012f887774ac59545818e9d854af8aaa106658f3f27"
+  },
+  {
+   "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/examples/RAC-POOL-SKIMMER-SCOOP.json",
+   "bytes": 9603,
+   "sha256": "51accd407652bad8eb6d65cb9e3bb41ceb5950732b215666cf4172a3a4d91340"
+  },
+  {
+   "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/data/motion_measurements.json",
+   "bytes": 17379,
+   "sha256": "596259202680c2439ccb935d6984df90bd4c35a0cc383ddaf6baa6150311e41b"
+  },
+  {
+   "path": "docs/handoffs/codex_roshan_motion_language_2026-10-04/tools/measure_roshan_motion.py",
+   "bytes": 11979,
+   "sha256": "fce24922bbb7544d56266f1f8461a75e6edfe88bc9f67f9f441c797d0b9badde"
+  }
+ ],
+ "previous_revision": {
+  "revision": 2,
+  "verified_commit": "43151f4cbc838436211e95ba351d578509957f2c",
+  "receipt": "REMOTE_VERIFICATION.json revisions list"
+ }
+}
